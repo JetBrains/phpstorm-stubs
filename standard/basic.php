@@ -38,7 +38,8 @@ use JetBrains\PhpStorm\Pure;
  * @link https://php.net/manual/en/function.dl.php
  */
 #[Deprecated(since: '5.3')]
-function dl (string $extension_filename) {}
+function dl (string $extension_filename): bool
+{}
 
 /**
  * Sets the process title
@@ -49,7 +50,8 @@ function dl (string $extension_filename) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.5
  */
-function cli_set_process_title (string $title) {}
+function cli_set_process_title (string $title): bool
+{}
 
 /**
  * Returns the current process title
@@ -58,7 +60,8 @@ function cli_set_process_title (string $title) {}
  * @since 5.5
  */
 #[Pure]
-function cli_get_process_title () {}
+function cli_get_process_title (): string
+{}
 
 /**
  * Verify that the contents of a variable is accepted by the iterable pseudo-type, i.e. that it is an array or an object implementing Traversable
@@ -68,7 +71,8 @@ function cli_get_process_title () {}
  * @link https://php.net/manual/en/function.is-iterable.php
  */
 #[Pure]
-function is_iterable(mixed $value) {}
+function is_iterable(mixed $value): bool
+{}
 
 /**
  * Encodes an ISO-8859-1 string to UTF-8
@@ -79,7 +83,8 @@ function is_iterable(mixed $value) {}
  * @return string the UTF-8 translation of <i>data</i>.
  */
 #[Pure]
-function utf8_encode (string $string) {}
+function utf8_encode (string $string): string
+{}
 
 /**
  * Converts a string with ISO-8859-1 characters encoded with UTF-8
@@ -91,7 +96,8 @@ function utf8_encode (string $string) {}
  * @return string the ISO-8859-1 translation of <i>data</i>.
  */
 #[Pure]
-function utf8_decode (string $string) {}
+function utf8_decode (string $string): string
+{}
 
 /**
  * Clear the most recent error
@@ -99,7 +105,7 @@ function utf8_decode (string $string) {}
  * @return void
  * @since 7.0
  */
-function error_clear_last () {}
+function error_clear_last (): void {}
 
 /**
  * Get process codepage
@@ -107,7 +113,8 @@ function error_clear_last () {}
  * @return int
  * @since 7.1
  */
-function sapi_windows_cp_get(string $kind) {}
+function sapi_windows_cp_get(string $kind): int
+{}
 
 /**
  * Set process codepage
@@ -115,7 +122,8 @@ function sapi_windows_cp_get(string $kind) {}
  * @return bool
  * @since 7.1
  */
-function sapi_windows_cp_set(int $cp) {}
+function sapi_windows_cp_set(int $cp): bool
+{}
 
 /**
  * Convert string from one codepage to another
@@ -125,14 +133,16 @@ function sapi_windows_cp_set(int $cp) {}
  * @return string
  * @since 7.1
  */
-function sapi_windows_cp_conv(int|string $in_codepage, int|string $out_codepage, string $subject) {}
+function sapi_windows_cp_conv(int|string $in_codepage, int|string $out_codepage, string $subject): string
+{}
 
 /**
  * Indicates whether the codepage is utf-8 compatible
  * @return bool
  * @since 7.1
  */
-function sapi_windows_cp_is_utf8() {}
+function sapi_windows_cp_is_utf8(): bool
+{}
 
 /**
  * Get or set VT100 support for the specified stream associated to an output buffer of a Windows console.
@@ -155,7 +165,8 @@ function sapi_windows_cp_is_utf8() {}
  * If <i>enable</i> is specified: Returns TRUE on success or FALSE on failure.
  * @since 7.2
  */
-function sapi_windows_vt100_support ($stream, bool $enable) {}
+function sapi_windows_vt100_support ($stream, bool $enable): bool
+{}
 
 /**
  * Set or remove a CTRL event handler.
@@ -166,7 +177,8 @@ function sapi_windows_vt100_support ($stream, bool $enable) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 7.4
  */
-function sapi_windows_set_ctrl_handler (callable $callable, bool $add = true) {}
+function sapi_windows_set_ctrl_handler (callable $callable, bool $add = true): bool
+{}
 
 /**
  * Send a CTRL event to another process.
@@ -177,7 +189,8 @@ function sapi_windows_set_ctrl_handler (callable $callable, bool $add = true) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 7.4
  */
-function sapi_windows_generate_ctrl_event (int $event, int $pid = 0) {}
+function sapi_windows_generate_ctrl_event (int $event, int $pid = 0): bool
+{}
 
 /**
  * The full path and filename of the file. If used inside an include,

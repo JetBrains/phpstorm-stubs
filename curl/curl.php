@@ -85,22 +85,24 @@ class CURLFile {
  * </p>
  * @return resource|false|CurlHandle a cURL handle on success, false on errors.
  */
+#[LanguageLevelTypeAware(["8.0" => "CurlHandle|false"], default: "resource|false")]
 function curl_init (string $url) {}
 
 /**
  * Copy a cURL handle along with all of its preferences
  * @link https://php.net/manual/en/function.curl-copy-handle.php
  * @param CurlHandle|resource $handle
- * @return resource a new cURL handle.
+ * @return CurlHandle|resource|false a new cURL handle.
  */
 #[Pure]
+#[LanguageLevelTypeAware(["8.0" => "CurlHandle|false"], default: "resource|false")]
 function curl_copy_handle (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle) {}
 
 /**
  * Gets cURL version information
  * @link https://php.net/manual/en/function.curl-version.php
  * @param int $age [optional] Removed since version PHP 8.0.
- * @return array an associative array with the following elements:
+ * @return array|false an associative array with the following elements:
  * <tr valign="top">
  * <td>Indice</td>
  * <td>Value description</td>
@@ -154,7 +156,8 @@ function curl_copy_handle (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], def
     "protocols" => "array",
 ])]
 #[Pure]
-function curl_version ($age = null) {}
+function curl_version ($age = null): array|false
+{}
 
 /**
  * Set an option for a cURL transfer
@@ -2122,7 +2125,8 @@ function curl_version ($age = null) {}
  * </table>
  * @return bool true on success or false on failure.
  */
-function curl_setopt (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle, int $option, mixed $value) {}
+function curl_setopt (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle, int $option, mixed $value): bool
+{}
 
 /**
  * Set multiple options for a cURL transfer
@@ -2138,7 +2142,8 @@ function curl_setopt (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default:
  * future options in the options array.
  * @since 5.1.3
  */
-function curl_setopt_array (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle, array $options) {}
+function curl_setopt_array (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle, array $options): bool
+{}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
@@ -2150,7 +2155,7 @@ function curl_setopt_array (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], de
  * @return void
  * @since 5.5
  */
-function curl_share_close (#[LanguageLevelTypeAware(["8.0" => "CurlShareHandle"], default: "resource")] $share_handle) {}
+function curl_share_close (#[LanguageLevelTypeAware(["8.0" => "CurlShareHandle"], default: "resource")] $share_handle): void {}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
@@ -2159,7 +2164,8 @@ function curl_share_close (#[LanguageLevelTypeAware(["8.0" => "CurlShareHandle"]
  * @return resource|CurlShareHandle Returns resource of type "cURL Share Handle".
  * @since 5.5
  */
-function curl_share_init () {}
+function curl_share_init (): CurlShareHandle
+{}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
@@ -2240,7 +2246,8 @@ function curl_share_init () {}
  * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.5
  */
-function curl_share_setopt (#[LanguageLevelTypeAware(["8.0" => "CurlShareHandle"], default: "resource")] $share_handle, int $option, mixed $value ) {}
+function curl_share_setopt (#[LanguageLevelTypeAware(["8.0" => "CurlShareHandle"], default: "resource")] $share_handle, int $option, mixed $value ): bool
+{}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
@@ -2253,7 +2260,8 @@ function curl_share_setopt (#[LanguageLevelTypeAware(["8.0" => "CurlShareHandle"
  * @since 5.5
  */
 #[Pure]
-function curl_strerror (int $error_code) {}
+function curl_strerror (int $error_code): ?string
+{}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
@@ -2268,7 +2276,8 @@ function curl_strerror (int $error_code) {}
  * @since 5.5
  */
 #[Pure]
-function  curl_unescape (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle, string $string)  {}
+function  curl_unescape (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle, string $string): string|false
+{}
 /**
  * Perform a cURL session
  * @link https://php.net/manual/en/function.curl-exec.php
@@ -2276,7 +2285,8 @@ function  curl_unescape (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], defau
  * @return string|bool true on success or false on failure. However, if the CURLOPT_RETURNTRANSFER
  * option is set, it will return the result on success, false on failure.
  */
-function curl_exec (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle) {}
+function curl_exec (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle): string|bool
+{}
 
 /**
  * Get information regarding a specific transfer
@@ -2310,7 +2320,8 @@ function curl_exec (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "
  * "redirect_time"
  */
 #[Pure]
-function curl_getinfo (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle, int $option) {}
+function curl_getinfo (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle, int $option): mixed
+{}
 
 /**
  * Return a string containing the last error for the current session
@@ -2320,7 +2331,8 @@ function curl_getinfo (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default
  * error occurred.
  */
 #[Pure]
-function curl_error (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle) {}
+function curl_error (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle): string
+{}
 
 /**
  * Return the last error number
@@ -2330,7 +2342,8 @@ function curl_error (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: 
  * occurred.
  */
 #[Pure]
-function curl_errno (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle) {}
+function curl_errno (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle): int
+{}
 
 /**
  * URL encodes the given string
@@ -2344,7 +2357,8 @@ function curl_errno (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: 
  * @since 5.5
  */
 #[Pure]
-function curl_escape(#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle, string $string) {}
+function curl_escape(#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle, string $string): string|false
+{}
 
 /**
  * (PHP 5 >= 5.5.0) <br/>
@@ -2358,7 +2372,8 @@ function curl_escape(#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: 
  * @since 5.5
  */
 #[Pure]
-function curl_file_create(string $filename, string $mime_type = '', string $posted_filename = '') {}
+function curl_file_create(string $filename, string $mime_type = '', string $posted_filename = ''): CURLFile
+{}
 
 /**
  * Close a cURL session
@@ -2366,14 +2381,16 @@ function curl_file_create(string $filename, string $mime_type = '', string $post
  * @param CurlHandle|resource $handle
  * @return void
  */
-function curl_close (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle) {}
+function curl_close (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle): void {}
 
 /**
  * Returns a new cURL multi handle
  * @link https://php.net/manual/en/function.curl-multi-init.php
- * @return resource|false|CurlMultiHandle a cURL multi handle resource on success, false on failure.
+ * @return resource|CurlMultiHandle a cURL multi handle resource on success, false on failure.
  */
-function curl_multi_init () {}
+#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")]
+function curl_multi_init (): CurlMultiHandle|bool
+{}
 
 /**
  * Add a normal cURL handle to a cURL multi handle
@@ -2383,7 +2400,8 @@ function curl_multi_init () {}
  * @return int 0 on success, or one of the CURLM_XXX errors
  * code.
  */
-function curl_multi_add_handle (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle, #[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle) {}
+function curl_multi_add_handle (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle, #[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle): int
+{}
 
 /**
  * Remove a multi handle from a set of cURL handles
@@ -2392,7 +2410,9 @@ function curl_multi_add_handle (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHan
  * @param CurlHandle|resource $handle
  * @return int|false On success, returns one of the CURLM_XXX error codes, false on failure.
  */
-function curl_multi_remove_handle (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle, #[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")]  $handle) {}
+#[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
+function curl_multi_remove_handle (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle, #[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")]  $handle)
+{}
 
 /**
  * Wait for activity on any curl_multi connection
@@ -2404,7 +2424,8 @@ function curl_multi_remove_handle (#[LanguageLevelTypeAware(["8.0" => "CurlMulti
  * @return int On success, returns the number of descriptors contained in,
  * the descriptor sets. On failure, this function will return -1 on a select failure or timeout (from the underlying select system call).
  */
-function curl_multi_select (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle, float $timeout = 1.0) {}
+function curl_multi_select (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle, float $timeout = 1.0): int
+{}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
@@ -2457,7 +2478,8 @@ function curl_multi_select (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"
  * @return bool Returns TRUE on success or FALSE on failure.
  * @since 5.5
  */
-function curl_multi_setopt (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle, int $option, mixed $value) {}
+function curl_multi_setopt (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle, int $option, mixed $value): bool
+{}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
@@ -2469,7 +2491,8 @@ function curl_multi_setopt (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"
  * @return string|null Returns error string for valid error code, NULL otherwise.
  * @since 5.5
  */
-function curl_multi_strerror (int $error_code) {}
+function curl_multi_strerror (int $error_code): ?string
+{}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
@@ -2481,7 +2504,8 @@ function curl_multi_strerror (int $error_code) {}
  * @return int Returns an error code (<b>CURLE_OK</b> for no error).
  * @since 5.5
  */
-function curl_pause (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle, int $flags) {}
+function curl_pause (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle, int $flags): int
+{}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
@@ -2492,7 +2516,7 @@ function curl_pause (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: 
  * @return void
  * @since 5.5
  */
-function curl_reset (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle) {}
+function curl_reset (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle): void {}
 
 /**
  * Run the sub-connections of the current cURL handle
@@ -2508,7 +2532,8 @@ function curl_reset (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: 
  * occurred problems on individual transfers even when this function returns
  * CURLM_OK.
  */
-function curl_multi_exec (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle, &$still_running) {}
+function curl_multi_exec (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle, &$still_running): int
+{}
 
 /**
  * Return the content of a cURL handle if <constant>CURLOPT_RETURNTRANSFER</constant> is set
@@ -2517,7 +2542,8 @@ function curl_multi_exec (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"],
  * @return string Return the content of a cURL handle if CURLOPT_RETURNTRANSFER is set.
  */
 #[Pure]
-function curl_multi_getcontent (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $multi_handle) {}
+function curl_multi_getcontent (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $multi_handle): string
+{}
 
 /**
  * Get information about the current transfers
@@ -2529,7 +2555,8 @@ function curl_multi_getcontent (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"]
  * @return array|false On success, returns an associative array for the message, false on failure.
  */
 #[Pure]
-function curl_multi_info_read (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle, &$queued_messages) {}
+function curl_multi_info_read (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle, &$queued_messages): array|false
+{}
 
 /**
  * Close a set of cURL handles
@@ -2537,7 +2564,7 @@ function curl_multi_info_read (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHand
  * @param CurlMultiHandle|resource $multi_handle
  * @return void
  */
-function curl_multi_close (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle) {}
+function curl_multi_close (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle): void {}
 
 /**
  * Return the last multi curl error number
@@ -2546,7 +2573,8 @@ function curl_multi_close (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"]
  * @since 7.1
  */
 #[Pure]
-function curl_multi_errno(#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle) {}
+function curl_multi_errno(#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle): int
+{}
 
 /**
  * Return the last share curl error number
@@ -2555,7 +2583,8 @@ function curl_multi_errno(#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"],
  * @since 7.1
  */
 #[Pure]
-function curl_share_errno(#[LanguageLevelTypeAware(["8.0" => "CurlShareHandle"], default: "resource")]  $share_handle) {}
+function curl_share_errno(#[LanguageLevelTypeAware(["8.0" => "CurlShareHandle"], default: "resource")]  $share_handle): int
+{}
 
 /**
  * Return string describing the given error code
@@ -2564,7 +2593,8 @@ function curl_share_errno(#[LanguageLevelTypeAware(["8.0" => "CurlShareHandle"],
  * @since 7.1
  */
 #[Pure]
-function curl_share_strerror(int $error_code){}
+function curl_share_strerror(int $error_code): string
+{}
 
 /**
  * @since 8.0

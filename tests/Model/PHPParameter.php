@@ -29,16 +29,7 @@ class PHPParameter extends BasePHPElement
     public function readObjectFromReflection($reflectionObject): static
     {
         $this->name = $reflectionObject->name;
-        $parameterType = $reflectionObject->getType();
-        if ($parameterType instanceof ReflectionNamedType) {
-            $this->type = $parameterType->getName();
-        }
-        if ($parameterType instanceof ReflectionUnionType) {
-            foreach ($parameterType->getTypes() as $type) {
-                $this->type .= $type->getName() . '|';
-            }
-            $this->type = substr($this->type, 0, -1);
-        }
+        $this->type = self::convertReflectionTypeToString($reflectionObject->getType());
         $this->is_vararg = $reflectionObject->isVariadic();
         $this->is_passed_by_ref = $reflectionObject->isPassedByReference();
         return $this;
@@ -53,21 +44,11 @@ class PHPParameter extends BasePHPElement
         // #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")]
         $this->name = $node->var->name;
 
-        $typeFromAttribute = $this->findTypeFromAttribute($node);
+        $typeFromAttribute = self::findTypeFromAttribute($node->attrGroups);
         if ($typeFromAttribute != null) {
             $this->type = $typeFromAttribute;
         } else {
-            $type = $node->type;
-            if ($type !== null) {
-                if ($type instanceof UnionType) {
-                    foreach ($type->types as $type) {
-                        $this->type .= $this->getTypeNameFromNode($type) . '|';
-                    }
-                    $this->type = substr($this->type, 0, -1);
-                } else {
-                    $this->type = $this->getTypeNameFromNode($type);
-                }
-            }
+            $this->type = self::convertParsedTypeToString($node->type);
         }
         if($node->default instanceof Expr\ConstFetch && $node->default->name->parts[0] === "null"){
             $this->type .= "|null";
@@ -95,37 +76,5 @@ class PHPParameter extends BasePHPElement
                 return;
             }
         }
-    }
-
-    protected function getTypeNameFromNode(Name|Identifier|NullableType|string $type): string
-    {
-        if($type instanceof NullableType){
-            $type = $type->type;
-        }
-        if (empty($type->name)) {
-            if (!empty($type->parts)) {
-                return $type->parts[0];
-            }
-        } else {
-            return $type->name;
-        }
-    }
-
-    protected function findTypeFromAttribute(Param $node): ?string
-    {
-        foreach ($node->attrGroups as $attrGroup) {
-            foreach ($attrGroup->attrs as $attr) {
-                if ($attr->name->toString() === "LanguageLevelTypeAware") {
-                    $arg = $attr->args[0]->value;
-                    if ($arg instanceof Array_) {
-                        $value = $arg->items[0]->value;
-                        if ($value instanceof String_) {
-                            return $value->value;
-                        }
-                    }
-                }
-            }
-        }
-        return null;
     }
 }

@@ -14,7 +14,8 @@ use JetBrains\PhpStorm\Pure;
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_kill (int $process_id, int $signal) {}
+function posix_kill (int $process_id, int $signal): bool
+{}
 
 /**
  * Return the current process identifier
@@ -22,7 +23,8 @@ function posix_kill (int $process_id, int $signal) {}
  * @return int the identifier, as an integer.
  */
 #[Pure]
-function posix_getpid () {}
+function posix_getpid (): int
+{}
 
 /**
  * Return the parent process identifier
@@ -30,7 +32,8 @@ function posix_getpid () {}
  * @return int the identifier, as an integer.
  */
 #[Pure]
-function posix_getppid () {}
+function posix_getppid (): int
+{}
 
 /**
  * Return the real user ID of the current process
@@ -38,7 +41,8 @@ function posix_getppid () {}
  * @return int the user id, as an integer
  */
 #[Pure]
-function posix_getuid () {}
+function posix_getuid (): int
+{}
 
 /**
  * Set the UID of the current process
@@ -48,7 +52,8 @@ function posix_getuid () {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_setuid (int $user_id) {}
+function posix_setuid (int $user_id): bool
+{}
 
 /**
  * Return the effective user ID of the current process
@@ -56,7 +61,8 @@ function posix_setuid (int $user_id) {}
  * @return int the user id, as an integer
  */
 #[Pure]
-function posix_geteuid () {}
+function posix_geteuid (): int
+{}
 
 /**
  * Set the effective UID of the current process
@@ -66,7 +72,8 @@ function posix_geteuid () {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_seteuid (int $user_id) {}
+function posix_seteuid (int $user_id): bool
+{}
 
 /**
  * Set system resource limits
@@ -81,14 +88,16 @@ function posix_seteuid (int $user_id) {}
  * @return bool Returns TRUE on success or FALSE on failure.
  * @since 7.0
  */
-function posix_setrlimit (int $resource, int $soft_limit, int $hard_limit) {}
+function posix_setrlimit (int $resource, int $soft_limit, int $hard_limit): bool
+{}
 /**
  * Return the real group ID of the current process
  * @link https://php.net/manual/en/function.posix-getgid.php
  * @return int the real group id, as an integer.
  */
 #[Pure]
-function posix_getgid () {}
+function posix_getgid (): int
+{}
 
 /**
  * Set the GID of the current process
@@ -98,7 +107,8 @@ function posix_getgid () {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_setgid (int $group_id) {}
+function posix_setgid (int $group_id): bool
+{}
 
 /**
  * Return the effective group ID of the current process
@@ -106,7 +116,8 @@ function posix_setgid (int $group_id) {}
  * @return int an integer of the effective group ID.
  */
 #[Pure]
-function posix_getegid () {}
+function posix_getegid (): int
+{}
 
 /**
  * Set the effective GID of the current process
@@ -116,24 +127,27 @@ function posix_getegid () {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_setegid (int $group_id) {}
+function posix_setegid (int $group_id): bool
+{}
 
 /**
  * Return the group set of the current process
  * @link https://php.net/manual/en/function.posix-getgroups.php
- * @return array an array of integers containing the numeric group ids of the group
+ * @return array|false an array of integers containing the numeric group ids of the group
  * set of the current process.
  */
 #[Pure]
-function posix_getgroups () {}
+function posix_getgroups (): array|false
+{}
 
 /**
  * Return login name
  * @link https://php.net/manual/en/function.posix-getlogin.php
- * @return string the login name of the user, as a string.
+ * @return string|false the login name of the user, as a string.
  */
 #[Pure]
-function posix_getlogin () {}
+function posix_getlogin (): string|false
+{}
 
 /**
  * Return the current process group identifier
@@ -141,14 +155,16 @@ function posix_getlogin () {}
  * @return int the identifier, as an integer.
  */
 #[Pure]
-function posix_getpgrp () {}
+function posix_getpgrp (): int
+{}
 
 /**
  * Make the current process a session leader
  * @link https://php.net/manual/en/function.posix-setsid.php
  * @return int the session id, or -1 on errors.
  */
-function posix_setsid () {}
+function posix_setsid (): int
+{}
 
 /**
  * Set process group id for job control
@@ -161,7 +177,8 @@ function posix_setsid () {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_setpgid (int $process_id, int $process_group_id) {}
+function posix_setpgid (int $process_id, int $process_group_id): bool
+{}
 
 /**
  * Get process group id for job control
@@ -169,10 +186,11 @@ function posix_setpgid (int $process_id, int $process_group_id) {}
  * @param int $process_id <p>
  * The process id.
  * </p>
- * @return int the identifier, as an integer.
+ * @return int|false the identifier, as an integer.
  */
 #[Pure]
-function posix_getpgid (int $process_id) {}
+function posix_getpgid (int $process_id): int|false
+{}
 
 /**
  * Get the current sid of the process
@@ -183,15 +201,16 @@ function posix_getpgid (int $process_id) {}
  * specified, then <b>FALSE</b> is returned and an error is set which
  * can be checked with <b>posix_get_last_error</b>.
  * </p>
- * @return int the identifier, as an integer.
+ * @return int|false the identifier, as an integer.
  */
 #[Pure]
-function posix_getsid (int $process_id) {}
+function posix_getsid (int $process_id): int|false
+{}
 
 /**
  * Get system name
  * @link https://php.net/manual/en/function.posix-uname.php
- * @return array a hash of strings with information about the
+ * @return array|false a hash of strings with information about the
  * system. The indices of the hash are
  * sysname - operating system name (e.g. Linux)
  * nodename - system name (e.g. valiant)
@@ -207,12 +226,13 @@ function posix_getsid (int $process_id) {}
  * libc.
  */
 #[Pure]
-function posix_uname () {}
+function posix_uname (): array|false
+{}
 
 /**
  * Get process times
  * @link https://php.net/manual/en/function.posix-times.php
- * @return array a hash of strings with information about the current
+ * @return array|false a hash of strings with information about the current
  * process CPU usage. The indices of the hash are:
  * ticks - the number of clock ticks that have elapsed since
  * reboot.
@@ -222,7 +242,8 @@ function posix_uname () {}
  * cstime - system time used by current process and children.
  */
 #[Pure]
-function posix_times () {}
+function posix_times (): array|false
+{}
 
 /**
  * Get path name of controlling terminal
@@ -232,7 +253,8 @@ function posix_times () {}
  * is set, which can be checked with <b>posix_get_last_error</b>.
  */
 #[Pure]
-function posix_ctermid () {}
+function posix_ctermid (): string|false
+{}
 
 /**
  * Determine terminal device name
@@ -244,7 +266,8 @@ function posix_ctermid () {}
  * <i>fd</i>. On failure, returns <b>FALSE</b>
  */
 #[Pure]
-function posix_ttyname ($file_descriptor) {}
+function posix_ttyname ($file_descriptor): string|false
+{}
 
 /**
  * Determine if a file descriptor is an interactive terminal
@@ -259,17 +282,19 @@ function posix_ttyname ($file_descriptor) {}
  * to a terminal and <b>FALSE</b> otherwise.
  */
 #[Pure]
-function posix_isatty ($file_descriptor) {}
+function posix_isatty ($file_descriptor): bool
+{}
 
 /**
  * Pathname of current directory
  * @link https://php.net/manual/en/function.posix-getcwd.php
- * @return string a string of the absolute pathname on success.
+ * @return string|false a string of the absolute pathname on success.
  * On error, returns <b>FALSE</b> and sets errno which can be checked with
  * <b>posix_get_last_error</b>.
  */
 #[Pure]
-function posix_getcwd () {}
+function posix_getcwd (): string|false
+{}
 
 /**
  * Create a fifo special file (a named pipe)
@@ -286,7 +311,8 @@ function posix_getcwd () {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_mkfifo (string $filename, int $permissions) {}
+function posix_mkfifo (string $filename, int $permissions): bool
+{}
 
 /**
  * Create a special or ordinary file (POSIX.1)
@@ -310,7 +336,8 @@ function posix_mkfifo (string $filename, int $permissions) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_mknod (string $filename, int $flags, int $major = 0, int $minor = 0) {}
+function posix_mknod (string $filename, int $flags, int $major = 0, int $minor = 0): bool
+{}
 
 /**
  * Determine accessibility of a file
@@ -332,13 +359,14 @@ function posix_mknod (string $filename, int $flags, int $major = 0, int $minor =
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_access (string $filename, int $flags = POSIX_F_OK) {}
+function posix_access (string $filename, int $flags = POSIX_F_OK): bool
+{}
 
 /**
  * Return info about a group by name
  * @link https://php.net/manual/en/function.posix-getgrnam.php
  * @param string $name <p>The name of the group</p>
- * @return array The array elements returned are:
+ * @return array|false The array elements returned are:
  * <table>
  * The group information array
  * <tr valign="top">
@@ -379,7 +407,8 @@ function posix_access (string $filename, int $flags = POSIX_F_OK) {}
  * </table>
  */
 #[Pure]
-function posix_getgrnam (string $name) {}
+function posix_getgrnam (string $name): array|false
+{}
 
 /**
  * Return info about a group by group id
@@ -387,7 +416,7 @@ function posix_getgrnam (string $name) {}
  * @param int $group_id <p>
  * The group id.
  * </p>
- * @return array The array elements returned are:
+ * @return array|false The array elements returned are:
  * <table>
  * The group information array
  * <tr valign="top">
@@ -428,7 +457,8 @@ function posix_getgrnam (string $name) {}
  * </table>
  */
 #[Pure]
-function posix_getgrgid (int $group_id) {}
+function posix_getgrgid (int $group_id): array|false
+{}
 
 /**
  * Return info about a user by username
@@ -436,7 +466,7 @@ function posix_getgrgid (int $group_id) {}
  * @param string $username <p>
  * An alphanumeric username.
  * </p>
- * @return array On success an array with the following elements is returned, else
+ * @return array|false On success an array with the following elements is returned, else
  * <b>FALSE</b> is returned:
  * <table>
  * The user information array
@@ -505,7 +535,8 @@ function posix_getgrgid (int $group_id) {}
  * </table>
  */
 #[Pure]
-function posix_getpwnam (string $username) {}
+function posix_getpwnam (string $username): array|false
+{}
 
 /**
  * Return info about a user by user id
@@ -513,7 +544,7 @@ function posix_getpwnam (string $username) {}
  * @param int $user_id <p>
  * The user identifier.
  * </p>
- * @return array an associative array with the following elements:
+ * @return array|false an associative array with the following elements:
  * <table>
  * The user information array
  * <tr valign="top">
@@ -581,12 +612,13 @@ function posix_getpwnam (string $username) {}
  * </table>
  */
 #[Pure]
-function posix_getpwuid (int $user_id) {}
+function posix_getpwuid (int $user_id): array|false
+{}
 
 /**
  * Return info about system resource limits
  * @link https://php.net/manual/en/function.posix-getrlimit.php
- * @return array an associative array of elements for each
+ * @return array|false an associative array of elements for each
  * limit that is defined. Each limit has a soft and a hard limit.
  * <table>
  * List of possible limits returned
@@ -666,7 +698,8 @@ function posix_getpwuid (int $user_id) {}
  * </table>
  */
 #[Pure]
-function posix_getrlimit () {}
+function posix_getrlimit (): array|false
+{}
 
 /**
  * Retrieve the error number set by the last posix function that failed
@@ -675,14 +708,15 @@ function posix_getrlimit () {}
  * failed. If no errors exist, 0 is returned.
  */
 #[Pure]
-function posix_get_last_error () {}
+function posix_get_last_error (): int
+{}
 
 /**
  * Alias of <b>posix_get_last_error</b>
  * @link https://php.net/manual/en/function.posix-errno.php
  */
 #[Pure]
-function posix_errno () {}
+function posix_errno (): int {}
 
 /**
  * Retrieve the system error message associated with the given errno
@@ -695,7 +729,8 @@ function posix_errno () {}
  * @return string the error message, as a string.
  */
 #[Pure]
-function posix_strerror (int $error_code) {}
+function posix_strerror (int $error_code): string
+{}
 
 /**
  * Calculate the group access list
@@ -709,7 +744,8 @@ function posix_strerror (int $error_code) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 #[Pure]
-function posix_initgroups (string $username, int $group_id) {}
+function posix_initgroups (string $username, int $group_id): bool
+{}
 
 
 /**

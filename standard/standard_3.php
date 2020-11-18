@@ -7,12 +7,13 @@ use JetBrains\PhpStorm\Pure;
 /**
  * Gets time of last page modification
  * @link https://php.net/manual/en/function.getlastmod.php
- * @return int the time of the last modification of the current
+ * @return int|false the time of the last modification of the current
  * page. The value returned is a Unix timestamp, suitable for
  * feeding to date. Returns false on error.
  */
 #[Pure]
-function getlastmod () {}
+function getlastmod (): int|false
+{}
 
 /**
  * Decodes data encoded with MIME base64
@@ -28,7 +29,7 @@ function getlastmod () {}
  * binary.
  */
 #[Pure]
-function base64_decode (string $string, bool $strict)
+function base64_decode (string $string, bool $strict): string|false
 {}
 
 /**
@@ -40,7 +41,8 @@ function base64_decode (string $string, bool $strict)
  * @return string The encoded data, as a string.
  */
 #[Pure]
-function base64_encode (string $string) {}
+function base64_encode (string $string): string
+{}
 
 /**
  * Uuencode a string
@@ -51,7 +53,8 @@ function base64_encode (string $string) {}
  * @return string the uuencoded data.
  */
 #[Pure]
-function convert_uuencode (string $string) {}
+function convert_uuencode (string $string): string
+{}
 
 /**
  * Decode a uuencoded string
@@ -59,10 +62,11 @@ function convert_uuencode (string $string) {}
  * @param string $string <p>
  * The uuencoded data.
  * </p>
- * @return string the decoded data as a string.
+ * @return string|false the decoded data as a string.
  */
 #[Pure]
-function convert_uudecode (string $string) {}
+function convert_uudecode (string $string): string|false
+{}
 
 /**
  * Absolute value
@@ -77,7 +81,9 @@ function convert_uudecode (string $string) {}
  * bigger value range than integer).
  */
 #[Pure]
-function abs (int|float $num) {}
+function abs (int|float $num): int|float
+{}
+
 
 /**
  * Round fractions up
@@ -92,8 +98,9 @@ function abs (int|float $num) {}
  * usually bigger than that of integer.
  */
 #[Pure]
-function ceil (int|float $num) {}
-
+#[LanguageLevelTypeAware(["8.0" => "float"], default: "float|false")]
+function ceil (int|float $num)
+{}
 /**
  * Round fractions down
  * @link https://php.net/manual/en/function.floor.php
@@ -106,7 +113,9 @@ function ceil (int|float $num) {}
  * usually bigger than that of integer.
  */
 #[Pure]
-function floor (int|float $num) {}
+#[LanguageLevelTypeAware(["8.0" => "float"], default: "float|false")]
+function floor (int|float $num)
+{}
 
 /**
  * Returns the rounded value of val to specified precision (number of digits after the decimal point).
@@ -128,7 +137,8 @@ function floor (int|float $num) {}
  * @return float The rounded value
  */
 #[Pure]
-function round (int|float $num, int $precision = 0, int $mode = PHP_ROUND_HALF_UP) {}
+function round (int|float $num, int $precision = 0, int $mode = PHP_ROUND_HALF_UP): float
+{}
 
 /**
  * Sine
@@ -139,7 +149,8 @@ function round (int|float $num, int $precision = 0, int $mode = PHP_ROUND_HALF_U
  * @return float The sine of arg
  */
 #[Pure]
-function sin (float $num) {}
+function sin (float $num): float
+{}
 
 /**
  * Cosine
@@ -150,7 +161,8 @@ function sin (float $num) {}
  * @return float The cosine of arg
  */
 #[Pure]
-function cos (float $num) {}
+function cos (float $num): float
+{}
 
 /**
  * Tangent
@@ -161,7 +173,8 @@ function cos (float $num) {}
  * @return float The tangent of arg
  */
 #[Pure]
-function tan (float $num) {}
+function tan (float $num): float
+{}
 
 /**
  * Arc sine
@@ -172,7 +185,8 @@ function tan (float $num) {}
  * @return float The arc sine of arg in radians
  */
 #[Pure]
-function asin (float $num) {}
+function asin (float $num): float
+{}
 
 /**
  * Arc cosine
@@ -183,7 +197,8 @@ function asin (float $num) {}
  * @return float The arc cosine of arg in radians.
  */
 #[Pure]
-function acos (float $num) {}
+function acos (float $num): float
+{}
 
 /**
  * Arc tangent
@@ -194,7 +209,8 @@ function acos (float $num) {}
  * @return float The arc tangent of arg in radians.
  */
 #[Pure]
-function atan (float $num) {}
+function atan (float $num): float
+{}
 
 /**
  * Inverse hyperbolic tangent
@@ -205,7 +221,8 @@ function atan (float $num) {}
  * @return float Inverse hyperbolic tangent of arg
  */
 #[Pure]
-function atanh (float $num) {}
+function atanh (float $num): float
+{}
 
 /**
  * Arc tangent of two variables
@@ -220,7 +237,8 @@ function atanh (float $num) {}
  * in radians.
  */
 #[Pure]
-function atan2 (float $y, float $x) {}
+function atan2 (float $y, float $x): float
+{}
 
 /**
  * Hyperbolic sine
@@ -231,7 +249,8 @@ function atan2 (float $y, float $x) {}
  * @return float The hyperbolic sine of arg
  */
 #[Pure]
-function sinh (float $num) {}
+function sinh (float $num): float
+{}
 
 /**
  * Hyperbolic cosine
@@ -242,7 +261,8 @@ function sinh (float $num) {}
  * @return float The hyperbolic cosine of arg
  */
 #[Pure]
-function cosh (float $num) {}
+function cosh (float $num): float
+{}
 
 /**
  * Hyperbolic tangent
@@ -253,7 +273,8 @@ function cosh (float $num) {}
  * @return float The hyperbolic tangent of arg
  */
 #[Pure]
-function tanh (float $num) {}
+function tanh (float $num): float
+{}
 
 /**
  * Inverse hyperbolic sine
@@ -264,7 +285,8 @@ function tanh (float $num) {}
  * @return float The inverse hyperbolic sine of arg
  */
 #[Pure]
-function asinh (float $num) {}
+function asinh (float $num): float
+{}
 
 /**
  * Inverse hyperbolic cosine
@@ -275,7 +297,8 @@ function asinh (float $num) {}
  * @return float The inverse hyperbolic cosine of arg
  */
 #[Pure]
-function acosh (float $num) {}
+function acosh (float $num): float
+{}
 
 /**
  * Returns exp(number) - 1, computed in a way that is accurate even
@@ -287,7 +310,8 @@ function acosh (float $num) {}
  * @return float 'e' to the power of arg minus one
  */
 #[Pure]
-function expm1(float $num) {}
+function expm1(float $num): float
+{}
 
 /**
  * Returns log(1 + number), computed in a way that is accurate even when
@@ -299,7 +323,8 @@ function expm1(float $num) {}
  * @return float log(1 + number)
  */
 #[Pure]
-function log1p(float $num) {}
+function log1p(float $num): float
+{}
 
 /**
  * Get value of pi
@@ -307,7 +332,8 @@ function log1p(float $num) {}
  * @return float The value of pi as float.
  */
 #[Pure]
-function pi () {}
+function pi (): float
+{}
 
 /**
  * Finds whether a value is a legal finite number
@@ -320,7 +346,8 @@ function pi () {}
  * else false.
  */
 #[Pure]
-function is_finite (float $num) {}
+function is_finite (float $num): bool
+{}
 
 /**
  * Finds whether a value is not a number
@@ -332,7 +359,8 @@ function is_finite (float $num) {}
  * else false.
  */
 #[Pure]
-function is_nan (float $num) {}
+function is_nan (float $num): bool
+{}
 
 /**
  * Integer division
@@ -347,7 +375,8 @@ function is_nan (float $num) {}
  * @since 7.0
  */
 #[Pure]
-function intdiv (int $num1, int $num2) {}
+function intdiv (int $num1, int $num2): int
+{}
 
 /**
  * Finds whether a value is infinite
@@ -358,7 +387,8 @@ function intdiv (int $num1, int $num2) {}
  * @return bool true if val is infinite, else false.
  */
 #[Pure]
-function is_infinite (float $num) {}
+function is_infinite (float $num): bool
+{}
 
 /**
  * Exponential expression
@@ -369,13 +399,14 @@ function is_infinite (float $num) {}
  * @param mixed $exponent <p>
  * The exponent
  * </p>
- * @return int|float base raised to the power of exp.
+ * @return object|int|float base raised to the power of exp.
  * If the result can be represented as integer it will be returned as type
  * integer, else it will be returned as type float.
  * If the power cannot be computed false will be returned instead.
  */
 #[Pure]
-function pow (mixed $num, mixed $exponent) {}
+function pow (mixed $num, mixed $exponent): object|int|float
+{}
 
 /**
  * Calculates the exponent of <constant>e</constant>
@@ -386,7 +417,8 @@ function pow (mixed $num, mixed $exponent) {}
  * @return float 'e' raised to the power of arg
  */
 #[Pure]
-function exp (float $num) {}
+function exp (float $num): float
+{}
 
 /**
  * Natural logarithm
@@ -403,7 +435,7 @@ function exp (float $num) {}
  * natural logarithm.
  */
 #[Pure]
-function log (float $num, float $base)
+function log (float $num, float $base): float
 {}
 
 /**
@@ -415,7 +447,8 @@ function log (float $num, float $base)
  * @return float The base-10 logarithm of arg
  */
 #[Pure]
-function log10 (float $num) {}
+function log10 (float $num): float
+{}
 
 /**
  * Square root
@@ -427,7 +460,8 @@ function log10 (float $num) {}
  * or the special value NAN for negative numbers.
  */
 #[Pure]
-function sqrt (float $num) {}
+function sqrt (float $num): float
+{}
 
 /**
  * Calculate the length of the hypotenuse of a right-angle triangle
@@ -441,7 +475,8 @@ function sqrt (float $num) {}
  * @return float Calculated length of the hypotenuse
  */
 #[Pure]
-function hypot (float $x, float $y) {}
+function hypot (float $x, float $y): float
+{}
 
 /**
  * Converts the number in degrees to the radian equivalent
@@ -452,7 +487,8 @@ function hypot (float $x, float $y) {}
  * @return float The radian equivalent of number
  */
 #[Pure]
-function deg2rad (float $num) {}
+function deg2rad (float $num): float
+{}
 
 /**
  * Converts the radian number to the equivalent number in degrees
@@ -463,7 +499,8 @@ function deg2rad (float $num) {}
  * @return float The equivalent of number in degrees
  */
 #[Pure]
-function rad2deg (float $num) {}
+function rad2deg (float $num): float
+{}
 
 /**
  * Binary to decimal
@@ -474,7 +511,8 @@ function rad2deg (float $num) {}
  * @return int|float The decimal value of binary_string
  */
 #[Pure]
-function bindec (string $binary_string) {}
+function bindec (string $binary_string): int|float
+{}
 
 /**
  * Hexadecimal to decimal
@@ -485,7 +523,8 @@ function bindec (string $binary_string) {}
  * @return int|float The decimal representation of hex_string
  */
 #[Pure]
-function hexdec (string $hex_string) {}
+function hexdec (string $hex_string): int|float
+{}
 
 /**
  * Octal to decimal
@@ -496,7 +535,8 @@ function hexdec (string $hex_string) {}
  * @return int|float The decimal representation of octal_string
  */
 #[Pure]
-function octdec (string $octal_string) {}
+function octdec (string $octal_string): int|float
+{}
 
 /**
  * Decimal to binary
@@ -615,7 +655,8 @@ function octdec (string $octal_string) {}
  * @return string Binary string representation of number
  */
 #[Pure]
-function decbin (int $num) {}
+function decbin (int $num): string
+{}
 
 /**
  * Decimal to octal
@@ -626,7 +667,8 @@ function decbin (int $num) {}
  * @return string Octal string representation of number
  */
 #[Pure]
-function decoct (int $num) {}
+function decoct (int $num): string
+{}
 
 /**
  * Decimal to hexadecimal
@@ -637,7 +679,8 @@ function decoct (int $num) {}
  * @return string Hexadecimal string representation of number
  */
 #[Pure]
-function dechex (int $num) {}
+function dechex (int $num): string
+{}
 
 /**
  * Convert a number between arbitrary bases
@@ -654,7 +697,8 @@ function dechex (int $num) {}
  * @return string number converted to base tobase
  */
 #[Pure]
-function base_convert (string $num, int $from_base, int $to_base) {}
+function base_convert (string $num, int $from_base, int $to_base): string
+{}
 
 /**
  * Format a number with grouped thousands
@@ -670,7 +714,8 @@ function base_convert (string $num, int $from_base, int $to_base) {}
  * @return string A formatted version of number.
  */
 #[Pure]
-function number_format (float $num , int $decimals = 0 , string $decimal_separator = '.' , string $thousands_separator = ',') {}
+function number_format (float $num , int $decimals = 0 , string $decimal_separator = '.' , string $thousands_separator = ','): string
+{}
 
 /**
  * Returns the floating point remainder (modulo) of the division
@@ -686,7 +731,8 @@ function number_format (float $num , int $decimals = 0 , string $decimal_separat
  * x/y
  */
 #[Pure]
-function fmod(float $num1, float $num2) {}
+function fmod(float $num1, float $num2): float
+{}
 
 /**
  * Performs a floating-point division under
@@ -706,7 +752,8 @@ function fdiv(float $num1, float $num2): float {}
  * @return string|false a string representation of the address or false on failure.
  */
 #[Pure]
-function inet_ntop (string $ip) {}
+function inet_ntop (string $ip): string|false
+{}
 
 /**
  * Converts a human readable IP address to its packed in_addr representation
@@ -714,11 +761,12 @@ function inet_ntop (string $ip) {}
  * @param string $ip <p>
  * A human readable IPv4 or IPv6 address.
  * </p>
- * @return string the in_addr representation of the given
+ * @return string|false the in_addr representation of the given
  * address
  */
 #[Pure]
-function inet_pton (string $ip) {}
+function inet_pton (string $ip): string|false
+{}
 
 /**
  * Converts a string containing an (IPv4) Internet Protocol dotted address into a long integer
@@ -730,7 +778,8 @@ function inet_pton (string $ip) {}
  * is invalid.
  */
 #[Pure]
-function ip2long (string $ip) {}
+function ip2long (string $ip): int|false
+{}
 
 /**
  * Converts an long integer address into a string in (IPv4) internet standard dotted format
@@ -738,10 +787,11 @@ function ip2long (string $ip) {}
  * @param int $ip <p>
  * A proper address representation.
  * </p>
- * @return string the Internet IP address as a string.
+ * @return string|false the Internet IP address as a string.
  */
 #[Pure]
-function long2ip (int $ip) {}
+function long2ip (int $ip): string|false
+{}
 
 /**
  * Gets the value of an environment variable
@@ -757,7 +807,8 @@ function long2ip (int $ip) {}
  * is provided, or false on an error.
  */
 #[Pure]
-function getenv (string $name, bool $local_only = false) {}
+function getenv (string $name, bool $local_only = false): array|string|false
+{}
 
 /**
  * Sets the value of an environment variable
@@ -767,7 +818,8 @@ function getenv (string $name, bool $local_only = false) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function putenv (string $assignment) {}
+function putenv (string $assignment): bool
+{}
 
 /**
  * Gets options from the command line argument list
@@ -788,18 +840,19 @@ function putenv (string $assignment) {}
  * @return string[]|false[]|false This function will return an array of option / argument pairs or false on
  * failure.
  */
-function getopt (string $short_options, array $long_options, &$rest_index)
+function getopt (string $short_options, array $long_options, &$rest_index): array|false
 {}
 
 /**
  * Gets system load average
  * @link https://php.net/manual/en/function.sys-getloadavg.php
- * @return array an array with three samples (last 1, 5 and 15
+ * @return array|false an array with three samples (last 1, 5 and 15
  * minutes).
  * @since 5.1.3
  */
 #[Pure]
-function sys_getloadavg () {}
+function sys_getloadavg (): array|false
+{}
 
 /**
  * Return current Unix timestamp with microseconds
@@ -818,7 +871,8 @@ function sys_getloadavg () {}
  * @return string|float
  */
 #[Pure]
-function microtime (bool $as_float) {}
+function microtime (bool $as_float): string|float
+{}
 
 /**
  * Get current time
@@ -837,7 +891,8 @@ function microtime (bool $as_float) {}
  * "dsttime" - type of dst correction
  */
 #[Pure]
-function gettimeofday (bool $as_float) {}
+function gettimeofday (bool $as_float): array|float
+{}
 
 /**
  * Gets the current resource usages
@@ -846,11 +901,12 @@ function gettimeofday (bool $as_float) {}
  * If who is 1, getrusage will be called with
  * RUSAGE_CHILDREN.
  * </p>
- * @return array an associative array containing the data returned from the system
+ * @return array|false an associative array containing the data returned from the system
  * call. All entries are accessible by using their documented field names.
  */
 #[Pure]
-function getrusage (int $mode) {}
+function getrusage (int $mode): array|false
+{}
 
 /**
  * Generate a unique ID
@@ -873,7 +929,8 @@ function getrusage (int $mode) {}
  * @return string the unique identifier, as a string.
  */
 #[Pure]
-function uniqid (string $prefix = "", bool $more_entropy = false) {}
+function uniqid (string $prefix = "", bool $more_entropy = false): string
+{}
 
 /**
  * Convert a quoted-printable string to an 8 bit string
@@ -884,7 +941,8 @@ function uniqid (string $prefix = "", bool $more_entropy = false) {}
  * @return string the 8-bit binary string.
  */
 #[Pure]
-function quoted_printable_decode (string $string) {}
+function quoted_printable_decode (string $string): string
+{}
 
 /**
  * Convert a 8 bit string to a quoted-printable string
@@ -895,7 +953,8 @@ function quoted_printable_decode (string $string) {}
  * @return string the encoded string.
  */
 #[Pure]
-function quoted_printable_encode (string $string) {}
+function quoted_printable_encode (string $string): string
+{}
 
 /**
  * Convert from one Cyrillic character set to another
@@ -917,7 +976,8 @@ function quoted_printable_encode (string $string) {}
  */
 #[Pure]
 #[Deprecated(since: '7.4',reason: 'Us mb_convert_string(), iconv() or UConverter instead.')]
-function convert_cyr_string (string $str, string $from, string $to) {}
+function convert_cyr_string (string $str, string $from, string $to): string
+{}
 
 /**
  * Gets the name of the owner of the current PHP script
@@ -925,7 +985,8 @@ function convert_cyr_string (string $str, string $from, string $to) {}
  * @return string the username as a string.
  */
 #[Pure]
-function get_current_user () {}
+function get_current_user (): string
+{}
 
 /**
  * Limits the maximum execution time
@@ -936,7 +997,8 @@ function get_current_user () {}
  * </p>
  * @return bool Returns TRUE on success, or FALSE on failure.
  */
-function set_time_limit (int $seconds) {}
+function set_time_limit (int $seconds): bool
+{}
 
 /**
  * Gets the value of a PHP configuration option
@@ -944,11 +1006,12 @@ function set_time_limit (int $seconds) {}
  * @param string $option <p>
  * The configuration option name.
  * </p>
- * @return string the current value of the PHP configuration variable specified by
+ * @return array|string|false the current value of the PHP configuration variable specified by
  * option, or false if an error occurs.
  */
 #[Pure]
-function get_cfg_var (string $option) {}
+function get_cfg_var (string $option): array|string|false
+{}
 
 /**
  * &Alias; <function>set_magic_quotes_runtime</function>
@@ -969,7 +1032,8 @@ function magic_quotes_runtime (bool $new_setting) {}
  * @removed 7.0
  */
 #[Deprecated(reason: "This function has been DEPRECATED as of PHP 5.4.0. Raises an E_CORE_ERROR", since: "5.3")]
-function set_magic_quotes_runtime (bool $new_setting) {}
+function set_magic_quotes_runtime (bool $new_setting): bool
+{}
 
 /**
  * Gets the current configuration setting of magic quotes gpc
@@ -978,7 +1042,8 @@ function set_magic_quotes_runtime (bool $new_setting) {}
  * @removed 8.0
  */
 #[Deprecated(since: '7.4')]
-function get_magic_quotes_gpc () {}
+function get_magic_quotes_gpc (): int
+{}
 
 /**
  * Gets the current active configuration setting of magic_quotes_runtime
@@ -986,7 +1051,8 @@ function get_magic_quotes_gpc () {}
  * @return int 0 if magic quotes runtime is off, 1 otherwise.
  */
 #[Deprecated(since: '7.4')]
-function get_magic_quotes_runtime () {}
+function get_magic_quotes_runtime (): int
+{}
 
 /**
  * Import GET/POST/Cookie variables into the global scope
@@ -1022,7 +1088,7 @@ function get_magic_quotes_runtime () {}
  * @removed 5.4
  */
 #[Deprecated(reason: "This function has been DEPRECATED as of PHP 5.3.0", since: "5.3")]
-function import_request_variables (string $types, $prefix = null)
+function import_request_variables (string $types, $prefix = null): bool
 {}
 
 /**
@@ -1091,5 +1157,6 @@ function import_request_variables (string $types, $prefix = null)
  * </p>
  * @return bool true on success or false on failure.
  */
-function error_log (string $message, int $message_type, string $destination, string $additional_headers) {
+function error_log (string $message, int $message_type, string $destination, string $additional_headers): bool
+{
 }

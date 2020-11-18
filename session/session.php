@@ -21,9 +21,10 @@ use JetBrains\PhpStorm\Deprecated;
  * must be present. Otherwise a new session id is generated every time.
  * </p>
  * </p>
- * @return string the name of the current session.
+ * @return string|false the name of the current session.
  */
-function session_name (string $name) {}
+function session_name (string $name): string|false
+{}
 
 /**
  * Get and/or set the current session module.<br/>
@@ -33,9 +34,10 @@ function session_name (string $name) {}
  * If <i>module</i> is specified, that module will be
  * used instead.
  * </p>
- * @return string the name of the current session module.
+ * @return string|false the name of the current session module.
  */
-function session_module_name (string $module) {}
+function session_module_name (string $module): string|false
+{}
 
 /**
  * Get and/or set the current session save path
@@ -52,9 +54,10 @@ function session_module_name (string $module) {}
  * on Linux, reiserfs may provide better performance than ext2fs.
  * </p>
  * </p>
- * @return string the path of the current directory used for data storage.
+ * @return string|false the path of the current directory used for data storage.
  */
-function session_save_path (string $path) {}
+function session_save_path (string $path): string|false
+{}
 
 /**
  * Get and/or set the current session id
@@ -71,11 +74,12 @@ function session_save_path (string $path) {}
  * for <b>session_id</b> will always send a new cookie
  * when <b>session_start</b> is called, regardless if the
  * current session id is identical to the one being set.
- * @return string <b>session_id</b> returns the session id for the current
+ * @return string|false <b>session_id</b> returns the session id for the current
  * session or the empty string ("") if there is no current
  * session (no current session id exists).
  */
-function session_id (string $id) {}
+function session_id (string $id): string|false
+{}
 
 /**
  * Update the current session id with a newly generated one
@@ -85,7 +89,8 @@ function session_id (string $id) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function session_regenerate_id (bool $delete_old_session = false) {}
+function session_regenerate_id (bool $delete_old_session = false): bool
+{}
 
 /**
  * PHP > 5.4.0 <br/>
@@ -93,7 +98,7 @@ function session_regenerate_id (bool $delete_old_session = false) {}
  * @link https://secure.php.net/manual/en/function.session-register-shutdown.php
  * @return void
  */
-function session_register_shutdown  () {}
+function session_register_shutdown  (): void {}
 
 /**
  * Decodes session data from a string
@@ -103,7 +108,8 @@ function session_register_shutdown  () {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function session_decode (string $data) {}
+function session_decode (string $data): bool
+{}
 
 /**
  * Register one or more global variables with the current session
@@ -117,7 +123,8 @@ function session_decode (string $data) {}
  * @removed 5.4
  */
 #[Deprecated(since: '5.3')]
-function session_register (mixed $name, ...$_) {}
+function session_register (mixed $name, ...$_): bool
+{}
 
 /**
  * Unregister a global variable from the current session
@@ -129,7 +136,8 @@ function session_register (mixed $name, ...$_) {}
  * @removed 5.4
  */
 #[Deprecated(since: '5.3')]
-function session_unregister (string $name) {}
+function session_unregister (string $name): bool
+{}
 
 /**
  * Find out whether a global variable is registered in a session
@@ -143,14 +151,16 @@ function session_unregister (string $name) {}
  * @removed 5.4
  */
 #[Deprecated(since: '5.3')]
-function session_is_registered (string $name) {}
+function session_is_registered (string $name): bool
+{}
 
 /**
  * Encodes the current session data as a string
  * @link https://php.net/manual/en/function.session-encode.php
- * @return string the contents of the current session encoded.
+ * @return string|false the contents of the current session encoded.
  */
-function session_encode () {}
+function session_encode (): string|false
+{}
 
 /**
  * Initialize session data
@@ -160,7 +170,8 @@ function session_encode () {}
  * @return bool This function returns true if a session was successfully started,
  * otherwise false.
  */
-function session_start (array $options = []) {}
+function session_start (array $options = []): bool
+{}
 
 /**
  * Create new session id
@@ -168,32 +179,36 @@ function session_start (array $options = []) {}
  * @param string $prefix [optional] If prefix is specified, new session id is prefixed by prefix.
  * Not all characters are allowed within the session id.
  * Characters in the range a-z A-Z 0-9 , (comma) and - (minus) are allowed.
- * @return string new collision free session id for the current session.
+ * @return string|false new collision free session id for the current session.
  * If it is used without active session, it omits collision check.
  * @since 7.1
  */
-function session_create_id(string $prefix) {}
+function session_create_id(string $prefix): string|false
+{}
 
 /**
  * Perform session data garbage collection
  * @return int|false number of deleted session data for success, false for failure.
  * @since 7.1
  */
-function session_gc() {}
+function session_gc(): int|false
+{}
 
 /**
  * Destroys all data registered to a session
  * @link https://php.net/manual/en/function.session-destroy.php
  * @return bool true on success or false on failure.
  */
-function session_destroy () {}
+function session_destroy (): bool
+{}
 
 /**
  * Free all session variables
  * @link https://php.net/manual/en/function.session-unset.php
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
-function session_unset () {}
+function session_unset (): bool
+{}
 
 /**
  * Sets user-level session storage functions
@@ -243,7 +258,7 @@ function session_unset () {}
  * @param callback $update_timestamp [optional]
  * @return bool true on success or false on failure.
  */
-function session_set_save_handler (callable $open, callable $close, callable $read, callable $write, callable $destroy, callable $gc, $create_sid, $validate_sid, $update_timestamp)
+function session_set_save_handler (callable $open, callable $close, callable $read, callable $write, callable $destroy, callable $gc, $create_sid, $validate_sid, $update_timestamp): bool
 {}
 
 /**
@@ -256,7 +271,8 @@ function session_set_save_handler (callable $open, callable $close, callable $re
  * @param bool $register_shutdown [optional] Register session_write_close() as a register_shutdown_function() function.
  * @return bool true on success or false on failure.
  */
-function session_set_save_handler (SessionHandlerInterface $session_handler, $register_shutdown = true) {}
+function session_set_save_handler (SessionHandlerInterface $session_handler, $register_shutdown = true): bool
+{}
 
 /**
  * Get and/or set the current cache limiter
@@ -311,9 +327,10 @@ function session_set_save_handler (SessionHandlerInterface $session_handler, $re
  * </td>
  * </tr>
  * </table>
- * @return string the name of the current cache limiter.
+ * @return string|false the name of the current cache limiter.
  */
-function session_cache_limiter (string $value) {}
+function session_cache_limiter (string $value): string|false
+{}
 
 /**
  * Return current cache expire
@@ -327,10 +344,11 @@ function session_cache_limiter (string $value) {}
  * session.cache_limiter is set to a value
  * different from nocache.
  * </p>
- * @return int the current setting of session.cache_expire.
+ * @return int|false the current setting of session.cache_expire.
  * The value returned should be read in minutes, defaults to 180.
  */
-function session_cache_expire (int $value) {}
+function session_cache_expire (int $value): int|false
+{}
 
 /**
  * Set the session cookie parameters
@@ -347,7 +365,8 @@ function session_cache_expire (int $value) {}
  * @return bool returns true on success or false on failure.
  * @since 7.3
  */
-function session_set_cookie_params (array $options) {}
+function session_set_cookie_params (array $options): bool
+{}
 
 
 /**
@@ -378,7 +397,7 @@ function session_set_cookie_params (array $options) {}
  * </p>
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
-function session_set_cookie_params (array|int $lifetime_or_options, string $path, string $domain, bool $secure = false, bool $httponly = false)
+function session_set_cookie_params (array|int $lifetime_or_options, string $path, string $domain, bool $secure = false, bool $httponly = false): bool
 {}
 
 /**
@@ -397,21 +416,24 @@ function session_set_cookie_params (array|int $lifetime_or_options, string $path
  * "httponly" - The
  * cookie can only be accessed through the HTTP protocol.
  */
-function session_get_cookie_params () {}
+function session_get_cookie_params (): array
+{}
 
 /**
  * Write session data and end session
  * @link https://php.net/manual/en/function.session-write-close.php
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
-function session_write_close () {}
+function session_write_close (): bool
+{}
 
 /**
  * Alias of <b>session_write_close</b>
  * @link https://php.net/manual/en/function.session-commit.php
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
-function session_commit () {}
+function session_commit (): bool
+{}
 
 /**
  * (PHP 5 >= 5.4.0)<br>
@@ -422,7 +444,8 @@ function session_commit () {}
  * <b>PHP_SESSION_ACTIVE</b> if sessions are enabled, and one exists.
  * @since 5.4
  */
-function session_status () {}
+function session_status (): int
+{}
 
 /**
  * (PHP 5 >= 5.6.0)<br>
@@ -431,7 +454,8 @@ function session_status () {}
  * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
  * @since 5.6
  */
-function session_abort() {}
+function session_abort(): bool
+{}
 
 /**
  * (PHP 5 >= 5.6.0)<br>
@@ -440,7 +464,8 @@ function session_abort() {}
  * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
  * @since 5.6
  */
-function session_reset() {}
+function session_reset(): bool
+{}
 
 // End of session v.
 ?>

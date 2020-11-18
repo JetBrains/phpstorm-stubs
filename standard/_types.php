@@ -16,7 +16,8 @@ namespace {
      * </p>
      * @return array an array of the parameters. The parameters can be given an index with the => operator.
      */
-    function PS_UNRESERVE_PREFIX_array(...$_){};
+    function PS_UNRESERVE_PREFIX_array(...$_): array
+    {};
 
     /**
      * Assigns a list of variables in one operation.
@@ -25,7 +26,8 @@ namespace {
      * @param mixed ...$_ [optional] <p>Another variable ...</p>
      * @return array the assigned array.
      */
-    function PS_UNRESERVE_PREFIX_list(mixed $var1, ...$_){};
+    function PS_UNRESERVE_PREFIX_list(mixed $var1, ...$_): array
+    {};
 
     /**
      * <p>Terminates execution of the script. Shutdown functions and object destructors will always be executed even if exit is called.</p>
@@ -90,7 +92,8 @@ namespace {
      * </ul>
      * </p>
      */
-    function PS_UNRESERVE_PREFIX_empty(mixed $var){};
+    function PS_UNRESERVE_PREFIX_empty(mixed $var): bool
+    {};
 
     /**
      * <p>Determine if a variable is set and is not <b>NULL</b>.</p>
@@ -103,7 +106,8 @@ namespace {
      * @param mixed ...$_ [optional] <p>Another variable ...</p>
      * @return bool Returns <b>TRUE</b> if var exists and has value other than <b>NULL</b>, <b>FALSE</b> otherwise.
      */
-    function PS_UNRESERVE_PREFIX_isset(mixed $var, ...$_){};
+    function PS_UNRESERVE_PREFIX_isset(mixed $var, ...$_): bool
+    {};
 
     /**
      * <p>Destroys the specified variables.</p>
@@ -145,7 +149,8 @@ namespace {
      * case <b>eval()</b> returned <b>FALSE</b> and execution of the following code continued normally. It is not possible to catch a parse
      * error in <b>eval()</b> using set_error_handler().
      */
-    function PS_UNRESERVE_PREFIX_eval(string $code){};
+    function PS_UNRESERVE_PREFIX_eval(string $code): mixed
+    {};
 
     /**
      * Generator objects are returned from generators, cannot be instantiated via new.
@@ -259,7 +264,8 @@ class object {
    * @return mixed
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.methods
    */
-  public function __call(string $name, array $arguments) {}
+  public function __call(string $name, array $arguments): mixed
+  {}
 
   /**
    * is triggered when invoking inaccessible methods in a static context.
@@ -269,7 +275,8 @@ class object {
    * @return mixed
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.methods
    */
-  public static function __callStatic(string $name, array $arguments) {}
+  public static function __callStatic(string $name, array $arguments): mixed
+  {}
 
   /**
    * is utilized for reading data from inaccessible members.
@@ -278,7 +285,8 @@ class object {
    * @return mixed
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
    */
-  public function __get(string $name) {}
+  public function __get(string $name): mixed
+  {}
 
     /**
      * run when writing data to inaccessible members.
@@ -345,7 +353,8 @@ class object {
    * @return mixed
    * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.invoke
    */
-  public function __invoke() {}
+  public function __invoke(): mixed
+  {}
 
     /**
      * This method is called by var_dump() when dumping an object to get the properties that should be shown.

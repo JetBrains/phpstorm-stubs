@@ -12,7 +12,8 @@ use JetBrains\PhpStorm\Pure;
  * parent's context, no child process will be created, and a PHP
  * error is raised.
  */
-function pcntl_fork () {}
+function pcntl_fork (): int
+{}
 
 /**
  * Waits on or returns the status of a forked child
@@ -93,7 +94,8 @@ function pcntl_fork () {}
  * child which exited, -1 on error or zero if <b>WNOHANG</b> was used and no
  * child was available
  */
-function pcntl_waitpid (int $process_id, &$status, int $flags = 0, &$resource_usage) {}
+function pcntl_waitpid (int $process_id, &$status, int $flags = 0, &$resource_usage): int
+{}
 
 /**
  * Waits on or returns the status of a forked child
@@ -139,7 +141,8 @@ function pcntl_waitpid (int $process_id, &$status, int $flags = 0, &$resource_us
  * child which exited, -1 on error or zero if WNOHANG was provided as an
  * option (on wait3-available systems) and no child was available.
  */
-function pcntl_wait (&$status, int $flags = 0, &$resource_usage) {}
+function pcntl_wait (&$status, int $flags = 0, &$resource_usage): int
+{}
 
 /**
  * Installs a signal handler
@@ -169,14 +172,16 @@ function pcntl_wait (&$status, int $flags = 0, &$resource_usage) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pcntl_signal (int $signal, $handler, bool $restart_syscalls = true) {}
+function pcntl_signal (int $signal, $handler, bool $restart_syscalls = true): bool
+{}
 
 /**
  * Calls signal handlers for pending signals
  * @link https://php.net/manual/en/function.pcntl-signal-dispatch.php
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pcntl_signal_dispatch () {}
+function pcntl_signal_dispatch (): bool
+{}
 
 /**
  * Checks if status code represents a normal exit
@@ -188,7 +193,8 @@ function pcntl_signal_dispatch () {}
  * otherwise.
  */
 #[Pure]
-function pcntl_wifexited (int $status) {}
+function pcntl_wifexited (int $status): bool
+{}
 
 /**
  * Checks whether the child process is currently stopped
@@ -200,7 +206,8 @@ function pcntl_wifexited (int $status) {}
  * currently stopped, <b>FALSE</b> otherwise.
  */
 #[Pure]
-function pcntl_wifstopped (int $status) {}
+function pcntl_wifstopped (int $status): bool
+{}
 
 /**
  * Checks whether the status code represents a termination due to a signal
@@ -212,7 +219,8 @@ function pcntl_wifstopped (int $status) {}
  * not caught, <b>FALSE</b> otherwise.
  */
 #[Pure]
-function pcntl_wifsignaled (int $status) {}
+function pcntl_wifsignaled (int $status): bool
+{}
 
 /**
  * Returns the return code of a terminated child
@@ -220,17 +228,19 @@ function pcntl_wifsignaled (int $status) {}
  * @param int $status The <i>status</i>
  * parameter is the status parameter supplied to a successful
  * call to <b>pcntl_waitpid</b>.</p>
- * @return int the return code, as an integer.
+ * @return int|false the return code, as an integer.
  */
 #[Pure]
-function pcntl_wexitstatus (int $status) {}
+function pcntl_wexitstatus (int $status): int|false
+{}
 
 /**
  * @param int $status
  * @return bool
  */
 #[Pure]
-function pcntl_wifcontinued (int $status){}
+function pcntl_wifcontinued (int $status): bool
+{}
 
 /**
  * Returns the signal which caused the child to terminate
@@ -238,10 +248,11 @@ function pcntl_wifcontinued (int $status){}
  * @param int $status The <i>status</i>
  * parameter is the status parameter supplied to a successful
  * call to <b>pcntl_waitpid</b>.</p>
- * @return int the signal number, as an integer.
+ * @return int|false the signal number, as an integer.
  */
 #[Pure]
-function pcntl_wtermsig (int $status) {}
+function pcntl_wtermsig (int $status): int|false
+{}
 
 /**
  * Returns the signal which caused the child to stop
@@ -249,10 +260,11 @@ function pcntl_wtermsig (int $status) {}
  * @param int $status The <i>status</i>
  * parameter is the status parameter supplied to a successful
  * call to <b>pcntl_waitpid</b>.</p>
- * @return int the signal number.
+ * @return int|false the signal number.
  */
 #[Pure]
-function pcntl_wstopsig (int $status) {}
+function pcntl_wstopsig (int $status): int|false
+{}
 
 /**
  * Executes specified program in current process space
@@ -273,9 +285,9 @@ function pcntl_wstopsig (int $status) {}
  * the key being the name of the environmental variable and the value being
  * the value of that variable.
  * </p>
- * @return void <b>FALSE</b> on error and does not return on success.
+ * @return bool <b>FALSE</b> on error and does not return on success.
  */
-function pcntl_exec (string $path, array $args, array $env_vars)
+function pcntl_exec (string $path, array $args, array $env_vars): bool
 {}
 
 /**
@@ -289,7 +301,8 @@ function pcntl_exec (string $path, array $args, array $env_vars)
  * remaining before it was to be delivered, or 0 if there
  * was no previously scheduled alarm.
  */
-function pcntl_alarm (int $seconds) {}
+function pcntl_alarm (int $seconds): int
+{}
 
 /**
  * Retrieve the error number set by the last pcntl function which failed
@@ -298,7 +311,8 @@ function pcntl_alarm (int $seconds) {}
  * @since 5.3.4
  */
 #[Pure]
-function pcntl_get_last_error () {}
+function pcntl_get_last_error (): int
+{}
 
 /**
  * Alias of <b>pcntl_get_last_error</b>
@@ -307,7 +321,8 @@ function pcntl_get_last_error () {}
  * @since 5.3.4
  */
 #[Pure]
-function pcntl_errno () {}
+function pcntl_errno (): int
+{}
 
 /**
  * Retrieve the system error message associated with the given errno
@@ -318,7 +333,9 @@ function pcntl_errno () {}
  * @since 5.3.4
  */
 #[Pure]
-function pcntl_strerror (int $error_code) {}
+#[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
+function pcntl_strerror (int $error_code): bool|string
+{}
 
 /**
  * Get the priority of any process
@@ -330,12 +347,13 @@ function pcntl_strerror (int $error_code) {}
  * One of <b>PRIO_PGRP</b>, <b>PRIO_USER</b>
  * or <b>PRIO_PROCESS</b>.
  * </p>
- * @return int <b>pcntl_getpriority</b> returns the priority of the process
+ * @return int|false <b>pcntl_getpriority</b> returns the priority of the process
  * or <b>FALSE</b> on error. A lower numerical value causes more favorable
  * scheduling.
  */
 #[Pure]
-function pcntl_getpriority (int $process_id, int $mode = PRIO_PROCESS) {}
+function pcntl_getpriority (int $process_id, int $mode = PRIO_PROCESS): int|false
+{}
 
 /**
  * Change the priority of any process
@@ -357,7 +375,8 @@ function pcntl_getpriority (int $process_id, int $mode = PRIO_PROCESS) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pcntl_setpriority (int $priority, int $process_id, int $mode = PRIO_PROCESS) {}
+function pcntl_setpriority (int $priority, int $process_id, int $mode = PRIO_PROCESS): bool
+{}
 
 /**
  * Sets and retrieves blocked signals
@@ -381,7 +400,7 @@ function pcntl_setpriority (int $priority, int $process_id, int $mode = PRIO_PRO
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pcntl_sigprocmask (int $mode, array $signals, &$old_signals)
+function pcntl_sigprocmask (int $mode, array $signals, &$old_signals): bool
 {}
 
 /**
@@ -420,9 +439,10 @@ function pcntl_sigprocmask (int $mode, array $signals, &$old_signals)
  * band: Band event
  * fd: File descriptor number
  * </p>
- * @return int On success, <b>pcntl_sigwaitinfo</b> returns a signal number.
+ * @return int|false On success, <b>pcntl_sigwaitinfo</b> returns a signal number.
  */
-function pcntl_sigwaitinfo (array $signals, &$info) {}
+function pcntl_sigwaitinfo (array $signals, &$info): int|false
+{}
 
 /**
  * Waits for signals, with a timeout
@@ -441,9 +461,10 @@ function pcntl_sigwaitinfo (array $signals, &$info) {}
  * @param int $nanoseconds [optional] <p>
  * Timeout in nanoseconds.
  * </p>
- * @return int On success, <b>pcntl_sigtimedwait</b> returns a signal number.
+ * @return int|false On success, <b>pcntl_sigtimedwait</b> returns a signal number.
  */
-function pcntl_sigtimedwait (array $signals, &$info, int $seconds = 0, int $nanoseconds = 0) {}
+function pcntl_sigtimedwait (array $signals, &$info, int $seconds = 0, int $nanoseconds = 0): int|false
+{}
 
 /**
  * Enable/disable asynchronous signal handling or return the old setting.<br>
@@ -458,7 +479,8 @@ function pcntl_sigtimedwait (array $signals, &$info, int $seconds = 0, int $nano
  * @return bool
  * @since 7.1
  */
-function pcntl_async_signals(bool $enable) {}
+function pcntl_async_signals(bool $enable): bool
+{}
 
 /**
  * Get the current handler for specified signal.
@@ -468,18 +490,19 @@ function pcntl_async_signals(bool $enable) {}
  * The signal number.
  * </p>
  *
- * @return bool
+ * @return bool|resource
  * @since 7.1
  */
 
-function pcntl_signal_get_handler(int $signal) {}
+function pcntl_signal_get_handler(int $signal)
+{}
 
 /**
  * @param int $flags
  * @return bool
  * @since 7.4
  */
-function pcntl_unshare(int $flags){}
+function pcntl_unshare(int $flags): bool{}
 
 define ('WNOHANG', 1);
 define ('WUNTRACED', 2);

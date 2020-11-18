@@ -517,25 +517,29 @@ class XMLWriter  {
  * @param string $uri <p>
  * The URI of the resource for the output.
  * </p>
- * @return bool Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return bool|resource Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * </p>
  * <p>
  * Procedural style: Returns a new xmlwriter resource for later use with the
  * xmlwriter functions on success, <b>FALSE</b> on error.
  */
-function xmlwriter_open_uri (string $uri) {}
+#[LanguageLevelTypeAware(["8.0" => "XMLWriter|false"], default: "resource|false")]
+function xmlwriter_open_uri (string $uri)
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Create new xmlwriter using memory for string output
  * @link https://php.net/manual/en/function.xmlwriter-open-memory.php
- * @return bool Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return XMLWriter|false|resource Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * </p>
  * <p>
  * Procedural style: Returns a new xmlwriter resource for later use with the
  * xmlwriter functions on success, <b>FALSE</b> on error.
  */
-function xmlwriter_open_memory () {}
+#[LanguageLevelTypeAware(["8.0" => "XMLWriter|false"], default: "resource|false")]
+function xmlwriter_open_memory (): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -551,7 +555,8 @@ function xmlwriter_open_memory () {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_set_indent (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, bool $enable) {}
+function xmlwriter_set_indent (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, bool $enable): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -567,7 +572,8 @@ function xmlwriter_set_indent (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], 
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_set_indent_string (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $indentation) {}
+function xmlwriter_set_indent_string (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $indentation): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 1.0.0)<br/>
@@ -579,7 +585,8 @@ function xmlwriter_set_indent_string (#[LanguageLevelTypeAware(["8.0" => "XMLWri
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_comment (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer) {}
+function xmlwriter_start_comment (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 1.0.0)<br/>
@@ -592,7 +599,8 @@ function xmlwriter_start_comment (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_comment (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer) {}
+function xmlwriter_end_comment (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -608,7 +616,8 @@ function xmlwriter_end_comment (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"],
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_attribute (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name) {}
+function xmlwriter_start_attribute (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -620,7 +629,8 @@ function xmlwriter_start_attribute (#[LanguageLevelTypeAware(["8.0" => "XMLWrite
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_attribute (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer) {}
+function xmlwriter_end_attribute (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -639,7 +649,8 @@ function xmlwriter_end_attribute (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_attribute (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, string $value) {}
+function xmlwriter_write_attribute (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, string $value): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -661,7 +672,8 @@ function xmlwriter_write_attribute (#[LanguageLevelTypeAware(["8.0" => "XMLWrite
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_attribute_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $prefix, string $name, string $namespace) {}
+function xmlwriter_start_attribute_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $prefix, string $name, string $namespace): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -686,7 +698,8 @@ function xmlwriter_start_attribute_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWr
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_attribute_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $prefix, string $name, string $namespace, string $value) {}
+function xmlwriter_write_attribute_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $prefix, string $name, string $namespace, string $value): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -702,7 +715,8 @@ function xmlwriter_write_attribute_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWr
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name) {}
+function xmlwriter_start_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -714,7 +728,8 @@ function xmlwriter_start_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer) {}
+function xmlwriter_end_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.2.0, PECL xmlwriter &gt;= 2.0.4)<br/>
@@ -726,7 +741,8 @@ function xmlwriter_end_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"],
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_full_end_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer) {}
+function xmlwriter_full_end_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -748,7 +764,8 @@ function xmlwriter_full_end_element (#[LanguageLevelTypeAware(["8.0" => "XMLWrit
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_element_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $prefix, string $name, string $namespace) {}
+function xmlwriter_start_element_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $prefix, string $name, string $namespace): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -767,7 +784,8 @@ function xmlwriter_start_element_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWrit
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, string $content) {}
+function xmlwriter_write_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, string $content): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -792,7 +810,8 @@ function xmlwriter_write_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_element_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $prefix, string $name, string $namespace, string $content) {}
+function xmlwriter_write_element_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $prefix, string $name, string $namespace, string $content): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -808,7 +827,8 @@ function xmlwriter_write_element_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWrit
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_pi (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $target) {}
+function xmlwriter_start_pi (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $target): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -820,7 +840,8 @@ function xmlwriter_start_pi (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], de
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_pi (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer) {}
+function xmlwriter_end_pi (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -840,7 +861,8 @@ function xmlwriter_end_pi (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], defa
  *
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_pi (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $target, string $content) {}
+function xmlwriter_write_pi (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $target, string $content): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -853,7 +875,8 @@ function xmlwriter_write_pi (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], de
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_cdata (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer) {}
+function xmlwriter_start_cdata (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -866,7 +889,8 @@ function xmlwriter_start_cdata (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"],
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_cdata (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer) {}
+function xmlwriter_end_cdata (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -882,7 +906,8 @@ function xmlwriter_end_cdata (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], d
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_cdata (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $content) {}
+function xmlwriter_write_cdata (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $content): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -898,7 +923,8 @@ function xmlwriter_write_cdata (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"],
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_text (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $content) {}
+function xmlwriter_text (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $content): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.2.0, PECL xmlwriter &gt;= 2.0.4)<br/>
@@ -914,7 +940,8 @@ function xmlwriter_text (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], defaul
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_raw (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $content) {}
+function xmlwriter_write_raw (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $content): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -936,7 +963,8 @@ function xmlwriter_write_raw (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], d
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_document (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $version = '1.0', string $encoding, string $standalone) {}
+function xmlwriter_start_document (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $version = '1.0', string $encoding, string $standalone): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -949,7 +977,8 @@ function xmlwriter_start_document (#[LanguageLevelTypeAware(["8.0" => "XMLWriter
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_document (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer) {}
+function xmlwriter_end_document (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -965,7 +994,8 @@ function xmlwriter_end_document (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"]
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_comment (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $content) {}
+function xmlwriter_write_comment (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $content): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -987,7 +1017,8 @@ function xmlwriter_write_comment (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_dtd (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $qualifiedName, string $publicId, string $systemId) {}
+function xmlwriter_start_dtd (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $qualifiedName, string $publicId, string $systemId): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -999,7 +1030,8 @@ function xmlwriter_start_dtd (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], d
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_dtd (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer) {}
+function xmlwriter_end_dtd (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -1024,7 +1056,8 @@ function xmlwriter_end_dtd (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], def
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_dtd (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, string $publicId, string $systemId, string $content) {}
+function xmlwriter_write_dtd (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, string $publicId, string $systemId, string $content): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -1040,7 +1073,8 @@ function xmlwriter_write_dtd (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], d
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_dtd_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $qualifiedName) {}
+function xmlwriter_start_dtd_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $qualifiedName): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -1049,7 +1083,8 @@ function xmlwriter_start_dtd_element (#[LanguageLevelTypeAware(["8.0" => "XMLWri
  * @param $writer
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_dtd_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer) {}
+function xmlwriter_end_dtd_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -1068,7 +1103,8 @@ function xmlwriter_end_dtd_element (#[LanguageLevelTypeAware(["8.0" => "XMLWrite
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_dtd_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, string $content) {}
+function xmlwriter_write_dtd_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, string $content): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -1084,7 +1120,8 @@ function xmlwriter_write_dtd_element (#[LanguageLevelTypeAware(["8.0" => "XMLWri
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_dtd_attlist (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name) {}
+function xmlwriter_start_dtd_attlist (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -1096,7 +1133,8 @@ function xmlwriter_start_dtd_attlist (#[LanguageLevelTypeAware(["8.0" => "XMLWri
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_dtd_attlist (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer) {}
+function xmlwriter_end_dtd_attlist (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -1115,7 +1153,8 @@ function xmlwriter_end_dtd_attlist (#[LanguageLevelTypeAware(["8.0" => "XMLWrite
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_dtd_attlist (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, string $content) {}
+function xmlwriter_write_dtd_attlist (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, string $content): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -1132,7 +1171,8 @@ function xmlwriter_write_dtd_attlist (#[LanguageLevelTypeAware(["8.0" => "XMLWri
  * @param bool $isParam
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_dtd_entity (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, bool $isParam) {}
+function xmlwriter_start_dtd_entity (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, bool $isParam): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -1144,7 +1184,8 @@ function xmlwriter_start_dtd_entity (#[LanguageLevelTypeAware(["8.0" => "XMLWrit
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_dtd_entity (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer) {}
+function xmlwriter_end_dtd_entity (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -1167,7 +1208,8 @@ function xmlwriter_end_dtd_entity (#[LanguageLevelTypeAware(["8.0" => "XMLWriter
  * @param string $ndataid
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_dtd_entity (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, $name, $content, $pe, $pubid, $sysid, $ndataid) {}
+function xmlwriter_write_dtd_entity (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, $name, $content, $pe, $pubid, $sysid, $ndataid): bool
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -1183,7 +1225,8 @@ function xmlwriter_write_dtd_entity (#[LanguageLevelTypeAware(["8.0" => "XMLWrit
  * </p>
  * @return string the current buffer as a string.
  */
-function xmlwriter_output_memory (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, bool $flush = true) {}
+function xmlwriter_output_memory (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, bool $flush = true): string
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 1.0.0)<br/>
@@ -1197,8 +1240,9 @@ function xmlwriter_output_memory (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"
  * @param bool $empty [optional] <p>
  * Whether to empty the buffer or not. Default is <b>TRUE</b>.
  * </p>
- * @return mixed If you opened the writer in memory, this function returns the generated XML buffer,
+ * @return string|int If you opened the writer in memory, this function returns the generated XML buffer,
  * Else, if using URI, this function will write the buffer and return the number of
  * written bytes.
  */
-function xmlwriter_flush (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, bool $empty = true) {}
+function xmlwriter_flush (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, bool $empty = true): string|int
+{}

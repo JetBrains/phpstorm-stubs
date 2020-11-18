@@ -58,14 +58,16 @@ use JetBrains\PhpStorm\Pure;
  * </p>
  * @return bool true on success or false on failure.
  */
-function syslog (int $priority, string $message) {}
+function syslog (int $priority, string $message): bool
+{}
 
 /**
  * Close connection to system logger
  * @link https://php.net/manual/en/function.closelog.php
  * @return bool true on success or false on failure.
  */
-function closelog () {}
+function closelog (): bool
+{}
 
 /**
  * Registers a function that will be called when PHP starts sending output.
@@ -75,7 +77,8 @@ function closelog () {}
  * @param callable $callback Function called just before the headers are sent.
  * @return bool true on success or false on failure.
  */
-function header_register_callback ( callable $callback ) {}
+function header_register_callback ( callable $callback ): bool
+{}
 
 /**
  * Get the size of an image from a string.
@@ -97,7 +100,7 @@ function header_register_callback ( callable $callback ) {}
  * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
  * @since 5.4
  */
-function getimagesizefromstring (string $string , &$image_info)
+function getimagesizefromstring (string $string , &$image_info): array|false
 {}
 
 /**
@@ -109,6 +112,7 @@ function getimagesizefromstring (string $string , &$image_info)
  * @link https://secure.php.net/manual/en/function.stream-set-chunk-size.php
  * @since 5.4
  */
+#[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
 function stream_set_chunk_size ($stream , int $size)
 {}
 
@@ -126,7 +130,8 @@ function define_syslog_variables () {}
  * @link https://php.net/manual/en/function.lcg-value.php
  * @return float A pseudo random float value in the range of (0, 1)
  */
-function lcg_value () {}
+function lcg_value (): float
+{}
 
 /**
  * Calculate the metaphone key of a string
@@ -141,7 +146,9 @@ function lcg_value () {}
  * @return string|false the metaphone key as a string, or FALSE on failure
  */
 #[Pure]
-function metaphone (string $string, int $max_phonemes = 0) {}
+#[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
+function metaphone (string $string, int $max_phonemes = 0): bool|string
+{}
 
 /**
  * Turn on output buffering
@@ -208,21 +215,22 @@ function metaphone (string $string, int $max_phonemes = 0) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function ob_start ($callback, int $chunk_size, int $flags = PHP_OUTPUT_HANDLER_STDFLAGS) {}
+function ob_start ($callback, int $chunk_size, int $flags = PHP_OUTPUT_HANDLER_STDFLAGS): bool
+{}
 
 /**
  * Flush (send) the output buffer
  * @link https://php.net/manual/en/function.ob-flush.php
- * @return void
+ * @return bool
  */
-function ob_flush () {}
+function ob_flush (): bool {}
 
 /**
  * Clean (erase) the output buffer
  * @link https://php.net/manual/en/function.ob-clean.php
- * @return void
+ * @return bool
  */
-function ob_clean () {}
+function ob_clean (): bool {}
 
 /**
  * Flush (send) the output buffer and turn off output buffering
@@ -231,7 +239,8 @@ function ob_clean () {}
  * function without an active buffer or that for some reason a buffer could
  * not be deleted (possible for special buffer).
  */
-function ob_end_flush () {}
+function ob_end_flush (): bool
+{}
 
 /**
  * Clean (erase) the output buffer and turn off output buffering
@@ -240,14 +249,16 @@ function ob_end_flush () {}
  * function without an active buffer or that for some reason a buffer could
  * not be deleted (possible for special buffer).
  */
-function ob_end_clean () {}
+function ob_end_clean (): bool
+{}
 
 /**
  * Flush the output buffer, return it as a string and turn off output buffering
  * @link https://php.net/manual/en/function.ob-get-flush.php
  * @return string|false the output buffer or false if no buffering is active.
  */
-function ob_get_flush () {}
+function ob_get_flush (): string|false
+{}
 
 /**
  * Get current buffer contents and delete current output buffer
@@ -255,7 +266,8 @@ function ob_get_flush () {}
  * @return string|false the contents of the output buffer and end output buffering.
  * If output buffering isn't active then false is returned.
  */
-function ob_get_clean () {}
+function ob_get_clean (): string|false
+{}
 
 /**
  * Return the length of the output buffer
@@ -263,7 +275,8 @@ function ob_get_clean () {}
  * @return int|false the length of the output buffer contents or false if no
  * buffering is active.
  */
-function ob_get_length () {}
+function ob_get_length (): int|false
+{}
 
 /**
  * Return the nesting level of the output buffering mechanism
@@ -271,7 +284,8 @@ function ob_get_length () {}
  * @return int the level of nested output buffering handlers or zero if output
  * buffering is not active.
  */
-function ob_get_level () {}
+function ob_get_level (): int
+{}
 
 /**
  * Get status of output buffers
@@ -342,7 +356,8 @@ function ob_get_level () {}
  * <tr><td>blocksize</td><td>...</td></tr>
  * </table>
  */
-function ob_get_status (bool $full_status) {}
+function ob_get_status (bool $full_status): array
+{}
 
 /**
  * Return the contents of the output buffer
@@ -350,7 +365,8 @@ function ob_get_status (bool $full_status) {}
  * @return string|false This will return the contents of the output buffer or false, if output
  * buffering isn't active.
  */
-function ob_get_contents () {}
+function ob_get_contents (): string|false
+{}
 
 /**
  * Turn implicit flush on/off
@@ -360,7 +376,7 @@ function ob_get_contents () {}
  * </p>
  * @return void
  */
-function ob_implicit_flush (bool $enable = true) {}
+function ob_implicit_flush (bool $enable = true): void {}
 
 /**
  * List all output handlers in use
@@ -371,7 +387,8 @@ function ob_implicit_flush (bool $enable = true) {}
  * ob_list_handlers will return "default output
  * handler".
  */
-function ob_list_handlers () {}
+function ob_list_handlers (): array
+{}
 
 /**
  * Sort an array by key
@@ -386,7 +403,8 @@ function ob_list_handlers () {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function ksort (array &$array, int $flags) {}
+function ksort (array &$array, int $flags): bool
+{}
 
 /**
  * Sort an array by key in reverse order
@@ -401,7 +419,8 @@ function ksort (array &$array, int $flags) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function krsort (array &$array, int $flags) {}
+function krsort (array &$array, int $flags): bool
+{}
 
 /**
  * Sort an array using a "natural order" algorithm
@@ -411,7 +430,8 @@ function krsort (array &$array, int $flags) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function natsort (array &$array) {}
+function natsort (array &$array): bool
+{}
 
 /**
  * Sort an array using a case insensitive "natural order" algorithm
@@ -421,7 +441,8 @@ function natsort (array &$array) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function natcasesort (array &$array) {}
+function natcasesort (array &$array): bool
+{}
 
 /**
  * Sort an array and maintain index association
@@ -436,7 +457,8 @@ function natcasesort (array &$array) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function asort (array &$array, int $flags) {}
+function asort (array &$array, int $flags): bool
+{}
 
 /**
  * Sort an array in reverse order and maintain index association
@@ -451,7 +473,8 @@ function asort (array &$array, int $flags) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function arsort (array &$array, int $flags) {}
+function arsort (array &$array, int $flags): bool
+{}
 
 /**
  * Sort an array
@@ -469,7 +492,8 @@ function arsort (array &$array, int $flags) {}
  * (don't change types)
  * @return bool true on success or false on failure.
  */
-function sort (array &$array, int $flags) {}
+function sort (array &$array, int $flags): bool
+{}
 
 /**
  * Sort an array in reverse order
@@ -484,7 +508,8 @@ function sort (array &$array, int $flags) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function rsort (array &$array, int $flags) {}
+function rsort (array &$array, int $flags): bool
+{}
 
 /**
  * Sort an array by values using a user-defined comparison function
@@ -499,7 +524,8 @@ function rsort (array &$array, int $flags) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function usort (array &$array, callable $callback) {}
+function usort (array &$array, callable $callback): bool
+{}
 
 /**
  * Sort an array with a user-defined comparison function and maintain index association
@@ -513,7 +539,8 @@ function usort (array &$array, callable $callback) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function uasort (array &$array, callable $callback) {}
+function uasort (array &$array, callable $callback): bool
+{}
 
 /**
  * Sort an array by keys using a user-defined comparison function
@@ -534,7 +561,8 @@ function uasort (array &$array, callable $callback) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function uksort (array &$array, callable $callback) {}
+function uksort (array &$array, callable $callback): bool
+{}
 
 /**
  * Shuffle an array
@@ -544,7 +572,8 @@ function uksort (array &$array, callable $callback) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function shuffle (array &$array) {}
+function shuffle (array &$array): bool
+{}
 
 /**
  * Apply a user function to every member of an array
@@ -578,7 +607,7 @@ function shuffle (array &$array) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_walk (object|array &$array, callable $callback, mixed $arg)
+function array_walk (object|array &$array, callable $callback, mixed $arg): bool
 {}
 
 /**
@@ -607,7 +636,7 @@ function array_walk (object|array &$array, callable $callback, mixed $arg)
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_walk_recursive (object|array &$array, callable $callback, mixed $arg)
+function array_walk_recursive (object|array &$array, callable $callback, mixed $arg): bool
 {}
 
 /**
@@ -638,7 +667,8 @@ function array_walk_recursive (object|array &$array, callable $callback, mixed $
  * empty array. Use isset to test if a variable is set.
  */
 #[Pure]
-function count (Countable|array $value, int $mode = COUNT_NORMAL) {}
+function count (Countable|array $value, int $mode = COUNT_NORMAL): int
+{}
 
 /**
  * Set the internal pointer of an array to its last element
@@ -649,10 +679,10 @@ function count (Countable|array $value, int $mode = COUNT_NORMAL) {}
  * a function returning an array because only actual variables may be
  * passed by reference.
  * </p>
- * @return mixed|false the value of the last element or false for empty array.
+ * @return mixed the value of the last element or false for empty array.
  * @meta
  */
-function end (object|array &$array) {}
+function end (object|array &$array): mixed {}
 
 /**
  * Rewind the internal array pointer
@@ -665,7 +695,7 @@ function end (object|array &$array) {}
  * elements.
  * @meta
  */
-function prev (object|array &$array) {}
+function prev (object|array &$array): mixed {}
 
 /**
  * Advance the internal array pointer of an array
@@ -677,7 +707,7 @@ function prev (object|array &$array) {}
  * internal array pointer, or false if there are no more elements.
  * @meta
  */
-function next (object|array &$array) {}
+function next (object|array &$array): mixed {}
 
 /**
  * Set the internal pointer of an array to its first element
@@ -685,11 +715,11 @@ function next (object|array &$array) {}
  * @param ArrayAccess|array &$array <p>
  * The input array.
  * </p>
- * @return mixed|false the value of the first array element, or false if the array is
+ * @return mixed the value of the first array element, or false if the array is
  * empty.
  * @meta
  */
-function reset (object|array &$array) {}
+function reset (object|array &$array): mixed {}
 
 /**
  * Return the current element in an array
@@ -705,7 +735,7 @@ function reset (object|array &$array) {}
  * @meta
  */
 #[Pure]
-function current (object|array $array) {}
+function current (object|array $array): mixed {}
 
 /**
  * Fetch a key from an array
@@ -720,7 +750,8 @@ function current (object|array $array) {}
  * empty, key returns null.
  */
 #[Pure]
-function key (object|array $array) {}
+function key (object|array $array): string|int|null
+{}
 
 /**
  * Find lowest value
@@ -731,7 +762,8 @@ function key (object|array $array) {}
  * parameter values.
  */
 #[Pure]
-function min (mixed $value, mixed ...$values) {}
+function min (mixed $value, mixed ...$values): mixed
+{}
 
 /**
  * Find highest value
@@ -742,7 +774,8 @@ function min (mixed $value, mixed ...$values) {}
  * parameter values, either within a arg array or two arguments.
  */
 #[Pure]
-function max (mixed $value, mixed ...$values) {}
+function max (mixed $value, mixed ...$values): mixed
+{}
 
 /**
  * Checks if a value exists in an array
@@ -767,7 +800,8 @@ function max (mixed $value, mixed ...$values) {}
  * false otherwise.
  */
 #[Pure]
-function in_array (mixed $needle, array $haystack, bool $strict = false) {}
+function in_array (mixed $needle, array $haystack, bool $strict = false): bool
+{}
 
 /**
  * Searches the array for a given value and returns the first corresponding key if successful
@@ -798,7 +832,7 @@ function in_array (mixed $needle, array $haystack, bool $strict = false) {}
  * search_value parameter instead.
  */
 #[Pure]
-function array_search (mixed $needle, array $haystack, bool $strict)
+function array_search (mixed $needle, array $haystack, bool $strict): string|int|false
 {}
 
 /**
@@ -827,7 +861,8 @@ function array_search (mixed $needle, array $haystack, bool $strict)
  * @return int the number of variables successfully imported into the symbol
  * table.
  */
-function extract (array $array, int $flags, string $prefix) {}
+function extract (array $array, int $flags, string $prefix): int
+{}
 
 /**
  * Create array containing variables and their values
@@ -843,7 +878,8 @@ function extract (array $array, int $flags, string $prefix) {}
  * @return array the output array with all the variables added to it.
  */
 #[Pure]
-function compact (mixed $var_name, ...$var_names) {}
+function compact (mixed $var_name, ...$var_names): array
+{}
 
 /**
  * Fill an array with values
@@ -861,7 +897,8 @@ function compact (mixed $var_name, ...$var_names) {}
  * @return array the filled array
  */
 #[Pure]
-function array_fill (int $start_index, int $count, mixed $value) {}
+function array_fill (int $start_index, int $count, mixed $value): array
+{}
 
 /**
  * Fill an array with values, specifying keys
@@ -876,7 +913,8 @@ function array_fill (int $start_index, int $count, mixed $value) {}
  * @return array the filled array
  */
 #[Pure]
-function array_fill_keys (array $keys, mixed $value) {}
+function array_fill_keys (array $keys, mixed $value): array
+{}
 
 /**
  * Create an array containing a range of elements
@@ -897,7 +935,7 @@ function array_fill_keys (array $keys, mixed $value) {}
  * end, inclusive.
  */
 #[Pure]
-function range ($start, $end, int|float $step = 1)
+function range ($start, $end, int|float $step = 1): array
 {}
 
 /**
@@ -913,7 +951,8 @@ function range ($start, $end, int|float $step = 1)
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_multisort (&$array, &...$rest) {}
+function array_multisort (&$array, &...$rest): bool
+{}
 
 /**
  * Push elements onto the end of array
@@ -928,7 +967,8 @@ function array_multisort (&$array, &...$rest) {}
  * </p>
  * @return int the number of elements in the array.
  */
-function array_push (array &$array, ...$values) {}
+function array_push (array &$array, ...$values): int
+{}
 
 /**
  * Pop the element off the end of array
@@ -941,7 +981,7 @@ function array_push (array &$array, ...$values) {}
  * null will be returned.
  * @meta
  */
-function array_pop (array &$array) {}
+function array_pop (array &$array): mixed {}
 
 /**
  * Shift an element off the beginning of array
@@ -953,7 +993,7 @@ function array_pop (array &$array) {}
  * empty or is not an array.
  * @meta
  */
-function array_shift (array &$array) {}
+function array_shift (array &$array): mixed {}
 
 /**
  * Prepend elements to the beginning of an array
@@ -968,7 +1008,8 @@ function array_shift (array &$array) {}
  * </p>
  * @return int the number of elements in the array.
  */
-function array_unshift (array &$array, ...$values) {}
+function array_unshift (array &$array, ...$values): int
+{}
 
 /**
  * Remove a portion of the array and replace it with something else
@@ -1014,7 +1055,7 @@ function array_unshift (array &$array, ...$values) {}
  * </p>
  * @return array the array consisting of the extracted elements.
  */
-function array_splice (array &$array, int $offset, int $length, mixed $replacement)
+function array_splice (array &$array, int $offset, int $length, mixed $replacement): array
 {}
 
 /**
@@ -1047,7 +1088,7 @@ function array_splice (array &$array, int $offset, int $length, mixed $replaceme
  * @meta
  */
 #[Pure]
-function array_slice (array $array, int $offset, int $length, bool $preserve_keys = false)
+function array_slice (array $array, int $offset, int $length, bool $preserve_keys = false): array
 {}
 
 /**
@@ -1059,4 +1100,5 @@ function array_slice (array $array, int $offset, int $length, bool $preserve_key
  * @return array the resulting array.
  */
 #[Pure]
-function array_merge (array ...$arrays) {}
+function array_merge (array ...$arrays): array
+{}

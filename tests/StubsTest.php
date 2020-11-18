@@ -122,6 +122,7 @@ class StubsTest extends TestCase
                 }
             }
         }
+        self::assertEquals($function->returnType, $phpstormFunction->returnType, "Function $functionName has invalid return type");
     }
 
     private function printParameters(array $params): string
@@ -552,10 +553,10 @@ class StubsTest extends TestCase
 
     private static function checkFunctionDoesNotHaveReturnTypeHints(int $sinceVersion, PHPFunction $function)
     {
-        $returnTypeHint = $function->returnType === null ? $function->returnType : $function->returnType->getType();
+        $returnTypeHint = $function->returnType;
         if ($sinceVersion < 7) {
             if (!$function->hasMutedProblem(StubProblemType::FUNCTION_HAS_RETURN_TYPEHINT)) {
-                self::assertNull($returnTypeHint, "Function '$function->name' has since version '$sinceVersion'
+                self::assertEmpty($returnTypeHint, "Function '$function->name' has since version '$sinceVersion'
             but has return typehint '$returnTypeHint' that supported only since PHP 7. Please declare return type via PhpDoc");
             } else {
                 self::markTestSkipped("Skipped");

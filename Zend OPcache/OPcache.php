@@ -11,7 +11,8 @@
  * cache is disabled.
  * @since 5.5
  */
-function opcache_compile_file(string $filename) { }
+function opcache_compile_file(string $filename): bool
+{ }
 
 /**
  * (PHP 5 &gt;= 5.5.0, PECL ZendOpcache &gt;= 7.0.0 )<br/>
@@ -25,7 +26,8 @@ function opcache_compile_file(string $filename) { }
  * cache is disabled.
  * @since 5.5
  */
-function opcache_invalidate(string $filename, bool $force = false) { }
+function opcache_invalidate(string $filename, bool $force = false): bool
+{ }
 
 /**
  * (PHP 5 &gt;= 5.5.0, PECL ZendOpcache &gt;= 7.0.0 )<br/>
@@ -34,26 +36,29 @@ function opcache_invalidate(string $filename, bool $force = false) { }
  * @return bool Returns <b>TRUE</b> if the opcode cache was reset, or <b>FALSE</b> if the opcode cache is disabled.
  * @since 5.5
  */
-function opcache_reset() { }
+function opcache_reset(): bool
+{ }
 
 /**
  * (PHP 5 &gt;= 5.5.5, PECL ZendOpcache &gt;= 7.0.2 )<br/>
  * Get status information about the cache
  * @link https://php.net/manual/en/function.opcache-get-status.php
  * @param bool $include_scripts <p>Include script specific state information</p>
- * @return array <p>Returns an array of information, optionally containing script specific state information</p>
+ * @return array|false <p>Returns an array of information, optionally containing script specific state information</p>
  * @since 5.5
  */
-function opcache_get_status (bool $include_scripts = true) {}
+function opcache_get_status (bool $include_scripts = true): array|false
+{}
 
 /**
  * (PHP 5 &gt;= 5.5.5, PECL ZendOpcache &gt;= 7.0.2 )<br/>
  * Get configuration information about the cache
  * @link https://php.net/manual/en/function.opcache-get-configuration.php
- * @return array <p>Returns an array of information, including ini, blacklist and version</p>
+ * @return array|false <p>Returns an array of information, including ini, blacklist and version</p>
  * @since 5.5
  */
-function opcache_get_configuration() {}
+function opcache_get_configuration(): array|false
+{}
 
 /**
  * (PHP 5 &gt;= 5.6, PECL ZendOpcache &gt;= 7.0.4 )<br/>
@@ -64,4 +69,5 @@ function opcache_get_configuration() {}
  * @return bool Returns TRUE if file is cached in OPCache, FALSE otherwise.
  * @since 5.6
  */
-function opcache_is_script_cached(string $filename) {}
+function opcache_is_script_cached(string $filename): bool
+{}

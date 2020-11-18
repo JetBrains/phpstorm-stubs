@@ -27,7 +27,7 @@ class PHPFunction extends BasePHPElement
 
     public ?Type $returnTag = null;
 
-    public ?NodeAbstract $returnType = null;
+    public string $returnType = '';
 
     public ?Doc $doc = null;
 
@@ -42,6 +42,7 @@ class PHPFunction extends BasePHPElement
         foreach ($reflectionObject->getParameters() as $parameter) {
             $this->parameters[] = (new PHPParameter())->readObjectFromReflection($parameter);
         }
+        $this->returnType = self::convertReflectionTypeToString($reflectionObject->getReturnType());
         return $this;
     }
 
@@ -53,12 +54,17 @@ class PHPFunction extends BasePHPElement
     {
         $functionName = $this->getFQN($node);
         $this->name = $functionName;
+        $typeFromAttribute = self::findTypeFromAttribute($node->attrGroups);
+        if ($typeFromAttribute != null) {
+            $this->returnType = $typeFromAttribute;
+        } else{
+            $this->returnType = self::convertParsedTypeToString($node->getReturnType());
+        }
 
         foreach ($node->getParams() as $parameter) {
             $this->parameters[] = (new PHPParameter())->readObjectFromStubNode($parameter);
         }
 
-        $this->returnType = $node->getReturnType();
         $this->collectTags($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);

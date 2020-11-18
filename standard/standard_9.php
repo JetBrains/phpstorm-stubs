@@ -22,7 +22,8 @@ define ("ARRAY_FILTER_USE_KEY", 2);
  * @return array An array of values resulted from merging the arguments together.
  */
 #[Pure]
-function array_merge_recursive(array ...$arrays) { }
+function array_merge_recursive(array ...$arrays): array
+{ }
 
 
 /**
@@ -42,7 +43,8 @@ function array_merge_recursive(array ...$arrays) { }
  * @return array or null if an error occurs.
  */
 #[Pure]
-function array_replace(array $array, array ...$replacements) { }
+function array_replace(array $array, array ...$replacements): array
+{ }
 
 /**
  * Replaces elements from passed arrays into the first array recursively
@@ -56,7 +58,8 @@ function array_replace(array $array, array ...$replacements) { }
  * @return array|null an array, or null if an error occurs.
  */
 #[Pure]
-function array_replace_recursive(array $array, array ...$replacements) { }
+function array_replace_recursive(array $array, array ...$replacements): ?array
+{ }
 
 /**
  * Return all the keys or a subset of the keys of an array
@@ -73,7 +76,8 @@ function array_replace_recursive(array $array, array ...$replacements) { }
  * @return array an array of all the keys in input.
  */
 #[Pure]
-function array_keys(array $array, mixed $filter_value, bool $strict) { }
+function array_keys(array $array, mixed $filter_value, bool $strict): array
+{ }
 
 /**
  * Return all the values of an array
@@ -85,7 +89,7 @@ function array_keys(array $array, mixed $filter_value, bool $strict) { }
  * @meta
  */
 #[Pure]
-function array_values(array $array) { }
+function array_values(array $array): array { }
 
 /**
  * Counts all the values of an array
@@ -97,7 +101,8 @@ function array_values(array $array) { }
  * keys and their count as value.
  */
 #[Pure]
-function array_count_values(array $array) { }
+function array_count_values(array $array): array
+{ }
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
@@ -110,7 +115,8 @@ function array_count_values(array $array) { }
  * @since 5.5
  */
 #[Pure]
-function array_column(array $array, string|int|null $column_key, string|int $index_key = null) { }
+function array_column(array $array, string|int|null $column_key, string|int $index_key = null): array
+{ }
 
 /**
  * Return an array with elements in reverse order
@@ -125,7 +131,7 @@ function array_column(array $array, string|int|null $column_key, string|int $ind
  * @meta
  */
 #[Pure]
-function array_reverse(array $array, bool $preserve_keys) { }
+function array_reverse(array $array, bool $preserve_keys): array { }
 
 /**
  * Iteratively reduce the array to a single value using a callback function
@@ -157,7 +163,7 @@ function array_reverse(array $array, bool $preserve_keys) { }
  * <br/>
  * @meta
  */
-function array_reduce(array $array, callable $callback, mixed $initial) { }
+function array_reduce(array $array, callable $callback, mixed $initial): mixed { }
 
 /**
  * Pad array to the specified length with a value
@@ -180,7 +186,8 @@ function array_reduce(array $array, callable $callback, mixed $initial) { }
  * the length of the input then no padding takes place.
  */
 #[Pure]
-function array_pad(array $array, int $length, mixed $value) { }
+function array_pad(array $array, int $length, mixed $value): array
+{ }
 
 /**
  * Exchanges all keys with their associated values in an array
@@ -191,7 +198,8 @@ function array_pad(array $array, int $length, mixed $value) { }
  * @return array Returns the flipped array.
  */
 #[Pure]
-function array_flip(array $array) { }
+function array_flip(array $array): array
+{ }
 
 /**
  * Changes the case of all keys in an arra
@@ -207,7 +215,7 @@ function array_flip(array $array) { }
  * @meta
  */
 #[Pure]
-function array_change_key_case(array $array, int $case) { }
+function array_change_key_case(array $array, int $case): array { }
 
 /**
  * Pick one or more random keys out of an array
@@ -224,7 +232,8 @@ function array_change_key_case(array $array, int $case) { }
  * random keys as well as values out of the array.
  */
 #[Pure]
-function array_rand(array $array, int $num) { }
+function array_rand(array $array, int $num): array|string|int
+{ }
 
 /**
  * Removes duplicate values from an array
@@ -258,7 +267,7 @@ function array_rand(array $array, int $num) { }
  * @meta
  */
 #[Pure]
-function array_unique(array $array, int $flags = SORT_STRING) { }
+function array_unique(array $array, int $flags = SORT_STRING): array { }
 
 #[PhpStormStubsElementAvailable('8.0')]
 /**
@@ -275,7 +284,7 @@ function array_unique(array $array, int $flags = SORT_STRING) { }
  * @meta
  */
 #[Pure]
-function array_intersect(array $array, ...$arrays) { }
+function array_intersect(array $array, ...$arrays): array { }
 
 #[PhpStormStubsElementAvailable(to: '7.4')]
 /**
@@ -293,7 +302,7 @@ function array_intersect(array $array, ...$arrays) { }
  * @meta
  */
 #[Pure]
-function array_intersect(array $array1, array $array2, array ...$_) { }
+function array_intersect(array $array1, array $array2, array ...$_): array { }
 
 /**
  * Computes the intersection of arrays using keys for comparison
@@ -311,7 +320,7 @@ function array_intersect(array $array1, array $array2, array ...$_) { }
  * @meta
  */
 #[Pure]
-function array_intersect_key(array $array1, array $array2, array ...$_) { }
+function array_intersect_key(array $array1, array $array2, array ...$_): array { }
 
 /**
  * Computes the intersection of arrays using a callback function on the keys for comparison
@@ -330,7 +339,7 @@ function array_intersect_key(array $array1, array $array2, array ...$_) { }
  * in all the arguments.
  * @meta
  */
-function array_intersect_ukey(array $array1, array $array2, array $_ = null, callable $key_compare_func) { }
+function array_intersect_ukey(array $array1, array $array2, array $_ = null, callable $key_compare_func): array { }
 
 /**
  * Computes the intersection of arrays, compares data by a callback function
@@ -355,7 +364,7 @@ function array_intersect_ukey(array $array1, array $array2, array $_ = null, cal
  * that are present in all the arguments.
  * @meta
  */
-function array_uintersect(array $array1, array $array2, array $_ = null, callable $data_compare_func) { }
+function array_uintersect(array $array1, array $array2, array $_ = null, callable $data_compare_func): array { }
 
 /**
  * Computes the intersection of arrays with additional index check
@@ -372,7 +381,7 @@ function array_uintersect(array $array1, array $array2, array $_ = null, callabl
  * @meta
  */
 #[Pure]
-function array_intersect_assoc(array $array1, array $array2, array $_ = null) { }
+function array_intersect_assoc(array $array1, array $array2, array $_ = null): array { }
 
 /**
  * Computes the intersection of arrays with additional index check, compares data by a callback function
@@ -395,7 +404,7 @@ function array_intersect_assoc(array $array1, array $array2, array $_ = null) { 
  * array1 that are present in all the arguments.
  * @meta
  */
-function array_uintersect_assoc(array $array1, array $array2, array $_ = null, callable $data_compare_func) { }
+function array_uintersect_assoc(array $array1, array $array2, array $_ = null, callable $data_compare_func): array { }
 
 /**
  * Computes the intersection of arrays with additional index check, compares indexes by a callback function
@@ -414,7 +423,7 @@ function array_uintersect_assoc(array $array1, array $array2, array $_ = null, c
  * in all of the arguments.
  * @meta
  */
-function array_intersect_uassoc(array $array1, array $array2, array $_ = null, callable $key_compare_func) { }
+function array_intersect_uassoc(array $array1, array $array2, array $_ = null, callable $key_compare_func): array { }
 
 /**
  * Computes the intersection of arrays with additional index check, compares data and indexes by separate callback functions
@@ -441,7 +450,7 @@ function array_intersect_uassoc(array $array1, array $array2, array $_ = null, c
  * @meta
  */
 #[Pure]
-function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, callable $data_compare_func, callable $key_compare_func) { }
+function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, callable $data_compare_func, callable $key_compare_func): array { }
 
 #[PhpStormStubsElementAvailable('8.0')]
 /**
@@ -457,7 +466,7 @@ function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, 
  * @meta
  */
 #[Pure]
-function array_diff(array $array, ...$excludes) { }
+function array_diff(array $array, ...$excludes): array { }
 
 #[PhpStormStubsElementAvailable(to: '7.4')]
 /**
@@ -475,7 +484,7 @@ function array_diff(array $array, ...$excludes) { }
  * @meta
  */
 #[Pure]
-function array_diff(array $array1, array $array2, array ...$_) { }
+function array_diff(array $array1, array $array2, array ...$_): array { }
 
 /**
  * Computes the difference of arrays using keys for comparison
@@ -493,7 +502,7 @@ function array_diff(array $array1, array $array2, array ...$_) { }
  * @meta
  */
 #[Pure]
-function array_diff_key(array $array1, array $array2, array ...$_) { }
+function array_diff_key(array $array1, array $array2, array ...$_): array { }
 
 /**
  * Computes the difference of arrays using a callback function on the keys for comparison
@@ -515,7 +524,7 @@ function array_diff_key(array $array1, array $array2, array ...$_) { }
  * array1 that are not present in any of the other arrays.
  * @meta
  */
-function array_diff_ukey(array $array1, array $array2, array $_ = null, callable $key_compare_func) { }
+function array_diff_ukey(array $array1, array $array2, array $_ = null, callable $key_compare_func): array { }
 
 /**
  * Computes the difference of arrays by using a callback function for data comparison
@@ -540,7 +549,7 @@ function array_diff_ukey(array $array1, array $array2, array $_ = null, callable
  * that are not present in any of the other arguments.
  * @meta
  */
-function array_udiff(array $array1, array $array2, array $_ = null, callable $data_compare_func) { }
+function array_udiff(array $array1, array $array2, array $_ = null, callable $data_compare_func): array { }
 
 /**
  * Computes the difference of arrays with additional index check
@@ -557,7 +566,7 @@ function array_udiff(array $array1, array $array2, array $_ = null, callable $da
  * @meta
  */
 #[Pure]
-function array_diff_assoc(array $array1, array $array2, array ...$_) { }
+function array_diff_assoc(array $array1, array $array2, array ...$_): array { }
 
 /**
  * Computes the difference of arrays with additional index check, compares data by a callback function
@@ -589,7 +598,7 @@ function array_diff_assoc(array $array1, array $array2, array ...$_) { }
  * comparison.
  * @meta
  */
-function array_udiff_assoc(array $array1, array $array2, array $_ = null, callable $data_compare_func) { }
+function array_udiff_assoc(array $array1, array $array2, array $_ = null, callable $data_compare_func): array { }
 
 /**
  * Computes the difference of arrays with additional index check which is performed by a user supplied callback function
@@ -611,7 +620,7 @@ function array_udiff_assoc(array $array1, array $array2, array $_ = null, callab
  * array1 that are not present in any of the other arrays.
  * @meta
  */
-function array_diff_uassoc(array $array1, array $array2, array $_ = null, callable $key_compare_func) { }
+function array_diff_uassoc(array $array1, array $array2, array $_ = null, callable $key_compare_func): array { }
 
 /**
  * Computes the difference of arrays with additional index check, compares data and indexes by a callback function
@@ -650,7 +659,7 @@ function array_diff_uassoc(array $array1, array $array2, array $_ = null, callab
  * arguments.
  * @meta
  */
-function array_udiff_uassoc(array $array1, array $array2, array $_ = null, callable $data_compare_func, callable $key_compare_func) { }
+function array_udiff_uassoc(array $array1, array $array2, array $_ = null, callable $data_compare_func, callable $key_compare_func): array { }
 
 /**
  * Calculate the sum of values in an array
@@ -661,7 +670,8 @@ function array_udiff_uassoc(array $array1, array $array2, array $_ = null, calla
  * @return int|float the sum of values as an integer or float.
  */
 #[Pure]
-function array_sum(array $array) { }
+function array_sum(array $array): int|float
+{ }
 
 /**
  * Calculate the product of values in an array
@@ -672,7 +682,8 @@ function array_sum(array $array) { }
  * @return int|float the product as an integer or float.
  */
 #[Pure]
-function array_product(array $array) { }
+function array_product(array $array): int|float
+{ }
 
 /**
  * Iterates over each value in the <b>array</b>
@@ -708,7 +719,7 @@ function array_product(array $array) { }
  * @return array the filtered array.
  * @meta
  */
-function array_filter(array $array, callable $callback, int $mode = 0) { }
+function array_filter(array $array, callable $callback, int $mode = 0): array { }
 
 /**
  * Applies the callback to the elements of the given arrays
@@ -724,7 +735,7 @@ function array_filter(array $array, callable $callback, int $mode = 0) { }
  * after applying the callback function to each one.
  * @meta
  */
-function array_map(callable $callback, array $array, array ...$arrays) { }
+function array_map(callable $callback, array $array, array ...$arrays): array { }
 
 /**
  * Split an array into chunks
@@ -743,7 +754,7 @@ function array_map(callable $callback, array $array, array ...$arrays) { }
  * with each dimension containing size elements.
  */
 #[Pure]
-function array_chunk(array $array, int $length, bool $preserve_keys)
+function array_chunk(array $array, int $length, bool $preserve_keys): array
 { }
 
 /**
@@ -761,7 +772,7 @@ function array_chunk(array $array, int $length, bool $preserve_keys)
  * @meta
  */
 #[Pure]
-function array_combine(array $keys, array $values) { }
+function array_combine(array $keys, array $values): array { }
 
 /**
  * Checks if the given key or index exists in the array
@@ -775,7 +786,7 @@ function array_combine(array $keys, array $values) { }
  * @return bool true on success or false on failure.
  */
 #[Pure]
-function array_key_exists($key, array $array)
+function array_key_exists($key, array $array): bool
 { }
 
 /**
@@ -789,7 +800,8 @@ function array_key_exists($key, array $array)
  * @since 7.3
  */
 #[Pure]
-function array_key_first(array $array) { }
+function array_key_first(array $array): string|int|null
+{ }
 
 /**
  * Gets the last key of an array
@@ -802,7 +814,8 @@ function array_key_first(array $array) { }
  * @since 7.3
  */
 #[Pure]
-function array_key_last(array $array) { }
+function array_key_last(array $array): string|int|null
+{ }
 
 /**
  * &Alias; <function>current</function>
@@ -811,7 +824,8 @@ function array_key_last(array $array) { }
  * @return mixed
  */
 #[Pure]
-function pos(object|array $array) { }
+function pos(object|array $array): mixed
+{ }
 
 /**
  * &Alias; <function>count</function>
@@ -821,7 +835,8 @@ function pos(object|array $array) { }
  * @return int
  */
 #[Pure]
-function sizeof(Countable|array $value, int $mode = COUNT_NORMAL) { }
+function sizeof(Countable|array $value, int $mode = COUNT_NORMAL): int
+{ }
 
 /**
  * Checks if the given key or index exists in the array. The name of this function is array_key_exists() in PHP > 4.0.6.
@@ -835,7 +850,8 @@ function sizeof(Countable|array $value, int $mode = COUNT_NORMAL) { }
  * @return bool true on success or false on failure.
  */
 #[Pure]
-function key_exists($key, array $array) { }
+function key_exists($key, array $array): bool
+{ }
 
 /**
  * Checks if assertion is &false;
@@ -851,7 +867,8 @@ function key_exists($key, array $array) { }
  * <p>An optional description that will be included in the failure message if the assertion fails.</p>
  * @return bool false if the assertion is false, true otherwise.
  */
-function assert(mixed $assertion, $description = '') { }
+function assert(mixed $assertion, $description = ''): bool
+{ }
 
 /**
  * AssertionError is thrown when an assertion made via {@see assert()} fails.
@@ -912,9 +929,10 @@ class AssertionError extends Error {
  * @param mixed $value [optional] <p>
  * An optional new value for the option.
  * </p>
- * @return mixed|false the original setting of any option or false on errors.
+ * @return object|array|string|int|null the original setting of any option or false on errors.
  */
-function assert_options(int $option, mixed $value) { }
+function assert_options(int $option, mixed $value): object|array|string|int|null
+{ }
 
 /**
  * Compares two "PHP-standardized" version number strings
@@ -950,7 +968,7 @@ function assert_options(int $option, mixed $value) { }
  * function will return true if the relationship is the one specified
  * by the operator, false otherwise.
  */
-function version_compare(string $version1, string $version2, string $operator)
+function version_compare(string $version1, string $version2, string $operator): int|bool
 { }
 
 /**
@@ -966,7 +984,8 @@ function version_compare(string $version1, string $version2, string $operator)
  * -1 is returned.
  */
 #[Pure]
-function ftok(string $filename, string $project_id) { }
+function ftok(string $filename, string $project_id): int
+{ }
 
 /**
  * Perform the rot13 transform on a string
@@ -977,7 +996,8 @@ function ftok(string $filename, string $project_id) { }
  * @return string the ROT13 version of the given string.
  */
 #[Pure]
-function str_rot13(string $string) { }
+function str_rot13(string $string): string
+{ }
 
 /**
  * Retrieve list of registered filters
@@ -986,7 +1006,8 @@ function str_rot13(string $string) { }
  * available.
  */
 #[Pure]
-function stream_get_filters() { }
+function stream_get_filters(): array
+{ }
 
 /**
  * Check if a stream is a TTY
@@ -996,7 +1017,8 @@ function stream_get_filters() { }
  * @since 7.2
  */
 #[Pure]
-function stream_isatty($stream) {}
+function stream_isatty($stream): bool
+{}
 
 /**
  * Register a user defined stream filter
@@ -1112,7 +1134,8 @@ function stream_isatty($stream) {}
  * stream_filter_register will return false if the
  * filtername is already defined.
  */
-function stream_filter_register(string $filter_name, string $class) { }
+function stream_filter_register(string $filter_name, string $class): bool
+{ }
 
 /**
  * Return a bucket object from the brigade for operating on
@@ -1120,7 +1143,8 @@ function stream_filter_register(string $filter_name, string $class) { }
  * @param resource $brigade
  * @return object
  */
-function stream_bucket_make_writeable($brigade) { }
+function stream_bucket_make_writeable($brigade): object
+{ }
 
 /**
  * Prepend bucket to brigade
@@ -1129,7 +1153,7 @@ function stream_bucket_make_writeable($brigade) { }
  * @param object $bucket
  * @return void
  */
-function stream_bucket_prepend($brigade, object $bucket) { }
+function stream_bucket_prepend($brigade, object $bucket): void { }
 
 /**
  * Append bucket to brigade
@@ -1138,7 +1162,7 @@ function stream_bucket_prepend($brigade, object $bucket) { }
  * @param object $bucket
  * @return void
  */
-function stream_bucket_append($brigade, object $bucket) { }
+function stream_bucket_append($brigade, object $bucket): void { }
 
 /**
  * Create a new bucket for use on the current stream
@@ -1147,7 +1171,8 @@ function stream_bucket_append($brigade, object $bucket) { }
  * @param string $buffer
  * @return object
  */
-function stream_bucket_new($stream, string $buffer) { }
+function stream_bucket_new($stream, string $buffer): object
+{ }
 
 /**
  * Add URL rewriter values
@@ -1160,7 +1185,8 @@ function stream_bucket_new($stream, string $buffer) { }
  * </p>
  * @return bool true on success or false on failure.
  */
-function output_add_rewrite_var(string $name, string $value) { }
+function output_add_rewrite_var(string $name, string $value): bool
+{ }
 
 /**
  * Reset URL rewriter values
@@ -1191,7 +1217,8 @@ function output_add_rewrite_var(string $name, string $value) { }
  * @link https://php.net/manual/en/function.output-reset-rewrite-vars.php
  * @return bool true on success or false on failure.
  */
-function output_reset_rewrite_vars() { }
+function output_reset_rewrite_vars(): bool
+{ }
 
 /**
  * Returns directory path used for temporary files
@@ -1199,7 +1226,8 @@ function output_reset_rewrite_vars() { }
  * @return string the path of the temporary directory.
  * @since 5.2.1
  */
-function sys_get_temp_dir() { }
+function sys_get_temp_dir(): string
+{ }
 
 /**
  * Get the contents of the realpath cache.
@@ -1211,7 +1239,8 @@ function sys_get_temp_dir() { }
  * @since 5.3.2
  */
 #[Pure]
-function realpath_cache_get() { }
+function realpath_cache_get(): array
+{ }
 
 /**
  * Get the amount of memory used by the realpath cache.
@@ -1220,7 +1249,8 @@ function realpath_cache_get() { }
  * @since 5.3.2
  */
 #[Pure]
-function realpath_cache_size() { }
+function realpath_cache_size(): int
+{ }
 
 /**
  * It returns the same result as (array) $object, with the
@@ -1230,7 +1260,8 @@ function realpath_cache_size() { }
  * @return array returns the mangled object properties
  * @since 7.4
  */
-function get_mangled_object_vars(object $object){}
+function get_mangled_object_vars(object $object): array
+{}
 
 /**
  * Get the type or object name of a variable

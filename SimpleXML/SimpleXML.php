@@ -415,10 +415,10 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
  * <b>TRUE</b> if <i>ns</i> is a prefix, <b>FALSE</b> if it's a URI;
  * defaults to <b>FALSE</b>.
  * </p>
- * @return SimpleXMLElement an object of class SimpleXMLElement with
+ * @return SimpleXMLElement|false an object of class SimpleXMLElement with
  * properties containing the data held within the XML document, or <b>FALSE</b> on failure.
  */
-function simplexml_load_file (string $filename, string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false) {}
+function simplexml_load_file (string $filename, string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false): SimpleXMLElement|false {}
 
 /**
  * Interprets a string of XML into an object
@@ -443,10 +443,10 @@ function simplexml_load_file (string $filename, string $class_name = "SimpleXMLE
  * <b>TRUE</b> if <i>ns</i> is a prefix, <b>FALSE</b> if it's a URI;
  * defaults to <b>FALSE</b>.
  * </p>
- * @return SimpleXMLElement an object of class SimpleXMLElement with
+ * @return SimpleXMLElement|false an object of class SimpleXMLElement with
  * properties containing the data held within the xml document, or <b>FALSE</b> on failure.
  */
-function simplexml_load_string (string $data, string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false) {}
+function simplexml_load_string (string $data, string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false): SimpleXMLElement|false {}
 
 /**
  * Get a SimpleXMLElement object from a DOM node.
@@ -462,6 +462,6 @@ function simplexml_load_string (string $data, string $class_name = "SimpleXMLEle
  * </p>
  * @return SimpleXMLElement a SimpleXMLElement or <b>FALSE</b> on failure.
  */
-function simplexml_import_dom (DOMNode $node, string $class_name = "SimpleXMLElement") {}
+function simplexml_import_dom (DOMNode $node, string $class_name = "SimpleXMLElement"): SimpleXMLElement {}
 
 // End of SimpleXML v.0.1

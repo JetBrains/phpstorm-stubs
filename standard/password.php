@@ -161,7 +161,8 @@ define('PASSWORD_ARGON2_PROVIDER', 'standard');
  * @since 5.5
  */
 #[ArrayShape(["algo" => "int", "algoName" => "string", "options" => "array"])]
-function password_get_info (string $hash) {}
+function password_get_info (string $hash): array
+{}
 
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>
@@ -180,7 +181,9 @@ function password_get_info (string $hash) {}
  * @return string|false|null Returns the hashed password, or FALSE on failure, or null if the algorithm is invalid
  * @since 5.5
  */
-function password_hash (string $password, string|int|null $algo, array $options = []) {}
+#[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false|null")]
+function password_hash (string $password, string|int|null $algo, array $options = [])
+{}
 
 /**
  * Checks if the given hash matches the given options.
@@ -191,7 +194,8 @@ function password_hash (string $password, string|int|null $algo, array $options 
  * @return bool Returns TRUE if the hash should be rehashed to match the given algo and options, or FALSE otherwise.
  * @since 5.5
  */
-function password_needs_rehash (string $hash, string|int|null $algo, array $options = []) {}
+function password_needs_rehash (string $hash, string|int|null $algo, array $options = []): bool
+{}
 
 /**
  * Checks if the given hash matches the given options.
@@ -201,12 +205,14 @@ function password_needs_rehash (string $hash, string|int|null $algo, array $opti
  * @return bool Returns TRUE if the password and hash match, or FALSE otherwise.
  * @since 5.5
  */
-function password_verify (string $password, string $hash) {}
+function password_verify (string $password, string $hash): bool
+{}
 
 /**
  * Return a complete list of all registered password hashing algorithms.
  * @return string[]
  * @since 7.4
  */
-function password_algos(){}
+function password_algos(): array
+{}
 // End of password v.

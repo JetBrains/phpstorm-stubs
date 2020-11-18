@@ -11,7 +11,7 @@
  * </p>
  * @return DOMElement|false The <b>DOMElement</b> node added or <b>FALSE</b> if any errors occur.
  */
-function dom_import_simplexml (object $node) {}
+function dom_import_simplexml (object $node): DOMElement {}
 
 
 /**

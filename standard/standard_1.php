@@ -14,7 +14,8 @@ use JetBrains\PhpStorm\Pure;
  * @return string the uppercased string.
  */
 #[Pure]
-function strtoupper (string $string) {}
+function strtoupper (string $string): string
+{}
 
 /**
  * Make a string lowercase
@@ -25,7 +26,8 @@ function strtoupper (string $string) {}
  * @return string the lowercased string.
  */
 #[Pure]
-function strtolower (string $string) {}
+function strtolower (string $string): string
+{}
 
 /**
  * Find the position of the first occurrence of a substring in a string
@@ -52,7 +54,8 @@ function strtolower (string $string) {}
  * </p>
  */
 #[Pure]
-function strpos (string $haystack, string $needle, int $offset = 0) {}
+function strpos (string $haystack, string $needle, int $offset = 0): int|false
+{}
 
 /**
  * Find position of first occurrence of a case-insensitive string
@@ -78,7 +81,7 @@ function strpos (string $haystack, string $needle, int $offset = 0) {}
  * stripos will return boolean false.
  */
 #[Pure]
-function stripos (string $haystack, string $needle, int $offset)
+function stripos (string $haystack, string $needle, int $offset): int|false
 {}
 
 /**
@@ -104,7 +107,8 @@ function stripos (string $haystack, string $needle, int $offset)
  * </p>
  */
 #[Pure]
-function strrpos (string $haystack, string $needle, int $offset = 0) {}
+function strrpos (string $haystack, string $needle, int $offset = 0): int|false
+{}
 
 /**
  * Find position of last occurrence of a case-insensitive string in a string
@@ -133,7 +137,7 @@ function strrpos (string $haystack, string $needle, int $offset = 0) {}
  * If needle is not found, false is returned.
  */
 #[Pure]
-function strripos (string $haystack, string $needle, int $offset)
+function strripos (string $haystack, string $needle, int $offset): int|false
 {}
 
 /**
@@ -145,7 +149,8 @@ function strripos (string $haystack, string $needle, int $offset)
  * @return string the reversed string.
  */
 #[Pure]
-function strrev (string $string) {}
+function strrev (string $string): string
+{}
 
 /**
  * Convert logical Hebrew text to visual text
@@ -160,7 +165,7 @@ function strrev (string $string) {}
  * @return string the visual string.
  */
 #[Pure]
-function hebrev (string $string, int $max_chars_per_line)
+function hebrev (string $string, int $max_chars_per_line): string
 {}
 
 /**
@@ -177,7 +182,7 @@ function hebrev (string $string, int $max_chars_per_line)
  * @removed 8.0
  */
 #[Deprecated(replacement: 'nl2br(hebrev(%parameter0%))', since: '7.4')]
-function hebrevc (string $hebrew_text, $max_chars_per_line)
+function hebrevc (string $hebrew_text, $max_chars_per_line): string
 {}
 
 /**
@@ -192,7 +197,8 @@ function hebrevc (string $hebrew_text, $max_chars_per_line)
  * @return string the altered string.
  */
 #[Pure]
-function nl2br (string $string, bool $use_xhtml = true) {}
+function nl2br (string $string, bool $use_xhtml = true): string
+{}
 
 /**
  * Returns trailing name component of path
@@ -212,7 +218,7 @@ function nl2br (string $string, bool $use_xhtml = true) {}
  * @return string the base name of the given path.
  */
 #[Pure]
-function basename (string $path, string $suffix)
+function basename (string $path, string $suffix): string
 {}
 
 /**
@@ -237,7 +243,8 @@ function basename (string $path, string $suffix)
  * /component removed.
  */
 #[Pure]
-function dirname (string $path, int $levels = 1) {}
+function dirname (string $path, int $levels = 1): string
+{}
 
 /**
  * Returns information about a file path
@@ -263,7 +270,7 @@ function dirname (string $path, int $levels = 1) {}
  * string if not all elements are requested.
  */
 #[Pure]
-function pathinfo (string $path, int $flags)
+function pathinfo (string $path, int $flags): array|string
 {}
 
 /**
@@ -278,7 +285,8 @@ function pathinfo (string $path, int $flags)
  * backslash (\).
  */
 #[Pure]
-function stripslashes (string $string) {}
+function stripslashes (string $string): string
+{}
 
 /**
  * Un-quote string quoted with <function>addcslashes</function>
@@ -289,7 +297,8 @@ function stripslashes (string $string) {}
  * @return string the unescaped string.
  */
 #[Pure]
-function stripcslashes (string $string) {}
+function stripcslashes (string $string): string
+{}
 
 /**
  * Find the first occurrence of a string
@@ -310,7 +319,7 @@ function stripcslashes (string $string) {}
  * is not found.
  */
 #[Pure]
-function strstr (string $haystack, string $needle, bool $before_needle)
+function strstr (string $haystack, string $needle, bool $before_needle): string|false
 {}
 
 /**
@@ -332,7 +341,7 @@ function strstr (string $haystack, string $needle, bool $before_needle)
  * found, returns false.
  */
 #[Pure]
-function stristr (string $haystack, string $needle, bool $before_needle)
+function stristr (string $haystack, string $needle, bool $before_needle): string|false
 {}
 
 /**
@@ -355,7 +364,8 @@ function stristr (string $haystack, string $needle, bool $before_needle)
  * </p>
  */
 #[Pure]
-function strrchr (string $haystack, string $needle) {}
+function strrchr (string $haystack, string $needle): string|false
+{}
 
 /**
  * Randomly shuffles a string
@@ -366,7 +376,8 @@ function strrchr (string $haystack, string $needle) {}
  * @return string the shuffled string.
  */
 #[Pure]
-function str_shuffle (string $string) {}
+function str_shuffle (string $string): string
+{}
 
 /**
  * Return information about words used in a string
@@ -386,7 +397,7 @@ function str_shuffle (string $string) {}
  * format chosen.
  */
 #[Pure]
-function str_word_count (string $string, int $format, string $characters)
+function str_word_count (string $string, int $format, string $characters): array|int
 {}
 
 /**
@@ -411,7 +422,9 @@ function str_word_count (string $string, int $format, string $characters)
  * </p>
  */
 #[Pure]
-function str_split (string $string, int $length = 1) {}
+#[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
+function str_split (string $string, int $length = 1): array|bool
+{}
 
 /**
  * Search a string for any of a set of characters
@@ -426,7 +439,8 @@ function str_split (string $string, int $length = 1) {}
  * not found.
  */
 #[Pure]
-function strpbrk (string $string, string $characters) {}
+function strpbrk (string $string, string $characters): string|false
+{}
 
 /**
  * Binary safe comparison of two strings from an offset, up to length characters
@@ -448,7 +462,7 @@ function strpbrk (string $string, string $characters) {}
  * If case_insensitivity is true, comparison is
  * case insensitive.
  * </p>
- * @return int &lt; 0 if main_str from position
+ * @return int if less than 0 if main_str from position
  * offset is less than str, &gt;
  * 0 if it is greater than str, and 0 if they are equal.
  * If offset is equal to or greater than the length of
@@ -457,7 +471,7 @@ function strpbrk (string $string, string $characters) {}
  * false.
  */
 #[Pure]
-function substr_compare (string $haystack, string $needle, int $offset, int $length, bool $case_insensitive)
+function substr_compare (string $haystack, string $needle, int $offset, int $length, bool $case_insensitive): int
 {}
 
 /**
@@ -469,13 +483,14 @@ function substr_compare (string $haystack, string $needle, int $offset, int $len
  * @param string $string2 <p>
  * The second string.
  * </p>
- * @return int &lt; 0 if str1 is less than
+ * @return int if less than 0 if str1 is less than
  * str2; &gt; 0 if
  * str1 is greater than
  * str2, and 0 if they are equal.
  */
 #[Pure]
-function strcoll (string $string1, string $string2) {}
+function strcoll (string $string1, string $string2): int
+{}
 
 /**
  * Formats a number as a currency string
@@ -494,7 +509,8 @@ function strcoll (string $string1, string $string2) {}
  * @see NumberFormatter
  */
 #[Deprecated(reason: 'Use the NumberFormatter functionality', since: '7.4')]
-function money_format (string $format, float $number) {}
+function money_format (string $format, float $number): ?string
+{}
 
 /**
  * Return part of a string
@@ -560,7 +576,8 @@ function money_format (string $format, float $number) {}
  * @return string|false the extracted part of string or false on failure.
  */
 #[Pure]
-function substr (string $string, int $offset, int $length)
+#[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
+function substr (string $string, int $offset, int $length): bool|string
 {}
 
 /**
@@ -599,7 +616,7 @@ function substr (string $string, int $offset, int $length)
  * array then array is returned.
  */
 #[Pure]
-function substr_replace (array|string $string, array|string $replace, array|int $offset, array|int $length = null)
+function substr_replace (array|string $string, array|string $replace, array|int $offset, array|int $length = null): array|string
 {}
 
 /**
@@ -611,7 +628,8 @@ function substr_replace (array|string $string, array|string $replace, array|int 
  * @return string the string with meta characters quoted.
  */
 #[Pure]
-function quotemeta (string $string) {}
+function quotemeta (string $string): string
+{}
 
 /**
  * Make a string's first character uppercase
@@ -622,7 +640,8 @@ function quotemeta (string $string) {}
  * @return string the resulting string.
  */
 #[Pure]
-function ucfirst (string $string) {}
+function ucfirst (string $string): string
+{}
 
 /**
  * Make a string's first character lowercase
@@ -633,7 +652,8 @@ function ucfirst (string $string) {}
  * @return string the resulting string.
  */
 #[Pure]
-function lcfirst (string $string) {}
+function lcfirst (string $string): string
+{}
 
 /**
  * Uppercase the first character of each word in a string
@@ -645,7 +665,8 @@ function lcfirst (string $string) {}
  * @return string the modified string.
  */
 #[Pure]
-function ucwords (string $string, string $separators = " \t\r\n\f\v") {}
+function ucwords (string $string, string $separators = " \t\r\n\f\v"): string
+{}
 
 /**
  * Translate characters or replace substrings
@@ -665,7 +686,8 @@ function ucwords (string $string, string $separators = " \t\r\n\f\v") {}
  * to.
  */
 #[Pure]
-function strtr (string $string, string $from, string $to) {}
+function strtr (string $string, string $from, string $to): string
+{}
 
 /**
  * Translate certain characters
@@ -675,7 +697,8 @@ function strtr (string $string, string $from, string $to) {}
  * @return string A copy of str, translating all occurrences of each character in from to the corresponding character in to.
  */
 #[Pure]
-function strtr (string $str, array $replace_pairs) {}
+function strtr (string $str, array $replace_pairs): string
+{}
 
 /**
  * Quote string with slashes
@@ -686,7 +709,8 @@ function strtr (string $str, array $replace_pairs) {}
  * @return string the escaped string.
  */
 #[Pure]
-function addslashes (string $string) {}
+function addslashes (string $string): string
+{}
 
 /**
  * Quote string with slashes in a C style
@@ -739,7 +763,8 @@ function addslashes (string $string) {}
  * @return string the escaped string.
  */
 #[Pure]
-function addcslashes (string $string, string $characters) {}
+function addcslashes (string $string, string $characters): string
+{}
 
 /**
  * Strip whitespace (or other characters) from the end of a string.
@@ -765,7 +790,8 @@ function addcslashes (string $string, string $characters) {}
  * @return string the modified string.
  */
 #[Pure]
-function rtrim (string $string, string $characters = " \t\n\r\0\x0B") {}
+function rtrim (string $string, string $characters = " \t\n\r\0\x0B"): string
+{}
 
 /**
  * Replace all occurrences of the search string with the replacement string
@@ -791,7 +817,8 @@ function rtrim (string $string, string $characters = " \t\n\r\0\x0B") {}
  * @param int &$count [optional] If passed, this will hold the number of matched and replaced needles.
  * @return string|string[] This function returns a string or an array with the replaced values.
  */
-function str_replace (array|string $search, array|string $replace, array|string $subject, &$count) {}
+function str_replace (array|string $search, array|string $replace, array|string $subject, &$count): array|string
+{}
 
 /**
  * Case-insensitive version of <function>str_replace</function>.
@@ -815,7 +842,7 @@ function str_replace (array|string $search, array|string $replace, array|string 
  * </p>
  * @return string|string[] a string or an array of replacements.
  */
-function str_ireplace (array|string $search, array|string $replace, array|string $subject, &$count)
+function str_ireplace (array|string $search, array|string $replace, array|string $subject, &$count): array|string
 {}
 
 /**
@@ -836,7 +863,8 @@ function str_ireplace (array|string $search, array|string $replace, array|string
  * @return string the repeated string.
  */
 #[Pure]
-function str_repeat (string $string, int $times) {}
+function str_repeat (string $string, int $times): string
+{}
 
 /**
  * Return information about characters used in a string
@@ -859,7 +887,7 @@ function str_repeat (string $string, int $times) {}
  * 4 - a string containing all not used characters is returned.
  */
 #[Pure]
-function count_chars (string $string, int $mode)
+function count_chars (string $string, int $mode): array|string
 {}
 
 /**
@@ -877,7 +905,8 @@ function count_chars (string $string, int $mode)
  * @return string the chunked string.
  */
 #[Pure]
-function chunk_split (string $string, int $length = 76, string $separator = "\r\n") {}
+function chunk_split (string $string, int $length = 76, string $separator = "\r\n"): string
+{}
 
 /**
  * Strip whitespace (or other characters) from the beginning and end of a string
@@ -894,7 +923,8 @@ function chunk_split (string $string, int $length = 76, string $separator = "\r\
  * @return string The trimmed string.
  */
 #[Pure]
-function trim (string $string, string $characters = " \t\n\r\0\x0B") {}
+function trim (string $string, string $characters = " \t\n\r\0\x0B"): string
+{}
 
 /**
  * Strip whitespace (or other characters) from the beginning of a string
@@ -926,7 +956,8 @@ function trim (string $string, string $characters = " \t\n\r\0\x0B") {}
  * (0x0B)), a vertical tab.
  */
 #[Pure]
-function ltrim (string $string, string $characters = " \t\n\r\0\x0B") {}
+function ltrim (string $string, string $characters = " \t\n\r\0\x0B"): string
+{}
 
 /**
  * Strip HTML and PHP tags from a string
@@ -946,7 +977,7 @@ function ltrim (string $string, string $characters = " \t\n\r\0\x0B") {}
  * @return string the stripped string.
  */
 #[Pure]
-function strip_tags (string $string, array|string $allowed_tags = null)
+function strip_tags (string $string, array|string $allowed_tags = null): string
 {}
 
 /**
@@ -965,7 +996,7 @@ function strip_tags (string $string, array|string $allowed_tags = null)
  * </p>
  * @return int the number of matching chars in both strings.
  */
-function similar_text (string $string1, string $string2, &$percent)
+function similar_text (string $string1, string $string2, &$percent): int
 {}
 
 /**
@@ -998,7 +1029,8 @@ function similar_text (string $string1, string $string2, &$percent)
  * string will be returned.
  */
 #[Pure]
-function explode (string $separator, string $string, int $limit)
+#[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
+function explode (string $separator, string $string, int $limit): array|bool
 {}
 
 /**
@@ -1016,7 +1048,8 @@ function explode (string $separator, string $string, int $limit)
  * elements in the same order, with the glue string between each element.
  */
 #[Pure]
-function implode (array|string $separator = "", array $array) {}
+function implode (array|string $separator = "", array $array): string
+{}
 
 /**
  * &Alias; <function>implode</function>
@@ -1033,7 +1066,8 @@ function implode (array|string $separator = "", array $array) {}
  * elements in the same order, with the glue string between each element.
  */
 #[Pure]
-function join (array|string  $separator = "", array $array) {}
+function join (array|string  $separator = "", array $array): string
+{}
 
 /**
  * Set locale information
@@ -1105,7 +1139,8 @@ function join (array|string  $separator = "", array $array) {}
  * on the system that PHP is running. It returns exactly
  * what the system setlocale function returns.
  */
-function setlocale (int $category, array|string $locales, ...$rest) {}
+function setlocale (int $category, array|string $locales, ...$rest): string|false
+{}
 
 /**
  * Get numeric formatting information
@@ -1227,4 +1262,5 @@ function setlocale (int $category, array|string $locales, ...$rest) {}
  */
 #[ArrayShape(["decimal_point" => "string", "thousands_sep" => "string", "grouping" => "array", "int_curr_symbol" => "string", "currency_symbol" => "string", "mon_decimal_point" => "string", "mon_thousands_sep" => "string", "mon_grouping" => "string", "positive_sign" => "string", "negative_sign" => "string", "int_frac_digits" => "string", "frac_digits" => "string", "p_cs_precedes" => "bool", "p_sep_by_space" => "bool", "n_cs_precedes" => "bool", "n_sep_by_space" => "bool", "p_sign_posn" => "int", "n_sign_posn" => "int",])]
 #[Pure]
-function localeconv () {}
+function localeconv (): array
+{}

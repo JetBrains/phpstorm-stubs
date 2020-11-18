@@ -18,7 +18,8 @@ use JetBrains\PhpStorm\Pure;
     "line" => "int",
 ])]
 #[Pure]
-function error_get_last () {}
+function error_get_last (): ?array
+{}
 
 /**
  * Call the callback given by the first parameter
@@ -41,7 +42,8 @@ function error_get_last () {}
  * </p>
  * @return mixed|false the function result, or false on error.
  */
-function call_user_func (callable $callback, mixed ...$args) {}
+function call_user_func (callable $callback, mixed ...$args): mixed
+{}
 
 /**
  * Call a callback with an array of parameters
@@ -54,7 +56,8 @@ function call_user_func (callable $callback, mixed ...$args) {}
  * </p>
  * @return mixed|false the function result, or false on error.
  */
-function call_user_func_array (callable $callback, array $args) {}
+function call_user_func_array (callable $callback, array $args): mixed
+{}
 
 /**
  * Call a user method on an specific object
@@ -67,7 +70,8 @@ function call_user_func_array (callable $callback, array $args) {}
  * @see call_user_func()
  */
 #[Deprecated(reason: "use call_user_func() instead", since: "5.3")]
-function call_user_method (string $method_name, object &$obj, ...$parameter) {}
+function call_user_method (string $method_name, object &$obj, ...$parameter): mixed
+{}
 
 /**
  * Call a user method given with an array of parameters
@@ -80,7 +84,8 @@ function call_user_method (string $method_name, object &$obj, ...$parameter) {}
  * @see call_user_func()
  */
 #[Deprecated(reason: "use call_user_func() instead", since: "5.3")]
-function call_user_method_array (string $method_name, object &$obj, array $params) {}
+function call_user_method_array (string $method_name, object &$obj, array $params): mixed
+{}
 
 /**
  * Call a static method
@@ -95,7 +100,8 @@ function call_user_method_array (string $method_name, object &$obj, array $param
  * </p>
  * @return mixed|false the function result, or false on error.
  */
-function forward_static_call (callable $callback, ...$args) {}
+function forward_static_call (callable $callback, ...$args): mixed
+{}
 
 /**
  * Call a static method and pass the arguments as array
@@ -108,7 +114,8 @@ function forward_static_call (callable $callback, ...$args) {}
  * @param array $args
  * @return mixed|false the function result, or false on error.
  */
-function forward_static_call_array (callable $callback, array $args) {}
+function forward_static_call_array (callable $callback, array $args): mixed
+{}
 
 /**
  * Generates a storable representation of a value
@@ -136,7 +143,8 @@ function forward_static_call_array (callable $callback, array $args) {}
  * @return string a string containing a byte-stream representation of
  * value that can be stored anywhere.
  */
-function serialize (mixed $value) {}
+function serialize (mixed $value): string
+{}
 
 /**
  * Creates a PHP value from a stored representation
@@ -179,7 +187,8 @@ function serialize (mixed $value) {}
  * In case the passed string is not unserializeable, false is returned and
  * E_NOTICE is issued.
  */
-function unserialize (string $data, array $options = []) {}
+function unserialize (string $data, array $options = []): mixed
+{}
 
 /**
  * Dumps information about a variable
@@ -190,7 +199,7 @@ function unserialize (string $data, array $options = []) {}
  * @param mixed ...$values [optional]
  * @return void
  */
-function var_dump (mixed $value, ...$values) {}
+function var_dump (mixed $value, ...$values): void {}
 
 /**
  * Outputs or returns a parsable string representation of a variable
@@ -207,7 +216,7 @@ function var_dump (mixed $value, ...$values) {}
  * parameter is used and evaluates to true. Otherwise, this function will
  * return null.
  */
-function var_export (mixed $value, bool $return)
+function var_export (mixed $value, bool $return): ?string
 {}
 
 /**
@@ -219,7 +228,7 @@ function var_export (mixed $value, bool $return)
  * </p>
  * @return void
  */
-function debug_zval_dump (mixed $value, mixed ...$values) {}
+function debug_zval_dump (mixed $value, mixed ...$values): void {}
 
 /**
  * Prints human-readable information about a variable
@@ -233,12 +242,12 @@ function debug_zval_dump (mixed $value, mixed ...$values) {}
  * to true, print_r will return its output, instead of
  * printing it (which it does by default).
  * </p>
- * @return string|true If given a string, integer or float,
+ * @return string|bool If given a string, integer or float,
  * the value itself will be printed. If given an array, values
  * will be presented in a format that shows keys and elements. Similar
  * notation is used for objects.
  */
-function print_r (mixed $value, bool $return)
+function print_r (mixed $value, bool $return): string|bool
 {}
 
 /**
@@ -252,7 +261,8 @@ function print_r (mixed $value, bool $return)
  * @return int the memory amount in bytes.
  */
 #[Pure]
-function memory_get_usage (bool $real_usage = false) {}
+function memory_get_usage (bool $real_usage = false): int
+{}
 
 /**
  * Returns the peak of memory allocated by PHP
@@ -265,7 +275,8 @@ function memory_get_usage (bool $real_usage = false) {}
  * @return int the memory peak in bytes.
  */
 #[Pure]
-function memory_get_peak_usage (bool $real_usage = false) {}
+function memory_get_peak_usage (bool $real_usage = false): int
+{}
 
 /**
  * Register a function for execution on shutdown
@@ -288,9 +299,9 @@ function memory_get_peak_usage (bool $real_usage = false) {}
  * It is possible to pass parameters to the shutdown function by passing
  * additional parameters.
  * </p>
- * @return void
+ * @return bool
  */
-function register_shutdown_function (callable $callback, ...$args) {}
+function register_shutdown_function (callable $callback, ...$args): bool {}
 
 /**
  * Register a function for execution on each tick
@@ -303,7 +314,8 @@ function register_shutdown_function (callable $callback, ...$args) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function register_tick_function (callable $callback, ...$args) {}
+function register_tick_function (callable $callback, ...$args): bool
+{}
 
 /**
  * De-register a function for execution on each tick
@@ -314,7 +326,7 @@ function register_tick_function (callable $callback, ...$args) {}
  * </p>
  * @return void
  */
-function unregister_tick_function (callable $callback) {}
+function unregister_tick_function (callable $callback): void {}
 
 /**
  * Syntax highlighting of a file
@@ -330,7 +342,8 @@ function unregister_tick_function (callable $callback) {}
  * code as a string instead of printing it out. Otherwise, it will return
  * true on success, false on failure.
  */
-function highlight_file (string $filename, bool $return = false) {}
+function highlight_file (string $filename, bool $return = false): string|bool
+{}
 
 /**
  * &Alias; <function>highlight_file</function>
@@ -339,7 +352,8 @@ function highlight_file (string $filename, bool $return = false) {}
  * @param bool $return [optional]
  * @return string|bool
  */
-function show_source (string $filename, bool $return = false) {}
+function show_source (string $filename, bool $return = false): string|bool
+{}
 
 /**
  * Syntax highlighting of a string
@@ -355,18 +369,20 @@ function show_source (string $filename, bool $return = false) {}
  * code as a string instead of printing it out. Otherwise, it will return
  * true on success, false on failure.
  */
-function highlight_string (string $string, bool $return = false) {}
+function highlight_string (string $string, bool $return = false): string|bool
+{}
 
 /**
  * Get the system's high resolution time
  * @link https://secure.php.net/manual/en/function.hrtime.php
  * @param bool $as_number <p>Whether the high resolution time should be returned as array or number.<p>
  * @since 7.3
- * @return int[]|int|float Returns an array of integers in the form [seconds, nanoseconds], if the parameter get_as_number is false.
+ * @return int[]|int|float|false Returns an array of integers in the form [seconds, nanoseconds], if the parameter get_as_number is false.
  * Otherwise the nanoseconds are returned as integer (64bit platforms) or float (32bit platforms).
  */
 #[Pure]
-function hrtime(bool $as_number = false) {}
+function hrtime(bool $as_number = false): array|int|float|false
+{}
 
 /**
  * Return source with stripped comments and whitespace
@@ -384,7 +400,8 @@ function hrtime(bool $as_number = false) {}
  * #29606.
  */
 #[Pure]
-function php_strip_whitespace (string $filename) {}
+function php_strip_whitespace (string $filename): string
+{}
 
 /**
  * Gets the value of a configuration option
@@ -393,11 +410,12 @@ function php_strip_whitespace (string $filename) {}
  * @param string $option <p>
  * The configuration option name.
  * </p>
- * @return string the value of the configuration option as a string on success, or
+ * @return string|false the value of the configuration option as a string on success, or
  * an empty string on failure or for null values.
  */
 #[Pure]
-function ini_get (string $option) {}
+function ini_get (string $option): string|false
+{}
 
 /**
  * Gets all configuration options
@@ -411,7 +429,7 @@ function ini_get (string $option) {}
  * Retrieve details settings or only the current value for each setting.
  * Default is true (retrieve details).
  * </p>
- * @return array an associative array with directive name as the array key.
+ * @return array|false an associative array with directive name as the array key.
  * </p>
  * <p>
  * When details is true (default) the array will
@@ -433,7 +451,8 @@ function ini_get (string $option) {}
  * why access shows the appropriate bitmask values.
  */
 #[Pure]
-function ini_get_all (string $extension, bool $details) {}
+function ini_get_all (string $extension, bool $details): array|false
+{}
 
 /**
  * Sets the value of a configuration option
@@ -451,7 +470,8 @@ function ini_get_all (string $extension, bool $details) {}
  * </p>
  * @return string|false the old value on success, false on failure.
  */
-function ini_set (string $option, string $value) {}
+function ini_set (string $option, string $value): string|false
+{}
 
 /**
  * &Alias; <function>ini_set</function>
@@ -461,7 +481,8 @@ function ini_set (string $option, string $value) {}
  * @param string $value
  * @return string|false
  */
-function ini_alter (string $option, string $value) {}
+function ini_alter (string $option, string $value): string|false
+{}
 
 /**
  * Restores the value of a configuration option
@@ -472,15 +493,16 @@ function ini_alter (string $option, string $value) {}
  * </p>
  * @return void
  */
-function ini_restore (string $option) {}
+function ini_restore (string $option): void {}
 
 /**
  * Gets the current include_path configuration option
  * @link https://php.net/manual/en/function.get-include-path.php
- * @return string the path, as a string.
+ * @return string|false the path, as a string.
  */
 #[Pure]
-function get_include_path () {}
+function get_include_path (): string|false
+{}
 
 /**
  * Sets the include_path configuration option
@@ -488,10 +510,11 @@ function get_include_path () {}
  * @param string $include_path <p>
  * The new value for the include_path
  * </p>
- * @return string|bool the old include_path on
+ * @return string|false the old include_path on
  * success or false on failure.
  */
-function set_include_path (string $include_path) {}
+function set_include_path (string $include_path): string|false
+{}
 
 /**
  * Restores the value of the include_path configuration option
@@ -577,7 +600,8 @@ function restore_include_path () {}
  * setcookie successfully runs, it will return true.
  * This does not indicate whether the user accepted the cookie.
  */
-function setcookie (string $name, $value = "", $expires_or_options = 0, $path = "", $domain = "", $secure = false, $httponly = false) {}
+function setcookie (string $name, $value = "", $expires_or_options = 0, $path = "", $domain = "", $secure = false, $httponly = false): bool
+{}
 
 /**
  * Send a cookie
@@ -600,7 +624,8 @@ function setcookie (string $name, $value = "", $expires_or_options = 0, $path = 
  *                        This does not indicate whether the user accepted the cookie.
  * @since 7.3
  */
-function setcookie(string $name, $value = '', array $options = []) {}
+function setcookie(string $name, $value = '', array $options = []): bool
+{}
 
 /**
  * Send a cookie without urlencoding the cookie value
@@ -614,7 +639,8 @@ function setcookie(string $name, $value = '', array $options = []) {}
  * @param bool $httponly [optional]
  * @return bool true on success or false on failure.
  */
-function setrawcookie (string $name, $value = '', $expires_or_options = 0, $path = "", $domain = "", $secure = false, $httponly = false) {}
+function setrawcookie (string $name, $value = '', $expires_or_options = 0, $path = "", $domain = "", $secure = false, $httponly = false): bool
+{}
 
 /**
  * Send a cookie without urlencoding the cookie value
@@ -636,7 +662,8 @@ function setrawcookie (string $name, $value = '', $expires_or_options = 0, $path
  *                        setcookie successfully runs, it will return true.
  *                        This does not indicate whether the user accepted the cookie.
  */
-function setrawcookie (string $name, $value = '', array $options = []) {}
+function setrawcookie (string $name, $value = '', array $options = []): bool
+{}
 
 /**
  * Send a raw HTTP header
@@ -672,7 +699,7 @@ function setrawcookie (string $name, $value = '', array $options = []) {}
  * </p>
  * @return void
  */
-function header (string $header, bool $replace = true, int $response_code)
+function header (string $header, bool $replace = true, int $response_code): void
 {}
 
 /**
@@ -684,7 +711,7 @@ function header (string $header, bool $replace = true, int $response_code)
  * This parameter is case-insensitive.
  * @return void
  */
-function header_remove (string $name) {}
+function header_remove (string $name): void {}
 
 /**
  * Checks if or where headers have been sent
@@ -702,7 +729,8 @@ function header_remove (string $name) {}
  * @return bool headers_sent will return false if no HTTP headers
  * have already been sent or true otherwise.
  */
-function headers_sent (&$filename, &$line) {}
+function headers_sent (&$filename, &$line): bool
+{}
 
 /**
  * Returns a list of response headers sent (or ready to send)
@@ -710,7 +738,8 @@ function headers_sent (&$filename, &$line) {}
  * @return array a numerically indexed array of headers.
  */
 #[Pure]
-function headers_list () {}
+function headers_list (): array
+{}
 
 /**
  * Fetches all HTTP request headers from the current request
@@ -718,7 +747,8 @@ function headers_list () {}
  * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b on failure.
  */
 #[Pure]
-function apache_request_headers () {}
+function apache_request_headers (): bool|array
+{}
 
 /**
  * Fetches all HTTP headers from the current request.
@@ -727,7 +757,8 @@ function apache_request_headers () {}
  * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b> on failure.
  */
 #[Pure]
-function getallheaders () {}
+function getallheaders (): bool|array
+{}
 
 /**
  * Check whether client disconnected
@@ -735,7 +766,8 @@ function getallheaders () {}
  * @return int 1 if client disconnected, 0 otherwise.
  */
 #[Pure]
-function connection_aborted () {}
+function connection_aborted (): int
+{}
 
 /**
  * Returns connection status bitfield
@@ -745,7 +777,8 @@ function connection_aborted () {}
  * status.
  */
 #[Pure]
-function connection_status () {}
+function connection_status (): int
+{}
 
 /**
  * Set whether a client disconnect should abort script execution
@@ -757,7 +790,8 @@ function connection_status () {}
  * </p>
  * @return int the previous setting, as an integer.
  */
-function ignore_user_abort (bool $enable) {}
+function ignore_user_abort (bool $enable): int
+{}
 
 /**
  * Parse a configuration file
@@ -787,7 +821,8 @@ function ignore_user_abort (bool $enable) {}
  * @return array|false The settings are returned as an associative array on success,
  * and false on failure.
  */
-function parse_ini_file (string $filename, bool $process_sections = false, int $scanner_mode = INI_SCANNER_NORMAL) {}
+function parse_ini_file (string $filename, bool $process_sections = false, int $scanner_mode = INI_SCANNER_NORMAL): array|false
+{}
 
 /**
  * Parse a configuration string
@@ -810,7 +845,8 @@ function parse_ini_file (string $filename, bool $process_sections = false, int $
  * and false on failure.
  */
 #[Pure]
-function parse_ini_string (string $ini_string, bool $process_sections = false, int $scanner_mode = INI_SCANNER_NORMAL) {}
+function parse_ini_string (string $ini_string, bool $process_sections = false, int $scanner_mode = INI_SCANNER_NORMAL): array|false
+{}
 
 /**
  * Tells whether the file was uploaded via HTTP POST
@@ -821,7 +857,8 @@ function parse_ini_string (string $ini_string, bool $process_sections = false, i
  * @return bool true on success or false on failure.
  */
 #[Pure]
-function is_uploaded_file (string $filename) {}
+function is_uploaded_file (string $filename): bool
+{}
 
 /**
  * Moves an uploaded file to a new location
@@ -843,14 +880,16 @@ function is_uploaded_file (string $filename) {}
  * move_uploaded_file will return
  * false. Additionally, a warning will be issued.
  */
-function move_uploaded_file (string $from, string $to) {}
+function move_uploaded_file (string $from, string $to): bool
+{}
 
 /**
  * @return array|false
  * @since 7.3
  */
 #[Pure]
-function net_get_interfaces() {}
+function net_get_interfaces(): array|false
+{}
 
 /**
  * Get the Internet host name corresponding to a given IP address
@@ -858,11 +897,12 @@ function net_get_interfaces() {}
  * @param string $ip <p>
  * The host IP address.
  * </p>
- * @return string the host name or the unmodified ip_address
+ * @return string|false the host name or the unmodified ip_address
  * on failure.
  */
 #[Pure]
-function gethostbyaddr (string $ip) {}
+function gethostbyaddr (string $ip): string|false
+{}
 
 /**
  * Get the IPv4 address corresponding to a given Internet host name
@@ -874,7 +914,8 @@ function gethostbyaddr (string $ip) {}
  * hostname on failure.
  */
 #[Pure]
-function gethostbyname (string $hostname) {}
+function gethostbyname (string $hostname): string
+{}
 
 /**
  * Get a list of IPv4 addresses corresponding to a given Internet host
@@ -887,7 +928,8 @@ function gethostbyname (string $hostname) {}
  * hostname could not be resolved.
  */
 #[Pure]
-function gethostbynamel(string $hostname) {}
+function gethostbynamel(string $hostname): array|false
+{}
 
 /**
  * Gets the host name
@@ -896,7 +938,8 @@ function gethostbynamel(string $hostname) {}
  * returned.
  */
 #[Pure]
-function gethostname () {}
+function gethostname (): string|false
+{}
 
 /**
  * &Alias; <function>checkdnsrr</function>
@@ -911,7 +954,8 @@ function gethostname () {}
  * </p>
  * @return bool Returns <b>TRUE</b> if any records are found; returns <b>FALSE</b> if no records were found or if an error occurred.
  */
-function dns_check_record (string $hostname, string $type = 'MX') {}
+function dns_check_record (string $hostname, string $type = 'MX'): bool
+{}
 
 /**
  * Check DNS records corresponding to a given Internet host name or IP address
@@ -928,7 +972,7 @@ function dns_check_record (string $hostname, string $type = 'MX') {}
  * were found or if an error occurred.
  */
 #[Pure]
-function checkdnsrr (string $hostname, string $type)
+function checkdnsrr (string $hostname, string $type): bool
 {}
 
 /**
@@ -939,7 +983,8 @@ function checkdnsrr (string $hostname, string $type)
  * @param array &$weights [optional]
  * @return bool
  */
-function dns_get_mx (string $hostname, &$hosts, &$weights) {}
+function dns_get_mx (string $hostname, &$hosts, &$weights): bool
+{}
 
 /**
  * Get MX records corresponding to a given Internet host name
@@ -958,7 +1003,7 @@ function dns_get_mx (string $hostname, &$hosts, &$weights) {}
  * @return bool true if any records are found; returns false if no records
  * were found or if an error occurred.
  */
-function getmxrr (string $hostname, &$hosts, &$weights)
+function getmxrr (string $hostname, &$hosts, &$weights): bool
 {}
 
 /**
@@ -1008,7 +1053,7 @@ function getmxrr (string $hostname, &$hosts, &$weights)
  * In case of raw mode, we query only the requested type
  * instead of looping type by type before going with the additional info stuff.
  * </p>
- * @return array This function returns an array of associative arrays. Each associative array contains
+ * @return array|false This function returns an array of associative arrays. Each associative array contains
  * at minimum the following keys:
  * <table>
  * Basic DNS attributes
@@ -1168,5 +1213,5 @@ function getmxrr (string $hostname, &$hosts, &$weights)
  * </tr>
  * </table>
  */
-function dns_get_record (string $hostname, int $type = DNS_ANY, &$authoritative_name_servers, &$additional_records, bool $raw = false)
+function dns_get_record (string $hostname, int $type = DNS_ANY, &$authoritative_name_servers, &$additional_records, bool $raw = false): array|false
 {}

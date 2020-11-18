@@ -1649,7 +1649,8 @@ final class PDORow  {
  * no drivers are available, it returns an empty array.
  */
 #[Pure]
-function pdo_drivers () {}
+function pdo_drivers (): array
+{}
 
 // End of PDO v.1.0.4dev
 ?>

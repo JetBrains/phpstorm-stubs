@@ -5,6 +5,15 @@ namespace StubTests\Model;
 
 use Exception;
 use PhpParser\Node;
+use PhpParser\Node\Expr\Array_;
+use PhpParser\Node\Identifier;
+use PhpParser\Node\Name;
+use PhpParser\Node\NullableType;
+use PhpParser\Node\Scalar\String_;
+use PhpParser\Node\UnionType;
+use ReflectionNamedType;
+use ReflectionType;
+use ReflectionUnionType;
 use Reflector;
 use stdClass;
 
@@ -33,6 +42,69 @@ abstract class BasePHPElement
             }
         }
         return rtrim($fqn, "\\");
+    }
+
+    protected static function convertReflectionTypeToString(?ReflectionType $type): string
+    {
+        if ($type instanceof ReflectionNamedType) {
+            return $type->getName();
+        }
+        if ($type instanceof ReflectionUnionType) {
+            $reflectionType = '';
+            foreach ($type->getTypes() as $type) {
+                $reflectionType .= $type->getName() . '|';
+            }
+            return substr($reflectionType, 0, -1);
+        }
+        return '';
+    }
+
+    protected static function convertParsedTypeToString(Name|Identifier|NullableType|string|UnionType|null $type): string
+    {
+        if ($type !== null) {
+            if ($type instanceof UnionType) {
+                $unionType = '';
+                foreach ($type->types as $type) {
+                    $unionType .= self::getTypeNameFromNode($type) . '|';
+                }
+                return substr($unionType, 0, -1);
+            } else {
+                return self::getTypeNameFromNode($type);
+            }
+        }
+        return '';
+    }
+
+    protected static function getTypeNameFromNode(Name|Identifier|NullableType|string $type): string
+    {
+        if($type instanceof NullableType){
+            $type = $type->type;
+        }
+        if (empty($type->name)) {
+            if (!empty($type->parts)) {
+                return $type->parts[0];
+            }
+        } else {
+            return $type->name;
+        }
+    }
+
+    protected static function findTypeFromAttribute(array $attrGroups): ?string
+    {
+        foreach ($attrGroups as $attrGroup) {
+            foreach ($attrGroup->attrs as $attr) {
+                if ($attr->name->toString() === "LanguageLevelTypeAware") {
+                    $arg = $attr->args[0]->value;
+                    if ($arg instanceof Array_) {
+                        $value = $arg->items[0]->value;
+                        if ($value instanceof String_) {
+                            return $value->value;
+                        }
+                    }
+                }
+            }
+        }
+        return null;
     }
 
     public function hasMutedProblem(int $stubProblemType): bool

@@ -11,7 +11,7 @@ use JetBrains\PhpStorm\Deprecated;
  * Since 7.2.0 this can either be a path to the file (stream wrappers are also supported as usual)
  * or a stream resource.
  * </p>
- * @param null $required_sections [optional] <p>
+ * @param string $required_sections [optional] <p>
  * Is a comma separated list of sections that need to be present in file
  * to produce a result array. If none of the requested
  * sections could be found the return value is <b>FALSE</b>.
@@ -72,12 +72,12 @@ use JetBrains\PhpStorm\Deprecated;
  * When set to <b>TRUE</b> the thumbnail itself is read. Otherwise, only the
  * tagged data is read.
  * </p>
- * @return array It returns an associative array where the array indexes are
+ * @return array|false It returns an associative array where the array indexes are
  * the header names and the array values are the values associated with
  * those headers. If no data can be returned,
  * <b>exif_read_data</b> will return <b>FALSE</b>.
  */
-function exif_read_data ($file, string $required_sections, bool $as_arrays = false, bool $read_thumbnail = false)
+function exif_read_data ($file, string $required_sections, bool $as_arrays = false, bool $read_thumbnail = false): array|false
 {}
 
 /**
@@ -101,7 +101,7 @@ function read_exif_data ($filename, $sections = null, $arrays = false, $thumbnai
  * @return string|false the header name, or <b>FALSE</b> if <i>index</i> is
  * not a defined EXIF tag id.
  */
-function exif_tagname (int $index) {}
+function exif_tagname (int $index): string|false {}
 
 /**
  * Retrieve the embedded thumbnail of a TIFF or JPEG image
@@ -124,7 +124,7 @@ function exif_tagname (int $index) {}
  * @return string|false the embedded thumbnail, or <b>FALSE</b> if the image contains no
  * thumbnail.
  */
-function exif_thumbnail ($file, &$width, &$height, &$image_type) {}
+function exif_thumbnail ($file, &$width, &$height, &$image_type): string|false {}
 
 /**
  * Determine the type of an image
@@ -140,7 +140,7 @@ function exif_thumbnail ($file, &$width, &$height, &$image_type) {}
  * and return <b>FALSE</b> if it is unable to read enough bytes from the file to
  * determine the image type.
  */
-function exif_imagetype (string $filename) {}
+function exif_imagetype (string $filename): int|false {}
 
 define ('EXIF_USE_MBSTRING', 1);
 
