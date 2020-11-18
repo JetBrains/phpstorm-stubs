@@ -57,12 +57,12 @@ function xml_parser_create_ns (string $encoding, string $separator = ':') {}
  * @param XmlParser|resource $parser <p>
  * A reference to the XML parser to use inside the object.
  * </p>
- * @param object &$object <p>
+ * @param object $object <p>
  * The object where to use the XML parser.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_object (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")] $parser, object &$object): bool
+function xml_set_object (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")] $parser, object $object): bool
 {}
 
 /**

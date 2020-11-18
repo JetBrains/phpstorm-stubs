@@ -118,6 +118,8 @@ class StubsTest extends TestCase
                             " but stub function has signature $functionName(" . $this->printParameters($phpstormFunction->parameters) . ")");
                         self::assertEquals($parameter->type, current(array_filter($phpstormFunction->parameters,
                             fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name))->type, "Type mismatch $functionName: \$$parameter->name ");
+                        self::assertEquals($parameter->is_passed_by_ref, current(array_filter($phpstormFunction->parameters,
+                            fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name))->is_passed_by_ref, "Invalid pass by ref $functionName: \$$parameter->name ");
                     }
                 }
             }

@@ -839,7 +839,7 @@ function array_search (mixed $needle, array $haystack, bool $strict): string|int
 /**
  * Import variables into the current symbol table from an array
  * @link https://php.net/manual/en/function.extract.php
- * @param array $array<p>
+ * @param array &$array<p>
  * Note that prefix is only required if
  * extract_type is EXTR_PREFIX_SAME,
  * EXTR_PREFIX_ALL, EXTR_PREFIX_INVALID
@@ -862,7 +862,7 @@ function array_search (mixed $needle, array $haystack, bool $strict): string|int
  * @return int the number of variables successfully imported into the symbol
  * table.
  */
-function extract (array $array, int $flags, string $prefix): int
+function extract (array &$array, int $flags, string $prefix): int
 {}
 
 /**

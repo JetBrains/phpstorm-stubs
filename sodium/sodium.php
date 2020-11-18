@@ -550,14 +550,14 @@ function sodium_crypto_generichash_update(string &$state, string $message): bool
  * Get the final hash
  * BLAKE2b
  * @link https://www.php.net/manual/en/function.sodium-crypto-generichash-final.php
- * @param string $state
+ * @param string &$state
  * @param int $length
  * @return string
  * @throws SodiumException
  * @since 7.2
  */
 function sodium_crypto_generichash_final(
-    string $state,
+    string &$state,
     int $length = 32
 ): string {
     unset($state, $length);
