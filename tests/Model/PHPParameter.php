@@ -4,10 +4,12 @@ declare(strict_types=1);
 namespace StubTests\Model;
 
 use PhpParser\Node\Expr;
+use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
 use PhpParser\Node\NullableType;
 use PhpParser\Node\Param;
+use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\UnionType;
 use ReflectionNamedType;
 use ReflectionParameter;
@@ -50,20 +52,27 @@ class PHPParameter extends BasePHPElement
     {
         // #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")]
         $this->name = $node->var->name;
-        $type = $node->type;
-        if ($type !== null) {
-            if ($type instanceof UnionType) {
-                foreach ($type->types as $type) {
-                    $this->type .= $this->getTypeNameFromNode($type) . '|';
+
+        $typeFromAttribute = $this->findTypeFromAttribute($node);
+        if ($typeFromAttribute != null) {
+            $this->type = $typeFromAttribute;
+        } else {
+            $type = $node->type;
+            if ($type !== null) {
+                if ($type instanceof UnionType) {
+                    foreach ($type->types as $type) {
+                        $this->type .= $this->getTypeNameFromNode($type) . '|';
+                    }
+                    $this->type = substr($this->type, 0, -1);
+                } else {
+                    $this->type = $this->getTypeNameFromNode($type);
                 }
-                $this->type = substr($this->type, 0, -1);
-            } else {
-                $this->type = $this->getTypeNameFromNode($type);
             }
         }
         if($node->default instanceof Expr\ConstFetch && $node->default->name->parts[0] === "null"){
             $this->type .= "|null";
         }
+
         $this->is_vararg = $node->variadic;
         $this->is_passed_by_ref = $node->byRef;
         return $this;
@@ -100,5 +109,23 @@ class PHPParameter extends BasePHPElement
         } else {
             return $type->name;
         }
+    }
+
+    protected function findTypeFromAttribute(Param $node): ?string
+    {
+        foreach ($node->attrGroups as $attrGroup) {
+            foreach ($attrGroup->attrs as $attr) {
+                if ($attr->name->toString() === "LanguageLevelTypeAware") {
+                    $arg = $attr->args[0]->value;
+                    if ($arg instanceof Array_) {
+                        $value = $arg->items[0]->value;
+                        if ($value instanceof String_) {
+                            return $value->value;
+                        }
+                    }
+                }
+            }
+        }
+        return null;
     }
 }

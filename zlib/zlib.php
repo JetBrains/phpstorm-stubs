@@ -438,7 +438,7 @@ function deflate_init (int $encoding, array $options = array()) {}
 /**
  * Incrementally deflate data
  * @link https://php.net/manual/en/function.deflate-add.php
- * @param resource $context <p>
+ * @param DeflateContext|resource $context <p>
  * A context created with <b>deflate_init()</b>.
  * </p>
  * @param string $data <p>
@@ -456,7 +456,7 @@ function deflate_init (int $encoding, array $options = array()) {}
  * </p>
  * @since 7.0
  */
-function deflate_add ($context, string $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
+function deflate_add (#[LanguageLevelTypeAware(["8.0" => "DeflateContext"], default: "resource")] $context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH) {}
 
 /**
  * Initialize an incremental inflate context
@@ -485,7 +485,7 @@ function inflate_init (int $encoding, array $options = array()) {}
 /**
  * Incrementally inflate encoded data
  * @link https://php.net/manual/en/function.inflate-add.php
- * @param resource $context <p>
+ * @param InflateContext|resource $context <p>
  * A context created with <b>inflate_init()</b>.
  * </p>
  * @param string $data <p>
@@ -503,25 +503,25 @@ function inflate_init (int $encoding, array $options = array()) {}
  * </p>
  * @since 7.0
  */
-function inflate_add ($context, string $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
+function inflate_add (#[LanguageLevelTypeAware(["8.0" => "InflateContext"], default: "resource")] $context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH) {}
 
 /**
  * Get number of bytes read so far
- * @param resource $context
+ * @param InflateContext|resource $context
  * @return bool
  * @since 7.2
  */
 #[Pure]
-function inflate_get_read_len ($context){}
+function inflate_get_read_len (#[LanguageLevelTypeAware(["8.0" => "InflateContext"], default: "resource")] $context){}
 
 /**
  * Get decompression status
- * @param resource $context
+ * @param InflateContext|resource $context
  * @return bool
  * @since 7.2
  */
 #[Pure]
-function  inflate_get_status($context) {}
+function  inflate_get_status(#[LanguageLevelTypeAware(["8.0" => "InflateContext"], default: "resource")] $context) {}
 
 /**
  * @since 8.0

@@ -144,7 +144,7 @@ function hash_init (string $algo, int $flags = 0, string $key)
  * </p>
  * @return bool <b>TRUE</b>.
  */
-function hash_update ($context, string $data){}
+function hash_update (#[LanguageLevelTypeAware(["8.0" => "HashContext"], default: "resource")] $context, string $data){}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -162,14 +162,14 @@ function hash_update ($context, string $data){}
  * </p>
  * @return int Actual number of bytes added to the hashing context from <i>handle</i>.
  */
-function hash_update_stream ($context, $stream, int $length = -1)
+function hash_update_stream (#[LanguageLevelTypeAware(["8.0" => "HashContext"], default: "resource")] $context, $stream, int $length = -1)
 {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Pump data into an active hashing context from a file
  * @link https://php.net/manual/en/function.hash-update-file.php
- * @param resource $context <p>
+ * @param HashContext|resource $context <p>
  * Hashing context returned by <b>hash_init</b>.
  * </p>
  * @param string $filename <p>
@@ -180,7 +180,7 @@ function hash_update_stream ($context, $stream, int $length = -1)
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function hash_update_file ($context, string $filename, $stream_context = null)
+function hash_update_file (#[LanguageLevelTypeAware(["8.0" => "HashContext"], default: "resource")] $context, string $filename, $stream_context)
 {}
 
 /**
@@ -198,7 +198,7 @@ function hash_update_file ($context, string $filename, $stream_context = null)
  * unless <i>raw_output</i> is set to true in which case the raw
  * binary representation of the message digest is returned.
  */
-function hash_final ($context, bool $binary = false)
+function hash_final (#[LanguageLevelTypeAware(["8.0" => "HashContext"], default: "resource")] $context, bool $binary = false)
 {}
 
 /**
@@ -210,7 +210,7 @@ function hash_final ($context, bool $binary = false)
  * @return HashContext|resource a copy of Hashing Context resource.
  */
 #[Pure]
-function hash_copy ($context) {}
+function hash_copy (#[LanguageLevelTypeAware(["8.0" => "HashContext"], default: "resource")] $context) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>

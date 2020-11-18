@@ -474,10 +474,10 @@ class StubsTest extends TestCase
                     $link->getLink(),
                     "In $elementName @link doesn't start with https"
                 );
-                if (getenv("CHECK_LINKS") === "true"){
-                    if ($element->stubBelongsToCore){
+                if (getenv("CHECK_LINKS") === "true") {
+                    if ($element->stubBelongsToCore) {
                         $request = curl_init($link->getLink());
-                        curl_setopt($request,CURLOPT_RETURNTRANSFER,1);
+                        curl_setopt($request, CURLOPT_RETURNTRANSFER, 1);
                         curl_exec($request);
                         $response = curl_getinfo($request, CURLINFO_RESPONSE_CODE);
                         curl_close($request);
@@ -649,7 +649,7 @@ class StubsTest extends TestCase
         $strtolower = strtolower(trim($parameterType));
         $types = explode("|", $strtolower);
         $types = $this->trunkNamespaces($types);
-        return implode("|", $types);;
+        return implode("|", $types);
     }
 
     private function checkSummary(mixed $functionsData, string $docBlockSummary, ?string $function_name): void

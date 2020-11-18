@@ -1160,6 +1160,20 @@
       "problems": [
         "parameter mismatch"
       ]
+    },
+    {
+      "name": "sem_get",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": "Invalid documentation"
+    },
+    {
+      "name": "assert",
+      "problems": [
+        "parameter mismatch"
+      ],
+      "comment": "flaky reflection o_O?"
     }
   ],
   "classes": [

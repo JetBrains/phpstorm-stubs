@@ -32,7 +32,7 @@ function shmop_open (int $key, string $mode, int $permissions, int $size) {}
 /**
  * Read data from shared memory block
  * @link https://php.net/manual/en/function.shmop-read.php
- * @param resource $shmop <p>
+ * @param Shmop|resource $shmop <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
  * </p>
@@ -44,36 +44,36 @@ function shmop_open (int $key, string $mode, int $permissions, int $size) {}
  * </p>
  * @return string|false the data or <b>FALSE</b> on failure.
  */
-function shmop_read ($shmop, $offset, $size) {}
+function shmop_read (#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop, int $offset, int $size) {}
 
 /**
  * Close shared memory block
  * @link https://php.net/manual/en/function.shmop-close.php
- * @param resource $shmop <p>
+ * @param Shmop|resource $shmop <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
  * </p>
  * @return void No value is returned.
  */
 #[Deprecated(since: '8.0')]
-function shmop_close ($shmop) {}
+function shmop_close (#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop) {}
 
 /**
  * Get size of shared memory block
  * @link https://php.net/manual/en/function.shmop-size.php
- * @param resource $shmop <p>
+ * @param Shmop|resource $shmop <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
  * </p>
  * @return int an int, which represents the number of bytes the shared memory
  * block occupies.
  */
-function shmop_size ($shmop) {}
+function shmop_size (#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop) {}
 
 /**
  * Write data into shared memory block
  * @link https://php.net/manual/en/function.shmop-write.php
- * @param resource $shmop <p>
+ * @param Shmop|resource $shmop <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
  * </p>
@@ -87,18 +87,18 @@ function shmop_size ($shmop) {}
  * @return int|false The size of the written <i>data</i>, or <b>FALSE</b> on
  * failure.
  */
-function shmop_write ($shmop, $data, $offset) {}
+function shmop_write (#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop, string $data, int $offset) {}
 
 /**
  * Delete shared memory block
  * @link https://php.net/manual/en/function.shmop-delete.php
- * @param resource $shmop <p>
+ * @param Shmop|resource $shmop <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function shmop_delete ($shmop) {}
+function shmop_delete (#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop) {}
 
 /**
  * @since 8.0

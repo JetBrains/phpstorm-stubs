@@ -27,7 +27,7 @@ function sem_get (int $key, int $max_acquire = 1, int $permissions = 0666, bool 
 /**
  * Acquire a semaphore
  * @link https://php.net/manual/en/function.sem-acquire.php
- * @param resource $semaphore <p>
+ * @param SysvSemaphore|resource $semaphore <p>
  * <i>sem_identifier</i> is a semaphore resource,
  * obtained from <b>sem_get</b>.
  * </p>
@@ -38,29 +38,29 @@ function sem_get (int $key, int $max_acquire = 1, int $permissions = 0666, bool 
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function sem_acquire ($semaphore, $non_blocking = false) {}
+function sem_acquire (#[LanguageLevelTypeAware(["8.0" => "SysvSemaphore"], default: "resource")] $semaphore, bool $non_blocking = false) {}
 
 /**
  * Release a semaphore
  * @link https://php.net/manual/en/function.sem-release.php
- * @param resource $semaphore <p>
+ * @param SysvSemaphore|resource $semaphore <p>
  * A Semaphore resource handle as returned by
  * <b>sem_get</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function sem_release ($semaphore) {}
+function sem_release (#[LanguageLevelTypeAware(["8.0" => "SysvSemaphore"], default: "resource")] $semaphore) {}
 
 /**
  * Remove a semaphore
  * @link https://php.net/manual/en/function.sem-remove.php
- * @param resource $semaphore <p>
+ * @param SysvSemaphore|resource $semaphore <p>
  * A semaphore resource identifier as returned
  * by <b>sem_get</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function sem_remove ($semaphore) {}
+function sem_remove (#[LanguageLevelTypeAware(["8.0" => "SysvSemaphore"], default: "resource")] $semaphore) {}
 
 /**
  * @since 8.0
