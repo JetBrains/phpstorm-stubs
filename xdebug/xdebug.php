@@ -9,20 +9,20 @@ function xdebug_info() {}
  * Returns an array of ALL valid ini options with values and is not the same as ini_get_all() which returns only
  * registered ini options. Only useful for devs to debug php.ini scanner/parser!
  */
-function config_get_hash(){}
+function config_get_hash(): array {}
 
 /**
  * Returns the stack depth level.
  * The main body of a script is level 0 and each include and/or function call adds one to the stack depth level.
  * @return int
  */
-function xdebug_get_stack_depth () {}
+function xdebug_get_stack_depth(): int {}
 
 /**
  * Returns an array which resembles the stack trace up to this point.
  * @return array
  */
-function xdebug_get_function_stack () {}
+function xdebug_get_function_stack(): array {}
 
 /**
  * Displays the current function stack, in a similar way as what Xdebug would display in an error situation.
@@ -91,7 +91,7 @@ function xdebug_stop_function_monitor () {}
  * Returns a structure which contains information about where the monitored functions were executed in your script.
  * @return array
  */
-function xdebug_get_monitored_functions () {}
+function xdebug_get_monitored_functions(): array {}
 
 /**
  * This function displays structured information about one or more expressions that includes its type and value.
@@ -171,14 +171,14 @@ function xdebug_stop_error_collection () {}
  * @param bool $clean
  * @return string
  */
-function xdebug_get_collected_errors ($clean = false) {}
+function xdebug_get_collected_errors($clean = false): array {}
 
 /**
  * This function makes the debugger break on the specific line as if a normal file/line breakpoint was set on this line.
  *
  * @return bool
  */
-function xdebug_break () {}
+function xdebug_break (): bool {}
 
 /**
  * Start tracing function calls from this point to the file in the trace_file parameter.
@@ -190,14 +190,14 @@ function xdebug_break () {}
  * @param $options
  * @return void
  */
-function xdebug_start_trace ($trace_file, $options = 0) {}
+function xdebug_start_trace($trace_file, $options = 0): string {}
 
 /**
  * Stop tracing function calls and closes the trace file.
  *
  * @return void
  */
-function xdebug_stop_trace () {}
+function xdebug_stop_trace(): string {}
 
 /**
  * Returns the name of the file which is used to trace the output of this script too.
@@ -230,7 +230,7 @@ function xdebug_clear_aggr_profiling_data () {}
  *
  * @return int
  */
-function xdebug_memory_usage () {}
+function xdebug_memory_usage(): int {}
 
 /**
  * Returns the maximum amount of memory the script used until now.
@@ -239,14 +239,14 @@ function xdebug_memory_usage () {}
  *
  * @return int
  */
-function xdebug_peak_memory_usage () {}
+function xdebug_peak_memory_usage(): int {}
 
 /**
  * Returns the current time index since the starting of the script in seconds.
  *
  * @return float
  */
-function xdebug_time_index () {}
+function xdebug_time_index(): float {}
 
 /**
  * This function starts gathering the information for code coverage.
@@ -273,7 +273,7 @@ function xdebug_stop_code_coverage ($cleanup = 1) {}
  * Returns whether code coverage is active.
  * @return bool
  */
-function xdebug_code_coverage_started () {}
+function xdebug_code_coverage_started(): bool {}
 
 /**
  * Returns a structure which contains information about which lines
@@ -281,14 +281,14 @@ function xdebug_code_coverage_started () {}
  *
  * @return array
  */
-function xdebug_get_code_coverage () {}
+function xdebug_get_code_coverage(): array {}
 
 /**
  * Returns the number of functions called, including constructors, desctructors and methods.
  *
  * @return int
  */
-function xdebug_get_function_count () {}
+function xdebug_get_function_count(): int {}
 
 /**
  * This function dumps the values of the elements of the super globals
@@ -304,7 +304,7 @@ function xdebug_dump_superglobals () {}
  *
  * @return array
  */
-function xdebug_get_headers () {}
+function xdebug_get_headers(): array {}
 
 function xdebug_get_formatted_function_stack() {}
 
@@ -315,7 +315,7 @@ function xdebug_get_formatted_function_stack() {}
  *
  * @return bool
  */
-function xdebug_is_debugger_active() {}
+function xdebug_is_debugger_active(): bool {}
 
 /**
  * @param string|null $gcstatsFile
@@ -327,7 +327,7 @@ function xdebug_start_gcstats($gcstatsFile = null ) {}
  * Stop garbage collection statistics collection and closes the output file.
  * @return string The function returns the filename of the file where the statistics were written to.
  */
-function xdebug_stop_gcstats() {}
+function xdebug_stop_gcstats(): string {}
 
 /**
  * Returns the name of the file which is used to save garbage collection information to, or false if
@@ -339,12 +339,12 @@ function xdebug_get_gcstats_filename() {}
 /**
  * @return int
  */
-function xdebug_get_gc_run_count() {}
+function xdebug_get_gc_run_count(): int {}
 
 /**
  * @return int
  */
-function xdebug_get_gc_total_collected_roots() {}
+function xdebug_get_gc_total_collected_roots(): int {}
 
 /**
  * @param int   $group
