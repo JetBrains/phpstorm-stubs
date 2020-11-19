@@ -29,8 +29,6 @@ class PHPFunction extends BasePHPElement
 
     public string $returnType = '';
 
-    public ?Doc $doc = null;
-
     /**
      * @param ReflectionFunction $reflectionObject
      * @return $this
@@ -68,15 +66,9 @@ class PHPFunction extends BasePHPElement
         $this->collectTags($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);
-        $this->checkDoc($node);
         return $this;
     }
 
-
-    protected function checkDoc(FunctionLike $node)
-    {
-        $this->doc = $node->getDocComment();
-    }
 
     protected function checkDeprecationTag(FunctionLike $node): void
     {
@@ -113,8 +105,6 @@ class PHPFunction extends BasePHPElement
                         'deprecated function' => StubProblemType::FUNCTION_IS_DEPRECATED,
                         'absent in meta' => StubProblemType::ABSENT_IN_META,
                         'has return typehint' => StubProblemType::FUNCTION_HAS_RETURN_TYPEHINT,
-                        'wrong return type in docs' => StubProblemType::RETURN_TYPE_IS_WRONG_IN_OFICIAL_DOCS,
-                        'wrong parmeter type in docs' => StubProblemType::PARAMETER_TYPE_IS_WRONG_IN_OFICIAL_DOCS,
                         default => -1
                     };
                 }
