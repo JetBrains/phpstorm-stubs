@@ -341,7 +341,7 @@ function pcntl_strerror (int $error_code): bool|string
 /**
  * Get the priority of any process
  * @link https://php.net/manual/en/function.pcntl-getpriority.php
- * @param int $process_id [optional] <p>
+ * @param int|null $process_id [optional] <p>
  * If not specified, the pid of the current process  (getmypid()) is used.
  * </p>
  * @param int $mode [optional] <p>
@@ -353,7 +353,7 @@ function pcntl_strerror (int $error_code): bool|string
  * scheduling.
  */
 #[Pure]
-function pcntl_getpriority (int $process_id, int $mode = PRIO_PROCESS): int|false
+function pcntl_getpriority (?int $process_id, int $mode = PRIO_PROCESS): int|false
 {}
 
 /**
@@ -367,7 +367,7 @@ function pcntl_getpriority (int $process_id, int $mode = PRIO_PROCESS): int|fals
  * system types and kernel versions, please see your system's setpriority(2)
  * man page for specific details.
  * </p>
- * @param int $process_id [optional] <p>
+ * @param int|null $process_id [optional] <p>
  * If not specified, the pid of the current process (getmypid()) is used.
  * </p>
  * @param int $mode [optional] <p>
@@ -376,7 +376,7 @@ function pcntl_getpriority (int $process_id, int $mode = PRIO_PROCESS): int|fals
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pcntl_setpriority (int $priority, int $process_id, int $mode = PRIO_PROCESS): bool
+function pcntl_setpriority (int $priority, ?int $process_id, int $mode = PRIO_PROCESS): bool
 {}
 
 /**
@@ -473,14 +473,14 @@ function pcntl_sigtimedwait (array $signals, &$info, int $seconds = 0, int $nano
  * signal handling is enabled.
  * @link https://www.php.net/manual/en/function.pcntl-async-signals.php
  *
- * @param bool $enable [optional] <p>
+ * @param bool|null $enable [optional] <p>
  * Whether asynchronous signal handling should be enabled.
  * </p>
  *
  * @return bool
  * @since 7.1
  */
-function pcntl_async_signals(bool $enable): bool
+function pcntl_async_signals(?bool $enable): bool
 {}
 
 /**

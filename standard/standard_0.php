@@ -399,7 +399,7 @@ function wordwrap (string $string, int $width = 75, string $break = "\n", bool $
  * </tbody>
  *
  * </table>
- * @param string $encoding [optional] <p>
+ * @param string|null $encoding [optional] <p>
  * Defines encoding used in conversion.
  * If omitted, the default value for this argument is ISO-8859-1 in
  * versions of PHP prior to 5.4.0, and UTF-8 from PHP 5.4.0 onwards.
@@ -421,7 +421,7 @@ function wordwrap (string $string, int $width = 75, string $break = "\n", bool $
  * @return string The converted string.
  */
 #[Pure]
-function htmlspecialchars (string $string, int $flags = ENT_COMPAT | ENT_HTML401, string $encoding = 'UTF-8', bool $double_encode = true): string
+function htmlspecialchars (string $string, int $flags = ENT_COMPAT | ENT_HTML401, ?string $encoding = 'UTF-8', bool $double_encode = true): string
 {}
 
 /**
@@ -455,7 +455,7 @@ function htmlspecialchars (string $string, int $flags = ENT_COMPAT | ENT_HTML401
  * </tr>
  * </table>
  * </p>
- * @param string $encoding [optional] <p>
+ * @param string|null $encoding [optional] <p>
  * Like htmlspecialchars, it takes an optional
  * third argument charset which defines character
  * set used in conversion.
@@ -469,7 +469,7 @@ function htmlspecialchars (string $string, int $flags = ENT_COMPAT | ENT_HTML401
  * @return string the encoded string.
  */
 #[Pure]
-function htmlentities (string $string, int $flags, string $encoding, bool $double_encode = true): string
+function htmlentities (string $string, int $flags, ?string $encoding, bool $double_encode = true): string
 {}
 
 /**
@@ -503,7 +503,7 @@ function htmlentities (string $string, int $flags, string $encoding, bool $doubl
  * </tr>
  * </table>
  * </p>
- * @param string $encoding [optional] <p>
+ * @param string|null $encoding [optional] <p>
  * The ISO-8859-1 character set is used as default for the optional third
  * charset. This defines the character set used in
  * conversion.
@@ -512,7 +512,7 @@ function htmlentities (string $string, int $flags, string $encoding, bool $doubl
  * @return string the decoded string.
  */
 #[Pure]
-function html_entity_decode (string $string, int $flags, string $encoding): string
+function html_entity_decode (string $string, int $flags, ?string $encoding): string
 {}
 
 /**
@@ -1101,7 +1101,7 @@ function phpinfo (int $flags): bool
 /**
  * Gets the current PHP version
  * @link https://php.net/manual/en/function.phpversion.php
- * @param string $extension [optional] <p>
+ * @param string|null $extension [optional] <p>
  * An optional extension name.
  * </p>
  * @return string|false If the optional extension parameter is
@@ -1110,7 +1110,7 @@ function phpinfo (int $flags): bool
  * the extension isn't enabled.
  */
 #[Pure]
-function phpversion (string $extension): string|false
+function phpversion (?string $extension): string|false
 {}
 
 /**
@@ -1316,7 +1316,7 @@ function strnatcasecmp (string $string1, string $string2): int
  * @param int $offset [optional] <p>
  * The offset where to start counting
  * </p>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * The maximum length after the specified offset to search for the
  * substring. It outputs a warning if the offset plus the length is
  * greater than the haystack length.
@@ -1324,7 +1324,7 @@ function strnatcasecmp (string $string1, string $string2): int
  * @return int This functions returns an integer.
  */
 #[Pure]
-function substr_count (string $haystack, string $needle, int $offset, int $length): int
+function substr_count (string $haystack, string $needle, int $offset, ?int $length): int
 {}
 
 /**
@@ -1358,7 +1358,7 @@ function substr_count (string $haystack, string $needle, int $offset, int $lengt
  * the start'th position from the end
  * of subject.
  * </p>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * The length of the segment from subject
  * to examine.
  * </p>
@@ -1378,7 +1378,7 @@ function substr_count (string $haystack, string $needle, int $offset, int $lengt
  * which consists entirely of characters in str2.
  */
 #[Pure]
-function strspn (string $string, string $characters, int $offset, int $length): int
+function strspn (string $string, string $characters, int $offset, ?int $length): int
 {}
 
 /**
@@ -1393,13 +1393,13 @@ function strspn (string $string, string $characters, int $offset, int $length): 
  * @param int $offset [optional] <p>
  * The start position of the string to examine.
  * </p>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * The length of the string to examine.
  * </p>
  * @return int the length of the segment as an integer.
  */
 #[Pure]
-function strcspn (string $string, string $characters, int $offset, int $length): int
+function strcspn (string $string, string $characters, int $offset, ?int $length): int
 {}
 
 /**
@@ -1413,10 +1413,10 @@ function strcspn (string $string, string $characters, int $offset, int $length):
  * @param string $string [optional] <p>
  * The string being split up into smaller strings (tokens).
  * </p>
- * @param string $token <p>
+ * @param string|null $token <p>
  * The delimiter used when splitting up str.
  * </p>
  * @return string|false A string token.
  */
-function strtok (string $string, string $token): string|false
+function strtok (string $string, ?string $token): string|false
 {}

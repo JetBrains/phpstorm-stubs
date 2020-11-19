@@ -7,7 +7,7 @@ use JetBrains\PhpStorm\Deprecated;
  * Get and/or set the current session name.<br/>
  * Before 7.2.0 checked cookie status and since 7.2.0 checks both cookie and session status to avoid PHP crash.
  * @link https://php.net/manual/en/function.session-name.php
- * @param string $name [optional] <p>
+ * @param string|null $name [optional] <p>
  * The session name references the name of the session, which is
  * used in cookies and URLs (e.g. PHPSESSID). It
  * should contain only alphanumeric characters; it should be short and
@@ -23,26 +23,26 @@ use JetBrains\PhpStorm\Deprecated;
  * </p>
  * @return string|false the name of the current session.
  */
-function session_name (string $name): string|false
+function session_name (?string $name): string|false
 {}
 
 /**
  * Get and/or set the current session module.<br/>
  * Since 7.2.0 it is forbidden to set the module name to "user".
  * @link https://php.net/manual/en/function.session-module-name.php
- * @param string $module [optional] <p>
+ * @param string|null $module [optional] <p>
  * If <i>module</i> is specified, that module will be
  * used instead.
  * </p>
  * @return string|false the name of the current session module.
  */
-function session_module_name (string $module): string|false
+function session_module_name (?string $module): string|false
 {}
 
 /**
  * Get and/or set the current session save path
  * @link https://php.net/manual/en/function.session-save-path.php
- * @param string $path [optional] <p>
+ * @param string|null $path [optional] <p>
  * Session data path. If specified, the path to which data is saved will
  * be changed. <b>session_save_path</b> needs to be called
  * before <b>session_start</b> for that purpose.
@@ -56,13 +56,13 @@ function session_module_name (string $module): string|false
  * </p>
  * @return string|false the path of the current directory used for data storage.
  */
-function session_save_path (string $path): string|false
+function session_save_path (?string $path): string|false
 {}
 
 /**
  * Get and/or set the current session id
  * @link https://php.net/manual/en/function.session-id.php
- * @param string $id [optional] <p>
+ * @param string|null $id [optional] <p>
  * If <i>id</i> is specified, it will replace the current
  * session id. <b>session_id</b> needs to be called before
  * <b>session_start</b> for that purpose. Depending on the
@@ -78,7 +78,7 @@ function session_save_path (string $path): string|false
  * session or the empty string ("") if there is no current
  * session (no current session id exists).
  */
-function session_id (string $id): string|false
+function session_id (?string $id): string|false
 {}
 
 /**
@@ -277,7 +277,7 @@ function session_set_save_handler (SessionHandlerInterface $session_handler, $re
 /**
  * Get and/or set the current cache limiter
  * @link https://php.net/manual/en/function.session-cache-limiter.php
- * @param string $value [optional] <p>
+ * @param string|null $value [optional] <p>
  * If <i>cache_limiter</i> is specified, the name of the
  * current cache limiter is changed to the new value.
  * </p>
@@ -329,13 +329,13 @@ function session_set_save_handler (SessionHandlerInterface $session_handler, $re
  * </table>
  * @return string|false the name of the current cache limiter.
  */
-function session_cache_limiter (string $value): string|false
+function session_cache_limiter (?string $value): string|false
 {}
 
 /**
  * Return current cache expire
  * @link https://php.net/manual/en/function.session-cache-expire.php
- * @param int $value [optional] <p>
+ * @param int|null $value [optional] <p>
  * If <i>new_cache_expire</i> is given, the current cache
  * expire is replaced with <i>new_cache_expire</i>.
  * </p>
@@ -347,7 +347,7 @@ function session_cache_limiter (string $value): string|false
  * @return int|false the current setting of session.cache_expire.
  * The value returned should be read in minutes, defaults to 180.
  */
-function session_cache_expire (int $value): int|false
+function session_cache_expire (?int $value): int|false
 {}
 
 /**
@@ -376,28 +376,28 @@ function session_set_cookie_params (array $options): bool
  * Lifetime of the
  * session cookie, defined in seconds.
  * </p>
- * @param string $path [optional] <p>
+ * @param string|null $path [optional] <p>
  * Path on the domain where
  * the cookie will work. Use a single slash ('/') for all paths on the
  * domain.
  * </p>
- * @param string $domain [optional] <p>
+ * @param string|null $domain [optional] <p>
  * Cookie domain, for
  * example 'www.php.net'. To make cookies visible on all subdomains then
  * the domain must be prefixed with a dot like '.php.net'.
  * </p>
- * @param bool $secure [optional] <p>
+ * @param bool|null $secure [optional] <p>
  * If true cookie will only be sent over
  * secure connections.
  * </p>
- * @param bool $httponly [optional] <p>
+ * @param bool|null $httponly [optional] <p>
  * If set to true then PHP will attempt to send the
  * httponly
  * flag when setting the session cookie.
  * </p>
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
-function session_set_cookie_params (array|int $lifetime_or_options, string $path, string $domain, bool $secure = false, bool $httponly = false): bool
+function session_set_cookie_params (array|int $lifetime_or_options, ?string $path, ?string $domain, ?bool $secure = false, ?bool $httponly = false): bool
 {}
 
 /**

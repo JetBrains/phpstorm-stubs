@@ -8,18 +8,18 @@ use JetBrains\PhpStorm\Pure;
  * Runs the equivalent of the select() system call on the given
  * arrays of streams with a timeout specified by tv_sec and tv_usec
  * @link https://php.net/manual/en/function.stream-select.php
- * @param array &$read <p>
+ * @param array|null &$read <p>
  * The streams listed in the read array will be watched to
  * see if characters become available for reading (more precisely, to see if
  * a read will not block - in particular, a stream resource is also ready on
  * end-of-file, in which case an fread will return
  * a zero length string).
  * </p>
- * @param array &$write <p>
+ * @param array|null &$write <p>
  * The streams listed in the write array will be
  * watched to see if a write will not block.
  * </p>
- * @param array &$except <p>
+ * @param array|null &$except <p>
  * The streams listed in the except array will be
  * watched for high priority exceptional ("out-of-band") data arriving.
  * </p>
@@ -34,7 +34,7 @@ use JetBrains\PhpStorm\Pure;
  * empty array or null instead. Also do not forget that those arrays are
  * passed by reference and will be modified after
  * stream_select returns.
- * @param int $seconds <p>
+ * @param int|null $seconds <p>
  * The tv_sec and tv_usec
  * together form the timeout parameter,
  * tv_sec specifies the number of seconds while
@@ -77,7 +77,7 @@ use JetBrains\PhpStorm\Pure;
  * is returned and a warning raised (this can happen if the system call is
  * interrupted by an incoming signal).
  */
-function stream_select (array &$read, array &$write, array &$except, int $seconds, int $microseconds): int|false
+function stream_select (?array &$read, ?array &$write, ?array &$except, ?int $seconds, int $microseconds): int|false
 {}
 
 /**
@@ -98,7 +98,7 @@ function stream_select (array &$read, array &$write, array &$except, int $second
  * </p>
  * @return resource A stream context resource.
  */
-function stream_context_create (array $options, array $params) {}
+function stream_context_create (?array $options, ?array $params) {}
 
 /**
  * Set parameters for a stream/wrapper/context
@@ -177,7 +177,7 @@ function stream_context_get_options ($stream_or_context): array
  * </p>
  * @return resource A stream context resource.
  */
-function stream_context_get_default (array $options) {}
+function stream_context_get_default (?array $options) {}
 
 /**
  * Set the default stream context
@@ -316,7 +316,7 @@ function stream_filter_remove ($stream_filter): bool
  * fwrite, fclose, and
  * feof), false on failure.
  */
-function stream_socket_client (string $address, &$error_code, &$error_message, float $timeout, int $flags, $context)
+function stream_socket_client (string $address, &$error_code, &$error_message, ?float $timeout, int $flags, $context)
 {}
 
 /**
@@ -374,7 +374,7 @@ function stream_socket_server (string $address, &$error_code, &$error_message, i
  * Accept a connection on a socket created by {@see stream_socket_server}
  * @link https://php.net/manual/en/function.stream-socket-accept.php
  * @param resource $socket
- * @param float $timeout [optional] <p>
+ * @param float|null $timeout [optional] <p>
  * Override the default socket accept timeout. Time should be given in
  * seconds.
  * </p>
@@ -388,7 +388,7 @@ function stream_socket_server (string $address, &$error_code, &$error_message, i
  * </p>
  * @return resource|false Returns a stream to the accepted socket connection or FALSE on failure.
  */
-function stream_socket_accept ($socket, float $timeout, &$peer_name)
+function stream_socket_accept ($socket, ?float $timeout, &$peer_name)
 {}
 
 /**
@@ -489,7 +489,7 @@ function stream_socket_sendto ($socket, string $data, int $flags, string $addres
  * @param bool $enable <p>
  * Enable/disable cryptography on the stream.
  * </p>
- * @param int $crypto_method [optional] <p>
+ * @param int|null $crypto_method [optional] <p>
  * Setup encryption on the stream.
  * Valid methods are
  * STREAM_CRYPTO_METHOD_SSLv2_CLIENT
@@ -500,7 +500,7 @@ function stream_socket_sendto ($socket, string $data, int $flags, string $addres
  * 0 if there isn't enough data and you should try again
  * (only for non-blocking sockets).
  */
-function stream_socket_enable_crypto ($stream, bool $enable, int $crypto_method, $session_stream): int|bool
+function stream_socket_enable_crypto ($stream, bool $enable, ?int $crypto_method, $session_stream): int|bool
 {}
 
 /**
@@ -561,7 +561,7 @@ function stream_socket_pair (int $domain, int $type, int $protocol): array|false
  * @param resource $to <p>
  * The destination stream
  * </p>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * Maximum bytes to copy
  * </p>
  * @param int $offset [optional] <p>
@@ -569,7 +569,7 @@ function stream_socket_pair (int $domain, int $type, int $protocol): array|false
  * </p>
  * @return int|false the total count of bytes copied, or false on failure.
  */
-function stream_copy_to_stream ($from, $to, int $length, int $offset): int|false
+function stream_copy_to_stream ($from, $to, ?int $length, int $offset): int|false
 {}
 
 /**
@@ -578,7 +578,7 @@ function stream_copy_to_stream ($from, $to, int $length, int $offset): int|false
  * @param resource $stream <p>
  * A stream resource (e.g. returned from fopen)
  * </p>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * The maximum bytes to read. Defaults to -1 (read all the remaining
  * buffer).
  * </p>
@@ -587,7 +587,7 @@ function stream_copy_to_stream ($from, $to, int $length, int $offset): int|false
  * </p>
  * @return string|false a string or false on failure.
  */
-function stream_get_contents ($stream, int $length = -1, int $offset = -1): string|false
+function stream_get_contents ($stream, ?int $length = -1, int $offset = -1): string|false
 {}
 
 /**
@@ -609,7 +609,7 @@ function stream_supports_lock ($stream): bool
  * fopen, popen, or
  * fsockopen.
  * </p>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * Must be greater than the longest line (in characters) to be found in
  * the CSV file (allowing for trailing line-end characters). It became
  * optional in PHP 5. Omitting this parameter (or setting it to 0 in PHP
@@ -638,7 +638,7 @@ function stream_supports_lock ($stream): bool
  * handle is supplied or false on other errors,
  * including end of file.
  */
-function fgetcsv ($stream, int $length = 0, string $separator = ',', string $enclosure = '"', string $escape = '\\'): array|false
+function fgetcsv ($stream, ?int $length = 0, string $separator = ',', string $enclosure = '"', string $escape = '\\'): array|false
 {}
 
 /**

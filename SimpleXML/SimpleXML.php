@@ -398,7 +398,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
  * urlencode('b&#38;#38;c'))). Since PHP 5.1.0 you don't need to do
  * this because PHP will do it for you.
  * </p>
- * @param string $class_name [optional] <p>
+ * @param string|null $class_name [optional] <p>
  * You may use this optional parameter so that
  * <b>simplexml_load_file</b> will return an object of
  * the specified class. That class should extend the
@@ -418,7 +418,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
  * @return SimpleXMLElement|false an object of class SimpleXMLElement with
  * properties containing the data held within the XML document, or <b>FALSE</b> on failure.
  */
-function simplexml_load_file (string $filename, string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false): SimpleXMLElement|false {}
+function simplexml_load_file (string $filename, ?string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false): SimpleXMLElement|false {}
 
 /**
  * Interprets a string of XML into an object
@@ -426,7 +426,7 @@ function simplexml_load_file (string $filename, string $class_name = "SimpleXMLE
  * @param string $data <p>
  * A well-formed XML string
  * </p>
- * @param string $class_name [optional] <p>
+ * @param string|null $class_name [optional] <p>
  * You may use this optional parameter so that
  * <b>simplexml_load_string</b> will return an object of
  * the specified class. That class should extend the
@@ -446,7 +446,7 @@ function simplexml_load_file (string $filename, string $class_name = "SimpleXMLE
  * @return SimpleXMLElement|false an object of class SimpleXMLElement with
  * properties containing the data held within the xml document, or <b>FALSE</b> on failure.
  */
-function simplexml_load_string (string $data, string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false): SimpleXMLElement|false {}
+function simplexml_load_string (string $data, ?string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false): SimpleXMLElement|false {}
 
 /**
  * Get a SimpleXMLElement object from a DOM node.
@@ -454,14 +454,14 @@ function simplexml_load_string (string $data, string $class_name = "SimpleXMLEle
  * @param DOMNode $node <p>
  * A DOM Element node
  * </p>
- * @param string $class_name [optional] <p>
+ * @param string|null $class_name [optional] <p>
  * You may use this optional parameter so that
  * <b>simplexml_import_dom</b> will return an object of
  * the specified class. That class should extend the
  * SimpleXMLElement class.
  * </p>
- * @return SimpleXMLElement a SimpleXMLElement or <b>FALSE</b> on failure.
+ * @return SimpleXMLElement|null a SimpleXMLElement or <b>FALSE</b> on failure.
  */
-function simplexml_import_dom (DOMNode $node, string $class_name = "SimpleXMLElement"): SimpleXMLElement {}
+function simplexml_import_dom (DOMNode $node, ?string $class_name = "SimpleXMLElement"): ?SimpleXMLElement {}
 
 // End of SimpleXML v.0.1

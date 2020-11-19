@@ -449,7 +449,7 @@ function preg_split (string $pattern, string $subject, int $limit = -1, int $fla
  * @param string $str <p>
  * The input string.
  * </p>
- * @param string $delimiter [optional] <p>
+ * @param string|null $delimiter [optional] <p>
  * If the optional <i>delimiter</i> is specified, it
  * will also be escaped. This is useful for escaping the delimiter
  * that is required by the PCRE functions. The / is the most commonly
@@ -458,7 +458,7 @@ function preg_split (string $pattern, string $subject, int $limit = -1, int $fla
  * @return string the quoted (escaped) string.
  */
 #[Pure]
-function preg_quote (string $str, string $delimiter): string
+function preg_quote (string $str, ?string $delimiter): string
 {}
 
 /**

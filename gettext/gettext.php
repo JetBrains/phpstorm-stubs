@@ -6,14 +6,14 @@ use JetBrains\PhpStorm\Pure;
 /**
  * Sets the default domain
  * @link https://php.net/manual/en/function.textdomain.php
- * @param string $domain <p>
+ * @param string|null $domain <p>
  * The new message domain, or <b>NULL</b> to get the current setting without
  * changing it
  * </p>
  * @return string If successful, this function returns the current message
  * domain, after possibly changing it.
  */
-function textdomain (string $domain): string
+function textdomain (?string $domain): string
 {}
 
 /**

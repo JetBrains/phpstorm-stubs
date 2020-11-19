@@ -448,13 +448,13 @@ function rmdir (string $directory, $context): bool
 /**
  * Changes the current umask
  * @link https://php.net/manual/en/function.umask.php
- * @param int $mask [optional] <p>
+ * @param int|null $mask [optional] <p>
  * The new umask.
  * </p>
  * @return int umask without arguments simply returns the
  * current umask otherwise the old umask is returned.
  */
-function umask (int $mask): int
+function umask (?int $mask): int
 {}
 
 /**
@@ -493,7 +493,7 @@ function fgetc ($stream): string|false
  * Gets line from file pointer
  * @link https://php.net/manual/en/function.fgets.php
  * @param resource $stream The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * Reading ends when length - 1 bytes have been
  * read, on a newline (which is included in the return value), or on EOF
  * (whichever comes first). If no length is specified, it will keep
@@ -511,7 +511,7 @@ function fgetc ($stream): string|false
  * <p>
  * If an error occurs, returns false.
  */
-function fgets ($stream, int $length): string|false
+function fgets ($stream, ?int $length): string|false
 {}
 
 /**
@@ -844,7 +844,7 @@ function fflush ($stream): bool
  * @param string $data <p>
  * The string that is to be written.
  * </p>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * If the length argument is given, writing will
  * stop after length bytes have been written or
  * the end of string is reached, whichever comes
@@ -858,7 +858,7 @@ function fflush ($stream): bool
  * </p>
  * @return int|false the number of bytes written, or <b>FALSE</b> on error.
  */
-function fwrite ($stream, string $data, int $length): int|false
+function fwrite ($stream, string $data, ?int $length): int|false
 {}
 
 /**
@@ -867,7 +867,7 @@ function fwrite ($stream, string $data, int $length): int|false
  * @param string $data <p>
  * The string that is to be written.
  * </p>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * If the length argument is given, writing will
  * stop after length bytes have been written or
  * the end of string is reached, whichever comes
@@ -884,7 +884,7 @@ function fwrite ($stream, string $data, int $length): int|false
  * @link https://php.net/manual/en/function.fputs.php
  * Binary-safe file write
  */
-function fputs ($stream, string $data, int $length): int|false
+function fputs ($stream, string $data, ?int $length): int|false
 {}
 
 /**
@@ -1033,13 +1033,13 @@ function file (string $filename, int $flags, $context): array|false
  * @param int $offset [optional] <p>
  * The offset where the reading starts.
  * </p>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * Maximum length of data read. The default is to read until end
  * of file is reached.
  * </p>
  * @return string|false The function returns the read data or false on failure.
  */
-function file_get_contents (string $filename, bool $use_include_path = false, $context, int $offset = 0, int $length): string|false
+function file_get_contents (string $filename, bool $use_include_path = false, $context, int $offset = 0, ?int $length): string|false
 {}
 
 /**

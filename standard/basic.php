@@ -56,11 +56,11 @@ function cli_set_process_title (string $title): bool
 /**
  * Returns the current process title
  * @link https://php.net/manual/en/function.cli-get-process-title.php
- * @return string Return a string with the current process title or <b>NULL</b> on error.
+ * @return string|null Return a string with the current process title or <b>NULL</b> on error.
  * @since 5.5
  */
 #[Pure]
-function cli_get_process_title (): string
+function cli_get_process_title (): ?string
 {}
 
 /**

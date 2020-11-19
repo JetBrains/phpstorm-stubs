@@ -45,14 +45,14 @@ function bzread ($bz, int $length = 1024): string|false {}
  * @param string $data <p>
  * The written data.
  * </p>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * If supplied, writing will stop after <i>length</i>
  * (uncompressed) bytes have been written or the end of
  * <i>data</i> is reached, whichever comes first.
  * </p>
  * @return int the number of bytes written, or <b>FALSE</b> on error.
  */
-function bzwrite ($bz, string $data, int $length): int|false
+function bzwrite ($bz, string $data, ?int $length): int|false
 {}
 
 /**

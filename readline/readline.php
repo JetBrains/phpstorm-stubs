@@ -5,18 +5,18 @@
 /**
  * Reads a line
  * @link https://php.net/manual/en/function.readline.php
- * @param string $prompt [optional] <p>
+ * @param string|null $prompt [optional] <p>
  * You may specify a string with which to prompt the user.
  * </p>
  * @return string|false a single string from the user. The line returned has the ending newline removed.
  * If there is no more data to read, then FALSE is returned.
  */
-function readline (string $prompt): string|false {}
+function readline (?string $prompt): string|false {}
 
 /**
  * Gets/sets various internal readline variables
  * @link https://php.net/manual/en/function.readline-info.php
- * @param string $var_name [optional] <p>
+ * @param string|null $var_name [optional] <p>
  * A variable name.
  * </p>
  * @param string $value [optional] <p>
@@ -31,7 +31,7 @@ function readline (string $prompt): string|false {}
  * <p>
  * If called with one or two parameters, the old value is returned.
  */
-function readline_info (string $var_name, $value): mixed {}
+function readline_info (?string $var_name, $value): mixed {}
 
 /**
  * Adds a line to the history
@@ -64,23 +64,23 @@ function readline_list_history (): array
 /**
  * Reads the history
  * @link https://php.net/manual/en/function.readline-read-history.php
- * @param string $filename [optional] <p>
+ * @param string|null $filename [optional] <p>
  * Path to the filename containing the command history.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_read_history (string $filename): bool
+function readline_read_history (?string $filename): bool
 {}
 
 /**
  * Writes the history
  * @link https://php.net/manual/en/function.readline-write-history.php
- * @param string $filename [optional] <p>
+ * @param string|null $filename [optional] <p>
  * Path to the saved file.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_write_history (string $filename): bool
+function readline_write_history (?string $filename): bool
 {}
 
 /**

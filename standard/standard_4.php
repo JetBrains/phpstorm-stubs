@@ -299,9 +299,9 @@ function memory_get_peak_usage (bool $real_usage = false): int
  * It is possible to pass parameters to the shutdown function by passing
  * additional parameters.
  * </p>
- * @return bool
+ * @return bool|null
  */
-function register_shutdown_function (callable $callback, ...$args): bool {}
+function register_shutdown_function (callable $callback, ...$args): ?bool {}
 
 /**
  * Register a function for execution on each tick
@@ -421,7 +421,7 @@ function ini_get (string $option): string|false
  * Gets all configuration options
  * @link https://php.net/manual/en/function.ini-get-all.php
  * @link https://php.net/manual/en/ini.list.php
- * @param string $extension [optional] <p>
+ * @param string|null $extension [optional] <p>
  * An optional extension name. If set, the function return only options
  * specific for that extension.
  * </p>
@@ -451,7 +451,7 @@ function ini_get (string $option): string|false
  * why access shows the appropriate bitmask values.
  */
 #[Pure]
-function ini_get_all (string $extension, bool $details): array|false
+function ini_get_all (?string $extension, bool $details): array|false
 {}
 
 /**
@@ -705,13 +705,13 @@ function header (string $header, bool $replace = true, int $response_code): void
 /**
  * Remove previously set headers
  * @link https://php.net/manual/en/function.header-remove.php
- * @param string $name [optional] <p>
+ * @param string|null $name [optional] <p>
  * The header name to be removed.
  * </p>
  * This parameter is case-insensitive.
  * @return void
  */
-function header_remove (string $name): void {}
+function header_remove (?string $name): void {}
 
 /**
  * Checks if or where headers have been sent
@@ -783,14 +783,14 @@ function connection_status (): int
 /**
  * Set whether a client disconnect should abort script execution
  * @link https://php.net/manual/en/function.ignore-user-abort.php
- * @param string $enable [optional] <p>
+ * @param bool|null $enable [optional] <p>
  * If set, this function will set the ignore_user_abort ini setting
  * to the given value. If not, this function will
  * only return the previous setting without changing it.
  * </p>
  * @return int the previous setting, as an integer.
  */
-function ignore_user_abort (bool $enable): int
+function ignore_user_abort (?bool $enable): int
 {}
 
 /**

@@ -391,14 +391,14 @@ function str_shuffle (string $string): string
  * are:
  * 0 - returns the number of words found
  * </p>
- * @param string $characters [optional] <p>
+ * @param string|null $characters [optional] <p>
  * A list of additional characters which will be considered as 'word'
  * </p>
  * @return string[]|int an array or an integer, depending on the
  * format chosen.
  */
 #[Pure]
-function str_word_count (string $string, int $format, string $characters): array|int
+function str_word_count (string $string, int $format, ?string $characters): array|int
 {}
 
 /**
@@ -456,7 +456,7 @@ function strpbrk (string $string, string $characters): string|false
  * The start position for the comparison. If negative, it starts counting
  * from the end of the string.
  * </p>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * The length of the comparison.
  * </p>
  * @param bool $case_insensitive [optional] <p>
@@ -472,7 +472,7 @@ function strpbrk (string $string, string $characters): string|false
  * false.
  */
 #[Pure]
-function substr_compare (string $haystack, string $needle, int $offset, int $length, bool $case_insensitive): int
+function substr_compare (string $haystack, string $needle, int $offset, ?int $length, bool $case_insensitive): int
 {}
 
 /**
@@ -547,7 +547,7 @@ function money_format (string $format, float $number): ?string
  * $rest = substr("abcdef", -3, 1); // returns "d"
  * ?>
  * </pre>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * If length is given and is positive, the string
  * returned will contain at most length characters
  * beginning from start (depending on the length of
@@ -578,7 +578,7 @@ function money_format (string $format, float $number): ?string
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function substr (string $string, int $offset, int $length): bool|string
+function substr (string $string, int $offset, ?int $length)
 {}
 
 /**
@@ -1042,14 +1042,14 @@ function explode (string $separator, string $string, int $limit): array|bool
  * implode as glue would be
  * the second parameter and thus, the bad prototype would be used.
  * </p>
- * @param array $array <p>
+ * @param array|null $array <p>
  * The array of strings to implode.
  * </p>
  * @return string a string containing a string representation of all the array
  * elements in the same order, with the glue string between each element.
  */
 #[Pure]
-function implode (array|string $separator = "", array $array): string
+function implode (array|string $separator = "", ?array $array): string
 {}
 
 /**
@@ -1060,14 +1060,14 @@ function implode (array|string $separator = "", array $array): string
  * implode as glue would be
  * the second parameter and thus, the bad prototype would be used.
  * </p>
- * @param array $array <p>
+ * @param array|null $array <p>
  * The array of strings to implode.
  * </p>
  * @return string a string containing a string representation of all the array
  * elements in the same order, with the glue string between each element.
  */
 #[Pure]
-function join (array|string  $separator = "", array $array): string
+function join (array|string  $separator = "", ?array $array): string
 {}
 
 /**

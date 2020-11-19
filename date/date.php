@@ -12,7 +12,7 @@ use JetBrains\PhpStorm\Pure;
  * The string to parse. Before PHP 5.0.0, microseconds weren't allowed in
  * the time, since PHP 5.0.0 they are allowed but ignored.
  * </p>
- * @param int $baseTimestamp [optional] <p>
+ * @param int|null $baseTimestamp [optional] <p>
  * Default value: now()
  * The timestamp which is used as a base for the calculation of relative
  * dates.
@@ -21,7 +21,7 @@ use JetBrains\PhpStorm\Pure;
  * this function would return -1 on failure.
  */
 #[Pure]
-function strtotime (string $datetime, int $baseTimestamp): int|false
+function strtotime (string $datetime, ?int $baseTimestamp): int|false
 {}
 
 /**
@@ -284,7 +284,7 @@ function strtotime (string $datetime, int $baseTimestamp): int|false
  * date_format function with user based timestamps
  * created with date_create.
  * </p>
- * @param int $timestamp [optional] Default value: now(). The optional timestamp parameter is an integer Unix timestamp
+ * @param int|null $timestamp [optional] Default value: now(). The optional timestamp parameter is an integer Unix timestamp
  * that defaults to the current local time if a timestamp is not given.
  * @return string|false a formatted date string. If a non-numeric value is used for
  * timestamp, false is returned and an
@@ -292,7 +292,7 @@ function strtotime (string $datetime, int $baseTimestamp): int|false
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function date (string $format, int $timestamp)
+function date (string $format, ?int $timestamp)
 {}
 
 /**
@@ -380,7 +380,7 @@ function date (string $format, int $timestamp)
  * </tr>
  * </table>
  * </p>
- * @param int $timestamp [optional]
+ * @param int|null $timestamp [optional]
  * @return int|false an integer.
  * </p>
  * <p>
@@ -389,7 +389,7 @@ function date (string $format, int $timestamp)
  * fewer digits than you would expect. See the example below.
  */
 #[Pure]
-function idate (string $format, int $timestamp): int|false
+function idate (string $format, ?int $timestamp): int|false
 {}
 
 /**
@@ -399,14 +399,14 @@ function idate (string $format, int $timestamp): int|false
  * The format of the outputted date string. See the formatting
  * options for the date function.
  * </p>
- * @param int $timestamp [optional]
+ * @param int|null $timestamp [optional]
  * @return string|false a formatted date string. If a non-numeric value is used for
  * timestamp, false is returned and an
  * E_WARNING level error is emitted.
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function gmdate (string $format, int $timestamp)
+function gmdate (string $format, ?int $timestamp)
 {}
 
 /**
@@ -764,7 +764,7 @@ function checkdate (int $month, int $day, int $year): bool
  * As a result, %u may not function as described in this manual.
  * @link https://php.net/manual/en/function.strftime.php
  * @param string $format <p>
- * @param int $timestamp [optional] defaults to the value of time()
+ * @param int|null $timestamp [optional] defaults to the value of time()
  * Unix timestamp that defaults to the current local time if a timestamp is not given..
  * @return string|false a string formatted according format
  * using the given timestamp or the current
@@ -772,7 +772,7 @@ function checkdate (int $month, int $day, int $year): bool
  * other language-dependent strings respect the current locale set
  * with setlocale.
  */
-function strftime (string $format, int $timestamp): string|false
+function strftime (string $format, ?int $timestamp): string|false
 {}
 
 /**
@@ -781,14 +781,14 @@ function strftime (string $format, int $timestamp): string|false
  * @param string $format <p>
  * See description in strftime.
  * </p>
- * @param int $timestamp [optional]
+ * @param int|null $timestamp [optional]
  * @return string|false a string formatted according to the given format string
  * using the given timestamp or the current
  * local time if no timestamp is given. Month and weekday names and
  * other language dependent strings respect the current locale set
  * with setlocale.
  */
-function gmstrftime (string $format, int $timestamp): string|false
+function gmstrftime (string $format, ?int $timestamp): string|false
 {}
 
 /**
@@ -802,7 +802,7 @@ function time (): int
 /**
  * Get the local time
  * @link https://php.net/manual/en/function.localtime.php
- * @param int $timestamp [optional]
+ * @param int|null $timestamp [optional]
  * @param bool $associative [optional] <p>
  * If set to false or not supplied then the array is returned as a regular,
  * numerically indexed array. If the argument is set to true then
@@ -816,13 +816,13 @@ function time (): int
  * @return array
  */
 #[Pure]
-function localtime (int $timestamp, bool $associative): array
+function localtime (?int $timestamp, bool $associative): array
 {}
 
 /**
  * Get date/time information
  * @link https://php.net/manual/en/function.getdate.php
- * @param int $timestamp [optional]
+ * @param int|null $timestamp [optional]
  * @return array an associative array of information related to
  * the timestamp. Elements from the returned
  * associative array are as follows:
@@ -899,7 +899,7 @@ function localtime (int $timestamp, bool $associative): array
  * </table>
  */
 #[Pure]
-function getdate (int $timestamp): array
+function getdate (?int $timestamp): array
 {}
 
 /**
@@ -908,13 +908,13 @@ function getdate (int $timestamp): array
  * @param string $datetime [optional] <p>
  * String in a format accepted by strtotime.
  * </p>
- * @param DateTimeZone $timezone [optional] <p>
+ * @param DateTimeZone|null $timezone [optional] <p>
  * Time zone of the time.
  * </p>
  * @return DateTime|false DateTime object on success or false on failure.
  */
 #[Pure]
-function date_create (string $datetime, DateTimeZone $timezone ): DateTime|false
+function date_create (string $datetime, ?DateTimeZone $timezone ): DateTime|false
 {}
 
 /**
@@ -926,13 +926,13 @@ function date_create (string $datetime, DateTimeZone $timezone ): DateTime|false
  * @param string $datetime [optional] <p>
  * String in a format accepted by strtotime.
  * </p>
- * @param DateTimeZone $timezone [optional] <p>
+ * @param DateTimeZone|null $timezone [optional] <p>
  * Time zone of the time.
  * </p>
  * @return DateTimeImmutable|false DateTime object on success or false on failure.
  */
 #[Pure]
-function date_create_immutable (string $datetime, DateTimeZone $timezone): DateTimeImmutable|false
+function date_create_immutable (string $datetime, ?DateTimeZone $timezone): DateTimeImmutable|false
 {}
 
 /**
@@ -940,11 +940,11 @@ function date_create_immutable (string $datetime, DateTimeZone $timezone): DateT
  * @link https://php.net/manual/en/function.date-create-immutable-from-format.php
  * @param string $format
  * @param string $datetime
- * @param DateTimeZone $timezone [optional]
+ * @param DateTimeZone|null $timezone [optional]
  * @return DateTimeImmutable|false
  */
 #[Pure]
-function date_create_immutable_from_format (string $format, string $datetime, DateTimeZone $timezone): DateTimeImmutable|false
+function date_create_immutable_from_format (string $format, string $datetime, ?DateTimeZone $timezone): DateTimeImmutable|false
 {}
 
 /**
@@ -956,12 +956,12 @@ function date_create_immutable_from_format (string $format, string $datetime, Da
  * <p>If format contains the character !, then portions of the generated time not provided in format, as well as values to the left-hand side of the !, will be set to corresponding values from the Unix epoch.
  * <p>The Unix epoch is 1970-01-01 00:00:00 UTC.
  * @param string $datetime String representing the time.
- * @param DateTimeZone $timezone [optional] A DateTimeZone object representing the desired time zone.
+ * @param DateTimeZone|null $timezone [optional] A DateTimeZone object representing the desired time zone.
  * @return DateTime|false <p> Returns a new
  * {@see DateTime} instance or <b>FALSE</b> on failure.</p>
  */
 #[Pure]
-function date_create_from_format (string $format, string $datetime, DateTimeZone $timezone): DateTime|false
+function date_create_from_format (string $format, string $datetime, ?DateTimeZone $timezone): DateTime|false
 {}
 
 /**
@@ -1302,13 +1302,13 @@ function timezone_location_get (DateTimeZone $object): array|false
  * {@see DateTimeZone::listIdentifiers()}
  * @link https://php.net/manual/en/function.timezone-identifiers-list.php
  * @param int $timezoneGroup [optional] One of DateTimeZone class constants.
- * @param string $countryCode [optional] A two-letter ISO 3166-1 compatible country code.
- * @return array|false Returns array on success or FALSE on failure.
+ * @param string|null $countryCode [optional] A two-letter ISO 3166-1 compatible country code.
+ * @return void Returns array on success or FALSE on failure.
  * Note: This option is only used when what is set to DateTimeZone::PER_COUNTRY.
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-function timezone_identifiers_list (int $timezoneGroup = DateTimeZone::ALL, string $countryCode)
+function timezone_identifiers_list (int $timezoneGroup = DateTimeZone::ALL, ?string $countryCode)
 {}
 
 /**
@@ -1414,15 +1414,15 @@ function date_default_timezone_get (): string
  * </tr>
  * </table>
  * </p>
- * @param float $latitude [optional] <p>
+ * @param float|null $latitude [optional] <p>
  * Defaults to North, pass in a negative value for South.
  * See also: date.default_latitude
  * </p>
- * @param float $longitude [optional] <p>
+ * @param float|null $longitude [optional] <p>
  * Defaults to East, pass in a negative value for West.
  * See also: date.default_longitude
  * </p>
- * @param float $zenith [optional] <p>
+ * @param float|null $zenith [optional] <p>
  * Default: date.sunrise_zenith
  * </p>
  * @param float $utcOffset [optional]
@@ -1430,7 +1430,7 @@ function date_default_timezone_get (): string
  * success or false on failure.
  */
 #[Pure]
-function date_sunrise (int $timestamp, int $returnFormat, float $latitude, float $longitude, float $zenith, float $utcOffset): string|int|float|false
+function date_sunrise (int $timestamp, int $returnFormat, ?float $latitude, ?float $longitude, ?float $zenith, float $utcOffset): string|int|float|false
 {}
 
 /**
@@ -1465,15 +1465,15 @@ function date_sunrise (int $timestamp, int $returnFormat, float $latitude, float
  * </tr>
  * </table>
  * </p>
- * @param float $latitude [optional] <p>
+ * @param float|null $latitude [optional] <p>
  * Defaults to North, pass in a negative value for South.
  * See also: date.default_latitude
  * </p>
- * @param float $longitude [optional] <p>
+ * @param float|null $longitude [optional] <p>
  * Defaults to East, pass in a negative value for West.
  * See also: date.default_longitude
  * </p>
- * @param float $zenith [optional] <p>
+ * @param float|null $zenith [optional] <p>
  * Default: date.sunset_zenith
  * </p>
  * @param float $utcOffset [optional]
@@ -1481,7 +1481,7 @@ function date_sunrise (int $timestamp, int $returnFormat, float $latitude, float
  * success or false on failure.
  */
 #[Pure]
-function date_sunset (int $timestamp, int $returnFormat, float $latitude, float $longitude, float $zenith, float $utcOffset): string|int|float|false
+function date_sunset (int $timestamp, int $returnFormat, ?float $latitude, ?float $longitude, ?float $zenith, float $utcOffset): string|int|float|false
 {}
 
 /**

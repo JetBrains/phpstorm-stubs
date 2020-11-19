@@ -108,7 +108,7 @@ function json_encode (mixed $value, int $flags = 0, int $depth = 512): string|fa
  * JSON - it will also encode and decode scalar types and <b>NULL</b>. The JSON standard
  * only supports these values when they are nested inside an array or an object.
  * </p>
- * @param bool $associative [optional] <p>
+ * @param bool|null $associative [optional] <p>
  * When <b>TRUE</b>, returned objects will be converted into
  * associative arrays.
  * </p>
@@ -130,7 +130,7 @@ function json_encode (mixed $value, int $flags = 0, int $depth = 512): string|fa
  * <i>json</i> cannot be decoded or if the encoded
  * data is deeper than the recursion limit.
  */
-function json_decode (string $json, bool $associative = false, int $depth = 512, int $flags = 0): mixed {}
+function json_decode (string $json, ?bool $associative = false, int $depth = 512, int $flags = 0): mixed {}
 
 /**
  * Returns the last error occurred

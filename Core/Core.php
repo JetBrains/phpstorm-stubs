@@ -195,7 +195,7 @@ function each (array &$array): array
 /**
  * Sets which PHP errors are reported
  * @link https://php.net/manual/en/function.error-reporting.php
- * @param int $error_level [optional] <p>
+ * @param int|null $error_level [optional] <p>
  * The new error_reporting
  * level. It takes on either a bitmask, or named constants. Using named
  * constants is strongly encouraged to ensure compatibility for future
@@ -314,7 +314,7 @@ function each (array &$array): array
  * level or the current level if no <i>level</i> parameter is
  * given.
  */
-function error_reporting (int $error_level): int
+function error_reporting (?int $error_level): int
 {}
 
 /**
@@ -646,7 +646,7 @@ function user_error (string $message, int $error_level = E_USER_NOTICE): bool
 /**
  * Sets a user-defined error handler function
  * @link https://php.net/manual/en/function.set-error-handler.php
- * @param callable $callback <p>
+ * @param callable|null $callback <p>
  * The user function needs to accept two parameters: the error code, and a
  * string describing the error. Then there are three optional parameters
  * that may be supplied: the filename in which the error occurred, the
@@ -664,20 +664,20 @@ function user_error (string $message, int $error_level = E_USER_NOTICE): bool
  * <i>errno</i>
  * The first parameter, <i>errno</i>, contains the
  * level of the error raised, as an integer.
- * @param int|string $error_levels [optional] <p>
+ * @param int $error_levels [optional] <p>
  * Can be used to mask the triggering of the
  * <i>error_handler</i> function just like the error_reporting ini setting
  * controls which errors are shown. Without this mask set the
  * <i>error_handler</i> will be called for every error
  * regardless to the setting of the error_reporting setting.
  * </p>
- * @return callable|null a string containing the previously defined error handler (if any). If
+ * @return void a string containing the previously defined error handler (if any). If
  * the built-in error handler is used null is returned. null is also returned
  * in case of an error such as an invalid callback. If the previous error handler
  * was a class method, this function will return an indexed array with the class
  * and the method name.
  */
-function set_error_handler (callable $callback, int $error_levels = E_ALL | E_STRICT)
+function set_error_handler (?callable $callback, int $error_levels = E_ALL | E_STRICT)
 {}
 
 /**
@@ -691,7 +691,7 @@ function restore_error_handler (): bool
 /**
  * Sets a user-defined exception handler function
  * @link https://php.net/manual/en/function.set-exception-handler.php
- * @param callable $callback <p>
+ * @param callable|null $callback <p>
  * Name of the function to be called when an uncaught exception occurs.
  * This function must be defined before calling
  * <b>set_exception_handler</b>. This handler function
@@ -699,10 +699,10 @@ function restore_error_handler (): bool
  * was thrown.
  * NULL may be passed instead, to reset this handler to its default state.
  * </p>
- * @return callable|null the name of the previously defined exception handler, or null on error. If
+ * @return void the name of the previously defined exception handler, or null on error. If
  * no previous handler was defined, null is also returned.
  */
-function set_exception_handler (callable $callback)
+function set_exception_handler (?callable $callback)
 {}
 
 /**
@@ -1109,7 +1109,7 @@ function gc_mem_caches (): int
 /**
  * Returns active resources
  * @link https://php.net/manual/en/function.get-resources.php
- * @param string $type [optional]<p>
+ * @param string|null $type [optional]<p>
  *
  * If defined, this will cause get_resources() to only return resources of the given type. A list of resource types is available.
  *
@@ -1121,5 +1121,5 @@ function gc_mem_caches (): int
  * @since 7.0
  */
 #[Pure]
-function get_resources (string $type): array
+function get_resources (?string $type): array
 {}

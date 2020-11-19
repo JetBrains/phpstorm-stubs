@@ -9,7 +9,7 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * @param int $key <p>
  * A numeric shared memory segment ID
  * </p>
- * @param int $size [optional] <p>
+ * @param int|null $size [optional] <p>
  * The memory size. If not provided, default to the
  * sysvshm.init_mem in the <i>php.ini</i>, otherwise 10000
  * bytes.
@@ -20,7 +20,7 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * @return resource|SysvSharedMemory|false a shared memory segment identifier.
  */
 #[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory|false"], default: "resource|false")]
-function shm_attach (int $key, int $size, int $permissions = 0666) {}
+function shm_attach (int $key, ?int $size, int $permissions = 0666) {}
 
 /**
  * Removes shared memory from Unix systems

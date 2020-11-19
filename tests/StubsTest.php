@@ -116,12 +116,10 @@ class StubsTest extends TestCase
                             fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name),
                             "Function ${functionName} has signature $functionName(" . $this->printParameters($function->parameters) . ')' .
                             " but stub function has signature $functionName(" . $this->printParameters($phpstormFunction->parameters) . ")");
-                        self::assertEquals($parameter->type, current(array_filter($phpstormFunction->parameters,
-                            fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name))->type, "Type mismatch $functionName: \$$parameter->name ");
-                        self::assertEquals($parameter->is_passed_by_ref, current(array_filter($phpstormFunction->parameters,
-                            fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name))->is_passed_by_ref, "Invalid pass by ref $functionName: \$$parameter->name ");
-                        self::assertEquals($parameter->is_vararg, current(array_filter($phpstormFunction->parameters,
-                            fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name))->is_vararg, "Invalid pass by ref $functionName: \$$parameter->name ");
+                        $stubParameter = current(array_filter($phpstormFunction->parameters, fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name));
+                        self::assertEquals($parameter->type, $stubParameter->type, "Type mismatch $functionName: \$$parameter->name ");
+                        self::assertEquals($parameter->is_passed_by_ref, $stubParameter->is_passed_by_ref, "Invalid pass by ref $functionName: \$$parameter->name ");
+                        self::assertEquals($parameter->is_vararg, $stubParameter->is_vararg, "Invalid pass by ref $functionName: \$$parameter->name ");
                     }
                 }
             }

@@ -145,7 +145,7 @@ define('PASSWORD_ARGON2_PROVIDER', 'standard');
  * Returns information about the given hash
  * @link https://secure.php.net/manual/en/function.password-get-info.php
  * @param string $hash A hash created by password_hash().
- * @return array Returns an associative array with three elements:
+ * @return array|null Returns an associative array with three elements:
  * <ul>
  * <li>
  * <em>algo</em>, which will match a
@@ -162,7 +162,7 @@ define('PASSWORD_ARGON2_PROVIDER', 'standard');
  * @since 5.5
  */
 #[ArrayShape(["algo" => "int", "algoName" => "string", "options" => "array"])]
-function password_get_info (string $hash): array
+function password_get_info (string $hash): ?array
 {}
 
 /**

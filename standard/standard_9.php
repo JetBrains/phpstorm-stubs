@@ -55,10 +55,10 @@ function array_replace(array $array, array ...$replacements): array
  * @param array ...$replacements <p>
  * The array from which elements will be extracted.
  * </p>
- * @return array|null an array, or null if an error occurs.
+ * @return array an array, or null if an error occurs.
  */
 #[Pure]
-function array_replace_recursive(array $array, array ...$replacements): ?array
+function array_replace_recursive(array $array, array ...$replacements): array
 { }
 
 /**
@@ -695,7 +695,7 @@ function array_product(array $array): int|float
  * @param array $array <p>
  * The array to iterate over
  * </p>
- * @param callback $callback [optional] <p>
+ * @param callback|null $callback [optional] <p>
  * The callback function to use
  * </p>
  * <p>
@@ -719,7 +719,7 @@ function array_product(array $array): int|float
  * @return array the filtered array.
  * @meta
  */
-function array_filter(array $array, callable $callback, int $mode = 0): array { }
+function array_filter(array $array, ?callable $callback, int $mode = 0): array { }
 
 /**
  * Applies the callback to the elements of the given arrays
@@ -943,7 +943,7 @@ function assert_options(int $option, mixed $value): object|array|string|int|null
  * @param string $version2 <p>
  * Second version number.
  * </p>
- * @param string $operator [optional] <p>
+ * @param string|null $operator [optional] <p>
  * If you specify the third optional operator
  * argument, you can test for a particular relationship. The
  * possible operators are: &lt;,
@@ -968,7 +968,7 @@ function assert_options(int $option, mixed $value): object|array|string|int|null
  * function will return true if the relationship is the one specified
  * by the operator, false otherwise.
  */
-function version_compare(string $version1, string $version2, string $operator): int|bool
+function version_compare(string $version1, string $version2, ?string $operator): int|bool
 { }
 
 /**
@@ -1141,9 +1141,9 @@ function stream_filter_register(string $filter_name, string $class): bool
  * Return a bucket object from the brigade for operating on
  * @link https://php.net/manual/en/function.stream-bucket-make-writeable.php
  * @param resource $brigade
- * @return object
+ * @return object|null
  */
-function stream_bucket_make_writeable($brigade): object
+function stream_bucket_make_writeable($brigade): ?object
 { }
 
 /**

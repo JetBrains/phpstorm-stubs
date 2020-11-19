@@ -370,7 +370,7 @@ function mhash_count (): int
  * @param string $data <p>
  * The user input, as a string.
  * </p>
- * @param string $key [optional] <p>
+ * @param string|null $key [optional] <p>
  * If specified, the function will return the resulting HMAC instead.
  * HMAC is keyed hashing for message authentication, or simply a message
  * digest that depends on the specified key. Not all algorithms
@@ -380,7 +380,7 @@ function mhash_count (): int
  * <b>FALSE</b> on error.
  */
 #[Pure]
-function mhash (int $algo, string $data, string $key): string|false
+function mhash (int $algo, string $data, ?string $key): string|false
 {}
 
 

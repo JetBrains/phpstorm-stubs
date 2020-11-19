@@ -172,19 +172,19 @@ function jdmonthname (int $julian_day, int $mode): string
 /**
  * Get Unix timestamp for midnight on Easter of a given year
  * @link https://php.net/manual/en/function.easter-date.php
- * @param int $year [optional] <p>
+ * @param int|null $year [optional] <p>
  * The year as a number between 1970 an 2037
  * </p>
  * @param int $mode [optional] Allows Easter dates to be calculated based on the Julian calendar when set to CAL_EASTER_ALWAYS_JULIAN
  * @return int The easter date as a unix timestamp.
  */
-function easter_date (int $year, int $mode = CAL_EASTER_DEFAULT): int
+function easter_date (?int $year, int $mode = CAL_EASTER_DEFAULT): int
 {}
 
 /**
  * Get number of days after March 21 on which Easter falls for a given year
  * @link https://php.net/manual/en/function.easter-days.php
- * @param int $year [optional] <p>
+ * @param int|null $year [optional] <p>
  * The year as a positive number
  * </p>
  * @param int $mode [optional] <p>
@@ -196,18 +196,18 @@ function easter_date (int $year, int $mode = CAL_EASTER_DEFAULT): int
  * @return int The number of days after March 21st that the Easter Sunday
  * is in the given <i>year</i>.
  */
-function easter_days (int $year, int $mode = CAL_EASTER_DEFAULT): int
+function easter_days (?int $year, int $mode = CAL_EASTER_DEFAULT): int
 {}
 
 /**
  * Convert Unix timestamp to Julian Day
  * @link https://php.net/manual/en/function.unixtojd.php
- * @param int $timestamp [optional] defaults to time() <p>
+ * @param int|null $timestamp [optional] defaults to time() <p>
  * A unix timestamp to convert.
  * </p>
  * @return int|false A julian day number as integer.
  */
-function unixtojd (int $timestamp = 0): int|false
+function unixtojd (?int $timestamp = 0): int|false
 {}
 
 /**

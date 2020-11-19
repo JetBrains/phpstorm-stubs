@@ -18,7 +18,7 @@ function spl_classes (): array
  * @link https://php.net/manual/en/function.spl-autoload.php
  * @param string $class <p>
  * </p>
- * @param string $file_extensions [optional] <p>
+ * @param string|null $file_extensions [optional] <p>
  * By default it checks all include paths to
  * contain filenames built up by the lowercase class name appended by the
  * filename extensions .inc and .php.
@@ -26,13 +26,13 @@ function spl_classes (): array
  * @return void
  * @since 5.1.2
  */
-function spl_autoload (string $class, string $file_extensions): void
+function spl_autoload (string $class, ?string $file_extensions): void
 {}
 
 /**
  * Register and return default file extensions for spl_autoload
  * @link https://php.net/manual/en/function.spl-autoload-extensions.php
- * @param string $file_extensions [optional] <p>
+ * @param string|null $file_extensions [optional] <p>
  * When calling without an argument, it simply returns the current list
  * of extensions each separated by comma. To modify the list of file
  * extensions, simply invoke the functions with the new list of file
@@ -43,13 +43,13 @@ function spl_autoload (string $class, string $file_extensions): void
  * spl_autoload.
  * @since 5.1.2
  */
-function spl_autoload_extensions (string $file_extensions): string
+function spl_autoload_extensions (?string $file_extensions): string
 {}
 
 /**
  * Register given function as __autoload() implementation
  * @link https://php.net/manual/en/function.spl-autoload-register.php
- * @param callback $callback [optional] <p>
+ * @param callback|null $callback [optional] <p>
  * The autoload function being registered.
  * If no parameter is provided, then the default implementation of
  * spl_autoload will be registered.
@@ -62,7 +62,7 @@ function spl_autoload_extensions (string $file_extensions): string
  * @throws TypeError Since 8.0.
  * @since 5.1.2
  */
-function spl_autoload_register (callable $callback, bool $throw = true, bool $prepend = false): bool
+function spl_autoload_register (?callable $callback, bool $throw = true, bool $prepend = false): bool
 {}
 
 /**
@@ -182,12 +182,12 @@ function iterator_count (Traversable $iterator): int
  * The function must return true in order to
  * continue iterating over the iterator.
  * </p>
- * @param array $args [optional] <p>
+ * @param array|null $args [optional] <p>
  * Arguments to pass to the callback function.
  * </p>
  * @return int the iteration count.
  */
-function iterator_apply (Traversable $iterator, callable $callback, array $args): int
+function iterator_apply (Traversable $iterator, callable $callback, ?array $args): int
 {}
 
 // End of SPL v.0.2

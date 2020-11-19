@@ -7,7 +7,7 @@ use JetBrains\PhpStorm\Pure;
 /**
  * Create an XML parser
  * @link https://php.net/manual/en/function.xml-parser-create.php
- * @param string $encoding [optional] <p>
+ * @param string|null $encoding [optional] <p>
  * The optional <i>encoding</i> specifies the character
  * encoding for the input/output in PHP 4. Starting from PHP 5, the input
  * encoding is automatically detected, so that the
@@ -24,12 +24,12 @@ use JetBrains\PhpStorm\Pure;
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")]
-function xml_parser_create (string $encoding) {}
+function xml_parser_create (?string $encoding) {}
 
 /**
  * Create an XML parser with namespace support
  * @link https://php.net/manual/en/function.xml-parser-create-ns.php
- * @param string $encoding [optional] <p>
+ * @param string|null $encoding [optional] <p>
  * The optional <i>encoding</i> specifies the character
  * encoding for the input/output in PHP 4. Starting from PHP 5, the input
  * encoding is automatically detected, so that the
@@ -49,7 +49,7 @@ function xml_parser_create (string $encoding) {}
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")]
-function xml_parser_create_ns (string $encoding, string $separator = ':') {}
+function xml_parser_create_ns (?string $encoding, string $separator = ':') {}
 
 /**
  * Use XML Parser within an object
@@ -390,11 +390,11 @@ function xml_get_error_code (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], de
  * @param int $error_code <p>
  * An error code from <b>xml_get_error_code</b>.
  * </p>
- * @return string a string with a textual description of the error
+ * @return string|null a string with a textual description of the error
  * <i>code</i>, or <b>FALSE</b> if no description was found.
  */
 #[Pure]
-function xml_error_string (int $error_code): string
+function xml_error_string (int $error_code): ?string
 {}
 
 /**

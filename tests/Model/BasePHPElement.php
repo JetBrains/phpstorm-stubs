@@ -48,12 +48,12 @@ abstract class BasePHPElement
     protected static function convertReflectionTypeToString(?ReflectionType $type): string
     {
         if ($type instanceof ReflectionNamedType) {
-            return $type->getName();
+            return (string)$type;
         }
         if ($type instanceof ReflectionUnionType) {
             $reflectionType = '';
             foreach ($type->getTypes() as $type) {
-                $reflectionType .= $type->getName() . '|';
+                $reflectionType .= (string)$type . '|';
             }
             return substr($reflectionType, 0, -1);
         }
@@ -78,15 +78,17 @@ abstract class BasePHPElement
 
     protected static function getTypeNameFromNode(Name|Identifier|NullableType|string $type): string
     {
+        $nullable = false;
         if($type instanceof NullableType){
             $type = $type->type;
+            $nullable = true;
         }
         if (empty($type->name)) {
             if (!empty($type->parts)) {
-                return $type->parts[0];
+                return $nullable ? '?' . $type->parts[0] : $type->parts[0];
             }
         } else {
-            return $type->name;
+            return $nullable ? '?' . $type->name : $type->name;
         }
     }
 

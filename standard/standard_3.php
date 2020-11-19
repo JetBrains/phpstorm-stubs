@@ -710,12 +710,12 @@ function base_convert (string $num, int $from_base, int $to_base): string
  * @param int $decimals [optional] <p>
  * Sets the number of decimal points.
  * </p>
- * @param string $decimal_separator [optional]
- * @param string $thousands_separator [optional]
+ * @param string|null $decimal_separator [optional]
+ * @param string|null $thousands_separator [optional]
  * @return string A formatted version of number.
  */
 #[Pure]
-function number_format (float $num , int $decimals = 0 , string $decimal_separator = '.' , string $thousands_separator = ','): string
+function number_format (float $num , int $decimals = 0 , ?string $decimal_separator = '.' , ?string $thousands_separator = ','): string
 {}
 
 /**
@@ -797,7 +797,7 @@ function long2ip (int $ip): string|false
 /**
  * Gets the value of an environment variable
  * @link https://php.net/manual/en/function.getenv.php
- * @param string $name [optional] <p>
+ * @param string|null $name [optional] <p>
  * The variable name.
  * </p>
  * @param bool $local_only [optional] <p>
@@ -808,7 +808,7 @@ function long2ip (int $ip): string|false
  * is provided, or false on an error.
  */
 #[Pure]
-function getenv (string $name, bool $local_only = false): array|string|false
+function getenv (?string $name, bool $local_only = false): array|string|false
 {}
 
 /**
@@ -1146,11 +1146,11 @@ function import_request_variables (string $types, $prefix = null): bool
  * </tr>
  * </table>
  * </p>
- * @param string $destination [optional] <p>
+ * @param string|null $destination [optional] <p>
  * The destination. Its meaning depends on the
  * message_type parameter as described above.
  * </p>
- * @param string $additional_headers [optional] <p>
+ * @param string|null $additional_headers [optional] <p>
  * The extra headers. It's used when the message_type
  * parameter is set to 1.
  * This message type uses the same internal function as
@@ -1158,6 +1158,6 @@ function import_request_variables (string $types, $prefix = null): bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function error_log (string $message, int $message_type, string $destination, string $additional_headers): bool
+function error_log (string $message, int $message_type, ?string $destination, ?string $additional_headers): bool
 {
 }

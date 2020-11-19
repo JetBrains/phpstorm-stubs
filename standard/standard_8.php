@@ -86,7 +86,7 @@ function header_register_callback ( callable $callback ): bool
  * @since 5.4
  * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
  * @param string $string The image data, as a string.
- * @param array &$image_info This optional parameter allows you to extract<br>
+ * @param array &$image_info [optional] This optional parameter allows you to extract<br>
  * some extended information from the image file. Currently, this will <br>
  * return the different JPG APP markers as an associative array. <br>
  * Some programs use these APP markers to embed text information in images. <br>
@@ -1025,7 +1025,7 @@ function array_unshift (array &$array, ...$values): int
  * is negative then it starts that far from the end of the
  * input array.
  * </p>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * If length is omitted, removes everything
  * from offset to the end of the array. If
  * length is specified and is positive, then
@@ -1056,7 +1056,7 @@ function array_unshift (array &$array, ...$values): int
  * </p>
  * @return array the array consisting of the extracted elements.
  */
-function array_splice (array &$array, int $offset, int $length, mixed $replacement): array
+function array_splice (array &$array, int $offset, ?int $length, mixed $replacement): array
 {}
 
 /**
@@ -1071,7 +1071,7 @@ function array_splice (array &$array, int $offset, int $length, mixed $replaceme
  * offset is negative, the sequence will
  * start that far from the end of the array.
  * </p>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * If length is given and is positive, then
  * the sequence will have that many elements in it. If
  * length is given and is negative then the
@@ -1089,7 +1089,7 @@ function array_splice (array &$array, int $offset, int $length, mixed $replaceme
  * @meta
  */
 #[Pure]
-function array_slice (array $array, int $offset, int $length, bool $preserve_keys = false): array
+function array_slice (array $array, int $offset, ?int $length, bool $preserve_keys = false): array
 {}
 
 /**

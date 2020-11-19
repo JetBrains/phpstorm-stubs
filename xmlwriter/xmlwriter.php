@@ -108,7 +108,7 @@ class XMLWriter  {
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
 	 * Create start namespaced attribute
 	 * @link https://php.net/manual/en/function.xmlwriter-start-attribute-ns.php
-	 * @param string $prefix <p>
+	 * @param string|null $prefix <p>
 	 * The namespace prefix.
 	 * </p>
 	 * @param string $name <p>
@@ -125,7 +125,7 @@ class XMLWriter  {
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
 	 * Write full namespaced attribute
 	 * @link https://php.net/manual/en/function.xmlwriter-write-attribute-ns.php
-	 * @param string $prefix <p>
+	 * @param string|null $prefix <p>
 	 * The namespace prefix.
 	 * </p>
 	 * @param string $name <p>
@@ -172,7 +172,7 @@ class XMLWriter  {
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
 	 * Create start namespaced element tag
 	 * @link https://php.net/manual/en/function.xmlwriter-start-element-ns.php
-	 * @param string $prefix <p>
+	 * @param string|null $prefix <p>
 	 * The namespace prefix.
 	 * </p>
 	 * @param string $name <p>
@@ -203,7 +203,7 @@ class XMLWriter  {
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
 	 * Write full namespaced element tag
 	 * @link https://php.net/manual/en/function.xmlwriter-write-element-ns.php
-	 * @param string $prefix <p>
+	 * @param string|null $prefix <p>
 	 * The namespace prefix.
 	 * </p>
 	 * @param string $name <p>
@@ -663,18 +663,18 @@ function xmlwriter_write_attribute (#[LanguageLevelTypeAware(["8.0" => "XMLWrite
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p>
- * @param string $prefix <p>
+ * @param string|null $prefix <p>
  * The namespace prefix.
  * </p>
  * @param string $name <p>
  * The attribute name.
  * </p>
- * @param string $namespace <p>
+ * @param string|null $namespace <p>
  * The namespace URI.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_attribute_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $prefix, string $name, string $namespace): bool
+function xmlwriter_start_attribute_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, ?string $prefix, string $name, ?string $namespace): bool
 {}
 
 /**
@@ -686,13 +686,13 @@ function xmlwriter_start_attribute_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWr
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p>
- * @param string $prefix <p>
+ * @param string|null $prefix <p>
  * The namespace prefix.
  * </p>
  * @param string $name <p>
  * The attribute name.
  * </p>
- * @param string $namespace <p>
+ * @param string|null $namespace <p>
  * The namespace URI.
  * </p>
  * @param string $value <p>
@@ -700,7 +700,7 @@ function xmlwriter_start_attribute_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWr
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_attribute_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $prefix, string $name, string $namespace, string $value): bool
+function xmlwriter_write_attribute_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, ?string $prefix, string $name, ?string $namespace, string $value): bool
 {}
 
 /**
@@ -755,18 +755,18 @@ function xmlwriter_full_end_element (#[LanguageLevelTypeAware(["8.0" => "XMLWrit
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p>
- * @param string $prefix <p>
+ * @param string|null $prefix <p>
  * The namespace prefix.
  * </p>
  * @param string $name <p>
  * The element name.
  * </p>
- * @param string $namespace <p>
+ * @param string|null $namespace <p>
  * The namespace URI.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_element_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $prefix, string $name, string $namespace): bool
+function xmlwriter_start_element_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, ?string $prefix, string $name, ?string $namespace): bool
 {}
 
 /**
@@ -781,12 +781,12 @@ function xmlwriter_start_element_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWrit
  * @param string $name <p>
  * The element name.
  * </p>
- * @param string $content [optional] <p>
+ * @param string|null $content [optional] <p>
  * The element contents.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, string $content): bool
+function xmlwriter_write_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, ?string $content): bool
 {}
 
 /**
@@ -798,21 +798,21 @@ function xmlwriter_write_element (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p>
- * @param string $prefix <p>
+ * @param string|null $prefix <p>
  * The namespace prefix.
  * </p>
  * @param string $name <p>
  * The element name.
  * </p>
- * @param string $namespace <p>
+ * @param string|null $namespace <p>
  * The namespace URI.
  * </p>
- * @param string $content [optional] <p>
+ * @param string|null $content [optional] <p>
  * The element contents.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_element_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $prefix, string $name, string $namespace, string $content): bool
+function xmlwriter_write_element_ns (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, ?string $prefix, string $name, ?string $namespace, ?string $content): bool
 {}
 
 /**
@@ -954,18 +954,18 @@ function xmlwriter_write_raw (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], d
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p>
- * @param string $version [optional] <p>
+ * @param string|null $version [optional] <p>
  * The version number of the document as part of the XML declaration.
  * </p>
- * @param string $encoding [optional] <p>
+ * @param string|null $encoding [optional] <p>
  * The encoding of the document as part of the XML declaration.
  * </p>
- * @param string $standalone [optional] <p>
+ * @param string|null $standalone [optional] <p>
  * yes or no.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_document (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $version = '1.0', string $encoding, string $standalone): bool
+function xmlwriter_start_document (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, ?string $version = '1.0', ?string $encoding, ?string $standalone): bool
 {}
 
 /**
@@ -1011,15 +1011,15 @@ function xmlwriter_write_comment (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"
  * @param string $qualifiedName <p>
  * The qualified name of the document type to create.
  * </p>
- * @param string $publicId [optional] <p>
+ * @param string|null $publicId [optional] <p>
  * The external subset public identifier.
  * </p>
- * @param string $systemId [optional] <p>
+ * @param string|null $systemId [optional] <p>
  * The external subset system identifier.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_dtd (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $qualifiedName, string $publicId, string $systemId): bool
+function xmlwriter_start_dtd (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $qualifiedName, ?string $publicId, ?string $systemId): bool
 {}
 
 /**
@@ -1047,18 +1047,18 @@ function xmlwriter_end_dtd (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], def
  * @param string $name <p>
  * The DTD name.
  * </p>
- * @param string $publicId [optional] <p>
+ * @param string|null $publicId [optional] <p>
  * The external subset public identifier.
  * </p>
- * @param string $systemId [optional] <p>
+ * @param string|null $systemId [optional] <p>
  * The external subset system identifier.
  * </p>
- * @param string $content [optional] <p>
+ * @param string|null $content [optional] <p>
  * The content of the DTD.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_dtd (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, string $publicId, string $systemId, string $content): bool
+function xmlwriter_write_dtd (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, ?string $publicId, ?string $systemId, ?string $content): bool
 {}
 
 /**

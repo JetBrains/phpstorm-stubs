@@ -204,7 +204,7 @@ function gztell ($stream): int|false {}
  * @param string $data <p>
  * The string to write.
  * </p>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * The number of uncompressed bytes to write. If supplied, writing will
  * stop after <i>length</i> (uncompressed) bytes have been
  * written or the end of <i>string</i> is reached,
@@ -219,7 +219,7 @@ function gztell ($stream): int|false {}
  * @return int|false the number of (uncompressed) bytes written to the given gz-file
  * stream.
  */
-function gzwrite ($stream, string $data, int $length): int|false
+function gzwrite ($stream, string $data, ?int $length): int|false
 {}
 
 /**
@@ -227,9 +227,9 @@ function gzwrite ($stream, string $data, int $length): int|false
  * @link https://php.net/manual/en/function.gzputs.php
  * @param resource $stream
  * @param string $data
- * @param int $length [optional]
+ * @param int|null $length [optional]
  */
-function gzputs ($stream, string $data, int $length): int|false {}
+function gzputs ($stream, string $data, ?int $length): int|false {}
 
 /**
  * Read entire gz-file into an array

@@ -31,7 +31,7 @@ use JetBrains\PhpStorm\Pure;
  * @param string &$error_message [optional] <p>
  * The error message as a string.
  * </p>
- * @param float $timeout [optional] <p>
+ * @param float|null $timeout [optional] <p>
  * The connection timeout, in seconds.
  * </p>
  * <p>
@@ -47,7 +47,7 @@ use JetBrains\PhpStorm\Pure;
  * fwrite, fclose, and
  * feof). If the call fails, it will return false
  */
-function fsockopen (string $hostname, int $port, &$error_code, &$error_message, float $timeout)
+function fsockopen (string $hostname, int $port, &$error_code, &$error_message, ?float $timeout)
 {}
 
 /**
@@ -58,10 +58,10 @@ function fsockopen (string $hostname, int $port, &$error_code, &$error_message, 
  * @param int $port [optional]
  * @param int &$error_code [optional]
  * @param string &$error_message [optional]
- * @param float $timeout [optional]
+ * @param float|null $timeout [optional]
  * @return resource|false
  */
-function pfsockopen (string $hostname, int $port, &$error_code, &$error_message, float $timeout)
+function pfsockopen (string $hostname, int $port, &$error_code, &$error_message, ?float $timeout)
 {}
 
 /**
@@ -193,7 +193,7 @@ function unpack (string $format, string $string, int $offset = 0): array|false
 /**
  * Tells what the user's browser is capable of
  * @link https://php.net/manual/en/function.get-browser.php
- * @param string $user_agent [optional] <p>
+ * @param string|null $user_agent [optional] <p>
  * The User Agent to be analyzed. By default, the value of HTTP
  * User-Agent header is used; however, you can alter this (i.e., look up
  * another browser's info) by passing this parameter.
@@ -218,10 +218,10 @@ function unpack (string $format, string $string, int $offset = 0): array|false
  * reload, and check for the value.
  */
 #[Pure]
-function get_browser (string $user_agent, bool $return_array): object|array|false
+function get_browser (?string $user_agent, bool $return_array): object|array|false
 {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
+
 /**
  * One-way string encryption (hashing)
  * @link https://php.net/manual/en/function.crypt.php
@@ -241,6 +241,7 @@ function get_browser (string $user_agent, bool $return_array): object|array|fals
  * @return string|null the encrypted string or <b>NULL</b> if an error occurs
  */
 #[Pure]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 function crypt ($string, $salt = null): ?string
 {}
 
@@ -261,10 +262,10 @@ function crypt ($string, $salt = null): ?string
  * is generated once. If you are calling this function repeatedly, this
  * may impact both appearance and security.
  * </p>
- * @return string|null the encrypted string or <b>NULL</b> if an error occurs
+ * @return string the encrypted string or <b>NULL</b> if an error occurs
  */
 #[Pure]
-function crypt (string $string, string $salt): ?string
+function crypt (string $string, string $salt): string
 {}
 
 /**
@@ -907,18 +908,18 @@ function chmod (string $filename, int $permissions): bool
  * @param string $filename <p>
  * The name of the file being touched.
  * </p>
- * @param int $mtime [optional] <p>
+ * @param int|null $mtime [optional] <p>
  * The touch time. If time is not supplied,
  * the current system time is used.
  * </p>
- * @param int $atime [optional] <p>
+ * @param int|null $atime [optional] <p>
  * If present, the access time of the given filename is set to
  * the value of atime. Otherwise, it is set to
  * time.
  * </p>
  * @return bool true on success or false on failure.
  */
-function touch (string $filename, int $mtime, int $atime): bool
+function touch (string $filename, ?int $mtime, ?int $atime): bool
 {}
 
 /**

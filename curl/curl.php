@@ -79,7 +79,7 @@ class CURLFile {
 /**
  * Initialize a cURL session
  * @link https://php.net/manual/en/function.curl-init.php
- * @param string $url [optional] <p>
+ * @param string|null $url [optional] <p>
  * If provided, the CURLOPT_URL option will be set
  * to its value. You can manually set this using the
  * curl_setopt function.
@@ -87,7 +87,7 @@ class CURLFile {
  * @return resource|false|CurlHandle a cURL handle on success, false on errors.
  */
 #[LanguageLevelTypeAware(["8.0" => "CurlHandle|false"], default: "resource|false")]
-function curl_init (string $url) {}
+function curl_init (?string $url) {}
 
 /**
  * Copy a cURL handle along with all of its preferences
@@ -2293,7 +2293,7 @@ function curl_exec (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "
  * Get information regarding a specific transfer
  * @link https://php.net/manual/en/function.curl-getinfo.php
  * @param CurlHandle|resource $handle
- * @param int $option [optional] <p>
+ * @param int|null $option [optional] <p>
  * This may be one of the following constants:
  * CURLINFO_EFFECTIVE_URL - Last effective URL
  * @return mixed If opt is given, returns its value as a string.
@@ -2321,7 +2321,7 @@ function curl_exec (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "
  * "redirect_time"
  */
 #[Pure]
-function curl_getinfo (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle, int $option): mixed
+function curl_getinfo (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle, ?int $option): mixed
 {}
 
 /**
@@ -2366,14 +2366,14 @@ function curl_escape(#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: 
  * Create a CURLFile object
  * @link https://secure.php.net/manual/en/curlfile.construct.php
  * @param string $filename <p> Path to the file which will be uploaded.</p>
- * @param string $mime_type [optional] <p>Mimetype of the file.</p>
- * @param string $posted_filename [optional] <p>Name of the file.</p>
+ * @param string|null $mime_type [optional] <p>Mimetype of the file.</p>
+ * @param string|null $posted_filename [optional] <p>Name of the file.</p>
  * @return CURLFile
  * Returns a {@link https://secure.php.net/manual/en/class.curlfile.php CURLFile} object.
  * @since 5.5
  */
 #[Pure]
-function curl_file_create(string $filename, string $mime_type = '', string $posted_filename = ''): CURLFile
+function curl_file_create(string $filename, ?string $mime_type = '', ?string $posted_filename = ''): CURLFile
 {}
 
 /**
@@ -2543,7 +2543,7 @@ function curl_multi_exec (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"],
  * @return string Return the content of a cURL handle if CURLOPT_RETURNTRANSFER is set.
  */
 #[Pure]
-function curl_multi_getcontent (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $multi_handle): string
+function curl_multi_getcontent (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $multi_handle): ?string
 {}
 
 /**
@@ -2590,11 +2590,11 @@ function curl_share_errno(#[LanguageLevelTypeAware(["8.0" => "CurlShareHandle"],
 /**
  * Return string describing the given error code
  * @param int $error_code
- * @return string
+ * @return string|null
  * @since 7.1
  */
 #[Pure]
-function curl_share_strerror(int $error_code): string
+function curl_share_strerror(int $error_code): ?string
 {}
 
 /**
