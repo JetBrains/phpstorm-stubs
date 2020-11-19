@@ -16,8 +16,7 @@ namespace {
      * </p>
      * @return array an array of the parameters. The parameters can be given an index with the => operator.
      */
-    function PS_UNRESERVE_PREFIX_array(...$_): array
-    {};
+    function PS_UNRESERVE_PREFIX_array(...$_){};
 
     /**
      * Assigns a list of variables in one operation.
@@ -26,8 +25,7 @@ namespace {
      * @param mixed ...$_ [optional] <p>Another variable ...</p>
      * @return array the assigned array.
      */
-    function PS_UNRESERVE_PREFIX_list(mixed $var1, ...$_): array
-    {};
+    function PS_UNRESERVE_PREFIX_list($var1, ...$_){};
 
     /**
      * <p>Terminates execution of the script. Shutdown functions and object destructors will always be executed even if exit is called.</p>
@@ -92,8 +90,7 @@ namespace {
      * </ul>
      * </p>
      */
-    function PS_UNRESERVE_PREFIX_empty(mixed $var): bool
-    {};
+    function PS_UNRESERVE_PREFIX_empty($var){};
 
     /**
      * <p>Determine if a variable is set and is not <b>NULL</b>.</p>
@@ -106,8 +103,7 @@ namespace {
      * @param mixed ...$_ [optional] <p>Another variable ...</p>
      * @return bool Returns <b>TRUE</b> if var exists and has value other than <b>NULL</b>, <b>FALSE</b> otherwise.
      */
-    function PS_UNRESERVE_PREFIX_isset(mixed $var, ...$_): bool
-    {};
+    function PS_UNRESERVE_PREFIX_isset($var, ...$_){};
 
     /**
      * <p>Destroys the specified variables.</p>
@@ -117,7 +113,7 @@ namespace {
      * @param mixed ...$_ [optional] <p>Another variable ...</p>
      * @return void
      */
-    function PS_UNRESERVE_PREFIX_unset(mixed $var, ...$_){};
+    function PS_UNRESERVE_PREFIX_unset($var, ...$_){};
 
     /**
      * <p>Evaluates the given code as PHP.</p>
@@ -149,8 +145,7 @@ namespace {
      * case <b>eval()</b> returned <b>FALSE</b> and execution of the following code continued normally. It is not possible to catch a parse
      * error in <b>eval()</b> using set_error_handler().
      */
-    function PS_UNRESERVE_PREFIX_eval(string $code): mixed
-    {};
+    function PS_UNRESERVE_PREFIX_eval($code){};
 
     /**
      * Generator objects are returned from generators, cannot be instantiated via new.
@@ -189,7 +184,7 @@ namespace {
          * @param mixed $value
          * @return mixed
          */
-        function send(mixed $value) {}
+        function send($value) {}
 
         /**
          * Throws an exception at the current suspension point in the generator.
@@ -264,8 +259,7 @@ class object {
    * @return mixed
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.methods
    */
-  public function __call(string $name, array $arguments): mixed
-  {}
+  public function __call(string $name, array $arguments) {}
 
   /**
    * is triggered when invoking inaccessible methods in a static context.
@@ -275,8 +269,7 @@ class object {
    * @return mixed
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.methods
    */
-  public static function __callStatic(string $name, array $arguments): mixed
-  {}
+  public static function __callStatic(string $name, array $arguments) {}
 
   /**
    * is utilized for reading data from inaccessible members.
@@ -285,8 +278,7 @@ class object {
    * @return mixed
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
    */
-  public function __get(string $name): mixed
-  {}
+  public function __get(string $name) {}
 
     /**
      * run when writing data to inaccessible members.
@@ -296,7 +288,7 @@ class object {
      * @return void
      * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
      */
-  public function __set(string $name, mixed $value): void {}
+  public function __set(string $name, $value): void {}
 
   /**
    * is triggered by calling isset() or empty() on inaccessible members.
@@ -353,8 +345,7 @@ class object {
    * @return mixed
    * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.invoke
    */
-  public function __invoke(): mixed
-  {}
+  public function __invoke() {}
 
     /**
      * This method is called by var_dump() when dumping an object to get the properties that should be shown.
