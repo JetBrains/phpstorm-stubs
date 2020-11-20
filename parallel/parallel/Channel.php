@@ -45,7 +45,7 @@ final class Channel{
 	 * Shall make an anonymous unbuffered channel
 	 * Shall make an anonymous buffered channel with the given capacity
 	 *
-	 * @param int $capacity May be Channel::Infinite or a positive integer
+	 * @param null|int $capacity May be Channel::Infinite or a positive integer
 	 */
 	public function __construct(int $capacity = null){}
 
@@ -55,8 +55,8 @@ final class Channel{
 	 * Shall make an unbuffered channel with the given name
 	 * Shall make a buffered channel with the given name and capacity
 	 *
-	 * @param string $name     The name of the channel.
-	 * @param int    $capacity May be Channel::Infinite or a positive integer
+	 * @param string   $name     The name of the channel.
+	 * @param null|int $capacity May be Channel::Infinite or a positive integer
 	 *
 	 * @return Channel
 	 *
@@ -83,7 +83,7 @@ final class Channel{
 	 * @throws Channel\Error\Closed if channel is closed.
 	 * @throws Channel\Error\IllegalValue if value is illegal.
 	 */
-	public function send($value) : void{}
+	public function send($value) : void {}
 
 	/**
 	 * Shall recv a value from this channel
@@ -91,18 +91,18 @@ final class Channel{
 	 *
 	 * @throws Channel\Error\Closed if channel is closed.
 	 */
-	public function recv(){}
+	public function recv() {}
 	/* Closing */
 
 	/**
 	 * Shall close this channel
 	 * @throws Channel\Error\Closed if channel is closed.
 	 */
-	public function close() : void{}
+	public function close() : void {}
 
 	/**
 	 * Returns name of channel
 	 * @return string
 	 */
-	public function __toString() : string{}
+	public function __toString() : string {}
 }

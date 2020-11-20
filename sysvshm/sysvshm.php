@@ -112,7 +112,7 @@ final class SysvSharedMemory{
      * Cannot directly construct SysvSharedMemory, use shm_attach() instead
      * @see shm_attach()
      */
-    private function __construct(){}
+    private function __construct() {}
 }
 
 

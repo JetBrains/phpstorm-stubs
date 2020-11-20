@@ -128,7 +128,7 @@ class DOMNode  {
      * @param DOMNode $newnode <p>
      * The new node.
      * </p>
-     * @param DOMNode $refnode [optional] <p>
+     * @param null|DOMNode $refnode [optional] <p>
      * The reference node. If not supplied, newnode is
      * appended to the children.
      * </p>
@@ -149,7 +149,7 @@ class DOMNode  {
      * </p>
      * @return DOMNode|false The old node or false if an error occur.
      */
-    public function replaceChild (DOMNode $newnode , DOMNode $oldnode ) {}
+    public function replaceChild (DOMNode $newnode , DOMNode $oldnode) {}
 
     /**
      * Removes child from list of children
@@ -159,7 +159,7 @@ class DOMNode  {
      * </p>
      * @return DOMNode If the child could be removed the functions returns the old child.
      */
-    public function removeChild (DOMNode $oldnode ) {}
+    public function removeChild (DOMNode $oldnode) {}
 
     /**
      * Adds new child at the end of the children
@@ -169,7 +169,7 @@ class DOMNode  {
      * </p>
      * @return DOMNode The node added.
      */
-    public function appendChild (DOMNode $newnode ) {}
+    public function appendChild (DOMNode $newnode) {}
 
     /**
      * Checks if node has children
@@ -231,7 +231,7 @@ class DOMNode  {
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function isSameNode (DOMNode $node ) {}
+    public function isSameNode (DOMNode $node) {}
 
     /**
      * Gets the namespace prefix of the node based on the namespace URI
@@ -309,8 +309,8 @@ class DOMNode  {
      * Canonicalize nodes to a string
      * @param bool $exclusive [optional] Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.
      * @param bool $with_comments [optional] Retain comments in output.
-     * @param array $xpath [optional] An array of xpaths to filter the nodes by.
-     * @param array $ns_prefixes [optional] An array of namespace prefixes to filter the nodes by.
+     * @param null|array $xpath [optional] An array of xpaths to filter the nodes by.
+     * @param null|array $ns_prefixes [optional] An array of namespace prefixes to filter the nodes by.
      * @return string|false Canonicalized nodes as a string or FALSE on failure
      */
     public function C14N ($exclusive, $with_comments, array $xpath = null, $ns_prefixes = null) {}
@@ -321,11 +321,11 @@ class DOMNode  {
      * @param string $uri Number of bytes written or FALSE on failure
      * @param bool $exclusive [optional] Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.
      * @param bool $with_comments [optional]  Retain comments in output.
-     * @param array $xpath [optional] An array of xpaths to filter the nodes by.
-     * @param array $ns_prefixes [optional] An array of namespace prefixes to filter the nodes by.
+     * @param null|array $xpath [optional] An array of xpaths to filter the nodes by.
+     * @param null|array $ns_prefixes [optional] An array of namespace prefixes to filter the nodes by.
      * @return int|false Number of bytes written or FALSE on failure
      */
-    public function C14NFile ($uri, $exclusive, array $with_comments, array $xpath = null, $ns_prefixes = null) {}
+    public function C14NFile ($uri, $exclusive, bool $with_comments = false, array $xpath = null, $ns_prefixes = null) {}
 
 
 }
@@ -418,7 +418,7 @@ class DOMImplementation  {
      * Creates a new DOMImplementation object
      * @link https://php.net/manual/en/domimplementation.construct.php
      */
-    public function __construct(){}
+    public function __construct() {}
 
     /**
      * @param $feature
@@ -914,7 +914,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
     /**
      * Dumps the internal XML tree back into a string
      * @link https://php.net/manual/en/domdocument.savexml.php
-     * @param DOMNode $node [optional] <p>
+     * @param null|DOMNode $node [optional] <p>
      * Use this parameter to output only a specific node without XML declaration
      * rather than the entire document.
      * </p>
@@ -987,7 +987,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
     /**
      * Dumps the internal document into a string using HTML formatting
      * @link https://php.net/manual/en/domdocument.savehtml.php
-     * @param DOMNode $node [optional] parameter to output a subset of the document.
+     * @param null|DOMNode $node [optional] parameter to output a subset of the document.
      * @return string|false The HTML, or false if an error occurred.
      */
     public function saveHTML (DOMNode $node = null) {}
@@ -1100,7 +1100,7 @@ class DOMNodeList implements IteratorAggregate, Countable {
     /**
      * @since 8.0
      */
-    public function getIterator(){}
+    public function getIterator() {}
 }
 
 /**
@@ -1176,7 +1176,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable {
     /**
      * @since 8.0
      */
-    public function getIterator(){}
+    public function getIterator() {}
 }
 
 /**

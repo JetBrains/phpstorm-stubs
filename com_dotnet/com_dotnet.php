@@ -39,7 +39,7 @@ class DOTNET {
      * @param string $class_name
      * @param int $codepage [optional]
      */
-    public function __construct ( $assembly_name , string $class_name, $codepage = CP_ACP ) {}
+    public function __construct ( $assembly_name , string $class_name, $codepage = CP_ACP) {}
 
     public function __get ($name) {}
 
@@ -62,7 +62,7 @@ class VARIANT {
      * @param int $type [optional]
      * @param int $codepage [optional]
      */
-    public function __construct ( $value = null , int $type = VT_EMPTY, $codepage = CP_ACP ) {}
+    public function __construct ( $value = null , int $type = VT_EMPTY, $codepage = CP_ACP) {}
 
     public function __get ($name) {}
 
@@ -105,7 +105,7 @@ function com_event_sink ( $comobject, $sinkobject, $sinkinterface = null) {}
  * @param int $code_page [optional]
  * @return \VARIANT
  */
-function com_get_active_object ( $progid, $code_page = CP_ACP ) {}
+function com_get_active_object ( $progid, $code_page = CP_ACP) {}
 
 /**
  * (PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)<br/>
@@ -115,7 +115,7 @@ function com_get_active_object ( $progid, $code_page = CP_ACP ) {}
  * @param bool $case_insensitive [optional]
  * @return bool
  */
-function com_load_typelib ( $typelib_name, $case_insensitive = true ) {}
+function com_load_typelib ( $typelib_name, $case_insensitive = true) {}
 
 /**
  * (PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)<br/>
@@ -124,7 +124,7 @@ function com_load_typelib ( $typelib_name, $case_insensitive = true ) {}
  * @param int $timeoutms [optional]
  * @return bool
  */
-function com_message_pump ( $timeoutms = 0 ) {}
+function com_message_pump ( $timeoutms = 0) {}
 
 /**
  * (PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)<br/>
@@ -135,7 +135,7 @@ function com_message_pump ( $timeoutms = 0 ) {}
  * @param bool $wantsink [optional]
  * @return bool
  */
-function com_print_typeinfo ( $comobject, $dispinterface = null, $wantsink = false ) {}
+function com_print_typeinfo ( $comobject, $dispinterface = null, $wantsink = false) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -144,7 +144,7 @@ function com_print_typeinfo ( $comobject, $dispinterface = null, $wantsink = fal
  * @param mixed $val
  * @return mixed
  */
-function variant_abs ( $val ) {}
+function variant_abs ( $val) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -154,7 +154,7 @@ function variant_abs ( $val ) {}
  * @param mixed $right
  * @return mixed
  */
-function variant_add ( $left, $right ) {}
+function variant_add ( $left, $right) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -164,7 +164,7 @@ function variant_add ( $left, $right ) {}
  * @param mixed $right
  * @return mixed
  */
-function variant_and ( $left, $right ) {}
+function variant_and ( $left, $right) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -174,7 +174,7 @@ function variant_and ( $left, $right ) {}
  * @param int $type
  * @return \VARIANT
  */
-function variant_cast ( $variant, $type ) {}
+function variant_cast ( $variant, $type) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -184,7 +184,7 @@ function variant_cast ( $variant, $type ) {}
  * @param mixed $right
  * @return mixed
  */
-function variant_cat ( $left, $right ) {}
+function variant_cat ( $left, $right) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -196,7 +196,7 @@ function variant_cat ( $left, $right ) {}
  * @param int $flags [optional]
  * @return int
  */
-function variant_cmp ( $left, $right, $lcid = null, $flags = null ) {}
+function variant_cmp ( $left, $right, $lcid = null, $flags = null) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -205,7 +205,7 @@ function variant_cmp ( $left, $right, $lcid = null, $flags = null ) {}
  * @param int $timestamp
  * @return \VARIANT
  */
-function variant_date_from_timestamp ( $timestamp ) {}
+function variant_date_from_timestamp ( $timestamp) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -214,7 +214,7 @@ function variant_date_from_timestamp ( $timestamp ) {}
  * @param \VARIANT $variant
  * @return int
  */
-function variant_date_to_timestamp ( $variant ) {}
+function variant_date_to_timestamp ( $variant) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -224,7 +224,7 @@ function variant_date_to_timestamp ( $variant ) {}
  * @param mixed $right
  * @return mixed
  */
-function variant_div ( $left, $right ) {}
+function variant_div ( $left, $right) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -234,7 +234,7 @@ function variant_div ( $left, $right ) {}
  * @param mixed $right
  * @return mixed
  */
-function variant_eqv ( $left, $right ) {}
+function variant_eqv ( $left, $right) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -243,7 +243,7 @@ function variant_eqv ( $left, $right ) {}
  * @param mixed $variant
  * @return mixed
  */
-function variant_fix ( $variant ) {}
+function variant_fix ( $variant) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -252,7 +252,7 @@ function variant_fix ( $variant ) {}
  * @param VARIANT $variant
  * @return int
  */
-function variant_get_type ( $variant ) {}
+function variant_get_type ( $variant) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -262,7 +262,7 @@ function variant_get_type ( $variant ) {}
  * @param mixed $right
  * @return mixed
  */
-function variant_idiv ( $left, $right ) {}
+function variant_idiv ( $left, $right) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -272,7 +272,7 @@ function variant_idiv ( $left, $right ) {}
  * @param mixed $right
  * @return mixed
  */
-function variant_imp ( $left, $right ) {}
+function variant_imp ( $left, $right) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -281,7 +281,7 @@ function variant_imp ( $left, $right ) {}
  * @param mixed $variant
  * @return mixed
  */
-function variant_int ( $variant ) {}
+function variant_int ( $variant) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -291,7 +291,7 @@ function variant_int ( $variant ) {}
  * @param mixed $right
  * @return mixed
  */
-function variant_mod ( $left, $right ) {}
+function variant_mod ( $left, $right) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -301,7 +301,7 @@ function variant_mod ( $left, $right ) {}
  * @param mixed $right
  * @return mixed
  */
-function variant_mul ( $left, $right ) {}
+function variant_mul ( $left, $right) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -310,7 +310,7 @@ function variant_mul ( $left, $right ) {}
  * @param mixed $variant
  * @return mixed
  */
-function variant_neg ( $variant ) {}
+function variant_neg ( $variant) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -319,7 +319,7 @@ function variant_neg ( $variant ) {}
  * @param mixed $variant
  * @return mixed
  */
-function variant_not ( $variant ) {}
+function variant_not ( $variant) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -329,7 +329,7 @@ function variant_not ( $variant ) {}
  * @param mixed $right
  * @return mixed
  */
-function variant_or ( $left, $right ) {}
+function variant_or ( $left, $right) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -339,7 +339,7 @@ function variant_or ( $left, $right ) {}
  * @param mixed $right
  * @return mixed
  */
-function variant_pow ( $left, $right ) {}
+function variant_pow ( $left, $right) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -349,7 +349,7 @@ function variant_pow ( $left, $right ) {}
  * @param int $decimals
  * @return mixed
  */
-function variant_round ( $variant, $decimals ) {}
+function variant_round ( $variant, $decimals) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -359,7 +359,7 @@ function variant_round ( $variant, $decimals ) {}
  * @param int $type
  * @return void
  */
-function variant_set_type ( $variant, $type ) {}
+function variant_set_type ( $variant, $type) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -369,7 +369,7 @@ function variant_set_type ( $variant, $type ) {}
  * @param mixed $value
  * @return void
  */
-function variant_set ( $variant, $value ) {}
+function variant_set ( $variant, $value) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -379,7 +379,7 @@ function variant_set ( $variant, $value ) {}
  * @param mixed $right
  * @return mixed
  */
-function variant_sub ( $left, $right ) {}
+function variant_sub ( $left, $right) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -389,7 +389,7 @@ function variant_sub ( $left, $right ) {}
  * @param mixed $right
  * @return mixed
  */
-function variant_xor ( $left, $right ) {}
+function variant_xor ( $left, $right) {}
 
 define ('CLSCTX_INPROC_SERVER', 1);
 define ('CLSCTX_INPROC_HANDLER', 2);

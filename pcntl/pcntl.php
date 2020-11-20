@@ -13,7 +13,7 @@ use JetBrains\PhpStorm\Pure;
  * parent's context, no child process will be created, and a PHP
  * error is raised.
  */
-function pcntl_fork (): int
+function pcntl_fork(): int
 {}
 
 /**
@@ -181,7 +181,7 @@ function pcntl_signal (int $signal, $handler, bool $restart_syscalls = true): bo
  * @link https://php.net/manual/en/function.pcntl-signal-dispatch.php
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pcntl_signal_dispatch (): bool
+function pcntl_signal_dispatch(): bool
 {}
 
 /**
@@ -312,7 +312,7 @@ function pcntl_alarm (int $seconds): int
  * @since 5.3.4
  */
 #[Pure]
-function pcntl_get_last_error (): int
+function pcntl_get_last_error(): int
 {}
 
 /**
@@ -322,7 +322,7 @@ function pcntl_get_last_error (): int
  * @since 5.3.4
  */
 #[Pure]
-function pcntl_errno (): int
+function pcntl_errno(): int
 {}
 
 /**

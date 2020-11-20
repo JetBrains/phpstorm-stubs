@@ -29,7 +29,7 @@ final class Sync{
 	 * Shall atomically return the synchronization objects value
 	 * @return string|int|float|bool
 	 */
-	public function get(){}
+	public function get() {}
 
 	/**
 	 * Shall atomically set the value of the synchronization object

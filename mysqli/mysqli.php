@@ -176,7 +176,7 @@ class mysqli  {
     /**
 	 * Changes the user of the specified database connection
 	 * @link https://php.net/manual/en/mysqli.change-user.php
-	 * @param string $username <p>
+	 * @param string $user <p>
 	 * The MySQL user name.
 	 * </p>
 	 * @param string $password <p>
@@ -1148,7 +1148,7 @@ class mysqli_result implements IteratorAggregate
     /**
      * @since 8.0
      */
-    public function getIterator(){}
+    public function getIterator() {}
 }
 
 /**
@@ -1562,7 +1562,7 @@ function mysqli_connect (?string $hostname, ?string $username, ?string $password
  * @link https://php.net/manual/en/mysqli.connect-errno.php
  * @return int Last error code number from the last call to mysqli_connect(). Zero means no error occurred.
  */
-function mysqli_connect_errno (): int
+function mysqli_connect_errno(): int
 {}
 
 /**
@@ -1570,7 +1570,7 @@ function mysqli_connect_errno (): int
  * @link https://php.net/manual/en/mysqli.connect-error.php
  * @return string|null Last error message string from the last call to mysqli_connect().
  */
-function mysqli_connect_error (): ?string
+function mysqli_connect_error(): ?string
 {}
 
 /**
@@ -1732,13 +1732,13 @@ function mysqli_fetch_assoc (mysqli_result $result): ?array {}
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
  * @param string $class The name of the class to instantiate, set the properties of and return. If not specified, a stdClass object is returned.
- * @param array|null $constructor_args [optional] An optional array of parameters to pass to the constructor for class_name objects.
+ * @param array $constructor_args [optional] An optional array of parameters to pass to the constructor for class_name objects.
  * @return object|null Returns an object with string properties that corresponds to the fetched row or NULL if there are no more rows in resultset.
  * If two or more columns of the result have the same field names, the last column will take precedence.
  * To access the other column(s) of the same name,
  * you either need to access the result with numeric indices by using mysqli_fetch_row() or add alias names.
  */
-function mysqli_fetch_object (mysqli_result $result, string $class = 'stdClass', array $constructor_args): ?object {}
+function mysqli_fetch_object (mysqli_result $result, string $class = 'stdClass', array $constructor_args = []): ?object {}
 
 /**
  * Get a result row as an enumerated array
@@ -1835,7 +1835,7 @@ function mysqli_get_client_info (?mysqli $mysql): ?string {}
  * @link https://php.net/manual/en/mysqli.get-client-version.php
  * @return int
  */
-function mysqli_get_client_version (): int {}
+function mysqli_get_client_version(): int {}
 
 /**
  * Returns a string representing the type of connection used
@@ -1928,7 +1928,7 @@ function mysqli_get_warnings (mysqli $mysql): mysqli_warning|false {}
  * @return mysqli|false
  * @see mysqli_real_connect()
  */
-function mysqli_init (): mysqli|false {}
+function mysqli_init(): mysqli|false {}
 
 /**
  * Retrieves information about the most recently executed query
@@ -2555,7 +2555,7 @@ function mysqli_thread_id (mysqli $mysql): int
  * @link https://php.net/manual/en/mysqli.thread-safe.php
  * @return bool
  */
-function mysqli_thread_safe (): bool
+function mysqli_thread_safe(): bool
 {}
 
 /**

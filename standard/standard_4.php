@@ -18,7 +18,7 @@ use JetBrains\PhpStorm\Pure;
     "line" => "int",
 ])]
 #[Pure]
-function error_get_last (): ?array
+function error_get_last(): ?array
 {}
 
 /**
@@ -501,7 +501,7 @@ function ini_restore (string $option): void {}
  * @return string|false the path, as a string.
  */
 #[Pure]
-function get_include_path (): string|false
+function get_include_path(): string|false
 {}
 
 /**
@@ -738,7 +738,7 @@ function headers_sent (&$filename, &$line): bool
  * @return array a numerically indexed array of headers.
  */
 #[Pure]
-function headers_list (): array
+function headers_list(): array
 {}
 
 /**
@@ -747,7 +747,7 @@ function headers_list (): array
  * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b on failure.
  */
 #[Pure]
-function apache_request_headers (): bool|array
+function apache_request_headers(): bool|array
 {}
 
 /**
@@ -757,7 +757,7 @@ function apache_request_headers (): bool|array
  * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b> on failure.
  */
 #[Pure]
-function getallheaders (): bool|array
+function getallheaders(): bool|array
 {}
 
 /**
@@ -766,7 +766,7 @@ function getallheaders (): bool|array
  * @return int 1 if client disconnected, 0 otherwise.
  */
 #[Pure]
-function connection_aborted (): int
+function connection_aborted(): int
 {}
 
 /**
@@ -777,7 +777,7 @@ function connection_aborted (): int
  * status.
  */
 #[Pure]
-function connection_status (): int
+function connection_status(): int
 {}
 
 /**
@@ -938,7 +938,7 @@ function gethostbynamel(string $hostname): array|false
  * returned.
  */
 #[Pure]
-function gethostname (): string|false
+function gethostname(): string|false
 {}
 
 /**

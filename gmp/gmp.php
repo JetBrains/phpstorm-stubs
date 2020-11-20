@@ -46,7 +46,7 @@ function gmp_intval ($gmpnumber) {}
  * @return null|false Returns NULL on success.
  * @since 7.0
  */
-function gmp_random_seed ($seed ) {}
+function gmp_random_seed ($seed) {}
 /**
  * Convert GMP number to string
  * @link https://php.net/manual/en/function.gmp-strval.php

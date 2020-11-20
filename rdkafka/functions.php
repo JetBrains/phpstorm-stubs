@@ -4,13 +4,13 @@
  * Returns the full list of error codes.
  * @return array
  */
-function rd_kafka_get_err_descs(){}
+function rd_kafka_get_err_descs() {}
 
 /**
  * Retrieve the current number of threads in use by librdkafka.
  * @return int
  */
-function rd_kafka_thread_cnt(){}
+function rd_kafka_thread_cnt() {}
 
 /**
  * @param int $err Error code

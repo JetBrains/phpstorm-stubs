@@ -224,7 +224,7 @@ function json_decode (string $json, ?bool $associative = false, int $depth = 512
  * </table>
  */
 #[Pure]
-function json_last_error (): int {}
+function json_last_error(): int {}
 
 /**
  * Returns the error string of the last json_encode() or json_decode() call, which did not specify <b>JSON_THROW_ON_ERROR</b>.
@@ -233,7 +233,7 @@ function json_last_error (): int {}
  * @since 5.5
  */
 #[Pure]
-function json_last_error_msg (): string {}
+function json_last_error_msg(): string {}
 
 
 /**
@@ -243,7 +243,7 @@ function json_last_error_msg (): string {}
 define ('JSON_HEX_TAG', 1);
 
 /**
- * All &#38;#38;s are converted to \u0026.
+ * All &s are converted to \u0026.
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_HEX_AMP', 2);

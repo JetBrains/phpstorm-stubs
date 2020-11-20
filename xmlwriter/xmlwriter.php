@@ -540,7 +540,7 @@ function xmlwriter_open_uri (string $uri)
  * xmlwriter functions on success, <b>FALSE</b> on error.
  */
 #[LanguageLevelTypeAware(["8.0" => "XMLWriter|false"], default: "resource|false")]
-function xmlwriter_open_memory (): bool
+function xmlwriter_open_memory()
 {}
 
 /**

@@ -647,14 +647,13 @@ function svn_propget ($path, $property_name, $recurse = false, $revision) {}
  * @param string $path <p>
  * Its description
  * </p>
- * @param array $config [optional] <p>
+ * @param null|array $config [optional] <p>
  * Its description
  * </p>
- * @param array $fsconfig [optional] <p>
+ * @param null|array $fsconfig [optional] <p>
  * Its description
  * </p>
- * @return resource What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return resource What the function returns, first on success, then on failure.
  */
 function svn_repos_create ($path, array $config = null, array $fsconfig = null) {}
 
@@ -665,8 +664,7 @@ function svn_repos_create ($path, array $config = null, array $fsconfig = null) 
  * @param string $path <p>
  * Its description
  * </p>
- * @return bool What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return bool What the function returns, first on success, then on failure.
  */
 function svn_repos_recover ($path) {}
 
@@ -683,8 +681,7 @@ function svn_repos_recover ($path) {}
  * @param bool $cleanlogs <p>
  * Its description
  * </p>
- * @return bool What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return bool What the function returns, first on success, then on failure.
  */
 function svn_repos_hotcopy ($repospath, $destpath, $cleanlogs) {}
 
@@ -695,8 +692,7 @@ function svn_repos_hotcopy ($repospath, $destpath, $cleanlogs) {}
  * @param string $path <p>
  * Its description
  * </p>
- * @return resource What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return resource What the function returns, first on success, then on failure.
  */
 function svn_repos_open ($path) {}
 
@@ -707,8 +703,7 @@ function svn_repos_open ($path) {}
  * @param resource $repos <p>
  * Its description
  * </p>
- * @return resource What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return resource What the function returns, first on success, then on failure.
  */
 function svn_repos_fs ($repos) {}
 
@@ -728,8 +723,7 @@ function svn_repos_fs ($repos) {}
  * @param string $log_msg <p>
  * Its description
  * </p>
- * @return resource What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return resource What the function returns, first on success, then on failure.
  */
 function svn_repos_fs_begin_txn_for_commit ($repos, $rev, $author, $log_msg) {}
 
@@ -740,8 +734,7 @@ function svn_repos_fs_begin_txn_for_commit ($repos, $rev, $author, $log_msg) {}
  * @param resource $txn <p>
  * Its description
  * </p>
- * @return int What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return int What the function returns, first on success, then on failure.
  */
 function svn_repos_fs_commit_txn ($txn) {}
 
@@ -755,8 +748,7 @@ function svn_repos_fs_commit_txn ($txn) {}
  * @param int $revnum <p>
  * Its description
  * </p>
- * @return resource What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return resource What the function returns, first on success, then on failure.
  */
 function svn_fs_revision_root ($fs, $revnum) {}
 
@@ -770,8 +762,7 @@ function svn_fs_revision_root ($fs, $revnum) {}
  * @param string $path <p>
  * Its description
  * </p>
- * @return int What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return int What the function returns, first on success, then on failure.
  */
 function svn_fs_check_path ($fsroot, $path) {}
 
@@ -788,8 +779,7 @@ function svn_fs_check_path ($fsroot, $path) {}
  * @param string $propname <p>
  * Its description
  * </p>
- * @return string What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return string What the function returns, first on success, then on failure.
  */
 function svn_fs_revision_prop ($fs, $revnum, $propname) {}
 
@@ -803,8 +793,7 @@ function svn_fs_revision_prop ($fs, $revnum, $propname) {}
  * @param string $path <p>
  * Its description
  * </p>
- * @return array What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return array What the function returns, first on success, then on failure.
  */
 function svn_fs_dir_entries ($fsroot, $path) {}
 
@@ -818,8 +807,7 @@ function svn_fs_dir_entries ($fsroot, $path) {}
  * @param string $path <p>
  * Its description
  * </p>
- * @return int What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return int What the function returns, first on success, then on failure.
  */
 function svn_fs_node_created_rev ($fsroot, $path) {}
 
@@ -830,8 +818,7 @@ function svn_fs_node_created_rev ($fsroot, $path) {}
  * @param resource $fs <p>
  * Its description
  * </p>
- * @return int What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return int What the function returns, first on success, then on failure.
  */
 function svn_fs_youngest_rev ($fs) {}
 
@@ -845,8 +832,7 @@ function svn_fs_youngest_rev ($fs) {}
  * @param string $path <p>
  * Its description
  * </p>
- * @return resource What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return resource What the function returns, first on success, then on failure.
  */
 function svn_fs_file_contents ($fsroot, $path) {}
 
@@ -860,8 +846,7 @@ function svn_fs_file_contents ($fsroot, $path) {}
  * @param string $path <p>
  * Its description
  * </p>
- * @return int What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return int What the function returns, first on success, then on failure.
  */
 function svn_fs_file_length ($fsroot, $path) {}
 
@@ -872,8 +857,7 @@ function svn_fs_file_length ($fsroot, $path) {}
  * @param resource $txn <p>
  * Its description
  * </p>
- * @return resource What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return resource What the function returns, first on success, then on failure.
  */
 function svn_fs_txn_root ($txn) {}
 
@@ -887,8 +871,7 @@ function svn_fs_txn_root ($txn) {}
  * @param string $path <p>
  * Its description
  * </p>
- * @return bool What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return bool What the function returns, first on success, then on failure.
  */
 function svn_fs_make_file ($root, $path) {}
 
@@ -902,8 +885,7 @@ function svn_fs_make_file ($root, $path) {}
  * @param string $path <p>
  * Its description
  * </p>
- * @return bool What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return bool What the function returns, first on success, then on failure.
  */
 function svn_fs_make_dir ($root, $path) {}
 
@@ -917,8 +899,7 @@ function svn_fs_make_dir ($root, $path) {}
  * @param string $path <p>
  * Its description
  * </p>
- * @return resource What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return resource What the function returns, first on success, then on failure.
  */
 function svn_fs_apply_text ($root, $path) {}
 
@@ -938,8 +919,7 @@ function svn_fs_apply_text ($root, $path) {}
  * @param string $to_path <p>
  * Its description
  * </p>
- * @return bool What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return bool What the function returns, first on success, then on failure.
  */
 function svn_fs_copy ($from_root, $from_path, $to_root, $to_path) {}
 
@@ -953,8 +933,7 @@ function svn_fs_copy ($from_root, $from_path, $to_root, $to_path) {}
  * @param string $path <p>
  * Its description
  * </p>
- * @return bool What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return bool What the function returns, first on success, then on failure.
  */
 function svn_fs_delete ($root, $path) {}
 
@@ -968,8 +947,7 @@ function svn_fs_delete ($root, $path) {}
  * @param int $rev <p>
  * Its description
  * </p>
- * @return resource What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return resource What the function returns, first on success, then on failure.
  */
 function svn_fs_begin_txn2 ($repos, $rev) {}
 
@@ -983,8 +961,7 @@ function svn_fs_begin_txn2 ($repos, $rev) {}
  * @param string $path <p>
  * Its description
  * </p>
- * @return bool What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return bool What the function returns, first on success, then on failure.
  */
 function svn_fs_is_dir ($root, $path) {}
 
@@ -998,8 +975,7 @@ function svn_fs_is_dir ($root, $path) {}
  * @param string $path <p>
  * Its description
  * </p>
- * @return bool What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return bool What the function returns, first on success, then on failure.
  */
 function svn_fs_is_file ($root, $path) {}
 
@@ -1016,8 +992,7 @@ function svn_fs_is_file ($root, $path) {}
  * @param string $propname <p>
  * Its description
  * </p>
- * @return string What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return string What the function returns, first on success, then on failure.
  */
 function svn_fs_node_prop ($fsroot, $path, $propname) {}
 
@@ -1037,8 +1012,7 @@ function svn_fs_node_prop ($fsroot, $path, $propname) {}
  * @param string $value <p>
  * Its description
  * </p>
- * @return bool What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return bool What the function returns, first on success, then on failure.
  */
 function svn_fs_change_node_prop ($root, $path, $name, $value) {}
 
@@ -1058,8 +1032,7 @@ function svn_fs_change_node_prop ($root, $path, $name, $value) {}
  * @param string $path2 <p>
  * Its description
  * </p>
- * @return bool What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return bool What the function returns, first on success, then on failure.
  */
 function svn_fs_contents_changed ($root1, $path1, $root2, $path2) {}
 
@@ -1079,8 +1052,7 @@ function svn_fs_contents_changed ($root1, $path1, $root2, $path2) {}
  * @param string $path2 <p>
  * Its description
  * </p>
- * @return bool What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return bool What the function returns, first on success, then on failure.
  */
 function svn_fs_props_changed ($root1, $path1, $root2, $path2) {}
 
@@ -1091,8 +1063,7 @@ function svn_fs_props_changed ($root1, $path1, $root2, $path2) {}
  * @param resource $txn <p>
  * Its description
  * </p>
- * @return bool What the function returns, first on success, then on failure. See
- * also the &#38;#38;return.success; entity
+ * @return bool What the function returns, first on success, then on failure.
  */
 function svn_fs_abort_txn ($txn) {}
 

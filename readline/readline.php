@@ -49,7 +49,7 @@ function readline_add_history (string $prompt): bool
  * @link https://php.net/manual/en/function.readline-clear-history.php
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_clear_history (): bool
+function readline_clear_history(): bool
 {}
 
 /**
@@ -58,7 +58,7 @@ function readline_clear_history (): bool
  * @return array an array of the entire command line history. The elements are
  * indexed by integers starting at zero.
  */
-function readline_list_history (): array
+function readline_list_history(): array
 {}
 
 /**
@@ -115,7 +115,7 @@ function readline_callback_handler_install (string $prompt, callable $callback):
  * @link https://php.net/manual/en/function.readline-callback-read-char.php
  * @return void No value is returned.
  */
-function readline_callback_read_char (): void {}
+function readline_callback_read_char(): void {}
 
 /**
  * Removes a previously installed callback handler and restores terminal settings
@@ -123,7 +123,7 @@ function readline_callback_read_char (): void {}
  * @return bool <b>TRUE</b> if a previously installed callback handler was removed, or
  * <b>FALSE</b> if one could not be found.
  */
-function readline_callback_handler_remove (): bool
+function readline_callback_handler_remove(): bool
 {}
 
 /**
@@ -131,14 +131,14 @@ function readline_callback_handler_remove (): bool
  * @link https://php.net/manual/en/function.readline-redisplay.php
  * @return void No value is returned.
  */
-function readline_redisplay (): void {}
+function readline_redisplay(): void {}
 
 /**
  * Inform readline that the cursor has moved to a new line
  * @link https://php.net/manual/en/function.readline-on-new-line.php
  * @return void No value is returned.
  */
-function readline_on_new_line (): void {}
+function readline_on_new_line(): void {}
 
 define ('READLINE_LIB', "libedit");
 

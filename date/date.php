@@ -796,7 +796,7 @@ function gmstrftime (string $format, ?int $timestamp): string|false
  * @link https://php.net/manual/en/function.time.php
  * @return int <p>Returns the current time measured in the number of seconds since the Unix Epoch (January 1 1970 00:00:00 GMT).</p>
  */
-function time (): int
+function time(): int
 {}
 
 /**
@@ -914,7 +914,7 @@ function getdate (?int $timestamp): array
  * @return DateTime|false DateTime object on success or false on failure.
  */
 #[Pure]
-function date_create (string $datetime, ?DateTimeZone $timezone ): DateTime|false
+function date_create (string $datetime, ?DateTimeZone $timezone): DateTime|false
 {}
 
 /**
@@ -1001,7 +1001,7 @@ function date_parse_from_format (string $format, string $datetime): array
  * @return array|false <p>Returns array containing info about warnings and errors.</p>
  */
 #[Pure]
-function date_get_last_errors (): array|false
+function date_get_last_errors(): array|false
 {}
 
 /**
@@ -1089,7 +1089,7 @@ function date_timezone_get (DateTimeInterface $object): DateTimeZone|false
  * Alias:
  * {@see DateTime::setTimezone}
  * @link https://php.net/manual/en/function.date-timezone-set.php
- * @param DateTime $object <p>A
+ * @param DateTimeInterface $object <p>A
  * {@see DateTime} object returned by
  * {@see date_create()}. The function modifies this object.</p>
  * @param DateTimeZone $timezone <p>A
@@ -1115,13 +1115,12 @@ function date_timezone_set (DateTimeInterface $object, DateTimeZone $timezone)
 function date_offset_get (DateTimeInterface $object)
 {}
 
-
 /**
  * Returns the difference between two datetime objects
  * Alias:
  * {@see DateTime::diff}
  * @link https://php.net/manual/en/function.date-diff.php
- * @param DateTime $baseObject
+ * @param DateTimeInterface $baseObject
  * @param DateTimeInterface $targetObject The date to compare to
  * @param bool $absolute [optional] Whether to return absolute difference.
  * @return DateInterval|false The DateInterval object representing the difference between the two dates or FALSE on failure.
@@ -1130,6 +1129,7 @@ function date_offset_get (DateTimeInterface $object)
 #[LanguageLevelTypeAware(["8.0" => "DateInterval"], default: "DateInterval|false")]
 function date_diff (DateTimeInterface $baseObject, DateTimeInterface $targetObject, bool $absolute = false)
 {}
+
 /**
  * &Alias; <methodname>DateTime::setTime</methodname>
  * @link https://php.net/manual/en/function.date-time-set.php
@@ -1170,7 +1170,7 @@ function date_date_set (DateTime $object, int $year, int $month, int $day): Date
  * @param DateTime $object
  * @param int $year <p>Year of the date</p>
  * @param int $week <p>Week of the date.</p>
- * @param int $day [optional] <p>Offset from the first day of the week.</p>
+ * @param int $dayOfWeek [optional] <p>Offset from the first day of the week.</p>
  * @return DateTime|false <p>
  * Returns the {@see DateTime} object for method chaining or <strong><code>FALSE</code></strong> on failure.
  * </p>
@@ -1329,7 +1329,7 @@ function timezone_abbreviations_list ()
  * @return string a string.
  */
 #[Pure]
-function timezone_version_get (): string
+function timezone_version_get(): string
 {}
 
 /**
@@ -1361,7 +1361,7 @@ function date_interval_format (DateInterval $object, string $format): string
 /**
  * Sets the default timezone used by all date/time functions in a script
  * @link https://php.net/manual/en/function.date-default-timezone-set.php
- * @param string $timezoneID <p>
+ * @param string $timezoneId <p>
  * The timezone identifier, like UTC or
  * Europe/Lisbon. The list of valid identifiers is
  * available in the .
@@ -1379,7 +1379,7 @@ function date_default_timezone_set (string $timezoneId): bool
  * @return string a string.
  */
 #[Pure]
-function date_default_timezone_get (): string
+function date_default_timezone_get(): string
 {}
 
 /**

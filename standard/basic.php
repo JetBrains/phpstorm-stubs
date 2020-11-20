@@ -60,7 +60,7 @@ function cli_set_process_title (string $title): bool
  * @since 5.5
  */
 #[Pure]
-function cli_get_process_title (): ?string
+function cli_get_process_title(): ?string
 {}
 
 /**
@@ -105,7 +105,7 @@ function utf8_decode (string $string): string
  * @return void
  * @since 7.0
  */
-function error_clear_last (): void {}
+function error_clear_last(): void {}
 
 /**
  * Get process codepage

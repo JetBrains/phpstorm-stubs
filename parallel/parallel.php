@@ -12,7 +12,7 @@ use Closure;
  * @throws Runtime\Error\Bootstrap if previously called for this process.
  * @throws Runtime\Error\Bootstrap if called after @see run().
  */
-function bootstrap(string $file) : void{}
+function bootstrap(string $file) : void {}
 
 /**
  * @see Runtime::run() for more details
@@ -41,5 +41,5 @@ function run(Closure $task, array $argv = null) : ?Future{}
 /**
  * @return int
  */
-function count() : int{}
+function count() : int {}
 #endif

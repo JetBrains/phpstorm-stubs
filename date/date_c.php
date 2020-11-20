@@ -182,7 +182,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @link https://secure.php.net/manual/en/datetimeimmutable.createfromformat.php
      * @param string $format
      * @param string $time
-     * @param DateTimeZone $timezone [optional]
+     * @param null|DateTimeZone $timezone [optional]
      * @return DateTimeImmutable|false
      */
     public static function createFromFormat($format, $time, DateTimeZone $timezone = null) { }
@@ -361,10 +361,11 @@ class DateTimeImmutable implements DateTimeInterface {
     public function __wakeup() { }
 
     /**
+     * @param DateTimeInterface $object
      * @return DateTimeImmutable
      * @since 8.0
      */
-    public static function createFromInterface(DateTimeInterface $object){}
+    public static function createFromInterface(DateTimeInterface $object) { }
 }
 
 
@@ -447,7 +448,7 @@ class DateTime implements DateTimeInterface {
      * Enter <b>now</b> here to obtain the current time when using
      * the <em>$timezone</em> parameter.
      * </p>
-     * @param DateTimeZone $timezone [optional] <p>
+     * @param null|DateTimeZone $timezone [optional] <p>
      * A {@link https://php.net/manual/en/class.datetimezone.php DateTimeZone} object representing the
      * timezone of <em>$time</em>.
      * </p>
@@ -502,6 +503,7 @@ class DateTime implements DateTimeInterface {
 
 
     /**
+     * @param DateTimeImmutable $datetTimeImmutable
      * @since 7.3
      * @return DateTime
      */
@@ -597,7 +599,7 @@ class DateTime implements DateTimeInterface {
      * Parse a string into a new DateTime object according to the specified format
      * @param string $format Format accepted by date().
      * @param string $time String representing the time.
-     * @param DateTimeZone $timezone A DateTimeZone object representing the desired time zone.
+     * @param null|DateTimeZone $timezone A DateTimeZone object representing the desired time zone.
      * @return DateTime|false
      * @link https://php.net/manual/en/datetime.createfromformat.php
      */
@@ -619,10 +621,11 @@ class DateTime implements DateTimeInterface {
     public static function __set_state ($array) {}
 
     /**
+     * @param DateTimeInterface $object
      * @return DateTime
      * @since 8.0
      */
-    public static function createFromInterface(DateTimeInterface $object){}
+    public static function createFromInterface(DateTimeInterface $object) {}
 }
 
 /**
@@ -703,7 +706,7 @@ class DateTimeZone {
     /**
      * @link https://php.net/manual/en/datetime.wakeup.php
      */
-    public function __wakeup(){}
+    public function __wakeup() {}
 
 
     public static function __set_state($an_array) {}
@@ -909,5 +912,5 @@ class DatePeriod implements IteratorAggregate {
      * @return DateTimeInterface[]
      * @since 8.0
      */
-    public function getIterator(){}
+    public function getIterator() {}
 }

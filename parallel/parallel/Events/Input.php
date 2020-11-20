@@ -23,17 +23,17 @@ final class Input{
 	 * @throws Input\Error\Existence if input for target already exists.
 	 * @throws Input\Error\IllegalValue if value is illegal (object, null).
 	 */
-	public function add(string $target, $value) : void{}
+	public function add(string $target, $value) : void {}
 
 	/**
 	 * Shall remove input for the given target
 	 * @param string $target
 	 * @throws Input\Error\Existence if input for target does not exist.
 	 */
-	public function remove(string $target) : void{}
+	public function remove(string $target) : void {}
 
 	/**
 	 * Shall remove input for all targets
 	 */
-	public function clear() : void{}
+	public function clear() : void {}
 }

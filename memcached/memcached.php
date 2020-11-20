@@ -1477,7 +1477,7 @@ class Memcached  {
 	 * @param string $key
 	 * @return bool
 	 */
-	public function setEncodingKey ( $key ) {}
+	public function setEncodingKey ( $key) {}
 
 	/**
 	 * Returns the last disconnected server. Was added in 0.34 according to libmemcached's Changelog
@@ -1524,7 +1524,7 @@ class Memcached  {
  */
 class MemcachedException extends RuntimeException  {
 	#[\JetBrains\PhpStorm\Pure]
-    function __construct($errmsg = "", $errcode  = 0 ) {}
+    function __construct($errmsg = "", $errcode  = 0) {}
 }
 // End of memcached v.3.1.5
 ?>

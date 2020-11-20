@@ -2165,7 +2165,8 @@ function curl_share_close (#[LanguageLevelTypeAware(["8.0" => "CurlShareHandle"]
  * @return resource|CurlShareHandle Returns resource of type "cURL Share Handle".
  * @since 5.5
  */
-function curl_share_init (): CurlShareHandle
+#[LanguageLevelTypeAware(["8.0" => "CurlShareHandle"], default: "resource")]
+function curl_share_init()
 {}
 
 /**
@@ -2247,7 +2248,7 @@ function curl_share_init (): CurlShareHandle
  * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.5
  */
-function curl_share_setopt (#[LanguageLevelTypeAware(["8.0" => "CurlShareHandle"], default: "resource")] $share_handle, int $option, mixed $value ): bool
+function curl_share_setopt (#[LanguageLevelTypeAware(["8.0" => "CurlShareHandle"], default: "resource")] $share_handle, int $option, mixed $value): bool
 {}
 
 /**
@@ -2390,7 +2391,7 @@ function curl_close (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: 
  * @return resource|CurlMultiHandle a cURL multi handle resource on success, false on failure.
  */
 #[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")]
-function curl_multi_init (): CurlMultiHandle|bool
+function curl_multi_init(): CurlMultiHandle|bool
 {}
 
 /**
@@ -2540,7 +2541,7 @@ function curl_multi_exec (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"],
  * Return the content of a cURL handle if <constant>CURLOPT_RETURNTRANSFER</constant> is set
  * @link https://php.net/manual/en/function.curl-multi-getcontent.php
  * @param CurlHandle|resource $multi_handle
- * @return string Return the content of a cURL handle if CURLOPT_RETURNTRANSFER is set.
+ * @return null|string Return the content of a cURL handle if CURLOPT_RETURNTRANSFER is set.
  */
 #[Pure]
 function curl_multi_getcontent (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $multi_handle): ?string
@@ -2605,7 +2606,7 @@ final class CurlHandle{
      * Cannot directly construct CurlHandle, use curl_init() instead
      * @see curl_init()
      */
-    private function __construct(){}
+    private function __construct() {}
 }
 
 /**
@@ -2616,7 +2617,7 @@ final class CurlMultiHandle{
      * Cannot directly construct CurlMultiHandle, use curl_multi_init() instead
      * @see curl_multi_init()
      */
-    private function __construct(){}
+    private function __construct() {}
 }
 
 /**
@@ -2627,5 +2628,5 @@ final class CurlShareHandle{
      * Cannot directly construct CurlShareHandle, use curl_share_init() instead
      * @see  curl_share_init()
      */
-    private function __construct(){}
+    private function __construct() {}
 }

@@ -191,11 +191,11 @@ function apc_cas($key, $old, $new){}
 /**
  * Returns a binary dump of the given files and user variables from the APC cache
  *
- * A NULL for files or user_vars signals a dump of every entry, while array() will dump nothing.
+ * A NULL for files or user_vars signals a dump of every entry, while [] will dump nothing.
  *
  * @link https://php.net/manual/en/function.apc-bin-dump.php
- * @param string[]|null $files The files. Passing in NULL signals a dump of every entry, while passing in array() will dump nothing.
- * @param string[]|null $user_vars The user vars. Passing in NULL signals a dump of every entry, while passing in array() will dump nothing.
+ * @param string[]|null $files The files. Passing in NULL signals a dump of every entry, while passing in [] will dump nothing.
+ * @param string[]|null $user_vars The user vars. Passing in NULL signals a dump of every entry, while passing in [] will dump nothing.
  * @return string|false|null Returns a binary dump of the given files and user variables from the APC cache, FALSE if APC is not enabled, or NULL if an unknown error is encountered.
  */
 function apc_bin_dump($files = null, $user_vars = null){}
@@ -267,56 +267,56 @@ class APCIterator implements Iterator
      * Rewinds back the iterator to the first element
      * @link https://php.net/manual/en/apciterator.rewind.php
      */
-    public function rewind(){}
+    public function rewind() {}
 
     /**
      * Checks if the current iterator position is valid
      * @link https://php.net/manual/en/apciterator.valid.php
      * @return bool Returns TRUE if the current iterator position is valid, otherwise FALSE.
      */
-    public function valid(){}
+    public function valid() {}
 
     /**
      * Gets the current item from the APCIterator stack
      * @link https://php.net/manual/en/apciterator.current.php
      * @return mixed|false Returns the current item on success, or FALSE if no more items or exist, or on failure.
      */
-    public function current(){}
+    public function current() {}
 
     /**
      * Gets the current iterator key
      * @link https://php.net/manual/en/apciterator.key.php
      * @return string|int|false Returns the key on success, or FALSE upon failure.
      */
-    public function key(){}
+    public function key() {}
 
     /**
      * Moves the iterator pointer to the next element
      * @link https://php.net/manual/en/apciterator.next.php
      * @return bool Returns TRUE on success or FALSE on failure.
      */
-    public function next(){}
+    public function next() {}
 
     /**
      * Gets the total number of cache hits
      * @link https://php.net/manual/en/apciterator.gettotalhits.php
      * @return int|false The number of hits on success, or FALSE on failure.
      */
-    public function getTotalHits(){}
+    public function getTotalHits() {}
 
     /**
      * Gets the total cache size
      * @link https://php.net/manual/en/apciterator.gettotalsize.php
      * @return int|bool The total cache size.
      */
-    public function getTotalSize(){}
+    public function getTotalSize() {}
 
     /**
      * Get the total count
      * @link https://php.net/manual/en/apciterator.gettotalcount.php
      * @return int|bool The total count.
      */
-    public function getTotalCount(){}
+    public function getTotalCount() {}
 }
 
 /**
@@ -407,7 +407,7 @@ define('APC_ITER_ALL', -1);
  *
  * @return bool Returns TRUE always.
  */
-function apcu_clear_cache(){}
+function apcu_clear_cache() {}
 
 /**
  * Retrieves APCu Shared Memory Allocation information
@@ -570,7 +570,7 @@ function apcu_cache_info($limited = false){}
  *
  * @return bool
  */
-function apcu_enabled(){}
+function apcu_enabled() {}
 
 /**
  * @param string $key
@@ -608,54 +608,54 @@ class APCuIterator implements Iterator
 	 * Rewinds back the iterator to the first element
 	 * @link https://php.net/manual/en/apcuiterator.rewind.php
 	 */
-	public function rewind(){}
+	public function rewind() {}
 
 	/**
 	 * Checks if the current iterator position is valid
 	 * @link https://php.net/manual/en/apcuiterator.valid.php
 	 * @return bool Returns TRUE if the current iterator position is valid, otherwise FALSE.
 	 */
-	public function valid(){}
+	public function valid() {}
 
 	/**
 	 * Gets the current item from the APCuIterator stack
 	 * @link https://php.net/manual/en/apcuiterator.current.php
 	 * @return mixed|false Returns the current item on success, or FALSE if no more items or exist, or on failure.
 	 */
-	public function current(){}
+	public function current() {}
 
 	/**
 	 * Gets the current iterator key
 	 * @link https://php.net/manual/en/apcuiterator.key.php
 	 * @return string|int|false Returns the key on success, or FALSE upon failure.
 	 */
-	public function key(){}
+	public function key() {}
 
 	/**
 	 * Moves the iterator pointer to the next element
 	 * @link https://php.net/manual/en/apcuiterator.next.php
 	 * @return bool Returns TRUE on success or FALSE on failure.
 	 */
-	public function next(){}
+	public function next() {}
 
 	/**
 	 * Gets the total number of cache hits
 	 * @link https://php.net/manual/en/apcuiterator.gettotalhits.php
 	 * @return int|false The number of hits on success, or FALSE on failure.
 	 */
-	public function getTotalHits(){}
+	public function getTotalHits() {}
 
 	/**
 	 * Gets the total cache size
 	 * @link https://php.net/manual/en/apcuiterator.gettotalsize.php
 	 * @return int|false The total cache size.
 	 */
-	public function getTotalSize(){}
+	public function getTotalSize() {}
 
 	/**
 	 * Get the total count
 	 * @link https://php.net/manual/en/apcuiterator.gettotalcount.php
 	 * @return int|false The total count.
 	 */
-	public function getTotalCount(){}
+	public function getTotalCount() {}
 }

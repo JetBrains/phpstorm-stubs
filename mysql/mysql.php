@@ -466,7 +466,7 @@ function mysql_fetch_assoc ($result) {}
  * @removed 7.0
  */
 #[Deprecated(since: '5.5')]
-function mysql_fetch_object ($result, $class_name = 'stdClass', array $params = null ) {}
+function mysql_fetch_object ($result, $class_name = 'stdClass', array $params = null) {}
 
 /**
  * Move internal result pointer

@@ -89,7 +89,7 @@ class LevelDB{
 
 	public function compactRange($start, $limit){}
 
-	public function close(){}
+	public function close() {}
 
 	/**
 	 * @param array $options
@@ -101,7 +101,7 @@ class LevelDB{
 	/**
 	 * @return LevelDBSnapshot
 	 */
-	public function getSnapshot(){}
+	public function getSnapshot() {}
 
 	static public function destroy($name, array $options = []){}
 
@@ -112,30 +112,30 @@ class LevelDBIterator implements Iterator{
 
 	public function __construct(LevelDB $db, array $read_options = []){}
 
-	public function valid(){}
+	public function valid() {}
 
-	public function rewind(){}
+	public function rewind() {}
 
-	public function last(){}
+	public function last() {}
 
 	public function seek($key){}
 
-	public function next(){}
+	public function next() {}
 
-	public function prev(){}
+	public function prev() {}
 
-	public function key(){}
+	public function key() {}
 
-	public function current(){}
+	public function current() {}
 
-	public function getError(){}
+	public function getError() {}
 
-	public function destroy(){}
+	public function destroy() {}
 
 }
 
 class LevelDBWriteBatch{
-	public function __construct(){}
+	public function __construct() {}
 
 	public function set($key, $value, array $write_options = []){}
 
@@ -143,13 +143,13 @@ class LevelDBWriteBatch{
 
 	public function delete($key, array $write_options = []){}
 
-	public function clear(){}
+	public function clear() {}
 }
 
 class LevelDBSnapshot{
 	public function __construct(LevelDB $db){}
 
-	public function release(){}
+	public function release() {}
 
 }
 

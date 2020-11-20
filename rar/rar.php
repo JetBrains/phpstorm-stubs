@@ -14,10 +14,10 @@ final class RarArchive implements Traversable
      * Open RAR archive
      *
      * @param string $filename Path to the Rar archive
-     * @param string $password A plain password, if needed to decrypt the headers. It will also be used by default if
+     * @param null|string $password A plain password, if needed to decrypt the headers. It will also be used by default if
      *      encrypted files are found. Note that the files may have different passwords in respect
      *      to the headers and among them
-     * @param callable $volume_callback A function that receives one parameter – the path of the volume that was
+     * @param null|callable $volume_callback A function that receives one parameter – the path of the volume that was
      *      not found – and returns a string with the correct path for such volume or NULL if such volume does not
      *      exist or is not known. The programmer should ensure the passed function doesn't cause loops as this
      *      function is called repeatedly if the path returned in a previous call did not correspond to the needed

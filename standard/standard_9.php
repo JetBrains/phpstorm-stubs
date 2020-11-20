@@ -4,6 +4,7 @@
  * @since 5.6
  */
 
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
@@ -757,6 +758,7 @@ function array_map(callable $callback, array $array, array ...$arrays): array { 
 function array_chunk(array $array, int $length, bool $preserve_keys): array
 { }
 
+
 /**
  * Creates an array by using one array for keys and another for its values
  * @link https://php.net/manual/en/function.array-combine.php
@@ -772,7 +774,8 @@ function array_chunk(array $array, int $length, bool $preserve_keys): array
  * @meta
  */
 #[Pure]
-function array_combine(array $keys, array $values): array { }
+#[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
+function array_combine(array $keys, array $values) { }
 
 /**
  * Checks if the given key or index exists in the array
@@ -786,7 +789,7 @@ function array_combine(array $keys, array $values): array { }
  * @return bool true on success or false on failure.
  */
 #[Pure]
-function array_key_exists($key, array $array): bool
+function array_key_exists($key, object|array $array): bool
 { }
 
 /**
@@ -854,7 +857,7 @@ function key_exists($key, array $array): bool
 { }
 
 /**
- * Checks if assertion is &false;
+ * Checks if assertion is <b>FALSE</b>
  * @link https://php.net/manual/en/function.assert.php
  * @param Throwable|string|null $assertion <p>
  * The assertion.
@@ -929,7 +932,7 @@ class AssertionError extends Error {
  * @param mixed $value [optional] <p>
  * An optional new value for the option.
  * </p>
- * @return object|array|string|int|null the original setting of any option or false on errors.
+ * @return object|array|string|int|null The original setting of any option.
  */
 function assert_options(int $option, mixed $value): object|array|string|int|null
 { }

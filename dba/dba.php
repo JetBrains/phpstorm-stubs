@@ -339,7 +339,7 @@ function dba_handlers (bool $full_info = false): array
  * @link https://php.net/manual/en/function.dba-list.php
  * @return array An associative array, in the form resourceid =&gt; filename.
  */
-function dba_list (): array
+function dba_list(): array
 {}
 
 /**

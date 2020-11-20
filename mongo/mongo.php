@@ -706,7 +706,7 @@ class MongoDB {
 	 * @param array $args [optional] Arguments to be passed to code.
 	 * @return array Returns the result of the evaluation.
 	 */
-    public function execute($code, array $args = array()) {}
+    public function execute($code, array $args = []) {}
 
     /**
 	 * Execute a database command
@@ -895,7 +895,7 @@ class MongoCollection {
      * @param array $pipelineOperators [optional] <p> Additional pipeline operators. </p>
      * @return array The result of the aggregation as an array. The ok will be set to 1 on success, 0 on failure.
      */
-    public function aggregate ( array $pipeline, array $op, array $pipelineOperators ) {}
+    public function aggregate ( array $pipeline, array $op, array $pipelineOperators) {}
 
     /**
      * (PECL mongo &gt;= 1.5.0)<br/>
@@ -1030,7 +1030,7 @@ class MongoCollection {
      * <dd>If an upsert updated an existing element, this field will be true. For upserts, either this field or upserted will be present (unless an error occurred).
 	 * </dl>
      */
-    public function insert($a, array $options = array()) {}
+    public function insert($a, array $options = []) {}
 
     /**
 	 * Inserts multiple documents into this collection
@@ -1040,7 +1040,7 @@ class MongoCollection {
 	 * @throws MongoCursorException
 	 * @return array|bool if "safe" is set, returns an associative array with the status of the inserts ("ok") and any error that may have occurred ("err"). Otherwise, returns TRUE if the batch insert was successfully sent, FALSE otherwise.
 	 */
-    public function batchInsert(array $a, array $options = array()) {}
+    public function batchInsert(array $a, array $options = []) {}
 
     /**
 	 * Update records based on a given criteria
@@ -1071,7 +1071,7 @@ class MongoCollection {
 	 * @throws MongoCursorException
 	 * @return bool
 	 */
-    public function update(array $criteria , array $newobj, array $options = array()) {}
+    public function update(array $criteria , array $newobj, array $options = []) {}
 
     /**
      * (PECL mongo &gt;= 0.9.0)<br/>
@@ -1114,7 +1114,7 @@ class MongoCollection {
      * <b>MongoCollection::insert()</b>.
      * </p>
 	 */
-    public function remove(array $criteria = array(), array $options = array()) {}
+    public function remove(array $criteria = [], array $options = []) {}
 
     /**
 	 * Querys this collection
@@ -1123,7 +1123,7 @@ class MongoCollection {
 	 * @param array $fields Fields of the results to return.
 	 * @return MongoCursor
 	 */
-    public function find(array $query = array(), array $fields = array()) {}
+    public function find(array $query = [], array $fields = []) {}
 
     /**
      * Retrieve a list of distinct values for the given key across a collection
@@ -1153,7 +1153,7 @@ class MongoCollection {
 	 * @param array $options This parameter is an associative array of the form array("name" => <value>, ...).
 	 * @return array|null
 	 */
-    public function findOne(array $query = array(), array $fields = array(), array $options = array()) {}
+    public function findOne(array $query = [], array $fields = [], array $options = []) {}
 
     /**
      * Creates an index on the given field(s), or does nothing if the index already exists
@@ -1162,7 +1162,7 @@ class MongoCollection {
      * @param array $options [optional] This parameter is an associative array of the form array("optionname" => <boolean>, ...).
      * @return array Returns the database response.
      */
-    public function createIndex(array $keys, array $options = array()) {}
+    public function createIndex(array $keys, array $options = []) {}
 
     /**
 	 * Creates an index on the given field(s), or does nothing if the index already exists
@@ -1173,7 +1173,7 @@ class MongoCollection {
      * @see MongoCollection::createIndex()
 	 */
     #[Deprecated('Use MongoCollection::createIndex() instead.')]
-    public function ensureIndex(array $keys, array $options = array()) {}
+    public function ensureIndex(array $keys, array $options = []) {}
 
     /**
 	 * Deletes an index from this collection
@@ -1203,7 +1203,7 @@ class MongoCollection {
 	 * @param array|stdClass $query
 	 * @return int Returns the number of documents matching the query.
 	 */
-    public function count($query = array()) {}
+    public function count($query = []) {}
 
     /**
 	 * Saves an object to this collection
@@ -1228,7 +1228,7 @@ class MongoCollection {
 	 * @return array|bool If w was set, returns an array containing the status of the save.
      * Otherwise, returns a boolean representing if the array was not empty (an empty array will not be inserted).
 	 */
-    public function save($a, array $options = array()) {}
+    public function save($a, array $options = []) {}
 
     /**
 	 * Creates a database reference
@@ -1261,7 +1261,7 @@ class MongoCollection {
 	 * @param array $condition An condition that must be true for a row to be considered.
 	 * @return array
 	 */
-    public function group($keys, array $initial, MongoCode $reduce, array $condition = array()) {}
+    public function group($keys, array $initial, MongoCode $reduce, array $condition = []) {}
 }
 
 /**
@@ -1294,7 +1294,7 @@ class MongoCursor implements Iterator {
 	 * @param array $query Database query.
 	 * @param array $fields Fields to return.
 	 */
-    public function __construct($connection, $ns, array $query = array(), array $fields = array()) {}
+    public function __construct($connection, $ns, array $query = [], array $fields = []) {}
 
     /**
      * (PECL mongo &gt;= 1.2.11)<br/>
@@ -1358,7 +1358,7 @@ class MongoCursor implements Iterator {
      * @param bool $set [optional] <p>Whether the flag should be set (<b>TRUE</b>) or unset (<b>FALSE</b>).</p>
      * @return MongoCursor
      */
-    public function setFlag ($flag, $set = true ) {}
+    public function setFlag ($flag, $set = true) {}
 
     /**
      * (PECL mongo &gt;= 1.3.3)<br/>
@@ -1540,7 +1540,7 @@ class MongoCursor implements Iterator {
 	 * @link https://secure.php.net/manual/en/mongocursor.info.php
 	 * @return array The query, fields, limit, and skip for this cursor as an associative array.
 	 */
-	public function info(){}
+	public function info() {}
 
     /**
      * PECL mongo >=1.0.11
@@ -1592,7 +1592,7 @@ class MongoCommandCursor implements MongoCursorInterface {
      * @return mixed Can return any type.
      * @since 5.0.0
      */
-    public function current(){}
+    public function current() {}
 
     /**
      * Move forward to next element
@@ -1600,7 +1600,7 @@ class MongoCommandCursor implements MongoCursorInterface {
      * @return void Any returned value is ignored.
      * @since 5.0.0
      */
-    public function next(){}
+    public function next() {}
 
     /**
      * Return the key of the current element
@@ -1608,7 +1608,7 @@ class MongoCommandCursor implements MongoCursorInterface {
      * @return mixed scalar on success, or null on failure.
      * @since 5.0.0
      */
-    public function key(){}
+    public function key() {}
 
     /**
      * Checks if current position is valid
@@ -1617,7 +1617,7 @@ class MongoCommandCursor implements MongoCursorInterface {
      * Returns true on success or false on failure.
      * @since 5.0.0
      */
-    public function valid(){}
+    public function valid() {}
 
     /**
      * Rewind the Iterator to the first element
@@ -1625,15 +1625,15 @@ class MongoCommandCursor implements MongoCursorInterface {
      * @return void Any returned value is ignored.
      * @since 5.0.0
      */
-    public function rewind(){}
+    public function rewind() {}
 
     function batchSize(int $batchSize):MongoCursorInterface{}
 
     function dead():bool{}
 
-    function info():array{}
+    function info():array {}
 
-    function getReadPreference():array{}
+    function getReadPreference():array {}
 
     function setReadPreference(string $read_preference, array $tags = null):MongoCursorInterface{}
 
@@ -1707,7 +1707,7 @@ class MongoGridFS extends MongoCollection {
      * @param array $fields Fields to return
      * @return MongoGridFSCursor A MongoGridFSCursor
      */
-    public function find(array $query = array(), array $fields = array()) {}
+    public function find(array $query = [], array $fields = []) {}
 
     /**
      * Stores a file in the database
@@ -1717,7 +1717,7 @@ class MongoGridFS extends MongoCollection {
      * @param array $options Options for the store. "safe": Check that this store succeeded
      * @return mixed Returns the _id of the saved object
      */
-    public function storeFile($filename, $extra = array(), $options = array()) {}
+    public function storeFile($filename, $extra = [], $options = []) {}
 
     /**
      * Chunkifies and stores bytes in the database
@@ -1727,7 +1727,7 @@ class MongoGridFS extends MongoCollection {
      * @param array $options Options for the store. "safe": Check that this store succeeded
      * @return mixed The _id of the object saved
      */
-    public function storeBytes($bytes, $extra = array(), $options = array()) {}
+    public function storeBytes($bytes, $extra = [], $options = []) {}
 
     /**
 	 * Returns a single file matching the criteria
@@ -1736,7 +1736,7 @@ class MongoGridFS extends MongoCollection {
 	 * @param array $fields Fields of the results to return.
 	 * @return MongoGridFSFile|null
 	 */
-    public function findOne(array $query = array(), array $fields = array()) {}
+    public function findOne(array $query = [], array $fields = []) {}
 
     /**
 	 * Removes files from the collections
@@ -1746,7 +1746,7 @@ class MongoGridFS extends MongoCollection {
 	 * @throws MongoCursorException
 	 * @return bool
 	 */
-    public function remove(array $criteria = array(), array $options = array()) {}
+    public function remove(array $criteria = [], array $options = []) {}
 
     /**
      * Delete a file from the database
@@ -1763,7 +1763,7 @@ class MongoGridFS extends MongoCollection {
 	 * @param array $metadata An array of extra fields for the uploaded file.
 	 * @return mixed Returns the _id of the uploaded file.
 	 */
-    public function storeUpload($name, array $metadata = array()) {}
+    public function storeUpload($name, array $metadata = []) {}
 
 
     /**
@@ -1781,7 +1781,7 @@ class MongoGridFS extends MongoCollection {
      * @param array $extra Other metadata to add to the file saved
      * @return mixed Returns the _id of the saved object
      */
-    public function put($filename, array $extra = array()) {}
+    public function put($filename, array $extra = []) {}
 
 }
 
@@ -1990,7 +1990,7 @@ class MongoCode {
      * @param string $code A string of code
      * @param array $scope The scope to use for the code
      */
-    public function __construct($code, array $scope = array()) {}
+    public function __construct($code, array $scope = []) {}
 
     /**
     * Returns this code as a string
@@ -2540,7 +2540,7 @@ class MongoLog {
      * <ul>
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public static function setCallback ( callable $log_function ) {}
+    public static function setCallback ( callable $log_function) {}
 
     /**
      * This function can be used to set how verbose logging should be and the types of

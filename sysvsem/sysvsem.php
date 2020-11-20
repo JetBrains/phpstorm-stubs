@@ -72,7 +72,7 @@ final class SysvSemaphore{
      * Cannot directly construct SysvSemaphore, use sem_get() instead
      * @see sem_get()
      */
-    private function __construct(){}
+    private function __construct() {}
 }
 
 // End of sysvsem v.

@@ -47,7 +47,7 @@ class Yar_Server {
      * @param object $obj An Object, all public methods of its will be registered as RPC services.
      * @link https://secure.php.net/manual/en/yar-server.construct.php
      */
-    final public function __construct ($obj ) {}
+    final public function __construct ($obj) {}
 
     /**
      * Start RPC Server
@@ -141,7 +141,7 @@ class Yar_Concurrent_Client {
      * @return bool
      * @link https://secure.php.net/manual/en/yar-concurrent-client.reset.php
      */
-    public static function reset (){}
+    public static function reset () {}
 }
 
 /**
@@ -160,7 +160,7 @@ class Yar_Server_Exception extends Exception {
      * @return string
      * @link https://secure.php.net/manual/en/yar-server-exception.gettype.php
      */
-    public function getType (){}
+    public function getType () {}
 
 }
 
@@ -176,5 +176,5 @@ class Yar_Client_Exception extends Exception {
      * @return string "Yar_Exception_Client".
      * @link https://secure.php.net/manual/en/yar-client-exception.gettype.php
      */
-    public function getType (){}
+    public function getType () {}
 }

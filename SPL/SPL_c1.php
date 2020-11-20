@@ -271,7 +271,7 @@ class SplFileInfo implements Stringable {
          */
         public function __toString () {}
 
-        public final function _bad_state_ex (){}
+        public final function _bad_state_ex () {}
 
     public function __wakeup()
     {
@@ -281,7 +281,7 @@ class SplFileInfo implements Stringable {
      * @return array
      * @since 7.4
      */
-    public function __debugInfo(){}
+    public function __debugInfo() {}
 }
 
 /**
@@ -1132,7 +1132,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
          * @return array
          * @since 7.4
          */
-        public function __debugInfo(){}
+        public function __debugInfo() {}
 
         /**
          * @return array
@@ -1309,14 +1309,14 @@ abstract class SplHeap implements Iterator, Countable {
     /**
      * @return bool
      */
-        public function isCorrupted(){}
+        public function isCorrupted() {}
 
 
     /**
      * @return array
      * @since 7.4
      */
-    public function __debugInfo(){}
+    public function __debugInfo() {}
 
 }
 
@@ -1590,7 +1590,7 @@ class SplPriorityQueue implements Iterator, Countable {
      * @return array
      * @since 7.4
      */
-    public function __debugInfo(){}
+    public function __debugInfo() {}
 
 }
 
@@ -2017,7 +2017,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
          * @return array
          * @since 7.4
          */
-        public function __debugInfo(){}
+        public function __debugInfo() {}
 
 }
 
@@ -2142,5 +2142,5 @@ class MultipleIterator implements Iterator {
          * @return array
          * @since 7.4
          */
-        public function __debugInfo(){}
+        public function __debugInfo() {}
 }

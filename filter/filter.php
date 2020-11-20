@@ -163,7 +163,7 @@ function filter_var_array (array $array, array|int $options, bool $add_empty = t
  * obtained with <b>filter_id</b> from a name instead.
  */
 #[Pure]
-function filter_list (): array
+function filter_list(): array
 {}
 
 /**
@@ -440,7 +440,7 @@ define ('FILTER_FLAG_ENCODE_LOW', 16);
 define ('FILTER_FLAG_ENCODE_HIGH', 32);
 
 /**
- * Encode &#38;#38;.
+ * Encode &.
  * @link https://php.net/manual/en/filter.constants.php
  */
 define ('FILTER_FLAG_ENCODE_AMP', 64);

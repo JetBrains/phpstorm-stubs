@@ -34,12 +34,12 @@ namespace pcov
      * pcov\inclusive shall collect coverage information for the specified files
      * pcov\exclusive shall collect coverage information for all but the specified files
      * </p>
-     * @param array $filenames [optional] <p>
-     * Note: paths in filter must be realpath
+     * @param array $filter <p>
+     * path of files (realpath) that should be filtered
      * </p>
      * @return array
      */
-    function collect($type = all, $filter = []) {}
+    function collect(int $type = all, array $filter = []) {}
 
     /**
      * (PHP &gt;= 7.0, PECL pcov &gt;= 1.0.0)<br/>

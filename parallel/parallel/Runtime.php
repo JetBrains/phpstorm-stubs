@@ -28,7 +28,7 @@ final class Runtime{
 	 * Shall construct a new runtime without bootstrapping.
 	 * Shall construct a bootstrapped runtime.
 	 *
-	 * @param string $bootstrap The location of a bootstrap file, generally an autoloader.
+	 * @param null|string $bootstrap The location of a bootstrap file, generally an autoloader.
 	 *
 	 * @throws Runtime\Error if thread could not be created
 	 * @throws Runtime\Error\Bootstrap if bootstrapping failed
@@ -103,7 +103,7 @@ final class Runtime{
 	 *
 	 * @throws Runtime\Error\Closed if Runtime was already closed.
 	 */
-	public function close() : void{}
+	public function close() : void {}
 
 	/**
 	 * Shall attempt to force the runtime to shutdown.
@@ -113,5 +113,5 @@ final class Runtime{
 	 *
 	 * @throws Runtime\Error\Closed if Runtime was closed.
 	 */
-	public function kill() : void{}
+	public function kill() : void {}
 }

@@ -240,7 +240,7 @@ class MemcachePool  {
      * @param int $timeout [optional] This deprecated parameter is not supported, and defaults to 0 seconds. Do not use this parameter.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function delete ($key, $timeout = 0 ) {}
+    public function delete ($key, $timeout = 0) {}
 
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>

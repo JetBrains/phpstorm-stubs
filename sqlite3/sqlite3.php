@@ -316,7 +316,7 @@ class SQLite3  {
 	 * @return int
 	 * @since 7.4
 	 */
-	public function lastExtendedErrorCode(){}
+	public function lastExtendedErrorCode() {}
 
 	/**
 	 * @param $enable
@@ -333,10 +333,11 @@ class SQLite3  {
 	public function backup($destination_db, $source_dbname, $destination_dbname){}
 
 	/**
+	 * @param null|callable $callback
 	 * @return bool
 	 * @since 8.0
 	 */
-	function setAuthorizer(?callable $callback) {}
+	function setAuthorizer(?callable $callback): bool {}
 
 }
 

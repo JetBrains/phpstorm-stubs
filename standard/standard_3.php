@@ -13,7 +13,7 @@ use JetBrains\PhpStorm\Pure;
  * feeding to date. Returns false on error.
  */
 #[Pure]
-function getlastmod (): int|false
+function getlastmod(): int|false
 {}
 
 /**
@@ -333,7 +333,7 @@ function log1p(float $num): float
  * @return float The value of pi as float.
  */
 #[Pure]
-function pi (): float
+function pi(): float
 {}
 
 /**
@@ -739,6 +739,9 @@ function fmod(float $num1, float $num2): float
  * Performs a floating-point division under
  * IEEE 754 semantics. Division by zero is considered well-defined and
  * will return one of Inf, -Inf or NaN.
+ * @param float $num1
+ * @param float $num2
+ * @return float
  * @since 8.0
  */
 #[Pure]
@@ -836,7 +839,7 @@ function putenv (string $assignment): bool
  * two hyphens (--).
  * For example, an longopts element "opt" recognizes an
  * option --opt.
- * Prior to PHP5.3.0 this parameter was only available on few systems
+ * Prior to PHP 5.3.0 this parameter was only available on few systems
  * @param int &$rest_index [optional] If the optind parameter is present, then the index where argument parsing stopped will be written to this variable.
  * @return string[]|false[]|false This function will return an array of option / argument pairs or false on
  * failure.
@@ -852,7 +855,7 @@ function getopt (string $short_options, array $long_options, &$rest_index): arra
  * @since 5.1.3
  */
 #[Pure]
-function sys_getloadavg (): array|false
+function sys_getloadavg(): array|false
 {}
 
 /**
@@ -986,7 +989,7 @@ function convert_cyr_string (string $str, string $from, string $to): string
  * @return string the username as a string.
  */
 #[Pure]
-function get_current_user (): string
+function get_current_user(): string
 {}
 
 /**
@@ -1043,7 +1046,7 @@ function set_magic_quotes_runtime (bool $new_setting): bool
  * @removed 8.0
  */
 #[Deprecated(since: '7.4')]
-function get_magic_quotes_gpc (): int
+function get_magic_quotes_gpc(): int
 {}
 
 /**
@@ -1052,7 +1055,7 @@ function get_magic_quotes_gpc (): int
  * @return int 0 if magic quotes runtime is off, 1 otherwise.
  */
 #[Deprecated(since: '7.4')]
-function get_magic_quotes_runtime (): int
+function get_magic_quotes_runtime(): int
 {}
 
 /**

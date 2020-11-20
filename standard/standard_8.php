@@ -67,7 +67,7 @@ function syslog (int $priority, string $message): bool
  * @link https://php.net/manual/en/function.closelog.php
  * @return bool true on success or false on failure.
  */
-function closelog (): bool
+function closelog(): bool
 {}
 
 /**
@@ -78,7 +78,7 @@ function closelog (): bool
  * @param callable $callback Function called just before the headers are sent.
  * @return bool true on success or false on failure.
  */
-function header_register_callback ( callable $callback ): bool
+function header_register_callback ( callable $callback): bool
 {}
 
 /**
@@ -131,7 +131,7 @@ function define_syslog_variables () {}
  * @link https://php.net/manual/en/function.lcg-value.php
  * @return float A pseudo random float value in the range of (0, 1)
  */
-function lcg_value (): float
+function lcg_value(): float
 {}
 
 /**
@@ -224,14 +224,14 @@ function ob_start ($callback, int $chunk_size, int $flags = PHP_OUTPUT_HANDLER_S
  * @link https://php.net/manual/en/function.ob-flush.php
  * @return bool
  */
-function ob_flush (): bool {}
+function ob_flush(): bool {}
 
 /**
  * Clean (erase) the output buffer
  * @link https://php.net/manual/en/function.ob-clean.php
  * @return bool
  */
-function ob_clean (): bool {}
+function ob_clean(): bool {}
 
 /**
  * Flush (send) the output buffer and turn off output buffering
@@ -240,7 +240,7 @@ function ob_clean (): bool {}
  * function without an active buffer or that for some reason a buffer could
  * not be deleted (possible for special buffer).
  */
-function ob_end_flush (): bool
+function ob_end_flush(): bool
 {}
 
 /**
@@ -250,7 +250,7 @@ function ob_end_flush (): bool
  * function without an active buffer or that for some reason a buffer could
  * not be deleted (possible for special buffer).
  */
-function ob_end_clean (): bool
+function ob_end_clean(): bool
 {}
 
 /**
@@ -258,7 +258,7 @@ function ob_end_clean (): bool
  * @link https://php.net/manual/en/function.ob-get-flush.php
  * @return string|false the output buffer or false if no buffering is active.
  */
-function ob_get_flush (): string|false
+function ob_get_flush(): string|false
 {}
 
 /**
@@ -267,7 +267,7 @@ function ob_get_flush (): string|false
  * @return string|false the contents of the output buffer and end output buffering.
  * If output buffering isn't active then false is returned.
  */
-function ob_get_clean (): string|false
+function ob_get_clean(): string|false
 {}
 
 /**
@@ -276,7 +276,7 @@ function ob_get_clean (): string|false
  * @return int|false the length of the output buffer contents or false if no
  * buffering is active.
  */
-function ob_get_length (): int|false
+function ob_get_length(): int|false
 {}
 
 /**
@@ -285,7 +285,7 @@ function ob_get_length (): int|false
  * @return int the level of nested output buffering handlers or zero if output
  * buffering is not active.
  */
-function ob_get_level (): int
+function ob_get_level(): int
 {}
 
 /**
@@ -366,7 +366,7 @@ function ob_get_status (bool $full_status): array
  * @return string|false This will return the contents of the output buffer or false, if output
  * buffering isn't active.
  */
-function ob_get_contents (): string|false
+function ob_get_contents(): string|false
 {}
 
 /**
@@ -388,7 +388,7 @@ function ob_implicit_flush (bool $enable = true): void {}
  * ob_list_handlers will return "default output
  * handler".
  */
-function ob_list_handlers (): array
+function ob_list_handlers(): array
 {}
 
 /**
@@ -674,7 +674,7 @@ function count (Countable|array $value, int $mode = COUNT_NORMAL): int
 /**
  * Set the internal pointer of an array to its last element
  * @link https://php.net/manual/en/function.end.php
- * @param ArrayAccess|array &$array <p>
+ * @param array|ArrayAccess &$array <p>
  * The array. This array is passed by reference because it is modified by
  * the function. This means you must pass it a real variable and not
  * a function returning an array because only actual variables may be
@@ -688,7 +688,7 @@ function end (object|array &$array): mixed {}
 /**
  * Rewind the internal array pointer
  * @link https://php.net/manual/en/function.prev.php
- * @param ArrayAccess|array &$array <p>
+ * @param array|ArrayAccess &$array <p>
  * The input array.
  * </p>
  * @return mixed the array value in the previous place that's pointed to by
@@ -701,7 +701,7 @@ function prev (object|array &$array): mixed {}
 /**
  * Advance the internal array pointer of an array
  * @link https://php.net/manual/en/function.next.php
- * @param ArrayAccess|array &$array <p>
+ * @param array|ArrayAccess &$array <p>
  * The array being affected.
  * </p>
  * @return mixed the array value in the next place that's pointed to by the
@@ -713,7 +713,7 @@ function next (object|array &$array): mixed {}
 /**
  * Set the internal pointer of an array to its first element
  * @link https://php.net/manual/en/function.reset.php
- * @param ArrayAccess|array &$array <p>
+ * @param array|ArrayAccess &$array <p>
  * The input array.
  * </p>
  * @return mixed the value of the first array element, or false if the array is
@@ -725,7 +725,7 @@ function reset (object|array &$array): mixed {}
 /**
  * Return the current element in an array
  * @link https://php.net/manual/en/function.current.php
- * @param ArrayAccess|array $array <p>
+ * @param array|ArrayAccess $array <p>
  * The array.
  * </p>
  * @return mixed The current function simply returns the
@@ -741,7 +741,7 @@ function current (object|array $array): mixed {}
 /**
  * Fetch a key from an array
  * @link https://php.net/manual/en/function.key.php
- * @param ArrayAccess|array $array <p>
+ * @param array|ArrayAccess $array <p>
  * The array.
  * </p>
  * @return int|string|null The key function simply returns the
@@ -1051,7 +1051,7 @@ function array_unshift (array &$array, ...$values): int
  * </p>
  * <p>
  * If replacement is just one element it is
- * not necessary to put array()
+ * not necessary to put []
  * around it, unless the element is an array itself.
  * </p>
  * @return array the array consisting of the extracted elements.

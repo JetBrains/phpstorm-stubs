@@ -267,7 +267,7 @@ final class SysvMessageQueue{
      * Cannot directly construct SysvMessageQueue, use msg_get_queue() instead
      * @see msg_get_queue()
      */
-    private function __construct(){}
+    private function __construct() {}
 }
 
 // End of sysvmsg v.

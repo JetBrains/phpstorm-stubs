@@ -1690,7 +1690,7 @@ function imagettftext ($image, $size, $angle, $x, $y, $color, $fontfile, $text) 
  * Returns false on error.
  */
 #[Pure]
-function imageftbbox ($size, $angle, $fontfile, $text, $extrainfo = null ) {}
+function imageftbbox ($size, $angle, $fontfile, $text, $extrainfo = null) {}
 
 /**
  * Write text to the image using fonts using FreeType 2
@@ -1808,7 +1808,7 @@ function imageftbbox ($size, $angle, $fontfile, $text, $extrainfo = null ) {}
  * </tr>
  * Returns false on error.
  */
-function imagefttext ($image, $size, $angle, $x, $y, $color, $fontfile, $text, $extrainfo = null ) {}
+function imagefttext ($image, $size, $angle, $x, $y, $color, $fontfile, $text, $extrainfo = null) {}
 
 /**
  * Load a PostScript Type 1 font from file
@@ -3053,6 +3053,6 @@ final class GdImage{
     /**
      * You cannot initialize a GdImage object except through helper functions.
      */
-    private function __construct(){}
-    private function __clone(){}
+    private function __construct() {}
+    private function __clone() {}
 }

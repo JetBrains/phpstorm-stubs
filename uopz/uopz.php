@@ -109,7 +109,7 @@ function uopz_flags (string $class, string $function, int $flags): int {}
  * @return int|null The last exit status, or NULL if exit() has not been called
  * @since 5.4
  */
-function uopz_get_exit_status (): ?int {}
+function uopz_get_exit_status(): ?int {}
 
 /**
  * Gets previously set hook on method

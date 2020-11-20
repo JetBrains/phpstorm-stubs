@@ -10,7 +10,7 @@ use JetBrains\PhpStorm\Pure;
  * @return array
  */
 #[Pure]
-function spl_classes (): array
+function spl_classes(): array
 {}
 
 /**
@@ -85,7 +85,7 @@ function spl_autoload_unregister (callable $callback): bool
  * If no function is registered the return value will be an empty array.
  * @since 5.1.2
  */
-function spl_autoload_functions (): array
+function spl_autoload_functions(): array
 {}
 
 /**

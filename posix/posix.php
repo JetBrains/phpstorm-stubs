@@ -23,7 +23,7 @@ function posix_kill (int $process_id, int $signal): bool
  * @return int the identifier, as an integer.
  */
 #[Pure]
-function posix_getpid (): int
+function posix_getpid(): int
 {}
 
 /**
@@ -32,7 +32,7 @@ function posix_getpid (): int
  * @return int the identifier, as an integer.
  */
 #[Pure]
-function posix_getppid (): int
+function posix_getppid(): int
 {}
 
 /**
@@ -41,7 +41,7 @@ function posix_getppid (): int
  * @return int the user id, as an integer
  */
 #[Pure]
-function posix_getuid (): int
+function posix_getuid(): int
 {}
 
 /**
@@ -61,7 +61,7 @@ function posix_setuid (int $user_id): bool
  * @return int the user id, as an integer
  */
 #[Pure]
-function posix_geteuid (): int
+function posix_geteuid(): int
 {}
 
 /**
@@ -96,7 +96,7 @@ function posix_setrlimit (int $resource, int $soft_limit, int $hard_limit): bool
  * @return int the real group id, as an integer.
  */
 #[Pure]
-function posix_getgid (): int
+function posix_getgid(): int
 {}
 
 /**
@@ -116,7 +116,7 @@ function posix_setgid (int $group_id): bool
  * @return int an integer of the effective group ID.
  */
 #[Pure]
-function posix_getegid (): int
+function posix_getegid(): int
 {}
 
 /**
@@ -137,7 +137,7 @@ function posix_setegid (int $group_id): bool
  * set of the current process.
  */
 #[Pure]
-function posix_getgroups (): array|false
+function posix_getgroups(): array|false
 {}
 
 /**
@@ -146,7 +146,7 @@ function posix_getgroups (): array|false
  * @return string|false the login name of the user, as a string.
  */
 #[Pure]
-function posix_getlogin (): string|false
+function posix_getlogin(): string|false
 {}
 
 /**
@@ -155,7 +155,7 @@ function posix_getlogin (): string|false
  * @return int the identifier, as an integer.
  */
 #[Pure]
-function posix_getpgrp (): int
+function posix_getpgrp(): int
 {}
 
 /**
@@ -163,7 +163,7 @@ function posix_getpgrp (): int
  * @link https://php.net/manual/en/function.posix-setsid.php
  * @return int the session id, or -1 on errors.
  */
-function posix_setsid (): int
+function posix_setsid(): int
 {}
 
 /**
@@ -226,7 +226,7 @@ function posix_getsid (int $process_id): int|false
  * libc.
  */
 #[Pure]
-function posix_uname (): array|false
+function posix_uname(): array|false
 {}
 
 /**
@@ -242,7 +242,7 @@ function posix_uname (): array|false
  * cstime - system time used by current process and children.
  */
 #[Pure]
-function posix_times (): array|false
+function posix_times(): array|false
 {}
 
 /**
@@ -253,7 +253,7 @@ function posix_times (): array|false
  * is set, which can be checked with <b>posix_get_last_error</b>.
  */
 #[Pure]
-function posix_ctermid (): string|false
+function posix_ctermid(): string|false
 {}
 
 /**
@@ -293,7 +293,7 @@ function posix_isatty ($file_descriptor): bool
  * <b>posix_get_last_error</b>.
  */
 #[Pure]
-function posix_getcwd (): string|false
+function posix_getcwd(): string|false
 {}
 
 /**
@@ -307,7 +307,7 @@ function posix_getcwd (): string|false
  * octal notation (e.g. 0644). The permission of the newly created
  * FIFO also depends on the setting of the current
  * <b>umask</b>. The permissions of the created file are
- * (mode &#38;#38; ~umask).
+ * (mode & ~umask).
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
@@ -698,7 +698,7 @@ function posix_getpwuid (int $user_id): array|false
  * </table>
  */
 #[Pure]
-function posix_getrlimit (): array|false
+function posix_getrlimit(): array|false
 {}
 
 /**
@@ -708,7 +708,7 @@ function posix_getrlimit (): array|false
  * failed. If no errors exist, 0 is returned.
  */
 #[Pure]
-function posix_get_last_error (): int
+function posix_get_last_error(): int
 {}
 
 /**
@@ -716,7 +716,7 @@ function posix_get_last_error (): int
  * @link https://php.net/manual/en/function.posix-errno.php
  */
 #[Pure]
-function posix_errno (): int {}
+function posix_errno(): int {}
 
 /**
  * Retrieve the system error message associated with the given errno

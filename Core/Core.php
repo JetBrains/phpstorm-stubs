@@ -11,7 +11,7 @@ use JetBrains\PhpStorm\Pure;
  * @return string the Zend Engine version number, as a string.
  */
 #[Pure]
-function zend_version (): string {}
+function zend_version(): string {}
 
 /**
  * Returns the number of arguments passed to the function
@@ -20,7 +20,7 @@ function zend_version (): string {}
  * function.
  */
 #[Pure]
-function func_num_args (): int {}
+function func_num_args(): int {}
 
 /**
  * Return an item from the argument list
@@ -41,7 +41,7 @@ function func_get_arg (int $position): mixed {}
  * member of the current user-defined function's argument list.
  */
 #[Pure]
-function func_get_args (): array {}
+function func_get_args(): array {}
 
 /**
  * Get string length
@@ -189,7 +189,7 @@ function str_contains(string $haystack, string $needle) : bool {}
  * @removed 8.0
  */
 #[Deprecated(reason: "Use a foreach loop instead", since: "7.2")]
-function each (array &$array): array
+function each (&$array): array
 {}
 
 /**
@@ -379,7 +379,7 @@ function get_class (object $object): string
  * @return string
  */
 #[Pure]
-function get_called_class (): string
+function get_called_class(): string
 {}
 
 /**
@@ -519,7 +519,7 @@ function class_alias (string $class, string $alias, bool $autoload = true): bool
  * the returned array.
  */
 #[Pure]
-function get_included_files (): array
+function get_included_files(): array
 {}
 
 /**
@@ -528,7 +528,7 @@ function get_included_files (): array
  * @return string[]
  */
 #[Pure]
-function get_required_files (): array
+function get_required_files(): array
 {}
 
 /**
@@ -685,7 +685,7 @@ function set_error_handler (?callable $callback, int $error_levels = E_ALL | E_S
  * @link https://php.net/manual/en/function.restore-error-handler.php
  * @return bool This function always returns true.
  */
-function restore_error_handler (): bool
+function restore_error_handler(): bool
 {}
 
 /**
@@ -710,7 +710,7 @@ function set_exception_handler (?callable $callback)
  * @link https://php.net/manual/en/function.restore-exception-handler.php
  * @return bool This function always returns true.
  */
-function restore_exception_handler (): bool
+function restore_exception_handler(): bool
 {}
 
 /**
@@ -726,7 +726,7 @@ function restore_exception_handler (): bool
  * </p>
  */
 #[Pure]
-function get_declared_classes (): array
+function get_declared_classes(): array
 {}
 
 /**
@@ -736,7 +736,7 @@ function get_declared_classes (): array
  * script.
  */
 #[Pure]
-function get_declared_interfaces (): array
+function get_declared_interfaces(): array
 {}
 
 /**
@@ -770,7 +770,7 @@ function get_defined_functions (bool $exclude_disabled = false): array
  * @return array A multidimensional array with all the variables.
  */
 #[Pure]
-function get_defined_vars (): array
+function get_defined_vars(): array
 {}
 
 /**
@@ -1054,7 +1054,7 @@ function debug_print_backtrace (int $options = 0, int $limit = 0): void {}
  * @link https://php.net/manual/en/function.gc-collect-cycles.php
  * @return int number of collected cycles.
  */
-function gc_collect_cycles (): int
+function gc_collect_cycles(): int
 {}
 
 /**
@@ -1063,7 +1063,7 @@ function gc_collect_cycles (): int
  * @return bool true if the garbage collector is enabled, false otherwise.
  */
 #[Pure]
-function gc_enabled (): bool
+function gc_enabled(): bool
 {}
 
 /**
@@ -1071,14 +1071,14 @@ function gc_enabled (): bool
  * @link https://php.net/manual/en/function.gc-enable.php
  * @return void
  */
-function gc_enable (): void {}
+function gc_enable(): void {}
 
 /**
  * Deactivates the circular reference collector
  * @link https://php.net/manual/en/function.gc-disable.php
  * @return void
  */
-function gc_disable (): void {}
+function gc_disable(): void {}
 
 /**
  * Gets information about the garbage collector
@@ -1094,7 +1094,7 @@ function gc_disable (): void {}
  */
 #[ArrayShape(["runs" => "int", "collected" => "int", "threshold" => "int", "roots" => "int"])]
 #[Pure]
-function gc_status (): array
+function gc_status(): array
 {}
 
 /**
@@ -1103,7 +1103,7 @@ function gc_status (): array
  * @return int Returns the number of bytes freed.
  * @since 7.0
  */
-function gc_mem_caches (): int
+function gc_mem_caches(): int
 {}
 
 /**

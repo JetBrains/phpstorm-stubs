@@ -296,16 +296,18 @@ class ReflectionProperty implements Reflector
      * @return bool
      * @since 8.0
      */
-    public function hasDefaultValue(){}
+    public function hasDefaultValue() {}
 
     /**
      * @return mixed
      * @since 8.0
      */
     #[Pure]
-	public function getDefaultValue(){}
+	public function getDefaultValue() {}
 
     /**
+     * @param null|string $name
+     * @param int $flags
      * @return ReflectionAttribute[]
      * @since 8.0
      */

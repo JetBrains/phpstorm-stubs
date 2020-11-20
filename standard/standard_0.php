@@ -277,7 +277,7 @@ function strptime (string $timestamp, string $format): array|false
  * @link https://php.net/manual/en/function.flush.php
  * @return void
  */
-function flush (): void {}
+function flush(): void {}
 
 /**
  * Wraps a string to a given number of characters
@@ -310,7 +310,7 @@ function wordwrap (string $string, int $width = 75, string $break = "\n", bool $
  * @param string $string <p>
  * The {@link https://secure.php.net/manual/en/language.types.string.php string} being converted.
  * </p>
- * @param int|string $flags [optional] <p>
+ * @param int $flags [optional] <p>
  * A bitmask of one or more of the following flags, which specify how to handle quotes,
  * invalid code unit sequences and the used document type. The default is
  * <em><b>ENT_COMPAT | ENT_HTML401</b></em>.
@@ -836,7 +836,7 @@ function iptcparse (string $iptc_block): array|false
  * Spool flag. If the spool flag is over 2 then the JPEG will be
  * returned as a string.
  * </p>
- * @return string|bool If success and spool flag is lower than 2 then the JPEG will not be
+ * @return string|false If success and spool flag is lower than 2 then the JPEG will not be
  * returned as a string, false on errors.
  */
 function iptcembed (string $iptc_data, string $filename, int $spool): string|bool
@@ -1186,7 +1186,7 @@ function phpcredits (int $flags): bool
  * @return string PHPE9568F34-D428-11d2-A769-00AA001ACF42.
  */
 #[Pure]
-function php_logo_guid (): string
+function php_logo_guid(): string
 {}
 
 /**
@@ -1205,7 +1205,7 @@ function php_egg_logo_guid () {}
  * @link https://php.net/manual/en/function.zend-logo-guid.php
  * @return string PHPE9568F35-D428-11d2-A769-00AA001ACF42.
  */
-function zend_logo_guid (): string
+function zend_logo_guid(): string
 {}
 
 /**
@@ -1226,7 +1226,7 @@ function zend_logo_guid (): string
  * thttpd, tux, and webjames.
  */
 #[Pure]
-function php_sapi_name (): string|false
+function php_sapi_name(): string|false
 {}
 
 /**
@@ -1255,7 +1255,7 @@ function php_uname (string $mode): string
  * php_ini_scanned_files.
  */
 #[Pure]
-function php_ini_scanned_files (): string|false
+function php_ini_scanned_files(): string|false
 {}
 
 /**
@@ -1265,7 +1265,7 @@ function php_ini_scanned_files (): string|false
  * @since 5.2.4
  */
 #[Pure]
-function php_ini_loaded_file (): string|false
+function php_ini_loaded_file(): string|false
 {}
 
 /**

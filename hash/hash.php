@@ -135,7 +135,8 @@ function hash_hmac_file (string $algo, string $data, string $key, bool $binary =
  * and <b>hash_final</b>.
  */
 #[Pure]
-function hash_init (string $algo, int $flags = 0, string $key): HashContext
+#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")]
+function hash_init (string $algo, int $flags = 0, string $key)
 {}
 
 /**
@@ -217,7 +218,8 @@ function hash_final (#[LanguageLevelTypeAware(["8.0" => "HashContext"], default:
  * @return HashContext|resource a copy of Hashing Context resource.
  */
 #[Pure]
-function hash_copy (#[LanguageLevelTypeAware(["8.0" => "HashContext"], default: "resource")] $context): HashContext
+#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")]
+function hash_copy (#[LanguageLevelTypeAware(["8.0" => "HashContext"], default: "resource")] $context)
 {}
 
 /**
@@ -228,7 +230,7 @@ function hash_copy (#[LanguageLevelTypeAware(["8.0" => "HashContext"], default: 
  * hashing algorithms.
  */
 #[Pure]
-function hash_algos (): array
+function hash_algos(): array
 {}
 
 
@@ -358,7 +360,7 @@ function mhash_get_hash_name (int $algo): string|false
  * hash ID.
  */
 #[Pure]
-function mhash_count (): int
+function mhash_count(): int
 {}
 
 /**
@@ -433,7 +435,7 @@ class HashContext
     {
     }
 
-    public function __serialize(){}
+    public function __serialize() {}
 
     /**
      * @param array $serialized

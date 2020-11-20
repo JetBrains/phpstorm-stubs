@@ -2207,7 +2207,7 @@ function ocicolltrim ($collection, $number) {}
  * </ul>
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
-function ociwritetemporarylob($lob_descriptor, $data, $lob_type = OCI_TEMP_CLOB ) {}
+function ociwritetemporarylob($lob_descriptor, $data, $lob_type = OCI_TEMP_CLOB) {}
 
 /**
  * (PHP 4 &gt;= 4.0.6, PECL OCI8 1.0)
@@ -2227,7 +2227,7 @@ function ocicloselob($lob_descriptor){}
  * @param OCI_Collection $from An instance of OCI-Collection.
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
-function ocicollassign($to, $from ) {}
+function ocicollassign($to, $from) {}
 /**
  * See <b>OCI_NO_AUTO_COMMIT</b>.
  * @link https://php.net/manual/en/oci8.constants.php

@@ -405,7 +405,7 @@ function zlib_decode (string $data, int $max_length): string|false
  * or <b>FALSE</b>.
  */
 #[Pure]
-function zlib_get_coding_type (): string|false {}
+function zlib_get_coding_type(): string|false {}
 
 /**
  * ob_start callback function to gzip output buffer
@@ -439,7 +439,7 @@ function ob_gzhandler (string $data, int $flags): string|false {}
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "DeflateContext|false"], default: "resource|false")]
-function deflate_init (int $encoding, array $options = array()) {}
+function deflate_init (int $encoding, array $options = []) {}
 
 /**
  * Incrementally deflate data
@@ -487,7 +487,7 @@ function deflate_add (#[LanguageLevelTypeAware(["8.0" => "DeflateContext"], defa
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "InflateContext|false"], default: "resource|false")]
-function inflate_init (int $encoding, array $options = array()) {}
+function inflate_init (int $encoding, array $options = []) {}
 
 /**
  * Incrementally inflate encoded data
@@ -519,7 +519,7 @@ function inflate_add (#[LanguageLevelTypeAware(["8.0" => "InflateContext"], defa
  * @since 7.2
  */
 #[Pure]
-function inflate_get_read_len (#[LanguageLevelTypeAware(["8.0" => "InflateContext"], default: "resource")] $context): int{}
+function inflate_get_read_len (#[LanguageLevelTypeAware(["8.0" => "InflateContext"], default: "resource")] $context): int {}
 
 /**
  * Get decompression status
@@ -538,7 +538,7 @@ class InflateContext{
      * Use inflate_init() instead
      * @see inflate_init()
      */
-    private function __construct(){}
+    private function __construct() {}
 }
 
 /**
@@ -549,7 +549,7 @@ class DeflateContext{
      * Use deflate_init() instead
      * @see deflate_init()
      */
-    private function __construct(){}
+    private function __construct() {}
 }
 
 define ('FORCE_GZIP', 31);

@@ -559,7 +559,7 @@ function stats_rand_gen_ibinomial (int $n, float $pp): int {
  * @link https://www.php.net/manual/en/function.stats-rand-gen-int.php
  * @return int
  */
-function stats_rand_gen_int (): int {
+function stats_rand_gen_int(): int {
 }
 
 /**
@@ -652,7 +652,7 @@ function stats_rand_phrase_to_seeds (string $phrase) {
  * @link https://www.php.net/manual/en/function.stats-rand-ranf.php
  * @return float
  */
-function stats_rand_ranf (): float {
+function stats_rand_ranf(): float {
 }
 
 /**

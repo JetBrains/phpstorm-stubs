@@ -363,7 +363,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-clip.php
 	 */
-	function clip(){}
+	function clip() {}
 
 	/**
 	 * @param int $image
@@ -406,7 +406,7 @@ class PDFlib
      * @see PDF_end_document
 	 */
 	#[Deprecated('This function is deprecated since PDFlib version 6, use PDF_end_document() instead.')]
-	function close(){}
+	function close() {}
 
 	/**
 	 *
@@ -414,7 +414,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-closepath-fill-stroke.php
 	 */
-	function closepath_fill_stroke(){}
+	function closepath_fill_stroke() {}
 
 	/**
 	 *
@@ -422,7 +422,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-closepath-stroke.php
 	 */
-	function closepath_stroke(){}
+	function closepath_stroke() {}
 
 	/**
 	 *
@@ -430,7 +430,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-closepath.php
 	 */
-	function closepath(){}
+	function closepath() {}
 
 	/**
 	 * @param float $a
@@ -612,7 +612,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-delete.php
 	 */
-	function delete(){}
+	function delete() {}
 
 	/**
 	 * @param string $encoding
@@ -641,7 +641,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-end-font.php
 	 */
-	function end_font(){}
+	function end_font() {}
 
 	/**
 	 *
@@ -649,7 +649,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-end-glyph.php
 	 */
-	function end_glyph(){}
+	function end_glyph() {}
 
 	/**
 	 * @param int $id
@@ -666,7 +666,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-end-layer.php
 	 */
-	function end_layer(){}
+	function end_layer() {}
 
 	/**
 	 * @param string $optlist
@@ -739,7 +739,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-fill-stroke.php
 	 */
-	function fill_stroke(){}
+	function fill_stroke() {}
 
 	/**
 	 * @param int $page
@@ -761,7 +761,7 @@ class PDFlib
 	 * @link https://secure.php.net/manual/en/function.pdf-fill.php
 
 	 */
-	function fill(){}
+	function fill() {}
 	/**
 	 * @param string $fontname
 	 * @param string $encoding
@@ -844,7 +844,7 @@ class PDFlib
 	 * @link https://secure.php.net/manual/en/function.pdf-get-apiname.php
 
 	 */
-	function get_apiname(){}
+	function get_apiname() {}
 	/**
 	 *
 	 * @return string
@@ -852,7 +852,7 @@ class PDFlib
 	 * @link https://secure.php.net/manual/en/function.pdf-get-buffer.php
 
 	 */
-	function get_buffer(){}
+	function get_buffer() {}
 	/**
 	 *
 	 * @return string
@@ -860,7 +860,7 @@ class PDFlib
 	 * @link https://secure.php.net/manual/en/function.pdf-get-errmsg.php
 
 	 */
-	function get_errmsg(){}
+	function get_errmsg() {}
 	/**
 	 *
 	 * @return int
@@ -868,7 +868,7 @@ class PDFlib
 	 * @link https://secure.php.net/manual/en/function.pdf-get-errnum.php
 
 	 */
-	function get_errnum(){}
+	function get_errnum() {}
 	/**
 	 * @param void $
 	 *
@@ -877,7 +877,7 @@ class PDFlib
 	 * @link https://secure.php.net/manual/en/function.pdf-get-majorversion.php(dep)
 
 	 */
-	function get_majorversion(){}
+	function get_majorversion() {}
 	/**
 	 * @param void $
 	 *
@@ -886,7 +886,7 @@ class PDFlib
 	 * @link https://secure.php.net/manual/en/function.pdf-get-minorversion.php(dep)
 
 	 */
-	function get_minorversion(){}
+	function get_minorversion() {}
 	/**
 	 * @param string $key
 	 * @param float $modifier
@@ -991,7 +991,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-initgraphics.php
 	 */
-	function initgraphics(){}
+	function initgraphics() {}
 
 	/**
 	 * @param float $x
@@ -2651,7 +2651,7 @@ function PDF_get_errnum($pdf){}
  * @link https://secure.php.net/manual/en/function.pdf-get-majorversion.php(dep)
 
  */
-function PDF_get_majorversion(){}
+function PDF_get_majorversion() {}
 /**
  * @param void $
  *
@@ -2660,7 +2660,7 @@ function PDF_get_majorversion(){}
  * @link https://secure.php.net/manual/en/function.pdf-get-minorversion.php(dep)
 
  */
-function PDF_get_minorversion(){}
+function PDF_get_minorversion() {}
 /**
  * @param resource $pdf
  * @param string $key
@@ -2860,7 +2860,7 @@ function PDF_moveto($pdf, $x , $y){}
  *
  * @link https://secure.php.net/manual/en/function.pdf-new.php
  */
-function PDF_new(){}
+function PDF_new() {}
 
 /**
  * @param resource $pdf

@@ -27,7 +27,7 @@ final class Future{
 	 * @throws Future\Error\Foreign if task raised an unrecognized uncaught exception.
 	 * @throws Throwable Shall rethrow \Throwable uncaught in task
 	 */
-	public function value(){}
+	public function value() {}
 
 	/* State */
 

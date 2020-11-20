@@ -9,7 +9,7 @@
  * @link https://php.net/manual/en/function.halt-compiler.php
  * @return void
  */
-function PS_UNRESERVE_PREFIX___halt_compiler(){}
+function PS_UNRESERVE_PREFIX___halt_compiler() {}
 
 /**
  * (PHP 5.1)<br/>
@@ -33,7 +33,7 @@ define("__COMPILER_HALT_OFFSET__",0);
  * @since 5.4
  */
 function hex2bin(string $string): string|false
-{};
+{}
 
 /**
  * Get or Set the HTTP response code

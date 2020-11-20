@@ -2106,7 +2106,7 @@ class ResourceBundle implements IteratorAggregate {
      * @since 8.0
      */
     #[Pure]
-    public function getIterator(){}
+    public function getIterator() {}
 }
 
 /**
@@ -6769,7 +6769,7 @@ class IntlBreakIterator implements IteratorAggregate
     public function setText($text) { }
 
     #[Pure]
-    public function getIterator(){}
+    public function getIterator() {}
 }
 
 class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversable {

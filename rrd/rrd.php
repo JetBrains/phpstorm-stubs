@@ -120,7 +120,7 @@ function rrd_lastupdate($filename) {}
  * @return bool Returns TRUE on success, FALSE otherwise.
  * @since PECL rrd >= 0.9.0
  */
-function rrd_restore($xml_file, $rrd_file, $options = array()) {}
+function rrd_restore($xml_file, $rrd_file, $options = []) {}
 
 /**
  * Change some options in the RRD dabase header file. E.g. renames the source for the data etc.
@@ -185,7 +185,7 @@ function rrd_disconnect() {}
  * For example, it's called automatically at the end of command line script.
  * It's up user whether he wants to call this function at the end of every request or otherwise.
  */
-function rrdc_disconnect(){}
+function rrdc_disconnect() {}
 
 /**
  * Class for creation of RRD database file.

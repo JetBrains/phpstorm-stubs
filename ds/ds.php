@@ -180,7 +180,7 @@ namespace Ds {
         /**
          * Creates a new sequence using a callable to determine which values
          * to include.
-         * @param callable $callback Optional callable which returns TRUE if the
+         * @param null|callable $callback Optional callable which returns TRUE if the
          * value should be included, FALSE otherwise. If a callback is not
          * provided, only values which are TRUE (see converting to boolean) will
          * be included.<p>
@@ -407,7 +407,7 @@ namespace Ds {
          * @return float|int The sum of all the values in the sequence as
          * either a float or int depending on the values in the sequence.
          */
-        public function sum(): float;
+        public function sum(): float|int;
 
         /**
          * Adds values to the front of the sequence, moving all the current
@@ -521,7 +521,7 @@ namespace Ds {
          * Creates a new vector using a callable to determine which values to
          * include.
          *
-         * @param callable $callback
+         * @param null|callable $callback
          * Optional callable which returns TRUE if the value should be included,
          * FALSE otherwise. If a callback is not provided, only values which are
          * TRUE (see converting to boolean)  will be included.
@@ -966,7 +966,7 @@ namespace Ds {
         /**
          * Creates a new deque using a callable to determine which values
          * to include.
-         * @param callable $callback Optional callable which returns TRUE if the
+         * @param null|callable $callback Optional callable which returns TRUE if the
          * value should be included, FALSE otherwise. If a callback is not
          * provided, only values which are TRUE (see converting to boolean) will
          * be included.<p>
@@ -1235,7 +1235,7 @@ namespace Ds {
          * @return float|int The sum of all the values in the deque as
          * either a float or int depending on the values in the deque.
          */
-        public function sum(): float
+        public function sum(): float|int
         {
         }
 
@@ -1360,7 +1360,7 @@ namespace Ds {
         /**
          * Creates a new map using a callable to determine which pairs to include
          *
-         * @param callable $callback Optional callable which returns TRUE if the pair should be included, FALSE
+         * @param null|callable $callback Optional callable which returns TRUE if the pair should be included, FALSE
          * otherwise. If a callback is not provided, only values which are TRUE (see converting to boolean) will be included.
          *
          * @return Map
@@ -1815,7 +1815,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.sum.php
          */
-        public function sum()
+        public function sum(): float|int
         {
         }
 
@@ -2096,7 +2096,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-set.filter.php
          *
-         * @param callable $callback Optional callable which returns TRUE if the
+         * @param null|callable $callback Optional callable which returns TRUE if the
          * value should be included, FALSE otherwise.
          * If a callback is not provided, only values which are TRUE (see
          * converting to boolean) will be included.
@@ -2166,7 +2166,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-set.join.php
          *
-         * @param string $glue An optional string to separate each value.
+         * @param null|string $glue An optional string to separate each value.
          *
          * @return string
          */
@@ -2305,7 +2305,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-set.sorted.php
          *
-         * @param callable $comparator The comparison function must return an
+         * @param null|callable $comparator The comparison function must return an
          * integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note  that before PHP 7.0.0 this integer had
@@ -2336,7 +2336,7 @@ namespace Ds {
          * @return float|int The sum of all the values in the set as either a
          * float or int depending on the values in the set.
          */
-        public function sum()
+        public function sum(): float|int
         {
         }
 

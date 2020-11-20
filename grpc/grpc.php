@@ -424,7 +424,7 @@ namespace Grpc
             $pem_root_certs,
             $pem_private_key,
             $pem_cert_chain
-        ) {}
+       ) {}
     }
 
     /**
@@ -443,7 +443,7 @@ namespace Grpc
          *
          * @throws \InvalidArgumentException
          */
-        public function __construct($target, $args = array()) {}
+        public function __construct($target, $args = []) {}
 
         /**
          * Get the endpoint this call/stream is connected to
@@ -516,7 +516,7 @@ namespace Grpc
             $pem_root_certs = '',
             $pem_private_key = '',
             $pem_cert_chain = ''
-        ) {}
+       ) {}
 
         /**
          * Create composite credentials from two existing credentials.
@@ -530,7 +530,7 @@ namespace Grpc
         public static function createComposite(
             ChannelCredentials $cred1,
             CallCredentials $cred2
-        ) {}
+       ) {}
 
         /**
          * Create insecure channel credentials
@@ -553,6 +553,7 @@ namespace Grpc
          *                                   Must not be closed.
          * @param string  $method            The method to call
          * @param Timeval $absolute_deadline The deadline for completing the call
+         * @param null|string $host_override The host is set by user (optional)
          *
          * @throws \InvalidArgumentException
          */
@@ -561,7 +562,7 @@ namespace Grpc
             $method,
             Timeval $absolute_deadline,
             $host_override = null
-        ) {}
+       ) {}
 
         /**
          * Start a batch of RPC actions.
@@ -616,7 +617,7 @@ namespace Grpc
         public static function createComposite(
             CallCredentials $cred1,
             CallCredentials $cred2
-        ) {}
+       ) {}
 
         /**
          * Create a call credentials object from the plugin API

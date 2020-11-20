@@ -91,7 +91,7 @@ function libxml_use_internal_errors (?bool $use_errors = false): bool {}
  * buffer, <b>FALSE</b> otherwise.
  */
 #[Pure]
-function libxml_get_last_error (): LibXMLError|false
+function libxml_get_last_error(): LibXMLError|false
 {}
 
 /**
@@ -99,7 +99,7 @@ function libxml_get_last_error (): LibXMLError|false
  * @link https://php.net/manual/en/function.libxml-clear-errors.php
  * @return void No value is returned.
  */
-function libxml_clear_errors (): void {}
+function libxml_clear_errors(): void {}
 
 /**
  * Retrieve array of errors
@@ -108,7 +108,7 @@ function libxml_clear_errors (): void {}
  * errors in the buffer, or an empty array otherwise.
  */
 #[Pure]
-function libxml_get_errors (): array
+function libxml_get_errors(): array
 {}
 
 /**

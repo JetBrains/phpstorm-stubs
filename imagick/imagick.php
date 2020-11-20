@@ -6791,7 +6791,7 @@ class ImagickPixel  {
 	 * Returns true if the distance between two colors is less than the specified distance. The fuzz value should be in the range 0-QuantumRange.<br>
 	 * The maximum value represents the longest possible distance in the colorspace. e.g. from RGB(0, 0, 0) to RGB(255, 255, 255) for the RGB colorspace
 	 * @link https://php.net/manual/en/imagickpixel.ispixelsimilarquantum.php
-	 * @param string $pixel
+	 * @param string $color
 	 * @param string $fuzz
 	 * @return bool
 	 * @since 3.3.0

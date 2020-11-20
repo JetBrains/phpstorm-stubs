@@ -1293,7 +1293,7 @@ namespace Couchbase {
          * Encrypt fields inside specified document.
          *
          * @param array $document document structure
-         * @param array $options specification for fields needed to be encrypted. Where 'alg' contains
+         * @param array $fieldOptions specification for fields needed to be encrypted. Where 'alg' contains
          *   a string with alias of the registed crypto provider, and 'name' contains the name of the field.
          * @param string $prefix optional prefix for modified field (when null, the library will use "__crypt")
          *
@@ -1307,7 +1307,7 @@ namespace Couchbase {
          * Decrypt fields inside specified document.
          *
          * @param array $document document structure
-         * @param array $options specification for fields needed to be decrypted. Where 'alg' contains
+         * @param array $fieldOptions specification for fields needed to be decrypted. Where 'alg' contains
          *   a string with alias of the registed crypto provider, and 'name' contains the name of the field.
          * @param string $prefix optional prefix for modified field (when null, the library will use "__crypt")
          *

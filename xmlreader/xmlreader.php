@@ -383,7 +383,7 @@ class XMLReader  {
 	/**
 	 * Returns a copy of the current node as a DOM object
 	 * @link https://php.net/manual/en/xmlreader.expand.php
-	 * @param DOMNode $basenode [optional]
+	 * @param null|DOMNode $basenode [optional]
 	 * @return DOMNode|false The resulting <b>DOMNode</b> or <b>FALSE</b> on error.
 	 * @since 5.1.2
 	 */

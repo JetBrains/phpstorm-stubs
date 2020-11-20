@@ -21,7 +21,7 @@ final class Events implements Countable, Traversable{
 	 * Shall set input for this event loop
 	 * @param Events\Input $input
 	 */
-	public function setInput(Input $input) : void{}
+	public function setInput(Input $input) : void {}
 
 	/* Targets */
 
@@ -31,7 +31,7 @@ final class Events implements Countable, Traversable{
 	 *
 	 * @throws Events\Error\Existence if channel was already added.
 	 */
-	public function addChannel(Channel $channel) : void{}
+	public function addChannel(Channel $channel) : void {}
 
 	/**
 	 * Shall watch for events on the given future
@@ -41,7 +41,7 @@ final class Events implements Countable, Traversable{
 	 *
 	 * @throws Events\Error\Existence if target with the given name was already added.
 	 */
-	public function addFuture(string $name, Future $future) : void{}
+	public function addFuture(string $name, Future $future) : void {}
 
 	/**
 	 * Shall remove the given target
@@ -49,7 +49,7 @@ final class Events implements Countable, Traversable{
 	 *
 	 * @throws Events\Error\Existence if target with the given name was not found.
 	 */
-	public function remove(string $target) : void{}
+	public function remove(string $target) : void {}
 
 	/* Behaviour */
 
@@ -71,7 +71,7 @@ final class Events implements Countable, Traversable{
 	 *
 	 * @throws Events\Error if loop has timeout set.
 	 */
-	public function setBlocking(bool $blocking) : void{}
+	public function setBlocking(bool $blocking) : void {}
 
 	/* Behaviour */
 
@@ -88,7 +88,7 @@ final class Events implements Countable, Traversable{
 	 *
 	 * @param int $timeout
 	 */
-	public function setTimeout(int $timeout) : void{}
+	public function setTimeout(int $timeout) : void {}
 
 	/* Polling */
 
@@ -108,5 +108,5 @@ final class Events implements Countable, Traversable{
 	/**
 	 * @return int
 	 */
-	public function count() : int{}
+	public function count() : int {}
 }

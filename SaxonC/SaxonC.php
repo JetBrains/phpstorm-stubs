@@ -343,8 +343,7 @@ class Xslt30Processor
     /**
      * Compile a stylesheet received as an {@link XdmValue}.
      *
-     * @param string $sourceFileName
-     * @param string $stylesheetFileName
+     * @param XdmValue $node
      * @return string|null
      */
     public function compileFromValue($node) {}

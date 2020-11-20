@@ -125,7 +125,7 @@ define('EVBUFFER_TIMEOUT', 64);
  *
  * @return resource|false returns valid event base resource on success or FALSE on error.
  */
-function event_base_new(){}
+function event_base_new() {}
 
 /**
  * <p>Destroy event base</p>

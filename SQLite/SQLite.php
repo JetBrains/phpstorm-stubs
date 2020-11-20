@@ -748,9 +748,9 @@ function sqlite_fetch_array ($result, $result_type = SQLITE_BOTH, $decode_binary
  * Fetches the next row from a result set as an object
  * @link https://php.net/manual/en/function.sqlite-fetch-object.php
  * @param resource $result
- * @param string $class_name [optional]
- * @param array $ctor_params [optional]
- * @param bool $decode_binary [optional]
+ * @param null|string $class_name [optional]
+ * @param null|array $ctor_params [optional]
+ * @param null|bool $decode_binary [optional]
  * @return object
  */
 function sqlite_fetch_object ($result, $class_name = null, array $ctor_params = null, $decode_binary = null) {}

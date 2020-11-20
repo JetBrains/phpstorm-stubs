@@ -40,7 +40,7 @@ function apache_get_version () {}
  * @return string|false The value of the Apache environment variable on success, or <b>FALSE</b> on failure.
  */
 #[Pure]
-function apache_getenv ( $variable, $walk_to_top = false ) {}
+function apache_getenv ( $variable, $walk_to_top = false) {}
 
 /**
  * Perform a partial request for the specified URI and return all info about it
@@ -52,7 +52,7 @@ function apache_getenv ( $variable, $walk_to_top = false ) {}
  * </p>
  * @return object of related URI information.
  */
-function apache_lookup_uri ( $filename ) {}
+function apache_lookup_uri ( $filename) {}
 
 /**
  * Get and set apache request notes
@@ -67,7 +67,7 @@ function apache_lookup_uri ( $filename ) {}
  * </p>
  * @return string|false If called with one argument, it returns the current value of note note_name. If called with two arguments, it sets the value of note note_name to note_value and returns the previous value of note note_name. If the note cannot be retrieved, <b>FALSE</b> is returned.
  */
-function apache_note ( $note_name, $note_value = '' ) {}
+function apache_note ( $note_name, $note_value = '') {}
 
 /**
  * Reset the Apache write timer
@@ -100,7 +100,7 @@ function apache_response_headers () {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function apache_setenv ( $variable, $value, $walk_to_top = false ) {}
+function apache_setenv ( $variable, $value, $walk_to_top = false) {}
 
 /**
  * Perform an Apache sub-request
@@ -113,4 +113,4 @@ function apache_setenv ( $variable, $value, $walk_to_top = false ) {}
  * </p>
  * @return bool Performs the virtual command on success, or returns FALSE on failure.
  */
-function virtual ( $filename ) {}
+function virtual ( $filename) {}

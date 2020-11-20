@@ -1004,7 +1004,7 @@ function srand (int $seed, int $mode = MT_RAND_MT19937): void {}
  * @return int The largest possible random value returned by rand
  */
 #[Pure]
-function getrandmax (): int
+function getrandmax(): int
 {}
 
 /**
@@ -1041,7 +1041,7 @@ function mt_srand (int $seed, int $mode = MT_RAND_MT19937): void {}
  * @return int the maximum random value returned by mt_rand
  */
 #[Pure]
-function mt_getrandmax (): int
+function mt_getrandmax(): int
 {}
 
 /**
@@ -1107,7 +1107,7 @@ function getprotobynumber (int $protocol): string|false
  * @return int|false the user ID of the current script, or false on error.
  */
 #[Pure]
-function getmyuid (): int|false
+function getmyuid(): int|false
 {}
 
 /**
@@ -1116,7 +1116,7 @@ function getmyuid (): int|false
  * @return int|false the group ID of the current script, or false on error.
  */
 #[Pure]
-function getmygid (): int|false
+function getmygid(): int|false
 {}
 
 /**
@@ -1125,7 +1125,7 @@ function getmygid (): int|false
  * @return int|false the current PHP process ID, or false on error.
  */
 #[Pure]
-function getmypid (): int|false
+function getmypid(): int|false
 {}
 
 /**
@@ -1134,5 +1134,5 @@ function getmypid (): int|false
  * @return int|false the current script's inode as an integer, or false on error.
  */
 #[Pure]
-function getmyinode (): int|false
+function getmyinode(): int|false
 {}

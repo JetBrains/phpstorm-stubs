@@ -854,7 +854,7 @@ class IntlChar {
      * or <b>NULL</b> if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function digit ($codepoint, $radix = 10 ) {}
+    public static function digit ($codepoint, $radix = 10) {}
 
     /**
      * Enumerate all assigned Unicode characters within a range
@@ -905,7 +905,7 @@ class IntlChar {
      * Returns NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function foldCase ($codepoint, $options = IntlChar::FOLD_CASE_DEFAULT ) {}
+    public static function foldCase ($codepoint, $options = IntlChar::FOLD_CASE_DEFAULT) {}
 
     /**
      * Get character representation for a given digit and radix
@@ -1001,7 +1001,7 @@ class IntlChar {
      * </p>
      * @since 7.0
      */
-    public static function getIntPropertyValue ($codepoint, $property ) {}
+    public static function getIntPropertyValue ($codepoint, $property) {}
 
     /**
      * Get the numeric value for a Unicode code point
@@ -1019,7 +1019,7 @@ class IntlChar {
      * @return int Returns an IntlChar::PROPERTY_ constant value, or <b>IntlChar::PROPERTY_INVALID_CODE</b> if the given name does not match any property.
      * @since 7.0
      */
-    public static function getPropertyEnum ($alias ) {}
+    public static function getPropertyEnum ($alias) {}
 
     /**
      * Get the Unicode name for a property
@@ -1132,7 +1132,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint is a control character, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function iscntrl ($codepoint ) {}
+    public static function iscntrl ($codepoint) {}
 
     /**
      * Check whether the code point is defined
@@ -1141,7 +1141,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint is a defined character, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function isdefined ($codepoint ) {}
+    public static function isdefined ($codepoint) {}
 
     /**
      * Check if code point is a digit character
@@ -1158,7 +1158,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint is a "graphic" character, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function isgraph ($codepoint ) {}
+    public static function isgraph ($codepoint) {}
     /**
      * Check if code point is an ignorable character
      * @link https://php.net/manual/en/intlchar.isidignorable.php
@@ -1166,7 +1166,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint is ignorable in identifiers, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function isIDIgnorable ($codepoint ) {}
+    public static function isIDIgnorable ($codepoint) {}
     /**
      * Check if code point is permissible in an identifier
      * @link https://php.net/manual/en/intlchar.isidpart.php
@@ -1174,7 +1174,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint is the code point may occur in an identifier, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function isIDPart ($codepoint ) {}
+    public static function isIDPart ($codepoint) {}
 
     /**
      * Check if code point is permissible as the first character in an identifier
@@ -1183,7 +1183,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint may start an identifier, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function isIDStart ($codepoint ) {}
+    public static function isIDStart ($codepoint) {}
     /**
      * Check if code point is an ISO control code
      * @link https://php.net/manual/en/intlchar.isisocontrol.php
@@ -1191,7 +1191,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint is an ISO control code, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function isISOControl ($codepoint ) {}
+    public static function isISOControl ($codepoint) {}
     /**
      * Check if code point is permissible in a Java identifier
      * @link https://php.net/manual/en/intlchar.isjavaidpart.php
@@ -1199,7 +1199,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint may occur in a Java identifier, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function isJavaIDPart ($codepoint ) {}
+    public static function isJavaIDPart ($codepoint) {}
     /**
      * Check if code point is permissible as the first character in a Java identifier
      * @link https://php.net/manual/en/intlchar.isjavaidstart.php
@@ -1207,7 +1207,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint may start a Java identifier, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function isJavaIDStart ($codepoint ) {}
+    public static function isJavaIDStart ($codepoint) {}
     /**
      * Check if code point is a space character according to Java
      * @link https://php.net/manual/en/intlchar.isjavaspacechar.php
@@ -1215,7 +1215,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint is a space character according to Java, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function isJavaSpaceChar ($codepoint ) {}
+    public static function isJavaSpaceChar ($codepoint) {}
 
     /**
      * Check if code point is a lowercase letter
@@ -1225,7 +1225,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint is an Ll lowercase letter, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function islower ($codepoint ) {}
+    public static function islower ($codepoint) {}
     /**
      * Check if code point has the Bidi_Mirrored property
      * @link https://php.net/manual/en/intlchar.ismirrored.php
@@ -1233,7 +1233,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint has the Bidi_Mirrored property, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function isMirrored ($codepoint ) {}
+    public static function isMirrored ($codepoint) {}
 
     /**
      * Check if code point is a printable character
@@ -1242,7 +1242,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint is a printable character, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function isprint ($codepoint ) {}
+    public static function isprint ($codepoint) {}
 
     /**
      * Check if code point is punctuation character
@@ -1252,7 +1252,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint is a punctuation character, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function ispunct ($codepoint ) {}
+    public static function ispunct ($codepoint) {}
     /**
      * Check if code point is a space character
      * @link https://php.net/manual/en/intlchar.isspace.php
@@ -1260,7 +1260,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint is a space character, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function isspace ($codepoint ) {}
+    public static function isspace ($codepoint) {}
     /**
      * Check if code point is a titlecase letter
      * @link https://php.net/manual/en/intlchar.istitle.php
@@ -1277,7 +1277,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint has the Alphabetic Unicode property, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function isUAlphabetic ($codepoint ) {}
+    public static function isUAlphabetic ($codepoint) {}
     /**
      * Check if code point has the Lowercase Unicode property
      * @link https://php.net/manual/en/intlchar.isulowercase.php
@@ -1285,7 +1285,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint has the Lowercase Unicode property, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function isULowercase ($codepoint ) {}
+    public static function isULowercase ($codepoint) {}
     /**
      * Check if code point has the general category "Lu" (uppercase letter)
      * @link https://php.net/manual/en/intlchar.isupper.php
@@ -1310,7 +1310,7 @@ class IntlChar {
      * @return bool|null Returns TRUE if codepoint has the White_Space Unicode property, FALSE if not, NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function isUWhiteSpace ($codepoint ) {}
+    public static function isUWhiteSpace ($codepoint) {}
     /**
      * Check if code point is a whitespace character according to ICU
      * @link https://php.net/manual/en/intlchar.iswhitespace.php
@@ -1356,7 +1356,7 @@ class IntlChar {
      * Or NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function totitle ($codepoint ) {}
+    public static function totitle ($codepoint) {}
 
     /**
      * Make Unicode character uppercase
@@ -1367,5 +1367,5 @@ class IntlChar {
      * Or NULL if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function toupper ($codepoint ) {}
+    public static function toupper ($codepoint) {}
 }
