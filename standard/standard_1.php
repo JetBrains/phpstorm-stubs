@@ -1003,26 +1003,6 @@ function strip_tags (string $string, array|string $allowed_tags = null): string
 {}
 
 /**
- * Strip HTML and PHP tags from a string
- * @link https://php.net/manual/en/function.strip-tags.php
- * @param string $string <p>
- * The input string.
- * </p>
- * @param string[]|string $allowed_tags [optional] <p>
- * You can use the optional second parameter to specify tags which should
- * not be stripped.
- * </p>
- * <p>
- * HTML comments and PHP tags are also stripped. This is hardcoded and
- * can not be changed with allowable_tags.
- * </p>
- * @return string the stripped string.
- */
-#[Pure]
-function strip_tags (string $string, array|string $allowed_tags = null): string
-{}
-
-/**
  * Calculate the similarity between two strings
  * @link https://php.net/manual/en/function.similar-text.php
  * @param string $string1 <p>
