@@ -137,17 +137,17 @@ class mysqli  {
 	 * Open a new connection to the MySQL server
 	 * @link https://php.net/manual/en/mysqli.construct.php
 	 * </p>
-	 * @param string $host [optional] Can be either a host name or an IP address. Passing the NULL value or the string "localhost" to this parameter, the local host is assumed. When possible, pipes will be used instead of the TCP/IP protocol. Prepending host by p: opens a persistent connection. mysqli_change_user() is automatically called on connections opened from the connection pool. Defaults to ini_get("mysqli.default_host")
+	 * @param string $hostname [optional] Can be either a host name or an IP address. Passing the NULL value or the string "localhost" to this parameter, the local host is assumed. When possible, pipes will be used instead of the TCP/IP protocol. Prepending host by p: opens a persistent connection. mysqli_change_user() is automatically called on connections opened from the connection pool. Defaults to ini_get("mysqli.default_host")
 	 * @param string $username [optional] The MySQL user name. Defaults to ini_get("mysqli.default_user")
-	 * @param string $passwd [optional] If not provided or NULL, the MySQL server will attempt to authenticate the user against those user records which have no password only. This allows one username to be used with different permissions (depending on if a password as provided or not). Defaults to ini_get("mysqli.default_pw")
+	 * @param string $password [optional] If not provided or NULL, the MySQL server will attempt to authenticate the user against those user records which have no password only. This allows one username to be used with different permissions (depending on if a password as provided or not). Defaults to ini_get("mysqli.default_pw")
 	 * @param string $database [optional] If provided will specify the default database to be used when performing queries. Defaults to ""
 	 * @param int $port [optional] Specifies the port number to attempt to connect to the MySQL server. Defaults to ini_get("mysqli.default_port")
 	 * @param string $socket [optional] Specifies the socket or named pipe that should be used. Defaults to ini_get("mysqli.default_socket")
 	 */
 	public function __construct (
-		$host = null,
+        $hostname = null,
 		$username = null,
-		$passwd = null,
+        $password = null,
 		$database = null,
 		$port = null,
 		$socket = null
@@ -156,12 +156,12 @@ class mysqli  {
 	/**
 	 * Turns on or off auto-committing database modifications
 	 * @link https://php.net/manual/en/mysqli.autocommit.php
-	 * @param bool $mode <p>
+	 * @param bool $enable <p>
 	 * Whether to turn on auto-commit or not.
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function autocommit ($mode) {}
+	public function autocommit ($enable) {}
 
     /**
      * Starts a transaction
@@ -192,7 +192,7 @@ class mysqli  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function change_user ($user, $password, $database) {}
+	public function change_user ($username, $password, $database) {}
 
 	/**
 	 * Returns the default character set for the database connection
@@ -225,14 +225,14 @@ class mysqli  {
 
 	/**
 	 * @link https://php.net/manual/en/function.mysqli-connect.php
-	 * @param string $host [optional]
+	 * @param string $hostname [optional]
 	 * @param string $username [optional]
 	 * @param string $password [optional]
 	 * @param string $database [optional]
 	 * @param int $port [optional]
 	 * @param string $socket [optional]
 	 */
-	public function connect ($host = null, $username = null, $password = null, $database = null, $port = null, $socket = null) {}
+	public function connect ($hostname = null, $username = null, $password = null, $database = null, $port = null, $socket = null) {}
 
 	/**
 	 * Dump debugging information into the log
@@ -244,12 +244,12 @@ class mysqli  {
 	/**
 	 * Performs debugging operations
 	 * @link https://php.net/manual/en/mysqli.debug.php
-	 * @param string $message <p>
+	 * @param string $options <p>
 	 * A string representing the debugging operation to perform
 	 * </p>
 	 * @return bool true.
 	 */
-	public function debug ($message) {}
+	public function debug ($options) {}
 
 	/**
 	 * Returns a character set object
@@ -310,10 +310,10 @@ class mysqli  {
 	/**
 	 * Asks the server to kill a MySQL thread
 	 * @link https://php.net/manual/en/mysqli.kill.php
-	 * @param int $processid
+	 * @param int $process_id
 	 * @return bool true on success or false on failure.
 	 */
-	public function kill ($processid) {}
+	public function kill ($process_id) {}
 
 	/**
 	 * Performs a query on the database
@@ -494,10 +494,10 @@ class mysqli  {
 	 * assumed. When possible, pipes will be used instead of the TCP/IP
 	 * protocol.
 	 * </p>
-	 * @param string $username [optional] <p>
+	 * @param string $hostname [optional] <p>
 	 * The MySQL user name.
 	 * </p>
-	 * @param string $passwd [optional] <p>
+	 * @param string $password [optional] <p>
 	 * If provided or null, the MySQL server will attempt to authenticate
 	 * the user against those user records which have no password only. This
 	 * allows one username to be used with different permissions (depending
@@ -561,7 +561,7 @@ class mysqli  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function real_connect ($host = null, $username = null, $passwd = null, $database = null, $port = null, $socket = null, $flags = null) {}
+	public function real_connect ($hostname = null, $username = null, $password = null, $database = null, $port = null, $socket = null, $flags = null) {}
 
 	/**
 	 * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection
@@ -582,19 +582,19 @@ class mysqli  {
 	 * @link https://php.net/manual/en/mysqli.poll.php
 	 * @param array &$read <p>
 	 * </p>
+	 * @param array &$write <p>
+	 * </p>
 	 * @param array &$error <p>
 	 * </p>
-	 * @param array &$reject <p>
-	 * </p>
-	 * @param int $sec <p>
+	 * @param int $seconds <p>
 	 * Number of seconds to wait, must be non-negative.
 	 * </p>
-	 * @param int $usec [optional] <p>
+	 * @param int $microseconds [optional] <p>
 	 * Number of microseconds to wait, must be non-negative.
 	 * </p>
 	 * @return int|false number of ready connections in success, false otherwise.
 	 */
-	public static function poll (array &$read , array &$error , array &$reject , $sec, $usec = 0) {}
+	public static function poll (array &$read , array &$write , array &$error , $seconds, $microseconds = 0) {}
 
 	/**
 	 * Get result from async query
@@ -720,7 +720,7 @@ class mysqli  {
 	/**
 	 * Transfers a result set from the last query
 	 * @link https://php.net/manual/en/mysqli.store-result.php
-     * @param int $option [optional] The option that you want to set
+     * @param int $mode [optional] The option that you want to set
 	 * @return mysqli_result|false a buffered result object or false if an error occurred.
 	 * </p>
 	 * <p>
@@ -737,7 +737,7 @@ class mysqli  {
 	 * <b>mysqli_field_count</b> returns a non-zero value, the
 	 * statement should have produced a non-empty result set.
 	 */
-	public function store_result ($option = null) {}
+	public function store_result ($mode = null) {}
 
 	/**
 	 * Returns whether thread safety is given or not
@@ -755,11 +755,11 @@ class mysqli  {
 
 	/**
 	 * @link https://php.net/manual/en/mysqli.refresh
-	 * @param int $options MYSQLI_REFRESH_*
+	 * @param int $flags MYSQLI_REFRESH_*
 	 * @return bool TRUE if the refresh was a success, otherwise FALSE
 	 * @since 5.3
 	 */
-	public function refresh ($options) {}
+	public function refresh ($flags) {}
 
 }
 
@@ -827,10 +827,10 @@ class mysqli_result implements IteratorAggregate
 
 	/**
 	 * Constructor (no docs available)
-     * @param object $mysqli_link [optional]
-     * @param int $resmode [optional]
+     * @param object $mysql [optional]
+     * @param int $result_mode [optional]
 	 */
-	public function __construct ($mysqli_link = null, $resmode = 0) {}
+	public function __construct ($mysql = null, $result_mode = 0) {}
 
 	/**
 	 * Frees the memory associated with a result
@@ -1110,14 +1110,14 @@ class mysqli_result implements IteratorAggregate
 	 * The name of the class to instantiate, set the properties of and return.
 	 * If not specified, a <b>stdClass</b> object is returned.
 	 * </p>
-	 * @param array $params [optional] <p>
+	 * @param array $constructor_args [optional] <p>
 	 * An optional array of parameters to pass to the constructor
 	 * for <i>class_name</i> objects.
 	 * </p>
 	 * @return stdClass|object an object with string properties that corresponds to the fetched
 	 * row or null if there are no more rows in resultset.
 	 */
-	public function fetch_object ($class = 'stdClass', array $params = null) {}
+	public function fetch_object ($class = 'stdClass', array $constructor_args = null) {}
 
 	/**
 	 * Get a result row as an enumerated array
@@ -1263,10 +1263,10 @@ class mysqli_stmt  {
 	 * If you open a cursor for a prepared statement, <b>mysqli_stmt_store_result</b>
 	 * is unnecessary.
 	 * </p>
-	 * @param int $mode <p>The value to assign to the attribute.</p>
+	 * @param int $value <p>The value to assign to the attribute.</p>
 	 * @return bool
 	 */
-	public function attr_set ($attribute, $mode) {}
+	public function attr_set ($attribute, $value) {}
 
 	/**
 	 * Binds variables to a prepared statement as parameters

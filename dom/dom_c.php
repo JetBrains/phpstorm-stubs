@@ -92,7 +92,7 @@ class DOMNode  {
      * The namespace URI of this node, or NULL if it is unspecified.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
      */
-    public $namespaceURI;
+    public $namespace;
 
     /**
      * @var string|null
@@ -125,51 +125,51 @@ class DOMNode  {
     /**
      * Adds a new child before a reference node
      * @link https://php.net/manual/en/domnode.insertbefore.php
-     * @param DOMNode $newnode <p>
+     * @param DOMNode $node <p>
      * The new node.
      * </p>
-     * @param DOMNode $refnode [optional] <p>
+     * @param DOMNode $child [optional] <p>
      * The reference node. If not supplied, newnode is
      * appended to the children.
      * </p>
      * @return DOMNode The inserted node.
      */
-    public function insertBefore (DOMNode $newnode, DOMNode $refnode = null) {}
+    public function insertBefore (DOMNode $node, DOMNode $child = null) {}
 
     /**
      * Replaces a child
      * @link https://php.net/manual/en/domnode.replacechild.php
-     * @param DOMNode $newnode <p>
+     * @param DOMNode $node <p>
      * The new node. It must be a member of the target document, i.e.
      * created by one of the DOMDocument->createXXX() methods or imported in
      * the document by .
      * </p>
-     * @param DOMNode $oldnode <p>
+     * @param DOMNode $child <p>
      * The old node.
      * </p>
      * @return DOMNode|false The old node or false if an error occur.
      */
-    public function replaceChild (DOMNode $newnode , DOMNode $oldnode ) {}
+    public function replaceChild (DOMNode $node , DOMNode $child ) {}
 
     /**
      * Removes child from list of children
      * @link https://php.net/manual/en/domnode.removechild.php
-     * @param DOMNode $oldnode <p>
+     * @param DOMNode $child <p>
      * The removed child.
      * </p>
      * @return DOMNode If the child could be removed the functions returns the old child.
      */
-    public function removeChild (DOMNode $oldnode ) {}
+    public function removeChild (DOMNode $child ) {}
 
     /**
      * Adds new child at the end of the children
      * @link https://php.net/manual/en/domnode.appendchild.php
-     * @param DOMNode $newnode <p>
+     * @param DOMNode $node <p>
      * The appended child.
      * </p>
      * @return DOMNode The node added.
      */
-    public function appendChild (DOMNode $newnode ) {}
+    public function appendChild (DOMNode $node) {}
 
     /**
      * Checks if node has children
@@ -226,33 +226,33 @@ class DOMNode  {
     /**
      * Indicates if two nodes are the same node
      * @link https://php.net/manual/en/domnode.issamenode.php
-     * @param DOMNode $node <p>
+     * @param DOMNode $otherNode <p>
      * The compared node.
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function isSameNode (DOMNode $node ) {}
+    public function isSameNode (DOMNode $otherNode ) {}
 
     /**
      * Gets the namespace prefix of the node based on the namespace URI
      * @link https://php.net/manual/en/domnode.lookupprefix.php
-     * @param string $namespaceURI <p>
+     * @param string $namespace <p>
      * The namespace URI.
      * </p>
      * @return string The prefix of the namespace.
      */
-    public function lookupPrefix ($namespaceURI) {}
+    public function lookupPrefix ($namespace) {}
 
     /**
      * Checks if the specified namespaceURI is the default namespace or not
      * @link https://php.net/manual/en/domnode.isdefaultnamespace.php
-     * @param string $namespaceURI <p>
+     * @param string $namespace <p>
      * The namespace URI to look for.
      * </p>
      * @return bool Return true if namespaceURI is the default
      * namespace, false otherwise.
      */
-    public function isDefaultNamespace ($namespaceURI) {}
+    public function isDefaultNamespace ($namespace) {}
 
     /**
      * Gets the namespace URI of the node based on the prefix
@@ -308,24 +308,24 @@ class DOMNode  {
     /**
      * Canonicalize nodes to a string
      * @param bool $exclusive [optional] Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.
-     * @param bool $with_comments [optional] Retain comments in output.
+     * @param bool $withComments [optional] Retain comments in output.
      * @param array $xpath [optional] An array of xpaths to filter the nodes by.
-     * @param array $ns_prefixes [optional] An array of namespace prefixes to filter the nodes by.
+     * @param array $nsPrefixes [optional] An array of namespace prefixes to filter the nodes by.
      * @return string|false Canonicalized nodes as a string or FALSE on failure
      */
-    public function C14N ($exclusive, $with_comments, array $xpath = null, $ns_prefixes = null) {}
+    public function C14N ($exclusive, $withComments, array $xpath = null, $nsPrefixes = null) {}
 
     /**
      * Canonicalize nodes to a file.
      * @link https://www.php.net/manual/en/domnode.c14nfile
      * @param string $uri Number of bytes written or FALSE on failure
      * @param bool $exclusive [optional] Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.
-     * @param bool $with_comments [optional]  Retain comments in output.
+     * @param bool $withComments [optional]  Retain comments in output.
      * @param array $xpath [optional] An array of xpaths to filter the nodes by.
-     * @param array $ns_prefixes [optional] An array of namespace prefixes to filter the nodes by.
+     * @param array $nsPrefixes [optional] An array of namespace prefixes to filter the nodes by.
      * @return int|false Number of bytes written or FALSE on failure
      */
-    public function C14NFile ($uri, $exclusive, array $with_comments, array $xpath = null, $ns_prefixes = null) {}
+    public function C14NFile ($uri, $exclusive, array $withComments, array $xpath = null, $nsPrefixes = null) {}
 
 
 }
@@ -462,7 +462,7 @@ class DOMImplementation  {
     /**
      * Creates a DOMDocument object of the specified type with its document element
      * @link https://php.net/manual/en/domimplementation.createdocument.php
-     * @param string $namespaceURI [optional] <p>
+     * @param string $namespace [optional] <p>
      * The namespace URI of the document element to create.
      * </p>
      * @param string $qualifiedName [optional] <p>
@@ -476,7 +476,7 @@ class DOMImplementation  {
      * and doctype are null, the returned
      * DOMDocument is empty with no document element
      */
-    public function createDocument ($namespaceURI = null, $qualifiedName = null, DOMDocumentType $doctype = null) {}
+    public function createDocument ($namespace = null, $qualifiedName = null, DOMDocumentType $doctype = null) {}
 
 }
 
@@ -666,7 +666,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
     /**
      * Create new element node
      * @link https://php.net/manual/en/domdocument.createelement.php
-     * @param string $name <p>
+     * @param string $localName <p>
      * The tag name of the element.
      * </p>
      * @param string $value [optional] <p>
@@ -676,7 +676,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * @return DOMElement|false A new instance of class DOMElement or false
      * if an error occurred.
      */
-    public function createElement ($name, $value = null) {}
+    public function createElement ($localName, $value = null) {}
 
     /**
      * Create new document fragment
@@ -688,12 +688,12 @@ class DOMDocument extends DOMNode implements DOMParentNode {
     /**
      * Create new text node
      * @link https://php.net/manual/en/domdocument.createtextnode.php
-     * @param string $content <p>
+     * @param string $data <p>
      * The content of the text.
      * </p>
      * @return DOMText|false The new DOMText or false if an error occurred.
      */
-    public function createTextNode ($content) {}
+    public function createTextNode ($data) {}
 
     /**
      * Create new comment node
@@ -731,12 +731,12 @@ class DOMDocument extends DOMNode implements DOMParentNode {
     /**
      * Create new attribute
      * @link https://php.net/manual/en/domdocument.createattribute.php
-     * @param string $name <p>
+     * @param string $localName <p>
      * The name of the attribute.
      * </p>
      * @return DOMAttr|false The new DOMAttr or false if an error occurred.
      */
-    public function createAttribute ($name) {}
+    public function createAttribute ($localName) {}
 
     /**
      * Create new entity reference node
@@ -754,19 +754,19 @@ class DOMDocument extends DOMNode implements DOMParentNode {
     /**
      * Searches for all elements with given tag name
      * @link https://php.net/manual/en/domdocument.getelementsbytagname.php
-     * @param string $name <p>
+     * @param string $qualifiedName <p>
      * The name of the tag to match on. The special value *
      * matches all tags.
      * </p>
      * @return DOMNodeList A new DOMNodeList object containing all the matched
      * elements.
      */
-    public function getElementsByTagName ($name) {}
+    public function getElementsByTagName ($qualifiedName) {}
 
     /**
      * Import node into current document
      * @link https://php.net/manual/en/domdocument.importnode.php
-     * @param DOMNode $importedNode <p>
+     * @param DOMNode $node <p>
      * The node to import.
      * </p>
      * @param bool $deep [optional] <p>
@@ -778,12 +778,12 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * </p>
      * @return DOMNode|false The copied node or false, if it cannot be copied.
      */
-    public function importNode (DOMNode $importedNode , $deep = null) {}
+    public function importNode (DOMNode $node , $deep = null) {}
 
     /**
      * Create new element node with an associated namespace
      * @link https://php.net/manual/en/domdocument.createelementns.php
-     * @param string $namespaceURI <p>
+     * @param string $namespace <p>
      * The URI of the namespace.
      * </p>
      * @param string $qualifiedName <p>
@@ -795,12 +795,12 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * </p>
      * @return DOMElement|false The new DOMElement or false if an error occurred.
      */
-    public function createElementNS ($namespaceURI, $qualifiedName, $value = null) {}
+    public function createElementNS ($namespace, $qualifiedName, $value = null) {}
 
     /**
      * Create new attribute node with an associated namespace
      * @link https://php.net/manual/en/domdocument.createattributens.php
-     * @param string $namespaceURI <p>
+     * @param string $namespace <p>
      * The URI of the namespace.
      * </p>
      * @param string $qualifiedName <p>
@@ -808,12 +808,12 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * </p>
      * @return DOMAttr|false The new DOMAttr or false if an error occurred.
      */
-    public function createAttributeNS ($namespaceURI, $qualifiedName) {}
+    public function createAttributeNS ($namespace, $qualifiedName) {}
 
     /**
      * Searches for all elements with given tag name in specified namespace
      * @link https://php.net/manual/en/domdocument.getelementsbytagnamens.php
-     * @param string $namespaceURI <p>
+     * @param string $namespace <p>
      * The namespace URI of the elements to match on.
      * The special value * matches all namespaces.
      * </p>
@@ -824,7 +824,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * @return DOMNodeList A new DOMNodeList object containing all the matched
      * elements.
      */
-    public function getElementsByTagNameNS ($namespaceURI, $localName) {}
+    public function getElementsByTagNameNS ($namespace, $localName) {}
 
     /**
      * Searches for an element with a certain id
@@ -838,9 +838,9 @@ class DOMDocument extends DOMNode implements DOMParentNode {
     public function getElementById ($elementId) {}
 
     /**
-     * @param DOMNode $source
+     * @param DOMNode $node
      */
-    public function adoptNode (DOMNode $source) {}
+    public function adoptNode (DOMNode $node) {}
 
     /**
      * {@inheritDoc}
@@ -861,10 +861,10 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * @param DOMNode $node
-     * @param $namespaceURI
+     * @param $namespace
      * @param $qualifiedName
      */
-    public function renameNode (DOMNode $node, $namespaceURI, $qualifiedName) {}
+    public function renameNode (DOMNode $node, $namespace, $qualifiedName) {}
 
     /**
      * Load XML from a file
@@ -1051,18 +1051,18 @@ class DOMDocument extends DOMNode implements DOMParentNode {
     /**
      * Register extended class used to create base node type
      * @link https://php.net/manual/en/domdocument.registernodeclass.php
-     * @param string $baseclass <p>
+     * @param string $baseClass <p>
      * The DOM class that you want to extend. You can find a list of these
      * classes in the chapter introduction.
      * </p>
-     * @param string $extendedclass <p>
+     * @param string $extendedClass <p>
      * Your extended class name. If null is provided, any previously
      * registered class extending baseclass will
      * be removed.
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function registerNodeClass ($baseclass, $extendedclass) {}
+    public function registerNodeClass ($baseClass, $extendedClass) {}
 
 }
 
@@ -1113,13 +1113,13 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable {
     /**
      * Retrieves a node specified by name
      * @link https://php.net/manual/en/domnamednodemap.getnameditem.php
-     * @param string $name <p>
+     * @param string $qualifiedName <p>
      * The nodeName of the node to retrieve.
      * </p>
      * @return DOMNode|null A node (of any type) with the specified nodeName, or
      * null if no node is found.
      */
-    public function getNamedItem ($name) {}
+    public function getNamedItem ($qualifiedName) {}
 
     /**
      * @param DOMNode $arg
@@ -1146,7 +1146,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable {
     /**
      * Retrieves a node specified by local name and namespace URI
      * @link https://php.net/manual/en/domnamednodemap.getnameditemns.php
-     * @param string $namespaceURI <p>
+     * @param string $namespace <p>
      * The namespace URI of the node to retrieve.
      * </p>
      * @param string $localName <p>
@@ -1155,7 +1155,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable {
      * @return DOMNode|null A node (of any type) with the specified local name and namespace URI, or
      * null if no node is found.
      */
-    public function getNamedItemNS ($namespaceURI, $localName) {}
+    public function getNamedItemNS ($namespace, $localName) {}
 
     /**
      * @param DOMNode $arg [optional]
@@ -1163,10 +1163,10 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable {
     public function setNamedItemNS (DOMNode $arg) {}
 
     /**
-     * @param $namespaceURI [optional]
+     * @param $namespace [optional]
      * @param $localName [optional]
      */
-    public function removeNamedItemNS ($namespaceURI, $localName) {}
+    public function removeNamedItemNS ($namespace, $localName) {}
 
     /**
      * @since 7.2
@@ -1415,18 +1415,18 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
     /**
      * Returns value of attribute
      * @link https://php.net/manual/en/domelement.getattribute.php
-     * @param string $name <p>
+     * @param string $qualifiedName <p>
      * The name of the attribute.
      * </p>
      * @return string The value of the attribute, or an empty string if no attribute with the
      * given name is found.
      */
-    public function getAttribute ($name) {}
+    public function getAttribute ($qualifiedName) {}
 
     /**
      * Adds new attribute
      * @link https://php.net/manual/en/domelement.setattribute.php
-     * @param string $name <p>
+     * @param string $qualifiedName <p>
      * The name of the attribute.
      * </p>
      * @param string $value <p>
@@ -1434,27 +1434,27 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
      * </p>
      * @return DOMAttr|false The new DOMAttr or false if an error occurred.
      */
-    public function setAttribute ($name, $value) {}
+    public function setAttribute ($qualifiedName, $value) {}
 
     /**
      * Removes attribute
      * @link https://php.net/manual/en/domelement.removeattribute.php
-     * @param string $name <p>
+     * @param string $qualifiedName <p>
      * The name of the attribute.
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function removeAttribute ($name) {}
+    public function removeAttribute ($qualifiedName) {}
 
     /**
      * Returns attribute node
      * @link https://php.net/manual/en/domelement.getattributenode.php
-     * @param string $name <p>
+     * @param string $qualifiedName <p>
      * The name of the attribute.
      * </p>
      * @return DOMAttr The attribute node.
      */
-    public function getAttributeNode ($name) {}
+    public function getAttributeNode ($qualifiedName) {}
 
     /**
      * Adds new attribute node to element
@@ -1469,29 +1469,29 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
     /**
      * Removes attribute
      * @link https://php.net/manual/en/domelement.removeattributenode.php
-     * @param DOMAttr $oldnode <p>
+     * @param DOMAttr $qualifiedName <p>
      * The attribute node.
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function removeAttributeNode (DOMAttr $oldnode) {}
+    public function removeAttributeNode (DOMAttr $qualifiedName) {}
 
     /**
      * Gets elements by tagname
      * @link https://php.net/manual/en/domelement.getelementsbytagname.php
-     * @param string $name <p>
+     * @param string $qualifiedName <p>
      * The tag name. Use * to return all elements within
      * the element tree.
      * </p>
      * @return DOMNodeList This function returns a new instance of the class
      * DOMNodeList of all matched elements.
      */
-    public function getElementsByTagName ($name) {}
+    public function getElementsByTagName ($qualifiedName) {}
 
     /**
      * Returns value of attribute
      * @link https://php.net/manual/en/domelement.getattributens.php
-     * @param string $namespaceURI <p>
+     * @param string $namespace <p>
      * The namespace URI.
      * </p>
      * @param string $localName <p>
@@ -1501,12 +1501,12 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
      * given localName and namespaceURI
      * is found.
      */
-    public function getAttributeNS ($namespaceURI, $localName) {}
+    public function getAttributeNS ($namespace, $localName) {}
 
     /**
      * Adds new attribute
      * @link https://php.net/manual/en/domelement.setattributens.php
-     * @param string $namespaceURI <p>
+     * @param string $namespace <p>
      * The namespace URI.
      * </p>
      * @param string $qualifiedName <p>
@@ -1517,12 +1517,12 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
      * </p>
      * @return void
      */
-    public function setAttributeNS ($namespaceURI, $qualifiedName, $value) {}
+    public function setAttributeNS ($namespace, $qualifiedName, $value) {}
 
     /**
      * Removes attribute
      * @link https://php.net/manual/en/domelement.removeattributens.php
-     * @param string $namespaceURI <p>
+     * @param string $namespace <p>
      * The namespace URI.
      * </p>
      * @param string $localName <p>
@@ -1530,12 +1530,12 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function removeAttributeNS ($namespaceURI, $localName) {}
+    public function removeAttributeNS ($namespace, $localName) {}
 
     /**
      * Returns attribute node
      * @link https://php.net/manual/en/domelement.getattributenodens.php
-     * @param string $namespaceURI <p>
+     * @param string $namespace <p>
      * The namespace URI.
      * </p>
      * @param string $localName <p>
@@ -1543,7 +1543,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
      * </p>
      * @return DOMAttr The attribute node.
      */
-    public function getAttributeNodeNS ($namespaceURI, $localName) {}
+    public function getAttributeNodeNS ($namespace, $localName) {}
 
     /**
      * Adds new attribute node to element
@@ -1556,7 +1556,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
     /**
      * Get elements by namespaceURI and localName
      * @link https://php.net/manual/en/domelement.getelementsbytagnamens.php
-     * @param string $namespaceURI <p>
+     * @param string $namespace <p>
      * The namespace URI.
      * </p>
      * @param string $localName <p>
@@ -1567,22 +1567,22 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
      * DOMNodeList of all matched elements in the order in
      * which they are encountered in a preorder traversal of this element tree.
      */
-    public function getElementsByTagNameNS ($namespaceURI, $localName) {}
+    public function getElementsByTagNameNS ($namespace, $localName) {}
 
     /**
      * Checks to see if attribute exists
      * @link https://php.net/manual/en/domelement.hasattribute.php
-     * @param string $name <p>
+     * @param string $qualifiedName <p>
      * The attribute name.
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function hasAttribute ($name) {}
+    public function hasAttribute ($qualifiedName) {}
 
     /**
      * Checks to see if attribute exists
      * @link https://php.net/manual/en/domelement.hasattributens.php
-     * @param string $namespaceURI <p>
+     * @param string $namespace <p>
      * The namespace URI.
      * </p>
      * @param string $localName <p>
@@ -1590,12 +1590,12 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function hasAttributeNS ($namespaceURI, $localName) {}
+    public function hasAttributeNS ($namespace, $localName) {}
 
     /**
      * Declares the attribute specified by name to be of type ID
      * @link https://php.net/manual/en/domelement.setidattribute.php
-     * @param string $name <p>
+     * @param string $qualifiedName <p>
      * The name of the attribute.
      * </p>
      * @param bool $isId <p>
@@ -1604,15 +1604,15 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
      * </p>
      * @return void
      */
-    public function setIdAttribute ($name, $isId) {}
+    public function setIdAttribute ($qualifiedName, $isId) {}
 
     /**
      * Declares the attribute specified by local name and namespace URI to be of type ID
      * @link https://php.net/manual/en/domelement.setidattributens.php
-     * @param string $namespaceURI <p>
+     * @param string $namespace <p>
      * The namespace URI of the attribute.
      * </p>
-     * @param string $localName <p>
+     * @param string $qualifiedName <p>
      * The local name of the attribute, as prefix:tagname.
      * </p>
      * @param bool $isId <p>
@@ -1621,7 +1621,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
      * </p>
      * @return void
      */
-    public function setIdAttributeNS ($namespaceURI, $localName, $isId) {}
+    public function setIdAttributeNS ($namespace, $qualifiedName, $isId) {}
 
     /**
      * Declares the attribute specified by node to be of type ID
@@ -1670,11 +1670,11 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
     /**
      * Creates a new DOMElement object
      * @link https://php.net/manual/en/domelement.construct.php
-     * @param string $name The tag name of the element. When also passing in namespaceURI, the element name may take a prefix to be associated with the URI.
+     * @param string $qualifiedName The tag name of the element. When also passing in namespaceURI, the element name may take a prefix to be associated with the URI.
      * @param string|null $value [optional] The value of the element.
-     * @param string|null $uri  [optional] A namespace URI to create the element within a specific namespace.
+     * @param string|null $namespace  [optional] A namespace URI to create the element within a specific namespace.
      */
-    public function __construct ($name, $value = null, $uri = null) {}
+    public function __construct ($qualifiedName, $value = null, $namespace = null) {}
 
 }
 
@@ -1719,9 +1719,9 @@ class DOMText extends DOMCharacterData  {
     /**
      * Creates a new <classname>DOMText</classname> object
      * @link https://php.net/manual/en/domtext.construct.php
-     * @param string $value [optional] The value of the text node. If not supplied an empty text node is created.
+     * @param string $data [optional] The value of the text node. If not supplied an empty text node is created.
      */
-    public function __construct ($value) {}
+    public function __construct ($data) {}
 
 }
 
@@ -1735,9 +1735,9 @@ class DOMComment extends DOMCharacterData  {
     /**
      * Creates a new DOMComment object
      * @link https://php.net/manual/en/domcomment.construct.php
-     * @param string $value [optional] The value of the comment
+     * @param string $data [optional] The value of the comment
      */
-    public function __construct ($value) {}
+    public function __construct ($data) {}
 }
 
 /**
@@ -1811,10 +1811,10 @@ class DOMCdataSection extends DOMText  {
 
     /**
      * The value of the CDATA node. If not supplied, an empty CDATA node is created.
-     * @param string $value The value of the CDATA node. If not supplied, an empty CDATA node is created.
+     * @param string $data The value of the CDATA node. If not supplied, an empty CDATA node is created.
      * @link https://secure.php.net/manual/en/domcdatasection.construct.php
      */
-    public function __construct ($value) {}
+    public function __construct ($data) {}
 }
 
 /**
@@ -2019,10 +2019,10 @@ class DOMXPath  {
     /**
      * Creates a new <classname>DOMXPath</classname> object
      * @link https://php.net/manual/en/domxpath.construct.php
-     * @param DOMDocument $doc The <classname>DOMDocument</classname> associated with the <classname>DOMXPath</classname>.
+     * @param DOMDocument $document The <classname>DOMDocument</classname> associated with the <classname>DOMXPath</classname>.
      * @param bool $registerNodeNS [optional] allow global flag to configure query() or evaluate() calls. Since 8.0.
      */
-    public function __construct (DOMDocument $doc, $registerNodeNS = false) {}
+    public function __construct (DOMDocument $document, $registerNodeNS = false) {}
 
     /**
      * Registers the namespace with the <classname>DOMXPath</classname> object
@@ -2030,12 +2030,12 @@ class DOMXPath  {
      * @param string $prefix <p>
      * The prefix.
      * </p>
-     * @param string $namespaceURI <p>
+     * @param string $namespace <p>
      * The URI of the namespace.
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function registerNamespace ($prefix, $namespaceURI) {}
+    public function registerNamespace ($prefix, $namespace) {}
 
     /**
      * Evaluates the given XPath expression
@@ -2043,7 +2043,7 @@ class DOMXPath  {
      * @param string $expression <p>
      * The XPath expression to execute.
      * </p>
-     * @param DOMNode $contextnode [optional] <p>
+     * @param DOMNode $contextNode [optional] <p>
      * The optional contextnode can be specified for
      * doing relative XPath queries. By default, the queries are relative to
      * the root element.
@@ -2055,7 +2055,7 @@ class DOMXPath  {
      * will return an empty DOMNodeList. The return is false if the expression
      * is malformed or the contextnode is invalid.
      */
-    public function query ($expression, $contextnode = null, $registerNodeNS = true) {}
+    public function query ($expression, $contextNode = null, $registerNodeNS = true) {}
 
     /**
      * Evaluates the given XPath expression and returns a typed result if possible.
@@ -2063,7 +2063,7 @@ class DOMXPath  {
      * @param string $expression <p>
      * The XPath expression to execute.
      * </p>
-     * @param DOMNode $contextnode [optional] <p>
+     * @param DOMNode $contextNode [optional] <p>
      * The optional contextnode can be specified for
      * doing relative XPath queries. By default, the queries are relative to
      * the root element.
@@ -2075,7 +2075,7 @@ class DOMXPath  {
      * @return mixed a typed result if possible or a DOMNodeList
      * containing all nodes matching the given XPath expression.
      */
-    public function evaluate ($expression, $contextnode = null, $registerNodeNS = true) {}
+    public function evaluate ($expression, $contextNode = null, $registerNodeNS = true) {}
 
     /**
      * Register PHP functions as XPath functions

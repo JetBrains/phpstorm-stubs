@@ -42,11 +42,11 @@ class ReflectionClass implements Reflector
      * Constructs a ReflectionClass
      *
      * @link https://php.net/manual/en/reflectionclass.construct.php
-     * @param string|object $argument Either a string containing the name of
+     * @param string|object $objectOrClass Either a string containing the name of
      * the class to reflect, or an object.
      * @throws \ReflectionException if the class does not exist.
      */
-    public function __construct($argument)
+    public function __construct($objectOrClass)
     {
     }
 

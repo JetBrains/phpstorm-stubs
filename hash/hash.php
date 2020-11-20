@@ -436,9 +436,9 @@ class HashContext
     public function __serialize(){}
 
     /**
-     * @param array $serialized
+     * @param array $data
      */
-    public function __unserialize($serialized){}
+    public function __unserialize($data){}
 }
 // End of hash v.1.0
 ?>

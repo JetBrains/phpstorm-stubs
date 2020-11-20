@@ -183,19 +183,19 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
 	/**
 	 * Destroy a session
 	 * @link https://php.net/manual/en/sessionhandler.destroy.php
-	 * @param string $session_id The session ID being destroyed.
+	 * @param string $id The session ID being destroyed.
 	 * @return bool <p>
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
 	 * </p>
 	 * @since 5.4
 	 */
-	public function destroy($session_id) { }
+	public function destroy($id) { }
 
 	/**
 	 * Cleanup old sessions
 	 * @link https://php.net/manual/en/sessionhandler.gc.php
-	 * @param int $maxlifetime <p>
+	 * @param int $max_lifetime <p>
 	 * Sessions that have not updated for
 	 * the last maxlifetime seconds will be removed.
 	 * </p>
@@ -205,26 +205,26 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
 	 * </p>
 	 * @since 5.4
 	 */
-	public function gc($maxlifetime) { }
+	public function gc($max_lifetime) { }
 
 	/**
 	 * Initialize session
 	 * @link https://php.net/manual/en/sessionhandler.open.php
-	 * @param string $save_path The path where to store/retrieve the session.
-	 * @param string $session_name The session name.
+	 * @param string $path The path where to store/retrieve the session.
+	 * @param string $name The session name.
 	 * @return bool <p>
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
 	 * </p>
 	 * @since 5.4
 	 */
-	public function open($save_path, $session_name) { }
+	public function open($path, $name) { }
 
 
 	/**
 	 * Read session data
 	 * @link https://php.net/manual/en/sessionhandler.read.php
-	 * @param string $session_id The session id to read data for.
+	 * @param string $id The session id to read data for.
 	 * @return string <p>
 	 * Returns an encoded string of the read data.
 	 * If nothing was read, it must return an empty string.
@@ -232,7 +232,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
 	 * </p>
 	 * @since 5.4
 	 */
-	public function read($session_id) { }
+	public function read($id) { }
 
 	/**
 	 * Write session data
@@ -251,7 +251,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
 	 * </p>
 	 * @since 5.4
 	 */
-	public function write($session_id, $session_data) { }
+	public function write($id, $data) { }
 
     /**
      * Validate session id

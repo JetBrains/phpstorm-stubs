@@ -37,23 +37,23 @@ class XMLWriter  {
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
 	 * Toggle indentation on/off
 	 * @link https://php.net/manual/en/function.xmlwriter-set-indent.php
-	 * @param bool $indent <p>
+	 * @param bool $enable <p>
 	 * Whether indentation is enabled.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function setIndent ($indent) {}
+	public function setIndent ($enable) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
 	 * Set string used for indenting
 	 * @link https://php.net/manual/en/function.xmlwriter-set-indent-string.php
-	 * @param string $indentString <p>
+	 * @param string $indentation <p>
 	 * The indentation string.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function setIndentString ($indentString) {}
+	public function setIndentString ($indentation) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 1.0.0)<br/>
@@ -114,12 +114,12 @@ class XMLWriter  {
 	 * @param string $name <p>
 	 * The attribute name.
 	 * </p>
-	 * @param string $uri <p>
+	 * @param string $namespace <p>
 	 * The namespace URI.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function startAttributeNs ($prefix, $name, $uri) {}
+	public function startAttributeNs ($prefix, $name, $namespace) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -131,15 +131,15 @@ class XMLWriter  {
 	 * @param string $name <p>
 	 * The attribute name.
 	 * </p>
-	 * @param string $uri <p>
+	 * @param string $namespace <p>
 	 * The namespace URI.
 	 * </p>
-	 * @param string $content <p>
+	 * @param string $value <p>
 	 * The attribute value.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function writeAttributeNs ($prefix, $name, $uri, $content) {}
+	public function writeAttributeNs ($prefix, $name, $namespace, $value) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -178,12 +178,12 @@ class XMLWriter  {
 	 * @param string $name <p>
 	 * The element name.
 	 * </p>
-	 * @param string $uri <p>
+	 * @param string $namespace <p>
 	 * The namespace URI.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function startElementNs ($prefix, $name, $uri) {}
+	public function startElementNs ($prefix, $name, $namespace) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -209,7 +209,7 @@ class XMLWriter  {
 	 * @param string $name <p>
 	 * The element name.
 	 * </p>
-	 * @param string $uri <p>
+	 * @param string $namespace <p>
 	 * The namespace URI.
 	 * </p>
 	 * @param string $content [optional] <p>
@@ -217,7 +217,7 @@ class XMLWriter  {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function writeElementNs ($prefix, $name, $uri, $content = null) {}
+	public function writeElementNs ($prefix, $name, $namespace, $content = null) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -375,12 +375,12 @@ class XMLWriter  {
 	 * @param string $systemId [optional] <p>
 	 * The external subset system identifier.
 	 * </p>
-	 * @param string $subset [optional] <p>
+	 * @param string $content [optional] <p>
 	 * The content of the DTD.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function writeDtd ($name, $publicId = null, $systemId = null, $subset = null) {}
+	public function writeDtd ($name, $publicId = null, $systemId = null, $content = null) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -455,10 +455,10 @@ class XMLWriter  {
 	 * @param string $name <p>
 	 * The name of the entity.
 	 * </p>
-	 * @param bool $isparam
+	 * @param bool $isParam
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function startDtdEntity ($name, $isparam) {}
+	public function startDtdEntity ($name, $isParam) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>

@@ -851,20 +851,20 @@ class PDO  {
 	 * @link https://php.net/manual/en/pdo.construct.php
 	 * @param string $dsn
 	 * @param string $username [optional]
-	 * @param string $passwd [optional]
+	 * @param string $password [optional]
 	 * @param array $options [optional]
 	 * @throws PDOException if the attempt to connect to the requested database fails.
 	 */
-	public function __construct ($dsn, $username = null, $passwd = null, $options = null) {}
+	public function __construct ($dsn, $username = null, $password = null, $options = null) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
 	 * Prepares a statement for execution and returns a statement object
 	 * @link https://php.net/manual/en/pdo.prepare.php
-	 * @param string $statement <p>
+	 * @param string $query <p>
 	 * This must be a valid SQL statement for the target database server.
 	 * </p>
-	 * @param array $driver_options [optional] <p>
+	 * @param array $options [optional] <p>
 	 * This array holds one or more key=&gt;value pairs to set
 	 * attribute values for the <b>PDOStatement</b> object that this method
 	 * returns. You would most commonly use this to set the
@@ -884,7 +884,7 @@ class PDO  {
 	 * Emulated prepared statements does not communicate with the database server
 	 * so <b>PDO::prepare</b> does not check the statement.
 	 */
-	public function prepare ($statement, array $driver_options = array()) {}
+	public function prepare ($query, array $options = array()) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1160,14 +1160,14 @@ class PDO  {
 	 * @param string $string <p>
 	 * The string to be quoted.
 	 * </p>
-	 * @param int $parameter_type [optional] <p>
+	 * @param int $type [optional] <p>
 	 * Provides a data type hint for drivers that have alternate quoting styles.
 	 * </p>
 	 * @return string|false a quoted string that is theoretically safe to pass into an
 	 * SQL statement. Returns <b>FALSE</b> if the driver does not support quoting in
 	 * this way.
 	 */
-	public function quote ($string, $parameter_type = PDO::PARAM_STR) {}
+	public function quote ($string, $type = PDO::PARAM_STR) {}
 
 	final public function __wakeup () {}
 
@@ -1224,7 +1224,7 @@ class PDOStatement implements IteratorAggregate
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
 	 * Executes a prepared statement
 	 * @link https://php.net/manual/en/pdostatement.execute.php
-	 * @param array $input_parameters [optional] <p>
+	 * @param array $params [optional] <p>
 	 * An array of values with as many elements as there are bound
 	 * parameters in the SQL statement being executed.
 	 * All values are treated as <b>PDO::PARAM_STR</b>.
@@ -1243,13 +1243,13 @@ class PDOStatement implements IteratorAggregate
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * @throws \PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
 	 */
-	public function execute ($input_parameters = null) {}
+	public function execute ($params = null) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
 	 * Fetches the next row from a result set
 	 * @link https://php.net/manual/en/pdostatement.fetch.php
-	 * @param int $fetch_style [optional] <p>
+	 * @param int $mode [optional] <p>
 	 * Controls how the next row will be returned to the caller. This value
 	 * must be one of the PDO::FETCH_* constants,
 	 * defaulting to value of PDO::ATTR_DEFAULT_FETCH_MODE
@@ -1258,7 +1258,7 @@ class PDOStatement implements IteratorAggregate
 	 * PDO::FETCH_ASSOC: returns an array indexed by column
 	 * name as returned in your result set
 	 * </p>
-	 * @param int $cursor_orientation [optional] <p>
+	 * @param int $cursorOrientation [optional] <p>
 	 * For a PDOStatement object representing a scrollable cursor, this
 	 * value determines which row will be returned to the caller. This value
 	 * must be one of the PDO::FETCH_ORI_* constants,
@@ -1268,43 +1268,43 @@ class PDOStatement implements IteratorAggregate
 	 * PDO::CURSOR_SCROLL when you prepare the SQL
 	 * statement with <b>PDO::prepare</b>.
 	 * </p>
-	 * @param int $cursor_offset [optional]
+	 * @param int $cursorOffset [optional]
 	 * @return mixed The return value of this function on success depends on the fetch type. In
 	 * all cases, <b>FALSE</b> is returned on failure.
 	 */
-	public function fetch ($fetch_style = null, $cursor_orientation = PDO::FETCH_ORI_NEXT, $cursor_offset = 0) {}
+	public function fetch ($mode = null, $cursorOrientation = PDO::FETCH_ORI_NEXT, $cursorOffset = 0) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
 	 * Binds a parameter to the specified variable name
 	 * @link https://php.net/manual/en/pdostatement.bindparam.php
-	 * @param mixed $parameter <p>
+	 * @param mixed $param <p>
 	 * Parameter identifier. For a prepared statement using named
 	 * placeholders, this will be a parameter name of the form
 	 * :name. For a prepared statement using
 	 * question mark placeholders, this will be the 1-indexed position of
 	 * the parameter.
 	 * </p>
-	 * @param mixed &$variable <p>
+	 * @param mixed &$var <p>
 	 * Name of the PHP variable to bind to the SQL statement parameter.
 	 * </p>
-	 * @param int $data_type [optional] <p>
+	 * @param int $type [optional] <p>
 	 * Explicit data type for the parameter using the PDO::PARAM_*
 	 * constants.
 	 * To return an INOUT parameter from a stored procedure,
 	 * use the bitwise OR operator to set the PDO::PARAM_INPUT_OUTPUT bits
 	 * for the <i>data_type</i> parameter.
 	 * </p>
-	 * @param int $length [optional] <p>
+	 * @param int $maxLength [optional] <p>
 	 * Length of the data type. To indicate that a parameter is an OUT
 	 * parameter from a stored procedure, you must explicitly set the
 	 * length.
 	 * </p>
-	 * @param mixed $driver_options [optional] <p>
+	 * @param mixed $driverOptions [optional] <p>
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function bindParam ($parameter, &$variable, $data_type = PDO::PARAM_STR, $length = null, $driver_options = null) {}
+	public function bindParam ($param, &$var, $type = PDO::PARAM_STR, $maxLength = null, $driverOptions = null) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1315,27 +1315,27 @@ class PDOStatement implements IteratorAggregate
 	 * If using the column name, be aware that the name should match the
 	 * case of the column, as returned by the driver.
 	 * </p>
-	 * @param mixed &$param <p>
+	 * @param mixed &$var <p>
 	 * Name of the PHP variable to which the column will be bound.
 	 * </p>
 	 * @param int $type [optional] <p>
 	 * Data type of the parameter, specified by the PDO::PARAM_* constants.
 	 * </p>
-	 * @param int $maxlen [optional] <p>
+	 * @param int $maxLength [optional] <p>
 	 * A hint for pre-allocation.
 	 * </p>
-	 * @param mixed $driverdata [optional] <p>
+	 * @param mixed $driverOptions [optional] <p>
 	 * Optional parameter(s) for the driver.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function bindColumn ($column, &$param, $type = null, $maxlen = null, $driverdata = null) {}
+	public function bindColumn ($column, &$var, $type = null, $maxLength = null, $driverOptions = null) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 1.0.0)<br/>
 	 * Binds a value to a parameter
 	 * @link https://php.net/manual/en/pdostatement.bindvalue.php
-	 * @param mixed $parameter <p>
+	 * @param mixed $param <p>
 	 * Parameter identifier. For a prepared statement using named
 	 * placeholders, this will be a parameter name of the form
 	 * :name. For a prepared statement using
@@ -1345,13 +1345,13 @@ class PDOStatement implements IteratorAggregate
 	 * @param mixed $value <p>
 	 * The value to bind to the parameter.
 	 * </p>
-	 * @param int $data_type [optional] <p>
+	 * @param int $type [optional] <p>
 	 * Explicit data type for the parameter using the PDO::PARAM_*
 	 * constants.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function bindValue ($parameter, $value, $data_type = PDO::PARAM_STR) {}
+	public function bindValue ($param, $value, $type = PDO::PARAM_STR) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1365,7 +1365,7 @@ class PDOStatement implements IteratorAggregate
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.9.0)<br/>
 	 * Returns a single column from the next row of a result set
 	 * @link https://php.net/manual/en/pdostatement.fetchcolumn.php
-	 * @param int $column_number [optional] <p>
+	 * @param int $column [optional] <p>
 	 * 0-indexed number of the column you wish to retrieve from the row. If
 	 * no value is supplied, <b>PDOStatement::fetchColumn</b>
 	 * fetches the first column.
@@ -1377,13 +1377,13 @@ class PDOStatement implements IteratorAggregate
 	 * There is no way to return another column from the same row if you
 	 * use <b>PDOStatement::fetchColumn</b> to retrieve data.
 	 */
-	public function fetchColumn ($column_number = 0) {}
+	public function fetchColumn ($column = 0) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
 	 * Returns an array containing all of the result set rows
 	 * @link https://php.net/manual/en/pdostatement.fetchall.php
-	 * @param int $fetch_style [optional] <p>
+	 * @param int $mode [optional] <p>
 	 * Controls the contents of the returned array as documented in
 	 * <b>PDOStatement::fetch</b>.
 	 * Defaults to value of <b>PDO::ATTR_DEFAULT_FETCH_MODE</b>
@@ -1405,7 +1405,7 @@ class PDOStatement implements IteratorAggregate
 	 * column, bitwise-OR <b>PDO::FETCH_COLUMN</b> with
 	 * <b>PDO::FETCH_GROUP</b>.
 	 * </p>
-	 * @param mixed ...$fetch_args <p>
+	 * @param mixed ...$args <p>
 	 * Arguments of custom class constructor when the <i>fetch_style</i>
 	 * parameter is <b>PDO::FETCH_CLASS</b>.
 	 * </p>
@@ -1422,22 +1422,22 @@ class PDOStatement implements IteratorAggregate
 	 * ORDER BY clauses in SQL to restrict results before retrieving and
 	 * processing them with PHP.
 	 */
-	public function fetchAll ($fetch_style = PDO::FETCH_BOTH, ...$fetch_args) {}
+	public function fetchAll ($mode = PDO::FETCH_BOTH, ...$args) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.4)<br/>
 	 * Fetches the next row and returns it as an object.
 	 * @link https://php.net/manual/en/pdostatement.fetchobject.php
-	 * @param string $class_name [optional] <p>
+	 * @param string $class [optional] <p>
 	 * Name of the created class.
 	 * </p>
-	 * @param array $ctor_args [optional] <p>
+	 * @param array $ctorArgs [optional] <p>
 	 * Elements of this array are passed to the constructor.
 	 * </p>
 	 * @return mixed an instance of the required class with property names that
 	 * correspond to the column names or <b>FALSE</b> on failure.
 	 */
-	public function fetchObject ($class_name = "stdClass", array $ctor_args = array()) {}
+	public function fetchObject ($class = "stdClass", array $ctorArgs = array()) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1495,10 +1495,10 @@ class PDOStatement implements IteratorAggregate
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
 	 * Retrieve a statement attribute
 	 * @link https://php.net/manual/en/pdostatement.getattribute.php
-	 * @param int $attribute
+	 * @param int $name
 	 * @return mixed the attribute value.
 	 */
-	public function getAttribute ($attribute) {}
+	public function getAttribute ($name) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>

@@ -13,10 +13,10 @@ class SplFileInfo implements Stringable {
         /**
          * Construct a new SplFileInfo object
          * @link https://php.net/manual/en/splfileinfo.construct.php
-         * @param string $file_name
+         * @param string $filename
          * @since 5.1.2
          */
-        public function __construct ($file_name) {}
+        public function __construct ($filename) {}
 
         /**
          * Gets the path without filename
@@ -203,34 +203,34 @@ class SplFileInfo implements Stringable {
         /**
          * Gets an SplFileInfo object for the file
          * @link https://php.net/manual/en/splfileinfo.getfileinfo.php
-         * @param string $class_name [optional] <p>
+         * @param string $class [optional] <p>
 	 * Name of an <b>SplFileInfo</b> derived class to use.
          * </p>
 	 * @return SplFileInfo An <b>SplFileInfo</b> object created for the file.
          * @since 5.1.2
          */
-        public function getFileInfo ($class_name = null) {}
+        public function getFileInfo ($class = null) {}
 
         /**
          * Gets an SplFileInfo object for the path
          * @link https://php.net/manual/en/splfileinfo.getpathinfo.php
-         * @param string $class_name [optional] <p>
+         * @param string $class [optional] <p>
 	 * Name of an <b>SplFileInfo</b> derived class to use.
          * </p>
 	 * @return SplFileInfo an <b>SplFileInfo</b> object for the parent path of the file.
          * @since 5.1.2
          */
-        public function getPathInfo ($class_name = null) {}
+        public function getPathInfo ($class = null) {}
 
         /**
          * Gets an SplFileObject object for the file
          * @link https://php.net/manual/en/splfileinfo.openfile.php
-         * @param string $open_mode [optional] <p>
+         * @param string $mode [optional] <p>
 	 * The mode for opening the file. See the <b>fopen</b>
          * documentation for descriptions of possible modes. The default
          * is read only.
          * </p>
-         * @param bool $use_include_path [optional] <p>
+         * @param bool $useIncludePath [optional] <p>
          * &parameter.use_include_path;
          * </p>
          * @param resource $context [optional] <p>
@@ -239,29 +239,29 @@ class SplFileInfo implements Stringable {
 	 * @return SplFileObject The opened file as an <b>SplFileObject</b> object.
          * @since 5.1.2
          */
-	public function openFile ($open_mode = 'r', $use_include_path = false, $context = null) {}
+	public function openFile ($mode = 'r', $useIncludePath = false, $context = null) {}
 
         /**
 	 * Sets the class name used with <b>SplFileInfo::openFile</b>
          * @link https://php.net/manual/en/splfileinfo.setfileclass.php
-         * @param string $class_name [optional] <p>
+         * @param string $class [optional] <p>
          * The class name to use when openFile() is called.
          * </p>
          * @return void
          * @since 5.1.2
          */
-        public function setFileClass ($class_name = null) {}
+        public function setFileClass ($class = null) {}
 
         /**
          * Sets the class used with getFileInfo and getPathInfo
          * @link https://php.net/manual/en/splfileinfo.setinfoclass.php
-         * @param string $class_name [optional] <p>
+         * @param string $class [optional] <p>
          * The class name to use.
          * </p>
          * @return void
          * @since 5.1.2
          */
-        public function setInfoClass ($class_name = null) {}
+        public function setInfoClass ($class = null) {}
 
         /**
          * Returns the path to the file as a string
@@ -294,11 +294,11 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator {
         /**
          * Constructs a new directory iterator from a path
          * @link https://php.net/manual/en/directoryiterator.construct.php
-         * @param string $path
+         * @param string $directory
          * @throws UnexpectedValueException if the path cannot be opened.
          * @throws RuntimeException if the path is an empty string.
          */
-        public function __construct ($path) {}
+        public function __construct ($directory) {}
 
 
         /**
@@ -347,12 +347,12 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator {
         /**
          * Seek to a DirectoryIterator item
          * @link https://php.net/manual/en/directoryiterator.seek.php
-         * @param int $position <p>
+         * @param int $offset <p>
          * The zero-based numeric position to seek to.
          * </p>
          * @return void
 	 */
-        public function seek ($position) {}
+        public function seek ($offset) {}
 }
 
 /**
@@ -376,11 +376,11 @@ class FilesystemIterator extends DirectoryIterator {
         /**
          * Constructs a new filesystem iterator
          * @link https://php.net/manual/en/filesystemiterator.construct.php
-         * @param string $path
+         * @param string $directory
          * @param int $flags [optional]
          * @throws UnexpectedValueException if the path cannot be found.
          */
-        public function __construct ($path, $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::SKIP_DOTS) {}
+        public function __construct ($directory, $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::SKIP_DOTS) {}
 
         /**
          * Rewinds back to the beginning
@@ -442,21 +442,21 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
         /**
          * Constructs a RecursiveDirectoryIterator
          * @link https://php.net/manual/en/recursivedirectoryiterator.construct.php
-         * @param string $path
+         * @param string $directory
          * @param int $flags [optional]
          * @throws UnexpectedValueException if the path cannot be found or is not a directory.
          * @since 5.1.2
          */
-        public function __construct ($path, $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO) {}
+        public function __construct ($directory, $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO) {}
 
         /**
          * Returns whether current entry is a directory and not '.' or '..'
          * @link https://php.net/manual/en/recursivedirectoryiterator.haschildren.php
-         * @param bool $allow_links [optional] <p>
+         * @param bool $allowLinks [optional] <p>
          * </p>
          * @return bool whether the current entry is a directory, but not '.' or '..'
          */
-        public function hasChildren ($allow_links = null) {}
+        public function hasChildren ($allowLinks = null) {}
 
         /**
          * Returns an iterator for the current entry if it is a directory
@@ -521,10 +521,10 @@ class GlobIterator extends FilesystemIterator implements Countable {
         /**
          * Construct a directory using glob
          * @link https://php.net/manual/en/globiterator.construct.php
-         * @param $path
+         * @param $pattern
          * @param int $flags [optional]
          */
-        public function __construct ($path, $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO) {}
+        public function __construct ($pattern, $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO) {}
 
         /**
          * Get the number of directories and files
@@ -563,16 +563,16 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          *
          * @link  https://php.net/manual/en/splfileobject.construct.php
          *
-         * @param string   $file_name        The file to open
-         * @param string   $open_mode        [optional] The mode in which to open the file. See {@see fopen} for a list of allowed modes.
-         * @param bool     $use_include_path [optional] Whether to search in the include_path for filename
+         * @param string   $filename        The file to open
+         * @param string   $mode        [optional] The mode in which to open the file. See {@see fopen} for a list of allowed modes.
+         * @param bool     $useIncludePath [optional] Whether to search in the include_path for filename
          * @param resource $context          [optional] A valid context resource created with {@see stream_context_create}
          *
          * @throws RuntimeException When the filename cannot be opened
          * @throws LogicException When the filename is a directory
          *
          */
-        public function __construct ($file_name, $open_mode = 'r', $use_include_path = false, $context = null) {}
+        public function __construct ($filename, $mode = 'r', $useIncludePath = false, $context = null) {}
 
         /**
          * Rewind the file to the first line
@@ -616,7 +616,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Gets line from file and parse as CSV fields
          * @link https://php.net/manual/en/splfileobject.fgetcsv.php
-         * @param string $delimiter [optional] <p>
+         * @param string $separator [optional] <p>
 	 * The field delimiter (one character only). Defaults as a comma or the value set using <b>SplFileObject::setCsvControl</b>.
          * </p>
          * @param string $enclosure [optional] <p>
@@ -632,13 +632,13 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
 	 * comprising a single null field unless using <b>SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE</b>,
          * in which case empty lines are skipped.
          */
-	public function fgetcsv ($delimiter = ",", $enclosure = "\"", $escape = "\\") {}
+	public function fgetcsv ($separator = ",", $enclosure = "\"", $escape = "\\") {}
 
     /**
      * Write a field array as a CSV line
      * @link https://php.net/manual/en/splfileobject.fputcsv.php
      * @param array $fields An array of values
-     * @param string $delimiter [optional] <p>
+     * @param string $separator [optional] <p>
      * The field delimiter (one character only). Defaults as a comma or the value set using <b>SplFileObject::setCsvControl</b>.
      * </p>
      * @param string $enclosure [optional] <p>
@@ -648,12 +648,12 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @return int|false Returns the length of the written string or FALSE on failure.
      * @since 5.4
      */
-	public function fputcsv (array $fields, $delimiter = ',' , $enclosure = '"', $escape = "\\") {}
+	public function fputcsv (array $fields, $separator = ',' , $enclosure = '"', $escape = "\\") {}
 
         /**
          * Set the delimiter and enclosure character for CSV
          * @link https://php.net/manual/en/splfileobject.setcsvcontrol.php
-         * @param string $delimiter [optional] <p>
+         * @param string $separator [optional] <p>
          * The field delimiter (one character only).
          * </p>
          * @param string $enclosure [optional] <p>
@@ -664,7 +664,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * </p>
          * @return void
          */
-	public function setCsvControl ($delimiter = ",", $enclosure = "\"", $escape = "\\") {}
+	public function setCsvControl ($separator = ",", $enclosure = "\"", $escape = "\\") {}
 
         /**
          * Get the delimiter and enclosure character for CSV
@@ -679,12 +679,12 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * @param int $operation <p>
 	 * <i>operation</i> is one of the following:
 	 * <b>LOCK_SH</b> to acquire a shared lock (reader).
-         * @param int &$wouldblock [optional] <p>
+         * @param int &$wouldBlock [optional] <p>
          * Set to true if the lock would block (EWOULDBLOCK errno condition).
          * </p>
 	 * @return bool true on success or false on failure.
          */
-        public function flock ($operation, &$wouldblock = null) {}
+        public function flock ($operation, &$wouldBlock = null) {}
 
         /**
          * Flushes the output to the file
@@ -764,12 +764,12 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * function will return the number of assigned values. The optional
          * parameters must be passed by reference.
          */
-        public function fscanf ($format, &$_ = null) {}
+        public function fscanf ($format, & ...$vars = null) {}
 
         /**
          * Write to file
          * @link https://php.net/manual/en/splfileobject.fwrite.php
-         * @param string $str <p>
+         * @param string $data <p>
          * The string to be written to the file.
          * </p>
          * @param int $length [optional] <p>
@@ -780,7 +780,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * </p>
          * @return int the number of bytes written, or 0 on error.
          */
-        public function fwrite ($str, $length = null) {}
+        public function fwrite ($data, $length = null) {}
 
         /**
          * Gets information about the file
@@ -849,12 +849,12 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Set maximum line length
          * @link https://php.net/manual/en/splfileobject.setmaxlinelen.php
-         * @param int $max_len <p>
+         * @param int $maxLength <p>
          * The maximum length of a line.
          * </p>
          * @return void
          */
-        public function setMaxLineLen ($max_len) {}
+        public function setMaxLineLen ($maxLength) {}
 
         /**
          * Get maximum line length
@@ -882,12 +882,12 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Seek to specified line
          * @link https://php.net/manual/en/splfileobject.seek.php
-         * @param int $line_pos <p>
+         * @param int $line <p>
          * The zero-based line number to seek to.
          * </p>
          * @return void
          */
-        public function seek ($line_pos) {}
+        public function seek ($line) {}
 
         /**
 	     * Alias of <b>SplFileObject::fgets</b>
@@ -915,11 +915,11 @@ class SplTempFileObject extends SplFileObject {
         /**
          * Construct a new temporary file object
          * @link https://php.net/manual/en/spltempfileobject.construct.php
-         * @param int $max_memory [optional]
+         * @param int $maxMemory [optional]
          * @throws RuntimeException if an error occurs.
          * @since 5.1.2
          */
-        public function __construct ($max_memory) {}
+        public function __construct ($maxMemory) {}
 }
 
 /**
@@ -937,12 +937,12 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
         /**
          * Add/insert a new value at the specified index
          * @param mixed $index The index where the new value is to be inserted.
-         * @param mixed $newval The new value for the index.
+         * @param mixed $value The new value for the index.
          * @link https://php.net/spldoublylinkedlist.add
          * @return void
          * @since 5.5
          */
-        public function add($index, $newval) {}
+        public function add($index, $value) {}
 
         /**
          * Pops a node from the end of the doubly linked list
@@ -1051,12 +1051,12 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
          * @param mixed $index <p>
          * The index being set.
          * </p>
-         * @param mixed $newval <p>
+         * @param mixed $value <p>
 	 * The new value for the <i>index</i>.
          * </p>
          * @return void
          */
-        public function offsetSet ($index, $newval) {}
+        public function offsetSet ($index, $value) {}
 
         /**
          * Unsets the value at the specified $index
@@ -1113,11 +1113,11 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
         /**
          * Unserializes the storage
          * @link https://php.net/manual/en/spldoublylinkedlist.serialize.php
-         * @param string $serialized The serialized string.
+         * @param string $data The serialized string.
          * @return void
          * @since 5.4
          */
-         public function unserialize($serialized) {}
+         public function unserialize($data) {}
 
          /**
          * Serializes the storage
@@ -1631,13 +1631,13 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
          * @param array $array <p>
          * The array to import.
          * </p>
-         * @param bool $save_indexes [optional] <p>
+         * @param bool $preserveKeys [optional] <p>
          * Try to save the numeric indexes used in the original array.
          * </p>
          * @return SplFixedArray an instance of <b>SplFixedArray</b>
          * containing the array content.
          */
-        public static function fromArray ($array, $save_indexes = true) {}
+        public static function fromArray ($array, $preserveKeys = true) {}
 
         /**
          * Gets the size of the array
@@ -1682,12 +1682,12 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
          * @param int $index <p>
          * The index being set.
          * </p>
-         * @param mixed $newval <p>
+         * @param mixed $value <p>
 	 * The new value for the <i>index</i>.
          * </p>
          * @return void
          */
-        public function offsetSet ($index, $newval) {}
+        public function offsetSet ($index, $value) {}
 
         /**
          * Unsets the value at the specified $index
@@ -1810,12 +1810,12 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
          * @param object $object <p>
          * The object to add.
          * </p>
-         * @param mixed $data [optional] <p>
+         * @param mixed $info [optional] <p>
          * The data to associate with the object.
          * </p>
          * @return void
          */
-        public function attach ($object, $data = null) {}
+        public function attach ($object, $info = null) {}
 
         /**
 	 * Removes an object from the storage
@@ -1878,12 +1878,12 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
         /**
          * Sets the data associated with the current iterator entry
          * @link https://php.net/manual/en/splobjectstorage.setinfo.php
-         * @param mixed $data <p>
+         * @param mixed $info <p>
          * The data to associate with the current iterator entry.
          * </p>
          * @return void
          */
-        public function setInfo ($data) {}
+        public function setInfo ($info) {}
 
         /**
          * Returns the number of objects in the storage
@@ -1931,13 +1931,13 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
         /**
          * Unserializes a storage from its string representation
          * @link https://php.net/manual/en/splobjectstorage.unserialize.php
-         * @param string $serialized <p>
+         * @param string $data <p>
          * The serialized representation of a storage.
          * </p>
          * @return void
          * @since 5.2.2
          */
-        public function unserialize ($serialized) {}
+        public function unserialize ($data) {}
 
         /**
          * Serializes the storage
@@ -1964,12 +1964,12 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
          * @param object $object <p>
          * The object to associate data with.
          * </p>
-	 * @param mixed $data [optional] <p>
+	 * @param mixed $info [optional] <p>
          * The data to associate with the object.
          * </p>
          * @return void
          */
-	public function offsetSet ($object, $data = null) {}
+	public function offsetSet ($object, $info = null) {}
 
         /**
          * Removes an object from the storage
@@ -2063,13 +2063,13 @@ class MultipleIterator implements Iterator {
          * @param Iterator $iterator <p>
          * The new iterator to attach.
          * </p>
-         * @param int|string|null $infos [optional] <p>
+         * @param int|string|null $info [optional] <p>
          * The associative information for the Iterator, which must be an
 	 * integer, a string, or null.
          * </p>
          * @return void Description...
          */
-	public function attachIterator (Iterator $iterator, $infos = null) {}
+	public function attachIterator (Iterator $iterator, $info = null) {}
 
         /**
          * Detaches an iterator

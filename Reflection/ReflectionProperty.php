@@ -58,10 +58,10 @@ class ReflectionProperty implements Reflector
      *
      * @link https://php.net/manual/en/reflectionproperty.construct.php
      * @param string|object $class The class name, that contains the property.
-     * @param string $name The name of the property being reflected.
+     * @param string $property The name of the property being reflected.
      * @throws \ReflectionException if the class or property does not exist.
      */
-    public function __construct($class, $name)
+    public function __construct($class, $property)
     {
     }
 

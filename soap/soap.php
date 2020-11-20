@@ -265,21 +265,21 @@ class SoapClient  {
 
 	/**
 	 * @link https://php.net/manual/en/soapclient.call.php
-	 * @param string $function_name
-	 * @param array $arguments
+	 * @param string $name
+	 * @param array $args
 	 * @return mixed
 	 * @since 5.0.1
 	 */
 	#[Deprecated]
-	public function __call ($function_name, $arguments) {}
+	public function __call ($name, $args) {}
 
 	/**
 	 * Calls a SOAP function
 	 * @link https://php.net/manual/en/soapclient.soapcall.php
-	 * @param string $function_name <p>
+	 * @param string $name <p>
 	 * The name of the SOAP function to call.
 	 * </p>
-	 * @param array $arguments <p>
+	 * @param array $args <p>
 	 * An array of the arguments to pass to the function. This can be either
 	 * an ordered or an associative array. Note that most SOAP servers require
 	 * parameter names to be provided, in which case this must be an
@@ -297,10 +297,10 @@ class SoapClient  {
 	 * <p>
 	 * The soapaction option is the action to call.
 	 * </p>
-	 * @param mixed $input_headers [optional] <p>
+	 * @param mixed $inputHeaders [optional] <p>
 	 * An array of headers to be sent along with the SOAP request.
 	 * </p>
-	 * @param array &$output_headers [optional] <p>
+	 * @param array &$outputHeaders [optional] <p>
 	 * If supplied, this array will be filled with the headers from the SOAP response.
 	 * </p>
 	 * @return mixed SOAP functions may return one, or multiple values. If only one value is returned
@@ -314,7 +314,7 @@ class SoapClient  {
 	 * option set to <b>FALSE</b>, a SoapFault object will be returned.
 	 * @since 5.0.1
 	 */
-	public function __soapCall ($function_name, $arguments, $options = null, $input_headers = null, &$output_headers = null) {}
+	public function __soapCall ($name, $args, $options = null, $inputHeaders = null, &$outputHeaders = null) {}
 
 	/**
 	 * Returns last SOAP request
@@ -388,14 +388,14 @@ class SoapClient  {
 	 * @param int $version <p>
 	 * The SOAP version.
 	 * </p>
-	 * @param int $one_way [optional] <p>
+	 * @param int $oneWay [optional] <p>
 	 * If one_way is set to 1, this method returns nothing.
 	 * Use this where a response is not expected.
 	 * </p>
 	 * @return string The XML SOAP response.
 	 * @since 5.0.1
 	 */
-	public function __doRequest ($request, $location, $action, $version, $one_way = 0) {}
+	public function __doRequest ($request, $location, $action, $version, $oneWay = 0) {}
 
 	/**
 	 * The __setCookie purpose
@@ -414,18 +414,18 @@ class SoapClient  {
 	/**
 	 * Sets the location of the Web service to use
 	 * @link https://php.net/manual/en/soapclient.setlocation.php
-	 * @param string $new_location [optional] <p>
+	 * @param string $location [optional] <p>
 	 * The new endpoint URL.
 	 * </p>
 	 * @return string The old endpoint URL.
 	 * @since 5.0.1
 	 */
-	public function __setLocation ($new_location = null) {}
+	public function __setLocation ($location = null) {}
 
 	/**
 	 * Sets SOAP headers for subsequent calls
 	 * @link https://php.net/manual/en/soapclient.setsoapheaders.php
-	 * @param mixed $soapheaders [optional] <p>
+	 * @param mixed $headers [optional] <p>
 	 * The headers to be set. It could be <b>SoapHeader</b>
 	 * object or array of <b>SoapHeader</b> objects.
 	 * If not specified or set to <b>NULL</b>, the headers will be deleted.
@@ -433,7 +433,7 @@ class SoapClient  {
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * @since 5.0.5
 	 */
-	public function __setSoapHeaders ($soapheaders = null) {}
+	public function __setSoapHeaders ($headers = null) {}
 
 }
 
@@ -452,21 +452,21 @@ class SoapVar  {
 	 * @param string|int $encoding <p>
 	 * The encoding ID, one of the XSD_... constants.
 	 * </p>
-	 * @param string $type_name [optional] <p>
+	 * @param string $typeName [optional] <p>
 	 * The type name.
 	 * </p>
-	 * @param string $type_namespace [optional] <p>
+	 * @param string $typeNamespace [optional] <p>
 	 * The type namespace.
 	 * </p>
-	 * @param string $node_name [optional] <p>
+	 * @param string $nodeName [optional] <p>
 	 * The XML node name.
 	 * </p>
-	 * @param string $node_namespace [optional] <p>
+	 * @param string $nodeNamespace [optional] <p>
 	 * The XML node namespace.
 	 * </p>
 	 * @since 5.0.1
 	 */
-	public function __construct ($data, $encoding, $type_name = null, $type_namespace = null, $node_name = null, $node_namespace = null) {}
+	public function __construct ($data, $encoding, $typeName = null, $typeNamespace = null, $nodeName = null, $nodeNamespace = null) {}
 	
 	/**
 	 * SoapVar constructor
@@ -612,14 +612,14 @@ class SoapServer  {
 	/**
 	 * Sets the class which handles SOAP requests
 	 * @link https://php.net/manual/en/soapserver.setclass.php
-	 * @param string $class_name <p>
+	 * @param string $class <p>
 	 * The name of the exported class.
 	 * </p>
-	 * @param mixed ...$_ [optional] These optional parameters will be passed to the default class constructor during object creation.
+	 * @param mixed ...$args [optional] These optional parameters will be passed to the default class constructor during object creation.
 	 * @return void No value is returned.
 	 * @since 5.0.1
 	 */
-	public function setClass ($class_name, ...$_) {}
+	public function setClass ($class, ...$args) {}
 
 	/**
 	 * Sets the object which will be used to handle SOAP requests
@@ -666,14 +666,14 @@ class SoapServer  {
 	/**
 	 * Handles a SOAP request
 	 * @link https://php.net/manual/en/soapserver.handle.php
-	 * @param string $soap_request [optional] <p>
+	 * @param string $request [optional] <p>
 	 * The SOAP request. If this argument is omitted, the request is assumed to be
 	 * in the raw POST data of the HTTP request.
 	 * </p>
 	 * @return void No value is returned.
 	 * @since 5.0.1
 	 */
-	public function handle ($soap_request = null) {}
+	public function handle ($request = null) {}
 
 	/**
 	 * Issue SoapServer fault indicating an error
@@ -701,13 +701,13 @@ class SoapServer  {
 	/**
 	 * Add a SOAP header to the response
 	 * @link https://php.net/manual/en/soapserver.addsoapheader.php
-	 * @param SoapHeader $object <p>
+	 * @param SoapHeader $header <p>
 	 * The header to be returned.
 	 * </p>
 	 * @return void No value is returned.
 	 * @since 5.0.1
 	 */
-	public function addSoapHeader (SoapHeader $object) {}
+	public function addSoapHeader (SoapHeader $header) {}
 
 }
 
@@ -744,29 +744,29 @@ class SoapFault extends Exception  {
 	/**
 	 * SoapFault constructor
 	 * @link https://php.net/manual/en/soapfault.soapfault.php
-	 * @param string $faultcode <p>
+	 * @param string $code <p>
 	 * The error code of the <b>SoapFault</b>.
 	 * </p>
-	 * @param string $faultstring <p>
+	 * @param string $string <p>
 	 * The error message of the <b>SoapFault</b>.
 	 * </p>
-	 * @param string $faultactor [optional] <p>
+	 * @param string $actor [optional] <p>
 	 * A string identifying the actor that caused the error.
 	 * </p>
-	 * @param string $detail [optional] <p>
+	 * @param string $details [optional] <p>
 	 * More details about the cause of the error.
 	 * </p>
-	 * @param string $faultname [optional] <p>
+	 * @param string $name [optional] <p>
 	 * Can be used to select the proper fault encoding from WSDL.
 	 * </p>
-	 * @param mixed $headerfault [optional] <p>
+	 * @param mixed $headerFault [optional] <p>
 	 * Can be used during SOAP header handling to report an error in the
 	 * response header.
 	 * </p>
 	 * @since 5.0.1
 	 */
 	#[\JetBrains\PhpStorm\Pure]
-    public function __construct ($faultcode, $faultstring, $faultactor = null, $detail = null, $faultname = null, $headerfault = null) {}
+    public function __construct ($code, $string, $actor = null, $details = null, $name = null, $headerFault = null) {}
 	
 	/**
 	 * SoapFault constructor
@@ -864,14 +864,14 @@ class SoapHeader  {
 	 * A SOAP header's content. It can be a PHP value or a
 	 * <b>SoapVar</b> object.
 	 * </p>
-	 * @param bool $mustunderstand [optional]
+	 * @param bool $mustUnderstand [optional]
 	 * @param string $actor [optional] <p>
 	 * Value of the actor attribute of the SOAP header
 	 * element.
 	 * </p>
 	 * @since 5.0.1
 	 */
-	 public function __construct ($namespace, $name, $data = null, $mustunderstand = false, $actor = null) {}
+	 public function __construct ($namespace, $name, $data = null, $mustUnderstand = false, $actor = null) {}
 
 	/**
 	 * SoapHeader constructor

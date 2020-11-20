@@ -149,10 +149,10 @@ class XMLReader  {
 	/**
 	 * Get the value of an attribute by localname and URI
 	 * @link https://php.net/manual/en/xmlreader.getattributens.php
-	 * @param string $localName <p>
+	 * @param string $name <p>
 	 * The local name.
 	 * </p>
-	 * @param string $namespaceURI <p>
+	 * @param string $namespace <p>
 	 * The namespace URI.
 	 * </p>
 	 * @return string|null The value of the attribute, or <b>NULL</b> if no attribute with the
@@ -160,7 +160,7 @@ class XMLReader  {
 	 * <i>namespaceURI</i> is found or not positioned of element.
 	 * @since 5.1.2
 	 */
-	public function getAttributeNs ($localName, $namespaceURI) {}
+	public function getAttributeNs ($name, $namespace) {}
 
 	/**
 	 * Indicates if specified property has been set
@@ -218,16 +218,16 @@ class XMLReader  {
 	/**
 	 * Move cursor to a named attribute
 	 * @link https://php.net/manual/en/xmlreader.movetoattributens.php
-	 * @param string $localName <p>
+	 * @param string $name <p>
 	 * The local name.
 	 * </p>
-	 * @param string $namespaceURI <p>
+	 * @param string $namespace <p>
 	 * The namespace URI.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * @since 5.1.2
 	 */
-	public function moveToAttributeNs ($localName, $namespaceURI) {}
+	public function moveToAttributeNs ($name, $namespace) {}
 
 	/**
 	 * Position cursor on the parent Element of current Attribute
@@ -257,13 +257,13 @@ class XMLReader  {
 	/**
 	 * Set the URI containing the XML to parse
 	 * @link https://php.net/manual/en/xmlreader.open.php
-	 * @param string $URI <p>
+	 * @param string $uri <p>
 	 * URI pointing to the document.
 	 * </p>
 	 * @param string $encoding [optional] <p>
 	 * The document encoding or <b>NULL</b>.
 	 * </p>
-	 * @param int $options [optional] <p>
+	 * @param int $flags [optional] <p>
 	 * A bitmask of the LIBXML_*
 	 * constants.
 	 * </p>
@@ -271,7 +271,7 @@ class XMLReader  {
 	 * <b>XMLReader</b> or <b>FALSE</b> on failure.
 	 * @since 5.1.2
 	 */
-	public static function open ($URI, $encoding = null, $options = 0) {}
+	public static function open ($uri, $encoding = null, $flags = 0) {}
 
 	/**
 	 * Move to next node in document
@@ -284,13 +284,13 @@ class XMLReader  {
 	/**
 	 * Move cursor to next node skipping all subtrees
 	 * @link https://php.net/manual/en/xmlreader.next.php
-	 * @param string $localname [optional] <p>
+	 * @param string $name [optional] <p>
 	 * The name of the next node to move to.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * @since 5.1.2
 	 */
-	public function next ($localname = null) {}
+	public function next ($name = null) {}
 
 	/**
 	 * Retrieve XML from current node
@@ -370,7 +370,7 @@ class XMLReader  {
 	 * @param string $encoding [optional] <p>
 	 * The document encoding or <b>NULL</b>.
 	 * </p>
-	 * @param int $options [optional] <p>
+	 * @param int $flags [optional] <p>
 	 * A bitmask of the LIBXML_*
 	 * constants.
 	 * </p>
@@ -378,16 +378,16 @@ class XMLReader  {
 	 * <b>XMLReader</b> or <b>FALSE</b> on failure.
 	 * @since 5.1.2
 	 */
-	public static function XML ($source, $encoding = null, $options = 0) {}
+	public static function XML ($source, $encoding = null, $flags = 0) {}
 
 	/**
 	 * Returns a copy of the current node as a DOM object
 	 * @link https://php.net/manual/en/xmlreader.expand.php
-	 * @param DOMNode $basenode [optional]
+	 * @param DOMNode $baseNode [optional]
 	 * @return DOMNode|false The resulting <b>DOMNode</b> or <b>FALSE</b> on error.
 	 * @since 5.1.2
 	 */
-	public function expand (DOMNode $basenode = null) {}
+	public function expand (DOMNode $baseNode = null) {}
 
 }
 // End of xmlreader v.0.2

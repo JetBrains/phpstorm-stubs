@@ -374,13 +374,13 @@ class RecursiveIteratorIterator implements OuterIterator {
     /**
      * Set max depth
      * @link https://php.net/manual/en/recursiveiteratoriterator.setmaxdepth.php
-     * @param int $max_depth [optional] <p>
+     * @param int $maxDepth [optional] <p>
      * The maximum allowed depth. Default -1 is used
      * for any depth.
      * </p>
      * @return void
      */
-    public function setMaxDepth($max_depth) { }
+    public function setMaxDepth($maxDepth) { }
 
     /**
      * Get max depth
@@ -421,9 +421,9 @@ class IteratorIterator implements OuterIterator {
      * Create an iterator from anything that is traversable
      * @link https://php.net/manual/en/iteratoriterator.construct.php
      * @param Traversable $iterator
-     * @param string $class_name [optional]
+     * @param string $class [optional]
      */
-    public function __construct(Traversable $iterator, $class_name = '') { }
+    public function __construct(Traversable $iterator, $class = '') { }
 
     /**
      * Get the inner iterator
@@ -627,9 +627,9 @@ class LimitIterator extends IteratorIterator {
      * @link https://php.net/manual/en/limititerator.construct.php
      * @param Iterator $iterator The iterator to limit.
      * @param int $offset [optional] The offset to start at. Must be zero or greater.
-     * @param int $count [optional] The number of items to iterate. Must be -1 or greater. -1, the default, means no limit.
+     * @param int $limit [optional] The number of items to iterate. Must be -1 or greater. -1, the default, means no limit.
      */
-    public function __construct(Iterator $iterator, $offset = 0, $count = -1) { }
+    public function __construct(Iterator $iterator, $offset = 0, $limit = -1) { }
 
     /**
      * Rewind the iterator to the specified starting offset
@@ -669,12 +669,12 @@ class LimitIterator extends IteratorIterator {
     /**
      * Seek to the given position
      * @link https://php.net/manual/en/limititerator.seek.php
-     * @param int $position <p>
+     * @param int $offset <p>
      * The position to seek to.
      * </p>
      * @return int the offset position after seeking.
      */
-    public function seek($position) { }
+    public function seek($offset) { }
 
     /**
      * Return the current position
@@ -812,39 +812,39 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * Internal cache array index to retrieve.
      * @link https://php.net/manual/en/cachingiterator.offsetget.php
-     * @param string $index The index of the element to retrieve.
+     * @param string $key The index of the element to retrieve.
      * @return mixed
      * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      */
-    public function offsetGet($index) { }
+    public function offsetGet($key) { }
 
     /**
      * Set an element on the internal cache array.
      * @link https://php.net/manual/en/cachingiterator.offsetset.php
-     * @param string $index The index of the element to be set.
-     * @param string $newval The new value for the <i>index</i>.
+     * @param string $key The index of the element to be set.
+     * @param string $value The new value for the <i>index</i>.
      * @return void
      * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      */
-    public function offsetSet($index, $newval) { }
+    public function offsetSet($key, $value) { }
 
     /**
      * Remove an element from the internal cache array.
      * @link https://php.net/manual/en/cachingiterator.offsetunset.php
-     * @param string $index The index of the element to be unset.
+     * @param string $key The index of the element to be unset.
      * @return void
      * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      */
-    public function offsetUnset($index) { }
+    public function offsetUnset($key) { }
 
     /**
      * Return whether an element at the index exists on the internal cache array.
      * @link https://php.net/manual/en/cachingiterator.offsetexists.php
-     * @param string $index The index being checked.
+     * @param string $key The index being checked.
      * @return bool true if an entry referenced by the offset exists, false otherwise.
      * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      */
-    public function offsetExists($index) { }
+    public function offsetExists($key) { }
 
     /**
      * Retrieve the contents of the cache
@@ -1098,11 +1098,11 @@ class RegexIterator extends FilterIterator {
      * @link https://php.net/manual/en/regexiterator.construct.php
      * @param Iterator $iterator The iterator to apply this regex filter to.
      * @param string $regex The regular expression to match.
-     * @param int $mode [optional] Operation mode, see RegexIterator::setMode() for a list of modes.
+     * @param int $pattern [optional] Operation mode, see RegexIterator::setMode() for a list of modes.
      * @param int $flags [optional] Special flags, see RegexIterator::setFlags() for a list of available flags.
-     * @param int $preg_flags [optional] The regular expression flags. These flags depend on the operation mode parameter
+     * @param int $pregFlags [optional] The regular expression flags. These flags depend on the operation mode parameter
      */
-    public function __construct(Iterator $iterator, $regex, $mode = self::MATCH, $flags = 0, $preg_flags = 0) { }
+    public function __construct(Iterator $iterator, $pattern, $mode = self::MATCH, $flags = 0, $pregFlags = 0) { }
 
     /**
      * Get accept status
@@ -1223,13 +1223,13 @@ class RegexIterator extends FilterIterator {
     /**
      * Sets the regular expression flags.
      * @link https://php.net/manual/en/regexiterator.setpregflags.php
-     * @param int $preg_flags <p>
+     * @param int $pregFlags <p>
      * The regular expression flags. See <b>RegexIterator::__construct</b>
      * for an overview of available flags.
      * </p>
      * @return void
      */
-    public function setPregFlags($preg_flags) { }
+    public function setPregFlags($pregFlags) { }
 }
 
 /**
@@ -1241,12 +1241,12 @@ class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator 
      * Creates a new RecursiveRegexIterator.
      * @link https://php.net/manual/en/recursiveregexiterator.construct.php
      * @param RecursiveIterator $iterator The iterator to apply this regex filter to.
-     * @param string $regex The regular expression to match.
+     * @param string $pattern The regular expression to match.
      * @param int $mode [optional] Operation mode, see RegexIterator::setMode() for a list of modes.
      * @param int $flags [optional] Special flags, see RegexIterator::setFlags() for a list of available flags.
-     * @param int $preg_flags [optional] The regular expression flags. These flags depend on the operation mode parameter
+     * @param int $pregFlags [optional] The regular expression flags. These flags depend on the operation mode parameter
      */
-    public function __construct(RecursiveIterator $iterator, $regex, $mode = self::MATCH, $flags = 0, $preg_flags = 0) { }
+    public function __construct(RecursiveIterator $iterator, $pattern, $mode = self::MATCH, $flags = 0, $pregFlags = 0) { }
 
     /**
      * Returns whether an iterator can be obtained for the current entry.
@@ -1285,10 +1285,10 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator {
      * @link https://php.net/manual/en/recursivetreeiterator.construct.php
      * @param RecursiveIterator|IteratorAggregate $iterator
      * @param int $flags [optional] Flags to control the behavior of the RecursiveTreeIterator object.
-     * @param int $caching_it_flags [optional] Flags to affect the behavior of the {@see RecursiveCachingIterator} used internally.
+     * @param int $cachingIteratorFlags [optional] Flags to affect the behavior of the {@see RecursiveCachingIterator} used internally.
      * @param int $mode [optional] Flags to affect the behavior of the {@see RecursiveIteratorIterator} used internally.
      */
-    public function __construct($iterator, $flags = self::BYPASS_KEY, $caching_it_flags = CachingIterator::CATCH_GET_CHILD,
+    public function __construct($iterator, $flags = self::BYPASS_KEY, $cachingIteratorFlags = CachingIterator::CATCH_GET_CHILD,
                                 $mode = self::SELF_FIRST) { }
 
     /**
@@ -1434,55 +1434,55 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Construct a new array object
      * @link https://php.net/manual/en/arrayobject.construct.php
-     * @param array|object $input The input parameter accepts an array or an Object.
+     * @param array|object $array The input parameter accepts an array or an Object.
      * @param int $flags Flags to control the behaviour of the ArrayObject object.
-     * @param string $iterator_class Specify the class that will be used for iteration of the ArrayObject object. ArrayIterator is the default class used.
+     * @param string $iteratorClass Specify the class that will be used for iteration of the ArrayObject object. ArrayIterator is the default class used.
      *
      */
-    public function __construct($input = array(), $flags = 0, $iterator_class = "ArrayIterator") { }
+    public function __construct($array = array(), $flags = 0, $iteratorClass = "ArrayIterator") { }
 
     /**
      * Returns whether the requested index exists
      * @link https://php.net/manual/en/arrayobject.offsetexists.php
-     * @param mixed $index <p>
+     * @param mixed $key <p>
      * The index being checked.
      * </p>
      * @return bool true if the requested index exists, otherwise false
      */
-    public function offsetExists($index) { }
+    public function offsetExists($key) { }
 
     /**
      * Returns the value at the specified index
      * @link https://php.net/manual/en/arrayobject.offsetget.php
-     * @param mixed $index <p>
+     * @param mixed $key <p>
      * The index with the value.
      * </p>
      * @return mixed|false The value at the specified index or false.
      */
-    public function offsetGet($index) { }
+    public function offsetGet($key) { }
 
     /**
      * Sets the value at the specified index to newval
      * @link https://php.net/manual/en/arrayobject.offsetset.php
-     * @param mixed $index <p>
+     * @param mixed $key <p>
      * The index being set.
      * </p>
-     * @param mixed $newval <p>
+     * @param mixed $value <p>
      * The new value for the <i>index</i>.
      * </p>
      * @return void
      */
-    public function offsetSet($index, $newval) { }
+    public function offsetSet($key, $value) { }
 
     /**
      * Unsets the value at the specified index
      * @link https://php.net/manual/en/arrayobject.offsetunset.php
-     * @param mixed $index <p>
+     * @param mixed $key <p>
      * The index being unset.
      * </p>
      * @return void
      */
-    public function offsetUnset($index) { }
+    public function offsetUnset($key) { }
 
     /**
      * Appends the value
@@ -1557,23 +1557,23 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Sort the entries by value
      * @link https://php.net/manual/en/arrayobject.asort.php
-     * @param int $sort_flags [optional]
+     * @param int $flags [optional]
      * @return void
      */
-    public function asort($sort_flags = SORT_REGULAR) { }
+    public function asort($flags = SORT_REGULAR) { }
 
     /**
      * Sort the entries by key
      * @link https://php.net/manual/en/arrayobject.ksort.php
-     * @param int $sort_flags [optional]
+     * @param int $flags [optional]
      * @return void
      */
-    public function ksort($sort_flags = SORT_REGULAR) { }
+    public function ksort($flags = SORT_REGULAR) { }
 
     /**
      * Sort the entries with a user-defined comparison function and maintain key association
      * @link https://php.net/manual/en/arrayobject.uasort.php
-     * @param callback $cmp_function <p>
+     * @param callback $callback <p>
      * Function <i>cmp_function</i> should accept two
      * parameters which will be filled by pairs of entries.
      * The comparison function must return an integer less than, equal
@@ -1583,12 +1583,12 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * </p>
      * @return void
      */
-    public function uasort($cmp_function) { }
+    public function uasort($callback) { }
 
     /**
      * Sort the entries by keys using a user-defined comparison function
      * @link https://php.net/manual/en/arrayobject.uksort.php
-     * @param callback $cmp_function <p>
+     * @param callback $callback <p>
      * The callback comparison function.
      * </p>
      * <p>
@@ -1601,7 +1601,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * </p>
      * @return void
      */
-    public function uksort($cmp_function) { }
+    public function uksort($callback) { }
 
     /**
      * Sort entries using a "natural order" algorithm
@@ -1620,12 +1620,12 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Unserialize an ArrayObject
      * @link https://php.net/manual/en/arrayobject.unserialize.php
-     * @param string $serialized <p>
+     * @param string $data <p>
      * The serialized <b>ArrayObject</b>.
      * </p>
      * @return void The unserialized <b>ArrayObject</b>.
      */
-    public function unserialize($serialized) { }
+    public function unserialize($data) { }
 
     /**
      * Serialize an ArrayObject
@@ -1663,22 +1663,22 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Exchange the array for another one.
      * @link https://php.net/manual/en/arrayobject.exchangearray.php
-     * @param mixed $input <p>
+     * @param mixed $array <p>
      * The new array or object to exchange with the current array.
      * </p>
      * @return array the old array.
      */
-    public function exchangeArray($input) { }
+    public function exchangeArray($array) { }
 
     /**
      * Sets the iterator classname for the ArrayObject.
      * @link https://php.net/manual/en/arrayobject.setiteratorclass.php
-     * @param string $iterator_class <p>
+     * @param string $iteratorClass <p>
      * The classname of the array iterator to use when iterating over this object.
      * </p>
      * @return void
      */
-    public function setIteratorClass($iterator_class) { }
+    public function setIteratorClass($iteratorClass) { }
 
     /**
      * Gets the iterator classname for the ArrayObject.
@@ -1710,45 +1710,45 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Check if offset exists
      * @link https://php.net/manual/en/arrayiterator.offsetexists.php
-     * @param string $index <p>
+     * @param string $key <p>
      * The offset being checked.
      * </p>
      * @return bool true if the offset exists, otherwise false
      */
-    public function offsetExists($index) { }
+    public function offsetExists($key) { }
 
     /**
      * Get value for an offset
      * @link https://php.net/manual/en/arrayiterator.offsetget.php
-     * @param string $index <p>
+     * @param string $key <p>
      * The offset to get the value from.
      * </p>
      * @return mixed The value at offset <i>index</i>.
      */
-    public function offsetGet($index) { }
+    public function offsetGet($key) { }
 
     /**
      * Set value for an offset
      * @link https://php.net/manual/en/arrayiterator.offsetset.php
-     * @param string $index <p>
+     * @param string $key <p>
      * The index to set for.
      * </p>
-     * @param string $newval <p>
+     * @param string $value <p>
      * The new value to store at the index.
      * </p>
      * @return void
      */
-    public function offsetSet($index, $newval) { }
+    public function offsetSet($key, $value) { }
 
     /**
      * Unset value for an offset
      * @link https://php.net/manual/en/arrayiterator.offsetunset.php
-     * @param string $index <p>
+     * @param string $key <p>
      * The offset to unset.
      * </p>
      * @return void
      */
-    public function offsetUnset($index) { }
+    public function offsetUnset($key) { }
 
     /**
      * Append an element
@@ -1799,38 +1799,38 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Sort array by values
      * @link https://php.net/manual/en/arrayiterator.asort.php
-     * @param int $sort_flags [optional]
+     * @param int $flags [optional]
      * @return void
      */
-    public function asort($sort_flags = SORT_REGULAR) { }
+    public function asort($flags = SORT_REGULAR) { }
 
     /**
      * Sort array by keys
      * @link https://php.net/manual/en/arrayiterator.ksort.php
-     * @param int $sort_flags [optional]
+     * @param int $flags [optional]
      * @return void
      */
-    public function ksort($sort_flags = SORT_REGULAR) { }
+    public function ksort($flags = SORT_REGULAR) { }
 
     /**
      * User defined sort
      * @link https://php.net/manual/en/arrayiterator.uasort.php
-     * @param callable $cmp_function <p>
+     * @param callable $callback <p>
      * The compare function used for the sort.
      * </p>
      * @return void
      */
-    public function uasort($cmp_function) { }
+    public function uasort($callback) { }
 
     /**
      * User defined sort
      * @link https://php.net/manual/en/arrayiterator.uksort.php
-     * @param callable $cmp_function <p>
+     * @param callable $callback <p>
      * The compare function used for the sort.
      * </p>
      * @return void
      */
-    public function uksort($cmp_function) { }
+    public function uksort($callback) { }
 
     /**
      * Sort an array naturally
@@ -1849,12 +1849,12 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Unserialize
      * @link https://php.net/manual/en/arrayiterator.unserialize.php
-     * @param string $serialized <p>
+     * @param string $data <p>
      * The serialized ArrayIterator object to be unserialized.
      * </p>
      * @return string The <b>ArrayIterator</b>.
      */
-    public function unserialize($serialized) { }
+    public function unserialize($data) { }
 
     /**
      * Serialize
@@ -1901,12 +1901,12 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Seek to position
      * @link https://php.net/manual/en/arrayiterator.seek.php
-     * @param int $position <p>
+     * @param int $offset <p>
      * The position to seek to.
      * </p>
      * @return void
      */
-    public function seek($position) { }
+    public function seek($offset) { }
 
     /**
      * @return array

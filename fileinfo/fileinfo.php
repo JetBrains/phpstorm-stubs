@@ -7,31 +7,31 @@ use JetBrains\PhpStorm\Pure;
 class finfo  {
 
 	/**
-	 * @param int $options [optional]
-	 * @param string $arg [optional]
+	 * @param int $flags [optional]
+	 * @param string $magic_database [optional]
 	 */
-	public function __construct ($options, $arg) {}
+	public function __construct ($flags, $magic_database) {}
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
 	 * Set libmagic configuration options
 	 * @link https://php.net/manual/en/function.finfo-set-flags.php
-	 * @param int $options <p>
+	 * @param int $flags <p>
 	 * One or disjunction of more Fileinfo
 	 * constants.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function set_flags ($options) {}
+	public function set_flags ($flags) {}
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
 	 * Return information about a file
 	 * @link https://php.net/manual/en/function.finfo-file.php
-	 * @param string $file_name [optional] <p>
+	 * @param string $filename [optional] <p>
 	 * Name of a file to be checked.
 	 * </p>
-	 * @param int $options [optional] <p>
+	 * @param int $flags [optional] <p>
 	 * One or disjunction of more Fileinfo
 	 * constants.
 	 * </p>
@@ -42,7 +42,7 @@ class finfo  {
 	 * <i>filename</i> argument, or <b>FALSE</b> if an error occurred.
 	 */
 	#[Pure]
-	public function file ($file_name = null, $options = FILEINFO_NONE, $context = null) {}
+	public function file ($filename = null, $flags = FILEINFO_NONE, $context = null) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
@@ -51,7 +51,7 @@ class finfo  {
 	 * @param string $string [optional] <p>
 	 * Content of a file to be checked.
 	 * </p>
-	 * @param int $options [optional] <p>
+	 * @param int $flags [optional] <p>
 	 * One or disjunction of more Fileinfo
 	 * constants.
 	 * </p>
@@ -60,7 +60,7 @@ class finfo  {
 	 * argument, or <b>FALSE</b> if an error occurred.
 	 */
 	#[Pure]
-	public function buffer ($string = null, $options = FILEINFO_NONE, $context = null) {}
+	public function buffer ($string = null, $flags = FILEINFO_NONE, $context = null) {}
 
 }
 

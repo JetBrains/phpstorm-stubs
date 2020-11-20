@@ -544,11 +544,11 @@ class ErrorException extends Exception {
      * @param int $code [optional] The Exception code.
      * @param int $severity [optional] The severity level of the exception.
      * @param string $filename [optional] The filename where the exception is thrown.
-     * @param int $lineno [optional] The line number where the exception is thrown.
+     * @param int $line [optional] The line number where the exception is thrown.
      * @param Exception $previous [optional] The previous exception used for the exception chaining.
      */
     #[\JetBrains\PhpStorm\Pure]
-    public function __construct($message = "", $code = 0, $severity = 1, $filename = __FILE__, $lineno = __LINE__, $previous = null) { }
+    public function __construct($message = "", $code = 0, $severity = 1, $filename = __FILE__, $line = __LINE__, $previous = null) { }
 
     /**
      * Gets the exception severity
@@ -588,43 +588,43 @@ final class Closure {
     /**
      * Duplicates the closure with a new bound object and class scope
      * @link https://secure.php.net/manual/en/closure.bindto.php
-     * @param object|null $newthis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
-     * @param mixed $newscope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
+     * @param object|null $newThis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
+     * @param mixed $newScope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
      * If an object is given, the type of the object will be used instead.
      * This determines the visibility of protected and private methods of the bound object.
      * @return Closure|false Returns the newly created Closure object or FALSE on failure
      */
-    function bindTo($newthis, $newscope = 'static') { }
+    function bindTo($newThis, $newScope = 'static') { }
 
     /**
      * This method is a static version of Closure::bindTo().
      * See the documentation of that method for more information.
      * @link https://secure.php.net/manual/en/closure.bind.php
      * @param Closure $closure The anonymous functions to bind.
-     * @param object|null $newthis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
-     * @param mixed $newscope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
+     * @param object|null $newThis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
+     * @param mixed $newScope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
      * If an object is given, the type of the object will be used instead.
      * This determines the visibility of protected and private methods of the bound object.
      * @return Closure|false Returns the newly created Closure object or FALSE on failure
      */
-    static function bind(Closure $closure, $newthis, $newscope = 'static') { }
+    static function bind(Closure $closure, $newThis, $newScope = 'static') { }
 
     /**
      * Temporarily binds the closure to newthis, and calls it with any given parameters.
      * @link https://php.net/manual/en/closure.call.php
      * @param object $newThis The object to bind the closure to for the duration of the call.
-     * @param mixed $parameters [optional] Zero or more parameters, which will be given as parameters to the closure.
+     * @param mixed $args [optional] Zero or more parameters, which will be given as parameters to the closure.
      * @return mixed
      * @since 7.0
      */
-    function call ($newthis, ...$parameters) {}
+    function call ($newThis, ...$args) {}
 
     /**
-     * @param callable $callable
+     * @param callable $callback
      * @return Closure
      * @since 7.1
      */
-    public static function fromCallable (callable $callable) {}
+    public static function fromCallable (callable $callback) {}
 }
 
 /**

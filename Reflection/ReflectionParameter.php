@@ -23,11 +23,11 @@ class ReflectionParameter implements Reflector
      *
      * @link https://php.net/manual/en/reflectionparameter.construct.php
      * @param callable $function The function to reflect parameters from.
-     * @param string|int $parameter Either an integer specifying the position
+     * @param string|int $param Either an integer specifying the position
      * of the parameter (starting with zero), or a the parameter name as string.
      * @throws \ReflectionException if the function or parameter does not exist.
      */
-    public function __construct(callable $function, $parameter)
+    public function __construct(callable $function, $param)
     {
     }
 

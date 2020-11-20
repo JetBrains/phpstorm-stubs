@@ -14,9 +14,9 @@ class ReflectionObject extends ReflectionClass
      * Constructs a ReflectionObject
      *
      * @link https://php.net/manual/en/reflectionobject.construct.php
-     * @param object $argument An object instance.
+     * @param object $object An object instance.
      */
-    public function __construct($argument)
+    public function __construct($object)
     {
     }
 

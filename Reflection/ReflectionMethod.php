@@ -64,14 +64,14 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * </code>
      *
      * @link https://php.net/manual/en/reflectionmethod.construct.php
-     * @param string|object $classOrName Classname, object
+     * @param string|object $objectOrMethod Classname, object
      * (instance of the class) that contains the method or class name and
      * method name delimited by ::.
-     * @param string|null $name Name of the method if the first argument is a
+     * @param string|null $method Name of the method if the first argument is a
      * classname or an object.
      * @throws \ReflectionException if the class or method does not exist.
      */
-    public function __construct($classOrName, $name = null)
+    public function __construct($objectOrMethod, $method = null)
     {
     }
 

@@ -49,11 +49,11 @@ class ReflectionClassConstant implements Reflector
      * ReflectionClassConstant constructor.
      *
      * @param string|object $class Either a string containing the name of the class to reflect, or an object.
-     * @param string $name The name of the class constant.
+     * @param string $constant The name of the class constant.
      * @since 7.1
      * @link https://php.net/manual/en/reflectionclassconstant.construct.php
      */
-    public function __construct($class, $name)
+    public function __construct($class, $constant)
     {
     }
 

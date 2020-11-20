@@ -13,11 +13,11 @@ class CURLFile {
      * Create a CURLFile object
      * @link https://secure.php.net/manual/en/curlfile.construct.php
      * @param string $filename <p>Path to the file which will be uploaded.</p>
-     * @param string $mimetype [optional] <p>Mimetype of the file.</p>
-     * @param string $postname [optional] <p>Name of the file.</p>
+     * @param string $mime_type [optional] <p>Mimetype of the file.</p>
+     * @param string $posted_filename [optional] <p>Name of the file.</p>
      * @since 5.5
      */
-    function __construct($filename, $mimetype = '', $postname = '') {
+    function __construct($filename, $mime_type = '', $posted_filename = '') {
     }
 
     /**
@@ -53,19 +53,19 @@ class CURLFile {
     /**
      * Set MIME type
      * @link https://secure.php.net/manual/en/curlfile.setmimetype.php
-     * @param string $mime
+     * @param string $mime_type
      * @since 5.5
      */
-    public function setMimeType($mime) {
+    public function setMimeType($mime_type) {
     }
 
     /**
      * Set file name for POST
      * https://secure.php.net/manual/en/curlfile.setpostfilename.php
-     * @param string $postname
+     * @param string $posted_filename
      * @since 5.5
      */
-    public function setPostFilename($postname) {
+    public function setPostFilename($posted_filename) {
     }
 
     /**

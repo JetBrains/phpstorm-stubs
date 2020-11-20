@@ -29,10 +29,10 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * Constructs a ReflectionFunction object
      *
      * @link https://php.net/manual/en/reflectionfunction.construct.php
-     * @param string|Closure $name The name of the function to reflect or a closure.
+     * @param string|Closure $function The name of the function to reflect or a closure.
      * @throws ReflectionException if the function does not exist.
      */
-    public function __construct($name)
+    public function __construct($function)
     {
     }
 
