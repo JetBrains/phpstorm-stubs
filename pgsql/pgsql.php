@@ -1103,7 +1103,6 @@ function pg_copy_from ($connection, $table_name, array $rows, $delimiter = null,
  * @param string $mode [optional] <p>
  * An optional file access mode, same as for <b>fopen</b>.
  * </p>
- * @param string $mode [optional]
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection

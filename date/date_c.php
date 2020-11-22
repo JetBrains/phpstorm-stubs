@@ -503,7 +503,7 @@ class DateTime implements DateTimeInterface {
 
 
     /**
-     * @param DateTimeImmutable $datetTimeImmutable
+     * @param DateTimeImmutable $object
      * @since 7.3
      * @return DateTime
      */

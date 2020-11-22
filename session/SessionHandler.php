@@ -237,8 +237,8 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
 	/**
 	 * Write session data
 	 * @link https://php.net/manual/en/sessionhandler.write.php
-	 * @param string $session_id The session id.
-	 * @param string $session_data <p>
+	 * @param string $id The session id.
+	 * @param string $data <p>
 	 * The encoded session data. This data is the
 	 * result of the PHP internally encoding
 	 * the $_SESSION superglobal to a serialized

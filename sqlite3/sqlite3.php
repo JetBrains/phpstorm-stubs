@@ -474,7 +474,7 @@ class SQLite3Result  {
 	/**
 	 * Returns the type of the nth column
 	 * @link https://php.net/manual/en/sqlite3result.columntype.php
-	 * @param int $column_number <p>
+	 * @param int $column <p>
 	 * The numeric zero-based index of the column.
 	 * </p>
 	 * @return int the data type index of the column identified by

@@ -176,7 +176,7 @@ class mysqli  {
     /**
 	 * Changes the user of the specified database connection
 	 * @link https://php.net/manual/en/mysqli.change-user.php
-	 * @param string $user <p>
+	 * @param string $username <p>
 	 * The MySQL user name.
 	 * </p>
 	 * @param string $password <p>
