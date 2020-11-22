@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Sodium;
 
 /**
@@ -58,6 +58,7 @@ namespace Sodium;
     const CRYPTO_PWHASH_MEMLIMIT_MODERATE = 134217728;
     const CRYPTO_PWHASH_OPSLIMIT_SENSITIVE = 8;
     const CRYPTO_PWHASH_MEMLIMIT_SENSITIVE = 536870912;
+
 
     /**
      * Can you access AES-256-GCM? This is only available if you have supported

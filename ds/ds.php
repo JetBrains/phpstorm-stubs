@@ -190,7 +190,7 @@ namespace Ds {
          * TRUE if a callback was not provided.
          * @link https://www.php.net/manual/en/ds-sequence.filter.php
          */
-        public function filter(callable $callback = null);
+        public function filter(?callable $callback = null);
 
         /**
          * Returns the index of the value, or FALSE if not found.
@@ -531,7 +531,7 @@ namespace Ds {
          * TRUE if a callback was not provided.
          * @link https://www.php.net/manual/en/ds-vector.filter.php
          */
-        public function filter(callable $callback = null): Vector
+        public function filter(?callable $callback = null): Vector
         {
         }
 
@@ -976,7 +976,7 @@ namespace Ds {
          * TRUE if a callback was not provided.
          * @link https://www.php.net/manual/en/ds-deque.filter.php
          */
-        public function filter(callable $callback = null): Deque
+        public function filter(?callable $callback = null): Deque
         {
         }
 
@@ -1367,7 +1367,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.filter.php
          */
-        public function filter(callable $callback = null): Map
+        public function filter(?callable $callback = null): Map
         {
         }
 
@@ -2105,7 +2105,7 @@ namespace Ds {
          * callback returned TRUE, or all values that convert to TRUE if a
          * callback was not provided.
          */
-        public function filter(callable $callback = null): Set
+        public function filter(?callable $callback = null): Set
         {
         }
 

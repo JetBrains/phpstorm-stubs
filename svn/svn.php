@@ -655,7 +655,7 @@ function svn_propget ($path, $property_name, $recurse = false, $revision) {}
  * </p>
  * @return resource What the function returns, first on success, then on failure.
  */
-function svn_repos_create ($path, array $config = null, array $fsconfig = null) {}
+function svn_repos_create ($path, ?array $config = null, ?array $fsconfig = null) {}
 
 /**
  * (PECL svn &gt;= 0.1.0)<br/>

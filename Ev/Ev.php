@@ -794,6 +794,7 @@ final class EvPeriodic extends EvWatcher
      */
     public $interval;
 
+
     /**
      * Constructs EvPeriodic watcher object.
      *
@@ -813,7 +814,7 @@ final class EvPeriodic extends EvWatcher
      * @param int $priority
      */
     public function __construct(
-        $offset, $interval, callable $reschedule_cb = null, callable $callback, $data = null, $priority = 0
+        $offset, $interval, ?callable $reschedule_cb = null, callable $callback, $data = null, $priority = 0
     ) {}
 
     /**
@@ -854,7 +855,7 @@ final class EvPeriodic extends EvWatcher
      * @return EvPeriodic
      */
     final public static function createStopped(
-        $offset, $interval, callable $reschedule_cb = null, callable $callback, $data = null, $priority = 0
+        $offset, $interval, ?callable $reschedule_cb = null, callable $callback, $data = null, $priority = 0
     ) {}
 
     /**
@@ -1321,7 +1322,7 @@ final class EvLoop
      * @param int $priority
      * @return EvCheck
      */
-    final public function check(callable $callback, $data = null, $priority = 0) {}
+    public final function check(callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvChild object associated with the current event loop instance;
@@ -1333,7 +1334,7 @@ final class EvLoop
      * @param int $priority
      * @return EvChild
      */
-    final public function child($pid, $trace, callable $callback, $data = null, $priority = 0) {}
+    public final function child($pid, $trace, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvEmbed object associated with the current event loop instance.
@@ -1344,7 +1345,7 @@ final class EvLoop
      * @param int $priority
      * @return EvEmbed
      */
-    final public function embed(EvLoop $other, callable $callback, $data = null, $priority = 0) {}
+    public final function embed(EvLoop $other, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvFork object associated with the current event loop instance.
@@ -1354,7 +1355,7 @@ final class EvLoop
      * @param int $priority
      * @return EvFork
      */
-    final public function fork(callable $callback, $data = null, $priority = 0) {}
+    public final function fork(callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvIdle object associated with the current event loop instance.
@@ -1364,7 +1365,7 @@ final class EvLoop
      * @param int $priority
      * @return EvIdle
      */
-    final public function idle(callable $callback, $data = null, $priority = 0) {}
+    public final function idle(callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Invoke all pending watchers while resetting their pending state.
@@ -1424,7 +1425,7 @@ final class EvLoop
      * @param mixed $data
      * @param int $priority
      */
-    final public function periodic($offset, $interval, callable $callback, $data = null, $priority = 0) {}
+    public final function periodic($offset, $interval, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvPrepare object associated with the current event loop instance.
@@ -1433,7 +1434,7 @@ final class EvLoop
      * @param mixed $data
      * @param int $priority
      */
-    final public function prepare(callable $callback, $data = null, $priority = 0) {}
+    public final function prepare(callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Resume previously suspended default event loop.
@@ -1463,7 +1464,7 @@ final class EvLoop
      * @param int $priority
      * @return EvSignal
      */
-    final public function signal($signal, callable $callback, $data = null, $priority = 0)
+    public final function signal($signal, callable $callback, $data = null, $priority = 0)
     {
     }
 
@@ -1477,7 +1478,7 @@ final class EvLoop
      * @param int $priority
      * @return EvStat
      */
-    final public function stat($path, $interval, callable $callback, $data = null, $priority = 0) {}
+    public final function stat($path, $interval, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Stops the event loop.
@@ -1503,7 +1504,7 @@ final class EvLoop
      * @param int $priority
      * @return EvTimer
      */
-    final public function timer($after, $repeat, callable $callback, $data = null, $priority = 0) {}
+    public final function timer($after, $repeat, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Performs internal consistency checks (for debugging).

@@ -7,7 +7,7 @@
  * can be used to indicate an error in the script logic (e.g. database connection problem)
  * @param string $error_string the error string to display
  */
-function set_job_failed( $error_string) {}
+function set_job_failed( $error_string ){};
 
 
 
@@ -16,7 +16,7 @@ function set_job_failed( $error_string) {}
  * "license_ok" - whether license allows use of JobQueue
  * "expires" - license expiration date
  */
-function jobqueue_license_info() {}
+function jobqueue_license_info(){};
 
 /**
  * Create Java object

@@ -47,7 +47,7 @@ final class Channel{
 	 *
 	 * @param null|int $capacity May be Channel::Infinite or a positive integer
 	 */
-	public function __construct(int $capacity = null){}
+	public function __construct(?int $capacity = null){}
 
 	/* Access */
 
@@ -62,7 +62,7 @@ final class Channel{
 	 *
 	 * @throws Channel\Error\Existence if channel already exists.
 	 */
-	public static function make(string $name, int $capacity = null) : Channel{}
+	public static function make(string $name, ?int $capacity = null) : Channel{}
 
 	/**
 	 * Shall open the channel with the given name

@@ -16,7 +16,7 @@ namespace {
      * </p>
      * @return array an array of the parameters. The parameters can be given an index with the => operator.
      */
-    function PS_UNRESERVE_PREFIX_array(...$_){}
+    function PS_UNRESERVE_PREFIX_array(...$_){};
 
     /**
      * Assigns a list of variables in one operation.
@@ -25,7 +25,7 @@ namespace {
      * @param mixed ...$_ [optional] <p>Another variable ...</p>
      * @return array the assigned array.
      */
-    function PS_UNRESERVE_PREFIX_list($var1, ...$_){}
+    function PS_UNRESERVE_PREFIX_list($var1, ...$_){};
 
     /**
      * <p>Terminates execution of the script. Shutdown functions and object destructors will always be executed even if exit is called.</p>
@@ -43,7 +43,7 @@ namespace {
      * </p>
      * @return void
      */
-    function PS_UNRESERVE_PREFIX_die($status = ""){}
+    function PS_UNRESERVE_PREFIX_die($status = ""){};
 
     /**
      * <p>Terminates execution of the script. Shutdown functions and object destructors will always be executed even if exit is called.</p>
@@ -61,7 +61,7 @@ namespace {
      * </p>
      * @return void
      */
-    function PS_UNRESERVE_PREFIX_exit($status = ""){}
+    function PS_UNRESERVE_PREFIX_exit($status = ""){};
 
     /**
      * Determine whether a variable is considered to be empty. A variable is considered empty if it does not exist or if its value
@@ -90,7 +90,7 @@ namespace {
      * </ul>
      * </p>
      */
-    function PS_UNRESERVE_PREFIX_empty($var){}
+    function PS_UNRESERVE_PREFIX_empty($var){};
 
     /**
      * <p>Determine if a variable is set and is not <b>NULL</b>.</p>
@@ -103,7 +103,7 @@ namespace {
      * @param mixed ...$_ [optional] <p>Another variable ...</p>
      * @return bool Returns <b>TRUE</b> if var exists and has value other than <b>NULL</b>, <b>FALSE</b> otherwise.
      */
-    function PS_UNRESERVE_PREFIX_isset($var, ...$_){}
+    function PS_UNRESERVE_PREFIX_isset($var, ...$_){};
 
     /**
      * <p>Destroys the specified variables.</p>
@@ -113,7 +113,7 @@ namespace {
      * @param mixed ...$_ [optional] <p>Another variable ...</p>
      * @return void
      */
-    function PS_UNRESERVE_PREFIX_unset($var, ...$_){}
+    function PS_UNRESERVE_PREFIX_unset($var, ...$_){};
 
     /**
      * <p>Evaluates the given code as PHP.</p>
@@ -145,7 +145,7 @@ namespace {
      * case <b>eval()</b> returned <b>FALSE</b> and execution of the following code continued normally. It is not possible to catch a parse
      * error in <b>eval()</b> using set_error_handler().
      */
-    function PS_UNRESERVE_PREFIX_eval($code){}
+    function PS_UNRESERVE_PREFIX_eval($code){};
 
     /**
      * Generator objects are returned from generators, cannot be instantiated via new.

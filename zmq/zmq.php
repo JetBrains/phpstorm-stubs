@@ -704,7 +704,7 @@ class ZMQDevice
      * @param ZMQSocket $backend Backend parameter for the devices. Usually where there messages going to.
      * @param null|ZMQSocket $listener Listener socket, which receives a copy of all messages going both directions. The type of this socket should be SUB, PULL or DEALER.
      */
-    public function __construct(ZMQSocket $frontend, ZMQSocket $backend, ZMQSocket $listener = null)
+    public function __construct(ZMQSocket $frontend, ZMQSocket $backend, ?ZMQSocket $listener = null)
     {
     }
     /**

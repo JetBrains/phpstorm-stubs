@@ -120,7 +120,7 @@ function rrd_lastupdate($filename) {}
  * @return bool Returns TRUE on success, FALSE otherwise.
  * @since PECL rrd >= 0.9.0
  */
-function rrd_restore($xml_file, $rrd_file, $options = []) {}
+function rrd_restore($xml_file, $rrd_file, $options = array()) {}
 
 /**
  * Change some options in the RRD dabase header file. E.g. renames the source for the data etc.

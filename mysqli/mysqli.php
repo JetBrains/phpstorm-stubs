@@ -1147,6 +1147,7 @@ class mysqli_result implements IteratorAggregate
 
     /**
      * @since 8.0
+     * @return Traversable
      */
     public function getIterator(){}
 }
@@ -1650,6 +1651,7 @@ function mysqli_stmt_execute (mysqli_stmt $statement): bool {}
  * Alias for <b>mysqli_stmt_execute</b>
  * @link https://php.net/manual/en/function.mysqli-execute.php
  * @param mysqli_stmt $statement
+ * @return bool
  */
 #[Deprecated(since: '5.3')]
 function mysqli_execute (mysqli_stmt $statement): bool {}
@@ -1738,7 +1740,7 @@ function mysqli_fetch_assoc (mysqli_result $result): ?array {}
  * To access the other column(s) of the same name,
  * you either need to access the result with numeric indices by using mysqli_fetch_row() or add alias names.
  */
-function mysqli_fetch_object (mysqli_result $result, string $class = 'stdClass', array $constructor_args = []): ?object {}
+function mysqli_fetch_object (mysqli_result $result, string $class = 'stdClass', array $constructor_args = array()): ?object {}
 
 /**
  * Get a result row as an enumerated array

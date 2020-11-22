@@ -3684,7 +3684,7 @@ namespace Cassandra {
          * @return \Cassandra\Type\Custom
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Custom/#method-type
          */
-        abstract public function type();
+        public abstract function type();
 
     }
 
@@ -3701,7 +3701,7 @@ namespace Cassandra {
          * @return \Cassandra\Table Base table of the view
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-baseTable
          */
-        abstract public function baseTable();
+        public abstract function baseTable();
 
         /**
          * Returns the name of this view
@@ -3709,7 +3709,7 @@ namespace Cassandra {
          * @return string Name of the view
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-name
          */
-        abstract public function name();
+        public abstract function name();
 
         /**
          * Return a view's option by name
@@ -3719,7 +3719,7 @@ namespace Cassandra {
          * @return \Cassandra\Value Value of an option by name
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-option
          */
-        abstract public function option($name);
+        public abstract function option($name);
 
         /**
          * Returns all the view's options
@@ -3728,7 +3728,7 @@ namespace Cassandra {
          *               view's options.
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-options
          */
-        abstract public function options();
+        public abstract function options();
 
         /**
          * Description of the view, if any
@@ -3736,7 +3736,7 @@ namespace Cassandra {
          * @return string View description or null
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-comment
          */
-        abstract public function comment();
+        public abstract function comment();
 
         /**
          * Returns read repair chance
@@ -3744,7 +3744,7 @@ namespace Cassandra {
          * @return float Read repair chance
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-readRepairChance
          */
-        abstract public function readRepairChance();
+        public abstract function readRepairChance();
 
         /**
          * Returns local read repair chance
@@ -3752,7 +3752,7 @@ namespace Cassandra {
          * @return float Local read repair chance
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-localReadRepairChance
          */
-        abstract public function localReadRepairChance();
+        public abstract function localReadRepairChance();
 
         /**
          * Returns GC grace seconds
@@ -3760,7 +3760,7 @@ namespace Cassandra {
          * @return int GC grace seconds
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-gcGraceSeconds
          */
-        abstract public function gcGraceSeconds();
+        public abstract function gcGraceSeconds();
 
         /**
          * Returns caching options
@@ -3768,7 +3768,7 @@ namespace Cassandra {
          * @return string Caching options
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-caching
          */
-        abstract public function caching();
+        public abstract function caching();
 
         /**
          * Returns bloom filter FP chance
@@ -3776,7 +3776,7 @@ namespace Cassandra {
          * @return float Bloom filter FP chance
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-bloomFilterFPChance
          */
-        abstract public function bloomFilterFPChance();
+        public abstract function bloomFilterFPChance();
 
         /**
          * Returns memtable flush period in milliseconds
@@ -3784,7 +3784,7 @@ namespace Cassandra {
          * @return int Memtable flush period in milliseconds
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-memtableFlushPeriodMs
          */
-        abstract public function memtableFlushPeriodMs();
+        public abstract function memtableFlushPeriodMs();
 
         /**
          * Returns default TTL.
@@ -3792,7 +3792,7 @@ namespace Cassandra {
          * @return int Default TTL.
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-defaultTTL
          */
-        abstract public function defaultTTL();
+        public abstract function defaultTTL();
 
         /**
          * Returns speculative retry.
@@ -3800,7 +3800,7 @@ namespace Cassandra {
          * @return string Speculative retry.
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-speculativeRetry
          */
-        abstract public function speculativeRetry();
+        public abstract function speculativeRetry();
 
         /**
          * Returns index interval
@@ -3808,7 +3808,7 @@ namespace Cassandra {
          * @return int Index interval
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-indexInterval
          */
-        abstract public function indexInterval();
+        public abstract function indexInterval();
 
         /**
          * Returns compaction strategy class name
@@ -3816,7 +3816,7 @@ namespace Cassandra {
          * @return string Compaction strategy class name
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-compactionStrategyClassName
          */
-        abstract public function compactionStrategyClassName();
+        public abstract function compactionStrategyClassName();
 
         /**
          * Returns compaction strategy options
@@ -3824,7 +3824,7 @@ namespace Cassandra {
          * @return \Cassandra\Map Compaction strategy options
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-compactionStrategyOptions
          */
-        abstract public function compactionStrategyOptions();
+        public abstract function compactionStrategyOptions();
 
         /**
          * Returns compression parameters
@@ -3832,7 +3832,7 @@ namespace Cassandra {
          * @return \Cassandra\Map Compression parameters
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-compressionParameters
          */
-        abstract public function compressionParameters();
+        public abstract function compressionParameters();
 
         /**
          * Returns whether or not the `populate_io_cache_on_flush` is true
@@ -3840,7 +3840,7 @@ namespace Cassandra {
          * @return bool Value of `populate_io_cache_on_flush` or null
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-populateIOCacheOnFlush
          */
-        abstract public function populateIOCacheOnFlush();
+        public abstract function populateIOCacheOnFlush();
 
         /**
          * Returns whether or not the `replicate_on_write` is true
@@ -3848,7 +3848,7 @@ namespace Cassandra {
          * @return bool Value of `replicate_on_write` or null
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-replicateOnWrite
          */
-        abstract public function replicateOnWrite();
+        public abstract function replicateOnWrite();
 
         /**
          * Returns the value of `max_index_interval`
@@ -3856,7 +3856,7 @@ namespace Cassandra {
          * @return int Value of `max_index_interval` or null
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-maxIndexInterval
          */
-        abstract public function maxIndexInterval();
+        public abstract function maxIndexInterval();
 
         /**
          * Returns the value of `min_index_interval`
@@ -3864,7 +3864,7 @@ namespace Cassandra {
          * @return int Value of `min_index_interval` or null
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-minIndexInterval
          */
-        abstract public function minIndexInterval();
+        public abstract function minIndexInterval();
 
         /**
          * Returns column by name
@@ -3874,7 +3874,7 @@ namespace Cassandra {
          * @return \Cassandra\Column Column instance
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-column
          */
-        abstract public function column($name);
+        public abstract function column($name);
 
         /**
          * Returns all columns in this view
@@ -3882,7 +3882,7 @@ namespace Cassandra {
          * @return array A list of `Column` instances
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-columns
          */
-        abstract public function columns();
+        public abstract function columns();
 
         /**
          * Returns the partition key columns of the view
@@ -3890,7 +3890,7 @@ namespace Cassandra {
          * @return array A list of of `Column` instances
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-partitionKey
          */
-        abstract public function partitionKey();
+        public abstract function partitionKey();
 
         /**
          * Returns both the partition and clustering key columns of the view
@@ -3898,7 +3898,7 @@ namespace Cassandra {
          * @return array A list of of `Column` instances
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-primaryKey
          */
-        abstract public function primaryKey();
+        public abstract function primaryKey();
 
         /**
          * Returns the clustering key columns of the view
@@ -3906,13 +3906,13 @@ namespace Cassandra {
          * @return array A list of of `Column` instances
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-clusteringKey
          */
-        abstract public function clusteringKey();
+        public abstract function clusteringKey();
 
         /**
          * @return array A list of cluster column orders ('asc' and 'desc')
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.MaterializedView/#method-clusteringOrder
          */
-        abstract public function clusteringOrder();
+        public abstract function clusteringOrder();
 
     }
 
@@ -3985,7 +3985,7 @@ namespace Cassandra {
          * @return \Cassandra\Type ascii type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-ascii
          */
-        final public static function ascii()
+        public static final function ascii()
         {
         }
 
@@ -3995,7 +3995,7 @@ namespace Cassandra {
          * @return \Cassandra\Type bigint type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-bigint
          */
-        final public static function bigint()
+        public static final function bigint()
         {
         }
 
@@ -4005,7 +4005,7 @@ namespace Cassandra {
          * @return \Cassandra\Type smallint type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-smallint
          */
-        final public static function smallint()
+        public static final function smallint()
         {
         }
 
@@ -4015,7 +4015,7 @@ namespace Cassandra {
          * @return \Cassandra\Type tinyint type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-tinyint
          */
-        final public static function tinyint()
+        public static final function tinyint()
         {
         }
 
@@ -4025,7 +4025,7 @@ namespace Cassandra {
          * @return \Cassandra\Type blob type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-blob
          */
-        final public static function blob()
+        public static final function blob()
         {
         }
 
@@ -4035,7 +4035,7 @@ namespace Cassandra {
          * @return \Cassandra\Type boolean type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-boolean
          */
-        final public static function boolean()
+        public static final function boolean()
         {
         }
 
@@ -4045,7 +4045,7 @@ namespace Cassandra {
          * @return \Cassandra\Type counter type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-counter
          */
-        final public static function counter()
+        public static final function counter()
         {
         }
 
@@ -4055,7 +4055,7 @@ namespace Cassandra {
          * @return \Cassandra\Type decimal type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-decimal
          */
-        final public static function decimal()
+        public static final function decimal()
         {
         }
 
@@ -4065,7 +4065,7 @@ namespace Cassandra {
          * @return \Cassandra\Type double type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-double
          */
-        final public static function double()
+        public static final function double()
         {
         }
 
@@ -4075,7 +4075,7 @@ namespace Cassandra {
          * @return \Cassandra\Type duration type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-duration
          */
-        final public static function duration()
+        public static final function duration()
         {
         }
 
@@ -4085,7 +4085,7 @@ namespace Cassandra {
          * @return \Cassandra\Type float type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-float
          */
-        final public static function float()
+        public static final function float()
         {
         }
 
@@ -4095,7 +4095,7 @@ namespace Cassandra {
          * @return \Cassandra\Type int type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-int
          */
-        final public static function int()
+        public static final function int()
         {
         }
 
@@ -4105,7 +4105,7 @@ namespace Cassandra {
          * @return \Cassandra\Type text type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-text
          */
-        final public static function text()
+        public static final function text()
         {
         }
 
@@ -4115,7 +4115,7 @@ namespace Cassandra {
          * @return \Cassandra\Type timestamp type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-timestamp
          */
-        final public static function timestamp()
+        public static final function timestamp()
         {
         }
 
@@ -4125,7 +4125,7 @@ namespace Cassandra {
          * @return \Cassandra\Type date type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-date
          */
-        final public static function date()
+        public static final function date()
         {
         }
 
@@ -4135,7 +4135,7 @@ namespace Cassandra {
          * @return \Cassandra\Type time type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-time
          */
-        final public static function time()
+        public static final function time()
         {
         }
 
@@ -4145,7 +4145,7 @@ namespace Cassandra {
          * @return \Cassandra\Type uuid type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-uuid
          */
-        final public static function uuid()
+        public static final function uuid()
         {
         }
 
@@ -4155,7 +4155,7 @@ namespace Cassandra {
          * @return \Cassandra\Type varchar type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-varchar
          */
-        final public static function varchar()
+        public static final function varchar()
         {
         }
 
@@ -4165,7 +4165,7 @@ namespace Cassandra {
          * @return \Cassandra\Type varint type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-varint
          */
-        final public static function varint()
+        public static final function varint()
         {
         }
 
@@ -4175,7 +4175,7 @@ namespace Cassandra {
          * @return \Cassandra\Type timeuuid type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-timeuuid
          */
-        final public static function timeuuid()
+        public static final function timeuuid()
         {
         }
 
@@ -4185,7 +4185,7 @@ namespace Cassandra {
          * @return \Cassandra\Type inet type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-inet
          */
-        final public static function inet()
+        public static final function inet()
         {
         }
 
@@ -4206,7 +4206,7 @@ namespace Cassandra {
          * @return \Cassandra\Type The collection type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-collection
          */
-        final public static function collection($type)
+        public static final function collection($type)
         {
         }
 
@@ -4227,7 +4227,7 @@ namespace Cassandra {
          * @return \Cassandra\Type The set type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-set
          */
-        final public static function set($type)
+        public static final function set($type)
         {
         }
 
@@ -4247,7 +4247,7 @@ namespace Cassandra {
          * @return \Cassandra\Type The map type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-map
          */
-        final public static function map($keyType, $valueType)
+        public static final function map($keyType, $valueType)
         {
         }
 
@@ -4266,7 +4266,7 @@ namespace Cassandra {
          * @return \Cassandra\Type The tuple type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-tuple
          */
-        final public static function tuple($types)
+        public static final function tuple($types)
         {
         }
 
@@ -4285,7 +4285,7 @@ namespace Cassandra {
          * @return \Cassandra\Type The user type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-userType
          */
-        final public static function userType($types)
+        public static final function userType($types)
         {
         }
 
@@ -4295,7 +4295,7 @@ namespace Cassandra {
          * @return string Name of this type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-name
          */
-        abstract public function name();
+        public abstract function name();
 
         /**
          * Returns string representation of this type.
@@ -4303,7 +4303,7 @@ namespace Cassandra {
          * @return string String representation of this type
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Type/#method-__toString
          */
-        abstract public function __toString();
+        public abstract function __toString();
 
     }
 

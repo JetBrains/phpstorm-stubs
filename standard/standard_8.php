@@ -1052,7 +1052,7 @@ function array_unshift (array &$array, ...$values): int
  * </p>
  * <p>
  * If replacement is just one element it is
- * not necessary to put []
+ * not necessary to put array()
  * around it, unless the element is an array itself.
  * </p>
  * @return array the array consisting of the extracted elements.

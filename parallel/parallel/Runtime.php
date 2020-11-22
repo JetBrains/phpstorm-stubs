@@ -33,7 +33,7 @@ final class Runtime{
 	 * @throws Runtime\Error if thread could not be created
 	 * @throws Runtime\Error\Bootstrap if bootstrapping failed
 	 */
-	public function __construct(string $bootstrap = null){}
+	public function __construct(?string $bootstrap = null){}
 
 	/* Execute */
 
@@ -41,7 +41,7 @@ final class Runtime{
 	 * Shall schedule task for execution in parallel, passing argv at execution time.
 	 *
 	 * @param Closure $task    A Closure with specific characteristics.
-	 * @param array   $argv    An array of arguments with specific characteristics to be passed to task at execution
+	 * @param null|array $argv An array of arguments with specific characteristics to be passed to task at execution
 	 *                         time.
 	 *
 	 * ### Task Characteristics
@@ -93,7 +93,7 @@ final class Runtime{
 	 * @throws Runtime\Error\IllegalParameter if task accepts or argv contains illegal variables.
 	 * @throws Runtime\Error\IllegalReturn if task returns illegally.
 	 */
-	public function run(Closure $task, array $argv = null) : ?Future{}
+	public function run(Closure $task, ?array $argv = null) : ?Future{}
 
 	/* Join */
 

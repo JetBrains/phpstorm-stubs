@@ -185,7 +185,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param null|DateTimeZone $timezone [optional]
      * @return DateTimeImmutable|false
      */
-    public static function createFromFormat($format, $datetime, DateTimeZone $timezone = null) { }
+    public static function createFromFormat($format, $datetime, ?DateTimeZone $timezone = null) { }
 
     /**
      * (PHP 5 &gt;=5.6.0)<br/>
@@ -467,7 +467,7 @@ class DateTime implements DateTimeInterface {
      * </p> <p></p></blockquote>
      * @throws Exception Emits Exception in case of an error.
      */
-    public function __construct ($datetime = 'now', DateTimeZone $timezone = null) {}
+    public function __construct ($datetime = 'now', ?DateTimeZone $timezone = null) {}
 
     /**
      * @return void
@@ -603,7 +603,7 @@ class DateTime implements DateTimeInterface {
      * @return DateTime|false
      * @link https://php.net/manual/en/datetime.createfromformat.php
      */
-    public static function createFromFormat ($format, $datetime, DateTimeZone $timezone = null) {}
+    public static function createFromFormat ($format, $datetime, ?DateTimeZone $timezone = null) {}
 
     /**
      * Returns an array of warnings and errors found while parsing a date/time string

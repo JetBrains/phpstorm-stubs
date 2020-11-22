@@ -960,7 +960,7 @@ define('SQLSRV_CURSOR_CLIENT_BUFFERED', 'buffered');
  * See {@link http://msdn.microsoft.com/en-us/library/ff628167.aspx Connection Options} for a list of the supported keys for the array.
  * @return resource|false A PHP connection resource. If a connection cannot be successfully created and opened, false is returned.
  */
-function sqlsrv_connect($server_name, $connection_info = []){}
+function sqlsrv_connect($server_name, $connection_info = array()){}
 
 /**
  * Closes a connection. Frees all resources associated with the connection.
@@ -1211,7 +1211,7 @@ function sqlsrv_get_config($setting){}
  * <li>SQLSRV_CURSOR_CLIENT_BUFFERED</li></ul>
  * @return resource|false A statement resource. If the statement resource cannot be created, false is returned.
  */
-function sqlsrv_prepare($conn, $tsql, $params = [], $options = []){}
+function sqlsrv_prepare($conn, $tsql, $params = array(), $options = array()){}
 
 /**
  * Executes a statement prepared with {@see sqlsrv_prepare}
@@ -1285,7 +1285,7 @@ function sqlsrv_execute($stmt){}
  * <li>SQLSRV_CURSOR_CLIENT_BUFFERED</li></ul>
  * @return resource|false A statement resource. If the statement cannot be created and/or executed, false is returned.
  */
-function sqlsrv_query($conn, $tsql, $params = [], $options = []){}
+function sqlsrv_query($conn, $tsql, $params = array(), $options = array()){}
 
 /**
  * Makes the next row in a result set available for reading.

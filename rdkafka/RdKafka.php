@@ -42,7 +42,7 @@ abstract class RdKafka
      *
      * @return Topic
      */
-    public function newTopic($topic_name, TopicConf $topic_conf = null)
+    public function newTopic($topic_name, ?TopicConf $topic_conf = null)
     {
     }
 

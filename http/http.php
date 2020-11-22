@@ -895,7 +895,7 @@ class HttpRequest  {
 	 * an associative array with request options
 	 * </p>
 	 */
-	public function __construct ($url = null, $request_method = null, array $options = null ) {}
+	public function __construct ($url = null, $request_method = null, ?array $options = null ) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -908,7 +908,7 @@ class HttpRequest  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function setOptions (array $options = null ) {}
+	public function setOptions (?array $options = null ) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -929,7 +929,7 @@ class HttpRequest  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function setSslOptions (array $options = null ) {}
+	public function setSslOptions (?array $options = null ) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -981,7 +981,7 @@ class HttpRequest  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function setHeaders ( array $headers = null ) {}
+	public function setHeaders ( ?array $headers = null ) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -1013,7 +1013,7 @@ class HttpRequest  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function setCookies ( array $cookies = null ) {}
+	public function setCookies ( ?array $cookies = null ) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 1.0.0)<br/>
@@ -1342,7 +1342,7 @@ class HttpRequest  {
 	 * @return stdClass[] an array of stdClass objects like http_parse_cookie would return.
 	 */
     #[Pure]
-	public function getResponseCookies ($flags = null,  array $allowed_extras = null ) {}
+	public function getResponseCookies ($flags = null,  ?array $allowed_extras = null ) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -1579,7 +1579,7 @@ class HttpRequestPool implements Countable, Iterator {
 	 * HttpRequest object to attach
 	 * </p>
 	 */
-	public function __construct ( HttpRequest $request = null) {}
+	public function __construct ( ?HttpRequest $request = null) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -2026,7 +2026,7 @@ class HttpResponse  {
 	 * @param null|int $status [optional]
 	 * @return void
 	 */
-	public static function redirect ($url = null,  array $params = null , $session = null, $status = null) {}
+	public static function redirect ($url = null,  ?array $params = null , $session = null, $status = null) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.12.0)<br/>
@@ -2202,7 +2202,7 @@ function http_date ($timestamp = null) {}
  * </p>
  * @return string|false the new URL as string on success or false on failure.
  */
-function http_build_url ($url = null, $parts = null, $flags = null,  array &$new_url = null ) {}
+function http_build_url ($url = null, $parts = null, $flags = null,  ?array &$new_url = null ) {}
 
 /**
  * (PECL pecl_http &gt;= 0.23.0)<br/>
@@ -2234,7 +2234,7 @@ function http_build_str (array $query, $prefix = null, $arg_separator = null) {}
  * </p>
  * @return string the negotiated language or the default language (i.e. first array entry) if none match.
  */
-function http_negotiate_language (array $supported,  array &$result = null ) {}
+function http_negotiate_language (array $supported, ?array &$result = null ) {}
 
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
@@ -2248,7 +2248,7 @@ function http_negotiate_language (array $supported,  array &$result = null ) {}
  * </p>
  * @return string the negotiated charset or the default charset (i.e. first array entry) if none match.
  */
-function http_negotiate_charset (array $supported,  array &$result = null ) {}
+function http_negotiate_charset (array $supported, ?array &$result = null ) {}
 
 /**
  * (PECL pecl_http &gt;= 0.19.0)<br/>
@@ -2262,7 +2262,7 @@ function http_negotiate_charset (array $supported,  array &$result = null ) {}
  * </p>
  * @return string the negotiated content type or the default content type (i.e. first array entry) if none match.
  */
-function http_negotiate_content_type (array $supported,  array &$result = null ) {}
+function http_negotiate_content_type (array $supported, ?array &$result = null ) {}
 
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
@@ -2282,7 +2282,7 @@ function http_negotiate_content_type (array $supported,  array &$result = null )
  * </p>
  * @return void|false returns false or exits with the specified redirection status code
  */
-function http_redirect ($url = null,  array $params = null , $session = null, $status = null) {}
+function http_redirect ($url = null, ?array $params = null , $session = null, $status = null) {}
 
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -2489,7 +2489,7 @@ function http_parse_headers ($header) {}
  * @return stdClass|false a stdClass object on success or false on failure.
  */
 #[Pure]
-function http_parse_cookie ($cookie, $flags = null,  array $allowed_extras = null ) {}
+function http_parse_cookie ($cookie, $flags = null, ?array $allowed_extras = null ) {}
 
 /**
  * (PECL pecl_http &gt;= 1.2.0)<br/>
@@ -2605,7 +2605,7 @@ function http_persistent_handles_ident ($ident) {}
  * </p>
  * @return string
  */
-function http_get ($url, array $options = null ,  array &$info = null ) {}
+function http_get ($url, ?array $options = null, ?array &$info = null) {}
 
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
@@ -2622,7 +2622,7 @@ function http_get ($url, array $options = null ,  array &$info = null ) {}
  * </p>
  * @return string
  */
-function http_head ($url = null, array $options = null ,  array &$info = null ) {}
+function http_head ($url = null, ?array $options = null, ?array &$info = null) {}
 
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
@@ -2640,7 +2640,7 @@ function http_head ($url = null, array $options = null ,  array &$info = null ) 
  * </p>
  * @return string
  */
-function http_post_data ($url, $data = null, array $options = null ,  array &$info = null ) {}
+function http_post_data ($url, $data = null, ?array $options = null, ?array &$info = null) {}
 
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -2662,13 +2662,7 @@ function http_post_data ($url, $data = null, array $options = null ,  array &$in
  * </p>
  * @return string
  */
-function http_post_fields (
-    $url,
-    array $data = null,
-    array $files = null,
-    array $options = null,
-    array &$info = null
-) {}
+function http_post_fields ($url, ?array $data = null, ?array $files = null, ?array $options = null , ?array &$info = null) {}
 
 /**
  * (PECL pecl_http &gt;= 0.25.0)<br/>
@@ -2687,7 +2681,7 @@ function http_post_fields (
  * </p>
  * @return string
  */
-function http_put_data ($url, $data = null, array $options = null ,  array &$info = null ) {}
+function http_put_data ($url, $data = null, ?array $options = null, ?array &$info = null) {}
 
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -2706,7 +2700,7 @@ function http_put_data ($url, $data = null, array $options = null ,  array &$inf
  * </p>
  * @return string
  */
-function http_put_file ($url, $file = null, array $options = null ,  array &$info = null ) {}
+function http_put_file ($url, $file = null, ?array $options = null, ?array &$info = null) {}
 
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -2725,7 +2719,7 @@ function http_put_file ($url, $file = null, array $options = null ,  array &$inf
  * </p>
  * @return string
  */
-function http_put_stream ($url, $stream = null, array $options = null ,  array &$info = null ) {}
+function http_put_stream ($url, $stream = null, ?array $options = null, ?array &$info = null) {}
 
 /**
  * (PECL pecl_http &gt;= 1.0.0)<br/>
@@ -2747,7 +2741,7 @@ function http_put_stream ($url, $stream = null, array $options = null ,  array &
  * </p>
  * @return string
  */
-function http_request ($method, $url = null, $body = null, array $options = null ,  array &$info = null ) {}
+function http_request ($method, $url = null, $body = null, ?array $options = null, ?array &$info = null) {}
 
 /**
  * (PECL pecl_http &gt;= 1.0.0)<br/>

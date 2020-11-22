@@ -28,7 +28,7 @@ final class RarArchive implements Traversable
      *
      * @return RarArchive|false the requested RarArchive instance or FALSE on failure.
      */
-    public static function open($filename, $password = null, callable $volume_callback = null)
+    public static function open($filename, $password = null, ?callable $volume_callback = null)
     {
     }
     /**

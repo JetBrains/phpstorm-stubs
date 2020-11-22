@@ -103,9 +103,9 @@ class LevelDB{
 	 */
 	public function getSnapshot(){}
 
-	public static function destroy($name, array $options = []){}
+	static public function destroy($name, array $options = []){}
 
-	public static function repair($name, array $options = []){}
+	static public function repair($name, array $options = []){}
 }
 
 class LevelDBIterator implements Iterator{

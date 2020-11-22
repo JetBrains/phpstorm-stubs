@@ -313,7 +313,7 @@ function rpmvercmp (string $evr1, string $evr2) {}
  * </p>
  * @since 0.1.0
  */
-function rpminfo (string $path, bool $full = false, string &$error = null) {}
+function rpminfo (string $path, bool $full = false, ?string &$error = null) {}
 
 /**
  * Retrieve information about an installed package, from the system RPM database.

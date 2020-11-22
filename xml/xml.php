@@ -2,6 +2,7 @@
 
 // Start of xml v.
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -383,7 +384,7 @@ function xml_parse_into_struct (#[LanguageLevelTypeAware(["8.0" => "XmlParser"],
  * section.
  */
 #[Pure]
-function xml_get_error_code (resource $parser): int|false {}
+function xml_get_error_code ($parser): int|false {}
 
 #[PhpStormStubsElementAvailable('8.0')]
 /**

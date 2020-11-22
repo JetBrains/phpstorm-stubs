@@ -33,7 +33,7 @@ define("__COMPILER_HALT_OFFSET__",0);
  * @since 5.4
  */
 function hex2bin(string $string): string|false
-{}
+{};
 
 /**
  * Get or Set the HTTP response code
