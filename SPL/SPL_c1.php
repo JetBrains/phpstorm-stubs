@@ -756,7 +756,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * @param string $format <p>
 	 * The specified format as described in the <b>sprintf</b> documentation.
          * </p>
-	 * @param mixed &$_ [optional] <p>
+	 * @param mixed &...$vars [optional] <p>
 	 * The optional assigned values.
 	 * </p>
 	 * @return array|int If only one parameter is passed to this method, the values parsed will be
