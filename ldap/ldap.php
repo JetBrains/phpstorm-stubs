@@ -115,7 +115,8 @@ function ldap_connect (?string $uri, int $port = 389)
 /**
  * Alias of <b>ldap_unbind</b>
  * @link https://php.net/manual/en/function.ldap-close.php
- * @param $ldap
+ * @param resource $ldap
+ * @return bool
  */
 function ldap_close ($ldap): bool {}
 

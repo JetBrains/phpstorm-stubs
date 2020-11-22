@@ -1115,6 +1115,7 @@ function date_timezone_set (DateTimeInterface $object, DateTimeZone $timezone)
 function date_offset_get (DateTimeInterface $object)
 {}
 
+
 /**
  * Returns the difference between two datetime objects
  * Alias:
@@ -1129,7 +1130,6 @@ function date_offset_get (DateTimeInterface $object)
 #[LanguageLevelTypeAware(["8.0" => "DateInterval"], default: "DateInterval|false")]
 function date_diff (DateTimeInterface $baseObject, DateTimeInterface $targetObject, bool $absolute = false)
 {}
-
 /**
  * &Alias; <methodname>DateTime::setTime</methodname>
  * @link https://php.net/manual/en/function.date-time-set.php

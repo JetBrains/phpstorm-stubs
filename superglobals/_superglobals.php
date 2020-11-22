@@ -7,7 +7,7 @@
  *
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">https://secure.php.net/manual/en/reserved.variables.php</a>
  */
-$GLOBALS = [];
+$GLOBALS = array();
 
 /**
  * @xglobal $_COOKIE array
@@ -17,7 +17,7 @@ $GLOBALS = [];
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  */
-$_COOKIE = [];
+$_COOKIE = array();
 
 /**
  * @xglobal $_ENV array
@@ -29,11 +29,11 @@ $_COOKIE = [];
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  */
-$_ENV = [];
+$_ENV = array();
 /**
  * @deprecated 4.1
  */
-$HTTP_ENV_VARS = [];
+$HTTP_ENV_VARS = array();
 
 /**
  * @xglobal $_FILES array
@@ -46,11 +46,11 @@ $HTTP_ENV_VARS = [];
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  */
-$_FILES = [];
+$_FILES = array();
 /**
  * @deprecated 4.1
  */
-$HTTP_POST_FILES = [];
+$HTTP_POST_FILES = array();
 
 
 /**
@@ -63,11 +63,11 @@ $HTTP_POST_FILES = [];
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  */
-$_GET = [];
+$_GET = array();
 /**
  * @deprecated 4.1
  */
-$HTTP_GET_VARS = [];
+$HTTP_GET_VARS = array();
 
 /**
  * @xglobal $_POST array
@@ -80,11 +80,11 @@ $HTTP_GET_VARS = [];
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  */
-$_POST = [];
+$_POST = array();
 /**
  * @deprecated 4.1
  */
-$HTTP_POST_VARS = [];
+$HTTP_POST_VARS = array();
 
 /**
  *  @xglobal $_REQUEST array
@@ -104,7 +104,7 @@ $HTTP_POST_VARS = [];
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  */
-$_REQUEST = [];
+$_REQUEST = array();
 
 /**
  * @xglobal $_SERVER array
@@ -116,11 +116,11 @@ $_REQUEST = [];
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  */
-$_SERVER = [];
+$_SERVER = array();
 /**
  * @deprecated 4.1
  */
-$HTTP_SERVER_VARS = [];
+$HTTP_SERVER_VARS = array();
 
 $_SERVER['PHP_SELF'] = '';
 $_SERVER['argv'] = '';
@@ -171,11 +171,11 @@ $_SERVER['ORIG_PATH_INFO'] = '';
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  */
-$_SESSION = [];
+$_SESSION = array();
 /**
  * @deprecated 4.1
  */
-$HTTP_SESSION_VARS = [];
+$HTTP_SESSION_VARS = array();
 
 /**
  * @xglobal $argc int
@@ -195,7 +195,7 @@ $argc = 0;
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  */
-$argv = [];
+$argv = array();
 
 /**
  * @xglobal $HTTP_RAW_POST_DATA string
@@ -217,7 +217,7 @@ $HTTP_RAW_POST_DATA = '';
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  */
-$http_response_header = [];
+$http_response_header = array();
 
 /**
  * @xglobal $php_errormsg string

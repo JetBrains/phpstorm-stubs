@@ -119,7 +119,7 @@ class Pool {
      * a custom collector need to be used.</p>
      * @return int <p>The number of remaining tasks in the pool to be collected</p>
      */
-    public function collect( callable $collector = null ) {}
+    public function collect( ?callable $collector = null ) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -455,7 +455,7 @@ class Worker extends Thread implements Traversable, Countable, ArrayAccess {
      * @return int <p>The number of remaining tasks on the worker's stack to be
      * collected</p>
      */
-    public function collect( callable $collector = null ) {}
+    public function collect( ?callable $collector = null ) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>

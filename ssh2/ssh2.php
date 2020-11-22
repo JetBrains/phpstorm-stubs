@@ -175,7 +175,7 @@
  * </p>
  * @return resource|false a resource on success, or false on error.
  */
-function ssh2_connect ($host, $port = null, array $methods = null , array $callbacks = null ) {}
+function ssh2_connect ($host, $port = null, ?array $methods = null , ?array $callbacks = null ) {}
 
 /**
  * (PECL ssh2 &gt;= 1.0)<br/>
@@ -337,7 +337,7 @@ function ssh2_forward_accept () {}
  * </p>
  * @return resource
  */
-function ssh2_shell ($session, $term_type = null, array $env = null , $width = null, $height = null, $width_height_type = null) {}
+function ssh2_shell ($session, $term_type = null, ?array $env = null , $width = null, $height = null, $width_height_type = null) {}
 
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
@@ -368,7 +368,7 @@ function ssh2_shell ($session, $term_type = null, array $env = null , $width = n
  * </p>
  * @return resource|false a stream on success or false on failure.
  */
-function ssh2_exec ($session, $command, $pty = null, array $env = null , $width = null, $height = null, $width_height_type = null) {}
+function ssh2_exec ($session, $command, $pty = null, ?array $env = null , $width = null, $height = null, $width_height_type = null) {}
 
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
@@ -629,7 +629,7 @@ function ssh2_publickey_init ($session) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function ssh2_publickey_add ($pkey, $algoname, $blob, $overwrite = null, array $attributes = null ) {}
+function ssh2_publickey_add ($pkey, $algoname, $blob, $overwrite = null, ?array $attributes = null ) {}
 
 /**
  * (PECL ssh2 &gt;= 0.10)<br/>

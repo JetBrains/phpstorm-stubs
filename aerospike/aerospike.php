@@ -669,7 +669,7 @@ class Aerospike {
      * @see Aerospike::errorno() errorno()
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function get(array $key, &$record, array $select = null, array $options = []) {}
+    public function get(array $key, &$record, ?array $select = null, array $options = []) {}
 
     /**
      * Get the metadata of a record with a given key, and store it in $metadata
@@ -2720,7 +2720,7 @@ class Aerospike {
      *   op => one of Aerospike::OP_EQ, Aerospike::OP_BETWEEN, Aerospike::OP_CONTAINS, Aerospike::OP_RANGE, etc
      *   val => scalar integer/string for OP_EQ and OP_CONTAINS or [$min, $max] for OP_BETWEEN and OP_RANGE
      *
-     * or an empty [] for no predicate
+     * or an empty array() for no predicate
      * ```
      * examples
      * ```
@@ -3221,7 +3221,7 @@ class Aerospike {
      *   op => one of Aerospike::OP_EQ, Aerospike::OP_BETWEEN, Aerospike::OP_CONTAINS, Aerospike::OP_RANGE, etc
      *   val => scalar integer/string for OP_EQ and OP_CONTAINS or [$min, $max] for OP_BETWEEN and OP_RANGE
      *
-     * or an empty [] for no predicate
+     * or an empty array() for no predicate
      * ```
      * examples
      * ```
@@ -3359,7 +3359,7 @@ class Aerospike {
      *   op => one of Aerospike::OP_EQ, Aerospike::OP_BETWEEN, Aerospike::OP_CONTAINS, Aerospike::OP_RANGE
      *   val => scalar integer/string for OP_EQ and OP_CONTAINS or [$min, $max] for OP_BETWEEN and OP_RANGE
      *
-     * or an empty [] for no predicate
+     * or an empty array() for no predicate
      * ```
      * examples
      * ```
@@ -3480,7 +3480,7 @@ class Aerospike {
      * * Aerospike::OPT_READ_TIMEOUT
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function info(string $request, string &$response, array $host = null, array $options = []) {}
+    public function info(string $request, string &$response, ?array $host = null, array $options = []) {}
 
     /**
      * Send an info request to a single cluster node
@@ -3517,7 +3517,7 @@ class Aerospike {
      *  NODE-ID => response string
      * ```
      */
-    public function infoMany(string $request, array $host = null, array $options = []) {}
+    public function infoMany(string $request, ?array $host = null, array $options = []) {}
 
     /**
      * Get the addresses of the cluster nodes

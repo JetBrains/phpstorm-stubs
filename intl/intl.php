@@ -2104,6 +2104,7 @@ class ResourceBundle implements IteratorAggregate {
 
     /**
      * @since 8.0
+     * @return Traversable
      */
     #[Pure]
     public function getIterator(){}
@@ -6768,6 +6769,9 @@ class IntlBreakIterator implements IteratorAggregate
      */
     public function setText($text) { }
 
+    /**
+     * @return Traversable
+     */
     #[Pure]
     public function getIterator(){}
 }
@@ -6793,7 +6797,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      */
     public static function  createCharacterInstance($locale) { }
 
-    /*
+    /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for boundaries of code points
      * @link https://secure.php.net/manual/en/intlbreakiterator.createcodepointinstance.php

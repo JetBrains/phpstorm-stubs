@@ -72,9 +72,7 @@ function dio_open (string $filename, int $flags, int $mode = 0) {}
 function dio_read ($fd, int $len = 1024) {}
 
 /**
- * dio_seek ( resource $fd , int $pos [, int $whence = SEEK_SET ] ) : int
  * dio_seek — Seeks to pos on fd from whence
- *
  * @param resource $fd The file descriptor returned by dio_open().
  * @param int $pos The new position.
  * @param int $whence Specifies how the position pos should be interpreted:

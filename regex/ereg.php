@@ -36,7 +36,7 @@ use JetBrains\PhpStorm\Deprecated;
  * @see preg_match()
  */
 #[Deprecated(reason: "Use preg_match() instead", since: "5.3")]
-function ereg ($pattern, $string, array &$regs = null) {}
+function ereg ($pattern, $string, ?array &$regs = null) {}
 
 /**
  * Replace regular expression

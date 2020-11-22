@@ -343,6 +343,7 @@ function sodium_pad (string $string, int $length): string {}
  * @link https://php.net/manual/en/function.sodium-unpad.php
  * @param string $string
  * @param int $block_size
+ * @return string
  * @throws SodiumException
  * @since 7.2
  */
@@ -1136,7 +1137,7 @@ function sodium_crypto_pwhash_str_needs_rehash(string $password, int $opslimit, 
 function sodium_crypto_secretstream_xchacha20poly1305_keygen(): string {}
 
 /**
- * @param string$key
+ * @param string $key
  * @return array
  * @throws SodiumException
  * @since 7.2
@@ -1149,6 +1150,7 @@ function sodium_crypto_secretstream_xchacha20poly1305_init_push(string $key): ar
  * @param string $message
  * @param string $additional_data [optional]
  * @param int $tag [optional]
+ * @return string
  * @throws SodiumException
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-push.php

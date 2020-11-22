@@ -276,7 +276,7 @@ class Exception implements Throwable {
      * @param null|Throwable $previous [optional] The previous throwable used for the exception chaining.
      */
     #[Pure]
-    public function __construct($message = "", $code = 0, Throwable $previous = null) { }
+    public function __construct($message = "", $code = 0, ?Throwable $previous = null) { }
 
     /**
      * Gets the Exception message
@@ -371,7 +371,7 @@ class Error implements Throwable {
      * @param int $code [optional] The Error code.
      * @param null|Throwable $previous [optional] The previous throwable used for the exception chaining.
      */
-    public function __construct($message = "", $code = 0, Throwable $previous = null)
+    public function __construct($message = "", $code = 0, ?Throwable $previous = null)
     {
     }
 
@@ -381,7 +381,7 @@ class Error implements Throwable {
      * @return string
      * @since 7.0
      */
-    final public function getMessage()
+    public final function getMessage()
     {
     }
 
@@ -396,7 +396,7 @@ class Error implements Throwable {
      * </p>
      * @since 7.0
      */
-    final public function getCode(){}
+    public final function getCode(){}
 
 
     /**
@@ -405,7 +405,7 @@ class Error implements Throwable {
      * @return string Returns the name of the file from which the object was thrown.
      * @since 7.0
      */
-    final public function getFile(){}
+    public final function getFile(){}
 
 
     /**
@@ -414,7 +414,7 @@ class Error implements Throwable {
      * @return int Returns the line number where the thrown object was instantiated.
      * @since 7.0
      */
-    final public function getLine(){}
+    public final function getLine(){}
 
 
     /**
@@ -426,7 +426,7 @@ class Error implements Throwable {
      * </p>
      * @since 7.0
      */
-    final public function getTrace(){}
+    public final function getTrace(){}
 
     /**
      * Gets the stack trace as a string
@@ -434,7 +434,7 @@ class Error implements Throwable {
      * @return string Returns the stack trace as a string.
      * @since 7.0
      */
-    final public function getTraceAsString(){}
+    public final function getTraceAsString(){}
 
     /**
      * Returns the previous Throwable
@@ -442,7 +442,7 @@ class Error implements Throwable {
      * @return Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
      * @since 7.0
      */
-    final public function getPrevious(){}
+    public final function getPrevious(){}
     /**
      * Gets a string representation of the thrown object
      * @link https://php.net/manual/en/throwable.tostring.php
@@ -457,7 +457,7 @@ class Error implements Throwable {
      * @return void
      * @link https://php.net/manual/en/error.clone.php
      */
-    final private function __clone(){}
+    private final function __clone(){}
 
     public function __wakeup(){}
 }

@@ -277,7 +277,7 @@ function enchant_dict_describe ($dict) {}
  * </p>
  * @return bool <b>TRUE</b> if the word is correctly spelled or <b>FALSE</b>
  */
-function enchant_dict_quick_check ($dict, $word, array &$suggestions = null) {}
+function enchant_dict_quick_check ($dict, $word, ?array &$suggestions = null) {}
 
 /**
  * @deprecated 8.0

@@ -151,7 +151,7 @@ function bcpow (string $num, string $exponent, ?int $scale = 0): string
 function bcsqrt (string $num, ?int $scale)
 {}
 
-#[PhpStormStubsElementAvailable(to: '7.2')]
+#[PhpStormStubsElementAvailable(to: '7.3')]
 /**
  * Set default scale parameter for all bc math functions
  * @link https://php.net/manual/en/function.bcscale.php
@@ -161,14 +161,24 @@ function bcsqrt (string $num, ?int $scale)
 function bcscale (int $scale): bool
 {}
 
-#[PhpStormStubsElementAvailable('7.3')]
+#[PhpStormStubsElementAvailable(from: '7.3', to: '8.0')]
+/**
+ * Set default scale parameter for all bc math functions
+ * @link https://php.net/manual/en/function.bcscale.php
+ * @param int $scale
+ * @return int
+ */
+function bcscale (int $scale): int
+{}
+
+#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Set default scale parameter for all bc math functions
  * @link https://php.net/manual/en/function.bcscale.php
  * @param int|null $scale
- * @return int
+ * @return int Returns the old scale when used as setter. Otherwise the current scale is returned.
  */
-function bcscale (?int $scale): int
+function bcscale (?int $scale = null): int
 {}
 
 /**

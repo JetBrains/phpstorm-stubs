@@ -803,7 +803,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * </p>
 	 * @return void No value is returned.
 	 */
-	final public static function webPhar ($alias = null, $index = "index.php", $fileNotFoundScript = null, array $mimeTypes = null, callable $rewrite = null) {}
+	final public static function webPhar ($alias = null, $index = "index.php", $fileNotFoundScript = null, ?array $mimeTypes = null, ?callable $rewrite = null) {}
 
 	/**
 	 * Returns whether current entry is a directory and not '.' or '..'
@@ -907,8 +907,16 @@ class PharData extends Phar {
 	 */
 	public function __construct ($filename, $flags = null, $alias = null, $format = Phar::TAR) {}
 
+	/**
+	 * @param string $localName
+	 * @return bool
+	 */
 	public function offsetExists ($localName) {}
 
+	/**
+	 * @param string $localName
+	 * @return string
+	 */
 	public function offsetGet ($localName) {}
 
 	/**

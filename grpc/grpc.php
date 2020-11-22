@@ -443,7 +443,7 @@ namespace Grpc
          *
          * @throws \InvalidArgumentException
          */
-        public function __construct($target, $args = []) {}
+        public function __construct($target, $args = array()) {}
 
         /**
          * Get the endpoint this call/stream is connected to

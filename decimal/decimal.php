@@ -84,7 +84,7 @@ final class Decimal implements \JsonSerializable
      *
      * @return Decimal a copy of this decimal.
      */
-    public function copy(int $precision = null): Decimal {}
+    public function copy(?int $precision = null): Decimal {}
 
     /**
      * Add

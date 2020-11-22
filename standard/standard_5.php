@@ -534,7 +534,7 @@ function fgets ($stream, ?int $length): string|false
  * @removed 8.0
  */
 #[Deprecated(since: '7.3')]
-function fgetss ($handle, int $length = null, $allowable_tags = null): bool|string
+function fgetss ($handle, ?int $length = null, $allowable_tags = null): bool|string
 {}
 
 /**

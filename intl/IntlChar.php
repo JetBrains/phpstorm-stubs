@@ -682,7 +682,7 @@ class IntlChar {
      * @since 7.0
      */
     #[Pure]
-    public static function hasBinaryProperty($codepoint, $property){}
+    static public function hasBinaryProperty($codepoint, $property){}
 
     /**
      * @link https://php.net/manual/en/intlchar.charage.php

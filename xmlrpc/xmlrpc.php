@@ -49,7 +49,7 @@ function xmlrpc_decode_request ($xml, &$method, $encoding = null) {}
  * <p>output_type: php, xml</p>
  * @return string a string containing the XML representation of the request.
  */
-function xmlrpc_encode_request ($method, $params, array $output_options = null) {}
+function xmlrpc_encode_request ($method, $params, ?array $output_options = null) {}
 
 /**
  * Gets xmlrpc type for a PHP value
@@ -121,7 +121,7 @@ function xmlrpc_server_register_method ($server, $method_name, $function) {}
  * @param null|array $output_options [optional]
  * @return string
  */
-function xmlrpc_server_call_method ($server, $xml, $user_data, array $output_options = null) {}
+function xmlrpc_server_call_method ($server, $xml, $user_data, ?array $output_options = null) {}
 
 /**
  * Decodes XML into a list of method descriptions

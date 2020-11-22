@@ -884,7 +884,7 @@ class PDO  {
 	 * Emulated prepared statements does not communicate with the database server
 	 * so <b>PDO::prepare</b> does not check the statement.
 	 */
-	public function prepare ($query, array $options = []) {}
+	public function prepare ($query, array $options = array()) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1003,7 +1003,7 @@ class PDO  {
 	 * on failure.
 	 * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
 	 */
-	public function query ($statement, $mode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null, array $ctorargs = []) {}
+	public function query ($statement, $mode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null, array $ctorargs = array()) {}
 
 	#[PhpStormStubsElementAvailable('8.0')]
 	/**
@@ -1437,7 +1437,7 @@ class PDOStatement implements IteratorAggregate
 	 * @return mixed an instance of the required class with property names that
 	 * correspond to the column names or <b>FALSE</b> on failure.
 	 */
-	public function fetchObject ($class = "stdClass", array $ctorArgs = []) {}
+	public function fetchObject ($class = "stdClass", array $ctorArgs = array()) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1586,7 +1586,7 @@ class PDOStatement implements IteratorAggregate
 	 * @param array $params [optional] <p> Constructor arguments. </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function setFetchMode ($mode, $className = null, array $params = []) {}
+	public function setFetchMode ($mode, $className = null, array $params = array()) {}
 
 	#[PhpStormStubsElementAvailable('8.0')]
 	/**
@@ -1634,6 +1634,7 @@ class PDOStatement implements IteratorAggregate
 
 	/**
 	 * @since 8.0
+	 * @return Traversable
 	 */
 	public function getIterator(){}
 }

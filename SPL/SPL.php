@@ -1097,7 +1097,7 @@ class RegexIterator extends FilterIterator {
      * Create a new RegexIterator
      * @link https://php.net/manual/en/regexiterator.construct.php
      * @param Iterator $iterator The iterator to apply this regex filter to.
-     * @param string $pattern [optional] The regular expression to match.
+     * @param string $pattern The regular expression to match.
      * @param int $mode [optional] Operation mode, see RegexIterator::setMode() for a list of modes.
      * @param int $flags [optional] Special flags, see RegexIterator::setFlags() for a list of available flags.
      * @param int $pregFlags [optional] The regular expression flags. These flags depend on the operation mode parameter
@@ -1439,7 +1439,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param string $iteratorClass Specify the class that will be used for iteration of the ArrayObject object. ArrayIterator is the default class used.
      *
      */
-    public function __construct($array = [], $flags = 0, $iteratorClass = "ArrayIterator") { }
+    public function __construct($array = array(), $flags = 0, $iteratorClass = "ArrayIterator") { }
 
     /**
      * Returns whether the requested index exists
@@ -1705,7 +1705,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @param int $flags Flags to control the behaviour of the ArrayObject object.
      * @see ArrayObject::setFlags()
      */
-    public function __construct($array = [], $flags = 0) { }
+    public function __construct($array = array(), $flags = 0) { }
 
     /**
      * Check if offset exists

@@ -1,5 +1,6 @@
 <?php
 
+// Start of session v.
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
@@ -399,13 +400,8 @@ function session_set_cookie_params (array $options): bool
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
 #[LanguageLevelTypeAware(["7.2" => "bool"], default: "void")]
-function session_set_cookie_params (
-    array|int $lifetime_or_options,
-    ?string $path,
-    ?string $domain,
-    ?bool $secure = false,
-    ?bool $httponly = false
-) {}
+function session_set_cookie_params (array|int $lifetime_or_options, ?string $path, ?string $domain, ?bool $secure = false, ?bool $httponly = false)
+{}
 
 /**
  * Get the session cookie parameters

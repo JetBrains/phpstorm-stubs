@@ -13,4 +13,4 @@ function fpm_get_status() : array { }
  * @link https://php.net/manual/en/install.fpm.php
  * @since 5.3.3
  */
-function fastcgi_finish_request() { }
+function fastcgi_finish_request() {};

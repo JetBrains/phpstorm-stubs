@@ -889,7 +889,7 @@ namespace MongoDB {}
              * @param array $options
              * @throws InvalidArgumentException on argument parsing errors.
              */
-            final public function __construct(array $options = [])
+            public final function __construct(array $options = [])
             {
             }
 
@@ -923,7 +923,7 @@ namespace MongoDB {}
              * @return mixed
              * @throws InvalidArgumentException on argument parsing errors.
              */
-            final public function insert($document)
+            public final function insert($document)
             {
             }
 
@@ -2126,7 +2126,7 @@ namespace MongoDB {}
              * @param string $data
              * @param integer $type
              */
-            final public function __construct($data, $type)
+            public final function __construct($data, $type)
             {
             }
 
@@ -2448,7 +2448,7 @@ namespace MongoDB {}
              * @param string|null $id A 24-character hexadecimal string. If not provided, the driver will generate an ObjectId.
              * @throws InvalidArgumentException if id is not a 24-character hexadecimal string.
              */
-            final public function __construct($id = null)
+            public final function __construct($id = null)
             {
             }
 
@@ -2467,7 +2467,7 @@ namespace MongoDB {}
              * @link https://secure.php.net/manual/en/mongodb-bson-objectid.gettimestamp.php
              * @return int the timestamp component of this ObjectId
              */
-            final public function getTimestamp()
+            public final function getTimestamp()
             {
             }
 
@@ -2514,7 +2514,7 @@ namespace MongoDB {}
              * @param string $pattern
              * @param string $flags [optional]
              */
-            final public function __construct($pattern, $flags = "")
+            public final function __construct($pattern, $flags = "")
             {
             }
 

@@ -271,7 +271,7 @@ class SplFileInfo implements Stringable {
          */
         public function __toString () {}
 
-        final public function _bad_state_ex (){}
+        public final function _bad_state_ex (){}
 
     public function __wakeup()
     {
@@ -1738,6 +1738,9 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
     {
     }
 
+    /**
+     * @return Traversable
+     */
     public function getIterator() {}
 }
 

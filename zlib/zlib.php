@@ -228,6 +228,7 @@ function gzwrite ($stream, string $data, ?int $length): int|false
  * @param resource $stream
  * @param string $data
  * @param int|null $length [optional]
+ * @return int|false
  */
 function gzputs ($stream, string $data, ?int $length): int|false {}
 
@@ -439,7 +440,7 @@ function ob_gzhandler (string $data, int $flags): string|false {}
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "DeflateContext|false"], default: "resource|false")]
-function deflate_init (int $encoding, array $options = []) {}
+function deflate_init (int $encoding, array $options = array()) {}
 
 /**
  * Incrementally deflate data
@@ -487,7 +488,7 @@ function deflate_add (#[LanguageLevelTypeAware(["8.0" => "DeflateContext"], defa
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "InflateContext|false"], default: "resource|false")]
-function inflate_init (int $encoding, array $options = []) {}
+function inflate_init (int $encoding, array $options = array()) {}
 
 /**
  * Incrementally inflate encoded data

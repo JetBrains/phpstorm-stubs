@@ -47,7 +47,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  * DISABLE_AUTHENTICATOR - Disable authentication properties
  * @return resource|false an IMAP stream on success or <b>FALSE</b> on error.
  */
-function imap_open ($mailbox, $username, $password, $options = 0, $n_retries = 0, array $params = null) {}
+function imap_open ($mailbox, $username, $password, $options = 0, $n_retries = 0, ?array $params = null) {}
 
 /**
  * Reopen IMAP stream to new mailbox
