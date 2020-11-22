@@ -287,7 +287,7 @@ function wincache_ucache_dec($key, $dec_by = 1, &$success) {}
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Deletes the elements in the user cache pointed by key.
  * @link https://secure.php.net/manual/en/function.wincache-ucache-delete.php
- * @param mixed $key <p>The key that was used to store the variable in the cache.
+ * @param string|string[] $key <p>The key that was used to store the variable in the cache.
  * key is case sensitive. key can be an array of keys.</p>
  * @return bool Returns TRUE on success or FALSE on failure.
  * <p>If key is an array then the function returns FALSE if every element of
@@ -309,7 +309,7 @@ function wincache_ucache_exists($key) {}
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Gets a variable stored in the user cache.
  * @link https://secure.php.net/manual/en/function.wincache-ucache-get.php
- * @param mixed $key <p>The key that was used to store the variable in the cache.
+ * @param string|string[] $key <p>The key that was used to store the variable in the cache.
  * key is case sensitive. key can be an array of keys. In this case the return
  * value will be an array of values of each element in the key array.</p>
  * @param bool &$success [optional]
@@ -398,7 +398,7 @@ function wincache_ucache_meminfo() {}
  * live expires or it is deleted by using wincache_ucache_delete() or
  * wincache_ucache_clear() functions.</p>
  * @link https://secure.php.net/manual/en/function.wincache-ucache-set.php
- * @param mixed $key <p>
+ * @param string|string[] $key <p>
  * Store the variable using this key name. If a variable with same key is already
  * present the function will overwrite the previous value with the new one. key
  * is case sensitive. key can also take array of name =&gt; value pairs where
