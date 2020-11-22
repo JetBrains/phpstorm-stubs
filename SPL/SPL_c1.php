@@ -271,7 +271,7 @@ class SplFileInfo implements Stringable {
          */
         public function __toString () {}
 
-        public final function _bad_state_ex (){}
+        final public function _bad_state_ex (){}
 
     public function __wakeup()
     {

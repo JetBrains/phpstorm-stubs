@@ -153,7 +153,7 @@ class MongoClient
      * Returns an array of all open connections, and information about each of the servers
      * @return array
      */
-    static public function getConnections ()
+    public static function getConnections ()
     {}
 
     /**

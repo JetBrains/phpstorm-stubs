@@ -381,7 +381,7 @@ class Error implements Throwable {
      * @return string
      * @since 7.0
      */
-    public final function getMessage()
+    final public function getMessage()
     {
     }
 
@@ -396,7 +396,7 @@ class Error implements Throwable {
      * </p>
      * @since 7.0
      */
-    public final function getCode(){}
+    final public function getCode(){}
 
 
     /**
@@ -405,7 +405,7 @@ class Error implements Throwable {
      * @return string Returns the name of the file from which the object was thrown.
      * @since 7.0
      */
-    public final function getFile(){}
+    final public function getFile(){}
 
 
     /**
@@ -414,7 +414,7 @@ class Error implements Throwable {
      * @return int Returns the line number where the thrown object was instantiated.
      * @since 7.0
      */
-    public final function getLine(){}
+    final public function getLine(){}
 
 
     /**
@@ -426,7 +426,7 @@ class Error implements Throwable {
      * </p>
      * @since 7.0
      */
-    public final function getTrace(){}
+    final public function getTrace(){}
 
     /**
      * Gets the stack trace as a string
@@ -434,7 +434,7 @@ class Error implements Throwable {
      * @return string Returns the stack trace as a string.
      * @since 7.0
      */
-    public final function getTraceAsString(){}
+    final public function getTraceAsString(){}
 
     /**
      * Returns the previous Throwable
@@ -442,7 +442,7 @@ class Error implements Throwable {
      * @return Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
      * @since 7.0
      */
-    public final function getPrevious(){}
+    final public function getPrevious(){}
     /**
      * Gets a string representation of the thrown object
      * @link https://php.net/manual/en/throwable.tostring.php
@@ -457,7 +457,7 @@ class Error implements Throwable {
      * @return void
      * @link https://php.net/manual/en/error.clone.php
      */
-    private final function __clone(){}
+    final private function __clone(){}
 
     public function __wakeup(){}
 }
