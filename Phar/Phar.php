@@ -299,7 +299,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * @param string $directory <p>
 	 * Path within an archive to the file to delete.
 	 * </p>
-	 * @param string|array $files [optional] <p>
+	 * @param string|array|null $files [optional] <p>
 	 * The name of a file or directory to extract, or an array of files/directories to extract
 	 * </p>
 	 * @param bool $overwrite [optional] <p>
