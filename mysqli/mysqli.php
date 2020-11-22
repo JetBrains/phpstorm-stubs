@@ -488,13 +488,13 @@ class mysqli  {
 	/**
 	 * Opens a connection to a mysql server
 	 * @link https://php.net/manual/en/mysqli.real-connect.php
-	 * @param string $host [optional] <p>
+	 * @param string $hostname [optional] <p>
 	 * Can be either a host name or an IP address. Passing the null value
 	 * or the string "localhost" to this parameter, the local host is
 	 * assumed. When possible, pipes will be used instead of the TCP/IP
 	 * protocol.
 	 * </p>
-	 * @param string $hostname [optional] <p>
+	 * @param string $username [optional] <p>
 	 * The MySQL user name.
 	 * </p>
 	 * @param string $password [optional] <p>
