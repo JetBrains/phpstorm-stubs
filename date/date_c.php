@@ -200,7 +200,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * (PHP 5 &gt;=5.5.0)<br/>
      * Returns the warnings and errors
      * @link https://secure.php.net/manual/en/datetimeimmutable.getlasterrors.php
-     * @return array Returns array containing info about warnings and errors.
+     * @return array|false Returns array containing info about warnings and errors.
      */
     public static function getLastErrors() { }
 
@@ -605,7 +605,7 @@ class DateTime implements DateTimeInterface {
 
     /**
      * Returns an array of warnings and errors found while parsing a date/time string
-     * @return array
+     * @return array|false
      * @link https://php.net/manual/en/datetime.getlasterrors.php
      */
     public static function getLastErrors () {}
