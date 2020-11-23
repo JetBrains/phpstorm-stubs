@@ -44,7 +44,6 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 	 * successfully and <b>FALSE</b> otherwise.
 	 * @since 5.0.1
 	 */
-    #[Pure]
 	public function asXML ($filename = null) {}
 
 	/**
