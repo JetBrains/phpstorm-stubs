@@ -31,7 +31,7 @@ class PHPParameter extends BasePHPElement
         $this->name = $reflectionObject->name;
         $this->type = self::convertReflectionTypeToString($reflectionObject->getType());
         $this->is_vararg = $reflectionObject->isVariadic();
-        $this->is_passed_by_ref = $reflectionObject->isPassedByReference();
+        $this->is_passed_by_ref = $reflectionObject->isPassedByReference() && !$reflectionObject->canBePassedByValue();
         return $this;
     }
 
