@@ -614,7 +614,7 @@ function ldap_add ($ldap, string $dn, array $entry, ?array $controls = []): bool
  * </p>
  * @param array|null $controls [optional] Array of LDAP Controls to send with the request.
  * @return resource|false
- * @since 7.4
+ * @since 7.3
  */
 function ldap_add_ext ($ldap, string $dn, array $entry, ?array $controls = [])
 {}
@@ -698,6 +698,7 @@ function ldap_mod_add ($ldap, string $dn, array $entry, ?array $controls = []): 
  * @param array $entry
  * @param array|null $controls [optional] Array of LDAP Controls to send with the request.
  * @return resource|false
+ * @since 7.3
  */
 function ldap_mod_add_ext ($ldap, string $dn, array $entry, ?array $controls = [])
 {}
