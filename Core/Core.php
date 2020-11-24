@@ -671,7 +671,7 @@ function user_error (string $message, int $error_level = E_USER_NOTICE): bool
  * <i>error_handler</i> will be called for every error
  * regardless to the setting of the error_reporting setting.
  * </p>
- * @return void a string containing the previously defined error handler (if any). If
+ * @return callable|null a string containing the previously defined error handler (if any). If
  * the built-in error handler is used null is returned. null is also returned
  * in case of an error such as an invalid callback. If the previous error handler
  * was a class method, this function will return an indexed array with the class
@@ -699,7 +699,7 @@ function restore_error_handler (): bool
  * was thrown.
  * NULL may be passed instead, to reset this handler to its default state.
  * </p>
- * @return void the name of the previously defined exception handler, or null on error. If
+ * @return callable|null the name of the previously defined exception handler, or null on error. If
  * no previous handler was defined, null is also returned.
  */
 function set_exception_handler (?callable $callback)

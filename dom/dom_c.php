@@ -92,7 +92,7 @@ class DOMNode  {
      * The namespace URI of this node, or NULL if it is unspecified.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
      */
-    public $namespace;
+    public $namespaceURI;
 
     /**
      * @var string|null
