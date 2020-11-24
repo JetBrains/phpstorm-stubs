@@ -866,6 +866,35 @@ function extract (array &$array, int $flags, string $prefix): int
 {}
 
 /**
+ * Import variables into the current symbol table from an array
+ * @link https://php.net/manual/en/function.extract.php
+ * @param array &$array<p>
+ * Note that prefix is only required if
+ * extract_type is EXTR_PREFIX_SAME,
+ * EXTR_PREFIX_ALL, EXTR_PREFIX_INVALID
+ * or EXTR_PREFIX_IF_EXISTS. If
+ * the prefixed result is not a valid variable name, it is not
+ * imported into the symbol table. Prefixes are automatically separated from
+ * the array key by an underscore character.
+ * </p>
+ * @param int $flags [optional] <p>
+ * The way invalid/numeric keys and collisions are treated is determined
+ * by the extract_type. It can be one of the
+ * following values:
+ * EXTR_OVERWRITE
+ * If there is a collision, overwrite the existing variable.
+ * @param string $prefix [optional] Only overwrite the variable if it already exists in the
+ * current symbol table, otherwise do nothing. This is useful
+ * for defining a list of valid variables and then extracting
+ * only those variables you have defined out of
+ * $_REQUEST, for example.
+ * @return int the number of variables successfully imported into the symbol
+ * table.
+ */
+function extract (array $array, int $flags, string $prefix): int
+{}
+
+/**
  * Create array containing variables and their values
  * @link https://php.net/manual/en/function.compact.php
  * @param mixed $var_name <p>
