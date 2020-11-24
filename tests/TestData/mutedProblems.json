@@ -1174,6 +1174,23 @@
         "parameter mismatch"
       ],
       "comment": "flaky reflection o_O?"
+    },
+    {
+      "name": "array_multisort",
+      "parameters": [
+        {
+          "name": "rest",
+          "problems": [
+            "parameter reference"
+          ]
+        },
+        {
+          "name": "array",
+          "problems": [
+            "parameter reference"
+          ]
+        }
+      ]
     }
   ],
   "classes": [

@@ -115,7 +115,7 @@ function array_count_values(array $array): array
  * @since 5.5
  */
 #[Pure]
-function array_column(array $array, string|int|null $column_key, string|int $index_key = null): array
+function array_column(array $array, string|int|null $column_key, string|int|null $index_key = null): array
 { }
 
 /**

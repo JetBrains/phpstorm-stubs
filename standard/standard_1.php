@@ -617,7 +617,7 @@ function substr (string $string, int $offset, ?int $length)
  * array then array is returned.
  */
 #[Pure]
-function substr_replace (array|string $string, array|string $replace, array|int $offset, array|int $length = null): array|string
+function substr_replace (array|string $string, array|string $replace, array|int $offset, array|int|null $length = null): array|string
 {}
 
 /**
@@ -978,7 +978,7 @@ function ltrim (string $string, string $characters = " \t\n\r\0\x0B"): string
  * @return string the stripped string.
  */
 #[Pure]
-function strip_tags (string $string, array|string $allowed_tags = null): string
+function strip_tags (string $string, array|string|null $allowed_tags = null): string
 {}
 
 /**
