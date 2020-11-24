@@ -21,6 +21,7 @@ class PHPParameter extends BasePHPElement
     public string $type = '';
     public bool $is_vararg = false;
     public bool $is_passed_by_ref = false;
+    public ?Expr $defaultValue = null;
 
     /**
      * @param ReflectionParameter $reflectionObject
@@ -50,12 +51,10 @@ class PHPParameter extends BasePHPElement
         } else {
             $this->type = self::convertParsedTypeToString($node->type);
         }
-        if($node->default instanceof Expr\ConstFetch && $node->default->name->parts[0] === "null"){
-            $this->type .= "|null";
-        }
 
         $this->is_vararg = $node->variadic;
         $this->is_passed_by_ref = $node->byRef;
+        $this->defaultValue = $node->default;
         return $this;
     }
 
@@ -70,6 +69,7 @@ class PHPParameter extends BasePHPElement
                         'parameter vararg' => StubProblemType::PARAMETER_VARARG,
                         'has scalar typehint' => StubProblemType::PARAMETER_HAS_SCALAR_TYPEHINT,
                         'parameter name mismatch' => StubProblemType::PARAMETER_NAME_MISMATCH,
+                        'has nullable typehint' => StubProblemType::HAS_NULLABLE_TYPEHINT,
                         default => -1
                     };
                 }

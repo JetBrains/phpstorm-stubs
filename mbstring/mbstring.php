@@ -177,13 +177,13 @@ function mb_http_output (?string $encoding): string|bool
  * When getting the encoding detection order, an ordered array
  * of the encodings is returned.
  */
-function mb_detect_order (array|string $encoding = null): array|bool
+function mb_detect_order (array|string|null $encoding = null): array|bool
 {}
 
 /**
  * Set/Get substitution character
  * @link https://php.net/manual/en/function.mb-substitute-character.php
- * @param int|string $substitute_character [optional] <p>
+ * @param string|int|null $substitute_character [optional] <p>
  * Specify the Unicode value as an integer,
  * or as one of the following strings:<ul>
  * <li>"none" : no output
@@ -194,7 +194,7 @@ function mb_detect_order (array|string $encoding = null): array|bool
  * If substchar is not set, it returns the Unicode value,
  * or "none" or "long".
  */
-function mb_substitute_character (string|int $substitute_character = null): string|int|bool
+function mb_substitute_character (string|int|null $substitute_character = null): string|int|bool
 {}
 
 #[PhpStormStubsElementAvailable(to: '7.4')]
@@ -594,7 +594,7 @@ function mb_strimwidth (string $string, int $start, int $width, string $trim_mar
  * @param string $to_encoding <p>
  * The type of encoding that str is being converted to.
  * </p>
- * @param string|string[] $from_encoding [optional] <p>
+ * @param string|string[]|null $from_encoding [optional] <p>
  * Is specified by character code names before conversion. It is either
  * an array, or a comma separated enumerated list.
  * If from_encoding is not specified, the internal
@@ -607,7 +607,7 @@ function mb_strimwidth (string $string, int $start, int $width, string $trim_mar
  * @return array|string|false The encoded string.
  */
 #[Pure]
-function mb_convert_encoding (array|string $string, string $to_encoding, array|string $from_encoding = null): array|string|false
+function mb_convert_encoding (array|string $string, string $to_encoding, array|string|null $from_encoding = null): array|string|false
 {}
 
 /**
@@ -616,7 +616,7 @@ function mb_convert_encoding (array|string $string, string $to_encoding, array|s
  * @param string $string <p>
  * The string being detected.
  * </p>
- * @param string|string[] $encodings [optional] <p>
+ * @param string|string[]|null $encodings [optional] <p>
  * encoding_list is list of character
  * encoding. Encoding order may be specified by array or comma
  * separated list string.
@@ -634,7 +634,7 @@ function mb_convert_encoding (array|string $string, string $to_encoding, array|s
  * detected from the given string.
  */
 #[Pure]
-function mb_detect_encoding (string $string, array|string $encodings = null, bool $strict = false): string|false
+function mb_detect_encoding (string $string, array|string|null $encodings = null, bool $strict = false): string|false
 {}
 
 /**
@@ -961,7 +961,7 @@ function mb_get_info (string $type): array|string|int|false
 /**
  * Check if the string is valid for the specified encoding
  * @link https://php.net/manual/en/function.mb-check-encoding.php
- * @param string|array $value [optional] <p>
+ * @param array|string|null $value [optional] <p>
  * The byte stream to check. If it is omitted, this function checks
  * all the input from the beginning of the request.
  * </p>
@@ -972,7 +972,7 @@ function mb_get_info (string $type): array|string|int|false
  * @since 5.1.3
  */
 #[Pure]
-function mb_check_encoding (array|string $value = null, ?string $encoding): bool
+function mb_check_encoding (array|string|null $value = null, ?string $encoding): bool
 {}
 
 /**

@@ -15,6 +15,7 @@ class PHPClass extends BasePHPClass
     public array $interfaces = [];
     /** @var PHPProperty[] */
     public array $properties = [];
+    public bool $isFinal = false;
 
     /**
      * @param ReflectionClass $reflectionObject
@@ -59,6 +60,7 @@ class PHPClass extends BasePHPClass
     public function readObjectFromStubNode($node): static
     {
         $this->name = $this->getFQN($node);
+        $this->isFinal = $node->isFinal();
         $this->collectTags($node);
         if (!empty($node->extends)) {
             $this->parentClass = '';

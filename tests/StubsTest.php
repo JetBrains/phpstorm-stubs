@@ -101,7 +101,9 @@ class StubsTest extends TestCase
                             " but stub function has signature $functionName(" . $this->printParameters($phpstormFunction->parameters) . ")");
                         $stubParameter = current(array_filter($phpstormFunction->parameters, fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name));
                         self::assertEquals($parameter->type, $stubParameter->type, "Type mismatch $functionName: \$$parameter->name ");
-                        self::assertEquals($parameter->is_passed_by_ref, $stubParameter->is_passed_by_ref, "Invalid pass by ref $functionName: \$$parameter->name ");
+                        if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_REFERENCE)) {
+                            self::assertEquals($parameter->is_passed_by_ref, $stubParameter->is_passed_by_ref, "Invalid pass by ref $functionName: \$$parameter->name ");
+                        }
                         self::assertEquals($parameter->is_vararg, $stubParameter->is_vararg, "Invalid pass by ref $functionName: \$$parameter->name ");
                     }
                 }
@@ -159,15 +161,15 @@ class StubsTest extends TestCase
                 $stubMethod = $stubClass->methods[$methodName];
                 if (!$method->hasMutedProblem(StubProblemType::FUNCTION_IS_FINAL)) {
                     static::assertEquals(
-                        $method->is_final,
-                        $stubMethod->is_final,
+                        $method->isFinal,
+                        $stubMethod->isFinal,
                         "Method $className::$methodName final modifier is incorrect"
                     );
                 }
                 if (!$method->hasMutedProblem(StubProblemType::FUNCTION_IS_STATIC)) {
                     static::assertEquals(
-                        $method->is_static,
-                        $stubMethod->is_static,
+                        $method->isStatic,
+                        $stubMethod->isStatic,
                         "Method $className::$methodName static modifier is incorrect"
                     );
                 }
@@ -185,14 +187,15 @@ class StubsTest extends TestCase
                         "Parameter number mismatch for method $className::$methodName. 
                         Expected: " . self::getParameterRepresentation($method)
                     );
-                    foreach ($method->parameters as $parameter){
+                    foreach ($method->parameters as $parameter) {
                         self::assertNotEmpty(array_filter($stubMethod->parameters,
                             fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name),
                             "Function $className::$methodName has signature $methodName(" . $this->printParameters($method->parameters) . ')' .
                             " but stub function has signature $methodName(" . $this->printParameters($stubMethod->parameters) . ")");
                         $stubParameter = current(array_filter($stubMethod->parameters, fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name));
-//                        self::assertEquals($parameter->type, $stubParameter->type, "Type mismatch $className::$methodName: \$$parameter->name ");
-                        self::assertEquals($parameter->is_passed_by_ref, $stubParameter->is_passed_by_ref, "Invalid pass by ref $className::$methodName: \$$parameter->name ");
+                        if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_REFERENCE)) {
+                            self::assertEquals($parameter->is_passed_by_ref, $stubParameter->is_passed_by_ref, "Invalid pass by ref $className::$methodName: \$$parameter->name ");
+                        }
                         self::assertEquals($parameter->is_vararg, $stubParameter->is_vararg, "Invalid pass by ref $className::$methodName: \$$parameter->name ");
                     }
                 }
@@ -291,15 +294,15 @@ class StubsTest extends TestCase
                 $stubMethod = $stubInterface->methods[$methodName];
                 if (!$method->hasMutedProblem(StubProblemType::FUNCTION_IS_FINAL)) {
                     static::assertEquals(
-                        $method->is_final,
-                        $stubMethod->is_final,
+                        $method->isFinal,
+                        $stubMethod->isFinal,
                         "Method $interfaceName::$methodName final modifier is incorrect"
                     );
                 }
                 if (!$method->hasMutedProblem(StubProblemType::FUNCTION_IS_STATIC)) {
                     static::assertEquals(
-                        $method->is_static,
-                        $stubMethod->is_static,
+                        $method->isStatic,
+                        $stubMethod->isStatic,
                         "Method $interfaceName::$methodName static modifier is incorrect"
                     );
                 }
@@ -354,8 +357,14 @@ class StubsTest extends TestCase
                 $firstSinceVersion = array_pop($sinceVersions);
             }
         }
-        self::checkFunctionDoesNotHaveScalarTypeHints($firstSinceVersion, $stubFunction);
-        self::checkFunctionDoesNotHaveReturnTypeHints($firstSinceVersion, $stubFunction);
+        if ($parentClass !== null && !$parentClass->isFinal && !$stubFunction->isFinal) {
+            $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($stubFunction->parentName);
+            self::checkMethodDoesNotHaveScalarTypeHints($firstSinceVersion, $parentClass, $stubFunction);
+            self::checkMethodDoesNotHaveReturnTypeHints($firstSinceVersion, $parentClass, $stubFunction);
+            self::checkMethodDoesNotHaveNullableTypeHints($firstSinceVersion, $parentClass, $stubFunction);
+        } else {
+            self::markTestSkipped("Parent class or method is final");
+        }
     }
 
     /**
@@ -522,7 +531,7 @@ class StubsTest extends TestCase
         }
     }
 
-    private static function checkFunctionDoesNotHaveScalarTypeHints(int $sinceVersion, PHPFunction $function)
+    private static function checkMethodDoesNotHaveScalarTypeHints(int $sinceVersion, PHPClass $parentClass, PHPFunction $function)
     {
         if ($sinceVersion < 7) {
             if (empty($function->parameters)) {
@@ -532,7 +541,7 @@ class StubsTest extends TestCase
                     if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_HAS_SCALAR_TYPEHINT)) {
                         self::assertFalse($parameter->type === 'int' || $parameter->type === 'float' ||
                             $parameter->type === 'string' || $parameter->type === 'bool',
-                            "Function '{$function->name}' with @since '$sinceVersion'  
+                            "Method '{$parentClass->name}::{$function->name}' with @since '$sinceVersion'  
                 has parameter '{$parameter->name}' with typehint '{$parameter->type}' but typehints available only since php 7");
                     } else {
                         self::markTestSkipped("Skipped");
@@ -544,18 +553,72 @@ class StubsTest extends TestCase
         }
     }
 
-    private static function checkFunctionDoesNotHaveReturnTypeHints(int $sinceVersion, PHPFunction $function)
+    private static function checkMethodDoesNotHaveReturnTypeHints(int $sinceVersion, PHPClass $parentClass, PHPFunction $function)
     {
         $returnTypeHint = $function->returnType;
         if ($sinceVersion < 7) {
             if (!$function->hasMutedProblem(StubProblemType::FUNCTION_HAS_RETURN_TYPEHINT)) {
-                self::assertEmpty($returnTypeHint, "Function '$function->name' has since version '$sinceVersion'
+                self::assertEmpty($returnTypeHint, "Method '{$parentClass->name}::{$function->name}' has since version '$sinceVersion'
             but has return typehint '$returnTypeHint' that supported only since PHP 7. Please declare return type via PhpDoc");
             } else {
                 self::markTestSkipped("Skipped");
             }
         } else {
             self::assertTrue(true, "Function '{$function->name}' has since version > 7");
+        }
+    }
+
+    private static function checkMethodDoesNotHaveNullableTypeHints(int $sinceVersion, PHPClass $parentClass, PHPFunction $function): void
+    {
+        $returnTypeHint = $function->returnType;
+        if ($sinceVersion < 7.1) {
+            self::checkNullableTypehintsInParameters($function, $parentClass, $sinceVersion);
+            self::checkNullableTypeHintsInReturnType($function, $parentClass, $sinceVersion, $returnTypeHint);
+        } else {
+            self::assertTrue(true, "Method '{$parentClass->name}::{$function->name}' has since version > 7.1");
+        }
+    }
+
+    private static function checkNullableTypeHintsInReturnType(PHPFunction $function, PHPClass $parentClass, int $sinceVersion, string $returnTypeHint): void
+    {
+        if (!$function->hasMutedProblem(StubProblemType::HAS_NULLABLE_TYPEHINT)) {
+            self::assertFalse(
+                str_starts_with($returnTypeHint, '?') ||
+                str_contains($returnTypeHint, 'null') ||
+                str_contains($returnTypeHint, 'NULL'),
+                "Method '{$parentClass->name}::{$function->name}' has since version '$sinceVersion'
+            but has nullable return typehint '$returnTypeHint' that supported only since PHP 7.1. 
+            Please declare return type via PhpDoc");
+        } else {
+            self::markTestSkipped("Skipped");
+        }
+    }
+
+    private static function checkNullableTypehintsInParameters(PHPFunction $function, PHPClass $parentClass,
+                                                               int $sinceVersion): void
+    {
+        if (empty($function->parameters)) {
+            self::assertTrue(true, 'Parameters list empty');
+        } else {
+            foreach ($function->parameters as $parameter) {
+                $defaultValue = null;
+                if ($parameter->defaultValue !== null && property_exists($parameter->defaultValue, 'name') &&
+                    property_exists($parameter->defaultValue->name, "parts")) {
+                    $defaultValue = $parameter->defaultValue->name->parts[0];
+                }
+                if (!$parameter->hasMutedProblem(StubProblemType::HAS_NULLABLE_TYPEHINT) &&
+                    $defaultValue !== 'null') {
+                    self::assertFalse(
+                        str_starts_with($parameter->type, '?') ||
+                        str_contains($parameter->type, 'null') ||
+                        str_contains($parameter->type, 'NULL'),
+                        "Method '{$parentClass->name}::{$function->name}' with @since '$sinceVersion'  
+                has nullable parameter '{$parameter->name}' with typehint '{$parameter->type}' 
+                but nullable typehints available only since php 7.1");
+                } else {
+                    self::markTestSkipped("Skipped");
+                }
+            }
         }
     }
 }
