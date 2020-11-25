@@ -945,14 +945,14 @@ function range ($start, $end, int|float $step = 1): array
  * @param array $array <p>
  * An array being sorted.
  * </p>
- * @param  &...$rest [optional] <p>
+ * @param  ...$rest [optional] <p>
  * More arrays, optionally followed by sort order and flags.
  * Only elements corresponding to equivalent elements in previous arrays are compared.
  * In other words, the sort is lexicographical.
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_multisort ($array, &...$rest): bool
+function array_multisort ($array, ...$rest): bool
 {}
 
 
