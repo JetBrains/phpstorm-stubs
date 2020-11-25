@@ -35,7 +35,7 @@ class TopicPartition
     }
 
     /**
-     * @param string $offset
+     * @param int $offset
      *
      * @return void
      */
@@ -44,7 +44,7 @@ class TopicPartition
     }
 
     /**
-     * @param string $partition
+     * @param int $partition
      *
      * @return void
      */
