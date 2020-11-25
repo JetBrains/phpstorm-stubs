@@ -1030,7 +1030,7 @@ function similar_text (string $string1, string $string2, &$percent): int
  * string will be returned.
  */
 #[Pure]
-#[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
+#[LanguageLevelTypeAware(["8.0" => "string[]"], default: "string[]|false")]
 function explode (string $separator, string $string, int $limit): array|bool
 {}
 
