@@ -135,7 +135,8 @@ function hash_hmac_file (string $algo, string $data, string $key, bool $binary =
  * and <b>hash_final</b>.
  */
 #[Pure]
-function hash_init (string $algo, int $flags = 0, string $key): HashContext
+#[LanguageLevelTypeAware(['8.0' => 'HashContext'], default: 'resource')]
+function hash_init (string $algo, int $flags = 0, string $key)
 {}
 
 /**
@@ -217,7 +218,8 @@ function hash_final (#[LanguageLevelTypeAware(["8.0" => "HashContext"], default:
  * @return HashContext|resource a copy of Hashing Context resource.
  */
 #[Pure]
-function hash_copy (#[LanguageLevelTypeAware(["8.0" => "HashContext"], default: "resource")] $context): HashContext
+#[LanguageLevelTypeAware(['8.0' => 'HashContext'], default: 'resource')]
+function hash_copy (#[LanguageLevelTypeAware(["8.0" => "HashContext"], default: "resource")] $context)
 {}
 
 /**
