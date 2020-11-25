@@ -1100,6 +1100,7 @@ function array_slice (array $array, int $offset, ?int $length, bool $preserve_ke
  * Initial array to merge.
  * </p>
  * @return array the resulting array.
+ * @meta
  */
 #[Pure]
 function array_merge (array ...$arrays): array
