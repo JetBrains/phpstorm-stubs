@@ -100,7 +100,7 @@ class StubsTest extends TestCase
                             "Function ${functionName} has signature $functionName(" . $this->printParameters($function->parameters) . ')' .
                             " but stub function has signature $functionName(" . $this->printParameters($phpstormFunction->parameters) . ")");
                         $stubParameter = current(array_filter($phpstormFunction->parameters, fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name));
-                        self::assertEquals($parameter->type, $stubParameter->type, "Type mismatch $functionName: \$$parameter->name ");
+                        self::assertEquals($parameter->type, preg_replace('/\w+\[]/', 'array', $stubParameter->type), "Type mismatch $functionName: \$$parameter->name ");
                         if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_REFERENCE)) {
                             self::assertEquals($parameter->is_passed_by_ref, $stubParameter->is_passed_by_ref, "Invalid pass by ref $functionName: \$$parameter->name ");
                         }
@@ -109,7 +109,7 @@ class StubsTest extends TestCase
                 }
             }
         }
-        self::assertEquals($function->returnType, $phpstormFunction->returnType, "Function $functionName has invalid return type");
+        self::assertEquals($function->returnType, preg_replace('/\w+\[]/', 'array', $phpstormFunction->returnType), "Function $functionName has invalid return type");
     }
 
     private function printParameters(array $params): string
