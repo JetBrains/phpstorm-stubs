@@ -601,13 +601,7 @@ class StubsTest extends TestCase
             self::assertTrue(true, 'Parameters list empty');
         } else {
             foreach ($function->parameters as $parameter) {
-                $defaultValue = null;
-                if ($parameter->defaultValue !== null && property_exists($parameter->defaultValue, 'name') &&
-                    property_exists($parameter->defaultValue->name, "parts")) {
-                    $defaultValue = $parameter->defaultValue->name->parts[0];
-                }
-                if (!$parameter->hasMutedProblem(StubProblemType::HAS_NULLABLE_TYPEHINT) &&
-                    $defaultValue !== 'null') {
+                if (!$parameter->hasMutedProblem(StubProblemType::HAS_NULLABLE_TYPEHINT)) {
                     self::assertFalse(
                         str_starts_with($parameter->type, '?') ||
                         str_contains($parameter->type, 'null') ||
