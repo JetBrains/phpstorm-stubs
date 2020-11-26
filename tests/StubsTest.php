@@ -347,9 +347,9 @@ class StubsTest extends TestCase
             $firstSinceVersion = array_pop($sinceVersions);
         } elseif ($stubFunction->hasInheritDocTag) {
             self::markTestSkipped("Function '$methodName' contains inheritdoc.");
-        } elseif ($stubFunction->parentName === "___PHPSTORM_HELPERS\object") {
+        } elseif ($stubFunction->parentName === '___PHPSTORM_HELPERS\object') {
             self::markTestSkipped("Function '$methodName' is declared in ___PHPSTORM_HELPERS\object.");
-        } elseif (!empty($parentClass->sinceTags) || $stubFunction->name === "__construct") {
+        } elseif (!empty($parentClass->sinceTags) || $stubFunction->name === '__construct') {
             $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($stubFunction->parentName);
             if (!empty($parentClass->sinceTags)) {
                 $sinceVersions = array_map(fn(Since $tag) => (int)$tag->getVersion(), $parentClass->sinceTags);
@@ -362,8 +362,9 @@ class StubsTest extends TestCase
             self::checkMethodDoesNotHaveScalarTypeHints($firstSinceVersion, $parentClass, $stubFunction);
             self::checkMethodDoesNotHaveReturnTypeHints($firstSinceVersion, $parentClass, $stubFunction);
             self::checkMethodDoesNotHaveNullableTypeHints($firstSinceVersion, $parentClass, $stubFunction);
+            self::checkMethodDoesNotHaveUnionTypeHints($firstSinceVersion, $parentClass, $stubFunction);
         } else {
-            self::markTestSkipped("Parent class or method is final");
+            self::markTestSkipped('Parent class or method is final');
         }
     }
 
@@ -477,7 +478,7 @@ class StubsTest extends TestCase
                     $link->getLink(),
                     "In $elementName @link doesn't start with https"
                 );
-                if (getenv("CHECK_LINKS") === "true") {
+                if (getenv('CHECK_LINKS') === 'true') {
                     if ($element->stubBelongsToCore) {
                         $request = curl_init($link->getLink());
                         curl_setopt($request, CURLOPT_RETURNTRANSFER, 1);
@@ -579,6 +580,17 @@ class StubsTest extends TestCase
         }
     }
 
+    private static function checkMethodDoesNotHaveUnionTypeHints(int $sinceVersion, PHPClass $parentClass, PHPFunction $function): void
+    {
+        $returnTypeHint = $function->returnType;
+        if ($sinceVersion < 8.0) {
+            self::checkUnionTypehintsInParameters($function, $parentClass, $sinceVersion);
+            self::checkUnionTypeHintsInReturnType($function, $parentClass, $sinceVersion, $returnTypeHint);
+        } else {
+            self::assertTrue(true, "Method '{$parentClass->name}::{$function->name}' has since version >= 8.0");
+        }
+    }
+
     private static function checkNullableTypeHintsInReturnType(PHPFunction $function, PHPClass $parentClass, int $sinceVersion, string $returnTypeHint): void
     {
         if (!$function->hasMutedProblem(StubProblemType::HAS_NULLABLE_TYPEHINT)) {
@@ -590,12 +602,11 @@ class StubsTest extends TestCase
             but has nullable return typehint '$returnTypeHint' that supported only since PHP 7.1. 
             Please declare return type via PhpDoc");
         } else {
-            self::markTestSkipped("Skipped");
+            self::markTestSkipped('Skipped');
         }
     }
 
-    private static function checkNullableTypehintsInParameters(PHPFunction $function, PHPClass $parentClass,
-                                                               int $sinceVersion): void
+    private static function checkNullableTypehintsInParameters(PHPFunction $function, PHPClass $parentClass, int $sinceVersion): void
     {
         if (empty($function->parameters)) {
             self::assertTrue(true, 'Parameters list empty');
@@ -610,7 +621,37 @@ class StubsTest extends TestCase
                 has nullable parameter '{$parameter->name}' with typehint '{$parameter->type}' 
                 but nullable typehints available only since php 7.1");
                 } else {
-                    self::markTestSkipped("Skipped");
+                    self::markTestSkipped('Skipped');
+                }
+            }
+        }
+    }
+
+    private static function checkUnionTypeHintsInReturnType(PHPFunction $function, PHPClass $parentClass, int $sinceVersion, string $returnTypeHint): void
+    {
+        if (!$function->hasMutedProblem(StubProblemType::HAS_UNION_TYPEHINT)) {
+            self::assertFalse(str_contains($returnTypeHint, '|'),
+                "Method '{$parentClass->name}::{$function->name}' has since version '$sinceVersion'
+            but has union return typehint '$returnTypeHint' that supported only since PHP 8.0. 
+            Please declare return type via PhpDoc");
+        } else {
+            self::markTestSkipped('Skipped');
+        }
+    }
+
+    private static function checkUnionTypehintsInParameters(PHPFunction $function, PHPClass $parentClass, int $sinceVersion): void
+    {
+        if (empty($function->parameters)) {
+            self::assertTrue(true, 'Parameters list empty');
+        } else {
+            foreach ($function->parameters as $parameter) {
+                if (!$parameter->hasMutedProblem(StubProblemType::HAS_UNION_TYPEHINT)) {
+                    self::assertFalse(str_contains($parameter->type, '|'),
+                        "Method '{$parentClass->name}::{$function->name}' with @since '$sinceVersion'  
+                has parameter '{$parameter->name}' with union typehint '{$parameter->type}' 
+                but union typehints available only since php 8.0");
+                } else {
+                    self::markTestSkipped('Skipped');
                 }
             }
         }
