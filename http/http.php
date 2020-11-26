@@ -255,7 +255,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set headers
 	 * @link https://php.net/manual/en/function.httpmessage-setheaders.php
-	 * @param array $headers <p>
+	 * @param array $header <p>
 	 * associative array containing the new HTTP headers, which will replace all previous HTTP headers of the message
 	 * </p>
 	 * @return void
@@ -891,7 +891,7 @@ class HttpRequest  {
 	 * @param int $request_method [optional] <p>
 	 * the request method to use
 	 * </p>
-	 * @param array $options [optional] <p>
+	 * @param null|array $options [optional] <p>
 	 * an associative array with request options
 	 * </p>
 	 */
@@ -901,7 +901,7 @@ class HttpRequest  {
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set options
 	 * @link https://php.net/manual/en/function.httprequest-setoptions.php
-	 * @param array $options [optional] <p>
+	 * @param null|array $options [optional] <p>
 	 * an associative array, which values will overwrite the
 	 * currently set request options;
 	 * if empty or omitted, the options of the HttpRequest object will be reset
@@ -923,7 +923,7 @@ class HttpRequest  {
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set ssl options
 	 * @link https://php.net/manual/en/function.httprequest-setssloptions.php
-	 * @param array $options [optional] <p>
+	 * @param null|array $options [optional] <p>
 	 * an associative array containing any SSL specific options;
 	 * if empty or omitted, the SSL options will be reset
 	 * </p>
@@ -944,7 +944,7 @@ class HttpRequest  {
 	 * (PECL pecl_http &gt;= 0.12.0)<br/>
 	 * Add ssl options
 	 * @link https://php.net/manual/en/function.httprequest-addssloptions.php
-	 * @param array $options <p>
+	 * @param array $option <p>
 	 * an associative array as parameter containing additional SSL specific options
 	 * </p>
 	 * @return bool true on success or false on failure.
@@ -975,7 +975,7 @@ class HttpRequest  {
 	 * (PECL pecl_http &gt;= 0.12.0)<br/>
 	 * Set headers
 	 * @link https://php.net/manual/en/function.httprequest-setheaders.php
-	 * @param array $headers [optional] <p>
+	 * @param null|array $headers [optional] <p>
 	 * an associative array as parameter containing header name/value pairs;
 	 * if empty or omitted, all previously set headers will be unset
 	 * </p>
@@ -1007,7 +1007,7 @@ class HttpRequest  {
 	 * (PECL pecl_http &gt;= 0.12.0)<br/>
 	 * Set cookies
 	 * @link https://php.net/manual/en/function.httprequest-setcookies.php
-	 * @param array $cookies [optional] <p>
+	 * @param null|array $cookies [optional] <p>
 	 * an associative array as parameter containing cookie name/value pairs;
 	 * if empty or omitted, all previously set cookies will be unset
 	 * </p>
@@ -1336,7 +1336,7 @@ class HttpRequest  {
 	 * @param int $flags [optional] <p>
 	 * http_parse_cookie flags
 	 * </p>
-	 * @param array $allowed_extras [optional] <p>
+	 * @param null|array $allowed_extras [optional] <p>
 	 * allowed keys treated as extra information instead of cookie names
 	 * </p>
 	 * @return stdClass[] an array of stdClass objects like http_parse_cookie would return.
@@ -1575,7 +1575,7 @@ class HttpRequestPool implements Countable, Iterator {
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * HttpRequestPool constructor
 	 * @link https://php.net/manual/en/function.httprequestpool-construct.php
-	 * @param HttpRequest $request [optional] <p>
+	 * @param null|HttpRequest $request [optional] <p>
 	 * HttpRequest object to attach
 	 * </p>
 	 */
@@ -2020,10 +2020,10 @@ class HttpResponse  {
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Redirect
 	 * @link https://php.net/manual/en/function.httpresponse-redirect.php
-	 * @param string $url [optional]
-	 * @param array $params [optional]
-	 * @param bool $session [optional]
-	 * @param int $status [optional]
+	 * @param null|string $url [optional]
+	 * @param null|array $params [optional]
+	 * @param null|bool $session [optional]
+	 * @param null|int $status [optional]
 	 * @return void
 	 */
 	public static function redirect ($url = null,  array $params = null , $session = null, $status = null) {}
@@ -2187,17 +2187,17 @@ function http_date ($timestamp = null) {}
  * (PECL pecl_http &gt;= 0.21.0)<br/>
  * Build an URL
  * @link https://php.net/manual/en/function.http-build-url.php
- * @param mixed $url [optional] <p>
+ * @param null|mixed $url [optional] <p>
  * (part(s) of) an URL in form of a string or associative array like parse_url returns
  * </p>
- * @param mixed $parts [optional] <p>
+ * @param null|mixed $parts [optional] <p>
  * same as the first argument
  * </p>
- * @param int $flags [optional] <p>
+ * @param null|int $flags [optional] <p>
  * a bitmask of binary or'ed HTTP_URL constants;
  * HTTP_URL_REPLACE is the default
  * </p>
- * @param array &$new_url [optional] <p>
+ * @param null|array &$new_url [optional] <p>
  * if set, it will be filled with the parts of the composed url like parse_url would return
  * </p>
  * @return string|false the new URL as string on success or false on failure.
@@ -2229,7 +2229,7 @@ function http_build_str (array $query, $prefix = null, $arg_separator = null) {}
  * @param array $supported <p>
  * array containing the supported languages as values
  * </p>
- * @param array &$result [optional] <p>
+ * @param null|array &$result [optional] <p>
  * will be filled with an array containing the negotiation results
  * </p>
  * @return string the negotiated language or the default language (i.e. first array entry) if none match.
@@ -2243,7 +2243,7 @@ function http_negotiate_language (array $supported,  array &$result = null ) {}
  * @param array $supported <p>
  * array containing the supported charsets as values
  * </p>
- * @param array &$result [optional] <p>
+ * @param null|array &$result [optional] <p>
  * will be filled with an array containing the negotiation results
  * </p>
  * @return string the negotiated charset or the default charset (i.e. first array entry) if none match.
@@ -2257,7 +2257,7 @@ function http_negotiate_charset (array $supported,  array &$result = null ) {}
  * @param array $supported <p>
  * array containing the supported content types as values
  * </p>
- * @param array &$result [optional] <p>
+ * @param null|array &$result [optional] <p>
  * will be filled with an array containing the negotiation results
  * </p>
  * @return string the negotiated content type or the default content type (i.e. first array entry) if none match.
@@ -2271,13 +2271,13 @@ function http_negotiate_content_type (array $supported,  array &$result = null )
  * @param string $url [optional] <p>
  * the URL to redirect to
  * </p>
- * @param array $params [optional] <p>
+ * @param null|array $params [optional] <p>
  * associative array of query parameters
  * </p>
- * @param bool $session [optional] <p>
+ * @param null|bool $session [optional] <p>
  * whether to append session information
  * </p>
- * @param int $status [optional] <p>
+ * @param null|int $status [optional] <p>
  * custom response status code
  * </p>
  * @return void|false returns false or exits with the specified redirection status code
@@ -2482,7 +2482,7 @@ function http_parse_headers ($header) {}
  * @param int $flags [optional] <p>
  * parse flags (HTTP_COOKIE_PARSE_RAW)
  * </p>
- * @param array $allowed_extras [optional] <p>
+ * @param null|array $allowed_extras [optional] <p>
  * array containing recognized extra keys;
  * by default all unknown keys will be treated as cookie names
  * </p>
@@ -2598,10 +2598,9 @@ function http_persistent_handles_ident ($ident) {}
  * @param string $url <p>
  * URL
  * </p>
- * @param array $options [optional] <p>
- * &link.http.request.options;
+ * @param null|array $options [optional] <p>
  * </p>
- * @param array &$info [optional] <p>
+ * @param null|array &$info [optional] <p>
  * Will be filled with request/response information
  * </p>
  * @return string
@@ -2615,10 +2614,10 @@ function http_get ($url, array $options = null ,  array &$info = null ) {}
  * @param string $url [optional] <p>
  * URL
  * </p>
- * @param array $options [optional] <p>
- * &link.http.request.options;
+ * @param null|array $options [optional] <p>
+():
  * </p>
- * @param array &$info [optional] <p>
+ * @param null|array &$info [optional] <p>
  * &link.http.request.info;
  * </p>
  * @return string
@@ -2635,11 +2634,9 @@ function http_head ($url = null, array $options = null ,  array &$info = null ) 
  * @param string $data [optional] <p>
  * String containing the pre-encoded post data
  * </p>
- * @param array $options [optional] <p>
- * &link.http.request.options;
+ * @param null|array $options [optional] <p>
  * </p>
- * @param array &$info [optional] <p>
- * &link.http.request.info;
+ * @param null|array &$info [optional] <p>
  * </p>
  * @return string
  */
@@ -2652,21 +2649,26 @@ function http_post_data ($url, $data = null, array $options = null ,  array &$in
  * @param string $url <p>
  * URL
  * </p>
- * @param array $data [optional] <p>
+ * @param null|array $data [optional] <p>
  * Associative array of POST values
  * </p>
- * @param array $files [optional] <p>
+ * @param null|array $files [optional] <p>
  * Array of files to post
  * </p>
- * @param array $options [optional] <p>
- * &link.http.request.options;
+ * @param null|array $options [optional] <p>
  * </p>
- * @param array &$info [optional] <p>
+ * @param null|array &$info [optional] <p>
  * &link.http.request.info;
  * </p>
  * @return string
  */
-function http_post_fields ($url,  array $data = null ,  array $files = null , array $options = null ,  array &$info = null ) {}
+function http_post_fields (
+    $url,
+    array $data = null,
+    array $files = null,
+    array $options = null,
+    array &$info = null
+) {}
 
 /**
  * (PECL pecl_http &gt;= 0.25.0)<br/>
@@ -2675,13 +2677,12 @@ function http_post_fields ($url,  array $data = null ,  array $files = null , ar
  * @param string $url <p>
  * URL
  * </p>
- * @param string $data [optional] <p>
+ * @param null|string $data [optional] <p>
  * PUT request body
  * </p>
- * @param array $options [optional] <p>
- * &link.http.request.options;
+ * @param null|array $options [optional] <p>
  * </p>
- * @param array &$info [optional] <p>
+ * @param null|array &$info [optional] <p>
  * &link.http.request.info;
  * </p>
  * @return string
@@ -2695,13 +2696,12 @@ function http_put_data ($url, $data = null, array $options = null ,  array &$inf
  * @param string $url <p>
  * URL
  * </p>
- * @param string $file [optional] <p>
+ * @param null|string $file [optional] <p>
  * The file to put
  * </p>
- * @param array $options [optional] <p>
- * &link.http.request.options;
+ * @param null|array $options [optional] <p>
  * </p>
- * @param array &$info [optional] <p>
+ * @param null|array &$info [optional] <p>
  * &link.http.request.info;
  * </p>
  * @return string
@@ -2715,13 +2715,12 @@ function http_put_file ($url, $file = null, array $options = null ,  array &$inf
  * @param string $url <p>
  * URL
  * </p>
- * @param resource $stream [optional] <p>
+ * @param null|resource $stream [optional] <p>
  * The stream to read the PUT request body from
  * </p>
- * @param array $options [optional] <p>
- * &link.http.request.options;
+ * @param null|array $options [optional] <p>
  * </p>
- * @param array &$info [optional] <p>
+ * @param null|array &$info [optional] <p>
  * &link.http.request.info;
  * </p>
  * @return string
@@ -2735,16 +2734,15 @@ function http_put_stream ($url, $stream = null, array $options = null ,  array &
  * @param int $method <p>
  * Request method
  * </p>
- * @param string $url [optional] <p>
+ * @param null|string $url [optional] <p>
  * URL
  * </p>
- * @param string $body [optional] <p>
+ * @param null|string $body [optional] <p>
  * Request body
  * </p>
- * @param array $options [optional] <p>
- * &link.http.request.options;
+ * @param null|array $options [optional] <p>
  * </p>
- * @param array &$info [optional] <p>
+ * @param null|array &$info [optional] <p>
  * &link.http.request.info;
  * </p>
  * @return string

@@ -182,6 +182,7 @@ final class Event
      * setPriority.
      * Set event priority.
      *
+     * @param int $priority
      * @return bool
      *
      * @see https://php.net/manual/en/event.setpriority.php
@@ -265,7 +266,7 @@ final class EventBase
      * __construct.
      * Constructs EventBase object.
      *
-     * @param EventConfig $cfg
+     * @param null|EventConfig $cfg
      *
      * @see https://php.net/manual/en/eventbase.construct.php
      */
@@ -817,9 +818,9 @@ final class EventBufferEvent
      * @param EventBase $base
      * @param mixed     $socket  = null
      * @param int       $options = 0
-     * @param callable  $readcb  = null
-     * @param callable  $writecb = null
-     * @param callable  $eventcb = null
+     * @param null|callable $readcb  = null
+     * @param null|callable $writecb = null
+     * @param null|callable $eventcb = null
      *
      * @see https://php.net/manual/en/eventbufferevent.construct.php
      */
@@ -1421,7 +1422,7 @@ final class EventHttp
      * Constructs EventHttp object(the HTTP server).
      *
      * @param EventBase       $base
-     * @param EventSslContext $ctx  = null
+     * @param null|EventSslContext $ctx  = null
      *
      * @see https://secure.php.net/manual/en/eventhttp.construct.php
      */
@@ -1580,7 +1581,7 @@ class EventHttpConnection
      * @param EventDnsBase    $dns_base
      * @param string          $address
      * @param int             $port
-     * @param EventSslContext $ctx      = null
+     * @param null|EventSslContext $ctx = null
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.construct.php
      */

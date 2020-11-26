@@ -884,7 +884,7 @@ class PDO  {
 	 * Emulated prepared statements does not communicate with the database server
 	 * so <b>PDO::prepare</b> does not check the statement.
 	 */
-	public function prepare ($query, array $options = array()) {}
+	public function prepare ($query, array $options = []) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1003,7 +1003,7 @@ class PDO  {
 	 * on failure.
 	 * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
 	 */
-	public function query ($statement, $mode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null, array $ctorargs = array()) {}
+	public function query ($statement, $mode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null, array $ctorargs = []) {}
 
 	#[PhpStormStubsElementAvailable('8.0')]
 	/**
@@ -1437,7 +1437,7 @@ class PDOStatement implements IteratorAggregate
 	 * @return mixed an instance of the required class with property names that
 	 * correspond to the column names or <b>FALSE</b> on failure.
 	 */
-	public function fetchObject ($class = "stdClass", array $ctorArgs = array()) {}
+	public function fetchObject ($class = "stdClass", array $ctorArgs = []) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1580,13 +1580,13 @@ class PDOStatement implements IteratorAggregate
 	 * @param int $mode <p>
 	 * The fetch mode must be one of the PDO::FETCH_* constants.
 	 * </p>
-	 * @param string|object $classNameObject [optional] <p>
+	 * @param null|string|object $className [optional] <p>
 	 * Class name or object
 	 * </p>
-	 * @param array $ctorarfg [optional] <p> Constructor arguments. </p>
+	 * @param array $params [optional] <p> Constructor arguments. </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function setFetchMode ($mode, $className = null, array $params = array()) {}
+	public function setFetchMode ($mode, $className = null, array $params = []) {}
 
 	#[PhpStormStubsElementAvailable('8.0')]
 	/**
@@ -1596,7 +1596,7 @@ class PDOStatement implements IteratorAggregate
 	 * @param int $mode <p>
 	 * The fetch mode must be one of the PDO::FETCH_* constants.
 	 * </p>
-	 * @param string|object $classNameObject [optional] <p>
+	 * @param string|object|null $className [optional] <p>
 	 * Class name or object
 	 * </p>
 	 * @param mixed ...$params <p> Constructor arguments. </p>

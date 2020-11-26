@@ -20,7 +20,7 @@ use JetBrains\PhpStorm\Pure;
  * MB_CASE_LOWER, or
  * MB_CASE_TITLE.
  * </p>
- * @param string|null $encoding [optional] &mbstring.encoding.parameter;
+ * @param string|null $encoding [optional]
  * @return string A case folded version of string converted in the
  * way specified by mode.
  */
@@ -34,7 +34,7 @@ function mb_convert_case (string $string, int $mode, ?string $encoding): string
  * @param string $string <p>
  * The string being uppercased.
  * </p>
- * @param string|null $encoding [optional] &mbstring.encoding.parameter;
+ * @param string|null $encoding [optional]
  * @return string str with all alphabetic characters converted to uppercase.
  */
 #[Pure]
@@ -47,7 +47,7 @@ function mb_strtoupper (string $string, ?string $encoding): string
  * @param string $string <p>
  * The string being lowercased.
  * </p>
- * @param string|null $encoding [optional] &mbstring.encoding.parameter;
+ * @param string|null $encoding [optional]
  * @return string str with all alphabetic characters converted to lowercase.
  */
 #[Pure]
@@ -261,7 +261,7 @@ function mb_preferred_mime_name (string $encoding): string|false
  * @param string $string <p>
  * The string being checked for length.
  * </p>
- * @param string|null $encoding [optional] &mbstring.encoding.parameter;
+ * @param string|null $encoding [optional]
  * @return int the number of characters in
  * string str having character encoding
  * encoding. A multi-byte character is
@@ -283,7 +283,7 @@ function mb_strlen (string $string, ?string $encoding): int
  * @param int $offset [optional] <p>
  * The search offset. If it is not specified, 0 is used.
  * </p>
- * @param string|null $encoding [optional] &mbstring.encoding.parameter;
+ * @param string|null $encoding [optional]
  * @return int|false the numeric position of
  * the first occurrence of needle in the
  * haystack string. If
@@ -306,7 +306,7 @@ function mb_strpos (string $haystack, string $needle, int $offset = 0, ?string $
  * @param int $offset [optional] May be specified to begin searching an arbitrary number of characters into
  * the string. Negative values will stop searching at an arbitrary point
  * prior to the end of the string.
- * @param string|null $encoding [optional] &mbstring.encoding.parameter;
+ * @param string|null $encoding [optional]
  * @return int|false the numeric position of
  * the last occurrence of needle in the
  * haystack string. If
@@ -494,7 +494,7 @@ function mb_strrichr (string $haystack, string $needle, bool $before_needle = fa
  * @param string $needle <p>
  * The string being found.
  * </p>
- * @param string|null $encoding [optional] &mbstring.encoding.parameter;
+ * @param string|null $encoding [optional]
  * @return int The number of times the
  * needle substring occurs in the
  * haystack string.
@@ -515,7 +515,7 @@ function mb_substr_count (string $haystack, string $needle, ?string $encoding): 
  * @param int|null $length [optional] <p>
  * The maximum length of the returned string.
  * </p>
- * @param string|null $encoding [optional] &mbstring.encoding.parameter;
+ * @param string|null $encoding [optional]
  * @return string mb_substr returns the portion of
  * str specified by the
  * start and
@@ -537,7 +537,7 @@ function mb_substr (string $string, int $start, ?int $length, ?string $encoding)
  * @param int|null $length [optional] <p>
  * The string being decoded.
  * </p>
- * @param string|null $encoding [optional] &mbstring.encoding.parameter;
+ * @param string|null $encoding [optional]
  * @return string mb_strcut returns the portion of
  * str specified by the
  * start and
@@ -553,7 +553,7 @@ function mb_strcut (string $string, int $start, ?int $length, ?string $encoding)
  * @param string $string <p>
  * The string being decoded.
  * </p>
- * @param string|null $encoding [optional] &mbstring.encoding.parameter;
+ * @param string|null $encoding [optional]
  * @return int The width of string str.
  */
 #[Pure]
@@ -577,7 +577,7 @@ function mb_strwidth (string $string, ?string $encoding): int
  * A string that is added to the end of string
  * when string is truncated.
  * </p>
- * @param string|null $encoding [optional] &mbstring.encoding.parameter;
+ * @param string|null $encoding [optional]
  * @return string The truncated string. If trimmarker is set,
  * trimmarker is appended to the return value.
  */
@@ -768,7 +768,7 @@ function mb_encoding_aliases (string $encoding)
  * </tr>
  * </table>
  * </p>
- * @param string|null $encoding [optional] &mbstring.encoding.parameter;
+ * @param string|null $encoding [optional]
  * @return string The converted string.
  */
 #[Pure]
@@ -858,7 +858,7 @@ function mb_convert_variables (string $to_encoding, array|string $from_encoding,
  * convmap is array specifies code area to
  * convert.
  * </p>
- * @param string $encoding &mbstring.encoding.parameter;
+ * @param null|string $encoding
  * @param bool $hex [optional]
  * @return string The converted string.
  */
@@ -870,14 +870,14 @@ function mb_encode_numericentity (string $string, array $map, ?string $encoding,
 /**
  * Decode HTML numeric string reference to character
  * @link https://php.net/manual/en/function.mb-decode-numericentity.php
- * @param string $str <p>
+ * @param string $string <p>
  * The string being decoded.
  * </p>
  * @param int[] $map <p>
  * convmap is an array that specifies
  * the code area to convert.
  * </p>
- * @param string $encoding &mbstring.encoding.parameter;
+ * @param null|string $encoding
  * @param bool $is_hex [optional] <p>
  * this parameter is not used.
  * </p>
@@ -891,14 +891,14 @@ function mb_decode_numericentity ($string, array $map, ?string $encoding, $is_he
 /**
  * Decode HTML numeric string reference to character
  * @link https://php.net/manual/en/function.mb-decode-numericentity.php
- * @param string $str <p>
+ * @param string $string <p>
  * The string being decoded.
  * </p>
  * @param int[] $map <p>
  * convmap is an array that specifies
  * the code area to convert.
  * </p>
- * @param string $encoding &mbstring.encoding.parameter;
+ * @param null|string $encoding
  * @return string The converted string.
  */
 #[Pure]
@@ -961,7 +961,7 @@ function mb_get_info (string $type): array|string|int|false
 /**
  * Check if the string is valid for the specified encoding
  * @link https://php.net/manual/en/function.mb-check-encoding.php
- * @param array|string|null $value [optional] <p>
+ * @param string|string[]|null $value [optional] <p>
  * The byte stream to check. If it is omitted, this function checks
  * all the input from the beginning of the request.
  * </p>
@@ -978,7 +978,7 @@ function mb_check_encoding (array|string|null $value = null, ?string $encoding):
 /**
  * Returns current encoding for multibyte regex as string
  * @link https://php.net/manual/en/function.mb-regex-encoding.php
- * @param string|null $encoding [optional] &mbstring.encoding.parameter;
+ * @param string|null $encoding [optional]
  * @return bool|string If encoding is set, then Returns TRUE on success
  * or FALSE on failure. In this case, the internal character encoding
  * is NOT changed. If encoding is omitted, then the current character

@@ -10,7 +10,7 @@
  * </p>
  * @param int $port [optional] <p>
  * </p>
- * @param array $methods [optional] <p>
+ * @param null|array $methods [optional] <p>
  * methods may be an associative array with up to four parameters
  * as described below.
  * </p>
@@ -127,7 +127,7 @@
  * for the underlying library for more information.
  * </p>
  * </p>
- * @param array $callbacks [optional] <p>
+ * @param null|array $callbacks [optional] <p>
  * callbacks may be an associative array with any
  * or all of the following parameters.
  * <table>
@@ -320,17 +320,17 @@ function ssh2_forward_accept () {}
  * term_type should correspond to one of the
  * entries in the target system's /etc/termcap file.
  * </p>
- * @param array $env [optional] <p>
+ * @param null|array $env [optional] <p>
  * env may be passed as an associative array of
  * name/value pairs to set in the target environment.
  * </p>
- * @param int $width [optional] <p>
+ * @param null|int $width [optional] <p>
  * Width of the virtual terminal.
  * </p>
- * @param int $height [optional] <p>
+ * @param null|int $height [optional] <p>
  * Height of the virtual terminal.
  * </p>
- * @param int $width_height_type [optional] <p>
+ * @param null|int $width_height_type [optional] <p>
  * width_height_type should be one of
  * SSH2_TERM_UNIT_CHARS or
  * SSH2_TERM_UNIT_PIXELS.
@@ -349,19 +349,19 @@ function ssh2_shell ($session, $term_type = null, array $env = null , $width = n
  * </p>
  * @param string $command <p>
  * </p>
- * @param string $pty [optional] <p>
+ * @param null|string $pty [optional] <p>
  * </p>
- * @param array $env [optional] <p>
+ * @param null|array $env [optional] <p>
  * env may be passed as an associative array of
  * name/value pairs to set in the target environment.
  * </p>
- * @param int $width [optional] <p>
+ * @param null|int $width [optional] <p>
  * Width of the virtual terminal.
  * </p>
- * @param int $height [optional] <p>
+ * @param null|int $height [optional] <p>
  * Height of the virtual terminal.
  * </p>
- * @param int $width_height_type [optional] <p>
+ * @param null|int $width_height_type [optional] <p>
  * width_height_type should be one of
  * SSH2_TERM_UNIT_CHARS or
  * SSH2_TERM_UNIT_PIXELS.
@@ -617,10 +617,10 @@ function ssh2_publickey_init ($session) {}
  * @param string $blob <p>
  * Publickey blob as raw binary data
  * </p>
- * @param bool $overwrite [optional] <p>
+ * @param null|bool $overwrite [optional] <p>
  * If the specified key already exists, should it be overwritten?
  * </p>
- * @param array $attributes [optional] <p>
+ * @param null|array $attributes [optional] <p>
  * Associative array of attributes to assign to this public key.
  * Refer to ietf-secsh-publickey-subsystem for a list of supported attributes.
  * To mark an attribute as mandatory, precede its name with an asterisk.

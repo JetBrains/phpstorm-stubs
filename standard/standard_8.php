@@ -674,7 +674,7 @@ function count (Countable|array $value, int $mode = COUNT_NORMAL): int
 /**
  * Set the internal pointer of an array to its last element
  * @link https://php.net/manual/en/function.end.php
- * @param ArrayAccess|array &$array <p>
+ * @param array|ArrayAccess &$array <p>
  * The array. This array is passed by reference because it is modified by
  * the function. This means you must pass it a real variable and not
  * a function returning an array because only actual variables may be
@@ -688,7 +688,7 @@ function end (object|array &$array): mixed {}
 /**
  * Rewind the internal array pointer
  * @link https://php.net/manual/en/function.prev.php
- * @param ArrayAccess|array &$array <p>
+ * @param array|ArrayAccess &$array <p>
  * The input array.
  * </p>
  * @return mixed the array value in the previous place that's pointed to by
@@ -701,7 +701,7 @@ function prev (object|array &$array): mixed {}
 /**
  * Advance the internal array pointer of an array
  * @link https://php.net/manual/en/function.next.php
- * @param ArrayAccess|array &$array <p>
+ * @param array|ArrayAccess &$array <p>
  * The array being affected.
  * </p>
  * @return mixed the array value in the next place that's pointed to by the
@@ -713,7 +713,7 @@ function next (object|array &$array): mixed {}
 /**
  * Set the internal pointer of an array to its first element
  * @link https://php.net/manual/en/function.reset.php
- * @param ArrayAccess|array &$array <p>
+ * @param array|ArrayAccess &$array <p>
  * The input array.
  * </p>
  * @return mixed the value of the first array element, or false if the array is
@@ -725,7 +725,7 @@ function reset (object|array &$array): mixed {}
 /**
  * Return the current element in an array
  * @link https://php.net/manual/en/function.current.php
- * @param ArrayAccess|array $array <p>
+ * @param array|ArrayAccess $array <p>
  * The array.
  * </p>
  * @return mixed The current function simply returns the
@@ -741,7 +741,7 @@ function current (object|array $array): mixed {}
 /**
  * Fetch a key from an array
  * @link https://php.net/manual/en/function.key.php
- * @param ArrayAccess|array $array <p>
+ * @param array|ArrayAccess $array <p>
  * The array.
  * </p>
  * @return int|string|null The key function simply returns the
@@ -1052,7 +1052,7 @@ function array_unshift (array &$array, ...$values): int
  * </p>
  * <p>
  * If replacement is just one element it is
- * not necessary to put array()
+ * not necessary to put []
  * around it, unless the element is an array itself.
  * </p>
  * @return array the array consisting of the extracted elements.

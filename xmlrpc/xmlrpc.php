@@ -43,7 +43,7 @@ function xmlrpc_decode_request ($xml, &$method, $encoding = null) {}
  * @param mixed $params <p>
  * Method parameters compatible with method signature.
  * </p>
- * @param array $output_options [optional] <p>
+ * @param null|array $output_options [optional] <p>
  * Array specifying output options may contain (default values are
  * emphasised):
  * <p>output_type: php, xml</p>
@@ -118,7 +118,7 @@ function xmlrpc_server_register_method ($server, $method_name, $function) {}
  * @param resource $server
  * @param string $xml
  * @param mixed $user_data
- * @param array $output_options [optional]
+ * @param null|array $output_options [optional]
  * @return string
  */
 function xmlrpc_server_call_method ($server, $xml, $user_data, array $output_options = null) {}

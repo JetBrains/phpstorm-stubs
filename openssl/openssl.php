@@ -28,7 +28,7 @@ function openssl_pkey_free(#[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetric
  * error.
  */
 #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey|false"], default: "resource|false")]
-function openssl_pkey_new(?array $options): bool
+function openssl_pkey_new(?array $options)
 { }
 
 /**
@@ -92,7 +92,7 @@ function openssl_pkey_export_to_file($key, string $output_filename, ?string $pas
  * @return OpenSSLAsymmetricKey|resource|false Returns a positive key resource identifier on success, or <b>FALSE</b> on error.
  */
 #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey|false"], default: "resource|false")]
-function openssl_pkey_get_private($private_key, ?string $passphrase = ""): bool
+function openssl_pkey_get_private($private_key, ?string $passphrase = "")
 { }
 
 /**
@@ -111,7 +111,7 @@ function openssl_pkey_get_private($private_key, ?string $passphrase = ""): bool
  * @return OpenSSLAsymmetricKey|resource|false a positive key resource identifier on success, or false on error.
  */
 #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey|false"], default: "resource|false")]
-function openssl_pkey_get_public($public_key): bool
+function openssl_pkey_get_public($public_key)
 { }
 
 /**
@@ -165,7 +165,7 @@ function openssl_free_key(#[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricK
  * @return OpenSSLAsymmetricKey|resource|false Returns a positive key resource identifier on success, or <b>FALSE</b> on error.
  */
 #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey|false"], default: "resource|false")]
-function openssl_get_privatekey($private_key, ?string $passphrase): bool
+function openssl_get_privatekey($private_key, ?string $passphrase)
 { }
 
 /**
@@ -185,7 +185,7 @@ function openssl_get_privatekey($private_key, ?string $passphrase): bool
  * @return OpenSSLAsymmetricKey|false a positive key resource identifier on success, or FALSE on error.
  */
 #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey|false"], default: "resource|false")]
-function openssl_get_publickey($public_key): bool
+function openssl_get_publickey($public_key)
 { }
 
 /**
@@ -259,7 +259,7 @@ function openssl_x509_fingerprint(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCer
 /**
  * Free certificate resource
  * @link https://php.net/manual/en/function.openssl-x509-free.php
- * @param OpenSSLCertificate $certificateopenssl_x509_parse
+ * @param OpenSSLCertificate|resource|string $certificate
  * @return void
  */
 #[Deprecated(since: '8.0')]
@@ -1099,7 +1099,14 @@ function openssl_cms_verify(string $input_filename, int $flags = 0, ?string $cer
 
 /**
  * Encrypts the message in the file with the certificates and outputs the result to the supplied file.
+ * @param string $input_filename
+ * @param string $output_filename
  * @param resource|string|array $certificate
+ * @param null|array $headers
+ * @param int $flags
+ * @param int $encoding
+ * @param int $cipher_algo
+ * @return bool
  * @since 8.0
  */
 function openssl_cms_encrypt(string $input_filename, string $output_filename, $certificate, ?array $headers, int $flags = 0, int $encoding = OPENSSL_ENCODING_SMIME, int $cipher_algo = OPENSSL_CIPHER_RC2_40): bool {}
@@ -1121,14 +1128,21 @@ function openssl_cms_sign(string $input_filename, string $output_filename, OpenS
 
 /**
  * Decrypts the S/MIME message in the file and outputs the results to the supplied file.
+ * @param string $input_filename
+ * @param string $output_filename
  * @param resource|string $certificate
  * @param resource|string|array $private_key
+ * @param int $encoding
+ * @return bool
  * @since 8.0
  */
 function openssl_cms_decrypt(string $input_filename, string $output_filename, $certificate, $private_key, int $encoding = OPENSSL_ENCODING_SMIME): bool {}
 
 /**
  * Exports the CMS file to an array of PEM certificates.
+ * @param string $input_filename
+ * @param array &$certificates
+ * @return bool
  * @since 8.0
  */
 function openssl_cms_read(string $input_filename, &$certificates): bool {}

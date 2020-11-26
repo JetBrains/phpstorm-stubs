@@ -660,13 +660,13 @@ function uv_stdio_new($fd, int $flags) {}
  * @param array $stdio
  * @param string $cwd
  * @param array $env
- * @param callable $callback
+ * @param callable|null $callback
  * @param int|null $flags
  * @param array|null $options
  *
  * @return resource
  */
-function uv_spawn($loop, string $command, array $args, array $stdio, string $cwd, array $env = array(), callable $callback = null, int $flags = null, array $options = null) {}
+function uv_spawn($loop, string $command, array $args, array $stdio, string $cwd, array $env = [], callable $callback = null, int $flags = null, array $options = null) {}
 
 /**
  * Send signal to specified uv process resource.

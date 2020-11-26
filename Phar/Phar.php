@@ -729,18 +729,18 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * mapPhar for web-based phars. front controller for web applications
 	 * @link https://php.net/manual/en/phar.webphar.php
-	 * @param string $alias [optional] <p>
+	 * @param null|string $alias [optional] <p>
 	 * The alias that can be used in phar:// URLs to
 	 * refer to this archive, rather than its full path.
 	 * </p>
 	 * @param string $index [optional] <p>
 	 * The location within the phar of the directory index.
 	 * </p>
-	 * @param string $fileNotFoundScript [optional] <p>
+	 * @param null|string $fileNotFoundScript [optional] <p>
 	 * The location of the script to run when a file is not found. This
 	 * script should output the proper HTTP 404 headers.
 	 * </p>
-	 * @param array $mimeTypes [optional] <p>
+	 * @param null|array $mimeTypes [optional] <p>
 	 * An array mapping additional file extensions to MIME type.
 	 * If the default mapping is sufficient, pass an empty array.
 	 * By default, these extensions are mapped to these MIME types:
@@ -789,7 +789,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * );
 	 * </code>
 	 * </p>
-	 * @param callable $rewrite [optional] <p>
+	 * @param null|callable $rewrite [optional] <p>
 	 * The rewrites function is passed a string as its only parameter and must return a string or <b>FALSE</b>.
 	 * </p>
 	 * <p>

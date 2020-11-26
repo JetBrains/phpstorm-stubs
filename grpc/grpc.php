@@ -443,7 +443,7 @@ namespace Grpc
          *
          * @throws \InvalidArgumentException
          */
-        public function __construct($target, $args = array()) {}
+        public function __construct($target, $args = []) {}
 
         /**
          * Get the endpoint this call/stream is connected to
@@ -553,6 +553,7 @@ namespace Grpc
          *                                   Must not be closed.
          * @param string  $method            The method to call
          * @param Timeval $absolute_deadline The deadline for completing the call
+         * @param null|string $host_override The host is set by user (optional)
          *
          * @throws \InvalidArgumentException
          */

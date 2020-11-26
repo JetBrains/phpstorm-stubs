@@ -584,13 +584,13 @@ function substr (string $string, int $offset, ?int $length)
 /**
  * Replace text within a portion of a string
  * @link https://php.net/manual/en/function.substr-replace.php
- * @param array|string $string <p>
+ * @param string[]|string $string <p>
  * The input string.
  * </p>
- * @param string|array $replace <p>
+ * @param string[]|string $replace <p>
  * The replacement string.
  * </p>
- * @param array|int $offset <p>
+ * @param int[]|int $offset <p>
  * If start is positive, the replacing will
  * begin at the start'th offset into
  * string.
@@ -600,7 +600,7 @@ function substr (string $string, int $offset, ?int $length)
  * begin at the start'th character from the
  * end of string.
  * </p>
- * @param int $length [optional] <p>
+ * @param int[]|int $length [optional] <p>
  * If given and is positive, it represents the length of the portion of
  * string which is to be replaced. If it is
  * negative, it represents the number of characters from the end of
@@ -960,16 +960,37 @@ function trim (string $string, string $characters = " \t\n\r\0\x0B"): string
 function ltrim (string $string, string $characters = " \t\n\r\0\x0B"): string
 {}
 
+#[PhpStormStubsElementAvailable(to: '7.3')]
 /**
  * Strip HTML and PHP tags from a string
  * @link https://php.net/manual/en/function.strip-tags.php
  * @param string $string <p>
  * The input string.
  * </p>
- * @param array|string $allowed_tags [optional] <p>
+ * @param null|string $allowed_tags [optional] <p>
  * You can use the optional second parameter to specify tags which should
- * not be stripped.<br/>
- * Since 7.4.0 alternatively accepts an array of allowed tags.
+ * not be stripped.
+ * </p>
+ * <p>
+ * HTML comments and PHP tags are also stripped. This is hardcoded and
+ * can not be changed with allowable_tags.
+ * </p>
+ * @return string the stripped string.
+ */
+#[Pure]
+function strip_tags (string $string, string $allowed_tags = null): string
+{}
+
+#[PhpStormStubsElementAvailable('7.4')]
+/**
+ * Strip HTML and PHP tags from a string
+ * @link https://php.net/manual/en/function.strip-tags.php
+ * @param string $string <p>
+ * The input string.
+ * </p>
+ * @param null|string[]|string $allowed_tags [optional] <p>
+ * You can use the optional second parameter to specify tags which should
+ * not be stripped.
  * </p>
  * <p>
  * HTML comments and PHP tags are also stripped. This is hardcoded and

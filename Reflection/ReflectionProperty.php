@@ -306,6 +306,8 @@ class ReflectionProperty implements Reflector
 	public function getDefaultValue(){}
 
     /**
+     * @param null|string $name
+     * @param int $flags
      * @return ReflectionAttribute[]
      * @since 8.0
      */

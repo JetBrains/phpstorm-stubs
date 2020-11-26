@@ -3122,7 +3122,7 @@ class Redis
      * $redis->zRangeByScore('key', 0, 3, array('withscores' => TRUE, 'limit' => array(1, 1));  // array('val2' => 2)
      * </pre>
      */
-    public function zRangeByScore($key, $start, $end, array $options = array())
+    public function zRangeByScore($key, $start, $end, array $options = [])
     {
     }
 
@@ -3135,7 +3135,7 @@ class Redis
      *
      * @return array
      */
-    public function zRevRangeByScore($key, $start, $end, array $options = array())
+    public function zRevRangeByScore($key, $start, $end, array $options = [])
     {
     }
 
@@ -3394,7 +3394,7 @@ class Redis
      *
      * @param string $output
      * @param array  $zSetKeys
-     * @param array  $weights
+     * @param null|array $weights
      * @param string $aggregateFunction  Either "SUM", "MIN", or "MAX": defines the behaviour to use on
      * duplicate entries during the zUnionStore
      *
@@ -3448,7 +3448,7 @@ class Redis
      *
      * @param string $output
      * @param array  $zSetKeys
-     * @param array  $weights
+     * @param null|array $weights
      * @param string $aggregateFunction Either "SUM", "MIN", or "MAX":
      * defines the behaviour to use on duplicate entries during the zInterStore.
      *
@@ -4325,7 +4325,7 @@ class Redis
      * $redis->eval("return {1,2,3,redis.call('lrange','mylist',0,-1)}}");
      * </pre>
      */
-    public function eval($script, $args = array(), $numKeys = 0)
+    public function eval($script, $args = [], $numKeys = 0)
     {
     }
 
@@ -4336,7 +4336,7 @@ class Redis
      * @return  mixed   @see eval()
      */
     #[Deprecated(replacement: '%class%->eval(%parametersList%)')]
-    public function evaluate($script, $args = array(), $numKeys = 0)
+    public function evaluate($script, $args = [], $numKeys = 0)
     {
     }
 
@@ -4360,7 +4360,7 @@ class Redis
      * $redis->evalSha($sha); // Returns 1
      * </pre>
      */
-    public function evalSha($scriptSha, $args = array(), $numKeys = 0)
+    public function evalSha($scriptSha, $args = [], $numKeys = 0)
     {
     }
 
@@ -4370,7 +4370,7 @@ class Redis
      * @param int    $numKeys
      */
     #[Deprecated(replacement: '%class%->evalSha(%parametersList%)')]
-    public function evaluateSha($scriptSha, $args = array(), $numKeys = 0)
+    public function evaluateSha($scriptSha, $args = [], $numKeys = 0)
     {
     }
 
@@ -5049,8 +5049,8 @@ class RedisArray
     /**
      * Constructor
      *
-     * @param string|array $hosts Name of the redis array from redis.ini or array of hosts to construct the array with
-     * @param array        $opts  Array of options
+     * @param string|string[] $hosts Name of the redis array from redis.ini or array of hosts to construct the array with
+     * @param null|array      $opts  Array of options
      *
      * @link    https://github.com/nicolasff/phpredis/blob/master/arrays.markdown
      */

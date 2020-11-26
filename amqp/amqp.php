@@ -611,7 +611,7 @@ class AMQPConnection
      * @param array $credentials Optional array of credential information for
      *                           connecting to the AMQP broker.
      */
-    public function __construct(array $credentials = array()) { }
+    public function __construct(array $credentials = []) { }
 
     /**
      * Closes the transient connection with the AMQP broker.
@@ -1110,7 +1110,7 @@ class AMQPExchange
      * @throws AMQPConnectionException If the connection to the broker was lost.
      * @return bool TRUE on success or FALSE on failure.
      */
-    public function bind($exchange_name, $routing_key = '', array $arguments = array()) { }
+    public function bind($exchange_name, $routing_key = '', array $arguments = []) { }
 
     /**
      * Remove binding to another exchange.
@@ -1126,7 +1126,7 @@ class AMQPExchange
      * @throws AMQPConnectionException If the connection to the broker was lost.
      * @return bool TRUE on success or FALSE on failure.
      */
-    public function unbind($exchange_name, $routing_key = '', array $arguments = array()) { }
+    public function unbind($exchange_name, $routing_key = '', array $arguments = []) { }
 
     /**
      * Create an instance of AMQPExchange.
@@ -1246,7 +1246,7 @@ class AMQPExchange
         $message,
         $routing_key = null,
         $flags = AMQP_NOPARAM,
-        array $attributes = array()
+        array $attributes = []
     ) {
     }
 
@@ -1371,7 +1371,7 @@ class AMQPQueue
      *
      * @return bool
      */
-    public function bind($exchange_name, $routing_key = null, array $arguments = array()) { }
+    public function bind($exchange_name, $routing_key = null, array $arguments = []) { }
 
     /**
      * Cancel a queue that is already bound to an exchange and routing key.
@@ -1650,7 +1650,7 @@ class AMQPQueue
      *
      * @return bool
      */
-    public function unbind($exchange_name, $routing_key = null, array $arguments = array()) { }
+    public function unbind($exchange_name, $routing_key = null, array $arguments = []) { }
 
     /**
      * Get the AMQPChannel object in use

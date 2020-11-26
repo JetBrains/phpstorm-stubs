@@ -7,7 +7,7 @@
  * @author Tommy Zheng <tommy@vlv.pw>
  * @link   https://github.com/zgb7mtr/phpredis_cluster_phpdoc
  *
- * @method mixed eval($script, $args = array(), $numKeys = 0)
+ * @method mixed eval($script, $args = [], $numKeys = 0)
  *
  */
 class RedisCluster {
@@ -2342,7 +2342,7 @@ class RedisCluster {
      * // array('val2'=> 2)
      * </pre>
      */
-    public function zRangeByScore($key, $start, $end, array $options = array()) { }
+    public function zRangeByScore($key, $start, $end, array $options = []) { }
 
     /**
      * @see zRangeByScore()
@@ -2354,7 +2354,7 @@ class RedisCluster {
      *
      * @return    array
      */
-    public function zRevRangeByScore($key, $start, $end, array $options = array()) { }
+    public function zRevRangeByScore($key, $start, $end, array $options = []) { }
 
     /**
      * Returns a range of members in a sorted set, by lexicographical range
@@ -2439,7 +2439,7 @@ class RedisCluster {
      *
      * @param string $Output
      * @param array  $ZSetKeys
-     * @param array  $Weights
+     * @param null|array $Weights
      * @param string $aggregateFunction Either "SUM", "MIN", or "MAX": defines the behaviour to use on
      *                                  duplicate entries during the zUnion.
      *
@@ -2675,7 +2675,7 @@ class RedisCluster {
      * $redisCluster->evalSha($sha); // Returns 1
      * </pre>
      */
-    public function evalSha($scriptSha, $args = array(), $numKeys = 0) { }
+    public function evalSha($scriptSha, $args = [], $numKeys = 0) { }
 
     /**
      * Scan the keyspace for keys.

@@ -273,7 +273,7 @@ class Exception implements Throwable {
      * @link https://php.net/manual/en/exception.construct.php
      * @param string $message [optional] The Exception message to throw.
      * @param int $code [optional] The Exception code.
-     * @param Throwable $previous [optional] The previous throwable used for the exception chaining.
+     * @param null|Throwable $previous [optional] The previous throwable used for the exception chaining.
      */
     #[Pure]
     public function __construct($message = "", $code = 0, Throwable $previous = null) { }
@@ -369,7 +369,7 @@ class Error implements Throwable {
      * @link https://php.net/manual/en/error.construct.php
      * @param string $message [optional] The Error message to throw.
      * @param int $code [optional] The Error code.
-     * @param Throwable $previous [optional] The previous throwable used for the exception chaining.
+     * @param null|Throwable $previous [optional] The previous throwable used for the exception chaining.
      */
     public function __construct($message = "", $code = 0, Throwable $previous = null)
     {
@@ -878,7 +878,11 @@ class PhpToken implements Stringable {
     {
     }
 
-    /** @return static[] */
+    /**
+     * @param string $code
+     * @param int $flags
+     * @return static[]
+     */
     public static function tokenize(string $code, int $flags = 0): array {}
 
     /**

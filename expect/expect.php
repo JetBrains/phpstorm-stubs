@@ -92,7 +92,7 @@ function expect_popen(string $command)
  * @since PECL expect >= 0.1.0
  * @link https://www.php.net/manual/en/function.expect-expectl.php
  */
-function expect_expectl($expect, array $cases, array &$match = array()): int
+function expect_expectl($expect, array $cases, array &$match = []): int
 {
 	unset ($expect, $cases, $match);
 	return 0;

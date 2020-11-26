@@ -333,10 +333,11 @@ class SQLite3  {
 	public function backup($destination, $sourceDatabase, $destinationDatabase){}
 
 	/**
+	 * @param null|callable $callback
 	 * @return bool
 	 * @since 8.0
 	 */
-	function setAuthorizer(?callable $callback) {}
+	function setAuthorizer(?callable $callback): bool {}
 
 }
 

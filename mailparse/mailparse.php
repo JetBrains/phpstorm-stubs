@@ -41,7 +41,7 @@ function mailparse_msg_create () {}
  * <p>
  * If not specified, the contents will be sent to "stdout".
  * </p>
- * @return string <p>
+ * @return string|bool <p>
  * If callbackfunc is not <b>NULL</b> returns <b>TRUE</b> on success.
  * </p>
  * <p>

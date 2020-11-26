@@ -390,6 +390,7 @@ function dir (string $directory, $context): Directory|false
 
 /**
  * Alias of dir()
+ * @param string $directory
  * @param resource $context
  * @since 8.0
  * @return Directory|false
