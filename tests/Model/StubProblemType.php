@@ -25,4 +25,5 @@ interface StubProblemType
     public const FUNCTION_HAS_RETURN_TYPEHINT = 17;
     public const PARAMETER_NAME_MISMATCH = 18;
     public const HAS_NULLABLE_TYPEHINT = 19;
+    public const HAS_UNION_TYPEHINT = 20;
 }

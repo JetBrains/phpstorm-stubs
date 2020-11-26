@@ -4,16 +4,8 @@ declare(strict_types=1);
 namespace StubTests\Model;
 
 use PhpParser\Node\Expr;
-use PhpParser\Node\Expr\Array_;
-use PhpParser\Node\Identifier;
-use PhpParser\Node\Name;
-use PhpParser\Node\NullableType;
 use PhpParser\Node\Param;
-use PhpParser\Node\Scalar\String_;
-use PhpParser\Node\UnionType;
-use ReflectionNamedType;
 use ReflectionParameter;
-use ReflectionUnionType;
 use stdClass;
 
 class PHPParameter extends BasePHPElement
@@ -70,6 +62,7 @@ class PHPParameter extends BasePHPElement
                         'has scalar typehint' => StubProblemType::PARAMETER_HAS_SCALAR_TYPEHINT,
                         'parameter name mismatch' => StubProblemType::PARAMETER_NAME_MISMATCH,
                         'has nullable typehint' => StubProblemType::HAS_NULLABLE_TYPEHINT,
+                        'has union typehint' => StubProblemType::HAS_UNION_TYPEHINT,
                         default => -1
                     };
                 }
