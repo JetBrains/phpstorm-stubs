@@ -155,7 +155,6 @@ function spl_object_hash (object $object): string
  * </p>
  * @return array An array containing the elements of the iterator.
  */
-#[Pure]
 function iterator_to_array (Traversable $iterator, bool $preserve_keys = true): array
 {}
 
