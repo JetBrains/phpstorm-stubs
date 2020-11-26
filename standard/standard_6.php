@@ -1047,8 +1047,8 @@ function stream_is_local ($stream): bool
  * @param string $url <p>
  * The target URL.
  * </p>
- * @param int $associative [optional] <p>
- * If the optional format parameter is set to non-zero,
+ * @param bool $associative [optional] <p>
+ * If the optional format parameter is set to true,
  * get_headers parses the response and sets the
  * array's keys.
  * </p>
@@ -1057,7 +1057,7 @@ function stream_is_local ($stream): bool
  * failure.
  */
 #[Pure]
-function get_headers (string $url, bool $associative, $context): array|false
+function get_headers (string $url, bool $associative = false, $context): array|false
 {}
 
 /**

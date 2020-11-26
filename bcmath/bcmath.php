@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -150,13 +151,22 @@ function bcpow (string $num, string $exponent, ?int $scale = 0): string
 function bcsqrt (string $num, ?int $scale)
 {}
 
+#[PhpStormStubsElementAvailable(to: '7.2')]
 /**
  * Set default scale parameter for all bc math functions
  * @link https://php.net/manual/en/function.bcscale.php
- * @param int|null $scale <p>
- * The scale factor. Since 7.3.0 can be omitted.
- * </p>
- * @return int|true <b>INT</b> since 7.3.0 and <b>TRUE</b> before.
+ * @param int $scale
+ * @return true
+ */
+function bcscale (int $scale): bool
+{}
+
+#[PhpStormStubsElementAvailable('7.3')]
+/**
+ * Set default scale parameter for all bc math functions
+ * @link https://php.net/manual/en/function.bcscale.php
+ * @param int|null $scale
+ * @return int
  */
 function bcscale (?int $scale): int
 {}

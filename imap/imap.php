@@ -41,7 +41,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  * @param int $n_retries [optional] <p>
  * Number of maximum connect attempts
  * </p>
- * @param array $params [optional] <p>
+ * @param null|array $params [optional] <p>
  * Connection parameters, the following (string) keys maybe used
  * to set one or more connection parameters:
  * DISABLE_AUTHENTICATOR - Disable authentication properties

@@ -74,19 +74,21 @@ function dio_read ($fd, int $len = 1024) {}
 /**
  * dio_seek ( resource $fd , int $pos [, int $whence = SEEK_SET ] ) : int
  * dio_seek — Seeks to pos on fd from whence
+ *
  * @param resource $fd The file descriptor returned by dio_open().
  * @param int $pos The new position.
- * @return int $whence Specifies how the position pos should be interpreted:
+ * @param int $whence Specifies how the position pos should be interpreted:
  * SEEK_SET (default) - specifies that pos is specified from the beginning of the file.
  * SEEK_CUR - Specifies that pos is a count of characters from the current file position. This count may be positive or negative.
  * SEEK_END - Specifies that pos is a count of characters from the end of the file. A negative count specifies a position within the current extent of the file; a positive count specifies a position past the current end. If you set the position past the current end, and actually write data, you will extend the file with zeros up to that position.
+ * @return int
  * @link https://www.php.net/manual/en/function.dio-seek.php
  */
 function dio_seek ($fd, int $pos, int $whence = SEEK_SET) {}
 
 /**
- * dio_stat ( resource $fd ) : array
  * dio_stat — Gets stat information about the file descriptor fd
+ * @param resource $fd
  * @return array|null Returns an associative array with the following keys:
  * "device" - device
  * "inode" - inode

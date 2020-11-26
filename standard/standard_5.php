@@ -518,7 +518,7 @@ function fgets ($stream, ?int $length): string|false
  * Gets line from file pointer and strip HTML tags
  * @link https://php.net/manual/en/function.fgetss.php
  * @param resource $handle The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
- * @param int $length [optional] <p>
+ * @param null|int $length [optional] <p>
  * Length of the data to be retrieved.
  * </p>
  * @param string $allowable_tags [optional] <p>

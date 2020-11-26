@@ -440,7 +440,7 @@ define ('FILTER_FLAG_ENCODE_LOW', 16);
 define ('FILTER_FLAG_ENCODE_HIGH', 32);
 
 /**
- * Encode &#38;#38;.
+ * Encode &.
  * @link https://php.net/manual/en/filter.constants.php
  */
 define ('FILTER_FLAG_ENCODE_AMP', 64);

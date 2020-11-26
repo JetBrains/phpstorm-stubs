@@ -4,6 +4,7 @@
  * @since 5.6
  */
 
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
@@ -757,6 +758,7 @@ function array_map(callable $callback, array $array, array ...$arrays): array { 
 function array_chunk(array $array, int $length, bool $preserve_keys): array
 { }
 
+
 /**
  * Creates an array by using one array for keys and another for its values
  * @link https://php.net/manual/en/function.array-combine.php
@@ -772,15 +774,33 @@ function array_chunk(array $array, int $length, bool $preserve_keys): array
  * @meta
  */
 #[Pure]
-function array_combine(array $keys, array $values): array { }
+#[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
+function array_combine(array $keys, array $values) { }
 
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Checks if the given key or index exists in the array
  * @link https://php.net/manual/en/function.array-key-exists.php
- * @param mixed $key <p>
+ * @param int|string $key <p>
  * Value to check.
  * </p>
  * @param array|ArrayObject $array <p>
+ * An array with keys to check.
+ * </p>
+ * @return bool true on success or false on failure.
+ */
+#[Pure]
+function array_key_exists($key, $array): bool
+{ }
+
+#[PhpStormStubsElementAvailable('8.0')]
+/**
+ * Checks if the given key or index exists in the array
+ * @link https://php.net/manual/en/function.array-key-exists.php
+ * @param int|string $key <p>
+ * Value to check.
+ * </p>
+ * @param array $array <p>
  * An array with keys to check.
  * </p>
  * @return bool true on success or false on failure.
@@ -841,7 +861,7 @@ function sizeof(Countable|array $value, int $mode = COUNT_NORMAL): int
 /**
  * Checks if the given key or index exists in the array. The name of this function is array_key_exists() in PHP > 4.0.6.
  * @link https://php.net/manual/en/function.array-key-exists.php
- * @param mixed $key <p>
+ * @param int|string $key <p>
  * Value to check.
  * </p>
  * @param array $array <p>
@@ -854,7 +874,7 @@ function key_exists($key, array $array): bool
 { }
 
 /**
- * Checks if assertion is &false;
+ * Checks if assertion is <b>FALSE</b>
  * @link https://php.net/manual/en/function.assert.php
  * @param Throwable|string|null $assertion <p>
  * The assertion.
@@ -929,7 +949,7 @@ class AssertionError extends Error {
  * @param mixed $value [optional] <p>
  * An optional new value for the option.
  * </p>
- * @return object|array|string|int|null the original setting of any option or false on errors.
+ * @return object|array|string|int|null The original setting of any option.
  */
 function assert_options(int $option, mixed $value): object|array|string|int|null
 { }

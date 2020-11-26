@@ -370,10 +370,11 @@ function xml_parse (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "r
 function xml_parse_into_struct (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")] $parser, string $data, &$values, &$index): int
 {}
 
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Get XML parser error code
  * @link https://php.net/manual/en/function.xml-get-error-code.php
- * @param XmlParser|resource $parser <p>
+ * @param resource $parser <p>
  * A reference to the XML parser to get error code from.
  * </p>
  * @return int|false This function returns <b>FALSE</b> if <i>parser</i> does
@@ -382,7 +383,20 @@ function xml_parse_into_struct (#[LanguageLevelTypeAware(["8.0" => "XmlParser"],
  * section.
  */
 #[Pure]
-function xml_get_error_code (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")] $parser): int {}
+function xml_get_error_code (resource $parser): int|false {}
+
+#[PhpStormStubsElementAvailable('8.0')]
+/**
+ * Get XML parser error code
+ * @link https://php.net/manual/en/function.xml-get-error-code.php
+ * @param XmlParser $parser <p>
+ * A reference to the XML parser to get error code from.
+ * </p>
+ * @return int Returns one of the error codes listed in the error codes
+ * section.
+ */
+#[Pure]
+function xml_get_error_code (XmlParser $parser): int {}
 
 /**
  * Get XML parser error string

@@ -176,7 +176,7 @@ class mysqli  {
     /**
 	 * Changes the user of the specified database connection
 	 * @link https://php.net/manual/en/mysqli.change-user.php
-	 * @param string $username <p>
+	 * @param string $user <p>
 	 * The MySQL user name.
 	 * </p>
 	 * @param string $password <p>
@@ -1732,13 +1732,13 @@ function mysqli_fetch_assoc (mysqli_result $result): ?array {}
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
  * @param string $class The name of the class to instantiate, set the properties of and return. If not specified, a stdClass object is returned.
- * @param array|null $constructor_args [optional] An optional array of parameters to pass to the constructor for class_name objects.
+ * @param array $constructor_args [optional] An optional array of parameters to pass to the constructor for class_name objects.
  * @return object|null Returns an object with string properties that corresponds to the fetched row or NULL if there are no more rows in resultset.
  * If two or more columns of the result have the same field names, the last column will take precedence.
  * To access the other column(s) of the same name,
  * you either need to access the result with numeric indices by using mysqli_fetch_row() or add alias names.
  */
-function mysqli_fetch_object (mysqli_result $result, string $class = 'stdClass', array $constructor_args): ?object {}
+function mysqli_fetch_object (mysqli_result $result, string $class = 'stdClass', array $constructor_args = []): ?object {}
 
 /**
  * Get a result row as an enumerated array

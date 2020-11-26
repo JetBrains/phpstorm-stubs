@@ -189,7 +189,7 @@ function str_contains(string $haystack, string $needle) : bool {}
  * @removed 8.0
  */
 #[Deprecated(reason: "Use a foreach loop instead", since: "7.2")]
-function each (array &$array): array
+function each (&$array): array
 {}
 
 /**

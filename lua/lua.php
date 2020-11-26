@@ -15,6 +15,7 @@ class Lua  {
     const LUA_VERSION = '5.1.4';
 
     /**
+     * @param null|string $lua_script_file
      * @link https://secure.php.net/manual/en/lua.construct.php
      */
     public function __construct(?string $lua_script_file = null) {}

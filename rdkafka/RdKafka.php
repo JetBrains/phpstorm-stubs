@@ -38,7 +38,7 @@ abstract class RdKafka
 
     /**
      * @param string    $topic_name
-     * @param TopicConf $topic_conf
+     * @param null|TopicConf $topic_conf
      *
      * @return Topic
      */

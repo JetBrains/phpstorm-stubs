@@ -2165,7 +2165,8 @@ function curl_share_close (#[LanguageLevelTypeAware(["8.0" => "CurlShareHandle"]
  * @return resource|CurlShareHandle Returns resource of type "cURL Share Handle".
  * @since 5.5
  */
-function curl_share_init (): CurlShareHandle
+#[LanguageLevelTypeAware(["8.0" => "CurlShareHandle"], default: "resource")]
+function curl_share_init()
 {}
 
 /**
@@ -2540,7 +2541,7 @@ function curl_multi_exec (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"],
  * Return the content of a cURL handle if <constant>CURLOPT_RETURNTRANSFER</constant> is set
  * @link https://php.net/manual/en/function.curl-multi-getcontent.php
  * @param CurlHandle|resource $handle
- * @return string Return the content of a cURL handle if CURLOPT_RETURNTRANSFER is set.
+ * @return null|string Return the content of a cURL handle if CURLOPT_RETURNTRANSFER is set.
  */
 #[Pure]
 function curl_multi_getcontent (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle): ?string

@@ -2295,12 +2295,12 @@ namespace Cassandra {
         /**
          * Adds one or more values to this collection.
          *
-         * @param mixed $value ,... one or more values to add
+         * @param mixed ...$value one or more values to add
          *
          * @return int total number of values in this collection
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Collection/#method-add
          */
-        public function add($value)
+        public function add(...$value)
         {
         }
 
@@ -6164,12 +6164,12 @@ namespace Cassandra\Cluster {
          * Configures the initial endpoints. Note that the driver will
          * automatically discover and connect to the rest of the cluster.
          *
-         * @param string $host ,... one or more ip addresses or hostnames
+         * @param string ...$host one or more ip addresses or hostnames
          *
          * @return \Cassandra\Cluster\Builder self
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/Cluster/class.Builder/#method-withContactPoints
          */
-        public function withContactPoints($host)
+        public function withContactPoints(...$host)
         {
         }
 
@@ -6708,7 +6708,7 @@ namespace Cassandra\Type {
          * Creates a new Tuple from the given values. When no values given,
          * creates a tuple with null for the values.
          *
-         * @param mixed $values ,... One or more values to be added to the tuple.
+         * @param mixed ...$values One or more values to be added to the tuple.
          *
          * @return \Cassandra\Tuple A tuple with given values.
          * @throws \Cassandra\Exception\InvalidArgumentException when values given are of a
@@ -6717,7 +6717,7 @@ namespace Cassandra\Type {
          *
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/Type/class.Tuple/#method-create
          */
-        public function create($values)
+        public function create(...$values)
         {
         }
 
@@ -6769,7 +6769,7 @@ namespace Cassandra\Type {
          * Creates a new Collection from the given values.  When no values
          * given, creates an empty list.
          *
-         * @param mixed $value ,... One or more values to be added to the list.
+         * @param mixed ...$value One or more values to be added to the list.
          *
          * @return \Cassandra\Collection A list with given values.
          * @throws \Cassandra\Exception\InvalidArgumentException when values given are of a
@@ -6778,7 +6778,7 @@ namespace Cassandra\Type {
          *
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/Type/class.Collection/#method-create
          */
-        public function create($value)
+        public function create(...$value)
         {
         }
 
@@ -6829,7 +6829,7 @@ namespace Cassandra\Type {
         /**
          * Creates a new Set from the given values.
          *
-         * @param mixed $value ,... One or more values to be added to the set. When no values are given, creates an empty set.
+         * @param mixed ...$value One or more values to be added to the set. When no values are given, creates an empty set.
          *
          * @return \Cassandra\Set A set with given values.
          * @throws \Cassandra\Exception\InvalidArgumentException when values given are of a
@@ -6838,7 +6838,7 @@ namespace Cassandra\Type {
          *
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/Type/class.Set/#method-create
          */
-        public function create($value)
+        public function create(...$value)
         {
         }
 
@@ -6968,7 +6968,7 @@ namespace Cassandra\Type {
          * Creates a new UserTypeValue from the given name/value pairs. When
          * no values given, creates an empty user type.
          *
-         * @param mixed $value ,... One or more name/value pairs to be added to the user type.
+         * @param mixed ...$value One or more name/value pairs to be added to the user type.
          *
          * @return \Cassandra\UserTypeValue A user type value with given name/value pairs.
          * @throws \Cassandra\Exception\InvalidArgumentException when values given are of a
@@ -6977,7 +6977,7 @@ namespace Cassandra\Type {
          *
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/Type/class.UserType/#method-create
          */
-        public function create($value)
+        public function create(...$value)
         {
         }
 
@@ -7054,7 +7054,7 @@ namespace Cassandra\Type {
          *                          map, e.g. `create(key, value, key, value)`.
          *                          When no values given, creates an empty map.
          *
-         * @param mixed $value ,... An even number of values, where each odd value
+         * @param mixed ...$value An even number of values, where each odd value
          *
          * @return \Cassandra\Map A set with given values.
          * @throws \Cassandra\Exception\InvalidArgumentException when keys or values given are
@@ -7063,7 +7063,7 @@ namespace Cassandra\Type {
          *
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/Type/class.Map/#method-create
          */
-        public function create($value)
+        public function create(...$value)
         {
         }
 
@@ -7143,14 +7143,14 @@ namespace Cassandra\SSLOptions {
         /**
          * Adds a trusted certificate. This is used to verify node's identity.
          *
-         * @param string $path ,... one or more paths to files containing a PEM formatted certificate.
+         * @param string ...$path one or more paths to files containing a PEM formatted certificate.
          *
          * @return \Cassandra\Cluster\Builder self
          * @throws \Cassandra\Exception\InvalidArgumentException
          *
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/SSLOptions/class.Builder/#method-withTrustedCerts
          */
-        public function withTrustedCerts($path)
+        public function withTrustedCerts(...$path)
         {
         }
 

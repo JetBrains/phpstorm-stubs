@@ -284,7 +284,7 @@ class ZendAPI_Job {
      *
      * @var array
      */
-    var $_user_variables = array();
+    var $_user_variables = [];
 
     /**
      * Bit mask holding the global variables that the user want the job's script to have when it's called

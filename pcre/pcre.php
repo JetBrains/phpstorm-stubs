@@ -175,7 +175,7 @@ function preg_match (string $pattern, string $subject, &$matches, int $flags = 0
  * sense to use <b>PREG_PATTERN_ORDER</b> together with
  * <b>PREG_SET_ORDER</b>):
  * <b>PREG_PATTERN_ORDER</b>
- * <p>
+ * <br>
  * Orders results so that $matches[0] is an array of full
  * pattern matches, $matches[1] is an array of strings matched by
  * the first parenthesized subpattern, and so on.
@@ -211,8 +211,6 @@ function preg_match (string $pattern, string $subject, &$matches, int $flags = 0
  * So, $out[0] contains array of strings that matched full pattern,
  * and $out[1] contains array of strings enclosed by tags.
  * </p>
- * </p>
- * @param int $offset [optional]
  * @return int|false|null the number of full pattern matches (which might be zero),
  * or <b>FALSE</b> if an error occurred.
  */
@@ -435,7 +433,8 @@ function preg_filter (array|string $pattern, array|string $replacement, array|st
  * <b>PREG_SPLIT_NO_EMPTY</b>
  * If this flag is set, only non-empty pieces will be returned by
  * <b>preg_split</b>.
- * @return string[]|array|false an array containing substrings of <i>subject</i>
+ * </p>
+ * @return string[]|false an array containing substrings of <i>subject</i>
  * split along boundaries matched by <i>pattern</i>, or <b>FALSE</b>
  * if an error occurred.
  */

@@ -310,7 +310,7 @@ function wordwrap (string $string, int $width = 75, string $break = "\n", bool $
  * @param string $string <p>
  * The {@link https://secure.php.net/manual/en/language.types.string.php string} being converted.
  * </p>
- * @param int|string $flags [optional] <p>
+ * @param int $flags [optional] <p>
  * A bitmask of one or more of the following flags, which specify how to handle quotes,
  * invalid code unit sequences and the used document type. The default is
  * <em><b>ENT_COMPAT | ENT_HTML401</b></em>.
@@ -836,7 +836,7 @@ function iptcparse (string $iptc_block): array|false
  * Spool flag. If the spool flag is over 2 then the JPEG will be
  * returned as a string.
  * </p>
- * @return string|bool If success and spool flag is lower than 2 then the JPEG will not be
+ * @return string|false If success and spool flag is lower than 2 then the JPEG will not be
  * returned as a string, false on errors.
  */
 function iptcembed (string $iptc_data, string $filename, int $spool): string|bool

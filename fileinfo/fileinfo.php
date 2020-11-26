@@ -146,13 +146,6 @@ function finfo_file ($finfo, string $filename, int $flags, $context): string|fal
  * @param string $string <p>
  * Content of a file to be checked.
  * </p>
- * @param int $flags [optional] <p>
- * One or disjunction of more Fileinfo
- * constants.
- * </p>
- * @param resource $context [optional] <p>
- * </p>
- * @param string $string
  * @param int $flags [optional] One or disjunction of more
  * <a href="https://php.net/manual/en/fileinfo.constants.php">Fileinfo</a> constants.
  * @param resource $context [optional]

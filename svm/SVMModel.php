@@ -14,6 +14,7 @@ class SVMModel {
      * @link https://www.php.net/manual/en/svmmodel.checkprobabilitymodel.php
      */
 	public function checkProbabilityModel () : bool {}
+
 	/**
 	 * Construct a new SVMModel
 	 *
@@ -23,6 +24,7 @@ class SVMModel {
 	 * @link https://www.php.net/manual/en/svmmodel.construct.php
 	 */
 	public function __construct ( string $filename = '' ) {}
+
 	/**
 	 * Get the labels the model was trained on
      *
@@ -31,6 +33,7 @@ class SVMModel {
 	 * @link https://www.php.net/manual/en/svmmodel.getlabels.php
      */
 	public function getLabels () : array {}
+
 	/**
 	 * Returns the number of classes the model was trained with
      *
@@ -39,6 +42,7 @@ class SVMModel {
 	 * @link https://www.php.net/manual/en/svmmodel.getnrclass.php
 	 */
 	public function getNrClass () : int {}
+
 	/**
 	 * Get the SVM type the model was trained with
      *
@@ -47,6 +51,7 @@ class SVMModel {
 	 * @link https://www.php.net/manual/en/svmmodel.getsvmtype.php
      */
 	public function getSvmType () : int {}
+
 	/**
 	 * Get the sigma value for regression types
      *
@@ -55,14 +60,16 @@ class SVMModel {
 	 * @link https://www.php.net/manual/en/svmmodel.getsvrprobability.php
      */
 	public function getSvrProbability () : float {}
+
 	/**
 	 * Load a saved SVM Model
 	 * @param string $filename The filename of the model.
-	 * @return Returns true on success.
+	 * @return bool Returns true on success.
 	 * @throws SVMException
 	 * @link https://www.php.net/manual/en/svmmodel.load.php
 	 */
 	public function load ( string $filename ) : bool {}
+
 	/**
 	 * Return class probabilities for previous unseen data
 	 *
@@ -73,6 +80,7 @@ class SVMModel {
 	 * @link https://www.php.net/manual/en/svmmodel.predict-probability.php
 	 */
 	public function predict_probability ( array $data ) : float {}
+
 	/**
 	 * Predict a value for previously unseen data
 	 *
@@ -83,10 +91,11 @@ class SVMModel {
 	 * @link https://www.php.net/manual/en/svmmodel.predict.php
 	 */
 	public function predict ( array $data ) : float {}
+
 	/**
 	 * Save a model to a file, for later use
 	 * @param string $filename The file to save the model to.
-	 * @return Throws SVMException on error. Returns true on success.
+	 * @return bool Throws SVMException on error. Returns true on success.
 	 * @throws SVMException Throws SVMException on error
 	 * @link https://www.php.net/manual/en/svmmodel.save.php
 	 */

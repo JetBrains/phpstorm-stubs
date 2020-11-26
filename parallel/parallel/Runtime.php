@@ -28,7 +28,7 @@ final class Runtime{
 	 * Shall construct a new runtime without bootstrapping.
 	 * Shall construct a bootstrapped runtime.
 	 *
-	 * @param string $bootstrap The location of a bootstrap file, generally an autoloader.
+	 * @param null|string $bootstrap The location of a bootstrap file, generally an autoloader.
 	 *
 	 * @throws Runtime\Error if thread could not be created
 	 * @throws Runtime\Error\Bootstrap if bootstrapping failed

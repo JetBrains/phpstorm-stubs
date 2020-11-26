@@ -54,7 +54,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
    	 * If specified, the function writes the data to the file rather than
    	 * returning it.
    	 * </p>
-     * @return mixed If the <i>filename</i> isn't specified, this function
+     * @return string|bool If the <i>filename</i> isn't specified, this function
    	 * returns a string on success and false on error. If the
    	 * parameter is specified, it returns true if the file was written
    	 * successfully and false otherwise.
@@ -391,10 +391,10 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
  * </p>
  * <p>
  * Libxml 2 unescapes the URI, so if you want to pass e.g.
- * b&#38;#38;c as the URI parameter a,
+ * b&c as the URI parameter a,
  * you have to call
  * simplexml_load_file(rawurlencode('https://example.com/?a=' .
- * urlencode('b&#38;#38;c'))). Since PHP 5.1.0 you don't need to do
+ * urlencode('b&c'))). Since PHP 5.1.0 you don't need to do
  * this because PHP will do it for you.
  * </p>
  * @param string|null $class_name [optional] <p>

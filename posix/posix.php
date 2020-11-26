@@ -307,7 +307,7 @@ function posix_getcwd (): string|false
  * octal notation (e.g. 0644). The permission of the newly created
  * FIFO also depends on the setting of the current
  * <b>umask</b>. The permissions of the created file are
- * (mode &#38;#38; ~umask).
+ * (mode & ~umask).
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */

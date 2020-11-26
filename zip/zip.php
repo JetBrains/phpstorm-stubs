@@ -757,7 +757,7 @@ class ZipArchive implements Countable {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function addGlob ($pattern, $flags = 0, array $options = array()) {}
+	public function addGlob ($pattern, $flags = 0, array $options = []) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.3.0, PECL zip &gt;= 1.9.0)<br/>
@@ -774,7 +774,7 @@ class ZipArchive implements Countable {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function addPattern ($pattern, $path = '.', array $options = array()) {}
+	public function addPattern ($pattern, $path = '.', array $options = []) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>

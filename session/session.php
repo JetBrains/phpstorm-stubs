@@ -1,7 +1,7 @@
 <?php
 
-// Start of session v.
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * Get and/or set the current session name.<br/>
@@ -207,7 +207,8 @@ function session_destroy (): bool
  * @link https://php.net/manual/en/function.session-unset.php
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
-function session_unset (): bool
+#[LanguageLevelTypeAware(["7.2" => "bool"], default: "void")]
+function session_unset()
 {}
 
 /**
@@ -397,8 +398,14 @@ function session_set_cookie_params (array $options): bool
  * </p>
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
-function session_set_cookie_params (array|int $lifetime_or_options, ?string $path, ?string $domain, ?bool $secure = false, ?bool $httponly = false): bool
-{}
+#[LanguageLevelTypeAware(["7.2" => "bool"], default: "void")]
+function session_set_cookie_params (
+    array|int $lifetime_or_options,
+    ?string $path,
+    ?string $domain,
+    ?bool $secure = false,
+    ?bool $httponly = false
+) {}
 
 /**
  * Get the session cookie parameters
@@ -424,7 +431,8 @@ function session_get_cookie_params (): array
  * @link https://php.net/manual/en/function.session-write-close.php
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
-function session_write_close (): bool
+#[LanguageLevelTypeAware(["7.2" => "bool"], default: "void")]
+function session_write_close()
 {}
 
 /**
@@ -432,7 +440,8 @@ function session_write_close (): bool
  * @link https://php.net/manual/en/function.session-commit.php
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
-function session_commit (): bool
+#[LanguageLevelTypeAware(["7.2" => "bool"], default: "void")]
+function session_commit()
 {}
 
 /**
@@ -454,7 +463,8 @@ function session_status (): int
  * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
  * @since 5.6
  */
-function session_abort(): bool
+#[LanguageLevelTypeAware(["7.2" => "bool"], default: "void")]
+function session_abort()
 {}
 
 /**
@@ -464,7 +474,8 @@ function session_abort(): bool
  * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
  * @since 5.6
  */
-function session_reset(): bool
+#[LanguageLevelTypeAware(["7.2" => "bool"], default: "void")]
+function session_reset()
 {}
 
 // End of session v.

@@ -243,7 +243,7 @@ function json_last_error_msg (): string {}
 define ('JSON_HEX_TAG', 1);
 
 /**
- * All &#38;#38;s are converted to \u0026.
+ * All &s are converted to \u0026.
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_HEX_AMP', 2);

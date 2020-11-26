@@ -15,7 +15,7 @@ class Stomp
      * @param string $password The password
      * @param array  $headers additional headers (example: receipt).
      */
-    public function __construct($broker = null, $username = null, $password = null, array $headers = array()) {}
+    public function __construct($broker = null, $username = null, $password = null, array $headers = []) {}
 
     /**
      * Get the current stomp session ID
@@ -39,7 +39,7 @@ class Stomp
      * @param array             $headers additional headers (example: receipt).
      * @return boolean TRUE on success, or FALSE on failure
      */
-    public function send($destination, $msg, array $headers = array()) {}
+    public function send($destination, $msg, array $headers = []) {}
 
     /**
      * Register to listen to a given destination
@@ -48,7 +48,7 @@ class Stomp
      * @param array  $headers additional headers (example: receipt).
      * @return boolean TRUE on success, or FALSE on failure
      */
-    public function subscribe($destination, array $headers = array()) {}
+    public function subscribe($destination, array $headers = []) {}
 
     /**
      * Remove an existing subscription
@@ -57,7 +57,7 @@ class Stomp
      * @param array  $headers additional headers (example: receipt).
      * @return boolean TRUE on success, or FALSE on failure
      */
-    public function unsubscribe($destination, array $headers = array()) {}
+    public function unsubscribe($destination, array $headers = []) {}
 
     /**
      * Indicate whether or not there is a frame ready to read
@@ -105,7 +105,7 @@ class Stomp
      * @param array             $headers additional headers (example: receipt).
      * @return boolean TRUE on success, or FALSE on failure
      */
-    public function ack($msg, array $headers = array()) {}
+    public function ack($msg, array $headers = []) {}
 
     /**
      * Get the last stomp error
@@ -181,7 +181,7 @@ function stomp_version() {}
  * @param array  $headers additional headers (example: receipt).
  * @return resource|false stomp connection identifier on success, or FALSE on failure
  */
-function stomp_connect($broker = null, $username = null, $password = null, array $headers = array()) {}
+function stomp_connect($broker = null, $username = null, $password = null, array $headers = []) {}
 
 /**
  * Gets the current stomp session ID
@@ -208,7 +208,7 @@ function stomp_close($link) {}
  * @param array             $headers additional headers (example: receipt).
  * @return boolean TRUE on success, or FALSE on failure
  */
-function stomp_send($link, $destination, $msg, array $headers = array()) {}
+function stomp_send($link, $destination, $msg, array $headers = []) {}
 
 /**
  * Registers to listen to a given destination
@@ -218,7 +218,7 @@ function stomp_send($link, $destination, $msg, array $headers = array()) {}
  * @param array     $headers additional headers (example: receipt).
  * @return boolean TRUE on success, or FALSE on failure
  */
-function stomp_subscribe($link, $destination, array $headers = array()) {}
+function stomp_subscribe($link, $destination, array $headers = []) {}
 
 /**
  * Removes an existing subscription
@@ -228,7 +228,7 @@ function stomp_subscribe($link, $destination, array $headers = array()) {}
  * @param array     $headers additional headers (example: receipt).
  * @return boolean TRUE on success, or FALSE on failure
  */
-function stomp_unsubscribe($link, $destination, array $headers = array()) {}
+function stomp_unsubscribe($link, $destination, array $headers = []) {}
 
 /**
  * Indicates whether or not there is a frame ready to read
@@ -281,7 +281,7 @@ function stomp_abort($link, $transaction_id) {}
  * @param array             $headers additional headers (example: receipt).
  * @return boolean TRUE on success, or FALSE on failure
  */
-function stomp_ack($link, $msg, array $headers = array()) {}
+function stomp_ack($link, $msg, array $headers = []) {}
 
 /**
  * Gets the last stomp error

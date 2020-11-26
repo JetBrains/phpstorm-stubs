@@ -28,7 +28,7 @@ function xdebug_get_function_stack(): array {}
  * Displays the current function stack, in a similar way as what Xdebug would display in an error situation.
  * @param string $message
  * @param int $options    A bit mask of the following constants: XDEBUG_STACK_NO_DESC
- * @return array
+ * @return void
  */
 function xdebug_print_function_stack (string $message = '', int $options = 0) {}
 
@@ -36,7 +36,7 @@ function xdebug_print_function_stack (string $message = '', int $options = 0) {}
  * Returns an array where each element is a variable name which is defined in the current scope.
  * @return array
  */
-function xdebug_get_declared_vars () {}
+function xdebug_get_declared_vars (): array {}
 
 /**
  * This function returns the filename from where the current function/method was executed from, or NULL
@@ -96,6 +96,7 @@ function xdebug_get_monitored_functions(): array {}
 /**
  * This function displays structured information about one or more expressions that includes its type and value.
  * Arrays are explored recursively with values.
+ * @param mixed $var
  * @return void
  */
 function xdebug_var_dump (mixed ...$variable) {}
@@ -195,23 +196,23 @@ function xdebug_start_trace(?string $traceFile, int $options = 0): string {}
 /**
  * Stop tracing function calls and closes the trace file.
  *
- * @return void
+ * @return string
  */
 function xdebug_stop_trace(): string {}
 
 /**
  * Returns the name of the file which is used to trace the output of this script too.
  * This is useful when xdebug.auto_trace is enabled.
- * @return string
+ * @return string|null
  */
-function xdebug_get_tracefile_name () {}
+function xdebug_get_tracefile_name (): ?string {}
 
 /**
  * Returns the name of the file which is used to save profile information to.
  *
- * @return string
+ * @return string|false
  */
-function xdebug_get_profiler_filename () {}
+function xdebug_get_profiler_filename (): string|false {}
 
 /**
  * @return bool
@@ -296,7 +297,7 @@ function xdebug_get_function_count(): int {}
  *
  * @return void
  */
-function xdebug_dump_superglobals () {}
+function xdebug_dump_superglobals(): void {}
 
 /**
  * Returns all the headers that are set with PHP's header() function,
@@ -334,7 +335,7 @@ function xdebug_stop_gcstats(): string {}
  * statistics collection is not active.
  * @return mixed
  */
-function xdebug_get_gcstats_filename() {}
+function xdebug_get_gcstats_filename(): mixed {}
 
 /**
  * @return int

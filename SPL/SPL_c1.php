@@ -764,7 +764,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * function will return the number of assigned values. The optional
          * parameters must be passed by reference.
          */
-        public function fscanf ($format, & ...$vars) {}
+        public function fscanf ($format, &...$vars) {}
 
         /**
          * Write to file

@@ -39,7 +39,7 @@ define('OAUTH_SIGNATURE_METHOD_REJECTED', 8192);
  * @param array $request_parameters
  * @return string
  */
-function oauth_get_sbs($http_method, $uri, $request_parameters = array()) { }
+function oauth_get_sbs($http_method, $uri, $request_parameters = []) { }
 
 /**
  * Encode a URI to RFC 3986
@@ -132,7 +132,7 @@ class OAuth {
      * @throws \OAuthException
      * @return mixed
      */
-    public function fetch($protected_resource_url, $extra_parameters = array(), $http_method = null, $http_headers = array()) { }
+    public function fetch($protected_resource_url, $extra_parameters = [], $http_method = null, $http_headers = []) { }
 
     /**
      * Fetch an access token

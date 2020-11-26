@@ -31,7 +31,7 @@ function bzopen ($file, string $mode) {}
  * (uncompressed) bytes at a time. A maximum of 8192
  * uncompressed bytes will be read at a time.
  * </p>
- * @return string the uncompressed data, or <b>FALSE</b> on error.
+ * @return string|false the uncompressed data, or <b>FALSE</b> on error.
  */
 function bzread ($bz, int $length = 1024): string|false {}
 
@@ -50,7 +50,7 @@ function bzread ($bz, int $length = 1024): string|false {}
  * (uncompressed) bytes have been written or the end of
  * <i>data</i> is reached, whichever comes first.
  * </p>
- * @return int the number of bytes written, or <b>FALSE</b> on error.
+ * @return int|false the number of bytes written, or <b>FALSE</b> on error.
  */
 function bzwrite ($bz, string $data, ?int $length): int|false
 {}
