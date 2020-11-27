@@ -651,9 +651,9 @@ function tidy_get_release () {}
  * The <b>Tidy</b> object.
  * </p>
  * @return array an array of configuration options.
- * </p>
  * <p>
  * For an explanation about each option, visit http://tidy.sourceforge.net/docs/quickref.html.
+ * </p>
  */
 function tidy_get_config (tidy $object) {}
 
@@ -677,10 +677,10 @@ function tidy_get_status (tidy $object) {}
  * The <b>Tidy</b> object.
  * </p>
  * @return int the detected HTML version.
- * </p>
  * <p>
  * This function is not yet implemented in the Tidylib itself, so it always
  * return 0.
+ * </p>
  */
 function tidy_get_html_ver (tidy $object) {}
 

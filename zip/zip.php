@@ -1238,12 +1238,12 @@ function zip_read ($zip) {}
  * in PHP is read only access.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * </p>
  * <p>
  * Unlike <b>fopen</b> and other similar functions,
  * the return value of <b>zip_entry_open</b> only
  * indicates the result of the operation and is not needed for
  * reading or closing the directory entry.
+ * </p>
  */
 function zip_entry_open ($zip, $zip_entry, $mode = null) {}
 

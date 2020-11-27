@@ -508,7 +508,6 @@ function class_alias (string $class, string $alias, bool $autoload = true): bool
  * Returns an array with the names of included or required files
  * @link https://php.net/manual/en/function.get-included-files.php
  * @return string[] an array of the names of all files.
- * </p>
  * <p>
  * The script originally called is considered an "included file," so it will
  * be listed together with the files referenced by
@@ -517,6 +516,7 @@ function class_alias (string $class, string $alias, bool $autoload = true): bool
  * <p>
  * Files that are included or required multiple times only show up once in
  * the returned array.
+ * </p>
  */
 #[Pure]
 function get_included_files (): array

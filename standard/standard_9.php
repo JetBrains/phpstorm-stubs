@@ -151,7 +151,6 @@ function array_reverse(array $array, bool $preserve_keys): array { }
  * the array is empty.
  * </p>
  * @return mixed the resulting value.
- * </p>
  * <p>
  * If the array is empty and initial is not passed,
  * array_reduce returns null.
@@ -162,6 +161,7 @@ function array_reverse(array $array, bool $preserve_keys): array { }
  * <blockquote><pre>array_reduce(['2', '3', '4'], function($ax, $dx) { return $ax . ", {$dx}"; }, '1')  // Returns '1, 2, 3, 4'</pre></blockquote>
  * <blockquote><pre>array_reduce(['2', '3', '4'], function($ax, $dx) { return $ax + (int)$dx; }, 1)  // Returns 10</pre></blockquote>
  * <br/>
+ * </p>
  * @meta
  */
 function array_reduce(array $array, callable $callback, mixed $initial): mixed { }
@@ -1150,10 +1150,10 @@ function stream_isatty($stream): bool
  * this would be the time to destroy or dispose of them.
  * </p>
  * @return bool true on success or false on failure.
- * </p>
  * <p>
  * stream_filter_register will return false if the
  * filtername is already defined.
+ * </p>
  */
 function stream_filter_register(string $filter_name, string $class): bool
 { }

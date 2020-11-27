@@ -463,10 +463,10 @@ function snmpwalkoid ($hostname, $community, $object_id, $timeout = 1000000, $re
  * The number of times to retry if timeouts occur.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * </p>
  * <p>
  * If the SNMP host rejects the data type, an E_WARNING message like "Warning: Error in packet. Reason: (badValue) The value given has the wrong type or length." is shown.
  * If an unknown or invalid OID is specified the warning probably reads "Could not add variable".
+ * </p>
  */
 function snmpset ($host, $community, $object_id, $type, $value, $timeout = 1000000, $retries = 5) {}
 
@@ -678,10 +678,10 @@ function snmp2_real_walk ($host, $community, $object_id, $timeout = 1000000, $re
  * The number of times to retry if timeouts occur.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * </p>
  * <p>
  * If the SNMP host rejects the data type, an E_WARNING message like "Warning: Error in packet. Reason: (badValue) The value given has the wrong type or length." is shown.
  * If an unknown or invalid OID is specified the warning probably reads "Could not add variable".
+ * </p>
  */
 function snmp2_set ($host, $community, $object_id, $type, $value, $timeout = 1000000, $retries = 5) {}
 
@@ -873,7 +873,7 @@ function snmp3_real_walk ($host, $sec_name, $sec_level, $auth_protocol, $auth_pa
  * The SNMP object id.
  * </p>
  * @param string $type The MIB defines the type of each object id. It has to be specified as a single character from the below list.
- * </p>
+ * <p>
  * types
  * <tr valign="top"><td>=</td><td>The type is taken from the MIB</td></tr>
  * <tr valign="top"><td>i</td><td>INTEGER</td> </tr>
@@ -889,6 +889,7 @@ function snmp3_real_walk ($host, $sec_name, $sec_level, $auth_protocol, $auth_pa
  * </table>
  * If <b>OPAQUE_SPECIAL_TYPES</b> was defined while compiling the SNMP library, the following are also valid:
  * </p>
+ * <p>
  * types
  * <tr valign="top"><td>U</td><td>unsigned int64</td></tr>
  * <tr valign="top"><td>I</td><td>signed int64</td></tr>
@@ -898,12 +899,15 @@ function snmp3_real_walk ($host, $sec_name, $sec_level, $auth_protocol, $auth_pa
  * Most of these will use the obvious corresponding ASN.1 type. &#x00027;s&#x00027;, &#x00027;x&#x00027;, &#x00027;d&#x00027; and &#x00027;b&#x00027; are all different ways of specifying an OCTET STRING value, and
  * the &#x00027;u&#x00027; unsigned type is also used for handling Gauge32 values.
  * </p>
+ * <p>
  * If the MIB-Files are loaded by into the MIB Tree with "snmp_read_mib" or by specifying it in the libsnmp config, &#x00027;=&#x00027; may be used as
  * the <i>type</i> parameter for all object ids as the type can then be automatically read from the MIB.
  * </p>
+ * <p>
  * Note that there are two ways to set a variable of the type BITS like e.g.
  * "SYNTAX BITS {telnet(0), ftp(1), http(2), icmp(3), snmp(4), ssh(5), https(6)}":
  * </p>
+ * <p>
  * Using type "b" and a list of bit numbers. This method is not recommended since GET query for the same OID would return e.g. 0xF8.
  * Using type "x" and a hex number but without(!) the usual "0x" prefix.
  * See examples section for more details.
@@ -918,10 +922,10 @@ function snmp3_real_walk ($host, $sec_name, $sec_level, $auth_protocol, $auth_pa
  * The number of times to retry if timeouts occur.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * </p>
  * <p>
  * If the SNMP host rejects the data type, an E_WARNING message like "Warning: Error in packet. Reason: (badValue) The value given has the wrong type or length." is shown.
  * If an unknown or invalid OID is specified the warning probably reads "Could not add variable".
+ * </p>
  */
 function snmp3_set ($host, $sec_name, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $object_id, $type, $value, $timeout = 1000000, $retries = 5) {}
 

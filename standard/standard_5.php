@@ -378,9 +378,9 @@ function is_countable(mixed $value): bool
  * successful call to popen.
  * </p>
  * @return int the termination status of the process that was run. In case of an error then -1 is returned.
- * </p>
  * <p>
  * If PHP has been compiled with <tt>--enable-sigchild</tt>, the return value of this function is undefined.
+ * </p>
  */
 function pclose ($handle): int
 {}

@@ -250,11 +250,11 @@ function ftp_nlist ($ftp, string $directory): array|false
  * If set to <b>TRUE</b>, the issued command will be LIST -R.
  * </p>
  * @return array|false an array where each element corresponds to one line of text.
- * </p>
  * <p>
  * The output is not parsed in any way. The system type identifier returned by
  * <b>ftp_systype</b> can be used to determine how the results
  * should be interpreted.
+ * </p>
  */
 function ftp_rawlist ($ftp, string $directory, bool $recursive = false): array|false
 {}

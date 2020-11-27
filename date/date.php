@@ -382,11 +382,11 @@ function date (string $format, ?int $timestamp)
  * </p>
  * @param int|null $timestamp [optional]
  * @return int|false an integer.
- * </p>
  * <p>
  * As idate always returns an integer and
  * as they can't start with a "0", idate may return
  * fewer digits than you would expect. See the example below.
+ * </p>
  */
 #[Pure]
 function idate (string $format, ?int $timestamp): int|false

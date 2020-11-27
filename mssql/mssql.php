@@ -221,9 +221,6 @@ function mssql_num_fields ($result) {}
  * field_offset starts at 0.
  * </p>
  * @return object an object containing field information.
- * </p>
- * <p>
- * The properties of the object are:
  * @removed 7.0
  */
 function mssql_fetch_field ($result, $field_offset = -1) {}

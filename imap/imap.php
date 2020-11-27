@@ -251,12 +251,12 @@ function imap_rfc822_write_address ($mailbox, $host, $personal) {}
  * The default host name
  * </p>
  * @return array an array of objects. The objects properties are:
- * </p>
  * <p>
  * mailbox - the mailbox name (username)
  * host - the host name
  * personal - the personal name
  * adl - at domain source route
+ * </p>
  */
 function imap_rfc822_parse_adrlist ($address, $default_host) {}
 
@@ -1090,10 +1090,10 @@ function imap_last_error () {}
  * </p>
  * @param string $charset [optional]
  * @return array|false an array of message numbers or UIDs.
- * </p>
  * <p>
  * Return <b>FALSE</b> if it does not understand the search
  * <i>criteria</i> or no messages have been found.
+ * </p>
  */
 function imap_search ($imap_stream, $criteria, $options = SE_FREE, $charset = NIL) {}
 
