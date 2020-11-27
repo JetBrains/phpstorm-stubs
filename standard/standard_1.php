@@ -1037,19 +1037,32 @@ function explode (string $separator, string $string, int $limit): array|bool
 /**
  * Join array elements with a string
  * @link https://php.net/manual/en/function.implode.php
- * @param array|string  $separator [optional]<p>
+ * @param float|int|string  $separator <p>
  * Defaults to an empty string. This is not the preferred usage of
  * implode as glue would be
  * the second parameter and thus, the bad prototype would be used.
  * </p>
- * @param array|null $array <p>
- * The array of strings to implode.
+ * @param float[]|int[]|string[] $array <p>
+ * The array of scalar values to implode.
  * </p>
  * @return string a string containing a string representation of all the array
- * elements in the same order, with the glue string between each element.
+ * elements in the same order, with the separator between each element.
  */
 #[Pure]
-function implode (array|string $separator = "", ?array $array): string
+function implode (#[LanguageLevelTypeAware(["8.0" => "string"], default: "float|int|string")] $separator, array $array): string
+{}
+
+/**
+ * Join array elements with a string
+ * @link https://php.net/manual/en/function.implode.php
+ * @param float[]|int[]|string[] $array <p>
+ * The array of scalar values to implode.
+ * </p>
+ * @return string a string containing a string representation of all the array
+ * elements in the same order, with an empty string between each element.
+ */
+#[Pure]
+function implode (array $array): string
 {}
 
 /**
