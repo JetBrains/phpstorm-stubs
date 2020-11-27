@@ -1183,7 +1183,7 @@ class ZipArchive implements Countable {
  * @param string $filename <p>
  * The file name of the ZIP archive to open.
  * </p>
- * @return resource a resource handle for later use with
+ * @return resource|int|false a resource handle for later use with
  * <b>zip_read</b> and <b>zip_close</b>
  * or returns the number of error if <i>filename</i> does not
  * exist or in case of other error.
