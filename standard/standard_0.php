@@ -183,7 +183,6 @@ function usleep (int $microseconds): void {}
  * Must be a positive integer less than 1 billion.
  * </p>
  * @return bool|array true on success or false on failure.
- * </p>
  * <p>
  * If the delay was interrupted by a signal, an associative array will be
  * returned with the components:
@@ -191,6 +190,7 @@ function usleep (int $microseconds): void {}
  * the delay
  * nanoseconds - number of nanoseconds
  * remaining in the delay
+ * </p>
  */
 function time_nanosleep (int $seconds, int $nanoseconds): array|bool
 {}
@@ -221,7 +221,6 @@ function time_sleep_until (float $timestamp): bool
  * strftime page.
  * </p>
  * @return array|false an array or false on failure.
- * </p>
  * <p>
  * <table>
  * The following parameters are returned in the array
@@ -267,6 +266,7 @@ function time_sleep_until (float $timestamp): bool
  * recognized using the specified format</td>
  * </tr>
  * </table>
+ * </p>
  */
 #[Pure]
 function strptime (string $timestamp, string $format): array|false
@@ -859,7 +859,6 @@ function iptcembed (string $iptc_data, string $filename, int $spool): string|boo
  * binary APP13 marker into something readable.
  * </p>
  * @return array|false an array with 7 elements.
- * </p>
  * <p>
  * Index 0 and 1 contains respectively the width and the height of the image.
  * </p>
@@ -900,6 +899,7 @@ function iptcembed (string $iptc_data, string $filename, int $spool): string|boo
  * </p>
  * <p>
  * On failure, false is returned.
+ * </p>
  */
 function getimagesize (string $filename, &$image_info): array|false
 {}
@@ -1210,7 +1210,6 @@ function zend_logo_guid (): string
  * Returns the type of interface between web server and PHP
  * @link https://php.net/manual/en/function.php-sapi-name.php
  * @return string|false the interface type, as a lowercase string.
- * </p>
  * <p>
  * Although not exhaustive, the possible return values include
  * aolserver, apache,
@@ -1222,6 +1221,7 @@ function zend_logo_guid (): string
  * milter, nsapi,
  * phttpd, pi3web, roxen,
  * thttpd, tux, and webjames.
+ * </p>
  */
 #[Pure]
 function php_sapi_name (): string|false

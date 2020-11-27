@@ -47,12 +47,12 @@ function msg_get_queue (int $key, int $permissions = 0666) {}
  * </p>
  * @param int &$error_code [optional]
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * </p>
  * <p>
  * Upon successful completion the message queue data structure is updated as
  * follows: <i>msg_lspid</i> is set to the process-ID of the
  * calling process, <i>msg_qnum</i> is incremented by 1 and
  * <i>msg_stime</i> is set to the current time.
+ * </p>
  */
 function msg_send (#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], default: "resource")] $queue, int $message_type, $message, bool $serialize = true, bool $blocking = true, &$error_code): bool {}
 
@@ -134,12 +134,12 @@ function msg_send (#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], defau
  * will be set to the value of the system errno variable.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * </p>
  * <p>
  * Upon successful completion the message queue data structure is updated as
  * follows: msg_lrpid is set to the process-ID of the
  * calling process, msg_qnum is decremented by 1 and
  * msg_rtime is set to the current time.
+ * </p>
  */
 function msg_receive (#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], default: "resource")] $queue, int $desired_message_type, &$received_message_type, int $max_message_size, mixed &$message, bool $unserialize = true, int $flags = 0, &$error_code): bool {}
 

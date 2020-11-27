@@ -1087,11 +1087,11 @@ function sqlite_error_string ($error_code) {}
  * the sqlite_last_error function.
  * </p>
  * @return SQLiteUnbuffered|false a result handle or false on failure.
- * </p>
  * <p>
  * sqlite_unbuffered_query returns a sequential
  * forward-only result set that can only be used to read each row, one after
  * the other.
+ * </p>
  */
 function sqlite_unbuffered_query ($dbhandle, $query, $result_type = SQLITE_BOTH, &$error_msg = null) {}
 

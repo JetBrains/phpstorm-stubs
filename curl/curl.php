@@ -2528,11 +2528,11 @@ function curl_reset (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: 
  * A reference to a flag to tell whether the operations are still running.
  * </p>
  * @return int A cURL code defined in the cURL Predefined Constants.
- * </p>
  * <p>
  * This only returns errors regarding the whole multi stack. There might still have
  * occurred problems on individual transfers even when this function returns
  * CURLM_OK.
+ * </p>
  */
 function curl_multi_exec (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle, &$still_running): int
 {}

@@ -429,7 +429,6 @@ function ini_get (string $option): string|false
  * Default is true (retrieve details).
  * </p>
  * @return array|false an associative array with directive name as the array key.
- * </p>
  * <p>
  * When details is true (default) the array will
  * contain global_value (set in
@@ -448,6 +447,7 @@ function ini_get (string $option): string|false
  * <p>
  * It's possible for a directive to have multiple access levels, which is
  * why access shows the appropriate bitmask values.
+ * </p>
  */
 #[Pure]
 function ini_get_all (?string $extension, bool $details): array|false

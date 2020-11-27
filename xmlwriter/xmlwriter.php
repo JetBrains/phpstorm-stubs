@@ -520,10 +520,10 @@ class XMLWriter  {
  * The URI of the resource for the output.
  * </p>
  * @return bool|resource Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * </p>
  * <p>
  * Procedural style: Returns a new xmlwriter resource for later use with the
  * xmlwriter functions on success, <b>FALSE</b> on error.
+ * </p>
  */
 #[LanguageLevelTypeAware(["8.0" => "XMLWriter|false"], default: "resource|false")]
 function xmlwriter_open_uri (string $uri)
@@ -534,10 +534,10 @@ function xmlwriter_open_uri (string $uri)
  * Create new xmlwriter using memory for string output
  * @link https://php.net/manual/en/function.xmlwriter-open-memory.php
  * @return XMLWriter|false|resource Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * </p>
  * <p>
  * Procedural style: Returns a new xmlwriter resource for later use with the
  * xmlwriter functions on success, <b>FALSE</b> on error.
+ * </p>
  */
 #[LanguageLevelTypeAware(["8.0" => "XMLWriter|false"], default: "resource|false")]
 function xmlwriter_open_memory ()

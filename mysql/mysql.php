@@ -225,11 +225,11 @@ function mysql_list_dbs ($link_identifier = null) {}
  * </p>
  * @param resource $link_identifier [optional]
  * @return resource|false A result pointer resource on success or false on failure.
- * </p>
  * <p>
  * Use the <b>mysql_tablename</b> function to
  * traverse this result pointer, or any function for result tables,
  * such as <b>mysql_fetch_array</b>.
+ * </p>
  * @removed 7.0
  */
 #[Deprecated(since: '5.3')]
@@ -538,12 +538,12 @@ function mysql_field_seek ($result, $field_offset) {}
  * @link https://php.net/manual/en/function.mysql-free-result.php
  * @param resource $result
  * @return bool true on success or false on failure.
- * </p>
  * <p>
  * If a non-resource is used for the result, an
  * error of level E_WARNING will be emitted. It's worth noting that
  * mysql_query only returns a resource
  * for SELECT, SHOW, EXPLAIN, and DESCRIBE queries.
+ * </p>
  * @removed 7.0
  */
 #[Deprecated(since: '5.5')]
@@ -603,7 +603,6 @@ function mysql_field_type ($result, $field_offset) {}
  * @param resource $result
  * @param int $field_offset
  * @return string|false a string of flags associated with the result or false on failure.
- * </p>
  * <p>
  * The following flags are reported, if your version of MySQL
  * is current enough to support them: "not_null",
@@ -612,6 +611,7 @@ function mysql_field_type ($result, $field_offset) {}
  * "unsigned", "zerofill",
  * "binary", "enum",
  * "auto_increment" and "timestamp".
+ * </p>
  * @removed 7.0
  */
 #[Deprecated(since: '5.5')]
@@ -900,11 +900,11 @@ function mysql_dbname ($result, $row, $field) {}
  * The integer index (row/table number)
  * </p>
  * @return string|false The name of the table on success or false on failure.
- * </p>
  * <p>
  * Use the <b>mysql_tablename</b> function to
  * traverse this result pointer, or any function for result tables,
  * such as <b>mysql_fetch_array</b>.
+ * </p>
  * @removed 7.0
  */
 #[Deprecated(since: '5.5')]

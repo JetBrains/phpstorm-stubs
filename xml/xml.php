@@ -333,7 +333,6 @@ function xml_set_end_namespace_decl_handler (#[LanguageLevelTypeAware(["8.0" => 
  * data sent in this parse.
  * </p>
  * @return int 1 on success or 0 on failure.
- * </p>
  * <p>
  * For unsuccessful parses, error information can be retrieved with
  * <b>xml_get_error_code</b>,
@@ -345,6 +344,7 @@ function xml_set_end_namespace_decl_handler (#[LanguageLevelTypeAware(["8.0" => 
  * <p>
  * Entity errors are reported at the end of the data thus only if
  * <i>is_final</i> is set and <b>TRUE</b>.
+ * </p>
  */
 function xml_parse (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")] $parser, string $data, bool $is_final = false): int
 {}

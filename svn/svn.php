@@ -374,7 +374,6 @@ function svn_resolved () {}
  * Default is <b>TRUE</b>.
  * </p>
  * @return array array in form of:
- * </p>
  * <pre>
  * array(
  * 0 => integer revision number of commit
@@ -384,6 +383,7 @@ function svn_resolved () {}
  * </pre>
  * <p>
  * Returns <b>FALSE</b> on failure.
+ * </p>
  */
 function svn_commit ($log, array $targets, $recursive = true) {}
 

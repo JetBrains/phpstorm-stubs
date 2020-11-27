@@ -669,10 +669,10 @@ function pg_fetch_all ($result, $result_type = PGSQL_ASSOC) {}
  * to the first column if not specified.
  * </p>
  * @return array An array with all values in the result column.
- * </p>
  * <p>
  * <b>FALSE</b> is returned if <i>column</i> is larger than the number
  * of columns in the result, or on any other error.
+ * </p>
  */
 function pg_fetch_all_columns ($result, $column = 0) {}
 

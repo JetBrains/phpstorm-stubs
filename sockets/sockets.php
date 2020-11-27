@@ -567,11 +567,11 @@ function socket_strerror ($errno) {}
  * the port on which to listen for connections.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * </p>
  * <p>
  * The error code can be retrieved with <b>socket_last_error</b>.
  * This code may be passed to <b>socket_strerror</b> to get a
  * textual explanation of the error.
+ * </p>
  */
 function socket_bind ($socket, $address, $port = 0) {}
 

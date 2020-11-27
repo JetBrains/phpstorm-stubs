@@ -78,7 +78,6 @@ function odbc_close_all () {}
  * The column name.
  * </p>
  * @return resource|false an ODBC result identifier or <b>FALSE</b> on failure.
- * </p>
  * <p>
  * The result set has the following columns:
  * TABLE_QUALIFIER
@@ -97,6 +96,7 @@ function odbc_close_all () {}
  * <p>
  * The result set is ordered by TABLE_QUALIFIER, TABLE_SCHEM and
  * TABLE_NAME.
+ * </p>
  */
 function odbc_columns ($connection_id, $qualifier = null, $schema = null, $table_name = null, $column_name = null) {}
 
@@ -630,7 +630,6 @@ function odbc_specialcolumns ($connection_id, $type, $qualifier, $owner, $table,
  * The accuracy.
  * </p>
  * @return resource|false an ODBC result identifier or <b>FALSE</b> on failure.
- * </p>
  * <p>
  * The result set has the following columns:
  * TABLE_QUALIFIER
@@ -646,6 +645,7 @@ function odbc_specialcolumns ($connection_id, $type, $qualifier, $owner, $table,
  * CARDINALITY
  * PAGES
  * FILTER_CONDITION
+ * </p>
  */
 function odbc_statistics ($connection_id, $qualifier, $owner, $table_name, $unique, $accuracy) {}
 
@@ -696,7 +696,6 @@ function odbc_tables ($connection_id, $qualifier = null, $owner = null, $name = 
  * @param string $owner
  * @param string $table
  * @return resource|false an ODBC result identifier or <b>FALSE</b> on failure.
- * </p>
  * <p>
  * The result set has the following columns:
  * TABLE_QUALIFIER
@@ -705,6 +704,7 @@ function odbc_tables ($connection_id, $qualifier = null, $owner = null, $name = 
  * COLUMN_NAME
  * KEY_SEQ
  * PK_NAME
+ * </p>
  */
 function odbc_primarykeys ($connection_id, $qualifier, $owner, $table) {}
 
@@ -764,7 +764,6 @@ function odbc_columnprivileges ($connection_id, $qualifier, $owner, $table_name,
  * ('%' to match zero or more characters and '_' to match a single character)
  * </p>
  * @return resource|false An ODBC result identifier or <b>FALSE</b> on failure.
- * </p>
  * <p>
  * The result set has the following columns:
  * TABLE_QUALIFIER
@@ -774,6 +773,7 @@ function odbc_columnprivileges ($connection_id, $qualifier, $owner, $table_name,
  * GRANTEE
  * PRIVILEGE
  * IS_GRANTABLE
+ * </p>
  */
 function odbc_tableprivileges ($connection_id, $qualifier, $owner, $name) {}
 
@@ -801,7 +801,6 @@ function odbc_tableprivileges ($connection_id, $qualifier, $owner, $name) {}
  * The foreign key table.
  * </p>
  * @return resource|false an ODBC result identifier or <b>FALSE</b> on failure.
- * </p>
  * <p>
  * The result set has the following columns:
  * PKTABLE_QUALIFIER
@@ -832,6 +831,7 @@ function odbc_tableprivileges ($connection_id, $qualifier, $owner, $name) {}
  * the table specified in <i>fk_table</i> that refer
  * to the primary key of the table specified in
  * <i>pk_table
+ * </p>
  */
 function odbc_foreignkeys ($connection_id, $pk_qualifier, $pk_owner, $pk_table, $fk_qualifier, $fk_owner, $fk_table) {}
 

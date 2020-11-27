@@ -7,7 +7,6 @@ use JetBrains\PhpStorm\Pure;
  * Retrieve information about the currently installed GD library
  * @link https://php.net/manual/en/function.gd-info.php
  * @return array an associative array.
- * </p>
  * <p>
  * <table>
  * Elements of array returned by <b>gd_info</b>
@@ -80,6 +79,7 @@ use JetBrains\PhpStorm\Pure;
  * <p>
  * Previous to PHP 5.3.0, the JPEG Support attribute was named
  * JPG Support.
+ * </p>
  */
 #[Pure]
 function gd_info () {}

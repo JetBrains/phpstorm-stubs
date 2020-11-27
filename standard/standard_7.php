@@ -1060,10 +1060,10 @@ function diskfreespace (string $directory): float|false
  * For sendmail users, this file is /etc/mail/trusted-users.
  * </p>
  * @return bool true if the mail was successfully accepted for delivery, false otherwise.
- * </p>
  * <p>
  * It is important to note that just because the mail was accepted for delivery,
  * it does NOT mean the mail will actually reach the intended destination.
+ * </p>
  */
 function mail (string $to, string $subject, string $message, array|string $additional_headers, string $additional_params): bool
 {}
