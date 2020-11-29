@@ -91,7 +91,7 @@ class StubsTest extends TestCase
                             "Function ${functionName} has signature $functionName(" . $this->printParameters($function->parameters) . ')' .
                             " but stub function has signature $functionName(" . $this->printParameters($phpstormFunction->parameters) . ")");
                         $stubParameter = current(array_filter($phpstormFunction->parameters, fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name));
-                        self::assertEquals($parameter->type, preg_replace('/\w+\[]/', 'array', $stubParameter->type), "Type mismatch $functionName: \$$parameter->name ");
+                        self::compareTypeHintsWithReflection($parameter, $stubParameter, $functionName);
                         if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_REFERENCE)) {
                             self::assertEquals($parameter->is_passed_by_ref, $stubParameter->is_passed_by_ref, "Invalid pass by ref $functionName: \$$parameter->name ");
                         }
@@ -493,5 +493,25 @@ class StubsTest extends TestCase
                 }
             }
         }
+    }
+
+    private static function compareTypeHintsWithReflection(PHPParameter $parameter, PHPParameter $stubParameter, ?string $functionName): void
+    {
+        $unifiedReflectionParameter = preg_replace('/\?/', 'null|', $parameter->type);
+        $unifiedStubsParameter = preg_replace('/\?/', 'null|', $stubParameter->type);
+        $unifiedStubsParameter = preg_replace('/\w+\[]/', 'array', $unifiedStubsParameter);
+        $reflectionParameterTypes = explode('|', $unifiedReflectionParameter);
+        $stubsParameterTypes = explode('|', $unifiedStubsParameter);
+        if (!is_array($reflectionParameterTypes)) {
+            $reflectionParameterTypes = [$reflectionParameterTypes];
+        }
+        if (!is_array($stubsParameterTypes)) {
+            $stubsParameterTypes = [$stubsParameterTypes];
+        }
+        $absentInStubsTypes = array_diff($reflectionParameterTypes, $stubsParameterTypes);
+        $extraInStubsTypes = array_diff($stubsParameterTypes, $reflectionParameterTypes);
+        $diff = $absentInStubsTypes + $extraInStubsTypes;
+        self::assertEmpty($diff, "Type mismatch $functionName: \$$parameter->name \n
+        Reflection parameter has type '$parameter->type' but stub parameter has type '$stubParameter->type'");
     }
 }
