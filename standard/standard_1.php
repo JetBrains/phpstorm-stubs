@@ -967,7 +967,7 @@ function ltrim (string $string, string $characters = " \t\n\r\0\x0B"): string
  * @param string $string <p>
  * The input string.
  * </p>
- * @param null|string[]|string $allowed_tags [optional] <p>
+ * @param string[]|string|null $allowed_tags [optional] <p>
  * You can use the optional second parameter to specify tags which should
  * not be stripped.
  * </p>
@@ -978,7 +978,7 @@ function ltrim (string $string, string $characters = " \t\n\r\0\x0B"): string
  * @return string the stripped string.
  */
 #[Pure]
-function strip_tags (string $string, #[LanguageLevelTypeAware(["7.4" => "null|string[]|string"], default: "null|string")] $allowed_tags = null): string
+function strip_tags (string $string, #[LanguageLevelTypeAware(["7.4" => "string[]|string|null"], default: "string|null")] $allowed_tags = null): string
 {}
 
 /**
@@ -1037,6 +1037,19 @@ function explode (string $separator, string $string, int $limit): array|bool
 /**
  * Join array elements with a string
  * @link https://php.net/manual/en/function.implode.php
+ * @param float[]|int[]|string[] $array <p>
+ * The array of scalar values to implode.
+ * </p>
+ * @return string a string containing a string representation of all the array
+ * elements in the same order, with an empty string between each element.
+ */
+#[Pure]
+function implode (array $array): string
+{}
+
+/**
+ * Join array elements with a string
+ * @link https://php.net/manual/en/function.implode.php
  * @param float|int|string  $separator <p>
  * Defaults to an empty string. This is not the preferred usage of
  * implode as glue would be
@@ -1050,19 +1063,6 @@ function explode (string $separator, string $string, int $limit): array|bool
  */
 #[Pure]
 function implode (#[LanguageLevelTypeAware(["8.0" => "string"], default: "float|int|string")] $separator, array $array): string
-{}
-
-/**
- * Join array elements with a string
- * @link https://php.net/manual/en/function.implode.php
- * @param float[]|int[]|string[] $array <p>
- * The array of scalar values to implode.
- * </p>
- * @return string a string containing a string representation of all the array
- * elements in the same order, with an empty string between each element.
- */
-#[Pure]
-function implode (array $array): string
 {}
 
 /**

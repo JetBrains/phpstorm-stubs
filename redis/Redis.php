@@ -1639,7 +1639,7 @@ class Redis
      * @param string $key1         keys identifying the different sets on which we will apply the intersection.
      * @param string ...$otherKeys variadic list of keys
      *
-     * @return array contain the result of the intersection between those keys
+     * @return array|false contain the result of the intersection between those keys
      * If the intersection between the different sets is empty, the return value will be empty array.
      *
      * @link    https://redis.io/commands/sinter
