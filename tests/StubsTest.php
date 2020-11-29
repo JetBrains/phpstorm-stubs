@@ -2,24 +2,15 @@
 
 namespace StubTests;
 
-use phpDocumentor\Reflection\DocBlock\Tags\Deprecated;
-use phpDocumentor\Reflection\DocBlock\Tags\Link;
-use phpDocumentor\Reflection\DocBlock\Tags\Reference\Url;
-use phpDocumentor\Reflection\DocBlock\Tags\See;
 use phpDocumentor\Reflection\DocBlock\Tags\Since;
 use PHPUnit\Framework\TestCase;
-use StubTests\Model\BasePHPClass;
-use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPConst;
-use StubTests\Model\PHPDocElement;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\Model\StubProblemType;
-use StubTests\Model\Tags\RemovedTag;
-use StubTests\Parsers\Utils;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 use function array_filter;
 
@@ -110,15 +101,6 @@ class StubsTest extends TestCase
             }
         }
         self::assertEquals($function->returnType, preg_replace('/\w+\[]/', 'array', $phpstormFunction->returnType), "Function $functionName has invalid return type");
-    }
-
-    private function printParameters(array $params): string
-    {
-        $signature = '';
-        foreach ($params as $param) {
-            $signature .= '$' . $param->name . ', ';
-        }
-        return trim($signature, ", ");
     }
 
     /**
@@ -326,15 +308,6 @@ class StubsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubClassConstantProvider
-     */
-    public function testClassConstantsPHPDocs(string $className, PHPConst $constant): void
-    {
-        static::assertNull($constant->parseError, $constant->parseError ?: '');
-        $this->checkPHPDocCorrectness($constant, "constant $className::$constant->name");
-    }
-
-    /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::coreStubMethodProvider
      */
     public function testCoreMethodsTypeHints(string $methodName, PHPMethod $stubFunction): void
@@ -368,84 +341,13 @@ class StubsTest extends TestCase
         }
     }
 
-    /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubConstantProvider
-     */
-    public function testConstantsPHPDocs(PHPConst $constant): void
+    private function printParameters(array $params): string
     {
-        static::assertNull($constant->parseError, $constant->parseError ?: '');
-        $this->checkPHPDocCorrectness($constant, "constant $constant->name");
-    }
-
-    /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubFunctionProvider
-     */
-    public function testFunctionPHPDocs(PHPFunction $function): void
-    {
-        static::assertNull($function->parseError, $function->parseError ?: '');
-        $this->checkPHPDocCorrectness($function, "function $function->name");
-    }
-
-    /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubClassProvider
-     */
-    public function testClassesPHPDocs(BasePHPClass $class): void
-    {
-        static::assertNull($class->parseError, $class->parseError ?: '');
-        $this->checkPHPDocCorrectness($class, "class $class->name");
-    }
-
-    /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodProvider
-     */
-    public function testMethodsPHPDocs(string $methodName, PHPMethod $method): void
-    {
-        if ($methodName === '__construct') {
-            static::assertNull($method->returnTag, '@return tag for __construct should be omitted');
+        $signature = '';
+        foreach ($params as $param) {
+            $signature .= '$' . $param->name . ', ';
         }
-        static::assertNull($method->parseError, $method->parseError ?: '');
-        $this->checkPHPDocCorrectness($method, "method $methodName");
-    }
-
-    private function checkPHPDocCorrectness(BasePHPElement $element, string $elementName): void
-    {
-        $this->checkLinks($element, $elementName);
-        if ($element->stubBelongsToCore) {
-            $this->checkDeprecatedRemovedSinceVersionsMajor($element, $elementName);
-        }
-        $this->checkContainsOnlyValidTags($element, $elementName);
-    }
-
-    private function checkContainsOnlyValidTags(BasePHPElement $element, string $elementName): void
-    {
-        $VALID_TAGS = [
-            'author',
-            'copyright',
-            'deprecated',
-            'example', //temporary addition due to the number of existing cases
-            'inheritdoc',
-            'internal',
-            'link',
-            'meta',
-            'method',
-            'mixin',
-            'package',
-            'param',
-            'property',
-            'property-read',
-            'removed',
-            'return',
-            'see',
-            'since',
-            'throws',
-            'uses',
-            'var',
-            'version',
-        ];
-        /** @var PHPDocElement $element */
-        foreach ($element->tagNames as $tagName) {
-            static::assertContains($tagName, $VALID_TAGS, "Element $elementName has invalid tag: @$tagName");
-        }
+        return trim($signature, ", ");
     }
 
     private static function getParameterRepresentation(PHPFunction $function): string
@@ -466,70 +368,6 @@ class StubsTest extends TestCase
         $result = rtrim($result, ', ');
 
         return $result;
-    }
-
-    private function checkLinks(BasePHPElement $element, string $elementName): void
-    {
-        /** @var PHPDocElement $element */
-        foreach ($element->links as $link) {
-            if ($link instanceof Link) {
-                static::assertStringStartsWith(
-                    'https',
-                    $link->getLink(),
-                    "In $elementName @link doesn't start with https"
-                );
-                if (getenv('CHECK_LINKS') === 'true') {
-                    if ($element->stubBelongsToCore) {
-                        $request = curl_init($link->getLink());
-                        curl_setopt($request, CURLOPT_RETURNTRANSFER, 1);
-                        curl_exec($request);
-                        $response = curl_getinfo($request, CURLINFO_RESPONSE_CODE);
-                        curl_close($request);
-                        static::assertTrue($response < 400);
-                    }
-                }
-            }
-        }
-        foreach ($element->see as $see) {
-            if ($see instanceof See && $see->getReference() instanceof Url && strncmp($see, 'http', 4) === 0) {
-                static::assertStringStartsWith('https', $see, "In $elementName @see doesn't start with https");
-            }
-        }
-    }
-
-    private function checkDeprecatedRemovedSinceVersionsMajor(BasePHPElement $element, $elementName): void
-    {
-        /** @var PHPDocElement $element */
-        foreach ($element->sinceTags as $sinceTag) {
-            if ($sinceTag instanceof Since) {
-                $version = $sinceTag->getVersion();
-                if ($version !== null) {
-                    self::assertTrue(Utils::tagDoesNotHaveZeroPatchVersion($sinceTag), "$elementName has 
-                    'since' version $version.'Since' version for PHP Core functionallity for style consistensy 
-                    should have X.X format for the case when patch version is '0'.");
-                }
-            }
-        }
-        foreach ($element->deprecatedTags as $deprecatedTag) {
-            if ($deprecatedTag instanceof Deprecated) {
-                $version = $deprecatedTag->getVersion();
-                if ($version !== null) {
-                    self::assertTrue(Utils::tagDoesNotHaveZeroPatchVersion($deprecatedTag), "$elementName has 
-                    'deprecated' version $version.'Deprecated' version for PHP Core functionallity for style consistensy 
-                    should have X.X format for the case when patch version is '0'.");
-                }
-            }
-        }
-        foreach ($element->removedTags as $removedTag) {
-            if ($removedTag instanceof RemovedTag) {
-                $version = $removedTag->getVersion();
-                if ($version !== null) {
-                    self::assertTrue(Utils::tagDoesNotHaveZeroPatchVersion($removedTag), "$elementName has 
-                    'removed' version $version.'Removed' version for PHP Core functionallity for style consistensy 
-                    should have X.X format for the case when patch version is '0'.");
-                }
-            }
-        }
     }
 
     private static function checkMethodDoesNotHaveScalarTypeHints(int $sinceVersion, PHPClass $parentClass, PHPFunction $function)
