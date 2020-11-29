@@ -713,7 +713,7 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate {
      * @param mixed $value Any value
      * @return void
      */
-    public function offsetSet($object, $value)
+    public function offsetSet($object, mixed $value)
     {
     }
 
@@ -814,7 +814,7 @@ final class Attribute {
      * @param int $flags A value in the form of a bitmask indicating the places
      * where attributes can be defined.
      */
-    public function __construct(#[ExpectedValues(flagsFromClass: Attribute::class)] $flags = self::TARGET_ALL)
+    public function __construct(#[ExpectedValues(flagsFromClass: Attribute::class)] int $flags = self::TARGET_ALL)
     {
     }
 }
@@ -865,7 +865,7 @@ class PhpToken implements Stringable {
      * @param int $line Strating line
      * @param int $pos Straring position (line offset)
      */
-    final public function __construct($id, $text, $line = -1, $pos = -1)
+    final public function __construct(int $id, string $text, int $line = -1, int $pos = -1)
     {
     }
 
