@@ -320,7 +320,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @since 8.0
      */
     #[Pure]
-	public function getAttributes($name = null, $flags = 0)
+	public function getAttributes(?string $name = null, int $flags = 0)
     {
     }
 }
