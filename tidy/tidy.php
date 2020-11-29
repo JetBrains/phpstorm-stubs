@@ -53,7 +53,7 @@ class tidy  {
 	 * For an explanation about each option, see
 	 * http://tidy.sourceforge.net/docs/quickref.html.
 	 * </p>
-	 * @param string $encoding [optional] <p>
+	 * @param string|null $encoding [optional] <p>
 	 * The <i>encoding</i> parameter sets the encoding for
 	 * input/output documents. The possible values for encoding are:
 	 * ascii, latin0, latin1,
@@ -85,7 +85,7 @@ class tidy  {
 	 * <p>
 	 * For an explanation about each option, visit http://tidy.sourceforge.net/docs/quickref.html.
 	 * </p>
-	 * @param string $encoding [optional] <p>
+	 * @param string|null $encoding [optional] <p>
 	 * The <i>encoding</i> parameter sets the encoding for
 	 * input/output documents. The possible values for encoding are:
 	 * ascii, latin0, latin1,
@@ -115,7 +115,7 @@ class tidy  {
 	 * Check http://tidy.sourceforge.net/docs/quickref.html for
 	 * an explanation about each option.
 	 * </p>
-	 * @param string $encoding [optional] <p>
+	 * @param string|null $encoding [optional] <p>
 	 * The <i>encoding</i> parameter sets the encoding for
 	 * input/output documents. The possible values for encoding are:
 	 * ascii, latin0, latin1,
@@ -145,7 +145,7 @@ class tidy  {
 	 * Check http://tidy.sourceforge.net/docs/quickref.html for an
 	 * explanation about each option.
 	 * </p>
-	 * @param string $encoding [optional] <p>
+	 * @param string|null $encoding [optional] <p>
 	 * The <i>encoding</i> parameter sets the encoding for
 	 * input/output documents. The possible values for encoding are:
 	 * ascii, latin0, latin1,
@@ -298,7 +298,7 @@ class tidy  {
 	 * <p>
 	 * For an explanation about each option, visit http://tidy.sourceforge.net/docs/quickref.html.
 	 * </p>
-	 * @param string $encoding [optional] <p>
+	 * @param string|null $encoding [optional] <p>
 	 * The <i>encoding</i> parameter sets the encoding for
 	 * input/output documents. The possible values for encoding are:
 	 * ascii, latin0, latin1,
@@ -482,7 +482,7 @@ function tidy_getopt (tidy $object, $option) {}
  * <p>
  * For an explanation about each option, visit http://tidy.sourceforge.net/docs/quickref.html.
  * </p>
- * @param string $encoding [optional] <p>
+ * @param string|null $encoding [optional] <p>
  * The <i>encoding</i> parameter sets the encoding for
  * input/output documents. The possible values for encoding are:
  * ascii, latin0, latin1,
@@ -514,7 +514,7 @@ function tidy_parse_string ($input, $config = null, $encoding = null) {}
  * For an explanation about each option, see
  * http://tidy.sourceforge.net/docs/quickref.html.
  * </p>
- * @param string $encoding [optional] <p>
+ * @param string|null $encoding [optional] <p>
  * The <i>encoding</i> parameter sets the encoding for
  * input/output documents. The possible values for encoding are:
  * ascii, latin0, latin1,
@@ -578,7 +578,7 @@ function tidy_clean_repair (tidy $object) {}
  * Check http://tidy.sourceforge.net/docs/quickref.html for
  * an explanation about each option.
  * </p>
- * @param string $encoding [optional] <p>
+ * @param string|null $encoding [optional] <p>
  * The <i>encoding</i> parameter sets the encoding for
  * input/output documents. The possible values for encoding are:
  * ascii, latin0, latin1,
@@ -608,7 +608,7 @@ function tidy_repair_string ($data, $config = null, $encoding = null) {}
  * Check http://tidy.sourceforge.net/docs/quickref.html for an
  * explanation about each option.
  * </p>
- * @param string $encoding [optional] <p>
+ * @param string|null $encoding [optional] <p>
  * The <i>encoding</i> parameter sets the encoding for
  * input/output documents. The possible values for encoding are:
  * ascii, latin0, latin1,

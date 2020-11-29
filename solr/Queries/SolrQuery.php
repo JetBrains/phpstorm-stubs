@@ -1530,7 +1530,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Maps to facet.date.hardend
 	 * @link https://php.net/manual/en/solrquery.setfacetdatehardend.php
-	 * @param string $value <p>
+	 * @param bool $value <p>
 	 * See facet.date.hardend
 	 * </p>
 	 * @param string $field_override [optional] <p>
@@ -1799,7 +1799,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Enables or disables highlighting
 	 * @link https://php.net/manual/en/solrquery.sethighlight.php
-	 * @param bool $flag<p>
+	 * @param bool $flag <p>
 	 * Setting it to <b>TRUE</b> enables highlighted snippets to be generated in the query response.<br/>
 	 * Setting it to <b>FALSE</b> disables highlighting
 	 * </p>

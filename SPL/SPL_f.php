@@ -1,6 +1,7 @@
 <?php
 
 // Start of SPL v.0.2
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 
@@ -80,12 +81,13 @@ function spl_autoload_unregister (callable $callback): bool
 /**
  * Return all registered __autoload() functions
  * @link https://php.net/manual/en/function.spl-autoload-functions.php
- * @return array An array of all registered __autoload functions.
+ * @return array|false An array of all registered __autoload functions.
  * If the autoload stack is not activated then the return value is false.
  * If no function is registered the return value will be an empty array.
  * @since 5.1.2
  */
-function spl_autoload_functions (): array
+#[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
+function spl_autoload_functions ()
 {}
 
 /**

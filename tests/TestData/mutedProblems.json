@@ -1114,6 +1114,12 @@
       ]
     },
     {
+      "name": "implode",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
       "name": "mysqli_stmt_bind_result",
       "problems": [
         "parameter mismatch"

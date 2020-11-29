@@ -65,7 +65,7 @@ function apc_store($key, $var, $ttl = 0){}
  * @link https://php.net/manual/en/function.apc-fetch.php
  * @param string|string[] $key The key used to store the value (with apc_store()).
  * If an array is passed then each element is fetched and returned.
- * @param bool &$success Set to TRUE in success and FALSE in failure.
+ * @param bool|null &$success Set to TRUE in success and FALSE in failure.
  * @return mixed|false The stored variable or array of variables on success; FALSE on failure.
  */
 function apc_fetch($key, &$success = null){}
@@ -163,7 +163,7 @@ function apc_delete_file($keys){}
  * @link https://php.net/manual/en/function.apc-inc.php
  * @param string $key The key of the value being increased.
  * @param int $step The step, or value to increase.
- * @param bool &$success Optionally pass the success or fail boolean value to this referenced variable.
+ * @param bool|null &$success Optionally pass the success or fail boolean value to this referenced variable.
  * @return int|false Returns the current value of key's value on success, or FALSE on failure.
  */
 function apc_inc($key, $step = 1, &$success = null){}
@@ -173,7 +173,7 @@ function apc_inc($key, $step = 1, &$success = null){}
  * @link https://php.net/manual/en/function.apc-dec.php
  * @param string $key The key of the value being decreased.
  * @param int $step The step, or value to decrease.
- * @param bool &$success Optionally pass the success or fail boolean value to this referenced variable.
+ * @param bool|null &$success Optionally pass the success or fail boolean value to this referenced variable.
  * @return int|false Returns the current value of key's value on success, or FALSE on failure.
  */
 function apc_dec($key, $step = 1, &$success = null){}
@@ -422,7 +422,7 @@ function apcu_sma_info($limited = false){}
 /**
  * Cache a variable in the data store
  * @link https://php.net/manual/en/function.apcu-store.php
- * @param string|array $key String: Store the variable using this name. Keys are cache-unique,
+ * @param string|string[] $key String: Store the variable using this name. Keys are cache-unique,
  * so storing a second value with the same key will overwrite the original value.
  * Array: Names in key, variables in value.
  * @param mixed $var [optional] The variable to store
@@ -439,7 +439,7 @@ function apcu_store($key, $var, $ttl = 0){}
  * @link https://php.net/manual/en/function.apcu-fetch.php
  * @param string|string[] $key The key used to store the value (with apcu_store()).
  * If an array is passed then each element is fetched and returned.
- * @param bool &$success Set to TRUE in success and FALSE in failure.
+ * @param bool|null &$success Set to TRUE in success and FALSE in failure.
  * @return mixed|false The stored variable or array of variables on success; FALSE on failure.
  */
 function apcu_fetch($key, &$success = null){}
@@ -489,7 +489,7 @@ function apcu_exists($keys){}
  * the stored variable will be expunged from the cache (on the next request). If no ttl is supplied
  * (or if the ttl is 0), the value will persist until it is removed from the cache manually,
  * or otherwise fails to exist in the cache (clear, restart, etc.).
- * @param bool &$success Optionally pass the success or fail boolean value to this referenced variable.
+ * @param bool|null &$success Optionally pass the success or fail boolean value to this referenced variable.
  * @return int|false Returns the current value of key's value on success, or FALSE on failure.
  */
 function apcu_inc($key, $step = 1, &$success = null, $ttl = 0){}
@@ -503,7 +503,7 @@ function apcu_inc($key, $step = 1, &$success = null, $ttl = 0){}
  * the stored variable will be expunged from the cache (on the next request). If no ttl is supplied
  * (or if the ttl is 0), the value will persist until it is removed from the cache manually,
  * or otherwise fails to exist in the cache (clear, restart, etc.).
- * @param bool &$success Optionally pass the success or fail boolean value to this referenced variable.
+ * @param bool|null &$success Optionally pass the success or fail boolean value to this referenced variable.
  * @return int|false Returns the current value of key's value on success, or FALSE on failure.
  */
 function apcu_dec($key, $step = 1, &$success = null, $ttl = 0){}
