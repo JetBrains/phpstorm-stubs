@@ -152,17 +152,7 @@ class StubsTest extends TestCase
                         "Parameter number mismatch for method $className::$methodName. 
                         Expected: " . self::getParameterRepresentation($method)
                     );
-                    foreach ($method->parameters as $parameter) {
-                        self::assertNotEmpty(array_filter($stubMethod->parameters,
-                            fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name),
-                            "Function $className::$methodName has signature $methodName(" . StubsTypeHintsTest::printParameters($method->parameters) . ')' .
-                            " but stub function has signature $methodName(" . StubsTypeHintsTest::printParameters($stubMethod->parameters) . ")");
-                        $stubParameter = current(array_filter($stubMethod->parameters, fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name));
-                        if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_REFERENCE)) {
-                            self::assertEquals($parameter->is_passed_by_ref, $stubParameter->is_passed_by_ref, "Invalid pass by ref $className::$methodName: \$$parameter->name ");
-                        }
-                        self::assertEquals($parameter->is_vararg, $stubParameter->is_vararg, "Invalid pass by ref $className::$methodName: \$$parameter->name ");
-                    }
+
                 }
             }
         }
