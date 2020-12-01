@@ -794,10 +794,10 @@ class XPathProcessor {
     public function evaluate($xpathStr) {}
 
     /**
-     * Compile and evaluate an XPath expression whose result is expected to be a single item, with a given context item. The expression is supplied as a character string.
+     * Compile and evaluate an XPath expression whose result is expected to be a single item, with a given context item. The expression is supplied as a character string, and the result returned as an {@link XdmItem}. Return NULL if the expression returns an empty sequence. If the expression returns a sequence of more than one item, any items after the first are ignored.
      *
      * @param string $xpathStr
-     * @return XdmItem
+     * @return XdmItem|null
      */
     public function evaluateSingle($xpathStr) {}
 
