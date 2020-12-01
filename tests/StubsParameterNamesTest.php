@@ -7,37 +7,38 @@ use JetBrains\PhpStorm\Pure;
 use PHPUnit\Framework\TestCase;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPFunction;
+use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
-use StubTests\Model\StubProblemType;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
 class StubsParameterNamesTest extends TestCase
 {
     /**
-     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::functionParametersForNameCheckingProvider
+     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::functionParametersProvider
      */
     public function testFunctionsParameterNames(PHPFunction $function, PHPParameter $parameter)
     {
         $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions()[$function->name];
-        if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_NAME_MISMATCH)) {
-            self::assertNotEmpty(array_filter($phpstormFunction->parameters,
-                fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name),
-                "Function {$function->name} has signature {$function->name}(" . self::printParameters($function->parameters) . ')' .
-                " but stub function has signature {$phpstormFunction->name}(" . self::printParameters($phpstormFunction->parameters) . ')');
-        } else {
-            self::markTestSkipped('Parameter ignored');
-        }
+        self::assertNotEmpty(array_filter($phpstormFunction->parameters,
+            fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name),
+            "Function {$function->name} has signature {$function->name}(" . self::printParameters($function->parameters) . ')' .
+            " but stub function has signature {$phpstormFunction->name}(" . self::printParameters($phpstormFunction->parameters) . ')');
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::methodParametersForNamesCheckingProvider
+     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::methodParametersProvider
      */
-    public function testMethodsParameterNames(PHPClass $reflectionClass, PHPMethod $reflectionMethod, PHPParameter $reflectionParameter)
+    public function testMethodsParameterNames(PHPClass|PHPInterface $reflectionClass, PHPMethod $reflectionMethod, PHPParameter $reflectionParameter)
     {
         $className = $reflectionClass->name;
         $methodName = $reflectionMethod->name;
-        $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClasses()[$className]->methods[$methodName];
+        $stubMethod = null;
+        if ($reflectionClass instanceof PHPClass) {
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClasses()[$className]->methods[$methodName];
+        } else {
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces()[$className]->methods[$methodName];
+        }
         self::assertNotEmpty(array_filter($stubMethod->parameters,
             fn(PHPParameter $stubParameter) => $stubParameter->name === $reflectionParameter->name),
             "Method $className::$methodName has signature $methodName(" . self::printParameters($reflectionMethod->parameters) . ')' .
