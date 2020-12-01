@@ -607,12 +607,12 @@ interface SeekableIterator extends Iterator {
     /**
      * Seeks to a position
      * @link https://php.net/manual/en/seekableiterator.seek.php
-     * @param int $position <p>
+     * @param int $offset <p>
      * The position to seek to.
      * </p>
      * @return void
      */
-    public function seek($position);
+    public function seek($offset);
 }
 
 /**

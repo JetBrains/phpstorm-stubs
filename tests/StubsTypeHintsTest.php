@@ -7,6 +7,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\Since;
 use PHPUnit\Framework\TestCase;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPFunction;
+use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\Model\StubProblemType;
@@ -15,7 +16,7 @@ use StubTests\TestData\Providers\PhpStormStubsSingleton;
 class StubsTypeHintsTest extends TestCase
 {
     /**
-     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::functionParametersForTypeCheckingProvider
+     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::functionParametersProvider
      */
     public function testFunctionsTypeHints(PHPFunction $function, PHPParameter $parameter)
     {
@@ -36,15 +37,23 @@ class StubsTypeHintsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::methodParametersForTypesCheckingProvider
+     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::methodParametersProvider
      */
-    public function testMethodsTypeHints(PHPClass $reflectionClass, PHPMethod $reflectionMethod, PHPParameter $reflectionParameter)
+    public function testMethodsTypeHints(PHPClass|PHPInterface $reflectionClass, PHPMethod $reflectionMethod, PHPParameter $reflectionParameter)
     {
         $className = $reflectionClass->name;
         $methodName = $reflectionMethod->name;
-        $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClasses()[$className]->methods[$methodName];
+        $stubMethod = null;
+        if ($reflectionClass instanceof PHPClass) {
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClasses()[$className]->methods[$methodName];
+        } else {
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces()[$className]->methods[$methodName];
+        }
         $stubParameter = current(array_filter($stubMethod->parameters,
             fn(PHPParameter $stubParameter) => $stubParameter->name === $reflectionParameter->name));
+        self::assertNotFalse($stubParameter, "Parameter $$reflectionParameter->name not found at 
+        $reflectionClass->name::$stubMethod->name(" .
+            StubsParameterNamesTest::printParameters($stubMethod->parameters).')');
         if (!$reflectionParameter->hasMutedProblem(StubProblemType::PARAMETER_REFERENCE)) {
             self::assertEquals($reflectionParameter->is_passed_by_ref, $stubParameter->is_passed_by_ref,
                 "Invalid pass by ref $className::$methodName: \$$reflectionParameter->name ");
@@ -54,7 +63,7 @@ class StubsTypeHintsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::coreStubMethodForTypeCheckingProvider
+     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodParametersProvider
      */
     public function testCoreMethodParametersForInvalidTypeHints(PHPMethod $stubMethod, PHPParameter $stubParameter): void
     {

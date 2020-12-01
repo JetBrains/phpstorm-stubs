@@ -12,14 +12,18 @@ class ReflectionTestDataProviders
     public static function constantProvider(): ?Generator
     {
         foreach (ReflectionStubsSingleton::getReflectionStubs()->getConstants() as $constant) {
-            yield "constant {$constant->name}" => [$constant];
+            if (!$constant->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                yield "constant {$constant->name}" => [$constant];
+            }
         }
     }
 
     public static function functionProvider(): ?Generator
     {
         foreach (ReflectionStubsSingleton::getReflectionStubs()->getFunctions() as $function) {
-            yield "function {$function->name}" => [$function];
+            if (!$function->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                yield "function {$function->name}" => [$function];
+            }
         }
     }
 
@@ -27,19 +31,20 @@ class ReflectionTestDataProviders
     {
         foreach (ReflectionStubsSingleton::getReflectionStubs()->getClasses() as $class) {
             //exclude classes from PHPReflectionParser
-            if (strncmp($class->name, 'PHP', 3) !== 0) {
+            if (strncmp($class->name, 'PHP', 3) !== 0 && !$class->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
                 yield "class {$class->name}" => [$class];
             }
         }
     }
 
-    public static function functionParametersForNameCheckingProvider(): ?Generator
+    public static function functionParametersProvider(): ?Generator
     {
         foreach (ReflectionStubsSingleton::getReflectionStubs()->getFunctions() as $function) {
             if (!$function->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
                 !$function->hasMutedProblem(StubProblemType::FUNCTION_PARAMETER_MISMATCH)) {
                 foreach ($function->parameters as $parameter) {
-                    if (!$parameter->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                    if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_NAME_MISMATCH) &&
+                        !$parameter->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
                         yield "$function->name($parameter->name)" => [$function, $parameter];
                     }
                 }
@@ -47,52 +52,37 @@ class ReflectionTestDataProviders
         }
     }
 
-    public static function functionParametersForTypeCheckingProvider(): ?Generator
+    public static function methodParametersProvider(): ?Generator
     {
-        foreach (ReflectionStubsSingleton::getReflectionStubs()->getFunctions() as $function) {
-            if (!$function->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
-                !$function->hasMutedProblem(StubProblemType::FUNCTION_PARAMETER_MISMATCH)) {
-                foreach ($function->parameters as $parameter) {
-                    if (!$parameter->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
-                        !$parameter->hasMutedProblem(StubProblemType::PARAMETER_NAME_MISMATCH)) {
-                        yield "$function->name($parameter->name)" => [$function, $parameter];
-                    }
-                }
-            }
-        }
-    }
-
-    public static function methodParametersForNamesCheckingProvider(): ?Generator
-    {
-        foreach (ReflectionStubsSingleton::getReflectionStubs()->getClasses() as $class) {
+        foreach (ReflectionStubsSingleton::getReflectionStubs()->getClasses() as $interface) {
             //exclude classes from PHPReflectionParser
-            if (strncmp($class->name, 'PHP', 3) !== 0 && !$class->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
-                foreach ($class->methods as $method) {
+            if (strncmp($interface->name, 'PHP', 3) !== 0 &&
+                !$interface->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                foreach ($interface->methods as $method) {
                     if (!$method->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
                         !$method->hasMutedProblem(StubProblemType::FUNCTION_PARAMETER_MISMATCH)) {
                         foreach ($method->parameters as $parameter) {
-                            if (!$parameter->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
-                                yield "$class->name::$method->name($parameter->name)" => [$class, $method, $parameter];
+                            if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_NAME_MISMATCH) &&
+                                !$parameter->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                                yield "$interface->name::$method->name($parameter->name)" => [$interface, $method, $parameter];
                             }
                         }
                     }
                 }
             }
         }
-    }
 
-    public static function methodParametersForTypesCheckingProvider(): ?Generator
-    {
-        foreach (ReflectionStubsSingleton::getReflectionStubs()->getClasses() as $class) {
+        foreach (ReflectionStubsSingleton::getReflectionStubs()->getInterfaces() as $interface) {
             //exclude classes from PHPReflectionParser
-            if (strncmp($class->name, 'PHP', 3) !== 0 && !$class->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
-                foreach ($class->methods as $method) {
+            if (strncmp($interface->name, 'PHP', 3) !== 0 &&
+                !$interface->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                foreach ($interface->methods as $method) {
                     if (!$method->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
                         !$method->hasMutedProblem(StubProblemType::FUNCTION_PARAMETER_MISMATCH)) {
                         foreach ($method->parameters as $parameter) {
-                            if (!$parameter->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
-                                !$parameter->hasMutedProblem(StubProblemType::PARAMETER_NAME_MISMATCH)) {
-                                yield "$class->name::$method->name($parameter->name)" => [$class, $method, $parameter];
+                            if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_NAME_MISMATCH) &&
+                                !$parameter->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                                yield "$interface->name::$method->name($parameter->name)" => [$interface, $method, $parameter];
                             }
                         }
                     }
@@ -104,7 +94,9 @@ class ReflectionTestDataProviders
     public static function interfaceProvider(): ?Generator
     {
         foreach (ReflectionStubsSingleton::getReflectionStubs()->getInterfaces() as $interface) {
-            yield "interface {$interface->name}" => [$interface];
+            if (!$interface->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                yield "interface {$interface->name}" => [$interface];
+            }
         }
     }
 }

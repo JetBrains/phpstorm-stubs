@@ -76,14 +76,14 @@ interface DateTimeInterface {
      * (PHP 5 &gt;=5.5.0)<br/>
      * Returns the difference between two DateTime objects
      * @link https://secure.php.net/manual/en/datetime.diff.php
-     * @param DateTimeInterface $datetime2 <p>The date to compare to.</p>
+     * @param DateTimeInterface $targetObject <p>The date to compare to.</p>
      * @param bool $absolute <p>Should the interval be forced to be positive?</p>
      * @return DateInterval
      * The https://secure.php.net/manual/en/class.dateinterval.php DateInterval} object representing the
      * difference between the two dates or <b>FALSE</b> on failure.
      *
      */
-    public function diff($datetime2, $absolute = false);
+    public function diff($targetObject, $absolute = false);
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>

@@ -156,10 +156,10 @@ interface Serializable {
     /**
      * Constructs the object.
      * @link https://php.net/manual/en/serializable.unserialize.php
-     * @param string $serialized The string representation of the object.
+     * @param string $data The string representation of the object.
      * @return void
      */
-    public function unserialize($serialized);
+    public function unserialize($data);
 }
 
 

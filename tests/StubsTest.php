@@ -1,18 +1,16 @@
 <?php
+declare(strict_types=1);
 
 namespace StubTests;
 
-use phpDocumentor\Reflection\DocBlock\Tags\Since;
+use JetBrains\PhpStorm\Pure;
 use PHPUnit\Framework\TestCase;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPConst;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
-use StubTests\Model\PHPMethod;
-use StubTests\Model\PHPParameter;
 use StubTests\Model\StubProblemType;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
-use function array_filter;
 
 class StubsTest extends TestCase
 {
@@ -24,9 +22,6 @@ class StubsTest extends TestCase
         $constantName = $constant->name;
         $constantValue = $constant->value;
         $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getConstants();
-        if ($constant->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
-            static::markTestSkipped('constant is excluded');
-        }
         static::assertArrayHasKey(
             $constantName,
             $stubConstants,
@@ -42,9 +37,6 @@ class StubsTest extends TestCase
         $constantName = $constant->name;
         $constantValue = $constant->value;
         $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getConstants();
-        if ($constant->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
-            static::markTestSkipped('constant is excluded');
-        }
         if ($constant->hasMutedProblem(StubProblemType::WRONG_CONSTANT_VALUE)) {
             static::markTestSkipped('constant is excluded');
         }
@@ -65,9 +57,6 @@ class StubsTest extends TestCase
         $functionName = $function->name;
         $stubFunctions = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions();
         $params = self::getParameterRepresentation($function);
-        if ($function->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
-            static::markTestSkipped('function is excluded');
-        }
         static::assertArrayHasKey($functionName, $stubFunctions, "Missing function: function $functionName($params){}");
         $phpstormFunction = $stubFunctions[$functionName];
         if (!$function->hasMutedProblem(StubProblemType::FUNCTION_IS_DEPRECATED)) {
@@ -93,9 +82,6 @@ class StubsTest extends TestCase
     {
         $className = $class->name;
         $stubClasses = PhpStormStubsSingleton::getPhpStormStubs()->getClasses();
-        if ($class->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
-            static::markTestSkipped('class is skipped');
-        }
         static::assertArrayHasKey($className, $stubClasses, "Missing class $className: class $className {}");
         $stubClass = $stubClasses[$className];
         if (!$class->hasMutedProblem(StubProblemType::WRONG_PARENT)) {
@@ -167,7 +153,7 @@ class StubsTest extends TestCase
         }
         foreach ($class->properties as $property) {
             $propertyName = $property->name;
-            if ($property->access === "private") {
+            if ($property->access === 'private') {
                 continue;
             }
             if (!$property->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
@@ -210,9 +196,6 @@ class StubsTest extends TestCase
     {
         $interfaceName = $interface->name;
         $stubInterfaces = PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces();
-        if ($interface->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
-            static::markTestSkipped('interface is skipped');
-        }
         static::assertArrayHasKey(
             $interfaceName,
             $stubInterfaces,
@@ -280,6 +263,7 @@ class StubsTest extends TestCase
         }
     }
 
+    #[Pure]
     private static function getParameterRepresentation(PHPFunction $function): string
     {
         $result = '';
