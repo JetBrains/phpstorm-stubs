@@ -461,26 +461,26 @@ class Xslt30Processor
     /**
      * Perform a one shot transformation, saving the results to the file as previously set (e.g. using {@link setOutputFile()}). The global context item may be supplied in the $context argument.
      *
-     * @param XdmNode $context
+     * @param XdmNode|null $context
      * @return void
      */
-    public function transformToFile($context) {}
+    public function transformToFile($context = null) {}
 
     /**
      * Perform a one shot transformation. The result is returned as a serialized string. The global context item may be supplied in the $context argument.
      *
-     * @param XdmNode $context
+     * @param XdmNode|null $context
      * @return string
      */
-    public function transformToString($context) {}
+    public function transformToString($context = null) {}
 
     /**
      * Perform a one shot transformation. The result is returned as an {@link XdmValue} object. If there are failures then a null is returned. The global context item may be supplied in the $context argument.
      *
-     * @param XdmNode $context
+     * @param XdmNode|null $context
      * @return XdmValue
      */
-    public function transformToValue($context) {}
+    public function transformToValue($context = null) {}
 
     /**
      * Set parameters to be passed to the initial template. These are used whether the transformation is invoked by applying templates to an initial context item, or by invoking a named template. The parameters in question are the xsl:param elements appearing as children of the xsl:template element. The $tunnel argument should be set to true if these values are to be used for setting tunnel parameters.
