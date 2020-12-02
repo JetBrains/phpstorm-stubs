@@ -645,7 +645,7 @@ class PDO  {
 	 * </p>
 	 * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-compress
 	 */
-	const MYSQL_ATTR_COMPRESS = 1006;
+	const MYSQL_ATTR_COMPRESS = 1003;
 
 	/**
 	 * <p>
@@ -653,7 +653,7 @@ class PDO  {
 	 * </p>
 	 * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-direct-query
 	 */
-	const MYSQL_ATTR_DIRECT_QUERY = 1007;
+	const MYSQL_ATTR_DIRECT_QUERY = 1004;
 
 	/**
 	 * <p>
@@ -662,7 +662,7 @@ class PDO  {
 	 * </p>
 	 * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-found-rows
 	 */
-	const MYSQL_ATTR_FOUND_ROWS = 1008;
+	const MYSQL_ATTR_FOUND_ROWS = 1005;
 
 	/**
 	 * <p>
@@ -671,9 +671,9 @@ class PDO  {
 	 * </p>
 	 * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ignore-space
 	 */
-	const MYSQL_ATTR_IGNORE_SPACE = 1009;
+	const MYSQL_ATTR_IGNORE_SPACE = 1006;
 
-	const MYSQL_ATTR_SERVER_PUBLIC_KEY = 1009;
+	const MYSQL_ATTR_SERVER_PUBLIC_KEY = 1012;
 
 	/**
 	 * <p>
@@ -682,7 +682,7 @@ class PDO  {
 	 * @since 5.3.7
 	 * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-key
 	 */
-	const MYSQL_ATTR_SSL_KEY = 1010;
+	const MYSQL_ATTR_SSL_KEY = 1007;
 
 	/**
 	 * <p>
@@ -691,7 +691,7 @@ class PDO  {
 	 * @since 5.3.7
 	 * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-cert
 	 */
-	const MYSQL_ATTR_SSL_CERT = 1011;
+	const MYSQL_ATTR_SSL_CERT = 1008;
 
 	/**
 	 * <p>
@@ -700,7 +700,7 @@ class PDO  {
 	 * @since 5.3.7
 	 * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-ca
 	 */
-	const MYSQL_ATTR_SSL_CA = 1012;
+	const MYSQL_ATTR_SSL_CA = 1009;
 
 	/**
 	 * <p>
@@ -710,7 +710,7 @@ class PDO  {
 	 * @since 5.3.7
 	 * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-capath
 	 */
-	const MYSQL_ATTR_SSL_CAPATH = 1013;
+	const MYSQL_ATTR_SSL_CAPATH = 1010;
 
 	/**
 	 * <p>
@@ -721,7 +721,7 @@ class PDO  {
 	 * @since 5.3.7
 	 * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-cipher
 	 */
-	const MYSQL_ATTR_SSL_CIPHER = 1014;
+	const MYSQL_ATTR_SSL_CIPHER = 1011;
 
 	/**
 	 * <p>
@@ -733,7 +733,7 @@ class PDO  {
 	 * @since 5.5.21
 	 * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-multi-statements
 	 */
-	const MYSQL_ATTR_MULTI_STATEMENTS = 1015;
+	const MYSQL_ATTR_MULTI_STATEMENTS = 1013;
 
 	/**
 	 * <p>
@@ -743,7 +743,7 @@ class PDO  {
 	 * @since 7.1.4
 	 * @link https://bugs.php.net/bug.php?id=71003
 	 */
-	const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1016;
+	const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1014;
 
 	#[Deprecated("Use PDO::ATTR_EMULATE_PREPARES instead")]
 	const PGSQL_ASSOC = 1;
@@ -839,11 +839,11 @@ class PDO  {
 	/**
 	 * @since 7.4
 	 */
-	const SQLITE_ATTR_READONLY_STATEMENT = 1;
+	const SQLITE_ATTR_READONLY_STATEMENT = 1001;
 	/**
 	 * @since 7.4
 	 */
-	const SQLITE_ATTR_EXTENDED_RESULT_CODES = 2;
+	const SQLITE_ATTR_EXTENDED_RESULT_CODES = 1002;
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
