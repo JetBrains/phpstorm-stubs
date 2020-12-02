@@ -24,7 +24,7 @@ class StubsTypeHintsTest extends TestCase
         $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions()[$functionName];
         $stubParameter = current(array_filter($phpstormFunction->parameters, fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name));
         self::assertNotFalse($stubParameter, "Parameter $$parameter->name not found at $phpstormFunction->name(" .
-            StubsParameterNamesTest::printParameters($phpstormFunction->parameters).')');
+            StubsParameterNamesTest::printParameters($phpstormFunction->parameters) . ')');
         self::compareTypeHintsWithReflection($parameter, $stubParameter, $functionName);
         if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_REFERENCE)) {
             self::assertEquals($parameter->is_passed_by_ref, $stubParameter->is_passed_by_ref,
@@ -53,7 +53,7 @@ class StubsTypeHintsTest extends TestCase
             fn(PHPParameter $stubParameter) => $stubParameter->name === $reflectionParameter->name));
         self::assertNotFalse($stubParameter, "Parameter $$reflectionParameter->name not found at 
         $reflectionClass->name::$stubMethod->name(" .
-            StubsParameterNamesTest::printParameters($stubMethod->parameters).')');
+            StubsParameterNamesTest::printParameters($stubMethod->parameters) . ')');
         if (!$reflectionParameter->hasMutedProblem(StubProblemType::PARAMETER_REFERENCE)) {
             self::assertEquals($reflectionParameter->is_passed_by_ref, $stubParameter->is_passed_by_ref,
                 "Invalid pass by ref $className::$methodName: \$$reflectionParameter->name ");
@@ -63,15 +63,83 @@ class StubsTypeHintsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodParametersProvider
+     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodParametersWithoutScalarTypeHintsProvider
      */
-    public function testCoreMethodParametersForInvalidTypeHints(PHPMethod $stubMethod, PHPParameter $stubParameter): void
+    public function testMethodDoesNotHaveScalarTypeHintsInParameters(PHPMethod $stubMethod, PHPParameter $parameter)
     {
-        $firstSinceVersion = self::getFirstSinceVersion($stubMethod);
-        self::checkMethodDoesNotHaveScalarTypeHints($firstSinceVersion, $stubMethod, $stubParameter);
-        self::checkMethodDoesNotHaveReturnTypeHints($firstSinceVersion, $stubMethod);
-        self::checkMethodDoesNotHaveNullableTypeHints($firstSinceVersion, $stubMethod, $stubParameter);
-        self::checkMethodDoesNotHaveUnionTypeHints($firstSinceVersion, $stubMethod, $stubParameter);
+        $sinceVersion = StubsTypeHintsTest::getFirstSinceVersion($stubMethod);
+        self::assertFalse($parameter->type === 'int' || $parameter->type === 'float' ||
+            $parameter->type === 'string' || $parameter->type === 'bool',
+            "Method '{$stubMethod->parentName}::{$stubMethod->name}' with @since '$sinceVersion'  
+                has parameter '{$parameter->name}' with typehint '{$parameter->type}' but typehints available only since php 7");
+    }
+
+    /**
+     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodParametersWithoutNullableTypeHintsProvider
+     */
+    public function testMethodDoesNotHaveNullableTypeHintsInParameters(PHPMethod $stubMethod, PHPParameter $parameter)
+    {
+        $sinceVersion = StubsTypeHintsTest::getFirstSinceVersion($stubMethod);
+        self::assertFalse(
+            str_starts_with($parameter->type, '?') ||
+            str_contains($parameter->type, 'null') ||
+            str_contains($parameter->type, 'NULL'),
+            "Method '{$stubMethod->parentName}::{$stubMethod->name}' with @since '$sinceVersion'  
+                has nullable parameter '{$parameter->name}' with typehint '{$parameter->type}' 
+                but nullable typehints available only since php 7.1");
+    }
+
+    /**
+     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodParametersWithoutUnionTypeHintsProvider
+     */
+    public function testMethodDoesNotHaveUnionTypeHintsInParameters(PHPMethod $stubMethod, PHPParameter $parameter)
+    {
+        $sinceVersion = StubsTypeHintsTest::getFirstSinceVersion($stubMethod);
+        self::assertFalse(str_contains($parameter->type, '|'),
+            "Method '{$stubMethod->parentName}::{$stubMethod->name}' with @since '$sinceVersion'  
+                has parameter '{$parameter->name}' with union typehint '{$parameter->type}' 
+                but union typehints available only since php 8.0");
+    }
+
+    /**
+     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodWithoutReturnTypeHintsProvider
+     * @param PHPMethod $stubMethod
+     */
+    public function testMethodDoesNotHaveReturnTypeHint(PHPMethod $stubMethod)
+    {
+        $sinceVersion = StubsTypeHintsTest::getFirstSinceVersion($stubMethod);
+        self::assertEmpty($stubMethod->returnType, "Method '{$stubMethod->parentName}::{$stubMethod->name}' has since version '$sinceVersion'
+            but has return typehint '$stubMethod->returnType' that supported only since PHP 7. Please declare return type via PhpDoc");
+    }
+
+    /**
+     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodWithoutNullableReturnTypeHintsProvider
+     * @param PHPMethod $stubMethod
+     */
+    public function testMethodDoesNotHaveNullableReturnTypeHint(PHPMethod $stubMethod)
+    {
+        $sinceVersion = StubsTypeHintsTest::getFirstSinceVersion($stubMethod);
+        $returnType = $stubMethod->returnType;
+        self::assertFalse(
+            str_starts_with($returnType, '?') ||
+            str_contains($returnType, 'null') ||
+            str_contains($returnType, 'NULL'),
+            "Method '{$stubMethod->parentName}::{$stubMethod->name}' has since version '$sinceVersion'
+            but has nullable return typehint '$returnType' that supported only since PHP 7.1. 
+            Please declare return type via PhpDoc");
+    }
+
+    /**
+     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodWithoutUnionReturnTypeHintsProvider
+     * @param PHPMethod $stubMethod
+     */
+    public function testMethodDoesNotHaveUnionReturnTypeHint(PHPMethod $stubMethod)
+    {
+        $sinceVersion = StubsTypeHintsTest::getFirstSinceVersion($stubMethod);
+        self::assertFalse(str_contains($stubMethod->returnType, '|'),
+            "Method '{$stubMethod->parentName}::{$stubMethod->name}' has since version '$sinceVersion'
+            but has union return typehint '$stubMethod->returnType' that supported only since PHP 8.0. 
+            Please declare return type via PhpDoc");
     }
 
     private static function compareTypeHintsWithReflection(PHPParameter $parameter, PHPParameter $stubParameter, ?string $functionName): void
@@ -92,113 +160,6 @@ class StubsTypeHintsTest extends TestCase
         $diff = $absentInStubsTypes + $extraInStubsTypes;
         self::assertEmpty($diff, "Type mismatch $functionName: \$$parameter->name \n
         Reflection parameter has type '$parameter->type' but stub parameter has type '$stubParameter->type'");
-    }
-
-    private static function checkUnionTypehintsInParameter(PHPMethod $function, int $sinceVersion, PHPParameter $parameter): void
-    {
-        if (!$parameter->hasMutedProblem(StubProblemType::HAS_UNION_TYPEHINT)) {
-            self::assertFalse(str_contains($parameter->type, '|'),
-                "Method '{$function->parentName}::{$function->name}' with @since '$sinceVersion'  
-                has parameter '{$parameter->name}' with union typehint '{$parameter->type}' 
-                but union typehints available only since php 8.0");
-        } else {
-            self::markTestSkipped('Parameter ignored');
-        }
-    }
-
-    private static function checkUnionTypeHintsInReturnType(PHPMethod $function, int $sinceVersion, string $returnTypeHint): void
-    {
-        if (!$function->hasMutedProblem(StubProblemType::HAS_UNION_TYPEHINT)) {
-            self::assertFalse(str_contains($returnTypeHint, '|'),
-                "Method '{$function->parentName}::{$function->name}' has since version '$sinceVersion'
-            but has union return typehint '$returnTypeHint' that supported only since PHP 8.0. 
-            Please declare return type via PhpDoc");
-        } else {
-            self::markTestSkipped('Method ignored');
-        }
-    }
-
-    private static function checkNullableTypehintsInParameter(PHPMethod $function, int $sinceVersion, PHPParameter $parameter): void
-    {
-        if (!$parameter->hasMutedProblem(StubProblemType::HAS_NULLABLE_TYPEHINT)) {
-            self::assertFalse(
-                str_starts_with($parameter->type, '?') ||
-                str_contains($parameter->type, 'null') ||
-                str_contains($parameter->type, 'NULL'),
-                "Method '{$function->parentName}::{$function->name}' with @since '$sinceVersion'  
-                has nullable parameter '{$parameter->name}' with typehint '{$parameter->type}' 
-                but nullable typehints available only since php 7.1");
-        } else {
-            self::markTestSkipped('Parameter ignored');
-        }
-    }
-
-    private static function checkNullableTypeHintsInReturnType(PHPMethod $function, int $sinceVersion, string $returnTypeHint): void
-    {
-        if (!$function->hasMutedProblem(StubProblemType::HAS_NULLABLE_TYPEHINT)) {
-            self::assertFalse(
-                str_starts_with($returnTypeHint, '?') ||
-                str_contains($returnTypeHint, 'null') ||
-                str_contains($returnTypeHint, 'NULL'),
-                "Method '{$function->parentName}::{$function->name}' has since version '$sinceVersion'
-            but has nullable return typehint '$returnTypeHint' that supported only since PHP 7.1. 
-            Please declare return type via PhpDoc");
-        } else {
-            self::markTestSkipped('Function ignored');
-        }
-    }
-
-    private static function checkMethodDoesNotHaveUnionTypeHints(int $sinceVersion, PHPMethod $stubMethod, PHPParameter $parameter): void
-    {
-        $returnTypeHint = $stubMethod->returnType;
-        if ($sinceVersion < 8.0) {
-            self::checkUnionTypehintsInParameter($stubMethod, $sinceVersion, $parameter);
-            self::checkUnionTypeHintsInReturnType($stubMethod, $sinceVersion, $returnTypeHint);
-        } else {
-            self::markTestSkipped("Method '{$stubMethod->parentName}::{$stubMethod->name}' has since version >= 8.0");
-        }
-    }
-
-    private static function checkMethodDoesNotHaveNullableTypeHints(int $sinceVersion, PHPMethod $stubMethod, PHPParameter $parameter): void
-    {
-        $returnTypeHint = $stubMethod->returnType;
-        if ($sinceVersion < 7.1) {
-            self::checkNullableTypehintsInParameter($stubMethod, $sinceVersion, $parameter);
-            self::checkNullableTypeHintsInReturnType($stubMethod, $sinceVersion, $returnTypeHint);
-        } else {
-            self::markTestSkipped("Method '{$stubMethod->parentName}::{$stubMethod->name}' has since version > 7.1");
-        }
-    }
-
-    private static function checkMethodDoesNotHaveReturnTypeHints(int $sinceVersion, PHPMethod $stubMethod)
-    {
-        $returnTypeHint = $stubMethod->returnType;
-        if ($sinceVersion < 7) {
-            if (!$stubMethod->hasMutedProblem(StubProblemType::FUNCTION_HAS_RETURN_TYPEHINT)) {
-                self::assertEmpty($returnTypeHint, "Method '{$stubMethod->parentName}::{$stubMethod->name}' has since version '$sinceVersion'
-            but has return typehint '$returnTypeHint' that supported only since PHP 7. Please declare return type via PhpDoc");
-            } else {
-                self::markTestSkipped('Method ignored');
-            }
-        } else {
-            self::markTestSkipped("Function '{$stubMethod->name}' has since version > 7");
-        }
-    }
-
-    private static function checkMethodDoesNotHaveScalarTypeHints(int $sinceVersion, PHPMethod $stubMethod, PHPParameter $parameter)
-    {
-        if ($sinceVersion < 7) {
-            if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_HAS_SCALAR_TYPEHINT)) {
-                self::assertFalse($parameter->type === 'int' || $parameter->type === 'float' ||
-                    $parameter->type === 'string' || $parameter->type === 'bool',
-                    "Method '{$stubMethod->parentName}::{$stubMethod->name}' with @since '$sinceVersion'  
-                has parameter '{$parameter->name}' with typehint '{$parameter->type}' but typehints available only since php 7");
-            } else {
-                self::markTestSkipped('Parameter ignored');
-            }
-        } else {
-            self::markTestSkipped("Function '{$stubMethod->name}' has since version > 7");
-        }
     }
 
     public static function getFirstSinceVersion(PHPMethod $stubFunction): int
