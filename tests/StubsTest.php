@@ -30,17 +30,13 @@ class StubsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
+     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantValuesProvider
      */
     public function testConstantsValues(PHPConst $constant): void
     {
         $constantName = $constant->name;
         $constantValue = $constant->value;
         $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getConstants();
-        if ($constant->hasMutedProblem(StubProblemType::WRONG_CONSTANT_VALUE)) {
-            static::markTestSkipped('constant is excluded');
-        }
-
         static::assertEquals(
             $constantValue,
             $stubConstants[$constantName]->value,

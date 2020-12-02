@@ -49,17 +49,33 @@ class StubsTestDataProviders
         }
     }
 
-    public static function stubMethodParametersProvider(): ?Generator
+    public static function stubMethodProvider(): ?Generator
+    {
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getClasses() as $className => $class) {
+            foreach ($class->methods as $methodName => $method) {
+                yield "method {$className}::{$methodName}" => [$methodName, $method];
+            }
+        }
+
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces() as $interfaceName => $interface) {
+            foreach ($interface->methods as $methodName => $method) {
+                yield "method {$interfaceName}::{$methodName}" => [$methodName, $method];
+            }
+        }
+    }
+
+    public static function stubMethodParametersWithoutScalarTypeHintsProvider(): ?Generator
     {
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->getCoreClasses() as $className => $class) {
             if (!$class->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
                 foreach ($class->methods as $methodName => $method) {
                     $firstSinceVersion = StubsTypeHintsTest::getFirstSinceVersion($method);
-                    if ($class !== null && !$method->isFinal && !$class->isFinal && $firstSinceVersion !== -1) {
+                    if ($class !== null && !$method->isFinal && !$class->isFinal && $firstSinceVersion !== -1 && $firstSinceVersion < 7) {
                         if (!$method->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
                             !$method->hasMutedProblem(StubProblemType::FUNCTION_PARAMETER_MISMATCH)) {
                             foreach ($method->parameters as $parameter) {
-                                if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_NAME_MISMATCH)) {
+                                if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_NAME_MISMATCH) &&
+                                    !$parameter->hasMutedProblem(StubProblemType::PARAMETER_HAS_SCALAR_TYPEHINT)) {
                                     yield "method {$className}::{$methodName}($parameter->name)" => [$method, $parameter];
                                 }
                             }
@@ -73,11 +89,12 @@ class StubsTestDataProviders
             if (!$interface->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
                 foreach ($interface->methods as $methodName => $method) {
                     $firstSinceVersion = StubsTypeHintsTest::getFirstSinceVersion($method);
-                    if ($firstSinceVersion !== -1) {
+                    if ($firstSinceVersion !== -1 && $firstSinceVersion < 7) {
                         if (!$method->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
                             !$method->hasMutedProblem(StubProblemType::FUNCTION_PARAMETER_MISMATCH)) {
                             foreach ($method->parameters as $parameter) {
-                                if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_NAME_MISMATCH)) {
+                                if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_NAME_MISMATCH) &&
+                                    !$parameter->hasMutedProblem(StubProblemType::PARAMETER_HAS_SCALAR_TYPEHINT)) {
                                     yield "method {$interface->name}::{$methodName}($parameter->name)" => [$method, $parameter];
                                 }
                             }
@@ -88,17 +105,177 @@ class StubsTestDataProviders
         }
     }
 
-    public static function stubMethodProvider(): ?Generator
+    public static function stubMethodParametersWithoutNullableTypeHintsProvider(): ?Generator
     {
-        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getClasses() as $className => $class) {
-            foreach ($class->methods as $methodName => $method) {
-                yield "method {$className}::{$methodName}" => [$methodName, $method];
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getCoreClasses() as $className => $class) {
+            if (!$class->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                foreach ($class->methods as $methodName => $method) {
+                    $firstSinceVersion = StubsTypeHintsTest::getFirstSinceVersion($method);
+                    if ($class !== null && !$method->isFinal && !$class->isFinal && $firstSinceVersion !== -1 && $firstSinceVersion < 7.1) {
+                        if (!$method->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
+                            !$method->hasMutedProblem(StubProblemType::FUNCTION_PARAMETER_MISMATCH)) {
+                            foreach ($method->parameters as $parameter) {
+                                if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_NAME_MISMATCH) &&
+                                    !$parameter->hasMutedProblem(StubProblemType::HAS_NULLABLE_TYPEHINT)) {
+                                    yield "method {$className}::{$methodName}($parameter->name)" => [$method, $parameter];
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
-        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces() as $interfaceName => $interface) {
-            foreach ($interface->methods as $methodName => $method) {
-                yield "method {$interfaceName}::{$methodName}" => [$methodName, $method];
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getCoreInterfaces() as $interfaceName => $interface) {
+            if (!$interface->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                foreach ($interface->methods as $methodName => $method) {
+                    $firstSinceVersion = StubsTypeHintsTest::getFirstSinceVersion($method);
+                    if ($firstSinceVersion !== -1 && $firstSinceVersion < 7.1) {
+                        if (!$method->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
+                            !$method->hasMutedProblem(StubProblemType::FUNCTION_PARAMETER_MISMATCH)) {
+                            foreach ($method->parameters as $parameter) {
+                                if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_NAME_MISMATCH) &&
+                                    !$parameter->hasMutedProblem(StubProblemType::PARAMETER_HAS_SCALAR_TYPEHINT)) {
+                                    yield "method {$interface->name}::{$methodName}($parameter->name)" => [$method, $parameter];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public static function stubMethodParametersWithoutUnionTypeHintsProvider(): ?Generator
+    {
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getCoreClasses() as $className => $class) {
+            if (!$class->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                foreach ($class->methods as $methodName => $method) {
+                    $firstSinceVersion = StubsTypeHintsTest::getFirstSinceVersion($method);
+                    if ($class !== null && !$method->isFinal && !$class->isFinal && $firstSinceVersion !== -1 && $firstSinceVersion < 8) {
+                        if (!$method->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
+                            !$method->hasMutedProblem(StubProblemType::FUNCTION_PARAMETER_MISMATCH)) {
+                            foreach ($method->parameters as $parameter) {
+                                if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_NAME_MISMATCH) &&
+                                    !$parameter->hasMutedProblem(StubProblemType::HAS_UNION_TYPEHINT)) {
+                                    yield "method {$className}::{$methodName}($parameter->name)" => [$method, $parameter];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getCoreInterfaces() as $interfaceName => $interface) {
+            if (!$interface->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                foreach ($interface->methods as $methodName => $method) {
+                    $firstSinceVersion = StubsTypeHintsTest::getFirstSinceVersion($method);
+                    if ($firstSinceVersion !== -1 && $firstSinceVersion < 8) {
+                        if (!$method->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
+                            !$method->hasMutedProblem(StubProblemType::FUNCTION_PARAMETER_MISMATCH)) {
+                            foreach ($method->parameters as $parameter) {
+                                if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_NAME_MISMATCH) &&
+                                    !$parameter->hasMutedProblem(StubProblemType::HAS_UNION_TYPEHINT)) {
+                                    yield "method {$interface->name}::{$methodName}($parameter->name)" => [$method, $parameter];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public static function stubMethodWithoutReturnTypeHintsProvider(): ?Generator
+    {
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getCoreClasses() as $className => $class) {
+            if (!$class->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                foreach ($class->methods as $methodName => $method) {
+                    $firstSinceVersion = StubsTypeHintsTest::getFirstSinceVersion($method);
+                    if ($class !== null && !$method->isFinal && !$class->isFinal && $firstSinceVersion !== -1 && $firstSinceVersion < 7) {
+                        if (!$method->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
+                            !$method->hasMutedProblem(StubProblemType::FUNCTION_HAS_RETURN_TYPEHINT)) {
+                            yield "method {$className}::{$methodName}" => [$method];
+                        }
+                    }
+                }
+            }
+        }
+
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getCoreInterfaces() as $interfaceName => $interface) {
+            if (!$interface->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                foreach ($interface->methods as $methodName => $method) {
+                    $firstSinceVersion = StubsTypeHintsTest::getFirstSinceVersion($method);
+                    if ($firstSinceVersion !== -1 && $firstSinceVersion < 7) {
+                        if (!$method->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
+                            !$method->hasMutedProblem(StubProblemType::FUNCTION_HAS_RETURN_TYPEHINT)) {
+                            yield "method {$interface->name}::{$methodName}" => [$method];
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public static function stubMethodWithoutNullableReturnTypeHintsProvider(): ?Generator
+    {
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getCoreClasses() as $className => $class) {
+            if (!$class->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                foreach ($class->methods as $methodName => $method) {
+                    $firstSinceVersion = StubsTypeHintsTest::getFirstSinceVersion($method);
+                    if ($class !== null && !$method->isFinal && !$class->isFinal && $firstSinceVersion !== -1 && $firstSinceVersion < 7.1) {
+                        if (!$method->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
+                            !$method->hasMutedProblem(StubProblemType::HAS_NULLABLE_TYPEHINT)) {
+                            yield "method {$className}::{$methodName}" => [$method];
+                        }
+                    }
+                }
+            }
+        }
+
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getCoreInterfaces() as $interfaceName => $interface) {
+            if (!$interface->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                foreach ($interface->methods as $methodName => $method) {
+                    $firstSinceVersion = StubsTypeHintsTest::getFirstSinceVersion($method);
+                    if ($firstSinceVersion !== -1 && $firstSinceVersion < 7.1) {
+                        if (!$method->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
+                            !$method->hasMutedProblem(StubProblemType::HAS_NULLABLE_TYPEHINT)) {
+                            yield "method {$interface->name}::{$methodName}" => [$method];
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public static function stubMethodWithoutUnionReturnTypeHintsProvider(): ?Generator
+    {
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getCoreClasses() as $className => $class) {
+            if (!$class->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                foreach ($class->methods as $methodName => $method) {
+                    $firstSinceVersion = StubsTypeHintsTest::getFirstSinceVersion($method);
+                    if ($class !== null && !$method->isFinal && !$class->isFinal && $firstSinceVersion !== -1 && $firstSinceVersion < 8) {
+                        if (!$method->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
+                            !$method->hasMutedProblem(StubProblemType::HAS_UNION_TYPEHINT)) {
+                            yield "method {$className}::{$methodName}" => [$method];
+                        }
+                    }
+                }
+            }
+        }
+
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getCoreInterfaces() as $interfaceName => $interface) {
+            if (!$interface->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                foreach ($interface->methods as $methodName => $method) {
+                    $firstSinceVersion = StubsTypeHintsTest::getFirstSinceVersion($method);
+                    if ($firstSinceVersion !== -1 && $firstSinceVersion < 8) {
+                        if (!$method->hasMutedProblem(StubProblemType::STUB_IS_MISSED) &&
+                            !$method->hasMutedProblem(StubProblemType::HAS_UNION_TYPEHINT)) {
+                            yield "method {$interface->name}::{$methodName}" => [$method];
+                        }
+                    }
+                }
             }
         }
     }

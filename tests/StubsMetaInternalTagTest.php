@@ -30,9 +30,7 @@ class StubsMetaInternalTagTest extends TestCase
                 $reflectionFunctions = array_filter(ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
                     fn($refFunction) => $refFunction->name === $function->name);
                 $reflectionFunction = array_pop($reflectionFunctions);
-                if ($reflectionFunction->hasMutedProblem(StubProblemType::ABSENT_IN_META)) {
-                    static::markTestSkipped('function intentionally not added to meta');
-                } else {
+                if (!$reflectionFunction->hasMutedProblem(StubProblemType::ABSENT_IN_META)) {
                     self::checkInternalMetaInOverride($function->name);
                 }
             }
@@ -45,9 +43,9 @@ class StubsMetaInternalTagTest extends TestCase
             foreach ($class->methods as $methodName => $method) {
                 if ($method->hasInternalMetaTag) {
                     $refClass = ReflectionStubsSingleton::getReflectionStubs()->getClass($className);
-                    if ($refClass !== null){
+                    if ($refClass !== null) {
                         $reflectionMethods = array_filter($refClass->methods,
-                        fn($refMethod) => $refMethod->name === $methodName);
+                            fn($refMethod) => $refMethod->name === $methodName);
                         /** @var PHPMethod $reflectionMethod */
                         $reflectionMethod = array_pop($reflectionMethods);
                         if ($reflectionMethod->hasMutedProblem(StubProblemType::ABSENT_IN_META)) {
