@@ -777,38 +777,38 @@ final class Attribute {
     /**
      * Marks that attribute declaration is allowed only in functions.
      */
-    const TARGET_FUNCTION = 1 << 1;
+    const TARGET_FUNCTION = 2;
 
     /**
      * Marks that attribute declaration is allowed only in class methods.
      */
-    const TARGET_METHOD = 1 << 2;
+    const TARGET_METHOD = 4;
 
     /**
      * Marks that attribute declaration is allowed only in class properties.
      */
-    const TARGET_PROPERTY = 1 << 3;
+    const TARGET_PROPERTY = 8;
 
     /**
      * Marks that attribute declaration is allowed only in class constants.
      */
-    const TARGET_CLASS_CONSTANT = 1 << 4;
+    const TARGET_CLASS_CONSTANT = 16;
 
     /**
      * Marks that attribute declaration is allowed only in function or method parameters.
      */
-    const TARGET_PARAMETER = 1 << 5;
+    const TARGET_PARAMETER = 32;
 
     /**
      * Marks that attribute declaration is allowed anywhere.
      */
-    const TARGET_ALL = (1 << 6) - 1;
+    const TARGET_ALL = 63;
 
     /**
      * Notes that an attribute declaration in the same place is
      * allowed multiple times.
      */
-    const IS_REPEATABLE = 1 << 10;
+    const IS_REPEATABLE = 64;
 
     /**
      * @param int $flags A value in the form of a bitmask indicating the places

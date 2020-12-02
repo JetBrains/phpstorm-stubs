@@ -46,6 +46,45 @@ class StubsTest extends TestCase
     }
 
     /**
+     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::classConstantProvider
+     */
+    public function testClassConstants(PHPClass|PHPInterface $class, PHPConst $constant): void
+    {
+        $constantName = $constant->name;
+        $constantValue = $constant->value;
+        if ($class instanceof PHPClass) {
+            $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getClasses()[$class->name]->constants;
+        } else {
+            $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces()[$class->name]->constants;
+        }
+        static::assertArrayHasKey(
+            $constantName,
+            $stubConstants,
+            "Missing constant: const $constantName = $constantValue\n"
+        );
+    }
+
+    /**
+     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::classConstantValuesProvider
+     */
+    public function testClassConstantsValues(PHPClass|PHPInterface $class, PHPConst $constant): void
+    {
+        $constantName = $constant->name;
+        $constantValue = $constant->value;
+        if ($class instanceof PHPClass) {
+            $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getClasses()[$class->name]->constants;
+        } else {
+            $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces()[$class->name]->constants;
+        }
+        static::assertEquals(
+            $constantValue,
+            $stubConstants[$constantName]->value,
+            "Constant value mismatch: const $constantName \n
+            Expected value: $constantValue but was {$stubConstants[$constantName]->value}"
+        );
+    }
+
+    /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::functionProvider
      */
     public function testFunctions(PHPFunction $function): void
