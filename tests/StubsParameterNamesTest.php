@@ -33,7 +33,6 @@ class StubsParameterNamesTest extends TestCase
     {
         $className = $reflectionClass->name;
         $methodName = $reflectionMethod->name;
-        $stubMethod = null;
         if ($reflectionClass instanceof PHPClass) {
             $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClasses()[$className]->methods[$methodName];
         } else {
