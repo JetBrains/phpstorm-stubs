@@ -1191,6 +1191,17 @@
           ]
         }
       ]
+    },
+    {
+      "name": "extract",
+      "parameters": [
+        {
+          "name": "array",
+          "problems": [
+            "parameter reference"
+          ]
+        }
+      ]
     }
   ],
   "classes": [
