@@ -144,8 +144,12 @@ class StubsTypeHintsTest extends TestCase
 
     private static function compareTypeHintsWithReflection(PHPParameter $parameter, PHPParameter $stubParameter, ?string $functionName): void
     {
-        $unifiedReflectionParameter = preg_replace('/\?/', 'null|', $parameter->type);
-        $unifiedStubsParameter = preg_replace('/\?/', 'null|', $stubParameter->type);
+        $unifiedReflectionParameter = $parameter->type;
+        $unifiedStubsParameter = $stubParameter->type;
+        if (!str_contains($parameter->type, '|')) {
+            $unifiedReflectionParameter = preg_replace('/\?/', 'null|', $parameter->type);
+            $unifiedStubsParameter = preg_replace('/\?/', 'null|', $stubParameter->type);
+        }
         $unifiedStubsParameter = preg_replace('/\w+\[]/', 'array', $unifiedStubsParameter);
         $reflectionParameterTypes = explode('|', $unifiedReflectionParameter);
         $stubsParameterTypes = explode('|', $unifiedStubsParameter);
