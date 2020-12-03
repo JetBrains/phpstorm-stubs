@@ -6759,7 +6759,7 @@ class ImagickPixel  {
 	 * @throws ImagickPixelException on error.
 	 */
 	#[Pure]
-	public function getColor ($normalized = false) {}
+	public function getColor ($normalized = 0) {}
 
 	/**
 	 * (PECL imagick 2.1.0)<br/>
