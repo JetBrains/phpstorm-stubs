@@ -839,7 +839,7 @@ function array_search (mixed $needle, array $haystack, bool $strict): string|int
 /**
  * Import variables into the current symbol table from an array
  * @link https://php.net/manual/en/function.extract.php
- * @param array $array<p>
+ * @param array &$array<p>
  * Note that prefix is only required if
  * extract_type is EXTR_PREFIX_SAME,
  * EXTR_PREFIX_ALL, EXTR_PREFIX_INVALID
@@ -862,7 +862,7 @@ function array_search (mixed $needle, array $haystack, bool $strict): string|int
  * @return int the number of variables successfully imported into the symbol
  * table.
  */
-function extract (array $array, int $flags, string $prefix): int
+function extract (array &$array, int $flags, string $prefix): int
 {}
 
 /**
@@ -942,17 +942,17 @@ function range ($start, $end, int|float $step = 1): array
 /**
  * Sort multiple or multi-dimensional arrays
  * @link https://php.net/manual/en/function.array-multisort.php
- * @param array $array <p>
+ * @param array &$array <p>
  * An array being sorted.
  * </p>
- * @param  ...$rest [optional] <p>
+ * @param  &...$rest [optional] <p>
  * More arrays, optionally followed by sort order and flags.
  * Only elements corresponding to equivalent elements in previous arrays are compared.
  * In other words, the sort is lexicographical.
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_multisort ($array, ...$rest): bool
+function array_multisort (&$array, &...$rest): bool
 {}
 
 
