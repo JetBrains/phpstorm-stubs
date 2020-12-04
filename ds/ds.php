@@ -48,7 +48,7 @@ namespace Ds {
 
         /**
          * Converts the collection to an array.
-         * <p><b>Note:</b> Casting to an array is not supported yet.
+         * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-collection.toarray.php
          * @return array An array containing all the values in the same order as
          * the collection.
@@ -128,13 +128,16 @@ namespace Ds {
      * linear dimension. Some languages refer to this as a "List". It’s
      * similar to an array that uses incremental integer keys, with the
      * exception of a few characteristics:
-     * <li>Values will always be indexed as [0, 1, 2, …, size - 1].
-     * <li>Only allowed to access values by index in the range [0, size - 1].
-     * <p><p>
-     *  <p>Use cases:
-     *
-     * <li>Wherever you would use an array as a list (not concerned with keys).
-     * <li>A more efficient alternative to SplDoublyLinkedList and SplFixedArray.
+     * <ul>
+     * <li>Values will always be indexed as [0, 1, 2, …, size - 1].</li>
+     * <li>Only allowed to access values by index in the range [0, size - 1].</li>
+     * </ul>
+     * <br>
+     * Use cases:
+     * <ul>
+     * <li>Wherever you would use an array as a list (not concerned with keys).</li>
+     * <li>A more efficient alternative to SplDoublyLinkedList and SplFixedArray.</li>
+     * </ul>
      * @package Ds
      */
     interface Sequence extends Collection
@@ -145,7 +148,7 @@ namespace Ds {
          *
          * @param int $capacity The number of values for which capacity should
          * be allocated.<p><b>Note:</b> Capacity will stay the same if this value is
-         * less than or equal to the current capacity.
+         * less than or equal to the current capacity.</p>
          * @link https://www.php.net/manual/en/ds-sequence.allocate.php
          */
         public function allocate(int $capacity): void;
@@ -155,7 +158,7 @@ namespace Ds {
          * the sequence.
          * @param callable $callback A callable to apply to each value in the
          * sequence. The callback should return what the value should be
-         * replaced by.<p>
+         * replaced by.
          * <code>callback ( mixed $value ) : mixed</code>
          * @link https://www.php.net/manual/en/ds-sequence.apply.php
          */
@@ -183,7 +186,7 @@ namespace Ds {
          * @param null|callable $callback Optional callable which returns TRUE if the
          * value should be included, FALSE otherwise. If a callback is not
          * provided, only values which are TRUE (see converting to boolean) will
-         * be included.<p>
+         * be included.
          * <code>callback ( mixed $value ) : bool</code>
          * @return Sequence A new sequence containing all the values for which
          * either the callback returned TRUE, or all values that convert to
@@ -221,7 +224,7 @@ namespace Ds {
          * Inserts values into the sequence at a given index.
          *
          * @param int $index The index at which to insert. 0 <= index <= count
-         * <p> <b>Note:</b> You can insert at the index equal to the number of values.
+         * <p><b>Note:</b> You can insert at the index equal to the number of values.</p>
          * @param mixed ...$values The value or values to insert.
          * @throws OutOfRangeException if the index is not valid.
          * @link https://www.php.net/manual/en/ds-sequence.insert.php
@@ -256,7 +259,7 @@ namespace Ds {
          * <code>callback ( mixed $value ) : mixed</code>
          * @return Sequence The result of applying a callback to each value in
          * the sequence.<p><b>Note:</b> The values of the current instance won't be
-         * affected.
+         * affected.</p>
          * @link https://www.php.net/manual/en/ds-sequence.map.php
          */
         public function map(callable $callback);
@@ -287,12 +290,13 @@ namespace Ds {
 
         /**
          * Reduces the sequence to a single value using a callback function.
-         * @param callable $callback <p><p>
+         * @param callable $callback <p>
          * <code>
          * callback ( mixed $carry , mixed $value ) : mixed</code>
          * <b>$carry</b> The return value of the previous callback, or initial if it's
-         * the first iteration.<p>
+         * the first iteration.<br>
          * <b>$value</b> The value of the current iteration.
+         * </p>
          * @param mixed $initial The initial value of the carry value. Can be NULL.
          * @return mixed The return value of the final callback.
          * @link https://www.php.net/manual/en/ds-sequence.reduce.php
@@ -316,7 +320,7 @@ namespace Ds {
         /**
          * Returns a reversed copy of the sequence.
          * @return Sequence A reversed copy of the sequence.
-         * <p><b>Note:</b> The current instance is not affected.
+         * <p><b>Note:</b> The current instance is not affected.</p>
          */
         public function reversed();
 
@@ -372,12 +376,12 @@ namespace Ds {
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
          * to be in the range from -2147483648 to 2147483647.<p>
-         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * <code>callback ( mixed $a, mixed $b ) : int</code></p>
          * <p><b>Caution:</b> Returning non-integer values from the comparison
          * function, such as float, will result in an internal cast to integer
          * of the callback's return value. So values such as 0.99 and 0.1 will
          * both be cast to an integer value of 0, which will compare such
-         * values as equal.
+         * values as equal.</p>
          * @link https://www.php.net/manual/en/ds-sequence.sort.php
          */
         public function sort(?callable $comparator = null): void;
@@ -389,12 +393,12 @@ namespace Ds {
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
          * to be in the range from -2147483648 to 2147483647.<p>
-         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * <code>callback ( mixed $a, mixed $b ) : int</code></p>
          * <p><b>Caution:</b> Returning non-integer values from the comparison
          * function, such as float, will result in an internal cast to integer
          * of the callback's return value. So values such as 0.99 and 0.1 will
          * both be cast to an integer value of 0, which will compare such
-         * values as equal.
+         * values as equal.</p>
          * @return Sequence Returns a sorted copy of the sequence.
          * @link https://www.php.net/manual/en/ds-sequence.sort.php
          */
@@ -403,7 +407,7 @@ namespace Ds {
         /**
          * Returns the sum of all values in the sequence.
          * <p><b>Note:</b> Arrays and objects are considered equal to zero when
-         * calculating the sum.
+         * calculating the sum.</p>
          * @return float|int The sum of all the values in the sequence as
          * either a float or int depending on the values in the sequence.
          */
@@ -414,7 +418,7 @@ namespace Ds {
          * values forward to make room for the new values.
          * @param mixed $values The values to add to the front of the sequence.
          * <p><b>Note:</b> Multiple values will be added in the same order that they
-         * are passed.
+         * are passed.</p>
          */
         public function unshift($values): void;
     }
@@ -425,16 +429,21 @@ namespace Ds {
      * shrinks automatically. It’s the most efficient sequential structure
      * because a value’s index is a direct mapping to its index in the buffer,
      * and the growth factor isn't bound to a specific multiple or exponent.
-     * <p><p>
-     * <h3>Strengths
-     * <li>Supports array syntax (square brackets).
-     * <li>Uses less overall memory than an array for the same number of values.
-     * <li>Automatically frees allocated memory when its size drops low enough.
-     * <li>Capacity does not have to be a power of 2.
-     * <li>get(), set(), push(), pop() are all O(1).
+     * <br><br>
      * <p>
+     * <h3>Strengths
+     * <ul>
+     * <li>Supports array syntax (square brackets).</li>
+     * <li>Uses less overall memory than an array for the same number of values.</li>
+     * <li>Automatically frees allocated memory when its size drops low enough.</li>
+     * <li>Capacity does not have to be a power of 2.</li>
+     * <li>get(), set(), push(), pop() are all O(1)</li>
+     * </ul>
+     * </p>
      * <h3>Weaknesses
-     * <li>shift(), unshift(), insert() and remove() are all O(n).
+     * <ul>
+     * <li>shift(), unshift(), insert() and remove() are all O(n).</li>
+     * </ul>
      *
      * @link https://www.php.net/manual/en/class.ds-vector.php
      *
@@ -461,7 +470,7 @@ namespace Ds {
          * @param int $capacity The number of values for which capacity should
          * be allocated.
          * <p><b>Note:</b> Capacity will stay the same if this value is less than or
-         * equal to the current capacity.
+         * equal to the current capacity.</p>
          * @link https://www.php.net/manual/en/ds-vector.allocate.php
          */
         public function allocate(int $capacity): void
@@ -539,7 +548,7 @@ namespace Ds {
          * Returns the index of the value, or FALSE if not found.
          * @param mixed $value The value to find.
          * @return mixed|false The index of the value, or FALSE if not found.
-         * <p><b>Note:</b> Values will be compared by value and by type.
+         * <p><b>Note:</b> Values will be compared by value and by type.</p>
          * @link https://www.php.net/manual/en/ds-vector.find.php
          */
         public function find($value)
@@ -802,7 +811,7 @@ namespace Ds {
          * values forward to make room for the new values.
          * @param mixed $values The values to add to the front of the sequence.<br>
          * <b>Note:</b> Multiple values will be added in the same order that they are
-         * passed
+         * passed.
          * @link https://www.php.net/manual/en/ds-vector.unshift.php
          */
         public function unshift($values): void
@@ -813,9 +822,9 @@ namespace Ds {
          * Count elements of an object
          * @link https://php.net/manual/en/ds-vector.count.php
          * @return int The custom count as an integer.
-         * </p>
          * <p>
          * The return value is cast to an integer.
+         * </p>
          * @since 5.1
          */
         public function count(): int
@@ -833,7 +842,7 @@ namespace Ds {
 
         /**
          * Converts the collection to an array.
-         * <p><b>Note:</b> Casting to an array is not supported yet.
+         * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-vector.toarray.php
          * @return array An array containing all the values in the same order as
          * the collection.
@@ -870,9 +879,9 @@ namespace Ds {
          * Count elements of an object
          * @link https://php.net/manual/en/countable.count.php
          * @return int The custom count as an integer.
-         * </p>
          * <p>
          * The return value is cast to an integer.
+         * </p>
          * @since 5.1
          */
         public function count(): int
@@ -907,7 +916,7 @@ namespace Ds {
 
         /**
          * Converts the deque to an array.
-         * <p><b>Note:</b> Casting to an array is not supported yet.
+         * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-deque.toarray.php
          * @return array An array containing all the values in the same order as
          * the deque.
@@ -922,8 +931,8 @@ namespace Ds {
          *
          * @param int $capacity The number of values for which capacity should
          * be allocated.<p><b>Note:</b> Capacity will stay the same if this value is
-         * less than or equal to the current capacity.
-         * <p><b>Note:</b> Capacity will always be rounded up to the nearest power of 2.
+         * less than or equal to the current capacity.</p>
+         * <p><b>Note:</b> Capacity will always be rounded up to the nearest power of 2.</p>
          * @link https://www.php.net/manual/en/ds-deque.allocate.php
          */
         public function allocate(int $capacity): void
@@ -937,6 +946,7 @@ namespace Ds {
          * deque. The callback should return what the value should be
          * replaced by.<p>
          * <code>callback ( mixed $value ) : mixed</code>
+         * </p>
          * @link https://www.php.net/manual/en/ds-deque.apply.php
          */
         public function apply(callable $callback): void
@@ -971,6 +981,7 @@ namespace Ds {
          * provided, only values which are TRUE (see converting to boolean) will
          * be included.<p>
          * <code>callback ( mixed $value ) : bool</code>
+         * </p>
          * @return Deque A new deque containing all the values for which
          * either the callback returned TRUE, or all values that convert to
          * TRUE if a callback was not provided.
@@ -1015,7 +1026,7 @@ namespace Ds {
          * Inserts values into the deque at a given index.
          *
          * @param int $index The index at which to insert. 0 <= index <= count
-         * <p> <b>Note:</b> You can insert at the index equal to the number of values.
+         * <p><b>Note:</b> You can insert at the index equal to the number of values.</p>
          * @param mixed ...$values The value or values to insert.
          * @throws OutOfRangeException if the index is not valid.
          * @link https://www.php.net/manual/en/ds-deque.insert.php
@@ -1049,14 +1060,17 @@ namespace Ds {
         /**
          * Returns the result of applying a callback function to each value in
          * the deque.
+         *
          * @param callable $callback A callable to apply to each value in the
          * deque.
          * The callable should return what the new value will be in the new
          * deque.
          * <code>callback ( mixed $value ) : mixed</code>
+         *
          * @return Deque The result of applying a callback to each value in
-         * the deque.<p><b>Note:</b> The values of the current instance won't be
-         * affected.
+         * the deque.
+         * <p><b>Note:</b> The values of the current instance won't be
+         * affected.</p>
          * @link https://www.php.net/manual/en/ds-deque.map.php
          */
         public function map(callable $callback): Deque
@@ -1095,12 +1109,13 @@ namespace Ds {
 
         /**
          * Reduces the deque to a single value using a callback function.
-         * @param callable $callback <p><p>
+         * @param callable $callback <p>
          * <code>
          * callback ( mixed $carry , mixed $value ) : mixed</code>
          * <b>$carry</b> The return value of the previous callback, or initial if it's
          * the first iteration.<p>
          * <b>$value</b> The value of the current iteration.
+         * </p>
          * @param mixed $initial The initial value of the carry value. Can be NULL.
          * @return mixed The return value of the final callback.
          * @link https://www.php.net/manual/en/ds-deque.reduce.php
@@ -1130,7 +1145,7 @@ namespace Ds {
         /**
          * Returns a reversed copy of the deque.
          * @return Deque A reversed copy of the deque.
-         * <p><b>Note:</b> The current instance is not affected.
+         * <p><b>Note:</b> The current instance is not affected.</p>
          */
         public function reversed(): Deque
         {
@@ -1201,7 +1216,7 @@ namespace Ds {
          * function, such as float, will result in an internal cast to integer
          * of the callback's return value. So values such as 0.99 and 0.1 will
          * both be cast to an integer value of 0, which will compare such
-         * values as equal.
+         * values as equal.</p>
          * @link https://www.php.net/manual/en/ds-deque.sort.php
          */
         public function sort(?callable $comparator = null): void
@@ -1220,7 +1235,7 @@ namespace Ds {
          * function, such as float, will result in an internal cast to integer
          * of the callback's return value. So values such as 0.99 and 0.1 will
          * both be cast to an integer value of 0, which will compare such
-         * values as equal.
+         * values as equal.</p>
          * @return Deque Returns a sorted copy of the deque.
          * @link https://www.php.net/manual/en/ds-deque.sort.php
          */
@@ -1231,7 +1246,7 @@ namespace Ds {
         /**
          * Returns the sum of all values in the deque.
          * <p><b>Note:</b> Arrays and objects are considered equal to zero when
-         * calculating the sum.
+         * calculating the sum.</p>
          * @return float|int The sum of all the values in the deque as
          * either a float or int depending on the values in the deque.
          */
@@ -1244,7 +1259,7 @@ namespace Ds {
          * values forward to make room for the new values.
          * @param mixed $values The values to add to the front of the deque.
          * <p><b>Note:</b> Multiple values will be added in the same order that they
-         * are passed.
+         * are passed.</p>
          */
         public function unshift($values): void
         {
@@ -1389,11 +1404,14 @@ namespace Ds {
          * <p>
          * <b>Note:</b> Keys of type object are supported. If an object implements Ds\Hashable, equality will be
          * determined by the object's equals function. If an object does not implement Ds\Hashable, objects must be references to the same instance to be considered equal.
+         * </p>
          * <p>
          * <b>Note:</b> You can also use array syntax to access values by key, eg. $map["key"].
+         * </p>
          * <p>
          * <b>Caution:</b> Be careful when using array syntax. Scalar keys will be coerced to integers by the engine. For
          * example, $map["1"] will attempt to access int(1), while $map->get("1") will correctly look up the string key.
+         * </p>
          *
          * @param mixed $key The key to look up.
          * @param mixed $default The optional default value, returned if the key could not be found.
@@ -1442,8 +1460,7 @@ namespace Ds {
          *
          * A ∩ B = {x : x ∈ A ∧ x ∈ B}
          *
-         * <p>
-         * <b>Note:</b> Values from the current instance will be kept.
+         * <p><b>Note:</b> Values from the current instance will be kept.</p>
          *
          * @param Map $map The other map, containing the keys to intersect with.
          *
@@ -1470,12 +1487,15 @@ namespace Ds {
 
         /**
          * Converts the map to an array.
-         * <p><b>Note:</b> Casting to an array is not supported yet.
+         * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * <p><b>Caution:</b> Maps where non-scalar keys are can't be converted to an
          * array.
+         * </p>
          * <p><b>Caution:</b> An array will treat all numeric keys as integers, eg.
          * "1" and 1 as keys in the map will only result in 1 being included in
          * the array.
+         * </p>
+         *
          * @link https://www.php.net/manual/en/ds-map.toarray.php
          * @return array An array containing all the values in the same order as
          * the map.
@@ -1826,7 +1846,7 @@ namespace Ds {
          * A ∪ B = {x: x ∈ A ∨ x ∈ B}
          *
          * <p><b>Note:</b> Values of the current instance will be overwritten by those
-         * provided where keys are equal.
+         * provided where keys are equal.</p>
          *
          * @param Map $map The other map, to combine with the current instance.
          *
@@ -1931,7 +1951,7 @@ namespace Ds {
         /**
          * Converts the pair to an array.
          *
-         * <p><b>Note:</b> Casting to an array is not supported yet.
+         * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          *
          * @return array An array containing all the values in the same order as
          * the pair.
@@ -2177,7 +2197,7 @@ namespace Ds {
         /**
          * Returns the result of adding all given values to the set.
          *
-         * <p><b>Note:</b> The current instance won't be affected.
+         * <p><b>Note:</b> The current instance won't be affected.</p>
          *
          * @link https://www.php.net/manual/en/ds-set.merge.php
          *
@@ -2329,7 +2349,7 @@ namespace Ds {
          * Returns the sum of all values in the set.
          *
          * <p><b>Note:</b> Arrays and objects are considered equal to zero when
-         * calculating the sum.
+         * calculating the sum.</p>
          *
          * @link https://www.php.net/manual/en/ds-set.sum.php
          *
@@ -2376,7 +2396,7 @@ namespace Ds {
 
         /**
          * Converts the set to an array.
-         * <p><b>Note:</b> Casting to an array is not supported yet.
+         * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-set.toarray.php
          * @return array An array containing all the values in the same order as
          * the collection.
@@ -2491,7 +2511,7 @@ namespace Ds {
 
         /**
          * Converts the collection to an array.
-         * <p><b>Note:</b> Casting to an array is not supported yet.
+         * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-stack.toarray.php
          * @return array An array containing all the values in the same order as
          * the collection.
@@ -2641,7 +2661,7 @@ namespace Ds {
 
         /**
          * Converts the collection to an array.
-         * <p><b>Note:</b> Casting to an array is not supported yet.
+         * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-queue.toarray.php
          * @return array An array containing all the values in the same order as
          * the collection.
@@ -2765,7 +2785,7 @@ namespace Ds {
 
         /**
          * Converts the collection to an array.
-         * <p><b>Note:</b> Casting to an array is not supported yet.
+         * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-collection.toarray.php
          * @return array An array containing all the values in the same order as
          * the collection.

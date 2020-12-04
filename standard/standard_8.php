@@ -644,7 +644,7 @@ function array_walk_recursive (object|array &$array, callable $callback, mixed $
  * Counts all elements in an array, or something in an object.
  * <p>For objects, if you have SPL installed, you can hook into count() by implementing interface {@see Countable}.
  * The interface has exactly one method, {@see Countable::count()}, which returns the return value for the count() function.
- * Please see the {@see Array} section of the manual for a detailed explanation of how arrays are implemented and used in PHP.
+ * Please see the {@see Array} section of the manual for a detailed explanation of how arrays are implemented and used in PHP.</p>
  * @link https://php.net/manual/en/function.count.php
  * @param array|Countable $value The array or the object.
  * @param int $mode [optional] If the optional mode parameter is set to
@@ -654,7 +654,6 @@ function array_walk_recursive (object|array &$array, callable $callback, mixed $
  * @return int the number of elements in var, which is
  * typically an array, since anything else will have one
  * element.
- * </p>
  * <p>
  * If var is not an array or an object with
  * implemented Countable interface,
@@ -666,6 +665,7 @@ function array_walk_recursive (object|array &$array, callable $callback, mixed $
  * Caution: count may return 0 for a variable that isn't set,
  * but it may also return 0 for a variable that has been initialized with an
  * empty array. Use isset to test if a variable is set.
+ * </p>
  */
 #[Pure]
 function count (Countable|array $value, int $mode = COUNT_NORMAL): int

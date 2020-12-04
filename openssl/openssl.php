@@ -1134,7 +1134,7 @@ function openssl_pkey_derive($public_key, $private_key, int $key_length): string
 /**
  * Generates a string of pseudo-random bytes, with the number of bytes determined by the length parameter.
  * <p>It also indicates if a cryptographically strong algorithm was used to produce the pseudo-random bytes,
- * and does this via the optional crypto_strong parameter. It's rare for this to be FALSE, but some systems may be broken or old.
+ * and does this via the optional crypto_strong parameter. It's rare for this to be FALSE, but some systems may be broken or old.</p>
  * @link https://php.net/manual/en/function.openssl-random-pseudo-bytes.php
  * @param int $length <p>
  * The length of the desired string of bytes. Must be a positive integer. PHP will

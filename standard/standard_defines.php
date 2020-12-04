@@ -1126,7 +1126,7 @@ define('PHP_MANDIR', '/usr/local/php/php/man');
  * (PHP4, PHP5)
  * <p>Constant containing either the session name and session ID in the form of "name=ID" or
  * empty string if session ID was set in an appropriate session cookie.
- * This is the same id as the one returned by session_id().
+ * This is the same id as the one returned by session_id().</p>
  * @see session_id()
  * @link https://php.net/manual/en/session.constants.php
  */

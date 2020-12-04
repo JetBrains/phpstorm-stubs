@@ -1086,7 +1086,7 @@ function stream_set_timeout ($stream, int $seconds, int $microseconds): bool
 /**
  * Alias:
  * {@see stream_set_timeout}
- * <p>Set timeout period on a stream
+ * Set timeout period on a stream
  * @link https://php.net/manual/en/function.socket-set-timeout.php
  * @param resource $stream <p>
  * The target stream.

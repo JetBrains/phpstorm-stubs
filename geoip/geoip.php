@@ -242,7 +242,7 @@ function geoip_asnum_by_name ($hostname) {}
  * <br>
  * This function is only available if using GeoIP Library version 1.4.8 or newer.<br>
  * <br>
- * This function is currently only available to users who have bought a commercial GeoIP NetSpeedCell Edition. A warning will be issued if the proper database cannot be located.<br >
+ * This function is currently only available to users who have bought a commercial GeoIP NetSpeedCell Edition. A warning will be issued if the proper database cannot be located.<br>
  * <br>
  * The return value is a string, common values are:<br>
  * - Cable/DSL<br>

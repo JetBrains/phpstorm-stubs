@@ -1892,7 +1892,7 @@ interface Yaf_Route_Interface {
     function route(Yaf_Request_Abstract $request);
 
     /**
-     * <p><b>Yaf_Route_Interface::assemble()</b> - assemble a request<br/>
+     * <p><b>Yaf_Route_Interface::assemble()</b> - assemble a request</p><br/>
      * <p>this method returns a url according to the argument info, and append query strings to the url according to the argument query.</p>
      * <p>a route should implement this method according to its own route rules, and do a reverse progress.</p>
      *
@@ -2607,7 +2607,7 @@ class Yaf_Route_Static implements Yaf_Route_Interface {
     public function route(Yaf_Request_Abstract $request){ }
 
     /**
-     * <p><b>Yaf_Route_Static::assemble()</b> - Assemble a url
+     * <p><b>Yaf_Route_Static::assemble()</b> - Assemble a url</p>
      *
      * @link https://secure.php.net/manual/en/yaf-route-static.assemble.php
      *
@@ -2667,7 +2667,7 @@ final class Yaf_Route_Simple implements Yaf_Route_Interface {
     public function route(Yaf_Request_Abstract $request){ }
 
     /**
-     * <p><b>Yaf_Route_Simple::assemble()</b> - Assemble a url
+     * <p><b>Yaf_Route_Simple::assemble()</b> - Assemble a url</p>
      *
      * @link https://secure.php.net/manual/en/yaf-route-simple.assemble.php
      *
@@ -2709,7 +2709,7 @@ final class Yaf_Route_Supervar implements Yaf_Route_Interface {
     public function route(Yaf_Request_Abstract $request){ }
 
     /**
-     * <p><b>Yaf_Route_Supervar::assemble()</b> - Assemble a url
+     * <p><b>Yaf_Route_Supervar::assemble()</b> - Assemble a url</p>
      *
      * @link https://secure.php.net/manual/en/yaf-route-supervar.assemble.php
      *
@@ -2764,7 +2764,7 @@ final class Yaf_Route_Rewrite extends Yaf_Router implements Yaf_Route_Interface 
     public function route(Yaf_Request_Abstract $request){ }
 
     /**
-     * <p><b>Yaf_Route_Rewrite::assemble()</b> - Assemble a url
+     * <p><b>Yaf_Route_Rewrite::assemble()</b> - Assemble a url</p>
      *
      * @link https://secure.php.net/manual/en/yaf-route-rewrite.assemble.php
      *
@@ -2830,7 +2830,7 @@ final class Yaf_Route_Regex extends Yaf_Router implements Yaf_Route_Interface {
     public function route(Yaf_Request_Abstract $request){ }
 
     /**
-     * <p><b>Yaf_Route_Regex::assemble()</b> - Assemble a url
+     * <p><b>Yaf_Route_Regex::assemble()</b> - Assemble a url</p>
      *
      * @link https://secure.php.net/manual/en/yaf-route-regex.assemble.php
      *
@@ -2877,7 +2877,7 @@ final class Yaf_Route_Map implements Yaf_Route_Interface {
     public function route(Yaf_Request_Abstract $request){ }
 
     /**
-     * <p><b>Yaf_Route_Map::assemble()</b> - Assemble a url
+     * <p><b>Yaf_Route_Map::assemble()</b> - Assemble a url</p>
      *
      * @link https://secure.php.net/manual/en/yaf-route-map.assemble.php
      *

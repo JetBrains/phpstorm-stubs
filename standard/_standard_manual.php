@@ -5,7 +5,7 @@
  * Halts the execution of the compiler. This can be useful to embed data in PHP scripts, like the installation files.
  * Byte position of the data start can be determined by the __COMPILER_HALT_OFFSET__ constant
  * which is defined only if there is a __halt_compiler() presented in the file.
- * <p> Note: __halt_compiler() can only be used from the outermost scope.
+ * <p> Note: __halt_compiler() can only be used from the outermost scope.</p>
  * @link https://php.net/manual/en/function.halt-compiler.php
  * @return void
  */
