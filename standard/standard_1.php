@@ -399,7 +399,7 @@ function str_shuffle (string $string): string
  * format chosen.
  */
 #[Pure]
-function str_word_count (string $string, int $format, ?string $characters): array|int
+function str_word_count (string $string, int $format = 0, ?string $characters): array|int
 {}
 
 /**
