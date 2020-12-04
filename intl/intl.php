@@ -5022,6 +5022,7 @@ function intlcal_after(IntlCalendar $calendarObject, IntlCalendar $calendar) { }
  * </p>
  * @param IntlCalendar $calendar <p> The calendar whose time will be checked against this object's time.</p>
  * @return bool
+ * <p>
  * Returns <b>TRUE</B> if this object's current time is before that of the
  * <em>calendar</em> argument's time. Returns <b>FALSE</b> otherwise.
  * Also returns <b>FALSE</b> on failure. You can use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or

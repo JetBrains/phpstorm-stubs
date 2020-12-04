@@ -1647,14 +1647,17 @@ function sqlsrv_send_stream_data($stmt){}
  *
  * Additional Information at:
  * <ul>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}</li></li>
+ * <li>{@link http://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}</li>
  * <li>{@link http://msdn.microsoft.com/en-us/library/cc296163.aspx How to: Retrieve Character Data as a Stream Using the SQLSRV Driver.}</li>
  * <li>{@link http://msdn.microsoft.com/en-us/library/cc626307.aspx How to: Send and Retrieve UTF-8 Data Using Built-In UTF-8 Support.}</li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}</li></ui>
+ * <li>{@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}</li>
+ * </ul>
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
+ *
  * @param string $encoding The encoding to use for the stream. The valid options are SQLSRV_ENC_BINARY, SQLSRV_ENC_CHAR
  * or "UTF-8".
+ *
  * @return int Value to use in any place that accepts a SQLSRV_PHPTYPE_* constant to represent a PHP stream with the
  * given encoding.
  */
@@ -1673,14 +1676,17 @@ function SQLSRV_PHPTYPE_STREAM($encoding){}
  *
  * Additional Information at:
  * <ul>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}</li></li>
+ * <li>{@link http://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}</li>
  * <li>{@link http://msdn.microsoft.com/en-us/library/cc296163.aspx How to: Retrieve Character Data as a Stream Using the SQLSRV Driver.}</li>
  * <li>{@link http://msdn.microsoft.com/en-us/library/cc626307.aspx How to: Send and Retrieve UTF-8 Data Using Built-In UTF-8 Support.}</li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}</li></ui>
+ * <li>{@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}</li>
+ * </ul>
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
+ *
  * @param string $encoding The encoding to use for the stream. The valid options are SQLSRV_ENC_BINARY, SQLSRV_ENC_CHAR
  * or "UTF-8".
+ *
  * @return int Value to use in any place that accepts a SQLSRV_PHPTYPE_* constant to represent a PHP string with the
  * given encoding.
  */
