@@ -2160,7 +2160,7 @@ interface Route_Interface
     public function route(\Yaf\Request_Abstract $request);
 
     /**
-     * <p><b>\Yaf\Route_Interface::assemble()</b> - assemble a request<br/>
+     * <p><b>\Yaf\Route_Interface::assemble()</b> - assemble a request</p><br/>
      * <p>this method returns a url according to the argument info, and append query strings to the url according to the argument query.</p>
      * <p>a route should implement this method according to its own route rules, and do a reverse progress.</p>
      *
@@ -2214,7 +2214,7 @@ class Route_Static implements \Yaf\Route_Interface
     }
 
     /**
-     * <p><b>\Yaf\Route_Static::assemble()</b> - Assemble a url
+     * <p><b>\Yaf\Route_Static::assemble()</b> - Assemble a url</p>
      *
      * @link https://secure.php.net/manual/en/yaf-route-static.assemble.php
      *
@@ -3103,7 +3103,7 @@ final class Simple implements \Yaf\Route_Interface
     }
 
     /**
-     * <p><b>\Yaf\Route\Simple::assemble()</b> - Assemble a url
+     * <p><b>\Yaf\Route\Simple::assemble()</b> - Assemble a url</p>
      *
      * @link https://secure.php.net/manual/en/yaf-route-simple.assemble.php
      *
@@ -3150,7 +3150,7 @@ final class Supervar implements \Yaf\Route_Interface
     }
 
     /**
-     * <p><b>\Yaf\Route\Supervar::assemble()</b> - Assemble a url
+     * <p><b>\Yaf\Route\Supervar::assemble()</b> - Assemble a url</p>
      *
      * @link https://secure.php.net/manual/en/yaf-route-supervar.assemble.php
      *
@@ -3210,7 +3210,7 @@ final class Rewrite extends \Yaf\Router implements \Yaf\Route_Interface
     }
 
     /**
-     * <p><b>\Yaf\Route\Rewrite::assemble()</b> - Assemble a url
+     * <p><b>\Yaf\Route\Rewrite::assemble()</b> - Assemble a url</p>
      *
      * @link https://secure.php.net/manual/en/yaf-route-rewrite.assemble.php
      *
@@ -3281,7 +3281,7 @@ final class Regex extends \Yaf\Router implements \Yaf\Route_Interface
     }
 
     /**
-     * <p><b>\Yaf\Route\Regex::assemble()</b> - Assemble a url
+     * <p><b>\Yaf\Route\Regex::assemble()</b> - Assemble a url</p>
      *
      * @link https://secure.php.net/manual/en/yaf-route-regex.assemble.php
      *
@@ -3333,7 +3333,7 @@ final class Map implements \Yaf\Route_Interface
     }
 
     /**
-     * <p><b>\Yaf\Route\Map::assemble()</b> - Assemble a url
+     * <p><b>\Yaf\Route\Map::assemble()</b> - Assemble a url</p>
      *
      * @link https://secure.php.net/manual/en/yaf-route-map.assemble.php
      *

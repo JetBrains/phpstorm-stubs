@@ -1498,7 +1498,7 @@ function imap_listsubscribed ($stream_id, $ref, $pattern) {}
 function imap_getsubscribed ($imap_stream, $ref, $pattern) {}
 
 /**
- * (PHP 4, PHP 5)</br>
+ * (PHP 4, PHP 5)<br/>
  * Alias of imap_body()
  * @param resource $stream An IMAP stream returned by imap_open()
  * @param int $msg_no message number

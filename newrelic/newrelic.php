@@ -153,7 +153,7 @@ function newrelic_end_transaction($ignore = false) {}
  * Returns the JavaScript string to inject at the very end of the HTML output for page load timing (sometimes referred
  * to as real user monitoring or RUM).
  *
- * If includeTags omitted or set to true, the returned JavaScript string will be enclosed in a <script> tag.
+ * If includeTags omitted or set to true, the returned JavaScript string will be enclosed in a "script"-tag.
  *
  * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-rum-footer
  *
@@ -167,7 +167,7 @@ function newrelic_get_browser_timing_footer ($includeTags = true) {}
  * Returns the JavaScript string to inject as part of the header for page load timing (sometimes referred to as real
  * user monitoring or RUM).
  *
- * If includeTags are omitted or set to true, the returned JavaScript string will be enclosed in a <script> tag.
+ * If includeTags are omitted or set to true, the returned JavaScript string will be enclosed in a "script"-tag.
  *
  * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-rum-header
  *

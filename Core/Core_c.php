@@ -638,9 +638,9 @@ interface Countable {
      * Count elements of an object
      * @link https://php.net/manual/en/countable.count.php
      * @return int The custom count as an integer.
-     * </p>
      * <p>
      * The return value is cast to an integer.
+     * </p>
      */
     public function count();
 }

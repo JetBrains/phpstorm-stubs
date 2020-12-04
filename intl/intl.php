@@ -1959,7 +1959,7 @@ class IntlDateFormatter {
      * the value of one of these constants (in which case it will be used both
      * for the time and the date) or a {@link "https://secure.php.net/manual/en/language.types.string.php" string} with the format
      * described in {@link "http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details" the ICU documentation}.
-     * If <br>NULL</br>, the default style will be used.
+     * If <b>NULL</b>, the default style will be used.
      * </p>
      * @param string|null $locale [optional] <p>
      * The locale to use, or <b>NULL</b> to use the {@link "https://secure.php.net/manual/en/intl.configuration.php#ini.intl.default-locale"default one}.</p>

@@ -362,7 +362,7 @@ class Memcache extends MemcachePool  {
 //  string $host [, int $port [, int $timeout ]]
 
 /**
- * (PECL memcache >= 0.2.0)</br>
+ * (PECL memcache >= 0.2.0)<br/>
  * Memcache::connect — Open memcached server connection
  * @link https://php.net/manual/en/memcache.connect.php
  * @param string $host <p>

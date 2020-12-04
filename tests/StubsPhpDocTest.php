@@ -108,13 +108,27 @@ class StubsPhpDocTest extends TestCase
         /** @var PHPDocElement $element */
         $phpdoc = \trim($element->summary . "\n\n" . $element->description);
 
-        $phpdoc = str_replace('/>', '', $phpdoc);
+        $phpdoc = preg_replace(
+            [
+                '#/>#m',
+                '#->#m',
+                '#>=#m',
+                '#=>#m',
+                '# > #m',
+                '#\?>#m',
+                '#>`#m',
+                '#<br>#im',
+                '#^>#m'
+            ],
+            '',
+            $phpdoc
+        );
 
         $countTags = substr_count($phpdoc, '>');
         self::assertSame(
             0,
             $countTags % 2,
-            "In $elementName phpdoc has a html error and the phpdoc maybe not displayed correctly in PhpStorm."
+            "In $elementName phpdoc has a html error and the phpdoc maybe not displayed correctly in PhpStorm: " . print_r($phpdoc, true)
         );
     }
 

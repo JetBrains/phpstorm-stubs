@@ -277,7 +277,7 @@ class Client
     }
 
     /**
-     * Set the number of seconds to wait before retrying messages. This applies to publishing messages with QoS>0.
+     * Set the number of seconds to wait before retrying messages. This applies to publishing messages with QoS > 0.
      * May be called at any time.
      *
      * @param int $messageRetryPeriod The retry period
@@ -329,7 +329,7 @@ class Client
      * the client and broker working. If incoming data is present it will then be processed. Outgoing commands,
      * from e.g. `publish`, are normally sent immediately that their function is called, but this is not always possible.
      * `loop` will also attempt to send any remaining outgoing messages, which also includes commands that are part
-     * of the flow for messages with QoS>0.
+     * of the flow for messages with QoS > 0.
      *
      * @param int $timeout Optional. Number of milliseconds to wait for network activity. Pass 0 for instant timeout.
      */

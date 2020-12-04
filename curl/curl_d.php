@@ -334,7 +334,7 @@ define ('CURLOPT_TIMEOUT_MS', 155);
  * This parameter can either be passed
  * as a urlencoded string like '<em>para1=val1&para2=val2&...</em>'
  * or as an array with the field name as key and field data as value.
- * If value is an array, the <em>Content-Type<em/> header will be set to <em>multipart/form-data</em>.
+ * If value is an array, the <em>Content-Type</em> header will be set to <em>multipart/form-data</em>.
  * As of PHP 5.2.0, value must be an array if files are passed to this option with the @ prefix.
  * As of PHP 5.5.0, the @ prefix is deprecated and files can be sent using <b>CURLFile</b>.
  * The @ prefix can be disabled for safe passing of values beginning with @ by setting the <b>CURLOPT_SAFE_UPLOAD</b> option to TRUE.
