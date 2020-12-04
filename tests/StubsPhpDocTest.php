@@ -103,6 +103,21 @@ class StubsPhpDocTest extends TestCase
         }
     }
 
+    private static function checkHtmlTags(BasePHPElement $element, string $elementName): void
+    {
+        /** @var PHPDocElement $element */
+        $phpdoc = \trim($element->summary . "\n\n" . $element->description);
+
+        $phpdoc = str_replace('/>', '', $phpdoc);
+
+        $countTags = substr_count($phpdoc, '>');
+        self::assertSame(
+            0,
+            $countTags % 2,
+            "In $elementName phpdoc has a html error and the phpdoc maybe not displayed correctly in PhpStorm."
+        );
+    }
+
     private static function checkLinks(BasePHPElement $element, string $elementName): void
     {
         /** @var PHPDocElement $element */
@@ -168,6 +183,7 @@ class StubsPhpDocTest extends TestCase
     private static function checkPHPDocCorrectness(BasePHPElement $element, string $elementName): void
     {
         self::checkLinks($element, $elementName);
+        self::checkHtmlTags($element, $elementName);
         if ($element->stubBelongsToCore) {
             self::checkDeprecatedRemovedSinceVersionsMajor($element, $elementName);
         }

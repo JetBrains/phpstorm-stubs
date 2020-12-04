@@ -19,6 +19,10 @@ trait PHPDocElement
      */
     public array $links = [];
 
+    public string $summary = '';
+
+    public string $description = '';
+
     /**
      * @var See[]
      */
@@ -57,6 +61,8 @@ trait PHPDocElement
                     $this->tagNames[] = $tag->getName();
                 }
                 $this->links = $phpDoc->getTagsByName('link');
+                $this->summary = $phpDoc->getSummary();
+                $this->description = (string) $phpDoc->getDescription();
                 $this->see = $phpDoc->getTagsByName('see');
                 $this->sinceTags = $phpDoc->getTagsByName('since');
                 $this->deprecatedTags = $phpDoc->getTagsByName('deprecated');
