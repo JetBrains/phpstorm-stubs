@@ -1361,7 +1361,7 @@ function date_interval_format (DateInterval $object, string $format): string
 /**
  * Sets the default timezone used by all date/time functions in a script
  * @link https://php.net/manual/en/function.date-default-timezone-set.php
- * @param string $timezoneID <p>
+ * @param string $timezoneId <p>
  * The timezone identifier, like UTC or
  * Europe/Lisbon. The list of valid identifiers is
  * available in the .
