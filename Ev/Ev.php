@@ -1380,6 +1380,7 @@ final class EvLoop
      * @param callable $callback
      * @param mixed $data
      * @param int $priority
+     * @return EvIo
      */
     final public function io($fd, $events, callable $callback, $data = null, $priority = 0) {}
 
