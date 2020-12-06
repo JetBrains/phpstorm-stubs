@@ -673,7 +673,7 @@ function fputcsv ($stream, array $fields, string $separator = ",", string $enclo
  * operation is one of the following:
  * LOCK_SH to acquire a shared lock (reader).
  * @param int &$would_block [optional] <p>
- * The optional third argument is set to true if the lock would block
+ * The optional third argument is set to 1 if the lock would block
  * (EWOULDBLOCK errno condition).
  * </p>
  * @return bool true on success or false on failure.
