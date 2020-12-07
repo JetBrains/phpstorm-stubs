@@ -1008,11 +1008,18 @@ function pg_last_error ($connection = null) {}
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
- * @param $operation [optional]
+ * @param int $option [optional] <p>
+ * One of <b>PGSQL_NOTICE_LAST</b> (to return last notice),
+ * <b>PGSQL_NOTICE_ALL</b> (to return all notices), or
+ * <b>PGSQL_NOTICE_CLEAR</b> (to clear notices).
+ * </p>
  * @return string A string containing the last notice on the
- * given <i>connection</i>, or <b>FALSE</b> on error.
+ * given <i>connection</i> with <b>PGSQL_NOTICE_LAST</b>,
+ * an array with <b>PGSQL_NOTICE_ALL</b>,
+ * a bool with <b>PGSQL_NOTICE_CLEAR</b>, or
+ * <b>FALSE</b> on error.
  */
-function pg_last_notice ($connection, $operation) {}
+function pg_last_notice ($connection, $option = PGSQL_NOTICE_LAST) {}
 
 /**
  * Send a NULL-terminated string to PostgreSQL backend
