@@ -366,7 +366,7 @@ function openssl_x509_check_private_key(#[LanguageLevelTypeAware(["8.0" => "Open
  * @param string &$output <p>
  * On success, this will hold the PEM.
  * </p>
- * @param bool $no_text [optional] &note.openssl.param-notext;
+ * @param bool $no_text [optional]
  * @return bool true on success or false on failure.
  */
 function openssl_x509_export(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, &$output, bool $no_text = true): bool
@@ -379,7 +379,7 @@ function openssl_x509_export(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertific
  * @param string $output_filename <p>
  * Path to the output file.
  * </p>
- * @param bool $no_text [optional] &note.openssl.param-notext;
+ * @param bool $no_text [optional]
  * @return bool true on success or false on failure.
  */
 function openssl_x509_export_to_file(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, string $output_filename, bool $no_text = true): bool
@@ -553,7 +553,7 @@ function openssl_csr_new(array $distinguished_names, &$private_key, ?array $opti
  * @link https://php.net/manual/en/function.openssl-csr-export.php
  * @param OpenSSLCertificateSigningRequest|string|resource $csr
  * @param string &$output
- * @param bool $no_text [optional] &note.openssl.param-notext;
+ * @param bool $no_text [optional]
  * @return bool true on success or false on failure.
  */
 function openssl_csr_export(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")] $csr, &$output, bool $no_text = true): bool
@@ -566,7 +566,7 @@ function openssl_csr_export(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertifica
  * @param string $output_filename <p>
  * Path to the output file.
  * </p>
- * @param bool $no_text [optional] &note.openssl.param-notext;
+ * @param bool $no_text [optional]
  * @return bool true on success or false on failure.
  */
 function openssl_csr_export_to_file(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")] $csr, string $output_filename, bool $no_text = true): bool

@@ -1090,15 +1090,10 @@ function sodium_crypto_aead_chacha20poly1305_ietf_keygen(): string {}
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-decrypt.php
  */
-function sodium_crypto_aead_xchacha20poly1305_ietf_decrypt(
-    string $ciphertext,
-    string $additional_data,
-    string $nonce,
-    string $key
-): string|false {}
+function sodium_crypto_aead_xchacha20poly1305_ietf_decrypt(string $ciphertext, string $additional_data, string $nonce, string $key): string|false {}
 
 /**
- * @param string$message
+ * @param string $message
  * @param string $additional_data
  * @param string $nonce
  * @param string $key
@@ -1107,12 +1102,7 @@ function sodium_crypto_aead_xchacha20poly1305_ietf_decrypt(
  * @since 7.2
  * https://www.php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-encrypt.php
  */
-function sodium_crypto_aead_xchacha20poly1305_ietf_encrypt(
-    string $message,
-    string $additional_data,
-    string $nonce,
-    string $key
-): string {}
+function sodium_crypto_aead_xchacha20poly1305_ietf_encrypt(string $message, string $additional_data, string $nonce, string $key): string {}
 
 /**
  * @since 7.2
@@ -1168,7 +1158,7 @@ function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, strin
 function sodium_crypto_secretstream_xchacha20poly1305_init_pull(string $header, string $key): string{}
 
 /**
- * @param string &$state ,
+ * @param string &$state
  * @param string $ciphertext
  * @param string $additional_data
  * @return array|false

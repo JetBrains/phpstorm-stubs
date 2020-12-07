@@ -3481,7 +3481,7 @@ class Redis
      * $redis->zInterStore('ko4', array('k1', 'k2'), array(1, 5), 'max'); // 2, 'ko4' => array('val3', 'val1')
      * </pre>
      */
-    public function zInterStore($output, $zSetKeys, ?array $weights = null, $aggregateFunction = 'SUM')
+    public function zInterStore($output, $zSetKeys, array $weights = null, $aggregateFunction = 'SUM')
     {
     }
 

@@ -961,28 +961,6 @@ function trim (string $string, string $characters = " \t\n\r\0\x0B"): string
 function ltrim (string $string, string $characters = " \t\n\r\0\x0B"): string
 {}
 
-#[PhpStormStubsElementAvailable(to: '7.3')]
-/**
- * Strip HTML and PHP tags from a string
- * @link https://php.net/manual/en/function.strip-tags.php
- * @param string $string <p>
- * The input string.
- * </p>
- * @param null|string $allowed_tags [optional] <p>
- * You can use the optional second parameter to specify tags which should
- * not be stripped.
- * </p>
- * <p>
- * HTML comments and PHP tags are also stripped. This is hardcoded and
- * can not be changed with allowable_tags.
- * </p>
- * @return string the stripped string.
- */
-#[Pure]
-function strip_tags (string $string, string $allowed_tags = null): string
-{}
-
-#[PhpStormStubsElementAvailable('7.4')]
 /**
  * Strip HTML and PHP tags from a string
  * @link https://php.net/manual/en/function.strip-tags.php
@@ -1000,7 +978,7 @@ function strip_tags (string $string, string $allowed_tags = null): string
  * @return string the stripped string.
  */
 #[Pure]
-function strip_tags (string $string, array|string|null $allowed_tags = null): string
+function strip_tags (string $string, #[LanguageLevelTypeAware(["7.4" => "null|string[]|string"], default: "null|string")] $allowed_tags = null): string
 {}
 
 /**
@@ -1075,7 +1053,8 @@ function implode (array|string $separator = "", ?array $array): string
 {}
 
 /**
- * &Alias; <function>implode</function>
+ * Alias:
+ * {@see implode}
  * @link https://php.net/manual/en/function.join.php
  * @param array|string  $separator [optional] <p>
  * Defaults to an empty string. This is not the preferred usage of

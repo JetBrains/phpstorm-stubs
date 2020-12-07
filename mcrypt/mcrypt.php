@@ -129,7 +129,7 @@ function mcrypt_create_iv ($size, $source = MCRYPT_DEV_URANDOM) {}
  * @link https://php.net/manual/en/function.mcrypt-list-algorithms.php
  * @param string $lib_dir [optional] <p>
  * Specifies the directory where all algorithms are located. If not
- * specifies, the value of the mcrypt.algorithms_dir &php.ini; directive
+ * specifies, the value of the mcrypt.algorithms_dir (php.ini) directive
  * is used.
  * </p>
  * @return array an array with all the supported algorithms.
@@ -143,7 +143,7 @@ function mcrypt_list_algorithms ($lib_dir = null) {}
  * @param string $lib_dir [optional] <p>
  * Specifies the directory where all modes are located. If not
  * specifies, the value of the mcrypt.modes_dir
- * &php.ini; directive is used.
+ * (php.ini) directive is used.
  * </p>
  * @return array an array with all the supported modes.
  */

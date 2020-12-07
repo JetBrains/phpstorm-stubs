@@ -626,17 +626,16 @@ function stream_supports_lock ($stream): bool
  * Set the escape character (one character only). Defaults as a backslash.
  * </p>
  * @return array|false an indexed array containing the fields read.
- * </p>
  * <p>
  * A blank line in a CSV file will be returned as an array
  * comprising a single null field, and will not be treated
  * as an error.
  * </p>
- * &note.line-endings;
  * <p>
  * fgetcsv returns null if an invalid
  * handle is supplied or false on other errors,
  * including end of file.
+ * </p>
  */
 function fgetcsv ($stream, ?int $length = 0, string $separator = ',', string $enclosure = '"', string $escape = '\\'): array|false
 {}
@@ -656,7 +655,9 @@ function fgetcsv ($stream, ?int $length = 0, string $separator = ',', string $en
  * The optional enclosure parameter sets the field
  * enclosure (one character only).
  * </p>
- * @param string $escape The optional escape_char parameter sets the escape character (one character only).
+ * @param string $escape [optional] <p>
+ * The optional escape_char parameter sets the escape character (one character only).
+ * </p>
  * @return int|false the length of the written string or false on failure.
  */
 function fputcsv ($stream, array $fields, string $separator = ",", string $enclosure = '"', string $escape = "\\"): int|false
@@ -708,7 +709,6 @@ function flock ($stream, int $operation, &$would_block): bool
  * This is used for local files, not URLs.
  * </p>
  * @return array|false an array with all the parsed meta tags.
- * </p>
  * <p>
  * The value of the name property becomes the key, the value of the content
  * property becomes the value of the returned array, so you can easily use
@@ -716,6 +716,7 @@ function flock ($stream, int $operation, &$would_block): bool
  * Special characters in the value of the name property are substituted with
  * '_', the rest is converted to lower case. If two meta tags have the same
  * name, only the last one is returned.
+ * </p>
  */
 #[Pure]
 function get_meta_tags (string $filename, bool $use_include_path): array|false
@@ -758,11 +759,13 @@ function stream_set_read_buffer ($stream, int $size): int
 {}
 
 /**
- * &Alias; <function>stream_set_write_buffer</function>
+ * Alias:
+ * {@see stream_set_write_buffer}
  * <p>Sets the buffering for write operations on the given stream to buffer bytes.
  * Output using fwrite() is normally buffered at 8K.
  * This means that if there are two processes wanting to write to the same output stream (a file),
  * each is paused after 8K of data to allow the other to write.
+ * </p>
  * @link https://php.net/manual/en/function.set-file-buffer.php
  * @param resource $stream The file pointer.
  * @param int $size The number of bytes to buffer. If buffer is 0 then write operations are unbuffered.
@@ -773,9 +776,11 @@ function set_file_buffer ($stream, int $size): int
 {}
 
 /**
- * &Alias; <function>stream_set_blocking</function>
+ * Alias:
+ * {@see stream_set_blocking}
  * <p>Sets blocking or non-blocking mode on a stream.
- * This function works for any stream that supports non-blocking mode (currently, regular files and socket streams).
+ * This function works for any stream that supports non-blocking mode (currently, regular files and socket streams)
+ * </p>
  * @link https://php.net/manual/en/function.set-socket-blocking.php
  * @param resource $socket
  * @param bool $mode If mode is FALSE, the given stream will be switched to non-blocking mode, and if TRUE, it will be switched to blocking mode.
@@ -811,7 +816,8 @@ function stream_set_blocking ($stream, bool $enable): bool
 {}
 
 /**
- * &Alias; <function>stream_set_blocking</function>
+ * Alias:
+ * {@see stream_set_blocking}
  * @link https://php.net/manual/en/function.socket-set-blocking.php
  * @param resource $stream <p>
  * The stream.
@@ -839,7 +845,6 @@ function socket_set_blocking ($stream, bool $enable): bool
  * fsockopen and pfsockopen.
  * </p>
  * @return array The result array contains the following items:
- * </p>
  * <p>
  * timed_out (bool) - true if the stream
  * timed out while waiting for data on the last call to
@@ -892,6 +897,7 @@ function socket_set_blocking ($stream, bool $enable): bool
  * <p>
  * uri (string) - the URI/filename associated with this
  * stream.
+ * </p>
  */
 #[ArrayShape([
     "timed_out" => "bool",
@@ -924,9 +930,9 @@ function stream_get_meta_data ($stream): array
  * </p>
  * @return string|false a string of up to length bytes read from the file
  * pointed to by handle.
- * </p>
  * <p>
  * If an error occurs, returns false.
+ * </p>
  */
 function stream_get_line ($stream, int $length, string $ending): string|false
 {}
@@ -946,17 +952,18 @@ function stream_get_line ($stream, int $length, string $ending): string|false
  * stream.
  * </p>
  * @return bool true on success or false on failure.
- * </p>
  * <p>
  * stream_wrapper_register will return false if the
  * protocol already has a handler.
+ * </p>
  */
 function stream_wrapper_register (string $protocol, string $class, int $flags): bool
 {}
 
 /**
- * &Alias; <function>stream_wrapper_register</function>
- * <p>Register a URL wrapper implemented as a PHP class
+ * Alias:
+ * {@see stream_wrapper_register}
+ * <p>Register a URL wrapper implemented as a PHP class</p>
  * @link https://php.net/manual/en/function.stream-register-wrapper.php
  * @param string $protocol <p>
  * The wrapper name to be registered.
@@ -970,10 +977,10 @@ function stream_wrapper_register (string $protocol, string $class, int $flags): 
  * stream.
  * </p>
  * @return bool true on success or false on failure.
- * </p>
  * <p>
  * stream_wrapper_register will return false if the
  * protocol already has a handler.
+ * </p>
  */
 function stream_register_wrapper (string $protocol, string $class, int $flags = 0): bool
 {}
@@ -981,8 +988,7 @@ function stream_register_wrapper (string $protocol, string $class, int $flags = 
 /**
  * Resolve filename against the include path according to the same rules as fopen()/include().
  * @link https://php.net/manual/en/function.stream-resolve-include-path.php
- * @param string $filename The filename to resolve.<p>
- * </p>
+ * @param string $filename The filename to resolve.
  * @return string|false containing the resolved absolute filename, or FALSE on failure.
  * @since 5.3.2
  */
@@ -1078,7 +1084,8 @@ function stream_set_timeout ($stream, int $seconds, int $microseconds): bool
 {}
 
 /**
- * &Alias; <function>stream_set_timeout</function>
+ * Alias:
+ * {@see stream_set_timeout}
  * <p>Set timeout period on a stream
  * @link https://php.net/manual/en/function.socket-set-timeout.php
  * @param resource $stream <p>
@@ -1096,7 +1103,8 @@ function socket_set_timeout ($stream, int $seconds, int $microseconds = 0): bool
 {}
 
 /**
- * &Alias; <function>stream_get_meta_data</function>
+ * Alias:
+ * {@see stream_get_meta_data}
  * Retrieves header/meta data from streams/file pointers
  * @link https://php.net/manual/en/function.socket-get-status.php
  * @param resource $stream <p>
@@ -1104,7 +1112,6 @@ function socket_set_timeout ($stream, int $seconds, int $microseconds = 0): bool
  * fsockopen and pfsockopen.
  * </p>
  * @return array The result array contains the following items:
- * </p>
  * <p>
  * timed_out (bool) - true if the stream
  * timed out while waiting for data on the last call to
@@ -1157,6 +1164,7 @@ function socket_set_timeout ($stream, int $seconds, int $microseconds = 0): bool
  * <p>
  * uri (string) - the URI/filename associated with this
  * stream.
+ * </p>
  */
 function socket_get_status ($stream): array
 {}
@@ -1169,10 +1177,10 @@ function socket_get_status ($stream): array
  * </p>
  * @return string|false the canonicalized absolute pathname on success. The resulting path
  * will have no symbolic link, '/./' or '/../' components.
- * </p>
  * <p>
  * realpath returns false on failure, e.g. if
  * the file does not exist.
+ * </p>
  */
 #[Pure]
 function realpath (string $path): string|false

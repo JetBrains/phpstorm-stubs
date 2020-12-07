@@ -2187,10 +2187,10 @@ function http_date ($timestamp = null) {}
  * (PECL pecl_http &gt;= 0.21.0)<br/>
  * Build an URL
  * @link https://php.net/manual/en/function.http-build-url.php
- * @param null|mixed $url [optional] <p>
+ * @param mixed $url [optional] <p>
  * (part(s) of) an URL in form of a string or associative array like parse_url returns
  * </p>
- * @param null|mixed $parts [optional] <p>
+ * @param mixed $parts [optional] <p>
  * same as the first argument
  * </p>
  * @param null|int $flags [optional] <p>
@@ -2615,10 +2615,8 @@ function http_get ($url, ?array $options = null, ?array &$info = null) {}
  * URL
  * </p>
  * @param null|array $options [optional] <p>
-():
  * </p>
  * @param null|array &$info [optional] <p>
- * &link.http.request.info;
  * </p>
  * @return string
  */
@@ -2658,7 +2656,6 @@ function http_post_data ($url, $data = null, ?array $options = null, ?array &$in
  * @param null|array $options [optional] <p>
  * </p>
  * @param null|array &$info [optional] <p>
- * &link.http.request.info;
  * </p>
  * @return string
  */
@@ -2677,7 +2674,6 @@ function http_post_fields ($url, ?array $data = null, ?array $files = null, ?arr
  * @param null|array $options [optional] <p>
  * </p>
  * @param null|array &$info [optional] <p>
- * &link.http.request.info;
  * </p>
  * @return string
  */
@@ -2696,7 +2692,6 @@ function http_put_data ($url, $data = null, ?array $options = null, ?array &$inf
  * @param null|array $options [optional] <p>
  * </p>
  * @param null|array &$info [optional] <p>
- * &link.http.request.info;
  * </p>
  * @return string
  */
@@ -2715,7 +2710,6 @@ function http_put_file ($url, $file = null, ?array $options = null, ?array &$inf
  * @param null|array $options [optional] <p>
  * </p>
  * @param null|array &$info [optional] <p>
- * &link.http.request.info;
  * </p>
  * @return string
  */
@@ -2737,7 +2731,6 @@ function http_put_stream ($url, $stream = null, ?array $options = null, ?array &
  * @param null|array $options [optional] <p>
  * </p>
  * @param null|array &$info [optional] <p>
- * &link.http.request.info;
  * </p>
  * @return string
  */

@@ -15,17 +15,17 @@ use JetBrains\PhpStorm\Deprecated;
  * <p>
  * If the PHP directive
  * mysql.default_host is undefined (default), then the default
- * value is 'localhost:3306'. In &sqlsafemode;, this parameter is ignored
+ * value is 'localhost:3306'. In "ini.sql.safe-mode", this parameter is ignored
  * and value 'localhost:3306' is always used.
  * </p>
  * @param string $username [optional] <p>
  * The username. Default value is defined by mysql.default_user. In
- * &sqlsafemode;, this parameter is ignored and the name of the user that
+ * "ini.sql.safe-mode", this parameter is ignored and the name of the user that
  * owns the server process is used.
  * </p>
  * @param string $password [optional] <p>
  * The password. Default value is defined by mysql.default_password. In
- * &sqlsafemode;, this parameter is ignored and empty password is used.
+ * "ini.sql.safe-mode", this parameter is ignored and empty password is used.
  * </p>
  * @param bool $new_link [optional] <p>
  * If a second call is made to <b>mysql_connect</b>
@@ -35,7 +35,7 @@ use JetBrains\PhpStorm\Deprecated;
  * behavior and makes <b>mysql_connect</b> always open
  * a new link, even if <b>mysql_connect</b> was called
  * before with the same parameters.
- * In &sqlsafemode;, this parameter is ignored.
+ * In "ini.sql.safe-mode", this parameter is ignored.
  * </p>
  * @param int $client_flags [optional] <p>
  * The <i>client_flags</i> parameter can be a combination
@@ -46,7 +46,7 @@ use JetBrains\PhpStorm\Deprecated;
  * <b>MYSQL_CLIENT_IGNORE_SPACE</b> or
  * <b>MYSQL_CLIENT_INTERACTIVE</b>.
  * Read the section about for further information.
- * In &sqlsafemode;, this parameter is ignored.
+ * In "ini.sql.safe-mode", this parameter is ignored.
  * </p>
  * @return resource|false a MySQL link identifier on success or false on failure.
  * @removed 7.0
@@ -251,7 +251,7 @@ function mysql_list_tables ($database, $link_identifier = null) {}
  * <p>
  * The returned result can be used with <b>mysql_field_flags</b>,
  * <b>mysql_field_len</b>,
- * <b>mysql_field_name</b>&listendand;
+ * <b>mysql_field_name</b>
  * <b>mysql_field_type</b>.
  * @removed 7.0
  */

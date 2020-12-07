@@ -147,7 +147,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * Enter <b>NULL</b> here to obtain the current time when using
      * the <em>$timezone</em> parameter.
      * </p>
-     * @param DateTimeZone $timezone [optional] <p>
+     * @param null|DateTimeZone $timezone [optional] <p>
      * A {@link https://secure.php.net/manual/en/class.datetimezone.php DateTimeZone} object representing the
      * timezone of <em>$time</em>.
      * </p>
@@ -166,7 +166,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * </p> <p></p></blockquote>
      * @throws Exception Emits Exception in case of an error.
      */
-    public function __construct($datetime = "now", $timezone = null) { }
+    public function __construct($datetime = "now", DateTimeZone $timezone = null) { }
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -185,7 +185,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param null|DateTimeZone $timezone [optional]
      * @return DateTimeImmutable|false
      */
-    public static function createFromFormat($format, $datetime, ?DateTimeZone $timezone = null) { }
+    public static function createFromFormat($format, $datetime, DateTimeZone $timezone = null) { }
 
     /**
      * (PHP 5 &gt;=5.6.0)<br/>
@@ -467,7 +467,7 @@ class DateTime implements DateTimeInterface {
      * </p> <p></p></blockquote>
      * @throws Exception Emits Exception in case of an error.
      */
-    public function __construct ($datetime = 'now', ?DateTimeZone $timezone = null) {}
+    public function __construct ($datetime = 'now', DateTimeZone $timezone = null) {}
 
     /**
      * @return void
@@ -603,7 +603,7 @@ class DateTime implements DateTimeInterface {
      * @return DateTime|false
      * @link https://php.net/manual/en/datetime.createfromformat.php
      */
-    public static function createFromFormat ($format, $datetime, ?DateTimeZone $timezone = null) {}
+    public static function createFromFormat ($format, $datetime, DateTimeZone $timezone = null) {}
 
     /**
      * Returns an array of warnings and errors found while parsing a date/time string

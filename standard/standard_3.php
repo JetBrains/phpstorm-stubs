@@ -1018,7 +1018,8 @@ function get_cfg_var (string $option): array|string|false
 {}
 
 /**
- * &Alias; <function>set_magic_quotes_runtime</function>
+ * Alias:
+ * {@see set_magic_quotes_runtime}
  * @link https://php.net/manual/en/function.magic-quotes-runtime.php
  * @param bool $new_setting
  * @removed 7.0
