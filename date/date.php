@@ -1,6 +1,7 @@
 <?php
 
 // Start of date v.5.3.2-0.dotdeb.1
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
@@ -1001,6 +1002,12 @@ function date_parse_from_format (string $format, string $datetime): array
  * @link https://php.net/manual/en/function.date-get-last-errors.php
  * @return array|false <p>Returns array containing info about warnings and errors.</p>
  */
+#[ArrayShape([
+    "warning_count" => "int",
+    "warnings" => "string[]",
+    "error_count" => "int",
+    "errors" => "string[]",
+])]
 #[Pure]
 function date_get_last_errors (): array|false
 {}
@@ -1343,7 +1350,7 @@ function timezone_version_get (): string
  * Alias:
  * {@see DateInterval::createFromDateString}
  * @link https://php.net/manual/en/function.date-interval-create-from-date-string.php
- * @param $datetime <p>A date with relative parts. Specifically, the relative formats supported by the parser used for
+ * @param string $datetime <p>A date with relative parts. Specifically, the relative formats supported by the parser used for
  * {@see strtotime()} and
  * {@see DateTime} will be used to construct the
  * {@see DateInterval}.</p>

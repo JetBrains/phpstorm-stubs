@@ -349,6 +349,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * phar.require_hash INI variable
 	 * is set to true.
 	 */
+	#[ArrayShape([
+		"hash" => "string",
+		"hash_type" => "string",
+	])]
 	public function getSignature () {}
 
 	/**
@@ -601,8 +605,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
 	 * Return array of supported compression algorithms
 	 * @link https://php.net/manual/en/phar.getsupportedcompression.php
-	 * @return array an array containing any of Phar::GZ or
-	 * Phar::BZ2, depending on the availability of
+	 * @return string[] an array containing any of "GZ" or
+	 * "BZ2", depending on the availability of
 	 * the zlib extension or the
 	 * bz2 extension.
 	 */
@@ -612,8 +616,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.1.0)<br/>
 	 * Return array of supported signature types
 	 * @link https://php.net/manual/en/phar.getsupportedsignatures.php
-	 * @return array an array containing any of MD5, SHA-1,
-	 * SHA-256, SHA-512, or OpenSSL.
+	 * @return string[] an array containing any of "MD5", "SHA-1",
+	 * "SHA-256", "SHA-512", or "OpenSSL".
 	 */
 	final public static function getSupportedSignatures () {}
 
