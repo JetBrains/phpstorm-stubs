@@ -246,7 +246,7 @@ define ('CREDITS_FULLPAGE', 32);
 define ('CREDITS_QA', 64);
 
 /**
- * The configuration line, &php.ini; location, build date, Web
+ * The configuration line, "php.ini" location, build date, Web
  * Server, System and more.
  * @link https://php.net/manual/en/info.constants.php
  */

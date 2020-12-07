@@ -231,10 +231,8 @@ class SplFileInfo implements Stringable {
          * is read only.
          * </p>
          * @param bool $useIncludePath [optional] <p>
-         * &parameter.use_include_path;
          * </p>
          * @param resource $context [optional] <p>
-         * &parameter.context;
          * </p>
 	 * @return SplFileObject The opened file as an <b>SplFileObject</b> object.
          * @since 5.1.2

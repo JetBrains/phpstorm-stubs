@@ -313,7 +313,7 @@ class DOMNode  {
      * @param null|array $nsPrefixes [optional] An array of namespace prefixes to filter the nodes by.
      * @return string|false Canonicalized nodes as a string or FALSE on failure
      */
-    public function C14N ($exclusive, $withComments, ?array $xpath = null, ?array $nsPrefixes = null) {}
+    public function C14N ($exclusive, $withComments, array $xpath = null, array $nsPrefixes = null) {}
 
     /**
      * Canonicalize nodes to a file.
@@ -325,7 +325,7 @@ class DOMNode  {
      * @param null|array $nsPrefixes [optional] An array of namespace prefixes to filter the nodes by.
      * @return int|false Number of bytes written or FALSE on failure
      */
-    public function C14NFile ($uri, $exclusive, $withComments = false, array $xpath = null, ?array $nsPrefixes = null) {}
+    public function C14NFile ($uri, $exclusive, $withComments = false, array $xpath = null, array $nsPrefixes = null) {}
 
 
 }
@@ -923,7 +923,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * </p>
      * @return string|false the XML, or false if an error occurred.
      */
-    public function saveXML (?DOMNode $node = null , $options = null) {}
+    public function saveXML (DOMNode $node = null , $options = null) {}
 
     /**
      * Creates a new DOMDocument object
@@ -990,7 +990,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * @param null|DOMNode $node [optional] parameter to output a subset of the document.
      * @return string|false The HTML, or false if an error occurred.
      */
-    public function saveHTML (?DOMNode $node = null) {}
+    public function saveHTML (DOMNode $node = null) {}
 
     /**
      * Dumps the internal document into a file using HTML formatting

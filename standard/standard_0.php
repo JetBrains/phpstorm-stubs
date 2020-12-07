@@ -461,7 +461,6 @@ function htmlspecialchars (string $string, int $flags = ENT_COMPAT | ENT_HTML401
  * set used in conversion.
  * Presently, the ISO-8859-1 character set is used as the default.
  * </p>
- * &reference.strings.charsets;
  * @param bool $double_encode [optional] <p>
  * When double_encode is turned off PHP will not
  * encode existing html entities. The default is to convert everything.
@@ -508,7 +507,6 @@ function htmlentities (string $string, int $flags, ?string $encoding, bool $doub
  * charset. This defines the character set used in
  * conversion.
  * </p>
- * &reference.strings.charsets;
  * @return string the decoded string.
  */
 #[Pure]
@@ -1033,7 +1031,7 @@ function image_type_to_extension (int $image_type, $include_dot = true): string|
  * <td>INFO_GENERAL</td>
  * <td>1</td>
  * <td>
- * The configuration line, &php.ini; location, build date, Web
+ * The configuration line, "php.ini" location, build date, Web
  * Server, System and more.
  * </td>
  * </tr>
@@ -1261,7 +1259,7 @@ function php_ini_scanned_files (): string|false
 /**
  * Retrieve a path to the loaded php.ini file
  * @link https://php.net/manual/en/function.php-ini-loaded-file.php
- * @return string|false The loaded &php.ini; path, or false if one is not loaded.
+ * @return string|false The loaded "php.ini" path, or false if one is not loaded.
  * @since 5.2.4
  */
 #[Pure]

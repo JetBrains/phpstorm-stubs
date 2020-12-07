@@ -772,7 +772,8 @@ function sqlite_fetch_single ($result, $decode_binary = null) {}
 
 /**
  * (PHP 5, PECL sqlite &gt;= 1.0.0)<br/>
- * &Alias; {@see sqlite_fetch_single}
+ * Alias:
+ * {@see sqlite_fetch_single}
  * @link https://php.net/manual/en/function.sqlite-fetch-string.php
  * @param resource $result <p>The SQLite result resource. This parameter is not required when using the object-oriented method.</p>
  * @param bool $decode_binary [optional] <p>When the <b>decode_binary</b>

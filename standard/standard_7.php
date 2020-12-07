@@ -617,7 +617,8 @@ function is_writable (string $filename): bool
 {}
 
 /**
- * &Alias; <function>is_writable</function>
+ * Alias:
+ * {@see is_writable}
  * @link https://php.net/manual/en/function.is-writeable.php
  * @param string $filename <p>
  * The filename being checked.
@@ -1028,7 +1029,7 @@ function diskfreespace (string $directory): float|false
  * When sending mail, the mail must contain
  * a From header. This can be set with the
  * additional_headers parameter, or a default
- * can be set in &php.ini;.
+ * can be set in "php.ini".
  * </p>
  * <p>
  * Failing to do this will result in an error

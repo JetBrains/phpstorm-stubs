@@ -57,9 +57,9 @@ function floatval (mixed $value): float
 
 /**
  * (PHP 4.2.0, PHP 5)<br/>
- * Alias of floatval()
+ * Alias:
+ * {@see floatval}
  * Get float value of a variable
- * &Alias; <function>floatval</function>
  * @link https://php.net/manual/en/function.doubleval.php
  * @param mixed $value May be any scalar type. should not be used on objects, as doing so will emit an E_NOTICE level error and return 1.
  * @return float value of the given variable. Empty arrays return 0, non-empty arrays return 1.
@@ -185,7 +185,8 @@ function is_bool (mixed $value): bool
 {}
 
 /**
- * &Alias; <function>is_int</function>
+ * Alias:
+ * {@see is_int}
  * @link https://php.net/manual/en/function.is-long.php
  * @param mixed $value <p>
  * The variable being evaluated.
@@ -224,7 +225,8 @@ function is_int (mixed $value): bool
 {}
 
 /**
- * &Alias; <function>is_int</function>
+ * Alias:
+ * {@see is_int}
  * @link https://php.net/manual/en/function.is-integer.php
  * @param mixed $value <p>
  * The variable being evaluated.
@@ -237,7 +239,8 @@ function is_integer (mixed $value): bool
 {}
 
 /**
- * &Alias; <function>is_float</function>
+ * Alias:
+ * {@see is_float}
  * @link https://php.net/manual/en/function.is-double.php
  * @param mixed $value <p>
  * The variable being evaluated.
@@ -250,7 +253,8 @@ function is_double (mixed $value): bool
 {}
 
 /**
- * &Alias; <function>is_float</function>
+ * Alias:
+ * {@see is_float}
  * @link https://php.net/manual/en/function.is-real.php
  * @param mixed $var <p>
  * The variable being evaluated.
@@ -439,7 +443,7 @@ function rewind ($stream): bool
  * @param string $directory <p>
  * Path to the directory.
  * </p>
- * @param resource $context [optional] &note.context-support;
+ * @param resource $context [optional]
  * @return bool true on success or false on failure.
  */
 function rmdir (string $directory, $context): bool
@@ -565,7 +569,7 @@ function fread ($stream, int $length): string|false
  * a local file, then it will try to open a stream on that file.
  * The file must be accessible to PHP, so you need to ensure that
  * the file access permissions allow this access.
- * If you have enabled &safemode;,
+ * If you have enabled "safemode",
  * or open_basedir further
  * restrictions may apply.
  * </p>
@@ -580,9 +584,9 @@ function fread ($stream, int $length): string|false
  * <p>
  * The list of supported protocols can be found in . Some protocols (also referred to as
  * wrappers) support context
- * and/or &php.ini; options. Refer to the specific page for the
+ * and/or "php.ini" options. Refer to the specific page for the
  * protocol in use for a list of options which can be set. (e.g.
- * &php.ini; value user_agent used by the
+ * "php.ini" value user_agent used by the
  * http wrapper).
  * </p>
  * <p>
@@ -727,7 +731,7 @@ function fread ($stream, int $length): string|false
  * can be set to '1' or true if you want to search for the file in the
  * include_path, too.
  * </p>
- * @param resource $context [optional] &note.context-support;
+ * @param resource $context [optional]
  * @return resource|false a file pointer resource on success, or false on error.
  */
 function fopen (string $filename, string $mode, bool $use_include_path = false, $context)
@@ -862,7 +866,8 @@ function fwrite ($stream, string $data, ?int $length): int|false
 {}
 
 /**
- * &Alias; <function>fwrite</function>
+ * Alias:
+ * {@see fwrite}
  * @param resource $stream A file system pointer resource that is typically created using fopen().
  * @param string $data <p>
  * The string that is to be written.
@@ -910,7 +915,7 @@ function fputs ($stream, string $data, ?int $length): int|false
  * @param bool $recursive [optional] <p>
  * Allows the creation of nested directories specified in the pathname. Default to false.
  * </p>
- * @param resource $context [optional] &note.context-support;
+ * @param resource $context [optional]
  * @return bool true on success or false on failure.
  */
 function mkdir (string $directory, int $permissions = 0777, bool $recursive = false, $context): bool
@@ -929,7 +934,7 @@ function mkdir (string $directory, int $permissions = 0777, bool $recursive = fa
  * @param string $to <p>
  * The new name.
  * </p>
- * @param resource $context [optional] &note.context-support;
+ * @param resource $context [optional]
  * @return bool true on success or false on failure.
  */
 function rename (string $from, string $to, $context): bool
@@ -989,7 +994,6 @@ function tmpfile ()
  * @param string $filename <p>
  * Path to the file.
  * </p>
- * &tip.fopen-wrapper;
  * @param int $flags [optional] <p>
  * The optional parameter flags can be one, or
  * more, of the following constants:
@@ -1000,17 +1004,16 @@ function tmpfile ()
  * stream_context_create function.
  * </p>
  * <p>
- * &note.context-support;
  * </p>
  * @return array|false the file in an array. Each element of the array corresponds to a
  * line in the file, with the newline still attached. Upon failure,
  * file returns false.
- * </p>
  * <p>
  * Each line in the resulting array will include the line ending, unless
  * FILE_IGNORE_NEW_LINES is used, so you still need to
  * use rtrim if you do not want the line ending
  * present.
+ * </p>
  */
 function file (string $filename, int $flags, $context): array|false
 {}

@@ -837,7 +837,8 @@ function array_key_last(array $array): string|int|null
 { }
 
 /**
- * &Alias; <function>current</function>
+ * Alias:
+ * {@see current}
  * @link https://php.net/manual/en/function.pos.php
  * @param array|ArrayAccess $array
  * @return mixed
@@ -847,7 +848,8 @@ function pos(object|array $array): mixed
 { }
 
 /**
- * &Alias; <function>count</function>
+ * Alias:
+ * {@see \count}
  * @link https://php.net/manual/en/function.sizeof.php
  * @param array|Countable $value
  * @param int $mode [optional]

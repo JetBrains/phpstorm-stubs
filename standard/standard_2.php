@@ -287,7 +287,8 @@ function str_pad (string $string, int $length, string $pad_string = " ", int $pa
 {}
 
 /**
- * &Alias; <function>rtrim</function>
+ * Alias:
+ * {@see rtrim}
  * @param string $string The input string.
  * @param string $characters [optional]
  * @return string the modified string.
@@ -299,7 +300,8 @@ function chop (string $string, string $characters): string
 {}
 
 /**
- * &Alias; <function>strstr</function>
+ * Alias:
+ * {@see strstr}
  * @link https://php.net/manual/en/function.strchr.php
  * Note: This function is case-sensitive. For case-insensitive searches, use stristr().
  * Note: If you only want to determine if a particular needle occurs within haystack,
@@ -660,7 +662,7 @@ function link (string $target , string $link):bool {}
  * @param string $filename <p>
  * Path to the file.
  * </p>
- * @param resource $context [optional] &note.context-support;
+ * @param resource $context [optional]
  * @return bool true on success or false on failure.
  */
 function unlink (string $filename, $context):bool {}

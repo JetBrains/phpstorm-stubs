@@ -961,8 +961,8 @@ function get_defined_constants (bool $categorize = false): array
  * <table>
  * Possible returned elements from <b>debug_backtrace</b>
  * <tr valign="top">
- * <td>&Name;</td>
- * <td>&Type;</td>
+ * <td>Name</td>
+ * <td>Type</td>
  * <td>Description</td>
  * </tr>
  * <tr valign="top">

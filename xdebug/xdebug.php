@@ -189,7 +189,7 @@ function xdebug_break (): bool {}
  * Use the PHP function getcwd() to figure out what the current working directory is.
  * @param string|null $traceFile
  * @param int $options
- * @return void
+ * @return string
  */
 function xdebug_start_trace(?string $traceFile, int $options = 0): string {}
 
@@ -351,6 +351,7 @@ function xdebug_get_gc_total_collected_roots(): int {}
  * @param int   $group
  * @param int   $listType
  * @param array $configuration
+ * @return void
  */
 function xdebug_set_filter(int $group, int $listType, array $configuration ) {}
 

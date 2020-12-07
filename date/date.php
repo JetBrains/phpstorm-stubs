@@ -919,7 +919,8 @@ function date_create (string $datetime, ?DateTimeZone $timezone ): DateTime|fals
 
 /**
  * (PHP 5.5)<br/>
- * Alias for DateTimeImmutable::__construct()
+ * Alias:
+ * {@see DateTimeImmutable::__construct}
  * Returns new DateTimeImmutable object
  * @link https://php.net/manual/en/function.date-create-immutable.php
  * @see DateTimeImmutable::__construct()
@@ -1032,7 +1033,8 @@ function date_modify (DateTime $object, string $modifier): DateTime|false
 {}
 
 /**
- * &Alias; <methodname>DateTime::add</methodname>
+ * Alias:
+ * {@see DateTime::add}
  * @link https://php.net/manual/en/function.date-add.php
  * @param DateTime $object <p>Procedural style only: A
  * {@see DateTime} object returned by
@@ -1115,7 +1117,6 @@ function date_timezone_set (DateTimeInterface $object, DateTimeZone $timezone)
 function date_offset_get (DateTimeInterface $object)
 {}
 
-
 /**
  * Returns the difference between two datetime objects
  * Alias:
@@ -1130,8 +1131,10 @@ function date_offset_get (DateTimeInterface $object)
 #[LanguageLevelTypeAware(["8.0" => "DateInterval"], default: "DateInterval|false")]
 function date_diff (DateTimeInterface $baseObject, DateTimeInterface $targetObject, bool $absolute = false)
 {}
+
 /**
- * &Alias; <methodname>DateTime::setTime</methodname>
+ * Alias:
+ * {@see DateTime::setTime}
  * @link https://php.net/manual/en/function.date-time-set.php
  * @param DateTime $object
  * @param int $hour
@@ -1145,7 +1148,8 @@ function date_diff (DateTimeInterface $baseObject, DateTimeInterface $targetObje
 function date_time_set (DateTime $object, int $hour, int $minute, int $second = 0, int $microsecond = 0): DateTime {}
 
 /**
- * &Alias; <methodname>DateTime::setDate</methodname>
+ * Alias:
+ * {@see DateTime::setDate}
  * @link https://php.net/manual/en/function.date-date-set.php
  * @param DateTime $object <p>Procedural style only: A {@see DateTime} object
  * returned by {@see date_create()}.
@@ -1181,7 +1185,8 @@ function date_isodate_set (DateTime $object, int $year, int $week, int $dayOfWee
 
 /**
  * Sets the date and time based on an unix timestamp
- * Alias: {@see DateTime::setTimestamp}
+ * Alias:
+ * {@see DateTime::setTimestamp}
  * @link https://php.net/manual/en/function.date-timestamp-set.php
  * @param DateTime $object <p>Procedural style only: A
  * {@see DateTime} object returned by
@@ -1220,7 +1225,8 @@ function timezone_open (string $timezone): DateTimeZone|false
 {}
 
 /**
- * Alias: {@see DateTimeZone::getName}
+ * Alias:
+ * {@see DateTimeZone::getName}
  * @link https://php.net/manual/en/function.timezone-name-get.php
  * @param DateTimeZone $object <p>The
  * {@see DateTimeZone} for which to get a name.</p>
@@ -1287,7 +1293,8 @@ function timezone_transitions_get (DateTimeZone $object, int $timestampBegin, in
 {}
 
 /**
- * &Alias; {@see DateTimeZone::getLocation}
+ * Alias:
+ * {@see DateTimeZone::getLocation}
  * @link https://php.net/manual/en/function.timezone-location-get.php
  * @param DateTimeZone $object <p>Procedural style only: A {@see DateTimeZone} object returned by {@see timezone_open()}
  * @return array|false <p>Array containing location information about timezone.</p>
@@ -1348,7 +1355,8 @@ function date_interval_create_from_date_string (string $datetime): DateInterval|
 {}
 
 /**
- * &Alias; <methodname>DateInterval::format</methodname>
+ * Alias:
+ * {@see DateInterval::format}
  * @link https://php.net/manual/en/function.date-interval-format.php
  * @param DateInterval $object
  * @param string $format
