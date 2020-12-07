@@ -7,8 +7,19 @@
  */
 class FANNConnection
 {
+    /**
+     * @var float
+     */
     public $weight;
+
+    /**
+     * @var int
+     */
     public $to_neuron;
+
+    /**
+     * @var int
+     */
     public $from_neuron;
 
     /**

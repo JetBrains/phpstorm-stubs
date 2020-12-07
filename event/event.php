@@ -1978,7 +1978,14 @@ final class EventSslContext
     const OPT_VERIFY_DEPTH = 8;
     const OPT_CIPHERS = 9;
 
+    /**
+     * @var string
+     */
     public $local_cert;
+
+    /**
+     * @var string
+     */
     public $local_pk;
 
     /**
