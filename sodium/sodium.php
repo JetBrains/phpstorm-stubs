@@ -468,7 +468,7 @@ function sodium_crypto_box_seal(string $message, string $key): string {}
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_box_seal_open(string $ciphertext, string $key): string|false {}
+function sodium_crypto_box_seal_open(string $ciphertext, string $key_pair): string|false {}
 
 /**
  * Extract the X25519 secret key from an X25519 keypair
