@@ -1,6 +1,8 @@
 <?php
 // Start of Phar v.2.0.1
 
+use JetBrains\PhpStorm\ArrayShape;
+
 /**
  * The PharException class provides a phar-specific exception class
  * for try/catch blocks.
