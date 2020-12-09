@@ -277,7 +277,7 @@ function array_unique(array $array, int $flags = SORT_STRING): array { }
  * @param array $array <p>
  * The array with main values to check.
  * </p>
- * @param mixed ...$arrays <p>
+ * @param array ...$arrays <p>
  * An array to compare values against.
  * </p>
  * @return array an array containing all of the values in
@@ -285,7 +285,7 @@ function array_unique(array $array, int $flags = SORT_STRING): array { }
  * @meta
  */
 #[Pure]
-function array_intersect(array $array, ...$arrays): array { }
+function array_intersect(array $array, array ...$arrays): array { }
 
 #[PhpStormStubsElementAvailable(to: '7.4')]
 /**
