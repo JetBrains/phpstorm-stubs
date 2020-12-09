@@ -776,7 +776,6 @@ function array_chunk(array $array, int $length, bool $preserve_keys): array
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
 function array_combine(array $keys, array $values) { }
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Checks if the given key or index exists in the array
  * @link https://php.net/manual/en/function.array-key-exists.php
@@ -789,23 +788,7 @@ function array_combine(array $keys, array $values) { }
  * @return bool true on success or false on failure.
  */
 #[Pure]
-function array_key_exists($key, $array): bool
-{ }
-
-#[PhpStormStubsElementAvailable('8.0')]
-/**
- * Checks if the given key or index exists in the array
- * @link https://php.net/manual/en/function.array-key-exists.php
- * @param int|string $key <p>
- * Value to check.
- * </p>
- * @param array $array <p>
- * An array with keys to check.
- * </p>
- * @return bool true on success or false on failure.
- */
-#[Pure]
-function array_key_exists($key, array $array): bool
+function array_key_exists($key, #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|ArrayObject")] $array): bool
 { }
 
 /**
