@@ -460,14 +460,14 @@ function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, 
  * @param array $array <p>
  * The array to compare from
  * </p>
- * @param mixed ...$excludes <p>
+ * @param array ...$excludes <p>
  * An array to compare against
  * @return array an array containing all the entries from
  * array1 that are not present in any of the other arrays.
  * @meta
  */
 #[Pure]
-function array_diff(array $array, ...$excludes): array { }
+function array_diff(array $array, array ...$excludes): array { }
 
 #[PhpStormStubsElementAvailable(to: '7.4')]
 /**
