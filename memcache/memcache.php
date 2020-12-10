@@ -100,7 +100,7 @@ class MemcachePool  {
      * (PECL memcache &gt;= 2.1.0)<br/>
      * Changes server parameters and status at runtime
      * @link https://secure.php.net/manual/en/memcache.setserverparams.php
-     * @param string $host <p>Point to the host where memcached is listening for connections.</p.
+     * @param string $host <p>Point to the host where memcached is listening for connections.</p>.
      * @param int $port [optional] <p>
      * Point to the port where memcached is listening for connections.
      * </p>

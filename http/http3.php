@@ -107,8 +107,8 @@ class Client implements \SplSubject, \Countable {
 	/**
 	 * Configure the client's low level options.
 	 *
-	 * > ***NOTE:***
-	 * > This method has been added in v2.3.0.
+	 * ***NOTE:***
+	 * This method has been added in v2.3.0.
 	 *
 	 * @param array $configuration Key/value pairs of low level options.
 	 *    See f.e. the [configuration options for the Curl driver](http/Client/Curl#Configuration:).
@@ -120,8 +120,8 @@ class Client implements \SplSubject, \Countable {
 	/**
 	 * Implements Countable. Retrieve the number of enqueued requests.
 	 *
-	 * > ***NOTE:***
-	 * > The enqueued requests are counted without regard whether they are finished or not.
+	 * ***NOTE:***
+	 * The enqueued requests are counted without regard whether they are finished or not.
 	 *
 	 * @return int number of enqueued requests.
 	 */
@@ -173,13 +173,13 @@ class Client implements \SplSubject, \Countable {
 	 * Add another http\Client\Request to the request queue.
 	 * If the optional callback $cb returns true, the request will be automatically dequeued.
 	 *
-	 * > ***Note:***
-	 * > The http\Client\Response object resulting from the request is always stored
-	 * > internally to be retrieved at a later time, __even__ when $cb is used.
-	 * >
-	 * > If you are about to send a lot of requests and do __not__ need the response
-	 * > after executing the callback, you can use http\Client::getResponse() within
-	 * > the callback to keep the memory usage level as low as possible.
+	 * ***Note:***
+	 * The http\Client\Response object resulting from the request is always stored
+	 * internally to be retrieved at a later time, __even__ when $cb is used.
+	 *
+	 * If you are about to send a lot of requests and do __not__ need the response
+	 * after executing the callback, you can use http\Client::getResponse() within
+	 * the callback to keep the memory usage level as low as possible.
 	 *
 	 * See http\Client::dequeue() and http\Client::send().
 	 *
@@ -226,8 +226,8 @@ class Client implements \SplSubject, \Countable {
 	/**
 	 * Simply returns the http\Message chain representing the request/response history.
 	 *
-	 * > ***NOTE:***
-	 * > The history is only recorded while http\Client::$recordHistory is true.
+	 * ***NOTE:***
+	 * The history is only recorded while http\Client::$recordHistory is true.
 	 *
 	 * @throws \http\Exception\InvalidArgumentException
 	 * @return \http\Message the request/response message chain representing the client's history.
@@ -261,8 +261,8 @@ class Client implements \SplSubject, \Countable {
 	/**
 	 * Retrieve the corresponding response of an already finished request, or the last received response if $request is not set.
 	 *
-	 * > ***NOTE:***
-	 * > If $request is NULL, then the response is removed from the internal storage (stack-like operation).
+	 * ***NOTE:***
+	 * If $request is NULL, then the response is removed from the internal storage (stack-like operation).
 	 *
 	 * @param \http\Client\Request $request The request to fetch the stored response for.
 	 * @throws \http\Exception\InvalidArgumentException
@@ -344,8 +344,8 @@ class Client implements \SplSubject, \Countable {
 	/**
 	 * Set client debugging callback.
 	 *
-	 * > ***NOTE:***
-	 * > This method has been added in v2.6.0, resp. v3.1.0.
+	 * ***NOTE:***
+	 * This method has been added in v2.6.0, resp. v3.1.0.
 	 *
 	 * @param callable $callback as function(http\Client $c, http\Client\Request $r, int $type, string $data)
 	 *   The debug callback. For $type see http\Client::DEBUG_* constants.
@@ -357,8 +357,8 @@ class Client implements \SplSubject, \Countable {
 	 * Set client options.
 	 * See http\Client\Curl.
 	 *
-	 * > ***NOTE:***
-	 * > Only options specified prior enqueueing a request are applied to the request.
+	 * ***NOTE:***
+	 * Only options specified prior enqueueing a request are applied to the request.
 	 *
 	 * @param array $options The options to set.
 	 * @throws \http\Exception\InvalidArgumentException
@@ -480,8 +480,8 @@ class Cookie  {
 	 * Get the currently set expires attribute.
 	 * See http\Cookie::setExpires().
 	 *
-	 * > ***NOTE:***
-	 * > A return value of -1 means that the attribute is not set.
+	 * ***NOTE:***
+	 * A return value of -1 means that the attribute is not set.
 	 *
 	 * @return int the currently set expires attribute as seconds since the epoch.
 	 */
@@ -512,8 +512,8 @@ class Cookie  {
 	 * Get the currently set max-age attribute of the cookie list.
 	 * See http\Cookie::setMaxAge().
 	 *
-	 * > ***NOTE:***
-	 * > A return value of -1 means that the attribute is not set.
+	 * ***NOTE:***
+	 * A return value of -1 means that the attribute is not set.
 	 *
 	 * @return int the currently set max-age.
 	 */
@@ -529,8 +529,8 @@ class Cookie  {
 	 * (Re)set a cookie.
 	 * See http\Cookie::addCookie() and http\Cookie::setCookies().
 	 *
-	 * > ***NOTE:***
-	 * > The cookie will be deleted from the list if $cookie_value is NULL.
+	 * ***NOTE:***
+	 * The cookie will be deleted from the list if $cookie_value is NULL.
 	 *
 	 * @param string $cookie_name The key of the cookie.
 	 * @param string $cookie_value The value of the cookie.
@@ -569,8 +569,8 @@ class Cookie  {
 	 * (Re)set an extra attribute.
 	 * See http\Cookie::addExtra().
 	 *
-	 * > ***NOTE:***
-	 * > The attribute will be removed from the extras list if $extra_value is NULL.
+	 * ***NOTE:***
+	 * The attribute will be removed from the extras list if $extra_value is NULL.
 	 *
 	 * @param string $extra_name The key of the extra attribute.
 	 * @param string $extra_value The value of the extra attribute.
@@ -691,8 +691,8 @@ class Env  {
 	/**
 	 * Generic negotiator. For specific client negotiation see http\Env::negotiateContentType() and related methods.
 	 *
-	 * > ***NOTE:***
-	 * > The first element of $supported serves as a default if no operand matches.
+	 * ***NOTE:***
+	 * The first element of $supported serves as a default if no operand matches.
 	 *
 	 * @param string $params HTTP header parameter's value to negotiate.
 	 * @param array $supported List of supported negotiation operands.
@@ -705,8 +705,8 @@ class Env  {
 	/**
 	 * Negotiate the client's preferred character set.
 	 *
-	 * > ***NOTE:***
-	 * > The first element of $supported character sets serves as a default if no character set matches.
+	 * ***NOTE:***
+	 * The first element of $supported character sets serves as a default if no character set matches.
 	 *
 	 * @param array $supported List of supported content character sets.
 	 * @param array &$result Out parameter recording negotiation results.
@@ -717,8 +717,8 @@ class Env  {
 	/**
 	 * Negotiate the client's preferred MIME content type.
 	 *
-	 * > ***NOTE:***
-	 * > The first element of $supported content types serves as a default if no content-type matches.
+	 * ***NOTE:***
+	 * The first element of $supported content types serves as a default if no content-type matches.
 	 *
 	 * @param array $supported List of supported MIME content types.
 	 * @param array &$result Out parameter recording negotiation results.
@@ -729,8 +729,8 @@ class Env  {
 	/**
 	 * Negotiate the client's preferred encoding.
 	 *
-	 * > ***NOTE:***
-	 * > The first element of $supported encodings serves as a default if no encoding matches.
+	 * ***NOTE:***
+	 * The first element of $supported encodings serves as a default if no encoding matches.
 	 *
 	 * @param array $supported List of supported content encodings.
 	 * @param array &$result Out parameter recording negotiation results.
@@ -741,8 +741,8 @@ class Env  {
 	/**
 	 * Negotiate the client's preferred language.
 	 *
-	 * > ***NOTE:***
-	 * > The first element of $supported languages serves as a default if no language matches.
+	 * ***NOTE:***
+	 * The first element of $supported languages serves as a default if no language matches.
 	 *
 	 * @param array $supported List of supported content languages.
 	 * @param array &$result Out parameter recording negotiation results.
@@ -857,8 +857,8 @@ class Header implements \Serializable {
 	 * separator, and if the header is Accept-Language respectively, a hyphen is
 	 * used instead.
 	 *
-	 * > ***NOTE:***
-	 * > The first element of $supported serves as a default if no operand matches.
+	 * ***NOTE:***
+	 * The first element of $supported serves as a default if no operand matches.
 	 *
 	 * @param array $supported The list of supported values to negotiate.
 	 * @param array &$result Out parameter recording the negotiation results.
@@ -1149,8 +1149,8 @@ class Message implements \Countable, \Serializable, \Iterator {
 	/**
 	 * Prepend message(s) $message to this message, or the top most message of this message chain.
 	 *
-	 * > ***NOTE:***
-	 * > The message chains must not overlap.
+	 * ***NOTE:***
+	 * The message chains must not overlap.
 	 *
 	 * @param \http\Message $message The message (chain) to prepend as parent messages.
 	 * @param bool $top Whether to prepend to the top-most parent message.
@@ -1162,10 +1162,10 @@ class Message implements \Countable, \Serializable, \Iterator {
 	/**
 	 * Reverse the message chain and return the former top-most message.
 	 *
-	 * > ***NOTE:***
-	 * > Message chains are ordered in reverse-parsed order by default, i.e. the last parsed message is the message you'll receive from any call parsing HTTP messages.
-	 * >
-	 * > This call re-orders the messages of the chain and returns the message that was parsed first with any later parsed messages re-parentized.
+	 * ***NOTE:***
+	 * Message chains are ordered in reverse-parsed order by default, i.e. the last parsed message is the message you'll receive from any call parsing HTTP messages.
+	 *
+	 * This call re-orders the messages of the chain and returns the message that was parsed first with any later parsed messages re-parentized.
 	 *
 	 * @throws \http\Exception\InvalidArgumentException
 	 * @return \http\Message the other end of the message chain.
@@ -1195,9 +1195,9 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * Set a single header.
 	 * See http\Message::getHeader() and http\Message::addHeader().
 	 *
-	 * > ***NOTE:***
-	 * > Prior to v2.5.6/v3.1.0 headers with the same name were merged into a single
-	 * > header with values concatenated by comma.
+	 * ***NOTE:***
+	 * Prior to v2.5.6/v3.1.0 headers with the same name were merged into a single
+	 * header with values concatenated by comma.
 	 *
 	 * @param string $header The header's name.
 	 * @param mixed $value The header's value. Removes the header if NULL.
@@ -1208,9 +1208,9 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * Set the message headers.
 	 * See http\Message::getHeaders() and http\Message::addHeaders().
 	 *
-	 * > ***NOTE:***
-	 * > Prior to v2.5.6/v3.1.0 headers with the same name were merged into a single
-	 * > header with values concatenated by comma.
+	 * ***NOTE:***
+	 * Prior to v2.5.6/v3.1.0 headers with the same name were merged into a single
+	 * header with values concatenated by comma.
 	 *
 	 * @param array $headers The message's headers.
 	 * @return \http\Message null.
@@ -1260,8 +1260,8 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * Set the response status code.
 	 * See http\Message::getResponseCode() and http\Message::setResponseStatus().
 	 *
-	 * > ***NOTE:***
-	 * > This method also resets the response status phrase to the default for that code.
+	 * ***NOTE:***
+	 * This method also resets the response status phrase to the default for that code.
 	 *
 	 * @param int $response_code The response code.
 	 * @param bool $strict Whether to check that the response code is between 100 and 599 inclusive.
@@ -1621,8 +1621,8 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate {
 	 * Set additional $params to a clone of this instance.
 	 * See http\QueryString::set().
 	 *
-	 * > ***NOTE:***
-	 * > This method returns a clone (copy) of this instance.
+	 * ***NOTE:***
+	 * This method returns a clone (copy) of this instance.
 	 *
 	 * @param mixed $params Additional params as object, array or string to parse.
 	 * @throws \http\Exception\BadQueryStringException
@@ -1693,8 +1693,8 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate {
 	/**
 	 * Translate character encodings of the querystring with ext/iconv.
 	 *
-	 * > ***NOTE:***
-	 * > This method is only available when ext/iconv support was enabled at build time.
+	 * ***NOTE:***
+	 * This method is only available when ext/iconv support was enabled at build time.
 	 *
 	 * @param string $from_enc The encoding to convert from.
 	 * @param string $to_enc The encoding to convert to.
@@ -1848,8 +1848,8 @@ class Url  {
 	/**
 	 * Create an instance of an http\Url.
 	 *
-	 * > ***NOTE:***
-	 * > Prior to v3.0.0, the default for the $flags parameter was http\Url::FROM_ENV.
+	 * ***NOTE:***
+	 * Prior to v3.0.0, the default for the $flags parameter was http\Url::FROM_ENV.
 	 *
 	 * See also http\Env\Url.
 	 *
@@ -1869,8 +1869,8 @@ class Url  {
 	/**
 	 * Clone this URL and apply $parts to the cloned URL.
 	 *
-	 * > ***NOTE:***
-	 * > This method returns a clone (copy) of this instance.
+	 * ***NOTE:***
+	 * This method returns a clone (copy) of this instance.
 	 *
 	 * @param mixed $parts New URL parts.
 	 * @param int $flags Modus operandi of URL construction. See http\Url constants.
@@ -2126,8 +2126,8 @@ class Request extends \http\Message {
 	 *
 	 * Request specific options override general options which were set in the client.
 	 *
-	 * > ***NOTE:***
-	 * > Only options specified prior enqueueing a request are applied to the request.
+	 * ***NOTE:***
+	 * Only options specified prior enqueueing a request are applied to the request.
 	 *
 	 * @param array $options The options to set.
 	 * @throws \http\Exception\InvalidArgumentException
@@ -2184,8 +2184,8 @@ namespace http\Client\Curl;
 /**
  * Interface to an user event loop implementation for http\Client::configure()'s $use_eventloop option.
  *
- * > ***NOTE:***
- * > This interface was added in v2.6.0, resp. v3.1.0.
+ * ***NOTE:***
+ * This interface was added in v2.6.0, resp. v3.1.0.
  */
 interface User  {
 	/**
@@ -2215,22 +2215,22 @@ interface User  {
 	 *   Internal callback returning the number of unfinished requests pending.
 	 *
 	 *
-	 * > ***NOTE***:
-	 * > The callback should be run when a timeout occurs or a watched socket needs action.
+	 * ***NOTE***:
+	 * The callback should be run when a timeout occurs or a watched socket needs action.
 	 */
 	function init(callable $run);
 	/**
 	 * Run the loop as long as it does not block.
 	 *
-	 * > ***NOTE:***
-	 * > This method is called by http\Client::once(), so it does not need to have an actual implementation if http\Client::once() is never called.
+	 * ***NOTE:***
+	 * This method is called by http\Client::once(), so it does not need to have an actual implementation if http\Client::once() is never called.
 	 */
 	function once();
 	/**
 	 * Run the loop.
 	 *
-	 * > ***NOTE:***
-	 * > This method is called by http\Client::send(), so it does not need to have an actual implementation if http\Client::send() is never called.
+	 * ***NOTE:***
+	 * This method is called by http\Client::send(), so it does not need to have an actual implementation if http\Client::send() is never called.
 	 */
 	function send();
 	/**
@@ -2249,8 +2249,8 @@ interface User  {
 	/**
 	 * Wait/poll/select (block the loop) until events fire.
 	 *
-	 * > ***NOTE:***
-	 * > This method is called by http\Client::wait(), so it does not need to have an actual implementation if http\Client::wait() is never called.
+	 * ***NOTE:***
+	 * This method is called by http\Client::wait(), so it does not need to have an actual implementation if http\Client::wait() is never called.
 	 *
 	 * @param int $timeout_ms Block for at most this milliseconds.
 	 */
@@ -2259,8 +2259,8 @@ interface User  {
 /**
  * CURL feature constants.
  *
- * > ***NOTE:***
- * > These constants have been added in v2.6.0, resp. v3.1.0.
+ * ***NOTE:***
+ * These constants have been added in v2.6.0, resp. v3.1.0.
  */
 namespace http\Client\Curl\Features;
 /**
@@ -2338,8 +2338,8 @@ const UNIX_SOCKETS = 524288;
 /**
  * CURL version constants.
  *
- * > ***NOTE:***
- * > These constants have been added in v2.6.0, resp. v3.1.0.
+ * ***NOTE:***
+ * These constants have been added in v2.6.0, resp. v3.1.0.
  */
 namespace http\Client\Curl\Versions;
 /**
@@ -2419,8 +2419,8 @@ namespace http\Encoding\Stream;
 /**
  * A [brotli](https://brotli.org) decoding stream.
  *
- * > ***NOTE:***
- * > This class has been added in v3.2.0.
+ * ***NOTE:***
+ * This class has been added in v3.2.0.
  */
 class Debrotli extends \http\Encoding\Stream {
 	/**
@@ -2524,8 +2524,8 @@ class Deflate extends \http\Encoding\Stream {
 /**
  * A [brotli](https://brotli.org) encoding stream.
  *
- * > ***NOTE:***
- * > This class has been added in v3.2.0.
+ * ***NOTE:***
+ * This class has been added in v3.2.0.
  */
 class Enbrotli extends \http\Encoding\Stream {
 	/**
@@ -2861,8 +2861,8 @@ class Response extends \http\Message {
 	/**
 	 * Set a custom ETag.
 	 *
-	 * > ***NOTE:***
-	 * > This will be used for caching and pre-condition checks.
+	 * ***NOTE:***
+	 * This will be used for caching and pre-condition checks.
 	 *
 	 * @param string $etag A ETag.
 	 * @throws \http\Exception\InvalidArgumentException
@@ -2872,8 +2872,8 @@ class Response extends \http\Message {
 	/**
 	 * Set a custom last modified time stamp.
 	 *
-	 * > ***NOTE:***
-	 * > This will be used for caching and pre-condition checks.
+	 * ***NOTE:***
+	 * This will be used for caching and pre-condition checks.
 	 *
 	 * @param int $last_modified A unix timestamp.
 	 * @throws \http\Exception\InvalidArgumentException
@@ -2884,8 +2884,8 @@ class Response extends \http\Message {
 	 * Enable throttling.
 	 * Send $chunk_size bytes every $delay seconds.
 	 *
-	 * > ***NOTE:***
-	 * > If you need throttling by regular means, check for other options in your stack, because this method blocks the executing process/thread until the response has completely been sent.
+	 * ***NOTE:***
+	 * If you need throttling by regular means, check for other options in your stack, because this method blocks the executing process/thread until the response has completely been sent.
 	 *
 	 * @param int $chunk_size Bytes to send.
 	 * @param float $delay Seconds to sleep.
@@ -2896,8 +2896,8 @@ class Response extends \http\Message {
 /**
  * URL class using the HTTP environment by default.
  *
- * > ***NOTE:***
- * > This class has been added in v3.0.0.
+ * ***NOTE:***
+ * This class has been added in v3.0.0.
  *
  * Always adds http\Url::FROM_ENV to the $flags constructor argument. See also http\Url.
  */
@@ -2953,8 +2953,8 @@ namespace http\Header;
 /**
  * The parser which is underlying http\Header and http\Message.
  *
- * > ***NOTE:***
- * > This class has been added in v2.3.0.
+ * ***NOTE:***
+ * This class has been added in v2.3.0.
  */
 class Parser  {
 	/**
@@ -2988,8 +2988,8 @@ class Parser  {
 	/**
 	 * Finished parsing the headers.
 	 *
-	 * > ***NOTE:***
-	 * > Most of this states won't be returned to the user, because the parser immediately jumps to the next expected state.
+	 * ***NOTE:***
+	 * Most of this states won't be returned to the user, because the parser immediately jumps to the next expected state.
 	 */
 	const STATE_DONE = 5;
 	/**
@@ -3026,8 +3026,8 @@ namespace http\Message;
 /**
  * The message body, represented as a PHP (temporary) stream.
  *
- * > ***NOTE:***
- * > Currently, http\Message\Body::addForm() creates multipart/form-data bodies.
+ * ***NOTE:***
+ * Currently, http\Message\Body::addForm() creates multipart/form-data bodies.
  */
 class Body implements \Serializable {
 	/**
@@ -3047,8 +3047,8 @@ class Body implements \Serializable {
 	/**
 	 * Add form fields and files to the message body.
 	 *
-	 * > ***NOTE:***
-	 * > Currently, http\Message\Body::addForm() creates "multipart/form-data" bodies.
+	 * ***NOTE:***
+	 * Currently, http\Message\Body::addForm() creates "multipart/form-data" bodies.
 	 *
 	 * @param array $fields List of form fields to add.
 	 * @param array $files List of form files to add.
@@ -3178,8 +3178,8 @@ class Body implements \Serializable {
 /**
  * The parser which is underlying http\Message.
  *
- * > ***NOTE:***
- * > This class was added in v2.2.0.
+ * ***NOTE:***
+ * This class was added in v2.2.0.
  */
 class Parser  {
 	/**
@@ -3241,8 +3241,8 @@ class Parser  {
 	/**
 	 * Finished parsing the message.
 	 *
-	 * > ***NOTE:***
-	 * > Most of this states won't be returned to the user, because the parser immediately jumps to the next expected state.
+	 * ***NOTE:***
+	 * Most of this states won't be returned to the user, because the parser immediately jumps to the next expected state.
 	 */
 	const STATE_DONE = 9;
 	/**

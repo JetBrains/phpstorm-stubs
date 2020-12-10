@@ -77,7 +77,7 @@ final class SolrClient {
 	 * When this value specified, it leaves the control of when to do the commit to Solr itself, optimizing number of
 	 * commits to a minimum while still fulfilling the update latency requirements, and Solr will automatically do a
 	 * commit when the oldest add in the buffer is due.
-	 * <p/>
+	 * </p>
 	 * @return SolrUpdateResponse <p>
 	 * Returns a SolrUpdateResponse object or throws an Exception on failure.
 	 * </p>
@@ -96,7 +96,7 @@ final class SolrClient {
 	 * @link https://php.net/manual/en/solrclient.adddocuments.php
 	 * @param array $docs <p>
 	 * An array containing the collection of SolrInputDocument instances. This array must be an actual variable.
-	 * <p/>
+	 * </p>
 	 * @param bool $overwrite [optional] <p>
 	 * Whether to overwrite existing document or not. If <b>FALSE</b> there will be duplicates (several documents with
 	 * the same ID).
@@ -116,7 +116,7 @@ final class SolrClient {
 	 * When this value specified, it leaves the control of when to do the commit to Solr itself, optimizing number of
 	 * commits to a minimum while still fulfilling the update latency requirements, and Solr will automatically do a
 	 * commit when the oldest add in the buffer is due.
-	 * <p/>
+	 * </p>
 	 * @return SolrUpdateResponse <p>
 	 * Returns a SolrUpdateResponse object or throws an Exception on failure.
 	 * </p>

@@ -304,7 +304,6 @@ class Collator {
      * Optional sorting type, one of the following:
      * </p>
      * <p>
-     * <p>
      * <b>Collator::SORT_REGULAR</b>
      * - compare items normally (don't change types)
      * </p>
@@ -328,7 +327,6 @@ class Collator {
      * @param string[] &$array <p>Array of strings to sort.</p>
      * @param int $sort_flag [optional] <p>
      * Optional sorting type, one of the following:
-     * <p>
      * <b>Collator::SORT_REGULAR</b>
      * - compare items normally (don't change types)
      * </p>
@@ -376,7 +374,6 @@ class Collator {
      * @param int $strength <p>Strength to set.</p>
      * <p>
      * Possible values are:
-     * <p>
      * <b>Collator::PRIMARY</b>
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -1962,7 +1959,7 @@ class IntlDateFormatter {
      * If <b>NULL</b>, the default style will be used.
      * </p>
      * @param string|null $locale [optional] <p>
-     * The locale to use, or <b>NULL</b> to use the {@link "https://secure.php.net/manual/en/intl.configuration.php#ini.intl.default-locale"default one}.</p>
+     * The locale to use, or <b>NULL</b> to use the {@link "https://secure.php.net/manual/en/intl.configuration.php#ini.intl.default-locale" default one}.</p>
      * @return string|false A string with result or <b>FALSE</b> on failure.
      */
     public static function formatObject($object, $format = null, $locale = null) { }
@@ -2136,7 +2133,7 @@ class Transliterator {
      * </p>
      * @param int $direction [optional] <p>
      * The direction, defaults to
-     * >Transliterator::FORWARD.
+     * Transliterator::FORWARD.
      * May also be set to
      * Transliterator::REVERSE.
      * </p>
@@ -2411,7 +2408,6 @@ class IntlCalendar {
      * <em>calendar</em> argument's time. Returns <b>FALSE</b> otherwise.
      * Also returns <b>FALSE</b> on failure. You can use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or
      * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
-     * </p>
      */
     #[Pure]
     public function before(IntlCalendar $calendar) { }
@@ -2651,7 +2647,7 @@ class IntlCalendar {
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the largest local minimum value for a field
      * @link https://secure.php.net/manual/en/intlcalendar.getgreatestminimum.php
-     * @param int $field <p>
+     * @param int $field
      * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
@@ -2692,7 +2688,6 @@ class IntlCalendar {
      * @return int
      * An {@link https://secure.php.net/manual/en/language.types.integer.ph int} representing a field value in the field's
      * unit or <b>FALSE</b> on failure.
-     * </p>
      */
     #[Pure]
     public function getLeastMaximum($field) { }

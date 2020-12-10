@@ -13,10 +13,16 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 class mysqli_sql_exception extends RuntimeException  {
 	/**
 	 * The sql state with the error.
+     *
+     * @var string
 	 */
 	protected $sqlstate;
 
-	/** The error code */
+    /**
+     * The error code
+     *
+     * @var int
+     */
     protected $code;
 }
 
@@ -136,7 +142,6 @@ class mysqli  {
 	/**
 	 * Open a new connection to the MySQL server
 	 * @link https://php.net/manual/en/mysqli.construct.php
-	 * </p>
 	 * @param string $hostname [optional] Can be either a host name or an IP address. Passing the NULL value or the string "localhost" to this parameter, the local host is assumed. When possible, pipes will be used instead of the TCP/IP protocol. Prepending host by p: opens a persistent connection. mysqli_change_user() is automatically called on connections opened from the connection pool. Defaults to ini_get("mysqli.default_host")
 	 * @param string $username [optional] The MySQL user name. Defaults to ini_get("mysqli.default_user")
 	 * @param string $password [optional] If not provided or NULL, the MySQL server will attempt to authenticate the user against those user records which have no password only. This allows one username to be used with different permissions (depending on if a password as provided or not). Defaults to ini_get("mysqli.default_pw")
@@ -1110,7 +1115,7 @@ class mysqli_result implements IteratorAggregate
 	 * The name of the class to instantiate, set the properties of and return.
 	 * If not specified, a <b>stdClass</b> object is returned.
 	 * </p>
-	 * @param array $constructor_args [optional] <p>
+	 * @param null|array $constructor_args [optional] <p>
 	 * An optional array of parameters to pass to the constructor
 	 * for <i>class_name</i> objects.
 	 * </p>
@@ -1875,7 +1880,7 @@ function mysqli_get_host_info (mysqli $mysql): string {}
  * </dd>
  *
  * <dt>
- * <code>cached_plinks</code>
+ * <code>cached_plinks</code></dt>
  *
  * <dd>
  *

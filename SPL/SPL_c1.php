@@ -677,6 +677,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * @param int $operation <p>
 	 * <i>operation</i> is one of the following:
 	 * <b>LOCK_SH</b> to acquire a shared lock (reader).
+         * </p>
          * @param int &$wouldBlock [optional] <p>
          * Set to 1 if the lock would block (EWOULDBLOCK errno condition).
          * </p>
@@ -1997,6 +1998,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
          * @link https://php.net/manual/en/splobjectstorage.gethash.php
          * @param object $object  <p>
          * object whose identifier is to be calculated.
+         * </p>
          * @return string A string with the calculated identifier.
          * @since 5.4
         */

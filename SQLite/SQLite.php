@@ -133,6 +133,7 @@ class SQLiteDatabase  {
 	 * @param int $result_type [optional] <p>The optional <i>result_type</i> parameter accepts a constant and determines how the returned array will be indexed.
 	 * Using <b>SQLITE_ASSOC</b> will return only associative indices (named fields) while <b>SQLITE_NUM</b> will return only numerical indices (ordinal field numbers).
 	 * <b>SQLITE_BOTH</b> will return both associative and numerical indices. <b>SQLITE_BOTH</b> is the default for this function.
+     * </p>
 	 * @param string &$error_message [optional]
 	 * @return resource Returns a result handle or <b>FALSE</b> on failure.
 	 * {@see sqlite_unbuffered_query()} returns a sequential forward-only result set that can only be used to read each row, one after the other.
@@ -248,13 +249,15 @@ final class SQLiteResult implements Iterator, Countable {
 	 * only numerical indices (ordinal field numbers). <b>SQLITE_BOTH</b>
 	 * will return both associative and numerical indices.
 	 * <b>SQLITE_BOTH</b> is the default for this function.
+     * </p>
 	 * @param bool $decode_binary [optional] <p>When the <i>decode_binary</i>
 	 * parameter is set to <b>TRUE</b> (the default), PHP will decode the binary encoding
 	 * it applied to the data if it was encoded using the
-	 *{@link https://php.net/manual/en/sqlite.configuration.php#ini.sqlite.assoc-case sqlite.assoc_case}. You should normally leave this
+	 * {@link https://php.net/manual/en/sqlite.configuration.php#ini.sqlite.assoc-case sqlite.assoc_case}. You should normally leave this
 	 * value at its default, unless you are interoperating with databases created by
 	 * other sqlite capable applications.</p>
-	 * @return array <p>
+     * @return array
+     * <p>
 	 * Returns an array of the next row from a result set; <b>FALSE</b> if the
 	 * next position is beyond the final row.
 	 * </p>

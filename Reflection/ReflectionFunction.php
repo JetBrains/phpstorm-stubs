@@ -93,7 +93,6 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionfunction.invokeargs.php
      * @param array $args The passed arguments to the function as an array, much
      * like {@see call_user_func_array} works.
-     * </p>
      * @return mixed the result of the invoked function
      */
     public function invokeArgs(array $args)

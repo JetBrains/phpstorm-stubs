@@ -769,13 +769,9 @@ class MongoDB {
      * <p>
      * <span style="color: #0000BB">&lt;?php<br></span><span style="color: #007700">array(</span><span style="color: #DD0000">"ok"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br></span><span style="color: #0000BB">?&gt;</span>
      * </span>
-     * </code></div>
-     * </div>
      * </p>
      * <p> If something went wrong, it will return </p>
      * <p>
-     * <div class="example-contents">
-     * <div class="phpcode"><code><span style="color: #000000">
      * <span style="color: #0000BB">&lt;?php<br></span><span style="color: #007700">array(</span><span style="color: #DD0000">"ok"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"errmsg"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"auth&nbsp;fails"</span><span style="color: #007700">);<br></span><span style="color: #0000BB">?&gt;</span></p>
      *         <p>("auth fails" could be another message, depending on database version and
      *         what went wrong)</p>
@@ -1103,7 +1099,7 @@ class MongoCollection {
      * </p><ul>
      * <li><p><em>"safe"</em></p><p>Deprecated. Please use the {@link https://secure.php.net/manual/en/mongo.writeconcerns.php write concern} <em>"w"</em> option.</p></li>
      * <li><p><em>"timeout"</em></p><p>Deprecated alias for <em>"socketTimeoutMS"</em>.</p></li>
-     * <li><p><b>"wtimeout"</b></p><p>Deprecated alias for <em>"wTimeoutMS"</em>.</p></p>
+     * <li><p><b>"wtimeout"</b></p><p>Deprecated alias for <em>"wTimeoutMS"</em>.</p></li></ul>
 	 * @throws MongoCursorException
      * @throws MongoCursorTimeoutException
 	 * @return bool|array <p>Returns an array containing the status of the removal if the
@@ -1150,7 +1146,7 @@ class MongoCollection {
 	 * @link https://secure.php.net/manual/en/mongocollection.findone.php
 	 * @param array $query The fields for which to search.
 	 * @param array $fields Fields of the results to return.
-	 * @param array $options This parameter is an associative array of the form array("name" => <value>, ...).
+	 * @param array $options This parameter is an associative array of the form array("name" => `<value>`, ...).
 	 * @return array|null
 	 */
     public function findOne(array $query = array(), array $fields = array(), array $options = array()) {}
@@ -1159,7 +1155,7 @@ class MongoCollection {
      * Creates an index on the given field(s), or does nothing if the index already exists
      * @link https://secure.php.net/manual/en/mongocollection.createindex.php
      * @param array $keys Field or fields to use as index.
-     * @param array $options [optional] This parameter is an associative array of the form array("optionname" => <boolean>, ...).
+     * @param array $options [optional] This parameter is an associative array of the form array("optionname" => `<boolean>`, ...).
      * @return array Returns the database response.
      */
     public function createIndex(array $keys, array $options = array()) {}
@@ -1168,7 +1164,7 @@ class MongoCollection {
 	 * Creates an index on the given field(s), or does nothing if the index already exists
 	 * @link https://secure.php.net/manual/en/mongocollection.ensureindex.php
 	 * @param array $keys Field or fields to use as index.
-	 * @param array $options [optional] This parameter is an associative array of the form array("optionname" => <boolean>, ...).
+	 * @param array $options [optional] This parameter is an associative array of the form array("optionname" => `<boolean>`, ...).
 	 * @return true always true
      * @see MongoCollection::createIndex()
 	 */
@@ -2284,7 +2280,7 @@ class MongoWriteBatch
 	 * @param array $write_options See {@see MongoWriteBatch::__construct}
 	 * @return array Returns an array containing statistical information for the full batch.
 	 * If the batch had to be split into multiple batches, the return value will aggregate the values from individual batches and return only the totals.
-	 * If the batch was empty, an array containing only the 'ok' field is returned (as <b>TRUE</b<) although nothing will be shipped over the wire (NOOP).
+	 * If the batch was empty, an array containing only the 'ok' field is returned (as <b>TRUE</b>) although nothing will be shipped over the wire (NOOP).
 	 */
 	final public function execute(array $write_options)
 	{
@@ -2540,7 +2536,7 @@ class MongoLog {
      * <b><i>level</i></b>
      *
      * <p>One of the {@link https://secure.php.net/manual/en/class.mongolog.php#mongolog.constants.level MongoLog level constants}.</p>
-     * </li
+     * </li>
      * <li>
      * <b><i>message</i></b>
      *

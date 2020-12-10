@@ -757,14 +757,13 @@ function checkdate (int $month, int $day, int $year): bool
  * <td>---</td>
  * </tr>
  * </table>
- * </p>
  * <p>
  * Maximum length of this parameter is 1023 characters.
  * </p>
  * Contrary to ISO-9899:1999, Sun Solaris starts with Sunday as 1.
  * As a result, %u may not function as described in this manual.
  * @link https://php.net/manual/en/function.strftime.php
- * @param string $format <p>
+ * @param string $format
  * @param int|null $timestamp [optional] defaults to the value of time()
  * Unix timestamp that defaults to the current local time if a timestamp is not given..
  * @return string|false a string formatted according format
@@ -812,7 +811,6 @@ function time (): int
  * function call to localtime. The names of the different keys of
  * the associative array are as follows:
  * </p>
- * <p>
  * "tm_sec" - seconds
  * @return array
  */
@@ -954,9 +952,9 @@ function date_create_immutable_from_format (string $format, string $datetime, ?D
  * {@see DateTime::createFromFormat}
  * @link https://php.net/manual/en/function.date-create-from-format.php
  * @param string $format Format accepted by  <a href="https://secure.php.net/manual/en/function.date.php">date()</a>.
- * <p>If format does not contain the character ! then portions of the generated time which are not specified in format will be set to the current system time.
- * <p>If format contains the character !, then portions of the generated time not provided in format, as well as values to the left-hand side of the !, will be set to corresponding values from the Unix epoch.
- * <p>The Unix epoch is 1970-01-01 00:00:00 UTC.
+ * <p>If format does not contain the character ! then portions of the generated time which are not specified in format will be set to the current system time.</p>
+ * <p>If format contains the character !, then portions of the generated time not provided in format, as well as values to the left-hand side of the !, will be set to corresponding values from the Unix epoch.</p>
+ * <p>The Unix epoch is 1970-01-01 00:00:00 UTC.</p>
  * @param string $datetime String representing the time.
  * @param DateTimeZone|null $timezone [optional] A DateTimeZone object representing the desired time zone.
  * @return DateTime|false <p> Returns a new

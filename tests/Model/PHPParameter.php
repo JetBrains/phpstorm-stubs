@@ -34,7 +34,6 @@ class PHPParameter extends BasePHPElement
      */
     public function readObjectFromStubNode($node): static
     {
-        // #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")]
         $this->name = $node->var->name;
 
         $typeFromAttribute = self::findTypeFromAttribute($node->attrGroups);

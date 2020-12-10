@@ -2462,7 +2462,7 @@ class Yaf_View_Simple implements Yaf_View_Interface {
      * "<?=$var?>" in your template(regardless of "short_open_tag"),
      * so comes a option named "short_tag",  you can switch this off
      * to prevent use short_tag in template.
-     *
+     * </p>
      * @throws Yaf_Exception_TypeError
      */
     final public function __construct($template_dir, array $options = null){ }

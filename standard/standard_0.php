@@ -1408,10 +1408,10 @@ function strcspn (string $string, string $characters, int $offset, ?int $length)
  * Note that you may put multiple tokens in the token parameter.
  * The string will be tokenized when any one of the characters in the argument are found.
  * @link https://php.net/manual/en/function.strtok.php
- * @param string $string [optional] <p>
+ * @param string $string <p>
  * The string being split up into smaller strings (tokens).
  * </p>
- * @param string|null $token <p>
+ * @param string|null $token [optional] <p>
  * The delimiter used when splitting up str.
  * </p>
  * @return string|false A string token.

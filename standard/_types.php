@@ -157,41 +157,41 @@ namespace {
          * Throws an exception if the generator is currently after the first yield.
          * @return void
          */
-        function rewind() {}
+        public function rewind() {}
         /**
          * Returns false if the generator has been closed, true otherwise.
          * @return bool
          */
-        function valid() {}
+        public function valid() {}
         /**
          * Returns whatever was passed to yield or null if nothing was passed or the generator is already closed.
          * @return mixed
          */
-        function current() {}
+        public function current() {}
         /**
          * Returns the yielded key or, if none was specified, an auto-incrementing key or null if the generator is already closed.
          * @return string|float|int|bool|null
          */
-        function key() {}
+        public function key() {}
         /**
          * Resumes the generator (unless the generator is already closed).
          * @return void
          */
-        function next() {}
+        public function next() {}
 
         /**
          * Sets the return value of the yield expression and resumes the generator (unless the generator is already closed).
          * @param mixed $value
          * @return mixed
          */
-        function send($value) {}
+        public function send($value) {}
 
         /**
          * Throws an exception at the current suspension point in the generator.
          * @param Throwable $exception
          * @return mixed
          */
-        function PS_UNRESERVE_PREFIX_throw(Throwable $exception) {}
+        public function PS_UNRESERVE_PREFIX_throw(Throwable $exception) {}
 
         /**
          * Returns whatever was passed to return or null if nothing.
@@ -200,7 +200,7 @@ namespace {
          * @return mixed|null
          * @since 7.0
          */
-        function getReturn() {}
+        public function getReturn() {}
 
         /**
          * Serialize callback

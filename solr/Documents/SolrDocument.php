@@ -121,7 +121,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	 * @link https://php.net/manual/en/solrdocument.get.php
 	 * @param string $fieldName <p>
 	 * The name of the field.
-	 * <p/>
+	 * </p>
 	 * @return SolrDocumentField <p>
 	 * Returns a SolrDocumentField instance.
 	 * </p>

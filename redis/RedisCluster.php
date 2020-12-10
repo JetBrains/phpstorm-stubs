@@ -2162,6 +2162,7 @@ class RedisCluster {
      * $redisCluster->pfAdd('key2', array('elem3', 'elem2'));
      * $redisCluster->pfCount('key1'); // int(2)
      * $redisCluster->pfCount(array('key1', 'key2')); // int(3)
+     * </pre>
      */
     public function pfCount($key) { }
 
@@ -2192,6 +2193,7 @@ class RedisCluster {
      * $redisCluster->pfAdd('key2', array('elem3', 'elem2'));
      * $redisCluster->pfMerge('key3', array('key1', 'key2'));
      * $redisCluster->pfCount('key3'); // int(3)
+     * </pre>
      */
     public function pfMerge($destKey, array $sourceKeys) { }
 

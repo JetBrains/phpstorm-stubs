@@ -19,9 +19,7 @@ trait PHPDocElement
      */
     public array $links = [];
 
-    public string $summary = '';
-
-    public string $description = '';
+    public string $phpdoc = '';
 
     /**
      * @var See[]
@@ -55,14 +53,14 @@ trait PHPDocElement
     protected function collectTags(Node $node): void{
         if ($node->getDocComment() !== null) {
             try {
-                $phpDoc = DocFactoryProvider::getDocFactory()->create($node->getDocComment()->getText());
+                $text = $node->getDocComment()->getText();
+                $this->phpdoc = $text;
+                $phpDoc = DocFactoryProvider::getDocFactory()->create($text);
                 $tags = $phpDoc->getTags();
                 foreach ($tags as $tag) {
                     $this->tagNames[] = $tag->getName();
                 }
                 $this->links = $phpDoc->getTagsByName('link');
-                $this->summary = $phpDoc->getSummary();
-                $this->description = (string) $phpDoc->getDescription();
                 $this->see = $phpDoc->getTagsByName('see');
                 $this->sinceTags = $phpDoc->getTagsByName('since');
                 $this->deprecatedTags = $phpDoc->getTagsByName('deprecated');
