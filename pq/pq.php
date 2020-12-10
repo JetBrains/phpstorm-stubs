@@ -417,8 +417,8 @@ class Connection  {
 	/**
 	 * Escape binary data for use within a query with the type bytea.
 	 *
-	 * > ***NOTE:***
-	 *   The result is not wrapped in single quotes.
+	 * ***NOTE:***
+	 * The result is not wrapped in single quotes.
 	 *
 	 * @param string $binary The binary data to escape.
 	 * @throws \pq\Exception\BadMethodCallException
@@ -429,8 +429,8 @@ class Connection  {
 	/**
 	 * [Execute one or multiple SQL queries](pq/Connection/: Executing Queries) on the connection.
 	 *
-	 * > ***NOTE:***
-	 * > Only the last result will be returned, if the query string contains more than one SQL query.
+	 * ***NOTE:***
+	 * Only the last result will be returned, if the query string contains more than one SQL query.
 	 *
 	 * @param string $query The queries to send to the server, separated by semi-colon.
 	 * @throws \pq\Exception\InvalidArgumentException
@@ -491,8 +491,8 @@ class Connection  {
 	 * If it becomes read-ready, call pq\Connection::poll(), then call pq\Connection::flush() again.
 	 * Repeat until pq\Connection::flush() returns TRUE.
 	 *
-	 * > ***NOTE:***
-	 * > This method was added in v1.1.0, resp. v2.1.0.
+	 * ***NOTE:***
+	 * This method was added in v1.1.0, resp. v2.1.0.
 	 *
 	 * @throws \pq\Exception\InvalidArgumentException
 	 * @throws \pq\Exception\RuntimeException
@@ -615,8 +615,8 @@ class Connection  {
 	 * Quote a string for safe use in a query.
 	 * The result is truncated at any zero byte and wrapped in single quotes.
 	 *
-	 * > ***NOTE:***
-	 *   Beware of matching character encodings.
+	 * ***NOTE:***
+	 * Beware of matching character encodings.
 	 *
 	 * @param string $payload The payload to quote for use in a query.
 	 * @throws \pq\Exception\BadMethodCallException
@@ -627,8 +627,8 @@ class Connection  {
 	/**
 	 * Quote an identifier for safe usage as name.
 	 *
-	 * > ***NOTE:***
-	 *   Beware of case-sensitivity.
+	 * ***NOTE:***
+	 * Beware of case-sensitivity.
 	 *
 	 * @param string $name The name to quote.
 	 * @throws \pq\Exception\BadMethodCallException
@@ -670,13 +670,14 @@ class Connection  {
 	 * @param bool $deferrable Whether the transaction is deferrable
 	 *   (defaults to pq\Connection::$defaultTransactionDeferrable).
 	 *
-	 * > ***NOTE:***
-	 *   A transaction can only be deferrable if it also is readonly and serializable.
-	 *   See the official [PostgreSQL documentation](http://www.postgresql.org/docs/current/static/sql-set-transaction.html) for further information.
-	 * @throws \pq\Exception\InvalidArgumentException
+	 * ***NOTE:***
+	 * A transaction can only be deferrable if it also is readonly and serializable.
+	 * See the official [PostgreSQL documentation](http://www.postgresql.org/docs/current/static/sql-set-transaction.html) for further information.
+     *
+     * @return \pq\Transaction a begun transaction instance.
 	 * @throws \pq\Exception\BadMethodCallException
 	 * @throws \pq\Exception\RuntimeException
-	 * @return \pq\Transaction a begun transaction instance.
+	 * @throws \pq\Exception\InvalidArgumentException
 	 */
 	function startTransaction(int $isolation = \pq\Transaction::READ_COMMITTED, bool $readonly = false, bool $deferrable = false) {}
 	/**
@@ -689,20 +690,21 @@ class Connection  {
 	 * @param bool $deferrable Whether the transaction is deferrable
 	 *   (defaults to pq\Connection::$defaultTransactionDeferrable).
 	 *
-	 * > ***NOTE:***
-	 *   A transaction can only be deferrable if it also is readonly and serializable.
-	 *   See the official [PostgreSQL documentation](http://www.postgresql.org/docs/current/static/sql-set-transaction.html) for further information.
-	 * @throws \pq\Exception\InvalidArgumentException
+	 * ***NOTE:***
+	 * A transaction can only be deferrable if it also is readonly and serializable.
+	 * See the official [PostgreSQL documentation](http://www.postgresql.org/docs/current/static/sql-set-transaction.html) for further information.
+     *
+     * @return \pq\Transaction an asynchronously begun transaction instance.
 	 * @throws \pq\Exception\BadMethodCallException
 	 * @throws \pq\Exception\RuntimeException
-	 * @return \pq\Transaction an asynchronously begun transaction instance.
+	 * @throws \pq\Exception\InvalidArgumentException
 	 */
 	function startTransactionAsync(int $isolation = \pq\Transaction::READ_COMMITTED, bool $readonly = false, bool $deferrable = false) {}
 	/**
 	 * Trace protocol communication with the server.
 	 *
-	 * > ***NOTE:***
-	 *   Calling pq\Connection::trace() without argument or NULL stops tracing.
+	 * ***NOTE:***
+	 * Calling pq\Connection::trace() without argument or NULL stops tracing.
 	 *
 	 * @param resource $stream The resource to which the protocol trace will be output.
 	 *   (The stream must be castable to STDIO).
@@ -798,8 +800,8 @@ class Cursor  {
 	/**
 	 * Force that rows are only retrievable in sequiential order.
 	 *
-	 * > ***NOTE:***
-	 *   See the [notes in the official PostgreSQL documentation](http://www.postgresql.org/docs/current/static/sql-declare.html#SQL-DECLARE-NOTES) for more information.
+	 * ***NOTE:***
+	 * See the [notes in the official PostgreSQL documentation](http://www.postgresql.org/docs/current/static/sql-declare.html#SQL-DECLARE-NOTES) for more information.
 	 */
 	const NO_SCROLL = 32;
 	/**
@@ -908,8 +910,8 @@ class Cursor  {
 	 * Reopen a cursor.
 	 * This is a no-op on already open cursors.
 	 *
-	 * > ***NOTE:***
-	 *   Only cursors closed by pq\Cursor::close() will be reopened.
+	 * ***NOTE:***
+	 * Only cursors closed by pq\Cursor::close() will be reopened.
 	 *
 	 * @throws \pq\Exception\InvalidArgumentException
 	 * @throws \pq\Exception\BadMethodCallException
@@ -995,8 +997,8 @@ interface Exception  {
 /**
  * A *large object*.
  *
- * > ***NOTE:***
- *   Working with *large objects* requires an active transaction.
+ * ***NOTE:***
+ * Working with *large objects* requires an active transaction.
  */
 class LOB  {
 	/**
@@ -1273,8 +1275,8 @@ class Result implements \Traversable, \Countable {
 	/**
 	 * Describe a prepared statement.
 	 *
-	 * > ***NOTE:***
-	 *   This will only return meaningful information for a result of pq\Statement::desc().
+	 * ***NOTE:***
+	 * This will only return meaningful information for a result of pq\Statement::desc().
 	 *
 	 * @throws \pq\Exception\InvalidArgumentException
 	 * @throws \pq\Exception\BadMethodCallException
@@ -1492,8 +1494,8 @@ class Statement  {
 /**
  * A database transaction.
  *
- * > ***NOTE:***
- *   Transactional properties like pq\Transaction::$isolation, pq\Transaction::$readonly and pq\Transaction::$deferrable can be changed after the transaction begun and the first query has been executed. Doing this will lead to appropriate `SET TRANSACTION` queries.
+ * ***NOTE:***
+ * Transactional properties like pq\Transaction::$isolation, pq\Transaction::$readonly and pq\Transaction::$deferrable can be changed after the transaction begun and the first query has been executed. Doing this will lead to appropriate `SET TRANSACTION` queries.
  */
 class Transaction  {
 	/**
@@ -1627,8 +1629,8 @@ class Transaction  {
 	 * Import a snapshot from another transaction to synchronize with.
 	 * See pq\Transaction::exportSnapshot().
 	 *
-	 * > ***NOTE:***
-	 *   The transaction must have an isolation level of at least pq\Transaction::REPEATABLE_READ.
+	 * ***NOTE:***
+	 * The transaction must have an isolation level of at least pq\Transaction::REPEATABLE_READ.
 	 *
 	 * @param string $snapshot_id The snapshot identifier obtained by exporting a snapshot from a transaction.
 	 * @throws \pq\Exception\InvalidArgumentException
@@ -1641,8 +1643,8 @@ class Transaction  {
 	 * [Asynchronously](pq/Connection/: Asynchronous Usage) import a snapshot from another transaction to synchronize with.
 	 * See pq\Transaction::importSnapshot().
 	 *
-	 * > ***NOTE:***
-	 *   The transaction must have an isolation level of at least pq\Transaction::REPEATABLE_READ.
+	 * ***NOTE:***
+	 * The transaction must have an isolation level of at least pq\Transaction::REPEATABLE_READ.
 	 *
 	 * @param string $snapshot_id The snapshot identifier obtained by exporting a snapshot from a transaction.
 	 * @throws \pq\Exception\InvalidArgumentException
@@ -1684,8 +1686,8 @@ class Transaction  {
 	/**
 	 * Create a `SAVEPOINT` within this transaction.
 	 *
-	 * > ***NOTE:***
-	 *   pq\Transaction tracks an internal counter as savepoint identifier.
+	 * ***NOTE:***
+	 * pq\Transaction tracks an internal counter as savepoint identifier.
 	 *
 	 * @throws \pq\Exception\InvalidArgumentException
 	 * @throws \pq\Exception\BadMethodCallException

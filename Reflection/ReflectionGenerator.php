@@ -58,7 +58,6 @@ class ReflectionGenerator
      *
      * {@see DEBUG_BACKTRACE_IGNORE_ARGS} - Don't include the argument
      * information for functions in the stack trace.
-     * </p>
      *
      * @return array Returns the trace of the currently executing generator.
      * @since 7.0

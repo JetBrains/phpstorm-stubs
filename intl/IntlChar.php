@@ -773,7 +773,7 @@ class IntlChar {
      * Retrieve the name of a Unicode character
      * @link https://php.net/manual/en/intlchar.charname.php
      * @param int|string $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
-     * @param int $nameChoice [optional] Which set of names to use for the lookup. Can be any of these constants: </p>
+     * @param int $nameChoice [optional] Which set of names to use for the lookup. Can be any of these constants:
      * <ul>
      * <li><b> IntlChar::UNICODE_CHAR_NAME </b> (default)</li>
      * <li><b> IntlChar::UNICODE_10_CHAR_NAME </b></li>
@@ -864,7 +864,7 @@ class IntlChar {
      * @param callable $callback<p>
      * The function that is to be called for each character name.  The following three arguments will be passed into it:
      * </p><ul>
-     * <li>integer</a> <em>$codepoint</em> - The numeric code point value</li>
+     * <li>integer <em>$codepoint</em> - The numeric code point value</li>
      * <li>integer <em>$nameChoice</em> - The same value as the <b>nameChoice</b> parameter below</li>
      * <li>string <em>$name</em> - The name of the character</li>
      * </ul>

@@ -1120,7 +1120,7 @@ function imagefill ($image, $x, $y, $color) {}
  * An array containing the x and y
  * coordinates of the polygons vertices consecutively.
  * </p>
- * @param int $num_points [optional] <p>
+ * @param int $num_points <p>
  * Total number of vertices, which must be at least 3.
  * </p>
  * @param int $color <p>
@@ -1308,7 +1308,7 @@ function imageloadfont ($file) {}
  * <td>= y1</td>
  * </tr>
  * </p>
- * @param int $num_points [optional] <p>
+ * @param int $num_points <p>
  * Total number of points (vertices).
  * </p>
  * @param int $color <p>
@@ -2197,7 +2197,7 @@ function imagegetclip ($im) {}
  * points[2]	= x1
  * points[3]	= y1
  * </pre>
- * @param int $num_points [optional] Total number of points (vertices).
+ * @param int $num_points Total number of points (vertices).
  * @param int $color A color identifier created with {@see imagecolorallocate()}.
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @link https://php.net/manual/en/function.imageopenpolygon.php

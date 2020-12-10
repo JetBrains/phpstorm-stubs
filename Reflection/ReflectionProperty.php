@@ -111,7 +111,6 @@ class ReflectionProperty implements Reflector
      * provided to fetch the property from. If you want to fetch the default
      * property without providing an object use {@see ReflectionClass::getDefaultProperties}
      * instead.
-     * </p>
      * @return mixed The current value of the property.
      */
     #[Pure]

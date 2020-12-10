@@ -108,23 +108,21 @@ class SNMP  {
      * <tr><td>FQDN with default port</td><td>host.domain</td></tr>
      * <tr><td>FQDN with specific port</td><td>host.domain:1161</td></tr>
      * <tr><td>FQDN with default port, force usage of IPv6 address</td><td>[host.domain]</td></tr>
-     * <tr><td>FQDN with specific port, force usage of IPv6 address</td><td>[host.domain]:1161</td>
+     * <tr><td>FQDN with specific port, force usage of IPv6 address</td><td>[host.domain]:1161</td></tr>
      * </tbody>
      * </table>
 	 * @param string $community <p>The purpuse of <i>community</i> is
      * <acronym title="Simple Network Management Protocol">SNMP</acronym> version specific:</p>
      * <table>
-	 * @since 5.4
-     *
      * <tbody>
      * <tr><td>SNMP::VERSION_1</td><td><acronym title="Simple Network Management Protocol">SNMP</acronym> community</td></tr>
      * <tr><td>SNMP::VERSION_2C</td><td><acronym title="Simple Network Management Protocol">SNMP</acronym> community</td></tr>
-     *
      * <tr><td>SNMP::VERSION_3</td><td><acronym title="Simple Network Management Protocol">SNMP</acronym>v3 securityName</td></tr>
      * </tbody>
      * </table>
 	 * @param int $timeout [optional] The number of microseconds until the first timeout.
 	 * @param int $retries [optional] The number of retries in case timeout occurs.
+     * @since 5.4
      */
 	public function __construct ($version, $hostname, $community, $timeout = 1000000, $retries = 5) {}
 

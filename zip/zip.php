@@ -590,18 +590,23 @@ class ZipArchive implements Countable {
 	/**
 	 * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
 	 * Open a ZIP file archive
+	 *
 	 * @link https://php.net/manual/en/ziparchive.open.php
+	 *
 	 * @param string $filename <p>
 	 * The file name of the ZIP archive to open.
 	 * </p>
 	 * @param int $flags [optional] <p>
 	 * The mode to use to open the archive.
+	 * </p>
 	 * <p>
 	 * <b>ZipArchive::OVERWRITE</b>
 	 * </p>
+	 *
 	 * @return mixed <i>Error codes</i>
 	 * <p>
 	 * Returns <b>TRUE</b> on success or the error code.
+	 * </p>
 	 * <p>
 	 * <b>ZipArchive::ER_EXISTS</b>
 	 * </p>
@@ -655,7 +660,6 @@ class ZipArchive implements Countable {
 	 * </p>
 	 * <p>
 	 * Seek error.
-	 * </p>
 	 * </p>
 	 */
 	public function open ($filename, $flags = null) {}
@@ -746,6 +750,7 @@ class ZipArchive implements Countable {
 	 * </p>
 	 * @param array $options [optional] <p>
 	 * An associative array of options. Available options are:
+	 * </p>
 	 * <p>
 	 * "add_path"
 	 * </p>
@@ -970,7 +975,6 @@ class ZipArchive implements Countable {
 	 * Also, <b>ZipArchive::FL_UNCHANGED</b> may be ORed to it to request
 	 * information about the original file in the archive,
 	 * ignoring any changes made.
-	 * <p>
 	 * <b>ZipArchive::FL_NOCASE</b>
 	 * </p>
 	 * @return array|false an array containing the entry details or <b>FALSE</b> on failure.
@@ -1003,7 +1007,6 @@ class ZipArchive implements Countable {
 	 * @param int $flags [optional] <p>
 	 * The flags are specified by ORing the following values,
 	 * or 0 for none of them.
-	 * <p>
 	 * <b>ZipArchive::FL_NOCASE</b>
 	 * </p>
 	 * @return int|false the index of the entry on success or <b>FALSE</b> on failure.
@@ -1092,7 +1095,6 @@ class ZipArchive implements Countable {
 	 * @param int $flags [optional] <p>
 	 * The flags to use to open the archive. the following values may
 	 * be ORed to it.
-	 * <p>
 	 * <b>ZipArchive::FL_UNCHANGED</b>
 	 * </p>
 	 * @return string|false the contents of the entry on success or <b>FALSE</b> on failure.
@@ -1113,6 +1115,7 @@ class ZipArchive implements Countable {
 	 * @param int $flags [optional] <p>
 	 * The flags to use to open the archive. the following values may
 	 * be ORed to it.
+	 * </p>
 	 * <p>
 	 * <b>ZipArchive::FL_UNCHANGED</b>
 	 * </p>

@@ -1109,9 +1109,8 @@ namespace Ds {
 
         /**
          * Reduces the deque to a single value using a callback function.
-         * @param callable $callback <p>
-         * <code>
-         * callback ( mixed $carry , mixed $value ) : mixed</code>
+         * @param callable $callback
+         * <code>callback ( mixed $carry , mixed $value ) : mixed</code>
          * <b>$carry</b> The return value of the previous callback, or initial if it's
          * the first iteration.<p>
          * <b>$value</b> The value of the current iteration.
@@ -1210,7 +1209,7 @@ namespace Ds {
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
-         * to be in the range from -2147483648 to 2147483647.<p>
+         * to be in the range from -2147483648 to 2147483647.
          * <code>callback ( mixed $a, mixed $b ) : int</code>
          * <p><b>Caution:</b> Returning non-integer values from the comparison
          * function, such as float, will result in an internal cast to integer
@@ -1229,7 +1228,7 @@ namespace Ds {
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
-         * to be in the range from -2147483648 to 2147483647.<p>
+         * to be in the range from -2147483648 to 2147483647.
          * <code>callback ( mixed $a, mixed $b ) : int</code>
          * <p><b>Caution:</b> Returning non-integer values from the comparison
          * function, such as float, will result in an internal cast to integer
@@ -1295,7 +1294,7 @@ namespace Ds {
          * Allocates enough memory for a required capacity.
          *
          * @param int $capacity The number of values for which capacity should be allocated.<br>
-         * <p><b>Note:</b> Capacity will stay the same if this value is less than or equal to the current capacity.
+         * <p><b>Note:</b> Capacity will stay the same if this value is less than or equal to the current capacity.</p>
          * Capacity will always be rounded up to the nearest power of 2.
          *
          * @link https://www.php.net/manual/en/ds-map.allocate.php
@@ -2257,7 +2256,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-set.reversed.php
          *
-         * <p><b>Note:</b> The current instance is not affected.
+         * <p><b>Note:</b> The current instance is not affected.</p>
          *
          * @return Set A reversed copy of the set.
          */
@@ -2312,7 +2311,7 @@ namespace Ds {
          * function, such as float, will result in an internal cast to integer
          * of the callback's return value. So values such as 0.99 and 0.1 will
          * both be cast to an integer value of 0, which will compare such values
-         * as equal.
+         * as equal.</note>
          *
          * @link https://www.php.net/manual/en/ds-set.sort.php
          */
@@ -2337,7 +2336,7 @@ namespace Ds {
          * function, such as float, will result in an
          * internal cast to integer of the callback's return value. So values
          * such as 0.99 and 0.1 will both be cast to an integer value of 0,
-         * which will compare such values as equal.
+         * which will compare such values as equal.</p>
          *
          * @return Set Returns a sorted copy of the set.
          */
@@ -2453,7 +2452,7 @@ namespace Ds {
          * be allocated.
          *
          * <p><b>Note:</b> Capacity will stay the same if this value is less than or
-         * equal to the current capacity.
+         * equal to the current capacity.</p>
          */
         public function allocate(int $capacity)
         {
@@ -2603,7 +2602,7 @@ namespace Ds {
          * be allocated.
          *
          * <p><b>Note:</b> Capacity will stay the same if this value is less than or
-         * equal to the current capacity.
+         * equal to the current capacity.</p>
          */
         public function allocate(int $capacity)
         {

@@ -106,19 +106,24 @@ class StubsPhpDocTest extends TestCase
     private static function checkHtmlTags(BasePHPElement $element, string $elementName): void
     {
         /** @var PHPDocElement $element */
-        $phpdoc = \trim($element->summary . "\n\n" . $element->description);
+        $phpdoc = \trim($element->phpdoc);
 
         $phpdoc = preg_replace(
             [
-                '#/>#m',
-                '#->#m',
-                '#>=#m',
-                '#=>#m',
-                '# > #m',
-                '#\?>#m',
-                '#>`#m',
-                '#<br>#im',
-                '#^>#m'
+                '#/>#',
+                '#->#',
+                '#>=#',
+                '#=>#',
+                '# > #',
+                '#\?>#',
+                '#\d>#',
+                '#`<.*>`#U',
+                '#>`#',
+                '#\'>\'#',
+                '#<br>#i',
+                '#^>#',
+                '#<pre>.*</pre>#sU',
+                '#@author.*<.*>#U'
             ],
             '',
             $phpdoc

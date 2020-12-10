@@ -1254,6 +1254,7 @@ class PDOStatement implements IteratorAggregate
 	 * must be one of the PDO::FETCH_* constants,
 	 * defaulting to value of PDO::ATTR_DEFAULT_FETCH_MODE
 	 * (which defaults to PDO::FETCH_BOTH).
+	 * </p>
 	 * <p>
 	 * PDO::FETCH_ASSOC: returns an array indexed by column
 	 * name as returned in your result set

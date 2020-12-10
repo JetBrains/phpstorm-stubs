@@ -56,6 +56,7 @@ class SQLite3  {
 	 * @param int $flags [optional] <p>
 	 * Optional flags used to determine how to open the SQLite database. By
 	 * default, open uses SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE.
+	 * </p>
 	 * <p>
 	 * SQLITE3_OPEN_READONLY: Open the database for
 	 * reading only.
@@ -280,7 +281,7 @@ class SQLite3  {
 	 * @param int $rowid <p>The row ID.</p>
 	 * @param string $database [optional] <p>The symbolic name of the DB</p>
 	 * @param int $flags [optional]
-	 * <p>Either <b>SQLITE3_OPEN_READONLY</b> or <b>SQLITE3_OPEN_READWRITE</b> to open the stream for reading only, or for reading and writing, respectively.</p?
+	 * <p>Either <b>SQLITE3_OPEN_READONLY</b> or <b>SQLITE3_OPEN_READWRITE</b> to open the stream for reading only, or for reading and writing, respectively.</p>
 	 * @return resource|false Returns a stream resource, or FALSE on failure.
 	 */
 	public function openBlob ($table, $column, $rowid, $database, int $flags = SQLITE3_OPEN_READONLY) {}
@@ -301,6 +302,7 @@ class SQLite3  {
 	 * @param int $flags [optional] <p>
 	 * Optional flags used to determine how to open the SQLite database. By
 	 * default, open uses SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE.
+	 * </p>
 	 * <p>
 	 * SQLITE3_OPEN_READONLY: Open the database for
 	 * reading only.
@@ -396,6 +398,7 @@ class SQLite3Stmt  {
 	 * </p>
 	 * @param int $type [optional] <p>
 	 * The data type of the parameter to bind.
+	 * </p>
 	 * <p>
 	 * SQLITE3_INTEGER: The value is a signed integer,
 	 * stored in 1, 2, 3, 4, 6, or 8 bytes depending on the magnitude of
@@ -418,6 +421,7 @@ class SQLite3Stmt  {
 	 * </p>
 	 * @param int $type [optional] <p>
 	 * The data type of the value to bind.
+	 * </p>
 	 * <p>
 	 * SQLITE3_INTEGER: The value is a signed integer,
 	 * stored in 1, 2, 3, 4, 6, or 8 bytes depending on the magnitude of
@@ -492,6 +496,7 @@ class SQLite3Result  {
 	 * Controls how the next row will be returned to the caller. This value
 	 * must be one of either SQLITE3_ASSOC,
 	 * SQLITE3_NUM, or SQLITE3_BOTH.
+	 * </p>
 	 * <p>
 	 * SQLITE3_ASSOC: returns an array indexed by column
 	 * name as returned in the corresponding result set

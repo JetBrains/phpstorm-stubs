@@ -2962,7 +2962,6 @@ class Redis
      * @link    https://redis.io/commands/zadd
      * @example
      * <pre>
-     * <pre>
      * $redis->zAdd('z', 1, 'v1', 2, 'v2', 3, 'v3', 4, 'v4' );  // int(2)
      * $redis->zRem('z', 'v2', 'v3');                           // int(2)
      * $redis->zAdd('z', ['NX'], 5, 'v5');                      // int(1)
@@ -2986,7 +2985,6 @@ class Redis
      * //   ["v4"]=> float(4)
      * //   ["v5"]=> float(5)
      * //   ["v6"]=> float(8)
-     * </pre>
      * </pre>
      */
     public function zAdd($key, $options, $score1, $value1 = null, $score2 = null, $value2 = null, $scoreN = null, $valueN = null)
@@ -4670,6 +4668,7 @@ class Redis
      * $redis->pfAdd('key2', array('elem3', 'elem2'));
      * $redis->pfCount('key1'); // int(2)
      * $redis->pfCount(array('key1', 'key2')); // int(3)
+     * </pre>
      */
     public function pfCount($key)
     {
@@ -4691,6 +4690,7 @@ class Redis
      * $redis->pfAdd('key2', array('elem3', 'elem2'));
      * $redis->pfMerge('key3', array('key1', 'key2'));
      * $redis->pfCount('key3'); // int(3)
+     * </pre>
      */
     public function pfMerge($destKey, array $sourceKeys)
     {
