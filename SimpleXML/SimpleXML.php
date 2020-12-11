@@ -67,7 +67,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 	 * @param string $expression <p>
 	 * An XPath path
 	 * </p>
-	 * @return SimpleXMLElement[] an array of SimpleXMLElement objects or <b>FALSE</b> in
+	 * @return static[]|false an array of SimpleXMLElement objects or <b>FALSE</b> in
 	 * case of an error.
 	 */
 	public function xpath ($expression) {}
@@ -97,7 +97,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 	 * @param bool $isPrefix [optional] <p>
 	 * Default to <b>FALSE</b>
 	 * </p>
-	 * @return SimpleXMLElement a <b>SimpleXMLElement</b> object that can be
+	 * @return static|null a <b>SimpleXMLElement</b> object that can be
 	 * iterated over to loop through the attributes on the tag.
 	 * </p>
 	 * <p>
@@ -119,7 +119,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 	 * <i>ns</i> will be regarded as a namespace
 	 * URL.
 	 * </p>
-	 * @return SimpleXMLElement a <b>SimpleXMLElement</b> element, whether the node
+	 * @return static a <b>SimpleXMLElement</b> element, whether the node
 	 * has children or not.
 	 * @since 5.0.1
 	 */
@@ -180,7 +180,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 	 * @param string $namespace [optional] <p>
 	 * If specified, the namespace to which the child element belongs.
 	 * </p>
-	 * @return SimpleXMLElement The addChild method returns a SimpleXMLElement
+	 * @return static The addChild method returns a SimpleXMLElement
 	 * object representing the child added to the XML node.
 	 * @since 5.1.3
 	 */
