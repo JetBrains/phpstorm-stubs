@@ -1033,7 +1033,6 @@ function date_format (DateTimeInterface $object, string $format)
  * @param string $modifier A date/time string. Valid formats are explained in {@link https://secure.php.net/manual/en/datetime.formats.php Date and Time Formats}.
  * @return DateTime|false Returns the DateTime object for method chaining or <b>FALSE</b> on failure.
  */
-#[Pure]
 function date_modify (DateTime $object, string $modifier): DateTime|false
 {}
 
@@ -1049,7 +1048,6 @@ function date_modify (DateTime $object, string $modifier): DateTime|false
  * @return DateTime|false <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
-#[Pure]
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
 function date_add (DateTime $object, DateInterval $interval)
 {}
@@ -1067,7 +1065,6 @@ function date_add (DateTime $object, DateInterval $interval)
  * @return DateTime|false <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
-#[Pure]
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
 function date_sub (DateTime $object, DateInterval $interval)
 {}
@@ -1104,7 +1101,6 @@ function date_timezone_get (DateTimeInterface $object): DateTimeZone|false
  * @return DateTime|false <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
-#[Pure]
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
 function date_timezone_set (DateTimeInterface $object, DateTimeZone $timezone)
 {}
@@ -1149,7 +1145,6 @@ function date_diff (DateTimeInterface $baseObject, DateTimeInterface $targetObje
  * @return DateTime <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
-#[Pure]
 function date_time_set (DateTime $object, int $hour, int $minute, int $second = 0, int $microsecond = 0): DateTime {}
 
 /**
