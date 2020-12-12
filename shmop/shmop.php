@@ -15,7 +15,7 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * The flags that you can use:
  * "a" for access (sets SHM_RDONLY for shmat)
  * use this flag when you need to open an existing shared memory
- * segment for read only
+ * segment for read only</p>
  * @param int $permissions <p>
  * The permissions that you wish to assign to your memory segment, those
  * are the same as permission for a file. Permissions need to be passed

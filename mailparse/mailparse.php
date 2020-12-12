@@ -155,7 +155,7 @@ function mailparse_msg_parse ($mimemail, $data) {}
  * Parses a {@link http://www.faqs.org/rfcs/rfc822 RFC 822} compliant recipient list, such as that found in the To: header.
  * @link https://php.net/manual/en/function.mailparse-rfc822-parse-addresses.php
  * @param string $addresses <p>
- * A string containing addresses, like in: Wez Furlong <wez@example.com>, doe@example.com
+ * A string containing addresses, like in: <pre>Wez Furlong <wez@example.com>, doe@example.com</pre>
  * Note: This string must not include the header name.
  * </p>
  * @return array <p>

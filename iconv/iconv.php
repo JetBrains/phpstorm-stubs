@@ -55,7 +55,6 @@ function ob_iconv_handler (string $contents, int $status): string
  * </p>
  * @return string|string[]|false the current value of the internal configuration variable if
  * successful or <b>FALSE</b> on failure.
- * </p>
  * <p>
  * If <i>type</i> is omitted or set to "all",
  * <b>iconv_get_encoding</b> returns an array that
@@ -147,7 +146,6 @@ function iconv_strlen (string $string, ?string $encoding = 'ini_get("iconv.inter
  * </p>
  * @return string|false the portion of <i>str</i> specified by the
  * <i>offset</i> and <i>length</i> parameters.
- * </p>
  * <p>
  * If <i>str</i> is shorter than <i>offset</i>
  * characters long, <b>FALSE</b> will be returned.
@@ -177,7 +175,6 @@ function iconv_substr (string $string, int $offset, ?int $length, ?string $encod
  * </p>
  * @return int|false the numeric position of the first occurrence of
  * <i>needle</i> in <i>haystack</i>.
- * </p>
  * <p>
  * If <i>needle</i> is not found,
  * <b>iconv_strpos</b> will return <b>FALSE</b>.
@@ -203,7 +200,6 @@ function iconv_strpos (string $haystack, string $needle, int $offset = 0, ?strin
  * </p>
  * @return int|false the numeric position of the last occurrence of
  * <i>needle</i> in <i>haystack</i>.
- * </p>
  * <p>
  * If <i>needle</i> is not found,
  * <b>iconv_strrpos</b> will return <b>FALSE</b>.
@@ -379,8 +375,9 @@ function iconv_mime_decode (string $string, int $mode = 0, ?string $encoding = '
  * <b>iconv_mime_decode_headers</b> encounters a malformed
  * MIME header field. You can specify any combination
  * of the following bitmasks.
+ * <br>
+ * Bitmasks acceptable to <b>iconv_mime_decode_headers</b></p>
  * <table>
- * Bitmasks acceptable to <b>iconv_mime_decode_headers</b>
  * <tr valign="top">
  * <td>Value</td>
  * <td>Constant</td>
@@ -407,7 +404,6 @@ function iconv_mime_decode (string $string, int $mode = 0, ?string $encoding = '
  * </td>
  * </tr>
  * </table>
- * </p>
  * @param string|null $encoding [optional] <p>
  * The optional <i>charset</i> parameter specifies the
  * character set to represent the result by. If omitted,
@@ -418,7 +414,6 @@ function iconv_mime_decode (string $string, int $mode = 0, ?string $encoding = '
  * MIME header fields specified by
  * <i>encoded_headers</i> on success, or <b>FALSE</b>
  * if an error occurs during the decoding.
- * </p>
  * <p>
  * Each key of the return value represents an individual
  * field name and the corresponding element represents a field value.

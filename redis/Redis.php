@@ -4002,7 +4002,7 @@ class Redis
      * @return int The number of elements added to the geospatial key
      *
      * @link https://redis.io/commands/geoadd
-     * @since >=3.2
+     * @since >= 3.2
      *
      * @example
      * <pre>
@@ -4029,7 +4029,7 @@ class Redis
      * @return array One or more Redis Geohash encoded strings
      *
      * @link https://redis.io/commands/geohash
-     * @since >=3.2
+     * @since >= 3.2
      *
      * @example
      * <pre>
@@ -4056,7 +4056,7 @@ class Redis
      * @return array One or more longitude/latitude positions
      *
      * @link https://redis.io/commands/geopos
-     * @since >=3.2
+     * @since >= 3.2
      *
      * @example
      * <pre>
@@ -4098,7 +4098,7 @@ class Redis
      * @return float The distance between the two passed members in the units requested (meters by default)
      *
      * @link https://redis.io/commands/geodist
-     * @since >=3.2
+     * @since >= 3.2
      *
      * @example
      * <pre>

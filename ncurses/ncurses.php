@@ -177,7 +177,6 @@ function ncurses_beep () {}
  * @link https://php.net/manual/en/function.ncurses-can-change-color.php
  * @return bool Return true if the terminal has color capabilities and you can change
  * the colors, false otherwise.
- * </p>
  */
 function ncurses_can_change_color () {}
 
@@ -285,7 +284,6 @@ function ncurses_werase ($window) {}
  * Returns current erase character
  * @link https://php.net/manual/en/function.ncurses-erasechar.php
  * @return string The current erase char, as a string.
- * </p>
  */
 function ncurses_erasechar () {}
 
@@ -1110,7 +1108,6 @@ function ncurses_keyok ($keycode, $enable) {}
  * @link https://php.net/manual/en/function.ncurses-termname.php
  * @return string|null the shortname of the terminal, truncated to 14 characters.
  * On errors, returns null.
- * </p>
  */
 function ncurses_termname () {}
 
@@ -1119,7 +1116,6 @@ function ncurses_termname () {}
  * @link https://php.net/manual/en/function.ncurses-longname.php
  * @return string|null the description, as a string truncated to 128 characters.
  * On errors, returns null.
- * </p>
  */
 function ncurses_longname () {}
 
@@ -1162,7 +1158,8 @@ function ncurses_getmouse (array &$mevent) {}
  * @link https://php.net/manual/en/function.ncurses-ungetmouse.php
  * @param array $mevent <p>
  * An associative array specifying the event options:
- * <p>"id" : Id to distinguish multiple devices</p>
+ * <b>"id"</b> : Id to distinguish multiple devices
+ * </p>
  * @return bool false on success, true otherwise.
  */
 function ncurses_ungetmouse (array $mevent) {}

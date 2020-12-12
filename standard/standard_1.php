@@ -411,7 +411,7 @@ function str_word_count (string $string, int $format = 0, ?string $characters): 
  * @param int $length [optional] <p>
  * Maximum length of the chunk.
  * </p>
- * @return string[]|false If the optional split_length parameter is
+ * @return string[]|false <p>If the optional split_length parameter is
  * specified, the returned array will be broken down into chunks with each
  * being split_length in length, otherwise each chunk
  * will be one character in length.
@@ -498,8 +498,8 @@ function strcoll (string $string1, string $string2): int
  * Formats a number as a currency string
  * @link https://php.net/manual/en/function.money-format.php
  * @param string $format <p>
- * The format specification consists of the following sequence:
- * <p>a % character</p>
+ * The format specification consists of the following sequence:<br>
+ * a % character</p>
  * @param float $number <p>
  * The number to be formatted.
  * </p>
@@ -664,6 +664,8 @@ function lcfirst (string $string): string
  * The input string.
  * </p>
  * @param string $separators [optional] <p>
+ * The optional separators contains the word separator characters.
+ * </p>
  * @return string the modified string.
  */
 #[Pure]
@@ -1088,7 +1090,6 @@ function join (array|string  $separator = "", ?array $array): string
  * Set locale information
  * @link https://php.net/manual/en/function.setlocale.php
  * @param int $category <p>
- * <p>
  * <em>category</em> is a named constant specifying the
  * category of the functions affected by the locale setting:
  * </p><ul>
@@ -1110,7 +1111,7 @@ function join (array|string  $separator = "", ?array $array): string
  * <b>LC_NUMERIC</b> for decimal separator (See also
  * {@see localeconv()})
  * </li>
- *<li>
+ * <li>
  * <b>LC_TIME</b> for date and time formatting with
  * {@see strftime()}
  *
@@ -1139,7 +1140,7 @@ function join (array|string  $separator = "", ?array $array): string
  * for a possibly not available locale.
  * </p>
  * @param string ...$rest [optional]
- * @return string|false the new current locale, or false if the locale functionality is
+ * @return string|false <p>the new current locale, or false if the locale functionality is
  * not implemented on your platform, the specified locale does not exist or
  * the category name is invalid.
  * </p>
@@ -1152,7 +1153,7 @@ function join (array|string  $separator = "", ?array $array): string
  * <p>
  * The return value of setlocale depends
  * on the system that PHP is running. It returns exactly
- * what the system setlocale function returns.
+ * what the system setlocale function returns.</p>
  */
 function setlocale (int $category, array|string|int $locales, ...$rest): string|false
 {}

@@ -166,7 +166,7 @@ function pcntl_wait (&$status, int $flags = 0, &$resource_usage): int
  * void<b>handler</b>
  * <b>int<i>signo</i></b>
  * <i>signo</i>
- * The signal being handled.
+ * The signal being handled.</p>
  * @param bool $restart_syscalls [optional] <p>
  * Specifies whether system call restarting should be used when this
  * signal arrives.
@@ -187,7 +187,7 @@ function pcntl_signal_dispatch (): bool
 /**
  * Checks if status code represents a normal exit
  * @link https://php.net/manual/en/function.pcntl-wifexited.php
- * @param int $status The <i>status</i>
+ * @param int $status <p>The <i>status</i>
  * parameter is the status parameter supplied to a successful
  * call to <b>pcntl_waitpid</b>.</p>
  * @return bool <b>TRUE</b> if the child status code represents a normal exit, <b>FALSE</b>
@@ -200,7 +200,7 @@ function pcntl_wifexited (int $status): bool
 /**
  * Checks whether the child process is currently stopped
  * @link https://php.net/manual/en/function.pcntl-wifstopped.php
- * @param int $status The <i>status</i>
+ * @param int $status <p>The <i>status</i>
  * parameter is the status parameter supplied to a successful
  * call to <b>pcntl_waitpid</b>.</p>
  * @return bool <b>TRUE</b> if the child process which caused the return is
@@ -213,7 +213,7 @@ function pcntl_wifstopped (int $status): bool
 /**
  * Checks whether the status code represents a termination due to a signal
  * @link https://php.net/manual/en/function.pcntl-wifsignaled.php
- * @param int $status The <i>status</i>
+ * @param int $status <p>The <i>status</i>
  * parameter is the status parameter supplied to a successful
  * call to <b>pcntl_waitpid</b>.</p>
  * @return bool <b>TRUE</b> if the child process exited because of a signal which was
@@ -226,7 +226,7 @@ function pcntl_wifsignaled (int $status): bool
 /**
  * Returns the return code of a terminated child
  * @link https://php.net/manual/en/function.pcntl-wexitstatus.php
- * @param int $status The <i>status</i>
+ * @param int $status <p>The <i>status</i>
  * parameter is the status parameter supplied to a successful
  * call to <b>pcntl_waitpid</b>.</p>
  * @return int|false the return code, as an integer.
@@ -246,7 +246,7 @@ function pcntl_wifcontinued (int $status): bool
 /**
  * Returns the signal which caused the child to terminate
  * @link https://php.net/manual/en/function.pcntl-wtermsig.php
- * @param int $status The <i>status</i>
+ * @param int $status <p>The <i>status</i>
  * parameter is the status parameter supplied to a successful
  * call to <b>pcntl_waitpid</b>.</p>
  * @return int|false the signal number, as an integer.
@@ -258,7 +258,7 @@ function pcntl_wtermsig (int $status): int|false
 /**
  * Returns the signal which caused the child to stop
  * @link https://php.net/manual/en/function.pcntl-wstopsig.php
- * @param int $status The <i>status</i>
+ * @param int $status <p>The <i>status</i>
  * parameter is the status parameter supplied to a successful
  * call to <b>pcntl_waitpid</b>.</p>
  * @return int|false the signal number.

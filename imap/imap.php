@@ -27,7 +27,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  * in the form "{" remote_system_name [":" port] [flags] "}"
  * [mailbox_name] where:
  * remote_system_name - Internet domain name or
- * bracketed IP address of server.
+ * bracketed IP address of server.</p>
  * @param string $username <p>
  * The user name
  * </p>
@@ -37,14 +37,14 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  * @param int $options [optional] <p>
  * The <i>options</i> are a bit mask with one or more of
  * the following:
- * <b>OP_READONLY</b> - Open mailbox read-only
+ * <b>OP_READONLY</b> - Open mailbox read-only</p>
  * @param int $n_retries [optional] <p>
  * Number of maximum connect attempts
  * </p>
  * @param null|array $params [optional] <p>
  * Connection parameters, the following (string) keys maybe used
  * to set one or more connection parameters:
- * DISABLE_AUTHENTICATOR - Disable authentication properties
+ * DISABLE_AUTHENTICATOR - Disable authentication properties</p>
  * @return resource|false an IMAP stream on success or <b>FALSE</b> on error.
  */
 function imap_open ($mailbox, $username, $password, $options = 0, $n_retries = 0, ?array $params = null) {}
@@ -60,7 +60,7 @@ function imap_open ($mailbox, $username, $password, $options = 0, $n_retries = 0
  * @param int $options [optional] <p>
  * The <i>options</i> are a bit mask with one or more of
  * the following:
- * <b>OP_READONLY</b> - Open mailbox read-only
+ * <b>OP_READONLY</b> - Open mailbox read-only</p>
  * @param int $n_retries [optional] <p>
  * Number of maximum connect attempts
  * </p>
@@ -119,42 +119,42 @@ function imap_headers ($imap_stream) {}
  * @param $default_host [optional]
  * @return object Returns the information in an object with following properties:
  * <dl>
- * <dt>toaddress <dd>full to: line, up to 1024 characters
- * <dt>to <dd>an array of objects from the To: line, with the following properties: personal, adl, mailbox, and host
- * <dt>fromaddress <dd>full from: line, up to 1024 characters
- * <dt>from <dd>an array of objects from the From: line, with the following properties: personal, adl, mailbox, and host
- * <dt>ccaddress <dd>full cc: line, up to 1024 characters
- * <dt>cc <dd>an array of objects from the Cc: line, with the following properties: personal, adl, mailbox, and host
- * <dt>bccaddress <dd>full bcc: line, up to 1024 characters
- * <dt>bcc <dd>an array of objects from the Bcc: line, with the following properties: personal, adl, mailbox, and host
- * <dt>reply_toaddress <dd>full Reply-To: line, up to 1024 characters
- * <dt>reply_to <dd>an array of objects from the Reply-To: line, with the following properties: personal, adl, mailbox, and host
- * <dt>senderaddress <dd>full sender: line, up to 1024 characters
- * <dt>sender <dd>an array of objects from the Sender: line, with the following properties: personal, adl, mailbox, and host
- * <dt>return_pathaddress <dd>full Return-Path: line, up to 1024 characters
- * <dt>return_path <dd>an array of objects from the Return-Path: line, with the following properties: personal, adl, mailbox, and host
- * <dt>remail -
- * <dt>date <dd>The message date as found in its headers
- * <dt>Date <dd>Same as date
- * <dt>subject <dd>The message subject
- * <dt>Subject <dd>Same a subject
- * <dt>in_reply_to -
- * <dt>message_id -
- * <dt>newsgroups -
- * <dt>followup_to -
- * <dt>references -
- * <dt>Recent <dd>R if recent and seen, N if recent and not seen, ' ' if not recent.
- * <dt>Unseen <dd>U if not seen AND not recent, ' ' if seen OR not seen and recent
- * <dt>Flagged <dd>F if flagged, ' ' if not flagged
- * <dt>Answered <dd>A if answered, ' ' if unanswered
- * <dt>Deleted <dd>D if deleted, ' ' if not deleted
- * <dt>Draft <dd>X if draft, ' ' if not draft
- * <dt>Msgno <dd>The message number
- * <dt>MailDate -
- * <dt>Size <dd>The message size
- * <dt>udate <dd>mail message date in Unix time
- * <dt>fetchfrom <dd>from line formatted to fit fromlength characters
- * <dt>fetchsubject <dd>subject line formatted to fit subjectlength characters
+ * <dt>toaddress</dt><dd>full to: line, up to 1024 characters</dd>
+ * <dt>to</dt><dd>an array of objects from the To: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>fromaddress</dt><dd>full from: line, up to 1024 characters</dd>
+ * <dt>from</dt><dd>an array of objects from the From: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>ccaddress</dt><dd>full cc: line, up to 1024 characters</dd>
+ * <dt>cc</dt><dd>an array of objects from the Cc: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>bccaddress</dt><dd>full bcc: line, up to 1024 characters</dd>
+ * <dt>bcc</dt><dd>an array of objects from the Bcc: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>reply_toaddress</dt><dd>full Reply-To: line, up to 1024 characters</dd>
+ * <dt>reply_to</dt><dd>an array of objects from the Reply-To: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>senderaddress</dt><dd>full sender: line, up to 1024 characters</dd>
+ * <dt>sender</dt><dd>an array of objects from the Sender: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>return_pathaddress</dt><dd>full Return-Path: line, up to 1024 characters</dd>
+ * <dt>return_path</dt><dd>an array of objects from the Return-Path: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>remail -</dt>
+ * <dt>date</dt><dd>The message date as found in its headers</dd>
+ * <dt>Date</dt><dd>Same as date</dd>
+ * <dt>subject</dt><dd>The message subject</dd>
+ * <dt>Subject</dt><dd>Same a subject</dd>
+ * <dt>in_reply_to -</dt>
+ * <dt>message_id -</dt>
+ * <dt>newsgroups -</dt>
+ * <dt>followup_to -</dt>
+ * <dt>references -</dt>
+ * <dt>Recent</dt><dd>R if recent and seen, N if recent and not seen, ' ' if not recent.</dd>
+ * <dt>Unseen</dt><dd>U if not seen AND not recent, ' ' if seen OR not seen and recent</dd>
+ * <dt>Flagged</dt><dd>F if flagged, ' ' if not flagged</dd>
+ * <dt>Answered</dt><dd>A if answered, ' ' if unanswered</dd>
+ * <dt>Deleted</dt><dd>D if deleted, ' ' if not deleted</dd>
+ * <dt>Draft</dt><dd>X if draft, ' ' if not draft</dd>
+ * <dt>Msgno</dt><dd>The message number</dd>
+ * <dt>MailDate -</dt>
+ * <dt>Size</dt><dd>The message size</dd>
+ * <dt>udate</dt><dd>mail message date in Unix time</dd>
+ * <dt>fetchfrom</dt><dd>from line formatted to fit fromlength characters</dd>
+ * <dt>fetchsubject</dt><dd>subject line formatted to fit subjectlength characters</dd>
  * </dl>
  */
 function imap_headerinfo ($stream_id, $msg_no, $from_length = 0, $subject_length = 0, $default_host = null) {}
@@ -169,42 +169,42 @@ function imap_headerinfo ($stream_id, $msg_no, $from_length = 0, $subject_length
  * @param int $subject_length [optional] Number of characters for the fetchsubject property Must be greater than or equal to zero.
  * @return object Returns the information in an object with following properties:
  * <dl>
- * <dt>toaddress <dd>full to: line, up to 1024 characters
- * <dt>to <dd>an array of objects from the To: line, with the following properties: personal, adl, mailbox, and host
- * <dt>fromaddress <dd>full from: line, up to 1024 characters
- * <dt>from <dd>an array of objects from the From: line, with the following properties: personal, adl, mailbox, and host
- * <dt>ccaddress <dd>full cc: line, up to 1024 characters
- * <dt>cc <dd>an array of objects from the Cc: line, with the following properties: personal, adl, mailbox, and host
- * <dt>bccaddress <dd>full bcc: line, up to 1024 characters
- * <dt>bcc <dd>an array of objects from the Bcc: line, with the following properties: personal, adl, mailbox, and host
- * <dt>reply_toaddress <dd>full Reply-To: line, up to 1024 characters
- * <dt>reply_to <dd>an array of objects from the Reply-To: line, with the following properties: personal, adl, mailbox, and host
- * <dt>senderaddress <dd>full sender: line, up to 1024 characters
- * <dt>sender <dd>an array of objects from the Sender: line, with the following properties: personal, adl, mailbox, and host
- * <dt>return_pathaddress <dd>full Return-Path: line, up to 1024 characters
- * <dt>return_path <dd>an array of objects from the Return-Path: line, with the following properties: personal, adl, mailbox, and host
- * <dt>remail -
- * <dt>date <dd>The message date as found in its headers
- * <dt>Date <dd>Same as date
- * <dt>subject <dd>The message subject
- * <dt>Subject <dd>Same a subject
- * <dt>in_reply_to -
- * <dt>message_id -
- * <dt>newsgroups -
- * <dt>followup_to -
- * <dt>references -
- * <dt>Recent <dd>R if recent and seen, N if recent and not seen, ' ' if not recent.
- * <dt>Unseen <dd>U if not seen AND not recent, ' ' if seen OR not seen and recent
- * <dt>Flagged <dd>F if flagged, ' ' if not flagged
- * <dt>Answered <dd>A if answered, ' ' if unanswered
- * <dt>Deleted <dd>D if deleted, ' ' if not deleted
- * <dt>Draft <dd>X if draft, ' ' if not draft
- * <dt>Msgno <dd>The message number
- * <dt>MailDate -
- * <dt>Size <dd>The message size
- * <dt>udate <dd>mail message date in Unix time
- * <dt>fetchfrom <dd>from line formatted to fit fromlength characters
- * <dt>fetchsubject <dd>subject line formatted to fit subjectlength characters
+ * <dt>toaddress</dt><dd>full to: line, up to 1024 characters</dd>
+ * <dt>to</dt><dd>an array of objects from the To: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>fromaddress</dt><dd>full from: line, up to 1024 characters</dd>
+ * <dt>from</dt><dd>an array of objects from the From: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>ccaddress</dt><dd>full cc: line, up to 1024 characters</dd>
+ * <dt>cc</dt><dd>an array of objects from the Cc: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>bccaddress</dt><dd>full bcc: line, up to 1024 characters</dd>
+ * <dt>bcc</dt><dd>an array of objects from the Bcc: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>reply_toaddress</dt><dd>full Reply-To: line, up to 1024 characters</dd>
+ * <dt>reply_to</dt><dd>an array of objects from the Reply-To: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>senderaddress</dt><dd>full sender: line, up to 1024 characters</dd>
+ * <dt>sender</dt><dd>an array of objects from the Sender: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>return_pathaddress</dt><dd>full Return-Path: line, up to 1024 characters</dd>
+ * <dt>return_path</dt><dd>an array of objects from the Return-Path: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>remail -</dt>
+ * <dt>date</dt><dd>The message date as found in its headers</dd>
+ * <dt>Date</dt><dd>Same as date</dd>
+ * <dt>subject</dt><dd>The message subject</dd>
+ * <dt>Subject</dt><dd>Same a subject</dd>
+ * <dt>in_reply_to -</dt>
+ * <dt>message_id -</dt>
+ * <dt>newsgroups -</dt>
+ * <dt>followup_to -</dt>
+ * <dt>references -</dt>
+ * <dt>Recent</dt><dd>R if recent and seen, N if recent and not seen, ' ' if not recent.</dd>
+ * <dt>Unseen</dt><dd>U if not seen AND not recent, ' ' if seen OR not seen and recent</dd>
+ * <dt>Flagged</dt><dd>F if flagged, ' ' if not flagged</dd>
+ * <dt>Answered</dt><dd>A if answered, ' ' if unanswered</dd>
+ * <dt>Deleted</dt><dd>D if deleted, ' ' if not deleted</dd>
+ * <dt>Draft</dt><dd>X if draft, ' ' if not draft</dd>
+ * <dt>Msgno</dt><dd>The message number</dd>
+ * <dt>MailDate -</dt>
+ * <dt>Size</dt><dd>The message size</dd>
+ * <dt>udate</dt><dd>mail message date in Unix time</dd>
+ * <dt>fetchfrom</dt><dd>from line formatted to fit fromlength characters</dd>
+ * <dt>fetchsubject</dt><dd>subject line formatted to fit subjectlength characters</dd>
  * </dl>
  */
 function imap_headerinfo ($stream_id, $msg_no, $from_length = 0, $subject_length = 0) {}
@@ -270,7 +270,7 @@ function imap_rfc822_parse_adrlist ($address, $default_host) {}
  * @param int $options [optional] <p>
  * The optional <i>options</i> are a bit mask
  * with one or more of the following:
- * <b>FT_UID</b> - The <i>msg_number</i> is a UID
+ * <b>FT_UID</b> - The <i>msg_number</i> is a UID</p>
  * @return string the body of the specified message, as a string.
  */
 function imap_body ($imap_stream, $msg_number, $options = 0) {}
@@ -304,7 +304,7 @@ function imap_bodystruct ($imap_stream, $msg_number, $section) {}
  * </p>
  * @param int $options [optional] <p>
  * A bitmask with one or more of the following:
- * <b>FT_UID</b> - The <i>msg_number</i> is a UID
+ * <b>FT_UID</b> - The <i>msg_number</i> is a UID</p>
  * @return string a particular section of the body of the specified messages as a
  * text string.
  */
@@ -323,7 +323,7 @@ function imap_fetchbody ($imap_stream, $msg_number, $section, $options = 0) {}
  * </p>
  * @param int $options [optional] <p>
  * A bitmask with one or more of the following:
- * <b>FT_UID</b> - The <i>msg_number</i> is a UID
+ * <b>FT_UID</b> - The <i>msg_number</i> is a UID</p>
  * @return string the MIME headers of a particular section of the body of the specified messages as a
  * text string.
  * @since 5.3.6
@@ -347,7 +347,7 @@ function imap_fetchmime ($imap_stream, $msg_number, $section, $options = 0) {}
  * </p>
  * @param int $options [optional] <p>
  * A bitmask with one or more of the following:
- * <b>FT_UID</b> - The <i>msg_number</i> is a UID
+ * <b>FT_UID</b> - The <i>msg_number</i> is a UID</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.1.3
  */
@@ -363,7 +363,7 @@ function imap_savebody ($imap_stream, $file, $msg_number, $part_number = "", $op
  * @param int $options [optional] <p>
  * The possible <i>options</i> are:
  * <b>FT_UID</b> - The <i>msgno</i>
- * argument is a UID
+ * argument is a UID</p>
  * @return string the header of the specified message as a text string.
  */
 function imap_fetchheader ($imap_stream, $msg_number, $options = 0) {}
@@ -602,7 +602,7 @@ function imap_listscan ($imap_stream, $ref, $pattern, $content) {}
  * </p>
  * @param int $options [optional] <p>
  * <i>options</i> is a bitmask of one or more of
- * <b>CP_UID</b> - the sequence numbers contain UIDS
+ * <b>CP_UID</b> - the sequence numbers contain UIDS</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_mail_copy ($imap_stream, $msglist, $mailbox, $options = 0) {}
@@ -621,7 +621,7 @@ function imap_mail_copy ($imap_stream, $msglist, $mailbox, $options = 0) {}
  * </p>
  * @param int $options [optional] <p>
  * <i>options</i> is a bitmask and may contain the single option:
- * <b>CP_UID</b> - the sequence numbers contain UIDS
+ * <b>CP_UID</b> - the sequence numbers contain UIDS</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_mail_move ($imap_stream, $msglist, $mailbox, $options = 0) {}
@@ -818,7 +818,7 @@ function imap_utf8 ($mime_encoded_text) {}
  * </p>
  * <p>
  * flags is also set, which contains a bitmask which can
- * be checked against any of the above constants.
+ * be checked against any of the above constants.</p>
  */
 function imap_status ($imap_stream, $mailbox, $options) {}
 
@@ -892,7 +892,7 @@ function imap_mailboxmsginfo ($imap_stream) {}
  * @param int $options [optional] <p>
  * A bit mask that may contain the single option:
  * <b>ST_UID</b> - The sequence argument contains UIDs
- * instead of sequence numbers
+ * instead of sequence numbers</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_setflag_full ($imap_stream, $sequence, $flag, $options = NIL) {}
@@ -914,7 +914,7 @@ function imap_setflag_full ($imap_stream, $sequence, $flag, $options = NIL) {}
  * <i>options</i> are a bit mask and may contain
  * the single option:
  * <b>ST_UID</b> - The sequence argument contains UIDs
- * instead of sequence numbers
+ * instead of sequence numbers</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_clearflag_full ($imap_stream, $sequence, $flag, $options = 0) {}
@@ -925,14 +925,14 @@ function imap_clearflag_full ($imap_stream, $sequence, $flag, $options = 0) {}
  * @param resource $imap_stream
  * @param int $criteria <p>
  * Criteria can be one (and only one) of the following:
- * <b>SORTDATE</b> - message Date
+ * <b>SORTDATE</b> - message Date</p>
  * @param int $reverse <p>
  * Set this to 1 for reverse sorting
  * </p>
  * @param int $options [optional] <p>
  * The <i>options</i> are a bitmask of one or more of the
  * following:
- * <b>SE_UID</b> - Return UIDs instead of sequence numbers
+ * <b>SE_UID</b> - Return UIDs instead of sequence numbers</p>
  * @param string $search_criteria [optional]
  * @param string $charset [optional]
  * @return array an array of message numbers sorted by the given
@@ -1082,7 +1082,7 @@ function imap_last_error () {}
  * allowed. Any multi-word arguments (e.g.
  * FROM "joey smith") must be quoted. Results will match
  * all <i>criteria</i> entries.
- * ALL - return all messages matching the rest of the criteria
+ * ALL - return all messages matching the rest of the criteria</p>
  * @param int $options [optional] <p>
  * Valid values for <i>options</i> are
  * <b>SE_UID</b>, which causes the returned array to
@@ -1342,42 +1342,42 @@ function imap_mail ($to, $subject, $message, $additional_headers = null, $cc = n
  * @param $default_host [optional]
  * @return object Returns the information in an object with following properties:
  * <dl>
- * <dt>toaddress <dd>full to: line, up to 1024 characters
- * <dt>to <dd>an array of objects from the To: line, with the following properties: personal, adl, mailbox, and host
- * <dt>fromaddress <dd>full from: line, up to 1024 characters
- * <dt>from <dd>an array of objects from the From: line, with the following properties: personal, adl, mailbox, and host
- * <dt>ccaddress <dd>full cc: line, up to 1024 characters
- * <dt>cc <dd>an array of objects from the Cc: line, with the following properties: personal, adl, mailbox, and host
- * <dt>bccaddress <dd>full bcc: line, up to 1024 characters
- * <dt>bcc <dd>an array of objects from the Bcc: line, with the following properties: personal, adl, mailbox, and host
- * <dt>reply_toaddress <dd>full Reply-To: line, up to 1024 characters
- * <dt>reply_to <dd>an array of objects from the Reply-To: line, with the following properties: personal, adl, mailbox, and host
- * <dt>senderaddress <dd>full sender: line, up to 1024 characters
- * <dt>sender <dd>an array of objects from the Sender: line, with the following properties: personal, adl, mailbox, and host
- * <dt>return_pathaddress <dd>full Return-Path: line, up to 1024 characters
- * <dt>return_path <dd>an array of objects from the Return-Path: line, with the following properties: personal, adl, mailbox, and host
- * <dt>remail -
- * <dt>date <dd>The message date as found in its headers
- * <dt>Date <dd>Same as date
- * <dt>subject <dd>The message subject
- * <dt>Subject <dd>Same a subject
- * <dt>in_reply_to -
- * <dt>message_id -
- * <dt>newsgroups -
- * <dt>followup_to -
- * <dt>references -
- * <dt>Recent <dd>R if recent and seen, N if recent and not seen, ' ' if not recent.
- * <dt>Unseen <dd>U if not seen AND not recent, ' ' if seen OR not seen and recent
- * <dt>Flagged <dd>F if flagged, ' ' if not flagged
- * <dt>Answered <dd>A if answered, ' ' if unanswered
- * <dt>Deleted <dd>D if deleted, ' ' if not deleted
- * <dt>Draft <dd>X if draft, ' ' if not draft
- * <dt>Msgno <dd>The message number
- * <dt>MailDate -
- * <dt>Size <dd>The message size
- * <dt>udate <dd>mail message date in Unix time
- * <dt>fetchfrom <dd>from line formatted to fit fromlength characters
- * <dt>fetchsubject <dd>subject line formatted to fit subjectlength characters
+ * <dt>toaddress</dt><dd>full to: line, up to 1024 characters</dd>
+ * <dt>to</dt><dd>an array of objects from the To: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>fromaddress</dt><dd>full from: line, up to 1024 characters</dd>
+ * <dt>from</dt><dd>an array of objects from the From: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>ccaddress</dt><dd>full cc: line, up to 1024 characters</dd>
+ * <dt>cc</dt><dd>an array of objects from the Cc: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>bccaddress</dt><dd>full bcc: line, up to 1024 characters</dd>
+ * <dt>bcc</dt><dd>an array of objects from the Bcc: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>reply_toaddress</dt><dd>full Reply-To: line, up to 1024 characters</dd>
+ * <dt>reply_to</dt><dd>an array of objects from the Reply-To: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>senderaddress</dt><dd>full sender: line, up to 1024 characters</dd>
+ * <dt>sender</dt><dd>an array of objects from the Sender: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>return_pathaddress</dt><dd>full Return-Path: line, up to 1024 characters</dd>
+ * <dt>return_path</dt><dd>an array of objects from the Return-Path: line, with the following properties: personal, adl, mailbox, and host</dd>
+ * <dt>remail -</dt>
+ * <dt>date</dt><dd>The message date as found in its headers</dd>
+ * <dt>Date</dt><dd>Same as date</dd>
+ * <dt>subject</dt><dd>The message subject</dd>
+ * <dt>Subject</dt><dd>Same a subject</dd>
+ * <dt>in_reply_to -</dt>
+ * <dt>message_id -</dt>
+ * <dt>newsgroups -</dt>
+ * <dt>followup_to -</dt>
+ * <dt>references -</dt>
+ * <dt>Recent</dt><dd>R if recent and seen, N if recent and not seen, ' ' if not recent.</dd>
+ * <dt>Unseen</dt><dd>U if not seen AND not recent, ' ' if seen OR not seen and recent</dd>
+ * <dt>Flagged</dt><dd>F if flagged, ' ' if not flagged</dd>
+ * <dt>Answered</dt><dd>A if answered, ' ' if unanswered</dd>
+ * <dt>Deleted</dt><dd>D if deleted, ' ' if not deleted</dd>
+ * <dt>Draft</dt><dd>X if draft, ' ' if not draft</dd>
+ * <dt>Msgno</dt><dd>The message number</dd>
+ * <dt>MailDate -</dt>
+ * <dt>Size</dt><dd>The message size</dd>
+ * <dt>udate</dt><dd>mail message date in Unix time</dd>
+ * <dt>fetchfrom</dt><dd>from line formatted to fit fromlength characters</dd>
+ * <dt>fetchsubject</dt><dd>subject line formatted to fit subjectlength characters</dd>
  * </dl>
  */
 function imap_header ($stream_id, $msg_no, $from_length = 0, $subject_length = 0, $default_host = null) {}

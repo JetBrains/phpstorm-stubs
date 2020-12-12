@@ -16,9 +16,9 @@ class SNMP  {
     /**
      * @var int Controls the method how the SNMP values will be returned
      * <dl>
-     * <dt>SNMP_VALUE_LIBRARY	<dd>The return values will be as returned by the Net-SNMP library.
-     * <dt>SNMP_VALUE_PLAIN	<dd>The return values will be the plain value without the SNMP type hint.
-     * <dt>SNMP_VALUE_OBJECT	 <dd>The return values will be objects with the properties "value" and "type", where the latter is one of the SNMP_OCTET_STR, SNMP_COUNTER etc. constants. The way "value" is returned is based on which one of SNMP_VALUE_LIBRARY, SNMP_VALUE_PLAIN is set
+     * <dt>SNMP_VALUE_LIBRARY</dt><dd>The return values will be as returned by the Net-SNMP library.</dd>
+     * <dt>SNMP_VALUE_PLAIN</dt><dd>The return values will be the plain value without the SNMP type hint.</dd>
+     * <dt>SNMP_VALUE_OBJECT</dt><dd>The return values will be objects with the properties "value" and "type", where the latter is one of the SNMP_OCTET_STR, SNMP_COUNTER etc. constants. The way "value" is returned is based on which one of SNMP_VALUE_LIBRARY, SNMP_VALUE_PLAIN is set</dd>
      * <dl>
      * @link https://secure.php.net/manual/en/class.snmp.php#snmp.props.max-oids
      */
@@ -42,12 +42,12 @@ class SNMP  {
      * @var int Controls OID output format
      * <p>OID .1.3.6.1.2.1.1.3.0 representation for various oid_output_format values
      * <dl>
-     * <dt>SNMP_OID_OUTPUT_FULL	<dd>.iso.org.dod.internet.mgmt.mib-2.system.sysUpTime.sysUpTimeInstance
-     * <dt>SNMP_OID_OUTPUT_NUMERIC	<dd>.1.3.6.1.2.1.1.3.0
-     * <dt>SNMP_OID_OUTPUT_MODULE	<dd>DISMAN-EVENT-MIB::sysUpTimeInstance
-     * <dt>SNMP_OID_OUTPUT_SUFFIX	<dd>sysUpTimeInstance
-     * <dt>SNMP_OID_OUTPUT_UCD	<dd>system.sysUpTime.sysUpTimeInstance
-     * <dt>SNMP_OID_OUTPUT_NONE	<dd>Undefined
+     * <dt>SNMP_OID_OUTPUT_FULL</dt><dd>.iso.org.dod.internet.mgmt.mib-2.system.sysUpTime.sysUpTimeInstance</dd>
+     * <dt>SNMP_OID_OUTPUT_NUMERIC</dt><dd>.1.3.6.1.2.1.1.3.0</dd>
+     * <dt>SNMP_OID_OUTPUT_MODULE</dt><dd>DISMAN-EVENT-MIB::sysUpTimeInstance</dd>
+     * <dt>SNMP_OID_OUTPUT_SUFFIX</dt><dd>sysUpTimeInstance</dd>
+     * <dt>SNMP_OID_OUTPUT_UCD</dt><dd>system.sysUpTime.sysUpTimeInstance</dd>
+     * <dt>SNMP_OID_OUTPUT_NONE</dt><dd>Undefined</dd>
      * </dl>
      * @link https://secure.php.net/manual/en/class.snmp.php#snmp.props.oid-output-format
      */
@@ -203,8 +203,8 @@ class SNMP  {
      * raised when count of OIDs in object_id array is greater than max_oids.
      * When count of OIDs in object_id array is greater than max_oids object property set method will have to use multiple queries to perform requested value updates. In this case type and value checks are made per-chunk so second or subsequent requests may fail due to wrong type or value for OID requested. To mark this a warning is raised when count of OIDs in object_id array is greater than max_oids.</p>
      * @param mixed $type <p>The MIB defines the type of each object id. It has to be specified as a single character from the below list.</p>
+     * <b>types:</b>
      * <table>
-     * <b>types</b>
      * <tbody>
      * <tr><td>=</td><td>The type is taken from the MIB</td></tr>
      * <tr><td>i</td><td>INTEGER</td> </tr>
@@ -222,8 +222,8 @@ class SNMP  {
      * <p>
      * If <b>OPAQUE_SPECIAL_TYPES</b> was defined while compiling the SNMP library, the following are also valid:
      * </p>
+     * <b>types:</b>
      * <table>
-     * <b>types</b>
      * <tbody>
      * <tr><td>U</td><td>unsigned int64</td></tr>
      * <tr><td>I</td><td>signed int64</td></tr>
@@ -238,9 +238,9 @@ class SNMP  {
      *
      * <p>
      * If the MIB-Files are loaded by into the MIB Tree with "snmp_read_mib" or by specifying it in the libsnmp config, '=' may be used as
-     * the <i>type</code></i> parameter for all object ids as the type can then be automatically read from the MIB.
+     * the <i>type</i> parameter for all object ids as the type can then be automatically read from the MIB.
      * </p>
-
+     *
      * <p>
      * Note that there are two ways to set a variable of the type BITS like e.g.
      * "SYNTAX    BITS {telnet(0), ftp(1), http(2), icmp(3), snmp(4), ssh(5), https(6)}":
@@ -630,9 +630,10 @@ function snmp2_real_walk ($host, $community, $object_id, $timeout = 1000000, $re
  * @param string $object_id <p>
  * The SNMP object id.
  * </p>
- * @param string $type The MIB defines the type of each object id. It has to be specified as a single character from the below list.
+ * @param string $type <p>The MIB defines the type of each object id. It has to be specified as a single character from the below list.
  * </p>
- * types
+ * <p>types:</p>
+ * <table>
  * <tr valign="top"><td>=</td><td>The type is taken from the MIB</td></tr>
  * <tr valign="top"><td>i</td><td>INTEGER</td> </tr>
  * <tr valign="top"><td>u</td><td>INTEGER</td></tr>
@@ -645,17 +646,18 @@ function snmp2_real_walk ($host, $community, $object_id, $timeout = 1000000, $re
  * <tr valign="top"><td>a</td><td>IPADDRESS</td></tr>
  * <tr valign="top"><td>b</td><td>BITS</td></tr>
  * </table>
- * If <b>OPAQUE_SPECIAL_TYPES</b> was defined while compiling the SNMP library, the following are also valid:
+ * <p>If <b>OPAQUE_SPECIAL_TYPES</b> was defined while compiling the SNMP library, the following are also valid:
  * </p>
- * types
+ * <p>types:</p>
+ * <table>
  * <tr valign="top"><td>U</td><td>unsigned int64</td></tr>
  * <tr valign="top"><td>I</td><td>signed int64</td></tr>
  * <tr valign="top"><td>F</td><td>float</td></tr>
  * <tr valign="top"><td>D</td><td>double</td></tr>
  * </table>
- * Most of these will use the obvious corresponding ASN.1 type. &#x00027;s&#x00027;, &#x00027;x&#x00027;, &#x00027;d&#x00027; and &#x00027;b&#x00027; are all different ways of specifying an OCTET STRING value, and
+ * <p>Most of these will use the obvious corresponding ASN.1 type. &#x00027;s&#x00027;, &#x00027;x&#x00027;, &#x00027;d&#x00027; and &#x00027;b&#x00027; are all different ways of specifying an OCTET STRING value, and
  * the &#x00027;u&#x00027; unsigned type is also used for handling Gauge32 values.
- * </p>
+ * </p><p>
  * If the MIB-Files are loaded by into the MIB Tree with "snmp_read_mib" or by specifying it in the libsnmp config, &#x00027;=&#x00027; may be used as
  * the <i>type</i> parameter for all object ids as the type can then be automatically read from the MIB.
  * </p>
@@ -870,11 +872,11 @@ function snmp3_real_walk ($host, $sec_name, $sec_level, $auth_protocol, $auth_pa
  * @param string $object_id <p>
  * The SNMP object id.
  * </p>
- * @param string $type The MIB defines the type of each object id. It has to be specified as a single character from the below list.
- * <p>
- * types
+ * @param string $type <p>The MIB defines the type of each object id. It has to be specified as a single character from the below list.</p>
+ * <p>types:</p>
+ * <table>
  * <tr valign="top"><td>=</td><td>The type is taken from the MIB</td></tr>
- * <tr valign="top"><td>i</td><td>INTEGER</td> </tr>
+ * <tr valign="top"><td>i</td><td>INTEGER</td></tr>
  * <tr valign="top"><td>u</td><td>INTEGER</td></tr>
  * <tr valign="top"><td>s</td><td>STRING</td></tr>
  * <tr valign="top"><td>x</td><td>HEX STRING</td></tr>
@@ -885,16 +887,16 @@ function snmp3_real_walk ($host, $sec_name, $sec_level, $auth_protocol, $auth_pa
  * <tr valign="top"><td>a</td><td>IPADDRESS</td></tr>
  * <tr valign="top"><td>b</td><td>BITS</td></tr>
  * </table>
- * If <b>OPAQUE_SPECIAL_TYPES</b> was defined while compiling the SNMP library, the following are also valid:
+ * <p>If <b>OPAQUE_SPECIAL_TYPES</b> was defined while compiling the SNMP library, the following are also valid:
  * </p>
- * <p>
- * types
+ * <p>types:</p>
+ * <table>
  * <tr valign="top"><td>U</td><td>unsigned int64</td></tr>
  * <tr valign="top"><td>I</td><td>signed int64</td></tr>
  * <tr valign="top"><td>F</td><td>float</td></tr>
  * <tr valign="top"><td>D</td><td>double</td></tr>
  * </table>
- * Most of these will use the obvious corresponding ASN.1 type. &#x00027;s&#x00027;, &#x00027;x&#x00027;, &#x00027;d&#x00027; and &#x00027;b&#x00027; are all different ways of specifying an OCTET STRING value, and
+ * <p>Most of these will use the obvious corresponding ASN.1 type. &#x00027;s&#x00027;, &#x00027;x&#x00027;, &#x00027;d&#x00027; and &#x00027;b&#x00027; are all different ways of specifying an OCTET STRING value, and
  * the &#x00027;u&#x00027; unsigned type is also used for handling Gauge32 values.
  * </p>
  * <p>

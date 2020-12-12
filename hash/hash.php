@@ -246,7 +246,7 @@ function hash_algos (): array
  * </blockquote>
  * @param string $key <p>Input keying material (raw binary). Cannot be empty.</p>
  * @param int $length [optional] <p>Desired output length in bytes. Cannot be greater than 255 times the chosen hash function size.
- * If <b>length</b> is 0, the output length will default to the chosen hash function size.
+ * If <b>length</b> is 0, the output length will default to the chosen hash function size.</p>
  * @param string $info [optional] <p>Application/context-specific info string.</p>
  * @param string $salt [optional] <p>Salt to use during derivation. While optional, adding random salt significantly improves the strength of HKDF.</p>
  * @return string|false <p>Returns a string containing a raw binary representation of the derived key (also known as output keying material - OKM); or <b>FALSE</b> on failure.</p>

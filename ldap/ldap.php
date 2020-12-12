@@ -235,7 +235,7 @@ function ldap_unbind ($ldap): bool
  * Specifies how aliases should be handled during the search. It can be
  * one of the following:
  * <b>LDAP_DEREF_NEVER</b> - (default) aliases are never
- * dereferenced.
+ * dereferenced.</p>
  * @param array|null $controls [optional] Array of LDAP Controls to send with the request.
  * @return resource|false a search result identifier or <b>FALSE</b> on error.
  */
@@ -294,7 +294,7 @@ function ldap_read ($ldap, array|string $base, array|string $filter, array $attr
  * Specifies how aliases should be handled during the search. It can be
  * one of the following:
  * <b>LDAP_DEREF_NEVER</b> - (default) aliases are never
- * dereferenced.
+ * dereferenced.</p>
  * @param array|null $controls [optional] Array of LDAP Controls to send with the request.
  * @return resource|false a search result identifier or <b>FALSE</b> on error.
  */
@@ -357,7 +357,7 @@ function ldap_list ($ldap, array|string $base, array|string $filter, array $attr
  * Specifies how aliases should be handled during the search. It can be
  * one of the following:
  * <b>LDAP_DEREF_NEVER</b> - (default) aliases are never
- * dereferenced.
+ * dereferenced.</p>
  * @param array|null $controls [optional] Array of LDAP Controls to send with the request.
  * @return resource|false a search result identifier or <b>FALSE</b> on error.
  */
@@ -1215,14 +1215,12 @@ function ldap_escape (string $value, string $ignore = "", int $flags = 0): strin
  * </p>
  * <p>
  * Possible values for <em>modtype</em> include:
- * </p><dl>
- *
+ * </p>
+ * <dl>
  *
  * <dt>
  * <b>LDAP_MODIFY_BATCH_ADD</b></dt>
- *
  * <dd>
- *
  * <p>
  * Each value specified through <em>values</em> is added (as
  * an additional value) to the attribute named by
@@ -1232,9 +1230,7 @@ function ldap_escape (string $value, string $ignore = "", int $flags = 0): strin
  *
  * <dt>
  * <b>LDAP_MODIFY_BATCH_REMOVE</b></dt>
- *
  * <dd>
- *
  * <p>
  * Each value specified through <em>values</em> is removed
  * from the attribute named by <em>attrib</em>. Any value of
@@ -1242,11 +1238,10 @@ function ldap_escape (string $value, string $ignore = "", int $flags = 0): strin
  * will remain untouched.
  * </p>
  * </dd>
+ *
  * <dt>
  * <b>LDAP_MODIFY_BATCH_REMOVE_ALL</b></dt>
- *
  * <dd>
- *
  * <p>
  * All values are removed from the attribute named by
  * <em>attrib</em>. A <em>values</em> entry must
@@ -1256,22 +1251,21 @@ function ldap_escape (string $value, string $ignore = "", int $flags = 0): strin
  *
  * <dt>
  * <b>LDAP_MODIFY_BATCH_REPLACE</b></dt>
- *
  * <dd>
- *
  * <p>
  * All current values of the attribute named by
  * <em>attrib</em> are replaced with the values specified
  * through <em>values</em>.
  * </p>
  * </dd>
+ *
  * </dl>
  * <p>
  * Note that any value for <em>attrib</em> must be a string, any
  * value for <em>values</em> must be an array of strings, and
  * any value for <em>modtype</em> must be one of the
  * <b>LDAP_MODIFY_BATCH_*</b> constants listed above.
- * </p></p>
+ * </p>
  * @param array|null $controls [optional] Array of LDAP Controls to send with the request.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.4

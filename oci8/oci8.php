@@ -399,7 +399,7 @@ function oci_unregister_taf_callback($connection) {}
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Associates a PHP variable with a column for query fetches
  * @link https://php.net/manual/en/function.oci-define-by-name.php
- * @param resource $statement A valid OCI8 statement
+ * @param resource $statement <p>A valid OCI8 statement
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
@@ -468,6 +468,7 @@ function oci_define_by_name ($statement, $column_name, &$variable, $type = SQLT_
  * </p>
  * <p>
  * Possible values for <i>type</i> are:
+ * </p>
  * <p>
  * <b>SQLT_BFILEE</b> or <b>OCI_B_BFILE</b>
  * - for BFILEs;
@@ -501,7 +502,6 @@ function oci_bind_by_name ($statement, $bv_name, &$variable, $maxlength = -1, $t
  * Should be used to set the type of PL/SQL array items. See list of
  * available types below:
  * </p>
- * <p>
  * <p>
  * <b>SQLT_NUM</b> - for arrays of NUMBER.
  * </p>
@@ -691,7 +691,7 @@ function oci_cancel ($statement) {}
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Fetches the next row from a query into internal buffers
  * @link https://php.net/manual/en/function.oci-fetch.php
- * @param resource $statement A valid OCI8 statement
+ * @param resource $statement <p>A valid OCI8 statement
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
@@ -704,11 +704,11 @@ function oci_fetch ($statement) {}
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Returns the next row from a query as an object
  * @link https://php.net/manual/en/function.oci-fetch-object.php
- * @param resource $statement A valid OCI8 statement
+ * @param resource $statement <p>A valid OCI8 statement
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
- * @return object|false An object. Each attribute of the object corresponds to a
+ * @return object|false <p>An object. Each attribute of the object corresponds to a
  * column of the row. If there are no more rows in
  * the <i>statement</i> then <b>FALSE</b> is returned.
  * </p>
@@ -732,6 +732,7 @@ function oci_fetch ($statement) {}
  * <p>
  * Attribute values will be <b>NULL</b> for any NULL
  * data fields.
+ * </p>
  */
 function oci_fetch_object ($statement) {}
 
@@ -739,7 +740,7 @@ function oci_fetch_object ($statement) {}
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Returns the next row from a query as a numeric array
  * @link https://php.net/manual/en/function.oci-fetch-row.php
- * @param resource $statement A valid OCI8 statement
+ * @param resource $statement <p>A valid OCI8 statement
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
@@ -752,7 +753,7 @@ function oci_fetch_row ($statement) {}
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Returns the next row from a query as an associative array
  * @link https://php.net/manual/en/function.oci-fetch-assoc.php
- * @param resource $statement A valid OCI8 statement
+ * @param resource $statement <p>A valid OCI8 statement
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
@@ -765,7 +766,7 @@ function oci_fetch_assoc ($statement) {}
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Returns the next row from a query as an associative or numeric array
  * @link https://php.net/manual/en/function.oci-fetch-array.php
- * @param resource $statement A valid OCI8 statement
+ * @param resource $statement <p>A valid OCI8 statement
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
@@ -817,7 +818,7 @@ function oci_fetch_assoc ($statement) {}
  * Use the addition operator &#x00022;+&#x00022; to specify more than
  * one mode at a time.
  * </p>
- * @return array|false An array with associative and/or numeric indices. If there
+ * @return array|false <p>An array with associative and/or numeric indices. If there
  * are no more rows in the <i>statement</i> then
  * <b>FALSE</b> is returned.
  * </p>
@@ -844,6 +845,7 @@ function oci_fetch_assoc ($statement) {}
  * use <b>OCI_NUM</b> or add a column alias to the query
  * to ensure name uniqueness, see example #7. Otherwise only one
  * column will be returned via PHP.
+ * </p>
  */
 function oci_fetch_array ($statement, $mode = null) {}
 
@@ -864,7 +866,7 @@ function ocifetchinto ($statement_resource, &$result, $mode = null) {}
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Fetches multiple rows from a query into a two-dimensional array
  * @link https://php.net/manual/en/function.oci-fetch-all.php
- * @param resource $statement A valid OCI8 statement
+ * @param resource $statement <p>A valid OCI8 statement
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
@@ -1168,19 +1170,21 @@ function oci_close ($connection) {}
  * @param string $password <p>
  * The password for <i>username</i>.
  * </p>
- * @param string $connection_string [optional] Contains
+ * @param string $connection_string [optional] <p>Contains
  * the Oracle instance to connect to. It can be
  * an Easy Connect
  * string, or a Connect Name from
  * the tnsnames.ora file, or the name of a local
  * Oracle instance.
  * </p>
+ * <p>
  * If not specified, PHP uses
  * environment variables such as <b>TWO_TASK</b> (on Linux)
  * or <b>LOCAL</b> (on Windows)
  * and <b>ORACLE_SID</b> to determine the
  * Oracle instance to connect to.
  * </p>
+ * <p>
  * To use the Easy Connect naming method, PHP must be linked with Oracle
  * 10g or greater Client libraries. The Easy Connect string for Oracle
  * 10g is of the form:
@@ -1191,6 +1195,7 @@ function oci_close ($connection) {}
  * utility lsnrctl status on the database server
  * machine.
  * </p>
+ * <p>
  * The tnsnames.ora file can be in the Oracle Net
  * search path, which
  * includes $ORACLE_HOME/network/admin
@@ -1199,20 +1204,23 @@ function oci_close ($connection) {}
  * that $TNS_ADMIN/tnsnames.ora is read. Make sure
  * the web daemon has read access to the file.
  * </p>
- * @param string $character_set [optional] Determines
+ * @param string $character_set [optional] <p>Determines
  * the character set used by the Oracle Client libraries. The character
  * set does not need to match the character set used by the database. If
  * it doesn't match, Oracle will do its best to convert data to and from
  * the database character set. Depending on the character sets this may
  * not give usable results. Conversion also adds some time overhead.
  * </p>
+ * <p>
  * If not specified, the
  * Oracle Client libraries determine a character set from
  * the <b>NLS_LANG</b> environment variable.
  * </p>
+ * <p>
  * Passing this parameter can
  * reduce the time taken to connect.
  * </p>
+ * <p>
  * @param int $session_mode [optional] This
  * parameter is available since version PHP 5 (PECL OCI8 1.1) and accepts the
  * following values: <b>OCI_DEFAULT</b>,
@@ -1224,6 +1232,7 @@ function oci_close ($connection) {}
  * need to set oci8.privileged_connect
  * to On.
  * </p>
+ * <p>
  * PHP 5.3 (PECL OCI8 1.3.4) introduced the
  * <b>OCI_CRED_EXT</b> mode value. This tells Oracle to use
  * External or OS authentication, which must be configured in the
@@ -1232,10 +1241,12 @@ function oci_close ($connection) {}
  * oci8.privileged_connect
  * may be On or Off.
  * </p>
+ * <p>
  * <b>OCI_CRED_EXT</b> may be combined with the
  * <b>OCI_SYSOPER</b> or
  * <b>OCI_SYSDBA</b> modes.
  * </p>
+ * <p>
  * <b>OCI_CRED_EXT</b> is not supported on Windows for
  * security reasons.
  * </p>
@@ -1253,19 +1264,21 @@ function oci_connect ($username, $password, $connection_string = null, $characte
  * @param string $password <p>
  * The password for <i>username</i>.
  * </p>
- * @param string $connection_string [optional] Contains
+ * @param string $connection_string [optional] <p>Contains
  * the Oracle instance to connect to. It can be
  * an Easy Connect
  * string, or a Connect Name from
  * the tnsnames.ora file, or the name of a local
  * Oracle instance.
  * </p>
+ * <p>
  * If not specified, PHP uses
  * environment variables such as <b>TWO_TASK</b> (on Linux)
  * or <b>LOCAL</b> (on Windows)
  * and <b>ORACLE_SID</b> to determine the
  * Oracle instance to connect to.
  * </p>
+ * <p>
  * To use the Easy Connect naming method, PHP must be linked with Oracle
  * 10g or greater Client libraries. The Easy Connect string for Oracle
  * 10g is of the form:
@@ -1276,6 +1289,7 @@ function oci_connect ($username, $password, $connection_string = null, $characte
  * utility lsnrctl status on the database server
  * machine.
  * </p>
+ * <p>
  * The tnsnames.ora file can be in the Oracle Net
  * search path, which
  * includes $ORACLE_HOME/network/admin
@@ -1284,21 +1298,23 @@ function oci_connect ($username, $password, $connection_string = null, $characte
  * that $TNS_ADMIN/tnsnames.ora is read. Make sure
  * the web daemon has read access to the file.
  * </p>
- * @param string $character_set [optional] Determines
+ * @param string $character_set [optional] <p>Determines
  * the character set used by the Oracle Client libraries. The character
  * set does not need to match the character set used by the database. If
  * it doesn't match, Oracle will do its best to convert data to and from
  * the database character set. Depending on the character sets this may
  * not give usable results. Conversion also adds some time overhead.
  * </p>
+ * <p>
  * If not specified, the
  * Oracle Client libraries determine a character set from
  * the <b>NLS_LANG</b> environment variable.
  * </p>
+ * <p>
  * Passing this parameter can
  * reduce the time taken to connect.
  * </p>
- * @param int $session_mode [optional] This
+ * @param int $session_mode [optional] <p>This
  * parameter is available since version PHP 5 (PECL OCI8 1.1) and accepts the
  * following values: <b>OCI_DEFAULT</b>,
  * <b>OCI_SYSOPER</b> and <b>OCI_SYSDBA</b>.
@@ -1309,6 +1325,7 @@ function oci_connect ($username, $password, $connection_string = null, $characte
  * need to set oci8.privileged_connect
  * to On.
  * </p>
+ * <p>
  * PHP 5.3 (PECL OCI8 1.3.4) introduced the
  * <b>OCI_CRED_EXT</b> mode value. This tells Oracle to use
  * External or OS authentication, which must be configured in the
@@ -1317,10 +1334,12 @@ function oci_connect ($username, $password, $connection_string = null, $characte
  * oci8.privileged_connect
  * may be On or Off.
  * </p>
+ * <p>
  * <b>OCI_CRED_EXT</b> may be combined with the
  * <b>OCI_SYSOPER</b> or
  * <b>OCI_SYSDBA</b> modes.
  * </p>
+ * <p>
  * <b>OCI_CRED_EXT</b> is not supported on Windows for
  * security reasons.
  * </p>
@@ -1338,19 +1357,21 @@ function oci_new_connect ($username, $password, $connection_string = null, $char
  * @param string $password <p>
  * The password for <i>username</i>.
  * </p>
- * @param string $connection_string [optional] Contains
+ * @param string $connection_string [optional] <p>Contains
  * the Oracle instance to connect to. It can be
  * an Easy Connect
  * string, or a Connect Name from
  * the tnsnames.ora file, or the name of a local
  * Oracle instance.
  * </p>
+ * <p>
  * If not specified, PHP uses
  * environment variables such as <b>TWO_TASK</b> (on Linux)
  * or <b>LOCAL</b> (on Windows)
  * and <b>ORACLE_SID</b> to determine the
  * Oracle instance to connect to.
  * </p>
+ * <p>
  * To use the Easy Connect naming method, PHP must be linked with Oracle
  * 10g or greater Client libraries. The Easy Connect string for Oracle
  * 10g is of the form:
@@ -1361,6 +1382,7 @@ function oci_new_connect ($username, $password, $connection_string = null, $char
  * utility lsnrctl status on the database server
  * machine.
  * </p>
+ * <p>
  * The tnsnames.ora file can be in the Oracle Net
  * search path, which
  * includes $ORACLE_HOME/network/admin
@@ -1369,21 +1391,23 @@ function oci_new_connect ($username, $password, $connection_string = null, $char
  * that $TNS_ADMIN/tnsnames.ora is read. Make sure
  * the web daemon has read access to the file.
  * </p>
- * @param string $character_set [optional] Determines
+ * @param string $character_set [optional] <p>Determines
  * the character set used by the Oracle Client libraries. The character
  * set does not need to match the character set used by the database. If
  * it doesn't match, Oracle will do its best to convert data to and from
  * the database character set. Depending on the character sets this may
  * not give usable results. Conversion also adds some time overhead.
  * </p>
+ * <p>
  * If not specified, the
  * Oracle Client libraries determine a character set from
  * the <b>NLS_LANG</b> environment variable.
  * </p>
+ * <p>
  * Passing this parameter can
  * reduce the time taken to connect.
  * </p>
- * @param int $session_mode [optional] This
+ * @param int $session_mode [optional] <p>This
  * parameter is available since version PHP 5 (PECL OCI8 1.1) and accepts the
  * following values: <b>OCI_DEFAULT</b>,
  * <b>OCI_SYSOPER</b> and <b>OCI_SYSDBA</b>.
@@ -1394,6 +1418,7 @@ function oci_new_connect ($username, $password, $connection_string = null, $char
  * need to set oci8.privileged_connect
  * to On.
  * </p>
+ * <p>
  * PHP 5.3 (PECL OCI8 1.3.4) introduced the
  * <b>OCI_CRED_EXT</b> mode value. This tells Oracle to use
  * External or OS authentication, which must be configured in the
@@ -1402,10 +1427,12 @@ function oci_new_connect ($username, $password, $connection_string = null, $char
  * oci8.privileged_connect
  * may be On or Off.
  * </p>
+ * <p>
  * <b>OCI_CRED_EXT</b> may be combined with the
  * <b>OCI_SYSOPER</b> or
  * <b>OCI_SYSDBA</b> modes.
  * </p>
+ * <p>
  * <b>OCI_CRED_EXT</b> is not supported on Windows for
  * security reasons.
  * </p>
@@ -1556,7 +1583,7 @@ function oci_new_descriptor ($connection, $type = OCI_DTYPE_LOB) {}
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Sets number of rows to be prefetched by queries
  * @link https://php.net/manual/en/function.oci-set-prefetch.php
- * @param resource $statement A valid OCI8 statement
+ * @param resource $statement <p>A valid OCI8 statement
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
@@ -1571,7 +1598,7 @@ function oci_set_prefetch ($statement, $rows) {}
  * (PHP 5.3.2, PECL OCI8 &gt;= 1.4.0)<br/>
  * Sets the client identifier
  * @link https://php.net/manual/en/function.oci-set-client-identifier.php
- * @param resource $connection An Oracle connection identifier,
+ * @param resource $connection <p>An Oracle connection identifier,
  * returned by {@see oci_connect}, {@see oci_pconnect},
  * or {@see oci_new_connect}.</p>
  * @param string $client_identifier <p>
@@ -1597,7 +1624,7 @@ function oci_set_edition ($edition) {}
  * (PHP 5.3.2, PECL OCI8 &gt;= 1.4.0)<br/>
  * Sets the module name
  * @link https://php.net/manual/en/function.oci-set-module-name.php
- * @param resource $connection An Oracle connection identifier,
+ * @param resource $connection <p>An Oracle connection identifier,
  * returned by {@see oci_connect}, {@see oci_pconnect},
  * or {@see oci_new_connect}.</p>
  * @param string $module_name <p>
@@ -1611,7 +1638,7 @@ function oci_set_module_name ($connection, $module_name) {}
  * (PHP 5.3.2, PECL OCI8 &gt;= 1.4.0)<br/>
  * Sets the action name
  * @link https://php.net/manual/en/function.oci-set-action.php
- * @param resource $connection An Oracle connection identifier,
+ * @param resource $connection <p>An Oracle connection identifier,
  * returned by {@see oci_connect}, {@see oci_pconnect},
  * or {@see oci_new_connect}.</p>
  * @param string $action_name <p>
@@ -1625,7 +1652,7 @@ function oci_set_action ($connection, $action_name) {}
  * (PHP 5.3.2, PECL OCI8 &gt;= 1.4.0)<br/>
  * Sets the client information
  * @link https://php.net/manual/en/function.oci-set-client-info.php
- * @param resource $connection An Oracle connection identifier,
+ * @param resource $connection <p>An Oracle connection identifier,
  * returned by {@see oci_connect}, {@see oci_pconnect},
  * or {@see oci_new_connect}.</p>
  * @param string $client_info <p>
@@ -2041,6 +2068,7 @@ function ociloadlob ($lob_descriptor) {}
  * {@see oci_connect()},
  * {@see oci_pconnect()}, or
  * {@see oci_new_connect()}.
+ * </p>
  * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
  */
 function ocicommit ($connection_resource) {}
@@ -2139,7 +2167,7 @@ function ocicollappend ($collection, $value) {}
  * @link https://php.net/manual/en/function.ocicollgetelem.php
  * @param OCI_Collection $collection
  * @param int $index <p>The element index. First index is 0.</p>
- * @return mixed <p>Returns <b>FALSE</b> if such element doesn't exist; <b>NULL</b> if element is <b>NULL</b>; string if element is column of a string datatype or number if element is numeric field.
+ * @return mixed <p>Returns <b>FALSE</b> if such element doesn't exist; <b>NULL</b> if element is <b>NULL</b>; string if element is column of a string datatype or number if element is numeric field.</p>
  */
 function ocicollgetelem ($collection, $index) {}
 
@@ -2171,7 +2199,7 @@ function ocicollsize ($collection) {}
  * @link https://php.net/manual/en/function.ocicollmax.php
  * @param OCI_Collection $collection
  * @return int|false <p> Returns the maximum number as an integer, or <b>FALSE</b> on errors.
- * If the returned value is 0, then the number of elements is not limited.
+ * If the returned value is 0, then the number of elements is not limited.</p>
  */
 function ocicollmax ($collection) {}
 

@@ -762,19 +762,38 @@ class MongoDB {
     /**
      * (PECL mongo &gt;= 1.0.1)<br/>
 	 * Log in to this database
+	 *
 	 * @link https://secure.php.net/manual/en/mongodb.authenticate.php
+	 *
 	 * @param string $username The username.
 	 * @param string $password The password (in plaintext).
+	 *
 	 * @return array <p>Returns database response. If the login was successful, it will return 1.</p>
      * <p>
-     * <span style="color: #0000BB">&lt;?php<br></span><span style="color: #007700">array(</span><span style="color: #DD0000">"ok"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br></span><span style="color: #0000BB">?&gt;</span>
-     * </span>
+     * <span style="color: #0000BB">&lt;?php<br></span>
+     * <span style="color: #007700">array(</span>
+     * <span style="color: #DD0000">"ok"&nbsp;</span>
+     * <span style="color: #007700">=&gt;&nbsp;</span>
+     * <span style="color: #0000BB">1</span>
+     * <span style="color: #007700">);<br></span>
+     * <span style="color: #0000BB">?&gt;</span>
      * </p>
      * <p> If something went wrong, it will return </p>
      * <p>
-     * <span style="color: #0000BB">&lt;?php<br></span><span style="color: #007700">array(</span><span style="color: #DD0000">"ok"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"errmsg"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"auth&nbsp;fails"</span><span style="color: #007700">);<br></span><span style="color: #0000BB">?&gt;</span></p>
-     *         <p>("auth fails" could be another message, depending on database version and
-     *         what went wrong)</p>
+     * <span style="color: #0000BB">&lt;?php<br></span>
+     * <span style="color: #007700">array(</span>
+     * <span style="color: #DD0000">"ok"&nbsp;</span>
+     * <span style="color: #007700">=&gt;&nbsp;</span>
+     * <span style="color: #0000BB">0</span>
+     * <span style="color: #007700">,&nbsp;</span>
+     * <span style="color: #DD0000">"errmsg"&nbsp;</span>
+     * <span style="color: #007700">=&gt;&nbsp;</span>
+     * <span style="color: #DD0000">"auth&nbsp;fails"</span>
+     * <span style="color: #007700">);<br></span>
+     * <span style="color: #0000BB">?&gt;</span>
+     * </p>
+     * <p>("auth fails" could be another message, depending on database version and
+     * what went wrong)</p>
 	 */
     public function authenticate($username, $password) {}
 
@@ -988,14 +1007,14 @@ class MongoCollection {
      * This special behavior does not mean that the parameter is passed by reference.
 	 * @param array $options Options for the insert.
      * <dl>
-     * <dt>"w"
-     * <dd>See WriteConcerns. The default value for MongoClient is 1.
-     * <dt>"fsync"
-     * <dd>Boolean, defaults to FALSE. Forces the insert to be synced to disk before returning success. If TRUE, an acknowledged insert is implied and will override setting w to 0.
-     * <dt>"timeout"
-     * <dd>Integer, defaults to MongoCursor::$timeout. If "safe" is set, this sets how long (in milliseconds) for the client to wait for a database response. If the database does not respond within the timeout period, a MongoCursorTimeoutException will be thrown.
-     * <dt>"safe"
-     * <dd>Deprecated. Please use the WriteConcern w option.
+     * <dt>"w"</dt>
+     * <dd>See WriteConcerns. The default value for MongoClient is 1.</dd>
+     * <dt>"fsync"</dt>
+     * <dd>Boolean, defaults to FALSE. Forces the insert to be synced to disk before returning success. If TRUE, an acknowledged insert is implied and will override setting w to 0.</dd>
+     * <dt>"timeout"</dt>
+     * <dd>Integer, defaults to MongoCursor::$timeout. If "safe" is set, this sets how long (in milliseconds) for the client to wait for a database response. If the database does not respond within the timeout period, a MongoCursorTimeoutException will be thrown.</dd>
+     * <dt>"safe"</dt>
+     * <dd>Deprecated. Please use the WriteConcern w option.</dd>
      * </dl>
 	 * @throws MongoException if the inserted document is empty or if it contains zero-length keys. Attempting to insert an object with protected and private properties will cause a zero-length key error.
 	 * @throws MongoCursorException if the "w" option is set and the write fails.
@@ -1004,26 +1023,26 @@ class MongoCollection {
      * Otherwise, returns TRUE if the inserted array is not empty (a MongoException will be thrown if the inserted array is empty).
 	 * If an array is returned, the following keys may be present:
      * <dl>
-     * <dt>ok
-     * <dd>This should almost be 1 (unless last_error itself failed).
-     * <dt>err
-     * <dd>If this field is non-null, an error occurred on the previous operation. If this field is set, it will be a string describing the error that occurred.
-     * <dt>code
-     * <dd>If a database error occurred, the relevant error code will be passed back to the client.
-     * <dt>errmsg
-     * <dd>This field is set if something goes wrong with a database command. It is coupled with ok being 0. For example, if w is set and times out, errmsg will be set to "timed out waiting for slaves" and ok will be 0. If this field is set, it will be a string describing the error that occurred.
-     * <dt>n
-     * <dd>If the last operation was an update, upsert, or a remove, the number of documents affected will be returned. For insert operations, this value is always 0.
-     * <dt>wtimeout
-     * <dd>If the previous option timed out waiting for replication.
-     * <dt>waited
-     * <dd>How long the operation waited before timing out.
-     * <dt>wtime
-     * <dd>If w was set and the operation succeeded, how long it took to replicate to w servers.
-     * <dt>upserted
-     * <dd>If an upsert occurred, this field will contain the new record's _id field. For upserts, either this field or updatedExisting will be present (unless an error occurred).
-     * <dt>updatedExisting
-     * <dd>If an upsert updated an existing element, this field will be true. For upserts, either this field or upserted will be present (unless an error occurred).
+     * <dt>ok</dt>
+     * <dd>This should almost be 1 (unless last_error itself failed).</dd>
+     * <dt>err</dt>
+     * <dd>If this field is non-null, an error occurred on the previous operation. If this field is set, it will be a string describing the error that occurred.</dd>
+     * <dt>code</dt>
+     * <dd>If a database error occurred, the relevant error code will be passed back to the client.</dd>
+     * <dt>errmsg</dt>
+     * <dd>This field is set if something goes wrong with a database command. It is coupled with ok being 0. For example, if w is set and times out, errmsg will be set to "timed out waiting for slaves" and ok will be 0. If this field is set, it will be a string describing the error that occurred.</dd>
+     * <dt>n</dt>
+     * <dd>If the last operation was an update, upsert, or a remove, the number of documents affected will be returned. For insert operations, this value is always 0.</dd>
+     * <dt>wtimeout</dt>
+     * <dd>If the previous option timed out waiting for replication.</dd>
+     * <dt>waited</dt>
+     * <dd>How long the operation waited before timing out.</dd>
+     * <dt>wtime</dt>
+     * <dd>If w was set and the operation succeeded, how long it took to replicate to w servers.</dd>
+     * <dt>upserted</dt>
+     * <dd>If an upsert occurred, this field will contain the new record's _id field. For upserts, either this field or updatedExisting will be present (unless an error occurred).</dd>
+     * <dt>updatedExisting</dt>
+     * <dd>If an upsert updated an existing element, this field will be true. For upserts, either this field or upserted will be present (unless an error occurred).</dd>
 	 * </dl>
      */
     public function insert($a, array $options = array()) {}
@@ -1539,7 +1558,7 @@ class MongoCursor implements Iterator {
 	public function info(){}
 
     /**
-     * PECL mongo >=1.0.11
+     * PECL mongo >= 1.0.11
      * Limits the number of elements returned in one batch.
      * <p>A cursor typically fetches a batch of result objects and store them locally.
      * This method sets the batchSize value to configure the amount of documents retrieved from the server in one data packet.
@@ -1577,7 +1596,7 @@ class MongoCursor implements Iterator {
     public function batchSize($batchSize){}
 
 	/**
-	 * (PECL mongo >=1.5.0)
+	 * (PECL mongo >= 1.5.0)
 	 * Sets a server-side timeout for this query
 	 * @link https://php.net/manual/en/mongocursor.maxtimems.php
 	 * @param int $ms <p>
@@ -1763,7 +1782,7 @@ class MongoGridFS extends MongoCollection {
     /**
 	 * Saves an uploaded file directly from a POST to the database
 	 * @link https://secure.php.net/manual/en/mongogridfs.storeupload.php
-	 * @param string $name The name attribute of the uploaded file, from <input type="file" name="something"/>.
+	 * @param string $name The name attribute of the uploaded file, from <code>&#x3C;input type=&#x22;file&#x22; name=&#x22;something&#x22;/&#x3E;</code>
 	 * @param array $metadata An array of extra fields for the uploaded file.
 	 * @return mixed Returns the _id of the uploaded file.
 	 */

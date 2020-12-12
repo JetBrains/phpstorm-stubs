@@ -158,6 +158,7 @@ function serialize (mixed $value): string
  * </p>
  * <p>
  * unserialize_callback_func directive
+ * </p>
  * <p>
  * It's possible to set a callback-function which will be called,
  * if an undefined class should be instantiated during unserializing.
@@ -178,13 +179,13 @@ function serialize (mixed $value): string
  * Omitting this option is the same as defining it as TRUE: PHP will attempt
  * to instantiate objects of any class.
  * </p>
- * @return mixed The converted value is returned, and can be a boolean,
+ * @return mixed <p>The converted value is returned, and can be a boolean,
  * integer, float, string,
  * array or object.
  * </p>
  * <p>
  * In case the passed string is not unserializeable, false is returned and
- * E_NOTICE is issued.
+ * E_NOTICE is issued.</p>
  */
 function unserialize (string $data, array $options = []): mixed
 {}
@@ -744,7 +745,7 @@ function headers_list (): array
 /**
  * Fetches all HTTP request headers from the current request
  * @link https://php.net/manual/en/function.apache-request-headers.php
- * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b on failure.
+ * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b> on failure.
  */
 #[Pure]
 function apache_request_headers (): bool|array

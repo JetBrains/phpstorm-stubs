@@ -185,10 +185,11 @@ function mb_detect_order (array|string|null $encoding = null): array|bool
  * @link https://php.net/manual/en/function.mb-substitute-character.php
  * @param string|int|null $substitute_character [optional] <p>
  * Specify the Unicode value as an integer,
- * or as one of the following strings:<ul>
- * <li>"none" : no output
- * <li>"long": Output character code value (Example: U+3000, JIS+7E7E)
- * <li>"entity": Output character entity (Example: Ȁ)
+ * or as one of the following strings:</p><ul>
+ * <li>"none" : no output</li>
+ * <li>"long": Output character code value (Example: U+3000, JIS+7E7E)</li>
+ * <li>"entity": Output character entity (Example: Ȁ)</li>
+ * </ul>
  * @return bool|int|string If substchar is set, it returns true for success,
  * otherwise returns false.
  * If substchar is not set, it returns the Unicode value,

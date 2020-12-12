@@ -945,8 +945,8 @@ function fbird_prepare ($query) {}
  * @param resource $query <p>
  * An InterBase query prepared by fbird_prepare.
  * </p>
- * @param mixed ...$bind_arg [optional] <p>
- * @return resource|bool If the query raises an error, returns false. If it is successful and
+ * @param mixed ...$bind_arg [optional]
+ * @return resource|bool <p>If the query raises an error, returns false. If it is successful and
  * there is a (possibly empty) result set (such as with a SELECT query),
  * returns a result identifier. If the query was successful and there were
  * no results, returns true.
@@ -955,7 +955,7 @@ function fbird_prepare ($query) {}
  * In PHP 5.0.0 and up, this function returns the number of rows affected by
  * the query (if > 0 and applicable to the statement type). A query that
  * succeeded, but did not affect any rows (e.g. an UPDATE of a non-existent
- * record) will return true.
+ * record) will return true.</p>
  */
 function fbird_execute ($query, ...$bind_arg) {}
 
