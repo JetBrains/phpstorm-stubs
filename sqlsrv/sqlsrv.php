@@ -1606,7 +1606,7 @@ function sqlsrv_free_stmt($stmt){}
  * Number of bytes for fields of binary type (binary(n), varbinary(n), UDT). NULL for other SQL Server data types.</li>
  * <li>Precision - The precision for types of variable precision (real, numeric, decimal, datetime2, datetimeoffset, and
  * time). NULL for other SQL Server data types.</li>
- * Scale - The scale for types of variable scale (numeric, decimal, datetime2, datetimeoffset, and time). NULL for other
+ * <li>Scale - The scale for types of variable scale (numeric, decimal, datetime2, datetimeoffset, and time). NULL for other
  * SQL Server data types.</li>
  * <li>Nullable - An enumerated value indicating whether the column is nullable (SQLSRV_NULLABLE_YES), the column is not
  * nullable (SQLSRV_NULLABLE_NO), or it is not known if the column is nullable (SQLSRV_NULLABLE_UNKNOWN).</li></ul>

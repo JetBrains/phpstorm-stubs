@@ -435,7 +435,7 @@ function socket_write ($socket, $buffer, $length = 0) {}
  * </p>
  * <p>
  * <b>socket_read</b> returns a zero length string ("")
- * when there is no more data to read.
+ * when there is no more data to read.</p>
  */
 function socket_read ($socket, $length, $type = PHP_BINARY_READ) {}
 

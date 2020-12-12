@@ -998,12 +998,10 @@ function tmpfile ()
  * The optional parameter flags can be one, or
  * more, of the following constants:
  * FILE_USE_INCLUDE_PATH
- * Search for the file in the include_path.
+ * Search for the file in the include_path.</p>
  * @param resource $context [optional] <p>
  * A context resource created with the
  * stream_context_create function.
- * </p>
- * <p>
  * </p>
  * @return array|false the file in an array. Each element of the array corresponds to a
  * line in the file, with the newline still attached. Upon failure,

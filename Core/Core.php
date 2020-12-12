@@ -367,7 +367,7 @@ function defined (string $constant_name): bool
  * @return string <p>The name of the class of which <i>object</i> is an
  * instance.
  * If <i>object</i> is omitted when inside a class, the
- * name of that class is returned.
+ * name of that class is returned.</p>
  */
 #[Pure]
 function get_class (object $object): string
@@ -395,7 +395,7 @@ function get_called_class (): string
  * If the object does not have a parent false will be returned.
  * </p>
  * <p>
- * If called without parameter outside object, this function returns false.
+ * If called without parameter outside object, this function returns false.</p>
  */
 #[Pure]
 function get_parent_class (object|string $object_or_class): string|false
@@ -663,7 +663,7 @@ function user_error (string $message, int $error_level = E_USER_NOTICE): bool
  * <b>array<i>errcontext</i></b>
  * <i>errno</i>
  * The first parameter, <i>errno</i>, contains the
- * level of the error raised, as an integer.
+ * level of the error raised, as an integer.</p>
  * @param int $error_levels [optional] <p>
  * Can be used to mask the triggering of the
  * <i>error_handler</i> function just like the error_reporting ini setting
@@ -930,9 +930,9 @@ function get_defined_constants (bool $categorize = false): array
  * Generates a backtrace
  * @link https://php.net/manual/en/function.debug-backtrace.php
  * @param int $options [optional] <p>
- * As of 5.3.6, this parameter is a bitmask for the following options:
- * <table>
+ * As of 5.3.6, this parameter is a bitmask for the following options:</p>
  * <b>debug_backtrace</b> options
+ * <table>
  * <tr valign="top">
  * <td>DEBUG_BACKTRACE_PROVIDE_OBJECT</td>
  * <td>
@@ -947,6 +947,7 @@ function get_defined_constants (bool $categorize = false): array
  * </td>
  * </tr>
  * </table>
+ * <p>
  * Before 5.3.6, the only values recognized are true or false, which are the same as
  * setting or not setting the <b>DEBUG_BACKTRACE_PROVIDE_OBJECT</b> option respectively.
  * </p>
@@ -954,12 +955,13 @@ function get_defined_constants (bool $categorize = false): array
  * As of 5.4.0, this parameter can be used to limit the number of stack frames returned.
  * By default (<i>limit</i>=0) it returns all stack frames.
  * </p>
- * @return array an array of associative arrays. The possible returned elements
+ * @return array <p>an array of associative arrays. The possible returned elements
  * are as follows:
  * </p>
  * <p>
- * <table>
  * Possible returned elements from <b>debug_backtrace</b>
+ * </p>
+ * <table>
  * <tr valign="top">
  * <td>Name</td>
  * <td>Type</td>
@@ -1030,10 +1032,10 @@ function debug_backtrace (int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT, int $li
  * @link https://php.net/manual/en/function.debug-print-backtrace.php
  * @param int $options [optional] <p>
  * As of 5.3.6, this parameter is a bitmask for the following options:
- * <table>
  * <b>debug_print_backtrace</b> options
+ * <table>
  * <tr valign="top">
- * <td>DEBUG_BACKTRACE_IGNORE_ARGS</td>
+ * <td><b>DEBUG_BACKTRACE_IGNORE_ARGS</b></td>
  * <td>
  * Whether or not to omit the "args" index, and thus all the function/method arguments,
  * to save memory.
@@ -1043,7 +1045,7 @@ function debug_backtrace (int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT, int $li
  * </p>
  * @param int $limit [optional] <p>
  * As of 5.4.0, this parameter can be used to limit the number of stack frames printed.
- * By default (<i>limit</i>=0) it prints all stack frames.
+ * By default (<i>limit</i> = 0) it prints all stack frames.
  * </p>
  * @return void
  */

@@ -172,7 +172,7 @@ function curl_version ($age = null): array|false
  * </p>
  * <p>
  * value should be a bool for the
- * following values of the option parameter:
+ * following values of the option parameter:</p>
  * <table class="doctable informaltable">
  *
  * <thead>
@@ -181,7 +181,6 @@ function curl_version ($age = null): array|false
  * <th>Set <em>value</em> to</th>
  * <th>Notes</th>
  * </tr>
- *
  * </thead>
  *
  * <tbody class="tbody">
@@ -618,7 +617,6 @@ function curl_version ($age = null): array|false
  * <th>Set <em>value</em> to</th>
  * <th>Notes</th>
  * </tr>
- *
  * </thead>
  *
  * <tbody class="tbody">
@@ -1072,7 +1070,6 @@ function curl_version ($age = null): array|false
  * <th>Set <code class="parameter">value</code> to</th>
  * <th>Notes</th>
  * </tr>
- *
  * </thead>
  *
  * <tbody class="tbody">
@@ -1495,7 +1492,6 @@ function curl_version ($age = null): array|false
  * <th>Set <code class="parameter">value</code> to</th>
  * <th>Notes</th>
  * </tr>
- *
  * </thead>
  *
  * <tbody class="tbody">
@@ -1906,12 +1902,11 @@ function curl_version ($age = null): array|false
  * <td style="vertical-align: top;">
  * </td>
  * </tr>
- *
  * </tbody>
  *
  * </table>
- * </p>
- * value should be an array for the following values of the option parameter:
+ * <p>
+ * value should be an array for the following values of the option parameter:</p>
  * <table class="doctable informaltable">
  *
  * <thead>
@@ -1920,7 +1915,6 @@ function curl_version ($age = null): array|false
  * <th>Set <code class="parameter">value</code> to</th>
  * <th>Notes</th>
  * </tr>
- *
  * </thead>
  *
  * <tbody class="tbody">
@@ -1978,7 +1972,6 @@ function curl_version ($age = null): array|false
  * <th>Option</th>
  * <th>Set <code class="parameter">value</code> to</th>
  * </tr>
- *
  * </thead>
  *
  * <tbody class="tbody">
@@ -2023,7 +2016,6 @@ function curl_version ($age = null): array|false
  * <th>Option</th>
  * <th>Set <code class="parameter">value</code> to</th>
  * </tr>
- *
  * </thead>
  *
  * <tbody class="tbody">
@@ -2109,7 +2101,6 @@ function curl_version ($age = null): array|false
  * <th>Option</th>
  * <th>Set <code class="parameter">value</code> to</th>
  * </tr>
- *
  * </thead>
  *
  * <tbody class="tbody">
@@ -2120,7 +2111,6 @@ function curl_version ($age = null): array|false
  * handle to use the data from the shared handle.
  * </td>
  * </tr>
- *
  * </tbody>
  *
  * </table>
@@ -2183,7 +2173,6 @@ function curl_share_init()
  * <th>Option</th>
  * <th>Description</th>
  * </tr>
- *
  * </thead>
  *
  * <tbody>
@@ -2211,7 +2200,6 @@ function curl_share_init()
  * <th>Value</th>
  * <th>Description</th>
  * </tr>
- *
  * </thead>
  *
  * <tbody class="tbody">
@@ -2296,7 +2284,7 @@ function curl_exec (#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "
  * @param CurlHandle|resource $handle
  * @param int|null $option [optional] <p>
  * This may be one of the following constants:
- * CURLINFO_EFFECTIVE_URL - Last effective URL
+ * CURLINFO_EFFECTIVE_URL - Last effective URL</p>
  * @return mixed If opt is given, returns its value as a string.
  * Otherwise, returns an associative array with the following elements
  * (which correspond to opt):
@@ -2450,7 +2438,6 @@ function curl_multi_select (#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"
  * <th>Option</th>
  * <th>Set <em><code class="parameter">value</code></em> to</th>
  * </tr>
- *
  * </thead>
  *
  * <tbody>

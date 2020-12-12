@@ -1856,12 +1856,10 @@ function mysqli_get_host_info (mysqli $mysql): string {}
  * Return information about open and cached links
  * @link https://php.net/manual/en/function.mysqli-get-links-stats.php
  * @return array mysqli_get_links_stats() returns an associative array with three elements, keyed as follows:
- * <p>
  * <dl>
  * <dt>
  * <code>total</code></dt>
  * <dd>
- *
  * <p>
  * An integer indicating the total number of open links in
  * any state.
@@ -1870,9 +1868,7 @@ function mysqli_get_host_info (mysqli $mysql): string {}
  *
  * <dt>
  * <code>active_plinks</code></dt>
- *
  * <dd>
- *
  * <p>
  * An integer representing the number of active persistent
  * connections.
@@ -1881,9 +1877,7 @@ function mysqli_get_host_info (mysqli $mysql): string {}
  *
  * <dt>
  * <code>cached_plinks</code></dt>
- *
  * <dd>
- *
  * <p>
  * An integer representing the number of inactive persistent
  * connections.
@@ -1891,7 +1885,6 @@ function mysqli_get_host_info (mysqli $mysql): string {}
  * </dd>
  *
  * </dl>
- * </p>
  * @since 5.6
  */
 function mysqli_get_links_stats(): array {}
@@ -2833,50 +2826,36 @@ define ('MYSQLI_NUM', 2);
 define ('MYSQLI_BOTH', 3);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_STMT_ATTR_UPDATE_MAX_LENGTH', 0);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_STMT_ATTR_CURSOR_TYPE', 1);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_CURSOR_TYPE_NO_CURSOR', 0);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_CURSOR_TYPE_READ_ONLY', 1);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_CURSOR_TYPE_FOR_UPDATE', 2);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_CURSOR_TYPE_SCROLLABLE', 4);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_STMT_ATTR_PREFETCH_ROWS', 2);
@@ -3224,8 +3203,6 @@ define ('MYSQLI_TYPE_NEWDECIMAL', 246);
 define ('MYSQLI_TYPE_BIT', 16);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_SET_CHARSET_NAME', 7);
@@ -3295,71 +3272,51 @@ define ('MYSQLI_REPORT_OFF', 0);
 define ('MYSQLI_DEBUG_TRACE_ENABLED', 0);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_SERVER_QUERY_NO_GOOD_INDEX_USED', 16);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_SERVER_QUERY_NO_INDEX_USED', 32);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_REFRESH_GRANT', 1);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_REFRESH_LOG', 2);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_REFRESH_TABLES', 4);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_REFRESH_HOSTS', 8);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_REFRESH_STATUS', 16);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_REFRESH_THREADS', 32);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_REFRESH_SLAVE', 64);
 
 /**
- * <p>
- * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_REFRESH_MASTER', 128);

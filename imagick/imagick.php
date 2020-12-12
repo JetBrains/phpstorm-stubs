@@ -2278,7 +2278,7 @@ class Imagick implements Iterator, Countable {
 	 * </p>
 	 * @param string $thumbnail_geometry <p>
 	 * Preferred image size and border size of each thumbnail
-	 * (e.g. 120x120+4+3>).
+	 * (e.g. 120x120+4+3&#x3E;).
 	 * </p>
 	 * @param int $mode <p>
 	 * Thumbnail framing mode, see Montage Mode constants.
@@ -4732,7 +4732,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.getregistry.php
 	 * @param string $key
 	 * @return string|false
-	 * @throws Exception Since version >=3.4.3. Throws an exception if the key does not exist, rather than terminating the program.
+	 * @throws Exception Since version >= 3.4.3. Throws an exception if the key does not exist, rather than terminating the program.
 	 * @since 3.3.0
 	 */
 	public static function getRegistry ($key) { }
@@ -4903,7 +4903,7 @@ class Imagick implements Iterator, Countable {
 
 	/**
 	 * Sets the image channel mask. Returns the previous set channel mask.
-	 * Only works with Imagick >=7
+	 * Only works with Imagick >= 7
 	 * @param int $channel
 	 * @since 3.4.0
 	 */

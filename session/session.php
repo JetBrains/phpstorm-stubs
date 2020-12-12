@@ -235,13 +235,13 @@ function session_unset()
  * Write function that is called when session data is to be saved. This
  * function expects two parameters: an identifier and the data associated
  * with it.
+ * </p>
  * <p>
  * The "write" handler is not executed until after the output stream is
  * closed. Thus, output from debugging statements in the "write"
  * handler will never be seen in the browser. If debugging output is
  * necessary, it is suggested that the debug output be written to a
  * file instead.
- * </p>
  * </p>
  * @param callback $destroy <p>
  * The destroy handler, this is executed when a session is destroyed with
@@ -267,7 +267,6 @@ function session_set_save_handler (callable $open, callable $close, callable $re
  * (PHP 5.4)<br/>
  * Sets user-level session storage functions
  * @link https://php.net/manual/en/function.session-set-save-handler.php
- * </p>
  * @param SessionHandlerInterface $session_handler An instance of a class implementing SessionHandlerInterface, such as SessionHandler,
  * to register as the session handler. Since PHP 5.4 only.
  * @param bool $register_shutdown [optional] Register session_write_close() as a register_shutdown_function() function.

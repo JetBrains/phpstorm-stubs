@@ -333,7 +333,7 @@ function wordwrap (string $string, int $width = 75, string $break = "\n", bool $
  * <tr>
  * <td><b>ENT_QUOTES</b></td>
  * <td>Will convert both double and single quotes.</td>
- *</tr>
+ * </tr>
  *
  * <tr>
  * <td><b>ENT_NOQUOTES</b></td>
@@ -563,9 +563,7 @@ function htmlspecialchars_decode (string $string, int $flags): string
  * See the description
  * of these modes in htmlspecialchars.
  * </p>
- * @param string $encoding <dd>
- *
- * <p>
+ * @param string $encoding [optional] <p>
  * Encoding to use.
  * If omitted, the default value for this argument is ISO-8859-1 in
  * versions of PHP prior to 5.4.0, and UTF-8 from PHP 5.4.0 onwards.
@@ -1234,7 +1232,7 @@ function php_sapi_name (): string|false
  * mode is a single character that defines what
  * information is returned:
  * 'a': This is the default. Contains all modes in
- * the sequence "s n r v m".
+ * the sequence "s n r v m".</p>
  * @return string the description, as a string.
  */
 #[Pure]

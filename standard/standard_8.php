@@ -485,12 +485,12 @@ function arsort (array &$array, int $flags): bool
  * </p>
  * @param int $flags [optional] <p>
  * The optional second parameter sort_flags
- * may be used to modify the sorting behavior using these values:
+ * may be used to modify the sorting behavior using these values.
  * </p>
  * <p>
- * Sorting type flags:
+ * Sorting type flags:<br>
  * SORT_REGULAR - compare items normally
- * (don't change types)
+ * (don't change types)</p>
  * @return bool true on success or false on failure.
  */
 function sort (array &$array, int $flags): bool
@@ -853,12 +853,12 @@ function array_search (mixed $needle, array $haystack, bool $strict): string|int
  * by the extract_type. It can be one of the
  * following values:
  * EXTR_OVERWRITE
- * If there is a collision, overwrite the existing variable.
- * @param string $prefix [optional] Only overwrite the variable if it already exists in the
+ * If there is a collision, overwrite the existing variable.</p>
+ * @param string $prefix [optional] <p>Only overwrite the variable if it already exists in the
  * current symbol table, otherwise do nothing. This is useful
  * for defining a list of valid variables and then extracting
  * only those variables you have defined out of
- * $_REQUEST, for example.
+ * $_REQUEST, for example.</p>
  * @return int the number of variables successfully imported into the symbol
  * table.
  */

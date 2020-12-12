@@ -36,16 +36,18 @@ function strtotime (string $datetime, ?int $baseTimestamp): int|false
  * contains the format string 'D, d M Y H:i:s'.
  * </p>
  * <p>
+ * <br>
  * The following characters are recognized in the
- * format parameter string
+ * format parameter string:
+ * <br><br>
  * <table>
- * <tr valign="top">
- * <td>format character</td>
- * <td>Description</td>
- * <td>Example returned values</td>
+ * <tr valign="top" colspan="3" bgcolor="silver">
+ * <th>format character</th>
+ * <th>Description</th>
+ * <th>Example returned values</th>
  * </tr>
  * <tr valign="top">
- * Day</td>
+ * <td><b>Day</b></td>
  * <td>---</td>
  * <td>---</td>
  * </tr>
@@ -94,7 +96,7 @@ function strtotime (string $datetime, ?int $baseTimestamp): int|false
  * <td>0 through 365</td>
  * </tr>
  * <tr valign="top">
- * Week</td>
+ * <td><b>Week</b></td>
  * <td>---</td>
  * <td>---</td>
  * </tr>
@@ -104,7 +106,7 @@ function strtotime (string $datetime, ?int $baseTimestamp): int|false
  * <td>Example: 42 (the 42nd week in the year)</td>
  * </tr>
  * <tr valign="top">
- * Month</td>
+ * <td><b>Month</b></td>
  * <td>---</td>
  * <td>---</td>
  * </tr>
@@ -134,7 +136,7 @@ function strtotime (string $datetime, ?int $baseTimestamp): int|false
  * <td>28 through 31</td>
  * </tr>
  * <tr valign="top">
- * Year</td>
+ * <td><b>Year</b></td>
  * <td>---</td>
  * <td>---</td>
  * </tr>
@@ -162,7 +164,7 @@ function strtotime (string $datetime, ?int $baseTimestamp): int|false
  * <td>Examples: 99 or 03</td>
  * </tr>
  * <tr valign="top">
- * Time</td>
+ * <td><b>Time</b></td>
  * <td>---</td>
  * <td>---</td>
  * </tr>
@@ -217,7 +219,7 @@ function strtotime (string $datetime, ?int $baseTimestamp): int|false
  * <td>Example: 654321</td>
  * </tr>
  * <tr valign="top">
- * Timezone</td>
+ * <td><b>Timezone</b></td>
  * <td>---</td>
  * <td>---</td>
  * </tr>
@@ -253,7 +255,7 @@ function strtotime (string $datetime, ?int $baseTimestamp): int|false
  * <td>-43200 through 50400</td>
  * </tr>
  * <tr valign="top">
- * Full Date/Time</td>
+ * <td><b>Full Date/Time</b></td>
  * <td>---</td>
  * <td>---</td>
  * </tr>
@@ -520,12 +522,11 @@ function checkdate (int $month, int $day, int $year): bool
  * The following characters are recognized in the
  * format parameter string
  * <table>
- * <tr valign="top">
- * <td>format</td>
- * <td>Description</td>
- * <td>Example returned values</td>
- * </tr>
- * <th valign="top" colspan="3" bgcolor="silver">
+ * <tr valign="top" colspan="3" bgcolor="silver">
+ * <th>format</th>
+ * <th>Description</th>
+ * <th>Example returned values</th>
+ * <th>
  * Day</th>
  * </tr>
  * <tr valign="top">
@@ -1296,7 +1297,7 @@ function timezone_transitions_get (DateTimeZone $object, int $timestampBegin, in
  * Alias:
  * {@see DateTimeZone::getLocation}
  * @link https://php.net/manual/en/function.timezone-location-get.php
- * @param DateTimeZone $object <p>Procedural style only: A {@see DateTimeZone} object returned by {@see timezone_open()}
+ * @param DateTimeZone $object <p>Procedural style only: A {@see DateTimeZone} object returned by {@see timezone_open()}</p>
  * @return array|false <p>Array containing location information about timezone.</p>
  */
 #[Pure]

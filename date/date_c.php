@@ -161,7 +161,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * </p><p>
      * The <em>$timezone</em> parameter
      * and the current timezone are ignored when the
-     *<em>$datetime</em> parameter either
+     * <em>$datetime</em> parameter either
      * is a UNIX timestamp (e.g. <em>@946684800</em>)
      * or specifies a timezone
      * (e.g. <em>2010-01-28T15:00:00+02:00</em>).
@@ -468,7 +468,7 @@ class DateTime implements DateTimeInterface {
      * </p><p>
      * The <em>$timezone</em> parameter
      * and the current timezone are ignored when the
-     *<em>$time</em> parameter either
+     * <em>$time</em> parameter either
      * is a UNIX timestamp (e.g. <em>@946684800</em>)
      * or specifies a timezone
      * (e.g. <em>2010-01-28T15:00:00+02:00</em>).

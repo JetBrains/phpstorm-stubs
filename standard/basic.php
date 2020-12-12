@@ -26,7 +26,7 @@ use JetBrains\PhpStorm\Pure;
  * Unix - If not explicitly set in the <i>php.ini</i>, the default extension
  * directory depends on
  * whether PHP has been built with --enable-debug
- * or not
+ * or not</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure. If the functionality of loading modules is not available
  * or has been disabled (either by setting
  * enable_dl off or by enabling safe mode

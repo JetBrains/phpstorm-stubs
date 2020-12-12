@@ -1860,7 +1860,7 @@ class IntlDateFormatter {
      * by ICU's database, not PHP's.
      * </p>
      * </li>
-     *<li>
+     * <li>
      * <p>
      * A {@link "https://secure.php.net/manual/en/language.types.string.php" string}, which should be a valid ICU timezone identifier.
      * See <b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw offsets such as <em>"GMT+08:30"</em> are also accepted.
@@ -2947,13 +2947,13 @@ class IntlCalendar {
      * </p>
      * @param int $second [optional] <p>
      * The new value for <b>IntlCalendar::FIELD_SECOND</b>.
-     *</p>
+     * </p>
      * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
      */
     public function set($year, $month, $dayOfMonth = null, $hour = null, $minute = null, $second = null) { }
 
     /**
-     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * (PHP 5 >= 5.5.0 PECL intl >= 3.0.0a1)<br/>
      * Set a time field or several common fields at once
      * @link https://secure.php.net/manual/en/intlcalendar.set.php
      * @param int $field One of the IntlCalendar date/time field constants. These are integer values between 0 and IntlCalendar::FIELD_COUNT.
@@ -3435,7 +3435,6 @@ function collator_get_strength(Collator $object) { }
  * @param int $strength <p>Strength to set.</p>
  * <p>
  * Possible values are:
- * <p>
  * <b>Collator::PRIMARY</b>
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -3453,7 +3452,6 @@ function collator_set_strength(Collator $object, $strength) { }
  * @param int $sort_flag [optional] <p>
  * Optional sorting type, one of the following:
  * </p>
- * <p>
  * <p>
  * <b>Collator::SORT_REGULAR</b>
  * - compare items normally (don't change types)
@@ -3480,7 +3478,6 @@ function collator_sort_with_sort_keys(Collator $object, array &$array) { }
  * @param string[] &$array <p>Array of strings to sort.</p>
  * @param int $sort_flag [optional] <p>
  * Optional sorting type, one of the following:
- * <p>
  * <b>Collator::SORT_REGULAR</b>
  * - compare items normally (don't change types)
  * </p>
@@ -5060,7 +5057,7 @@ function intlcal_before(IntlCalendar $calendarObject, IntlCalendar $calendar) { 
  * </p>
  * @param int $second [optional] <p>
  * The new value for <b>IntlCalendar::FIELD_SECOND</b>.
- *</p>
+ * </p>
  * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
  * @since 5.5
  */
@@ -5225,7 +5222,7 @@ function intlcal_get_first_day_of_week($calendar) { }
  * @param int $field <p>
  * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
  * values between <em>0</em> and
- * <b>IntlCalendar::FIELD_COUNT</b>.
+ * <b>IntlCalendar::FIELD_COUNT</b>.</p>
  * @return int
  * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing a field value, in the field's
  * unit, or <b>FALSE</b> on failure.
@@ -5262,7 +5259,7 @@ function intlcal_get($calendar, $field) { }
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
  * @return int
- * An {@link https://secure.php.net/manual/en/language.types.integer.ph int} representing a field value in the field's
+ * <p>An {@link https://secure.php.net/manual/en/language.types.integer.ph int} representing a field value in the field's
  * unit or <b>FALSE</b> on failure.
  * </p>
  * @since 5.5
@@ -5280,7 +5277,7 @@ function intlcal_get_least_maximum($calendar, $field) { }
  * @param int $field <p>
  * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
  * values between <em>0</em> and
- * <b>IntlCalendar::FIELD_COUNT</b>.
+ * <b>IntlCalendar::FIELD_COUNT</b>.</p>
  * @return int
  * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing a field value, in the field's
  * unit, or <b>FALSE</b> on failure.
@@ -6045,7 +6042,7 @@ function resourcebundle_get_error_message(ResourceBundle $bundle) { }
  * </p>
  * @param int $direction [optional] <p>
  * The direction, defaults to
- * >Transliterator::FORWARD.
+ * Transliterator::FORWARD.
  * May also be set to
  * Transliterator::REVERSE.
  * </p>
@@ -6065,7 +6062,7 @@ function transliterator_create($id, $direction = null) { }
  * </p>
  * @param int $direction [optional] <p>
  * The direction, defaults to
- * >Transliterator::FORWARD.
+ * Transliterator::FORWARD.
  * May also be set to
  * Transliterator::REVERSE.
  * </p>

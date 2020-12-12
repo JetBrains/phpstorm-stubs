@@ -31,7 +31,7 @@
  * The mode parameter is the mode in which spellchecker will work.
  * There are several modes available:
  * <b>PSPELL_FAST</b> - Fast mode (least number of
- * suggestions)
+ * suggestions)</p>
  * @return int|false the dictionary link identifier on success or <b>FALSE</b> on failure.
  */
 function pspell_new ($language, $spelling = null, $jargon = null, $encoding = null, $mode = 0) {}
@@ -68,7 +68,7 @@ function pspell_new ($language, $spelling = null, $jargon = null, $encoding = nu
  * @param int $mode [optional] <p>
  * The mode in which spellchecker will work. There are several modes available:
  * <b>PSPELL_FAST</b> - Fast mode (least number of
- * suggestions)
+ * suggestions)</p>
  * @return int the dictionary link identifier for use in other pspell functions.
  */
 function pspell_new_personal ($personal, $language, $spelling = null, $jargon = null, $encoding = null, $mode = 0) {}
@@ -213,7 +213,7 @@ function pspell_config_runtogether ($dictionary_link, $flag) {}
  * The mode parameter is the mode in which spellchecker will work.
  * There are several modes available:
  * <b>PSPELL_FAST</b> - Fast mode (least number of
- * suggestions)
+ * suggestions)</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pspell_config_mode ($dictionary_link, $mode) {}

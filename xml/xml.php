@@ -81,7 +81,7 @@ function xml_set_object (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], defaul
  * <b>array<i>attribs</i></b>
  * <i>parser</i>
  * The first parameter, parser, is a
- * reference to the XML parser calling the handler.
+ * reference to the XML parser calling the handler.</p>
  * @param callable $end_handler <p>
  * The function named by <i>end_element_handler</i>
  * must accept two parameters:
@@ -90,7 +90,7 @@ function xml_set_object (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], defaul
  * <b>string<i>name</i></b>
  * <i>parser</i>
  * The first parameter, parser, is a
- * reference to the XML parser calling the handler.
+ * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function xml_set_element_handler (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")] $parser, $start_handler, $end_handler): bool {}
@@ -114,7 +114,7 @@ function xml_set_element_handler (#[LanguageLevelTypeAware(["8.0" => "XmlParser"
  * <b>string<i>data</i></b>
  * <i>parser</i>
  * The first parameter, parser, is a
- * reference to the XML parser calling the handler.
+ * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function xml_set_character_data_handler (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")] $parser, $handler): bool {}
@@ -139,7 +139,7 @@ function xml_set_character_data_handler (#[LanguageLevelTypeAware(["8.0" => "Xml
  * <b>string<i>data</i></b>
  * <i>parser</i>
  * The first parameter, parser, is a
- * reference to the XML parser calling the handler.
+ * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function xml_set_processing_instruction_handler (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")] $parser, $handler): bool {}
@@ -163,7 +163,7 @@ function xml_set_processing_instruction_handler (#[LanguageLevelTypeAware(["8.0"
  * <b>string<i>data</i></b>
  * <i>parser</i>
  * The first parameter, parser, is a
- * reference to the XML parser calling the handler.
+ * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function xml_set_default_handler (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")] $parser, $handler): bool {}
@@ -192,7 +192,7 @@ function xml_set_default_handler (#[LanguageLevelTypeAware(["8.0" => "XmlParser"
  * <i>parser</i>
  * The first parameter, parser, is a
  * reference to the XML parser calling the
- * handler.
+ * handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function xml_set_unparsed_entity_decl_handler (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")] $parser, $handler): bool {}
@@ -219,7 +219,7 @@ function xml_set_unparsed_entity_decl_handler (#[LanguageLevelTypeAware(["8.0" =
  * <b>string<i>public_id</i></b>
  * <i>parser</i>
  * The first parameter, parser, is a
- * reference to the XML parser calling the handler.
+ * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function xml_set_notation_decl_handler (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")] $parser, $handler): bool
@@ -251,7 +251,7 @@ function xml_set_notation_decl_handler (#[LanguageLevelTypeAware(["8.0" => "XmlP
  * <b>string<i>public_id</i></b>
  * <i>parser</i>
  * The first parameter, parser, is a
- * reference to the XML parser calling the handler.
+ * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function xml_set_external_entity_ref_handler (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")] $parser, $handler): bool
@@ -281,7 +281,7 @@ function xml_set_external_entity_ref_handler (#[LanguageLevelTypeAware(["8.0" =>
  * <b>string<i>uri</i></b>
  * <i>parser</i>
  * The first parameter, parser, is a
- * reference to the XML parser calling the handler.
+ * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function xml_set_start_namespace_decl_handler (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")] $parser, $handler): bool
@@ -310,7 +310,7 @@ function xml_set_start_namespace_decl_handler (#[LanguageLevelTypeAware(["8.0" =
  * <b>string<i>prefix</i></b>
  * <i>parser</i>
  * The first parameter, parser, is a
- * reference to the XML parser calling the handler.
+ * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function xml_set_end_namespace_decl_handler (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")] $parser, $handler): bool
@@ -371,33 +371,18 @@ function xml_parse (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "r
 function xml_parse_into_struct (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")] $parser, string $data, &$values, &$index): int
 {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Get XML parser error code
  * @link https://php.net/manual/en/function.xml-get-error-code.php
- * @param resource $parser <p>
+ * @param XmlParser|resource $parser <p>
  * A reference to the XML parser to get error code from.
  * </p>
- * @return int|false This function returns <b>FALSE</b> if <i>parser</i> does
- * not refer to a valid parser, or else it returns one of the error
- * codes listed in the error codes
+ * @return int|false Returns one of the error codes listed in the error codes
  * section.
  */
 #[Pure]
-function xml_get_error_code ($parser): int|false {}
-
-#[PhpStormStubsElementAvailable('8.0')]
-/**
- * Get XML parser error code
- * @link https://php.net/manual/en/function.xml-get-error-code.php
- * @param XmlParser $parser <p>
- * A reference to the XML parser to get error code from.
- * </p>
- * @return int Returns one of the error codes listed in the error codes
- * section.
- */
-#[Pure]
-function xml_get_error_code (XmlParser $parser): int {}
+#[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
+function xml_get_error_code (#[LanguageLevelTypeAware(["8.0" => "XmlParser"], default: "resource")] $parser) {}
 
 /**
  * Get XML parser error string

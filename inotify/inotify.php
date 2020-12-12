@@ -59,9 +59,9 @@ function inotify_queue_len( $inotify_instance )
  *
  * <ul>
  *  <li><b>wd</b> is a watch descriptor returned by inotify_add_watch()</li>
- *  <li><b>mask</b> is a bit mask of events
- *  <li><b>cookie</b> is a unique id to connect related events (e.g. IN_MOVE_FROM and IN_MOVE_TO)
- *  <li><b>name</b> is the name of a file (e.g. if a file was modified in a watched directory)
+ *  <li><b>mask</b> is a bit mask of events</li>
+ *  <li><b>cookie</b> is a unique id to connect related events (e.g. IN_MOVE_FROM and IN_MOVE_TO)</li>
+ *  <li><b>name</b> is the name of a file (e.g. if a file was modified in a watched directory)</li>
  * </ul>
  */
 function inotify_read( $inotify_instance )

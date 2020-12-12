@@ -49,7 +49,7 @@ define("PASSWORD_DEFAULT", "2y");
  * <p>
  * Values for this constant:
  * </p>
- *<ul>
+ * <ul>
  * <li>
  * PHP 5.6.0 - <b>PASSWORD_BCRYPT_DEFAULT_COST</b>
  * </li>
@@ -73,7 +73,7 @@ define("PASSWORD_BCRYPT_DEFAULT_COST", 10);
  * <p>
  * Values for this constant:
  * </p>
- *<ul>
+ * <ul>
  * <li>
  * PHP 5.5.0 - <b>PASSWORD_BCRYPT</b>
  * </li>

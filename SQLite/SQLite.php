@@ -1104,7 +1104,7 @@ function sqlite_unbuffered_query ($dbhandle, $query, $result_type = SQLITE_BOTH,
  * @link https://php.net/manual/en/function.sqlite-create-aggregate.php
  * @param resource $dbhandle <p>The SQLite Database resource; returned from
  * {@see sqlite_open()} when used procedurally.
- * This parameter is not required when using the object-oriented method.
+ * This parameter is not required when using the object-oriented method.</p>
  * @param string $function_name <p>
  * The name of the function used in SQL statements.
  * </p>
@@ -1128,7 +1128,7 @@ function sqlite_create_aggregate ($dbhandle, $function_name, $step_func, $finali
  * @link https://php.net/manual/en/function.sqlite-create-function.php
  * @param resource $dbhandle <p>The SQLite Database resource; returned from
  * {@see sqlite_open()} when used procedurally.
- * This parameter is not required when using the object-oriented method.
+ * This parameter is not required when using the object-oriented method.</p>
  * @param string $function_name <p>
  * The name of the function used in SQL statements.
  * </p>

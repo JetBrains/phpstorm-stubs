@@ -443,7 +443,7 @@ function scandir (string $directory, int $sorting_order, $context): array|false
  * </p>
  * <p>
  * On some systems it is impossible to distinguish between empty match and an
- * error.
+ * error.</p>
  */
 #[Pure]
 function glob (string $pattern, int $flags): array|false
@@ -898,7 +898,6 @@ function lchgrp (string $filename, string|int $group): bool
  * about modes on Unix systems with 'man 1 chmod'
  * and 'man 2 chmod'.
  * </p>
- * <p>
  * @return bool true on success or false on failure.
  */
 function chmod (string $filename, int $permissions): bool

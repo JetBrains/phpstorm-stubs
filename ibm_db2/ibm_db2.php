@@ -78,6 +78,7 @@ function db2_commit ($connection) {}
  * An associative array of connection options that affect the behavior
  * of the connection, where valid array keys include:
  * autocommit
+ * </p>
  * <p>
  * Passing the DB2_AUTOCOMMIT_ON value turns
  * autocommit on for this connection handle.
@@ -103,16 +104,16 @@ function db2_pconnect ($database, $username, $password, array $options = null) {
  * db2_connect or db2_pconnect.
  * </p>
  * @param bool $value <p>
- * One of the following constants:
- * DB2_AUTOCOMMIT_OFF
+ * One of the following constants:</p>
  * <p>
+ * DB2_AUTOCOMMIT_OFF
  * Turns AUTOCOMMIT off.
  * </p>
- * DB2_AUTOCOMMIT_ON
  * <p>
+ * DB2_AUTOCOMMIT_ON
  * Turns AUTOCOMMIT on.
  * </p>
- * @return mixed When db2_autocommit receives only the
+ * @return mixed <p>When db2_autocommit receives only the
  * connection parameter, it returns the current state
  * of AUTOCOMMIT for the requested connection as an integer value. A value of
  * 0 indicates that AUTOCOMMIT is off, while a value of 1 indicates that
@@ -123,7 +124,7 @@ function db2_pconnect ($database, $username, $password, array $options = null) {
  * connection parameter and
  * autocommit parameter, it attempts to set the
  * AUTOCOMMIT state of the requested connection to the corresponding state.
- * true on success or false on failure.
+ * true on success or false on failure.</p>
  */
 function db2_autocommit ($connection, $value = null) {}
 
@@ -877,12 +878,14 @@ function db2_specialcolumns () {}
  * @param bool $unique <p>
  * An integer value representing the type of index information to return.
  * 0
+ * </p>
  * <p>
  * Return only the information for unique indexes on the table.
  * </p>
  * @return resource|false A statement resource with a result set containing rows describing
  * the statistics and indexes for the base tables matching the specified
  * parameters. The rows are composed of the following columns:
+ * <table>
  * <tr valign="top">
  * <td>Column name</td>
  * <td>Description</td>
@@ -903,9 +906,10 @@ function db2_specialcolumns () {}
  * <tr valign="top">
  * <td>NON_UNIQUE</td>
  * <td>
+ * <table>
  * <p>
  * An integer value representing whether the index prohibits unique
- * values, or whether the row represents statistics on the table itself:
+ * values, or whether the row represents statistics on the table itself:</p>
  * <tr valign="top">
  * <td>Return value</td>
  * <td>Parameter type</td>
@@ -922,7 +926,7 @@ function db2_specialcolumns () {}
  * <td>null</td>
  * <td>This row is statistics information for the table itself.</td>
  * </tr>
- * </p>
+ * </table>
  * </td>
  * </tr>
  * <tr valign="top">
@@ -939,7 +943,8 @@ function db2_specialcolumns () {}
  * <td>
  * <p>
  * An integer value representing the type of information contained in
- * this row of the result set:
+ * this row of the result set:</p>
+ * <table>
  * <tr valign="top">
  * <td>Return value</td>
  * <td>Parameter type</td>
@@ -961,7 +966,7 @@ function db2_specialcolumns () {}
  * <td>The row contains information about a type of index that
  * is neither clustered nor hashed.</td>
  * </tr>
- * </p>
+ * </table>
  * </td>
  * </tr>
  * <tr valign="top">
@@ -1017,6 +1022,7 @@ function db2_specialcolumns () {}
  * <td>FILTER_CONDITION</td>
  * <td>Always returns null.</td>
  * </tr>
+ * </table>
  */
 function db2_statistics ($connection, $qualifier, $schema, $table_name, $unique) {}
 
@@ -1150,6 +1156,7 @@ function db2_tables ($connection, $qualifier = null, $schema = null, $table_name
  * parameter to request a scrollable cursor on database servers that
  * support this functionality.
  * cursor
+ * </p>
  * <p>
  * Passing the DB2_FORWARD_ONLY value requests a
  * forward-only cursor for this SQL statement. This is the default
@@ -1183,7 +1190,8 @@ function db2_exec ($connection, $statement, array $options = null) {}
  * parameter to request a scrollable cursor on database servers that
  * support this functionality.
  * cursor
- * <p>
+ * </p>
+ * </p>
  * Passing the DB2_FORWARD_ONLY value requests a
  * forward-only cursor for this SQL statement. This is the default
  * type of cursor, and it is supported by all database servers. It is
@@ -1686,9 +1694,9 @@ function db2_lob_read ($stmt, $colnum, $length) {}
  * A valid statement or connection options. The following new options are available
  * as of ibm_db2 version 1.6.0. They provide useful tracking information
  * that can be set during execution with db2_get_option.
- * Note
+ * </p>
  * <p>
- * Prior versions of ibm_db2 do not support these new options.
+ * Note: Prior versions of ibm_db2 do not support these new options.
  * </p>
  * <p>
  * When the value in each option is being set, some servers might not handle
@@ -1699,17 +1707,15 @@ function db2_lob_read ($stmt, $colnum, $length) {}
  * when transmitted to a host system, use only the characters A through Z,
  * 0 through 9, and the underscore (_) or period (.).
  * </p>
- * userid
  * <p>
  * SQL_ATTR_INFO_USERID - A pointer to a null-terminated
  * character string used to identify the client user ID sent to the host
  * database server when using DB2 Connect.
- * Note
+ * </p>
  * <p>
- * DB2 for z/OS and OS/390 servers support up to a length of 16 characters.
+ * Note: DB2 for z/OS and OS/390 servers support up to a length of 16 characters.
  * This user-id is not to be confused with the authentication user-id, it is for
  * identification purposes only and is not used for any authorization.
- * </p>
  * </p>
  * @return string|false The current setting of the connection attribute provided on success
  * or false on failure.

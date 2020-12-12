@@ -491,8 +491,8 @@ function stream_socket_sendto ($socket, string $data, int $flags, string $addres
  * </p>
  * @param int|null $crypto_method [optional] <p>
  * Setup encryption on the stream.
- * Valid methods are
- * STREAM_CRYPTO_METHOD_SSLv2_CLIENT
+ * Valid methods are:<br>
+ * STREAM_CRYPTO_METHOD_SSLv2_CLIENT</p>
  * @param resource $session_stream [optional] <p>
  * Seed the stream with settings from session_stream.
  * </p>
@@ -671,7 +671,7 @@ function fputcsv ($stream, array $fields, string $separator = ",", string $enclo
  * </p>
  * @param int $operation <p>
  * operation is one of the following:
- * LOCK_SH to acquire a shared lock (reader).
+ * LOCK_SH to acquire a shared lock (reader).</p>
  * @param int &$would_block [optional] <p>
  * The optional third argument is set to 1 if the lock would block
  * (EWOULDBLOCK errno condition).
