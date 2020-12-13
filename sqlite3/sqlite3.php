@@ -290,6 +290,7 @@ class SQLite3  {
 	 * Enable throwing exceptions
 	 * @link https://www.php.net/manual/en/sqlite3.enableexceptions
 	 * @param bool $enable
+	 * @return bool Returns the old value; true if exceptions were enabled, false otherwise.
 	 */
 	public function enableExceptions ($enable) {}
 
