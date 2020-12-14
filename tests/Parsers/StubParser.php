@@ -16,7 +16,7 @@ use StubTests\Model\StubsContainer;
 use StubTests\Parsers\Visitors\ASTVisitor;
 use StubTests\Parsers\Visitors\CoreStubASTVisitor;
 use StubTests\Parsers\Visitors\ParentConnector;
-use StubTests\TestData\Providers\PhpCoreStubsProvider;
+use StubTests\TestData\Providers\Stubs\PhpCoreStubsProvider;
 use UnexpectedValueException;
 
 class StubParser

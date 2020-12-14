@@ -16,4 +16,6 @@ abstract class BasePHPClass extends BasePHPElement
      * @var PHPConst[]
      */
     public array $constants = [];
+
+    public bool $isFinal = false;
 }

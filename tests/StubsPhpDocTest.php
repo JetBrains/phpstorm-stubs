@@ -17,11 +17,12 @@ use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\Tags\RemovedTag;
 use StubTests\Parsers\Utils;
+use function trim;
 
 class StubsPhpDocTest extends TestCase
 {
     /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubClassConstantProvider
+     * @dataProvider \StubTests\TestData\Providers\Stubs\StubConstantsProvider::classConstantProvider
      */
     public function testClassConstantsPHPDocs(string $className, PHPConst $constant): void
     {
@@ -30,7 +31,7 @@ class StubsPhpDocTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubConstantProvider
+     * @dataProvider \StubTests\TestData\Providers\Stubs\StubConstantsProvider::globalConstantProvider
      */
     public function testConstantsPHPDocs(PHPConst $constant): void
     {
@@ -39,7 +40,7 @@ class StubsPhpDocTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubFunctionProvider
+     * @dataProvider \StubTests\TestData\Providers\Stubs\StubsTestDataProviders::allFunctionsProvider
      */
     public function testFunctionPHPDocs(PHPFunction $function): void
     {
@@ -48,7 +49,7 @@ class StubsPhpDocTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubClassProvider
+     * @dataProvider \StubTests\TestData\Providers\Stubs\StubsTestDataProviders::allClassesProvider
      */
     public function testClassesPHPDocs(BasePHPClass $class): void
     {
@@ -57,7 +58,7 @@ class StubsPhpDocTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodProvider
+     * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::allMethodsProvider
      */
     public function testMethodsPHPDocs(string $methodName, PHPMethod $method): void
     {
@@ -106,7 +107,7 @@ class StubsPhpDocTest extends TestCase
     private static function checkHtmlTags(BasePHPElement $element, string $elementName): void
     {
         /** @var PHPDocElement $element */
-        $phpdoc = \trim($element->phpdoc);
+        $phpdoc = trim($element->phpdoc);
 
         $phpdoc = preg_replace(
             [

@@ -15,7 +15,7 @@ use StubTests\TestData\Providers\PhpStormStubsSingleton;
 class StubsParameterNamesTest extends TestCase
 {
     /**
-     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::functionParametersProvider
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionParametersProvider
      */
     public function testFunctionsParameterNames(PHPFunction $function, PHPParameter $parameter)
     {
@@ -27,7 +27,7 @@ class StubsParameterNamesTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::methodParametersProvider
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodParametersProvider
      */
     public function testMethodsParameterNames(PHPClass|PHPInterface $reflectionClass, PHPMethod $reflectionMethod, PHPParameter $reflectionParameter)
     {

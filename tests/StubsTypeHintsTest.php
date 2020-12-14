@@ -16,7 +16,7 @@ use StubTests\TestData\Providers\PhpStormStubsSingleton;
 class StubsTypeHintsTest extends TestCase
 {
     /**
-     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::functionParametersProvider
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionParametersProvider
      */
     public function testFunctionsTypeHints(PHPFunction $function, PHPParameter $parameter)
     {
@@ -37,7 +37,7 @@ class StubsTypeHintsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::methodParametersProvider
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodParametersProvider
      */
     public function testMethodsTypeHints(PHPClass|PHPInterface $reflectionClass, PHPMethod $reflectionMethod, PHPParameter $reflectionParameter)
     {
@@ -62,7 +62,7 @@ class StubsTypeHintsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodParametersWithoutScalarTypeHintsProvider
+     * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForScalarTypeHintTestsProvider
      */
     public function testMethodDoesNotHaveScalarTypeHintsInParameters(PHPMethod $stubMethod, PHPParameter $parameter)
     {
@@ -74,7 +74,7 @@ class StubsTypeHintsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodParametersWithoutNullableTypeHintsProvider
+     * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersFoNullableTypeHintTestsProvider
      */
     public function testMethodDoesNotHaveNullableTypeHintsInParameters(PHPMethod $stubMethod, PHPParameter $parameter)
     {
@@ -89,7 +89,7 @@ class StubsTypeHintsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodParametersWithoutUnionTypeHintsProvider
+     * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForUnionTypeHintTestsProvider
      */
     public function testMethodDoesNotHaveUnionTypeHintsInParameters(PHPMethod $stubMethod, PHPParameter $parameter)
     {
@@ -101,7 +101,7 @@ class StubsTypeHintsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodWithoutReturnTypeHintsProvider
+     * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForReturnTypeHintTestsProvider
      * @param PHPMethod $stubMethod
      */
     public function testMethodDoesNotHaveReturnTypeHint(PHPMethod $stubMethod)
@@ -112,7 +112,7 @@ class StubsTypeHintsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodWithoutNullableReturnTypeHintsProvider
+     * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForNullableReturnTypeHintTestsProvider
      * @param PHPMethod $stubMethod
      */
     public function testMethodDoesNotHaveNullableReturnTypeHint(PHPMethod $stubMethod)
@@ -129,7 +129,7 @@ class StubsTypeHintsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodWithoutUnionReturnTypeHintsProvider
+     * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForUnionReturnTypeHintTestsProvider
      * @param PHPMethod $stubMethod
      */
     public function testMethodDoesNotHaveUnionReturnTypeHint(PHPMethod $stubMethod)
@@ -165,7 +165,7 @@ class StubsTypeHintsTest extends TestCase
         Reflection parameter has type '$parameter->type' but stub parameter has type '$stubParameter->type'");
     }
 
-    public static function getFirstSinceVersion(PHPMethod $stubFunction): int
+    public static function getFirstSinceVersion(PHPFunction|PHPMethod $stubFunction): int
     {
         $firstSinceVersion = 5;
         $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($stubFunction->parentName);
