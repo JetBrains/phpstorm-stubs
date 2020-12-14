@@ -232,6 +232,14 @@ namespace {
          * @return string
          */
         public static function string(CData $source, int $size = 0): string {}
+
+        /**
+         * Checks whether a FFI\CData is a null pointer.
+         *
+         * @param CData $ptr
+         * @return bool
+         */
+        public static function isNull(CData $ptr): bool {}
     }
 }
 
