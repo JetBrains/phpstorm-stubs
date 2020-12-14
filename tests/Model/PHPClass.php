@@ -15,7 +15,6 @@ class PHPClass extends BasePHPClass
     public array $interfaces = [];
     /** @var PHPProperty[] */
     public array $properties = [];
-    public bool $isFinal = false;
 
     /**
      * @param ReflectionClass $reflectionObject

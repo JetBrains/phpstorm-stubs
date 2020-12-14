@@ -15,7 +15,7 @@ use StubTests\TestData\Providers\PhpStormStubsSingleton;
 class StubsTest extends TestCase
 {
     /**
-     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::constantProvider
      */
     public function testConstants(PHPConst $constant): void
     {
@@ -30,7 +30,7 @@ class StubsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantValuesProvider
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::constantValuesProvider
      */
     public function testConstantsValues(PHPConst $constant): void
     {
@@ -46,7 +46,7 @@ class StubsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::classConstantProvider
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::classConstantProvider
      */
     public function testClassConstants(PHPClass|PHPInterface $class, PHPConst $constant): void
     {
@@ -65,7 +65,7 @@ class StubsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::classConstantValuesProvider
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::classConstantValuesProvider
      */
     public function testClassConstantsValues(PHPClass|PHPInterface $class, PHPConst $constant): void
     {
@@ -85,7 +85,7 @@ class StubsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::functionProvider
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionTestDataProviders::allFunctionsProvider
      */
     public function testFunctions(PHPFunction $function): void
     {
@@ -111,7 +111,7 @@ class StubsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::classProvider
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionTestDataProviders::classesProvider
      */
     public function testClasses(PHPClass $class): void
     {
@@ -225,7 +225,7 @@ class StubsTest extends TestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::interfaceProvider
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionTestDataProviders::interfaceProvider
      */
     public function testInterfaces(PHPInterface $interface): void
     {
