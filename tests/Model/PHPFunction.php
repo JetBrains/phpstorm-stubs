@@ -10,7 +10,6 @@ use phpDocumentor\Reflection\Type;
 use PhpParser\Comment\Doc;
 use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Stmt\Function_;
-use PhpParser\NodeAbstract;
 use ReflectionFunction;
 use stdClass;
 use StubTests\Parsers\DocFactoryProvider;

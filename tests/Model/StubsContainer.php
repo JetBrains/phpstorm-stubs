@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
-use \RuntimeException;
+use JetBrains\PhpStorm\Pure;
+use RuntimeException;
 use function array_key_exists;
 
 class StubsContainer
@@ -62,6 +63,7 @@ class StubsContainer
         }
     }
 
+    #[Pure]
     public function getClass(string $name): ?PHPClass
     {
         if (array_key_exists($name, $this->classes) && isset($this->classes[$name])) {
@@ -93,7 +95,7 @@ class StubsContainer
      */
     public function addClass(PHPClass $class): void
     {
-        if (isset($class->name)){
+        if (isset($class->name)) {
             if (array_key_exists($class->name, $this->classes)) {
                 throw new RuntimeException($class->name . ' is already defined in stubs');
             }
@@ -101,6 +103,7 @@ class StubsContainer
         }
     }
 
+    #[Pure]
     public function getInterface(string $name): ?PHPInterface
     {
         if (array_key_exists($name, $this->interfaces) && isset($this->interfaces[$name])) {

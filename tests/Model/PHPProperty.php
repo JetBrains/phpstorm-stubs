@@ -32,7 +32,7 @@ class PHPProperty extends BasePHPElement
         }
         $this->access = $access;
         $this->is_static = $reflectionObject->isStatic();
-        $this->type = "";
+        $this->type = '';
         if ($reflectionObject->hasType()) {
             $reflectionNamedType = $reflectionObject->getType();
             if (isset($reflectionNamedType)){
@@ -60,7 +60,7 @@ class PHPProperty extends BasePHPElement
         $this->access = $access;
 
 
-        $this->type = $node->type->name ?? "";
+        $this->type = $node->type->name ?? '';
 
         $parentNode = $node->getAttribute('parent');
         if ($parentNode !== null){
