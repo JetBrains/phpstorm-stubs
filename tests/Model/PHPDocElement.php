@@ -67,7 +67,7 @@ trait PHPDocElement
                 $this->removedTags = $phpDoc->getTagsByName('removed');
                 $this->hasInternalMetaTag = $phpDoc->hasTag('meta');
                 $this->hasInheritDocTag = $phpDoc->hasTag('inheritdoc') || $phpDoc->hasTag('inheritDoc') ||
-                    stripos($phpDoc->getSummary(), "inheritdoc") > 0;
+                    stripos($phpDoc->getSummary(), 'inheritdoc') > 0;
             } catch (Exception $e) {
                 $this->parseError = $e;
             }

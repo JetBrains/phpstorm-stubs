@@ -5,6 +5,7 @@ namespace StubTests\Model;
 
 use Exception;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Pure;
 use PhpParser\Node;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Identifier;
@@ -110,6 +111,7 @@ abstract class BasePHPElement
         return null;
     }
 
+    #[Pure]
     public function hasMutedProblem(int $stubProblemType): bool
     {
         return in_array($stubProblemType, $this->mutedProblems, true);

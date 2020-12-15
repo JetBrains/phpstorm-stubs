@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 namespace StubTests\Parsers;
+use JetBrains\PhpStorm\Pure;
 use PhpParser\Node\Expr;
 
 class ExpectedFunctionArgumentsInfo
@@ -56,6 +57,7 @@ class ExpectedFunctionArgumentsInfo
         return $this->index;
     }
 
+    #[Pure]
     public function __toString(): string
     {
         if ($this->functionReference === null) {
