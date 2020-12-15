@@ -3,7 +3,6 @@
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 
@@ -1039,32 +1038,20 @@ function explode (string $separator, string $string, int $limit): array|bool
 /**
  * Join array elements with a string
  * @link https://php.net/manual/en/function.implode.php
- * @param float[]|int[]|string[] $array <p>
- * The array of scalar values to implode.
- * </p>
- * @return string a string containing a string representation of all the array
- * elements in the same order, with an empty string between each element.
- */
-#[Pure]
-function implode (array $array): string
-{}
-
-/**
- * Join array elements with a string
- * @link https://php.net/manual/en/function.implode.php
- * @param float|int|string  $separator <p>
+ * @param array|string  $separator [optional]<p>
  * Defaults to an empty string. This is not the preferred usage of
  * implode as glue would be
  * the second parameter and thus, the bad prototype would be used.
  * </p>
- * @param float[]|int[]|string[] $array <p>
- * The array of scalar values to implode.
+ * @param array|null $array <p>
+ * The array of strings to implode.
  * </p>
  * @return string a string containing a string representation of all the array
- * elements in the same order, with the separator between each element.
+ * elements in the same order, with the glue string between each element.
  */
 #[Pure]
-function implode (#[LanguageLevelTypeAware(["8.0" => "string"], default: "float|int|string")] $separator, array $array): string
+//DO NOT UPDATE THIS SIGNATURE AND DO NOT ADD OTHER IMPLODE FUNCTIONS AS FUNCTION OVERLOADING IS NOT SUPPORTED
+function implode (array|string $separator = "", ?array $array): string
 {}
 
 /**
