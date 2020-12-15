@@ -2,6 +2,7 @@
 
 [![official JetBrains project](http://jb.gg/badges/official.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub) 
 [![Build Status](https://travis-ci.org/JetBrains/phpstorm-stubs.svg?branch=master)](https://travis-ci.org/JetBrains/phpstorm-stubs)
+![GitHub Action Status](https://github.com/JetBrains/phpstorm-stubs/workflows/PhpStorm%20Stubs%20Tests/badge.svg?branch=master)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![Total Downloads](https://poser.pugx.org/jetbrains/phpstorm-stubs/downloads)](https://packagist.org/packages/jetbrains/phpstorm-stubs)
 
