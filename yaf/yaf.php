@@ -727,7 +727,7 @@ final class Yaf_Registry {
      * @link https://secure.php.net/manual/en/yaf-registry.set.php
      *
      * @param string $name
-     * @param mixed $value
+     * @param string $value
      *
      * @return bool
      */
@@ -871,7 +871,7 @@ final class Yaf_Session implements Iterator, Traversable, ArrayAccess, Countable
     public function offsetUnset($name){ }
 
     /**
-     * @param mixed $name
+     * @param string $name
      * @see ArrayAccess::offsetGet
      * @return mixed
      */
@@ -884,6 +884,10 @@ final class Yaf_Session implements Iterator, Traversable, ArrayAccess, Countable
 
     /**
      * @see ArrayAccess::offsetSet
+     *
+     * @param string $name
+     * @param string $value
+     * @return void
      */
     public function offsetSet($name, $value){ }
 
@@ -1413,7 +1417,7 @@ abstract class Yaf_Request_Abstract {
      *
      * @link https://secure.php.net/manual/en/yaf-request-abstract.isxmlhttprequest.php
      *
-     * @return bool false
+     * @return bool
      */
     public function isXmlHttpRequest(){ }
 
@@ -1446,7 +1450,7 @@ abstract class Yaf_Request_Abstract {
      * @link https://secure.php.net/manual/en/yaf-request-abstract.getparam.php
      *
      * @param string $name
-     * @param mixed $default
+     * @param string $default
      *
      * @return mixed
      */

@@ -197,7 +197,7 @@ class Zookeeper
      * @param string   $path
      * @param callable $watcher_cb
      *
-     * @return array
+     * @return array|false
      *
      * @link https://www.php.net/manual/en/zookeeper.getchildren.php
      *

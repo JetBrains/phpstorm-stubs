@@ -1029,8 +1029,9 @@ function mb_ereg (string $pattern, string $string, &$matches): bool
  * @param string[] &$matches [optional] <p>
  * Contains a substring of the matched string.
  * </p>
- * @return bool
+ * @return bool|int
  */
+#[LanguageLevelTypeAware(["8.0" => "bool"], default: "false|int")]
 function mb_eregi (string $pattern, string $string, &$matches): bool
 {}
 

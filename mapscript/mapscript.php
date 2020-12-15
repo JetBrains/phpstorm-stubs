@@ -866,10 +866,10 @@ final class imageObj
      * stdout.
      *
      * @param string $filename
-     * @param MapObj $oMap
+     * @param mapObj $oMap
      * @return int
      */
-    final public function saveImage($filename, MapObj $oMap) {}
+    final public function saveImage($filename, mapObj $oMap) {}
 
     /**
      * Writes image to temp directory.  Returns image URL.
@@ -1550,11 +1550,11 @@ final class layerObj
     /**
      * Old style constructor
      *
-     * @param MapObj $map
+     * @param mapObj $map
      * @param layerObj $layer
      * @return layerObj
      */
-    final public function ms_newLayerObj(MapObj $map, layerObj $layer) {}
+    final public function ms_newLayerObj(mapObj $map, layerObj $layer) {}
 
     /**
      * Add a new feature in a layer. Returns MS_SUCCESS or MS_FAILURE on
@@ -2189,7 +2189,7 @@ final class lineObj
     /**
      * Old style constructor
      *
-     * @return LineObj
+     * @return lineObj
      */
     final public function ms_newLineObj() {}
 
@@ -2232,7 +2232,7 @@ final class lineObj
      * Returns a reference to point number i.
      *
      * @param int $i
-     * @return PointObj
+     * @return pointObj
      */
     final public function point($i) {}
 
@@ -3431,7 +3431,7 @@ final class pointObj
     /**
      * Old style constructor
      *
-     * @return PointObj
+     * @return pointObj
      */
     final public function ms_newPointObj() {}
 
@@ -4354,7 +4354,7 @@ final class shapeObj
      * Returns a reference to line number i.
      *
      * @param int $i
-     * @return LineObj
+     * @return lineObj
      */
     final public function line($i) {}
 

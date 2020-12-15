@@ -18,7 +18,7 @@
  * Likewise, when the object is restored using unserialize() the __wakeup member function is called.
  *
  * @param mixed $value The value to be serialized.
- * @return string Returns a string containing a byte-stream representation of value that can be stored anywhere.
+ * @return string|null Returns a string containing a byte-stream representation of value that can be stored anywhere or <b>NULL</b> on error.
  * @link https://secure.php.net/serialize PHP default serialize
  */
 function igbinary_serialize($value) {}
@@ -31,7 +31,7 @@ function igbinary_serialize($value) {}
  * In case the passed string is not unserializeable, NULL is returned and E_WARNING is issued.
  *
  * @param string $str The serialized string.
- * @return mixed The converted value is returned, and can be a boolean, integer, float, string, array or object.
+ * @return mixed|false The converted value is returned, and can be a boolean, integer, float, string, array, object or <b>false</b> by empty string input.
  * @link https://secure.php.net/manual/en/function.unserialize.php PHP default unserialize
  * @link https://secure.php.net/~helly/php/ext/spl/interfaceSerializable.html Serializable
  */

@@ -9,7 +9,7 @@ class ZendAPI_Queue {
      * Constructor for a job queue connection
      *
      * @param string $queue_url Full address where the queue is in the form host:port
-     * @return zendapi_queue object
+     * @return ZendAPI_Queue
      *
      * @removed 8.0
      */
@@ -58,7 +58,7 @@ class ZendAPI_Queue {
     /**
      * Remove a job from the queue
      *
-     * @param int|array $job_id The job id or array of job ids we want to remove from the queue
+     * @param int|int[] $job_id The job id or array of job ids we want to remove from the queue
      * @return bool Success/Failure
      */
     function removeJob($job_id) {}
@@ -67,7 +67,7 @@ class ZendAPI_Queue {
     /**
      * Suspend a job in the queue (without removing it)
      *
-     * @param int|array $job_id The job id or array of job ids we want to suspend
+     * @param int|int[] $job_id The job id or array of job ids we want to suspend
      * @return bool Success/Failure
      */
     function suspendJob($job_id) {}
@@ -76,7 +76,7 @@ class ZendAPI_Queue {
     /**
      * Resume a suspended job in the queue
      *
-     * @param int|array $job_id The job id or array of job ids we want to resume
+     * @param int|int[] $job_id The job id or array of job ids we want to resume
      * @return bool Success/Failure (if the job wasn't suspended, the function will return false)
      */
     function resumeJob($job_id) {}
