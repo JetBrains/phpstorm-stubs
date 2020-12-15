@@ -42,7 +42,7 @@ function msgpack_unpack($str, $object = null)
 
 class MessagePack
 {
-    const OPT_PHPONLY = 1;
+    const OPT_PHPONLY = -1001;
 
     public function __construct($opt)
     {

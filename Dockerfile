@@ -17,20 +17,20 @@ RUN docker-php-ext-install ldap bz2 mysqli bcmath calendar dba exif gettext opca
 #RUN docker-php-ext-enable ev
 #RUN pecl install fann
 #RUN docker-php-ext-enable fann
-#RUN pecl install igbinary
-#RUN docker-php-ext-enable igbinary
+RUN pecl install igbinary
+RUN docker-php-ext-enable igbinary
 #RUN pecl install inotify
 #RUN docker-php-ext-enable inotify
-#RUN pecl install msgpack
-#RUN docker-php-ext-enable msgpack
-#RUN pecl install rrd
-#RUN docker-php-ext-enable rrd
+RUN pecl install msgpack
+RUN docker-php-ext-enable msgpack
+RUN pecl install rrd
+RUN docker-php-ext-enable rrd
 #RUN pecl install sync
 #RUN docker-php-ext-enable sync
-#RUN pecl install yaml
-#RUN docker-php-ext-enable yaml
-#RUN pecl install pcov
-#RUN docker-php-ext-enable pcov
+RUN pecl install yaml
+RUN docker-php-ext-enable yaml
+RUN pecl install pcov
+RUN docker-php-ext-enable pcov
 #Extensions below require a lot of fixes
 #RUN pecl install mongodb
 #RUN docker-php-ext-enable mongodb
