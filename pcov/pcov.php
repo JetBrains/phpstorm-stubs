@@ -50,7 +50,7 @@ namespace pcov
      * </p>
      * @return void
      */
-    function clear($files = false) {}
+    function clear(bool $files = false) {}
 
     /**
      * (PHP &gt;= 7.0, PECL pcov &gt;= 1.0.0)<br/>
