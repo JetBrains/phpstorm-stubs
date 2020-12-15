@@ -103,7 +103,7 @@ function imap_num_recent ($imap_stream) {}
  * Returns headers for all messages in a mailbox
  * @link https://php.net/manual/en/function.imap-headers.php
  * @param resource $imap_stream
- * @return array an array of string formatted with header info. One
+ * @return array|false an array of string formatted with header info. One
  * element per mail message.
  */
 function imap_headers ($imap_stream) {}
@@ -117,7 +117,7 @@ function imap_headers ($imap_stream) {}
  * @param int $from_length [optional] Number of characters for the fetchfrom property. Must be greater than or equal to zero.
  * @param int $subject_length [optional] Number of characters for the fetchsubject property Must be greater than or equal to zero.
  * @param $default_host [optional]
- * @return object Returns the information in an object with following properties:
+ * @return stdClass|false Returns the information in an object with following properties:
  * <dl>
  * <dt>toaddress</dt><dd>full to: line, up to 1024 characters</dd>
  * <dt>to</dt><dd>an array of objects from the To: line, with the following properties: personal, adl, mailbox, and host</dd>
@@ -583,7 +583,7 @@ function imap_check ($imap_stream) {}
  * @param string $content <p>
  * The searched string
  * </p>
- * @return array an array containing the names of the mailboxes that have
+ * @return array|false an array containing the names of the mailboxes that have
  * <i>content</i> in the text of the mailbox.
  */
 function imap_listscan ($imap_stream, $ref, $pattern, $content) {}
@@ -983,7 +983,7 @@ function imap_msgno ($imap_stream, $uid) {}
  * &#x00027;&#37;&#x00027; as the <i>pattern</i>
  * parameter will return only the top level
  * mailboxes; &#x00027;~/mail/&#37;&#x00027; on UW_IMAPD will return every mailbox in the ~/mail directory, but none in subfolders of that directory.</p>
- * @return array an array containing the names of the mailboxes.
+ * @return array|false an array containing the names of the mailboxes.
  */
 function imap_list ($imap_stream, $ref, $pattern) {}
 
@@ -1385,9 +1385,10 @@ function imap_header ($stream_id, $msg_no, $from_length = 0, $subject_length = 0
 /**
  * Alias of <b>imap_list</b>
  * @link https://php.net/manual/en/function.imap-listmailbox.php
- * @param $stream_id
- * @param $ref
- * @param $pattern
+ * @param resource $stream_id
+ * @param string $ref
+ * @param string $pattern
+ * @return array|false
  */
 function imap_listmailbox ($stream_id, $ref, $pattern) {}
 
@@ -1453,9 +1454,10 @@ function imap_scanmailbox ($stream_id, $ref, $pattern, $content) {}
 /**
  * Alias of <b>imap_lsub</b>
  * @link https://php.net/manual/en/function.imap-listsubscribed.php
- * @param $stream_id
- * @param $ref
- * @param $pattern
+ * @param resource $stream_id
+ * @param string $ref
+ * @param string $pattern
+ * @return array|false
  */
 function imap_listsubscribed ($stream_id, $ref, $pattern) {}
 

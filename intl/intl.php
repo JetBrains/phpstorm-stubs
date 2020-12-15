@@ -2705,7 +2705,6 @@ class IntlCalendar {
      * this fashion – actual locale, valid locale, requested locale.
      * </p>
      * @return string
-     * A locale string or <b>FALSE</b> on failure.
      *
      */
     #[Pure]
@@ -2720,8 +2719,7 @@ class IntlCalendar {
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
-     * @return string
-     * A locale string or <b>FALSE</b> on failure.
+     * @return int
      */
     #[Pure]
     public function getMaximum($field) { }
@@ -3978,7 +3976,7 @@ function locale_get_display_variant($locale, $in_locale = null) { }
  * (e.g. 'variant0', 'variant1', etc.).
  * </p>
  * </p>
- * @return string The corresponding locale identifier.
+ * @return string|false The corresponding locale identifier.
  */
 #[Pure]
 function locale_compose(array $subtags) { }
@@ -4073,7 +4071,7 @@ function locale_lookup(array $langtag, $locale, $canonicalize = false, $default 
  * @param string $header <p>
  * The string containing the "Accept-Language" header according to format in RFC 2616.
  * </p>
- * @return string The corresponding locale identifier.
+ * @return string|false The corresponding locale identifier.
  */
 #[Pure]
 function locale_accept_from_http($header) { }
@@ -5320,8 +5318,7 @@ function intlcal_get_locale($calendar, $localeType) { }
  * values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
- * @return string
- * A locale string or <b>FALSE</b> on failure.
+ * @return int|false
  * @since 5.5
  */
 #[Pure]
@@ -5472,8 +5469,7 @@ function intlcal_is_set($calendar, $field) { }
  * values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
- * @return string
- * A locale string or <b>FALSE</b> on failure.
+ * @return int|false
  * @since 5.5
  */
 #[Pure]

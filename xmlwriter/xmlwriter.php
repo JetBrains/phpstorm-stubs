@@ -519,7 +519,7 @@ class XMLWriter  {
  * @param string $uri <p>
  * The URI of the resource for the output.
  * </p>
- * @return bool|resource Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return false|resource|XMLWriter Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * <p>
  * Procedural style: Returns a new xmlwriter resource for later use with the
  * xmlwriter functions on success, <b>FALSE</b> on error.
@@ -585,7 +585,8 @@ function xmlwriter_set_indent_string (#[LanguageLevelTypeAware(["8.0" => "XMLWri
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
- * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p>
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function xmlwriter_start_comment (#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer): bool
 {}

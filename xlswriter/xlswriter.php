@@ -498,7 +498,7 @@ namespace Vtiful\Kernel {
         /**
          * Wrap
          *
-         * @return Format
+         * @return $this
          */
         public function wrap(): self
         {
@@ -508,7 +508,7 @@ namespace Vtiful\Kernel {
         /**
          * Bold
          *
-         * @return Format
+         * @return $this
          */
         public function bold(): self
         {
@@ -518,7 +518,7 @@ namespace Vtiful\Kernel {
         /**
          * Italic
          *
-         * @return Format
+         * @return $this
          */
         public function italic(): self
         {
@@ -530,7 +530,7 @@ namespace Vtiful\Kernel {
          *
          * @param int $style const BORDER_***
          *
-         * @return Format
+         * @return $this
          */
         public function border(int $style): self
         {
@@ -542,7 +542,7 @@ namespace Vtiful\Kernel {
          *
          * @param int ...$style const FORMAT_ALIGN_****
          *
-         * @return Format
+         * @return $this
          */
         public function align(...$style): self
         {
@@ -556,7 +556,7 @@ namespace Vtiful\Kernel {
          *
          * #,##0
          *
-         * @return Format
+         * @return $this
          */
         public function number(string $format): self
         {
@@ -568,7 +568,7 @@ namespace Vtiful\Kernel {
          *
          * @param int $color const COLOR_****
          *
-         * @return Format
+         * @return $this
          */
         public function fontColor(int $color): self
         {
@@ -580,7 +580,7 @@ namespace Vtiful\Kernel {
          *
          * @param string $fontName
          *
-         * @return Format
+         * @return $this
          */
         public function font(string $fontName): self
         {
@@ -592,7 +592,7 @@ namespace Vtiful\Kernel {
          *
          * @param float $size
          *
-         * @return Format
+         * @return $this
          */
         public function fontSize(float $size): self
         {
@@ -614,7 +614,7 @@ namespace Vtiful\Kernel {
          *
          * @param int $style const UNDERLINE_****
          *
-         * @return Format
+         * @return $this
          */
         public function underline(int $style): self
         {
@@ -627,7 +627,7 @@ namespace Vtiful\Kernel {
          * @param int $color const COLOR_****
          * @param int $pattern const PATTERN_****
          *
-         * @return Format
+         * @return $this
          */
         public function background(int $color, int $pattern = self::PATTERN_SOLID): self
         {
