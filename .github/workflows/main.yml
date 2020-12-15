@@ -6,18 +6,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - name: composer install
+      - name: Composer Install
         run: composer install --ignore-platform-reqs
 
-      - name: build docker container
+      - name: Build Docker Container
         run: docker-compose -f docker-compose.yml build >/dev/null
 
-      - name: run tests
+      - name: Run Tests
         run: docker-compose -f docker-compose.yml run php /opt/project/phpstorm-stubs/vendor/bin/phpunit /opt/project/phpstorm-stubs/tests/
 
-      - name: test stubs map
+      - name: Test Stubs Map
         run: ./tests/check-stub-map
 
       #- name: run cs fixer
