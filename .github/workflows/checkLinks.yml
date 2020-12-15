@@ -1,6 +1,6 @@
 name: PhpStorm Stubs Check Links
 
-on: [push, workflow_dispatch]
+on: [workflow_dispatch]
 
 jobs:
   build:
