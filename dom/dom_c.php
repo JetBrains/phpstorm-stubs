@@ -505,12 +505,12 @@ class DOMDocumentFragment extends DOMNode implements DOMParentNode {
     /**
      * {@inheritDoc}
      */
-    public function append(...$nodes): void {}
+    public function append(...$nodes) {}
 
     /**
      * {@inheritDoc}
      */
-    public function prepend(...$nodes): void {}
+    public function prepend(...$nodes) {}
 }
 
 /**
@@ -845,12 +845,12 @@ class DOMDocument extends DOMNode implements DOMParentNode {
     /**
      * {@inheritDoc}
      */
-    public function append(...$nodes): void {}
+    public function append(...$nodes) {}
 
     /**
      * {@inheritDoc}
      */
-    public function prepend(...$nodes): void {}
+    public function prepend(...$nodes) {}
 
     /**
      * Normalizes the document
@@ -1278,22 +1278,22 @@ class DOMCharacterData extends DOMNode implements DOMChildNode {
     /**
      * {@inheritDoc}
      */
-    public function remove(): void {}
+    public function remove() {}
 
     /**
      * {@inheritDoc}
      */
-    public function before(...$nodes): void {}
+    public function before(...$nodes) {}
 
     /**
      * {@inheritDoc}
      */
-    public function after(...$nodes): void {}
+    public function after(...$nodes) {}
 
     /**
      * {@inheritDoc}
      */
-    public function replaceWith(...$nodes): void {}
+    public function replaceWith(...$nodes) {}
 }
 
 /**
@@ -1643,32 +1643,32 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
     /**
      * {@inheritDoc}
      */
-    public function remove(): void {}
+    public function remove() {}
 
     /**
      * {@inheritDoc}
      */
-    public function before(...$nodes): void {}
+    public function before(...$nodes) {}
 
     /**
      * {@inheritDoc}
      */
-    public function after(...$nodes): void {}
+    public function after(...$nodes) {}
 
     /**
      * {@inheritDoc}
      */
-    public function replaceWith(...$nodes): void {}
+    public function replaceWith(...$nodes) {}
 
     /**
      * {@inheritDoc}
      */
-    public function append(...$nodes): void {}
+    public function append(...$nodes) {}
 
     /**
      * {@inheritDoc}
      */
-    public function prepend(...$nodes): void {}
+    public function prepend(...$nodes) {}
 
     /**
      * Creates a new DOMElement object
@@ -2112,7 +2112,7 @@ interface DOMParentNode {
      * @return void
      * @since 8.0
      */
-    public function append(...$nodes): void;
+    public function append(...$nodes);
 
     /**
      * Prepends one or many nodes to the list of children before the first
@@ -2122,7 +2122,7 @@ interface DOMParentNode {
      * @return void
      * @since 8.0
      */
-    public function prepend(...$nodes): void;
+    public function prepend(...$nodes);
 }
 
 /**
@@ -2138,7 +2138,7 @@ interface DOMChildNode {
      * @return void
      * @since 8.0
      */
-    public function remove(): void;
+    public function remove();
 
     /**
      * Add passed node(s) before the current node
@@ -2147,7 +2147,7 @@ interface DOMChildNode {
      * @return void
      * @since 8.0
      */
-    public function before(...$nodes): void;
+    public function before(...$nodes);
 
     /**
      * Add passed node(s) after  the current node
@@ -2156,7 +2156,7 @@ interface DOMChildNode {
      * @return void
      * @since 8.0
      */
-    public function after(...$nodes): void;
+    public function after(...$nodes);
 
     /**
      * Replace current node with new node(s), a combination
@@ -2166,5 +2166,5 @@ interface DOMChildNode {
      * @return void
      * @since 8.0
      */
-    public function replaceWith(...$nodes): void;
+    public function replaceWith(...$nodes);
 }

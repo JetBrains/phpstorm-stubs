@@ -311,5 +311,5 @@ class ReflectionProperty implements Reflector
      * @since 8.0
      */
     #[Pure]
-	public function getAttributes(?string $name = null, int $flags = 0): array {}
+	public function getAttributes(?string $name = null, int $flags = 0) {}
 }

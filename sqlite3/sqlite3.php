@@ -340,7 +340,7 @@ class SQLite3  {
 	 * @return bool
 	 * @since 8.0
 	 */
-	function setAuthorizer(?callable $callback): bool {}
+	function setAuthorizer(?callable $callback) {}
 
 }
 
