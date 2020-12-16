@@ -60,6 +60,7 @@ class PHPClass extends BasePHPClass
     {
         $this->name = $this->getFQN($node);
         $this->isFinal = $node->isFinal();
+        $this->sinceVersionFromAttribute = self::findSinceVersionFromAttribute($node->attrGroups);
         $this->collectTags($node);
         if (!empty($node->extends)) {
             $this->parentClass = '';

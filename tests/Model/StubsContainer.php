@@ -59,7 +59,13 @@ class StubsContainer
     public function addFunction(PHPFunction $function): void
     {
         if (isset($function->name)) {
-            $this->functions[$function->name] = $function;
+            if (array_key_exists($function->name, $this->functions)) {
+                $amount = count(array_filter($this->functions,
+                    fn(PHPFunction $nextFunction) => $nextFunction->name === $function->name));
+                $this->functions[$function->name . '_duplicated_' . $amount] = $function;
+            } else {
+                $this->functions[$function->name] = $function;
+            }
         }
     }
 

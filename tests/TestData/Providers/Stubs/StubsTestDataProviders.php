@@ -17,12 +17,10 @@ class StubsTestDataProviders
 
     public static function allClassesProvider(): ?Generator
     {
-        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getClasses() as $class) {
+        $allClassesAndInterfaces = PhpStormStubsSingleton::getPhpStormStubs()->getClasses() +
+            PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces();
+        foreach ($allClassesAndInterfaces as $class) {
             yield "class {$class->name}" => [$class];
-        }
-
-        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces() as $interface) {
-            yield "interface {$interface->name}" => [$interface];
         }
     }
 }
