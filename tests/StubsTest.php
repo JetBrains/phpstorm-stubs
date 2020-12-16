@@ -242,7 +242,7 @@ class StubsTest extends TestCase
                 static::assertContains(
                     $parentInterface,
                     $stubInterface->parentInterfaces,
-                    "Missing parent interface $parentInterface"
+                    "$stubInterface->name missing parent interface $parentInterface"
                 );
             }
         }
