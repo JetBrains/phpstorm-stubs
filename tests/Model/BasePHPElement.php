@@ -80,13 +80,13 @@ abstract class BasePHPElement
     protected static function getTypeNameFromNode(Name|Identifier|NullableType|string $type): string
     {
         $nullable = false;
-        if($type instanceof NullableType){
+        if ($type instanceof NullableType) {
             $type = $type->type;
             $nullable = true;
         }
         if (empty($type->name)) {
             if (!empty($type->parts)) {
-                return $nullable ? '?' . $type->parts[0] : $type->parts[0];
+                return $nullable ? '?' . implode('\\', $type->parts) : implode('\\', $type->parts);
             }
         } else {
             return $nullable ? '?' . $type->name : $type->name;
