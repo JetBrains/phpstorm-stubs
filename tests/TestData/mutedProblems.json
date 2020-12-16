@@ -672,7 +672,8 @@
     {
       "name": "array_intersect",
       "problems": [
-        "parameter mismatch"
+        "parameter mismatch",
+        "has duplicate in stubs"
       ]
     },
     {
@@ -828,7 +829,8 @@
     {
       "name": "array_diff",
       "problems": [
-        "parameter mismatch"
+        "parameter mismatch",
+        "has duplicate in stubs"
       ]
     },
     {
@@ -886,12 +888,6 @@
       ]
     },
     {
-      "name": "array_intersect",
-      "problems": [
-        "parameter mismatch"
-      ]
-    },
-    {
       "name": "array_diff_ukey",
       "problems": [
         "parameter mismatch"
@@ -1042,12 +1038,6 @@
       ]
     },
     {
-      "name": "array_diff",
-      "problems": [
-        "parameter mismatch"
-      ]
-    },
-    {
       "name": "array_intersect_ukey",
       "problems": [
         "parameter mismatch"
@@ -1080,25 +1070,29 @@
     {
       "name": "session_set_save_handler",
       "problems": [
-        "parameter mismatch"
+        "parameter mismatch",
+        "has duplicate in stubs"
       ]
     },
     {
       "name": "stream_context_set_option",
       "problems": [
-        "parameter mismatch"
+        "parameter mismatch",
+        "has duplicate in stubs"
       ]
     },
     {
       "name": "setcookie",
       "problems": [
-        "parameter mismatch"
+        "parameter mismatch",
+        "has duplicate in stubs"
       ]
     },
     {
       "name": "setrawcookie",
       "problems": [
-        "parameter mismatch"
+        "parameter mismatch",
+        "has duplicate in stubs"
       ]
     },
     {
@@ -1110,7 +1104,8 @@
     {
       "name": "strtr",
       "problems": [
-        "parameter mismatch"
+        "parameter mismatch",
+        "has duplicate in stubs"
       ]
     },
     {
@@ -1158,7 +1153,8 @@
     {
       "name": "mb_decode_numericentity",
       "problems": [
-        "parameter mismatch"
+        "parameter mismatch",
+        "has duplicate in stubs"
       ]
     },
     {
@@ -1205,6 +1201,73 @@
           "name": "array",
           "problems": [
             "parameter reference"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "imap_headerinfo",
+      "problems": [
+        "has duplicate in stubs"
+      ]
+    },
+    {
+      "name": "dba_fetch",
+      "problems": [
+        "has duplicate in stubs",
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "cubrid_execute",
+      "problems": [
+        "has duplicate in stubs"
+      ]
+    },
+    {
+      "name": "crypt",
+      "problems": [
+        "has duplicate in stubs"
+      ]
+    },
+    {
+      "name": "odbc_exec",
+      "problems": [
+        "has duplicate in stubs"
+      ]
+    },
+    {
+      "name": "pg_lo_import",
+      "problems": [
+        "has duplicate in stubs"
+      ]
+    },
+    {
+      "name": "pg_lo_export",
+      "problems": [
+        "has duplicate in stubs"
+      ]
+    },
+    {
+      "name": "mb_parse_str",
+      "problems": [
+        "has duplicate in stubs"
+      ]
+    },
+    {
+      "name": "session_set_cookie_params",
+      "problems": [
+        "parameter mismatch",
+        "has duplicate in stubs"
+      ]
+    },
+    {
+      "name": "bcscale",
+      "parameters": [
+        {
+          "name": "scale",
+          "problems": [
+            "parameter type mismatch"
           ]
         }
       ]
@@ -1367,12 +1430,14 @@
     },
     {
       "name": "EvCheck",
-      "methods": [{
-        "name": "createStopped",
-        "problems": [
-          "wrong parmeter type in docs"
-        ]
-      }]
+      "methods": [
+        {
+          "name": "createStopped",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        }
+      ]
     },
     {
       "name": "EvPeriodic",
@@ -1575,7 +1640,6 @@
         }
       ]
     },
-
     {
       "name": "AMQPBasicProperties",
       "methods": [

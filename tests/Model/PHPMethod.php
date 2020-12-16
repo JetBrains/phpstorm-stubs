@@ -46,7 +46,7 @@ class PHPMethod extends PHPFunction
     {
         $this->parentName = $this->getFQN($node->getAttribute('parent'));
         $this->name = $node->name->name;
-
+        $this->sinceVersionFromAttribute = self::findSinceVersionFromAttribute($node->attrGroups);
         $this->returnType = self::convertParsedTypeToString($node->getReturnType());
         $this->collectTags($node);
         $this->checkDeprecationTag($node);

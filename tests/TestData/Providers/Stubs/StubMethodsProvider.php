@@ -4,11 +4,8 @@ declare(strict_types=1);
 namespace StubTests\TestData\Providers\Stubs;
 
 use Generator;
-use StubTests\Model\PHPClass;
-use StubTests\Model\PHPInterface;
-use StubTests\Model\PHPMethod;
 use StubTests\Model\StubProblemType;
-use StubTests\StubsTypeHintsTest;
+use StubTests\Parsers\Utils;
 use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
@@ -27,29 +24,29 @@ class StubMethodsProvider
 
     public static function methodsForReturnTypeHintTestsProvider(): ?Generator
     {
-        $filterFunction = fn(PHPClass|PHPInterface $class, PHPMethod $method, $firstSinceVersion) => $class !== null && !$method->isFinal && !$class->isFinal && $firstSinceVersion !== -1 && $firstSinceVersion < 7;
+        $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(7);
         return self::yieldFilteredMethods($filterFunction, StubProblemType::FUNCTION_HAS_RETURN_TYPEHINT);
     }
 
     public static function methodsForNullableReturnTypeHintTestsProvider(): ?Generator
     {
-        $filterFunction = fn(PHPClass|PHPInterface $class, PHPMethod $method, $firstSinceVersion) => $class !== null && !$method->isFinal && !$class->isFinal && $firstSinceVersion !== -1 && $firstSinceVersion < 7.1;
+        $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(7.1);
         return self::yieldFilteredMethods($filterFunction, StubProblemType::HAS_NULLABLE_TYPEHINT);
     }
 
     public static function methodsForUnionReturnTypeHintTestsProvider(): ?Generator
     {
-        $filterFunction = fn(PHPClass|PHPInterface $class, PHPMethod $method, $firstSinceVersion) => $class !== null && !$method->isFinal && !$class->isFinal && $firstSinceVersion !== -1 && $firstSinceVersion < 8;
+        $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(8);
         return self::yieldFilteredMethods($filterFunction, StubProblemType::HAS_UNION_TYPEHINT);
     }
 
-    public static function yieldFilteredMethods(callable $filterFunction, int ...$problemTypes): ?Generator
+    private static function yieldFilteredMethods(callable $filterFunction, int ...$problemTypes): ?Generator
     {
         $coreClassesAndInterfaces = PhpStormStubsSingleton::getPhpStormStubs()->getCoreClasses() +
             PhpStormStubsSingleton::getPhpStormStubs()->getCoreInterfaces();
         foreach (EntitiesFilter::getFiltered($coreClassesAndInterfaces) as $className => $class) {
-            foreach (EntitiesFilter::getFiltered($class->methods, ...$problemTypes) as $methodName => $method) {
-                $firstSinceVersion = StubsTypeHintsTest::getFirstSinceVersion($method); //please vote WI-57343 to fix inspection warning
+            foreach (EntitiesFilter::getFiltered($class->methods, null, ...$problemTypes) as $methodName => $method) {
+                $firstSinceVersion = Utils::getDeclaredSinceVersion($method);
                 if ($filterFunction($class, $method, $firstSinceVersion) === true) {
                     yield "method {$className}::{$methodName}" => [$method];
                 }

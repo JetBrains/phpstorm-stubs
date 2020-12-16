@@ -44,6 +44,10 @@ class StubsParameterNamesTest extends TestCase
             " but stub function has signature $methodName(" . self::printParameters($stubMethod->parameters) . ')');
     }
 
+    /**
+     * @param PHPParameter[] $params
+     * @return string
+     */
     #[Pure]
     public static function printParameters(array $params): string
     {

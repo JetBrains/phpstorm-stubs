@@ -26,4 +26,5 @@ interface StubProblemType
     public const PARAMETER_NAME_MISMATCH = 18;
     public const HAS_NULLABLE_TYPEHINT = 19;
     public const HAS_UNION_TYPEHINT = 20;
+    public const HAS_DUPLICATION = 21;
 }

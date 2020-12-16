@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace StubTests;
 
-use phpDocumentor\Reflection\DocBlock\Tags\Since;
 use PHPUnit\Framework\TestCase;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPFunction;
@@ -11,14 +10,26 @@ use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\Model\StubProblemType;
+use StubTests\Parsers\Utils;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
 class StubsTypeHintsTest extends TestCase
 {
     /**
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::allFunctionsProvider
+     */
+    public function testFunctionsReturnTypeHints(PHPFunction $function)
+    {
+        $functionName = $function->name;
+        $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions()[$functionName];
+        self::assertEquals($function->returnType, preg_replace('/\w+\[]/', 'array', $phpstormFunction->returnType),
+            "Function $functionName has invalid return type");
+    }
+
+    /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionParametersProvider
      */
-    public function testFunctionsTypeHints(PHPFunction $function, PHPParameter $parameter)
+    public function testFunctionsParametersTypeHints(PHPFunction $function, PHPParameter $parameter)
     {
         $functionName = $function->name;
         $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions()[$functionName];
@@ -32,21 +43,34 @@ class StubsTypeHintsTest extends TestCase
         }
         self::assertEquals($parameter->is_vararg, $stubParameter->is_vararg,
             "Invalid vararg $functionName: \$$parameter->name ");
-        self::assertEquals($function->returnType, preg_replace('/\w+\[]/', 'array', $phpstormFunction->returnType),
-            "Function $functionName has invalid return type");
+    }
+
+    /**
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsProvider
+     */
+    public function testMethodsReturnTypeHints(PHPClass|PHPInterface $class, PHPMethod $method)
+    {
+        $functionName = $method->name;
+        if ($class instanceof PHPClass) {
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->methods[$functionName];
+        } else {
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($class->name)->methods[$functionName];
+        }
+        self::assertEquals($method->returnType, preg_replace('/\w+\[]/', 'array', $stubMethod->returnType),
+            "Method $class->name::$functionName has invalid return type");
     }
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodParametersProvider
      */
-    public function testMethodsTypeHints(PHPClass|PHPInterface $reflectionClass, PHPMethod $reflectionMethod, PHPParameter $reflectionParameter)
+    public function testMethodsParametersTypeHints(PHPClass|PHPInterface $reflectionClass, PHPMethod $reflectionMethod, PHPParameter $reflectionParameter)
     {
         $className = $reflectionClass->name;
         $methodName = $reflectionMethod->name;
         if ($reflectionClass instanceof PHPClass) {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClasses()[$className]->methods[$methodName];
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->methods[$methodName];
         } else {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces()[$className]->methods[$methodName];
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->methods[$methodName];
         }
         $stubParameter = current(array_filter($stubMethod->parameters,
             fn(PHPParameter $stubParameter) => $stubParameter->name === $reflectionParameter->name));
@@ -66,7 +90,7 @@ class StubsTypeHintsTest extends TestCase
      */
     public function testMethodDoesNotHaveScalarTypeHintsInParameters(PHPMethod $stubMethod, PHPParameter $parameter)
     {
-        $sinceVersion = StubsTypeHintsTest::getFirstSinceVersion($stubMethod);
+        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
         self::assertFalse($parameter->type === 'int' || $parameter->type === 'float' ||
             $parameter->type === 'string' || $parameter->type === 'bool',
             "Method '{$stubMethod->parentName}::{$stubMethod->name}' with @since '$sinceVersion'  
@@ -78,7 +102,7 @@ class StubsTypeHintsTest extends TestCase
      */
     public function testMethodDoesNotHaveNullableTypeHintsInParameters(PHPMethod $stubMethod, PHPParameter $parameter)
     {
-        $sinceVersion = StubsTypeHintsTest::getFirstSinceVersion($stubMethod);
+        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
         self::assertFalse(
             str_starts_with($parameter->type, '?') ||
             str_contains($parameter->type, 'null') ||
@@ -93,7 +117,7 @@ class StubsTypeHintsTest extends TestCase
      */
     public function testMethodDoesNotHaveUnionTypeHintsInParameters(PHPMethod $stubMethod, PHPParameter $parameter)
     {
-        $sinceVersion = StubsTypeHintsTest::getFirstSinceVersion($stubMethod);
+        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
         self::assertFalse(str_contains($parameter->type, '|'),
             "Method '{$stubMethod->parentName}::{$stubMethod->name}' with @since '$sinceVersion'  
                 has parameter '{$parameter->name}' with union typehint '{$parameter->type}' 
@@ -106,7 +130,7 @@ class StubsTypeHintsTest extends TestCase
      */
     public function testMethodDoesNotHaveReturnTypeHint(PHPMethod $stubMethod)
     {
-        $sinceVersion = StubsTypeHintsTest::getFirstSinceVersion($stubMethod);
+        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
         self::assertEmpty($stubMethod->returnType, "Method '{$stubMethod->parentName}::{$stubMethod->name}' has since version '$sinceVersion'
             but has return typehint '$stubMethod->returnType' that supported only since PHP 7. Please declare return type via PhpDoc");
     }
@@ -117,7 +141,7 @@ class StubsTypeHintsTest extends TestCase
      */
     public function testMethodDoesNotHaveNullableReturnTypeHint(PHPMethod $stubMethod)
     {
-        $sinceVersion = StubsTypeHintsTest::getFirstSinceVersion($stubMethod);
+        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
         $returnType = $stubMethod->returnType;
         self::assertFalse(
             str_starts_with($returnType, '?') ||
@@ -134,7 +158,7 @@ class StubsTypeHintsTest extends TestCase
      */
     public function testMethodDoesNotHaveUnionReturnTypeHint(PHPMethod $stubMethod)
     {
-        $sinceVersion = StubsTypeHintsTest::getFirstSinceVersion($stubMethod);
+        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
         self::assertFalse(str_contains($stubMethod->returnType, '|'),
             "Method '{$stubMethod->parentName}::{$stubMethod->name}' has since version '$sinceVersion'
             but has union return typehint '$stubMethod->returnType' that supported only since PHP 8.0. 
@@ -163,26 +187,5 @@ class StubsTypeHintsTest extends TestCase
         $diff = $absentInStubsTypes + $extraInStubsTypes;
         self::assertEmpty($diff, "Type mismatch $functionName: \$$parameter->name \n
         Reflection parameter has type '$parameter->type' but stub parameter has type '$stubParameter->type'");
-    }
-
-    public static function getFirstSinceVersion(PHPFunction|PHPMethod $stubFunction): int
-    {
-        $firstSinceVersion = 5;
-        $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($stubFunction->parentName);
-        if (!empty($stubFunction->sinceTags)) {
-            $sinceVersions = array_map(fn(Since $tag) => (int)$tag->getVersion(), $stubFunction->sinceTags);
-            sort($sinceVersions, SORT_DESC);
-            $firstSinceVersion = array_pop($sinceVersions);
-        } elseif ($stubFunction->hasInheritDocTag) {
-            $firstSinceVersion = -1;
-        } elseif ($stubFunction->parentName === '___PHPSTORM_HELPERS\object') {
-            $firstSinceVersion = -1;
-        } elseif (!empty($parentClass->sinceTags)) {
-            $sinceVersions = array_map(fn(Since $tag) => (int)$tag->getVersion(), $parentClass->sinceTags);
-            sort($sinceVersions, SORT_DESC);
-            $firstSinceVersion = array_pop($sinceVersions);
-
-        }
-        return $firstSinceVersion;
     }
 }

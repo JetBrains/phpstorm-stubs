@@ -39,6 +39,9 @@ class PHPConst extends BasePHPElement
         $this->value = $this->getConstValue($node);
         $this->collectTags($node);
         $parentNode = $node->getAttribute('parent');
+        if (property_exists($parentNode, 'attrGroups')) {
+            $this->sinceVersionFromAttribute = self::findSinceVersionFromAttribute($parentNode->attrGroups);
+        }
         if ($parentNode instanceof ClassConst) {
             $this->parentName = $this->getFQN($parentNode->getAttribute('parent'));
         }

@@ -4,8 +4,6 @@ declare(strict_types=1);
 namespace StubTests\TestData\Providers\Reflection;
 
 use Generator;
-use StubTests\Model\PHPFunction;
-use StubTests\Model\PHPParameter;
 use StubTests\Model\StubProblemType;
 use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\ReflectionStubsSingleton;
@@ -14,8 +12,9 @@ class ReflectionParametersProvider
 {
     public static function functionParametersProvider(): ?Generator
     {
-        foreach (ReflectionTestDataProviders::getFilteredFunctions() as $function) {
-            foreach (self::getFilteredParameters($function) as $parameter) {
+        foreach (EntitiesFilter::getFilteredFunctions() as $function) {
+            foreach (EntitiesFilter::getFilteredParameters($function,
+                StubProblemType::PARAMETER_TYPE_MISMATCH) as $parameter) {
                 yield "$function->name($parameter->name)" => [$function, $parameter];
             }
         }
@@ -28,22 +27,12 @@ class ReflectionParametersProvider
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
             //exclude classes from PHPReflectionParser
             if (strncmp($class->name, 'PHP', 3) !== 0) {
-                foreach (ReflectionTestDataProviders::getFilteredFunctions($class) as $method) {
-                    foreach (self::getFilteredParameters($method) as $parameter) {
+                foreach (EntitiesFilter::getFilteredFunctions($class) as $method) {
+                    foreach (EntitiesFilter::getFilteredParameters($method) as $parameter) {
                         yield "$class->name::$method->name($parameter->name)" => [$class, $method, $parameter];
                     }
                 }
             }
         }
-    }
-
-    public static function getFilteredParameters(PHPFunction $function, int ...$problemType): array
-    {
-        /** @var PHPParameter[] $resultArray */
-        $resultArray = [];
-        foreach (EntitiesFilter::getFiltered($function->parameters, StubProblemType::PARAMETER_NAME_MISMATCH, ...$problemType) as $parameter) {
-            $resultArray[] = $parameter;
-        }
-        return $resultArray;
     }
 }
