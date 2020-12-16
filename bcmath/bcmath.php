@@ -87,6 +87,31 @@ function bcmul (string $num1, string $num2, ?int $scale = 0): string
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
+#[PhpStormStubsElementAvailable(to: '8.0')]
+function bcdiv (string $num1, string $num2, ?int $scale = 0)
+{}
+
+/**
+ * Divide two arbitrary precision numbers
+ * @link https://php.net/manual/en/function.bcdiv.php
+ * @param string $num1 <p>
+ * The dividend, as a string.
+ * </p>
+ * @param string $num2 <p>
+ * The divisor, as a string.
+ * </p>
+ * @param int|null $scale [optional] <p>
+ * This optional parameter is used to set the number of digits after the
+ * decimal place in the result. If omitted, it will default to the scale
+ * set globally with the {@link bcscale()} function, or fallback to 0 if
+ * this has not been set.
+ * </p>
+ * @return string the result of the division as a string.
+ * @throws \DivisionByZeroError if <i>divisor</i> is 0. Available since PHP 8.0.
+ */
+#[Pure]
+#[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
+#[PhpStormStubsElementAvailable('8.0')]
 function bcdiv (string $num1, string $num2, ?int $scale = 0)
 {}
 
@@ -110,6 +135,31 @@ function bcdiv (string $num1, string $num2, ?int $scale = 0)
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
+#[PhpStormStubsElementAvailable(to: '8.0')]
+function bcmod (string $num1, string $num2, ?int $scale = 0)
+{}
+
+/**
+ * Get modulus of an arbitrary precision number
+ * @link https://php.net/manual/en/function.bcmod.php
+ * @param string $num1 <p>
+ * The dividend, as a string. Since PHP 7.2, the divided is no longer truncated to an integer.
+ * </p>
+ * @param string $num2 <p>
+ * The divisor, as a string. Since PHP 7.2, the divisor is no longer truncated to an integer.
+ * </p>
+ * @param int|null $scale [optional] <p>
+ * This optional parameter is used to set the number of digits after the
+ * decimal place in the result. If omitted, it will default to the scale
+ * set globally with the {@link bcscale()} function, or fallback to 0 if
+ * this has not been set. Available since PHP 7.2.
+ * </p>
+ * @return string the modulus as a string.
+ * @throws \DivisionByZeroError if <i>divisor</i> is 0. Available since PHP 8.0.
+ */
+#[Pure]
+#[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
+#[PhpStormStubsElementAvailable('8.0')]
 function bcmod (string $num1, string $num2, ?int $scale = 0)
 {}
 
