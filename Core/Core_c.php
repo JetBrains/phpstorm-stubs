@@ -883,7 +883,7 @@ class PhpToken implements Stringable {
      * @param int $flags
      * @return static[]
      */
-    public static function tokenize(string $code, int $flags = 0): array {}
+    public static function tokenize(string $code, int $flags = 0) {}
 
     /**
      * Whether the token has the given ID, the given text, or has an ID/text
