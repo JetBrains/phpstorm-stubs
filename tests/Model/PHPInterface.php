@@ -43,7 +43,9 @@ class PHPInterface extends BasePHPClass
         $this->name = $this->getFQN($node);
         $this->collectTags($node);
         if (!empty($node->extends)) {
-            $this->parentInterfaces[] = implode('\\', $node->extends[0]->parts);
+            foreach ($node->extends as $extend) {
+                $this->parentInterfaces[] = implode('\\', $extend->parts);
+            }
         }
         return $this;
     }
