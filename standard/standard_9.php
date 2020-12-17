@@ -196,7 +196,7 @@ function array_pad(array $array, int $length, mixed $value): array
  * @param array $array <p>
  * An array of key/value pairs to be flipped.
  * </p>
- * @return array Returns the flipped array.
+ * @return int[]|string[] Returns the flipped array.
  */
 #[Pure]
 function array_flip(array $array): array
