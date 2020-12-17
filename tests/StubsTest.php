@@ -130,7 +130,7 @@ class StubsTest extends TestCase
     public function testFunctionsDuplicates()
     {
         $filtered = EntitiesFilter::getFiltered(
-            PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(), null, StubProblemType::HAS_DUPLICATION
+            PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(), problemTypes:  StubProblemType::HAS_DUPLICATION
         );
         $duplicates = self::getDuplicatedFunctions($filtered);
         self::assertEquals(0, sizeof($duplicates),

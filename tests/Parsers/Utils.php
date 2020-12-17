@@ -9,8 +9,6 @@ use RecursiveArrayIterator;
 use RecursiveIteratorIterator;
 use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPConst;
-use StubTests\Model\PHPDefineConstant;
-use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\Tags\RemovedTag;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
@@ -33,49 +31,50 @@ class Utils
 
     public static function getDeclaredSinceVersion(BasePHPElement $element): ?string
     {
-        $allSinceVersions = [];
+        $allSinceVersions = self::getSinceVersionsFromPhpDoc($element);
+        if ($element->sinceVersionFromAttribute !== null) {
+            $allSinceVersions[] = $element->sinceVersionFromAttribute;
+        }
         if ($element instanceof PHPMethod) {
-            $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($element->parentName);
             if ($element->hasInheritDocTag || $element->parentName === '___PHPSTORM_HELPERS\object') {
                 return null;
             }
-            if (!empty($element->sinceTags)) {
-                $allSinceVersions[] = array_map(fn(Since $tag) => $tag->getVersion(), $element->sinceTags);
-            }
-            if ($element->sinceVersionFromAttribute !== null) {
-                $allSinceVersions[] = $element->sinceVersionFromAttribute;
-            }
-            if (!empty($parentClass->sinceTags)) {
-                $allSinceVersions[] = array_map(fn(Since $tag) => $tag->getVersion(), $parentClass->sinceTags);
-            }
-        } elseif ($element instanceof PHPFunction) {
-            if (!empty($element->sinceTags)) {
-                $allSinceVersions[] = array_map(fn(Since $tag) => $tag->getVersion(), $element->sinceTags);
-            }
-            if ($element->sinceVersionFromAttribute !== null) {
-                $allSinceVersions[] = $element->sinceVersionFromAttribute;
-            }
-        } elseif ($element instanceof PHPDefineConstant) {
-            if (!empty($element->sinceTags)) {
-                $allSinceVersions[] = array_map(fn(Since $tag) => $tag->getVersion(), $element->sinceTags);
-            }
-            if ($element->sinceVersionFromAttribute !== null) {
-                $allSinceVersions[] = $element->sinceVersionFromAttribute;
-            }
+            $allSinceVersions[] = self::getSinceVersionsFromParentClass($element);
         } elseif ($element instanceof PHPConst) {
-            $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($element->parentName);
-            if (!empty($element->sinceTags)) {
-                $allSinceVersions[] = array_map(fn(Since $tag) => $tag->getVersion(), $element->sinceTags);
-            }
-            if ($element->sinceVersionFromAttribute !== null) {
-                $allSinceVersions[] = $element->sinceVersionFromAttribute;
-            }
-            if (!empty($parentClass->sinceTags)) {
-                $allSinceVersions[] = array_map(fn(Since $tag) => $tag->getVersion(), $parentClass->sinceTags);
-            }
+            $allSinceVersions[] = self::getSinceVersionsFromParentClass($element);
         }
         $flattenedArray = Utils::flattenArray($allSinceVersions, false);
         sort($flattenedArray, SORT_DESC);
         return array_pop($flattenedArray);
+    }
+
+    /**
+     * @param BasePHPElement $element
+     * @return array
+     */
+    private static function getSinceVersionsFromPhpDoc(BasePHPElement $element): array
+    {
+        $allSinceVersions = [];
+        if (!empty($element->sinceTags)) {
+            $allSinceVersions[] = array_map(fn(Since $tag) => $tag->getVersion(), $element->sinceTags);
+        }
+        return $allSinceVersions;
+    }
+
+    /**
+     * @param PHPMethod|PHPConst $element
+     * @return array
+     */
+    private static function getSinceVersionsFromParentClass(PHPMethod|PHPConst $element): array
+    {
+        $allSinceVersions = [];
+        $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($element->parentName);
+        if ($parentClass === null){
+            $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($element->parentName);
+        }
+        if (!empty($parentClass->sinceTags)) {
+            $allSinceVersions[] = array_map(fn(Since $tag) => $tag->getVersion(), $parentClass->sinceTags);
+        }
+        return $allSinceVersions;
     }
 }
