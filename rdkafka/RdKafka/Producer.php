@@ -20,4 +20,38 @@ class Producer extends \RdKafka
     public function newTopic($topic_name, ?TopicConf $topic_conf = null)
     {
     }
+
+    /**
+     * @param int $timeoutMs
+     *
+     * @return void
+     */
+    public function initTransactions(int $timeoutMs)
+    {
+    }
+
+    /**
+     * @return void
+     */
+    public function beginTransaction()
+    {
+    }
+
+    /**
+     * @param int $timeoutMs
+     *
+     * @return void
+     */
+    public function commitTransaction(int $timeoutMs)
+    {
+    }
+
+    /**
+     * @param int $timeoutMs
+     *
+     * @return void
+     */
+    public function abortTransaction(int $timeoutMs)
+    {
+    }
 }

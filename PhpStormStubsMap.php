@@ -583,6 +583,7 @@ const CLASSES = array (
   'RdKafka\\Exception' => 'rdkafka/RdKafka/Exception.php',
   'RdKafka\\KafkaConsumer' => 'rdkafka/RdKafka/KafkaConsumer.php',
   'RdKafka\\KafkaConsumerTopic' => 'rdkafka/RdKafka/KafkaConsumerTopic.php',
+  'RdKafka\\KafkaErrorException' => 'rdkafka/RdKafka/KafkaErrorException.php',
   'RdKafka\\Message' => 'rdkafka/RdKafka/Message.php',
   'RdKafka\\Metadata' => 'rdkafka/RdKafka/Metadata.php',
   'RdKafka\\Metadata\\Collection' => 'rdkafka/RdKafka/Metadata/Collection.php',
