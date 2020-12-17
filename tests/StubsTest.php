@@ -150,7 +150,8 @@ class StubsTest extends TestCase
             static::assertEquals(
                 $class->parentClass,
                 $stubClass->parentClass,
-                "Class $className should extend {$class->parentClass}"
+                empty($class->parentClass) ? "Class $className should not extend {$stubClass->parentClass}" :
+                    "Class $className should extend {$class->parentClass}"
             );
         } else {
             $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className);
