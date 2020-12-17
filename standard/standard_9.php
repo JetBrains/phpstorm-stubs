@@ -74,7 +74,7 @@ function array_replace_recursive(array $array, array ...$replacements): array
  * @param bool $strict [optional] <p>
  * Determines if strict comparison (===) should be used during the search.
  * </p>
- * @return array an array of all the keys in input.
+ * @return int[]|string[] an array of all the keys in input.
  */
 #[Pure]
 function array_keys(array $array, mixed $filter_value, bool $strict): array
