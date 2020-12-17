@@ -193,7 +193,7 @@ function array_pad(array $array, int $length, mixed $value): array
 /**
  * Exchanges all keys with their associated values in an array
  * @link https://php.net/manual/en/function.array-flip.php
- * @param array $array <p>
+ * @param int[]|string[] $array <p>
  * An array of key/value pairs to be flipped.
  * </p>
  * @return int[]|string[] Returns the flipped array.
