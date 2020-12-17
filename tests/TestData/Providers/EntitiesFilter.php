@@ -57,8 +57,7 @@ class EntitiesFilter
         }
         /** @var PHPFunction[] $resultArray */
         $resultArray = [];
-        foreach (EntitiesFilter::getFiltered($allFunctions, null,
-            StubProblemType::FUNCTION_PARAMETER_MISMATCH) as $function) {
+        foreach (EntitiesFilter::getFiltered($allFunctions, problemTypes: StubProblemType::FUNCTION_PARAMETER_MISMATCH) as $function) {
             $resultArray[] = $function;
         }
         return $resultArray;

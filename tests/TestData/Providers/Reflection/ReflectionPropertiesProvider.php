@@ -34,7 +34,7 @@ class ReflectionPropertiesProvider
     private static function yieldFilteredMethods(int ...$problemTypes): ?Generator
     {
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses();
-        foreach (EntitiesFilter::getFiltered($classesAndInterfaces, null) as $class) {
+        foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
             foreach (EntitiesFilter::getFiltered($class->properties,
                 fn(PHPProperty $property) => $property->access === 'private', ...$problemTypes) as $property) {
                 yield "Property {$class->name}::{$property->name}" => [$class, $property];
