@@ -17,28 +17,28 @@ class KafkaErrorException extends \Exception
     }
 
     /**
-     * @returns string
+     * @return string
      */
     public function getErrorString()
     {
     }
 
     /**
-     * @returns boolean
+     * @return boolean
      */
     public function isFatal()
     {
     }
 
     /**
-     * @returns boolean
+     * @return boolean
      */
     public function isRetriable()
     {
     }
 
     /**
-     * @returns boolean
+     * @return boolean
      */
     public function transactionRequiresAbort()
     {
