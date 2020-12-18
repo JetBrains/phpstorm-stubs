@@ -369,27 +369,16 @@ function ob_get_status (bool $full_status): array
 function ob_get_contents (): string|false
 {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Turn implicit flush on/off
  * @link https://php.net/manual/en/function.ob-implicit-flush.php
- * @param int $enable [optional] <p>
- * 1 to turn implicit flushing on, 0 turns it off.
+ * @param int|bool $enable [optional] <p>
+ * 1|<b>TRUE</b> to turn implicit flushing on, 0|<b>FALSE</b> turns it off.
+ * <br><br>default: 1|<b>TRUE</b>
  * </p>
  * @return void
  */
-function ob_implicit_flush (int $enable = 1): void {}
-
-#[PhpStormStubsElementAvailable('8.0')]
-/**
- * Turn implicit flush on/off
- * @link https://php.net/manual/en/function.ob-implicit-flush.php
- * @param bool $enable [optional] <p>
- * true to turn implicit flushing on, false otherwise.
- * </p>
- * @return void
- */
-function ob_implicit_flush (bool $enable = true): void {}
+function ob_implicit_flush (#[LanguageLevelTypeAware(["8.0" => "bool"], default: "int")] $enable): void {}
 
 /**
  * List all output handlers in use
