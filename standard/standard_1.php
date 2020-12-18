@@ -1049,8 +1049,8 @@ function explode (string $separator, string $string, int $limit): array|bool
  * @return string a string containing a string representation of all the array
  * elements in the same order, with the glue string between each element.
  */
-#[Pure]
 //DO NOT UPDATE THIS SIGNATURE AND DO NOT ADD OTHER IMPLODE FUNCTIONS AS FUNCTION OVERLOADING IS NOT SUPPORTED
+#[Pure]
 function implode (array|string $separator = "", ?array $array): string
 {}
 
