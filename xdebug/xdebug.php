@@ -205,14 +205,14 @@ function xdebug_stop_trace(): string {}
  * This is useful when xdebug.auto_trace is enabled.
  * @return string|null
  */
-function xdebug_get_tracefile_name (): ?string {}
+function xdebug_get_tracefile_name () {}
 
 /**
  * Returns the name of the file which is used to save profile information to.
  *
  * @return string|false
  */
-function xdebug_get_profiler_filename (): string|false {}
+function xdebug_get_profiler_filename () {}
 
 /**
  * @return bool
@@ -297,7 +297,7 @@ function xdebug_get_function_count(): int {}
  *
  * @return void
  */
-function xdebug_dump_superglobals(): void {}
+function xdebug_dump_superglobals() {}
 
 /**
  * Returns all the headers that are set with PHP's header() function,
@@ -335,7 +335,7 @@ function xdebug_stop_gcstats(): string {}
  * statistics collection is not active.
  * @return mixed
  */
-function xdebug_get_gcstats_filename(): mixed {}
+function xdebug_get_gcstats_filename() {}
 
 /**
  * @return int
@@ -370,3 +370,7 @@ define('XDEBUG_PATH_WHITELIST', 1);
 define('XDEBUG_PATH_BLACKLIST', 2);
 define('XDEBUG_NAMESPACE_WHITELIST', 17);
 define('XDEBUG_NAMESPACE_BLACKLIST', 18);
+define('XDEBUG_NAMESPACE_EXCLUDE', 18);
+define('XDEBUG_NAMESPACE_INCLUDE', 17);
+define('XDEBUG_PATH_EXCLUDE', 2);
+define('XDEBUG_PATH_INCLUDE',1);
