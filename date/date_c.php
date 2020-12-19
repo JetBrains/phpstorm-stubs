@@ -661,7 +661,7 @@ class DateTimeZone {
 
     /**
      * Returns location information for a timezone
-     * @return array
+     * @return array|false
      * @link https://php.net/manual/en/datetimezone.getlocation.php
      */
     public function getLocation () {}
@@ -669,7 +669,7 @@ class DateTimeZone {
     /**
      * Returns the timezone offset from GMT
      * @param DateTimeInterface $datetime
-     * @return int
+     * @return int|false
      * @link https://php.net/manual/en/datetimezone.getoffset.php
      */
     public function getOffset (DateTimeInterface $datetime) {}
@@ -678,7 +678,7 @@ class DateTimeZone {
      * Returns all transitions for the timezone
      * @param int $timestampBegin [optional]
      * @param int $timestampEnd [optional]
-     * @return array
+     * @return array|false
      * @link https://php.net/manual/en/datetimezone.gettransitions.php
      */
     public function getTransitions ($timestampBegin=null, $timestampEnd=null) {}
