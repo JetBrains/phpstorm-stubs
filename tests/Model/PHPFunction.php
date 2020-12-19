@@ -30,7 +30,7 @@ class PHPFunction extends BasePHPElement
 
     /**
      * @param ReflectionFunction $reflectionObject
-     * @return $this
+     * @return static
      */
     public function readObjectFromReflection($reflectionObject): static
     {
@@ -45,14 +45,14 @@ class PHPFunction extends BasePHPElement
 
     /**
      * @param Function_ $node
-     * @return $this
+     * @return static
      */
     public function readObjectFromStubNode($node): static
     {
         $functionName = $this->getFQN($node);
         $this->name = $functionName;
         $typeFromAttribute = self::findTypeFromAttribute($node->attrGroups);
-        $this->sinceVersionFromAttribute = self::findSinceVersionFromAttribute($node->attrGroups);
+        $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
         if ($typeFromAttribute != null) {
             $this->returnType = $typeFromAttribute;
         } else {

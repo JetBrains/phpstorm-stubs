@@ -18,7 +18,7 @@ class PHPClass extends BasePHPClass
 
     /**
      * @param ReflectionClass $reflectionObject
-     * @return $this
+     * @return static
      */
     public function readObjectFromReflection($reflectionObject): static
     {
@@ -54,13 +54,13 @@ class PHPClass extends BasePHPClass
 
     /**
      * @param Class_ $node
-     * @return $this
+     * @return static
      */
     public function readObjectFromStubNode($node): static
     {
         $this->name = $this->getFQN($node);
         $this->isFinal = $node->isFinal();
-        $this->sinceVersionFromAttribute = self::findSinceVersionFromAttribute($node->attrGroups);
+        $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
         $this->collectTags($node);
         if (!empty($node->extends)) {
             $this->parentClass = '';

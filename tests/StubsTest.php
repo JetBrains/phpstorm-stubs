@@ -102,7 +102,8 @@ class StubsTest extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::functionsForDeprecationTestsProvider
      */
-    public function testFunctionsDeprecation(PHPFunction $function) {
+    public function testFunctionsDeprecation(PHPFunction $function)
+    {
         $functionName = $function->name;
         $stubFunctions = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions();
         $phpstormFunction = $stubFunctions[$functionName];
@@ -115,7 +116,8 @@ class StubsTest extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::functionsForParamsAmountTestsProvider
      */
-    public function testFunctionsParametersAmount(PHPFunction $function) {
+    public function testFunctionsParametersAmount(PHPFunction $function)
+    {
         $functionName = $function->name;
         $stubFunctions = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions();
         $phpstormFunction = $stubFunctions[$functionName];
@@ -130,7 +132,7 @@ class StubsTest extends TestCase
     public function testFunctionsDuplicates()
     {
         $filtered = EntitiesFilter::getFiltered(
-            PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(), problemTypes:  StubProblemType::HAS_DUPLICATION
+            PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(), problemTypes: StubProblemType::HAS_DUPLICATION
         );
         $duplicates = self::getDuplicatedFunctions($filtered);
         self::assertCount(0, $duplicates,
@@ -377,15 +379,50 @@ class StubsTest extends TestCase
         $duplicatedFunctions = array_filter($filtered, function (PHPFunction $value, int|string $key) {
             if (str_contains($key, 'duplicated')) {
                 $duplicatesOfFunction = self::getAllDuplicatesOfFunction($value->name);
-                $sinceVersionOfInitialFunction = Utils::getDeclaredSinceVersion(
+                $functionVersions[] = Utils::getAvailableInVersions(
                     PhpStormStubsSingleton::getPhpStormStubs()->getFunctions()[$value->name]);
-                $sinceVersionsOfDuplicatedFunctions = array_map(function (PHPFunction $function) {
-                    return Utils::getDeclaredSinceVersion($function);
+                $functionVersions[] = array_map(function (PHPFunction $function) {
+                    return Utils::getAvailableInVersions($function);
                 }, $duplicatesOfFunction);
-                return !empty(array_search($sinceVersionOfInitialFunction, $sinceVersionsOfDuplicatedFunctions));
+                $twoDimensionalArray = [];
+                self::convertArrayToTwoDirectional($functionVersions, $twoDimensionalArray);
+                $hasDuplicates = false;
+                while (($next = array_pop($twoDimensionalArray)) !== null && !empty($twoDimensionalArray)) {
+                    $array_intersect = self::getIntersection($next, ...$twoDimensionalArray);
+                    if (!empty($array_intersect)) {
+                        $hasDuplicates = true;
+                    }
+                }
+                return $hasDuplicates;
             }
             return false;
         }, ARRAY_FILTER_USE_BOTH);
         return array_unique(array_map(fn(PHPFunction $function) => $function->name, $duplicatedFunctions));
+    }
+
+    private static function convertArrayToTwoDirectional($initialArray, &$resultArray)
+    {
+        array_walk($initialArray, function ($element) use (&$resultArray) {
+            $tmpElement = $element;
+            if (is_array($element) && !is_array(array_pop($tmpElement))) {
+                $resultArray[] = $element;
+            } else {
+                self::convertArrayToTwoDirectional($element, $resultArray);
+            }
+        });
+    }
+
+    #[Pure]
+    private static function getIntersection(array $next, array $twoDimensionalArray): array
+    {
+        $arg_list = func_get_args();
+        $array_intersect = [];
+        for ($i = 1; $i < func_num_args(); $i++) {
+            $array_intersect = array_intersect($next, $arg_list[$i]);
+            if (!empty($array_intersect)) {
+                return $array_intersect;
+            }
+        }
+        return $array_intersect;
     }
 }

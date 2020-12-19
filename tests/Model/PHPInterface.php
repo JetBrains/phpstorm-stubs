@@ -13,7 +13,7 @@ class PHPInterface extends BasePHPClass
 
     /**
      * @param ReflectionClass $reflectionObject
-     * @return $this
+     * @return static
      */
     public function readObjectFromReflection($reflectionObject): static
     {
@@ -36,13 +36,13 @@ class PHPInterface extends BasePHPClass
 
     /**
      * @param Interface_ $node
-     * @return $this
+     * @return static
      */
     public function readObjectFromStubNode($node): static
     {
         $this->name = $this->getFQN($node);
         $this->collectTags($node);
-        $this->sinceVersionFromAttribute = self::findSinceVersionFromAttribute($node->attrGroups);
+        $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
         if (!empty($node->extends)) {
             foreach ($node->extends as $extend) {
                 $this->parentInterfaces[] = implode('\\', $extend->parts);
