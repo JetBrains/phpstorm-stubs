@@ -16,7 +16,7 @@ class PHPMethod extends PHPFunction
 
     /**
      * @param ReflectionMethod $reflectionObject
-     * @return $this
+     * @return static
      */
     public function readObjectFromReflection($reflectionObject): static
     {
@@ -40,13 +40,13 @@ class PHPMethod extends PHPFunction
 
     /**
      * @param ClassMethod $node
-     * @return $this
+     * @return static
      */
     public function readObjectFromStubNode($node): static
     {
         $this->parentName = $this->getFQN($node->getAttribute('parent'));
         $this->name = $node->name->name;
-        $this->sinceVersionFromAttribute = self::findSinceVersionFromAttribute($node->attrGroups);
+        $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
         $this->returnType = self::convertParsedTypeToString($node->getReturnType());
         $this->collectTags($node);
         $this->checkDeprecationTag($node);

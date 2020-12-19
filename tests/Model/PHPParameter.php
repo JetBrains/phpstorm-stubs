@@ -17,7 +17,7 @@ class PHPParameter extends BasePHPElement
 
     /**
      * @param ReflectionParameter $reflectionObject
-     * @return $this
+     * @return static
      */
     public function readObjectFromReflection($reflectionObject): static
     {
@@ -30,7 +30,7 @@ class PHPParameter extends BasePHPElement
 
     /**
      * @param Param $node
-     * @return $this
+     * @return static
      */
     public function readObjectFromStubNode($node): static
     {

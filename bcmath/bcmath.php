@@ -208,6 +208,7 @@ function bcsqrt (string $num, ?int $scale)
  * @return int|bool
  */
 #[LanguageLevelTypeAware(['7.3'=>'int'], default: 'bool')]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 function bcscale (int $scale)
 {}
 

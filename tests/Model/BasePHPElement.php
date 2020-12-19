@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace StubTests\Model;
 
 use Exception;
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
@@ -26,7 +27,8 @@ abstract class BasePHPElement
     public bool $stubBelongsToCore = false;
     public ?Exception $parseError = null;
     public array $mutedProblems = [];
-    public ?string $sinceVersionFromAttribute = null;
+    #[ArrayShape(['from' => 'string', 'to' => 'string'])]
+    public array $availableVersionsRangeFromAttribute = [];
 
     abstract public function readObjectFromReflection(Reflector $reflectionObject): static;
 
@@ -113,25 +115,34 @@ abstract class BasePHPElement
         return null;
     }
 
-    protected static function findSinceVersionFromAttribute(array $attrGroups): ?string
+    protected static function findAvailableVersionsRangeFromAttribute(array $attrGroups): array
     {
+        $versionRange = [];
         foreach ($attrGroups as $attrGroup) {
             foreach ($attrGroup->attrs as $attr) {
                 if ($attr->name->toString() === PhpStormStubsElementAvailable::class) {
-                    $arg = $attr->args[0]->value;
-                    if ($arg instanceof Array_) {
-                        $value = $arg->items[0]->value;
-                        if ($value instanceof String_) {
-                            return $value->value;
+                    if (count($attr->args) == 2) {
+                        foreach ($attr->args as $arg) {
+                            $versionRange[$arg->name->name] = $arg->value->value;
                         }
                     } else {
-                        return $arg->value;
+                        $arg = $attr->args[0]->value;
+                        if ($arg instanceof Array_) {
+                            $value = $arg->items[0]->value;
+                            if ($value instanceof String_) {
+                                return ['from' => $value->value];
+                            }
+                        } else {
+                            $rangeName = $attr->args[0]->name;
+                            return $rangeName === null || $rangeName->name == 'from' ?
+                                ['from' => $arg->value, 'to' => '8.0'] :
+                                ['from' => '5.3', 'to' => $arg->value];
+                        }
                     }
                 }
             }
-
         }
-        return null;
+        return $versionRange;
     }
 
     #[Pure]

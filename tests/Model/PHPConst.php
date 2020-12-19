@@ -20,7 +20,7 @@ class PHPConst extends BasePHPElement
 
     /**
      * @param ReflectionClassConstant $reflectionObject
-     * @return $this
+     * @return static
      */
     public function readObjectFromReflection($reflectionObject): static
     {
@@ -31,7 +31,7 @@ class PHPConst extends BasePHPElement
 
     /**
      * @param Const_ $node
-     * @return $this
+     * @return static
      */
     public function readObjectFromStubNode($node): static
     {
@@ -40,7 +40,7 @@ class PHPConst extends BasePHPElement
         $this->collectTags($node);
         $parentNode = $node->getAttribute('parent');
         if (property_exists($parentNode, 'attrGroups')) {
-            $this->sinceVersionFromAttribute = self::findSinceVersionFromAttribute($parentNode->attrGroups);
+            $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($parentNode->attrGroups);
         }
         if ($parentNode instanceof ClassConst) {
             $this->parentName = $this->getFQN($parentNode->getAttribute('parent'));
