@@ -92,6 +92,7 @@ final class Channel{
 	 * @throws Channel\Error\Closed if channel is closed.
 	 */
 	public function recv(){}
+
 	/* Closing */
 
 	/**

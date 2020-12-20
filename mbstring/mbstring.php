@@ -1438,7 +1438,6 @@ function mb_scrub (string $string, ?string $encoding): bool|string
  * @param $position
  * @see mb_ereg_search_setpos
  */
-
 #[Deprecated(replacement: "mb_ereg_search_setpos(%parametersList%)", since: "7.3")]
 #[Pure]
 function mbereg_search_setpos ($position) {}

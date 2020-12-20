@@ -92,7 +92,7 @@ namespace Grpc
      */
     const CALL_ERROR_PAYLOAD_TYPE_MISMATCH = 14;
 
-    /**
+    /*
      * Register write flags
      */
 
@@ -109,7 +109,7 @@ namespace Grpc
      */
     const WRITE_NO_COMPRESS = 2;
 
-    /**
+    /*
      * Register status constants
      */
 
@@ -259,7 +259,7 @@ namespace Grpc
      */
     const STATUS_DATA_LOSS = 15;
 
-    /**
+    /*
      * Register op type constants
      */
 
@@ -328,7 +328,7 @@ namespace Grpc
      */
     const OP_RECV_CLOSE_ON_SERVER = 7;
 
-    /**
+    /*
      * Register connectivity state constants
      */
 
