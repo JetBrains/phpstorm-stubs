@@ -133,7 +133,7 @@ class StubsTest extends TestCase
             PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(), problemTypes:  StubProblemType::HAS_DUPLICATION
         );
         $duplicates = self::getDuplicatedFunctions($filtered);
-        self::assertEquals(0, sizeof($duplicates),
+        self::assertCount(0, $duplicates,
             "Functions \"" . implode(', ', $duplicates) .
             "\" have duplicates in stubs.\nPlease use #[LanguageLevelTypeAware] or #[PhpStormStubsElementAvailable] if possible"
         );

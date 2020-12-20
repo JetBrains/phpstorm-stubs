@@ -159,7 +159,7 @@ class StubsTypeHintsTest extends TestCase
     public function testMethodDoesNotHaveUnionReturnTypeHint(PHPMethod $stubMethod)
     {
         $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
-        self::assertFalse(str_contains($stubMethod->returnType, '|'),
+        self::assertStringNotContainsString('|', $stubMethod->returnType,
             "Method '{$stubMethod->parentName}::{$stubMethod->name}' has since version '$sinceVersion'
             but has union return typehint '$stubMethod->returnType' that supported only since PHP 8.0. 
             Please declare return type via PhpDoc");
