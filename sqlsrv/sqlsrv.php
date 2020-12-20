@@ -1731,7 +1731,6 @@ function SQLSRV_SQLTYPE_VARBINARY($byteCount){}
  *
  * @return int Value to use in any place that accepts a SQLSRV_SQLTYPE_* constant to represent the varchar data type.
  */
-
 function SQLSRV_SQLTYPE_VARCHAR($charCount) {}
 
 /**

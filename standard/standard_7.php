@@ -221,7 +221,6 @@ function unpack (string $format, string $string, int $offset = 0): array|false
 function get_browser (?string $user_agent, bool $return_array): object|array|false
 {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * One-way string encryption (hashing)
  * @link https://php.net/manual/en/function.crypt.php
@@ -241,6 +240,7 @@ function get_browser (?string $user_agent, bool $return_array): object|array|fal
  * @return string|null the encrypted string or <b>NULL</b> if an error occurs
  */
 #[Pure]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 function crypt ($string, $salt = null): ?string
 {}
 

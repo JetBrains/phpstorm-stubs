@@ -3661,7 +3661,7 @@ class Aerospike {
     public function setDeserializer ( callable $unserialize_cb ) {}
 
 
-    /**
+    /*
      * Options can be assigned values that modify default behavior
      * Used by the constructor, read, write, scan, query, apply, and info
      * operations.

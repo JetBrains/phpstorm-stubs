@@ -6,7 +6,7 @@
 /** The maximum length of MPPE keys. */
 define('RADIUS_MPPE_KEY_LEN', 16);
 
-/**
+/*
  * RADIUS Options
  * @link https://secure.php.net/manual/en/radius.constants.options.php
  */
@@ -16,7 +16,7 @@ define('RAD_OPTION_TAG', 1);
 /** When set, this option will result in the attribute value being tagged with the value of the tag parameter. */
 define('RADIUS_OPTION_SALT', 2);
 
-/**
+/*
  * RADIUS Packet Types
  * @link https://secure.php.net/manual/en/radius.constants.packets.php
  */
@@ -75,7 +75,7 @@ define('RADIUS_COA_ACK', 44);
  */
 define('RADIUS_COA_NAK', 45);
 
-/**
+/*
  * RADIUS Attribute Types
  * @link https://secure.php.net/manual/en/radius.constants.attributes.php
  */

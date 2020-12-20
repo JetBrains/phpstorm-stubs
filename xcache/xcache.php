@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Common Used Functions
  */
 
@@ -65,7 +65,7 @@ function xcache_inc($name, $value = 1, $ttl = 0) {}
  */
 function xcache_dec($name, $value = 1, $ttl = 0) {}
 
-/**
+/*
  * Administrator Functions
  */
 
@@ -110,7 +110,7 @@ function xcache_clear_cache($type, $id = -1) {}
  */
 function xcache_coredump($op_type) {}
 
-/**
+/*
  * Coverager Functions
  */
 
@@ -138,7 +138,7 @@ function xcache_coverager_stop($clean = false) {}
  */
 function xcache_coverager_get($clean = false) {}
 
-/**
+/*
  * Opcode Functions
  */
 

@@ -114,7 +114,7 @@ class V8Js
     public function clearPendingException()
     {}
 
-    /** Static methods **/
+    /* Static methods */
 
     /**
      * Registers persistent context independent global Javascript extension.

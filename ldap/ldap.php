@@ -1193,7 +1193,6 @@ function ldap_control_paged_result_response ($ldap, $result, &$cookie = null, &$
  * @return string
  * @since 5.6
  */
-
 function ldap_escape (string $value, string $ignore = "", int $flags = 0): string
 {}
 
