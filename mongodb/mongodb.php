@@ -766,6 +766,15 @@ namespace MongoDB {}
             }
 
             /**
+             * Returns the current element.
+             * @link https://www.php.net/manual/en/mongodb-driver-cursor.current.php
+             * @return array|object
+             */
+            public function current()
+            {
+            }
+
+            /**
              * Returns the MongoDB\Driver\CursorId associated with this cursor. A cursor ID cursor uniquely identifies the cursor on the server.
              * @link https://php.net/manual/en/mongodb-driver-cursor.getid.php
              * @return CursorId for this Cursor
@@ -796,6 +805,40 @@ namespace MongoDB {}
             }
 
             /**
+             * Returns the current result's index within the cursor.
+             * @link https://www.php.net/manual/en/mongodb-driver-cursor.key.php
+             * @return int
+             */
+            public function key()
+            {
+            }
+
+            /**
+             * Advances the cursor to the next result.
+             * @link https://www.php.net/manual/en/mongodb-driver-cursor.next.php
+             * @return void
+             * @throws \MongoDB\Driver\Exception\InvalidArgumentException on argument parsing errors.
+             * @throws \MongoDB\Driver\Exception\ConnectionException if connection to the server fails (for reasons other than authentication).
+             * @throws \MongoDB\Driver\Exception\AuthenticationException if authentication is needed and fails.
+             */
+            public function next()
+            {
+            }
+
+            /**
+             * Rewind the cursor to the first result.
+             * @link https://www.php.net/manual/en/mongodb-driver-cursor.rewind.php
+             * @return void
+             * @throws \MongoDB\Driver\Exception\InvalidArgumentException on argument parsing errors.
+             * @throws \MongoDB\Driver\Exception\ConnectionException if connection to the server fails (for reasons other than authentication).
+             * @throws \MongoDB\Driver\Exception\AuthenticationException if authentication is needed and fails.
+             * @throws \MongoDB\Driver\Exception\LogicException if this method is called after the cursor has advanced beyond its first position.
+             */
+            public function rewind()
+            {
+            }
+
+            /**
              * Sets a type map to use for BSON unserialization
              *
              * @link https://php.net/manual/en/mongodb-driver-cursor.settypemap.php
@@ -816,6 +859,15 @@ namespace MongoDB {}
              * @throws InvalidArgumentException On argument parsing errors
              */
             final public function toArray()
+            {
+            }
+
+            /**
+             * Checks if the current position in the cursor is valid.
+             * @link https://www.php.net/manual/en/mongodb-driver-cursor.valid.php
+             * @return bool
+             */
+            public function valid()
             {
             }
         }
