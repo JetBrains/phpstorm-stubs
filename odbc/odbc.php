@@ -219,7 +219,6 @@ function odbc_error ($connection_id = null) {}
  */
 function odbc_errormsg ($connection_id = null) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Prepare and execute an SQL statement
  * @link https://php.net/manual/en/function.odbc-exec.php
@@ -234,9 +233,9 @@ function odbc_errormsg ($connection_id = null) {}
  * @return resource|false an ODBC result identifier if the SQL command was executed
  * successfully, or <b>FALSE</b> on error.
  */
+#[PhpStormStubsElementAvailable(to: '7.4')]
 function odbc_exec ($connection_id, $query_string, $flags = null) {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Prepare and execute an SQL statement
  * @link https://php.net/manual/en/function.odbc-exec.php
@@ -248,6 +247,7 @@ function odbc_exec ($connection_id, $query_string, $flags = null) {}
  * @return resource|false an ODBC result identifier if the SQL command was executed
  * successfully, or <b>FALSE</b> on error.
  */
+#[PhpStormStubsElementAvailable('8.0')]
 function odbc_exec($connection_id, $query_string)
 {
 }

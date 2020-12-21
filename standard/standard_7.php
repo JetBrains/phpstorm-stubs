@@ -244,7 +244,6 @@ function get_browser (?string $user_agent, bool $return_array): object|array|fal
 function crypt ($string, $salt = null): ?string
 {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * One-way string encryption (hashing)
  * @link https://php.net/manual/en/function.crypt.php
@@ -264,6 +263,7 @@ function crypt ($string, $salt = null): ?string
  * @return string the encrypted string or <b>NULL</b> if an error occurs
  */
 #[Pure]
+#[PhpStormStubsElementAvailable('8.0')]
 function crypt (string $string, string $salt): string
 {}
 

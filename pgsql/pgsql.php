@@ -1241,7 +1241,6 @@ function pg_lo_write ($large_object, $data, $len = null) {}
  */
 function pg_lo_read_all ($large_object) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Import a large object from file
  * @link https://php.net/manual/en/function.pg-lo-import.php
@@ -1265,9 +1264,9 @@ function pg_lo_read_all ($large_object) {}
  * @return int The OID of the newly created large object, or
  * <b>FALSE</b> on failure.
  */
+#[PhpStormStubsElementAvailable(to: '7.4')]
 function pg_lo_import ($connection = null, $pathname, $object_id = null) {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Import a large object from file
  * @link https://php.net/manual/en/function.pg-lo-import.php
@@ -1291,9 +1290,9 @@ function pg_lo_import ($connection = null, $pathname, $object_id = null) {}
  * @return int The OID of the newly created large object, or
  * <b>FALSE</b> on failure.
  */
+#[PhpStormStubsElementAvailable('8.0')]
 function pg_lo_import ($connection, $pathname, $object_id = null) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Export a large object to file
  * @link https://php.net/manual/en/function.pg-lo-export.php
@@ -1312,9 +1311,9 @@ function pg_lo_import ($connection, $pathname, $object_id = null) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
+#[PhpStormStubsElementAvailable(to: '7.4')]
 function pg_lo_export ($connection = null, $oid, $pathname) {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Export a large object to file
  * @link https://php.net/manual/en/function.pg-lo-export.php
@@ -1333,6 +1332,7 @@ function pg_lo_export ($connection = null, $oid, $pathname) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
+#[PhpStormStubsElementAvailable('8.0')]
 function pg_lo_export ($connection, $oid, $pathname) {}
 
 /**

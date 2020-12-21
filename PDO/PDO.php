@@ -978,7 +978,6 @@ class PDO  {
 	 */
 	public function exec ($statement) {}
 
-	#[PhpStormStubsElementAvailable(to: '7.4')]
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
 	 * Executes an SQL statement, returning a result set as a PDOStatement object
@@ -1003,9 +1002,9 @@ class PDO  {
 	 * on failure.
 	 * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
 	 */
+	#[PhpStormStubsElementAvailable(to: '7.4')]
 	public function query ($statement, $mode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null, array $ctorargs = array()) {}
 
-	#[PhpStormStubsElementAvailable('8.0')]
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
 	 * Executes an SQL statement, returning a result set as a PDOStatement object
@@ -1027,6 +1026,7 @@ class PDO  {
 	 * on failure.
 	 * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
 	 */
+	#[PhpStormStubsElementAvailable('8.0')]
 	public function query ($statement, $mode = PDO::ATTR_DEFAULT_FETCH_MODE, ...$fetch_mode_args) {}
 
 	/**
@@ -1573,7 +1573,6 @@ class PDOStatement implements IteratorAggregate
 	 */
 	public function getColumnMeta ($column) {}
 
-	#[PhpStormStubsElementAvailable(to: '7.4')]
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
 	 * Set the default fetch mode for this statement
@@ -1587,9 +1586,9 @@ class PDOStatement implements IteratorAggregate
 	 * @param array $params [optional] <p> Constructor arguments. </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
+	#[PhpStormStubsElementAvailable(to: '7.4')]
 	public function setFetchMode ($mode, $className = null, array $params = array()) {}
 
-	#[PhpStormStubsElementAvailable('8.0')]
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
 	 * Set the default fetch mode for this statement
@@ -1603,6 +1602,7 @@ class PDOStatement implements IteratorAggregate
 	 * @param mixed ...$params <p> Constructor arguments. </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
+	#[PhpStormStubsElementAvailable('8.0')]
 	public function setFetchMode ($mode, $className = null, ...$params) {}
 
 	/**

@@ -270,7 +270,6 @@ function array_rand(array $array, int $num): array|string|int
 #[Pure]
 function array_unique(array $array, int $flags = SORT_STRING): array { }
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Computes the intersection of arrays
  * @link https://php.net/manual/en/function.array-intersect.php
@@ -285,9 +284,9 @@ function array_unique(array $array, int $flags = SORT_STRING): array { }
  * @meta
  */
 #[Pure]
+#[PhpStormStubsElementAvailable('8.0')]
 function array_intersect(array $array, array ...$arrays): array { }
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Computes the intersection of arrays
  * @link https://php.net/manual/en/function.array-intersect.php
@@ -303,6 +302,7 @@ function array_intersect(array $array, array ...$arrays): array { }
  * @meta
  */
 #[Pure]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 function array_intersect(array $array1, array $array2, array ...$_): array { }
 
 /**
@@ -453,7 +453,6 @@ function array_intersect_uassoc(array $array1, array $array2, array $_ = null, c
 #[Pure]
 function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, callable $data_compare_func, callable $key_compare_func): array { }
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Computes the difference of arrays
  * @link https://php.net/manual/en/function.array-diff.php
@@ -468,9 +467,9 @@ function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, 
  * @meta
  */
 #[Pure]
+#[PhpStormStubsElementAvailable('8.0')]
 function array_diff(array $array, array ...$excludes): array { }
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Computes the difference of arrays
  * @link https://php.net/manual/en/function.array-diff.php
@@ -486,6 +485,7 @@ function array_diff(array $array, array ...$excludes): array { }
  * @meta
  */
 #[Pure]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 function array_diff(array $array1, array $array2, array ...$_): array { }
 
 /**
