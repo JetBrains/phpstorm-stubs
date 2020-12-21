@@ -198,7 +198,6 @@ function mb_detect_order (array|string|null $encoding = null): array|bool
 function mb_substitute_character (string|int|null $substitute_character = null): string|int|bool
 {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Parse GET/POST/COOKIE data and set global variable
  * @link https://php.net/manual/en/function.mb-parse-str.php
@@ -210,10 +209,10 @@ function mb_substitute_character (string|int|null $substitute_character = null):
  * </p>
  * @return bool true on success or false on failure.
  */
+#[PhpStormStubsElementAvailable(to: '7.4')]
 function mb_parse_str (string $string, &$result): bool
 {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Parse GET/POST/COOKIE data and set global variable
  * @link https://php.net/manual/en/function.mb-parse-str.php
@@ -225,6 +224,7 @@ function mb_parse_str (string $string, &$result): bool
  * </p>
  * @return bool true on success or false on failure.
  */
+#[PhpStormStubsElementAvailable('8.0')]
 function mb_parse_str (string $string, &$result): bool
 {}
 
@@ -867,7 +867,6 @@ function mb_convert_variables (string $to_encoding, array|string $from_encoding,
 function mb_encode_numericentity (string $string, array $map, ?string $encoding, bool $hex = false): string
 {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Decode HTML numeric string reference to character
  * @link https://php.net/manual/en/function.mb-decode-numericentity.php
@@ -885,10 +884,10 @@ function mb_encode_numericentity (string $string, array $map, ?string $encoding,
  * @return string|false|null The converted string.
  */
 #[Pure]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 function mb_decode_numericentity ($string, array $map, ?string $encoding, $is_hex = false): string|false|null
 {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Decode HTML numeric string reference to character
  * @link https://php.net/manual/en/function.mb-decode-numericentity.php
@@ -903,6 +902,7 @@ function mb_decode_numericentity ($string, array $map, ?string $encoding, $is_he
  * @return string The converted string.
  */
 #[Pure]
+#[PhpStormStubsElementAvailable('8.0')]
 function mb_decode_numericentity ($string, array $map, ?string $encoding): string
 {}
 

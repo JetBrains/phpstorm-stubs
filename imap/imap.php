@@ -108,7 +108,6 @@ function imap_num_recent ($imap_stream) {}
  */
 function imap_headers ($imap_stream) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Read the header of the message
  * @link https://php.net/manual/en/function.imap-headerinfo.php
@@ -157,9 +156,9 @@ function imap_headers ($imap_stream) {}
  * <dt>fetchsubject</dt><dd>subject line formatted to fit subjectlength characters</dd>
  * </dl>
  */
+#[PhpStormStubsElementAvailable(to: '7.4')]
 function imap_headerinfo ($stream_id, $msg_no, $from_length = 0, $subject_length = 0, $default_host = null) {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Read the header of the message
  * @link https://php.net/manual/en/function.imap-headerinfo.php
@@ -207,6 +206,7 @@ function imap_headerinfo ($stream_id, $msg_no, $from_length = 0, $subject_length
  * <dt>fetchsubject</dt><dd>subject line formatted to fit subjectlength characters</dd>
  * </dl>
  */
+#[PhpStormStubsElementAvailable('8.0')]
 function imap_headerinfo ($stream_id, $msg_no, $from_length = 0, $subject_length = 0) {}
 
 /**
