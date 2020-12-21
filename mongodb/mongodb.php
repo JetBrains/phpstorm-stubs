@@ -754,7 +754,7 @@ namespace MongoDB {}
          * The MongoDB\Driver\Cursor class encapsulates the results of a MongoDB command or query and may be returned by MongoDB\Driver\Manager::executeCommand() or MongoDB\Driver\Manager::executeQuery(), respectively.
          * @link https://php.net/manual/en/class.mongodb-driver-cursor.php
          */
-        final class Cursor implements CursorInterface
+        final class Cursor implements CursorInterface, \Iterator
         {
             /**
              * Create a new Cursor
