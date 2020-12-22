@@ -17,8 +17,7 @@
     "php": "^8.0",
     "nikic/php-parser": "@stable",
     "phpdocumentor/reflection-docblock": "@stable",
-    "phpunit/phpunit": "@stable",
-    "jetbrains/phpstorm-attributes": "@stable"
+    "phpunit/phpunit": "@stable"
   },
   "autoload": {
     "files": ["PhpStormStubsMap.php"]
