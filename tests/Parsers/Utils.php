@@ -10,6 +10,7 @@ use RecursiveIteratorIterator;
 use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPConst;
 use StubTests\Model\PHPMethod;
+use StubTests\Model\PhpVersions;
 use StubTests\Model\Tags\RemovedTag;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
@@ -65,16 +66,16 @@ class Utils
 
     public static function getAvailableInVersions(BasePHPElement $element): array
     {
-        $versions = [5.3, 5.4, 5.5, 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0];
         $firstSinceVersion = self::getDeclaredSinceVersion($element);
         if ($firstSinceVersion === null) {
-            $firstSinceVersion = 5.3;
+            $firstSinceVersion = (new PhpVersions())->firstSupported;
         }
         $lastAvailableVersion = self::getLatestAvailableVersion($element);
         if ($lastAvailableVersion === null) {
-            $lastAvailableVersion = 8.0;
+            $lastAvailableVersion = (new PhpVersions())->latestSupported;
         }
-        return array_filter($versions, fn($version) => $version >= (float)$firstSinceVersion && $version <= (float)$lastAvailableVersion);
+        return array_filter(iterator_to_array(new PhpVersions()), fn($version) =>
+            $version >= (float)$firstSinceVersion && $version <= (float)$lastAvailableVersion);
     }
 
     /**
@@ -150,7 +151,7 @@ class Utils
     {
         $latestAvailableVersions = [];
         if (!empty($element->availableVersionsRangeFromAttribute)) {
-            $latestAvailableVersions[] = (string)($element->availableVersionsRangeFromAttribute['to'] - 0.1);
+            $latestAvailableVersions[] = (string)($element->availableVersionsRangeFromAttribute['to']);
         }
         return $latestAvailableVersions;
     }

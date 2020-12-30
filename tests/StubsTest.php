@@ -152,8 +152,8 @@ class StubsTest extends TestCase
             static::assertEquals(
                 $class->parentClass,
                 $stubClass->parentClass,
-                empty($class->parentClass) ? "Class $className should not extend {$stubClass->parentClass}" :
-                    "Class $className should extend {$class->parentClass}"
+                empty($class->parentClass) ? "Class $className should not extend $stubClass->parentClass" :
+                    "Class $className should extend $class->parentClass"
             );
         } else {
             $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className);
@@ -161,7 +161,7 @@ class StubsTest extends TestCase
                 static::assertContains(
                     $parentInterface,
                     $stubClass->parentInterfaces,
-                    "Interface $className should extend {$parentInterface}"
+                    "Interface $className should extend $parentInterface"
                 );
             }
         }
@@ -381,48 +381,21 @@ class StubsTest extends TestCase
                 $duplicatesOfFunction = self::getAllDuplicatesOfFunction($value->name);
                 $functionVersions[] = Utils::getAvailableInVersions(
                     PhpStormStubsSingleton::getPhpStormStubs()->getFunctions()[$value->name]);
-                $functionVersions[] = array_map(function (PHPFunction $function) {
+                array_push($functionVersions, ...array_values(array_map(function (PHPFunction $function) {
                     return Utils::getAvailableInVersions($function);
-                }, $duplicatesOfFunction);
-                $twoDimensionalArray = [];
-                self::convertArrayToTwoDirectional($functionVersions, $twoDimensionalArray);
+                }, $duplicatesOfFunction)));
                 $hasDuplicates = false;
-                while (($next = array_pop($twoDimensionalArray)) !== null && !empty($twoDimensionalArray)) {
-                    $array_intersect = self::getIntersection($next, ...$twoDimensionalArray);
-                    if (!empty($array_intersect)) {
+                $current = array_pop($functionVersions);
+                while (($next = array_pop($functionVersions))) {
+                    if (!empty(array_intersect($current, $next))) {
                         $hasDuplicates = true;
                     }
+                    $current = array_merge($current, $next);
                 }
                 return $hasDuplicates;
             }
             return false;
         }, ARRAY_FILTER_USE_BOTH);
         return array_unique(array_map(fn(PHPFunction $function) => $function->name, $duplicatedFunctions));
-    }
-
-    private static function convertArrayToTwoDirectional($initialArray, &$resultArray)
-    {
-        array_walk($initialArray, function ($element) use (&$resultArray) {
-            $tmpElement = $element;
-            if (is_array($element) && !is_array(array_pop($tmpElement))) {
-                $resultArray[] = $element;
-            } else {
-                self::convertArrayToTwoDirectional($element, $resultArray);
-            }
-        });
-    }
-
-    #[Pure]
-    private static function getIntersection(array $next, array $twoDimensionalArray): array
-    {
-        $arg_list = func_get_args();
-        $array_intersect = [];
-        for ($i = 1; $i < func_num_args(); $i++) {
-            $array_intersect = array_intersect($next, $arg_list[$i]);
-            if (!empty($array_intersect)) {
-                return $array_intersect;
-            }
-        }
-        return $array_intersect;
     }
 }
