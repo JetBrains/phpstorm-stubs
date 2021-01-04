@@ -30,7 +30,7 @@ class Utils
         return (bool)preg_match('/^[1-9]+\.\d+(\.[1-9]+\d*)*$/', $tag->getVersion()); //find version like any but 7.4.0
     }
 
-    public static function getDeclaredSinceVersion(BasePHPElement $element): ?string
+    public static function getDeclaredSinceVersion(BasePHPElement $element): null|string|float
     {
         $allSinceVersions = self::getSinceVersionsFromPhpDoc($element);
         $allSinceVersions[] = self::getSinceVersionsFromAttribute($element);
@@ -68,14 +68,14 @@ class Utils
     {
         $firstSinceVersion = self::getDeclaredSinceVersion($element);
         if ($firstSinceVersion === null) {
-            $firstSinceVersion = (new PhpVersions())->firstSupported;
+            $firstSinceVersion = PhpVersions::getFirst();
         }
         $lastAvailableVersion = self::getLatestAvailableVersion($element);
         if ($lastAvailableVersion === null) {
-            $lastAvailableVersion = (new PhpVersions())->latestSupported;
+            $lastAvailableVersion = PhpVersions::getLatest();
         }
         return array_filter(iterator_to_array(new PhpVersions()), fn($version) =>
-            $version >= (float)$firstSinceVersion && $version <= (float)$lastAvailableVersion);
+            $version >= $firstSinceVersion && $version <= (float)$lastAvailableVersion);
     }
 
     /**

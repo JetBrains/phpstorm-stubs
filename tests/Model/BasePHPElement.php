@@ -135,8 +135,8 @@ abstract class BasePHPElement
                         } else {
                             $rangeName = $attr->args[0]->name;
                             return $rangeName === null || $rangeName->name == 'from' ?
-                                ['from' => $arg->value, 'to' => (string)(new PhpVersions())->latestSupported] :
-                                ['from' => (string)(new PhpVersions())->firstSupported, 'to' => $arg->value];
+                                ['from' => $arg->value, 'to' => PhpVersions::getLatest()] :
+                                ['from' => PhpVersions::getFirst(), 'to' => $arg->value];
                         }
                     }
                 }
