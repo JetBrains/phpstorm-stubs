@@ -462,6 +462,7 @@ function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, 
  * </p>
  * @param array ...$excludes <p>
  * An array to compare against
+ * </p>
  * @return array an array containing all the entries from
  * array1 that are not present in any of the other arrays.
  * @meta
