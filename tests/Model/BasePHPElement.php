@@ -9,6 +9,7 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 use PhpParser\Node;
+use PhpParser\Node\AttributeGroup;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
@@ -36,6 +37,7 @@ abstract class BasePHPElement
 
     abstract public function readMutedProblems(stdClass|array $jsonData): void;
 
+    #[Pure]
     protected function getFQN(Node $node): string
     {
         $fqn = '';
@@ -81,22 +83,29 @@ abstract class BasePHPElement
         return '';
     }
 
+    #[Pure]
     protected static function getTypeNameFromNode(Name|Identifier|NullableType|string $type): string
     {
         $nullable = false;
+        $typeName = '';
         if ($type instanceof NullableType) {
             $type = $type->type;
             $nullable = true;
         }
         if (empty($type->name)) {
             if (!empty($type->parts)) {
-                return $nullable ? '?' . implode('\\', $type->parts) : implode('\\', $type->parts);
+                $typeName =  $nullable ? '?' . implode('\\', $type->parts) : implode('\\', $type->parts);
             }
         } else {
-            return $nullable ? '?' . $type->name : $type->name;
+            $typeName =  $nullable ? '?' . $type->name : $type->name;
         }
+        return $typeName;
     }
 
+    /**
+     * @param AttributeGroup[] $attrGroups
+     * @return string|null
+     */
     protected static function findTypeFromAttribute(array $attrGroups): ?string
     {
         foreach ($attrGroups as $attrGroup) {
@@ -115,6 +124,10 @@ abstract class BasePHPElement
         return null;
     }
 
+    /**
+     * @param AttributeGroup[] $attrGroups
+     * @return array
+     */
     protected static function findAvailableVersionsRangeFromAttribute(array $attrGroups): array
     {
         $versionRange = [];
