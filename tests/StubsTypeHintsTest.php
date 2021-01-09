@@ -9,8 +9,10 @@ use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
+use StubTests\Model\PhpVersions;
 use StubTests\Model\StubProblemType;
 use StubTests\Parsers\Utils;
+use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
 class StubsTypeHintsTest extends TestCase
@@ -21,8 +23,11 @@ class StubsTypeHintsTest extends TestCase
     public function testFunctionsReturnTypeHints(PHPFunction $function)
     {
         $functionName = $function->name;
-        $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions()[$functionName];
-        self::assertEquals($function->returnType, preg_replace('/\w+\[]/', 'array', $phpstormFunction->returnType),
+        $allEqualStubFunctions = EntitiesFilter::getFiltered(PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(),
+            fn(PHPFunction $stubFunction) => $stubFunction->name !== $functionName  ||
+                !in_array(PhpVersions::getLatest(), Utils::getAvailableInVersions($stubFunction)));
+        $stubFunction = array_pop($allEqualStubFunctions);
+        self::assertEquals($function->returnType, preg_replace('/\w+\[]/', 'array', $stubFunction->returnType),
             "Function $functionName has invalid return type");
     }
 
