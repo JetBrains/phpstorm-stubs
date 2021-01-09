@@ -34,12 +34,12 @@ class PhpVersions implements ArrayAccess, IteratorAggregate
 
     public function offsetSet($offset, $value)
     {
-        throw new RuntimeException("Unsupported operation");
+        throw new RuntimeException('Unsupported operation');
     }
 
     public function offsetUnset($offset)
     {
-        throw new RuntimeException("Unsupported operation");
+        throw new RuntimeException('Unsupported operation');
     }
 
     public function getIterator(): ArrayIterator
