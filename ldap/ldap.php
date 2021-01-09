@@ -37,7 +37,7 @@ function ldap_exop_refresh ($ldap, string $dn, int $ttl): int|false
  * @return string|false The data returned by the server, or FALSE on error.
  * @since 7.2
  */
-function ldap_exop_whoami ($ldap): string|bool
+function ldap_exop_whoami ($ldap): string|false
 {}
 
 /**

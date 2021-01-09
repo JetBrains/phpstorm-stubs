@@ -415,7 +415,7 @@ function get_parent_class (object|string $object_or_class): string|false
  * otherwise.
  */
 #[Pure]
-function method_exists (mixed $object_or_class, string $method): bool
+function method_exists ($object_or_class, string $method): bool
 {}
 
 /**
@@ -431,7 +431,7 @@ function method_exists (mixed $object_or_class, string $method): bool
  * null in case of an error.
  */
 #[Pure]
-function property_exists (mixed $object_or_class, string $property): bool
+function property_exists ($object_or_class, string $property): bool
 {}
 
 /**
