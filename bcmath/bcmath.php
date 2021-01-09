@@ -86,9 +86,8 @@ function bcmul (string $num1, string $num2, ?int $scale = 0): string
  * <i>divisor</i> is 0.
  */
 #[Pure]
-#[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
 #[PhpStormStubsElementAvailable(to: '7.4')]
-function bcdiv (string $num1, string $num2, ?int $scale = 0)
+function bcdiv (string $num1, string $num2, ?int $scale = 0): ?string
 {}
 
 /**
@@ -110,9 +109,8 @@ function bcdiv (string $num1, string $num2, ?int $scale = 0)
  * @throws \DivisionByZeroError if <i>divisor</i> is 0. Available since PHP 8.0.
  */
 #[Pure]
-#[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
 #[PhpStormStubsElementAvailable('8.0')]
-function bcdiv (string $num1, string $num2, ?int $scale = 0)
+function bcdiv (string $num1, string $num2, ?int $scale = 0): string
 {}
 
 /**
@@ -134,9 +132,8 @@ function bcdiv (string $num1, string $num2, ?int $scale = 0)
  * <i>divisor</i> is 0.
  */
 #[Pure]
-#[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
 #[PhpStormStubsElementAvailable(to: '7.4')]
-function bcmod (string $num1, string $num2, ?int $scale = 0)
+function bcmod (string $num1, string $num2, ?int $scale = 0): ?string
 {}
 
 /**
@@ -158,9 +155,8 @@ function bcmod (string $num1, string $num2, ?int $scale = 0)
  * @throws \DivisionByZeroError if <i>divisor</i> is 0. Available since PHP 8.0.
  */
 #[Pure]
-#[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
 #[PhpStormStubsElementAvailable('8.0')]
-function bcmod (string $num1, string $num2, ?int $scale = 0)
+function bcmod (string $num1, string $num2, ?int $scale = 0): string
 {}
 
 /**
