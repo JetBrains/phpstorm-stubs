@@ -85,7 +85,7 @@ class Utils
     private static function getSinceVersionsFromPhpDoc(BasePHPElement $element): array
     {
         $allSinceVersions = [];
-        if (!empty($element->sinceTags)) {
+        if (!empty($element->sinceTags) && $element->stubBelongsToCore) {
             $allSinceVersions[] = array_map(fn(Since $tag) => $tag->getVersion(), $element->sinceTags);
         }
         return $allSinceVersions;
@@ -98,7 +98,7 @@ class Utils
     private static function getRemovedVersionsFromPhpDoc(BasePHPElement $element): array
     {
         $allRemovedVersions = [];
-        if (!empty($element->removedTags)) {
+        if (!empty($element->removedTags) && $element->stubBelongsToCore) {
             $allRemovedVersions[] = array_map(fn(RemovedTag $tag) => $tag->getVersion(), $element->removedTags);
         }
         return $allRemovedVersions;
