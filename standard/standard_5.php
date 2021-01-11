@@ -156,7 +156,7 @@ function gettype(mixed $value): string
  * </ul>
  * @return bool true on success or false on failure.
  */
-function settype (mixed &$var, #[ExpectedValues(["bool", "int", "float", "string", "array", "object", "null"])] string $type): bool
+function settype (mixed &$var, #[ExpectedValues(["bool", "boolean", "int", "integer", "float", "double", "string", "array", "object", "null"])] string $type): bool
 {}
 
 /**
