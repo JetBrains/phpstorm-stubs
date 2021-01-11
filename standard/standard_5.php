@@ -3,6 +3,7 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
+use JetBrains\PhpStorm\ExpectedValues;
 
 /**
  * (PHP 5.5.0)<br/>
@@ -105,8 +106,21 @@ function strval (mixed $value): string
  * "resource (closed)" since 7.2.0
  */
 #[Pure]
-function gettype (mixed $value): string
-{}
+#[ExpectedValues([
+    "boolean"
+    , "integer"
+    , "double"
+    , "string"
+    , "array"
+    , "object"
+    , "resource"
+    , "NULL"
+    , "unknown type"
+    , "resource (closed)"
+])]
+function gettype(mixed $value): string
+{
+}
 
 /**
  * Set the type of a variable
@@ -142,7 +156,7 @@ function gettype (mixed $value): string
  * </ul>
  * @return bool true on success or false on failure.
  */
-function settype (mixed &$var, string $type): bool
+function settype (mixed &$var, #[ExpectedValues(["bool", "int", "float", "string", "array", "object", "null"])] string $type): bool
 {}
 
 /**
