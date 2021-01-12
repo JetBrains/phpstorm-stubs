@@ -681,10 +681,10 @@ function count (Countable|array $value, int $mode = COUNT_NORMAL): int
  * a function returning an array because only actual variables may be
  * passed by reference.
  * </p>
- * @return mixed the value of the last element or false for empty array.
+ * @return mixed|false the value of the last element or false for empty array.
  * @meta
  */
-function end (object|array &$array): mixed {}
+function end (object|array &$array): mixed|false {}
 
 /**
  * Rewind the internal array pointer
@@ -692,12 +692,12 @@ function end (object|array &$array): mixed {}
  * @param array|object &$array <p>
  * The input array.
  * </p>
- * @return mixed the array value in the previous place that's pointed to by
+ * @return mixed|false the array value in the previous place that's pointed to by
  * the internal array pointer, or false if there are no more
  * elements.
  * @meta
  */
-function prev (object|array &$array): mixed {}
+function prev (object|array &$array): mixed|false {}
 
 /**
  * Advance the internal array pointer of an array
@@ -705,11 +705,11 @@ function prev (object|array &$array): mixed {}
  * @param array|object &$array <p>
  * The array being affected.
  * </p>
- * @return mixed the array value in the next place that's pointed to by the
+ * @return mixed|false the array value in the next place that's pointed to by the
  * internal array pointer, or false if there are no more elements.
  * @meta
  */
-function next (object|array &$array): mixed {}
+function next (object|array &$array): mixed|false {}
 
 /**
  * Set the internal pointer of an array to its first element
@@ -717,11 +717,11 @@ function next (object|array &$array): mixed {}
  * @param array|object &$array <p>
  * The input array.
  * </p>
- * @return mixed the value of the first array element, or false if the array is
+ * @return mixed|false the value of the first array element, or false if the array is
  * empty.
  * @meta
  */
-function reset (object|array &$array): mixed {}
+function reset (object|array &$array): mixed|false {}
 
 /**
  * Return the current element in an array
@@ -729,7 +729,7 @@ function reset (object|array &$array): mixed {}
  * @param array|object $array <p>
  * The array.
  * </p>
- * @return mixed The current function simply returns the
+ * @return mixed|false The current function simply returns the
  * value of the array element that's currently being pointed to by the
  * internal pointer. It does not move the pointer in any way. If the
  * internal pointer points beyond the end of the elements list or the array is
@@ -737,7 +737,7 @@ function reset (object|array &$array): mixed {}
  * @meta
  */
 #[Pure]
-function current (object|array $array): mixed {}
+function current (object|array $array): mixed|false {}
 
 /**
  * Fetch a key from an array
