@@ -168,8 +168,6 @@ namespace PHPSTORM_META {
     expectedArguments(\ftp_fget(), 3, FTP_ASCII,FTP_BINARY);
     expectedArguments(\ftp_put(), 3, FTP_ASCII,FTP_BINARY);
     expectedArguments(\ftp_fput(), 3, FTP_ASCII,FTP_BINARY);
-    expectedArguments(\ftp_nb_put(), 3, FTP_ASCII,FTP_BINARY);
-    expectedArguments(\ftp_nb_fput(), 3, FTP_ASCII,FTP_BINARY);
 
 	expectedArguments(\fopen(), 1, 'r', 'r+', 'w', 'w+', 'a', 'a+', 'x', 'x+', 'c', 'c+', 'e');
 	expectedArguments(\popen(), 1, 'r', 'r+', 'w', 'w+', 'a', 'a+', 'x', 'x+', 'c', 'c+', 'e');

@@ -1,6 +1,7 @@
 <?php
 
 // Start of ftp v.
+use JetBrains\PhpStorm\ExpectedValues as EV;
 
 /**
  * append the contents of a file to another file on the ftp server
@@ -305,7 +306,7 @@ function ftp_pasv ($ftp, bool $enable): bool
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_get ($ftp, string $local_filename, string $remote_filename, int $mode = FTP_BINARY, int $offset = 0): bool
+function ftp_get ($ftp, string $local_filename, string $remote_filename, #[EV([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool
 {}
 
 /**
@@ -329,7 +330,7 @@ function ftp_get ($ftp, string $local_filename, string $remote_filename, int $mo
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_fget ($ftp, $stream, string $remote_filename, int $mode = FTP_BINARY, int $offset = 0): bool
+function ftp_fget ($ftp, $stream, string $remote_filename, #[EV([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool
 {}
 
 /**
@@ -351,7 +352,7 @@ function ftp_fget ($ftp, $stream, string $remote_filename, int $mode = FTP_BINAR
  * @param int $offset [optional] <p>The position in the remote file to start uploading to.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_put ($ftp, string $remote_filename, string $local_filename, int $mode = FTP_BINARY, int $offset = 0): bool
+function ftp_put ($ftp, string $remote_filename, string $local_filename, #[EV([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool
 {}
 
 /**
@@ -373,7 +374,7 @@ function ftp_put ($ftp, string $remote_filename, string $local_filename, int $mo
  * @param int $offset [optional] <p>The position in the remote file to start uploading to.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_fput ($ftp, string $remote_filename, $stream, int $mode = FTP_BINARY, int $offset = 0): bool
+function ftp_fput ($ftp, string $remote_filename, $stream, #[EV([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool
 {}
 
 /**
@@ -500,7 +501,7 @@ function ftp_close ($ftp): bool
  * supported or the passed <i>value</i> doesn't match the
  * expected value for the given <i>option</i>.
  */
-function ftp_set_option ($ftp, int $option, $value): bool
+function ftp_set_option ($ftp, #[EV(flags: [FTP_TIMEOUT_SEC, FTP_AUTOSEEK, FTP_USEPASVADDRESS])] int $option, $value): bool
 {}
 
 /**
@@ -531,7 +532,7 @@ function ftp_set_option ($ftp, int $option, $value): bool
  * <i>option</i> is not supported. In the latter case, a
  * warning message is also thrown.
  */
-function ftp_get_option ($ftp, int $option): int|bool
+function ftp_get_option ($ftp, #[EV(flags: [FTP_TIMEOUT_SEC, FTP_AUTOSEEK])] int $option): int|bool
 {}
 
 /**
@@ -554,7 +555,7 @@ function ftp_get_option ($ftp, int $option): int|bool
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
-function ftp_nb_fget ($ftp, $stream, string $remote_filename, int $mode = FTP_BINARY, int $offset = 0): int
+#[EV([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])] function ftp_nb_fget ($ftp, $stream, string $remote_filename, #[EV([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int
 {}
 
 /**
@@ -577,7 +578,7 @@ function ftp_nb_fget ($ftp, $stream, string $remote_filename, int $mode = FTP_BI
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
-function ftp_nb_get ($ftp, string $local_filename, string $remote_filename, int $mode = FTP_BINARY, int $offset = 0): int
+#[EV([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])] function ftp_nb_get ($ftp, string $local_filename, string $remote_filename, int $mode = FTP_BINARY, int $offset = 0): int
 {}
 
 /**
@@ -589,7 +590,7 @@ function ftp_nb_get ($ftp, string $local_filename, string $remote_filename, int 
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
-function ftp_nb_continue ($ftp): int
+#[EV([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])] function ftp_nb_continue ($ftp): int
 {}
 
 /**
@@ -612,7 +613,7 @@ function ftp_nb_continue ($ftp): int
  * @return int|false <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
-function ftp_nb_put ($ftp, string $remote_filename, string $local_filename, int $mode = FTP_BINARY, int $offset = 0): int|false
+#[EV([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])] function ftp_nb_put ($ftp, string $remote_filename, string $local_filename, #[EV([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int|false
 {}
 
 /**
@@ -635,7 +636,7 @@ function ftp_nb_put ($ftp, string $remote_filename, string $local_filename, int 
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
-function ftp_nb_fput ($ftp, string $remote_filename, $stream, int $mode = FTP_BINARY, int $offset = 0): int
+#[EV([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])] function ftp_nb_fput ($ftp, string $remote_filename, $stream, #[EV([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int
 {}
 
 /**
