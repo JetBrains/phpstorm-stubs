@@ -43,7 +43,7 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
                     throw new RuntimeException('Expected at least 3 arguments for expectedArguments call');
                 }
                 $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo($args[0]->value, array_slice($args, 2), $args[1]->value->value);
-            } else if ($name === self::REGISTER_ARGUMENTS_SET_NAME) {
+            } elseif ($name === self::REGISTER_ARGUMENTS_SET_NAME) {
                 $args = $node->args;
                 if (count($args) < 2) {
                     throw new RuntimeException('Expected at least 2 arguments for registerArgumentsSet call');
@@ -51,7 +51,7 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
                 $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo(null, array_slice($args, 1));
                 $name = $args[0]->value->value;
                 $this->registeredArgumentsSet[] = $name;
-            } else if ($name === self::EXPECTED_RETURN_VALUES) {
+            } elseif ($name === self::EXPECTED_RETURN_VALUES) {
                 $args = $node->args;
                 if (count($args) < 2) {
                     throw new RuntimeException('Expected at least 2 arguments for expectedReturnValues call');

@@ -14,7 +14,7 @@ class StubConstantsProvider
             PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces();
         foreach ($classesAndInterfaces as $class) {
             foreach ($class->constants as $constant) {
-                yield "constant {$class->name}::{$constant->name}" => [$class->name, $constant];
+                yield "constant $class->name::$constant->name" => [$class->name, $constant];
             }
         }
     }
@@ -22,7 +22,7 @@ class StubConstantsProvider
     public static function globalConstantProvider(): ?Generator
     {
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->getConstants() as $constantName => $constant) {
-            yield "constant {$constantName}" => [$constant];
+            yield "constant $constantName" => [$constant];
         }
     }
 }

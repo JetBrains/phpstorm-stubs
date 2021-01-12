@@ -13,7 +13,7 @@ class ReflectionFunctionsProvider
     public static function allFunctionsProvider(): ?Generator
     {
         foreach (EntitiesFilter::getFiltered(ReflectionStubsSingleton::getReflectionStubs()->getFunctions()) as $function) {
-            yield "function {$function->name}" => [$function];
+            yield "function $function->name" => [$function];
         }
     }
 
@@ -21,7 +21,7 @@ class ReflectionFunctionsProvider
     {
         foreach (EntitiesFilter::getFiltered(ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
             problemTypes: StubProblemType::FUNCTION_IS_DEPRECATED) as $function) {
-            yield "function {$function->name}" => [$function];
+            yield "function $function->name" => [$function];
         }
     }
 
@@ -29,7 +29,7 @@ class ReflectionFunctionsProvider
     {
         foreach (EntitiesFilter::getFiltered(ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
             problemTypes: StubProblemType::FUNCTION_PARAMETER_MISMATCH) as $function) {
-            yield "function {$function->name}" => [$function];
+            yield "function $function->name" => [$function];
         }
     }
 }
