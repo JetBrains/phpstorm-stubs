@@ -11,7 +11,7 @@ class StubsTestDataProviders
     public static function allFunctionsProvider(): ?Generator
     {
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->getFunctions() as $functionName => $function) {
-            yield "function {$functionName}" => [$function];
+            yield "function $functionName" => [$function];
         }
     }
 
@@ -20,7 +20,7 @@ class StubsTestDataProviders
         $allClassesAndInterfaces = PhpStormStubsSingleton::getPhpStormStubs()->getClasses() +
             PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces();
         foreach ($allClassesAndInterfaces as $class) {
-            yield "class {$class->name}" => [$class];
+            yield "class $class->name" => [$class];
         }
     }
 }

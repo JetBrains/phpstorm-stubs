@@ -41,7 +41,7 @@ class ReflectionMethodsProvider
             ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
             foreach (EntitiesFilter::getFiltered($class->methods, null, ...$problemTypes) as $method) {
-                yield "Method {$class->name}::{$method->name}" => [$class, $method];
+                yield "Method $class->name::$method->name" => [$class, $method];
             }
         }
     }

@@ -19,7 +19,7 @@ class ReflectionClassesTestDataProviders
         foreach (EntitiesFilter::getFiltered($allClassesAndInterfaces) as $class) {
             //exclude classes from PHPReflectionParser
             if (strncmp($class->name, 'PHP', 3) !== 0) {
-                yield "class {$class->name}" => [$class];
+                yield "class $class->name" => [$class];
             }
         }
     }
@@ -30,7 +30,7 @@ class ReflectionClassesTestDataProviders
             fn(PHPClass $class) => empty($class->interfaces), StubProblemType::WRONG_INTERFACE) as $class) {
             //exclude classes from PHPReflectionParser
             if (strncmp($class->name, 'PHP', 3) !== 0) {
-                yield "class {$class->name}" => [$class];
+                yield "class $class->name" => [$class];
             }
         }
     }
@@ -44,7 +44,7 @@ class ReflectionClassesTestDataProviders
             fn(PHPClass|PHPInterface $class) => empty($class->parentInterfaces) && empty($class->parentClass),
             StubProblemType::WRONG_PARENT);
         foreach ($filtered as $class) {
-            yield "class {$class->name}" => [$class];
+            yield "class $class->name" => [$class];
         }
     }
 }
