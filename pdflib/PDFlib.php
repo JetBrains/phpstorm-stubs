@@ -1631,7 +1631,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-stroke.php
 	 */
-	function stroke($p){}
+	function stroke(){}
 
 	/**
 	 * @param string $optlist
