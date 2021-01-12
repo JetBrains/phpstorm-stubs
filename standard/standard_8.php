@@ -979,12 +979,12 @@ function array_push (array &$array, ...$values): int
  * @param array &$array <p>
  * The array to get the value from.
  * </p>
- * @return mixed the last value of array.
+ * @return mixed|null the last value of array.
  * If array is empty (or is not an array),
  * null will be returned.
  * @meta
  */
-function array_pop (array &$array): mixed {}
+function array_pop (array &$array): mixed|null {}
 
 /**
  * Shift an element off the beginning of array
@@ -992,11 +992,11 @@ function array_pop (array &$array): mixed {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @return mixed the shifted value, or null if array is
+ * @return mixed|null the shifted value, or null if array is
  * empty or is not an array.
  * @meta
  */
-function array_shift (array &$array): mixed {}
+function array_shift (array &$array): mixed|null {}
 
 /**
  * Prepend elements to the beginning of an array
