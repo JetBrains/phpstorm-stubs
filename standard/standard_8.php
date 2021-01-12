@@ -684,7 +684,7 @@ function count (Countable|array $value, int $mode = COUNT_NORMAL): int
  * @return mixed|false the value of the last element or false for empty array.
  * @meta
  */
-function end (object|array &$array): mixed|false {}
+function end (object|array &$array): mixed {}
 
 /**
  * Rewind the internal array pointer
@@ -697,7 +697,7 @@ function end (object|array &$array): mixed|false {}
  * elements.
  * @meta
  */
-function prev (object|array &$array): mixed|false {}
+function prev (object|array &$array): mixed {}
 
 /**
  * Advance the internal array pointer of an array
@@ -709,7 +709,7 @@ function prev (object|array &$array): mixed|false {}
  * internal array pointer, or false if there are no more elements.
  * @meta
  */
-function next (object|array &$array): mixed|false {}
+function next (object|array &$array): mixed {}
 
 /**
  * Set the internal pointer of an array to its first element
@@ -721,7 +721,7 @@ function next (object|array &$array): mixed|false {}
  * empty.
  * @meta
  */
-function reset (object|array &$array): mixed|false {}
+function reset (object|array &$array): mixed {}
 
 /**
  * Return the current element in an array
@@ -737,7 +737,7 @@ function reset (object|array &$array): mixed|false {}
  * @meta
  */
 #[Pure]
-function current (object|array $array): mixed|false {}
+function current (object|array $array): mixed {}
 
 /**
  * Fetch a key from an array
@@ -984,7 +984,7 @@ function array_push (array &$array, ...$values): int
  * null will be returned.
  * @meta
  */
-function array_pop (array &$array): mixed|null {}
+function array_pop (array &$array): mixed {}
 
 /**
  * Shift an element off the beginning of array
@@ -996,7 +996,7 @@ function array_pop (array &$array): mixed|null {}
  * empty or is not an array.
  * @meta
  */
-function array_shift (array &$array): mixed|null {}
+function array_shift (array &$array): mixed {}
 
 /**
  * Prepend elements to the beginning of an array
