@@ -666,7 +666,7 @@ namespace Sodium;
      * /dev/urandom
      *
      * @param int $length
-     * @return string
+     * @return string|false
      */
     function randombytes_buf(
         int $length

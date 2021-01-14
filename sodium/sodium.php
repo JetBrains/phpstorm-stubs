@@ -882,7 +882,7 @@ function sodium_crypto_stream_xor(
  * /dev/urandom
  *
  * @param int $length
- * @return string
+ * @return string|false
  * @since 7.2
  */
 function sodium_randombytes_buf(
