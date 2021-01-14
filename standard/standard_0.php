@@ -116,7 +116,7 @@ class Directory  {
      * Read entry from directory handle.
      * Same as readdir(), only dir_handle defaults to $this.
      * @param resource $dir_handle [optional]
-     * @return string
+     * @return string|false
      * @link https://secure.php.net/manual/en/directory.read.php
      */
     public function read ($dir_handle = null) { }
