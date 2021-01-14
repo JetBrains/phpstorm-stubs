@@ -1368,7 +1368,7 @@ class Memcached  {
 	 * Get server pool statistics
 	 * @link https://php.net/manual/en/memcached.getstats.php
 	 * @param string $type <p>items, slabs, sizes ...</p>
-	 * @return array Array of server statistics, one entry per server.
+	 * @return array|false Array of server statistics, one entry per server.
 	 */
 	public function getStats ($type = null) {}
 
