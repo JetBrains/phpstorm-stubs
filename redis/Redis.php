@@ -2710,7 +2710,7 @@ class Redis
      * - vm_enabled
      * - role
      *
-     * @return string
+     * @return array
      *
      * @link    https://redis.io/commands/info
      * @example
