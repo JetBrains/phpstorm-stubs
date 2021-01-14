@@ -531,7 +531,7 @@ function ssh2_sftp_rmdir ($sftp, $dirname) {}
  * </p>
  * @param string $path <p>
  * </p>
- * @return array See the documentation for stat for details on the
+ * @return array|false See the documentation for stat for details on the
  * values which may be returned.
  */
 function ssh2_sftp_stat ($sftp, $path) {}
