@@ -603,6 +603,16 @@ namespace MongoDB {}
             }
 
             /**
+             * Returns the ReadPreference's "hedge" option
+             * @since 1.8.0
+             * @link https://www.php.net/manual/en/mongodb-driver-readpreference.gethedge.php
+             * @return object|null
+             */
+            final public function getHedge()
+            {
+            }
+
+            /**
              * Returns the ReadPreference's "mode" option
              * @link https://php.net/manual/en/mongodb-driver-readpreference.getmode.php
              * @return integer
