@@ -786,7 +786,7 @@ function get_defined_vars (): array
  * @removed 8.0
  */
 #[Deprecated(reason: "Use anonymous functions instead", since: "7.2")]
-function create_function (string $args, string $code): bool|string
+function create_function (string $args, string $code): false|string
 {}
 
 /**

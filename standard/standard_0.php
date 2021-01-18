@@ -832,7 +832,7 @@ function iptcparse (string $iptc_block): array|false
  * Spool flag. If the spool flag is over 2 then the JPEG will be
  * returned as a string.
  * </p>
- * @return string|false If success and spool flag is lower than 2 then the JPEG will not be
+ * @return string|bool If success and spool flag is lower than 2 then the JPEG will not be
  * returned as a string, false on errors.
  */
 function iptcembed (string $iptc_data, string $filename, int $spool): string|bool

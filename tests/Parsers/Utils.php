@@ -35,7 +35,7 @@ class Utils
         $allSinceVersions = self::getSinceVersionsFromPhpDoc($element);
         $allSinceVersions[] = self::getSinceVersionsFromAttribute($element);
         if ($element instanceof PHPMethod) {
-            if ($element->hasInheritDocTag || $element->parentName === '___PHPSTORM_HELPERS\object') {
+            if ($element->hasInheritDocTag) {
                 return null;
             }
             $allSinceVersions[] = self::getSinceVersionsFromParentClass($element);
@@ -52,7 +52,7 @@ class Utils
         $latestVersions = self::getRemovedVersionsFromPhpDoc($element);
         $latestVersions[] = self::getLatestAvailableVersionsFromAttribute($element);
         if ($element instanceof PHPMethod) {
-            if ($element->hasInheritDocTag || $element->parentName === '___PHPSTORM_HELPERS\object') {
+            if ($element->hasInheritDocTag) {
                 return null;
             }
             $latestVersions[] = self::getLatestAvailableVersionsFromParentClass($element);

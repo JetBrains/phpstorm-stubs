@@ -64,7 +64,7 @@ class PHPProperty extends BasePHPElement
 
         $parentNode = $node->getAttribute('parent');
         if ($parentNode !== null){
-            $this->parentName = $this->getFQN($parentNode);
+            $this->parentName = self::getFQN($parentNode);
         }
         return $this;
     }

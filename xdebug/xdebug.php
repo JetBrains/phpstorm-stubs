@@ -170,7 +170,7 @@ function xdebug_stop_error_collection () {}
  * By default this function will not clear the error collection buffer. If you pass true as argument to this function then the buffer will be cleared as well.
  * This function returns a string containing all collected errors formatted as an "Xdebug table".
  * @param bool $emptyList
- * @return string
+ * @return array
  */
 function xdebug_get_collected_errors(bool $emptyList = false): array {}
 

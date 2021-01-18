@@ -38,11 +38,17 @@ abstract class BasePHPElement
     abstract public function readMutedProblems(stdClass|array $jsonData): void;
 
     #[Pure]
-    protected function getFQN(Node $node): string
+    public static function getFQN(Node $node): string
     {
         $fqn = '';
-        if ($node->namespacedName === null) {
-            $fqn = $node->name->parts[0];
+        if (!property_exists($node, 'namespacedName') || $node->namespacedName === null) {
+            if (property_exists($node, 'name')) {
+                $fqn = $node->name->parts[0];
+            } else {
+                foreach ($node->parts as $part) {
+                    $fqn .= "$part\\";
+                }
+            }
         } else {
             /**@var string $part */
             foreach ($node->namespacedName->parts as $part) {
@@ -52,35 +58,34 @@ abstract class BasePHPElement
         return rtrim($fqn, "\\");
     }
 
-    protected static function convertReflectionTypeToString(?ReflectionType $type): string
+    protected static function getReflectionTypeAsArray(?ReflectionType $type): array
     {
+        $reflectionTypes = [];
         if ($type instanceof ReflectionNamedType) {
-            return (string)$type;
+            $type->allowsNull() && $type->getName() !== 'mixed' ?
+                array_push($reflectionTypes, '?' . $type->getName()) : array_push($reflectionTypes, $type->getName());
         }
         if ($type instanceof ReflectionUnionType) {
-            $reflectionType = '';
             foreach ($type->getTypes() as $type) {
-                $reflectionType .= (string)$type . '|';
+                array_push($reflectionTypes, $type->getName());
             }
-            return substr($reflectionType, 0, -1);
         }
-        return '';
+        return $reflectionTypes;
     }
 
-    protected static function convertParsedTypeToString(Name|Identifier|NullableType|string|UnionType|null $type): string
+    protected static function convertParsedTypeToArray(Name|Identifier|NullableType|string|UnionType|null $type): array
     {
+        $types = [];
         if ($type !== null) {
             if ($type instanceof UnionType) {
-                $unionType = '';
                 foreach ($type->types as $type) {
-                    $unionType .= self::getTypeNameFromNode($type) . '|';
+                    array_push($types, self::getTypeNameFromNode($type));
                 }
-                return substr($unionType, 0, -1);
             } else {
-                return self::getTypeNameFromNode($type);
+                array_push($types, self::getTypeNameFromNode($type));
             }
         }
-        return '';
+        return $types;
     }
 
     #[Pure]

@@ -2658,7 +2658,7 @@ function mysqli_param_count (mysqli_stmt $statement): int
  * @removed 5.4
  */
 #[Deprecated(since: '5.3')]
-function mysqli_get_metadata (mysqli_stmt $statement): bool|mysqli_result
+function mysqli_get_metadata (mysqli_stmt $statement): false|mysqli_result
 {}
 
 /**

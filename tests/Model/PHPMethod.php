@@ -44,10 +44,16 @@ class PHPMethod extends PHPFunction
      */
     public function readObjectFromStubNode($node): static
     {
-        $this->parentName = $this->getFQN($node->getAttribute('parent'));
+        $this->parentName = self::getFQN($node->getAttribute('parent'));
         $this->name = $node->name->name;
+        $typeFromAttribute = self::findTypeFromAttribute($node->attrGroups);
         $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
-        $this->returnType = self::convertParsedTypeToString($node->getReturnType());
+        if ($typeFromAttribute != null) {
+            array_push($this->returnTypesFromSignature, ...array_map(fn(string $type) => preg_replace('/\w+\[]/', 'array', $type),
+                explode('|', $typeFromAttribute)));
+        } else {
+            array_push($this->returnTypesFromSignature, ...self::convertParsedTypeToArray($node->getReturnType()));
+        }
         $this->collectTags($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);
@@ -85,6 +91,7 @@ class PHPMethod extends PHPFunction
                             'wrong access' => StubProblemType::FUNCTION_ACCESS,
                             'has nullable typehint' => StubProblemType::HAS_NULLABLE_TYPEHINT,
                             'has union typehint' => StubProblemType::HAS_UNION_TYPEHINT,
+                            'has type mismatch in signature and phpdoc' => StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE,
                             default => -1
                         };
                     }

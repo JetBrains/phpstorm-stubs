@@ -10,7 +10,7 @@ use stdClass;
 
 class PHPParameter extends BasePHPElement
 {
-    public string $type = '';
+    public array $types = [];
     public bool $is_vararg = false;
     public bool $is_passed_by_ref = false;
     public ?Expr $defaultValue = null;
@@ -22,7 +22,7 @@ class PHPParameter extends BasePHPElement
     public function readObjectFromReflection($reflectionObject): static
     {
         $this->name = $reflectionObject->name;
-        $this->type = self::convertReflectionTypeToString($reflectionObject->getType());
+        $this->types = self::getReflectionTypeAsArray($reflectionObject->getType());
         $this->is_vararg = $reflectionObject->isVariadic();
         $this->is_passed_by_ref = $reflectionObject->isPassedByReference() && !$reflectionObject->canBePassedByValue();
         return $this;
@@ -38,9 +38,10 @@ class PHPParameter extends BasePHPElement
 
         $typeFromAttribute = self::findTypeFromAttribute($node->attrGroups);
         if ($typeFromAttribute != null) {
-            $this->type = $typeFromAttribute;
+            array_push($this->types, ...array_map(fn(string $type) => preg_replace('/\w+\[]/', 'array', $type),
+                explode('|', $typeFromAttribute)));
         } else {
-            $this->type = self::convertParsedTypeToString($node->type);
+            $this->types = self::convertParsedTypeToArray($node->type);
         }
 
         $this->is_vararg = $node->variadic;
@@ -62,6 +63,7 @@ class PHPParameter extends BasePHPElement
                         'parameter name mismatch' => StubProblemType::PARAMETER_NAME_MISMATCH,
                         'has nullable typehint' => StubProblemType::HAS_NULLABLE_TYPEHINT,
                         'has union typehint' => StubProblemType::HAS_UNION_TYPEHINT,
+                        'has type mismatch in signature and phpdoc' => StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE,
                         default => -1
                     };
                 }

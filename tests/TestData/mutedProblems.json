@@ -1271,6 +1271,12 @@
           ]
         }
       ]
+    },
+    {
+      "name": "parallel\\run",
+      "problems": [
+        "has type mismatch in signature and phpdoc"
+      ]
     }
   ],
   "classes": [
