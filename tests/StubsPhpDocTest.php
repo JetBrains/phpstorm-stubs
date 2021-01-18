@@ -60,13 +60,13 @@ class StubsPhpDocTest extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::allMethodsProvider
      */
-    public function testMethodsPHPDocs(string $methodName, PHPMethod $method): void
+    public function testMethodsPHPDocs(PHPMethod $method): void
     {
-        if ($methodName === '__construct') {
-            self::assertNull($method->returnTag, '@return tag for __construct should be omitted');
+        if ($method->name === '__construct') {
+            self::assertEmpty($method->returnTypesFromPhpDoc, '@return tag for __construct should be omitted');
         }
         self::assertNull($method->parseError, $method->parseError ?: '');
-        self::checkPHPDocCorrectness($method, "method $methodName");
+        self::checkPHPDocCorrectness($method, "method $method->name");
     }
 
     private static function checkDeprecatedRemovedSinceVersionsMajor(BasePHPElement $element, string $elementName): void

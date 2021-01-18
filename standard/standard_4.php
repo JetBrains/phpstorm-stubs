@@ -748,7 +748,7 @@ function headers_list (): array
  * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b> on failure.
  */
 #[Pure]
-function apache_request_headers (): bool|array
+function apache_request_headers (): false|array
 {}
 
 /**
@@ -758,7 +758,7 @@ function apache_request_headers (): bool|array
  * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b> on failure.
  */
 #[Pure]
-function getallheaders (): bool|array
+function getallheaders (): false|array
 {}
 
 /**

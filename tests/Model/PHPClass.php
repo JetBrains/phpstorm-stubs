@@ -58,7 +58,7 @@ class PHPClass extends BasePHPClass
      */
     public function readObjectFromStubNode($node): static
     {
-        $this->name = $this->getFQN($node);
+        $this->name = self::getFQN($node);
         $this->isFinal = $node->isFinal();
         $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
         $this->collectTags($node);

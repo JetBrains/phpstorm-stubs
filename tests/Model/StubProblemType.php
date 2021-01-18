@@ -27,4 +27,5 @@ interface StubProblemType
     public const HAS_NULLABLE_TYPEHINT = 19;
     public const HAS_UNION_TYPEHINT = 20;
     public const HAS_DUPLICATION = 21;
+    public const TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE = 22;
 }

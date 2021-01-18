@@ -1,9 +1,9 @@
 <?php
 
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
-use JetBrains\PhpStorm\ExpectedValues;
 
 /**
  * (PHP 5.5.0)<br/>
@@ -552,7 +552,7 @@ function fgets ($stream, ?int $length): string|false
  * @removed 8.0
  */
 #[Deprecated(since: '7.3')]
-function fgetss ($handle, ?int $length = null, $allowable_tags = null): bool|string
+function fgetss ($handle, ?int $length = null, $allowable_tags = null): false|string
 {}
 
 /**

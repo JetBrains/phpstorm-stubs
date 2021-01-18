@@ -350,8 +350,8 @@ class StubsTest extends TestCase
     {
         $result = '';
         foreach ($function->parameters as $parameter) {
-            if (!empty($parameter->type)) {
-                $result .= $parameter->type . ' ';
+            if (!empty($parameter->types)) {
+                $result .= implode('|', $parameter->types);
             }
             if ($parameter->is_passed_by_ref) {
                 $result .= '&';

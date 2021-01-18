@@ -43,7 +43,7 @@ class PHPConst extends BasePHPElement
             $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($parentNode->attrGroups);
         }
         if ($parentNode instanceof ClassConst) {
-            $this->parentName = $this->getFQN($parentNode->getAttribute('parent'));
+            $this->parentName = self::getFQN($parentNode->getAttribute('parent'));
         }
         return $this;
     }
