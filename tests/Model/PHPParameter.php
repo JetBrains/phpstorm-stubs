@@ -10,6 +10,7 @@ use stdClass;
 
 class PHPParameter extends BasePHPElement
 {
+    /** @var string[] $types  */
     public array $types = [];
     public bool $is_vararg = false;
     public bool $is_passed_by_ref = false;
@@ -36,10 +37,9 @@ class PHPParameter extends BasePHPElement
     {
         $this->name = $node->var->name;
 
-        $typeFromAttribute = self::findTypeFromAttribute($node->attrGroups);
-        if ($typeFromAttribute != null) {
-            array_push($this->types, ...array_map(fn(string $type) => preg_replace('/\w+\[]/', 'array', $type),
-                explode('|', $typeFromAttribute)));
+        $typesFromAttribute = self::findTypesFromAttribute($node->attrGroups);
+        if (!empty($typesFromAttribute)) {
+            array_push($this->types, ...$typesFromAttribute);
         } else {
             $this->types = self::convertParsedTypeToArray($node->type);
         }

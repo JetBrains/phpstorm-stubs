@@ -24,8 +24,10 @@ class PHPFunction extends BasePHPElement
      */
     public array $parameters = [];
 
+    /** @var string[] $returnTypesFromPhpDoc  */
     public array $returnTypesFromPhpDoc = [];
 
+    /** @var string[] $returnTypesFromSignature  */
     public array $returnTypesFromSignature = [];
 
     /**
@@ -51,11 +53,10 @@ class PHPFunction extends BasePHPElement
     {
         $functionName = self::getFQN($node);
         $this->name = $functionName;
-        $typeFromAttribute = self::findTypeFromAttribute($node->attrGroups);
+        $typesFromAttribute = self::findTypesFromAttribute($node->attrGroups);
         $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
-        if ($typeFromAttribute != null) {
-            array_push($this->returnTypesFromSignature, ...array_map(fn(string $type) => preg_replace('/\w+\[]/', 'array', $type),
-                explode('|', $typeFromAttribute)));
+        if (!empty($typesFromAttribute)) {
+            array_push($this->returnTypesFromSignature, ...$typesFromAttribute);
         } else {
             array_push($this->returnTypesFromSignature, ...self::convertParsedTypeToArray($node->getReturnType()));
         }

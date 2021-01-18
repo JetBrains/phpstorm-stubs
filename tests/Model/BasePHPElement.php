@@ -109,9 +109,9 @@ abstract class BasePHPElement
 
     /**
      * @param AttributeGroup[] $attrGroups
-     * @return string|null
+     * @return string[]
      */
-    protected static function findTypeFromAttribute(array $attrGroups): ?string
+    protected static function findTypesFromAttribute(array $attrGroups): array
     {
         foreach ($attrGroups as $attrGroup) {
             foreach ($attrGroup->attrs as $attr) {
@@ -120,13 +120,13 @@ abstract class BasePHPElement
                     if ($arg instanceof Array_) {
                         $value = $arg->items[0]->value;
                         if ($value instanceof String_) {
-                            return $value->value;
+                            return explode('|', preg_replace('/\w+\[]/', 'array', $value->value));
                         }
                     }
                 }
             }
         }
-        return null;
+        return [];
     }
 
     /**

@@ -46,11 +46,10 @@ class PHPMethod extends PHPFunction
     {
         $this->parentName = self::getFQN($node->getAttribute('parent'));
         $this->name = $node->name->name;
-        $typeFromAttribute = self::findTypeFromAttribute($node->attrGroups);
+        $typesFromAttribute = self::findTypesFromAttribute($node->attrGroups);
         $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
-        if ($typeFromAttribute != null) {
-            array_push($this->returnTypesFromSignature, ...array_map(fn(string $type) => preg_replace('/\w+\[]/', 'array', $type),
-                explode('|', $typeFromAttribute)));
+        if (!empty($typesFromAttribute)) {
+            array_push($this->returnTypesFromSignature, ...$typesFromAttribute);
         } else {
             array_push($this->returnTypesFromSignature, ...self::convertParsedTypeToArray($node->getReturnType()));
         }
