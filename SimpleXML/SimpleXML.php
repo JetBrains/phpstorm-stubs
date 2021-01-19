@@ -18,6 +18,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * Use TRUE to specify that data is a path or URL to an XML document instead of string data.
      * @param string $namespaceOrPrefix Namespace prefix or URI.
      * @param bool $isPrefix TRUE if ns is a prefix, FALSE if it's a URI; defaults to FALSE.
+     * @throws \Exception if the XML data could not be parsed.
 	 * @since 5.0.1
 	 */
 	#[Pure]
