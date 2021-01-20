@@ -10,6 +10,7 @@ use StubTests\Model\PHPConst;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
+use StubTests\Model\PHPParameter;
 use StubTests\Model\PHPProperty;
 use StubTests\Model\StubProblemType;
 use StubTests\Parsers\Utils;
@@ -344,6 +345,27 @@ class StubsTest extends TestCase
         static::assertArrayHasKey($className, $stubClasses, "Missing class $className: class $className {}");
     }
 
+    public function testImplodeFunctionIsCorrect()
+    {
+        $implodeFunctions = array_filter(PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(),
+            fn(PHPFunction $function) => $function->name === 'implode');
+        self::assertCount(1, $implodeFunctions);
+        /** @var PHPFunction $implodeFunction */
+        $implodeFunction = array_pop($implodeFunctions);
+        $implodeParameters = $implodeFunction->parameters;
+        $separatorParameters = array_filter($implodeParameters, fn(PHPParameter $parameter) => $parameter->name === 'separator');
+        $arrayParameters = array_filter($implodeParameters, fn(PHPParameter $parameter) => $parameter->name === 'array');
+        /** @var PHPParameter $separatorParameter */
+        $separatorParameter = array_pop($separatorParameters);
+        /** @var PHPParameter $arrayParameter */
+        $arrayParameter = array_pop($arrayParameters);
+        self::assertCount(2, $implodeParameters);
+        self::assertEquals(['array','string'], $separatorParameter->types);
+        self::assertEquals("", $separatorParameter->defaultValue->value);
+        self::assertEquals(['?array'], $arrayParameter->types);
+        self::assertEquals(['string'], $implodeFunction->returnTypesFromSignature);
+        self::assertEquals(['string'], $implodeFunction->returnTypesFromPhpDoc);
+    }
 
     #[Pure]
     private static function getParameterRepresentation(PHPFunction $function): string
