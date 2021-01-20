@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\ReturnTypeContract as TypeContract;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -446,7 +447,7 @@ function vfprintf ($stream, string $format, array $values): int
  * the function will return the number of assigned values. The optional
  * parameters must be passed by reference.
  */
-function sscanf (string $string, string $format, mixed &...$vars): array|int|null
+function sscanf (string $string, string $format, #[TypeContract(exists: "int|null", notExists: "array|null")] mixed &...$vars): array|int|null
 {}
 
 /**
@@ -463,7 +464,7 @@ function sscanf (string $string, string $format, mixed &...$vars): array|int|nul
  * function will return the number of assigned values. The optional
  * parameters must be passed by reference.
  */
-function fscanf ($stream, string $format, mixed &...$vars): array|int|false|null
+function fscanf ($stream, string $format, #[TypeContract(exists: "int|false|null", notExists: "array|false|null")] mixed &...$vars): array|int|false|null
 {}
 
 /**

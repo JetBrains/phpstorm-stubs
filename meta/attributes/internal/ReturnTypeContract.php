@@ -13,7 +13,9 @@ use Attribute;
 class ReturnTypeContract
 {
     public function __construct(
-        string $true,
-        string $false
+        string $true = "",
+        string $false = "",
+        string $exists = "",
+        string $notExists = ""
     ) {}
 }
