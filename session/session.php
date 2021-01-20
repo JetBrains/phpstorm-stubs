@@ -1,6 +1,7 @@
 <?php
 
 // Start of session v.
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
@@ -418,6 +419,14 @@ function session_set_cookie_params (array|int $lifetime_or_options, ?string $pat
  * "httponly" - The
  * cookie can only be accessed through the HTTP protocol.
  */
+#[ArrayShape([
+    "lifetime" => "int",
+    "path" => "string",
+    "domain" => "string",
+    "secure" => "bool",
+    "httponly" => "bool",
+    "samesite" => "string"
+])]
 function session_get_cookie_params (): array
 {}
 
