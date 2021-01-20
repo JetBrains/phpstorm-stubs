@@ -1,6 +1,7 @@
 <?php
 
 
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
@@ -896,6 +897,12 @@ function microtime (#[TypeContract(true: "float", false: "string")] bool $as_flo
  * "dsttime" - type of dst correction
  */
 #[Pure]
+#[ArrayShape([
+    "sec" => "int",
+    "usec" => "int",
+    "minuteswest" => "int",
+    "dsttime" => "int"
+])]
 function gettimeofday (#[TypeContract(true: "float", false: "int[]")] bool $as_float): array|float
 {}
 
