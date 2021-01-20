@@ -4,6 +4,7 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
+use JetBrains\PhpStorm\Internal\ReturnTypeContract as TypeContract;
 
 /**
  * Gets time of last page modification
@@ -875,7 +876,7 @@ function sys_getloadavg (): array|false
  * @return string|float
  */
 #[Pure]
-function microtime (bool $as_float): string|float
+function microtime (#[TypeContract(true: "float", false: "string")] bool $as_float): string|float
 {}
 
 /**
@@ -895,7 +896,7 @@ function microtime (bool $as_float): string|float
  * "dsttime" - type of dst correction
  */
 #[Pure]
-function gettimeofday (bool $as_float): array|float
+function gettimeofday (#[TypeContract(true: "float", false: "int[]")] bool $as_float): array|float
 {}
 
 /**
