@@ -14,6 +14,7 @@ use StubTests\Model\StubProblemType;
 use StubTests\Parsers\Utils;
 use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
+use StubTests\TestData\Providers\ReflectionStubsSingleton;
 
 class StubsTypeHintsTest extends TestCase
 {
@@ -82,8 +83,6 @@ class StubsTypeHintsTest extends TestCase
         self::assertNotFalse($stubParameter, "Parameter $$reflectionParameter->name not found at 
         $reflectionClass->name::$stubMethod->name(" .
             StubsParameterNamesTest::printParameters($stubMethod->parameters) . ')');
-        //TODO update stubs and uncomment
-        //self::compareTypeHintsWithReflection($reflectionParameter, $stubParameter, $methodName);
         if (!$reflectionParameter->hasMutedProblem(StubProblemType::PARAMETER_REFERENCE)) {
             self::assertEquals($reflectionParameter->is_passed_by_ref, $stubParameter->is_passed_by_ref,
                 "Invalid pass by ref $className::$methodName: \$$reflectionParameter->name ");
@@ -95,23 +94,23 @@ class StubsTypeHintsTest extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForScalarTypeHintTestsProvider
      */
-    public function testMethodDoesNotHaveScalarTypeHintsInParameters(PHPMethod $stubMethod, PHPParameter $parameter)
+    public function testMethodDoesNotHaveScalarTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
         $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
         self::assertEmpty(array_intersect(['int', 'float', 'string', 'bool'], $parameter->types),
-            "Method '{$stubMethod->parentName}::{$stubMethod->name}' with @since '$sinceVersion'  
+            "Method '{$class->name}::{$stubMethod->name}' with @since '$sinceVersion'  
                 has parameter '{$parameter->name}' with typehint '" . implode('|', $parameter->types) .
             "' but typehints available only since php 7");
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersFoNullableTypeHintTestsProvider
+     * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForNullableTypeHintTestsProvider
      */
-    public function testMethodDoesNotHaveNullableTypeHintsInParameters(PHPMethod $stubMethod, PHPParameter $parameter)
+    public function testMethodDoesNotHaveNullableTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
         $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
         self::assertEmpty(array_filter($parameter->types, fn(string $type) => str_contains($type, '?')),
-            "Method '{$stubMethod->parentName}::{$stubMethod->name}' with @since '$sinceVersion'  
+            "Method '{$class->name}::{$stubMethod->name}' with @since '$sinceVersion'  
                 has nullable parameter '{$parameter->name}' with typehint '" . implode('|', $parameter->types) . "' 
                 but nullable typehints available only since php 7.1");
     }
@@ -119,11 +118,11 @@ class StubsTypeHintsTest extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForUnionTypeHintTestsProvider
      */
-    public function testMethodDoesNotHaveUnionTypeHintsInParameters(PHPMethod $stubMethod, PHPParameter $parameter)
+    public function testMethodDoesNotHaveUnionTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
         $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
         self::assertLessThan(2, count($parameter->types),
-            "Method '{$stubMethod->parentName}::{$stubMethod->name}' with @since '$sinceVersion'  
+            "Method '{$class->name}::{$stubMethod->name}' with @since '$sinceVersion'  
                 has parameter '{$parameter->name}' with union typehint '" . implode('|', $parameter->types) . "' 
                 but union typehints available only since php 8.0");
     }
@@ -164,6 +163,48 @@ class StubsTypeHintsTest extends TestCase
             "Method '{$stubMethod->parentName}::{$stubMethod->name}' has since version '$sinceVersion'
             but has union return typehint '" . implode('|', $stubMethod->returnTypesFromSignature) . "' that supported only since PHP 8.0. 
             Please declare return type via PhpDoc");
+    }
+
+    /**
+     * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForAllowedScalarTypeHintTestsProvider
+     */
+    public function testMethodScalarTypeHintsInParametersMatchReflection(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $stubParameter)
+    {
+        $reflectionMethods = array_filter(ReflectionStubsSingleton::getReflectionStubs()->getClass($class->name)->methods,
+            fn(PHPMethod $method) => $method->name === $stubMethod->name);
+        /** @var PHPMethod $reflectionMethod */
+        $reflectionMethod = array_pop($reflectionMethods);
+        $reflectionParameters = array_filter($reflectionMethod->parameters, fn(PHPParameter $parameter) => $parameter->name === $stubParameter->name);
+        $reflectionParameter = array_pop($reflectionParameters);
+        self::compareTypeHintsWithReflection($reflectionParameter, $stubParameter, $stubMethod->name);
+    }
+
+    /**
+     * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForAllowedNullableTypeHintTestsProvider
+     */
+    public function testMethodNullableTypeHintsInParametersMatchReflection(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $stubParameter)
+    {
+        $reflectionMethods = array_filter(ReflectionStubsSingleton::getReflectionStubs()->getClass($class->name)->methods,
+            fn(PHPMethod $method) => $method->name === $stubMethod->name);
+        /** @var PHPMethod $reflectionMethod */
+        $reflectionMethod = array_pop($reflectionMethods);
+        $reflectionParameters = array_filter($reflectionMethod->parameters, fn(PHPParameter $parameter) => $parameter->name === $stubParameter->name);
+        $reflectionParameter = array_pop($reflectionParameters);
+        self::compareTypeHintsWithReflection($reflectionParameter, $stubParameter, $stubMethod->name);
+    }
+
+    /**
+     * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForAllowedUnionTypeHintTestsProvider
+     */
+    public function testMethodUnionTypeHintsInParametersMatchReflection(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $stubParameter)
+    {
+        $reflectionMethods = array_filter(ReflectionStubsSingleton::getReflectionStubs()->getClass($class->name)->methods,
+            fn(PHPMethod $method) => $method->name === $stubMethod->name);
+        /** @var PHPMethod $reflectionMethod */
+        $reflectionMethod = array_pop($reflectionMethods);
+        $reflectionParameters = array_filter($reflectionMethod->parameters, fn(PHPParameter $parameter) => $parameter->name === $stubParameter->name);
+        $reflectionParameter = array_pop($reflectionParameters);
+        self::compareTypeHintsWithReflection($reflectionParameter, $stubParameter, $stubMethod->name);
     }
 
     /**

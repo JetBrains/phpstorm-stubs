@@ -1306,6 +1306,38 @@
       ]
     },
     {
+      "name": "ReflectionReference",
+      "methods": [
+        {
+          "name": "fromArrayElement",
+          "parameters": [
+            {
+              "name": "key",
+              "problems": [
+                "parameter type mismatch"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReflectionClassConstant",
+      "methods": [
+        {
+          "name": "__construct",
+          "parameters": [
+            {
+              "name": "class",
+              "problems": [
+                "parameter type mismatch"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "ZMQSocket",
       "methods": [
         {

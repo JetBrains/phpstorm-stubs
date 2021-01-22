@@ -3364,16 +3364,16 @@ class IntlTimeZone {
      * @return string|false the Windows timezone or <b>FALSE</b> on failure
      * @since 7.1
      */
-    public static function getWindowsID($timezoneId) { }
+    public static function getWindowsID(string $timezoneId) { }
 
     /**
      * @link https://www.php.net/manual/en/intltimezone.getidforwindowsid.php
      * @param string $timezoneId
-     * @param string $region
+     * @param string|null $region
      * @return string|false the Windows timezone or <b>FALSE</b> on failure
      * @since 7.1
      */
-    public static function getIDForWindowsID(string $timezoneId , string $region) { }
+    public static function getIDForWindowsID(string $timezoneId , ?string $region) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>

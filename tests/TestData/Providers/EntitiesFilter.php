@@ -76,9 +76,23 @@ class EntitiesFilter
 
     public static function getFilterFunctionForLanguageLevel(float $languageVersion): callable
     {
-        return function (PHPClass|PHPInterface $class, PHPMethod $method, ?string $firstSinceVersion) use ($languageVersion) {
+        return function (PHPClass|PHPInterface $class, PHPMethod $method, ?float $firstSinceVersion) use ($languageVersion) {
             return $class !== null && !$method->isFinal && !$class->isFinal && $firstSinceVersion !== null &&
-                (float)$firstSinceVersion < $languageVersion;
+                $firstSinceVersion < $languageVersion;
+        };
+    }
+
+    public static function getFilterFunctionForAllowedTypeHintsInLanguageLevel(float $languageVersion): callable
+    {
+        return function (PHPClass|PHPInterface $stubClass, PHPMethod $stubMethod, ?float $firstSinceVersion) use ($languageVersion) {
+            $reflectionClass = ReflectionStubsSingleton::getReflectionStubs()->getClass($stubClass->name);
+            $reflectionMethod = null;
+            if ($reflectionClass !== null) {
+                $reflectionMethods = array_filter($reflectionClass->methods, fn(PHPMethod $method) => $stubMethod->name === $method->name);
+                $reflectionMethod = array_pop($reflectionMethods);
+            }
+            return $reflectionMethod !== null && ($stubMethod->isFinal || $stubClass->isFinal || ($firstSinceVersion !== null &&
+                $firstSinceVersion > $languageVersion));
         };
     }
 }

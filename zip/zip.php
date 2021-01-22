@@ -886,23 +886,23 @@ class ZipArchive implements Countable {
      * Set the encryption method of an entry defined by its index
      * @link https://php.net/manual/en/ziparchive.setencryptionindex.php
      * @param int $index Index of the entry.
-     * @param string $method The encryption method defined by one of the ZipArchive::EM_ constants.
-     * @param string $password [optional] Optional password, default used when missing.
+     * @param int $method The encryption method defined by one of the ZipArchive::EM_ constants.
+     * @param string|null $password [optional] Optional password, default used when missing.
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 7.2
      */
-    public function setEncryptionIndex ($index, $method, $password = null) {}
+    public function setEncryptionIndex (int $index, int $method, ?string $password = null) {}
 
     /**
      * Set the encryption method of an entry defined by its name
      * @link https://php.net/manual/en/ziparchive.setencryptionname.php
      * @param string $name Name of the entry.
      * @param int $method The encryption method defined by one of the ZipArchive::EM_ constants.
-     * @param string $password [optional] Optional password, default used when missing.
+     * @param string|null $password [optional] Optional password, default used when missing.
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 7.2
      */
-    public function setEncryptionName ($name, $method, $password = null) {}
+    public function setEncryptionName (string $name, int $method, ?string $password = null) {}
 
     /**
      * (PHP 5 &gt;= 5.6.0, PECL zip &gt;= 1.12.0)<br/>

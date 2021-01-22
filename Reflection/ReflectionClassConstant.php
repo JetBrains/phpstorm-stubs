@@ -53,7 +53,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      * @link https://php.net/manual/en/reflectionclassconstant.construct.php
      */
-    public function __construct($class, $constant)
+    public function __construct($class, string $constant)
     {
     }
 

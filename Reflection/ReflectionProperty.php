@@ -266,7 +266,7 @@ class ReflectionProperty implements Reflector
      * @since 7.4
      */
     #[Pure]
-	public function isInitialized($object = null)
+	public function isInitialized(?object $object = null)
     {
     }
 

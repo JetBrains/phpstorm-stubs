@@ -594,7 +594,7 @@ final class Closure {
      * This determines the visibility of protected and private methods of the bound object.
      * @return Closure|false Returns the newly created Closure object or FALSE on failure
      */
-    function bindTo($newThis, $newScope = 'static') { }
+    function bindTo(?object $newThis, object|string|null $newScope = 'static') { }
 
     /**
      * This method is a static version of Closure::bindTo().
@@ -607,7 +607,7 @@ final class Closure {
      * This determines the visibility of protected and private methods of the bound object.
      * @return Closure|false Returns the newly created Closure object or FALSE on failure
      */
-    static function bind(Closure $closure, $newThis, $newScope = 'static') { }
+    static function bind(Closure $closure, ?object $newThis, object|string|null $newScope = 'static') { }
 
     /**
      * Temporarily binds the closure to newthis, and calls it with any given parameters.
@@ -617,7 +617,7 @@ final class Closure {
      * @return mixed
      * @since 7.0
      */
-    function call ($newThis, ...$args) {}
+    function call (object $newThis, mixed ...$args) {}
 
     /**
      * @param callable $callback
@@ -848,18 +848,6 @@ class PhpToken implements Stringable {
     public int $pos;
 
     /**
-     * Same as {@see token_get_all()}, but returning array of {@see PhpToken}
-     * or an instance of a child class.
-     *
-     * @param string $code An a PHP source code
-     * @param int $flags
-     * @return static[]
-     */
-    public static function getAll($code, $flags = 0)
-    {
-    }
-
-    /**
      * @param int $id An integer identifier
      * @param string $text Textual content
      * @param int $line Strating line
@@ -879,7 +867,10 @@ class PhpToken implements Stringable {
     }
 
     /**
-     * @param string $code
+     * Same as {@see token_get_all()}, but returning array of {@see PhpToken}
+     * or an instance of a child class.
+     *
+     * @param string $code An a PHP source code
      * @param int $flags
      * @return static[]
      */
