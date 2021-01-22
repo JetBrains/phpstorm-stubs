@@ -581,7 +581,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * </p>
 	 * @return bool <b>TRUE</b> if compression/decompression is available, <b>FALSE</b> if not.
 	 */
-	final public static function canCompress ($compression = 0) {}
+	final public static function canCompress (int $compression = 0) {}
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
@@ -595,13 +595,13 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * (Unknown)<br/>
 	 * Create a phar-file format specific stub
 	 * @link https://php.net/manual/en/phar.createdefaultstub.php
-	 * @param string $index [optional]
-	 * @param string $webIndex [optional]
+	 * @param string|null $index [optional]
+	 * @param string|null $webIndex [optional]
 	 * @return string a string containing the contents of a customized bootstrap loader (stub)
 	 * that allows the created Phar archive to work with or without the Phar extension
 	 * enabled.
 	 */
-	final public static function createDefaultStub ($index = null, $webIndex = null) {}
+	final public static function createDefaultStub (?string $index = null, ?string $webIndex = null) {}
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
@@ -644,7 +644,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * </p>
 	 * @return bool <b>TRUE</b> if the filename is valid, <b>FALSE</b> if not.
 	 */
-	final public static function isValidPharFilename ($filename, $executable = true) {}
+	final public static function isValidPharFilename (string $filename, bool $executable = true) {}
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
@@ -653,7 +653,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * @param string $filename <p>
 	 * the full or relative path to the phar archive to open
 	 * </p>
-	 * @param string $alias [optional] <p>
+	 * @param string|null $alias [optional] <p>
 	 * The alias that may be used to refer to the phar archive. Note
 	 * that many phar archives specify an explicit alias inside the
 	 * phar archive, and a <b>PharException</b> will be thrown if
@@ -661,13 +661,13 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	final public static function loadPhar ($filename, $alias = null) {}
+	final public static function loadPhar (string $filename, ?string $alias = null) {}
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Reads the currently executed file (a phar) and registers its manifest
 	 * @link https://php.net/manual/en/phar.mapphar.php
-	 * @param string $alias [optional] <p>
+	 * @param string|null $alias [optional] <p>
 	 * The alias that can be used in phar:// URLs to
 	 * refer to this archive, rather than its full path.
 	 * </p>
@@ -676,7 +676,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	final public static function mapPhar ($alias = null, $offset = 0) {}
+	final public static function mapPhar (?string $alias = null, int $offset = 0) {}
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -688,7 +688,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * </p>
 	 * @return string the filename if valid, empty string otherwise.
 	 */
-	final public static function running ($returnPhar = true) {}
+	final public static function running (bool $returnPhar = true) {}
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -703,7 +703,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * </p>
 	 * @return void No return. <b>PharException</b> is thrown on failure.
 	 */
-	final public static function mount ($pharPath, $externalPath) {}
+	final public static function mount (string $pharPath, string $externalPath) {}
 
 	/**
 	 * (Unknown)<br/>
@@ -729,7 +729,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	final public static function unlinkArchive ($filename) {}
+	final public static function unlinkArchive (string $filename) {}
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -739,7 +739,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * The alias that can be used in phar:// URLs to
 	 * refer to this archive, rather than its full path.
 	 * </p>
-	 * @param string $index [optional] <p>
+	 * @param string|null $index [optional] <p>
 	 * The location within the phar of the directory index.
 	 * </p>
 	 * @param null|string $fileNotFoundScript [optional] <p>
@@ -809,7 +809,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * </p>
 	 * @return void No value is returned.
 	 */
-	final public static function webPhar ($alias = null, $index = "index.php", $fileNotFoundScript = null, ?array $mimeTypes = null, ?callable $rewrite = null) {}
+	final public static function webPhar (?string $alias = null, ?string $index = "index.php", string $fileNotFoundScript = null, array $mimeTypes = null, ?callable $rewrite = null) {}
 
 	/**
 	 * Returns whether current entry is a directory and not '.' or '..'

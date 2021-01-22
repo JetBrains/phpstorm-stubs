@@ -184,7 +184,7 @@ namespace {
          * @param mixed $value
          * @return mixed
          */
-        public function send($value) {}
+        public function send(mixed $value) {}
 
         /**
          * Throws an exception at the current suspension point in the generator.

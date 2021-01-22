@@ -322,18 +322,18 @@ class SQLite3  {
 	public function lastExtendedErrorCode(){}
 
 	/**
-	 * @param $enable
+	 * @param bool $enable
 	 * @since 7.4
 	 */
-	public function enableExtendedResultCodes($enable){}
+	public function enableExtendedResultCodes(bool $enable){}
 
 	/**
-	 * @param $destination
-	 * @param $sourceDatabase
-	 * @param $destinationDatabase
+	 * @param SQLite3 $destination
+	 * @param string $sourceDatabase
+	 * @param string $destinationDatabase
 	 * @since 7.4
 	 */
-	public function backup($destination, $sourceDatabase, $destinationDatabase){}
+	public function backup(SQLite3 $destination, string $sourceDatabase, string $destinationDatabase){}
 
 	/**
 	 * @param null|callable $callback
@@ -448,7 +448,7 @@ class SQLite3Stmt  {
 	 * @return string|false Returns the SQL of the prepared statement, or FALSE on failure.
 	 * @since 7.4
 	 */
-	public function getSQL($expand = false){}
+	public function getSQL(bool $expand = false){}
 
 }
 

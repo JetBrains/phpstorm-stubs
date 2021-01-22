@@ -17,7 +17,7 @@ class StubsParametersProvider
         return self::yieldFilteredMethodParameters($filterFunction, StubProblemType::PARAMETER_HAS_SCALAR_TYPEHINT);
     }
 
-    public static function parametersFoNullableTypeHintTestsProvider(): ?Generator
+    public static function parametersForNullableTypeHintTestsProvider(): ?Generator
     {
         $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(7.1);
         return self::yieldFilteredMethodParameters($filterFunction, StubProblemType::HAS_NULLABLE_TYPEHINT);
@@ -26,6 +26,24 @@ class StubsParametersProvider
     public static function parametersForUnionTypeHintTestsProvider(): ?Generator
     {
         $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(8);
+        return self::yieldFilteredMethodParameters($filterFunction, StubProblemType::HAS_UNION_TYPEHINT);
+    }
+
+    public static function parametersForAllowedScalarTypeHintTestsProvider(): ?Generator
+    {
+        $filterFunction = EntitiesFilter::getFilterFunctionForAllowedTypeHintsInLanguageLevel(7);
+        return self::yieldFilteredMethodParameters($filterFunction,StubProblemType::PARAMETER_TYPE_MISMATCH);
+    }
+
+    public static function parametersForAllowedNullableTypeHintTestsProvider(): ?Generator
+    {
+        $filterFunction = EntitiesFilter::getFilterFunctionForAllowedTypeHintsInLanguageLevel(7.1);
+        return self::yieldFilteredMethodParameters($filterFunction,StubProblemType::PARAMETER_TYPE_MISMATCH);
+    }
+
+    public static function parametersForAllowedUnionTypeHintTestsProvider(): ?Generator
+    {
+        $filterFunction = EntitiesFilter::getFilterFunctionForAllowedTypeHintsInLanguageLevel(8);
         return self::yieldFilteredMethodParameters($filterFunction, StubProblemType::HAS_UNION_TYPEHINT);
     }
 
@@ -38,7 +56,7 @@ class StubsParametersProvider
                 $firstSinceVersion = Utils::getDeclaredSinceVersion($method);
                 if ($filterFunction($class, $method, $firstSinceVersion) === true) {
                     foreach (EntitiesFilter::getFilteredParameters($method, ...$problemTypes) as $parameter) {
-                        yield "method {$class->name}::{$method->name}($parameter->name)" => [$method, $parameter];
+                        yield "method $class->name::$method->name($parameter->name)" => [$class, $method, $parameter];
                     }
                 }
             }
