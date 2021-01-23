@@ -2656,6 +2656,7 @@ const FUNCTIONS = array (
   'imagegd' => 'gd/gd.php',
   'imagegd2' => 'gd/gd.php',
   'imagegetclip' => 'gd/gd.php',
+  'imagegetinterpolation' => 'gd/gd.php',
   'imagegif' => 'gd/gd.php',
   'imagegrabscreen' => 'gd/gd.php',
   'imagegrabwindow' => 'gd/gd.php',
