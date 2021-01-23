@@ -42,9 +42,9 @@ abstract class ReflectionType implements Stringable
      * @link https://php.net/manual/en/reflectiontype.tostring.php
      * @return string Returns the type of the parameter.
      * @since 7.0
-     * @see ReflectionType::getName()
+     * @see ReflectionNamedType::getName()
      */
-    #[Deprecated(replacement: "%class$->getName()", since: "7.1")]
+    #[Deprecated(since: "7.1")]
     public function __toString()
     {
     }
