@@ -8,7 +8,7 @@ use JetBrains\PhpStorm\Pure;
  * @since 7.0
  */
 class IntlChar {
-    const UNICODE_VERSION = 6.3;
+    const UNICODE_VERSION = 13.0;
     const CODEPOINT_MIN = 0;
     const CODEPOINT_MAX = 1114111;
     const FOLD_CASE_DEFAULT = 0;
@@ -71,7 +71,7 @@ class IntlChar {
     const PROPERTY_CHANGES_WHEN_CASEFOLDED = 54;
     const PROPERTY_CHANGES_WHEN_CASEMAPPED = 55;
     const PROPERTY_CHANGES_WHEN_NFKC_CASEFOLDED = 56;
-    const PROPERTY_BINARY_LIMIT = 57;
+    const PROPERTY_BINARY_LIMIT = 65;
     const PROPERTY_BIDI_CLASS = 4096;
     const PROPERTY_INT_START = 4096;
     const PROPERTY_BLOCK = 4097;
@@ -95,7 +95,7 @@ class IntlChar {
     const PROPERTY_SENTENCE_BREAK = 4115;
     const PROPERTY_WORD_BREAK = 4116;
     const PROPERTY_BIDI_PAIRED_BRACKET_TYPE = 4117;
-    const PROPERTY_INT_LIMIT = 4118;
+    const PROPERTY_INT_LIMIT = 4121;
     const PROPERTY_GENERAL_CATEGORY_MASK = 8192;
     const PROPERTY_MASK_START = 8192;
     const PROPERTY_MASK_LIMIT = 8193;
@@ -433,7 +433,7 @@ class IntlChar {
     const BLOCK_CODE_SUPPLEMENTAL_ARROWS_C = 250;
     const BLOCK_CODE_TIRHUTA = 251;
     const BLOCK_CODE_WARANG_CITI = 252;
-    const BLOCK_CODE_COUNT = 263;
+    const BLOCK_CODE_COUNT = 309;
     const BLOCK_CODE_INVALID_CODE = -1;
     const BPT_NONE = 0;
     const BPT_OPEN = 1;
@@ -567,7 +567,7 @@ class IntlChar {
     const JG_MANICHAEAN_YODH = 83;
     const JG_MANICHAEAN_ZAYIN = 84;
     const JG_STRAIGHT_WAW = 85;
-    const JG_COUNT = 86;
+    const JG_COUNT = 102;
     const GCB_OTHER = 0;
     const GCB_CONTROL = 1;
     const GCB_CR = 2;
@@ -581,7 +581,7 @@ class IntlChar {
     const GCB_SPACING_MARK = 10;
     const GCB_PREPEND = 11;
     const GCB_REGIONAL_INDICATOR = 12;
-    const GCB_COUNT = 13;
+    const GCB_COUNT = 18;
     const WB_OTHER = 0;
     const WB_ALETTER = 1;
     const WB_FORMAT = 2;
@@ -599,7 +599,7 @@ class IntlChar {
     const WB_HEBREW_LETTER = 14;
     const WB_SINGLE_QUOTE = 15;
     const WB_DOUBLE_QUOTE = 16;
-    const WB_COUNT = 17;
+    const WB_COUNT = 23;
     const SB_OTHER = 0;
     const SB_ATERM = 1;
     const SB_CLOSE = 2;
@@ -657,7 +657,7 @@ class IntlChar {
     const LB_CONDITIONAL_JAPANESE_STARTER = 37;
     const LB_HEBREW_LETTER = 38;
     const LB_REGIONAL_INDICATOR = 39;
-    const LB_COUNT = 40;
+    const LB_COUNT = 43;
     const NT_NONE = 0;
     const NT_DECIMAL = 1;
     const NT_DIGIT = 2;
@@ -670,6 +670,7 @@ class IntlChar {
     const HST_LV_SYLLABLE = 4;
     const HST_LVT_SYLLABLE = 5;
     const HST_COUNT = 6;
+    const NO_NUMERIC_VALUE = -123456789;
 
     /**
      * Check a binary Unicode property for a code point
@@ -744,8 +745,8 @@ class IntlChar {
     /**
      * @link https://php.net/manual/en/intlchar.charfromname.php
      * Find Unicode character by name and return its code point value
-     * @param string $characterName <p>Full name of the Unicode character.</p>
-     * @param int $nameChoice [optional] <p>
+     * @param string $name <p>Full name of the Unicode character.</p>
+     * @param int $type [optional] <p>
      * Which set of names to use for the lookup. Can be any of these constants:
      * </p><ul>
      * <li><b> IntlChar::UNICODE_CHAR_NAME </b> (default)</li>
@@ -757,7 +758,7 @@ class IntlChar {
      * @return int|null The Unicode value of the code point with the given name (as an integer), or NULL if there is no such code point.
      * @since 7.0
      */
-    public static function charFromName($characterName, $nameChoice = IntlChar::UNICODE_CHAR_NAME) {}
+    public static function charFromName($name, $type = IntlChar::UNICODE_CHAR_NAME) {}
 
     /**
      * @link https://php.net/manual/en/intlchar.charmirror.php
@@ -773,7 +774,7 @@ class IntlChar {
      * Retrieve the name of a Unicode character
      * @link https://php.net/manual/en/intlchar.charname.php
      * @param int|string $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
-     * @param int $nameChoice [optional] Which set of names to use for the lookup. Can be any of these constants:
+     * @param int $type [optional] Which set of names to use for the lookup. Can be any of these constants:
      * <ul>
      * <li><b> IntlChar::UNICODE_CHAR_NAME </b> (default)</li>
      * <li><b> IntlChar::UNICODE_10_CHAR_NAME </b></li>
@@ -784,7 +785,7 @@ class IntlChar {
      * @return string|null The corresponding name, or an empty string if there is no name for this character, or NULL if <em>codepoint</em> is out of bounds.
      * @since 7.0
      */
-    public static function charName($codepoint, $nameChoice = IntlChar::UNICODE_CHAR_NAME) {}
+    public static function charName($codepoint, $type = IntlChar::UNICODE_CHAR_NAME) {}
 
     /**
      * Get the general category value for a code point
@@ -848,19 +849,19 @@ class IntlChar {
      * Get the decimal digit value of a code point for a given radix
      * @link https://php.net/manual/en/intlchar.digit.php
      * @param int|string $codepoint <p>The integer codepoint value (e.g. <em>0x2603</em> for <em>U+2603 SNOWMAN</em>), or the character encoded as a UTF-8 string (e.g. <em>"\u{2603}"</em>)</p>
-     * @param int $radix <p>The radix (defaults to 10).</p>
+     * @param int $base <p>The radix (defaults to 10).</p>
      * @return int|false|null Returns the numeric value represented by the character in the specified radix,
      * or <b>FALSE</b> if there is no value or if the value exceeds the radix,
      * or <b>NULL</b> if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function digit ($codepoint, $radix = 10 ) {}
+    public static function digit ($codepoint, $base = 10 ) {}
 
     /**
      * Enumerate all assigned Unicode characters within a range
      * @link https://php.net/manual/en/intlchar.enumcharnames.php
      * @param int|string $start The first code point in the enumeration range.
-     * @param int|string $limit One more than the last code point in the enumeration range (the first one after the range).
+     * @param int|string $end One more than the last code point in the enumeration range (the first one after the range).
      * @param callable $callback<p>
      * The function that is to be called for each character name.  The following three arguments will be passed into it:
      * </p><ul>
@@ -868,7 +869,7 @@ class IntlChar {
      * <li>integer <em>$nameChoice</em> - The same value as the <b>nameChoice</b> parameter below</li>
      * <li>string <em>$name</em> - The name of the character</li>
      * </ul>
-     * @param int $nameChoice [optional]  <p>
+     * @param int $type [optional]  <p>
      * Selector for which kind of names to enumerate.  Can be any of these constants:
      * </p><ul>
      * <li><b>IntlChar::UNICODE_CHAR_NAME</b> (default)</li>
@@ -879,12 +880,12 @@ class IntlChar {
      * </ul>
      * @since 7.0
      */
-    public static function enumCharNames ($start, $limit, $callback, $nameChoice = IntlChar::UNICODE_CHAR_NAME) {}
+    public static function enumCharNames ($start, $end, $callback, $type = IntlChar::UNICODE_CHAR_NAME) {}
 
     /**
      * Enumerate all code points with their Unicode general categories
      * @link https://php.net/manual/en/intlchar.enumchartypes.php
-     * @param callable $callable <p>
+     * @param callable $callback <p>
      * The function that is to be called for each contiguous range of code points with the same general category.
      * The following three arguments will be passed into it:
      * </p><ul>
@@ -894,7 +895,7 @@ class IntlChar {
      * </ul>
      * @since 7.0
      */
-    public static function enumCharTypes ($callable) {}
+    public static function enumCharTypes ($callback) {}
 
     /**
      * Perform case folding on a code point
@@ -911,11 +912,11 @@ class IntlChar {
      * Get character representation for a given digit and radix
      * @link https://php.net/manual/en/intlchar.fordigit.php
      * @param int $digit <p>The number to convert to a character.</p>
-     * @param int $radix [optional] <p>The radix (defaults to 10).</p>
+     * @param int $base [optional] <p>The radix (defaults to 10).</p>
      * @return int The character representation (as a string) of the specified digit in the specified radix.
      * @since 7.0
      */
-    public static function forDigit ($digit, $radix = 10) {}
+    public static function forDigit ($digit, $base = 10) {}
 
     /**
      * Get the paired bracket character for a code point
@@ -1026,7 +1027,7 @@ class IntlChar {
      * @link https://php.net/manual/en/intlchar.getpropertyname.php
      * @param int $property <p>The Unicode property to lookup (see the IntlChar::PROPERTY_* constants).</p>
      * <p><b>IntlChar::PROPERTY_INVALID_CODE</b> should not be used. Also, if property is out of range, FALSE is returned.</p>
-     * @param int $nameChoice <p> Selector for which name to get. If out of range, FALSE is returned.</p>
+     * @param int $type <p> Selector for which name to get. If out of range, FALSE is returned.</p>
      * <p>All properties have a long name. Most have a short name, but some do not. Unicode allows for additional names; if present these will be returned by adding 1, 2, etc. to <b>IntlChar::LONG_PROPERTY_NAME</b>.</p>
      * @return string|false <p>
      * Returns the name, or <b>FALSE</b> if either the <em>property</em> or the <em>nameChoice</em>
@@ -1040,7 +1041,7 @@ class IntlChar {
      * </p>
      * @since 7.0
      */
-    public static function getPropertyName ($property, $nameChoice = IntlChar::LONG_PROPERTY_NAME) {}
+    public static function getPropertyName ($property, $type = IntlChar::LONG_PROPERTY_NAME) {}
 
     /**
      * Get the property value for a given value name
@@ -1073,7 +1074,7 @@ class IntlChar {
      * <b>IntlChar::PROPERTY_CANONICAL_COMBINING_CLASS</b> values are not contiguous and range from 0..240.
      * </li>
      * </ul>
-     * @param int $nameChoice [optional] <p>
+     * @param int $type [optional] <p>
      * Selector for which name to get. If out of range, FALSE is returned.
      * All values have a long name. Most have a short name, but some do not. Unicode allows for additional names; if present these will be returned by adding 1, 2, etc. to IntlChar::LONG_PROPERTY_NAME.
      * </p>
@@ -1081,7 +1082,7 @@ class IntlChar {
      * If a given nameChoice returns FALSE, then all larger values of nameChoice will return FALSE, with one exception: if FALSE is returned for IntlChar::SHORT_PROPERTY_NAME, then IntlChar::LONG_PROPERTY_NAME (and higher) may still return a non-FALSE value.
      * @since 7.0
      */
-    public static function getPropertyValueName ($property, $value, $nameChoice = IntlChar::LONG_PROPERTY_NAME) {}
+    public static function getPropertyValueName ($property, $value, $type = IntlChar::LONG_PROPERTY_NAME) {}
 
     /**
      * Get the Unicode version
