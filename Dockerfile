@@ -7,7 +7,7 @@ RUN set -eux; \
     gcc g++ make autoconf pkgconfig git \
     bzip2-dev gettext-dev libxml2-dev php8-dev php8-gd icu-dev php8-intl libffi-dev openssl-dev php8-pear php7-pecl-amqp  rabbitmq-c rabbitmq-c-dev \
     librrd rrdtool-dev yaml yaml-dev fann fann-dev openldap-dev librdkafka librdkafka-dev libcurl curl-dev gpgme gpgme-dev
-RUN docker-php-ext-install intl gd ldap bz2 mysqli bcmath calendar dba exif gettext opcache pcntl pdo_mysql shmop sysvmsg \
+RUN docker-php-ext-install sockets intl gd ldap bz2 mysqli bcmath calendar dba exif gettext opcache pcntl pdo_mysql shmop sysvmsg \
     sysvsem sysvshm xml soap
 
 #TODO: Uncomment below after php 8 released
