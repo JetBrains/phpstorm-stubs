@@ -2344,6 +2344,17 @@
           ]
         }
       ]
+    },
+    {
+      "name": "IntlCalendar",
+      "methods": [
+        {
+          "name": "set",
+          "problems": [
+            "has duplicate in stubs"
+          ]
+        }
+      ]
     }
   ],
   "interfaces": [

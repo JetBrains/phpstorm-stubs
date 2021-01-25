@@ -88,6 +88,7 @@ class PHPMethod extends PHPFunction
                             'deprecated method' => StubProblemType::FUNCTION_IS_DEPRECATED,
                             'absent in meta' => StubProblemType::ABSENT_IN_META,
                             'wrong access' => StubProblemType::FUNCTION_ACCESS,
+                            'has duplicate in stubs' => StubProblemType::HAS_DUPLICATION,
                             'has nullable typehint' => StubProblemType::HAS_NULLABLE_TYPEHINT,
                             'has union typehint' => StubProblemType::HAS_UNION_TYPEHINT,
                             'has type mismatch in signature and phpdoc' => StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE,
