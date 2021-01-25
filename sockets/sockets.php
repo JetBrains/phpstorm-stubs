@@ -15,67 +15,67 @@
  * @param array $hints [optional] <p>
  * Hints provide criteria for selecting addresses returned. You may specify the hints as defined by getadrinfo.
  * </p>
- * @return AddressInfo[] of AddrInfo resource handles that can be used with the other socket_addrinfo functions.
+ * @return AddressInfo[]|false of AddrInfo resource handles that can be used with the other socket_addrinfo functions.
  * @since 7.2
  */
-function socket_addrinfo_lookup($host, $service, $hints) {}
+function socket_addrinfo_lookup(string $host, ?string $service, array $hints): array|false {}
 
 /**
  * Create a Socket resource, and connect it to the provided AddrInfo resource.<br/>
  * The return value of this function may be used with the rest of the socket functions.
  * @link https://www.php.net/manual/en/function.socket-addrinfo-connect.php
- * @param resource|AddressInfo $addr <p>
+ * @param resource|AddressInfo $address <p>
  * Resource created from {@see socket_addrinfo_lookup()}
  * </p>
- * @return resource|Socket|null Socket resource on success or NULL on failure.
+ * @return resource|Socket|null|false Socket resource on success or NULL on failure.
  * @since 7.2
  */
-function socket_addrinfo_connect($addr) {}
+function socket_addrinfo_connect(AddressInfo $address): Socket|false {}
 
 /**
  * (PHP 7 &gt;= 7.2.0)<br/>
  * Create a Socket resource, and bind it to the provided AddrInfo resource.<br/>
  * The return value of this function may be used with {@see socket_listen()}.
  * @link https://www.php.net/manual/en/function.socket-addrinfo-bind.php
- * @param resource|AddressInfo $addr <p>
+ * @param resource|AddressInfo $address <p>
  * Resource created from {@see socket_addrinfo_lookup()}
  * </p>
- * @return resource|Socket|null Socket resource on success or NULL on failure.
+ * @return resource|Socket|null|false Socket resource on success or NULL on failure.
  * @since 7.2
  */
-function socket_addrinfo_bind($addr) {}
+function socket_addrinfo_bind(AddressInfo $address): Socket|false {}
 
 /**
  * (PHP 7 &gt;= 7.2.0)<br/>
  * Get information about addrinfo
  * @link https://www.php.net/manual/en/function.socket-addrinfo-explain.php
- * @param resource|AddressInfo $addr <p>
+ * @param resource|AddressInfo $address <p>
  * Resource created from {@see socket_addrinfo_lookup()}
  * </p>
  * @return array containing the fields in the addrinfo structure.
  * @since 7.2
  */
-function socket_addrinfo_explain($addr) {}
+function socket_addrinfo_explain(AddressInfo $address): array {}
 
 /**
  * Runs the select() system call on the given arrays of sockets with a specified timeout
  * @link https://php.net/manual/en/function.socket-select.php
- * @param array &$read <p>
+ * @param array|null &$read <p>
  * The sockets listed in the <i>read</i> array will be
  * watched to see if characters become available for reading (more
  * precisely, to see if a read will not block - in particular, a socket
  * resource is also ready on end-of-file, in which case a
  * <b>socket_read</b> will return a zero length string).
  * </p>
- * @param array &$write <p>
+ * @param array|null &$write <p>
  * The sockets listed in the <i>write</i> array will be
  * watched to see if a write will not block.
  * </p>
- * @param array &$except <p>
+ * @param array|null &$except <p>
  * The sockets listed in the <i>except</i> array will be
  * watched for exceptions.
  * </p>
- * @param int $tv_sec <p>
+ * @param int|null $seconds <p>
  * The <i>tv_sec</i> and <i>tv_usec</i>
  * together form the timeout parameter. The
  * timeout is an upper bound on the amount of time
@@ -85,7 +85,7 @@ function socket_addrinfo_explain($addr) {}
  * for polling. If <i>tv_sec</i> is <b>NULL</b> (no timeout),
  * <b>socket_select</b> can block indefinitely.
  * </p>
- * @param int $tv_usec [optional]
+ * @param int $microseconds [optional]
  * @return int|false On success <b>socket_select</b> returns the number of
  * socket resources contained in the modified arrays, which may be zero if
  * the timeout expires before anything interesting happens. On error <b>FALSE</b>
@@ -105,7 +105,7 @@ function socket_addrinfo_explain($addr) {}
  * }
  * </code>
  */
-function socket_select (array &$read, array &$write, array &$except, $tv_sec, $tv_usec = 0) {}
+function socket_select (?array &$read, ?array &$write, ?array &$except, ?int $seconds, int $microseconds = 0): int|false {}
 
 /**
  * Create a socket (endpoint for communication)
@@ -243,13 +243,13 @@ function socket_select (array &$read, array &$write, array &$except, $tv_sec, $t
  * <b>socket_strerror</b> to get a textual explanation of the
  * error.
  */
-function socket_create ($domain, $type, $protocol) {}
+function socket_create (int $domain, int $type, int $protocol): Socket|false {}
 
 /**
  * @param resource|Socket $socket
  * @return resource|Socket|false
  */
-function socket_export_stream($socket) {}
+function socket_export_stream(Socket $socket) {}
 
 /**
  * Opens a socket on port to accept connections
@@ -270,7 +270,7 @@ function socket_export_stream($socket) {}
  * <b>socket_strerror</b> to get a textual explanation of the
  * error.
  */
-function socket_create_listen ($port, $backlog = 128) {}
+function socket_create_listen (int $port, int $backlog = 128): Socket|false {}
 
 /**
  * Creates a pair of indistinguishable sockets and stores them in an array
@@ -298,12 +298,12 @@ function socket_create_listen ($port, $backlog = 128) {}
  * See <b>socket_create</b> for the full list of supported
  * protocols.
  * </p>
- * @param array &$fd <p>
+ * @param array &$pair <p>
  * Reference to an array in which the two socket resources will be inserted.
  * </p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return bool|null <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function socket_create_pair ($domain, $type, $protocol, array &$fd) {}
+function socket_create_pair (int $domain, int $type, int $protocol, &$pair): ?bool {}
 
 /**
  * Accepts a connection on a socket
@@ -317,7 +317,7 @@ function socket_create_pair ($domain, $type, $protocol, array &$fd) {}
  * <b>socket_strerror</b> to get a textual explanation of the
  * error.
  */
-function socket_accept ($socket) {}
+function socket_accept (Socket $socket): Socket|false {}
 
 /**
  * Sets nonblocking mode for file descriptor fd
@@ -328,7 +328,7 @@ function socket_accept ($socket) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function socket_set_nonblock ($socket) {}
+function socket_set_nonblock (Socket $socket):bool {}
 
 /**
  * Sets blocking mode on a socket resource
@@ -339,7 +339,7 @@ function socket_set_nonblock ($socket) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function socket_set_block ($socket) {}
+function socket_set_block (Socket $socket): bool {}
 
 /**
  * Listens for a connection on a socket
@@ -368,7 +368,7 @@ function socket_set_block ($socket) {}
  * <b>socket_strerror</b> to get a textual explanation of the
  * error.
  */
-function socket_listen ($socket, $backlog = 0) {}
+function socket_listen (Socket $socket, int $backlog = 0): bool {}
 
 /**
  * Closes a socket resource
@@ -379,16 +379,16 @@ function socket_listen ($socket, $backlog = 0) {}
  * </p>
  * @return void No value is returned.
  */
-function socket_close ($socket) {}
+function socket_close (Socket $socket): void {}
 
 /**
  * Write to a socket
  * @link https://php.net/manual/en/function.socket-write.php
  * @param resource|Socket $socket
- * @param string $buffer <p>
+ * @param string $data <p>
  * The buffer to be written.
  * </p>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * The optional parameter <i>length</i> can specify an
  * alternate length of bytes written to the socket. If this length is
  * greater than the buffer length, it is silently truncated to the length
@@ -406,7 +406,7 @@ function socket_close ($socket) {}
  * === operator to check for <b>FALSE</b> in case of an
  * error.
  */
-function socket_write ($socket, $buffer, $length = 0) {}
+function socket_write (Socket $socket, string $data, ?int $length = 0): int|false {}
 
 /**
  * Reads a maximum of length bytes from a socket
@@ -422,7 +422,7 @@ function socket_write ($socket, $buffer, $length = 0) {}
  * or <b>&#92;0</b> to end reading (depending on the <i>type</i>
  * parameter, see below).
  * </p>
- * @param int $type [optional] <p>
+ * @param int $mode [optional] <p>
  * Optional <i>type</i> parameter is a named constant:
  * <b>PHP_BINARY_READ</b> (Default) - use the system
  * recv() function. Safe for reading binary data.
@@ -437,7 +437,7 @@ function socket_write ($socket, $buffer, $length = 0) {}
  * <b>socket_read</b> returns a zero length string ("")
  * when there is no more data to read.</p>
  */
-function socket_read ($socket, $length, $type = PHP_BINARY_READ) {}
+function socket_read (Socket $socket, int $length, int $mode = PHP_BINARY_READ): string|false {}
 
 /**
  * Queries the local side of the given socket which may either result in host/port or in a Unix filesystem path, dependent on its type
@@ -446,7 +446,7 @@ function socket_read ($socket, $length, $type = PHP_BINARY_READ) {}
  * A valid socket resource created with <b>socket_create</b>
  * or <b>socket_accept</b>.
  * </p>
- * @param string &$addr <p>
+ * @param string &$address <p>
  * If the given socket is of type <b>AF_INET</b>
  * or <b>AF_INET6</b>, <b>socket_getsockname</b>
  * will return the local IP address in appropriate notation (e.g.
@@ -468,7 +468,7 @@ function socket_read ($socket, $length, $type = PHP_BINARY_READ) {}
  * <b>AF_INET6</b>, or <b>AF_UNIX</b>, in which
  * case the last socket error code is not updated.
  */
-function socket_getsockname ($socket, &$addr, &$port = null) {}
+function socket_getsockname (Socket $socket, &$address, &$port = null): bool {}
 
 /**
  * Queries the remote side of the given socket which may either result in host/port or in a Unix filesystem path, dependent on its type
@@ -501,7 +501,7 @@ function socket_getsockname ($socket, &$addr, &$port = null) {}
  * <b>AF_INET6</b>, or <b>AF_UNIX</b>, in which
  * case the last socket error code is not updated.
  */
-function socket_getpeername ($socket, &$address, &$port = null) {}
+function socket_getpeername (Socket $socket, &$address, &$port = null): bool {}
 
 /**
  * Initiates a connection on a socket
@@ -516,7 +516,7 @@ function socket_getpeername ($socket, &$address, &$port = null) {}
  * or the pathname of a Unix domain socket, if the socket family is
  * <b>AF_UNIX</b>.
  * </p>
- * @param int $port [optional] <p>
+ * @param int|null $port [optional] <p>
  * The <i>port</i> parameter is only used and is mandatory
  * when connecting to an <b>AF_INET</b> or an
  * <b>AF_INET6</b> socket, and designates
@@ -531,19 +531,19 @@ function socket_getpeername ($socket, &$address, &$port = null) {}
  * If the socket is non-blocking then this function returns <b>FALSE</b> with an
  * error Operation now in progress.
  */
-function socket_connect ($socket, $address, $port = 0) {}
+function socket_connect (Socket $socket, string $address, ?int $port = 0): bool {}
 
 /**
  * Return a string describing a socket error
  * @link https://php.net/manual/en/function.socket-strerror.php
- * @param int $errno <p>
+ * @param int $error_code <p>
  * A valid socket error number, likely produced by
  * <b>socket_last_error</b>.
  * </p>
  * @return string the error message associated with the <i>errno</i>
  * parameter.
  */
-function socket_strerror ($errno) {}
+function socket_strerror (int $error_code): string {}
 
 /**
  * Binds a name to a socket
@@ -573,7 +573,7 @@ function socket_strerror ($errno) {}
  * textual explanation of the error.
  * </p>
  */
-function socket_bind ($socket, $address, $port = 0) {}
+function socket_bind (Socket $socket, string $address, int $port = 0): bool {}
 
 /**
  * Receives data from a connected socket
@@ -582,13 +582,13 @@ function socket_bind ($socket, $address, $port = 0) {}
  * The <i>socket</i> must be a socket resource previously
  * created by socket_create().
  * </p>
- * @param string &$buf <p>
+ * @param string &$data <p>
  * The data received will be fetched to the variable specified with
  * <i>buf</i>. If an error occurs, if the
  * connection is reset, or if no data is
  * available, <i>buf</i> will be set to <b>NULL</b>.
  * </p>
- * @param int $len <p>
+ * @param int $length <p>
  * Up to <i>len</i> bytes will be fetched from remote host.
  * </p>
  * @param int $flags <p>
@@ -637,7 +637,7 @@ function socket_bind ($socket, $address, $port = 0) {}
  * passed to <b>socket_strerror</b> to get a textual explanation
  * of the error.
  */
-function socket_recv ($socket, &$buf, $len, $flags) {}
+function socket_recv (Socket $socket, &$data, int $length, int $flags): int|false {}
 
 /**
  * Sends data to a connected socket
@@ -646,10 +646,10 @@ function socket_recv ($socket, &$buf, $len, $flags) {}
  * A valid socket resource created with <b>socket_create</b>
  * or <b>socket_accept</b>.
  * </p>
- * @param string $buf <p>
+ * @param string $data <p>
  * A buffer containing the data that will be sent to the remote host.
  * </p>
- * @param int $len <p>
+ * @param int $length <p>
  * The number of bytes that will be sent to the remote host from
  * <i>buf</i>.
  * </p>
@@ -689,7 +689,7 @@ function socket_recv ($socket, &$buf, $len, $flags) {}
  * </p>
  * @return int|false <b>socket_send</b> returns the number of bytes sent, or <b>FALSE</b> on error.
  */
-function socket_send ($socket, $buf, $len, $flags) {}
+function socket_send (Socket $socket, string $data, int $length, int $flags): int|false {}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
@@ -701,7 +701,7 @@ function socket_send ($socket, $buf, $len, $flags) {}
  * @return int|false
  * @since 5.5
  */
-function socket_sendmsg ($socket, array $message, $flags ) {}
+function socket_sendmsg (Socket $socket, array $message, int $flags ): int|false {}
 
 /**
  * Receives data from a socket whether or not it is connection-oriented
@@ -710,11 +710,11 @@ function socket_sendmsg ($socket, array $message, $flags ) {}
  * The <i>socket</i> must be a socket resource previously
  * created by socket_create().
  * </p>
- * @param string &$buf <p>
+ * @param string &$data <p>
  * The data received will be fetched to the variable specified with
  * <i>buf</i>.
  * </p>
- * @param int $len <p>
+ * @param int $length <p>
  * Up to <i>len</i> bytes will be fetched from remote host.
  * </p>
  * @param int $flags <p>
@@ -757,7 +757,7 @@ function socket_sendmsg ($socket, array $message, $flags ) {}
  * </td>
  * </tr>
  * </table>
- * @param string &$name <p>
+ * @param string &$address <p>
  * If the socket is of the type <b>AF_UNIX</b> type,
  * <i>name</i> is the path to the file. Else, for
  * unconnected sockets, <i>name</i> is the IP address of,
@@ -775,18 +775,18 @@ function socket_sendmsg ($socket, array $message, $flags ) {}
  * passed to <b>socket_strerror</b> to get a textual explanation
  * of the error.
  */
-function socket_recvfrom ($socket, &$buf, $len, $flags, &$name, &$port = null) {}
+function socket_recvfrom (Socket $socket, &$data, int $length, int $flags, &$address, &$port = null): int|false {}
 
 /**
  * Read a message
  * @link https://secure.php.net/manual/en/function.socket-recvmsg.php
  * @param resource|Socket $socket
- * @param array $message
+ * @param array &$message
  * @param int $flags [optional]
  * @return int|false
  * @since 5.5
  */
-function socket_recvmsg ($socket , $message, $flags) {}
+function socket_recvmsg (Socket $socket , array &$message, int $flags): int|false {}
 
 /**
  * Sends a message to a socket, whether it is connected or not
@@ -794,10 +794,10 @@ function socket_recvmsg ($socket , $message, $flags) {}
  * @param resource|Socket $socket <p>
  * A valid socket resource created using <b>socket_create</b>.
  * </p>
- * @param string $buf <p>
+ * @param string $data <p>
  * The sent data will be taken from buffer <i>buf</i>.
  * </p>
- * @param int $len <p>
+ * @param int $length <p>
  * <i>len</i> bytes from <i>buf</i> will be
  * sent.
  * </p>
@@ -835,17 +835,17 @@ function socket_recvmsg ($socket , $message, $flags) {}
  * </tr>
  * </table>
  * </p>
- * @param string $addr <p>
+ * @param string $address <p>
  * IP address of the remote host.
  * </p>
- * @param int $port [optional] <p>
+ * @param int|null $port [optional] <p>
  * <i>port</i> is the remote port number at which the data
  * will be sent.
  * </p>
  * @return int|false <b>socket_sendto</b> returns the number of bytes sent to the
  * remote host, or <b>FALSE</b> if an error occurred.
  */
-function socket_sendto ($socket, $buf, $len, $flags, $addr, $port = 0) {}
+function socket_sendto (Socket $socket, string $data, int $length, int $flags, string $address, ?int $port = 0): int|false {}
 
 /**
  * Gets socket options for the socket
@@ -863,7 +863,7 @@ function socket_sendto ($socket, $buf, $len, $flags, $addr, $port = 0) {}
  * specifying the protocol number of that level. Protocol numbers can be
  * found by using the <b>getprotobyname</b> function.
  * </p>
- * @param int $optname <table>
+ * @param int $option <table>
  * Available Socket Options
  * <tr valign="top">
  * <td>Option</td>
@@ -1209,9 +1209,9 @@ function socket_sendto ($socket, $buf, $len, $flags, $addr, $port = 0) {}
  * </td>
  * </tr>
  * </table>
- * @return mixed|false the value of the given option, or <b>FALSE</b> on errors.
+ * @return array|int|false the value of the given option, or <b>FALSE</b> on errors.
  */
-function socket_get_option ($socket, $level, $optname) {}
+function socket_get_option (Socket $socket, int $level, int $option): array|int|false {}
 
 /**
  * Sets socket options for the socket
@@ -1229,16 +1229,16 @@ function socket_get_option ($socket, $level, $optname) {}
  * Protocol numbers can be found by using the
  * <b>getprotobyname</b> function.
  * </p>
- * @param int $optname <p>
+ * @param int $option <p>
  * The available socket options are the same as those for the
  * <b>socket_get_option</b> function.
  * </p>
- * @param mixed $optval <p>
+ * @param mixed $value <p>
  * The option value.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function socket_set_option ($socket, $level, $optname, $optval) {}
+function socket_set_option (Socket $socket, int $level, int $option, $value): bool {}
 
 /**
  * Shuts down a socket for receiving, sending, or both
@@ -1246,7 +1246,7 @@ function socket_set_option ($socket, $level, $optname, $optval) {}
  * @param resource|Socket $socket <p>
  * A valid socket resource created with <b>socket_create</b>.
  * </p>
- * @param int $how [optional] <p>
+ * @param int $mode [optional] <p>
  * The value of <i>how</i> can be one of the following:
  * <table>
  * possible values for <i>how</i>
@@ -1272,7 +1272,7 @@ function socket_set_option ($socket, $level, $optname, $optval) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function socket_shutdown ($socket, $how = 2) {}
+function socket_shutdown (Socket $socket, int $mode = 2): bool {}
 
 /**
  * Returns the last error on the socket
@@ -1282,17 +1282,17 @@ function socket_shutdown ($socket, $how = 2) {}
  * </p>
  * @return int This function returns a socket error code.
  */
-function socket_last_error ($socket = null) {}
+function socket_last_error (?Socket $socket = null): int {}
 
 /**
  * Clears the error on the socket or the last error code
  * @link https://php.net/manual/en/function.socket-clear-error.php
- * @param resource|Socket $socket [optional] <p>
+ * @param resource|Socket|null $socket [optional] <p>
  * A valid socket resource created with <b>socket_create</b>.
  * </p>
  * @return void No value is returned.
  */
-function socket_clear_error ($socket = null) {}
+function socket_clear_error (?Socket $socket = null): void {}
 
 /**
  * Import a stream
@@ -1303,7 +1303,7 @@ function socket_clear_error ($socket = null) {}
  * @return resource|Socket|false|null <b>FALSE</b> or <b>NULL</b> on failure.
  * @since 5.4
  */
-function socket_import_stream ($stream) {}
+function socket_import_stream ($stream): Socket|false {}
 
 /**
  * Calculate message buffer size
@@ -1311,27 +1311,28 @@ function socket_import_stream ($stream) {}
  * @param int $level
  * @param int $type
  * @param int $n [optional]
- * @return int
+ * @return int|null
  * @since 5.5
  */
-function socket_cmsg_space ($level, $type, $n = 0) {}
+function socket_cmsg_space ($level, $type, $n = 0): ?int {}
 
 /**
  * Alias of {@see socket_get_option}
- * @param $socket
- * @param $level
- * @param $optname
+ * @param Socket $socket
+ * @param int $level
+ * @param int $option
  */
-function socket_getopt ($socket, $level, $optname) {}
+function socket_getopt (Socket $socket, int $level, int $option): array|int|false {}
 
 /**
  * Alias of {@see socket_set_option}
- * @param $socket
- * @param $level
- * @param $optname
- * @param $optval
+ * @param Socket $socket
+ * @param int $level
+ * @param int $option
+ * @param $value
+ * @return bool
  */
-function socket_setopt ($socket, $level, $optname, $optval) {}
+function socket_setopt (Socket $socket, int $level, int $option, $value): bool {}
 
 /**
  * Exports the WSAPROTOCOL_INFO Structure
@@ -2154,8 +2155,10 @@ define ('SOCKET_NO_ADDRESS', 11004);
 define ('AI_PASSIVE', 1);
 define ('AI_CANONNAME', 2);
 define ('AI_NUMERICHOST', 4);
-define ('AI_ADDRCONFIG', 1024);
-define ('AI_NUMERICSERV', 8);
+define ('AI_ADDRCONFIG', 32);
+define ('AI_NUMERICSERV', 1024);
+define ('AI_V4MAPPED', 8);
+define ('AI_ALL', 16);
 
 /**
  * @since 8.0
