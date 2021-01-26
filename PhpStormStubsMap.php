@@ -375,6 +375,7 @@ const CLASSES = array (
   'ImagickDrawException' => 'imagick/imagick.php',
   'ImagickException' => 'imagick/imagick.php',
   'ImagickKernel' => 'imagick/imagick.php',
+  'ImagickKernelException' => 'imagick/imagick.php',
   'ImagickPixel' => 'imagick/imagick.php',
   'ImagickPixelException' => 'imagick/imagick.php',
   'ImagickPixelIterator' => 'imagick/imagick.php',
