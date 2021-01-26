@@ -2074,7 +2074,7 @@ class ResourceBundle implements IteratorAggregate, Countable {
      * returned as <b>ResourceBundle</b> object.
      */
     #[Pure]
-    public function get($index, $fallback) { }
+    public function get($index, $fallback = true) { }
 
     /**
      * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
