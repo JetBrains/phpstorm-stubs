@@ -702,6 +702,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.getimagematte.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
+	#[Deprecated]
 	#[Pure]
 	public function getImageMatte () {}
 
@@ -1112,6 +1113,7 @@ class Imagick implements Iterator, Countable {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
 	 */
+	#[Deprecated]
 	public function paintFloodfillImage ($fill, $fuzz, $bordercolor, $x, $y, $channel = Imagick::CHANNEL_ALL) {}
 
 	/**
@@ -1250,6 +1252,7 @@ class Imagick implements Iterator, Countable {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
 	 */
+	#[Deprecated]
 	public function recolorImage (array $matrix) {}
 
 	/**
@@ -2103,6 +2106,7 @@ class Imagick implements Iterator, Countable {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
 	 */
+	#[Deprecated]
 	public function setImageIndex ($index) {}
 
 	/**
@@ -2111,6 +2115,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.getimageindex.php
 	 * @return int an integer containing the index of the image in the stack.
 	 */
+	#[Deprecated]
 	#[Pure]
 	public function getImageIndex () {}
 
@@ -2526,8 +2531,9 @@ class Imagick implements Iterator, Countable {
 	/**
 	 * @param string $key
 	 * @param string $value
-     * @return bool
+	 * @return bool
 	 */
+	#[Deprecated]
 	public function setImageAttribute ($key, $value) {}
 
 	/**
@@ -2889,6 +2895,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.mosaicimages.php
 	 * @return Imagick <b>TRUE</b> on success.
 	 */
+	#[Deprecated]
 	public function mosaicImages () {}
 
 	/**
@@ -2929,6 +2936,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.averageimages.php
 	 * @return Imagick a new Imagick object on success.
 	 */
+	#[Deprecated]
 	public function averageImages () {}
 
 	/**
@@ -3028,6 +3036,7 @@ class Imagick implements Iterator, Countable {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
 	 */
+	#[Deprecated]
 	public function colorFloodfillImage ($fill, $fuzz, $bordercolor, $x, $y) {}
 
 	/**
@@ -3227,6 +3236,7 @@ class Imagick implements Iterator, Countable {
 	 * @throws ImagickException Throws ImagickException on error.
 	 * @since 2.0.0
 	 */
+	#[Deprecated]
 	public function flattenImages () {}
 
 	/**
@@ -3327,6 +3337,7 @@ class Imagick implements Iterator, Countable {
 	 * @param string $key <p>The key of the attribute to get.</p>
      * @return string
 	 */
+	#[Deprecated]
 	#[Pure]
 	public function getImageAttribute ($key) {}
 
@@ -3410,6 +3421,7 @@ class Imagick implements Iterator, Countable {
         "minima" => "int",
         "maxima" => "int"
     ])]
+	#[Deprecated]
 	#[Pure]
 	public function getImageChannelExtrema ($channel) {}
 
@@ -3515,6 +3527,7 @@ class Imagick implements Iterator, Countable {
         "min" => "int",
         "max" => "int"
     ])]
+	#[Deprecated]
 	#[Pure]
 	public function getImageExtrema () {}
 
@@ -3576,6 +3589,7 @@ class Imagick implements Iterator, Countable {
 	 * Trhow an <b>ImagickException</b> on error.
 	 * @throws ImagickException on error
 	 */
+	#[Deprecated]
 	#[Pure]
 	public function getImageInterlaceScheme () {}
 
@@ -3857,6 +3871,7 @@ class Imagick implements Iterator, Countable {
 	 * @param bool $dither
 	 * @return bool <b>TRUE</b> on success.
 	 */
+	#[Deprecated]
 	public function mapImage (Imagick $map, $dither) {}
 
 	/**
@@ -3882,6 +3897,7 @@ class Imagick implements Iterator, Countable {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
 	 */
+	#[Deprecated]
 	public function matteFloodfillImage ($alpha, $fuzz, $bordercolor, $x, $y) {}
 
 	/**
@@ -3893,6 +3909,7 @@ class Imagick implements Iterator, Countable {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
 	 */
+	#[Deprecated]
 	public function medianFilterImage ($radius) {}
 
 	/**
@@ -3935,6 +3952,7 @@ class Imagick implements Iterator, Countable {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
 	 */
+	#[Deprecated]
 	public function paintOpaqueImage ($target, $fill, $fuzz, $channel = Imagick::CHANNEL_ALL) {}
 
 	/**
@@ -3954,6 +3972,7 @@ class Imagick implements Iterator, Countable {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
 	 */
+	#[Deprecated]
 	public function paintTransparentImage ($target, $alpha, $fuzz) {}
 
 	/**
@@ -4010,6 +4029,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $radius
 	 * @return bool <b>TRUE</b> on success.
 	 */
+	#[Deprecated]
 	public function reduceNoiseImage ($radius) {}
 
 	/**
@@ -5030,6 +5050,7 @@ class ImagickDraw  {
 	 * </p>
 	 * @return bool No value is returned.
 	 */
+	#[Deprecated]
 	public function setFillAlpha ($opacity) {}
 
 	/**
@@ -5060,6 +5081,7 @@ class ImagickDraw  {
 	 * </p>
 	 * @return bool No value is returned.
 	 */
+	#[Deprecated]
 	public function setStrokeAlpha ($opacity) {}
 
 	/**
@@ -6526,6 +6548,7 @@ class ImagickPixelIterator implements Iterator {
 	 * @return bool <b>TRUE</b> on success. Throwing ImagickPixelIteratorException.
 	 * @throws ImagickPixelIteratorException
 	 */
+	#[Deprecated(replacement: "%class%->getPixelIterator(%parametersList%)")]
 	public function newPixelIterator (Imagick $wand) {}
 
 	/**
@@ -6540,6 +6563,7 @@ class ImagickPixelIterator implements Iterator {
 	 * @return bool a new ImagickPixelIterator on success; on failure, throws ImagickPixelIteratorException
 	 * @throws ImagickPixelIteratorException
 	 */
+	#[Deprecated(replacement: "%class%->getPixelRegionIterator(%parametersList%)")]
 	public function newPixelRegionIterator (Imagick $wand, $x, $y, $columns, $rows) {}
 
 	/**
