@@ -18,6 +18,9 @@ class ImagickPixelIteratorException extends Exception  {
 class ImagickPixelException extends Exception  {
 }
 
+class ImagickKernelException extends Exception  {
+}
+
 /**
  * @method Imagick clone() (PECL imagick 2.0.0)<br/>Makes an exact copy of the Imagick object
  * @link https://php.net/manual/en/class.imagick.php
@@ -584,6 +587,7 @@ class Imagick implements Iterator, Countable {
 	 * Removes repeated portions of images to optimize
 	 * @link https://php.net/manual/en/imagick.optimizeimagelayers.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function optimizeImageLayers () {}
 
@@ -595,6 +599,7 @@ class Imagick implements Iterator, Countable {
 	 * One of the layer method constants.
 	 * </p>
 	 * @return Imagick <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function compareImageLayers ($method) {}
 
@@ -606,6 +611,7 @@ class Imagick implements Iterator, Countable {
 	 * A string containing the image.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function pingImageBlob ($image) {}
 
@@ -620,6 +626,7 @@ class Imagick implements Iterator, Countable {
 	 * Optional filename for this image.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function pingImageFile ($filehandle, $fileName = null) {}
 
@@ -628,6 +635,7 @@ class Imagick implements Iterator, Countable {
 	 * Creates a vertical mirror image
 	 * @link https://php.net/manual/en/imagick.transposeimage.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function transposeImage () {}
 
@@ -636,6 +644,7 @@ class Imagick implements Iterator, Countable {
 	 * Creates a horizontal mirror image
 	 * @link https://php.net/manual/en/imagick.transverseimage.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function transverseImage () {}
 
@@ -651,6 +660,7 @@ class Imagick implements Iterator, Countable {
 	 * on the quantum range.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function trimImage ($fuzz) {}
 
@@ -665,6 +675,7 @@ class Imagick implements Iterator, Countable {
 	 * The length of the wave.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function waveImage ($amplitude, $length) {}
 
@@ -685,6 +696,7 @@ class Imagick implements Iterator, Countable {
 	 * Y offset of the ellipse
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function vignetteImage ($blackPoint, $whitePoint, $x, $y) {}
 
@@ -693,6 +705,7 @@ class Imagick implements Iterator, Countable {
 	 * Discards all but one of any pixel color
 	 * @link https://php.net/manual/en/imagick.uniqueimagecolors.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function uniqueImageColors () {}
 
@@ -701,8 +714,8 @@ class Imagick implements Iterator, Countable {
 	 * Return if the image has a matte channel
 	 * @link https://php.net/manual/en/imagick.getimagematte.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @throws ImagickException on error.
 	 */
-	#[Deprecated]
 	#[Pure]
 	public function getImageMatte () {}
 
@@ -714,6 +727,7 @@ class Imagick implements Iterator, Countable {
 	 * True activates the matte channel and false disables it.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageMatte ($matte) {}
 
@@ -751,6 +765,7 @@ class Imagick implements Iterator, Countable {
 	 * Apply the effect along this angle.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function sketchImage ($radius, $sigma, $angle) {}
 
@@ -768,6 +783,7 @@ class Imagick implements Iterator, Countable {
 	 * Defines the light source direction.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function shadeImage ($gray, $azimuth, $elevation) {}
 
@@ -776,6 +792,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns the size offset
 	 * @link https://php.net/manual/en/imagick.getsizeoffset.php
 	 * @return int the size offset associated with the Imagick object.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getSizeOffset () {}
@@ -794,6 +811,7 @@ class Imagick implements Iterator, Countable {
 	 * The image offset.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setSizeOffset ($columns, $rows, $offset) {}
 
@@ -812,6 +830,7 @@ class Imagick implements Iterator, Countable {
 	 * Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <b>Imagick::CHANNEL_DEFAULT</b>. Refer to this list of channel constants
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function adaptiveBlurImage ($radius, $sigma, $channel = Imagick::CHANNEL_DEFAULT) {}
 
@@ -832,6 +851,7 @@ class Imagick implements Iterator, Countable {
 	 * list of channel constants.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function contrastStretchImage ($black_point, $white_point, $channel = Imagick::CHANNEL_ALL) {}
 
@@ -849,6 +869,7 @@ class Imagick implements Iterator, Countable {
 	 * Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <b>Imagick::CHANNEL_DEFAULT</b>. Refer to this list of channel constants
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function adaptiveSharpenImage ($radius, $sigma, $channel = Imagick::CHANNEL_DEFAULT) {}
 
@@ -869,6 +890,7 @@ class Imagick implements Iterator, Countable {
 	 * list of channel constants.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function randomThresholdImage ($low, $high, $channel = Imagick::CHANNEL_ALL) {}
 
@@ -878,12 +900,14 @@ class Imagick implements Iterator, Countable {
 	 * @param $strokeWidth [optional]
 	 * @param $displace [optional]
 	 * @param $sizeCorrection [optional]
+	 * @throws ImagickException on error.
 	 */
 	public function roundCornersImage ($xRounding, $yRounding, $strokeWidth, $displace, $sizeCorrection) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
 	 * Rounds image corners
+	 * Alias to {@see Imagick::roundCornersImage}
 	 * @link https://php.net/manual/en/imagick.roundcorners.php
 	 * @param float $x_rounding <p>
 	 * x rounding
@@ -901,7 +925,9 @@ class Imagick implements Iterator, Countable {
 	 * size correction
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
+	#[Deprecated(replacement: "%class%->roundCornersImage(%parametersList%)")]
 	public function roundCorners ($x_rounding, $y_rounding, $stroke_width = 10.0, $displace = 5.0, $size_correction = -6.0) {}
 
 	/**
@@ -912,6 +938,7 @@ class Imagick implements Iterator, Countable {
 	 * The position to set the iterator to
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setIteratorIndex ($index) {}
 
@@ -935,6 +962,7 @@ class Imagick implements Iterator, Countable {
 	 * An image geometry string. This geometry defines the final size of the image.
 	 * </p>
 	 * @return Imagick <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function transformImage ($crop, $geometry) {}
 
@@ -947,6 +975,7 @@ class Imagick implements Iterator, Countable {
 	 * transparent.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageOpacity ($opacity) {}
 
@@ -964,6 +993,7 @@ class Imagick implements Iterator, Countable {
 	 * list of channel constants.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function orderedPosterizeImage ($threshold_map, $channel = Imagick::CHANNEL_ALL) {}
 
@@ -978,6 +1008,7 @@ class Imagick implements Iterator, Countable {
 	 * The polaroid angle
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function polaroidImage (ImagickDraw $properties, $angle) {}
 
@@ -990,6 +1021,7 @@ class Imagick implements Iterator, Countable {
 	 * </p>
 	 * @return string|false a string containing the image property, false if a
 	 * property with the given name does not exist.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageProperty ($name) {}
@@ -1001,6 +1033,7 @@ class Imagick implements Iterator, Countable {
 	 * @param string $name
 	 * @param string $value
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageProperty ($name, $value) {}
 
@@ -1012,6 +1045,7 @@ class Imagick implements Iterator, Countable {
 	 * The method is one of the <b>Imagick::INTERPOLATE_*</b> constants
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageInterpolateMethod ($method) {}
 
@@ -1020,6 +1054,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns the interpolation method
 	 * @link https://php.net/manual/en/imagick.getimageinterpolatemethod.php
 	 * @return int the interpolate method on success.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageInterpolateMethod () {}
@@ -1035,6 +1070,7 @@ class Imagick implements Iterator, Countable {
 	 * The image white point
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function linearStretchImage ($blackPoint, $whitePoint) {}
 
@@ -1043,6 +1079,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns the image length in bytes
 	 * @link https://php.net/manual/en/imagick.getimagelength.php
 	 * @return int an int containing the current image size.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageLength () {}
@@ -1064,6 +1101,7 @@ class Imagick implements Iterator, Countable {
 	 * Y position for the new size
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function extentImage ($width, $height, $x, $y) {}
 
@@ -1072,6 +1110,7 @@ class Imagick implements Iterator, Countable {
 	 * Gets the image orientation
 	 * @link https://php.net/manual/en/imagick.getimageorientation.php
 	 * @return int an int on success.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageOrientation () {}
@@ -1084,6 +1123,7 @@ class Imagick implements Iterator, Countable {
 	 * One of the orientation constants
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageOrientation ($orientation) {}
 
@@ -1112,8 +1152,8 @@ class Imagick implements Iterator, Countable {
 	 * Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <b>Imagick::CHANNEL_DEFAULT</b>. Refer to this list of channel constants
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
-	#[Deprecated]
 	public function paintFloodfillImage ($fill, $fuzz, $bordercolor, $x, $y, $channel = Imagick::CHANNEL_ALL) {}
 
 	/**
@@ -1128,6 +1168,7 @@ class Imagick implements Iterator, Countable {
 	 * constant. When not supplied, default channels are replaced.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 * @since 2.0.0
 	 */
 	public function clutImage (Imagick $lookup_table, $channel = Imagick::CHANNEL_DEFAULT) {}
@@ -1143,6 +1184,7 @@ class Imagick implements Iterator, Countable {
 	 * Whether to return only property names. If <b>FALSE</b> then also the values are returned
 	 * </p>
 	 * @return array an array containing the image properties or property names.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageProperties ($pattern = "*", $only_names = true) {}
@@ -1158,6 +1200,7 @@ class Imagick implements Iterator, Countable {
 	 * Whether to return only profile names. If <b>FALSE</b> then only profile names will be returned.
 	 * </p>
 	 * @return array an array containing the image profiles or profile names.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageProfiles ($pattern = "*", $include_values = true) {}
@@ -1176,6 +1219,7 @@ class Imagick implements Iterator, Countable {
 	 * Attempt to resize destination to fit distorted source
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function distortImage ($method, array $arguments, $bestfit) {}
 
@@ -1187,6 +1231,7 @@ class Imagick implements Iterator, Countable {
 	 * Filehandle where to write the image
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function writeImageFile ($filehandle) {}
 
@@ -1198,6 +1243,7 @@ class Imagick implements Iterator, Countable {
 	 * Filehandle where to write the images
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function writeImagesFile ($filehandle) {}
 
@@ -1209,6 +1255,7 @@ class Imagick implements Iterator, Countable {
 	 * The page definition. For example 7168x5147+0+0
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function resetImagePage ($page) {}
 
@@ -1228,6 +1275,7 @@ class Imagick implements Iterator, Countable {
 	 * Gets image clip mask
 	 * @link https://php.net/manual/en/imagick.getimageclipmask.php
 	 * @return Imagick an Imagick object containing the clip mask.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageClipMask () {}
@@ -1240,6 +1288,7 @@ class Imagick implements Iterator, Countable {
 	 * X server address
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function animateImages ($x_server) {}
 
@@ -1251,8 +1300,8 @@ class Imagick implements Iterator, Countable {
 	 * The matrix containing the color values
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
-	#[Deprecated]
 	public function recolorImage (array $matrix) {}
 
 	/**
@@ -1263,6 +1312,7 @@ class Imagick implements Iterator, Countable {
 	 * Font name or a filename
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setFont ($font) {}
 
@@ -1283,6 +1333,7 @@ class Imagick implements Iterator, Countable {
 	 * Point size
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setPointSize ($point_size) {}
 
@@ -1315,6 +1366,7 @@ class Imagick implements Iterator, Countable {
 	 * One of the <b>Imagick::ALPHACHANNEL_*</b> constants
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageAlphaChannel ($mode) {}
 
@@ -1344,6 +1396,7 @@ class Imagick implements Iterator, Countable {
 	 * Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <b>Imagick::CHANNEL_DEFAULT</b>. Refer to this list of channel constants
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function floodFillPaintImage ($fill, $fuzz, $target, $x, $y, $invert, $channel = Imagick::CHANNEL_DEFAULT) {}
 
@@ -1367,6 +1420,7 @@ class Imagick implements Iterator, Countable {
 	 * Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <b>Imagick::CHANNEL_DEFAULT</b>. Refer to this list of channel constants
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function opaquePaintImage ($target, $fill, $fuzz, $invert, $channel = Imagick::CHANNEL_DEFAULT) {}
 
@@ -1387,6 +1441,7 @@ class Imagick implements Iterator, Countable {
 	 * If <b>TRUE</b> paints any pixel that does not match the target color.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function transparentPaintImage ($target, $alpha, $fuzz, $invert) {}
 
@@ -1409,6 +1464,7 @@ class Imagick implements Iterator, Countable {
 	 * typically 0.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function liquidRescaleImage ($width, $height, $delta_x, $rigidity) {}
 
@@ -1420,6 +1476,7 @@ class Imagick implements Iterator, Countable {
 	 * The passphrase
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function encipherImage ($passphrase) {}
 
@@ -1431,6 +1488,7 @@ class Imagick implements Iterator, Countable {
 	 * The passphrase
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function decipherImage ($passphrase) {}
 
@@ -1443,6 +1501,7 @@ class Imagick implements Iterator, Countable {
 	 * gravity constants.
 	 * </p>
 	 * @return bool No value is returned.
+	 * @throws ImagickException on error.
 	 */
 	public function setGravity ($gravity) {}
 
@@ -1464,6 +1523,7 @@ class Imagick implements Iterator, Countable {
 	 * Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <b>Imagick::CHANNEL_DEFAULT</b>. Refer to this list of channel constants
 	 * </p>
 	 * @return float[] an array containing minima and maxima values of the channel(s).
+	 * @throws ImagickException on error.
 	 */
     #[ArrayShape([
         "minima" => "float",
@@ -1478,6 +1538,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.getimagealphachannel.php
 	 * @return int a constant defining the current alpha channel value. Refer to this
 	 * list of alpha channel constants.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageAlphaChannel () {}
@@ -1496,6 +1557,7 @@ class Imagick implements Iterator, Countable {
 	 * Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <b>Imagick::CHANNEL_DEFAULT</b>. Refer to this list of channel constants
 	 * </p>
 	 * @return float a float describing the channel distortion.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageChannelDistortions (Imagick $reference, $metric, $channel = Imagick::CHANNEL_DEFAULT) {}
@@ -1509,6 +1571,7 @@ class Imagick implements Iterator, Countable {
 	 * gravity constants.
 	 * </p>
 	 * @return bool No value is returned.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageGravity ($gravity) {}
 
@@ -1518,6 +1581,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.getimagegravity.php
 	 * @return int the images gravity property. Refer to the list of
 	 * gravity constants.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageGravity () {}
@@ -1551,6 +1615,7 @@ class Imagick implements Iterator, Countable {
 	 * The array of pixels
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function importImagePixels ($x, $y, $width, $height, $map, $storage, array $pixels) {}
 
@@ -1562,6 +1627,7 @@ class Imagick implements Iterator, Countable {
 	 * Deskew threshold
 	 * </p>
 	 * @return bool
+	 * @throws ImagickException on error.
 	 */
 	public function deskewImage ($threshold) {}
 
@@ -1583,6 +1649,7 @@ class Imagick implements Iterator, Countable {
 	 * Whether to output detailed information about recognised classes.
 	 * </p>
 	 * @return bool
+	 * @throws ImagickException on error.
 	 */
 	public function segmentImage ($COLORSPACE, $cluster_threshold, $smooth_threshold, $verbose = false) {}
 
@@ -1599,6 +1666,7 @@ class Imagick implements Iterator, Countable {
 	 * </p>
 	 * @param int $channel [optional]
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function sparseColorImage ($SPARSE_METHOD, array $arguments, $channel = Imagick::CHANNEL_DEFAULT) {}
 
@@ -1613,6 +1681,7 @@ class Imagick implements Iterator, Countable {
 	 * Refer to this list of dither method constants
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function remapImage (Imagick $replacement, $DITHER) {}
 
@@ -1640,6 +1709,7 @@ class Imagick implements Iterator, Countable {
 	 * Refer to this list of pixel type constants
 	 * </p>
 	 * @return int[] an array containing the pixels values.
+	 * @throws ImagickException on error.
 	 */
 	public function exportImagePixels ($x, $y, $width, $height, $map, $STORAGE) {}
 
@@ -1652,6 +1722,7 @@ class Imagick implements Iterator, Countable {
 	 * </p>
 	 * @return float[] an array with kurtosis and skewness
 	 * members.
+	 * @throws ImagickException on error.
 	 */
     #[ArrayShape([
         "kurtosis" => "float",
@@ -1672,11 +1743,15 @@ class Imagick implements Iterator, Countable {
 	 * </p>
 	 * @param int $channel [optional]
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function functionImage ($function, array $arguments, $channel = Imagick::CHANNEL_DEFAULT) {}
 
 	/**
+	 * Transform image colorspace
 	 * @param $COLORSPACE
+	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function transformImageColorspace ($COLORSPACE) {}
 
@@ -1691,18 +1766,23 @@ class Imagick implements Iterator, Countable {
 	 * Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <b>Imagick::CHANNEL_DEFAULT</b>. Refer to this list of channel constants
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function haldClutImage (Imagick $clut, $channel = Imagick::CHANNEL_DEFAULT) {}
 
 	/**
+	 * Adjusts the levels of a particular image channel by scaling the minimum and maximum values to the full quantum range.
 	 * @param $CHANNEL [optional]
+	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function autoLevelImage ($CHANNEL) {}
 
 	/**
-     * @link https://www.php.net/manual/en/imagick.blueshiftimage.php
+	 * @link https://www.php.net/manual/en/imagick.blueshiftimage.php
 	 * @param float $factor [optional]
-     * @return bool
+	 * @return bool
+	 * @throws ImagickException on error.
 	 */
 	public function blueShiftImage ($factor) {}
 
@@ -1714,6 +1794,7 @@ class Imagick implements Iterator, Countable {
 	 * The name of the artifact
 	 * </p>
 	 * @return string the artifact value on success.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageArtifact ($artifact) {}
@@ -1729,6 +1810,7 @@ class Imagick implements Iterator, Countable {
 	 * The value of the artifact
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageArtifact ($artifact, $value) {}
 
@@ -1740,6 +1822,7 @@ class Imagick implements Iterator, Countable {
 	 * The name of the artifact to delete
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function deleteImageArtifact ($artifact) {}
 
@@ -1765,13 +1848,15 @@ class Imagick implements Iterator, Countable {
 
 	/**
 	 * @param $CHANNEL [optional]
+	 * @throws ImagickException on error.
 	 */
 	public function clampImage ($CHANNEL) {}
 
 	/**
 	 * @param bool $stack
 	 * @param int $offset
-     * @return Imagick
+	 * @return Imagick
+	 * @throws ImagickException on error.
 	 */
 	public function smushImages ($stack, $offset) {}
 
@@ -1799,6 +1884,8 @@ class Imagick implements Iterator, Countable {
 	 * Returns a MagickPixelIterator
 	 * @link https://php.net/manual/en/imagick.getpixeliterator.php
 	 * @return ImagickPixelIterator an ImagickPixelIterator on success.
+	 * @throws ImagickException on error.
+	 * @throws ImagickPixelIteratorException on error.
 	 */
 	#[Pure]
 	public function getPixelIterator () {}
@@ -1820,6 +1907,8 @@ class Imagick implements Iterator, Countable {
 	 * The height of the region.
 	 * </p>
 	 * @return ImagickPixelIterator an ImagickPixelIterator for an image section.
+	 * @throws ImagickException on error.
+	 * @throws ImagickPixelIteratorException on error.
 	 */
 	#[Pure]
 	public function getPixelRegionIterator ($x, $y, $columns, $rows) {}
@@ -1860,6 +1949,7 @@ class Imagick implements Iterator, Countable {
 	 * depends on the ImageMagick installation.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageFormat ($format) {}
 
@@ -1889,6 +1979,7 @@ class Imagick implements Iterator, Countable {
 	 * for example "jpg:test.png".
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function writeImage ($filename = null) {}
 
@@ -1899,6 +1990,7 @@ class Imagick implements Iterator, Countable {
 	 * @param string $filename
 	 * @param bool $adjoin
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function writeImages ($filename, $adjoin) {}
 
@@ -1917,6 +2009,7 @@ class Imagick implements Iterator, Countable {
 	 * constant. When not supplied, all channels are blurred.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function blurImage ($radius, $sigma, $channel = null) {}
 
@@ -1940,6 +2033,7 @@ class Imagick implements Iterator, Countable {
 	 * @param bool $fill [optional]
 	 * @param bool $legacy [optional] Added since 3.4.0. Default value FALSE
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 * @since 2.0.0
 	 */
 	public function thumbnailImage ($columns, $rows, $bestfit = false, $fill = false, $legacy = false) {}
@@ -1963,6 +2057,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns the filename of a particular image in a sequence
 	 * @link https://php.net/manual/en/imagick.getimagefilename.php
 	 * @return string a string with the filename of the image.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageFilename () {}
@@ -1973,6 +2068,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setimagefilename.php
 	 * @param string $filename
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageFilename ($filename) {}
 
@@ -1981,6 +2077,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns the format of a particular image in a sequence
 	 * @link https://php.net/manual/en/imagick.getimageformat.php
 	 * @return string a string containing the image format on success.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageFormat () {}
@@ -1988,6 +2085,7 @@ class Imagick implements Iterator, Countable {
 	/**
 	 * @link https://secure.php.net/manual/en/imagick.getimagemimetype.php
 	 * @return string Returns the image mime-type.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageMimeType () {}
@@ -1997,6 +2095,7 @@ class Imagick implements Iterator, Countable {
 	 * Removes an image from the image list
 	 * @link https://php.net/manual/en/imagick.removeimage.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function removeImage () {}
 
@@ -2021,6 +2120,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns the image length in bytes
 	 * @link https://php.net/manual/en/imagick.getimagesize.php
 	 * @return int an int containing the current image size.
+	 * @throws ImagickException on error.
 	 */
 	#[Deprecated(replacement: "%class%->getImageLength()")]
 	#[Pure]
@@ -2031,6 +2131,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns the image sequence as a blob
 	 * @link https://php.net/manual/en/imagick.getimageblob.php
 	 * @return string a string containing the image.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageBlob () {}
@@ -2105,8 +2206,8 @@ class Imagick implements Iterator, Countable {
 	 * The position to set the iterator to
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
-	#[Deprecated]
 	public function setImageIndex ($index) {}
 
 	/**
@@ -2115,7 +2216,6 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.getimageindex.php
 	 * @return int an integer containing the index of the image in the stack.
 	 */
-	#[Deprecated]
 	#[Pure]
 	public function getImageIndex () {}
 
@@ -2127,6 +2227,7 @@ class Imagick implements Iterator, Countable {
 	 * The comment to add
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function commentImage ($comment) {}
 
@@ -2147,6 +2248,7 @@ class Imagick implements Iterator, Countable {
 	 * The Y coordinate of the cropped region's top left corner
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function cropImage ($width, $height, $x, $y) {}
 
@@ -2158,6 +2260,7 @@ class Imagick implements Iterator, Countable {
 	 * The label to add
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function labelImage ($label) {}
 
@@ -2166,6 +2269,7 @@ class Imagick implements Iterator, Countable {
 	 * Gets the width and height as an associative array
 	 * @link https://php.net/manual/en/imagick.getimagegeometry.php
 	 * @return int[] an array with the width/height of the image.
+	 * @throws ImagickException on error.
 	 */
     #[ArrayShape([
         "width" => "int",
@@ -2182,6 +2286,7 @@ class Imagick implements Iterator, Countable {
 	 * The drawing operations to render on the image.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function drawImage (ImagickDraw $draw) {}
 
@@ -2193,6 +2298,7 @@ class Imagick implements Iterator, Countable {
 	 * The image compression quality as an integer
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageCompressionQuality ($quality) {}
 
@@ -2225,6 +2331,7 @@ class Imagick implements Iterator, Countable {
 	 * The string to draw
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function annotateImage (ImagickDraw $draw_settings, $x, $y, $angle, $text) {}
 
@@ -2248,6 +2355,7 @@ class Imagick implements Iterator, Countable {
 	 * bitwise operators. Refer to this list of channel constants.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function compositeImage (Imagick $composite_object, $composite, $x, $y, $channel = Imagick::CHANNEL_ALL) {}
 
@@ -2259,6 +2367,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $saturation
 	 * @param float $hue
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function modulateImage ($brightness, $saturation, $hue) {}
 
@@ -2267,6 +2376,7 @@ class Imagick implements Iterator, Countable {
 	 * Gets the number of unique colors in the image
 	 * @link https://php.net/manual/en/imagick.getimagecolors.php
 	 * @return int <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageColors () {}
@@ -2293,6 +2403,7 @@ class Imagick implements Iterator, Countable {
 	 * frame color is that of the thumbnail's matte color.
 	 * </p>
 	 * @return Imagick <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function montageImage (ImagickDraw $draw, $tile_geometry, $thumbnail_geometry, $mode, $frame) {}
 
@@ -2303,6 +2414,7 @@ class Imagick implements Iterator, Countable {
 	 * @param bool $appendRawOutput [optional]
 	 * @return array Identifies an image and returns the attributes. Attributes include
 	 * the image width, height, size, and others.
+	 * @throws ImagickException on error.
 	 */
 	public function identifyImage ($appendRawOutput = false) {}
 
@@ -2313,6 +2425,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $threshold
 	 * @param int $channel [optional]
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function thresholdImage ($threshold, $channel = Imagick::CHANNEL_ALL) {}
 
@@ -2330,6 +2443,7 @@ class Imagick implements Iterator, Countable {
 	 * The mean offset
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function adaptiveThresholdImage ($width, $height, $offset) {}
 
@@ -2341,6 +2455,7 @@ class Imagick implements Iterator, Countable {
 	 * The threshold below which everything turns black
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function blackThresholdImage ($threshold) {}
 
@@ -2350,6 +2465,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.whitethresholdimage.php
 	 * @param mixed $threshold
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function whiteThresholdImage ($threshold) {}
 
@@ -2363,6 +2479,7 @@ class Imagick implements Iterator, Countable {
 	 * If <i>stack</i> is <b>TRUE</b>, images are stacked top-to-bottom.
 	 * </p>
 	 * @return Imagick Imagick instance on success.
+	 * @throws ImagickException on error.
 	 */
 	public function appendImages ($stack = false) {}
 
@@ -2377,6 +2494,7 @@ class Imagick implements Iterator, Countable {
 	 * The standard deviation of the Gaussian, in pixels
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function charcoalImage ($radius, $sigma) {}
 
@@ -2391,6 +2509,7 @@ class Imagick implements Iterator, Countable {
 	 * list of channel constants.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function normalizeImage ($channel = Imagick::CHANNEL_ALL) {}
 
@@ -2402,6 +2521,7 @@ class Imagick implements Iterator, Countable {
 	 * The radius of the circular neighborhood.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function oilPaintImage ($radius) {}
 
@@ -2412,6 +2532,7 @@ class Imagick implements Iterator, Countable {
 	 * @param int $levels
 	 * @param bool $dither
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function posterizeImage ($levels, $dither) {}
 
@@ -2422,6 +2543,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $angle
 	 * @param int $channel [optional]
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function radialBlurImage ($angle, $channel = Imagick::CHANNEL_ALL) {}
 
@@ -2435,6 +2557,7 @@ class Imagick implements Iterator, Countable {
 	 * @param int $y
 	 * @param bool $raise
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function raiseImage ($width, $height, $x, $y, $raise) {}
 
@@ -2447,6 +2570,7 @@ class Imagick implements Iterator, Countable {
 	 * @param int $filter
 	 * @param float $blur
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function resampleImage ($x_resolution, $y_resolution, $filter, $blur) {}
 
@@ -2465,6 +2589,7 @@ class Imagick implements Iterator, Countable {
 	 * @param bool $bestfit [optional] Added since 2.1.0. Added optional fit parameter. This method now supports proportional scaling. Pass zero as either parameter for proportional scaling
 	 * @param bool $legacy [optional] Added since 3.4.0. Default value FALSE
 	 * @return bool TRUE on success
+	 * @throws ImagickException on error.
 	 * @since 2.0.0
 	 */
 	public function resizeImage ($columns, $rows, $filter, $blur, $bestfit = false, $legacy = false) {}
@@ -2480,6 +2605,7 @@ class Imagick implements Iterator, Countable {
 	 * The Y offset.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function rollImage ($x, $y) {}
 
@@ -2494,6 +2620,7 @@ class Imagick implements Iterator, Countable {
 	 * The number of degrees to rotate the image
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function rotateImage ($background, $degrees) {}
 
@@ -2504,6 +2631,7 @@ class Imagick implements Iterator, Countable {
 	 * @param int $columns
 	 * @param int $rows
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function sampleImage ($columns, $rows) {}
 
@@ -2513,6 +2641,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.solarizeimage.php
 	 * @param int $threshold
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function solarizeImage ($threshold) {}
 
@@ -2525,6 +2654,7 @@ class Imagick implements Iterator, Countable {
 	 * @param int $x
 	 * @param int $y
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function shadowImage ($opacity, $sigma, $x, $y) {}
 
@@ -2532,8 +2662,8 @@ class Imagick implements Iterator, Countable {
 	 * @param string $key
 	 * @param string $value
 	 * @return bool
+	 * @throws ImagickException on error.
 	 */
-	#[Deprecated]
 	public function setImageAttribute ($key, $value) {}
 
 	/**
@@ -2542,6 +2672,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setimagebackgroundcolor.php
 	 * @param mixed $background
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageBackgroundColor ($background) {}
 
@@ -2551,6 +2682,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setimagecompose.php
 	 * @param int $compose
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageCompose ($compose) {}
 
@@ -2562,6 +2694,7 @@ class Imagick implements Iterator, Countable {
 	 * One of the <b>COMPRESSION</b> constants
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageCompression ($compression) {}
 
@@ -2575,6 +2708,7 @@ class Imagick implements Iterator, Countable {
 	 * value of 20 would be 20/100 of a second aka 1/5th of a second.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageDelay ($delay) {}
 
@@ -2584,6 +2718,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setimagedepth.php
 	 * @param int $depth
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageDepth ($depth) {}
 
@@ -2593,6 +2728,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setimagegamma.php
 	 * @param float $gamma
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageGamma ($gamma) {}
 
@@ -2605,6 +2741,7 @@ class Imagick implements Iterator, Countable {
 	 * continuously.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageIterations ($iterations) {}
 
@@ -2614,6 +2751,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setimagemattecolor.php
 	 * @param mixed $matte
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageMatteColor ($matte) {}
 
@@ -2626,11 +2764,13 @@ class Imagick implements Iterator, Countable {
 	 * @param int $x
 	 * @param int $y
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImagePage ($width, $height, $x, $y) {}
 
 	/**
 	 * @param $filename
+	 * @throws ImagickException on error.
 	 */
 	public function setImageProgressMonitor ($filename) {}
 
@@ -2641,6 +2781,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $x_resolution
 	 * @param float $y_resolution
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageResolution ($x_resolution, $y_resolution) {}
 
@@ -2650,6 +2791,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setimagescene.php
 	 * @param int $scene
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageScene ($scene) {}
 
@@ -2662,6 +2804,7 @@ class Imagick implements Iterator, Countable {
 	 * per second.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageTicksPerSecond ($ticks_per_second) {}
 
@@ -2671,6 +2814,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setimagetype.php
 	 * @param int $image_type
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageType ($image_type) {}
 
@@ -2680,6 +2824,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setimageunits.php
 	 * @param int $units
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageUnits ($units) {}
 
@@ -2691,6 +2836,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $sigma
 	 * @param int $channel [optional]
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function sharpenImage ($radius, $sigma, $channel = Imagick::CHANNEL_ALL) {}
 
@@ -2701,6 +2847,7 @@ class Imagick implements Iterator, Countable {
 	 * @param int $columns
 	 * @param int $rows
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function shaveImage ($columns, $rows) {}
 
@@ -2718,6 +2865,7 @@ class Imagick implements Iterator, Countable {
 	 * The number of degrees to shear on the y axis
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function shearImage ($background, $x_shear, $y_shear) {}
 
@@ -2730,6 +2878,7 @@ class Imagick implements Iterator, Countable {
 	 * @param int $x
 	 * @param int $y
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function spliceImage ($width, $height, $x, $y) {}
 
@@ -2741,6 +2890,7 @@ class Imagick implements Iterator, Countable {
 	 * The filename to read the information from.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function pingImage ($filename) {}
 
@@ -2751,6 +2901,7 @@ class Imagick implements Iterator, Countable {
 	 * @param resource $filehandle
 	 * @param string $fileName [optional]
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function readImageFile ($filehandle, $fileName = null) {}
 
@@ -2762,6 +2913,7 @@ class Imagick implements Iterator, Countable {
 	 * The X server name
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function displayImage ($servername) {}
 
@@ -2773,6 +2925,7 @@ class Imagick implements Iterator, Countable {
 	 * The X server name
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function displayImages ($servername) {}
 
@@ -2782,6 +2935,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.spreadimage.php
 	 * @param float $radius
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function spreadImage ($radius) {}
 
@@ -2791,6 +2945,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.swirlimage.php
 	 * @param float $degrees
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function swirlImage ($degrees) {}
 
@@ -2799,6 +2954,7 @@ class Imagick implements Iterator, Countable {
 	 * Strips an image of all profiles and comments
 	 * @link https://php.net/manual/en/imagick.stripimage.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function stripImage () {}
 
@@ -2836,6 +2992,7 @@ class Imagick implements Iterator, Countable {
 	 * Multiline parameter. If left empty it is autodetected
 	 * </p>
 	 * @return array a multi-dimensional array representing the font metrics.
+	 * @throws ImagickException on error.
 	 */
 	public function queryFontMetrics (ImagickDraw $properties, $text, $multiline = null) {}
 
@@ -2846,6 +3003,7 @@ class Imagick implements Iterator, Countable {
 	 * @param Imagick $watermark_wand
 	 * @param int $offset
 	 * @return Imagick <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function steganoImage (Imagick $watermark_wand, $offset) {}
 
@@ -2861,6 +3019,7 @@ class Imagick implements Iterator, Countable {
 	 * Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <b>Imagick::CHANNEL_DEFAULT</b>. Refer to this list of channel constants
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function addNoiseImage ($noise_type, $channel = Imagick::CHANNEL_DEFAULT) {}
 
@@ -2886,6 +3045,7 @@ class Imagick implements Iterator, Countable {
 	 * 6.4.4 or greater.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function motionBlurImage ($radius, $sigma, $angle, $channel = Imagick::CHANNEL_DEFAULT) {}
 
@@ -2894,8 +3054,8 @@ class Imagick implements Iterator, Countable {
 	 * Forms a mosaic from images
 	 * @link https://php.net/manual/en/imagick.mosaicimages.php
 	 * @return Imagick <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
-	#[Deprecated]
 	public function mosaicImages () {}
 
 	/**
@@ -2908,6 +3068,7 @@ class Imagick implements Iterator, Countable {
 	 * @return Imagick This method returns a new Imagick object on success.
 	 * Throw an <b>ImagickException</b> on error.
 	 * @throws ImagickException on error
+	 * @throws ImagickException on error.
 	 */
 	public function morphImages ($number_frames) {}
 
@@ -2916,6 +3077,7 @@ class Imagick implements Iterator, Countable {
 	 * Scales an image proportionally to half its size
 	 * @link https://php.net/manual/en/imagick.minifyimage.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function minifyImage () {}
 
@@ -2927,6 +3089,7 @@ class Imagick implements Iterator, Countable {
 	 * The affine matrix
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function affineTransformImage (ImagickDraw $matrix) {}
 
@@ -2935,8 +3098,8 @@ class Imagick implements Iterator, Countable {
 	 * Average a set of images
 	 * @link https://php.net/manual/en/imagick.averageimages.php
 	 * @return Imagick a new Imagick object on success.
+	 * @throws ImagickException on error.
 	 */
-	#[Deprecated]
 	public function averageImages () {}
 
 	/**
@@ -2953,6 +3116,7 @@ class Imagick implements Iterator, Countable {
 	 * Border height
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function borderImage ($bordercolor, $width, $height) {}
 
@@ -2973,6 +3137,7 @@ class Imagick implements Iterator, Countable {
 	 * Y origo of the chopped area
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function chopImage ($width, $height, $x, $y) {}
 
@@ -2981,6 +3146,7 @@ class Imagick implements Iterator, Countable {
 	 * Clips along the first path from the 8BIM profile
 	 * @link https://php.net/manual/en/imagick.clipimage.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function clipImage () {}
 
@@ -2996,12 +3162,15 @@ class Imagick implements Iterator, Countable {
 	 * Otherwise later operations take effect outside clipping path.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function clipPathImage ($pathname, $inside) {}
 
 	/**
+	 * Alias to {@see Imagick::clipPathImage}
 	 * @param string $pathname
 	 * @param string $inside
+	 * @throws ImagickException on error.
 	 */
 	public function clipImagePath ($pathname, $inside) {}
 
@@ -3010,6 +3179,7 @@ class Imagick implements Iterator, Countable {
 	 * Composites a set of images
 	 * @link https://php.net/manual/en/imagick.coalesceimages.php
 	 * @return Imagick a new Imagick object on success.
+	 * @throws ImagickException on error.
 	 */
 	public function coalesceImages () {}
 
@@ -3035,8 +3205,8 @@ class Imagick implements Iterator, Countable {
 	 * Y start position of the floodfill
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
-	#[Deprecated]
 	public function colorFloodfillImage ($fill, $fuzz, $bordercolor, $x, $y) {}
 
 	/**
@@ -3075,6 +3245,7 @@ class Imagick implements Iterator, Countable {
 	 * </p>
 	 * @return array Array consisting of new_wand and
 	 * distortion.
+	 * @throws ImagickException on error.
 	 */
 	public function compareImageChannels (Imagick $image, $channelType, $metricType) {}
 
@@ -3103,6 +3274,7 @@ class Imagick implements Iterator, Countable {
 	 * The sharpen value
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function contrastImage ($sharpen) {}
 
@@ -3117,6 +3289,7 @@ class Imagick implements Iterator, Countable {
 	 * list of channel constants.
 	 * </p>
 	 * @return Imagick <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function combineImages ($channelType) {}
 
@@ -3134,6 +3307,7 @@ class Imagick implements Iterator, Countable {
 	 * list of channel constants.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function convolveImage (array $kernel, $channel = Imagick::CHANNEL_ALL) {}
 
@@ -3145,6 +3319,7 @@ class Imagick implements Iterator, Countable {
 	 * The amount to displace the colormap.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function cycleColormapImage ($displace) {}
 
@@ -3153,6 +3328,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns certain pixel differences between images
 	 * @link https://php.net/manual/en/imagick.deconstructimages.php
 	 * @return Imagick a new Imagick object on success.
+	 * @throws ImagickException on error.
 	 */
 	public function deconstructImages () {}
 
@@ -3161,6 +3337,7 @@ class Imagick implements Iterator, Countable {
 	 * Reduces the speckle noise in an image
 	 * @link https://php.net/manual/en/imagick.despeckleimage.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function despeckleImage () {}
 
@@ -3172,6 +3349,7 @@ class Imagick implements Iterator, Countable {
 	 * The radius of the operation.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function edgeImage ($radius) {}
 
@@ -3186,6 +3364,7 @@ class Imagick implements Iterator, Countable {
 	 * The sigma of the effect
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function embossImage ($radius, $sigma) {}
 
@@ -3194,6 +3373,7 @@ class Imagick implements Iterator, Countable {
 	 * Improves the quality of a noisy image
 	 * @link https://php.net/manual/en/imagick.enhanceimage.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function enhanceImage () {}
 
@@ -3202,6 +3382,7 @@ class Imagick implements Iterator, Countable {
 	 * Equalizes the image histogram
 	 * @link https://php.net/manual/en/imagick.equalizeimage.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function equalizeImage () {}
 
@@ -3222,6 +3403,7 @@ class Imagick implements Iterator, Countable {
 	 * list of channel constants.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function evaluateImage ($op, $constant, $channel = Imagick::CHANNEL_ALL) {}
 
@@ -3236,7 +3418,6 @@ class Imagick implements Iterator, Countable {
 	 * @throws ImagickException Throws ImagickException on error.
 	 * @since 2.0.0
 	 */
-	#[Deprecated]
 	public function flattenImages () {}
 
 	/**
@@ -3244,6 +3425,7 @@ class Imagick implements Iterator, Countable {
 	 * Creates a vertical mirror image
 	 * @link https://php.net/manual/en/imagick.flipimage.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function flipImage () {}
 
@@ -3252,6 +3434,7 @@ class Imagick implements Iterator, Countable {
 	 * Creates a horizontal mirror image
 	 * @link https://php.net/manual/en/imagick.flopimage.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function flopImage () {}
 
@@ -3275,6 +3458,7 @@ class Imagick implements Iterator, Countable {
 	 * The outer bevel width
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function frameImage ($matte_color, $width, $height, $inner_bevel, $outer_bevel) {}
 
@@ -3292,6 +3476,7 @@ class Imagick implements Iterator, Countable {
 	 * list of channel constants.
 	 * </p>
 	 * @return Imagick <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function fxImage ($expression, $channel = Imagick::CHANNEL_ALL) {}
 
@@ -3309,6 +3494,7 @@ class Imagick implements Iterator, Countable {
 	 * list of channel constants.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function gammaImage ($gamma, $channel = Imagick::CHANNEL_ALL) {}
 
@@ -3329,6 +3515,7 @@ class Imagick implements Iterator, Countable {
 	 * list of channel constants.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function gaussianBlurImage ($radius, $sigma, $channel = Imagick::CHANNEL_ALL) {}
 
@@ -3337,7 +3524,6 @@ class Imagick implements Iterator, Countable {
 	 * @param string $key <p>The key of the attribute to get.</p>
      * @return string
 	 */
-	#[Deprecated]
 	#[Pure]
 	public function getImageAttribute ($key) {}
 
@@ -3346,6 +3532,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns the image background color
 	 * @link https://php.net/manual/en/imagick.getimagebackgroundcolor.php
 	 * @return ImagickPixel an ImagickPixel set to the background color of the image.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageBackgroundColor () {}
@@ -3355,6 +3542,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns the chromaticy blue primary point
 	 * @link https://php.net/manual/en/imagick.getimageblueprimary.php
 	 * @return float[] Array consisting of "x" and "y" coordinates of point.
+	 * @throws ImagickException on error.
 	 */
     #[ArrayShape([
         "x" => "float",
@@ -3368,6 +3556,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns the image border color
 	 * @link https://php.net/manual/en/imagick.getimagebordercolor.php
 	 * @return ImagickPixel <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageBorderColor () {}
@@ -3380,6 +3569,7 @@ class Imagick implements Iterator, Countable {
 	 * Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <b>Imagick::CHANNEL_DEFAULT</b>. Refer to this list of channel constants
 	 * </p>
 	 * @return int <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageChannelDepth ($channel) {}
@@ -3401,6 +3591,7 @@ class Imagick implements Iterator, Countable {
 	 * One of the metric type constants.
 	 * </p>
 	 * @return float <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageChannelDistortion (Imagick $reference, $channel, $metric) {}
@@ -3416,12 +3607,12 @@ class Imagick implements Iterator, Countable {
 	 * list of channel constants.
 	 * </p>
 	 * @return int[]
+	 * @throws ImagickException on error.
 	 */
     #[ArrayShape([
         "minima" => "int",
         "maxima" => "int"
     ])]
-	#[Deprecated]
 	#[Pure]
 	public function getImageChannelExtrema ($channel) {}
 
@@ -3436,6 +3627,7 @@ class Imagick implements Iterator, Countable {
 	 * list of channel constants.
 	 * </p>
 	 * @return float[]
+	 * @throws ImagickException on error.
 	 */
     #[ArrayShape([
         "mean" => "float",
@@ -3449,6 +3641,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns statistics for each channel in the image
 	 * @link https://php.net/manual/en/imagick.getimagechannelstatistics.php
 	 * @return array
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageChannelStatistics () {}
@@ -3461,6 +3654,7 @@ class Imagick implements Iterator, Countable {
 	 * The offset into the image colormap.
 	 * </p>
 	 * @return ImagickPixel <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageColormapColor ($index) {}
@@ -3470,6 +3664,7 @@ class Imagick implements Iterator, Countable {
 	 * Gets the image colorspace
 	 * @link https://php.net/manual/en/imagick.getimagecolorspace.php
 	 * @return int <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageColorspace () {}
@@ -3479,6 +3674,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns the composite operator associated with the image
 	 * @link https://php.net/manual/en/imagick.getimagecompose.php
 	 * @return int <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageCompose () {}
@@ -3488,6 +3684,7 @@ class Imagick implements Iterator, Countable {
 	 * Gets the image delay
 	 * @link https://php.net/manual/en/imagick.getimagedelay.php
 	 * @return int the image delay.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageDelay () {}
@@ -3497,6 +3694,7 @@ class Imagick implements Iterator, Countable {
 	 * Gets the image depth
 	 * @link https://php.net/manual/en/imagick.getimagedepth.php
 	 * @return int The image depth.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageDepth () {}
@@ -3513,6 +3711,7 @@ class Imagick implements Iterator, Countable {
 	 * </p>
 	 * @return float the distortion metric used on the image (or the best guess
 	 * thereof).
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageDistortion (Imagick $reference, $metric) {}
@@ -3522,12 +3721,12 @@ class Imagick implements Iterator, Countable {
 	 * Gets the extrema for the image
 	 * @link https://php.net/manual/en/imagick.getimageextrema.php
 	 * @return int[] an associative array with the keys "min" and "max".
+	 * @throws ImagickException on error.
 	 */
     #[ArrayShape([
         "min" => "int",
         "max" => "int"
     ])]
-	#[Deprecated]
 	#[Pure]
 	public function getImageExtrema () {}
 
@@ -3536,6 +3735,7 @@ class Imagick implements Iterator, Countable {
 	 * Gets the image disposal method
 	 * @link https://php.net/manual/en/imagick.getimagedispose.php
 	 * @return int the dispose method on success.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageDispose () {}
@@ -3545,6 +3745,7 @@ class Imagick implements Iterator, Countable {
 	 * Gets the image gamma
 	 * @link https://php.net/manual/en/imagick.getimagegamma.php
 	 * @return float the image gamma on success.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageGamma () {}
@@ -3555,6 +3756,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.getimagegreenprimary.php
 	 * @return float[] an array with the keys "x" and "y" on success, throws an ImagickException on failure.
 	 * @throws ImagickException on failure
+	 * @throws ImagickException on error.
 	 */
     #[ArrayShape([
         "x" => "float",
@@ -3568,6 +3770,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns the image height
 	 * @link https://php.net/manual/en/imagick.getimageheight.php
 	 * @return int the image height in pixels.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageHeight () {}
@@ -3577,6 +3780,7 @@ class Imagick implements Iterator, Countable {
 	 * Gets the image histogram
 	 * @link https://php.net/manual/en/imagick.getimagehistogram.php
 	 * @return array the image histogram as an array of ImagickPixel objects.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageHistogram () {}
@@ -3589,7 +3793,6 @@ class Imagick implements Iterator, Countable {
 	 * Trhow an <b>ImagickException</b> on error.
 	 * @throws ImagickException on error
 	 */
-	#[Deprecated]
 	#[Pure]
 	public function getImageInterlaceScheme () {}
 
@@ -3598,6 +3801,7 @@ class Imagick implements Iterator, Countable {
 	 * Gets the image iterations
 	 * @link https://php.net/manual/en/imagick.getimageiterations.php
 	 * @return int the image iterations as an integer.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageIterations () {}
@@ -3607,6 +3811,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns the image matte color
 	 * @link https://php.net/manual/en/imagick.getimagemattecolor.php
 	 * @return ImagickPixel ImagickPixel object on success.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageMatteColor () {}
@@ -3617,6 +3822,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.getimagepage.php
 	 * @return int[] the page geometry associated with the image in an array with the
 	 * keys "width", "height", "x", and "y".
+	 * @throws ImagickException on error.
 	 */
     #[ArrayShape([
         "width" => "int",
@@ -3638,6 +3844,7 @@ class Imagick implements Iterator, Countable {
 	 * The y-coordinate of the pixel
 	 * </p>
 	 * @return ImagickPixel an ImagickPixel instance for the color at the coordinates given.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImagePixelColor ($x, $y) {}
@@ -3650,6 +3857,7 @@ class Imagick implements Iterator, Countable {
 	 * The name of the profile to return.
 	 * </p>
 	 * @return string a string containing the image profile.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageProfile ($name) {}
@@ -3675,6 +3883,7 @@ class Imagick implements Iterator, Countable {
 	 * Gets the image rendering intent
 	 * @link https://php.net/manual/en/imagick.getimagerenderingintent.php
 	 * @return int the image rendering intent.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageRenderingIntent () {}
@@ -3684,6 +3893,7 @@ class Imagick implements Iterator, Countable {
 	 * Gets the image X and Y resolution
 	 * @link https://php.net/manual/en/imagick.getimageresolution.php
 	 * @return float[] the resolution as an array.
+	 * @throws ImagickException on error.
 	 */
     #[ArrayShape([
         "x" => "float",
@@ -3697,6 +3907,7 @@ class Imagick implements Iterator, Countable {
 	 * Gets the image scene
 	 * @link https://php.net/manual/en/imagick.getimagescene.php
 	 * @return int the image scene.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageScene () {}
@@ -3706,6 +3917,7 @@ class Imagick implements Iterator, Countable {
 	 * Generates an SHA-256 message digest
 	 * @link https://php.net/manual/en/imagick.getimagesignature.php
 	 * @return string a string containing the SHA-256 hash of the file.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageSignature () {}
@@ -3715,6 +3927,7 @@ class Imagick implements Iterator, Countable {
 	 * Gets the image ticks-per-second
 	 * @link https://php.net/manual/en/imagick.getimagetickspersecond.php
 	 * @return int the image ticks-per-second.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageTicksPerSecond () {}
@@ -3735,6 +3948,7 @@ class Imagick implements Iterator, Countable {
 	 * <b>imagick::IMGTYPE_COLORSEPARATION</b>
 	 * <b>imagick::IMGTYPE_COLORSEPARATIONMATTE</b>
 	 * <b>imagick::IMGTYPE_OPTIMIZE</b>
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageType () {}
@@ -3744,6 +3958,7 @@ class Imagick implements Iterator, Countable {
 	 * Gets the image units of resolution
 	 * @link https://php.net/manual/en/imagick.getimageunits.php
 	 * @return int the image units of resolution.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageUnits () {}
@@ -3753,6 +3968,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns the virtual pixel method
 	 * @link https://php.net/manual/en/imagick.getimagevirtualpixelmethod.php
 	 * @return int the virtual pixel method on success.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageVirtualPixelMethod () {}
@@ -3763,6 +3979,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.getimagewhitepoint.php
 	 * @return float[] the chromaticity white point as an associative array with the keys
 	 * "x" and "y".
+	 * @throws ImagickException on error.
 	 */
     #[ArrayShape([
         "x" => "float",
@@ -3776,6 +3993,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns the image width
 	 * @link https://php.net/manual/en/imagick.getimagewidth.php
 	 * @return int the image width.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageWidth () {}
@@ -3796,6 +4014,7 @@ class Imagick implements Iterator, Countable {
 	 * @return float the image total ink density of the image.
 	 * Throw an <b>ImagickException</b> on error.
 	 * @throws ImagickException on error
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageTotalInkDensity () {}
@@ -3817,6 +4036,7 @@ class Imagick implements Iterator, Countable {
 	 * Y-coordinate of the top-left corner of the extracted region.
 	 * </p>
 	 * @return Imagick Extracts a region of the image and returns it as a new wand.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImageRegion ($width, $height, $x, $y) {}
@@ -3829,6 +4049,7 @@ class Imagick implements Iterator, Countable {
 	 * The radius of the implode
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function implodeImage ($radius) {}
 
@@ -3852,6 +4073,7 @@ class Imagick implements Iterator, Countable {
 	 * list of channel constants.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function levelImage ($blackPoint, $gamma, $whitePoint, $channel = Imagick::CHANNEL_ALL) {}
 
@@ -3860,6 +4082,7 @@ class Imagick implements Iterator, Countable {
 	 * Scales an image proportionally 2x
 	 * @link https://php.net/manual/en/imagick.magnifyimage.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function magnifyImage () {}
 
@@ -3870,8 +4093,8 @@ class Imagick implements Iterator, Countable {
 	 * @param Imagick $map
 	 * @param bool $dither
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
-	#[Deprecated]
 	public function mapImage (Imagick $map, $dither) {}
 
 	/**
@@ -3896,8 +4119,8 @@ class Imagick implements Iterator, Countable {
 	 * The starting y coordinate of the operation.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
-	#[Deprecated]
 	public function matteFloodfillImage ($alpha, $fuzz, $bordercolor, $x, $y) {}
 
 	/**
@@ -3908,8 +4131,8 @@ class Imagick implements Iterator, Countable {
 	 * The radius of the pixel neighborhood.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
-	#[Deprecated]
 	public function medianFilterImage ($radius) {}
 
 	/**
@@ -3926,6 +4149,7 @@ class Imagick implements Iterator, Countable {
 	 * list of channel constants.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function negateImage ($gray, $channel = Imagick::CHANNEL_ALL) {}
 
@@ -3951,8 +4175,8 @@ class Imagick implements Iterator, Countable {
 	 * list of channel constants.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
-	#[Deprecated]
 	public function paintOpaqueImage ($target, $fill, $fuzz, $channel = Imagick::CHANNEL_ALL) {}
 
 	/**
@@ -3971,8 +4195,8 @@ class Imagick implements Iterator, Countable {
 	 * consider two colors as the same.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
-	#[Deprecated]
 	public function paintTransparentImage ($target, $alpha, $fuzz) {}
 
 	/**
@@ -3983,6 +4207,7 @@ class Imagick implements Iterator, Countable {
 	 * Preview type. See Preview type constants
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function previewImages ($preview) {}
 
@@ -3993,6 +4218,7 @@ class Imagick implements Iterator, Countable {
 	 * @param string $name
 	 * @param string $profile
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function profileImage ($name, $profile) {}
 
@@ -4006,6 +4232,7 @@ class Imagick implements Iterator, Countable {
 	 * @param bool $dither
 	 * @param bool $measureError
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function quantizeImage ($numberColors, $colorspace, $treedepth, $dither, $measureError) {}
 
@@ -4019,6 +4246,7 @@ class Imagick implements Iterator, Countable {
 	 * @param bool $dither
 	 * @param bool $measureError
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function quantizeImages ($numberColors, $colorspace, $treedepth, $dither, $measureError) {}
 
@@ -4028,8 +4256,8 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.reducenoiseimage.php
 	 * @param float $radius
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
-	#[Deprecated]
 	public function reduceNoiseImage ($radius) {}
 
 	/**
@@ -4038,6 +4266,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.removeimageprofile.php
 	 * @param string $name
 	 * @return string a string containing the profile of the image.
+	 * @throws ImagickException on error.
 	 */
 	public function removeImageProfile ($name) {}
 
@@ -4047,6 +4276,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.separateimagechannel.php
 	 * @param int $channel
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function separateImageChannel ($channel) {}
 
@@ -4056,6 +4286,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.sepiatoneimage.php
 	 * @param float $threshold
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function sepiaToneImage ($threshold) {}
 
@@ -4075,6 +4306,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $x
 	 * @param float $y
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageBluePrimary ($x, $y) {}
 
@@ -4086,6 +4318,7 @@ class Imagick implements Iterator, Countable {
 	 * The border color
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageBorderColor ($border) {}
 
@@ -4096,6 +4329,7 @@ class Imagick implements Iterator, Countable {
 	 * @param int $channel
 	 * @param int $depth
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageChannelDepth ($channel, $depth) {}
 
@@ -4106,6 +4340,7 @@ class Imagick implements Iterator, Countable {
 	 * @param int $index
 	 * @param ImagickPixel $color
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageColormapColor ($index, ImagickPixel $color) {}
 
@@ -4117,6 +4352,7 @@ class Imagick implements Iterator, Countable {
 	 * One of the COLORSPACE constants
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageColorspace ($colorspace) {}
 
@@ -4126,6 +4362,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setimagedispose.php
 	 * @param int $dispose
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageDispose ($dispose) {}
 
@@ -4136,6 +4373,7 @@ class Imagick implements Iterator, Countable {
 	 * @param int $columns
 	 * @param int $rows
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageExtent ($columns, $rows) {}
 
@@ -4146,6 +4384,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $x
 	 * @param float $y
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageGreenPrimary ($x, $y) {}
 
@@ -4155,6 +4394,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setimageinterlacescheme.php
 	 * @param int $interlace_scheme
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageInterlaceScheme ($interlace_scheme) {}
 
@@ -4165,6 +4405,7 @@ class Imagick implements Iterator, Countable {
 	 * @param string $name
 	 * @param string $profile
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageProfile ($name, $profile) {}
 
@@ -4175,6 +4416,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $x
 	 * @param float $y
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageRedPrimary ($x, $y) {}
 
@@ -4184,6 +4426,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setimagerenderingintent.php
 	 * @param int $rendering_intent
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageRenderingIntent ($rendering_intent) {}
 
@@ -4193,6 +4436,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setimagevirtualpixelmethod.php
 	 * @param int $method
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageVirtualPixelMethod ($method) {}
 
@@ -4203,6 +4447,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $x
 	 * @param float $y
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImageWhitePoint ($x, $y) {}
 
@@ -4215,6 +4460,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $beta
 	 * @param int $channel [optional]
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function sigmoidalContrastImage ($sharpen, $alpha, $beta, $channel = Imagick::CHANNEL_ALL) {}
 
@@ -4224,6 +4470,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.stereoimage.php
 	 * @param Imagick $offset_wand
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function stereoImage (Imagick $offset_wand) {}
 
@@ -4233,6 +4480,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.textureimage.php
 	 * @param Imagick $texture_wand
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function textureImage (Imagick $texture_wand) {}
 
@@ -4259,6 +4507,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $threshold
 	 * @param int $channel [optional]
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function unsharpMaskImage ($radius, $sigma, $amount, $threshold, $channel = Imagick::CHANNEL_ALL) {}
 
@@ -4267,6 +4516,7 @@ class Imagick implements Iterator, Countable {
 	 * Returns a new Imagick object
 	 * @link https://php.net/manual/en/imagick.getimage.php
 	 * @return Imagick a new Imagick object with the current image sequence.
+	 * @throws ImagickException on error.
 	 */
 	#[Pure]
 	public function getImage () {}
@@ -4279,6 +4529,7 @@ class Imagick implements Iterator, Countable {
 	 * The source Imagick object
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function addImage (Imagick $source) {}
 
@@ -4290,6 +4541,7 @@ class Imagick implements Iterator, Countable {
 	 * The replace Imagick object
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setImage (Imagick $replace) {}
 
@@ -4310,6 +4562,7 @@ class Imagick implements Iterator, Countable {
 	 * Image format. This parameter was added in Imagick version 2.0.1.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function newImage ($cols, $rows, $background, $format = null) {}
 
@@ -4327,6 +4580,7 @@ class Imagick implements Iterator, Countable {
 	 * string containing pseudo image definition.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function newPseudoImage ($columns, $rows, $pseudoString) {}
 
@@ -4503,6 +4757,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.getsize.php
 	 * @return int[] the size associated with the Imagick object as an array with the
 	 * keys "columns" and "rows".
+	 * @throws ImagickException on error.
 	 */
     #[ArrayShape([
         "columns" => "int",
@@ -4529,6 +4784,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setbackgroundcolor.php
 	 * @param mixed $background
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setBackgroundColor ($background) {}
 
@@ -4538,6 +4794,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setcompression.php
 	 * @param int $compression
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setCompression ($compression) {}
 
@@ -4547,6 +4804,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setcompressionquality.php
 	 * @param int $quality
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setCompressionQuality ($quality) {}
 
@@ -4556,6 +4814,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setfilename.php
 	 * @param string $filename
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setFilename ($filename) {}
 
@@ -4565,6 +4824,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setformat.php
 	 * @param string $format
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setFormat ($format) {}
 
@@ -4574,6 +4834,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setinterlacescheme.php
 	 * @param int $interlace_scheme
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setInterlaceScheme ($interlace_scheme) {}
 
@@ -4584,6 +4845,7 @@ class Imagick implements Iterator, Countable {
 	 * @param string $key
 	 * @param string $value
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setOption ($key, $value) {}
 
@@ -4596,6 +4858,7 @@ class Imagick implements Iterator, Countable {
 	 * @param int $x
 	 * @param int $y
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setPage ($width, $height, $x, $y) {}
 
@@ -4610,6 +4873,7 @@ class Imagick implements Iterator, Countable {
 	 * The resource limit. The unit depends on the type of the resource being limited.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public static function setResourceLimit ($type, $limit) {}
 
@@ -4624,6 +4888,7 @@ class Imagick implements Iterator, Countable {
 	 * The vertical resolution.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setResolution ($x_resolution, $y_resolution) {}
 
@@ -4633,6 +4898,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.setsamplingfactors.php
 	 * @param array $factors
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setSamplingFactors (array $factors) {}
 
@@ -4643,6 +4909,7 @@ class Imagick implements Iterator, Countable {
 	 * @param int $columns
 	 * @param int $rows
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setSize ($columns, $rows) {}
 
@@ -4652,6 +4919,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.settype.php
 	 * @param int $image_type
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function setType ($image_type) {}
 
@@ -4666,6 +4934,7 @@ class Imagick implements Iterator, Countable {
 	 * Checks if the current item is valid
 	 * @link https://php.net/manual/en/imagick.valid.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function valid () {}
 
@@ -4684,6 +4953,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $contrast
 	 * @param int $CHANNEL [optional]
 	 * @return void
+	 * @throws ImagickException on error.
 	 * @since 3.3.0
 	 */
 	public function brightnessContrastImage ($brightness, $contrast, $CHANNEL = Imagick::CHANNEL_DEFAULT) { }
@@ -4696,6 +4966,8 @@ class Imagick implements Iterator, Countable {
 	 * @param ImagickKernel $ImagickKernel
 	 * @param int $CHANNEL [optional]
 	 * @return void
+	 * @throws ImagickException on error.
+	 * @throws ImagickKernelException on error.
 	 * @since 3.3.0
 	 */
 	public function morphology ($morphologyMethod, $iterations, ImagickKernel $ImagickKernel, $CHANNEL = Imagick::CHANNEL_DEFAULT) { }
@@ -4706,6 +4978,7 @@ class Imagick implements Iterator, Countable {
 	 * @param ImagickKernel $ImagickKernel An instance of ImagickKernel that represents either a single kernel or a linked series of kernels.
 	 * @param int $CHANNEL [optional] Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to Imagick::CHANNEL_DEFAULT. Refer to this list of channel constants
 	 * @return void
+	 * @throws ImagickException on error.
 	 * @since 3.3.0
 	 */
 	public function filter (ImagickKernel $ImagickKernel , $CHANNEL = Imagick::CHANNEL_DEFAULT) { }
@@ -4716,6 +4989,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.colormatriximage.php
 	 * @param array $color_matrix
 	 * @return void
+	 * @throws ImagickException on error.
 	 * @since 3.3.0
 	 */
 	public function colorMatrixImage ($color_matrix = Imagick::CHANNEL_DEFAULT) { }
@@ -4725,6 +4999,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.deleteimageproperty.php
 	 * @param string $name The name of the property to delete.
 	 * @return void
+	 * @throws ImagickException on error.
 	 * @since 3.3.0
 	 */
 	public function deleteImageProperty ($name) { }
@@ -4734,6 +5009,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.forwardfouriertransformimage.php
 	 * @param bool $magnitude If true, return as magnitude / phase pair otherwise a real / imaginary image pair.
 	 * @return void
+	 * @throws ImagickException on error.
 	 * @since 3.3.0
 	 */
 	public function forwardFourierTransformimage ($magnitude) { }
@@ -4752,7 +5028,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.getregistry.php
 	 * @param string $key
 	 * @return string|false
-	 * @throws Exception Since version >= 3.4.3. Throws an exception if the key does not exist, rather than terminating the program.
+	 * @throws ImagickException Since version >= 3.4.3. Throws an exception if the key does not exist, rather than terminating the program.
 	 * @since 3.3.0
 	 */
 	public static function getRegistry ($key) { }
@@ -4771,6 +5047,7 @@ class Imagick implements Iterator, Countable {
 	 * @see https://www.imagemagick.org/script/escape.php
 	 * @param string $embedText A string containing formatting sequences e.g. "Trim box: %@ number of unique colors: %k".
 	 * @return bool
+	 * @throws ImagickException on error.
 	 * @since 3.3.0
 	 */
 	public function identifyFormat ($embedText) { }
@@ -4781,6 +5058,7 @@ class Imagick implements Iterator, Countable {
 	 * @param Imagick $complement The second image to combine with this one to form either the magnitude / phase or real / imaginary image pair.
 	 * @param bool $magnitude If true, combine as magnitude / phase pair otherwise a real / imaginary image pair.
 	 * @return void
+	 * @throws ImagickException on error.
 	 * @since 3.3.0
 	 */
 	public function inverseFourierTransformImage ($complement, $magnitude) { }
@@ -4799,6 +5077,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $angle
 	 * @param int $CHANNEL
 	 * @return void
+	 * @throws ImagickException on error.
 	 * @since 3.3.0
 	 */
 	public function rotationalBlurImage ($angle, $CHANNEL = Imagick::CHANNEL_DEFAULT) { }
@@ -4811,6 +5090,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $threshold
 	 * @param int $CHANNEL Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to Imagick::CHANNEL_DEFAULT. Refer to this list of channel constants
 	 * @return void
+	 * @throws ImagickException on error.
 	 * @since 3.3.0
 	 */
 	public function selectiveBlurImage ($radius, $sigma, $threshold, $CHANNEL = Imagick::CHANNEL_DEFAULT) { }
@@ -4819,6 +5099,7 @@ class Imagick implements Iterator, Countable {
 	 * Set whether antialiasing should be used for operations. On by default.
 	 * @param bool $antialias
 	 * @return int
+	 * @throws ImagickException on error.
 	 * @since 3.3.0
 	 */
 	public function setAntiAlias ($antialias) { }
@@ -4840,6 +5121,7 @@ class Imagick implements Iterator, Countable {
 	 * <b>Caution</b>
 	 * The values passed to the callback function are not consistent. In particular the span parameter can increase during image processing. Because of this calculating the percentage complete of an image operation is not trivial.
 	 * @return void
+	 * @throws ImagickException on error.
 	 * @since 3.3.0
 	 */
 	public function setProgressMonitor ($callback) { }
@@ -4862,6 +5144,7 @@ class Imagick implements Iterator, Countable {
 	 * @param int $height
 	 * @param int $channel [optional]
 	 * @return void
+	 * @throws ImagickException on error.
 	 * @since 3.3.0
 	 */
 	public function statisticImage ($type, $width, $height, $channel = Imagick::CHANNEL_DEFAULT ) { }
@@ -4880,6 +5163,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $similarity_threshold [optional] Only used if compiled with ImageMagick (library) > 7
 	 * @param int $metric [optional] Only used if compiled with ImageMagick (library) > 7
 	 * @return Imagick
+	 * @throws ImagickException on error.
 	 * @since 3.3.0
 	 */
 	public function subImageMatch (Imagick $imagick, array &$bestMatch, &$similarity, $similarity_threshold, $metric) { }
@@ -4893,6 +5177,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $similarity_threshold [optional]
 	 * @param int $metric [optional]
 	 * @return Imagick
+	 * @throws ImagickException on error.
 	 * @see Imagick::subImageMatch() This function is an alias of subImageMatch()
 	 * @since 3.4.0
 	 */
@@ -4925,6 +5210,7 @@ class Imagick implements Iterator, Countable {
 	 * Sets the image channel mask. Returns the previous set channel mask.
 	 * Only works with Imagick >= 7
 	 * @param int $channel
+	 * @throws ImagickException on error.
 	 * @since 3.4.0
 	 */
 	public function setImageChannelMask ($channel) {}
@@ -4934,6 +5220,7 @@ class Imagick implements Iterator, Countable {
 	 * @param int $EVALUATE_CONSTANT
 	 * @return bool
 	 * @see https://www.imagemagick.org/Usage/layers/#evaluate-sequence
+	 * @throws ImagickException on error.
 	 * @since 3.4.0
 	 */
 	public function evaluateImages ($EVALUATE_CONSTANT) { }
@@ -4942,6 +5229,7 @@ class Imagick implements Iterator, Countable {
 	 * Extracts the 'mean' from the image and adjust the image to try make set its gamma appropriately.
 	 * @param int $channel [optional] Default value Imagick::CHANNEL_ALL
 	 * @return bool
+	 * @throws ImagickException on error.
 	 * @since 3.4.1
 	 */
 	public function autoGammaImage ($channel = Imagick::CHANNEL_ALL) { }
@@ -4949,6 +5237,7 @@ class Imagick implements Iterator, Countable {
 	/**
 	 * Adjusts an image so that its orientation is suitable $ for viewing (i.e. top-left orientation).
 	 * @return bool
+	 * @throws ImagickException on error.
 	 * @since 3.4.1
 	 */
 	public function autoOrient () { }
@@ -4960,6 +5249,7 @@ class Imagick implements Iterator, Countable {
 	 * @param int $COMPOSITE_CONSTANT
 	 * @param int $GRAVITY_CONSTANT
 	 * @return bool
+	 * @throws ImagickException on error.
 	 * @since 3.4.1
 	 */
 	public function compositeImageGravity(Imagick $imagick, $COMPOSITE_CONSTANT, $GRAVITY_CONSTANT) { }
@@ -4970,6 +5260,7 @@ class Imagick implements Iterator, Countable {
 	 * @param float $radius
 	 * @param float $strength
 	 * @return bool
+	 * @throws ImagickException on error.
 	 * @since 3.4.1
 	 */
 	public function localContrastImage($radius, $strength) { }
@@ -4977,6 +5268,7 @@ class Imagick implements Iterator, Countable {
 	/**
 	 * Identifies the potential image type, returns one of the Imagick::IMGTYPE_* constants
 	 * @return int
+	 * @throws ImagickException on error.
 	 * @since 3.4.3
 	 */
 	public function identifyImageType() { }
@@ -4986,6 +5278,7 @@ class Imagick implements Iterator, Countable {
 	 *
 	 * @param float $alpha
 	 * @return bool
+	 * @throws ImagickException on error.
 	 * @since 3.4.3
 	 */
 	public function setImageAlpha($alpha) { }
@@ -5038,6 +5331,7 @@ class ImagickDraw  {
 	 * ImagickPixel to use to set the color
 	 * </p>
 	 * @return bool No value is returned.
+	 * @throws ImagickDrawException on error.
 	 */
 	public function setFillColor (ImagickPixel $fill_pixel) {}
 
@@ -5050,14 +5344,14 @@ class ImagickDraw  {
 	 * </p>
 	 * @return bool No value is returned.
 	 */
-	#[Deprecated]
 	public function setFillAlpha ($opacity) {}
 
 	/**
      * Sets the image resolution
 	 * @param float $x_resolution <p>The horizontal resolution.</p>
 	 * @param float $y_resolution <p>The vertical resolution.</p>
-     * @return bool
+	 * @return bool
+	 * @throws ImagickDrawException on error.
 	 */
 	public function setResolution ($x_resolution, $y_resolution) {}
 
@@ -5069,6 +5363,7 @@ class ImagickDraw  {
 	 * the stroke color
 	 * </p>
 	 * @return bool No value is returned.
+	 * @throws ImagickDrawException on error.
 	 */
 	public function setStrokeColor (ImagickPixel $stroke_pixel) {}
 
@@ -5081,7 +5376,6 @@ class ImagickDraw  {
 	 * </p>
 	 * @return bool No value is returned.
 	 */
-	#[Deprecated]
 	public function setStrokeAlpha ($opacity) {}
 
 	/**
@@ -5137,6 +5431,7 @@ class ImagickDraw  {
 	 * The text to draw on the image
 	 * </p>
 	 * @return bool No value is returned.
+	 * @throws ImagickDrawException on error.
 	 */
 	public function annotation ($x, $y, $text) {}
 
@@ -5166,6 +5461,8 @@ class ImagickDraw  {
 	 * @link https://php.net/manual/en/imagickdraw.setfont.php
 	 * @param string $font_name
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickDrawException on error.
+	 * @throws ImagickException on error.
 	 */
 	public function setFont ($font_name) {}
 
@@ -5177,6 +5474,8 @@ class ImagickDraw  {
 	 * the font family
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickDrawException on error.
+	 * @throws ImagickException on error.
 	 */
 	public function setFontFamily ($font_family) {}
 
@@ -5208,6 +5507,7 @@ class ImagickDraw  {
 	 * @link https://php.net/manual/en/imagickdraw.setfontweight.php
 	 * @param int $font_weight
 	 * @return bool
+	 * @throws ImagickDrawException on error.
 	 */
 	public function setFontWeight ($font_weight) {}
 
@@ -5432,6 +5732,7 @@ class ImagickDraw  {
 	 * multidimensional array like array( array( 'x' => 3, 'y' => 4 ), array( 'x' => 2, 'y' => 6 ) );
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickDrawException on error.
 	 */
 	public function polygon (array $coordinates) {}
 
@@ -5524,6 +5825,7 @@ class ImagickDraw  {
 	 * the under color
 	 * </p>
 	 * @return bool No value is returned.
+	 * @throws ImagickDrawException on error.
 	 */
 	public function setTextUnderColor (ImagickPixel $under_color) {}
 
@@ -5555,6 +5857,7 @@ class ImagickDraw  {
 	 * Affine matrix parameters
 	 * </p>
 	 * @return bool No value is returned.
+	 * @throws ImagickDrawException on error.
 	 */
 	public function affine (array $affine) {}
 
@@ -5567,6 +5870,7 @@ class ImagickDraw  {
 	 * array( 'x' => 3, 'y' => 4 ) )
 	 * </p>
 	 * @return bool No value is returned.
+	 * @throws ImagickDrawException on error.
 	 */
 	public function bezier (array $coordinates) {}
 
@@ -5593,6 +5897,7 @@ class ImagickDraw  {
 	 * the Imagick object where composition image is taken from
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException on error.
 	 */
 	public function composite ($compose, $x, $y, $width, $height, Imagick $compositeWand) {}
 
@@ -5801,6 +6106,7 @@ class ImagickDraw  {
 	 * Returns the text under color
 	 * @link https://php.net/manual/en/imagickdraw.gettextundercolor.php
 	 * @return ImagickPixel an ImagickPixel object describing the color.
+	 * @throws ImagickDrawException on error.
 	 */
 	#[Pure]
 	public function getTextUnderColor () {}
@@ -6155,6 +6461,7 @@ class ImagickDraw  {
 	 * array of x and y coordinates: array( array( 'x' => 4, 'y' => 6 ), array( 'x' => 8, 'y' => 10 ) )
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickDrawException on error.
 	 */
 	public function polyline (array $coordinates) {}
 
@@ -6179,6 +6486,7 @@ class ImagickDraw  {
 	 * Terminates a pattern definition
 	 * @link https://php.net/manual/en/imagickdraw.poppattern.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @throws ImagickException on error.
 	 */
 	public function popPattern () {}
 
@@ -6229,6 +6537,7 @@ class ImagickDraw  {
 	 * Renders all preceding drawing commands onto the image
 	 * @link https://php.net/manual/en/imagickdraw.render.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @throws ImagickException on error.
 	 */
 	public function render () {}
 
@@ -6265,6 +6574,7 @@ class ImagickDraw  {
 	 * the clipping path name
 	 * </p>
 	 * @return bool No value is returned.
+	 * @throws ImagickException on error.
 	 */
 	public function setClipPath ($clip_mask) {}
 
@@ -6309,6 +6619,7 @@ class ImagickDraw  {
 	 * URL to use to obtain fill pattern.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @throws ImagickException on error.
 	 */
 	public function setFillPatternURL ($fill_url) {}
 
@@ -6342,6 +6653,7 @@ class ImagickDraw  {
 	 * stroke URL
 	 * </p>
 	 * @return bool imagick.imagickdraw.return.success;
+	 * @throws ImagickException on error.
 	 */
 	public function setStrokePatternURL ($stroke_url) {}
 
@@ -6416,6 +6728,7 @@ class ImagickDraw  {
 	 * Destroys the current ImagickDraw in the stack, and returns to the previously pushed ImagickDraw
 	 * @link https://php.net/manual/en/imagickdraw.pop.php
 	 * @return bool <b>TRUE</b> on success and false on failure.
+	 * @throws ImagickException on error.
 	 */
 	public function pop () {}
 
@@ -6424,6 +6737,7 @@ class ImagickDraw  {
 	 * Clones the current ImagickDraw and pushes it to the stack
 	 * @link https://php.net/manual/en/imagickdraw.push.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @throws ImagickException on error.
 	 */
 	public function push () {}
 
@@ -6462,6 +6776,7 @@ class ImagickDraw  {
 	 * @param float $x
 	 * @param float $y
 	 * @return bool
+	 * @throws ImagickException on error.
 	 * @since 3.4.1
 	 */
 	public function setFontResolution($x, $y) { }
@@ -6470,6 +6785,7 @@ class ImagickDraw  {
 	 * Gets the image X and Y resolution.
 	 *
 	 * @return array
+	 * @throws ImagickException on error.
 	 * @since 3.4.1
 	 */
 	#[Pure]
@@ -6505,6 +6821,7 @@ class ImagickDraw  {
 	 * Sets the border color to be used for drawing bordered objects.
 	 * @param ImagickPixel $color
 	 * @return bool
+	 * @throws ImagickDrawException on error.
 	 * @since 3.4.1
 	 */
 	public function setBorderColor(ImagickPixel $color) { }
@@ -6522,6 +6839,7 @@ class ImagickDraw  {
 	 * Sets the vertical and horizontal resolution.
 	 * @param string $density_string
 	 * @return bool
+	 * @throws ImagickException on error.
 	 * @since 3.4.1
 	 */
 	public function setDensity($density_string) { }
@@ -6537,6 +6855,8 @@ class ImagickPixelIterator implements Iterator {
 	 * The ImagickPixelIterator constructor
 	 * @link https://php.net/manual/en/imagickpixeliterator.construct.php
 	 * @param Imagick $wand
+	 * @throws ImagickPixelIteratorException on error.
+	 * @throws ImagickException on error.
 	 */
 	public function __construct (Imagick $wand) {}
 
@@ -6547,8 +6867,8 @@ class ImagickPixelIterator implements Iterator {
 	 * @param Imagick $wand
 	 * @return bool <b>TRUE</b> on success. Throwing ImagickPixelIteratorException.
 	 * @throws ImagickPixelIteratorException
+	 * @throws ImagickException
 	 */
-	#[Deprecated(replacement: "%class%->getPixelIterator(%parametersList%)")]
 	public function newPixelIterator (Imagick $wand) {}
 
 	/**
@@ -6562,8 +6882,8 @@ class ImagickPixelIterator implements Iterator {
 	 * @param int $rows
 	 * @return bool a new ImagickPixelIterator on success; on failure, throws ImagickPixelIteratorException
 	 * @throws ImagickPixelIteratorException
+	 * @throws ImagickException
 	 */
-	#[Deprecated(replacement: "%class%->getPixelRegionIterator(%parametersList%)")]
 	public function newPixelRegionIterator (Imagick $wand, $x, $y, $columns, $rows) {}
 
 	/**
@@ -6582,6 +6902,7 @@ class ImagickPixelIterator implements Iterator {
 	 * @link https://php.net/manual/en/imagickpixeliterator.setiteratorrow.php
 	 * @param int $row
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickPixelIteratorException on error.
 	 */
 	public function setIteratorRow ($row) {}
 
@@ -6590,6 +6911,7 @@ class ImagickPixelIterator implements Iterator {
 	 * Sets the pixel iterator to the first pixel row
 	 * @link https://php.net/manual/en/imagickpixeliterator.setiteratorfirstrow.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickPixelIteratorException on error.
 	 */
 	public function setIteratorFirstRow () {}
 
@@ -6598,6 +6920,7 @@ class ImagickPixelIterator implements Iterator {
 	 * Sets the pixel iterator to the last pixel row
 	 * @link https://php.net/manual/en/imagickpixeliterator.setiteratorlastrow.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickPixelIteratorException on error.
 	 */
 	public function setIteratorLastRow () {}
 
@@ -6617,6 +6940,7 @@ class ImagickPixelIterator implements Iterator {
 	 * Returns the current row of ImagickPixel objects
 	 * @link https://php.net/manual/en/imagickpixeliterator.getcurrentiteratorrow.php
 	 * @return array a row as an array of ImagickPixel objects that can themselves be iterated.
+	 * @throws ImagickPixelIteratorException on error.
 	 */
 	#[Pure]
 	public function getCurrentIteratorRow () {}
@@ -6637,6 +6961,7 @@ class ImagickPixelIterator implements Iterator {
 	 * Resets the pixel iterator
 	 * @link https://php.net/manual/en/imagickpixeliterator.resetiterator.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickPixelIteratorException on error.
 	 */
 	public function resetIterator () {}
 
@@ -6645,6 +6970,7 @@ class ImagickPixelIterator implements Iterator {
 	 * Syncs the pixel iterator
 	 * @link https://php.net/manual/en/imagickpixeliterator.synciterator.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickPixelIteratorException on error.
 	 */
 	public function syncIterator () {}
 
@@ -6653,6 +6979,7 @@ class ImagickPixelIterator implements Iterator {
 	 * Deallocates resources associated with a PixelIterator
 	 * @link https://php.net/manual/en/imagickpixeliterator.destroy.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickPixelIteratorException on error.
 	 */
 	public function destroy () {}
 
@@ -6661,11 +6988,14 @@ class ImagickPixelIterator implements Iterator {
 	 * Clear resources associated with a PixelIterator
 	 * @link https://php.net/manual/en/imagickpixeliterator.clear.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickPixelIteratorException on error.
 	 */
 	public function clear () {}
 
 	/**
 	 * @param Imagick $Imagick
+	 * @throws ImagickPixelIteratorException on error.
+	 * @throws ImagickException on error.
 	 */
 	public static function getpixeliterator (Imagick $Imagick) {}
 
@@ -6675,17 +7005,34 @@ class ImagickPixelIterator implements Iterator {
 	 * @param $y
 	 * @param $columns
 	 * @param $rows
+	 * @throws ImagickPixelIteratorException on error.
+	 * @throws ImagickException on error.
 	 */
 	public static function getpixelregioniterator (Imagick $Imagick, $x, $y, $columns, $rows) {}
 
+	/**
+	 * @throws ImagickPixelIteratorException on error.
+	 */
 	public function key () {}
 
+	/**
+	 * @throws ImagickPixelIteratorException on error.
+	 */
 	public function next () {}
 
+	/**
+	 * @throws ImagickPixelIteratorException on error.
+	 */
 	public function rewind () {}
 
+	/**
+	 * @throws ImagickPixelIteratorException on error.
+	 */
 	public function current () {}
 
+	/**
+	 * @throws ImagickPixelIteratorException on error.
+	 */
 	public function valid () {}
 
 }
@@ -6729,25 +7076,32 @@ class ImagickPixel  {
 	 * 0 to white at 1, with the full HS value at 0.5 luminosity.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickPixelException on failure
 	 */
 	public function setHSL ($hue, $saturation, $luminosity) {}
 
+	/**
+	 * @throws ImagickPixelException on failure
+	 */
 	#[Pure]
 	public function getColorValueQuantum () {}
 
 	/**
 	 * @param $color_value
+	 * @throws ImagickPixelException on failure
 	 */
 	public function setColorValueQuantum ($color_value) {}
 
     /**
      * Gets the colormap index of the pixel wand.
+	 * @throws ImagickPixelException on failure
      */
 	#[Pure]
 	public function getIndex () {}
 
 	/**
 	 * @param int $index
+	 * @throws ImagickPixelException on failure
 	 */
 	public function setIndex ($index) {}
 
@@ -6758,6 +7112,7 @@ class ImagickPixel  {
 	 * @param string $color [optional] <p>
 	 * The optional color string to use as the initial value of this object.
 	 * </p>
+	 * @throws ImagickPixelException on failure
 	 */
 	public function __construct ($color = null) {}
 
@@ -6770,6 +7125,7 @@ class ImagickPixel  {
 	 * ImagickPixel object.
 	 * </p>
 	 * @return bool <b>TRUE</b> if the specified color was set, <b>FALSE</b> otherwise.
+	 * @throws ImagickPixelException on failure
 	 */
 	public function setColor ($color) {}
 
@@ -6784,6 +7140,7 @@ class ImagickPixel  {
 	 * The value to set this channel to, ranging from 0 to 1.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickPixelException on failure
 	 */
 	public function setColorValue ($color, $value) {}
 
@@ -6808,6 +7165,7 @@ class ImagickPixel  {
 	 * Clears resources associated with this object
 	 * @link https://php.net/manual/en/imagickpixel.clear.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickPixelException on failure
 	 */
 	public function clear () {}
 
@@ -6816,6 +7174,7 @@ class ImagickPixel  {
 	 * Deallocates resources associated with this object
 	 * @link https://php.net/manual/en/imagickpixel.destroy.php
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickPixelException on failure
 	 */
 	public function destroy () {}
 
@@ -6832,6 +7191,7 @@ class ImagickPixel  {
 	 * (1.732).
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickPixelException on failure
 	 */
 	public function isSimilar (ImagickPixel $color, $fuzz) {}
 
@@ -6848,6 +7208,7 @@ class ImagickPixel  {
 	 * (1.732).
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickPixelException on failure
 	 */
 	public function isPixelSimilar (ImagickPixel $color, $fuzz) {}
 
@@ -6876,6 +7237,7 @@ class ImagickPixel  {
 	 * Returns the color as a string
 	 * @link https://php.net/manual/en/imagickpixel.getcolorasstring.php
 	 * @return string the color of the ImagickPixel object as a string.
+	 * @throws ImagickPixelException on failure
 	 */
 	#[Pure]
 	public function getColorAsString () {}
@@ -6893,6 +7255,7 @@ class ImagickPixel  {
 
 	/**
 	 * @param int $colorCount
+	 * @throws ImagickPixelException on failure
 	 */
 	public function setColorCount ($colorCount) {}
 
@@ -6904,6 +7267,7 @@ class ImagickPixel  {
 	 * @param string $color
 	 * @param string $fuzz
 	 * @return bool
+	 * @throws ImagickPixelException on failure
 	 * @since 3.3.0
 	 */
 	public function isPixelSimilarQuantum($color, $fuzz) { }
@@ -6912,6 +7276,7 @@ class ImagickPixel  {
 	 * Returns the color of the pixel in an array as Quantum values. If ImageMagick was compiled as HDRI these will be floats, otherwise they will be integers.
 	 * @link https://php.net/manual/en/imagickpixel.getcolorquantum.php
 	 * @return mixed The quantum value of the color element. Float if ImageMagick was compiled with HDRI, otherwise an int.
+	 * @throws ImagickPixelException on failure
 	 * @since 3.3.0
 	 */
 	#[Pure]
@@ -6922,6 +7287,7 @@ class ImagickPixel  {
 	 *
 	 * @param ImagickPixel $srcPixel
 	 * @return bool
+	 * @throws ImagickPixelException on failure
 	 * @since 3.4.1
 	 */
 	public function setColorFromPixel(ImagickPixel $srcPixel) { }
@@ -6939,6 +7305,7 @@ class ImagickKernel {
 	 * @link https://php.net/manual/en/imagickkernel.addkernel.php
 	 * @param ImagickKernel $imagickKernel
 	 * @return void
+	 * @throws ImagickKernelException on error
 	 * @since 3.3.0
 	 */
 	public function addKernel(ImagickKernel $imagickKernel) { }
@@ -6947,6 +7314,7 @@ class ImagickKernel {
 	 * Adds a given amount of the 'Unity' Convolution Kernel to the given pre-scaled and normalized Kernel. This in effect adds that amount of the original image into the resulting convolution kernel. The resulting effect is to convert the defined kernels into blended soft-blurs, unsharp kernels or into sharpening kernels.
 	 * @link https://php.net/manual/en/imagickkernel.addunitykernel.php
 	 * @return void
+	 * @throws ImagickKernelException on error
 	 * @since 3.3.0
 	 */
 	public function addUnityKernel() { }
@@ -6970,6 +7338,7 @@ class ImagickKernel {
 	 * @param array $matrix A matrix (i.e. 2d array) of values that define the kernel. Each element should be either a float value, or FALSE if that element shouldn't be used by the kernel.
 	 * @param array $origin [optional] Which element of the kernel should be used as the origin pixel. e.g. For a 3x3 matrix specifying the origin as [2, 2] would specify that the bottom right element should be the origin pixel.
 	 * @return ImagickKernel
+	 * @throws ImagickKernelException on error
 	 * @since 3.3.0
 	 */
 	public static function fromMatrix($matrix, $origin) { }
@@ -6978,6 +7347,7 @@ class ImagickKernel {
 	 * Get the 2d matrix of values used in this kernel. The elements are either float for elements that are used or 'false' if the element should be skipped.
 	 * @link https://php.net/manual/en/imagickkernel.getmatrix.php
 	 * @return array A matrix (2d array) of the values that represent the kernel.
+	 * @throws ImagickKernelException on error
 	 * @since 3.3.0
 	 */
 	#[Pure]
@@ -6990,6 +7360,7 @@ class ImagickKernel {
 	 * @link https://php.net/manual/en/imagickkernel.scale.php
 	 * @see https://www.imagemagick.org/api/morphology.php#ScaleKernelInfo
 	 * @return void
+	 * @throws ImagickKernelException on error
 	 * @since 3.3.0
 	 */
 	public function scale() { }
@@ -6998,6 +7369,7 @@ class ImagickKernel {
 	 * Separates a linked set of kernels and returns an array of ImagickKernels.
 	 * @link https://php.net/manual/en/imagickkernel.separate.php
 	 * @return void
+	 * @throws ImagickKernelException on error
 	 * @since 3.3.0
 	 */
 	public function seperate() { }
