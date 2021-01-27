@@ -970,7 +970,7 @@ function ldap_rename_ext ($ldap, string $dn, string $new_rdn, string $new_parent
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ldap_get_option ($ldap, int $option, &$value): bool
+function ldap_get_option ($ldap, int $option, &$value = null): bool
 {}
 
 /**

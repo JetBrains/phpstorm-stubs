@@ -3,7 +3,6 @@
 // Start of openssl v.
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
  * Frees a private key
@@ -1030,7 +1029,7 @@ function openssl_dh_compute_key(string $public_key, #[LanguageLevelTypeAware(["8
  * @return string|false
  * @since 7.3
  */
-function openssl_pkey_derive($public_key, $private_key, int $key_length): string|false {}
+function openssl_pkey_derive($public_key, $private_key, int $key_length = 0): string|false {}
 
 /**
  * Generates a string of pseudo-random bytes, with the number of bytes determined by the length parameter.
@@ -1136,7 +1135,7 @@ function openssl_cms_sign(string $input_filename, string $output_filename, OpenS
  * @return bool
  * @since 8.0
  */
-function openssl_cms_decrypt(string $input_filename, string $output_filename, $certificate, $private_key, int $encoding = OPENSSL_ENCODING_SMIME): bool {}
+function openssl_cms_decrypt(string $input_filename, string $output_filename, $certificate, $private_key = null, int $encoding = OPENSSL_ENCODING_SMIME): bool {}
 
 /**
  * Exports the CMS file to an array of PEM certificates.

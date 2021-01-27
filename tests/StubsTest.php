@@ -143,6 +143,18 @@ class StubsTest extends TestCase
     }
 
     /**
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionOptionalParametersProvider
+     */
+    public function testFunctionsOptionalParameters(PHPFunction $function, PHPParameter $parameter)
+    {
+        $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions()[$function->name];
+        $stubParameters = array_filter($phpstormFunction->parameters, fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name);
+        $stubOptionalParameter = array_pop($stubParameters);
+        self::assertEquals($parameter->isOptional, $stubOptionalParameter->isOptional, 
+            sprintf('Reflection function %s has optional parameter %s', $function->name, $parameter->name));
+    }
+    
+    /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::classWithParentProvider
      */
     public function testClassesParent(PHPClass|PHPInterface $class)

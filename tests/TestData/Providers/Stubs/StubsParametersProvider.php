@@ -55,7 +55,7 @@ class StubsParametersProvider
             foreach (EntitiesFilter::getFilteredFunctions($class) as $methodName => $method) {
                 $firstSinceVersion = Utils::getDeclaredSinceVersion($method);
                 if ($filterFunction($class, $method, $firstSinceVersion) === true) {
-                    foreach (EntitiesFilter::getFilteredParameters($method, ...$problemTypes) as $parameter) {
+                    foreach (EntitiesFilter::getFilteredParameters($method, null, ...$problemTypes) as $parameter) {
                         yield "method $class->name::$method->name($parameter->name)" => [$class, $method, $parameter];
                     }
                 }

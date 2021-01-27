@@ -5,6 +5,7 @@ namespace StubTests\Model;
 
 use Exception;
 use JetBrains\PhpStorm\Deprecated;
+use phpDocumentor\Reflection\DocBlock\Tags\Param;
 use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use phpDocumentor\Reflection\Types\Compound;
 use PhpParser\Comment\Doc;
@@ -66,6 +67,14 @@ class PHPFunction extends BasePHPElement
         }
 
         $this->collectTags($node);
+        foreach ($this->parameters as $parameter) {
+            $relatedParamTag = array_filter($this->paramTags, fn(Param $tag) => $tag->getVariableName() === $parameter->name);
+            $relatedParamTag = array_pop($relatedParamTag);
+            if (!empty($relatedParamTag)){
+                $parameter->isOptional = $parameter->isOptional || str_contains((string)$relatedParamTag->getDescription(), '[optional]');
+            }
+        }
+
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);
         return $this;

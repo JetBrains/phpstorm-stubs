@@ -701,7 +701,7 @@ function socket_send (Socket $socket, string $data, int $length, int $flags): in
  * @return int|false
  * @since 5.5
  */
-function socket_sendmsg (Socket $socket, array $message, int $flags ): int|false {}
+function socket_sendmsg (Socket $socket, array $message, int $flags = 0): int|false {}
 
 /**
  * Receives data from a socket whether or not it is connection-oriented
