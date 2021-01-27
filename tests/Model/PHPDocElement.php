@@ -6,6 +6,7 @@ namespace StubTests\Model;
 use Exception;
 use phpDocumentor\Reflection\DocBlock\Tags\Deprecated;
 use phpDocumentor\Reflection\DocBlock\Tags\Link;
+use phpDocumentor\Reflection\DocBlock\Tags\Param;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
 use phpDocumentor\Reflection\DocBlock\Tags\Since;
 use PhpParser\Node;
@@ -42,6 +43,11 @@ trait PHPDocElement
     public array $removedTags = [];
 
     /**
+     * @var Param[]
+     */
+    public array $paramTags = [];
+
+    /**
      * @var string[]
      */
     public array $tagNames = [];
@@ -60,6 +66,7 @@ trait PHPDocElement
                 foreach ($tags as $tag) {
                     $this->tagNames[] = $tag->getName();
                 }
+                $this->paramTags = $phpDoc->getTagsByName('param');
                 $this->links = $phpDoc->getTagsByName('link');
                 $this->see = $phpDoc->getTagsByName('see');
                 $this->sinceTags = $phpDoc->getTagsByName('since');

@@ -864,7 +864,7 @@ function mb_convert_variables (string $to_encoding, array|string $from_encoding,
  * @return string The converted string.
  */
 #[Pure]
-function mb_encode_numericentity (string $string, array $map, ?string $encoding, bool $hex = false): string
+function mb_encode_numericentity (string $string, array $map, ?string $encoding = null, bool $hex = false): string
 {}
 
 /**

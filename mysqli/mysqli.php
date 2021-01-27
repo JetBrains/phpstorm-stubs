@@ -1560,7 +1560,7 @@ function mysqli_commit (mysqli $mysql, int $flags = -1, ?string $name): bool
  * @param string|null $socket Specifies the socket or named pipe that should be used.
  * @return mysqli|false|null object which represents the connection to a MySQL Server or false if an error occurred.
  */
-function mysqli_connect (?string $hostname, ?string $username, ?string $password, ?string $database, ?int $port, ?string $socket): mysqli|false|null
+function mysqli_connect (?string $hostname = null, ?string $username = null, ?string $password = null, ?string $database = null, ?int $port = null, ?string $socket = null): mysqli|false|null
 {}
 
 /**

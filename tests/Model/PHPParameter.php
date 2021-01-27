@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
-use PhpParser\Node\Expr;
 use PhpParser\Node\Param;
 use ReflectionParameter;
 use stdClass;
@@ -14,7 +13,8 @@ class PHPParameter extends BasePHPElement
     public array $types = [];
     public bool $is_vararg = false;
     public bool $is_passed_by_ref = false;
-    public ?Expr $defaultValue = null;
+    public bool $isOptional = false;
+    public mixed $defaultValue = null;
 
     /**
      * @param ReflectionParameter $reflectionObject
@@ -26,6 +26,8 @@ class PHPParameter extends BasePHPElement
         $this->types = self::getReflectionTypeAsArray($reflectionObject->getType());
         $this->is_vararg = $reflectionObject->isVariadic();
         $this->is_passed_by_ref = $reflectionObject->isPassedByReference() && !$reflectionObject->canBePassedByValue();
+        $this->isOptional = $reflectionObject->isOptional();
+        $this->defaultValue = $reflectionObject->isDefaultValueAvailable() ? $reflectionObject->getDefaultValue() : null;
         return $this;
     }
 
@@ -47,6 +49,7 @@ class PHPParameter extends BasePHPElement
         $this->is_vararg = $node->variadic;
         $this->is_passed_by_ref = $node->byRef;
         $this->defaultValue = $node->default;
+        $this->isOptional = $this->defaultValue !== null || $this->is_vararg;
         return $this;
     }
 

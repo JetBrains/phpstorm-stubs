@@ -395,7 +395,7 @@ function dir (string $directory, $context): Directory|false
  * @return Directory|false
  * @see dir()
  */
-function getdir(string $directory, $context): Directory|false
+function getdir(string $directory, $context = null): Directory|false
 {}
 
 /**

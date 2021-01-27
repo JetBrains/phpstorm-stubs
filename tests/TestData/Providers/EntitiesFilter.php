@@ -63,11 +63,11 @@ class EntitiesFilter
         return $resultArray;
     }
 
-    public static function getFilteredParameters(PHPFunction $function, int ...$problemType): array
+    public static function getFilteredParameters(PHPFunction $function, callable $additionalFilter = null, int ...$problemType): array
     {
         /** @var PHPParameter[] $resultArray */
         $resultArray = [];
-        foreach (EntitiesFilter::getFiltered($function->parameters, null,
+        foreach (EntitiesFilter::getFiltered($function->parameters, $additionalFilter,
             StubProblemType::PARAMETER_NAME_MISMATCH, ...$problemType) as $parameter) {
             $resultArray[] = $parameter;
         }
