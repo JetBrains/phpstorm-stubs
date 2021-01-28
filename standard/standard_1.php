@@ -1069,7 +1069,7 @@ function implode (array|string $separator = "", ?array $array): string
  * elements in the same order, with the glue string between each element.
  */
 #[Pure]
-function join (array|string  $separator = "", ?array $array = null): string
+function join (array|string  $separator = "", ?array $array): string
 {}
 
 /**
