@@ -1,13 +1,9 @@
 version: 1.0
-failThreshold: 0
+failThreshold: 3
 profile:
-  name: qodana.recommended
+  path: Inspections.xml
 exclude:
-  - name: PhpArgumentWithoutNamedIdentifierInspection
-    paths:
-      - tests
   - name: PhpInconsistentReturnPointsInspection
-  - name: PhpArgumentWithoutNamedIdentifierInspection
     paths:
       - aerospike
       - amqp

@@ -29,13 +29,9 @@ class EntitiesFilter
                     $hasProblem = true;
                 }
             }
-            if ($entity->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
-                $hasProblem = true;
-            }
-            if ($entity->hasMutedProblem(StubProblemType::HAS_DUPLICATION)) {
-                $hasProblem = true;
-            }
-            if ($additionalFilter !== null && $additionalFilter($entity) === true) {
+            if ($entity->hasMutedProblem(StubProblemType::STUB_IS_MISSED) ||
+                $entity->hasMutedProblem(StubProblemType::HAS_DUPLICATION) ||
+                $additionalFilter !== null && $additionalFilter($entity) === true) {
                 $hasProblem = true;
             }
             if ($hasProblem) {
@@ -76,10 +72,9 @@ class EntitiesFilter
 
     public static function getFilterFunctionForLanguageLevel(float $languageVersion): callable
     {
-        return function (PHPClass|PHPInterface $class, PHPMethod $method, ?float $firstSinceVersion) use ($languageVersion) {
-            return $class !== null && !$method->isFinal && !$class->isFinal && $firstSinceVersion !== null &&
-                $firstSinceVersion < $languageVersion;
-        };
+        return fn(PHPClass|PHPInterface $class, PHPMethod $method, ?float $firstSinceVersion) =>
+            $class !== null && !$method->isFinal && !$class->isFinal && $firstSinceVersion !== null &&
+            $firstSinceVersion < $languageVersion;
     }
 
     public static function getFilterFunctionForAllowedTypeHintsInLanguageLevel(float $languageVersion): callable
@@ -91,8 +86,8 @@ class EntitiesFilter
                 $reflectionMethods = array_filter($reflectionClass->methods, fn(PHPMethod $method) => $stubMethod->name === $method->name);
                 $reflectionMethod = array_pop($reflectionMethods);
             }
-            return $reflectionMethod !== null && ($stubMethod->isFinal || $stubClass->isFinal || ($firstSinceVersion !== null &&
-                $firstSinceVersion > $languageVersion));
+            return $reflectionMethod !== null && ($stubMethod->isFinal || $stubClass->isFinal || $firstSinceVersion !== null &&
+                $firstSinceVersion > $languageVersion);
         };
     }
 }

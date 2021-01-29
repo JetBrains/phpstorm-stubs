@@ -24,7 +24,7 @@ class StubsPhpDocTest extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubConstantsProvider::classConstantProvider
      */
-    public function testClassConstantsPHPDocs(string $className, PHPConst $constant): void
+    public static function testClassConstantsPHPDocs(string $className, PHPConst $constant): void
     {
         self::assertNull($constant->parseError, $constant->parseError ?: '');
         self::checkPHPDocCorrectness($constant, "constant $className::$constant->name");
@@ -33,7 +33,7 @@ class StubsPhpDocTest extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubConstantsProvider::globalConstantProvider
      */
-    public function testConstantsPHPDocs(PHPConst $constant): void
+    public static function testConstantsPHPDocs(PHPConst $constant): void
     {
         self::assertNull($constant->parseError, $constant->parseError ?: '');
         self::checkPHPDocCorrectness($constant, "constant $constant->name");
@@ -42,7 +42,7 @@ class StubsPhpDocTest extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsTestDataProviders::allFunctionsProvider
      */
-    public function testFunctionPHPDocs(PHPFunction $function): void
+    public static function testFunctionPHPDocs(PHPFunction $function): void
     {
         self::assertNull($function->parseError, $function->parseError ?: '');
         self::checkPHPDocCorrectness($function, "function $function->name");
@@ -51,7 +51,7 @@ class StubsPhpDocTest extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsTestDataProviders::allClassesProvider
      */
-    public function testClassesPHPDocs(BasePHPClass $class): void
+    public static function testClassesPHPDocs(BasePHPClass $class): void
     {
         self::assertNull($class->parseError, $class->parseError ?: '');
         self::checkPHPDocCorrectness($class, "class $class->name");
@@ -60,7 +60,7 @@ class StubsPhpDocTest extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::allMethodsProvider
      */
-    public function testMethodsPHPDocs(PHPMethod $method): void
+    public static function testMethodsPHPDocs(PHPMethod $method): void
     {
         if ($method->name === '__construct') {
             self::assertEmpty($method->returnTypesFromPhpDoc, '@return tag for __construct should be omitted');
