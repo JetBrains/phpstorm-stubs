@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace StubTests;
 
 use JetBrains\PhpStorm\Pure;
+use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPConst;
@@ -21,6 +22,7 @@ class StubsTest extends TestCase
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::constantProvider
+     * @throws Exception
      */
     public function testConstants(PHPConst $constant): void
     {
@@ -52,6 +54,7 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::classConstantProvider
+     * @throws Exception
      */
     public function testClassConstants(PHPClass|PHPInterface $class, PHPConst $constant): void
     {
@@ -91,6 +94,7 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::allFunctionsProvider
+     * @throws Exception
      */
     public function testFunctionsExist(PHPFunction $function): void
     {
@@ -116,6 +120,7 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::functionsForParamsAmountTestsProvider
+     * @throws Exception
      */
     public function testFunctionsParametersAmount(PHPFunction $function)
     {
@@ -130,6 +135,9 @@ class StubsTest extends TestCase
         );
     }
 
+    /**
+     * @throws Exception
+     */
     public function testFunctionsDuplicates()
     {
         $filtered = EntitiesFilter::getFiltered(
@@ -149,13 +157,15 @@ class StubsTest extends TestCase
     {
         $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions()[$function->name];
         $stubParameters = array_filter($phpstormFunction->parameters, fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name);
+        /** @var PHPParameter $stubOptionalParameter */
         $stubOptionalParameter = array_pop($stubParameters);
-        self::assertEquals($parameter->isOptional, $stubOptionalParameter->isOptional, 
+        self::assertEquals($parameter->isOptional, $stubOptionalParameter->isOptional,
             sprintf('Reflection function %s has optional parameter %s', $function->name, $parameter->name));
     }
-    
+
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::classWithParentProvider
+     * @throws Exception
      */
     public function testClassesParent(PHPClass|PHPInterface $class)
     {
@@ -182,6 +192,7 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsProvider
+     * @throws Exception
      */
     public function testClassesMethodsExist(PHPClass|PHPInterface $class, PHPMethod $method)
     {
@@ -254,6 +265,7 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsWithParametersProvider
+     * @throws Exception
      */
     public function testClassesParametersCount(PHPClass|PHPInterface $class, PHPMethod $method)
     {
@@ -273,6 +285,7 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::classesWithInterfacesProvider
+     * @throws Exception
      */
     public function testClassInterfaces(PHPClass $class)
     {
@@ -289,6 +302,7 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider::classPropertiesProvider
+     * @throws Exception
      */
     public function testClassProperties(PHPClass $class, PHPProperty $property)
     {
@@ -345,6 +359,7 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::allClassesProvider
+     * @throws Exception
      */
     public function testClassesExist(PHPClass|PHPInterface $class): void
     {
@@ -357,6 +372,9 @@ class StubsTest extends TestCase
         static::assertArrayHasKey($className, $stubClasses, "Missing class $className: class $className {}");
     }
 
+    /**
+     * @throws Exception
+     */
     public function testImplodeFunctionIsCorrect()
     {
         $implodeFunctions = array_filter(PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(),
@@ -372,8 +390,12 @@ class StubsTest extends TestCase
         /** @var PHPParameter $arrayParameter */
         $arrayParameter = array_pop($arrayParameters);
         self::assertCount(2, $implodeParameters);
-        self::assertEquals(['array','string'], $separatorParameter->types);
-        self::assertEquals("", $separatorParameter->defaultValue->value);
+        self::assertEquals(['array', 'string'], $separatorParameter->types);
+        if (property_exists($separatorParameter->defaultValue, 'value')) {
+            self::assertEquals('', $separatorParameter->defaultValue->value);
+        } else {
+            self::fail("Couldn't read default value");
+        }
         self::assertEquals(['?array'], $arrayParameter->types);
         self::assertEquals(['string'], $implodeFunction->returnTypesFromSignature);
         self::assertEquals(['string'], $implodeFunction->returnTypesFromPhpDoc);
@@ -403,9 +425,7 @@ class StubsTest extends TestCase
     private static function getAllDuplicatesOfFunction(?string $name): array
     {
         return array_filter(PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(),
-            function ($duplicateValue, $duplicateKey) use ($name) {
-                return str_contains($duplicateValue->name, $name) && str_contains($duplicateKey, 'duplicated');
-            }, ARRAY_FILTER_USE_BOTH);
+            fn($duplicateValue, $duplicateKey) => str_contains($duplicateValue->name, $name) && str_contains($duplicateKey, 'duplicated'), ARRAY_FILTER_USE_BOTH);
     }
 
     private static function getDuplicatedFunctions(array $filtered): array
@@ -415,16 +435,16 @@ class StubsTest extends TestCase
                 $duplicatesOfFunction = self::getAllDuplicatesOfFunction($value->name);
                 $functionVersions[] = Utils::getAvailableInVersions(
                     PhpStormStubsSingleton::getPhpStormStubs()->getFunctions()[$value->name]);
-                array_push($functionVersions, ...array_values(array_map(function (PHPFunction $function) {
-                    return Utils::getAvailableInVersions($function);
-                }, $duplicatesOfFunction)));
+                array_push($functionVersions, ...array_values(array_map(fn(PHPFunction $function) => Utils::getAvailableInVersions($function), $duplicatesOfFunction)));
                 $hasDuplicates = false;
                 $current = array_pop($functionVersions);
-                while (($next = array_pop($functionVersions))) {
+                $next = array_pop($functionVersions);
+                while ($next !== null) {
                     if (!empty(array_intersect($current, $next))) {
                         $hasDuplicates = true;
                     }
                     $current = array_merge($current, $next);
+                    $next = array_pop($functionVersions);
                 }
                 return $hasDuplicates;
             }

@@ -42,7 +42,7 @@ class StubMethodsProvider
             StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE);
         foreach ($filteredMethods as $methodName => $method) {
             if ($method instanceof PHPMethod) {
-                yield "method {$method->parentName}::$methodName" => [$method];
+                yield "method $method->parentName::$methodName" => [$method];
             } else {
                 yield "function $methodName" => [$method];
             }
@@ -76,7 +76,7 @@ class StubMethodsProvider
                 fn(PHPMethod $method) => $method->parentName === '___PHPSTORM_HELPERS\object', ...$problemTypes) as $methodName => $method) {
                 $firstSinceVersion = Utils::getDeclaredSinceVersion($method);
                 if ($filterFunction($class, $method, $firstSinceVersion) === true) {
-                    yield "method {$className}::{$methodName}" => [$method];
+                    yield "method $className::$methodName" => [$method];
                 }
             }
         }

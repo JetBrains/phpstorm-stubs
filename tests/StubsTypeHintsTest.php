@@ -94,19 +94,19 @@ class StubsTypeHintsTest extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForScalarTypeHintTestsProvider
      */
-    public function testMethodDoesNotHaveScalarTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
+    public static function testMethodDoesNotHaveScalarTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
         $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
         self::assertEmpty(array_intersect(['int', 'float', 'string', 'bool'], $parameter->types),
-            "Method '{$class->name}::{$stubMethod->name}' with @since '$sinceVersion'  
-                has parameter '{$parameter->name}' with typehint '" . implode('|', $parameter->types) .
+            "Method '$class->name::$stubMethod->name' with @since '$sinceVersion'  
+                has parameter '$parameter->name' with typehint '" . implode('|', $parameter->types) .
             "' but typehints available only since php 7");
     }
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForNullableTypeHintTestsProvider
      */
-    public function testMethodDoesNotHaveNullableTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
+    public static function testMethodDoesNotHaveNullableTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
         $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
         self::assertEmpty(array_filter($parameter->types, fn(string $type) => str_contains($type, '?')),
@@ -118,12 +118,12 @@ class StubsTypeHintsTest extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForUnionTypeHintTestsProvider
      */
-    public function testMethodDoesNotHaveUnionTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
+    public static function testMethodDoesNotHaveUnionTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
         $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
         self::assertLessThan(2, count($parameter->types),
-            "Method '{$class->name}::{$stubMethod->name}' with @since '$sinceVersion'  
-                has parameter '{$parameter->name}' with union typehint '" . implode('|', $parameter->types) . "' 
+            "Method '$class->name::$stubMethod->name' with @since '$sinceVersion'  
+                has parameter '$parameter->name' with union typehint '" . implode('|', $parameter->types) . "' 
                 but union typehints available only since php 8.0");
     }
 
@@ -131,10 +131,10 @@ class StubsTypeHintsTest extends TestCase
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForReturnTypeHintTestsProvider
      * @param PHPMethod $stubMethod
      */
-    public function testMethodDoesNotHaveReturnTypeHint(PHPMethod $stubMethod)
+    public static function testMethodDoesNotHaveReturnTypeHint(PHPMethod $stubMethod)
     {
         $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
-        self::assertEmpty($stubMethod->returnTypesFromSignature, "Method '{$stubMethod->parentName}::{$stubMethod->name}' has since version '$sinceVersion'
+        self::assertEmpty($stubMethod->returnTypesFromSignature, "Method '$stubMethod->parentName::$stubMethod->name' has since version '$sinceVersion'
             but has return typehint '" . implode('|', $stubMethod->returnTypesFromSignature) . "' that supported only since PHP 7. Please declare return type via PhpDoc");
     }
 
@@ -142,12 +142,12 @@ class StubsTypeHintsTest extends TestCase
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForNullableReturnTypeHintTestsProvider
      * @param PHPMethod $stubMethod
      */
-    public function testMethodDoesNotHaveNullableReturnTypeHint(PHPMethod $stubMethod)
+    public static function testMethodDoesNotHaveNullableReturnTypeHint(PHPMethod $stubMethod)
     {
         $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
         $returnTypes = $stubMethod->returnTypesFromSignature;
         self::assertEmpty(array_filter($returnTypes, fn(string $type) => str_contains($type, '?')),
-            "Method '{$stubMethod->parentName}::{$stubMethod->name}' has since version '$sinceVersion'
+            "Method '$stubMethod->parentName::$stubMethod->name' has since version '$sinceVersion'
             but has nullable return typehint '" . implode('|', $returnTypes) . "' that supported only since PHP 7.1. 
             Please declare return type via PhpDoc");
     }
@@ -156,11 +156,11 @@ class StubsTypeHintsTest extends TestCase
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForUnionReturnTypeHintTestsProvider
      * @param PHPMethod $stubMethod
      */
-    public function testMethodDoesNotHaveUnionReturnTypeHint(PHPMethod $stubMethod)
+    public static function testMethodDoesNotHaveUnionReturnTypeHint(PHPMethod $stubMethod)
     {
         $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
         self::assertLessThan(2, count($stubMethod->returnTypesFromSignature),
-            "Method '{$stubMethod->parentName}::{$stubMethod->name}' has since version '$sinceVersion'
+            "Method '$stubMethod->parentName::$stubMethod->name' has since version '$sinceVersion'
             but has union return typehint '" . implode('|', $stubMethod->returnTypesFromSignature) . "' that supported only since PHP 8.0. 
             Please declare return type via PhpDoc");
     }
@@ -211,7 +211,7 @@ class StubsTypeHintsTest extends TestCase
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::allFunctionAndMethodsWithReturnTypeHintsProvider
      * @param PHPFunction|PHPMethod $method
      */
-    public function testSignatureTypeHintsComplainPhpDocInMethods(PHPFunction|PHPMethod $method)
+    public static function testSignatureTypeHintsComplainPhpDocInMethods(PHPFunction|PHPMethod $method)
     {
         $functionName = $method->name;
         $unifiedPhpDocTypes = array_map(function (string $type) {
