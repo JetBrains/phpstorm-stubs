@@ -3,7 +3,8 @@ failThreshold: 0
 profile:
   name: qodana.recommended
 exclude:
-  - name: All
+  - name: PhpInconsistentReturnPointsInspection
+  - name: PhpArgumentWithoutNamedIdentifierInspection
     paths:
       - aerospike
       - amqp
