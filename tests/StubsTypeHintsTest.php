@@ -230,7 +230,7 @@ class StubsTypeHintsTest extends TestCase
         self::assertEquals(count($unifiedSignatureTypes), count($typesIntersection),
             $method instanceof PHPMethod ? "Method $method->parentName::" : 'Function ' .
                 "$functionName has mismatch in phpdoc return type and signature return type\n
-                signature has " . implode('|', $method->returnTypesFromSignature) . "\n
+                signature has " . implode('|', $unifiedSignatureTypes) . "\n
                 but phpdoc has " . implode('|', $unifiedPhpDocTypes));
     }
 
