@@ -221,10 +221,14 @@ class StubsTypeHintsTest extends TestCase
         }, $method->returnTypesFromPhpDoc);
         $unifiedSignatureTypes = $method->returnTypesFromSignature;
         if (count($unifiedSignatureTypes) === 1) {
+            $unifiedSignatureTypes = [];
             $type = array_pop($method->returnTypesFromSignature);
             if (str_contains($type, '?')) {
-                $unifiedSignatureTypes = [ltrim($type, '?'), 'null'];
+                array_push($unifiedSignatureTypes, 'null');
             }
+            $typeParts = explode('\\', ltrim($type, '?'));
+            $typeName = end($typeParts);
+            array_push($unifiedSignatureTypes, $typeName);
         }
         $typesIntersection = array_intersect($unifiedSignatureTypes, $unifiedPhpDocTypes);
         self::assertEquals(count($unifiedSignatureTypes), count($typesIntersection),
