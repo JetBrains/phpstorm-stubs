@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
+use phpDocumentor\Reflection\DocBlock\Tags\Param;
 use PhpParser\Node\Stmt\ClassMethod;
 use ReflectionMethod;
 use stdClass;
@@ -62,6 +63,14 @@ class PHPMethod extends PHPFunction
         }
         foreach ($node->getParams() as $parameter) {
             $this->parameters[] = (new PHPParameter())->readObjectFromStubNode($parameter);
+        }
+
+        foreach ($this->parameters as $parameter) {
+            $relatedParamTag = array_filter($this->paramTags, fn(Param $tag) => $tag->getVariableName() === $parameter->name);
+            $relatedParamTag = array_pop($relatedParamTag);
+            if (!empty($relatedParamTag)){
+                $parameter->isOptional = $parameter->isOptional || str_contains((string)$relatedParamTag->getDescription(), '[optional]');
+            }
         }
 
         $this->isFinal = $node->isFinal();
