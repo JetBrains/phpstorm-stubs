@@ -846,6 +846,40 @@ class PDO  {
 	const SQLITE_ATTR_EXTENDED_RESULT_CODES = 1002;
 
 	/**
+	 * Provides a way to specify the action on the database session.
+	 * @since 7.2.16
+	 * @since 7.3.3
+	 */
+	const OCI_ATTR_ACTION = 1000;
+
+	/**
+	 * Provides a way to specify the client info on the database session.
+	 * @since 7.2.16
+	 * @since 7.3.3
+	 */
+	const OCI_ATTR_CLIENT_INFO = 1001;
+
+	/**
+	 * Provides a way to specify the client identifier on the database session.
+	 * @since 7.2.16
+	 * @since 7.3.3
+	 */
+	const OCI_ATTR_CLIENT_IDENTIFIER = 1002;
+
+	/**
+	 * Provides a way to specify the module on the database session.
+	 * @since 7.2.16
+	 * @since 7.3.3
+	 */
+	const OCI_ATTR_MODULE = 1003;
+
+	/**
+	 * The number of milliseconds to wait for individual round trips to the database to complete before timing out.
+	 * @since 8.0
+	 */
+	const OCI_ATTR_CALL_TIMEOUT = 1004;
+
+	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
 	 * Creates a PDO instance representing a connection to a database
 	 * @link https://php.net/manual/en/pdo.construct.php
