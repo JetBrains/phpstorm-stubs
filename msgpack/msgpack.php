@@ -44,6 +44,9 @@ class MessagePack
 {
     const OPT_PHPONLY = -1001;
 
+    /**
+     * @param $opt [optional]
+     */
     public function __construct($opt)
     {
     }
@@ -56,6 +59,10 @@ class MessagePack
     {
     }
 
+    /**
+     * @param $str
+     * @param $object [optional]
+     */
     public function unpack($str, $object)
     {
     }
@@ -68,6 +75,9 @@ class MessagePack
 
 class MessagePackUnpacker
 {
+    /**
+     * @param $opt [optional]
+     */
     public function __construct($opt)
     {
     }
@@ -84,10 +94,17 @@ class MessagePackUnpacker
     {
     }
 
+    /**
+     * @param $str [optional]
+     * @param $offset [optional]
+     */
     public function execute($str, &$offset)
     {
     }
 
+    /**
+     * @param $object [optional]
+     */
     public function data($object)
     {
 

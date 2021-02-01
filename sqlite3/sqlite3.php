@@ -292,7 +292,7 @@ class SQLite3  {
 	 * @param bool $enable
 	 * @return bool Returns the old value; true if exceptions were enabled, false otherwise.
 	 */
-	public function enableExceptions ($enable) {}
+	public function enableExceptions ($enable = false) {}
 
 	/**
 	 * Instantiates an SQLite3 object and opens an SQLite 3 database
@@ -325,7 +325,7 @@ class SQLite3  {
 	 * @param bool $enable
 	 * @since 7.4
 	 */
-	public function enableExtendedResultCodes(bool $enable){}
+	public function enableExtendedResultCodes(bool $enable = false){}
 
 	/**
 	 * @param SQLite3 $destination
@@ -333,7 +333,7 @@ class SQLite3  {
 	 * @param string $destinationDatabase
 	 * @since 7.4
 	 */
-	public function backup(SQLite3 $destination, string $sourceDatabase, string $destinationDatabase){}
+	public function backup(SQLite3 $destination, string $sourceDatabase = 'main', string $destinationDatabase = 'main'){}
 
 	/**
 	 * @param null|callable $callback

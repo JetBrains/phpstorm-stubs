@@ -1198,7 +1198,7 @@ class Normalizer {
     /**
      * @link https://www.php.net/manual/en/normalizer.getrawdecomposition.php
      * @param string $string <p>The input string to normalize</p>
-     * @param string $form
+     * @param string $form [optional]
      * @return string|null <p>Returns a string containing the Decomposition_Mapping property, if present in the UCD.
      * Returns null if there is no Decomposition_Mapping property for the character.</p>
      */
@@ -2320,12 +2320,12 @@ class IntlGregorianCalendar extends IntlCalendar {
 
     /**
      * @link https://www.php.net/manual/en/intlgregoriancalendar.construct
-     * @param int $timezoneOrYear
-     * @param int $localeOrMonth
-     * @param int $day
-     * @param int $hour
-     * @param int $minute
-     * @param int $second
+     * @param int $timezoneOrYear [optional]
+     * @param int $localeOrMonth [optional]
+     * @param int $day [optional]
+     * @param int $hour [optional]
+     * @param int $minute [optional]
+     * @param int $second [optional]
      */
     public function __construct($timezoneOrYear , $localeOrMonth , $day , $hour , $minute , $second) {}
 
@@ -2566,7 +2566,7 @@ class IntlCalendar {
      * A {@link https://secure.php.net/manual/en/class.datetime.php DateTime} object or a {@link https://secure.php.net/manual/en/language.types.string.php string} that
      * can be passed to  {@link https://secure.php.net/manual/en/datetime.construct.php DateTime::__construct()}.
      * </p>
-     * @param $locale
+     * @param $locale [optional]
      * @return IntlCalendar|null
      * The created {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} object or <b>NULL</b> in case of
      * failure. If a {@link https://secure.php.net/manual/en/language.types.string.php string} is passed, any exception that occurs
@@ -3373,7 +3373,7 @@ class IntlTimeZone {
      * @return string|false the Windows timezone or <b>FALSE</b> on failure
      * @since 7.1
      */
-    public static function getIDForWindowsID(string $timezoneId , ?string $region) { }
+    public static function getIDForWindowsID(string $timezoneId , ?string $region = null) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -6667,7 +6667,7 @@ class IntlBreakIterator implements IteratorAggregate
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for logically possible line breaks
      * @link https://secure.php.net/manual/en/intlbreakiterator.createlineinstance.php
-     * @param string $locale
+     * @param string $locale [optional]
      * @return IntlBreakIterator
      */
     public static function createLineInstance($locale) { }
@@ -6676,7 +6676,7 @@ class IntlBreakIterator implements IteratorAggregate
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for sentence breaks
      * @link https://secure.php.net/manual/en/intlbreakiterator.createsentenceinstance.php
-     * @param string $locale
+     * @param string $locale [optional]
      * @return IntlBreakIterator
      */
     public static function createSentenceInstance($locale) { }
@@ -6685,7 +6685,7 @@ class IntlBreakIterator implements IteratorAggregate
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for title-casing breaks
      * @link https://secure.php.net/manual/en/intlbreakiterator.createtitleinstance.php
-     * @param string $locale
+     * @param string $locale [optional]
      * @return IntlBreakIterator
      */
     public static function createTitleInstance($locale) { }
@@ -6694,7 +6694,7 @@ class IntlBreakIterator implements IteratorAggregate
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for word breaks
      * @link https://secure.php.net/manual/en/intlbreakiterator.createwordinstance.php
-     * @param string $locale
+     * @param string $locale [optional]
      * @return IntlBreakIterator
      */
     public static function createWordInstance($locale) { }
@@ -7032,7 +7032,7 @@ class UConverter {
      * Convert string from one charset to anothe
      * @link https://php.net/manual/en/uconverter.convert.php
      * @param string $str
-     * @param bool $reverse
+     * @param bool $reverse [optional]
      * @return string
      */
     #[Pure]

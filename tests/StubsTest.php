@@ -172,6 +172,23 @@ class StubsTest extends TestCase
     }
 
     /**
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodOptionalParametersProvider
+     */
+    public function testMethodsOptionalParameters(PHPClass|PHPInterface $class, PHPMethod $method, PHPParameter $parameter)
+    {
+        if ($class instanceof PHPClass) {
+            $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->methods[$method->name];
+        } else {
+            $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($class->name)->methods[$method->name];
+        }
+        $stubParameters = array_filter($phpstormFunction->parameters, fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name);
+        /** @var PHPParameter $stubOptionalParameter */
+        $stubOptionalParameter = array_pop($stubParameters);
+        self::assertEquals($parameter->isOptional, $stubOptionalParameter->isOptional,
+            sprintf('Reflection method %s::%s has optional parameter %s', $class->name, $method->name, $parameter->name));
+    }
+
+    /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::classWithParentProvider
      * @throws Exception
      */
