@@ -19,6 +19,8 @@ class StubsMetaInternalTagTest extends TestCase
     public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
+        PhpStormStubsSingleton::getPhpStormStubs();
+        ReflectionStubsSingleton::getReflectionStubs();
         self::$overridenFunctionsInMeta = (new MetaOverrideFunctionsParser())->overridenFunctions;
     }
 

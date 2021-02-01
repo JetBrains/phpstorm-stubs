@@ -17,10 +17,19 @@ use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\Tags\RemovedTag;
 use StubTests\Parsers\Utils;
+use StubTests\TestData\Providers\PhpStormStubsSingleton;
+use StubTests\TestData\Providers\ReflectionStubsSingleton;
 use function trim;
 
 class StubsPhpDocTest extends TestCase
 {
+    public static function setUpBeforeClass(): void
+    {
+        parent::setUpBeforeClass();
+        PhpStormStubsSingleton::getPhpStormStubs();
+        ReflectionStubsSingleton::getReflectionStubs();
+    }
+
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubConstantsProvider::classConstantProvider
      */

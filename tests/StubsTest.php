@@ -17,9 +17,17 @@ use StubTests\Model\StubProblemType;
 use StubTests\Parsers\Utils;
 use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
+use StubTests\TestData\Providers\ReflectionStubsSingleton;
 
 class StubsTest extends TestCase
 {
+    public static function setUpBeforeClass(): void
+    {
+        parent::setUpBeforeClass();
+        PhpStormStubsSingleton::getPhpStormStubs();
+        ReflectionStubsSingleton::getReflectionStubs();
+    }
+
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::constantProvider
      * @throws Exception
