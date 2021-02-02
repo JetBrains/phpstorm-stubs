@@ -187,7 +187,7 @@ class DOMNode  {
      * </p>
      * @return static The cloned node.
      */
-    public function cloneNode ($deep = null) {}
+    public function cloneNode ($deep = false) {}
 
     /**
      * Normalizes the node
@@ -313,7 +313,7 @@ class DOMNode  {
      * @param null|array $nsPrefixes [optional] An array of namespace prefixes to filter the nodes by.
      * @return string|false Canonicalized nodes as a string or FALSE on failure
      */
-    public function C14N ($exclusive, $withComments, array $xpath = null, array $nsPrefixes = null) {}
+    public function C14N ($exclusive = false, $withComments = false, array $xpath = null, array $nsPrefixes = null) {}
 
     /**
      * Canonicalize nodes to a file.
@@ -325,7 +325,7 @@ class DOMNode  {
      * @param null|array $nsPrefixes [optional] An array of namespace prefixes to filter the nodes by.
      * @return int|false Number of bytes written or FALSE on failure
      */
-    public function C14NFile ($uri, $exclusive, $withComments = false, array $xpath = null, array $nsPrefixes = null) {}
+    public function C14NFile ($uri, $exclusive = false, $withComments = false, array $xpath = null, array $nsPrefixes = null) {}
 
 
 }
@@ -778,7 +778,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * </p>
      * @return DOMNode|false The copied node or false, if it cannot be copied.
      */
-    public function importNode (DOMNode $node , $deep = null) {}
+    public function importNode (DOMNode $node , $deep = false) {}
 
     /**
      * Create new element node with an associated namespace
@@ -931,7 +931,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * @param string $version [optional] The version number of the document as part of the XML declaration.
      * @param string $encoding [optional] The encoding of the document as part of the XML declaration.
      */
-    public function __construct ($version = '', $encoding = '') {}
+    public function __construct ($version = '1.0', $encoding = '') {}
 
     /**
      * Validates the document based on its DTD
@@ -2025,7 +2025,7 @@ class DOMXPath  {
      * @param DOMDocument $document The <classname>DOMDocument</classname> associated with the <classname>DOMXPath</classname>.
      * @param bool $registerNodeNS [optional] allow global flag to configure query() or evaluate() calls. Since 8.0.
      */
-    public function __construct (DOMDocument $document, $registerNodeNS = false) {}
+    public function __construct (DOMDocument $document, $registerNodeNS = true) {}
 
     /**
      * Registers the namespace with the <classname>DOMXPath</classname> object

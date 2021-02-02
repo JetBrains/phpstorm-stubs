@@ -284,7 +284,7 @@ class SQLite3  {
 	 * <p>Either <b>SQLITE3_OPEN_READONLY</b> or <b>SQLITE3_OPEN_READWRITE</b> to open the stream for reading only, or for reading and writing, respectively.</p>
 	 * @return resource|false Returns a stream resource, or FALSE on failure.
 	 */
-	public function openBlob ($table, $column, $rowid, $database, int $flags = SQLITE3_OPEN_READONLY) {}
+	public function openBlob ($table, $column, $rowid, $database = 'main', int $flags = SQLITE3_OPEN_READONLY) {}
 
 	/**
 	 * Enable throwing exceptions
@@ -313,7 +313,7 @@ class SQLite3  {
 	 * SQLite database.
 	 * </p>
 	 */
-	public function __construct ($filename, $flags = null, $encryptionKey = null) {}
+	public function __construct ($filename, $flags = SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE, $encryptionKey = null) {}
 
 	/**
 	 * @return int
@@ -325,7 +325,7 @@ class SQLite3  {
 	 * @param bool $enable
 	 * @since 7.4
 	 */
-	public function enableExtendedResultCodes(bool $enable = false){}
+	public function enableExtendedResultCodes(bool $enable = true){}
 
 	/**
 	 * @param SQLite3 $destination
@@ -408,7 +408,7 @@ class SQLite3Stmt  {
 	 * @return bool <b>TRUE</b> if the parameter is bound to the statement variable, <b>FALSE</b>
 	 * on failure.
 	 */
-	public function bindParam ($param, &$var, $type = null) {}
+	public function bindParam ($param, &$var, $type = SQLITE3_TEXT) {}
 
 	/**
 	 * Binds the value of a parameter to a statement variable
@@ -431,7 +431,7 @@ class SQLite3Stmt  {
 	 * @return bool <b>TRUE</b> if the value is bound to the statement variable, <b>FALSE</b>
 	 * on failure.
 	 */
-	public function bindValue ($param, $value, $type = null) {}
+	public function bindValue ($param, $value, $type = SQLITE3_TEXT) {}
 
 	public function readOnly () {}
 

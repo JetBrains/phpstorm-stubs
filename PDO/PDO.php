@@ -2,9 +2,9 @@
 
 // Start of PDO v.1.0.4dev
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
-use JetBrains\PhpStorm\Deprecated;
 
 /**
  * Represents an error raised by PDO. You should not throw a
@@ -1307,7 +1307,7 @@ class PDOStatement implements IteratorAggregate
 	 * @return mixed The return value of this function on success depends on the fetch type. In
 	 * all cases, <b>FALSE</b> is returned on failure.
 	 */
-	public function fetch ($mode = null, $cursorOrientation = PDO::FETCH_ORI_NEXT, $cursorOffset = 0) {}
+	public function fetch ($mode = PDO::FETCH_BOTH, $cursorOrientation = PDO::FETCH_ORI_NEXT, $cursorOffset = 0) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>

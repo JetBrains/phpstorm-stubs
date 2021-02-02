@@ -75,4 +75,23 @@ class ReflectionParametersProvider
             }
         }
     }
+
+    public static function methodOptionalParametersWithDefaultValueProvider(): ?Generator
+    {
+        $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
+            ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
+        foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
+            //exclude classes from PHPReflectionParser
+            if (strncmp($class->name, 'PHP', 3) !== 0) {
+                foreach (EntitiesFilter::getFilteredFunctions($class) as $method) {
+                    foreach (EntitiesFilter::getFilteredParameters($method,
+                        fn(PHPParameter $parameter) => !$parameter->isOptional || empty($parameter->defaultValue),
+                        StubProblemType::PARAMETER_TYPE_MISMATCH,
+                        StubProblemType::WRONG_PARAMETER_DEFAULT_VALUE) as $parameter) {
+                        yield "$class->name::$method->name($parameter->name)" => [$class, $method, $parameter];
+                    }
+                }
+            }
+        }
+    }
 }

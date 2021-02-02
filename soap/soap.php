@@ -395,7 +395,7 @@ class SoapClient  {
 	 * @return string The XML SOAP response.
 	 * @since 5.0.1
 	 */
-	public function __doRequest ($request, $location, $action, $version, $oneWay = 0) {}
+	public function __doRequest ($request, $location, $action, $version, $oneWay = false) {}
 
 	/**
 	 * The __setCookie purpose
