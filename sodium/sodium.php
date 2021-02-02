@@ -578,7 +578,7 @@ function sodium_crypto_generichash_final(
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_pwhash(int $length, string $password, string $salt, int $opslimit, int $memlimit, int $algo): string {}
+function sodium_crypto_pwhash(int $length, string $password, string $salt, int $opslimit, int $memlimit, int $algo = SODIUM_CRYPTO_PWHASH_ALG_DEFAULT): string {}
 
 /**
  * Get a formatted password hash (for storage)

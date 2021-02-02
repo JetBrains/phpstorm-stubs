@@ -1283,6 +1283,89 @@
       "problems": [
         "has type mismatch in signature and phpdoc"
       ]
+    },
+    {
+      "name": "timezone_transitions_get",
+      "parameters": [
+        {
+          "name": "timestampBegin",
+          "problems": [
+            "wrong default value"
+          ]
+        },
+        {
+          "name": "timestampEnd",
+          "problems": [
+            "wrong default value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mb_encode_mimeheader",
+      "parameters": [
+        {
+          "name": "newline",
+          "problems": [
+            "wrong default value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trim",
+      "parameters": [
+        {
+          "name": "characters",
+          "problems": [
+            "wrong default value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rtrim",
+      "parameters": [
+        {
+          "name": "characters",
+          "problems": [
+            "wrong default value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "chop",
+      "parameters": [
+        {
+          "name": "characters",
+          "problems": [
+            "wrong default value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ltrim",
+      "parameters": [
+        {
+          "name": "characters",
+          "problems": [
+            "wrong default value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "explode",
+      "parameters": [
+        {
+          "name": "limit",
+          "problems": [
+            "wrong default value"
+          ]
+        }
+      ]
     }
   ],
   "classes": [

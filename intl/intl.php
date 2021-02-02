@@ -3660,7 +3660,7 @@ function numfmt_format(NumberFormatter $formatter, int|float $num, int $type = n
  * @return int|float|false The value of the parsed number or <b>FALSE</b> on error.
  */
 #[Pure]
-function numfmt_parse(NumberFormatter $formatter, string $string, int $type = null, &$offset = null): int|float|false { }
+function numfmt_parse(NumberFormatter $formatter, string $string, int $type = NumberFormatter::TYPE_DOUBLE, &$offset = null): int|float|false { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -5841,7 +5841,7 @@ function intltz_get_canonical_id(string $timezoneId, &$isSystemId): string|false
  * @since 5.5
  */
 #[Pure]
-function intltz_get_display_name(IntlTimeZone $timezone, bool $dst, int $style, ?string $locale): string|false { }
+function intltz_get_display_name(IntlTimeZone $timezone, bool $dst = false, int $style = 2, ?string $locale): string|false { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -6037,7 +6037,7 @@ function intlgregcal_is_leap_year(IntlGregorianCalendar $calendar, int $year): b
  * @return ResourceBundle|false|null <b>ResourceBundle</b> object or <b>FALSE</b> on error.
  */
 #[Pure]
-function resourcebundle_create(?string $locale, ?string $bundle, bool $fallback = null): ?ResourceBundle { }
+function resourcebundle_create(?string $locale, ?string $bundle, bool $fallback = true): ?ResourceBundle { }
 
 /**
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
@@ -6183,7 +6183,7 @@ function transliterator_create_inverse(Transliterator $transliterator): ?Transli
  * @since 5.4
  */
 #[Pure]
-function transliterator_transliterate(Transliterator|string $transliterator, string $string, int $start = null, int $end = null): string|false { }
+function transliterator_transliterate(Transliterator|string $transliterator, string $string, int $start = null, int $end = -1): string|false { }
 
 /**
  * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>

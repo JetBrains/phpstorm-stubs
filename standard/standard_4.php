@@ -215,7 +215,7 @@ function var_dump (mixed $value, ...$values): void {}
  * parameter is used and evaluates to true. Otherwise, this function will
  * return null.
  */
-function var_export (mixed $value, bool $return): ?string
+function var_export (mixed $value, bool $return = false): ?string
 {}
 
 /**
@@ -246,7 +246,7 @@ function debug_zval_dump (mixed $value, mixed ...$values): void {}
  * will be presented in a format that shows keys and elements. Similar
  * notation is used for objects.
  */
-function print_r (mixed $value, bool $return): string|bool
+function print_r (mixed $value, bool $return = false): string|bool
 {}
 
 /**
@@ -451,7 +451,7 @@ function ini_get (string $option): string|false
  * </p>
  */
 #[Pure]
-function ini_get_all (?string $extension, bool $details): array|false
+function ini_get_all (?string $extension, bool $details = true): array|false
 {}
 
 /**
@@ -974,7 +974,7 @@ function dns_check_record (string $hostname, string $type = 'MX'): bool
  * were found or if an error occurred.
  */
 #[Pure]
-function checkdnsrr (string $hostname, string $type): bool
+function checkdnsrr (string $hostname, string $type = 'MX'): bool
 {}
 
 /**

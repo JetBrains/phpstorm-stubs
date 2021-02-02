@@ -77,7 +77,7 @@ function array_replace_recursive(array $array, array ...$replacements): array
  * @return int[]|string[] an array of all the keys in input.
  */
 #[Pure]
-function array_keys(array $array, mixed $filter_value, bool $strict): array
+function array_keys(array $array, mixed $filter_value, bool $strict = false): array
 { }
 
 /**
@@ -132,7 +132,7 @@ function array_column(array $array, string|int|null $column_key, string|int|null
  * @meta
  */
 #[Pure]
-function array_reverse(array $array, bool $preserve_keys): array { }
+function array_reverse(array $array, bool $preserve_keys = false): array { }
 
 /**
  * Iteratively reduce the array to a single value using a callback function
@@ -233,7 +233,7 @@ function array_change_key_case(array $array, int $case): array { }
  * random keys as well as values out of the array.
  */
 #[Pure]
-function array_rand(array $array, int $num): array|string|int
+function array_rand(array $array, int $num = 1): array|string|int
 { }
 
 /**
@@ -756,7 +756,7 @@ function array_map(callable $callback, array $array, array ...$arrays): array { 
  * with each dimension containing size elements.
  */
 #[Pure]
-function array_chunk(array $array, int $length, bool $preserve_keys): array
+function array_chunk(array $array, int $length, bool $preserve_keys = false): array
 { }
 
 /**

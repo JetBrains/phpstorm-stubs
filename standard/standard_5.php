@@ -369,7 +369,7 @@ function is_scalar (mixed $value): bool
  * @return bool <b>TRUE</b> if $var is callable, <b>FALSE</b>
  * otherwise.
  */
-function is_callable (mixed $value, bool $syntax_only, &$callable_name): bool
+function is_callable (mixed $value, bool $syntax_only = false, &$callable_name): bool
 {}
 
 /**
@@ -436,7 +436,7 @@ function popen (string $command, string $mode)
  * </p>
  * @return false|int the number of bytes read from the file, or FALSE on failure
  */
-function readfile (string $filename, bool $use_include_path, $context): int|false
+function readfile (string $filename, bool $use_include_path = false, $context): int|false
 {}
 
 /**

@@ -357,7 +357,7 @@ function ob_get_level (): int
  * <tr><td>blocksize</td><td>...</td></tr>
  * </table>
  */
-function ob_get_status (bool $full_status): array
+function ob_get_status (bool $full_status = false): array
 {}
 
 /**
@@ -378,7 +378,7 @@ function ob_get_contents (): string|false
  * </p>
  * @return void
  */
-function ob_implicit_flush (#[LanguageLevelTypeAware(["8.0" => "bool"], default: "int")] $enable): void {}
+function ob_implicit_flush (#[LanguageLevelTypeAware(["8.0" => "bool"], default: "int")] $enable = true): void {}
 
 /**
  * List all output handlers in use
@@ -834,7 +834,7 @@ function in_array (mixed $needle, array $haystack, bool $strict = false): bool
  * search_value parameter instead.
  */
 #[Pure]
-function array_search (mixed $needle, array $haystack, bool $strict): string|int|false
+function array_search (mixed $needle, array $haystack, bool $strict = false): string|int|false
 {}
 
 /**

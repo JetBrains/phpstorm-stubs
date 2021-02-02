@@ -162,4 +162,4 @@ function bzcompress (string $data, int $block_size = 4, int $work_factor = 0): s
  * @return string|int|false The decompressed string, or an error number if an error occurred.
  */
 #[Pure]
-function bzdecompress (string $data, bool $use_less_memory): string|int|false {}
+function bzdecompress (string $data, bool $use_less_memory = false): string|int|false {}

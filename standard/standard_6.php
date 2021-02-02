@@ -316,7 +316,7 @@ function stream_filter_remove ($stream_filter): bool
  * fwrite, fclose, and
  * feof), false on failure.
  */
-function stream_socket_client (string $address, &$error_code, &$error_message, ?float $timeout, int $flags, $context)
+function stream_socket_client (string $address, &$error_code, &$error_message, ?float $timeout, int $flags = STREAM_CLIENT_CONNECT, $context)
 {}
 
 /**
@@ -367,7 +367,7 @@ function stream_socket_client (string $address, &$error_code, &$error_message, ?
  * </p>
  * @return resource|false the created stream, or false on error.
  */
-function stream_socket_server (string $address, &$error_code, &$error_message, int $flags, $context)
+function stream_socket_server (string $address, &$error_code, &$error_message, int $flags = STREAM_SERVER_BIND | STREAM_SERVER_LISTEN, $context)
 {}
 
 /**
@@ -719,7 +719,7 @@ function flock ($stream, int $operation, &$would_block): bool
  * </p>
  */
 #[Pure]
-function get_meta_tags (string $filename, bool $use_include_path): array|false
+function get_meta_tags (string $filename, bool $use_include_path = false): array|false
 {}
 
 /**

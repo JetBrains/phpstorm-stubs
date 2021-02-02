@@ -785,7 +785,7 @@ function imagecopyresampled (GdImage $dst_image, GdImage $src_image, int $dst_x,
  * </p>
  * @return resource|GdImage|false the rotated image or <b>FALSE</b> on failure
  */
-function imagerotate (GdImage $image, float $angle, int $background_color, bool $ignore_transparent): GdImage|false {}
+function imagerotate (GdImage $image, float $angle, int $background_color, bool $ignore_transparent = false): GdImage|false {}
 
 /**
  * Should antialias functions be used or not. <br/>
@@ -971,7 +971,7 @@ function imagecreatefromgd2part (string $filename, int $x, int $y, int $width, i
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagepng (GdImage $image, $file = null, int $quality = null, int $filters = null): bool {}
+function imagepng (GdImage $image, $file = null, int $quality = -1, int $filters = -1): bool {}
 
 /**
  * Output a WebP image to browser or file

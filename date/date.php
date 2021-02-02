@@ -816,7 +816,7 @@ function time (): int
  * @return array
  */
 #[Pure]
-function localtime (?int $timestamp, bool $associative): array
+function localtime (?int $timestamp, bool $associative = false): array
 {}
 
 /**
@@ -914,7 +914,7 @@ function getdate (?int $timestamp): array
  * @return DateTime|false DateTime object on success or false on failure.
  */
 #[Pure]
-function date_create (string $datetime, ?DateTimeZone $timezone ): DateTime|false
+function date_create (string $datetime = 'now', ?DateTimeZone $timezone ): DateTime|false
 {}
 
 /**
@@ -933,7 +933,7 @@ function date_create (string $datetime, ?DateTimeZone $timezone ): DateTime|fals
  * @return DateTimeImmutable|false DateTime object on success or false on failure.
  */
 #[Pure]
-function date_create_immutable (string $datetime, ?DateTimeZone $timezone): DateTimeImmutable|false
+function date_create_immutable (string $datetime = 'now', ?DateTimeZone $timezone): DateTimeImmutable|false
 {}
 
 /**
@@ -1258,7 +1258,7 @@ function timezone_name_get (DateTimeZone $object): string
  * @since 5.1.3
  */
 #[Pure]
-function timezone_name_from_abbr (string $abbr, int $utcOffset, int $isDST): string|false
+function timezone_name_from_abbr (string $abbr, int $utcOffset = -1, int $isDST = -1): string|false
 {}
 
 /**
@@ -1439,7 +1439,7 @@ function date_default_timezone_get (): string
  * success or false on failure.
  */
 #[Pure]
-function date_sunrise (int $timestamp, int $returnFormat, ?float $latitude, ?float $longitude, ?float $zenith, float $utcOffset): string|int|float|false
+function date_sunrise (int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, float $utcOffset): string|int|float|false
 {}
 
 /**
@@ -1490,7 +1490,7 @@ function date_sunrise (int $timestamp, int $returnFormat, ?float $latitude, ?flo
  * success or false on failure.
  */
 #[Pure]
-function date_sunset (int $timestamp, int $returnFormat, ?float $latitude, ?float $longitude, ?float $zenith, float $utcOffset): string|int|float|false
+function date_sunset (int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, float $utcOffset): string|int|float|false
 {}
 
 /**
