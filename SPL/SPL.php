@@ -380,7 +380,7 @@ class RecursiveIteratorIterator implements OuterIterator {
      * </p>
      * @return void
      */
-    public function setMaxDepth($maxDepth) { }
+    public function setMaxDepth($maxDepth = -1) { }
 
     /**
      * Get max depth

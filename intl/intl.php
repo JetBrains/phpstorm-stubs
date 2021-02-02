@@ -948,7 +948,7 @@ class NumberFormatter {
      * </p>
      * @return mixed The value of the parsed number or <b>FALSE</b> on error.
      */
-    public function parse($string, $type = null, &$offset = null) { }
+    public function parse($string, $type = NumberFormatter::TYPE_DOUBLE, &$offset = null) { }
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1202,7 +1202,7 @@ class Normalizer {
      * @return string|null <p>Returns a string containing the Decomposition_Mapping property, if present in the UCD.
      * Returns null if there is no Decomposition_Mapping property for the character.</p>
      */
-    public static function getRawDecomposition(string $string, $form) {}
+    public static function getRawDecomposition(string $string, $form = 16) {}
 }
 
 class Locale {
@@ -2042,7 +2042,7 @@ class ResourceBundle implements IteratorAggregate, Countable {
      * @param bool $fallback [optional] <p>Whether locale should match exactly or fallback to parent locale is allowed.</p>
      */
     #[Pure]
-    public function __construct($locale, $bundle, $fallback) { }
+    public function __construct($locale, $bundle, $fallback = true) { }
 
     /**
      * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
@@ -2059,7 +2059,7 @@ class ResourceBundle implements IteratorAggregate, Countable {
      * </p>
      * @return ResourceBundle|false <b>ResourceBundle</b> object or <b>FALSE</b> on error.
      */
-    public static function create($locale, $bundle, $fallback = null) { }
+    public static function create($locale, $bundle, $fallback = true) { }
 
     /**
      * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
@@ -2215,7 +2215,7 @@ class Transliterator {
      * @return string|false The transfomed string on success, or <b>FALSE</b> on failure.
      */
     #[Pure]
-    public function transliterate($string, $start = null, $end = null) { }
+    public function transliterate($string, $start = null, $end = -1) { }
 
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
@@ -3244,7 +3244,7 @@ class IntlTimeZone {
      * @return string|false the timezone name or <b>FALSE</b> on failure
      */
     #[Pure]
-    public function getDisplayName($dst, $style, $locale) { }
+    public function getDisplayName($dst = false, $style = 2, $locale) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -6849,7 +6849,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * @param string $compiled [optional]
      */
     #[Pure]
-    public function __construct($rules, $compiled) { }
+    public function __construct($rules, $compiled = false) { }
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7036,7 +7036,7 @@ class UConverter {
      * @return string
      */
     #[Pure]
-    public function convert($str, $reverse) { }
+    public function convert($str, $reverse = false) { }
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>

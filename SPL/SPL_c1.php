@@ -248,7 +248,7 @@ class SplFileInfo implements Stringable {
          * @return void
          * @since 5.1.2
          */
-        public function setFileClass ($class = null) {}
+        public function setFileClass ($class = SplFileObject::class) {}
 
         /**
          * Sets the class used with getFileInfo and getPathInfo
@@ -259,7 +259,7 @@ class SplFileInfo implements Stringable {
          * @return void
          * @since 5.1.2
          */
-        public function setInfoClass ($class = null) {}
+        public function setInfoClass ($class = SplFileInfo::class) {}
 
         /**
          * Returns the path to the file as a string
@@ -454,7 +454,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
          * </p>
          * @return bool whether the current entry is a directory, but not '.' or '..'
          */
-        public function hasChildren ($allowLinks = null) {}
+        public function hasChildren ($allowLinks = false) {}
 
         /**
          * Returns an iterator for the current entry if it is a directory
@@ -918,7 +918,7 @@ class SplTempFileObject extends SplFileObject {
          * @throws RuntimeException if an error occurs.
          * @since 5.1.2
          */
-        public function __construct ($maxMemory) {}
+        public function __construct ($maxMemory = 2097152) {}
 }
 
 /**

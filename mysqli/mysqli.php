@@ -1069,7 +1069,7 @@ class mysqli_result implements IteratorAggregate
 	 * </p>
 	 * @return mixed an array of associative or numeric arrays holding result rows.
 	 */
-	public function fetch_all ($mode = null) {}
+	public function fetch_all ($mode = MYSQLI_NUM) {}
 
 	/**
 	 * Fetch a result row as an associative, a numeric array, or both

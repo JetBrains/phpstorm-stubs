@@ -1797,12 +1797,34 @@
           "problems": [
             "missing method"
           ]
+        },
+        {
+          "name": "__construct",
+          "parameters": [
+            {
+              "name": "flags",
+              "problems": [
+                "wrong default value"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "name": "PharData",
       "methods": [
+        {
+          "name": "__construct",
+          "parameters": [
+            {
+              "name": "flags",
+              "problems": [
+                "wrong default value"
+              ]
+            }
+          ]
+        },
         {
           "name": "__destruct",
           "problems": [
@@ -2294,6 +2316,87 @@
           "name": "__set_state",
           "problems": [
             "parameter mismatch"
+          ]
+        },
+        {
+          "name": "getTransitions",
+          "parameters": [
+            {
+              "name": "timestampBegin",
+              "problems": [
+                "wrong default value"
+              ]
+            },
+            {
+              "name": "timestampEnd",
+              "problems": [
+                "wrong default value"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RecursiveCachingIterator",
+      "methods": [
+        {
+          "name": "__construct",
+          "parameters": [
+            {
+              "name": "flags",
+              "problems": [
+                "wrong default value"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RecursiveTreeIterator",
+      "methods": [
+        {
+          "name": "__construct",
+          "parameters": [
+            {
+              "name": "mode",
+              "problems": [
+                "wrong default value"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FilesystemIterator",
+      "methods": [
+        {
+          "name": "__construct",
+          "parameters": [
+            {
+              "name": "flags",
+              "problems": [
+                "wrong default value"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MultipleIterator",
+      "methods": [
+        {
+          "name": "__construct",
+          "parameters": [
+            {
+              "name": "flags",
+              "problems": [
+                "wrong default value"
+              ]
+            }
           ]
         }
       ]

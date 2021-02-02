@@ -51,7 +51,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @throws BadMethodCallException If called twice.
      * @throws UnexpectedValueException If the phar archive can't be opened.
 	 */
-	public function __construct ($filename, $flags = null, $alias = null) {}
+	public function __construct ($filename, $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO, $alias = null) {}
 
 	public function __destruct () {}
 
@@ -911,7 +911,7 @@ class PharData extends Phar {
 	 * available within the <b>Phar</b> class.
 	 * </p>
 	 */
-	public function __construct ($filename, $flags = null, $alias = null, $format = Phar::TAR) {}
+	public function __construct ($filename, $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO, $alias = null, $format = Phar::TAR) {}
 
 	/**
 	 * @param string $localName
