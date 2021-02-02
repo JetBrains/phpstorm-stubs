@@ -201,7 +201,7 @@ function openssl_get_publickey($public_key)
  * @return string|false Returns a signed public key and challenge string or NULL on failure.
  * @since 5.6
  */
-function openssl_spki_new(#[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey"], default: "resource")] $private_key, string $challenge, int $digest_algo = 0): string|false
+function openssl_spki_new(#[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey"], default: "resource")] $private_key, string $challenge, int $digest_algo = 2): string|false
 {}
 
 
@@ -252,7 +252,7 @@ function openssl_x509_read(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificat
  * @return string|false <b>FALSE</b> on failure
  * @since 5.6
  */
-function openssl_x509_fingerprint(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, string $digest_algo, bool $binary): string|false
+function openssl_x509_fingerprint(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, string $digest_algo = 'sha1', bool $binary = false): string|false
 {}
 /**
  * Free certificate resource
@@ -792,7 +792,7 @@ function openssl_open(string $data, &$output, string $encrypted_key, $private_ke
  * @return string|false Returns string or FALSE on failure.
  * @since 5.5
  */
-function openssl_pbkdf2(string $password, string $salt, int $key_length, int $iterations, string $digest_algo): string|false
+function openssl_pbkdf2(string $password, string $salt, int $key_length, int $iterations, string $digest_algo = 'sha1'): string|false
 { }
 
 /**

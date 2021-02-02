@@ -31,6 +31,18 @@ class ReflectionParametersProvider
         }
     }
 
+    public static function functionOptionalParametersWithDefaultValueProvider(): ?Generator
+    {
+        foreach (EntitiesFilter::getFilteredFunctions() as $function) {
+            foreach (EntitiesFilter::getFilteredParameters($function,
+                fn(PHPParameter $parameter) => !$parameter->isOptional || empty($parameter->defaultValue),
+                StubProblemType::PARAMETER_TYPE_MISMATCH,
+                StubProblemType::WRONG_PARAMETER_DEFAULT_VALUE) as $parameter) {
+                yield "$function->name($parameter->name)" => [$function, $parameter];
+            }
+        }
+    }
+
     public static function methodParametersProvider(): ?Generator
     {
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +

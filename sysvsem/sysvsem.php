@@ -24,7 +24,7 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * error.
  */
 #[LanguageLevelTypeAware(["8.0" => "SysvSemaphore|false"], default: "resource|false")]
-function sem_get (int $key, int $max_acquire = 1, int $permissions = 0666, bool $auto_release) {}
+function sem_get (int $key, int $max_acquire = 1, int $permissions = 0666, bool $auto_release = true) {}
 
 /**
  * Acquire a semaphore

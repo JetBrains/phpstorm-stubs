@@ -239,7 +239,7 @@ function ldap_unbind ($ldap): bool
  * @param array|null $controls [optional] Array of LDAP Controls to send with the request.
  * @return resource|false a search result identifier or <b>FALSE</b> on error.
  */
-function ldap_read ($ldap, array|string $base, array|string $filter, array $attributes, int $attributes_only, int $sizelimit, int $timelimit, int $deref, #[LanguageLevelTypeAware(["8.0" => "null|array"], default: "array")] $controls = [])
+function ldap_read ($ldap, array|string $base, array|string $filter, array $attributes, int $attributes_only, int $sizelimit = -1, int $timelimit = -1, int $deref, #[LanguageLevelTypeAware(["8.0" => "null|array"], default: "array")] $controls = [])
 {}
 
 /**
@@ -298,7 +298,7 @@ function ldap_read ($ldap, array|string $base, array|string $filter, array $attr
  * @param array|null $controls [optional] Array of LDAP Controls to send with the request.
  * @return resource|false a search result identifier or <b>FALSE</b> on error.
  */
-function ldap_list ($ldap, array|string $base, array|string $filter, array $attributes, int $attributes_only, int $sizelimit, int $timelimit, int $deref, #[LanguageLevelTypeAware(["8.0" => "null|array"], default: "array")] $controls = [])
+function ldap_list ($ldap, array|string $base, array|string $filter, array $attributes, int $attributes_only, int $sizelimit = -1, int $timelimit = -1, int $deref, #[LanguageLevelTypeAware(["8.0" => "null|array"], default: "array")] $controls = [])
 {}
 
 /**
@@ -361,7 +361,7 @@ function ldap_list ($ldap, array|string $base, array|string $filter, array $attr
  * @param array|null $controls [optional] Array of LDAP Controls to send with the request.
  * @return resource|false a search result identifier or <b>FALSE</b> on error.
  */
-function ldap_search ($ldap, array|string $base, array|string $filter, array $attributes, int $attributes_only, int $sizelimit, int $timelimit, int $deref, #[LanguageLevelTypeAware(["8.0" => "null|array"], default: "array")] $controls = [])
+function ldap_search ($ldap, array|string $base, array|string $filter, array $attributes, int $attributes_only, int $sizelimit = -1, int $timelimit = -1, int $deref, #[LanguageLevelTypeAware(["8.0" => "null|array"], default: "array")] $controls = [])
 {}
 
 /**

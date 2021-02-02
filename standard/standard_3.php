@@ -4,8 +4,8 @@
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Pure;
 use JetBrains\PhpStorm\Internal\ReturnTypeContract as TypeContract;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Gets time of last page modification
@@ -32,7 +32,7 @@ function getlastmod (): int|false
  * binary.
  */
 #[Pure]
-function base64_decode (string $string, bool $strict): string|false
+function base64_decode (string $string, bool $strict = false): string|false
 {}
 
 /**
@@ -438,7 +438,7 @@ function exp (float $num): float
  * natural logarithm.
  */
 #[Pure]
-function log (float $num, float $base): float
+function log (float $num, float $base = M_E): float
 {}
 
 /**
@@ -877,7 +877,7 @@ function sys_getloadavg (): array|false
  * @return string|float
  */
 #[Pure]
-function microtime (#[TypeContract(true: "float", false: "string")] bool $as_float): string|float
+function microtime (#[TypeContract(true: "float", false: "string")] bool $as_float = false): string|float
 {}
 
 /**
@@ -903,7 +903,7 @@ function microtime (#[TypeContract(true: "float", false: "string")] bool $as_flo
     "minuteswest" => "int",
     "dsttime" => "int"
 ])]
-function gettimeofday (#[TypeContract(true: "float", false: "int[]")] bool $as_float): array|float
+function gettimeofday (#[TypeContract(true: "float", false: "int[]")] bool $as_float = false): array|float
 {}
 
 /**

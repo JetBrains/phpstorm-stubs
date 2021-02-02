@@ -79,7 +79,7 @@ function gzgetc ($stream): string|false {}
  * </p>
  * @return string|false The uncompressed string, or <b>FALSE</b> on error.
  */
-function gzgets ($stream, int $length): string|false {}
+function gzgets ($stream, int $length = 1024): string|false {}
 
 /**
  * Get line from gz-file pointer and strip HTML tags
@@ -383,7 +383,7 @@ function gzdecode (string $data, int $max_length): string|false
  * @since 5.4
  */
 #[Pure]
-function zlib_encode (string $data, int $encoding, int $level): string|false {}
+function zlib_encode (string $data, int $encoding, int $level = -1): string|false {}
 
 /**
  * Uncompress any raw/gzip/zlib encoded data

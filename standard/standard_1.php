@@ -271,7 +271,7 @@ function dirname (string $path, int $levels = 1): string
  * string if not all elements are requested.
  */
 #[Pure]
-function pathinfo (string $path, int $flags): array|string
+function pathinfo (string $path, int $flags = PATHINFO_ALL): array|string
 {}
 
 /**
@@ -320,7 +320,7 @@ function stripcslashes (string $string): string
  * is not found.
  */
 #[Pure]
-function strstr (string $haystack, string $needle, bool $before_needle): string|false
+function strstr (string $haystack, string $needle, bool $before_needle = false): string|false
 {}
 
 /**
@@ -342,7 +342,7 @@ function strstr (string $haystack, string $needle, bool $before_needle): string|
  * found, returns false.
  */
 #[Pure]
-function stristr (string $haystack, string $needle, bool $before_needle): string|false
+function stristr (string $haystack, string $needle, bool $before_needle = false): string|false
 {}
 
 /**
@@ -472,7 +472,7 @@ function strpbrk (string $string, string $characters): string|false
  * false.
  */
 #[Pure]
-function substr_compare (string $haystack, string $needle, int $offset, ?int $length, bool $case_insensitive): int
+function substr_compare (string $haystack, string $needle, int $offset, ?int $length, bool $case_insensitive = false): int
 {}
 
 /**

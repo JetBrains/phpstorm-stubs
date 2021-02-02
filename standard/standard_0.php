@@ -468,7 +468,7 @@ function htmlspecialchars (string $string, int $flags = ENT_COMPAT | ENT_HTML401
  * @return string the encoded string.
  */
 #[Pure]
-function htmlentities (string $string, int $flags, ?string $encoding, bool $double_encode = true): string
+function htmlentities (string $string, int $flags = ENT_COMPAT, ?string $encoding, bool $double_encode = true): string
 {}
 
 /**
@@ -510,7 +510,7 @@ function htmlentities (string $string, int $flags, ?string $encoding, bool $doub
  * @return string the decoded string.
  */
 #[Pure]
-function html_entity_decode (string $string, int $flags, ?string $encoding): string
+function html_entity_decode (string $string, int $flags = ENT_COMPAT, ?string $encoding): string
 {}
 
 /**
@@ -545,7 +545,7 @@ function html_entity_decode (string $string, int $flags, ?string $encoding): str
  * @return string the decoded string.
  */
 #[Pure]
-function htmlspecialchars_decode (string $string, int $flags): string
+function htmlspecialchars_decode (string $string, int $flags = ENT_COMPAT): string
 {}
 
 /**
@@ -722,7 +722,7 @@ function htmlspecialchars_decode (string $string, int $flags): string
  * @return array the translation table as an array.
  */
 #[Pure]
-function get_html_translation_table (int $table, int $flags, string $encoding = "UTF-8"): array
+function get_html_translation_table (int $table, int $flags = ENT_COMPAT, string $encoding = "UTF-8"): array
 {}
 
 /**
@@ -1091,7 +1091,7 @@ function image_type_to_extension (int $image_type, $include_dot = true): string|
  * </p>
  * @return bool true on success or false on failure.
  */
-function phpinfo (int $flags): bool
+function phpinfo (int $flags = INFO_ALL): bool
 {}
 
 /**
@@ -1172,7 +1172,7 @@ function phpversion (?string $extension): string|false
  * </p>
  * @return bool true on success or false on failure.
  */
-function phpcredits (int $flags): bool
+function phpcredits (int $flags = CREDITS_ALL): bool
 {}
 
 /**
@@ -1236,7 +1236,7 @@ function php_sapi_name (): string|false
  * @return string the description, as a string.
  */
 #[Pure]
-function php_uname (string $mode): string
+function php_uname (string $mode = 'a'): string
 {}
 
 /**

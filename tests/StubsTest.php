@@ -4,6 +4,13 @@ declare(strict_types=1);
 namespace StubTests;
 
 use JetBrains\PhpStorm\Pure;
+use PhpParser\Node\Expr\BinaryOp\BitwiseOr;
+use PhpParser\Node\Expr\ClassConstFetch;
+use PhpParser\Node\Expr\ConstFetch;
+use PhpParser\Node\Expr\UnaryMinus;
+use PhpParser\Node\Scalar\DNumber;
+use PhpParser\Node\Scalar\LNumber;
+use PhpParser\Node\Scalar\String_;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use StubTests\Model\PHPClass;
@@ -169,6 +176,22 @@ class StubsTest extends TestCase
         $stubOptionalParameter = array_pop($stubParameters);
         self::assertEquals($parameter->isOptional, $stubOptionalParameter->isOptional,
             sprintf('Reflection function %s has optional parameter %s', $function->name, $parameter->name));
+    }
+
+    /**
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionOptionalParametersWithDefaultValueProvider
+     */
+    public function testFunctionsDefaultParametersValue(PHPFunction $function, PHPParameter $parameter)
+    {
+        $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions()[$function->name];
+        $stubParameters = array_filter($phpstormFunction->parameters, fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name);
+        /** @var PHPParameter $stubOptionalParameter */
+        $stubOptionalParameter = array_pop($stubParameters);
+        $reflectionValue = self::getStringRepresentationOfDefaultParameterValue($parameter->defaultValue);
+        $stubValue = self::getStringRepresentationOfDefaultParameterValue($stubOptionalParameter->defaultValue);
+        self::assertEquals($reflectionValue, $stubValue,
+            sprintf('Reflection function %s has optional parameter %s with default value %s but stub parameter has value %s',
+                $function->name, $parameter->name, $reflectionValue, $stubValue));
     }
 
     /**
@@ -476,5 +499,50 @@ class StubsTest extends TestCase
             return false;
         }, ARRAY_FILTER_USE_BOTH);
         return array_unique(array_map(fn(PHPFunction $function) => $function->name, $duplicatedFunctions));
+    }
+
+    private static function getStringRepresentationOfDefaultParameterValue(mixed $defaultValue)
+    {
+        if ($defaultValue instanceof ConstFetch) {
+            $defaultValueName = (string)$defaultValue->name;
+            if ($defaultValueName !== 'false' && $defaultValueName !== 'true' && $defaultValueName !== 'null') {
+                $constants = array_filter(PhpStormStubsSingleton::getPhpStormStubs()->getConstants(),
+                    function (PHPConst $const) use ($defaultValue) {
+                        return $const->name === (string)$defaultValue->name;
+                    });
+                /** @var PHPConst $constant */
+                $constant = array_pop($constants);
+                $value = $constant->value;
+            } else {
+                $value = $defaultValueName;
+            }
+        } elseif ($defaultValue instanceof String_ || $defaultValue instanceof LNumber || $defaultValue instanceof DNumber) {
+            $value = strval($defaultValue->value);
+        } elseif ($defaultValue instanceof BitwiseOr) {
+            if ($defaultValue->left instanceof ConstFetch && $defaultValue->right instanceof ConstFetch) {
+                $constants = array_filter(PhpStormStubsSingleton::getPhpStormStubs()->getConstants(),
+                    fn(PHPConst $const) => property_exists($defaultValue->left, 'name') &&
+                        $const->name === (string)$defaultValue->left->name);
+                /** @var PHPConst $leftConstant */
+                $leftConstant = array_pop($constants);
+                $constants = array_filter(PhpStormStubsSingleton::getPhpStormStubs()->getConstants(),
+                    fn(PHPConst $const) => property_exists($defaultValue->right, 'name') &&
+                        $const->name === (string)$defaultValue->right->name);
+                /** @var PHPConst $rightConstant */
+                $rightConstant = array_pop($constants);
+                $value = $leftConstant->value | $rightConstant->value;
+            }
+        } elseif ($defaultValue instanceof UnaryMinus && property_exists($defaultValue->expr, 'value')) {
+            $value = '-' . strval($defaultValue->expr->value);
+        } elseif ($defaultValue instanceof ClassConstFetch) {
+            $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass((string)$defaultValue->class);
+            $constants = array_filter($parentClass->constants, fn(PHPConst $const) => $const->name === (string)$defaultValue->name);
+            /** @var PHPConst $constant */
+            $constant = array_pop($constants);
+            $value = $constant->value;
+        } else {
+            $value = strval($defaultValue);
+        }
+        return $value;
     }
 }

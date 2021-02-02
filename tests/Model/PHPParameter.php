@@ -9,7 +9,7 @@ use stdClass;
 
 class PHPParameter extends BasePHPElement
 {
-    /** @var string[] $types  */
+    /** @var string[] $types */
     public array $types = [];
     public bool $is_vararg = false;
     public bool $is_passed_by_ref = false;
@@ -27,7 +27,12 @@ class PHPParameter extends BasePHPElement
         $this->is_vararg = $reflectionObject->isVariadic();
         $this->is_passed_by_ref = $reflectionObject->isPassedByReference() && !$reflectionObject->canBePassedByValue();
         $this->isOptional = $reflectionObject->isOptional();
-        $this->defaultValue = $reflectionObject->isDefaultValueAvailable() ? $reflectionObject->getDefaultValue() : null;
+        if ($reflectionObject->isDefaultValueAvailable()) {
+            $this->defaultValue = $reflectionObject->getDefaultValue();
+            if (in_array('bool', $this->types)) {
+                $this->defaultValue = $reflectionObject->getDefaultValue() ? 'true' : 'false';
+            }
+        }
         return $this;
     }
 
@@ -67,6 +72,7 @@ class PHPParameter extends BasePHPElement
                         'has nullable typehint' => StubProblemType::HAS_NULLABLE_TYPEHINT,
                         'has union typehint' => StubProblemType::HAS_UNION_TYPEHINT,
                         'has type mismatch in signature and phpdoc' => StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE,
+                        'wrong default value' => StubProblemType::WRONG_PARAMETER_DEFAULT_VALUE,
                         default => -1
                     };
                 }

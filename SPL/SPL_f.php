@@ -115,7 +115,7 @@ function spl_autoload_call (string $class): void {}
  * @return string[]|false An array on success, or false on error.
  */
 #[Pure]
-function class_parents ($object_or_class, bool $autoload): array|false
+function class_parents ($object_or_class, bool $autoload = true): array|false
 {}
 
 /**
@@ -132,7 +132,7 @@ function class_parents ($object_or_class, bool $autoload): array|false
  * @return string[]|false An array on success, or false on error.
  */
 #[Pure]
-function class_implements ($object_or_class, bool $autoload): array|false
+function class_implements ($object_or_class, bool $autoload = true): array|false
 {}
 
 /**

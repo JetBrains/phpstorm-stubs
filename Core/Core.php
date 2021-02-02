@@ -442,7 +442,7 @@ function property_exists ($object_or_class, string $property): bool
  * @link https://secure.php.net/manual/en/function.trait-exists.php
  * @since 5.4
  */
-function trait_exists(string $trait, bool $autoload): bool
+function trait_exists(string $trait, bool $autoload = true): bool
 {}
 
 /**
@@ -761,7 +761,7 @@ function get_declared_traits(): array
  * below).
  */
 #[Pure]
-function get_defined_functions (bool $exclude_disabled = false): array
+function get_defined_functions (bool $exclude_disabled = true): array
 {}
 
 /**

@@ -47,7 +47,7 @@ use JetBrains\PhpStorm\Pure;
  * fwrite, fclose, and
  * feof). If the call fails, it will return false
  */
-function fsockopen (string $hostname, int $port, &$error_code, &$error_message, ?float $timeout)
+function fsockopen (string $hostname, int $port = -1, &$error_code, &$error_message, ?float $timeout)
 {}
 
 /**
@@ -61,7 +61,7 @@ function fsockopen (string $hostname, int $port, &$error_code, &$error_message, 
  * @param float|null $timeout [optional]
  * @return resource|false
  */
-function pfsockopen (string $hostname, int $port, &$error_code, &$error_message, ?float $timeout)
+function pfsockopen (string $hostname, int $port = -1, &$error_code, &$error_message, ?float $timeout)
 {}
 
 /**
@@ -218,7 +218,7 @@ function unpack (string $format, string $string, int $offset = 0): array|false
  * reload, and check for the value.
  */
 #[Pure]
-function get_browser (?string $user_agent, bool $return_array): object|array|false
+function get_browser (?string $user_agent, bool $return_array = false): object|array|false
 {}
 
 /**
@@ -934,7 +934,7 @@ function touch (string $filename, ?int $mtime, ?int $atime): bool
  * </p>
  * @return void
  */
-function clearstatcache (bool $clear_realpath_cache, string $filename): void {}
+function clearstatcache (bool $clear_realpath_cache = false, string $filename): void {}
 
 /**
  * Returns the total size of a filesystem or disk partition

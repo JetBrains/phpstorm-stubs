@@ -194,7 +194,7 @@ function soundex (string $string): string
  * two argument strings or -1, if one of the argument strings
  * is longer than the limit of 255 characters.
  */
-function levenshtein (string $string1, string $string2, int $insertion_cost, int $repetition_cost, int $deletion_cost): int
+function levenshtein (string $string1, string $string2, int $insertion_cost = 1, int $repetition_cost = 1, int $deletion_cost = 1): int
 {
 }
 
