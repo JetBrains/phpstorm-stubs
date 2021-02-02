@@ -6872,7 +6872,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for logically possible line breaks
      * @link https://secure.php.net/manual/en/intlbreakiterator.createlineinstance.php
-     * @param string $locale
+     * @param string $locale [optional]
      * @return IntlRuleBasedBreakIterator
      */
     public static function createLineInstance($locale) { }
@@ -6881,7 +6881,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for sentence breaks
      * @link https://secure.php.net/manual/en/intlbreakiterator.createsentenceinstance.php
-     * @param string $locale
+     * @param string $locale [optional]
      * @return IntlRuleBasedBreakIterator
      */
     public static function createSentenceInstance($locale) { }
@@ -6890,7 +6890,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for title-casing breaks
      * @link https://secure.php.net/manual/en/intlbreakiterator.createtitleinstance.php
-     * @param string $locale
+     * @param string $locale [optional]
      * @return IntlRuleBasedBreakIterator
      */
     public static function createTitleInstance($locale) { }
@@ -6899,7 +6899,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for word breaks
      * @link https://secure.php.net/manual/en/intlbreakiterator.createwordinstance.php
-     * @param string $locale
+     * @param string $locale [optional]
      * @return IntlRuleBasedBreakIterator
      */
     public static function createWordInstance($locale) { }
