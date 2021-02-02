@@ -6,6 +6,11 @@ exclude:
   - name: PhpInconsistentReturnPointsInspection
   - name: PhpTooManyParametersInspection
   - name: PhpUnnecessaryDoubleQuotesInspection
+  - name: PhpMissingParentCallCommonInspection
+  - name: PhpMissingParentCallMagicInspection
+  - name: PhpMissingParentConstructorInspection
+  - name: PhpMissingReturnTypeInspection
+  - name: PhpMissingParamTypeInspection
     paths:
       - aerospike
       - amqp
