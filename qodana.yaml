@@ -4,6 +4,8 @@ profile:
   path: Inspections.xml
 exclude:
   - name: PhpInconsistentReturnPointsInspection
+  - name: PhpTooManyParametersInspection
+  - name: PhpUnnecessaryDoubleQuotesInspection
     paths:
       - aerospike
       - amqp
