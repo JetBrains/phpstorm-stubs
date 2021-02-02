@@ -66,8 +66,9 @@ class PHPMethod extends PHPFunction
         }
 
         foreach ($this->parameters as $parameter) {
-            $relatedParamTag = array_filter($this->paramTags, fn(Param $tag) => $tag->getVariableName() === $parameter->name);
-            $relatedParamTag = array_pop($relatedParamTag);
+            $relatedParamTags = array_filter($this->paramTags, fn(Param $tag) => $tag->getVariableName() === $parameter->name);
+            /** @var Param $relatedParamTag */
+            $relatedParamTag = array_pop($relatedParamTags);
             if (!empty($relatedParamTag)){
                 $parameter->isOptional = $parameter->isOptional || str_contains((string)$relatedParamTag->getDescription(), '[optional]');
             }
