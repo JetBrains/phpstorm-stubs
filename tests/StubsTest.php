@@ -180,6 +180,7 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionOptionalParametersWithDefaultValueProvider
+     * @throws Exception
      */
     public function testFunctionsDefaultParametersValue(PHPFunction $function, PHPParameter $parameter)
     {
@@ -196,6 +197,7 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodOptionalParametersWithDefaultValueProvider
+     * @throws Exception
      */
     public function testMethodsDefaultParametersValue(PHPClass|PHPInterface $class, PHPMethod $method, PHPParameter $parameter)
     {
@@ -521,7 +523,13 @@ class StubsTest extends TestCase
         return array_unique(array_map(fn(PHPFunction $function) => $function->name, $duplicatedFunctions));
     }
 
-    private static function getStringRepresentationOfDefaultParameterValue(mixed $defaultValue, PHPClass|PHPInterface $contextClass = null)
+    /**
+     * @param mixed $defaultValue
+     * @param PHPClass|PHPInterface|null $contextClass
+     * @return bool|float|int|string|null
+     * @throws Exception
+     */
+    private static function getStringRepresentationOfDefaultParameterValue(mixed $defaultValue, PHPClass|PHPInterface $contextClass = null): float|bool|int|string|null
     {
         if ($defaultValue instanceof ConstFetch) {
             $defaultValueName = (string)$defaultValue->name;
