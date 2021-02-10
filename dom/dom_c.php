@@ -1472,12 +1472,12 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
     /**
      * Removes attribute
      * @link https://php.net/manual/en/domelement.removeattributenode.php
-     * @param DOMAttr $qualifiedName <p>
+     * @param DOMAttr $attr <p>
      * The attribute node.
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function removeAttributeNode (DOMAttr $qualifiedName) {}
+    public function removeAttributeNode (DOMAttr $attr) {}
 
     /**
      * Gets elements by tagname

@@ -184,7 +184,7 @@ function soundex (string $string): string
  * @param int $insertion_cost [optional] <p>
  * Defines the cost of insertion.
  * </p>
- * @param int $repetition_cost [optional] <p>
+ * @param int $replacement_cost [optional] <p>
  * Defines the cost of replacement.
  * </p>
  * @param int $deletion_cost [optional] <p>
@@ -194,7 +194,7 @@ function soundex (string $string): string
  * two argument strings or -1, if one of the argument strings
  * is longer than the limit of 255 characters.
  */
-function levenshtein (string $string1, string $string2, int $insertion_cost = 1, int $repetition_cost = 1, int $deletion_cost = 1): int
+function levenshtein (string $string1, string $string2, int $insertion_cost = 1, int $replacement_cost = 1, int $deletion_cost = 1): int
 {
 }
 

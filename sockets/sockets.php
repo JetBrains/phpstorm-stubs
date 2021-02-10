@@ -301,9 +301,9 @@ function socket_create_listen (int $port, int $backlog = 128): Socket|false {}
  * @param array &$pair <p>
  * Reference to an array in which the two socket resources will be inserted.
  * </p>
- * @return bool|null <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function socket_create_pair (int $domain, int $type, int $protocol, &$pair): ?bool {}
+function socket_create_pair (int $domain, int $type, int $protocol, &$pair): bool {}
 
 /**
  * Accepts a connection on a socket

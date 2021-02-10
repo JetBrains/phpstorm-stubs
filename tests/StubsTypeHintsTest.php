@@ -35,8 +35,12 @@ class StubsTypeHintsTest extends TestCase
             fn(PHPFunction $stubFunction) => $stubFunction->name !== $functionName ||
                 !in_array(PhpVersions::getLatest(), Utils::getAvailableInVersions($stubFunction)));
         $stubFunction = array_pop($allEqualStubFunctions);
-        self::assertEquals($function->returnTypesFromSignature, $stubFunction->returnTypesFromSignature,
-            "Function $functionName has invalid return type");
+        $testCondition = count($function->returnTypesFromSignature) === count($stubFunction->returnTypesFromSignature) &&
+            count(array_intersect($function->returnTypesFromSignature, $stubFunction->returnTypesFromSignature)) ===
+            count($function->returnTypesFromSignature);
+        self::assertTrue($testCondition, "Function $functionName has invalid return type.
+        Reflection function has " . implode("|", $function->returnTypesFromSignature) . " but stubs has signature " .
+        implode("|", $stubFunction->returnTypesFromSignature));
     }
 
     /**

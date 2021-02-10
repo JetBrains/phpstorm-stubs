@@ -1094,7 +1094,7 @@ function date_timezone_get (DateTimeInterface $object): DateTimeZone|false
  * Alias:
  * {@see DateTime::setTimezone}
  * @link https://php.net/manual/en/function.date-timezone-set.php
- * @param DateTimeInterface $object <p>A
+ * @param DateTime $object <p>A
  * {@see DateTime} object returned by
  * {@see date_create()}. The function modifies this object.</p>
  * @param DateTimeZone $timezone <p>A
@@ -1103,7 +1103,7 @@ function date_timezone_get (DateTimeInterface $object): DateTimeZone|false
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
-function date_timezone_set (DateTimeInterface $object, DateTimeZone $timezone)
+function date_timezone_set (DateTime $object, DateTimeZone $timezone)
 {}
 
 /**
@@ -1434,12 +1434,12 @@ function date_default_timezone_get (): string
  * @param float|null $zenith [optional] <p>
  * Default: date.sunrise_zenith
  * </p>
- * @param float $utcOffset [optional]
+ * @param float|null $utcOffset [optional]
  * @return string|int|float|false the sunrise time in a specified format on
  * success or false on failure.
  */
 #[Pure]
-function date_sunrise (int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, float $utcOffset): string|int|float|false
+function date_sunrise (int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, ?float $utcOffset): string|int|float|false
 {}
 
 /**
@@ -1485,12 +1485,12 @@ function date_sunrise (int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, 
  * @param float|null $zenith [optional] <p>
  * Default: date.sunset_zenith
  * </p>
- * @param float $utcOffset [optional]
+ * @param float|null $utcOffset [optional]
  * @return string|int|float|false the sunset time in a specified format on
  * success or false on failure.
  */
 #[Pure]
-function date_sunset (int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, float $utcOffset): string|int|float|false
+function date_sunset (int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, ?float $utcOffset): string|int|float|false
 {}
 
 /**
