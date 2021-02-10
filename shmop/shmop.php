@@ -1,7 +1,6 @@
 <?php
 
 // Start of shmop v.
-use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
@@ -58,7 +57,6 @@ function shmop_read (#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "reso
  * </p>
  * @return void No value is returned.
  */
-#[Deprecated(since: '8.0')]
 function shmop_close (#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop): void {}
 
 /**
