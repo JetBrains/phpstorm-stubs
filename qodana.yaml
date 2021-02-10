@@ -1,5 +1,5 @@
 version: 1.0
-failThreshold: 3
+failThreshold: 100
 profile:
   path: Inspections.xml
 exclude:
