@@ -74,12 +74,12 @@ function gzgetc ($stream): string|false {}
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
  * </p>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * The length of data to get.
  * </p>
  * @return string|false The uncompressed string, or <b>FALSE</b> on error.
  */
-function gzgets ($stream, int $length = 1024): string|false {}
+function gzgets ($stream, ?int $length = 1024): string|false {}
 
 /**
  * Get line from gz-file pointer and strip HTML tags

@@ -587,9 +587,9 @@ class mysqli  {
 	 * @link https://php.net/manual/en/mysqli.poll.php
 	 * @param array &$read <p>
 	 * </p>
-	 * @param array &$write <p>
-	 * </p>
 	 * @param array &$error <p>
+	 * </p>
+	 * @param array &$reject <p>
 	 * </p>
 	 * @param int $seconds <p>
 	 * Number of seconds to wait, must be non-negative.
@@ -599,7 +599,7 @@ class mysqli  {
 	 * </p>
 	 * @return int|false number of ready connections in success, false otherwise.
 	 */
-	public static function poll (array &$read , array &$write , array &$error , $seconds, $microseconds = 0) {}
+	public static function poll (array &$read , array &$error , array &$reject , $seconds, $microseconds = 0) {}
 
 	/**
 	 * Get result from async query
@@ -1523,9 +1523,9 @@ function mysqli_change_user (mysqli $mysql, string $username, string $password, 
  * Returns the default character set for the database connection
  * @link https://php.net/manual/en/mysqli.character-set-name.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
- * @return string|null The default character set for the current connection
+ * @return string The default character set for the current connection
  */
-function mysqli_character_set_name (mysqli $mysql): ?string
+function mysqli_character_set_name (mysqli $mysql): string
 {}
 
 /**
@@ -1639,9 +1639,9 @@ function mysqli_stmt_error_list (mysqli_stmt $statement): array {}
  * Returns a string description of the last error
  * @link https://secure.php.net/manual/en/mysqli.error.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
- * @return string|null
+ * @return string
  */
-function mysqli_error (mysqli $mysql): ?string {}
+function mysqli_error (mysqli $mysql): string {}
 
 /**
  * Executes a prepared Query
@@ -1706,9 +1706,9 @@ function mysqli_fetch_lengths (mysqli_result $result): array|false {}
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
  * @param int $mode
- * @return array|false Returns an array of associative or numeric arrays holding result rows.
+ * @return array Returns an array of associative or numeric arrays holding result rows.
  */
-function mysqli_fetch_all (mysqli_result $result, int $mode = MYSQLI_NUM): array|false {}
+function mysqli_fetch_all (mysqli_result $result, int $mode = MYSQLI_NUM): array {}
 
 /**
  * Fetch a result row as an associative, a numeric array, or both.
@@ -1725,13 +1725,13 @@ function mysqli_fetch_array (mysqli_result $result, int $mode = MYSQLI_BOTH): ar
  * @link https://php.net/manual/en/mysqli-result.fetch-assoc.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
- * @return string[]|null Returns an associative array of strings representing the fetched row in the result set,
+ * @return string[]|null|false Returns an associative array of strings representing the fetched row in the result set,
  * where each key in the array represents the name of one of the result set's columns or NULL if there are no more rows in resultset.
  * If two or more columns of the result have the same field names, the last column will take precedence.
  * To access the other column(s) of the same name,
  * you either need to access the result with numeric indices by using mysqli_fetch_row() or add alias names.
  */
-function mysqli_fetch_assoc (mysqli_result $result): ?array {}
+function mysqli_fetch_assoc (mysqli_result $result): array|null|false {}
 
 /**
  * Returns the current row of a result set as an object.
@@ -1740,23 +1740,23 @@ function mysqli_fetch_assoc (mysqli_result $result): ?array {}
  * mysqli_store_result() or mysqli_use_result().
  * @param string $class The name of the class to instantiate, set the properties of and return. If not specified, a stdClass object is returned.
  * @param array $constructor_args [optional] An optional array of parameters to pass to the constructor for class_name objects.
- * @return object|null Returns an object with string properties that corresponds to the fetched row or NULL if there are no more rows in resultset.
+ * @return object|null|false Returns an object with string properties that corresponds to the fetched row or NULL if there are no more rows in resultset.
  * If two or more columns of the result have the same field names, the last column will take precedence.
  * To access the other column(s) of the same name,
  * you either need to access the result with numeric indices by using mysqli_fetch_row() or add alias names.
  */
-function mysqli_fetch_object (mysqli_result $result, string $class = 'stdClass', array $constructor_args = array()): ?object {}
+function mysqli_fetch_object (mysqli_result $result, string $class = 'stdClass', array $constructor_args = array()): object|null|false {}
 
 /**
  * Get a result row as an enumerated array
  * @link https://php.net/manual/en/mysqli-result.fetch-row.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
- * @return array|null mysqli_fetch_row returns an array of strings that corresponds to the fetched row
+ * @return array|null|false mysqli_fetch_row returns an array of strings that corresponds to the fetched row
  * or null if there are no more rows in result set.
  * @link https://php.net/manual/en/mysqli-result.fetch-row.php
  */
-function mysqli_fetch_row (mysqli_result $result): ?array {}
+function mysqli_fetch_row (mysqli_result $result): array|false|null {}
 
 /**
  * Returns the number of columns for the most recent query
@@ -2050,13 +2050,13 @@ function mysqli_ping (mysqli $mysql): bool
  * Poll connections
  * @link https://php.net/manual/en/mysqli.poll.php
  * @param array|null &$read
- * @param array|null &$write
- * @param array &$error
+ * @param array|null &$error
+ * @param array &$reject
  * @param int $seconds
  * @param int $microseconds [optional]
  * @return int|false number of ready connections upon success, FALSE otherwise.
  */
-function mysqli_poll (?array &$read, ?array &$write, array &$error, int $seconds, int $microseconds = 0): int|false
+function mysqli_poll (?array &$read, ?array &$error, array &$reject, int $seconds, int $microseconds = 0): int|false
 {}
 
 /**
@@ -2422,9 +2422,9 @@ function mysqli_stmt_param_count (mysqli_stmt $statement): int
  * Returns the SQLSTATE error from previous MySQL operation
  * @link https://php.net/manual/en/mysqli.sqlstate.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
- * @return string|null Returns a string containing the SQLSTATE error code for the last error. The error code consists of five characters. '00000' means no error.
+ * @return string Returns a string containing the SQLSTATE error code for the last error. The error code consists of five characters. '00000' means no error.
  */
-function mysqli_sqlstate (mysqli $mysql): ?string
+function mysqli_sqlstate (mysqli $mysql): string
 {}
 
 /**
@@ -2481,9 +2481,9 @@ function mysqli_stmt_errno (mysqli_stmt $statement): int
  * Returns a string description for last statement error
  * @link https://php.net/manual/en/mysqli-stmt.error.php
  * @param mysqli_stmt $statement
- * @return string|null
+ * @return string
  */
-function mysqli_stmt_error (mysqli_stmt $statement): ?string
+function mysqli_stmt_error (mysqli_stmt $statement): string
 {}
 
 /**
@@ -2517,9 +2517,9 @@ function mysqli_stmt_num_rows (mysqli_stmt $statement): string|int
  * Returns SQLSTATE error from previous statement operation
  * @link https://php.net/manual/en/mysqli-stmt.sqlstate.php
  * @param mysqli_stmt $statement
- * @return string|null Returns a string containing the SQLSTATE error code for the last error. The error code consists of five characters. '00000' means no error.
+ * @return string Returns a string containing the SQLSTATE error code for the last error. The error code consists of five characters. '00000' means no error.
  */
-function mysqli_stmt_sqlstate (mysqli_stmt $statement): ?string
+function mysqli_stmt_sqlstate (mysqli_stmt $statement): string
 {}
 
 /**
