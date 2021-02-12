@@ -15,6 +15,11 @@ class ReflectionMethodsProvider
         return self::yieldFilteredMethods();
     }
 
+    public static function classMethodsWithReturnTypeHintProvider(): ?Generator
+    {
+        return self::yieldFilteredMethods(StubProblemType::WRONG_RETURN_TYPEHINT);
+    }
+
     public static function classMethodsWithAccessProvider(): ?Generator
     {
         return self::yieldFilteredMethods(StubProblemType::FUNCTION_ACCESS);
