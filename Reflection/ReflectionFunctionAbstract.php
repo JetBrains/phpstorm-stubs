@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -247,11 +248,12 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * Gets the specified return type of a function
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getreturntype.php
-     * @return ReflectionNamedType|null Returns a {@see ReflectionNamedType} object if a
+     * @return ReflectionType|ReflectionNamedType|null Returns a {@see ReflectionType} object if a
      * return type is specified, {@see null} otherwise.
-     * @since 7.1
+     * @since 7.0
      */
     #[Pure]
+    #[LanguageLevelTypeAware(['7.1' => 'ReflectionNamedType|null'], default: 'ReflectionType|null')]
 	public function getReturnType()
     {
     }
