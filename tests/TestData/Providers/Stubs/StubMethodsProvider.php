@@ -52,19 +52,22 @@ class StubMethodsProvider
     public static function methodsForReturnTypeHintTestsProvider(): ?Generator
     {
         $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(7);
-        return self::yieldFilteredMethods($filterFunction, StubProblemType::FUNCTION_HAS_RETURN_TYPEHINT);
+        return self::yieldFilteredMethods($filterFunction, StubProblemType::FUNCTION_HAS_RETURN_TYPEHINT,
+            StubProblemType::WRONG_RETURN_TYPEHINT);
     }
 
     public static function methodsForNullableReturnTypeHintTestsProvider(): ?Generator
     {
         $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(7.1);
-        return self::yieldFilteredMethods($filterFunction, StubProblemType::HAS_NULLABLE_TYPEHINT);
+        return self::yieldFilteredMethods($filterFunction, StubProblemType::HAS_NULLABLE_TYPEHINT,
+            StubProblemType::WRONG_RETURN_TYPEHINT);
     }
 
     public static function methodsForUnionReturnTypeHintTestsProvider(): ?Generator
     {
         $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(8);
-        return self::yieldFilteredMethods($filterFunction, StubProblemType::HAS_UNION_TYPEHINT);
+        return self::yieldFilteredMethods($filterFunction, StubProblemType::HAS_UNION_TYPEHINT,
+            StubProblemType::WRONG_RETURN_TYPEHINT);
     }
 
     private static function yieldFilteredMethods(callable $filterFunction, int ...$problemTypes): ?Generator
