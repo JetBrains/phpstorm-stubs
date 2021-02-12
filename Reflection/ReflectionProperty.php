@@ -236,11 +236,12 @@ class ReflectionProperty implements Reflector
      * Gets property type
      *
      * @link https://php.net/manual/en/reflectionproperty.gettype.php
-     * @return ReflectionNamedType|null Returns a {@see ReflectionNamedType} if the
+     * @return ReflectionNamedType|ReflectionUnionType|null Returns a {@see ReflectionType} if the
      * property has a type, and {@see null} otherwise.
      * @since 7.4
      */
     #[Pure]
+    #[LanguageLevelTypeAware(['8.0' => 'ReflectionNamedType|ReflectionUnionType|null'], default: 'ReflectionNamedType|null')]
 	public function getType()
     {
     }

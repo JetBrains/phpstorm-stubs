@@ -248,12 +248,12 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * Gets the specified return type of a function
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getreturntype.php
-     * @return ReflectionType|ReflectionNamedType|null Returns a {@see ReflectionType} object if a
+     * @return ReflectionType|null Returns a {@see ReflectionType} object if a
      * return type is specified, {@see null} otherwise.
      * @since 7.0
      */
     #[Pure]
-    #[LanguageLevelTypeAware(['7.1' => 'ReflectionNamedType|null'], default: 'ReflectionType|null')]
+    #[LanguageLevelTypeAware(['7.1' => 'ReflectionNamedType|null', '8.0' => 'ReflectionNamedType|ReflectionUnionType|null'], default: 'ReflectionType|null')]
 	public function getReturnType()
     {
     }

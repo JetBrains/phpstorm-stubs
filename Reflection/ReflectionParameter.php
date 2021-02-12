@@ -144,12 +144,12 @@ class ReflectionParameter implements Reflector
      * Gets a parameter's type
      *
      * @link https://php.net/manual/en/reflectionparameter.gettype.php
-     * @return ReflectionType|ReflectionNamedType|null Returns a {@see ReflectionType} object if a
+     * @return ReflectionType|null Returns a {@see ReflectionType} object if a
      * parameter type is specified, {@see null} otherwise.
      * @since 7.0
      */
     #[Pure]
-    #[LanguageLevelTypeAware(['7.1' => 'ReflectionNamedType|null'], default: 'ReflectionType|null')]
+    #[LanguageLevelTypeAware(['7.1' => 'ReflectionNamedType|null', '8.0' => 'ReflectionNamedType|ReflectionUnionType|null'], default: 'ReflectionType|null')]
 	public function getType()
     {
     }
