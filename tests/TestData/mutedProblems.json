@@ -1395,6 +1395,17 @@
       ]
     },
     {
+      "name": "ReflectionFunctionAbstract",
+      "methods": [
+        {
+          "name": "getReturnType",
+          "problems": [
+            "wrong return typehint"
+          ]
+        }
+      ]
+    },
+    {
       "name": "ReflectionReference",
       "methods": [
         {
