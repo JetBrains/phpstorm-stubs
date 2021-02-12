@@ -1094,7 +1094,7 @@ function date_timezone_get (DateTimeInterface $object): DateTimeZone|false
  * Alias:
  * {@see DateTime::setTimezone}
  * @link https://php.net/manual/en/function.date-timezone-set.php
- * @param DateTime $object <p>A
+ * @param DateTime|DateTimeInterface $object <p>A
  * {@see DateTime} object returned by
  * {@see date_create()}. The function modifies this object.</p>
  * @param DateTimeZone $timezone <p>A
@@ -1103,7 +1103,7 @@ function date_timezone_get (DateTimeInterface $object): DateTimeZone|false
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
-function date_timezone_set (DateTime $object, DateTimeZone $timezone)
+function date_timezone_set (#[LanguageLevelTypeAware(["8.0.2" => "DateTime"], default: "DateTimeInterface")] $object, DateTimeZone $timezone)
 {}
 
 /**
