@@ -9,7 +9,7 @@ use Attribute;
  * @since 8.0
  * @internal
  */
-#[Attribute(Attribute::TARGET_FUNCTION|Attribute::TARGET_PARAMETER)]
+#[Attribute(Attribute::TARGET_FUNCTION|Attribute::TARGET_METHOD|Attribute::TARGET_PARAMETER)]
 class LanguageLevelTypeAware
 {
     public function __construct(array $languageLevelTypeMap, string $default) {}
