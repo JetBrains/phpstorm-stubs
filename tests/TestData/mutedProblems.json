@@ -2207,6 +2207,12 @@
           "problems": [
             "parameter mismatch"
           ]
+        },
+        {
+          "name": "getType",
+          "problems": [
+            "wrong return typehint"
+          ]
         }
       ]
     },
