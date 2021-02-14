@@ -2242,7 +2242,7 @@ function mysqli_stmt_affected_rows (mysqli_stmt $statement): string|int
  * @return int|false Returns FALSE if the attribute is not found, otherwise returns the value of the attribute.
  */
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
-function mysqli_stmt_attr_get (mysqli_stmt $statement, int $attribute): bool|int
+function mysqli_stmt_attr_get (mysqli_stmt $statement, int $attribute): false|int
 {}
 
 /**

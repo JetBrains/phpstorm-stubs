@@ -148,7 +148,7 @@ function lcg_value (): float
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function metaphone (string $string, int $max_phonemes = 0): bool|string
+function metaphone (string $string, int $max_phonemes = 0): false|string
 {}
 
 /**

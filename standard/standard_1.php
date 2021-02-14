@@ -424,7 +424,7 @@ function str_word_count (string $string, int $format = 0, ?string $characters): 
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-function str_split (string $string, int $length = 1): array|bool
+function str_split (string $string, int $length = 1): array|false
 {}
 
 /**
@@ -1032,7 +1032,7 @@ function similar_text (string $string1, string $string2, &$percent): int
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string[]"], default: "string[]|false")]
-function explode (string $separator, string $string, int $limit): array|bool
+function explode (string $separator, string $string, int $limit): array|false
 {}
 
 /**

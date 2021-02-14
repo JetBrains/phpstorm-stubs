@@ -1431,7 +1431,7 @@ function mb_ord (string $string, ?string $encoding): int|false
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function mb_scrub (string $string, ?string $encoding): bool|string
+function mb_scrub (string $string, ?string $encoding): false|string
 {}
 
 /**
