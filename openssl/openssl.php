@@ -625,7 +625,7 @@ function openssl_csr_get_subject(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCert
  * @return OpenSSLAsymmetricKey|resource|false
  */
 #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey|false"], default: "resource|false")]
-function openssl_csr_get_public_key(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")] $csr, bool $short_names = true): bool
+function openssl_csr_get_public_key(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")] $csr, bool $short_names = true)
 { }
 
 /**

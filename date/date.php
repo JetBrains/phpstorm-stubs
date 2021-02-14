@@ -976,7 +976,7 @@ function date_create_from_format (string $format, string $datetime, ?DateTimeZon
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-function date_parse (string $datetime): bool|array
+function date_parse (string $datetime): false|array
 {}
 
 /**
@@ -1165,7 +1165,7 @@ function date_time_set (DateTime $object, int $hour, int $minute, int $second = 
  * </p>
  */
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
-function date_date_set (DateTime $object, int $year, int $month, int $day): DateTime|bool
+function date_date_set (DateTime $object, int $year, int $month, int $day): DateTime|false
 {}
 
 /**
@@ -1197,7 +1197,7 @@ function date_isodate_set (DateTime $object, int $year, int $week, int $dayOfWee
  * {@see DateTime} object for call chaining or <b>FALSE</b> on failure
  */
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
-function date_timestamp_set (DateTime $object, int $timestamp): DateTime|bool
+function date_timestamp_set (DateTime $object, int $timestamp): DateTime|false
 {}
 
 /**
