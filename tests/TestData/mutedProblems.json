@@ -2217,6 +2217,17 @@
       ]
     },
     {
+      "name": "ReflectionParameter",
+      "methods": [
+        {
+          "name": "getType",
+          "problems": [
+            "wrong return typehint"
+          ]
+        }
+      ]
+    },
+    {
       "name": "ReflectionClass",
       "methods": [
         {
