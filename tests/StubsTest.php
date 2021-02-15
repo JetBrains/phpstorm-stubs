@@ -460,13 +460,13 @@ class StubsTest extends TestCase
         /** @var PHPParameter $arrayParameter */
         $arrayParameter = array_pop($arrayParameters);
         self::assertCount(2, $implodeParameters);
-        self::assertEquals(['array', 'string'], $separatorParameter->types);
+        self::assertEquals(['array', 'string'], $separatorParameter->typesFromSignature);
         if (property_exists($separatorParameter->defaultValue, 'value')) {
             self::assertEquals('', $separatorParameter->defaultValue->value);
         } else {
             self::fail("Couldn't read default value");
         }
-        self::assertEquals(['?array'], $arrayParameter->types);
+        self::assertEquals(['?array'], $arrayParameter->typesFromSignature);
         self::assertEquals(['string'], $implodeFunction->returnTypesFromSignature);
         self::assertEquals(['string'], $implodeFunction->returnTypesFromPhpDoc);
     }

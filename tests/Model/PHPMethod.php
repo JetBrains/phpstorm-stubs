@@ -49,11 +49,8 @@ class PHPMethod extends PHPFunction
         $this->name = $node->name->name;
         $typesFromAttribute = self::findTypesFromAttribute($node->attrGroups);
         $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
-        if (!empty($typesFromAttribute)) {
-            array_push($this->returnTypesFromSignature, ...$typesFromAttribute);
-        } else {
-            array_push($this->returnTypesFromSignature, ...self::convertParsedTypeToArray($node->getReturnType()));
-        }
+        $this->returnTypesFromAttribute = $typesFromAttribute;
+        array_push($this->returnTypesFromSignature, ...self::convertParsedTypeToArray($node->getReturnType()));
         $this->collectTags($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);
@@ -69,7 +66,7 @@ class PHPMethod extends PHPFunction
             $relatedParamTags = array_filter($this->paramTags, fn(Param $tag) => $tag->getVariableName() === $parameter->name);
             /** @var Param $relatedParamTag */
             $relatedParamTag = array_pop($relatedParamTags);
-            if (!empty($relatedParamTag)){
+            if (!empty($relatedParamTag)) {
                 $parameter->isOptional = $parameter->isOptional || str_contains((string)$relatedParamTag->getDescription(), '[optional]');
             }
         }

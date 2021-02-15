@@ -28,6 +28,9 @@ class PHPFunction extends BasePHPElement
     /** @var string[] $returnTypesFromPhpDoc  */
     public array $returnTypesFromPhpDoc = [];
 
+    /** @var string[] $returnTypesFromAttribute  */
+    public array $returnTypesFromAttribute = [];
+
     /** @var string[] $returnTypesFromSignature  */
     public array $returnTypesFromSignature = [];
 
@@ -56,12 +59,8 @@ class PHPFunction extends BasePHPElement
         $this->name = $functionName;
         $typesFromAttribute = self::findTypesFromAttribute($node->attrGroups);
         $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
-        if (!empty($typesFromAttribute)) {
-            array_push($this->returnTypesFromSignature, ...$typesFromAttribute);
-        } else {
-            array_push($this->returnTypesFromSignature, ...self::convertParsedTypeToArray($node->getReturnType()));
-        }
-
+        $this->returnTypesFromAttribute = $typesFromAttribute;
+        array_push($this->returnTypesFromSignature, ...self::convertParsedTypeToArray($node->getReturnType()));
         foreach ($node->getParams() as $parameter) {
             $this->parameters[] = (new PHPParameter())->readObjectFromStubNode($parameter);
         }

@@ -116,13 +116,13 @@ abstract class BasePHPElement
         foreach ($attrGroups as $attrGroup) {
             foreach ($attrGroup->attrs as $attr) {
                 if ($attr->name->toString() === LanguageLevelTypeAware::class) {
-                    $arg = $attr->args[0]->value;
-                    if ($arg instanceof Array_) {
-                        $value = $arg->items[0]->value;
-                        if ($value instanceof String_) {
-                            return explode('|', preg_replace('/\w+\[]/', 'array', $value->value));
-                        }
+                    $types = [];
+                    $versionTypesMap = $attr->args[0]->value->items;
+                    foreach ($versionTypesMap as $item) {
+                        $types[$item->key->value] = explode('|', preg_replace('/\w+\[]/', 'array', $item->value->value));
                     }
+                    $types[$attr->args[1]->name->name] = explode('|', preg_replace('/\w+\[]/', 'array', $attr->args[1]->value->value));
+                    return $types;
                 }
             }
         }
