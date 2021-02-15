@@ -2207,7 +2207,7 @@ class Redis
      * Authenticate the connection using a password.
      * Warning: The password is sent in plain-text over the network.
      *
-     * @param string $password
+     * @param string|string[] $password
      *
      * @return bool TRUE if the connection is authenticated, FALSE otherwise
      *
