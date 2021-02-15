@@ -10,7 +10,9 @@ use stdClass;
 class PHPParameter extends BasePHPElement
 {
     /** @var string[] $types */
-    public array $types = [];
+    public array $typesFromSignature = [];
+    /** @var string[] $types */
+    public array $typesFromAttribute = [];
     public bool $is_vararg = false;
     public bool $is_passed_by_ref = false;
     public bool $isOptional = false;
@@ -23,13 +25,13 @@ class PHPParameter extends BasePHPElement
     public function readObjectFromReflection($reflectionObject): static
     {
         $this->name = $reflectionObject->name;
-        $this->types = self::getReflectionTypeAsArray($reflectionObject->getType());
+        $this->typesFromSignature = self::getReflectionTypeAsArray($reflectionObject->getType());
         $this->is_vararg = $reflectionObject->isVariadic();
         $this->is_passed_by_ref = $reflectionObject->isPassedByReference() && !$reflectionObject->canBePassedByValue();
         $this->isOptional = $reflectionObject->isOptional();
         if ($reflectionObject->isDefaultValueAvailable()) {
             $this->defaultValue = $reflectionObject->getDefaultValue();
-            if (in_array('bool', $this->types)) {
+            if (in_array('bool', $this->typesFromSignature)) {
                 $this->defaultValue = $reflectionObject->getDefaultValue() ? 'true' : 'false';
             }
         }
@@ -44,12 +46,8 @@ class PHPParameter extends BasePHPElement
     {
         $this->name = $node->var->name;
 
-        $typesFromAttribute = self::findTypesFromAttribute($node->attrGroups);
-        if (!empty($typesFromAttribute)) {
-            array_push($this->types, ...$typesFromAttribute);
-        } else {
-            $this->types = self::convertParsedTypeToArray($node->type);
-        }
+        $this->typesFromAttribute = self::findTypesFromAttribute($node->attrGroups);
+        $this->typesFromSignature = self::convertParsedTypeToArray($node->type);
 
         $this->is_vararg = $node->variadic;
         $this->is_passed_by_ref = $node->byRef;
