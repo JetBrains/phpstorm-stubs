@@ -2270,12 +2270,6 @@
       "name": "ReflectionProperty",
       "methods": [
         {
-          "name": "setValue",
-          "problems": [
-            "parameter mismatch"
-          ]
-        },
-        {
           "name": "getType",
           "problems": [
             "wrong return typehint"
