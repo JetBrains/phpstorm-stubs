@@ -47,7 +47,7 @@ class XSLTProcessor  {
 	 * @param DOMDocument|SimpleXMLElement $doc <p>
 	 * The transformed document.
 	 * </p>
-	 * @return string|false The result of the transformation as a string or <b>FALSE</b> on error.
+	 * @return string|false|null The result of the transformation as a string or <b>FALSE</b> on error.
 	 */
 	public function transformToXml ($doc) {}
 
