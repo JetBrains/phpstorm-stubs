@@ -1007,7 +1007,7 @@ function sodium_memcmp(string $string1, string $string2): int {}
  * @since 7.2
  */
 function sodium_memzero(string &$string): void {
-    $target = '';
+    $string = '';
 }
 
 /**
@@ -1031,7 +1031,7 @@ function sodium_version_string(): string {
 function sodium_crypto_scalarmult_base(
     string $secret_key
 ): string {
-    unset($sk);
+    unset($secret_key);
 
     return '';
 }
