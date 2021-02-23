@@ -1444,10 +1444,11 @@ class PDOStatement implements IteratorAggregate
 	 * Arguments of custom class constructor when the <i>fetch_style</i>
 	 * parameter is <b>PDO::FETCH_CLASS</b>.
 	 * </p>
-	 * @return array <b>PDOStatement::fetchAll</b> returns an array containing
+	 * @return array|false <b>PDOStatement::fetchAll</b> returns an array containing
 	 * all of the remaining rows in the result set. The array represents each
 	 * row as either an array of column values or an object with properties
 	 * corresponding to each column name.
+	 * An empty array is returned if there are zero results to fetch, or false on failure.
 	 * </p>
 	 * <p>
 	 * Using this method to fetch large result sets will result in a heavy
