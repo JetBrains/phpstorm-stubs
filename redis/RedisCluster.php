@@ -38,6 +38,16 @@ class RedisCluster {
     const SCAN_RETRY = 1;
 
     /**
+     * @since 5.3.0
+     */
+    const SCAN_PREFIX = 2;
+
+    /**
+     * @since 5.3.0
+     */
+    const SCAN_NOPREFIX = 3;
+
+    /**
      * Serializers
      */
     const SERIALIZER_NONE = 0;
