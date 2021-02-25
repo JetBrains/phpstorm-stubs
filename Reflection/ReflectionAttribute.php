@@ -70,7 +70,7 @@ class ReflectionAttribute
     }
 
     /**
-     * Creates a new instance of declarted attribute with passed arguments
+     * Creates a new instance of the attribute with passed arguments
      *
      * @return object
      * @since 8.0
