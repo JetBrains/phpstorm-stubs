@@ -934,7 +934,7 @@ class mysqli_result implements IteratorAggregate
 	/**
 	 * Returns an array of objects representing the fields in a result set
 	 * @link https://php.net/manual/en/mysqli-result.fetch-fields.php
-	 * @return array an array of objects which contains field definition information or
+	 * @return array|false an array of objects which contains field definition information or
 	 * false if no field information is available.
 	 * </p>
 	 * <p>
