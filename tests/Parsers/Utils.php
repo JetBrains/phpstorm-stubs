@@ -7,6 +7,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\Deprecated;
 use phpDocumentor\Reflection\DocBlock\Tags\Since;
 use RecursiveArrayIterator;
 use RecursiveIteratorIterator;
+use RuntimeException;
 use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPConst;
 use StubTests\Model\PHPMethod;
@@ -30,6 +31,11 @@ class Utils
         return (bool)preg_match('/^[1-9]+\.\d+(\.[1-9]+\d*)*$/', $tag->getVersion()); //find version like any but 7.4.0
     }
 
+    /**
+     * @param BasePHPElement $element
+     * @return float|null
+     * @throws RuntimeException
+     */
     public static function getDeclaredSinceVersion(BasePHPElement $element): ?float
     {
         $allSinceVersions = self::getSinceVersionsFromPhpDoc($element);
@@ -47,10 +53,15 @@ class Utils
         return array_pop($flattenedArray);
     }
 
+    /**
+     * @param BasePHPElement $element
+     * @return float|null
+     * @throws RuntimeException
+     */
     public static function getLatestAvailableVersion(BasePHPElement $element): ?float
     {
         $latestVersionsFromPhpDoc = self::getLatestAvailableVersionFromPhpDoc($element);
-        $latestVersionsFromAttribue = self::getLatestAvailableVersionsFromAttribute($element);
+        $latestVersionsFromAttribute = self::getLatestAvailableVersionsFromAttribute($element);
         if ($element instanceof PHPMethod) {
             if ($element->hasInheritDocTag) {
                 return null;
@@ -59,15 +70,20 @@ class Utils
         } elseif ($element instanceof PHPConst) {
             $latestVersionsFromPhpDoc[] = self::getLatestAvailableVersionsFromParentClass($element);
         }
-        if (empty($latestVersionsFromAttribue)) {
+        if (empty($latestVersionsFromAttribute)) {
             $flattenedArray = Utils::flattenArray($latestVersionsFromPhpDoc, false);
         } else {
-            $flattenedArray = Utils::flattenArray($latestVersionsFromAttribue, false);
+            $flattenedArray = Utils::flattenArray($latestVersionsFromAttribute, false);
         }
         sort($flattenedArray, SORT_DESC);
         return array_pop($flattenedArray);
     }
 
+    /**
+     * @param BasePHPElement $element
+     * @return array
+     * @throws RuntimeException
+     */
     public static function getAvailableInVersions(BasePHPElement $element): array
     {
         $firstSinceVersion = self::getDeclaredSinceVersion($element);
@@ -116,6 +132,7 @@ class Utils
     /**
      * @param PHPMethod|PHPConst $element
      * @return float[]
+     * @throws RuntimeException
      */
     private static function getSinceVersionsFromParentClass(PHPMethod|PHPConst $element): array
     {
@@ -131,6 +148,7 @@ class Utils
     /**
      * @param PHPMethod|PHPConst $element
      * @return float[]
+     * @throws RuntimeException
      */
     public static function getLatestAvailableVersionsFromParentClass(PHPMethod|PHPConst $element): array
     {

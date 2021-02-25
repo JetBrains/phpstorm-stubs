@@ -32,11 +32,13 @@ class StubsPhpDocTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubConstantsProvider::classConstantProvider
+     * @param BasePHPClass $class
+     * @param PHPConst $constant
      */
-    public static function testClassConstantsPHPDocs(string $className, PHPConst $constant): void
+    public static function testClassConstantsPHPDocs(BasePHPClass $class, PHPConst $constant): void
     {
         self::assertNull($constant->parseError, $constant->parseError ?: '');
-        self::checkPHPDocCorrectness($constant, "constant $className::$constant->name");
+        self::checkPHPDocCorrectness($constant, "constant $class->sourceFilePath/$class->name::$constant->name");
     }
 
     /**

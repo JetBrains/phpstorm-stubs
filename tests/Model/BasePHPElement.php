@@ -30,6 +30,7 @@ abstract class BasePHPElement
     public array $mutedProblems = [];
     #[ArrayShape(['from' => 'float', 'to' => 'float'])]
     public array $availableVersionsRangeFromAttribute = [];
+    public ?string $sourceFilePath = null;
 
     abstract public function readObjectFromReflection(Reflector $reflectionObject): static;
 
