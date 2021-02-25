@@ -13,6 +13,7 @@ use PhpParser\Node\Scalar\LNumber;
 use PhpParser\Node\Scalar\String_;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPConst;
 use StubTests\Model\PHPFunction;
@@ -180,7 +181,9 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionOptionalParametersWithDefaultValueProvider
-     * @throws Exception
+     * @param PHPFunction $function
+     * @param PHPParameter $parameter
+     * @throws Exception|RuntimeException
      */
     public function testFunctionsDefaultParametersValue(PHPFunction $function, PHPParameter $parameter)
     {
@@ -197,7 +200,10 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodOptionalParametersWithDefaultValueProvider
-     * @throws Exception
+     * @param PHPClass|PHPInterface $class
+     * @param PHPMethod $method
+     * @param PHPParameter $parameter
+     * @throws Exception|RuntimeException
      */
     public function testMethodsDefaultParametersValue(PHPClass|PHPInterface $class, PHPMethod $method, PHPParameter $parameter)
     {
@@ -218,6 +224,10 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodOptionalParametersProvider
+     * @param PHPClass|PHPInterface $class
+     * @param PHPMethod $method
+     * @param PHPParameter $parameter
+     * @throws RuntimeException
      */
     public function testMethodsOptionalParameters(PHPClass|PHPInterface $class, PHPMethod $method, PHPParameter $parameter)
     {
@@ -235,7 +245,8 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::classWithParentProvider
-     * @throws Exception
+     * @param PHPClass|PHPInterface $class
+     * @throws Exception|RuntimeException
      */
     public function testClassesParent(PHPClass|PHPInterface $class)
     {
@@ -262,7 +273,9 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsProvider
-     * @throws Exception
+     * @param PHPClass|PHPInterface $class
+     * @param PHPMethod $method
+     * @throws Exception|RuntimeException
      */
     public function testClassesMethodsExist(PHPClass|PHPInterface $class, PHPMethod $method)
     {
@@ -281,6 +294,9 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classFinalMethodsProvider
+     * @param PHPClass|PHPInterface $class
+     * @param PHPMethod $method
+     * @throws RuntimeException
      */
     public function testClassesFinalMethods(PHPClass|PHPInterface $class, PHPMethod $method)
     {
@@ -299,6 +315,9 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classStaticMethodsProvider
+     * @param PHPClass|PHPInterface $class
+     * @param PHPMethod $method
+     * @throws RuntimeException
      */
     public function testClassesStaticMethods(PHPClass|PHPInterface $class, PHPMethod $method)
     {
@@ -317,6 +336,9 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsWithAccessProvider
+     * @param PHPClass|PHPInterface $class
+     * @param PHPMethod $method
+     * @throws RuntimeException
      */
     public function testClassesMethodsVisibility(PHPClass|PHPInterface $class, PHPMethod $method)
     {
@@ -335,7 +357,9 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsWithParametersProvider
-     * @throws Exception
+     * @param PHPClass|PHPInterface $class
+     * @param PHPMethod $method
+     * @throws Exception|RuntimeException
      */
     public function testClassesParametersCount(PHPClass|PHPInterface $class, PHPMethod $method)
     {
@@ -355,7 +379,8 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::classesWithInterfacesProvider
-     * @throws Exception
+     * @param PHPClass $class
+     * @throws Exception|RuntimeException
      */
     public function testClassInterfaces(PHPClass $class)
     {
@@ -372,7 +397,9 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider::classPropertiesProvider
-     * @throws Exception
+     * @param PHPClass $class
+     * @param PHPProperty $property
+     * @throws Exception|RuntimeException
      */
     public function testClassProperties(PHPClass $class, PHPProperty $property)
     {
@@ -387,6 +414,9 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider::classStaticPropertiesProvider
+     * @param PHPClass $class
+     * @param PHPProperty $property
+     * @throws RuntimeException
      */
     public function testClassStaticProperties(PHPClass $class, PHPProperty $property)
     {
@@ -401,6 +431,9 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider::classPropertiesWithAccessProvider
+     * @param PHPClass $class
+     * @param PHPProperty $property
+     * @throws RuntimeException
      */
     public function testClassPropertiesVisibility(PHPClass $class, PHPProperty $property)
     {
@@ -415,6 +448,9 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider::classPropertiesWithTypeProvider
+     * @param PHPClass $class
+     * @param PHPProperty $property
+     * @throws RuntimeException
      */
     public function testClassPropertiesType(PHPClass $class, PHPProperty $property)
     {
@@ -498,6 +534,11 @@ class StubsTest extends TestCase
             fn($duplicateValue, $duplicateKey) => str_contains($duplicateValue->name, $name) && str_contains($duplicateKey, 'duplicated'), ARRAY_FILTER_USE_BOTH);
     }
 
+    /**
+     * @param array $filtered
+     * @return array
+     * @throws RuntimeException
+     */
     private static function getDuplicatedFunctions(array $filtered): array
     {
         $duplicatedFunctions = array_filter($filtered, function (PHPFunction $value, int|string $key) {
@@ -527,7 +568,7 @@ class StubsTest extends TestCase
      * @param mixed $defaultValue
      * @param PHPClass|PHPInterface|null $contextClass
      * @return bool|float|int|string|null
-     * @throws Exception
+     * @throws Exception|RuntimeException
      */
     private static function getStringRepresentationOfDefaultParameterValue(mixed $defaultValue, PHPClass|PHPInterface $contextClass = null): float|bool|int|string|null
     {
@@ -567,7 +608,8 @@ class StubsTest extends TestCase
             if ($class === 'self' && $contextClass !== null) {
                 $class = $contextClass->name;
             }
-            $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class) ?? PhpStormStubsSingleton::getPhpStormStubs()->getInterface($class);
+            $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class) ??
+                PhpStormStubsSingleton::getPhpStormStubs()->getInterface($class);
             if ($parentClass === null) {
                 throw new Exception("Class $class not found in stubs");
             }

@@ -14,7 +14,7 @@ class StubConstantsProvider
             PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces();
         foreach ($classesAndInterfaces as $class) {
             foreach ($class->constants as $constant) {
-                yield "constant $class->name::$constant->name" => [$class->name, $constant];
+                yield "constant $class->sourceFilePath/$class->name::$constant->name" => [$class, $constant];
             }
         }
     }

@@ -20,7 +20,7 @@ class StubsTestDataProviders
         $allClassesAndInterfaces = PhpStormStubsSingleton::getPhpStormStubs()->getClasses() +
             PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces();
         foreach ($allClassesAndInterfaces as $class) {
-            yield "class $class->name" => [$class];
+            yield "class $class->sourceFilePath/$class->name" => [$class];
         }
     }
 }

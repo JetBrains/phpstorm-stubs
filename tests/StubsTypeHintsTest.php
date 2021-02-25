@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace StubTests;
 
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
@@ -27,6 +28,8 @@ class StubsTypeHintsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::allFunctionsProvider
+     * @param PHPFunction $function
+     * @throws RuntimeException
      */
     public function testFunctionsReturnTypeHints(PHPFunction $function)
     {
@@ -34,18 +37,21 @@ class StubsTypeHintsTest extends TestCase
         $allEqualStubFunctions = EntitiesFilter::getFiltered(PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(),
             fn(PHPFunction $stubFunction) => $stubFunction->name !== $functionName ||
                 !in_array(PhpVersions::getLatest(), Utils::getAvailableInVersions($stubFunction)));
+        /** @var PHPFunction $stubFunction */
         $stubFunction = array_pop($allEqualStubFunctions);
         $conditionToCompareWithSignature = self::ifReflectionTypesExistInSignature($function->returnTypesFromSignature, $stubFunction->returnTypesFromSignature);
         $conditionToCompareWithAttribute = self::ifReflectionTypesExistInAttributes($function->returnTypesFromSignature, $stubFunction->returnTypesFromAttribute);
         $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
         self::assertTrue($testCondition, "Function $functionName has invalid return type.
-        Reflection function has return type " . implode("|", $function->returnTypesFromSignature) . " but stubs has return type " .
-            implode("|", $stubFunction->returnTypesFromSignature) . " in signature and attribute has types " .
+        Reflection function has return type " . implode('|', $function->returnTypesFromSignature) . ' but stubs has return type ' .
+            implode('|', $stubFunction->returnTypesFromSignature) . ' in signature and attribute has types ' .
             self::getStringRepresentationOfTypeHintsFromAttributes($stubFunction->returnTypesFromAttribute));
     }
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionParametersProvider
+     * @param PHPFunction $function
+     * @param PHPParameter $parameter
      */
     public function testFunctionsParametersTypeHints(PHPFunction $function, PHPParameter $parameter)
     {
@@ -65,6 +71,9 @@ class StubsTypeHintsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsWithReturnTypeHintProvider
+     * @param PHPClass|PHPInterface $class
+     * @param PHPMethod $method
+     * @throws RuntimeException
      */
     public function testMethodsReturnTypeHints(PHPClass|PHPInterface $class, PHPMethod $method)
     {
@@ -80,6 +89,10 @@ class StubsTypeHintsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodParametersProvider
+     * @param PHPClass|PHPInterface $reflectionClass
+     * @param PHPMethod $reflectionMethod
+     * @param PHPParameter $reflectionParameter
+     * @throws RuntimeException
      */
     public function testMethodsParametersTypeHints(PHPClass|PHPInterface $reflectionClass, PHPMethod $reflectionMethod, PHPParameter $reflectionParameter)
     {
@@ -105,6 +118,10 @@ class StubsTypeHintsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForScalarTypeHintTestsProvider
+     * @param PHPClass|PHPInterface $class
+     * @param PHPMethod $stubMethod
+     * @param PHPParameter $parameter
+     * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveScalarTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
@@ -117,18 +134,26 @@ class StubsTypeHintsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForNullableTypeHintTestsProvider
+     * @param PHPClass|PHPInterface $class
+     * @param PHPMethod $stubMethod
+     * @param PHPParameter $parameter
+     * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveNullableTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
         $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
         self::assertEmpty(array_filter($parameter->typesFromSignature, fn(string $type) => str_contains($type, '?')),
-            "Method '{$class->name}::{$stubMethod->name}' with @since '$sinceVersion'  
-                has nullable parameter '{$parameter->name}' with typehint '" . implode('|', $parameter->typesFromSignature) . "' 
+            "Method '$class->name::$stubMethod->name' with @since '$sinceVersion'  
+                has nullable parameter '$parameter->name' with typehint '" . implode('|', $parameter->typesFromSignature) . "' 
                 but nullable typehints available only since php 7.1");
     }
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForUnionTypeHintTestsProvider
+     * @param PHPClass|PHPInterface $class
+     * @param PHPMethod $stubMethod
+     * @param PHPParameter $parameter
+     * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveUnionTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
@@ -142,6 +167,7 @@ class StubsTypeHintsTest extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForReturnTypeHintTestsProvider
      * @param PHPMethod $stubMethod
+     * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveReturnTypeHint(PHPMethod $stubMethod)
     {
@@ -153,6 +179,7 @@ class StubsTypeHintsTest extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForNullableReturnTypeHintTestsProvider
      * @param PHPMethod $stubMethod
+     * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveNullableReturnTypeHint(PHPMethod $stubMethod)
     {
@@ -167,6 +194,7 @@ class StubsTypeHintsTest extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForUnionReturnTypeHintTestsProvider
      * @param PHPMethod $stubMethod
+     * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveUnionReturnTypeHint(PHPMethod $stubMethod)
     {
@@ -179,6 +207,10 @@ class StubsTypeHintsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForAllowedScalarTypeHintTestsProvider
+     * @param PHPClass|PHPInterface $class
+     * @param PHPMethod $stubMethod
+     * @param PHPParameter $stubParameter
+     * @throws RuntimeException
      */
     public function testMethodScalarTypeHintsInParametersMatchReflection(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $stubParameter)
     {
@@ -193,6 +225,10 @@ class StubsTypeHintsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForAllowedNullableTypeHintTestsProvider
+     * @param PHPClass|PHPInterface $class
+     * @param PHPMethod $stubMethod
+     * @param PHPParameter $stubParameter
+     * @throws RuntimeException
      */
     public function testMethodNullableTypeHintsInParametersMatchReflection(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $stubParameter)
     {
@@ -207,6 +243,10 @@ class StubsTypeHintsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForAllowedUnionTypeHintTestsProvider
+     * @param PHPClass|PHPInterface $class
+     * @param PHPMethod $stubMethod
+     * @param PHPParameter $stubParameter
+     * @throws RuntimeException
      */
     public function testMethodUnionTypeHintsInParametersMatchReflection(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $stubParameter)
     {
@@ -270,7 +310,7 @@ class StubsTypeHintsTest extends TestCase
         self::assertTrue($testCondition, "Type mismatch $functionName: \$$parameter->name \n
         Reflection parameter has type '" . implode('|', $unifiedReflectionParameterTypes) .
             "' but stub parameter has type '" . implode('|', $unifiedStubsParameterTypes) . "' in signature and " .
-            self::getStringRepresentationOfTypeHintsFromAttributes($unifiedStubsAttributesParameterTypes) . " in attribute");
+            self::getStringRepresentationOfTypeHintsFromAttributes($unifiedStubsAttributesParameterTypes) . ' in attribute');
     }
 
     private static function convertNullableTypesToUnion($typesToProcess, array &$resultArray)
@@ -284,11 +324,11 @@ class StubsTypeHintsTest extends TestCase
         });
     }
 
-    private static function getStringRepresentationOfTypeHintsFromAttributes(array $typesFromAtttribute): string
+    private static function getStringRepresentationOfTypeHintsFromAttributes(array $typesFromAttribute): string
     {
         $resultString = '';
-        foreach ($typesFromAtttribute as $languageVersion => $types) {
-            $resultString .= '[' . implode("|", $types) . ']';
+        foreach ($typesFromAttribute as $types) {
+            $resultString .= '[' . implode('|', $types) . ']';
         }
         return $resultString;
     }

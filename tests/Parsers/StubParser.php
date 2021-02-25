@@ -11,6 +11,7 @@ use PhpParser\NodeVisitorAbstract;
 use PhpParser\ParserFactory;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
+use RuntimeException;
 use SplFileInfo;
 use StubTests\Model\StubsContainer;
 use StubTests\Parsers\Visitors\ASTVisitor;
@@ -23,6 +24,12 @@ class StubParser
 {
     private static ?StubsContainer $stubs = null;
 
+    /**
+     * @return StubsContainer
+     * @throws LogicException
+     * @throws RuntimeException
+     * @throws UnexpectedValueException
+     */
     public static function getPhpStormStubs(): StubsContainer
     {
         self::$stubs = new StubsContainer();
@@ -78,8 +85,12 @@ class StubParser
             $traverser->addVisitor(new ParentConnector());
             $traverser->addVisitor($nameResolver);
             if ($coreStubASTVisitor !== null && self::stubBelongsToCore($file, $coreStubDirectories)) {
+                $coreStubASTVisitor->sourceFilePath = $file->getPath();
                 $traverser->addVisitor($coreStubASTVisitor);
             } else {
+                if ($visitor instanceof ASTVisitor) {
+                    $visitor->sourceFilePath = $file->getPath();
+                }
                 $traverser->addVisitor($visitor);
             }
             $traverser->traverse($parser->parse($code, new StubsParserErrorHandler()));
