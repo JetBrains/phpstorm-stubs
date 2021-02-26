@@ -1742,7 +1742,7 @@ class EventHttpRequest
     {
     }
 
-    public function addHeader(string $key, string $value, int $type)
+    public function addHeader(string $key, string $value, int $type): bool
     {
     }
 
@@ -1767,58 +1767,58 @@ class EventHttpRequest
     }
 
     #[Pure]
-    public function getCommand()
+    public function getCommand(): int
     {
     }
 
     #[Pure]
-    public function getHost()
+    public function getHost(): string
     {
     }
 
     #[Pure]
-    public function getInputBuffer()
+    public function getInputBuffer(): EventBuffer
     {
     }
 
     #[Pure]
-    public function getInputHeaders()
+    public function getInputHeaders(): array
     {
     }
 
     #[Pure]
-    public function getOutputBuffer()
+    public function getOutputBuffer(): EventBuffer
     {
     }
 
     #[Pure]
-    public function getOutputHeaders()
+    public function getOutputHeaders(): array
     {
     }
 
     #[Pure]
-    public function getResponseCode()
+    public function getResponseCode(): int
     {
     }
 
     #[Pure]
-    public function getUri()
+    public function getUri(): string
     {
     }
 
-    public function removeHeader()
+    public function removeHeader(string $key, int $type): bool
     {
     }
 
-    public function sendError()
+    public function sendError(int $error, string $reason = null)
     {
     }
 
-    public function sendReply()
+    public function sendReply(int $code, string $reason, ?EventBuffer $buf = null)
     {
     }
 
-    public function sendReplyChunk()
+    public function sendReplyChunk(EventBuffer $buf)
     {
     }
 
@@ -1826,7 +1826,7 @@ class EventHttpRequest
     {
     }
 
-    public function sendReplyStart()
+    public function sendReplyStart(int $code, string $reason)
     {
     }
 }
