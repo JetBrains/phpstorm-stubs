@@ -152,7 +152,7 @@ class StubsTest extends TestCase
     }
 
     /**
-     * @throws Exception
+     * @throws Exception|RuntimeException
      */
     public function testFunctionsDuplicates()
     {
@@ -523,9 +523,7 @@ class StubsTest extends TestCase
             }
             $result .= '$' . $parameter->name . ', ';
         }
-        $result = rtrim($result, ', ');
-
-        return $result;
+        return rtrim($result, ', ');
     }
 
     private static function getAllDuplicatesOfFunction(?string $name): array
