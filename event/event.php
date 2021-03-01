@@ -1552,7 +1552,7 @@ final class EventHttp
      * @param string $path
      * @param string $cb
      * @param null|string $arg (optional)
-     *
+     * @return bool
      * @see https://secure.php.net/manual/en/eventhttp.setcallback.php
      */
     public function setCallback(string $path, string $cb, ?string $arg = null): bool
