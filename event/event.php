@@ -261,6 +261,8 @@ final class EventBase
     const STARTUP_IOCP = 4;
     const NO_CACHE_TIME = 8;
     const EPOLL_USE_CHANGELIST = 16;
+    const IGNORE_ENV = 2;
+    const PRECISE_TIMER = 32;
 
     /**
      * __construct.
@@ -294,7 +296,7 @@ final class EventBase
      *
      * @see https://php.net/manual/en/eventbase.exit.php
      */
-    public function exit(float $timeout): bool
+    public function exit(float $timeout = 0.0): bool
     {
     }
 
@@ -383,7 +385,7 @@ final class EventBase
      *
      * @see https://php.net/manual/en/eventbase.loop.php
      */
-    public function loop(int $flags): bool
+    public function loop(int $flags = -1): bool
     {
     }
 
@@ -414,6 +416,16 @@ final class EventBase
     }
 
     /**
+     * Tells event_base to resume previously stopped event
+     * @return bool
+     * @since libevent version 2.1.2-alpha
+     * @see https://bitbucket.org/osmanov/pecl-event/src/8e5ab7303f3ef7827b71f31904a51b3f26dd1ac2/php8/classes/base.c#lines-387
+     */
+    public function resume():bool
+    {
+    }
+
+    /**
      * stop.
      * Tells event_base to stop dispatching events.
      *
@@ -423,6 +435,17 @@ final class EventBase
      */
     public function stop(): bool
     {
+    }
+
+    /**
+     * Updates cache time
+     * @return bool
+     * @since libevent 2.1.1-alpha
+     * @see https://bitbucket.org/osmanov/pecl-event/src/8e5ab7303f3ef7827b71f31904a51b3f26dd1ac2/php8/classes/base.c#lines-343
+     */
+    public function updateCacheTime(): bool
+    {
+
     }
 }
 
@@ -455,6 +478,7 @@ class EventBuffer
     const EOL_CRLF = 1;
     const EOL_CRLF_STRICT = 2;
     const EOL_LF = 3;
+    const EOL_NUL = 4;
     const PTR_SET = 0;
     const PTR_ADD = 1;
 
@@ -622,11 +646,11 @@ class EventBuffer
      *
      * @param int $size
      *
-     * @return string
+     * @return null|string
      *
      * @see https://php.net/manual/en/eventbuffer.pullup.php
      */
-    public function pullup(int $size): string
+    public function pullup(int $size): ?string
     {
     }
 
@@ -636,11 +660,9 @@ class EventBuffer
      *
      * @param int $max_bytes
      *
-     * @return string
-     *
-     * @see int $max_bytes
+     * @return null | string
      */
-    public function read(int $max_bytes): string
+    public function read(int $max_bytes): ?string
     {
     }
 
@@ -665,11 +687,11 @@ class EventBuffer
      *
      * @param int $eol_style
      *
-     * @return string
+     * @return null | string
      *
      * @see https://php.net/manual/en/eventbuffer.readline.php
      */
-    public function readLine(int $eol_style): string
+    public function readLine(int $eol_style): ?string
     {
     }
 
@@ -681,11 +703,11 @@ class EventBuffer
      * @param int    $start = 1
      * @param int    $end   = 1
      *
-     * @return mixed
+     * @return int|false
      *
      * @see https://php.net/manual/en/eventbuffer.search.php
      */
-    public function search(string $what, int $start = 1, int $end = 1)
+    public function search(string $what, int $start = 1, int $end = 1): int|false
     {
     }
 
@@ -696,11 +718,11 @@ class EventBuffer
      * @param int $start     = 1
      * @param int $eol_style = EOL_ANY
      *
-     * @return mixed
+     * @return int|false
      *
      * @see https://php.net/manual/en/eventbuffer.searcheol.php
      */
-    public function searchEol(int $start = 1, int $eol_style = EOL_ANY)
+    public function searchEol(int $start = 1, int $eol_style = EventBuffer::EOL_ANY): int|false
     {
     }
 
@@ -737,11 +759,11 @@ class EventBuffer
      * unlock.
      * Releases lock acquired by EventBuffer::lock.
      *
-     * @return bool
+     * @return void
      *
      * @see https://php.net/manual/en/eventbuffer.unlock.php
      */
-    public function unlock(): bool
+    public function unlock(): void
     {
     }
 
@@ -750,13 +772,13 @@ class EventBuffer
      * Write contents of the buffer to a file or socket.
      *
      * @param mixed $fd
-     * @param int   $howmuch (optional)
+     * @param int $howmuch (optional)
      *
-     * @return int
+     * @return int|false
      *
      * @see https://php.net/manual/en/eventbuffer.write.php
      */
-    public function write($fd, int $howmuch): int
+    public function write(mixed $fd, int $howmuch): int|false
     {
     }
 }
@@ -832,10 +854,10 @@ final class EventBufferEvent
     /**
      * close.
      * Closes file descriptor associated with the current buffer event.
-     *
+     * @return bool
      * @see https://php.net/manual/en/eventbufferevent.close.php
      */
-    public function close(): void
+    public function close(): bool
     {
     }
 
@@ -857,16 +879,30 @@ final class EventBufferEvent
      * connectHost.
      * Connects to a hostname with optionally asyncronous DNS.
      *
-     * @param EventDnsBase $dns_base
+     * @param null|EventDnsBase $dns_base
      * @param string       $hostname
      * @param int          $port
-     * @param int          $family   = AF_UNSPEC
+     * @param int          $family   = EventUtil::AF_UNSPEC
      *
      * @return bool
      *
      * @see https://php.net/manual/en/eventbufferevent.connecthost.php
      */
-    public function connectHost(EventDnsBase $dns_base, string $hostname, int $port, int $family = AF_UNSPEC): bool
+    public function connectHost(?EventDnsBase $dns_base, string $hostname, int $port, int $family = EventUtil::AF_UNSPEC): bool
+    {
+    }
+
+    /**
+     * createSslFilter
+     *
+     * @param EventBufferEvent $underlying
+     * @param EventSslContext $ctx
+     * @param int $state
+     * @param int $options
+     * @return EventBufferEvent
+     * @see https://bitbucket.org/osmanov/pecl-event/src/8e5ab7303f3ef7827b71f31904a51b3f26dd1ac2/php8/classes/buffer_event.c#lines-1025
+     */
+    public function createSslFilter(EventBufferEvent $underlying, EventSslContext $ctx, int $state, int $options = 0): EventBufferEvent
     {
     }
 
@@ -981,11 +1017,11 @@ final class EventBufferEvent
      *
      * @param int $size
      *
-     * @return string
+     * @return null|string
      *
      * @see https://php.net/manual/en/eventbufferevent.read.php
      */
-    public function read(int $size): string
+    public function read(int $size): ?string
     {
     }
 
@@ -1014,7 +1050,7 @@ final class EventBufferEvent
      *
      * @see https://php.net/manual/en/eventbufferevent.setcallbacks.php
      */
-    public function setCallbacks(callable $readcb, callable $writecb, callable $eventcb, string $arg): void
+    public function setCallbacks(callable $readcb, callable $writecb, callable $eventcb, mixed $arg = null): void
     {
     }
 
@@ -1065,11 +1101,11 @@ final class EventBufferEvent
      * sslError.
      * Returns most recent OpenSSL error reported on the buffer event.
      *
-     * @return string
+     * @return false|string
      *
      * @see https://secure.php.net/manual/en/eventbufferevent.sslerror.php
      */
-    public function sslError(): string
+    public function sslError(): false|string
     {
     }
 
@@ -1095,11 +1131,11 @@ final class EventBufferEvent
      * sslGetCipherInfo.
      * Returns a textual description of the cipher.
      *
-     * @return string
+     * @return string|false
      *
      * @see https://secure.php.net/manual/en/eventbufferevent.sslgetcipherinfo.php
      */
-    public function sslGetCipherInfo(): string
+    public function sslGetCipherInfo(): string|false
     {
     }
 
@@ -1107,11 +1143,11 @@ final class EventBufferEvent
      * sslGetCipherName.
      * Returns the current cipher name of the SSL connection.
      *
-     * @return string
+     * @return string|false
      *
      * @see https://secure.php.net/manual/en/eventbufferevent.sslgetciphername.php
      */
-    public function sslGetCipherName(): string
+    public function sslGetCipherName(): string|false
     {
     }
 
@@ -1119,11 +1155,11 @@ final class EventBufferEvent
      * sslGetCipherVersion.
      * Returns version of cipher used by current SSL connection.
      *
-     * @return string
+     * @return string|false
      *
      * @see https://secure.php.net/manual/en/eventbufferevent.sslgetcipherversion.php
      */
-    public function sslGetCipherVersion(): string
+    public function sslGetCipherVersion(): string|false
     {
     }
 
@@ -1153,17 +1189,17 @@ final class EventBufferEvent
      * sslSocket.
      * Creates a new SSL buffer event to send its data over an SSL on a socket.
      *
-     * @param EventBase       $base
-     * @param mixed           $socket
+     * @param EventBase $base
+     * @param mixed $socket
      * @param EventSslContext $ctx
-     * @param int             $state
-     * @param int             $options (optional)
+     * @param int $state
+     * @param int $options (optional)
      *
      * @return EventBufferEvent
      *
      * @see https://secure.php.net/manual/en/eventbufferevent.sslsocket.php
      */
-    public static function sslSocket(EventBase $base, $socket, EventSslContext $ctx, int $state, int $options): EventBufferEvent
+    public static function sslSocket(EventBase $base, mixed $socket, EventSslContext $ctx, int $state, int $options = 0): EventBufferEvent
     {
     }
 
@@ -1248,6 +1284,17 @@ final class EventConfig
      * @see https://secure.php.net/manual/en/eventconfig.requirefeatures.php
      */
     public function requireFeatures(int $feature): bool
+    {
+    }
+
+    /**
+     * Sets one or more flags to configure what parts of the eventual EventBase
+     * will be initialized, and how they'll work
+     * @param int $flags
+     * @return bool
+     * @since libevent version 2.0.2-alpha
+     */
+    public function setFlags(int $flags): bool
     {
     }
 
@@ -1396,11 +1443,11 @@ final class EventDnsBase
      *
      * @param int $ndots
      *
-     * @return bool
+     * @return void
      *
      * @see https://secure.php.net/manual/en/eventdnsbase.setsearchndots.php
      */
-    public function setSearchNdots(int $ndots): bool
+    public function setSearchNdots(int $ndots): void
     {
     }
 }
@@ -1440,7 +1487,7 @@ final class EventHttp
      *
      * @see https://secure.php.net/manual/en/eventhttp.accept.php
      */
-    public function accept($socket): bool
+    public function accept(mixed $socket): bool
     {
     }
 
@@ -1464,10 +1511,11 @@ final class EventHttp
      *
      * @param string $address
      * @param int    $port
+     * @return bool
      *
      * @see https://secure.php.net/manual/en/eventhttp.bind.php
      */
-    public function bind(string $address, int $port): void
+    public function bind(string $address, int $port): bool
     {
     }
 
@@ -1503,11 +1551,11 @@ final class EventHttp
      *
      * @param string $path
      * @param string $cb
-     * @param string $arg  (optional)
+     * @param null|string $arg (optional)
      *
      * @see https://secure.php.net/manual/en/eventhttp.setcallback.php
      */
-    public function setCallback(string $path, string $cb, string $arg): void
+    public function setCallback(string $path, string $cb, ?string $arg = null): bool
     {
     }
 
@@ -1516,11 +1564,11 @@ final class EventHttp
      * Sets default callback to handle requests that are not caught by specific callbacks.
      *
      * @param string $cb
-     * @param string $arg (optional)
+     * @param null|string $arg (optional)
      *
      * @see https://secure.php.net/manual/en/eventhttp.setdefaultcallback.php
      */
-    public function setDefaultCallback(string $cb, string $arg): void
+    public function setDefaultCallback(string $cb, ?string $arg = null): void
     {
     }
 
@@ -1594,11 +1642,11 @@ class EventHttpConnection
      * getBase.
      * Returns event base associated with the connection.
      *
-     * @return EventBase
+     * @return false|EventBase
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.getbase.php
      */
-    public function getBase(): EventBase
+    public function getBase(): false|EventBase
     {
     }
 
@@ -1640,7 +1688,7 @@ class EventHttpConnection
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.setclosecallback.php
      */
-    public function setCloseCallback(callable $callback, $data): void
+    public function setCloseCallback(callable $callback, mixed $data = null): void
     {
     }
 
@@ -1738,27 +1786,29 @@ class EventHttpRequest
      * @param mixed $data
      */
     #[Pure]
-    public function __construct(callable $callback, $data = null)
-    {
+    public function __construct(
+        callable $callback,
+        $data = null
+    ) {
     }
 
     public function addHeader(string $key, string $value, int $type): bool
     {
     }
 
-    public function cancel()
+    public function cancel():void
     {
     }
 
-    public function clearHeaders()
+    public function clearHeaders():void
     {
     }
 
-    public function closeConnection()
+    public function closeConnection():void
     {
     }
 
-    public function findHeader(string $key, string $type)
+    public function findHeader(string $key, string $type): ?string
     {
     }
 
@@ -1768,6 +1818,11 @@ class EventHttpRequest
 
     #[Pure]
     public function getCommand(): int
+    {
+    }
+
+    #[Pure]
+    public function getConnection(): ?EventHttpConnection
     {
     }
 
@@ -1810,7 +1865,7 @@ class EventHttpRequest
     {
     }
 
-    public function sendError(int $error, string $reason = null)
+    public function sendError(int $error, ?string $reason = null)
     {
     }
 
@@ -1822,11 +1877,11 @@ class EventHttpRequest
     {
     }
 
-    public function sendReplyEnd()
+    public function sendReplyEnd():void
     {
     }
 
-    public function sendReplyStart(int $code, string $reason)
+    public function sendReplyStart(int $code, string $reason):void
     {
     }
 }
@@ -1854,6 +1909,8 @@ final class EventListener
     const OPT_CLOSE_ON_EXEC = 4;
     const OPT_REUSEABLE = 8;
     const OPT_THREADSAFE = 16;
+    const OPT_DISABLED = 32;
+    const OPT_DEFERRED_ACCEPT = 64;
 
     /**
      * __construct.
@@ -1868,7 +1925,7 @@ final class EventListener
      *
      * @see https://secure.php.net/manual/en/eventlistener.construct.php
      */
-    public function __construct(EventBase $base, callable $cb, $data, int $flags, int $backlog, $target)
+    public function __construct(EventBase $base, callable $cb, mixed $data, int $flags, int $backlog, mixed $target)
     {
     }
 
@@ -1896,6 +1953,10 @@ final class EventListener
     {
     }
 
+    public function free(): void
+    {
+    }
+
     /**
      * getBase.
      * Returns event base associated with the event listener.
@@ -1917,7 +1978,7 @@ final class EventListener
      *
      * @see https://secure.php.net/manual/en/eventlistener.getsocketname.php
      */
-    public static function getSocketName(string &$address, &$port): bool
+    public static function getSocketName(string &$address, int &$port): bool
     {
     }
 
@@ -1930,7 +1991,7 @@ final class EventListener
      *
      * @see https://secure.php.net/manual/en/eventlistener.setcallback.php
      */
-    public function setCallback(callable $cb, $arg = null): void
+    public function setCallback(callable $cb, mixed $arg = null): void
     {
     }
 
@@ -1968,6 +2029,10 @@ final class EventSslContext
     const SSLv3_SERVER_METHOD = 6;
     const SSLv23_SERVER_METHOD = 7;
     const TLS_SERVER_METHOD = 8;
+    const TLSv11_CLIENT_METHOD = 9;
+    const TLSv11_SERVER_METHOD = 10;
+    const TLSv12_CLIENT_METHOD = 11;
+    const TLSv12_SERVER_METHOD = 12;
     const OPT_LOCAL_CERT = 1;
     const OPT_LOCAL_PK = 2;
     const OPT_PASSPHRASE = 3;
@@ -1977,6 +2042,14 @@ final class EventSslContext
     const OPT_VERIFY_PEER = 7;
     const OPT_VERIFY_DEPTH = 8;
     const OPT_CIPHERS = 9;
+    const OPT_NO_SSLv2 = 10;
+    const OPT_NO_SSLv3 =11;
+    const  OPT_NO_TLSv1= 12;
+    const OPT_NO_TLSv1_1 = 13;
+    const OPT_NO_TLSv1_2 = 14;
+    const OPT_CIPHER_SERVER_PREFERENCE = 15;
+    const OPT_REQUIRE_CLIENT_CERT = 16;
+    const OPT_VERIFY_CLIENT_ONCE = 17;
 
     /**
      * @var string
@@ -1992,13 +2065,31 @@ final class EventSslContext
      * __construct.
      * Constructs an OpenSSL context for use with Event classes.
      *
-     * @param string $method
-     * @param string $options
+     * @param int $method
+     * @param array $options
      *
      * @see https://secure.php.net/manual/en/eventsslcontext.construct.php
      */
     #[Pure]
-    public function __construct(string $method, string $options)
+    public function __construct(int $method, array $options)
+    {
+    }
+
+    /**
+     * Sets minimum supported protocol version for the SSL context
+     * @param int $proto
+     * @return bool
+     */
+    public function setMinProtoVersion(int $proto): bool
+    {
+    }
+
+    /**
+     * Sets max supported protocol version for the SSL context.
+     * @param int $proto
+     * @return bool
+     */
+    public function setMaxProtoVersion(int $proto): bool
     {
     }
 }
@@ -2017,6 +2108,7 @@ final class EventUtil
 {
     const AF_INET = 2;
     const AF_INET6 = 10;
+    const AF_UNIX = 1;
     const AF_UNSPEC = 0;
     const LIBEVENT_VERSION_NUMBER = 33559808;
     const SO_DEBUG = 1;
@@ -2037,6 +2129,8 @@ final class EventUtil
     const SOL_SOCKET = 1;
     const SOL_TCP = 6;
     const SOL_UDP = 17;
+    const SOCK_RAW = 3;
+    const TCP_NODELAY = 1;
     const IPPROTO_IP = 0;
     const IPPROTO_IPV6 = 41;
 
@@ -2049,16 +2143,24 @@ final class EventUtil
     abstract public function __construct();
 
     /**
+     * @param mixed $socket
+     * @return resource
+     */
+    public function createSocket(mixed $socket)
+    {
+    }
+
+    /**
      * getLastSocketErrno.
      * Returns the most recent socket error number.
      *
      * @param mixed $socket = null
      *
-     * @return int
+     * @return int|false
      *
      * @see https://secure.php.net/manual/en/eventutil.getlastsocketerrno.php
      */
-    public static function getLastSocketErrno($socket = null): int
+    public static function getLastSocketErrno($socket = null): int | false
     {
     }
 
@@ -2068,11 +2170,11 @@ final class EventUtil
      *
      * @param mixed $socket
      *
-     * @return string
+     * @return string|false
      *
      * @see https://secure.php.net/manual/en/eventutil.getlastsocketerror.php
      */
-    public static function getLastSocketError($socket): string
+    public static function getLastSocketError(mixed $socket): string|false
     {
     }
 
@@ -2086,7 +2188,7 @@ final class EventUtil
      *
      * @see https://secure.php.net/manual/en/eventutil.getsocketfd.php
      */
-    public static function getSocketFd($socket): int
+    public static function getSocketFd(mixed $socket): int
     {
     }
 
@@ -2094,7 +2196,7 @@ final class EventUtil
      * getSocketName.
      * Retreives the current address to which the socket is bound.
      *
-     * @param mixed  $socket
+     * @param mixed $socket
      * @param string &$address
      * @param mixed  &$port
      *
@@ -2102,7 +2204,7 @@ final class EventUtil
      *
      * @see https://secure.php.net/manual/en/eventutil.getsocketname.php
      */
-    public static function getSocketName($socket, string &$address, &$port): bool
+    public static function getSocketName(mixed $socket, string &$address, int &$port): bool
     {
     }
 
@@ -2113,13 +2215,13 @@ final class EventUtil
      * @param mixed $socket
      * @param int   $level
      * @param int   $optname
-     * @param mixed $optval
+     * @param int|array $optval
      *
      * @return bool
      *
      * @see https://secure.php.net/manual/en/eventutil.setsocketoption.php
      */
-    public static function setSocketOption($socket, int $level, int $optname, $optval): bool
+    public static function setSocketOption(mixed $socket, int $level, int $optname, int|array $optval): bool
     {
     }
 
@@ -2129,7 +2231,7 @@ final class EventUtil
      *
      * @see https://secure.php.net/manual/en/eventutil.sslrandpoll.php
      */
-    public static function sslRandPoll(): void
+    public static function sslRandPoll(): bool
     {
     }
 }
