@@ -6,9 +6,6 @@ declare(strict_types=1);
 namespace JetBrains\PHPStormStub;
 
 use DirectoryIterator;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
-use SplFileInfo;
 use Exception;
 use PhpParser\Node;
 use PhpParser\NodeTraverser;
@@ -16,7 +13,10 @@ use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\NodeVisitorAbstract;
 use PhpParser\ParserFactory;
 use PhpParser\PrettyPrinter\Standard;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 use RuntimeException;
+use SplFileInfo;
 use function array_map;
 use function count;
 use function file_get_contents;
@@ -208,7 +208,7 @@ use const PHP_EOL;
             continue;
         }
 
-        if (in_array($directoryInfo->getBasename(), ['tests', 'meta', 'vendor'], true)) {
+        if (in_array($directoryInfo->getBasename(), ['tests', 'meta', 'vendor', 'couchbase_v2'], true)) {
             continue;
         }
 
