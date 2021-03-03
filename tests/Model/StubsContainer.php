@@ -57,6 +57,31 @@ class StubsContainer
         return $this->functions;
     }
 
+    /**
+     * @param string $name
+     * @param string|null $sourceFilePath
+     * @return PHPFunction|null
+     * @throws RuntimeException
+     */
+    public function getFunction(string $name, ?string $sourceFilePath = null): ?PHPFunction
+    {
+        $functions = array_filter($this->functions, fn(PHPFunction $function): bool => $function->name === $name);
+        if (count($functions) === 1) {
+            return array_pop($functions);
+        } else {
+            if ($sourceFilePath !== null) {
+                $functions = array_filter($functions, fn(PHPFunction $function) => $function->sourceFilePath === $sourceFilePath);
+            }
+            if (count($functions) > 1) {
+                throw new RuntimeException("Multiple functions with name $name found");
+            }
+            if (!empty($functions)) {
+                return array_pop($functions);
+            }
+        }
+        return null;
+    }
+
     public function addFunction(PHPFunction $function): void
     {
         if (isset($function->name)) {

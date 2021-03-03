@@ -5,6 +5,7 @@ namespace StubTests;
 
 use JetBrains\PhpStorm\Pure;
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
@@ -24,10 +25,11 @@ class StubsParameterNamesTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionParametersProvider
+     * @throws RuntimeException
      */
     public function testFunctionsParameterNames(PHPFunction $function, PHPParameter $parameter)
     {
-        $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions()[$function->name];
+        $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($function->name);
         self::assertNotEmpty(array_filter($phpstormFunction->parameters,
             fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name),
             "Function {$function->name} has signature {$function->name}(" . self::printParameters($function->parameters) . ')' .
@@ -36,15 +38,16 @@ class StubsParameterNamesTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodParametersProvider
+     * @throws RuntimeException
      */
     public function testMethodsParameterNames(PHPClass|PHPInterface $reflectionClass, PHPMethod $reflectionMethod, PHPParameter $reflectionParameter)
     {
         $className = $reflectionClass->name;
         $methodName = $reflectionMethod->name;
         if ($reflectionClass instanceof PHPClass) {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClasses()[$className]->methods[$methodName];
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->methods[$methodName];
         } else {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces()[$className]->methods[$methodName];
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->methods[$methodName];
         }
         self::assertNotEmpty(array_filter($stubMethod->parameters,
             fn(PHPParameter $stubParameter) => $stubParameter->name === $reflectionParameter->name),

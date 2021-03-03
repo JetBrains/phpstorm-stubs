@@ -52,11 +52,12 @@ class StubsTypeHintsTest extends TestCase
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionParametersProvider
      * @param PHPFunction $function
      * @param PHPParameter $parameter
+     * @throws RuntimeException
      */
     public function testFunctionsParametersTypeHints(PHPFunction $function, PHPParameter $parameter)
     {
         $functionName = $function->name;
-        $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions()[$functionName];
+        $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($functionName);
         $stubParameter = current(array_filter($phpstormFunction->parameters, fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name));
         self::assertNotFalse($stubParameter, "Parameter $$parameter->name not found at $phpstormFunction->name(" .
             StubsParameterNamesTest::printParameters($phpstormFunction->parameters) . ')');

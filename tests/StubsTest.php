@@ -70,16 +70,16 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::classConstantProvider
-     * @throws Exception
+     * @throws Exception|RuntimeException
      */
     public function testClassConstants(PHPClass|PHPInterface $class, PHPConst $constant): void
     {
         $constantName = $constant->name;
         $constantValue = $constant->value;
         if ($class instanceof PHPClass) {
-            $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getClasses()[$class->name]->constants;
+            $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->constants;
         } else {
-            $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces()[$class->name]->constants;
+            $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($class->name)->constants;
         }
         static::assertArrayHasKey(
             $constantName,
@@ -90,15 +90,16 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::classConstantValuesProvider
+     * @throws RuntimeException
      */
     public function testClassConstantsValues(PHPClass|PHPInterface $class, PHPConst $constant): void
     {
         $constantName = $constant->name;
         $constantValue = $constant->value;
         if ($class instanceof PHPClass) {
-            $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getClasses()[$class->name]->constants;
+            $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->constants;
         } else {
-            $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces()[$class->name]->constants;
+            $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($class->name)->constants;
         }
         static::assertEquals(
             $constantValue,
@@ -168,10 +169,11 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionOptionalParametersProvider
+     * @throws RuntimeException
      */
     public function testFunctionsOptionalParameters(PHPFunction $function, PHPParameter $parameter)
     {
-        $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions()[$function->name];
+        $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($function->name);
         $stubParameters = array_filter($phpstormFunction->parameters, fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name);
         /** @var PHPParameter $stubOptionalParameter */
         $stubOptionalParameter = array_pop($stubParameters);
@@ -187,7 +189,7 @@ class StubsTest extends TestCase
      */
     public function testFunctionsDefaultParametersValue(PHPFunction $function, PHPParameter $parameter)
     {
-        $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions()[$function->name];
+        $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($function->name);
         $stubParameters = array_filter($phpstormFunction->parameters, fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name);
         /** @var PHPParameter $stubOptionalParameter */
         $stubOptionalParameter = array_pop($stubParameters);
@@ -543,7 +545,7 @@ class StubsTest extends TestCase
             if (str_contains($key, 'duplicated')) {
                 $duplicatesOfFunction = self::getAllDuplicatesOfFunction($value->name);
                 $functionVersions[] = Utils::getAvailableInVersions(
-                    PhpStormStubsSingleton::getPhpStormStubs()->getFunctions()[$value->name]);
+                    PhpStormStubsSingleton::getPhpStormStubs()->getFunction($value->name));
                 array_push($functionVersions, ...array_values(array_map(fn(PHPFunction $function) => Utils::getAvailableInVersions($function), $duplicatesOfFunction)));
                 $hasDuplicates = false;
                 $current = array_pop($functionVersions);
