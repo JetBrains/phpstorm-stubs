@@ -1727,7 +1727,7 @@ abstract class Yaf_Response_Abstract {
     /**
      * Send response
      * @link https://secure.php.net/manual/en/yaf-response-abstract.response.php
-     * 
+     *
      * @return void
      */
     public function response(){ }
@@ -1739,7 +1739,7 @@ abstract class Yaf_Response_Abstract {
      * @param string $name header name
      * @param string $value header value
      * @param bool $replace
-     * 
+     *
      * @return bool
      */
     public function setHeader($name, $value, $replace = false){ }

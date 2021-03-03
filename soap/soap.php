@@ -467,7 +467,7 @@ class SoapVar  {
 	 * @since 5.0.1
 	 */
 	public function __construct ($data, $encoding, $typeName = null, $typeNamespace = null, $nodeName = null, $nodeNamespace = null) {}
-	
+
 	/**
 	 * SoapVar constructor
 	 * @link https://php.net/manual/en/soapvar.soapvar.php
@@ -543,7 +543,7 @@ class SoapServer  {
 	 * @since 5.0.1
 	 */
 	public function __construct ($wsdl, array $options = null) {}
-	
+
 	/**
 	 * SoapServer constructor
 	 * @link https://php.net/manual/en/soapserver.soapserver.php
@@ -767,7 +767,7 @@ class SoapFault extends Exception  {
 	 */
 	#[\JetBrains\PhpStorm\Pure]
     public function __construct ($code, $string, $actor = null, $details = null, $name = null, $headerFault = null) {}
-	
+
 	/**
 	 * SoapFault constructor
 	 * @link https://php.net/manual/en/soapfault.soapfault.php
@@ -826,7 +826,7 @@ class SoapParam  {
 	 * @since 5.0.1
 	 */
 	public function __construct ($data, $name) {}
-	
+
 	/**
 	 * SoapParam constructor
 	 * @link https://php.net/manual/en/soapparam.soapparam.php
