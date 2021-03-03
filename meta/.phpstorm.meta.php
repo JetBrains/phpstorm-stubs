@@ -8,6 +8,7 @@ namespace PHPSTORM_META {
    * @see map()
    * @see type()
    * @see elementType()
+   * @see sql_injection_subst()
    * @return mixed override pair object
    */
   function override($callable, $override) {
@@ -18,7 +19,12 @@ namespace PHPSTORM_META {
    * map argument with #$argNum Literal value to one of expressions
    * @param mixed $argNum ignored, for now its always 0
    * @param mixed $map Key-value pairs: string_literal|const|class_const => class_name::class|pattern_literal
-   * where pattern literal can contain @ char to be replaced with argument literal value
+   * where pattern literal can contain @ char to be replaced with argument literal value.
+   *
+   * When used with sql_injection_subst(), string literal key-value pairs act as replacement rules: pattern => replacement.
+   * These rules are applied in SQL injections in an IDE and enable support for dynamically-prefixed database table names.
+   *
+   * @see sql_injection_subst()
    * @return mixed overrides map object
    */
   function map($map) {
@@ -41,6 +47,17 @@ namespace PHPSTORM_META {
    */
   function elementType($argNum) {
     return "elementType $argNum";
+  }
+
+  /**
+   * Provides an IDE with a set of replacement rules that are applied in SQL injections.
+   * Replacement rules are specified as string literal key-value pairs in the map() call.
+   * @param mixed $argNum ignored, for now its always 0
+   * @see map()
+   * @return mixed
+   */
+  function sql_injection_subst($argNum) {
+      return "sql_injection_subst $argNum";
   }
 
   override(\array_shift(0), elementType(0));
