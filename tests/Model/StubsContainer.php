@@ -79,14 +79,18 @@ class StubsContainer
     public function getClass(string $name, ?string $sourceFilePath = null): ?PHPClass
     {
         $classes = array_filter($this->classes, fn(PHPClass $class): bool => $class->name === $name);
-        if ($sourceFilePath !== null) {
-            $classes = array_filter($classes, fn(PHPClass $class) => $class->sourceFilePath === $sourceFilePath);
-        }
-        if (count($classes) > 1) {
-            throw new RuntimeException("Multiple classes with name $name found");
-        }
-        if (!empty($classes)) {
+        if (count($classes) === 1) {
             return array_pop($classes);
+        } else {
+            if ($sourceFilePath !== null) {
+                $classes = array_filter($classes, fn(PHPClass $class) => $class->sourceFilePath === $sourceFilePath);
+            }
+            if (count($classes) > 1) {
+                throw new RuntimeException("Multiple classes with name $name found");
+            }
+            if (!empty($classes)) {
+                return array_pop($classes);
+            }
         }
         return null;
     }
@@ -132,14 +136,18 @@ class StubsContainer
     public function getInterface(string $name, ?string $sourceFilePath = null): ?PHPInterface
     {
         $interfaces = array_filter($this->interfaces, fn(PHPInterface $interface): bool => $interface->name === $name);
-        if ($sourceFilePath !== null) {
-            $interfaces = array_filter($interfaces, fn(PHPInterface $interface) => $interface->sourceFilePath === $sourceFilePath);
-        }
-        if (count($interfaces) > 1) {
-            throw new RuntimeException("Multiple interfaces with name $name found");
-        }
-        if (!empty($interfaces)) {
+        if (count($interfaces) === 1) {
             return array_pop($interfaces);
+        } else {
+            if ($sourceFilePath !== null) {
+                $interfaces = array_filter($interfaces, fn(PHPInterface $interface) => $interface->sourceFilePath === $sourceFilePath);
+            }
+            if (count($interfaces) > 1) {
+                throw new RuntimeException("Multiple interfaces with name $name found");
+            }
+            if (!empty($interfaces)) {
+                return array_pop($interfaces);
+            }
         }
         return null;
     }
