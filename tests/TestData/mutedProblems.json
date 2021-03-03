@@ -1269,6 +1269,9 @@
     },
     {
       "name": "bcscale",
+      "problems" : [
+        "has duplicate in stubs"
+      ],
       "parameters": [
         {
           "name": "scale",
@@ -1365,6 +1368,18 @@
             "wrong default value"
           ]
         }
+      ]
+    },
+    {
+      "name": "bcdiv",
+      "problems": [
+        "has duplicate in stubs"
+      ]
+    },
+    {
+      "name": "bcmod",
+      "problems": [
+        "has duplicate in stubs"
       ]
     }
   ],
