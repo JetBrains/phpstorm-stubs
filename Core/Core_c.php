@@ -371,6 +371,7 @@ class Error implements Throwable {
      * @param int $code [optional] The Error code.
      * @param null|Throwable $previous [optional] The previous throwable used for the exception chaining.
      */
+    #[Pure]
     public function __construct($message = "", $code = 0, Throwable $previous = null)
     {
     }
