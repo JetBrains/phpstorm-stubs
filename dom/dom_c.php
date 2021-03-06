@@ -462,7 +462,7 @@ class DOMImplementation  {
     /**
      * Creates a DOMDocument object of the specified type with its document element
      * @link https://php.net/manual/en/domimplementation.createdocument.php
-     * @param string $namespace [optional] <p>
+     * @param string|null $namespace [optional] <p>
      * The namespace URI of the document element to create.
      * </p>
      * @param string $qualifiedName [optional] <p>

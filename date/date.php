@@ -1103,7 +1103,7 @@ function date_timezone_get (DateTimeInterface $object): DateTimeZone|false
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
-function date_timezone_set (#[LanguageLevelTypeAware(["8.0.2" => "DateTime"], default: "DateTimeInterface")] $object, DateTimeZone $timezone)
+function date_timezone_set (#[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTimeInterface")] $object, DateTimeZone $timezone)
 {}
 
 /**

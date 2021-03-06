@@ -1,6 +1,7 @@
 <?php
 
 // Start of gettext v.
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -79,12 +80,12 @@ function dcgettext (string $domain, string $message, int $category): string
  * @param string $domain <p>
  * The domain
  * </p>
- * @param string $directory <p>
- * The directory path
+ * @param string|null $directory <p>
+ * The directory path. Since PHP 8.0.3 directory is nullable. If null is passed, the currently set directory is returned.
  * </p>
  * @return string|false The full pathname for the <i>domain</i> currently being set.
  */
-function bindtextdomain (string $domain, string $directory): string|false
+function bindtextdomain (string $domain, #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $directory): string|false
 {}
 
 /**
@@ -138,12 +139,12 @@ function dcngettext (string $domain, string $singular, string $plural, int $coun
  * @param string $domain <p>
  * The domain
  * </p>
- * @param string $codeset <p>
- * The code set
+ * @param string|null $codeset <p>
+ * The code set. Since 8.0.3 is nullable.  If null is passed, the currently set encoding is returned.
  * </p>
  * @return string|false A string on success.
  */
-function bind_textdomain_codeset (string $domain, string $codeset): string|false
+function bind_textdomain_codeset (string $domain, #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $codeset): string|false
 {}
 
 // End of gettext v.

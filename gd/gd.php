@@ -1044,19 +1044,19 @@ function imagewbmp (GdImage $image, $file = null, ?int $foreground_color = null)
  * Since 7.2.0 allows to output truecolor images.
  * @link https://php.net/manual/en/function.imagegd.php
  * @param resource|GdImage $image
- * @param string $file [optional] <p>
+ * @param string|null $file [optional] <p>
  * The path to save the file to. If not set or null, the raw image stream
  * will be outputted directly.
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagegd (GdImage $image, string $file = null): bool {}
+function imagegd (GdImage $image, ?string $file = null): bool {}
 
 /**
  * Output GD2 image to browser or file
  * @link https://php.net/manual/en/function.imagegd2.php
  * @param resource|GdImage $image
- * @param string $file [optional] <p>
+ * @param string|null $file [optional] <p>
  * The path to save the file to. If not set or null, the raw image stream
  * will be outputted directly.
  * </p>
@@ -1070,7 +1070,7 @@ function imagegd (GdImage $image, string $file = null): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagegd2 (GdImage $image, string $file = null, int $chunk_size = null, int $mode = null): bool {}
+function imagegd2 (GdImage $image, ?string $file = null, int $chunk_size = null, int $mode = null): bool {}
 
 /**
  * Destroy an image

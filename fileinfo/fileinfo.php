@@ -72,7 +72,7 @@ class finfo  {
  * One or disjunction of more Fileinfo
  * constants.
  * </p>
- * @param string $magic_database [optional] <p>
+ * @param string|null $magic_database [optional] <p>
  * Name of a magic database file, usually something like
  * /path/to/magic.mime. If not specified,
  * the MAGIC environment variable is used. If this variable
@@ -82,7 +82,7 @@ class finfo  {
  * </p>
  * @return resource|false a magic database resource on success or <b>FALSE</b> on failure.
  */
-function finfo_open (int $flags, string $magic_database)
+function finfo_open (int $flags, ?string $magic_database = null)
 {}
 
 /**

@@ -3,6 +3,7 @@
 // Start of intl v.1.1.0
 
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 class Collator {
@@ -3616,13 +3617,13 @@ function collator_get_sort_key(Collator $object, string $string): string|false {
  * ICU RuleBasedNumberFormat
  * documentation, respectively.
  * </p>
- * @param string $pattern [optional] <p>
+ * @param string|null $pattern [optional] <p>
  * Pattern string if the chosen style requires a pattern.
  * </p>
  * @return NumberFormatter|false|null <b>NumberFormatter</b> object or <b>FALSE</b> on error.
  */
 #[Pure]
-function numfmt_create(string $locale, int $style, string $pattern = null): ?NumberFormatter { }
+function numfmt_create(string $locale, int $style, #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $pattern = null): ?NumberFormatter { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4297,14 +4298,15 @@ function msgfmt_get_error_message(MessageFormatter $formatter): string { }
  * This is one of the
  * IntlDateFormatter calendar constants.
  * </p>
- * @param string $pattern [optional] <p>
+ * @param string|null $pattern [optional] <p>
  * Optional pattern to use when formatting or parsing.
  * Possible patterns are documented at http://userguide.icu-project.org/formatparse/datetime.
  * </p>
  * @return IntlDateFormatter|null
  */
 #[Pure]
-function datefmt_create(?string $locale, int $dateType, int $timeType, $timezone = null, IntlCalendar|int|null $calendar = null, string $pattern = ''): ?IntlDateFormatter { }
+function datefmt_create(?string $locale, int $dateType, int $timeType, $timezone = null, IntlCalendar|int|null $calendar = null,
+                        #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $pattern = null): ?IntlDateFormatter { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
