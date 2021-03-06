@@ -2440,14 +2440,19 @@ function mysqli_stat (mysqli $mysql): string|false
  * Used for establishing secure connections using SSL
  * @link https://secure.php.net/manual/en/mysqli.ssl-set.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
- * @param string $key The path name to the key file
- * @param string $certificate The path name to the certificate file
- * @param string $ca_certificate The path name to the certificate authority file
- * @param string $ca_path The pathname to a directory that contains trusted SSL CA certificates in PEM format
- * @param string $cipher_algos A list of allowable ciphers to use for SSL encryption
+ * @param string|null $key The path name to the key file
+ * @param string|null $certificate The path name to the certificate file
+ * @param string|null $ca_certificate The path name to the certificate authority file
+ * @param string|null $ca_path The pathname to a directory that contains trusted SSL CA certificates in PEM format
+ * @param string|null $cipher_algos A list of allowable ciphers to use for SSL encryption
  * @return bool This function always returns TRUE value.
  */
-function mysqli_ssl_set(mysqli $mysql, string $key , string $certificate , string $ca_certificate , string $ca_path , string $cipher_algos): bool
+function mysqli_ssl_set(mysqli $mysql,
+                        #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $key ,
+                        #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $certificate ,
+                        #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $ca_certificate ,
+                        #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $ca_path ,
+                        #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $cipher_algos): bool
 {}
 
 /**

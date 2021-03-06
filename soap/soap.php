@@ -414,7 +414,7 @@ class SoapClient  {
 	/**
 	 * Sets the location of the Web service to use
 	 * @link https://php.net/manual/en/soapclient.setlocation.php
-	 * @param string $location [optional] <p>
+	 * @param string|null $location [optional] <p>
 	 * The new endpoint URL.
 	 * </p>
 	 * @return string The old endpoint URL.
