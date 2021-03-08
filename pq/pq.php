@@ -241,7 +241,7 @@ class Connection  {
 	 *
 	 * @public
 	 * @readonly
-	 * @var
+	 * @var resource
 	 */
 	public $socket;
 	/**
@@ -1030,7 +1030,7 @@ class LOB  {
 	 *
 	 * @public
 	 * @readonly
-	 * @var
+	 * @var resource
 	 */
 	public $stream;
 	/**
