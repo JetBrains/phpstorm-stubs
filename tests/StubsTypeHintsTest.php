@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace StubTests;
 
-use PHPUnit\Framework\TestCase;
 use RuntimeException;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPFunction;
@@ -17,15 +16,8 @@ use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 use StubTests\TestData\Providers\ReflectionStubsSingleton;
 
-class StubsTypeHintsTest extends TestCase
+class StubsTypeHintsTest extends BaseStubsTest
 {
-    public static function setUpBeforeClass(): void
-    {
-        parent::setUpBeforeClass();
-        PhpStormStubsSingleton::getPhpStormStubs();
-        ReflectionStubsSingleton::getReflectionStubs();
-    }
-
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::allFunctionsProvider
      * @param PHPFunction $function
