@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace StubTests;
 
 use PHPUnit\Framework\Exception;
-use PHPUnit\Framework\TestCase;
 use RuntimeException;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\StubProblemType;
@@ -14,15 +13,13 @@ use StubTests\TestData\Providers\ReflectionStubsSingleton;
 use function array_filter;
 use function array_pop;
 
-class StubsMetaInternalTagTest extends TestCase
+class StubsMetaInternalTagTest extends BaseStubsTest
 {
     private static array $overriddenFunctionsInMeta;
 
     public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
-        PhpStormStubsSingleton::getPhpStormStubs();
-        ReflectionStubsSingleton::getReflectionStubs();
         self::$overriddenFunctionsInMeta = (new MetaOverrideFunctionsParser())->overridenFunctions;
     }
 

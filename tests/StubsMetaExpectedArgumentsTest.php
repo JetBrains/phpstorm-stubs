@@ -10,7 +10,6 @@ use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Scalar\String_;
 use PHPUnit\Framework\Exception;
-use PHPUnit\Framework\TestCase;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPConst;
 use StubTests\Model\PHPFunction;
@@ -19,9 +18,8 @@ use StubTests\Model\StubsContainer;
 use StubTests\Parsers\ExpectedFunctionArgumentsInfo;
 use StubTests\Parsers\MetaExpectedArgumentsCollector;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
-use StubTests\TestData\Providers\ReflectionStubsSingleton;
 
-class StubsMetaExpectedArgumentsTest extends TestCase
+class StubsMetaExpectedArgumentsTest extends BaseStubsTest
 {
     /**
      * @var ExpectedFunctionArgumentsInfo[]
@@ -37,11 +35,11 @@ class StubsMetaExpectedArgumentsTest extends TestCase
 
     public static function setUpBeforeClass(): void
     {
+        parent::setUpBeforeClass();
         $argumentsCollector = new MetaExpectedArgumentsCollector();
         self::$expectedArguments = $argumentsCollector->getExpectedArgumentsInfos();
         self::$registeredArgumentsSet = $argumentsCollector->getRegisteredArgumentsSet();
         $stubs = PhpStormStubsSingleton::getPhpStormStubs();
-        ReflectionStubsSingleton::getReflectionStubs();
         self::$functionsFqns = array_map(fn(PHPFunction $func) => self::toPresentableFqn($func->name), $stubs->getFunctions());
         self::$methodsFqns = self::getMethodsFqns($stubs);
         self::$constantsFqns = self::getConstantsFqns($stubs);

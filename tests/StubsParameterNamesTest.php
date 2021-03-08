@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace StubTests;
 
 use JetBrains\PhpStorm\Pure;
-use PHPUnit\Framework\TestCase;
 use RuntimeException;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPFunction;
@@ -12,17 +11,9 @@ use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
-use StubTests\TestData\Providers\ReflectionStubsSingleton;
 
-class StubsParameterNamesTest extends TestCase
+class StubsParameterNamesTest extends BaseStubsTest
 {
-    public static function setUpBeforeClass(): void
-    {
-        parent::setUpBeforeClass();
-        PhpStormStubsSingleton::getPhpStormStubs();
-        ReflectionStubsSingleton::getReflectionStubs();
-    }
-
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionParametersProvider
      * @throws RuntimeException
