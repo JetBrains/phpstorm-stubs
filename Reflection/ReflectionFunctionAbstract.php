@@ -44,7 +44,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return bool {@see true} if it's a closure, otherwise {@see false}
      */
     #[Pure]
-	public function isClosure()
+    public function isClosure()
     {
     }
 
@@ -55,7 +55,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return bool {@see true} if it's deprecated, otherwise {@see false}
      */
     #[Pure]
-	public function isDeprecated()
+    public function isDeprecated()
     {
     }
 
@@ -66,7 +66,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return bool {@see true} if it's internal, otherwise {@see false}
      */
     #[Pure]
-	public function isInternal()
+    public function isInternal()
     {
     }
 
@@ -77,7 +77,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return bool {@see true} if it's user-defined, otherwise {@see false}
      */
     #[Pure]
-	public function isUserDefined()
+    public function isUserDefined()
     {
     }
 
@@ -89,7 +89,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @since 5.5
      */
     #[Pure]
-	public function isGenerator()
+    public function isGenerator()
     {
     }
 
@@ -101,7 +101,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @since 5.6
      */
     #[Pure]
-	public function isVariadic()
+    public function isVariadic()
     {
     }
 
@@ -112,7 +112,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return object|null Returns $this pointer or {@see null} in case of an error.
      */
     #[Pure]
-	public function getClosureThis()
+    public function getClosureThis()
     {
     }
 
@@ -125,7 +125,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @since 5.4
      */
     #[Pure]
-	public function getClosureScopeClass()
+    public function getClosureScopeClass()
     {
     }
 
@@ -136,7 +136,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return string|false The doc comment if it exists, otherwise {@see false}
      */
     #[Pure]
-	public function getDocComment()
+    public function getDocComment()
     {
     }
 
@@ -148,7 +148,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * or {@see false} if unknown.
      */
     #[Pure]
-	public function getEndLine()
+    public function getEndLine()
     {
     }
 
@@ -160,7 +160,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * {@see ReflectionExtension} object or {@see null} instead.
      */
     #[Pure]
-	public function getExtension()
+    public function getExtension()
     {
     }
 
@@ -171,7 +171,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return string|null The extension's name or {@see null} instead.
      */
     #[Pure]
-	public function getExtensionName()
+    public function getExtensionName()
     {
     }
 
@@ -182,7 +182,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return string|false The file name or {@see false} in case of error.
      */
     #[Pure]
-	public function getFileName()
+    public function getFileName()
     {
     }
 
@@ -193,7 +193,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return string The name of the function.
      */
     #[Pure]
-	public function getName()
+    public function getName()
     {
     }
 
@@ -204,7 +204,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return string The namespace name.
      */
     #[Pure]
-	public function getNamespaceName()
+    public function getNamespaceName()
     {
     }
 
@@ -216,7 +216,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @since 5.0.3
      */
     #[Pure]
-	public function getNumberOfParameters()
+    public function getNumberOfParameters()
     {
     }
 
@@ -228,7 +228,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @since 5.0.3
      */
     #[Pure]
-	public function getNumberOfRequiredParameters()
+    public function getNumberOfRequiredParameters()
     {
     }
 
@@ -239,7 +239,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return ReflectionParameter[] The parameters, as a ReflectionParameter objects.
      */
     #[Pure]
-	public function getParameters()
+    public function getParameters()
     {
     }
 
@@ -252,7 +252,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @since 7.0
      */
     #[Pure]
-	public function getReturnType()
+    public function getReturnType()
     {
     }
 
@@ -263,7 +263,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return string The short name of the function.
      */
     #[Pure]
-	public function getShortName()
+    public function getShortName()
     {
     }
 
@@ -274,7 +274,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return int The starting line number.
      */
     #[Pure]
-	public function getStartLine()
+    public function getStartLine()
     {
     }
 
@@ -285,7 +285,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return array An array of static variables.
      */
     #[Pure]
-	public function getStaticVariables()
+    public function getStaticVariables()
     {
     }
 
@@ -320,7 +320,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @since 8.0
      */
     #[Pure]
-	public function getAttributes(?string $name = null, int $flags = 0)
+    public function getAttributes(?string $name = null, int $flags = 0)
     {
     }
 }

@@ -29,7 +29,7 @@ class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-	public function getExecutingLine()
+    public function getExecutingLine()
     {
     }
 
@@ -42,7 +42,7 @@ class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-	public function getExecutingFile()
+    public function getExecutingFile()
     {
     }
 
@@ -63,7 +63,7 @@ class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-	public function getTrace($options = DEBUG_BACKTRACE_PROVIDE_OBJECT)
+    public function getTrace($options = DEBUG_BACKTRACE_PROVIDE_OBJECT)
     {
     }
 
@@ -78,7 +78,7 @@ class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-	public function getFunction()
+    public function getFunction()
     {
     }
 
@@ -91,7 +91,7 @@ class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-	public function getThis()
+    public function getThis()
     {
     }
 
@@ -104,7 +104,7 @@ class ReflectionGenerator
      *
      */
     #[Pure]
-	public function getExecutingGenerator()
+    public function getExecutingGenerator()
     {
     }
 }

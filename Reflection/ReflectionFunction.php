@@ -70,7 +70,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      */
     #[Deprecated(since: '8.0')]
     #[Pure]
-	public function isDisabled()
+    public function isDisabled()
     {
     }
 
@@ -106,7 +106,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @return Closure Returns {@see Closure} or {@see null} in case of an error.
      */
     #[Pure]
-	public function getClosure()
+    public function getClosure()
     {
     }
 }

@@ -110,7 +110,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return bool Returns {@see true} if the method is public, otherwise {@see false}
      */
     #[Pure]
-	public function isPublic()
+    public function isPublic()
     {
     }
 
@@ -121,7 +121,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return bool Returns {@see true} if the method is private, otherwise {@see false}
      */
     #[Pure]
-	public function isPrivate()
+    public function isPrivate()
     {
     }
 
@@ -132,7 +132,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return bool Returns {@see true} if the method is protected, otherwise {@see false}
      */
     #[Pure]
-	public function isProtected()
+    public function isProtected()
     {
     }
 
@@ -143,7 +143,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return bool Returns {@see true} if the method is abstract, otherwise {@see false}
      */
     #[Pure]
-	public function isAbstract()
+    public function isAbstract()
     {
     }
 
@@ -154,7 +154,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return bool Returns {@see true} if the method is final, otherwise {@see false}
      */
     #[Pure]
-	public function isFinal()
+    public function isFinal()
     {
     }
 
@@ -165,7 +165,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return bool Returns {@see true} if the method is static, otherwise {@see false}
      */
     #[Pure]
-	public function isStatic()
+    public function isStatic()
     {
     }
 
@@ -176,7 +176,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return bool Returns {@see true} if the method is a constructor, otherwise {@see false}
      */
     #[Pure]
-	public function isConstructor()
+    public function isConstructor()
     {
     }
 
@@ -187,7 +187,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return bool Returns {@see true} if the method is a destructor, otherwise {@see false}
      */
     #[Pure]
-	public function isDestructor()
+    public function isDestructor()
     {
     }
 
@@ -200,7 +200,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @since 5.4
      */
     #[Pure]
-	public function getClosure($object = null)
+    public function getClosure($object = null)
     {
     }
 
@@ -222,7 +222,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      *  - {@see ReflectionMethod::IS_FINAL} - Indicates that the method is final.
      */
     #[Pure]
-	public function getModifiers()
+    public function getModifiers()
     {
     }
 
@@ -268,7 +268,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * reflected method is part of.
      */
     #[Pure]
-	public function getDeclaringClass()
+    public function getDeclaringClass()
     {
     }
 
@@ -280,7 +280,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @throws ReflectionException if the method does not have a prototype
      */
     #[Pure]
-	public function getPrototype()
+    public function getPrototype()
     {
     }
 

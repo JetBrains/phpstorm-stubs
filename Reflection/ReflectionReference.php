@@ -38,7 +38,7 @@ class ReflectionReference
      * @return int|string Returns an integer or string of unspecified format.
      */
     #[Pure]
-	public function getId()
+    public function getId()
     {
     }
 

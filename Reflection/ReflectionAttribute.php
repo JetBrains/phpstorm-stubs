@@ -32,7 +32,7 @@ class ReflectionAttribute
      * @since 8.0
      */
     #[Pure]
-	public function getName()
+    public function getName()
     {
     }
 
@@ -43,7 +43,7 @@ class ReflectionAttribute
      * @since 8.0
      */
     #[Pure]
-	public function getTarget()
+    public function getTarget()
     {
     }
 
@@ -54,7 +54,7 @@ class ReflectionAttribute
      * @since 8.0
      */
     #[Pure]
-	public function isRepeated()
+    public function isRepeated()
     {
     }
 
@@ -65,7 +65,7 @@ class ReflectionAttribute
      * @since 8.0
      */
     #[Pure]
-	public function getArguments()
+    public function getArguments()
     {
     }
 

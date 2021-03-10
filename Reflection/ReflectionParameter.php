@@ -65,7 +65,7 @@ class ReflectionParameter implements Reflector
      * @return string The name of the reflected parameter.
      */
     #[Pure]
-	public function getName()
+    public function getName()
     {
     }
 
@@ -76,7 +76,7 @@ class ReflectionParameter implements Reflector
      * @return bool {@see true} if the parameter is passed in by reference, otherwise {@see false}
      */
     #[Pure]
-	public function isPassedByReference()
+    public function isPassedByReference()
     {
     }
 
@@ -100,7 +100,7 @@ class ReflectionParameter implements Reflector
      * @since 5.2.3
      */
     #[Pure]
-	public function getDeclaringFunction()
+    public function getDeclaringFunction()
     {
     }
 
@@ -112,7 +112,7 @@ class ReflectionParameter implements Reflector
      * called on function.
      */
     #[Pure]
-	public function getDeclaringClass()
+    public function getDeclaringClass()
     {
     }
 
@@ -125,7 +125,7 @@ class ReflectionParameter implements Reflector
      */
     #[Deprecated(reason: "Use ReflectionParameter::getType() and the ReflectionType APIs should be used instead.", since: "8.0")]
     #[Pure]
-	public function getClass()
+    public function getClass()
     {
     }
 
@@ -149,7 +149,7 @@ class ReflectionParameter implements Reflector
      * @since 7.0
      */
     #[Pure]
-	public function getType()
+    public function getType()
     {
     }
 
@@ -162,7 +162,7 @@ class ReflectionParameter implements Reflector
      */
     #[Deprecated(reason: "Use ReflectionParameter::getType() and the ReflectionType APIs should be used instead.", since: "8.0")]
     #[Pure]
-	public function isArray()
+    public function isArray()
     {
     }
 
@@ -177,7 +177,7 @@ class ReflectionParameter implements Reflector
      */
     #[Deprecated(reason: "Use ReflectionParameter::getType() and the ReflectionType APIs should be used instead.", since: "8.0")]
     #[Pure]
-	public function isCallable()
+    public function isCallable()
     {
     }
 
@@ -200,7 +200,7 @@ class ReflectionParameter implements Reflector
      * @since 5.2.3
      */
     #[Pure]
-	public function getPosition()
+    public function getPosition()
     {
     }
 
@@ -212,7 +212,7 @@ class ReflectionParameter implements Reflector
      * @since 5.0.3
      */
     #[Pure]
-	public function isOptional()
+    public function isOptional()
     {
     }
 
@@ -224,7 +224,7 @@ class ReflectionParameter implements Reflector
      * @since 5.0.3
      */
     #[Pure]
-	public function isDefaultValueAvailable()
+    public function isDefaultValueAvailable()
     {
     }
 
@@ -237,7 +237,7 @@ class ReflectionParameter implements Reflector
      * @since 5.0.3
      */
     #[Pure]
-	public function getDefaultValue()
+    public function getDefaultValue()
     {
     }
 
@@ -249,7 +249,7 @@ class ReflectionParameter implements Reflector
      * @since 5.4.6
      */
     #[Pure]
-	public function isDefaultValueConstant()
+    public function isDefaultValueConstant()
     {
     }
 
@@ -262,7 +262,7 @@ class ReflectionParameter implements Reflector
      * @since 5.4.6
      */
     #[Pure]
-	public function getDefaultValueConstantName()
+    public function getDefaultValueConstantName()
     {
     }
 
@@ -274,7 +274,7 @@ class ReflectionParameter implements Reflector
      * @since 5.6
      */
     #[Pure]
-	public function isVariadic()
+    public function isVariadic()
     {
     }
 
@@ -285,7 +285,7 @@ class ReflectionParameter implements Reflector
      * @since 8.0
      */
     #[Pure]
-	public function isPromoted()
+    public function isPromoted()
     {
     }
 
@@ -298,7 +298,7 @@ class ReflectionParameter implements Reflector
      * @since 8.0
      */
     #[Pure]
-	public function getAttributes(?string $name = null, int $flags = 0)
+    public function getAttributes(?string $name = null, int $flags = 0)
     {
     }
 

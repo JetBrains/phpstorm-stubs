@@ -99,7 +99,7 @@ class ReflectionProperty implements Reflector
      * @return string The name of the reflected property.
      */
     #[Pure]
-	public function getName()
+    public function getName()
     {
     }
 
@@ -114,7 +114,7 @@ class ReflectionProperty implements Reflector
      * @return mixed The current value of the property.
      */
     #[Pure]
-	public function getValue($object = null)
+    public function getValue($object = null)
     {
     }
 
@@ -139,7 +139,7 @@ class ReflectionProperty implements Reflector
      * @return bool Return {@see true} if the property is public, {@see false} otherwise.
      */
     #[Pure]
-	public function isPublic()
+    public function isPublic()
     {
     }
 
@@ -150,7 +150,7 @@ class ReflectionProperty implements Reflector
      * @return bool Return {@see true} if the property is private, {@see false} otherwise.
      */
     #[Pure]
-	public function isPrivate()
+    public function isPrivate()
     {
     }
 
@@ -161,7 +161,7 @@ class ReflectionProperty implements Reflector
      * @return bool Returns {@see true} if the property is protected, {@see false} otherwise.
      */
     #[Pure]
-	public function isProtected()
+    public function isProtected()
     {
     }
 
@@ -172,7 +172,7 @@ class ReflectionProperty implements Reflector
      * @return bool Retruns {@see true} if the property is static, {@see false} otherwise.
      */
     #[Pure]
-	public function isStatic()
+    public function isStatic()
     {
     }
 
@@ -184,7 +184,7 @@ class ReflectionProperty implements Reflector
      * compile-time, or {@see false} if it was created at run-time.
      */
     #[Pure]
-	public function isDefault()
+    public function isDefault()
     {
     }
 
@@ -195,7 +195,7 @@ class ReflectionProperty implements Reflector
      * @return int A numeric representation of the modifiers.
      */
     #[Pure]
-	public function getModifiers()
+    public function getModifiers()
     {
     }
 
@@ -206,7 +206,7 @@ class ReflectionProperty implements Reflector
      * @return ReflectionClass A {@see ReflectionClass} object.
      */
     #[Pure]
-	public function getDeclaringClass()
+    public function getDeclaringClass()
     {
     }
 
@@ -217,7 +217,7 @@ class ReflectionProperty implements Reflector
      * @return string|false The doc comment if it exists, otherwise {@see false}
      */
     #[Pure]
-	public function getDocComment()
+    public function getDocComment()
     {
     }
 
@@ -241,7 +241,7 @@ class ReflectionProperty implements Reflector
      * @since 7.4
      */
     #[Pure]
-	public function getType()
+    public function getType()
     {
     }
 
@@ -266,7 +266,7 @@ class ReflectionProperty implements Reflector
      * @since 7.4
      */
     #[Pure]
-	public function isInitialized(?object $object = null)
+    public function isInitialized(?object $object = null)
     {
     }
 
@@ -277,7 +277,7 @@ class ReflectionProperty implements Reflector
      * @since 8.0
      */
     #[Pure]
-	public function isPromoted()
+    public function isPromoted()
     {
     }
 
@@ -302,7 +302,7 @@ class ReflectionProperty implements Reflector
      * @since 8.0
      */
     #[Pure]
-	public function getDefaultValue(){}
+    public function getDefaultValue(){}
 
     /**
      * @param null|string $name
@@ -311,5 +311,5 @@ class ReflectionProperty implements Reflector
      * @since 8.0
      */
     #[Pure]
-	public function getAttributes(?string $name = null, int $flags = 0) {}
+    public function getAttributes(?string $name = null, int $flags = 0) {}
 }

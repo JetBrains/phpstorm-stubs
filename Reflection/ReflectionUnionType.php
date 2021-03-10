@@ -13,7 +13,7 @@ class ReflectionUnionType extends ReflectionType
      * @return ReflectionNamedType[]
      */
     #[Pure]
-	public function getTypes()
+    public function getTypes()
     {
     }
 }

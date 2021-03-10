@@ -80,7 +80,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-	public function getDeclaringClass()
+    public function getDeclaringClass()
     {
     }
 
@@ -92,7 +92,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-	public function getDocComment()
+    public function getDocComment()
     {
     }
 
@@ -105,7 +105,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-	public function getModifiers()
+    public function getModifiers()
     {
     }
 
@@ -117,7 +117,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-	public function getName()
+    public function getName()
     {
     }
 
@@ -129,7 +129,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-	public function getValue()
+    public function getValue()
     {
     }
 
@@ -141,7 +141,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-	public function isPrivate()
+    public function isPrivate()
     {
     }
 
@@ -153,7 +153,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-	public function isProtected()
+    public function isProtected()
     {
     }
 
@@ -165,7 +165,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-	public function isPublic()
+    public function isPublic()
     {
     }
 
@@ -189,7 +189,7 @@ class ReflectionClassConstant implements Reflector
      * @since 8.0
      */
     #[Pure]
-	public function getAttributes(?string $name = null, int $flags = 0)
+    public function getAttributes(?string $name = null, int $flags = 0)
     {
     }
 

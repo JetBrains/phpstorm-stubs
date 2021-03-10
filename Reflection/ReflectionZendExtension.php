@@ -61,7 +61,7 @@ class ReflectionZendExtension implements Reflector
      * @since 5.4
      */
     #[Pure]
-	public function getName()
+    public function getName()
     {
     }
 
@@ -73,7 +73,7 @@ class ReflectionZendExtension implements Reflector
      * @since 5.4
      */
     #[Pure]
-	public function getVersion()
+    public function getVersion()
     {
     }
 
@@ -85,7 +85,7 @@ class ReflectionZendExtension implements Reflector
      * @since 5.4
      */
     #[Pure]
-	public function getAuthor()
+    public function getAuthor()
     {
     }
 
@@ -97,7 +97,7 @@ class ReflectionZendExtension implements Reflector
      * @since 5.4
      */
     #[Pure]
-	public function getURL()
+    public function getURL()
     {
     }
 
@@ -109,7 +109,7 @@ class ReflectionZendExtension implements Reflector
      * @since 5.4
      */
     #[Pure]
-	public function getCopyright()
+    public function getCopyright()
     {
     }
 

@@ -65,7 +65,7 @@ class ReflectionExtension implements Reflector
      * @return string The extensions name.
      */
     #[Pure]
-	public function getName()
+    public function getName()
     {
     }
 
@@ -76,7 +76,7 @@ class ReflectionExtension implements Reflector
      * @return string The version of the extension.
      */
     #[Pure]
-	public function getVersion()
+    public function getVersion()
     {
     }
 
@@ -89,7 +89,7 @@ class ReflectionExtension implements Reflector
      * names. If no function are defined, an empty array is returned.
      */
     #[Pure]
-	public function getFunctions()
+    public function getFunctions()
     {
     }
 
@@ -100,7 +100,7 @@ class ReflectionExtension implements Reflector
      * @return array An associative array with constant names as keys.
      */
     #[Pure]
-	public function getConstants()
+    public function getConstants()
     {
     }
 
@@ -112,7 +112,7 @@ class ReflectionExtension implements Reflector
      * with their defined values as values.
      */
     #[Pure]
-	public function getINIEntries()
+    public function getINIEntries()
     {
     }
 
@@ -125,7 +125,7 @@ class ReflectionExtension implements Reflector
      * an empty array is returned.
      */
     #[Pure]
-	public function getClasses()
+    public function getClasses()
     {
     }
 
@@ -137,7 +137,7 @@ class ReflectionExtension implements Reflector
      * If no classes are defined, an empty array is returned.
      */
     #[Pure]
-	public function getClassNames()
+    public function getClassNames()
     {
     }
 
@@ -149,7 +149,7 @@ class ReflectionExtension implements Reflector
      * either Required, Optional or Conflicts as the values.
      */
     #[Pure]
-	public function getDependencies()
+    public function getDependencies()
     {
     }
 
@@ -171,7 +171,7 @@ class ReflectionExtension implements Reflector
      * @since 5.4
      */
     #[Pure]
-	public function isPersistent()
+    public function isPersistent()
     {
     }
 
@@ -183,7 +183,7 @@ class ReflectionExtension implements Reflector
      * @since 5.4
      */
     #[Pure]
-	public function isTemporary()
+    public function isTemporary()
     {
     }
 

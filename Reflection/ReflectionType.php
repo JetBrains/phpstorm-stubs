@@ -32,7 +32,7 @@ abstract class ReflectionType implements Stringable
      * class and moved to the {@see ReflectionNamedType} child.
      */
     #[Pure]
-	public function isBuiltin()
+    public function isBuiltin()
     {
     }
 
