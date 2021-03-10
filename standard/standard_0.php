@@ -2,6 +2,7 @@
 
 // Start of standard v.5.3.2-0.dotdeb.1
 
+use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
@@ -1091,7 +1092,7 @@ function image_type_to_extension (int $image_type, $include_dot = true): string|
  * </p>
  * @return bool true on success or false on failure.
  */
-function phpinfo (int $flags = INFO_ALL): bool
+function phpinfo (#[ExpectedValues(flags: [INFO_GENERAL, INFO_CREDITS, INFO_CONFIGURATION, INFO_MODULES, INFO_ENVIRONMENT, INFO_VARIABLES, INFO_LICENSE, INFO_ALL])] int $flags = INFO_ALL): bool
 {}
 
 /**
