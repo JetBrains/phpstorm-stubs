@@ -338,7 +338,7 @@ function stream_socket_client (string $address, &$error_code, &$error_message, ?
  * Depending on the environment, Unix domain sockets may not be available.
  * A list of available transports can be retrieved using
  * stream_get_transports. See
- * for a list of bulitin transports.
+ * for a list of built-in transports.
  * </p>
  * @param int &$error_code [optional] <p>
  * If the optional errno and errstr
