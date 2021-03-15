@@ -17,6 +17,7 @@ class PHPConst extends BasePHPElement
 
     public ?string $parentName = null;
     public bool|int|string|float|null $value;
+    public ?string $visibility = null;
 
     /**
      * @param ReflectionClassConstant $reflectionObject
@@ -26,6 +27,13 @@ class PHPConst extends BasePHPElement
     {
         $this->name = $reflectionObject->name;
         $this->value = $reflectionObject->getValue();
+        if ($reflectionObject->isPrivate()) {
+            $this->visibility = 'private';
+        } elseif ($reflectionObject->isProtected()) {
+            $this->visibility = 'protected';
+        } else {
+            $this->visibility = 'public';
+        }
         return $this;
     }
 
@@ -43,6 +51,13 @@ class PHPConst extends BasePHPElement
             $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($parentNode->attrGroups);
         }
         if ($parentNode instanceof ClassConst) {
+            if ($parentNode->isPrivate()) {
+                $this->visibility = 'private';
+            } elseif ($parentNode->isProtected()) {
+                $this->visibility = 'protected';
+            } else {
+                $this->visibility = 'public';
+            }
             $this->parentName = self::getFQN($parentNode->getAttribute('parent'));
         }
         return $this;
