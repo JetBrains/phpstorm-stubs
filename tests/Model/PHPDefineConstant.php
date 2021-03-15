@@ -32,6 +32,7 @@ class PHPDefineConstant extends PHPConst
         } else {
             $this->value = null;
         }
+        $this->visibility = 'public';
         return $this;
     }
 
@@ -47,6 +48,7 @@ class PHPDefineConstant extends PHPConst
         }
         $this->name = $constName;
         $this->value = $this->getConstValue($node->args[1]);
+        $this->visibility = 'public';
         $this->collectTags($node);
         return $this;
     }
