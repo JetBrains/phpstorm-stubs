@@ -178,6 +178,7 @@ class StubsPhpDocTest extends BaseStubsTest
             'deprecated',
             'example', //temporary addition due to the number of existing cases
             'inheritdoc',
+            'inheritDoc',
             'internal',
             'link',
             'meta',
