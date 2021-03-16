@@ -2,17 +2,17 @@
 
 namespace RdKafka;
 
-class KafkaErrorException extends \Exception
+class KafkaErrorException extends Exception
 {
     /**
      * @param string $message
      * @param int $code
-     * @param string $errorString
+     * @param string $error_string
      * @param bool $isFatal
      * @param bool $isRetriable
      * @param bool $transactionRequiresAbort
      */
-    public function __construct($message, $code, $errorString, $isFatal, $isRetriable, $transactionRequiresAbort) {}
+    public function __construct($message, $code, $error_string, $isFatal, $isRetriable, $transactionRequiresAbort) {}
 
     /**
      * @return string

@@ -18,11 +18,11 @@ class Producer extends \RdKafka
     public function newTopic($topic_name, ?TopicConf $topic_conf = null) {}
 
     /**
-     * @param int $timeoutMs
+     * @param int $timeout_ms
      *
      * @return void
      */
-    public function initTransactions(int $timeoutMs) {}
+    public function initTransactions(int $timeout_ms) {}
 
     /**
      * @return void
@@ -30,16 +30,16 @@ class Producer extends \RdKafka
     public function beginTransaction() {}
 
     /**
-     * @param int $timeoutMs
+     * @param int $timeout_ms
      *
      * @return void
      */
-    public function commitTransaction(int $timeoutMs) {}
+    public function commitTransaction(int $timeout_ms) {}
 
     /**
-     * @param int $timeoutMs
+     * @param int $timeout_ms
      *
      * @return void
      */
-    public function abortTransaction(int $timeoutMs) {}
+    public function abortTransaction(int $timeout_ms) {}
 }

@@ -161,7 +161,7 @@ final class Ev
      * watcher could not be properly started because libev ran out of memory, a file descriptor was found to be closed
      * or any other problem. Libev considers these application bugs.
      */
-    public const ERROR = 2147483648;
+    public const ERROR = -2147483648;
 
     /**
      * select(2) backend
@@ -199,7 +199,7 @@ final class Ev
      * applied here(e.g. Ev::BACKEND_ALL & ~ Ev::BACKEND_KQUEUE ) Use Ev::recommendedBackends() , or don't specify any
      * backends at all.
      */
-    public const BACKEND_ALL = 63;
+    public const BACKEND_ALL = 255;
 
     /**
      * Not a backend, but a mask to select all backend bits from flags value to mask out any backends(e.g. when
@@ -439,9 +439,9 @@ abstract class EvWatcher
      *
      * Feeds the given revents set into the event loop, as if the specified event had happened for the watcher.
      *
-     * @param int $events Bit mask of watcher received events.
+     * @param int $revents Bit mask of watcher received events.
      */
-    public function feed($events) {}
+    public function feed($revents) {}
 
     /**
      * Returns the loop responsible for the watcher.
@@ -453,9 +453,9 @@ abstract class EvWatcher
     /**
      * Invokes the watcher callback with the given received events bit mask.
      *
-     * @param int $events Bit mask of watcher received events.
+     * @param int $revents Bit mask of watcher received events.
      */
-    public function invoke($events) {}
+    public function invoke($revents) {}
 
     /**
      * Configures whether to keep the loop from returning.
@@ -471,7 +471,7 @@ abstract class EvWatcher
      * @param bool $value With keepalive value set to FALSE the watcher won't keep Ev::run() / EvLoop::run() from
      *      returning even though the watcher is active.
      */
-    public function keepalive($value) {}
+    public function keepalive($value = true) {}
 
     /**
      * Sets new callback for the watcher.
@@ -643,19 +643,19 @@ final class EvEmbed extends EvWatcher
      * This watcher is most useful on BSD systems without working kqueue to still be able to handle a large number of
      * sockets.
      *
-     * @param EvLoop $embed The loop to embed, this loop must be embeddable(see Ev::embeddableBackends()).
+     * @param EvLoop $other The loop to embed, this loop must be embeddable(see Ev::embeddableBackends()).
      * @param callable $callback
      * @param mixed $data
      * @param int $priority
      */
-    public function __construct(EvLoop $embed, callable $callback, $data = null, $priority = 0) {}
+    public function __construct(EvLoop $other, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Configures the watcher.
      *
-     * @param EvLoop $embed The loop to embed, this loop must be embeddable(see Ev::embeddableBackends()).
+     * @param EvLoop $other The loop to embed, this loop must be embeddable(see Ev::embeddableBackends()).
      */
-    public function set(EvLoop $embed) {}
+    public function set(EvLoop $other) {}
 
     /**
      * Make a single, non-blocking sweep over the embedded loop.
@@ -667,14 +667,14 @@ final class EvEmbed extends EvWatcher
      *
      * The same as EvEmbed::__construct() , but doesn't start the watcher automatically.
      *
-     * @param EvLoop $embed The loop to embed, this loop must be embeddable(see Ev::embeddableBackends()).
+     * @param EvLoop $other The loop to embed, this loop must be embeddable(see Ev::embeddableBackends()).
      * @param callable $callback
      * @param mixed $data
      * @param int $priority
      *
      * @return EvEmbed
      */
-    final public static function createStopped(EvLoop $embed, callable $callback, $data = null, $priority = 0) {}
+    final public static function createStopped(EvLoop $other, callable $callback, $data = null, $priority = 0) {}
 }
 
 /**
@@ -854,7 +854,7 @@ final class EvPeriodic extends EvWatcher
      * @param float $interval The same meaning as for {@see EvPeriodic::__construct}
      * @return void
      */
-    public function set($offset, $interval) {}
+    public function set($offset, $interval, $reschedule_cb = null) {}
 }
 
 /**
@@ -1209,7 +1209,7 @@ final class EvFork extends EvWatcher
      * @param mixed $data
      * @param int $priority
      */
-    public function __construct(callable $callback, $data = null, $priority = 0) {}
+    public function __construct($loop, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates a stopped EvFork instance.
@@ -1220,7 +1220,7 @@ final class EvFork extends EvWatcher
      *
      * @return EvFork
      */
-    final public static function createStopped(callable $callback, $data = null, $priority = 0) {}
+    final public static function createStopped($loop, callable $callback, $data = null, $priority = 0) {}
 }
 
 /**
@@ -1413,7 +1413,7 @@ final class EvLoop
      * @param mixed $data
      * @param int $priority
      */
-    final public function periodic($offset, $interval, callable $callback, $data = null, $priority = 0) {}
+    final public function periodic($offset, $interval, $reschedule_cb, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvPrepare object associated with the current event loop instance.
@@ -1446,13 +1446,13 @@ final class EvLoop
     /**
      * Creates EvSignal object associated with the current event loop instance.
      *
-     * @param int $signal
+     * @param int $signum
      * @param callable $callback
      * @param mixed $data
      * @param int $priority
      * @return EvSignal
      */
-    final public function signal($signal, callable $callback, $data = null, $priority = 0) {}
+    final public function signal($signum, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvStats object associated with the current event loop instance.

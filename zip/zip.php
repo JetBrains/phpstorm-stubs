@@ -1,6 +1,7 @@
 <?php
 
 // Start of zip v.1.14.0
+use JetBrains\PhpStorm\Deprecated;
 
 /**
  * A file archive, compressed with Zip.
@@ -13,7 +14,7 @@ class ZipArchive implements Countable
      * @link https://php.net/manual/en/zip.constants.php
      * @since 7.4.3
      */
-    public const LIBZIP_VERSION = '1.5.1';
+    public const LIBZIP_VERSION = '1.7.3';
 
     /**
      * Create the archive if it does not exist.
@@ -63,6 +64,14 @@ class ZipArchive implements Countable
      * @link https://php.net/manual/en/zip.constants.php
      */
     public const FL_UNCHANGED = 8;
+
+    public const FL_RECOMPRESS = 16;
+    public const FL_ENCRYPTED = 32;
+    public const FL_OVERWRITE = 8192;
+    public const FL_LOCAL = 256;
+    public const FL_CENTRAL = 512;
+    public const EM_TRAD_PKWARE = 1;
+    public const EM_UNKNOWN = 65535;
 
     /**
      * better of deflate or store.
@@ -318,119 +327,119 @@ class ZipArchive implements Countable
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.4.3
      */
-    public const RDONLY = 260;
+    public const RDONLY = 16;
 
     /**
      * Guess string encoding (is default)
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.0.8
      */
-    public const FL_ENC_GUESS = 261;
+    public const FL_ENC_GUESS = 0;
 
     /**
      * Get unmodified string
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.0.8
      */
-    public const FL_ENC_RAW = 262;
+    public const FL_ENC_RAW = 64;
 
     /**
      * Follow specification strictly
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.0.8
      */
-    public const FL_ENC_STRICT = 263;
+    public const FL_ENC_STRICT = 128;
 
     /**
      * String is UTF-8 encoded
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.0.8
      */
-    public const FL_ENC_UTF_8 = 264;
+    public const FL_ENC_UTF_8 = 2048;
 
     /**
      * String is CP437 encoded
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.0.8
      */
-    public const FL_ENC_CP437 = 265;
+    public const FL_ENC_CP437 = 4096;
 
     /**
      * LZMA2 algorithm
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.4.3
      */
-    public const CM_LZMA2 = 266;
+    public const CM_LZMA2 = 33;
 
     /**
      * XZ algorithm
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.4.3
      */
-    public const CM_XZ = 267;
+    public const CM_XZ = 95;
 
     /**
      * Encryption method not support
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.4.3
      */
-    public const ER_ENCRNOTSUPP = 268;
+    public const ER_ENCRNOTSUPP = 24;
 
     /**
      * Read-only archive
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.4.3
      */
-    public const ER_RDONLY = 269;
+    public const ER_RDONLY = 25;
 
     /**
      * No password provided
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.4.3
      */
-    public const ER_NOPASSWD = 270;
+    public const ER_NOPASSWD = 26;
 
     /**
      * Wrong password provided
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.4.3
      */
-    public const ER_WRONGPASSWD = 271;
+    public const ER_WRONGPASSWD = 27;
 
     /**
      * Operation not supported
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.4.3
      */
-    public const ER_OPNOTSUPP = 272;
+    public const ER_OPNOTSUPP = 28;
 
     /**
      * Resource still in use
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.4.3
      */
-    public const ER_INUSE = 273;
+    public const ER_INUSE = 29;
 
     /**
      * Tell error
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.4.3
      */
-    public const ER_TELL = 274;
+    public const ER_TELL = 30;
 
     /**
      * Compressed data invalid
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.4.3
      */
-    public const ER_COMPRESSED_DATA = 275;
+    public const ER_COMPRESSED_DATA = 31;
 
     /**
      * Operation cancelled
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.4.3
      */
-    public const ER_CANCELLED = 276;
+    public const ER_CANCELLED = 32;
 
      /**
       * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
@@ -556,7 +565,7 @@ class ZipArchive implements Countable
     /**
      * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
-    public const OPSYS_CPM = 20;
+    public const OPSYS_CPM = 9;
 
      /**
       * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
@@ -705,26 +714,26 @@ class ZipArchive implements Countable
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
      * Add a file to a ZIP archive using its contents
      * @link https://php.net/manual/en/ziparchive.addfromstring.php
-     * @param string $localname <p>
+     * @param string $name <p>
      * The name of the entry to create.
      * </p>
-     * @param string $contents <p>
+     * @param string $content <p>
      * The contents to use to create the entry. It is used in a binary
      * safe mode.
      * </p>
      * @param int $flags [optional] Set how to manage name encoding (ZipArchive::FL_ENC_*) and entry replacement (ZipArchive::FL_OVERWRITE)
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function addFromString($localname, $contents, $flags) {}
+    public function addFromString($name, $content, $flags = 8192) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
      * Adds a file to a ZIP archive from the given path
      * @link https://php.net/manual/en/ziparchive.addfile.php
-     * @param string $filename <p>
+     * @param string $filepath <p>
      * The path to the file to add.
      * </p>
-     * @param string $localname [optional] <p>
+     * @param string $entryname [optional] <p>
      * If supplied, this is the local name inside the ZIP archive that will override the <i>filename</i>.
      * </p>
      * @param int $start [optional] <p>
@@ -736,7 +745,7 @@ class ZipArchive implements Countable
      * @param int $flags [optional] Set how to manage name encoding (ZipArchive::FL_ENC_*) and entry replacement (ZipArchive::FL_OVERWRITE)
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function addFile($filename, $localname = null, $start = 0, $length = 0, $flags) {}
+    public function addFile($filepath, $entryname = null, $start = 0, $length = 0, $flags = 8192) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL zip &gt;= 1.9.0)<br/>
@@ -788,12 +797,12 @@ class ZipArchive implements Countable
      * @param int $index <p>
      * Index of the entry to rename.
      * </p>
-     * @param string $newname <p>
+     * @param string $new_name <p>
      * New name.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function renameIndex($index, $newname) {}
+    public function renameIndex($index, $new_name) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -802,12 +811,12 @@ class ZipArchive implements Countable
      * @param string $name <p>
      * Name of the entry to rename.
      * </p>
-     * @param string $newname <p>
+     * @param string $new_name <p>
      * New name.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function renameName($name, $newname) {}
+    public function renameName($name, $new_name) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.4.0)<br/>
@@ -864,23 +873,23 @@ class ZipArchive implements Countable
      * Set the compression method of an entry defined by its index
      * @link https://php.net/manual/en/ziparchive.setcompressionindex.php
      * @param int $index Index of the entry.
-     * @param int $comp_method The compression method. Either ZipArchive::CM_DEFAULT, ZipArchive::CM_STORE or ZipArchive::CM_DEFLATE.
-     * @param int $comp_flags [optional] Compression flags. Currently unused.
+     * @param int $method The compression method. Either ZipArchive::CM_DEFAULT, ZipArchive::CM_STORE or ZipArchive::CM_DEFLATE.
+     * @param int $compflags [optional] Compression flags. Currently unused.
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 7.0
      */
-    public function setCompressionIndex($index, $comp_method, $comp_flags = 0) {}
+    public function setCompressionIndex($index, $method, $compflags = 0) {}
 
     /**
      * Set the compression method of an entry defined by its name
      * https://secure.php.net/manual/en/ziparchive.setcompressionname.php
      * @param string $name Name of the entry.
-     * @param int $comp_method The compression method. Either ZipArchive::CM_DEFAULT, ZipArchive::CM_STORE or ZipArchive::CM_DEFLATE.
-     * @param int $comp_flags [optional] Compression flags. Currently unused.
+     * @param int $method The compression method. Either ZipArchive::CM_DEFAULT, ZipArchive::CM_STORE or ZipArchive::CM_DEFLATE.
+     * @param int $compflags [optional] Compression flags. Currently unused.
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 7.0
      */
-    public function setCompressionName($name, $comp_method, $comp_flags = 0) {}
+    public function setCompressionName($name, $method, $compflags = 0) {}
 
     /**
      * Set the encryption method of an entry defined by its index
@@ -1070,16 +1079,16 @@ class ZipArchive implements Countable
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
      * Extract the archive contents
      * @link https://php.net/manual/en/ziparchive.extractto.php
-     * @param string $destination <p>
+     * @param string $pathto <p>
      * Location where to extract the files.
      * </p>
-     * @param mixed $entries [optional] <p>
+     * @param mixed $files [optional] <p>
      * The entries to extract. It accepts either a single entry name or
      * an array of names.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function extractTo($destination, $entries = null) {}
+    public function extractTo($pathto, $files = null) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -1088,7 +1097,7 @@ class ZipArchive implements Countable
      * @param string $name <p>
      * Name of the entry
      * </p>
-     * @param int $length [optional] <p>
+     * @param int $len [optional] <p>
      * The length to be read from the entry. If 0, then the
      * entire entry is read.
      * </p>
@@ -1099,7 +1108,7 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the contents of the entry on success or <b>FALSE</b> on failure.
      */
-    public function getFromName($name, $length = 0, $flags = null) {}
+    public function getFromName($name, $len = 0, $flags = null) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.3.0)<br/>
@@ -1108,7 +1117,7 @@ class ZipArchive implements Countable
      * @param int $index <p>
      * Index of the entry
      * </p>
-     * @param int $length [optional] <p>
+     * @param int $len [optional] <p>
      * The length to be read from the entry. If 0, then the
      * entire entry is read.
      * </p>
@@ -1121,7 +1130,7 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the contents of the entry on success or <b>FALSE</b> on failure.
      */
-    public function getFromIndex($index, $length = 0, $flags = null) {}
+    public function getFromIndex($index, $len = 0, $flags = null) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -1177,6 +1186,20 @@ class ZipArchive implements Countable
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function getExternalAttributesIndex($index, &$opsys, &$attr, $flags = null) {}
+
+    public static function isEncryptionMethodSupported($method, $enc = true) {}
+
+    public static function isCompressionMethodSupported($method, $enc = true) {}
+
+    public function registerCancelCallback($callback) {}
+
+    public function registerProgressCallback($rate, $callback) {}
+
+    public function setMtimeName($name, $timestamp, $flags = null) {}
+
+    public function setMtimeIndex($index, $timestamp, $flags = null) {}
+
+    public function replaceFile($filepath, $index, $start = null, $length = null, $flags = null) {}
 }
 
 /**
@@ -1192,7 +1215,7 @@ class ZipArchive implements Countable
  * exist or in case of other error.
  * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
-function zip_open($filename) {}
+function zip_open(string $filename) {}
 
 /**
  * (PHP 4 &gt;= 4.1.0, PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.0.0)<br/>
@@ -1204,7 +1227,7 @@ function zip_open($filename) {}
  * @return void No value is returned.
  * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
-function zip_close($zip) {}
+function zip_close($zip): void {}
 
 /**
  * (PHP 4 &gt;= 4.1.0, PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.0.0)<br/>
@@ -1225,7 +1248,7 @@ function zip_read($zip) {}
  * (PHP 4 &gt;= 4.1.0, PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.0.0)<br/>
  * Open a directory entry for reading
  * @link https://php.net/manual/en/function.zip-entry-open.php
- * @param resource $zip <p>
+ * @param resource $zip_dp <p>
  * A valid resource handle returned by <b>zip_open</b>.
  * </p>
  * @param resource $zip_entry <p>
@@ -1248,19 +1271,20 @@ function zip_read($zip) {}
  * reading or closing the directory entry.
  * </p>
  */
-function zip_entry_open($zip, $zip_entry, $mode = null) {}
+#[Deprecated]
+function zip_entry_open($zip_dp, $zip_entry, string $mode = 'rb'): bool {}
 
 /**
  * (PHP 4 &gt;= 4.1.0, PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.0.0)<br/>
  * Close a directory entry
  * @link https://php.net/manual/en/function.zip-entry-close.php
- * @param resource $zip_entry <p>
+ * @param resource $zip_ent <p>
  * A directory entry previously opened <b>zip_entry_open</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
-function zip_entry_close($zip_entry) {}
+function zip_entry_close($zip_ent): bool {}
 
 /**
  * (PHP 4 &gt;= 4.1.0, PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.0.0)<br/>
@@ -1269,7 +1293,7 @@ function zip_entry_close($zip_entry) {}
  * @param resource $zip_entry <p>
  * A directory entry returned by <b>zip_read</b>.
  * </p>
- * @param int $length [optional] <p>
+ * @param int $len [optional] <p>
  * The number of bytes to return.
  * </p>
  * <p>
@@ -1278,7 +1302,7 @@ function zip_entry_close($zip_entry) {}
  * @return string|false the data read, empty string on end of a file, or <b>FALSE</b> on error.
  * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
-function zip_entry_read($zip_entry, $length = 1024) {}
+function zip_entry_read($zip_entry, int $len = 1024): string|false {}
 
 /**
  * (PHP 4 &gt;= 4.1.0, PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.0.0)<br/>
@@ -1287,10 +1311,10 @@ function zip_entry_read($zip_entry, $length = 1024) {}
  * @param resource $zip_entry <p>
  * A directory entry returned by <b>zip_read</b>.
  * </p>
- * @return int The size of the directory entry.
+ * @return int|false The size of the directory entry.
  * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
-function zip_entry_filesize($zip_entry) {}
+function zip_entry_filesize($zip_entry): int|false {}
 
 /**
  * (PHP 4 &gt;= 4.1.0, PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.0.0)<br/>
@@ -1299,10 +1323,10 @@ function zip_entry_filesize($zip_entry) {}
  * @param resource $zip_entry <p>
  * A directory entry returned by <b>zip_read</b>.
  * </p>
- * @return string The name of the directory entry.
+ * @return string|false The name of the directory entry.
  * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
-function zip_entry_name($zip_entry) {}
+function zip_entry_name($zip_entry): string|false {}
 
 /**
  * (PHP 4 &gt;= 4.1.0, PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.0.0)<br/>
@@ -1311,10 +1335,10 @@ function zip_entry_name($zip_entry) {}
  * @param resource $zip_entry <p>
  * A directory entry returned by <b>zip_read</b>.
  * </p>
- * @return int The compressed size.
+ * @return int|false The compressed size.
  * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
-function zip_entry_compressedsize($zip_entry) {}
+function zip_entry_compressedsize($zip_entry): int|false {}
 
 /**
  * (PHP 4 &gt;= 4.1.0, PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.0.0)<br/>
@@ -1323,9 +1347,9 @@ function zip_entry_compressedsize($zip_entry) {}
  * @param resource $zip_entry <p>
  * A directory entry returned by <b>zip_read</b>.
  * </p>
- * @return string The compression method.
+ * @return string|false The compression method.
  * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
-function zip_entry_compressionmethod($zip_entry) {}
+function zip_entry_compressionmethod($zip_entry): string|false {}
 
 // End of zip v.1.11.0

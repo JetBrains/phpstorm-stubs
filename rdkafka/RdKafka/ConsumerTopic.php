@@ -45,4 +45,8 @@ class ConsumerTopic extends Topic
      * @return void
      */
     public function offsetStore($partition, $offset) {}
+
+    public function consumeCallback($partition, $timeout_ms, $callback) {}
+
+    public function consumeBatch($partition, $timeout_ms, $batch_size) {}
 }

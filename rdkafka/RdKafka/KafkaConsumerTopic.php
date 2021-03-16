@@ -4,6 +4,8 @@ namespace RdKafka;
 
 class KafkaConsumerTopic extends Topic
 {
+    private function __construct() {}
+
     /**
      * @param int $partition
      * @param int $offset

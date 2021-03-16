@@ -191,7 +191,7 @@ function xdebug_break(): bool {}
  * @param int $options
  * @return string
  */
-function xdebug_start_trace(?string $traceFile, int $options = 0): string {}
+function xdebug_start_trace(?string $traceFile = null, int $options = 0): string {}
 
 /**
  * Stop tracing function calls and closes the trace file.
@@ -363,8 +363,9 @@ define('XDEBUG_TRACE_NAKED_FILENAME', 8);
 define('XDEBUG_CC_UNUSED', 1);
 define('XDEBUG_CC_DEAD_CODE', 2);
 define('XDEBUG_CC_BRANCH_CHECK', 4);
-define('XDEBUG_FILTER_TRACING', 256);
-define('XDEBUG_FILTER_CODE_COVERAGE', 512);
+define('XDEBUG_FILTER_TRACING', 768);
+define('XDEBUG_FILTER_STACK', 512);
+define('XDEBUG_FILTER_CODE_COVERAGE', 256);
 define('XDEBUG_FILTER_NONE', 0);
 define('XDEBUG_PATH_WHITELIST', 1);
 define('XDEBUG_PATH_BLACKLIST', 2);
