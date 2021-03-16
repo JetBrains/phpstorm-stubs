@@ -5,7 +5,7 @@
  * and will only be available when the extension has either been compiled into PHP or dynamically loaded at runtime.
  * @link https://secure.php.net/manual/en/yar.constants.php
  */
-define('YAR_VERSION', '2.0.5');
+define('YAR_VERSION', '2.2.0');
 define('YAR_CLIENT_PROTOCOL_HTTP', 1);
 define('YAR_OPT_PACKAGER', 1);
 define('YAR_OPT_TIMEOUT', 4);
@@ -28,6 +28,7 @@ define('YAR_ERR_EXCEPTION', 64);
 define('YAR_CLIENT_PROTOCOL_TCP', 2);
 define('YAR_CLIENT_PROTOCOL_UNIX', 4);
 
+define('YAR_OPT_RESOLVE', 32);
 /**
  * Class Yar_Server
  * Date 2018/6/9 下午3:02
@@ -46,7 +47,7 @@ class Yar_Server
      * @param object $obj An Object, all public methods of its will be registered as RPC services.
      * @link https://secure.php.net/manual/en/yar-server.construct.php
      */
-    final public function __construct($obj) {}
+    final public function __construct($obj, $protocol = null) {}
 
     /**
      * Start RPC Server
@@ -84,12 +85,14 @@ class Yar_Client
      * @param string $url Yar Server URL.
      * @link https://secure.php.net/manual/en/yar-client.construct.php
      */
-    final public function __construct($url) {}
+    final public function __construct($url, $async = null) {}
+
+    public function call($method, $parameters) {}
 
     /**
      * Set calling contexts
      *
-     * @param int $name it can be:
+     * @param int $type it can be:
      * - YAR_OPT_PACKAGER,
      * - YAR_OPT_PERSISTENT (Need server support),
      * - YAR_OPT_TIMEOUT,
@@ -99,14 +102,18 @@ class Yar_Client
      * @return static|false Returns $this on success or FALSE on failure.
      * @link https://secure.php.net/manual/en/yar-client.setopt.php
      */
-    public function setOpt($name, $value) {}
+    public function setOpt($type, $value) {}
+
+    public function getOpt($type) {}
 }
 
 class Yar_Concurrent_Client
 {
-    public static $_callstack;
-    public static $_callback;
-    public static $_error_callback;
+    protected static $_callstack;
+    protected static $_callback;
+    protected static $_error_callback;
+
+    protected static $_start;
 
     /**
      * Register a concurrent call
@@ -119,7 +126,7 @@ class Yar_Concurrent_Client
      * @return int An unique id, can be used to identified which call it is.
      * @link https://secure.php.net/manual/en/yar-concurrent-client.call.php
      */
-    public static function call($uri, $method, $parameters, callable $callback, callable $error_callback, array $options) {}
+    public static function call($uri, $method, $parameters, callable $callback = null, callable $error_callback, array $options) {}
 
     /**
      * Send all calls
@@ -131,7 +138,7 @@ class Yar_Concurrent_Client
      * @return bool
      * @link https://secure.php.net/manual/en/yar-concurrent-client.loop.php
      */
-    public static function loop($callback, $error_callback) {}
+    public static function loop($callback = null, $error_callback = null) {}
 
     /**
      * Clean all registered calls
@@ -176,3 +183,17 @@ class Yar_Client_Exception extends Exception
      */
     public function getType() {}
 }
+
+class Yar_Server_Request_Exception extends Yar_Server_Exception {}
+
+class Yar_Server_Protocol_Exception extends Yar_Server_Exception {}
+
+class Yar_Server_Packager_Exception extends Yar_Server_Exception {}
+
+class Yar_Server_Output_Exception extends Yar_Server_Exception {}
+
+class Yar_Client_Transport_Exception extends Yar_Client_Exception {}
+
+class Yar_Client_Packager_Exception extends Yar_Client_Exception {}
+
+class Yar_Client_Protocol_Exception extends Yar_Client_Exception {}

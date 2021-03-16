@@ -41,12 +41,14 @@ namespace MongoDB\Driver {
              * Manager constructor.
              * @link https://php.net/manual/en/mongodb-driver-manager.construct.php
              * @param string $uri A mongodb:// connection URI
-             * @param array $uriOptions Connection string options
+             * @param array $options Connection string options
              * @param array $driverOptions Any driver-specific options not included in MongoDB connection spec.
              * @throws InvalidArgumentException on argument parsing errors
              * @throws RuntimeException if the uri format is invalid
              */
-            final public function __construct($uri, array $uriOptions = [], array $driverOptions = []) {}
+            final public function __construct($uri = '', array $options = [], array $driverOptions = []) {}
+
+            final public function __wakeup() {}
 
             /**
              * Return a ClientEncryption instance.
@@ -62,7 +64,7 @@ namespace MongoDB\Driver {
              * Execute one or more write operations
              * @link https://php.net/manual/en/mongodb-driver-manager.executebulkwrite.php
              * @param string $namespace A fully qualified namespace (databaseName.collectionName)
-             * @param BulkWrite $bulk The MongoDB\Driver\BulkWrite to execute.
+             * @param BulkWrite $zbulk The MongoDB\Driver\BulkWrite to execute.
              * @param array|WriteConcern $options WriteConcern type for backwards compatibility
              * @return WriteResult
              * @throws InvalidArgumentException on argument parsing errors.
@@ -72,7 +74,7 @@ namespace MongoDB\Driver {
              * @throws RuntimeException on other errors (invalid command, command arguments, ...)
              * @since 1.4.0 added $options argument
              */
-            final public function executeBulkWrite($namespace, BulkWrite $bulk, $options = []) {}
+            final public function executeBulkWrite($namespace, BulkWrite $zbulk, $options = []) {}
 
             /**
              * @link https://php.net/manual/en/mongodb-driver-manager.executecommand.php
@@ -94,7 +96,7 @@ namespace MongoDB\Driver {
              * Execute a MongoDB query
              * @link https://php.net/manual/en/mongodb-driver-manager.executequery.php
              * @param string $namespace A fully qualified namespace (databaseName.collectionName)
-             * @param Query $query A MongoDB\Driver\Query to execute.
+             * @param Query $zquery A MongoDB\Driver\Query to execute.
              * @param array|ReadPreference $options ReadPreference type for backwards compatibility
              * @return Cursor
              * @throws Exception
@@ -103,7 +105,7 @@ namespace MongoDB\Driver {
              * @throws RuntimeException on other errors (invalid command, command arguments, ...)
              * @since 1.4.0 added $options argument
              */
-            final public function executeQuery($namespace, Query $query, $options = []) {}
+            final public function executeQuery($namespace, Query $zquery, $options = []) {}
 
             /**
              * @link https://php.net/manual/en/mongodb-driver-manager.executereadcommand.php
@@ -231,11 +233,13 @@ namespace MongoDB\Driver {
              */
             final private function __construct() {}
 
+            final public function __wakeup() {}
+
             /**
              * Execute one or more write operations on this server
              * @link https://php.net/manual/en/mongodb-driver-server.executebulkwrite.php
              * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
-             * @param BulkWrite $zwrite The MongoDB\Driver\BulkWrite to execute.
+             * @param BulkWrite $zbulk The MongoDB\Driver\BulkWrite to execute.
              * @param array $options
              * @throws BulkWriteException on any write failure (e.g. write error, failure to apply a write concern).
              * @throws InvalidArgumentException on argument parsing errors.
@@ -245,14 +249,14 @@ namespace MongoDB\Driver {
              * @return WriteResult
              * @since 1.0.0
              */
-            final public function executeBulkWrite($namespace, BulkWrite $zwrite, $options = []) {}
+            final public function executeBulkWrite($namespace, BulkWrite $zbulk, $options = []) {}
 
             /**
              * Execute a database command on this server
              * @link https://php.net/manual/en/mongodb-driver-server.executecommand.php
              * @param string $db The name of the database on which to execute the command.
              * @param Command $command The MongoDB\Driver\Command to execute.
-             * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to select the server for this operation. If none is given, the read preference from the MongoDB Connection URI will be used.
+             * @param ReadPreference $options Optionally, a MongoDB\Driver\ReadPreference to select the server for this operation. If none is given, the read preference from the MongoDB Connection URI will be used.
              * @throws InvalidArgumentException on argument parsing errors.
              * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
              * @throws AuthenticationException if authentication is needed and fails.
@@ -260,14 +264,14 @@ namespace MongoDB\Driver {
              * @return Cursor
              * @since 1.0.0
              */
-            final public function executeCommand($db, Command $command, ReadPreference $readPreference = null) {}
+            final public function executeCommand($db, Command $command, ReadPreference $options = null) {}
 
             /**
              * Execute a database command that reads on this server
              * @link https://secure.php.net/manual/en/mongodb-driver-server.executereadcommand.php
              * @param string                  $db
              * @param \MongoDB\Driver\Command $command
-             * @param array                   $option
+             * @param array                   $options
              * @return Cursor
              * @throws InvalidArgumentException On argument parsing errors or  if the "session" option is used with an associated transaction in combination with a "readConcern" or "writeConcern" option.
              * @throws ConnectionException If connection to the server fails (for reasons other than authentication).
@@ -275,14 +279,14 @@ namespace MongoDB\Driver {
              * @throws RuntimeException On other errors (e.g. invalid command).
              * @since 1.4.0
              */
-            final public function executeReadCommand($db, Command $command, array $option = []) {}
+            final public function executeReadCommand($db, Command $command, array $options = []) {}
 
             /**
              * Execute a database command that reads and writes on this server
              * @link https://secure.php.net/manual/en/mongodb-driver-server.executereadwritecommand.php
              * @param string                  $db
              * @param \MongoDB\Driver\Command $command
-             * @param array                   $option
+             * @param array                   $options
              * @return Cursor
              * @throws InvalidArgumentException On argument parsing errors OR if the "session" option is used with an associated transaction in combination with a "readConcern" or "writeConcern" option OR if the "session" option is used in combination with an unacknowledged write concern
              * @throws ConnectionException If connection to the server fails (for reasons other than authentication).
@@ -290,14 +294,14 @@ namespace MongoDB\Driver {
              * @throws RuntimeException On other errors (e.g. invalid command).
              * @since 1.4.0
              */
-            final public function executeReadWriteCommand($db, Command $command, array $option = []) {}
+            final public function executeReadWriteCommand($db, Command $command, array $options = []) {}
 
             /**
              * Execute a database command that writes on this server
              * @link https://secure.php.net/manual/en/mongodb-driver-server.executewritecommand.php
              * @param string                  $db
              * @param \MongoDB\Driver\Command $command
-             * @param array                   $option
+             * @param array                   $options
              * @return Cursor
              * @throws InvalidArgumentException On argument parsing errors or  if the "session" option is used with an associated transaction in combination with a "readConcern" or "writeConcern" option.
              * @throws ConnectionException If connection to the server fails (for reasons other than authentication).
@@ -305,13 +309,13 @@ namespace MongoDB\Driver {
              * @throws RuntimeException On other errors (e.g. invalid command).
              * @since 1.4.0
              */
-            final public function executeWriteCommand($db, Command $command, array $option = []) {}
+            final public function executeWriteCommand($db, Command $command, array $options = []) {}
 
             /**
              * Execute a database query on this server
              * @link https://php.net/manual/en/mongodb-driver-server.executequery.php
              * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
-             * @param Query $query The MongoDB\Driver\Query to execute.
+             * @param Query $zquery The MongoDB\Driver\Query to execute.
              * @param array|ReadPreference $options
              * <table>
              * <caption><strong>options</strong></caption>
@@ -354,7 +358,7 @@ namespace MongoDB\Driver {
              * @throws RuntimeException on other errors (e.g. invalid command, issuing a write command to a secondary).
              * @return Cursor
              */
-            final public function executeQuery($namespace, Query $query, $option = []) {}
+            final public function executeQuery($namespace, Query $zquery, $options = []) {}
 
             /**
              * Returns the hostname of this server
@@ -455,10 +459,12 @@ namespace MongoDB\Driver {
              * Construct new Query
              * @link https://php.net/manual/en/mongodb-driver-query.construct.php
              * @param array|object $filter The search filter.
-             * @param array $queryOptions
+             * @param array $options
              * @throws InvalidArgumentException on argument parsing errors.
              */
-            final public function __construct($filter, array $queryOptions = []) {}
+            final public function __construct($filter, array $options = []) {}
+
+            final public function __wakeup() {}
         }
 
         /**
@@ -472,12 +478,14 @@ namespace MongoDB\Driver {
             /**
              * Construct new Command
              * @param array|object $document The complete command to construct
-             * @param array $commandOptions Do not use this parameter to specify options described in the command's reference in the MongoDB manual.
+             * @param array $options Do not use this parameter to specify options described in the command's reference in the MongoDB manual.
              * @throws InvalidArgumentException on argument parsing errors.
              * @link https://secure.php.net/manual/en/mongodb-driver-command.construct.php
              * @since 1.0.0
              */
-            final public function __construct($document, array $commandOptions = []) {}
+            final public function __construct($document, array $options = []) {}
+
+            final public function __wakeup() {}
         }
 
         /**
@@ -531,6 +539,8 @@ namespace MongoDB\Driver {
              * @throws InvalidArgumentException if mode is invalid or if tagSets is provided for a primary read preference.
              */
             final public function __construct(string|int $mode, array $tagSets = null, array $options = []) {}
+
+            public static function __set_state(array $properties) {}
 
             /**
              * Returns the ReadPreference's "hedge" option
@@ -591,6 +601,8 @@ namespace MongoDB\Driver {
              * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
              */
             final public function unserialize($serialized) {}
+
+            final public function getMaxStalenessSeconds() {}
         }
 
         /**
@@ -617,6 +629,8 @@ namespace MongoDB\Driver {
              * @param string $level
              */
             final public function __construct($level = null) {}
+
+            public static function __set_state(array $properties) {}
 
             /**
              * Returns the ReadConcern's "level" option
@@ -676,6 +690,8 @@ namespace MongoDB\Driver {
              * @link https://php.net/manual/en/mongodb-driver-cursor.construct.php
              */
             final private function __construct() {}
+
+            final public function __wakeup() {}
 
             /**
              * Returns the current element.
@@ -786,6 +802,8 @@ namespace MongoDB\Driver {
              */
             final public function __toString() {}
 
+            final public function __wakeup() {}
+
             /**
              * Serialize a CursorId
              * @since 1.7.0
@@ -827,6 +845,8 @@ namespace MongoDB\Driver {
              */
             final public function __construct(array $options = []) {}
 
+            final public function __wakeup() {}
+
             /**
              * Count expected roundtrips for executing the bulk
              * Returns the expected number of client-to-server roundtrips required to execute all write operations in the BulkWrite.
@@ -834,16 +854,16 @@ namespace MongoDB\Driver {
              * @return int number of expected roundtrips to execute the BulkWrite.
              * @throws InvalidArgumentException on argument parsing errors.
              */
-            public function count() {}
+            final public function count() {}
 
             /**
              * Add a delete operation to the bulk
              * @link https://php.net/manual/en/mongodb-driver-bulkwrite.delete.php
-             * @param array|object $filter The search filter
+             * @param array|object $query The search filter
              * @param array $deleteOptions
              * @throws InvalidArgumentException on argument parsing errors.
              */
-            public function delete($filter, array $deleteOptions = []) {}
+            final public function delete($query, array $deleteOptions = []) {}
 
             /**
              * Add an insert operation to the bulk
@@ -858,12 +878,12 @@ namespace MongoDB\Driver {
             /**
              * Add an update operation to the bulk
              * @link https://php.net/manual/en/mongodb-driver-bulkwrite.update.php
-             * @param array|object $filter The search filter
+             * @param array|object $query The search filter
              * @param array|object $newObj A document containing either update operators (e.g. $set) or a replacement document (i.e. only field:value expressions)
              * @param array $updateOptions
              * @throws InvalidArgumentException on argument parsing errors.
              */
-            public function update($filter, $newObj, array $updateOptions = []) {}
+            final public function update($query, $newObj, array $updateOptions = []) {}
         }
 
         /**
@@ -885,6 +905,8 @@ namespace MongoDB\Driver {
              * @throws InvalidArgumentException on argument parsing errors.
              */
             final public function __construct($w, $wtimeout = 0, $journal = false) {}
+
+            public static function __set_state(array $properties) {}
 
             /**
              * Returns the WriteConcern's "journal" option
@@ -935,6 +957,8 @@ namespace MongoDB\Driver {
              * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
              */
             final public function unserialize($serialized) {}
+
+            final public function isDefault() {}
         }
 
         /**
@@ -943,6 +967,10 @@ namespace MongoDB\Driver {
          */
         final class WriteResult
         {
+            final private function __construct() {}
+
+            final public function __wakeup() {}
+
             /**
              * Returns the number of documents deleted
              * @link https://php.net/manual/en/mongodb-driver-writeresult.getdeletedcount.php
@@ -1019,6 +1047,10 @@ namespace MongoDB\Driver {
          */
         final class WriteError
         {
+            final private function __construct() {}
+
+            final public function __wakeup() {}
+
             /**
              * Returns the WriteError's error code
              * @link https://php.net/manual/en/mongodb-driver-writeerror.getcode.php
@@ -1054,6 +1086,10 @@ namespace MongoDB\Driver {
          */
         final class WriteConcernError
         {
+            final private function __construct() {}
+
+            final public function __wakeup() {}
+
             /**
              * Returns the WriteConcernError's error code
              * @link https://php.net/manual/en/mongodb-driver-writeconcernerror.getcode.php
@@ -1112,6 +1148,8 @@ namespace MongoDB\Driver {
              */
             final private function __construct() {}
 
+            final public function __wakeup() {}
+
             /**
              * Aborts a transaction
              * @link https://secure.php.net/manual/en/mongodb-driver-session.aborttransaction.php
@@ -1133,12 +1171,12 @@ namespace MongoDB\Driver {
             /**
              * Advances the operation time for this session
              * @link https://secure.php.net/manual/en/mongodb-driver-session.advanceoperationtime.php
-             * @param \MongoDB\BSON\TimestampInterface $operationTime
+             * @param \MongoDB\BSON\TimestampInterface $timestamp
              * @return void
              * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors
              * @since 1.4.0
              */
-            final public function advanceOperationTime(\MongoDB\BSON\TimestampInterface $operationTime) {}
+            final public function advanceOperationTime(\MongoDB\BSON\TimestampInterface $timestamp) {}
 
             /**
              * @link https://secure.php.net/manual/en/mongodb-driver-session.committransaction.php
@@ -1238,7 +1276,7 @@ namespace MongoDB\Driver {
              * @throws \MongoDB\Driver\Exception\RuntimeException If the the transaction could not be started (e.g. a transaction was already started).
              * @since 1.4.0
              */
-            final public function startTransaction($options) {}
+            final public function startTransaction($options = []) {}
         }
 
         /**
@@ -1303,6 +1341,8 @@ namespace MongoDB\Driver {
 
             final private function __construct() {}
 
+            final public function __wakeup() {}
+
             /**
              * Creates a new key document and inserts into the key vault collection.
              * @link https://www.php.net/manual/en/mongodb-driver-clientencryption.createdatakey.php
@@ -1317,12 +1357,12 @@ namespace MongoDB\Driver {
             /**
              * Decrypts an encrypted value (BSON binary of subtype 6).
              * @link https://www.php.net/manual/en/mongodb-driver-clientencryption.decrypt.php
-             * @param \MongoDB\BSON\Binary $value A MongoDB\BSON\Binary instance with subtype 6 containing the encrypted value.
+             * @param \MongoDB\BSON\Binary $keyVaultClient A MongoDB\BSON\Binary instance with subtype 6 containing the encrypted value.
              * @return mixed Returns the decrypted value
              * @throws InvalidArgumentException On argument parsing errors.
              * @throws EncryptionException If an error occurs while decrypting the value.
              */
-            final public function decrypt(\MongoDB\BSON\Binary $value) {}
+            final public function decrypt(\MongoDB\BSON\Binary $keyVaultClient) {}
 
             /**
              * Encrypts a value with a given key and algorithm.
@@ -1356,11 +1396,11 @@ namespace MongoDB\Driver\Exception {
             /**
              * Whether the given errorLabel is associated with this exception
              *
-             * @param string $errorLabel
-             * @since 1.6.0
+             * @param string $label
              * @return bool
+             *@since 1.6.0
              */
-            final public function hasErrorLabel($errorLabel) {}
+            final public function hasErrorLabel($label) {}
         }
 
         /**
@@ -1388,7 +1428,7 @@ namespace MongoDB\Driver\Exception {
          * @link https://php.net/manual/en/class.mongodb-driver-exception-invalidargumentexception.php
          * @since 1.0.0
          */
-        class InvalidArgumentException extends \InvalidArgumentException {}
+        class InvalidArgumentException extends \InvalidArgumentException implements Exception {}
 
         /**
          * Thrown when a command fails
@@ -1398,6 +1438,8 @@ namespace MongoDB\Driver\Exception {
          */
         class CommandException extends ServerException
         {
+            protected $resultDocument;
+
             /**
              * Returns the result document for the failed command
              * @link https://secure.php.net/manual/en/mongodb-driver-commandexception.getresultdocument.php
@@ -1570,6 +1612,10 @@ namespace MongoDB\Driver\Monitoring {
          */
         class CommandSucceededEvent
         {
+            final private function __construct() {}
+
+            final public function __wakeup() {}
+
             /**
              * Returns the command name.
              * @link   https://secure.php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getcommandname.php
@@ -1636,6 +1682,10 @@ namespace MongoDB\Driver\Monitoring {
          */
         class CommandFailedEvent
         {
+            final private function __construct() {}
+
+            final public function __wakeup() {}
+
             /**
              * Returns the command name.
              * @link   https://secure.php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getcommandname.php
@@ -1711,6 +1761,10 @@ namespace MongoDB\Driver\Monitoring {
          */
         class CommandStartedEvent
         {
+            final private function __construct() {}
+
+            final public function __wakeup() {}
+
             /**
              * Returns the command document
              * The reply document will be converted from BSON to PHP using the default deserialization rules (e.g. BSON documents will be converted to stdClass).
@@ -1842,12 +1896,12 @@ namespace MongoDB\BSON {
          * The typeMap parameter may be used to control the PHP types used for converting BSON arrays and documents (both root and embedded).
          * @link https://php.net/manual/en/function.mongodb.bson-tophp.php
          * @param string $bson BSON value to be unserialized.
-         * @param array $typeMap
+         * @param array $typemap
          * @return object The unserialized PHP value
          * @throws UnexpectedValueException if the input did not contain exactly one BSON document.
          * @throws InvalidArgumentException if a class in the type map cannot be instantiated or does not implement MongoDB\BSON\Unserializable.
          */
-        function toPHP($bson, array $typeMap) {}
+        function toPHP($bson, array $typemap = []) {}
 
         /**
          * Class Binary
@@ -1889,7 +1943,7 @@ namespace MongoDB\BSON {
              */
             final public function getType() {}
 
-            public static function __set_state($an_array) {}
+            public static function __set_state($properties) {}
 
             /**
              * Returns the Binary's data
@@ -1948,7 +2002,7 @@ namespace MongoDB\BSON {
              */
             final public function __toString() {}
 
-            public static function __set_state($an_array) {}
+            public static function __set_state($properties) {}
 
             /**
              * Serialize a Decimal128
@@ -1989,12 +2043,12 @@ namespace MongoDB\BSON {
             /**
              * Construct a new Javascript
              * @link https://php.net/manual/en/mongodb-bson-javascript.construct.php
-             * @param string $code
+             * @param string $javascript
              * @param array|object $scope
              */
-            final public function __construct($code, $scope = []) {}
+            final public function __construct($javascript, $scope = []) {}
 
-            public static function __set_state($an_array) {}
+            public static function __set_state($properties) {}
 
             /**
              * Returns the Javascript's code
@@ -2053,7 +2107,7 @@ namespace MongoDB\BSON {
          */
         final class MaxKey implements Type, MaxKeyInterface, \Serializable, JsonSerializable
         {
-            public static function __set_state($an_array) {}
+            public static function __set_state($properties) {}
 
             /**
              * Serialize a MaxKey
@@ -2091,7 +2145,7 @@ namespace MongoDB\BSON {
          */
         final class MinKey implements Type, MinKeyInterface, \Serializable, JsonSerializable
         {
-            public static function __set_state($an_array) {}
+            public static function __set_state($properties) {}
 
             /**
              * Serialize a MinKey
@@ -2143,6 +2197,8 @@ namespace MongoDB\BSON {
              * @return string
              */
             final public function __toString() {}
+
+            public static function __set_state(array $properties) {}
 
             /**
              * Returns the timestamp component of this ObjectId
@@ -2211,7 +2267,7 @@ namespace MongoDB\BSON {
              */
             final public function __toString() {}
 
-            public static function __set_state($an_array) {}
+            public static function __set_state($properties) {}
 
             /**
              * Serialize a Regex
@@ -2263,6 +2319,8 @@ namespace MongoDB\BSON {
              * @return string
              */
             final public function __toString() {}
+
+            public static function __set_state(array $properties) {}
 
             /**
              * Returns the increment component of this TimestampInterface
@@ -2322,6 +2380,8 @@ namespace MongoDB\BSON {
              * @param int|float|string|DateTimeInterface $milliseconds
              */
             final public function __construct($milliseconds = null) {}
+
+            public static function __set_state(array $properties) {}
 
             /**
              * Returns the DateTime representation of this UTCDateTime
@@ -2469,7 +2529,7 @@ namespace MongoDB\BSON {
          * @link https://secure.php.net/manual/en/class.mongodb-bson-dbpointer.php
          */
         #[Deprecated]
-        final class DbPointer implements Type, \Serializable, \JsonSerializable
+        final class DBPointer implements Type, \Serializable, \JsonSerializable
         {
             final private function __construct() {}
 

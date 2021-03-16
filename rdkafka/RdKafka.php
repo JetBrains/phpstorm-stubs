@@ -23,7 +23,7 @@ abstract class RdKafka
      * @throws Exception
      * @return Metadata
      */
-    public function getMetadata($all_topics, $only_topic = null, $timeout_ms) {}
+    public function getMetadata($all_topics, $only_topic = null, $timeout_ms = 0) {}
 
     /**
      * @return int
@@ -53,12 +53,12 @@ abstract class RdKafka
     public function setLogLevel($level) {}
 
     /**
-     * @param TopicPartition[] $topicPartitions
+     * @param TopicPartition[] $topic_partitions
      * @param int $timeout_ms
      *
      * @return TopicPartition[]
      */
-    public function offsetsForTimes(array $topicPartitions, int $timeout_ms) {}
+    public function offsetsForTimes(array $topic_partitions, int $timeout_ms) {}
 
     /**
      * @param string $topic
@@ -69,7 +69,7 @@ abstract class RdKafka
      *
      * @return void
      */
-    public function queryWatermarkOffsets(string $topic, int $partition, int &$low, int &$high, int $timeout_ms) {}
+    public function queryWatermarkOffsets(string $topic, int $partition = 0, int &$low = 0, int &$high = 0, int $timeout_ms = 0) {}
 
     /**
      * @param int $purge_flags
@@ -84,4 +84,10 @@ abstract class RdKafka
      * @return int
      */
     public function flush(int $timeout_ms) {}
+
+    public function metadata($all_topics, $only_topic = false, $timeout_ms = 0) {}
+
+    public function setLogger($logger) {}
+
+    public function outqLen() {}
 }

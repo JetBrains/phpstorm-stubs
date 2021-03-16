@@ -13,7 +13,6 @@ RUN set -eux; \
 RUN docker-php-ext-install imap gmp sockets intl gd ldap bz2 mysqli bcmath calendar dba exif gettext opcache pcntl \
     pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap
 
-
 #TODO: Uncomment below after php 8 released
 #RUN pecl install xmlrpc
 #RUN docker-php-ext-enable xmlrpc

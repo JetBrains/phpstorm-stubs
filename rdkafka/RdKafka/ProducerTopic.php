@@ -14,7 +14,7 @@ class ProducerTopic extends Topic
      *
      * @return void
      */
-    public function produce($partition, $msgflags, $payload = null, $key = null) {}
+    public function produce($partition, $msgflags, $payload = null, $key = null, $msg_opaque = null) {}
 
     /**
      * @param int         $partition
@@ -26,5 +26,5 @@ class ProducerTopic extends Topic
      *
      * @return void
      */
-    public function producev($partition, $msgflags, $payload = null, $key = null, $headers = null, $timestamp_ms = 0) {}
+    public function producev($partition, $msgflags, $payload = null, $key = null, $headers = null, $timestamp_ms = 0, $msg_opaque = null) {}
 }

@@ -7,6 +7,8 @@ namespace RdKafka;
  */
 class TopicConf
 {
+    public function __construct() {}
+
     /**
      * @return array
      */

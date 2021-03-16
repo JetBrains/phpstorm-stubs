@@ -62,11 +62,11 @@ function mcrypt_ofb($cipher, $key, $data, $mode, $iv = null) {}
  * Get the key size of the specified cipher
  * @link https://php.net/manual/en/function.mcrypt-get-key-size.php
  * @param int|string $cipher
- * @param string $mode
+ * @param string $module
  * @return int
  */
 #[Deprecated(since: '7.1')]
-function mcrypt_get_key_size($cipher, $mode) {}
+function mcrypt_get_key_size($cipher, $module) {}
 
 /**
  * Get the block size of the specified cipher
@@ -75,12 +75,12 @@ function mcrypt_get_key_size($cipher, $mode) {}
  * One of the MCRYPT_ciphername constants or the name
  * of the algorithm as string.
  * </p>
- * @param string $mode <p>
+ * @param string $module <p>
  * One of the <b>MCRYPT_MODE_modename</b> constants, or one of the following strings: "ecb", "cbc", "cfb", "ofb", "nofb" or "stream".</p>
  * @return int Gets the block size, as an integer.
  */
 #[Deprecated(since: '7.1')]
-function mcrypt_get_block_size($cipher, $mode) {}
+function mcrypt_get_block_size($cipher, $module) {}
 
 /**
  * Get the name of the specified cipher
@@ -157,7 +157,7 @@ function mcrypt_list_modes($lib_dir = null) {}
  * One of the MCRYPT_ciphername constants of the name
  * of the algorithm as string.
  * </p>
- * @param string $mode <p>
+ * @param string $module <p>
  * mode is one of the MCRYPT_MODE_modename constants
  * or one of "ecb", "cbc", "cfb", "ofb", "nofb" or "stream". The IV is
  * ignored in ECB mode as this mode does not require it. You will need to
@@ -169,7 +169,7 @@ function mcrypt_list_modes($lib_dir = null) {}
  * combination zero is returned.
  */
 #[Deprecated(since: '7.1')]
-function mcrypt_get_iv_size($cipher, $mode) {}
+function mcrypt_get_iv_size($cipher, $module) {}
 
 /**
  * Encrypts plaintext with given parameters
@@ -248,10 +248,10 @@ function mcrypt_decrypt($cipher, $key, $data, $mode, $iv = null) {}
 /**
  * Opens the module of the algorithm and the mode to be used
  * @link https://php.net/manual/en/function.mcrypt-module-open.php
- * @param string $algorithm <p>
+ * @param string $cipher <p>
  * The algorithm to be used.
  * </p>
- * @param string $algorithm_directory <p>
+ * @param string $cipher_directory <p>
  * The algorithm_directory and
  * mode_directory are used to locate the encryption
  * modules. When you supply a directory name, it is used. When you set one
@@ -270,7 +270,7 @@ function mcrypt_decrypt($cipher, $key, $data, $mode, $iv = null) {}
  * @return resource|false Normally it returns an encryption descriptor, or false on error.
  */
 #[Deprecated(since: '7.1')]
-function mcrypt_module_open($algorithm, $algorithm_directory, $mode, $mode_directory) {}
+function mcrypt_module_open($cipher, $cipher_directory, $mode, $mode_directory) {}
 
 /**
  * This function initializes all buffers needed for encryption

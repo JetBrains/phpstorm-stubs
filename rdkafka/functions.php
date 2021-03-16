@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Deprecated;
+
 /**
  * Returns the full list of error codes.
  * @return array
@@ -24,11 +26,13 @@ function rd_kafka_err2str($err) {}
  *
  * @return int Returns a kafka error code as an integer.
  */
+#[Deprecated]
 function rd_kafka_errno2err($errnox) {}
 
 /**
  * @return int Returns the system errno as an integer.
  */
+#[Deprecated]
 function rd_kafka_errno() {}
 
 /**

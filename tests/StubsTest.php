@@ -95,7 +95,7 @@ class StubsTest extends BaseStubsTest
         static::assertEquals(
             $constantValue,
             $stubConstants[$constantName]->value,
-            "Constant value mismatch: const $constantName \n
+            "Constant value mismatch: const $class->name::$constantName \n
             Expected value: $constantValue but was {$stubConstants[$constantName]->value}"
         );
     }
@@ -254,7 +254,8 @@ class StubsTest extends BaseStubsTest
         /** @var PHPParameter $stubOptionalParameter */
         $stubOptionalParameter = array_pop($stubParameters);
         self::assertEquals($parameter->isOptional, $stubOptionalParameter->isOptional,
-            sprintf('Reflection method %s::%s has optional parameter %s', $class->name, $method->name, $parameter->name));
+            sprintf('Reflection method %s::%s has optional parameter %s but stub parameter is not optional',
+                $class->name, $method->name, $parameter->name));
     }
 
     /**
@@ -375,7 +376,7 @@ class StubsTest extends BaseStubsTest
      * @param PHPMethod $method
      * @throws Exception|RuntimeException
      */
-    public function testClassesParametersCount(PHPClass|PHPInterface $class, PHPMethod $method)
+    public function testClassMethodsParametersCount(PHPClass|PHPInterface $class, PHPMethod $method)
     {
         $className = $class->name;
         if ($class instanceof PHPClass) {

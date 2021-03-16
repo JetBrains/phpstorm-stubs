@@ -527,55 +527,55 @@
     {
       "name": "gmp_div_r",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ]
     },
     {
       "name": "gmp_mod",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ]
     },
     {
       "name": "gmp_divexact",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ]
     },
     {
       "name": "gmp_neg",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ]
     },
     {
       "name": "gmp_abs",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ]
     },
     {
       "name": "gmp_fact",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ]
     },
     {
       "name": "gmp_sqrt",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ]
     },
     {
       "name": "gmp_sqrtrem",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ]
     },
     {
       "name": "min",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ],
       "comment": [
         "specific overloading case"
@@ -584,7 +584,7 @@
     {
       "name": "max",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ],
       "comment": [
         "specific overloading case"
@@ -593,31 +593,31 @@
     {
       "name": "uopz_add_function",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ]
     },
     {
       "name": "uopz_del_function",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ]
     },
     {
       "name": "numfmt_format",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ]
     },
     {
       "name": "datefmt_format_object",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ]
     },
     {
       "name": "oci_lob_is_equal",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ],
       "comment": [
         "Oci_lob vs Oci-lob"
@@ -626,7 +626,7 @@
     {
       "name": "oci_lob_copy",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ],
       "comment": [
         "Oci_lob vs Oci-lob"
@@ -635,7 +635,7 @@
     {
       "name": "xmlrpc_server_register_method",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ]
     },
     {
@@ -1172,7 +1172,7 @@
     {
       "name": "sem_get",
       "problems": [
-        "wrong parmeter type in docs"
+        "wrong parameter type in docs"
       ],
       "comment": "Invalid documentation"
     },
@@ -1269,7 +1269,7 @@
     },
     {
       "name": "bcscale",
-      "problems" : [
+      "problems": [
         "has duplicate in stubs"
       ],
       "parameters": [
@@ -1385,12 +1385,28 @@
   ],
   "classes": [
     {
+      "name": "Yaf_Application",
+      "methods": [
+        {
+          "name": "execute",
+          "parameters": [
+            {
+              "name": "...",
+              "problems": [
+                "parameter name mismatch"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Yaf_Dispatcher",
       "methods": [
         {
           "name": "setErrorHandler",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ],
           "comment": [
             "call == callable"
@@ -1404,7 +1420,7 @@
         {
           "name": "export",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ]
         }
       ]
@@ -1458,7 +1474,7 @@
         {
           "name": "getSockOpt",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ]
         }
       ]
@@ -1469,7 +1485,7 @@
         {
           "name": "export",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ]
         }
       ]
@@ -1480,19 +1496,19 @@
         {
           "name": "getQuery",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ]
         },
         {
           "name": "getPost",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ]
         },
         {
           "name": "getCookie",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ]
         }
       ]
@@ -1503,7 +1519,7 @@
         {
           "name": "getParam",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ],
           "comment": [
             "$default is mixed"
@@ -1517,7 +1533,7 @@
         {
           "name": "set",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ],
           "comment": [
             "$value is mixed"
@@ -1531,7 +1547,7 @@
         {
           "name": "getServer",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ],
           "comment": [
             "$value is mixed"
@@ -1545,7 +1561,7 @@
         {
           "name": "offsetGet",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ],
           "comment": [
             "$name is mixed in ArrayAccess"
@@ -1559,7 +1575,7 @@
         {
           "name": "addRoute",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ],
           "comment": [
             "There is no Yaf_Route_Abstract class"
@@ -1573,7 +1589,7 @@
         {
           "name": "format",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ],
           "comment": [
             "$value is number"
@@ -1587,7 +1603,7 @@
         {
           "name": "createStopped",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ]
         }
       ]
@@ -1598,7 +1614,7 @@
         {
           "name": "__construct",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ]
         }
       ]
@@ -1609,7 +1625,7 @@
         {
           "name": "__construct",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ]
         }
       ]
@@ -1620,7 +1636,7 @@
         {
           "name": "createStopped",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ]
         }
       ]
@@ -1631,19 +1647,33 @@
         {
           "name": "child",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ]
         },
         {
           "name": "embed",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs",
+            "parameter mismatch"
           ]
         },
         {
           "name": "check",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs",
+            "parameter mismatch"
+          ]
+        },
+        {
+          "name": "prepare",
+          "problems": [
+            "parameter mismatch"
+          ]
+        },
+        {
+          "name": "fork",
+          "problems": [
+            "parameter mismatch"
           ]
         }
       ]
@@ -1653,7 +1683,7 @@
       "methods": {
         "name": "__construct",
         "problems": [
-          "wrong parmeter type in docs"
+          "wrong parameter type in docs"
         ]
       }
     },
@@ -1662,7 +1692,7 @@
       "methods": {
         "name": "__construct",
         "problems": [
-          "wrong parmeter type in docs"
+          "wrong parameter type in docs"
         ]
       }
     },
@@ -1672,13 +1702,35 @@
         {
           "name": "__construct",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ]
         },
         {
           "name": "createStopped",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yaf_Route_Rewrite",
+      "methods": [
+        {
+          "name": "__construct",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yar_Concurrent_Client",
+      "methods": [
+        {
+          "name": "call",
+          "problems": [
+            "parameter mismatch"
           ]
         }
       ]
@@ -1689,7 +1741,7 @@
         {
           "name": "__construct",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ],
           "comment": [
             "$value is scalar"
@@ -1698,7 +1750,7 @@
         {
           "name": "set",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ],
           "comment": [
             "$value is scalar"
@@ -1712,7 +1764,7 @@
         {
           "name": "call",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ],
           "comment": [
             "$use_self appears to be bool"
@@ -1721,7 +1773,7 @@
         {
           "name": "assign",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ],
           "comment": [
             "$value appears to be mixed"
@@ -1735,13 +1787,13 @@
         {
           "name": "SoapFault",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ]
         },
         {
           "name": "__construct",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ]
         }
       ]
@@ -1752,7 +1804,7 @@
         {
           "name": "__construct",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ]
         }
       ]
@@ -1763,7 +1815,7 @@
         {
           "name": "transformToXml",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ]
         }
       ]
@@ -1774,7 +1826,7 @@
         {
           "name": "setFacetDateHardEnd",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ]
         }
       ]
@@ -1785,7 +1837,7 @@
         {
           "name": "getImageDistortion",
           "problems": [
-            "wrong parmeter type in docs"
+            "wrong parameter type in docs"
           ],
           "comment": [
             "magickwand is a type from c sources"

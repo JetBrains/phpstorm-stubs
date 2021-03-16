@@ -67,11 +67,11 @@ function inotify_read($inotify_instance) {}
  * @link     https://secure.php.net/manual/en/function.inotify-rm-watch.php
  *
  * @param resource $inotify_instance <p>resource returned by {@link https://php.net/manual/en/function.inotify-init.php inotify_init()}</p>
- * @param int      $watch_descriptor <p>watch to remove from the instance</p>
+ * @param int      $mask <p>watch to remove from the instance</p>
  *
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function inotify_rm_watch($inotify_instance, $watch_descriptor) {}
+function inotify_rm_watch($inotify_instance, $mask) {}
 
 /**
  * @link https://php.net/manual/en/inotify.constants.php
