@@ -465,7 +465,6 @@ namespace {
  */
 
 namespace Cassandra {
-
     use JetBrains\PhpStorm\Deprecated;
 
     /**
@@ -6136,7 +6135,6 @@ namespace Cassandra\SSLOptions {
  */
 
 namespace Cassandra\Exception {
-
     use JetBrains\PhpStorm\Pure;
 
     /**

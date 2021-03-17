@@ -17,10 +17,9 @@ namespace
 }
 
 namespace Yaf {
-
     use Yaf;
 
-    /**
+/**
  * \Yaf\Application provides a bootstrapping facility for applications which provides reusable resources, common- and module-based bootstrap classes and dependency checking.
  * <br/>
  * <b>Note:</b>
@@ -1885,7 +1884,6 @@ class Route_Static implements \Yaf\Route_Interface
 }}
 
 namespace Yaf\Response {
-
     class Http extends \Yaf\Response_Abstract
 {
     /**
@@ -1967,8 +1965,7 @@ class Cli extends \Yaf\Response_Abstract
 }}
 
 namespace Yaf\Request {
-
-    /**
+/**
  * @link https://secure.php.net/manual/en/class.yaf-request-http.php
  */
 class Http extends \Yaf\Request_Abstract
@@ -2178,8 +2175,7 @@ class Simple extends \Yaf\Request_Abstract
 }}
 
 namespace Yaf\Config {
-
-    /**
+/**
  * <p>\Yaf\Config\Ini enables developers to store configuration data in a familiar INI format and read them in the application by using nested object property syntax. The INI format is specialized to provide both the ability to have a hierarchy of configuration data keys and inheritance between configuration data sections. Configuration data hierarchies are supported by separating the keys with the dot or period character ("."). A section may extend or inherit from another section by following the section name with a colon character (":") and the name of the section from which data are to be inherited.</p><br/>
  * <b>Note:</b>
  * <p>\Yaf\Config\Ini utilizes the » parse_ini_file() PHP function. Please review this documentation to be aware of its specific behaviors, which propagate to \Yaf\Config\Ini, such as how the special values of "TRUE", "FALSE", "yes", "no", and "NULL" are handled.</p>
@@ -2385,8 +2381,7 @@ class Simple extends \Yaf\Config_Abstract implements \Iterator, \Traversable, \A
 }}
 
 namespace Yaf\View {
-
-    /**
+/**
  * <b>\Yaf\View\Simple</b> is the built-in template engine in Yaf, it is a simple but fast template engine, and only support PHP script template.
  * @link https://secure.php.net/manual/en/class.yaf-view-simple.php
  *
@@ -2535,8 +2530,7 @@ class Simple implements \Yaf\View_Interface
 }}
 
 namespace Yaf\Route {
-
-    /**
+/**
  * <p><b>\Yaf\Route\Simple</b> will match the query string, and find the route info.</p>
  * <br/>
  * <p>all you need to do is tell <b>\Yaf\Route\Simple</b> what key in the $_GET is module, what key is controller, and what key is action.</p>
@@ -2799,8 +2793,7 @@ final class Map implements \Yaf\Route_Interface
 }}
 
 namespace Yaf\Exception {
-
-    /**
+/**
  * @link https://secure.php.net/manual/en/class.yaf-exception-typeerror.php
  */
 class TypeError extends \Yaf\Exception {}/**
