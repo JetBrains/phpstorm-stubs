@@ -28,8 +28,7 @@ use JetBrains\PhpStorm\Pure;
  * returns <b>FALSE</b> if the variable is not set and <b>NULL</b> if the filter fails.
  */
 #[Pure]
-function filter_input (int $type, string $var_name, int $filter = FILTER_DEFAULT, array|int $options): mixed
-{}
+function filter_input(int $type, string $var_name, int $filter = FILTER_DEFAULT, array|int $options): mixed {}
 
 /**
  * Filters a variable with a specified filter
@@ -85,8 +84,7 @@ function filter_input (int $type, string $var_name, int $filter = FILTER_DEFAULT
  * @return mixed the filtered data, or <b>FALSE</b> if the filter fails.
  */
 #[Pure]
-function filter_var (mixed $value, int $filter = FILTER_DEFAULT, array|int $options): mixed
-{}
+function filter_var(mixed $value, int $filter = FILTER_DEFAULT, array|int $options): mixed {}
 
 /**
  * Gets external variables and optionally filters them
@@ -120,8 +118,7 @@ function filter_var (mixed $value, int $filter = FILTER_DEFAULT, array|int $opti
  * fails.
  */
 #[Pure]
-function filter_input_array (int $type, array|int $options = FILTER_DEFAULT, bool $add_empty = true): array|false|null
-{}
+function filter_input_array(int $type, array|int $options = FILTER_DEFAULT, bool $add_empty = true): array|false|null {}
 
 /**
  * Gets multiple variables and optionally filters them
@@ -152,8 +149,7 @@ function filter_input_array (int $type, array|int $options = FILTER_DEFAULT, boo
  * the variable is not set.
  */
 #[Pure]
-function filter_var_array (array $array, array|int $options = FILTER_DEFAULT, bool $add_empty = true): array|false|null
-{}
+function filter_var_array(array $array, array|int $options = FILTER_DEFAULT, bool $add_empty = true): array|false|null {}
 
 /**
  * Returns a list of all supported filters
@@ -163,8 +159,7 @@ function filter_var_array (array $array, array|int $options = FILTER_DEFAULT, bo
  * obtained with <b>filter_id</b> from a name instead.
  */
 #[Pure]
-function filter_list (): array
-{}
+function filter_list(): array {}
 
 /**
  * Checks if variable of specified type exists
@@ -180,8 +175,7 @@ function filter_list (): array
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 #[Pure]
-function filter_has_var (int $input_type, string $var_name): bool
-{}
+function filter_has_var(int $input_type, string $var_name): bool {}
 
 /**
  * Returns the filter ID belonging to a named filter
@@ -192,39 +186,37 @@ function filter_has_var (int $input_type, string $var_name): bool
  * @return int|false ID of a filter on success or <b>FALSE</b> if filter doesn't exist.
  */
 #[Pure]
-function filter_id (string $name): int|false
-{}
-
+function filter_id(string $name): int|false {}
 
 /**
  * POST variables.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('INPUT_POST', 0);
+define('INPUT_POST', 0);
 
 /**
  * GET variables.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('INPUT_GET', 1);
+define('INPUT_GET', 1);
 
 /**
  * COOKIE variables.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('INPUT_COOKIE', 2);
+define('INPUT_COOKIE', 2);
 
 /**
  * ENV variables.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('INPUT_ENV', 4);
+define('INPUT_ENV', 4);
 
 /**
  * SERVER variables.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('INPUT_SERVER', 5);
+define('INPUT_SERVER', 5);
 
 /**
  * SESSION variables.
@@ -232,7 +224,7 @@ define ('INPUT_SERVER', 5);
  * @link https://php.net/manual/en/filter.constants.php
  * @removed 8.0
  */
-define ('INPUT_SESSION', 6);
+define('INPUT_SESSION', 6);
 
 /**
  * REQUEST variables.
@@ -240,66 +232,66 @@ define ('INPUT_SESSION', 6);
  * @link https://php.net/manual/en/filter.constants.php
  * @removed 8.0
  */
-define ('INPUT_REQUEST', 99);
+define('INPUT_REQUEST', 99);
 
 /**
  * No flags.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_NONE', 0);
+define('FILTER_FLAG_NONE', 0);
 
 /**
  * Flag used to require scalar as input
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_REQUIRE_SCALAR', 33554432);
+define('FILTER_REQUIRE_SCALAR', 33554432);
 
 /**
  * Require an array as input.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_REQUIRE_ARRAY', 16777216);
+define('FILTER_REQUIRE_ARRAY', 16777216);
 
 /**
  * Always returns an array.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FORCE_ARRAY', 67108864);
+define('FILTER_FORCE_ARRAY', 67108864);
 
 /**
  * Use NULL instead of FALSE on failure.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_NULL_ON_FAILURE', 134217728);
+define('FILTER_NULL_ON_FAILURE', 134217728);
 
 /**
  * ID of "int" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_VALIDATE_INT', 257);
+define('FILTER_VALIDATE_INT', 257);
 
 /**
  * ID of "boolean" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_VALIDATE_BOOLEAN', 258);
+define('FILTER_VALIDATE_BOOLEAN', 258);
 /**
  * ID of "boolean" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_VALIDATE_BOOL', 258);
+define('FILTER_VALIDATE_BOOL', 258);
 
 /**
  * ID of "float" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_VALIDATE_FLOAT', 259);
+define('FILTER_VALIDATE_FLOAT', 259);
 
 /**
  * ID of "validate_regexp" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_VALIDATE_REGEXP', 272);
+define('FILTER_VALIDATE_REGEXP', 272);
 
 define('FILTER_VALIDATE_DOMAIN', 277);
 
@@ -307,26 +299,26 @@ define('FILTER_VALIDATE_DOMAIN', 277);
  * ID of "validate_url" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_VALIDATE_URL', 273);
+define('FILTER_VALIDATE_URL', 273);
 
 /**
  * ID of "validate_email" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_VALIDATE_EMAIL', 274);
+define('FILTER_VALIDATE_EMAIL', 274);
 
 /**
  * ID of "validate_ip" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_VALIDATE_IP', 275);
-define ('FILTER_VALIDATE_MAC', 276);
+define('FILTER_VALIDATE_IP', 275);
+define('FILTER_VALIDATE_MAC', 276);
 
 /**
  * ID of default ("string") filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_DEFAULT', 516);
+define('FILTER_DEFAULT', 516);
 
 /**
  * @since 7.3
@@ -337,56 +329,56 @@ define('FILTER_SANITIZE_ADD_SLASHES', 523);
  * ID of "unsafe_raw" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_UNSAFE_RAW', 516);
+define('FILTER_UNSAFE_RAW', 516);
 
 /**
  * ID of "string" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_SANITIZE_STRING', 513);
+define('FILTER_SANITIZE_STRING', 513);
 
 /**
  * ID of "stripped" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_SANITIZE_STRIPPED', 513);
+define('FILTER_SANITIZE_STRIPPED', 513);
 
 /**
  * ID of "encoded" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_SANITIZE_ENCODED', 514);
+define('FILTER_SANITIZE_ENCODED', 514);
 
 /**
  * ID of "special_chars" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_SANITIZE_SPECIAL_CHARS', 515);
-define ('FILTER_SANITIZE_FULL_SPECIAL_CHARS', 522);
+define('FILTER_SANITIZE_SPECIAL_CHARS', 515);
+define('FILTER_SANITIZE_FULL_SPECIAL_CHARS', 522);
 
 /**
  * ID of "email" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_SANITIZE_EMAIL', 517);
+define('FILTER_SANITIZE_EMAIL', 517);
 
 /**
  * ID of "url" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_SANITIZE_URL', 518);
+define('FILTER_SANITIZE_URL', 518);
 
 /**
  * ID of "number_int" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_SANITIZE_NUMBER_INT', 519);
+define('FILTER_SANITIZE_NUMBER_INT', 519);
 
 /**
  * ID of "number_float" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_SANITIZE_NUMBER_FLOAT', 520);
+define('FILTER_SANITIZE_NUMBER_FLOAT', 520);
 
 /**
  * ID of "magic_quotes" filter.
@@ -394,87 +386,87 @@ define ('FILTER_SANITIZE_NUMBER_FLOAT', 520);
  * @deprecated 7.4
  * @removed 8.0
  */
-define ('FILTER_SANITIZE_MAGIC_QUOTES', 521);
+define('FILTER_SANITIZE_MAGIC_QUOTES', 521);
 
 /**
  * ID of "callback" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_CALLBACK', 1024);
+define('FILTER_CALLBACK', 1024);
 
 /**
  * Allow octal notation (0[0-7]+) in "int" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_ALLOW_OCTAL', 1);
+define('FILTER_FLAG_ALLOW_OCTAL', 1);
 
 /**
  * Allow hex notation (0x[0-9a-fA-F]+) in "int" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_ALLOW_HEX', 2);
+define('FILTER_FLAG_ALLOW_HEX', 2);
 
 /**
  * Strip characters with ASCII value less than 32.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_STRIP_LOW', 4);
+define('FILTER_FLAG_STRIP_LOW', 4);
 
 /**
  * Strip characters with ASCII value greater than 127.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_STRIP_HIGH', 8);
-define ('FILTER_FLAG_STRIP_BACKTICK', 512);
+define('FILTER_FLAG_STRIP_HIGH', 8);
+define('FILTER_FLAG_STRIP_BACKTICK', 512);
 
 /**
  * Encode characters with ASCII value less than 32.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_ENCODE_LOW', 16);
+define('FILTER_FLAG_ENCODE_LOW', 16);
 
 /**
  * Encode characters with ASCII value greater than 127.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_ENCODE_HIGH', 32);
+define('FILTER_FLAG_ENCODE_HIGH', 32);
 
 /**
  * Encode &.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_ENCODE_AMP', 64);
+define('FILTER_FLAG_ENCODE_AMP', 64);
 
 /**
  * Don't encode ' and ".
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_NO_ENCODE_QUOTES', 128);
+define('FILTER_FLAG_NO_ENCODE_QUOTES', 128);
 
 /**
  * (No use for now.)
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_EMPTY_STRING_NULL', 256);
+define('FILTER_FLAG_EMPTY_STRING_NULL', 256);
 
 /**
  * Allow fractional part in "number_float" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_ALLOW_FRACTION', 4096);
+define('FILTER_FLAG_ALLOW_FRACTION', 4096);
 
 /**
  * Allow thousand separator (,) in "number_float" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_ALLOW_THOUSAND', 8192);
+define('FILTER_FLAG_ALLOW_THOUSAND', 8192);
 
 /**
  * Allow scientific notation (e, E) in
  * "number_float" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_ALLOW_SCIENTIFIC', 16384);
+define('FILTER_FLAG_ALLOW_SCIENTIFIC', 16384);
 
 /**
  * Require scheme in "validate_url" filter.
@@ -482,7 +474,7 @@ define ('FILTER_FLAG_ALLOW_SCIENTIFIC', 16384);
  * @deprecated 7.3
  * @removed 8.0
  */
-define ('FILTER_FLAG_SCHEME_REQUIRED', 65536);
+define('FILTER_FLAG_SCHEME_REQUIRED', 65536);
 
 /**
  * Require host in "validate_url" filter.
@@ -490,45 +482,44 @@ define ('FILTER_FLAG_SCHEME_REQUIRED', 65536);
  * @deprecated 7.3
  * @removed 8.0
  */
-define ('FILTER_FLAG_HOST_REQUIRED', 131072);
+define('FILTER_FLAG_HOST_REQUIRED', 131072);
 
 /**
  * Require path in "validate_url" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_PATH_REQUIRED', 262144);
+define('FILTER_FLAG_PATH_REQUIRED', 262144);
 
 /**
  * Require query in "validate_url" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_QUERY_REQUIRED', 524288);
+define('FILTER_FLAG_QUERY_REQUIRED', 524288);
 
 /**
  * Allow only IPv4 address in "validate_ip" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_IPV4', 1048576);
+define('FILTER_FLAG_IPV4', 1048576);
 
 /**
  * Allow only IPv6 address in "validate_ip" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_IPV6', 2097152);
+define('FILTER_FLAG_IPV6', 2097152);
 
 /**
  * Deny reserved addresses in "validate_ip" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_NO_RES_RANGE', 4194304);
+define('FILTER_FLAG_NO_RES_RANGE', 4194304);
 
 /**
  * Deny private addresses in "validate_ip" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */
-define ('FILTER_FLAG_NO_PRIV_RANGE', 8388608);
+define('FILTER_FLAG_NO_PRIV_RANGE', 8388608);
 
 define('FILTER_FLAG_HOSTNAME', 1048576);
 define('FILTER_FLAG_EMAIL_UNICODE', 1048576);
 // End of filter v.0.11.0
-?>

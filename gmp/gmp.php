@@ -24,7 +24,7 @@ use JetBrains\PhpStorm\Pure;
  * @return resource|GMP A GMP number resource.
  */
 #[Pure]
-function gmp_init ($number, $base = 0) {}
+function gmp_init($number, $base = 0) {}
 
 /**
  * Convert GMP number to integer
@@ -35,7 +35,7 @@ function gmp_init ($number, $base = 0) {}
  * @return int An integer value of <i>gmpnumber</i>.
  */
 #[Pure]
-function gmp_intval ($gmpnumber) {}
+function gmp_intval($gmpnumber) {}
 
 /**
  * Sets the RNG seed
@@ -46,7 +46,7 @@ function gmp_intval ($gmpnumber) {}
  * @return null|false Returns NULL on success.
  * @since 7.0
  */
-function gmp_random_seed ($seed ) {}
+function gmp_random_seed($seed) {}
 /**
  * Convert GMP number to string
  * @link https://php.net/manual/en/function.gmp-strval.php
@@ -62,7 +62,7 @@ function gmp_random_seed ($seed ) {}
  * @return string The number, as a string.
  */
 #[Pure]
-function gmp_strval ($gmpnumber, $base = 10) {}
+function gmp_strval($gmpnumber, $base = 10) {}
 
 /**
  * Add numbers
@@ -80,7 +80,7 @@ function gmp_strval ($gmpnumber, $base = 10) {}
  * @return resource|GMP A GMP number representing the sum of the arguments.
  */
 #[Pure]
-function gmp_add ($a, $b) {}
+function gmp_add($a, $b) {}
 
 /**
  * Subtract numbers
@@ -98,7 +98,7 @@ function gmp_add ($a, $b) {}
  * @return resource|GMP A GMP number resource.
  */
 #[Pure]
-function gmp_sub ($a, $b) {}
+function gmp_sub($a, $b) {}
 
 /**
  * Multiply numbers
@@ -116,7 +116,7 @@ function gmp_sub ($a, $b) {}
  * @return resource|GMP A GMP number resource.
  */
 #[Pure]
-function gmp_mul ($a, $b) {}
+function gmp_mul($a, $b) {}
 
 /**
  * Divide numbers and get quotient and remainder
@@ -141,7 +141,7 @@ function gmp_mul ($a, $b) {}
  * (the remainder of the division).
  */
 #[Pure]
-function gmp_div_qr ($n, $d, $round = GMP_ROUND_ZERO) {}
+function gmp_div_qr($n, $d, $round = GMP_ROUND_ZERO) {}
 
 /**
  * Divide numbers
@@ -165,7 +165,7 @@ function gmp_div_qr ($n, $d, $round = GMP_ROUND_ZERO) {}
  * @return resource|GMP A GMP number resource.
  */
 #[Pure]
-function gmp_div_q ($a, $b, $round = GMP_ROUND_ZERO) {}
+function gmp_div_q($a, $b, $round = GMP_ROUND_ZERO) {}
 
 /**
  * Remainder of the division of numbers
@@ -187,7 +187,7 @@ function gmp_div_q ($a, $b, $round = GMP_ROUND_ZERO) {}
  * @return resource|GMP The remainder, as a GMP number.
  */
 #[Pure]
-function gmp_div_r ($n, $d, $round = GMP_ROUND_ZERO) {}
+function gmp_div_r($n, $d, $round = GMP_ROUND_ZERO) {}
 
 /**
  * Divide numbers
@@ -211,7 +211,7 @@ function gmp_div_r ($n, $d, $round = GMP_ROUND_ZERO) {}
  * @return resource|GMP A GMP number resource.
  */
 #[Pure]
-function gmp_div ($a, $b, $round = GMP_ROUND_ZERO) {}
+function gmp_div($a, $b, $round = GMP_ROUND_ZERO) {}
 
 /**
  * Modulo operation
@@ -226,7 +226,7 @@ function gmp_div ($a, $b, $round = GMP_ROUND_ZERO) {}
  * @return resource|GMP A GMP number resource.
  */
 #[Pure]
-function gmp_mod ($n, $d) {}
+function gmp_mod($n, $d) {}
 
 /**
  * Exact division of numbers
@@ -244,7 +244,7 @@ function gmp_mod ($n, $d) {}
  * @return resource|GMP A GMP number resource.
  */
 #[Pure]
-function gmp_divexact ($n, $d) {}
+function gmp_divexact($n, $d) {}
 
 /**
  * Negate number
@@ -254,7 +254,7 @@ function gmp_divexact ($n, $d) {}
  * @return resource|GMP -<i>a</i>, as a GMP number.
  */
 #[Pure]
-function gmp_neg ($a) {}
+function gmp_neg($a) {}
 
 /**
  * Absolute value
@@ -264,7 +264,7 @@ function gmp_neg ($a) {}
  * @return resource|GMP the absolute value of <i>a</i>, as a GMP number.
  */
 #[Pure]
-function gmp_abs ($a) {}
+function gmp_abs($a) {}
 
 /**
  * Factorial
@@ -277,7 +277,7 @@ function gmp_abs ($a) {}
  * @return resource|GMP A GMP number resource.
  */
 #[Pure]
-function gmp_fact ($a) {}
+function gmp_fact($a) {}
 
 /**
  * Calculate square root
@@ -287,7 +287,7 @@ function gmp_fact ($a) {}
  * @return resource|GMP The integer portion of the square root, as a GMP number.
  */
 #[Pure]
-function gmp_sqrt ($a) {}
+function gmp_sqrt($a) {}
 
 /**
  * Square root with remainder
@@ -303,7 +303,7 @@ function gmp_sqrt ($a) {}
  * first element squared).
  */
 #[Pure]
-function gmp_sqrtrem ($a) {}
+function gmp_sqrtrem($a) {}
 
 /**
  * Raise number into power
@@ -320,7 +320,7 @@ function gmp_sqrtrem ($a) {}
  * 0^0 yields 1.
  */
 #[Pure]
-function gmp_pow ($base, $exp) {}
+function gmp_pow($base, $exp) {}
 
 /**
  * Raise number into power with modulo
@@ -343,7 +343,7 @@ function gmp_pow ($base, $exp) {}
  * @return resource|GMP The new (raised) number, as a GMP number.
  */
 #[Pure]
-function gmp_powm ($base, $exp, $mod) {}
+function gmp_powm($base, $exp, $mod) {}
 
 /**
  * Perfect square check
@@ -357,7 +357,7 @@ function gmp_powm ($base, $exp, $mod) {}
  * <b>FALSE</b> otherwise.
  */
 #[Pure]
-function gmp_perfect_square ($a) {}
+function gmp_perfect_square($a) {}
 
 /**
  * Check if number is "probably prime"
@@ -381,7 +381,7 @@ function gmp_perfect_square ($a) {}
  * then <i>a</i> is surely prime.
  */
 #[Pure]
-function gmp_prob_prime ($a, $reps = 10) {}
+function gmp_prob_prime($a, $reps = 10) {}
 
 /**
  * Random number
@@ -415,7 +415,7 @@ function gmp_random_range(GMP $min, GMP $max) {}
  * <i>a</i> and <i>b</i>.
  */
 #[Pure]
-function gmp_gcd ($a, $b) {}
+function gmp_gcd($a, $b) {}
 
 /**
  * Calculate GCD and multipliers
@@ -427,7 +427,7 @@ function gmp_gcd ($a, $b) {}
  * @return array An array of GMP numbers.
  */
 #[Pure]
-function gmp_gcdext ($a, $b) {}
+function gmp_gcdext($a, $b) {}
 
 /**
  * Inverse by modulo
@@ -439,7 +439,7 @@ function gmp_gcdext ($a, $b) {}
  * @return resource|GMP|false A GMP number on success or <b>FALSE</b> if an inverse does not exist.
  */
 #[Pure]
-function gmp_invert ($a, $b) {}
+function gmp_invert($a, $b) {}
 
 /**
  * Jacobi symbol
@@ -454,7 +454,7 @@ function gmp_invert ($a, $b) {}
  * @return int A GMP number resource.
  */
 #[Pure]
-function gmp_jacobi ($a, $p) {}
+function gmp_jacobi($a, $p) {}
 
 /**
  * Legendre symbol
@@ -469,7 +469,7 @@ function gmp_jacobi ($a, $p) {}
  * @return int A GMP number resource.
  */
 #[Pure]
-function gmp_legendre ($a, $p) {}
+function gmp_legendre($a, $p) {}
 
 /**
  * Compare numbers
@@ -483,7 +483,7 @@ function gmp_legendre ($a, $p) {}
  * b.
  */
 #[Pure]
-function gmp_cmp ($a, $b) {}
+function gmp_cmp($a, $b) {}
 
 /**
  * Sign of number
@@ -495,7 +495,7 @@ function gmp_cmp ($a, $b) {}
  * and 0 if <i>a</i> is zero.
  */
 #[Pure]
-function gmp_sign ($a) {}
+function gmp_sign($a) {}
 
 /**
  * Random number
@@ -512,7 +512,7 @@ function gmp_sign ($a) {}
  */
 #[Deprecated(reason: "Use see gmp_random_bits() or see gmp_random_range() instead", since: "7.2")]
 #[Pure]
-function gmp_random ($limiter = 20) {}
+function gmp_random($limiter = 20) {}
 
 /**
  * Bitwise AND
@@ -524,7 +524,7 @@ function gmp_random ($limiter = 20) {}
  * @return resource|GMP A GMP number representing the bitwise AND comparison.
  */
 #[Pure]
-function gmp_and ($a, $b) {}
+function gmp_and($a, $b) {}
 
 /**
  * Bitwise OR
@@ -536,7 +536,7 @@ function gmp_and ($a, $b) {}
  * @return resource|GMP A GMP number resource.
  */
 #[Pure]
-function gmp_or ($a, $b) {}
+function gmp_or($a, $b) {}
 
 /**
  * Calculates one's complement
@@ -546,7 +546,7 @@ function gmp_or ($a, $b) {}
  * @return resource|GMP the one's complement of <i>a</i>, as a GMP number.
  */
 #[Pure]
-function gmp_com ($a) {}
+function gmp_com($a) {}
 
 /**
  * Bitwise XOR
@@ -558,7 +558,7 @@ function gmp_com ($a) {}
  * @return resource|GMP A GMP number resource.
  */
 #[Pure]
-function gmp_xor ($a, $b) {}
+function gmp_xor($a, $b) {}
 
 /**
  * Set bit
@@ -577,7 +577,7 @@ function gmp_xor ($a, $b) {}
  * </p>
  * @return void A GMP number resource.
  */
-function gmp_setbit (&$a, $index, $set_clear = true) {}
+function gmp_setbit(&$a, $index, $set_clear = true) {}
 
 /**
  * Clear bit
@@ -588,7 +588,7 @@ function gmp_setbit (&$a, $index, $set_clear = true) {}
  * numeric string given that it is possible to convert the latter to a number.</p>
  * @return void A GMP number resource.
  */
-function gmp_clrbit (&$a, $index) {}
+function gmp_clrbit(&$a, $index) {}
 
 /**
  * Scan for 0
@@ -605,7 +605,7 @@ function gmp_clrbit (&$a, $index) {}
  * index starts from 0.
  */
 #[Pure]
-function gmp_scan0 ($a, $start) {}
+function gmp_scan0($a, $start) {}
 
 /**
  * Scan for 1
@@ -622,7 +622,7 @@ function gmp_scan0 ($a, $start) {}
  * If no set bit is found, -1 is returned.
  */
 #[Pure]
-function gmp_scan1 ($a, $start) {}
+function gmp_scan1($a, $start) {}
 
 /**
  * Tests if a bit is set
@@ -635,7 +635,7 @@ function gmp_scan1 ($a, $start) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 #[Pure]
-function gmp_testbit ($a, $index) {}
+function gmp_testbit($a, $index) {}
 
 /**
  * Population count
@@ -645,7 +645,7 @@ function gmp_testbit ($a, $index) {}
  * @return int The population count of <i>a</i>, as an integer.
  */
 #[Pure]
-function gmp_popcount ($a) {}
+function gmp_popcount($a) {}
 
 /**
  * Hamming distance
@@ -663,58 +663,58 @@ function gmp_popcount ($a) {}
  * @return int A GMP number resource.
  */
 #[Pure]
-function gmp_hamdist ($a, $b) {}
+function gmp_hamdist($a, $b) {}
 
 /**
  * Import from a binary string
  * @link https://php.net/manual/en/function.gmp-import.php
  * @param string $data The binary string being imported
- * @param integer $word_size <p>Default value is 1. The number of bytes in each chunk of binary
+ * @param int $word_size <p>Default value is 1. The number of bytes in each chunk of binary
  * data. This is mainly used in conjunction with the options parameter.</p>
- * @param integer $options Default value is GMP_MSW_FIRST | GMP_NATIVE_ENDIAN.
+ * @param int $options Default value is GMP_MSW_FIRST | GMP_NATIVE_ENDIAN.
  * @return GMP|false Returns a GMP number or FALSE on failure.
  * @since 5.6.1
  */
 #[Pure]
-function gmp_import ($data, $word_size = 1, $options = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN) {}
+function gmp_import($data, $word_size = 1, $options = GMP_MSW_FIRST|GMP_NATIVE_ENDIAN) {}
 
 /**
  * Export to a binary string
  * @link https://php.net/manual/en/function.gmp-export.php
  * @param GMP $gmpnumber The GMP number being exported
- * @param integer $word_size <p>Default value is 1. The number of bytes in each chunk of binary
+ * @param int $word_size <p>Default value is 1. The number of bytes in each chunk of binary
  * data. This is mainly used in conjunction with the options parameter.</p>
- * @param integer $options Default value is GMP_MSW_FIRST | GMP_NATIVE_ENDIAN.
+ * @param int $options Default value is GMP_MSW_FIRST | GMP_NATIVE_ENDIAN.
  * @return string|false Returns a string or FALSE on failure.
  * @since 5.6.1
  */
 #[Pure]
-function gmp_export (GMP $gmpnumber, $word_size = 1, $options = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN) {}
+function gmp_export(GMP $gmpnumber, $word_size = 1, $options = GMP_MSW_FIRST|GMP_NATIVE_ENDIAN) {}
 
 /**
  * Takes the nth root of a and returns the integer component of the result.
  * @link https://php.net/manual/en/function.gmp-root.php
  * @param GMP $a <p>Either a GMP number resource in PHP 5.5 and earlier, a GMP object in PHP 5.6
  * and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
- * @param integer $nth The positive root to take of a.
+ * @param int $nth The positive root to take of a.
  * @return GMP The integer component of the resultant root, as a GMP number.
  * @since 5.6
  */
 #[Pure]
-function gmp_root (GMP $a, $nth) {}
+function gmp_root(GMP $a, $nth) {}
 
 /**
  * Takes the nth root of a and returns the integer component and remainder of the result.
  * @link https://php.net/manual/en/function.gmp-rootrem.php
  * @param GMP $a <p>Either a GMP number resource in PHP 5.5 and earlier, a GMP object in PHP 5.6
  * and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
- * @param integer $nth The positive root to take of a.
+ * @param int $nth The positive root to take of a.
  * @return array|GMP[] <p>A two element array, where the first element is the integer component of
  * the root, and the second element is the remainder, both represented as GMP numbers.</p>
  * @since 5.6
  */
 #[Pure]
-function gmp_rootrem (GMP $a, $nth) {}
+function gmp_rootrem(GMP $a, $nth) {}
 
 /**
  * Find next prime number
@@ -725,7 +725,7 @@ function gmp_rootrem (GMP $a, $nth) {}
  * as a GMP number.
  */
 #[Pure]
-function gmp_nextprime ($a) {}
+function gmp_nextprime($a) {}
 
 /**
  * Calculates binomial coefficient
@@ -782,25 +782,25 @@ function gmp_lcm($a, $b) {}
 #[Pure]
 function gmp_perfect_power($a) {}
 
-define ('GMP_ROUND_ZERO', 0);
-define ('GMP_ROUND_PLUSINF', 1);
-define ('GMP_ROUND_MINUSINF', 2);
-define ('GMP_MSW_FIRST', 1);
-define ('GMP_LSW_FIRST', 2);
-define ('GMP_LITTLE_ENDIAN', 4);
-define ('GMP_BIG_ENDIAN', 8);
-define ('GMP_NATIVE_ENDIAN', 16);
+define('GMP_ROUND_ZERO', 0);
+define('GMP_ROUND_PLUSINF', 1);
+define('GMP_ROUND_MINUSINF', 2);
+define('GMP_MSW_FIRST', 1);
+define('GMP_LSW_FIRST', 2);
+define('GMP_LITTLE_ENDIAN', 4);
+define('GMP_BIG_ENDIAN', 8);
+define('GMP_NATIVE_ENDIAN', 16);
 
 /**
  * The GMP library version
  * @link https://php.net/manual/en/gmp.constants.php
  */
-define ('GMP_VERSION', "");
+define('GMP_VERSION', "");
 
-define ('GMP_MPIR_VERSION', '3.0.0');
+define('GMP_MPIR_VERSION', '3.0.0');
 
-class GMP implements Serializable {
-
+class GMP implements Serializable
+{
     /**
      * String representation of object
      * @link https://php.net/manual/en/serializable.serialize.php
@@ -819,4 +819,3 @@ class GMP implements Serializable {
     public function unserialize($serialized) {}
 }
 // End of gmp v.
-?>

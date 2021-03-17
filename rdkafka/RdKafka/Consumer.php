@@ -7,9 +7,7 @@ class Consumer extends \RdKafka
     /**
      * @param null|Conf $conf
      */
-    public function __construct(?Conf $conf = null)
-    {
-    }
+    public function __construct(?Conf $conf = null) {}
 
     /**
      * @param string    $topic_name
@@ -17,14 +15,10 @@ class Consumer extends \RdKafka
      *
      * @return ConsumerTopic
      */
-    public function newTopic($topic_name, ?TopicConf $topic_conf = null)
-    {
-    }
+    public function newTopic($topic_name, ?TopicConf $topic_conf = null) {}
 
     /**
      * @return Queue
      */
-    public function newQueue()
-    {
-    }
+    public function newQueue() {}
 }

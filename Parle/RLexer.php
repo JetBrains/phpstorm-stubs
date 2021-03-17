@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Parle;
 
 use JetBrains\PhpStorm\Immutable;
@@ -17,22 +16,22 @@ use JetBrains\PhpStorm\Immutable;
 class RLexer
 {
     /* Constants */
-    const ICASE = 1 ;
-    const DOT_NOT_LF = 2 ;
-    const DOT_NOT_CRLF = 4 ;
-    const SKIP_WS = 8 ;
-    const MATCH_ZERO_LEN = 16 ;
+    public const ICASE = 1;
+    public const DOT_NOT_LF = 2;
+    public const DOT_NOT_CRLF = 4;
+    public const SKIP_WS = 8;
+    public const MATCH_ZERO_LEN = 16;
 
     /* Properties */
     /**
      * @var bool Start of input flag.
      */
-    public $bol = false ;
+    public $bol = false;
 
     /**
      * @var int Lexer flags.
      */
-    public $flags = 0 ;
+    public $flags = 0;
 
     /**
      * @var int Current lexer state, readonly.
@@ -60,7 +59,7 @@ class RLexer
      * @link https://php.net/manual/en/parle-rlexer.advance.php
      * @return void
      */
-    public function advance() : void {}
+    public function advance(): void {}
 
     /**
      * Finalize the lexer rule set
@@ -73,7 +72,7 @@ class RLexer
      * @see RLexer::push()
      * @return void
      */
-    public function build() : void {}
+    public function build(): void {}
 
     /**
      * Define token callback
@@ -85,7 +84,7 @@ class RLexer
      * @param callable $callback Callable to be invoked. The callable doesn't receive any arguments and its return value is ignored.
      * @return void
      */
-    public function callout(int $id, callable $callback) : void {}
+    public function callout(int $id, callable $callback): void {}
 
     /**
      * Pass the data for processing
@@ -96,7 +95,7 @@ class RLexer
      * @param string $data Data to be lexed.
      * @return void
      */
-    public function consume(string $data) : void {}
+    public function consume(string $data): void {}
 
     /**
      * Dump the state machine
@@ -106,14 +105,14 @@ class RLexer
      * @see https://php.net/manual/en/parle-rlexer.dump.php
      * @return void
      */
-    public function dump() : void {}
+    public function dump(): void {}
 
     /**
      * Retrieve the current token.
      *
      * @return Token
      */
-    public function getToken() : Token {}
+    public function getToken(): Token {}
 
     /**
      * Add a lexer rule
@@ -129,7 +128,7 @@ class RLexer
      * @return void
      * @link https://php.net/manual/en/parle-rlexer.push.php
      */
-    public function push(string $regex, int $id) : void {}
+    public function push(string $regex, int $id): void {}
 
     /**
      * Add a lexer rule
@@ -154,7 +153,7 @@ class RLexer
      * @return void
      * @link https://php.net/manual/en/parle-rlexer.push.php
      */
-    public function push(string $state, string $regex, int $id, string $newState) : void {}
+    public function push(string $state, string $regex, int $id, string $newState): void {}
 
     /**
      * Add a lexer rule
@@ -175,7 +174,7 @@ class RLexer
      * @return void
      * @link https://php.net/manual/en/parle-rlexer.push.php
      */
-    public function push(string $state, string $regex, string $newState) : void {}
+    public function push(string $state, string $regex, string $newState): void {}
 
     /**
      * Push a new start state
@@ -188,7 +187,7 @@ class RLexer
      * @param string $state Name of the state.
      * @return int
      */
-    public function pushState(string $state) : int {}
+    public function pushState(string $state): int {}
 
     /**
      * Reset lexer
@@ -197,5 +196,5 @@ class RLexer
      *
      * @param int $pos Reset position.
      */
-    public function reset(int $pos) : void {}
+    public function reset(int $pos): void {}
 }

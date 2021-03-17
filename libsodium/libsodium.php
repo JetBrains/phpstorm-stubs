@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
+
 namespace Sodium;
 
-/**
- * To silence the phpstorm "unknown namespace" errors.
- */
-
+    /**
+     * To silence the phpstorm "unknown namespace" errors.
+     */
     const CRYPTO_AEAD_AES256GCM_KEYBYTES = 32;
     const CRYPTO_AEAD_AES256GCM_NSECBYTES = 0;
     const CRYPTO_AEAD_AES256GCM_NPUBBYTES = 12;
@@ -59,14 +59,13 @@ namespace Sodium;
     const CRYPTO_PWHASH_OPSLIMIT_SENSITIVE = 8;
     const CRYPTO_PWHASH_MEMLIMIT_SENSITIVE = 536870912;
 
-
     /**
      * Can you access AES-256-GCM? This is only available if you have supported
      * hardware.
      *
      * @return bool
      */
-    function crypto_aead_aes256gcm_is_available(): bool { }
+    function crypto_aead_aes256gcm_is_available(): bool {}
 
     /**
      * Authenticated Encryption with Associated Data (decrypt)
@@ -83,7 +82,7 @@ namespace Sodium;
         string $nonce,
         string $key,
         string $ad = ''
-    ): string { }
+    ): string {}
 
     /**
      * Authenticated Encryption with Associated Data (encrypt)
@@ -100,7 +99,7 @@ namespace Sodium;
         string $nonce,
         string $key,
         string $ad = ''
-    ): string { }
+    ): string {}
 
     /**
      * Authenticated Encryption with Associated Data (decrypt)
@@ -117,7 +116,7 @@ namespace Sodium;
         string $nonce,
         string $key,
         string $ad = ''
-    ): string { }
+    ): string {}
 
     /**
      * Authenticated Encryption with Associated Data (encrypt)
@@ -134,7 +133,7 @@ namespace Sodium;
         string $nonce,
         string $key,
         string $ad = ''
-    ): string { }
+    ): string {}
 
     /**
      * Secret-key message authentication
@@ -147,7 +146,7 @@ namespace Sodium;
     function crypto_auth(
         string $msg,
         string $key
-    ): string { }
+    ): string {}
 
     /**
      * Secret-key message verification
@@ -162,7 +161,7 @@ namespace Sodium;
         string $mac,
         string $msg,
         string $key
-    ): bool { }
+    ): bool {}
 
     /**
      * Public-key authenticated encryption (encrypt)
@@ -177,14 +176,14 @@ namespace Sodium;
         string $msg,
         string $nonce,
         string $keypair
-    ): string { }
+    ): string {}
 
     /**
      * Generate an X25519 keypair for use with the crypto_box API
      *
      * @return string
      */
-    function crypto_box_keypair(): string { }
+    function crypto_box_keypair(): string {}
 
     /**
      * Derive an X25519 keypair for use with the crypto_box API from a seed
@@ -194,7 +193,7 @@ namespace Sodium;
      */
     function crypto_box_seed_keypair(
         string $seed
-    ): string { }
+    ): string {}
 
     /**
      * Create an X25519 keypair from an X25519 secret key and X25519 public key
@@ -206,7 +205,7 @@ namespace Sodium;
     function crypto_box_keypair_from_secretkey_and_publickey(
         string $secretkey,
         string $publickey
-    ): string { }
+    ): string {}
 
     /**
      * Public-key authenticated encryption (decrypt)
@@ -221,7 +220,7 @@ namespace Sodium;
         string $msg,
         string $nonce,
         string $keypair
-    ): string { }
+    ): string {}
 
     /**
      * Get an X25519 public key from an X25519 keypair
@@ -231,7 +230,7 @@ namespace Sodium;
      */
     function crypto_box_publickey(
         string $keypair
-    ): string { }
+    ): string {}
 
     /**
      * Derive an X25519 public key from an X25519 secret key
@@ -241,7 +240,7 @@ namespace Sodium;
      */
     function crypto_box_publickey_from_secretkey(
         string $secretkey
-    ): string { }
+    ): string {}
 
     /**
      * Anonymous public-key encryption (encrypt)
@@ -254,7 +253,7 @@ namespace Sodium;
     function crypto_box_seal(
         string $message,
         string $publickey
-    ): string { }
+    ): string {}
 
     /**
      * Anonymous public-key encryption (decrypt)
@@ -267,7 +266,7 @@ namespace Sodium;
     function crypto_box_seal_open(
         string $encrypted,
         string $keypair
-    ): string { }
+    ): string {}
 
     /**
      * Extract the X25519 secret key from an X25519 keypair
@@ -277,7 +276,7 @@ namespace Sodium;
      */
     function crypto_box_secretkey(
         string $keypair
-    ): string { }
+    ): string {}
 
     /**
      * Elliptic Curve Diffie Hellman Key Exchange
@@ -294,7 +293,7 @@ namespace Sodium;
         string $publickey,
         string $client_publickey,
         string $server_publickey
-    ): string { }
+    ): string {}
 
     /**
      * Fast and secure cryptographic hash
@@ -308,7 +307,7 @@ namespace Sodium;
         string $input,
         string $key = '',
         int $length = 32
-    ): string { }
+    ): string {}
 
     /**
      * Create a new hash state (e.g. to use for streams)
@@ -321,7 +320,7 @@ namespace Sodium;
     function crypto_generichash_init(
         string $key = '',
         int $length = 32
-    ): string { }
+    ): string {}
 
     /**
      * Update the hash state with some data
@@ -334,7 +333,7 @@ namespace Sodium;
     function crypto_generichash_update(
         string &$hashState,
         string $append
-    ): bool { }
+    ): bool {}
 
     /**
      * Get the final hash
@@ -347,7 +346,7 @@ namespace Sodium;
     function crypto_generichash_final(
         string $state,
         int $length = 32
-    ): string { }
+    ): string {}
 
     /**
      * Secure password-based key derivation function
@@ -366,7 +365,7 @@ namespace Sodium;
         string $salt,
         int $opslimit,
         int $memlimit
-    ): string { }
+    ): string {}
 
     /**
      * Get a formatted password hash (for storage)
@@ -381,7 +380,7 @@ namespace Sodium;
         string $passwd,
         int $opslimit,
         int $memlimit
-    ): string { }
+    ): string {}
 
     /**
      * Verify a password against a hash
@@ -394,7 +393,7 @@ namespace Sodium;
     function crypto_pwhash_str_verify(
         string $hash,
         string $passwd
-    ): bool { }
+    ): bool {}
 
     /**
      * Secure password-based key derivation function
@@ -413,7 +412,7 @@ namespace Sodium;
         string $salt,
         int $opslimit,
         int $memlimit
-    ): string { }
+    ): string {}
 
     /**
      * Get a formatted password hash (for storage)
@@ -428,7 +427,7 @@ namespace Sodium;
         string $passwd,
         int $opslimit,
         int $memlimit
-    ): string { }
+    ): string {}
 
     /**
      * Verify a password against a hash
@@ -441,7 +440,7 @@ namespace Sodium;
     function crypto_pwhash_scryptsalsa208sha256_str_verify(
         string $hash,
         string $passwd
-    ): bool { }
+    ): bool {}
 
     /**
      * Elliptic Curve Diffie Hellman over Curve25519
@@ -454,7 +453,7 @@ namespace Sodium;
     function crypto_scalarmult(
         string $ecdhA,
         string $ecdhB
-    ): string { }
+    ): string {}
 
     /**
      * Authenticated secret-key encryption (encrypt)
@@ -469,7 +468,7 @@ namespace Sodium;
         string $plaintext,
         string $nonce,
         string $key
-    ): string { }
+    ): string {}
 
     /**
      * Authenticated secret-key encryption (decrypt)
@@ -484,7 +483,7 @@ namespace Sodium;
         string $ciphertext,
         string $nonce,
         string $key
-    ): string { }
+    ): string {}
 
     /**
      * A short keyed hash suitable for data structures
@@ -497,7 +496,7 @@ namespace Sodium;
     function crypto_shorthash(
         string $message,
         string $key
-    ): string { }
+    ): string {}
 
     /**
      * Digital Signature
@@ -510,7 +509,7 @@ namespace Sodium;
     function crypto_sign(
         string $message,
         string $secretkey
-    ): string { }
+    ): string {}
 
     /**
      * Digital Signature (detached)
@@ -523,7 +522,7 @@ namespace Sodium;
     function crypto_sign_detached(
         string $message,
         string $secretkey
-    ): string { }
+    ): string {}
 
     /**
      * Convert an Ed25519 public key to an X25519 public key
@@ -533,7 +532,7 @@ namespace Sodium;
      */
     function crypto_sign_ed25519_pk_to_curve25519(
         string $sign_pk
-    ): string { }
+    ): string {}
 
     /**
      * Convert an Ed25519 secret key to an X25519 secret key
@@ -543,15 +542,14 @@ namespace Sodium;
      */
     function crypto_sign_ed25519_sk_to_curve25519(
         string $sign_sk
-    ): string { }
+    ): string {}
 
     /**
      * Generate an Ed25519 keypair for use with the crypto_sign API
      *
      * @return string
      */
-    function crypto_sign_keypair(): string { }
-
+    function crypto_sign_keypair(): string {}
 
     /**
      * Create an Ed25519 keypair from an Ed25519 secret key + Ed25519 public key
@@ -563,7 +561,7 @@ namespace Sodium;
     function crypto_sign_keypair_from_secretkey_and_publickey(
         string $secretkey,
         string $publickey
-    ): string { }
+    ): string {}
 
     /**
      * Verify a signed message and return the plaintext
@@ -575,7 +573,7 @@ namespace Sodium;
     function crypto_sign_open(
         string $signed_message,
         string $publickey
-    ): string { }
+    ): string {}
 
     /**
      * Get the public key from an Ed25519 keypair
@@ -585,7 +583,7 @@ namespace Sodium;
      */
     function crypto_sign_publickey(
         string $keypair
-    ): string { }
+    ): string {}
 
     /**
      * Get the secret key from an Ed25519 keypair
@@ -595,7 +593,7 @@ namespace Sodium;
      */
     function crypto_sign_secretkey(
         string $keypair
-    ): string { }
+    ): string {}
 
     /**
      * Derive an Ed25519 public key from an Ed25519 secret key
@@ -605,7 +603,7 @@ namespace Sodium;
      */
     function crypto_sign_publickey_from_secretkey(
         string $secretkey
-    ): string { }
+    ): string {}
 
     /**
      * Derive an Ed25519 keypair for use with the crypto_sign API from a seed
@@ -615,7 +613,7 @@ namespace Sodium;
      */
     function crypto_sign_seed_keypair(
         string $seed
-    ): string { }
+    ): string {}
 
     /**
      * Verify a detached signature
@@ -629,7 +627,7 @@ namespace Sodium;
         string $signature,
         string $msg,
         string $publickey
-    ): bool { }
+    ): bool {}
 
     /**
      * Create a keystream from a key and nonce
@@ -644,7 +642,7 @@ namespace Sodium;
         int $length,
         string $nonce,
         string $key
-    ): string { }
+    ): string {}
 
     /**
      * Encrypt a message using a stream cipher
@@ -659,7 +657,7 @@ namespace Sodium;
         string $plaintext,
         string $nonce,
         string $key
-    ): string { }
+    ): string {}
 
     /**
      * Generate a string of random bytes
@@ -670,7 +668,7 @@ namespace Sodium;
      */
     function randombytes_buf(
         int $length
-    ): string { }
+    ): string {}
 
     /**
      * Generate a 16-bit integer
@@ -678,7 +676,7 @@ namespace Sodium;
      *
      * @return int
      */
-    function randombytes_random16(): int { }
+    function randombytes_random16(): int {}
 
     /**
      * Generate an unbiased random integer between 0 and a specified value
@@ -689,7 +687,7 @@ namespace Sodium;
      */
     function randombytes_uniform(
         int $upperBoundNonInclusive
-    ): int { }
+    ): int {}
 
     /**
      * Convert to hex without side-chanels
@@ -699,7 +697,7 @@ namespace Sodium;
      */
     function bin2hex(
         string $binary
-    ): string { }
+    ): string {}
 
     /**
      * Compare two strings in constant time
@@ -711,7 +709,7 @@ namespace Sodium;
     function compare(
         string $left,
         string $right
-    ): int { }
+    ): int {}
 
     /**
      * Convert from hex without side-chanels
@@ -721,7 +719,7 @@ namespace Sodium;
      */
     function hex2bin(
         string $hex
-    ): string { }
+    ): string {}
 
     /**
      * Increment a string in little-endian
@@ -731,7 +729,7 @@ namespace Sodium;
      */
     function increment(
         string &$nonce
-    ) { }
+    ) {}
 
     /**
      * Add the right operand to the left
@@ -742,19 +740,19 @@ namespace Sodium;
     function add(
         string &$left,
         string $right
-    ) { }
+    ) {}
 
     /**
      * Get the true major version of libsodium
      * @return int
      */
-    function library_version_major(): int { }
+    function library_version_major(): int {}
 
     /**
      * Get the true minor version of libsodium
      * @return int
      */
-    function library_version_minor(): int { }
+    function library_version_minor(): int {}
 
     /**
      * Compare two strings in constant time
@@ -766,7 +764,7 @@ namespace Sodium;
     function memcmp(
         string $left,
         string $right
-    ): int { }
+    ): int {}
 
     /**
      * Wipe a buffer
@@ -775,14 +773,14 @@ namespace Sodium;
      */
     function memzero(
         string &$target
-    ) { }
+    ) {}
 
     /**
      * Get the version string
      *
      * @return string
      */
-    function version_string(): string { }
+    function version_string(): string {}
 
     /**
      * Scalar multiplication of the base point and your key
@@ -792,4 +790,4 @@ namespace Sodium;
      */
     function crypto_scalarmult_base(
         string $sk
-    ): string { }
+    ): string {}

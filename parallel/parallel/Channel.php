@@ -32,78 +32,78 @@ namespace parallel;
  * The anonymous channel constructor allows the programmer to avoid assigning names to every channel: parallel will
  *     generate a unique name for anonymous channels.
  */
-final class Channel{
+final class Channel
+{
+    /**
+     * Constant for Infinitely Buffered
+     */
+    public const Infinite = -1;
 
-	/**
-	 * Constant for Infinitely Buffered
-	 */
-	public const Infinite = -1;
+    /* Anonymous Constructor */
 
-	/* Anonymous Constructor */
+    /**
+     * Shall make an anonymous unbuffered channel
+     * Shall make an anonymous buffered channel with the given capacity
+     *
+     * @param null|int $capacity May be Channel::Infinite or a positive integer
+     */
+    public function __construct(?int $capacity = null) {}
 
-	/**
-	 * Shall make an anonymous unbuffered channel
-	 * Shall make an anonymous buffered channel with the given capacity
-	 *
-	 * @param null|int $capacity May be Channel::Infinite or a positive integer
-	 */
-	public function __construct(?int $capacity = null){}
+    /* Access */
 
-	/* Access */
+    /**
+     * Shall make an unbuffered channel with the given name
+     * Shall make a buffered channel with the given name and capacity
+     *
+     * @param string $name     The name of the channel.
+     * @param null|int $capacity May be Channel::Infinite or a positive integer
+     *
+     * @return Channel
+     *
+     * @throws Channel\Error\Existence if channel already exists.
+     */
+    public static function make(string $name, ?int $capacity = null): Channel {}
 
-	/**
-	 * Shall make an unbuffered channel with the given name
-	 * Shall make a buffered channel with the given name and capacity
-	 *
-	 * @param string $name     The name of the channel.
-	 * @param null|int $capacity May be Channel::Infinite or a positive integer
-	 *
-	 * @return Channel
-	 *
-	 * @throws Channel\Error\Existence if channel already exists.
-	 */
-	public static function make(string $name, ?int $capacity = null) : Channel{}
+    /**
+     * Shall open the channel with the given name
+     *
+     * @param string $name
+     * @return Channel
+     *
+     * @throws Channel\Error\Existence if channel does not exist.
+     */
+    public static function open(string $name): Channel {}
 
-	/**
-	 * Shall open the channel with the given name
-	 *
-	 * @param string $name
-	 * @return Channel
-	 *
-	 * @throws Channel\Error\Existence if channel does not exist.
-	 */
-	public static function open(string $name) : Channel{}
+    /* Sharing */
 
-	/* Sharing */
+    /**
+     * Shall send the given value on this channel
+     * @param mixed $value
+     *
+     * @throws Channel\Error\Closed if channel is closed.
+     * @throws Channel\Error\IllegalValue if value is illegal.
+     */
+    public function send($value): void {}
 
-	/**
-	 * Shall send the given value on this channel
-	 * @param mixed $value
-	 *
-	 * @throws Channel\Error\Closed if channel is closed.
-	 * @throws Channel\Error\IllegalValue if value is illegal.
-	 */
-	public function send($value) : void{}
+    /**
+     * Shall recv a value from this channel
+     * @return mixed
+     *
+     * @throws Channel\Error\Closed if channel is closed.
+     */
+    public function recv() {}
 
-	/**
-	 * Shall recv a value from this channel
-	 * @return mixed
-	 *
-	 * @throws Channel\Error\Closed if channel is closed.
-	 */
-	public function recv(){}
+    /* Closing */
 
-	/* Closing */
+    /**
+     * Shall close this channel
+     * @throws Channel\Error\Closed if channel is closed.
+     */
+    public function close(): void {}
 
-	/**
-	 * Shall close this channel
-	 * @throws Channel\Error\Closed if channel is closed.
-	 */
-	public function close() : void{}
-
-	/**
-	 * Returns name of channel
-	 * @return string
-	 */
-	public function __toString() : string{}
+    /**
+     * Returns name of channel
+     * @return string
+     */
+    public function __toString(): string {}
 }

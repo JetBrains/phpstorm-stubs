@@ -7,42 +7,30 @@ class Collection implements \Iterator, \Countable
     /**
      * @return mixed
      */
-    public function current()
-    {
-    }
+    public function current() {}
 
     /**
      * @return void
      */
-    public function next()
-    {
-    }
+    public function next() {}
 
     /**
      * @return mixed
      */
-    public function key()
-    {
-    }
+    public function key() {}
 
     /**
      * @return bool
      */
-    public function valid()
-    {
-    }
+    public function valid() {}
 
     /**
      * @return void
      */
-    public function rewind()
-    {
-    }
+    public function rewind() {}
 
     /**
      * @return int
      */
-    public function count()
-    {
-    }
+    public function count() {}
 }

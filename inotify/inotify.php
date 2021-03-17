@@ -14,9 +14,7 @@
  *
  * @return int a unique (<i>inotify</i> instance-wide) watch descriptor.
  */
-function inotify_add_watch( $inotify_instance, $pathname, $mask )
-{
-}
+function inotify_add_watch($inotify_instance, $pathname, $mask) {}
 
 /**
  * (PHP &gt;= 5.2.0, PECL inotify &gt;= 0.1.2)<br/>
@@ -25,9 +23,7 @@ function inotify_add_watch( $inotify_instance, $pathname, $mask )
  * @link https://php.net/manual/en/function.inotify-init.php
  * @return resource|false a stream resource or <b>FALSE</b> on error.
  */
-function inotify_init()
-{
-}
+function inotify_init() {}
 
 /**
  * (PHP &gt;= 5.2.0, PECL inotify &gt;= 0.1.2)<br/>
@@ -41,9 +37,7 @@ function inotify_init()
  *
  * @return int a number greater than zero if events are pending, otherwise zero.
  */
-function inotify_queue_len( $inotify_instance )
-{
-}
+function inotify_queue_len($inotify_instance) {}
 
 /**
  * (PHP &gt;= 5.2.0, PECL inotify &gt;= 0.1.2)<br/>
@@ -64,9 +58,7 @@ function inotify_queue_len( $inotify_instance )
  *  <li><b>name</b> is the name of a file (e.g. if a file was modified in a watched directory)</li>
  * </ul>
  */
-function inotify_read( $inotify_instance )
-{
-}
+function inotify_read($inotify_instance) {}
 
 /**
  * (PHP &gt;= 5.2.0, PECL inotify &gt;= 0.1.2)<br/>
@@ -79,9 +71,7 @@ function inotify_read( $inotify_instance )
  *
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function inotify_rm_watch( $inotify_instance, $watch_descriptor )
-{
-}
+function inotify_rm_watch($inotify_instance, $watch_descriptor) {}
 
 /**
  * @link https://php.net/manual/en/inotify.constants.php

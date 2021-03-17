@@ -177,9 +177,7 @@ define('WBC_LV_COLUMNS', 2);
  * The return value is used for debugging purposes only and may be ignored.
  * @return void - For debugging
  */
-function wb_main_loop()
-{
-}
+function wb_main_loop() {}
 
 /**
  * Looks for a file in the Windows and System directories, in this order.
@@ -192,7 +190,7 @@ function wb_main_loop()
  */
 function wb_find_file($filename)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -225,7 +223,7 @@ function wb_find_file($filename)
  */
 function wb_message_box($parent, $message, $title = null, $style = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -267,7 +265,7 @@ function wb_message_box($parent, $message, $title = null, $style = null)
  */
 function wb_play_sound($source, $command = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -287,7 +285,7 @@ function wb_play_sound($source, $command = null)
  */
 function wb_stop_sound($command = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -309,7 +307,7 @@ function wb_stop_sound($command = null)
  */
 function wb_exec($command, $param = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -348,7 +346,7 @@ function wb_exec($command, $param = null)
  */
 function wb_get_system_info($info)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -368,7 +366,7 @@ function wb_get_system_info($info)
  */
 function wb_get_registry_key($key, $subkey, $entry = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -389,7 +387,7 @@ function wb_get_registry_key($key, $subkey, $entry = null)
  */
 function wb_set_registry_key($key, $subkey, $entry = null, $value = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -415,7 +413,7 @@ function wb_set_registry_key($key, $subkey, $entry = null, $value = null)
  */
 function wb_create_timer($window, $id, $interval)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -438,7 +436,7 @@ function wb_create_timer($window, $id, $interval)
  */
 function wb_wait($window = null, $pause = null, $flags = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -452,7 +450,7 @@ function wb_wait($window = null, $pause = null, $flags = null)
  */
 function wb_destroy_timer($window, $id)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -472,7 +470,7 @@ function wb_destroy_timer($window, $id)
  */
 function wb_load_image($filename, $index = null, $param = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -488,7 +486,7 @@ function wb_load_image($filename, $index = null, $param = null)
  */
 function wb_save_image($image, $filename)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -505,7 +503,7 @@ function wb_save_image($image, $filename)
  */
 function wb_create_image($width = 0, $height = 0, $dibbmi = null, $dibbits = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -521,7 +519,7 @@ function wb_create_image($width = 0, $height = 0, $dibbmi = null, $dibbits = nul
  */
 function wb_create_mask($bitmap, $transparent_color)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -533,7 +531,7 @@ function wb_create_mask($bitmap, $transparent_color)
  */
 function wb_destroy_image($image)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -548,7 +546,7 @@ function wb_destroy_image($image)
  */
 function wb_get_image_data($image, $compress4to3)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -564,7 +562,7 @@ function wb_get_image_data($image, $compress4to3)
  */
 function wb_get_pixel($source, $xpos, $ypos)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -582,7 +580,7 @@ function wb_get_pixel($source, $xpos, $ypos)
  */
 function wb_draw_point($source, $xpos, $ypos, $color)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -613,7 +611,7 @@ function wb_draw_point($source, $xpos, $ypos, $color)
  */
 function wb_draw_line($target, $x0, $y0, $x1, $y1, $color, $linewidth = null, $linestyle = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -641,7 +639,7 @@ function wb_draw_line($target, $x0, $y0, $x1, $y1, $color, $linewidth = null, $l
  */
 function wb_draw_rect($target, $xpos, $ypos, $width, $height, $color, $filled = null, $linewidth = null, $linestyle = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -669,7 +667,7 @@ function wb_draw_rect($target, $xpos, $ypos, $width, $height, $color, $filled = 
  */
 function wb_draw_ellipse($target, $xpos, $ypos, $width, $height, $color, $filled = null, $linewidth = null, $linestyle = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -697,7 +695,7 @@ function wb_draw_ellipse($target, $xpos, $ypos, $width, $height, $color, $filled
  */
 function wb_draw_text($target, $text, $xpos, $ypos, $width = null, $height = null, $font = null, $flags = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -726,7 +724,7 @@ function wb_draw_text($target, $text, $xpos, $ypos, $width = null, $height = nul
  */
 function wb_draw_image($target, $bitmap, $xpos = 0, $ypos = 0, $width = null, $height = null, $transparentcolor = null, $xoffset = null, $yoffset = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -743,7 +741,7 @@ function wb_draw_image($target, $bitmap, $xpos = 0, $ypos = 0, $width = null, $h
  */
 function wb_destroy_control($control)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -757,7 +755,7 @@ function wb_destroy_control($control)
  */
 function wb_get_value($wbobject, $item = -1, $subitem = -1)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -779,7 +777,7 @@ function wb_get_value($wbobject, $item = -1, $subitem = -1)
  */
 function wb_refresh($wbobject, $now = null, $xpos = null, $ypos = null, $width = null, $height = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -794,7 +792,7 @@ function wb_refresh($wbobject, $now = null, $xpos = null, $ypos = null, $width =
  */
 function wb_set_enabled($control, $enabled)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -821,7 +819,7 @@ function wb_set_enabled($control, $enabled)
  */
 function wb_set_image($wbobject, $source, $transparentcolor = null, $index = null, $param = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -839,7 +837,7 @@ function wb_set_image($wbobject, $source, $transparentcolor = null, $index = nul
  */
 function wb_set_item_image($wbobject, $index, $item = null, $subitem = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -861,7 +859,7 @@ function wb_set_item_image($wbobject, $index, $item = null, $subitem = null)
  */
 function wb_delete_items($ctrl, $items = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -874,7 +872,7 @@ function wb_delete_items($ctrl, $items = null)
  */
 function wb_get_class($wbobject)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -888,7 +886,7 @@ function wb_get_class($wbobject)
  */
 function wb_get_control($wbobject, $id)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -900,7 +898,7 @@ function wb_get_control($wbobject, $id)
  */
 function wb_get_enabled($wbobject)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -910,7 +908,7 @@ function wb_get_enabled($wbobject)
  */
 function wb_get_focus()
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -922,7 +920,7 @@ function wb_get_focus()
  */
 function wb_get_id($wbobject)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -938,7 +936,7 @@ function wb_get_id($wbobject)
  */
 function wb_get_item_count($wbobject)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -951,7 +949,7 @@ function wb_get_item_count($wbobject)
  */
 function wb_get_parent($wbobject, $item = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -973,7 +971,7 @@ function wb_get_parent($wbobject, $item = null)
  */
 function wb_get_selected($wbobject)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -990,7 +988,7 @@ function wb_get_selected($wbobject)
  */
 function wb_get_state($wbobject, $item = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1002,7 +1000,7 @@ function wb_get_state($wbobject, $item = null)
  */
 function wb_get_visible($wbobject)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1019,7 +1017,7 @@ function wb_get_visible($wbobject)
  */
 function wb_set_cursor($wbobject, $source)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1031,7 +1029,7 @@ function wb_set_cursor($wbobject, $source)
  */
 function wb_set_focus($wbobject)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1051,7 +1049,7 @@ function wb_set_focus($wbobject)
  */
 function wb_set_handler($window, $fn_handler)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1073,7 +1071,7 @@ function wb_set_handler($window, $fn_handler)
  */
 function wb_set_location($wbobject, $location)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1089,7 +1087,7 @@ function wb_set_location($wbobject, $location)
  */
 function wb_set_range($control, $vmin, $vmax)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1107,7 +1105,7 @@ function wb_set_range($control, $vmin, $vmax)
  */
 function wb_set_state($wbobject, $item, $state)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1132,7 +1130,7 @@ function wb_set_state($wbobject, $item, $state)
  */
 function wb_set_style($wbobject, $style, $set)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1147,7 +1145,7 @@ function wb_set_style($wbobject, $style, $set)
  */
 function wb_set_visible($wbobject, $visible)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1172,7 +1170,7 @@ function wb_set_visible($wbobject, $visible)
  */
 function wb_sort($control, $ascending = null, $subitem = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1188,7 +1186,7 @@ function wb_sort($control, $ascending = null, $subitem = null)
  */
 function wb_get_level($wbobject, $item)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1218,7 +1216,7 @@ function wb_get_level($wbobject, $item)
  */
 function wb_create_font($name, $height, $color = null, $flags = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1230,7 +1228,7 @@ function wb_create_font($name, $height, $color = null, $flags = null)
  */
 function wb_destroy_font($nfont)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1251,7 +1249,7 @@ function wb_destroy_font($nfont)
  */
 function wb_set_font($control, $font = null, $redraw = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1265,7 +1263,7 @@ function wb_set_font($control, $font = null, $redraw = null)
  */
 function wb_get_address($var)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1288,7 +1286,7 @@ function wb_get_address($var)
  */
 function wb_send_message($wbobject, $message, $wparam = 0, $lparam = 0)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1303,7 +1301,7 @@ function wb_send_message($wbobject, $message, $wparam = 0, $lparam = 0)
  */
 function wb_peek($address, $length = 0)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1317,7 +1315,7 @@ function wb_peek($address, $length = 0)
  */
 function wb_poke($address, $contents, $length = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1350,7 +1348,7 @@ function wb_poke($address, $contents, $length = null)
  */
 function wb_load_library($libname)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1364,7 +1362,7 @@ function wb_load_library($libname)
  */
 function wb_release_library($idlib)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1400,7 +1398,7 @@ function wb_release_library($idlib)
  */
 function wb_get_function_address($fname, $idlib)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1417,7 +1415,7 @@ function wb_get_function_address($fname, $idlib)
  */
 function wb_call_function($address, $args = [])
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1428,7 +1426,7 @@ function wb_call_function($address, $args = [])
  */
 function wb_get_midi_callback()
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1438,7 +1436,7 @@ function wb_get_midi_callback()
  */
 function wb_get_enum_callback()
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1447,7 +1445,7 @@ function wb_get_enum_callback()
  */
 function wb_get_hook_callback()
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1461,7 +1459,7 @@ function wb_get_hook_callback()
  */
 function wb_destroy_window($window)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1518,7 +1516,7 @@ function wb_get_size($object, $param = null)
  */
 function wb_set_size($wbobject, $width, $height = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1535,7 +1533,7 @@ function wb_set_size($wbobject, $width, $height = null)
  */
 function wb_set_position($wbobject, $xpos = null, $ypos = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1583,7 +1581,7 @@ function wb_get_position($wbobject, $clientarea = null)
  */
 function wb_create_window($parent, $wclass, $caption = null, $xpos = null, $ypos = null, $width = null, $height = null, $style = null, $param = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1608,7 +1606,7 @@ function wb_create_window($parent, $wclass, $caption = null, $xpos = null, $ypos
  */
 function wb_get_instance($caption, $bringtofront = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1649,7 +1647,7 @@ function wb_get_item_list($wbobject)
  */
 function wb_set_area($window, $type, $x = null, $y = null, $width = null, $height = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1669,7 +1667,7 @@ function wb_set_area($window, $type, $x = null, $y = null, $width = null, $heigh
  */
 function wb_sys_dlg_path($parent, $title = null, $path = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1689,7 +1687,7 @@ function wb_sys_dlg_path($parent, $title = null, $path = null)
  */
 function wb_sys_dlg_color($parent, $title = null, $color = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1700,7 +1698,7 @@ function wb_sys_dlg_color($parent, $title = null, $color = null)
  */
 function wbtemp_set_accel_table($parent, $accels)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1720,7 +1718,7 @@ function wbtemp_set_accel_table($parent, $accels)
  */
 function wbtemp_create_control($parent, $class, $caption, $xpos, $ypos, $width, $height, $id, $style, $lparam, $ntab)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1731,7 +1729,7 @@ function wbtemp_create_control($parent, $class, $caption, $xpos, $ypos, $width, 
  */
 function wbtemp_create_item($ctrl, $str)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1744,7 +1742,7 @@ function wbtemp_create_item($ctrl, $str)
  */
 function wbtemp_create_statusbar_items($ctrl, $items, $clear, $param)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1755,7 +1753,7 @@ function wbtemp_create_statusbar_items($ctrl, $items, $clear, $param)
  */
 function wbtemp_get_text($ctrl, $item = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1767,7 +1765,7 @@ function wbtemp_get_text($ctrl, $item = null)
  */
 function wbtemp_set_text($ctrl, $text, $item)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1778,7 +1776,7 @@ function wbtemp_set_text($ctrl, $text, $item)
  */
 function wbtemp_select_tab($ctrl, $selitems)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1790,7 +1788,7 @@ function wbtemp_select_tab($ctrl, $selitems)
  */
 function wbtemp_set_value($ctrl, $value, $item = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1803,7 +1801,7 @@ function wbtemp_set_value($ctrl, $value, $item = null)
  */
 function wbtemp_create_listview_item($ctrl, $item, $image, $value)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1815,7 +1813,7 @@ function wbtemp_create_listview_item($ctrl, $item, $image, $value)
  */
 function wbtemp_set_listview_item_checked($ctrl, $index, $value)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1826,7 +1824,7 @@ function wbtemp_set_listview_item_checked($ctrl, $index, $value)
  */
 function wbtemp_get_listview_item_checked($ctrl, $item)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1839,7 +1837,7 @@ function wbtemp_get_listview_item_checked($ctrl, $item)
  */
 function wbtemp_set_listview_item_text($ctrl, $item, $subitem, $text)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1850,7 +1848,7 @@ function wbtemp_set_listview_item_text($ctrl, $item, $subitem, $text)
  */
 function wbtemp_get_listview_text($ctrl, $item)
 {
-    return '' | 0 | null | [];
+    return ''|0|null|[];
 }
 
 /**
@@ -1862,7 +1860,7 @@ function wbtemp_get_listview_text($ctrl, $item)
  */
 function wbtemp_get_listview_columns($ctrl)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1876,7 +1874,7 @@ function wbtemp_get_listview_columns($ctrl)
  */
 function wbtemp_create_listview_column($ctrl, $i, $text, $width, $align)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1886,7 +1884,7 @@ function wbtemp_create_listview_column($ctrl, $i, $text, $width, $align)
  */
 function wbtemp_clear_listview_columns($ctrl)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1898,7 +1896,7 @@ function wbtemp_clear_listview_columns($ctrl)
  */
 function wbtemp_select_listview_item($ctrl, $item, $selected)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1909,7 +1907,7 @@ function wbtemp_select_listview_item($ctrl, $item, $selected)
  */
 function wbtemp_select_all_listview_items($ctrl, $bool)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1920,7 +1918,7 @@ function wbtemp_select_all_listview_items($ctrl, $bool)
  */
 function wbtemp_create_menu($parent, $caption)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1931,7 +1929,7 @@ function wbtemp_create_menu($parent, $caption)
  */
 function wbtemp_get_menu_item_checked($ctrl, $item)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1943,7 +1941,7 @@ function wbtemp_get_menu_item_checked($ctrl, $item)
  */
 function wbtemp_set_menu_item_checked($ctrl, $selitems, $selected)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1955,7 +1953,7 @@ function wbtemp_set_menu_item_checked($ctrl, $selitems, $selected)
  */
 function wbtemp_set_menu_item_selected($ctrl, $item, $selected)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1967,7 +1965,7 @@ function wbtemp_set_menu_item_selected($ctrl, $item, $selected)
  */
 function wbtemp_set_menu_item_image($ctrl, $item, $imageHandle)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1981,7 +1979,7 @@ function wbtemp_set_menu_item_image($ctrl, $item, $imageHandle)
  */
 function wbtemp_create_toolbar($parent, $caption, $width, $height, $lparam)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -1997,7 +1995,7 @@ function wbtemp_create_toolbar($parent, $caption, $width, $height, $lparam)
  */
 function wbtemp_create_treeview_item($ctrl, $name, $value, $where = 0, $image_index = 0, $selected_image = 0, $selected_image_index = 0)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -2008,7 +2006,7 @@ function wbtemp_create_treeview_item($ctrl, $name, $value, $where = 0, $image_in
  */
 function wbtemp_set_treeview_item_selected($ctrl, $selitems)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -2020,7 +2018,7 @@ function wbtemp_set_treeview_item_selected($ctrl, $selitems)
  */
 function wbtemp_set_treeview_item_text($ctrl, $item, $text)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -2032,7 +2030,7 @@ function wbtemp_set_treeview_item_text($ctrl, $item, $text)
  */
 function wbtemp_set_treeview_item_value($ctrl, $item, $value)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -2043,7 +2041,7 @@ function wbtemp_set_treeview_item_value($ctrl, $item, $value)
  */
 function wbtemp_get_treeview_item_text($ctrl, $item)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -2057,7 +2055,7 @@ function wbtemp_get_treeview_item_text($ctrl, $item)
  */
 function wbtemp_sys_dlg_open($parent, $title = null, $filter = null, $path = null, $flags = null)
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }
 
 /**
@@ -2072,5 +2070,5 @@ function wbtemp_sys_dlg_open($parent, $title = null, $filter = null, $path = nul
  */
 function wbtemp_sys_dlg_save($wbObj, $title = '', $filter = '', $path = '', $filename = '', $defext = '')
 {
-    return '' | 0 | null;
+    return ''|0|null;
 }

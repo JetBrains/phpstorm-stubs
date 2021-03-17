@@ -2,8 +2,9 @@
 
 // Start of Zend Extensions
 
-class ZendAPI_Queue {
-    var $_jobqueue_url;
+class ZendAPI_Queue
+{
+    public $_jobqueue_url;
 
     /**
      * Constructor for a job queue connection
@@ -13,7 +14,7 @@ class ZendAPI_Queue {
      *
      * @removed 8.0
      */
-    function zendapi_queue($queue_url) {}
+    public function zendapi_queue($queue_url) {}
 
     /**
      * Open a connection to a job queue
@@ -23,27 +24,25 @@ class ZendAPI_Queue {
         unless this job already set an application id, the job will be assigned the queue application id
      * @return bool Success
      */
-    function login($password, $application_id=null) {}
-
+    public function login($password, $application_id = null) {}
 
     /**
      * Insert a new job to the queue, the Job is passed by reference because
         its new job ID and status will be set in the Job object
-         * If the returned job id is 0 it means the job could be added to the queue
-         *
+     * If the returned job id is 0 it means the job could be added to the queue
+     *
      * @param Job $job The Job we want to insert to the queue (by ref.)
      * @return int The inserted job id
      */
-    function addJob($job) {}
-
+    public function addJob($job) {}
 
     /**
      * Return a Job object that describing a job in the queue
-         *
+     *
      * @param int $job_id The job id
      * @return Job Object describing a job in the queue
      */
-    function getJob($job_id) {}
+    public function getJob($job_id) {}
 
     /**
      * Update an existing job in the queue with it's new properties. If job doesn't exists,
@@ -53,7 +52,7 @@ class ZendAPI_Queue {
         If the given Job doesn't have an assigned ID, a new job will be added
      * @return int The id of the updated job
      */
-    function updateJob($job) {}
+    public function updateJob($job) {}
 
     /**
      * Remove a job from the queue
@@ -61,8 +60,7 @@ class ZendAPI_Queue {
      * @param int|int[] $job_id The job id or array of job ids we want to remove from the queue
      * @return bool Success/Failure
      */
-    function removeJob($job_id) {}
-
+    public function removeJob($job_id) {}
 
     /**
      * Suspend a job in the queue (without removing it)
@@ -70,8 +68,7 @@ class ZendAPI_Queue {
      * @param int|int[] $job_id The job id or array of job ids we want to suspend
      * @return bool Success/Failure
      */
-    function suspendJob($job_id) {}
-
+    public function suspendJob($job_id) {}
 
     /**
      * Resume a suspended job in the queue
@@ -79,8 +76,7 @@ class ZendAPI_Queue {
      * @param int|int[] $job_id The job id or array of job ids we want to resume
      * @return bool Success/Failure (if the job wasn't suspended, the function will return false)
      */
-    function resumeJob($job_id) {}
-
+    public function resumeJob($job_id) {}
 
     /**
      * Requeue failed job back to the queue.
@@ -88,12 +84,11 @@ class ZendAPI_Queue {
      * @param Job $job  job object to re-query
      * @return bool - true or false.
      */
-    function requeueJob($job) {}
-
+    public function requeueJob($job) {}
 
     /**
      * returns job statistics
-         * @return array with the following:
+     * @return array with the following:
                          "total_complete_jobs"
                          "total_incomplete_jobs"
                          "average_time_in_queue"  [msec]
@@ -101,25 +96,22 @@ class ZendAPI_Queue {
                          "added_jobs_in_window"
                          "activated_jobs_in_window"
                          "completed_jobs_in_window"
-         * moving window size can be set through ini file
-         */
-    function getStatistics() {}
-
+     * moving window size can be set through ini file
+     */
+    public function getStatistics() {}
 
     /**
      * Returns whether a script exists in the document root
      * @param string $path relative script path
      * @return bool - TRUE if script exists in the document root FALSE otherwise
      */
-    function isScriptExists($path) {}
-
+    public function isScriptExists($path) {}
 
     /**
      * Returns whether the queue is suspended
      * @return bool - TRUE if job is suspended FALSE otherwise
      */
-    function isSuspend() {}
-
+    public function isSuspend() {}
 
     /**
      * Return a list of jobs in the queue according to the options given in the filter_options parameter, doesn't return jobs in "final states" (failed, complete)
@@ -133,8 +125,7 @@ class ZendAPI_Queue {
      *     Default is false.
      * @return array  Jobs that satisfies filter_options.
      */
-    function getJobsInQueue($filter_options=null, $max_jobs=-1, $with_globals_and_output=false) {}
-
+    public function getJobsInQueue($filter_options = null, $max_jobs = -1, $with_globals_and_output = false) {}
 
     /**
      * Return the number of jobs in the queue according to the options given in the filter_options parameter
@@ -142,23 +133,19 @@ class ZendAPI_Queue {
      *     Options can be: priority, application_id, host, name, status, recurring.
      * @return int  Number of jobs that satisfy filter_options.
      */
-    function getNumOfJobsInQueue($filter_options=null) {}
-
+    public function getNumOfJobsInQueue($filter_options = null) {}
 
     /**
      * Return all the hosts that jobs were submitted from.
      * @return array
      */
-    function getAllhosts() {}
-
+    public function getAllhosts() {}
 
     /**
      * Return all the application ids exists in queue.
      * @return array
      */
-    function getAllApplicationIDs() {}
-
-
+    public function getAllApplicationIDs() {}
 
     /**
      * Return finished jobs (either failed or successed) between time range allowing paging.
@@ -173,36 +160,32 @@ class ZendAPI_Queue {
      *
      * @return array of jobs.
      */
-    function getHistoricJobs($status, $start_time, $end_time, $index, $count, &$total) {}
-
+    public function getHistoricJobs($status, $start_time, $end_time, $index, $count, &$total) {}
 
     /**
      * Suspends queue operation
      * @return bool - TRUE if successful FALSE otherwise
      */
-    function suspendQueue() {}
-
+    public function suspendQueue() {}
 
     /**
      * Resumes queue operation
      * @return bool - TRUE if successful FALSE otherwise
      */
-    function resumeQueue() {}
-
+    public function resumeQueue() {}
 
     /**
      * Return description of the last error occurred in the queue object. After every
      *    method invoked an error string describing the error is store in the queue object.
      * @return string
      */
-    function getLastError() {}
-
+    public function getLastError() {}
 
     /**
      * Sets a new maximum time for keeping historic jobs
      * @return bool - TRUE if successful FALSE otherwise
      */
-    function setMaxHistoryTime() {}
+    public function setMaxHistoryTime() {}
 }
 
 /**
@@ -211,43 +194,42 @@ class ZendAPI_Queue {
  *
  * For simplicity, a job can be added directly to a queue and without creating an instant of a Queue object
  */
-class ZendAPI_Job {
-
+class ZendAPI_Job
+{
     /**
      * Unique id of the Job in the job queue
      *
      * @var int
      */
-    var $_id;
+    public $_id;
 
     /**
      * Full path of the script that this job calls when it's processed
      *
      * @var string
      */
-    var $_script;
+    public $_script;
 
     /**
      * The host that the job was submit from
      *
      * @var string
      */
-    var $_host;
+    public $_host;
 
     /**
      * A short string describing the job
      *
      * @var string
      */
-    var $_name;
-
+    public $_name;
 
     /**
      * The job output after executing
      *
      * @var string
      */
-    var $_output;
+    public $_output;
 
     /**
      * The status of the job
@@ -256,7 +238,7 @@ class ZendAPI_Job {
      *
      * @var int
      */
-    var $_status = JOB_QUEUE_STATUS_WAITING;
+    public $_status = JOB_QUEUE_STATUS_WAITING;
 
     /**
      * The application id of the job
@@ -265,7 +247,7 @@ class ZendAPI_Job {
      *
      * @var string
      */
-    var $_application_id = null;
+    public $_application_id = null;
 
     /**
      * The priority of the job, options are the priority constants
@@ -273,7 +255,7 @@ class ZendAPI_Job {
      *
      * @var int
      */
-    var $_priority = JOB_QUEUE_PRIORITY_NORMAL;
+    public $_priority = JOB_QUEUE_PRIORITY_NORMAL;
 
     /**
      * Array holding all the variables that the user wants the job's script to have when it's called
@@ -284,7 +266,7 @@ class ZendAPI_Job {
      *
      * @var array
      */
-    var $_user_variables = array();
+    public $_user_variables = [];
 
     /**
      * Bit mask holding the global variables that the user want the job's script to have when it's called
@@ -299,7 +281,7 @@ class ZendAPI_Job {
      *
      * @var int
      */
-    var $_global_variables = 0;
+    public $_global_variables = 0;
 
     /**
      * The job may have a dependency (another job that must be performed before this job)
@@ -309,7 +291,7 @@ class ZendAPI_Job {
      *
      * @var mixed (int|array)
      */
-    var $_predecessor = null;
+    public $_predecessor = null;
 
     /**
      * The time that this job should be performed, this variables is the UNIX timestamp.
@@ -318,37 +300,35 @@ class ZendAPI_Job {
      *
      * @var int
      */
-    var $_scheduled_time = 0;
+    public $_scheduled_time = 0;
 
-    /**
-     * The job running frequency in seconds. The job should run every _internal seconds
-     * This property applys only to recurrent job.
-     * By default, its value is 0 e.g. run it only once.
-     *
-     * @var int
-     */
-         var $_interval = 0;
+         /**
+          * The job running frequency in seconds. The job should run every _internal seconds
+          * This property applys only to recurrent job.
+          * By default, its value is 0 e.g. run it only once.
+          *
+          * @var int
+          */
+         public $_interval = 0;
 
-    /**
-     * UNIX timestamp that it's the last time this job should occurs. If _interval was set, and _end_time
-     * was not, then this job will run forever.
-     * By default there is no end_time, so recurrent job will run forever. If the job is not recurrent
-     * (occurs only once) then the job will run at most once. If end_time has reached and the job was not
-     * execute yet, it will not run.
-     *
-     * @var int
-     */
-     var $_end_time = null;
+     /**
+      * UNIX timestamp that it's the last time this job should occurs. If _interval was set, and _end_time
+      * was not, then this job will run forever.
+      * By default there is no end_time, so recurrent job will run forever. If the job is not recurrent
+      * (occurs only once) then the job will run at most once. If end_time has reached and the job was not
+      * execute yet, it will not run.
+      *
+      * @var int
+      */
+     public $_end_time = null;
 
-
-    /**
-     * A bit that determine whether job can be deleted from history. When set, removeJob will not
-     * delete the job from history.
-     *
-     * @var int
-     */
-     var $_preserved = 0;
-
+     /**
+      * A bit that determine whether job can be deleted from history. When set, removeJob will not
+      * delete the job from history.
+      *
+      * @var int
+      */
+     public $_preserved = 0;
 
     /**
      * Instantiate a Job object, describe all the information and properties of a job
@@ -358,8 +338,7 @@ class ZendAPI_Job {
      *
      * @removed 8.0
      */
-    function ZendAPI_Job($script) {}
-
+    public function ZendAPI_Job($script) {}
 
     /**
      * Add the job the the specified queue (without instantiating a JobQueue object)
@@ -373,55 +352,54 @@ class ZendAPI_Job {
      * @param string $password For authentication, the queue password
      * @return int|false The added job id or false on failure
      */
-    function addJobToQueue($jobqueue_url, $password) {}
-
+    public function addJobToQueue($jobqueue_url, $password) {}
 
     /**
      * Set a new priority to the job
      *
      * @param int $priority Priority options are constants with the "JOB_QUEUE_PRIORITY_" prefix
      */
-    function setJobPriority($priority) {}
+    public function setJobPriority($priority) {}
 
     // All properties SET functions
-    function setJobName($name) {}
-    function setScript($script) {}
-    function setApplicationID($app_id) {}
-    function setUserVariables($vars) {}
-    function setGlobalVariables($vars) {}
-    function setJobDependency($job_id) {}
-    function setScheduledTime($timestamp) {}
-    function setRecurrenceData($interval, $end_time=null) {}
-    function setPreserved($preserved) {}
+    public function setJobName($name) {}
+    public function setScript($script) {}
+    public function setApplicationID($app_id) {}
+    public function setUserVariables($vars) {}
+    public function setGlobalVariables($vars) {}
+    public function setJobDependency($job_id) {}
+    public function setScheduledTime($timestamp) {}
+    public function setRecurrenceData($interval, $end_time = null) {}
+    public function setPreserved($preserved) {}
 
     /**
      * Get the job properties
      *
      * @return array The same format of job options array as in the Job constructor
      */
-    function getProperties() {}
+    public function getProperties() {}
 
     /**
      * Get the job output
      *
      * @return mixed An HTML representing the job output
      */
-    function getOutput() {}
+    public function getOutput() {}
 
     // All properties GET functions
-    function getID() {}
-    function getHost() {}
-    function getScript() {}
-    function getJobPriority() {}
-    function getJobName() {}
-    function getApplicationID() {}
-    function getUserVariables() {}
-    function getGlobalVariables() {}
-    function getJobDependency() {}
-    function getScheduledTime() {}
-    function getInterval() {}
-    function getEndTime() {}
-    function getPreserved() {}
+    public function getID() {}
+    public function getHost() {}
+    public function getScript() {}
+    public function getJobPriority() {}
+    public function getJobName() {}
+    public function getApplicationID() {}
+    public function getUserVariables() {}
+    public function getGlobalVariables() {}
+    public function getJobDependency() {}
+    public function getScheduledTime() {}
+    public function getInterval() {}
+    public function getEndTime() {}
+    public function getPreserved() {}
 
     /**
      * Get the current status of the job
@@ -432,26 +410,24 @@ class ZendAPI_Job {
      *
      * @return int|false
      */
-    function getJobStatus() {}
+    public function getJobStatus() {}
 
-    /**
-     * Get how much seconds there are until the next time the job will run.
-     * If the job is not recurrence or it past its end time, then return 0.
-     *
-     * @return int
-     */
-     function getTimeToNextRepeat() {}
+     /**
+      * Get how much seconds there are until the next time the job will run.
+      * If the job is not recurrence or it past its end time, then return 0.
+      *
+      * @return int
+      */
+     public function getTimeToNextRepeat() {}
 
-    /**
-     * For recurring job get the status of the last execution. For simple job,
-     * getLastPerformedStatus is equivalent to getJobStatus.
-     * jobs that haven't been executed yet will return STATUS_WAITING
-     * @return int
-     */
-     function getLastPerformedStatus() {}
-
+     /**
+      * For recurring job get the status of the last execution. For simple job,
+      * getLastPerformedStatus is equivalent to getJobStatus.
+      * jobs that haven't been executed yet will return STATUS_WAITING
+      * @return int
+      */
+     public function getLastPerformedStatus() {}
 }
-
 
 /**
  * Disable/enable the Code Acceleration functionality at run time.
@@ -545,7 +521,6 @@ function output_cache_exists($key, $lifetime) {}
  */
 function output_cache_stop() {}
 
-
 /**
  * Should be called from a custom error handler to pass the error to the monitor.
  * The user function needs to accept two parameters: the error code, and a string describing the error.
@@ -554,7 +529,7 @@ function output_cache_stop() {}
  * @param int $errno
  * @param string $errstr
  * @param string $errfile
- * @param integer $errline
+ * @param int $errline
  * @return void
  */
 function monitor_pass_error($errno, $errstr, $errfile, $errline) {}
@@ -631,8 +606,8 @@ function zend_send_file($filename, $mime_type, $custom_headers) {}
  */
 function zend_send_buffer($buffer, $mime_type, $custom_headers) {}
 
-
-class java {
+class java
+{
     /**
      * Create Java object
      *
@@ -641,16 +616,15 @@ class java {
      *
      * @removed 8.0
      */
-    function java($classname) {}
-
+    public function java($classname) {}
 };
 
-class JavaException {
+class JavaException
+{
     /**
      * Get Java exception that led to this exception
      *
      * @return object
      */
-    function getCause() {}
-
+    public function getCause() {}
 };

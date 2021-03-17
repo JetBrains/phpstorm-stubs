@@ -1,19 +1,20 @@
 <?php
 
-namespace Crypto{
+namespace Crypto;
 
 /**
  * Class providing cipher algorithms
  */
-class Cipher {
-    const MODE_ECB = 1;
-    const MODE_CBC = 2;
-    const MODE_CFB = 3;
-    const MODE_OFB = 4;
-    const MODE_CTR = 5;
-    const MODE_GCM = 6;
-    const MODE_CCM = 7;
-    const MODE_XTS = 65537;
+class Cipher
+{
+    public const MODE_ECB = 1;
+    public const MODE_CBC = 2;
+    public const MODE_CFB = 3;
+    public const MODE_OFB = 4;
+    public const MODE_CTR = 5;
+    public const MODE_GCM = 6;
+    public const MODE_CCM = 7;
+    public const MODE_XTS = 65537;
 
     /**
      * Returns cipher algorithms
@@ -168,170 +169,169 @@ class Cipher {
      * @return bool
      */
     public function setAAD($aad) {}
-
 }
 
 /**
  * Exception class for cipher errors
  */
-class CipherException extends \Exception {
-
+class CipherException extends \Exception
+{
     /**
      * Cipher '%s' algorithm not found
      */
-    const ALGORITHM_NOT_FOUND = 1;
+    public const ALGORITHM_NOT_FOUND = 1;
 
     /**
      * Cipher static method '%s' not found
      */
-    const STATIC_METHOD_NOT_FOUND = 2;
+    public const STATIC_METHOD_NOT_FOUND = 2;
 
     /**
      * Cipher static method %s can accept max two arguments
      */
-    const STATIC_METHOD_TOO_MANY_ARGS = 3;
+    public const STATIC_METHOD_TOO_MANY_ARGS = 3;
 
     /**
      * Cipher mode not found
      */
-    const MODE_NOT_FOUND = 4;
+    public const MODE_NOT_FOUND = 4;
 
     /**
      * Cipher mode %s is not available in installed OpenSSL library
      */
-    const MODE_NOT_AVAILABLE = 5;
+    public const MODE_NOT_AVAILABLE = 5;
 
     /**
      * The authentication is not supported for %s cipher mode
      */
-    const AUTHENTICATION_NOT_SUPPORTED = 6;
+    public const AUTHENTICATION_NOT_SUPPORTED = 6;
 
     /**
      * Invalid length of key for cipher '%s' algorithm (required length: %d)
      */
-    const KEY_LENGTH_INVALID = 7;
+    public const KEY_LENGTH_INVALID = 7;
 
     /**
      * Invalid length of initial vector for cipher '%s' algorithm (required length: %d)
      */
-    const IV_LENGTH_INVALID = 8;
+    public const IV_LENGTH_INVALID = 8;
 
     /**
      * AAD setter has to be called before encryption or decryption
      */
-    const AAD_SETTER_FORBIDDEN = 9;
+    public const AAD_SETTER_FORBIDDEN = 9;
 
     /**
      * AAD setter failed
      */
-    const AAD_SETTER_FAILED = 10;
+    public const AAD_SETTER_FAILED = 10;
 
     /**
      * AAD length can't exceed max integer length
      */
-    const AAD_LENGTH_HIGH = 11;
+    public const AAD_LENGTH_HIGH = 11;
 
     /**
      * Tag getter has to be called after encryption
      */
-    const TAG_GETTER_FORBIDDEN = 12;
+    public const TAG_GETTER_FORBIDDEN = 12;
 
     /**
      * Tag setter has to be called before decryption
      */
-    const TAG_SETTER_FORBIDDEN = 13;
+    public const TAG_SETTER_FORBIDDEN = 13;
 
     /**
      * Tag getter failed
      */
-    const TAG_GETTER_FAILED = 14;
+    public const TAG_GETTER_FAILED = 14;
 
     /**
      * Tag setter failed
      */
-    const TAG_SETTER_FAILED = 15;
+    public const TAG_SETTER_FAILED = 15;
 
     /**
      * Tag length setter has to be called before encryption
      */
-    const TAG_LENGTH_SETTER_FORBIDDEN = 16;
+    public const TAG_LENGTH_SETTER_FORBIDDEN = 16;
 
     /**
      * Tag length can't be lower than 32 bits (4 characters)
      */
-    const TAG_LENGTH_LOW = 17;
+    public const TAG_LENGTH_LOW = 17;
 
     /**
      * Tag length can't exceed 128 bits (16 characters)
      */
-    const TAG_LENGTH_HIGH = 18;
+    public const TAG_LENGTH_HIGH = 18;
 
     /**
      * Tag verification failed
      */
-    const TAG_VERIFY_FAILED = 19;
+    public const TAG_VERIFY_FAILED = 19;
 
     /**
      * Initialization of cipher algorithm failed
      */
-    const INIT_ALG_FAILED = 20;
+    public const INIT_ALG_FAILED = 20;
 
     /**
      * Initialization of cipher context failed
      */
-    const INIT_CTX_FAILED = 21;
+    public const INIT_CTX_FAILED = 21;
 
     /**
      * Cipher object is already used for decryption
      */
-    const INIT_ENCRYPT_FORBIDDEN = 22;
+    public const INIT_ENCRYPT_FORBIDDEN = 22;
 
     /**
      * Cipher object is already used for encryption
      */
-    const INIT_DECRYPT_FORBIDDEN = 23;
+    public const INIT_DECRYPT_FORBIDDEN = 23;
 
     /**
      * Updating of cipher failed
      */
-    const UPDATE_FAILED = 24;
+    public const UPDATE_FAILED = 24;
 
     /**
      * Cipher object is not initialized for encryption
      */
-    const UPDATE_ENCRYPT_FORBIDDEN = 25;
+    public const UPDATE_ENCRYPT_FORBIDDEN = 25;
 
     /**
      * Cipher object is not initialized for decryption
      */
-    const UPDATE_DECRYPT_FORBIDDEN = 26;
+    public const UPDATE_DECRYPT_FORBIDDEN = 26;
 
     /**
      * Finalizing of cipher failed
      */
-    const FINISH_FAILED = 27;
+    public const FINISH_FAILED = 27;
 
     /**
      * Cipher object is not initialized for encryption
      */
-    const FINISH_ENCRYPT_FORBIDDEN = 28;
+    public const FINISH_ENCRYPT_FORBIDDEN = 28;
 
     /**
      * Cipher object is not initialized for decryption
      */
-    const FINISH_DECRYPT_FORBIDDEN = 29;
+    public const FINISH_DECRYPT_FORBIDDEN = 29;
 
     /**
      * Input data length can't exceed max integer length
      */
-    const INPUT_DATA_LENGTH_HIGH = 30;
-
+    public const INPUT_DATA_LENGTH_HIGH = 30;
 }
 
 /**
  * Class providing hash algorithms
  */
-class Hash {
+class Hash
+{
     /**
      * Returns hash algorithms
      * @param bool $aliases
@@ -396,97 +396,93 @@ class Hash {
      * @return int
      */
     public function getSize() {}
-
 }
 
 /**
  * Exception class for hash errors
  */
-class HashException extends \Exception {
-
+class HashException extends \Exception
+{
     /**
      * Hash algorithm '%s' not found
      */
-    const HASH_ALGORITHM_NOT_FOUND = 1;
+    public const HASH_ALGORITHM_NOT_FOUND = 1;
 
     /**
      * Hash static method '%s' not found
      */
-    const STATIC_METHOD_NOT_FOUND = 2;
+    public const STATIC_METHOD_NOT_FOUND = 2;
 
     /**
      * Hash static method %s can accept max one argument
      */
-    const STATIC_METHOD_TOO_MANY_ARGS = 3;
+    public const STATIC_METHOD_TOO_MANY_ARGS = 3;
 
     /**
      * Initialization of hash failed
      */
-    const INIT_FAILED = 4;
+    public const INIT_FAILED = 4;
 
     /**
      * Updating of hash context failed
      */
-    const UPDATE_FAILED = 5;
+    public const UPDATE_FAILED = 5;
 
     /**
      * Creating of hash digest failed
      */
-    const DIGEST_FAILED = 6;
+    public const DIGEST_FAILED = 6;
 
     /**
      * Input data length can't exceed max integer length
      */
-    const INPUT_DATA_LENGTH_HIGH = 7;
-
+    public const INPUT_DATA_LENGTH_HIGH = 7;
 }
 
 /**
  * Abstract class for MAC subclasses
  */
-abstract class MAC extends Hash {
+abstract class MAC extends Hash
+{
     /**
      * Create a MAC (used by MAC subclasses - HMAC and CMAC)
      * @param string $algorithm
      * @param string $key
      */
     public function __construct($algorithm, $key) {}
-
 }
 
 /**
  * Exception class for MAC errors
  */
-class MACException extends HashException {
-
+class MACException extends HashException
+{
     /**
      * MAC algorithm '%s' not found
      */
-    const MAC_ALGORITHM_NOT_FOUND = 1;
+    public const MAC_ALGORITHM_NOT_FOUND = 1;
 
     /**
      * The key length for MAC is invalid
      */
-    const KEY_LENGTH_INVALID = 2;
-
+    public const KEY_LENGTH_INVALID = 2;
 }
 
 /**
  * Class providing HMAC functionality
  */
-class HMAC extends MAC {
-}
+class HMAC extends MAC {}
 
 /**
  * Class providing CMAC functionality
  */
-class CMAC extends MAC {
-}
+class CMAC extends MAC {}
 
 /**
  * Abstract class for KDF subclasses
  */
-abstract class KDF {
+abstract class KDF
+{
     /**
      * KDF constructor
      * @param int $length
@@ -519,45 +515,44 @@ abstract class KDF {
      * @return bool
      */
     public function setSalt($salt) {}
-
 }
 
 /**
  * Exception class for KDF errors
  */
-class KDFException {
-
+class KDFException
+{
     /**
      * The key length is too low
      */
-    const KEY_LENGTH_LOW = 1;
+    public const KEY_LENGTH_LOW = 1;
 
     /**
      * The key length is too high
      */
-    const KEY_LENGTH_HIGH = 2;
+    public const KEY_LENGTH_HIGH = 2;
 
     /**
      * The salt is too long
      */
-    const SALT_LENGTH_HIGH = 3;
+    public const SALT_LENGTH_HIGH = 3;
 
     /**
      * The password is too long
      */
-    const PASSWORD_LENGTH_INVALID = 4;
+    public const PASSWORD_LENGTH_INVALID = 4;
 
     /**
      * KDF derivation failed
      */
-    const DERIVATION_FAILED = 5;
-
+    public const DERIVATION_FAILED = 5;
 }
 
 /**
  * Class providing PBKDF2 functionality
  */
-class PBKDF2 extends KDF {
+class PBKDF2 extends KDF
+{
     /**
      * KDF constructor
      * @param string $hashAlgorithm
@@ -599,30 +594,29 @@ class PBKDF2 extends KDF {
      * @return bool
      */
     public function setHashAlgorithm($hashAlgorithm) {}
-
 }
 
 /**
  * Exception class for PBKDF2 errors
  */
-class PBKDF2Exception extends KDFException {
-
+class PBKDF2Exception extends KDFException
+{
     /**
      * Hash algorithm '%s' not found
      */
-    const HASH_ALGORITHM_NOT_FOUND = 1;
+    public const HASH_ALGORITHM_NOT_FOUND = 1;
 
     /**
      * Iterations count is too high
      */
-    const ITERATIONS_HIGH = 2;
-
+    public const ITERATIONS_HIGH = 2;
 }
 
 /**
  * Class for base64 encoding and docoding
  */
-class Base64 {
+class Base64
+{
     /**
      * Encodes string $data to base64 encoding
      * @param string $data
@@ -665,50 +659,49 @@ class Base64 {
      * Decodes characters that left in the encoding context
      */
     public function decodeFinish() {}
-
 }
 
 /**
  * Exception class for base64 errors
  */
-class Base64Exception extends \Exception {
-
+class Base64Exception extends \Exception
+{
     /**
      * The object is already used for decoding
      */
-    const ENCODE_UPDATE_FORBIDDEN = 1;
+    public const ENCODE_UPDATE_FORBIDDEN = 1;
 
     /**
      * The object has not been initialized for encoding
      */
-    const ENCODE_FINISH_FORBIDDEN = 2;
+    public const ENCODE_FINISH_FORBIDDEN = 2;
 
     /**
      * The object is already used for encoding
      */
-    const DECODE_UPDATE_FORBIDDEN = 3;
+    public const DECODE_UPDATE_FORBIDDEN = 3;
 
     /**
      * The object has not been initialized for decoding
      */
-    const DECODE_FINISH_FORBIDDEN = 4;
+    public const DECODE_FINISH_FORBIDDEN = 4;
 
     /**
      * Base64 decoded string does not contain valid characters
      */
-    const DECODE_UPDATE_FAILED = 5;
+    public const DECODE_UPDATE_FAILED = 5;
 
     /**
      * Input data length can't exceed max integer length
      */
-    const INPUT_DATA_LENGTH_HIGH = 6;
-
+    public const INPUT_DATA_LENGTH_HIGH = 6;
 }
 
 /**
  * Class for generating random numbers
  */
-class Rand {
+class Rand
+{
     /**
      * Generates pseudo random bytes
      * @param int $num
@@ -749,33 +742,30 @@ class Rand {
      * @return int
      */
     public static function writeFile($filename) {}
-
 }
 
 /**
  * Exception class for rand errors
  */
-class RandException extends \Exception {
-
+class RandException extends \Exception
+{
     /**
      * The PRNG state is not yet unpredictable
      */
-    const GENERATE_PREDICTABLE = 1;
+    public const GENERATE_PREDICTABLE = 1;
 
     /**
      * The bytes written were generated without appropriate seed
      */
-    const FILE_WRITE_PREDICTABLE = 2;
+    public const FILE_WRITE_PREDICTABLE = 2;
 
     /**
      * The requested number of bytes is too high
      */
-    const REQUESTED_BYTES_NUMBER_TOO_HIGH = 3;
+    public const REQUESTED_BYTES_NUMBER_TOO_HIGH = 3;
 
     /**
      * The supplied seed length is too high
      */
-    const SEED_LENGTH_TOO_HIGH = 4;
-
-}
+    public const SEED_LENGTH_TOO_HIGH = 4;
 }

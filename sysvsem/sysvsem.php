@@ -24,7 +24,7 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * error.
  */
 #[LanguageLevelTypeAware(["8.0" => "SysvSemaphore|false"], default: "resource|false")]
-function sem_get (int $key, int $max_acquire = 1, int $permissions = 0666, bool $auto_release = true) {}
+function sem_get(int $key, int $max_acquire = 1, int $permissions = 0666, bool $auto_release = true) {}
 
 /**
  * Acquire a semaphore
@@ -40,7 +40,7 @@ function sem_get (int $key, int $max_acquire = 1, int $permissions = 0666, bool 
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function sem_acquire (#[LanguageLevelTypeAware(["8.0" => "SysvSemaphore"], default: "resource")] $semaphore, bool $non_blocking = false): bool {}
+function sem_acquire(#[LanguageLevelTypeAware(["8.0" => "SysvSemaphore"], default: "resource")] $semaphore, bool $non_blocking = false): bool {}
 
 /**
  * Release a semaphore
@@ -51,7 +51,7 @@ function sem_acquire (#[LanguageLevelTypeAware(["8.0" => "SysvSemaphore"], defau
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function sem_release (#[LanguageLevelTypeAware(["8.0" => "SysvSemaphore"], default: "resource")] $semaphore): bool {}
+function sem_release(#[LanguageLevelTypeAware(["8.0" => "SysvSemaphore"], default: "resource")] $semaphore): bool {}
 
 /**
  * Remove a semaphore
@@ -62,18 +62,18 @@ function sem_release (#[LanguageLevelTypeAware(["8.0" => "SysvSemaphore"], defau
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function sem_remove (#[LanguageLevelTypeAware(["8.0" => "SysvSemaphore"], default: "resource")] $semaphore): bool {}
+function sem_remove(#[LanguageLevelTypeAware(["8.0" => "SysvSemaphore"], default: "resource")] $semaphore): bool {}
 
 /**
  * @since 8.0
  */
-final class SysvSemaphore{
+final class SysvSemaphore
+{
     /**
      * Cannot directly construct SysvSemaphore, use sem_get() instead
      * @see sem_get()
      */
-    private function __construct(){}
+    private function __construct() {}
 }
 
 // End of sysvsem v.
-?>

@@ -119,8 +119,7 @@
  * @param mixed ...$handler_params [optional]
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
-function dba_open ($path, $mode, $handler, ...$handler_params)
-{}
+function dba_open($path, $mode, $handler, ...$handler_params) {}
 
 /**
  * Open database persistently
@@ -143,8 +142,7 @@ function dba_open ($path, $mode, $handler, ...$handler_params)
  * @param mixed ...$handler_params [optional]
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
-function dba_popen ($path, $mode, $handler, ...$handler_params)
-{}
+function dba_popen($path, $mode, $handler, ...$handler_params) {}
 
 /**
  * Close a DBA database
@@ -155,7 +153,7 @@ function dba_popen ($path, $mode, $handler, ...$handler_params)
  * </p>
  * @return void No value is returned.
  */
-function dba_close ($dba): void {}
+function dba_close($dba): void {}
 
 /**
  * Delete DBA entry specified by key
@@ -169,8 +167,7 @@ function dba_close ($dba): void {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_delete ($key, $dba): bool
-{}
+function dba_delete($key, $dba): bool {}
 
 /**
  * Check whether key exists
@@ -184,8 +181,7 @@ function dba_delete ($key, $dba): bool
  * </p>
  * @return bool <b>TRUE</b> if the key exists, <b>FALSE</b> otherwise.
  */
-function dba_exists ($key, $dba): bool
-{}
+function dba_exists($key, $dba): bool {}
 
 /**
  * Fetch data specified by key
@@ -205,8 +201,7 @@ function dba_exists ($key, $dba): bool
  * @return string|false the associated string if the key/data pair is found, <b>FALSE</b>
  * otherwise.
  */
-function dba_fetch ($key, $handle): string|false
-{}
+function dba_fetch($key, $handle): string|false {}
 
 /**
  * Fetch data specified by key
@@ -227,8 +222,7 @@ function dba_fetch ($key, $handle): string|false
  * @return string|false the associated string if the key/data pair is found, <b>FALSE</b>
  * otherwise.
  */
-function dba_fetch ($key, $skip, $dba): string|false
-{}
+function dba_fetch($key, $skip, $dba): string|false {}
 
 /**
  * Insert entry
@@ -247,8 +241,7 @@ function dba_fetch ($key, $skip, $dba): string|false
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_insert ($key, string $value, $dba): bool
-{}
+function dba_insert($key, string $value, $dba): bool {}
 
 /**
  * Replace or insert entry
@@ -265,8 +258,7 @@ function dba_insert ($key, string $value, $dba): bool
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_replace ($key, string $value, $dba): bool
-{}
+function dba_replace($key, string $value, $dba): bool {}
 
 /**
  * Fetch first key
@@ -277,8 +269,7 @@ function dba_replace ($key, string $value, $dba): bool
  * </p>
  * @return string|false the key on success or <b>FALSE</b> on failure.
  */
-function dba_firstkey ($dba): string|false
-{}
+function dba_firstkey($dba): string|false {}
 
 /**
  * Fetch next key
@@ -289,8 +280,7 @@ function dba_firstkey ($dba): string|false
  * </p>
  * @return string|false the key on success or <b>FALSE</b> on failure.
  */
-function dba_nextkey ($dba): string|false
-{}
+function dba_nextkey($dba): string|false {}
 
 /**
  * Optimize database
@@ -301,8 +291,7 @@ function dba_nextkey ($dba): string|false
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_optimize ($dba): bool
-{}
+function dba_optimize($dba): bool {}
 
 /**
  * Synchronize database
@@ -313,8 +302,7 @@ function dba_optimize ($dba): bool
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_sync ($dba): bool
-{}
+function dba_sync($dba): bool {}
 
 /**
  * List all the handlers available
@@ -331,16 +319,14 @@ function dba_sync ($dba): bool
  * When the internal cdb library is used you will see
  * cdb and cdb_make.
  */
-function dba_handlers (bool $full_info = false): array
-{}
+function dba_handlers(bool $full_info = false): array {}
 
 /**
  * List all open database files
  * @link https://php.net/manual/en/function.dba-list.php
  * @return array An associative array, in the form resourceid =&gt; filename.
  */
-function dba_list (): array
-{}
+function dba_list(): array {}
 
 /**
  * Splits a key in string representation into array representation
@@ -352,7 +338,6 @@ function dba_list (): array
  * value_name). This function will return <b>FALSE</b> if
  * <i>key</i> is <b>NULL</b> or <b>FALSE</b>.
  */
-function dba_key_split (string|false|null $key): array|false
-{}
+function dba_key_split(string|false|null $key): array|false {}
 
 // End of dba v.

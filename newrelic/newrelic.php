@@ -20,7 +20,7 @@ use JetBrains\PhpStorm\Deprecated;
  * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-custom-param
  *
  * @param string                       $key
- * @param bool|float|integer|string $value
+ * @param bool|float|int|string $value
  *
  * @return bool
  */
@@ -161,7 +161,7 @@ function newrelic_end_transaction($ignore = false) {}
  *
  * @return string
  */
-function newrelic_get_browser_timing_footer ($includeTags = true) {}
+function newrelic_get_browser_timing_footer($includeTags = true) {}
 
 /**
  * Returns the JavaScript string to inject as part of the header for page load timing (sometimes referred to as real
@@ -253,10 +253,10 @@ function newrelic_name_transaction($name) {}
  *
  * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-notice-error
  *
- * @param string|integer   $messageOrUnused    [optional]
+ * @param string|int   $messageOrUnused    [optional]
  * @param Exception|string $exceptionOrMessage [optional]
  * @param string           $unused2            [optional]
- * @param integer          $unused3            [optional]
+ * @param int          $unused3            [optional]
  * @param mixed            $unused4            [optional]
  *
  * @return void

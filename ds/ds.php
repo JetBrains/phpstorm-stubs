@@ -8,7 +8,7 @@
  * @license CC-BY 3.0, https://www.php.net/manual/en/cc.license.php
  */
 
-namespace Ds {
+namespace Ds;
 
     use Countable;
     use JsonSerializable;
@@ -423,7 +423,6 @@ namespace Ds {
         public function unshift($values): void;
     }
 
-
     /**
      * A Vector is a sequence of values in a contiguous buffer that grows and
      * shrinks automatically. It’s the most efficient sequential structure
@@ -451,18 +450,14 @@ namespace Ds {
      */
     class Vector implements Sequence
     {
-
-        const MIN_CAPACITY = 10;
+        public const MIN_CAPACITY = 10;
 
         /**
          * Creates a new instance, using either a traversable object or an array for the initial values.
          *
          * @param array|Traversable $values
          */
-        public function __construct($values = null)
-        {
-        }
-
+        public function __construct($values = null) {}
 
         /**
          * Ensures that enough memory is allocated for a required capacity.
@@ -473,9 +468,7 @@ namespace Ds {
          * equal to the current capacity.</p>
          * @link https://www.php.net/manual/en/ds-vector.allocate.php
          */
-        public function allocate(int $capacity): void
-        {
-        }
+        public function allocate(int $capacity): void {}
 
         /**
          * Updates all values by applying a callback function to each value in
@@ -486,26 +479,20 @@ namespace Ds {
          * return what the value should be replaced by.
          * @link https://www.php.net/manual/en/ds-vector.apply.php
          */
-        public function apply(callable $callback): void
-        {
-        }
+        public function apply(callable $callback): void {}
 
         /**
          * Returns the current capacity.
          * @return int The current capacity.
          * @link https://www.php.net/manual/en/ds-vector.capacity.php
          */
-        public function capacity(): int
-        {
-        }
+        public function capacity(): int {}
 
         /**
          * Removes all values from the vector.
          * @link https://www.php.net/manual/en/ds-vector.clear.php
          */
-        public function clear(): void
-        {
-        }
+        public function clear(): void {}
 
         /**
          * Determines if the vector contains all values.
@@ -514,17 +501,13 @@ namespace Ds {
          * vector, TRUE otherwise.
          * @link https://www.php.net/manual/en/ds-vector.contains.php
          */
-        public function contains(...$values): bool
-        {
-        }
+        public function contains(...$values): bool {}
 
         /**
          *Returns a shallow copy of the vector.
          * @return Vector Returns a shallow copy of the vector.
          */
-        public function copy(): Vector
-        {
-        }
+        public function copy(): Vector {}
 
         /**
          * Creates a new vector using a callable to determine which values to
@@ -540,9 +523,7 @@ namespace Ds {
          * TRUE if a callback was not provided.
          * @link https://www.php.net/manual/en/ds-vector.filter.php
          */
-        public function filter(?callable $callback = null): Vector
-        {
-        }
+        public function filter(?callable $callback = null): Vector {}
 
         /**
          * Returns the index of the value, or FALSE if not found.
@@ -551,9 +532,7 @@ namespace Ds {
          * <p><b>Note:</b> Values will be compared by value and by type.</p>
          * @link https://www.php.net/manual/en/ds-vector.find.php
          */
-        public function find($value)
-        {
-        }
+        public function find($value) {}
 
         /**
          * Returns the first value in the vector.
@@ -561,9 +540,7 @@ namespace Ds {
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-vector.first.php
          */
-        public function first()
-        {
-        }
+        public function first() {}
 
         /**
          * Returns the value at a given index.
@@ -571,9 +548,7 @@ namespace Ds {
          * @return mixed
          * @link https://www.php.net/manual/en/ds-vector.get.php
          */
-        public function get(int $index)
-        {
-        }
+        public function get(int $index) {}
 
         /**
          * Inserts values into the sequence at a given index.
@@ -584,9 +559,7 @@ namespace Ds {
          * @param array $values The value or values to insert.
          * @link https://www.php.net/manual/en/ds-vector.insert.php
          */
-        public function insert(int $index, ...$values): void
-        {
-        }
+        public function insert(int $index, ...$values): void {}
 
         /**
          * Joins all values together as a string using an optional separator between each value.
@@ -595,9 +568,7 @@ namespace Ds {
          * @return string All values of the sequence joined together as a string.
          * @link https://www.php.net/manual/en/ds-vector.join.php
          */
-        public function join(?string $glue = null): string
-        {
-        }
+        public function join(?string $glue = null): string {}
 
         /**
          * Returns the last value in the sequence.
@@ -605,9 +576,7 @@ namespace Ds {
          * @return mixed The last value in the sequence.
          * @link https://www.php.net/manual/en/ds-vector.last.php
          */
-        public function last()
-        {
-        }
+        public function last() {}
 
         /**
          * Returns the result of applying a callback function to each value in the sequence.
@@ -618,9 +587,7 @@ namespace Ds {
          * @return Vector
          * @link https://www.php.net/manual/en/ds-vector.map.php
          */
-        public function map(callable $callback): Vector
-        {
-        }
+        public function map(callable $callback): Vector {}
 
         /**
          * Returns the result of adding all given values to the sequence.
@@ -632,9 +599,7 @@ namespace Ds {
          * The current instance won't be affected.
          * @link https://www.php.net/manual/en/ds-vector.merge.php
          */
-        public function merge($values): Vector
-        {
-        }
+        public function merge($values): Vector {}
 
         /**
          * Removes and returns the last value.
@@ -642,18 +607,14 @@ namespace Ds {
          * @return mixed
          * @link https://www.php.net/manual/en/ds-vector.pop.php
          */
-        public function pop()
-        {
-        }
+        public function pop() {}
 
         /**
          * Adds values to the end of the sequence.
          * @param array $values
          * @link https://www.php.net/manual/en/ds-vector.push.php
          */
-        public function push(...$values): void
-        {
-        }
+        public function push(...$values): void {}
 
         /**
          * Reduces the sequence to a single value using a callback function.
@@ -667,9 +628,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-vector.reduce.php
          */
-        public function reduce(callable $callback, $initial = null)
-        {
-        }
+        public function reduce(callable $callback, $initial = null) {}
 
         /**
          * Removes and returns a value by index.
@@ -677,17 +636,13 @@ namespace Ds {
          * @return mixed The value that was removed.
          * @link https://www.php.net/manual/en/ds-vector.remove.php
          */
-        public function remove(int $index)
-        {
-        }
+        public function remove(int $index) {}
 
         /**
          * Reverses the sequence in-place.
          * @link https://www.php.net/manual/en/ds-vector.reverse.php
          */
-        public function reverse(): void
-        {
-        }
+        public function reverse(): void {}
 
         /**
          * Returns a reversed copy of the sequence.
@@ -695,9 +650,7 @@ namespace Ds {
          * <b>Note:</b> The current instance is not affected.
          * @link https://www.php.net/manual/en/ds-vector.reversed.php
          */
-        public function reversed(): Vector
-        {
-        }
+        public function reversed(): Vector {}
 
         /**
          * Rotates the sequence by a given number of rotations, which is
@@ -709,9 +662,7 @@ namespace Ds {
          *
          * @param int $rotations The number of times the sequence should be rotated.
          */
-        public function rotate(int $rotations): void
-        {
-        }
+        public function rotate(int $rotations): void {}
 
         /**
          * Updates a value at a given index.
@@ -723,9 +674,7 @@ namespace Ds {
          *
          * @throws OutOfRangeException if the index is not valid.
          */
-        public function set(int $index, $value): void
-        {
-        }
+        public function set(int $index, $value): void {}
 
         /**
          * Removes and returns the first value.
@@ -735,9 +684,7 @@ namespace Ds {
          * @return mixed The first value, which was removed.
          * @throws UnderflowException if empty.
          */
-        public function shift()
-        {
-        }
+        public function shift() {}
 
         /**
          * Creates a sub-sequence of a given range.
@@ -755,9 +702,7 @@ namespace Ds {
          * between the index and the end of the sequence.
          * @return Vector
          */
-        public function slice(int $index, int $length = null): Vector
-        {
-        }
+        public function slice(int $index, int $length = null): Vector {}
 
         /**
          * Sorts the sequence in-place, using an optional comparator function.
@@ -774,9 +719,7 @@ namespace Ds {
          * such as 0.99 and 0.1 will both be cast to an integer value of 0,
          * which will compare such values as equal.
          */
-        public function sort(?callable $comparator = null): void
-        {
-        }
+        public function sort(?callable $comparator = null): void {}
 
         /**
          * Returns a sorted copy, using an optional comparator function.
@@ -791,9 +734,7 @@ namespace Ds {
          * an integer value of 0, which will compare such values as equal.
          * @return Vector Returns a sorted copy of the sequence.
          */
-        public function sorted(?callable $comparator = null): Vector
-        {
-        }
+        public function sorted(?callable $comparator = null): Vector {}
 
         /**
          * Returns the sum of all values in the sequence.<br>
@@ -802,9 +743,7 @@ namespace Ds {
          * @link https://www.php.net/manual/en/ds-vector.sum.php
          * @return float
          */
-        public function sum(): float
-        {
-        }
+        public function sum(): float {}
 
         /**
          * Adds values to the front of the sequence, moving all the current
@@ -814,9 +753,7 @@ namespace Ds {
          * passed.
          * @link https://www.php.net/manual/en/ds-vector.unshift.php
          */
-        public function unshift($values): void
-        {
-        }
+        public function unshift($values): void {}
 
         /**
          * Count elements of an object
@@ -827,18 +764,14 @@ namespace Ds {
          * </p>
          * @since 5.1
          */
-        public function count(): int
-        {
-        }
+        public function count(): int {}
 
         /**
          * Returns whether the collection is empty.
          * @link https://www.php.net/manual/en/ds-vector.isempty.php
          * @return bool
          */
-        public function isEmpty(): bool
-        {
-        }
+        public function isEmpty(): bool {}
 
         /**
          * Converts the collection to an array.
@@ -847,9 +780,7 @@ namespace Ds {
          * @return array An array containing all the values in the same order as
          * the collection.
          */
-        public function toArray(): array
-        {
-        }
+        public function toArray(): array {}
 
         /**
          * Specify data which should be serialized to JSON
@@ -858,9 +789,7 @@ namespace Ds {
          * which is a value of any type other than a resource.
          * @since 5.4
          */
-        public function jsonSerialize()
-        {
-        }
+        public function jsonSerialize() {}
     }
 
     class Deque implements Sequence
@@ -871,9 +800,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-deque.construct.php
          */
-        public function __construct(...$values)
-        {
-        }
+        public function __construct(...$values) {}
 
         /**
          * Count elements of an object
@@ -884,35 +811,27 @@ namespace Ds {
          * </p>
          * @since 5.1
          */
-        public function count(): int
-        {
-        }
+        public function count(): int {}
 
         /**
          * Removes all values from the deque.
          * @link https://www.php.net/manual/en/ds-deque.clear.php
          */
-        public function clear(): void
-        {
-        }
+        public function clear(): void {}
 
         /**
          * Returns a shallow copy of the deque.
          * @link https://www.php.net/manual/en/ds-deque.copy.php
          * @return Collection
          */
-        public function copy(): Collection
-        {
-        }
+        public function copy(): Collection {}
 
         /**
          * Returns whether the deque is empty.
          * @link https://www.php.net/manual/en/ds-deque.isempty.php
          * @return bool
          */
-        public function isEmpty(): bool
-        {
-        }
+        public function isEmpty(): bool {}
 
         /**
          * Converts the deque to an array.
@@ -921,9 +840,7 @@ namespace Ds {
          * @return array An array containing all the values in the same order as
          * the deque.
          */
-        public function toArray(): array
-        {
-        }
+        public function toArray(): array {}
 
         /**
          * Ensures that enough memory is allocated for a required capacity.
@@ -935,9 +852,7 @@ namespace Ds {
          * <p><b>Note:</b> Capacity will always be rounded up to the nearest power of 2.</p>
          * @link https://www.php.net/manual/en/ds-deque.allocate.php
          */
-        public function allocate(int $capacity): void
-        {
-        }
+        public function allocate(int $capacity): void {}
 
         /**
          * Updates all values by applying a callback function to each value in
@@ -949,18 +864,14 @@ namespace Ds {
          * </p>
          * @link https://www.php.net/manual/en/ds-deque.apply.php
          */
-        public function apply(callable $callback): void
-        {
-        }
+        public function apply(callable $callback): void {}
 
         /**
          * Returns the current capacity.
          * @return int The current capacity.
          * @link https://www.php.net/manual/en/ds-deque.capacity.php
          */
-        public function capacity(): int
-        {
-        }
+        public function capacity(): int {}
 
         /**
          * Determines if the deque contains all values.
@@ -969,9 +880,7 @@ namespace Ds {
          * deque, TRUE otherwise.
          * @link https://www.php.net/manual/en/ds-deque.contains.php
          */
-        public function contains(...$values): bool
-        {
-        }
+        public function contains(...$values): bool {}
 
         /**
          * Creates a new deque using a callable to determine which values
@@ -987,9 +896,7 @@ namespace Ds {
          * TRUE if a callback was not provided.
          * @link https://www.php.net/manual/en/ds-deque.filter.php
          */
-        public function filter(?callable $callback = null): Deque
-        {
-        }
+        public function filter(?callable $callback = null): Deque {}
 
         /**
          * Returns the index of the value, or FALSE if not found.
@@ -997,9 +904,7 @@ namespace Ds {
          * @return int|false The index of the value, or FALSE if not found.
          * @link https://www.php.net/manual/en/ds-deque.find.php
          */
-        public function find($value)
-        {
-        }
+        public function find($value) {}
 
         /**
          * Returns the first value in the deque.
@@ -1007,9 +912,7 @@ namespace Ds {
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-deque.first.php
          */
-        public function first()
-        {
-        }
+        public function first() {}
 
         /**
          * Returns the value at a given index.
@@ -1018,9 +921,7 @@ namespace Ds {
          * @throws OutOfRangeException if the index is not valid.
          * @link https://www.php.net/manual/en/ds-deque.get.php
          */
-        public function get(int $index)
-        {
-        }
+        public function get(int $index) {}
 
         /**
          * Inserts values into the deque at a given index.
@@ -1031,9 +932,7 @@ namespace Ds {
          * @throws OutOfRangeException if the index is not valid.
          * @link https://www.php.net/manual/en/ds-deque.insert.php
          */
-        public function insert(int $index, ...$values): void
-        {
-        }
+        public function insert(int $index, ...$values): void {}
 
         /**
          * Joins all values together as a string using an optional separator
@@ -1043,9 +942,7 @@ namespace Ds {
          * string.
          * @link https://www.php.net/manual/en/ds-deque.join.php
          */
-        public function join(string $glue = ''): string
-        {
-        }
+        public function join(string $glue = ''): string {}
 
         /**
          * Returns the last value in the deque.
@@ -1053,9 +950,7 @@ namespace Ds {
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-deque.last.php
          */
-        public function last()
-        {
-        }
+        public function last() {}
 
         /**
          * Returns the result of applying a callback function to each value in
@@ -1073,9 +968,7 @@ namespace Ds {
          * affected.</p>
          * @link https://www.php.net/manual/en/ds-deque.map.php
          */
-        public function map(callable $callback): Deque
-        {
-        }
+        public function map(callable $callback): Deque {}
 
         /**
          * Returns the result of adding all given values to the deque.
@@ -1085,9 +978,7 @@ namespace Ds {
          * then returning that copy.
          * @link https://www.php.net/manual/en/ds-deque.merge.php
          */
-        public function merge($values): Deque
-        {
-        }
+        public function merge($values): Deque {}
 
         /**
          * Removes and returns the last value.
@@ -1095,17 +986,13 @@ namespace Ds {
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-deque.pop.php
          */
-        public function pop()
-        {
-        }
+        public function pop() {}
 
         /**
          * Adds values to the end of the deque.
          * @param mixed ...$values The values to add.
          */
-        public function push(...$values): void
-        {
-        }
+        public function push(...$values): void {}
 
         /**
          * Reduces the deque to a single value using a callback function.
@@ -1119,9 +1006,7 @@ namespace Ds {
          * @return mixed The return value of the final callback.
          * @link https://www.php.net/manual/en/ds-deque.reduce.php
          */
-        public function reduce(callable $callback, $initial = null)
-        {
-        }
+        public function reduce(callable $callback, $initial = null) {}
 
         /**
          * Removes and returns a value by index.
@@ -1129,26 +1014,20 @@ namespace Ds {
          * @return mixed The value that was removed.
          * @link https://www.php.net/manual/en/ds-deque.remove.php
          */
-        public function remove(int $index)
-        {
-        }
+        public function remove(int $index) {}
 
         /**
          * Reverses the deque in-place.
          * @link https://www.php.net/manual/en/ds-deque.reverse.php
          */
-        public function reverse(): void
-        {
-        }
+        public function reverse(): void {}
 
         /**
          * Returns a reversed copy of the deque.
          * @return Deque A reversed copy of the deque.
          * <p><b>Note:</b> The current instance is not affected.</p>
          */
-        public function reversed(): Deque
-        {
-        }
+        public function reversed(): Deque {}
 
         /**
          * Rotates the deque by a given number of rotations, which is
@@ -1159,9 +1038,7 @@ namespace Ds {
          * rotated.
          * @link https://www.php.net/manual/en/ds-deque.rotate.php
          */
-        public function rotate(int $rotations): void
-        {
-        }
+        public function rotate(int $rotations): void {}
 
         /**
          * Updates a value at a given index.
@@ -1170,9 +1047,7 @@ namespace Ds {
          * @throws OutOfRangeException if the index is not valid.
          * @link https://www.php.net/manual/en/ds-deque.set.php
          */
-        public function set(int $index, $value): void
-        {
-        }
+        public function set(int $index, $value): void {}
 
         /**
          * Removes and returns the first value.
@@ -1180,9 +1055,7 @@ namespace Ds {
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-deque.shift.php
          */
-        public function shift()
-        {
-        }
+        public function shift() {}
 
         /**
          * Creates a sub-deque of a given range.
@@ -1199,9 +1072,7 @@ namespace Ds {
          * @return Deque A sub-deque of the given range.
          * @link https://www.php.net/manual/en/ds-deque.slice.php
          */
-        public function slice(int $index, int $length = null): Deque
-        {
-        }
+        public function slice(int $index, int $length = null): Deque {}
 
         /**
          * Sorts the deque in-place, using an optional comparator function.
@@ -1218,9 +1089,7 @@ namespace Ds {
          * values as equal.</p>
          * @link https://www.php.net/manual/en/ds-deque.sort.php
          */
-        public function sort(?callable $comparator = null): void
-        {
-        }
+        public function sort(?callable $comparator = null): void {}
 
         /**
          * Returns a sorted copy, using an optional comparator function.
@@ -1238,9 +1107,7 @@ namespace Ds {
          * @return Deque Returns a sorted copy of the deque.
          * @link https://www.php.net/manual/en/ds-deque.sort.php
          */
-        public function sorted(?callable $comparator = null): Deque
-        {
-        }
+        public function sorted(?callable $comparator = null): Deque {}
 
         /**
          * Returns the sum of all values in the deque.
@@ -1249,9 +1116,7 @@ namespace Ds {
          * @return float|int The sum of all the values in the deque as
          * either a float or int depending on the values in the deque.
          */
-        public function sum(): float|int
-        {
-        }
+        public function sum(): float|int {}
 
         /**
          * Adds values to the front of the deque, moving all the current
@@ -1260,9 +1125,7 @@ namespace Ds {
          * <p><b>Note:</b> Multiple values will be added in the same order that they
          * are passed.</p>
          */
-        public function unshift($values): void
-        {
-        }
+        public function unshift($values): void {}
 
         /**
          * Specify data which should be serialized to JSON
@@ -1271,11 +1134,7 @@ namespace Ds {
          * which is a value of any type other than a resource.
          * @since 5.4
          */
-        public function jsonSerialize()
-        {
-        }
-
-
+        public function jsonSerialize() {}
     }
 
     class Map implements Collection
@@ -1286,9 +1145,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.construct.php
          */
-        public function __construct(...$values)
-        {
-        }
+        public function __construct(...$values) {}
 
         /**
          * Allocates enough memory for a required capacity.
@@ -1299,9 +1156,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.allocate.php
          */
-        public function allocate(int $capacity)
-        {
-        }
+        public function allocate(int $capacity) {}
 
         /**
          * Updates all values by applying a callback function to each value in the map.
@@ -1311,9 +1166,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.apply.php
          */
-        public function apply(callable $callback)
-        {
-        }
+        public function apply(callable $callback) {}
 
         /**
          * Returns the current capacity.
@@ -1322,9 +1175,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.capacity.php
          */
-        public function capacity(): int
-        {
-        }
+        public function capacity(): int {}
 
         /**
          * Count elements of an object
@@ -1335,26 +1186,20 @@ namespace Ds {
          * The return value is cast to an integer.
          * @since 5.1
          */
-        public function count(): int
-        {
-        }
+        public function count(): int {}
 
         /**
          * Removes all values from the collection.
          * @link https://www.php.net/manual/en/ds-collection.clear.php
          */
-        public function clear(): void
-        {
-        }
+        public function clear(): void {}
 
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-collection.copy.php
          * @return Collection
          */
-        public function copy(): Collection
-        {
-        }
+        public function copy(): Collection {}
 
         /**
          * Returns the result of removing all keys from the current instance that are present in a given map.
@@ -1367,9 +1212,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.diff.php
          */
-        public function diff(Map $map): Map
-        {
-        }
+        public function diff(Map $map): Map {}
 
         /**
          * Creates a new map using a callable to determine which pairs to include
@@ -1381,9 +1224,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.filter.php
          */
-        public function filter(?callable $callback = null): Map
-        {
-        }
+        public function filter(?callable $callback = null): Map {}
 
         /**
          * Returns the first pair in the map
@@ -1394,9 +1235,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.first.php
          */
-        public function first(): Pair
-        {
-        }
+        public function first(): Pair {}
 
         /**
          * Returns the value for a given key, or an optional default value if the key could not be found.
@@ -1421,9 +1260,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.get.php
          */
-        public function get($key, $default = null)
-        {
-        }
+        public function get($key, $default = null) {}
 
         /**
          * Determines whether the map contains a given key
@@ -1434,9 +1271,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.hasKey.php
          */
-        public function hasKey($key): bool
-        {
-        }
+        public function hasKey($key): bool {}
 
         /**
          * Determines whether the map contains a given value
@@ -1447,9 +1282,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.hasValue.php
          */
-        public function hasValue($value): bool
-        {
-        }
+        public function hasValue($value): bool {}
 
         /**
          * Creates a new map containing the pairs of the current instance whose
@@ -1467,9 +1300,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.intersect.php
          */
-        public function intersect(Map $map): Map
-        {
-        }
+        public function intersect(Map $map): Map {}
 
         /**
          * Returns whether the collection is empty.
@@ -1480,9 +1311,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.isempty.php
          */
-        public function isEmpty(): bool
-        {
-        }
+        public function isEmpty(): bool {}
 
         /**
          * Converts the map to an array.
@@ -1499,9 +1328,7 @@ namespace Ds {
          * @return array An array containing all the values in the same order as
          * the map.
          */
-        public function toArray(): array
-        {
-        }
+        public function toArray(): array {}
 
         /**
          * Specify data which should be serialized to JSON
@@ -1510,18 +1337,14 @@ namespace Ds {
          * which is a value of any type other than a resource.
          * @since 5.4
          */
-        public function jsonSerialize()
-        {
-        }
+        public function jsonSerialize() {}
 
         /**
          * Returns a set containing all the keys of the map, in the same order.
          * @link https://www.php.net/manual/en/ds-map.keys.php
          * @return Set A Ds\Set containing all the keys of the map.
          */
-        public function keys(): Set
-        {
-        }
+        public function keys(): Set {}
 
         /**
          * Sorts the map in-place by key, using an optional comparator function.
@@ -1538,9 +1361,7 @@ namespace Ds {
          * equal.</p>
          * @link https://www.php.net/manual/en/ds-map.ksort.php
          */
-        public function ksort(?callable $comparator = null)
-        {
-        }
+        public function ksort(?callable $comparator = null) {}
 
         /**
          * Returns a copy sorted by key, using an optional comparator function.
@@ -1558,9 +1379,7 @@ namespace Ds {
          * @return Map Returns a copy of the map, sorted by key.
          * @link https://www.php.net/manual/en/ds-map.ksorted.php
          */
-        public function ksorted(?callable $comparator = null): Map
-        {
-        }
+        public function ksorted(?callable $comparator = null): Map {}
 
         /**
          * Returns the last pair of the map.
@@ -1568,9 +1387,7 @@ namespace Ds {
          * @throws UnderflowException if empty
          * @link https://www.php.net/manual/en/ds-map.last.php
          */
-        public function last(): Pair
-        {
-        }
+        public function last(): Pair {}
 
         /**
          * Returns the result of applying a callback function to each value of
@@ -1586,9 +1403,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.map.php
          */
-        public function map(callable $callback): Map
-        {
-        }
+        public function map(callable $callback): Map {}
 
         /**
          * Returns the result of associating all keys of a given traversable
@@ -1603,9 +1418,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.merge.php
          */
-        public function merge($values): Map
-        {
-        }
+        public function merge($values): Map {}
 
         /**
          * Returns a Ds\Sequence containing all the pairs of the map.
@@ -1614,9 +1427,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.pairs.php
          */
-        public function pairs(): Sequence
-        {
-        }
+        public function pairs(): Sequence {}
 
         /**
          * Associates a key with a value, overwriting a previous association if
@@ -1639,9 +1450,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.put.php
          */
-        public function put($key, $value)
-        {
-        }
+        public function put($key, $value) {}
 
         /**
          * Associates all key-value pairs of a traversable object or array.
@@ -1656,9 +1465,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.putall.php
          */
-        public function putAll($pairs)
-        {
-        }
+        public function putAll($pairs) {}
 
         /**
          * Reduces the map to a single value using a callback function.
@@ -1675,9 +1482,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.reduce.php
          */
-        public function reduce(callable $callback, $initial)
-        {
-        }
+        public function reduce(callable $callback, $initial) {}
 
         /**
          * Removes and returns a value by key, or return an optional default
@@ -1709,18 +1514,14 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.remove.php
          */
-        public function remove($key, $default = null)
-        {
-        }
+        public function remove($key, $default = null) {}
 
         /**
          * Reverses the map in-place.
          *
          * @link https://www.php.net/manual/en/ds-map.reverse.php
          */
-        public function reverse()
-        {
-        }
+        public function reverse() {}
 
         /**
          * Returns a reversed copy of the map.
@@ -1731,9 +1532,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.reversed.php
          */
-        public function reversed(): Map
-        {
-        }
+        public function reversed(): Map {}
 
         /**
          * Returns the pair at a given zero-based position.
@@ -1746,9 +1545,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.skip.php
          */
-        public function skip(int $position): Pair
-        {
-        }
+        public function skip(int $position): Pair {}
 
         /**
          * Returns a subset of the map defined by a starting index and length.
@@ -1770,9 +1567,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.slice.php
          */
-        public function slice(int $index, ?int $length = null): Map
-        {
-        }
+        public function slice(int $index, ?int $length = null): Map {}
 
         /**
          * Sorts the map in-place by value, using an optional comparator
@@ -1794,9 +1589,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.sort.php
          */
-        public function sort(?callable $comparator = null)
-        {
-        }
+        public function sort(?callable $comparator = null) {}
 
         /**
          * Returns a copy, sorted by value using an optional comparator function.
@@ -1819,9 +1612,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.sorted.php
          */
-        public function sorted(?callable $comparator = null): Map
-        {
-        }
+        public function sorted(?callable $comparator = null): Map {}
 
         /**
          * Returns the sum of all values in the map.
@@ -1834,9 +1625,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.sum.php
          */
-        public function sum(): float|int
-        {
-        }
+        public function sum(): float|int {}
 
         /**
          * Creates a new map using values from the current instance and another
@@ -1854,9 +1643,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.union.php
          */
-        public function union(Map $map): Map
-        {
-        }
+        public function union(Map $map): Map {}
 
         /**
          * Returns a sequence containing all the values of the map, in the same
@@ -1866,9 +1653,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.values.php
          */
-        public function values(): Sequence
-        {
-        }
+        public function values(): Sequence {}
 
         /**
          * Creates a new map containing keys of the current instance as well as
@@ -1883,9 +1668,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.xor.php
          */
-        public function xor(Map $map): Map
-        {
-        }
+        public function xor(Map $map): Map {}
     }
 
     /**
@@ -1912,18 +1695,14 @@ namespace Ds {
          *
          * @link https://php.net/manual/en/ds-pair.construct.php
          */
-        public function __construct($key = null, $value = null)
-        {
-        }
+        public function __construct($key = null, $value = null) {}
 
         /**
          * Removes all values from the pair.
          *
          * @link https://php.net/manual/en/ds-pair.clear.php
          */
-        public function clear()
-        {
-        }
+        public function clear() {}
 
         /**
          * Returns a shallow copy of the pair.
@@ -1932,9 +1711,7 @@ namespace Ds {
          *
          * @link https://php.net/manual/en/ds-pair.copy.php
          */
-        public function copy(): Pair
-        {
-        }
+        public function copy(): Pair {}
 
         /**
          * Returns whether the pair is empty.
@@ -1943,9 +1720,7 @@ namespace Ds {
          *
          * @link https://php.net/manual/en/ds-pair.isempty.php
          */
-        public function isEmpty(): bool
-        {
-        }
+        public function isEmpty(): bool {}
 
         /**
          * Converts the pair to an array.
@@ -1957,9 +1732,7 @@ namespace Ds {
          *
          * @link https://php.net/manual/en/ds-pair.toarray.php
          */
-        public function toArray(): array
-        {
-        }
+        public function toArray(): array {}
 
         /**
          * Specify data which should be serialized to JSON
@@ -1967,10 +1740,7 @@ namespace Ds {
          * @return mixed data which can be serialized by <b>json_encode</b>,
          * which is a value of any type other than a resource.
          */
-        public function jsonSerialize()
-        {
-        }
-
+        public function jsonSerialize() {}
     }
 
     /**
@@ -1993,9 +1763,7 @@ namespace Ds {
          *
          * @link https://php.net/manual/en/ds-set.construct.php
          */
-        public function __construct(...$values)
-        {
-        }
+        public function __construct(...$values) {}
 
         /**
          * Adds all given values to the set that haven't already been added.
@@ -2011,9 +1779,7 @@ namespace Ds {
          *
          * @link https://php.net/manual/en/ds-set.add.php
          */
-        public function add(...$values)
-        {
-        }
+        public function add(...$values) {}
 
         /**
          * Allocates enough memory for a required capacity.
@@ -2028,9 +1794,7 @@ namespace Ds {
          *
          * @link https://php.net/manual/en/ds-set.allocate.php
          */
-        public function allocate(int $capacity)
-        {
-        }
+        public function allocate(int $capacity) {}
 
         /**
          * Determines if the set contains all values.
@@ -2048,10 +1812,7 @@ namespace Ds {
          *
          * @link https://php.net/manual/en/ds-set.contains.php
          */
-        public function contains(...$values): bool
-        {
-        }
-
+        public function contains(...$values): bool {}
 
         /**
          * Returns the current capacity.
@@ -2059,17 +1820,13 @@ namespace Ds {
          *
          * @return int
          */
-        public function capacity(): int
-        {
-        }
+        public function capacity(): int {}
 
         /**
          * Removes all values from the set.
          * @link https://www.php.net/manual/en/ds-set.clear.php
          */
-        public function clear(): void
-        {
-        }
+        public function clear(): void {}
 
         /**
          * Count elements of an object
@@ -2080,18 +1837,14 @@ namespace Ds {
          * The return value is cast to an integer.
          * @since 5.1
          */
-        public function count(): int
-        {
-        }
+        public function count(): int {}
 
         /**
          * Returns a shallow copy of the set.
          * @link https://www.php.net/manual/en/ds-set.copy.php
          * @return Set
          */
-        public function copy(): Set
-        {
-        }
+        public function copy(): Set {}
 
         /**
          * Creates a new set using values that aren't in another set.
@@ -2105,9 +1858,7 @@ namespace Ds {
          * @return Set A new set containing all values that were not in the
          * other set.
          */
-        public function diff(Set $set): Set
-        {
-        }
+        public function diff(Set $set): Set {}
 
         /**
          * Creates a new set using a callable to determine which values to
@@ -2124,9 +1875,7 @@ namespace Ds {
          * callback returned TRUE, or all values that convert to TRUE if a
          * callback was not provided.
          */
-        public function filter(?callable $callback = null): Set
-        {
-        }
+        public function filter(?callable $callback = null): Set {}
 
         /**
          * Returns the first value in the set.
@@ -2135,9 +1884,7 @@ namespace Ds {
          *
          * @return mixed The first value in the set.
          */
-        public function first()
-        {
-        }
+        public function first() {}
 
         /**
          * Returns the value at a given index.
@@ -2148,9 +1895,7 @@ namespace Ds {
          *
          * @return mixed The value at the requested index.
          */
-        public function get(int $index)
-        {
-        }
+        public function get(int $index) {}
 
         /**
          * Creates a new set using values common to both the current instance
@@ -2165,9 +1910,7 @@ namespace Ds {
          *
          * @return Set The intersection of the current instance and another set.
          */
-        public function intersect(Set $set): Set
-        {
-        }
+        public function intersect(Set $set): Set {}
 
         /**
          * Returns whether the set is empty.
@@ -2175,9 +1918,7 @@ namespace Ds {
          *
          * @return bool
          */
-        public function isEmpty(): bool
-        {
-        }
+        public function isEmpty(): bool {}
 
         /**
          * Joins all values together as a string using an optional separator
@@ -2189,9 +1930,7 @@ namespace Ds {
          *
          * @return string
          */
-        public function join(?string $glue = null): string
-        {
-        }
+        public function join(?string $glue = null): string {}
 
         /**
          * Returns the result of adding all given values to the set.
@@ -2206,9 +1945,7 @@ namespace Ds {
          * effectively the same as adding the values to a copy, then returning
          * that copy.
          */
-        public function merge($values): Set
-        {
-        }
+        public function merge($values): Set {}
 
         /**
          * Reduces the set to a single value using a callback function.
@@ -2226,9 +1963,7 @@ namespace Ds {
          *
          * @return mixed The return value of the final callback.
          */
-        public function reduce(callable $callback, $initial = null)
-        {
-        }
+        public function reduce(callable $callback, $initial = null) {}
 
         /**
          * Removes all given values from the set, ignoring any that are not in
@@ -2238,18 +1973,14 @@ namespace Ds {
          *
          * @param mixed ...$values The values to remove.
          */
-        public function remove(...$values)
-        {
-        }
+        public function remove(...$values) {}
 
         /**
          * Reverses the set in-place.
          *
          * @link https://www.php.net/manual/en/ds-set.reverse.php
          */
-        public function reverse()
-        {
-        }
+        public function reverse() {}
 
         /**
          * Returns a reversed copy of the set.
@@ -2260,9 +1991,7 @@ namespace Ds {
          *
          * @return Set A reversed copy of the set.
          */
-        public function reversed(): Set
-        {
-        }
+        public function reversed(): Set {}
 
         /**
          * Returns a sub-set of a given range
@@ -2281,9 +2010,7 @@ namespace Ds {
          *
          * @return Set A sub-set of the given range.
          */
-        public function slice(int $index, ?int $length = null): Set
-        {
-        }
+        public function slice(int $index, ?int $length = null): Set {}
 
         /**
          * Returns the last value in the set.
@@ -2294,9 +2021,7 @@ namespace Ds {
          *
          * @throws UnderflowException if empty.
          */
-        public function last()
-        {
-        }
+        public function last() {}
 
         /**
          * Sorts the set in-place, using an optional comparator function.
@@ -2315,9 +2040,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-set.sort.php
          */
-        public function sort(?callable $comparator = null)
-        {
-        }
+        public function sort(?callable $comparator = null) {}
 
         /**
          * Returns a sorted copy, using an optional comparator function.
@@ -2340,9 +2063,7 @@ namespace Ds {
          *
          * @return Set Returns a sorted copy of the set.
          */
-        public function sorted(?callable $comparator = null): Set
-        {
-        }
+        public function sorted(?callable $comparator = null): Set {}
 
         /**
          * Returns the sum of all values in the set.
@@ -2355,9 +2076,7 @@ namespace Ds {
          * @return float|int The sum of all the values in the set as either a
          * float or int depending on the values in the set.
          */
-        public function sum(): float|int
-        {
-        }
+        public function sum(): float|int {}
 
         /**
          * Creates a new set that contains the values of the current instance as
@@ -2372,9 +2091,7 @@ namespace Ds {
          * @return Set A new set containing all the values of the current
          * instance as well as another set.
          */
-        public function union(Set $set): Set
-        {
-        }
+        public function union(Set $set): Set {}
 
         /**
          * Creates a new set using values in either the current instance or in
@@ -2389,9 +2106,7 @@ namespace Ds {
          * @return Set A new set containing values in the current instance as
          * well as another set, but not in both.
          */
-        public function xor(Set $set): Set
-        {
-        }
+        public function xor(Set $set): Set {}
 
         /**
          * Converts the set to an array.
@@ -2400,9 +2115,7 @@ namespace Ds {
          * @return array An array containing all the values in the same order as
          * the collection.
          */
-        public function toArray(): array
-        {
-        }
+        public function toArray(): array {}
 
         /**
          * Specify data which should be serialized to JSON
@@ -2411,11 +2124,7 @@ namespace Ds {
          * which is a value of any type other than a resource.
          * @since 5.4
          */
-        public function jsonSerialize()
-        {
-        }
-
-
+        public function jsonSerialize() {}
     }
 
     /**
@@ -2438,9 +2147,7 @@ namespace Ds {
          * @param array|Traversable|null $values A traversable object or an
          * array to use for the initial values.
          */
-        public function __construct($values = null)
-        {
-        }
+        public function __construct($values = null) {}
 
         /**
          * Ensures that enough memory is allocated for a required capacity. This
@@ -2454,9 +2161,7 @@ namespace Ds {
          * <p><b>Note:</b> Capacity will stay the same if this value is less than or
          * equal to the current capacity.</p>
          */
-        public function allocate(int $capacity)
-        {
-        }
+        public function allocate(int $capacity) {}
 
         /**
          * Returns the current capacity.
@@ -2465,17 +2170,13 @@ namespace Ds {
          *
          * @return int The current capacity.
          */
-        public function capacity(): int
-        {
-        }
+        public function capacity(): int {}
 
         /**
          * Removes all values from the stack.
          * @link https://www.php.net/manual/en/ds-stack.clear.php
          */
-        public function clear(): void
-        {
-        }
+        public function clear(): void {}
 
         /**
          * Count elements of an object
@@ -2486,27 +2187,21 @@ namespace Ds {
          * The return value is cast to an integer.
          * @since 5.1
          */
-        public function count(): int
-        {
-        }
+        public function count(): int {}
 
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-stack.copy.php
          * @return Stack
          */
-        public function copy(): Stack
-        {
-        }
+        public function copy(): Stack {}
 
         /**
          * Returns whether the collection is empty.
          * @link https://www.php.net/manual/en/ds-stack.isempty.php
          * @return bool
          */
-        public function isEmpty(): bool
-        {
-        }
+        public function isEmpty(): bool {}
 
         /**
          * Converts the collection to an array.
@@ -2515,9 +2210,7 @@ namespace Ds {
          * @return array An array containing all the values in the same order as
          * the collection.
          */
-        public function toArray(): array
-        {
-        }
+        public function toArray(): array {}
 
         /**
          * Specify data which should be serialized to JSON
@@ -2526,9 +2219,7 @@ namespace Ds {
          * which is a value of any type other than a resource.
          * @since 5.4
          */
-        public function jsonSerialize()
-        {
-        }
+        public function jsonSerialize() {}
 
         /**
          * Returns the value at the top of the stack, but does not remove it.
@@ -2539,9 +2230,7 @@ namespace Ds {
          *
          * @throws UnderflowException
          */
-        public function peek()
-        {
-        }
+        public function peek() {}
 
         /**
          * Removes and returns the value at the top of the stack.
@@ -2552,9 +2241,7 @@ namespace Ds {
          *
          * @throws UnderflowException
          */
-        public function pop()
-        {
-        }
+        public function pop() {}
 
         /**
          * Pushes values onto the stack.
@@ -2563,9 +2250,7 @@ namespace Ds {
          *
          * @param array $values The values to push onto the stack.
          */
-        public function push(...$values)
-        {
-        }
+        public function push(...$values) {}
     }
 
     /**
@@ -2588,9 +2273,7 @@ namespace Ds {
          * @param array|Traversable|null $values A traversable object or an
          * array to use for the initial values.
          */
-        public function __construct($values = null)
-        {
-        }
+        public function __construct($values = null) {}
 
         /**
          * Ensures that enough memory is allocated for a required capacity. This
@@ -2604,9 +2287,7 @@ namespace Ds {
          * <p><b>Note:</b> Capacity will stay the same if this value is less than or
          * equal to the current capacity.</p>
          */
-        public function allocate(int $capacity)
-        {
-        }
+        public function allocate(int $capacity) {}
 
         /**
          * Returns the current capacity.
@@ -2615,17 +2296,13 @@ namespace Ds {
          *
          * @return int The current capacity.
          */
-        public function capacity(): int
-        {
-        }
+        public function capacity(): int {}
 
         /**
          * Removes all values from the queue.
          * @link https://www.php.net/manual/en/ds-queue.clear.php
          */
-        public function clear(): void
-        {
-        }
+        public function clear(): void {}
 
         /**
          * Count elements of an object
@@ -2636,27 +2313,21 @@ namespace Ds {
          * The return value is cast to an integer.
          * @since 5.1
          */
-        public function count(): int
-        {
-        }
+        public function count(): int {}
 
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-queue.copy.php
          * @return Stack
          */
-        public function copy(): Stack
-        {
-        }
+        public function copy(): Stack {}
 
         /**
          * Returns whether the collection is empty.
          * @link https://www.php.net/manual/en/ds-queue.isempty.php
          * @return bool
          */
-        public function isEmpty(): bool
-        {
-        }
+        public function isEmpty(): bool {}
 
         /**
          * Converts the collection to an array.
@@ -2665,9 +2336,7 @@ namespace Ds {
          * @return array An array containing all the values in the same order as
          * the collection.
          */
-        public function toArray(): array
-        {
-        }
+        public function toArray(): array {}
 
         /**
          * Specify data which should be serialized to JSON
@@ -2676,9 +2345,7 @@ namespace Ds {
          * which is a value of any type other than a resource.
          * @since 5.4
          */
-        public function jsonSerialize()
-        {
-        }
+        public function jsonSerialize() {}
 
         /**
          * Returns the value at the top of the queue, but does not remove it.
@@ -2689,9 +2356,7 @@ namespace Ds {
          *
          * @throws UnderflowException
          */
-        public function peek()
-        {
-        }
+        public function peek() {}
 
         /**
          * Removes and returns the value at the top of the queue.
@@ -2702,9 +2367,7 @@ namespace Ds {
          *
          * @throws UnderflowException
          */
-        public function pop()
-        {
-        }
+        public function pop() {}
 
         /**
          * Pushes values onto the queue.
@@ -2713,9 +2376,7 @@ namespace Ds {
          *
          * @param array $values The values to push onto the queue.
          */
-        public function push(...$values)
-        {
-        }
+        public function push(...$values) {}
     }
 
     /**
@@ -2731,7 +2392,7 @@ namespace Ds {
      */
     class PriorityQueue implements Collection
     {
-        const MIN_CAPACITY = 8;
+        public const MIN_CAPACITY = 8;
 
         /**
          * Count elements of an object
@@ -2742,35 +2403,27 @@ namespace Ds {
          * The return value is cast to an integer.
          * @since 5.1
          */
-        public function count(): int
-        {
-        }
+        public function count(): int {}
 
         /**
          * Removes all values from the collection.
          * @link https://www.php.net/manual/en/ds-collection.clear.php
          */
-        public function clear(): void
-        {
-        }
+        public function clear(): void {}
 
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-collection.copy.php
          * @return Collection
          */
-        public function copy()
-        {
-        }
+        public function copy() {}
 
         /**
          * Returns whether the collection is empty.
          * @link https://www.php.net/manual/en/ds-collection.isempty.php
          * @return bool
          */
-        public function isEmpty(): bool
-        {
-        }
+        public function isEmpty(): bool {}
 
         /**
          * Pushes a value with a given priority into the queue.
@@ -2778,9 +2431,7 @@ namespace Ds {
          * @param mixed $value
          * @param int   $priority
          */
-        public function push($value, int $priority)
-        {
-        }
+        public function push($value, int $priority) {}
 
         /**
          * Converts the collection to an array.
@@ -2789,9 +2440,7 @@ namespace Ds {
          * @return array An array containing all the values in the same order as
          * the collection.
          */
-        public function toArray(): array
-        {
-        }
+        public function toArray(): array {}
 
         /**
          * Specify data which should be serialized to JSON
@@ -2800,10 +2449,5 @@ namespace Ds {
          * which is a value of any type other than a resource.
          * @since 5.4
          */
-        public function jsonSerialize()
-        {
-        }
-
-
+        public function jsonSerialize() {}
     }
-}

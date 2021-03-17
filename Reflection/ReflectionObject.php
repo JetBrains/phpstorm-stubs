@@ -16,9 +16,7 @@ class ReflectionObject extends ReflectionClass
      * @link https://php.net/manual/en/reflectionobject.construct.php
      * @param object $object An object instance.
      */
-    public function __construct($object)
-    {
-    }
+    public function __construct($object) {}
 
     /**
      * Export
@@ -33,7 +31,5 @@ class ReflectionObject extends ReflectionClass
      * @removed 8.0
      */
     #[Deprecated(since: '7.4')]
-    public static function export($argument, $return = false)
-    {
-    }
+    public static function export($argument, $return = false) {}
 }

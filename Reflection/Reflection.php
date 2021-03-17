@@ -16,9 +16,7 @@ class Reflection
      * @param int $modifiers Bitfield of the modifiers to get.
      * @return array An array of modifier names.
      */
-    public static function getModifierNames($modifiers)
-    {
-    }
+    public static function getModifierNames($modifiers) {}
 
     /**
      * Exports
@@ -32,7 +30,5 @@ class Reflection
      * @removed 8.0
      */
     #[Deprecated(since: '7.4')]
-    public static function export(Reflector $reflector, $return = false)
-    {
-    }
+    public static function export(Reflector $reflector, $return = false) {}
 }

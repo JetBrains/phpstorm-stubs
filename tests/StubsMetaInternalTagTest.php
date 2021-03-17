@@ -32,7 +32,7 @@ class StubsMetaInternalTagTest extends BaseStubsTest
         foreach ($functions as $function) {
             if ($function->hasInternalMetaTag) {
                 $reflectionFunctions = array_filter(ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
-                    fn($refFunction) => $refFunction->name === $function->name);
+                    fn ($refFunction) => $refFunction->name === $function->name);
                 $reflectionFunction = array_pop($reflectionFunctions);
                 if (!$reflectionFunction->hasMutedProblem(StubProblemType::ABSENT_IN_META)) {
                     self::checkInternalMetaInOverride($function->name);
@@ -52,7 +52,7 @@ class StubsMetaInternalTagTest extends BaseStubsTest
                     $refClass = ReflectionStubsSingleton::getReflectionStubs()->getClass($className);
                     if ($refClass !== null) {
                         $reflectionMethods = array_filter($refClass->methods,
-                            fn($refMethod) => $refMethod->name === $methodName);
+                            fn ($refMethod) => $refMethod->name === $methodName);
                         /** @var PHPMethod $reflectionMethod */
                         $reflectionMethod = array_pop($reflectionMethods);
                         if ($reflectionMethod->hasMutedProblem(StubProblemType::ABSENT_IN_META)) {

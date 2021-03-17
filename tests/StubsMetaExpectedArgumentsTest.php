@@ -40,7 +40,7 @@ class StubsMetaExpectedArgumentsTest extends BaseStubsTest
         self::$expectedArguments = $argumentsCollector->getExpectedArgumentsInfos();
         self::$registeredArgumentsSet = $argumentsCollector->getRegisteredArgumentsSet();
         $stubs = PhpStormStubsSingleton::getPhpStormStubs();
-        self::$functionsFqns = array_map(fn(PHPFunction $func) => self::toPresentableFqn($func->name), $stubs->getFunctions());
+        self::$functionsFqns = array_map(fn (PHPFunction $func) => self::toPresentableFqn($func->name), $stubs->getFunctions());
         self::$methodsFqns = self::getMethodsFqns($stubs);
         self::$constantsFqns = self::getConstantsFqns($stubs);
     }
@@ -56,7 +56,7 @@ class StubsMetaExpectedArgumentsTest extends BaseStubsTest
 
     public static function getConstantsFqns(StubsContainer $stubs): array
     {
-        $constants = array_map(fn(PHPConst $constant) => self::toPresentableFqn($constant->name), $stubs->getConstants());
+        $constants = array_map(fn (PHPConst $constant) => self::toPresentableFqn($constant->name), $stubs->getConstants());
         foreach ($stubs->getClasses() as $class) {
             foreach ($class->constants as $classConstant) {
                 $name = self::getClassMemberFqn($class->name, $classConstant->name);
@@ -69,7 +69,7 @@ class StubsMetaExpectedArgumentsTest extends BaseStubsTest
     public static function getMethodsFqns(StubsContainer $stubs): array
     {
         return self::flatten(
-            array_map(fn(PHPClass $class) => array_map(fn(PHPMethod $method) => self::getClassMemberFqn($class->name, $method->name), $class->methods), $stubs->getClasses()));
+            array_map(fn (PHPClass $class) => array_map(fn (PHPMethod $method) => self::getClassMemberFqn($class->name, $method->name), $class->methods), $stubs->getClasses()));
     }
 
     /**

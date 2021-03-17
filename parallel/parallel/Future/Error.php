@@ -2,5 +2,4 @@
 
 namespace parallel\Future;
 
-class Error extends \parallel\Error{
-}
+class Error extends \parallel\Error {}

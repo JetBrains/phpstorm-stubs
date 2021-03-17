@@ -505,7 +505,7 @@ final class classObj
      * @param  $new_value
      * @return int
      */
-    final public function set($property_name,  $new_value) {}
+    final public function set($property_name, $new_value) {}
 
     /**
      * Set the :ref:`expression <expressions>` string for the class
@@ -543,7 +543,6 @@ final class classObj
      * @return int
      */
     final public function updateFromString($snippet) {}
-
 }
 
 /**
@@ -605,7 +604,6 @@ final class clusterObj
      * @return int
      */
     final public function setGroup($expression) {}
-
 }
 
 /**
@@ -649,7 +647,6 @@ final class colorObj
      * @return int
      */
     final public function setHex($hex) {}
-
 }
 
 final class errorObj
@@ -670,7 +667,6 @@ final class errorObj
      * @var string
      */
     public $routine;
-
 }
 
 /**
@@ -728,8 +724,7 @@ final class gridObj
      * @param  $new_value
      * @return int
      */
-    final public function set($property_name,  $new_value) {}
-
+    final public function set($property_name, $new_value) {}
 }
 
 /**
@@ -784,7 +779,6 @@ final class hashTableObj
      * @return int
      */
     final public function set($key, $value) {}
-
 }
 
 /**
@@ -879,7 +873,6 @@ final class imageObj
      * @return string
      */
     final public function saveWebImage() {}
-
 }
 
 final class labelcacheMemberObj
@@ -946,7 +939,6 @@ final class labelcacheMemberObj
      * @var int
      */
     public $tileindex;
-
 }
 
 final class labelcacheObj
@@ -958,7 +950,6 @@ final class labelcacheObj
      * @return bool
      */
     final public function freeCache() {}
-
 }
 
 /**
@@ -1144,9 +1135,6 @@ final class labelObj
      */
     public $wrap;
 
-    /**
-     *
-     */
     final public function __construct() {}
 
     /**
@@ -1253,7 +1241,7 @@ final class labelObj
      * @param  $new_value
      * @return int
      */
-    final public function set($property_name,  $new_value) {}
+    final public function set($property_name, $new_value) {}
 
     /**
      * Set the attribute binding for a specified label property.
@@ -1292,7 +1280,6 @@ final class labelObj
      * @return int
      */
     final public function updateFromString($snippet) {}
-
 }
 
 /**
@@ -1673,7 +1660,7 @@ final class layerObj
      * @param  $numclasses
      * @return int
      */
-    final public function getClassIndex( $shape,  $classgroup,  $numclasses) {}
+    final public function getClassIndex($shape, $classgroup, $numclasses) {}
 
     /**
      * Returns the layer's data extents or NULL on error.
@@ -1974,7 +1961,7 @@ final class layerObj
      * @param  $new_value
      * @return int
      */
-    final public function set($property_name,  $new_value) {}
+    final public function set($property_name, $new_value) {}
 
     /**
      * Changes the connectiontype of the layer and recreates the vtable
@@ -2055,7 +2042,6 @@ final class layerObj
      * @return int
      */
     final public function updateFromString($snippet) {}
-
 }
 
 /**
@@ -2160,7 +2146,7 @@ final class legendObj
      * @param  $new_value
      * @return int
      */
-    final public function set($property_name,  $new_value) {}
+    final public function set($property_name, $new_value) {}
 
     /**
      * Update a legend from a string snippet. Returns MS_SUCCESS/MS_FAILURE.
@@ -2169,7 +2155,6 @@ final class legendObj
      * @return int
      */
     final public function updateFromString($snippet) {}
-
 }
 
 final class lineObj
@@ -2181,9 +2166,6 @@ final class lineObj
      */
     public $numpoints;
 
-    /**
-     *
-     */
     final public function __construct() {}
 
     /**
@@ -2245,7 +2227,6 @@ final class lineObj
      * @return int
      */
     final public function project(projectionObj $in, projectionObj $out) {}
-
 }
 
 final class mapObj
@@ -2879,7 +2860,7 @@ final class mapObj
      * @param  $addtoquery
      * @return int
      */
-    final public function queryByIndex( $layerindex,  $tileindex,  $shapeindex,  $addtoquery) {}
+    final public function queryByIndex($layerindex, $tileindex, $shapeindex, $addtoquery) {}
 
     /**
      * Query all selected layers in map at point location specified in
@@ -3047,7 +3028,7 @@ final class mapObj
      * @param  $new_value
      * @return int
      */
-    final public function set($property_name,  $new_value) {}
+    final public function set($property_name, $new_value) {}
 
     /**
      * Set the map center to the given map point.
@@ -3225,7 +3206,6 @@ final class mapObj
      * @return int
      */
     final public function zoomScale($nScaleDenom, pointObj $oPixelPos, $nImageWidth, $nImageHeight, rectObj $oGeorefExt, rectObj $oMaxGeorefExt) {}
-
 }
 
 /**
@@ -3288,7 +3268,7 @@ final class outputformatObj
      * @param  $new_value
      * @return int
      */
-    final public function set($property_name,  $new_value) {}
+    final public function set($property_name, $new_value) {}
 
     /**
      * Add or Modify the format option list. return true on success.
@@ -3309,7 +3289,6 @@ final class outputformatObj
      * @return int
      */
     final public function validate() {}
-
 }
 
 final class OwsrequestObj
@@ -3331,7 +3310,6 @@ final class OwsrequestObj
     /**
      * request = ms_newOwsrequestObj();
      * Create a new ows request object.
-     *
      */
     final public function __construct() {}
 
@@ -3394,7 +3372,6 @@ final class OwsrequestObj
      * @return int
      */
     final public function setParameter($name, $value) {}
-
 }
 
 final class pointObj
@@ -3423,9 +3400,6 @@ final class pointObj
      */
     public $m;
 
-    /**
-     *
-     */
     final public function __construct() {}
 
     /**
@@ -3512,7 +3486,6 @@ final class pointObj
      * @return int
      */
     final public function setXYZ($x, $y, $z, $m) {}
-
 }
 
 final class projectionObj
@@ -3549,7 +3522,6 @@ final class projectionObj
      * @return int
      */
     final public function getUnits() {}
-
 }
 
 /**
@@ -3603,7 +3575,7 @@ final class querymapObj
      * @param  $new_value
      * @return int
      */
-    final public function set($property_name,  $new_value) {}
+    final public function set($property_name, $new_value) {}
 
     /**
      * Update a queryMap object from a string snippet. Returns
@@ -3613,7 +3585,6 @@ final class querymapObj
      * @return int
      */
     final public function updateFromString($snippet) {}
-
 }
 
 /**
@@ -3644,7 +3615,6 @@ final class rectObj
 
     /**
      * .. note:: the members (minx, miny, maxx ,maxy) are initialized to -1;
-     *
      */
     final public function __construct() {}
 
@@ -3696,7 +3666,7 @@ final class rectObj
      * @param  $new_value
      * @return int
      */
-    final public function set($property_name,  $new_value) {}
+    final public function set($property_name, $new_value) {}
 
     /**
      * Set the rectangle extents.
@@ -3708,7 +3678,6 @@ final class rectObj
      * @return void
      */
     final public function setextent($minx, $miny, $maxx, $maxy) {}
-
 }
 
 /**
@@ -3800,7 +3769,7 @@ final class referenceMapObj
      * @param  $new_value
      * @return int
      */
-    final public function set($property_name,  $new_value) {}
+    final public function set($property_name, $new_value) {}
 
     /**
      * Update a referenceMap object from a string snippet.
@@ -3810,7 +3779,6 @@ final class referenceMapObj
      * @return int
      */
     final public function updateFromString($snippet) {}
-
 }
 
 final class resultObj
@@ -3849,7 +3817,6 @@ final class resultObj
      * @param int $shapeindex
      */
     final public function __construct($shapeindex) {}
-
 }
 
 /**
@@ -3955,7 +3922,7 @@ final class scalebarObj
      * @param  $new_value
      * @return int
      */
-    final public function set($property_name,  $new_value) {}
+    final public function set($property_name, $new_value) {}
 
     /**
      * Sets the imagecolor property (baclground) of the object.
@@ -3975,7 +3942,6 @@ final class scalebarObj
      * @return int
      */
     final public function updateFromString($snippet) {}
-
 }
 
 final class shapefileObj
@@ -4092,7 +4058,6 @@ final class shapefileObj
      * @return shapeObj
      */
     final public function getTransformed(mapObj $map, $i) {}
-
 }
 
 final class shapeObj
@@ -4385,7 +4350,7 @@ final class shapeObj
      * @param  $new_value
      * @return int
      */
-    final public function set($property_name,  $new_value) {}
+    final public function set($property_name, $new_value) {}
 
     /**
      * Updates the bounds property of the shape.
@@ -4464,7 +4429,6 @@ final class shapeObj
      * @return int
      */
     final public function within(shapeObj $shape2) {}
-
 }
 
 /**
@@ -4617,7 +4581,6 @@ final class styleObj
     final public function getBinding($stylebinding) {}
 
     /**
-     *
      * @return string
      */
     final public function getGeomTransform() {}
@@ -4640,7 +4603,7 @@ final class styleObj
      * @param  $new_value
      * @return int
      */
-    final public function set($property_name,  $new_value) {}
+    final public function set($property_name, $new_value) {}
 
     /**
      * Set the attribute binding for a specfiled style property.
@@ -4657,7 +4620,6 @@ final class styleObj
     final public function setBinding($stylebinding, $value) {}
 
     /**
-     *
      * @param string $value
      * @return int
      */
@@ -4670,7 +4632,6 @@ final class styleObj
      * @return int
      */
     final public function updateFromString($snippet) {}
-
 }
 
 final class symbolObj
@@ -4809,7 +4770,7 @@ final class symbolObj
      * @param  $new_value
      * @return int
      */
-    final public function set($property_name,  $new_value) {}
+    final public function set($property_name, $new_value) {}
 
     /**
      * Loads a pixmap symbol specified by the filename.
@@ -4844,7 +4805,6 @@ final class symbolObj
      * @return int
      */
     final public function setPoints(array $double) {}
-
 }
 
 /**
@@ -4972,7 +4932,7 @@ final class webObj
      * @param  $new_value
      * @return int
      */
-    final public function set($property_name,  $new_value) {}
+    final public function set($property_name, $new_value) {}
 
     /**
      * Update a web object from a string snippet. Returns
@@ -4982,5 +4942,4 @@ final class webObj
      * @return int
      */
     final public function updateFromString($snippet) {}
-
 }

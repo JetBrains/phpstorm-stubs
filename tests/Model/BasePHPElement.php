@@ -51,7 +51,7 @@ abstract class BasePHPElement
                 }
             }
         } else {
-            /**@var string $part */
+            /** @var string $part */
             foreach ($node->namespacedName->parts as $part) {
                 $fqn .= "$part\\";
             }
@@ -100,10 +100,10 @@ abstract class BasePHPElement
         }
         if (empty($type->name)) {
             if (!empty($type->parts)) {
-                $typeName =  $nullable ? '?' . implode('\\', $type->parts) : implode('\\', $type->parts);
+                $typeName = $nullable ? '?' . implode('\\', $type->parts) : implode('\\', $type->parts);
             }
         } else {
-            $typeName =  $nullable ? '?' . $type->name : $type->name;
+            $typeName = $nullable ? '?' . $type->name : $type->name;
         }
         return $typeName;
     }

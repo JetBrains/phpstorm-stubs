@@ -7,16 +7,12 @@ namespace RdKafka;
  */
 class Conf
 {
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * @return array
      */
-    public function dump()
-    {
-    }
+    public function dump() {}
 
     /**
      * @param string $name
@@ -24,79 +20,61 @@ class Conf
      *
      * @return void
      */
-    public function set($name, $value)
-    {
-    }
+    public function set($name, $value) {}
 
     /**
      * @param TopicConf $topic_conf
      *
      * @return void
      */
-    public function setDefaultTopicConf(TopicConf $topic_conf)
-    {
-    }
+    public function setDefaultTopicConf(TopicConf $topic_conf) {}
 
     /**
      * @param callable $callback
      *
      * @return void
      */
-    public function setDrMsgCb(callable $callback)
-    {
-    }
+    public function setDrMsgCb(callable $callback) {}
 
     /**
      * @param callable $callback
      *
      * @return void
      */
-    public function setErrorCb(callable $callback)
-    {
-    }
+    public function setErrorCb(callable $callback) {}
 
     /**
      * @param callable $callback
      *
      * @return void
      */
-    public function setRebalanceCb(callable $callback)
-    {
-    }
+    public function setRebalanceCb(callable $callback) {}
 
     /**
      * @param callable $callback
      *
      * @return void
      */
-    public function setStatsCb(callable $callback)
-    {
-    }
+    public function setStatsCb(callable $callback) {}
 
     /**
      * @param callable $callback
      *
      * @return void
      */
-    public function setOffsetCommitCb(callable $callback)
-    {
-    }
+    public function setOffsetCommitCb(callable $callback) {}
 
     /**
      * @param callable $callback
      *
      * @return void
      */
-    public function setConsumeCb(callable $callback)
-    {
-    }
+    public function setConsumeCb(callable $callback) {}
 
     /**
      * @param callable $callback
      *
      * @return void
      */
-    public function setLogCb(callable $callback)
-    {
-    }
+    public function setLogCb(callable $callback) {}
 }

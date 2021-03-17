@@ -3,7 +3,6 @@
 /**
  * @see https://github.com/libgeos/php-geos/blob/master/tests/000_General.phpt
  */
-
 define('GEOSBUF_CAP_ROUND', 1);
 
 define('GEOSBUF_CAP_FLAT', 2);
@@ -101,7 +100,6 @@ function GEOSPolygonize(GEOSGeometry $geom): array {}
  */
 class GEOSWKTReader
 {
-
     /**
      * GEOSWKTReader constructor.
      */
@@ -113,7 +111,6 @@ class GEOSWKTReader
      * @throws Exception
      */
     public function read(string $wkt): GEOSGeometry {}
-
 }
 
 /**
@@ -122,7 +119,6 @@ class GEOSWKTReader
  */
 class GEOSWKTWriter
 {
-
     /**
      * GEOSWKTWriter constructor.
      */
@@ -160,7 +156,6 @@ class GEOSWKTWriter
      * @param bool $old3d
      */
     public function setOld3D(bool $old3d): void {}
-
 }
 
 /**
@@ -169,7 +164,6 @@ class GEOSWKTWriter
  */
 class GEOSGeometry
 {
-
     /**
      * GEOSGeometry constructor.
      */
@@ -652,7 +646,6 @@ class GEOSGeometry
      * @throws Exception
      */
     public function clipByRect(float $xmin, float $ymin, float $xmax, float $ymax): GEOSGeometry {}
-
 }
 
 /**
@@ -661,7 +654,6 @@ class GEOSGeometry
  */
 class GEOSWKBWriter
 {
-
     /**
      * GEOSWKBWriter constructor.
      */
@@ -713,7 +705,6 @@ class GEOSWKBWriter
      * @throws Exception
      */
     public function writeHEX(GEOSGeometry $geom): string {}
-
 }
 
 /**
@@ -722,7 +713,6 @@ class GEOSWKBWriter
  */
 class GEOSWKBReader
 {
-
     /**
      * GEOSWKBReader constructor.
      */
@@ -741,5 +731,4 @@ class GEOSWKBReader
      * @throws Exception
      */
     public function readHEX(string $wkb): GEOSGeometry {}
-
 }

@@ -36,7 +36,7 @@ class ReflectionPropertiesProvider
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
             foreach (EntitiesFilter::getFiltered($class->properties,
-                fn(PHPProperty $property) => $property->access === 'private', ...$problemTypes) as $property) {
+                fn (PHPProperty $property) => $property->access === 'private', ...$problemTypes) as $property) {
                 yield "Property $class->name::$property->name" => [$class, $property];
             }
         }

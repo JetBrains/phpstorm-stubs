@@ -7,16 +7,14 @@
  * can be used to indicate an error in the script logic (e.g. database connection problem)
  * @param string $error_string the error string to display
  */
-function set_job_failed( $error_string ){};
-
-
+function set_job_failed($error_string) {};
 
 /**
  * returns array containing following fields:
  * "license_ok" - whether license allows use of JobQueue
  * "expires" - license expiration date
  */
-function jobqueue_license_info(){};
+function jobqueue_license_info() {};
 
 /**
  * Create Java object
@@ -25,7 +23,6 @@ function jobqueue_license_info(){};
  * @param string $class
  */
 function java($class) {}
-
 
 /**
  * Return Java exception object for last exception
@@ -76,7 +73,6 @@ function java_reload($new_jarpath) {}
  * @param string $new_classpath
  */
 function java_require($new_classpath) {}
-
 
 /**
  * Shown if loader is enabled
@@ -150,5 +146,3 @@ function zend_get_id($all_ids = false) {}
 function zend_optimizer_version() {}
 
 // End of Zend Extensions
-
-?>

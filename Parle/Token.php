@@ -1,17 +1,18 @@
-<?php namespace Parle;
+<?php
 
+namespace Parle;
 
 class Token
 {
     /* Constants */
     /** @var int End of input token id. */
-    const EOI = 0 ;
+    public const EOI = 0;
 
     /** @var int Unknown token id. */
-    const UNKNOWN = -1 ;
+    public const UNKNOWN = -1;
 
     /** @var int Skip token id. */
-    const SKIP = -2 ;
+    public const SKIP = -2;
 
     /* Properties */
     /** @var int Token id. */

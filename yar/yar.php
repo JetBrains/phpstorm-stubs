@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * The constants below are defined by this extension,
  * and will only be available when the extension has either been compiled into PHP or dynamically loaded at runtime.
@@ -35,9 +34,9 @@ define('YAR_CLIENT_PROTOCOL_UNIX', 4);
  * @author weizhimiao001@lianjia.com
  * @link https://secure.php.net/manual/en/class.yar-server.php
  */
-class Yar_Server {
-
-    protected $_executor ;
+class Yar_Server
+{
+    protected $_executor;
 
     /**
      * Register a server
@@ -47,7 +46,7 @@ class Yar_Server {
      * @param object $obj An Object, all public methods of its will be registered as RPC services.
      * @link https://secure.php.net/manual/en/yar-server.construct.php
      */
-    final public function __construct ($obj ) {}
+    final public function __construct($obj) {}
 
     /**
      * Start RPC Server
@@ -59,16 +58,15 @@ class Yar_Server {
      * @return bool
      * @link https://secure.php.net/manual/en/yar-server.handle.php
      */
-    public function handle () {}
+    public function handle() {}
 }
 
-
-class Yar_Client {
-
-    protected $_protocol ;
-    protected $_uri ;
-    protected $_options ;
-    protected $_running ;
+class Yar_Client
+{
+    protected $_protocol;
+    protected $_uri;
+    protected $_options;
+    protected $_running;
 
     /**
      * Call service
@@ -78,7 +76,7 @@ class Yar_Client {
      * @param array $parameters Parameters.
      * @link https://secure.php.net/manual/en/yar-client.call.php
      */
-    public function __call ( $method , $parameters ){}
+    public function __call($method, $parameters) {}
 
     /**
      * Create a client
@@ -86,7 +84,7 @@ class Yar_Client {
      * @param string $url Yar Server URL.
      * @link https://secure.php.net/manual/en/yar-client.construct.php
      */
-    final public function __construct ( $url ){}
+    final public function __construct($url) {}
 
     /**
      * Set calling contexts
@@ -101,14 +99,14 @@ class Yar_Client {
      * @return static|false Returns $this on success or FALSE on failure.
      * @link https://secure.php.net/manual/en/yar-client.setopt.php
      */
-    public function setOpt ($name , $value ){}
+    public function setOpt($name, $value) {}
 }
 
-class Yar_Concurrent_Client {
-
-    static $_callstack ;
-    static $_callback ;
-    static $_error_callback ;
+class Yar_Concurrent_Client
+{
+    public static $_callstack;
+    public static $_callback;
+    public static $_error_callback;
 
     /**
      * Register a concurrent call
@@ -121,7 +119,7 @@ class Yar_Concurrent_Client {
      * @return int An unique id, can be used to identified which call it is.
      * @link https://secure.php.net/manual/en/yar-concurrent-client.call.php
      */
-    public static function call ($uri , $method , $parameters, callable $callback, callable $error_callback, array $options){}
+    public static function call($uri, $method, $parameters, callable $callback, callable $error_callback, array $options) {}
 
     /**
      * Send all calls
@@ -133,7 +131,7 @@ class Yar_Concurrent_Client {
      * @return bool
      * @link https://secure.php.net/manual/en/yar-concurrent-client.loop.php
      */
-    public static function loop ($callback , $error_callback) {}
+    public static function loop($callback, $error_callback) {}
 
     /**
      * Clean all registered calls
@@ -141,7 +139,7 @@ class Yar_Concurrent_Client {
      * @return bool
      * @link https://secure.php.net/manual/en/yar-concurrent-client.reset.php
      */
-    public static function reset (){}
+    public static function reset() {}
 }
 
 /**
@@ -150,9 +148,9 @@ class Yar_Concurrent_Client {
  * @author weizhimiao001@lianjia.com
  * @link https://secure.php.net/manual/en/class.yar-server-exception.php
  */
-class Yar_Server_Exception extends Exception {
-
-    protected $_type ;
+class Yar_Server_Exception extends Exception
+{
+    protected $_type;
 
     /**
      * Retrieve exception's type
@@ -160,8 +158,7 @@ class Yar_Server_Exception extends Exception {
      * @return string
      * @link https://secure.php.net/manual/en/yar-server-exception.gettype.php
      */
-    public function getType (){}
-
+    public function getType() {}
 }
 
 /**
@@ -170,11 +167,12 @@ class Yar_Server_Exception extends Exception {
  * @author weizhimiao001@lianjia.com
  * @link https://secure.php.net/manual/en/class.yar-client-exception.php
  */
-class Yar_Client_Exception extends Exception {
+class Yar_Client_Exception extends Exception
+{
     /**
      * Retrieve exception's type
      * @return string "Yar_Exception_Client".
      * @link https://secure.php.net/manual/en/yar-client-exception.gettype.php
      */
-    public function getType (){}
+    public function getType() {}
 }

@@ -13,61 +13,61 @@ class ZMQ
     /**
      * Exclusive pair pattern
      */
-    const SOCKET_PAIR = 0;
+    public const SOCKET_PAIR = 0;
     /**
      * Publisher socket
      */
-    const SOCKET_PUB = 1;
+    public const SOCKET_PUB = 1;
     /**
      * Subscriber socket
      */
-    const SOCKET_SUB = 2;
+    public const SOCKET_SUB = 2;
     /**
      * Request socket
      */
-    const SOCKET_REQ = 3;
+    public const SOCKET_REQ = 3;
     /**
      * Reply socket
      */
-    const SOCKET_REP = 4;
+    public const SOCKET_REP = 4;
     /**
      * Alias for SOCKET_DEALER
      */
-    const SOCKET_XREQ = 5;
+    public const SOCKET_XREQ = 5;
     /**
      * Alias for SOCKET_ROUTER
      */
-    const SOCKET_XREP = 6;
+    public const SOCKET_XREP = 6;
     /**
      * Pipeline upstream push socket
      */
-    const SOCKET_PUSH = 8;
+    public const SOCKET_PUSH = 8;
     /**
      * Pipeline downstream pull socket
      */
-    const SOCKET_PULL = 7;
+    public const SOCKET_PULL = 7;
     /**
      * Extended REP socket that can route replies to requesters
      */
-    const SOCKET_ROUTER = 6;
+    public const SOCKET_ROUTER = 6;
     /**
      * Extended REQ socket that load balances to all connected peers
      */
-    const SOCKET_DEALER = 5;
+    public const SOCKET_DEALER = 5;
     /**
      * Similar to SOCKET_PUB, except you can receive subscriptions as messages.
      * The subscription message is 0 (unsubscribe) or 1 (subscribe) followed by the topic.
      */
-    const SOCKET_XPUB = 9;
+    public const SOCKET_XPUB = 9;
     /**
      * Similar to SOCKET_SUB, except you can send subscriptions as messages. See SOCKET_XPUB for format.
      */
-    const SOCKET_XSUB = 10;
+    public const SOCKET_XSUB = 10;
     /**
      * Used to send and receive TCP data from a non-ØMQ peer.
      * Available if compiled against ZeroMQ 4.x or higher.
      */
-    const SOCKET_STREAM = 11;
+    public const SOCKET_STREAM = 11;
     /**
      * The high water mark for inbound and outbound messages is a hard
      * limit on the maximum number of outstanding messages ØMQ shall queue in memory
@@ -75,210 +75,208 @@ class ZMQ
      * Setting this option on a socket will only affect connections made after the option has been set.
      * On ZeroMQ 3.x this is a wrapper for setting both SNDHWM and RCVHWM.
      */
-    const SOCKOPT_HWM = 1;
+    public const SOCKOPT_HWM = 1;
     /**
      * The ZMQ_SNDHWM option shall set the high water mark for outbound messages on the specified socket.
      * Available if compiled against ZeroMQ 3.x or higher.
      */
-    const SOCKOPT_SNDHWM = 23;
+    public const SOCKOPT_SNDHWM = 23;
     /**
      * The ZMQ_SNDHWM option shall set the high water mark for inbound messages on the specified socket.
      * Available if compiled against ZeroMQ 3.x or higher.
      */
-    const SOCKOPT_RCVHWM = 24;
+    public const SOCKOPT_RCVHWM = 24;
     /**
      * Set I/O thread affinity
      */
-    const SOCKOPT_AFFINITY = 4;
+    public const SOCKOPT_AFFINITY = 4;
     /**
      * Set socket identity
      */
-    const SOCKOPT_IDENTITY = 5;
+    public const SOCKOPT_IDENTITY = 5;
     /**
      * Establish message filter. Valid for subscriber socket
      */
-    const SOCKOPT_SUBSCRIBE = 6;
+    public const SOCKOPT_SUBSCRIBE = 6;
     /**
      * Remove message filter. Valid for subscriber socket
      */
-    const SOCKOPT_UNSUBSCRIBE = 7;
+    public const SOCKOPT_UNSUBSCRIBE = 7;
     /**
      * Set rate for multicast sockets (pgm) (Value: int >= 0)
      */
-    const SOCKOPT_RATE = 8;
+    public const SOCKOPT_RATE = 8;
     /**
      * Set multicast recovery interval (Value: int >= 0)
      */
-    const SOCKOPT_RECOVERY_IVL = 9;
+    public const SOCKOPT_RECOVERY_IVL = 9;
     /**
      * Set the initial reconnection interval (Value: int >= 0)
      */
-    const SOCKOPT_RECONNECT_IVL = 18;
+    public const SOCKOPT_RECONNECT_IVL = 18;
     /**
      * Set the max reconnection interval (Value: int >= 0)
      */
-    const SOCKOPT_RECONNECT_IVL_MAX = 21;
+    public const SOCKOPT_RECONNECT_IVL_MAX = 21;
     /**
      * Control multicast loopback (Value: int >= 0)
      */
-    const SOCKOPT_MCAST_LOOP = 10;
+    public const SOCKOPT_MCAST_LOOP = 10;
     /**
      * Set kernel transmit buffer size (Value: int >= 0)
      */
-    const SOCKOPT_SNDBUF = 11;
+    public const SOCKOPT_SNDBUF = 11;
     /**
      * Set kernel receive buffer size (Value: int >= 0)
      */
-    const SOCKOPT_RCVBUF = 12;
+    public const SOCKOPT_RCVBUF = 12;
     /**
      * Receive multi-part messages
      */
-    const SOCKOPT_RCVMORE = 13;
+    public const SOCKOPT_RCVMORE = 13;
     /**
      * Get the socket type. Valid for getSockOpt
      */
-    const SOCKOPT_TYPE = 16;
+    public const SOCKOPT_TYPE = 16;
     /**
      * The linger value of the socket.
      * Specifies how long the socket blocks trying flush messages after it has been closed
      */
-    const SOCKOPT_LINGER = 17;
+    public const SOCKOPT_LINGER = 17;
     /**
      * The SOCKOPT_BACKLOG option shall set the maximum length of the queue of outstanding peer connections
      * for the specified socket; this only applies to connection-oriented transports.
      */
-    const SOCKOPT_BACKLOG = 19;
+    public const SOCKOPT_BACKLOG = 19;
     /**
      * Limits the maximum size of the inbound message. Value -1 means no limit.
      * Available if compiled against ZeroMQ 3.x or higher
      */
-    const SOCKOPT_MAXMSGSIZE = 22;
+    public const SOCKOPT_MAXMSGSIZE = 22;
     /**
      * Sets the timeout for send operation on the socket. Value -1 means no limit.
      * Available if compiled against ZeroMQ 3.x or higher
      */
-    const SOCKOPT_SNDTIMEO = 28;
+    public const SOCKOPT_SNDTIMEO = 28;
     /**
      * Sets the timeout for receive operation on the socket. Value -1 means no limit.
      * Available if compiled against ZeroMQ 3.x or higher
      */
-    const SOCKOPT_RCVTIMEO = 27;
+    public const SOCKOPT_RCVTIMEO = 27;
     /**
      * Disable IPV6 support if 1.
      * Available if compiled against ZeroMQ 3.x
      */
-    const SOCKOPT_IPV4ONLY = 31;
+    public const SOCKOPT_IPV4ONLY = 31;
     /**
      * Retrieve the last connected endpoint - for use with * wildcard ports.
      * Available if compiled against ZeroMQ 3.x or higher
      */
-    const SOCKOPT_LAST_ENDPOINT = 32;
+    public const SOCKOPT_LAST_ENDPOINT = 32;
     /**
      * Idle time for TCP keepalive.
      * Available if compiled against ZeroMQ 3.x or higher
      */
-    const SOCKOPT_TCP_KEEPALIVE_IDLE = 36;
+    public const SOCKOPT_TCP_KEEPALIVE_IDLE = 36;
     /**
      * Count time for TCP keepalive.
      * Available if compiled against ZeroMQ 3.x or higher
      */
-    const SOCKOPT_TCP_KEEPALIVE_CNT = 35;
+    public const SOCKOPT_TCP_KEEPALIVE_CNT = 35;
     /**
      * Interval for TCP keepalive.
      * Available if compiled against ZeroMQ 3.x or higher
      */
-    const SOCKOPT_TCP_KEEPALIVE_INTVL = 37;
+    public const SOCKOPT_TCP_KEEPALIVE_INTVL = 37;
     /**
      * Set a CIDR string to match against incoming TCP connections.
      * Available if compiled against ZeroMQ 3.x or higher
      */
-    const SOCKOPT_DELAY_ATTACH_ON_CONNECT = 39;
+    public const SOCKOPT_DELAY_ATTACH_ON_CONNECT = 39;
     /**
      * Set a CIDR string to match against incoming TCP connections.
      * Available if compiled against ZeroMQ 3.x or higher
      */
-    const SOCKOPT_TCP_ACCEPT_FILTER = 38;
+    public const SOCKOPT_TCP_ACCEPT_FILTER = 38;
     /**
      * Set the XPUB to receive an application message on each instance of a subscription.
      * Available if compiled against ZeroMQ 3.x or higher
      */
-    const SOCKOPT_XPUB_VERBOSE = 40;
+    public const SOCKOPT_XPUB_VERBOSE = 40;
     /**
      * Sets the raw mode on the ROUTER, when set to 1.
      * In raw mode when using tcp:// transport the socket will read and write without ZeroMQ framing.
      * Available if compiled against ZeroMQ 4.0 or higher
      */
-    const SOCKOPT_ROUTER_RAW = 41;
+    public const SOCKOPT_ROUTER_RAW = 41;
     /**
      * Enable IPV6.
      * Available if compiled against ZeroMQ 4.0 or higher
      */
-    const SOCKOPT_IPV6 = 42;
+    public const SOCKOPT_IPV6 = 42;
     /**
      * The socket limit for this context.
      * Available if compiled against ZeroMQ 3.x or higher
      */
-    const CTXOPT_MAX_SOCKETS = 2;
+    public const CTXOPT_MAX_SOCKETS = 2;
     /**
      * Poll for incoming data
      */
-    const POLL_IN = 1;
+    public const POLL_IN = 1;
     /**
      * Poll for outgoing data
      */
-    const POLL_OUT = 2;
+    public const POLL_OUT = 2;
     /**
      * Non-blocking operation.
      * @deprecated use ZMQ::MODE_DONTWAIT instead
      */
-    const MODE_NOBLOCK = 1;
+    public const MODE_NOBLOCK = 1;
     /**
      * Non-blocking operation
      */
-    const MODE_DONTWAIT = 1;
+    public const MODE_DONTWAIT = 1;
     /**
      * Send multi-part message
      */
-    const MODE_SNDMORE = 2;
+    public const MODE_SNDMORE = 2;
     /**
      * Forwarder device
      */
-    const DEVICE_FORWARDER = 2;
+    public const DEVICE_FORWARDER = 2;
     /**
      * Queue device
      */
-    const DEVICE_QUEUE = 3;
+    public const DEVICE_QUEUE = 3;
     /**
      * Streamer device
      */
-    const DEVICE_STREAMER = 1;
+    public const DEVICE_STREAMER = 1;
     /**
      * ZMQ extension internal error
      */
-    const ERR_INTERNAL = -99;
+    public const ERR_INTERNAL = -99;
     /**
      * Implies that the operation would block when ZMQ::MODE_DONTWAIT is used
      */
-    const ERR_EAGAIN = 11;
+    public const ERR_EAGAIN = 11;
     /**
      * The operation is not supported by the socket type
      */
-    const ERR_ENOTSUP = 156384713;
+    public const ERR_ENOTSUP = 156384713;
     /**
      * The operation can not be executed because the socket is not in correct state
      */
-    const ERR_EFSM = 156384763;
+    public const ERR_EFSM = 156384763;
     /**
      * The context has been terminated
      */
-    const ERR_ETERM = 156384765;
+    public const ERR_ETERM = 156384765;
     /**
      * Private constructor to prevent direct initialization. This class holds the constants for ZMQ extension.
      * @link https://secure.php.net/manual/en/zmq.construct.php
      */
-    private function __construct()
-    {
-    }
+    private function __construct() {}
 }
 /**
  * Class ZMQContext
@@ -295,9 +293,7 @@ class ZMQContext
      * @param int $io_threads Number of io-threads in the context
      * @param bool $is_persistent Whether the context is persistent. Persistent context is stored over multiple requests and is a requirement for persistent sockets.
      */
-    public function __construct($io_threads = 1, $is_persistent = true)
-    {
-    }
+    public function __construct($io_threads = 1, $is_persistent = true) {}
     /**
      * (PECL zmq &gt;= 1.0.4)
      * Returns the value of a context option.
@@ -308,9 +304,7 @@ class ZMQContext
      * @return string|int Returns either a string or an integer depending on key. Throws ZMQContextException on error.
      * @throws ZMQContextException
      */
-    public function getOpt($key)
-    {
-    }
+    public function getOpt($key) {}
     /**
      * (PECL zmq &gt;= 0.5.0)
      * Shortcut for creating new sockets from the context.
@@ -326,9 +320,7 @@ class ZMQContext
      * @return ZMQSocket
      * @throws ZMQSocketException
      */
-    public function getSocket($type, $persistent_id = null, $on_new_socket = null)
-    {
-    }
+    public function getSocket($type, $persistent_id = null, $on_new_socket = null) {}
     /**
      * (PECL zmq &gt;= 0.5.0)
      * Whether the context is persistent.
@@ -338,9 +330,7 @@ class ZMQContext
      *
      * @return bool Returns <b>TRUE</b> if the context is persistent and <b>FALSE</b> if the context is non-persistent.
      */
-    public function isPersistent()
-    {
-    }
+    public function isPersistent() {}
     /**
      * (PECL zmq &gt;= 1.0.4)
      * Sets a ZMQ context option. The type of the value depends on the key.
@@ -353,9 +343,7 @@ class ZMQContext
      * @return ZMQContext
      * @throws ZMQContextException
      */
-    public function setOpt($key, $value)
-    {
-    }
+    public function setOpt($key, $value) {}
 }
 /**
  * Class ZMQSocket
@@ -380,9 +368,7 @@ class ZMQSocket
      *
      * @throws ZMQSocketException
      */
-    public function __construct(ZMQContext $context, $type, $persistent_id = null, $on_new_socket = null)
-    {
-    }
+    public function __construct(ZMQContext $context, $type, $persistent_id = null, $on_new_socket = null) {}
     /**
      * (PECL zmq &gt;= 0.5.0)
      * Bind the socket to an endpoint.
@@ -397,9 +383,7 @@ class ZMQSocket
      * @return ZMQSocket
      * @throws ZMQSocketException if binding fails
      */
-    public function bind($dsn, $force = false)
-    {
-    }
+    public function bind($dsn, $force = false) {}
     /**
      * (PECL zmq &gt;= 0.5.0)
      * Connect the socket to a remote endpoint.
@@ -414,9 +398,7 @@ class ZMQSocket
      * @return ZMQSocket
      * @throws ZMQSocketException If connection fails
      */
-    public function connect($dsn, $force = false)
-    {
-    }
+    public function connect($dsn, $force = false) {}
     /**
      * (PECL zmq &gt;= 1.0.4)
      * Disconnect the socket from a previously connected remote endpoint.
@@ -430,9 +412,7 @@ class ZMQSocket
      * @return ZMQSocket
      * @throws ZMQSocketException If connection fails
      */
-    public function disconnect($dsn)
-    {
-    }
+    public function disconnect($dsn) {}
     /**
      * Returns a list of endpoints where the socket is connected or bound to.
      *
@@ -441,9 +421,7 @@ class ZMQSocket
      * @return array contains two sub-arrays: 'connect' and 'bind'
      * @throws ZMQSocketException
      */
-    public function getEndpoints()
-    {
-    }
+    public function getEndpoints() {}
     /**
      * Returns the persistent id string assigned of the object and NULL if socket is not persistent.
      *
@@ -453,9 +431,7 @@ class ZMQSocket
      * Returns the persistent id string assigned of the object and <b>NULL</b> if socket is not persistent.
      * </p>
      */
-    public function getPersistentId()
-    {
-    }
+    public function getPersistentId() {}
     /**
      * Returns the value of a socket option.
      * This method is available if ZMQ extension has been compiled against ZMQ version 2.0.7 or higher
@@ -471,9 +447,7 @@ class ZMQSocket
      * </p>
      * @throws ZMQSocketException
      */
-    public function getSockOpt($key)
-    {
-    }
+    public function getSockOpt($key) {}
     /**
      * Return the socket type.
      * The socket type can be compared against ZMQ::SOCKET_* constants.
@@ -485,9 +459,7 @@ class ZMQSocket
      * <b>ZMQ::SOCKET_*</b> constants.
      * </p>
      */
-    public function getSocketType()
-    {
-    }
+    public function getSocketType() {}
     /**
      * Check whether the socket is persistent.
      *
@@ -495,9 +467,7 @@ class ZMQSocket
      *
      * @return bool <p>Returns a boolean based on whether the socket is persistent or not.</p>
      */
-    public function isPersistent()
-    {
-    }
+    public function isPersistent() {}
     /**
      * Receive a message from a socket.
      * By default receiving will block until a message is available unless <b>ZMQ::MODE_NOBLOCK</b> flag is used.
@@ -513,9 +483,7 @@ class ZMQSocket
      * @return string|false <p>Returns the message. Throws ZMQSocketException in error. If <b>ZMQ::MODE_NOBLOCK</b> is used and the operation would block boolean false shall be returned.</p>
      * @throws ZMQSocketException if receiving fails.
      */
-    public function recv($mode = 0)
-    {
-    }
+    public function recv($mode = 0) {}
     /**
      * Receive an array multipart message from a socket.
      * By default receiving will block until a message is available unless ZMQ::MODE_NOBLOCK flag is used.
@@ -529,9 +497,7 @@ class ZMQSocket
      * @return string[] Returns the array of message parts. Throws ZMQSocketException in error. If ZMQ::MODE_NOBLOCK is used and the operation would block boolean false shall be returned.
      * @throws ZMQSocketException if receiving fails.
      */
-    public function recvMulti($mode = 0)
-    {
-    }
+    public function recvMulti($mode = 0) {}
     /**
      * Send a message using the socket. The operation can block unless ZMQ::MODE_NOBLOCK is used.
      * If <b>ZMQ::MODE_NOBLOCK</b> is used and the operation would block bool false shall be returned.
@@ -544,9 +510,7 @@ class ZMQSocket
      * @return ZMQSocket
      * @throws ZMQSocketException if sending message fails
      */
-    public function send($message, $mode = 0)
-    {
-    }
+    public function send($message, $mode = 0) {}
     /**
      * Send a multipart message using the socket. The operation can block unless ZMQ::MODE_NOBLOCK is used.
      * If <b>ZMQ::MODE_NOBLOCK</b> is used and the operation would block bool false shall be returned.
@@ -559,9 +523,7 @@ class ZMQSocket
      * @return ZMQSocket
      * @throws ZMQSocketException if sending message fails
      */
-    public function sendmulti(array $message, $mode = 0)
-    {
-    }
+    public function sendmulti(array $message, $mode = 0) {}
     /**
      * Sets a ZMQ socket option. The type of the value depends on the key.
      * @see ZMQ Constant Types for more information.
@@ -574,9 +536,7 @@ class ZMQSocket
      * @return ZMQSocket
      * @throws ZMQSocketException
      */
-    public function setSockOpt($key, $value)
-    {
-    }
+    public function setSockOpt($key, $value) {}
     /**
      * Unbind the socket from an endpoint.
      * The endpoint is defined in format transport://address
@@ -589,9 +549,7 @@ class ZMQSocket
      * @return ZMQSocket
      * @throws ZMQSocketException if binding fails
      */
-    public function unbind($dsn)
-    {
-    }
+    public function unbind($dsn) {}
 }
 /**
  * Class ZMQPoll
@@ -613,9 +571,7 @@ class ZMQPoll
      * @return int Returns a string id of the added item which can be later used to remove the item. Throws ZMQPollException on error.
      * @throws ZMQPollException if the object has not been initialized with polling
      */
-    public function add(ZMQSocket $entry, $type)
-    {
-    }
+    public function add(ZMQSocket $entry, $type) {}
     /**
      * (PECL zmq &gt;= 1.0.4)
      * Clears all elements from the poll set.
@@ -624,9 +580,7 @@ class ZMQPoll
      *
      * @return ZMQPoll Returns the current object.
      */
-    public function clear()
-    {
-    }
+    public function clear() {}
     /**
      * (PECL zmq &gt;= 0.5.0)
      * Count the items in the poll set.
@@ -635,9 +589,7 @@ class ZMQPoll
      *
      * @return int Returns an integer representing the amount of items in the poll set.
      */
-    public function count()
-    {
-    }
+    public function count() {}
     /**
      * (PECL zmq &gt;= 0.5.0)
      * Returns the ids of the objects that had errors in the last poll.
@@ -648,9 +600,7 @@ class ZMQPoll
      *
      * @return int[]
      */
-    public function getLastErrors()
-    {
-    }
+    public function getLastErrors() {}
     /**
      * (PECL zmq &gt;= 0.5.0)
      * Polls the items in the current poll set.
@@ -667,9 +617,7 @@ class ZMQPoll
      * @throws ZMQPollException if polling fails
      * @return int
      */
-    public function poll(array &$readable, array &$writable, $timeout = -1)
-    {
-    }
+    public function poll(array &$readable, array &$writable, $timeout = -1) {}
     /**
      * (PECL zmq &gt;= 0.5.0)
      * Remove item from the poll set.
@@ -681,9 +629,7 @@ class ZMQPoll
      * @param ZMQSocket|string|mixed $item The ZMQSocket object, PHP stream or string id of the item.
      * @return bool Returns true if the item was removed and false if the object with given id does not exist in the poll set.
      */
-    public function remove($item)
-    {
-    }
+    public function remove($item) {}
 }
 /**
  * Class ZMQDevice
@@ -704,9 +650,7 @@ class ZMQDevice
      * @param ZMQSocket $backend Backend parameter for the devices. Usually where there messages going to.
      * @param null|ZMQSocket $listener Listener socket, which receives a copy of all messages going both directions. The type of this socket should be SUB, PULL or DEALER.
      */
-    public function __construct(ZMQSocket $frontend, ZMQSocket $backend, ZMQSocket $listener = null)
-    {
-    }
+    public function __construct(ZMQSocket $frontend, ZMQSocket $backend, ZMQSocket $listener = null) {}
     /**
      * Gets the idle callback timeout value.
      * This method returns the idle callback timeout value.
@@ -716,9 +660,7 @@ class ZMQDevice
      *
      * @return int This method returns the idle callback timeout value.
      */
-    public function getIdleTimeout()
-    {
-    }
+    public function getIdleTimeout() {}
     /**
      * Gets the timer callback timeout value.
      * Added in ZMQ extension version 1.1.0.
@@ -727,9 +669,7 @@ class ZMQDevice
      *
      * @return int This method returns the timer timeout value.
      */
-    public function getTimerTimeout()
-    {
-    }
+    public function getTimerTimeout() {}
     /**
      * Runs the device.
      * Call to this method will block until the device is running.
@@ -739,9 +679,7 @@ class ZMQDevice
      *
      * @throws ZMQDeviceException
      */
-    public function run()
-    {
-    }
+    public function run() {}
     /**
      * Sets the idle callback function.
      * If idle timeout is defined the idle callback function shall be called if the internal poll loop times out
@@ -756,9 +694,7 @@ class ZMQDevice
      *
      * @return ZMQDevice On success this method returns the current object.
      */
-    public function setIdleCallback($cb_func, $timeout, $user_data)
-    {
-    }
+    public function setIdleCallback($cb_func, $timeout, $user_data) {}
     /**
      * Sets the idle callback timeout value. The idle callback is invoked periodically when the device is idle.
      * On success this method returns the current object.
@@ -769,9 +705,7 @@ class ZMQDevice
      *
      * @return ZMQDevice On success this method returns the current object.
      */
-    public function setIdleTimeout($timeout)
-    {
-    }
+    public function setIdleTimeout($timeout) {}
     /**
      * Sets the timer callback function. The timer callback will be invoked after timeout has passed.
      * The difference between idle and timer callbacks are that idle callback is invoked only when the device is idle.
@@ -786,9 +720,7 @@ class ZMQDevice
      *
      * @return ZMQDevice
      */
-    public function setTimerCallback($cb_func, $timeout, $user_data)
-    {
-    }
+    public function setTimerCallback($cb_func, $timeout, $user_data) {}
     /**
      * Sets the timer callback timeout value. The timer callback is invoked periodically if it's set.
      * Added in ZMQ extension version 1.1.0.
@@ -799,22 +731,10 @@ class ZMQDevice
      *
      * @return ZMQDevice
      */
-    public function setTimerTimeout($timeout)
-    {
-    }
+    public function setTimerTimeout($timeout) {}
 }
-class ZMQException extends Exception
-{
-}
-class ZMQContextException extends ZMQException
-{
-}
-class ZMQSocketException extends ZMQException
-{
-}
-class ZMQPollException extends ZMQException
-{
-}
-class ZMQDeviceException extends ZMQException
-{
-}
+class ZMQException extends Exception {}
+class ZMQContextException extends ZMQException {}
+class ZMQSocketException extends ZMQException {}
+class ZMQPollException extends ZMQException {}
+class ZMQDeviceException extends ZMQException {}

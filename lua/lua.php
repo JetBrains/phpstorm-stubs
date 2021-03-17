@@ -6,13 +6,14 @@
 /**
  * @link https://secure.php.net/manual/en/class.lua.php
  */
-class Lua  {
+class Lua
+{
     /**
      * @var string
      *
      * @link https://secure.php.net/manual/en/class.lua.php#lua.constants.lua-version
      */
-    const LUA_VERSION = '5.1.4';
+    public const LUA_VERSION = '5.1.4';
 
     /**
      * @param null|string $lua_script_file
@@ -76,5 +77,3 @@ class Lua  {
      */
     public function registerCallback(string $name, callable $function) {}
 }
-
-?>

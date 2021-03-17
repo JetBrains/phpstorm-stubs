@@ -8,8 +8,7 @@ use JetBrains\PhpStorm\Pure;
  * Created by typecasting to object.
  * @link https://php.net/manual/en/reserved.classes.php
  */
-class stdClass {
-}
+class stdClass {}
 
 /**
  * @link https://wiki.php.net/rfc/iterable
@@ -23,15 +22,14 @@ interface iterable {}
  *
  * @link https://php.net/manual/en/class.traversable.php
  */
-interface Traversable extends iterable {
-}
+interface Traversable extends iterable {}
 
 /**
  * Interface to create an external Iterator.
  * @link https://php.net/manual/en/class.iteratoraggregate.php
  */
-interface IteratorAggregate extends Traversable {
-
+interface IteratorAggregate extends Traversable
+{
     /**
      * Retrieve an external iterator
      * @link https://php.net/manual/en/iteratoraggregate.getiterator.php
@@ -47,8 +45,8 @@ interface IteratorAggregate extends Traversable {
  * themselves internally.
  * @link https://php.net/manual/en/class.iterator.php
  */
-interface Iterator extends Traversable {
-
+interface Iterator extends Traversable
+{
     /**
      * Return the current element
      * @link https://php.net/manual/en/iterator.current.php
@@ -90,8 +88,8 @@ interface Iterator extends Traversable {
  * Interface to provide accessing objects as arrays.
  * @link https://php.net/manual/en/class.arrayaccess.php
  */
-interface ArrayAccess {
-
+interface ArrayAccess
+{
     /**
      * Whether a offset exists
      * @link https://php.net/manual/en/arrayaccess.offsetexists.php
@@ -143,8 +141,8 @@ interface ArrayAccess {
  * Interface for customized serializing.
  * @link https://php.net/manual/en/class.serializable.php
  */
-interface Serializable {
-
+interface Serializable
+{
     /**
      * String representation of object.
      * @link https://php.net/manual/en/serializable.serialize.php
@@ -162,7 +160,6 @@ interface Serializable {
     public function unserialize($data);
 }
 
-
 /**
  * Throwable is the base interface for any object that can be thrown via a throw statement in PHP 7,
  * including Error and Exception.
@@ -171,7 +168,6 @@ interface Serializable {
  */
 interface Throwable extends Stringable
 {
-
     /**
      * Gets the message
      * @link https://php.net/manual/en/throwable.getmessage.php
@@ -249,7 +245,8 @@ interface Throwable extends Stringable
  * all Exceptions.
  * @link https://php.net/manual/en/class.exception.php
  */
-class Exception implements Throwable {
+class Exception implements Throwable
+{
     /** The error message */
     protected $message;
     /** The error code */
@@ -259,14 +256,13 @@ class Exception implements Throwable {
     /** The line where the error happened */
     protected $line;
 
-
     /**
      * Clone the exception
      * Tries to clone the Exception, which results in Fatal error.
      * @link https://php.net/manual/en/exception.clone.php
      * @return void
      */
-    final private function __clone() { }
+    final private function __clone() {}
 
     /**
      * Construct the exception. Note: The message is NOT binary safe.
@@ -276,7 +272,7 @@ class Exception implements Throwable {
      * @param null|Throwable $previous [optional] The previous throwable used for the exception chaining.
      */
     #[Pure]
-    public function __construct($message = "", $code = 0, Throwable $previous = null) { }
+    public function __construct($message = "", $code = 0, Throwable $previous = null) {}
 
     /**
      * Gets the Exception message
@@ -284,7 +280,7 @@ class Exception implements Throwable {
      * @return string the Exception message as a string.
      */
     #[Pure]
-    final public function getMessage() { }
+    final public function getMessage() {}
 
     /**
      * Gets the Exception code
@@ -295,7 +291,7 @@ class Exception implements Throwable {
      * string in <b>PDOException</b>).
      */
     #[Pure]
-    final public function getCode() { }
+    final public function getCode() {}
 
     /**
      * Gets the file in which the exception occurred
@@ -303,7 +299,7 @@ class Exception implements Throwable {
      * @return string the filename in which the exception was created.
      */
     #[Pure]
-    final public function getFile() { }
+    final public function getFile() {}
 
     /**
      * Gets the line in which the exception occurred
@@ -311,7 +307,7 @@ class Exception implements Throwable {
      * @return int the line number where the exception was created.
      */
     #[Pure]
-    final public function getLine() { }
+    final public function getLine() {}
 
     /**
      * Gets the stack trace
@@ -319,7 +315,7 @@ class Exception implements Throwable {
      * @return array the Exception stack trace as an array.
      */
     #[Pure]
-    final public function getTrace() { }
+    final public function getTrace() {}
 
     /**
      * Returns previous Exception
@@ -328,7 +324,7 @@ class Exception implements Throwable {
      * or null otherwise.
      */
     #[Pure]
-    final public function getPrevious() { }
+    final public function getPrevious() {}
 
     /**
      * Gets the stack trace as a string
@@ -336,16 +332,16 @@ class Exception implements Throwable {
      * @return string the Exception stack trace as a string.
      */
     #[Pure]
-    final public function getTraceAsString() { }
+    final public function getTraceAsString() {}
 
     /**
      * String representation of the exception
      * @link https://php.net/manual/en/exception.tostring.php
      * @return string the string representation of the exception.
      */
-    public function __toString() { }
+    public function __toString() {}
 
-    public function __wakeup() { }
+    public function __wakeup() {}
 }
 
 /**
@@ -353,8 +349,8 @@ class Exception implements Throwable {
  * @link https://php.net/manual/en/class.error.php
  * @since 7.0
  */
-class Error implements Throwable {
-
+class Error implements Throwable
+{
     /** The error message */
     protected $message;
     /** The error code */
@@ -372,9 +368,7 @@ class Error implements Throwable {
      * @param null|Throwable $previous [optional] The previous throwable used for the exception chaining.
      */
     #[Pure]
-    public function __construct($message = "", $code = 0, Throwable $previous = null)
-    {
-    }
+    public function __construct($message = "", $code = 0, Throwable $previous = null) {}
 
     /***
      * Gets the message
@@ -382,9 +376,7 @@ class Error implements Throwable {
      * @return string
      * @since 7.0
      */
-    public final function getMessage()
-    {
-    }
+    final public function getMessage() {}
 
     /**
      * Gets the exception code
@@ -397,8 +389,7 @@ class Error implements Throwable {
      * </p>
      * @since 7.0
      */
-    public final function getCode(){}
-
+    final public function getCode() {}
 
     /**
      * Gets the file in which the exception occurred
@@ -406,8 +397,7 @@ class Error implements Throwable {
      * @return string Returns the name of the file from which the object was thrown.
      * @since 7.0
      */
-    public final function getFile(){}
-
+    final public function getFile() {}
 
     /**
      * Gets the line on which the object was instantiated
@@ -415,8 +405,7 @@ class Error implements Throwable {
      * @return int Returns the line number where the thrown object was instantiated.
      * @since 7.0
      */
-    public final function getLine(){}
-
+    final public function getLine() {}
 
     /**
      * Gets the stack trace
@@ -427,7 +416,7 @@ class Error implements Throwable {
      * </p>
      * @since 7.0
      */
-    public final function getTrace(){}
+    final public function getTrace() {}
 
     /**
      * Gets the stack trace as a string
@@ -435,7 +424,7 @@ class Error implements Throwable {
      * @return string Returns the stack trace as a string.
      * @since 7.0
      */
-    public final function getTraceAsString(){}
+    final public function getTraceAsString() {}
 
     /**
      * Returns the previous Throwable
@@ -443,14 +432,14 @@ class Error implements Throwable {
      * @return Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
      * @since 7.0
      */
-    public final function getPrevious(){}
+    final public function getPrevious() {}
     /**
      * Gets a string representation of the thrown object
      * @link https://php.net/manual/en/throwable.tostring.php
      * @return string <p>Returns the string representation of the thrown object.</p>
      * @since 7.0
      */
-    public function __toString(){}
+    public function __toString() {}
 
     /**
      * Clone the error
@@ -458,9 +447,9 @@ class Error implements Throwable {
      * @return void
      * @link https://php.net/manual/en/error.clone.php
      */
-    private final function __clone(){}
+    final private function __clone() {}
 
-    public function __wakeup(){}
+    public function __wakeup() {}
 }
 
 class ValueError extends Error {}
@@ -473,18 +462,14 @@ class ValueError extends Error {}
  * @link https://php.net/manual/en/class.typeerror.php
  * @since 7.0
  */
-class TypeError extends Error {
-
-}
+class TypeError extends Error {}
 
 /**
  * ParseError is thrown when an error occurs while parsing PHP code, such as when {@see eval()} is called.
  * @link https://php.net/manual/en/class.parseerror.php
  * @since 7.0
  */
-class ParseError extends CompileError {
-
-}
+class ParseError extends CompileError {}
 
 /**
  * ArgumentCountError is thrown when too few arguments are passed to a user
@@ -502,27 +487,21 @@ class ArgumentCountError extends TypeError {}
  * @link https://php.net/manual/en/class.arithmeticerror.php
  * @since 7.0
  */
-class ArithmeticError extends Error {
-
-}
+class ArithmeticError extends Error {}
 
 /**
  * Class CompileError
  * @link https://secure.php.net/manual/en/class.compileerror.php
  * @since 7.3
  */
-class CompileError extends Error {
-
-}
+class CompileError extends Error {}
 
 /**
  * DivisionByZeroError is thrown when an attempt is made to divide a number by zero.
  * @link https://php.net/manual/en/class.divisionbyzeroerror.php
  * @since 7.0
  */
-class DivisionByZeroError extends ArithmeticError {
-
-}
+class DivisionByZeroError extends ArithmeticError {}
 
 /**
  * @since 8.0
@@ -533,10 +512,9 @@ class UnhandledMatchError extends Error {}
  * An Error Exception.
  * @link https://php.net/manual/en/class.errorexception.php
  */
-class ErrorException extends Exception {
-
+class ErrorException extends Exception
+{
     protected $severity;
-
 
     /**
      * Constructs the exception
@@ -549,14 +527,14 @@ class ErrorException extends Exception {
      * @param Exception $previous [optional] The previous exception used for the exception chaining.
      */
     #[\JetBrains\PhpStorm\Pure]
-    public function __construct($message = "", $code = 0, $severity = 1, $filename = __FILE__, $line = __LINE__, $previous = null) { }
+    public function __construct($message = "", $code = 0, $severity = 1, $filename = __FILE__, $line = __LINE__, $previous = null) {}
 
     /**
      * Gets the exception severity
      * @link https://php.net/manual/en/errorexception.getseverity.php
      * @return int the severity level of the exception.
      */
-    final public function getSeverity() { }
+    final public function getSeverity() {}
 }
 
 /**
@@ -568,14 +546,14 @@ class ErrorException extends Exception {
  * This is for consistency with other classes that implement calling magic, as this method is not used for calling the function.
  * @link https://secure.php.net/manual/en/class.closure.php
  */
-final class Closure {
-
+final class Closure
+{
     /**
      * This method exists only to disallow instantiation of the Closure class.
      * Objects of this class are created in the fashion described on the anonymous functions page.
      * @link https://secure.php.net/manual/en/closure.construct.php
      */
-    private function __construct() { }
+    private function __construct() {}
 
     /**
      * This is for consistency with other classes that implement calling magic,
@@ -584,7 +562,7 @@ final class Closure {
      * @return mixed
      * @link https://secure.php.net/manual/en/class.closure.php
      */
-    public function __invoke(...$_) { }
+    public function __invoke(...$_) {}
 
     /**
      * Duplicates the closure with a new bound object and class scope
@@ -595,7 +573,7 @@ final class Closure {
      * This determines the visibility of protected and private methods of the bound object.
      * @return Closure|false Returns the newly created Closure object or FALSE on failure
      */
-    function bindTo(?object $newThis, object|string|null $newScope = 'static') { }
+    public function bindTo(?object $newThis, object|string|null $newScope = 'static') {}
 
     /**
      * This method is a static version of Closure::bindTo().
@@ -608,7 +586,7 @@ final class Closure {
      * This determines the visibility of protected and private methods of the bound object.
      * @return Closure|false Returns the newly created Closure object or FALSE on failure
      */
-    static function bind(Closure $closure, ?object $newThis, object|string|null $newScope = 'static') { }
+    public static function bind(Closure $closure, ?object $newThis, object|string|null $newScope = 'static') {}
 
     /**
      * Temporarily binds the closure to newthis, and calls it with any given parameters.
@@ -618,14 +596,14 @@ final class Closure {
      * @return mixed
      * @since 7.0
      */
-    function call (object $newThis, mixed ...$args) {}
+    public function call(object $newThis, mixed ...$args) {}
 
     /**
      * @param callable $callback
      * @return Closure
      * @since 7.1
      */
-    public static function fromCallable (callable $callback) {}
+    public static function fromCallable(callable $callback) {}
 }
 
 /**
@@ -633,8 +611,8 @@ final class Closure {
  * <b>count</b> function.
  * @link https://php.net/manual/en/class.countable.php
  */
-interface Countable {
-
+interface Countable
+{
     /**
      * Count elements of an object
      * @link https://php.net/manual/en/countable.count.php
@@ -652,7 +630,8 @@ interface Countable {
  * They are useful for implementing cache like structures.
  * @link https://www.php.net/manual/en/class.weakreference.php
  */
-class WeakReference {
+class WeakReference
+{
     /**
      * This method exists only to disallow instantiation of the WeakReference
      * class. Weak references are to be instantiated with the factory method
@@ -687,7 +666,8 @@ class WeakReference {
  *
  * @since 8.0
  */
-final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate {
+final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate
+{
     /**
      * Returns {@see true} if the value for the object is contained in
      * the {@see WeakMap} and {@see false} instead.
@@ -703,9 +683,7 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate {
      * @param object $object Any object
      * @return mixed Value associated with the key object
      */
-    public function offsetGet($object)
-    {
-    }
+    public function offsetGet($object) {}
 
     /**
      * Sets a new value for an object.
@@ -714,9 +692,7 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate {
      * @param mixed $value Any value
      * @return void
      */
-    public function offsetSet($object, mixed $value)
-    {
-    }
+    public function offsetSet($object, mixed $value) {}
 
     /**
      * Force removes an object value from the {@see WeakMap} instance.
@@ -724,27 +700,21 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate {
      * @param object $object Any object
      * @return void
      */
-    public function offsetUnset($object)
-    {
-    }
+    public function offsetUnset($object) {}
 
     /**
      * Returns an iterator in the "[object => mixed]" format.
      *
      * @return Traversable
      */
-    public function getIterator()
-    {
-    }
+    public function getIterator() {}
 
     /**
      * Returns the number of items in the {@see WeakMap} instance.
      *
      * @return int
      */
-    public function count()
-    {
-    }
+    public function count() {}
 }
 
 /**
@@ -753,7 +723,8 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate {
  *
  * @since 8.0
  */
-interface Stringable {
+interface Stringable
+{
     /**
      * Magic method {@see https://www.php.net/manual/en/language.oop5.magic.php}
      * called during serialization to string.
@@ -768,56 +739,55 @@ interface Stringable {
  * @since 8.0
  */
 #[Attribute(Attribute::TARGET_CLASS)]
-final class Attribute {
+final class Attribute
+{
     public int $flags;
     /**
      * Marks that attribute declaration is allowed only in classes.
      */
-    const TARGET_CLASS = 1;
+    public const TARGET_CLASS = 1;
 
     /**
      * Marks that attribute declaration is allowed only in functions.
      */
-    const TARGET_FUNCTION = 2;
+    public const TARGET_FUNCTION = 2;
 
     /**
      * Marks that attribute declaration is allowed only in class methods.
      */
-    const TARGET_METHOD = 4;
+    public const TARGET_METHOD = 4;
 
     /**
      * Marks that attribute declaration is allowed only in class properties.
      */
-    const TARGET_PROPERTY = 8;
+    public const TARGET_PROPERTY = 8;
 
     /**
      * Marks that attribute declaration is allowed only in class constants.
      */
-    const TARGET_CLASS_CONSTANT = 16;
+    public const TARGET_CLASS_CONSTANT = 16;
 
     /**
      * Marks that attribute declaration is allowed only in function or method parameters.
      */
-    const TARGET_PARAMETER = 32;
+    public const TARGET_PARAMETER = 32;
 
     /**
      * Marks that attribute declaration is allowed anywhere.
      */
-    const TARGET_ALL = 63;
+    public const TARGET_ALL = 63;
 
     /**
      * Notes that an attribute declaration in the same place is
      * allowed multiple times.
      */
-    const IS_REPEATABLE = 64;
+    public const IS_REPEATABLE = 64;
 
     /**
      * @param int $flags A value in the form of a bitmask indicating the places
      * where attributes can be defined.
      */
-    public function __construct(#[ExpectedValues(flagsFromClass: Attribute::class)] int $flags = self::TARGET_ALL)
-    {
-    }
+    public function __construct(#[ExpectedValues(flagsFromClass: Attribute::class)] int $flags = self::TARGET_ALL) {}
 }
 
 /**
@@ -826,7 +796,8 @@ final class Attribute {
  *
  * @since 8.0
  */
-class PhpToken implements Stringable {
+class PhpToken implements Stringable
+{
     /**
      * One of the T_* constants, or an integer < 256 representing a
      * single-char token.
@@ -854,18 +825,14 @@ class PhpToken implements Stringable {
      * @param int $line Strating line
      * @param int $pos Straring position (line offset)
      */
-    final public function __construct(int $id, string $text, int $line = -1, int $pos = -1)
-    {
-    }
+    final public function __construct(int $id, string $text, int $line = -1, int $pos = -1) {}
 
     /**
      * Get the name of the token.
      *
      * @return string|null
      */
-    public function getTokenName()
-    {
-    }
+    public function getTokenName() {}
 
     /**
      * Same as {@see token_get_all()}, but returning array of {@see PhpToken}
@@ -884,39 +851,34 @@ class PhpToken implements Stringable {
      * @param int|string|array $kind
      * @return bool
      */
-    public function is($kind)
-    {
-    }
+    public function is($kind) {}
 
     /**
      * Whether this token would be ignored by the PHP parser.
      *
      * @return bool
      */
-    public function isIgnorable()
-    {
-    }
+    public function isIgnorable() {}
 
     /**
      * {@inheritDoc}
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
 }
 
 /**
  * @since 8.0
  */
-final class InternalIterator implements Iterator{
-    private function __construct(){}
-    public function current(){}
+final class InternalIterator implements Iterator
+{
+    private function __construct() {}
+    public function current() {}
 
-    public function next(){}
+    public function next() {}
 
-    public function key(){}
+    public function key() {}
 
-    public function valid(){}
+    public function valid() {}
 
-    public function rewind(){}
+    public function rewind() {}
 }

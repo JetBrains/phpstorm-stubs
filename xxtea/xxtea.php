@@ -16,7 +16,7 @@ class XXTEA
      *
      * @since 1.0.0
      */
-    public static function encrypt($data, $key) { }
+    public static function encrypt($data, $key) {}
 
     /**
      * Decrypts data.
@@ -28,7 +28,7 @@ class XXTEA
      *
      * @since 1.0.0
      */
-    public static function decrypt($data, $key) { }
+    public static function decrypt($data, $key) {}
 }
 
 /**
@@ -41,7 +41,7 @@ class XXTEA
  *
  * @since 1.0.0
  */
-function xxtea_encrypt($data, $key) { }
+function xxtea_encrypt($data, $key) {}
 
 /**
  * Decrypts data.
@@ -53,4 +53,4 @@ function xxtea_encrypt($data, $key) { }
  *
  * @since 1.0.0
  */
-function xxtea_decrypt($data, $key) { }
+function xxtea_decrypt($data, $key) {}

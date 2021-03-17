@@ -437,4 +437,3 @@ function wincache_ucache_set($key, $value, $ttl = 0) {}
  * @return bool Returns TRUE on success or FALSE on failure.
  */
 function wincache_unlock($key) {}
-?>

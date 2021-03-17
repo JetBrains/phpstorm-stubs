@@ -32,13 +32,13 @@ class StubsParametersProvider
     public static function parametersForAllowedScalarTypeHintTestsProvider(): ?Generator
     {
         $filterFunction = EntitiesFilter::getFilterFunctionForAllowedTypeHintsInLanguageLevel(7);
-        return self::yieldFilteredMethodParameters($filterFunction,StubProblemType::PARAMETER_TYPE_MISMATCH);
+        return self::yieldFilteredMethodParameters($filterFunction, StubProblemType::PARAMETER_TYPE_MISMATCH);
     }
 
     public static function parametersForAllowedNullableTypeHintTestsProvider(): ?Generator
     {
         $filterFunction = EntitiesFilter::getFilterFunctionForAllowedTypeHintsInLanguageLevel(7.1);
-        return self::yieldFilteredMethodParameters($filterFunction,StubProblemType::PARAMETER_TYPE_MISMATCH);
+        return self::yieldFilteredMethodParameters($filterFunction, StubProblemType::PARAMETER_TYPE_MISMATCH);
     }
 
     public static function parametersForAllowedUnionTypeHintTestsProvider(): ?Generator

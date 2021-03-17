@@ -21,7 +21,7 @@
  * @param resource $fd The file descriptor returned by dio_open()
  * @return void
  */
-function dio_close ($fd) {}
+function dio_close($fd) {}
 
 /**
  * dio_fcntl ( resource $fd , int $cmd [, mixed $args ] ) : mixed
@@ -37,7 +37,7 @@ function dio_close ($fd) {}
  * type - type of lock: can be F_RDLCK (read lock), F_WRLCK (write lock) or F_UNLCK (unlock)
  * @return mixed Returns the result of the C call.
  */
-function dio_fcntl ($fd , int $cmd, ...$args) {}
+function dio_fcntl($fd, int $cmd, ...$args) {}
 
 /**
  * dio_open ( string $filename , int $flags [, int $mode = 0 ] ) : resource
@@ -59,7 +59,7 @@ function dio_fcntl ($fd , int $cmd, ...$args) {}
  * The actual permissions assigned to the created file will be affected by the process's umask setting as per usual.
  * @return resource|false A file descriptor or FALSE on error.
  */
-function dio_open (string $filename, int $flags, int $mode = 0) {}
+function dio_open(string $filename, int $flags, int $mode = 0) {}
 
 /**
  * dio_read ( resource $fd [, int $len = 1024 ] ) : string
@@ -69,7 +69,7 @@ function dio_open (string $filename, int $flags, int $mode = 0) {}
  * @return int The bytes read from fd.
  * @link https://www.php.net/manual/en/function.dio-read.php
  */
-function dio_read ($fd, int $len = 1024) {}
+function dio_read($fd, int $len = 1024) {}
 
 /**
  * dio_seek — Seeks to pos on fd from whence
@@ -82,7 +82,7 @@ function dio_read ($fd, int $len = 1024) {}
  * @return int
  * @link https://www.php.net/manual/en/function.dio-seek.php
  */
-function dio_seek ($fd, int $pos, int $whence = SEEK_SET) {}
+function dio_seek($fd, int $pos, int $whence = SEEK_SET) {}
 
 /**
  * dio_stat — Gets stat information about the file descriptor fd
@@ -104,7 +104,7 @@ function dio_seek ($fd, int $pos, int $whence = SEEK_SET) {}
  * On error dio_stat() returns NULL.
  * @link https://www.php.net/manual/en/function.dio-stat.php
  */
-function dio_stat ($fd) {}
+function dio_stat($fd) {}
 
 /**
  * dio_tcsetattr ( resource $fd , array $options ) : bool
@@ -118,7 +118,7 @@ function dio_stat ($fd) {}
  * @return void
  * @link https://www.php.net/manual/en/function.dio-tcsetattr.php
  */
-function dio_tcsetattr ($fd, array $options ) {}
+function dio_tcsetattr($fd, array $options) {}
 
 /**
  * dio_truncate ( resource $fd , int $offset ) : bool
@@ -131,7 +131,7 @@ function dio_tcsetattr ($fd, array $options ) {}
  * @return bool Returns TRUE on success or FALSE on failure.
  * @link https://www.php.net/manual/en/function.dio-truncate.php
  */
-function dio_truncate ($fd, int $offset) {}
+function dio_truncate($fd, int $offset) {}
 
 /**
  * dio_write ( resource $fd , string $data [, int $len = 0 ] ) : int
@@ -142,4 +142,4 @@ function dio_truncate ($fd, int $offset) {}
  * @param int $len The length of data to write in bytes. If not specified, the function writes all the data to the specified file.
  * @return int Returns the number of bytes written to fd.
  */
-function dio_write ($fd, string $data, int $len = 0) {}
+function dio_write($fd, string $data, int $len = 0) {}

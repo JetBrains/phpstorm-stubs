@@ -22,8 +22,7 @@ use JetBrains\PhpStorm\Pure;
  * @return string The sum of the two operands, as a string.
  */
 #[Pure]
-function bcadd (string $num1, string $num2, ?int $scale = 0): string
-{}
+function bcadd(string $num1, string $num2, ?int $scale = 0): string {}
 
 /**
  * Subtract one arbitrary precision number from another
@@ -43,8 +42,7 @@ function bcadd (string $num1, string $num2, ?int $scale = 0): string
  * @return string The result of the subtraction, as a string.
  */
 #[Pure]
-function bcsub (string $num1, string $num2, ?int $scale = 0): string
-{}
+function bcsub(string $num1, string $num2, ?int $scale = 0): string {}
 
 /**
  * Multiply two arbitrary precision numbers
@@ -64,8 +62,7 @@ function bcsub (string $num1, string $num2, ?int $scale = 0): string
  * @return string the result as a string.
  */
 #[Pure]
-function bcmul (string $num1, string $num2, ?int $scale = 0): string
-{}
+function bcmul(string $num1, string $num2, ?int $scale = 0): string {}
 
 /**
  * Divide two arbitrary precision numbers
@@ -87,8 +84,7 @@ function bcmul (string $num1, string $num2, ?int $scale = 0): string
  */
 #[Pure]
 #[PhpStormStubsElementAvailable(to: '7.4')]
-function bcdiv (string $num1, string $num2, ?int $scale = 0): ?string
-{}
+function bcdiv(string $num1, string $num2, ?int $scale = 0): ?string {}
 
 /**
  * Divide two arbitrary precision numbers
@@ -110,8 +106,7 @@ function bcdiv (string $num1, string $num2, ?int $scale = 0): ?string
  */
 #[Pure]
 #[PhpStormStubsElementAvailable('8.0')]
-function bcdiv (string $num1, string $num2, ?int $scale = 0): string
-{}
+function bcdiv(string $num1, string $num2, ?int $scale = 0): string {}
 
 /**
  * Get modulus of an arbitrary precision number
@@ -133,8 +128,7 @@ function bcdiv (string $num1, string $num2, ?int $scale = 0): string
  */
 #[Pure]
 #[PhpStormStubsElementAvailable(to: '7.4')]
-function bcmod (string $num1, string $num2, ?int $scale = 0): ?string
-{}
+function bcmod(string $num1, string $num2, ?int $scale = 0): ?string {}
 
 /**
  * Get modulus of an arbitrary precision number
@@ -156,8 +150,7 @@ function bcmod (string $num1, string $num2, ?int $scale = 0): ?string
  */
 #[Pure]
 #[PhpStormStubsElementAvailable('8.0')]
-function bcmod (string $num1, string $num2, ?int $scale = 0): string
-{}
+function bcmod(string $num1, string $num2, ?int $scale = 0): string {}
 
 /**
  * Raise an arbitrary precision number to another
@@ -179,8 +172,7 @@ function bcmod (string $num1, string $num2, ?int $scale = 0): string
  * @return string the result as a string.
  */
 #[Pure]
-function bcpow (string $num, string $exponent, ?int $scale = 0): string
-{}
+function bcpow(string $num, string $exponent, ?int $scale = 0): string {}
 
 /**
  * Get the square root of an arbitrary precision number
@@ -194,8 +186,7 @@ function bcpow (string $num, string $exponent, ?int $scale = 0): string
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
-function bcsqrt (string $num, ?int $scale)
-{}
+function bcsqrt(string $num, ?int $scale) {}
 
 /**
  * Set default scale parameter for all bc math functions
@@ -203,10 +194,9 @@ function bcsqrt (string $num, ?int $scale)
  * @param int $scale
  * @return int|bool
  */
-#[LanguageLevelTypeAware(['7.3'=>'int'], default: 'bool')]
+#[LanguageLevelTypeAware(['7.3' => 'int'], default: 'bool')]
 #[PhpStormStubsElementAvailable(to: '7.4')]
-function bcscale (int $scale)
-{}
+function bcscale(int $scale) {}
 
 /**
  * Set default scale parameter for all bc math functions
@@ -215,8 +205,7 @@ function bcscale (int $scale)
  * @return int Returns the old scale when used as setter. Otherwise the current scale is returned.
  */
 #[PhpStormStubsElementAvailable('8.0')]
-function bcscale (?int $scale = null): int
-{}
+function bcscale(?int $scale = null): int {}
 
 /**
  * Compare two arbitrary precision numbers
@@ -237,8 +226,7 @@ function bcscale (?int $scale = null): int
  * <i>right_operand</i>, -1 otherwise.
  */
 #[Pure]
-function bccomp (string $num1, string $num2, ?int $scale = 0): int
-{}
+function bccomp(string $num1, string $num2, ?int $scale = 0): int {}
 
 /**
  * Raise an arbitrary precision number to another, reduced by a specified modulus
@@ -264,5 +252,4 @@ function bccomp (string $num1, string $num2, ?int $scale = 0): int
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
-function bcpowmod (string $num, string $exponent, string $modulus, ?int $scale = 0)
-{}
+function bcpowmod(string $num, string $exponent, string $modulus, ?int $scale = 0) {}

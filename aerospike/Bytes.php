@@ -89,8 +89,7 @@ class Bytes implements \Serializable
      * @param \Aerospike\Bytes $bytes_wrap
      * @return string
      */
-    public static function unwrap(\Aerospike\Bytes $bytes_wrap) {
+    public static function unwrap(Bytes $bytes_wrap) {
         return $bytes_wrap->s;
     }
-
 }

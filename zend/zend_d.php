@@ -31,5 +31,3 @@ define('JOB_QUEUE_SAVE_FILES', 64);
 define('JOB_QUEUE_SAVE_ENV', 128);
 
 // End of Zend Extensions
-
-?>

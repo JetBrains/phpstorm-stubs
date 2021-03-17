@@ -13,7 +13,6 @@ use StubTests\Model\StubsContainer;
 
 class PHPReflectionParser
 {
-
     public static function getStubs(): StubsContainer
     {
         $stubs = new StubsContainer();

@@ -40,8 +40,7 @@ namespace {
      *
      * @return string|false Returns the compressed data or FALSE if an error occurred.
      */
-    function zstd_compress(string $data, int $level = 3): string|false
-    {}
+    function zstd_compress(string $data, int $level = 3): string|false {}
 
     /**
      * Zstandard decompression.
@@ -50,8 +49,7 @@ namespace {
      *
      * @return string|false Returns the decompressed data or FALSE if an error occurred.
      */
-    function zstd_uncompress(string $data): string|false
-    {}
+    function zstd_uncompress(string $data): string|false {}
 
     /**
      * Zstandard compression using a digested dictionary.
@@ -61,8 +59,7 @@ namespace {
      *
      * @return string|false Returns the compressed data or FALSE if an error occurred.
      */
-    function zstd_compress_dict(string $data, string $dict): string|false
-    {}
+    function zstd_compress_dict(string $data, string $dict): string|false {}
 
     /**
      * Zstandard decompression using a digested dictionary.
@@ -73,8 +70,7 @@ namespace {
      *
      * @return string|false Returns the compressed data or FALSE if an error occurred.
      */
-    function zstd_compress_usingcdict(string $data, string $dict): string|false
-    {}
+    function zstd_compress_usingcdict(string $data, string $dict): string|false {}
 
     /**
      * Zstandard decompression using a digested dictionary.
@@ -84,20 +80,7 @@ namespace {
      *
      * @return string|false Returns the decompressed data or FALSE if an error occurred.
      */
-    function zstd_uncompress_dict(string $data, string $dict): string|false
-    {}
-
-    /**
-     * Zstandard decompression using a digested dictionary.
-     * An alias of {@see zstd_compress_dict}
-     *
-     * @param string $data The compressed string.
-     * @param string $dict The Dictionary data.
-     *
-     * @return string|false Returns the decompressed data or FALSE if an error occurred.
-     */
-    function zstd_decompress_dict(string $data, string $dict): string|false
-    {}
+    function zstd_uncompress_dict(string $data, string $dict): string|false {}
 
     /**
      * Zstandard decompression using a digested dictionary.
@@ -108,8 +91,7 @@ namespace {
      *
      * @return string|false Returns the decompressed data or FALSE if an error occurred.
      */
-    function zstd_uncompress_usingcdict(string $data, string $dict): string|false
-    {}
+    function zstd_decompress_dict(string $data, string $dict): string|false {}
 
     /**
      * Zstandard decompression using a digested dictionary.
@@ -120,8 +102,18 @@ namespace {
      *
      * @return string|false Returns the decompressed data or FALSE if an error occurred.
      */
-    function zstd_decompress_usingcdict(string $data, string $dict): string|false
-    {}
+    function zstd_uncompress_usingcdict(string $data, string $dict): string|false {}
+
+    /**
+     * Zstandard decompression using a digested dictionary.
+     * An alias of {@see zstd_compress_dict}
+     *
+     * @param string $data The compressed string.
+     * @param string $dict The Dictionary data.
+     *
+     * @return string|false Returns the decompressed data or FALSE if an error occurred.
+     */
+    function zstd_decompress_usingcdict(string $data, string $dict): string|false {}
 }
 
 namespace Zstd {
@@ -134,8 +126,7 @@ namespace Zstd {
      *
      * @return string|false Returns the compressed data or FALSE if an error occurred.
      */
-    function compress(string $data, int $level = 3): string|false
-    {}
+    function compress(string $data, int $level = 3): string|false {}
 
     /**
      * Zstandard decompression.
@@ -144,8 +135,7 @@ namespace Zstd {
      *
      * @return string|false Returns the decompressed data or FALSE if an error occurred.
      */
-    function uncompress(string $data): string|false
-    {}
+    function uncompress(string $data): string|false {}
 
     /**
      * Zstandard compression using a digested dictionary.
@@ -155,8 +145,7 @@ namespace Zstd {
      *
      * @return string|false Returns the compressed data or FALSE if an error occurred.
      */
-    function compress_dict(string $data, string $dict): string|false
-    {}
+    function compress_dict(string $data, string $dict): string|false {}
 
     /**
      * Zstandard decompression using a digested dictionary.
@@ -166,6 +155,5 @@ namespace Zstd {
      *
      * @return string|false Returns the decompressed data or FALSE if an error occurred.
      */
-    function uncompress_dict(string $data, string $dict): string|false
-    {}
+    function uncompress_dict(string $data, string $dict): string|false {}
 }

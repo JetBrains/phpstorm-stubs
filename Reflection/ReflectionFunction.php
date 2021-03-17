@@ -23,7 +23,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      *
      * @link https://www.php.net/manual/en/class.reflectionfunction.php#reflectionfunction.constants.is-deprecated
      */
-    const IS_DEPRECATED = 2048;
+    public const IS_DEPRECATED = 2048;
 
     /**
      * Constructs a ReflectionFunction object
@@ -32,18 +32,14 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @param string|Closure $function The name of the function to reflect or a closure.
      * @throws ReflectionException if the function does not exist.
      */
-    public function __construct($function)
-    {
-    }
+    public function __construct($function) {}
 
     /**
      * Returns the string representation of the ReflectionFunction object.
      *
      * @link https://php.net/manual/en/reflectionfunction.tostring.php
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
 
     /**
      * Exports function
@@ -58,9 +54,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @removed 8.0
      */
     #[Deprecated(since: '7.4')]
-    public static function export($name, $return = false)
-    {
-    }
+    public static function export($name, $return = false) {}
 
     /**
      * Checks if function is disabled
@@ -70,9 +64,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      */
     #[Deprecated(since: '8.0')]
     #[Pure]
-	public function isDisabled()
-    {
-    }
+    public function isDisabled() {}
 
     /**
      * Invokes function
@@ -83,9 +75,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * like {@see call_user_func} is.
      * @return mixed Returns the result of the invoked function call.
      */
-    public function invoke(...$args)
-    {
-    }
+    public function invoke(...$args) {}
 
     /**
      * Invokes function args
@@ -95,9 +85,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * like {@see call_user_func_array} works.
      * @return mixed the result of the invoked function
      */
-    public function invokeArgs(array $args)
-    {
-    }
+    public function invokeArgs(array $args) {}
 
     /**
      * Returns a dynamically created closure for the function
@@ -106,7 +94,5 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @return Closure Returns {@see Closure} or {@see null} in case of an error.
      */
     #[Pure]
-	public function getClosure()
-    {
-    }
+    public function getClosure() {}
 }

@@ -82,7 +82,6 @@ define("PASSWORD_BCRYPT_DEFAULT_COST", 10);
 define("PASSWORD_BCRYPT", '2y');
 
 /**
- *
  * PASSWORD_ARGON2I is used to create new password hashes using the Argon2i algorithm.
  *
  * Supported Options:
@@ -99,7 +98,6 @@ define("PASSWORD_BCRYPT", '2y');
 define('PASSWORD_ARGON2I', 'argon2i');
 
 /**
- *
  * PASSWORD_ARGON2ID is used to create new password hashes using the Argon2id algorithm.
  *
  * Supported Options:
@@ -120,14 +118,14 @@ define('PASSWORD_ARGON2ID', 'argon2id');
  * Available as of PHP 7.2.0.
  * @since 7.2
  */
-define ('PASSWORD_ARGON2_DEFAULT_MEMORY_COST', 65536);
+define('PASSWORD_ARGON2_DEFAULT_MEMORY_COST', 65536);
 
 /**
  * Default amount of time that Argon2lib will spend trying to compute a hash.
  * Available as of PHP 7.2.0.
  * @since 7.2
  */
-define ('PASSWORD_ARGON2_DEFAULT_TIME_COST', 4);
+define('PASSWORD_ARGON2_DEFAULT_TIME_COST', 4);
 
 /**
  * Default number of threads that Argon2lib will use.
@@ -163,8 +161,7 @@ define('PASSWORD_ARGON2_PROVIDER', 'standard');
  */
 #[ArrayShape(["algo" => "int", "algoName" => "string", "options" => "array"])]
 #[LanguageLevelTypeAware(['8.0' => 'array'], default: '?array')]
-function password_get_info (string $hash)
-{}
+function password_get_info(string $hash) {}
 
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>
@@ -184,8 +181,7 @@ function password_get_info (string $hash)
  * @since 5.5
  */
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false|null")]
-function password_hash (string $password, string|int|null $algo, array $options = [])
-{}
+function password_hash(string $password, string|int|null $algo, array $options = []) {}
 
 /**
  * Checks if the given hash matches the given options.
@@ -196,8 +192,7 @@ function password_hash (string $password, string|int|null $algo, array $options 
  * @return bool Returns TRUE if the hash should be rehashed to match the given algo and options, or FALSE otherwise.
  * @since 5.5
  */
-function password_needs_rehash (string $hash, string|int|null $algo, array $options = []): bool
-{}
+function password_needs_rehash(string $hash, string|int|null $algo, array $options = []): bool {}
 
 /**
  * Checks if the given hash matches the given options.
@@ -207,14 +202,12 @@ function password_needs_rehash (string $hash, string|int|null $algo, array $opti
  * @return bool Returns TRUE if the password and hash match, or FALSE otherwise.
  * @since 5.5
  */
-function password_verify (string $password, string $hash): bool
-{}
+function password_verify(string $password, string $hash): bool {}
 
 /**
  * Return a complete list of all registered password hashing algorithms.
  * @return string[]
  * @since 7.4
  */
-function password_algos(): array
-{}
+function password_algos(): array {}
 // End of password v.

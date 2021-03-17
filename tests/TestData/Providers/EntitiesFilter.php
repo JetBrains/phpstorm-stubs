@@ -72,7 +72,7 @@ class EntitiesFilter
 
     public static function getFilterFunctionForLanguageLevel(float $languageVersion): callable
     {
-        return fn(PHPClass|PHPInterface $class, PHPMethod $method, ?float $firstSinceVersion) => $class !== null && !$method->isFinal && !$class->isFinal && $firstSinceVersion !== null &&
+        return fn (PHPClass|PHPInterface $class, PHPMethod $method, ?float $firstSinceVersion) => $class !== null && !$method->isFinal && !$class->isFinal && $firstSinceVersion !== null &&
             $firstSinceVersion < $languageVersion;
     }
 
@@ -82,7 +82,7 @@ class EntitiesFilter
             $reflectionClass = ReflectionStubsSingleton::getReflectionStubs()->getClass($stubClass->name);
             $reflectionMethod = null;
             if ($reflectionClass !== null) {
-                $reflectionMethods = array_filter($reflectionClass->methods, fn(PHPMethod $method) => $stubMethod->name === $method->name);
+                $reflectionMethods = array_filter($reflectionClass->methods, fn (PHPMethod $method) => $stubMethod->name === $method->name);
                 $reflectionMethod = array_pop($reflectionMethods);
             }
             return $reflectionMethod !== null && ($stubMethod->isFinal || $stubClass->isFinal || $firstSinceVersion !== null &&

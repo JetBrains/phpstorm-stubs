@@ -6,32 +6,33 @@
  * Class Judy.
  * @link https://php.net/manual/en/class.judy.php
  */
-class Judy implements ArrayAccess {
+class Judy implements ArrayAccess
+{
     /**
      * Define the Judy Array as a Bitset with keys as Integer and Values as a Boolean.
      * @link https://php.net/manual/en/class.judy.php#judy.constants.bitset
      */
-    const BITSET = 1;
+    public const BITSET = 1;
     /**
      * Define the Judy Array with key/values as Integer, and Integer only.
      * @link https://php.net/manual/en/class.judy.php#judy.constants.int-to-int
      */
-    const INT_TO_INT = 2;
+    public const INT_TO_INT = 2;
     /**
      * Define the Judy Array with keys as Integer and Values of any type.
      * @link https://php.net/manual/en/class.judy.php#judy.constants.int-to-mixed
      */
-    const INT_TO_MIXED = 3;
+    public const INT_TO_MIXED = 3;
     /**
      * Define the Judy Array with keys as a String and Values as Integer, and Integer only.
      * @link https://php.net/manual/en/class.judy.php#judy.constants.string-to-int
      */
-    const STRING_TO_INT = 4;
+    public const STRING_TO_INT = 4;
     /**
      * Define the Judy Array with keys as a String and Values of any type.
      * @link https://php.net/manual/en/class.judy.php#judy.constants.string-to-mixed
      */
-    const STRING_TO_MIXED = 5;
+    public const STRING_TO_MIXED = 5;
 
     /**
      * (PECL judy &gt;= 0.1.1)<br/>
@@ -210,5 +211,3 @@ class Judy implements ArrayAccess {
 }
 
 // End of judy.
-
-?>

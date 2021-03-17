@@ -16,9 +16,7 @@ class ReflectionGenerator
      * @param Generator $generator A generator object.
      * @since 7.0
      */
-    public function __construct(Generator $generator)
-    {
-    }
+    public function __construct(Generator $generator) {}
 
     /**
      * Gets the currently executing line of the generator
@@ -29,9 +27,7 @@ class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-	public function getExecutingLine()
-    {
-    }
+    public function getExecutingLine() {}
 
     /**
      * Gets the file name of the currently executing generator
@@ -42,9 +38,7 @@ class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-	public function getExecutingFile()
-    {
-    }
+    public function getExecutingFile() {}
 
     /**
      * Gets the trace of the executing generator
@@ -63,10 +57,7 @@ class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-	public function getTrace($options = DEBUG_BACKTRACE_PROVIDE_OBJECT)
-    {
-    }
-
+    public function getTrace($options = DEBUG_BACKTRACE_PROVIDE_OBJECT) {}
 
     /**
      * Gets the function name of the generator
@@ -78,9 +69,7 @@ class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-	public function getFunction()
-    {
-    }
+    public function getFunction() {}
 
     /**
      * Gets the function name of the generator
@@ -91,9 +80,7 @@ class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-	public function getThis()
-    {
-    }
+    public function getThis() {}
 
     /**
      * Gets the executing Generator object
@@ -101,10 +88,7 @@ class ReflectionGenerator
      * @link https://php.net/manual/en/reflectiongenerator.construct.php
      * @return Generator Returns the currently executing Generator object.
      * @since 7.0
-     *
      */
     #[Pure]
-	public function getExecutingGenerator()
-    {
-    }
+    public function getExecutingGenerator() {}
 }

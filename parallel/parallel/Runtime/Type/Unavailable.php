@@ -2,5 +2,4 @@
 
 namespace parallel\Runtime\Type;
 
-class Unavailable{
-}
+class Unavailable {}

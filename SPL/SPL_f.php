@@ -4,15 +4,13 @@
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
-
 /**
  * Return available SPL classes
  * @link https://php.net/manual/en/function.spl-classes.php
  * @return array
  */
 #[Pure]
-function spl_classes (): array
-{}
+function spl_classes(): array {}
 
 /**
  * Default implementation for __autoload()
@@ -27,8 +25,7 @@ function spl_classes (): array
  * @return void
  * @since 5.1.2
  */
-function spl_autoload (string $class, ?string $file_extensions): void
-{}
+function spl_autoload(string $class, ?string $file_extensions): void {}
 
 /**
  * Register and return default file extensions for spl_autoload
@@ -44,8 +41,7 @@ function spl_autoload (string $class, ?string $file_extensions): void
  * spl_autoload.
  * @since 5.1.2
  */
-function spl_autoload_extensions (?string $file_extensions): string
-{}
+function spl_autoload_extensions(?string $file_extensions): string {}
 
 /**
  * Register given function as __autoload() implementation
@@ -63,8 +59,7 @@ function spl_autoload_extensions (?string $file_extensions): string
  * @throws TypeError Since 8.0.
  * @since 5.1.2
  */
-function spl_autoload_register (?callable $callback, bool $throw = true, bool $prepend = false): bool
-{}
+function spl_autoload_register(?callable $callback, bool $throw = true, bool $prepend = false): bool {}
 
 /**
  * Unregister given function as __autoload() implementation
@@ -75,8 +70,7 @@ function spl_autoload_register (?callable $callback, bool $throw = true, bool $p
  * @return bool true on success or false on failure.
  * @since 5.1.2
  */
-function spl_autoload_unregister (callable $callback): bool
-{}
+function spl_autoload_unregister(callable $callback): bool {}
 
 /**
  * Return all registered __autoload() functions
@@ -87,8 +81,7 @@ function spl_autoload_unregister (callable $callback): bool
  * @since 5.1.2
  */
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-function spl_autoload_functions ()
-{}
+function spl_autoload_functions() {}
 
 /**
  * Try all registered __autoload() functions to load the requested class
@@ -99,7 +92,7 @@ function spl_autoload_functions ()
  * @return void
  * @since 5.1.2
  */
-function spl_autoload_call (string $class): void {}
+function spl_autoload_call(string $class): void {}
 
 /**
  * Return the parent classes of the given class
@@ -115,8 +108,7 @@ function spl_autoload_call (string $class): void {}
  * @return string[]|false An array on success, or false on error.
  */
 #[Pure]
-function class_parents ($object_or_class, bool $autoload = true): array|false
-{}
+function class_parents($object_or_class, bool $autoload = true): array|false {}
 
 /**
  * Return the interfaces which are implemented by the given class
@@ -132,8 +124,7 @@ function class_parents ($object_or_class, bool $autoload = true): array|false
  * @return string[]|false An array on success, or false on error.
  */
 #[Pure]
-function class_implements ($object_or_class, bool $autoload = true): array|false
-{}
+function class_implements($object_or_class, bool $autoload = true): array|false {}
 
 /**
  * Return hash id for given object
@@ -143,8 +134,7 @@ function class_implements ($object_or_class, bool $autoload = true): array|false
  * the same object.
  */
 #[Pure]
-function spl_object_hash (object $object): string
-{}
+function spl_object_hash(object $object): string {}
 
 /**
  * Copy the iterator into an array
@@ -157,8 +147,7 @@ function spl_object_hash (object $object): string
  * </p>
  * @return array An array containing the elements of the iterator.
  */
-function iterator_to_array (Traversable $iterator, bool $preserve_keys = true): array
-{}
+function iterator_to_array(Traversable $iterator, bool $preserve_keys = true): array {}
 
 /**
  * Count the elements in an iterator
@@ -169,8 +158,7 @@ function iterator_to_array (Traversable $iterator, bool $preserve_keys = true): 
  * @return int The number of elements in iterator.
  */
 #[Pure]
-function iterator_count (Traversable $iterator): int
-{}
+function iterator_count(Traversable $iterator): int {}
 
 /**
  * Call a function for every element in an iterator
@@ -188,8 +176,7 @@ function iterator_count (Traversable $iterator): int
  * </p>
  * @return int the iteration count.
  */
-function iterator_apply (Traversable $iterator, callable $callback, ?array $args): int
-{}
+function iterator_apply(Traversable $iterator, callable $callback, ?array $args): int {}
 
 // End of SPL v.0.2
 
@@ -203,8 +190,7 @@ function iterator_apply (Traversable $iterator, callable $callback, ?array $args
  * @see get_declared_traits()
  * @since 5.4
  */
-function class_uses($object_or_class, bool $autoload = true): array|false
-{}
+function class_uses($object_or_class, bool $autoload = true): array|false {}
 
 /**
  * return the integer object handle for given object
@@ -212,7 +198,4 @@ function class_uses($object_or_class, bool $autoload = true): array|false
  * @return int
  * @since 7.2
  */
-function spl_object_id(object $object): int
-{}
-
-?>
+function spl_object_id(object $object): int {}

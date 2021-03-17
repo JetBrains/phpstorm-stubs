@@ -14,7 +14,7 @@
  * @return string|false the recoded string or <b>FALSE</b>, if unable to
  * perform the recode request.
  */
-function recode_string ($request, $string) {}
+function recode_string($request, $string) {}
 
 /**
  * Recode from file to file according to recode request
@@ -32,7 +32,7 @@ function recode_string ($request, $string) {}
  * </p>
  * @return bool <b>FALSE</b>, if unable to comply, <b>TRUE</b> otherwise.
  */
-function recode_file ($request, $input, $output) {}
+function recode_file($request, $input, $output) {}
 
 /**
  * Alias of <b>recode_string</b>
@@ -40,7 +40,6 @@ function recode_file ($request, $input, $output) {}
  * @param $request
  * @param $str
  */
-function recode ($request, $str) {}
+function recode($request, $str) {}
 
 // End of recode v.
-?>

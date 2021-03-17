@@ -17,24 +17,25 @@
  * @link https://www.php.net/manual/en/class.luasandbox.php
  * @since luasandbox >= 1.0.0
  */
-class LuaSandbox {
+class LuaSandbox
+{
     /**
      * Used with <code>LuaSandbox::getProfilerFunctionReport()</code>
      * to return timings in samples.
      */
-    const SAMPLES = 0;
+    public const SAMPLES = 0;
 
     /**
      * Used with <code>LuaSandbox::getProfilerFunctionReport()</code>
      * to return timings in seconds.
      */
-    const SECONDS = 1;
+    public const SECONDS = 1;
 
     /**
      * Used with <code>LuaSandbox::getProfilerFunctionReport()</code>
      * to return timings in percentages of the total.
      */
-    const PERCENT = 2;
+    public const PERCENT = 2;
 
     /**
      * Call a function in a Lua global variable.
@@ -56,7 +57,7 @@ class LuaSandbox {
      * @see LuaSandboxFunction::call()
      * @since luasandbox >= 1.0.0
      */
-    public function callFunction ($name, array $arguments) {}
+    public function callFunction($name, array $arguments) {}
 
     /**
      * Disable the profiler.
@@ -66,7 +67,7 @@ class LuaSandbox {
      * @see LuaSandbox::enableProfiler()
      * @see LuaSandbox::getProfilerFunctionReport()
      */
-    public function disableProfiler () {}
+    public function disableProfiler() {}
 
     /**
      * Enable the profiler.
@@ -83,7 +84,7 @@ class LuaSandbox {
      * @see LuaSandbox::disableProfiler()
      * @see LuaSandbox::getProfilerFunctionReport()
      */
-    public function enableProfiler ($period = 0.02) {}
+    public function enableProfiler($period = 0.02) {}
 
     /**
      * Fetch the current CPU time usage of the Lua environment.
@@ -102,7 +103,7 @@ class LuaSandbox {
      * @see LuaSandbox::getPeakMemoryUsage()
      * @see LuaSandbox::setCPULimit()
      */
-    public function getCPUUsage () {}
+    public function getCPUUsage() {}
 
     /**
      * Fetch the current memory usage of the Lua environment.
@@ -114,7 +115,7 @@ class LuaSandbox {
      * @see LuaSandbox::getCPUUsage()
      * @see LuaSandbox::setMemoryLimit()
      */
-    public function getMemoryUsage () {}
+    public function getMemoryUsage() {}
 
     /**
      * Fetch the peak memory usage of the Lua environment.
@@ -126,7 +127,7 @@ class LuaSandbox {
      * @see LuaSandbox::getCPUUsage()
      * @see LuaSandbox::setMemoryLimit()
      */
-    public function getPeakMemoryUsage () {}
+    public function getPeakMemoryUsage() {}
 
     /**
      * Fetch profiler data.
@@ -154,7 +155,7 @@ class LuaSandbox {
      * @see LuaSandbox::SECONDS
      * @see LuaSandbox::PERCENT
      */
-    public function getProfilerFunctionReport ($units = LuaSandbox::SECONDS) {}
+    public function getProfilerFunctionReport($units = LuaSandbox::SECONDS) {}
 
     /**
      * Return the versions of LuaSandbox and Lua.
@@ -165,7 +166,7 @@ class LuaSandbox {
      * <li>Lua (string), the library name and version as defined by the LUA_RELEASE macro, for example, "Lua 5.1.5".</li>
      * @since luasandbox >= 1.6.0
      */
-    public static function getVersionInfo () {}
+    public static function getVersionInfo() {}
 
     /**
      * Load a precompiled binary chunk into the Lua environment.
@@ -179,7 +180,7 @@ class LuaSandbox {
      * @since luasandbox >= 1.0.0
      * @see LuaSandbox::loadString()
      */
-    public function loadBinary ($code, $chunkName = '') {}
+    public function loadBinary($code, $chunkName = '') {}
 
     /**
      * Load Lua code into the Lua environment.
@@ -195,7 +196,7 @@ class LuaSandbox {
      * @see LuaSandbox::registerLibrary()
      * @see LuaSandbox::wrapPhpFunction()
      */
-    public function loadString ($code, $chunkName = '') {}
+    public function loadString($code, $chunkName = '') {}
 
     /**
      * Pause the CPU usage timer.
@@ -218,7 +219,7 @@ class LuaSandbox {
      * @see LuaSandbox::setCPULimit()
      * @see LuaSandbox::unpauseUsageTimer()
      */
-    public function pauseUsageTimer () {}
+    public function pauseUsageTimer() {}
 
     /**
      * Register a set of PHP functions as a Lua library.
@@ -239,7 +240,7 @@ class LuaSandbox {
      * @see LuaSandbox::loadString()
      * @see LuaSandbox::wrapPhpFunction()
      */
-    public function registerLibrary ($libname, $functions) {}
+    public function registerLibrary($libname, $functions) {}
 
     /**
      * Set the CPU time limit for the Lua environment.
@@ -262,7 +263,7 @@ class LuaSandbox {
      * @see LuaSandbox::getCPUUsage()
      * @see LuaSandbox::setMemoryLimit()
      */
-    public function setCPULimit ($limit) {}
+    public function setCPULimit($limit) {}
 
     /**
      * Set the memory limit for the Lua environment.
@@ -275,7 +276,7 @@ class LuaSandbox {
      * @see LuaSandbox::getPeakMemoryUsage()
      * @see LuaSandbox::setCPULimit()
      */
-    public function setMemoryLimit ($limit) {}
+    public function setMemoryLimit($limit) {}
 
     /**
      * Unpause the timer paused by <code>LuaSandbox::pauseUsageTimer()</code>.
@@ -285,7 +286,7 @@ class LuaSandbox {
      * @see LuaSandbox::setCPULimit()
      * @see LuaSandbox::unpauseUsageTimer()
      */
-    public function unpauseUsageTimer () {}
+    public function unpauseUsageTimer() {}
 
     /**
      * Wrap a PHP callable in a LuaSandboxFunction.
@@ -309,7 +310,7 @@ class LuaSandbox {
      * @see LuaSandbox::loadString()
      * @see LuaSandbox::registerLibrary()
      */
-    public function wrapPhpFunction ($function) {}
+    public function wrapPhpFunction($function) {}
 }
 
 /**
@@ -322,7 +323,8 @@ class LuaSandbox {
  *
  * @since luasandbox >= 1.0.0
  */
-class LuaSandboxFunction {
+class LuaSandboxFunction
+{
     /**
      * Call a Lua function.
      *
@@ -369,7 +371,7 @@ class LuaSandboxFunction {
      * which may be empty, or false on error.</p>
      * @since luasandbox >= 1.0.0
      */
-    public function call ($arguments) {}
+    public function call($arguments) {}
 
     /**
      * Dump the function as a binary blob.
@@ -378,7 +380,7 @@ class LuaSandboxFunction {
      * @return string <p>Returns a string that may be passed to <code>LuaSandbox::loadBinary()</code>.</p>
      * @since luasandbox >= 1.0.0
      */
-    public function dump () {}
+    public function dump() {}
 }
 
 /**
@@ -386,26 +388,15 @@ class LuaSandboxFunction {
  *
  * @since luasandbox >= 1.0.0
  */
-class LuaSandboxError extends Exception {
-    /**
-     *
-     */
-    const RUN = 2;
+class LuaSandboxError extends Exception
+{
+    public const RUN = 2;
 
-    /**
-     *
-     */
-    const SYNTAX = 3;
+    public const SYNTAX = 3;
 
-    /**
-     *
-     */
-    const MEM = 4;
+    public const MEM = 4;
 
-    /**
-     *
-     */
-    const ERR = 5;
+    public const ERR = 5;
 }
 
 /**

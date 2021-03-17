@@ -2,5 +2,4 @@
 
 namespace parallel;
 
-class Error extends \Error{
-}
+class Error extends \Error {}

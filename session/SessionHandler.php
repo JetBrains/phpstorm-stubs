@@ -8,91 +8,90 @@
  * @link https://php.net/manual/en/class.sessionhandlerinterface.php
  * @since 5.4
  */
-interface SessionHandlerInterface {
+interface SessionHandlerInterface
+{
+    /**
+     * Close the session
+     * @link https://php.net/manual/en/sessionhandlerinterface.close.php
+     * @return bool <p>
+     * The return value (usually TRUE on success, FALSE on failure).
+     * Note this value is returned internally to PHP for processing.
+     * </p>
+     * @since 5.4
+     */
+    public function close();
 
-	/**
-	 * Close the session
-	 * @link https://php.net/manual/en/sessionhandlerinterface.close.php
-	 * @return bool <p>
-	 * The return value (usually TRUE on success, FALSE on failure).
-	 * Note this value is returned internally to PHP for processing.
-	 * </p>
-	 * @since 5.4
-	 */
-	public function close();
+    /**
+     * Destroy a session
+     * @link https://php.net/manual/en/sessionhandlerinterface.destroy.php
+     * @param string $id The session ID being destroyed.
+     * @return bool <p>
+     * The return value (usually TRUE on success, FALSE on failure).
+     * Note this value is returned internally to PHP for processing.
+     * </p>
+     * @since 5.4
+     */
+    public function destroy($id);
 
-	/**
-	 * Destroy a session
-	 * @link https://php.net/manual/en/sessionhandlerinterface.destroy.php
-	 * @param string $id The session ID being destroyed.
-	 * @return bool <p>
-	 * The return value (usually TRUE on success, FALSE on failure).
-	 * Note this value is returned internally to PHP for processing.
-	 * </p>
-	 * @since 5.4
-	 */
-	public function destroy($id);
+    /**
+     * Cleanup old sessions
+     * @link https://php.net/manual/en/sessionhandlerinterface.gc.php
+     * @param int $max_lifetime <p>
+     * Sessions that have not updated for
+     * the last maxlifetime seconds will be removed.
+     * </p>
+     * @return bool <p>
+     * The return value (usually TRUE on success, FALSE on failure).
+     * Note this value is returned internally to PHP for processing.
+     * </p>
+     * @since 5.4
+     */
+    public function gc($max_lifetime);
 
-	/**
-	 * Cleanup old sessions
-	 * @link https://php.net/manual/en/sessionhandlerinterface.gc.php
-	 * @param int $max_lifetime <p>
-	 * Sessions that have not updated for
-	 * the last maxlifetime seconds will be removed.
-	 * </p>
-	 * @return bool <p>
-	 * The return value (usually TRUE on success, FALSE on failure).
-	 * Note this value is returned internally to PHP for processing.
-	 * </p>
-	 * @since 5.4
-	 */
-	public function gc($max_lifetime);
+    /**
+     * Initialize session
+     * @link https://php.net/manual/en/sessionhandlerinterface.open.php
+     * @param string $path The path where to store/retrieve the session.
+     * @param string $name The session name.
+     * @return bool <p>
+     * The return value (usually TRUE on success, FALSE on failure).
+     * Note this value is returned internally to PHP for processing.
+     * </p>
+     * @since 5.4
+     */
+    public function open($path, $name);
 
-	/**
-	 * Initialize session
-	 * @link https://php.net/manual/en/sessionhandlerinterface.open.php
-	 * @param string $path The path where to store/retrieve the session.
-	 * @param string $name The session name.
-	 * @return bool <p>
-	 * The return value (usually TRUE on success, FALSE on failure).
-	 * Note this value is returned internally to PHP for processing.
-	 * </p>
-	 * @since 5.4
-	 */
-	public function open($path, $name);
+    /**
+     * Read session data
+     * @link https://php.net/manual/en/sessionhandlerinterface.read.php
+     * @param string $id The session id to read data for.
+     * @return string <p>
+     * Returns an encoded string of the read data.
+     * If nothing was read, it must return an empty string.
+     * Note this value is returned internally to PHP for processing.
+     * </p>
+     * @since 5.4
+     */
+    public function read($id);
 
-
-	/**
-	 * Read session data
-	 * @link https://php.net/manual/en/sessionhandlerinterface.read.php
-	 * @param string $id The session id to read data for.
-	 * @return string <p>
-	 * Returns an encoded string of the read data.
-	 * If nothing was read, it must return an empty string.
-	 * Note this value is returned internally to PHP for processing.
-	 * </p>
-	 * @since 5.4
-	 */
-	public function read($id);
-
-	/**
-	 * Write session data
-	 * @link https://php.net/manual/en/sessionhandlerinterface.write.php
-	 * @param string $id The session id.
-	 * @param string $data <p>
-	 * The encoded session data. This data is the
-	 * result of the PHP internally encoding
-	 * the $_SESSION superglobal to a serialized
-	 * string and passing it as this parameter.
-	 * Please note sessions use an alternative serialization method.
-	 * </p>
-	 * @return bool <p>
-	 * The return value (usually TRUE on success, FALSE on failure).
-	 * Note this value is returned internally to PHP for processing.
-	 * </p>
-	 * @since 5.4
-	 */
-	public function write($id, $data);
+    /**
+     * Write session data
+     * @link https://php.net/manual/en/sessionhandlerinterface.write.php
+     * @param string $id The session id.
+     * @param string $data <p>
+     * The encoded session data. This data is the
+     * result of the PHP internally encoding
+     * the $_SESSION superglobal to a serialized
+     * string and passing it as this parameter.
+     * Please note sessions use an alternative serialization method.
+     * </p>
+     * @return bool <p>
+     * The return value (usually TRUE on success, FALSE on failure).
+     * Note this value is returned internally to PHP for processing.
+     * </p>
+     * @since 5.4
+     */
+    public function write($id, $data);
 }
 
 /**
@@ -100,7 +99,8 @@ interface SessionHandlerInterface {
  * @link https://php.net/manual/en/class.sessionidinterface.php
  * @since 5.5.1
  */
-interface SessionIdInterface {
+interface SessionIdInterface
+{
     /**
      * Create session ID
      * @link https://php.net/manual/en/sessionidinterface.create-sid.php
@@ -116,8 +116,8 @@ interface SessionIdInterface {
  * handler must implement this interface.
  * @since 7.0
  */
-interface SessionUpdateTimestampHandlerInterface {
-
+interface SessionUpdateTimestampHandlerInterface
+{
     /**
      * Validate session id
      * @param string $id The session id
@@ -140,7 +140,6 @@ interface SessionUpdateTimestampHandlerInterface {
      * @return bool
      */
     public function updateTimestamp($id, $data);
-
 }
 
 /**
@@ -160,17 +159,16 @@ interface SessionUpdateTimestampHandlerInterface {
  */
 class SessionHandler implements SessionHandlerInterface, SessionIdInterface
 {
-
-	/**
-	 * Close the session
-	 * @link https://php.net/manual/en/sessionhandler.close.php
-	 * @return bool <p>
-	 * The return value (usually TRUE on success, FALSE on failure).
-	 * Note this value is returned internally to PHP for processing.
-	 * </p>
-	 * @since 5.4
-	 */
-	public function close() { }
+    /**
+     * Close the session
+     * @link https://php.net/manual/en/sessionhandler.close.php
+     * @return bool <p>
+     * The return value (usually TRUE on success, FALSE on failure).
+     * Note this value is returned internally to PHP for processing.
+     * </p>
+     * @since 5.4
+     */
+    public function close() {}
 
     /**
      * Return a new session ID
@@ -178,80 +176,79 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * @return string <p>A session ID valid for the default session handler.</p>
      * @since 5.5.1
      */
-	public function create_sid() {}
+    public function create_sid() {}
 
-	/**
-	 * Destroy a session
-	 * @link https://php.net/manual/en/sessionhandler.destroy.php
-	 * @param string $id The session ID being destroyed.
-	 * @return bool <p>
-	 * The return value (usually TRUE on success, FALSE on failure).
-	 * Note this value is returned internally to PHP for processing.
-	 * </p>
-	 * @since 5.4
-	 */
-	public function destroy($id) { }
+    /**
+     * Destroy a session
+     * @link https://php.net/manual/en/sessionhandler.destroy.php
+     * @param string $id The session ID being destroyed.
+     * @return bool <p>
+     * The return value (usually TRUE on success, FALSE on failure).
+     * Note this value is returned internally to PHP for processing.
+     * </p>
+     * @since 5.4
+     */
+    public function destroy($id) {}
 
-	/**
-	 * Cleanup old sessions
-	 * @link https://php.net/manual/en/sessionhandler.gc.php
-	 * @param int $max_lifetime <p>
-	 * Sessions that have not updated for
-	 * the last maxlifetime seconds will be removed.
-	 * </p>
-	 * @return bool <p>
-	 * The return value (usually TRUE on success, FALSE on failure).
-	 * Note this value is returned internally to PHP for processing.
-	 * </p>
-	 * @since 5.4
-	 */
-	public function gc($max_lifetime) { }
+    /**
+     * Cleanup old sessions
+     * @link https://php.net/manual/en/sessionhandler.gc.php
+     * @param int $max_lifetime <p>
+     * Sessions that have not updated for
+     * the last maxlifetime seconds will be removed.
+     * </p>
+     * @return bool <p>
+     * The return value (usually TRUE on success, FALSE on failure).
+     * Note this value is returned internally to PHP for processing.
+     * </p>
+     * @since 5.4
+     */
+    public function gc($max_lifetime) {}
 
-	/**
-	 * Initialize session
-	 * @link https://php.net/manual/en/sessionhandler.open.php
-	 * @param string $path The path where to store/retrieve the session.
-	 * @param string $name The session name.
-	 * @return bool <p>
-	 * The return value (usually TRUE on success, FALSE on failure).
-	 * Note this value is returned internally to PHP for processing.
-	 * </p>
-	 * @since 5.4
-	 */
-	public function open($path, $name) { }
+    /**
+     * Initialize session
+     * @link https://php.net/manual/en/sessionhandler.open.php
+     * @param string $path The path where to store/retrieve the session.
+     * @param string $name The session name.
+     * @return bool <p>
+     * The return value (usually TRUE on success, FALSE on failure).
+     * Note this value is returned internally to PHP for processing.
+     * </p>
+     * @since 5.4
+     */
+    public function open($path, $name) {}
 
+    /**
+     * Read session data
+     * @link https://php.net/manual/en/sessionhandler.read.php
+     * @param string $id The session id to read data for.
+     * @return string <p>
+     * Returns an encoded string of the read data.
+     * If nothing was read, it must return an empty string.
+     * Note this value is returned internally to PHP for processing.
+     * </p>
+     * @since 5.4
+     */
+    public function read($id) {}
 
-	/**
-	 * Read session data
-	 * @link https://php.net/manual/en/sessionhandler.read.php
-	 * @param string $id The session id to read data for.
-	 * @return string <p>
-	 * Returns an encoded string of the read data.
-	 * If nothing was read, it must return an empty string.
-	 * Note this value is returned internally to PHP for processing.
-	 * </p>
-	 * @since 5.4
-	 */
-	public function read($id) { }
-
-	/**
-	 * Write session data
-	 * @link https://php.net/manual/en/sessionhandler.write.php
-	 * @param string $id The session id.
-	 * @param string $data <p>
-	 * The encoded session data. This data is the
-	 * result of the PHP internally encoding
-	 * the $_SESSION superglobal to a serialized
-	 * string and passing it as this parameter.
-	 * Please note sessions use an alternative serialization method.
-	 * </p>
-	 * @return bool <p>
-	 * The return value (usually TRUE on success, FALSE on failure).
-	 * Note this value is returned internally to PHP for processing.
-	 * </p>
-	 * @since 5.4
-	 */
-	public function write($id, $data) { }
+    /**
+     * Write session data
+     * @link https://php.net/manual/en/sessionhandler.write.php
+     * @param string $id The session id.
+     * @param string $data <p>
+     * The encoded session data. This data is the
+     * result of the PHP internally encoding
+     * the $_SESSION superglobal to a serialized
+     * string and passing it as this parameter.
+     * Please note sessions use an alternative serialization method.
+     * </p>
+     * @return bool <p>
+     * The return value (usually TRUE on success, FALSE on failure).
+     * Note this value is returned internally to PHP for processing.
+     * </p>
+     * @since 5.4
+     */
+    public function write($id, $data) {}
 
     /**
      * Validate session id
@@ -260,7 +257,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * Note this value is returned internally to PHP for processing.
      * </p>
      */
-    public function validateId($session_id) { }
+    public function validateId($session_id) {}
 
     /**
      * Update timestamp of a session
@@ -274,6 +271,5 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * </p>
      * @return bool
      */
-    public function updateTimestamp($session_id, $session_data) { }
-
+    public function updateTimestamp($session_id, $session_data) {}
 }
