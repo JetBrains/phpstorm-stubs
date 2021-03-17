@@ -444,11 +444,11 @@ class SoapVar
 {
     /**
      * SoapVar constructor
-     * @link https://php.net/manual/en/soapvar.soapvar.php
+     * @link https://php.net/manual/en/soapvar.construct.php
      * @param mixed $data <p>
      * The data to pass or return.
      * </p>
-     * @param string|int $encoding <p>
+     * @param int|null $encoding <p>
      * The encoding ID, one of the XSD_... constants.
      * </p>
      * @param string $typeName [optional] <p>
@@ -465,15 +465,15 @@ class SoapVar
      * </p>
      * @since 5.0.1
      */
-    public function __construct($data, $encoding, $typeName = null, $typeNamespace = null, $nodeName = null, $nodeNamespace = null) {}
+    public function __construct($data, $encoding, $typeName = '', $typeNamespace = '', $nodeName = '', $nodeNamespace = '') {}
 
     /**
      * SoapVar constructor
-     * @link https://php.net/manual/en/soapvar.soapvar.php
+     * @link https://php.net/manual/en/soapvar.construct.php
      * @param mixed $data <p>
      * The data to pass or return.
      * </p>
-     * @param string|int $encoding <p>
+     * @param int|null $encoding <p>
      * The encoding ID, one of the XSD_... constants.
      * </p>
      * @param string $type_name [optional] <p>
@@ -491,7 +491,7 @@ class SoapVar
      * @since 5.0.1
      * @removed 8.0
      */
-    public function SoapVar($data, $encoding, $type_name = null, $type_namespace = null, $node_name = null, $node_namespace = null) {}
+    public function SoapVar($data, $encoding, $type_name = '', $type_namespace = '', $node_name = '', $node_namespace = '') {}
 }
 
 /**
