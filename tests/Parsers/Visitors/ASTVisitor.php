@@ -27,9 +27,7 @@ class ASTVisitor extends NodeVisitorAbstract
 {
     public function __construct(protected StubsContainer $stubs,
                                 protected bool $isStubCore = false,
-                                public ?string $sourceFilePath = null)
-    {
-    }
+                                public ?string $sourceFilePath = null) {}
 
     /**
      * @param Node $node
@@ -116,7 +114,7 @@ class ASTVisitor extends NodeVisitorAbstract
         if (empty($interface->parentInterfaces)) {
             return $parents;
         }
-        /**@var string $parentInterface */
+        /** @var string $parentInterface */
         foreach ($interface->parentInterfaces as $parentInterface) {
             $parents[] = $parentInterface;
             if ($this->stubs->getInterface($parentInterface,
@@ -138,7 +136,7 @@ class ASTVisitor extends NodeVisitorAbstract
     public function combineImplementedInterfaces(PHPClass $class): array
     {
         $interfaces = [];
-        /**@var string $interface */
+        /** @var string $interface */
         foreach ($class->interfaces as $interface) {
             $interfaces[] = $interface;
             if ($this->stubs->getInterface($interface,

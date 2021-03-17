@@ -7,19 +7,6 @@
  *
  * https://github.com/couchbase/php-couchbase/tree/master/api
  */
-
-use function Couchbase\fastlzCompress as couchbase_fastlz_compress;
-use function Couchbase\fastlzDecomress as couchbase_fastlz_decompress;
-use function Couchbase\zlibCompress as couchbase_zlib_compress;
-use function Couchbase\zlibDecomress as couchbase_zlib_decompress;
-
-use function Couchbase\passthruEncoder as couchbase_passthru_encoder;
-use function Couchbase\passthruDecoder as couchbase_passthru_decoder;
-use function Couchbase\defaultEncoder as couchbase_default_encoder;
-use function Couchbase\defaultDecoder as couchbase_default_decoder;
-use function Couchbase\basicEncoderV1 as couchbase_basic_encoder_v1;
-use function Couchbase\basicDecoderV1 as couchbase_basic_decoder_v1;
-
 class_alias("Couchbase\\Cluster", "CouchbaseCluster");
 class_alias("Couchbase\\Bucket", "CouchbaseBucket");
 class_alias("Couchbase\\MutationToken", "CouchbaseMutationToken");

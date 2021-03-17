@@ -4,9 +4,7 @@ namespace RdKafka;
 
 class ConsumerTopic extends Topic
 {
-    private function __construct()
-    {
-    }
+    private function __construct() {}
 
     /**
      * @param int $partition
@@ -14,9 +12,7 @@ class ConsumerTopic extends Topic
      *
      * @return Message
      */
-    public function consume($partition, $timeout_ms)
-    {
-    }
+    public function consume($partition, $timeout_ms) {}
 
     /**
      * @param int   $partition
@@ -25,9 +21,7 @@ class ConsumerTopic extends Topic
      *
      * @return void
      */
-    public function consumeQueueStart($partition, $offset, Queue $queue)
-    {
-    }
+    public function consumeQueueStart($partition, $offset, Queue $queue) {}
 
     /**
      * @param int $partition
@@ -35,18 +29,14 @@ class ConsumerTopic extends Topic
      *
      * @return void
      */
-    public function consumeStart($partition, $offset)
-    {
-    }
+    public function consumeStart($partition, $offset) {}
 
     /**
      * @param int $partition
      *
      * @return void
      */
-    public function consumeStop($partition)
-    {
-    }
+    public function consumeStop($partition) {}
 
     /**
      * @param int $partition
@@ -54,7 +44,5 @@ class ConsumerTopic extends Topic
      *
      * @return void
      */
-    public function offsetStore($partition, $offset)
-    {
-    }
+    public function offsetStore($partition, $offset) {}
 }

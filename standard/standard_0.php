@@ -6,17 +6,18 @@ use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
-class __PHP_Incomplete_Class  {
+class __PHP_Incomplete_Class
+{
         /**
          * @var string
          */
         public $__PHP_Incomplete_Class_Name;
 }
 
-class php_user_filter  {
+class php_user_filter
+{
         public $filtername;
         public $params;
-
 
     /**
      * @link https://php.net/manual/en/php-user-filter.filter.php
@@ -61,32 +62,25 @@ class php_user_filter  {
      * </td>
      * </tr>
      */
-    public function filter($in, $out, &$consumed, $closing)
-    {
-    }
+    public function filter($in, $out, &$consumed, $closing) {}
 
     /**
      * @link https://php.net/manual/en/php-user-filter.oncreate.php
      * @return bool
      */
-    public function onCreate()
-    {
-    }
+    public function onCreate() {}
 
     /**
      * @link https://php.net/manual/en/php-user-filter.onclose.php
      */
-    public function onClose()
-    {
-    }
-
+    public function onClose() {}
 }
 
 /**
  * Instances of Directory are created by calling the dir() function, not by the new operator.
  */
-class Directory  {
-
+class Directory
+{
     /**
      * @var string The directory that was opened.
      */
@@ -103,7 +97,7 @@ class Directory  {
      * @param resource $dir_handle [optional]
      * @link https://secure.php.net/manual/en/directory.close.php
      */
-    public function close ($dir_handle = null) {}
+    public function close($dir_handle = null) {}
 
     /**
      *  Rewind directory handle.
@@ -111,7 +105,7 @@ class Directory  {
      * @param resource $dir_handle [optional]
      * @link https://secure.php.net/manual/en/directory.rewind.php
      */
-    public function rewind ($dir_handle = null) {}
+    public function rewind($dir_handle = null) {}
 
     /**
      * Read entry from directory handle.
@@ -120,8 +114,7 @@ class Directory  {
      * @return string|false
      * @link https://secure.php.net/manual/en/directory.read.php
      */
-    public function read ($dir_handle = null) { }
-
+    public function read($dir_handle = null) {}
 }
 
 /**
@@ -134,8 +127,7 @@ class Directory  {
  * defined.
  */
 #[Pure]
-function constant (string $name): mixed
-{}
+function constant(string $name): mixed {}
 
 /**
  * Convert binary data into hexadecimal representation
@@ -146,8 +138,7 @@ function constant (string $name): mixed
  * @return string the hexadecimal representation of the given string.
  */
 #[Pure]
-function bin2hex (string $string): string
-{}
+function bin2hex(string $string): string {}
 
 /**
  * Delay execution
@@ -160,8 +151,7 @@ function bin2hex (string $string): string
  * to sleep.
  */
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
-function sleep (int $seconds)
-{}
+function sleep(int $seconds) {}
 
 /**
  * Delay execution in microseconds
@@ -172,7 +162,7 @@ function sleep (int $seconds)
  * </p>
  * @return void
  */
-function usleep (int $microseconds): void {}
+function usleep(int $microseconds): void {}
 
 /**
  * Delay for a number of seconds and nanoseconds
@@ -193,8 +183,7 @@ function usleep (int $microseconds): void {}
  * remaining in the delay
  * </p>
  */
-function time_nanosleep (int $seconds, int $nanoseconds): array|bool
-{}
+function time_nanosleep(int $seconds, int $nanoseconds): array|bool {}
 
 /**
  * Make the script sleep until the specified time
@@ -204,8 +193,7 @@ function time_nanosleep (int $seconds, int $nanoseconds): array|bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function time_sleep_until (float $timestamp): bool
-{}
+function time_sleep_until(float $timestamp): bool {}
 
 /**
  * Parse a time/date generated with <function>strftime</function>
@@ -270,15 +258,14 @@ function time_sleep_until (float $timestamp): bool
  * </p>
  */
 #[Pure]
-function strptime (string $timestamp, string $format): array|false
-{}
+function strptime(string $timestamp, string $format): array|false {}
 
 /**
  * Flush the output buffer
  * @link https://php.net/manual/en/function.flush.php
  * @return void
  */
-function flush (): void {}
+function flush(): void {}
 
 /**
  * Wraps a string to a given number of characters
@@ -302,8 +289,7 @@ function flush (): void {}
  * @return string the given string wrapped at the specified column.
  */
 #[Pure]
-function wordwrap (string $string, int $width = 75, string $break = "\n", bool $cut_long_words = false): string
-{}
+function wordwrap(string $string, int $width = 75, string $break = "\n", bool $cut_long_words = false): string {}
 
 /**
  * Convert special characters to HTML entities
@@ -422,8 +408,7 @@ function wordwrap (string $string, int $width = 75, string $break = "\n", bool $
  * @return string The converted string.
  */
 #[Pure]
-function htmlspecialchars (string $string, int $flags = ENT_COMPAT | ENT_HTML401, ?string $encoding = 'UTF-8', bool $double_encode = true): string
-{}
+function htmlspecialchars(string $string, int $flags = ENT_COMPAT|ENT_HTML401, ?string $encoding = 'UTF-8', bool $double_encode = true): string {}
 
 /**
  * Convert all applicable characters to HTML entities
@@ -469,8 +454,7 @@ function htmlspecialchars (string $string, int $flags = ENT_COMPAT | ENT_HTML401
  * @return string the encoded string.
  */
 #[Pure]
-function htmlentities (string $string, int $flags = ENT_COMPAT, ?string $encoding, bool $double_encode = true): string
-{}
+function htmlentities(string $string, int $flags = ENT_COMPAT, ?string $encoding, bool $double_encode = true): string {}
 
 /**
  * Convert HTML entities  to their corresponding characters
@@ -511,8 +495,7 @@ function htmlentities (string $string, int $flags = ENT_COMPAT, ?string $encodin
  * @return string the decoded string.
  */
 #[Pure]
-function html_entity_decode (string $string, int $flags = ENT_COMPAT, ?string $encoding): string
-{}
+function html_entity_decode(string $string, int $flags = ENT_COMPAT, ?string $encoding): string {}
 
 /**
  * Convert special HTML entities back to characters
@@ -546,8 +529,7 @@ function html_entity_decode (string $string, int $flags = ENT_COMPAT, ?string $e
  * @return string the decoded string.
  */
 #[Pure]
-function htmlspecialchars_decode (string $string, int $flags = ENT_COMPAT): string
-{}
+function htmlspecialchars_decode(string $string, int $flags = ENT_COMPAT): string {}
 
 /**
  * Returns the translation table used by <function>htmlspecialchars</function> and <function>htmlentities</function>
@@ -723,8 +705,7 @@ function htmlspecialchars_decode (string $string, int $flags = ENT_COMPAT): stri
  * @return array the translation table as an array.
  */
 #[Pure]
-function get_html_translation_table (int $table, int $flags = ENT_COMPAT, string $encoding = "UTF-8"): array
-{}
+function get_html_translation_table(int $table, int $flags = ENT_COMPAT, string $encoding = "UTF-8"): array {}
 
 /**
  * Calculate the sha1 hash of a string
@@ -741,8 +722,7 @@ function get_html_translation_table (int $table, int $flags = ENT_COMPAT, string
  * @return string the sha1 hash as a string.
  */
 #[Pure]
-function sha1 (string $string, bool $binary = false): string
-{}
+function sha1(string $string, bool $binary = false): string {}
 
 /**
  * Calculate the sha1 hash of a file
@@ -757,8 +737,7 @@ function sha1 (string $string, bool $binary = false): string
  * @return string|false a string on success, false otherwise.
  */
 #[Pure]
-function sha1_file (string $filename, bool $binary = false): string|false
-{}
+function sha1_file(string $filename, bool $binary = false): string|false {}
 
 /**
  * Calculate the md5 hash of a string
@@ -774,8 +753,7 @@ function sha1_file (string $filename, bool $binary = false): string|false
  * @return string the hash as a 32-character hexadecimal number.
  */
 #[Pure]
-function md5 (string $string, bool $binary = false): string
-{}
+function md5(string $string, bool $binary = false): string {}
 
 /**
  * Calculates the md5 hash of a given file
@@ -790,8 +768,7 @@ function md5 (string $string, bool $binary = false): string
  * @return string|false a string on success, false otherwise.
  */
 #[Pure]
-function md5_file (string $filename, bool $binary = false): string|false
-{}
+function md5_file(string $filename, bool $binary = false): string|false {}
 
 /**
  * Calculates the crc32 polynomial of a string
@@ -802,8 +779,7 @@ function md5_file (string $filename, bool $binary = false): string|false
  * @return int the crc32 checksum of str as an integer..1
  */
 #[Pure]
-function crc32 (string $string): int
-{}
+function crc32(string $string): int {}
 
 /**
  * Parse a binary IPTC block into single tags.
@@ -816,8 +792,7 @@ function crc32 (string $string): int
  * value. It returns false on error or if no IPTC data was found.
  */
 #[Pure]
-function iptcparse (string $iptc_block): array|false
-{}
+function iptcparse(string $iptc_block): array|false {}
 
 /**
  * Embeds binary IPTC data into a JPEG image.
@@ -836,8 +811,7 @@ function iptcparse (string $iptc_block): array|false
  * @return string|bool If success and spool flag is lower than 2 then the JPEG will not be
  * returned as a string, false on errors.
  */
-function iptcembed (string $iptc_data, string $filename, int $spool): string|bool
-{}
+function iptcembed(string $iptc_data, string $filename, int $spool): string|bool {}
 
 /**
  * Get the size of an image
@@ -900,8 +874,7 @@ function iptcembed (string $iptc_data, string $filename, int $spool): string|boo
  * On failure, false is returned.
  * </p>
  */
-function getimagesize (string $filename, &$image_info): array|false
-{}
+function getimagesize(string $filename, &$image_info): array|false {}
 
 /**
  * Get Mime-Type for image-type returned by getimagesize, exif_read_data, exif_thumbnail, exif_imagetype
@@ -989,8 +962,7 @@ function getimagesize (string $filename, &$image_info): array|false
  * </table>
  */
 #[Pure]
-function image_type_to_mime_type (int $image_type): string
-{}
+function image_type_to_mime_type(int $image_type): string {}
 
 /**
  * Get file extension for image type
@@ -1005,8 +977,7 @@ function image_type_to_mime_type (int $image_type): string
  * @return string|false A string with the extension corresponding to the given image type.
  */
 #[Pure]
-function image_type_to_extension (int $image_type, $include_dot = true): string|false
-{}
+function image_type_to_extension(int $image_type, $include_dot = true): string|false {}
 
 /**
  * Outputs information about PHP's configuration
@@ -1092,8 +1063,7 @@ function image_type_to_extension (int $image_type, $include_dot = true): string|
  * </p>
  * @return bool true on success or false on failure.
  */
-function phpinfo (#[ExpectedValues(flags: [INFO_GENERAL, INFO_CREDITS, INFO_CONFIGURATION, INFO_MODULES, INFO_ENVIRONMENT, INFO_VARIABLES, INFO_LICENSE, INFO_ALL])] int $flags = INFO_ALL): bool
-{}
+function phpinfo(#[ExpectedValues(flags: [INFO_GENERAL, INFO_CREDITS, INFO_CONFIGURATION, INFO_MODULES, INFO_ENVIRONMENT, INFO_VARIABLES, INFO_LICENSE, INFO_ALL])] int $flags = INFO_ALL): bool {}
 
 /**
  * Gets the current PHP version
@@ -1107,8 +1077,7 @@ function phpinfo (#[ExpectedValues(flags: [INFO_GENERAL, INFO_CREDITS, INFO_CONF
  * the extension isn't enabled.
  */
 #[Pure]
-function phpversion (?string $extension): string|false
-{}
+function phpversion(?string $extension): string|false {}
 
 /**
  * Prints out the credits for PHP
@@ -1173,8 +1142,7 @@ function phpversion (?string $extension): string|false
  * </p>
  * @return bool true on success or false on failure.
  */
-function phpcredits (int $flags = CREDITS_ALL): bool
-{}
+function phpcredits(int $flags = CREDITS_ALL): bool {}
 
 /**
  * Gets the logo guid
@@ -1183,18 +1151,17 @@ function phpcredits (int $flags = CREDITS_ALL): bool
  * @return string PHPE9568F34-D428-11d2-A769-00AA001ACF42.
  */
 #[Pure]
-function php_logo_guid (): string
-{}
+function php_logo_guid(): string {}
 
 /**
  * @removed 5.5
  */
-function php_real_logo_guid () {}
+function php_real_logo_guid() {}
 
 /**
  * @removed 5.5
  */
-function php_egg_logo_guid () {}
+function php_egg_logo_guid() {}
 
 /**
  * Gets the Zend guid
@@ -1202,8 +1169,7 @@ function php_egg_logo_guid () {}
  * @link https://php.net/manual/en/function.zend-logo-guid.php
  * @return string PHPE9568F35-D428-11d2-A769-00AA001ACF42.
  */
-function zend_logo_guid (): string
-{}
+function zend_logo_guid(): string {}
 
 /**
  * Returns the type of interface between web server and PHP
@@ -1223,8 +1189,7 @@ function zend_logo_guid (): string
  * </p>
  */
 #[Pure]
-function php_sapi_name (): string|false
-{}
+function php_sapi_name(): string|false {}
 
 /**
  * Returns information about the operating system PHP is running on
@@ -1237,8 +1202,7 @@ function php_sapi_name (): string|false
  * @return string the description, as a string.
  */
 #[Pure]
-function php_uname (string $mode = 'a'): string
-{}
+function php_uname(string $mode = 'a'): string {}
 
 /**
  * Return a list of .ini files parsed from the additional ini dir
@@ -1252,8 +1216,7 @@ function php_uname (string $mode = 'a'): string
  * php_ini_scanned_files.
  */
 #[Pure]
-function php_ini_scanned_files (): string|false
-{}
+function php_ini_scanned_files(): string|false {}
 
 /**
  * Retrieve a path to the loaded php.ini file
@@ -1262,8 +1225,7 @@ function php_ini_scanned_files (): string|false
  * @since 5.2.4
  */
 #[Pure]
-function php_ini_loaded_file (): string|false
-{}
+function php_ini_loaded_file(): string|false {}
 
 /**
  * String comparisons using a "natural order" algorithm
@@ -1280,8 +1242,7 @@ function php_ini_loaded_file (): string|false
  * str2, and 0 if they are equal.
  */
 #[Pure]
-function strnatcmp (string $string1, string $string2): int
-{}
+function strnatcmp(string $string1, string $string2): int {}
 
 /**
  * Case insensitive string comparisons using a "natural order" algorithm
@@ -1298,8 +1259,7 @@ function strnatcmp (string $string1, string $string2): int
  * str2, and 0 if they are equal.
  */
 #[Pure]
-function strnatcasecmp (string $string1, string $string2): int
-{}
+function strnatcasecmp(string $string1, string $string2): int {}
 
 /**
  * Count the number of substring occurrences
@@ -1321,8 +1281,7 @@ function strnatcasecmp (string $string1, string $string2): int
  * @return int This functions returns an integer.
  */
 #[Pure]
-function substr_count (string $haystack, string $needle, int $offset, ?int $length): int
-{}
+function substr_count(string $haystack, string $needle, int $offset, ?int $length): int {}
 
 /**
  * Finds the length of the initial segment of a string consisting
@@ -1375,8 +1334,7 @@ function substr_count (string $haystack, string $needle, int $offset, ?int $leng
  * which consists entirely of characters in str2.
  */
 #[Pure]
-function strspn (string $string, string $characters, int $offset, ?int $length): int
-{}
+function strspn(string $string, string $characters, int $offset, ?int $length): int {}
 
 /**
  * Find length of initial segment not matching mask
@@ -1396,8 +1354,7 @@ function strspn (string $string, string $characters, int $offset, ?int $length):
  * @return int the length of the segment as an integer.
  */
 #[Pure]
-function strcspn (string $string, string $characters, int $offset, ?int $length): int
-{}
+function strcspn(string $string, string $characters, int $offset, ?int $length): int {}
 
 /**
  * Tokenize string
@@ -1415,5 +1372,4 @@ function strcspn (string $string, string $characters, int $offset, ?int $length)
  * </p>
  * @return string|false A string token.
  */
-function strtok (string $string, ?string $token): string|false
-{}
+function strtok(string $string, ?string $token): string|false {}

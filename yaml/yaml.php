@@ -71,7 +71,7 @@ define('YAML_BINARY_TAG', 'tag:yaml.org,2002:binary');
  * @param array $callbacks [optional] Content handlers for YAML nodes. Associative array of YAML tag => callable mappings. See parse callbacks for more details.
  * @return bool Returns TRUE on success.
  */
-function yaml_emit_file($filename, $data, $encoding = YAML_ANY_ENCODING, $linebreak = YAML_ANY_BREAK, array $callbacks = array()) {}
+function yaml_emit_file($filename, $data, $encoding = YAML_ANY_ENCODING, $linebreak = YAML_ANY_BREAK, array $callbacks = []) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0, PECL yaml &gt;= 0.5.0)<br/>
@@ -82,7 +82,7 @@ function yaml_emit_file($filename, $data, $encoding = YAML_ANY_ENCODING, $linebr
  * @param array $callbacks [optional] Content handlers for YAML nodes. Associative array of YAML tag => callable mappings. See parse callbacks for more details.
  * @return string Returns a YAML encoded string on success.
  */
-function yaml_emit($data, $encoding = YAML_ANY_ENCODING, $linebreak = YAML_ANY_BREAK, array $callbacks = array()) {}
+function yaml_emit($data, $encoding = YAML_ANY_ENCODING, $linebreak = YAML_ANY_BREAK, array $callbacks = []) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0, PECL yaml &gt;= 0.4.0)<br/>
@@ -94,7 +94,7 @@ function yaml_emit($data, $encoding = YAML_ANY_ENCODING, $linebreak = YAML_ANY_B
  * @param array $callbacks [optional] Content handlers for YAML nodes. Associative array of YAML tag => callable mappings. See parse callbacks for more details.
  * @return mixed|false Returns the value encoded in input in appropriate PHP type or FALSE on failure. If pos is -1 an array will be returned with one entry for each document found in the stream.
  */
-function yaml_parse_file($filename, $pos = 0, &$ndocs = null, array $callbacks = array()) {}
+function yaml_parse_file($filename, $pos = 0, &$ndocs = null, array $callbacks = []) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0, PECL yaml &gt;= 0.4.0)<br/>
@@ -106,7 +106,7 @@ function yaml_parse_file($filename, $pos = 0, &$ndocs = null, array $callbacks =
  * @param array $callbacks [optional] Content handlers for YAML nodes. Associative array of YAML tag => callable mappings. See parse callbacks for more details.
  * @return mixed|false Returns the value encoded in input in appropriate PHP type or FALSE on failure. If pos is -1 an array will be returned with one entry for each document found in the stream.
  */
-function yaml_parse_url($url, $pos = 0, &$ndocs = null, array $callbacks = array()) {}
+function yaml_parse_url($url, $pos = 0, &$ndocs = null, array $callbacks = []) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0, PECL yaml &gt;= 0.4.0)<br/>
@@ -118,4 +118,4 @@ function yaml_parse_url($url, $pos = 0, &$ndocs = null, array $callbacks = array
  * @param array $callbacks [optional] Content handlers for YAML nodes. Associative array of YAML tag => callable mappings. See parse callbacks for more details.
  * @return mixed|false Returns the value encoded in input in appropriate PHP type or FALSE on failure. If pos is -1 an array will be returned with one entry for each document found in the stream.
  */
-function yaml_parse($input, $pos = 0, &$ndocs = null, array $callbacks = array()) {}
+function yaml_parse($input, $pos = 0, &$ndocs = null, array $callbacks = []) {}

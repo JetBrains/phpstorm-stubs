@@ -23,9 +23,7 @@ class ReflectionZendExtension implements Reflector
      * @throws \ReflectionException if the extension does not exist.
      * @since 5.4
      */
-    public function __construct($name)
-    {
-    }
+    public function __construct($name) {}
 
     /**
      * Exports a reflected zend extension.
@@ -38,9 +36,7 @@ class ReflectionZendExtension implements Reflector
      * @return string|null If the $return parameter is set to {@see true}, then
      * the export is returned as a string, otherwise {@see null} is returned.
      */
-    public static function export($name, $return = false)
-    {
-    }
+    public static function export($name, $return = false) {}
 
     /**
      * To string handler
@@ -49,9 +45,7 @@ class ReflectionZendExtension implements Reflector
      * @return string
      * @since 5.4
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
 
     /**
      * Gets name
@@ -61,9 +55,7 @@ class ReflectionZendExtension implements Reflector
      * @since 5.4
      */
     #[Pure]
-	public function getName()
-    {
-    }
+    public function getName() {}
 
     /**
      * Gets version
@@ -73,9 +65,7 @@ class ReflectionZendExtension implements Reflector
      * @since 5.4
      */
     #[Pure]
-	public function getVersion()
-    {
-    }
+    public function getVersion() {}
 
     /**
      * Gets author
@@ -85,9 +75,7 @@ class ReflectionZendExtension implements Reflector
      * @since 5.4
      */
     #[Pure]
-	public function getAuthor()
-    {
-    }
+    public function getAuthor() {}
 
     /**
      * Gets URL
@@ -97,9 +85,7 @@ class ReflectionZendExtension implements Reflector
      * @since 5.4
      */
     #[Pure]
-	public function getURL()
-    {
-    }
+    public function getURL() {}
 
     /**
      * Gets copyright
@@ -109,9 +95,7 @@ class ReflectionZendExtension implements Reflector
      * @since 5.4
      */
     #[Pure]
-	public function getCopyright()
-    {
-    }
+    public function getCopyright() {}
 
     /**
      * Clone handler
@@ -120,8 +104,5 @@ class ReflectionZendExtension implements Reflector
      * @return void
      * @since 5.4
      */
-    final private function __clone()
-    {
-    }
-
+    final private function __clone() {}
 }

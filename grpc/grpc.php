@@ -9,8 +9,10 @@
  * @see https://grpc.io
  * @see https://github.com/grpc/grpc/tree/master/src/php/ext/grpc
  */
+
 namespace Grpc
-{
+;
+
     /**
      * Register call error constants
      */
@@ -443,7 +445,7 @@ namespace Grpc
          *
          * @throws \InvalidArgumentException
          */
-        public function __construct($target, $args = array()) {}
+        public function __construct($target, $args = []) {}
 
         /**
          * Get the endpoint this call/stream is connected to
@@ -723,4 +725,3 @@ namespace Grpc
          */
         public static function zero() {}
     }
-}

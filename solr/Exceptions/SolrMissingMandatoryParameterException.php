@@ -11,6 +11,4 @@
  * Class SolrMissingMandatoryParameterException<br/>
  * @link https://php.net/manual/en/class.solrmissingmandatoryparameterexception.php
  */
-class SolrMissingMandatoryParameterException extends SolrException {
-
-}
+class SolrMissingMandatoryParameterException extends SolrException {}

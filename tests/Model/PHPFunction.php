@@ -25,13 +25,13 @@ class PHPFunction extends BasePHPElement
      */
     public array $parameters = [];
 
-    /** @var string[] $returnTypesFromPhpDoc  */
+    /** @var string[] */
     public array $returnTypesFromPhpDoc = [];
 
-    /** @var string[] $returnTypesFromAttribute  */
+    /** @var string[] */
     public array $returnTypesFromAttribute = [];
 
-    /** @var string[] $returnTypesFromSignature  */
+    /** @var string[] */
     public array $returnTypesFromSignature = [];
 
     /**
@@ -67,7 +67,7 @@ class PHPFunction extends BasePHPElement
 
         $this->collectTags($node);
         foreach ($this->parameters as $parameter) {
-            $relatedParamTags = array_filter($this->paramTags, fn(Param $tag) => $tag->getVariableName() === $parameter->name);
+            $relatedParamTags = array_filter($this->paramTags, fn (Param $tag) => $tag->getVariableName() === $parameter->name);
             /** @var Param $relatedParamTag */
             $relatedParamTag = array_pop($relatedParamTags);
             if (!empty($relatedParamTag)){

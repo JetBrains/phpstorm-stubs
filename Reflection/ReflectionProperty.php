@@ -12,7 +12,6 @@ use JetBrains\PhpStorm\Pure;
  */
 class ReflectionProperty implements Reflector
 {
-
     /**
      * @var string Name of the property, same as calling the {@see ReflectionProperty::getName()} method
      */
@@ -30,28 +29,28 @@ class ReflectionProperty implements Reflector
      *
      * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-static
      */
-    const IS_STATIC = 16;
+    public const IS_STATIC = 16;
 
     /**
      * Indicates that the property is public.
      *
      * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-public
      */
-    const IS_PUBLIC = 1;
+    public const IS_PUBLIC = 1;
 
     /**
      * Indicates that the property is protected.
      *
      * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-protected
      */
-    const IS_PROTECTED = 2;
+    public const IS_PROTECTED = 2;
 
     /**
      * Indicates that the property is private.
      *
      * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-private
      */
-    const IS_PRIVATE = 4;
+    public const IS_PRIVATE = 4;
 
     /**
      * Construct a ReflectionProperty object
@@ -61,9 +60,7 @@ class ReflectionProperty implements Reflector
      * @param string $property The name of the property being reflected.
      * @throws \ReflectionException if the class or property does not exist.
      */
-    public function __construct($class, $property)
-    {
-    }
+    public function __construct($class, $property) {}
 
     /**
      * Export
@@ -78,9 +75,7 @@ class ReflectionProperty implements Reflector
      * @removed 8.0
      */
     #[Deprecated(since: '7.4')]
-    public static function export($class, $name, $return = false)
-    {
-    }
+    public static function export($class, $name, $return = false) {}
 
     /**
      * To string
@@ -88,9 +83,7 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.tostring.php
      * @return string
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
 
     /**
      * Gets property name
@@ -99,9 +92,7 @@ class ReflectionProperty implements Reflector
      * @return string The name of the reflected property.
      */
     #[Pure]
-	public function getName()
-    {
-    }
+    public function getName() {}
 
     /**
      * Gets value
@@ -114,9 +105,7 @@ class ReflectionProperty implements Reflector
      * @return mixed The current value of the property.
      */
     #[Pure]
-	public function getValue($object = null)
-    {
-    }
+    public function getValue($object = null) {}
 
     /**
      * Set property value
@@ -128,9 +117,7 @@ class ReflectionProperty implements Reflector
      * @param mixed $value The new value.
      * @return void No value is returned.
      */
-    public function setValue($objectOrValue, $value = null)
-    {
-    }
+    public function setValue($objectOrValue, $value = null) {}
 
     /**
      * Checks if property is public
@@ -139,9 +126,7 @@ class ReflectionProperty implements Reflector
      * @return bool Return {@see true} if the property is public, {@see false} otherwise.
      */
     #[Pure]
-	public function isPublic()
-    {
-    }
+    public function isPublic() {}
 
     /**
      * Checks if property is private
@@ -150,9 +135,7 @@ class ReflectionProperty implements Reflector
      * @return bool Return {@see true} if the property is private, {@see false} otherwise.
      */
     #[Pure]
-	public function isPrivate()
-    {
-    }
+    public function isPrivate() {}
 
     /**
      * Checks if property is protected
@@ -161,9 +144,7 @@ class ReflectionProperty implements Reflector
      * @return bool Returns {@see true} if the property is protected, {@see false} otherwise.
      */
     #[Pure]
-	public function isProtected()
-    {
-    }
+    public function isProtected() {}
 
     /**
      * Checks if property is static
@@ -172,9 +153,7 @@ class ReflectionProperty implements Reflector
      * @return bool Retruns {@see true} if the property is static, {@see false} otherwise.
      */
     #[Pure]
-	public function isStatic()
-    {
-    }
+    public function isStatic() {}
 
     /**
      * Checks if default value
@@ -184,9 +163,7 @@ class ReflectionProperty implements Reflector
      * compile-time, or {@see false} if it was created at run-time.
      */
     #[Pure]
-	public function isDefault()
-    {
-    }
+    public function isDefault() {}
 
     /**
      * Gets modifiers
@@ -195,9 +172,7 @@ class ReflectionProperty implements Reflector
      * @return int A numeric representation of the modifiers.
      */
     #[Pure]
-	public function getModifiers()
-    {
-    }
+    public function getModifiers() {}
 
     /**
      * Gets declaring class
@@ -206,9 +181,7 @@ class ReflectionProperty implements Reflector
      * @return ReflectionClass A {@see ReflectionClass} object.
      */
     #[Pure]
-	public function getDeclaringClass()
-    {
-    }
+    public function getDeclaringClass() {}
 
     /**
      * Gets doc comment
@@ -217,9 +190,7 @@ class ReflectionProperty implements Reflector
      * @return string|false The doc comment if it exists, otherwise {@see false}
      */
     #[Pure]
-	public function getDocComment()
-    {
-    }
+    public function getDocComment() {}
 
     /**
      * Set property accessibility
@@ -228,9 +199,7 @@ class ReflectionProperty implements Reflector
      * @param bool $accessible A boolean {@see true} to allow accessibility, or {@see false}
      * @return void No value is returned.
      */
-    public function setAccessible($accessible)
-    {
-    }
+    public function setAccessible($accessible) {}
 
     /**
      * Gets property type
@@ -241,9 +210,7 @@ class ReflectionProperty implements Reflector
      * @since 7.4
      */
     #[Pure]
-	public function getType()
-    {
-    }
+    public function getType() {}
 
     /**
      * Checks if property has type
@@ -252,9 +219,7 @@ class ReflectionProperty implements Reflector
      * @return bool Returns {@see true} if a type is specified, {@see false} otherwise.
      * @since 7.4
      */
-    public function hasType()
-    {
-    }
+    public function hasType() {}
 
     /**
      * Checks if property is initialized
@@ -266,9 +231,7 @@ class ReflectionProperty implements Reflector
      * @since 7.4
      */
     #[Pure]
-	public function isInitialized(?object $object = null)
-    {
-    }
+    public function isInitialized(?object $object = null) {}
 
     /**
      * Returns information about whether the property was promoted.
@@ -277,9 +240,7 @@ class ReflectionProperty implements Reflector
      * @since 8.0
      */
     #[Pure]
-	public function isPromoted()
-    {
-    }
+    public function isPromoted() {}
 
     /**
      * Clone
@@ -287,22 +248,20 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.clone.php
      * @return void
      */
-    final private function __clone()
-    {
-    }
+    final private function __clone() {}
 
     /**
      * @return bool
      * @since 8.0
      */
-    public function hasDefaultValue(){}
+    public function hasDefaultValue() {}
 
     /**
      * @return mixed
      * @since 8.0
      */
     #[Pure]
-	public function getDefaultValue(){}
+    public function getDefaultValue() {}
 
     /**
      * @param null|string $name
@@ -311,5 +270,5 @@ class ReflectionProperty implements Reflector
      * @since 8.0
      */
     #[Pure]
-	public function getAttributes(?string $name = null, int $flags = 0) {}
+    public function getAttributes(?string $name = null, int $flags = 0) {}
 }

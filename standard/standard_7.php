@@ -47,8 +47,7 @@ use JetBrains\PhpStorm\Pure;
  * fwrite, fclose, and
  * feof). If the call fails, it will return false
  */
-function fsockopen (string $hostname, int $port = -1, &$error_code, &$error_message, ?float $timeout)
-{}
+function fsockopen(string $hostname, int $port = -1, &$error_code, &$error_message, ?float $timeout) {}
 
 /**
  * Open persistent Internet or Unix domain socket connection
@@ -61,8 +60,7 @@ function fsockopen (string $hostname, int $port = -1, &$error_code, &$error_mess
  * @param float|null $timeout [optional]
  * @return resource|false
  */
-function pfsockopen (string $hostname, int $port = -1, &$error_code, &$error_message, ?float $timeout)
-{}
+function pfsockopen(string $hostname, int $port = -1, &$error_code, &$error_message, ?float $timeout) {}
 
 /**
  * Pack data into binary string
@@ -170,8 +168,7 @@ function pfsockopen (string $hostname, int $port = -1, &$error_code, &$error_mes
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function pack (string $format, ...$values)
-{}
+function pack(string $format, ...$values) {}
 
 /**
  * Unpack data from binary string
@@ -187,8 +184,7 @@ function pack (string $format, ...$values)
  * string or false if the format string contains errors
  */
 #[Pure]
-function unpack (string $format, string $string, int $offset = 0): array|false
-{}
+function unpack(string $format, string $string, int $offset = 0): array|false {}
 
 /**
  * Tells what the user's browser is capable of
@@ -218,8 +214,7 @@ function unpack (string $format, string $string, int $offset = 0): array|false
  * reload, and check for the value.
  */
 #[Pure]
-function get_browser (?string $user_agent, bool $return_array = false): object|array|false
-{}
+function get_browser(?string $user_agent, bool $return_array = false): object|array|false {}
 
 /**
  * One-way string encryption (hashing)
@@ -241,8 +236,7 @@ function get_browser (?string $user_agent, bool $return_array = false): object|a
  */
 #[Pure]
 #[PhpStormStubsElementAvailable(to: '7.4')]
-function crypt ($string, $salt = null): ?string
-{}
+function crypt($string, $salt = null): ?string {}
 
 /**
  * One-way string encryption (hashing)
@@ -264,8 +258,7 @@ function crypt ($string, $salt = null): ?string
  */
 #[Pure]
 #[PhpStormStubsElementAvailable('8.0')]
-function crypt (string $string, string $salt): string
-{}
+function crypt(string $string, string $salt): string {}
 
 /**
  * Open directory handle
@@ -291,8 +284,7 @@ function crypt (string $string, string $salt): string
  * '@' to the
  * front of the function name.
  */
-function opendir (string $directory, $context)
-{}
+function opendir(string $directory, $context) {}
 
 /**
  * Close directory handle
@@ -305,7 +297,7 @@ function opendir (string $directory, $context)
  * </p>
  * @return void
  */
-function closedir ($dir_handle): void {}
+function closedir($dir_handle): void {}
 
 /**
  * Change directory
@@ -315,8 +307,7 @@ function closedir ($dir_handle): void {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function chdir (string $directory): bool
-{}
+function chdir(string $directory): bool {}
 
 /**
  * Change the root directory
@@ -326,8 +317,7 @@ function chdir (string $directory): bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function chroot (string $directory): bool
-{}
+function chroot(string $directory): bool {}
 
 /**
  * Gets the current working directory
@@ -344,8 +334,7 @@ function chroot (string $directory): bool
  * </p>
  */
 #[Pure]
-function getcwd (): string|false
-{}
+function getcwd(): string|false {}
 
 /**
  * Rewind directory handle
@@ -358,7 +347,7 @@ function getcwd (): string|false
  * </p>
  * @return void
  */
-function rewinddir ($dir_handle): void {}
+function rewinddir($dir_handle): void {}
 
 /**
  * Read entry from directory handle
@@ -371,8 +360,7 @@ function rewinddir ($dir_handle): void {}
  * </p>
  * @return string|false the filename on success or false on failure.
  */
-function readdir ($dir_handle): string|false
-{}
+function readdir($dir_handle): string|false {}
 
 /**
  * Return an instance of the Directory class
@@ -384,8 +372,7 @@ function readdir ($dir_handle): string|false
  * @return Directory|false an instance of Directory, or <b>NULL</b> with wrong
  * parameters, or <b>FALSE</b> in case of another error
  */
-function dir (string $directory, $context): Directory|false
-{}
+function dir(string $directory, $context): Directory|false {}
 
 /**
  * Alias of dir()
@@ -395,8 +382,7 @@ function dir (string $directory, $context): Directory|false
  * @return Directory|false
  * @see dir()
  */
-function getdir(string $directory, $context = null): Directory|false
-{}
+function getdir(string $directory, $context = null): Directory|false {}
 
 /**
  * List files and directories inside the specified path
@@ -419,8 +405,7 @@ function getdir(string $directory, $context = null): Directory|false
  * boolean false is returned, and an error of level
  * E_WARNING is generated.
  */
-function scandir (string $directory, int $sorting_order, $context): array|false
-{}
+function scandir(string $directory, int $sorting_order, $context): array|false {}
 
 /**
  * Find pathnames matching a pattern
@@ -445,8 +430,7 @@ function scandir (string $directory, int $sorting_order, $context): array|false
  * error.</p>
  */
 #[Pure]
-function glob (string $pattern, int $flags): array|false
-{}
+function glob(string $pattern, int $flags): array|false {}
 
 /**
  * Gets last access time of file
@@ -458,8 +442,7 @@ function glob (string $pattern, int $flags): array|false
  * The time is returned as a Unix timestamp.
  */
 #[Pure]
-function fileatime (string $filename): int|false
-{}
+function fileatime(string $filename): int|false {}
 
 /**
  * Gets inode change time of file
@@ -471,8 +454,7 @@ function fileatime (string $filename): int|false
  * The time is returned as a Unix timestamp.
  */
 #[Pure]
-function filectime (string $filename): int|false
-{}
+function filectime(string $filename): int|false {}
 
 /**
  * Gets file group
@@ -486,8 +468,7 @@ function filectime (string $filename): int|false
  * Upon failure, false is returned.
  */
 #[Pure]
-function filegroup (string $filename): int|false
-{}
+function filegroup(string $filename): int|false {}
 
 /**
  * Gets file inode
@@ -498,8 +479,7 @@ function filegroup (string $filename): int|false
  * @return int|false the inode number of the file, or false on failure.
  */
 #[Pure]
-function fileinode (string $filename): int|false
-{}
+function fileinode(string $filename): int|false {}
 
 /**
  * Gets file modification time
@@ -512,8 +492,7 @@ function fileinode (string $filename): int|false
  * suitable for the date function.
  */
 #[Pure]
-function filemtime (string $filename): int|false
-{}
+function filemtime(string $filename): int|false {}
 
 /**
  * Gets file owner
@@ -526,8 +505,7 @@ function filemtime (string $filename): int|false
  * posix_getpwuid to resolve it to a username.
  */
 #[Pure]
-function fileowner (string $filename): int|false
-{}
+function fileowner(string $filename): int|false {}
 
 /**
  * Gets file permissions
@@ -538,8 +516,7 @@ function fileowner (string $filename): int|false
  * @return int|false the permissions on the file, or false on failure.
  */
 #[Pure]
-function fileperms (string $filename): int|false
-{}
+function fileperms(string $filename): int|false {}
 
 /**
  * Gets file size
@@ -551,8 +528,7 @@ function fileperms (string $filename): int|false
  * of level E_WARNING) in case of an error.
  */
 #[Pure]
-function filesize (string $filename): int|false
-{}
+function filesize(string $filename): int|false {}
 
 /**
  * Gets file type
@@ -569,8 +545,7 @@ function filesize (string $filename): int|false
  * or if the file type is unknown.
  */
 #[Pure]
-function filetype (string $filename): string|false
-{}
+function filetype(string $filename): string|false {}
 
 /**
  * Checks whether a file or directory exists
@@ -599,8 +574,7 @@ function filetype (string $filename): string|false
  * The check is done using the real UID/GID instead of the effective one.
  */
 #[Pure]
-function file_exists (string $filename): bool
-{}
+function file_exists(string $filename): bool {}
 
 /**
  * Tells whether the filename is writable
@@ -612,8 +586,7 @@ function file_exists (string $filename): bool
  * writable.
  */
 #[Pure]
-function is_writable (string $filename): bool
-{}
+function is_writable(string $filename): bool {}
 
 /**
  * Alias:
@@ -626,8 +599,7 @@ function is_writable (string $filename): bool
  * writable.
  */
 #[Pure]
-function is_writeable (string $filename): bool
-{}
+function is_writeable(string $filename): bool {}
 
 /**
  * Tells whether a file or a directory exists and is readable
@@ -639,8 +611,7 @@ function is_writeable (string $filename): bool
  * filename exists and is readable, false otherwise.
  */
 #[Pure]
-function is_readable (string $filename): bool
-{}
+function is_readable(string $filename): bool {}
 
 /**
  * Tells whether the filename is executable
@@ -652,8 +623,7 @@ function is_readable (string $filename): bool
  * error.
  */
 #[Pure]
-function is_executable (string $filename): bool
-{}
+function is_executable(string $filename): bool {}
 
 /**
  * Tells whether the filename is a regular file
@@ -665,8 +635,7 @@ function is_executable (string $filename): bool
  * otherwise.
  */
 #[Pure]
-function is_file (string $filename): bool
-{}
+function is_file(string $filename): bool {}
 
 /**
  * Tells whether the filename is a directory
@@ -681,8 +650,7 @@ function is_file (string $filename): bool
  * otherwise.
  */
 #[Pure]
-function is_dir (string $filename): bool
-{}
+function is_dir(string $filename): bool {}
 
 /**
  * Tells whether the filename is a symbolic link
@@ -694,8 +662,7 @@ function is_dir (string $filename): bool
  * otherwise.
  */
 #[Pure]
-function is_link (string $filename): bool
-{}
+function is_link(string $filename): bool {}
 
 /**
  * Gives information about a file
@@ -787,8 +754,7 @@ function is_link (string $filename): bool
  * In case of error, stat returns false.
  */
 #[Pure]
-function stat (string $filename): array|false
-{}
+function stat(string $filename): array|false {}
 
 /**
  * Gives information about a file or symbolic link
@@ -805,8 +771,7 @@ function stat (string $filename): array|false
  * file pointed to by the symbolic link.
  */
 #[Pure]
-function lstat (string $filename): array|false
-{}
+function lstat(string $filename): array|false {}
 
 /**
  * Changes file owner
@@ -819,8 +784,7 @@ function lstat (string $filename): array|false
  * </p>
  * @return bool true on success or false on failure.
  */
-function chown (string $filename, string|int $user): bool
-{}
+function chown(string $filename, string|int $user): bool {}
 
 /**
  * Changes file group
@@ -833,8 +797,7 @@ function chown (string $filename, string|int $user): bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function chgrp (string $filename, string|int $group): bool
-{}
+function chgrp(string $filename, string|int $group): bool {}
 
 /**
  * Changes user ownership of symlink
@@ -848,8 +811,7 @@ function chgrp (string $filename, string|int $group): bool
  * @return bool true on success or false on failure.
  * @since 5.1.2
  */
-function lchown (string $filename, string|int $user): bool
-{}
+function lchown(string $filename, string|int $user): bool {}
 
 /**
  * Changes group ownership of symlink
@@ -863,8 +825,7 @@ function lchown (string $filename, string|int $user): bool
  * @return bool true on success or false on failure.
  * @since 5.1.2
  */
-function lchgrp (string $filename, string|int $group): bool
-{}
+function lchgrp(string $filename, string|int $group): bool {}
 
 /**
  * Changes file mode
@@ -899,8 +860,7 @@ function lchgrp (string $filename, string|int $group): bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function chmod (string $filename, int $permissions): bool
-{}
+function chmod(string $filename, int $permissions): bool {}
 
 /**
  * Sets access and modification time of file
@@ -919,8 +879,7 @@ function chmod (string $filename, int $permissions): bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function touch (string $filename, ?int $mtime, ?int $atime): bool
-{}
+function touch(string $filename, ?int $mtime, ?int $atime): bool {}
 
 /**
  * Clears file status cache
@@ -934,7 +893,7 @@ function touch (string $filename, ?int $mtime, ?int $atime): bool
  * </p>
  * @return void
  */
-function clearstatcache (bool $clear_realpath_cache = false, string $filename): void {}
+function clearstatcache(bool $clear_realpath_cache = false, string $filename): void {}
 
 /**
  * Returns the total size of a filesystem or disk partition
@@ -945,8 +904,7 @@ function clearstatcache (bool $clear_realpath_cache = false, string $filename): 
  * @return float|false the total number of bytes as a float
  * or false on failure.
  */
-function disk_total_space (string $directory): float|false
-{}
+function disk_total_space(string $directory): float|false {}
 
 /**
  * Returns available space in directory
@@ -963,8 +921,7 @@ function disk_total_space (string $directory): float|false
  * or false on failure.
  */
 #[Pure]
-function disk_free_space (string $directory): float|false
-{}
+function disk_free_space(string $directory): float|false {}
 
 /**
  * Alias of {@see disk_free_space}
@@ -974,8 +931,7 @@ function disk_free_space (string $directory): float|false
  * @return float|false
  */
 #[Pure]
-function diskfreespace (string $directory): float|false
-{}
+function diskfreespace(string $directory): float|false {}
 
 /**
  * Send mail
@@ -1063,8 +1019,7 @@ function diskfreespace (string $directory): float|false
  * it does NOT mean the mail will actually reach the intended destination.
  * </p>
  */
-function mail (string $to, string $subject, string $message, array|string $additional_headers, string $additional_params): bool
-{}
+function mail(string $to, string $subject, string $message, array|string $additional_headers, string $additional_params): bool {}
 
 /**
  * Calculate the hash value needed by EZMLM
@@ -1076,8 +1031,7 @@ function mail (string $to, string $subject, string $message, array|string $addit
  * @removed 8.0
  */
 #[Deprecated(since: '7.4')]
-function ezmlm_hash (string $addr): int
-{}
+function ezmlm_hash(string $addr): int {}
 
 /**
  * Open connection to system logger
@@ -1199,7 +1153,4 @@ function ezmlm_hash (string $addr): int
  * </p>
  * @return bool true on success or false on failure.
  */
-function openlog (string $prefix, int $flags, int $facility): bool
-{}
-
-?>
+function openlog(string $prefix, int $flags, int $facility): bool {}

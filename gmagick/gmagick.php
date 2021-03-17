@@ -7,325 +7,325 @@ use JetBrains\PhpStorm\Pure;
  */
 class Gmagick
 {
-    const COLOR_BLACK = 0;
-    const COLOR_BLUE = 0;
-    const COLOR_CYAN = 0;
-    const COLOR_GREEN = 0;
-    const COLOR_RED = 0;
-    const COLOR_YELLOW = 0;
-    const COLOR_MAGENTA = 0;
-    const COLOR_OPACITY = 0;
-    const COLOR_ALPHA = 0;
-    const COLOR_FUZZ = 0;
+    public const COLOR_BLACK = 0;
+    public const COLOR_BLUE = 0;
+    public const COLOR_CYAN = 0;
+    public const COLOR_GREEN = 0;
+    public const COLOR_RED = 0;
+    public const COLOR_YELLOW = 0;
+    public const COLOR_MAGENTA = 0;
+    public const COLOR_OPACITY = 0;
+    public const COLOR_ALPHA = 0;
+    public const COLOR_FUZZ = 0;
 
-    const GMAGICK_EXTNUM = 0;
+    public const GMAGICK_EXTNUM = 0;
 
-    const COMPOSITE_DEFAULT = 0;
-    const COMPOSITE_UNDEFINED = 0;
-    const COMPOSITE_NO = 0;
-    const COMPOSITE_ADD = 0;
-    const COMPOSITE_ATOP = 0;
-    const COMPOSITE_BUMPMAP = 0;
-    const COMPOSITE_CLEAR = 0;
-    const COMPOSITE_COLORIZE = 0;
-    const COMPOSITE_COPYBLACK = 0;
-    const COMPOSITE_COPYBLUE = 0;
-    const COMPOSITE_COPY = 0;
-    const COMPOSITE_COPYCYAN = 0;
-    const COMPOSITE_COPYGREEN = 0;
-    const COMPOSITE_COPYMAGENTA = 0;
-    const COMPOSITE_COPYOPACITY = 0;
-    const COMPOSITE_COPYRED = 0;
-    const COMPOSITE_COPYYELLOW = 0;
-    const COMPOSITE_DARKEN = 0;
-    const COMPOSITE_DIFFERENCE = 0;
-    const COMPOSITE_DISPLACE = 0;
-    const COMPOSITE_DISSOLVE = 0;
-    const COMPOSITE_HUE = 0;
-    const COMPOSITE_IN = 0;
-    const COMPOSITE_LIGHTEN = 0;
-    const COMPOSITE_LUMINIZE = 0;
-    const COMPOSITE_MINUS = 0;
-    const COMPOSITE_MODULATE = 0;
-    const COMPOSITE_MULTIPLY = 0;
-    const COMPOSITE_OUT = 0;
-    const COMPOSITE_OVER = 0;
-    const COMPOSITE_OVERLAY = 0;
-    const COMPOSITE_PLUS = 0;
-    const COMPOSITE_REPLACE = 0;
-    const COMPOSITE_SATURATE = 0;
-    const COMPOSITE_SCREEN = 0;
-    const COMPOSITE_SUBTRACT = 0;
-    const COMPOSITE_THRESHOLD = 0;
-    const COMPOSITE_XOR = 0;
-    const COMPOSITE_DIVIDE = 0;
-    const COMPOSITE_HARDLIGHT = 0;
-    const COMPOSITE_EXCLUSION = 0;
-    const COMPOSITE_COLORDODGE = 0;
-    const COMPOSITE_COLORBURN = 0;
-    const COMPOSITE_SOFTLIGHT = 0;
-    const COMPOSITE_LINEARBURN = 0;
-    const COMPOSITE_LINEARDODGE = 0;
-    const COMPOSITE_LINEARLIGHT = 0;
-    const COMPOSITE_VIVIDLIGHT = 0;
-    const COMPOSITE_PINLIGHT = 0;
-    const COMPOSITE_HARDMIX = 0;
+    public const COMPOSITE_DEFAULT = 0;
+    public const COMPOSITE_UNDEFINED = 0;
+    public const COMPOSITE_NO = 0;
+    public const COMPOSITE_ADD = 0;
+    public const COMPOSITE_ATOP = 0;
+    public const COMPOSITE_BUMPMAP = 0;
+    public const COMPOSITE_CLEAR = 0;
+    public const COMPOSITE_COLORIZE = 0;
+    public const COMPOSITE_COPYBLACK = 0;
+    public const COMPOSITE_COPYBLUE = 0;
+    public const COMPOSITE_COPY = 0;
+    public const COMPOSITE_COPYCYAN = 0;
+    public const COMPOSITE_COPYGREEN = 0;
+    public const COMPOSITE_COPYMAGENTA = 0;
+    public const COMPOSITE_COPYOPACITY = 0;
+    public const COMPOSITE_COPYRED = 0;
+    public const COMPOSITE_COPYYELLOW = 0;
+    public const COMPOSITE_DARKEN = 0;
+    public const COMPOSITE_DIFFERENCE = 0;
+    public const COMPOSITE_DISPLACE = 0;
+    public const COMPOSITE_DISSOLVE = 0;
+    public const COMPOSITE_HUE = 0;
+    public const COMPOSITE_IN = 0;
+    public const COMPOSITE_LIGHTEN = 0;
+    public const COMPOSITE_LUMINIZE = 0;
+    public const COMPOSITE_MINUS = 0;
+    public const COMPOSITE_MODULATE = 0;
+    public const COMPOSITE_MULTIPLY = 0;
+    public const COMPOSITE_OUT = 0;
+    public const COMPOSITE_OVER = 0;
+    public const COMPOSITE_OVERLAY = 0;
+    public const COMPOSITE_PLUS = 0;
+    public const COMPOSITE_REPLACE = 0;
+    public const COMPOSITE_SATURATE = 0;
+    public const COMPOSITE_SCREEN = 0;
+    public const COMPOSITE_SUBTRACT = 0;
+    public const COMPOSITE_THRESHOLD = 0;
+    public const COMPOSITE_XOR = 0;
+    public const COMPOSITE_DIVIDE = 0;
+    public const COMPOSITE_HARDLIGHT = 0;
+    public const COMPOSITE_EXCLUSION = 0;
+    public const COMPOSITE_COLORDODGE = 0;
+    public const COMPOSITE_COLORBURN = 0;
+    public const COMPOSITE_SOFTLIGHT = 0;
+    public const COMPOSITE_LINEARBURN = 0;
+    public const COMPOSITE_LINEARDODGE = 0;
+    public const COMPOSITE_LINEARLIGHT = 0;
+    public const COMPOSITE_VIVIDLIGHT = 0;
+    public const COMPOSITE_PINLIGHT = 0;
+    public const COMPOSITE_HARDMIX = 0;
 
-    const MONTAGEMODE_FRAME = 0;
-    const MONTAGEMODE_UNFRAME = 0;
-    const MONTAGEMODE_CONCATENATE = 0;
+    public const MONTAGEMODE_FRAME = 0;
+    public const MONTAGEMODE_UNFRAME = 0;
+    public const MONTAGEMODE_CONCATENATE = 0;
 
-    const STYLE_NORMAL = 0;
-    const STYLE_ITALIC = 0;
-    const STYLE_OBLIQUE = 0;
-    const STYLE_ANY = 0;
+    public const STYLE_NORMAL = 0;
+    public const STYLE_ITALIC = 0;
+    public const STYLE_OBLIQUE = 0;
+    public const STYLE_ANY = 0;
 
-    const FILTER_UNDEFINED = 0;
-    const FILTER_POINT = 0;
-    const FILTER_BOX = 0;
-    const FILTER_TRIANGLE = 0;
-    const FILTER_HERMITE = 0;
-    const FILTER_HANNING = 0;
-    const FILTER_HAMMING = 0;
-    const FILTER_BLACKMAN = 0;
-    const FILTER_GAUSSIAN = 0;
-    const FILTER_QUADRATIC = 0;
-    const FILTER_CUBIC = 0;
-    const FILTER_CATROM = 0;
-    const FILTER_MITCHELL = 0;
-    const FILTER_LANCZOS = 0;
-    const FILTER_BESSEL = 0;
-    const FILTER_SINC = 0;
+    public const FILTER_UNDEFINED = 0;
+    public const FILTER_POINT = 0;
+    public const FILTER_BOX = 0;
+    public const FILTER_TRIANGLE = 0;
+    public const FILTER_HERMITE = 0;
+    public const FILTER_HANNING = 0;
+    public const FILTER_HAMMING = 0;
+    public const FILTER_BLACKMAN = 0;
+    public const FILTER_GAUSSIAN = 0;
+    public const FILTER_QUADRATIC = 0;
+    public const FILTER_CUBIC = 0;
+    public const FILTER_CATROM = 0;
+    public const FILTER_MITCHELL = 0;
+    public const FILTER_LANCZOS = 0;
+    public const FILTER_BESSEL = 0;
+    public const FILTER_SINC = 0;
 
-    const IMGTYPE_UNDEFINED = 0;
-    const IMGTYPE_BILEVEL = 0;
-    const IMGTYPE_GRAYSCALE = 0;
-    const IMGTYPE_GRAYSCALEMATTE = 0;
-    const IMGTYPE_PALETTE = 0;
-    const IMGTYPE_PALETTEMATTE = 0;
-    const IMGTYPE_TRUECOLOR = 0;
-    const IMGTYPE_TRUECOLORMATTE = 0;
-    const IMGTYPE_COLORSEPARATION = 0;
-    const IMGTYPE_COLORSEPARATIONMATTE = 0;
-    const IMGTYPE_OPTIMIZE = 0;
+    public const IMGTYPE_UNDEFINED = 0;
+    public const IMGTYPE_BILEVEL = 0;
+    public const IMGTYPE_GRAYSCALE = 0;
+    public const IMGTYPE_GRAYSCALEMATTE = 0;
+    public const IMGTYPE_PALETTE = 0;
+    public const IMGTYPE_PALETTEMATTE = 0;
+    public const IMGTYPE_TRUECOLOR = 0;
+    public const IMGTYPE_TRUECOLORMATTE = 0;
+    public const IMGTYPE_COLORSEPARATION = 0;
+    public const IMGTYPE_COLORSEPARATIONMATTE = 0;
+    public const IMGTYPE_OPTIMIZE = 0;
 
-    const RESOLUTION_UNDEFINED = 0;
-    const RESOLUTION_PIXELSPERINCH = 0;
-    const RESOLUTION_PIXELSPERCENTIMETER = 0;
+    public const RESOLUTION_UNDEFINED = 0;
+    public const RESOLUTION_PIXELSPERINCH = 0;
+    public const RESOLUTION_PIXELSPERCENTIMETER = 0;
 
-    const COMPRESSION_UNDEFINED = 0;
-    const COMPRESSION_NO = 0;
-    const COMPRESSION_BZIP = 0;
-    const COMPRESSION_FAX = 0;
-    const COMPRESSION_GROUP4 = 0;
-    const COMPRESSION_JPEG = 0;
-    const COMPRESSION_LOSSLESSJPEG = 0;
-    const COMPRESSION_LZW = 0;
-    const COMPRESSION_RLE = 0;
-    const COMPRESSION_ZIP = 0;
-    const COMPRESSION_GROUP3 = 0;
-    const COMPRESSION_LZMA = 0;
-    const COMPRESSION_JPEG2000 = 0;
-    const COMPRESSION_JBIG1 = 0;
-    const COMPRESSION_JBIG2 = 0;
+    public const COMPRESSION_UNDEFINED = 0;
+    public const COMPRESSION_NO = 0;
+    public const COMPRESSION_BZIP = 0;
+    public const COMPRESSION_FAX = 0;
+    public const COMPRESSION_GROUP4 = 0;
+    public const COMPRESSION_JPEG = 0;
+    public const COMPRESSION_LOSSLESSJPEG = 0;
+    public const COMPRESSION_LZW = 0;
+    public const COMPRESSION_RLE = 0;
+    public const COMPRESSION_ZIP = 0;
+    public const COMPRESSION_GROUP3 = 0;
+    public const COMPRESSION_LZMA = 0;
+    public const COMPRESSION_JPEG2000 = 0;
+    public const COMPRESSION_JBIG1 = 0;
+    public const COMPRESSION_JBIG2 = 0;
 
-    const INTERLACE_NONE = 0;
-    const INTERLACE_LINE = 0;
-    const INTERLACE_PLANE = 0;
-    const INTERLACE_PARTITION = 0;
+    public const INTERLACE_NONE = 0;
+    public const INTERLACE_LINE = 0;
+    public const INTERLACE_PLANE = 0;
+    public const INTERLACE_PARTITION = 0;
 
-    const PAINT_POINT = 0;
-    const PAINT_REPLACE = 0;
-    const PAINT_FLOODFILL = 0;
-    const PAINT_FILLTOBORDER = 0;
-    const PAINT_RESET = 0;
+    public const PAINT_POINT = 0;
+    public const PAINT_REPLACE = 0;
+    public const PAINT_FLOODFILL = 0;
+    public const PAINT_FILLTOBORDER = 0;
+    public const PAINT_RESET = 0;
 
-    const GRAVITY_NORTHWEST = 0;
-    const GRAVITY_NORTH = 0;
-    const GRAVITY_NORTHEAST = 0;
-    const GRAVITY_WEST = 0;
-    const GRAVITY_CENTER = 0;
-    const GRAVITY_EAST = 0;
-    const GRAVITY_SOUTHWEST = 0;
-    const GRAVITY_SOUTH = 0;
-    const GRAVITY_SOUTHEAST = 0;
+    public const GRAVITY_NORTHWEST = 0;
+    public const GRAVITY_NORTH = 0;
+    public const GRAVITY_NORTHEAST = 0;
+    public const GRAVITY_WEST = 0;
+    public const GRAVITY_CENTER = 0;
+    public const GRAVITY_EAST = 0;
+    public const GRAVITY_SOUTHWEST = 0;
+    public const GRAVITY_SOUTH = 0;
+    public const GRAVITY_SOUTHEAST = 0;
 
-    const STRETCH_NORMAL = 0;
-    const STRETCH_ULTRACONDENSED = 0;
-    const STRETCH_CONDENSED = 0;
-    const STRETCH_SEMICONDENSED = 0;
-    const STRETCH_SEMIEXPANDED = 0;
-    const STRETCH_EXPANDED = 0;
-    const STRETCH_EXTRAEXPANDED = 0;
-    const STRETCH_ULTRAEXPANDED = 0;
-    const STRETCH_ANY = 0;
-    const STRETCH_EXTRACONDENSED = 0;
+    public const STRETCH_NORMAL = 0;
+    public const STRETCH_ULTRACONDENSED = 0;
+    public const STRETCH_CONDENSED = 0;
+    public const STRETCH_SEMICONDENSED = 0;
+    public const STRETCH_SEMIEXPANDED = 0;
+    public const STRETCH_EXPANDED = 0;
+    public const STRETCH_EXTRAEXPANDED = 0;
+    public const STRETCH_ULTRAEXPANDED = 0;
+    public const STRETCH_ANY = 0;
+    public const STRETCH_EXTRACONDENSED = 0;
 
-    const ALIGN_UNDEFINED = 0;
-    const ALIGN_LEFT = 0;
-    const ALIGN_CENTER = 0;
-    const ALIGN_RIGHT = 0;
+    public const ALIGN_UNDEFINED = 0;
+    public const ALIGN_LEFT = 0;
+    public const ALIGN_CENTER = 0;
+    public const ALIGN_RIGHT = 0;
 
-    const DECORATION_NO = 0;
-    const DECORATION_UNDERLINE = 0;
-    const DECORATION_OVERLINE = 0;
-    const DECORATION_LINETROUGH = 0;
+    public const DECORATION_NO = 0;
+    public const DECORATION_UNDERLINE = 0;
+    public const DECORATION_OVERLINE = 0;
+    public const DECORATION_LINETROUGH = 0;
 
-    const NOISE_UNIFORM = 0;
-    const NOISE_GAUSSIAN = 0;
-    const NOISE_MULTIPLICATIVEGAUSSIAN = 0;
-    const NOISE_IMPULSE = 0;
-    const NOISE_LAPLACIAN = 0;
-    const NOISE_POISSON = 0;
-    const NOISE_RANDOM = 0;
+    public const NOISE_UNIFORM = 0;
+    public const NOISE_GAUSSIAN = 0;
+    public const NOISE_MULTIPLICATIVEGAUSSIAN = 0;
+    public const NOISE_IMPULSE = 0;
+    public const NOISE_LAPLACIAN = 0;
+    public const NOISE_POISSON = 0;
+    public const NOISE_RANDOM = 0;
 
-    const CHANNEL_UNDEFINED = 0;
-    const CHANNEL_RED = 0;
-    const CHANNEL_GRAY = 0;
-    const CHANNEL_CYAN = 0;
-    const CHANNEL_GREEN = 0;
-    const CHANNEL_MAGENTA = 0;
-    const CHANNEL_BLUE = 0;
-    const CHANNEL_YELLOW = 0;
-    const CHANNEL_OPACITY = 0;
-    const CHANNEL_MATTE = 0;
-    const CHANNEL_BLACK = 0;
-    const CHANNEL_INDEX = 0;
-    const CHANNEL_ALL = 0;
-    const CHANNEL_DEFAULT = 0;
+    public const CHANNEL_UNDEFINED = 0;
+    public const CHANNEL_RED = 0;
+    public const CHANNEL_GRAY = 0;
+    public const CHANNEL_CYAN = 0;
+    public const CHANNEL_GREEN = 0;
+    public const CHANNEL_MAGENTA = 0;
+    public const CHANNEL_BLUE = 0;
+    public const CHANNEL_YELLOW = 0;
+    public const CHANNEL_OPACITY = 0;
+    public const CHANNEL_MATTE = 0;
+    public const CHANNEL_BLACK = 0;
+    public const CHANNEL_INDEX = 0;
+    public const CHANNEL_ALL = 0;
+    public const CHANNEL_DEFAULT = 0;
 
-    const METRIC_UNDEFINED = 0;
-    const METRIC_MEANABSOLUTEERROR = 0;
-    const METRIC_MEANSQUAREERROR = 0;
-    const METRIC_PEAKABSOLUTEERROR = 0;
-    const METRIC_PEAKSIGNALTONOISERATIO = 0;
-    const METRIC_ROOTMEANSQUAREDERROR = 0;
+    public const METRIC_UNDEFINED = 0;
+    public const METRIC_MEANABSOLUTEERROR = 0;
+    public const METRIC_MEANSQUAREERROR = 0;
+    public const METRIC_PEAKABSOLUTEERROR = 0;
+    public const METRIC_PEAKSIGNALTONOISERATIO = 0;
+    public const METRIC_ROOTMEANSQUAREDERROR = 0;
 
-    const PIXEL_CHAR = 0;
-    const PIXEL_DOUBLE = 0;
-    const PIXEL_FLOAT = 0;
-    const PIXEL_INTEGER = 0;
-    const PIXEL_LONG = 0;
-    const PIXEL_SHORT = 0;
+    public const PIXEL_CHAR = 0;
+    public const PIXEL_DOUBLE = 0;
+    public const PIXEL_FLOAT = 0;
+    public const PIXEL_INTEGER = 0;
+    public const PIXEL_LONG = 0;
+    public const PIXEL_SHORT = 0;
 
-    const COLORSPACE_UNDEFINED = 0;
-    const COLORSPACE_RGB = 0;
-    const COLORSPACE_GRAY = 0;
-    const COLORSPACE_TRANSPARENT = 0;
-    const COLORSPACE_OHTA = 0;
-    const COLORSPACE_LAB = 0;
-    const COLORSPACE_XYZ = 0;
-    const COLORSPACE_YCBCR = 0;
-    const COLORSPACE_YCC = 0;
-    const COLORSPACE_YIQ = 0;
-    const COLORSPACE_YPBPR = 0;
-    const COLORSPACE_YUV = 0;
-    const COLORSPACE_CMYK = 0;
-    const COLORSPACE_SRGB = 0;
-    const COLORSPACE_HSL = 0;
-    const COLORSPACE_HWB = 0;
-    const COLORSPACE_REC601LUMA = 0;
-    const COLORSPACE_REC709LUMA = 0;
-    const COLORSPACE_CINEONLOGRGB = 0;
-    const COLORSPACE_REC601YCBCR = 0;
-    const COLORSPACE_REC709YCBCR = 0;
+    public const COLORSPACE_UNDEFINED = 0;
+    public const COLORSPACE_RGB = 0;
+    public const COLORSPACE_GRAY = 0;
+    public const COLORSPACE_TRANSPARENT = 0;
+    public const COLORSPACE_OHTA = 0;
+    public const COLORSPACE_LAB = 0;
+    public const COLORSPACE_XYZ = 0;
+    public const COLORSPACE_YCBCR = 0;
+    public const COLORSPACE_YCC = 0;
+    public const COLORSPACE_YIQ = 0;
+    public const COLORSPACE_YPBPR = 0;
+    public const COLORSPACE_YUV = 0;
+    public const COLORSPACE_CMYK = 0;
+    public const COLORSPACE_SRGB = 0;
+    public const COLORSPACE_HSL = 0;
+    public const COLORSPACE_HWB = 0;
+    public const COLORSPACE_REC601LUMA = 0;
+    public const COLORSPACE_REC709LUMA = 0;
+    public const COLORSPACE_CINEONLOGRGB = 0;
+    public const COLORSPACE_REC601YCBCR = 0;
+    public const COLORSPACE_REC709YCBCR = 0;
 
-    const VIRTUALPIXELMETHOD_UNDEFINED = 0;
-    const VIRTUALPIXELMETHOD_CONSTANT = 0;
-    const VIRTUALPIXELMETHOD_EDGE = 0;
-    const VIRTUALPIXELMETHOD_MIRROR = 0;
-    const VIRTUALPIXELMETHOD_TILE = 0;
+    public const VIRTUALPIXELMETHOD_UNDEFINED = 0;
+    public const VIRTUALPIXELMETHOD_CONSTANT = 0;
+    public const VIRTUALPIXELMETHOD_EDGE = 0;
+    public const VIRTUALPIXELMETHOD_MIRROR = 0;
+    public const VIRTUALPIXELMETHOD_TILE = 0;
 
-    const PREVIEW_UNDEFINED = 0;
-    const PREVIEW_ROTATE = 0;
-    const PREVIEW_SHEAR = 0;
-    const PREVIEW_ROLL = 0;
-    const PREVIEW_HUE = 0;
-    const PREVIEW_SATURATION = 0;
-    const PREVIEW_BRIGHTNESS = 0;
-    const PREVIEW_GAMMA = 0;
-    const PREVIEW_SPIFF = 0;
-    const PREVIEW_DULL = 0;
-    const PREVIEW_GRAYSCALE = 0;
-    const PREVIEW_QUANTIZE = 0;
-    const PREVIEW_DESPECKLE = 0;
-    const PREVIEW_REDUCENOISE = 0;
-    const PREVIEW_ADDNOISE = 0;
-    const PREVIEW_SHARPEN = 0;
-    const PREVIEW_BLUR = 0;
-    const PREVIEW_THRESHOLD = 0;
-    const PREVIEW_EDGEDETECT = 0;
-    const PREVIEW_SPREAD = 0;
-    const PREVIEW_SOLARIZE = 0;
-    const PREVIEW_SHADE = 0;
-    const PREVIEW_RAISE = 0;
-    const PREVIEW_SEGMENT = 0;
-    const PREVIEW_SWIRL = 0;
-    const PREVIEW_IMPLODE = 0;
-    const PREVIEW_WAVE = 0;
-    const PREVIEW_OILPAINT = 0;
-    const PREVIEW_CHARCOALDRAWING = 0;
-    const PREVIEW_JPEG = 0;
+    public const PREVIEW_UNDEFINED = 0;
+    public const PREVIEW_ROTATE = 0;
+    public const PREVIEW_SHEAR = 0;
+    public const PREVIEW_ROLL = 0;
+    public const PREVIEW_HUE = 0;
+    public const PREVIEW_SATURATION = 0;
+    public const PREVIEW_BRIGHTNESS = 0;
+    public const PREVIEW_GAMMA = 0;
+    public const PREVIEW_SPIFF = 0;
+    public const PREVIEW_DULL = 0;
+    public const PREVIEW_GRAYSCALE = 0;
+    public const PREVIEW_QUANTIZE = 0;
+    public const PREVIEW_DESPECKLE = 0;
+    public const PREVIEW_REDUCENOISE = 0;
+    public const PREVIEW_ADDNOISE = 0;
+    public const PREVIEW_SHARPEN = 0;
+    public const PREVIEW_BLUR = 0;
+    public const PREVIEW_THRESHOLD = 0;
+    public const PREVIEW_EDGEDETECT = 0;
+    public const PREVIEW_SPREAD = 0;
+    public const PREVIEW_SOLARIZE = 0;
+    public const PREVIEW_SHADE = 0;
+    public const PREVIEW_RAISE = 0;
+    public const PREVIEW_SEGMENT = 0;
+    public const PREVIEW_SWIRL = 0;
+    public const PREVIEW_IMPLODE = 0;
+    public const PREVIEW_WAVE = 0;
+    public const PREVIEW_OILPAINT = 0;
+    public const PREVIEW_CHARCOALDRAWING = 0;
+    public const PREVIEW_JPEG = 0;
 
-    const RENDERINGINTENT_UNDEFINED = 0;
-    const RENDERINGINTENT_SATURATION = 0;
-    const RENDERINGINTENT_PERCEPTUAL = 0;
-    const RENDERINGINTENT_ABSOLUTE = 0;
-    const RENDERINGINTENT_RELATIVE = 0;
+    public const RENDERINGINTENT_UNDEFINED = 0;
+    public const RENDERINGINTENT_SATURATION = 0;
+    public const RENDERINGINTENT_PERCEPTUAL = 0;
+    public const RENDERINGINTENT_ABSOLUTE = 0;
+    public const RENDERINGINTENT_RELATIVE = 0;
 
-    const INTERLACE_UNDEFINED = 0;
-    const INTERLACE_NO = 0;
+    public const INTERLACE_UNDEFINED = 0;
+    public const INTERLACE_NO = 0;
 
-    const FILLRULE_UNDEFINED = 0;
-    const FILLRULE_EVENODD = 0;
-    const FILLRULE_NONZERO = 0;
+    public const FILLRULE_UNDEFINED = 0;
+    public const FILLRULE_EVENODD = 0;
+    public const FILLRULE_NONZERO = 0;
 
-    const PATHUNITS_USERSPACE = 0;
-    const PATHUNITS_USERSPACEONUSE = 0;
-    const PATHUNITS_OBJECTBOUNDINGBOX = 0;
+    public const PATHUNITS_USERSPACE = 0;
+    public const PATHUNITS_USERSPACEONUSE = 0;
+    public const PATHUNITS_OBJECTBOUNDINGBOX = 0;
 
-    const LINECAP_UNDEFINED = 0;
-    const LINECAP_BUTT = 0;
-    const LINECAP_ROUND = 0;
-    const LINECAP_SQUARE = 0;
+    public const LINECAP_UNDEFINED = 0;
+    public const LINECAP_BUTT = 0;
+    public const LINECAP_ROUND = 0;
+    public const LINECAP_SQUARE = 0;
 
-    const LINEJOIN_UNDEFINED = 0;
-    const LINEJOIN_MITER = 0;
-    const LINEJOIN_ROUND = 0;
-    const LINEJOIN_BEVEL = 0;
+    public const LINEJOIN_UNDEFINED = 0;
+    public const LINEJOIN_MITER = 0;
+    public const LINEJOIN_ROUND = 0;
+    public const LINEJOIN_BEVEL = 0;
 
-    const RESOURCETYPE_UNDEFINED = 0;
-    const RESOURCETYPE_AREA = 0;
-    const RESOURCETYPE_DISK = 0;
-    const RESOURCETYPE_FILE = 0;
-    const RESOURCETYPE_MAP = 0;
-    const RESOURCETYPE_MEMORY = 0;
-    const RESOURCETYPE_PIXELS = 0;
-    const RESOURCETYPE_THREADS = 0;
-    const RESOURCETYPE_WIDTH = 0;
-    const RESOURCETYPE_HEIGHT = 0;
+    public const RESOURCETYPE_UNDEFINED = 0;
+    public const RESOURCETYPE_AREA = 0;
+    public const RESOURCETYPE_DISK = 0;
+    public const RESOURCETYPE_FILE = 0;
+    public const RESOURCETYPE_MAP = 0;
+    public const RESOURCETYPE_MEMORY = 0;
+    public const RESOURCETYPE_PIXELS = 0;
+    public const RESOURCETYPE_THREADS = 0;
+    public const RESOURCETYPE_WIDTH = 0;
+    public const RESOURCETYPE_HEIGHT = 0;
 
-    const DISPOSE_UNDEFINED = 0;
-    const DISPOSE_NONE = 0;
-    const DISPOSE_BACKGROUND = 0;
-    const DISPOSE_PREVIOUS = 0;
+    public const DISPOSE_UNDEFINED = 0;
+    public const DISPOSE_NONE = 0;
+    public const DISPOSE_BACKGROUND = 0;
+    public const DISPOSE_PREVIOUS = 0;
 
-    const ORIENTATION_UNDEFINED = 0;
-    const ORIENTATION_TOPLEFT = 0;
-    const ORIENTATION_TOPRIGHT = 0;
-    const ORIENTATION_BOTTOMRIGHT = 0;
-    const ORIENTATION_BOTTOMLEFT = 0;
-    const ORIENTATION_LEFTTOP = 0;
-    const ORIENTATION_RIGHTTOP = 0;
-    const ORIENTATION_RIGHTBOTTOM = 0;
-    const ORIENTATION_LEFTBOTTOM = 0;
+    public const ORIENTATION_UNDEFINED = 0;
+    public const ORIENTATION_TOPLEFT = 0;
+    public const ORIENTATION_TOPRIGHT = 0;
+    public const ORIENTATION_BOTTOMRIGHT = 0;
+    public const ORIENTATION_BOTTOMLEFT = 0;
+    public const ORIENTATION_LEFTTOP = 0;
+    public const ORIENTATION_RIGHTTOP = 0;
+    public const ORIENTATION_RIGHTBOTTOM = 0;
+    public const ORIENTATION_LEFTBOTTOM = 0;
 
-    const QUANTUM_DEPTH = 0;
-    const QUANTUM = 0;
+    public const QUANTUM_DEPTH = 0;
+    public const QUANTUM = 0;
 
-    const VERSION_LIB = 0;
-    const VERSION_NUM = 0;
-    const VERSION_TXT = '';
+    public const VERSION_LIB = 0;
+    public const VERSION_NUM = 0;
+    public const VERSION_TXT = '';
 
     /**
      * The Gmagick constructor.
@@ -334,9 +334,7 @@ class Gmagick
      *
      * @param string $filename [optional] The path to an image to load or array of paths.
      */
-    public function __construct($filename = null)
-    {
-    }
+    public function __construct($filename = null) {}
 
     /**
      * Adds new image to Gmagick object from the current position of the source object.
@@ -350,9 +348,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function addimage($Gmagick)
-    {
-    }
+    public function addimage($Gmagick) {}
 
     /**
      * Adds random noise to the image.
@@ -365,9 +361,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function addnoiseimage($NOISE)
-    {
-    }
+    public function addnoiseimage($NOISE) {}
 
     /**
      * Annotates an image with text.
@@ -384,9 +378,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function annotateimage($GmagickDraw, $x, $y, $angle, $text)
-    {
-    }
+    public function annotateimage($GmagickDraw, $x, $y, $angle, $text) {}
 
     /**
      * Adds blur filter to image.
@@ -401,9 +393,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function blurimage($radius, $sigma, $channel = null)
-    {
-    }
+    public function blurimage($radius, $sigma, $channel = null) {}
 
     /**
      * Surrounds the image with a border of the color defined by the bordercolor GmagickPixel object or a color string.
@@ -418,9 +408,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function borderimage($color, $width, $height)
-    {
-    }
+    public function borderimage($color, $width, $height) {}
 
     /**
      * Simulates a charcoal drawing.
@@ -434,9 +422,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function charcoalimage($radius, $sigma)
-    {
-    }
+    public function charcoalimage($radius, $sigma) {}
 
     /**
      * Removes a region of an image and collapses the image to occupy the removed portion.
@@ -452,9 +438,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function chopimage($width, $height, $x, $y)
-    {
-    }
+    public function chopimage($width, $height, $x, $y) {}
 
     /**
      * Clears all resources associated to Gmagick object.
@@ -465,9 +449,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function clear()
-    {
-    }
+    public function clear() {}
 
     /**
      * Adds a comment to your image.
@@ -480,9 +462,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function commentimage($comment)
-    {
-    }
+    public function commentimage($comment) {}
 
     /**
      * Composite one image onto another at the specified offset.
@@ -498,9 +478,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function compositeimage($source, $COMPOSE, $x, $y)
-    {
-    }
+    public function compositeimage($source, $COMPOSE, $x, $y) {}
 
     /**
      * Extracts a region of the image.
@@ -516,9 +494,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function cropimage($width, $height, $x, $y)
-    {
-    }
+    public function cropimage($width, $height, $x, $y) {}
 
     /**
      * Creates a fixed size thumbnail by first scaling the image down and cropping a specified area from the center.
@@ -532,9 +508,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function cropthumbnailimage($width, $height)
-    {
-    }
+    public function cropthumbnailimage($width, $height) {}
 
     /**
      * Returns reference to the current gmagick object with image pointer at the correct sequence.
@@ -545,9 +519,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function current()
-    {
-    }
+    public function current() {}
 
     /**
      * Displaces an image's colormap by a given number of positions.
@@ -561,9 +533,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function cyclecolormapimage($displace)
-    {
-    }
+    public function cyclecolormapimage($displace) {}
 
     /**
      * Compares each image with the next in a sequence.
@@ -575,9 +545,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function deconstructimages()
-    {
-    }
+    public function deconstructimages() {}
 
     /**
      * Reduces the speckle noise in an image while preserving the edges of the original image.
@@ -588,9 +556,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function despeckleimage()
-    {
-    }
+    public function despeckleimage() {}
 
     /**
      * Destroys the Gmagick object and frees all resources associated with it.
@@ -601,9 +567,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function destroy()
-    {
-    }
+    public function destroy() {}
 
     /**
      * Renders the GmagickDraw object on the current image.
@@ -616,9 +580,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function drawimage($GmagickDraw)
-    {
-    }
+    public function drawimage($GmagickDraw) {}
 
     /**
      * Enhance edges within the image with a convolution filter of the given radius.
@@ -632,9 +594,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function edgeimage($radius)
-    {
-    }
+    public function edgeimage($radius) {}
 
     /**
      * Returns a grayscale image with a three-dimensional effect.
@@ -651,9 +611,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function embossimage($radius, $sigma)
-    {
-    }
+    public function embossimage($radius, $sigma) {}
 
     /**
      * Applies a digital filter that improves the quality of a noisy image.
@@ -664,9 +622,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function enhanceimage()
-    {
-    }
+    public function enhanceimage() {}
 
     /**
      * Equalizes the image histogram.
@@ -677,9 +633,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function equalizeimage()
-    {
-    }
+    public function equalizeimage() {}
 
     /**
      * Creates a vertical mirror image by reflecting the pixels around the central x-axis.
@@ -690,9 +644,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function flipimage()
-    {
-    }
+    public function flipimage() {}
 
     /**
      * Creates a horizontal mirror image by reflecting the pixels around the central y-axis.
@@ -703,9 +655,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function flopimage()
-    {
-    }
+    public function flopimage() {}
 
     /**
      * Adds a simulated three-dimensional border around the image.
@@ -724,9 +674,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function frameimage($color, $width, $height, $inner_bevel, $outer_bevel)
-    {
-    }
+    public function frameimage($color, $width, $height, $inner_bevel, $outer_bevel) {}
 
     /**
      * Gamma-corrects an image.
@@ -742,9 +690,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function gammaimage($gamma)
-    {
-    }
+    public function gammaimage($gamma) {}
 
     /**
      * Returns the GraphicsMagick API copyright as a string.
@@ -756,9 +702,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getcopyright()
-    {
-    }
+    public function getcopyright() {}
 
     /**
      * Returns the filename associated with an image sequence.
@@ -770,9 +714,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getfilename()
-    {
-    }
+    public function getfilename() {}
 
     /**
      * Returns the image background color.
@@ -784,9 +726,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagebackgroundcolor()
-    {
-    }
+    public function getimagebackgroundcolor() {}
 
     /**
      * Returns the chromaticity blue primary point for the image.
@@ -798,9 +738,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimageblueprimary()
-    {
-    }
+    public function getimageblueprimary() {}
 
     /**
      * Returns the image border color.
@@ -812,9 +750,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagebordercolor()
-    {
-    }
+    public function getimagebordercolor() {}
 
     /**
      * Gets the depth for a particular image channel.
@@ -828,9 +764,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagechanneldepth($channel_type)
-    {
-    }
+    public function getimagechanneldepth($channel_type) {}
 
     /**
      * Returns the color of the specified colormap index.
@@ -842,9 +776,7 @@ class Gmagick
      * @throws GmagickException On error
      */
     #[Pure]
-    public function getimagecolors()
-    {
-    }
+    public function getimagecolors() {}
 
     /**
      * Gets the image colorspace.
@@ -856,9 +788,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagecolorspace()
-    {
-    }
+    public function getimagecolorspace() {}
 
     /**
      * Returns the composite operator associated with the image.
@@ -870,9 +800,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagecompose()
-    {
-    }
+    public function getimagecompose() {}
 
     /**
      * Gets the image delay.
@@ -884,9 +812,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagedelay()
-    {
-    }
+    public function getimagedelay() {}
 
     /**
      * Gets the depth of the image.
@@ -898,9 +824,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagedepth()
-    {
-    }
+    public function getimagedepth() {}
 
     /**
      * Gets the image disposal method.
@@ -912,9 +836,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagedispose()
-    {
-    }
+    public function getimagedispose() {}
 
     /**
      * Gets the extrema for the image.
@@ -926,9 +848,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimageextrema()
-    {
-    }
+    public function getimageextrema() {}
 
     /**
      * Returns the filename of a particular image in a sequence.
@@ -940,9 +860,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagefilename()
-    {
-    }
+    public function getimagefilename() {}
 
     /**
      * Returns the format of a particular image in a sequence.
@@ -954,9 +872,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimageformat()
-    {
-    }
+    public function getimageformat() {}
 
     /**
      * Gets the image gamma.
@@ -968,9 +884,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagegamma()
-    {
-    }
+    public function getimagegamma() {}
 
     /**
      * Returns the chromaticy green primary point.
@@ -982,9 +896,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagegreenprimary()
-    {
-    }
+    public function getimagegreenprimary() {}
 
     /**
      * Returns the image height.
@@ -996,9 +908,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimageheight()
-    {
-    }
+    public function getimageheight() {}
 
     /**
      * Gets the image histogram.
@@ -1010,9 +920,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagehistogram()
-    {
-    }
+    public function getimagehistogram() {}
 
     /**
      * Returns the index of the current active image within the Gmagick object.
@@ -1024,9 +932,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimageindex()
-    {
-    }
+    public function getimageindex() {}
 
     /**
      * Gets the image interlace scheme.
@@ -1038,9 +944,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimageinterlacescheme()
-    {
-    }
+    public function getimageinterlacescheme() {}
 
     /**
      * Gets the image iterations.
@@ -1052,9 +956,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimageiterations()
-    {
-    }
+    public function getimageiterations() {}
 
     /**
      * Checks if the image has a matte channel.
@@ -1066,9 +968,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagematte()
-    {
-    }
+    public function getimagematte() {}
 
     /**
      * Returns the image matte color.
@@ -1080,9 +980,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagemattecolor()
-    {
-    }
+    public function getimagemattecolor() {}
 
     /**
      * Returns the named image profile.
@@ -1096,9 +994,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimageprofile($name)
-    {
-    }
+    public function getimageprofile($name) {}
 
     /**
      * Returns the chromaticity red primary point.
@@ -1110,9 +1006,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimageredprimary()
-    {
-    }
+    public function getimageredprimary() {}
 
     /**
      * Gets the image rendering intent.
@@ -1124,9 +1018,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagerenderingintent()
-    {
-    }
+    public function getimagerenderingintent() {}
 
     /**
      * Gets the image X and Y resolution.
@@ -1138,9 +1030,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimageresolution()
-    {
-    }
+    public function getimageresolution() {}
 
     /**
      * Gets the image scene.
@@ -1152,9 +1042,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagescene()
-    {
-    }
+    public function getimagescene() {}
 
     /**
      * Generates an SHA-256 message digest for the image pixel stream.
@@ -1166,9 +1054,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagesignature()
-    {
-    }
+    public function getimagesignature() {}
 
     /**
      * Gets the potential image type.
@@ -1180,9 +1066,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagetype()
-    {
-    }
+    public function getimagetype() {}
 
     /**
      * Gets the image units of resolution.
@@ -1192,9 +1076,7 @@ class Gmagick
      * @return int Returns the image units of resolution.
      */
     #[Pure]
-    public function getimageunits()
-    {
-    }
+    public function getimageunits() {}
 
     /**
      * Returns the chromaticity white point.
@@ -1206,9 +1088,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagewhitepoint()
-    {
-    }
+    public function getimagewhitepoint() {}
 
     /**
      * Returns the width of the image.
@@ -1220,9 +1100,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getimagewidth()
-    {
-    }
+    public function getimagewidth() {}
 
     /**
      * Returns the GraphicsMagick package name.
@@ -1234,9 +1112,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getpackagename()
-    {
-    }
+    public function getpackagename() {}
 
     /**
      * Returns the Gmagick quantum depth.
@@ -1248,9 +1124,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getquantumdepth()
-    {
-    }
+    public function getquantumdepth() {}
 
     /**
      * Returns the GraphicsMagick release date as a string.
@@ -1262,9 +1136,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getreleasedate()
-    {
-    }
+    public function getreleasedate() {}
 
     /**
      * Gets the horizontal and vertical sampling factor.
@@ -1276,9 +1148,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getsamplingfactors()
-    {
-    }
+    public function getsamplingfactors() {}
 
     /**
      * Returns the size associated with the Gmagick object.
@@ -1290,9 +1160,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getsize()
-    {
-    }
+    public function getsize() {}
 
     /**
      * Returns the GraphicsMagick API version.
@@ -1304,9 +1172,7 @@ class Gmagick
      * @throws GmagickException On error.
      */
     #[Pure]
-    public function getversion()
-    {
-    }
+    public function getversion() {}
 
     /**
      * Checks if the object has more images.
@@ -1317,9 +1183,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function hasnextimage()
-    {
-    }
+    public function hasnextimage() {}
 
     /**
      * Checks if the object has a previous image.
@@ -1330,9 +1194,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function haspreviousimage()
-    {
-    }
+    public function haspreviousimage() {}
 
     /**
      * Creates a new image that is a copy of an existing one with the image pixels "imploded" by the specified percentage.
@@ -1345,9 +1207,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function implodeimage($radius)
-    {
-    }
+    public function implodeimage($radius) {}
 
     /**
      * Adds a label to an image.
@@ -1360,9 +1220,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function labelimage($label)
-    {
-    }
+    public function labelimage($label) {}
 
     /**
      * Adjusts the levels of an image.
@@ -1386,9 +1244,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function levelimage($blackPoint, $gamma, $whitePoint, $channel = false)
-    {
-    }
+    public function levelimage($blackPoint, $gamma, $whitePoint, $channel = false) {}
 
     /**
      * Scales an image proportionally 2x.
@@ -1399,9 +1255,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function magnifyimage()
-    {
-    }
+    public function magnifyimage() {}
 
     /**
      * Replaces the colors of an image with the closest color from a reference image.
@@ -1415,9 +1269,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function mapimage($gmagick, $dither)
-    {
-    }
+    public function mapimage($gmagick, $dither) {}
 
     /**
      * Applies a digital filter that improves the quality of a noisy image.
@@ -1431,9 +1283,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function medianfilterimage($radius)
-    {
-    }
+    public function medianfilterimage($radius) {}
 
     /**
      * Scales an image proportionally to half its size.
@@ -1444,9 +1294,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function minifyimage()
-    {
-    }
+    public function minifyimage() {}
 
     /**
      * Controls the brightness, saturation, and hue.
@@ -1466,9 +1314,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function modulateimage($brightness, $saturation, $hue)
-    {
-    }
+    public function modulateimage($brightness, $saturation, $hue) {}
 
     /**
      * Simulates motion blur.
@@ -1488,9 +1334,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function motionblurimage($radius, $sigma, $angle)
-    {
-    }
+    public function motionblurimage($radius, $sigma, $angle) {}
 
     /**
      * Creates a new image.
@@ -1506,9 +1350,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function newimage($width, $height, $background, $format = null)
-    {
-    }
+    public function newimage($width, $height, $background, $format = null) {}
 
     /**
      * Moves to the next image.
@@ -1519,9 +1361,7 @@ class Gmagick
      *
      * @return bool True on success, false on failure.
      */
-    public function nextimage()
-    {
-    }
+    public function nextimage() {}
 
     /**
      * Enhances the contrast of a color image.
@@ -1534,9 +1374,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function normalizeimage($channel = null)
-    {
-    }
+    public function normalizeimage($channel = null) {}
 
     /**
      * Simulates an oil painting.
@@ -1552,9 +1390,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function oilpaintimage($radius)
-    {
-    }
+    public function oilpaintimage($radius) {}
 
     /**
      * Move to the previous image in the object.
@@ -1567,9 +1403,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function previousimage()
-    {
-    }
+    public function previousimage() {}
 
     /**
      * Adds or removes a profile from an image.
@@ -1587,9 +1421,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function profileimage($name, $profile)
-    {
-    }
+    public function profileimage($name, $profile) {}
 
     /**
      * Analyzes the colors within a reference image.
@@ -1619,9 +1451,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function quantizeimage($numColors, $colorspace, $treeDepth, $dither, $measureError)
-    {
-    }
+    public function quantizeimage($numColors, $colorspace, $treeDepth, $dither, $measureError) {}
 
     /**
      * The quantizeimages purpose.
@@ -1651,9 +1481,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function quantizeimages($numColors, $colorspace, $treeDepth, $dither, $measureError)
-    {
-    }
+    public function quantizeimages($numColors, $colorspace, $treeDepth, $dither, $measureError) {}
 
     /**
      * Returns an array representing the font metrics.
@@ -1667,9 +1495,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function queryfontmetrics($draw, $text)
-    {
-    }
+    public function queryfontmetrics($draw, $text) {}
 
     /**
      * Returns fonts supported by Gmagick.
@@ -1682,9 +1508,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function queryfonts($pattern = '*')
-    {
-    }
+    public function queryfonts($pattern = '*') {}
 
     /**
      * Returns formats supported by Gmagick.
@@ -1697,9 +1521,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function queryformats($pattern = '*')
-    {
-    }
+    public function queryformats($pattern = '*') {}
 
     /**
      * Radial blurs an image.
@@ -1713,9 +1535,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function radialblurimage($angle, $channel = Gmagick::CHANNEL_DEFAULT)
-    {
-    }
+    public function radialblurimage($angle, $channel = Gmagick::CHANNEL_DEFAULT) {}
 
     /**
      * Creates a simulated 3d button-like effect.
@@ -1735,9 +1555,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function raiseimage($width, $height, $x, $y, $raise)
-    {
-    }
+    public function raiseimage($width, $height, $x, $y, $raise) {}
 
     /**
      * Reads image from filename.
@@ -1752,9 +1570,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function read($filename)
-    {
-    }
+    public function read($filename) {}
 
     /**
      * Reads image from filename.
@@ -1767,9 +1583,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function readimage($filename)
-    {
-    }
+    public function readimage($filename) {}
 
     /**
      * Reads image from a binary string.
@@ -1783,9 +1597,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function readimageblob($imageContents, $filename = null)
-    {
-    }
+    public function readimageblob($imageContents, $filename = null) {}
 
     /**
      * Reads an image or image sequence from an open file descriptor.
@@ -1799,9 +1611,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function readimagefile($fp, $filename = null)
-    {
-    }
+    public function readimagefile($fp, $filename = null) {}
 
     /**
      * Smooths the contours of an image.
@@ -1819,9 +1629,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function reducenoiseimage($radius)
-    {
-    }
+    public function reducenoiseimage($radius) {}
 
     /**
      * Removes an image from the image list.
@@ -1832,9 +1640,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function removeimage()
-    {
-    }
+    public function removeimage() {}
 
     /**
      * Removes the named image profile and returns it.
@@ -1847,9 +1653,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function removeimageprofile($name)
-    {
-    }
+    public function removeimageprofile($name) {}
 
     /**
      * Resample image to desired resolution.
@@ -1865,9 +1669,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function resampleimage($xResolution, $yResolution, $filter, $blur)
-    {
-    }
+    public function resampleimage($xResolution, $yResolution, $filter, $blur) {}
 
     /**
      * Scales an image to the desired dimensions with a filter.
@@ -1884,9 +1686,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function resizeimage($width, $height, $filter, $blur, $fit = false)
-    {
-    }
+    public function resizeimage($width, $height, $filter, $blur, $fit = false) {}
 
     /**
      * Offsets an image as defined by x and y.
@@ -1900,9 +1700,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function rollimage($x, $y)
-    {
-    }
+    public function rollimage($x, $y) {}
 
     /**
      * Rotates an image the specified number of degrees.
@@ -1918,9 +1716,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function rotateimage($color, $degrees)
-    {
-    }
+    public function rotateimage($color, $degrees) {}
 
     /**
      * Scales the size of an image to the given dimensions.
@@ -1937,9 +1733,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function scaleimage($width, $height, $fit = false)
-    {
-    }
+    public function scaleimage($width, $height, $fit = false) {}
 
     /**
      * Separates a channel from the image and returns a grayscale image.
@@ -1956,9 +1750,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function separateimagechannel($channel)
-    {
-    }
+    public function separateimagechannel($channel) {}
 
     /**
      * Sets the object's default compression quality.
@@ -1971,10 +1763,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setCompressionQuality($quality = 75)
-    {
-
-    }
+    public function setCompressionQuality($quality = 75) {}
 
     /**
      * Sets the filename before you read or write the image.
@@ -1987,9 +1776,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setfilename($filename)
-    {
-    }
+    public function setfilename($filename) {}
 
     /**
      * Sets the image background color.
@@ -2002,9 +1789,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimagebackgroundcolor($color)
-    {
-    }
+    public function setimagebackgroundcolor($color) {}
 
     /**
      * Sets the image chromaticity blue primary point.
@@ -2018,9 +1803,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimageblueprimary($x, $y)
-    {
-    }
+    public function setimageblueprimary($x, $y) {}
 
     /**
      * Sets the image border color.
@@ -2033,9 +1816,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimagebordercolor(GmagickPixel $color)
-    {
-    }
+    public function setimagebordercolor(GmagickPixel $color) {}
 
     /**
      * Sets the depth of a particular image channel.
@@ -2050,9 +1831,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimagechanneldepth($channel, $depth)
-    {
-    }
+    public function setimagechanneldepth($channel, $depth) {}
 
     /**
      * Sets the image colorspace.
@@ -2068,9 +1847,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimagecolorspace($colorspace)
-    {
-    }
+    public function setimagecolorspace($colorspace) {}
 
     /**
      * Sets the image composite operator.
@@ -2083,9 +1860,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimagecompose($composite)
-    {
-    }
+    public function setimagecompose($composite) {}
 
     /**
      * Sets the image delay.
@@ -2098,9 +1873,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimagedelay($delay)
-    {
-    }
+    public function setimagedelay($delay) {}
 
     /**
      * Sets the image depth.
@@ -2113,9 +1886,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimagedepth($depth)
-    {
-    }
+    public function setimagedepth($depth) {}
 
     /**
      * Sets the image disposal method.
@@ -2128,9 +1899,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimagedispose($disposeType)
-    {
-    }
+    public function setimagedispose($disposeType) {}
 
     /**
      * Sets the filename of a particular image in a sequence.
@@ -2143,9 +1912,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimagefilename($filename)
-    {
-    }
+    public function setimagefilename($filename) {}
 
     /**
      * Sets the format of a particular image in a sequence.
@@ -2158,9 +1925,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimageformat($imageFormat)
-    {
-    }
+    public function setimageformat($imageFormat) {}
 
     /**
      * Sets the image gamma.
@@ -2173,9 +1938,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimagegamma($gamma)
-    {
-    }
+    public function setimagegamma($gamma) {}
 
     /**
      * Sets the image chromaticity green primary point.
@@ -2189,9 +1952,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimagegreenprimary($x, $y)
-    {
-    }
+    public function setimagegreenprimary($x, $y) {}
 
     /**
      * Sets the iterator to the position in the image list specified with the index parameter.
@@ -2204,9 +1965,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimageindex($index)
-    {
-    }
+    public function setimageindex($index) {}
 
     /**
      * Sets the interlace scheme of the image.
@@ -2219,9 +1978,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimageinterlacescheme($interlace)
-    {
-    }
+    public function setimageinterlacescheme($interlace) {}
 
     /**
      * Sets the image iterations.
@@ -2234,9 +1991,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimageiterations($iterations)
-    {
-    }
+    public function setimageiterations($iterations) {}
 
     /**
      * Adds a named profile to the Gmagick object.
@@ -2253,9 +2008,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimageprofile($name, $profile)
-    {
-    }
+    public function setimageprofile($name, $profile) {}
 
     /**
      * Sets the image chromaticity red primary point.
@@ -2269,9 +2022,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimageredprimary($x, $y)
-    {
-    }
+    public function setimageredprimary($x, $y) {}
 
     /**
      * Sets the image rendering intent.
@@ -2285,9 +2036,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimagerenderingintent($rendering_intent)
-    {
-    }
+    public function setimagerenderingintent($rendering_intent) {}
 
     /**
      * Sets the image resolution.
@@ -2301,9 +2050,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimageresolution($xResolution, $yResolution)
-    {
-    }
+    public function setimageresolution($xResolution, $yResolution) {}
 
     /**
      * Sets the image scene.
@@ -2316,9 +2063,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimagescene($scene)
-    {
-    }
+    public function setimagescene($scene) {}
 
     /**
      * Sets the image type.
@@ -2333,9 +2078,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimagetype($imgType)
-    {
-    }
+    public function setimagetype($imgType) {}
 
     /**
      * Sets the image units of resolution.
@@ -2349,9 +2092,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimageunits($resolution)
-    {
-    }
+    public function setimageunits($resolution) {}
 
     /**
      * Sets the image chromaticity white point.
@@ -2365,9 +2106,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setimagewhitepoint($x, $y)
-    {
-    }
+    public function setimagewhitepoint($x, $y) {}
 
     /**
      * Sets the image sampling factors.
@@ -2381,9 +2120,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setsamplingfactors($factors)
-    {
-    }
+    public function setsamplingfactors($factors) {}
 
     /**
      * Sets the size of the Gmagick object.
@@ -2399,9 +2136,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function setsize($columns, $rows)
-    {
-    }
+    public function setsize($columns, $rows) {}
 
     /**
      * Slides one edge of an image along the X or Y axis, creating a parallelogram.
@@ -2421,9 +2156,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function shearimage($color, $xShear, $yShear)
-    {
-    }
+    public function shearimage($color, $xShear, $yShear) {}
 
     /**
      * Applies a solarizing effect to the image.
@@ -2440,9 +2173,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function solarizeimage($threshold)
-    {
-    }
+    public function solarizeimage($threshold) {}
 
     /**
      * Randomly displaces each pixel in a block.
@@ -2457,9 +2188,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function spreadimage($radius)
-    {
-    }
+    public function spreadimage($radius) {}
 
     /**
      * Strips an image of all profiles and comments.
@@ -2470,9 +2199,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function stripimage()
-    {
-    }
+    public function stripimage() {}
 
     /**
      * Swirls the pixels about the center of the image.
@@ -2488,9 +2215,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function swirlimage($degrees)
-    {
-    }
+    public function swirlimage($degrees) {}
 
     /**
      * Changes the size of an image to the given dimensions and removes any associated profiles.
@@ -2509,9 +2234,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function thumbnailimage($width, $height, $fit = false)
-    {
-    }
+    public function thumbnailimage($width, $height, $fit = false) {}
 
     /**
      * Remove edges that are the background color from the image.
@@ -2527,9 +2250,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function trimimage($fuzz)
-    {
-    }
+    public function trimimage($fuzz) {}
 
     /**
      * Writes an image to the specified filename.
@@ -2547,9 +2268,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function write($filename)
-    {
-    }
+    public function write($filename) {}
 
     /**
      * Writes an image to the specified filename.
@@ -2566,9 +2285,7 @@ class Gmagick
      *
      * @throws GmagickException On error.
      */
-    public function writeimage($filename, $all_frames = false)
-    {
-    }
+    public function writeimage($filename, $all_frames = false) {}
 }
 
 /**
@@ -2587,9 +2304,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function annotate($x, $y, $text)
-    {
-    }
+    public function annotate($x, $y, $text) {}
 
     /**
      * Draws an arc falling within a specified bounding rectangle on the image.
@@ -2605,9 +2320,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function arc($sx, $sy, $ex, $ey, $sd, $ed)
-    {
-    }
+    public function arc($sx, $sy, $ex, $ey, $sd, $ed) {}
 
     /**
      * Draws a bezier curve through a set of points on the image.
@@ -2618,9 +2331,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function bezier(array $coordinate_array)
-    {
-    }
+    public function bezier(array $coordinate_array) {}
 
     /**
      * Draws an ellipse on the image.
@@ -2636,9 +2347,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function ellipse($ox, $oy, $rx, $ry, $start, $end)
-    {
-    }
+    public function ellipse($ox, $oy, $rx, $ry, $start, $end) {}
 
     /**
      * Returns the fill color used for drawing filled objects.
@@ -2648,9 +2357,7 @@ class GmagickDraw
      * @return GmagickPixel The GmagickPixel fill color used for drawing filled objects.
      */
     #[Pure]
-    public function getfillcolor()
-    {
-    }
+    public function getfillcolor() {}
 
     /**
      * Returns the opacity used when drawing.
@@ -2660,9 +2367,7 @@ class GmagickDraw
      * @return float The opacity used when drawing using the fill color or fill texture. Fully opaque is 1.0.
      */
     #[Pure]
-    public function getfillopacity()
-    {
-    }
+    public function getfillopacity() {}
 
     /**
      * Returns a string specifying the font used when annotating with text.
@@ -2672,9 +2377,7 @@ class GmagickDraw
      * @return string|false A string on success and false if no font is set.
      */
     #[Pure]
-    public function getfont()
-    {
-    }
+    public function getfont() {}
 
     /**
      * Returns the font pointsize used when annotating with text.
@@ -2684,9 +2387,7 @@ class GmagickDraw
      * @return float The font size associated with the current GmagickDraw object.
      */
     #[Pure]
-    public function getfontsize()
-    {
-    }
+    public function getfontsize() {}
 
     /**
      * Returns the font style used when annotating with text.
@@ -2696,9 +2397,7 @@ class GmagickDraw
      * @return int The font style constant (STYLE_) associated with the GmagickDraw object or 0 if no style is set.
      */
     #[Pure]
-    public function getfontstyle()
-    {
-    }
+    public function getfontstyle() {}
 
     /**
      * Returns the font weight used when annotating with text.
@@ -2708,9 +2407,7 @@ class GmagickDraw
      * @return int An int on success and 0 if no weight is set.
      */
     #[Pure]
-    public function getfontweight()
-    {
-    }
+    public function getfontweight() {}
 
     /**
      * Returns the color used for stroking object outlines.
@@ -2720,9 +2417,7 @@ class GmagickDraw
      * @return GmagickPixel Returns an GmagickPixel object which describes the color.
      */
     #[Pure]
-    public function getstrokecolor()
-    {
-    }
+    public function getstrokecolor() {}
 
     /**
      * Returns the opacity of stroked object outlines.
@@ -2732,9 +2427,7 @@ class GmagickDraw
      * @return float Returns a float describing the opacity.
      */
     #[Pure]
-    public function getstrokeopacity()
-    {
-    }
+    public function getstrokeopacity() {}
 
     /**
      * Returns the width of the stroke used to draw object outlines.
@@ -2744,9 +2437,7 @@ class GmagickDraw
      * @return float Returns a float describing the stroke width.
      */
     #[Pure]
-    public function getstrokewidth()
-    {
-    }
+    public function getstrokewidth() {}
 
     /**
      * Returns the decoration applied when annotating with text.
@@ -2756,9 +2447,7 @@ class GmagickDraw
      * @return int Returns one of the DECORATION_ constants and 0 if no decoration is set.
      */
     #[Pure]
-    public function gettextdecoration()
-    {
-    }
+    public function gettextdecoration() {}
 
     /**
      * Returns the code set used for text annotations.
@@ -2768,9 +2457,7 @@ class GmagickDraw
      * @return string|false Returns a string specifying the code set or false if text encoding is not set.
      */
     #[Pure]
-    public function gettextencoding()
-    {
-    }
+    public function gettextencoding() {}
 
     /**
      * Draws a line on the image using the current stroke color, stroke opacity, and stroke width.
@@ -2784,9 +2471,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function line($sx, $sy, $ex, $ey)
-    {
-    }
+    public function line($sx, $sy, $ex, $ey) {}
 
     /**
      * Draws a point using the current stroke color and stroke thickness at the specified coordinates.
@@ -2798,9 +2483,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function point($x, $y)
-    {
-    }
+    public function point($x, $y) {}
 
     /**
      * Draws a polygon using the current stroke, stroke width, and fill color or texture, using the specified array of coordinates.
@@ -2811,9 +2494,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function polygon(array $coordinates)
-    {
-    }
+    public function polygon(array $coordinates) {}
 
     /**
      * Draws a polyline using the current stroke, stroke width, and fill color or texture, using the specified array of coordinates.
@@ -2824,9 +2505,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function polyline(array $coordinate_array)
-    {
-    }
+    public function polyline(array $coordinate_array) {}
 
     /**
      * Draws a rectangle given two coordinates and using the current stroke, stroke width, and fill settings.
@@ -2840,9 +2519,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function rectangle($x1, $y1, $x2, $y2)
-    {
-    }
+    public function rectangle($x1, $y1, $x2, $y2) {}
 
     /**
      * Applies the specified rotation to the current coordinate space.
@@ -2853,9 +2530,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function rotate($degrees)
-    {
-    }
+    public function rotate($degrees) {}
 
     /**
      * Draws a rounded rectangle given two coordinates, x and y corner radiuses and using the current stroke, stroke width, and fill settings.
@@ -2871,9 +2546,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function roundrectangle($x1, $y1, $x2, $y2, $rx, $ry)
-    {
-    }
+    public function roundrectangle($x1, $y1, $x2, $y2, $rx, $ry) {}
 
     /**
      * Adjusts the scaling factor to apply in the horizontal and vertical directions to the current coordinate space.
@@ -2885,9 +2558,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function scale($x, $y)
-    {
-    }
+    public function scale($x, $y) {}
 
     /**
      * Sets the fill color to be used for drawing filled objects.
@@ -2898,9 +2569,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function setfillcolor($color)
-    {
-    }
+    public function setfillcolor($color) {}
 
     /**
      * Sets the opacity to use when drawing using the fill color or fill texture. Setting it to 1.0 will make fill full opaque.
@@ -2911,9 +2580,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function setfillopacity($fill_opacity)
-    {
-    }
+    public function setfillopacity($fill_opacity) {}
 
     /**
      * Sets the fully-specified font to use when annotating with text.
@@ -2924,9 +2591,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function setfont($font)
-    {
-    }
+    public function setfont($font) {}
 
     /**
      * Sets the font pointsize to use when annotating with text.
@@ -2937,9 +2602,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function setfontsize($pointsize)
-    {
-    }
+    public function setfontsize($pointsize) {}
 
     /**
      * Sets the font style to use when annotating with text.
@@ -2952,9 +2615,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function setfontstyle($style)
-    {
-    }
+    public function setfontstyle($style) {}
 
     /**
      * Sets the font weight to use when annotating with text.
@@ -2965,9 +2626,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function setfontweight($weight)
-    {
-    }
+    public function setfontweight($weight) {}
 
     /**
      * Sets the color used for stroking object outlines.
@@ -2978,9 +2637,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function setstrokecolor($color)
-    {
-    }
+    public function setstrokecolor($color) {}
 
     /**
      * Specifies the opacity of stroked object outlines.
@@ -2991,9 +2648,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function setstrokeopacity($stroke_opacity)
-    {
-    }
+    public function setstrokeopacity($stroke_opacity) {}
 
     /**
      * Sets the width of the stroke used to draw object outlines.
@@ -3004,9 +2659,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function setstrokewidth($width)
-    {
-    }
+    public function setstrokewidth($width) {}
 
     /**
      * Specifies a decoration to be applied when annotating with text.
@@ -3018,9 +2671,7 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function settextdecoration($decoration)
-    {
-    }
+    public function settextdecoration($decoration) {}
 
     /**
      * Specifies the code set to use for text annotations.
@@ -3035,14 +2686,10 @@ class GmagickDraw
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
-    public function settextencoding($encoding)
-    {
-    }
+    public function settextencoding($encoding) {}
 }
 
-class GmagickException extends \Exception
-{
-}
+class GmagickException extends \Exception {}
 
 /**
  * @link https://php.net/manual/en/class.gmagickpixel.php
@@ -3058,9 +2705,7 @@ class GmagickPixel
      *
      * @param string $color [optional] The optional color string to use as the initial value of this object.
      */
-    public function __construct($color = null)
-    {
-    }
+    public function __construct($color = null) {}
 
     /**
      * Returns the color described by the GmagickPixel object.
@@ -3077,9 +2722,7 @@ class GmagickPixel
      * @throws GmagickPixelException On error.
      */
     #[Pure]
-    public function getcolor($as_array = null, $normalize_array = null)
-    {
-    }
+    public function getcolor($as_array = null, $normalize_array = null) {}
 
     /**
      * Returns the color count associated with this color.
@@ -3091,9 +2734,7 @@ class GmagickPixel
      * @throws GmagickPixelException On failure.
      */
     #[Pure]
-    public function getcolorcount()
-    {
-    }
+    public function getcolorcount() {}
 
     /**
      * Gets the normalized value of the provided color channel.
@@ -3107,9 +2748,7 @@ class GmagickPixel
      * @throws GmagickPixelException On error.
      */
     #[Pure]
-    public function getcolorvalue($color)
-    {
-    }
+    public function getcolorvalue($color) {}
 
     /**
      * Sets the color.
@@ -3123,9 +2762,7 @@ class GmagickPixel
      *
      * @return GmagickPixel The GmagickPixel object on success.
      */
-    public function setcolor($color)
-    {
-    }
+    public function setcolor($color) {}
 
     /**
      * Sets the normalized value of one of the channels.
@@ -3140,11 +2777,7 @@ class GmagickPixel
      *
      * @return GmagickPixel The GmagickPixel object on success.
      */
-    public function setcolorvalue($color, $value)
-    {
-    }
+    public function setcolorvalue($color, $value) {}
 }
 
-class GmagickPixelException extends \Exception
-{
-}
+class GmagickPixelException extends \Exception {}

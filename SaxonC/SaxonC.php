@@ -1,11 +1,12 @@
 <?php
+
 namespace Saxon;
 
 /**
  * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api
  */
-class SaxonProcessor {
-
+class SaxonProcessor
+{
     /**
      * Constructor
      *
@@ -45,7 +46,6 @@ class SaxonProcessor {
      * @return void
      */
     public function setcwd($cwd) {}
-
 
     /**
      * Set the resources directory of where Saxon can locate data folder
@@ -119,8 +119,8 @@ class SaxonProcessor {
 /**
  * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api/saxon_c_php_xsltprocessor
  */
-class XsltProcessor {
-
+class XsltProcessor
+{
     /**
      * Perform a one shot transformation. The result is stored in the supplied outputfile name.
      *
@@ -612,8 +612,8 @@ class Xslt30Processor
 /**
  * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api/saxon_c_php_xqueryprocessor
  */
-class XQueryProcessor {
-
+class XQueryProcessor
+{
     /**
      * Compile and evaluate the query. Result returned as an XdmValue object. If there are failures then a null is returned
      *
@@ -758,8 +758,8 @@ class XQueryProcessor {
 /**
  * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api/saxon_c_php_xpathprocessor
  */
-class XPathProcessor {
-
+class XPathProcessor
+{
     /**
      * Set the context item from a {@link XdmItem}
      *
@@ -883,8 +883,8 @@ class XPathProcessor {
 /**
  * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api/saxon_c_php_schemavalidator
  */
-class SchemaValidator {
-
+class SchemaValidator
+{
     /**
      * The instance document to be validated. Supplied as an Xdm Node
      *
@@ -1006,8 +1006,8 @@ class SchemaValidator {
 /**
  * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api/saxon_c_php_xdmvalue
  */
-class XdmValue {
-
+class XdmValue
+{
     /**
      * Get the first item in the sequence
      *
@@ -1041,8 +1041,8 @@ class XdmValue {
 /**
  * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api/saxon_c_php_xdmitem
  */
-class XdmItem extends XdmValue {
-
+class XdmItem extends XdmValue
+{
     /**
      * Get the string value of the item. For a node, this gets the string value of the node. For an atomic value, it has the same effect as casting the value to a string. In all cases the result is the same as applying the XPath string() function.
      *
@@ -1082,8 +1082,8 @@ class XdmItem extends XdmValue {
 /**
  * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api/saxon_c_php_xdmnode
  */
-class XdmNode extends XdmItem {
-
+class XdmNode extends XdmItem
+{
     /**
      * Get the string value of the item. For a node, this gets the string value of the node.
      *
@@ -1161,8 +1161,8 @@ class XdmNode extends XdmItem {
 /**
  * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api/saxon_c_php_xdmatomicvalue
  */
-class XdmAtomicValue extends XdmItem {
-
+class XdmAtomicValue extends XdmItem
+{
     /**
      * Get the string value of the item. For an atomic value, it has the same effect as casting the value to a string. In all cases the result is the same as applying the XPath string() function.
      *

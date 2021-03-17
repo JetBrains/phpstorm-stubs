@@ -13,8 +13,7 @@ class PHPProperty extends BasePHPElement
     public string $access = '';
     public bool $is_static = false;
 
-    public function __construct(public ?string $parentName = null){
-    }
+    public function __construct(public ?string $parentName = null) {}
 
     /**
      * @param ReflectionProperty $reflectionObject
@@ -58,7 +57,6 @@ class PHPProperty extends BasePHPElement
             $access = 'public';
         }
         $this->access = $access;
-
 
         $this->type = $node->type->name ?? '';
 

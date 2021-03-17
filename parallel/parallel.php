@@ -12,7 +12,7 @@ use Closure;
  * @throws Runtime\Error\Bootstrap if previously called for this process.
  * @throws Runtime\Error\Bootstrap if called after @see run().
  */
-function bootstrap(string $file) : void{}
+function bootstrap(string $file): void {}
 
 /**
  * @see Runtime::run() for more details
@@ -35,11 +35,11 @@ function bootstrap(string $file) : void{}
  * @throws Runtime\Error\IllegalParameter if task accepts or argv contains illegal variables.
  * @throws Runtime\Error\IllegalReturn if task returns illegally.
  */
-function run(Closure $task, array $argv = null) : ?Future{}
+function run(Closure $task, array $argv = null): ?Future {}
 
 #ifdef ZEND_DEBUG
 /**
  * @return int
  */
-function count() : int{}
+function count(): int {}
 #endif

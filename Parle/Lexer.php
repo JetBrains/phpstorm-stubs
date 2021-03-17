@@ -1,4 +1,6 @@
-<?php namespace Parle;
+<?php
+
+namespace Parle;
 
 use JetBrains\PhpStorm\Immutable;
 
@@ -16,22 +18,22 @@ use JetBrains\PhpStorm\Immutable;
 class Lexer
 {
     /* Constants */
-    const ICASE = 1 ;
-    const DOT_NOT_LF = 2 ;
-    const DOT_NOT_CRLF = 4 ;
-    const SKIP_WS = 8 ;
-    const MATCH_ZERO_LEN = 16 ;
+    public const ICASE = 1;
+    public const DOT_NOT_LF = 2;
+    public const DOT_NOT_CRLF = 4;
+    public const SKIP_WS = 8;
+    public const MATCH_ZERO_LEN = 16;
 
     /* Properties */
     /**
      * @var bool Start of input flag.
      */
-    public $bol = false ;
+    public $bol = false;
 
     /**
      * @var int Lexer flags.
      */
-    public $flags = 0 ;
+    public $flags = 0;
 
     /**
      * @var int Current lexer state, readonly.
@@ -59,7 +61,7 @@ class Lexer
      * @link https://php.net/manual/en/parle-lexer.advance.php
      * @return void
      */
-    public function advance() : void {}
+    public function advance(): void {}
 
     /**
      * Finalize the lexer rule set
@@ -72,7 +74,7 @@ class Lexer
      * @link https://php.net/manual/en/parle-lexer.build.php
      * @return void
      */
-    public function build() : void {}
+    public function build(): void {}
 
     /**
      * Define token callback
@@ -84,7 +86,7 @@ class Lexer
      * @param callable $callback Callable to be invoked. The callable doesn't receive any arguments and its return value is ignored.
      * @return void
      */
-    public function callout(int $id , callable $callback ) : void {}
+    public function callout(int $id, callable $callback): void {}
 
     /**
      * Consume the data for lexing.
@@ -93,7 +95,7 @@ class Lexer
      * @param string $data Data to be lexed.
      * @return void
      */
-    public function consume(string $data) : void {}
+    public function consume(string $data): void {}
 
     /**
      * Dump the current state machine to stdout.
@@ -101,14 +103,14 @@ class Lexer
      * @link https://php.net/manual/en/parle-lexer.dump.php
      * @return void
      */
-    public function dump() : void {}
+    public function dump(): void {}
 
     /**
      * Retrieve the current token.
      *
      * @return Token
      */
-    public function getToken() : Token {}
+    public function getToken(): Token {}
 
     /**
      * Insert a regex macro, that can be later used as a shortcut and included in other regular expressions.
@@ -118,7 +120,7 @@ class Lexer
      * @param string $regex Regular expression.
      * @return void
      */
-    public function insertMacro(string $name, string $regex) : void {}
+    public function insertMacro(string $name, string $regex): void {}
 
     /**
      * Push a pattern for lexeme recognition.
@@ -127,12 +129,12 @@ class Lexer
      * @param int $id Token id. If the lexer instance is meant to be used standalone, this can be an arbitrary number. If the lexer instance is going to be passed to the parser, it has to be an id returned by Parle\Parser::tokenid().
      * @return void
      */
-    public function push(string $regex, int $id) : void {}
+    public function push(string $regex, int $id): void {}
 
     /**
      * Reset lexing optionally supplying the desired offset.
      *
      * @param int $pos Reset position.
      */
-    public function reset(int $pos) : void {}
+    public function reset(int $pos): void {}
 }

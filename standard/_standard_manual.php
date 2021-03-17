@@ -9,7 +9,7 @@
  * @link https://php.net/manual/en/function.halt-compiler.php
  * @return void
  */
-function PS_UNRESERVE_PREFIX___halt_compiler(){}
+function PS_UNRESERVE_PREFIX___halt_compiler() {}
 
 /**
  * (PHP 5.1)<br/>
@@ -17,8 +17,7 @@ function PS_UNRESERVE_PREFIX___halt_compiler(){}
  * @link https://php.net/manual/en/function.halt-compiler.php
  * @return void
  */
-define("__COMPILER_HALT_OFFSET__",0);
-
+define("__COMPILER_HALT_OFFSET__", 0);
 
 /**
  * Convert hexadecimal string to its binary representation.
@@ -32,13 +31,11 @@ define("__COMPILER_HALT_OFFSET__",0);
  * @see unpack()
  * @since 5.4
  */
-function hex2bin(string $string): string|false
-{};
+function hex2bin(string $string): string|false {};
 
 /**
  * Get or Set the HTTP response code
  * @param int $response_code [optional] The optional response_code will set the response code.
  * @return int|bool The current response code. By default the return value is int(200).
  */
-function http_response_code(int $response_code): int|bool
-{}
+function http_response_code(int $response_code): int|bool {}

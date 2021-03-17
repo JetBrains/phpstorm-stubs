@@ -47,7 +47,7 @@ define('ZEND_ACC_FETCH', PHP_INT_MAX);
 /**
  * The bitmask of ZEND_ACC_PUBLIC | ZEND_ACC_PROTECTED | ZEND_ACC_PRIVATE
  */
-define('ZEND_ACC_PPP_MASK', ZEND_ACC_PUBLIC | ZEND_ACC_PROTECTED | ZEND_ACC_PRIVATE);
+define('ZEND_ACC_PPP_MASK', ZEND_ACC_PUBLIC|ZEND_ACC_PROTECTED|ZEND_ACC_PRIVATE);
 
 /**
  * Adds non-existent method
@@ -60,7 +60,7 @@ define('ZEND_ACC_PPP_MASK', ZEND_ACC_PUBLIC | ZEND_ACC_PROTECTED | ZEND_ACC_PRIV
  * @return bool TRUE on success or FALSE on failure
  * @throws RuntimeException if the method to add already exists
  */
-function uopz_add_function (string $class, string $function, Closure $handler, int $flags = ZEND_ACC_PUBLIC, bool $all = true): bool {}
+function uopz_add_function(string $class, string $function, Closure $handler, int $flags = ZEND_ACC_PUBLIC, bool $all = true): bool {}
 
 /**
  * Allows control over disabled exit opcode
@@ -69,7 +69,7 @@ function uopz_add_function (string $class, string $function, Closure $handler, i
  * @return void
  * @since 5.4
  */
-function uopz_allow_exit (bool $allow): void {}
+function uopz_allow_exit(bool $allow): void {}
 
 /**
  * Deletes previously added method
@@ -80,7 +80,7 @@ function uopz_allow_exit (bool $allow): void {}
  * @return bool TRUE on success or FALSE on failure
  * @throws RuntimeException if the method to delete has not been added by uopz_add_function()
  */
-function uopz_del_function (string $class, string $function, bool $all = true): bool {}
+function uopz_del_function(string $class, string $function, bool $all = true): bool {}
 
 /**
  * Extend a class at runtime
@@ -90,7 +90,7 @@ function uopz_del_function (string $class, string $function, bool $all = true): 
  * @return bool TRUE on success or FALSE on failure
  * @since 5.4
  */
-function uopz_extend (string $class, string $parent): bool {}
+function uopz_extend(string $class, string $parent): bool {}
 
 /**
  * Get or set flags on function or class
@@ -101,7 +101,7 @@ function uopz_extend (string $class, string $parent): bool {}
  * @return int If setting, returns old flags, else returns flags
  * @since 5.4
  */
-function uopz_flags (string $class, string $function, int $flags): int {}
+function uopz_flags(string $class, string $function, int $flags): int {}
 
 /**
  * Retrieve the last set exit status
@@ -109,7 +109,7 @@ function uopz_flags (string $class, string $function, int $flags): int {}
  * @return int|null The last exit status, or NULL if exit() has not been called
  * @since 5.4
  */
-function uopz_get_exit_status (): ?int {}
+function uopz_get_exit_status(): ?int {}
 
 /**
  * Gets previously set hook on method
@@ -118,7 +118,7 @@ function uopz_get_exit_status (): ?int {}
  * @param string $function The name of the method
  * @return Closure|null The previously set hook, or NULL if no hook has been set
  */
-function uopz_get_hook (string $class, string $function): ?Closure {}
+function uopz_get_hook(string $class, string $function): ?Closure {}
 
 /**
  * Get the current mock for a class
@@ -127,7 +127,7 @@ function uopz_get_hook (string $class, string $function): ?Closure {}
  * @return string|object|null Either a string containing the name of the mock, or an object, or NULL if no mock has been set
  * @since 5.4
  */
-function uopz_get_mock (string $class) {}
+function uopz_get_mock(string $class) {}
 
 /**
  * Gets the value of a static class property, if class is given, or the value of an instance property, if instance is given
@@ -136,7 +136,7 @@ function uopz_get_mock (string $class) {}
  * @param string $property The name of the property
  * @return mixed The value of the class or instance property, or NULL if the property is not defined
  */
-function uopz_get_property ($class, string $property) {}
+function uopz_get_property($class, string $property) {}
 
 /**
  * Gets a previous set return value for a function
@@ -146,7 +146,7 @@ function uopz_get_property ($class, string $property) {}
  * @return mixed
  * @since 5.4
  */
-function uopz_get_return (string $class, string $function) {}
+function uopz_get_return(string $class, string $function) {}
 
 /**
  * Gets the static variables from function or method scope
@@ -155,7 +155,7 @@ function uopz_get_return (string $class, string $function) {}
  * @param string $function The name of the method
  * @return array|null An associative array of variable names mapped to their current values on success, or NULL if the method does not exist
  */
-function uopz_get_static (string $class, string $function): ?array {}
+function uopz_get_static(string $class, string $function): ?array {}
 
 /**
  * Implements an interface at runtime
@@ -165,7 +165,7 @@ function uopz_get_static (string $class, string $function): ?array {}
  * @return bool
  * @since 5.4
  */
-function uopz_implement (string $class, string $interface): bool {}
+function uopz_implement(string $class, string $interface): bool {}
 
 /**
  * Redefine a constant
@@ -176,7 +176,7 @@ function uopz_implement (string $class, string $interface): bool {}
  * @return bool
  * @since 5.4
  */
-function uopz_redefine (string $class, string $constant, $value): bool {}
+function uopz_redefine(string $class, string $constant, $value): bool {}
 
 /**
  * Sets hook to execute when entering a function or method
@@ -186,7 +186,7 @@ function uopz_redefine (string $class, string $constant, $value): bool {}
  * @param Closure $hook A closure to execute when entering the method
  * @return bool TRUE on success or FALSE on failure
  */
-function uopz_set_hook (string $class, string $function, Closure $hook): bool {}
+function uopz_set_hook(string $class, string $function, Closure $hook): bool {}
 
 /**
  * Use mock instead of class for new objects
@@ -196,7 +196,7 @@ function uopz_set_hook (string $class, string $function, Closure $hook): bool {}
  * @return void
  * @since 7.0
  */
-function uopz_set_mock (string $class, $mock): void {}
+function uopz_set_mock(string $class, $mock): void {}
 
 /**
  * Sets the value of an existing static class property, if class is given, or the value of an existing instance property, if instance is given
@@ -206,7 +206,7 @@ function uopz_set_mock (string $class, $mock): void {}
  * @param mixed $value The value to assign to the property
  * @return void
  */
-function uopz_set_property ($class, string $property, $value): void {}
+function uopz_set_property($class, string $property, $value): void {}
 
 /**
  * Provide a return value for an existing function
@@ -218,7 +218,7 @@ function uopz_set_property ($class, string $property, $value): void {}
  * @return bool
  * @since 7.0
  */
-function uopz_set_return (string $class, string $function, $value, $execute = false): bool {}
+function uopz_set_return(string $class, string $function, $value, $execute = false): bool {}
 
 /**
  * Sets the static variables in function or method scope
@@ -228,7 +228,7 @@ function uopz_set_return (string $class, string $function, $value, $execute = fa
  * @param array $static The associative array of variable names mapped to their values
  * @return void
  */
-function uopz_set_static (string $class, string $function , array $static): void {}
+function uopz_set_static(string $class, string $function, array $static): void {}
 
 /**
  * Undefine a constant
@@ -238,7 +238,7 @@ function uopz_set_static (string $class, string $function , array $static): void
  * @return bool
  * @since 5.4
  */
-function uopz_undefine (string $class, string $constant): bool {}
+function uopz_undefine(string $class, string $constant): bool {}
 
 /**
  * Removes previously set hook on function or method
@@ -247,7 +247,7 @@ function uopz_undefine (string $class, string $constant): bool {}
  * @param string $function The name of the method
  * @return bool TRUE on success or FALSE on failure
  */
-function uopz_unset_hook (string $class, string $function): bool {}
+function uopz_unset_hook(string $class, string $function): bool {}
 
 /**
  * Unset previously set mock
@@ -256,7 +256,7 @@ function uopz_unset_hook (string $class, string $function): bool {}
  * @return void
  * @since 7.0
  */
-function uopz_unset_mock (string $class): void {}
+function uopz_unset_mock(string $class): void {}
 
 /**
  * Unsets a previously set return value for a function
@@ -266,7 +266,6 @@ function uopz_unset_mock (string $class): void {}
  * @return bool
  * @since 7.0
  */
-function uopz_unset_return (string $class, string $function): bool {}
+function uopz_unset_return(string $class, string $function): bool {}
 
 // End of uopz v5.0.2
-?>

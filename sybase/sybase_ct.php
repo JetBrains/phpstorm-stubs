@@ -10,7 +10,7 @@
  * @return resource|false a positive Sybase link identifier on success, or false
  * @removed 7.0
  */
-function sybase_connect ($servername = null, $username = null, $password = null, $charset = null, $appname = null) {}
+function sybase_connect($servername = null, $username = null, $password = null, $charset = null, $appname = null) {}
 
 /**
  * Open persistent Sybase connection
@@ -23,7 +23,7 @@ function sybase_connect ($servername = null, $username = null, $password = null,
  * @return resource|false a positive Sybase persistent link identifier on success
  * @removed 7.0
  */
-function sybase_pconnect ($servername = null, $username = null, $password = null, $charset = null, $appname = null) {}
+function sybase_pconnect($servername = null, $username = null, $password = null, $charset = null, $appname = null) {}
 
 /**
  * Closes a Sybase connection
@@ -32,7 +32,7 @@ function sybase_pconnect ($servername = null, $username = null, $password = null
  * @return bool
  * @removed 7.0
  */
-function sybase_close ($link_identifier = null) {}
+function sybase_close($link_identifier = null) {}
 
 /**
  * Selects a Sybase database
@@ -42,7 +42,7 @@ function sybase_close ($link_identifier = null) {}
  * @return bool
  * @removed 7.0
  */
-function sybase_select_db ($database_name, $link_identifier = null) {}
+function sybase_select_db($database_name, $link_identifier = null) {}
 
 /**
  * Sends a Sybase query
@@ -52,7 +52,7 @@ function sybase_select_db ($database_name, $link_identifier = null) {}
  * @return mixed|false a positive Sybase result identifier on success, false on error,
  * @removed 7.0
  */
-function sybase_query ($query, $link_identifier = null) {}
+function sybase_query($query, $link_identifier = null) {}
 
 /**
  * Send a Sybase query and do not block
@@ -63,7 +63,7 @@ function sybase_query ($query, $link_identifier = null) {}
  * @return resource|false a positive Sybase result identifier on success, or false on
  * @removed 7.0
  */
-function sybase_unbuffered_query ($query, $link_identifier, $store_result = null) {}
+function sybase_unbuffered_query($query, $link_identifier, $store_result = null) {}
 
 /**
  * Frees result memory
@@ -72,7 +72,7 @@ function sybase_unbuffered_query ($query, $link_identifier, $store_result = null
  * @return bool
  * @removed 7.0
  */
-function sybase_free_result ($result) {}
+function sybase_free_result($result) {}
 
 /**
  * Returns the last message from the server
@@ -80,7 +80,7 @@ function sybase_free_result ($result) {}
  * @return string the message as a string.
  * @removed 7.0
  */
-function sybase_get_last_message () {}
+function sybase_get_last_message() {}
 
 /**
  * Get number of rows in a result set
@@ -89,7 +89,7 @@ function sybase_get_last_message () {}
  * @return int the number of rows as an integer.
  * @removed 7.0
  */
-function sybase_num_rows ($result) {}
+function sybase_num_rows($result) {}
 
 /**
  * Gets the number of fields in a result set
@@ -98,7 +98,7 @@ function sybase_num_rows ($result) {}
  * @return int the number of fields as an integer.
  * @removed 7.0
  */
-function sybase_num_fields ($result) {}
+function sybase_num_fields($result) {}
 
 /**
  * Get a result row as an enumerated array
@@ -107,7 +107,7 @@ function sybase_num_fields ($result) {}
  * @return array|false an array that corresponds to the fetched row, or false if there
  * @removed 7.0
  */
-function sybase_fetch_row ($result) {}
+function sybase_fetch_row($result) {}
 
 /**
  * Fetch row as array
@@ -116,7 +116,7 @@ function sybase_fetch_row ($result) {}
  * @return array|false an array that corresponds to the fetched row, or false if there
  * @removed 7.0
  */
-function sybase_fetch_array ($result) {}
+function sybase_fetch_array($result) {}
 
 /**
  * Fetch a result row as an associative array
@@ -125,7 +125,7 @@ function sybase_fetch_array ($result) {}
  * @return array|false an array that corresponds to the fetched row, or false if there
  * @removed 7.0
  */
-function sybase_fetch_assoc ($result) {}
+function sybase_fetch_assoc($result) {}
 
 /**
  * Fetch a row as an object
@@ -135,7 +135,7 @@ function sybase_fetch_assoc ($result) {}
  * @return object an object with properties that correspond to the fetched row, or
  * @removed 7.0
  */
-function sybase_fetch_object ($result, $object = null) {}
+function sybase_fetch_object($result, $object = null) {}
 
 /**
  * Moves internal row pointer
@@ -145,7 +145,7 @@ function sybase_fetch_object ($result, $object = null) {}
  * @return bool
  * @removed 7.0
  */
-function sybase_data_seek ($result_identifier, $row_number) {}
+function sybase_data_seek($result_identifier, $row_number) {}
 
 /**
  * Get field information from a result
@@ -155,7 +155,7 @@ function sybase_data_seek ($result_identifier, $row_number) {}
  * @return object an object containing field information.
  * @removed 7.0
  */
-function sybase_fetch_field ($result, $field_offset = null) {}
+function sybase_fetch_field($result, $field_offset = null) {}
 
 /**
  * Sets field offset
@@ -165,7 +165,7 @@ function sybase_fetch_field ($result, $field_offset = null) {}
  * @return bool
  * @removed 7.0
  */
-function sybase_field_seek ($result, $field_offset) {}
+function sybase_field_seek($result, $field_offset) {}
 
 /**
  * Get result data
@@ -176,7 +176,7 @@ function sybase_field_seek ($result, $field_offset) {}
  * @return string
  * @removed 7.0
  */
-function sybase_result ($result, $row, $field) {}
+function sybase_result($result, $row, $field) {}
 
 /**
  * Gets number of affected rows in last query
@@ -185,7 +185,7 @@ function sybase_result ($result, $row, $field) {}
  * @return int the number of affected rows, as an integer.
  * @removed 7.0
  */
-function sybase_affected_rows ($link_identifier = null) {}
+function sybase_affected_rows($link_identifier = null) {}
 
 /**
  * Sets minimum client severity
@@ -194,7 +194,7 @@ function sybase_affected_rows ($link_identifier = null) {}
  * @return void
  * @removed 7.0
  */
-function sybase_min_client_severity ($severity) {}
+function sybase_min_client_severity($severity) {}
 
 /**
  * Sets minimum server severity
@@ -203,7 +203,7 @@ function sybase_min_client_severity ($severity) {}
  * @return void
  * @removed 7.0
  */
-function sybase_min_server_severity ($severity) {}
+function sybase_min_server_severity($severity) {}
 
 /**
  * Sets the handler called when a server message is raised
@@ -213,7 +213,7 @@ function sybase_min_server_severity ($severity) {}
  * @return bool
  * @removed 7.0
  */
-function sybase_set_message_handler ($handler, $connection = null) {}
+function sybase_set_message_handler($handler, $connection = null) {}
 
 /**
  * Sets the deadlock retry count
@@ -222,4 +222,4 @@ function sybase_set_message_handler ($handler, $connection = null) {}
  * @return void
  * @removed 7.0
  */
-function sybase_deadlock_retry_count ($retry_count) {}
+function sybase_deadlock_retry_count($retry_count) {}

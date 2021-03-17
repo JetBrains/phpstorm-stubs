@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Mosquitto;
 
 /**
@@ -9,25 +8,25 @@ namespace Mosquitto;
 class Client
 {
     /** @const LOG_DEBUG Identifies a debug-level log message */
-    const LOG_DEBUG = 16;
+    public const LOG_DEBUG = 16;
 
     /** @const LOG_INFO Identifies an info-level log message */
-    const LOG_INFO = 1;
+    public const LOG_INFO = 1;
 
     /** @const LOG_NOTICE Identifies a notice-level log message */
-    const LOG_NOTICE = 2;
+    public const LOG_NOTICE = 2;
 
     /** @const LOG_WARNING Identifies a warning-level log message */
-    const LOG_WARNING = 4;
+    public const LOG_WARNING = 4;
 
     /** @const LOG_ERR Identifies an error-level log message */
-    const LOG_ERR = 8;
+    public const LOG_ERR = 8;
 
     /** @const SSL_VERIFY_NONE Used with `setTlsInsecure`. Do not verify the identity of the server, thus making the connection insecure. */
-    const SSL_VERIFY_NONE = 0;
+    public const SSL_VERIFY_NONE = 0;
 
     /** @const SSL_VERIFY_PEER Used with `setTlsInsecure`. Verify the identity of the server. */
-    const SSL_VERIFY_PEER = 1;
+    public const SSL_VERIFY_PEER = 1;
 
     /**
      * Construct a new Client instance.
@@ -35,9 +34,7 @@ class Client
      * @param string|null $id The client ID. If omitted or null, one will be generated at random.
      * @param bool $cleanSession Set to true to instruct the broker to clean all messages and subscriptions on disconnect. Must be true if the $id parameter is null.
      */
-    public function __construct($id = null, $cleanSession = true)
-    {
-    }
+    public function __construct($id = null, $cleanSession = true) {}
 
     /**
      * Set the username and password to use on connecting to the broker. Must be called before `connect`.
@@ -45,9 +42,7 @@ class Client
      * @param string $username Username to supply to the broker
      * @param string $password Password to supply to the broker
      */
-    public function setCredentials($username, $password)
-    {
-    }
+    public function setCredentials($username, $password) {}
 
     /**
      * Configure the client for certificate based SSL/TLS support. Must be called before connect. Cannot be used in
@@ -64,9 +59,7 @@ class Client
      * @param string|null $password The password for the keyfile, if it is encrypted. If null, the password will be asked for on the command line.
      * @return int|null
      */
-    public function setTlsCertificates($caPath, $certFile = null, $keyFile = null, $password = null)
-    {
-    }
+    public function setTlsCertificates($caPath, $certFile = null, $keyFile = null, $password = null) {}
 
     /**
      * Configure verification of the server hostname in the server certificate. If `$value` is `true`, it is impossible
@@ -75,9 +68,7 @@ class Client
      *
      * @param bool $value If set to false, the default, certificate hostname checking is performed. If set to `true`, no hostname checking is performed and the connection is insecure.
      */
-    public function setTlsInsecure($value)
-    {
-    }
+    public function setTlsInsecure($value) {}
 
     /**
      * Set advanced SSL/TLS options. Must be called before `connect`.
@@ -87,9 +78,7 @@ class Client
      * @param string|null $ciphers A string describing the ciphers available for use. See the `openssl ciphers` tool for more information. If `null`, the default set will be used.
      * @return int
      */
-    public function setTlsOptions($certReqs, $tlsVersion = null, $ciphers = null)
-    {
-    }
+    public function setTlsOptions($certReqs, $tlsVersion = null, $ciphers = null) {}
 
     /**
      * Configure the client for pre-shared-key based TLS support. Must be called before `connect`. Cannot be used in
@@ -100,9 +89,7 @@ class Client
      * @param string|null $ciphers Optional. A string describing the ciphers available for use. See the `openssl ciphers` tool for more information. If `null`, the default set will be used.
      * @return int
      */
-    public function setTlsPSK($psk, $identity, $ciphers = null)
-    {
-    }
+    public function setTlsPSK($psk, $identity, $ciphers = null) {}
 
     /**
      * Set the client “last will and testament”, which will be sent on an unclean disconnection from the broker.
@@ -113,16 +100,12 @@ class Client
      * @param int $qos Optional. Default 0. Integer 0, 1, or 2 indicating the Quality of Service to be used.
      * @param bool $retain Optional. Default false. If true, the message will be retained.
      */
-    public function setWill($topic, $payload, $qos = 0, $retain = false)
-    {
-    }
+    public function setWill($topic, $payload, $qos = 0, $retain = false) {}
 
     /**
      * Remove a previously-set will. No parameters.
      */
-    public function clearWill()
-    {
-    }
+    public function clearWill() {}
 
     /**
      * Control the behaviour of the client when it has unexpectedly disconnected in Client::loopForever().
@@ -133,9 +116,7 @@ class Client
      * @param int $exponentialDelay Set max delay between successive reconnection attempts when exponential backoff is enabled
      * @param bool $exponentialBackoff Pass `true` to enable exponential backoff
      */
-    public function setReconnectDelay($reconnectDelay, $exponentialDelay = 0, $exponentialBackoff = false)
-    {
-    }
+    public function setReconnectDelay($reconnectDelay, $exponentialDelay = 0, $exponentialBackoff = false) {}
 
     /**
      * Connect to an MQTT broker.
@@ -146,16 +127,12 @@ class Client
      * @param string|null $interface Optional. The address or hostname of a local interface to bind to for this connection.
      * @return int
      */
-    public function connect($host, $port = 1883, $keepalive = 60, $interface = null)
-    {
-    }
+    public function connect($host, $port = 1883, $keepalive = 60, $interface = null) {}
 
     /**
      * Disconnect from the broker. No parameters.
      */
-    public function disconnect()
-    {
-    }
+    public function disconnect() {}
 
     /**
      * Set the connect callback. This is called when the broker sends a CONNACK message in response to a connection.
@@ -172,9 +149,7 @@ class Client
      *
      * @param callable $callback
      */
-    public function onConnect($callback)
-    {
-    }
+    public function onConnect($callback) {}
 
     /**
      * Set the disconnect callback. This is called when the broker has received the DISCONNECT command and has
@@ -189,9 +164,7 @@ class Client
      *
      * @param callable $callback
      */
-    public function onDisconnect($callback)
-    {
-    }
+    public function onDisconnect($callback) {}
 
     /**
      * Set the logging callback.
@@ -208,9 +181,7 @@ class Client
      *
      * @param callable $callback
      */
-    public function onLog($callback)
-    {
-    }
+    public function onLog($callback) {}
 
     /**
      * Set the subscribe callback. This is called when the broker responds to a subscription request.
@@ -220,9 +191,7 @@ class Client
      *
      * @param callable $callback
      */
-    public function onSubscribe($callback)
-    {
-    }
+    public function onSubscribe($callback) {}
 
     /**
      * Set the unsubscribe callback. This is called when the broker responds to a unsubscribe request.
@@ -232,9 +201,7 @@ class Client
      *
      * @param callable $callback
      */
-    public function onUnsubscribe($callback)
-    {
-    }
+    public function onUnsubscribe($callback) {}
 
     /**
      * Set the message callback. This is called when a message is received from the broker.
@@ -244,9 +211,7 @@ class Client
      *
      * @param callable $callback
      */
-    public function onMessage($callback)
-    {
-    }
+    public function onMessage($callback) {}
 
     /**
      * Set the publish callback. This is called when a message is published by the client itself.
@@ -259,9 +224,7 @@ class Client
      *
      * @param callable $callback
      */
-    public function onPublish($callback)
-    {
-    }
+    public function onPublish($callback) {}
 
     /**
      * Set the number of QoS 1 and 2 messages that can be “in flight” at one time. An in flight message is part way
@@ -272,9 +235,7 @@ class Client
      *
      * @param int $maxInFlightMessages
      */
-    public function setMaxInFlightMessages($maxInFlightMessages)
-    {
-    }
+    public function setMaxInFlightMessages($maxInFlightMessages) {}
 
     /**
      * Set the number of seconds to wait before retrying messages. This applies to publishing messages with QoS > 0.
@@ -282,9 +243,7 @@ class Client
      *
      * @param int $messageRetryPeriod The retry period
      */
-    public function setMessageRetry($messageRetryPeriod)
-    {
-    }
+    public function setMessageRetry($messageRetryPeriod) {}
 
     /**
      * Publish a message on a given topic.
@@ -296,9 +255,7 @@ class Client
      * @param bool $retain If true, retain this message
      * @return int
      */
-    public function publish($topic, $payload, $qos = 0, $retain = false)
-    {
-    }
+    public function publish($topic, $payload, $qos = 0, $retain = false) {}
 
     /**
      * Subscribe to a topic.
@@ -308,9 +265,7 @@ class Client
      * @param int $qos
      * @return int
      */
-    public function subscribe($topic, $qos)
-    {
-    }
+    public function subscribe($topic, $qos) {}
 
     /**
      * Unsubscribe from a topic.
@@ -320,9 +275,7 @@ class Client
      * @param int $qos
      * @return int
      */
-    public function unsubscribe($topic, $qos)
-    {
-    }
+    public function unsubscribe($topic, $qos) {}
 
     /**
      * The main network loop for the client. You must call this frequently in order to keep communications between
@@ -333,9 +286,7 @@ class Client
      *
      * @param int $timeout Optional. Number of milliseconds to wait for network activity. Pass 0 for instant timeout.
      */
-    public function loop($timeout = 1000)
-    {
-    }
+    public function loop($timeout = 1000) {}
 
     /**
      * Call loop() in an infinite blocking loop. Callbacks will be called as required. This will handle reconnecting
@@ -345,17 +296,13 @@ class Client
      *
      * @param int $timeout Optional. Number of milliseconds to wait for network activity. Pass 0 for instant timeout.
      */
-    public function loopForever($timeout = 1000)
-    {
-    }
+    public function loopForever($timeout = 1000) {}
 
     /**
      * Exit the `loopForever` event loop without disconnecting. You will need to re-enter the loop afterwards
      * in order to maintain the connection.
      */
-    public function exitLoop()
-    {
-    }
+    public function exitLoop() {}
 }
 
 /**
@@ -363,20 +310,19 @@ class Client
  */
 class Message
 {
-
-    /** @var string $topic */
+    /** @var string */
     public $topic;
 
-    /** @var string $payload */
+    /** @var string */
     public $payload;
 
-    /** @var int $payload */
+    /** @var int */
     public $mid;
 
-    /** @var int $qos */
+    /** @var int */
     public $qos;
 
-    /** @var bool $payload */
+    /** @var bool */
     public $retain;
 
     /**

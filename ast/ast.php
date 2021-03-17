@@ -1,9 +1,9 @@
 <?php
 
 namespace ast {
-
 /** Metadata entry for a single AST kind, as returned by ast\get_metadata(). */
-class Metadata {
+class Metadata
+{
     /** @var string[] List of supported flags. The flags are given as names of constants, such as "ast\flags\TYPE_STRING". */
     public $flags;
     /** @var bool Whether the flags are exclusive or combinable. Exclusive flags should be checked using ===, while combinable flags should be checked using &. */
@@ -15,7 +15,8 @@ class Metadata {
 }
 
 /** This class describes a single node in a PHP AST. */
-class Node {
+class Node
+{
     /** @var array Child nodes (may be empty) */
     public $children;
 
@@ -47,7 +48,7 @@ class Node {
  * @param int $kind AST_* constant value defining the kind of an AST node
  * @return string String representation of AST kind value
  */
-function get_kind_name(int $kind) : string {}
+function get_kind_name(int $kind): string {}
 /**
  * Provides metadata for the AST kinds.
  *
@@ -55,19 +56,19 @@ function get_kind_name(int $kind) : string {}
  *
  * @return Metadata[] Metadata about AST kinds
  */
-function get_metadata() : array {}
+function get_metadata(): array {}
 /**
  * Returns currently supported AST versions.
  *
  * @param bool $exclude_deprecated Whether to exclude deprecated versions
  * @return int[] Array of supported AST versions
  */
-function get_supported_versions(bool $exclude_deprecated = false) : array {}
+function get_supported_versions(bool $exclude_deprecated = false): array {}
 /**
  * @param int $kind AST_* constant value defining the kind of an AST node
  * @return bool Returns true if AST kind uses flags
  */
-function kind_uses_flags(int $kind) : bool {}
+function kind_uses_flags(int $kind): bool {}
 /**
  * Parses code string and returns an AST root node.
  *
@@ -78,7 +79,7 @@ function kind_uses_flags(int $kind) : bool {}
  *
  * @see https://github.com/nikic/php-ast for version information
  */
-function parse_code(string $code, int $version, string $filename = 'string code') : Node {}
+function parse_code(string $code, int $version, string $filename = 'string code'): Node {}
 /**
  * Parses code from a file and returns an AST root node.
  *
@@ -88,7 +89,7 @@ function parse_code(string $code, int $version, string $filename = 'string code'
  *
  * @see https://github.com/nikic/php-ast for version information
  */
-function parse_file(string $filename, int $version) : Node {}
+function parse_file(string $filename, int $version): Node {}
 /** Numerically indexed children of an argument list of a function/method invocation */
 const AST_ARG_LIST = 128;
 /** Numerically indexed children of an array literal. */
@@ -299,11 +300,9 @@ const AST_WHILE = 533;
 const AST_YIELD = 529;
 /** An expression of the form `yield from expr` (children: expr) */
 const AST_YIELD_FROM = 275;
-
 }
 
 namespace ast\flags {
-
 /** Marks an `ast\AST_ARRAY_ELEM` as a reference */
 const ARRAY_ELEM_REF = 1;
 /** Marks an `ast\AST_ARRAY` as using the `list(...)` syntax */
@@ -480,5 +479,4 @@ const USE_CONST = 4;
 const USE_FUNCTION = 2;
 /** Marks an `ast\AST_USE` or `ast\AST_GROUP_USE` (namespace use statement) as being `use name;` */
 const USE_NORMAL = 1;
-
 }

@@ -5,71 +5,72 @@ use JetBrains\PhpStorm\ArrayShape;
 /**
  * @since 5.5
  */
-interface DateTimeInterface {
+interface DateTimeInterface
+{
     /**
      * @since 7.2
      */
-    const ATOM = 'Y-m-d\TH:i:sP';
+    public const ATOM = 'Y-m-d\TH:i:sP';
 
     /**
      * @since 7.2
      */
-    const COOKIE = 'l, d-M-Y H:i:s T';
+    public const COOKIE = 'l, d-M-Y H:i:s T';
 
     /**
      * @since 7.2
      */
-    const ISO8601 = 'Y-m-d\TH:i:sO';
+    public const ISO8601 = 'Y-m-d\TH:i:sO';
 
     /**
      * @since 7.2
      */
-    const RFC822 = 'D, d M y H:i:s O';
+    public const RFC822 = 'D, d M y H:i:s O';
 
     /**
      * @since 7.2
      */
-    const RFC850 = 'l, d-M-y H:i:s T';
+    public const RFC850 = 'l, d-M-y H:i:s T';
 
     /**
      * @since 7.2
      */
-    const RFC1036 = 'D, d M y H:i:s O';
+    public const RFC1036 = 'D, d M y H:i:s O';
 
     /**
      * @since 7.2
      */
-    const RFC1123 = 'D, d M Y H:i:s O';
+    public const RFC1123 = 'D, d M Y H:i:s O';
 
     /**
      * @since 7.2
      */
-    const RFC2822 = 'D, d M Y H:i:s O';
+    public const RFC2822 = 'D, d M Y H:i:s O';
 
     /**
      * @since 7.2
      */
-    const RFC3339 = 'Y-m-d\TH:i:sP';
+    public const RFC3339 = 'Y-m-d\TH:i:sP';
 
     /**
      * @since 7.2
      */
-    const RFC3339_EXTENDED = 'Y-m-d\TH:i:s.vP';
+    public const RFC3339_EXTENDED = 'Y-m-d\TH:i:s.vP';
 
     /**
      * @since 7.2
      */
-    const RFC7231 = 'D, d M Y H:i:s \G\M\T';
+    public const RFC7231 = 'D, d M Y H:i:s \G\M\T';
 
     /**
      * @since 7.2
      */
-    const RSS = 'D, d M Y H:i:s O';
+    public const RSS = 'D, d M Y H:i:s O';
 
     /**
      * @since 7.2
      */
-    const W3C = 'Y-m-d\TH:i:sP';
+    public const W3C = 'Y-m-d\TH:i:sP';
 
     /* Methods */
     /**
@@ -81,7 +82,6 @@ interface DateTimeInterface {
      * @return DateInterval
      * The https://secure.php.net/manual/en/class.dateinterval.php DateInterval} object representing the
      * difference between the two dates or <b>FALSE</b> on failure.
-     *
      */
     public function diff($targetObject, $absolute = false);
 
@@ -94,7 +94,6 @@ interface DateTimeInterface {
      * </p>
      * @return string
      * Returns the formatted date string on success or <b>FALSE</b> on failure.
-     *
      */
     public function format($format);
 
@@ -104,7 +103,6 @@ interface DateTimeInterface {
      * @return int
      * Returns the timezone offset in seconds from UTC on success
      * or <b>FALSE</b> on failure.
-     *
      */
     public function getOffset();
 
@@ -138,7 +136,8 @@ interface DateTimeInterface {
 /**
  * @since 5.5
  */
-class DateTimeImmutable implements DateTimeInterface {
+class DateTimeImmutable implements DateTimeInterface
+{
     /* Methods */
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -168,7 +167,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * </p> <p></p></blockquote>
      * @throws Exception Emits Exception in case of an error.
      */
-    public function __construct($datetime = "now", DateTimeZone $timezone = null) { }
+    public function __construct($datetime = "now", DateTimeZone $timezone = null) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -176,7 +175,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param DateInterval $interval
      * @return static
      */
-    public function add(DateInterval $interval) { }
+    public function add(DateInterval $interval) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -187,7 +186,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param null|DateTimeZone $timezone [optional]
      * @return DateTimeImmutable|false
      */
-    public static function createFromFormat($format, $datetime, DateTimeZone $timezone = null) { }
+    public static function createFromFormat($format, $datetime, DateTimeZone $timezone = null) {}
 
     /**
      * (PHP 5 &gt;=5.6.0)<br/>
@@ -196,7 +195,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param DateTime $object The mutable DateTime object that you want to convert to an immutable version. This object is not modified, but instead a new DateTimeImmutable object is created containing the same date time and timezone information.
      * @return DateTimeImmutable returns a new DateTimeImmutable instance.
      */
-    public static function createFromMutable(DateTime $object) { }
+    public static function createFromMutable(DateTime $object) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -210,7 +209,7 @@ class DateTimeImmutable implements DateTimeInterface {
         "error_count" => "int",
         "errors" => "string[]",
     ])]
-    public static function getLastErrors() { }
+    public static function getLastErrors() {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -221,7 +220,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @return static
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
-    public function modify($modifier) { }
+    public function modify($modifier) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -231,7 +230,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @return DateTimeImmutable
      * Returns a new instance of a {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object.
      */
-    public static function __set_state(array $array) { }
+    public static function __set_state(array $array) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -242,9 +241,8 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param int $day <p>Day of the date.</p>
      * @return static|false
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
-     *
      */
-    public function setDate($year, $month, $day) { }
+    public function setDate($year, $month, $day) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -256,7 +254,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @return static|false
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
-    public function setISODate($year, $week, $dayOfWeek = 1) { }
+    public function setISODate($year, $week, $dayOfWeek = 1) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -269,7 +267,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @return static|false
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
-    public function setTime($hour, $minute, $second = 0, $microsecond = 0) { }
+    public function setTime($hour, $minute, $second = 0, $microsecond = 0) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -279,7 +277,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @return static|false
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
-    public function setTimestamp($timestamp) { }
+    public function setTimestamp($timestamp) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -292,7 +290,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @return static|false
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
-    public function setTimezone(DateTimeZone $timezone) { }
+    public function setTimezone(DateTimeZone $timezone) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -304,7 +302,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @return static|false
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
-    public function sub(DateInterval $interval) { }
+    public function sub(DateInterval $interval) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -316,7 +314,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * The {@link https://secure.php.net/manual/en/class.dateinterval.php DateInterval} object representing the
      * difference between the two dates or <b>FALSE</b> on failure.
      */
-    public function diff($targetObject, $absolute = false) { }
+    public function diff($targetObject, $absolute = false) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -327,9 +325,8 @@ class DateTimeImmutable implements DateTimeInterface {
      * </p>
      * @return string
      * Returns the formatted date string on success or <b>FALSE</b> on failure.
-     *
      */
-    public function format($format) { }
+    public function format($format) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -337,9 +334,8 @@ class DateTimeImmutable implements DateTimeInterface {
      * @return int
      * Returns the timezone offset in seconds from UTC on success
      * or <b>FALSE</b> on failure.
-     *
      */
-    public function getOffset() { }
+    public function getOffset() {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -347,7 +343,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @return int
      * Returns the Unix timestamp representing the date.
      */
-    public function getTimestamp() { }
+    public function getTimestamp() {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -357,7 +353,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * Returns a {@link https://secure.php.net/manual/en/class.datetimezone.php DateTimeZone} object on success
      * or <b>FALSE</b> on failure.
      */
-    public function getTimezone() { }
+    public function getTimezone() {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -365,86 +361,86 @@ class DateTimeImmutable implements DateTimeInterface {
      * @link https://secure.php.net/manual/en/datetime.wakeup.php
      * @return void Initializes a DateTime object.
      */
-    public function __wakeup() { }
+    public function __wakeup() {}
 
     /**
      * @param DateTimeInterface $object
      * @return DateTimeImmutable
      * @since 8.0
      */
-    public static function createFromInterface(DateTimeInterface $object){}
+    public static function createFromInterface(DateTimeInterface $object) {}
 }
-
 
 /**
  * Representation of date and time.
  * @link https://php.net/manual/en/class.datetime.php
  */
-class DateTime implements DateTimeInterface {
+class DateTime implements DateTimeInterface
+{
     /**
      * @removed 7.2
      */
-    const ATOM = 'Y-m-d\TH:i:sP';
+    public const ATOM = 'Y-m-d\TH:i:sP';
 
     /**
      * @removed 7.2
      */
-    const COOKIE = 'l, d-M-Y H:i:s T';
+    public const COOKIE = 'l, d-M-Y H:i:s T';
 
     /**
      * @removed 7.2
      */
-    const ISO8601 = 'Y-m-d\TH:i:sO';
+    public const ISO8601 = 'Y-m-d\TH:i:sO';
 
     /**
      * @removed 7.2
      */
-    const RFC822 = 'D, d M y H:i:s O';
+    public const RFC822 = 'D, d M y H:i:s O';
 
     /**
      * @removed 7.2
      */
-    const RFC850 = 'l, d-M-y H:i:s T';
+    public const RFC850 = 'l, d-M-y H:i:s T';
 
     /**
      * @removed 7.2
      */
-    const RFC1036 = 'D, d M y H:i:s O';
+    public const RFC1036 = 'D, d M y H:i:s O';
 
     /**
      * @removed 7.2
      */
-    const RFC1123 = 'D, d M Y H:i:s O';
+    public const RFC1123 = 'D, d M Y H:i:s O';
 
     /**
      * @removed 7.2
      */
-    const RFC2822 = 'D, d M Y H:i:s O';
+    public const RFC2822 = 'D, d M Y H:i:s O';
 
     /**
      * @removed 7.2
      */
-    const RFC3339 = 'Y-m-d\TH:i:sP';
+    public const RFC3339 = 'Y-m-d\TH:i:sP';
 
     /**
      * @removed 7.2
      */
-    const RFC3339_EXTENDED = 'Y-m-d\TH:i:s.vP';
+    public const RFC3339_EXTENDED = 'Y-m-d\TH:i:s.vP';
 
     /**
      * @removed 7.2
      */
-    const RFC7231 = 'D, d M Y H:i:s \G\M\T';
+    public const RFC7231 = 'D, d M Y H:i:s \G\M\T';
 
     /**
      * @removed 7.2
      */
-    const RSS = 'D, d M Y H:i:s O';
+    public const RSS = 'D, d M Y H:i:s O';
 
     /**
      * @removed 7.2
      */
-    const W3C = 'Y-m-d\TH:i:sP';
+    public const W3C = 'Y-m-d\TH:i:sP';
 
     /**
      * (PHP 5 &gt;=5.2.0)<br/>
@@ -474,14 +470,13 @@ class DateTime implements DateTimeInterface {
      * </p> <p></p></blockquote>
      * @throws Exception Emits Exception in case of an error.
      */
-    public function __construct ($datetime = 'now', DateTimeZone $timezone = null) {}
+    public function __construct($datetime = 'now', DateTimeZone $timezone = null) {}
 
     /**
      * @return void
      * @link https://php.net/manual/en/datetime.wakeup.php
      */
-    public function __wakeup () {}
-
+    public function __wakeup() {}
 
     /**
      * Returns date formatted according to given format.
@@ -489,7 +484,7 @@ class DateTime implements DateTimeInterface {
      * @return string
      * @link https://php.net/manual/en/datetime.format.php
      */
-    public function format ($format) {}
+    public function format($format) {}
 
     /**
      * Alter the timestamp of a DateTime object by incrementing or decrementing
@@ -498,7 +493,7 @@ class DateTime implements DateTimeInterface {
      * @return static|false Returns the DateTime object for method chaining or FALSE on failure.
      * @link https://php.net/manual/en/datetime.modify.php
      */
-    public function modify ($modifier) {}
+    public function modify($modifier) {}
 
     /**
      * Adds an amount of days, months, years, hours, minutes and seconds to a DateTime object
@@ -506,8 +501,7 @@ class DateTime implements DateTimeInterface {
      * @return static
      * @link https://php.net/manual/en/datetime.add.php
      */
-    public function add (DateInterval $interval) {}
-
+    public function add(DateInterval $interval) {}
 
     /**
      * @param DateTimeImmutable $object
@@ -522,14 +516,14 @@ class DateTime implements DateTimeInterface {
      * @return static
      * @link https://php.net/manual/en/datetime.sub.php
      */
-    public function sub (DateInterval $interval) {}
+    public function sub(DateInterval $interval) {}
 
     /**
      * Get the TimeZone associated with the DateTime
      * @return DateTimeZone
      * @link https://php.net/manual/en/datetime.gettimezone.php
      */
-    public function getTimezone () {}
+    public function getTimezone() {}
 
     /**
      * Set the TimeZone associated with the DateTime
@@ -537,14 +531,14 @@ class DateTime implements DateTimeInterface {
      * @return static
      * @link https://php.net/manual/en/datetime.settimezone.php
      */
-    public function setTimezone ($timezone) {}
+    public function setTimezone($timezone) {}
 
     /**
      * Returns the timezone offset
      * @return int
      * @link https://php.net/manual/en/datetime.getoffset.php
      */
-    public function getOffset () {}
+    public function getOffset() {}
 
     /**
      * Sets the current time of the DateTime object to a different time.
@@ -555,7 +549,7 @@ class DateTime implements DateTimeInterface {
      * @return static|false
      * @link https://php.net/manual/en/datetime.settime.php
      */
-    public function setTime ($hour, $minute, $second = 0, $microsecond = 0) {}
+    public function setTime($hour, $minute, $second = 0, $microsecond = 0) {}
 
     /**
      * Sets the current date of the DateTime object to a different date.
@@ -565,7 +559,7 @@ class DateTime implements DateTimeInterface {
      * @return static
      * @link https://php.net/manual/en/datetime.setdate.php
      */
-    public function setDate ($year, $month, $day) {}
+    public function setDate($year, $month, $day) {}
 
     /**
      * Set a date according to the ISO 8601 standard - using weeks and day offsets rather than specific dates.
@@ -575,7 +569,7 @@ class DateTime implements DateTimeInterface {
      * @return static
      * @link https://php.net/manual/en/datetime.setisodate.php
      */
-    public function setISODate ($year, $week, $dayOfWeek = 1) {}
+    public function setISODate($year, $week, $dayOfWeek = 1) {}
 
     /**
      * Sets the date and time based on a Unix timestamp.
@@ -583,14 +577,14 @@ class DateTime implements DateTimeInterface {
      * @return static
      * @link https://php.net/manual/en/datetime.settimestamp.php
      */
-    public function setTimestamp ($timestamp) {}
+    public function setTimestamp($timestamp) {}
 
     /**
      * Gets the Unix timestamp.
      * @return int
      * @link https://php.net/manual/en/datetime.gettimestamp.php
      */
-    public function getTimestamp () {}
+    public function getTimestamp() {}
 
     /**
      * Returns the difference between two DateTime objects represented as a DateInterval.
@@ -599,8 +593,7 @@ class DateTime implements DateTimeInterface {
      * @return DateInterval|false The DateInterval object representing the difference between the two dates or FALSE on failure.
      * @link https://php.net/manual/en/datetime.diff.php
      */
-    public function diff ($targetObject, $absolute = false) {}
-
+    public function diff($targetObject, $absolute = false) {}
 
     /**
      * Parse a string into a new DateTime object according to the specified format
@@ -610,7 +603,7 @@ class DateTime implements DateTimeInterface {
      * @return DateTime|false
      * @link https://php.net/manual/en/datetime.createfromformat.php
      */
-    public static function createFromFormat ($format, $datetime, DateTimeZone $timezone = null) {}
+    public static function createFromFormat($format, $datetime, DateTimeZone $timezone = null) {}
 
     /**
      * Returns an array of warnings and errors found while parsing a date/time string
@@ -623,7 +616,7 @@ class DateTime implements DateTimeInterface {
         "error_count" => "int",
         "errors" => "string[]",
     ])]
-    public static function getLastErrors () {}
+    public static function getLastErrors() {}
 
     /**
      * The __set_state handler
@@ -631,56 +624,56 @@ class DateTime implements DateTimeInterface {
      * @param array $array <p>Initialization array.</p>
      * @return DateTime <p>Returns a new instance of a DateTime object.</p>
      */
-    public static function __set_state ($array) {}
+    public static function __set_state($array) {}
 
     /**
      * @param DateTimeInterface $object
      * @return DateTime
      * @since 8.0
      */
-    public static function createFromInterface(DateTimeInterface $object){}
+    public static function createFromInterface(DateTimeInterface $object) {}
 }
 
 /**
  * Representation of time zone
  * @link https://php.net/manual/en/class.datetimezone.php
  */
-class DateTimeZone {
-    const AFRICA = 1;
-    const AMERICA = 2;
-    const ANTARCTICA = 4;
-    const ARCTIC = 8;
-    const ASIA = 16;
-    const ATLANTIC = 32;
-    const AUSTRALIA = 64;
-    const EUROPE = 128;
-    const INDIAN = 256;
-    const PACIFIC = 512;
-    const UTC = 1024;
-    const ALL = 2047;
-    const ALL_WITH_BC = 4095;
-    const PER_COUNTRY = 4096;
-
+class DateTimeZone
+{
+    public const AFRICA = 1;
+    public const AMERICA = 2;
+    public const ANTARCTICA = 4;
+    public const ARCTIC = 8;
+    public const ASIA = 16;
+    public const ATLANTIC = 32;
+    public const AUSTRALIA = 64;
+    public const EUROPE = 128;
+    public const INDIAN = 256;
+    public const PACIFIC = 512;
+    public const UTC = 1024;
+    public const ALL = 2047;
+    public const ALL_WITH_BC = 4095;
+    public const PER_COUNTRY = 4096;
 
     /**
      * @param string $timezone
      * @link https://php.net/manual/en/datetimezone.construct.php
      */
-    public function __construct ($timezone) {}
+    public function __construct($timezone) {}
 
     /**
      * Returns the name of the timezone
      * @return string
      * @link https://php.net/manual/en/datetimezone.getname.php
      */
-    public function getName () {}
+    public function getName() {}
 
     /**
      * Returns location information for a timezone
      * @return array|false
      * @link https://php.net/manual/en/datetimezone.getlocation.php
      */
-    public function getLocation () {}
+    public function getLocation() {}
 
     /**
      * Returns the timezone offset from GMT
@@ -688,7 +681,7 @@ class DateTimeZone {
      * @return int|false
      * @link https://php.net/manual/en/datetimezone.getoffset.php
      */
-    public function getOffset (DateTimeInterface $datetime) {}
+    public function getOffset(DateTimeInterface $datetime) {}
 
     /**
      * Returns all transitions for the timezone
@@ -697,15 +690,14 @@ class DateTimeZone {
      * @return array|false
      * @link https://php.net/manual/en/datetimezone.gettransitions.php
      */
-    public function getTransitions ($timestampBegin=null, $timestampEnd=null) {}
-
+    public function getTransitions($timestampBegin = null, $timestampEnd = null) {}
 
     /**
      * Returns associative array containing dst, offset and the timezone name
      * @return array|false
      * @link https://php.net/manual/en/datetimezone.listabbreviations.php
      */
-    public static function listAbbreviations () {}
+    public static function listAbbreviations() {}
 
     /**
      * Returns a numerically indexed array with all timezone identifiers
@@ -714,13 +706,12 @@ class DateTimeZone {
      * @return array|false
      * @link https://php.net/manual/en/datetimezone.listidentifiers.php
      */
-    public static function listIdentifiers ($timezoneGroup = DateTimeZone::ALL, $countryCode = null) {}
+    public static function listIdentifiers($timezoneGroup = DateTimeZone::ALL, $countryCode = null) {}
 
     /**
      * @link https://php.net/manual/en/datetime.wakeup.php
      */
-    public function __wakeup(){}
-
+    public function __wakeup() {}
 
     public static function __set_state($an_array) {}
 }
@@ -731,7 +722,8 @@ class DateTimeZone {
  * that DateTime's constructor supports.
  * @link https://php.net/manual/en/class.dateinterval.php
  */
-class DateInterval {
+class DateInterval
+{
     /**
      * Number of years
      * @var int
@@ -787,13 +779,12 @@ class DateInterval {
      */
     public $days;
 
-
     /**
      * @param string $duration
      * @link https://php.net/manual/en/dateinterval.construct.php
      * @throws \Exception when the $duration cannot be parsed as an interval.
      */
-    public function __construct ($duration) {}
+    public function __construct($duration) {}
 
     /**
      * Formats the interval
@@ -801,7 +792,7 @@ class DateInterval {
      * @return string
      * @link https://php.net/manual/en/dateinterval.format.php
      */
-    public function format ($format) {}
+    public function format($format) {}
 
     /**
      * Sets up a DateInterval from the relative parts of the string
@@ -809,7 +800,7 @@ class DateInterval {
      * @return DateInterval
      * @link https://php.net/manual/en/dateinterval.createfromdatestring.php
      */
-    public static function createFromDateString ($datetime) {}
+    public static function createFromDateString($datetime) {}
 
     public function __wakeup() {}
 
@@ -820,8 +811,9 @@ class DateInterval {
  * Representation of date period.
  * @link https://php.net/manual/en/class.dateperiod.php
  */
-class DatePeriod implements IteratorAggregate {
-    const EXCLUDE_START_DATE = 1;
+class DatePeriod implements IteratorAggregate
+{
+    public const EXCLUDE_START_DATE = 1;
 
     /**
      * Start date
@@ -866,7 +858,7 @@ class DatePeriod implements IteratorAggregate {
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link https://php.net/manual/en/dateperiod.construct.php
      */
-    public function __construct (DateTimeInterface $start, DateInterval $interval, DateTimeInterface $end, $options = 0) {}
+    public function __construct(DateTimeInterface $start, DateInterval $interval, DateTimeInterface $end, $options = 0) {}
 
     /**
      * @param DateTimeInterface $start
@@ -875,14 +867,14 @@ class DatePeriod implements IteratorAggregate {
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link https://php.net/manual/en/dateperiod.construct.php
      */
-    public function __construct (DateTimeInterface $start, DateInterval $interval, $recurrences, $options = 0) {}
+    public function __construct(DateTimeInterface $start, DateInterval $interval, $recurrences, $options = 0) {}
 
     /**
      * @param string $isostr String containing the ISO interval.
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link https://php.net/manual/en/dateperiod.construct.php
      */
-    public function __construct ($isostr, $options = 0) {}
+    public function __construct($isostr, $options = 0) {}
 
     /**
      * Gets the interval
@@ -890,7 +882,7 @@ class DatePeriod implements IteratorAggregate {
      * @link https://php.net/manual/en/dateperiod.getdateinterval.php
      * @since 5.6.5
      */
-    public function getDateInterval () {}
+    public function getDateInterval() {}
 
     /**
      * Gets the end date
@@ -898,7 +890,7 @@ class DatePeriod implements IteratorAggregate {
      * @link https://php.net/manual/en/dateperiod.getenddate.php
      * @since 5.6.5
      */
-    public function getEndDate () {}
+    public function getEndDate() {}
 
     /**
      * Gets the start date
@@ -906,9 +898,9 @@ class DatePeriod implements IteratorAggregate {
      * @link https://php.net/manual/en/dateperiod.getstartdate.php
      * @since 5.6.5
      */
-    public function getStartDate () {}
+    public function getStartDate() {}
 
-    public static function __set_state ($array){}
+    public static function __set_state($array) {}
 
     public function __wakeup() {}
 
@@ -919,11 +911,11 @@ class DatePeriod implements IteratorAggregate {
      * @since 7.2.17
      * @since 7.3.4
      */
-    public function getRecurrences () {}
+    public function getRecurrences() {}
 
     /**
      * @return DateTimeInterface[]
      * @since 8.0
      */
-    public function getIterator(){}
+    public function getIterator() {}
 }

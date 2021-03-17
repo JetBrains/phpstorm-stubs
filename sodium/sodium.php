@@ -73,7 +73,7 @@ const SODIUM_CRYPTO_PWHASH_OPSLIMIT_MODERATE = 3;
 const SODIUM_CRYPTO_PWHASH_MEMLIMIT_MODERATE = 268435456;
 const SODIUM_CRYPTO_PWHASH_OPSLIMIT_SENSITIVE = 4;
 const SODIUM_CRYPTO_PWHASH_MEMLIMIT_SENSITIVE = 1073741824;
-const SODIUM_LIBRARY_VERSION="1.0.18";
+const SODIUM_LIBRARY_VERSION = "1.0.18";
 const SODIUM_LIBRARY_MAJOR_VERSION = 10;
 const SODIUM_LIBRARY_MINOR_VERSION = 3;
 const SODIUM_CRYPTO_KDF_BYTES_MIN = 16;
@@ -216,7 +216,7 @@ function sodium_crypto_auth_keygen(): string {}
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_kx_keypair (): string {}
+function sodium_crypto_kx_keypair(): string {}
 
 /**
  * @link https://php.net/manual/en/function.sodium-crypto-kx-publickey.php
@@ -226,7 +226,7 @@ function sodium_crypto_kx_keypair (): string {}
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_kx_publickey (string $key_pair): string {}
+function sodium_crypto_kx_publickey(string $key_pair): string {}
 
 /**
  * @link https://php.net/manual/en/function.sodium-crypto-kx-secretkey.php
@@ -235,7 +235,7 @@ function sodium_crypto_kx_publickey (string $key_pair): string {}
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_kx_secretkey (string $key_pair): string {}
+function sodium_crypto_kx_secretkey(string $key_pair): string {}
 
 /**
  * @link https://php.net/manual/en/function.sodium-crypto-kx-seed-keypair.php
@@ -245,7 +245,7 @@ function sodium_crypto_kx_secretkey (string $key_pair): string {}
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_kx_seed_keypair (string $seed): string {}
+function sodium_crypto_kx_seed_keypair(string $seed): string {}
 
 /**
  * @link https://php.net/manual/en/function.sodium-crypto-kx-server-session-keys.php
@@ -256,7 +256,7 @@ function sodium_crypto_kx_seed_keypair (string $seed): string {}
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_kx_server_session_keys (string $server_key_pair , string $client_key): array {}
+function sodium_crypto_kx_server_session_keys(string $server_key_pair, string $client_key): array {}
 
 /**
  * Get random bytes for key
@@ -266,7 +266,6 @@ function sodium_crypto_kx_server_session_keys (string $server_key_pair , string 
  */
 function sodium_crypto_generichash_keygen(): string {}
 
-
 /**
  * @link https://php.net/manual/en/function.sodium-crypto-kx-client-session-keys.php
  * @param string $client_key_pair
@@ -275,7 +274,7 @@ function sodium_crypto_generichash_keygen(): string {}
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_kx_client_session_keys (string $client_key_pair, string $server_key): array {}
+function sodium_crypto_kx_client_session_keys(string $client_key_pair, string $server_key): array {}
 
 /**
  * @link https://www.php.net/manual/en/function.sodium-crypto-kdf-derive-from-key.php
@@ -287,7 +286,7 @@ function sodium_crypto_kx_client_session_keys (string $client_key_pair, string $
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_kdf_derive_from_key (int $subkey_length, int $subkey_id, string $context, string $key): string {}
+function sodium_crypto_kdf_derive_from_key(int $subkey_length, int $subkey_id, string $context, string $key): string {}
 
 /**
  * Get random bytes for key
@@ -322,7 +321,7 @@ function sodium_crypto_stream_keygen(): string {}
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_pad (string $string, int $length): string {}
+function sodium_pad(string $string, int $length): string {}
 
 /**
  * Remove padding data
@@ -333,9 +332,7 @@ function sodium_pad (string $string, int $length): string {}
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_unpad (string $string, int $block_size): string {}
-
-
+function sodium_unpad(string $string, int $block_size): string {}
 
 /**
  * Secret-key message verification
@@ -714,7 +711,6 @@ function sodium_crypto_sign_ed25519_sk_to_curve25519(string $secret_key): string
  */
 function sodium_crypto_sign_keypair(): string {}
 
-
 /**
  * Create an Ed25519 keypair from an Ed25519 secret key + Ed25519 public key
  * @link https://www.php.net/manual/en/function.sodium-crypto-sign-keypair-from-secretkey-and-publickey.php
@@ -1030,7 +1026,7 @@ function sodium_crypto_aead_xchacha20poly1305_ietf_encrypt(string $message, stri
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-keygen.php
  */
-function sodium_crypto_aead_xchacha20poly1305_ietf_keygen():string {}
+function sodium_crypto_aead_xchacha20poly1305_ietf_keygen(): string {}
 
 /**
  * @param string $password
@@ -1096,7 +1092,7 @@ function sodium_crypto_secretstream_xchacha20poly1305_pull(string &$state, strin
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-rekey.php
  */
-function sodium_crypto_secretstream_xchacha20poly1305_rekey(string &$state): void{}
+function sodium_crypto_secretstream_xchacha20poly1305_rekey(string &$state): void {}
 
 /**
  * @param string $string
@@ -1119,6 +1115,4 @@ function sodium_bin2base64(string $string, int $id): string {}
  */
 function sodium_base642bin(string $string, int $id, string $ignore = ''): string {}
 
-class SodiumException extends Exception {
-
-}
+class SodiumException extends Exception {}

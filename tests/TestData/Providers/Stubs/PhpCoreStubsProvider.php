@@ -150,6 +150,5 @@ class PhpCoreStubsProvider
         $coreStubs[] = self::$StubDirectoryMap['BUNDLED'];
         $coreStubs[] = self::$StubDirectoryMap['EXTERNAL'];
         return Utils::flattenArray($coreStubs, false);
-
     }
 }

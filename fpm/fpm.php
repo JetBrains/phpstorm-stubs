@@ -4,7 +4,7 @@
  * @since 7.3
  * @return array
  */
-function fpm_get_status() : array { }
+function fpm_get_status(): array {}
 
 /**
  * This function flushes all response data to the client and finishes the request.

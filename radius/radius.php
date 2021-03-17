@@ -323,7 +323,7 @@ define('RADIUS_OPTION_TAGGED', RADIUS_OPTION_TAGGED);
  * @return resource|false Returns a handle on success, <b>FALSE</b> on error. This function only fails if insufficient memory is available.
  * @since 1.1.0
  */
-function radius_acct_open() { }
+function radius_acct_open() {}
 
 /**
  * <b>radius_add_server()</b> may be called multiple times, and it may be used together with {@see radius_config()}. At most 10 servers may be specified. When multiple servers are given, they are tried in round-robin fashion until a valid response is received, or until each server's max_tries limit has been reached.
@@ -340,7 +340,7 @@ function radius_acct_open() { }
  * @see radius_config()
  * @since 1.1.0
  */
-function radius_add_server($radius_handle , $hostname, $port , $secret, $timeout, $max_tries) { }
+function radius_add_server($radius_handle, $hostname, $port, $secret, $timeout, $max_tries) {}
 
 /**
  * Creates a Radius handle for authentication
@@ -348,7 +348,7 @@ function radius_add_server($radius_handle , $hostname, $port , $secret, $timeout
  * @return resource|false Returns a handle on success, <b>FALSE</b> on error. This function only fails if insufficient memory is available.
  * @since 1.1.0
  */
-function radius_auth_open() { }
+function radius_auth_open() {}
 
 /**
  * Free all resources. It is not needed to call this function because php frees all resources at the end of each request.
@@ -357,7 +357,7 @@ function radius_auth_open() { }
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 1.1.0
  */
-function radius_close($radius_handle) { }
+function radius_close($radius_handle) {}
 
 /**
  * Before issuing any Radius requests, the library must be made aware of the servers it can contact. The easiest way to configure the library is to call <b>radius_config()</b>. <b>radius_config()</b> causes the library to read a configuration file whose format is described in radius.conf.
@@ -369,7 +369,7 @@ function radius_close($radius_handle) { }
  * @see radius_add_server()
  * @since 1.1.0
  */
-function radius_config($radius_handle, $file) { }
+function radius_config($radius_handle, $file) {}
 
 /**
  * A Radius request consists of a code specifying the kind of request, and zero or more attributes which provide additional information. To begin constructing a new request, call <b>radius_create_request()</b>.<br />
@@ -381,4 +381,4 @@ function radius_config($radius_handle, $file) { }
  * @see radius_send_request()
  * @since 1.1.0
  */
-function radius_create_request($radius_handle, $type) { }
+function radius_create_request($radius_handle, $type) {}

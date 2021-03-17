@@ -126,7 +126,6 @@ define('AMQP_EX_TYPE_HEADERS', 'headers');
  */
 define('AMQP_OS_SOCKET_TIMEOUT_ERRNO', 536870923);
 
-
 /**
  * The maximum number of channels that can be open on a connection.
  */
@@ -178,106 +177,105 @@ class AMQPBasicProperties
         $user_id = "",
         $app_id = "",
         $cluster_id = ""
-    ) {
-    }
+    ) {}
 
     /**
      * Get the message content type.
      *
      * @return string The content type of the message.
      */
-    public function getContentType() { }
+    public function getContentType() {}
 
     /**
      * Get the content encoding of the message.
      *
      * @return string The content encoding of the message.
      */
-    public function getContentEncoding() { }
+    public function getContentEncoding() {}
 
     /**
      * Get the headers of the message.
      *
      * @return array An array of key value pairs associated with the message.
      */
-    public function getHeaders() { }
+    public function getHeaders() {}
 
     /**
      * Get the delivery mode of the message.
      *
-     * @return integer The delivery mode of the message.
+     * @return int The delivery mode of the message.
      */
-    public function getDeliveryMode() { }
+    public function getDeliveryMode() {}
 
     /**
      * Get the priority of the message.
      *
      * @return int The message priority.
      */
-    public function getPriority() { }
+    public function getPriority() {}
 
     /**
      * Get the message correlation id.
      *
      * @return string The correlation id of the message.
      */
-    public function getCorrelationId() { }
+    public function getCorrelationId() {}
 
     /**
      * Get the reply-to address of the message.
      *
      * @return string The contents of the reply to field.
      */
-    public function getReplyTo() { }
+    public function getReplyTo() {}
 
     /**
      * Get the expiration of the message.
      *
      * @return string The message expiration.
      */
-    public function getExpiration() { }
+    public function getExpiration() {}
 
     /**
      * Get the message id of the message.
      *
      * @return string The message id
      */
-    public function getMessageId() { }
+    public function getMessageId() {}
 
     /**
      * Get the timestamp of the message.
      *
      * @return string The message timestamp.
      */
-    public function getTimestamp() { }
+    public function getTimestamp() {}
 
     /**
      * Get the message type.
      *
      * @return string The message type.
      */
-    public function getType() { }
+    public function getType() {}
 
     /**
      * Get the message user id.
      *
      * @return string The message user id.
      */
-    public function getUserId() { }
+    public function getUserId() {}
 
     /**
      * Get the application id of the message.
      *
      * @return string The application id of the message.
      */
-    public function getAppId() { }
+    public function getAppId() {}
 
     /**
      * Get the cluster id of the message.
      *
      * @return string The cluster id of the message.
      */
-    public function getClusterId() { }
+    public function getClusterId() {}
 }
 
 /**
@@ -294,7 +292,7 @@ class AMQPChannel
      *
      * @return bool TRUE on success or FALSE on failure.
      */
-    public function commitTransaction() { }
+    public function commitTransaction() {}
 
     /**
      * Create an instance of an AMQPChannel object.
@@ -306,26 +304,26 @@ class AMQPChannel
      * @throws AMQPConnectionException        If the connection to the broker
      *                                        was lost.
      */
-    public function __construct(AMQPConnection $amqp_connection) { }
+    public function __construct(AMQPConnection $amqp_connection) {}
 
     /**
      * Check the channel connection.
      *
      * @return bool Indicates whether the channel is connected.
      */
-    public function isConnected() { }
+    public function isConnected() {}
 
     /**
      * Closes the channel.
      */
-    public function close() { }
+    public function close() {}
 
     /**
      * Return internal channel ID
      *
-     * @return integer
+     * @return int
      */
-    public function getChannelId() { }
+    public function getChannelId() {}
 
     /**
      * Set the Quality Of Service settings for the given channel.
@@ -342,15 +340,15 @@ class AMQPChannel
      * flag set, the client will not do any prefetching of data, regardless of
      * the QOS settings.
      *
-     * @param integer $size   The window size, in octets, to prefetch.
-     * @param integer $count  The number of messages to prefetch.
+     * @param int $size   The window size, in octets, to prefetch.
+     * @param int $count  The number of messages to prefetch.
      * @param bool    $global TRUE for global, FALSE for consumer. FALSE by default.
      *
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
      * @return bool TRUE on success or FALSE on failure.
      */
-    public function qos($size, $count, $global = false) { }
+    public function qos($size, $count, $global = false) {}
 
     /**
      * Rollback a transaction.
@@ -364,7 +362,7 @@ class AMQPChannel
      *
      * @return bool TRUE on success or FALSE on failure.
      */
-    public function rollbackTransaction() { }
+    public function rollbackTransaction() {}
 
     /**
      * Set the number of messages to prefetch from the broker for each consumer.
@@ -372,20 +370,20 @@ class AMQPChannel
      * Set the number of messages to prefetch from the broker during a call to
      * AMQPQueue::consume() or AMQPQueue::get().
      *
-     * @param integer $count The number of messages to prefetch.
+     * @param int $count The number of messages to prefetch.
      *
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
-    public function setPrefetchCount($count) { }
+    public function setPrefetchCount($count) {}
 
     /**
      * Get the number of messages to prefetch from the broker for each consumer.
      *
-     * @return integer
+     * @return int
      */
-    public function getPrefetchCount() { }
+    public function getPrefetchCount() {}
 
     /**
      * Set the window size to prefetch from the broker for each consumer.
@@ -397,20 +395,20 @@ class AMQPChannel
      * AMQPQueue::consume() or AMQPQueue::get() is done with the AMQP_AUTOACK
      * flag set, this setting will be ignored.
      *
-     * @param integer $size The window size, in octets, to prefetch.
+     * @param int $size The window size, in octets, to prefetch.
      *
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
      * @return bool TRUE on success or FALSE on failure.
      */
-    public function setPrefetchSize($size){}
+    public function setPrefetchSize($size) {}
 
     /**
      * Get the window size to prefetch from the broker for each consumer.
      *
-     * @return integer
+     * @return int
      */
-    public function getPrefetchSize() { }
+    public function getPrefetchSize() {}
 
     /**
      * Set the number of messages to prefetch from the broker across all consumers.
@@ -418,20 +416,20 @@ class AMQPChannel
      * Set the number of messages to prefetch from the broker during a call to
      * AMQPQueue::consume() or AMQPQueue::get().
      *
-     * @param integer $count The number of messages to prefetch.
+     * @param int $count The number of messages to prefetch.
      *
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
-    public function setGlobalPrefetchCount($count) { }
+    public function setGlobalPrefetchCount($count) {}
 
     /**
      * Get the number of messages to prefetch from the broker across all consumers.
      *
-     * @return integer
+     * @return int
      */
-    public function getGlobalPrefetchCount() { }
+    public function getGlobalPrefetchCount() {}
 
     /**
      * Set the window size to prefetch from the broker for all consumers.
@@ -443,20 +441,20 @@ class AMQPChannel
      * AMQPQueue::consume() or AMQPQueue::get() is done with the AMQP_AUTOACK
      * flag set, this setting will be ignored.
      *
-     * @param integer $size The window size, in octets, to prefetch.
+     * @param int $size The window size, in octets, to prefetch.
      *
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
      * @return bool TRUE on success or FALSE on failure.
      */
-    public function setGlobalPrefetchSize($size) { }
+    public function setGlobalPrefetchSize($size) {}
 
     /**
      * Get the window size to prefetch from the broker for all consumers.
      *
-     * @return integer
+     * @return int
      */
-    public function getGlobalPrefetchSize() { }
+    public function getGlobalPrefetchSize() {}
 
     /**
      * Start a transaction.
@@ -468,26 +466,26 @@ class AMQPChannel
      *
      * @return bool TRUE on success or FALSE on failure.
      */
-    public function startTransaction() { }
+    public function startTransaction() {}
 
     /**
      * Get the AMQPConnection object in use
      *
      * @return AMQPConnection
      */
-    public function getConnection() { }
+    public function getConnection() {}
 
     /**
      * Redeliver unacknowledged messages.
      *
      * @param bool $requeue
      */
-    public function basicRecover($requeue = true) { }
+    public function basicRecover($requeue = true) {}
 
     /**
      * Set the channel to use publisher acknowledgements. This can only used on a non-transactional channel.
      */
-    public function confirmSelect() { }
+    public function confirmSelect() {}
 
     /**
      * Set callback to process basic.ack and basic.nac AMQP server methods (applicable when channel in confirm mode).
@@ -504,9 +502,8 @@ class AMQPChannel
      *
      * Note, basic.nack server method will only be delivered if an internal error occurs in the Erlang process
      * responsible for a queue (see https://www.rabbitmq.com/confirms.html for details).
-     *
      */
-    public function setConfirmCallback(callable $ack_callback=null, callable $nack_callback=null) { }
+    public function setConfirmCallback(callable $ack_callback = null, callable $nack_callback = null) {}
 
     /**
      * Wait until all messages published since the last call have been either ack'd or nack'd by the broker.
@@ -515,7 +512,7 @@ class AMQPChannel
      *
      * @param float $timeout Timeout in seconds. May be fractional.
      */
-    public function waitForConfirm($timeout = 0.0) { }
+    public function waitForConfirm($timeout = 0.0) {}
 
     /**
      * Set callback to process basic.return AMQP server method
@@ -532,31 +529,28 @@ class AMQPChannel
      *                        string $body) : bool;
      *
      * and should return boolean false when wait loop should be canceled.
-     *
      */
-    public function setReturnCallback(callable $return_callback=null) { }
+    public function setReturnCallback(callable $return_callback = null) {}
 
     /**
      * Start wait loop for basic.return AMQP server methods
      *
      * @param float $timeout Timeout in seconds. May be fractional.
      */
-    public function waitForBasicReturn($timeout = 0.0) { }
+    public function waitForBasicReturn($timeout = 0.0) {}
 
     /**
      * Return array of current consumers where key is consumer and value is AMQPQueue consumer is running on
      *
      * @return AMQPQueue[]
      */
-    public function getConsumers() { }
+    public function getConsumers() {}
 }
 
 /**
  * stub class representing AMQPChannelException from pecl-amqp
  */
-class AMQPChannelException extends AMQPException
-{
-}
+class AMQPChannelException extends AMQPException {}
 
 /**
  * stub class representing AMQPConnection from pecl-amqp
@@ -569,9 +563,9 @@ class AMQPConnection
      * This method will initiate a connection with the AMQP broker.
      *
      * @throws AMQPConnectionException
-     * @return boolean TRUE on success or throw an exception on failure.
+     * @return bool TRUE on success or throw an exception on failure.
      */
-    public function connect() { }
+    public function connect() {}
 
     /**
      * Create an instance of AMQPConnection.
@@ -611,60 +605,60 @@ class AMQPConnection
      * @param array $credentials Optional array of credential information for
      *                           connecting to the AMQP broker.
      */
-    public function __construct(array $credentials = array()) { }
+    public function __construct(array $credentials = []) {}
 
     /**
      * Closes the transient connection with the AMQP broker.
      *
      * This method will close an open connection with the AMQP broker.
      *
-     * @return boolean true if connection was successfully closed, false otherwise.
+     * @return bool true if connection was successfully closed, false otherwise.
      */
-    public function disconnect() { }
+    public function disconnect() {}
 
     /**
      * Get the configured host.
      *
      * @return string The configured hostname of the broker
      */
-    public function getHost() { }
+    public function getHost() {}
 
     /**
      * Get the configured login.
      *
      * @return string The configured login as a string.
      */
-    public function getLogin() { }
+    public function getLogin() {}
 
     /**
      * Get the configured password.
      *
      * @return string The configured password as a string.
      */
-    public function getPassword() { }
+    public function getPassword() {}
 
     /**
      * Get the configured port.
      *
      * @return int The configured port as an integer.
      */
-    public function getPort() { }
+    public function getPort() {}
 
     /**
      * Get the configured vhost.
      *
      * @return string The configured virtual host as a string.
      */
-    public function getVhost() { }
+    public function getVhost() {}
 
     /**
      * Check whether the connection to the AMQP broker is still valid.
      *
      * It does so by checking the return status of the last connect-command.
      *
-     * @return boolean True if connected, false otherwise.
+     * @return bool True if connected, false otherwise.
      */
-    public function isConnected() { }
+    public function isConnected() {}
 
     /**
      * Establish a persistent connection with the AMQP broker.
@@ -673,9 +667,9 @@ class AMQPConnection
      * or reuse an existing one if present.
      *
      * @throws AMQPConnectionException
-     * @return boolean TRUE on success or throws an exception on failure.
+     * @return bool TRUE on success or throws an exception on failure.
      */
-    public function pconnect() { }
+    public function pconnect() {}
 
     /**
      * Closes a persistent connection with the AMQP broker.
@@ -683,26 +677,25 @@ class AMQPConnection
      * This method will close an open persistent connection with the AMQP
      * broker.
      *
-     * @return boolean true if connection was found and closed,
+     * @return bool true if connection was found and closed,
      *                 false if no persistent connection with this host,
      *                 port, vhost and login could be found,
      */
-    public function pdisconnect() { }
+    public function pdisconnect() {}
 
     /**
      * Close any open transient connections and initiate a new one with the AMQP broker.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
-    public function reconnect() { }
+    public function reconnect() {}
 
     /**
      * Close any open persistent connections and initiate a new one with the AMQP broker.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
-    public function preconnect() { }
-
+    public function preconnect() {}
 
     /**
      * Set the hostname used to connect to the AMQP broker.
@@ -711,9 +704,9 @@ class AMQPConnection
      *
      * @throws AMQPConnectionException If host is longer then 1024 characters.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
-    public function setHost($host) { }
+    public function setHost($host) {}
 
     /**
      * Set the login string used to connect to the AMQP broker.
@@ -723,9 +716,9 @@ class AMQPConnection
      *
      * @throws AMQPConnectionException If login is longer then 32 characters.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
-    public function setLogin($login) { }
+    public function setLogin($login) {}
 
     /**
      * Set the password string used to connect to the AMQP broker.
@@ -735,21 +728,21 @@ class AMQPConnection
      *
      * @throws AMQPConnectionException If password is longer then 32characters.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
-    public function setPassword($password) { }
+    public function setPassword($password) {}
 
     /**
      * Set the port used to connect to the AMQP broker.
      *
-     * @param integer $port The port used to connect to the AMQP broker.
+     * @param int $port The port used to connect to the AMQP broker.
      *
      * @throws AMQPConnectionException If port is longer not between
      *                                 1 and 65535.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
-    public function setPort($port) { }
+    public function setPort($port) {}
 
     /**
      * Sets the virtual host to which to connect on the AMQP broker.
@@ -759,9 +752,9 @@ class AMQPConnection
      *
      * @throws AMQPConnectionException If host is longer then 32 characters.
      *
-     * @return boolean true on success or false on failure.
+     * @return bool true on success or false on failure.
      */
-    public function setVhost($vhost) { }
+    public function setVhost($vhost) {}
 
     /**
      * Sets the interval of time to wait for income activity from AMQP broker
@@ -771,7 +764,7 @@ class AMQPConnection
      * @return bool
      */
     #[Deprecated(replacement: "%class%->setReadTimout(%parameter0%)")]
-    public function setTimeout($timeout) { }
+    public function setTimeout($timeout) {}
 
     /**
      * Get the configured interval of time to wait for income activity
@@ -780,7 +773,7 @@ class AMQPConnection
      * @return float
      */
     #[Deprecated(replacement: '%class%->getReadTimout(%parameter0%)')]
-    public function getTimeout() { }
+    public function getTimeout() {}
 
     /**
      * Sets the interval of time to wait for income activity from AMQP broker
@@ -789,7 +782,7 @@ class AMQPConnection
      *
      * @return bool
      */
-    public function setReadTimeout($timeout) { }
+    public function setReadTimeout($timeout) {}
 
     /**
      * Get the configured interval of time to wait for income activity
@@ -797,7 +790,7 @@ class AMQPConnection
      *
      * @return float
      */
-    public function getReadTimeout() { }
+    public function getReadTimeout() {}
 
     /**
      * Sets the interval of time to wait for outcome activity to AMQP broker
@@ -806,7 +799,7 @@ class AMQPConnection
      *
      * @return bool
      */
-    public function setWriteTimeout($timeout) { }
+    public function setWriteTimeout($timeout) {}
 
     /**
      * Get the configured interval of time to wait for outcome activity
@@ -814,7 +807,7 @@ class AMQPConnection
      *
      * @return float
      */
-    public function getWriteTimeout() { }
+    public function getWriteTimeout() {}
 
     /**
      * Sets the interval of time to wait for RPC activity to AMQP broker
@@ -823,9 +816,7 @@ class AMQPConnection
      *
      * @return bool
      */
-    public function setRpcTimeout($timeout)
-    {
-    }
+    public function setRpcTimeout($timeout) {}
 
     /**
      * Get the configured interval of time to wait for RPC activity
@@ -833,16 +824,14 @@ class AMQPConnection
      *
      * @return float
      */
-    public function getRpcTimeout()
-    {
-    }
+    public function getRpcTimeout() {}
 
     /**
      * Return last used channel id during current connection session.
      *
      * @return int
      */
-    public function getUsedChannels() { }
+    public function getUsedChannels() {}
 
     /**
      * Get the maximum number of channels the connection can handle.
@@ -852,7 +841,7 @@ class AMQPConnection
      *
      * @return int
      */
-    public function getMaxChannels() { }
+    public function getMaxChannels() {}
 
     /**
      * Get max supported frame size per connection in bytes.
@@ -862,7 +851,7 @@ class AMQPConnection
      *
      * @return int
      */
-    public function getMaxFrameSize() { }
+    public function getMaxFrameSize() {}
 
     /**
      * Get number of seconds between heartbeats of the connection in seconds.
@@ -872,7 +861,7 @@ class AMQPConnection
      *
      * @return int
      */
-    public function getHeartbeatInterval() { }
+    public function getHeartbeatInterval() {}
 
     /**
      * Whether connection persistent.
@@ -881,108 +870,106 @@ class AMQPConnection
      *
      * @return bool
      */
-    public function isPersistent() { }
+    public function isPersistent() {}
 
     /**
      * Get path to the CA cert file in PEM format
      *
      * @return string
      */
-    public function getCACert() { }
+    public function getCACert() {}
 
     /**
      * Set path to the CA cert file in PEM format
      *
      * @param string $cacert
      */
-    public function setCACert($cacert) { }
+    public function setCACert($cacert) {}
 
     /**
      * Get path to the client certificate in PEM format
      *
      * @return string
      */
-    public function getCert() { }
+    public function getCert() {}
 
     /**
      * Set path to the client certificate in PEM format
      *
      * @param string $cert
      */
-    public function setCert($cert) { }
+    public function setCert($cert) {}
 
     /**
      * Get path to the client key in PEM format
      *
      * @return string
      */
-    public function getKey() { }
+    public function getKey() {}
 
     /**
      * Set path to the client key in PEM format
      *
      * @param string $key
      */
-    public function setKey($key) { }
+    public function setKey($key) {}
 
     /**
      * Get whether peer verification enabled or disabled
      *
      * @return bool
      */
-    public function getVerify() { }
+    public function getVerify() {}
 
     /**
      * Enable or disable peer verification
      *
      * @param bool $verify
      */
-    public function setVerify($verify) { }
+    public function setVerify($verify) {}
 
     /**
      * set authentication method
      *
      * @param int $method AMQP_SASL_METHOD_PLAIN | AMQP_SASL_METHOD_EXTERNAL
      */
-    public function setSaslMethod($method) { }
+    public function setSaslMethod($method) {}
 
     /**
      * Get authentication mechanism configuration
      *
      * @return int AMQP_SASL_METHOD_PLAIN | AMQP_SASL_METHOD_EXTERNAL
      */
-    public function getSaslMethod() { }
+    public function getSaslMethod() {}
 
     /**
      * Return the connection name
      * @return string|null
      */
-    public function getConnectionName() { }
+    public function getConnectionName() {}
 
     /**
      * Set the connection name
      * @param string $connection_name
      * @return void
      */
-    public function setConnectionName($connection_name) { }
+    public function setConnectionName($connection_name) {}
 }
 
 /**
  * stub class representing AMQPConnectionException from pecl-amqp
  */
-class AMQPConnectionException extends AMQPException
-{
-}
+class AMQPConnectionException extends AMQPException {}
 
 /**
  * stub class representing AMQPDecimal from pecl-amqp
  */
 final class AMQPDecimal
 {
-    const EXPONENT_MIN = 0;
-    const EXPONENT_MAX = 255;
-    const SIGNIFICAND_MIN = 0;
-    const SIGNIFICAND_MAX = 4294967295;
+    public const EXPONENT_MIN = 0;
+    public const EXPONENT_MAX = 255;
+    public const SIGNIFICAND_MIN = 0;
+    public const SIGNIFICAND_MAX = 4294967295;
 
     /**
      * @param $exponent
@@ -990,13 +977,13 @@ final class AMQPDecimal
      *
      * @throws AMQPExchangeValue
      */
-    public function __construct($exponent, $significand) { }
+    public function __construct($exponent, $significand) {}
 
     /** @return int */
-    public function getExponent() { }
+    public function getExponent() {}
 
     /** @return int */
-    public function getSignificand() { }
+    public function getSignificand() {}
 }
 
 /**
@@ -1004,42 +991,42 @@ final class AMQPDecimal
  */
 class AMQPEnvelope extends AMQPBasicProperties
 {
-    public function __construct() { }
+    public function __construct() {}
 
     /**
      * Get the body of the message.
      *
      * @return string The contents of the message body.
      */
-    public function getBody() { }
+    public function getBody() {}
 
     /**
      * Get the routing key of the message.
      *
      * @return string The message routing key.
      */
-    public function getRoutingKey() { }
+    public function getRoutingKey() {}
 
     /**
      * Get the consumer tag of the message.
      *
      * @return string The consumer tag of the message.
      */
-    public function getConsumerTag() { }
+    public function getConsumerTag() {}
 
     /**
      * Get the delivery tag of the message.
      *
      * @return string The delivery tag of the message.
      */
-    public function getDeliveryTag() { }
+    public function getDeliveryTag() {}
 
     /**
      * Get the exchange name on which the message was published.
      *
      * @return string The exchange name on which the message was published.
      */
-    public function getExchangeName() { }
+    public function getExchangeName() {}
 
     /**
      * Whether this is a redelivery of the message.
@@ -1051,7 +1038,7 @@ class AMQPEnvelope extends AMQPBasicProperties
      *
      * @return bool TRUE if this is a redelivery, FALSE otherwise.
      */
-    public function isRedelivery() { }
+    public function isRedelivery() {}
 
     /**
      * Get a specific message header.
@@ -1061,7 +1048,7 @@ class AMQPEnvelope extends AMQPBasicProperties
      * @return string|false The contents of the specified header or FALSE
      *                        if not set.
      */
-    public function getHeader($header_key) { }
+    public function getHeader($header_key) {}
 
     /**
      * Check whether specific message header exists.
@@ -1070,7 +1057,7 @@ class AMQPEnvelope extends AMQPBasicProperties
      *
      * @return bool
      */
-    public function hasHeader($header_key) { }
+    public function hasHeader($header_key) {}
 }
 
 /**
@@ -1087,9 +1074,7 @@ class AMQPEnvelopeException extends AMQPException
 /**
  * stub class representing AMQPException from pecl-amqp
  */
-class AMQPException extends Exception
-{
-}
+class AMQPException extends Exception {}
 
 /**
  * stub class representing AMQPExchange from pecl-amqp
@@ -1110,7 +1095,7 @@ class AMQPExchange
      * @throws AMQPConnectionException If the connection to the broker was lost.
      * @return bool TRUE on success or FALSE on failure.
      */
-    public function bind($exchange_name, $routing_key = '', array $arguments = array()) { }
+    public function bind($exchange_name, $routing_key = '', array $arguments = []) {}
 
     /**
      * Remove binding to another exchange.
@@ -1126,7 +1111,7 @@ class AMQPExchange
      * @throws AMQPConnectionException If the connection to the broker was lost.
      * @return bool TRUE on success or FALSE on failure.
      */
-    public function unbind($exchange_name, $routing_key = '', array $arguments = array()) { }
+    public function unbind($exchange_name, $routing_key = '', array $arguments = []) {}
 
     /**
      * Create an instance of AMQPExchange.
@@ -1142,7 +1127,7 @@ class AMQPExchange
      * @throws AMQPConnectionException If the connection to the broker was
      *                                 lost.
      */
-    public function __construct(AMQPChannel $amqp_channel) { }
+    public function __construct(AMQPChannel $amqp_channel) {}
 
     /**
      * Declare a new exchange on the broker.
@@ -1153,13 +1138,13 @@ class AMQPExchange
      *
      * @return bool TRUE on success or FALSE on failure.
      */
-    public function declareExchange() { }
+    public function declareExchange() {}
 
     /**
      * Delete the exchange from the broker.
      *
      * @param string  $exchangeName Optional name of exchange to delete.
-     * @param integer $flags        Optionally AMQP_IFUNUSED can be specified
+     * @param int $flags        Optionally AMQP_IFUNUSED can be specified
      *                              to indicate the exchange should not be
      *                              deleted until no clients are connected to
      *                              it.
@@ -1170,18 +1155,18 @@ class AMQPExchange
      *
      * @return bool TRUE on success or FALSE on failure.
      */
-    public function delete($exchangeName = null, $flags = AMQP_NOPARAM) { }
+    public function delete($exchangeName = null, $flags = AMQP_NOPARAM) {}
 
     /**
      * Get the argument associated with the given key.
      *
      * @param string $key The key to look up.
      *
-     * @return string|integer|false The string or integer value associated
+     * @return string|int|false The string or integer value associated
      *                             with the given key, or FALSE if the key
      *                             is not set.
      */
-    public function getArgument($key) { }
+    public function getArgument($key) {}
 
     /**
      * Check whether argument associated with the given key exists.
@@ -1190,14 +1175,14 @@ class AMQPExchange
      *
      * @return bool
      */
-    public function hasArgument($key) { }
+    public function hasArgument($key) {}
 
     /**
      * Get all arguments set on the given exchange.
      *
      * @return array An array containing all of the set key/value pairs.
      */
-    public function getArguments() { }
+    public function getArguments() {}
 
     /**
      * Get all the flags currently set on the given exchange.
@@ -1205,21 +1190,21 @@ class AMQPExchange
      * @return int An integer bitmask of all the flags currently set on this
      *             exchange object.
      */
-    public function getFlags() { }
+    public function getFlags() {}
 
     /**
      * Get the configured name.
      *
      * @return string The configured name as a string.
      */
-    public function getName() { }
+    public function getName() {}
 
     /**
      * Get the configured type.
      *
      * @return string The configured type as a string.
      */
-    public function getType() { }
+    public function getType() {}
 
     /**
      * Publish a message to an exchange.
@@ -1229,7 +1214,7 @@ class AMQPExchange
      * @param string  $message     The message to publish.
      * @param string  $routing_key The optional routing key to which to
      *                             publish to.
-     * @param integer $flags       One or more of AMQP_MANDATORY and
+     * @param int $flags       One or more of AMQP_MANDATORY and
      *                             AMQP_IMMEDIATE.
      * @param array   $attributes  One of content_type, content_encoding,
      *                             message_id, user_id, app_id, delivery_mode,
@@ -1246,19 +1231,18 @@ class AMQPExchange
         $message,
         $routing_key = null,
         $flags = AMQP_NOPARAM,
-        array $attributes = array()
-    ) {
-    }
+        array $attributes = []
+    ) {}
 
     /**
      * Set the value for the given key.
      *
      * @param string         $key   Name of the argument to set.
-     * @param string|integer $value Value of the argument to set.
+     * @param string|int $value Value of the argument to set.
      *
      * @return bool TRUE on success or FALSE on failure.
      */
-    public function setArgument($key, $value) { }
+    public function setArgument($key, $value) {}
 
     /**
      * Set all arguments on the exchange.
@@ -1267,19 +1251,19 @@ class AMQPExchange
      *
      * @return bool TRUE on success or FALSE on failure.
      */
-    public function setArguments(array $arguments) { }
+    public function setArguments(array $arguments) {}
 
     /**
      * Set the flags on an exchange.
      *
-     * @param integer $flags A bitmask of flags. This call currently only
+     * @param int $flags A bitmask of flags. This call currently only
      *                       considers the following flags:
      *                       AMQP_DURABLE, AMQP_PASSIVE
      *                       (and AMQP_DURABLE, if librabbitmq version >= 0.5.3)
      *
      * @return void
      */
-    public function setFlags($flags) { }
+    public function setFlags($flags) {}
 
     /**
      * Set the name of the exchange.
@@ -1288,7 +1272,7 @@ class AMQPExchange
      *
      * @return void
      */
-    public function setName($exchange_name) { }
+    public function setName($exchange_name) {}
 
     /**
      * Set the type of the exchange.
@@ -1300,21 +1284,21 @@ class AMQPExchange
      *
      * @return void
      */
-    public function setType($exchange_type) { }
+    public function setType($exchange_type) {}
 
     /**
      * Get the AMQPChannel object in use
      *
      * @return AMQPChannel
      */
-    public function getChannel() { }
+    public function getChannel() {}
 
     /**
      * Get the AMQPConnection object in use
      *
      * @return AMQPConnection
      */
-    public function getConnection() { }
+    public function getConnection() {}
 
     /**
      * Declare a new exchange on the broker.
@@ -1325,15 +1309,13 @@ class AMQPExchange
      * @see AMQPExchange::declareExchange()
      */
     #[Deprecated]
-    public function declare() { }
+    public function declare() {}
 }
 
 /**
  * stub class representing AMQPExchangeException from pecl-amqp
  */
-class AMQPExchangeException extends AMQPException
-{
-}
+class AMQPExchangeException extends AMQPException {}
 
 /**
  * stub class representing AMQPQueue from pecl-amqp
@@ -1349,7 +1331,7 @@ class AMQPQueue
      *
      * @param string  $delivery_tag The message delivery tag of which to
      *                              acknowledge receipt.
-     * @param integer $flags        The only valid flag that can be passed is
+     * @param int $flags        The only valid flag that can be passed is
      *                              AMQP_MULTIPLE.
      *
      * @throws AMQPChannelException    If the channel is not open.
@@ -1357,7 +1339,7 @@ class AMQPQueue
      *
      * @return bool
      */
-    public function ack($delivery_tag, $flags = AMQP_NOPARAM) { }
+    public function ack($delivery_tag, $flags = AMQP_NOPARAM) {}
 
     /**
      * Bind the given queue to a routing key on an exchange.
@@ -1371,7 +1353,7 @@ class AMQPQueue
      *
      * @return bool
      */
-    public function bind($exchange_name, $routing_key = null, array $arguments = array()) { }
+    public function bind($exchange_name, $routing_key = null, array $arguments = []) {}
 
     /**
      * Cancel a queue that is already bound to an exchange and routing key.
@@ -1390,7 +1372,7 @@ class AMQPQueue
      *
      * @return bool
      */
-    public function cancel($consumer_tag = '') { }
+    public function cancel($consumer_tag = '') {}
 
     /**
      * Create an instance of an AMQPQueue object.
@@ -1401,7 +1383,7 @@ class AMQPQueue
      *                                 broker.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      */
-    public function __construct(AMQPChannel $amqp_channel) { }
+    public function __construct(AMQPChannel $amqp_channel) {}
 
     /**
      * Consume messages from a queue.
@@ -1424,7 +1406,7 @@ class AMQPQueue
      *                              be made available to the first real callback
      *                              registered. That allows one to have a single
      *                              callback consuming from multiple queues.
-     * @param integer $flags        A bitmask of any of the flags: AMQP_AUTOACK,
+     * @param int $flags        A bitmask of any of the flags: AMQP_AUTOACK,
      *                              AMQP_JUST_CONSUME. Note: when AMQP_JUST_CONSUME
      *                              flag used all other flags are ignored and
      *                              $consumerTag parameter has no sense.
@@ -1445,8 +1427,7 @@ class AMQPQueue
         callable $callback = null,
         $flags = AMQP_NOPARAM,
         $consumerTag = null
-    ) {
-    }
+    ) {}
 
     /**
      * Declare a new queue on the broker.
@@ -1454,16 +1435,16 @@ class AMQPQueue
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return integer the message count.
+     * @return int the message count.
      */
-    public function declareQueue() { }
+    public function declareQueue() {}
 
     /**
      * Delete a queue from the broker.
      *
      * This includes its entire contents of unread or unacknowledged messages.
      *
-     * @param integer $flags        Optionally AMQP_IFUNUSED can be specified
+     * @param int $flags        Optionally AMQP_IFUNUSED can be specified
      *                              to indicate the queue should not be
      *                              deleted until no clients are connected to
      *                              it.
@@ -1471,9 +1452,9 @@ class AMQPQueue
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return integer The number of deleted messages.
+     * @return int The number of deleted messages.
      */
-    public function delete($flags = AMQP_NOPARAM) { }
+    public function delete($flags = AMQP_NOPARAM) {}
 
     /**
      * Retrieve the next message from the queue.
@@ -1486,7 +1467,7 @@ class AMQPQueue
      * automatically be marked as acknowledged by the broker as soon as the
      * frames are sent to the client.
      *
-     * @param integer $flags A bitmask of supported flags for the
+     * @param int $flags A bitmask of supported flags for the
      *                       method call. Currently, the only the
      *                       supported flag is AMQP_AUTOACK. If this
      *                       value is not provided, it will use the
@@ -1497,25 +1478,25 @@ class AMQPQueue
      *
      * @return AMQPEnvelope|false
      */
-    public function get($flags = AMQP_NOPARAM) { }
+    public function get($flags = AMQP_NOPARAM) {}
 
     /**
      * Get the argument associated with the given key.
      *
      * @param string $key The key to look up.
      *
-     * @return string|integer|false The string or integer value associated
+     * @return string|int|false The string or integer value associated
      *                             with the given key, or false if the key
      *                             is not set.
      */
-    public function getArgument($key) { }
+    public function getArgument($key) {}
 
     /**
      * Get all set arguments as an array of key/value pairs.
      *
      * @return array An array containing all of the set key/value pairs.
      */
-    public function getArguments() { }
+    public function getArguments() {}
 
     /**
      * Get all the flags currently set on the given queue.
@@ -1523,14 +1504,14 @@ class AMQPQueue
      * @return int An integer bitmask of all the flags currently set on this
      *             exchange object.
      */
-    public function getFlags() { }
+    public function getFlags() {}
 
     /**
      * Get the configured name.
      *
      * @return string The configured name as a string.
      */
-    public function getName() { }
+    public function getName() {}
 
     /**
      * Mark a message as explicitly not acknowledged.
@@ -1546,7 +1527,7 @@ class AMQPQueue
      * undefined.
      *
      * @param string  $delivery_tag Delivery tag of last message to reject.
-     * @param integer $flags        AMQP_REQUEUE to requeue the message(s),
+     * @param int $flags        AMQP_REQUEUE to requeue the message(s),
      *                              AMQP_MULTIPLE to nack all previous
      *                              unacked messages as well.
      *
@@ -1555,7 +1536,7 @@ class AMQPQueue
      *
      * @return bool
      */
-    public function nack($delivery_tag, $flags = AMQP_NOPARAM) { }
+    public function nack($delivery_tag, $flags = AMQP_NOPARAM) {}
 
     /**
      * Mark one message as explicitly not acknowledged.
@@ -1567,14 +1548,14 @@ class AMQPQueue
      * flag are not eligible.
      *
      * @param string  $delivery_tag Delivery tag of the message to reject.
-     * @param integer $flags        AMQP_REQUEUE to requeue the message(s).
+     * @param int $flags        AMQP_REQUEUE to requeue the message(s).
      *
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
      * @return bool
      */
-    public function reject($delivery_tag, $flags = AMQP_NOPARAM) { }
+    public function reject($delivery_tag, $flags = AMQP_NOPARAM) {}
 
     /**
      * Purge the contents of a queue.
@@ -1584,7 +1565,7 @@ class AMQPQueue
      *
      * @return bool
      */
-    public function purge() { }
+    public function purge() {}
 
     /**
      * Set a queue argument.
@@ -1594,7 +1575,7 @@ class AMQPQueue
      *
      * @return bool
      */
-    public function setArgument($key, $value) { }
+    public function setArgument($key, $value) {}
 
     /**
      * Set all arguments on the given queue.
@@ -1605,7 +1586,7 @@ class AMQPQueue
      *
      * @return bool
      */
-    public function setArguments(array $arguments) { }
+    public function setArguments(array $arguments) {}
 
     /**
      * Check whether a queue has specific argument.
@@ -1614,18 +1595,18 @@ class AMQPQueue
      *
      * @return bool
      */
-    public function hasArgument($key) { }
+    public function hasArgument($key) {}
 
     /**
      * Set the flags on the queue.
      *
-     * @param integer $flags A bitmask of flags:
+     * @param int $flags A bitmask of flags:
      *                       AMQP_DURABLE, AMQP_PASSIVE,
      *                       AMQP_EXCLUSIVE, AMQP_AUTODELETE.
      *
      * @return bool
      */
-    public function setFlags($flags) { }
+    public function setFlags($flags) {}
 
     /**
      * Set the queue name.
@@ -1634,7 +1615,7 @@ class AMQPQueue
      *
      * @return bool
      */
-    public function setName($queue_name) { }
+    public function setName($queue_name) {}
 
     /**
      * Remove a routing key binding on an exchange from the given queue.
@@ -1650,28 +1631,28 @@ class AMQPQueue
      *
      * @return bool
      */
-    public function unbind($exchange_name, $routing_key = null, array $arguments = array()) { }
+    public function unbind($exchange_name, $routing_key = null, array $arguments = []) {}
 
     /**
      * Get the AMQPChannel object in use
      *
      * @return AMQPChannel
      */
-    public function getChannel() { }
+    public function getChannel() {}
 
     /**
      * Get the AMQPConnection object in use
      *
      * @return AMQPConnection
      */
-    public function getConnection() { }
+    public function getConnection() {}
 
     /**
      * Get latest consumer tag. If no consumer available or the latest on was canceled null will be returned.
      *
      * @return string|null
      */
-    public function getConsumerTag() { }
+    public function getConsumerTag() {}
 
     /**
      * Declare a new queue
@@ -1681,49 +1662,42 @@ class AMQPQueue
      * @see AMQPQueue::declareQueue()
      */
     #[Deprecated]
-    public function declare() { }
-
+    public function declare() {}
 }
 
 /**
  * stub class representing AMQPQueueException from pecl-amqp
  */
-class AMQPQueueException extends AMQPException
-{
-}
+class AMQPQueueException extends AMQPException {}
 
 /**
  * stub class representing AMQPTimestamp from pecl-amqp
  */
 final class AMQPTimestamp
 {
-    const MIN = "0";
-    const MAX = "18446744073709551616";
+    public const MIN = "0";
+    public const MAX = "18446744073709551616";
 
     /**
      * @param string $timestamp
      *
      * @throws AMQPExchangeValue
      */
-    public function __construct($timestamp) { }
+    public function __construct($timestamp) {}
 
     /** @return string */
-    public function getTimestamp() { }
+    public function getTimestamp() {}
 
     /** @return string */
-    public function __toString() { }
+    public function __toString() {}
 }
 
 /**
  * stub class representing AMQPExchangeValue from pecl-amqp
  */
-class AMQPExchangeValue extends AMQPException
-{
-}
+class AMQPExchangeValue extends AMQPException {}
 
 /**
  * stub class representing AMQPExchangeValue from pecl-amqp
  */
-class AMQPValueException extends AMQPException
-{
-}
+class AMQPValueException extends AMQPException {}

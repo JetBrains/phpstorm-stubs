@@ -5,6 +5,4 @@
  *
  * @link https://php.net/manual/en/class.reflectionexception.php
  */
-class ReflectionException extends Exception
-{
-}
+class ReflectionException extends Exception {}

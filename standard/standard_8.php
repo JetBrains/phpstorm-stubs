@@ -4,7 +4,6 @@ use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
-
 /**
  * Generate a system log message
  * @link https://php.net/manual/en/function.syslog.php
@@ -59,16 +58,14 @@ use JetBrains\PhpStorm\Pure;
  * </p>
  * @return bool true on success or false on failure.
  */
-function syslog (int $priority, string $message): bool
-{}
+function syslog(int $priority, string $message): bool {}
 
 /**
  * Close connection to system logger
  * @link https://php.net/manual/en/function.closelog.php
  * @return bool true on success or false on failure.
  */
-function closelog (): bool
-{}
+function closelog(): bool {}
 
 /**
  * Registers a function that will be called when PHP starts sending output.
@@ -78,8 +75,7 @@ function closelog (): bool
  * @param callable $callback Function called just before the headers are sent.
  * @return bool true on success or false on failure.
  */
-function header_register_callback ( callable $callback ): bool
-{}
+function header_register_callback(callable $callback): bool {}
 
 /**
  * Get the size of an image from a string.
@@ -101,8 +97,7 @@ function header_register_callback ( callable $callback ): bool
  * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
  * @since 5.4
  */
-function getimagesizefromstring (string $string , &$image_info): array|false
-{}
+function getimagesizefromstring(string $string, &$image_info): array|false {}
 
 /**
  * Set the stream chunk size.
@@ -114,8 +109,7 @@ function getimagesizefromstring (string $string , &$image_info): array|false
  * @since 5.4
  */
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
-function stream_set_chunk_size ($stream , int $size)
-{}
+function stream_set_chunk_size($stream, int $size) {}
 
 /**
  * Initializes all syslog related variables
@@ -124,15 +118,14 @@ function stream_set_chunk_size ($stream , int $size)
  * @removed 5.4
  */
 #[Deprecated(since: '5.3')]
-function define_syslog_variables () {}
+function define_syslog_variables() {}
 
 /**
  * Combined linear congruential generator
  * @link https://php.net/manual/en/function.lcg-value.php
  * @return float A pseudo random float value in the range of (0, 1)
  */
-function lcg_value (): float
-{}
+function lcg_value(): float {}
 
 /**
  * Calculate the metaphone key of a string
@@ -148,8 +141,7 @@ function lcg_value (): float
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function metaphone (string $string, int $max_phonemes = 0): false|string
-{}
+function metaphone(string $string, int $max_phonemes = 0): false|string {}
 
 /**
  * Turn on output buffering
@@ -216,22 +208,21 @@ function metaphone (string $string, int $max_phonemes = 0): false|string
  * </p>
  * @return bool true on success or false on failure.
  */
-function ob_start ($callback, int $chunk_size, int $flags = PHP_OUTPUT_HANDLER_STDFLAGS): bool
-{}
+function ob_start($callback, int $chunk_size, int $flags = PHP_OUTPUT_HANDLER_STDFLAGS): bool {}
 
 /**
  * Flush (send) the output buffer
  * @link https://php.net/manual/en/function.ob-flush.php
  * @return bool
  */
-function ob_flush (): bool {}
+function ob_flush(): bool {}
 
 /**
  * Clean (erase) the output buffer
  * @link https://php.net/manual/en/function.ob-clean.php
  * @return bool
  */
-function ob_clean (): bool {}
+function ob_clean(): bool {}
 
 /**
  * Flush (send) the output buffer and turn off output buffering
@@ -240,8 +231,7 @@ function ob_clean (): bool {}
  * function without an active buffer or that for some reason a buffer could
  * not be deleted (possible for special buffer).
  */
-function ob_end_flush (): bool
-{}
+function ob_end_flush(): bool {}
 
 /**
  * Clean (erase) the output buffer and turn off output buffering
@@ -250,16 +240,14 @@ function ob_end_flush (): bool
  * function without an active buffer or that for some reason a buffer could
  * not be deleted (possible for special buffer).
  */
-function ob_end_clean (): bool
-{}
+function ob_end_clean(): bool {}
 
 /**
  * Flush the output buffer, return it as a string and turn off output buffering
  * @link https://php.net/manual/en/function.ob-get-flush.php
  * @return string|false the output buffer or false if no buffering is active.
  */
-function ob_get_flush (): string|false
-{}
+function ob_get_flush(): string|false {}
 
 /**
  * Get current buffer contents and delete current output buffer
@@ -267,8 +255,7 @@ function ob_get_flush (): string|false
  * @return string|false the contents of the output buffer and end output buffering.
  * If output buffering isn't active then false is returned.
  */
-function ob_get_clean (): string|false
-{}
+function ob_get_clean(): string|false {}
 
 /**
  * Return the length of the output buffer
@@ -276,8 +263,7 @@ function ob_get_clean (): string|false
  * @return int|false the length of the output buffer contents or false if no
  * buffering is active.
  */
-function ob_get_length (): int|false
-{}
+function ob_get_length(): int|false {}
 
 /**
  * Return the nesting level of the output buffering mechanism
@@ -285,8 +271,7 @@ function ob_get_length (): int|false
  * @return int the level of nested output buffering handlers or zero if output
  * buffering is not active.
  */
-function ob_get_level (): int
-{}
+function ob_get_level(): int {}
 
 /**
  * Get status of output buffers
@@ -357,8 +342,7 @@ function ob_get_level (): int
  * <tr><td>blocksize</td><td>...</td></tr>
  * </table>
  */
-function ob_get_status (bool $full_status = false): array
-{}
+function ob_get_status(bool $full_status = false): array {}
 
 /**
  * Return the contents of the output buffer
@@ -366,8 +350,7 @@ function ob_get_status (bool $full_status = false): array
  * @return string|false This will return the contents of the output buffer or false, if output
  * buffering isn't active.
  */
-function ob_get_contents (): string|false
-{}
+function ob_get_contents(): string|false {}
 
 /**
  * Turn implicit flush on/off
@@ -378,7 +361,7 @@ function ob_get_contents (): string|false
  * </p>
  * @return void
  */
-function ob_implicit_flush (#[LanguageLevelTypeAware(["8.0" => "bool"], default: "int")] $enable = true): void {}
+function ob_implicit_flush(#[LanguageLevelTypeAware(["8.0" => "bool"], default: "int")] $enable = true): void {}
 
 /**
  * List all output handlers in use
@@ -389,8 +372,7 @@ function ob_implicit_flush (#[LanguageLevelTypeAware(["8.0" => "bool"], default:
  * ob_list_handlers will return "default output
  * handler".
  */
-function ob_list_handlers (): array
-{}
+function ob_list_handlers(): array {}
 
 /**
  * Sort an array by key
@@ -405,8 +387,7 @@ function ob_list_handlers (): array
  * </p>
  * @return bool true on success or false on failure.
  */
-function ksort (array &$array, int $flags): bool
-{}
+function ksort(array &$array, int $flags): bool {}
 
 /**
  * Sort an array by key in reverse order
@@ -421,8 +402,7 @@ function ksort (array &$array, int $flags): bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function krsort (array &$array, int $flags): bool
-{}
+function krsort(array &$array, int $flags): bool {}
 
 /**
  * Sort an array using a "natural order" algorithm
@@ -432,8 +412,7 @@ function krsort (array &$array, int $flags): bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function natsort (array &$array): bool
-{}
+function natsort(array &$array): bool {}
 
 /**
  * Sort an array using a case insensitive "natural order" algorithm
@@ -443,8 +422,7 @@ function natsort (array &$array): bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function natcasesort (array &$array): bool
-{}
+function natcasesort(array &$array): bool {}
 
 /**
  * Sort an array and maintain index association
@@ -459,8 +437,7 @@ function natcasesort (array &$array): bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function asort (array &$array, int $flags): bool
-{}
+function asort(array &$array, int $flags): bool {}
 
 /**
  * Sort an array in reverse order and maintain index association
@@ -475,8 +452,7 @@ function asort (array &$array, int $flags): bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function arsort (array &$array, int $flags): bool
-{}
+function arsort(array &$array, int $flags): bool {}
 
 /**
  * Sort an array
@@ -494,8 +470,7 @@ function arsort (array &$array, int $flags): bool
  * (don't change types)</p>
  * @return bool true on success or false on failure.
  */
-function sort (array &$array, int $flags): bool
-{}
+function sort(array &$array, int $flags): bool {}
 
 /**
  * Sort an array in reverse order
@@ -510,8 +485,7 @@ function sort (array &$array, int $flags): bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function rsort (array &$array, int $flags): bool
-{}
+function rsort(array &$array, int $flags): bool {}
 
 /**
  * Sort an array by values using a user-defined comparison function
@@ -526,8 +500,7 @@ function rsort (array &$array, int $flags): bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function usort (array &$array, callable $callback): bool
-{}
+function usort(array &$array, callable $callback): bool {}
 
 /**
  * Sort an array with a user-defined comparison function and maintain index association
@@ -541,8 +514,7 @@ function usort (array &$array, callable $callback): bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function uasort (array &$array, callable $callback): bool
-{}
+function uasort(array &$array, callable $callback): bool {}
 
 /**
  * Sort an array by keys using a user-defined comparison function
@@ -563,8 +535,7 @@ function uasort (array &$array, callable $callback): bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function uksort (array &$array, callable $callback): bool
-{}
+function uksort(array &$array, callable $callback): bool {}
 
 /**
  * Shuffle an array
@@ -574,8 +545,7 @@ function uksort (array &$array, callable $callback): bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function shuffle (array &$array): bool
-{}
+function shuffle(array &$array): bool {}
 
 /**
  * Apply a user function to every member of an array
@@ -609,8 +579,7 @@ function shuffle (array &$array): bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_walk (object|array &$array, callable $callback, mixed $arg): bool
-{}
+function array_walk(object|array &$array, callable $callback, mixed $arg): bool {}
 
 /**
  * Apply a user function recursively to every member of an array
@@ -638,8 +607,7 @@ function array_walk (object|array &$array, callable $callback, mixed $arg): bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_walk_recursive (object|array &$array, callable $callback, mixed $arg): bool
-{}
+function array_walk_recursive(object|array &$array, callable $callback, mixed $arg): bool {}
 
 /**
  * Counts all elements in an array, or something in an object.
@@ -669,8 +637,7 @@ function array_walk_recursive (object|array &$array, callable $callback, mixed $
  * </p>
  */
 #[Pure]
-function count (Countable|array $value, int $mode = COUNT_NORMAL): int
-{}
+function count(Countable|array $value, int $mode = COUNT_NORMAL): int {}
 
 /**
  * Set the internal pointer of an array to its last element
@@ -684,7 +651,7 @@ function count (Countable|array $value, int $mode = COUNT_NORMAL): int
  * @return mixed|false the value of the last element or false for empty array.
  * @meta
  */
-function end (object|array &$array): mixed {}
+function end(object|array &$array): mixed {}
 
 /**
  * Rewind the internal array pointer
@@ -697,7 +664,7 @@ function end (object|array &$array): mixed {}
  * elements.
  * @meta
  */
-function prev (object|array &$array): mixed {}
+function prev(object|array &$array): mixed {}
 
 /**
  * Advance the internal array pointer of an array
@@ -709,7 +676,7 @@ function prev (object|array &$array): mixed {}
  * internal array pointer, or false if there are no more elements.
  * @meta
  */
-function next (object|array &$array): mixed {}
+function next(object|array &$array): mixed {}
 
 /**
  * Set the internal pointer of an array to its first element
@@ -721,7 +688,7 @@ function next (object|array &$array): mixed {}
  * empty.
  * @meta
  */
-function reset (object|array &$array): mixed {}
+function reset(object|array &$array): mixed {}
 
 /**
  * Return the current element in an array
@@ -737,7 +704,7 @@ function reset (object|array &$array): mixed {}
  * @meta
  */
 #[Pure]
-function current (object|array $array): mixed {}
+function current(object|array $array): mixed {}
 
 /**
  * Fetch a key from an array
@@ -752,8 +719,7 @@ function current (object|array $array): mixed {}
  * empty, key returns null.
  */
 #[Pure]
-function key (object|array $array): string|int|null
-{}
+function key(object|array $array): string|int|null {}
 
 /**
  * Find lowest value
@@ -764,8 +730,7 @@ function key (object|array $array): string|int|null
  * parameter values.
  */
 #[Pure]
-function min (mixed $value, mixed ...$values): mixed
-{}
+function min(mixed $value, mixed ...$values): mixed {}
 
 /**
  * Find highest value
@@ -776,8 +741,7 @@ function min (mixed $value, mixed ...$values): mixed
  * parameter values, either within a arg array or two arguments.
  */
 #[Pure]
-function max (mixed $value, mixed ...$values): mixed
-{}
+function max(mixed $value, mixed ...$values): mixed {}
 
 /**
  * Checks if a value exists in an array
@@ -802,8 +766,7 @@ function max (mixed $value, mixed ...$values): mixed
  * false otherwise.
  */
 #[Pure]
-function in_array (mixed $needle, array $haystack, bool $strict = false): bool
-{}
+function in_array(mixed $needle, array $haystack, bool $strict = false): bool {}
 
 /**
  * Searches the array for a given value and returns the first corresponding key if successful
@@ -834,8 +797,7 @@ function in_array (mixed $needle, array $haystack, bool $strict = false): bool
  * search_value parameter instead.
  */
 #[Pure]
-function array_search (mixed $needle, array $haystack, bool $strict = false): string|int|false
-{}
+function array_search(mixed $needle, array $haystack, bool $strict = false): string|int|false {}
 
 /**
  * Import variables into the current symbol table from an array
@@ -863,8 +825,7 @@ function array_search (mixed $needle, array $haystack, bool $strict = false): st
  * @return int the number of variables successfully imported into the symbol
  * table.
  */
-function extract (array &$array, int $flags, string $prefix): int
-{}
+function extract(array &$array, int $flags, string $prefix): int {}
 
 /**
  * Create array containing variables and their values
@@ -880,8 +841,7 @@ function extract (array &$array, int $flags, string $prefix): int
  * @return array the output array with all the variables added to it.
  */
 #[Pure]
-function compact (mixed $var_name, ...$var_names): array
-{}
+function compact(mixed $var_name, ...$var_names): array {}
 
 /**
  * Fill an array with values
@@ -899,8 +859,7 @@ function compact (mixed $var_name, ...$var_names): array
  * @return array the filled array
  */
 #[Pure]
-function array_fill (int $start_index, int $count, mixed $value): array
-{}
+function array_fill(int $start_index, int $count, mixed $value): array {}
 
 /**
  * Fill an array with values, specifying keys
@@ -915,8 +874,7 @@ function array_fill (int $start_index, int $count, mixed $value): array
  * @return array the filled array
  */
 #[Pure]
-function array_fill_keys (array $keys, mixed $value): array
-{}
+function array_fill_keys(array $keys, mixed $value): array {}
 
 /**
  * Create an array containing a range of elements
@@ -937,8 +895,7 @@ function array_fill_keys (array $keys, mixed $value): array
  * end, inclusive.
  */
 #[Pure]
-function range ($start, $end, int|float $step = 1): array
-{}
+function range($start, $end, int|float $step = 1): array {}
 
 /**
  * Sort multiple or multi-dimensional arrays
@@ -953,9 +910,7 @@ function range ($start, $end, int|float $step = 1): array
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_multisort (&$array, &...$rest): bool
-{}
-
+function array_multisort(&$array, &...$rest): bool {}
 
 /**
  * Push elements onto the end of array
@@ -970,8 +925,7 @@ function array_multisort (&$array, &...$rest): bool
  * </p>
  * @return int the number of elements in the array.
  */
-function array_push (array &$array, ...$values): int
-{}
+function array_push(array &$array, ...$values): int {}
 
 /**
  * Pop the element off the end of array
@@ -984,7 +938,7 @@ function array_push (array &$array, ...$values): int
  * null will be returned.
  * @meta
  */
-function array_pop (array &$array): mixed {}
+function array_pop(array &$array): mixed {}
 
 /**
  * Shift an element off the beginning of array
@@ -996,7 +950,7 @@ function array_pop (array &$array): mixed {}
  * empty or is not an array.
  * @meta
  */
-function array_shift (array &$array): mixed {}
+function array_shift(array &$array): mixed {}
 
 /**
  * Prepend elements to the beginning of an array
@@ -1011,8 +965,7 @@ function array_shift (array &$array): mixed {}
  * </p>
  * @return int the number of elements in the array.
  */
-function array_unshift (array &$array, ...$values): int
-{}
+function array_unshift(array &$array, ...$values): int {}
 
 /**
  * Remove a portion of the array and replace it with something else
@@ -1058,8 +1011,7 @@ function array_unshift (array &$array, ...$values): int
  * </p>
  * @return array the array consisting of the extracted elements.
  */
-function array_splice (array &$array, int $offset, ?int $length, mixed $replacement): array
-{}
+function array_splice(array &$array, int $offset, ?int $length, mixed $replacement): array {}
 
 /**
  * Extract a slice of the array
@@ -1091,8 +1043,7 @@ function array_splice (array &$array, int $offset, ?int $length, mixed $replacem
  * @meta
  */
 #[Pure]
-function array_slice (array $array, int $offset, ?int $length, bool $preserve_keys = false): array
-{}
+function array_slice(array $array, int $offset, ?int $length, bool $preserve_keys = false): array {}
 
 /**
  * Merges the elements of one or more arrays together (if the input arrays have the same string keys, then the later value for that key will overwrite the previous one; if the arrays contain numeric keys, the later value will be appended)
@@ -1105,5 +1056,4 @@ function array_slice (array $array, int $offset, ?int $length, bool $preserve_ke
  * @meta
  */
 #[Pure]
-function array_merge (array ...$arrays): array
-{}
+function array_merge(array ...$arrays): array {}

@@ -11,11 +11,10 @@ use Attribute;
  * @since 8.0
  */
 #[Attribute(Attribute::TARGET_PARAMETER)]
-class Language {
+class Language
+{
     /**
      * @param string $languageName Language name like "PHP", "SQL", "RegExp", etc...
      */
-    public function __construct(string $languageName)
-    {
-    }
+    public function __construct(string $languageName) {}
 }

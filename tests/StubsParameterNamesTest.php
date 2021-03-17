@@ -22,7 +22,7 @@ class StubsParameterNamesTest extends BaseStubsTest
     {
         $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($function->name);
         self::assertNotEmpty(array_filter($phpstormFunction->parameters,
-            fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name),
+            fn (PHPParameter $stubParameter) => $stubParameter->name === $parameter->name),
             "Function {$function->name} has signature {$function->name}(" . self::printParameters($function->parameters) . ')' .
             " but stub function has signature {$phpstormFunction->name}(" . self::printParameters($phpstormFunction->parameters) . ')');
     }
@@ -41,7 +41,7 @@ class StubsParameterNamesTest extends BaseStubsTest
             $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->methods[$methodName];
         }
         self::assertNotEmpty(array_filter($stubMethod->parameters,
-            fn(PHPParameter $stubParameter) => $stubParameter->name === $reflectionParameter->name),
+            fn (PHPParameter $stubParameter) => $stubParameter->name === $reflectionParameter->name),
             "Method $className::$methodName has signature $methodName(" . self::printParameters($reflectionMethod->parameters) . ')' .
             " but stub function has signature $methodName(" . self::printParameters($stubMethod->parameters) . ')');
     }

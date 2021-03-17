@@ -9,9 +9,9 @@ use stdClass;
 
 class PHPParameter extends BasePHPElement
 {
-    /** @var string[] $types */
+    /** @var string[] */
     public array $typesFromSignature = [];
-    /** @var string[] $types */
+    /** @var string[] */
     public array $typesFromAttribute = [];
     public bool $is_vararg = false;
     public bool $is_passed_by_ref = false;

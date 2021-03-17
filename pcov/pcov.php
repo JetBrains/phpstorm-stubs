@@ -17,7 +17,7 @@ namespace pcov
      * Shall start recording coverage information
      * @return void
      */
-    function start () {}
+    function start() {}
 
     /**
      * (PHP &gt;= 7.0, PECL pcov &gt;= 1.0.0)<br/>

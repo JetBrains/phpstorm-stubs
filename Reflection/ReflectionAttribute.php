@@ -15,15 +15,13 @@ class ReflectionAttribute
      *
      * @since 8.0
      */
-    const IS_INSTANCEOF = 2;
+    public const IS_INSTANCEOF = 2;
 
     /**
      * ReflectionAttribute cannot be created explicitly.
      * @since 8.0
      */
-    private function __construct()
-    {
-    }
+    private function __construct() {}
 
     /**
      * Gets attribute name
@@ -32,9 +30,7 @@ class ReflectionAttribute
      * @since 8.0
      */
     #[Pure]
-	public function getName()
-    {
-    }
+    public function getName() {}
 
     /**
      * Returns the target of the attribute as a bit mask format.
@@ -43,9 +39,7 @@ class ReflectionAttribute
      * @since 8.0
      */
     #[Pure]
-	public function getTarget()
-    {
-    }
+    public function getTarget() {}
 
     /**
      * Returns {@see true} if the attribute is repeated.
@@ -54,9 +48,7 @@ class ReflectionAttribute
      * @since 8.0
      */
     #[Pure]
-	public function isRepeated()
-    {
-    }
+    public function isRepeated() {}
 
     /**
      * Gets list of passed attribute's arguments.
@@ -65,9 +57,7 @@ class ReflectionAttribute
      * @since 8.0
      */
     #[Pure]
-	public function getArguments()
-    {
-    }
+    public function getArguments() {}
 
     /**
      * Creates a new instance of the attribute with passed arguments
@@ -75,9 +65,7 @@ class ReflectionAttribute
      * @return object
      * @since 8.0
      */
-    public function newInstance()
-    {
-    }
+    public function newInstance() {}
 
     /**
      * ReflectionAttribute cannot be cloned
@@ -85,7 +73,5 @@ class ReflectionAttribute
      * @return void
      * @since 8.0
      */
-    private function __clone()
-    {
-    }
+    private function __clone() {}
 }

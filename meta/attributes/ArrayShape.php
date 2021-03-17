@@ -15,9 +15,8 @@ use Attribute;
  * <b>#[ArrayShape(["f" => "int", "string", "x" => "float"])]</b>
  * This usage applied on an element effectively means that the array has 3 dimensions, the keys are "f", 1, and "x", and the corresponding types are "int", "string", and "float".
  */
-#[Attribute(Attribute::TARGET_FUNCTION | Attribute::TARGET_METHOD | Attribute::TARGET_PARAMETER | Attribute::TARGET_PROPERTY)]
-class ArrayShape {
-    public function __construct(array $shape)
-    {
-    }
+#[Attribute(Attribute::TARGET_FUNCTION|Attribute::TARGET_METHOD|Attribute::TARGET_PARAMETER|Attribute::TARGET_PROPERTY)]
+class ArrayShape
+{
+    public function __construct(array $shape) {}
 }

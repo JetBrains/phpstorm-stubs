@@ -12,28 +12,28 @@ namespace parallel\Events;
  * Note: When a parallel\Events object performs a write, the target is removed from the input object as if
  * @see Input::remove() were called.
  */
-final class Input{
+final class Input
+{
+    /**
+     * Shall set input for the given target
+     *
+     * @param string $target
+     * @param mixed  $value
+     *
+     * @throws Input\Error\Existence if input for target already exists.
+     * @throws Input\Error\IllegalValue if value is illegal (object, null).
+     */
+    public function add(string $target, $value): void {}
 
-	/**
-	 * Shall set input for the given target
-	 *
-	 * @param string $target
-	 * @param mixed  $value
-	 *
-	 * @throws Input\Error\Existence if input for target already exists.
-	 * @throws Input\Error\IllegalValue if value is illegal (object, null).
-	 */
-	public function add(string $target, $value) : void{}
+    /**
+     * Shall remove input for the given target
+     * @param string $target
+     * @throws Input\Error\Existence if input for target does not exist.
+     */
+    public function remove(string $target): void {}
 
-	/**
-	 * Shall remove input for the given target
-	 * @param string $target
-	 * @throws Input\Error\Existence if input for target does not exist.
-	 */
-	public function remove(string $target) : void{}
-
-	/**
-	 * Shall remove input for all targets
-	 */
-	public function clear() : void{}
+    /**
+     * Shall remove input for all targets
+     */
+    public function clear(): void {}
 }

@@ -32,13 +32,12 @@ class StubMethodsProvider
         $filteredMethods = [];
         foreach (EntitiesFilter::getFiltered($coreClassesAndInterfaces) as $className => $class) {
             $filteredMethods = EntitiesFilter::getFiltered($class->methods,
-                fn(PHPMethod $method) => empty($method->returnTypesFromSignature) || empty($method->returnTypesFromPhpDoc)
+                fn (PHPMethod $method) => empty($method->returnTypesFromSignature) || empty($method->returnTypesFromPhpDoc)
                     || $method->parentName === '___PHPSTORM_HELPERS\object',
                 StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE);
-
         }
         $filteredMethods += EntitiesFilter::getFiltered($allFunctions,
-            fn(PHPFunction $function) => empty($function->returnTypesFromSignature) || empty($function->returnTypesFromPhpDoc),
+            fn (PHPFunction $function) => empty($function->returnTypesFromSignature) || empty($function->returnTypesFromPhpDoc),
             StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE);
         foreach ($filteredMethods as $methodName => $method) {
             if ($method instanceof PHPMethod) {
@@ -76,7 +75,7 @@ class StubMethodsProvider
             PhpStormStubsSingleton::getPhpStormStubs()->getCoreInterfaces();
         foreach (EntitiesFilter::getFiltered($coreClassesAndInterfaces) as $className => $class) {
             foreach (EntitiesFilter::getFiltered($class->methods,
-                fn(PHPMethod $method) => $method->parentName === '___PHPSTORM_HELPERS\object', ...$problemTypes) as $methodName => $method) {
+                fn (PHPMethod $method) => $method->parentName === '___PHPSTORM_HELPERS\object', ...$problemTypes) as $methodName => $method) {
                 $firstSinceVersion = Utils::getDeclaredSinceVersion($method);
                 if ($filterFunction($class, $method, $firstSinceVersion) === true) {
                     yield "method $className::$methodName" => [$method];

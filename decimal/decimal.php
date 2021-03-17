@@ -1,4 +1,5 @@
 <?php
+
 namespace Decimal;
 
 final class Decimal implements \JsonSerializable
@@ -6,21 +7,21 @@ final class Decimal implements \JsonSerializable
     /**
      * These constants are for auto-complete only.
      */
-    const ROUND_UP          = 0; /* Round away from zero. */
-    const ROUND_DOWN        = 0; /* Round towards zero. */
-    const ROUND_CEILING     = 0; /* Round towards positive infinity */
-    const ROUND_FLOOR       = 0; /* Round towards negative infinity */
-    const ROUND_HALF_UP     = 0; /* Round to nearest, ties away from zero. */
-    const ROUND_HALF_DOWN   = 0; /* Round to nearest, ties towards zero. */
-    const ROUND_HALF_EVEN   = 0; /* Round to nearest, ties towards even. */
-    const ROUND_HALF_ODD    = 0; /* Round to nearest, ties towards odd. */
-    const ROUND_TRUNCATE    = 0; /* Truncate, keeping infinity. */
+    public const ROUND_UP = 0; /* Round away from zero. */
+    public const ROUND_DOWN = 0; /* Round towards zero. */
+    public const ROUND_CEILING = 0; /* Round towards positive infinity */
+    public const ROUND_FLOOR = 0; /* Round towards negative infinity */
+    public const ROUND_HALF_UP = 0; /* Round to nearest, ties away from zero. */
+    public const ROUND_HALF_DOWN = 0; /* Round to nearest, ties towards zero. */
+    public const ROUND_HALF_EVEN = 0; /* Round to nearest, ties towards even. */
+    public const ROUND_HALF_ODD = 0; /* Round to nearest, ties towards odd. */
+    public const ROUND_TRUNCATE = 0; /* Truncate, keeping infinity. */
 
-    const DEFAULT_ROUNDING  = Decimal::ROUND_HALF_EVEN;
-    const DEFAULT_PRECISION = 28;
+    public const DEFAULT_ROUNDING = Decimal::ROUND_HALF_EVEN;
+    public const DEFAULT_PRECISION = 28;
 
-    const MIN_PRECISION     = 1;
-    const MAX_PRECISION     = 0; /* This value may change across platforms */
+    public const MIN_PRECISION = 1;
+    public const MAX_PRECISION = 0; /* This value may change across platforms */
 
     /**
      * Constructor

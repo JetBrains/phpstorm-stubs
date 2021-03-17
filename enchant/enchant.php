@@ -9,7 +9,7 @@ use JetBrains\PhpStorm\Deprecated;
  * @link https://php.net/manual/en/function.enchant-broker-init.php
  * @return resource|false|EnchantBroker a broker resource on success or <b>FALSE</b>.
  */
-function enchant_broker_init () {}
+function enchant_broker_init() {}
 
 /**
  * Free the broker resource and its dictionaries
@@ -21,7 +21,7 @@ function enchant_broker_init () {}
  * @since 5.3
  */
 #[Deprecated(reason: "Unset the object instead", since: '8.0')]
-function enchant_broker_free ($broker) {}
+function enchant_broker_free($broker) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
@@ -32,7 +32,7 @@ function enchant_broker_free ($broker) {}
  * </p>
  * @return string|false Return the msg string if an error was found or <b>FALSE</b>
  */
-function enchant_broker_get_error ($broker) {}
+function enchant_broker_get_error($broker) {}
 
 /**
  * Set the directory path for a given backend
@@ -43,7 +43,7 @@ function enchant_broker_get_error ($broker) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 #[Deprecated(since: '8.0', reason: 'Relying on this function is highly discouraged.')]
-function enchant_broker_set_dict_path ($broker, int $dict_type, string $value) {}
+function enchant_broker_set_dict_path($broker, int $dict_type, string $value) {}
 
 /**
  * Get the directory path for a given backend
@@ -53,7 +53,7 @@ function enchant_broker_set_dict_path ($broker, int $dict_type, string $value) {
  * @return string|false
  */
 #[Deprecated(since: '8.0', reason: 'Relying on this function is highly discouraged.')]
-function enchant_broker_get_dict_path ($broker, $dict_type) {}
+function enchant_broker_get_dict_path($broker, $dict_type) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 1.0.1)<br/>
@@ -64,7 +64,7 @@ function enchant_broker_get_dict_path ($broker, $dict_type) {}
  * </p>
  * @return array Returns an array of available dictionaries with their details.
  */
-function enchant_broker_list_dicts ($broker) {}
+function enchant_broker_list_dicts($broker) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
@@ -78,7 +78,7 @@ function enchant_broker_list_dicts ($broker) {}
  * </p>
  * @return resource|false|EnchantDictionary a dictionary resource on success or <b>FALSE</b> on failure.
  */
-function enchant_broker_request_dict ($broker, $tag) {}
+function enchant_broker_request_dict($broker, $tag) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
@@ -92,7 +92,7 @@ function enchant_broker_request_dict ($broker, $tag) {}
  * </p>
  * @return resource|false|EnchantDictionary a dictionary resource on success or <b>FALSE</b> on failure.
  */
-function enchant_broker_request_pwl_dict ($broker, $filename) {}
+function enchant_broker_request_pwl_dict($broker, $filename) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
@@ -103,8 +103,8 @@ function enchant_broker_request_pwl_dict ($broker, $filename) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-#[Deprecated("Unset the object instead",since: '8.0')]
-function enchant_broker_free_dict ($dict) {}
+#[Deprecated("Unset the object instead", since: '8.0')]
+function enchant_broker_free_dict($dict) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
@@ -118,7 +118,7 @@ function enchant_broker_free_dict ($dict) {}
  * </p>
  * @return bool <b>TRUE</b> when the tag exist or <b>FALSE</b> when not.
  */
-function enchant_broker_dict_exists ($broker, $tag) {}
+function enchant_broker_dict_exists($broker, $tag) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
@@ -137,7 +137,7 @@ function enchant_broker_dict_exists ($broker, $tag) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function enchant_broker_set_ordering ($broker, $tag, $ordering) {}
+function enchant_broker_set_ordering($broker, $tag, $ordering) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0)<br/>
@@ -148,7 +148,7 @@ function enchant_broker_set_ordering ($broker, $tag, $ordering) {}
  * </p>
  * @return array|false
  */
-function enchant_broker_describe ($broker) {}
+function enchant_broker_describe($broker) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
@@ -162,7 +162,7 @@ function enchant_broker_describe ($broker) {}
  * </p>
  * @return bool <b>TRUE</b> if the word is spelled correctly, <b>FALSE</b> if not.
  */
-function enchant_dict_check ($dict, $word) {}
+function enchant_dict_check($dict, $word) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
@@ -176,7 +176,7 @@ function enchant_dict_check ($dict, $word) {}
  * </p>
  * @return array|false Will returns an array of suggestions if the word is bad spelled.
  */
-function enchant_dict_suggest ($dict, $word) {}
+function enchant_dict_suggest($dict, $word) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
@@ -196,7 +196,7 @@ function enchant_dict_suggest ($dict, $word) {}
   replacement: 'enchant_dict_add(%parameter0%, %parameter1%)',
   since: '8.0'
 )]
-function enchant_dict_add_to_personal ($dict, $word) {}
+function enchant_dict_add_to_personal($dict, $word) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
@@ -210,7 +210,7 @@ function enchant_dict_add_to_personal ($dict, $word) {}
  * </p>
  * @return void
  */
-function enchant_dict_add_to_session ($dict, $word) {}
+function enchant_dict_add_to_session($dict, $word) {}
 
 /**
  * (PHP 8)<br/>
@@ -225,7 +225,7 @@ function enchant_dict_add_to_session ($dict, $word) {}
  * @return void
  * @since 8.0
  */
-function enchant_dict_add ($dictionary, $word) {}
+function enchant_dict_add($dictionary, $word) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
@@ -245,7 +245,7 @@ function enchant_dict_add ($dictionary, $word) {}
   replacement: 'enchant_dict_is_added(%parameter0%, %parameter1%)',
   since: '8.0'
 )]
-function enchant_dict_is_in_session ($dict, $word) {}
+function enchant_dict_is_in_session($dict, $word) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
@@ -262,7 +262,7 @@ function enchant_dict_is_in_session ($dict, $word) {}
  * </p>
  * @return void
  */
-function enchant_dict_store_replacement ($dict, $mis, $cor) {}
+function enchant_dict_store_replacement($dict, $mis, $cor) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
@@ -273,7 +273,7 @@ function enchant_dict_store_replacement ($dict, $mis, $cor) {}
  * </p>
  * @return string|false the error message as string or <b>FALSE</b> if no error occurred.
  */
-function enchant_dict_get_error ($dict) {}
+function enchant_dict_get_error($dict) {}
 
 /**
  * (PHP 8)<br/>
@@ -288,7 +288,7 @@ function enchant_dict_get_error ($dict) {}
  * @return bool <b>TRUE</b> if the word exists or <b>FALSE</b>
  * @since 8.0
  */
-function enchant_dict_is_added ($dictionary, $word) {}
+function enchant_dict_is_added($dictionary, $word) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
@@ -299,7 +299,7 @@ function enchant_dict_is_added ($dictionary, $word) {}
  * </p>
  * @return array Returns the details of the dictionary.
  */
-function enchant_dict_describe ($dict) {}
+function enchant_dict_describe($dict) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant:0.2.0-1.0.1)<br/>
@@ -317,23 +317,18 @@ function enchant_dict_describe ($dict) {}
  * </p>
  * @return bool <b>TRUE</b> if the word is correctly spelled or <b>FALSE</b>
  */
-function enchant_dict_quick_check ($dict, $word, ?array &$suggestions = null) {}
+function enchant_dict_quick_check($dict, $word, ?array &$suggestions = null) {}
 
 /**
  * @deprecated 8.0
  */
-define ('ENCHANT_MYSPELL', 1);
+define('ENCHANT_MYSPELL', 1);
 /**
  * @deprecated 8.0
  */
-define ('ENCHANT_ISPELL', 2);
+define('ENCHANT_ISPELL', 2);
 
-final class EnchantBroker
-{
-}
+final class EnchantBroker {}
 
-final class EnchantDictionary
-{
-}
+final class EnchantDictionary {}
 // End of enchant v.1.1.0
-?>

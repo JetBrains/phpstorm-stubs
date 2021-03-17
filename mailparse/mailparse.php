@@ -12,7 +12,7 @@
  * @return string Returns one of the character encodings supported by the
  * {@link https://php.net/manual/en/ref.mbstring.php mbstring} module.
  */
-function mailparse_determine_best_xfer_encoding ($fp) {}
+function mailparse_determine_best_xfer_encoding($fp) {}
 
 /**
  * (PECL mailparse >= 0.9.0)<br/>
@@ -20,7 +20,7 @@ function mailparse_determine_best_xfer_encoding ($fp) {}
  * @link https://php.net/manual/en/function.mailparse-msg-create.php
  * @return resource Returns a handle that can be used to parse a message.
  */
-function mailparse_msg_create () {}
+function mailparse_msg_create() {}
 
 /**
  * (PECL mailparse >= 0.9.0)<br/>
@@ -51,7 +51,7 @@ function mailparse_msg_create () {}
  * Returns FALSE on error.
  * </p>
  */
-function mailparse_msg_extract_part_file ($mimemail, $filename, $callbackfunc) {}
+function mailparse_msg_extract_part_file($mimemail, $filename, $callbackfunc) {}
 
 /**
  * (PECL mailparse >= 0.9.0)<br/>
@@ -64,7 +64,7 @@ function mailparse_msg_extract_part_file ($mimemail, $filename, $callbackfunc) {
  * @param callable $callbackfunc [optional]
  * @return void
  */
-function mailparse_msg_extract_part ($mimemail, $msgbody, $callbackfunc) {}
+function mailparse_msg_extract_part($mimemail, $msgbody, $callbackfunc) {}
 
 /**
  * (PECL mailparse >= 0.9.0)<br/>
@@ -77,7 +77,7 @@ function mailparse_msg_extract_part ($mimemail, $msgbody, $callbackfunc) {}
  * @param callable $callbackfunc [optional]
  * @return string
  */
-function mailparse_msg_extract_whole_part_file ($mimemail, $filename, $callbackfunc) {}
+function mailparse_msg_extract_whole_part_file($mimemail, $filename, $callbackfunc) {}
 
 /**
  * (PECL mailparse >= 0.9.0)<br/>
@@ -90,7 +90,7 @@ function mailparse_msg_extract_whole_part_file ($mimemail, $filename, $callbackf
  * </p>
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function mailparse_msg_free ($mimemail) {}
+function mailparse_msg_free($mimemail) {}
 
 /**
  * (PECL mailparse >= 0.9.0)<br/>
@@ -101,7 +101,7 @@ function mailparse_msg_free ($mimemail) {}
  * </p>
  * @return array
  */
-function mailparse_msg_get_part_data ($mimemail) {}
+function mailparse_msg_get_part_data($mimemail) {}
 
 /**
  * (PECL mailparse >= 0.9.0)<br/>
@@ -113,7 +113,7 @@ function mailparse_msg_get_part_data ($mimemail) {}
  * @param string $mimesection
  * @return resource
  */
-function mailparse_msg_get_part ($mimemail, $mimesection) {}
+function mailparse_msg_get_part($mimemail, $mimesection) {}
 
 /**
  * (PECL mailparse >= 0.9.0)<br/>
@@ -124,7 +124,7 @@ function mailparse_msg_get_part ($mimemail, $mimesection) {}
  * </p>
  * @return array
  */
-function mailparse_msg_get_structure ($mimemail) {}
+function mailparse_msg_get_structure($mimemail) {}
 
 /**
  * (PECL mailparse >= 0.9.0)<br/>
@@ -135,7 +135,7 @@ function mailparse_msg_get_structure ($mimemail) {}
  * </p>
  * @return resource|false Returns a MIME resource representing the structure, or <b>FALSE</b> on error.
  */
-function mailparse_msg_parse_file ($filename) {}
+function mailparse_msg_parse_file($filename) {}
 
 /**
  * (PECL mailparse >= 0.9.0)<br/>
@@ -148,7 +148,7 @@ function mailparse_msg_parse_file ($filename) {}
  * @param string $data
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function mailparse_msg_parse ($mimemail, $data) {}
+function mailparse_msg_parse($mimemail, $data) {}
 
 /**
  * (PECL mailparse >= 0.9.0)<br/>
@@ -176,7 +176,7 @@ function mailparse_msg_parse ($mimemail, $data) {}
  * </tr>
  * </table>
  */
-function mailparse_rfc822_parse_addresses ($addresses) {}
+function mailparse_rfc822_parse_addresses($addresses) {}
 
 /**
  * (PECL mailparse >= 0.9.0)<br/>
@@ -193,7 +193,7 @@ function mailparse_rfc822_parse_addresses ($addresses) {}
  * </p>
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function mailparse_stream_encode ($sourcefp, $destfp, $encoding) {}
+function mailparse_stream_encode($sourcefp, $destfp, $encoding) {}
 
 /**
  * (PECL mailparse >= 0.9.0)<br/>
@@ -219,11 +219,10 @@ function mailparse_stream_encode ($sourcefp, $destfp, $encoding) {}
  * The first filename entry is the message body. The next entries are the decoded uuencoded files.
  * </p>
  */
-function mailparse_uudecode_all ($fp) {}
+function mailparse_uudecode_all($fp) {}
 
-define ('MAILPARSE_EXTRACT_OUTPUT', 0);
-define ('MAILPARSE_EXTRACT_STREAM', 1);
-define ('MAILPARSE_EXTRACT_RETURN', 2);
+define('MAILPARSE_EXTRACT_OUTPUT', 0);
+define('MAILPARSE_EXTRACT_STREAM', 1);
+define('MAILPARSE_EXTRACT_RETURN', 2);
 
 // End of mailparse v.
-?>

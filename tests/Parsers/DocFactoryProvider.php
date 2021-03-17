@@ -13,7 +13,7 @@ class DocFactoryProvider
     public static function getDocFactory(): DocBlockFactory
     {
         if (self::$docFactory === null) {
-            self::$docFactory = DocBlockFactory::createInstance(['removed'=>RemovedTag::class]);
+            self::$docFactory = DocBlockFactory::createInstance(['removed' => RemovedTag::class]);
         }
         return self::$docFactory;
     }

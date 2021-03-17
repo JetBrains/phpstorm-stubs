@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Parle;
-
 
 use JetBrains\PhpStorm\Immutable;
 
@@ -33,7 +31,7 @@ class Stack
      * @link https://php.net/manual/en/parle-stack.pop.php
      * @return void
      */
-    public function pop() : void {}
+    public function pop(): void {}
 
     /**
      * Push an item into the stack

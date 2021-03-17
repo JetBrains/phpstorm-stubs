@@ -5,12 +5,13 @@
  *
  * @link https://php.net/manual/en/class.spltype.php
  */
-abstract class SplType {
+abstract class SplType
+{
     /**
      * @var null Default value
      * @link https://php.net/manual/en/class.spltype.php#spltype.constants.default
      */
-    const __default = null;
+    public const __default = null;
 
     /**
      * Creates a new value of some type
@@ -19,7 +20,7 @@ abstract class SplType {
      * @param bool $strict  If set to true then will throw UnexpectedValueException if value of other type will be assigned. True by default
      * @link https://php.net/manual/en/spltype.construct.php
      */
-    public function __construct ($initial_value = self::__default, $strict = true ){ }
+    public function __construct($initial_value = self::__default, $strict = true) {}
 }
 
 /**
@@ -27,11 +28,12 @@ abstract class SplType {
  *
  * @link https://php.net/manual/en/class.splint.php
  */
-class SplInt extends SplType {
+class SplInt extends SplType
+{
     /**
      * @link https://php.net/manual/en/class.splint.php#splint.constants.default
      */
-    const __default = 0 ;
+    public const __default = 0;
 }
 
 /**
@@ -39,8 +41,9 @@ class SplInt extends SplType {
  *
  * @link https://php.net/manual/en/class.splfloat.php
  */
-class SplFloat extends SplType {
-    const __default = 0 ;
+class SplFloat extends SplType
+{
+    public const __default = 0;
 }
 
 /**
@@ -48,11 +51,12 @@ class SplFloat extends SplType {
  *
  * @link https://php.net/manual/en/class.splenum.php
  */
-class SplEnum extends SplType {
+class SplEnum extends SplType
+{
     /**
      * @link https://php.net/manual/en/class.splenum.php#splenum.constants.default
      */
-    const __default = null ;
+    public const __default = null;
 
     /**
      * Returns all consts (possible values) as an array.
@@ -61,7 +65,7 @@ class SplEnum extends SplType {
      * @return array
      * @link https://php.net/manual/en/splenum.getconstlist.php
      */
-    public function getConstList ($include_default = false) {}
+    public function getConstList($include_default = false) {}
 }
 
 /**
@@ -69,21 +73,22 @@ class SplEnum extends SplType {
  *
  * @link https://php.net/manual/en/class.splbool.php
  */
-class SplBool extends SplEnum {
+class SplBool extends SplEnum
+{
     /**
      * @link https://php.net/manual/en/class.splbool.php#splbool.constants.default
      */
-    const __default = false ;
+    public const __default = false;
 
     /**
      * @link https://php.net/manual/en/class.splbool.php#splbool.constants.false
      */
-    const false = false ;
+    public const false = false;
 
     /**
      * @link https://php.net/manual/en/class.splbool.php#splbool.constants.true
      */
-    const true = true ;
+    public const true = true;
 }
 
 /**
@@ -91,9 +96,10 @@ class SplBool extends SplEnum {
  *
  * @link https://php.net/manual/en/class.splstring.php
  */
-class SplString extends SplType {
+class SplString extends SplType
+{
     /**
      * @link https://php.net/manual/en/class.splstring.php#splstring.constants.default
      */
-    const __default = 0 ;
+    public const __default = 0;
 }

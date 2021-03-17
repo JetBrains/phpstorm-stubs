@@ -7,4 +7,4 @@
  *
  * @return void
  */
-function meminfo_dump ($stream) {}
+function meminfo_dump($stream) {}

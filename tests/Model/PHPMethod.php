@@ -63,7 +63,7 @@ class PHPMethod extends PHPFunction
         }
 
         foreach ($this->parameters as $parameter) {
-            $relatedParamTags = array_filter($this->paramTags, fn(Param $tag) => $tag->getVariableName() === $parameter->name);
+            $relatedParamTags = array_filter($this->paramTags, fn (Param $tag) => $tag->getVariableName() === $parameter->name);
             /** @var Param $relatedParamTag */
             $relatedParamTag = array_pop($relatedParamTags);
             if (!empty($relatedParamTag)) {

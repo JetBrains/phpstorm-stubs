@@ -7,21 +7,15 @@ class Topic
     /**
      * @return string
      */
-    public function getTopic()
-    {
-    }
+    public function getTopic() {}
 
     /**
      * @return Partition[]
      */
-    public function getPartitions()
-    {
-    }
+    public function getPartitions() {}
 
     /**
      * @return mixed
      */
-    public function getErr()
-    {
-    }
+    public function getErr() {}
 }

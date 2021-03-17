@@ -7,11 +7,11 @@ use JetBrains\PhpStorm\Pure;
  * Represents an element in an XML document.
  * @link https://php.net/manual/en/class.simplexmlelement.php
  */
-class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator, Stringable, RecursiveIterator {
-
-	/**
-	 * Creates a new SimpleXMLElement object
-	 * @link https://php.net/manual/en/simplexmlelement.construct.php
+class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator, Stringable, RecursiveIterator
+{
+    /**
+     * Creates a new SimpleXMLElement object
+     * @link https://php.net/manual/en/simplexmlelement.construct.php
      * @param string $data A well-formed XML string or the path or URL to an XML document if data_is_url is TRUE.
      * @param int $options Optionally used to specify additional Libxml parameters.
      * @param bool $dataIsURL By default, data_is_url is FALSE.
@@ -19,12 +19,12 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @param string $namespaceOrPrefix Namespace prefix or URI.
      * @param bool $isPrefix TRUE if ns is a prefix, FALSE if it's a URI; defaults to FALSE.
      * @throws \Exception if the XML data could not be parsed.
-	 * @since 5.0.1
-	 */
-	#[Pure]
-	public function __construct ($data, $options = 0, $dataIsURL = false, $namespaceOrPrefix = "", $isPrefix = false) {}
+     * @since 5.0.1
+     */
+    #[Pure]
+    public function __construct($data, $options = 0, $dataIsURL = false, $namespaceOrPrefix = "", $isPrefix = false) {}
 
-	/**
+    /**
      * Provides access to element's children
      * private Method not callable directly, stub exists for typehint only
      * @param string $name child name
@@ -32,193 +32,193 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      */
     private function __get($name) {}
 
-	/**
-	 * Return a well-formed XML string based on SimpleXML element
-	 * @link https://php.net/manual/en/simplexmlelement.asxml.php
-	 * @param string $filename [optional] <p>
-	 * If specified, the function writes the data to the file rather than
-	 * returning it.
-	 * </p>
-	 * @return string|bool If the <i>filename</i> isn't specified, this function
-	 * returns a string on success and <b>FALSE</b> on error. If the
-	 * parameter is specified, it returns <b>TRUE</b> if the file was written
-	 * successfully and <b>FALSE</b> otherwise.
-	 * @since 5.0.1
-	 */
-	public function asXML ($filename = null) {}
-
-	/**
-	 * Alias of <b>SimpleXMLElement::asXML</b>
+    /**
      * Return a well-formed XML string based on SimpleXML element
-	 * @link https://php.net/manual/en/simplexmlelement.savexml.php
+     * @link https://php.net/manual/en/simplexmlelement.asxml.php
      * @param string $filename [optional] <p>
-   	 * If specified, the function writes the data to the file rather than
-   	 * returning it.
-   	 * </p>
+     * If specified, the function writes the data to the file rather than
+     * returning it.
+     * </p>
      * @return string|bool If the <i>filename</i> isn't specified, this function
-   	 * returns a string on success and false on error. If the
-   	 * parameter is specified, it returns true if the file was written
-   	 * successfully and false otherwise.
-	 */
-	public function saveXML ($filename = null) {}
+     * returns a string on success and <b>FALSE</b> on error. If the
+     * parameter is specified, it returns <b>TRUE</b> if the file was written
+     * successfully and <b>FALSE</b> otherwise.
+     * @since 5.0.1
+     */
+    public function asXML($filename = null) {}
 
-	/**
-	 * Runs XPath query on XML data
-	 * @link https://php.net/manual/en/simplexmlelement.xpath.php
-	 * @param string $expression <p>
-	 * An XPath path
-	 * </p>
-	 * @return static[]|false an array of SimpleXMLElement objects or <b>FALSE</b> in
-	 * case of an error.
-	 */
-	public function xpath ($expression) {}
+    /**
+     * Alias of <b>SimpleXMLElement::asXML</b>
+     * Return a well-formed XML string based on SimpleXML element
+     * @link https://php.net/manual/en/simplexmlelement.savexml.php
+     * @param string $filename [optional] <p>
+     * If specified, the function writes the data to the file rather than
+     * returning it.
+     * </p>
+     * @return string|bool If the <i>filename</i> isn't specified, this function
+     * returns a string on success and false on error. If the
+     * parameter is specified, it returns true if the file was written
+     * successfully and false otherwise.
+     */
+    public function saveXML($filename = null) {}
 
-	/**
-	 * Creates a prefix/ns context for the next XPath query
-	 * @link https://php.net/manual/en/simplexmlelement.registerxpathnamespace.php
-	 * @param string $prefix <p>
-	 * The namespace prefix to use in the XPath query for the namespace given in
-	 * <i>ns</i>.
-	 * </p>
-	 * @param string $namespace <p>
-	 * The namespace to use for the XPath query. This must match a namespace in
-	 * use by the XML document or the XPath query using
-	 * <i>prefix</i> will not return any results.
-	 * </p>
-	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-	 */
-	public function registerXPathNamespace ($prefix, $namespace) {}
+    /**
+     * Runs XPath query on XML data
+     * @link https://php.net/manual/en/simplexmlelement.xpath.php
+     * @param string $expression <p>
+     * An XPath path
+     * </p>
+     * @return static[]|false an array of SimpleXMLElement objects or <b>FALSE</b> in
+     * case of an error.
+     */
+    public function xpath($expression) {}
 
-	/**
-	 * Identifies an element's attributes
-	 * @link https://php.net/manual/en/simplexmlelement.attributes.php
-	 * @param string $namespaceOrPrefix [optional] <p>
-	 * An optional namespace for the retrieved attributes
-	 * </p>
-	 * @param bool $isPrefix [optional] <p>
-	 * Default to <b>FALSE</b>
-	 * </p>
-	 * @return static|null a <b>SimpleXMLElement</b> object that can be
-	 * iterated over to loop through the attributes on the tag.
-	 * </p>
-	 * <p>
-	 * Returns <b>NULL</b> if called on a <b>SimpleXMLElement</b>
-	 * object that already represents an attribute and not a tag.
-	 * @since 5.0.1
-	 */
-	public function attributes ($namespaceOrPrefix = null, $isPrefix = false) {}
+    /**
+     * Creates a prefix/ns context for the next XPath query
+     * @link https://php.net/manual/en/simplexmlelement.registerxpathnamespace.php
+     * @param string $prefix <p>
+     * The namespace prefix to use in the XPath query for the namespace given in
+     * <i>ns</i>.
+     * </p>
+     * @param string $namespace <p>
+     * The namespace to use for the XPath query. This must match a namespace in
+     * use by the XML document or the XPath query using
+     * <i>prefix</i> will not return any results.
+     * </p>
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function registerXPathNamespace($prefix, $namespace) {}
 
-	/**
-	 * Finds children of given node
-	 * @link https://php.net/manual/en/simplexmlelement.children.php
-	 * @param string $namespaceOrPrefix [optional] <p>
-	 * An XML namespace.
-	 * </p>
-	 * @param bool $isPrefix [optional] <p>
-	 * If <i>is_prefix</i> is <b>TRUE</b>,
-	 * <i>ns</i> will be regarded as a prefix. If <b>FALSE</b>,
-	 * <i>ns</i> will be regarded as a namespace
-	 * URL.
-	 * </p>
-	 * @return static a <b>SimpleXMLElement</b> element, whether the node
-	 * has children or not.
-	 * @since 5.0.1
-	 */
+    /**
+     * Identifies an element's attributes
+     * @link https://php.net/manual/en/simplexmlelement.attributes.php
+     * @param string $namespaceOrPrefix [optional] <p>
+     * An optional namespace for the retrieved attributes
+     * </p>
+     * @param bool $isPrefix [optional] <p>
+     * Default to <b>FALSE</b>
+     * </p>
+     * @return static|null a <b>SimpleXMLElement</b> object that can be
+     * iterated over to loop through the attributes on the tag.
+     * </p>
+     * <p>
+     * Returns <b>NULL</b> if called on a <b>SimpleXMLElement</b>
+     * object that already represents an attribute and not a tag.
+     * @since 5.0.1
+     */
+    public function attributes($namespaceOrPrefix = null, $isPrefix = false) {}
+
+    /**
+     * Finds children of given node
+     * @link https://php.net/manual/en/simplexmlelement.children.php
+     * @param string $namespaceOrPrefix [optional] <p>
+     * An XML namespace.
+     * </p>
+     * @param bool $isPrefix [optional] <p>
+     * If <i>is_prefix</i> is <b>TRUE</b>,
+     * <i>ns</i> will be regarded as a prefix. If <b>FALSE</b>,
+     * <i>ns</i> will be regarded as a namespace
+     * URL.
+     * </p>
+     * @return static a <b>SimpleXMLElement</b> element, whether the node
+     * has children or not.
+     * @since 5.0.1
+     */
     #[Pure]
-	public function children ($namespaceOrPrefix = null, $isPrefix = false) {}
+    public function children($namespaceOrPrefix = null, $isPrefix = false) {}
 
-	/**
-	 * Returns namespaces used in document
-	 * @link https://php.net/manual/en/simplexmlelement.getnamespaces.php
-	 * @param bool $recursive [optional] <p>
-	 * If specified, returns all namespaces used in parent and child nodes.
-	 * Otherwise, returns only namespaces used in root node.
-	 * </p>
-	 * @return array The getNamespaces method returns an array of
-	 * namespace names with their associated URIs.
-	 * @since 5.1.2
-	 */
+    /**
+     * Returns namespaces used in document
+     * @link https://php.net/manual/en/simplexmlelement.getnamespaces.php
+     * @param bool $recursive [optional] <p>
+     * If specified, returns all namespaces used in parent and child nodes.
+     * Otherwise, returns only namespaces used in root node.
+     * </p>
+     * @return array The getNamespaces method returns an array of
+     * namespace names with their associated URIs.
+     * @since 5.1.2
+     */
     #[Pure]
-	public function getNamespaces ($recursive = false) {}
+    public function getNamespaces($recursive = false) {}
 
-	/**
-	 * Returns namespaces declared in document
-	 * @link https://php.net/manual/en/simplexmlelement.getdocnamespaces.php
-	 * @param bool $recursive [optional] <p>
-	 * If specified, returns all namespaces declared in parent and child nodes.
-	 * Otherwise, returns only namespaces declared in root node.
-	 * </p>
-	 * @param bool $fromRoot [optional] <p>
-	 * Allows you to recursively check namespaces under a child node instead of
-	 * from the root of the XML doc.
-	 * </p>
-	 * @return array The getDocNamespaces method returns an array
-	 * of namespace names with their associated URIs.
-	 * @since 5.1.2
-	 */
+    /**
+     * Returns namespaces declared in document
+     * @link https://php.net/manual/en/simplexmlelement.getdocnamespaces.php
+     * @param bool $recursive [optional] <p>
+     * If specified, returns all namespaces declared in parent and child nodes.
+     * Otherwise, returns only namespaces declared in root node.
+     * </p>
+     * @param bool $fromRoot [optional] <p>
+     * Allows you to recursively check namespaces under a child node instead of
+     * from the root of the XML doc.
+     * </p>
+     * @return array The getDocNamespaces method returns an array
+     * of namespace names with their associated URIs.
+     * @since 5.1.2
+     */
     #[Pure]
-	public function getDocNamespaces ($recursive = false, $fromRoot = true) {}
+    public function getDocNamespaces($recursive = false, $fromRoot = true) {}
 
-	/**
-	 * Gets the name of the XML element
-	 * @link https://php.net/manual/en/simplexmlelement.getname.php
-	 * @return string The getName method returns as a string the
-	 * name of the XML tag referenced by the SimpleXMLElement object.
-	 * @since 5.1.3
-	 */
+    /**
+     * Gets the name of the XML element
+     * @link https://php.net/manual/en/simplexmlelement.getname.php
+     * @return string The getName method returns as a string the
+     * name of the XML tag referenced by the SimpleXMLElement object.
+     * @since 5.1.3
+     */
     #[Pure]
-	public function getName () {}
+    public function getName() {}
 
-	/**
-	 * Adds a child element to the XML node
-	 * @link https://php.net/manual/en/simplexmlelement.addchild.php
-	 * @param string $qualifiedName <p>
-	 * The name of the child element to add.
-	 * </p>
-	 * @param string $value [optional] <p>
-	 * If specified, the value of the child element.
-	 * </p>
-	 * @param string $namespace [optional] <p>
-	 * If specified, the namespace to which the child element belongs.
-	 * </p>
-	 * @return static The addChild method returns a SimpleXMLElement
-	 * object representing the child added to the XML node.
-	 * @since 5.1.3
-	 */
-	public function addChild ($qualifiedName, $value = null, $namespace = null) {}
+    /**
+     * Adds a child element to the XML node
+     * @link https://php.net/manual/en/simplexmlelement.addchild.php
+     * @param string $qualifiedName <p>
+     * The name of the child element to add.
+     * </p>
+     * @param string $value [optional] <p>
+     * If specified, the value of the child element.
+     * </p>
+     * @param string $namespace [optional] <p>
+     * If specified, the namespace to which the child element belongs.
+     * </p>
+     * @return static The addChild method returns a SimpleXMLElement
+     * object representing the child added to the XML node.
+     * @since 5.1.3
+     */
+    public function addChild($qualifiedName, $value = null, $namespace = null) {}
 
-	/**
-	 * Adds an attribute to the SimpleXML element
-	 * @link https://php.net/manual/en/simplexmlelement.addattribute.php
-	 * @param string $qualifiedName <p>
-	 * The name of the attribute to add.
-	 * </p>
-	 * @param string $value [optional] <p>
-	 * The value of the attribute.
-	 * </p>
-	 * @param string $namespace [optional] <p>
-	 * If specified, the namespace to which the attribute belongs.
-	 * </p>
-	 * @return void No value is returned.
-	 * @since 5.1.3
-	 */
-	public function addAttribute ($qualifiedName, $value = null, $namespace = null) {}
+    /**
+     * Adds an attribute to the SimpleXML element
+     * @link https://php.net/manual/en/simplexmlelement.addattribute.php
+     * @param string $qualifiedName <p>
+     * The name of the attribute to add.
+     * </p>
+     * @param string $value [optional] <p>
+     * The value of the attribute.
+     * </p>
+     * @param string $namespace [optional] <p>
+     * If specified, the namespace to which the attribute belongs.
+     * </p>
+     * @return void No value is returned.
+     * @since 5.1.3
+     */
+    public function addAttribute($qualifiedName, $value = null, $namespace = null) {}
 
-	/**
-	 * (No version information available, might only be in SVN)<br/>
-	 * Returns the string content
-	 * @link https://php.net/manual/en/simplexmlelement.tostring.php
-	 * @return string the string content on success or an empty string on failure.
-	 */
-	public function __toString () {}
+    /**
+     * (No version information available, might only be in SVN)<br/>
+     * Returns the string content
+     * @link https://php.net/manual/en/simplexmlelement.tostring.php
+     * @return string the string content on success or an empty string on failure.
+     */
+    public function __toString() {}
 
-	/**
-	 * Counts the children of an element
-	 * @link https://php.net/manual/en/simplexmlelement.count.php
-	 * @return int the number of elements of an element.
-	 */
+    /**
+     * Counts the children of an element
+     * @link https://php.net/manual/en/simplexmlelement.count.php
+     * @return int the number of elements of an element.
+     */
     #[Pure]
-	public function count () {}
+    public function count() {}
 
     /**
      * Class provides access to children by position, and attributes by name
@@ -227,7 +227,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @return bool true on success or false on failure.
      */
     #[Pure]
-    public function offsetExists ($offset) {}
+    public function offsetExists($offset) {}
 
     /**
      * Class provides access to children by position, and attributes by name
@@ -236,7 +236,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @return static Either a named attribute or an element from a list of children
      */
     #[Pure]
-    public function offsetGet ($offset) {}
+    public function offsetGet($offset) {}
 
     /**
      * Class provides access to children by position, and attributes by name
@@ -245,7 +245,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @param mixed $value
      * @return void
      */
-    public function offsetSet ($offset, $value) {}
+    public function offsetSet($offset, $value) {}
 
     /**
      * Class provides access to children by position, and attributes by name
@@ -253,14 +253,14 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @param string|int $offset
      * @return void
      */
-    public function offsetUnset ($offset) {}
+    public function offsetUnset($offset) {}
 
     /**
      * Rewind to the first element
      * @link https://php.net/manual/en/simplexmliterator.rewind.php
      * @return void No value is returned.
      */
-    public function rewind () {}
+    public function rewind() {}
 
     /**
      * Check whether the current element is valid
@@ -268,7 +268,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @return bool <b>TRUE</b> if the current element is valid, otherwise <b>FALSE</b>
      */
     #[Pure]
-    public function valid () {}
+    public function valid() {}
 
     /**
      * Returns the current element
@@ -276,112 +276,111 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @return static|null the current element as a <b>SimpleXMLElement</b> object or <b>NULL</b> on failure.
      */
     #[Pure]
-    public function current () {}
+    public function current() {}
 
     /**
      * Return current key
      * @link https://php.net/manual/en/simplexmliterator.key.php
      * @return string|false the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object or <b>FALSE</b>
      */
-    public function key () {}
+    public function key() {}
 
     /**
      * Move to next element
      * @link https://php.net/manual/en/simplexmliterator.next.php
      * @return void No value is returned.
      */
-    public function next () {}
+    public function next() {}
 
     /**
      * @return bool
      * @since 8.0
      */
     #[Pure]
-    public function hasChildren(){}
+    public function hasChildren() {}
 
     /**
      * @since 8.0
      */
     #[Pure]
-    public function getChildren(){}
+    public function getChildren() {}
 }
 
 /**
  * The SimpleXMLIterator provides recursive iteration over all nodes of a <b>SimpleXMLElement</b> object.
  * @link https://php.net/manual/en/class.simplexmliterator.php
  */
-class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, Countable, Stringable {
+class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, Countable, Stringable
+{
+    /**
+     * Rewind to the first element
+     * @link https://php.net/manual/en/simplexmliterator.rewind.php
+     * @return void No value is returned.
+     */
+    public function rewind() {}
 
-	/**
-	 * Rewind to the first element
-	 * @link https://php.net/manual/en/simplexmliterator.rewind.php
-	 * @return void No value is returned.
-	 */
-	public function rewind () {}
-
-	/**
-	 * Check whether the current element is valid
-	 * @link https://php.net/manual/en/simplexmliterator.valid.php
-	 * @return bool <b>TRUE</b> if the current element is valid, otherwise <b>FALSE</b>
-	 */
+    /**
+     * Check whether the current element is valid
+     * @link https://php.net/manual/en/simplexmliterator.valid.php
+     * @return bool <b>TRUE</b> if the current element is valid, otherwise <b>FALSE</b>
+     */
     #[Pure]
-	public function valid () {}
+    public function valid() {}
 
-	/**
-	 * Returns the current element
-	 * @link https://php.net/manual/en/simplexmliterator.current.php
-	 * @return static|null the current element as a <b>SimpleXMLIterator</b> object or <b>NULL</b> on failure.
-	 */
+    /**
+     * Returns the current element
+     * @link https://php.net/manual/en/simplexmliterator.current.php
+     * @return static|null the current element as a <b>SimpleXMLIterator</b> object or <b>NULL</b> on failure.
+     */
     #[Pure]
-	public function current () {}
+    public function current() {}
 
-	/**
-	 * Return current key
-	 * @link https://php.net/manual/en/simplexmliterator.key.php
-	 * @return string|false the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object or <b>FALSE</b>
-	 */
-	public function key () {}
+    /**
+     * Return current key
+     * @link https://php.net/manual/en/simplexmliterator.key.php
+     * @return string|false the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object or <b>FALSE</b>
+     */
+    public function key() {}
 
-	/**
-	 * Move to next element
-	 * @link https://php.net/manual/en/simplexmliterator.next.php
-	 * @return void No value is returned.
-	 */
-	public function next () {}
+    /**
+     * Move to next element
+     * @link https://php.net/manual/en/simplexmliterator.next.php
+     * @return void No value is returned.
+     */
+    public function next() {}
 
-	/**
-	 * Checks whether the current element has sub elements.
-	 * @link https://php.net/manual/en/simplexmliterator.haschildren.php
-	 * @return bool <b>TRUE</b> if the current element has sub-elements, otherwise <b>FALSE</b>
-	 */
+    /**
+     * Checks whether the current element has sub elements.
+     * @link https://php.net/manual/en/simplexmliterator.haschildren.php
+     * @return bool <b>TRUE</b> if the current element has sub-elements, otherwise <b>FALSE</b>
+     */
     #[Pure]
-	public function hasChildren () {}
+    public function hasChildren() {}
 
-	/**
-	 * Returns the sub-elements of the current element
-	 * @link https://php.net/manual/en/simplexmliterator.getchildren.php
-	 * @return SimpleXMLIterator a <b>SimpleXMLIterator</b> object containing
-	 * the sub-elements of the current element.
-	 */
+    /**
+     * Returns the sub-elements of the current element
+     * @link https://php.net/manual/en/simplexmliterator.getchildren.php
+     * @return SimpleXMLIterator a <b>SimpleXMLIterator</b> object containing
+     * the sub-elements of the current element.
+     */
     #[Pure]
-	public function getChildren () {}
+    public function getChildren() {}
 
-	/**
-	 * (No version information available, might only be in SVN)<br/>
-	 * Returns the string content
-	 * @link https://php.net/manual/en/simplexmlelement.tostring.php
-	 * @return string the string content on success or an empty string on failure.
-	 */
-	public function __toString () {}
+    /**
+     * (No version information available, might only be in SVN)<br/>
+     * Returns the string content
+     * @link https://php.net/manual/en/simplexmlelement.tostring.php
+     * @return string the string content on success or an empty string on failure.
+     */
+    public function __toString() {}
 
-	/**
-	 * Counts the children of an element
-	 * @link https://php.net/manual/en/simplexmlelement.count.php
-	 * @return int the number of elements of an element.
-	 */
+    /**
+     * Counts the children of an element
+     * @link https://php.net/manual/en/simplexmlelement.count.php
+     * @return int the number of elements of an element.
+     */
     #[Pure]
-	public function count () {}
-
+    public function count() {}
 }
 
 /**
@@ -418,7 +417,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
  * @return SimpleXMLElement|false an object of class SimpleXMLElement with
  * properties containing the data held within the XML document, or <b>FALSE</b> on failure.
  */
-function simplexml_load_file (string $filename, ?string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false): SimpleXMLElement|false {}
+function simplexml_load_file(string $filename, ?string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false): SimpleXMLElement|false {}
 
 /**
  * Interprets a string of XML into an object
@@ -446,7 +445,7 @@ function simplexml_load_file (string $filename, ?string $class_name = "SimpleXML
  * @return SimpleXMLElement|false an object of class SimpleXMLElement with
  * properties containing the data held within the xml document, or <b>FALSE</b> on failure.
  */
-function simplexml_load_string (string $data, ?string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false): SimpleXMLElement|false {}
+function simplexml_load_string(string $data, ?string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false): SimpleXMLElement|false {}
 
 /**
  * Get a SimpleXMLElement object from a DOM node.
@@ -462,6 +461,6 @@ function simplexml_load_string (string $data, ?string $class_name = "SimpleXMLEl
  * </p>
  * @return SimpleXMLElement|null a SimpleXMLElement or <b>FALSE</b> on failure.
  */
-function simplexml_import_dom (DOMNode $node, ?string $class_name = "SimpleXMLElement"): ?SimpleXMLElement {}
+function simplexml_import_dom(DOMNode $node, ?string $class_name = "SimpleXMLElement"): ?SimpleXMLElement {}
 
 // End of SimpleXML v.0.1

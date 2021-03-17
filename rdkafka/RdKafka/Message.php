@@ -52,7 +52,5 @@ class Message
     /**
      * @return string
      */
-    public function errstr()
-    {
-    }
+    public function errstr() {}
 }

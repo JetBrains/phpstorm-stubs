@@ -38,4 +38,3 @@ function igbinary_serialize($value) {}
 function igbinary_unserialize($str) {}
 
 // End of igbinary v.1.0.0
-?>

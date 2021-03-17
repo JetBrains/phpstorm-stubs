@@ -13,8 +13,7 @@
  * @param array $a
  * @return float|false
  */
-function stats_absolute_deviation (array $a) {
-}
+function stats_absolute_deviation(array $a) {}
 
 /**
  * Returns CDF, x, alpha, or beta, determined by which.
@@ -26,8 +25,7 @@ function stats_absolute_deviation (array $a) {
  * @param int $which
  * @return float
  */
-function stats_cdf_beta (float $par1, float $par2, float $par3, int $which): float {
-}
+function stats_cdf_beta(float $par1, float $par2, float $par3, int $which): float {}
 
 /**
  * Returns CDF, x, n, or p, determined by which.
@@ -39,8 +37,7 @@ function stats_cdf_beta (float $par1, float $par2, float $par3, int $which): flo
  * @param int $which
  * @return float
  */
-function stats_cdf_binomial (float $par1, float $par2, float $par3, int $which): float {
-}
+function stats_cdf_binomial(float $par1, float $par2, float $par3, int $which): float {}
 
 /**
  * Returns CDF, x, x0, or gamma, determined by which.
@@ -52,8 +49,7 @@ function stats_cdf_binomial (float $par1, float $par2, float $par3, int $which):
  * @param int $which
  * @return float
  */
-function stats_cdf_cauchy (float $par1, float $par2, float $par3, int $which): float {
-}
+function stats_cdf_cauchy(float $par1, float $par2, float $par3, int $which): float {}
 
 /**
  * Returns CDF, x, or k, determined by which.
@@ -64,8 +60,7 @@ function stats_cdf_cauchy (float $par1, float $par2, float $par3, int $which): f
  * @param int $which
  * @return float
  */
-function stats_cdf_chisquare (float $par1, float $par2, int $which): float {
-}
+function stats_cdf_chisquare(float $par1, float $par2, int $which): float {}
 
 /**
  * Returns CDF, x, or lambda, determined by which.
@@ -76,8 +71,7 @@ function stats_cdf_chisquare (float $par1, float $par2, int $which): float {
  * @param int $which
  * @return float
  */
-function stats_cdf_exponential (float $par1, float $par2, int $which): float {
-}
+function stats_cdf_exponential(float $par1, float $par2, int $which): float {}
 
 /**
  * Returns CDF, x, d1, or d2, determined by which.
@@ -89,8 +83,7 @@ function stats_cdf_exponential (float $par1, float $par2, int $which): float {
  * @param int $which
  * @return float
  */
-function stats_cdf_f (float $par1, float $par2, float $par3, int $which): float {
-}
+function stats_cdf_f(float $par1, float $par2, float $par3, int $which): float {}
 
 /**
  * Returns CDF, x, k, or theta, determined by which.
@@ -102,8 +95,7 @@ function stats_cdf_f (float $par1, float $par2, float $par3, int $which): float 
  * @param int $which
  * @return float
  */
-function stats_cdf_gamma (float $par1, float $par2, float $par3, int $which): float {
-}
+function stats_cdf_gamma(float $par1, float $par2, float $par3, int $which): float {}
 
 /**
  * Returns CDF, x, mu, or b, determined by which.
@@ -115,8 +107,7 @@ function stats_cdf_gamma (float $par1, float $par2, float $par3, int $which): fl
  * @param int $which
  * @return float
  */
-function stats_cdf_laplace (float $par1, float $par2, float $par3, int $which): float {
-}
+function stats_cdf_laplace(float $par1, float $par2, float $par3, int $which): float {}
 
 /**
  * Returns CDF, x, mu, or s, determined by which.
@@ -128,8 +119,7 @@ function stats_cdf_laplace (float $par1, float $par2, float $par3, int $which): 
  * @param int $which
  * @return float
  */
-function stats_cdf_logistic (float $par1, float $par2, float $par3, int $which): float {
-}
+function stats_cdf_logistic(float $par1, float $par2, float $par3, int $which): float {}
 
 /**
  * Returns CDF, x, r, or p, determined by which.
@@ -141,8 +131,7 @@ function stats_cdf_logistic (float $par1, float $par2, float $par3, int $which):
  * @param int $which
  * @return float
  */
-function stats_cdf_negative_binomial (float $par1, float $par2, float $par3, int $which): float {
-}
+function stats_cdf_negative_binomial(float $par1, float $par2, float $par3, int $which): float {}
 
 /**
  * Returns CDF, x, k, or lambda, determined by which.
@@ -154,8 +143,7 @@ function stats_cdf_negative_binomial (float $par1, float $par2, float $par3, int
  * @param int $which
  * @return float
  */
-function stats_cdf_noncentral_chisquare (float $par1, float $par2, float $par3, int $which): float {
-}
+function stats_cdf_noncentral_chisquare(float $par1, float $par2, float $par3, int $which): float {}
 
 /**
  * Returns CDF, x, nu1, nu2, or lambda, determined by which.
@@ -168,8 +156,7 @@ function stats_cdf_noncentral_chisquare (float $par1, float $par2, float $par3, 
  * @param int $which
  * @return float
  */
-function stats_cdf_noncentral_f (float $par1, float $par2, float $par3, float $par4, int $which): float {
-}
+function stats_cdf_noncentral_f(float $par1, float $par2, float $par3, float $par4, int $which): float {}
 
 /**
  * Returns CDF, x, nu, or mu, determined by which.
@@ -181,8 +168,7 @@ function stats_cdf_noncentral_f (float $par1, float $par2, float $par3, float $p
  * @param int $which
  * @return float
  */
-function stats_cdf_noncentral_t (float $par1, float $par2, float $par3, int $which): float {
-}
+function stats_cdf_noncentral_t(float $par1, float $par2, float $par3, int $which): float {}
 
 /**
  * Returns CDF, x, mu, or sigma, determined by which.
@@ -194,8 +180,7 @@ function stats_cdf_noncentral_t (float $par1, float $par2, float $par3, int $whi
  * @param int $which
  * @return float
  */
-function stats_cdf_normal (float $par1, float $par2, float $par3, int $which): float {
-}
+function stats_cdf_normal(float $par1, float $par2, float $par3, int $which): float {}
 
 /**
  * Returns CDF, x, or lambda, determined by which.
@@ -206,8 +191,7 @@ function stats_cdf_normal (float $par1, float $par2, float $par3, int $which): f
  * @param int $which
  * @return float
  */
-function stats_cdf_poisson (float $par1, float $par2, int $which): float {
-}
+function stats_cdf_poisson(float $par1, float $par2, int $which): float {}
 
 /**
  * Returns CDF, x, or nu, determined by which.
@@ -218,8 +202,7 @@ function stats_cdf_poisson (float $par1, float $par2, int $which): float {
  * @param int $which
  * @return float
  */
-function stats_cdf_t (float $par1, float $par2, int $which): float {
-}
+function stats_cdf_t(float $par1, float $par2, int $which): float {}
 
 /**
  * Returns CDF, x, a, or b, determined by which.
@@ -231,8 +214,7 @@ function stats_cdf_t (float $par1, float $par2, int $which): float {
  * @param int $which
  * @return float
  */
-function stats_cdf_uniform (float $par1, float $par2, float $par3, int $which): float {
-}
+function stats_cdf_uniform(float $par1, float $par2, float $par3, int $which): float {}
 
 /**
  * Returns CDF, x, k, or lambda, determined by which.
@@ -244,8 +226,7 @@ function stats_cdf_uniform (float $par1, float $par2, float $par3, int $which): 
  * @param int $which
  * @return float
  */
-function stats_cdf_weibull (float $par1, float $par2, float $par3, int $which): float {
-}
+function stats_cdf_weibull(float $par1, float $par2, float $par3, int $which): float {}
 
 /**
  * Returns the covariance of a and b, or FALSE on failure.
@@ -255,8 +236,7 @@ function stats_cdf_weibull (float $par1, float $par2, float $par3, int $which): 
  * @param array $b
  * @return float|false
  */
-function stats_covariance (array $a, array $b) {
-}
+function stats_covariance(array $a, array $b) {}
 
 /**
  * The probability density at x or FALSE for failure.
@@ -267,8 +247,7 @@ function stats_covariance (array $a, array $b) {
  * @param float $b
  * @return float|false
  */
-function stats_dens_beta (float $x, float $a, float $b) {
-}
+function stats_dens_beta(float $x, float $a, float $b) {}
 
 /**
  * The probability density at x or FALSE for failure.
@@ -279,8 +258,7 @@ function stats_dens_beta (float $x, float $a, float $b) {
  * @param float $stdev
  * @return float|false
  */
-function stats_dens_cauchy (float $x, float $ave, float $stdev) {
-}
+function stats_dens_cauchy(float $x, float $ave, float $stdev) {}
 
 /**
  * The probability density at x or FALSE for failure.
@@ -290,8 +268,7 @@ function stats_dens_cauchy (float $x, float $ave, float $stdev) {
  * @param float $dfr
  * @return float|false
  */
-function stats_dens_chisquare (float $x, float $dfr) {
-}
+function stats_dens_chisquare(float $x, float $dfr) {}
 
 /**
  * The probability density at x or FALSE for failure.
@@ -301,8 +278,7 @@ function stats_dens_chisquare (float $x, float $dfr) {
  * @param float $scale
  * @return float|false
  */
-function stats_dens_exponential (float $x, float $scale) {
-}
+function stats_dens_exponential(float $x, float $scale) {}
 
 /**
  * The probability density at x or FALSE for failure.
@@ -313,8 +289,7 @@ function stats_dens_exponential (float $x, float $scale) {
  * @param float $dfr2
  * @return float|false
  */
-function stats_dens_f (float $x, float $dfr1, float $dfr2) {
-}
+function stats_dens_f(float $x, float $dfr1, float $dfr2) {}
 
 /**
  * The probability density at x or FALSE for failure.
@@ -325,8 +300,7 @@ function stats_dens_f (float $x, float $dfr1, float $dfr2) {
  * @param float $scale
  * @return float|false
  */
-function stats_dens_gamma (float $x, float $shape, float $scale) {
-}
+function stats_dens_gamma(float $x, float $shape, float $scale) {}
 
 /**
  * The probability density at x or FALSE for failure.
@@ -337,8 +311,7 @@ function stats_dens_gamma (float $x, float $shape, float $scale) {
  * @param float $stdev
  * @return float|false
  */
-function stats_dens_laplace (float $x, float $ave, float $stdev) {
-}
+function stats_dens_laplace(float $x, float $ave, float $stdev) {}
 
 /**
  * The probability density at x or FALSE for failure.
@@ -349,8 +322,7 @@ function stats_dens_laplace (float $x, float $ave, float $stdev) {
  * @param float $stdev
  * @return float|false
  */
-function stats_dens_logistic (float $x, float $ave, float $stdev) {
-}
+function stats_dens_logistic(float $x, float $ave, float $stdev) {}
 
 /**
  * The probability density at x or FALSE for failure.
@@ -361,8 +333,7 @@ function stats_dens_logistic (float $x, float $ave, float $stdev) {
  * @param float $stdev
  * @return float|false
  */
-function stats_dens_normal (float $x, float $ave, float $stdev) {
-}
+function stats_dens_normal(float $x, float $ave, float $stdev) {}
 
 /**
  * The probability mass at x or FALSE for failure.
@@ -373,8 +344,7 @@ function stats_dens_normal (float $x, float $ave, float $stdev) {
  * @param float $pi
  * @return float|false
  */
-function stats_dens_pmf_binomial (float $x, float $n, float $pi) {
-}
+function stats_dens_pmf_binomial(float $x, float $n, float $pi) {}
 
 /**
  * The probability mass at n1 or FALSE for failure.
@@ -386,8 +356,7 @@ function stats_dens_pmf_binomial (float $x, float $n, float $pi) {
  * @param float $N2
  * @return float|false
  */
-function stats_dens_pmf_hypergeometric (float $n1, float $n2, float $N1, float $N2) {
-}
+function stats_dens_pmf_hypergeometric(float $n1, float $n2, float $N1, float $N2) {}
 
 /**
  * The probability mass at x or FALSE for failure.
@@ -398,8 +367,7 @@ function stats_dens_pmf_hypergeometric (float $n1, float $n2, float $N1, float $
  * @param float $pi
  * @return float|false
  */
-function stats_dens_pmf_negative_binomial (float $x, float $n, float $pi) {
-}
+function stats_dens_pmf_negative_binomial(float $x, float $n, float $pi) {}
 
 /**
  * The probability mass at x or FALSE for failure.
@@ -409,8 +377,7 @@ function stats_dens_pmf_negative_binomial (float $x, float $n, float $pi) {
  * @param float $lb
  * @return float|false
  */
-function stats_dens_pmf_poisson (float $x, float $lb) {
-}
+function stats_dens_pmf_poisson(float $x, float $lb) {}
 
 /**
  * The probability density at x or FALSE for failure.
@@ -420,8 +387,7 @@ function stats_dens_pmf_poisson (float $x, float $lb) {
  * @param float $dfr
  * @return float|false
  */
-function stats_dens_t (float $x, float $dfr) {
-}
+function stats_dens_t(float $x, float $dfr) {}
 
 /**
  * The probability density at x or FALSE for failure.
@@ -432,8 +398,7 @@ function stats_dens_t (float $x, float $dfr) {
  * @param float $b
  * @return float|false
  */
-function stats_dens_uniform (float $x, float $a, float $b) {
-}
+function stats_dens_uniform(float $x, float $a, float $b) {}
 
 /**
  * The probability density at x or FALSE for failure.
@@ -444,8 +409,7 @@ function stats_dens_uniform (float $x, float $a, float $b) {
  * @param float $b
  * @return float|false
  */
-function stats_dens_weibull (float $x, float $a, float $b) {
-}
+function stats_dens_weibull(float $x, float $a, float $b) {}
 
 /**
  * Returns the harmonic mean of the values in a, or FALSE if a is empty or is not an array.
@@ -454,8 +418,7 @@ function stats_dens_weibull (float $x, float $a, float $b) {
  * @param array $a
  * @return number|false
  */
-function stats_harmonic_mean (array $a) {
-}
+function stats_harmonic_mean(array $a) {}
 
 /**
  * Returns the kurtosis of the values in a, or FALSE if a is empty or is not an array.
@@ -464,8 +427,7 @@ function stats_harmonic_mean (array $a) {
  * @param array $a
  * @return float|false
  */
-function stats_kurtosis (array $a) {
-}
+function stats_kurtosis(array $a) {}
 
 /**
  * A random deviate
@@ -475,8 +437,7 @@ function stats_kurtosis (array $a) {
  * @param float $b
  * @return float
  */
-function stats_rand_gen_beta (float $a, float $b): float {
-}
+function stats_rand_gen_beta(float $a, float $b): float {}
 
 /**
  * A random deviate
@@ -485,8 +446,7 @@ function stats_rand_gen_beta (float $a, float $b): float {
  * @param float $df
  * @return float
  */
-function stats_rand_gen_chisquare (float $df): float {
-}
+function stats_rand_gen_chisquare(float $df): float {}
 
 /**
  * A random deviate
@@ -495,8 +455,7 @@ function stats_rand_gen_chisquare (float $df): float {
  * @param float $av
  * @return float
  */
-function stats_rand_gen_exponential (float $av): float {
-}
+function stats_rand_gen_exponential(float $av): float {}
 
 /**
  * A random deviate
@@ -506,8 +465,7 @@ function stats_rand_gen_exponential (float $av): float {
  * @param float $dfd
  * @return float
  */
-function stats_rand_gen_f (float $dfn, float $dfd): float {
-}
+function stats_rand_gen_f(float $dfn, float $dfd): float {}
 
 /**
  * A random deviate
@@ -517,8 +475,7 @@ function stats_rand_gen_f (float $dfn, float $dfd): float {
  * @param float $high
  * @return float
  */
-function stats_rand_gen_funiform (float $low, float $high): float {
-}
+function stats_rand_gen_funiform(float $low, float $high): float {}
 
 /**
  * A random deviate
@@ -528,8 +485,7 @@ function stats_rand_gen_funiform (float $low, float $high): float {
  * @param float $r
  * @return float
  */
-function stats_rand_gen_gamma (float $a, float $r): float {
-}
+function stats_rand_gen_gamma(float $a, float $r): float {}
 
 /**
  * A random deviate, which is the number of failure.
@@ -539,8 +495,7 @@ function stats_rand_gen_gamma (float $a, float $r): float {
  * @param float $p
  * @return int
  */
-function stats_rand_gen_ibinomial_negative (int $n, float $p): int {
-}
+function stats_rand_gen_ibinomial_negative(int $n, float $p): int {}
 
 /**
  * A random deviate
@@ -550,8 +505,7 @@ function stats_rand_gen_ibinomial_negative (int $n, float $p): int {
  * @param float $pp
  * @return int
  */
-function stats_rand_gen_ibinomial (int $n, float $pp): int {
-}
+function stats_rand_gen_ibinomial(int $n, float $pp): int {}
 
 /**
  * A random integer
@@ -559,8 +513,7 @@ function stats_rand_gen_ibinomial (int $n, float $pp): int {
  * @link https://www.php.net/manual/en/function.stats-rand-gen-int.php
  * @return int
  */
-function stats_rand_gen_int (): int {
-}
+function stats_rand_gen_int(): int {}
 
 /**
  * A random deviate
@@ -569,8 +522,7 @@ function stats_rand_gen_int (): int {
  * @param float $mu
  * @return int
  */
-function stats_rand_gen_ipoisson (float $mu): int {
-}
+function stats_rand_gen_ipoisson(float $mu): int {}
 
 /**
  * A random integer
@@ -580,8 +532,7 @@ function stats_rand_gen_ipoisson (float $mu): int {
  * @param int $high
  * @return int
  */
-function stats_rand_gen_iuniform (int $low, int $high): int {
-}
+function stats_rand_gen_iuniform(int $low, int $high): int {}
 
 /**
  * A random deviate
@@ -592,8 +543,7 @@ function stats_rand_gen_iuniform (int $low, int $high): int {
  * @param float $xnonc
  * @return float
  */
-function stats_rand_gen_noncentral_f (float $dfn, float $dfd, float $xnonc): float {
-}
+function stats_rand_gen_noncentral_f(float $dfn, float $dfd, float $xnonc): float {}
 
 /**
  * A random deviate
@@ -603,8 +553,7 @@ function stats_rand_gen_noncentral_f (float $dfn, float $dfd, float $xnonc): flo
  * @param float $xnonc
  * @return float
  */
-function stats_rand_gen_noncentral_t (float $df, float $xnonc): float {
-}
+function stats_rand_gen_noncentral_t(float $df, float $xnonc): float {}
 
 /**
  * A random deviate
@@ -614,8 +563,7 @@ function stats_rand_gen_noncentral_t (float $df, float $xnonc): float {
  * @param float $sd
  * @return float
  */
-function stats_rand_gen_normal (float $av, float $sd): float {
-}
+function stats_rand_gen_normal(float $av, float $sd): float {}
 
 /**
  * A random deviate
@@ -624,8 +572,7 @@ function stats_rand_gen_normal (float $av, float $sd): float {
  * @param float $df
  * @return float
  */
-function stats_rand_gen_t (float $df): float {
-}
+function stats_rand_gen_t(float $df): float {}
 
 /**
  * Returns an array of two integers.
@@ -633,8 +580,7 @@ function stats_rand_gen_t (float $df): float {
  * @link https://www.php.net/manual/en/function.stats-rand-get-seeds.php
  * @return int[]
  */
-function stats_rand_get_seeds () {
-}
+function stats_rand_get_seeds() {}
 
 /**
  * Returns an array of two integers.
@@ -643,8 +589,7 @@ function stats_rand_get_seeds () {
  * @param string $phrase
  * @return int[]
  */
-function stats_rand_phrase_to_seeds (string $phrase) {
-}
+function stats_rand_phrase_to_seeds(string $phrase) {}
 
 /**
  * A random floating point number
@@ -652,8 +597,7 @@ function stats_rand_phrase_to_seeds (string $phrase) {
  * @link https://www.php.net/manual/en/function.stats-rand-ranf.php
  * @return float
  */
-function stats_rand_ranf (): float {
-}
+function stats_rand_ranf(): float {}
 
 /**
  * No values are returned.
@@ -662,8 +606,7 @@ function stats_rand_ranf (): float {
  * @param int $iseed1
  * @param int $iseed2
  */
-function stats_rand_setall (int $iseed1, int $iseed2): void {
-}
+function stats_rand_setall(int $iseed1, int $iseed2): void {}
 
 /**
  * Returns the skewness of the values in a, or FALSE if a is empty or is not an array.
@@ -672,8 +615,7 @@ function stats_rand_setall (int $iseed1, int $iseed2): void {
  * @param array $a
  * @return float|false
  */
-function stats_skew (array $a) {
-}
+function stats_skew(array $a) {}
 
 /**
  * Returns the standard deviation on success; FALSE on failure.
@@ -684,8 +626,7 @@ function stats_skew (array $a) {
  * @param bool $sample
  * @return float|false
  */
-function stats_standard_deviation (array $a, bool $sample = false) {
-}
+function stats_standard_deviation(array $a, bool $sample = false) {}
 
 /**
  * Returns the binomial coefficient
@@ -695,8 +636,7 @@ function stats_standard_deviation (array $a, bool $sample = false) {
  * @param int $n
  * @return float
  */
-function stats_stat_binomial_coef (int $x, int $n): float {
-}
+function stats_stat_binomial_coef(int $x, int $n): float {}
 
 /**
  * Returns the Pearson correlation coefficient between arr1 and arr2, or FALSE on failure.
@@ -706,8 +646,7 @@ function stats_stat_binomial_coef (int $x, int $n): float {
  * @param array $arr2
  * @return float|false
  */
-function stats_stat_correlation (array $arr1, array $arr2) {
-}
+function stats_stat_correlation(array $arr1, array $arr2) {}
 
 /**
  * The factorial of n.
@@ -716,8 +655,7 @@ function stats_stat_correlation (array $arr1, array $arr2) {
  * @param int $n
  * @return float
  */
-function stats_stat_factorial (int $n): float {
-}
+function stats_stat_factorial(int $n): float {}
 
 /**
  * Returns the t-value, or FALSE if failure.
@@ -727,8 +665,7 @@ function stats_stat_factorial (int $n): float {
  * @param array $arr2
  * @return float|false
  */
-function stats_stat_independent_t (array $arr1, array $arr2) {
-}
+function stats_stat_independent_t(array $arr1, array $arr2) {}
 
 /**
  * Returns the inner product of arr1 and arr2, or FALSE on failure.
@@ -738,8 +675,7 @@ function stats_stat_independent_t (array $arr1, array $arr2) {
  * @param array $arr2
  * @return float|false
  */
-function stats_stat_innerproduct (array $arr1, array $arr2) {
-}
+function stats_stat_innerproduct(array $arr1, array $arr2) {}
 
 /**
  * Returns the t-value, or FALSE if failure.
@@ -749,8 +685,7 @@ function stats_stat_innerproduct (array $arr1, array $arr2) {
  * @param array $arr2
  * @return float|false
  */
-function stats_stat_paired_t (array $arr1, array $arr2) {
-}
+function stats_stat_paired_t(array $arr1, array $arr2) {}
 
 /**
  * Returns the percentile values of the input array.
@@ -760,8 +695,7 @@ function stats_stat_paired_t (array $arr1, array $arr2) {
  * @param float $perc
  * @return float
  */
-function stats_stat_percentile (array $array, float $perc): float {
-}
+function stats_stat_percentile(array $array, float $perc): float {}
 
 /**
  * Returns the power sum of the input array.
@@ -771,8 +705,7 @@ function stats_stat_percentile (array $array, float $perc): float {
  * @param float $power
  * @return float
  */
-function stats_stat_powersum (array $array, float $power): float {
-}
+function stats_stat_powersum(array $array, float $power): float {}
 
 /**
  * Returns the variance on success; FALSE on failure.
@@ -782,5 +715,4 @@ function stats_stat_powersum (array $array, float $power): float {
  * @param bool $sample
  * @return float|false
  */
-function stats_variance (array $a, bool $sample = false) {
-}
+function stats_variance(array $a, bool $sample = false) {}

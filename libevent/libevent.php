@@ -8,7 +8,6 @@
 // PHP Libevent extension documentation:
 // https://php.net/libevent
 
-
 // Event flags
 
 /**
@@ -62,7 +61,6 @@ define('EV_SIGNAL', 8);
  */
 define('EV_PERSIST', 16);
 
-
 // Event loop modes
 
 /**
@@ -81,7 +79,6 @@ define('EVLOOP_ONCE', 1);
  * @see event_base_loop
  */
 define('EVLOOP_NONBLOCK', 2);
-
 
 // Buffered event error codes (second argument in buffer's error-callback)
 
@@ -113,9 +110,6 @@ define('EVBUFFER_ERROR', 32);
  */
 define('EVBUFFER_TIMEOUT', 64);
 
-
-
-
 /**
  * <p>Create and initialize new event base</p>
  *
@@ -125,7 +119,7 @@ define('EVBUFFER_TIMEOUT', 64);
  *
  * @return resource|false returns valid event base resource on success or FALSE on error.
  */
-function event_base_new(){}
+function event_base_new() {}
 
 /**
  * <p>Destroy event base</p>
@@ -250,7 +244,6 @@ function event_base_set($event, $base) {}
  */
 function event_base_priority_init($event_base, $npriorities) {}
 
-
 /**
  * <p>Creates and returns a new event resource.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -369,7 +362,6 @@ function event_set($event, $fd, $events, $callback, $arg = null) {}
  * @return bool returns TRUE on success or FALSE on error.
  */
 function event_del($event) {}
-
 
 /**
  * <p>Create new buffered event</p>
@@ -609,7 +601,6 @@ function event_buffer_fd_set($bevent, $fd) {}
  */
 function event_buffer_set_callback($bevent, $readcb, $writecb, $errorcb, $arg = null) {}
 
-
 /**
  * <p>Alias of {@link event_new}().</p>
  *
@@ -692,6 +683,5 @@ function event_timer_add($event, $timeout = -1) {}
  * @return bool returns TRUE on success or FALSE on error.
  */
 function event_timer_del($event) {}
-
 
 // End of PECL libevent v.0.0.4

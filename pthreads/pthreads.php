@@ -65,7 +65,8 @@ define('PTHREADS_ALLOW_HEADERS', 268435456);
  * including the management of references in the way required by pthreads.
  * @link https://secure.php.net/manual/en/class.pool.php
  */
-class Pool {
+class Pool
+{
     /**
      * Maximum number of Workers this Pool can use
      * @var int
@@ -107,7 +108,7 @@ class Pool {
      * @param array $ctor [optional] <p>An array of arguments to be passed to new
      * Workers</p>
      */
-    public function __construct( int $size, string $class = 'Worker', array $ctor = [] ) {}
+    public function __construct(int $size, string $class = 'Worker', array $ctor = []) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -119,7 +120,7 @@ class Pool {
      * a custom collector need to be used.</p>
      * @return int <p>The number of remaining tasks in the pool to be collected</p>
      */
-    public function collect( ?callable $collector = null ) {}
+    public function collect(?callable $collector = null) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -128,7 +129,7 @@ class Pool {
      * @param int $size <p>The maximum number of Workers this Pool can create</p>
      * @return void
      */
-    public function resize( int $size ) {}
+    public function resize(int $size) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -146,7 +147,7 @@ class Pool {
      * @param Threaded $task <p>The task for execution</p>
      * @return int <p>the identifier of the Worker executing the object</p>
      */
-    public function submit( Threaded $task ) {}
+    public function submit(Threaded $task) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -158,7 +159,7 @@ class Pool {
      * @param Threaded $task <p>The task for execution</p>
      * @return int <p>The identifier of the worker that accepted the task</p>
      */
-    public function submitTo( int $worker, Threaded $task ) {}
+    public function submitTo(int $worker, Threaded $task) {}
 }
 
 /**
@@ -170,7 +171,8 @@ class Pool {
  *
  * @link https://secure.php.net/manual/en/class.threaded.php
  */
-class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
+class Threaded implements Collectable, Traversable, Countable, ArrayAccess
+{
     /**
      * Worker object in which this Threaded is being executed
      * @var Worker
@@ -193,7 +195,7 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
      * @param bool $preserve [optional] <p>Preserve the keys of members, by default false</p>
      * @return array <p>An array of items from the objects property table</p>
      */
-    public function chunk( $size, $preserve = false ) {}
+    public function chunk($size, $preserve = false) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -217,7 +219,7 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
      * @param string $class <p>The class to extend</p>
      * @return bool <p>A boolean indication of success</p>
      */
-    public static function extend( $class ) {}
+    public static function extend($class) {}
 
     /**
      * (PECL pthreads &gt;= 3.0.0)<br/>
@@ -239,7 +241,7 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
      * @inheritdoc
      * @see Collectable::isGarbage()
      */
-    public function isGarbage(): bool{}
+    public function isGarbage(): bool {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -254,11 +256,11 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
      * (PECL pthreads &gt;= 2.0.0)<br/>
      * Merges data into the current object
      * @link https://secure.php.net/manual/en/threaded.merge.php
-     * @var mixed $from <p>The data to merge</p>
-     * @var bool $overwrite [optional] <p>Overwrite existing keys, by default true</p>
+     * @var mixed <p>The data to merge</p>
+     * @var bool [optional] <p>Overwrite existing keys, by default true</p>
      * @return bool <p>A boolean indication of success</p>
      */
-    public function merge( $from, $overwrite = true ) {}
+    public function merge($from, $overwrite = true) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -313,7 +315,7 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
      * to use as function arguments to the block</p>
      * @return mixed <p>The return value from the block</p>
      */
-    public function synchronized( Closure $block, ...$_ ) {}
+    public function synchronized(Closure $block, ...$_) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -323,32 +325,31 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
      * @param int $timeout [optional] <p>An optional timeout in microseconds</p>
      * @return bool <p>A boolean indication of success</p>
      */
-    public function wait( int $timeout = 0 ) {}
-
+    public function wait(int $timeout = 0) {}
 
     /**
      * @inheritdoc
      * @see ArrayAccess::offsetExists()
      */
-    public function offsetExists( $offset ) {}
+    public function offsetExists($offset) {}
 
     /**
      * @inheritdoc
      * @see ArrayAccess::offsetGet()
      */
-    public function offsetGet( $offset ) {}
+    public function offsetGet($offset) {}
 
     /**
      * @inheritdoc
      * @see ArrayAccess::offsetSet()
      */
-    public function offsetSet( $offset, $value ) {}
+    public function offsetSet($offset, $value) {}
 
     /**
      * @inheritdoc
      * @see ArrayAccess::offsetUnset()
      */
-    public function offsetUnset( $offset ) {}
+    public function offsetUnset($offset) {}
 }
 
 /**
@@ -360,8 +361,8 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
  *
  * @link https://secure.php.net/manual/en/class.thread.php
  */
-class Thread extends Threaded implements Countable, Traversable, ArrayAccess {
-
+class Thread extends Threaded implements Countable, Traversable, ArrayAccess
+{
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
      * Will return the identity of the Thread that created the referenced Thread
@@ -426,7 +427,7 @@ class Thread extends Threaded implements Countable, Traversable, ArrayAccess {
      * constants, by default <b>{@link PTHREADS_INHERIT_ALL}</b></p>
      * @return bool <p>A boolean indication of success</p>
      */
-    public function start( int $options = PTHREADS_INHERIT_ALL ) {}
+    public function start(int $options = PTHREADS_INHERIT_ALL) {}
 }
 
 /**
@@ -443,7 +444,8 @@ class Thread extends Threaded implements Countable, Traversable, ArrayAccess {
  * objects run method.
  * @link https://secure.php.net/manual/en/class.worker.php
  */
-class Worker extends Thread implements Traversable, Countable, ArrayAccess {
+class Worker extends Thread implements Traversable, Countable, ArrayAccess
+{
     /**
      * (PECL pthreads &gt;= 3.0.0)<br/>
      * Allows the worker to collect references determined to be garbage by the
@@ -455,7 +457,7 @@ class Worker extends Thread implements Traversable, Countable, ArrayAccess {
      * @return int <p>The number of remaining tasks on the worker's stack to be
      * collected</p>
      */
-    public function collect( ?callable $collector = null ) {}
+    public function collect(?callable $collector = null) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -489,7 +491,7 @@ class Worker extends Thread implements Traversable, Countable, ArrayAccess {
      * @param Threaded $work <p>A Threaded object to be executed by the Worker</p>
      * @return int <p>The new size of the stack</p>
      */
-    public function stack( Threaded $work ) {}
+    public function stack(Threaded $work) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -505,7 +507,8 @@ class Worker extends Thread implements Traversable, Countable, ArrayAccess {
  * Represents a garbage-collectable object.
  * @link https://secure.php.net/manual/en/class.collectable.php
  */
-interface Collectable {
+interface Collectable
+{
     /**
      * (PECL pthreads &gt;= 2.0.8)<br/>
      * Can be called in {@link Pool::collect()} to determine if this object is garbage
@@ -524,7 +527,4 @@ interface Collectable {
  * @see Threaded
  * @link https://secure.php.net/manual/en/class.volatile.php
  */
-class Volatile extends Threaded implements Collectable, Traversable
-    {
-
-    }
+class Volatile extends Threaded implements Collectable, Traversable {}

@@ -15,9 +15,7 @@ class ReflectionNamedType extends ReflectionType
      * @since 7.1
      */
     #[Pure]
-	public function getName()
-    {
-    }
+    public function getName() {}
 
     /**
      * Checks if it is a built-in type
@@ -29,7 +27,5 @@ class ReflectionNamedType extends ReflectionType
      * @since 8.0 method was removed from the parent {@see ReflectionType} class.
      */
     #[Pure]
-	public function isBuiltin()
-    {
-    }
+    public function isBuiltin() {}
 }

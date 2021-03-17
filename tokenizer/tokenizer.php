@@ -28,7 +28,7 @@ use JetBrains\PhpStorm\Pure;
  * content of the original token in element 1 and the line number in element 2.
  */
 #[Pure]
-function token_get_all (string $code, int $flags = 0): array {}
+function token_get_all(string $code, int $flags = 0): array {}
 
 /**
  * Get the symbolic name of a given PHP token
@@ -39,7 +39,7 @@ function token_get_all (string $code, int $flags = 0): array {}
  * @return string The symbolic name of the given <i>token</i>.
  */
 #[Pure]
-function token_name (int $id): string {}
+function token_name(int $id): string {}
 
 define('TOKEN_PARSE', 1);
 define('T_REQUIRE_ONCE', 263);

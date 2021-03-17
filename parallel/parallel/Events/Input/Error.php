@@ -2,5 +2,4 @@
 
 namespace parallel\Events\Input;
 
-class Error extends \parallel\Error{
-}
+class Error extends \parallel\Error {}

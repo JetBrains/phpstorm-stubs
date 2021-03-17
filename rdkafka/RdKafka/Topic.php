@@ -7,7 +7,5 @@ abstract class Topic
     /**
      * @return string
      */
-    public function getName()
-    {
-    }
+    public function getName() {}
 }

@@ -95,7 +95,7 @@ class Utils
             $lastAvailableVersion = PhpVersions::getLatest();
         }
         return array_filter(iterator_to_array(new PhpVersions()),
-            fn($version) => $version >= $firstSinceVersion && $version <= $lastAvailableVersion);
+            fn ($version) => $version >= $firstSinceVersion && $version <= $lastAvailableVersion);
     }
 
     /**
@@ -106,7 +106,7 @@ class Utils
     {
         $allSinceVersions = [];
         if (!empty($element->sinceTags) && $element->stubBelongsToCore) {
-            $allSinceVersions[] = array_map(fn(Since $tag) => (float)$tag->getVersion(), $element->sinceTags);
+            $allSinceVersions[] = array_map(fn (Since $tag) => (float)$tag->getVersion(), $element->sinceTags);
         }
         return $allSinceVersions;
     }
@@ -119,7 +119,7 @@ class Utils
     {
         $latestAvailableVersion = [PhpVersions::getLatest()];
         if (!empty($element->removedTags) && $element->stubBelongsToCore) {
-            $allRemovedVersions = array_map(fn(RemovedTag $tag) => (float)$tag->getVersion(), $element->removedTags);
+            $allRemovedVersions = array_map(fn (RemovedTag $tag) => (float)$tag->getVersion(), $element->removedTags);
             sort($allRemovedVersions, SORT_DESC);
             $removedVersion = array_pop($allRemovedVersions);
             $allVersions = new PhpVersions();

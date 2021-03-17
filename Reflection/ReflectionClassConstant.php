@@ -29,21 +29,21 @@ class ReflectionClassConstant implements Reflector
      *
      * @since 8.0
      */
-    const IS_PUBLIC = 1;
+    public const IS_PUBLIC = 1;
 
     /**
      * Indicates that the constant is protected.
      *
      * @since 8.0
      */
-    const IS_PROTECTED = 2;
+    public const IS_PROTECTED = 2;
 
     /**
      * Indicates that the constant is private.
      *
      * @since 8.0
      */
-    const IS_PRIVATE = 4;
+    public const IS_PRIVATE = 4;
 
     /**
      * ReflectionClassConstant constructor.
@@ -53,9 +53,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      * @link https://php.net/manual/en/reflectionclassconstant.construct.php
      */
-    public function __construct($class, string $constant)
-    {
-    }
+    public function __construct($class, string $constant) {}
 
     /**
      * @link https://php.net/manual/en/reflectionclassconstant.export.php
@@ -68,9 +66,7 @@ class ReflectionClassConstant implements Reflector
      * @removed 8.0
      */
     #[Deprecated(since: '7.4')]
-    public static function export($class, $name, $return = false)
-    {
-    }
+    public static function export($class, $name, $return = false) {}
 
     /**
      * Gets declaring class
@@ -80,9 +76,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-	public function getDeclaringClass()
-    {
-    }
+    public function getDeclaringClass() {}
 
     /**
      * Gets doc comments
@@ -92,9 +86,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-	public function getDocComment()
-    {
-    }
+    public function getDocComment() {}
 
     /**
      * Gets the class constant modifiers
@@ -105,9 +97,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-	public function getModifiers()
-    {
-    }
+    public function getModifiers() {}
 
     /**
      * Get name of the constant
@@ -117,9 +107,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-	public function getName()
-    {
-    }
+    public function getName() {}
 
     /**
      * Gets value
@@ -129,9 +117,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-	public function getValue()
-    {
-    }
+    public function getValue() {}
 
     /**
      * Checks if class constant is private
@@ -141,9 +127,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-	public function isPrivate()
-    {
-    }
+    public function isPrivate() {}
 
     /**
      * Checks if class constant is protected
@@ -153,9 +137,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-	public function isProtected()
-    {
-    }
+    public function isProtected() {}
 
     /**
      * Checks if class constant is public
@@ -165,9 +147,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-	public function isPublic()
-    {
-    }
+    public function isPublic() {}
 
     /**
      * Returns the string representation of the ReflectionClassConstant object.
@@ -176,9 +156,7 @@ class ReflectionClassConstant implements Reflector
      * @return string
      * @since 7.1
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
 
     /**
      * Returns an array of constant attributes.
@@ -189,16 +167,12 @@ class ReflectionClassConstant implements Reflector
      * @since 8.0
      */
     #[Pure]
-	public function getAttributes(?string $name = null, int $flags = 0)
-    {
-    }
+    public function getAttributes(?string $name = null, int $flags = 0) {}
 
     /**
      * ReflectionClassConstant cannot be cloned
      *
      * @return void
      */
-    final private function __clone()
-    {
-    }
+    final private function __clone() {}
 }

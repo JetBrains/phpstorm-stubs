@@ -82,7 +82,7 @@ use JetBrains\PhpStorm\Pure;
  * </p>
  */
 #[Pure]
-function gd_info (): array {}
+function gd_info(): array {}
 
 /**
  * Draws an arc
@@ -114,7 +114,7 @@ function gd_info (): array {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imagearc (GdImage $image, int $center_x, int $center_y, int $width, int $height, int $start_angle, int $end_angle, int $color): bool {}
+function imagearc(GdImage $image, int $center_x, int $center_y, int $width, int $height, int $start_angle, int $end_angle, int $color): bool {}
 
 /**
  * Draw an ellipse
@@ -138,7 +138,7 @@ function imagearc (GdImage $image, int $center_x, int $center_y, int $width, int
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imageellipse (GdImage $image, int $center_x, int $center_y, int $width, int $height, int $color): bool {}
+function imageellipse(GdImage $image, int $center_x, int $center_y, int $width, int $height, int $color): bool {}
 
 /**
  * Draw a character horizontally
@@ -160,7 +160,7 @@ function imageellipse (GdImage $image, int $center_x, int $center_y, int $width,
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imagechar (GdImage $image, int $font, int $x, int $y, string $char, int $color): bool {}
+function imagechar(GdImage $image, int $font, int $x, int $y, string $char, int $color): bool {}
 
 /**
  * Draw a character vertically
@@ -182,7 +182,7 @@ function imagechar (GdImage $image, int $font, int $x, int $y, string $char, int
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imagecharup (GdImage $image, int $font, int $x, int $y, string $char, int $color): bool {}
+function imagecharup(GdImage $image, int $font, int $x, int $y, string $char, int $color): bool {}
 
 /**
  * Get the index of the color of a pixel
@@ -197,7 +197,7 @@ function imagecharup (GdImage $image, int $font, int $x, int $y, string $char, i
  * @return int|false the index of the color or <b>FALSE</b> on failure
  */
 #[Pure]
-function imagecolorat (GdImage $image, int $x, int $y): int|false {}
+function imagecolorat(GdImage $image, int $x, int $y): int|false {}
 
 /**
  * Allocate a color for an image
@@ -208,7 +208,7 @@ function imagecolorat (GdImage $image, int $x, int $y): int|false {}
  * @param int $blue <p>Value of blue component.</p>
  * @return int|false A color identifier or <b>FALSE</b> if the allocation failed.
  */
-function imagecolorallocate (GdImage $image, int $red, int $green, int $blue): int|false {}
+function imagecolorallocate(GdImage $image, int $red, int $green, int $blue): int|false {}
 
 /**
  * Copy the palette from one image to another
@@ -221,7 +221,7 @@ function imagecolorallocate (GdImage $image, int $red, int $green, int $blue): i
  * </p>
  * @return void No value is returned.
  */
-function imagepalettecopy (GdImage $dst, GdImage $src): void {}
+function imagepalettecopy(GdImage $dst, GdImage $src): void {}
 
 /**
  * Create a new image from the image stream in the string
@@ -234,7 +234,7 @@ function imagepalettecopy (GdImage $dst, GdImage $src): void {}
  * or the image is corrupt and cannot be loaded.
  */
 #[Pure]
-function imagecreatefromstring (string $data): GdImage|false {}
+function imagecreatefromstring(string $data): GdImage|false {}
 
 /**
  * Get the index of the closest color to the specified color
@@ -247,7 +247,7 @@ function imagecreatefromstring (string $data): GdImage|false {}
  * the specified one or <b>FALSE</b> on failure
  */
 #[Pure]
-function imagecolorclosest (GdImage $image, int $red, int $green, int $blue): int|false {}
+function imagecolorclosest(GdImage $image, int $red, int $green, int $blue): int|false {}
 
 /**
  * Get the index of the color which has the hue, white and blackness
@@ -260,7 +260,7 @@ function imagecolorclosest (GdImage $image, int $red, int $green, int $blue): in
  * the hue, white and blackness nearest the given color or <b>FALSE</b> on failure
  */
 #[Pure]
-function imagecolorclosesthwb (GdImage $image, int $red, int $green, int $blue): int|false {}
+function imagecolorclosesthwb(GdImage $image, int $red, int $green, int $blue): int|false {}
 
 /**
  * De-allocate a color for an image
@@ -271,7 +271,7 @@ function imagecolorclosesthwb (GdImage $image, int $red, int $green, int $blue):
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imagecolordeallocate (GdImage $image, int $color): bool {}
+function imagecolordeallocate(GdImage $image, int $color): bool {}
 
 /**
  * Get the index of the specified color or its closest possible alternative
@@ -283,7 +283,7 @@ function imagecolordeallocate (GdImage $image, int $color): bool {}
  * @return int|false a color index or <b>FALSE</b> on failure
  */
 #[Pure]
-function imagecolorresolve (GdImage $image, int $red, int $green, int $blue): int|false {}
+function imagecolorresolve(GdImage $image, int $red, int $green, int $blue): int|false {}
 
 /**
  * Get the index of the specified color
@@ -296,7 +296,7 @@ function imagecolorresolve (GdImage $image, int $red, int $green, int $blue): in
  * color does not exist, or <b>FALSE</b> on failure
  */
 #[Pure]
-function imagecolorexact (GdImage $image, int $red, int $green, int $blue): int|false {}
+function imagecolorexact(GdImage $image, int $red, int $green, int $blue): int|false {}
 
 /**
  * Set the color for the specified palette index
@@ -313,7 +313,7 @@ function imagecolorexact (GdImage $image, int $red, int $green, int $blue): int|
  * </p>
  * @return bool|null
  */
-function imagecolorset (GdImage $image, int $color, int $red, int $green, int $blue, int $alpha = 0): ?bool {}
+function imagecolorset(GdImage $image, int $color, int $red, int $green, int $blue, int $alpha = 0): ?bool {}
 
 /**
  * Define a color as transparent
@@ -328,7 +328,7 @@ function imagecolorset (GdImage $image, int $color, int $red, int $green, int $b
  * is not specified, and the image has no transparent color, the
  * returned identifier will be -1.
  */
-function imagecolortransparent (GdImage $image, ?int $color = null): ?int {}
+function imagecolortransparent(GdImage $image, ?int $color = null): ?int {}
 
 /**
  * Find out the number of colors in an image's palette
@@ -341,7 +341,7 @@ function imagecolortransparent (GdImage $image, ?int $color = null): ?int {}
  * truecolor images, or <b>FALSE</b> on failure
  */
 #[Pure]
-function imagecolorstotal (GdImage $image): int {}
+function imagecolorstotal(GdImage $image): int {}
 
 /**
  * Get the colors for an index
@@ -354,7 +354,7 @@ function imagecolorstotal (GdImage $image): int {}
  * contain the appropriate values for the specified color index or <b>FALSE</b> on failure
  */
 #[Pure]
-function imagecolorsforindex (GdImage $image, int $color): array|false {}
+function imagecolorsforindex(GdImage $image, int $color): array|false {}
 
 /**
  * Copy part of an image
@@ -385,7 +385,7 @@ function imagecolorsforindex (GdImage $image, int $color): array|false {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagecopy (GdImage $dst_image, GdImage $src_image, int $dst_x, int $dst_y, int $src_x, int $src_y, int $src_width, int $src_height): bool {}
+function imagecopy(GdImage $dst_image, GdImage $src_image, int $dst_x, int $dst_y, int $src_x, int $src_y, int $src_width, int $src_height): bool {}
 
 /**
  * Copy and merge part of an image
@@ -423,7 +423,7 @@ function imagecopy (GdImage $dst_image, GdImage $src_image, int $dst_x, int $dst
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagecopymerge (GdImage $dst_image, GdImage $src_image, int $dst_x, int $dst_y, int $src_x, int $src_y, int $src_width, int $src_height, int $pct): bool {}
+function imagecopymerge(GdImage $dst_image, GdImage $src_image, int $dst_x, int $dst_y, int $src_x, int $src_y, int $src_width, int $src_height, int $pct): bool {}
 
 /**
  * Copy and merge part of an image with gray scale
@@ -461,7 +461,7 @@ function imagecopymerge (GdImage $dst_image, GdImage $src_image, int $dst_x, int
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagecopymergegray (GdImage $dst_image, GdImage $src_image, int $dst_x, int $dst_y, int $src_x, int $src_y, int $src_width, int $src_height, int $pct): bool {}
+function imagecopymergegray(GdImage $dst_image, GdImage $src_image, int $dst_x, int $dst_y, int $src_x, int $src_y, int $src_width, int $src_height, int $pct): bool {}
 
 /**
  * Copy and resize part of an image
@@ -494,7 +494,7 @@ function imagecopymergegray (GdImage $dst_image, GdImage $src_image, int $dst_x,
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagecopyresized (GdImage $dst_image, GdImage $src_image, int $dst_x, int $dst_y, int $src_x, int $src_y, int $dst_width, int $dst_height, int $src_width, int $src_height): bool {}
+function imagecopyresized(GdImage $dst_image, GdImage $src_image, int $dst_x, int $dst_y, int $src_x, int $src_y, int $dst_width, int $dst_height, int $src_width, int $src_height): bool {}
 
 /**
  * Create a new palette based image
@@ -508,7 +508,7 @@ function imagecopyresized (GdImage $dst_image, GdImage $src_image, int $dst_x, i
  * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
 #[Pure]
-function imagecreate (int $width, int $height): GdImage|false {}
+function imagecreate(int $width, int $height): GdImage|false {}
 
 /**
  * Create a new true color image
@@ -522,7 +522,7 @@ function imagecreate (int $width, int $height): GdImage|false {}
  * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
 #[Pure]
-function imagecreatetruecolor (int $width, int $height): GdImage|false {}
+function imagecreatetruecolor(int $width, int $height): GdImage|false {}
 
 /**
  * Finds whether an image is a truecolor image
@@ -532,7 +532,7 @@ function imagecreatetruecolor (int $width, int $height): GdImage|false {}
  * otherwise.
  */
 #[Pure]
-function imageistruecolor (GdImage $image): bool {}
+function imageistruecolor(GdImage $image): bool {}
 
 /**
  * Convert a true color image to a palette image
@@ -548,7 +548,7 @@ function imageistruecolor (GdImage $image): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagetruecolortopalette (GdImage $image, bool $dither, int $num_colors): bool {}
+function imagetruecolortopalette(GdImage $image, bool $dither, int $num_colors): bool {}
 
 /**
  * Set the thickness for line drawing
@@ -559,7 +559,7 @@ function imagetruecolortopalette (GdImage $image, bool $dither, int $num_colors)
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagesetthickness (GdImage $image, int $thickness): bool {}
+function imagesetthickness(GdImage $image, int $thickness): bool {}
 
 /**
  * Draw a partial arc and fill it
@@ -594,7 +594,7 @@ function imagesetthickness (GdImage $image, int $thickness): bool {}
  * IMG_ARC_PIE</p>
  * @return bool true on success or false on failure.
  */
-function imagefilledarc (GdImage $image, int $center_x, int $center_y, int $width, int $height, int $start_angle, int $end_angle, int $color, int $style): bool {}
+function imagefilledarc(GdImage $image, int $center_x, int $center_y, int $width, int $height, int $start_angle, int $end_angle, int $color, int $style): bool {}
 
 /**
  * Draw a filled ellipse
@@ -618,7 +618,7 @@ function imagefilledarc (GdImage $image, int $center_x, int $center_y, int $widt
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagefilledellipse (GdImage $image, int $center_x, int $center_y, int $width, int $height, int $color): bool {}
+function imagefilledellipse(GdImage $image, int $center_x, int $center_y, int $width, int $height, int $color): bool {}
 
 /**
  * Set the blending mode for an image
@@ -630,7 +630,7 @@ function imagefilledellipse (GdImage $image, int $center_x, int $center_y, int $
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagealphablending (GdImage $image, bool $enable): bool {}
+function imagealphablending(GdImage $image, bool $enable): bool {}
 
 /**
  * Set the flag to save full alpha channel information (as opposed to single-color transparency) when saving PNG images
@@ -641,7 +641,7 @@ function imagealphablending (GdImage $image, bool $enable): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagesavealpha (GdImage $image, bool $enable): bool {}
+function imagesavealpha(GdImage $image, bool $enable): bool {}
 
 /**
  * Allocate a color for an image
@@ -663,7 +663,7 @@ function imagesavealpha (GdImage $image, bool $enable): bool {}
  * </p>
  * @return int|false A color identifier or false if the allocation failed.
  */
-function imagecolorallocatealpha (GdImage $image, int $red, int $green, int $blue, int $alpha): int|false {}
+function imagecolorallocatealpha(GdImage $image, int $red, int $green, int $blue, int $alpha): int|false {}
 
 /**
  * Get the index of the specified color + alpha or its closest possible alternative
@@ -686,7 +686,7 @@ function imagecolorallocatealpha (GdImage $image, int $red, int $green, int $blu
  * @return int|false a color index or <b>FALSE</b> on failure
  */
 #[Pure]
-function imagecolorresolvealpha (GdImage $image, int $red, int $green, int $blue, int $alpha): int|false {}
+function imagecolorresolvealpha(GdImage $image, int $red, int $green, int $blue, int $alpha): int|false {}
 
 /**
  * Get the index of the closest color to the specified color + alpha
@@ -710,7 +710,7 @@ function imagecolorresolvealpha (GdImage $image, int $red, int $green, int $blue
  * <b>FALSE</b> on failure
  */
 #[Pure]
-function imagecolorclosestalpha (GdImage $image, int $red, int $green, int $blue, int $alpha): int|false {}
+function imagecolorclosestalpha(GdImage $image, int $red, int $green, int $blue, int $alpha): int|false {}
 
 /**
  * Get the index of the specified color + alpha
@@ -735,7 +735,7 @@ function imagecolorclosestalpha (GdImage $image, int $red, int $green, int $blue
  * on failure
  */
 #[Pure]
-function imagecolorexactalpha (GdImage $image, int $red, int $green, int $blue, int $alpha): int|false {}
+function imagecolorexactalpha(GdImage $image, int $red, int $green, int $blue, int $alpha): int|false {}
 
 /**
  * Copy and resize part of an image with resampling
@@ -768,7 +768,7 @@ function imagecolorexactalpha (GdImage $image, int $red, int $green, int $blue, 
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagecopyresampled (GdImage $dst_image, GdImage $src_image, int $dst_x, int $dst_y, int $src_x, int $src_y, int $dst_width, int $dst_height, int $src_width, int $src_height): bool {}
+function imagecopyresampled(GdImage $dst_image, GdImage $src_image, int $dst_x, int $dst_y, int $src_x, int $src_y, int $dst_width, int $dst_height, int $src_width, int $src_height): bool {}
 
 /**
  * Rotate an image with a given angle
@@ -785,7 +785,7 @@ function imagecopyresampled (GdImage $dst_image, GdImage $src_image, int $dst_x,
  * </p>
  * @return resource|GdImage|false the rotated image or <b>FALSE</b> on failure
  */
-function imagerotate (GdImage $image, float $angle, int $background_color, bool $ignore_transparent = false): GdImage|false {}
+function imagerotate(GdImage $image, float $angle, int $background_color, bool $ignore_transparent = false): GdImage|false {}
 
 /**
  * Should antialias functions be used or not. <br/>
@@ -797,7 +797,7 @@ function imagerotate (GdImage $image, float $angle, int $background_color, bool 
  * </p>
  * @return bool true on success or false on failure.
  */
-function imageantialias (GdImage $image, bool $enable): bool {}
+function imageantialias(GdImage $image, bool $enable): bool {}
 
 /**
  * Set the tile image for filling
@@ -808,7 +808,7 @@ function imageantialias (GdImage $image, bool $enable): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagesettile (GdImage $image, GdImage $tile): bool {}
+function imagesettile(GdImage $image, GdImage $tile): bool {}
 
 /**
  * Set the brush image for line drawing
@@ -819,7 +819,7 @@ function imagesettile (GdImage $image, GdImage $tile): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagesetbrush (GdImage $image, GdImage $brush): bool {}
+function imagesetbrush(GdImage $image, GdImage $brush): bool {}
 
 /**
  * Set the style for line drawing
@@ -832,7 +832,7 @@ function imagesetbrush (GdImage $image, GdImage $brush): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagesetstyle (GdImage $image, array $style): bool {}
+function imagesetstyle(GdImage $image, array $style): bool {}
 
 /**
  * Create a new image from file or URL
@@ -842,7 +842,7 @@ function imagesetstyle (GdImage $image, array $style): bool {}
  * </p>
  * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
-function imagecreatefrompng (string $filename): GdImage|false {}
+function imagecreatefrompng(string $filename): GdImage|false {}
 
 /**
  * Create a new image from file or URL
@@ -852,7 +852,7 @@ function imagecreatefrompng (string $filename): GdImage|false {}
  * </p>
  * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
-function imagecreatefromgif (string $filename): GdImage|false {}
+function imagecreatefromgif(string $filename): GdImage|false {}
 
 /**
  * Create a new image from file or URL
@@ -862,7 +862,7 @@ function imagecreatefromgif (string $filename): GdImage|false {}
  * </p>
  * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
-function imagecreatefromjpeg (string $filename): GdImage|false {}
+function imagecreatefromjpeg(string $filename): GdImage|false {}
 
 /**
  * Create a new image from file or URL
@@ -872,7 +872,7 @@ function imagecreatefromjpeg (string $filename): GdImage|false {}
  * </p>
  * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
-function imagecreatefromwbmp (string $filename): GdImage|false {}
+function imagecreatefromwbmp(string $filename): GdImage|false {}
 
 /**
  * Create a new image from file or URL
@@ -883,7 +883,7 @@ function imagecreatefromwbmp (string $filename): GdImage|false {}
  * @return resource|GdImage|false an image resource identifier on success, false on errors.
  * @since 5.4
  */
-function imagecreatefromwebp (string $filename): GdImage|false {}
+function imagecreatefromwebp(string $filename): GdImage|false {}
 
 /**
  * Create a new image from file or URL
@@ -893,7 +893,7 @@ function imagecreatefromwebp (string $filename): GdImage|false {}
  * </p>
  * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
-function imagecreatefromxbm (string $filename): GdImage|false {}
+function imagecreatefromxbm(string $filename): GdImage|false {}
 
 /**
  * Create a new image from file or URL
@@ -903,7 +903,7 @@ function imagecreatefromxbm (string $filename): GdImage|false {}
  * </p>
  * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
-function imagecreatefromxpm (string $filename): GdImage|false {}
+function imagecreatefromxpm(string $filename): GdImage|false {}
 
 /**
  * Create a new image from GD file or URL
@@ -913,7 +913,7 @@ function imagecreatefromxpm (string $filename): GdImage|false {}
  * </p>
  * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
-function imagecreatefromgd (string $filename): GdImage|false {}
+function imagecreatefromgd(string $filename): GdImage|false {}
 
 /**
  * Create a new image from GD2 file or URL
@@ -923,7 +923,7 @@ function imagecreatefromgd (string $filename): GdImage|false {}
  * </p>
  * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
-function imagecreatefromgd2 (string $filename): GdImage|false {}
+function imagecreatefromgd2(string $filename): GdImage|false {}
 
 /**
  * Create a new image from a given part of GD2 file or URL
@@ -945,7 +945,7 @@ function imagecreatefromgd2 (string $filename): GdImage|false {}
  * </p>
  * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
-function imagecreatefromgd2part (string $filename, int $x, int $y, int $width, int $height): GdImage|false {}
+function imagecreatefromgd2part(string $filename, int $x, int $y, int $width, int $height): GdImage|false {}
 
 /**
  * Output a PNG image to either the browser or a file
@@ -971,7 +971,7 @@ function imagecreatefromgd2part (string $filename, int $x, int $y, int $width, i
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagepng (GdImage $image, $file = null, int $quality = -1, int $filters = -1): bool {}
+function imagepng(GdImage $image, $file = null, int $quality = -1, int $filters = -1): bool {}
 
 /**
  * Output a WebP image to browser or file
@@ -987,7 +987,7 @@ function imagepng (GdImage $image, $file = null, int $quality = -1, int $filters
  * @return bool true on success or false on failure.
  * @since 5.4
  */
-function imagewebp ($image, $to = null, $quality = 80): bool {}
+function imagewebp($image, $to = null, $quality = 80): bool {}
 
 /**
  * Output image to browser or file
@@ -999,7 +999,7 @@ function imagewebp ($image, $to = null, $quality = 80): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagegif (GdImage $image, $file = null): bool {}
+function imagegif(GdImage $image, $file = null): bool {}
 
 /**
  * Output image to browser or file
@@ -1020,7 +1020,7 @@ function imagegif (GdImage $image, $file = null): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagejpeg ($image, $filename = null, $quality = null): bool {}
+function imagejpeg($image, $filename = null, $quality = null): bool {}
 
 /**
  * Output image to browser or file
@@ -1037,7 +1037,7 @@ function imagejpeg ($image, $filename = null, $quality = null): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagewbmp (GdImage $image, $file = null, ?int $foreground_color = null): bool {}
+function imagewbmp(GdImage $image, $file = null, ?int $foreground_color = null): bool {}
 
 /**
  * Output GD image to browser or file. <br/>
@@ -1050,7 +1050,7 @@ function imagewbmp (GdImage $image, $file = null, ?int $foreground_color = null)
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagegd (GdImage $image, ?string $file = null): bool {}
+function imagegd(GdImage $image, ?string $file = null): bool {}
 
 /**
  * Output GD2 image to browser or file
@@ -1070,7 +1070,7 @@ function imagegd (GdImage $image, ?string $file = null): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagegd2 (GdImage $image, ?string $file = null, int $chunk_size = null, int $mode = null): bool {}
+function imagegd2(GdImage $image, ?string $file = null, int $chunk_size = null, int $mode = null): bool {}
 
 /**
  * Destroy an image
@@ -1078,7 +1078,7 @@ function imagegd2 (GdImage $image, ?string $file = null, int $chunk_size = null,
  * @param resource|GdImage $image
  * @return bool true on success or false on failure.
  */
-function imagedestroy (GdImage $image): bool {}
+function imagedestroy(GdImage $image): bool {}
 
 /**
  * Apply a gamma correction to a GD image
@@ -1092,7 +1092,7 @@ function imagedestroy (GdImage $image): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagegammacorrect (GdImage $image, float $input_gamma, float $output_gamma): bool {}
+function imagegammacorrect(GdImage $image, float $input_gamma, float $output_gamma): bool {}
 
 /**
  * Flood fill
@@ -1110,7 +1110,7 @@ function imagegammacorrect (GdImage $image, float $input_gamma, float $output_ga
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagefill (GdImage $image, int $x, int $y, int $color): bool {}
+function imagefill(GdImage $image, int $x, int $y, int $color): bool {}
 
 /**
  * Draw a filled polygon
@@ -1129,7 +1129,7 @@ function imagefill (GdImage $image, int $x, int $y, int $color): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagefilledpolygon (GdImage $image, array $points, int $num_points_or_color, ?int $color = null): bool {}
+function imagefilledpolygon(GdImage $image, array $points, int $num_points_or_color, ?int $color = null): bool {}
 
 /**
  * Draw a filled rectangle
@@ -1153,7 +1153,7 @@ function imagefilledpolygon (GdImage $image, array $points, int $num_points_or_c
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagefilledrectangle (GdImage $image, int $x1, int $y1, int $x2, int $y2, int $color): bool {}
+function imagefilledrectangle(GdImage $image, int $x1, int $y1, int $x2, int $y2, int $color): bool {}
 
 /**
  * Flood fill to specific color
@@ -1175,7 +1175,7 @@ function imagefilledrectangle (GdImage $image, int $x1, int $y1, int $x2, int $y
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagefilltoborder (GdImage $image, int $x, int $y, int $border_color, int $color): bool {}
+function imagefilltoborder(GdImage $image, int $x, int $y, int $border_color, int $color): bool {}
 
 /**
  * Get font width
@@ -1184,7 +1184,7 @@ function imagefilltoborder (GdImage $image, int $x, int $y, int $border_color, i
  * @return int the width of the pixel
  */
 #[Pure]
-function imagefontwidth (int $font): int {}
+function imagefontwidth(int $font): int {}
 
 /**
  * Get font height
@@ -1193,7 +1193,7 @@ function imagefontwidth (int $font): int {}
  * @return int the height of the pixel.
  */
 #[Pure]
-function imagefontheight (int $font): int {}
+function imagefontheight(int $font): int {}
 
 /**
  * Enable or disable interlace
@@ -1206,7 +1206,7 @@ function imagefontheight (int $font): int {}
  * @return int|null 1 if the interlace bit is set for the image,
  * 0 if it is not
  */
-function imageinterlace (GdImage $image, ?bool $enable = null): ?int {}
+function imageinterlace(GdImage $image, ?bool $enable = null): ?int {}
 
 /**
  * Draw a line
@@ -1230,7 +1230,7 @@ function imageinterlace (GdImage $image, ?bool $enable = null): ?int {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imageline (GdImage $image, int $x1, int $y1, int $x2, int $y2, int $color): bool {}
+function imageline(GdImage $image, int $x1, int $y1, int $x2, int $y2, int $color): bool {}
 
 /**
  * Load a new font
@@ -1283,7 +1283,7 @@ function imageline (GdImage $image, int $x1, int $y1, int $x2, int $y2, int $col
  * @return int|false The font identifier which is always bigger than 5 to avoid conflicts with
  * built-in fonts or false on errors.
  */
-function imageloadfont (string $filename): int|false {}
+function imageloadfont(string $filename): int|false {}
 
 /**
  * Draws a polygon
@@ -1317,7 +1317,7 @@ function imageloadfont (string $filename): int|false {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagepolygon (GdImage $image, array $points, int $num_points_or_color, ?int $color = null): bool {}
+function imagepolygon(GdImage $image, array $points, int $num_points_or_color, ?int $color = null): bool {}
 
 /**
  * Draw a rectangle
@@ -1342,7 +1342,7 @@ function imagepolygon (GdImage $image, array $points, int $num_points_or_color, 
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagerectangle (GdImage $image, int $x1, int $y1, int $x2, int $y2, int $color): bool {}
+function imagerectangle(GdImage $image, int $x1, int $y1, int $x2, int $y2, int $color): bool {}
 
 /**
  * Set a single pixel
@@ -1360,7 +1360,7 @@ function imagerectangle (GdImage $image, int $x1, int $y1, int $x2, int $y2, int
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagesetpixel (GdImage $image, int $x, int $y, int $color): bool {}
+function imagesetpixel(GdImage $image, int $x, int $y, int $color): bool {}
 
 /**
  * Draw a string horizontally
@@ -1382,7 +1382,7 @@ function imagesetpixel (GdImage $image, int $x, int $y, int $color): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagestring (GdImage $image, int $font, int $x, int $y, string $string, int $color): bool {}
+function imagestring(GdImage $image, int $font, int $x, int $y, string $string, int $color): bool {}
 
 /**
  * Draw a string vertically
@@ -1404,7 +1404,7 @@ function imagestring (GdImage $image, int $font, int $x, int $y, string $string,
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagestringup (GdImage $image, int $font, int $x, int $y, string $string, int $color): bool {}
+function imagestringup(GdImage $image, int $font, int $x, int $y, string $string, int $color): bool {}
 
 /**
  * Get image width
@@ -1414,7 +1414,7 @@ function imagestringup (GdImage $image, int $font, int $x, int $y, string $strin
  * errors.
  */
 #[Pure]
-function imagesx (GdImage $image): int {}
+function imagesx(GdImage $image): int {}
 
 /**
  * Get image height
@@ -1424,7 +1424,7 @@ function imagesx (GdImage $image): int {}
  * errors.
  */
 #[Pure]
-function imagesy (GdImage $image): int {}
+function imagesy(GdImage $image): int {}
 
 /**
  * Draw a dashed line
@@ -1451,7 +1451,7 @@ function imagesy (GdImage $image): int {}
  * @see imageline()
  */
 #[Deprecated("Use combination of imagesetstyle() and imageline() instead")]
-function imagedashedline (GdImage $image, int $x1, int $y1, int $x2, int $y2, int $color): bool {}
+function imagedashedline(GdImage $image, int $x1, int $y1, int $x2, int $y2, int $color): bool {}
 
 /**
  * Give the bounding box of a text using TrueType fonts
@@ -1518,7 +1518,7 @@ function imagedashedline (GdImage $image, int $x1, int $y1, int $x2, int $y2, in
  * corner seeing the text horizontally.
  */
 #[Pure]
-function imagettfbbox ($size, $angle, $fontfile, $text) {}
+function imagettfbbox($size, $angle, $fontfile, $text) {}
 
 /**
  * Write text to the image using TrueType fonts
@@ -1610,7 +1610,7 @@ function imagettfbbox ($size, $angle, $fontfile, $text) {}
  * corner when you see the text horizontally.
  * Returns false on error.
  */
-function imagettftext ($image, $size, $angle, $x, $y, $color, $fontfile, $text) {}
+function imagettftext($image, $size, $angle, $x, $y, $color, $fontfile, $text) {}
 
 /**
  * Give the bounding box of a text using fonts via freetype2
@@ -1690,7 +1690,7 @@ function imagettftext ($image, $size, $angle, $x, $y, $color, $fontfile, $text) 
  * Returns false on error.
  */
 #[Pure]
-function imageftbbox ($size, $angle, $fontfile, $text, $extrainfo = null ) {}
+function imageftbbox($size, $angle, $fontfile, $text, $extrainfo = null) {}
 
 /**
  * Write text to the image using fonts using FreeType 2
@@ -1808,7 +1808,7 @@ function imageftbbox ($size, $angle, $fontfile, $text, $extrainfo = null ) {}
  * </tr>
  * Returns false on error.
  */
-function imagefttext ($image, $size, $angle, $x, $y, $color, $fontfile, $text, $extrainfo = null ) {}
+function imagefttext($image, $size, $angle, $x, $y, $color, $fontfile, $text, $extrainfo = null) {}
 
 /**
  * Load a PostScript Type 1 font from file
@@ -1820,7 +1820,7 @@ function imagefttext ($image, $size, $angle, $x, $y, $color, $fontfile, $text, $
  * can be used for further purposes. Otherwise the function returns false.
  * @removed 7.0 This function was REMOVED in PHP 7.0.0.
  */
-function imagepsloadfont ($filename) {}
+function imagepsloadfont($filename) {}
 
 /**
  * Free memory used by a PostScript Type 1 font
@@ -1831,7 +1831,7 @@ function imagepsloadfont ($filename) {}
  * @return bool true on success or false on failure.
  * @removed 7.0
  */
-function imagepsfreefont ($font_index) {}
+function imagepsfreefont($font_index) {}
 
 /**
  * Change the character encoding vector of a font
@@ -1848,7 +1848,7 @@ function imagepsfreefont ($font_index) {}
  * @return bool true on success or false on failure.
  * @removed 7.0
  */
-function imagepsencodefont ($font_index, $encodingfile) {}
+function imagepsencodefont($font_index, $encodingfile) {}
 
 /**
  * Extend or condense a font
@@ -1862,7 +1862,7 @@ function imagepsencodefont ($font_index, $encodingfile) {}
  * @return bool true on success or false on failure.
  * @removed 7.0
  */
-function imagepsextendfont ($font_index, $extend) {}
+function imagepsextendfont($font_index, $extend) {}
 
 /**
  * Slant a font
@@ -1876,7 +1876,7 @@ function imagepsextendfont ($font_index, $extend) {}
  * @return bool true on success or false on failure.
  * @removed 7.0 This function was REMOVED in PHP 7.0.0.
  */
-function imagepsslantfont ($font_index, $slant) {}
+function imagepsslantfont($font_index, $slant) {}
 
 /**
  * Draws a text over an image using PostScript Type1 fonts
@@ -1949,7 +1949,7 @@ function imagepsslantfont ($font_index, $slant) {}
  * Returns false on error.
  * @removed 7.0 This function was REMOVED in PHP 7.0.0.
  */
-function imagepstext ($image, $text, $font_index, $size, $foreground, $background, $x, $y, $space = null, $tightness = null, $angle = null, $antialias_steps = null) {}
+function imagepstext($image, $text, $font_index, $size, $foreground, $background, $x, $y, $space = null, $tightness = null, $angle = null, $antialias_steps = null) {}
 
 /**
  * Give the bounding box of a text rectangle using PostScript Type1 fonts
@@ -1981,7 +1981,7 @@ function imagepstext ($image, $text, $font_index, $size, $foreground, $backgroun
  * Returns false on error.
  * @removed 7.0
  */
-function imagepsbbox ($text, $font, $size) {}
+function imagepsbbox($text, $font, $size) {}
 
 /**
  * Return the image types supported by this PHP build
@@ -1991,7 +1991,7 @@ function imagepsbbox ($text, $font, $size) {}
  * IMG_BMP | IMG_GIF | IMG_JPG | IMG_PNG | IMG_WBMP | IMG_XPM | IMG_WEBP
  */
 #[Pure]
-function imagetypes (): int {}
+function imagetypes(): int {}
 
 /**
  * Convert JPEG image file to WBMP image file
@@ -2016,7 +2016,7 @@ function imagetypes (): int {}
  * @see imagecreatefromjpeg()
  */
 #[Deprecated(reason: "Use imagecreatefromjpeg() and imagewbmp() instead", since: "7.2")]
-function jpeg2wbmp ($jpegname, $wbmpname, $dest_height, $dest_width, $threshold) {}
+function jpeg2wbmp($jpegname, $wbmpname, $dest_height, $dest_width, $threshold) {}
 
 /**
  * Convert PNG image file to WBMP image file
@@ -2042,7 +2042,7 @@ function jpeg2wbmp ($jpegname, $wbmpname, $dest_height, $dest_width, $threshold)
  * @see imagewbmp()
  */
 #[Deprecated("Use imagecreatefrompng() and imagewbmp() instead", since: "7.2")]
-function png2wbmp ($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {}
+function png2wbmp($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {}
 
 /**
  * Output image to browser or file
@@ -2060,7 +2060,7 @@ function png2wbmp ($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {
  * @see imagewbmp()
  */
 #[Deprecated(replacement: "imagewbmp(%parametersList%)", since: "7.3")]
-function image2wbmp ($image, $filename = null, $threshold = null) {}
+function image2wbmp($image, $filename = null, $threshold = null) {}
 
 /**
  * Set the alpha blending flag to use the bundled libgd layering effects
@@ -2073,7 +2073,7 @@ function image2wbmp ($image, $filename = null, $threshold = null) {}
  * imagealphablending)</p>
  * @return bool true on success or false on failure.
  */
-function imagelayereffect (GdImage $image, int $effect): bool {}
+function imagelayereffect(GdImage $image, int $effect): bool {}
 
 /**
  * Makes the colors of the palette version of an image more closely match the true color version
@@ -2087,7 +2087,7 @@ function imagelayereffect (GdImage $image, int $effect): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagecolormatch (GdImage $image1, GdImage $image2): bool {}
+function imagecolormatch(GdImage $image1, GdImage $image2): bool {}
 
 /**
  * Output XBM image to browser or file
@@ -2104,7 +2104,7 @@ function imagecolormatch (GdImage $image1, GdImage $image2): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagexbm (GdImage $image, ?string $filename, ?int $foreground_color = null): bool {}
+function imagexbm(GdImage $image, ?string $filename, ?int $foreground_color = null): bool {}
 
 /**
  * Applies a filter to an image
@@ -2117,7 +2117,7 @@ function imagexbm (GdImage $image, ?string $filename, ?int $foreground_color = n
  * @param int ...$args
  * @return bool true on success or false on failure.
  */
-function imagefilter (GdImage $image, int $filter, ...$args): bool {}
+function imagefilter(GdImage $image, int $filter, ...$args): bool {}
 
 /**
  * Apply a 3x3 convolution matrix, using coefficient and offset
@@ -2134,7 +2134,7 @@ function imagefilter (GdImage $image, int $filter, ...$args): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imageconvolution (GdImage $image, array $matrix, float $divisor, float $offset): bool {}
+function imageconvolution(GdImage $image, array $matrix, float $divisor, float $offset): bool {}
 
 /**
  * @param resource|GdImage $image An image resource, returned by one of the image creation functions, such as {@see imagecreatetruecolor()}.
@@ -2144,8 +2144,7 @@ function imageconvolution (GdImage $image, array $matrix, float $divisor, float 
  * @link https://php.net/manual/en/function.imageresolution.php
  * @since 7.2
  */
-function imageresolution (GdImage $image, ?int $resolution_x = 96, ?int $resolution_y = 96): array|bool {}
-
+function imageresolution(GdImage $image, ?int $resolution_x = 96, ?int $resolution_y = 96): array|bool {}
 
 /**
  * <b>imagesetclip()</b> sets the current clipping rectangle, i.e. the area beyond which no pixels will be drawn.
@@ -2159,7 +2158,7 @@ function imageresolution (GdImage $image, ?int $resolution_x = 96, ?int $resolut
  * @see imagegetclip()
  * @since 7.2
  */
-function imagesetclip (GdImage $image, int $x1, int $y1, int $x2, int $y2): bool {}
+function imagesetclip(GdImage $image, int $x1, int $y1, int $x2, int $y2): bool {}
 
 /**
  * <b>imagegetclip()</b> retrieves the current clipping rectangle, i.e. the area beyond which no pixels will be drawn.
@@ -2176,7 +2175,7 @@ function imagesetclip (GdImage $image, int $x1, int $y1, int $x2, int $y2): bool
  * @see imagesetclip()
  * @since 7.2
  */
-function imagegetclip (GdImage $image): array {}
+function imagegetclip(GdImage $image): array {}
 
 /**
  * <b>imageopenpolygon()</b> draws an open polygon on the given <b>image.</b> Contrary to {@see imagepolygon()}, no line is drawn between the last and the first point.
@@ -2195,7 +2194,7 @@ function imagegetclip (GdImage $image): array {}
  * @since 7.2
  * @see imageplygon()
  */
-function imageopenpolygon (GdImage $image , array $points, int $num_points_or_color, ?int $color = null): bool {}
+function imageopenpolygon(GdImage $image, array $points, int $num_points_or_color, ?int $color = null): bool {}
 
 /**
  * <b>imagecreatefrombmp()</b> returns an image identifier representing the image obtained from the given filename.
@@ -2220,7 +2219,7 @@ function imagecreatefrombmp(string $filename): GdImage|false {}
  * @link https://php.net/manual/en/function.imagebmp.php
  * @since 7.2
  */
-function imagebmp (GdImage $image, $file = null, bool $compressed = true): bool {}
+function imagebmp(GdImage $image, $file = null, bool $compressed = true): bool {}
 
 /**
  * @param string $filename
@@ -2259,19 +2258,19 @@ function imagegrabwindow($handle, $client_area = null) {}
  * @return int
  */
 #[Pure]
-function imagegetinterpolation (GdImage $image): int {}
+function imagegetinterpolation(GdImage $image): int {}
 
 /**
  * Used as a return value by {@see imagetypes()}
  * @link https://php.net/manual/en/image.constants.php#constant.img-gif
  */
-define ('IMG_GIF', 1);
+define('IMG_GIF', 1);
 
 /**
  * Used as a return value by {@see imagetypes()}
  * @link https://php.net/manual/en/image.constants.php#constant.img-jpg
  */
-define ('IMG_JPG', 2);
+define('IMG_JPG', 2);
 
 /**
  * Used as a return value by {@see imagetypes()}
@@ -2280,25 +2279,25 @@ define ('IMG_JPG', 2);
  * </p>
  * @link https://php.net/manual/en/image.constants.php#constant.img-jpeg
  */
-define ('IMG_JPEG', 2);
+define('IMG_JPEG', 2);
 
 /**
  * Used as a return value by {@see imagetypes()}
  * @link https://php.net/manual/en/image.constants.php#constant.img-png
  */
-define ('IMG_PNG', 4);
+define('IMG_PNG', 4);
 
 /**
  * Used as a return value by {@see imagetypes()}
  * @link https://php.net/manual/en/image.constants.php#constant.img-wbmp
  */
-define ('IMG_WBMP', 8);
+define('IMG_WBMP', 8);
 
 /**
  * Used as a return value by {@see imagetypes()}
  * @link https://php.net/manual/en/image.constants.php#constant.img-xpm
  */
-define ('IMG_XPM', 16);
+define('IMG_XPM', 16);
 
 /**
  * Used as a return value by {@see imagetypes()}
@@ -2320,35 +2319,35 @@ define('IMG_BMP', 64);
  * {@see imagecolorallocate()} or {@see imagecolorallocatealpha()}
  * @link https://php.net/manual/en/image.constants.php#constant.img-color-tiled
  */
-define ('IMG_COLOR_TILED', -5);
+define('IMG_COLOR_TILED', -5);
 
 /**
  * Special color option which can be used instead of color allocated with
  * {@see imagecolorallocate()} or {@see imagecolorallocatealpha()}
  * @link https://php.net/manual/en/image.constants.php#constant.img-color-styled
  */
-define ('IMG_COLOR_STYLED', -2);
+define('IMG_COLOR_STYLED', -2);
 
 /**
  * Special color option which can be used instead of color allocated with
  * {@see imagecolorallocate()} or {@see imagecolorallocatealpha()}
  * @link https://php.net/manual/en/image.constants.php#constant.img-color-brushed
  */
-define ('IMG_COLOR_BRUSHED', -3);
+define('IMG_COLOR_BRUSHED', -3);
 
 /**
  * Special color option which can be used instead of color allocated with
  * {@see imagecolorallocate()} or {@see imagecolorallocatealpha()}
  * @link https://php.net/manual/en/image.constants.php#constant.img-color-styledbrushed
  */
-define ('IMG_COLOR_STYLEDBRUSHED', -4);
+define('IMG_COLOR_STYLEDBRUSHED', -4);
 
 /**
  * Special color option which can be used instead of color allocated with
  * {@see imagecolorallocate()} or {@see imagecolorallocatealpha()}
  * @link https://php.net/manual/en/image.constants.php#constant.img-color-transparent
  */
-define ('IMG_COLOR_TRANSPARENT', -6);
+define('IMG_COLOR_TRANSPARENT', -6);
 
 /**
  * A style constant used by the {@see imagefilledarc()} function.
@@ -2357,238 +2356,237 @@ define ('IMG_COLOR_TRANSPARENT', -6);
  * </p>
  * @link https://php.net/manual/en/image.constants.php#constant.img-arc-rounded
  */
-define ('IMG_ARC_ROUNDED', 0);
+define('IMG_ARC_ROUNDED', 0);
 
 /**
  * A style constant used by the {@see imagefilledarc()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-arc-pie
  */
-define ('IMG_ARC_PIE', 0);
+define('IMG_ARC_PIE', 0);
 
 /**
  * A style constant used by the {@see imagefilledarc()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-arc-chord
  */
-define ('IMG_ARC_CHORD', 1);
+define('IMG_ARC_CHORD', 1);
 
 /**
  * A style constant used by the {@see imagefilledarc()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-arc-nofill
  */
-define ('IMG_ARC_NOFILL', 2);
+define('IMG_ARC_NOFILL', 2);
 
 /**
  * A style constant used by the {@see imagefilledarc()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-arc-edged
  */
-define ('IMG_ARC_EDGED', 4);
+define('IMG_ARC_EDGED', 4);
 
 /**
  * A type constant used by the {@see imagegd2()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-gd2-raw
  */
-define ('IMG_GD2_RAW', 1);
+define('IMG_GD2_RAW', 1);
 
 /**
  * A type constant used by the {@see imagegd2()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-gd2-compressed
  */
-define ('IMG_GD2_COMPRESSED', 2);
+define('IMG_GD2_COMPRESSED', 2);
 
 /**
  * Alpha blending effect used by the {@see imagelayereffect()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-effect-replace
  */
-define ('IMG_EFFECT_REPLACE', 0);
+define('IMG_EFFECT_REPLACE', 0);
 
 /**
  * Alpha blending effect used by the {@see imagelayereffect()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-effect-alphablend
  */
-define ('IMG_EFFECT_ALPHABLEND', 1);
+define('IMG_EFFECT_ALPHABLEND', 1);
 
 /**
  * Alpha blending effect used by the {@see imagelayereffect()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-effect-normal
  */
-define ('IMG_EFFECT_NORMAL', 2);
+define('IMG_EFFECT_NORMAL', 2);
 
 /**
  * Alpha blending effect used by the {@see imagelayereffect()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-effect-overlay
  */
-define ('IMG_EFFECT_OVERLAY', 3);
+define('IMG_EFFECT_OVERLAY', 3);
 
 /**
  * Alpha blending effect used by the {@see imagelayereffect()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-effect-multiply
  * @since 7.2
  */
-define ('IMG_EFFECT_MULTIPLY', 4);
+define('IMG_EFFECT_MULTIPLY', 4);
 
 /**
  * When the bundled version of GD is used this is 1 otherwise
  * it's set to 0.
  * @link https://php.net/manual/en/image.constants.php
  */
-define ('GD_BUNDLED', 1);
+define('GD_BUNDLED', 1);
 
 /**
  * Special GD filter used by the {@see imagefilter()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-filter-negate
  */
-define ('IMG_FILTER_NEGATE', 0);
+define('IMG_FILTER_NEGATE', 0);
 
 /**
  * Special GD filter used by the {@see imagefilter()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-filter-grayscale
  */
-define ('IMG_FILTER_GRAYSCALE', 1);
+define('IMG_FILTER_GRAYSCALE', 1);
 
 /**
  * Special GD filter used by the {@see imagefilter()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-filter-brightness
  */
-define ('IMG_FILTER_BRIGHTNESS', 2);
+define('IMG_FILTER_BRIGHTNESS', 2);
 
 /**
  * Special GD filter used by the {@see imagefilter()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-filter-contrast
  */
-define ('IMG_FILTER_CONTRAST', 3);
+define('IMG_FILTER_CONTRAST', 3);
 
 /**
  * Special GD filter used by the {@see imagefilter()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-filter-colorize
  */
-define ('IMG_FILTER_COLORIZE', 4);
+define('IMG_FILTER_COLORIZE', 4);
 
 /**
  * Special GD filter used by the {@see imagefilter()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-filter-edgedetect
  */
-define ('IMG_FILTER_EDGEDETECT', 5);
+define('IMG_FILTER_EDGEDETECT', 5);
 
 /**
  * Special GD filter used by the {@see imagefilter()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-filter-gaussian-blur
  */
-define ('IMG_FILTER_GAUSSIAN_BLUR', 7);
+define('IMG_FILTER_GAUSSIAN_BLUR', 7);
 
 /**
  * Special GD filter used by the {@see imagefilter()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-filter-selective-blur
  */
-define ('IMG_FILTER_SELECTIVE_BLUR', 8);
+define('IMG_FILTER_SELECTIVE_BLUR', 8);
 
 /**
  * Special GD filter used by the {@see imagefilter()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-filter-emboss
  */
-define ('IMG_FILTER_EMBOSS', 6);
+define('IMG_FILTER_EMBOSS', 6);
 
 /**
  * Special GD filter used by the {@see imagefilter()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-filter-mean-removal
  */
-define ('IMG_FILTER_MEAN_REMOVAL', 9);
+define('IMG_FILTER_MEAN_REMOVAL', 9);
 
 /**
  * Special GD filter used by the {@see imagefilter()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-filter-smooth
  */
-define ('IMG_FILTER_SMOOTH', 10);
+define('IMG_FILTER_SMOOTH', 10);
 
 /**
  * Special GD filter used by the {@see imagefilter()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-filter-pixelate
  */
-define ('IMG_FILTER_PIXELATE', 11);
+define('IMG_FILTER_PIXELATE', 11);
 
 /**
  * Special GD filter used by the {@see imagefilter()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.img-filter-scatter
  * @since 7.4
  */
-define ('IMG_FILTER_SCATTER', 12);
+define('IMG_FILTER_SCATTER', 12);
 
 /**
  * The GD version PHP was compiled against.
  * @since 5.2.4
  * @link https://php.net/manual/en/image.constants.php#constant.gd-version
  */
-define ('GD_VERSION', "2.0.35");
+define('GD_VERSION', "2.0.35");
 
 /**
  * The GD major version PHP was compiled against.
  * @since 5.2.4
  * @link https://php.net/manual/en/image.constants.php#constant.gd-major-version
  */
-define ('GD_MAJOR_VERSION', 2);
+define('GD_MAJOR_VERSION', 2);
 
 /**
  * The GD minor version PHP was compiled against.
  * @since 5.2.4
  * @link https://php.net/manual/en/image.constants.php#constant.gd-minor-version
  */
-define ('GD_MINOR_VERSION', 0);
+define('GD_MINOR_VERSION', 0);
 
 /**
  * The GD release version PHP was compiled against.
  * @since 5.2.4
  * @link https://php.net/manual/en/image.constants.php#constant.gd-release-version
  */
-define ('GD_RELEASE_VERSION', 35);
+define('GD_RELEASE_VERSION', 35);
 
 /**
  * The GD "extra" version (beta/rc..) PHP was compiled against.
  * @since 5.2.4
  * @link https://php.net/manual/en/image.constants.php#constant.gd-extra-version
  */
-define ('GD_EXTRA_VERSION', "");
-
+define('GD_EXTRA_VERSION', "");
 
 /**
  * A special PNG filter, used by the {@see imagepng()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.png-no-filter
  */
-define ('PNG_NO_FILTER', 0);
+define('PNG_NO_FILTER', 0);
 
 /**
  * A special PNG filter, used by the {@see imagepng()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.png-filter-none
  */
-define ('PNG_FILTER_NONE', 8);
+define('PNG_FILTER_NONE', 8);
 
 /**
  * A special PNG filter, used by the {@see imagepng()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.png-filter-sub
  */
-define ('PNG_FILTER_SUB', 16);
+define('PNG_FILTER_SUB', 16);
 
 /**
  * A special PNG filter, used by the {@see imagepng()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.png-filter-up
  */
-define ('PNG_FILTER_UP', 32);
+define('PNG_FILTER_UP', 32);
 
 /**
  * A special PNG filter, used by the {@see imagepng()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.png-filter-avg
  */
-define ('PNG_FILTER_AVG', 64);
+define('PNG_FILTER_AVG', 64);
 
 /**
  * A special PNG filter, used by the {@see imagepng()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.png-filter-paeth
  */
-define ('PNG_FILTER_PAETH', 128);
+define('PNG_FILTER_PAETH', 128);
 
 /**
  * A special PNG filter, used by the {@see imagepng()} function.
  * @link https://php.net/manual/en/image.constants.php#constant.png-all-filters
  */
-define ('PNG_ALL_FILTERS', 248);
+define('PNG_ALL_FILTERS', 248);
 
 /**
  * An affine transformation type constant used by the {@see imageaffinematrixget()} function.
@@ -2867,7 +2865,7 @@ function imageaffinematrixconcat(array $matrix1, array $matrix2): array|false {}
  * @return float[]|false Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
  * @since 5.5
  */
-function imageaffinematrixget (int $type, $options = null): array|false {}
+function imageaffinematrixget(int $type, $options = null): array|false {}
 
 /**
  * Crop an image using the given coordinates and size, x, y, width and height
@@ -2879,7 +2877,7 @@ function imageaffinematrixget (int $type, $options = null): array|false {}
  * @return resource|GdImage|false Return cropped image resource on success or FALSE on failure.
  * @since 5.5
  */
-function imagecrop (GdImage $image, array $rectangle): GdImage|false {}
+function imagecrop(GdImage $image, array $rectangle): GdImage|false {}
 
 /**
  * Crop an image automatically using one of the available modes
@@ -2900,7 +2898,7 @@ function imagecrop (GdImage $image, array $rectangle): GdImage|false {}
  * @return resource|GdImage|false Return cropped image resource on success or <b>FALSE</b> on failure.
  * @since 5.5
  */
-function imagecropauto (GdImage $image, int $mode = IMG_CROP_DEFAULT, float $threshold = .5, int $color = -1): GdImage|false {}
+function imagecropauto(GdImage $image, int $mode = IMG_CROP_DEFAULT, float $threshold = .5, int $color = -1): GdImage|false {}
 
 /**
  * Flips an image using a given mode
@@ -2942,7 +2940,7 @@ function imagecropauto (GdImage $image, int $mode = IMG_CROP_DEFAULT, float $thr
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.5
  */
-function imageflip (GdImage $image, int $mode): bool {}
+function imageflip(GdImage $image, int $mode): bool {}
 
 /**
  * Converts a palette based image to true color
@@ -2953,7 +2951,7 @@ function imageflip (GdImage $image, int $mode): bool {}
  * @return bool Returns <b>TRUE</b> if the convertion was complete, or if the source image already is a true color image, otherwise <b>FALSE</b> is returned.
  * @since 5.5
  */
-function imagepalettetotruecolor (GdImage $image): bool {}
+function imagepalettetotruecolor(GdImage $image): bool {}
 
 /**
  * @param resource|GdImage $image <p>
@@ -2967,7 +2965,7 @@ function imagepalettetotruecolor (GdImage $image): bool {}
  * @since 5.5
  * Scale an image using the given new width and height
  */
-function imagescale (GdImage $image, int $width, int $height = -1, int $mode = IMG_BILINEAR_FIXED): GdImage|false {}
+function imagescale(GdImage $image, int $width, int $height = -1, int $mode = IMG_BILINEAR_FIXED): GdImage|false {}
 
 /**
  * Set the interpolation method
@@ -3046,15 +3044,16 @@ function imagescale (GdImage $image, int $width, int $height = -1, int $mode = I
  * @return bool Returns TRUE on success or FALSE on failure.
  * @since 5.5
  */
-function imagesetinterpolation (GdImage $image, int $method = IMG_BILINEAR_FIXED): bool {}
+function imagesetinterpolation(GdImage $image, int $method = IMG_BILINEAR_FIXED): bool {}
 
 /**
  * @since 8.0
  */
-final class GdImage{
+final class GdImage
+{
     /**
      * You cannot initialize a GdImage object except through helper functions.
      */
-    private function __construct(){}
-    private function __clone(){}
+    private function __construct() {}
+    private function __clone() {}
 }

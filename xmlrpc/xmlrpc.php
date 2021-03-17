@@ -8,7 +8,7 @@
  * @param mixed $value
  * @return string
  */
-function xmlrpc_encode ($value) {}
+function xmlrpc_encode($value) {}
 
 /**
  * Decodes XML into native PHP types
@@ -22,7 +22,7 @@ function xmlrpc_encode ($value) {}
  * @return mixed either an array, or an integer, or a string, or a boolean according
  * to the response returned by the XMLRPC method.
  */
-function xmlrpc_decode ($xml, $encoding = "iso-8859-1") {}
+function xmlrpc_decode($xml, $encoding = "iso-8859-1") {}
 
 /**
  * Decodes XML into native PHP types
@@ -32,7 +32,7 @@ function xmlrpc_decode ($xml, $encoding = "iso-8859-1") {}
  * @param string $encoding [optional]
  * @return mixed
  */
-function xmlrpc_decode_request ($xml, &$method, $encoding = null) {}
+function xmlrpc_decode_request($xml, &$method, $encoding = null) {}
 
 /**
  * Generates XML for a method request
@@ -49,7 +49,7 @@ function xmlrpc_decode_request ($xml, &$method, $encoding = null) {}
  * output_type: php, xml</p>
  * @return string a string containing the XML representation of the request.
  */
-function xmlrpc_encode_request ($method, $params, ?array $output_options = null) {}
+function xmlrpc_encode_request($method, $params, ?array $output_options = null) {}
 
 /**
  * Gets xmlrpc type for a PHP value
@@ -59,7 +59,7 @@ function xmlrpc_encode_request ($method, $params, ?array $output_options = null)
  * </p>
  * @return string the XML-RPC type.
  */
-function xmlrpc_get_type ($value) {}
+function xmlrpc_get_type($value) {}
 
 /**
  * Sets xmlrpc type, base64 or datetime, for a PHP string value
@@ -73,7 +73,7 @@ function xmlrpc_get_type ($value) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * If successful, <i>value</i> is converted to an object.
  */
-function xmlrpc_set_type (&$value, $type) {}
+function xmlrpc_set_type(&$value, $type) {}
 
 /**
  * Determines if an array value represents an XMLRPC fault
@@ -85,14 +85,14 @@ function xmlrpc_set_type (&$value, $type) {}
  * description is available in $arg["faultString"], fault
  * code is in $arg["faultCode"].
  */
-function xmlrpc_is_fault (array $arg) {}
+function xmlrpc_is_fault(array $arg) {}
 
 /**
  * Creates an xmlrpc server
  * @link https://php.net/manual/en/function.xmlrpc-server-create.php
  * @return resource
  */
-function xmlrpc_server_create () {}
+function xmlrpc_server_create() {}
 
 /**
  * Destroys server resources
@@ -100,7 +100,7 @@ function xmlrpc_server_create () {}
  * @param resource $server
  * @return int
  */
-function xmlrpc_server_destroy ($server) {}
+function xmlrpc_server_destroy($server) {}
 
 /**
  * Register a PHP function to resource method matching method_name
@@ -110,7 +110,7 @@ function xmlrpc_server_destroy ($server) {}
  * @param callable $function
  * @return bool
  */
-function xmlrpc_server_register_method ($server, $method_name, $function) {}
+function xmlrpc_server_register_method($server, $method_name, $function) {}
 
 /**
  * Parses XML requests and call methods
@@ -121,7 +121,7 @@ function xmlrpc_server_register_method ($server, $method_name, $function) {}
  * @param null|array $output_options [optional]
  * @return string
  */
-function xmlrpc_server_call_method ($server, $xml, $user_data, ?array $output_options = null) {}
+function xmlrpc_server_call_method($server, $xml, $user_data, ?array $output_options = null) {}
 
 /**
  * Decodes XML into a list of method descriptions
@@ -129,7 +129,7 @@ function xmlrpc_server_call_method ($server, $xml, $user_data, ?array $output_op
  * @param string $xml
  * @return array
  */
-function xmlrpc_parse_method_descriptions ($xml) {}
+function xmlrpc_parse_method_descriptions($xml) {}
 
 /**
  * Adds introspection documentation
@@ -138,7 +138,7 @@ function xmlrpc_parse_method_descriptions ($xml) {}
  * @param array $desc
  * @return int
  */
-function xmlrpc_server_add_introspection_data ($server, array $desc) {}
+function xmlrpc_server_add_introspection_data($server, array $desc) {}
 
 /**
  * Register a PHP function to generate documentation
@@ -147,6 +147,6 @@ function xmlrpc_server_add_introspection_data ($server, array $desc) {}
  * @param string $function
  * @return bool
  */
-function xmlrpc_server_register_introspection_callback ($server, $function) {}
+function xmlrpc_server_register_introspection_callback($server, $function) {}
 
 // End of xmlrpc v.0.51

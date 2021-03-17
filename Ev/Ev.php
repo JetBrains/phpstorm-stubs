@@ -11,14 +11,14 @@ final class Ev
     /**
      * Flag passed to create a loop: The default flags value
      */
-    const FLAG_AUTO = 0;
+    public const FLAG_AUTO = 0;
 
     /**
      * Flag passed to create a loop: If this flag used(or the program runs setuid or setgid), libev won't look at the
      * environment variable LIBEV_FLAGS. Otherwise(by default), LIBEV_FLAGS will override the flags completely if it is
      * found. Useful for performance tests and searching for bugs.
      */
-    const FLAG_NOENV = 16777216;
+    public const FLAG_NOENV = 16777216;
 
     /**
      * Flag passed to create a loop: Makes libev check for a fork in each iteration, instead of calling EvLoop::fork()
@@ -26,14 +26,14 @@ final class Ev
      * loop with lots of loop iterations, but usually is not noticeable. This flag setting cannot be overridden or
      * specified in the LIBEV_FLAGS environment variable.
      */
-    const FLAG_FORKCHECK = 33554432;
+    public const FLAG_FORKCHECK = 33554432;
 
     /**
      * Flag passed to create a loop: When this flag is specified, libev won't attempt to use the inotify API for its
      * ev_stat watchers. The flag can be useful to conserve inotify file descriptors, as otherwise each loop using
      * ev_stat watchers consumes one inotify handle.
      */
-    const FLAG_NOINOTIFY = 1048576;
+    public const FLAG_NOINOTIFY = 1048576;
 
     /**
      * Flag passed to create a loop: When this flag is specified, libev will attempt to use the signalfd API for its
@@ -41,7 +41,7 @@ final class Ev
      * make it possible to get the queued signal data. It can also simplify signal handling with threads, as long as
      * signals are properly blocked in threads. Signalfd will not be used by default.
      */
-    const FLAG_SIGNALFD = 2097152;
+    public const FLAG_SIGNALFD = 2097152;
 
     /**
      * Flag passed to create a loop: When this flag is specified, libev will avoid to modify the signal mask.
@@ -49,8 +49,7 @@ final class Ev
      *
      * This behaviour is useful for custom signal handling, or handling signals only in specific threads.
      */
-    const FLAG_NOSIGMASK = 4194304;
-
+    public const FLAG_NOSIGMASK = 4194304;
 
     /**
      * Flag passed to Ev::run() or EvLoop::run(): Means that event loop will look for new events, will handle those
@@ -58,7 +57,7 @@ final class Ev
      * will return after one iteration of the loop. This is sometimes useful to poll and handle new events while doing
      * lengthy calculations, to keep the program responsive.
      */
-    const RUN_NOWAIT = 1;
+    public const RUN_NOWAIT = 1;
 
     /**
      * Flag passed to Ev::run() or EvLoop::run(): Means that event loop will look for new events (waiting if necessary)
@@ -66,151 +65,147 @@ final class Ev
      * arrives (which could be an event internal to libev itself, so there is no guarantee that a user-registered
      * callback will be called), and will return after one iteration of the loop.
      */
-    const RUN_ONCE = 2;
+    public const RUN_ONCE = 2;
 
     /**
      * Flag passed to Ev::stop() or EvLoop::stop(): Cancel the break operation.
      */
-    const BREAK_CANCEL = 0;
+    public const BREAK_CANCEL = 0;
 
     /**
      * Flag passed to Ev::stop() or EvLoop::stop(): Makes the innermost Ev::run() or EvLoop::run() call return.
      */
-    const BREAK_ONE = 1;
+    public const BREAK_ONE = 1;
 
     /**
      * Flag passed to Ev::stop() or EvLoop::stop(): Makes all nested Ev::run() or EvLoop::run() calls return.
      */
-    const BREAK_ALL = 2;
-
+    public const BREAK_ALL = 2;
 
     /**
      * Lowest allowed watcher priority.
      */
-    const MINPRI = -2;
+    public const MINPRI = -2;
 
     /**
      * Highest allowed watcher priority.
      */
-    const MAXPRI = 2;
-
+    public const MAXPRI = 2;
 
     /**
      * Event bitmask: The file descriptor in the EvIo watcher has become readable.
      */
-    const READ = 1;
+    public const READ = 1;
 
     /**
      * Event bitmask: The file descriptor in the EvIo watcher has become writable.
      */
-    const WRITE = 2;
+    public const WRITE = 2;
 
     /**
      * Event bitmask: EvTimer watcher has been timed out.
      */
-    const TIMER = 256;
+    public const TIMER = 256;
 
     /**
      * Event bitmask: EvPeriodic watcher has been timed out.
      */
-    const PERIODIC = 512;
+    public const PERIODIC = 512;
 
     /**
      * Event bitmask: A signal specified in EvSignal::__construct() has been received.
      */
-    const SIGNAL = 1024;
+    public const SIGNAL = 1024;
 
     /**
      * Event bitmask: The pid specified in EvChild::__construct() has received a status change.
      */
-    const CHILD = 2048;
+    public const CHILD = 2048;
 
     /**
      * Event bitmask: The path specified in EvStat watcher changed its attributes.
      */
-    const STAT = 4096;
+    public const STAT = 4096;
 
     /**
      * Event bitmask: EvIdle watcher works when there is nothing to do with other watchers.
      */
-    const IDLE = 8192;
+    public const IDLE = 8192;
 
     /**
      * Event bitmask: All EvPrepare watchers are invoked just before Ev::run() starts. Thus, EvPrepare watchers are the
      * last watchers invoked before the event loop sleeps or polls for new events.
      */
-    const PREPARE = 16384;
+    public const PREPARE = 16384;
 
     /**
      * Event bitmask: All EvCheck watchers are queued just after Ev::run() has gathered the new events, but before it
      * queues any callbacks for any received events. Thus, EvCheck watchers will be invoked before any other watchers
      * of the same or lower priority within an event loop iteration.
      */
-    const CHECK = 32768;
+    public const CHECK = 32768;
 
     /**
      * Event bitmask: The embedded event loop specified in the EvEmbed watcher needs attention.
      */
-    const EMBED = 65536;
+    public const EMBED = 65536;
 
     /**
      * Event bitmask: Not ever sent(or otherwise used) by libev itself, but can be freely used by libev users to signal
      * watchers (e.g. via EvWatcher::feed() ).
      */
-    const CUSTOM = 16777216;
+    public const CUSTOM = 16777216;
 
     /**
      * Event bitmask: An unspecified error has occurred, the watcher has been stopped. This might happen because the
      * watcher could not be properly started because libev ran out of memory, a file descriptor was found to be closed
      * or any other problem. Libev considers these application bugs.
      */
-    const ERROR = 2147483648;
-
+    public const ERROR = 2147483648;
 
     /**
      * select(2) backend
      */
-    const BACKEND_SELECT = 1;
+    public const BACKEND_SELECT = 1;
 
     /**
      * poll(2) backend
      */
-    const BACKEND_POLL = 2;
+    public const BACKEND_POLL = 2;
 
     /**
      * Linux-specific epoll(7) backend for both pre- and post-2.6.9 kernels
      */
-    const BACKEND_EPOLL = 4;
+    public const BACKEND_EPOLL = 4;
 
     /**
      * kqueue backend used on most BSD systems. EvEmbed watcher could be used to embed one loop(with kqueue backend)
      * into another. For instance, one can try to create an event loop with kqueue backend and use it for sockets only.
      */
-    const BACKEND_KQUEUE = 8;
+    public const BACKEND_KQUEUE = 8;
 
     /**
      * Solaris 8 backend. This is not implemented yet.
      */
-    const BACKEND_DEVPOLL = 16;
+    public const BACKEND_DEVPOLL = 16;
 
     /**
      * Solaris 10 event port mechanism with a good scaling.
      */
-    const BACKEND_PORT = 32;
+    public const BACKEND_PORT = 32;
 
     /**
      * Try all backends(even currupted ones). It's not recommended to use it explicitly. Bitwise operators should be
      * applied here(e.g. Ev::BACKEND_ALL & ~ Ev::BACKEND_KQUEUE ) Use Ev::recommendedBackends() , or don't specify any
      * backends at all.
      */
-    const BACKEND_ALL = 63;
+    public const BACKEND_ALL = 63;
 
     /**
      * Not a backend, but a mask to select all backend bits from flags value to mask out any backends(e.g. when
      * modifying the LIBEV_FLAGS environment variable).
      */
-    const BACKEND_MASK = 65535;
-
+    public const BACKEND_MASK = 65535;
 
     /* Methods */
 
@@ -410,7 +405,7 @@ abstract class EvWatcher
     /**
      * Abstract constructor of a watcher object
      */
-    abstract function __construct();
+    abstract public function __construct();
 
     /**
      * @var mixed Custom user data associated with the watcher
@@ -490,18 +485,14 @@ abstract class EvWatcher
      *
      * Marks the watcher as active. Note that only active watchers will receive events.
      */
-    public function start()
-    {
-    }
+    public function start() {}
 
     /**
      * Stops the watcher.
      *
      * Marks the watcher as inactive. Note that only active watchers will receive events.
      */
-    public function stop()
-    {
-    }
+    public function stop() {}
 }
 
 /**
@@ -794,7 +785,6 @@ final class EvPeriodic extends EvWatcher
      */
     public $interval;
 
-
     /**
      * Constructs EvPeriodic watcher object.
      *
@@ -864,7 +854,7 @@ final class EvPeriodic extends EvWatcher
      * @param float $interval The same meaning as for {@see EvPeriodic::__construct}
      * @return void
      */
-    public function set($offset , $interval ){}
+    public function set($offset, $interval) {}
 }
 
 /**
@@ -1209,8 +1199,6 @@ final class EvIdle extends EvWatcher
  * EvLoop::fork()). The invocation is done before the event loop blocks next and before EvCheck watchers are being
  * called, and only in the child after the fork. Note that if someone calls EvLoop::fork() in the wrong process, the
  * fork handlers will be invoked, too.
- *
- *
  */
 final class EvFork extends EvWatcher
 {
@@ -1322,7 +1310,7 @@ final class EvLoop
      * @param int $priority
      * @return EvCheck
      */
-    public final function check(callable $callback, $data = null, $priority = 0) {}
+    final public function check(callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvChild object associated with the current event loop instance;
@@ -1334,7 +1322,7 @@ final class EvLoop
      * @param int $priority
      * @return EvChild
      */
-    public final function child($pid, $trace, callable $callback, $data = null, $priority = 0) {}
+    final public function child($pid, $trace, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvEmbed object associated with the current event loop instance.
@@ -1345,7 +1333,7 @@ final class EvLoop
      * @param int $priority
      * @return EvEmbed
      */
-    public final function embed(EvLoop $other, callable $callback, $data = null, $priority = 0) {}
+    final public function embed(EvLoop $other, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvFork object associated with the current event loop instance.
@@ -1355,7 +1343,7 @@ final class EvLoop
      * @param int $priority
      * @return EvFork
      */
-    public final function fork(callable $callback, $data = null, $priority = 0) {}
+    final public function fork(callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvIdle object associated with the current event loop instance.
@@ -1365,7 +1353,7 @@ final class EvLoop
      * @param int $priority
      * @return EvIdle
      */
-    public final function idle(callable $callback, $data = null, $priority = 0) {}
+    final public function idle(callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Invoke all pending watchers while resetting their pending state.
@@ -1425,7 +1413,7 @@ final class EvLoop
      * @param mixed $data
      * @param int $priority
      */
-    public final function periodic($offset, $interval, callable $callback, $data = null, $priority = 0) {}
+    final public function periodic($offset, $interval, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvPrepare object associated with the current event loop instance.
@@ -1434,7 +1422,7 @@ final class EvLoop
      * @param mixed $data
      * @param int $priority
      */
-    public final function prepare(callable $callback, $data = null, $priority = 0) {}
+    final public function prepare(callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Resume previously suspended default event loop.
@@ -1464,9 +1452,7 @@ final class EvLoop
      * @param int $priority
      * @return EvSignal
      */
-    public final function signal($signal, callable $callback, $data = null, $priority = 0)
-    {
-    }
+    final public function signal($signal, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvStats object associated with the current event loop instance.
@@ -1478,7 +1464,7 @@ final class EvLoop
      * @param int $priority
      * @return EvStat
      */
-    public final function stat($path, $interval, callable $callback, $data = null, $priority = 0) {}
+    final public function stat($path, $interval, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Stops the event loop.
@@ -1504,7 +1490,7 @@ final class EvLoop
      * @param int $priority
      * @return EvTimer
      */
-    public final function timer($after, $repeat, callable $callback, $data = null, $priority = 0) {}
+    final public function timer($after, $repeat, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Performs internal consistency checks (for debugging).

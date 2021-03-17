@@ -120,7 +120,7 @@ function rrd_lastupdate($file) {}
  * @return bool Returns TRUE on success, FALSE otherwise.
  * @since PECL rrd >= 0.9.0
  */
-function rrd_restore($xml_file, $rrd_file, $options = array()) {}
+function rrd_restore($xml_file, $rrd_file, $options = []) {}
 
 /**
  * Change some options in the RRD dabase header file. E.g. renames the source for the data etc.
@@ -185,15 +185,15 @@ function rrd_disconnect() {}
  * For example, it's called automatically at the end of command line script.
  * It's up user whether he wants to call this function at the end of every request or otherwise.
  */
-function rrdc_disconnect(){}
+function rrdc_disconnect() {}
 
 /**
  * Class for creation of RRD database file.
  * @link https://php.net/manual/en/class.rrdcreator.php
  * @since PECL rrd >= 0.9.0
  */
-class RRDCreator {
-
+class RRDCreator
+{
     /**
      * Adds RRA - archive of data values for each data source. <p>
      * Archive consists of a number of data values or statistics for each of the defined data-sources (DS). Data sources are defined by method RRDCreator::addDataSource(). You need call this method for each requested archive.
@@ -245,7 +245,6 @@ class RRDCreator {
      * @since PECL rrd >= 0.9.0
      */
     public function save() {}
-
 }
 
 /**
@@ -253,8 +252,8 @@ class RRDCreator {
  * @link https://php.net/manual/en/class.rrdgraph.php
  * @since PECL rrd >= 0.9.0
  */
-class RRDGraph {
-
+class RRDGraph
+{
     /**
      * Creates new RRDGraph instance. This instance is responsible for rendering the result of RRD database query into image.
      * @link https://php.net/manual/en/rrdgraph.construct.php
@@ -293,7 +292,6 @@ class RRDGraph {
      * @since PECL rrd >= 0.9.0
      */
     public function setOptions($options) {}
-
 }
 
 /**
@@ -301,8 +299,8 @@ class RRDGraph {
  * @link https://php.net/manual/en/class.rrdupdater.php
  * @since PECL rrd >= 0.9.0
  */
-class RRDUpdater {
-
+class RRDUpdater
+{
     /**
      * Creates new RRDUpdater instance. This instance is responsible for updating the RRD database file.
      * RRDUpdater constructor.
@@ -328,7 +326,6 @@ class RRDUpdater {
      * @since PECL rrd >= 0.9.0
      */
     public function update($values, $time = '') {}
-
 }
 
 // end of PECL/rrd v1.0
