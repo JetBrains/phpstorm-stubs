@@ -3,7 +3,6 @@
 // Start of FFI v.0.1.0
 
 namespace {
-
     use FFI\CData;
     use FFI\CType;
     use FFI\ParserException;

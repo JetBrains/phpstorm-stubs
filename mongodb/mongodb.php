@@ -15,7 +15,6 @@
 namespace MongoDB {}
 
 namespace MongoDB\Driver {
-
     use MongoDB\BSON\Serializable;
     use MongoDB\Driver\Exception\AuthenticationException;
     use MongoDB\Driver\Exception\BulkWriteException;
@@ -30,7 +29,7 @@ namespace MongoDB\Driver {
     use MongoDB\Driver\Exception\WriteException;
     use Traversable;
 
-    /**
+        /**
          * The MongoDB\Driver\Manager is the main entry point to the extension. It is responsible for maintaining connections to MongoDB (be it standalone server, replica set, or sharded cluster).
          * No connection to MongoDB is made upon instantiating the Manager. This means the MongoDB\Driver\Manager can always be constructed, even though one or more MongoDB servers are down.
          * Any write or query can throw connection exceptions as connections are created lazily. A MongoDB server may also become unavailable during the life time of the script. It is therefore important that all actions on the Manager to be wrapped in try/catch statements.
@@ -1339,11 +1338,10 @@ namespace MongoDB\Driver {
     }
 
 namespace MongoDB\Driver\Exception {
-
     use MongoDB\Driver\WriteResult;
     use Throwable;
 
-    /**
+        /**
          * Thrown when the driver encounters a runtime error (e.g. internal error from » libmongoc).
          * @link https://php.net/manual/en/class.mongodb-driver-exception-runtimeexception.php
          * @since 1.0.0
@@ -1486,9 +1484,9 @@ namespace MongoDB\Driver\Exception {
         class EncryptionException extends RuntimeException implements Exception {}
     }
 
-    /**
-     * @link https://secure.php.net/manual/en/mongodb.monitoring.php
-     */
+/**
+ * @link https://secure.php.net/manual/en/mongodb.monitoring.php
+ */
 
 namespace MongoDB\Driver\Monitoring {
         /**
@@ -1772,12 +1770,11 @@ namespace MongoDB\Driver\Monitoring {
         }
     }
 
-    /**
-     * @link https://php.net/manual/en/book.bson.php
-     */
+/**
+ * @link https://php.net/manual/en/book.bson.php
+ */
 
 namespace MongoDB\BSON {
-
     use DateTime;
     use DateTimeInterface;
     use JetBrains\PhpStorm\Deprecated;
@@ -1785,7 +1782,7 @@ namespace MongoDB\BSON {
     use MongoDB\Driver\Exception\InvalidArgumentException;
     use MongoDB\Driver\Exception\UnexpectedValueException;
 
-    /**
+        /**
          * Converts a BSON string to its Canonical Extended JSON representation.
          * The canonical format prefers type fidelity at the expense of concise output and is most suited for producing
          * output that can be converted back to BSON without any loss of type information
