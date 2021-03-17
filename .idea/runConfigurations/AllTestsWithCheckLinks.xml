@@ -1,6 +1,10 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="AllTests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-    <CommandLine workingDirectory="$PROJECT_DIR$" />
+  <configuration default="false" name="AllTestsWithCheckLinks" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+    <CommandLine workingDirectory="$PROJECT_DIR$">
+      <envs>
+        <env name="CHECK_LINKS" value="true" />
+      </envs>
+    </CommandLine>
     <TestRunner class="StubTests\BaseStubsTest" directory="$PROJECT_DIR$/tests" scope="Pattern">
       <test_patterns>
         <composite_test_pattern class_fqn="StubTests\StubsTypeHintsTest" file_path="$PROJECT_DIR$/tests/StubsTypeHintsTest.php" />
