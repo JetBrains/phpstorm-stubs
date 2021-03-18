@@ -11,8 +11,8 @@ exclude:
   - name: PhpMissingParentConstructorInspection
   - name: PhpMissingReturnTypeInspection
   - name: PhpMissingParamTypeInspection
-  - name: PhpMissingVisibilityInspection
   - name: PhpTraditionalSyntaxArrayLiteralInspection
+  - name: PhpDefineCanBeReplacedWithConstInspection
     paths:
       - aerospike
       - amqp
