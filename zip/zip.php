@@ -1271,7 +1271,7 @@ function zip_read($zip) {}
  * reading or closing the directory entry.
  * </p>
  */
-#[Deprecated]
+#[Deprecated(reason: 'This function is deprecated in favor of the Object API', since: "8.0")]
 function zip_entry_open($zip_dp, $zip_entry, string $mode = 'rb'): bool {}
 
 /**
