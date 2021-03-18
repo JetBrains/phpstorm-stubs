@@ -13,6 +13,8 @@ RUN set -eux; \
 RUN docker-php-ext-install imap gmp sockets intl gd ldap bz2 mysqli bcmath calendar dba exif gettext opcache pcntl \
     pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap
 
+RUN pecl install xdebug
+RUN docker-php-ext-enable xdebug
 #TODO: Uncomment below after php 8 released
 #RUN pecl install xmlrpc
 #RUN docker-php-ext-enable xmlrpc
@@ -28,8 +30,8 @@ RUN pecl install inotify
 RUN docker-php-ext-enable inotify
 RUN pecl install msgpack
 RUN docker-php-ext-enable msgpack
-#RUN pecl install rrd
-#RUN docker-php-ext-enable rrd
+RUN pecl install rrd
+RUN docker-php-ext-enable rrd
 #RUN pecl install sync
 #RUN docker-php-ext-enable sync
 RUN pecl install yaml
