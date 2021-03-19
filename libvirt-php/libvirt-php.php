@@ -299,31 +299,31 @@ const VIR_DOMAIN_UNDEFINE_KEEP_NVRAM = 8;
 /**
  * Function is used to connect to the specified libvirt daemon using the specified URL, user can also set the readonly flag and/or set credentials for connection.
  * @param string $url URI for connection
- * @param bool $readonly flag whether to use read-only connection or not
+ * @param bool $readonly [optional] flag whether to use read-only connection or not, default true
  * @param array $credentials [optional] array of connection credentials
  * @return resource libvirt connection resource
  * @since 0.4.1(-1)
  */
-function libvirt_connect(string $url, bool $readonly, array $credentials) {}
+function libvirt_connect(string $url, bool $readonly = true, array $credentials) {}
 
 /**
  * Query statistics for all domains on a given connection.
  * @param resource $conn resource for connection
- * @param int $stats the statistic groups from VIR_DOMAIN_STATS_*
- * @param int $flags the statistic groups from VIR_DOMAIN_STATS_*
+ * @param int $stats [optional] the statistic groups from VIR_DOMAIN_STATS_*
+ * @param int $flags [optional] the statistic groups from VIR_DOMAIN_STATS_*
  * @return array|false assoc array with statistics or false on error
  * @since 0.5.1(-1)
  */
-function libvirt_connect_get_all_domain_stats($conn, int $stats, int $flags): array|false {}
+function libvirt_connect_get_all_domain_stats($conn, int $stats = 0, int $flags = 0): array|false {}
 
 /**
  * Function is used to get the capabilities information from the connection.
  * @param resource $conn resource for connection
- * @param string $xpath [optional] xPath query to be applied on the result
+ * @param string|null $xpath [optional] xPath query to be applied on the result
  * @return string capabilities XML from the connection or FALSE for error
  * @since 0.4.1(-2)
  */
-function libvirt_connect_get_capabilities($conn, string $xpath): string {}
+function libvirt_connect_get_capabilities($conn, ?string $xpath): string {}
 
 /**
  * Function is used to get the emulator for requested connection/architecture.
