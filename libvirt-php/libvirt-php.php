@@ -1074,7 +1074,7 @@ function libvirt_domain_set_memory_flags($res, int $memory = 0, int $flags = 0):
  * @return int -1 on error, 0 on success
  * @since 0.4.9
  */
-function libvirt_domain_set_metadata($res, int $type = 0, string $metadata, string $key, string $uri, int $flags = 0): int {}
+function libvirt_domain_set_metadata($res, int $type, string $metadata, string $key, string $uri, int $flags = 0): int {}
 
 /**
  * Function is used to shutdown the domain identified by it's resource.
