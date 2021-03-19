@@ -691,7 +691,7 @@ function libvirt_domain_get_job_info($res): array {}
  * @return string|null|false metadata string, NULL on error or FALSE on API not supported
  * @since 0.4.9
  */
-function libvirt_domain_get_metadata($res, int $type, string $uri, int $flags): string|null|false {}
+function libvirt_domain_get_metadata($res, int $type, string $uri, int $flags = 0): string|null|false {}
 
 /**
  * Function is used to get domain name from it's resource.
@@ -1029,11 +1029,11 @@ function libvirt_domain_send_pointer_event($res, string $server, int $pos_x, int
 /**
  * Function is setting the autostart value for the domain.
  * @param resource $res libvirt domain resource
- * @param int $flags flag to enable/disable autostart
+ * @param bool $flags flag to enable/disable autostart
  * @return bool TRUE on success, FALSE on error
  * @since 0.4.1(-1)
  */
-function libvirt_domain_set_autostart($res, int $flags): bool {}
+function libvirt_domain_set_autostart($res, bool $flags): bool {}
 
 /**
  * Function to set max memory for domain.
@@ -1061,7 +1061,7 @@ function libvirt_domain_set_memory($res, int $memory): bool {}
  * @return bool TRUE for success, FALSE for failure
  * @since 0.5.1
  */
-function libvirt_domain_set_memory_flags($res, int $memory, int $flags = 0): bool {}
+function libvirt_domain_set_memory_flags($res, int $memory = 0, int $flags = 0): bool {}
 
 /**
  * Function sets the appropriate domain element given by @type to the value of @description. No new lines are permitted..
@@ -1074,7 +1074,7 @@ function libvirt_domain_set_memory_flags($res, int $memory, int $flags = 0): boo
  * @return int -1 on error, 0 on success
  * @since 0.4.9
  */
-function libvirt_domain_set_metadata($res, int $type, string $metadata, string $key, string $uri, int $flags): int {}
+function libvirt_domain_set_metadata($res, int $type = 0, string $metadata, string $key, string $uri, int $flags = 0): int {}
 
 /**
  * Function is used to shutdown the domain identified by it's resource.
