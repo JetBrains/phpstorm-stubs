@@ -1198,16 +1198,16 @@ function libvirt_list_inactive_domains($res): array {}
  * @return array libvirt network resources array for the connection
  * @since 0.5.3
  */
-function libvirt_list_all_networks($conn, int $flags): array {}
+function libvirt_list_all_networks($conn, int $flags = VIR_CONNECT_LIST_NETWORKS_ACTIVE | VIR_CONNECT_LIST_NETWORKS_INACTIVE): array {}
 
 /**
  * Function is used to list networks on the connection.
  * @param resource $res libvirt connection resource
- * @param int $flags flags whether to list active, inactive or all networks (VIR_NETWORKS_{ACTIVE|INACTIVE|ALL} constants)
+ * @param int $flags [optional] flags whether to list active, inactive or all networks (VIR_NETWORKS_{ACTIVE|INACTIVE|ALL} constants)
  * @return array libvirt network names array for the connection
  * @since 0.4.1(-1)
  */
-function libvirt_list_networks($res, int $flags): array {}
+function libvirt_list_networks($res, int $flags = 0): array {}
 
 /**
  * Function is used to define a new virtual network based on the XML description.
