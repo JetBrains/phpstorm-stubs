@@ -729,11 +729,11 @@ function libvirt_domain_get_screen_dimensions($res, string $server): array|false
  * Function uses gvnccapture (if available) to get the screenshot of the running domain.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param string $server server string for the host machine
- * @param int $scancode integer value of the scancode to be send to refresh screen
+ * @param int $scancode [optional] integer value of the scancode to be send to refresh screen, default is 10
  * @return string PNG image binary data
  * @since 0.4.2
  */
-function libvirt_domain_get_screenshot($res, string $server, int $scancode): string {}
+function libvirt_domain_get_screenshot($res, string $server, int $scancode = 10): string {}
 
 /**
  * Function is trying to get domain screenshot using libvirt virGetDomainScreenshot() API if available..
