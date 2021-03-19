@@ -1997,18 +1997,18 @@ function libvirt_stream_finish($res): int {}
  * Function is used to close stream from libvirt conn.
  * @param resource $res libvirt stream resource from libvirt_stream_create()
  * @param string $data buffer
- * @param int $len amount of data to receive
+ * @param int $len [optional] amount of data to receive
  * @return int
  * @since 0.5.0
  */
-function libvirt_stream_recv($res, string $data, int $len): int {}
+function libvirt_stream_recv($res, string $data, int $len = 0): int {}
 
 /**
  * Function is used to close stream from libvirt conn.
  * @param resource $res libvirt stream resource from libvirt_stream_create()
  * @param string $data buffer
- * @param int $length amount of data to send
+ * @param int $length [optional] amount of data to send
  * @return int
  * @since 0.5.0
  */
-function libvirt_stream_send($res, string $data, int $length): int {}
+function libvirt_stream_send($res, string $data, int $length = 0): int {}
