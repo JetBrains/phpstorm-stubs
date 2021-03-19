@@ -1323,20 +1323,20 @@ function libvirt_network_undefine($res): bool {}
 /**
  * Function is used to get the CPU stats per nodes.
  * @param resource $conn resource for connection
- * @param int $cpunr CPU number to get information about, defaults to VIR_NODE_CPU_STATS_ALL_CPUS to get information about all CPUs
+ * @param int $cpunr [optional] CPU number to get information about, defaults to VIR_NODE_CPU_STATS_ALL_CPUS to get information about all CPUs
  * @return array|false array of node CPU statistics including time (in seconds since UNIX epoch), cpu number and total number of CPUs on node or FALSE for error
  * @since 0.4.6
  */
-function libvirt_node_get_cpu_stats($conn, int $cpunr): array|false {}
+function libvirt_node_get_cpu_stats($conn, int $cpunr = VIR_NODE_CPU_STATS_ALL_CPUS): array|false {}
 
 /**
  * Function is used to get the CPU stats for each CPU on the host node.
  * @param resource $conn resource for connection
- * @param int $time time in seconds to get the information about, without aggregation for further processing
+ * @param int $time [optional] time in seconds to get the information about, without aggregation for further processing
  * @return array|false array of node CPU statistics for each CPU including time (in seconds since UNIX epoch), cpu number and total number of CPUs on node or FALSE for error
  * @since 0.4.6
  */
-function libvirt_node_get_cpu_stats_for_each_cpu($conn, int $time): array|false {}
+function libvirt_node_get_cpu_stats_for_each_cpu($conn, int $time = 0): array|false {}
 
 /**
  * Function is used to get free memory available on the node.
