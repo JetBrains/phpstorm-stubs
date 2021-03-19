@@ -13,6 +13,7 @@ exclude:
   - name: PhpMissingParamTypeInspection
   - name: PhpTraditionalSyntaxArrayLiteralInspection
   - name: PhpDefineCanBeReplacedWithConstInspection
+  - name: PhpReturnDocTypeMismatchInspection
     paths:
       - aerospike
       - amqp
