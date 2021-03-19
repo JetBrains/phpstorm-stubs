@@ -1367,11 +1367,11 @@ function libvirt_node_get_mem_stats($conn): array {}
 /**
  * Function is used to list node devices on the connection.
  * @param resource $res libvirt connection resource
- * @param string $cap [optional] capability string
+ * @param string|null $cap [optional] capability string
  * @return array libvirt nodedev names array for the connection
  * @since 0.4.1(-1)
  */
-function libvirt_list_nodedevs($res, string $cap): array {}
+function libvirt_list_nodedevs($res, ?string $cap): array {}
 
 /**
  * Function is used to list node devices by capabilities.
