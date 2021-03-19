@@ -1198,7 +1198,7 @@ function libvirt_list_inactive_domains($res): array {}
  * @return array libvirt network resources array for the connection
  * @since 0.5.3
  */
-function libvirt_list_all_networks($conn, int $flags = VIR_CONNECT_LIST_NETWORKS_ACTIVE | VIR_CONNECT_LIST_NETWORKS_INACTIVE): array {}
+function libvirt_list_all_networks($conn, int $flags = VIR_CONNECT_LIST_NETWORKS_ACTIVE|VIR_CONNECT_LIST_NETWORKS_INACTIVE): array {}
 
 /**
  * Function is used to list networks on the connection.
