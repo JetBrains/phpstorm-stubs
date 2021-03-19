@@ -1706,11 +1706,11 @@ function libvirt_storagepool_create($res): bool {}
  * Function is used to define the storage pool from XML string and return it's resource.
  * @param resource $res libvirt connection resource
  * @param string $xml XML string definition of storagepool
- * @param int $flags flags to define XML
+ * @param int $flags [optional] flags to define XML
  * @return resource libvirt storagepool resource
  * @since 0.4.1(-1)
  */
-function libvirt_storagepool_define_xml($res, string $xml, int $flags) {}
+function libvirt_storagepool_define_xml($res, string $xml, int $flags = 0) {}
 
 /**
  * Function is used to Delete the underlying storage pool, e.g. remove the destination directory for NFS.
@@ -1822,19 +1822,19 @@ function libvirt_storagepool_lookup_by_volume($res) {}
 /**
  * Function is used to refresh the storage pool information.
  * @param resource $res libvirt storagepool resource
- * @param int $flags refresh flags
+ * @param int $flags [optional] refresh flags
  * @return bool TRUE if success, FALSE on error
  * @since 0.4.1(-1)
  */
-function libvirt_storagepool_refresh($res, int $flags): bool {}
+function libvirt_storagepool_refresh($res, int $flags = 0): bool {}
 
 /**
  * Function is used to set autostart of the storage pool.
  * @param resource $res libvirt storagepool resource
- * @param int $flags flags to set autostart
+ * @param bool $flags flags to set autostart
  * @return bool result on setting storagepool autostart value
  */
-function libvirt_storagepool_set_autostart($res, int $flags): bool {}
+function libvirt_storagepool_set_autostart($res, bool $flags): bool {}
 
 /**
  * Function is used to undefine the storage pool identified by it's resource.
@@ -1852,7 +1852,7 @@ function libvirt_storagepool_undefine($res): bool {}
  * @return resource libvirt storagevolume resource
  * @since 0.4.1(-1)
  */
-function libvirt_storagevolume_create_xml($res, string $xml, int $flags) {}
+function libvirt_storagevolume_create_xml($res, string $xml, int $flags = 0) {}
 
 /**
  * Function is used to clone the new storage volume into pool from the original volume.
@@ -1871,19 +1871,19 @@ function libvirt_storagevolume_create_xml_from($pool, string $xml, $original_vol
  * @return bool TRUE for success, FALSE on error
  * @since 0.4.2
  */
-function libvirt_storagevolume_delete($res, int $flags): bool {}
+function libvirt_storagevolume_delete($res, int $flags = 0): bool {}
 
 /**
  * Function is used to download volume identified by it's resource.
  * @param resource $res libvirt storagevolume resource
  * @param resource $stream stream to use as output
- * @param int $offset position to start reading from
- * @param int $length limit on amount of data to download
+ * @param int $offset [optional] position to start reading from
+ * @param int $length [optional] limit on amount of data to download
  * @param int $flags [optional] flags for the storage volume download for virStorageVolDownload()
  * @return int
  * @since 0.5.0
  */
-function libvirt_storagevolume_download($res, $stream, int $offset, int $length, int $flags): int {}
+function libvirt_storagevolume_download($res, $stream, int $offset = 0, int $length = 0, int $flags = 0): int {}
 
 /**
  * Function is used to get the storage volume information.
@@ -1917,7 +1917,7 @@ function libvirt_storagevolume_get_path($res): string {}
  * @return string storagevolume XML description or result of xPath expression
  * @since 0.4.2
  */
-function libvirt_storagevolume_get_xml_desc($res, ?string $xpath, int $flags): string {}
+function libvirt_storagevolume_get_xml_desc($res, ?string $xpath, int $flags = 0): string {}
 
 /**
  * Function is used to lookup for storage volume by it's name.
@@ -1945,19 +1945,19 @@ function libvirt_storagevolume_lookup_by_path($res, string $path) {}
  * @return int
  * @since 0.5.0
  */
-function libvirt_storagevolume_resize($res, int $capacity, int $flags): int {}
+function libvirt_storagevolume_resize($res, int $capacity, int $flags = 0): int {}
 
 /**
  * Function is used to upload volume identified by it's resource.
  * @param resource $res libvirt storagevolume resource
  * @param resource $stream stream to use as input
- * @param int $offset position to start writing to
- * @param int $length limit on amount of data to upload
+ * @param int $offset [optional] position to start writing to
+ * @param int $length [optional] limit on amount of data to upload
  * @param int $flags [optional] flags for the storage volume upload for virStorageVolUpload()
  * @return int
  * @since 0.5.0
  */
-function libvirt_storagevolume_upload($res, $stream, int $offset, int $length, int $flags): int {}
+function libvirt_storagevolume_upload($res, $stream, int $offset = 0, int $length = 0, int $flags = 0): int {}
 
 /* Stream functions */
 
