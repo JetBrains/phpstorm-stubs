@@ -302,6 +302,7 @@ const VIR_DOMAIN_UNDEFINE_KEEP_NVRAM = 8;
  * @param bool $readonly flag whether to use read-only connection or not
  * @param array $credentials [optional] array of connection credentials
  * @return resource libvirt connection resource
+ * @since 0.4.1(-1)
  */
 function libvirt_connect(string $url, bool $readonly, array $credentials) {}
 
@@ -311,6 +312,7 @@ function libvirt_connect(string $url, bool $readonly, array $credentials) {}
  * @param int $stats the statistic groups from VIR_DOMAIN_STATS_*
  * @param int $flags the statistic groups from VIR_DOMAIN_STATS_*
  * @return array|false assoc array with statistics or false on error
+ * @since 0.5.1(-1)
  */
 function libvirt_connect_get_all_domain_stats($conn, int $stats, int $flags): array|false {}
 
@@ -319,6 +321,7 @@ function libvirt_connect_get_all_domain_stats($conn, int $stats, int $flags): ar
  * @param resource $conn resource for connection
  * @param string $xpath [optional] xPath query to be applied on the result
  * @return string capabilities XML from the connection or FALSE for error
+ * @since 0.4.1(-2)
  */
 function libvirt_connect_get_capabilities($conn, string $xpath): string {}
 
@@ -327,6 +330,7 @@ function libvirt_connect_get_capabilities($conn, string $xpath): string {}
  * @param resource $conn libvirt connection resource
  * @param string|null $arch [optional] architecture string, can be NULL to get default
  * @return string path to the emulator
+ * @since 0.4.5
  */
 function libvirt_connect_get_emulator($conn, ?string $arch): string {}
 
@@ -334,6 +338,7 @@ function libvirt_connect_get_emulator($conn, ?string $arch): string {}
  * Function is used to get the information whether the connection is encrypted or not
  * @param resource $conn resource for connection
  * @return int 1 if encrypted, 0 if not encrypted, -1 on error
+ * @since 0.4.1(-2)
  */
 function libvirt_connect_get_encrypted($conn): int {}
 
@@ -341,6 +346,7 @@ function libvirt_connect_get_encrypted($conn): int {}
  * Function is used to get the hostname of the guest associated with the connection.
  * @param resource $conn resource for connection
  * @return string|false hostname of the host node or FALSE for error
+ * @since 0.4.1(-1)
  */
 function libvirt_connect_get_hostname($conn): string|false {}
 
@@ -355,6 +361,7 @@ function libvirt_connect_get_hypervisor($conn): array {}
  * Function is used to get the information about the connection.
  * @param resource $conn resource for connection
  * @return array array of information about the connection
+ * @since 0.4.1(-2)
  */
 function libvirt_connect_get_information($conn): array {}
 
@@ -362,6 +369,7 @@ function libvirt_connect_get_information($conn): array {}
  * Function is used to get machine types supported by hypervisor on the connection.
  * @param resource $conn resource for connection
  * @return array array of machine types for the connection incl. maxCpus if appropriate
+ * @since 0.4.9
  */
 function libvirt_connect_get_machine_types($conn): array {}
 
@@ -369,6 +377,7 @@ function libvirt_connect_get_machine_types($conn): array {}
  * Function is used to get maximum number of VCPUs per VM on the hypervisor connection.
  * @param resource $conn resource for connection
  * @return int|false number of VCPUs available per VM on the connection or FALSE for error
+ * @since 0.4.1(-2)
  */
 function libvirt_connect_get_maxvcpus($conn): int|false {}
 
@@ -377,6 +386,7 @@ function libvirt_connect_get_maxvcpus($conn): int|false {}
  * @param resource $conn libvirt connection resource
  * @param string|null $arch [optional] architecture string, can be NULL to get default
  * @return array array of models
+ * @since 0.4.9
  */
 function libvirt_connect_get_nic_models($conn, ?string $arch): array {}
 
@@ -394,6 +404,7 @@ function libvirt_connect_get_secure($conn): int {}
  * @param string|null $arch [optional] architecture string, can be NULL to get default
  * @param int $flags [optional] flags for getting sound hardware. Can be either 0 or VIR_CONNECT_SOUNDHW_GET_NAMES
  * @return array array of models
+ * @since 0.4.9
  */
 function libvirt_connect_get_soundhw_models($conn, ?string $arch, int $flags = 0): array {}
 
@@ -401,6 +412,7 @@ function libvirt_connect_get_soundhw_models($conn, ?string $arch, int $flags = 0
  * Function is used to get the system information from connection if available.
  * @param resource $conn resource for connection
  * @return string|false: XML description of system information from the connection or FALSE for error
+ * @since 0.4.1(-2)
  */
 function libvirt_connect_get_sysinfo($conn): string|false {}
 
@@ -408,6 +420,7 @@ function libvirt_connect_get_sysinfo($conn): string|false {}
  * Function is used to get the connection URI. This is useful to check the hypervisor type of host machine when using "null" uri to libvirt_connect().
  * @param resource $conn resource for connection
  * @return string|false connection URI string or FALSE for error
+ * @since 0.4.1(-1)
  */
 function libvirt_connect_get_uri($conn): string|false {}
 
@@ -431,6 +444,7 @@ function libvirt_domain_attach_device($res, string $xml): bool {}
  * @param int $bandwidth [optional] specify bandwidth limit; flags determine the unit
  * @param int $flags [optional] bitwise-OR of VIR_DOMAIN_BLOCK_COMMIT_*
  * @return bool true on success fail on error
+ * @since 0.5.2(-1)
  */
 function libvirt_domain_block_commit($res, string $disk, ?string $base, ?string $top, int $bandwidth = 0, int $flags = 0): bool {}
 
@@ -440,6 +454,7 @@ function libvirt_domain_block_commit($res, string $disk, ?string $base, ?string 
  * @param string $path device path to resize
  * @param int $flags bitwise-OR of VIR_DOMAIN_BLOCK_JOB_ABORT_*
  * @return bool true on success fail on error
+ * @since 0.5.1(-1)
  */
 function libvirt_domain_block_job_abort($res, string $path, int $flags): bool {}
 
@@ -460,6 +475,7 @@ function libvirt_domain_block_job_info($res, string $disk, int $flags = 0): arra
  * @param int $bandwidth bandwidth
  * @param int $flags bitwise-OR of VIR_DOMAIN_BLOCK_JOB_SPEED_BANDWIDTH_*
  * @return bool true on success fail on error
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_block_job_set_speed($res, string $path, int $bandwidth, int $flags): bool {}
 
@@ -470,6 +486,7 @@ function libvirt_domain_block_job_set_speed($res, string $path, int $bandwidth, 
  * @param int $size size of device
  * @param int $flags bitwise-OR of VIR_DOMAIN_BLOCK_RESIZE_*
  * @return bool true on success fail on error
+ * @since 0.5.1(-1)
  */
 function libvirt_domain_block_resize($res, string $path, int $size, int $flags): bool {}
 
@@ -478,6 +495,7 @@ function libvirt_domain_block_resize($res, string $path, int $size, int $flags):
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param string $path device path to get statistics about
  * @return array domain block stats array, fields are rd_req, rd_bytes, wr_req, wr_bytes and errs
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_block_stats($res, string $path): array {}
 
@@ -488,6 +506,7 @@ function libvirt_domain_block_stats($res, string $path): array {}
  * @param string $second second boot device to be set
  * @param int $flags [optional] flags
  * @return resource new domain resource
+ * @since 0.4.2
  */
 function libvirt_domain_change_boot_devices($res, string $first, string $second, int $flags) {}
 
@@ -498,6 +517,7 @@ function libvirt_domain_change_boot_devices($res, string $first, string $second,
  * @param int $allocMax number of MiBs to be set as the maximum allocation
  * @param int $flags [optional] flags
  * @return resource new domain resource
+ * @since 0.4.2
  */
 function libvirt_domain_change_memory($res, int $allocMem, int $allocMax, int $flags) {}
 
@@ -516,6 +536,7 @@ function libvirt_domain_change_vcpus($res, int $numCpus, int $flags = 0): bool {
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param string $to to
  * @return bool TRUE for success, FALSE on error
+ * @since 0.4.1(-2)
  */
 function libvirt_domain_core_dump($res, string $to): bool {}
 
@@ -523,6 +544,7 @@ function libvirt_domain_core_dump($res, string $to): bool {}
  * Function is used to create the domain identified by it's resource.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @return bool result of domain creation (startup)
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_create($res): bool {}
 
@@ -531,6 +553,7 @@ function libvirt_domain_create($res): bool {}
  * @param resource $conn libvirt connection resource
  * @param string $xml XML string to create guest from
  * @return resource newly started/created domain resource
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_create_xml($conn, string $xml) {}
 
@@ -539,6 +562,7 @@ function libvirt_domain_create_xml($conn, string $xml) {}
  * @param resource $conn libvirt connection resource
  * @param string $xml XML string to define guest from
  * @return resource newly defined domain resource
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_define_xml($conn, string $xml) {}
 
@@ -546,6 +570,7 @@ function libvirt_domain_define_xml($conn, string $xml) {}
  * Function is used to destroy the domain identified by it's resource.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @return bool result of domain destroy
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_destroy($res): bool {}
 
@@ -568,6 +593,7 @@ function libvirt_domain_detach_device($res, string $xml, int $flags): bool {}
  * @param string $driver driver type to be specified, like 'raw' or 'qcow2'
  * @param int $flags [optional] flags for getting the XML description
  * @return resource new domain resource
+ * @since 0.4.2
  */
 function libvirt_domain_disk_add($res, string $img, string $dev, string $typ, string $driver, int $flags) {}
 
@@ -577,6 +603,7 @@ function libvirt_domain_disk_add($res, string $img, string $dev, string $typ, st
  * @param string $dev string for the device to be removed from the guest (e.g. 'hdb')
  * @param int $flags [optional] flags for getting the XML description
  * @return resource new domain resource
+ * @since 0.4.2
  */
 function libvirt_domain_disk_remove($res, string $dev, int $flags) {}
 
@@ -584,6 +611,7 @@ function libvirt_domain_disk_remove($res, string $dev, int $flags) {}
  * Function is getting the autostart value for the domain.
  * @param resource $res libvirt domain resource
  * @return int autostart value or -1
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_get_autostart($res): int {}
 
@@ -592,6 +620,7 @@ function libvirt_domain_get_autostart($res): int {}
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param string $dev device to get block information about
  * @return array domain block device information array of device, file or partition, capacity, allocation and physical size
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_get_block_info($res, string $dev): array {}
 
@@ -599,6 +628,7 @@ function libvirt_domain_get_block_info($res, string $dev): array {}
  * Function is used to get the domain's connection resource. This function should *not* be used!.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @return resource libvirt connection resource
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_get_connect($res) {}
 
@@ -606,6 +636,7 @@ function libvirt_domain_get_connect($res) {}
  * Function is getting domain counts for all, active and inactive domains.
  * @param resource $conn libvirt connection resource from libvirt_connect()
  * @return array array of total, active and inactive (but defined) domain counts
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_get_counts($conn): array {}
 
@@ -613,6 +644,7 @@ function libvirt_domain_get_counts($conn): array {}
  * Function is used to get disk devices for the domain.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @return array|false list of domain disk devices
+ * @since 0.4.4
  */
 function libvirt_domain_get_disk_devices($res): array|false {}
 
@@ -620,6 +652,7 @@ function libvirt_domain_get_disk_devices($res): array|false {}
  * Function is used to get the domain's ID, applicable to running guests only.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @return int running domain ID or -1 if not running
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_get_id($res): int {}
 
@@ -627,6 +660,7 @@ function libvirt_domain_get_id($res): int {}
  * Function is used to get the domain's information.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @return array domain information array
+ * @since 0.4.4
  */
 function libvirt_domain_get_info($res): array {}
 
@@ -634,6 +668,7 @@ function libvirt_domain_get_info($res): array {}
  * Function is used to get network interface devices for the domain.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @return array|false list of domain interface devices
+ * @since 0.4.4
  */
 function libvirt_domain_get_interface_devices($res): array|false {}
 
@@ -641,6 +676,7 @@ function libvirt_domain_get_interface_devices($res): array|false {}
  * Function is used get job information for the domain.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @return array job information array of type, time, data, mem and file fields
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_get_job_info($res): array {}
 
@@ -651,6 +687,7 @@ function libvirt_domain_get_job_info($res): array {}
  * @param string $uri XML namespace identifier
  * @param int $flags bitwise-OR of virDomainModificationImpact
  * @return string|null|false metadata string, NULL on error or FALSE on API not supported
+ * @since 0.4.9
  */
 function libvirt_domain_get_metadata($res, int $type, string $uri, int $flags): string|null|false {}
 
@@ -658,6 +695,7 @@ function libvirt_domain_get_metadata($res, int $type, string $uri, int $flags): 
  * Function is used to get domain name from it's resource.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @return string domain name string
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_get_name($res): string {}
 
@@ -666,6 +704,7 @@ function libvirt_domain_get_name($res): string {}
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param string $mac mac address of the network device
  * @return array domain network info array of MAC address, network name and type of NIC card
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_get_network_info($res, string $mac): array {}
 
@@ -673,6 +712,7 @@ function libvirt_domain_get_network_info($res, string $mac): array {}
  * This functions can be used to get the next free slot if you intend to add a new device identified by slot to the domain, e.g. NIC device.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @return array next free slot number for the domain
+ * @since 0.4.2
  */
 function libvirt_domain_get_next_dev_ids($res): array {}
 
@@ -681,6 +721,7 @@ function libvirt_domain_get_next_dev_ids($res): array {}
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param string $server server string of the host machine
  * @return array|false array of height and width on success, FALSE otherwise
+ * @since 0.4.2
  */
 function libvirt_domain_get_screen_dimensions($res, string $server): array|false {}
 
@@ -690,6 +731,7 @@ function libvirt_domain_get_screen_dimensions($res, string $server): array|false
  * @param string $server server string for the host machine
  * @param int $scancode integer value of the scancode to be send to refresh screen
  * @return string PNG image binary data
+ * @since 0.4.2
  */
 function libvirt_domain_get_screenshot($res, string $server, int $scancode): string {}
 
@@ -698,6 +740,7 @@ function libvirt_domain_get_screenshot($res, string $server, int $scancode): str
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_get_by_*()
  * @param int $screenID [optional] monitor ID from where to take screenshot
  * @return array array of filename and mime type as type is hypervisor specific, caller is responsible for temporary file deletion
+ * @since 0.4.5
  */
 function libvirt_domain_get_screenshot_api($res, int $screenID): array {}
 
@@ -705,6 +748,7 @@ function libvirt_domain_get_screenshot_api($res, int $screenID): array {}
  * Function is used to get the domain's UUID in binary format.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @return string domain UUID in binary format
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_get_uuid($res): string {}
 
@@ -712,6 +756,7 @@ function libvirt_domain_get_uuid($res): string {}
  * Function is used to get the domain's UUID in string format.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @return string domain UUID string
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_get_uuid_string($res): string {}
 
@@ -720,6 +765,7 @@ function libvirt_domain_get_uuid_string($res): string {}
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param string|null $xpath [optional] xPath expression string to get just this entry, can be NULL
  * @return string domain XML description string or result of xPath expression
+ * @since 0.4.2
  */
 function libvirt_domain_get_xml_desc($res, ?string $xpath): string {}
 
@@ -728,7 +774,7 @@ function libvirt_domain_get_xml_desc($res, ?string $xpath): string {}
  * @param resource $res libvirt domain resource
  * @param int $source one of the VIR_DOMAIN_ADDRESSES_SRC_* flags.
  * @return array|false interface array of a domain holding information about addresses resembling the virDomainInterface structure, false on error
- * @since 0.5.2(-1)
+ * @since 0.5.5
  */
 function libvirt_domain_interface_addresses($res, int $source): array|false {}
 
@@ -737,6 +783,7 @@ function libvirt_domain_interface_addresses($res, int $source): array|false {}
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param string $path path to interface device
  * @return array interface stats array of {tx|rx}_{bytes|packets|errs|drop} fields
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_interface_stats($res, string $path): array {}
 
@@ -744,6 +791,7 @@ function libvirt_domain_interface_stats($res, string $path): array {}
  * Function is getting information whether domain identified by resource is active or not.
  * @param resource $res libvirt domain resource
  * @return bool virDomainIsActive() result on the domain
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_is_active($res): bool {}
 
@@ -751,6 +799,7 @@ function libvirt_domain_is_active($res): bool {}
  * Function to get information whether domain is persistent or not.
  * @param resource $res libvirt domain resource
  * @return bool TRUE for persistent, FALSE for not persistent, -1 on error
+ * @since 0.4.9
  */
 function libvirt_domain_is_persistent($res): bool {}
 
@@ -759,6 +808,7 @@ function libvirt_domain_is_persistent($res): bool {}
  * @param resource $conn libvirt connection resource from libvirt_connect()
  * @param string $id domain id to look for
  * @return resource libvirt domain resource
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_lookup_by_id($conn, string $id) {}
 
@@ -767,6 +817,7 @@ function libvirt_domain_lookup_by_id($conn, string $id) {}
  * @param resource $res libvirt connection resource from libvirt_connect()
  * @param string $name domain name to look for
  * @return resource libvirt domain resource
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_lookup_by_name($res, string $name) {}
 
@@ -775,6 +826,7 @@ function libvirt_domain_lookup_by_name($res, string $name) {}
  * @param resource $res libvirt connection resource from libvirt_connect()
  * @param string $uuid binary defined UUID to look for
  * @return resource libvirt domain resource
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_lookup_by_uuid($res, string $uuid) {}
 
@@ -783,6 +835,7 @@ function libvirt_domain_lookup_by_uuid($res, string $uuid) {}
  * @param resource $res libvirt connection resource from libvirt_connect()
  * @param string $uuid domain UUID [in string format] to look for
  * @return resource libvirt domain resource
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_lookup_by_uuid_string($res, string $uuid) {}
 
@@ -790,6 +843,7 @@ function libvirt_domain_lookup_by_uuid_string($res, string $uuid) {}
  * Function is used to managed save the domain (domain was unloaded from memory and it state saved to disk) identified by it's resource.
  * @param resource $res TRUE for success, FALSE on error
  * @return bool TRUE for success, FALSE on error
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_managedsave($res): bool {}
 
@@ -800,6 +854,7 @@ function libvirt_domain_managedsave($res): bool {}
  * @param int $size size
  * @param int $flags [optional] flags
  * @return int domain memory peek
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_memory_peek($res, int $start, int $size, int $flags): int {}
 
@@ -808,6 +863,7 @@ function libvirt_domain_memory_peek($res, int $start, int $size, int $flags): in
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param int $flags [optional] flags
  * @return array domain memory stats array (same fields as virDomainMemoryStats, please see libvirt documentation)
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_memory_stats($res, int $flags): array {}
 
@@ -819,6 +875,7 @@ function libvirt_domain_memory_stats($res, int $flags): array {}
  * @param string $dname domain name to rename domain to on destination side
  * @param int $bandwidth migration bandwidth in Mbps
  * @return resource libvirt domain resource for migrated domain
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_migrate($res, string $dest_conn, int $flags, string $dname, int $bandwidth) {}
 
@@ -830,6 +887,7 @@ function libvirt_domain_migrate($res, string $dest_conn, int $flags, string $dna
  * @param string $dname domain name to rename domain to on destination side
  * @param int $bandwidth migration bandwidth in Mbps
  * @return bool TRUE for success, FALSE on error
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_migrate_to_uri($res, string $dest_uri, int $flags, string $dname, int $bandwidth): bool {}
 
@@ -843,6 +901,7 @@ function libvirt_domain_migrate_to_uri($res, string $dest_uri, int $flags, strin
  * @param string $dname domain name to rename domain to on destination side
  * @param int $bandwidth migration bandwidth in Mbps
  * @return bool TRUE for success, FALSE on error
+ * @since 0.4.6(-1)
  */
 function libvirt_domain_migrate_to_uri2($res, string $dconnuri, string $miguri, string $dxml, int $flags, string $dname, int $bandwidth): bool {}
 
@@ -859,12 +918,14 @@ function libvirt_domain_migrate_to_uri2($res, string $dconnuri, string $miguri, 
  * @param array $networks array of network devices for domain, consists of keys as 'mac' (for MAC address), 'network' (for network name) and optional 'model' for model of NIC device
  * @param int $flags [optional] bit array of flags
  * @return resource a new domain resource
+ * @since 0.4.5
  */
 function libvirt_domain_new($conn, string $name, string|null|false $arch, int $memMB, int $maxmemMB, int $vcpus, string $iso_image, array $disks, array $networks, int $flags = 0) {}
 
 /**
  * Function is used to get the VNC server location for the newly created domain (newly started installation).
  * @return string|null: a VNC server for a newly created domain resource (if any)
+ * @since 0.4.5
  */
 function libvirt_domain_new_get_vnc(): string|null {}
 
@@ -876,6 +937,7 @@ function libvirt_domain_new_get_vnc(): string|null {}
  * @param string $model string of the NIC model
  * @param int $flags [optional] flags for getting the XML description
  * @return resource new domain resource
+ * @since 0.4.2
  */
 function libvirt_domain_nic_add($res, string $mac, string $network, string $model, int $flags) {}
 
@@ -885,6 +947,7 @@ function libvirt_domain_nic_add($res, string $mac, string $network, string $mode
  * @param string $dev string representation of the IP address to be removed (e.g. 54:52:00:xx:yy:zz)
  * @param int $flags [optional] flags for getting the XML description
  * @return resource new domain resource
+ * @since 0.4.2
  */
 function libvirt_domain_nic_remove($res, string $dev, int $flags) {}
 
@@ -895,6 +958,7 @@ function libvirt_domain_nic_remove($res, string $dev, int $flags) {}
  * @param $timeout @timeout
  * @param int $flags unknown
  * @return string|false String on success and FALSE on error
+ * @since 0.5.2(-1)
  */
 function libvirt_domain_qemu_agent_command($res, string $cmd, $timeout, int $flags): string|false {}
 
@@ -903,6 +967,7 @@ function libvirt_domain_qemu_agent_command($res, string $cmd, $timeout, int $fla
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param int $flags [optional] flags
  * @return bool TRUE for success, FALSE on error
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_reboot($res, int $flags): bool {}
 
@@ -919,6 +984,7 @@ function libvirt_domain_reset($res, int $flags = 0): bool {}
  * Function is used to resume the domain identified by it's resource.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @return resource result of domain resume
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_resume($res) {}
 
@@ -940,6 +1006,7 @@ function libvirt_domain_send_key_api($res, int $codeset, int $holdtime, array $k
  * @param string $server server string of the host machine
  * @param int $scancode integer scancode to be sent to VNC window
  * @return bool TRUE on success, FALSE otherwise
+ * @since 0.4.2
  */
 function libvirt_domain_send_keys($res, string $server, int $scancode): bool {}
 
@@ -952,6 +1019,7 @@ function libvirt_domain_send_keys($res, string $server, int $scancode): bool {}
  * @param int $clicked mask of clicked buttons (0 for none, bit 1 for button #1, bit 8 for button #8)
  * @param int $release boolean value (0 or 1) whether to release the buttons automatically once pressed
  * @return bool TRUE on success, FALSE otherwise
+ * @since 0.4.2
  */
 function libvirt_domain_send_pointer_event($res, string $server, int $pos_x, int $pos_y, int $clicked, int $release): bool {}
 
@@ -960,6 +1028,7 @@ function libvirt_domain_send_pointer_event($res, string $server, int $pos_x, int
  * @param resource $res libvirt domain resource
  * @param int $flags flag to enable/disable autostart
  * @return bool TRUE on success, FALSE on error
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_set_autostart($res, int $flags): bool {}
 
@@ -968,6 +1037,7 @@ function libvirt_domain_set_autostart($res, int $flags): bool {}
  * @param resource $res libvirt domain resource
  * @param int $memory memory size in 1024 bytes (Kb)
  * @return bool TRUE for success, FALSE for failure
+ * @since 0.5.1
  */
 function libvirt_domain_set_max_memory($res, int $memory): bool {}
 
@@ -976,6 +1046,7 @@ function libvirt_domain_set_max_memory($res, int $memory): bool {}
  * @param resource $res libvirt domain resource
  * @param int $memory memory size in 1024 bytes (Kb)
  * @return bool TRUE for success, FALSE for failure
+ * @since 0.5.1
  */
 function libvirt_domain_set_memory($res, int $memory): bool {}
 
@@ -985,6 +1056,7 @@ function libvirt_domain_set_memory($res, int $memory): bool {}
  * @param int $memory memory size in 1024 bytes (Kb)
  * @param int $flags bitwise-OR VIR_DOMAIN_MEM_* flags
  * @return bool TRUE for success, FALSE for failure
+ * @since 0.5.1
  */
 function libvirt_domain_set_memory_flags($res, int $memory, int $flags): bool {}
 
@@ -997,6 +1069,7 @@ function libvirt_domain_set_memory_flags($res, int $memory, int $flags): bool {}
  * @param string $uri XML namespace identifier or empty string (alias of NULL)
  * @param int $flags bitwise-OR of virDomainModificationImpact
  * @return int -1 on error, 0 on success
+ * @since 0.4.9
  */
 function libvirt_domain_set_metadata($res, int $type, string $metadata, string $key, string $uri, int $flags): int {}
 
@@ -1004,6 +1077,7 @@ function libvirt_domain_set_metadata($res, int $type, string $metadata, string $
  * Function is used to shutdown the domain identified by it's resource.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @return bool TRUE for success, FALSE on error
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_shutdown($res): bool {}
 
@@ -1011,6 +1085,7 @@ function libvirt_domain_shutdown($res): bool {}
  * Function is used to suspend the domain identified by it's resource.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @return bool TRUE for success, FALSE on error
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_suspend($res): bool {}
 
@@ -1018,6 +1093,7 @@ function libvirt_domain_suspend($res): bool {}
  * Function is used to undefine the domain identified by it's resource.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @return bool TRUE for success, FALSE on error
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_undefine($res): bool {}
 
@@ -1036,6 +1112,7 @@ function libvirt_domain_undefine_flags($res, int $flags = 0): bool {}
  * @param string $xml XML string for the update
  * @param int $flags Flags to update the device (VIR_DOMAIN_DEVICE_MODIFY_CURRENT, VIR_DOMAIN_DEVICE_MODIFY_LIVE, VIR_DOMAIN_DEVICE_MODIFY_CONFIG, VIR_DOMAIN_DEVICE_MODIFY_FORCE)
  * @return bool TRUE for success, FALSE on error
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_update_device($res, string $xml, int $flags): bool {}
 
@@ -1065,6 +1142,7 @@ function libvirt_domain_xml_to_native($conn, string $format, string $xml_data): 
  * @param string $xpath xPath expression to parse against the domain
  * @param int $flags [optional] flags
  * @return array result of the expression in an array
+ * @since 0.4.1(-1)
  */
 function libvirt_domain_xml_xpath($res, string $xpath, int $flags): array {}
 
@@ -1072,6 +1150,7 @@ function libvirt_domain_xml_xpath($res, string $xpath, int $flags): array {}
  * Function is used to list active domain IDs on the connection.
  * @param resource $res libvirt connection resource
  * @return array libvirt active domain ids array for the connection
+ * @since 0.4.1(-1)
  */
 function libvirt_list_active_domain_ids($res): array {}
 
@@ -1079,6 +1158,7 @@ function libvirt_list_active_domain_ids($res): array {}
  * Function is used to list active domain names on the connection.
  * @param resource $res libvirt connection resource
  * @return array libvirt active domain names array for the connection
+ * @since 0.4.1(-1)
  */
 function libvirt_list_active_domains($res): array {}
 
@@ -1086,6 +1166,7 @@ function libvirt_list_active_domains($res): array {}
  * Function is used to list domain resources on the connection.
  * @param resource $res libvirt connection resource
  * @return array libvirt domain resources array for the connection
+ * @since 0.4.1(-1)
  */
 function libvirt_list_domain_resources($res): array {}
 
@@ -1093,6 +1174,7 @@ function libvirt_list_domain_resources($res): array {}
  * Function is used to list domains on the connection.
  * @param resource $res libvirt connection resource
  * @return array libvirt domain names array for the connection
+ * @since 0.4.1(-1)
  */
 function libvirt_list_domains($res): array {}
 
@@ -1100,6 +1182,7 @@ function libvirt_list_domains($res): array {}
  * Function is used to list inactive domain names on the connection.
  * @param resource $res libvirt connection resource
  * @return array libvirt inactive domain names array for the connection
+ * @since 0.4.1(-1)
  */
 function libvirt_list_inactive_domains($res): array {}
 
@@ -1119,6 +1202,7 @@ function libvirt_list_all_networks($conn, int $flags): array {}
  * @param resource $res libvirt connection resource
  * @param int $flags flags whether to list active, inactive or all networks (VIR_NETWORKS_{ACTIVE|INACTIVE|ALL} constants)
  * @return array libvirt network names array for the connection
+ * @since 0.4.1(-1)
  */
 function libvirt_list_networks($res, int $flags): array {}
 
@@ -1127,6 +1211,7 @@ function libvirt_list_networks($res, int $flags): array {}
  * @param resource $res libvirt connection resource
  * @param string $xml XML string definition of network to be defined
  * @return resource libvirt network resource of newly defined network
+ * @since 0.4.2
  */
 function libvirt_network_define_xml($res, string $xml) {}
 
@@ -1135,6 +1220,7 @@ function libvirt_network_define_xml($res, string $xml) {}
  * @param resource $res libvirt connection resource
  * @param string $name network name string
  * @return resource libvirt network resource
+ * @since 0.4.1(-1)
  */
 function libvirt_network_get($res, string $name) {}
 
@@ -1142,6 +1228,7 @@ function libvirt_network_get($res, string $name) {}
  * Function is used to get the activity state of the network.
  * @param resource $res libvirt network resource
  * @return int|false 1 when active, 0 when inactive, FALSE on error
+ * @since 0.4.1(-1)
  */
 function libvirt_network_get_active($res): int|false {}
 
@@ -1157,6 +1244,7 @@ function libvirt_network_get_autostart($res): int {}
  * Function is used to get the bridge associated with the network.
  * @param resource $res libvirt network resource
  * @return string bridge name string
+ * @since 0.4.1(-1)
  */
 function libvirt_network_get_bridge($res): string {}
 
@@ -1164,6 +1252,7 @@ function libvirt_network_get_bridge($res): string {}
  * Function is used to get the network information.
  * @param resource $res libvirt network resource
  * @return array network information array
+ * @since 0.4.1(-1)
  */
 function libvirt_network_get_information($res): array {}
 
@@ -1196,6 +1285,7 @@ function libvirt_network_get_uuid_string($res): string|false {}
  * @param resource $res libvirt network resource
  * @param string|null $xpath [optional] xPath expression string to get just this entry, can be NULL
  * @return string|false network XML string or result of xPath expression
+ * @since 0.4.1(-1)
  */
 function libvirt_network_get_xml_desc($res, ?string $xpath): string|false {}
 
@@ -1204,6 +1294,7 @@ function libvirt_network_get_xml_desc($res, ?string $xpath): string|false {}
  * @param resource $res libvirt network resource
  * @param int $flags active
  * @return bool TRUE if success, FALSE on error
+ * @since 0.4.1(-1)
  */
 function libvirt_network_set_active($res, int $flags): bool {}
 
@@ -1220,6 +1311,7 @@ function libvirt_network_set_autostart($res, int $flags): bool {}
  * Function is used to undefine already defined network.
  * @param resource $res libvirt network resource
  * @return bool TRUE for success, FALSE on error
+ * @since 0.4.2
  */
 function libvirt_network_undefine($res): bool {}
 
@@ -1230,6 +1322,7 @@ function libvirt_network_undefine($res): bool {}
  * @param resource $conn resource for connection
  * @param int $cpunr CPU number to get information about, defaults to VIR_NODE_CPU_STATS_ALL_CPUS to get information about all CPUs
  * @return array|false array of node CPU statistics including time (in seconds since UNIX epoch), cpu number and total number of CPUs on node or FALSE for error
+ * @since 0.4.6
  */
 function libvirt_node_get_cpu_stats($conn, int $cpunr): array|false {}
 
@@ -1238,6 +1331,7 @@ function libvirt_node_get_cpu_stats($conn, int $cpunr): array|false {}
  * @param resource $conn resource for connection
  * @param int $time time in seconds to get the information about, without aggregation for further processing
  * @return array|false array of node CPU statistics for each CPU including time (in seconds since UNIX epoch), cpu number and total number of CPUs on node or FALSE for error
+ * @since 0.4.6
  */
 function libvirt_node_get_cpu_stats_for_each_cpu($conn, int $time): array|false {}
 
@@ -1253,6 +1347,7 @@ function libvirt_node_get_free_memory($conn): string|false {}
  * Function is used to get the information about host node, mainly total memory installed, total CPUs installed and model information are useful.
  * @param resource $conn resource for connection
  * @return array|false array of node information or FALSE for error
+ * @since 0.4.1(-1)
  */
 function libvirt_node_get_info($conn): array|false {}
 
@@ -1260,6 +1355,7 @@ function libvirt_node_get_info($conn): array|false {}
  * Function is used to get the memory stats per node.
  * @param resource $conn resource for connection
  * @return array array of node memory statistics including time (in seconds since UNIX epoch) or FALSE for error
+ * @since 0.4.6
  */
 function libvirt_node_get_mem_stats($conn): array {}
 
@@ -1270,6 +1366,7 @@ function libvirt_node_get_mem_stats($conn): array {}
  * @param resource $res libvirt connection resource
  * @param string $cap [optional] capability string
  * @return array libvirt nodedev names array for the connection
+ * @since 0.4.1(-1)
  */
 function libvirt_list_nodedevs($res, string $cap): array {}
 
@@ -1277,6 +1374,7 @@ function libvirt_list_nodedevs($res, string $cap): array {}
  * Function is used to list node devices by capabilities.
  * @param resource $res libvirt nodedev resource
  * @return array nodedev capabilities array
+ * @since 0.4.1(-1)
  */
 function libvirt_nodedev_capabilities($res): array {}
 
@@ -1285,6 +1383,7 @@ function libvirt_nodedev_capabilities($res): array {}
  * @param resource $res libvirt connection resource
  * @param string $name name of the nodedev to get resource
  * @return resource libvirt nodedev resource
+ * @since 0.4.1(-1)
  */
 function libvirt_nodedev_get($res, string $name) {}
 
@@ -1292,6 +1391,7 @@ function libvirt_nodedev_get($res, string $name) {}
  * Function is used to get the node device's information.
  * @param resource $res libvirt nodedev resource
  * @return array nodedev information array
+ * @since 0.4.1(-1)
  */
 function libvirt_nodedev_get_information($res): array {}
 
@@ -1300,6 +1400,7 @@ function libvirt_nodedev_get_information($res): array {}
  * @param resource $res libvirt nodedev resource
  * @param string|null $xpath [optional] xPath expression string to get just this entry, can be NULL
  * @return string nodedev XML description string or result of xPath expression
+ * @since 0.4.2
  */
 function libvirt_nodedev_get_xml_desc($res, ?string $xpath): string {}
 
@@ -1398,6 +1499,7 @@ function libvirt_nwfilter_undefine($res): bool {}
  * @param int $micro micro (also release) version number to check for
  * @param int $type type of checking, VIR_VERSION_BINDING to check against libvirt-php binding or VIR_VERSION_LIBVIRT to check against libvirt version
  * @return bool TRUE if version is equal or higher than required, FALSE if not, FALSE with error [for libvirt_get_last_error()] on unsupported version type check
+ * @since 0.4.1(-1)
  */
 function libvirt_check_version(int $major, int $minor, int $micro, int $type): bool {}
 
@@ -1432,6 +1534,7 @@ function libvirt_get_last_error_domain(): int {}
  * Function to check for feature existence for working libvirt instance.
  * @param string $name feature name
  * @return bool TRUE if feature is supported, FALSE otherwise
+ * @since 0.4.1(-3)
  */
 function libvirt_has_feature(string $name): bool {}
 
@@ -1442,6 +1545,7 @@ function libvirt_has_feature(string $name): bool {}
  * @param int $size size of the image in MiBs
  * @param string $format format of the image, may be raw, qcow or qcow2
  * @return string|false hostname of the host node or FALSE for error
+ * @since 0.4.2
  */
 function libvirt_image_create($conn, string $name, int $size, string $format): string|false {}
 
@@ -1450,6 +1554,7 @@ function libvirt_image_create($conn, string $name, int $size, string $format): s
  * @param resource $conn libvirt connection resource
  * @param string $image name of the image file that should be deleted
  * @return string|false hostname of the host node or FALSE for error
+ * @since 0.4.2
  */
 function libvirt_image_remove($conn, string $image): string|false {}
 
@@ -1458,12 +1563,14 @@ function libvirt_image_remove($conn, string $image): string|false {}
  * @param string|null $filename log filename or NULL to disable logging
  * @param int $maxsize [optional] maximum log file size argument in KiB, default value can be found in PHPInfo() output
  * @return bool TRUE if log file has been successfully set, FALSE otherwise
+ * @since 0.4.2
  */
 function libvirt_logfile_set(?string $filename, int $maxsize): bool {}
 
 /**
  * Function to print the binding resources, although the resource information are printed, they are returned in the return_value.
  * @return resource bindings resource information
+ * @since 0.4.2
  */
 function libvirt_print_binding_resources() {}
 
@@ -1471,6 +1578,7 @@ function libvirt_print_binding_resources() {}
  * Function is used to get libvirt, driver and libvirt-php version numbers. Can be used for information purposes, for version checking please use libvirt_check_version() defined below.
  * @param string $type [optional] type string to identify driver to look at
  * @return array libvirt, type (driver) and connector (libvirt-php) version numbers array
+ * @since 0.4.1(-1)
  */
 function libvirt_version(string $type): array {}
 
@@ -1490,15 +1598,16 @@ function libvirt_domain_has_current_snapshot($res, int $flags = 0): bool {}
  * @param resource $res libvirt domain resource
  * @param int $flags libvirt snapshot flags
  * @return resource domain snapshot resource
+ * @since 0.4.1(-2)
  */
 function libvirt_domain_snapshot_create($res, int $flags) {}
 
 /**
  * Function is used to lookup the current snapshot for given domain
- * since 0.5.6
  * @param resource $res libvirt domain resource
  * @param int $flags [optional] libvirt snapshot flags
  * @return resource domain snapshot resource
+ * @since 0.5.6
  */
 function libvirt_domain_snapshot_current($res, int $flags = 0) {}
 
@@ -1507,6 +1616,7 @@ function libvirt_domain_snapshot_current($res, int $flags = 0) {}
  * @param resource $res libvirt domain resource
  * @param int $flags 0 to delete just snapshot, VIR_SNAPSHOT_DELETE_CHILDREN to delete snapshot children as well
  * @return bool TRUE on success, FALSE on error
+ * @since 0.4.1(-2)
  */
 function libvirt_domain_snapshot_delete($res, int $flags): bool {}
 
@@ -1515,6 +1625,7 @@ function libvirt_domain_snapshot_delete($res, int $flags): bool {}
  * @param resource $res libvirt snapshot resource
  * @param int $flags libvirt snapshot flags
  * @return string XML description string for the snapshot
+ * @since 0.4.1(-2)
  */
 function libvirt_domain_snapshot_get_xml($res, int $flags): string {}
 
@@ -1524,6 +1635,7 @@ function libvirt_domain_snapshot_get_xml($res, int $flags): string {}
  * @param string $name name of the snapshot to get the resource
  * @param int $flags libvirt snapshot flags
  * @return resource domain snapshot resource
+ * @since 0.4.1(-2)
  */
 function libvirt_domain_snapshot_lookup_by_name($res, string $name, int $flags) {}
 
@@ -1532,6 +1644,7 @@ function libvirt_domain_snapshot_lookup_by_name($res, string $name, int $flags) 
  * @param resource $res libvirt snapshot resource
  * @param int $flags libvirt snapshot flags
  * @return bool TRUE on success, FALSE on error
+ * @since 0.4.1(-2)
  */
 function libvirt_domain_snapshot_revert($res, int $flags): bool {}
 
@@ -1540,6 +1653,7 @@ function libvirt_domain_snapshot_revert($res, int $flags): bool {}
  * @param resource $res libvirt domain resource
  * @param int $flags libvirt snapshot flags
  * @return array libvirt domain snapshot names array
+ * @since 0.4.1(-2)
  */
 function libvirt_list_domain_snapshots($res, int $flags): array {}
 
@@ -1549,6 +1663,7 @@ function libvirt_list_domain_snapshots($res, int $flags): array {}
  * Function is used to list active storage pools on the connection.
  * @param resource $res libvirt connection resource
  * @return array libvirt storagepool names array for the connection
+ * @since 0.4.1(-1)
  */
 function libvirt_list_active_storagepools($res): array {}
 
@@ -1556,6 +1671,7 @@ function libvirt_list_active_storagepools($res): array {}
  * Function is used to list inactive storage pools on the connection.
  * @param resource $res libvirt connection resource
  * @return array libvirt storagepool names array for the connection
+ * @since 0.4.1(-1)
  */
 function libvirt_list_inactive_storagepools($res): array {}
 
@@ -1563,6 +1679,7 @@ function libvirt_list_inactive_storagepools($res): array {}
  * Function is used to list storage pools on the connection.
  * @param resource $res libvirt connection resource
  * @return array libvirt storagepool names array for the connection
+ * @since 0.4.1(-1)
  */
 function libvirt_list_storagepools($res): array {}
 
@@ -1570,6 +1687,7 @@ function libvirt_list_storagepools($res): array {}
  * Function is used to Build the underlying storage pool, e.g. create the destination directory for NFS.
  * @param resource $res libvirt storagepool resource
  * @return bool TRUE if success, FALSE on error
+ * @since 0.4.2
  */
 function libvirt_storagepool_build($res): bool {}
 
@@ -1577,6 +1695,7 @@ function libvirt_storagepool_build($res): bool {}
  * Function is used to create/start the storage pool.
  * @param resource $res libvirt storagepool resource
  * @return bool TRUE if success, FALSE on error
+ * @since 0.4.1(-1)
  */
 function libvirt_storagepool_create($res): bool {}
 
@@ -1586,6 +1705,7 @@ function libvirt_storagepool_create($res): bool {}
  * @param string $xml XML string definition of storagepool
  * @param int $flags flags to define XML
  * @return resource libvirt storagepool resource
+ * @since 0.4.1(-1)
  */
 function libvirt_storagepool_define_xml($res, string $xml, int $flags) {}
 
@@ -1593,6 +1713,7 @@ function libvirt_storagepool_define_xml($res, string $xml, int $flags) {}
  * Function is used to Delete the underlying storage pool, e.g. remove the destination directory for NFS.
  * @param resource $res libvirt storagepool resource
  * @return bool TRUE if success, FALSE on error
+ * @since 0.4.6
  */
 function libvirt_storagepool_delete($res): bool {}
 
@@ -1600,6 +1721,7 @@ function libvirt_storagepool_delete($res): bool {}
  * Function is used to destroy the storage pool.
  * @param resource $res libvirt storagepool resource
  * @return bool TRUE if success, FALSE on error
+ * @since 0.4.1(-1)
  */
 function libvirt_storagepool_destroy($res): bool {}
 
@@ -1607,6 +1729,7 @@ function libvirt_storagepool_destroy($res): bool {}
  * Function is used to get autostart of the storage pool.
  * @param resource $res libvirt storagepool resource
  * @return bool TRUE for autostart enabled, FALSE for autostart disabled, FALSE with last_error set for error
+ * @since 0.4.1(-1)
  */
 function libvirt_storagepool_get_autostart($res): bool {}
 
@@ -1614,6 +1737,7 @@ function libvirt_storagepool_get_autostart($res): bool {}
  * Function is used to get information about the storage pool.
  * @param resource $res libvirt storagepool resource
  * @return array storage pool information array of state, capacity, allocation and available space
+ * @since 0.4.1(-1)
  */
 function libvirt_storagepool_get_info($res): array {}
 
@@ -1621,6 +1745,7 @@ function libvirt_storagepool_get_info($res): array {}
  * Function is used to get storage pool name from the storage pool resource.
  * @param resource $res libvirt storagepool resource
  * @return string storagepool name string
+ * @since 0.4.1(-1)
  */
 function libvirt_storagepool_get_name($res): string {}
 
@@ -1628,6 +1753,7 @@ function libvirt_storagepool_get_name($res): string {}
  * Function is used to get storage pool by UUID string.
  * @param resource $res libvirt storagepool resource
  * @return string storagepool UUID string
+ * @since 0.4.1(-1)
  */
 function libvirt_storagepool_get_uuid_string($res): string {}
 
@@ -1635,6 +1761,7 @@ function libvirt_storagepool_get_uuid_string($res): string {}
  * Function is used to get storage volume count in the storage pool.
  * @param resource $res libvirt storagepool resource
  * @return int number of volumes in the pool
+ * @since 0.4.1(-1)
  */
 function libvirt_storagepool_get_volume_count($res): int {}
 
@@ -1643,6 +1770,7 @@ function libvirt_storagepool_get_volume_count($res): int {}
  * @param resource $res libvirt storagepool resource
  * @param string|null $xpath [optional] xPath expression string to get just this entry, can be NULL
  * @return string storagepool XML description string or result of xPath expression
+ * @since 0.4.2
  */
 function libvirt_storagepool_get_xml_desc($res, ?string $xpath): string {}
 
@@ -1650,6 +1778,7 @@ function libvirt_storagepool_get_xml_desc($res, ?string $xpath): string {}
  * Function is used to get information whether storage pool is active or not.
  * @param resource $res libvirt storagepool resource
  * @return bool result of virStoragePoolIsActive
+ * @since 0.4.1(-1)
  */
 function libvirt_storagepool_is_active($res): bool {}
 
@@ -1657,6 +1786,7 @@ function libvirt_storagepool_is_active($res): bool {}
  * Function is used to list volumes in the specified storage pool.
  * @param resource $res libvirt storagepool resource
  * @return array list of storage volume names in the storage pool in an array using default keys (indexes)
+ * @since 0.4.1(-1)
  */
 function libvirt_storagepool_list_volumes($res): array {}
 
@@ -1665,6 +1795,7 @@ function libvirt_storagepool_list_volumes($res): array {}
  * @param resource $res volume resource of storage pool
  * @param string $name storage pool name
  * @return resource libvirt storagepool resource
+ * @since 0.4.1(-1)
  */
 function libvirt_storagepool_lookup_by_name($res, string $name) {}
 
@@ -1673,6 +1804,7 @@ function libvirt_storagepool_lookup_by_name($res, string $name) {}
  * @param resource $res libvirt connection resource
  * @param string $uuid UUID string to look for storagepool
  * @return resource libvirt storagepool resource
+ * @since 0.4.1(-1)
  */
 function libvirt_storagepool_lookup_by_uuid_string($res, string $uuid) {}
 
@@ -1680,6 +1812,7 @@ function libvirt_storagepool_lookup_by_uuid_string($res, string $uuid) {}
  * Function is used to lookup for storage pool by a volume.
  * @param resource $res volume resource of storage pool
  * @return resource libvirt storagepool resource
+ * @since 0.4.1(-1)
  */
 function libvirt_storagepool_lookup_by_volume($res) {}
 
@@ -1688,6 +1821,7 @@ function libvirt_storagepool_lookup_by_volume($res) {}
  * @param resource $res libvirt storagepool resource
  * @param int $flags refresh flags
  * @return bool TRUE if success, FALSE on error
+ * @since 0.4.1(-1)
  */
 function libvirt_storagepool_refresh($res, int $flags): bool {}
 
@@ -1703,6 +1837,7 @@ function libvirt_storagepool_set_autostart($res, int $flags): bool {}
  * Function is used to undefine the storage pool identified by it's resource.
  * @param resource $res libvirt storagepool resource
  * @return bool TRUE if success, FALSE on error
+ * @since 0.4.1(-1)
  */
 function libvirt_storagepool_undefine($res): bool {}
 
@@ -1712,6 +1847,7 @@ function libvirt_storagepool_undefine($res): bool {}
  * @param string $xml XML string to create the storage volume in the storage pool
  * @param int $flags [optional] virStorageVolCreateXML flags
  * @return resource libvirt storagevolume resource
+ * @since 0.4.1(-1)
  */
 function libvirt_storagevolume_create_xml($res, string $xml, int $flags) {}
 
@@ -1721,6 +1857,7 @@ function libvirt_storagevolume_create_xml($res, string $xml, int $flags) {}
  * @param string $xml XML string to create the storage volume in the storage pool
  * @param resource $original_volume libvirt storagevolume resource
  * @return resource libvirt storagevolume resource
+ * @since 0.4.1(-2)
  */
 function libvirt_storagevolume_create_xml_from($pool, string $xml, $original_volume) {}
 
@@ -1729,6 +1866,7 @@ function libvirt_storagevolume_create_xml_from($pool, string $xml, $original_vol
  * @param resource $res libvirt storagevolume resource
  * @param int $flags [optional] flags for the storage volume deletion for virStorageVolDelete()
  * @return bool TRUE for success, FALSE on error
+ * @since 0.4.2
  */
 function libvirt_storagevolume_delete($res, int $flags): bool {}
 
@@ -1740,6 +1878,7 @@ function libvirt_storagevolume_delete($res, int $flags): bool {}
  * @param int $length limit on amount of data to download
  * @param int $flags [optional] flags for the storage volume download for virStorageVolDownload()
  * @return int
+ * @since 0.5.0
  */
 function libvirt_storagevolume_download($res, $stream, int $offset, int $length, int $flags): int {}
 
@@ -1747,6 +1886,7 @@ function libvirt_storagevolume_download($res, $stream, int $offset, int $length,
  * Function is used to get the storage volume information.
  * @param resource $res libvirt storagevolume resource
  * @return array storage volume information array of type, allocation and capacity
+ * @since 0.4.1(-1)
  */
 function libvirt_storagevolume_get_info($res): array {}
 
@@ -1754,6 +1894,7 @@ function libvirt_storagevolume_get_info($res): array {}
  * Function is used to get the storage volume name.
  * @param resource $res libvirt storagevolume resource
  * @return string storagevolume name
+ * @since 0.4.1(-2)
  */
 function libvirt_storagevolume_get_name($res): string {}
 
@@ -1761,6 +1902,7 @@ function libvirt_storagevolume_get_name($res): string {}
  * Function is used to get the storage volume path.
  * @param resource $res libvirt storagevolume resource
  * @return string storagevolume path
+ * @since 0.4.1(-2)
  */
 function libvirt_storagevolume_get_path($res): string {}
 
@@ -1770,6 +1912,7 @@ function libvirt_storagevolume_get_path($res): string {}
  * @param string|null $xpath [optional] xPath expression string to get just this entry, can be NULL
  * @param int $flags [optional] flags
  * @return string storagevolume XML description or result of xPath expression
+ * @since 0.4.2
  */
 function libvirt_storagevolume_get_xml_desc($res, ?string $xpath, int $flags): string {}
 
@@ -1778,6 +1921,7 @@ function libvirt_storagevolume_get_xml_desc($res, ?string $xpath, int $flags): s
  * @param resource $res libvirt storagepool resource
  * @param string $name name of the storage volume to look for
  * @return resource libvirt storagevolume resource
+ * @since 0.4.1(-1)
  */
 function libvirt_storagevolume_lookup_by_name($res, string $name) {}
 
@@ -1786,6 +1930,7 @@ function libvirt_storagevolume_lookup_by_name($res, string $name) {}
  * @param resource $res libvirt connection resource
  * @param string $path path of the storage volume to look for
  * @return resource libvirt storagevolume resource
+ * @since 0.4.1(-2)
  */
 function libvirt_storagevolume_lookup_by_path($res, string $path) {}
 
@@ -1795,6 +1940,7 @@ function libvirt_storagevolume_lookup_by_path($res, string $path) {}
  * @param int $capacity capacity for the storage volume
  * @param int $flags [optional] flags for the storage volume resize for virStorageVolResize()
  * @return int
+ * @since 0.5.0
  */
 function libvirt_storagevolume_resize($res, int $capacity, int $flags): int {}
 
@@ -1806,6 +1952,7 @@ function libvirt_storagevolume_resize($res, int $capacity, int $flags): int {}
  * @param int $length limit on amount of data to upload
  * @param int $flags [optional] flags for the storage volume upload for virStorageVolUpload()
  * @return int
+ * @since 0.5.0
  */
 function libvirt_storagevolume_upload($res, $stream, int $offset, int $length, int $flags): int {}
 
@@ -1815,6 +1962,7 @@ function libvirt_storagevolume_upload($res, $stream, int $offset, int $length, i
  * Function is used to abort transfer.
  * @param resource $res libvirt stream resource from libvirt_stream_create()
  * @return int
+ * @since 0.5.0
  */
 function libvirt_stream_abort($res): int {}
 
@@ -1822,6 +1970,7 @@ function libvirt_stream_abort($res): int {}
  * Function is used to close stream.
  * @param resource $res libvirt stream resource from libvirt_stream_create()
  * @return int
+ * @since 0.5.0
  */
 function libvirt_stream_close($res): int {}
 
@@ -1829,6 +1978,7 @@ function libvirt_stream_close($res): int {}
  * Function is used to create new stream from libvirt conn.
  * @param resource $res libvirt connection resource from libvirt_connect()
  * @return resource resource libvirt stream resource
+ * @since 0.5.0
  */
 function libvirt_stream_create($res) {}
 
@@ -1836,6 +1986,7 @@ function libvirt_stream_create($res) {}
  * Function is used to finish transfer.
  * @param resource $res libvirt stream resource from libvirt_stream_create()
  * @return int
+ * @since 0.5.0
  */
 function libvirt_stream_finish($res): int {}
 
@@ -1845,6 +1996,7 @@ function libvirt_stream_finish($res): int {}
  * @param string $data buffer
  * @param int $len amount of data to receive
  * @return int
+ * @since 0.5.0
  */
 function libvirt_stream_recv($res, string $data, int $len): int {}
 
@@ -1854,5 +2006,6 @@ function libvirt_stream_recv($res, string $data, int $len): int {}
  * @param string $data buffer
  * @param int $length amount of data to send
  * @return int
+ * @since 0.5.0
  */
 function libvirt_stream_send($res, string $data, int $length): int {}
