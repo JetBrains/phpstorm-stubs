@@ -430,17 +430,18 @@ function libvirt_connect_get_uri($conn): string|false {}
  * Function is used to attach a virtual device to a domain.
  * @param resource $res libvirt domain resource
  * @param string $xml XML description of one device.
+ * @param int $flags [optional] flags
  * @return bool TRUE for success, FALSE on error
  * @since 0.5.3
  */
-function libvirt_domain_attach_device($res, string $xml): bool {}
+function libvirt_domain_attach_device($res, string $xml, int $flags = 0): bool {}
 
 /**
  * Function is used to commit block job.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param string $disk path to the block device, or device shorthand
- * @param string|null $base path to backing file to merge into, or device shorthand, or NULL for default
- * @param string|null $top path to file within backing chain that contains data to be merged, or device shorthand, or NULL to merge all possible data
+ * @param string|null $base [optional] path to backing file to merge into, or device shorthand, or NULL for default
+ * @param string|null $top [optional] path to file within backing chain that contains data to be merged, or device shorthand, or NULL to merge all possible data
  * @param int $bandwidth [optional] specify bandwidth limit; flags determine the unit
  * @param int $flags [optional] bitwise-OR of VIR_DOMAIN_BLOCK_COMMIT_*
  * @return bool true on success fail on error
@@ -452,11 +453,11 @@ function libvirt_domain_block_commit($res, string $disk, ?string $base, ?string 
  * Function is used to abort block job.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param string $path device path to resize
- * @param int $flags bitwise-OR of VIR_DOMAIN_BLOCK_JOB_ABORT_*
+ * @param int $flags [optional] bitwise-OR of VIR_DOMAIN_BLOCK_JOB_ABORT_*
  * @return bool true on success fail on error
  * @since 0.5.1(-1)
  */
-function libvirt_domain_block_job_abort($res, string $path, int $flags): bool {}
+function libvirt_domain_block_job_abort($res, string $path, int $flags = 0): bool {}
 
 /**
  * Function is used to attach a virtual device to a domain.
@@ -473,22 +474,22 @@ function libvirt_domain_block_job_info($res, string $disk, int $flags = 0): arra
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param string $path device path to resize
  * @param int $bandwidth bandwidth
- * @param int $flags bitwise-OR of VIR_DOMAIN_BLOCK_JOB_SPEED_BANDWIDTH_*
+ * @param int $flags [optional] bitwise-OR of VIR_DOMAIN_BLOCK_JOB_SPEED_BANDWIDTH_*
  * @return bool true on success fail on error
  * @since 0.4.1(-1)
  */
-function libvirt_domain_block_job_set_speed($res, string $path, int $bandwidth, int $flags): bool {}
+function libvirt_domain_block_job_set_speed($res, string $path, int $bandwidth, int $flags = 0): bool {}
 
 /**
  * Function is used to resize the domain's block device.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param string $path device path to resize
  * @param int $size size of device
- * @param int $flags bitwise-OR of VIR_DOMAIN_BLOCK_RESIZE_*
+ * @param int $flags [optional] bitwise-OR of VIR_DOMAIN_BLOCK_RESIZE_*
  * @return bool true on success fail on error
  * @since 0.5.1(-1)
  */
-function libvirt_domain_block_resize($res, string $path, int $size, int $flags): bool {}
+function libvirt_domain_block_resize($res, string $path, int $size, int $flags = 0): bool {}
 
 /**
  * Function is used to get the domain's block stats.
@@ -508,7 +509,7 @@ function libvirt_domain_block_stats($res, string $path): array {}
  * @return resource new domain resource
  * @since 0.4.2
  */
-function libvirt_domain_change_boot_devices($res, string $first, string $second, int $flags) {}
+function libvirt_domain_change_boot_devices($res, string $first, string $second, int $flags = 0) {}
 
 /**
  * Function is used to change the domain memory allocation.
@@ -519,13 +520,13 @@ function libvirt_domain_change_boot_devices($res, string $first, string $second,
  * @return resource new domain resource
  * @since 0.4.2
  */
-function libvirt_domain_change_memory($res, int $allocMem, int $allocMax, int $flags) {}
+function libvirt_domain_change_memory($res, int $allocMem, int $allocMax, int $flags = 0) {}
 
 /**
  * Function is used to change the VCPU count for the domain
  * @param resource $res libvirt domain resource
  * @param int $numCpus number of VCPUs to be set for the guest
- * @param int $flags [optional] @flags flags for virDomainSetVcpusFlags (available at http://libvirt.org/html/libvirt-libvirt.html#virDomainVcpuFlags)
+ * @param int $flags [optional] flags for virDomainSetVcpusFlags (available at http://libvirt.org/html/libvirt-libvirt.html#virDomainVcpuFlags)
  * @return bool true on success, false on error
  * @since 0.4.2
  */
@@ -552,10 +553,11 @@ function libvirt_domain_create($res): bool {}
  * Function is used to create the domain identified by it's resource.
  * @param resource $conn libvirt connection resource
  * @param string $xml XML string to create guest from
+ * @param int $flags [optional] flags
  * @return resource newly started/created domain resource
  * @since 0.4.1(-1)
  */
-function libvirt_domain_create_xml($conn, string $xml) {}
+function libvirt_domain_create_xml($conn, string $xml, int $flags = 0) {}
 
 /**
  * Function is used to define the domain from XML string.
@@ -582,7 +584,7 @@ function libvirt_domain_destroy($res): bool {}
  * @return bool TRUE for success, FALSE on error.
  * @since 0.5.3
  */
-function libvirt_domain_detach_device($res, string $xml, int $flags): bool {}
+function libvirt_domain_detach_device($res, string $xml, int $flags = VIR_DOMAIN_AFFECT_LIVE): bool {}
 
 /**
  * Function is used to add the disk to the virtual machine using set of API functions to make it as simple as possible for the user.
@@ -595,7 +597,7 @@ function libvirt_domain_detach_device($res, string $xml, int $flags): bool {}
  * @return resource new domain resource
  * @since 0.4.2
  */
-function libvirt_domain_disk_add($res, string $img, string $dev, string $typ, string $driver, int $flags) {}
+function libvirt_domain_disk_add($res, string $img, string $dev, string $typ, string $driver, int $flags = 0) {}
 
 /**
  * Function is used to remove the disk from the virtual machine using set of API functions to make it as simple as possible.
@@ -605,7 +607,7 @@ function libvirt_domain_disk_add($res, string $img, string $dev, string $typ, st
  * @return resource new domain resource
  * @since 0.4.2
  */
-function libvirt_domain_disk_remove($res, string $dev, int $flags) {}
+function libvirt_domain_disk_remove($res, string $dev, int $flags = 0) {}
 
 /**
  * Function is getting the autostart value for the domain.
@@ -742,7 +744,7 @@ function libvirt_domain_get_screenshot($res, string $server, int $scancode = 10)
  * @return array array of filename and mime type as type is hypervisor specific, caller is responsible for temporary file deletion
  * @since 0.4.5
  */
-function libvirt_domain_get_screenshot_api($res, int $screenID): array {}
+function libvirt_domain_get_screenshot_api($res, int $screenID = 0): array {}
 
 /**
  * Function is used to get the domain's UUID in binary format.
@@ -763,11 +765,12 @@ function libvirt_domain_get_uuid_string($res): string {}
 /**
  * Function is used to get the domain's XML description.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
- * @param string|null $xpath [optional] xPath expression string to get just this entry, can be NULL
+ * @param string|null $xpath xPath expression string to get just this entry, can be NULL
+ * @param int $flags [optional] flags
  * @return string domain XML description string or result of xPath expression
  * @since 0.4.2
  */
-function libvirt_domain_get_xml_desc($res, ?string $xpath): string {}
+function libvirt_domain_get_xml_desc($res, ?string $xpath, int $flags = 0): string {}
 
 /**
  * Function is used to get network interface addresses for the domain
@@ -852,11 +855,11 @@ function libvirt_domain_managedsave($res): bool {}
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param int $start start
  * @param int $size size
- * @param int $flags [optional] flags
+ * @param int $flags flags
  * @return int domain memory peek
  * @since 0.4.1(-1)
  */
-function libvirt_domain_memory_peek($res, int $start, int $size, int $flags): int {}
+function libvirt_domain_memory_peek($res, int $start, int $size, int $flags = 0): int {}
 
 /**
  * Function is used to get the domain's memory stats.
@@ -865,31 +868,31 @@ function libvirt_domain_memory_peek($res, int $start, int $size, int $flags): in
  * @return array domain memory stats array (same fields as virDomainMemoryStats, please see libvirt documentation)
  * @since 0.4.1(-1)
  */
-function libvirt_domain_memory_stats($res, int $flags): array {}
+function libvirt_domain_memory_stats($res, int $flags = 0): array {}
 
 /**
  * Function is used migrate domain to another domain.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param string $dest_conn destination host connection object
  * @param int $flags migration flags
- * @param string $dname domain name to rename domain to on destination side
- * @param int $bandwidth migration bandwidth in Mbps
+ * @param string $dname [optional] domain name to rename domain to on destination side
+ * @param int $bandwidth [optional] migration bandwidth in Mbps
  * @return resource libvirt domain resource for migrated domain
  * @since 0.4.1(-1)
  */
-function libvirt_domain_migrate($res, string $dest_conn, int $flags, string $dname, int $bandwidth) {}
+function libvirt_domain_migrate($res, string $dest_conn, int $flags, string $dname, int $bandwidth = 0) {}
 
 /**
  * Function is used migrate domain to another libvirt daemon specified by it's URI.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param string $dest_uri destination URI to migrate to
  * @param int $flags migration flags
- * @param string $dname domain name to rename domain to on destination side
- * @param int $bandwidth migration bandwidth in Mbps
+ * @param string $dname [optional] domain name to rename domain to on destination side
+ * @param int $bandwidth [optional] migration bandwidth in Mbps
  * @return bool TRUE for success, FALSE on error
  * @since 0.4.1(-1)
  */
-function libvirt_domain_migrate_to_uri($res, string $dest_uri, int $flags, string $dname, int $bandwidth): bool {}
+function libvirt_domain_migrate_to_uri($res, string $dest_uri, int $flags, string $dname, int $bandwidth = 0): bool {}
 
 /**
  * Function is used migrate domain to another libvirt daemon specified by it's URI.
@@ -898,12 +901,12 @@ function libvirt_domain_migrate_to_uri($res, string $dest_uri, int $flags, strin
  * @param string $miguri URI for invoking the migration
  * @param string $dxml XML config for launching guest on target
  * @param int $flags migration flags
- * @param string $dname domain name to rename domain to on destination side
- * @param int $bandwidth migration bandwidth in Mbps
+ * @param string $dname [optional] domain name to rename domain to on destination side
+ * @param int $bandwidth [optional] migration bandwidth in Mbps
  * @return bool TRUE for success, FALSE on error
  * @since 0.4.6(-1)
  */
-function libvirt_domain_migrate_to_uri2($res, string $dconnuri, string $miguri, string $dxml, int $flags, string $dname, int $bandwidth): bool {}
+function libvirt_domain_migrate_to_uri2($res, string $dconnuri, string $miguri, string $dxml, int $flags, string $dname, int $bandwidth = 0): bool {}
 
 /**
  * Function is used to install a new virtual machine to the machine.
@@ -939,7 +942,7 @@ function libvirt_domain_new_get_vnc(): string|null {}
  * @return resource new domain resource
  * @since 0.4.2
  */
-function libvirt_domain_nic_add($res, string $mac, string $network, string $model, int $flags) {}
+function libvirt_domain_nic_add($res, string $mac, string $network, string $model, int $flags = 0) {}
 
 /**
  * Function is used to remove the NIC from the virtual machine using set of API functions to make it as simple as possible.
@@ -949,18 +952,18 @@ function libvirt_domain_nic_add($res, string $mac, string $network, string $mode
  * @return resource new domain resource
  * @since 0.4.2
  */
-function libvirt_domain_nic_remove($res, string $dev, int $flags) {}
+function libvirt_domain_nic_remove($res, string $dev, int $flags = 0) {}
 
 /**
  * Function is used to send qemu-ga command.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_lookup_by_*()
  * @param string $cmd command
- * @param $timeout @timeout
- * @param int $flags unknown
+ * @param int $timeout [optional] timeout
+ * @param int $flags [optional] unknown
  * @return string|false String on success and FALSE on error
  * @since 0.5.2(-1)
  */
-function libvirt_domain_qemu_agent_command($res, string $cmd, $timeout, int $flags): string|false {}
+function libvirt_domain_qemu_agent_command($res, string $cmd, $timeout = -1, int $flags = 0): string|false {}
 
 /**
  * Function is used to reboot the domain identified by it's resource.
@@ -969,7 +972,7 @@ function libvirt_domain_qemu_agent_command($res, string $cmd, $timeout, int $fla
  * @return bool TRUE for success, FALSE on error
  * @since 0.4.1(-1)
  */
-function libvirt_domain_reboot($res, int $flags): bool {}
+function libvirt_domain_reboot($res, int $flags = 0): bool {}
 
 /**
  * Function is used to reset the domain identified by its resource
@@ -1017,11 +1020,11 @@ function libvirt_domain_send_keys($res, string $server, int $scancode): bool {}
  * @param int $pos_x position on x-axis
  * @param int $pos_y position on y-axis
  * @param int $clicked mask of clicked buttons (0 for none, bit 1 for button #1, bit 8 for button #8)
- * @param int $release boolean value (0 or 1) whether to release the buttons automatically once pressed
+ * @param bool $release [optional] boolean value (0 or 1) whether to release the buttons automatically once pressed, default true
  * @return bool TRUE on success, FALSE otherwise
  * @since 0.4.2
  */
-function libvirt_domain_send_pointer_event($res, string $server, int $pos_x, int $pos_y, int $clicked, int $release): bool {}
+function libvirt_domain_send_pointer_event($res, string $server, int $pos_x, int $pos_y, int $clicked, bool $release = true): bool {}
 
 /**
  * Function is setting the autostart value for the domain.
@@ -1054,11 +1057,11 @@ function libvirt_domain_set_memory($res, int $memory): bool {}
  * Function to set max memory for domain.
  * @param resource $res libvirt domain resource
  * @param int $memory memory size in 1024 bytes (Kb)
- * @param int $flags bitwise-OR VIR_DOMAIN_MEM_* flags
+ * @param int $flags [optional] bitwise-OR VIR_DOMAIN_MEM_* flags
  * @return bool TRUE for success, FALSE for failure
  * @since 0.5.1
  */
-function libvirt_domain_set_memory_flags($res, int $memory, int $flags): bool {}
+function libvirt_domain_set_memory_flags($res, int $memory, int $flags = 0): bool {}
 
 /**
  * Function sets the appropriate domain element given by @type to the value of @description. No new lines are permitted..
@@ -1144,7 +1147,7 @@ function libvirt_domain_xml_to_native($conn, string $format, string $xml_data): 
  * @return array result of the expression in an array
  * @since 0.4.1(-1)
  */
-function libvirt_domain_xml_xpath($res, string $xpath, int $flags): array {}
+function libvirt_domain_xml_xpath($res, string $xpath, int $flags = 0): array {}
 
 /**
  * Function is used to list active domain IDs on the connection.
