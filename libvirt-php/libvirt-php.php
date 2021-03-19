@@ -1599,11 +1599,11 @@ function libvirt_domain_has_current_snapshot($res, int $flags = 0): bool {}
 /**
  * This function creates the domain snapshot for the domain identified by it's resource.
  * @param resource $res libvirt domain resource
- * @param int $flags libvirt snapshot flags
+ * @param int $flags [optional] libvirt snapshot flags
  * @return resource domain snapshot resource
  * @since 0.4.1(-2)
  */
-function libvirt_domain_snapshot_create($res, int $flags) {}
+function libvirt_domain_snapshot_create($res, int $flags = 0) {}
 
 /**
  * Function is used to lookup the current snapshot for given domain
@@ -1617,48 +1617,48 @@ function libvirt_domain_snapshot_current($res, int $flags = 0) {}
 /**
  * Function is used to revert the domain state to the state identified by the snapshot.
  * @param resource $res libvirt domain resource
- * @param int $flags 0 to delete just snapshot, VIR_SNAPSHOT_DELETE_CHILDREN to delete snapshot children as well
+ * @param int $flags [optional] 0 to delete just snapshot, VIR_SNAPSHOT_DELETE_CHILDREN to delete snapshot children as well
  * @return bool TRUE on success, FALSE on error
  * @since 0.4.1(-2)
  */
-function libvirt_domain_snapshot_delete($res, int $flags): bool {}
+function libvirt_domain_snapshot_delete($res, int $flags = 0): bool {}
 
 /**
  * Function is used to get the XML description of the snapshot identified by it's resource.
  * @param resource $res libvirt snapshot resource
- * @param int $flags libvirt snapshot flags
+ * @param int $flags [optional] libvirt snapshot flags
  * @return string XML description string for the snapshot
  * @since 0.4.1(-2)
  */
-function libvirt_domain_snapshot_get_xml($res, int $flags): string {}
+function libvirt_domain_snapshot_get_xml($res, int $flags = 0): string {}
 
 /**
  * This functions is used to lookup for the snapshot by it's name.
  * @param resource $res libvirt domain resource
  * @param string $name name of the snapshot to get the resource
- * @param int $flags libvirt snapshot flags
+ * @param int $flags [optional] libvirt snapshot flags
  * @return resource domain snapshot resource
  * @since 0.4.1(-2)
  */
-function libvirt_domain_snapshot_lookup_by_name($res, string $name, int $flags) {}
+function libvirt_domain_snapshot_lookup_by_name($res, string $name, int $flags = 0) {}
 
 /**
  * Function is used to revert the domain state to the state identified by the snapshot.
  * @param resource $res libvirt snapshot resource
- * @param int $flags libvirt snapshot flags
+ * @param int $flags [optional] libvirt snapshot flags
  * @return bool TRUE on success, FALSE on error
  * @since 0.4.1(-2)
  */
-function libvirt_domain_snapshot_revert($res, int $flags): bool {}
+function libvirt_domain_snapshot_revert($res, int $flags = 0): bool {}
 
 /**
  * Function is used to list domain snapshots for the domain specified by it's resource.
  * @param resource $res libvirt domain resource
- * @param int $flags libvirt snapshot flags
+ * @param int $flags [optional] libvirt snapshot flags
  * @return array libvirt domain snapshot names array
  * @since 0.4.1(-2)
  */
-function libvirt_list_domain_snapshots($res, int $flags): array {}
+function libvirt_list_domain_snapshots($res, int $flags = 0): array {}
 
 /* Storage functions */
 
