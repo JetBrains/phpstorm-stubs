@@ -227,7 +227,7 @@ interface Throwable extends Stringable
     /**
      * Returns the previous Throwable
      * @link https://php.net/manual/en/throwable.getprevious.php
-     * @return Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
+     * @return null|Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
      * @since 7.0
      */
     public function getPrevious();
@@ -320,7 +320,7 @@ class Exception implements Throwable
     /**
      * Returns previous Exception
      * @link https://php.net/manual/en/exception.getprevious.php
-     * @return Exception the previous <b>Exception</b> if available
+     * @return null|Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
      * or null otherwise.
      */
     #[Pure]
@@ -429,10 +429,11 @@ class Error implements Throwable
     /**
      * Returns the previous Throwable
      * @link https://php.net/manual/en/throwable.getprevious.php
-     * @return Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
+     * @return null|Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
      * @since 7.0
      */
     final public function getPrevious() {}
+
     /**
      * Gets a string representation of the thrown object
      * @link https://php.net/manual/en/throwable.tostring.php
