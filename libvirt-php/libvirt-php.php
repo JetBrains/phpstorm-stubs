@@ -683,7 +683,7 @@ function libvirt_domain_get_interface_devices($res): array|false {}
 function libvirt_domain_get_job_info($res): array {}
 
 /**
- * Function retrieve appropriate domain element given by @type..
+ * Function retrieve appropriate domain element given by $type.
  * @param resource $res libvirt domain resource
  * @param int $type virDomainMetadataType type of description
  * @param string $uri XML namespace identifier
@@ -738,7 +738,7 @@ function libvirt_domain_get_screen_dimensions($res, string $server): array|false
 function libvirt_domain_get_screenshot($res, string $server, int $scancode = 10): string {}
 
 /**
- * Function is trying to get domain screenshot using libvirt virGetDomainScreenshot() API if available..
+ * Function is trying to get domain screenshot using libvirt virGetDomainScreenshot() API if available.
  * @param resource $res libvirt domain resource, e.g. from libvirt_domain_get_by_*()
  * @param int $screenID [optional] monitor ID from where to take screenshot
  * @return array array of filename and mime type as type is hypervisor specific, caller is responsible for temporary file deletion
@@ -1064,7 +1064,7 @@ function libvirt_domain_set_memory($res, int $memory): bool {}
 function libvirt_domain_set_memory_flags($res, int $memory = 0, int $flags = 0): bool {}
 
 /**
- * Function sets the appropriate domain element given by @type to the value of @description. No new lines are permitted..
+ * Function sets the appropriate domain element given by $type to the value of $metadata. No new lines are permitted.
  * @param resource $res libvirt domain resource
  * @param int $type virDomainMetadataType type of description
  * @param string $metadata new metadata text
@@ -1496,7 +1496,7 @@ function libvirt_nwfilter_undefine($res): bool {}
 /* Libvirt functions */
 
 /**
- * Function is used to check major, minor and micro (also sometimes called release) versions of libvirt-php or libvirt itself. This could useful when you want your application to support only versions of libvirt or libvirt-php higher than some version specified..
+ * Function is used to check major, minor and micro (also sometimes called release) versions of libvirt-php or libvirt itself. This could useful when you want your application to support only versions of libvirt or libvirt-php higher than some version specified.
  * @param int $major major version number to check for
  * @param int $minor minor version number to check for
  * @param int $micro micro (also release) version number to check for
