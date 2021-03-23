@@ -208,7 +208,7 @@ use const PHP_EOL;
             continue;
         }
 
-        if (in_array($directoryInfo->getBasename(), ['tests', 'meta', 'vendor', 'couchbase_v2'], true)) {
+        if (in_array($directoryInfo->getBasename(), ['tests', 'meta', 'vendor', 'couchbase_v3'], true)) {
             continue;
         }
 
