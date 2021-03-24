@@ -193,7 +193,7 @@ function array_pad(array $array, int $length, mixed $value): array {}
 function array_flip(array $array): array {}
 
 /**
- * Changes the case of all keys in an arra
+ * Changes the case of all keys in an array
  * @link https://php.net/manual/en/function.array-change-key-case.php
  * @param array $array <p>
  * The array to work on
