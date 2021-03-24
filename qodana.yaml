@@ -74,6 +74,7 @@ exclude:
       - leveldb
       - libevent
       - libsodium
+      - libvirt-php
       - libxml
       - lua
       - LuaSandbox
