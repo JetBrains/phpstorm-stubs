@@ -121,7 +121,7 @@ const VIR_CRED_PASSPHRASE = 5;
 /* Challenge response */
 const VIR_CRED_ECHOPROMPT = 6;
 /* Challenge response */
-const VIR_CRED_NOECHOPROMP = 7;
+const VIR_CRED_NOECHOPROMPT = 7;
 /* Authentication realm */
 const VIR_CRED_REALM = 8;
 /* Externally managed credential More may be added - expect the unexpected */
