@@ -227,7 +227,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * Gets starting line number
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getstartline.php
-     * @return int The starting line number.
+     * @return int|false The starting line number or {@see false} if unknown.
      */
     #[Pure]
     public function getStartLine() {}
