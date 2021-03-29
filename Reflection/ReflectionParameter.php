@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -129,6 +130,7 @@ class ReflectionParameter implements Reflector
      * @since 7.0
      */
     #[Pure]
+    #[LanguageLevelTypeAware(['7.1' => 'ReflectionNamedType|null', '8.0' => 'ReflectionNamedType|ReflectionUnionType|null'], default: 'ReflectionType|null')]
     public function getType() {}
 
     /**
