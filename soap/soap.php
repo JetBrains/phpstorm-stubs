@@ -2,6 +2,7 @@
 
 // Start of soap v.
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * The SoapClient class provides a client for SOAP 1.1, SOAP 1.2 servers. It can be used in WSDL
@@ -12,8 +13,8 @@ class SoapClient
 {
     /**
      * SoapClient constructor
-     * @link https://php.net/manual/en/soapclient.soapclient.php
-     * @param mixed $wsdl <p>
+     * @link https://php.net/manual/en/soapclient.construct.php
+     * @param string|null $wsdl <p>
      * URI of the WSDL file or <b>NULL</b> if working in
      * non-WSDL mode.
      * </p>
@@ -139,8 +140,8 @@ class SoapClient
 
     /**
      * SoapClient constructor
-     * @link https://php.net/manual/en/soapclient.soapclient.php
-     * @param mixed $wsdl <p>
+     * @link https://php.net/manual/en/soapclient.construct.php
+     * @param string|null $wsdl <p>
      * URI of the WSDL file or <b>NULL</b> if working in
      * non-WSDL mode.
      * </p>
@@ -388,14 +389,14 @@ class SoapClient
      * @param int $version <p>
      * The SOAP version.
      * </p>
-     * @param int $oneWay [optional] <p>
-     * If one_way is set to 1, this method returns nothing.
+     * @param bool|int $oneWay [optional] <p>
+     * If $oneWay is set to 1, this method returns nothing.
      * Use this where a response is not expected.
      * </p>
-     * @return string The XML SOAP response.
+     * @return string|null The XML SOAP response.
      * @since 5.0.1
      */
-    public function __doRequest($request, $location, $action, $version, $oneWay = false) {}
+    public function __doRequest($request, $location, $action, $version, #[LanguageLevelTypeAware(["8.0" => 'bool'], default: 'int')] $oneWay = false) {}
 
     /**
      * The __setCookie purpose
@@ -409,18 +410,18 @@ class SoapClient
      * @return void No value is returned.
      * @since 5.0.4
      */
-    public function __setCookie($name, $value = null) {}
+    public function __setCookie($name, #[LanguageLevelTypeAware(["8.0" => "?string"], default: "string")] $value) {}
 
     /**
      * Sets the location of the Web service to use
      * @link https://php.net/manual/en/soapclient.setlocation.php
-     * @param string|null $location [optional] <p>
+     * @param string $location [optional] <p>
      * The new endpoint URL.
      * </p>
-     * @return string The old endpoint URL.
+     * @return string|null The old endpoint URL.
      * @since 5.0.1
      */
-    public function __setLocation($location = null) {}
+    public function __setLocation($location = '') {}
 
     /**
      * Sets SOAP headers for subsequent calls
@@ -465,7 +466,7 @@ class SoapVar
      * </p>
      * @since 5.0.1
      */
-    public function __construct($data, $encoding, $typeName = '', $typeNamespace = '', $nodeName = '', $nodeNamespace = '') {}
+    public function __construct($data, #[LanguageLevelTypeAware(["7.1" => "?int"], default: "int")] $encoding, #[LanguageLevelTypeAware(["8.0" => "?string"], default: "string")] $typeName, $typeNamespace = '', $nodeName = '', $nodeNamespace = '') {}
 
     /**
      * SoapVar constructor
@@ -846,27 +847,27 @@ class SoapParam
  */
 class SoapHeader
 {
-     /**
-      * SoapHeader constructor
-      * @link https://www.php.net/manual/en/soapheader.construct.php
-      * @param string $namespace <p>
-      * The namespace of the SOAP header element.
-      * </p>
-      * @param string $name <p>
-      * The name of the SoapHeader object.
-      * </p>
-      * @param mixed $data [optional] <p>
-      * A SOAP header's content. It can be a PHP value or a
-      * <b>SoapVar</b> object.
-      * </p>
-      * @param bool $mustUnderstand [optional]
-      * @param string $actor [optional] <p>
-      * Value of the actor attribute of the SOAP header
-      * element.
-      * </p>
-      * @since 5.0.1
-      */
-     public function __construct($namespace, $name, $data = null, $mustUnderstand = false, $actor = null) {}
+    /**
+     * SoapHeader constructor
+     * @link https://www.php.net/manual/en/soapheader.construct.php
+     * @param string $namespace <p>
+     * The namespace of the SOAP header element.
+     * </p>
+     * @param string $name <p>
+     * The name of the SoapHeader object.
+     * </p>
+     * @param mixed $data [optional] <p>
+     * A SOAP header's content. It can be a PHP value or a
+     * <b>SoapVar</b> object.
+     * </p>
+     * @param bool $mustUnderstand [optional]
+     * @param string $actor [optional] <p>
+     * Value of the actor attribute of the SOAP header
+     * element.
+     * </p>
+     * @since 5.0.1
+     */
+    public function __construct($namespace, $name, $data = null, $mustUnderstand = false, $actor = null) {}
 
     /**
      * SoapHeader constructor
