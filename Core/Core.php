@@ -473,7 +473,7 @@ function interface_exists(string $interface, bool $autoload = true): bool {}
  * This function will return false for constructs, such as
  * <b>include_once</b> and <b>echo</b>.
  */
-#[Pure]
+#[Pure(true)]
 function function_exists(string $function): bool {}
 
 /**

@@ -649,7 +649,7 @@ function is_file(string $filename): bool {}
  * @return bool true if the filename exists and is a directory, false
  * otherwise.
  */
-#[Pure]
+#[Pure(true)]
 function is_dir(string $filename): bool {}
 
 /**
