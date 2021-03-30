@@ -221,7 +221,7 @@ function json_decode(string $json, ?bool $associative = false, int $depth = 512,
  *
  * </table>
  */
-#[Pure]
+#[Pure(true)]
 function json_last_error(): int {}
 
 /**
