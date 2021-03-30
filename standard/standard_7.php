@@ -333,7 +333,7 @@ function chroot(string $directory): bool {}
  * modes and permissions.
  * </p>
  */
-#[Pure]
+#[Pure(true)]
 function getcwd(): string|false {}
 
 /**
@@ -573,7 +573,7 @@ function filetype(string $filename): string|false {}
  * <p>
  * The check is done using the real UID/GID instead of the effective one.
  */
-#[Pure]
+#[Pure(true)]
 function file_exists(string $filename): bool {}
 
 /**
