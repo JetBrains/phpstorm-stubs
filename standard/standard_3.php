@@ -820,7 +820,7 @@ function sys_getloadavg(): array|false {}
  * </p>
  * @return string|float
  */
-#[Pure]
+#[Pure(true)]
 function microtime(#[TypeContract(true: "float", false: "string")] bool $as_float = false): string|float {}
 
 /**
