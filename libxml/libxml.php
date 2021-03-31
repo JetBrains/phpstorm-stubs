@@ -90,7 +90,7 @@ function libxml_use_internal_errors(?bool $use_errors = false): bool {}
  * @return LibXMLError|false a LibXMLError object if there is any error in the
  * buffer, <b>FALSE</b> otherwise.
  */
-#[Pure]
+#[Pure(true)]
 function libxml_get_last_error(): LibXMLError|false {}
 
 /**
@@ -106,7 +106,7 @@ function libxml_clear_errors(): void {}
  * @return LibXMLError[] an array with LibXMLError objects if there are any
  * errors in the buffer, or an empty array otherwise.
  */
-#[Pure]
+#[Pure(true)]
 function libxml_get_errors(): array {}
 
 /**

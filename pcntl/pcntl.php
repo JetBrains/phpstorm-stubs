@@ -297,7 +297,7 @@ function pcntl_alarm(int $seconds): int {}
  * @return int error code.
  * @since 5.3.4
  */
-#[Pure]
+#[Pure(true)]
 function pcntl_get_last_error(): int {}
 
 /**
@@ -306,7 +306,7 @@ function pcntl_get_last_error(): int {}
  * @return int error code.
  * @since 5.3.4
  */
-#[Pure]
+#[Pure(true)]
 function pcntl_errno(): int {}
 
 /**

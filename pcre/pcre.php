@@ -483,7 +483,7 @@ function preg_grep(string $pattern, array $array, int $flags = 0): array|false {
  * <b>PREG_BAD_UTF8_ERROR</b>
  * <b>PREG_BAD_UTF8_OFFSET_ERROR</b> (since PHP 5.3.0)
  */
-#[Pure]
+#[Pure(true)]
 function preg_last_error(): int {}
 
 /**
@@ -492,7 +492,7 @@ function preg_last_error(): int {}
  * @return string one of the error messages or "No error" if there is no error.
  * @since 8.0
  */
-#[Pure]
+#[Pure(true)]
 function preg_last_error_msg(): string {}
 
 /**

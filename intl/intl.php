@@ -3558,7 +3558,7 @@ function collator_get_locale(Collator $object, int $type = null): string|false {
  * @param Collator $object
  * @return int|false Error code returned by the last Collator API function call.
  */
-#[Pure]
+#[Pure(true)]
 function collator_get_error_code(Collator $object): int|false {}
 
 /**
@@ -3821,7 +3821,7 @@ function numfmt_get_locale(NumberFormatter $formatter, int $type = null): string
  * @param NumberFormatter $formatter
  * @return int error code from last formatter call.
  */
-#[Pure]
+#[Pure(true)]
 function numfmt_get_error_code(NumberFormatter $formatter): int {}
 
 /**
@@ -3831,7 +3831,7 @@ function numfmt_get_error_code(NumberFormatter $formatter): int {}
  * @param NumberFormatter $formatter
  * @return string error message from last formatter call.
  */
-#[Pure]
+#[Pure(true)]
 function numfmt_get_error_message(NumberFormatter $formatter): string {}
 
 /**
@@ -4242,7 +4242,7 @@ function msgfmt_get_locale(MessageFormatter $formatter): string {}
  * @param MessageFormatter $formatter
  * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
  */
-#[Pure]
+#[Pure(true)]
 function msgfmt_get_error_code(MessageFormatter $formatter): int {}
 
 /**
@@ -4252,7 +4252,7 @@ function msgfmt_get_error_code(MessageFormatter $formatter): int {}
  * @param MessageFormatter $formatter
  * @return string Description of the last error.
  */
-#[Pure]
+#[Pure(true)]
 function msgfmt_get_error_message(MessageFormatter $formatter): string {}
 
 /**
@@ -4568,7 +4568,7 @@ function datefmt_localtime(IntlDateFormatter $formatter, string $string, &$offse
  * @param IntlDateFormatter $formatter
  * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
  */
-#[Pure]
+#[Pure(true)]
 function datefmt_get_error_code(IntlDateFormatter $formatter): int {}
 
 /**
@@ -4578,7 +4578,7 @@ function datefmt_get_error_code(IntlDateFormatter $formatter): int {}
  * @param IntlDateFormatter $formatter
  * @return string Description of the last error.
  */
-#[Pure]
+#[Pure(true)]
 function datefmt_get_error_message(IntlDateFormatter $formatter): string {}
 
 /**
@@ -4913,7 +4913,7 @@ function intlcal_get_keyword_values_for_locale(string $keyword, string $locale, 
  * @return float A float representing a number of milliseconds since the epoch, not counting leap seconds.
  * @since 5.5
  */
-#[Pure]
+#[Pure(true)]
 function intlcal_get_now(): float {}
 
 /**
@@ -5729,7 +5729,7 @@ function intlcal_to_date_time(IntlCalendar $calendar): DateTime|false {}
  * @return int|false An ICU error code indicating either success, failure or a warning.
  * @since 5.5
  */
-#[Pure]
+#[Pure(true)]
 function intlcal_get_error_code(IntlCalendar $calendar): int|false {}
 
 /**
@@ -5742,7 +5742,7 @@ function intlcal_get_error_code(IntlCalendar $calendar): int|false {}
  * @return string|false The error message associated with last error that occurred in a function call on this object, or a string indicating the non-existance of an error.
  * @since 5.5
  */
-#[Pure]
+#[Pure(true)]
 function intlcal_get_error_message(IntlCalendar $calendar): string|false {}
 
 /**
@@ -5858,7 +5858,7 @@ function intltz_get_equivalent_id(string $timezoneId, int $offset): string|false
  * @return int|false
  * @since 5.5
  */
-#[Pure]
+#[Pure(true)]
 function intltz_get_error_code(IntlTimeZone $timezone): int|false {}
 
 /**
@@ -5871,7 +5871,7 @@ function intltz_get_error_code(IntlTimeZone $timezone): int|false {}
  * @return string|false
  * @since 5.5
  */
-#[Pure]
+#[Pure(true)]
 function intltz_get_error_message(IntlTimeZone $timezone): string|false {}
 
 /**
@@ -6063,7 +6063,7 @@ function resourcebundle_locales(string $bundle): array|false {}
  * @param $bundle
  * @return int error code from last bundle object call.
  */
-#[Pure]
+#[Pure(true)]
 function resourcebundle_get_error_code(ResourceBundle $bundle): int {}
 
 /**
@@ -6073,7 +6073,7 @@ function resourcebundle_get_error_code(ResourceBundle $bundle): int {}
  * @param $bundle
  * @return string error message from last bundle object's call.
  */
-#[Pure]
+#[Pure(true)]
 function resourcebundle_get_error_message(ResourceBundle $bundle): string {}
 
 /**
@@ -6172,7 +6172,7 @@ function transliterator_transliterate(Transliterator|string $transliterator, str
  * or <b>FALSE</b> if none exists, or on failure.
  * @since 5.4
  */
-#[Pure]
+#[Pure(true)]
 function transliterator_get_error_code(Transliterator $transliterator): int|false {}
 
 /**
@@ -6184,7 +6184,7 @@ function transliterator_get_error_code(Transliterator $transliterator): int|fals
  * or <b>FALSE</b> if none exists, or on failure.
  * @since 5.4
  */
-#[Pure]
+#[Pure(true)]
 function transliterator_get_error_message(Transliterator $transliterator): string|false {}
 
 /**
@@ -6193,7 +6193,7 @@ function transliterator_get_error_message(Transliterator $transliterator): strin
  * @link https://php.net/manual/en/function.intl-get-error-code.php
  * @return int Error code returned by the last API function call.
  */
-#[Pure]
+#[Pure(true)]
 function intl_get_error_code(): int {}
 
 /**
@@ -6202,7 +6202,7 @@ function intl_get_error_code(): int {}
  * @link https://php.net/manual/en/function.intl-get-error-message.php
  * @return string Description of an error occurred in the last API function call.
  */
-#[Pure]
+#[Pure(true)]
 function intl_get_error_message(): string {}
 
 /**

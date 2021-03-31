@@ -2295,7 +2295,7 @@ function curl_exec(#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "r
  * "starttransfer_time"
  * "redirect_time"
  */
-#[Pure]
+#[Pure(true)]
 function curl_getinfo(#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle, ?int $option): mixed {}
 
 /**
@@ -2305,7 +2305,7 @@ function curl_getinfo(#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default:
  * @return string the error message or '' (the empty string) if no
  * error occurred.
  */
-#[Pure]
+#[Pure(true)]
 function curl_error(#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle): string {}
 
 /**
@@ -2315,7 +2315,7 @@ function curl_error(#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "
  * @return int the error number or 0 (zero) if no error
  * occurred.
  */
-#[Pure]
+#[Pure(true)]
 function curl_errno(#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], default: "resource")] $handle): int {}
 
 /**
@@ -2532,7 +2532,7 @@ function curl_multi_close(#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"],
  * @return int
  * @since 7.1
  */
-#[Pure]
+#[Pure(true)]
 function curl_multi_errno(#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"], default: "resource")] $multi_handle): int {}
 
 /**
@@ -2541,7 +2541,7 @@ function curl_multi_errno(#[LanguageLevelTypeAware(["8.0" => "CurlMultiHandle"],
  * @return int
  * @since 7.1
  */
-#[Pure]
+#[Pure(true)]
 function curl_share_errno(#[LanguageLevelTypeAware(["8.0" => "CurlShareHandle"], default: "resource")] $share_handle): int {}
 
 /**
