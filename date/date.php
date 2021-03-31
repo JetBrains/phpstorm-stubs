@@ -989,7 +989,7 @@ function date_parse_from_format(string $format, string $datetime): array {}
     "error_count" => "int",
     "errors" => "string[]",
 ])]
-#[Pure]
+#[Pure(true)]
 function date_get_last_errors(): array|false {}
 
 /**

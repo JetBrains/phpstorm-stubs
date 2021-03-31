@@ -268,7 +268,7 @@ function posix_isatty($file_descriptor): bool {}
  * On error, returns <b>FALSE</b> and sets errno which can be checked with
  * <b>posix_get_last_error</b>.
  */
-#[Pure]
+#[Pure(true)]
 function posix_getcwd(): string|false {}
 
 /**
@@ -674,14 +674,14 @@ function posix_getrlimit(): array|false {}
  * @return int the errno (error number) set by the last posix function that
  * failed. If no errors exist, 0 is returned.
  */
-#[Pure]
+#[Pure(true)]
 function posix_get_last_error(): int {}
 
 /**
  * Alias of <b>posix_get_last_error</b>
  * @link https://php.net/manual/en/function.posix-errno.php
  */
-#[Pure]
+#[Pure(true)]
 function posix_errno(): int {}
 
 /**
