@@ -347,7 +347,7 @@ function define(string $constant_name, $value, #[Deprecated] bool $case_insensit
  * @return bool true if the named constant given by <i>name</i>
  * has been defined, false otherwise.
  */
-#[Pure]
+#[Pure(true)]
 function defined(string $constant_name): bool {}
 
 /**
