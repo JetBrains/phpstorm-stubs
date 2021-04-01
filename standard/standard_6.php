@@ -1137,7 +1137,7 @@ function socket_get_status($stream): array {}
  * the file does not exist.
  * </p>
  */
-#[Pure]
+#[Pure(true)]
 function realpath(string $path): string|false {}
 
 /**
