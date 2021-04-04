@@ -35,10 +35,10 @@ class XMLWriter
 
     /**
      * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
-     * Toggle indentation on/off
-     * @link https://php.net/manual/en/function.xmlwriter-set-indent.php
-     * @param bool $enable <p>
-     * Whether indentation is enabled.
+     * Toggle indentation on/off.
+     * @link https://www.php.net/manual/en/xmlwriter.setindent.php
+     * @param bool|int $enable <p>
+     * Whether indentation is enabled or number of indent strings
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
@@ -46,8 +46,8 @@ class XMLWriter
 
     /**
      * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
-     * Set string used for indenting
-     * @link https://php.net/manual/en/function.xmlwriter-set-indent-string.php
+     * Set string used for indenting.
+     * @link https://www.php.net/manual/en/xmlwriter.setindentstring.php
      * @param string $indentation <p>
      * The indentation string.
      * </p>
