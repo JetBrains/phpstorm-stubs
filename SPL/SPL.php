@@ -4,7 +4,7 @@
 
 /**
  * Exception that represents error in the program logic. This kind of
- * exceptions should directly lead to a fix in your code.
+ * exception should lead directly to a fix in your code.
  * @link https://php.net/manual/en/class.logicexception.php
  */
 class LogicException extends Exception {}
@@ -30,7 +30,7 @@ class BadMethodCallException extends BadFunctionCallException {}
 class DomainException extends LogicException {}
 
 /**
- * Exception thrown if an argument does not match with the expected value.
+ * Exception thrown if an argument is not of the expected type.
  * @link https://php.net/manual/en/class.invalidargumentexception.php
  */
 class InvalidArgumentException extends LogicException {}
@@ -62,7 +62,7 @@ class RuntimeException extends Exception {}
 class OutOfBoundsException extends RuntimeException {}
 
 /**
- * Exception thrown when you add an element into a full container.
+ * Exception thrown when adding an element to a full container.
  * @link https://php.net/manual/en/class.overflowexception.php
  */
 class OverflowException extends RuntimeException {}
@@ -77,7 +77,7 @@ class OverflowException extends RuntimeException {}
 class RangeException extends RuntimeException {}
 
 /**
- * Exception thrown when you try to remove an element of an empty container.
+ * Exception thrown when performing an invalid operation on an empty container, such as removing an element.
  * @link https://php.net/manual/en/class.underflowexception.php
  */
 class UnderflowException extends RuntimeException {}
