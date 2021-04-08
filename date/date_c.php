@@ -377,69 +377,18 @@ class DateTimeImmutable implements DateTimeInterface
  */
 class DateTime implements DateTimeInterface
 {
-    /**
-     * @removed 7.2
-     */
     public const ATOM = 'Y-m-d\TH:i:sP';
-
-    /**
-     * @removed 7.2
-     */
     public const COOKIE = 'l, d-M-Y H:i:s T';
-
-    /**
-     * @removed 7.2
-     */
     public const ISO8601 = 'Y-m-d\TH:i:sO';
-
-    /**
-     * @removed 7.2
-     */
     public const RFC822 = 'D, d M y H:i:s O';
-
-    /**
-     * @removed 7.2
-     */
     public const RFC850 = 'l, d-M-y H:i:s T';
-
-    /**
-     * @removed 7.2
-     */
     public const RFC1036 = 'D, d M y H:i:s O';
-
-    /**
-     * @removed 7.2
-     */
     public const RFC1123 = 'D, d M Y H:i:s O';
-
-    /**
-     * @removed 7.2
-     */
     public const RFC2822 = 'D, d M Y H:i:s O';
-
-    /**
-     * @removed 7.2
-     */
     public const RFC3339 = 'Y-m-d\TH:i:sP';
-
-    /**
-     * @removed 7.2
-     */
     public const RFC3339_EXTENDED = 'Y-m-d\TH:i:s.vP';
-
-    /**
-     * @removed 7.2
-     */
     public const RFC7231 = 'D, d M Y H:i:s \G\M\T';
-
-    /**
-     * @removed 7.2
-     */
     public const RSS = 'D, d M Y H:i:s O';
-
-    /**
-     * @removed 7.2
-     */
     public const W3C = 'Y-m-d\TH:i:sP';
 
     /**
