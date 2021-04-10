@@ -189,9 +189,9 @@ function xdebug_break(): bool {}
  * Use the PHP function getcwd() to figure out what the current working directory is.
  * @param string|null $traceFile
  * @param int $options
- * @return string
+ * @return string|null
  */
-function xdebug_start_trace(?string $traceFile = null, int $options = 0): string {}
+function xdebug_start_trace(?string $traceFile = null, int $options = 0): ?string {}
 
 /**
  * Stop tracing function calls and closes the trace file.
