@@ -50,7 +50,7 @@ class gnupg
      * Verifies a signed text
      * @link https://php.net/manual/en/function.gnupg-verify.php
      *
-     * * @param string $signed_text
+     * @param string $signed_text
      * @param string $signature
      * @param string &$plaintext
      *

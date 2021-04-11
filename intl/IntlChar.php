@@ -858,7 +858,7 @@ class IntlChar
      * @link https://php.net/manual/en/intlchar.enumcharnames.php
      * @param int|string $start The first code point in the enumeration range.
      * @param int|string $end One more than the last code point in the enumeration range (the first one after the range).
-     * @param callable $callback<p>
+     * @param callable $callback <p>
      * The function that is to be called for each character name.  The following three arguments will be passed into it:
      * </p><ul>
      * <li>integer <em>$codepoint</em> - The numeric code point value</li>

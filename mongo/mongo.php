@@ -813,7 +813,7 @@ class MongoDB
      * @link https://php.net/manual/en/mongodb.setwriteconcern.php
      * Set the write concern for this database
      * @param mixed $w <p>The write concern. This may be an integer denoting the number of servers required to acknowledge the write, or a string mode (e.g. "majority").</p>
-     * @param int $wtimeout[optional] <p>The maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
+     * @param int $wtimeout [optional] <p>The maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
      * @return bool Returns <b>TRUE</b> on success, or <b>FALSE</b> otherwise.
      */
     public function setWriteConcern($w, $wtimeout) {}
