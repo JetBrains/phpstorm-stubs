@@ -1954,9 +1954,9 @@ function ocilogoff($connection_resource) {}
  * @link https://php.net/manual/en/function.ocilogon.php
  * @param string $username
  * @param string $password
- * @param string $connection_string[optional]
- * @param string $character_set[optional]
- * @param int $session_mode[optional]
+ * @param string $connection_string [optional]
+ * @param string $character_set [optional]
+ * @param int $session_mode [optional]
  * @return resource|false Returns a connection identifier or FALSE on error.
  */
 function ocilogon($username, $password, $connection_string, $character_set, $session_mode) {}

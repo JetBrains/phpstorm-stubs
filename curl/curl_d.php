@@ -511,7 +511,7 @@ define('CURL_SSLVERSION_TLSv1_2', 6);
  * If it hasn't been modified, a "304 Not Modified" header will be returned assuming <b>CURLOPT_HEADER</b> is <b>TRUE</b>.
  * Use <b>CURL_TIMECOND_IFUNMODSINCE</b> for the reverse effect.
  * <b>CURL_TIMECOND_IFMODSINCE</b> is the default.
- * * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
  */
 define('CURLOPT_TIMECONDITION', 33);
 /**

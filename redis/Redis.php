@@ -458,7 +458,7 @@ class Redis
      *
      * @see     setex()
      * @param   string       $key
-     * @param   int          $ttl, in milliseconds.
+     * @param   int          $ttl in milliseconds.
      * @param   string|mixed $value
      *
      * @return bool TRUE if the command is successful
@@ -681,7 +681,7 @@ class Redis
      * @param array        $patterns   an array of glob-style patterns to subscribe
      * @param string|array $callback   Either a string or an array with an object and method.
      *                     The callback will get four arguments ($redis, $pattern, $channel, $message)
-     * @param mixed        Any non-null return value in the callback will be returned to the caller
+     * @return mixed       Any non-null return value in the callback will be returned to the caller
      *
      * @link    https://redis.io/commands/psubscribe
      * @example

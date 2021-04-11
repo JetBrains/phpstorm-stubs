@@ -811,6 +811,8 @@ final class EvPeriodic extends EvWatcher
      * Simply stops and restarts the periodic watcher again.
      *
      * Simply stops and restarts the periodic watcher again. This is only useful when attributes are changed.
+     *
+     * @return void
      */
     public function again() {}
 
@@ -852,6 +854,7 @@ final class EvPeriodic extends EvWatcher
      * Configures the watcher
      * @param float $offset The same meaning as for {@see EvPeriodic::__construct}
      * @param float $interval The same meaning as for {@see EvPeriodic::__construct}
+     * @param null|callable $reschedule_cb The same meaning as for {@see EvPeriodic::__construct}
      * @return void
      */
     public function set($offset, $interval, $reschedule_cb = null) {}
@@ -1409,6 +1412,7 @@ final class EvLoop
      *
      * @param float $offset
      * @param float $interval
+     * @param callable $reschedule_cb
      * @param callable $callback
      * @param mixed $data
      * @param int $priority

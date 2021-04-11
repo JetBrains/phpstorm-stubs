@@ -404,7 +404,7 @@ function wincache_ucache_meminfo() {}
  * is case sensitive. key can also take array of name =&gt; value pairs where
  * names will be used as keys. This can be used to add multiple values in the
  * cache in one operation, thus avoiding race condition.</p>
- * @param mixed $value<p>
+ * @param mixed $value <p>
  * Value of a variable to store. Value supports all data types except resources,
  * such as file handles. This parameter is ignored if first argument is an array.
  * A general guidance is to pass NULL as value while using array as key.</p>

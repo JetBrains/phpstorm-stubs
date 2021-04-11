@@ -838,16 +838,12 @@ class PDFlib
      */
     public function get_errnum() {}
     /**
-     * @param void $
-     *
      * @return int
      *
      * @link https://secure.php.net/manual/en/function.pdf-get-majorversion.php(dep)
      */
     public function get_majorversion() {}
     /**
-     * @param void $
-     *
      * @return int
      *
      * @link https://secure.php.net/manual/en/function.pdf-get-minorversion.php(dep)
@@ -1638,7 +1634,7 @@ class PDFlib
 
 /**
  * Activates a previously created structure element or other content item.
- * @param resource $pdfdoc
+ * @param resource $pdf The pDF doc
  * @param int $id
  *
  * @return bool
@@ -2385,7 +2381,7 @@ function PDF_end_layer($pdf) {}
 function PDF_end_page_ext($pdf, $optlist) {}
 
 /**
- * @param resource $pdf
+ * @param resource $p The PDF doc
  *
  * @return bool
  *
@@ -2394,7 +2390,7 @@ function PDF_end_page_ext($pdf, $optlist) {}
 function PDF_end_page($p) {}
 
 /**
- * @param resource $pdf
+ * @param resource $p The PDF doc
  *
  * @return bool
  *
@@ -2403,7 +2399,7 @@ function PDF_end_page($p) {}
 function PDF_end_pattern($p) {}
 
 /**
- * @param resource $pdf
+ * @param resource $p The PDF doc
  *
  * @return bool
  *
@@ -2412,7 +2408,7 @@ function PDF_end_pattern($p) {}
 function PDF_end_template($p) {}
 
 /**
- * @param resource $pdf
+ * @param resource $p The PDF doc
  *
  * @return bool
  *
@@ -2584,16 +2580,12 @@ function PDF_get_errmsg($pdf) {}
  */
 function PDF_get_errnum($pdf) {}
 /**
- * @param void $
- *
  * @return int
  *
  * @link https://secure.php.net/manual/en/function.pdf-get-majorversion.php(dep)
  */
 function PDF_get_majorversion() {}
 /**
- * @param void $
- *
  * @return int
  *
  * @link https://secure.php.net/manual/en/function.pdf-get-minorversion.php(dep)
@@ -2980,7 +2972,7 @@ function PDF_process_pdi($pdf, $doc, $page, $optlist) {}
 function PDF_rect($pdf, $x, $y, $width, $height) {}
 
 /**
- * @param resource $pdf
+ * @param resource $p The PDF doc
  *
  * @return bool
  *
@@ -3009,7 +3001,7 @@ function PDF_resume_page($pdf, $optlist) {}
 function PDF_rotate($pdf, $phi) {}
 
 /**
- * @param resource $pdf
+ * @param resource $p The PDF doc
  *
  * @return bool
  *
@@ -3407,7 +3399,7 @@ function PDF_skew($pdf, $alpha, $beta) {}
 function PDF_stringwidth($pdf, $text, $font, $fontsize) {}
 
 /**
- * @param resource $pdf
+ * @param resource $p The PDF doc
  *
  * @return bool
  *

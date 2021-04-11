@@ -624,6 +624,7 @@ class Yaf_Loader
      * @link https://secure.php.net/manual/en/yaf-loader.registerlocalnamespace.php
      *
      * @param string|string[] $namespace a string or a array of class name prefix. all class prefix with these prefix will be loaded in local library path.
+     * @param string $path
      *
      * @return bool
      */
@@ -1543,28 +1544,31 @@ abstract class Yaf_Request_Abstract
      * @link https://secure.php.net/manual/en/yaf-request-abstract.setmodulename.php
      *
      * @param string $module
+     * @param bool $format_name
      *
      * @return Yaf_Request_Abstract|bool
      */
-    public function setModuleName($module, $format_name = null) {}
+    public function setModuleName($module, $format_name = true) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.setcontrollername.php
      *
      * @param string $controller
+     * @param bool $format_name
      *
      * @return Yaf_Request_Abstract|bool
      */
-    public function setControllerName($controller, $format_name = null) {}
+    public function setControllerName($controller, $format_name = true) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.setactionname.php
      *
      * @param string $action
+     * @param bool $format_name
      *
      * @return Yaf_Request_Abstract|bool
      */
-    public function setActionName($action, $format_name = null) {}
+    public function setActionName($action, $format_name = true) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.getmethod.php
@@ -2246,6 +2250,7 @@ class Yaf_Request_Simple extends Yaf_Request_Abstract
      * @link https://secure.php.net/manual/en/yaf-request-simple.construct.php
      *
      * @param string $method
+     * @param string $module
      * @param string $controller
      * @param string $action
      * @param array $params
