@@ -1144,7 +1144,7 @@ define('CURL_VERSION_LIBZ', 8);
  * Will be the most recent age value for the libcurl.
  * @link https://php.net/manual/en/curl.constants.php
  */
-define('CURLVERSION_NOW', 7);
+define('CURLVERSION_NOW', 8);
 /**
  * All fine. Proceed as usual.
  * @link https://php.net/manual/en/curl.constants.php
@@ -2973,7 +2973,7 @@ define("CURLE_SSL_PINNEDPUBKEYNOTMATCH", 90);
 /**
  * @link https://php.net/manual/en/curl.constants.php
  */
-define("CURLINFO_LASTONE", 59);
+define("CURLINFO_LASTONE", 60);
 /**
  * An easy handle already added to a multi handle was attempted to get added a second time.
  * @link https://www.php.net/manual/en/function.curl-multi-exec.php
