@@ -651,7 +651,7 @@ function ucwords(string $string, string $separators = " \t\r\n\f\v"): string {}
  * <br/>
  * Or string for from in the form string. Parameter to is required and is a string.
  * </p>
- * @param ?string $to <p>
+ * @param string|null $to <p>
  * The string being translated to to.
  * </p>
  * @return string This function returns a copy of str,
