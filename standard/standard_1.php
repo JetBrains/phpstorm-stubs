@@ -645,10 +645,13 @@ function ucwords(string $string, string $separators = " \t\r\n\f\v"): string {}
  * @param string $string <p>
  * The string being translated.
  * </p>
- * @param string $from <p>
- * The string replacing from.
+ * @param array|string $replace_pairs <p>
+ * The replace_pairs parameter may be used as a substitute for to and from in which case it's an array in the form array('from_str' => 'to_str', ...).
+ * Parameter to needs to be null.
+ * <br/>
+ * Or string for from in the form string. Parameter to is required and is a string.
  * </p>
- * @param string $to <p>
+ * @param ?string $to <p>
  * The string being translated to to.
  * </p>
  * @return string This function returns a copy of str,
@@ -657,17 +660,7 @@ function ucwords(string $string, string $separators = " \t\r\n\f\v"): string {}
  * to.
  */
 #[Pure]
-function strtr(string $string, string $from, string $to): string {}
-
-/**
- * Translate certain characters
- * @link https://php.net/manual/en/function.strtr.php
- * @param string $str The string being translated.
- * @param array $replace_pairs The replace_pairs parameter may be used as a substitute for to and from in which case it's an array in the form array('from' => 'to', ...).
- * @return string A copy of str, translating all occurrences of each character in from to the corresponding character in to.
- */
-#[Pure]
-function strtr(string $str, array $replace_pairs): string {}
+function strtr(string $string, array|string $replace_pairs, ?string $to = null): string {}
 
 /**
  * Quote string with slashes
