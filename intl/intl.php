@@ -435,49 +435,49 @@ class NumberFormatter
 
     /**
      * Decimal format defined by pattern
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const PATTERN_DECIMAL = 0;
 
     /**
      * Decimal format
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const DECIMAL = 1;
 
     /**
      * Currency format
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const CURRENCY = 2;
 
     /**
      * Percent format
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const PERCENT = 3;
 
     /**
      * Scientific format
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const SCIENTIFIC = 4;
 
     /**
      * Spellout rule-based format
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const SPELLOUT = 5;
 
     /**
      * Ordinal rule-based format
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const ORDINAL = 6;
 
     /**
      * Duration rule-based format
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const DURATION = 7;
 
@@ -489,37 +489,37 @@ class NumberFormatter
 
     /**
      * Alias for PATTERN_DECIMAL
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const IGNORE = 0;
 
     /**
      * Default format for the locale
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const DEFAULT_STYLE = 1;
 
     /**
      * Rounding mode to round towards positive infinity.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const ROUND_CEILING = 0;
 
     /**
      * Rounding mode to round towards negative infinity.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const ROUND_FLOOR = 1;
 
     /**
      * Rounding mode to round towards zero.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const ROUND_DOWN = 2;
 
     /**
      * Rounding mode to round away from zero.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const ROUND_UP = 3;
 
@@ -527,209 +527,209 @@ class NumberFormatter
      * Rounding mode to round towards the "nearest neighbor" unless both
      * neighbors are equidistant, in which case, round towards the even
      * neighbor.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const ROUND_HALFEVEN = 4;
 
     /**
      * Rounding mode to round towards "nearest neighbor" unless both neighbors
      * are equidistant, in which case round down.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const ROUND_HALFDOWN = 5;
 
     /**
      * Rounding mode to round towards "nearest neighbor" unless both neighbors
      * are equidistant, in which case round up.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const ROUND_HALFUP = 6;
 
     /**
      * Pad characters inserted before the prefix.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const PAD_BEFORE_PREFIX = 0;
 
     /**
      * Pad characters inserted after the prefix.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const PAD_AFTER_PREFIX = 1;
 
     /**
      * Pad characters inserted before the suffix.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const PAD_BEFORE_SUFFIX = 2;
 
     /**
      * Pad characters inserted after the suffix.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const PAD_AFTER_SUFFIX = 3;
 
     /**
      * Parse integers only.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const PARSE_INT_ONLY = 0;
 
     /**
      * Use grouping separator.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const GROUPING_USED = 1;
 
     /**
      * Always show decimal point.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const DECIMAL_ALWAYS_SHOWN = 2;
 
     /**
      * Maximum integer digits.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const MAX_INTEGER_DIGITS = 3;
 
     /**
      * Minimum integer digits.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const MIN_INTEGER_DIGITS = 4;
 
     /**
      * Integer digits.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const INTEGER_DIGITS = 5;
 
     /**
      * Maximum fraction digits.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const MAX_FRACTION_DIGITS = 6;
 
     /**
      * Minimum fraction digits.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const MIN_FRACTION_DIGITS = 7;
 
     /**
      * Fraction digits.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const FRACTION_DIGITS = 8;
 
     /**
      * Multiplier.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const MULTIPLIER = 9;
 
     /**
      * Grouping size.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const GROUPING_SIZE = 10;
 
     /**
      * Rounding Mode.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const ROUNDING_MODE = 11;
 
     /**
      * Rounding increment.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const ROUNDING_INCREMENT = 12;
 
     /**
      * The width to which the output of format() is padded.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const FORMAT_WIDTH = 13;
 
     /**
      * The position at which padding will take place. See pad position
      * constants for possible argument values.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const PADDING_POSITION = 14;
 
     /**
      * Secondary grouping size.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const SECONDARY_GROUPING_SIZE = 15;
 
     /**
      * Use significant digits.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const SIGNIFICANT_DIGITS_USED = 16;
 
     /**
      * Minimum significant digits.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const MIN_SIGNIFICANT_DIGITS = 17;
 
     /**
      * Maximum significant digits.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const MAX_SIGNIFICANT_DIGITS = 18;
 
     /**
      * Lenient parse mode used by rule-based formats.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const LENIENT_PARSE = 19;
 
     /**
      * Positive prefix.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const POSITIVE_PREFIX = 0;
 
     /**
      * Positive suffix.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const POSITIVE_SUFFIX = 1;
 
     /**
      * Negative prefix.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const NEGATIVE_PREFIX = 2;
 
     /**
      * Negative suffix.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const NEGATIVE_SUFFIX = 3;
 
     /**
      * The character used to pad to the format width.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const PADDING_CHARACTER = 4;
 
     /**
      * The ISO currency code.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const CURRENCY_CODE = 5;
 
     /**
      * The default rule set. This is only available with rule-based
      * formatters.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const DEFAULT_RULESET = 6;
 
@@ -738,145 +738,145 @@ class NumberFormatter
      * formatters. This is a read-only attribute. The public rulesets are
      * returned as a single string, with each ruleset name delimited by ';'
      * (semicolon).
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const PUBLIC_RULESETS = 7;
 
     /**
      * The decimal separator.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const DECIMAL_SEPARATOR_SYMBOL = 0;
 
     /**
      * The grouping separator.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const GROUPING_SEPARATOR_SYMBOL = 1;
 
     /**
      * The pattern separator.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const PATTERN_SEPARATOR_SYMBOL = 2;
 
     /**
      * The percent sign.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const PERCENT_SYMBOL = 3;
 
     /**
      * Zero.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const ZERO_DIGIT_SYMBOL = 4;
 
     /**
      * Character representing a digit in the pattern.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const DIGIT_SYMBOL = 5;
 
     /**
      * The minus sign.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const MINUS_SIGN_SYMBOL = 6;
 
     /**
      * The plus sign.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const PLUS_SIGN_SYMBOL = 7;
 
     /**
      * The currency symbol.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const CURRENCY_SYMBOL = 8;
 
     /**
      * The international currency symbol.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const INTL_CURRENCY_SYMBOL = 9;
 
     /**
      * The monetary separator.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const MONETARY_SEPARATOR_SYMBOL = 10;
 
     /**
      * The exponential symbol.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const EXPONENTIAL_SYMBOL = 11;
 
     /**
      * Per mill symbol.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const PERMILL_SYMBOL = 12;
 
     /**
      * Escape padding character.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const PAD_ESCAPE_SYMBOL = 13;
 
     /**
      * Infinity symbol.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const INFINITY_SYMBOL = 14;
 
     /**
      * Not-a-number symbol.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const NAN_SYMBOL = 15;
 
     /**
      * Significant digit symbol.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const SIGNIFICANT_DIGIT_SYMBOL = 16;
 
     /**
      * The monetary grouping separator.
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const MONETARY_GROUPING_SEPARATOR_SYMBOL = 17;
 
     /**
      * Derive the type from variable type
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const TYPE_DEFAULT = 0;
 
     /**
      * Format/parse as 32-bit integer
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const TYPE_INT32 = 1;
 
     /**
      * Format/parse as 64-bit integer
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const TYPE_INT64 = 2;
 
     /**
      * Format/parse as floating point value
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const TYPE_DOUBLE = 3;
 
     /**
      * Format/parse as currency value
-     * @link https://php.net/manual/en/class.locale.php#intl.locale-constants
+     * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     public const TYPE_CURRENCY = 4;
 
