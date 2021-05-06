@@ -11,16 +11,19 @@ use stdClass;
 
 class PHPClass extends BasePHPClass
 {
-    public false|string|null $parentClass = null;
-    public array $interfaces = [];
+    /**
+     * @var false|string|null
+     */
+    public $parentClass = null;
+    public $interfaces = [];
     /** @var PHPProperty[] */
-    public array $properties = [];
+    public $properties = [];
 
     /**
      * @param ReflectionClass $reflectionObject
      * @return static
      */
-    public function readObjectFromReflection($reflectionObject): static
+    public function readObjectFromReflection($reflectionObject)
     {
         $this->name = $reflectionObject->getName();
         $parent = $reflectionObject->getParentClass();
@@ -56,7 +59,7 @@ class PHPClass extends BasePHPClass
      * @param Class_ $node
      * @return static
      */
-    public function readObjectFromStubNode($node): static
+    public function readObjectFromStubNode($node)
     {
         $this->name = self::getFQN($node);
         $this->isFinal = $node->isFinal();
@@ -109,18 +112,26 @@ class PHPClass extends BasePHPClass
         return $this;
     }
 
-    public function readMutedProblems(stdClass|array $jsonData): void
+    /**
+     * @param stdClass|array $jsonData
+     */
+    public function readMutedProblems($jsonData): void
     {
         foreach ($jsonData as $class) {
             if ($class->name === $this->name) {
                 if (!empty($class->problems)) {
                     foreach ($class->problems as $problem) {
-                        $this->mutedProblems[] = match ($problem) {
-                            'wrong parent' => StubProblemType::WRONG_PARENT,
-                            'wrong interface' => StubProblemType::WRONG_INTERFACE,
-                            'missing class' => StubProblemType::STUB_IS_MISSED,
-                            default => -1,
-                        };
+                        switch ($problem->description){
+                            case 'wrong parent':
+                                $this->mutedProblems[StubProblemType::WRONG_PARENT] = $problem->versions;
+                                break;
+                            case 'wrong interface':
+                                $this->mutedProblems[StubProblemType::WRONG_INTERFACE] = $problem->versions;
+                                break;
+                            case 'missing class':
+                                $this->mutedProblems[StubProblemType::STUB_IS_MISSED] = $problem->versions;
+                                break;
+                        }
                     }
                 }
                 if (!empty($class->methods)) {

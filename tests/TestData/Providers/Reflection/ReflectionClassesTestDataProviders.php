@@ -5,7 +5,6 @@ namespace StubTests\TestData\Providers\Reflection;
 
 use Generator;
 use StubTests\Model\PHPClass;
-use StubTests\Model\PHPInterface;
 use StubTests\Model\StubProblemType;
 use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\ReflectionStubsSingleton;
@@ -28,7 +27,9 @@ class ReflectionClassesTestDataProviders
     {
         foreach (EntitiesFilter::getFiltered(
             ReflectionStubsSingleton::getReflectionStubs()->getClasses(),
-            fn (PHPClass $class) => empty($class->interfaces),
+            function (PHPClass $class) {
+                return empty($class->interfaces);
+            },
             StubProblemType::WRONG_INTERFACE
         ) as $class) {
             //exclude classes from PHPReflectionParser
@@ -44,7 +45,9 @@ class ReflectionClassesTestDataProviders
             ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
         $filtered = EntitiesFilter::getFiltered(
             $classesAndInterfaces,
-            fn (PHPClass|PHPInterface $class) => empty($class->parentInterfaces) && empty($class->parentClass),
+            function ($class) {
+                return empty($class->parentInterfaces) && empty($class->parentClass);
+            },
             StubProblemType::WRONG_PARENT
         );
         foreach ($filtered as $class) {
