@@ -2,6 +2,7 @@
 
 // Start of sqlite3 v.0.7-dev
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
  * A class that interfaces SQLite 3 databases.
@@ -283,7 +284,13 @@ class SQLite3
      * <p>Either <b>SQLITE3_OPEN_READONLY</b> or <b>SQLITE3_OPEN_READWRITE</b> to open the stream for reading only, or for reading and writing, respectively.</p>
      * @return resource|false Returns a stream resource, or FALSE on failure.
      */
-    public function openBlob($table, $column, $rowid, $database = 'main', int $flags = SQLITE3_OPEN_READONLY) {}
+    public function openBlob(
+        $table,
+        $column,
+        $rowid,
+        $database = 'main',
+        #[PhpStormStubsElementAvailable(from: '7.2')] int $flags = SQLITE3_OPEN_READONLY
+    ) {}
 
     /**
      * Enable throwing exceptions
@@ -438,7 +445,7 @@ class SQLite3Stmt
      * @param SQLite3 $sqlite3
      * @param string $query
      */
-    private function __construct($sqlite3, $query) {}
+    private function __construct($sqlite3, #[PhpStormStubsElementAvailable(from: '8.0')] $query) {}
 
     /**
      * Retrieves the SQL of the prepared statement. If expanded is FALSE, the unmodified SQL is retrieved.

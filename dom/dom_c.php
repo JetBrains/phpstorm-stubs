@@ -2,6 +2,7 @@
 
 //20120405 AG synced to official docs
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
@@ -274,13 +275,24 @@ class DOMNode
     /**
      * Gets the namespace URI of the node based on the prefix
      * @link https://php.net/manual/en/domnode.lookupnamespaceuri.php
+     * @param string|null $prefix <p>
+     * The prefix of the namespace.
+     * </p>
+     * @return string The namespace URI of the node.
+     */
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    public function lookupNamespaceURI(?string $prefix) {}
+
+    /**
+     * Gets the namespace URI of the node based on the prefix
+     * @link https://php.net/manual/en/domnode.lookupnamespaceuri.php
      * @param string $prefix <p>
      * The prefix of the namespace.
      * </p>
      * @return string The namespace URI of the node.
      */
-    public function lookupNamespaceURI($prefix) {}
-
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    public function lookupNamespaceUri($prefix) {}
     /**
      * @param DOMNode $arg
      * @return bool
@@ -2115,7 +2127,7 @@ class DOMXPath
      * @param DOMDocument $document The <classname>DOMDocument</classname> associated with the <classname>DOMXPath</classname>.
      * @param bool $registerNodeNS [optional] allow global flag to configure query() or evaluate() calls. Since 8.0.
      */
-    public function __construct(DOMDocument $document, $registerNodeNS = true) {}
+    public function __construct(DOMDocument $document, #[PhpStormStubsElementAvailable(from: '8.0')] $registerNodeNS = true) {}
 
     /**
      * Registers the namespace with the <classname>DOMXPath</classname> object

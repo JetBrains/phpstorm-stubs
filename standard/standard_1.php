@@ -3,6 +3,7 @@
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -1092,7 +1093,7 @@ function join(array|string $separator = "", ?array $array): string {}
  * on the system that PHP is running. It returns exactly
  * what the system setlocale function returns.</p>
  */
-function setlocale(int $category, array|string|int $locales, ...$rest): string|false {}
+function setlocale(int $category, array|string|int $locales, #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest): string|false {}
 
 /**
  * Get numeric formatting information

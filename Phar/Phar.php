@@ -3,6 +3,7 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
  * The PharException class provides a phar-specific exception class
@@ -271,7 +272,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return int The number of files contained within this phar, or 0 (the number zero)
      * if none.
      */
-    public function count($mode = COUNT_NORMAL) {}
+    public function count(#[PhpStormStubsElementAvailable(from: '8.0')] $mode = COUNT_NORMAL) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -327,7 +328,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return mixed any PHP variable that can be serialized and is stored as meta-data for the Phar archive,
      * or <b>NULL</b> if no meta-data is stored.
      */
-    public function getMetadata(array $unserializeOptions = []) {}
+    public function getMetadata(#[PhpStormStubsElementAvailable(from: '8.0')] array $unserializeOptions = []) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
@@ -1107,7 +1108,7 @@ class PharFileInfo extends SplFileInfo
      * @return mixed any PHP variable that can be serialized and is stored as meta-data for the file,
      * or <b>NULL</b> if no meta-data is stored.
      */
-    public function getMetadata(array $unserializeOptions = []) {}
+    public function getMetadata(#[PhpStormStubsElementAvailable(from: '8.0')] array $unserializeOptions = []) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>

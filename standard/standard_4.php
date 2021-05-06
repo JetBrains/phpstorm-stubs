@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
@@ -90,7 +91,7 @@ function call_user_method_array(string $method_name, object &$obj, array $params
  * </p>
  * @return mixed|false the function result, or false on error.
  */
-function forward_static_call(callable $callback, ...$args): mixed {}
+function forward_static_call(callable $callback, mixed ...$args): mixed {}
 
 /**
  * Call a static method and pass the arguments as array
@@ -186,7 +187,7 @@ function unserialize(string $data, array $options = []): mixed {}
  * @param mixed ...$values [optional]
  * @return void
  */
-function var_dump(mixed $value, ...$values): void {}
+function var_dump(mixed $value, #[PhpStormStubsElementAvailable(from: '8.0')] mixed ...$values): void {}
 
 /**
  * Outputs or returns a parsable string representation of a variable
@@ -213,7 +214,7 @@ function var_export(mixed $value, bool $return = false): ?string {}
  * </p>
  * @return void
  */
-function debug_zval_dump(mixed $value, mixed ...$values): void {}
+function debug_zval_dump(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, mixed ...$values): void {}
 
 /**
  * Prints human-readable information about a variable
@@ -283,7 +284,7 @@ function memory_get_peak_usage(bool $real_usage = false): int {}
  * </p>
  * @return bool|null
  */
-function register_shutdown_function(callable $callback, ...$args): ?bool {}
+function register_shutdown_function(callable $callback, mixed ...$args): ?bool {}
 
 /**
  * Register a function for execution on each tick
@@ -296,7 +297,7 @@ function register_shutdown_function(callable $callback, ...$args): ?bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function register_tick_function(callable $callback, ...$args): bool {}
+function register_tick_function(callable $callback, mixed ...$args): bool {}
 
 /**
  * De-register a function for execution on each tick
