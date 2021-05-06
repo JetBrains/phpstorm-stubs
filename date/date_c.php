@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
@@ -898,7 +899,7 @@ class DatePeriod implements IteratorAggregate
      */
     public function getStartDate() {}
 
-    public static function __set_state($array) {}
+    public static function __set_state(#[PhpStormStubsElementAvailable(from: '7.3')] $array) {}
 
     public function __wakeup() {}
 

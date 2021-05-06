@@ -2,11 +2,19 @@
 
 // Start of fileinfo v.1.0.5
 
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 class finfo
 {
+    /**
+     * @param $options [optional]
+     * @param $arg [optional]
+     */
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')]
+    public function finfo($options, $arg) {}
+
     /**
      * @param int $flags [optional]
      * @param string $magic_database [optional]

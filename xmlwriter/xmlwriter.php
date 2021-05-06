@@ -3,6 +3,7 @@
 // Start of xmlwriter v.0.1
 
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 class XMLWriter
 {
@@ -1165,13 +1166,21 @@ function xmlwriter_end_dtd_entity(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"
  * @param string $content <p>
  * The content of the entity.
  * </p>
- * @param bool $pe
- * @param string $pubid
- * @param string $sysid
- * @param string $ndataid
+ * @param bool $isParam
+ * @param string $publicId
+ * @param string $systemId
+ * @param string $notationData
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_dtd_entity(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, $name, $content, $pe, $pubid, $sysid, $ndataid): bool {}
+function xmlwriter_write_dtd_entity(
+    #[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer,
+    string $name,
+    string $content,
+    #[PhpStormStubsElementAvailable(from: '8.0')] bool $isParam = false,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ?string $publicId = null,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ?string $systemId = null,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ?string $notationData = null
+): bool {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>

@@ -163,58 +163,7 @@ function imap_headers(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], def
  * <dt>fetchsubject</dt><dd>subject line formatted to fit subjectlength characters</dd>
  * </dl>
  */
-#[PhpStormStubsElementAvailable(to: '7.4')]
-function imap_headerinfo($stream_id, $msg_no, $from_length = 0, $subject_length = 0, $default_host = null) {}
-
-/**
- * Read the header of the message
- * @link https://php.net/manual/en/function.imap-headerinfo.php
- * @param resource $stream_id An IMAP stream returned by imap_open().
- * @param int $msg_no The message number
- * @param int $from_length [optional] Number of characters for the fetchfrom property. Must be greater than or equal to zero.
- * @param int $subject_length [optional] Number of characters for the fetchsubject property Must be greater than or equal to zero.
- * @return object Returns the information in an object with following properties:
- * <dl>
- * <dt>toaddress</dt><dd>full to: line, up to 1024 characters</dd>
- * <dt>to</dt><dd>an array of objects from the To: line, with the following properties: personal, adl, mailbox, and host</dd>
- * <dt>fromaddress</dt><dd>full from: line, up to 1024 characters</dd>
- * <dt>from</dt><dd>an array of objects from the From: line, with the following properties: personal, adl, mailbox, and host</dd>
- * <dt>ccaddress</dt><dd>full cc: line, up to 1024 characters</dd>
- * <dt>cc</dt><dd>an array of objects from the Cc: line, with the following properties: personal, adl, mailbox, and host</dd>
- * <dt>bccaddress</dt><dd>full bcc: line, up to 1024 characters</dd>
- * <dt>bcc</dt><dd>an array of objects from the Bcc: line, with the following properties: personal, adl, mailbox, and host</dd>
- * <dt>reply_toaddress</dt><dd>full Reply-To: line, up to 1024 characters</dd>
- * <dt>reply_to</dt><dd>an array of objects from the Reply-To: line, with the following properties: personal, adl, mailbox, and host</dd>
- * <dt>senderaddress</dt><dd>full sender: line, up to 1024 characters</dd>
- * <dt>sender</dt><dd>an array of objects from the Sender: line, with the following properties: personal, adl, mailbox, and host</dd>
- * <dt>return_pathaddress</dt><dd>full Return-Path: line, up to 1024 characters</dd>
- * <dt>return_path</dt><dd>an array of objects from the Return-Path: line, with the following properties: personal, adl, mailbox, and host</dd>
- * <dt>remail -</dt>
- * <dt>date</dt><dd>The message date as found in its headers</dd>
- * <dt>Date</dt><dd>Same as date</dd>
- * <dt>subject</dt><dd>The message subject</dd>
- * <dt>Subject</dt><dd>Same a subject</dd>
- * <dt>in_reply_to -</dt>
- * <dt>message_id -</dt>
- * <dt>newsgroups -</dt>
- * <dt>followup_to -</dt>
- * <dt>references -</dt>
- * <dt>Recent</dt><dd>R if recent and seen, N if recent and not seen, ' ' if not recent.</dd>
- * <dt>Unseen</dt><dd>U if not seen AND not recent, ' ' if seen OR not seen and recent</dd>
- * <dt>Flagged</dt><dd>F if flagged, ' ' if not flagged</dd>
- * <dt>Answered</dt><dd>A if answered, ' ' if unanswered</dd>
- * <dt>Deleted</dt><dd>D if deleted, ' ' if not deleted</dd>
- * <dt>Draft</dt><dd>X if draft, ' ' if not draft</dd>
- * <dt>Msgno</dt><dd>The message number</dd>
- * <dt>MailDate -</dt>
- * <dt>Size</dt><dd>The message size</dd>
- * <dt>udate</dt><dd>mail message date in Unix time</dd>
- * <dt>fetchfrom</dt><dd>from line formatted to fit fromlength characters</dd>
- * <dt>fetchsubject</dt><dd>subject line formatted to fit subjectlength characters</dd>
- * </dl>
- */
-#[PhpStormStubsElementAvailable('8.0')]
-function imap_headerinfo($stream_id, $msg_no, $from_length = 0, $subject_length = 0) {}
+function imap_headerinfo($stream_id, $msg_no, $from_length = 0, $subject_length = 0, #[PhpStormStubsElementAvailable(to: '7.4')] $default_host = null): stdClass|false {}
 
 /**
  * Parse mail headers from a string

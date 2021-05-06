@@ -1469,7 +1469,11 @@ class PDOStatement implements IteratorAggregate
      * ORDER BY clauses in SQL to restrict results before retrieving and
      * processing them with PHP.
      */
-    public function fetchAll($mode = PDO::FETCH_BOTH, ...$args) {}
+    public function fetchAll(
+        $mode = PDO::FETCH_BOTH,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $fetch_argument = null,
+        ...$args
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.4)<br/>

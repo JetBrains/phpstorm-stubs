@@ -1883,7 +1883,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
          * @param int $mode [optional]
          * @return int The number of objects in the storage.
          */
-        public function count($mode = COUNT_NORMAL) {}
+        public function count(#[PhpStormStubsElementAvailable(from: '8.0')] $mode = COUNT_NORMAL) {}
 
         /**
          * Rewind the iterator to the first storage element
