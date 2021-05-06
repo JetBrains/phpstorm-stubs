@@ -853,25 +853,7 @@ function mb_encode_numericentity(string $string, array $map, ?string $encoding =
  * @return string|false|null The converted string.
  */
 #[Pure]
-#[PhpStormStubsElementAvailable(to: '7.4')]
-function mb_decode_numericentity($string, array $map, ?string $encoding, $is_hex = false): string|false|null {}
-
-/**
- * Decode HTML numeric string reference to character
- * @link https://php.net/manual/en/function.mb-decode-numericentity.php
- * @param string $string <p>
- * The string being decoded.
- * </p>
- * @param int[] $map <p>
- * convmap is an array that specifies
- * the code area to convert.
- * </p>
- * @param null|string $encoding
- * @return string The converted string.
- */
-#[Pure]
-#[PhpStormStubsElementAvailable('8.0')]
-function mb_decode_numericentity($string, array $map, ?string $encoding): string {}
+function mb_decode_numericentity($string, array $map, ?string $encoding, #[PhpStormStubsElementAvailable(from: '8.0')] $is_hex = false): string|false|null {}
 
 /**
  * Send encoded mail

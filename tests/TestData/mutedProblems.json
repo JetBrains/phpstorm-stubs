@@ -600,12 +600,6 @@
       "name": "stream_context_set_option",
       "problems": [
         {
-          "description": "parameter mismatch",
-          "versions": [
-            "ALL"
-          ]
-        },
-        {
           "description": "has duplicate in stubs",
           "versions": [
             "ALL"
@@ -616,12 +610,6 @@
     {
       "name": "setcookie",
       "problems": [
-        {
-          "description": "parameter mismatch",
-          "versions": [
-            "ALL"
-          ]
-        },
         {
           "description": "has duplicate in stubs",
           "versions": [
@@ -634,24 +622,7 @@
       "name": "setrawcookie",
       "problems": [
         {
-          "description": "parameter mismatch",
-          "versions": [
-            "ALL"
-          ]
-        },
-        {
           "description": "has duplicate in stubs",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "sodium_memzero",
-      "problems": [
-        {
-          "description": "parameter mismatch",
           "versions": [
             "ALL"
           ]
@@ -660,206 +631,6 @@
     },
     {
       "name": "strtr",
-      "problems": [
-        {
-          "description": "parameter mismatch",
-          "versions": [
-            "ALL"
-          ]
-        },
-        {
-          "description": "has duplicate in stubs",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "implode",
-      "problems": [
-        {
-          "description": "parameter mismatch",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "join",
-      "problems": [
-        {
-          "description": "parameter mismatch",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "mysqli_stmt_bind_result",
-      "problems": [
-        {
-          "description": "parameter mismatch",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "mysqli_stmt_bind_param",
-      "problems": [
-        {
-          "description": "parameter mismatch",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "mysqli_escape_string",
-      "problems": [
-        {
-          "description": "parameter mismatch",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "mysqli_set_opt",
-      "problems": [
-        {
-          "description": "parameter mismatch",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "socket_cmsg_space",
-      "problems": [
-        {
-          "description": "parameter mismatch",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "curl_version",
-      "problems": [
-        {
-          "description": "parameter mismatch",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "mb_decode_numericentity",
-      "problems": [
-        {
-          "description": "parameter mismatch",
-          "versions": [
-            "ALL"
-          ]
-        },
-        {
-          "description": "has duplicate in stubs",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "image_type_to_extension",
-      "problems": [
-        {
-          "description": "parameter mismatch",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "sem_get",
-      "problems": [
-        {
-          "description": "wrong parameter type in docs",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ],
-      "comment": "Invalid documentation"
-    },
-    {
-      "name": "assert",
-      "problems": [
-        {
-          "description": "parameter mismatch",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ],
-      "comment": "flaky reflection o_O?"
-    },
-    {
-      "name": "array_multisort",
-      "parameters": [
-        {
-          "name": "rest",
-          "problems": [
-            {
-              "description": "parameter reference",
-              "versions": [
-                "ALL"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "array",
-          "problems": [
-            {
-              "description": "parameter reference",
-              "versions": [
-                "ALL"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "extract",
-      "parameters": [
-        {
-          "name": "array",
-          "problems": [
-            {
-              "description": "parameter reference",
-              "versions": [
-                "ALL"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "imap_headerinfo",
       "problems": [
         {
           "description": "has duplicate in stubs",
@@ -874,12 +645,6 @@
       "problems": [
         {
           "description": "has duplicate in stubs",
-          "versions": [
-            "ALL"
-          ]
-        },
-        {
-          "description": "parameter mismatch",
           "versions": [
             "ALL"
           ]
@@ -899,17 +664,6 @@
     },
     {
       "name": "crypt",
-      "problems": [
-        {
-          "description": "has duplicate in stubs",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "odbc_exec",
       "problems": [
         {
           "description": "has duplicate in stubs",
