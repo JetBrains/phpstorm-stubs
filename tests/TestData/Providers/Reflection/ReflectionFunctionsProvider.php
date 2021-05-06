@@ -33,7 +33,8 @@ class ReflectionFunctionsProvider
         foreach (EntitiesFilter::getFiltered(
             ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
             null,
-            StubProblemType::FUNCTION_PARAMETER_MISMATCH
+            StubProblemType::FUNCTION_PARAMETER_MISMATCH,
+            StubProblemType::HAS_DUPLICATION
         ) as $function) {
             yield "function $function->name" => [$function];
         }
