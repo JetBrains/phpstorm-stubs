@@ -3,6 +3,7 @@
 // Start of openssl v.
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
  * Frees a private key
@@ -850,7 +851,15 @@ function openssl_pbkdf2(string $password, string $salt, int $key_length, int $it
  * (the message has been tampered with, or the signing certificate is invalid),
  * or -1 on error.
  */
-function openssl_pkcs7_verify(string $input_filename, int $flags, ?string $signers_certificates_filename, array $ca_info, ?string $untrusted_certificates_filename, ?string $content, ?string $output_filename): int|bool {}
+function openssl_pkcs7_verify(
+    string $input_filename,
+    int $flags,
+    ?string $signers_certificates_filename,
+    array $ca_info,
+    ?string $untrusted_certificates_filename,
+    ?string $content,
+    #[PhpStormStubsElementAvailable("7.2")] ?string $output_filename
+): int|bool {}
 
 /**
  * Decrypts an S/MIME encrypted message
