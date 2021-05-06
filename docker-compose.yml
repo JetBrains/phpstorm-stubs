@@ -1,6 +1,10 @@
 version: '3'
 services:
-  php:
+  php_under_test:
+    image: php:${PHP_VERSION}-alpine
+    volumes:
+      - .:/opt/project/phpstorm-stubs
+  test_runner:
     build: .
     volumes:
       - .:/opt/project/phpstorm-stubs
