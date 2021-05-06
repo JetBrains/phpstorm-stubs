@@ -15,15 +15,24 @@ class PHPConst extends BasePHPElement
 {
     use PHPDocElement;
 
-    public ?string $parentName = null;
-    public bool|int|string|float|null $value;
-    public ?string $visibility = null;
+    /**
+     * @var string|null
+     */
+    public $parentName = null;
+    /**
+     * @var bool|int|string|float|null
+     */
+    public $value;
+    /**
+     * @var string|null
+     */
+    public $visibility = null;
 
     /**
      * @param ReflectionClassConstant $reflectionObject
      * @return static
      */
-    public function readObjectFromReflection($reflectionObject): static
+    public function readObjectFromReflection($reflectionObject)
     {
         $this->name = $reflectionObject->name;
         $this->value = $reflectionObject->getValue();
@@ -41,7 +50,7 @@ class PHPConst extends BasePHPElement
      * @param Const_ $node
      * @return static
      */
-    public function readObjectFromStubNode($node): static
+    public function readObjectFromStubNode($node)
     {
         $this->name = $this->getConstantFQN($node, $node->name->name);
         $this->value = $this->getConstValue($node);
@@ -63,7 +72,11 @@ class PHPConst extends BasePHPElement
         return $this;
     }
 
-    protected function getConstValue($node): int|string|null|bool|float
+    /**
+     * @param $node
+     * @return int|string|bool|float|null
+     */
+    protected function getConstValue($node)
     {
         if (in_array('value', $node->value->getSubNodeNames(), true)) {
             return $node->value->value;
@@ -92,16 +105,22 @@ class PHPConst extends BasePHPElement
         return $namespace . $nodeName;
     }
 
-    public function readMutedProblems(stdClass|array $jsonData): void
+    /**
+     * @param stdClass|array $jsonData
+     */
+    public function readMutedProblems($jsonData): void
     {
         foreach ($jsonData as $constant) {
             if ($constant->name === $this->name && !empty($constant->problems)) {
                 foreach ($constant->problems as $problem) {
-                    $this->mutedProblems[] = match ($problem) {
-                        'wrong value' => StubProblemType::WRONG_CONSTANT_VALUE,
-                        'missing constant' => StubProblemType::STUB_IS_MISSED,
-                        default => -1
-                    };
+                    switch ($problem->description) {
+                        case 'wrong value':
+                            $this->mutedProblems[StubProblemType::WRONG_CONSTANT_VALUE] = $problem->versions;
+                            break;
+                        case 'missing constant':
+                            $this->mutedProblems[StubProblemType::STUB_IS_MISSED] = $problem->versions;
+                            break;
+                    }
                 }
                 return;
             }

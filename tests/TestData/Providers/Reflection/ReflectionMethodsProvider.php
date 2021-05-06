@@ -27,17 +27,20 @@ class ReflectionMethodsProvider
 
     public static function classFinalMethodsProvider(): ?Generator
     {
-        return self::yieldFilteredMethods(StubProblemType::FUNCTION_IS_FINAL);
+        return self::yieldFilteredMethods(StubProblemType::WRONG_FINAL_MODIFIER);
     }
 
     public static function classStaticMethodsProvider(): ?Generator
     {
-        return self::yieldFilteredMethods(StubProblemType::FUNCTION_IS_STATIC);
+        return self::yieldFilteredMethods(StubProblemType::WRONG_STATIC_MODIFIER);
     }
 
     public static function classMethodsWithParametersProvider(): ?Generator
     {
-        return self::yieldFilteredMethods(StubProblemType::FUNCTION_PARAMETER_MISMATCH);
+        return self::yieldFilteredMethods(
+            StubProblemType::HAS_DUPLICATION,
+            StubProblemType::FUNCTION_PARAMETER_MISMATCH
+        );
     }
 
     private static function yieldFilteredMethods(int ...$problemTypes): ?Generator

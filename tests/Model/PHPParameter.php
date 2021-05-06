@@ -9,28 +9,30 @@ use stdClass;
 
 class PHPParameter extends BasePHPElement
 {
+    public $indexInSignature = 0;
     /** @var string[] */
-    public array $typesFromSignature = [];
+    public $typesFromSignature = [];
     /** @var string[] */
-    public array $typesFromAttribute = [];
+    public $typesFromAttribute = [];
     /** @var string[] */
     public array $typesFromPhpDoc = [];
-    public bool $is_vararg = false;
-    public bool $is_passed_by_ref = false;
-    public bool $isOptional = false;
-    public mixed $defaultValue = null;
+    public $is_vararg = false;
+    public $is_passed_by_ref = false;
+    public $isOptional = false;
+    public $defaultValue = null;
 
     /**
      * @param ReflectionParameter $reflectionObject
      * @return static
      */
-    public function readObjectFromReflection($reflectionObject): static
+    public function readObjectFromReflection($reflectionObject)
     {
         $this->name = $reflectionObject->name;
         $this->typesFromSignature = self::getReflectionTypeAsArray($reflectionObject->getType());
         $this->is_vararg = $reflectionObject->isVariadic();
         $this->is_passed_by_ref = $reflectionObject->isPassedByReference() && !$reflectionObject->canBePassedByValue();
         $this->isOptional = $reflectionObject->isOptional();
+        $this->indexInSignature = $reflectionObject->getPosition();
         if ($reflectionObject->isDefaultValueAvailable()) {
             $this->defaultValue = $reflectionObject->getDefaultValue();
             if (in_array('bool', $this->typesFromSignature)) {
@@ -44,13 +46,13 @@ class PHPParameter extends BasePHPElement
      * @param Param $node
      * @return static
      */
-    public function readObjectFromStubNode($node): static
+    public function readObjectFromStubNode($node)
     {
         $this->name = $node->var->name;
 
         $this->typesFromAttribute = self::findTypesFromAttribute($node->attrGroups);
         $this->typesFromSignature = self::convertParsedTypeToArray($node->type);
-
+        $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
         $this->is_vararg = $node->variadic;
         $this->is_passed_by_ref = $node->byRef;
         $this->defaultValue = $node->default;
@@ -58,23 +60,46 @@ class PHPParameter extends BasePHPElement
         return $this;
     }
 
-    public function readMutedProblems(stdClass|array $jsonData): void
+    /**
+     * @param stdClass|array $jsonData
+     */
+    public function readMutedProblems($jsonData): void
     {
         foreach ($jsonData as $parameter) {
             if ($parameter->name === $this->name && !empty($parameter->problems)) {
                 foreach ($parameter->problems as $problem) {
-                    $this->mutedProblems[] = match ($problem) {
-                        'parameter type mismatch' => StubProblemType::PARAMETER_TYPE_MISMATCH,
-                        'parameter reference' => StubProblemType::PARAMETER_REFERENCE,
-                        'parameter vararg' => StubProblemType::PARAMETER_VARARG,
-                        'has scalar typehint' => StubProblemType::PARAMETER_HAS_SCALAR_TYPEHINT,
-                        'parameter name mismatch' => StubProblemType::PARAMETER_NAME_MISMATCH,
-                        'has nullable typehint' => StubProblemType::HAS_NULLABLE_TYPEHINT,
-                        'has union typehint' => StubProblemType::HAS_UNION_TYPEHINT,
-                        'has type mismatch in signature and phpdoc' => StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE,
-                        'wrong default value' => StubProblemType::WRONG_PARAMETER_DEFAULT_VALUE,
-                        default => -1
-                    };
+                    switch ($problem->description) {
+                        case 'parameter type mismatch':
+                            $this->mutedProblems[StubProblemType::PARAMETER_TYPE_MISMATCH] = $problem->versions;
+                            break;
+                        case 'parameter reference':
+                            $this->mutedProblems[StubProblemType::PARAMETER_REFERENCE] = $problem->versions;
+                            break;
+                        case 'parameter vararg':
+                            $this->mutedProblems[StubProblemType::PARAMETER_VARARG] = $problem->versions;
+                            break;
+                        case 'has scalar typehint':
+                            $this->mutedProblems[StubProblemType::PARAMETER_HAS_SCALAR_TYPEHINT] = $problem->versions;
+                            break;
+                        case 'parameter name mismatch':
+                            $this->mutedProblems[StubProblemType::PARAMETER_NAME_MISMATCH] = $problem->versions;
+                            break;
+                        case 'has nullable typehint':
+                            $this->mutedProblems[StubProblemType::HAS_NULLABLE_TYPEHINT] = $problem->versions;
+                            break;
+                        case 'has union typehint':
+                            $this->mutedProblems[StubProblemType::HAS_UNION_TYPEHINT] = $problem->versions;
+                            break;
+                        case 'has type mismatch in signature and phpdoc':
+                            $this->mutedProblems[StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE] = $problem->versions;
+                            break;
+                        case 'wrong default value':
+                            $this->mutedProblems[StubProblemType::WRONG_PARAMETER_DEFAULT_VALUE] = $problem->versions;
+                            break;
+                        case 'wrong optionallity':
+                            $this->mutedProblems[StubProblemType::WRONG_OPTIONALLITY] = $problem->versions;
+                            break;
+                    }
                 }
                 return;
             }

@@ -10,8 +10,8 @@ interface StubProblemType
     public const WRONG_PARENT = 2;
     public const WRONG_CONSTANT_VALUE = 3;
     public const FUNCTION_IS_DEPRECATED = 4;
-    public const FUNCTION_IS_FINAL = 5;
-    public const FUNCTION_IS_STATIC = 6;
+    public const WRONG_FINAL_MODIFIER = 5;
+    public const WRONG_STATIC_MODIFIER = 6;
     public const FUNCTION_ACCESS = 7;
     public const WRONG_INTERFACE = 8;
     public const PARAMETER_TYPE_MISMATCH = 9;
@@ -30,4 +30,5 @@ interface StubProblemType
     public const TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE = 22;
     public const WRONG_PARAMETER_DEFAULT_VALUE = 23;
     public const WRONG_RETURN_TYPEHINT = 24;
+    public const WRONG_OPTIONALLITY = 27;
 }
