@@ -233,22 +233,7 @@ function odbc_errormsg($connection_id = null) {}
  * @return resource|false an ODBC result identifier if the SQL command was executed
  * successfully, or <b>FALSE</b> on error.
  */
-#[PhpStormStubsElementAvailable(to: '7.4')]
-function odbc_exec($connection_id, $query_string, $flags = null) {}
-
-/**
- * Prepare and execute an SQL statement
- * @link https://php.net/manual/en/function.odbc-exec.php
- * @param resource $connection_id <p>The ODBC connection identifier,
- * see <b>odbc_connect</b> for details.</p>
- * @param string $query_string <p>
- * The SQL statement.
- * </p>
- * @return resource|false an ODBC result identifier if the SQL command was executed
- * successfully, or <b>FALSE</b> on error.
- */
-#[PhpStormStubsElementAvailable('8.0')]
-function odbc_exec($connection_id, $query_string) {}
+function odbc_exec($connection_id, $query_string, #[PhpStormStubsElementAvailable(from:'5.3', to: '7.4')] $flags = null) {}
 
 /**
  * Fetch a result row as an associative array

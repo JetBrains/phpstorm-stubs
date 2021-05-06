@@ -631,6 +631,7 @@ function setrawcookie(string $name, $value = '', $expires_or_options = 0, $path 
  * @return bool           If output exists prior to calling this function, setcookie will fail and return false. If
  *                        setcookie successfully runs, it will return true.
  *                        This does not indicate whether the user accepted the cookie.
+ * @since 7.3
  */
 function setrawcookie(string $name, $value = '', array $options = []): bool {}
 
