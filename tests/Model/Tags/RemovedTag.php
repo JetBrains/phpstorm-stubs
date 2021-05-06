@@ -11,14 +11,22 @@ use phpDocumentor\Reflection\Types\Context;
 class RemovedTag extends BaseTag
 {
     private const REGEX_VECTOR = '(?:\d\S*|[^\s\:]+\:\s*\$[^\$]+\$)';
+    private $version;
 
-    public function __construct(private ?string $version = null, Description $description = null)
+    public function __construct(?string $version = null, Description $description = null)
     {
+        $this->version = $version;
         $this->name = 'removed';
         $this->description = $description;
     }
 
-    public static function create(?string $body, ?DescriptionFactory $descriptionFactory = null, ?Context $context = null): RemovedTag
+    /**
+     * @param string|null $body
+     * @param DescriptionFactory|null $descriptionFactory
+     * @param Context|null $context
+     * @return RemovedTag
+     */
+    public static function create($body, ?DescriptionFactory $descriptionFactory = null, ?Context $context = null): RemovedTag
     {
         if (empty($body)) {
             return new self();

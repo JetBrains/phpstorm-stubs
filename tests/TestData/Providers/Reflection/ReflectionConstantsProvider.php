@@ -49,7 +49,11 @@ class ReflectionConstantsProvider
         }
     }
 
-    public static function getFilteredConstants(PHPClass|PHPInterface $class = null): array
+    /**
+     * @param PHPClass|PHPInterface|null $class
+     * @return PHPConst[]
+     */
+    public static function getFilteredConstants($class = null): array
     {
         if ($class === null) {
             $allConstants = ReflectionStubsSingleton::getReflectionStubs()->getConstants();
@@ -58,7 +62,7 @@ class ReflectionConstantsProvider
         }
         /** @var PHPConst[] $resultArray */
         $resultArray = [];
-        foreach (EntitiesFilter::getFiltered($allConstants, problemTypes: StubProblemType::WRONG_CONSTANT_VALUE) as $constant) {
+        foreach (EntitiesFilter::getFiltered($allConstants, null, StubProblemType::WRONG_CONSTANT_VALUE) as $constant) {
             $resultArray[] = $constant;
         }
         return $resultArray;

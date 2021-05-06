@@ -12,21 +12,23 @@ class PHPProperty extends BasePHPElement
     use PHPDocElement;
 
     /** @var string[] */
-    public array $typesFromSignature = [];
+    public $typesFromSignature = [];
     /** @var string[] */
-    public array $typesFromAttribute = [];
+    public $typesFromAttribute = [];
     /** @var string[] */
-    public array $typesFromPhpDoc = [];
-    public string $access = '';
-    public bool $is_static = false;
+    public $typesFromPhpDoc = [];
+    public $access = '';
+    public $is_static = false;
 
-    public function __construct(public ?string $parentName = null) {}
+    public function __construct(?string $parentName = null) {
+        $this->parentName = $parentName;
+    }
 
     /**
      * @param ReflectionProperty $reflectionObject
      * @return static
      */
-    public function readObjectFromReflection($reflectionObject): static
+    public function readObjectFromReflection($reflectionObject)
     {
         $this->name = $reflectionObject->getName();
         if ($reflectionObject->isProtected()) {
@@ -46,7 +48,7 @@ class PHPProperty extends BasePHPElement
      * @param Property $node
      * @return static
      */
-    public function readObjectFromStubNode($node): static
+    public function readObjectFromStubNode($node)
     {
         $this->name = $node->props[0]->name->name;
         $this->collectTags($node);
@@ -73,15 +75,19 @@ class PHPProperty extends BasePHPElement
         return $this;
     }
 
-    public function readMutedProblems(stdClass|array $jsonData): void
+    /**
+     * @param stdClass|array $jsonData
+     */
+    public function readMutedProblems($jsonData): void
     {
         foreach ($jsonData as $property) {
             if ($property->name === $this->name && !empty($property->problems)) {
                 foreach ($property->problems as $problem) {
-                    $this->mutedProblems[] = match ($problem) {
-                        'missing property' => StubProblemType::STUB_IS_MISSED,
-                        default => -1
-                    };
+                    switch ($problem->description) {
+                        case 'missing property':
+                            $this->mutedProblems[StubProblemType::STUB_IS_MISSED] = $problem->versions;
+                            break;
+                    }
                 }
                 return;
             }

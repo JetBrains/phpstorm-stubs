@@ -25,11 +25,15 @@ use StubTests\Parsers\Utils;
 
 class ASTVisitor extends NodeVisitorAbstract
 {
-    public function __construct(
-        protected StubsContainer $stubs,
-        protected bool $isStubCore = false,
-        public ?string $sourceFilePath = null
-    ) {}
+    public $sourceFilePath = null;
+    protected $stubs;
+    protected $isStubCore = false;
+
+    public function __construct(StubsContainer $stubs, bool $isStubCore = false, ?string $sourceFilePath = null) {
+        $this->sourceFilePath = $sourceFilePath;
+        $this->isStubCore = $isStubCore;
+        $this->stubs = $stubs;
+    }
 
     /**
      * @param Node $node
