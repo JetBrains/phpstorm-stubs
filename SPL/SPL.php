@@ -1,6 +1,7 @@
 <?php
 
 // Start of SPL v.0.2
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
@@ -409,7 +410,7 @@ class IteratorIterator implements OuterIterator
      * @param Traversable $iterator
      * @param string $class [optional]
      */
-    public function __construct(Traversable $iterator, $class = '') {}
+    public function __construct(Traversable $iterator, #[PhpStormStubsElementAvailable(from: '8.0')] $class = '') {}
 
     /**
      * Get the inner iterator
@@ -1374,7 +1375,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * @param string $postfix
      */
-    public function setPostfix($postfix) {}
+    public function setPostfix(#[PhpStormStubsElementAvailable(from: '7.3')] $postfix) {}
 
     /**
      * Set a part of the prefix
@@ -1548,7 +1549,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param int $flags [optional]
      * @return void
      */
-    public function asort($flags = SORT_REGULAR) {}
+    public function asort(#[PhpStormStubsElementAvailable(from: '8.0')] $flags = SORT_REGULAR) {}
 
     /**
      * Sort the entries by key
@@ -1556,7 +1557,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param int $flags [optional]
      * @return void
      */
-    public function ksort($flags = SORT_REGULAR) {}
+    public function ksort(#[PhpStormStubsElementAvailable(from: '8.0')] $flags = SORT_REGULAR) {}
 
     /**
      * Sort the entries with a user-defined comparison function and maintain key association
@@ -1692,7 +1693,11 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @param int $flags Flags to control the behaviour of the ArrayObject object.
      * @see ArrayObject::setFlags()
      */
-    public function __construct($array = [], $flags = 0) {}
+    public function __construct(
+        $array = [],
+        $flags = 0,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.1')] $iterator_class = null
+    ) {}
 
     /**
      * Check if offset exists
@@ -1789,7 +1794,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @param int $flags [optional]
      * @return void
      */
-    public function asort($flags = SORT_REGULAR) {}
+    public function asort(#[PhpStormStubsElementAvailable(from: '8.0')] $flags = SORT_REGULAR) {}
 
     /**
      * Sort array by keys
@@ -1797,7 +1802,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @param int $flags [optional]
      * @return void
      */
-    public function ksort($flags = SORT_REGULAR) {}
+    public function ksort(#[PhpStormStubsElementAvailable(from: '8.0')] $flags = SORT_REGULAR) {}
 
     /**
      * User defined sort

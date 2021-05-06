@@ -2857,3 +2857,8 @@ namespace MongoDB\BSON {
             public function __toString();
         }
     }
+
+namespace {
+    define('MONGODB_VERSION', '1.9.1');
+    define('MONGODB_STABILITY', 'stable');
+}

@@ -812,7 +812,12 @@ function mb_decode_mimeheader(string $string): string {}
  * @return string|false The character encoding before conversion for success,
  * or false for failure.
  */
-function mb_convert_variables(string $to_encoding, array|string $from_encoding, mixed &$var, mixed &...$vars): string|false {}
+function mb_convert_variables(
+    string $to_encoding,
+    array|string $from_encoding,
+    #[PhpStormStubsElementAvailable(from: '8.0')] mixed &$var,
+    mixed &...$vars
+): string|false {}
 
 /**
  * Encode character to HTML numeric string reference

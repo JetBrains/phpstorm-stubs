@@ -86,7 +86,7 @@ function gzgets($stream, ?int $length = 1024): string|false {}
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
  * </p>
- * @param int $length <p>
+ * @param int $length [optional] <p>
  * The length of data to get.
  * </p>
  * @param string $allowable_tags [optional] <p>

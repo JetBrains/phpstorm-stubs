@@ -168,7 +168,7 @@ function pfsockopen(string $hostname, int $port = -1, &$error_code, &$error_mess
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function pack(string $format, ...$values) {}
+function pack(string $format, mixed ...$values) {}
 
 /**
  * Unpack data from binary string

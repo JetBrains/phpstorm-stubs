@@ -333,7 +333,7 @@ function strchr(string $haystack, string $needle, bool $before_needle = false): 
  * format.
  */
 #[Pure]
-function sprintf(string $format, ...$values): string {}
+function sprintf(string $format, mixed ...$values): string {}
 
 /**
  * Output a formatted string
@@ -346,7 +346,7 @@ function sprintf(string $format, ...$values): string {}
  * </p>
  * @return int the length of the outputted string.
  */
-function printf(string $format, ...$values): int {}
+function printf(string $format, mixed ...$values): int {}
 
 /**
  * Output a formatted string
@@ -389,7 +389,7 @@ function vsprintf(string $format, array $values): string {}
  * </p>
  * @return int the length of the string written.
  */
-function fprintf($stream, string $format, ...$values): int {}
+function fprintf($stream, string $format, mixed ...$values): int {}
 
 /**
  * Write a formatted string to a stream

@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
@@ -252,7 +253,7 @@ class ReflectionClass implements Reflector
      * @since 7.1
      */
     #[Pure]
-    public function getReflectionConstants(?int $filter = ReflectionClassConstant::IS_PUBLIC|ReflectionClassConstant::IS_PROTECTED|ReflectionClassConstant::IS_PRIVATE) {}
+    public function getReflectionConstants(#[PhpStormStubsElementAvailable(from: '8.0')] ?int $filter = ReflectionClassConstant::IS_PUBLIC|ReflectionClassConstant::IS_PROTECTED|ReflectionClassConstant::IS_PRIVATE) {}
 
     /**
      * Checks if constant is defined
@@ -272,7 +273,7 @@ class ReflectionClass implements Reflector
      * the values the value of the constants.
      */
     #[Pure]
-    public function getConstants($filter = ReflectionClassConstant::IS_PUBLIC|ReflectionClassConstant::IS_PROTECTED|ReflectionClassConstant::IS_PRIVATE) {}
+    public function getConstants(#[PhpStormStubsElementAvailable(from: '8.0')] $filter = ReflectionClassConstant::IS_PUBLIC|ReflectionClassConstant::IS_PROTECTED|ReflectionClassConstant::IS_PRIVATE) {}
 
     /**
      * Gets defined constant
