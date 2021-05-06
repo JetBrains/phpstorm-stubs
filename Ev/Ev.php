@@ -806,7 +806,7 @@ final class EvPeriodic extends EvWatcher
     public function __construct(
         $offset,
         $interval,
-        ?callable $reschedule_cb,
+        ?callable $reschedule_cb ,
         callable $callback,
         $data = null,
         $priority = 0
@@ -854,7 +854,7 @@ final class EvPeriodic extends EvWatcher
     final public static function createStopped(
         $offset,
         $interval,
-        ?callable $reschedule_cb,
+        ?callable $reschedule_cb ,
         callable $callback,
         $data = null,
         $priority = 0
