@@ -1310,11 +1310,11 @@ function socket_import_stream($stream): Socket|false {}
  * @link https://php.net/manual/en/function.socket-cmsg-space.php
  * @param int $level
  * @param int $type
- * @param int $n [optional]
+ * @param int $num [optional]
  * @return int|null
  * @since 5.5
  */
-function socket_cmsg_space($level, $type, $n = 0): ?int {}
+function socket_cmsg_space(int $level, int $type, int $num = 0): ?int {}
 
 /**
  * Alias of {@see socket_get_option}

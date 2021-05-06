@@ -2353,7 +2353,7 @@ function mysqli_stmt_send_long_data(mysqli_stmt $statement, int $param_num, stri
  * @param mixed &...$_ [optional]
  * @return bool true on success or false on failure.
  */
-function mysqli_stmt_bind_param(mysqli_stmt $statement, string $types, mixed &$var1, &...$_): bool {}
+function mysqli_stmt_bind_param(mysqli_stmt $statement, string $types, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed &$var1, &...$vars): bool {}
 
 /**
  * Binds variables to a prepared statement for result storage
@@ -2363,7 +2363,7 @@ function mysqli_stmt_bind_param(mysqli_stmt $statement, string $types, mixed &$v
  * @param mixed &...$_ The variables to be bound.
  * @return bool
  */
-function mysqli_stmt_bind_result(mysqli_stmt $statement, mixed &$var1, &...$_): bool {}
+function mysqli_stmt_bind_result(mysqli_stmt $statement, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed &$var1, &...$vars): bool {}
 
 /**
  * Fetch results from a prepared statement into the bound variables
