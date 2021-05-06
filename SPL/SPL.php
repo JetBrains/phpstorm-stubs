@@ -1,6 +1,7 @@
 <?php
 
 // Start of SPL v.0.2
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
@@ -1727,7 +1728,8 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @see ArrayObject::setFlags()
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'object|array'], default: '')] $array = [],
+        #[LanguageLevelTypeAware(['8.0' => 'object|array'],
+       default: '')] $array = [],
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0,
         #[PhpStormStubsElementAvailable(from: '5.3', to: '7.1')] $iterator_class = null
     ) {}

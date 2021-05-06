@@ -303,10 +303,10 @@ class SQLite3
      * @return resource|false Returns a stream resource, or FALSE on failure.
      */
     public function openBlob(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $table,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $column,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $rowid,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $database = 'main',
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]$table,
+       #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $column,
+       #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $rowid,
+       #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $database = 'main',
         #[PhpStormStubsElementAvailable(from: '7.2')] int $flags = SQLITE3_OPEN_READONLY
     ) {}
 
