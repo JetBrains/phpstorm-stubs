@@ -7,7 +7,7 @@ use StubTests\Parsers\Utils;
 
 class PhpCoreStubsProvider
 {
-    private static array $StubDirectoryMap = [
+    private static $StubDirectoryMap = [
         'CORE' => [
             'Core',
             'date',

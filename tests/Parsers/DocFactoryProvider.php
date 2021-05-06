@@ -8,7 +8,10 @@ use StubTests\Model\Tags\RemovedTag;
 
 class DocFactoryProvider
 {
-    private static ?DocBlockFactory $docFactory = null;
+    /**
+     * @var DocBlockFactory|null
+     */
+    private static $docFactory = null;
 
     public static function getDocFactory(): DocBlockFactory
     {

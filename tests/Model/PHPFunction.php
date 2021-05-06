@@ -14,38 +14,45 @@ use PhpParser\Node\Stmt\Function_;
 use ReflectionFunction;
 use stdClass;
 use StubTests\Parsers\DocFactoryProvider;
+use StubTests\Parsers\Utils;
 
 class PHPFunction extends BasePHPElement
 {
     use PHPDocElement;
 
-    public bool $is_deprecated;
+    /**
+     * @var bool
+     */
+    public $is_deprecated;
     /**
      * @var PHPParameter[]
      */
-    public array $parameters = [];
+    public $parameters = [];
 
     /** @var string[] */
-    public array $returnTypesFromPhpDoc = [];
+    public $returnTypesFromPhpDoc = [];
 
     /** @var string[] */
-    public array $returnTypesFromAttribute = [];
+    public $returnTypesFromAttribute = [];
 
     /** @var string[] */
-    public array $returnTypesFromSignature = [];
+    public $returnTypesFromSignature = [];
 
     /**
      * @param ReflectionFunction $reflectionObject
      * @return static
      */
-    public function readObjectFromReflection($reflectionObject): static
+    public function readObjectFromReflection($reflectionObject)
     {
         $this->name = $reflectionObject->name;
         $this->is_deprecated = $reflectionObject->isDeprecated();
         foreach ($reflectionObject->getParameters() as $parameter) {
             $this->parameters[] = (new PHPParameter())->readObjectFromReflection($parameter);
         }
-        array_push($this->returnTypesFromSignature, ...self::getReflectionTypeAsArray($reflectionObject->getReturnType()));
+        $returnTypes = self::getReflectionTypeAsArray($reflectionObject->getReturnType());
+        if (!empty($returnTypes)) {
+            array_push($this->returnTypesFromSignature, ...$returnTypes);
+        }
         return $this;
     }
 
@@ -53,7 +60,7 @@ class PHPFunction extends BasePHPElement
      * @param Function_ $node
      * @return static
      */
-    public function readObjectFromStubNode($node): static
+    public function readObjectFromStubNode($node)
     {
         $functionName = self::getFQN($node);
         $this->name = $functionName;
@@ -61,13 +68,21 @@ class PHPFunction extends BasePHPElement
         $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
         $this->returnTypesFromAttribute = $typesFromAttribute;
         array_push($this->returnTypesFromSignature, ...self::convertParsedTypeToArray($node->getReturnType()));
+        $index = 0;
         foreach ($node->getParams() as $parameter) {
-            $this->parameters[] = (new PHPParameter())->readObjectFromStubNode($parameter);
+            $parsedParameter = (new PHPParameter())->readObjectFromStubNode($parameter);
+            if (in_array(doubleval(getenv('PHP_VERSION')), Utils::getAvailableInVersions($parsedParameter))) {
+                $parsedParameter->indexInSignature = $index;
+                $this->parameters[] = $parsedParameter;
+                $index++;
+            }
         }
 
         $this->collectTags($node);
         foreach ($this->parameters as $parameter) {
-            $relatedParamTags = array_filter($this->paramTags, fn (Param $tag) => $tag->getVariableName() === $parameter->name);
+            $relatedParamTags = array_filter($this->paramTags, function (Param $tag) use ($parameter) {
+                return $tag->getVariableName() === $parameter->name;
+            });
             /** @var Param $relatedParamTag */
             $relatedParamTag = array_pop($relatedParamTags);
             if (!empty($relatedParamTag)){
@@ -111,23 +126,41 @@ class PHPFunction extends BasePHPElement
         }
     }
 
-    public function readMutedProblems(stdClass|array $jsonData): void
+    /**
+     * @param stdClass|array $jsonData
+     */
+    public function readMutedProblems($jsonData): void
     {
         foreach ($jsonData as $function) {
             if ($function->name === $this->name) {
                 if (!empty($function->problems)) {
                     foreach ($function->problems as $problem) {
-                        $this->mutedProblems[] = match ($problem) {
-                            'parameter mismatch' => StubProblemType::FUNCTION_PARAMETER_MISMATCH,
-                            'missing function' => StubProblemType::STUB_IS_MISSED,
-                            'deprecated function' => StubProblemType::FUNCTION_IS_DEPRECATED,
-                            'absent in meta' => StubProblemType::ABSENT_IN_META,
-                            'has return typehint' => StubProblemType::FUNCTION_HAS_RETURN_TYPEHINT,
-                            'wrong return typehint' => StubProblemType::WRONG_RETURN_TYPEHINT,
-                            'has duplicate in stubs' => StubProblemType::HAS_DUPLICATION,
-                            'has type mismatch in signature and phpdoc' => StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE,
-                            default => -1
-                        };
+                        switch ($problem->description) {
+                            case 'parameter mismatch':
+                                $this->mutedProblems[StubProblemType::FUNCTION_PARAMETER_MISMATCH] = $problem->versions;
+                                break;
+                            case 'missing function':
+                                $this->mutedProblems[StubProblemType::STUB_IS_MISSED] = $problem->versions;
+                                break;
+                            case 'deprecated function':
+                                $this->mutedProblems[StubProblemType::FUNCTION_IS_DEPRECATED] = $problem->versions;
+                                break;
+                            case 'absent in meta':
+                                $this->mutedProblems[StubProblemType::ABSENT_IN_META] = $problem->versions;
+                                break;
+                            case 'has return typehint':
+                                $this->mutedProblems[StubProblemType::FUNCTION_HAS_RETURN_TYPEHINT] = $problem->versions;
+                                break;
+                            case 'wrong return typehint':
+                                $this->mutedProblems[StubProblemType::WRONG_RETURN_TYPEHINT] = $problem->versions;
+                                break;
+                            case 'has duplicate in stubs':
+                                $this->mutedProblems[StubProblemType::HAS_DUPLICATION] = $problem->versions;
+                                break;
+                            case 'has type mismatch in signature and phpdoc':
+                                $this->mutedProblems[StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE] = $problem->versions;
+                                break;
+                        }
                     }
                 }
                 if (!empty($function->parameters)) {

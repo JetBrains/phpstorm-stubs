@@ -19,7 +19,7 @@ class MetaOverrideFunctionsParser extends NodeVisitorAbstract
     /**
      * @var string[]
      */
-    public array $overridenFunctions;
+    public $overridenFunctions;
 
     /**
      * @throws UnexpectedValueException
@@ -31,7 +31,10 @@ class MetaOverrideFunctionsParser extends NodeVisitorAbstract
         StubParser::processStubs(
             $this,
             null,
-            fn (SplFileInfo $file): bool => $file->getFilename() === '.phpstorm.meta.php'
+            function (SplFileInfo $file): bool {
+                return $file->getFilename() === '.phpstorm.meta.php'
+        ;
+            }
         );
     }
 

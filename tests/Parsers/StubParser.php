@@ -22,7 +22,10 @@ use UnexpectedValueException;
 
 class StubParser
 {
-    private static ?StubsContainer $stubs = null;
+    /**
+     * @var StubsContainer|null
+     */
+    private static $stubs = null;
 
     /**
      * @return StubsContainer
@@ -38,7 +41,10 @@ class StubParser
         self::processStubs(
             $visitor,
             $coreStubVisitor,
-            fn (SplFileInfo $file): bool => $file->getFilename() !== '.phpstorm.meta.php'
+            function (SplFileInfo $file): bool {
+                return $file->getFilename() !== '.phpstorm.meta.php'
+        ;
+            }
         );
 
         $jsonData = json_decode(file_get_contents(__DIR__ . '/../TestData/mutedProblems.json'));

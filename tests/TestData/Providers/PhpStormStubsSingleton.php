@@ -8,7 +8,10 @@ use StubTests\Parsers\StubParser;
 
 class PhpStormStubsSingleton
 {
-    private static ?StubsContainer $phpstormStubs = null;
+    /**
+     * @var StubsContainer|null
+     */
+    private static $phpstormStubs = null;
 
     public static function getPhpStormStubs(): StubsContainer
     {

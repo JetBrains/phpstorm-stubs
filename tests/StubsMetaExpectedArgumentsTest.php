@@ -18,6 +18,14 @@ use StubTests\Model\StubsContainer;
 use StubTests\Parsers\ExpectedFunctionArgumentsInfo;
 use StubTests\Parsers\MetaExpectedArgumentsCollector;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
+use function array_key_exists;
+use function array_map;
+use function array_walk_recursive;
+use function count;
+use function method_exists;
+use function property_exists;
+use function str_starts_with;
+use function substr;
 
 class StubsMetaExpectedArgumentsTest extends BaseStubsTest
 {

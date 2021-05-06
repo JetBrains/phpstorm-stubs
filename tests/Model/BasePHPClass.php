@@ -10,12 +10,12 @@ abstract class BasePHPClass extends BasePHPElement
     /**
      * @var PHPMethod[]
      */
-    public array $methods = [];
+    public $methods = [];
 
     /**
      * @var PHPConst[]
      */
-    public array $constants = [];
+    public $constants = [];
 
-    public bool $isFinal = false;
+    public $isFinal = false;
 }

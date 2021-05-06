@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace StubTests\Model;
 
 use RuntimeException;
+use StubTests\Parsers\Utils;
 use function array_key_exists;
 
 class StubsContainer
@@ -11,19 +12,19 @@ class StubsContainer
     /**
      * @var PHPConst[]
      */
-    private array $constants = [];
+    private $constants = [];
     /**
      * @var PHPFunction[]
      */
-    private array $functions = [];
+    private $functions = [];
     /**
      * @var PHPClass[]
      */
-    private array $classes = [];
+    private $classes = [];
     /**
      * @var PHPInterface[]
      */
-    private array $interfaces = [];
+    private $interfaces = [];
 
     /**
      * @return PHPConst[]
@@ -42,7 +43,10 @@ class StubsContainer
             if (array_key_exists($constant->name, $this->constants)) {
                 $amount = count(array_filter(
                     $this->constants,
-                    fn (PHPConst $nextConstant) => $nextConstant->name === $constant->name
+                    function (PHPConst $nextConstant) use ($constant) {
+                        return $nextConstant->name === $constant->name
+                ;
+                    }
                 ));
                 $this->constants[$constant->name . '_duplicated_' . $amount] = $constant;
             } else {
@@ -67,12 +71,17 @@ class StubsContainer
      */
     public function getFunction(string $name, ?string $sourceFilePath = null): ?PHPFunction
     {
-        $functions = array_filter($this->functions, fn (PHPFunction $function): bool => $function->name === $name);
+        $functions = array_filter($this->functions, function (PHPFunction $function) use ($name): bool {
+            return $function->name === $name && $function->duplicateOtherElement === false
+                && in_array(doubleval(getenv('PHP_VERSION')), Utils::getAvailableInVersions($function));
+        });
         if (count($functions) === 1) {
             return array_pop($functions);
         } else {
             if ($sourceFilePath !== null) {
-                $functions = array_filter($functions, fn (PHPFunction $function) => $function->sourceFilePath === $sourceFilePath);
+                $functions = array_filter($functions, function (PHPFunction $function) use ($sourceFilePath) {
+                    return $function->sourceFilePath === $sourceFilePath && in_array(doubleval(getenv('PHP_VERSION')), Utils::getAvailableInVersions($function));
+                });
             }
             if (count($functions) > 1) {
                 throw new RuntimeException("Multiple functions with name $name found");
@@ -90,8 +99,12 @@ class StubsContainer
             if (array_key_exists($function->name, $this->functions)) {
                 $amount = count(array_filter(
                     $this->functions,
-                    fn (PHPFunction $nextFunction) => $nextFunction->name === $function->name
+                    function (PHPFunction $nextFunction) use ($function) {
+                        return $nextFunction->name === $function->name
+                ;
+                    }
                 ));
+                $function->duplicateOtherElement = true;
                 $this->functions[$function->name . '_duplicated_' . $amount] = $function;
             } else {
                 $this->functions[$function->name] = $function;
@@ -107,12 +120,16 @@ class StubsContainer
      */
     public function getClass(string $name, ?string $sourceFilePath = null): ?PHPClass
     {
-        $classes = array_filter($this->classes, fn (PHPClass $class): bool => $class->name === $name);
+        $classes = array_filter($this->classes, function (PHPClass $class) use ($name): bool {
+            return $class->name === $name;
+        });
         if (count($classes) === 1) {
             return array_pop($classes);
         } else {
             if ($sourceFilePath !== null) {
-                $classes = array_filter($classes, fn (PHPClass $class) => $class->sourceFilePath === $sourceFilePath);
+                $classes = array_filter($classes, function (PHPClass $class) use ($sourceFilePath) {
+                    return $class->sourceFilePath === $sourceFilePath;
+                });
             }
             if (count($classes) > 1) {
                 throw new RuntimeException("Multiple classes with name $name found");
@@ -137,7 +154,9 @@ class StubsContainer
      */
     public function getCoreClasses(): array
     {
-        return array_filter($this->classes, fn (PHPClass $class): bool => $class->stubBelongsToCore === true);
+        return array_filter($this->classes, function (PHPClass $class): bool {
+            return $class->stubBelongsToCore === true;
+        });
     }
 
     /**
@@ -149,7 +168,10 @@ class StubsContainer
             if (array_key_exists($class->name, $this->classes)) {
                 $amount = count(array_filter(
                     $this->classes,
-                    fn (PHPClass $nextClass) => $nextClass->name === $class->name
+                    function (PHPClass $nextClass) use ($class) {
+                        return $nextClass->name === $class->name
+                ;
+                    }
                 ));
                 $this->classes[$class->name . '_duplicated_' . $amount] = $class;
             } else {
@@ -166,12 +188,16 @@ class StubsContainer
      */
     public function getInterface(string $name, ?string $sourceFilePath = null): ?PHPInterface
     {
-        $interfaces = array_filter($this->interfaces, fn (PHPInterface $interface): bool => $interface->name === $name);
+        $interfaces = array_filter($this->interfaces, function (PHPInterface $interface) use ($name): bool {
+            return $interface->name === $name;
+        });
         if (count($interfaces) === 1) {
             return array_pop($interfaces);
         } else {
             if ($sourceFilePath !== null) {
-                $interfaces = array_filter($interfaces, fn (PHPInterface $interface) => $interface->sourceFilePath === $sourceFilePath);
+                $interfaces = array_filter($interfaces, function (PHPInterface $interface) use ($sourceFilePath) {
+                    return $interface->sourceFilePath === $sourceFilePath;
+                });
             }
             if (count($interfaces) > 1) {
                 throw new RuntimeException("Multiple interfaces with name $name found");
@@ -196,7 +222,9 @@ class StubsContainer
      */
     public function getCoreInterfaces(): array
     {
-        return array_filter($this->interfaces, fn (PHPInterface $interface): bool => $interface->stubBelongsToCore === true);
+        return array_filter($this->interfaces, function (PHPInterface $interface): bool {
+            return $interface->stubBelongsToCore === true;
+        });
     }
 
     /**
@@ -208,7 +236,10 @@ class StubsContainer
             if (array_key_exists($interface->name, $this->interfaces)) {
                 $amount = count(array_filter(
                     $this->interfaces,
-                    fn (PHPInterface $nextInterface) => $nextInterface->name === $interface->name
+                    function (PHPInterface $nextInterface) use ($interface) {
+                        return $nextInterface->name === $interface->name
+                ;
+                    }
                 ));
                 $this->interfaces[$interface->name . '_duplicated_' . $amount] = $interface;
             } else {
