@@ -2,6 +2,7 @@
 
 //20120405 AG synced to official docs
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
@@ -277,6 +278,17 @@ class DOMNode
      * namespace, false otherwise.
      */
     public function isDefaultNamespace(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace) {}
+
+    /**
+     * Gets the namespace URI of the node based on the prefix
+     * @link https://php.net/manual/en/domnode.lookupnamespaceuri.php
+     * @param string|null $prefix <p>
+     * The prefix of the namespace.
+     * </p>
+     * @return string The namespace URI of the node.
+     */
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    public function lookupNamespaceURI(?string $prefix) {}
 
     /**
      * Gets the namespace URI of the node based on the prefix

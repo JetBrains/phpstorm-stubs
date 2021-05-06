@@ -726,9 +726,7 @@ function array_filter(array $array, ?callable $callback, int $mode = 0): array {
  * after applying the callback function to each one.
  * @meta
  */
-function array_map(
-    ?callable $callback,
-    #[PhpStormStubsElementAvailable(from: '8.0')] array $array,
+function array_map(?callable $callback, #[PhpStormStubsElementAvailable(from: '8.0')] array $array,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays,
     array ...$arrays
 ): array {}
