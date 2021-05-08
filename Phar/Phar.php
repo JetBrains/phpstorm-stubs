@@ -808,11 +808,13 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return void No value is returned.
      */
-    final public static function webPhar(?string $alias = null,
-                                          ?string $index = "index.php",
-                                          #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $fileNotFoundScript = null,
-                                          array $mimeTypes = null,
-                                          ?callable $rewrite = null) {}
+    final public static function webPhar(
+        ?string $alias = null,
+        ?string $index = "index.php",
+        #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $fileNotFoundScript = null,
+        array $mimeTypes = null,
+        ?callable $rewrite = null
+    ) {}
 
     /**
      * Returns whether current entry is a directory and not '.' or '..'

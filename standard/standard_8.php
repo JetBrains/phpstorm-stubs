@@ -146,7 +146,7 @@ function metaphone(string $string, int $max_phonemes = 0): false|string {}
 /**
  * Turn on output buffering
  * @link https://php.net/manual/en/function.ob-start.php
- * @param callback $callback [optional] <p>
+ * @param callable $callback [optional] <p>
  * An optional output_callback function may be
  * specified. This function takes a string as a parameter and should
  * return a string. The function will be called when
@@ -493,7 +493,7 @@ function rsort(array &$array, int $flags): bool {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param callback $callback <p>
+ * @param callable $callback <p>
  * The comparison function must return an integer less than, equal to, or
  * greater than zero if the first argument is considered to be
  * respectively less than, equal to, or greater than the second.
@@ -508,7 +508,7 @@ function usort(array &$array, callable $callback): bool {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param callback $callback <p>
+ * @param callable $callback <p>
  * See usort and uksort for
  * examples of user-defined comparison functions.
  * </p>
@@ -522,7 +522,7 @@ function uasort(array &$array, callable $callback): bool {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param callback $callback <p>
+ * @param callable $callback <p>
  * The callback comparison function.
  * </p>
  * <p>
@@ -553,7 +553,7 @@ function shuffle(array &$array): bool {}
  * @param array|object &$array <p>
  * The input array.
  * </p>
- * @param callback $callback <p>
+ * @param callable $callback <p>
  * Typically, funcname takes on two parameters.
  * The array parameter's value being the first, and
  * the key/index second.
@@ -587,7 +587,7 @@ function array_walk(object|array &$array, callable $callback, mixed $arg): bool 
  * @param array|object &$array <p>
  * The input array.
  * </p>
- * @param callback $callback <p>
+ * @param callable $callback <p>
  * Typically, funcname takes on two parameters.
  * The input parameter's value being the first, and
  * the key/index second.

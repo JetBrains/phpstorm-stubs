@@ -1103,10 +1103,10 @@ function sqlite_unbuffered_query($dbhandle, $query, $result_type = SQLITE_BOTH, 
  * @param string $function_name <p>
  * The name of the function used in SQL statements.
  * </p>
- * @param callback $step_func <p>
+ * @param callable $step_func <p>
  * Callback function called for each row of the result set.
  * </p>
- * @param callback $finalize_func <p>
+ * @param callable $finalize_func <p>
  * Callback function to aggregate the "stepped" data from each row.
  * </p>
  * @param int $num_args [optional] <p>
@@ -1127,7 +1127,7 @@ function sqlite_create_aggregate($dbhandle, $function_name, $step_func, $finaliz
  * @param string $function_name <p>
  * The name of the function used in SQL statements.
  * </p>
- * @param callback $callback <p>
+ * @param callable $callback <p>
  * Callback function to handle the defined SQL function.
  * </p>
  * Callback functions should return a type understood by SQLite (i.e.

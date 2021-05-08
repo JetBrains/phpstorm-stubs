@@ -668,7 +668,7 @@ function ibase_wait_event($event_name1, $event_name2 = null, ...$_) {}
 /**
  * Register a callback function to be called when events are posted
  * @link https://php.net/manual/en/function.ibase-set-event-handler.php
- * @param callback $event_handler <p>
+ * @param callable $event_handler <p>
  * The callback is called with the event name and the link resource as
  * arguments whenever one of the specified events is posted by the
  * database.
@@ -1413,7 +1413,7 @@ function fbird_wait_event($event_name1, $event_name2 = null, ...$_) {}
  * This is an alias of ibase_set_event_handler
  * Register a callback function to be called when events are posted
  * @link https://php.net/manual/en/function.fbird-set-event-handler.php
- * @param callback $event_handler <p>
+ * @param callable $event_handler <p>
  * The callback is called with the event name and the link resource as
  * arguments whenever one of the specified events is posted by the
  * database.

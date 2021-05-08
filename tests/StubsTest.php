@@ -170,10 +170,13 @@ class StubsTest extends BaseStubsTest
     public function testFunctionsDuplicates()
     {
         $filtered = EntitiesFilter::getFiltered(
-            PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(), problemTypes: StubProblemType::HAS_DUPLICATION
+            PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(),
+            problemTypes: StubProblemType::HAS_DUPLICATION
         );
         $duplicates = self::getDuplicatedFunctions($filtered);
-        self::assertCount(0, $duplicates,
+        self::assertCount(
+            0,
+            $duplicates,
             "Functions \"" . implode(', ', $duplicates) .
             "\" have duplicates in stubs.\nPlease use #[LanguageLevelTypeAware] or #[PhpStormStubsElementAvailable] if possible"
         );
@@ -189,8 +192,11 @@ class StubsTest extends BaseStubsTest
         $stubParameters = array_filter($phpstormFunction->parameters, fn (PHPParameter $stubParameter) => $stubParameter->name === $parameter->name);
         /** @var PHPParameter $stubOptionalParameter */
         $stubOptionalParameter = array_pop($stubParameters);
-        self::assertEquals($parameter->isOptional, $stubOptionalParameter->isOptional,
-            sprintf('Reflection function %s has optional parameter %s', $function->name, $parameter->name));
+        self::assertEquals(
+            $parameter->isOptional,
+            $stubOptionalParameter->isOptional,
+            sprintf('Reflection function %s has optional parameter %s', $function->name, $parameter->name)
+        );
     }
 
     /**
@@ -207,9 +213,17 @@ class StubsTest extends BaseStubsTest
         $stubOptionalParameter = array_pop($stubParameters);
         $reflectionValue = self::getStringRepresentationOfDefaultParameterValue($parameter->defaultValue);
         $stubValue = self::getStringRepresentationOfDefaultParameterValue($stubOptionalParameter->defaultValue);
-        self::assertEquals($reflectionValue, $stubValue,
-            sprintf('Reflection function %s has optional parameter %s with default value %s but stub parameter has value %s',
-                $function->name, $parameter->name, $reflectionValue, $stubValue));
+        self::assertEquals(
+            $reflectionValue,
+            $stubValue,
+            sprintf(
+                'Reflection function %s has optional parameter %s with default value %s but stub parameter has value %s',
+                $function->name,
+                $parameter->name,
+                $reflectionValue,
+                $stubValue
+            )
+        );
     }
 
     /**
@@ -231,9 +245,18 @@ class StubsTest extends BaseStubsTest
         $stubOptionalParameter = array_pop($stubParameters);
         $reflectionValue = self::getStringRepresentationOfDefaultParameterValue($parameter->defaultValue);
         $stubValue = self::getStringRepresentationOfDefaultParameterValue($stubOptionalParameter->defaultValue, $class);
-        self::assertEquals($reflectionValue, $stubValue,
-            sprintf('Reflection method %s::%s has optional parameter %s with default value %s but stub parameter has value %s',
-                $class->name, $method->name, $parameter->name, $reflectionValue, $stubValue));
+        self::assertEquals(
+            $reflectionValue,
+            $stubValue,
+            sprintf(
+                'Reflection method %s::%s has optional parameter %s with default value %s but stub parameter has value %s',
+                $class->name,
+                $method->name,
+                $parameter->name,
+                $reflectionValue,
+                $stubValue
+            )
+        );
     }
 
     /**
@@ -253,9 +276,16 @@ class StubsTest extends BaseStubsTest
         $stubParameters = array_filter($phpstormFunction->parameters, fn (PHPParameter $stubParameter) => $stubParameter->name === $parameter->name);
         /** @var PHPParameter $stubOptionalParameter */
         $stubOptionalParameter = array_pop($stubParameters);
-        self::assertEquals($parameter->isOptional, $stubOptionalParameter->isOptional,
-            sprintf('Reflection method %s::%s has optional parameter %s but stub parameter is not optional',
-                $class->name, $method->name, $parameter->name));
+        self::assertEquals(
+            $parameter->isOptional,
+            $stubOptionalParameter->isOptional,
+            sprintf(
+                'Reflection method %s::%s has optional parameter %s but stub parameter is not optional',
+                $class->name,
+                $method->name,
+                $parameter->name
+            )
+        );
     }
 
     /**
@@ -498,8 +528,10 @@ class StubsTest extends BaseStubsTest
      */
     public function testImplodeFunctionIsCorrect()
     {
-        $implodeFunctions = array_filter(PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(),
-            fn (PHPFunction $function) => $function->name === 'implode');
+        $implodeFunctions = array_filter(
+            PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(),
+            fn (PHPFunction $function) => $function->name === 'implode'
+        );
         self::assertCount(1, $implodeFunctions);
         /** @var PHPFunction $implodeFunction */
         $implodeFunction = array_pop($implodeFunctions);
@@ -543,8 +575,11 @@ class StubsTest extends BaseStubsTest
 
     private static function getAllDuplicatesOfFunction(?string $name): array
     {
-        return array_filter(PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(),
-            fn ($duplicateValue, $duplicateKey) => str_contains($duplicateValue->name, $name) && str_contains($duplicateKey, 'duplicated'), ARRAY_FILTER_USE_BOTH);
+        return array_filter(
+            PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(),
+            fn ($duplicateValue, $duplicateKey) => str_contains($duplicateValue->name, $name) && str_contains($duplicateKey, 'duplicated'),
+            ARRAY_FILTER_USE_BOTH
+        );
     }
 
     /**
@@ -558,7 +593,8 @@ class StubsTest extends BaseStubsTest
             if (str_contains($key, 'duplicated')) {
                 $duplicatesOfFunction = self::getAllDuplicatesOfFunction($value->name);
                 $functionVersions[] = Utils::getAvailableInVersions(
-                    PhpStormStubsSingleton::getPhpStormStubs()->getFunction($value->name));
+                    PhpStormStubsSingleton::getPhpStormStubs()->getFunction($value->name)
+                );
                 array_push($functionVersions, ...array_values(array_map(fn (PHPFunction $function) => Utils::getAvailableInVersions($function), $duplicatesOfFunction)));
                 $hasDuplicates = false;
                 $current = array_pop($functionVersions);
@@ -588,10 +624,12 @@ class StubsTest extends BaseStubsTest
         if ($defaultValue instanceof ConstFetch) {
             $defaultValueName = (string)$defaultValue->name;
             if ($defaultValueName !== 'false' && $defaultValueName !== 'true' && $defaultValueName !== 'null') {
-                $constants = array_filter(PhpStormStubsSingleton::getPhpStormStubs()->getConstants(),
+                $constants = array_filter(
+                    PhpStormStubsSingleton::getPhpStormStubs()->getConstants(),
                     function (PHPConst $const) use ($defaultValue) {
                         return $const->name === (string)$defaultValue->name;
-                    });
+                    }
+                );
                 /** @var PHPConst $constant */
                 $constant = array_pop($constants);
                 $value = $constant->value;
@@ -602,20 +640,26 @@ class StubsTest extends BaseStubsTest
             $value = strval($defaultValue->value);
         } elseif ($defaultValue instanceof BitwiseOr) {
             if ($defaultValue->left instanceof ConstFetch && $defaultValue->right instanceof ConstFetch) {
-                $constants = array_filter(PhpStormStubsSingleton::getPhpStormStubs()->getConstants(),
+                /** @var BitwiseOr $defaultValue */
+                $constants = array_filter(
+                    PhpStormStubsSingleton::getPhpStormStubs()->getConstants(),
                     fn (PHPConst $const) => property_exists($defaultValue->left, 'name') &&
-                        $const->name === (string)$defaultValue->left->name);
+                        $const->name === (string)$defaultValue->left->name
+                );
                 /** @var PHPConst $leftConstant */
                 $leftConstant = array_pop($constants);
-                $constants = array_filter(PhpStormStubsSingleton::getPhpStormStubs()->getConstants(),
+                /** @var BitwiseOr $defaultValue */
+                $constants = array_filter(
+                    PhpStormStubsSingleton::getPhpStormStubs()->getConstants(),
                     fn (PHPConst $const) => property_exists($defaultValue->right, 'name') &&
-                        $const->name === (string)$defaultValue->right->name);
+                        $const->name === (string)$defaultValue->right->name
+                );
                 /** @var PHPConst $rightConstant */
                 $rightConstant = array_pop($constants);
                 $value = $leftConstant->value|$rightConstant->value;
             }
         } elseif ($defaultValue instanceof UnaryMinus && property_exists($defaultValue->expr, 'value')) {
-            $value = '-' . strval($defaultValue->expr->value);
+            $value = '-' . $defaultValue->expr->value;
         } elseif ($defaultValue instanceof ClassConstFetch) {
             $class = (string)$defaultValue->class;
             if ($class === 'self' && $contextClass !== null) {

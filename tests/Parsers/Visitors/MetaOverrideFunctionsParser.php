@@ -3,12 +3,14 @@ declare(strict_types=1);
 
 namespace StubTests\Parsers\Visitors;
 
+use LogicException;
 use PhpParser\Node;
 use PhpParser\Node\Expr;
 use PhpParser\NodeVisitorAbstract;
 use RuntimeException;
 use SplFileInfo;
 use StubTests\Parsers\StubParser;
+use UnexpectedValueException;
 
 class MetaOverrideFunctionsParser extends NodeVisitorAbstract
 {
@@ -19,11 +21,18 @@ class MetaOverrideFunctionsParser extends NodeVisitorAbstract
      */
     public array $overridenFunctions;
 
+    /**
+     * @throws UnexpectedValueException
+     * @throws LogicException
+     */
     public function __construct()
     {
         $this->overridenFunctions = [];
-        StubParser::processStubs($this, null,
-            fn (SplFileInfo $file): bool => $file->getFilename() === '.phpstorm.meta.php');
+        StubParser::processStubs(
+            $this,
+            null,
+            fn (SplFileInfo $file): bool => $file->getFilename() === '.phpstorm.meta.php'
+        );
     }
 
     /**

@@ -299,7 +299,7 @@ class OAuthProvider
     public function __construct($params_array) {}
 
     /**
-     * @param callback $callback_function
+     * @param callable $callback_function
      * @return void
      */
     public function consumerHandler($callback_function) {}
@@ -350,13 +350,13 @@ class OAuthProvider
     final public function setRequestTokenPath($path) {}
 
     /**
-     * @param callback $callback_function
+     * @param callable $callback_function
      * @return void
      */
     public function timestampNonceHandler($callback_function) {}
 
     /**
-     * @param callback $callback_function
+     * @param callable $callback_function
      * @return void
      */
     public function tokenHandler($callback_function) {}

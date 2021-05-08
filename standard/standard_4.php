@@ -23,7 +23,7 @@ function error_get_last(): ?array {}
 /**
  * Call the callback given by the first parameter
  * @link https://php.net/manual/en/function.call-user-func.php
- * @param callback $callback <p>
+ * @param callable $callback <p>
  * The function to be called. Class methods may also be invoked
  * statically using this function by passing
  * array($classname, $methodname) to this parameter.
@@ -45,7 +45,7 @@ function call_user_func(callable $callback, mixed ...$args): mixed {}
 /**
  * Call a callback with an array of parameters
  * @link https://php.net/manual/en/function.call-user-func-array.php
- * @param callback $callback <p>
+ * @param callable $callback <p>
  * The function to be called.
  * </p>
  * @param array $args <p>
@@ -84,7 +84,7 @@ function call_user_method_array(string $method_name, object &$obj, array $params
 /**
  * Call a static method
  * @link https://php.net/manual/en/function.forward-static-call.php
- * @param callback $callback <p>
+ * @param callable $callback <p>
  * The function or method to be called. This parameter may be an array,
  * with the name of the class, and the method, or a string, with a function
  * name.
@@ -267,7 +267,7 @@ function memory_get_peak_usage(bool $real_usage = false): int {}
 /**
  * Register a function for execution on shutdown
  * @link https://php.net/manual/en/function.register-shutdown-function.php
- * @param callback $callback <p>
+ * @param callable $callback <p>
  * The shutdown function to register.
  * </p>
  * <p>
@@ -292,7 +292,7 @@ function register_shutdown_function(callable $callback, ...$args): ?bool {}
 /**
  * Register a function for execution on each tick
  * @link https://php.net/manual/en/function.register-tick-function.php
- * @param callback $callback <p>
+ * @param callable $callback <p>
  * The function name as a string, or an array consisting of an object and
  * a method.
  * </p>
