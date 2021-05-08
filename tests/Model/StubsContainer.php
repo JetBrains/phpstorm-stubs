@@ -40,8 +40,10 @@ class StubsContainer
     {
         if (isset($constant->name)) {
             if (array_key_exists($constant->name, $this->constants)) {
-                $amount = count(array_filter($this->constants,
-                    fn (PHPConst $nextConstant) => $nextConstant->name === $constant->name));
+                $amount = count(array_filter(
+                    $this->constants,
+                    fn (PHPConst $nextConstant) => $nextConstant->name === $constant->name
+                ));
                 $this->constants[$constant->name . '_duplicated_' . $amount] = $constant;
             } else {
                 $this->constants[$constant->name] = $constant;
@@ -86,8 +88,10 @@ class StubsContainer
     {
         if (isset($function->name)) {
             if (array_key_exists($function->name, $this->functions)) {
-                $amount = count(array_filter($this->functions,
-                    fn (PHPFunction $nextFunction) => $nextFunction->name === $function->name));
+                $amount = count(array_filter(
+                    $this->functions,
+                    fn (PHPFunction $nextFunction) => $nextFunction->name === $function->name
+                ));
                 $this->functions[$function->name . '_duplicated_' . $amount] = $function;
             } else {
                 $this->functions[$function->name] = $function;
@@ -143,8 +147,10 @@ class StubsContainer
     {
         if (isset($class->name)) {
             if (array_key_exists($class->name, $this->classes)) {
-                $amount = count(array_filter($this->classes,
-                    fn (PHPClass $nextClass) => $nextClass->name === $class->name));
+                $amount = count(array_filter(
+                    $this->classes,
+                    fn (PHPClass $nextClass) => $nextClass->name === $class->name
+                ));
                 $this->classes[$class->name . '_duplicated_' . $amount] = $class;
             } else {
                 $this->classes[$class->name] = $class;
@@ -200,8 +206,10 @@ class StubsContainer
     {
         if (isset($interface->name)) {
             if (array_key_exists($interface->name, $this->interfaces)) {
-                $amount = count(array_filter($this->interfaces,
-                    fn (PHPInterface $nextInterface) => $nextInterface->name === $interface->name));
+                $amount = count(array_filter(
+                    $this->interfaces,
+                    fn (PHPInterface $nextInterface) => $nextInterface->name === $interface->name
+                ));
                 $this->interfaces[$interface->name . '_duplicated_' . $amount] = $interface;
             } else {
                 $this->interfaces[$interface->name] = $interface;

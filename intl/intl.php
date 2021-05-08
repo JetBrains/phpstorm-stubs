@@ -4291,8 +4291,14 @@ function msgfmt_get_error_message(MessageFormatter $formatter): string {}
  * @return IntlDateFormatter|null
  */
 #[Pure]
-function datefmt_create(?string $locale, int $dateType, int $timeType, $timezone = null, IntlCalendar|int|null $calendar = null,
-                        #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $pattern = null): ?IntlDateFormatter {}
+function datefmt_create(
+    ?string $locale,
+    int $dateType,
+    int $timeType,
+    $timezone = null,
+    IntlCalendar|int|null $calendar = null,
+    #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $pattern = null
+): ?IntlDateFormatter {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>

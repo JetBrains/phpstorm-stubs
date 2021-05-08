@@ -35,8 +35,11 @@ class StubParser
         self::$stubs = new StubsContainer();
         $visitor = new ASTVisitor(self::$stubs);
         $coreStubVisitor = new CoreStubASTVisitor(self::$stubs);
-        self::processStubs($visitor, $coreStubVisitor,
-            fn (SplFileInfo $file): bool => $file->getFilename() !== '.phpstorm.meta.php');
+        self::processStubs(
+            $visitor,
+            $coreStubVisitor,
+            fn (SplFileInfo $file): bool => $file->getFilename() !== '.phpstorm.meta.php'
+        );
 
         $jsonData = json_decode(file_get_contents(__DIR__ . '/../TestData/mutedProblems.json'));
         foreach (self::$stubs->getInterfaces() as $interface) {

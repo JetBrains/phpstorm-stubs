@@ -37,6 +37,9 @@ class Deprecated
      * f(1,2) will be replaced with wrappedCall(f(2,1))
      * @param string $since Element is deprecated starting with the provided PHP language level, applicable only for PhpStorm stubs entries
      */
-    public function __construct($reason = "", $replacement = "",
-                                #[ExpectedValues(self::PHP_VERSIONS)] $since = "5.6") {}
+    public function __construct(
+        $reason = "",
+        $replacement = "",
+        #[ExpectedValues(self::PHP_VERSIONS)] $since = "5.6"
+    ) {}
 }

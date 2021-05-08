@@ -46,7 +46,7 @@ function spl_autoload_extensions(?string $file_extensions): string {}
 /**
  * Register given function as __autoload() implementation
  * @link https://php.net/manual/en/function.spl-autoload-register.php
- * @param callback|null $callback [optional] <p>
+ * @param callable|null $callback [optional] <p>
  * The autoload function being registered.
  * If no parameter is provided, then the default implementation of
  * spl_autoload will be registered.
@@ -166,7 +166,7 @@ function iterator_count(Traversable $iterator): int {}
  * @param Traversable $iterator <p>
  * The class to iterate over.
  * </p>
- * @param callback $callback <p>
+ * @param callable $callback <p>
  * The callback function to call on every element.
  * The function must return true in order to
  * continue iterating over the iterator.

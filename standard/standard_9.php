@@ -132,7 +132,7 @@ function array_reverse(array $array, bool $preserve_keys = false): array {}
  * @param array $array <p>
  * The input array.
  * </p>
- * @param callback $callback <p>
+ * @param callable $callback <p>
  * The callback function. Signature is <pre>callback ( mixed $carry , mixed $item ) : mixed</pre>
  * <blockquote>mixed <var>$carry</var> <p>The return value of the previous iteration; on the first iteration it holds the value of <var>$initial</var>.</p></blockquote>
  * <blockquote>mixed <var>$item</var> <p>Holds the current iteration value of the <var>$input</var></p></blockquote>
@@ -322,7 +322,7 @@ function array_intersect_key(array $array1, array $array2, array ...$_): array {
  * First array to compare keys against.
  * </p>
  * @param array ...$_ [optional]
- * @param callback $key_compare_func <p>
+ * @param callable $key_compare_func <p>
  * User supplied callback function to do the comparison.
  * </p>
  * @return array the values of array1 whose keys exist
@@ -341,7 +341,7 @@ function array_intersect_ukey(array $array1, array $array2, array $_ = null, cal
  * The second array.
  * </p>
  * @param array ...$_ [optional]
- * @param callback $data_compare_func <p>
+ * @param callable $data_compare_func <p>
  * The callback comparison function.
  * </p>
  * <p>
@@ -383,7 +383,7 @@ function array_intersect_assoc(array $array1, array $array2, array $_ = null): a
  * The second array.
  * </p>
  * @param array ...$_ [optional]
- * @param callback $data_compare_func <p>
+ * @param callable $data_compare_func <p>
  * For comparison is used the user supplied callback function.
  * It must return an integer less than, equal
  * to, or greater than zero if the first argument is considered to
@@ -406,7 +406,7 @@ function array_uintersect_assoc(array $array1, array $array2, array $_ = null, c
  * First array to compare keys against.
  * </p>
  * @param array ...$_ [optional]
- * @param callback $key_compare_func <p>
+ * @param callable $key_compare_func <p>
  * User supplied callback function to do the comparison.
  * </p>
  * @return array the values of array1 whose values exist
@@ -425,14 +425,14 @@ function array_intersect_uassoc(array $array1, array $array2, array $_ = null, c
  * The second array.
  * </p>
  * @param array ...$_ [optional]
- * @param callback $data_compare_func <p>
+ * @param callable $data_compare_func <p>
  * For comparison is used the user supplied callback function.
  * It must return an integer less than, equal
  * to, or greater than zero if the first argument is considered to
  * be respectively less than, equal to, or greater than the
  * second.
  * </p>
- * @param callback $key_compare_func <p>
+ * @param callable $key_compare_func <p>
  * Key comparison callback function.
  * </p>
  * @return array an array containing all the values of
@@ -505,7 +505,7 @@ function array_diff_key(array $array1, array $array2, array ...$_): array {}
  * An array to compare against
  * </p>
  * @param array ...$_ [optional]
- * @param callback $key_compare_func <p>
+ * @param callable $key_compare_func <p>
  * callback function to use.
  * The callback function must return an integer less than, equal
  * to, or greater than zero if the first argument is considered to
@@ -527,7 +527,7 @@ function array_diff_ukey(array $array1, array $array2, array $_ = null, callable
  * The second array.
  * </p>
  * @param array ...$_ [optional]
- * @param callback $data_compare_func <p>
+ * @param callable $data_compare_func <p>
  * The callback comparison function.
  * </p>
  * <p>
@@ -569,7 +569,7 @@ function array_diff_assoc(array $array1, array $array2, array ...$_): array {}
  * The second array.
  * </p>
  * @param array ...$_ [optional]
- * @param callback $data_compare_func <p>
+ * @param callable $data_compare_func <p>
  * The callback comparison function.
  * </p>
  * <p>
@@ -601,7 +601,7 @@ function array_udiff_assoc(array $array1, array $array2, array $_ = null, callab
  * An array to compare against
  * </p>
  * @param array ...$_ [optional]
- * @param callback $key_compare_func <p>
+ * @param callable $key_compare_func <p>
  * callback function to use.
  * The callback function must return an integer less than, equal
  * to, or greater than zero if the first argument is considered to
@@ -623,7 +623,7 @@ function array_diff_uassoc(array $array1, array $array2, array $_ = null, callab
  * The second array.
  * </p>
  * @param array ...$_ [optional]
- * @param callback $data_compare_func <p>
+ * @param callable $data_compare_func <p>
  * The callback comparison function.
  * </p>
  * <p>
@@ -639,7 +639,7 @@ function array_diff_uassoc(array $array1, array $array2, array $_ = null, callab
  * array_diff_assoc which uses internal function for
  * comparison.
  * </p>
- * @param callback $key_compare_func <p>
+ * @param callable $key_compare_func <p>
  * The comparison of keys (indices) is done also by the callback function
  * key_compare_func. This behaviour is unlike what
  * array_udiff_assoc does, since the latter compares
@@ -684,7 +684,7 @@ function array_product(array $array): int|float {}
  * @param array $array <p>
  * The array to iterate over
  * </p>
- * @param callback|null $callback [optional] <p>
+ * @param callable|null $callback [optional] <p>
  * The callback function to use
  * </p>
  * <p>
@@ -713,7 +713,7 @@ function array_filter(array $array, ?callable $callback, int $mode = 0): array {
 /**
  * Applies the callback to the elements of the given arrays
  * @link https://php.net/manual/en/function.array-map.php
- * @param callback $callback <p>
+ * @param callable $callback <p>
  * Callback function to run for each element in each array.
  * </p>
  * @param array $array <p>

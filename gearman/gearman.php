@@ -1691,7 +1691,7 @@ class GearmanClient
      * single argument, a GearmanTask object.
      *
      * @link https://php.net/manual/en/gearmanclient.setworkloadcallback.php
-     * @param callback $callback A function to call
+     * @param callable $callback A function to call
      * @return bool
      */
     public function setWorkloadCallback($callback) {}
@@ -1711,7 +1711,7 @@ class GearmanClient
      * function should take a single argument, a GearmanTask object.
      *
      * @link https://php.net/manual/en/gearmanclient.setdatacallback.php
-     * @param callback $callback A function or method to call
+     * @param callable $callback A function or method to call
      * @return bool
      */
     public function setDataCallback($callback) {}
@@ -1721,7 +1721,7 @@ class GearmanClient
      * accept a single argument, a GearmanTask object.
      *
      * @link https://php.net/manual/en/gearmanclient.setwarningcallback.php
-     * @param callback $callback A function to call
+     * @param callable $callback A function to call
      * @return bool
      */
     public function setWarningCallback($callback) {}
@@ -1731,7 +1731,7 @@ class GearmanClient
      * worker. The function should accept a single argument, a GearmanTask object.
      *
      * @link https://php.net/manual/en/gearmanclient.setstatuscallback.php
-     * @param callback $callback A function to call
+     * @param callable $callback A function to call
      * @return bool
      */
     public function setStatusCallback($callback) {}
@@ -1741,7 +1741,7 @@ class GearmanClient
      * function should accept a single argument, a GearmanTask oject.
      *
      * @link https://php.net/manual/en/gearmanclient.setcompletecallback.php
-     * @param callback $callback A function to be called
+     * @param callable $callback A function to be called
      * @return bool
      */
     public function setCompleteCallback($callback) {}
@@ -1750,7 +1750,7 @@ class GearmanClient
      * Specifies a function to call when a worker for a task sends an exception.
      *
      * @link https://php.net/manual/en/gearmanclient.setexceptioncallback.php
-     * @param callback $callback Function to call when the worker throws an exception
+     * @param callable $callback Function to call when the worker throws an exception
      * @return bool
      */
     public function setExceptionCallback($callback) {}
@@ -1760,7 +1760,7 @@ class GearmanClient
      * successfully. The function should accept a single argument, a GearmanTask object.
      *
      * @link https://php.net/manual/en/gearmanclient.setfailcallback.php
-     * @param callback $callback A function to call
+     * @param callable $callback A function to call
      * @return bool
      */
     public function setFailCallback($callback) {}
@@ -2083,7 +2083,7 @@ class GearmanWorker
      * @link https://php.net/manual/en/gearmanworker.addfunction.php
      * @param string $function_name The name of a function to register with the job
      *        server
-     * @param callback $function A callback that gets called when a job for the
+     * @param callable $function A callback that gets called when a job for the
      *        registered function name is submitted
      * @param mixed $context A reference to arbitrary application context data that can
      *        be modified by the worker function
