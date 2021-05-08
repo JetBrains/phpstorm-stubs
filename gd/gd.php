@@ -323,12 +323,12 @@ function imagecolorset(GdImage $image, int $color, int $red, int $green, int $bl
  * A color identifier created with
  * <b>imagecolorallocate</b>.
  * </p>
- * @return int|null The identifier of the new (or current, if none is specified)
+ * @return int The identifier of the new (or current, if none is specified)
  * transparent color is returned. If <i>color</i>
  * is not specified, and the image has no transparent color, the
  * returned identifier will be -1.
  */
-function imagecolortransparent(GdImage $image, ?int $color = null): ?int {}
+function imagecolortransparent(GdImage $image, ?int $color = null): int {}
 
 /**
  * Find out the number of colors in an image's palette
@@ -1203,10 +1203,10 @@ function imagefontheight(int $font): int {}
  * If non-zero, the image will be interlaced, else the interlace bit is
  * turned off.
  * </p>
- * @return int|null 1 if the interlace bit is set for the image,
+ * @return bool 1 if the interlace bit is set for the image,
  * 0 if it is not
  */
-function imageinterlace(GdImage $image, ?bool $enable = null): ?int {}
+function imageinterlace(GdImage $image, ?bool $enable = null): bool {}
 
 /**
  * Draw a line
