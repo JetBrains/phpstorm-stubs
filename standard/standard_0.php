@@ -980,7 +980,7 @@ function image_type_to_mime_type(int $image_type): string {}
  * @return string|false A string with the extension corresponding to the given image type.
  */
 #[Pure]
-function image_type_to_extension(int $image_type, $include_dot = true): string|false {}
+function image_type_to_extension(int $image_type, bool $include_dot = true): string|false {}
 
 /**
  * Outputs information about PHP's configuration
