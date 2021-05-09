@@ -853,7 +853,7 @@ function mb_encode_numericentity(string $string, array $map, ?string $encoding =
  * @return string|false|null The converted string.
  */
 #[Pure]
-function mb_decode_numericentity($string, array $map, ?string $encoding = null, #[PhpStormStubsElementAvailable(from: '7.2', to: '7.4')] $is_hex = false): string|false|null {}
+function mb_decode_numericentity(string $string, array $map, ?string $encoding = null, #[PhpStormStubsElementAvailable(from: '7.2', to: '7.4')] $is_hex = false): string|false|null {}
 
 /**
  * Send encoded mail

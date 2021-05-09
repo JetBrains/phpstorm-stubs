@@ -881,7 +881,10 @@ function key_exists($key, array $array): bool {}
  * <p>An optional description that will be included in the failure message if the assertion fails.</p>
  * @return bool false if the assertion is false, true otherwise.
  */
-function assert(mixed $assertion, $description = ''): bool {}
+function assert(
+    mixed $assertion,
+    #[LanguageLevelTypeAware(['8.0' => 'Throwable|string|null'], default: 'string')] $description = ''
+): bool {}
 
 /**
  * AssertionError is thrown when an assertion made via {@see assert()} fails.

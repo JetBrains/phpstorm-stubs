@@ -2350,20 +2350,20 @@ function mysqli_stmt_send_long_data(mysqli_stmt $statement, int $param_num, stri
  * The number of variables and length of string
  * types must match the parameters in the statement.
  * </p>
- * @param mixed &...$_ [optional]
+ * @param mixed &...$vars [optional]
  * @return bool true on success or false on failure.
  */
-function mysqli_stmt_bind_param(mysqli_stmt $statement, string $types, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed &$var1, &...$vars): bool {}
+function mysqli_stmt_bind_param(mysqli_stmt $statement, string $types, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed &$var1, mixed &...$vars): bool {}
 
 /**
  * Binds variables to a prepared statement for result storage
  * @link https://php.net/manual/en/mysqli-stmt.bind-result.php
  * @param mysqli_stmt $statement Statement
  * @param mixed &$var1 The variable to be bound.
- * @param mixed &...$_ The variables to be bound.
+ * @param mixed &...$vars The variables to be bound.
  * @return bool
  */
-function mysqli_stmt_bind_result(mysqli_stmt $statement, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed &$var1, &...$vars): bool {}
+function mysqli_stmt_bind_result(mysqli_stmt $statement, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed &$var1, mixed &...$vars): bool {}
 
 /**
  * Fetch results from a prepared statement into the bound variables
