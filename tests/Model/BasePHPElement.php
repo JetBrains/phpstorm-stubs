@@ -20,7 +20,9 @@ use ReflectionNamedType;
 use ReflectionType;
 use ReflectionUnionType;
 use Reflector;
+use RuntimeException;
 use stdClass;
+use StubTests\Parsers\Utils;
 
 abstract class BasePHPElement
 {
@@ -194,5 +196,15 @@ abstract class BasePHPElement
             }
         }
         return false;
+    }
+
+    /**
+     * @param BasePHPElement $element
+     * @return bool
+     * @throws RuntimeException
+     */
+    public static function entitySuitesCurrentPhpVersion(BasePHPElement $element): bool
+    {
+        return in_array(doubleval(getenv('PHP_VERSION')), Utils::getAvailableInVersions($element));
     }
 }

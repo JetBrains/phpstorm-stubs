@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace StubTests\Model;
 
 use RuntimeException;
-use StubTests\Parsers\Utils;
 use function array_key_exists;
 
 class StubsContainer
@@ -73,14 +72,15 @@ class StubsContainer
     {
         $functions = array_filter($this->functions, function (PHPFunction $function) use ($name): bool {
             return $function->name === $name && $function->duplicateOtherElement === false
-                && in_array(doubleval(getenv('PHP_VERSION')), Utils::getAvailableInVersions($function));
+                && BasePHPElement::entitySuitesCurrentPhpVersion($function);
         });
         if (count($functions) === 1) {
             return array_pop($functions);
         } else {
             if ($sourceFilePath !== null) {
                 $functions = array_filter($functions, function (PHPFunction $function) use ($sourceFilePath) {
-                    return $function->sourceFilePath === $sourceFilePath && in_array(doubleval(getenv('PHP_VERSION')), Utils::getAvailableInVersions($function));
+                    return $function->sourceFilePath === $sourceFilePath
+                        && BasePHPElement::entitySuitesCurrentPhpVersion($function);
                 });
             }
             if (count($functions) > 1) {
