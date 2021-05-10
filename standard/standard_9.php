@@ -804,6 +804,16 @@ function array_key_first(array $array): string|int|null {}
 function array_key_last(array $array): string|int|null {}
 
 /**
+ * @link https://secure.php.net/array_is_list
+ * @param array $array An array
+ * @return bool return true if the array keys are 0 .. count($array)-1 in that order.
+ * For other arrays, it returns false. For non-arrays, it throws a TypeError.
+ * @since 8.1
+ */
+#[Pure]
+function array_is_list(array $array): bool {}
+
+/**
  * Alias:
  * {@see current}
  * @link https://php.net/manual/en/function.pos.php
