@@ -13,7 +13,7 @@ use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
-class StubsPHP80Test extends BaseStubsTest
+class StubsConstantsAndParametersValuesTest extends BaseStubsTest
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::constantValuesProvider
