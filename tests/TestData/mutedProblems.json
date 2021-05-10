@@ -641,6 +641,71 @@
       ]
     },
     {
+      "name": "implode",
+      "problems": [
+        {
+          "description": "parameter mismatch",
+          "versions": [
+            "ALL"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "join",
+      "problems": [
+        {
+          "description": "parameter mismatch",
+          "versions": [
+            "ALL"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "array_multisort",
+      "parameters": [
+        {
+          "name": "rest",
+          "problems": [
+            {
+              "description": "parameter reference",
+              "versions": [
+                "ALL"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "array",
+          "problems": [
+            {
+              "description": "parameter reference",
+              "versions": [
+                "ALL"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "extract",
+      "parameters": [
+        {
+          "name": "array",
+          "problems": [
+            {
+              "description": "parameter reference",
+              "versions": [
+                "ALL"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "dba_fetch",
       "problems": [
         {
