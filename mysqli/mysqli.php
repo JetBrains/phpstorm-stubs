@@ -2390,12 +2390,14 @@ function mysqli_stat(mysqli $mysql): string|false {}
  * @param string|null $cipher_algos A list of allowable ciphers to use for SSL encryption
  * @return bool This function always returns TRUE value.
  */
-function mysqli_ssl_set(mysqli $mysql,
-                        #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $key ,
-                        #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $certificate ,
-                        #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $ca_certificate ,
-                        #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $ca_path,
-                        #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $cipher_algos): bool {}
+function mysqli_ssl_set(
+    mysqli $mysql,
+    #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $key,
+    #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $certificate,
+    #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $ca_certificate,
+    #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $ca_path,
+    #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $cipher_algos
+): bool {}
 
 /**
  * Closes a prepared statement

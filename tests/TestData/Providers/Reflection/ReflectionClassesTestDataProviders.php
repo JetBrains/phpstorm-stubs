@@ -26,8 +26,11 @@ class ReflectionClassesTestDataProviders
 
     public static function classesWithInterfacesProvider(): ?Generator
     {
-        foreach (EntitiesFilter::getFiltered(ReflectionStubsSingleton::getReflectionStubs()->getClasses(),
-            fn (PHPClass $class) => empty($class->interfaces), StubProblemType::WRONG_INTERFACE) as $class) {
+        foreach (EntitiesFilter::getFiltered(
+            ReflectionStubsSingleton::getReflectionStubs()->getClasses(),
+            fn (PHPClass $class) => empty($class->interfaces),
+            StubProblemType::WRONG_INTERFACE
+        ) as $class) {
             //exclude classes from PHPReflectionParser
             if (strncmp($class->name, 'PHP', 3) !== 0) {
                 yield "class $class->name" => [$class];
@@ -42,7 +45,8 @@ class ReflectionClassesTestDataProviders
         $filtered = EntitiesFilter::getFiltered(
             $classesAndInterfaces,
             fn (PHPClass|PHPInterface $class) => empty($class->parentInterfaces) && empty($class->parentClass),
-            StubProblemType::WRONG_PARENT);
+            StubProblemType::WRONG_PARENT
+        );
         foreach ($filtered as $class) {
             yield "class $class->name" => [$class];
         }

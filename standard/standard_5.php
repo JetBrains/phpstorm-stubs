@@ -804,6 +804,20 @@ function ftell($stream): int|false {}
 function fflush($stream): bool {}
 
 /**
+ * Sync file to storage. Similar to fflush() but blocks until OS buffers have flushed.
+ * @param resource $stream
+ * @since 8.1
+ */
+function fsync($stream): bool {}
+
+/**
+ * Sync file data only to storage. Similar to fsync but does not flush modified metadata. POSIX only, aliased to fsync on Win32.
+ * @param resource $stream
+ * @since 8.1
+ */
+function fdatasync($stream): bool {}
+
+/**
  * Binary-safe file write
  * @link https://php.net/manual/en/function.fwrite.php
  * @param resource $stream &fs.file.pointer;

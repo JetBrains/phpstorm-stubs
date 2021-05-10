@@ -3,7 +3,11 @@ declare(strict_types=1);
 
 namespace StubTests\CodeStyle;
 
+use JetBrains\PhpStorm\Pure;
 use PhpCsFixer\Fixer\FixerInterface;
+use PhpCsFixer\FixerDefinition\CodeSample;
+use PhpCsFixer\FixerDefinition\FixerDefinition;
+use PhpCsFixer\FixerDefinition\FixerDefinitionInterface;
 use PhpCsFixer\Tokenizer\Token;
 use PhpCsFixer\Tokenizer\Tokens;
 use SplFileInfo;
@@ -20,7 +24,7 @@ final class BracesOneLineFixer implements FixerInterface
         return false;
     }
 
-    public function fix(SplFileInfo $file, Tokens $tokens)
+    public function fix(SplFileInfo $file, Tokens $tokens): void
     {
         foreach ($tokens as $index => $token) {
             if (!$token->equals('{')) {
@@ -32,7 +36,7 @@ final class BracesOneLineFixer implements FixerInterface
             if ($tokens[$braceEndIndex]->equals('}')) {
                 $beforeBraceIndex = $tokens->getPrevNonWhitespace($braceStartIndex);
                 for ($i = $beforeBraceIndex + 1; $i <= $braceEndIndex; $i++) {
-                    $tokens[$i]->clear();
+                    $tokens->clearAt($i);
                 }
                 if ($braceEndIndex - $beforeBraceIndex > 2) {
                     $tokens[$beforeBraceIndex + 1] = new Token(' ');
@@ -58,5 +62,22 @@ final class BracesOneLineFixer implements FixerInterface
     public function supports(SplFileInfo $file): bool
     {
         return true;
+    }
+
+    #[Pure]
+    public function getDefinition(): FixerDefinitionInterface
+    {
+        return new FixerDefinition(
+            "Braces of empty function's body should be placed on the same line",
+            [
+                new CodeSample(
+                    <<<PHP
+<?php
+declare(strict_types=1);
+function foo() {}
+PHP
+                ),
+            ]
+        );
     }
 }

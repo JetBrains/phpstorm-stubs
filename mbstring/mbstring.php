@@ -249,13 +249,14 @@ function mb_preferred_mime_name(string $encoding): string|false {}
  * The string being checked for length.
  * </p>
  * @param string|null $encoding [optional]
- * @return int the number of characters in
+ * @return int|false the number of characters in
  * string str having character encoding
  * encoding. A multi-byte character is
  * counted as 1.
  */
 #[Pure]
-function mb_strlen(string $string, ?string $encoding): int {}
+#[LanguageLevelTypeAware(['8.0' => 'int'], default: 'int|false')]
+function mb_strlen(string $string, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $encoding) {}
 
 /**
  * Find position of first occurrence of string in a string

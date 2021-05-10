@@ -208,7 +208,7 @@ function sybase_min_server_severity($severity) {}
 /**
  * Sets the handler called when a server message is raised
  * @link https://php.net/manual/en/function.sybase-set-message-handler.php
- * @param callback $handler
+ * @param callable $handler
  * @param resource $connection [optional]
  * @return bool
  * @removed 7.0

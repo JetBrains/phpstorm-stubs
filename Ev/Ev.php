@@ -804,7 +804,12 @@ final class EvPeriodic extends EvWatcher
      * @param int $priority
      */
     public function __construct(
-        $offset, $interval, ?callable $reschedule_cb = null, callable $callback, $data = null, $priority = 0
+        $offset,
+        $interval,
+        ?callable $reschedule_cb,
+        callable $callback,
+        $data = null,
+        $priority = 0
     ) {}
 
     /**
@@ -847,7 +852,12 @@ final class EvPeriodic extends EvWatcher
      * @return EvPeriodic
      */
     final public static function createStopped(
-        $offset, $interval, ?callable $reschedule_cb = null, callable $callback, $data = null, $priority = 0
+        $offset,
+        $interval,
+        ?callable $reschedule_cb,
+        callable $callback,
+        $data = null,
+        $priority = 0
     ) {}
 
     /**
@@ -1516,6 +1526,9 @@ final class EvLoop
      * @param float $timeout_interval
      */
     public static function defaultLoop(
-        $flags = Ev::FLAG_AUTO, $data = null, $io_interval = 0.0, $timeout_interval = 0.0
+        $flags = Ev::FLAG_AUTO,
+        $data = null,
+        $io_interval = 0.0,
+        $timeout_interval = 0.0
     ) {}
 }

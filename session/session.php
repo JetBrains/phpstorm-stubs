@@ -201,23 +201,23 @@ function session_unset() {}
 /**
  * Sets user-level session storage functions
  * @link https://php.net/manual/en/function.session-set-save-handler.php
- * @param callback $open <p>
+ * @param callable $open <p>
  * Open function, this works like a constructor in classes and is
  * executed when the session is being opened. The open function
  * expects two parameters, where the first is the save path and
  * the second is the session name.
  * </p>
- * @param callback $close <p>
+ * @param callable $close <p>
  * Close function, this works like a destructor in classes and is
  * executed when the session operation is done.
  * </p>
- * @param callback $read <p>
+ * @param callable $read <p>
  * Read function must return string value always to make save handler
  * work as expected. Return empty string if there is no data to read.
  * Return values from other handlers are converted to boolean expression.
  * true for success, false for failure.
  * </p>
- * @param callback $write <p>
+ * @param callable $write <p>
  * Write function that is called when session data is to be saved. This
  * function expects two parameters: an identifier and the data associated
  * with it.
@@ -229,21 +229,21 @@ function session_unset() {}
  * necessary, it is suggested that the debug output be written to a
  * file instead.
  * </p>
- * @param callback $destroy <p>
+ * @param callable $destroy <p>
  * The destroy handler, this is executed when a session is destroyed with
  * <b>session_destroy</b> and takes the session id as its
  * only parameter.
  * </p>
- * @param callback $gc <p>
+ * @param callable $gc <p>
  * The garbage collector, this is executed when the session garbage collector
  * is executed and takes the max session lifetime as its only parameter.
  * </p>
- * @param callback $create_sid [optional]
+ * @param callable $create_sid [optional]
  * <p>This callback is executed when a new session ID is required.
  * No parameters are provided, and the return value should be a string that is a valid
  * session ID for your handler.</p>
- * @param callback $validate_sid [optional]
- * @param callback $update_timestamp [optional]
+ * @param callable $validate_sid [optional]
+ * @param callable $update_timestamp [optional]
  * @return bool true on success or false on failure.
  */
 function session_set_save_handler(callable $open, callable $close, callable $read, callable $write, callable $destroy, callable $gc, $create_sid, $validate_sid, $update_timestamp): bool {}

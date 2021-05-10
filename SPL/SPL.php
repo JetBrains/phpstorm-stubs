@@ -1271,8 +1271,12 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      * @param int $cachingIteratorFlags [optional] Flags to affect the behavior of the {@see RecursiveCachingIterator} used internally.
      * @param int $mode [optional] Flags to affect the behavior of the {@see RecursiveIteratorIterator} used internally.
      */
-    public function __construct($iterator, $flags = self::BYPASS_KEY, $cachingIteratorFlags = CachingIterator::CATCH_GET_CHILD,
-                                $mode = self::SELF_FIRST) {}
+    public function __construct(
+        $iterator,
+        $flags = self::BYPASS_KEY,
+        $cachingIteratorFlags = CachingIterator::CATCH_GET_CHILD,
+        $mode = self::SELF_FIRST
+    ) {}
 
     /**
      * Rewind iterator
@@ -1555,7 +1559,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Sort the entries with a user-defined comparison function and maintain key association
      * @link https://php.net/manual/en/arrayobject.uasort.php
-     * @param callback $callback <p>
+     * @param callable $callback <p>
      * Function <i>cmp_function</i> should accept two
      * parameters which will be filled by pairs of entries.
      * The comparison function must return an integer less than, equal
@@ -1570,7 +1574,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Sort the entries by keys using a user-defined comparison function
      * @link https://php.net/manual/en/arrayobject.uksort.php
-     * @param callback $callback <p>
+     * @param callable $callback <p>
      * The callback comparison function.
      * </p>
      * <p>
