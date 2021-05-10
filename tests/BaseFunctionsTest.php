@@ -12,7 +12,6 @@ use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\Model\PhpVersions;
 use StubTests\Model\StubProblemType;
-use StubTests\Parsers\Utils;
 use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
@@ -177,45 +176,5 @@ class BaseFunctionsTest extends BaseStubsTest
         self::assertEquals(['?array'], $arrayParameter->typesFromSignature);
         self::assertEquals(['string'], $implodeFunction->returnTypesFromSignature);
         self::assertEquals(['string'], $implodeFunction->returnTypesFromPhpDoc);
-    }
-
-    private static function getAllDuplicatesOfFunction(?string $name): array
-    {
-        return array_filter(
-            PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(),
-            fn ($duplicateValue, $duplicateKey) => $duplicateValue->name === $name && str_contains($duplicateKey, 'duplicated'),
-            ARRAY_FILTER_USE_BOTH
-        );
-    }
-
-    /**
-     * @param array $filtered
-     * @return array
-     * @throws RuntimeException
-     */
-    private static function getDuplicatedFunctions(array $filtered): array
-    {
-        $duplicatedFunctions = array_filter($filtered, function (PHPFunction $value, int|string $key) {
-            $duplicatesOfFunction = self::getAllDuplicatesOfFunction($value->name);
-            $functionVersions[] = Utils::getAvailableInVersions(
-                PhpStormStubsSingleton::getPhpStormStubs()->getFunction($value->name)
-            );
-            array_push($functionVersions, ...array_values(array_map(
-                fn (PHPFunction $function) => Utils::getAvailableInVersions($function),
-                $duplicatesOfFunction
-            )));
-            $hasDuplicates = false;
-            $current = array_pop($functionVersions);
-            $next = array_pop($functionVersions);
-            while ($next !== null) {
-                if (!empty(array_intersect($current, $next))) {
-                    $hasDuplicates = true;
-                }
-                $current = array_merge($current, $next);
-                $next = array_pop($functionVersions);
-            }
-            return $hasDuplicates;
-        }, ARRAY_FILTER_USE_BOTH);
-        return array_unique(array_map(fn (PHPFunction $function) => $function->name, $duplicatedFunctions));
     }
 }

@@ -12,9 +12,9 @@ use PhpParser\Comment\Doc;
 use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Stmt\Function_;
 use ReflectionFunction;
+use RuntimeException;
 use stdClass;
 use StubTests\Parsers\DocFactoryProvider;
-use StubTests\Parsers\Utils;
 
 class PHPFunction extends BasePHPElement
 {
@@ -59,6 +59,7 @@ class PHPFunction extends BasePHPElement
     /**
      * @param Function_ $node
      * @return static
+     * @throws RuntimeException
      */
     public function readObjectFromStubNode($node)
     {
@@ -71,7 +72,7 @@ class PHPFunction extends BasePHPElement
         $index = 0;
         foreach ($node->getParams() as $parameter) {
             $parsedParameter = (new PHPParameter())->readObjectFromStubNode($parameter);
-            if (in_array(doubleval(getenv('PHP_VERSION')), Utils::getAvailableInVersions($parsedParameter))) {
+            if (self::entitySuitesCurrentPhpVersion($parsedParameter)) {
                 $parsedParameter->indexInSignature = $index;
                 $this->parameters[] = $parsedParameter;
                 $index++;

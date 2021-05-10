@@ -11,7 +11,6 @@ use RuntimeException;
 use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPConst;
 use StubTests\Model\PHPMethod;
-use StubTests\Model\PHPParameter;
 use StubTests\Model\PhpVersions;
 use StubTests\Model\Tags\RemovedTag;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
@@ -155,17 +154,6 @@ class Utils
         }
         $allSinceVersions[] = self::getSinceVersionsFromPhpDoc($parentClass);
         $allSinceVersions[] = self::getSinceVersionsFromAttribute($parentClass);
-        return $allSinceVersions;
-    }
-
-    private static function getSinceVersionsFromParentFunction(PHPParameter $element)
-    {
-        $parentFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($element->parentName);
-        if ($parentFunction === null) {
-            $parentFunction = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($element->parentName);
-        }
-        $allSinceVersions[] = self::getSinceVersionsFromPhpDoc($parentFunction);
-        $allSinceVersions[] = self::getSinceVersionsFromAttribute($parentFunction);
         return $allSinceVersions;
     }
 
