@@ -3,9 +3,11 @@ declare(strict_types=1);
 
 use StubTests\CodeStyle\BracesOneLineFixer;
 
+require_once __DIR__ . '/vendor/autoload.php';
+
 $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__)
-    ->append(['.php_cs'])
+    ->append(['.php-cs-fixer.php'])
     ->notName('PhpStormStubsMap.php');
 
 return (new PhpCsFixer\Config())
