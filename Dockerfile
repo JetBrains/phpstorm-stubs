@@ -51,7 +51,7 @@ RUN pecl install yaf
 RUN docker-php-ext-enable yaf
 RUN pecl install yar
 RUN docker-php-ext-enable yar
-#RUN pecl install gnupg
-#RUN docker-php-ext-enable gnupg
+RUN pecl install gnupg
+RUN docker-php-ext-enable gnupg
 #RUN pecl install uopz
 #RUN docker-php-ext-enable uopz
