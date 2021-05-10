@@ -1387,6 +1387,7 @@ const FUNCTIONS = array (
   'array_intersect_key' => 'standard/standard_9.php',
   'array_intersect_uassoc' => 'standard/standard_9.php',
   'array_intersect_ukey' => 'standard/standard_9.php',
+  'array_is_list' => 'standard/standard_9.php',
   'array_key_exists' => 'standard/standard_9.php',
   'array_key_first' => 'standard/standard_9.php',
   'array_key_last' => 'standard/standard_9.php',
