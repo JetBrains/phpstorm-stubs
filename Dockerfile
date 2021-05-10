@@ -32,8 +32,8 @@ RUN pecl install msgpack
 RUN docker-php-ext-enable msgpack
 RUN pecl install rrd
 RUN docker-php-ext-enable rrd
-#RUN pecl install sync
-#RUN docker-php-ext-enable sync
+RUN pecl install sync
+RUN docker-php-ext-enable sync
 RUN pecl install yaml
 RUN docker-php-ext-enable yaml
 RUN pecl install pcov
