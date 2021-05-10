@@ -233,7 +233,7 @@ function odbc_errormsg($connection_id = null) {}
  * @return resource|false an ODBC result identifier if the SQL command was executed
  * successfully, or <b>FALSE</b> on error.
  */
-function odbc_exec($connection_id, $query_string, #[PhpStormStubsElementAvailable(from:'5.3', to: '7.4')] $flags = null) {}
+function odbc_exec($connection_id, $query_string, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $flags = null) {}
 
 /**
  * Fetch a result row as an associative array
