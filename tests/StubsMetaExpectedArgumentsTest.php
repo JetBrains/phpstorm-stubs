@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests;
 
+use JetBrains\PhpStorm\Pure;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\ConstFetch;
@@ -247,6 +248,7 @@ class StubsMetaExpectedArgumentsTest extends BaseStubsTest
         }
     }
 
+    #[Pure]
     private static function getClassMemberFqn(string $className, string $memberName): string
     {
         return self::toPresentableFqn($className) . '.' . $memberName;

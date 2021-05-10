@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests\TestData\Providers;
 
+use RuntimeException;
 use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPFunction;
@@ -47,6 +48,7 @@ class EntitiesFilter
     /**
      * @param PHPClass|PHPInterface|null $class
      * @return PHPFunction[]
+     * @throws RuntimeException
      */
     public static function getFilteredFunctions($class = null): array
     {

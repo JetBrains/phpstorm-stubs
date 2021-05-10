@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace StubTests\TestData\Providers\Stubs;
 
 use Generator;
+use RuntimeException;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\StubProblemType;
@@ -56,6 +57,9 @@ class StubMethodsProvider
         }
     }
 
+    /**
+     * @throws RuntimeException
+     */
     public static function methodsForReturnTypeHintTestsProvider(): ?Generator
     {
         $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(7);
@@ -66,6 +70,9 @@ class StubMethodsProvider
         );
     }
 
+    /**
+     * @throws RuntimeException
+     */
     public static function methodsForNullableReturnTypeHintTestsProvider(): ?Generator
     {
         $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(7.1);
@@ -76,6 +83,9 @@ class StubMethodsProvider
         );
     }
 
+    /**
+     * @throws RuntimeException
+     */
     public static function methodsForUnionReturnTypeHintTestsProvider(): ?Generator
     {
         $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(8);
@@ -86,6 +96,9 @@ class StubMethodsProvider
         );
     }
 
+    /**
+     * @throws RuntimeException
+     */
     private static function yieldFilteredMethods(callable $filterFunction, int ...$problemTypes): ?Generator
     {
         $coreClassesAndInterfaces = PhpStormStubsSingleton::getPhpStormStubs()->getCoreClasses() +

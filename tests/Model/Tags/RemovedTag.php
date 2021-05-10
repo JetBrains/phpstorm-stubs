@@ -20,13 +20,7 @@ class RemovedTag extends BaseTag
         $this->description = $description;
     }
 
-    /**
-     * @param string|null $body
-     * @param DescriptionFactory|null $descriptionFactory
-     * @param Context|null $context
-     * @return RemovedTag
-     */
-    public static function create($body, ?DescriptionFactory $descriptionFactory = null, ?Context $context = null): RemovedTag
+    public static function create(?string $body, ?DescriptionFactory $descriptionFactory = null, ?Context $context = null): RemovedTag
     {
         if (empty($body)) {
             return new self();
