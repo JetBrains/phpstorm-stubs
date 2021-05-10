@@ -94,7 +94,7 @@ class SyncSemaphore
      * @see SyncSemaphore::lock()
      * @link https://php.net/manual/en/syncsemaphore.unlock.php
      */
-    public function unlock(int &$prevcount) {}
+    public function unlock(int &$prevcount = 0) {}
     }
 
 /**
