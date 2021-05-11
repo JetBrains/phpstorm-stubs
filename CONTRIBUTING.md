@@ -9,7 +9,7 @@ Please check our [issue tracker] for issues corresponding to the problem you're 
 * Please avoid any unnecessary changes e.g., spacing, line endings, HTML formatting. Remember, these files are NOT for human consumption. We want to preserve meaningful history.
 * Please try to match existing style for any particular file - formatting, spacing, naming conventions.
 * Please add corresponding @since tags
-* Please run `composer cs` to check the code style and `composer cs-fix` to fix it
+* Please run `docker-compose -f docker-compose.yml run php composer cs -d /opt/project/phpstorm-stubs` to check the code style and `docker-compose -f docker-compose.yml run php composer cs-fix -d /opt/project/phpstorm-stubs` to fix it
 
 ## Tests
  * Please make sure that tests pass for your Pull Request. 
