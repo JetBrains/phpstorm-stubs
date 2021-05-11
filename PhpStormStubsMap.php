@@ -1858,6 +1858,7 @@ const FUNCTIONS = array (
   'enchant_dict_store_replacement' => 'enchant/enchant.php',
   'enchant_dict_suggest' => 'enchant/enchant.php',
   'end' => 'standard/standard_8.php',
+  'enum_exists' => 'Core/Core.php',
   'ereg' => 'regex/ereg.php',
   'ereg_replace' => 'regex/ereg.php',
   'eregi' => 'regex/ereg.php',
