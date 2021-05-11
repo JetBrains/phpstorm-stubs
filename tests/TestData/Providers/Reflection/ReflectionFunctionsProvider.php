@@ -19,16 +19,20 @@ class ReflectionFunctionsProvider
 
     public static function functionsForDeprecationTestsProvider(): ?Generator
     {
-        foreach (EntitiesFilter::getFiltered(ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
-            problemTypes: StubProblemType::FUNCTION_IS_DEPRECATED) as $function) {
+        foreach (EntitiesFilter::getFiltered(
+            ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
+            problemTypes: StubProblemType::FUNCTION_IS_DEPRECATED
+        ) as $function) {
             yield "function $function->name" => [$function];
         }
     }
 
     public static function functionsForParamsAmountTestsProvider(): ?Generator
     {
-        foreach (EntitiesFilter::getFiltered(ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
-            problemTypes: StubProblemType::FUNCTION_PARAMETER_MISMATCH) as $function) {
+        foreach (EntitiesFilter::getFiltered(
+            ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
+            problemTypes: StubProblemType::FUNCTION_PARAMETER_MISMATCH
+        ) as $function) {
             yield "function $function->name" => [$function];
         }
     }

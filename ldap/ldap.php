@@ -388,12 +388,12 @@ function ldap_first_entry($ldap, $result) {}
  * @param resource $ldap <p>
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
- * @param resource $result
+ * @param resource $entry
  * @return resource|false entry identifier for the next entry in the result whose entries
  * are being read starting with <b>ldap_first_entry</b>. If
  * there are no more entries in the result then it returns <b>FALSE</b>.
  */
-function ldap_next_entry($ldap, $result) {}
+function ldap_next_entry($ldap, $entry) {}
 
 /**
  * Get all result entries

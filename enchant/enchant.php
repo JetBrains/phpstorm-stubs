@@ -192,9 +192,9 @@ function enchant_dict_suggest($dict, $word) {}
  * @see enchant_dict_add()
  */
 #[Deprecated(
-  reason: 'Use enchant_dict_add instead',
-  replacement: 'enchant_dict_add(%parameter0%, %parameter1%)',
-  since: '8.0'
+    reason: 'Use enchant_dict_add instead',
+    replacement: 'enchant_dict_add(%parameter0%, %parameter1%)',
+    since: '8.0'
 )]
 function enchant_dict_add_to_personal($dict, $word) {}
 
@@ -241,9 +241,9 @@ function enchant_dict_add($dictionary, $word) {}
  * @see enchant_dict_is_added
  */
 #[Deprecated(
-  reason: 'Use enchant_dict_is_added instead',
-  replacement: 'enchant_dict_is_added(%parameter0%, %parameter1%)',
-  since: '8.0'
+    reason: 'Use enchant_dict_is_added instead',
+    replacement: 'enchant_dict_is_added(%parameter0%, %parameter1%)',
+    since: '8.0'
 )]
 function enchant_dict_is_in_session($dict, $word) {}
 

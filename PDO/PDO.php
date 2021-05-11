@@ -1364,7 +1364,7 @@ class PDOStatement implements IteratorAggregate
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function bindColumn($column, &$var, $type = null, $maxLength = null, $driverOptions = null) {}
+    public function bindColumn($column, &$var, $type = 2, $maxLength = null, $driverOptions = null) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 1.0.0)<br/>

@@ -69,7 +69,8 @@ class StubsMetaExpectedArgumentsTest extends BaseStubsTest
     public static function getMethodsFqns(StubsContainer $stubs): array
     {
         return self::flatten(
-            array_map(fn (PHPClass $class) => array_map(fn (PHPMethod $method) => self::getClassMemberFqn($class->name, $method->name), $class->methods), $stubs->getClasses()));
+            array_map(fn (PHPClass $class) => array_map(fn (PHPMethod $method) => self::getClassMemberFqn($class->name, $method->name), $class->methods), $stubs->getClasses())
+        );
     }
 
     /**
@@ -130,8 +131,11 @@ class StubsMetaExpectedArgumentsTest extends BaseStubsTest
                         self::fail("Couldn't read name of arguments set");
                     }
                     self::assertContains($name, self::$registeredArgumentsSet, 'Can\'t find registered argument set: ' . $name);
-                    self::assertArrayNotHasKey($name, $usedArgumentsSet,
-                        $name . ' argumentsSet used more then once for ' . self::getFqn($argument->getFunctionReference()));
+                    self::assertArrayNotHasKey(
+                        $name,
+                        $usedArgumentsSet,
+                        $name . ' argumentsSet used more then once for ' . self::getFqn($argument->getFunctionReference())
+                    );
                     $usedArgumentsSet[$name] = $name;
                 }
             }
@@ -143,8 +147,11 @@ class StubsMetaExpectedArgumentsTest extends BaseStubsTest
         foreach (self::$expectedArguments as $argument) {
             foreach ($argument->getExpectedArguments() as $literalArgument) {
                 if ($literalArgument instanceof String_) {
-                    self::assertEquals(String_::KIND_SINGLE_QUOTED, $literalArgument->getAttribute('kind'),
-                        'String literals as expectedArguments should be single-quoted');
+                    self::assertEquals(
+                        String_::KIND_SINGLE_QUOTED,
+                        $literalArgument->getAttribute('kind'),
+                        'String literals as expectedArguments should be single-quoted'
+                    );
                 }
             }
         }
@@ -183,8 +190,11 @@ class StubsMetaExpectedArgumentsTest extends BaseStubsTest
                 continue;
             }
             $functionReferenceFqn = self::getFqn($argument->getFunctionReference());
-            self::assertArrayNotHasKey($functionReferenceFqn, $expectedReturnValuesFunctionsFqns,
-                'Expected return values for ' . $functionReferenceFqn . ' already registered');
+            self::assertArrayNotHasKey(
+                $functionReferenceFqn,
+                $expectedReturnValuesFunctionsFqns,
+                'Expected return values for ' . $functionReferenceFqn . ' already registered'
+            );
             $expectedReturnValuesFunctionsFqns[$functionReferenceFqn] = $functionReferenceFqn;
         }
     }
@@ -218,8 +228,10 @@ class StubsMetaExpectedArgumentsTest extends BaseStubsTest
                 }
                 $originalName = $name->getAttribute('originalName');
                 if (method_exists($originalName, 'isFullyQualified')) {
-                    self::assertTrue($originalName->isFullyQualified(),
-                        self::getFqn($expr) . ' should be fully qualified');
+                    self::assertTrue(
+                        $originalName->isFullyQualified(),
+                        self::getFqn($expr) . ' should be fully qualified'
+                    );
                 } else {
                     self::fail('Could not check if name is fully qualified');
                 }

@@ -337,7 +337,7 @@ function event_add($event, $timeout = -1) {}
  * The additional flag EV_PERSIST makes the event to persist until {@link event_del}() is
  * called, otherwise the callback is invoked only once.
  * </p>
- * @param callback $callback <p>
+ * @param callable $callback <p>
  * Callback function to be called when the matching event occurs.
  * </p>
  * @param mixed $arg [optional] <p>
@@ -385,9 +385,9 @@ function event_del($event) {}
  * @link https://php.net/event_buffer_new
  *
  * @param resource      $stream  Valid PHP stream resource. Must be castable to file descriptor.
- * @param callback|null $readcb  Callback to invoke where there is data to read, or NULL if no callback is desired.
- * @param callback|null $writecb Callback to invoke where the descriptor is ready for writing, or NULL if no callback is desired.
- * @param callback      $errorcb Callback to invoke where there is an error on the descriptor, cannot be NULL.
+ * @param callable|null $readcb  Callback to invoke where there is data to read, or NULL if no callback is desired.
+ * @param callable|null $writecb Callback to invoke where the descriptor is ready for writing, or NULL if no callback is desired.
+ * @param callable      $errorcb Callback to invoke where there is an error on the descriptor, cannot be NULL.
  * @param mixed         $arg     An argument that will be passed to each of the callbacks (optional).
  *
  * @return resource|false returns new buffered event resource on success or FALSE on error.
@@ -592,9 +592,9 @@ function event_buffer_fd_set($bevent, $fd) {}
  * @link https://php.net/event_buffer_set_callback
  *
  * @param resource $bevent Valid buffered event resource.
- * @param callback|null $readcb Callback to invoke where there is data to read, or NULL if no callback is desired.
- * @param callback|null $writecb Callback to invoke where the descriptor is ready for writing, or NULL if no callback is desired.
- * @param callback $errorcb Callback to invoke where there is an error on the descriptor, cannot be NULL.
+ * @param callable|null $readcb Callback to invoke where there is data to read, or NULL if no callback is desired.
+ * @param callable|null $writecb Callback to invoke where the descriptor is ready for writing, or NULL if no callback is desired.
+ * @param callable $errorcb Callback to invoke where there is an error on the descriptor, cannot be NULL.
  * @param mixed $arg An argument that will be passed to each of the callbacks (optional).
  *
  * @return bool returns TRUE on success or FALSE on error.
@@ -636,7 +636,7 @@ function event_timer_new() {}
  * @param resource $event <p>
  * Valid event resource.
  * </p>
- * @param callback $callback <p>
+ * @param callable $callback <p>
  * Callback function to be called when the matching event occurs.
  * </p>
  * @param mixed $arg [optional] <p>
