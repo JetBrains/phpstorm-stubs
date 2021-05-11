@@ -477,6 +477,21 @@ function interface_exists(string $interface, bool $autoload = true): bool {}
 function function_exists(string $function): bool {}
 
 /**
+ * Checks if the enum has been defined
+ * @link https://php.net/manual/en/function.enum-exists.php
+ * @param string $enum <p>
+ * The enum name. The name is matched in a case-insensitive manner.
+ * </p>
+ * @param bool $autoload [optional] <p>
+ * Whether or not to call autoload by default.
+ * </p>
+ * @return bool true if <i>enum</i> is a defined enum,
+ * false otherwise.
+ * @since 8.1
+ */
+function enum_exists(string $enum, bool $autoload = true): bool {}
+
+/**
  * Creates an alias for a class
  * @link https://php.net/manual/en/function.class-alias.php
  * @param string $class The original class.
