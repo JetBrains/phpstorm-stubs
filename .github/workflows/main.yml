@@ -9,11 +9,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Composer Install
-        run: composer install --ignore-platform-reqs
-
       - name: Build Docker Container
         run: docker-compose -f docker-compose.yml build >/dev/null
+
+      - name: Composer Install
+        run: docker-compose -f docker-compose.yml run php composer install --ignore-platform-reqs -d /opt/project/phpstorm-stubs
 
       - name: Run Tests
         run: docker-compose -f docker-compose.yml run php /opt/project/phpstorm-stubs/vendor/bin/phpunit /opt/project/phpstorm-stubs/tests/
@@ -22,4 +22,4 @@ jobs:
         run: ./tests/check-stub-map
 
       - name: run cs fixer
-        run: composer cs
+        run: docker-compose -f docker-compose.yml run php composer cs -d /opt/project/phpstorm-stubs
