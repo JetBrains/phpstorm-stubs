@@ -303,7 +303,9 @@ class StubsTypeHintsTest extends BaseStubsTest
         $unifiedPhpDocTypes = array_map(function (string $type) {
             $typeParts = explode('\\', $type);
             $typeName = end($typeParts);
-            return preg_replace('/\w+\[]/', 'array', $typeName);
+
+            // replace array notations like int[] or array<string,mixed> to match the array type
+            return preg_replace(['/\w+\[]/', '/array<[a-z,\s]+>/'], 'array', $typeName);
         }, $method->returnTypesFromPhpDoc);
         $unifiedSignatureTypes = $method->returnTypesFromSignature;
         if (count($unifiedSignatureTypes) === 1) {
