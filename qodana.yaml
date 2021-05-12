@@ -20,6 +20,7 @@ exclude:
       - amqp
       - apache
       - apcu
+      - ast
       - bcmath
       - blackfire
       - bz2
@@ -114,6 +115,7 @@ exclude:
       - PDO
       - pdo_ibm
       - pdo_mysql
+      - pdo_pgsql
       - pdo_sqlite
       - pgsql
       - Phar
@@ -157,6 +159,7 @@ exclude:
       - sybase
       - sync
       - sysvmsg
+      - sysvsem
       - sysvshm
       - tidy
       - tokenizer
@@ -192,3 +195,5 @@ exclude:
       - zmp
       - zmq
       - zookeeper
+      - zstd
+      - xdiff
