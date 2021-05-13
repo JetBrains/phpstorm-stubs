@@ -65,10 +65,10 @@
 
 namespace Couchbase;
 
-use \JsonSerializable;
-use \Exception;
-use \Throwable;
-use \DateTimeInterface;
+use JsonSerializable;
+use Exception;
+use Throwable;
+use DateTimeInterface;
 
 /**
  * An object which contains meta information of the document needed to enforce query consistency.
@@ -421,7 +421,6 @@ interface AnalyticsResult
     public function rows(): ?array;
 }
 
-
 /**
  * A range (or bucket) for a term search facet result.
  * Counts the number of occurrences of a given term.
@@ -605,33 +604,22 @@ class ViewRow
      *
      * @return string|null
      */
-    public function id(): ?string
-    {
-    }
+    public function id(): ?string {}
 
     /**
      * Returns the key of the document
-     *
      */
-    public function key()
-    {
-    }
+    public function key() {}
 
     /**
      * Returns the value of the row
-     *
      */
-    public function value()
-    {
-    }
+    public function value() {}
 
     /**
      * Returns the corresponding document for the row, if enabled
-     *
      */
-    public function document()
-    {
-    }
+    public function document() {}
 }
 
 /**
@@ -644,501 +632,311 @@ class BaseException extends Exception implements Throwable
      *
      * @return string|null
      */
-    public function ref(): ?string
-    {
-    }
+    public function ref(): ?string {}
 
     /**
      * Returns the underling error context, if any
      *
      * @return object|null
      */
-    public function context(): ?object
-    {
-    }
+    public function context(): ?object {}
 }
 
-class RequestCanceledException extends BaseException implements Throwable
-{
-}
+class RequestCanceledException extends BaseException implements Throwable {}
 
 /**
  *  Thrown for exceptions that originate from underlying Http operations.
  */
-class HttpException extends BaseException implements Throwable
-{
-}
+class HttpException extends BaseException implements Throwable {}
 
-class ParsingFailureException extends HttpException implements Throwable
-{
-}
+class ParsingFailureException extends HttpException implements Throwable {}
 
-class IndexNotFoundException extends HttpException implements Throwable
-{
-}
+class IndexNotFoundException extends HttpException implements Throwable {}
 
-class PlanningFailureException extends HttpException implements Throwable
-{
-}
+class PlanningFailureException extends HttpException implements Throwable {}
 
-class IndexFailureException extends HttpException implements Throwable
-{
-}
+class IndexFailureException extends HttpException implements Throwable {}
 
-class KeyspaceNotFoundException extends HttpException implements Throwable
-{
-}
+class KeyspaceNotFoundException extends HttpException implements Throwable {}
 
 /**
  *  Thrown for exceptions that originate from query operations.
  */
-class QueryException extends HttpException implements Throwable
-{
-}
+class QueryException extends HttpException implements Throwable {}
 
 /**
  *  Thrown for exceptions that originate from query operations.
  */
-class QueryErrorException extends QueryException implements Throwable
-{
-}
+class QueryErrorException extends QueryException implements Throwable {}
 
-class DmlFailureException extends QueryException implements Throwable
-{
-}
+class DmlFailureException extends QueryException implements Throwable {}
 
-class PreparedStatementException extends QueryException implements Throwable
-{
-}
+class PreparedStatementException extends QueryException implements Throwable {}
 
-class QueryServiceException extends QueryException implements Throwable
-{
-}
+class QueryServiceException extends QueryException implements Throwable {}
 
 /**
  *  Thrown for exceptions that originate from search operations.
  */
-class SearchException extends HttpException implements Throwable
-{
-}
+class SearchException extends HttpException implements Throwable {}
 
 /**
  *  Thrown for exceptions that originate from analytics operations.
  */
-class AnalyticsException extends HttpException implements Throwable
-{
-}
+class AnalyticsException extends HttpException implements Throwable {}
 
 /**
  *  Thrown for exceptions that originate from view operations.
  */
-class ViewException extends HttpException implements Throwable
-{
-}
+class ViewException extends HttpException implements Throwable {}
 
-class PartialViewException extends HttpException implements Throwable
-{
-}
+class PartialViewException extends HttpException implements Throwable {}
 
-class BindingsException extends BaseException implements Throwable
-{
-}
+class BindingsException extends BaseException implements Throwable {}
 
-class InvalidStateException extends BaseException implements Throwable
-{
-}
+class InvalidStateException extends BaseException implements Throwable {}
 
 /**
  *  Base for exceptions that originate from key value operations
  */
-class KeyValueException extends BaseException implements Throwable
-{
-}
+class KeyValueException extends BaseException implements Throwable {}
 
 /**
  *  Occurs when the requested document could not be found.
  */
-class DocumentNotFoundException extends KeyValueException implements Throwable
-{
-}
+class DocumentNotFoundException extends KeyValueException implements Throwable {}
 
 /**
  *  Occurs when an attempt is made to insert a document but a document with that key already exists.
  */
-class KeyExistsException extends KeyValueException implements Throwable
-{
-}
+class KeyExistsException extends KeyValueException implements Throwable {}
 
 /**
  *  Occurs when a document has gone over the maximum size allowed by the server.
  */
-class ValueTooBigException extends KeyValueException implements Throwable
-{
-}
+class ValueTooBigException extends KeyValueException implements Throwable {}
 
 /**
  *  Occurs when a mutation operation is attempted against a document that is locked.
  */
-class KeyLockedException extends KeyValueException implements Throwable
-{
-}
+class KeyLockedException extends KeyValueException implements Throwable {}
 
 /**
  *  Occurs when an operation has failed for a reason that is temporary.
  */
-class TempFailException extends KeyValueException implements Throwable
-{
-}
+class TempFailException extends KeyValueException implements Throwable {}
 
 /**
  *  Occurs when a sub-document operation targets a path which does not exist in the specified document.
  */
-class PathNotFoundException extends KeyValueException implements Throwable
-{
-}
+class PathNotFoundException extends KeyValueException implements Throwable {}
 
 /**
  *  Occurs when a sub-document operation expects a path not to exists, but the path was found in the document.
  */
-class PathExistsException extends KeyValueException implements Throwable
-{
-}
+class PathExistsException extends KeyValueException implements Throwable {}
 
 /**
  *  Occurs when a sub-document counter operation is performed and the specified delta is not valid.
  */
-class InvalidRangeException extends KeyValueException implements Throwable
-{
-}
+class InvalidRangeException extends KeyValueException implements Throwable {}
 
 /**
  *  Occurs when a multi-operation sub-document operation is performed on a soft-deleted document.
  */
-class KeyDeletedException extends KeyValueException implements Throwable
-{
-}
+class KeyDeletedException extends KeyValueException implements Throwable {}
 
 /**
  *  Occurs when an operation has been performed with a cas value that does not the value on the server.
  */
-class CasMismatchException extends KeyValueException implements Throwable
-{
-}
+class CasMismatchException extends KeyValueException implements Throwable {}
 
 /**
  *  Occurs when an invalid configuration has been specified for an operation.
  */
-class InvalidConfigurationException extends BaseException implements Throwable
-{
-}
+class InvalidConfigurationException extends BaseException implements Throwable {}
 
 /**
  *  Occurs when the requested service is not available.
  */
-class ServiceMissingException extends BaseException implements Throwable
-{
-}
+class ServiceMissingException extends BaseException implements Throwable {}
 
 /**
  *  Occurs when various generic network errors occur.
  */
-class NetworkException extends BaseException implements Throwable
-{
-}
+class NetworkException extends BaseException implements Throwable {}
 
 /**
  *  Occurs when an operation does not receive a response in a timely manner.
  */
-class TimeoutException extends BaseException implements Throwable
-{
-}
+class TimeoutException extends BaseException implements Throwable {}
 
 /**
  *  Occurs when the specified bucket does not exist.
  */
-class BucketMissingException extends BaseException implements Throwable
-{
-}
+class BucketMissingException extends BaseException implements Throwable {}
 
 /**
  *  Occurs when the specified scope does not exist.
  */
-class ScopeMissingException extends BaseException implements Throwable
-{
-}
+class ScopeMissingException extends BaseException implements Throwable {}
 
 /**
  *  Occurs when the specified collection does not exist.
  */
-class CollectionMissingException extends BaseException implements Throwable
-{
-}
+class CollectionMissingException extends BaseException implements Throwable {}
 
 /**
  *  Occurs when authentication has failed.
  */
-class AuthenticationException extends BaseException implements Throwable
-{
-}
+class AuthenticationException extends BaseException implements Throwable {}
 
 /**
  *  Occurs when an operation is attempted with bad input.
  */
-class BadInputException extends BaseException implements Throwable
-{
-}
+class BadInputException extends BaseException implements Throwable {}
 
 /**
  *  Occurs when the specified durability could not be met for a mutation operation.
  */
-class DurabilityException extends BaseException implements Throwable
-{
-}
+class DurabilityException extends BaseException implements Throwable {}
 
 /**
  *  Occurs when a subdocument operation could not be completed.
  */
-class SubdocumentException extends BaseException implements Throwable
-{
-}
+class SubdocumentException extends BaseException implements Throwable {}
 
 class QueryIndex
 {
-    public function name(): string
-    {
-    }
+    public function name(): string {}
 
-    public function isPrimary(): bool
-    {
-    }
+    public function isPrimary(): bool {}
 
-    public function type(): string
-    {
-    }
+    public function type(): string {}
 
-    public function state(): string
-    {
-    }
+    public function state(): string {}
 
-    public function keyspace(): string
-    {
-    }
+    public function keyspace(): string {}
 
-    public function indexKey(): array
-    {
-    }
+    public function indexKey(): array {}
 
-    public function condition(): ?string
-    {
-    }
+    public function condition(): ?string {}
 }
 
 class CreateQueryIndexOptions
 {
-    public function condition(string $condition): CreateQueryIndexOptions
-    {
-    }
+    public function condition(string $condition): CreateQueryIndexOptions {}
 
-    public function ignoreIfExists(bool $shouldIgnore): CreateQueryIndexOptions
-    {
-    }
+    public function ignoreIfExists(bool $shouldIgnore): CreateQueryIndexOptions {}
 
-    public function numReplicas(int $number): CreateQueryIndexOptions
-    {
-    }
+    public function numReplicas(int $number): CreateQueryIndexOptions {}
 
-    public function deferred(bool $isDeferred): CreateQueryIndexOptions
-    {
-    }
+    public function deferred(bool $isDeferred): CreateQueryIndexOptions {}
 }
 
 class CreateQueryPrimaryIndexOptions
 {
-    public function indexName(string $name): CreateQueryPrimaryIndexOptions
-    {
-    }
+    public function indexName(string $name): CreateQueryPrimaryIndexOptions {}
 
-    public function ignoreIfExists(bool $shouldIgnore): CreateQueryPrimaryIndexOptions
-    {
-    }
+    public function ignoreIfExists(bool $shouldIgnore): CreateQueryPrimaryIndexOptions {}
 
-    public function numReplicas(int $number): CreateQueryPrimaryIndexOptions
-    {
-    }
+    public function numReplicas(int $number): CreateQueryPrimaryIndexOptions {}
 
-    public function deferred(bool $isDeferred): CreateQueryPrimaryIndexOptions
-    {
-    }
+    public function deferred(bool $isDeferred): CreateQueryPrimaryIndexOptions {}
 }
 
 class DropQueryIndexOptions
 {
-    public function ignoreIfNotExists(bool $shouldIgnore): DropQueryIndexOptions
-    {
-    }
+    public function ignoreIfNotExists(bool $shouldIgnore): DropQueryIndexOptions {}
 }
 
 class DropQueryPrimaryIndexOptions
 {
-    public function indexName(string $name): DropQueryPrimaryIndexOptions
-    {
-    }
+    public function indexName(string $name): DropQueryPrimaryIndexOptions {}
 
-    public function ignoreIfNotExists(bool $shouldIgnore): DropQueryPrimaryIndexOptions
-    {
-    }
+    public function ignoreIfNotExists(bool $shouldIgnore): DropQueryPrimaryIndexOptions {}
 }
 
 class WatchQueryIndexesOptions
 {
-    public function watchPrimary(bool $shouldWatch): WatchQueryIndexesOptions
-    {
-    }
+    public function watchPrimary(bool $shouldWatch): WatchQueryIndexesOptions {}
 }
 
 class QueryIndexManager
 {
-    public function getAllIndexes(string $bucketName): array
-    {
-    }
+    public function getAllIndexes(string $bucketName): array {}
 
-    public function createIndex(string $bucketName, string $indexName, array $fields, CreateQueryIndexOptions $options = null)
-    {
-    }
+    public function createIndex(string $bucketName, string $indexName, array $fields, CreateQueryIndexOptions $options = null) {}
 
-    public function createPrimaryIndex(string $bucketName, CreateQueryPrimaryIndexOptions $options = null)
-    {
-    }
+    public function createPrimaryIndex(string $bucketName, CreateQueryPrimaryIndexOptions $options = null) {}
 
-    public function dropIndex(string $bucketName, string $indexName, DropQueryIndexOptions $options = null)
-    {
-    }
+    public function dropIndex(string $bucketName, string $indexName, DropQueryIndexOptions $options = null) {}
 
-    public function dropPrimaryIndex(string $bucketName, DropQueryPrimaryIndexOptions $options = null)
-    {
-    }
+    public function dropPrimaryIndex(string $bucketName, DropQueryPrimaryIndexOptions $options = null) {}
 
-    public function watchIndexes(string $bucketName, array $indexNames, int $timeout, WatchQueryIndexesOptions $options = null)
-    {
-    }
+    public function watchIndexes(string $bucketName, array $indexNames, int $timeout, WatchQueryIndexesOptions $options = null) {}
 
-    public function buildDeferredIndexes(string $bucketName)
-    {
-    }
+    public function buildDeferredIndexes(string $bucketName) {}
 }
 
 class SearchIndex implements JsonSerializable
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function type(): string
-    {
-    }
+    public function type(): string {}
 
-    public function uuid(): string
-    {
-    }
+    public function uuid(): string {}
 
-    public function params(): array
-    {
-    }
+    public function params(): array {}
 
-    public function sourceType(): string
-    {
-    }
+    public function sourceType(): string {}
 
-    public function sourceUuid(): string
-    {
-    }
+    public function sourceUuid(): string {}
 
-    public function sourceName(): string
-    {
-    }
+    public function sourceName(): string {}
 
-    public function sourceParams(): array
-    {
-    }
+    public function sourceParams(): array {}
 
-    public function setType(string $type): SearchIndex
-    {
-    }
+    public function setType(string $type): SearchIndex {}
 
-    public function setUuid(string $uuid): SearchIndex
-    {
-    }
+    public function setUuid(string $uuid): SearchIndex {}
 
-    public function setParams(string $params): SearchIndex
-    {
-    }
+    public function setParams(string $params): SearchIndex {}
 
-    public function setSourceType(string $type): SearchIndex
-    {
-    }
+    public function setSourceType(string $type): SearchIndex {}
 
-    public function setSourceUuid(string $uuid): SearchIndex
-    {
-    }
+    public function setSourceUuid(string $uuid): SearchIndex {}
 
-    public function setSourcename(string $params): SearchIndex
-    {
-    }
+    public function setSourcename(string $params): SearchIndex {}
 
-    public function setSourceParams(string $params): SearchIndex
-    {
-    }
+    public function setSourceParams(string $params): SearchIndex {}
 }
 
 class SearchIndexManager
 {
-    public function getIndex(string $name): SearchIndex
-    {
-    }
+    public function getIndex(string $name): SearchIndex {}
 
-    public function getAllIndexes(): array
-    {
-    }
+    public function getAllIndexes(): array {}
 
-    public function upsertIndex(SearchIndex $indexDefinition)
-    {
-    }
+    public function upsertIndex(SearchIndex $indexDefinition) {}
 
-    public function dropIndex(string $name)
-    {
-    }
+    public function dropIndex(string $name) {}
 
-    public function getIndexedDocumentsCount(string $indexName): int
-    {
-    }
+    public function getIndexedDocumentsCount(string $indexName): int {}
 
-    public function pauseIngest(string $indexName)
-    {
-    }
+    public function pauseIngest(string $indexName) {}
 
-    public function resumeIngest(string $indexName)
-    {
-    }
+    public function resumeIngest(string $indexName) {}
 
-    public function allowQuerying(string $indexName)
-    {
-    }
+    public function allowQuerying(string $indexName) {}
 
-    public function disallowQuerying(string $indexName)
-    {
-    }
+    public function disallowQuerying(string $indexName) {}
 
-    public function freezePlan(string $indexName)
-    {
-    }
+    public function freezePlan(string $indexName) {}
 
-    public function unfreezePlan(string $indexName)
-    {
-    }
+    public function unfreezePlan(string $indexName) {}
 
-    public function analyzeDocument(string $indexName, $document)
-    {
-    }
+    public function analyzeDocument(string $indexName, $document) {}
 }
 
 /**
@@ -1147,9 +945,7 @@ class SearchIndexManager
  */
 class Cluster
 {
-    public function __construct(string $connstr, ClusterOptions $options)
-    {
-    }
+    public function __construct(string $connstr, ClusterOptions $options) {}
 
     /**
      * Returns a new bucket object.
@@ -1157,9 +953,7 @@ class Cluster
      * @param string $name the name of the bucket
      * @return Bucket
      */
-    public function bucket(string $name): Bucket
-    {
-    }
+    public function bucket(string $name): Bucket {}
 
     /**
      * Executes a N1QL query against the cluster.
@@ -1169,9 +963,7 @@ class Cluster
      * @param QueryOptions $options the options to use when executing the query
      * @return QueryResult
      */
-    public function query(string $statement, QueryOptions $options = null): QueryResult
-    {
-    }
+    public function query(string $statement, QueryOptions $options = null): QueryResult {}
 
     /**
      * Executes an analytics query against the cluster.
@@ -1181,9 +973,7 @@ class Cluster
      * @param AnalyticsOptions $options the options to use when executing the query
      * @return AnalyticsResult
      */
-    public function analyticsQuery(string $statement, AnalyticsOptions $options = null): AnalyticsResult
-    {
-    }
+    public function analyticsQuery(string $statement, AnalyticsOptions $options = null): AnalyticsResult {}
 
     /**
      * Executes a full text search query against the cluster.
@@ -1194,45 +984,35 @@ class Cluster
      * @param SearchOptions $options the options to use when executing the query
      * @return SearchResult
      */
-    public function searchQuery(string $indexName, SearchQuery $query, SearchOptions $options = null): SearchResult
-    {
-    }
+    public function searchQuery(string $indexName, SearchQuery $query, SearchOptions $options = null): SearchResult {}
 
     /**
      * Creates a new bucket manager object for managing buckets.
      *
      * @return BucketManager
      */
-    public function buckets(): BucketManager
-    {
-    }
+    public function buckets(): BucketManager {}
 
     /**
      * Creates a new user manager object for managing users and groups.
      *
      * @return UserManager
      */
-    public function users(): UserManager
-    {
-    }
+    public function users(): UserManager {}
 
     /**
      * Creates a new query index manager object for managing N1QL query indexes.
      *
      * @return QueryIndexManager
      */
-    public function queryIndexes(): QueryIndexManager
-    {
-    }
+    public function queryIndexes(): QueryIndexManager {}
 
     /**
      * Creates a new search index manager object for managing search query indexes.
      *
      * @return SearchIndexManager
      */
-    public function searchIndexes(): SearchIndexManager
-    {
-    }
+    public function searchIndexes(): SearchIndexManager {}
 }
 
 interface EvictionPolicy
@@ -1273,65 +1053,35 @@ interface EvictionPolicy
 
 class BucketSettings
 {
-    public function name(): string
-    {
-    }
+    public function name(): string {}
 
-    public function flushEnabled(): bool
-    {
-    }
+    public function flushEnabled(): bool {}
 
-    public function ramQuotaMb(): int
-    {
-    }
+    public function ramQuotaMb(): int {}
 
-    public function numReplicas(): int
-    {
-    }
+    public function numReplicas(): int {}
 
-    public function replicaIndexes(): bool
-    {
-    }
+    public function replicaIndexes(): bool {}
 
-    public function bucketType(): string
-    {
-    }
+    public function bucketType(): string {}
 
-    public function evictionPolicy(): string
-    {
-    }
+    public function evictionPolicy(): string {}
 
-    public function maxTtl(): int
-    {
-    }
+    public function maxTtl(): int {}
 
-    public function compressionMode(): string
-    {
-    }
+    public function compressionMode(): string {}
 
-    public function setName(string $name): BucketSettings
-    {
-    }
+    public function setName(string $name): BucketSettings {}
 
-    public function enableFlush(bool $enable): BucketSettings
-    {
-    }
+    public function enableFlush(bool $enable): BucketSettings {}
 
-    public function setRamQuotaMb(int $sizeInMb): BucketSettings
-    {
-    }
+    public function setRamQuotaMb(int $sizeInMb): BucketSettings {}
 
-    public function setNumReplicas(int $numReplicas): BucketSettings
-    {
-    }
+    public function setNumReplicas(int $numReplicas): BucketSettings {}
 
-    public function enableReplicaIndexes(bool $enable): BucketSettings
-    {
-    }
+    public function enableReplicaIndexes(bool $enable): BucketSettings {}
 
-    public function setBucketType(string $type): BucketSettings
-    {
-    }
+    public function setBucketType(string $type): BucketSettings {}
 
     /**
      * Configures eviction policy for the bucket.
@@ -1344,17 +1094,11 @@ class BucketSettings
      * @see \EvictionPolicy::NO_EVICTION
      * @see \EvictionPolicy::NOT_RECENTLY_USED
      */
-    public function setEvictionPolicy(string $policy): BucketSettings
-    {
-    }
+    public function setEvictionPolicy(string $policy): BucketSettings {}
 
-    public function setMaxTtl(int $ttlSeconds): BucketSettings
-    {
-    }
+    public function setMaxTtl(int $ttlSeconds): BucketSettings {}
 
-    public function setCompressionMode(string $mode): BucketSettings
-    {
-    }
+    public function setCompressionMode(string $mode): BucketSettings {}
 
     /**
      * Retrieves minimal durability level configured for the bucket
@@ -1364,9 +1108,7 @@ class BucketSettings
      * @see \DurabilityLevel::MAJORITY_AND_PERSIST_TO_ACTIVE
      * @see \DurabilityLevel::PERSIST_TO_MAJORITY
      */
-    public function minimalDurabilityLevel(): int
-    {
-    }
+    public function minimalDurabilityLevel(): int {}
 
     /**
      * Configures minimal durability level for the bucket
@@ -1378,264 +1120,154 @@ class BucketSettings
      * @see \DurabilityLevel::MAJORITY_AND_PERSIST_TO_ACTIVE
      * @see \DurabilityLevel::PERSIST_TO_MAJORITY
      */
-    public function setMinimalDurabilityLevel(int $durabilityLevel): BucketSettings
-    {
-    }
+    public function setMinimalDurabilityLevel(int $durabilityLevel): BucketSettings {}
 }
 
 class BucketManager
 {
-    public function createBucket(BucketSettings $settings)
-    {
-    }
+    public function createBucket(BucketSettings $settings) {}
 
-    public function removeBucket(string $name)
-    {
-    }
+    public function removeBucket(string $name) {}
 
-    public function getBucket(string $name): BucketSettings
-    {
-    }
+    public function getBucket(string $name): BucketSettings {}
 
-    public function getAllBuckets(): array
-    {
-    }
+    public function getAllBuckets(): array {}
 
-    public function flush(string $name)
-    {
-    }
+    public function flush(string $name) {}
 }
 
 class Role
 {
-    public function name(): string
-    {
-    }
+    public function name(): string {}
 
-    public function bucket(): ?string
-    {
-    }
+    public function bucket(): ?string {}
 
-    public function scope(): ?string
-    {
-    }
+    public function scope(): ?string {}
 
-    public function collection(): ?string
-    {
-    }
+    public function collection(): ?string {}
 
-    public function setName(string $name): Role
-    {
-    }
+    public function setName(string $name): Role {}
 
-    public function setBucket(string $bucket): Role
-    {
-    }
+    public function setBucket(string $bucket): Role {}
 
-    public function setScope(string $bucket): Role
-    {
-    }
+    public function setScope(string $bucket): Role {}
 
-    public function setCollection(string $bucket): Role
-    {
-    }
+    public function setCollection(string $bucket): Role {}
 }
 
 class RoleAndDescription
 {
-    public function role(): Role
-    {
-    }
+    public function role(): Role {}
 
-    public function displayName(): string
-    {
-    }
+    public function displayName(): string {}
 
-    public function description(): string
-    {
-    }
+    public function description(): string {}
 }
 
 class Origin
 {
-    public function type(): string
-    {
-    }
+    public function type(): string {}
 
-    public function name(): string
-    {
-    }
+    public function name(): string {}
 }
 
 class RoleAndOrigin
 {
-    public function role(): Role
-    {
-    }
+    public function role(): Role {}
 
-    public function origins(): array
-    {
-    }
+    public function origins(): array {}
 }
 
 class User
 {
-    public function username(): string
-    {
-    }
+    public function username(): string {}
 
-    public function displayName(): string
-    {
-    }
+    public function displayName(): string {}
 
-    public function groups(): array
-    {
-    }
+    public function groups(): array {}
 
-    public function roles(): array
-    {
-    }
+    public function roles(): array {}
 
-    public function setUsername(string $username): User
-    {
-    }
+    public function setUsername(string $username): User {}
 
-    public function setPassword(string $password): User
-    {
-    }
+    public function setPassword(string $password): User {}
 
-    public function setDisplayName(string $name): User
-    {
-    }
+    public function setDisplayName(string $name): User {}
 
-    public function setGroups(array $groups): User
-    {
-    }
+    public function setGroups(array $groups): User {}
 
-    public function setRoles(array $roles): User
-    {
-    }
+    public function setRoles(array $roles): User {}
 }
 
 class Group
 {
-    public function name(): string
-    {
-    }
+    public function name(): string {}
 
-    public function description(): string
-    {
-    }
+    public function description(): string {}
 
-    public function roles(): array
-    {
-    }
+    public function roles(): array {}
 
-    public function ldapGroupReference(): ?string
-    {
-    }
+    public function ldapGroupReference(): ?string {}
 
-    public function setName(string $name): Group
-    {
-    }
+    public function setName(string $name): Group {}
 
-    public function setDescription(string $description): Group
-    {
-    }
+    public function setDescription(string $description): Group {}
 
-    public function setRoles(array $roles): Group
-    {
-    }
+    public function setRoles(array $roles): Group {}
 }
 
 class UserAndMetadata
 {
-    public function domain(): string
-    {
-    }
+    public function domain(): string {}
 
-    public function user(): User
-    {
-    }
+    public function user(): User {}
 
-    public function effectiveRoles(): array
-    {
-    }
+    public function effectiveRoles(): array {}
 
-    public function passwordChanged(): string
-    {
-    }
+    public function passwordChanged(): string {}
 
-    public function externalGroups(): array
-    {
-    }
+    public function externalGroups(): array {}
 }
 
 class GetAllUsersOptions
 {
-    public function domainName(string $name): GetAllUsersOptions
-    {
-    }
+    public function domainName(string $name): GetAllUsersOptions {}
 }
 
 class GetUserOptions
 {
-    public function domainName(string $name): GetUserOptions
-    {
-    }
+    public function domainName(string $name): GetUserOptions {}
 }
 
 class DropUserOptions
 {
-    public function domainName(string $name): DropUserOptions
-    {
-    }
+    public function domainName(string $name): DropUserOptions {}
 }
 
 class UpsertUserOptions
 {
-    public function domainName(string $name): DropUserOptions
-    {
-    }
+    public function domainName(string $name): DropUserOptions {}
 }
 
 class UserManager
 {
-    public function getUser(string $name, GetUserOptions $options = null): UserAndMetadata
-    {
-    }
+    public function getUser(string $name, GetUserOptions $options = null): UserAndMetadata {}
 
-    public function getAllUsers(GetAllUsersOptions $options = null): array
-    {
-    }
+    public function getAllUsers(GetAllUsersOptions $options = null): array {}
 
-    public function upsertUser(User $user, UpsertUserOptions $options = null)
-    {
-    }
+    public function upsertUser(User $user, UpsertUserOptions $options = null) {}
 
-    public function dropUser(string $name, DropUserOptions $options = null)
-    {
-    }
+    public function dropUser(string $name, DropUserOptions $options = null) {}
 
-    public function getRoles(): array
-    {
-    }
+    public function getRoles(): array {}
 
-    public function getGroup(string $name): Group
-    {
-    }
+    public function getGroup(string $name): Group {}
 
-    public function getAllGroups(): array
-    {
-    }
+    public function getAllGroups(): array {}
 
-    public function upsertGroup(Group $group)
-    {
-    }
+    public function upsertGroup(Group $group) {}
 
-    public function dropGroup(string $name)
-    {
-    }
+    public function dropGroup(string $name) {}
 }
 
 /**
@@ -1648,9 +1280,7 @@ class BinaryCollection
      *
      * @return string
      */
-    public function name(): string
-    {
-    }
+    public function name(): string {}
 
     /**
      * Appends a value to a document.
@@ -1660,9 +1290,7 @@ class BinaryCollection
      * @param AppendOptions $options the options to use for the operation
      * @return MutationResult
      */
-    public function append(string $id, string $value, AppendOptions $options = null): MutationResult
-    {
-    }
+    public function append(string $id, string $value, AppendOptions $options = null): MutationResult {}
 
     /**
      * Prepends a value to a document.
@@ -1672,9 +1300,7 @@ class BinaryCollection
      * @param PrependOptions $options the options to use for the operation
      * @return MutationResult
      */
-    public function prepend(string $id, string $value, PrependOptions $options = null): MutationResult
-    {
-    }
+    public function prepend(string $id, string $value, PrependOptions $options = null): MutationResult {}
 
     /**
      * Increments a counter document by a value.
@@ -1683,9 +1309,7 @@ class BinaryCollection
      * @param IncrementOptions $options the options to use for the operation
      * @return CounterResult
      */
-    public function increment(string $id, IncrementOptions $options = null): CounterResult
-    {
-    }
+    public function increment(string $id, IncrementOptions $options = null): CounterResult {}
 
     /**
      * Decrements a counter document by a value.
@@ -1694,9 +1318,7 @@ class BinaryCollection
      * @param DecrementOptions $options the options to use for the operation
      * @return CounterResult
      */
-    public function decrement(string $id, DecrementOptions $options = null): CounterResult
-    {
-    }
+    public function decrement(string $id, DecrementOptions $options = null): CounterResult {}
 }
 
 /**
@@ -1709,9 +1331,7 @@ class Collection
      *
      * @return string
      */
-    public function name(): string
-    {
-    }
+    public function name(): string {}
 
     /**
      * Gets a document from the server.
@@ -1724,9 +1344,7 @@ class Collection
      * @param GetOptions $options the options to use for the operation
      * @return GetResult
      */
-    public function get(string $id, GetOptions $options = null): GetResult
-    {
-    }
+    public function get(string $id, GetOptions $options = null): GetResult {}
 
     /**
      * Checks if a document exists on the server.
@@ -1735,9 +1353,7 @@ class Collection
      * @param ExistsOptions $options the options to use for the operation
      * @return ExistsResult
      */
-    public function exists(string $id, ExistsOptions $options = null): ExistsResult
-    {
-    }
+    public function exists(string $id, ExistsOptions $options = null): ExistsResult {}
 
     /**
      * Gets a document from the server, locking the document so that no other processes can
@@ -1748,9 +1364,7 @@ class Collection
      * @param GetAndLockOptions $options the options to use for the operation
      * @return GetResult
      */
-    public function getAndLock(string $id, int $lockTime, GetAndLockOptions $options = null): GetResult
-    {
-    }
+    public function getAndLock(string $id, int $lockTime, GetAndLockOptions $options = null): GetResult {}
 
     /**
      * Gets a document from the server and simultaneously updates its expiry time.
@@ -1760,9 +1374,7 @@ class Collection
      * @param GetAndTouchOptions $options the options to use for the operation
      * @return GetResult
      */
-    public function getAndTouch(string $id, int $expiry, GetAndTouchOptions $options = null): GetResult
-    {
-    }
+    public function getAndTouch(string $id, int $expiry, GetAndTouchOptions $options = null): GetResult {}
 
     /**
      * Gets a document from any replica server in the cluster.
@@ -1771,9 +1383,7 @@ class Collection
      * @param GetAnyReplicaOptions $options the options to use for the operation
      * @return GetReplicaResult
      */
-    public function getAnyReplica(string $id, GetAnyReplicaOptions $options = null): GetReplicaResult
-    {
-    }
+    public function getAnyReplica(string $id, GetAnyReplicaOptions $options = null): GetReplicaResult {}
 
     /**
      * Gets a document from the active server and all replica servers in the cluster.
@@ -1783,9 +1393,7 @@ class Collection
      * @param GetAllReplicasOptions $options the options to use for the operation
      * @return array
      */
-    public function getAllReplicas(string $id, GetAllReplicasOptions $options = null): array
-    {
-    }
+    public function getAllReplicas(string $id, GetAllReplicasOptions $options = null): array {}
 
     /**
      * Creates a document if it doesn't exist, otherwise updates it.
@@ -1795,9 +1403,7 @@ class Collection
      * @param UpsertOptions $options the options to use for the operation
      * @return MutationResult
      */
-    public function upsert(string $id, $value, UpsertOptions $options = null): MutationResult
-    {
-    }
+    public function upsert(string $id, $value, UpsertOptions $options = null): MutationResult {}
 
     /**
      * Inserts a document if it doesn't exist, errors if it does exist.
@@ -1807,9 +1413,7 @@ class Collection
      * @param InsertOptions $options the options to use for the operation
      * @return MutationResult
      */
-    public function insert(string $id, $value, InsertOptions $options = null): MutationResult
-    {
-    }
+    public function insert(string $id, $value, InsertOptions $options = null): MutationResult {}
 
     /**
      * Replaces a document if it exists, errors if it doesn't exist.
@@ -1819,9 +1423,7 @@ class Collection
      * @param ReplaceOptions $options the options to use for the operation
      * @return MutationResult
      */
-    public function replace(string $id, $value, ReplaceOptions $options = null): MutationResult
-    {
-    }
+    public function replace(string $id, $value, ReplaceOptions $options = null): MutationResult {}
 
     /**
      * Removes a document.
@@ -1830,9 +1432,7 @@ class Collection
      * @param RemoveOptions $options the options to use for the operation
      * @return MutationResult
      */
-    public function remove(string $id, RemoveOptions $options = null): MutationResult
-    {
-    }
+    public function remove(string $id, RemoveOptions $options = null): MutationResult {}
 
     /**
      * Unlocks a document which was locked using getAndLock. This frees the document to be
@@ -1843,9 +1443,7 @@ class Collection
      * @param UnlockOptions $options the options to use for the operation
      * @return Result
      */
-    public function unlock(string $id, string $cas, UnlockOptions $options = null): Result
-    {
-    }
+    public function unlock(string $id, string $cas, UnlockOptions $options = null): Result {}
 
     /**
      * Touches a document, setting a new expiry time.
@@ -1855,9 +1453,7 @@ class Collection
      * @param TouchOptions $options the options to use for the operation
      * @return MutationResult
      */
-    public function touch(string $id, int $expiry, TouchOptions $options = null): MutationResult
-    {
-    }
+    public function touch(string $id, int $expiry, TouchOptions $options = null): MutationResult {}
 
     /**
      * Performs a set of subdocument lookup operations against the document.
@@ -1867,9 +1463,7 @@ class Collection
      * @param LookupInOptions $options the options to use for the operation
      * @return LookupInResult
      */
-    public function lookupIn(string $id, array $specs, LookupInOptions $options = null): LookupInResult
-    {
-    }
+    public function lookupIn(string $id, array $specs, LookupInOptions $options = null): LookupInResult {}
 
     /**
      * Performs a set of subdocument lookup operations against the document.
@@ -1879,18 +1473,14 @@ class Collection
      * @param MutateInOptions $options the options to use for the operation
      * @return MutateInResult
      */
-    public function mutateIn(string $id, array $specs, MutateInOptions $options = null): MutateInResult
-    {
-    }
+    public function mutateIn(string $id, array $specs, MutateInOptions $options = null): MutateInResult {}
 
     /**
      * Creates and returns a BinaryCollection object for use with binary type documents.
      *
      * @return BinaryCollection
      */
-    public function binary(): BinaryCollection
-    {
-    }
+    public function binary(): BinaryCollection {}
 }
 
 /**
@@ -1898,18 +1488,14 @@ class Collection
  */
 class Scope
 {
-    public function __construct(Bucket $bucket, string $name)
-    {
-    }
+    public function __construct(Bucket $bucket, string $name) {}
 
     /**
      * Returns the name of the scope.
      *
      * @return string
      */
-    public function name(): string
-    {
-    }
+    public function name(): string {}
 
     /**
      * Returns a new Collection object representing the collection specified.
@@ -1917,9 +1503,7 @@ class Scope
      * @param string $name the name of the collection
      * @return Collection
      */
-    public function collection(string $name): Collection
-    {
-    }
+    public function collection(string $name): Collection {}
 
     /**
      * Executes a N1QL query against the cluster with scopeName set implicitly.
@@ -1928,70 +1512,42 @@ class Scope
      * @param QueryOptions $options the options to use when executing the query
      * @return QueryResult
      */
-    public function query(string $statement, QueryOptions $options = null): QueryResult
-    {
-    }
+    public function query(string $statement, QueryOptions $options = null): QueryResult {}
 }
 
 class ScopeSpec
 {
-    public function name(): string
-    {
-    }
+    public function name(): string {}
 
-    public function collections(): array
-    {
-    }
+    public function collections(): array {}
 }
 
 class CollectionSpec
 {
-    public function name(): string
-    {
-    }
+    public function name(): string {}
 
-    public function scopeName(): string
-    {
-    }
+    public function scopeName(): string {}
 
-    public function setName(string $name): CollectionSpec
-    {
-    }
+    public function setName(string $name): CollectionSpec {}
 
-    public function setScopeName(string $name): CollectionSpec
-    {
-    }
+    public function setScopeName(string $name): CollectionSpec {}
 
-    public function setMaxExpiry(long $ms): CollectionSpec
-    {
-    }
+    public function setMaxExpiry(long $ms): CollectionSpec {}
 }
 
 class CollectionManager
 {
-    public function getScope(string $name): ScopeSpec
-    {
-    }
+    public function getScope(string $name): ScopeSpec {}
 
-    public function getAllScopes(): array
-    {
-    }
+    public function getAllScopes(): array {}
 
-    public function createScope(string $name)
-    {
-    }
+    public function createScope(string $name) {}
 
-    public function dropScope(string $name)
-    {
-    }
+    public function dropScope(string $name) {}
 
-    public function createCollection(CollectionSpec $collection)
-    {
-    }
+    public function createCollection(CollectionSpec $collection) {}
 
-    public function dropCollection(CollectionSpec $collection)
-    {
-    }
+    public function dropCollection(CollectionSpec $collection) {}
 }
 
 /**
@@ -2005,18 +1561,14 @@ class Bucket
      *
      * @return Scope
      */
-    public function defaultScope(): Scope
-    {
-    }
+    public function defaultScope(): Scope {}
 
     /**
      * Returns a new Collection object representing the default collectiom.
      *
      * @return Collection
      */
-    public function defaultCollection(): Collection
-    {
-    }
+    public function defaultCollection(): Collection {}
 
     /**
      * Returns a new Scope object representing the given scope.
@@ -2024,9 +1576,7 @@ class Bucket
      * @param string $name the name of the scope
      * @return Scope
      */
-    public function scope(string $name): Scope
-    {
-    }
+    public function scope(string $name): Scope {}
 
     /**
      * Sets the default transcoder to be used when fetching or sending data.
@@ -2034,18 +1584,14 @@ class Bucket
      * @param callable $encoder the encoder to use to encode data when sending data to the server
      * @param callable $decoder the decoder to use to decode data when retrieving data from the server
      */
-    public function setTranscoder(callable $encoder, callable $decoder)
-    {
-    }
+    public function setTranscoder(callable $encoder, callable $decoder) {}
 
     /**
      * Returns the name of the Bucket.
      *
      * @return string
      */
-    public function name(): string
-    {
-    }
+    public function name(): string {}
 
     /**
      * Executes a view query against the cluster.
@@ -2055,27 +1601,21 @@ class Bucket
      * @param ViewOptions $options the options to use when executing the query
      * @return ViewResult
      */
-    public function viewQuery(string $designDoc, string $viewName, ViewOptions $options = null): ViewResult
-    {
-    }
+    public function viewQuery(string $designDoc, string $viewName, ViewOptions $options = null): ViewResult {}
 
     /**
      * Creates a new CollectionManager object for managing collections and scopes.
      *
      * @return CollectionManager
      */
-    public function collections(): CollectionManager
-    {
-    }
+    public function collections(): CollectionManager {}
 
     /**
      * Creates a new ViewIndexManager object for managing views and design documents.
      *
      * @return ViewIndexManager
      */
-    public function viewIndexes(): ViewIndexManager
-    {
-    }
+    public function viewIndexes(): ViewIndexManager {}
 
     /**
      * Executes a ping for each service against each node in the cluster. This can be used for determining
@@ -2084,9 +1624,7 @@ class Bucket
      * @param mixed $services the services to ping against
      * @param mixed $reportId a name which will be included within the ping result
      */
-    public function ping($services, $reportId)
-    {
-    }
+    public function ping($services, $reportId) {}
 
     /**
      * Returns diagnostics information about connections that the SDK has to the cluster. This does not perform
@@ -2094,74 +1632,44 @@ class Bucket
      *
      * @param mixed $reportId a name which will be included within the ping result
      */
-    public function diagnostics($reportId)
-    {
-    }
+    public function diagnostics($reportId) {}
 }
 
 class View
 {
-    public function name(): string
-    {
-    }
+    public function name(): string {}
 
-    public function map(): string
-    {
-    }
+    public function map(): string {}
 
-    public function reduce(): string
-    {
-    }
+    public function reduce(): string {}
 
-    public function setName(string $name): View
-    {
-    }
+    public function setName(string $name): View {}
 
-    public function setMap(string $mapJsCode): View
-    {
-    }
+    public function setMap(string $mapJsCode): View {}
 
-    public function setReduce(string $reduceJsCode): View
-    {
-    }
+    public function setReduce(string $reduceJsCode): View {}
 }
 
 class DesignDocument
 {
-    public function name(): string
-    {
-    }
+    public function name(): string {}
 
-    public function views(): array
-    {
-    }
+    public function views(): array {}
 
-    public function setName(string $name): DesignDocument
-    {
-    }
+    public function setName(string $name): DesignDocument {}
 
-    public function setViews(array $views): DesignDocument
-    {
-    }
+    public function setViews(array $views): DesignDocument {}
 }
 
 class ViewIndexManager
 {
-    public function getAllDesignDocuments(): array
-    {
-    }
+    public function getAllDesignDocuments(): array {}
 
-    public function getDesignDocument(string $name): DesignDocument
-    {
-    }
+    public function getDesignDocument(string $name): DesignDocument {}
 
-    public function dropDesignDocument(string $name)
-    {
-    }
+    public function dropDesignDocument(string $name) {}
 
-    public function upsertDesignDocument(DesignDocument $document)
-    {
-    }
+    public function upsertDesignDocument(DesignDocument $document) {}
 }
 
 /**
@@ -2169,9 +1677,7 @@ class ViewIndexManager
  */
 class MutationState
 {
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * Adds the result of a mutation operation to this mutation state.
@@ -2179,61 +1685,39 @@ class MutationState
      * @param MutationResult $source the result object to add to this state
      * @return MutationState
      */
-    public function add(MutationResult $source): MutationState
-    {
-    }
+    public function add(MutationResult $source): MutationState {}
 }
 
 class AnalyticsOptions
 {
-    public function timeout(int $arg): AnalyticsOptions
-    {
-    }
+    public function timeout(int $arg): AnalyticsOptions {}
 
-    public function namedParameters(array $pairs): AnalyticsOptions
-    {
-    }
+    public function namedParameters(array $pairs): AnalyticsOptions {}
 
-    public function positionalParameters(array $args): AnalyticsOptions
-    {
-    }
+    public function positionalParameters(array $args): AnalyticsOptions {}
 
-    public function raw(string $key, $value): AnalyticsOptions
-    {
-    }
+    public function raw(string $key, $value): AnalyticsOptions {}
 
-    public function clientContextId(string $value): AnalyticsOptions
-    {
-    }
+    public function clientContextId(string $value): AnalyticsOptions {}
 
-    public function priority(bool $urgent): AnalyticsOptions
-    {
-    }
+    public function priority(bool $urgent): AnalyticsOptions {}
 
-    public function readonly(bool $arg): AnalyticsOptions
-    {
-    }
+    public function readonly(bool $arg): AnalyticsOptions {}
 
-    public function scanConsistency(string $arg): AnalyticsOptions
-    {
-    }
+    public function scanConsistency(string $arg): AnalyticsOptions {}
 }
 
 /**
  * LookupInSpec is an interface for providing subdocument lookup operations.
  */
-interface LookupInSpec
-{
-}
+interface LookupInSpec {}
 
 /**
  * Indicates a path for a value to be retrieved from a document.
  */
 class LookupGetSpec implements LookupInSpec
 {
-    public function __construct(string $path, bool $isXattr = false)
-    {
-    }
+    public function __construct(string $path, bool $isXattr = false) {}
 }
 
 /**
@@ -2241,9 +1725,7 @@ class LookupGetSpec implements LookupInSpec
  */
 class LookupCountSpec implements LookupInSpec
 {
-    public function __construct(string $path, bool $isXattr = false)
-    {
-    }
+    public function __construct(string $path, bool $isXattr = false) {}
 }
 
 /**
@@ -2251,9 +1733,7 @@ class LookupCountSpec implements LookupInSpec
  */
 class LookupExistsSpec implements LookupInSpec
 {
-    public function __construct(string $path, bool $isXattr = false)
-    {
-    }
+    public function __construct(string $path, bool $isXattr = false) {}
 }
 
 /**
@@ -2261,26 +1741,20 @@ class LookupExistsSpec implements LookupInSpec
  */
 class LookupGetFullSpec implements LookupInSpec
 {
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 }
 
 /**
  * MutateInSpec is an interface for providing subdocument mutation operations.
  */
-interface MutateInSpec
-{
-}
+interface MutateInSpec {}
 
 /**
  * Indicates to insert a value at a path in a document.
  */
 class MutateInsertSpec implements MutateInSpec
 {
-    public function __construct(string $path, $value, bool $isXattr, bool $createPath, bool $expandMacros)
-    {
-    }
+    public function __construct(string $path, $value, bool $isXattr, bool $createPath, bool $expandMacros) {}
 }
 
 /**
@@ -2288,9 +1762,7 @@ class MutateInsertSpec implements MutateInSpec
  */
 class MutateUpsertSpec implements MutateInSpec
 {
-    public function __construct(string $path, $value, bool $isXattr, bool $createPath, bool $expandMacros)
-    {
-    }
+    public function __construct(string $path, $value, bool $isXattr, bool $createPath, bool $expandMacros) {}
 }
 
 /**
@@ -2298,9 +1770,7 @@ class MutateUpsertSpec implements MutateInSpec
  */
 class MutateReplaceSpec implements MutateInSpec
 {
-    public function __construct(string $path, $value, bool $isXattr)
-    {
-    }
+    public function __construct(string $path, $value, bool $isXattr) {}
 }
 
 /**
@@ -2308,9 +1778,7 @@ class MutateReplaceSpec implements MutateInSpec
  */
 class MutateRemoveSpec implements MutateInSpec
 {
-    public function __construct(string $path, bool $isXattr)
-    {
-    }
+    public function __construct(string $path, bool $isXattr) {}
 }
 
 /**
@@ -2318,9 +1786,7 @@ class MutateRemoveSpec implements MutateInSpec
  */
 class MutateArrayAppendSpec implements MutateInSpec
 {
-    public function __construct(string $path, array $values, bool $isXattr, bool $createPath, bool $expandMacros)
-    {
-    }
+    public function __construct(string $path, array $values, bool $isXattr, bool $createPath, bool $expandMacros) {}
 }
 
 /**
@@ -2328,9 +1794,7 @@ class MutateArrayAppendSpec implements MutateInSpec
  */
 class MutateArrayPrependSpec implements MutateInSpec
 {
-    public function __construct(string $path, array $values, bool $isXattr, bool $createPath, bool $expandMacros)
-    {
-    }
+    public function __construct(string $path, array $values, bool $isXattr, bool $createPath, bool $expandMacros) {}
 }
 
 /**
@@ -2338,9 +1802,7 @@ class MutateArrayPrependSpec implements MutateInSpec
  */
 class MutateArrayInsertSpec implements MutateInSpec
 {
-    public function __construct(string $path, array $values, bool $isXattr, bool $createPath, bool $expandMacros)
-    {
-    }
+    public function __construct(string $path, array $values, bool $isXattr, bool $createPath, bool $expandMacros) {}
 }
 
 /**
@@ -2349,9 +1811,7 @@ class MutateArrayInsertSpec implements MutateInSpec
  */
 class MutateArrayAddUniqueSpec implements MutateInSpec
 {
-    public function __construct(string $path, $value, bool $isXattr, bool $createPath, bool $expandMacros)
-    {
-    }
+    public function __construct(string $path, $value, bool $isXattr, bool $createPath, bool $expandMacros) {}
 }
 
 /**
@@ -2359,17 +1819,12 @@ class MutateArrayAddUniqueSpec implements MutateInSpec
  */
 class MutateCounterSpec implements MutateInSpec
 {
-    public function __construct(string $path, int $delta, bool $isXattr, bool $createPath)
-    {
-    }
+    public function __construct(string $path, int $delta, bool $isXattr, bool $createPath) {}
 }
-
 
 class SearchOptions implements JsonSerializable
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
     /**
      * Sets the server side timeout in milliseconds
@@ -2377,9 +1832,7 @@ class SearchOptions implements JsonSerializable
      * @param int $ms the server side timeout to apply
      * @return SearchOptions
      */
-    public function timeout(int $ms): SearchOptions
-    {
-    }
+    public function timeout(int $ms): SearchOptions {}
 
     /**
      * Add a limit to the query on the number of hits it can return
@@ -2387,9 +1840,7 @@ class SearchOptions implements JsonSerializable
      * @param int $limit the maximum number of hits to return
      * @return SearchOptions
      */
-    public function limit(int $limit): SearchOptions
-    {
-    }
+    public function limit(int $limit): SearchOptions {}
 
     /**
      * Set the number of hits to skip (eg. for pagination).
@@ -2397,9 +1848,7 @@ class SearchOptions implements JsonSerializable
      * @param int $skip the number of results to skip
      * @return SearchOptions
      */
-    public function skip(int $skip): SearchOptions
-    {
-    }
+    public function skip(int $skip): SearchOptions {}
 
     /**
      * Activates the explanation of each result hit in the response
@@ -2407,9 +1856,7 @@ class SearchOptions implements JsonSerializable
      * @param bool $explain
      * @return SearchOptions
      */
-    public function explain(bool $explain): SearchOptions
-    {
-    }
+    public function explain(bool $explain): SearchOptions {}
 
     /**
      * If set to true, the server will not perform any scoring on the hits
@@ -2417,9 +1864,7 @@ class SearchOptions implements JsonSerializable
      * @param bool $disabled
      * @return SearchOptions
      */
-    public function disableScoring(bool $disabled): SearchOptions
-    {
-    }
+    public function disableScoring(bool $disabled): SearchOptions {}
 
     /**
      * Sets the consistency to consider for this FTS query to AT_PLUS and
@@ -2430,9 +1875,7 @@ class SearchOptions implements JsonSerializable
      * @param MutationState $state the mutation state information to work with
      * @return SearchOptions
      */
-    public function consistentWith(string $index, MutationState $state): SearchOptions
-    {
-    }
+    public function consistentWith(string $index, MutationState $state): SearchOptions {}
 
     /**
      * Configures the list of fields for which the whole value should be included in the response.
@@ -2443,9 +1886,7 @@ class SearchOptions implements JsonSerializable
      * @param string[] $fields
      * @return SearchOptions
      */
-    public function fields(array $fields): SearchOptions
-    {
-    }
+    public function fields(array $fields): SearchOptions {}
 
     /**
      * Adds one SearchFacet-s to the query
@@ -2463,9 +1904,7 @@ class SearchOptions implements JsonSerializable
      * @see \NumericRangeSearchFacet
      * @see \DateRangeSearchFacet
      */
-    public function facets(array $facets): SearchOptions
-    {
-    }
+    public function facets(array $facets): SearchOptions {}
 
     /**
      * Configures the list of fields (including special fields) which are used for sorting purposes.
@@ -2483,9 +1922,7 @@ class SearchOptions implements JsonSerializable
      * @param array $specs sort the fields that should take part in the sorting.
      * @return SearchOptions
      */
-    public function sort(array $specs): SearchOptions
-    {
-    }
+    public function sort(array $specs): SearchOptions {}
 
     /**
      * Configures the highlighting of matches in the response
@@ -2500,9 +1937,7 @@ class SearchOptions implements JsonSerializable
      * @see \SearchHighlightMode::ANSI
      * @see \SearchHighlightMode::SIMPLE
      */
-    public function highlight(string $style = null, array $fields = null): SearchOptions
-    {
-    }
+    public function highlight(string $style = null, array $fields = null): SearchOptions {}
 }
 
 interface SearchHighlightMode
@@ -2520,38 +1955,28 @@ interface SearchHighlightMode
  * @see https://developer.couchbase.com/documentation/server/4.6/sdk/php/full-text-searching-with-sdk.html
  *   Searching from the SDK
  */
-interface SearchQuery
-{
-}
+interface SearchQuery {}
 
 /**
  * A FTS query that queries fields explicitly indexed as boolean.
  */
 class BooleanFieldSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(bool $arg)
-    {
-    }
+    public function __construct(bool $arg) {}
 
     /**
      * @param float $boost
      * @return BooleanFieldSearchQuery
      */
-    public function boost(float $boost): BooleanFieldSearchQuery
-    {
-    }
+    public function boost(float $boost): BooleanFieldSearchQuery {}
 
     /**
      * @param string $field
      * @return BooleanFieldSearchQuery
      */
-    public function field(string $field): BooleanFieldSearchQuery
-    {
-    }
+    public function field(string $field): BooleanFieldSearchQuery {}
 }
 
 /**
@@ -2559,45 +1984,33 @@ class BooleanFieldSearchQuery implements JsonSerializable, SearchQuery
  */
 class BooleanSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * @param float $boost
      * @return BooleanSearchQuery
      */
-    public function boost($boost): BooleanSearchQuery
-    {
-    }
+    public function boost($boost): BooleanSearchQuery {}
 
     /**
      * @param ConjunctionSearchQuery $query
      * @return BooleanSearchQuery
      */
-    public function must(ConjunctionSearchQuery $query): BooleanSearchQuery
-    {
-    }
+    public function must(ConjunctionSearchQuery $query): BooleanSearchQuery {}
 
     /**
      * @param DisjunctionSearchQuery $query
      * @return BooleanSearchQuery
      */
-    public function mustNot(DisjunctionSearchQuery $query): BooleanSearchQuery
-    {
-    }
+    public function mustNot(DisjunctionSearchQuery $query): BooleanSearchQuery {}
 
     /**
      * @param DisjunctionSearchQuery $query
      * @return BooleanSearchQuery
      */
-    public function should(DisjunctionSearchQuery $query): BooleanSearchQuery
-    {
-    }
+    public function should(DisjunctionSearchQuery $query): BooleanSearchQuery {}
 }
 
 /**
@@ -2605,29 +2018,21 @@ class BooleanSearchQuery implements JsonSerializable, SearchQuery
  */
 class ConjunctionSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(array $queries)
-    {
-    }
+    public function __construct(array $queries) {}
 
     /**
      * @param float $boost
      * @return ConjunctionSearchQuery
      */
-    public function boost($boost): ConjunctionSearchQuery
-    {
-    }
+    public function boost($boost): ConjunctionSearchQuery {}
 
     /**
      * @param SearchQuery ...$queries
      * @return ConjunctionSearchQuery
      */
-    public function every(SearchQuery ...$queries): ConjunctionSearchQuery
-    {
-    }
+    public function every(SearchQuery ...$queries): ConjunctionSearchQuery {}
 }
 
 /**
@@ -2636,29 +2041,21 @@ class ConjunctionSearchQuery implements JsonSerializable, SearchQuery
  */
 class DateRangeSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * @param float $boost
      * @return DateRangeSearchQuery
      */
-    public function boost(float $boost): DateRangeSearchQuery
-    {
-    }
+    public function boost(float $boost): DateRangeSearchQuery {}
 
     /**
      * @param string $field
      * @return DateRangeSearchQuery
      */
-    public function field(string $field): DateRangeSearchQuery
-    {
-    }
+    public function field(string $field): DateRangeSearchQuery {}
 
     /**
      * @param int|string $start The strings will be taken verbatim and supposed to be formatted with custom date
@@ -2667,9 +2064,7 @@ class DateRangeSearchQuery implements JsonSerializable, SearchQuery
      * @param bool $inclusive
      * @return DateRangeSearchQuery
      */
-    public function start($start, bool $inclusive = false): DateRangeSearchQuery
-    {
-    }
+    public function start($start, bool $inclusive = false): DateRangeSearchQuery {}
 
     /**
      * @param int|string $end The strings will be taken verbatim and supposed to be formatted with custom date
@@ -2678,17 +2073,13 @@ class DateRangeSearchQuery implements JsonSerializable, SearchQuery
      * @param bool $inclusive
      * @return DateRangeSearchQuery
      */
-    public function end($end, bool $inclusive = false): DateRangeSearchQuery
-    {
-    }
+    public function end($end, bool $inclusive = false): DateRangeSearchQuery {}
 
     /**
      * @param string $dateTimeParser
      * @return DateRangeSearchQuery
      */
-    public function dateTimeParser(string $dateTimeParser): DateRangeSearchQuery
-    {
-    }
+    public function dateTimeParser(string $dateTimeParser): DateRangeSearchQuery {}
 }
 
 /**
@@ -2697,37 +2088,27 @@ class DateRangeSearchQuery implements JsonSerializable, SearchQuery
  */
 class DisjunctionSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(array $queries)
-    {
-    }
+    public function __construct(array $queries) {}
 
     /**
      * @param float $boost
      * @return DisjunctionSearchQuery
      */
-    public function boost(float $boost): DisjunctionSearchQuery
-    {
-    }
+    public function boost(float $boost): DisjunctionSearchQuery {}
 
     /**
      * @param SearchQuery ...$queries
      * @return DisjunctionSearchQuery
      */
-    public function either(SearchQuery ...$queries): DisjunctionSearchQuery
-    {
-    }
+    public function either(SearchQuery ...$queries): DisjunctionSearchQuery {}
 
     /**
      * @param int $min
      * @return DisjunctionSearchQuery
      */
-    public function min(int $min): DisjunctionSearchQuery
-    {
-    }
+    public function min(int $min): DisjunctionSearchQuery {}
 }
 
 /**
@@ -2736,37 +2117,27 @@ class DisjunctionSearchQuery implements JsonSerializable, SearchQuery
  */
 class DocIdSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * @param float $boost
      * @return DocIdSearchQuery
      */
-    public function boost(float $boost): DocIdSearchQuery
-    {
-    }
+    public function boost(float $boost): DocIdSearchQuery {}
 
     /**
      * @param string $field
      * @return DocIdSearchQuery
      */
-    public function field(string $field): DocIdSearchQuery
-    {
-    }
+    public function field(string $field): DocIdSearchQuery {}
 
     /**
      * @param string ...$documentIds
      * @return DocIdSearchQuery
      */
-    public function docIds(string ...$documentIds): DocIdSearchQuery
-    {
-    }
+    public function docIds(string ...$documentIds): DocIdSearchQuery {}
 }
 
 /**
@@ -2774,29 +2145,21 @@ class DocIdSearchQuery implements JsonSerializable, SearchQuery
  */
 class GeoBoundingBoxSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(float $top_left_longitude, float $top_left_latitude, float $buttom_right_longitude, float $buttom_right_latitude)
-    {
-    }
+    public function __construct(float $top_left_longitude, float $top_left_latitude, float $buttom_right_longitude, float $buttom_right_latitude) {}
 
     /**
      * @param float $boost
      * @return GeoBoundingBoxSearchQuery
      */
-    public function boost(float $boost): GeoBoundingBoxSearchQuery
-    {
-    }
+    public function boost(float $boost): GeoBoundingBoxSearchQuery {}
 
     /**
      * @param string $field
      * @return GeoBoundingBoxSearchQuery
      */
-    public function field(string $field): GeoBoundingBoxSearchQuery
-    {
-    }
+    public function field(string $field): GeoBoundingBoxSearchQuery {}
 }
 
 /**
@@ -2806,36 +2169,26 @@ class GeoBoundingBoxSearchQuery implements JsonSerializable, SearchQuery
  */
 class GeoDistanceSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(float $longitude, float $latitude, string $distance = null)
-    {
-    }
+    public function __construct(float $longitude, float $latitude, string $distance = null) {}
 
     /**
      * @param float $boost
      * @return GeoDistanceSearchQuery
      */
-    public function boost(float $boost): GeoDistanceSearchQuery
-    {
-    }
+    public function boost(float $boost): GeoDistanceSearchQuery {}
 
     /**
      * @param string $field
      * @return GeoDistanceSearchQuery
      */
-    public function field(string $field): GeoDistanceSearchQuery
-    {
-    }
+    public function field(string $field): GeoDistanceSearchQuery {}
 }
 
 class Coordinate implements JsonSerializable
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
     /**
      * @param float $longitude
@@ -2843,9 +2196,7 @@ class Coordinate implements JsonSerializable
      *
      * @see GeoPolygonQuery
      */
-    public function __construct(float $longitude, float $latitude)
-    {
-    }
+    public function __construct(float $longitude, float $latitude) {}
 }
 
 /**
@@ -2853,34 +2204,26 @@ class Coordinate implements JsonSerializable
  */
 class GeoPolygonQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
     /**
      * @param array $coordinates list of objects of type Coordinate
      *
      * @see Coordinate
      */
-    public function __construct(array $coordinates)
-    {
-    }
+    public function __construct(array $coordinates) {}
 
     /**
      * @param float $boost
      * @return GeoPolygonQuery
      */
-    public function boost(float $boost): GeoPolygonQuery
-    {
-    }
+    public function boost(float $boost): GeoPolygonQuery {}
 
     /**
      * @param string $field
      * @return GeoPolygonQuery
      */
-    public function field(string $field): GeoPolygonQuery
-    {
-    }
+    public function field(string $field): GeoPolygonQuery {}
 }
 
 /**
@@ -2888,21 +2231,15 @@ class GeoPolygonQuery implements JsonSerializable, SearchQuery
  */
 class MatchAllSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * @param float $boost
      * @return MatchAllSearchQuery
      */
-    public function boost(float $boost): MatchAllSearchQuery
-    {
-    }
+    public function boost(float $boost): MatchAllSearchQuery {}
 }
 
 /**
@@ -2910,21 +2247,15 @@ class MatchAllSearchQuery implements JsonSerializable, SearchQuery
  */
 class MatchNoneSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * @param float $boost
      * @return MatchNoneSearchQuery
      */
-    public function boost(float $boost): MatchNoneSearchQuery
-    {
-    }
+    public function boost(float $boost): MatchNoneSearchQuery {}
 }
 
 /**
@@ -2933,37 +2264,27 @@ class MatchNoneSearchQuery implements JsonSerializable, SearchQuery
  */
 class MatchPhraseSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(string $value)
-    {
-    }
+    public function __construct(string $value) {}
 
     /**
      * @param float $boost
      * @return MatchPhraseSearchQuery
      */
-    public function boost(float $boost): MatchPhraseSearchQuery
-    {
-    }
+    public function boost(float $boost): MatchPhraseSearchQuery {}
 
     /**
      * @param string $field
      * @return MatchPhraseSearchQuery
      */
-    public function field(string $field): MatchPhraseSearchQuery
-    {
-    }
+    public function field(string $field): MatchPhraseSearchQuery {}
 
     /**
      * @param string $analyzer
      * @return MatchPhraseSearchQuery
      */
-    public function analyzer(string $analyzer): MatchPhraseSearchQuery
-    {
-    }
+    public function analyzer(string $analyzer): MatchPhraseSearchQuery {}
 }
 
 /**
@@ -2972,53 +2293,39 @@ class MatchPhraseSearchQuery implements JsonSerializable, SearchQuery
  */
 class MatchSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(string $value)
-    {
-    }
+    public function __construct(string $value) {}
 
     /**
      * @param float $boost
      * @return MatchSearchQuery
      */
-    public function boost(float $boost): MatchSearchQuery
-    {
-    }
+    public function boost(float $boost): MatchSearchQuery {}
 
     /**
      * @param string $field
      * @return MatchSearchQuery
      */
-    public function field(string $field): MatchSearchQuery
-    {
-    }
+    public function field(string $field): MatchSearchQuery {}
 
     /**
      * @param string $analyzer
      * @return MatchSearchQuery
      */
-    public function analyzer(string $analyzer): MatchSearchQuery
-    {
-    }
+    public function analyzer(string $analyzer): MatchSearchQuery {}
 
     /**
      * @param int $prefixLength
      * @return MatchSearchQuery
      */
-    public function prefixLength(int $prefixLength): MatchSearchQuery
-    {
-    }
+    public function prefixLength(int $prefixLength): MatchSearchQuery {}
 
     /**
      * @param int $fuzziness
      * @return MatchSearchQuery
      */
-    public function fuzziness(int $fuzziness): MatchSearchQuery
-    {
-    }
+    public function fuzziness(int $fuzziness): MatchSearchQuery {}
 }
 
 /**
@@ -3027,47 +2334,35 @@ class MatchSearchQuery implements JsonSerializable, SearchQuery
  */
 class NumericRangeSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * @param float $boost
      * @return NumericRangeSearchQuery
      */
-    public function boost(float $boost): NumericRangeSearchQuery
-    {
-    }
+    public function boost(float $boost): NumericRangeSearchQuery {}
 
     /**
      * @param string $field
      * @return NumericRangeSearchQuery
      */
-    public function field($field): NumericRangeSearchQuery
-    {
-    }
+    public function field($field): NumericRangeSearchQuery {}
 
     /**
      * @param float $min
      * @param bool $inclusive
      * @return NumericRangeSearchQuery
      */
-    public function min(float $min, bool $inclusive = false): NumericRangeSearchQuery
-    {
-    }
+    public function min(float $min, bool $inclusive = false): NumericRangeSearchQuery {}
 
     /**
      * @param float $max
      * @param bool $inclusive
      * @return NumericRangeSearchQuery
      */
-    public function max(float $max, bool $inclusive = false): NumericRangeSearchQuery
-    {
-    }
+    public function max(float $max, bool $inclusive = false): NumericRangeSearchQuery {}
 }
 
 /**
@@ -3077,29 +2372,21 @@ class NumericRangeSearchQuery implements JsonSerializable, SearchQuery
  */
 class PhraseSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(string ...$terms)
-    {
-    }
+    public function __construct(string ...$terms) {}
 
     /**
      * @param float $boost
      * @return PhraseSearchQuery
      */
-    public function boost(float $boost): PhraseSearchQuery
-    {
-    }
+    public function boost(float $boost): PhraseSearchQuery {}
 
     /**
      * @param string $field
      * @return PhraseSearchQuery
      */
-    public function field(string $field): PhraseSearchQuery
-    {
-    }
+    public function field(string $field): PhraseSearchQuery {}
 }
 
 /**
@@ -3107,29 +2394,21 @@ class PhraseSearchQuery implements JsonSerializable, SearchQuery
  */
 class PrefixSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(string $prefix)
-    {
-    }
+    public function __construct(string $prefix) {}
 
     /**
      * @param float $boost
      * @return PrefixSearchQuery
      */
-    public function boost(float $boost): PrefixSearchQuery
-    {
-    }
+    public function boost(float $boost): PrefixSearchQuery {}
 
     /**
      * @param string $field
      * @return PrefixSearchQuery
      */
-    public function field(string $field): PrefixSearchQuery
-    {
-    }
+    public function field(string $field): PrefixSearchQuery {}
 }
 
 /**
@@ -3137,21 +2416,15 @@ class PrefixSearchQuery implements JsonSerializable, SearchQuery
  */
 class QueryStringSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(string $query_string)
-    {
-    }
+    public function __construct(string $query_string) {}
 
     /**
      * @param float $boost
      * @return QueryStringSearchQuery
      */
-    public function boost(float $boost): QueryStringSearchQuery
-    {
-    }
+    public function boost(float $boost): QueryStringSearchQuery {}
 }
 
 /**
@@ -3159,29 +2432,21 @@ class QueryStringSearchQuery implements JsonSerializable, SearchQuery
  */
 class RegexpSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(string $regexp)
-    {
-    }
+    public function __construct(string $regexp) {}
 
     /**
      * @param float $boost
      * @return RegexpSearchQuery
      */
-    public function boost(float $boost): RegexpSearchQuery
-    {
-    }
+    public function boost(float $boost): RegexpSearchQuery {}
 
     /**
      * @param string $field
      * @return RegexpSearchQuery
      */
-    public function field(string $field): RegexpSearchQuery
-    {
-    }
+    public function field(string $field): RegexpSearchQuery {}
 }
 
 /**
@@ -3189,45 +2454,33 @@ class RegexpSearchQuery implements JsonSerializable, SearchQuery
  */
 class TermSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(string $term)
-    {
-    }
+    public function __construct(string $term) {}
 
     /**
      * @param float $boost
      * @return TermSearchQuery
      */
-    public function boost(float $boost): TermSearchQuery
-    {
-    }
+    public function boost(float $boost): TermSearchQuery {}
 
     /**
      * @param string $field
      * @return TermSearchQuery
      */
-    public function field(string $field): TermSearchQuery
-    {
-    }
+    public function field(string $field): TermSearchQuery {}
 
     /**
      * @param int $prefixLength
      * @return TermSearchQuery
      */
-    public function prefixLength(int $prefixLength): TermSearchQuery
-    {
-    }
+    public function prefixLength(int $prefixLength): TermSearchQuery {}
 
     /**
      * @param int $fuzziness
      * @return TermSearchQuery
      */
-    public function fuzziness(int $fuzziness): TermSearchQuery
-    {
-    }
+    public function fuzziness(int $fuzziness): TermSearchQuery {}
 }
 
 /**
@@ -3236,47 +2489,35 @@ class TermSearchQuery implements JsonSerializable, SearchQuery
  */
 class TermRangeSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * @param float $boost
      * @return TermRangeSearchQuery
      */
-    public function boost(float $boost): TermRangeSearchQuery
-    {
-    }
+    public function boost(float $boost): TermRangeSearchQuery {}
 
     /**
      * @param string $field
      * @return TermRangeSearchQuery
      */
-    public function field(string $field): TermRangeSearchQuery
-    {
-    }
+    public function field(string $field): TermRangeSearchQuery {}
 
     /**
      * @param string $min
      * @param bool $inclusive
      * @return TermRangeSearchQuery
      */
-    public function min(string $min, bool $inclusive = true): TermRangeSearchQuery
-    {
-    }
+    public function min(string $min, bool $inclusive = true): TermRangeSearchQuery {}
 
     /**
      * @param string $max
      * @param bool $inclusive
      * @return TermRangeSearchQuery
      */
-    public function max(string $max, bool $inclusive = false): TermRangeSearchQuery
-    {
-    }
+    public function max(string $max, bool $inclusive = false): TermRangeSearchQuery {}
 }
 
 /**
@@ -3284,29 +2525,21 @@ class TermRangeSearchQuery implements JsonSerializable, SearchQuery
  */
 class WildcardSearchQuery implements JsonSerializable, SearchQuery
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(string $wildcard)
-    {
-    }
+    public function __construct(string $wildcard) {}
 
     /**
      * @param float $boost
      * @return WildcardSearchQuery
      */
-    public function boost(float $boost): WildcardSearchQuery
-    {
-    }
+    public function boost(float $boost): WildcardSearchQuery {}
 
     /**
      * @param string $field
      * @return WildcardSearchQuery
      */
-    public function field(string $field): WildcardSearchQuery
-    {
-    }
+    public function field(string $field): WildcardSearchQuery {}
 }
 
 /**
@@ -3317,22 +2550,16 @@ class WildcardSearchQuery implements JsonSerializable, SearchQuery
  * @see \DateRangeSearchFacet
  * @see \NumericRangeSearchFacet
  */
-interface SearchFacet
-{
-}
+interface SearchFacet {}
 
 /**
  * A facet that gives the number of occurrences of the most recurring terms in all hits.
  */
 class TermSearchFacet implements JsonSerializable, SearchFacet
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(string $field, int $limit)
-    {
-    }
+    public function __construct(string $field, int $limit) {}
 }
 
 /**
@@ -3340,13 +2567,9 @@ class TermSearchFacet implements JsonSerializable, SearchFacet
  */
 class NumericRangeSearchFacet implements JsonSerializable, SearchFacet
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(string $field, int $limit)
-    {
-    }
+    public function __construct(string $field, int $limit) {}
 
     /**
      * @param string $name
@@ -3354,9 +2577,7 @@ class NumericRangeSearchFacet implements JsonSerializable, SearchFacet
      * @param float $max
      * @return NumericRangeSearchFacet
      */
-    public function addRange(string $name, float $min = null, float $max = null): NumericRangeSearchFacet
-    {
-    }
+    public function addRange(string $name, float $min = null, float $max = null): NumericRangeSearchFacet {}
 }
 
 /**
@@ -3364,13 +2585,9 @@ class NumericRangeSearchFacet implements JsonSerializable, SearchFacet
  */
 class DateRangeSearchFacet implements JsonSerializable, SearchFacet
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(string $field, int $limit)
-    {
-    }
+    public function __construct(string $field, int $limit) {}
 
     /**
      * @param string $name
@@ -3378,30 +2595,22 @@ class DateRangeSearchFacet implements JsonSerializable, SearchFacet
      * @param int|string $end
      * @return DateRangeSearchFacet
      */
-    public function addRange(string $name, $start = null, $end = null): DateRangeSearchFacet
-    {
-    }
+    public function addRange(string $name, $start = null, $end = null): DateRangeSearchFacet {}
 }
 
 /**
  * Base interface for all FTS sort options in querying.
  */
-interface SearchSort
-{
-}
+interface SearchSort {}
 
 /**
  * Sort by a field in the hits.
  */
 class SearchSortField implements JsonSerializable, SearchSort
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(string $field)
-    {
-    }
+    public function __construct(string $field) {}
 
     /**
      * Direction of the sort
@@ -3410,9 +2619,7 @@ class SearchSortField implements JsonSerializable, SearchSort
      *
      * @return SearchSortField
      */
-    public function descending(bool $descending): SearchSortField
-    {
-    }
+    public function descending(bool $descending): SearchSortField {}
 
     /**
      * Set type of the field
@@ -3424,9 +2631,7 @@ class SearchSortField implements JsonSerializable, SearchSort
      * @see SearchSortType::NUMBER
      * @see SearchSortType::DATE
      */
-    public function type(string $type): SearchSortField
-    {
-    }
+    public function type(string $type): SearchSortField {}
 
     /**
      * Set mode of the sort
@@ -3436,9 +2641,7 @@ class SearchSortField implements JsonSerializable, SearchSort
      * @see SearchSortMode::MIN
      * @see SearchSortMode::MAX
      */
-    public function mode(string $mode): SearchSortField
-    {
-    }
+    public function mode(string $mode): SearchSortField {}
 
     /**
      * Set where the hits with missing field will be inserted
@@ -3448,9 +2651,7 @@ class SearchSortField implements JsonSerializable, SearchSort
      * @see SearchSortMissing::FIRST
      * @see SearchSortMissing::LAST
      */
-    public function missing(string $missing): SearchSortField
-    {
-    }
+    public function missing(string $missing): SearchSortField {}
 }
 
 interface SearchSortType
@@ -3479,13 +2680,9 @@ interface SearchSortMissing
  */
 class SearchSortGeoDistance implements JsonSerializable, SearchSort
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct(string $field, float $logitude, float $latitude)
-    {
-    }
+    public function __construct(string $field, float $logitude, float $latitude) {}
 
     /**
      * Direction of the sort
@@ -3494,9 +2691,7 @@ class SearchSortGeoDistance implements JsonSerializable, SearchSort
      *
      * @return SearchSortGeoDistance
      */
-    public function descending(bool $descending): SearchSortGeoDistance
-    {
-    }
+    public function descending(bool $descending): SearchSortGeoDistance {}
 
     /**
      * Name of the units
@@ -3505,9 +2700,7 @@ class SearchSortGeoDistance implements JsonSerializable, SearchSort
      *
      * @return SearchSortGeoDistance
      */
-    public function unit(string $unit): SearchSortGeoDistance
-    {
-    }
+    public function unit(string $unit): SearchSortGeoDistance {}
 }
 
 /**
@@ -3515,13 +2708,9 @@ class SearchSortGeoDistance implements JsonSerializable, SearchSort
  */
 class SearchSortId implements JsonSerializable, SearchSort
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * Direction of the sort
@@ -3530,9 +2719,7 @@ class SearchSortId implements JsonSerializable, SearchSort
      *
      * @return SearchSortId
      */
-    public function descending(bool $descending): SearchSortId
-    {
-    }
+    public function descending(bool $descending): SearchSortId {}
 }
 
 /**
@@ -3540,13 +2727,9 @@ class SearchSortId implements JsonSerializable, SearchSort
  */
 class SearchSortScore implements JsonSerializable, SearchSort
 {
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * Direction of the sort
@@ -3555,9 +2738,7 @@ class SearchSortScore implements JsonSerializable, SearchSort
      *
      * @return SearchSortScore
      */
-    public function descending(bool $descending): SearchSortScore
-    {
-    }
+    public function descending(bool $descending): SearchSortScore {}
 }
 
 class GetOptions
@@ -3568,9 +2749,7 @@ class GetOptions
      * @param int $arg the operation timeout to apply
      * @return GetOptions
      */
-    public function timeout(int $arg): GetOptions
-    {
-    }
+    public function timeout(int $arg): GetOptions {}
 
     /**
      * Sets whether to include document expiry with the document content.
@@ -3582,9 +2761,7 @@ class GetOptions
      * @param bool $arg whether or not to include document expiry
      * @return GetOptions
      */
-    public function withExpiry(bool $arg): GetOptions
-    {
-    }
+    public function withExpiry(bool $arg): GetOptions {}
 
     /**
      * Sets whether to cause the Get operation to only fetch the fields
@@ -3597,9 +2774,7 @@ class GetOptions
      * @param array $arg the array of field names
      * @return GetOptions
      */
-    public function project(array $arg): GetOptions
-    {
-    }
+    public function project(array $arg): GetOptions {}
 
     /**
      * Associate custom transcoder with the request.
@@ -3608,9 +2783,7 @@ class GetOptions
      *
      *   `function decoder(string $bytes, int $flags, int $datatype): mixed`
      */
-    public function decoder(callable $arg): GetOptions
-    {
-    }
+    public function decoder(callable $arg): GetOptions {}
 }
 
 class GetAndTouchOptions
@@ -3621,9 +2794,7 @@ class GetAndTouchOptions
      * @param int $arg the operation timeout to apply
      * @return GetAndTouchOptions
      */
-    public function timeout(int $arg): GetAndTouchOptions
-    {
-    }
+    public function timeout(int $arg): GetAndTouchOptions {}
 
     /**
      * Associate custom transcoder with the request.
@@ -3632,9 +2803,7 @@ class GetAndTouchOptions
      *
      *   `function decoder(string $bytes, int $flags, int $datatype): mixed`
      */
-    public function decoder(callable $arg): GetAndTouchOptions
-    {
-    }
+    public function decoder(callable $arg): GetAndTouchOptions {}
 }
 
 class GetAndLockOptions
@@ -3645,9 +2814,7 @@ class GetAndLockOptions
      * @param int $arg the operation timeout to apply
      * @return GetAndLockOptions
      */
-    public function timeout(int $arg): GetAndLockOptions
-    {
-    }
+    public function timeout(int $arg): GetAndLockOptions {}
 
     /**
      * Associate custom transcoder with the request.
@@ -3656,9 +2823,7 @@ class GetAndLockOptions
      *
      *   `function decoder(string $bytes, int $flags, int $datatype): mixed`
      */
-    public function decoder(callable $arg): GetAndLockOptions
-    {
-    }
+    public function decoder(callable $arg): GetAndLockOptions {}
 }
 
 class GetAllReplicasOptions
@@ -3669,9 +2834,7 @@ class GetAllReplicasOptions
      * @param int $arg the operation timeout to apply
      * @return GetAllReplicasOptions
      */
-    public function timeout(int $arg): GetAllReplicasOptions
-    {
-    }
+    public function timeout(int $arg): GetAllReplicasOptions {}
 
     /**
      * Associate custom transcoder with the request.
@@ -3680,9 +2843,7 @@ class GetAllReplicasOptions
      *
      *   `function decoder(string $bytes, int $flags, int $datatype): mixed`
      */
-    public function decoder(callable $arg): GetAllRepliacasOptions
-    {
-    }
+    public function decoder(callable $arg): GetAllRepliacasOptions {}
 }
 
 class GetAnyReplicaOptions
@@ -3693,9 +2854,7 @@ class GetAnyReplicaOptions
      * @param int $arg the operation timeout to apply
      * @return GetAnyReplicaOptions
      */
-    public function timeout(int $arg): GetAnyReplicaOptions
-    {
-    }
+    public function timeout(int $arg): GetAnyReplicaOptions {}
 
     /**
      * Associate custom transcoder with the request.
@@ -3704,9 +2863,7 @@ class GetAnyReplicaOptions
      *
      *   `function decoder(string $bytes, int $flags, int $datatype): mixed`
      */
-    public function decoder(callable $arg): GetAnyReplicaOptions
-    {
-    }
+    public function decoder(callable $arg): GetAnyReplicaOptions {}
 }
 
 class ExistsOptions
@@ -3717,9 +2874,7 @@ class ExistsOptions
      * @param int $arg the operation timeout to apply
      * @return ExistsOptions
      */
-    public function timeout(int $arg): ExistsOptions
-    {
-    }
+    public function timeout(int $arg): ExistsOptions {}
 }
 
 class UnlockOptions
@@ -3730,9 +2885,7 @@ class UnlockOptions
      * @param int $arg the operation timeout to apply
      * @return UnlockOptions
      */
-    public function timeout(int $arg): UnlockOptions
-    {
-    }
+    public function timeout(int $arg): UnlockOptions {}
 }
 
 class InsertOptions
@@ -3743,9 +2896,7 @@ class InsertOptions
      * @param int $arg the operation timeout to apply
      * @return InsertOptions
      */
-    public function timeout(int $arg): InsertOptions
-    {
-    }
+    public function timeout(int $arg): InsertOptions {}
 
     /**
      * Sets the expiry time for the document.
@@ -3753,9 +2904,7 @@ class InsertOptions
      * @param int $arg the expiry time in ms
      * @return InsertOptions
      */
-    public function expiry(int $arg): InsertOptions
-    {
-    }
+    public function expiry(int $arg): InsertOptions {}
 
     /**
      * Sets the durability level to enforce when writing the document.
@@ -3763,9 +2912,7 @@ class InsertOptions
      * @param int $arg the durability level to enforce
      * @return InsertOptions
      */
-    public function durabilityLevel(int $arg): InsertOptions
-    {
-    }
+    public function durabilityLevel(int $arg): InsertOptions {}
 
     /**
      * Associate custom transcoder with the request.
@@ -3774,9 +2921,7 @@ class InsertOptions
      *
      *   `function encoder($value): [string $bytes, int $flags, int $datatype]`
      */
-    public function encoder(callable $arg): InsertOptions
-    {
-    }
+    public function encoder(callable $arg): InsertOptions {}
 }
 
 class UpsertOptions
@@ -3787,9 +2932,7 @@ class UpsertOptions
      * @param int $arg the operation timeout to apply
      * @return UpsertOptions
      */
-    public function timeout(int $arg): UpsertOptions
-    {
-    }
+    public function timeout(int $arg): UpsertOptions {}
 
     /**
      * Sets the expiry time for the document.
@@ -3797,9 +2940,7 @@ class UpsertOptions
      * @param int|DateTimeInterface $arg the relative expiry time in seconds or DateTimeInterface object for absolute point in time
      * @return UpsertOptions
      */
-    public function expiry(mixed $arg): UpsertOptions
-    {
-    }
+    public function expiry(mixed $arg): UpsertOptions {}
 
     /**
      * Sets the durability level to enforce when writing the document.
@@ -3807,9 +2948,7 @@ class UpsertOptions
      * @param int $arg the durability level to enforce
      * @return UpsertOptions
      */
-    public function durabilityLevel(int $arg): UpsertOptions
-    {
-    }
+    public function durabilityLevel(int $arg): UpsertOptions {}
 
     /**
      * Associate custom transcoder with the request.
@@ -3818,9 +2957,7 @@ class UpsertOptions
      *
      *   `function encoder($value): [string $bytes, int $flags, int $datatype]`
      */
-    public function encoder(callable $arg): UpsertOptions
-    {
-    }
+    public function encoder(callable $arg): UpsertOptions {}
 }
 
 class ReplaceOptions
@@ -3831,9 +2968,7 @@ class ReplaceOptions
      * @param int $arg the operation timeout to apply
      * @return ReplaceOptions
      */
-    public function timeout(int $arg): ReplaceOptions
-    {
-    }
+    public function timeout(int $arg): ReplaceOptions {}
 
     /**
      * Sets the expiry time for the document.
@@ -3841,9 +2976,7 @@ class ReplaceOptions
      * @param int|DateTimeInterface $arg the relative expiry time in seconds or DateTimeInterface object for absolute point in time
      * @return ReplaceOptions
      */
-    public function expiry(mixed $arg): ReplaceOptions
-    {
-    }
+    public function expiry(mixed $arg): ReplaceOptions {}
 
     /**
      * Sets the cas value for the operation.
@@ -3851,9 +2984,7 @@ class ReplaceOptions
      * @param string $arg the cas value
      * @return ReplaceOptions
      */
-    public function cas(string $arg): ReplaceOptions
-    {
-    }
+    public function cas(string $arg): ReplaceOptions {}
 
     /**
      * Sets the durability level to enforce when writing the document.
@@ -3861,9 +2992,7 @@ class ReplaceOptions
      * @param int $arg the durability level to enforce
      * @return ReplaceOptions
      */
-    public function durabilityLevel(int $arg): ReplaceOptions
-    {
-    }
+    public function durabilityLevel(int $arg): ReplaceOptions {}
 
     /**
      * Associate custom transcoder with the request.
@@ -3872,9 +3001,7 @@ class ReplaceOptions
      *
      *   `function encoder($value): [string $bytes, int $flags, int $datatype]`
      */
-    public function encoder(callable $arg): ReplaceOptions
-    {
-    }
+    public function encoder(callable $arg): ReplaceOptions {}
 }
 
 class AppendOptions
@@ -3885,9 +3012,7 @@ class AppendOptions
      * @param int $arg the operation timeout to apply
      * @return AppendOptions
      */
-    public function timeout(int $arg): AppendOptions
-    {
-    }
+    public function timeout(int $arg): AppendOptions {}
 
     /**
      * Sets the durability level to enforce when writing the document.
@@ -3895,9 +3020,7 @@ class AppendOptions
      * @param int $arg the durability level to enforce
      * @return AppendOptions
      */
-    public function durabilityLevel(int $arg): AppendOptions
-    {
-    }
+    public function durabilityLevel(int $arg): AppendOptions {}
 }
 
 class PrependOptions
@@ -3908,9 +3031,7 @@ class PrependOptions
      * @param int $arg the operation timeout to apply
      * @return PrependOptions
      */
-    public function timeout(int $arg): PrependOptions
-    {
-    }
+    public function timeout(int $arg): PrependOptions {}
 
     /**
      * Sets the durability level to enforce when writing the document.
@@ -3918,9 +3039,7 @@ class PrependOptions
      * @param int $arg the durability level to enforce
      * @return PrependOptions
      */
-    public function durabilityLevel(int $arg): PrependOptions
-    {
-    }
+    public function durabilityLevel(int $arg): PrependOptions {}
 }
 
 /**
@@ -3962,9 +3081,7 @@ class TouchOptions
      * @param int $arg the operation timeout to apply
      * @return TouchOptions
      */
-    public function timeout(int $arg): TouchOptions
-    {
-    }
+    public function timeout(int $arg): TouchOptions {}
 }
 
 class IncrementOptions
@@ -3975,9 +3092,7 @@ class IncrementOptions
      * @param int $arg the operation timeout to apply
      * @return IncrementOptions
      */
-    public function timeout(int $arg): IncrementOptions
-    {
-    }
+    public function timeout(int $arg): IncrementOptions {}
 
     /**
      * Sets the expiry time for the document.
@@ -3985,9 +3100,7 @@ class IncrementOptions
      * @param int|DateTimeInterface $arg the relative expiry time in seconds or DateTimeInterface object for absolute point in time
      * @return IncrementOptions
      */
-    public function expiry(mixed $arg): IncrementOptions
-    {
-    }
+    public function expiry(mixed $arg): IncrementOptions {}
 
     /**
      * Sets the durability level to enforce when writing the document.
@@ -3995,9 +3108,7 @@ class IncrementOptions
      * @param int $arg the durability level to enforce
      * @return IncrementOptions
      */
-    public function durabilityLevel(int $arg): IncrementOptions
-    {
-    }
+    public function durabilityLevel(int $arg): IncrementOptions {}
 
     /**
      * Sets the value to increment the counter by.
@@ -4005,9 +3116,7 @@ class IncrementOptions
      * @param int $arg the value to increment by
      * @return IncrementOptions
      */
-    public function delta(int $arg): IncrementOptions
-    {
-    }
+    public function delta(int $arg): IncrementOptions {}
 
     /**
      * Sets the value to initialize the counter to if the document does
@@ -4016,9 +3125,7 @@ class IncrementOptions
      * @param int $arg the initial value to use if counter does not exist
      * @return IncrementOptions
      */
-    public function initial(int $arg): IncrementOptions
-    {
-    }
+    public function initial(int $arg): IncrementOptions {}
 }
 
 class DecrementOptions
@@ -4029,9 +3136,7 @@ class DecrementOptions
      * @param int $arg the operation timeout to apply
      * @return DecrementOptions
      */
-    public function timeout(int $arg): DecrementOptions
-    {
-    }
+    public function timeout(int $arg): DecrementOptions {}
 
     /**
      * Sets the expiry time for the document.
@@ -4039,9 +3144,7 @@ class DecrementOptions
      * @param int|DateTimeInterface $arg the relative expiry time in seconds or DateTimeInterface object for absolute point in time
      * @return DecrementOptions
      */
-    public function expiry(mixed $arg): DecrementOptions
-    {
-    }
+    public function expiry(mixed $arg): DecrementOptions {}
 
     /**
      * Sets the durability level to enforce when writing the document.
@@ -4049,9 +3152,7 @@ class DecrementOptions
      * @param int $arg the durability level to enforce
      * @return DecrementOptions
      */
-    public function durabilityLevel(int $arg): DecrementOptions
-    {
-    }
+    public function durabilityLevel(int $arg): DecrementOptions {}
 
     /**
      * Sets the value to decrement the counter by.
@@ -4059,9 +3160,7 @@ class DecrementOptions
      * @param int $arg the value to decrement by
      * @return DecrementOptions
      */
-    public function delta(int $arg): DecrementOptions
-    {
-    }
+    public function delta(int $arg): DecrementOptions {}
 
     /**
      * Sets the value to initialize the counter to if the document does
@@ -4070,9 +3169,7 @@ class DecrementOptions
      * @param int $arg the initial value to use if counter does not exist
      * @return DecrementOptions
      */
-    public function initial(int $arg): DecrementOptions
-    {
-    }
+    public function initial(int $arg): DecrementOptions {}
 }
 
 class RemoveOptions
@@ -4083,9 +3180,7 @@ class RemoveOptions
      * @param int $arg the operation timeout to apply
      * @return RemoveOptions
      */
-    public function timeout(int $arg): RemoveOptions
-    {
-    }
+    public function timeout(int $arg): RemoveOptions {}
 
     /**
      * Sets the durability level to enforce when writing the document.
@@ -4093,9 +3188,7 @@ class RemoveOptions
      * @param int $arg the durability level to enforce
      * @return RemoveOptions
      */
-    public function durabilityLevel(int $arg): RemoveOptions
-    {
-    }
+    public function durabilityLevel(int $arg): RemoveOptions {}
 
     /**
      * Sets the cas value to use when performing this operation.
@@ -4103,9 +3196,7 @@ class RemoveOptions
      * @param string $arg the cas value to use
      * @return RemoveOptions
      */
-    public function cas(string $arg): RemoveOptions
-    {
-    }
+    public function cas(string $arg): RemoveOptions {}
 }
 
 class LookupInOptions
@@ -4116,9 +3207,7 @@ class LookupInOptions
      * @param int $arg the operation timeout to apply
      * @return LookupInOptions
      */
-    public function timeout(int $arg): LookupInOptions
-    {
-    }
+    public function timeout(int $arg): LookupInOptions {}
 
     /**
      * Sets whether to include document expiry with the document content.
@@ -4131,9 +3220,7 @@ class LookupInOptions
      * @param bool $arg whether or not to include document expiry
      * @return LookupInOptions
      */
-    public function withExpiry(bool $arg): LookupInOptions
-    {
-    }
+    public function withExpiry(bool $arg): LookupInOptions {}
 }
 
 class MutateInOptions
@@ -4144,9 +3231,7 @@ class MutateInOptions
      * @param int $arg the operation timeout to apply
      * @return MutateInOptions
      */
-    public function timeout(int $arg): MutateInOptions
-    {
-    }
+    public function timeout(int $arg): MutateInOptions {}
 
     /**
      * Sets the cas value to use when performing this operation.
@@ -4154,9 +3239,7 @@ class MutateInOptions
      * @param string $arg the cas value to use
      * @return MutateInOptions
      */
-    public function cas(string $arg): MutateInOptions
-    {
-    }
+    public function cas(string $arg): MutateInOptions {}
 
     /**
      * Sets the expiry time for the document.
@@ -4164,9 +3247,7 @@ class MutateInOptions
      * @param int|DateTimeInterface $arg the relative expiry time in seconds or DateTimeInterface object for absolute point in time
      * @return MutateInOptions
      */
-    public function expiry(mixed $arg): MutateInOptions
-    {
-    }
+    public function expiry(mixed $arg): MutateInOptions {}
 
     /**
      * Sets the durability level to enforce when writing the document.
@@ -4174,9 +3255,7 @@ class MutateInOptions
      * @param int $arg the durability level to enforce
      * @return MutateInOptions
      */
-    public function durabilityLevel(int $arg): MutateInOptions
-    {
-    }
+    public function durabilityLevel(int $arg): MutateInOptions {}
 
     /**
      * Sets the document level action to use when performing the operation.
@@ -4184,9 +3263,7 @@ class MutateInOptions
      * @param int $arg the store semantic to use
      * @return MutateInOptions
      */
-    public function storeSemantics(int $arg): MutateInOptions
-    {
-    }
+    public function storeSemantics(int $arg): MutateInOptions {}
 }
 
 /**
@@ -4213,61 +3290,33 @@ interface StoreSemantics
 
 class ViewOptions
 {
-    public function timeout(int $arg): ViewOptions
-    {
-    }
+    public function timeout(int $arg): ViewOptions {}
 
-    public function includeDocuments(bool $arg, int $maxConcurrentDocuments = 10): ViewOptions
-    {
-    }
+    public function includeDocuments(bool $arg, int $maxConcurrentDocuments = 10): ViewOptions {}
 
-    public function key($arg): ViewOptions
-    {
-    }
+    public function key($arg): ViewOptions {}
 
-    public function keys(array $args): ViewOptions
-    {
-    }
+    public function keys(array $args): ViewOptions {}
 
-    public function limit(int $arg): ViewOptions
-    {
-    }
+    public function limit(int $arg): ViewOptions {}
 
-    public function skip(int $arg): ViewOptions
-    {
-    }
+    public function skip(int $arg): ViewOptions {}
 
-    public function scanConsistency(int $arg): ViewOptions
-    {
-    }
+    public function scanConsistency(int $arg): ViewOptions {}
 
-    public function order(int $arg): ViewOptions
-    {
-    }
+    public function order(int $arg): ViewOptions {}
 
-    public function reduce(bool $arg): ViewOptions
-    {
-    }
+    public function reduce(bool $arg): ViewOptions {}
 
-    public function group(bool $arg): ViewOptions
-    {
-    }
+    public function group(bool $arg): ViewOptions {}
 
-    public function groupLevel(int $arg): ViewOptions
-    {
-    }
+    public function groupLevel(int $arg): ViewOptions {}
 
-    public function range($start, $end, $inclusiveEnd = false): ViewOptions
-    {
-    }
+    public function range($start, $end, $inclusiveEnd = false): ViewOptions {}
 
-    public function idRange($start, $end, $inclusiveEnd = false): ViewOptions
-    {
-    }
+    public function idRange($start, $end, $inclusiveEnd = false): ViewOptions {}
 
-    public function raw(string $key, $value): ViewOptions
-    {
-    }
+    public function raw(string $key, $value): ViewOptions {}
 }
 
 interface ViewConsistency
@@ -4291,9 +3340,7 @@ class QueryOptions
      * @param int $arg the operation timeout to apply
      * @return QueryOptions
      */
-    public function timeout(int $arg): QueryOptions
-    {
-    }
+    public function timeout(int $arg): QueryOptions {}
 
     /**
      * Sets the mutation state to achieve consistency with for read your own writes (RYOW).
@@ -4301,9 +3348,7 @@ class QueryOptions
      * @param MutationState $arg the mutation state to achieve consistency with
      * @return QueryOptions
      */
-    public function consistentWith(MutationState $arg): QueryOptions
-    {
-    }
+    public function consistentWith(MutationState $arg): QueryOptions {}
 
     /**
      * Sets the scan consistency.
@@ -4311,9 +3356,7 @@ class QueryOptions
      * @param int $arg the scan consistency level
      * @return QueryOptions
      */
-    public function scanConsistency(int $arg): QueryOptions
-    {
-    }
+    public function scanConsistency(int $arg): QueryOptions {}
 
     /**
      * Sets the maximum buffered channel size between the indexer client and the query service for index scans.
@@ -4321,9 +3364,7 @@ class QueryOptions
      * @param int $arg the maximum buffered channel size
      * @return QueryOptions
      */
-    public function scanCap(int $arg): QueryOptions
-    {
-    }
+    public function scanCap(int $arg): QueryOptions {}
 
     /**
      * Sets the maximum number of items each execution operator can buffer between various operators.
@@ -4331,9 +3372,7 @@ class QueryOptions
      * @param int $arg the maximum number of items each execution operation can buffer
      * @return QueryOptions
      */
-    public function pipelineCap(int $arg): QueryOptions
-    {
-    }
+    public function pipelineCap(int $arg): QueryOptions {}
 
     /**
      * Sets the number of items execution operators can batch for fetch from the KV service.
@@ -4341,9 +3380,7 @@ class QueryOptions
      * @param int $arg the pipeline batch size
      * @return QueryOptions
      */
-    public function pipelineBatch(int $arg): QueryOptions
-    {
-    }
+    public function pipelineBatch(int $arg): QueryOptions {}
 
     /**
      * Sets the maximum number of index partitions, for computing aggregation in parallel.
@@ -4351,9 +3388,7 @@ class QueryOptions
      * @param int $arg the number of index partitions
      * @return QueryOptions
      */
-    public function maxParallelism(int $arg): QueryOptions
-    {
-    }
+    public function maxParallelism(int $arg): QueryOptions {}
 
     /**
      * Sets the query profile mode to use.
@@ -4361,9 +3396,7 @@ class QueryOptions
      * @param int $arg the query profile mode
      * @return QueryOptions
      */
-    public function profile(int $arg): QueryOptions
-    {
-    }
+    public function profile(int $arg): QueryOptions {}
 
     /**
      * Sets whether or not this query is readonly.
@@ -4371,9 +3404,7 @@ class QueryOptions
      * @param bool $arg whether the query is readonly
      * @return QueryOptions
      */
-    public function readonly(bool $arg): QueryOptions
-    {
-    }
+    public function readonly(bool $arg): QueryOptions {}
 
     /**
      * Sets whether or not this query allowed to use FlexIndex (full text search integration).
@@ -4381,9 +3412,7 @@ class QueryOptions
      * @param bool $arg whether the FlexIndex allowed
      * @return QueryOptions
      */
-    public function flexIndex(bool $arg): QueryOptions
-    {
-    }
+    public function flexIndex(bool $arg): QueryOptions {}
 
     /**
      * Sets whether or not this query is adhoc.
@@ -4391,9 +3420,7 @@ class QueryOptions
      * @param bool $arg whether the query is adhoc
      * @return QueryOptions
      */
-    public function adhoc(bool $arg): QueryOptions
-    {
-    }
+    public function adhoc(bool $arg): QueryOptions {}
 
     /**
      * Sets the named parameters for this query.
@@ -4401,9 +3428,7 @@ class QueryOptions
      * @param array $pairs the associative array of parameters
      * @return QueryOptions
      */
-    public function namedParameters(array $pairs): QueryOptions
-    {
-    }
+    public function namedParameters(array $pairs): QueryOptions {}
 
     /**
      * Sets the positional parameters for this query.
@@ -4411,9 +3436,7 @@ class QueryOptions
      * @param array $args the array of parameters
      * @return QueryOptions
      */
-    public function positionalParameters(array $args): QueryOptions
-    {
-    }
+    public function positionalParameters(array $args): QueryOptions {}
 
     /**
      * Sets any extra query parameters that the SDK does not provide an option for.
@@ -4422,9 +3445,7 @@ class QueryOptions
      * @param string $value the value of the parameter
      * @return QueryOptions
      */
-    public function raw(string $key, $value): QueryOptions
-    {
-    }
+    public function raw(string $key, $value): QueryOptions {}
 
     /**
      * Sets the client context id for this query.
@@ -4432,9 +3453,7 @@ class QueryOptions
      * @param string $arg the client context id
      * @return QueryOptions
      */
-    public function clientContextId(string $arg): QueryOptions
-    {
-    }
+    public function clientContextId(string $arg): QueryOptions {}
 
     /**
      * Sets whether or not to return metrics with the query.
@@ -4442,9 +3461,7 @@ class QueryOptions
      * @param bool $arg whether to return metrics
      * @return QueryOptions
      */
-    public function metrics(bool $arg): QueryOptions
-    {
-    }
+    public function metrics(bool $arg): QueryOptions {}
 
     /**
      * Associate scope name with query
@@ -4452,9 +3469,7 @@ class QueryOptions
      * @param string $arg the name of the scope
      * @return QueryOptions
      */
-    public function scopeName(string $arg): QueryOptions
-    {
-    }
+    public function scopeName(string $arg): QueryOptions {}
 
     /**
      * Associate scope qualifier (also known as `query_context`) with the query.
@@ -4464,9 +3479,7 @@ class QueryOptions
      * @param string $arg the scope qualifier
      * @return QueryOptions
      */
-    public function scopeQualifier(string $arg): QueryOptions
-    {
-    }
+    public function scopeQualifier(string $arg): QueryOptions {}
 }
 
 /**
@@ -4513,9 +3526,7 @@ interface QueryProfile
 
 class ClusterOptions
 {
-    public function credentials(string $username, string $password): ClusterOptions
-    {
-    }
+    public function credentials(string $username, string $password): ClusterOptions {}
 }
 
 /**
