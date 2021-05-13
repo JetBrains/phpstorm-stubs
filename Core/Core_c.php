@@ -2,7 +2,6 @@
 
 // Start of Core v.5.3.6-13ubuntu3.2
 use JetBrains\PhpStorm\ExpectedValues;
-use JetBrains\PhpStorm\Immutable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -890,7 +889,6 @@ final class InternalIterator implements Iterator
  */
 interface UnitEnum
 {
-    #[Immutable]
     public string $name;
 
     public static function cases(): array;
@@ -901,7 +899,6 @@ interface UnitEnum
  */
 interface BackedEnum extends UnitEnum
 {
-    #[Immutable]
     public string $value;
 
     public static function from(int|string $scalar): static;
