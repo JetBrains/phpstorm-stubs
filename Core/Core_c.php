@@ -891,6 +891,9 @@ interface UnitEnum
 {
     public string $name;
 
+    /**
+     * @return static[]
+     */
     public static function cases(): array;
 }
 
