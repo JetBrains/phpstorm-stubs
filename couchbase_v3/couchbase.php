@@ -33,7 +33,7 @@
  *     during build phase. In this case \Couchbase\HAVE_ZLIB will be false.
  *   * `"off"` or `"none"` - compression will be disabled, but the library will still read compressed values.
  *
- * * `couchbase.encoder.compression_threshold` (long), default: `0`
+ * * `couchbase.encoder.compression_threshold` (int), default: `0`
  *
  *   controls minimum size of the document value in bytes to use compression. For example, if threshold 100 bytes,
  *   and the document size is 50, compression will be disabled for this particular document.
@@ -49,7 +49,7 @@
  *   controls the form of the documents, returned by the server if they were in JSON format. When true, it will generate
  *   arrays of arrays, otherwise instances of stdClass.
  *
- * * `couchbase.pool.max_idle_time_sec` (long), default: `60`
+ * * `couchbase.pool.max_idle_time_sec` (int), default: `60`
  *
  *   controls the maximum interval the underlying connection object could be idle, i.e. without any data/query
  *   operations. All connections which idle more than this interval will be closed automatically. Cleanup function
@@ -1532,7 +1532,7 @@ class CollectionSpec
 
     public function setScopeName(string $name): CollectionSpec {}
 
-    public function setMaxExpiry(long $ms): CollectionSpec {}
+    public function setMaxExpiry(int $ms): CollectionSpec {}
 }
 
 class CollectionManager
@@ -2843,7 +2843,7 @@ class GetAllReplicasOptions
      *
      *   `function decoder(string $bytes, int $flags, int $datatype): mixed`
      */
-    public function decoder(callable $arg): GetAllRepliacasOptions {}
+    public function decoder(callable $arg): GetAllReplicasOptions {}
 }
 
 class GetAnyReplicaOptions
