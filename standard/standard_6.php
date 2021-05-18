@@ -595,7 +595,7 @@ function stream_supports_lock($stream): bool {}
  * 5.0.4 and later) the maximum line length is not limited, which is
  * slightly slower.
  * </p>
- * @param string $separator [optional] <p>
+ * @param string $delimiter [optional] <p>
  * Set the field delimiter (one character only).
  * </p>
  * @param string $enclosure [optional] <p>
@@ -616,7 +616,7 @@ function stream_supports_lock($stream): bool {}
  * including end of file.
  * </p>
  */
-function fgetcsv($stream, ?int $length = 0, string $separator = ',', string $enclosure = '"', string $escape = '\\'): array|false {}
+function fgetcsv($stream, ?int $length = 0, string $delimiter = ',', string $enclosure = '"', string $escape = '\\'): array|false {}
 
 /**
  * Format line as CSV and write to file pointer
@@ -625,7 +625,7 @@ function fgetcsv($stream, ?int $length = 0, string $separator = ',', string $enc
  * @param array $fields <p>
  * An array of values.
  * </p>
- * @param string $separator [optional] <p>
+ * @param string $delimiter [optional] <p>
  * The optional delimiter parameter sets the field
  * delimiter (one character only).
  * </p>
@@ -638,7 +638,7 @@ function fgetcsv($stream, ?int $length = 0, string $separator = ',', string $enc
  * </p>
  * @return int|false the length of the written string or false on failure.
  */
-function fputcsv($stream, array $fields, string $separator = ",", string $enclosure = '"', string $escape = "\\"): int|false {}
+function fputcsv($stream, array $fields, string $delimiter = ",", string $enclosure = '"', string $escape = "\\"): int|false {}
 
 /**
  * Portable advisory file locking
