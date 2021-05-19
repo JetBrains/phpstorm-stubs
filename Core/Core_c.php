@@ -908,3 +908,33 @@ interface BackedEnum extends UnitEnum
 
     public static function tryFrom(int|string $scalar): ?static;
 }
+
+/**
+ * @since 8.1
+ * @internal
+ *
+ * Internal interface to ensure precise type inference
+ */
+interface IntBackedEnum extends BackedEnum
+{
+    public int $value;
+
+    public static function from(int $scalar): static;
+
+    public static function tryFrom(int $scalar): ?static;
+}
+
+/**
+ * @since 8.1
+ * @internal
+ *
+ * Internal interface to ensure precise type inference
+ */
+interface StringBackedEnum extends BackedEnum
+{
+    public string $value;
+
+    public static function from(string $scalar): static;
+
+    public static function tryFrom(string $scalar): ?static;
+}
