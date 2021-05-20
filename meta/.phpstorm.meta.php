@@ -105,9 +105,9 @@ namespace PHPSTORM_META {
   override(\DOMNode::insertBefore(0), type(0));
   override(\DOMNode::removeChild(0), type(0));
   override(\DOMNode::replaceChild(0), type(1));
-  override(\simplexml_load_file(), type(1));
-  override(\simplexml_load_string(), type(1));
-  override(\simplexml_import_dom(), type(1));
+  override(\simplexml_load_file(1), map(["" => "$1"]));
+  override(\simplexml_load_string(1), map(["" => "$1"]));
+  override(\simplexml_import_dom(1), map(["" => "$1"]));
 
     function expectedArguments($functionReference, $argumentIndex, $values) {
         return "expectedArguments " . $functionReference . "at " . $argumentIndex . ": " . $values;
