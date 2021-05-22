@@ -713,7 +713,7 @@ function array_filter(array $array, ?callable $callback, int $mode = 0): array {
 /**
  * Applies the callback to the elements of the given arrays
  * @link https://php.net/manual/en/function.array-map.php
- * @param callable $callback <p>
+ * @param callable|null $callback <p>
  * Callback function to run for each element in each array.
  * </p>
  * @param array $array <p>
@@ -724,7 +724,7 @@ function array_filter(array $array, ?callable $callback, int $mode = 0): array {
  * after applying the callback function to each one.
  * @meta
  */
-function array_map(callable $callback, array $array, array ...$arrays): array {}
+function array_map(?callable $callback, array $array, array ...$arrays): array {}
 
 /**
  * Split an array into chunks
