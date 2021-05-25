@@ -72,7 +72,7 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function read(string $id): string;
+    public function read(string $id): string|false;
 
     /**
      * Write session data
@@ -197,7 +197,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * Sessions that have not updated for
      * the last maxlifetime seconds will be removed.
      * </p>
-     * @return bool <p>
+     * @return int|bool <p>
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
      * </p>
@@ -222,7 +222,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * Read session data
      * @link https://php.net/manual/en/sessionhandler.read.php
      * @param string $id The session id to read data for.
-     * @return string <p>
+     * @return string|false <p>
      * Returns an encoded string of the read data.
      * If nothing was read, it must return an empty string.
      * Note this value is returned internally to PHP for processing.
@@ -252,7 +252,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
 
     /**
      * Validate session id
-     * @param string $session_id The session id
+     * @param string $id The session id
      * @return bool <p>
      * Note this value is returned internally to PHP for processing.
      * </p>
@@ -261,8 +261,8 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
 
     /**
      * Update timestamp of a session
-     * @param string $session_id The session id
-     * @param string $session_data <p>
+     * @param string $id The session id
+     * @param string $data <p>
      * The encoded session data. This data is the
      * result of the PHP internally encoding
      * the $_SESSION superglobal to a serialized
