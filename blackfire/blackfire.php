@@ -112,7 +112,7 @@ final class BlackfireProbe
      *
      * @return void
      */
-    public function setTransactionName(string $transationName) {}
+    public function setTransactionName(string $transactionName) {}
 
     /**
      * Disables Blackfire Monitoring instrumentation for a transaction.
