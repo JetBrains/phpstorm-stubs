@@ -168,7 +168,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * </p>
      * @since 5.4
      */
-    public function close() {}
+    public function close(): bool {}
 
     /**
      * Return a new session ID
@@ -176,7 +176,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * @return string <p>A session ID valid for the default session handler.</p>
      * @since 5.5.1
      */
-    public function create_sid() {}
+    public function create_sid(): string {}
 
     /**
      * Destroy a session
@@ -188,7 +188,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * </p>
      * @since 5.4
      */
-    public function destroy($id) {}
+    public function destroy(string $id): bool {}
 
     /**
      * Cleanup old sessions
@@ -203,7 +203,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * </p>
      * @since 5.4
      */
-    public function gc($max_lifetime) {}
+    public function gc(int $max_lifetime): int|bool {}
 
     /**
      * Initialize session
@@ -216,7 +216,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * </p>
      * @since 5.4
      */
-    public function open($path, $name) {}
+    public function open(string $path, string $name): bool {}
 
     /**
      * Read session data
@@ -229,7 +229,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * </p>
      * @since 5.4
      */
-    public function read($id) {}
+    public function read(string $id): string|false {}
 
     /**
      * Write session data
@@ -248,7 +248,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * </p>
      * @since 5.4
      */
-    public function write($id, $data) {}
+    public function write(string $id, string $data): bool {}
 
     /**
      * Validate session id
@@ -257,7 +257,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * Note this value is returned internally to PHP for processing.
      * </p>
      */
-    public function validateId($session_id) {}
+    public function validateId(string $id): bool {}
 
     /**
      * Update timestamp of a session
@@ -271,5 +271,5 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * </p>
      * @return bool
      */
-    public function updateTimestamp($session_id, $session_data) {}
+    public function updateTimestamp(string $id, string $data): bool {}
 }
