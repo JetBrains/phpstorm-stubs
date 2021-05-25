@@ -19,7 +19,7 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function close();
+    public function close(): bool;
 
     /**
      * Destroy a session
@@ -31,7 +31,7 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function destroy($id);
+    public function destroy(string $id): bool;
 
     /**
      * Cleanup old sessions
@@ -40,13 +40,13 @@ interface SessionHandlerInterface
      * Sessions that have not updated for
      * the last maxlifetime seconds will be removed.
      * </p>
-     * @return bool <p>
+     * @return int|bool <p>
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
      * </p>
      * @since 5.4
      */
-    public function gc($max_lifetime);
+    public function gc(int $max_lifetime): int|bool;
 
     /**
      * Initialize session
@@ -59,7 +59,7 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function open($path, $name);
+    public function open(string $path, string $name): bool;
 
     /**
      * Read session data
@@ -72,7 +72,7 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function read($id);
+    public function read(string $id): string;
 
     /**
      * Write session data
@@ -91,7 +91,7 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function write($id, $data);
+    public function write(string $id, string $data): bool;
 }
 
 /**
@@ -106,7 +106,7 @@ interface SessionIdInterface
      * @link https://php.net/manual/en/sessionidinterface.create-sid.php
      * @return string
      */
-    public function create_sid();
+    public function create_sid(): string;
 }
 
 /**
@@ -125,7 +125,7 @@ interface SessionUpdateTimestampHandlerInterface
      * Note this value is returned internally to PHP for processing.
      * </p>
      */
-    public function validateId($id);
+    public function validateId(string $id): bool;
 
     /**
      * Update timestamp of a session
@@ -139,7 +139,7 @@ interface SessionUpdateTimestampHandlerInterface
      * </p>
      * @return bool
      */
-    public function updateTimestamp($id, $data);
+    public function updateTimestamp(string $id, string $data): bool;
 }
 
 /**
