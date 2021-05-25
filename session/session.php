@@ -238,12 +238,12 @@ function session_unset() {}
  * The garbage collector, this is executed when the session garbage collector
  * is executed and takes the max session lifetime as its only parameter.
  * </p>
- * @param callable $create_sid [optional]
+ * @param ?callable $create_sid [optional]
  * <p>This callback is executed when a new session ID is required.
  * No parameters are provided, and the return value should be a string that is a valid
  * session ID for your handler.</p>
- * @param callable $validate_sid [optional]
- * @param callable $update_timestamp [optional]
+ * @param ?callable $validate_sid [optional]
+ * @param ?callable $update_timestamp [optional]
  * @return bool true on success or false on failure.
  */
 function session_set_save_handler(callable $open, callable $close, callable $read, callable $write, callable $destroy, callable $gc, ?callable $create_sid = null, ?callable $validate_sid = null, ?callable $update_timestamp = null): bool {}
