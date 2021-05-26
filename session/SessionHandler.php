@@ -249,27 +249,4 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * @since 5.4
      */
     public function write(string $id, string $data): bool {}
-
-    /**
-     * Validate session id
-     * @param string $id The session id
-     * @return bool <p>
-     * Note this value is returned internally to PHP for processing.
-     * </p>
-     */
-    public function validateId(string $id): bool {}
-
-    /**
-     * Update timestamp of a session
-     * @param string $id The session id
-     * @param string $data <p>
-     * The encoded session data. This data is the
-     * result of the PHP internally encoding
-     * the $_SESSION superglobal to a serialized
-     * string and passing it as this parameter.
-     * Please note sessions use an alternative serialization method.
-     * </p>
-     * @return bool
-     */
-    public function updateTimestamp(string $id, string $data): bool {}
 }
