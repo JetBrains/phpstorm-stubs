@@ -993,6 +993,7 @@ const CLASSES = array (
   'mysqli_sql_exception' => 'mysqli/mysqli.php',
   'mysqli_stmt' => 'mysqli/mysqli.php',
   'mysqli_warning' => 'mysqli/mysqli.php',
+  'newrelic\\DistributedTracePayload' => 'newrelic/newrelic.php',
   'outputformatObj' => 'mapscript/mapscript.php',
   'parallel\\Channel' => 'parallel/parallel/Channel.php',
   'parallel\\Channel\\Error' => 'parallel/parallel/Channel/Error.php',

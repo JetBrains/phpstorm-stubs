@@ -1,97 +1,8 @@
 <?php
 
-namespace newrelic {
-  /**
-   * This object has two methods that will render a distributed trace payload as text.
-   *
-   * @link https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newreliccreatedistributedtracepayload-php-agent-api/#return-values
-   * @see newrelic_create_distributed_trace_payload()
-   * @since 8.4
-   * @deprecated 9.10
-   */
-  class DistributedTracePayload
-  {
-    /**
-     * Renders the payload as a JSON string
-     *
-     * @return string
-     */
-    public function text(): string {}
-
-    /**
-     * Renders the payload as an string suitable for transport via HTTP (query string, POST param, HTTP headers, etc.)
-     *
-     * @return string
-     */
-    public function httpSafe(): string {}
-  }
-}
-
 namespace {
   use JetBrains\PhpStorm\Deprecated;
 
-  /**
-   * Accepts an array of distributed trace headers.
-   *
-   * Distributed tracing allows you to see the path that a request takes as it travels through a distributed system.
-   * When distributed tracing is enabled, use newrelic_accept_distributed_trace_headers to accept a payload of headers.
-   * These include both W3C Trace Context and New Relic distributed trace headers.
-   *
-   * It is possible to only accept only W3C Trace Context headers and disable the New Relic Distributed Tracing header
-   * via the newrelic.distributed_tracing_exclude_newrelic_header INI setting.
-   *
-   * Returns True if the headers were accepted successfully, otherwise returns False.
-   *
-   * @link    https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicacceptdistributedtraceheaders/
-   * @example https://docs.newrelic.com/docs/agents/php-agent/features/distributed-tracing-php/#manual
-   * @since   9.8
-   *
-   * @param array  $headers        An array containing distributed tracing headers.
-   * @param string $transport_type [optional] A string overriding the default transport type.
-   *
-   * @return bool
-   */
-  function newrelic_accept_distributed_trace_headers(array $headers, string $transport_type = 'HTTP'): bool {}
-
-  /**
-   * Accepts a distributed trace payload.
-   *
-   * Distributed tracing allows you to see the path that a request takes as it travels through a distributed system.
-   *
-   * @link       https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicacceptdistributedtracepayload-php-agent-api/
-   * @example    https://docs.newrelic.com/docs/agents/php-agent/features/distributed-tracing-php/#manual
-   * @since      8.4
-   * @deprecated 9.10
-   *
-   * @param string $payload A JSON formatted string created by using newrelic_create_distributed_trace_payload.
-   *
-   * @return void
-   */
-  #[Deprecated(replacement: 'newrelic_accept_distributed_trace_headers()')]
-  function newrelic_accept_distributed_trace_payload(string $payload): void {}
-
-  /**
-   * Accepts a distributed trace payload that includes an HTTPSafe (Base64 encoded) JSON string.
-   *
-   * Distributed tracing allows you to see the path that a request takes as it travels through a distributed system.
-   *
-   * Returns true to indicate success, or false if an error occurs.
-   *
-   * @link       https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicacceptdistributedtracepayloadhttpsafe-php-agent-api/
-   * @example    https://docs.newrelic.com/docs/agents/php-agent/features/distributed-tracing-php/#manual
-   * @since      8.4
-   * @deprecated 9.10
-   *
-   * @param string $httpsafe_payload An HTTPSafe (Base64 encoded) JSON string representation of the payload.
-   * @param string $transport_type   [optional] A string overriding the default transport type.
-   *
-   * @return bool
-   */
-  #[Deprecated(replacement: 'newrelic_accept_distributed_trace_headers()')]
-  function newrelic_accept_distributed_trace_payload_httpsafe(
-      string $httpsafe_payload,
-      string $transport_type = 'HTTP'
-  ): bool {}
 
   /**
    * Attaches a custom attribute (key/value pair) to the current transaction and the current span (if enabled).
@@ -120,29 +31,6 @@ namespace {
    * @return bool
    */
   function newrelic_add_custom_parameter(string $key, bool|float|int|string $value): bool {}
-
-  /**
-   * Attaches a custom attribute (key/value pair) to the current span.
-   *
-   * Add a custom attribute (a key and a value data pair) to the current span. (The call name is
-   * newrelic_add_custom_span_parameter because "custom attributes" were previously called "custom parameters.") For
-   * example, you can add a customer's full name from your customer database. This attribute appears in any span. You
-   * can also query the Span for your custom attributes.
-   *
-   * IMPORTANT: On spans, attributes added with newrelic_add_custom_span_parameter will take precedence over attributes
-   * added with newrelic_add_custom_parameter.
-   *
-   * IMPORTANT: If you want to use your custom attributes, avoid using any of the reserved terms used by NRQL.
-   *
-   * @link  https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicaddcustomspanparameter-php-agent-api/
-   * @since 9.12.0.268
-   *
-   * @param string                $key   The name of the custom attribute. Only the first 255 characters are retained.
-   * @param bool|float|int|string $value The value to associate with this custom attribute.
-   *
-   * @return bool
-   */
-  function newrelic_add_custom_span_parameter(string $key, bool|float|int|string $value): bool {}
 
   /**
    * Specify functions or methods for the agent to instrument with custom instrumentation.
@@ -199,21 +87,6 @@ namespace {
    * @return void
    */
   function newrelic_capture_params(bool $enable_flag = true): void {}
-
-  /**
-   *Creates a distributed trace payload.
-   *
-   * Distributed tracing allows you to see the path that a request takes as it travels through a distributed system.
-   *
-   * @link       https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newreliccreatedistributedtracepayload-php-agent-api/
-   * @example    https://docs.newrelic.com/docs/agents/php-agent/features/distributed-tracing-php/#manual
-   * @since      8.4
-   * @deprecated 9.10
-   *
-   * @return     newrelic\DistributedTracePayload
-   */
-  #[Deprecated(replacement: 'newrelic_insert_distributed_trace_headers()')]
-  function newrelic_create_distributed_trace_payload(): newrelic\DistributedTracePayload {}
 
   /**
    * Add a custom metric (in milliseconds) to time a component of your app not captured by default.
@@ -333,30 +206,6 @@ namespace {
   function newrelic_get_browser_timing_header(bool $includeTags = true): string {}
 
   /**
-   * Returns a collection of metadata necessary for linking data to a trace or an entity.
-   *
-   * This call returns an opaque map of key-value pairs that can be used to correlate this application to other data in
-   * the New Relic backend.
-   *
-   * @link https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicgetlinkingmetadata/
-   *
-   * @return array
-   */
-  function newrelic_get_linking_metadata(): array {}
-
-  /**
-   * Returns an associative array containing the identifiers of the current trace and the parent span.
-   *
-   * Returns an associative array containing the identifiers of the current trace and the parent span. This information
-   * is useful for integrating with third party distributed tracing tools, such as Zipkin.
-   *
-   * @link https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicgettracemetadata/
-   *
-   * @return array
-   */
-  function newrelic_get_trace_metadata(): array {}
-
-  /**
    * Ignore the current transaction when calculating Apdex.
    *
    * Ignores the current transaction when calculating your Apdex score. This is useful when you have either very short
@@ -379,36 +228,6 @@ namespace {
    * @return void
    */
   function newrelic_ignore_transaction(): void {}
-
-  /**
-   * Inserts W3C Trace Context headers and New Relic Distributed Tracing headers into an outbound array of headers.
-   *
-   * Use newrelic_insert_distributed_trace_headers to manually add distributed tracing headers an array of outbound
-   * headers. When Distributed Tracing is enabled, newrelic_insert_distributed_trace_headers will always insert W3C
-   * trace context headers. It also, by default, inserts the New Relic Distributed Tracing header, but this can be
-   * disabled via the newrelic.distributed_tracing_exclude_newrelic_header INI setting.
-   *
-   * The $headers argument is passed by reference, and therefore must be a variable as opposed to a literal.
-   *
-   * @link    https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicinsertdistributedtraceheaders/
-   * @example https://docs.newrelic.com/docs/agents/php-agent/features/distributed-tracing-php/#manual
-   * @since   9.8
-   *
-   * @param array $headers An (optionally empty) array of outbound headers.
-   *
-   * @return bool True if any headers were successfully inserted into the provided array, otherwise returns False
-   */
-  function newrelic_insert_distributed_trace_headers(array $headers): bool {}
-
-  /**
-   * Returns a value indicating whether or not the current transaction is marked as sampled.
-   *
-   * @link  https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicissampled/
-   * @since 9.3
-   *
-   * @return bool
-   */
-  function newrelic_is_sampled(): bool {}
 
   /**
    * Set custom name for current transaction.
@@ -514,44 +333,6 @@ namespace {
   function newrelic_record_custom_event(string $name, array $attributes): void {}
 
   /**
-   * Records a datastore segment.
-   *
-   * Datastore segments appear in the Breakdown table and Databases tab of the Transactions
-   * page in the New Relic UI. This function allows an unsupported datastore to be instrumented in the same way as the
-   * PHP agent automatically instruments its supported datastores.
-   *
-   * The supported keys in the $parameters array are as follows:
-   * - product: (string) Required. The name of the datastore product being used: for example, MySQL to indicate that
-   * the
-   * segment represents a query against a MySQL database.
-   * - collection: (string) Optional. The table or collection being used or queried against.
-   * - operation: (string) Optional. The operation being performed: for example, select for an SQL SELECT query, or set
-   * for a Memcached set operation. While operations may be specified with any case, New Relic suggests using lowercase
-   * to better line up with the operation names used by the PHP agent's automated datastore instrumentation.
-   * - host: (string) Optional. The datastore host name.
-   * - portPathOrId: (string) Optional. The port or socket used to connect to the datastore.
-   * - databaseName: (string) Optional. The database name or number in use.
-   * - query: (string) Optional. The query that was sent to the server. For security reasons, this value is only used
-   * if
-   * you set product to a supported datastore. This allows the agent to correctly obfuscate the query. The supported
-   * product values (which are matched in a case insensitive manner) are: MySQL, MSSQL, Oracle, Postgres, SQLite,
-   * Firebird, Sybase, and Informix.
-   * - inputQueryLabel: (string) Optional. The name of the ORM in use (for example: Doctrine).
-   * - inputQuery: (string) Optional. The input query that was provided to the ORM. For security reasons, and as with
-   * the query parameter, this value will be ignored if the product is not a supported datastore.
-   *
-   * @link  https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_record_datastore_segment/
-   * @since 7.5.0.199
-   *
-   * @param callable $func The function that should be timed to create the datastore segment.
-   * @param array    $parameters
-   *
-   * @return mixed The return value of $callback is returned. If an error occurs, false is returned, and
-   * an error at the E_WARNING level will be triggered
-   */
-  function newrelic_record_datastore_segment(callable $func, array $parameters): mixed {}
-
-  /**
    * Set the New Relic application name, which the New Relic UI uses to connect your data to the correct application.
    *
    * The recommended and preferred method for setting the New Relic application name is to use global or per-directory
@@ -645,4 +426,223 @@ namespace {
    * @return bool
    */
   function newrelic_start_transaction(string $appname, string $license = null): bool {}
+
+  /**
+   * Records a datastore segment.
+   *
+   * Datastore segments appear in the Breakdown table and Databases tab of the Transactions
+   * page in the New Relic UI. This function allows an unsupported datastore to be instrumented in the same way as the
+   * PHP agent automatically instruments its supported datastores.
+   *
+   * The supported keys in the $parameters array are as follows:
+   * - product: (string) Required. The name of the datastore product being used: for example, MySQL to indicate that
+   * the
+   * segment represents a query against a MySQL database.
+   * - collection: (string) Optional. The table or collection being used or queried against.
+   * - operation: (string) Optional. The operation being performed: for example, select for an SQL SELECT query, or set
+   * for a Memcached set operation. While operations may be specified with any case, New Relic suggests using lowercase
+   * to better line up with the operation names used by the PHP agent's automated datastore instrumentation.
+   * - host: (string) Optional. The datastore host name.
+   * - portPathOrId: (string) Optional. The port or socket used to connect to the datastore.
+   * - databaseName: (string) Optional. The database name or number in use.
+   * - query: (string) Optional. The query that was sent to the server. For security reasons, this value is only used
+   * if
+   * you set product to a supported datastore. This allows the agent to correctly obfuscate the query. The supported
+   * product values (which are matched in a case insensitive manner) are: MySQL, MSSQL, Oracle, Postgres, SQLite,
+   * Firebird, Sybase, and Informix.
+   * - inputQueryLabel: (string) Optional. The name of the ORM in use (for example: Doctrine).
+   * - inputQuery: (string) Optional. The input query that was provided to the ORM. For security reasons, and as with
+   * the query parameter, this value will be ignored if the product is not a supported datastore.
+   *
+   * @link  https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_record_datastore_segment/
+   * @since 7.5.0.199
+   *
+   * @param callable $func The function that should be timed to create the datastore segment.
+   * @param array    $parameters
+   *
+   * @return mixed The return value of $callback is returned. If an error occurs, false is returned, and
+   * an error at the E_WARNING level will be triggered
+   */
+  function newrelic_record_datastore_segment(callable $func, array $parameters): mixed {}
+
+  /**
+   * Accepts an array of distributed trace headers.
+   *
+   * Distributed tracing allows you to see the path that a request takes as it travels through a distributed system.
+   * When distributed tracing is enabled, use newrelic_accept_distributed_trace_headers to accept a payload of headers.
+   * These include both W3C Trace Context and New Relic distributed trace headers.
+   *
+   * It is possible to only accept only W3C Trace Context headers and disable the New Relic Distributed Tracing header
+   * via the newrelic.distributed_tracing_exclude_newrelic_header INI setting.
+   *
+   * Returns True if the headers were accepted successfully, otherwise returns False.
+   *
+   * @link    https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicacceptdistributedtraceheaders/
+   * @example https://docs.newrelic.com/docs/agents/php-agent/features/distributed-tracing-php/#manual
+   * @since   9.8
+   *
+   * @param array  $headers        An array containing distributed tracing headers.
+   * @param string $transport_type [optional] A string overriding the default transport type.
+   *
+   * @return bool
+   */
+  function newrelic_accept_distributed_trace_headers(array $headers, string $transport_type = 'HTTP'): bool {}
+
+  /**
+   * Accepts a distributed trace payload.
+   *
+   * Distributed tracing allows you to see the path that a request takes as it travels through a distributed system.
+   *
+   * @link       https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicacceptdistributedtracepayload-php-agent-api/
+   * @example    https://docs.newrelic.com/docs/agents/php-agent/features/distributed-tracing-php/#manual
+   * @since      8.4
+   * @deprecated 9.10
+   *
+   * @param string $payload A JSON formatted string created by using newrelic_create_distributed_trace_payload.
+   *
+   * @return void
+   */
+  #[Deprecated(replacement: 'newrelic_accept_distributed_trace_headers()')]
+  function newrelic_accept_distributed_trace_payload(string $payload): void {}
+
+  /**
+   * Accepts a distributed trace payload that includes an HTTPSafe (Base64 encoded) JSON string.
+   *
+   * Distributed tracing allows you to see the path that a request takes as it travels through a distributed system.
+   *
+   * Returns true to indicate success, or false if an error occurs.
+   *
+   * @link       https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicacceptdistributedtracepayloadhttpsafe-php-agent-api/
+   * @example    https://docs.newrelic.com/docs/agents/php-agent/features/distributed-tracing-php/#manual
+   * @since      8.4
+   * @deprecated 9.10
+   *
+   * @param string $httpsafe_payload An HTTPSafe (Base64 encoded) JSON string representation of the payload.
+   * @param string $transport_type   [optional] A string overriding the default transport type.
+   *
+   * @return bool
+   */
+  #[Deprecated(replacement: 'newrelic_accept_distributed_trace_headers()')]
+  function newrelic_accept_distributed_trace_payload_httpsafe(
+    string $httpsafe_payload,
+    string $transport_type = 'HTTP'
+  ): bool {}
+
+  /**
+   * Attaches a custom attribute (key/value pair) to the current span.
+   *
+   * Add a custom attribute (a key and a value data pair) to the current span. (The call name is
+   * newrelic_add_custom_span_parameter because "custom attributes" were previously called "custom parameters.") For
+   * example, you can add a customer's full name from your customer database. This attribute appears in any span. You
+   * can also query the Span for your custom attributes.
+   *
+   * IMPORTANT: On spans, attributes added with newrelic_add_custom_span_parameter will take precedence over attributes
+   * added with newrelic_add_custom_parameter.
+   *
+   * IMPORTANT: If you want to use your custom attributes, avoid using any of the reserved terms used by NRQL.
+   *
+   * @link  https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicaddcustomspanparameter-php-agent-api/
+   * @since 9.12.0.268
+   *
+   * @param string                $key   The name of the custom attribute. Only the first 255 characters are retained.
+   * @param bool|float|int|string $value The value to associate with this custom attribute.
+   *
+   * @return bool
+   */
+  function newrelic_add_custom_span_parameter(string $key, bool|float|int|string $value): bool {}
+
+  /**
+   *Creates a distributed trace payload.
+   *
+   * Distributed tracing allows you to see the path that a request takes as it travels through a distributed system.
+   *
+   * @link       https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newreliccreatedistributedtracepayload-php-agent-api/
+   * @example    https://docs.newrelic.com/docs/agents/php-agent/features/distributed-tracing-php/#manual
+   * @since      8.4
+   * @deprecated 9.10
+   *
+   * @return     newrelic\DistributedTracePayload
+   */
+  #[Deprecated(replacement: 'newrelic_insert_distributed_trace_headers()')]
+  function newrelic_create_distributed_trace_payload(): newrelic\DistributedTracePayload {}
+
+  /**
+   * Returns a collection of metadata necessary for linking data to a trace or an entity.
+   *
+   * This call returns an opaque map of key-value pairs that can be used to correlate this application to other data in
+   * the New Relic backend.
+   *
+   * @link https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicgetlinkingmetadata/
+   *
+   * @return array
+   */
+  function newrelic_get_linking_metadata(): array {}
+
+  /**
+   * Returns an associative array containing the identifiers of the current trace and the parent span.
+   *
+   * Returns an associative array containing the identifiers of the current trace and the parent span. This information
+   * is useful for integrating with third party distributed tracing tools, such as Zipkin.
+   *
+   * @link https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicgettracemetadata/
+   *
+   * @return array
+   */
+  function newrelic_get_trace_metadata(): array {}
+
+  /**
+   * Inserts W3C Trace Context headers and New Relic Distributed Tracing headers into an outbound array of headers.
+   *
+   * Use newrelic_insert_distributed_trace_headers to manually add distributed tracing headers an array of outbound
+   * headers. When Distributed Tracing is enabled, newrelic_insert_distributed_trace_headers will always insert W3C
+   * trace context headers. It also, by default, inserts the New Relic Distributed Tracing header, but this can be
+   * disabled via the newrelic.distributed_tracing_exclude_newrelic_header INI setting.
+   *
+   * The $headers argument is passed by reference, and therefore must be a variable as opposed to a literal.
+   *
+   * @link    https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicinsertdistributedtraceheaders/
+   * @example https://docs.newrelic.com/docs/agents/php-agent/features/distributed-tracing-php/#manual
+   * @since   9.8
+   *
+   * @param array $headers An (optionally empty) array of outbound headers.
+   *
+   * @return bool True if any headers were successfully inserted into the provided array, otherwise returns False
+   */
+  function newrelic_insert_distributed_trace_headers(array $headers): bool {}
+
+  /**
+   * Returns a value indicating whether or not the current transaction is marked as sampled.
+   *
+   * @link  https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicissampled/
+   * @since 9.3
+   *
+   * @return bool
+   */
+  function newrelic_is_sampled(): bool {}
+}
+
+namespace newrelic {
+  /**
+   * This object has two methods that will render a distributed trace payload as text.
+   *
+   * @link https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newreliccreatedistributedtracepayload-php-agent-api/#return-values
+   * @see newrelic_create_distributed_trace_payload()
+   * @since 8.4
+   */
+  class DistributedTracePayload
+  {
+    /**
+     * Renders the payload as a JSON string
+     *
+     * @return string
+     */
+    public function text(): string {}
+
+    /**
+     * Renders the payload as an string suitable for transport via HTTP (query string, POST param, HTTP headers, etc.)
+     *
+     * @return string
+     */
+    public function httpSafe(): string {}
+  }
 }
