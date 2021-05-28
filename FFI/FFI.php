@@ -278,10 +278,6 @@ namespace FFI {
      * @mixin \Traversable
      * @mixin \Countable
      * @mixin \ArrayAccess
-     * @method bool offsetExists(int $offset)
-     * @method CData|int|float|bool|null|string offsetGet(int $offset)
-     * @method void offsetSet(int $offset, CData|int|float|bool|null|string $value)
-     * @method void offsetUnset(int $offset)
      *
      * In the case when CData is a wrapper over a function pointer, it can
      * be called.
@@ -290,7 +286,51 @@ namespace FFI {
      *
      * @since 7.4
      */
-    class CData {}
+    class CData
+    {
+        /**
+         * Note that this method does not physically exist and is only required
+         * for correct type inference.
+         *
+         * @param int $offset
+         * @return bool
+         */
+        private function offsetExists(int $offset) {}
+
+        /**
+         * Note that this method does not physically exist and is only required
+         * for correct type inference.
+         *
+         * @param int $offset
+         * @return CData|int|float|bool|null|string
+         */
+        private function offsetGet(int $offset) {}
+
+        /**
+         * Note that this method does not physically exist and is only required
+         * for correct type inference.
+         *
+         * @param int $offset
+         * @param CData|int|float|bool|null|string $value
+         */
+        private function offsetSet(int $offset, $value) {}
+
+        /**
+         * Note that this method does not physically exist and is only required
+         * for correct type inference.
+         *
+         * @param int $offset
+         */
+        private function offsetUnset(int $offset) {}
+
+        /**
+         * Note that this method does not physically exist and is only required
+         * for correct type inference.
+         *
+         * @return int
+         */
+        private function count(): int {}
+    }
 
     /**
      * Class containing C type information.
