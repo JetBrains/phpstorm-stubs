@@ -47,4 +47,5 @@ namespace PHPSTORM_META {
 
     expectedArguments(\FFI::new(), 0, argumentsSet('FFICType'));
     expectedArguments(\FFI::cast(), 0, argumentsSet('FFICType'));
+    expectedArguments(\FFI::type(), 0, argumentsSet('FFICType'));
 }
