@@ -8,8 +8,6 @@ namespace {
     use FFI\ParserException;
 
     /**
-     * Class FFI
-     *
      * FFI class provides access to a simple way to call native functions,
      * access native variables and create/access data structures defined
      * in C language.
@@ -159,7 +157,7 @@ namespace {
          * dimensions specified by $dimensions.
          *
          * @param CType $type
-         * @param array $dimensions
+         * @param array|int[] $dimensions
          * @return CType
          */
         public static function arrayType(CType $type, array $dimensions): CType {}
@@ -245,34 +243,64 @@ namespace {
 
 namespace FFI {
     /**
-     * Class Exception
+     * General FFI exception.
      *
      * @since 7.4
      */
     class Exception extends \Error {}
 
     /**
-     * Class ParserException
+     * An exception that occurs when parsing invalid header files.
      *
      * @since 7.4
      */
     class ParserException extends Exception {}
 
     /**
-     * Class CData
-     *
      * Proxy object that provides access to compiled structures.
+     *
+     * In the case that CData is a wrapper over a scalar, it contains an
+     * additional "cdata" property.
+     *
+     * @property int|float|bool|null $cdata
+     *
+     * In the case that the CData is a wrapper over an arbitrary C structure,
+     * then it allows reading and writing to the fields defined by
+     * this structure.
+     *
+     * @method mixed __get()
+     * @method mixed __set(string $name)
+     *
+     * In the case that CData is a wrapper over an array, it is an
+     * implementation of the {@see \Traversable}, {@see \Countable},
+     * and {@see \ArrayAccess}
+     *
+     * @mixin \Traversable
+     * @mixin \Countable
+     * @mixin \ArrayAccess
+     *
+     * In the case when CData is a wrapper over a function pointer, it can
+     * be called.
+     *
+     * @method mixed __invoke(mixed ...$args)
      *
      * @since 7.4
      */
     class CData {}
 
     /**
-     * Class CType
-     *
      * Class containing C type information.
      *
      * @since 7.4
      */
-    class CType {}
+    class CType
+    {
+        /**
+         * Returns the name of the type.
+         *
+         * @since 8.0
+         * @return string
+         */
+        public function getName(): string {}
+    }
 }
