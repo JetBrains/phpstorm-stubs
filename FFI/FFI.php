@@ -262,7 +262,7 @@ namespace FFI {
      * In the case that CData is a wrapper over a scalar, it contains an
      * additional "cdata" property.
      *
-     * @property int|float|bool|null|string $cdata
+     * @property int|float|bool|null|string|CData $cdata
      *
      * In the case that the CData is a wrapper over an arbitrary C structure,
      * then it allows reading and writing to the fields defined by
