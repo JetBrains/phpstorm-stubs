@@ -507,7 +507,7 @@ class PDO
      * return code from the method that raised the error condition anyway.
      * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.err-none
      */
-    public const ERR_NONE = 00000;
+    public const ERR_NONE = '00000';
 
     /**
      * Fetch the next row in the result set. Valid only for scrollable cursors.
