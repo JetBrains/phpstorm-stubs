@@ -268,8 +268,8 @@ namespace FFI {
      * then it allows reading and writing to the fields defined by
      * this structure.
      *
-     * @method mixed __get()
-     * @method mixed __set(string $name)
+     * @method mixed __get(string $name)
+     * @method mixed __set(string $name, mixed $value)
      *
      * In the case that CData is a wrapper over an array, it is an
      * implementation of the {@see \Traversable}, {@see \Countable},
