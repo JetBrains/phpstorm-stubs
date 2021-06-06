@@ -921,9 +921,9 @@ class AssertionError extends Error {}
  * @param mixed $value [optional] <p>
  * An optional new value for the option.
  * </p>
- * @return object|array|string|int|null The original setting of any option.
+ * @return mixed The original setting of any option.
  */
-function assert_options(int $option, mixed $value): object|array|string|int|null {}
+function assert_options(int $option, mixed $value): mixed {}
 
 /**
  * Compares two "PHP-standardized" version number strings

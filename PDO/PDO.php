@@ -549,6 +549,13 @@ class PDO
     public const FETCH_ORI_REL = 5;
 
     /**
+     * Specifies that the default fetch mode shall be used.
+     * @since 8.0.7
+     * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.fetch-default
+     */
+    public const FETCH_DEFAULT = 0;
+
+    /**
      * Create a <b>PDOStatement</b> object with a forward-only cursor. This is the
      * default cursor choice, as it is the fastest and most common data access
      * pattern in PHP.
@@ -1467,13 +1474,13 @@ class PDOStatement implements IteratorAggregate
      * @param string $class [optional] <p>
      * Name of the created class.
      * </p>
-     * @param array $ctorArgs [optional] <p>
+     * @param array $constructorArgs [optional] <p>
      * Elements of this array are passed to the constructor.
      * </p>
      * @return mixed an instance of the required class with property names that
      * correspond to the column names or <b>FALSE</b> on failure.
      */
-    public function fetchObject($class = "stdClass", array $ctorArgs = []) {}
+    public function fetchObject($class = "stdClass", array $constructorArgs = []) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
