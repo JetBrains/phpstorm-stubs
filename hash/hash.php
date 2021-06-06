@@ -145,7 +145,7 @@ function hash_init(string $algo, int $flags = 0, string $key) {}
  * </p>
  * @return bool <b>TRUE</b>.
  */
-function hash_update(#[LanguageLevelTypeAware(["8.0" => "HashContext"], default: "resource")] $context, string $data): bool {}
+function hash_update(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, string $data): bool {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -163,7 +163,7 @@ function hash_update(#[LanguageLevelTypeAware(["8.0" => "HashContext"], default:
  * </p>
  * @return int Actual number of bytes added to the hashing context from <i>handle</i>.
  */
-function hash_update_stream(#[LanguageLevelTypeAware(["8.0" => "HashContext"], default: "resource")] $context, $stream, int $length = -1): int {}
+function hash_update_stream(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, $stream, int $length = -1): int {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -180,7 +180,7 @@ function hash_update_stream(#[LanguageLevelTypeAware(["8.0" => "HashContext"], d
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function hash_update_file(#[LanguageLevelTypeAware(["8.0" => "HashContext"], default: "resource")] $context, string $filename, $stream_context): bool {}
+function hash_update_file(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, string $filename, $stream_context): bool {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -197,7 +197,7 @@ function hash_update_file(#[LanguageLevelTypeAware(["8.0" => "HashContext"], def
  * unless <i>raw_output</i> is set to true in which case the raw
  * binary representation of the message digest is returned.
  */
-function hash_final(#[LanguageLevelTypeAware(["8.0" => "HashContext"], default: "resource")] $context, bool $binary = false): string {}
+function hash_final(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, bool $binary = false): string {}
 
 /**
  * Copy hashing context
