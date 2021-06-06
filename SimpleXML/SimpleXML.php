@@ -450,7 +450,7 @@ function simplexml_load_string(string $data, ?string $class_name = "SimpleXMLEle
 /**
  * Get a SimpleXMLElement object from a DOM node.
  * @link https://php.net/manual/en/function.simplexml-import-dom.php
- * @param DOMNode $node <p>
+ * @param SimpleXMLElement|DOMNode $node <p>
  * A DOM Element node
  * </p>
  * @param string|null $class_name [optional] <p>
@@ -461,6 +461,6 @@ function simplexml_load_string(string $data, ?string $class_name = "SimpleXMLEle
  * </p>
  * @return SimpleXMLElement|null a SimpleXMLElement or <b>FALSE</b> on failure.
  */
-function simplexml_import_dom(DOMNode $node, ?string $class_name = "SimpleXMLElement"): ?SimpleXMLElement {}
+function simplexml_import_dom(SimpleXMLElement|DOMNode $node, ?string $class_name = "SimpleXMLElement"): ?SimpleXMLElement {}
 
 // End of SimpleXML v.0.1

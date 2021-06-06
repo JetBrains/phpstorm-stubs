@@ -1020,12 +1020,12 @@ function openssl_get_cert_locations(): array {}
 function openssl_get_curve_names(): array|false {}
 
 /**
- * @param string $input_filename
+ * @param string $data
  * @param array &$certificates
  * @return bool
  * @since 7.2
  */
-function openssl_pkcs7_read(string $input_filename, &$certificates): bool {}
+function openssl_pkcs7_read(string $data, &$certificates): bool {}
 
 /**
  * Verifies that the data block is intact, the signer is who they say they are, and returns the certs of the signers.

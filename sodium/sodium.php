@@ -316,12 +316,12 @@ function sodium_crypto_stream_keygen(): string {}
  * Add padding data
  * @link https://php.net/manual/en/function.sodium-pad.php
  * @param string $string
- * @param int $length
+ * @param int $block_size
  * @return string
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_pad(string $string, int $length): string {}
+function sodium_pad(string $string, int $block_size): string {}
 
 /**
  * Remove padding data
@@ -428,12 +428,12 @@ function sodium_crypto_box_publickey_from_secretkey(string $secret_key): string 
  * X25519 + Xsalsa20 + Poly1305 + BLAKE2b
  * @link https://www.php.net/manual/en/function.sodium-crypto-box-seal.php
  * @param string $message
- * @param string $key_pair
+ * @param string $public_key
  * @return string
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_box_seal(string $message, string $key_pair): string {}
+function sodium_crypto_box_seal(string $message, string $public_key): string {}
 
 /**
  * Anonymous public-key encryption (decrypt)
@@ -728,13 +728,13 @@ function sodium_crypto_sign_keypair_from_secretkey_and_publickey(
 /**
  * Verify a signed message and return the plaintext
  * @link https://www.php.net/manual/en/function.sodium-crypto-sign-open.php
- * @param string $ciphertext
+ * @param string $signed_message
  * @param string $public_key
  * @return string|false
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_sign_open(string $ciphertext, string $public_key): string|false {}
+function sodium_crypto_sign_open(string $signed_message, string $public_key): string|false {}
 
 /**
  * Get the public key from an Ed25519 keypair
