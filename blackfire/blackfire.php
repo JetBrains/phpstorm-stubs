@@ -117,9 +117,7 @@ final class BlackfireProbe
     /**
      * Disables Blackfire Monitoring instrumentation for a transaction.
      *
-     * @param string $transactionName Name of the transaction to ignotre (e.g. 'user_model:show')
-     *
      * @return void
      */
-    public function ignoreTransaction(string $transactionName) {}
+    public function ignoreTransaction() {}
 }
