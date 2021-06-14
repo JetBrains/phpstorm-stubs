@@ -1463,7 +1463,7 @@ function imagedashedline(GdImage $image, int $x1, int $y1, int $x2, int $y2, int
  * @param float $angle <p>
  * Angle in degrees in which text will be measured.
  * </p>
- * @param string $fontfile <p>
+ * @param string $font_filename <p>
  * The name of the TrueType font file (can be a URL). Depending on
  * which version of the GD library that PHP is using, it may attempt to
  * search for files that do not begin with a leading '/' by appending
@@ -1518,7 +1518,7 @@ function imagedashedline(GdImage $image, int $x1, int $y1, int $x2, int $y2, int
  * corner seeing the text horizontally.
  */
 #[Pure]
-function imagettfbbox($size, $angle, $fontfile, $text) {}
+function imagettfbbox($size, $angle, $font_filename, $text) {}
 
 /**
  * Write text to the image using TrueType fonts
@@ -1550,12 +1550,12 @@ function imagettfbbox($size, $angle, $fontfile, $text) {}
  * The color index. Using the negative of a color index has the effect of
  * turning off antialiasing. See imagecolorallocate.
  * </p>
- * @param string $fontfile <p>
+ * @param string $font_filename <p>
  * The path to the TrueType font you wish to use.
  * </p>
  * <p>
  * Depending on which version of the GD library PHP is using, when
- * fontfile does not begin with a leading
+ * font_filename does not begin with a leading
  * / then .ttf will be appended
  * to the filename and the library will attempt to search for that
  * filename along a library-defined font path.
@@ -1582,7 +1582,7 @@ function imagettfbbox($size, $angle, $fontfile, $text) {}
  * </pre>
  * <p>
  * <strong>Note:</strong>
- * <code>open_basedir</code> does <em>not</em> apply to fontfile.
+ * <code>open_basedir</code> does <em>not</em> apply to font_filename.
  * </p>
  * @param string $text <p>
  * The text string in UTF-8 encoding.
@@ -1610,7 +1610,7 @@ function imagettfbbox($size, $angle, $fontfile, $text) {}
  * corner when you see the text horizontally.
  * Returns false on error.
  */
-function imagettftext($image, $size, $angle, $x, $y, $color, $fontfile, $text) {}
+function imagettftext($image, $size, $angle, $x, $y, $color, $font_filename, $text) {}
 
 /**
  * Give the bounding box of a text using fonts via freetype2
@@ -1623,7 +1623,7 @@ function imagettftext($image, $size, $angle, $x, $y, $color, $fontfile, $text) {
  * Angle in degrees in which text will be
  * measured.
  * </p>
- * @param string $fontfile <p>
+ * @param string $font_filename <p>
  * The name of the TrueType font file (can be a URL). Depending on
  * which version of the GD library that PHP is using, it may attempt to
  * search for files that do not begin with a leading '/' by appending
@@ -1690,7 +1690,7 @@ function imagettftext($image, $size, $angle, $x, $y, $color, $fontfile, $text) {
  * Returns false on error.
  */
 #[Pure]
-function imageftbbox($size, $angle, $fontfile, $text, $extrainfo = null) {}
+function imageftbbox($size, $angle, $font_filename, $text, $extrainfo = null) {}
 
 /**
  * Write text to the image using fonts using FreeType 2
@@ -1721,12 +1721,12 @@ function imageftbbox($size, $angle, $fontfile, $text, $extrainfo = null) {}
  * The index of the desired color for the text, see
  * imagecolorexact.
  * </p>
- * @param string $fontfile <p>
+ * @param string $font_filename <p>
  * The path to the TrueType font you wish to use.
  * </p>
  * <p>
  * Depending on which version of the GD library PHP is using, when
- * fontfile does not begin with a leading
+ * font_filename does not begin with a leading
  * / then .ttf will be appended
  * to the filename and the library will attempt to search for that
  * filename along a library-defined font path.
@@ -1753,7 +1753,7 @@ function imageftbbox($size, $angle, $fontfile, $text, $extrainfo = null) {}
  * </pre>
  * <p>
  * <strong>Note:</strong>
- * <code>open_basedir</code> does <em>not</em> apply to fontfile.
+ * <code>open_basedir</code> does <em>not</em> apply to font_filename.
  * </p>
  * @param string $text <p>
  * Text to be inserted into image.
@@ -1808,7 +1808,7 @@ function imageftbbox($size, $angle, $fontfile, $text, $extrainfo = null) {}
  * </tr>
  * Returns false on error.
  */
-function imagefttext($image, $size, $angle, $x, $y, $color, $fontfile, $text, $extrainfo = null) {}
+function imagefttext($image, $size, $angle, $x, $y, $color, $font_filename, $text, $extrainfo = null) {}
 
 /**
  * Load a PostScript Type 1 font from file
