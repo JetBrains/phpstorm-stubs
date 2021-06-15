@@ -3826,3 +3826,8 @@ define('CURLOPT_HTTP09_ALLOWED', 285);
  * @since 7.3.6
  */
 define('CURL_VERSION_ALTSVC', 16777216);
+
+/**
+ * @since 8.1
+ */
+define('CURLOPT_DOH_URL', 10279);

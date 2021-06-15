@@ -1717,8 +1717,8 @@ class IntlDateFormatter
 
     /**
      * @param string|null $locale
-     * @param int $dateType
-     * @param int $timeType
+     * @param int $dateType [optional]
+     * @param int $timeType [optional]
      * @param mixed|null $timezone [optional]
      * @param mixed|null $calendar [optional]
      * @param string $pattern [optional]
@@ -1733,14 +1733,14 @@ class IntlDateFormatter
      * @param string $locale <p>
      * Locale to use when formatting or parsing; default is specified in the ini setting intl.default_locale.
      * </p>
-     * @param int $dateType <p>
+     * @param int $dateType [optional] <p>
      * Date type to use (<b>none</b>,
      * <b>short</b>, <b>medium</b>,
      * <b>long</b>, <b>full</b>).
      * This is one of the
      * IntlDateFormatter constants.
      * </p>
-     * @param int $timeType <p>
+     * @param int $timeType [optional] <p>
      * Time type to use (<b>none</b>,
      * <b>short</b>, <b>medium</b>,
      * <b>long</b>, <b>full</b>).
@@ -2128,6 +2128,7 @@ class Transliterator
     public const FORWARD = 0;
     public const REVERSE = 1;
 
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $id;
 
     /**
@@ -4262,14 +4263,14 @@ function msgfmt_get_error_message(MessageFormatter $formatter): string {}
  * @param string|null $locale <p>
  * Locale to use when formatting or parsing.
  * </p>
- * @param int $dateType <p>
+ * @param int $dateType [optional] <p>
  * Date type to use (<b>none</b>,
  * <b>short</b>, <b>medium</b>,
  * <b>long</b>, <b>full</b>).
  * This is one of the
  * IntlDateFormatter constants.
  * </p>
- * @param int $timeType <p>
+ * @param int $timeType [optional] <p>
  * Time type to use (<b>none</b>,
  * <b>short</b>, <b>medium</b>,
  * <b>long</b>, <b>full</b>).

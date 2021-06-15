@@ -2749,6 +2749,7 @@ namespace MongoDB\BSON {
          * Classes that implement this interface may return data to be serialized as a BSON array or document in lieu of the object's public properties
          * @link https://php.net/manual/en/class.mongodb-bson-serializable.php
          */
+        #[Deprecated(since: '8.1')]
         interface Serializable extends Type
         {
             /**

@@ -8,6 +8,7 @@ use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
+use phpDocumentor\Reflection\Type;
 use PhpParser\Node;
 use PhpParser\Node\AttributeGroup;
 use PhpParser\Node\Expr\Array_;
@@ -74,7 +75,7 @@ abstract class BasePHPElement
         return $reflectionTypes;
     }
 
-    protected static function convertParsedTypeToArray(Name|Identifier|NullableType|string|UnionType|null $type): array
+    protected static function convertParsedTypeToArray(Name|Identifier|NullableType|string|UnionType|null|Type $type): array
     {
         $types = [];
         if ($type !== null) {
@@ -82,6 +83,8 @@ abstract class BasePHPElement
                 foreach ($type->types as $type) {
                     array_push($types, self::getTypeNameFromNode($type));
                 }
+            } elseif ($type instanceof Type) {
+                array_push($types, ...explode('|', (string)$type));
             } else {
                 array_push($types, self::getTypeNameFromNode($type));
             }

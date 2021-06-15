@@ -2,6 +2,8 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -77,7 +79,13 @@ use JetBrains\PhpStorm\Pure;
  * is returned and a warning raised (this can happen if the system call is
  * interrupted by an incoming signal).
  */
-function stream_select(?array &$read, ?array &$write, ?array &$except, ?int $seconds, int $microseconds): int|false {}
+function stream_select(
+    ?array &$read,
+    ?array &$write,
+    ?array &$except,
+    ?int $seconds,
+    #[LanguageLevelTypeAware(['8.1' => 'int|null'], default: 'int')] $microseconds
+): int|false {}
 
 /**
  * Create a stream context
@@ -638,7 +646,14 @@ function fgetcsv($stream, ?int $length = 0, string $separator = ',', string $enc
  * </p>
  * @return int|false the length of the written string or false on failure.
  */
-function fputcsv($stream, array $fields, string $separator = ",", string $enclosure = '"', string $escape = "\\"): int|false {}
+function fputcsv(
+    $stream,
+    array $fields,
+    string $separator = ",",
+    string $enclosure = '"',
+    string $escape = "\\",
+    #[PhpStormStubsElementAvailable('8.1')] string $eol = PHP_EOL
+): int|false {}
 
 /**
  * Portable advisory file locking

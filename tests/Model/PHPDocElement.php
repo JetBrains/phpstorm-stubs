@@ -9,6 +9,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\Link;
 use phpDocumentor\Reflection\DocBlock\Tags\Param;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
 use phpDocumentor\Reflection\DocBlock\Tags\Since;
+use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 use PhpParser\Node;
 use StubTests\Model\Tags\RemovedTag;
 use StubTests\Parsers\DocFactoryProvider;
@@ -48,6 +49,11 @@ trait PHPDocElement
     public array $paramTags = [];
 
     /**
+     * @var Var_[]
+     */
+    public array $varTags = [];
+
+    /**
      * @var string[]
      */
     public array $tagNames = [];
@@ -67,6 +73,7 @@ trait PHPDocElement
                     $this->tagNames[] = $tag->getName();
                 }
                 $this->paramTags = $phpDoc->getTagsByName('param');
+                $this->varTags = $phpDoc->getTagsByName('var');
                 $this->links = $phpDoc->getTagsByName('link');
                 $this->see = $phpDoc->getTagsByName('see');
                 $this->sinceTags = $phpDoc->getTagsByName('since');
