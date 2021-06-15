@@ -6,5 +6,10 @@
  */
 class ReflectionEnumBackedCase extends ReflectionEnumUnitCase
 {
-    public function getBackingValue(): int|string {}
+    public function __construct(object|string $class, string $constant) {}
+
+    /**
+     * @return int|string
+     */
+    public function getBackingValue() {}
 }

@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\Immutable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -16,6 +17,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @var string Name of the function, same as calling the {@see ReflectionFunctionAbstract::getName()} method
      */
     #[Immutable]
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
 
     /**
@@ -24,7 +26,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
      * @return void
      */
-    final private function __clone() {}
+    private function __clone() {}
 
     /**
      * Checks if function in namespace
@@ -271,4 +273,13 @@ abstract class ReflectionFunctionAbstract implements Reflector
      */
     #[Pure]
     public function getAttributes(?string $name = null, int $flags = 0) {}
+
+    #[PhpStormStubsElementAvailable('8.1')]
+    public function getClosureUsedVariables() {}
+
+    #[PhpStormStubsElementAvailable('8.1')]
+    public function hasTentativeReturnType() {}
+
+    #[PhpStormStubsElementAvailable('8.1')]
+    public function getTentativeReturnType() {}
 }

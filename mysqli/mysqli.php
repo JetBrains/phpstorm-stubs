@@ -6,6 +6,7 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
  * mysqli_sql_exception
@@ -17,6 +18,7 @@ class mysqli_sql_exception extends RuntimeException
      *
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     protected $sqlstate;
 
     /**
@@ -36,14 +38,17 @@ final class mysqli_driver
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $client_info;
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $client_version;
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $driver_version;
     /**
      * @var string
@@ -52,10 +57,12 @@ final class mysqli_driver
     /**
      * @var bool
      */
+    #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')]
     public $reconnect;
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $report_mode;
 }
 
@@ -68,76 +75,94 @@ class mysqli
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string|int'], default: '')]
     public $affected_rows;
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $client_info;
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $client_version;
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $connect_errno;
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
     public $connect_error;
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $errno;
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $error;
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $field_count;
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $host_info;
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
     public $info;
     /**
      * @var int|string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')]
     public $insert_id;
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $server_info;
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $server_version;
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $sqlstate;
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $protocol_version;
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $thread_id;
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $warning_count;
 
     /**
      * @var array A list of errors, each as an associative array containing the errno, error, and sqlstate.
      * @link https://secure.php.net/manual/en/mysqli.error-list.php
      */
+    #[LanguageLevelTypeAware(['8.1' => 'array'], default: '')]
     public $error_list;
 
     /**
@@ -776,14 +801,17 @@ final class mysqli_warning
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $message;
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $sqlstate;
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $errno;
 
     /**
@@ -810,22 +838,27 @@ class mysqli_result implements IteratorAggregate
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $current_field;
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $field_count;
     /**
      * @var array
      */
+    #[LanguageLevelTypeAware(['8.1' => '?array'], default: '')]
     public $lengths;
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')]
     public $num_rows;
     /**
      * @var mixed
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $type;
 
     /**
@@ -1130,6 +1163,9 @@ class mysqli_result implements IteratorAggregate
      */
     public function fetch_row() {}
 
+    #[PhpStormStubsElementAvailable('8.1')]
+    public function fetch_column(int $column = null) {}
+
     /**
      * Set result pointer to a specified field offset
      * @link https://php.net/manual/en/mysqli-result.field-seek.php
@@ -1164,42 +1200,52 @@ class mysqli_stmt
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')]
     public $affected_rows;
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')]
     public $insert_id;
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')]
     public $num_rows;
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $param_count;
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $field_count;
     /**
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $errno;
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $error;
     /**
      * @var array
      */
+    #[LanguageLevelTypeAware(['8.1' => 'array'], default: '')]
     public $error_list;
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $sqlstate;
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $id;
 
     /**
@@ -1344,7 +1390,7 @@ class mysqli_stmt
      * @link https://php.net/manual/en/mysqli-stmt.execute.php
      * @return bool true on success or false on failure.
      */
-    public function execute() {}
+    public function execute(#[PhpStormStubsElementAvailable('8.1')] $params = null) {}
 
     /**
      * Fetch results from a prepared statement into the bound variables
@@ -1633,7 +1679,7 @@ function mysqli_error(mysqli $mysql): string {}
  * @param mysqli_stmt $statement
  * @return bool
  */
-function mysqli_stmt_execute(mysqli_stmt $statement): bool {}
+function mysqli_stmt_execute(mysqli_stmt $statement, #[PhpStormStubsElementAvailable('8.1')] ?array $params = null): bool {}
 
 /**
  * Executes a prepared Query
@@ -1643,7 +1689,7 @@ function mysqli_stmt_execute(mysqli_stmt $statement): bool {}
  * @return bool
  */
 #[Deprecated(since: '5.3')]
-function mysqli_execute(mysqli_stmt $statement): bool {}
+function mysqli_execute(mysqli_stmt $statement, #[PhpStormStubsElementAvailable('8.1')] ?array $params = null): bool {}
 
 /**
  * Returns the next field in the result set
@@ -1743,6 +1789,17 @@ function mysqli_fetch_object(mysqli_result $result, string $class = 'stdClass', 
 function mysqli_fetch_row(mysqli_result $result): array|false|null {}
 
 /**
+ * Get a result column as an enumerated array
+ * @link https://php.net/manual/en/mysqli-result.fetch-column.php
+ * @param mysqli_result $result A result set identifier returned by mysqli_query(),
+ * mysqli_store_result() or mysqli_use_result().
+ * @return string|int|float|false|null returns an array of strings that corresponds to the fetched column
+ * or null if there are no more columns in result set.
+ */
+#[PhpStormStubsElementAvailable('8.1')]
+function mysqli_fetch_column(mysqli_result $result, int $column = null): string|int|float|false|null {}
+
+/**
  * Returns the number of columns for the most recent query
  * @link https://php.net/manual/en/mysqli.field-count.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
@@ -1819,7 +1876,8 @@ function mysqli_get_charset(mysqli $mysql): ?object {}
  * @param mysqli|null $mysql [optional] A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string|null A string that represents the MySQL client library version
  */
-function mysqli_get_client_info(?mysqli $mysql): ?string {}
+#[LanguageLevelTypeAware(['8.1' => 'string'], default: '?string')]
+function mysqli_get_client_info(?mysqli $mysql) {}
 
 /**
  * Returns the MySQL client version as an integer
@@ -3272,3 +3330,5 @@ define('MYSQLI_TRANS_COR_AND_CHAIN', 1);
 define('MYSQLI_TRANS_COR_AND_NO_CHAIN', 2);
 define('MYSQLI_TRANS_COR_RELEASE', 4);
 define('MYSQLI_TRANS_COR_NO_RELEASE', 8);
+define('MYSQLI_OPT_LOAD_DATA_LOCAL_DIR', 43);
+define('MYSQLI_REFRESH_REPLICA', 64);

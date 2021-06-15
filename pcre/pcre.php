@@ -613,7 +613,7 @@ define('PCRE_VERSION_MAJOR', 10);
 /**
  * @since 7.3
  */
-define('PCRE_VERSION_MINOR', 35);
+define('PCRE_VERSION_MINOR', 37);
 
 /**
  * @since 7.3

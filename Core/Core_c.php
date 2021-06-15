@@ -2,6 +2,7 @@
 
 // Start of Core v.5.3.6-13ubuntu3.2
 use JetBrains\PhpStorm\ExpectedValues;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -252,8 +253,10 @@ class Exception implements Throwable
     /** The error code */
     protected $code;
     /** The filename where the error happened  */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     protected $file;
     /** The line where the error happened */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     protected $line;
 
     /**
@@ -262,7 +265,7 @@ class Exception implements Throwable
      * @link https://php.net/manual/en/exception.clone.php
      * @return void
      */
-    final private function __clone() {}
+    private function __clone() {}
 
     /**
      * Construct the exception. Note: The message is NOT binary safe.
@@ -356,8 +359,10 @@ class Error implements Throwable
     /** The error code */
     protected $code;
     /** The filename where the error happened  */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     protected $file;
     /** The line where the error happened */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     protected $line;
 
     /**
@@ -448,7 +453,7 @@ class Error implements Throwable
      * @return void
      * @link https://php.net/manual/en/error.clone.php
      */
-    final private function __clone() {}
+    private function __clone() {}
 
     public function __wakeup() {}
 }
@@ -515,6 +520,7 @@ class UnhandledMatchError extends Error {}
  */
 class ErrorException extends Exception
 {
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     protected $severity;
 
     /**
@@ -792,82 +798,6 @@ final class Attribute
 }
 
 /**
- * A class for working with PHP tokens, which is an alternative to
- * the {@see token_get_all()} function.
- *
- * @since 8.0
- */
-class PhpToken implements Stringable
-{
-    /**
-     * One of the T_* constants, or an integer < 256 representing a
-     * single-char token.
-     */
-    public int $id;
-
-    /**
-     * The textual content of the token.
-     */
-    public string $text;
-
-    /**
-     * The starting line number (1-based) of the token.
-     */
-    public int $line;
-
-    /**
-     * The starting position (0-based) in the tokenized string.
-     */
-    public int $pos;
-
-    /**
-     * @param int $id An integer identifier
-     * @param string $text Textual content
-     * @param int $line Strating line
-     * @param int $pos Straring position (line offset)
-     */
-    final public function __construct(int $id, string $text, int $line = -1, int $pos = -1) {}
-
-    /**
-     * Get the name of the token.
-     *
-     * @return string|null
-     */
-    public function getTokenName() {}
-
-    /**
-     * Same as {@see token_get_all()}, but returning array of {@see PhpToken}
-     * or an instance of a child class.
-     *
-     * @param string $code An a PHP source code
-     * @param int $flags
-     * @return static[]
-     */
-    public static function tokenize(string $code, int $flags = 0) {}
-
-    /**
-     * Whether the token has the given ID, the given text, or has an ID/text
-     * part of the given array.
-     *
-     * @param int|string|array $kind
-     * @return bool
-     */
-    public function is($kind) {}
-
-    /**
-     * Whether this token would be ignored by the PHP parser.
-     *
-     * @return bool
-     */
-    public function isIgnorable() {}
-
-    /**
-     * {@inheritDoc}
-     */
-    public function __toString() {}
-}
-
-/**
  * @since 8.0
  */
 final class InternalIterator implements Iterator
@@ -894,7 +824,7 @@ interface UnitEnum
     /**
      * @return static[]
      */
-    public static function cases(): array;
+    public static function cases();
 }
 
 /**
@@ -904,9 +834,17 @@ interface BackedEnum extends UnitEnum
 {
     public string $value;
 
-    public static function from(int|string $scalar): static;
+    /**
+     * @param int|string $value
+     * @return static
+     */
+    public static function from(int|string $value);
 
-    public static function tryFrom(int|string $scalar): ?static;
+    /**
+     * @param int|string $value
+     * @return static|null
+     */
+    public static function tryFrom(int|string $value);
 }
 
 /**
@@ -919,9 +857,17 @@ interface IntBackedEnum extends BackedEnum
 {
     public int $value;
 
-    public static function from(int $scalar): static;
+    /**
+     * @param int $value
+     * @return static
+     */
+    public static function from(int $value);
 
-    public static function tryFrom(int $scalar): ?static;
+    /**
+     * @param int $value
+     * @return static|null
+     */
+    public static function tryFrom(int $value);
 }
 
 /**
@@ -934,7 +880,120 @@ interface StringBackedEnum extends BackedEnum
 {
     public string $value;
 
-    public static function from(string $scalar): static;
+    public static function from(string $value): static;
 
-    public static function tryFrom(string $scalar): ?static;
+    public static function tryFrom(string $value): ?static;
+}
+
+/**
+ * @since 8.1
+ */
+final class Fiber
+{
+    /**
+     * @param callable $callback Function to invoke when starting the fiber.
+     */
+    public function __construct(callable $callback) {}
+
+    /**
+     * Starts execution of the fiber. Returns when the fiber suspends or terminates.
+     *
+     * @param mixed ...$args Arguments passed to fiber function.
+     *
+     * @return mixed Value from the first suspension point or NULL if the fiber returns.
+     *
+     * @throw FiberError If the fiber has already been started.
+     * @throw Throwable If the fiber callable throws an uncaught exception.
+     */
+    public function start(mixed ...$args) {}
+
+    /**
+     * Resumes the fiber, returning the given value from {@see Fiber::suspend()}.
+     * Returns when the fiber suspends or terminates.
+     *
+     * @param mixed $value
+     *
+     * @return mixed Value from the next suspension point or NULL if the fiber returns.
+     *
+     * @throw FiberError If the fiber has not started, is running, or has terminated.
+     * @throw Throwable If the fiber callable throws an uncaught exception.
+     */
+    public function resume(mixed $value = null) {}
+
+    /**
+     * Throws the given exception into the fiber from {@see Fiber::suspend()}.
+     * Returns when the fiber suspends or terminates.
+     *
+     * @param Throwable $exception
+     *
+     * @return mixed Value from the next suspension point or NULL if the fiber returns.
+     *
+     * @throw FiberError If the fiber has not started, is running, or has terminated.
+     * @throw Throwable If the fiber callable throws an uncaught exception.
+     */
+    public function throw(Throwable $exception) {}
+
+    /**
+     * @return bool True if the fiber has been started.
+     */
+    public function isStarted() {}
+
+    /**
+     * @return bool True if the fiber is suspended.
+     */
+    public function isSuspended() {}
+
+    /**
+     * @return bool True if the fiber is currently running.
+     */
+    public function isRunning() {}
+
+    /**
+     * @return bool True if the fiber has completed execution (returned or threw).
+     */
+    public function isTerminated() {}
+
+    /**
+     * @return mixed Return value of the fiber callback. NULL is returned if the fiber does not have a return statement.
+     *
+     * @throws FiberError If the fiber has not terminated or the fiber threw an exception.
+     */
+    public function getReturn() {}
+
+    public static function getCurrent() {}
+
+    /**
+     * @return self|null Returns the currently executing fiber instance or NULL if in {main}.
+     */
+    public static function this() {}
+
+    /**
+     * Suspend execution of the fiber. The fiber may be resumed with {@see Fiber::resume()} or {@see Fiber::throw()}.
+     *
+     * Cannot be called from {main}.
+     *
+     * @param mixed $value Value to return from {@see Fiber::resume()} or {@see Fiber::throw()}.
+     *
+     * @return mixed Value provided to {@see Fiber::resume()}.
+     *
+     * @throws FiberError Thrown if not within a fiber (i.e., if called from {main}).
+     * @throws Throwable Exception provided to {@see Fiber::throw()}.
+     */
+    public static function suspend(mixed $value = null) {}
+}
+
+/**
+ * @since 8.1
+ */
+final class FiberError extends Error
+{
+    public function __construct() {}
+}
+
+/**
+ * @since 8.1
+ */
+final class ReturnTypeWillChange
+{
+    public function __construct() {}
 }

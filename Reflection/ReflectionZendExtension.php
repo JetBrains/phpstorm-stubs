@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -13,6 +14,7 @@ class ReflectionZendExtension implements Reflector
      * @var string Name of the extension, same as calling the {@see ReflectionZendExtension::getName()} method
      */
     #[Immutable]
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
 
     /**
@@ -104,5 +106,5 @@ class ReflectionZendExtension implements Reflector
      * @return void
      * @since 5.4
      */
-    final private function __clone() {}
+    private function __clone() {}
 }

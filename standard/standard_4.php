@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -449,7 +450,7 @@ function ini_get_all(?string $extension, bool $details = true): array|false {}
  * </p>
  * @return string|false the old value on success, false on failure.
  */
-function ini_set(string $option, string $value): string|false {}
+function ini_set(string $option, #[LanguageLevelTypeAware(['8.1' => 'string|int|float|bool|null'], default: 'string')] $value): string|false {}
 
 /**
  * Alias:
@@ -460,7 +461,7 @@ function ini_set(string $option, string $value): string|false {}
  * @param string $value
  * @return string|false
  */
-function ini_alter(string $option, string $value): string|false {}
+function ini_alter(string $option, #[LanguageLevelTypeAware(['8.1' => 'string|int|float|bool|null'], default: 'string')] $value): string|false {}
 
 /**
  * Restores the value of a configuration option

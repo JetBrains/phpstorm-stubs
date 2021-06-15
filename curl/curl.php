@@ -6,8 +6,11 @@ use JetBrains\PhpStorm\Pure;
 
 class CURLFile
 {
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $mime;
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $postname;
 
     /**

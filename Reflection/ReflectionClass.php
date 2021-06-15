@@ -2,6 +2,8 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -15,6 +17,7 @@ class ReflectionClass implements Reflector
      * @var string Name of the class, same as calling the {@see ReflectionClass::getName()} method
      */
     #[Immutable]
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
 
     /**
@@ -599,5 +602,8 @@ class ReflectionClass implements Reflector
      * @link https://php.net/manual/en/reflectionclass.clone.php
      * @return void
      */
-    final private function __clone() {}
+    private function __clone() {}
+
+    #[PhpStormStubsElementAvailable('8.1')]
+    public function isEnum() {}
 }

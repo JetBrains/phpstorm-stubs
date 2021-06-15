@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -160,7 +161,14 @@ function imageellipse(GdImage $image, int $center_x, int $center_y, int $width, 
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imagechar(GdImage $image, int $font, int $x, int $y, string $char, int $color): bool {}
+function imagechar(
+    GdImage $image,
+    #[LanguageLevelTypeAware(['8.1' => 'GdFont|int'], default: 'int')] $font,
+    int $x,
+    int $y,
+    string $char,
+    int $color
+): bool {}
 
 /**
  * Draw a character vertically
@@ -182,7 +190,14 @@ function imagechar(GdImage $image, int $font, int $x, int $y, string $char, int 
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imagecharup(GdImage $image, int $font, int $x, int $y, string $char, int $color): bool {}
+function imagecharup(
+    GdImage $image,
+    #[LanguageLevelTypeAware(['8.1' => 'GdFont|int'], default: 'int')] $font,
+    int $x,
+    int $y,
+    string $char,
+    int $color
+): bool {}
 
 /**
  * Get the index of the color of a pixel
@@ -1184,7 +1199,7 @@ function imagefilltoborder(GdImage $image, int $x, int $y, int $border_color, in
  * @return int the width of the pixel
  */
 #[Pure]
-function imagefontwidth(int $font): int {}
+function imagefontwidth(#[LanguageLevelTypeAware(['8.1' => 'GdFont|int'], default: 'int')] $font): int {}
 
 /**
  * Get font height
@@ -1193,7 +1208,7 @@ function imagefontwidth(int $font): int {}
  * @return int the height of the pixel.
  */
 #[Pure]
-function imagefontheight(int $font): int {}
+function imagefontheight(#[LanguageLevelTypeAware(['8.1' => 'GdFont|int'], default: 'int')] $font): int {}
 
 /**
  * Enable or disable interlace
@@ -1283,7 +1298,8 @@ function imageline(GdImage $image, int $x1, int $y1, int $x2, int $y2, int $colo
  * @return int|false The font identifier which is always bigger than 5 to avoid conflicts with
  * built-in fonts or false on errors.
  */
-function imageloadfont(string $filename): int|false {}
+#[LanguageLevelTypeAware(['8.1' => 'GdFont|false'], default: 'int|false')]
+function imageloadfont(string $filename) {}
 
 /**
  * Draws a polygon
@@ -1382,7 +1398,14 @@ function imagesetpixel(GdImage $image, int $x, int $y, int $color): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagestring(GdImage $image, int $font, int $x, int $y, string $string, int $color): bool {}
+function imagestring(
+    GdImage $image,
+    #[LanguageLevelTypeAware(['8.1' => 'GdFont|int'], default: 'int')] $font,
+    int $x,
+    int $y,
+    string $string,
+    int $color
+): bool {}
 
 /**
  * Draw a string vertically
@@ -1404,7 +1427,14 @@ function imagestring(GdImage $image, int $font, int $x, int $y, string $string, 
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagestringup(GdImage $image, int $font, int $x, int $y, string $string, int $color): bool {}
+function imagestringup(
+    GdImage $image,
+    #[LanguageLevelTypeAware(['8.1' => 'GdFont|int'], default: 'int')] $font,
+    int $x,
+    int $y,
+    string $string,
+    int $color
+): bool {}
 
 /**
  * Get image width
@@ -2836,6 +2866,10 @@ define('IMG_TRIANGLE', 20);
 
 define('IMG_TGA', 128);
 
+/**
+ * @since 8.1
+ */
+define('IMG_AVIF', 256);
 /**
  * Return an image containing the affine tramsformed src image, using an optional clipping area
  * @link https://secure.php.net/manual/en/function.imageaffine.php

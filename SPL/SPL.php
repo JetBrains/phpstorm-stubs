@@ -1,6 +1,7 @@
 <?php
 
 // Start of SPL v.0.2
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * Exception that represents error in the program logic. This kind of
@@ -1074,6 +1075,7 @@ class RegexIterator extends FilterIterator
 
     public const INVERT_MATCH = 2;
 
+    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
     public $replacement;
 
     /**

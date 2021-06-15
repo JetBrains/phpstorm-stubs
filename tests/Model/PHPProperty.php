@@ -9,7 +9,14 @@ use stdClass;
 
 class PHPProperty extends BasePHPElement
 {
-    public string $type = '';
+    use PHPDocElement;
+
+    /** @var string[] */
+    public array $typesFromSignature = [];
+    /** @var string[] */
+    public array $typesFromAttribute = [];
+    /** @var string[] */
+    public array $typesFromPhpDoc = [];
     public string $access = '';
     public bool $is_static = false;
 
@@ -31,13 +38,7 @@ class PHPProperty extends BasePHPElement
         }
         $this->access = $access;
         $this->is_static = $reflectionObject->isStatic();
-        $this->type = '';
-        if ($reflectionObject->hasType()) {
-            $reflectionNamedType = $reflectionObject->getType();
-            if (isset($reflectionNamedType)){
-                $this->type = $reflectionNamedType->getName();
-            }
-        }
+        $this->typesFromSignature = self::getReflectionTypeAsArray($reflectionObject->getType());;
         return $this;
     }
 
@@ -48,6 +49,7 @@ class PHPProperty extends BasePHPElement
     public function readObjectFromStubNode($node): static
     {
         $this->name = $node->props[0]->name->name;
+        $this->collectTags($node);
         $this->is_static = $node->isStatic();
         if ($node->isProtected()) {
             $access = 'protected';
@@ -58,7 +60,11 @@ class PHPProperty extends BasePHPElement
         }
         $this->access = $access;
 
-        $this->type = $node->type->name ?? '';
+        $this->typesFromSignature = self::convertParsedTypeToArray($node->type);
+        $this->typesFromAttribute = self::findTypesFromAttribute($node->attrGroups);
+        foreach ($this->varTags as $varTag) {
+            $this->typesFromPhpDoc = explode('|', (string)$varTag->getType());
+        }
 
         $parentNode = $node->getAttribute('parent');
         if ($parentNode !== null){
