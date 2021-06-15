@@ -34,13 +34,13 @@ class StubsTypeHintsTest extends BaseStubsTest
         );
         /** @var PHPFunction $stubFunction */
         $stubFunction = array_pop($allEqualStubFunctions);
-        $conditionToCompareWithSignature = self::ifReflectionTypesExistInSignature($function->returnTypesFromSignature, $stubFunction->returnTypesFromSignature);
-        $conditionToCompareWithAttribute = self::ifReflectionTypesExistInAttributes($function->returnTypesFromSignature, $stubFunction->returnTypesFromAttribute);
+        $conditionToCompareWithSignature = BaseStubsTest::ifReflectionTypesExistInSignature($function->returnTypesFromSignature, $stubFunction->returnTypesFromSignature);
+        $conditionToCompareWithAttribute = BaseStubsTest::ifReflectionTypesExistInAttributes($function->returnTypesFromSignature, $stubFunction->returnTypesFromAttribute);
         $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
         self::assertTrue($testCondition, "Function $functionName has invalid return type.
         Reflection function has return type " . implode('|', $function->returnTypesFromSignature) . ' but stubs has return type ' .
             implode('|', $stubFunction->returnTypesFromSignature) . ' in signature and attribute has types ' .
-            self::getStringRepresentationOfTypeHintsFromAttributes($stubFunction->returnTypesFromAttribute));
+            BaseStubsTest::getStringRepresentationOfTypeHintsFromAttributes($stubFunction->returnTypesFromAttribute));
     }
 
     /**
@@ -343,13 +343,13 @@ class StubsTypeHintsTest extends BaseStubsTest
                 self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesParameterTypes[$languageVersion]);
             }
         }
-        $conditionToCompareWithSignature = self::ifReflectionTypesExistInSignature($unifiedReflectionParameterTypes, $unifiedStubsParameterTypes);
-        $conditionToCompareWithAttribute = self::ifReflectionTypesExistInAttributes($unifiedReflectionParameterTypes, $unifiedStubsAttributesParameterTypes);
+        $conditionToCompareWithSignature = BaseStubsTest::ifReflectionTypesExistInSignature($unifiedReflectionParameterTypes, $unifiedStubsParameterTypes);
+        $conditionToCompareWithAttribute = BaseStubsTest::ifReflectionTypesExistInAttributes($unifiedReflectionParameterTypes, $unifiedStubsAttributesParameterTypes);
         $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
         self::assertTrue($testCondition, "Type mismatch $functionName: \$$parameter->name \n
         Reflection parameter has type '" . implode('|', $unifiedReflectionParameterTypes) .
             "' but stub parameter has type '" . implode('|', $unifiedStubsParameterTypes) . "' in signature and " .
-            self::getStringRepresentationOfTypeHintsFromAttributes($unifiedStubsAttributesParameterTypes) . ' in attribute');
+            BaseStubsTest::getStringRepresentationOfTypeHintsFromAttributes($unifiedStubsAttributesParameterTypes) . ' in attribute');
     }
 
     private static function convertNullableTypesToUnion($typesToProcess, array &$resultArray)
@@ -361,27 +361,5 @@ class StubsTypeHintsTest extends BaseStubsTest
                 array_push($resultArray, $type);
             }
         });
-    }
-
-    private static function getStringRepresentationOfTypeHintsFromAttributes(array $typesFromAttribute): string
-    {
-        $resultString = '';
-        foreach ($typesFromAttribute as $types) {
-            $resultString .= '[' . implode('|', $types) . ']';
-        }
-        return $resultString;
-    }
-
-    private static function ifReflectionTypesExistInAttributes(array $reflectionTypes, array $typesFromAttribute): bool
-    {
-        return !empty(array_filter(
-            $typesFromAttribute,
-            fn (array $types) => count(array_intersect($reflectionTypes, $types)) == count($reflectionTypes)
-        ));
-    }
-
-    private static function ifReflectionTypesExistInSignature(array $reflectionTypes, array $typesFromSignature): bool
-    {
-        return count(array_intersect($reflectionTypes, $typesFromSignature)) === count($reflectionTypes);
     }
 }

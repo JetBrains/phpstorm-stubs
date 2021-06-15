@@ -1,4 +1,4 @@
-FROM php:8.0.7-alpine
+FROM php:8.1.0alpha2-alpine
 RUN echo 'memory_limit = 512M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
@@ -13,8 +13,8 @@ RUN set -eux; \
 RUN docker-php-ext-install imap gmp sockets intl gd ldap bz2 mysqli bcmath calendar dba exif gettext opcache pcntl \
     pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap
 
-RUN pecl install xdebug
-RUN docker-php-ext-enable xdebug
+#RUN pecl install xdebug
+#RUN docker-php-ext-enable xdebug
 #TODO: Uncomment below after php 8 released
 #RUN pecl install xmlrpc
 #RUN docker-php-ext-enable xmlrpc
@@ -45,8 +45,8 @@ RUN pecl install zip
 RUN docker-php-ext-enable zip
 RUN pecl install mongodb
 RUN docker-php-ext-enable mongodb
-RUN pecl install rdkafka
-RUN docker-php-ext-enable rdkafka
+#RUN pecl install rdkafka
+#RUN docker-php-ext-enable rdkafka
 RUN pecl install yaf
 RUN docker-php-ext-enable yaf
 RUN pecl install yar

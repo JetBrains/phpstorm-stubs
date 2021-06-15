@@ -17,6 +17,7 @@ class ReflectionParameter implements Reflector
      * @var string Name of the parameter, same as calling the {@see ReflectionParameter::getName()} method
      */
     #[Immutable]
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
 
     /**
@@ -264,5 +265,5 @@ class ReflectionParameter implements Reflector
      * @link https://php.net/manual/en/reflectionparameter.clone.php
      * @return void
      */
-    final private function __clone() {}
+    private function __clone() {}
 }

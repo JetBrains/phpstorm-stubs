@@ -3,6 +3,7 @@
 // Start of PDO v.1.0.4dev
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
@@ -14,6 +15,7 @@ use JetBrains\PhpStorm\Pure;
  */
 class PDOException extends RuntimeException
 {
+    #[LanguageLevelTypeAware(['8.1' => '?array'], default: '')]
     public $errorInfo;
 }
 
@@ -27,7 +29,7 @@ class PDO
      * Represents a boolean data type.
      * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-bool
      */
-    public const PARAM_BOOL = 5;
+    public const PARAM_BOOL = 1;
 
     /**
      * Represents the SQL NULL data type.
@@ -39,13 +41,13 @@ class PDO
      * Represents the SQL INTEGER data type.
      * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-int
      */
-    public const PARAM_INT = 1;
+    public const PARAM_INT = 2;
 
     /**
      * Represents the SQL CHAR, VARCHAR, or other string data type.
      * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-str
      */
-    public const PARAM_STR = 2;
+    public const PARAM_STR = 3;
 
     /**
      * Flag to denote a string uses the national character set.
@@ -99,13 +101,13 @@ class PDO
      * Represents the SQL large object data type.
      * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-lob
      */
-    public const PARAM_LOB = 3;
+    public const PARAM_LOB = 4;
 
     /**
      * Represents a recordset type. Not currently supported by any drivers.
      * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-stmt
      */
-    public const PARAM_STMT = 4;
+    public const PARAM_STMT = 5;
 
     /**
      * Specifies that the parameter is an INOUT parameter for a stored
@@ -753,6 +755,11 @@ class PDO
      */
     public const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1014;
 
+    /**
+     * @since 8.1
+     */
+    public const MYSQL_ATTR_LOCAL_INFILE_DIRECTORY = 1015;
+
     #[Deprecated("Use PDO::ATTR_EMULATE_PREPARES instead")]
     public const PGSQL_ASSOC = 1;
     public const PGSQL_ATTR_DISABLE_NATIVE_PREPARED_STATEMENT = 1000;
@@ -1259,6 +1266,7 @@ class PDOStatement implements IteratorAggregate
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $queryString;
 
     /**
@@ -1371,7 +1379,7 @@ class PDOStatement implements IteratorAggregate
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function bindColumn($column, &$var, $type = 2, $maxLength = null, $driverOptions = null) {}
+    public function bindColumn($column, &$var, $type = PDO::PARAM_STR, $maxLength = null, $driverOptions = null) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 1.0.0)<br/>
@@ -1682,7 +1690,11 @@ class PDOStatement implements IteratorAggregate
     public function getIterator() {}
 }
 
-final class PDORow {}
+final class PDORow
+{
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
+    public $queryString;
+}
 
 /**
  * (PHP 5 &gt;= 5.1.3, PHP 7, PECL pdo &gt;= 1.0.3)<br/>

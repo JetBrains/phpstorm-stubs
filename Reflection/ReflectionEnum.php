@@ -6,19 +6,32 @@
  */
 class ReflectionEnum extends ReflectionClass
 {
-    public function hasCase(string $name): bool {}
+    public function __construct(object|string $objectOrClass) {}
+
+    /**
+     * @param string $name
+     * @return bool
+     */
+    public function hasCase(string $name) {}
 
     /**
      * @return ReflectionEnumPureCase[]|ReflectionEnumBackedCase[]
      */
-    public function getCases(): array {}
+    public function getCases() {}
 
     /**
      * @throws ReflectionException If no found single reflection object for the corresponding case
+     * @return ReflectionEnumPureCase|ReflectionEnumBackedCase
      */
-    public function getCase(string $name): ReflectionEnumPureCase|ReflectionEnumBackedCase {}
+    public function getCase(string $name) {}
 
-    public function isBacked(): bool {}
+    /**
+     * @return bool
+     */
+    public function isBacked() {}
 
-    public function getBackingType(): ?ReflectionType {}
+    /**
+     * @return ReflectionType|null
+     */
+    public function getBackingType() {}
 }

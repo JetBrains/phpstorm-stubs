@@ -2,6 +2,7 @@
 
 // Start of hash v.1.0
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -23,7 +24,7 @@ use JetBrains\PhpStorm\Pure;
  * binary representation of the message digest is returned.
  */
 #[Pure]
-function hash(string $algo, string $data, bool $binary = false): string|false {}
+function hash(string $algo, string $data, bool $binary = false, #[PhpStormStubsElementAvailable('8.1')] array $options = null): string|false {}
 
 /**
  * Timing attack safe string comparison
@@ -55,7 +56,7 @@ function hash_equals(string $known_string, string $user_string): bool {}
  * binary representation of the message digest is returned.
  */
 #[Pure]
-function hash_file(string $algo, string $filename, bool $binary = false): string|false {}
+function hash_file(string $algo, string $filename, bool $binary = false, #[PhpStormStubsElementAvailable('8.1')] array $options = null): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -131,7 +132,7 @@ function hash_hmac_file(string $algo, string $data, string $key, bool $binary = 
  */
 #[Pure]
 #[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")]
-function hash_init(string $algo, int $flags = 0, string $key) {}
+function hash_init(string $algo, int $flags = 0, string $key, #[PhpStormStubsElementAvailable('8.1')] array $options = null) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -406,6 +407,34 @@ define('MHASH_FNV1A32', 30);
 define('MHASH_FNV164', 31);
 define('MHASH_FNV1A64', 32);
 define('MHASH_JOAAT', 33);
+/**
+ * @since 8.1
+ */
+define('MHASH_MURMUR3A', 35);
+/**
+ * @since 8.1
+ */
+define('MHASH_MURMUR3C', 36);
+/**
+ * @since 8.1
+ */
+define('MHASH_MURMUR3F', 37);
+/**
+ * @since 8.1
+ */
+define('MHASH_XXH32', 38);
+/**
+ * @since 8.1
+ */
+define('MHASH_XXH64', 39);
+/**
+ * @since 8.1
+ */
+define('MHASH_XXH3', 40);
+/**
+ * @since 8.1
+ */
+define('MHASH_XXH128', 41);
 
 class HashContext
 {
