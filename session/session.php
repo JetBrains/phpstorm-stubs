@@ -174,7 +174,7 @@ function session_start(array $options = []): bool {}
  * If it is used without active session, it omits collision check.
  * @since 7.1
  */
-function session_create_id(string $prefix = ""): string|false {}
+function session_create_id(string $prefix = ''): string|false {}
 
 /**
  * Perform session data garbage collection
