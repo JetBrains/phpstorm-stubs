@@ -257,7 +257,7 @@ function session_set_save_handler(callable $open, callable $close, callable $rea
  * @param bool $register_shutdown [optional] Register session_write_close() as a register_shutdown_function() function.
  * @return bool true on success or false on failure.
  */
-function session_set_save_handler(SessionHandlerInterface $session_handler, $register_shutdown = true): bool {}
+function session_set_save_handler(SessionHandlerInterface $sessionhandler, $register_shutdown = true): bool {}
 
 /**
  * Get and/or set the current cache limiter
