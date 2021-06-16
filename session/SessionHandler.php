@@ -16,8 +16,6 @@ interface SessionHandlerInterface
      * @return bool <p>
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
-     * </p>
-     * @since 5.4
      */
     public function close(): bool;
 
@@ -28,8 +26,6 @@ interface SessionHandlerInterface
      * @return bool <p>
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
-     * </p>
-     * @since 5.4
      */
     public function destroy(string $id): bool;
 
@@ -43,8 +39,6 @@ interface SessionHandlerInterface
      * @return int|bool <p>
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
-     * </p>
-     * @since 5.4
      */
     public function gc(int $max_lifetime): int|bool;
 
@@ -56,8 +50,6 @@ interface SessionHandlerInterface
      * @return bool <p>
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
-     * </p>
-     * @since 5.4
      */
     public function open(string $path, string $name): bool;
 
@@ -69,8 +61,6 @@ interface SessionHandlerInterface
      * Returns an encoded string of the read data.
      * If nothing was read, it must return an empty string.
      * Note this value is returned internally to PHP for processing.
-     * </p>
-     * @since 5.4
      */
     public function read(string $id): string|false;
 
@@ -88,8 +78,6 @@ interface SessionHandlerInterface
      * @return bool <p>
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
-     * </p>
-     * @since 5.4
      */
     public function write(string $id, string $data): bool;
 }
@@ -165,8 +153,6 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * @return bool <p>
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
-     * </p>
-     * @since 5.4
      */
     public function close(): bool {}
 
@@ -185,8 +171,6 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * @return bool <p>
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
-     * </p>
-     * @since 5.4
      */
     public function destroy(string $id): bool {}
 
@@ -200,8 +184,6 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * @return int|bool <p>
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
-     * </p>
-     * @since 5.4
      */
     public function gc(int $max_lifetime): int|bool {}
 
@@ -213,8 +195,6 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * @return bool <p>
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
-     * </p>
-     * @since 5.4
      */
     public function open(string $path, string $name): bool {}
 
@@ -226,8 +206,6 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * Returns an encoded string of the read data.
      * If nothing was read, it must return an empty string.
      * Note this value is returned internally to PHP for processing.
-     * </p>
-     * @since 5.4
      */
     public function read(string $id): string|false {}
 
@@ -245,8 +223,6 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * @return bool <p>
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
-     * </p>
-     * @since 5.4
      */
     public function write(string $id, string $data): bool {}
 }
