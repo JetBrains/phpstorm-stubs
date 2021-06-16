@@ -242,8 +242,8 @@ function session_unset() {}
  * <p>This callback is executed when a new session ID is required.
  * No parameters are provided, and the return value should be a string that is a valid
  * session ID for your handler.</p>
- * @param ?callable $validate_sid [optional]
- * @param ?callable $update_timestamp [optional]
+ * @param callable|null $validate_sid [optional]
+ * @param callable|null $update_timestamp [optional]
  * @return bool true on success or false on failure.
  */
 function session_set_save_handler(callable $open, callable $close, callable $read, callable $write, callable $destroy, callable $gc, ?callable $create_sid = null, ?callable $validate_sid = null, ?callable $update_timestamp = null): bool {}
