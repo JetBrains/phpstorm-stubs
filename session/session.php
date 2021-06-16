@@ -431,7 +431,6 @@ function session_commit() {}
  * @return int <b>PHP_SESSION_DISABLED</b> if sessions are disabled.
  * <b>PHP_SESSION_NONE</b> if sessions are enabled, but none exists.
  * <b>PHP_SESSION_ACTIVE</b> if sessions are enabled, and one exists.
- * @since 5.4
  */
 function session_status(): int {}
 
