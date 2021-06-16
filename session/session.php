@@ -238,7 +238,7 @@ function session_unset() {}
  * The garbage collector, this is executed when the session garbage collector
  * is executed and takes the max session lifetime as its only parameter.
  * </p>
- * @param ?callable $create_sid [optional]
+ * @param callable|null $create_sid [optional]
  * <p>This callback is executed when a new session ID is required.
  * No parameters are provided, and the return value should be a string that is a valid
  * session ID for your handler.</p>
