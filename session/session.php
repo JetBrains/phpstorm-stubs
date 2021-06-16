@@ -252,7 +252,7 @@ function session_set_save_handler(callable $open, callable $close, callable $rea
  * (PHP 5.4)<br/>
  * Sets user-level session storage functions
  * @link https://php.net/manual/en/function.session-set-save-handler.php
- * @param SessionHandlerInterface $session_handler An instance of a class implementing SessionHandlerInterface, such as SessionHandler,
+ * @param SessionHandlerInterface $sessionhandler An instance of a class implementing SessionHandlerInterface, such as SessionHandler,
  * to register as the session handler. Since PHP 5.4 only.
  * @param bool $register_shutdown [optional] Register session_write_close() as a register_shutdown_function() function.
  * @return bool true on success or false on failure.
