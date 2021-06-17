@@ -1763,7 +1763,7 @@ namespace Ds;
          *
          * @link https://php.net/manual/en/ds-set.construct.php
          */
-        public function __construct(...$values) {}
+        public function __construct(iterable $values = []) {}
 
         /**
          * Adds all given values to the set that haven't already been added.
