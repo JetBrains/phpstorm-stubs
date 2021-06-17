@@ -266,7 +266,7 @@ namespace Ds;
 
         /**
          * Returns the result of adding all given values to the sequence.
-         * @param array|Traversable $values A traversable object or an array.
+         * @param iterable $values A traversable object or an array.
          * @return Sequence The result of adding all given values to the
          * sequence, effectively the same as adding the values to a copy,
          * then returning that copy.
@@ -455,9 +455,9 @@ namespace Ds;
         /**
          * Creates a new instance, using either a traversable object or an array for the initial values.
          *
-         * @param array|Traversable $values
+         * @param iterable $values
          */
-        public function __construct($values = null) {}
+        public function __construct($values = []) {}
 
         /**
          * Ensures that enough memory is allocated for a required capacity.
@@ -972,7 +972,7 @@ namespace Ds;
 
         /**
          * Returns the result of adding all given values to the deque.
-         * @param array|Traversable $values A traversable object or an array.
+         * @param iterable $values A traversable object or an array.
          * @return Deque The result of adding all given values to the
          * deque, effectively the same as adding the values to a copy,
          * then returning that copy.
@@ -1409,7 +1409,7 @@ namespace Ds;
          * Returns the result of associating all keys of a given traversable
          * object or array with their corresponding values, combined with the
          * current instance.
-         * @param array|Traversable $values A traversable object or an array.
+         * @param iterable $values A traversable object or an array.
          * @return Map The result of associating all keys of a given traversable
          * object or array with their corresponding values, combined with the
          * current instance.
@@ -1461,7 +1461,7 @@ namespace Ds;
          * Ds\Hashable, objects must be references to the same instance to be
          * considered equal.
          *
-         * @param array|Traversable $pairs traversable object or array.
+         * @param iterable $pairs traversable object or array.
          *
          * @link https://www.php.net/manual/en/ds-map.putall.php
          */
@@ -1758,7 +1758,7 @@ namespace Ds;
          * Creates a new instance, using either a traversable object or an array
          * for the initial values.
          *
-         * @param array|Traversable $values A traversable object of an array to
+         * @param iterable $values A traversable object of an array to
          * use the initial values.
          *
          * @link https://php.net/manual/en/ds-set.construct.php
@@ -1939,7 +1939,7 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-set.merge.php
          *
-         * @param array|Traversable $values A traversable object or an array.
+         * @param iterable $values A traversable object or an array.
          *
          * @return Set The result of adding all given values to the set,
          * effectively the same as adding the values to a copy, then returning
@@ -2144,10 +2144,10 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-stack.construct.php
          *
-         * @param array|Traversable|null $values A traversable object or an
+         * @param iterable $values A traversable object or an
          * array to use for the initial values.
          */
-        public function __construct($values = null) {}
+        public function __construct($values = []) {}
 
         /**
          * Ensures that enough memory is allocated for a required capacity. This
@@ -2270,10 +2270,10 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-queue.construct.php
          *
-         * @param array|Traversable|null $values A traversable object or an
+         * @param iterable $values A traversable object or an
          * array to use for the initial values.
          */
-        public function __construct($values = null) {}
+        public function __construct($values = []) {}
 
         /**
          * Ensures that enough memory is allocated for a required capacity. This
