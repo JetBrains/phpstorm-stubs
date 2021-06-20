@@ -19,7 +19,8 @@ interface JsonSerializable
      * which is a value of any type other than a resource.
      * @since 5.4
      */
-    public function jsonSerialize(): mixed;
+    #[LanguageLevelTypeAware(['8.1'=>'mixed'], default: '')]
+    public function jsonSerialize();
 }
 
 class JsonIncrementalParser
