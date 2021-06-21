@@ -172,9 +172,9 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
     /**
      * Create a RecursiveCallbackFilterIterator from a RecursiveIterator
      * @param RecursiveIterator $iterator The recursive iterator to be filtered.
-     * @param string $callback The callback, which should return TRUE to accept the current item or FALSE otherwise. See Examples.
+     * @param callable $callback The callback, which should return TRUE to accept the current item or FALSE otherwise. See Examples.
      * May be any valid callable value.
-     * @link https://secure.php.net/manual/en/recursivecallbackfilteriterator.getchildren.php
+     * @link https://www.php.net/manual/en/recursivecallbackfilteriterator.construct.php
      */
     public function __construct(RecursiveIterator $iterator, $callback) {}
 
