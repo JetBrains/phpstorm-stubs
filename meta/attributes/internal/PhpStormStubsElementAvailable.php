@@ -11,7 +11,7 @@ use JetBrains\PhpStorm\ExpectedValues;
  * @since 8.0
  * @internal
  */
-#[Attribute(Attribute::TARGET_FUNCTION|Attribute::TARGET_METHOD)]
+#[Attribute(Attribute::TARGET_FUNCTION|Attribute::TARGET_METHOD|Attribute::TARGET_PARAMETER)]
 class PhpStormStubsElementAvailable
 {
     public function __construct(
