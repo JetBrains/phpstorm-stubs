@@ -1733,7 +1733,8 @@ function db2_get_option($resource, $option) {}
  * </ul>
  * @param resource $resource A valid connection resource as returned from db2_connect() or db2_pconnect().
  * The value of this parameter cannot be a statement resource or result set resource.
- * @return string Returns the auto generated ID of last insert query that successfully executed on this connection.
+ * @return string|null Returns the auto generated ID of last insert query that successfully executed on this connection
+ *                     or NULL if no ID was found.
  */
 function db2_last_insert_id($resource) {}
 
