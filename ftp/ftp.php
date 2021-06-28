@@ -10,11 +10,21 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * @param resource $ftp
  * @param string $remote_filename
  * @param string $local_filename
- * @param int $mode [optional]
+ * @param int $mode Optional since PHP 7.3
  * @return bool
  * @since 7.2
  */
-function ftp_append(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $remote_filename, string $local_filename, int $mode = FTP_BINARY): bool {}
+function ftp_append(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]$ftp,
+    string $remote_filename,
+    string $local_filename,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'5.3', to:'7.2')]
+    int $mode,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'7.3')]
+    int $mode = FTP_BINARY
+): bool {}
 
 /**
  * returns a list of files in the given directory
