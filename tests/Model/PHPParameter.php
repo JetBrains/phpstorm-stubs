@@ -58,7 +58,7 @@ class PHPParameter extends BasePHPElement
         $this->is_vararg = $node->variadic;
         $this->is_passed_by_ref = $node->byRef;
         $this->defaultValue = $node->default;
-        $this->isOptional = $this->defaultValue !== null || $this->is_vararg;
+        $this->isOptional = !empty($this->defaultValue);
         return $this;
     }
 

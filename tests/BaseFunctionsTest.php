@@ -91,7 +91,7 @@ class BaseFunctionsTest extends BaseStubsTest
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionOptionalParametersProvider
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionParametersProvider
      * @throws RuntimeException
      */
     public function testFunctionsOptionalParameters(PHPFunction $function, PHPParameter $parameter)
@@ -104,13 +104,15 @@ class BaseFunctionsTest extends BaseStubsTest
             $parameter->isOptional,
             $stubOptionalParameter->isOptional,
             sprintf(
-                'Reflection function %s has optional parameter %s with index %d 
-            but stubs parameter %s with index %d is not',
+                'Reflection function %s %s optional parameter %s with index %d 
+            but stubs parameter %s with index %d %s',
                 $function->name,
+                $parameter->isOptional ? 'has' : 'has no',
                 $parameter->name,
                 $parameter->indexInSignature,
                 $stubOptionalParameter->name,
-                $stubOptionalParameter->indexInSignature
+                $stubOptionalParameter->indexInSignature,
+                $stubOptionalParameter->isOptional ? 'is optional' : 'is not optional'
             )
         );
     }

@@ -190,7 +190,7 @@ class BaseClassesTest extends BaseStubsTest
         static::assertArrayHasKey(
             $property->name,
             $stubClass->properties,
-            "Missing property $className::$property->access $property->type $$property->name"
+            "Missing property $property->access $property->type $className::$$property->name"
         );
     }
 

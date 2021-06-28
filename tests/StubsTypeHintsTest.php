@@ -44,7 +44,7 @@ class StubsTypeHintsTest extends BaseStubsTest
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionParametersProvider
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionParametersWithTypeProvider
      * @param PHPFunction $function
      * @param PHPParameter $parameter
      * @throws RuntimeException
@@ -117,6 +117,7 @@ class StubsTypeHintsTest extends BaseStubsTest
         self::assertNotFalse($stubParameter, "Parameter $$reflectionParameter->name not found at 
         $reflectionClass->name::$stubMethod->name(" .
             StubsParameterNamesTest::printParameters($stubMethod->parameters) . ')');
+        self::compareTypeHintsWithReflection($reflectionParameter, $stubParameter, $methodName);
         if (!$reflectionParameter->hasMutedProblem(StubProblemType::PARAMETER_REFERENCE)) {
             self::assertEquals(
                 $reflectionParameter->is_passed_by_ref,
