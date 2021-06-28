@@ -412,7 +412,7 @@ function gmdate(string $format, ?int $timestamp) {}
 /**
  * Get Unix timestamp for a date
  * @link https://php.net/manual/en/function.mktime.php
- * @param int $hour [optional] <p>
+ * @param int $hour <p>
  * The number of the hour.
  * </p>
  * @param int|null $minute [optional] <p>
@@ -461,7 +461,7 @@ function gmdate(string $format, ?int $timestamp) {}
  */
 #[Pure]
 function mktime(
-    int $hour = null,
+    int $hour,
     ?int $minute = null,
     ?int $second = null,
     ?int $month = null,
@@ -474,7 +474,7 @@ function mktime(
 /**
  * Get Unix timestamp for a GMT date
  * @link https://php.net/manual/en/function.gmmktime.php
- * @param int $hour [optional] <p>
+ * @param int $hour <p>
  * The hour
  * </p>
  * @param int $minute [optional] <p>
@@ -500,7 +500,7 @@ function mktime(
  */
 #[Pure]
 function gmmktime(
-    int $hour = null,
+    int $hour,
     ?int $minute = null,
     ?int $second = null,
     ?int $month = null,
