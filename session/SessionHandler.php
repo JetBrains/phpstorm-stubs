@@ -34,7 +34,7 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function destroy(#[LanguageLevelTypeAware(["5.4" => ""], default: "string")] $id);
+    public function destroy(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id);
 
     /**
      * Cleanup old sessions
@@ -49,7 +49,7 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function gc(#[LanguageLevelTypeAware(["5.4" => ""], default: "int")] $max_lifetime);
+    public function gc(#[LanguageLevelTypeAware(['8.0' => 'int'], default:'')] $max_lifetime);
 
     /**
      * Initialize session
@@ -62,7 +62,10 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function open(#[LanguageLevelTypeAware(["5.4" => ""], default: "string")] $path, #[LanguageLevelTypeAware(["5.4" => ""], default: "string")] $name);
+    public function open(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $path,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name
+    );
 
     /**
      * Read session data
@@ -75,7 +78,7 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function read(#[LanguageLevelTypeAware(["5.4" => ""], default: "string")] $id);
+    public function read(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id);
 
     /**
      * Write session data
@@ -94,7 +97,10 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function write(#[LanguageLevelTypeAware(["5.4" => ""], default: "string")] $id, #[LanguageLevelTypeAware(["5.4" => ""], default: "string")] $data);
+    public function write(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data
+    );
 }
 
 /**
@@ -162,6 +168,7 @@ interface SessionUpdateTimestampHandlerInterface
  * PHP extensions such as SQLite (as sqlite),
  * Memcache (as memcache), and Memcached (as memcached).
  * @link https://php.net/manual/en/class.reflectionzendextension.php
+ * @since 5.4
  */
 class SessionHandler implements SessionHandlerInterface, SessionIdInterface
 {
@@ -254,5 +261,28 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * </p>
      * @since 5.4
      */
-    public function write(#[LanguageLevelTypeAware(["5.4" => ""], default: "string")] $id, #[LanguageLevelTypeAware(["5.4" => ""], default: "string")] $data) {}
+    public function write($id, $data) {}
+
+    /**
+     * Validate session id
+     * @param string $session_id The session id
+     * @return bool <p>
+     * Note this value is returned internally to PHP for processing.
+     * </p>
+     */
+    public function validateId($session_id) {}
+
+    /**
+     * Update timestamp of a session
+     * @param string $session_id The session id
+     * @param string $session_data <p>
+     * The encoded session data. This data is the
+     * result of the PHP internally encoding
+     * the $_SESSION superglobal to a serialized
+     * string and passing it as this parameter.
+     * Please note sessions use an alternative serialization method.
+     * </p>
+     * @return bool
+     */
+    public function updateTimestamp($session_id, $session_data) {}
 }
