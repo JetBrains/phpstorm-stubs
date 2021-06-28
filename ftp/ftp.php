@@ -2,6 +2,7 @@
 
 // Start of ftp v.
 use JetBrains\PhpStorm\ExpectedValues as EV;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
@@ -282,16 +283,26 @@ function ftp_pasv(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default:
  * @param string $remote_filename <p>
  * The remote file path.
  * </p>
- * @param int $mode [optional] <p>
- * The transfer mode. Must be either <b>FTP_ASCII</b> or
- * <b>FTP_BINARY</b>.
+ * @param int $mode <p>
+ * The transfer mode. Must be either <b>FTP_ASCII</b> or <b>FTP_BINARY</b>. Optional since PHP 7.3
  * </p>
  * @param int $offset [optional] <p>
  * The position in the remote file to start downloading from.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_get(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $local_filename, string $remote_filename, #[EV([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool {}
+function ftp_get(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]$ftp,
+    string $local_filename,
+    string $remote_filename,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'5.3', to:'7.2')]
+    int $mode,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'7.3')]
+    int $mode = FTP_BINARY,
+    int $offset = 0
+): bool {}
 
 /**
  * Downloads a file from the FTP server and saves to an open file
@@ -305,16 +316,26 @@ function ftp_get(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 
  * @param string $remote_filename <p>
  * The remote file path.
  * </p>
- * @param int $mode [optional] <p>
- * The transfer mode. Must be either <b>FTP_ASCII</b> or
- * <b>FTP_BINARY</b>.
+ * @param int $mode <p>
+ * The transfer mode. Must be either <b>FTP_ASCII</b> or <b>FTP_BINARY</b>. Since PHP 7.3 parameter is optional
  * </p>
  * @param int $offset [optional] <p>
  * The position in the remote file to start downloading from.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_fget(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, $stream, string $remote_filename, #[EV([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool {}
+function ftp_fget(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]$ftp,
+    $stream,
+    string $remote_filename,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'5.3', to:'7.2')]
+    int $mode,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'7.3')]
+    int $mode = FTP_BINARY,
+    int $offset = 0
+): bool {}
 
 /**
  * Uploads a file to the FTP server
@@ -328,14 +349,24 @@ function ftp_fget(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default:
  * @param string $local_filename <p>
  * The local file path.
  * </p>
- * @param int $mode [optional] <p>
- * The transfer mode. Must be either <b>FTP_ASCII</b> or
- * <b>FTP_BINARY</b>.
+ * @param int $mode <p>
+ * The transfer mode. Must be either <b>FTP_ASCII</b> or <b>FTP_BINARY</b>. Optional since PHP 7.3
  * </p>
  * @param int $offset [optional] <p>The position in the remote file to start uploading to.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_put(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $remote_filename, string $local_filename, #[EV([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool {}
+function ftp_put(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]$ftp,
+    string $remote_filename,
+    string $local_filename,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'5.3', to:'7.2')]
+    int $mode,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'7.3')]
+    int $mode = FTP_BINARY,
+    int $offset = 0
+): bool {}
 
 /**
  * Uploads from an open file to the FTP server
@@ -349,14 +380,24 @@ function ftp_put(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 
  * @param resource $stream <p>
  * An open file pointer on the local file. Reading stops at end of file.
  * </p>
- * @param int $mode [optional] <p>
- * The transfer mode. Must be either <b>FTP_ASCII</b> or
- * <b>FTP_BINARY</b>.
+ * @param int $mode <p>
+ * The transfer mode. Must be either <b>FTP_ASCII</b> or <b>FTP_BINARY</b>. Optional since PHP 7.3
  * </p>
  * @param int $offset [optional] <p>The position in the remote file to start uploading to.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_fput(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $remote_filename, $stream, #[EV([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool {}
+function ftp_fput(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]$ftp,
+    string $remote_filename,
+    $stream,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'5.3', to:'7.2')]
+    int $mode,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'7.3')]
+    int $mode = FTP_BINARY,
+    int $offset = 0
+): bool {}
 
 /**
  * Returns the size of the given file
@@ -520,16 +561,26 @@ function ftp_get_option(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], de
  * @param string $remote_filename <p>
  * The remote file path.
  * </p>
- * @param int $mode [optional] <p>
- * The transfer mode. Must be either <b>FTP_ASCII</b> or
- * <b>FTP_BINARY</b>.
+ * @param int $mode <p>
+ * The transfer mode. Must be either <b>FTP_ASCII</b> or <b>FTP_BINARY</b>. Optional since PHP 7.3
  * </p>
  * @param int $offset [optional] <p>The position in the remote file to start downloading from.</p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
 #[EV([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
-function ftp_nb_fget(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, $stream, string $remote_filename, #[EV([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int {}
+function ftp_nb_fget(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]$ftp,
+    $stream,
+    string $remote_filename,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'5.3', to:'7.2')]
+    int $mode,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'7.3')]
+    int $mode = FTP_BINARY,
+    int $offset = 0
+): int {}
 
 /**
  * Retrieves a file from the FTP server and writes it to a local file (non-blocking)
@@ -543,16 +594,26 @@ function ftp_nb_fget(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], defau
  * @param string $remote_filename <p>
  * The remote file path.
  * </p>
- * @param int $mode [optional] <p>
- * The transfer mode. Must be either <b>FTP_ASCII</b> or
- * <b>FTP_BINARY</b>.
+ * @param int $mode  <p>
+ * The transfer mode. Must be either <b>FTP_ASCII</b> or <b>FTP_BINARY</b>. Optional since PHP 7.3
  * </p>
  * @param int $offset [optional] <p>The position in the remote file to start downloading from.</p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
 #[EV([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
-function ftp_nb_get(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $local_filename, string $remote_filename, int $mode = FTP_BINARY, int $offset = 0): int {}
+function ftp_nb_get(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]$ftp,
+    string $local_filename,
+    string $remote_filename,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'5.3', to:'7.2')]
+    int $mode,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'7.3')]
+    int $mode = FTP_BINARY,
+    int $offset = 0
+): int {}
 
 /**
  * Continues retrieving/sending a file (non-blocking)
@@ -578,16 +639,26 @@ function ftp_nb_continue(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], d
  * @param string $local_filename <p>
  * The local file path.
  * </p>
- * @param int $mode [optional] <p>
- * The transfer mode. Must be either <b>FTP_ASCII</b> or
- * <b>FTP_BINARY</b>.
+ * @param int $mode <p>
+ * The transfer mode. Must be either <b>FTP_ASCII</b> or <b>FTP_BINARY</b>. Optional since PHP 7.3
  * </p>
  * @param int $offset [optional] <p>The position in the remote file to start uploading to.</p>
  * @return int|false <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
 #[EV([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
-function ftp_nb_put(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $remote_filename, string $local_filename, #[EV([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int|false {}
+function ftp_nb_put(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]$ftp,
+    string $remote_filename,
+    string $local_filename,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'5.3', to:'7.2')]
+    int $mode,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'7.3')]
+    int $mode = FTP_BINARY,
+    int $offset = 0
+): int|false {}
 
 /**
  * Stores a file from an open file to the FTP server (non-blocking)
@@ -601,16 +672,25 @@ function ftp_nb_put(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], defaul
  * @param resource $stream <p>
  * An open file pointer on the local file. Reading stops at end of file.
  * </p>
- * @param int $mode [optional] <p>
- * The transfer mode. Must be either <b>FTP_ASCII</b> or
- * <b>FTP_BINARY</b>.
+ * @param int $mode <p>
+ * The transfer mode. Must be either <b>FTP_ASCII</b> or <b>FTP_BINARY</b>. Optional since PHP 7.3
  * </p>
  * @param int $offset [optional] <p>The position in the remote file to start uploading to.</p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
 #[EV([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
-function ftp_nb_fput(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $remote_filename, $stream, #[EV([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int {}
+function ftp_nb_fput(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]$ftp,
+    string $remote_filename,
+    $stream,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'5.3', to:'7.2')]
+    int $mode,
+    #[EV([FTP_ASCII, FTP_BINARY])]
+    #[PhpStormStubsElementAvailable(from:'7.3')]
+    int $mode = FTP_BINARY,
+    int $offset = 0): int {}
 
 /**
  * Alias of <b>ftp_close</b>

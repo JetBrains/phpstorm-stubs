@@ -165,6 +165,8 @@ class mysqli
     #[LanguageLevelTypeAware(['8.1' => 'array'], default: '')]
     public $error_list;
 
+    public $stat;
+    
     /**
      * Open a new connection to the MySQL server
      * @link https://php.net/manual/en/mysqli.construct.php
@@ -1873,7 +1875,7 @@ function mysqli_get_charset(mysqli $mysql): ?object {}
 /**
  * Get MySQL client info
  * @link https://php.net/manual/en/mysqli.get-client-info.php
- * @param mysqli|null $mysql [optional] A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli|null $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string|null A string that represents the MySQL client library version
  */
 #[LanguageLevelTypeAware(['8.1' => 'string'], default: '?string')]
@@ -1884,7 +1886,7 @@ function mysqli_get_client_info(?mysqli $mysql) {}
  * @link https://php.net/manual/en/mysqli.get-client-version.php
  * @return int
  */
-function mysqli_get_client_version(): int {}
+function mysqli_get_client_version($link): int {}
 
 /**
  * Returns a string representing the type of connection used
@@ -2029,7 +2031,7 @@ function mysqli_more_results(mysqli $mysql): bool {}
  * Performs a query on the database
  * @link https://php.net/manual/en/mysqli.multi-query.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
- * @param string $query One or more queries which are separated by semicolons.
+ * @param string $query [optional] One or more queries which are separated by semicolons.
  * @return bool Returns FALSE if the first statement failed. To retrieve subsequent errors from other statements you have to call mysqli_next_result() first.
  */
 function mysqli_multi_query(mysqli $mysql, string $query): bool {}
@@ -2181,7 +2183,7 @@ function mysqli_real_escape_string(mysqli $mysql, string $string): string {}
  * @link https://php.net/manual/en/mysqli.real-query.php
  * @see mysqli_field_count()
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
- * @param string $query
+ * @param string $query [optional]
  * @return bool
  */
 function mysqli_real_query(mysqli $mysql, string $query): bool {}
@@ -2363,7 +2365,11 @@ function mysqli_stmt_bind_param(mysqli_stmt $statement, string $types, #[PhpStor
  * @param mixed &...$vars The variables to be bound.
  * @return bool
  */
-function mysqli_stmt_bind_result(mysqli_stmt $statement, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed &$var1, mixed &...$vars): bool {}
+function mysqli_stmt_bind_result(
+    mysqli_stmt $statement,
+    #[PhpStormStubsElementAvailable(from: '7.2', to: '7.4')] mixed &$var1,
+    mixed &...$vars
+): bool {}
 
 /**
  * Fetch results from a prepared statement into the bound variables
@@ -2615,9 +2621,10 @@ function mysqli_client_encoding(mysqli $mysql): string {}
  * @link https://php.net/manual/en/function.mysqli-escape-string.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $string The string to be escaped
+ * @param $resultmode [optional]
  * @return string
  */
-function mysqli_escape_string(mysqli $mysql, string $string): string {}
+function mysqli_escape_string(mysqli $mysql, string $string, $resultmode): string {}
 
 /**
  * Alias for <b>mysqli_stmt_fetch</b>
