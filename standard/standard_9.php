@@ -22,7 +22,7 @@ define("ARRAY_FILTER_USE_KEY", 2);
  * @return array An array of values resulted from merging the arguments together.
  */
 #[Pure]
-function array_merge_recursive(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] array $arr1 = null, array ...$arrays): array {}
+function array_merge_recursive(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] array $arr1, array ...$arrays): array {}
 
 /**
  * array_replace() replaces the values of the first array with the same values from all the following arrays.
@@ -35,7 +35,7 @@ function array_merge_recursive(#[PhpStormStubsElementAvailable(from: '5.3', to: 
  * @param array $array <p>
  * The array in which elements are replaced.
  * </p>
- * @param array ...$replacements <p>
+ * @param array ...$replacements [optional] <p>
  * The array from which elements will be extracted.
  * </p>
  * @return array or null if an error occurs.
@@ -49,7 +49,7 @@ function array_replace(array $array, array ...$replacements): array {}
  * @param array $array <p>
  * The array in which elements are replaced.
  * </p>
- * @param array ...$replacements <p>
+ * @param array ...$replacements [optional] <p>
  * The array from which elements will be extracted.
  * </p>
  * @return array an array, or null if an error occurs.
@@ -286,14 +286,17 @@ function array_intersect(
  * @param array $array <p>
  * The array with main keys to check.
  * </p>
- * @param array ...$arrays [optional]
+ * @param array ...$arrays
  * @return array an associative array containing all the entries of
  * array1 which have keys that are present in all
  * arguments.
  * @meta
  */
 #[Pure]
-function array_intersect_key(array $array, array ...$arrays): array {}
+function array_intersect_key(
+    array $array,
+    array ...$arrays
+): array {}
 
 /**
  * Computes the intersection of arrays using a callback function on the keys for comparison
@@ -331,7 +334,7 @@ function array_intersect_ukey(
  * @param callable $data_compare_func <p>
  * The callback comparison function.
  * </p>
- * * @param array ...$rest [optional]
+ * @param array ...$rest [optional]
  * <p>
  * The user supplied callback function is used for comparison.
  * It must return an integer less than, equal to, or greater than zero if
@@ -346,7 +349,7 @@ function array_uintersect(
     array $array,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
-    #[PhpStormStubsElementAvailable(from: '8.0')] array ...$rest,
+    #[PhpStormStubsElementAvailable(from: '8.0')] array ...$rest
 ): array {}
 
 /**
@@ -355,7 +358,7 @@ function array_uintersect(
  * @param array $array <p>
  * The array with main values to check.
  * </p>
- * @param array $arrays [optional]
+ * @param array $arrays
  * @return array an associative array containing all the values in
  * array1 that are present in all of the arguments.
  * @meta
@@ -560,7 +563,9 @@ function array_udiff(
  * @meta
  */
 #[Pure]
-function array_diff_assoc(array $array, array ...$arrays): array {}
+function array_diff_assoc(
+    array $array,
+    array ...$arrays): array {}
 
 /**
  * Computes the difference of arrays with additional index check, compares data by a callback function
@@ -738,12 +743,14 @@ function array_filter(array $array, ?callable $callback, int $mode = 0): array {
  * @param array $array <p>
  * An array to run through the callback function.
  * </p>
- * @param array ...$arrays [optional]
+ * @param array ...$arrays
  * @return array an array containing all the elements of arr1
  * after applying the callback function to each one.
  * @meta
  */
-function array_map(?callable $callback, #[PhpStormStubsElementAvailable(from: '8.0')] array $array, array ...$arrays): array {}
+function array_map(
+    ?callable $callback,
+    array ...$arrays): array {}
 
 /**
  * Split an array into chunks

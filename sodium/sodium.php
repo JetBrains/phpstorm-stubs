@@ -1128,18 +1128,6 @@ function sodium_crypto_secretstream_xchacha20poly1305_keygen(): string {}
 function sodium_crypto_secretstream_xchacha20poly1305_init_push(string $key): array {}
 
 /**
- * @param string &$state
- * @param string $message
- * @param string $additional_data [optional]
- * @param int $tag [optional]
- * @return string
- * @throws SodiumException
- * @since 7.2
- * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-push.php
- */
-function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, string $message, string $additional_data, int $tag): string {}
-
-/**
  * @param string $header
  * @param string $key
  * @return string

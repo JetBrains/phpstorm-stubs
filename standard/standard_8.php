@@ -726,7 +726,7 @@ function key(object|array $array): string|int|null {}
  * Find lowest value
  * @link https://php.net/manual/en/function.min.php
  * @param array|mixed $value Array to look through or first value to compare
- * @param mixed ...$values [optional] any comparable value
+ * @param mixed ...$values any comparable value
  * @return mixed min returns the numerically lowest of the
  * parameter values.
  */
@@ -737,7 +737,7 @@ function min(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, mixed .
  * Find highest value
  * @link https://php.net/manual/en/function.max.php
  * @param array|mixed $value Array to look through or first value to compare
- * @param mixed ...$values [optional] any comparable value
+ * @param mixed ...$values any comparable value
  * @return mixed max returns the numerically highest of the
  * parameter values, either within a arg array or two arguments.
  */
@@ -966,7 +966,7 @@ function array_shift(array &$array): mixed {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param mixed ...$values [optional] <p>
+ * @param mixed ...$values <p>
  * The prepended variables.
  * </p>
  * @return int the number of elements in the array.
@@ -1055,7 +1055,7 @@ function array_slice(array $array, int $offset, ?int $length, bool $preserve_key
  * Merges the elements of one or more arrays together (if the input arrays have the same string keys, then the later value for that key will overwrite the previous one; if the arrays contain numeric keys, the later value will be appended)
  * Since 7.4.0 this function can be called without any parameter, and it will return empty array.
  * @link https://php.net/manual/en/function.array-merge.php
- * @param array ...$arrays <p>
+ * @param array ...$arrays [optional] <p>
  * Variable list of arrays to merge.
  * </p>
  * @return array the resulting array.
