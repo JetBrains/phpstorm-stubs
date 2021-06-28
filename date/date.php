@@ -461,7 +461,7 @@ function gmdate(string $format, ?int $timestamp) {}
  */
 #[Pure]
 function mktime(
-    int $hour,
+    int $hour = null,
     ?int $minute = null,
     ?int $second = null,
     ?int $month = null,
@@ -500,7 +500,7 @@ function mktime(
  */
 #[Pure]
 function gmmktime(
-    int $hour,
+    int $hour = null,
     ?int $minute = null,
     ?int $second = null,
     ?int $month = null,
