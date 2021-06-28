@@ -1,4 +1,7 @@
 <?php
+
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+
 /**
  * <b>SessionHandlerInterface</b> is an interface which defines
  * a prototype for creating a custom session handler.
@@ -31,7 +34,7 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function destroy($id);
+    public function destroy(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id);
 
     /**
      * Cleanup old sessions
@@ -46,7 +49,7 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function gc($max_lifetime);
+    public function gc(#[LanguageLevelTypeAware(['8.0' => 'int'], default:'')] $max_lifetime);
 
     /**
      * Initialize session
@@ -59,7 +62,10 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function open($path, $name);
+    public function open(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $path,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name
+    );
 
     /**
      * Read session data
@@ -72,7 +78,7 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function read($id);
+    public function read(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id);
 
     /**
      * Write session data
@@ -91,7 +97,10 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function write($id, $data);
+    public function write(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data
+    );
 }
 
 /**
@@ -125,7 +134,7 @@ interface SessionUpdateTimestampHandlerInterface
      * Note this value is returned internally to PHP for processing.
      * </p>
      */
-    public function validateId($id);
+    public function validateId(string $id);
 
     /**
      * Update timestamp of a session
@@ -139,7 +148,7 @@ interface SessionUpdateTimestampHandlerInterface
      * </p>
      * @return bool
      */
-    public function updateTimestamp($id, $data);
+    public function updateTimestamp(string $id, string $data);
 }
 
 /**

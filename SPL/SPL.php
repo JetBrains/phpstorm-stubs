@@ -1,6 +1,7 @@
 <?php
 
 // Start of SPL v.0.2
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
@@ -599,7 +600,7 @@ interface SeekableIterator extends Iterator
      * </p>
      * @return void
      */
-    public function seek($offset);
+    public function seek(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset);
 }
 
 /**
