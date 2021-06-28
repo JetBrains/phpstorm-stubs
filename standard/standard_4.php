@@ -361,7 +361,7 @@ function highlight_string(string $string, bool $return = false): string|bool {}
  * Otherwise the nanoseconds are returned as integer (64bit platforms) or float (32bit platforms).
  */
 #[Pure]
-function hrtime(bool $as_number = false): array|int|float|false {}
+function hrtime(bool $as_number): array|int|float|false {}
 
 /**
  * Return source with stripped comments and whitespace
