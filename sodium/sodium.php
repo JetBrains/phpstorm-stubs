@@ -1137,16 +1137,6 @@ function sodium_crypto_secretstream_xchacha20poly1305_init_push(string $key): ar
  */
 function sodium_crypto_secretstream_xchacha20poly1305_init_pull(string $header, string $key): string {}
 
-/**
- * @param string &$state
- * @param string $ciphertext
- * @param string $additional_data
- * @return array|false
- * @throws SodiumException
- * @since 7.2
- * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-pull.php
- */
-function sodium_crypto_secretstream_xchacha20poly1305_pull(string &$state, string $ciphertext, string $additional_data = ''): array|false {}
 
 /**
  * @param string &$state
