@@ -967,6 +967,17 @@
           ]
         }
       ]
+    },
+    {
+      "name": "sodium_crypto_secretstream_xchacha20poly1305_push",
+      "problems": [
+        {
+          "description": "missing function",
+          "versions": [
+            "ALL"
+          ]
+        }
+      ]
     }
   ],
   "classes": [
