@@ -368,7 +368,7 @@ function highlight_string(string $string, bool $return = false): string|bool {}
 #[Pure]
 function hrtime(
     #[PhpStormStubsElementAvailable(from: '7.3', to: '7.4')] bool $as_number,
-    #[PhpStormStubsElementAvailable(from: '8.0')] bool $as_number = false
+    #[PhpStormStubsElementAvailable(from: '8.0')]bool $as_number
 ): array|int|float|false {}
 
 /**
