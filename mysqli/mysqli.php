@@ -1886,7 +1886,7 @@ function mysqli_get_client_info(?mysqli $mysql) {}
  * @link https://php.net/manual/en/mysqli.get-client-version.php
  * @return int
  */
-function mysqli_get_client_version($link): int {}
+function mysqli_get_client_version(): int {}
 
 /**
  * Returns a string representing the type of connection used
@@ -2621,10 +2621,9 @@ function mysqli_client_encoding(mysqli $mysql): string {}
  * @link https://php.net/manual/en/function.mysqli-escape-string.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $string The string to be escaped
- * @param $resultmode [optional]
  * @return string
  */
-function mysqli_escape_string(mysqli $mysql, string $string, $resultmode): string {}
+function mysqli_escape_string(mysqli $mysql, string $string): string {}
 
 /**
  * Alias for <b>mysqli_stmt_fetch</b>

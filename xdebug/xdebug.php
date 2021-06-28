@@ -89,10 +89,9 @@ function xdebug_stop_function_monitor() {}
 
 /**
  * Returns a structure which contains information about where the monitored functions were executed in your script.
- * @param $clear [optional]
  * @return array
  */
-function xdebug_get_monitored_functions($clear): array {}
+function xdebug_get_monitored_functions(): array {}
 
 /**
  * This function displays structured information about one or more expressions that includes its type and value.

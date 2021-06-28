@@ -770,7 +770,7 @@ function openssl_verify(
  * @param string &$sealed_data
  * @param array &$encrypted_keys
  * @param array $public_key
- * @param string $cipher_algo [optional]
+ * @param string $cipher_algo
  * @param string &$iv [optional]
  * @return int|false the length of the sealed data on success, or false on error.
  * If successful the sealed data is returned in
@@ -789,7 +789,7 @@ function openssl_seal(string $data, &$sealed_data, &$encrypted_keys, array $publ
  * </p>
  * @param string $encrypted_key
  * @param OpenSSLAsymmetricKey|OpenSSLCertificate|array|string $private_key
- * @param string $cipher_algo [optional] The cipher method.
+ * @param string $cipher_algo The cipher method.
  * @param string|null $iv [optional] The initialization vector.
  * @return bool true on success or false on failure.
  */
@@ -798,7 +798,7 @@ function openssl_open(
     &$output,
     string $encrypted_key,
     #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
-    string $cipher_algo = "RC4",
+    string $cipher_algo,
     ?string $iv
 ): bool {}
 
