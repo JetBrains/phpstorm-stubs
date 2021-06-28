@@ -703,7 +703,7 @@ class ZipArchive implements Countable
      * @return int
      * @since 7.2
      */
-    public function count() {}
+    public function count(): int {}
 
     /**
      * Returns the status error message, system and/or zip messages
@@ -893,7 +893,7 @@ class ZipArchive implements Countable
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 7.0
      */
-    public function setCompressionIndex($index, $method, $compflags = 0) {}
+    public function setCompressionIndex(int $index, int $method, int $compflags = 0) {}
 
     /**
      * Set the compression method of an entry defined by its name
@@ -904,7 +904,7 @@ class ZipArchive implements Countable
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 7.0
      */
-    public function setCompressionName($name, $method, $compflags = 0) {}
+    public function setCompressionName(string $name, int $method, int $compflags = 0) {}
 
     /**
      * Set the encryption method of an entry defined by its index
@@ -915,7 +915,7 @@ class ZipArchive implements Countable
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 7.2
      */
-    public function setEncryptionIndex(int $index, int $method, ?string $password = null) {}
+    public function setEncryptionIndex(int $index, int $method, ?string $password = null): bool {}
 
     /**
      * Set the encryption method of an entry defined by its name
@@ -926,14 +926,14 @@ class ZipArchive implements Countable
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 7.2
      */
-    public function setEncryptionName(string $name, int $method, ?string $password = null) {}
+    public function setEncryptionName(string $name, int $method, ?string $password = null): bool {}
 
     /**
      * (PHP 5 &gt;= 5.6.0, PECL zip &gt;= 1.12.0)<br/>
      * @param string $password
      * @return bool
      */
-    public function setPassword($password) {}
+    public function setPassword(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $password) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.4.0)<br/>
@@ -948,7 +948,10 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the comment on success or <b>FALSE</b> on failure.
      */
-    public function getCommentIndex($index, $flags = null) {}
+    public function getCommentIndex(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.4.0)<br/>
@@ -963,7 +966,10 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the comment on success or <b>FALSE</b> on failure.
      */
-    public function getCommentName($name, $flags = null) {}
+    public function getCommentName(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -974,7 +980,7 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function deleteIndex($index) {}
+    public function deleteIndex(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -985,7 +991,7 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function deleteName($name) {}
+    public function deleteName(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -1003,7 +1009,10 @@ class ZipArchive implements Countable
      * </p>
      * @return array|false an array containing the entry details or <b>FALSE</b> on failure.
      */
-    public function statName($name, $flags = null) {}
+    public function statName(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -1019,7 +1028,10 @@ class ZipArchive implements Countable
      * </p>
      * @return array|false an array containing the entry details or <b>FALSE</b> on failure.
      */
-    public function statIndex($index, $flags = null) {}
+    public function statIndex(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -1035,7 +1047,10 @@ class ZipArchive implements Countable
      * </p>
      * @return int|false the index of the entry on success or <b>FALSE</b> on failure.
      */
-    public function locateName($name, $flags = null) {}
+    public function locateName(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -1050,7 +1065,10 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the name on success or <b>FALSE</b> on failure.
      */
-    public function getNameIndex($index, $flags = null) {}
+    public function getNameIndex(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -1077,7 +1095,7 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function unchangeIndex($index) {}
+    public function unchangeIndex(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -1088,7 +1106,7 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function unchangeName($name) {}
+    public function unchangeName(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -1103,7 +1121,10 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function extractTo($pathto, $files = null) {}
+    public function extractTo(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pathto,
+        #[LanguageLevelTypeAware(['8.0' => 'array|string|null'], default: '')] $files = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -1123,7 +1144,11 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the contents of the entry on success or <b>FALSE</b> on failure.
      */
-    public function getFromName($name, $len = 0, $flags = null) {}
+    public function getFromName(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $len = 0,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.3.0)<br/>
@@ -1145,7 +1170,11 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the contents of the entry on success or <b>FALSE</b> on failure.
      */
-    public function getFromIndex($index, $len = 0, $flags = null) {}
+    public function getFromIndex(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $len = 0,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -1167,7 +1196,12 @@ class ZipArchive implements Countable
      * @param int $flags [optional] Optional flags. Currently unused.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setExternalAttributesName($name, $opsys, $attr, $flags = null) {}
+    public function setExternalAttributesName(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $opsys,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attr,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+    ) {}
 
     /**
      * Retrieve the external attributes of an entry defined by its name
@@ -1178,7 +1212,12 @@ class ZipArchive implements Countable
      * @param int $flags [optional] If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged attributes are returned.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function getExternalAttributesName($name, &$opsys, &$attr, $flags = null) {}
+    public function getExternalAttributesName(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] &$opsys,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] &$attr,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+    ) {}
 
     /**
      * Set the external attributes of an entry defined by its index
@@ -1189,7 +1228,12 @@ class ZipArchive implements Countable
      * @param int $flags [optional] Optional flags. Currently unused.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setExternalAttributesIndex($index, $opsys, $attr, $flags = null) {}
+    public function setExternalAttributesIndex(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $opsys,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attr,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+    ) {}
 
     /**
      * Retrieve the external attributes of an entry defined by its index
@@ -1200,15 +1244,28 @@ class ZipArchive implements Countable
      * @param int $flags [optional] If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged attributes are returned.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function getExternalAttributesIndex($index, &$opsys, &$attr, $flags = null) {}
+    public function getExternalAttributesIndex(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] &$opsys,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] &$attr,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+    ) {}
 
-    public static function isEncryptionMethodSupported($method, $enc = true) {}
+    public static function isEncryptionMethodSupported(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $method,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $enc = true
+    ) {}
 
-    public static function isCompressionMethodSupported($method, $enc = true) {}
+    public static function isCompressionMethodSupported(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $method,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $enc = true) {}
 
-    public function registerCancelCallback($callback) {}
+    public function registerCancelCallback(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback) {}
 
-    public function registerProgressCallback($rate, $callback) {}
+    public function registerProgressCallback(
+        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')] $rate,
+        #[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback
+    ) {}
 
     public function setMtimeName($name, $timestamp, $flags = null) {}
 
