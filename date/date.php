@@ -983,12 +983,7 @@ function date_parse_from_format(string $format, string $datetime): array {}
  * @link https://php.net/manual/en/function.date-get-last-errors.php
  * @return array|false <p>Returns array containing info about warnings and errors.</p>
  */
-#[ArrayShape([
-    "warning_count" => "int",
-    "warnings" => "string[]",
-    "error_count" => "int",
-    "errors" => "string[]",
-])]
+#[ArrayShape(["warning_count" => "int", "warnings" => "string[]", "error_count" => "int", "errors" => "string[]"])]
 #[Pure(true)]
 function date_get_last_errors(): array|false {}
 
