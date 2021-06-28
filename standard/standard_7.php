@@ -162,7 +162,7 @@ function pfsockopen(string $hostname, int $port = -1, &$error_code, &$error_mess
  * </tr>
  * </table>
  * </p>
- * @param mixed ...$values <p>
+ * @param mixed ...$values [optional] <p>
  * </p>
  * @return string|false a binary string containing data or false if the format string contains errors
  */
