@@ -13,25 +13,25 @@ class ReflectionPropertiesProvider
 {
     public static function classPropertiesProvider(): Generator
     {
-        return self::yieldFilteredMethods();
+        return self::yieldFilteredMethodProperties();
     }
 
     public static function classStaticPropertiesProvider(): Generator
     {
-        return self::yieldFilteredMethods(StubProblemType::PROPERTY_IS_STATIC);
+        return self::yieldFilteredMethodProperties(StubProblemType::PROPERTY_IS_STATIC);
     }
 
     public static function classPropertiesWithAccessProvider(): Generator
     {
-        return self::yieldFilteredMethods(StubProblemType::PROPERTY_ACCESS);
+        return self::yieldFilteredMethodProperties(StubProblemType::PROPERTY_ACCESS);
     }
 
     public static function classPropertiesWithTypeProvider(): Generator
     {
-        return self::yieldFilteredMethods(StubProblemType::PROPERTY_TYPE);
+        return self::yieldFilteredMethodProperties(StubProblemType::PROPERTY_TYPE);
     }
 
-    private static function yieldFilteredMethods(int ...$problemTypes): ?Generator
+    private static function yieldFilteredMethodProperties(int ...$problemTypes): ?Generator
     {
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
