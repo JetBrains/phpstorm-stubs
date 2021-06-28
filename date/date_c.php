@@ -204,12 +204,7 @@ class DateTimeImmutable implements DateTimeInterface
      * @link https://secure.php.net/manual/en/datetimeimmutable.getlasterrors.php
      * @return array|false Returns array containing info about warnings and errors.
      */
-    #[ArrayShape([
-        "warning_count" => "int",
-        "warnings" => "string[]",
-        "error_count" => "int",
-        "errors" => "string[]",
-    ])]
+    #[ArrayShape(["warning_count" => "int", "warnings" => "string[]", "error_count" => "int", "errors" => "string[]"])]
     public static function getLastErrors() {}
 
     /**
@@ -612,12 +607,7 @@ class DateTime implements DateTimeInterface
      * @return array|false
      * @link https://php.net/manual/en/datetime.getlasterrors.php
      */
-    #[ArrayShape([
-        "warning_count" => "int",
-        "warnings" => "string[]",
-        "error_count" => "int",
-        "errors" => "string[]",
-    ])]
+    #[ArrayShape(["warning_count" => "int", "warnings" => "string[]", "error_count" => "int", "errors" => "string[]"])]
     public static function getLastErrors() {}
 
     /**

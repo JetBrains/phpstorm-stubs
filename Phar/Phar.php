@@ -350,10 +350,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * phar.require_hash INI variable
      * is set to true.
      */
-    #[ArrayShape([
-        "hash" => "string",
-        "hash_type" => "string",
-    ])]
+    #[ArrayShape(["hash" => "string", "hash_type" => "string"])]
     public function getSignature() {}
 
     /**
