@@ -1956,10 +1956,10 @@ interface Yaf_Route_Interface
      * @link https://secure.php.net/manual/en/yaf-route-interface.assemble.php
      *
      * @param array $info
-     * @param array $query
+     * @param array|null $query
      * @return bool
      */
-    public function assemble(array $info, array $query = null);
+    public function assemble(array $info, ?array $query = null);
 }
 
 /**
