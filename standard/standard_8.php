@@ -926,7 +926,7 @@ function array_multisort(
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param mixed ...$values [optional] <p>
+ * @param mixed ...$values <p>
  * The pushed variables.
  * </p>
  * @return int the number of elements in the array.
@@ -966,7 +966,7 @@ function array_shift(array &$array): mixed {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param mixed ...$values [optional] <p>
+ * @param mixed ...$values <p>
  * The prepended variables.
  * </p>
  * @return int the number of elements in the array.
