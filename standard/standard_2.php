@@ -423,7 +423,7 @@ function vfprintf($stream, string $format, array $values): int {}
  * i stands for integer with base detection.
  * n stands for number of characters processed so far.
  * </p>
- * @param mixed &...$vars
+ * @param mixed &...$vars [optional]
  * @return array|int|null If only
  * two parameters were passed to this function, the values parsed
  * will be returned as an array. Otherwise, if optional parameters are passed,
