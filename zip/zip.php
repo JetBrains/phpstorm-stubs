@@ -823,7 +823,10 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function addPattern($pattern, $path = '.', array $options = []) {}
+    public function addPattern(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pattern,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $path = '.',
+        array $options = []) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -1313,7 +1316,7 @@ class ZipArchive implements Countable
 
     public function replaceFile(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filepath,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $start = null,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $length = null,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null

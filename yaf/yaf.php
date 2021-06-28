@@ -357,10 +357,10 @@ final class Yaf_Dispatcher
      * @link https://secure.php.net/manual/en/yaf-dispatcher.initview.php
      *
      * @param string $templates_dir
-     * @param array $options
+     * @param array|null $options
      * @return Yaf_View_Interface
      */
-    public function initView($templates_dir, array $options = null) {}
+    public function initView($templates_dir, ?array $options = null) {}
 
     /**
      * This method provides a solution for that if you want use a custom view engine instead of Yaf_View_Simple
@@ -1078,21 +1078,21 @@ abstract class Yaf_Controller_Abstract
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.render.php
      *
      * @param string $tpl
-     * @param array $parameters
+     * @param array|null $parameters
      *
      * @return string
      */
-    protected function render($tpl, array $parameters = null) {}
+    protected function render($tpl, ?array $parameters = null) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.display.php
      *
      * @param string $tpl
-     * @param array $parameters
+     * @param array|null $parameters
      *
      * @return bool
      */
-    protected function display($tpl, array $parameters = null) {}
+    protected function display($tpl, ?array $parameters = null) {}
 
     /**
      * retrieve current request object
@@ -1133,13 +1133,13 @@ abstract class Yaf_Controller_Abstract
     public function getName() {}
 
     /**
-     * @param array $options
+     * @param array|null $options
      *
      * @return Yaf_Response_Abstract
      * @deprecated not_implemented
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.initview.php
      */
-    public function initView(array $options = null) {}
+    public function initView(?array $options = null) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.setviewpath.php
@@ -1173,11 +1173,11 @@ abstract class Yaf_Controller_Abstract
      * @param string $module destination module name, if NULL was given, then default module name is assumed
      * @param string $controller destination controller name
      * @param string $action destination action name
-     * @param array $parameters calling arguments
+     * @param array|null $parameters calling arguments
      *
      * @return bool return FALSE on failure
      */
-    public function forward($module, $controller = null, $action = null, array $parameters = null) {}
+    public function forward($module, $controller = null, $action = null, ?array $parameters = null) {}
 
     /**
      * redirect to a URL by sending a 302 header
@@ -1218,11 +1218,11 @@ abstract class Yaf_Controller_Abstract
      * @param Yaf_Request_Abstract $request
      * @param Yaf_Response_Abstract $response
      * @param Yaf_View_Interface $view
-     * @param array $args
+     * @param array|null $args
      * @see Yaf_Controller_Abstract::init()
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.construct.php
      */
-    public function __construct(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response, Yaf_View_Interface $view, array $args = null) {}
+    public function __construct(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response, Yaf_View_Interface $view, ?array $args = null) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.clone.php
@@ -2495,14 +2495,14 @@ class Yaf_View_Simple implements Yaf_View_Interface
      * @link https://secure.php.net/manual/en/yaf-view-simple.construct.php
      *
      * @param string $template_dir The base directory of the templates, by default, it is APPLICATION . "/views" for Yaf.
-     * @param array $options <p>Options for the engine, as of Yaf 2.1.13, you can use short tag
+     * @param array|null $options <p>Options for the engine, as of Yaf 2.1.13, you can use short tag
      * "<?=$var?>" in your template(regardless of "short_open_tag"),
      * so comes a option named "short_tag",  you can switch this off
      * to prevent use short_tag in template.
      * </p>
      * @throws Yaf_Exception_TypeError
      */
-    final public function __construct($template_dir, array $options = null) {}
+    final public function __construct($template_dir, ?array $options = null) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-view-simple.isset.php
@@ -2658,10 +2658,10 @@ class Yaf_Route_Static implements Yaf_Route_Interface
      * @link https://secure.php.net/manual/en/yaf-route-static.assemble.php
      *
      * @param array $info
-     * @param array $query
+     * @param array|null $query
      * @return bool
      */
-    public function assemble(array $info, array $query = null) {}
+    public function assemble(array $info, ?array $query = null) {}
 }
 
 /**
@@ -2718,10 +2718,10 @@ final class Yaf_Route_Simple implements Yaf_Route_Interface
      * @link https://secure.php.net/manual/en/yaf-route-simple.assemble.php
      *
      * @param array $info
-     * @param array $query
+     * @param array|null $query
      * @return bool
      */
-    public function assemble(array $info, array $query = null) {}
+    public function assemble(array $info, ?array $query = null) {}
 }
 
 /**
@@ -2760,10 +2760,10 @@ final class Yaf_Route_Supervar implements Yaf_Route_Interface
      * @link https://secure.php.net/manual/en/yaf-route-supervar.assemble.php
      *
      * @param array $info
-     * @param array $query
+     * @param array|null $query
      * @return bool
      */
-    public function assemble(array $info, array $query = null) {}
+    public function assemble(array $info, ?array $query = null) {}
 }
 
 /**
@@ -2815,10 +2815,10 @@ final class Yaf_Route_Rewrite extends Yaf_Router implements Yaf_Route_Interface
      * @link https://secure.php.net/manual/en/yaf-route-rewrite.assemble.php
      *
      * @param array $info
-     * @param array $query
+     * @param array|null $query
      * @return bool
      */
-    public function assemble(array $info, array $query = null) {}
+    public function assemble(array $info, ?array $query = null) {}
 
     public function match($uri) {}
 }
@@ -2858,13 +2858,13 @@ final class Yaf_Route_Regex extends Yaf_Router implements Yaf_Route_Interface
      * @param array $route <p>When the match pattern matches the request uri, Yaf_Route_Regex will use this to decide which m/c/a to routed.</p>
      * <br/>
      * <p>either of m/c/a in this array is optional, if you don't assign a specific value, it will be routed to default.</p>
-     * @param array $map A array to assign name to the captures in the match result.
-     * @param array $verify
+     * @param array|null $map A array to assign name to the captures in the match result.
+     * @param array|null $verify
      * @param string $reverse
      *
      * @throws Yaf_Exception_TypeError
      */
-    public function __construct($match, array $route, array $map = null, array $verify = null, $reverse = null) {}
+    public function __construct($match, array $route, ?array $map = null, ?array $verify = null, $reverse = null) {}
 
     /**
      * Route a incoming request.
@@ -2932,10 +2932,10 @@ final class Yaf_Route_Map implements Yaf_Route_Interface
      * @link https://secure.php.net/manual/en/yaf-route-map.assemble.php
      *
      * @param array $info
-     * @param array $query
+     * @param array|null $query
      * @return bool
      */
-    public function assemble(array $info, array $query = null) {}
+    public function assemble(array $info, ?array $query = null) {}
 }
 
 /**
