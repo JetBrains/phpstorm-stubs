@@ -1170,11 +1170,7 @@ class PDO
      * <b>PDOStatement::errorInfo</b> to return the error
      * information for an operation performed on a particular statement handle.
      */
-    #[ArrayShape([
-        0 => "string",
-        1 => "int",
-        2 => "string",
-    ])]
+    #[ArrayShape([0 => "string", 1 => "int", 2 => "string"])]
     public function errorInfo() {}
 
     /**
@@ -1525,11 +1521,7 @@ class PDOStatement implements IteratorAggregate
      * <td>Driver specific error message.</td>
      * </tr>
      */
-    #[ArrayShape([
-        0 => "string",
-        1 => "int",
-        2 => "string",
-    ])]
+    #[ArrayShape([0 => "string", 1 => "int", 2 => "string"])]
     public function errorInfo() {}
 
     /**

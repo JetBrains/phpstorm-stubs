@@ -1524,10 +1524,7 @@ class Imagick implements Iterator, Countable
      * @return float[] an array containing minima and maxima values of the channel(s).
      * @throws ImagickException on error.
      */
-    #[ArrayShape([
-        "minima" => "float",
-        "maxima" => "float"
-    ])]
+    #[ArrayShape(["minima" => "float", "maxima" => "float"])]
     #[Pure]
     public function getImageChannelRange($channel) {}
 
@@ -1723,10 +1720,7 @@ class Imagick implements Iterator, Countable
      * members.
      * @throws ImagickException on error.
      */
-    #[ArrayShape([
-        "kurtosis" => "float",
-        "skewness" => "float"
-    ])]
+    #[ArrayShape(["kurtosis" => "float", "skewness" => "float"])]
     #[Pure]
     public function getImageChannelKurtosis($channel = Imagick::CHANNEL_DEFAULT) {}
 
@@ -2272,10 +2266,7 @@ class Imagick implements Iterator, Countable
      * @return int[] an array with the width/height of the image.
      * @throws ImagickException on error.
      */
-    #[ArrayShape([
-        "width" => "int",
-        "height" => "int"
-    ])]
+    #[ArrayShape(["width" => "int", "height" => "int"])]
     #[Pure]
     public function getImageGeometry() {}
 
@@ -3551,10 +3542,7 @@ class Imagick implements Iterator, Countable
      * @return float[] Array consisting of "x" and "y" coordinates of point.
      * @throws ImagickException on error.
      */
-    #[ArrayShape([
-        "x" => "float",
-        "y" => "float"
-    ])]
+    #[ArrayShape(["x" => "float", "y" => "float"])]
     #[Pure]
     public function getImageBluePrimary() {}
 
@@ -3616,10 +3604,7 @@ class Imagick implements Iterator, Countable
      * @return int[]
      * @throws ImagickException on error.
      */
-    #[ArrayShape([
-        "minima" => "int",
-        "maxima" => "int"
-    ])]
+    #[ArrayShape(["minima" => "int", "maxima" => "int"])]
     #[Deprecated]
     #[Pure]
     public function getImageChannelExtrema($channel) {}
@@ -3637,10 +3622,7 @@ class Imagick implements Iterator, Countable
      * @return float[]
      * @throws ImagickException on error.
      */
-    #[ArrayShape([
-        "mean" => "float",
-        "standardDeviation" => "float"
-    ])]
+    #[ArrayShape(["mean" => "float", "standardDeviation" => "float"])]
     #[Pure]
     public function getImageChannelMean($channel) {}
 
@@ -3731,10 +3713,7 @@ class Imagick implements Iterator, Countable
      * @return int[] an associative array with the keys "min" and "max".
      * @throws ImagickException on error.
      */
-    #[ArrayShape([
-        "min" => "int",
-        "max" => "int"
-    ])]
+    #[ArrayShape(["min" => "int", "max" => "int"])]
     #[Deprecated]
     #[Pure]
     public function getImageExtrema() {}
@@ -3767,10 +3746,7 @@ class Imagick implements Iterator, Countable
      * @throws ImagickException on failure
      * @throws ImagickException on error.
      */
-    #[ArrayShape([
-        "x" => "float",
-        "y" => "float"
-    ])]
+    #[ArrayShape(["x" => "float", "y" => "float"])]
     #[Pure]
     public function getImageGreenPrimary() {}
 
@@ -3834,12 +3810,7 @@ class Imagick implements Iterator, Countable
      * keys "width", "height", "x", and "y".
      * @throws ImagickException on error.
      */
-    #[ArrayShape([
-        "width" => "int",
-        "height" => "int",
-        "x" => "int",
-        "y" => "int"
-    ])]
+    #[ArrayShape(["width" => "int", "height" => "int", "x" => "int", "y" => "int"])]
     #[Pure]
     public function getImagePage() {}
 
@@ -3881,10 +3852,7 @@ class Imagick implements Iterator, Countable
      * Throw an <b>ImagickException</b> on error.
      * @throws ImagickException on error
      */
-    #[ArrayShape([
-        "x" => "float",
-        "y" => "float"
-    ])]
+    #[ArrayShape(["x" => "float", "y" => "float"])]
     #[Pure]
     public function getImageRedPrimary() {}
 
@@ -3905,10 +3873,7 @@ class Imagick implements Iterator, Countable
      * @return float[] the resolution as an array.
      * @throws ImagickException on error.
      */
-    #[ArrayShape([
-        "x" => "float",
-        "y" => "float"
-    ])]
+    #[ArrayShape(["x" => "float", "y" => "float"])]
     #[Pure]
     public function getImageResolution() {}
 
@@ -3991,10 +3956,7 @@ class Imagick implements Iterator, Countable
      * "x" and "y".
      * @throws ImagickException on error.
      */
-    #[ArrayShape([
-        "x" => "float",
-        "y" => "float"
-    ])]
+    #[ArrayShape(["x" => "float", "y" => "float"])]
     #[Pure]
     public function getImageWhitePoint() {}
 
@@ -4693,12 +4655,7 @@ class Imagick implements Iterator, Countable
      * @throws ImagickException on error
      */
     //width:int, height:int, x:int, y:int
-    #[ArrayShape([
-        "width" => "int",
-        "height" => "int",
-        "x" => "int",
-        "y" => "int"
-    ])]
+    #[ArrayShape(["width" => "int", "height" => "int", "x" => "int", "y" => "int"])]
     #[Pure]
     public function getPage() {}
 
@@ -4709,10 +4666,7 @@ class Imagick implements Iterator, Countable
      * @return array the Imagick quantum depth as a string.
      */
     // quantumDepthLong:int, quantumDepthString:string
-    #[ArrayShape([
-        "quantumDepthLong" => "int",
-        "quantumDepthString" => "string",
-    ])]
+    #[ArrayShape(["quantumDepthLong" => "int", "quantumDepthString" => "string"])]
     public static function getQuantumDepth() {}
 
     /**
@@ -4721,10 +4675,7 @@ class Imagick implements Iterator, Countable
      * @link https://php.net/manual/en/imagick.getquantumrange.php
      * @return array the Imagick quantum range as a string.
      */
-    #[ArrayShape([
-        "quantumDepthLong" => "int",
-        "quantumDepthString" => "string",
-    ])]
+    #[ArrayShape(["quantumDepthLong" => "int", "quantumDepthString" => "string"])]
     public static function getQuantumRange() {}
 
     /**
@@ -4775,10 +4726,7 @@ class Imagick implements Iterator, Countable
      * keys "columns" and "rows".
      * @throws ImagickException on error.
      */
-    #[ArrayShape([
-        "columns" => "int",
-        "rows" => "int"
-    ])]
+    #[ArrayShape(["columns" => "int", "rows" => "int"])]
     #[Pure]
     public function getSize() {}
 
@@ -4788,10 +4736,7 @@ class Imagick implements Iterator, Countable
      * @link https://php.net/manual/en/imagick.getversion.php
      * @return array the ImageMagick API version as a string and as a number.
      */
-    #[ArrayShape([
-        "versionNumber" => "int",
-        "versionString" => "string",
-    ])]
+    #[ArrayShape(["versionNumber" => "int", "versionString" => "string"])]
     public static function getVersion() {}
 
     /**
@@ -7070,11 +7015,7 @@ class ImagickPixel
      * "saturation", and "luminosity". Throws ImagickPixelException on failure.
      * @throws ImagickPixelException on failure
      */
-    #[ArrayShape([
-        "hue" => "float",
-        "saturation" => "float",
-        "luminosity" => "float"
-    ])]
+    #[ArrayShape(["hue" => "float", "saturation" => "float", "luminosity" => "float"])]
     #[Pure]
     public function getHSL() {}
 
@@ -7242,12 +7183,7 @@ class ImagickPixel
      * ImagickPixelException on error.
      * @throws ImagickPixelException on error.
      */
-    #[ArrayShape([
-        "r" => "int|float",
-        "g" => "int|float",
-        "b" => "int|float",
-        "a" => "int|float"
-    ])]
+    #[ArrayShape(["r" => "int|float", "g" => "int|float", "b" => "int|float", "a" => "int|float"])]
     #[Pure]
     public function getColor($normalized = 0) {}
 

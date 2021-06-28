@@ -12,12 +12,7 @@ use JetBrains\PhpStorm\Pure;
  * "message", "file" and "line". Returns null if there hasn't been an error
  * yet.
  */
-#[ArrayShape([
-    "type" => "int",
-    "message" => "string",
-    "file" => "string",
-    "line" => "int",
-])]
+#[ArrayShape(["type" => "int", "message" => "string", "file" => "string", "line" => "int"])]
 #[Pure]
 function error_get_last(): ?array {}
 

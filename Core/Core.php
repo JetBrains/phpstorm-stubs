@@ -1064,12 +1064,7 @@ function gc_disable(): void {}
  * </ul>
  * @since 7.3
  */
-#[ArrayShape([
-    "runs" => "int",
-    "collected" => "int",
-    "threshold" => "int",
-    "roots" => "int"
-])]
+#[ArrayShape(["runs" => "int", "collected" => "int", "threshold" => "int", "roots" => "int"])]
 #[Pure]
 function gc_status(): array {}
 
