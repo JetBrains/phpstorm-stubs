@@ -190,7 +190,9 @@ class BaseClassesTest extends BaseStubsTest
         static::assertArrayHasKey(
             $property->name,
             $stubClass->properties,
-            "Missing property $property->access $property->type $className::$$property->name"
+            "Missing property $property->access "
+            . implode('|', $property->typesFromSignature) .
+            "$className::$$property->name"
         );
     }
 
@@ -238,11 +240,14 @@ class BaseClassesTest extends BaseStubsTest
     {
         $className = $class->name;
         $stubProperty = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->properties[$property->name];
-        static::assertEquals(
-            $property->type,
-            $stubProperty->type,
-            "Property type doesn't match for property $className::$property->name"
-        );
+        $conditionToCompareWithSignature = BaseStubsTest::ifReflectionTypesExistInSignature($property->typesFromSignature, $stubProperty->typesFromSignature);
+        $conditionToCompareWithAttribute = BaseStubsTest::ifReflectionTypesExistInAttributes($property->typesFromSignature, $stubProperty->typesFromAttribute);
+        $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
+        static::assertTrue($testCondition,
+            "Reflection property $className::$property->name has type " .
+            implode('|', $property->typesFromSignature) . ' but stubs has type ' .
+            implode('|', $stubProperty->typesFromSignature) . ' in signature and attribute has types ' .
+            BaseStubsTest::getStringRepresentationOfTypeHintsFromAttributes($stubProperty->typesFromAttribute));
     }
 
     /**

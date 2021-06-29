@@ -3,7 +3,6 @@
 // Start of SPL v.0.2
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * Exception that represents error in the program logic. This kind of
