@@ -19,8 +19,10 @@ class PHPProperty extends BasePHPElement
     public $typesFromPhpDoc = [];
     public $access = '';
     public $is_static = false;
+    public $parentName = null;
 
-    public function __construct(?string $parentName = null) {
+    public function __construct(?string $parentName = null)
+    {
         $this->parentName = $parentName;
     }
 
@@ -40,7 +42,9 @@ class PHPProperty extends BasePHPElement
         }
         $this->access = $access;
         $this->is_static = $reflectionObject->isStatic();
-        $this->typesFromSignature = self::getReflectionTypeAsArray($reflectionObject->getType());;
+        if (doubleval(getenv('PHP_VERSION') >= 7.4)) {
+            $this->typesFromSignature = self::getReflectionTypeAsArray($reflectionObject->getType());
+        }
         return $this;
     }
 
@@ -69,7 +73,7 @@ class PHPProperty extends BasePHPElement
         }
 
         $parentNode = $node->getAttribute('parent');
-        if ($parentNode !== null){
+        if ($parentNode !== null) {
             $this->parentName = self::getFQN($parentNode);
         }
         return $this;

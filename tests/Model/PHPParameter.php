@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace StubTests\Model;
 
 use PhpParser\Node\Param;
-use ReflectionException;
 use ReflectionParameter;
 use stdClass;
 
@@ -16,7 +15,7 @@ class PHPParameter extends BasePHPElement
     /** @var string[] */
     public $typesFromAttribute = [];
     /** @var string[] */
-    public array $typesFromPhpDoc = [];
+    public $typesFromPhpDoc = [];
     public $is_vararg = false;
     public $is_passed_by_ref = false;
     public $isOptional = false;
@@ -25,7 +24,6 @@ class PHPParameter extends BasePHPElement
     /**
      * @param ReflectionParameter $reflectionObject
      * @return static
-     * @throws ReflectionException
      */
     public function readObjectFromReflection($reflectionObject)
     {

@@ -28,7 +28,9 @@ class StubsTestDataProviders
     public static function coreFunctionsProvider(): ?Generator
     {
         $allFunctions = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions();
-        $coreFunctions = array_filter($allFunctions, fn (PHPFunction $function): bool => $function->stubBelongsToCore === true);
+        $coreFunctions = array_filter($allFunctions, function (PHPFunction $function): bool {
+            return $function->stubBelongsToCore === true;
+        });
         foreach ($coreFunctions as $coreFunction) {
             yield "function $coreFunction->name" => [$coreFunction];
         }

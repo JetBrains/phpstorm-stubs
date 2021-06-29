@@ -54,7 +54,7 @@ trait PHPDocElement
     /**
      * @var Var_[]
      */
-    public array $varTags = [];
+    public $varTags = [];
 
     /**
      * @var string[]
