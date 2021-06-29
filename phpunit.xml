@@ -32,5 +32,15 @@
             <file>tests/StubsMetaInternalTagTest.php</file>
             <file>tests/StubsPhpDocTest.php</file>
         </testsuite>
+        <testsuite name="PHP_8.0">
+            <file>tests/BaseClassesTest.php</file>
+            <file>tests/BaseConstantsTest.php</file>
+            <file>tests/BaseFunctionsTest.php</file>
+            <file>tests/StubsMetaExpectedArgumentsTest.php</file>
+            <file>tests/StubsMetaInternalTagTest.php</file>
+            <file>tests/StubsParameterNamesTest.php</file>
+            <file>tests/StubsPhpDocTest.php</file>
+            <file>tests/StubsTypeHintsTest.php</file>
+        </testsuite>
     </testsuites>
 </phpunit>

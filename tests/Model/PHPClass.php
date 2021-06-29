@@ -100,7 +100,7 @@ class PHPClass extends BasePHPClass
                 $newProperty->access = 'public';
                 $newProperty->name = $propertyName;
                 $newProperty->parentName = $this->name;
-                $newProperty->typesFromSignature = self::convertParsedTypeToArray($property->getType());;
+                $newProperty->typesFromSignature = self::convertParsedTypeToArray($property->getType());
                 assert(
                     !array_key_exists($propertyName, $this->properties),
                     "Property '$propertyName' is already declared in class '$this->name'"

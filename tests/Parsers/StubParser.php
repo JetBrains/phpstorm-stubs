@@ -42,8 +42,7 @@ class StubParser
             $visitor,
             $coreStubVisitor,
             function (SplFileInfo $file): bool {
-                return $file->getFilename() !== '.phpstorm.meta.php'
-        ;
+                return $file->getFilename() !== '.phpstorm.meta.php';
             }
         );
 
