@@ -902,8 +902,8 @@ final class Fiber
      *
      * @return mixed Value from the first suspension point or NULL if the fiber returns.
      *
-     * @throw FiberError If the fiber has already been started.
-     * @throw Throwable If the fiber callable throws an uncaught exception.
+     * @throws FiberError If the fiber has already been started.
+     * @throws Throwable If the fiber callable throws an uncaught exception.
      */
     public function start(mixed ...$args) {}
 
@@ -915,8 +915,8 @@ final class Fiber
      *
      * @return mixed Value from the next suspension point or NULL if the fiber returns.
      *
-     * @throw FiberError If the fiber has not started, is running, or has terminated.
-     * @throw Throwable If the fiber callable throws an uncaught exception.
+     * @throws FiberError If the fiber has not started, is running, or has terminated.
+     * @throws Throwable If the fiber callable throws an uncaught exception.
      */
     public function resume(mixed $value = null) {}
 
@@ -928,8 +928,8 @@ final class Fiber
      *
      * @return mixed Value from the next suspension point or NULL if the fiber returns.
      *
-     * @throw FiberError If the fiber has not started, is running, or has terminated.
-     * @throw Throwable If the fiber callable throws an uncaught exception.
+     * @throws FiberError If the fiber has not started, is running, or has terminated.
+     * @throws Throwable If the fiber callable throws an uncaught exception.
      */
     public function throw(Throwable $exception) {}
 
