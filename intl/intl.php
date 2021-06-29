@@ -1533,7 +1533,7 @@ class MessageFormatter
      * umsg_autoQuoteApostrophe
      * before being interpreted.
      * </p>
-     * @throws \IntlException on failure.
+     * @throws IntlException on failure.
      */
     #[Pure]
     public function __construct($locale, $pattern) {}
