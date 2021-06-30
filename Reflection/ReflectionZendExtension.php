@@ -25,7 +25,7 @@ class ReflectionZendExtension implements Reflector
      * @throws \ReflectionException if the extension does not exist.
      * @since 5.4
      */
-    public function __construct($name) {}
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
     /**
      * Exports a reflected zend extension.
