@@ -416,7 +416,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function writeDtd(
-        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => '?string'], default: '')] $publicId = null,
         #[LanguageLevelTypeAware(['8.0' => '?string'], default: '')] $systemId = null,
         #[LanguageLevelTypeAware(['8.0' => '?string'], default: '')] $content = null
@@ -453,7 +453,10 @@ class XMLWriter
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function writeDtdElement($name, $content) {}
+    public function writeDtdElement(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $content
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -464,7 +467,7 @@ class XMLWriter
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function startDtdAttlist($name) {}
+    public function startDtdAttlist(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
     /**
      * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
