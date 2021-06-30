@@ -258,7 +258,7 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.clone.php
      * @return void
      */
-    private function __clone() {}
+    final private function __clone() {}
 
     /**
      * @return bool
