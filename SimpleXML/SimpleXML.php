@@ -1,6 +1,7 @@
 <?php
 
 // Start of SimpleXML v.0.1
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -22,7 +23,13 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @since 5.0.1
      */
     #[Pure]
-    public function __construct($data, $options = 0, $dataIsURL = false, $namespaceOrPrefix = "", $isPrefix = false) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $data,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $options = 0,
+        #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $dataIsURL = false,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $namespaceOrPrefix = "",
+        #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $isPrefix = false
+    ) {}
 
     /**
      * Provides access to element's children
@@ -45,7 +52,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * successfully and <b>FALSE</b> otherwise.
      * @since 5.0.1
      */
-    public function asXML($filename = null) {}
+    public function asXML(#[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $filename = null) {}
 
     /**
      * Alias of <b>SimpleXMLElement::asXML</b>
@@ -60,7 +67,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * parameter is specified, it returns true if the file was written
      * successfully and false otherwise.
      */
-    public function saveXML($filename = null) {}
+    public function saveXML(#[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $filename = null) {}
 
     /**
      * Runs XPath query on XML data
@@ -71,7 +78,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @return static[]|false an array of SimpleXMLElement objects or <b>FALSE</b> in
      * case of an error.
      */
-    public function xpath($expression) {}
+    public function xpath(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $expression) {}
 
     /**
      * Creates a prefix/ns context for the next XPath query
@@ -87,7 +94,10 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function registerXPathNamespace($prefix, $namespace) {}
+    public function registerXPathNamespace(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $prefix,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $namespace
+    ) {}
 
     /**
      * Identifies an element's attributes
@@ -106,7 +116,10 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * object that already represents an attribute and not a tag.
      * @since 5.0.1
      */
-    public function attributes($namespaceOrPrefix = null, $isPrefix = false) {}
+    public function attributes(
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $namespaceOrPrefix = null,
+        #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $isPrefix = false
+    ) {}
 
     /**
      * Finds children of given node
@@ -125,7 +138,10 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @since 5.0.1
      */
     #[Pure]
-    public function children($namespaceOrPrefix = null, $isPrefix = false) {}
+    public function children(
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $namespaceOrPrefix = null,
+        #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $isPrefix = false
+    ) {}
 
     /**
      * Returns namespaces used in document
@@ -139,7 +155,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @since 5.1.2
      */
     #[Pure]
-    public function getNamespaces($recursive = false) {}
+    public function getNamespaces(#[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $recursive = false) {}
 
     /**
      * Returns namespaces declared in document
@@ -157,7 +173,10 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @since 5.1.2
      */
     #[Pure]
-    public function getDocNamespaces($recursive = false, $fromRoot = true) {}
+    public function getDocNamespaces(
+        #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $recursive = false,
+        #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $fromRoot = true
+    ) {}
 
     /**
      * Gets the name of the XML element
@@ -185,7 +204,11 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * object representing the child added to the XML node.
      * @since 5.1.3
      */
-    public function addChild($qualifiedName, $value = null, $namespace = null) {}
+    public function addChild(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $qualifiedName,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $value = null,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $namespace = null
+    ) {}
 
     /**
      * Adds an attribute to the SimpleXML element
@@ -202,7 +225,11 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @return void No value is returned.
      * @since 5.1.3
      */
-    public function addAttribute($qualifiedName, $value = null, $namespace = null) {}
+    public function addAttribute(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $qualifiedName,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $value = null,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $namespace = null
+    ) {}
 
     /**
      * (No version information available, might only be in SVN)<br/>
