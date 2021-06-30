@@ -993,6 +993,38 @@
   ],
   "classes": [
     {
+      "name": "Exception",
+      "methods": [
+        {
+          "name": "__clone",
+          "problems": [
+            {
+              "description":"has wrong final modifier",
+              "versions": [
+                8.1
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Error",
+      "methods": [
+        {
+          "name": "__clone",
+          "problems": [
+            {
+              "description":"has wrong final modifier",
+              "versions": [
+                8.1
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Yaf_Application",
       "methods": [
         {
@@ -1056,6 +1088,17 @@
               ]
             }
           ]
+        },
+        {
+          "name": "__clone",
+          "problems": [
+            {
+              "description": "has wrong final modifier",
+              "versions": [
+                8.1
+              ]
+            }
+          ]
         }
       ]
     },
@@ -1098,6 +1141,17 @@
               ]
             }
           ]
+        },
+        {
+          "name": "__clone",
+          "problems": [
+            {
+              "description": "has wrong final modifier",
+              "versions": [
+                8.1
+              ]
+            }
+          ]
         }
       ]
     },
@@ -1127,6 +1181,33 @@
               "description": "wrong parameter type in docs",
               "versions": [
                 "ALL"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "__clone",
+          "problems": [
+            {
+              "description": "has wrong final modifier",
+              "versions": [
+                8.1
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReflectionZendExtension",
+      "methods": [
+        {
+          "name": "__clone",
+          "problems": [
+            {
+              "description": "has wrong final modifier",
+              "versions": [
+                8.1
               ]
             }
           ]
@@ -2460,6 +2541,17 @@
               ]
             }
           ]
+        },
+        {
+          "name": "__clone",
+          "problems": [
+            {
+              "description": "has wrong final modifier",
+              "versions": [
+                8.1
+              ]
+            }
+          ]
         }
       ]
     },
@@ -2476,6 +2568,33 @@
               ]
             }
           ]
+        },
+        {
+          "name": "__clone",
+          "problems": [
+            {
+              "description": "has wrong final modifier",
+              "versions": [
+                8.1
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReflectionType",
+      "methods": [
+        {
+          "name": "__clone",
+          "problems": [
+            {
+              "description": "has wrong final modifier",
+              "versions": [
+                8.1
+              ]
+            }
+          ]
         }
       ]
     },
@@ -2489,6 +2608,17 @@
               "description": "parameter mismatch",
               "versions": [
                 "ALL"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "__clone",
+          "problems": [
+            {
+              "description": "has wrong final modifier",
+              "versions": [
+                8.1
               ]
             }
           ]

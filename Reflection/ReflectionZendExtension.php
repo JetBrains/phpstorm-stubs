@@ -106,5 +106,5 @@ class ReflectionZendExtension implements Reflector
      * @return void
      * @since 5.4
      */
-    private function __clone() {}
+    final private function __clone() {}
 }

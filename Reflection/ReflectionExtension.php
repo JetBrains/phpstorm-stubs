@@ -166,5 +166,5 @@ class ReflectionExtension implements Reflector
      * @link https://php.net/manual/en/reflectionextension.clone.php
      * @return void No value is returned, if called a fatal error will occur.
      */
-    private function __clone() {}
+    final private function __clone() {}
 }

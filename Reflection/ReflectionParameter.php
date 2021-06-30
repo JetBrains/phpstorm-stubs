@@ -272,5 +272,5 @@ class ReflectionParameter implements Reflector
      * @link https://php.net/manual/en/reflectionparameter.clone.php
      * @return void
      */
-    private function __clone() {}
+    final private function __clone() {}
 }

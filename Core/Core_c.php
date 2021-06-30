@@ -270,7 +270,7 @@ class Exception implements Throwable
      * @link https://php.net/manual/en/exception.clone.php
      * @return void
      */
-    private function __clone() {}
+    final private function __clone() {}
 
     /**
      * Construct the exception. Note: The message is NOT binary safe.
@@ -458,7 +458,7 @@ class Error implements Throwable
      * @return void
      * @link https://php.net/manual/en/error.clone.php
      */
-    private function __clone() {}
+    final private function __clone() {}
 
     public function __wakeup() {}
 }
