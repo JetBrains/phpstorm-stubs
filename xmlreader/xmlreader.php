@@ -279,7 +279,7 @@ class XMLReader
      */
     public static function open(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $uri,
-        #[LanguageLevelTypeAware(['8.0' => '?string'], default: '')] $encoding = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $encoding = null,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ) {}
 
@@ -300,7 +300,7 @@ class XMLReader
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * @since 5.1.2
      */
-    public function next(#[LanguageLevelTypeAware(['8.0' => '?string'], default: '')] $name = null) {}
+    public function next(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $name = null) {}
 
     /**
      * Retrieve XML from current node
@@ -332,7 +332,7 @@ class XMLReader
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setSchema(#[LanguageLevelTypeAware(['8.0' => '?string'], default: '')] $filename) {}
+    public function setSchema(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $filename) {}
 
     /**
      * Set parser options
@@ -360,7 +360,7 @@ class XMLReader
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setRelaxNGSchema(#[LanguageLevelTypeAware(['8.0' => '?string'], default: '')] $filename) {}
+    public function setRelaxNGSchema(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $filename) {}
 
     /**
      * Set the data containing a RelaxNG Schema
@@ -371,7 +371,7 @@ class XMLReader
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * @since 5.1.2
      */
-    public function setRelaxNGSchemaSource(#[LanguageLevelTypeAware(['8.0' => '?string'], default: '')] $source) {}
+    public function setRelaxNGSchemaSource(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $source) {}
 
     /**
      * Set the data containing the XML to parse
@@ -392,7 +392,7 @@ class XMLReader
      */
     public static function XML(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $source,
-        #[LanguageLevelTypeAware(['8.0' => '?string'], default: '')] $encoding = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $encoding = null,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ) {}
 
@@ -403,6 +403,6 @@ class XMLReader
      * @return DOMNode|false The resulting <b>DOMNode</b> or <b>FALSE</b> on error.
      * @since 5.1.2
      */
-    public function expand(#[LanguageLevelTypeAware(['8.0' => '?DOMNode'], default: '')] $baseNode = null) {}
+    public function expand(#[LanguageLevelTypeAware(['8.0' => 'DOMNode|null'], default: '')] $baseNode = null) {}
 }
 // End of xmlreader v.0.2
