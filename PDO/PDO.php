@@ -15,7 +15,7 @@ use JetBrains\PhpStorm\Pure;
  */
 class PDOException extends RuntimeException
 {
-    #[LanguageLevelTypeAware(['8.1' => '?array'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'array|null'], default: '')]
     public $errorInfo;
 }
 

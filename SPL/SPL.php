@@ -1075,7 +1075,7 @@ class RegexIterator extends FilterIterator
 
     public const INVERT_MATCH = 2;
 
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $replacement;
 
     /**

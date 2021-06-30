@@ -808,7 +808,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     final public static function webPhar(
         ?string $alias = null,
         ?string $index = "index.php",
-        #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $fileNotFoundScript = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $fileNotFoundScript = null,
         array $mimeTypes = null,
         ?callable $rewrite = null
     ) {}
