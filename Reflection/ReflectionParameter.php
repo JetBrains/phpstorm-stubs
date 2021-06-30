@@ -29,7 +29,7 @@ class ReflectionParameter implements Reflector
      * of the parameter (starting with zero), or a the parameter name as string.
      * @throws \ReflectionException if the function or parameter does not exist.
      */
-    public function __construct(callable $function, $param) {}
+    public function __construct(callable $function, #[LanguageLevelTypeAware(['8.0' => 'string|int'], default: '')] $param) {}
 
     /**
      * Exports

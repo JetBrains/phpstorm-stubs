@@ -57,7 +57,7 @@ class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-    public function getTrace($options = DEBUG_BACKTRACE_PROVIDE_OBJECT) {}
+    public function getTrace(int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT) {}
 
     /**
      * Gets the function name of the generator

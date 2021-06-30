@@ -73,7 +73,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * classname or an object.
      * @throws \ReflectionException if the class or method does not exist.
      */
-    public function __construct($objectOrMethod, $method = null) {}
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'object|string'], default: '')] $objectOrMethod, $method = null) {}
 
     /**
      * Export a reflection method.
@@ -180,7 +180,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @since 5.4
      */
     #[Pure]
-    public function getClosure($object = null) {}
+    public function getClosure(#[LanguageLevelTypeAware(['8.0' => 'object|null'], default: '')] $object = null) {}
 
     /**
      * Gets the method modifiers
@@ -230,7 +230,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * instance of the class that this method was declared in or the method
      * invocation failed.
      */
-    public function invokeArgs($object, array $args) {}
+    public function invokeArgs(#[LanguageLevelTypeAware(['8.0' => 'object|null'], default: '')] $object, array $args) {}
 
     /**
      * Gets declaring class for the reflected method.
@@ -260,5 +260,5 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return void No value is returned.
      * @since 5.3.2
      */
-    public function setAccessible($accessible) {}
+    public function setAccessible(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $accessible) {}
 }
