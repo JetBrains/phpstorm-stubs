@@ -26,7 +26,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
      * @return void
      */
-    private function __clone() {}
+    final private function __clone() {}
 
     /**
      * Checks if function in namespace

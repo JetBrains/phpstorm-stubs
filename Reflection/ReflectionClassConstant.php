@@ -178,7 +178,7 @@ class ReflectionClassConstant implements Reflector
      *
      * @return void
      */
-    private function __clone() {}
+    final private function __clone() {}
 
     #[PhpStormStubsElementAvailable('8.1')]
     public function isEnumCase() {}
