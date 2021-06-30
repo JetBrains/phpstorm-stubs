@@ -65,7 +65,12 @@ class php_user_filter
      * </td>
      * </tr>
      */
-    public function filter($in, $out, &$consumed, $closing) {}
+    public function filter(
+        $in,
+        $out,
+        &$consumed,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $closing
+    ) {}
 
     /**
      * @link https://php.net/manual/en/php-user-filter.oncreate.php

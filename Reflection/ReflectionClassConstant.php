@@ -57,7 +57,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      * @link https://php.net/manual/en/reflectionclassconstant.construct.php
      */
-    public function __construct($class, string $constant) {}
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string|object'], default: '')] $class, string $constant) {}
 
     /**
      * @link https://php.net/manual/en/reflectionclassconstant.export.php

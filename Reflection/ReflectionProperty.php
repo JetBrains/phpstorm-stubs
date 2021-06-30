@@ -63,7 +63,10 @@ class ReflectionProperty implements Reflector
      * @param string $property The name of the property being reflected.
      * @throws \ReflectionException if the class or property does not exist.
      */
-    public function __construct($class, $property) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'object|string'] ,default: '')] $class,
+        #[LanguageLevelTypeAware(['8.0' => 'string'] ,default: '')] $property
+    ) {}
 
     /**
      * Export
@@ -108,7 +111,7 @@ class ReflectionProperty implements Reflector
      * @return mixed The current value of the property.
      */
     #[Pure]
-    public function getValue($object = null) {}
+    public function getValue(#[LanguageLevelTypeAware(['8.0' => 'object|null'], default: '')] $object = null) {}
 
     /**
      * Set property value
@@ -120,7 +123,10 @@ class ReflectionProperty implements Reflector
      * @param mixed $value The new value.
      * @return void No value is returned.
      */
-    public function setValue($objectOrValue, $value = null) {}
+    public function setValue(
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $objectOrValue,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value = null
+    ) {}
 
     /**
      * Checks if property is public
@@ -202,7 +208,7 @@ class ReflectionProperty implements Reflector
      * @param bool $accessible A boolean {@see true} to allow accessibility, or {@see false}
      * @return void No value is returned.
      */
-    public function setAccessible($accessible) {}
+    public function setAccessible(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $accessible) {}
 
     /**
      * Gets property type
