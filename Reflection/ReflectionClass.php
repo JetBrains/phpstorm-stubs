@@ -602,7 +602,7 @@ class ReflectionClass implements Reflector
      * @link https://php.net/manual/en/reflectionclass.clone.php
      * @return void
      */
-    private function __clone() {}
+    final private function __clone() {}
 
     #[PhpStormStubsElementAvailable('8.1')]
     public function isEnum() {}
