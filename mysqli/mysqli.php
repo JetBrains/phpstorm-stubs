@@ -95,7 +95,7 @@ class mysqli
     /**
      * @var string
      */
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $connect_error;
     /**
      * @var int
@@ -120,7 +120,7 @@ class mysqli
     /**
      * @var string
      */
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $info;
     /**
      * @var int|string
@@ -848,7 +848,7 @@ class mysqli_result implements IteratorAggregate
     /**
      * @var array
      */
-    #[LanguageLevelTypeAware(['8.1' => '?array'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'array|null'], default: '')]
     public $lengths;
     /**
      * @var int
@@ -2450,11 +2450,11 @@ function mysqli_stat(mysqli $mysql): string|false {}
  */
 function mysqli_ssl_set(
     mysqli $mysql,
-    #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $key,
-    #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $certificate,
-    #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $ca_certificate,
-    #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $ca_path,
-    #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $cipher_algos
+    #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $key,
+    #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $certificate,
+    #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $ca_certificate,
+    #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $ca_path,
+    #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $cipher_algos
 ): bool {}
 
 /**

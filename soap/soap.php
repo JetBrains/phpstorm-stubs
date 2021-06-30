@@ -410,7 +410,7 @@ class SoapClient
      * @return void No value is returned.
      * @since 5.0.4
      */
-    public function __setCookie($name, #[LanguageLevelTypeAware(["8.0" => "?string"], default: "string")] $value) {}
+    public function __setCookie($name, #[LanguageLevelTypeAware(["8.0" => "string|null"], default: "string")] $value) {}
 
     /**
      * Sets the location of the Web service to use
@@ -466,7 +466,7 @@ class SoapVar
      * </p>
      * @since 5.0.1
      */
-    public function __construct($data, #[LanguageLevelTypeAware(["7.1" => "?int"], default: "int")] $encoding, #[LanguageLevelTypeAware(["8.0" => "?string"], default: "string")] $typeName, $typeNamespace = '', $nodeName = '', $nodeNamespace = '') {}
+    public function __construct($data, #[LanguageLevelTypeAware(["7.1" => "int|null"], default: "int")] $encoding, #[LanguageLevelTypeAware(["8.0" => "string|null"], default: "string")] $typeName, $typeNamespace = '', $nodeName = '', $nodeNamespace = '') {}
 
     /**
      * SoapVar constructor

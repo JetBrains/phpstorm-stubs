@@ -3611,7 +3611,7 @@ function collator_get_sort_key(Collator $object, string $string): string|false {
  * @return NumberFormatter|false|null <b>NumberFormatter</b> object or <b>FALSE</b> on error.
  */
 #[Pure]
-function numfmt_create(string $locale, int $style, #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $pattern = null): ?NumberFormatter {}
+function numfmt_create(string $locale, int $style, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $pattern = null): ?NumberFormatter {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4299,7 +4299,7 @@ function datefmt_create(
     int $timeType,
     $timezone = null,
     IntlCalendar|int|null $calendar = null,
-    #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $pattern = null
+    #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $pattern = null
 ): ?IntlDateFormatter {}
 
 /**
