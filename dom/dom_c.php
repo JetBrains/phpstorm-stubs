@@ -23,7 +23,7 @@ class DOMNode
      * The value of this node, depending on its type
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.nodevalue
      */
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $nodeValue;
 
     /**
@@ -40,7 +40,7 @@ class DOMNode
      * The parent of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.parentnode
      */
-    #[LanguageLevelTypeAware(['8.1' => '?DOMNode'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMNode|null'], default: '')]
     public $parentNode;
 
     /**
@@ -56,7 +56,7 @@ class DOMNode
      * The first child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.firstchild
      */
-    #[LanguageLevelTypeAware(['8.1' => '?DOMNode'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMNode|null'], default: '')]
     public $firstChild;
 
     /**
@@ -64,7 +64,7 @@ class DOMNode
      * The last child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.lastchild
      */
-    #[LanguageLevelTypeAware(['8.1' => '?DOMNode'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMNode|null'], default: '')]
     public $lastChild;
 
     /**
@@ -72,7 +72,7 @@ class DOMNode
      * The node immediately preceding this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
      */
-    #[LanguageLevelTypeAware(['8.1' => '?DOMNode'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMNode|null'], default: '')]
     public $previousSibling;
 
     /**
@@ -80,7 +80,7 @@ class DOMNode
      * The node immediately following this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
      */
-    #[LanguageLevelTypeAware(['8.1' => '?DOMNode'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMNode|null'], default: '')]
     public $nextSibling;
 
     /**
@@ -88,7 +88,7 @@ class DOMNode
      * A <classname>DOMNamedNodeMap</classname> containing the attributes of this node (if it is a <classname>DOMElement</classname>) or NULL otherwise.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.attributes
      */
-    #[LanguageLevelTypeAware(['8.1' => '?DOMNamedNodeMap'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMNamedNodeMap|null'], default: '')]
     public $attributes;
 
     /**
@@ -96,7 +96,7 @@ class DOMNode
      * The <classname>DOMDocument</classname> object associated with this node, or NULL if this node is a <classname>DOMDocument</classname>.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
      */
-    #[LanguageLevelTypeAware(['8.1' => '?DOMDocument'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMDocument|null'], default: '')]
     public $ownerDocument;
 
     /**
@@ -104,7 +104,7 @@ class DOMNode
      * The namespace URI of this node, or NULL if it is unspecified.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
      */
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $namespaceURI;
 
     /**
@@ -120,7 +120,7 @@ class DOMNode
      * Returns the local part of the qualified name of this node.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.localname
      */
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $localName;
 
     /**
@@ -128,7 +128,7 @@ class DOMNode
      * The absolute base URI of this node or NULL if the implementation wasn't able to obtain an absolute URI.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.baseuri
      */
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $baseURI;
 
     /**
@@ -491,19 +491,19 @@ class DOMImplementation
 
 class DOMNameSpaceNode
 {
-    #[LanguageLevelTypeAware(['8.1' => '?DOMNode'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMNode|null'], default: '')]
     public $parentNode;
-    #[LanguageLevelTypeAware(['8.1' => '?DOMDocument'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMDocument|null'], default: '')]
     public $ownerDocument;
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $namespaceURI;
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $localName;
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $prefix;
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $nodeType;
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $nodeValue;
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $nodeName;
@@ -518,10 +518,10 @@ class DOMDocumentFragment extends DOMNode implements DOMParentNode
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $childElementCount;
 
-    #[LanguageLevelTypeAware(['8.1' => '?DOMElement'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMElement|null'], default: '')]
     public $lastElementChild;
 
-    #[LanguageLevelTypeAware(['8.1' => '?DOMElement'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMElement|null'], default: '')]
     public $firstElementChild;
 
     public function __construct() {}
@@ -559,7 +559,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.actualencoding
      */
     #[Deprecated("Actual encoding of the document, is a readonly equivalent to encoding.")]
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $actualEncoding;
 
     /**
@@ -576,7 +576,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * The Document Type Declaration associated with this document.
      * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.doctype
      */
-    #[LanguageLevelTypeAware(['8.1' => '?DOMDocumentType'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMDocumentType|null'], default: '')]
     public $doctype;
 
     /**
@@ -585,7 +585,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * that is the document element of the document.
      * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.documentelement
      */
-    #[LanguageLevelTypeAware(['8.1' => '?DOMElement'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMElement|null'], default: '')]
     public $documentElement;
 
     /**
@@ -593,7 +593,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * The location of the document or NULL if undefined.
      * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.documenturi
      */
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $documentURI;
 
     /**
@@ -603,7 +603,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * encoding in this implementation.
      * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.encoding
      */
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $encoding;
 
     /**
@@ -686,7 +686,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.version
      */
     #[Deprecated('Version of XML, corresponds to xmlVersion')]
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $version;
 
     /**
@@ -695,7 +695,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * unspecified or when it is not known, such as when the Document was created in memory.
      * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.xmlencoding
      */
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $xmlEncoding;
 
     /**
@@ -713,16 +713,16 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * declaration and if this document supports the "XML" feature, the value is "1.0".
      * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.xmlversion
      */
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $xmlVersion;
 
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $childElementCount;
 
-    #[LanguageLevelTypeAware(['8.1' => '?DOMElement'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMElement|null'], default: '')]
     public $lastElementChild;
 
-    #[LanguageLevelTypeAware(['8.1' => '?DOMElement'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMElement|null'], default: '')]
     public $firstElementChild;
 
     /**
@@ -1267,10 +1267,10 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $length;
 
-    #[LanguageLevelTypeAware(['8.1' => '?DOMElement'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMElement|null'], default: '')]
     public $nextElementSibling;
 
-    #[LanguageLevelTypeAware(['8.1' => '?DOMElement'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMElement|null'], default: '')]
     public $previousElementSibling;
 
     /**
@@ -1386,7 +1386,7 @@ class DOMAttr extends DOMNode
      * The element which contains the attribute
      * @link https://php.net/manual/en/class.domattr.php#domattr.props.ownerelement
      */
-    #[LanguageLevelTypeAware(['8.1' => '?DOMElement'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMElement|null'], default: '')]
     public $ownerElement;
 
     /**
@@ -1489,19 +1489,19 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $tagName;
 
-    #[LanguageLevelTypeAware(['8.1' => '?DOMElement'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMElement|null'], default: '')]
     public $firstElementChild;
 
-    #[LanguageLevelTypeAware(['8.1' => '?DOMElement'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMElement|null'], default: '')]
     public $lastElementChild;
 
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $childElementCount;
 
-    #[LanguageLevelTypeAware(['8.1' => '?DOMElement'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMElement|null'], default: '')]
     public $previousElementSibling;
 
-    #[LanguageLevelTypeAware(['8.1' => '?DOMElement'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMElement|null'], default: '')]
     public $nextElementSibling;
 
     /**
@@ -1953,7 +1953,7 @@ class DOMDocumentType extends DOMNode
      * The internal subset as a string, or null if there is none. This is does not contain the delimiting square brackets.
      * @link https://php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props.internalsubset
      */
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $internalSubset;
 }
 
@@ -1991,7 +1991,7 @@ class DOMEntity extends DOMNode
      * The public identifier associated with the entity if specified, and NULL otherwise.
      * @link https://php.net/manual/en/class.domentity.php#domentity.props.publicid
      */
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $publicId;
 
     /**
@@ -2000,7 +2000,7 @@ class DOMEntity extends DOMNode
      * absolute URI or not.
      * @link https://php.net/manual/en/class.domentity.php#domentity.props.systemid
      */
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $systemId;
 
     /**
@@ -2008,7 +2008,7 @@ class DOMEntity extends DOMNode
      * For unparsed entities, the name of the notation for the entity. For parsed entities, this is NULL.
      * @link https://php.net/manual/en/class.domentity.php#domentity.props.notationname
      */
-    #[LanguageLevelTypeAware(['8.1' => '?string'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $notationName;
 
     /**

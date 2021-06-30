@@ -502,13 +502,25 @@ class StubsTest extends BaseStubsTest
         $className = $class->name;
         $stubProperty = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->properties[$property->name];
         $propertyName = $stubProperty->name;
-        $conditionToCompareWithSignature = self::ifReflectionTypesExistInSignature($property->typesFromSignature, $stubProperty->typesFromSignature);
-        $conditionToCompareWithAttribute = self::ifReflectionTypesExistInAttributes($property->typesFromSignature, $stubProperty->typesFromAttribute);
+        $unifiedStubsPropertyTypes = [];
+        $unifiedStubsAttributesPropertyTypes = [];
+        $unifiedReflectionPropertyTypes = [];
+        self::convertNullableTypesToUnion($property->typesFromSignature, $unifiedReflectionPropertyTypes);
+        if (!empty($stubProperty->typesFromSignature)) {
+            self::convertNullableTypesToUnion($stubProperty->typesFromSignature, $unifiedStubsPropertyTypes);
+        } else {
+            foreach ($stubProperty->typesFromAttribute as $languageVersion => $listOfTypes) {
+                $unifiedStubsAttributesPropertyTypes[$languageVersion] = [];
+                self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesPropertyTypes[$languageVersion]);
+            }
+        }
+        $conditionToCompareWithSignature = self::ifReflectionTypesExistInSignature($unifiedReflectionPropertyTypes, $unifiedStubsPropertyTypes);
+        $conditionToCompareWithAttribute = self::ifReflectionTypesExistInAttributes($unifiedReflectionPropertyTypes, $unifiedStubsAttributesPropertyTypes);
         $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
         self::assertTrue($testCondition, "Property $className::$propertyName has invalid typehint.
-        Reflection property has type " . implode('|', $property->typesFromSignature) . ' but stubs has type ' .
-            implode('|', $stubProperty->typesFromSignature) . ' in signature and attribute has types ' .
-            self::getStringRepresentationOfTypeHintsFromAttributes($stubProperty->typesFromAttribute));
+        Reflection property has type " . implode('|', $unifiedReflectionPropertyTypes) . ' but stubs has type ' .
+            implode('|', $unifiedStubsPropertyTypes) . ' in signature and attribute has types ' .
+            self::getStringRepresentationOfTypeHintsFromAttributes($unifiedStubsAttributesPropertyTypes));
     }
 
     /**

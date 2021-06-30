@@ -37,4 +37,15 @@ abstract class BaseStubsTest extends TestCase
         }
         return $resultString;
     }
+
+    public static function convertNullableTypesToUnion($typesToProcess, array &$resultArray)
+    {
+        array_walk($typesToProcess, function (string $type) use (&$resultArray) {
+            if (str_contains($type, '?')) {
+                array_push($resultArray, 'null', ltrim($type, '?'));
+            } else {
+                array_push($resultArray, $type);
+            }
+        });
+    }
 }
