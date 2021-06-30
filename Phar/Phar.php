@@ -52,7 +52,11 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @throws BadMethodCallException If called twice.
      * @throws UnexpectedValueException If the phar archive can't be opened.
      */
-    public function __construct($filename, $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO, $alias = null) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO,
+        #[LanguageLevelTypeAware(['8.0' => '?string'], default: '')] $alias = null
+    ) {}
 
     public function __destruct() {}
 
@@ -65,7 +69,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return void no return value, exception is thrown on failure.
      */
-    public function addEmptyDir($directory) {}
+    public function addEmptyDir(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $directory) {}
 
     /**
      * (Unknown)<br/>
@@ -80,7 +84,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return void no return value, exception is thrown on failure.
      */
-    public function addFile($filename, $localName = null) {}
+    public function addFile(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
+        #[LanguageLevelTypeAware(['8.0' => '?string'], default: '')] $localName = null
+    ) {}
 
     /**
      * (Unknown)<br/>
@@ -94,7 +101,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return void no return value, exception is thrown on failure.
      */
-    public function addFromString($localName, $contents) {}
+    public function addFromString(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $contents
+    ) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -113,13 +123,16 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * mapping internal path of file to the full path of the file on the
      * filesystem.
      */
-    public function buildFromDirectory($directory, $pattern = null) {}
+    public function buildFromDirectory(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $directory,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pattern = null
+    ) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Construct a phar archive from an iterator.
      * @link https://php.net/manual/en/phar.buildfromiterator.php
-     * @param Iterator $iterator <p>
+     * @param Traversable $iterator <p>
      * Any iterator that either associatively maps phar file to location or
      * returns SplFileInfo objects
      * </p>
@@ -131,7 +144,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * mapping internal path of file to the full path of the file on the
      * filesystem.
      */
-    public function buildFromIterator(Iterator $iterator, $baseDirectory = null) {}
+    public function buildFromIterator(
+        Traversable $iterator,
+        #[LanguageLevelTypeAware(['8.0' => '?string'], default: '')] $baseDirectory = null
+    ) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -144,7 +160,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return void No value is returned.
      */
-    public function compressFiles($compression) {}
+    public function compressFiles(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $compression) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -172,7 +188,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return static a <b>Phar</b> object.
      */
-    public function compress($compression, $extension = null) {}
+    public function compress(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $compression,
+        #[LanguageLevelTypeAware(['8.0' => '?string'], default: '')] $extension = null
+    ) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -187,7 +206,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return static A <b>Phar</b> object is returned.
      */
-    public function decompress($extension = null) {}
+    public function decompress(#[LanguageLevelTypeAware(['8.0' => '?string'], default: '')] $extension = null) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -220,7 +239,11 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return Phar The method returns a <b>Phar</b> object on success and throws an
      * exception on failure.
      */
-    public function convertToExecutable($format = 9021976, $compression = 9021976, $extension = null) {}
+    public function convertToExecutable(
+        #[LanguageLevelTypeAware(['8.0' => '?int'], default: '')] $format = 9021976,
+        #[LanguageLevelTypeAware(['8.0' => '?int'], default: '')] $compression = 9021976,
+        #[LanguageLevelTypeAware(['8.0' => '?string'], default: '')] $extension = null
+    ) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -251,7 +274,11 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return PharData The method returns a <b>PharData</b> object on success and throws an
      * exception on failure.
      */
-    public function convertToData($format = 9021976, $compression = 9021976, $extension = null) {}
+    public function convertToData(
+        #[LanguageLevelTypeAware(['8.0' => '?int'], default: '')] $format = 9021976,
+        #[LanguageLevelTypeAware(['8.0' => '?int'], default: '')] $compression = 9021976,
+        #[LanguageLevelTypeAware(['8.0' => '?string'], default: '')] $extension = null
+    ) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -262,7 +289,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return bool returns <b>TRUE</b> on success, but it is safer to encase method call in a
      * try/catch block and assume success if no exception is thrown.
      */
-    public function copy($to, $from) {}
+    public function copy(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $to,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $from
+    ) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
@@ -272,7 +302,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return int The number of files contained within this phar, or 0 (the number zero)
      * if none.
      */
-    public function count(#[PhpStormStubsElementAvailable(from: '8.0')] $mode = COUNT_NORMAL) {}
+    public function count(#[PhpStormStubsElementAvailable(from: '8.0')] int $mode = COUNT_NORMAL) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -284,7 +314,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return bool returns <b>TRUE</b> on success, but it is better to check for thrown exception,
      * and assume success if none is thrown.
      */
-    public function delete($localName) {}
+    public function delete(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
@@ -311,7 +341,11 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return bool returns <b>TRUE</b> on success, but it is better to check for thrown exception,
      * and assume success if none is thrown.
      */
-    public function extractTo($directory, $files = null, $overwrite = false) {}
+    public function extractTo(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $directory,
+        #[LanguageLevelTypeAware(['8.0' => 'array|string|null'], default: '')] $files = null,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $overwrite = false
+    ) {}
 
         /**
          * @see setAlias
@@ -409,7 +443,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return bool <b>TRUE</b> if the phar archive matches the file format requested by the parameter
      */
-    public function isFileFormat($format) {}
+    public function isFileFormat(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $format) {}
 
     /**
      * (Unknown)<br/>
@@ -477,7 +511,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return bool
      */
-    public function setAlias($alias) {}
+    public function setAlias(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $alias) {}
 
     /**
      * (Unknown)<br/>
@@ -491,7 +525,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setDefaultStub($index = null, $webIndex = null) {}
+    public function setDefaultStub(
+        #[LanguageLevelTypeAware(['8.0' => '?int'], default: '')] $index = null,
+        #[LanguageLevelTypeAware(['8.0' => '?int'], default: '')] $webIndex = null
+    ) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
@@ -502,7 +539,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return void No value is returned.
      */
-    public function setMetadata($metadata) {}
+    public function setMetadata(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $metadata) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.1.0)<br/>
@@ -527,7 +564,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return void No value is returned.
      */
-    public function setSignatureAlgorithm($algo, $privateKey = null) {}
+    public function setSignatureAlgorithm(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $algo,
+        #[LanguageLevelTypeAware(['8.0' => '?string'], default: '')] $privateKey = null
+    ) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
@@ -541,7 +581,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setStub($stub, $length = -1) {}
+    public function setStub(
+        $stub,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $length = -1
+    ) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
@@ -914,7 +957,11 @@ class PharData extends Phar
      * available within the <b>Phar</b> class.
      * </p>
      */
-    public function __construct($filename, $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO, $alias = null, $format = Phar::TAR) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'],default: '')] $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'int'],default: '')] $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO,
+        #[LanguageLevelTypeAware(['8.0' => '?string'],default: '')] $alias = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'],default: '')] $format = Phar::TAR) {}
 
     /**
      * @param string $localName
@@ -1036,7 +1083,7 @@ class PharFileInfo extends SplFileInfo
      * the entry should be phar://boo.phar/my/file.php.
      * </p>
      */
-    public function __construct($filename) {}
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename) {}
 
     public function __destruct() {}
 
@@ -1049,7 +1096,7 @@ class PharFileInfo extends SplFileInfo
      * </p>
      * @return void No value is returned.
      */
-    public function chmod($perms) {}
+    public function chmod(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $perms) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -1058,7 +1105,7 @@ class PharFileInfo extends SplFileInfo
      * @param int $compression
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function compress($compression) {}
+    public function compress(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $compression) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -1136,7 +1183,7 @@ class PharFileInfo extends SplFileInfo
      * </p>
      * @return bool <b>TRUE</b> if the file is compressed within the Phar archive, <b>FALSE</b> if not.
      */
-    public function isCompressed($compression = 9021976) {}
+    public function isCompressed(#[LanguageLevelTypeAware(['8.0' => '?int'], default: '')] $compression = 9021976) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
@@ -1155,6 +1202,6 @@ class PharFileInfo extends SplFileInfo
      * </p>
      * @return void No value is returned.
      */
-    public function setMetadata($metadata) {}
+    public function setMetadata(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $metadata) {}
 }
 // End of Phar v.2.0.1
