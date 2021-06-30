@@ -49,7 +49,7 @@ class ReflectionClass implements Reflector
      * the class to reflect, or an object.
      * @throws \ReflectionException if the class does not exist.
      */
-    public function __construct($objectOrClass) {}
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'object|string'], default: '')] $objectOrClass) {}
 
     /**
      * Exports a reflected class
@@ -175,7 +175,7 @@ class ReflectionClass implements Reflector
      * @param string $name Name of the method being checked for.
      * @return bool Returns {@see true} if it has the method, otherwise {@see false}
      */
-    public function hasMethod($name) {}
+    public function hasMethod(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
     /**
      * Gets a <b>ReflectionMethod</b> for a class method.
@@ -186,7 +186,7 @@ class ReflectionClass implements Reflector
      * @throws \ReflectionException if the method does not exist.
      */
     #[Pure]
-    public function getMethod($name) {}
+    public function getMethod(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
     /**
      * Gets an array of methods for the class.
@@ -198,7 +198,7 @@ class ReflectionClass implements Reflector
      * reflecting each method.
      */
     #[Pure]
-    public function getMethods($filter = null) {}
+    public function getMethods(#[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $filter = null) {}
 
     /**
      * Checks if property is defined
@@ -207,7 +207,7 @@ class ReflectionClass implements Reflector
      * @param string $name Name of the property being checked for.
      * @return bool Returns {@see true} if it has the property, otherwise {@see false}
      */
-    public function hasProperty($name) {}
+    public function hasProperty(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
     /**
      * Gets a <b>ReflectionProperty</b> for a class's property
@@ -218,7 +218,7 @@ class ReflectionClass implements Reflector
      * @throws ReflectionException If no property exists by that name.
      */
     #[Pure]
-    public function getProperty($name) {}
+    public function getProperty(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
     /**
      * Gets properties
@@ -230,7 +230,7 @@ class ReflectionClass implements Reflector
      * @return ReflectionProperty[]
      */
     #[Pure]
-    public function getProperties($filter = null) {}
+    public function getProperties(#[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $filter = null) {}
 
     /**
      * Gets a ReflectionClassConstant for a class's property
@@ -261,18 +261,18 @@ class ReflectionClass implements Reflector
      * @param string $name The name of the constant being checked for.
      * @return bool Returns {@see true} if the constant is defined, otherwise {@see false}
      */
-    public function hasConstant($name) {}
+    public function hasConstant(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
     /**
      * Gets constants
      *
      * @link https://php.net/manual/en/reflectionclass.getconstants.php
-     * @param int $filter [optional] allows the filtering of constants defined in a class by their visibility. Since 8.0.
+     * @param int|null $filter [optional] allows the filtering of constants defined in a class by their visibility. Since 8.0.
      * @return array An array of constants, where the keys hold the name and
      * the values the value of the constants.
      */
     #[Pure]
-    public function getConstants(#[PhpStormStubsElementAvailable(from: '8.0')] $filter = ReflectionClassConstant::IS_PUBLIC|ReflectionClassConstant::IS_PROTECTED|ReflectionClassConstant::IS_PRIVATE) {}
+    public function getConstants(#[PhpStormStubsElementAvailable(from: '8.0')] ?int $filter = ReflectionClassConstant::IS_PUBLIC|ReflectionClassConstant::IS_PROTECTED|ReflectionClassConstant::IS_PRIVATE) {}
 
     /**
      * Gets defined constant
@@ -283,7 +283,7 @@ class ReflectionClass implements Reflector
      * Returns {@see false} if the constant was not found in the class.
      */
     #[Pure]
-    public function getConstant($name) {}
+    public function getConstant(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
     /**
      * Gets the interfaces
@@ -404,7 +404,7 @@ class ReflectionClass implements Reflector
      * @return bool Returns {@see true} on success or {@see false} on failure.
      */
     #[Pure]
-    public function isInstance($object) {}
+    public function isInstance(#[LanguageLevelTypeAware(['8.0' => 'object'], default: '')] $object) {}
 
     /**
      * Creates a new class instance from given arguments.
@@ -463,7 +463,7 @@ class ReflectionClass implements Reflector
      * @return bool {@see true} on success or {@see false} on failure.
      */
     #[Pure]
-    public function isSubclassOf($class) {}
+    public function isSubclassOf(#[LanguageLevelTypeAware(['8.0' => 'ReflectionClass|string'], default: '')] $class) {}
 
     /**
      * Gets static properties
@@ -486,7 +486,10 @@ class ReflectionClass implements Reflector
      * @return mixed The value of the static property.
      */
     #[Pure]
-    public function getStaticPropertyValue($name, $default = null) {}
+    public function getStaticPropertyValue(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $default = null
+    ) {}
 
     /**
      * Sets static property value
@@ -496,7 +499,10 @@ class ReflectionClass implements Reflector
      * @param mixed $value New property value.
      * @return void No value is returned.
      */
-    public function setStaticPropertyValue($name, $value) {}
+    public function setStaticPropertyValue(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
+    ) {}
 
     /**
      * Gets default properties
@@ -537,7 +543,7 @@ class ReflectionClass implements Reflector
      * @param string $interface The interface name.
      * @return bool Returns {@see true} on success or {@see false} on failure.
      */
-    public function implementsInterface($interface) {}
+    public function implementsInterface(#[LanguageLevelTypeAware(['8.0' => 'ReflectionClass|string'], default: '')] $interface) {}
 
     /**
      * Gets a <b>ReflectionExtension</b> object for the extension which defined the class
