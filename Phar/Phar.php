@@ -526,8 +526,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function setDefaultStub(
-        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $index = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $webIndex = null
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $index = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $webIndex = null
     ) {}
 
     /**
