@@ -852,7 +852,7 @@ function imap_utf8(string $mime_encoded_text): string {}
  * flags is also set, which contains a bitmask which can
  * be checked against any of the above constants.</p>
  */
-#[LanguageLevelTypeAware(['8.1' => 'stdClass|false'], default: '')]
+#[LanguageLevelTypeAware(['8.1' => 'stdClass|false'], default: 'object')]
 function imap_status(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $mailbox, int $flags) {}
 
 /**

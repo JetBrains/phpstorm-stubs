@@ -94,7 +94,7 @@ function finfo_open(int $flags, ?string $magic_database = null) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function finfo_close(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: '')] $finfo): bool {}
+function finfo_close(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo): bool {}
 
 /**
  * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
@@ -109,7 +109,7 @@ function finfo_close(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: '')] 
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function finfo_set_flags(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: '')] $finfo, int $flags): bool {}
+function finfo_set_flags(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo, int $flags): bool {}
 
 /**
  * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
@@ -131,7 +131,7 @@ function finfo_set_flags(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: '
  * @return string|false a textual description of the contents of the
  * <i>filename</i> argument, or <b>FALSE</b> if an error occurred.
  */
-function finfo_file(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: '')] $finfo, string $filename, int $flags, $context): string|false {}
+function finfo_file(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo, string $filename, int $flags, $context): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
@@ -149,7 +149,7 @@ function finfo_file(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: '')] $
  * @return string|false a textual description of the <i>string</i>
  * argument, or <b>FALSE</b> if an error occurred.
  */
-function finfo_buffer(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: '')] $finfo, string $string, int $flags = FILEINFO_NONE, $context): string|false {}
+function finfo_buffer(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo, string $string, int $flags = FILEINFO_NONE, $context): string|false {}
 
 /**
  * Detect MIME Content-type for a file
