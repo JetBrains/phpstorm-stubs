@@ -80,7 +80,7 @@ interface DateTimeInterface
      * @link https://secure.php.net/manual/en/datetime.diff.php
      * @param DateTimeInterface $targetObject <p>The date to compare to.</p>
      * @param bool $absolute <p>Should the interval be forced to be positive?</p>
-     * @return DateInterval
+     * @return DateInterval|false
      * The https://secure.php.net/manual/en/class.dateinterval.php DateInterval} object representing the
      * difference between the two dates or <b>FALSE</b> on failure.
      */
@@ -93,7 +93,7 @@ interface DateTimeInterface
      * @param string $format <p>
      * Format accepted by  {@link https://secure.php.net/manual/en/function.date.php date()}.
      * </p>
-     * @return string
+     * @return string|false
      * Returns the formatted date string on success or <b>FALSE</b> on failure.
      */
     public function format($format);
@@ -101,7 +101,7 @@ interface DateTimeInterface
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Returns the timezone offset
-     * @return int
+     * @return int|false
      * Returns the timezone offset in seconds from UTC on success
      * or <b>FALSE</b> on failure.
      */
@@ -119,7 +119,7 @@ interface DateTimeInterface
      * (PHP 5 &gt;=5.5.0)<br/>
      * Return time zone relative to given DateTime
      * @link https://secure.php.net/manual/en/datetime.gettimezone.php
-     * @return DateTimeZone
+     * @return DateTimeZone|false
      * Returns a {@link https://secure.php.net/manual/en/class.datetimezone.php DateTimeZone} object on success
      * or <b>FALSE</b> on failure.
      */
@@ -346,7 +346,7 @@ class DateTimeImmutable implements DateTimeInterface
      * (PHP 5 &gt;=5.5.0)<br/>
      * Return time zone relative to given DateTime
      * @link https://secure.php.net/manual/en/datetime.gettimezone.php
-     * @return DateTimeZone
+     * @return DateTimeZone|false
      * Returns a {@link https://secure.php.net/manual/en/class.datetimezone.php DateTimeZone} object on success
      * or <b>FALSE</b> on failure.
      */
@@ -517,7 +517,7 @@ class DateTime implements DateTimeInterface
 
     /**
      * Get the TimeZone associated with the DateTime
-     * @return DateTimeZone
+     * @return DateTimeZone|false
      * @link https://php.net/manual/en/datetime.gettimezone.php
      */
     public function getTimezone() {}
@@ -543,7 +543,7 @@ class DateTime implements DateTimeInterface
      * @param int $minute
      * @param int $second
      * @param int $microsecond Added since 7.1
-     * @return static|false
+     * @return static
      * @link https://php.net/manual/en/datetime.settime.php
      */
     public function setTime($hour, $minute, $second = 0, $microsecond = 0) {}
@@ -587,7 +587,7 @@ class DateTime implements DateTimeInterface
      * Returns the difference between two DateTime objects represented as a DateInterval.
      * @param DateTimeInterface $targetObject The date to compare to.
      * @param bool $absolute [optional] Whether to return absolute difference.
-     * @return DateInterval|false The DateInterval object representing the difference between the two dates or FALSE on failure.
+     * @return DateInterval The DateInterval object representing the difference between the two dates.
      * @link https://php.net/manual/en/datetime.diff.php
      */
     public function diff($targetObject, $absolute = false) {}
@@ -670,7 +670,7 @@ class DateTimeZone
     /**
      * Returns the timezone offset from GMT
      * @param DateTimeInterface $datetime
-     * @return int|false
+     * @return int
      * @link https://php.net/manual/en/datetimezone.getoffset.php
      */
     public function getOffset(DateTimeInterface $datetime) {}
@@ -686,7 +686,7 @@ class DateTimeZone
 
     /**
      * Returns associative array containing dst, offset and the timezone name
-     * @return array|false
+     * @return array
      * @link https://php.net/manual/en/datetimezone.listabbreviations.php
      */
     public static function listAbbreviations() {}
@@ -695,7 +695,7 @@ class DateTimeZone
      * Returns a numerically indexed array with all timezone identifiers
      * @param int $timezoneGroup
      * @param string $countryCode
-     * @return array|false
+     * @return array
      * @link https://php.net/manual/en/datetimezone.listidentifiers.php
      */
     public static function listIdentifiers($timezoneGroup = DateTimeZone::ALL, $countryCode = null) {}
@@ -789,7 +789,8 @@ class DateInterval
     /**
      * Sets up a DateInterval from the relative parts of the string
      * @param string $datetime
-     * @return DateInterval
+     * @return DateInterval|false Returns a new {@link https://www.php.net/manual/en/class.dateinterval.php DateInterval}
+     * instance on success, or false on failure.
      * @link https://php.net/manual/en/dateinterval.createfromdatestring.php
      */
     public static function createFromDateString($datetime) {}
@@ -898,7 +899,7 @@ class DatePeriod implements IteratorAggregate
 
     /**
      * Get the number of recurrences
-     * @return int
+     * @return int|null 
      * @link https://php.net/manual/en/dateperiod.getrecurrences.php
      * @since 7.2.17
      * @since 7.3.4
