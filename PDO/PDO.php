@@ -904,7 +904,12 @@ class PDO
      * @param array $options [optional]
      * @throws PDOException if the attempt to connect to the requested database fails.
      */
-    public function __construct($dsn, $username = null, $password = null, $options = null) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $dsn,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $username = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $password = null,
+        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: '')] $options = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -933,7 +938,7 @@ class PDO
      * Emulated prepared statements does not communicate with the database server
      * so <b>PDO::prepare</b> does not check the statement.
      */
-    public function prepare($query, array $options = []) {}
+    public function prepare(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $query, array $options = []) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -995,7 +1000,7 @@ class PDO
      * @param mixed $value
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setAttribute($attribute, $value) {}
+    public function setAttribute(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attribute, $value) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1025,7 +1030,7 @@ class PDO
      * $db->exec() or die(print_r($db->errorInfo(), true));
      * </code>
      */
-    public function exec($statement) {}
+    public function exec(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $statement) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
@@ -1101,7 +1106,7 @@ class PDO
      * <b>PDO::lastInsertId</b> triggers an
      * IM001 SQLSTATE.
      */
-    public function lastInsertId($name = null) {}
+    public function lastInsertId(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $name = null) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1196,7 +1201,7 @@ class PDO
      * @return mixed A successful call returns the value of the requested PDO attribute.
      * An unsuccessful call returns null.
      */
-    public function getAttribute($attribute) {}
+    public function getAttribute(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attribute) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.1)<br/>
@@ -1212,7 +1217,10 @@ class PDO
      * SQL statement. Returns <b>FALSE</b> if the driver does not support quoting in
      * this way.
      */
-    public function quote($string, $type = PDO::PARAM_STR) {}
+    public function quote(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $string,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR
+    ) {}
 
     final public function __wakeup() {}
 
@@ -1288,7 +1296,7 @@ class PDOStatement implements IteratorAggregate
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * @throws \PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
      */
-    public function execute($params = null) {}
+    public function execute(#[LanguageLevelTypeAware(['8.0' => 'array|null'], default: '')] $params = null) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1318,7 +1326,11 @@ class PDOStatement implements IteratorAggregate
      * @return mixed The return value of this function on success depends on the fetch type. In
      * all cases, <b>FALSE</b> is returned on failure.
      */
-    public function fetch($mode = PDO::FETCH_BOTH, $cursorOrientation = PDO::FETCH_ORI_NEXT, $cursorOffset = 0) {}
+    public function fetch(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = PDO::FETCH_BOTH,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $cursorOrientation = PDO::FETCH_ORI_NEXT,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $cursorOffset = 0
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1350,7 +1362,13 @@ class PDOStatement implements IteratorAggregate
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function bindParam($param, &$var, $type = PDO::PARAM_STR, $maxLength = null, $driverOptions = null) {}
+    public function bindParam(
+        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $param,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] &$var,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxLength = null,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $driverOptions = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1375,7 +1393,13 @@ class PDOStatement implements IteratorAggregate
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function bindColumn($column, &$var, $type = PDO::PARAM_STR, $maxLength = null, $driverOptions = null) {}
+    public function bindColumn(
+        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $column,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] &$var,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxLength = null,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $driverOptions = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 1.0.0)<br/>
@@ -1397,7 +1421,11 @@ class PDOStatement implements IteratorAggregate
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function bindValue($param, $value, $type = PDO::PARAM_STR) {}
+    public function bindValue(
+        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $param,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1423,7 +1451,7 @@ class PDOStatement implements IteratorAggregate
      * There is no way to return another column from the same row if you
      * use <b>PDOStatement::fetchColumn</b> to retrieve data.
      */
-    public function fetchColumn($column = 0) {}
+    public function fetchColumn(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $column = 0) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1470,9 +1498,9 @@ class PDOStatement implements IteratorAggregate
      * processing them with PHP.
      */
     public function fetchAll(
-        $mode = PDO::FETCH_BOTH,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = PDO::FETCH_BOTH,
         #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $fetch_argument = null,
-        ...$args
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$args
     ) {}
 
     /**
@@ -1488,7 +1516,7 @@ class PDOStatement implements IteratorAggregate
      * @return mixed an instance of the required class with property names that
      * correspond to the column names or <b>FALSE</b> on failure.
      */
-    public function fetchObject($class = "stdClass", array $constructorArgs = []) {}
+    public function fetchObject(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $class = "stdClass", array $constructorArgs = []) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1536,7 +1564,10 @@ class PDOStatement implements IteratorAggregate
      * @param mixed $value
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setAttribute($attribute, $value) {}
+    public function setAttribute(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attribute,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
@@ -1545,7 +1576,7 @@ class PDOStatement implements IteratorAggregate
      * @param int $name
      * @return mixed the attribute value.
      */
-    public function getAttribute($name) {}
+    public function getAttribute(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $name) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
@@ -1617,7 +1648,7 @@ class PDOStatement implements IteratorAggregate
      * Returns <b>FALSE</b> if the requested column does not exist in the result set,
      * or if no result set exists.
      */
-    public function getColumnMeta($column) {}
+    public function getColumnMeta(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $column) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
