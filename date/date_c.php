@@ -790,7 +790,7 @@ class DateInterval
      * Sets up a DateInterval from the relative parts of the string
      * @param string $datetime
      * @return DateInterval|false Returns a new {@link https://www.php.net/manual/en/class.dateinterval.php DateInterval}
-     * instance on success, or false on failure.
+     * instance on success, or <b>FALSE</b> on failure.
      * @link https://php.net/manual/en/dateinterval.createfromdatestring.php
      */
     public static function createFromDateString($datetime) {}
