@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\Optional;
 use JetBrains\PhpStorm\Internal\ReturnTypeContract as TypeContract;
 use JetBrains\PhpStorm\Pure;
 
@@ -222,14 +223,14 @@ function ord(string $character): int {}
  * @param string $string <p>
  * The input string.
  * </p>
- * @param array &$result [optional] <p>
+ * @param array &$result <p>
  * If the second parameter arr is present,
  * variables are stored in this variable as array elements instead.<br/>
  * Since 7.2.0 this parameter is not optional.
  * </p>
  * @return void
  */
-function parse_str(string $string, &$result): void {}
+function parse_str(string $string, #[Optional(from: '5.3', to: '7.4')] &$result): void {}
 
 /**
  * Parse a CSV string into an array
