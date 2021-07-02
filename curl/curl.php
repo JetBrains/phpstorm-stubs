@@ -22,7 +22,11 @@ class CURLFile
      * @param string $posted_filename [optional] <p>Name of the file.</p>
      * @since 5.5
      */
-    public function __construct($filename, $mime_type = '', $posted_filename = '') {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $mime_type = '',
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $posted_filename = ''
+    ) {}
 
     /**
      * Get file name
@@ -57,7 +61,7 @@ class CURLFile
      * @param string $mime_type
      * @since 5.5
      */
-    public function setMimeType($mime_type) {}
+    public function setMimeType(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $mime_type) {}
 
     /**
      * Set file name for POST
@@ -65,7 +69,7 @@ class CURLFile
      * @param string $posted_filename
      * @since 5.5
      */
-    public function setPostFilename($posted_filename) {}
+    public function setPostFilename(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $posted_filename) {}
 
     /**
      * @link https://secure.php.net/manual/en/curlfile.wakeup.php
