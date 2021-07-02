@@ -28,7 +28,7 @@ class ReflectionReference
      */
     public static function fromArrayElement(
         array $array,
-        #[LanguageLevelTypeAware(['8.0' => 'string|int'],default: '')] $key
+        #[LanguageLevelTypeAware(['8.0' => 'string|int'], default: '')] $key
     ) {}
 
     /**

@@ -166,7 +166,7 @@ class mysqli
     public $error_list;
 
     public $stat;
-    
+
     /**
      * Open a new connection to the MySQL server
      * @link https://php.net/manual/en/mysqli.construct.php

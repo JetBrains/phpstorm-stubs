@@ -73,7 +73,10 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * classname or an object.
      * @throws \ReflectionException if the class or method does not exist.
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'object|string'], default: '')] $objectOrMethod, $method = null) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'object|string'], default: '')] $objectOrMethod,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $method = null
+    ) {}
 
     /**
      * Export a reflection method.
