@@ -4,7 +4,6 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\Optional;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
@@ -819,7 +818,7 @@ function mb_convert_variables(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]&$vars,
     #[PhpStormStubsElementAvailable(from: '8.0')]
     mixed &$var,
-    #[Optional(from: '8.0')]
+    #[Required(from: '5.3', to: '7.4')]
     mixed &...$vars
 ): string|false {}
 

@@ -3,7 +3,6 @@
 // Start of openssl v.
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\Optional;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
@@ -808,7 +807,7 @@ function openssl_open(
     string $encrypted_key,
     #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] string $cipher_algo = '',
-    #[PhpStormStubsElementAvailable(from: '8.0')] string $cipher_algo,
+    #[PhpStormStubsElementAvailable(from: '8.0')] string $cipher_algo = "RC4",
     ?string $iv
 ): bool {}
 
