@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\Optional;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
@@ -731,7 +732,7 @@ function key(object|array $array): string|int|null {}
  * parameter values.
  */
 #[Pure]
-function min(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, mixed ...$values): mixed {}
+function min(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, #[Optional(from: '8.0')] mixed ...$values): mixed {}
 
 /**
  * Find highest value
@@ -742,7 +743,7 @@ function min(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, mixed .
  * parameter values, either within a arg array or two arguments.
  */
 #[Pure]
-function max(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, mixed ...$values): mixed {}
+function max(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, #[Optional(from: '8.0')] mixed ...$values): mixed {}
 
 /**
  * Checks if a value exists in an array
@@ -931,7 +932,7 @@ function array_multisort(
  * </p>
  * @return int the number of elements in the array.
  */
-function array_push(array &$array, mixed ...$values): int {}
+function array_push(array &$array, #[Optional(from: '7.3')] mixed ...$values): int {}
 
 /**
  * Pop the element off the end of array
@@ -971,7 +972,7 @@ function array_shift(array &$array): mixed {}
  * </p>
  * @return int the number of elements in the array.
  */
-function array_unshift(array &$array, mixed ...$values): int {}
+function array_unshift(array &$array, #[Optional(from: '7.3')] mixed ...$values): int {}
 
 /**
  * Remove a portion of the array and replace it with something else

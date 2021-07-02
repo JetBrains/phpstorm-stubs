@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\Optional;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
@@ -2483,7 +2484,7 @@ function curl_reset(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: '
  * Run the sub-connections of the current cURL handle
  * @link https://php.net/manual/en/function.curl-multi-exec.php
  * @param CurlMultiHandle|resource $multi_handle
- * @param int &$still_running [optional] <p>
+ * @param int &$still_running <p>
  * A reference to a flag to tell whether the operations are still running.
  * </p>
  * @return int A cURL code defined in the cURL Predefined Constants.
@@ -2493,7 +2494,10 @@ function curl_reset(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: '
  * CURLM_OK.
  * </p>
  */
-function curl_multi_exec(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle, &$still_running): int {}
+function curl_multi_exec(
+    #[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle,
+    #[Optional(from: '5.3', to: '7.4')] &$still_running
+): int {}
 
 /**
  * Return the content of a cURL handle if <constant>CURLOPT_RETURNTRANSFER</constant> is set

@@ -4,6 +4,7 @@
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\Optional;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
@@ -461,14 +462,14 @@ function gmdate(string $format, ?int $timestamp) {}
  */
 #[Pure]
 function mktime(
-    int $hour = null,
+    #[Optional(from: '5.3', to: '7.4')] int $hour,
     ?int $minute = null,
     ?int $second = null,
     ?int $month = null,
     ?int $day = null,
     ?int $year = null,
     #[Deprecated('Use the new timezone handling functions instead', since: '5.3')]
-    #[PhpStormStubsElementAvailable(to: '7.0')] $is_dst = -1
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $is_dst = -1
 ): int|false {}
 
 /**
@@ -500,7 +501,7 @@ function mktime(
  */
 #[Pure]
 function gmmktime(
-    int $hour = null,
+    #[Optional(from: '5.3', to: '7.4')] int $hour,
     ?int $minute = null,
     ?int $second = null,
     ?int $month = null,

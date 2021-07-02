@@ -3,6 +3,7 @@
 //20120405 AG synced to official docs
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\Optional;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
@@ -579,12 +580,12 @@ class DOMDocumentFragment extends DOMNode implements DOMParentNode
     /**
      * {@inheritDoc}
      */
-    public function append(...$nodes) {}
+    public function append(#[Optional(from: '8.0')] ...$nodes) {}
 
     /**
      * {@inheritDoc}
      */
-    public function prepend(...$nodes) {}
+    public function prepend(#[Optional(from: '8.0')] ...$nodes) {}
 }
 
 /**
@@ -963,12 +964,12 @@ class DOMDocument extends DOMNode implements DOMParentNode
     /**
      * {@inheritDoc}
      */
-    public function append(...$nodes) {}
+    public function append(#[Optional(from: '8.0')] ...$nodes) {}
 
     /**
      * {@inheritDoc}
      */
-    public function prepend(...$nodes) {}
+    public function prepend(#[Optional(from: '8.0')] ...$nodes) {}
 
     /**
      * Normalizes the document
@@ -1442,17 +1443,17 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
     /**
      * {@inheritDoc}
      */
-    public function before(...$nodes) {}
+    public function before(#[Optional(from: '8.0')] ...$nodes) {}
 
     /**
      * {@inheritDoc}
      */
-    public function after(...$nodes) {}
+    public function after(#[Optional(from: '8.0')] ...$nodes) {}
 
     /**
      * {@inheritDoc}
      */
-    public function replaceWith(...$nodes) {}
+    public function replaceWith(#[Optional(from: '8.0')] ...$nodes) {}
 }
 
 /**
@@ -1859,27 +1860,27 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
     /**
      * {@inheritDoc}
      */
-    public function before(...$nodes) {}
+    public function before(#[Optional(from: '8.0')] ...$nodes) {}
 
     /**
      * {@inheritDoc}
      */
-    public function after(...$nodes) {}
+    public function after(#[Optional(from: '8.0')] ...$nodes) {}
 
     /**
      * {@inheritDoc}
      */
-    public function replaceWith(...$nodes) {}
+    public function replaceWith(#[Optional(from: '8.0')] ...$nodes) {}
 
     /**
      * {@inheritDoc}
      */
-    public function append(...$nodes) {}
+    public function append(#[Optional(from: '8.0')] ...$nodes) {}
 
     /**
      * {@inheritDoc}
      */
-    public function prepend(...$nodes) {}
+    public function prepend(#[Optional(from: '8.0')] ...$nodes) {}
 
     /**
      * Creates a new DOMElement object
@@ -2343,7 +2344,7 @@ interface DOMParentNode
      * @return void
      * @since 8.0
      */
-    public function append(...$nodes);
+    public function append(#[Optional(from: '8.0')] ...$nodes);
 
     /**
      * Prepends one or many nodes to the list of children before the first
@@ -2353,7 +2354,7 @@ interface DOMParentNode
      * @return void
      * @since 8.0
      */
-    public function prepend(...$nodes);
+    public function prepend(#[Optional(from: '8.0')] ...$nodes);
 }
 
 /**
@@ -2379,7 +2380,7 @@ interface DOMChildNode
      * @return void
      * @since 8.0
      */
-    public function before(...$nodes);
+    public function before(#[Optional(from: '8.0')] ...$nodes);
 
     /**
      * Add passed node(s) after  the current node
@@ -2388,7 +2389,7 @@ interface DOMChildNode
      * @return void
      * @since 8.0
      */
-    public function after(...$nodes);
+    public function after(#[Optional(from: '8.0')] ...$nodes);
 
     /**
      * Replace current node with new node(s), a combination
@@ -2398,5 +2399,5 @@ interface DOMChildNode
      * @return void
      * @since 8.0
      */
-    public function replaceWith(...$nodes);
+    public function replaceWith(#[Optional(from: '8.0')] ...$nodes);
 }

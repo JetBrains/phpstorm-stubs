@@ -5,6 +5,7 @@
  */
 
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\Optional;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
@@ -295,7 +296,7 @@ function array_intersect(
 #[Pure]
 function array_intersect_key(
     array $array,
-    array ...$arrays
+    #[Optional(from: '8.0')] array ...$arrays
 ): array {}
 
 /**
@@ -366,7 +367,7 @@ function array_uintersect(
 #[Pure]
 function array_intersect_assoc(
     array $array,
-    array ...$arrays
+    #[Optional(from: '8.0')] array ...$arrays
 ): array {}
 
 /**
@@ -490,7 +491,7 @@ function array_diff(
  * @meta
  */
 #[Pure]
-function array_diff_key(array $array, array ...$arrays): array {}
+function array_diff_key(array $array, #[Optional(from: '8.0')] array ...$arrays): array {}
 
 /**
  * Computes the difference of arrays using a callback function on the keys for comparison
@@ -565,7 +566,7 @@ function array_udiff(
 #[Pure]
 function array_diff_assoc(
     array $array,
-    array ...$arrays
+    #[Optional(from: '8.0')] array ...$arrays
 ): array {}
 
 /**
@@ -752,7 +753,7 @@ function array_filter(array $array, ?callable $callback, int $mode = 0): array {
 function array_map(
     ?callable $callback,
     #[PhpStormStubsElementAvailable(from: '8.0')] array $array,
-    array ...$arrays
+    #[Optional(from: '8.0')] array ...$arrays
 ): array {}
 
 /**

@@ -3,7 +3,11 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
+use JetBrains\PhpStorm\Internal\Optional;
+use PhpParser\Node\AttributeGroup;
+use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Param;
+use PhpParser\Node\Scalar\String_;
 use ReflectionParameter;
 use stdClass;
 
@@ -19,6 +23,7 @@ class PHPParameter extends BasePHPElement
     public $is_vararg = false;
     public $is_passed_by_ref = false;
     public $isOptional = false;
+    public $optionalInVersionsRange = [];
     public $defaultValue = null;
 
     /**
@@ -56,7 +61,14 @@ class PHPParameter extends BasePHPElement
         $this->is_vararg = $node->variadic;
         $this->is_passed_by_ref = $node->byRef;
         $this->defaultValue = $node->default;
-        $this->isOptional = !empty($this->defaultValue);
+        $this->optionalInVersionsRange = self::findOptionalVersionsRangeFromAttribute($node->attrGroups);
+        $optionalFromAttribute = false;
+        if (!empty($this->optionalInVersionsRange)) {
+            $optionalFromAttribute = (doubleval(getenv('PHP_VERSION')) >= $this->optionalInVersionsRange['from'] &&
+                doubleval(getenv('PHP_VERSION')) <= $this->optionalInVersionsRange['to']);
+        }
+        $this->isOptional = !empty($this->defaultValue) || $optionalFromAttribute;
+
         return $this;
     }
 
@@ -104,5 +116,39 @@ class PHPParameter extends BasePHPElement
                 return;
             }
         }
+    }
+
+    /**
+     * @param AttributeGroup[] $attrGroups
+     * @return array
+     */
+    private static function findOptionalVersionsRangeFromAttribute(array $attrGroups): array
+    {
+        $versionRange = [];
+        foreach ($attrGroups as $attrGroup) {
+            foreach ($attrGroup->attrs as $attr) {
+                if ($attr->name->toString() === Optional::class) {
+                    if (count($attr->args) == 2) {
+                        foreach ($attr->args as $arg) {
+                            $versionRange[$arg->name->name] = (float)$arg->value->value;
+                        }
+                    } else {
+                        $arg = $attr->args[0]->value;
+                        if ($arg instanceof Array_) {
+                            $value = $arg->items[0]->value;
+                            if ($value instanceof String_) {
+                                return ['from' => (float)$value->value];
+                            }
+                        } else {
+                            $rangeName = $attr->args[0]->name;
+                            return $rangeName === null || $rangeName->name == 'from' ?
+                                ['from' => (float)$arg->value, 'to' => PhpVersions::getLatest()] :
+                                ['from' => PhpVersions::getFirst(), 'to' => (float)$arg->value];
+                        }
+                    }
+                }
+            }
+        }
+        return $versionRange;
     }
 }
