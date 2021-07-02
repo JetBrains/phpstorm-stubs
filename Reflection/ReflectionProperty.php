@@ -64,8 +64,8 @@ class ReflectionProperty implements Reflector
      * @throws \ReflectionException if the class or property does not exist.
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'object|string'] ,default: '')] $class,
-        #[LanguageLevelTypeAware(['8.0' => 'string'] ,default: '')] $property
+        #[LanguageLevelTypeAware(['8.0' => 'object|string'], default: '')] $class,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $property
     ) {}
 
     /**

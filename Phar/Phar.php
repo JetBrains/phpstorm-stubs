@@ -958,10 +958,11 @@ class PharData extends Phar
      * </p>
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'],default: '')] $filename,
-        #[LanguageLevelTypeAware(['8.0' => 'int'],default: '')] $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'],default: '')] $alias = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'],default: '')] $format = Phar::TAR) {}
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $alias = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $format = Phar::TAR
+    ) {}
 
     /**
      * @param string $localName
