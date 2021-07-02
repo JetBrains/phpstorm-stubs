@@ -4,6 +4,7 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\Optional;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
@@ -815,7 +816,9 @@ function mb_decode_mimeheader(string $string): string {}
 function mb_convert_variables(
     string $to_encoding,
     array|string $from_encoding,
-    #[PhpStormStubsElementAvailable(from: '8.0')] mixed &$var,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    mixed &$var,
+    #[Optional(from: '8.0')]
     mixed &...$vars
 ): string|false {}
 
