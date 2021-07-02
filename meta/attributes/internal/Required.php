@@ -12,7 +12,7 @@ use JetBrains\PhpStorm\ExpectedValues;
  * @internal
  */
 #[Attribute(Attribute::TARGET_PARAMETER)]
-class Optional
+class Required
 {
     public function __construct(
         #[ExpectedValues(Deprecated::PHP_VERSIONS)] $from,

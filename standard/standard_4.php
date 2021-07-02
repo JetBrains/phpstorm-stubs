@@ -3,8 +3,8 @@
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\Optional;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\Required;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -215,7 +215,7 @@ function var_export(mixed $value, bool $return = false): ?string {}
  * </p>
  * @return void
  */
-function debug_zval_dump(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, #[Optional(from: '8.0')] mixed ...$values): void {}
+function debug_zval_dump(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, #[Required(from: '5.3', to: '7.4')] mixed ...$values): void {}
 
 /**
  * Prints human-readable information about a variable
@@ -362,7 +362,7 @@ function highlight_string(string $string, bool $return = false): string|bool {}
  * Otherwise the nanoseconds are returned as integer (64bit platforms) or float (32bit platforms).
  */
 #[Pure]
-function hrtime(#[Optional(from: '8.0')] bool $as_number): array|int|float|false {}
+function hrtime(#[Required(from: '5.3', to: '7.4')] bool $as_number = false): array|int|float|false {}
 
 /**
  * Return source with stripped comments and whitespace

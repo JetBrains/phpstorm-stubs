@@ -1879,7 +1879,7 @@ function mysqli_get_charset(mysqli $mysql): ?object {}
  * @return string|null A string that represents the MySQL client library version
  */
 #[LanguageLevelTypeAware(['8.1' => 'string'], default: '?string')]
-function mysqli_get_client_info(?mysqli $mysql) {}
+function mysqli_get_client_info(?mysqli $mysql = null) {}
 
 /**
  * Returns the MySQL client version as an integer
@@ -2031,7 +2031,7 @@ function mysqli_more_results(mysqli $mysql): bool {}
  * Performs a query on the database
  * @link https://php.net/manual/en/mysqli.multi-query.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
- * @param string $query [optional] One or more queries which are separated by semicolons.
+ * @param string $query One or more queries which are separated by semicolons.
  * @return bool Returns FALSE if the first statement failed. To retrieve subsequent errors from other statements you have to call mysqli_next_result() first.
  */
 function mysqli_multi_query(mysqli $mysql, string $query): bool {}
@@ -2183,7 +2183,7 @@ function mysqli_real_escape_string(mysqli $mysql, string $string): string {}
  * @link https://php.net/manual/en/mysqli.real-query.php
  * @see mysqli_field_count()
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
- * @param string $query [optional]
+ * @param string $query
  * @return bool
  */
 function mysqli_real_query(mysqli $mysql, string $query): bool {}

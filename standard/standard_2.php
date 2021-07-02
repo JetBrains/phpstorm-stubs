@@ -2,7 +2,7 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\Optional;
+use JetBrains\PhpStorm\Internal\Required;
 use JetBrains\PhpStorm\Internal\ReturnTypeContract as TypeContract;
 use JetBrains\PhpStorm\Pure;
 
@@ -230,7 +230,7 @@ function ord(string $character): int {}
  * </p>
  * @return void
  */
-function parse_str(string $string, #[Optional(from: '5.3', to: '7.4')] &$result): void {}
+function parse_str(string $string, #[Required(from: '8.0')] &$result = []): void {}
 
 /**
  * Parse a CSV string into an array

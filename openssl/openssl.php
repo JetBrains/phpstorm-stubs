@@ -3,8 +3,8 @@
 // Start of openssl v.
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\Optional;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\Required;
 
 /**
  * Frees a private key
@@ -778,7 +778,7 @@ function openssl_verify(
  * <i>sealed_data</i>, and the envelope keys in
  * <i>env_keys</i>.
  */
-function openssl_seal(string $data, &$sealed_data, &$encrypted_keys, array $public_key, #[Optional(from: '5.4', to: '7.4')] string $cipher_algo, &$iv = ''): int|false {}
+function openssl_seal(string $data, &$sealed_data, &$encrypted_keys, array $public_key, #[Required(from: '8.0')] string $cipher_algo = "RC4", &$iv = ''): int|false {}
 
 /**
  * Open sealed data
@@ -798,7 +798,7 @@ function openssl_open(
     string $data,
     &$output,
     string $encrypted_key,
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key, #[Optional(from: '5.4', to: '7.4')] string $cipher_algo,
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key, #[Required(from: '8.0')] string $cipher_algo = "RC4",
     ?string $iv
 ): bool {}
 
