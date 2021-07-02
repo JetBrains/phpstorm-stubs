@@ -1137,7 +1137,6 @@ function sodium_crypto_secretstream_xchacha20poly1305_init_push(string $key): ar
  */
 function sodium_crypto_secretstream_xchacha20poly1305_init_pull(string $header, string $key): string {}
 
-
 /**
  * @param string &$state
  * @throws SodiumException

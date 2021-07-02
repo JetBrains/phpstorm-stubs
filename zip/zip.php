@@ -826,7 +826,8 @@ class ZipArchive implements Countable
     public function addPattern(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pattern,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $path = '.',
-        array $options = []) {}
+        array $options = []
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -1293,7 +1294,8 @@ class ZipArchive implements Countable
 
     public static function isCompressionMethodSupported(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $method,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $enc = true) {}
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $enc = true
+    ) {}
 
     public function registerCancelCallback(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback) {}
 
