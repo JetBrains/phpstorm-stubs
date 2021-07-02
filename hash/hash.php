@@ -445,6 +445,6 @@ class HashContext
     /**
      * @param array $data
      */
-    public function __unserialize($data) {}
+    public function __unserialize(#[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] $data) {}
 }
 // End of hash v.1.0

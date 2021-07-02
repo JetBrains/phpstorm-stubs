@@ -178,7 +178,10 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
      * May be any valid callable value.
      * @link https://www.php.net/manual/en/recursivecallbackfilteriterator.construct.php
      */
-    public function __construct(RecursiveIterator $iterator, $callback) {}
+    public function __construct(
+        RecursiveIterator $iterator,
+        #[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback
+    ) {}
 
     /**
      * Check whether the inner iterator's current element has children
@@ -251,7 +254,11 @@ class RecursiveIteratorIterator implements OuterIterator
      * @param int $flags [optional] A bitmask of special flags. See class constants for details.
      * @since 5.1.3
      */
-    public function __construct(Traversable $iterator, $mode = self::LEAVES_ONLY, $flags = 0) {}
+    public function __construct(
+        Traversable $iterator,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = self::LEAVES_ONLY,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
+    ) {}
 
     /**
      * Rewind the iterator to the first element of the top level inner iterator
@@ -301,7 +308,7 @@ class RecursiveIteratorIterator implements OuterIterator
      * @param int $level [optional]
      * @return RecursiveIterator The current active sub iterator.
      */
-    public function getSubIterator($level) {}
+    public function getSubIterator(#[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $level) {}
 
     /**
      * Get inner iterator
@@ -368,7 +375,7 @@ class RecursiveIteratorIterator implements OuterIterator
      * </p>
      * @return void
      */
-    public function setMaxDepth($maxDepth = -1) {}
+    public function setMaxDepth(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxDepth = -1) {}
 
     /**
      * Get max depth
@@ -408,9 +415,9 @@ class IteratorIterator implements OuterIterator
      * Create an iterator from anything that is traversable
      * @link https://php.net/manual/en/iteratoriterator.construct.php
      * @param Traversable $iterator
-     * @param string $class [optional]
+     * @param string|null $class [optional]
      */
-    public function __construct(Traversable $iterator, #[PhpStormStubsElementAvailable(from: '8.0')] $class = '') {}
+    public function __construct(Traversable $iterator, #[PhpStormStubsElementAvailable(from: '8.0')] ?string $class = '') {}
 
     /**
      * Get the inner iterator
@@ -616,7 +623,11 @@ class LimitIterator extends IteratorIterator
      * @param int $offset [optional] The offset to start at. Must be zero or greater.
      * @param int $limit [optional] The number of items to iterate. Must be -1 or greater. -1, the default, means no limit.
      */
-    public function __construct(Iterator $iterator, $offset = 0, $limit = -1) {}
+    public function __construct(
+        Iterator $iterator,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset = 0,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $limit = -1
+    ) {}
 
     /**
      * Rewind the iterator to the specified starting offset
@@ -661,7 +672,7 @@ class LimitIterator extends IteratorIterator
      * </p>
      * @return int the offset position after seeking.
      */
-    public function seek($offset) {}
+    public function seek(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset) {}
 
     /**
      * Return the current position
