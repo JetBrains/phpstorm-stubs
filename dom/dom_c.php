@@ -152,7 +152,10 @@ class DOMNode
      * </p>
      * @return DOMNode The inserted node.
      */
-    public function insertBefore(DOMNode $node, DOMNode $child = null) {}
+    public function insertBefore(
+        DOMNode $node,
+        #[LanguageLevelTypeAware(['8.0' => 'DOMNode|null'], default: 'DOMNode')] $child = null
+    ) {}
 
     /**
      * Replaces a child
@@ -205,7 +208,7 @@ class DOMNode
      * </p>
      * @return static The cloned node.
      */
-    public function cloneNode($deep = false) {}
+    public function cloneNode(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $deep = false) {}
 
     /**
      * Normalizes the node
@@ -227,7 +230,10 @@ class DOMNode
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function isSupported($feature, $version) {}
+    public function isSupported(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $feature,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $version
+    ) {}
 
     /**
      * Checks if node has attributes
@@ -259,7 +265,7 @@ class DOMNode
      * </p>
      * @return string The prefix of the namespace.
      */
-    public function lookupPrefix($namespace) {}
+    public function lookupPrefix(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace) {}
 
     /**
      * Checks if the specified namespaceURI is the default namespace or not
@@ -270,7 +276,7 @@ class DOMNode
      * @return bool Return true if namespaceURI is the default
      * namespace, false otherwise.
      */
-    public function isDefaultNamespace($namespace) {}
+    public function isDefaultNamespace(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace) {}
 
     /**
      * Gets the namespace URI of the node based on the prefix
@@ -341,7 +347,12 @@ class DOMNode
      * @param null|array $nsPrefixes [optional] An array of namespace prefixes to filter the nodes by.
      * @return string|false Canonicalized nodes as a string or FALSE on failure
      */
-    public function C14N($exclusive = false, $withComments = false, array $xpath = null, array $nsPrefixes = null) {}
+    public function C14N(
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $exclusive = false,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $withComments = false,
+        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')] $xpath = null,
+        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')] $nsPrefixes = null
+    ) {}
 
     /**
      * Canonicalize nodes to a file.
@@ -353,7 +364,13 @@ class DOMNode
      * @param null|array $nsPrefixes [optional] An array of namespace prefixes to filter the nodes by.
      * @return int|false Number of bytes written or FALSE on failure
      */
-    public function C14NFile($uri, $exclusive = false, $withComments = false, array $xpath = null, array $nsPrefixes = null) {}
+    public function C14NFile(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $uri,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $exclusive = false,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $withComments = false,
+        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')] $xpath = null,
+        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')] $nsPrefixes = null
+    ) {}
 }
 
 /**
@@ -441,7 +458,10 @@ class DOMImplementation
      * @param string $version
      * @return mixed
      */
-    public function getFeature($feature, $version) {}
+    public function getFeature(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $feature,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $version
+    ) {}
 
     /**
      * Test if the DOM implementation implements a specific feature
@@ -473,7 +493,11 @@ class DOMImplementation
      * ownerDocument set to null.
      * @throws DOMException If there is an error with the namespace
      */
-    public function createDocumentType($qualifiedName, $publicId = '', $systemId = '') {}
+    public function createDocumentType(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName ,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $publicId = '',
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $systemId = ''
+    ) {}
 
     /**
      * Creates a DOMDocument object of the specified type with its document element
@@ -495,7 +519,11 @@ class DOMImplementation
      * implementation. If there is an error with the namespace,
      * as determined by $namespace and $qualifiedName.
      */
-    public function createDocument($namespace = null, $qualifiedName = '', DOMDocumentType $doctype = null) {}
+    public function createDocument(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName = '',
+        #[LanguageLevelTypeAware(['8.0' => 'DOMDocumentType|null'], default: 'DOMDocumentType')] $doctype = null
+    ) {}
 }
 
 class DOMNameSpaceNode
@@ -543,7 +571,7 @@ class DOMDocumentFragment extends DOMNode implements DOMParentNode
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function appendXML($data) {}
+    public function appendXML(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data) {}
 
     /**
      * {@inheritDoc}
@@ -747,7 +775,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @return DOMElement|false A new instance of class DOMElement or false
      * if an error occurred.
      */
-    public function createElement($localName, $value = null) {}
+    public function createElement(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value = null
+    ) {}
 
     /**
      * Create new document fragment
@@ -764,7 +795,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return DOMText|false The new DOMText or false if an error occurred.
      */
-    public function createTextNode($data) {}
+    public function createTextNode(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data) {}
 
     /**
      * Create new comment node
@@ -774,7 +805,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return DOMComment|false The new DOMComment or false if an error occurred.
      */
-    public function createComment($data) {}
+    public function createComment(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data) {}
 
     /**
      * Create new cdata node
@@ -784,7 +815,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return DOMCDATASection|false The new DOMCDATASection or false if an error occurred.
      */
-    public function createCDATASection($data) {}
+    public function createCDATASection(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data) {}
 
     /**
      * Creates new PI node
@@ -797,7 +828,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return DOMProcessingInstruction|false The new DOMProcessingInstruction or false if an error occurred.
      */
-    public function createProcessingInstruction($target, $data = null) {}
+    public function createProcessingInstruction(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $target,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data = null
+    ) {}
 
     /**
      * Create new attribute
@@ -807,7 +841,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return DOMAttr|false The new DOMAttr or false if an error occurred.
      */
-    public function createAttribute($localName) {}
+    public function createAttribute(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName) {}
 
     /**
      * Create new entity reference node
@@ -820,7 +854,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @return DOMEntityReference|false The new DOMEntityReference or false if an error
      * occurred.
      */
-    public function createEntityReference($name) {}
+    public function createEntityReference(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
     /**
      * Searches for all elements with given tag name
@@ -832,7 +866,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @return DOMNodeList A new DOMNodeList object containing all the matched
      * elements.
      */
-    public function getElementsByTagName($qualifiedName) {}
+    public function getElementsByTagName(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName) {}
 
     /**
      * Import node into current document
@@ -849,7 +883,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return DOMNode|false The copied node or false, if it cannot be copied.
      */
-    public function importNode(DOMNode $node, $deep = false) {}
+    public function importNode(DOMNode $node, #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $deep = false) {}
 
     /**
      * Create new element node with an associated namespace
@@ -866,7 +900,11 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return DOMElement|false The new DOMElement or false if an error occurred.
      */
-    public function createElementNS($namespace, $qualifiedName, $value = null) {}
+    public function createElementNS(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value = null
+    ) {}
 
     /**
      * Create new attribute node with an associated namespace
@@ -879,7 +917,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return DOMAttr|false The new DOMAttr or false if an error occurred.
      */
-    public function createAttributeNS($namespace, $qualifiedName) {}
+    public function createAttributeNS(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName
+    ) {}
 
     /**
      * Searches for all elements with given tag name in specified namespace
@@ -895,7 +936,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @return DOMNodeList A new DOMNodeList object containing all the matched
      * elements.
      */
-    public function getElementsByTagNameNS($namespace, $localName) {}
+    public function getElementsByTagNameNS(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName
+    ) {}
 
     /**
      * Searches for an element with a certain id
@@ -906,7 +950,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @return DOMElement|null The DOMElement or null if the element is
      * not found.
      */
-    public function getElementById($elementId) {}
+    public function getElementById(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $elementId) {}
 
     /**
      * @param DOMNode $node
@@ -951,7 +995,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * DOMDocument and issues E_STRICT
      * warning.
      */
-    public function load($filename, $options = null) {}
+    public function load(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null
+    ) {}
 
     /**
      * Dumps the internal XML tree back into a file
@@ -980,7 +1027,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * DOMDocument and issues E_STRICT
      * warning.
      */
-    public function loadXML($source, $options = null) {}
+    public function loadXML(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $source,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null
+    ) {}
 
     /**
      * Dumps the internal XML tree back into a string
@@ -994,7 +1044,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return string|false the XML, or false if an error occurred.
      */
-    public function saveXML(DOMNode $node = null, $options = null) {}
+    public function saveXML(?DOMNode $node = null, #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null) {}
 
     /**
      * Creates a new DOMDocument object
@@ -1002,7 +1052,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @param string $version [optional] The version number of the document as part of the XML declaration.
      * @param string $encoding [optional] The encoding of the document as part of the XML declaration.
      */
-    public function __construct($version = '1.0', $encoding = '') {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $version = '1.0',
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $encoding = ''
+    ) {}
 
     /**
      * Validates the document based on its DTD
@@ -1021,7 +1074,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return int the number of XIncludes in the document.
      */
-    public function xinclude($options = null) {}
+    public function xinclude(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null) {}
 
     /**
      * Load HTML from a string
@@ -1037,7 +1090,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * DOMDocument and issues E_STRICT
      * warning.
      */
-    public function loadHTML($source, $options = 0) {}
+    public function loadHTML(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $source,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = 0
+    ) {}
 
     /**
      * Load HTML from a file
@@ -1053,7 +1109,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * DOMDocument and issues E_STRICT
      * warning.
      */
-    public function loadHTMLFile($filename, $options = 0) {}
+    public function loadHTMLFile(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = 0
+    ) {}
 
     /**
      * Dumps the internal document into a string using HTML formatting
@@ -1071,7 +1130,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return int|false the number of bytes written or false if an error occurred.
      */
-    public function saveHTMLFile($filename) {}
+    public function saveHTMLFile(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename) {}
 
     /**
      * Validates a document based on a schema
@@ -1107,7 +1166,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function relaxNGValidate($filename) {}
+    public function relaxNGValidate(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename) {}
 
     /**
      * Performs relaxNG validation on the document
@@ -1117,7 +1176,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function relaxNGValidateSource($source) {}
+    public function relaxNGValidateSource(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $source) {}
 
     /**
      * Register extended class used to create base node type
@@ -1133,7 +1192,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function registerNodeClass($baseClass, $extendedClass) {}
+    public function registerNodeClass(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $baseClass,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extendedClass
+    ) {}
 }
 
 /**
@@ -1161,7 +1223,7 @@ class DOMNodeList implements IteratorAggregate, Countable
      * DOMNodeList, or null if that is not a valid
      * index.
      */
-    public function item($index) {}
+    public function item(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index) {}
 
     /**
      * @since 7.2
@@ -1191,7 +1253,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
      * @return DOMNode|null A node (of any type) with the specified nodeName, or
      * null if no node is found.
      */
-    public function getNamedItem($qualifiedName) {}
+    public function getNamedItem(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName) {}
 
     /**
      * @param DOMNode $arg
@@ -1213,7 +1275,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
      * if that is not a valid index (greater than or equal to the number of nodes
      * in this map).
      */
-    public function item($index) {}
+    public function item(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index) {}
 
     /**
      * Retrieves a node specified by local name and namespace URI
@@ -1227,7 +1289,10 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
      * @return DOMNode|null A node (of any type) with the specified local name and namespace URI, or
      * null if no node is found.
      */
-    public function getNamedItemNS($namespace, $localName) {}
+    public function getNamedItemNS(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName
+    ) {}
 
     /**
      * @param DOMNode $arg [optional]
@@ -1295,7 +1360,10 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      * and count exceeds the length, then all 16-bit units
      * to the end of the data are returned.
      */
-    public function substringData($offset, $count) {}
+    public function substringData(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $count
+    ) {}
 
     /**
      * Append the string to the end of the character data of the node
@@ -1305,7 +1373,7 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      * </p>
      * @return void
      */
-    public function appendData($data) {}
+    public function appendData(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data) {}
 
     /**
      * Insert a string at the specified 16-bit unit offset
@@ -1318,7 +1386,10 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      * </p>
      * @return void
      */
-    public function insertData($offset, $data) {}
+    public function insertData(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data
+    ) {}
 
     /**
      * Remove a range of characters from the node
@@ -1333,7 +1404,10 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      * </p>
      * @return void
      */
-    public function deleteData($offset, $count) {}
+    public function deleteData(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $count
+    ) {}
 
     /**
      * Replace a substring within the DOMCharacterData node
@@ -1351,7 +1425,11 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      * </p>
      * @return void
      */
-    public function replaceData($offset, $count, $data) {}
+    public function replaceData(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $count,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data
+    ) {}
 
     /**
      * {@inheritDoc}
@@ -1439,7 +1517,10 @@ class DOMAttr extends DOMNode
      * @param string $value [optional] <p>The value of the attribute.</p>
      * @throws DOMException If invalid $name
      */
-    public function __construct($name, $value = '') {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value
+    = '') {}
 }
 
 /**
@@ -1523,7 +1604,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * @return string The value of the attribute, or an empty string if no attribute with the
      * given name is found.
      */
-    public function getAttribute($qualifiedName) {}
+    public function getAttribute(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName) {}
 
     /**
      * Adds new attribute
@@ -1536,7 +1617,10 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * </p>
      * @return DOMAttr|false The new DOMAttr or false if an error occurred.
      */
-    public function setAttribute($qualifiedName, $value) {}
+    public function setAttribute(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value
+    ) {}
 
     /**
      * Removes attribute
@@ -1546,7 +1630,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function removeAttribute($qualifiedName) {}
+    public function removeAttribute(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName) {}
 
     /**
      * Returns attribute node
@@ -1556,7 +1640,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * </p>
      * @return DOMAttr The attribute node.
      */
-    public function getAttributeNode($qualifiedName) {}
+    public function getAttributeNode(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName) {}
 
     /**
      * Adds new attribute node to element
@@ -1588,7 +1672,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * @return DOMNodeList This function returns a new instance of the class
      * DOMNodeList of all matched elements.
      */
-    public function getElementsByTagName($qualifiedName) {}
+    public function getElementsByTagName(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName) {}
 
     /**
      * Returns value of attribute
@@ -1603,7 +1687,10 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * given localName and namespaceURI
      * is found.
      */
-    public function getAttributeNS($namespace, $localName) {}
+    public function getAttributeNS(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName
+    ) {}
 
     /**
      * Adds new attribute
@@ -1619,7 +1706,11 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * </p>
      * @return void
      */
-    public function setAttributeNS($namespace, $qualifiedName, $value) {}
+    public function setAttributeNS(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value
+    ) {}
 
     /**
      * Removes attribute
@@ -1632,7 +1723,10 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function removeAttributeNS($namespace, $localName) {}
+    public function removeAttributeNS(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName
+    ) {}
 
     /**
      * Returns attribute node
@@ -1645,7 +1739,10 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * </p>
      * @return DOMAttr The attribute node.
      */
-    public function getAttributeNodeNS($namespace, $localName) {}
+    public function getAttributeNodeNS(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName
+    ) {}
 
     /**
      * Adds new attribute node to element
@@ -1669,7 +1766,10 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * DOMNodeList of all matched elements in the order in
      * which they are encountered in a preorder traversal of this element tree.
      */
-    public function getElementsByTagNameNS($namespace, $localName) {}
+    public function getElementsByTagNameNS(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName
+    ) {}
 
     /**
      * Checks to see if attribute exists
@@ -1679,7 +1779,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function hasAttribute($qualifiedName) {}
+    public function hasAttribute(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName) {}
 
     /**
      * Checks to see if attribute exists
@@ -1692,7 +1792,10 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function hasAttributeNS($namespace, $localName) {}
+    public function hasAttributeNS(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName
+    ) {}
 
     /**
      * Declares the attribute specified by name to be of type ID
@@ -1706,7 +1809,10 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * </p>
      * @return void
      */
-    public function setIdAttribute($qualifiedName, $isId) {}
+    public function setIdAttribute(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isId
+    ) {}
 
     /**
      * Declares the attribute specified by local name and namespace URI to be of type ID
@@ -1723,7 +1829,11 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * </p>
      * @return void
      */
-    public function setIdAttributeNS($namespace, $qualifiedName, $isId) {}
+    public function setIdAttributeNS(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isId
+    ) {}
 
     /**
      * Declares the attribute specified by node to be of type ID
@@ -1737,7 +1847,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * </p>
      * @return void
      */
-    public function setIdAttributeNode(DOMAttr $attr, $isId) {}
+    public function setIdAttributeNode(DOMAttr $attr, #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isId) {}
 
     /**
      * {@inheritDoc}
@@ -1777,7 +1887,11 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * @param string|null $namespace  [optional] A namespace URI to create the element within a specific namespace.
      * @throws DOMException If invalid $qualifiedName
      */
-    public function __construct($qualifiedName, $value = null, $namespace = null) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $value = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace = null
+    ) {}
 }
 
 /**
@@ -1803,7 +1917,7 @@ class DOMText extends DOMCharacterData
      * @return DOMText The new node of the same type, which contains all the content at and after the
      * offset.
      */
-    public function splitText($offset) {}
+    public function splitText(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset) {}
 
     /**
      * Indicates whether this text node contains whitespace
@@ -1824,7 +1938,7 @@ class DOMText extends DOMCharacterData
      * @link https://php.net/manual/en/domtext.construct.php
      * @param string $data [optional] The value of the text node. If not supplied an empty text node is created.
      */
-    public function __construct($data) {}
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data) {}
 }
 
 /**
@@ -1839,7 +1953,7 @@ class DOMComment extends DOMCharacterData
      * @link https://php.net/manual/en/domcomment.construct.php
      * @param string $data [optional] The value of the comment
      */
-    public function __construct($data) {}
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data) {}
 }
 
 /**
@@ -1910,7 +2024,7 @@ class DOMCdataSection extends DOMText
      * @param string $data The value of the CDATA node. If not supplied, an empty CDATA node is created.
      * @link https://secure.php.net/manual/en/domcdatasection.construct.php
      */
-    public function __construct($data) {}
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data) {}
 }
 
 /**
@@ -2061,7 +2175,7 @@ class DOMEntityReference extends DOMNode
      * @link https://php.net/manual/en/domentityreference.construct.php
      * @param string $name The name of the entity reference.
      */
-    public function __construct($name) {}
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 }
 
 /**
@@ -2088,7 +2202,10 @@ class DOMProcessingInstruction extends DOMNode
      * @param string $name The tag name of the processing instruction.
      * @param string $value [optional] The value of the processing instruction.
      */
-    public function __construct($name, $value) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value
+    ) {}
 }
 
 class DOMStringExtend
@@ -2127,7 +2244,7 @@ class DOMXPath
      * @param DOMDocument $document The <classname>DOMDocument</classname> associated with the <classname>DOMXPath</classname>.
      * @param bool $registerNodeNS [optional] allow global flag to configure query() or evaluate() calls. Since 8.0.
      */
-    public function __construct(DOMDocument $document, #[PhpStormStubsElementAvailable(from: '8.0')] $registerNodeNS = true) {}
+    public function __construct(DOMDocument $document, #[PhpStormStubsElementAvailable(from: '8.0')] bool $registerNodeNS = true) {}
 
     /**
      * Registers the namespace with the <classname>DOMXPath</classname> object
@@ -2140,7 +2257,10 @@ class DOMXPath
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function registerNamespace($prefix, $namespace) {}
+    public function registerNamespace(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $prefix,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace
+    ) {}
 
     /**
      * Evaluates the given XPath expression
@@ -2160,7 +2280,11 @@ class DOMXPath
      * will return an empty DOMNodeList. The return is false if the expression
      * is malformed or the contextnode is invalid.
      */
-    public function query($expression, $contextNode = null, $registerNodeNS = true) {}
+    public function query(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $expression,
+        #[LanguageLevelTypeAware(['8.0' => 'DOMNode|null'], default: '')] $contextNode = null,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $registerNodeNS = true
+    ) {}
 
     /**
      * Evaluates the given XPath expression and returns a typed result if possible.
@@ -2180,7 +2304,11 @@ class DOMXPath
      * @return mixed a typed result if possible or a DOMNodeList
      * containing all nodes matching the given XPath expression.
      */
-    public function evaluate($expression, $contextNode = null, $registerNodeNS = true) {}
+    public function evaluate(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $expression,
+        #[LanguageLevelTypeAware(['8.0' => 'DOMNode|null'], default: '')] $contextNode = null,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $registerNodeNS = true
+    ) {}
 
     /**
      * Register PHP functions as XPath functions
