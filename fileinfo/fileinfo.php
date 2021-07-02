@@ -2,8 +2,8 @@
 
 // Start of fileinfo v.1.0.5
 
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 class finfo
@@ -19,7 +19,10 @@ class finfo
      * @param int $flags [optional]
      * @param string $magic_database [optional]
      */
-    public function __construct($flags, $magic_database) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $magic_database
+    ) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
@@ -31,7 +34,7 @@ class finfo
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function set_flags($flags) {}
+    public function set_flags(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
@@ -51,7 +54,9 @@ class finfo
      * <i>filename</i> argument, or <b>FALSE</b> if an error occurred.
      */
     #[Pure]
-    public function file($filename = null, $flags = FILEINFO_NONE, $context = null) {}
+    public function file(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FILEINFO_NONE, $context = null) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
@@ -69,7 +74,11 @@ class finfo
      * argument, or <b>FALSE</b> if an error occurred.
      */
     #[Pure]
-    public function buffer($string = null, $flags = FILEINFO_NONE, $context = null) {}
+    public function buffer(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FILEINFO_NONE,
+        $context = null
+    ) {}
 }
 
 /**
