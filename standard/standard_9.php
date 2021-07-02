@@ -543,7 +543,8 @@ function array_udiff(
  * @meta
  */
 #[Pure]
-function array_diff_assoc(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays): array {}
+function array_diff_assoc(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays
+): array {}
 
 /**
  * Computes the difference of arrays with additional index check, compares data by a callback function
