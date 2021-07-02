@@ -3540,7 +3540,7 @@ function collator_asort(Collator $object, array &$array, int $flags = null): boo
  * Get the locale name of the collator
  * @link https://php.net/manual/en/collator.getlocale.php
  * @param Collator $object
- * @param int $type [optional] <p>
+ * @param int $type <p>
  * You can choose between valid and actual locale (
  * <b>Locale::VALID_LOCALE</b> and
  * <b>Locale::ACTUAL_LOCALE</b>,
@@ -3551,7 +3551,7 @@ function collator_asort(Collator $object, array &$array, int $flags = null): boo
  * boolean <b>FALSE</b>.
  */
 #[Pure]
-function collator_get_locale(Collator $object, int $type = null): string|false {}
+function collator_get_locale(Collator $object, int $type): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>

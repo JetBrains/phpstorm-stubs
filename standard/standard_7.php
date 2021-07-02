@@ -2,8 +2,8 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\Optional;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\Required;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -169,7 +169,7 @@ function pfsockopen(string $hostname, int $port = -1, &$error_code, &$error_mess
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function pack(string $format, #[Optional(from: '7.4')] mixed ...$values) {}
+function pack(string $format, #[Required(from: '5.3', to: '7.3')] mixed ...$values) {}
 
 /**
  * Unpack data from binary string

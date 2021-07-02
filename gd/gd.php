@@ -2140,7 +2140,7 @@ function imagexbm(GdImage $image, ?string $filename, ?int $foreground_color = nu
  * Applies a filter to an image
  * @link https://php.net/manual/en/function.imagefilter.php
  * @param resource|GdImage $image
- * @param int $filter <p>
+ * @param int $filter [optional] <p>
  * filtertype can be one of the following:
  * IMG_FILTER_NEGATE: Reverses all colors of
  * the image.</p>
@@ -2895,11 +2895,11 @@ function imageaffinematrixconcat(array $matrix1, array $matrix2): array|false {}
  * Return an image containing the affine tramsformed src image, using an optional clipping area
  * @link https://secure.php.net/manual/en/function.imageaffinematrixget.php
  * @param int $type <p> One of <b>IMG_AFFINE_*</b> constants.</p>
- * @param mixed $options [optional]
+ * @param mixed $options
  * @return float[]|false Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
  * @since 5.5
  */
-function imageaffinematrixget(int $type, $options = null): array|false {}
+function imageaffinematrixget(int $type, $options): array|false {}
 
 /**
  * Crop an image using the given coordinates and size, x, y, width and height
