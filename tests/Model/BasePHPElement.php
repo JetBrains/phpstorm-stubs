@@ -6,7 +6,6 @@ namespace StubTests\Model;
 use Exception;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use JetBrains\PhpStorm\Pure;
 use phpDocumentor\Reflection\Type;
 use PhpParser\Node;
 use PhpParser\Node\AttributeGroup;

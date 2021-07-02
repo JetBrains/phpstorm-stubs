@@ -565,7 +565,8 @@ function array_udiff(
 #[Pure]
 function array_diff_assoc(
     array $array,
-    array ...$arrays): array {}
+    array ...$arrays
+): array {}
 
 /**
  * Computes the difference of arrays with additional index check, compares data by a callback function
@@ -750,8 +751,9 @@ function array_filter(array $array, ?callable $callback, int $mode = 0): array {
  */
 function array_map(
     ?callable $callback,
-    #[PhpStormStubsElementAvailable(from:'8.0')] array $array,
-    array ...$arrays): array {}
+    #[PhpStormStubsElementAvailable(from: '8.0')] array $array,
+    array ...$arrays
+): array {}
 
 /**
  * Split an array into chunks

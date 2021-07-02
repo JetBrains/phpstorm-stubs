@@ -1218,7 +1218,7 @@ class PDO
      * this way.
      */
     public function quote(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $string,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR
     ) {}
 

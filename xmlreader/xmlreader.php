@@ -233,7 +233,8 @@ class XMLReader
      */
     public function moveToAttributeNs(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace) {}
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace
+    ) {}
 
     /**
      * Position cursor on the parent Element of current Attribute
@@ -350,7 +351,8 @@ class XMLReader
      */
     public function setParserProperty(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $property,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $value) {}
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $value
+    ) {}
 
     /**
      * Set the filename or URI for a RelaxNG Schema

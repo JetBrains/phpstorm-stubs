@@ -745,11 +745,11 @@ final class EvIo extends EvWatcher
      * @param int $priority
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'],default: '')] $fd,
-        #[LanguageLevelTypeAware(['8.0' => 'int'],default: '')] $events,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'],default: '')] $callback,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'],default: '')] $data = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'],default: '')] $priority = 0
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $fd,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $events,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $callback,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $priority = 0
     ) {}
 
     /**
@@ -759,8 +759,8 @@ final class EvIo extends EvWatcher
      * @param int $events Ev::READ and/or Ev::WRITE. See the bit masks.
      */
     public function set(
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'],default: '')] $fd,
-        #[LanguageLevelTypeAware(['8.0' => 'int'],default: '')] $events
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $fd,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $events
     ) {}
 
     /**
@@ -832,12 +832,12 @@ final class EvPeriodic extends EvWatcher
      * @param int $priority
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'float'],default: '')] $offset,
-        #[LanguageLevelTypeAware(['8.0' => 'float'],default: '')] $interval,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'],default: '')] $reschedule_cb,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'],default: '')] $callback,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'],default: '')] $data = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'],default: '')] $priority = 0
+        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')] $offset,
+        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')] $interval,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $reschedule_cb,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $callback,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $priority = 0
     ) {}
 
     /**
@@ -889,9 +889,9 @@ final class EvPeriodic extends EvWatcher
      * @return void
      */
     public function set(
-        #[LanguageLevelTypeAware(['8.0' => 'float'],default: '')] $offset,
-        #[LanguageLevelTypeAware(['8.0' => 'float'],default: '')] $interval,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'],default: '')] $reschedule_cb = null
+        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')] $offset,
+        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')] $interval,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $reschedule_cb = null
     ) {}
 }
 
