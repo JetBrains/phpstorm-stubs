@@ -2,6 +2,7 @@
 
 // Start of sqlite3 v.0.7-dev
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
@@ -68,7 +69,10 @@ class SQLite3
      * </p>
      * @return void No value is returned.
      */
-    public function open($filename, $flags = SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE, $encryptionKey = null) {}
+    public function open(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $encryptionKey = null) {}
 
     /**
      * Closes the database connection
@@ -86,7 +90,7 @@ class SQLite3
      * </p>
      * @return bool <b>TRUE</b> if the query succeeded, <b>FALSE</b> on failure.
      */
-    public function exec($query) {}
+    public function exec(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $query) {}
 
     /**
      * Returns the SQLite3 library version as a string constant and as a number
@@ -129,7 +133,7 @@ class SQLite3
      * @return bool <b>TRUE</b> on success, <b>FALSE</b> on failure.
      * @since 5.3.3
      */
-    public function busyTimeout($milliseconds) {}
+    public function busyTimeout(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $milliseconds) {}
 
     /**
      * Attempts to load an SQLite extension library
@@ -140,7 +144,7 @@ class SQLite3
      * </p>
      * @return bool <b>TRUE</b> if the extension is successfully loaded, <b>FALSE</b> on failure.
      */
-    public function loadExtension($name) {}
+    public function loadExtension(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
     /**
      * Returns the number of database rows that were changed (or inserted or
@@ -161,7 +165,7 @@ class SQLite3
      * @return string a properly escaped string that may be used safely in an SQL
      * statement.
      */
-    public static function escapeString($string) {}
+    public static function escapeString(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string) {}
 
     /**
      * Prepares an SQL statement for execution
@@ -171,7 +175,7 @@ class SQLite3
      * </p>
      * @return SQLite3Stmt|false an <b>SQLite3Stmt</b> object on success or <b>FALSE</b> on failure.
      */
-    public function prepare($query) {}
+    public function prepare(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $query) {}
 
     /**
      * Executes an SQL query
@@ -181,7 +185,7 @@ class SQLite3
      * </p>
      * @return SQLite3Result|false an <b>SQLite3Result</b> object, or <b>FALSE</b> on failure.
      */
-    public function query($query) {}
+    public function query(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $query) {}
 
     /**
      * Executes a query and returns a single result
@@ -206,7 +210,10 @@ class SQLite3
      * <p>
      * Invalid or failing queries will return <b>FALSE</b>.
      */
-    public function querySingle($query, $entireRow = false) {}
+    public function querySingle(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $query,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $entireRow = false
+    ) {}
 
     /**
      * Registers a PHP function for use as an SQL scalar function
@@ -229,7 +236,12 @@ class SQLite3
      * the same result given the same inputs within a single SQL statement.</p>
      * @return bool <b>TRUE</b> upon successful creation of the function, <b>FALSE</b> on failure.
      */
-    public function createFunction($name, $callback, $argCount = -1, int $flags = 0) {}
+    public function createFunction(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $argCount = -1,
+        int $flags = 0
+    ) {}
 
     /**
      * Registers a PHP function for use as an SQL aggregate function
@@ -253,7 +265,12 @@ class SQLite3
      * @return bool <b>TRUE</b> upon successful creation of the aggregate, <b>FALSE</b> on
      * failure.
      */
-    public function createAggregate($name, $stepCallback, $finalCallback, $argCount = -1) {}
+    public function createAggregate(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $stepCallback,
+        #[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $finalCallback,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $argCount = -1
+    ) {}
 
     /**
      * Registers a PHP function for use as an SQL collating function
@@ -271,7 +288,7 @@ class SQLite3
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * @since 5.3.11
      */
-    public function createCollation($name, callable $callback) {}
+    public function createCollation(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name, callable $callback) {}
 
     /**
      * Opens a stream resource to read a BLOB
@@ -285,10 +302,10 @@ class SQLite3
      * @return resource|false Returns a stream resource, or FALSE on failure.
      */
     public function openBlob(
-        $table,
-        $column,
-        $rowid,
-        $database = 'main',
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $table,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $column,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $rowid,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $database = 'main',
         #[PhpStormStubsElementAvailable(from: '7.2')] int $flags = SQLITE3_OPEN_READONLY
     ) {}
 
@@ -298,7 +315,7 @@ class SQLite3
      * @param bool $enable
      * @return bool Returns the old value; true if exceptions were enabled, false otherwise.
      */
-    public function enableExceptions($enable = false) {}
+    public function enableExceptions(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $enable = false) {}
 
     /**
      * Instantiates an SQLite3 object and opens an SQLite 3 database
@@ -319,7 +336,11 @@ class SQLite3
      * SQLite database.
      * </p>
      */
-    public function __construct($filename, $flags = SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE, $encryptionKey = null) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $encryptionKey = null
+    ) {}
 
     /**
      * @return int
@@ -414,7 +435,11 @@ class SQLite3Stmt
      * @return bool <b>TRUE</b> if the parameter is bound to the statement variable, <b>FALSE</b>
      * on failure.
      */
-    public function bindParam($param, &$var, $type = SQLITE3_TEXT) {}
+    public function bindParam(
+        #[LanguageLevelTypeAware(['8.0' => 'string|int'], default: '')] $param,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] &$var,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = SQLITE3_TEXT
+    ) {}
 
     /**
      * Binds the value of a parameter to a statement variable
@@ -437,7 +462,11 @@ class SQLite3Stmt
      * @return bool <b>TRUE</b> if the value is bound to the statement variable, <b>FALSE</b>
      * on failure.
      */
-    public function bindValue($param, $value, $type = SQLITE3_TEXT) {}
+    public function bindValue(
+        #[LanguageLevelTypeAware(['8.0' => 'string|int'], default: '')] $param,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = SQLITE3_TEXT
+    ) {}
 
     public function readOnly() {}
 
@@ -445,7 +474,9 @@ class SQLite3Stmt
      * @param SQLite3 $sqlite3
      * @param string $query
      */
-    private function __construct($sqlite3, #[PhpStormStubsElementAvailable(from: '8.0')] $query) {}
+    private function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'SQLite3'], default: '')] $sqlite3,
+        #[PhpStormStubsElementAvailable(from: '8.0')] string $query) {}
 
     /**
      * Retrieves the SQL of the prepared statement. If expanded is FALSE, the unmodified SQL is retrieved.
@@ -479,7 +510,7 @@ class SQLite3Result
      * @return string the string name of the column identified by
      * <i>column_number</i>.
      */
-    public function columnName($column) {}
+    public function columnName(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $column) {}
 
     /**
      * Returns the type of the nth column
@@ -493,7 +524,7 @@ class SQLite3Result
      * <b>SQLITE3_TEXT</b>, <b>SQLITE3_BLOB</b>, or
      * <b>SQLITE3_NULL</b>).
      */
-    public function columnType($column) {}
+    public function columnType(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $column) {}
 
     /**
      * Fetches a result row as an associative or numerically indexed array or both
@@ -510,7 +541,7 @@ class SQLite3Result
      * @return array|false a result row as an associatively or numerically indexed array or
      * both. Alternately will return <b>FALSE</b> if there are no more rows.
      */
-    public function fetchArray($mode = SQLITE3_BOTH) {}
+    public function fetchArray(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = SQLITE3_BOTH) {}
 
     /**
      * Resets the result set back to the first row
