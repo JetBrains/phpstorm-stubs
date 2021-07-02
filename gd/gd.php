@@ -2140,7 +2140,7 @@ function imagexbm(GdImage $image, ?string $filename, ?int $foreground_color = nu
  * Applies a filter to an image
  * @link https://php.net/manual/en/function.imagefilter.php
  * @param resource|GdImage $image
- * @param int $filter <p>
+ * @param int $filter [optional] <p>
  * filtertype can be one of the following:
  * IMG_FILTER_NEGATE: Reverses all colors of
  * the image.</p>
