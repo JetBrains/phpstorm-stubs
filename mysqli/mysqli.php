@@ -204,7 +204,9 @@ class mysqli
      * @return bool true on success or false on failure.
      * @since 5.5
      */
-    public function begin_transaction(int $flags = 0, ?string $name = null) {}
+    public function begin_transaction(
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $flags = 0,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $name = null) {}
 
     /**
      * Changes the user of the specified database connection
@@ -680,7 +682,7 @@ class mysqli
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 5.5
      */
-    public function release_savepoint(string $name) {}
+    public function release_savepoint(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $name) {}
 
     /**
      * Rolls back current transaction
@@ -690,7 +692,10 @@ class mysqli
      * @return bool true on success or false on failure.
      * @since 5.5 Added flags and name parameters.
      */
-    public function rollback(int $flags = 0, ?string $name = null) {}
+    public function rollback(
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $flags = 0,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $name = null
+    ) {}
 
     /**
      * Set a named transaction savepoint
@@ -699,7 +704,7 @@ class mysqli
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 5.5
      */
-    public function savepoint(string $name) {}
+    public function savepoint(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $name) {}
 
     /**
      * Selects the default database for database queries
@@ -806,7 +811,7 @@ class mysqli
      * @return bool TRUE if the refresh was a success, otherwise FALSE
      * @since 5.3
      */
-    public function refresh(int $flags) {}
+    public function refresh(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $flags) {}
 }
 
 /**

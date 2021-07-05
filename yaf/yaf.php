@@ -2886,7 +2886,7 @@ final class Yaf_Route_Regex extends Yaf_Router implements Yaf_Route_Interface
      * @param array $query
      * @return bool
      */
-    public function assemble(array $info, array $query = null) {}
+    public function assemble(array $info, ?array $query = null) {}
 
     public function match($uri) {}
 }

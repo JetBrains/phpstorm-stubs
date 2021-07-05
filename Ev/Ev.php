@@ -337,7 +337,7 @@ final class Ev
      *
      * @param float $seconds Fractional number of seconds
      */
-    final public static function sleep($seconds) {}
+    final public static function sleep(float $seconds) {}
 
     /**
      * Stops the default event loop
