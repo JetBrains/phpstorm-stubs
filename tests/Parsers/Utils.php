@@ -11,6 +11,7 @@ use RuntimeException;
 use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPConst;
 use StubTests\Model\PHPMethod;
+use StubTests\Model\PHPParameter;
 use StubTests\Model\PhpVersions;
 use StubTests\Model\Tags\RemovedTag;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
@@ -197,5 +198,18 @@ class Utils
             $latestAvailableVersions[] = $element->availableVersionsRangeFromAttribute['to'];
         }
         return $latestAvailableVersions;
+    }
+
+    /**
+     * @param PHPParameter $parameter
+     * @return bool
+     */
+    public static function parameterSuiteCurrentPhpVersionBasedOnAttribute(PHPParameter $parameter): bool
+    {
+        if (!empty($parameter->availableVersionsRangeFromAttribute)) {
+            return ($parameter->availableVersionsRangeFromAttribute['from'] <= (doubleval(getenv('PHP_VERSION')) ?? PhpVersions::getFirst())
+                && $parameter->availableVersionsRangeFromAttribute['to'] >= (doubleval(getenv('PHP_VERSION')) ?? PhpVersions::getLatest()));
+        }
+        return true;
     }
 }

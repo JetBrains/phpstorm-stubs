@@ -75,9 +75,13 @@ class StubsParametersProvider
             PhpStormStubsSingleton::getPhpStormStubs()->getCoreInterfaces();
         foreach (EntitiesFilter::getFiltered($coreClassesAndInterfaces) as $class) {
             foreach (EntitiesFilter::getFilteredFunctions($class) as $method) {
-                $firstSinceVersion = Utils::getDeclaredSinceVersion($method);
-                if ($filterFunction($class, $method, $firstSinceVersion) === true) {
-                    foreach (EntitiesFilter::getFilteredParameters($method, null, ...$problemTypes) as $parameter) {
+                foreach (EntitiesFilter::getFilteredParameters($method, null, ...$problemTypes) as $parameter) {
+                    if (!empty($parameter->availableVersionsRangeFromAttribute)) {
+                        $firstSinceVersion = max(Utils::getDeclaredSinceVersion($method), min($parameter->availableVersionsRangeFromAttribute));
+                    } else {
+                        $firstSinceVersion = Utils::getDeclaredSinceVersion($method);
+                    }
+                    if ($filterFunction($class, $method, $firstSinceVersion) === true) {
                         yield "method $class->name::$method->name($parameter->name)" => [$class, $method, $parameter];
                     }
                 }
