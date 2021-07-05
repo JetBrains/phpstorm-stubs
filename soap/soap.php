@@ -262,7 +262,7 @@ class SoapClient
      * @throws SoapFault A SoapFault exception will be thrown if the wsdl URI cannot be loaded.
      * @since 5.0.1
      */
-    public function __construct($wsdl, array $options = null) {}
+    public function __construct(?string $wsdl, array $options = null) {}
 
     /**
      * @link https://php.net/manual/en/soapclient.call.php
@@ -272,7 +272,7 @@ class SoapClient
      * @since 5.0.1
      */
     #[Deprecated]
-    public function __call($name, $args) {}
+    public function __call(string $name, array $args) {}
 
     /**
      * Calls a SOAP function
@@ -315,7 +315,7 @@ class SoapClient
      * option set to <b>FALSE</b>, a SoapFault object will be returned.
      * @since 5.0.1
      */
-    public function __soapCall($name, $args, $options = null, $inputHeaders = null, &$outputHeaders = null) {}
+    public function __soapCall(string $name, array $args, ?array $options = null, $inputHeaders = null, &$outputHeaders = null) {}
 
     /**
      * Returns last SOAP request
@@ -396,7 +396,7 @@ class SoapClient
      * @return string|null The XML SOAP response.
      * @since 5.0.1
      */
-    public function __doRequest($request, $location, $action, $version, #[LanguageLevelTypeAware(["8.0" => 'bool'], default: 'int')] $oneWay = false) {}
+    public function __doRequest(string $request, string $location, string $action, int $version, #[LanguageLevelTypeAware(["8.0" => 'bool'], default: 'int')] $oneWay = false) {}
 
     /**
      * The __setCookie purpose
@@ -410,7 +410,7 @@ class SoapClient
      * @return void No value is returned.
      * @since 5.0.4
      */
-    public function __setCookie($name, #[LanguageLevelTypeAware(["8.0" => "string|null"], default: "string")] $value) {}
+    public function __setCookie(string $name, #[LanguageLevelTypeAware(["8.0" => "string|null"], default: "string")] $value) {}
 
     /**
      * Sets the location of the Web service to use
@@ -421,7 +421,7 @@ class SoapClient
      * @return string|null The old endpoint URL.
      * @since 5.0.1
      */
-    public function __setLocation($location = '') {}
+    public function __setLocation(?string $location = '') {}
 
     /**
      * Sets SOAP headers for subsequent calls
@@ -466,7 +466,7 @@ class SoapVar
      * </p>
      * @since 5.0.1
      */
-    public function __construct($data, #[LanguageLevelTypeAware(["7.1" => "int|null"], default: "int")] $encoding, #[LanguageLevelTypeAware(["8.0" => "string|null"], default: "string")] $typeName, $typeNamespace = '', $nodeName = '', $nodeNamespace = '') {}
+    public function __construct(mixed $data, #[LanguageLevelTypeAware(["7.1" => "int|null"], default: "int")] $encoding, #[LanguageLevelTypeAware(["8.0" => "string|null"], default: "string")] $typeName, ?string $typeNamespace = '', ?string $nodeName = '', ?string $nodeNamespace = '') {}
 
     /**
      * SoapVar constructor
@@ -541,7 +541,7 @@ class SoapServer
      * </p>
      * @since 5.0.1
      */
-    public function __construct($wsdl, array $options = null) {}
+    public function __construct(?string $wsdl, array $options = null) {}
 
     /**
      * SoapServer constructor
@@ -606,7 +606,7 @@ class SoapServer
      * @return void No value is returned.
      * @since 5.1.2
      */
-    public function setPersistence($mode) {}
+    public function setPersistence(int $mode) {}
 
     /**
      * Sets the class which handles SOAP requests
@@ -618,7 +618,7 @@ class SoapServer
      * @return void No value is returned.
      * @since 5.0.1
      */
-    public function setClass($class, ...$args) {}
+    public function setClass(string $class, mixed ...$args) {}
 
     /**
      * Sets the object which will be used to handle SOAP requests
@@ -628,7 +628,7 @@ class SoapServer
      * </p>
      * @return void No value is returned.
      */
-    public function setObject($object) {}
+    public function setObject(object $object) {}
 
     /**
      * Adds one or more functions to handle SOAP requests
@@ -672,7 +672,7 @@ class SoapServer
      * @return void No value is returned.
      * @since 5.0.1
      */
-    public function handle($request = null) {}
+    public function handle(?string $request = null) {}
 
     /**
      * Issue SoapServer fault indicating an error
@@ -695,7 +695,7 @@ class SoapServer
      * @return void No value is returned.
      * @since 5.0.1
      */
-    public function fault($code, $string, $actor = null, $details = null, $name = null) {}
+    public function fault(string $code, string $string, string $actor = null, mixed $details = null, string $name = null) {}
 
     /**
      * Add a SOAP header to the response
@@ -765,7 +765,7 @@ class SoapFault extends Exception
      * @since 5.0.1
      */
     #[\JetBrains\PhpStorm\Pure]
-    public function __construct($code, $string, $actor = null, $details = null, $name = null, $headerFault = null) {}
+    public function __construct(array|string|null $code, string $string, ?string $actor = null, mixed $details = null, ?string $name = null, mixed $headerFault = null) {}
 
     /**
      * SoapFault constructor
@@ -822,7 +822,7 @@ class SoapParam
      * </p>
      * @since 5.0.1
      */
-    public function __construct($data, $name) {}
+    public function __construct(mixed $data, string $name) {}
 
     /**
      * SoapParam constructor
@@ -867,7 +867,7 @@ class SoapHeader
      * </p>
      * @since 5.0.1
      */
-    public function __construct($namespace, $name, $data = null, $mustUnderstand = false, $actor = null) {}
+    public function __construct(string $namespace, string $name, mixed $data = null, bool $mustUnderstand = false, string|int|null $actor = null) {}
 
     /**
      * SoapHeader constructor
