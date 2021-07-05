@@ -2435,7 +2435,7 @@ class Spoofchecker
      * </p>
      * @return void
      */
-    public function setChecks(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $checks) {}
+    public function setChecks(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $checks) {}
 
     public function setRestrictionLevel(int $level) {}
 }
