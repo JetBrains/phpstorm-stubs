@@ -5,12 +5,12 @@ namespace StubTests;
 
 use PHPUnit\Framework\Exception;
 use RuntimeException;
+use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
-use StubTests\Model\PhpVersions;
 use StubTests\Model\StubProblemType;
 use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
@@ -54,14 +54,7 @@ class BaseFunctionsTest extends BaseStubsTest
         $phpstormFunction = $stubFunctions[$functionName];
         $filteredStubParameters = array_filter(
             $phpstormFunction->parameters,
-            function ($parameter) {
-                if (!empty($parameter->availableVersionsRangeFromAttribute)) {
-                    return $parameter->availableVersionsRangeFromAttribute['from'] <= (doubleval(getenv('PHP_VERSION')) ?? PhpVersions::getFirst())
-                        && $parameter->availableVersionsRangeFromAttribute['to'] >= (doubleval(getenv('PHP_VERSION')) ?? PhpVersions::getLatest());
-                } else {
-                    return true;
-                }
-            }
+            fn($parameter) => BasePHPElement::entitySuitesCurrentPhpVersion($parameter)
         );
         static::assertSameSize(
             $function->parameters,
