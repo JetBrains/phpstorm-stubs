@@ -118,7 +118,7 @@ function imap_headers(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], def
 /**
  * Read the header of the message
  * @link https://php.net/manual/en/function.imap-headerinfo.php
- * @param resource $imap An IMAP stream returned by imap_open().
+ * @param resource|IMAP\Connection $imap An IMAP stream returned by imap_open().
  * @param int $message_num The message number
  * @param int $from_length [optional] Number of characters for the fetchfrom property. Must be greater than or equal to zero.
  * @param int $subject_length [optional] Number of characters for the fetchsubject property Must be greater than or equal to zero.
@@ -163,7 +163,7 @@ function imap_headers(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], def
  * <dt>fetchsubject</dt><dd>subject line formatted to fit subjectlength characters</dd>
  * </dl>
  */
-function imap_headerinfo($imap, int $message_num, int $from_length = 0, int $subject_length = 0, #[PhpStormStubsElementAvailable(to: '7.4')] $default_host = null): stdClass|false {}
+function imap_headerinfo(IMAP\Connection $imap, int $message_num, int $from_length = 0, int $subject_length = 0, #[PhpStormStubsElementAvailable(to: '7.4')] $default_host = null): stdClass|false {}
 
 /**
  * Parse mail headers from a string
