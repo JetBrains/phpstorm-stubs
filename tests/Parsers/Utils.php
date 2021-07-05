@@ -207,8 +207,8 @@ class Utils
     public static function parameterSuiteCurrentPhpVersionBasedOnAttribute(PHPParameter $parameter): bool
     {
         if (!empty($parameter->availableVersionsRangeFromAttribute)) {
-            return ($parameter->availableVersionsRangeFromAttribute['from'] <= (doubleval(getenv('PHP_VERSION')) ?? PhpVersions::getFirst())
-                && $parameter->availableVersionsRangeFromAttribute['to'] >= (doubleval(getenv('PHP_VERSION')) ?? PhpVersions::getLatest()));
+            return $parameter->availableVersionsRangeFromAttribute['from'] <= (doubleval(getenv('PHP_VERSION')) ?? PhpVersions::getFirst())
+                && $parameter->availableVersionsRangeFromAttribute['to'] >= (doubleval(getenv('PHP_VERSION')) ?? PhpVersions::getLatest());
         }
         return true;
     }
