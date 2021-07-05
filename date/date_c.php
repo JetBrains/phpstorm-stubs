@@ -80,9 +80,9 @@ interface DateTimeInterface
      * @link https://secure.php.net/manual/en/datetime.diff.php
      * @param DateTimeInterface $targetObject <p>The date to compare to.</p>
      * @param bool $absolute <p>Should the interval be forced to be positive?</p>
-     * @return DateInterval|false
+     * @return DateInterval
      * The https://secure.php.net/manual/en/class.dateinterval.php DateInterval} object representing the
-     * difference between the two dates or <b>FALSE</b> on failure.
+     * difference between the two dates.
      */
     public function diff($targetObject, $absolute = false);
 
@@ -93,9 +93,11 @@ interface DateTimeInterface
      * @param string $format <p>
      * Format accepted by  {@link https://secure.php.net/manual/en/function.date.php date()}.
      * </p>
-     * @return string|false
+     * @return string
      * Returns the formatted date string on success or <b>FALSE</b> on failure.
+     * Since PHP8, it always returns <b>STRING</b>.
      */
+    #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
     public function format($format);
 
     /**
@@ -103,8 +105,9 @@ interface DateTimeInterface
      * Returns the timezone offset
      * @return int|false
      * Returns the timezone offset in seconds from UTC on success
-     * or <b>FALSE</b> on failure.
+     * or <b>FALSE</b> on failure. Since PHP8, it always returns <b>INT</b>.
      */
+    #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
     public function getOffset();
 
     /**
@@ -695,9 +698,10 @@ class DateTimeZone
      * Returns a numerically indexed array with all timezone identifiers
      * @param int $timezoneGroup
      * @param string $countryCode
-     * @return array
+     * @return array|false Returns the array of timezone identifiers, or <b>FALSE</b> on failure. Since PHP8, always returns <b>array</b>.
      * @link https://php.net/manual/en/datetimezone.listidentifiers.php
      */
+    #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
     public static function listIdentifiers($timezoneGroup = DateTimeZone::ALL, $countryCode = null) {}
 
     /**
