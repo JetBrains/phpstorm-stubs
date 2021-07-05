@@ -143,7 +143,7 @@ class StubsTypeHintsTest extends BaseStubsTest
     {
         $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
         self::assertEmpty(
-            array_intersect(['int', 'float', 'string', 'bool'], $parameter->typesFromSignature),
+            array_intersect(['int', 'float', 'string', 'bool', 'mixed', 'object'], $parameter->typesFromSignature),
             "Method '$class->name::$stubMethod->name' with @since '$sinceVersion'  
                 has parameter '$parameter->name' with typehint '" . implode('|', $parameter->typesFromSignature) .
             "' but typehints available only since php 7"
