@@ -206,7 +206,8 @@ class mysqli
      */
     public function begin_transaction(
         #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $flags = 0,
-        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $name = null) {}
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $name = null
+    ) {}
 
     /**
      * Changes the user of the specified database connection
