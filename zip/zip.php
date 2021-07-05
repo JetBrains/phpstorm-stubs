@@ -706,7 +706,7 @@ class ZipArchive implements Countable
      * @return int
      * @since 7.2
      */
-    public function count(): int {}
+    public function count() {}
 
     /**
      * Returns the status error message, system and/or zip messages
@@ -951,7 +951,7 @@ class ZipArchive implements Countable
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 7.2
      */
-    public function setEncryptionIndex(int $index, int $method, ?string $password = null): bool {}
+    public function setEncryptionIndex(int $index, int $method, ?string $password = null) {}
 
     /**
      * Set the encryption method of an entry defined by its name
@@ -962,7 +962,7 @@ class ZipArchive implements Countable
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 7.2
      */
-    public function setEncryptionName(string $name, int $method, ?string $password = null): bool {}
+    public function setEncryptionName(string $name, int $method, ?string $password = null) {}
 
     /**
      * (PHP 5 &gt;= 5.6.0, PECL zip &gt;= 1.12.0)<br/>
