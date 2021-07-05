@@ -3,6 +3,7 @@
 // Start of intl v.1.1.0
 
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\ExpectedValues as EV;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
@@ -245,7 +246,7 @@ class Collator
      * @param string $locale
      */
     #[Pure]
-    public function __construct($locale) {}
+    public function __construct(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -260,7 +261,7 @@ class Collator
      * @return Collator|null Return new instance of <b>Collator</b> object, or <b>NULL</b>
      * on error.
      */
-    public static function create($locale) {}
+    public static function create(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -292,7 +293,10 @@ class Collator
      * is returned.
      */
     #[Pure]
-    public function compare($string1, $string2) {}
+    public function compare(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $string1,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $string2
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -310,7 +314,10 @@ class Collator
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function sort(array &$array, $flags = null) {}
+    public function sort(
+        array &$array,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] #[EV([Collator::SORT_REGULAR])] $flags = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -333,7 +340,10 @@ class Collator
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function asort(array &$array, $flags = null) {}
+    public function asort(
+        array &$array,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] #[EV([Collator::SORT_REGULAR])] $flags = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -345,7 +355,7 @@ class Collator
      * @return int|false Attribute value, or boolean <b>FALSE</b> on error.
      */
     #[Pure]
-    public function getAttribute($attribute) {}
+    public function getAttribute(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $attribute) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -357,7 +367,10 @@ class Collator
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setAttribute($attribute, $value) {}
+    public function setAttribute(
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $attribute,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $value
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -379,7 +392,16 @@ class Collator
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setStrength($strength) {}
+    public function setStrength(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] #[EV([Collator::PRIMARY])] $strength) {}
+
+    /**
+     * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
+     * Get collator's last error code
+     * @link https://php.net/manual/en/collator.geterrorcode.php
+     * @return int Error code returned by the last Collator API function call.
+     */
+    #[Pure]
+    public function getErrorCode() {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -396,16 +418,11 @@ class Collator
      * boolean <b>FALSE</b>.
      */
     #[Pure]
-    public function getLocale($type = null) {}
-
-    /**
-     * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
-     * Get collator's last error code
-     * @link https://php.net/manual/en/collator.geterrorcode.php
-     * @return int Error code returned by the last Collator API function call.
-     */
-    #[Pure]
-    public function getErrorCode() {}
+    public function getLocale(
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
+        #[EV([Locale::VALID_LOCALE, Locale::ACTUAL_LOCALE])]
+        $type = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -426,7 +443,7 @@ class Collator
      * @return string the collation key for the string. Collation keys can be compared directly instead of strings.
      */
     #[Pure]
-    public function getSortKey($string) {}
+    public function getSortKey(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $string) {}
 }
 
 class NumberFormatter
@@ -887,7 +904,11 @@ class NumberFormatter
      * @param string $pattern [optional]
      */
     #[Pure]
-    public function __construct($locale, $style, $pattern = null) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $style,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $pattern = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -913,7 +934,11 @@ class NumberFormatter
      * </p>
      * @return NumberFormatter|false <b>NumberFormatter</b> object or <b>FALSE</b> on error.
      */
-    public static function create($locale, $style, $pattern = null) {}
+    public static function create(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] #[EV([NumberFormatter::PATTERN_DECIMAL, NumberFormatter::PATTERN_RULEBASED])] $style,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $pattern = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -930,7 +955,10 @@ class NumberFormatter
      * @return string|false the string containing formatted value, or <b>FALSE</b> on error.
      */
     #[Pure]
-    public function format($num, $type = null) {}
+    public function format(
+        #[LanguageLevelTypeAware(['8.1' => 'int|float'], default: '')] $num,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $type = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -948,7 +976,11 @@ class NumberFormatter
      * </p>
      * @return mixed The value of the parsed number or <b>FALSE</b> on error.
      */
-    public function parse($string, $type = NumberFormatter::TYPE_DOUBLE, &$offset = null) {}
+    public function parse(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $string,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $type = NumberFormatter::TYPE_DOUBLE,
+        &$offset = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -963,7 +995,10 @@ class NumberFormatter
      * @return string String representing the formatted currency value.
      */
     #[Pure]
-    public function formatCurrency($amount, $currency) {}
+    public function formatCurrency(
+        #[LanguageLevelTypeAware(['8.1' => 'float'], default: '')] $amount,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $currency
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -980,7 +1015,7 @@ class NumberFormatter
      * </p>
      * @return float|false The parsed numeric value or <b>FALSE</b> on error.
      */
-    public function parseCurrency($string, &$currency, &$offset = null) {}
+    public function parseCurrency(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $string, &$currency, &$offset = null) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -995,7 +1030,10 @@ class NumberFormatter
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setAttribute($attribute, $value) {}
+    public function setAttribute(
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $attribute,
+        #[LanguageLevelTypeAware(['8.1' => 'int|float'], default: '')] $value
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1008,7 +1046,7 @@ class NumberFormatter
      * @return int|false Return attribute value on success, or <b>FALSE</b> on error.
      */
     #[Pure]
-    public function getAttribute($attribute) {}
+    public function getAttribute(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $attribute) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1024,7 +1062,10 @@ class NumberFormatter
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setTextAttribute($attribute, $value) {}
+    public function setTextAttribute(
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $attribute,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $value
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1037,7 +1078,7 @@ class NumberFormatter
      * @return string|false Return attribute value on success, or <b>FALSE</b> on error.
      */
     #[Pure]
-    public function getTextAttribute($attribute) {}
+    public function getTextAttribute(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $attribute) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1052,7 +1093,10 @@ class NumberFormatter
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setSymbol($symbol, $value) {}
+    public function setSymbol(
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $symbol,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $value
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1065,7 +1109,7 @@ class NumberFormatter
      * @return string|false The symbol string or <b>FALSE</b> on error.
      */
     #[Pure]
-    public function getSymbol($symbol) {}
+    public function getSymbol(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $symbol) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1078,7 +1122,7 @@ class NumberFormatter
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setPattern($pattern) {}
+    public function setPattern(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $pattern) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1102,7 +1146,8 @@ class NumberFormatter
      * @return string The locale name used to create the formatter.
      */
     #[Pure]
-    public function getLocale($type = null) {}
+    public function getLocale(
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] #[EV([Locale::VALID_LOCALE, Locale::ACTUAL_LOCALE])] $type = null) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1180,7 +1225,10 @@ class Normalizer
      * @param int $form [optional] <p>One of the normalization forms.</p>
      * @return string|false The normalized string or <b>FALSE</b> if an error occurred.
      */
-    public static function normalize($string, $form = Normalizer::FORM_C) {}
+    public static function normalize(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $string,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $form = Normalizer::FORM_C
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1192,7 +1240,10 @@ class Normalizer
      * </p>
      * @return bool <b>TRUE</b> if normalized, <b>FALSE</b> otherwise or if there an error
      */
-    public static function isNormalized($string, $form = Normalizer::FORM_C) {}
+    public static function isNormalized(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $string,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $form = Normalizer::FORM_C
+    ) {}
 
     /**
      * @link https://www.php.net/manual/en/normalizer.getrawdecomposition.php
@@ -1201,7 +1252,10 @@ class Normalizer
      * @return string|null <p>Returns a string containing the Decomposition_Mapping property, if present in the UCD.
      * Returns null if there is no Decomposition_Mapping property for the character.</p>
      */
-    public static function getRawDecomposition(string $string, $form = 16) {}
+    public static function getRawDecomposition(
+        string $string,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $form = 16
+    ) {}
 }
 
 class Locale
@@ -1285,7 +1339,7 @@ class Locale
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public static function setDefault($locale) {}
+    public static function setDefault(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1296,7 +1350,7 @@ class Locale
      * </p>
      * @return string|null The language code associated with the language or <b>NULL</b> in case of error.
      */
-    public static function getPrimaryLanguage($locale) {}
+    public static function getPrimaryLanguage(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1307,7 +1361,7 @@ class Locale
      * </p>
      * @return string|null The script subtag for the locale or <b>NULL</b> if not present
      */
-    public static function getScript($locale) {}
+    public static function getScript(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1318,7 +1372,7 @@ class Locale
      * </p>
      * @return string|null The region subtag for the locale or <b>NULL</b> if not present
      */
-    public static function getRegion($locale) {}
+    public static function getRegion(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1329,7 +1383,7 @@ class Locale
      * </p>
      * @return array Associative array containing the keyword-value pairs for this locale
      */
-    public static function getKeywords($locale) {}
+    public static function getKeywords(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1344,7 +1398,10 @@ class Locale
      * @return string Display name of the script for the $locale in the format appropriate for
      * $in_locale.
      */
-    public static function getDisplayScript($locale, $displayLocale = null) {}
+    public static function getDisplayScript(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $displayLocale = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1359,7 +1416,10 @@ class Locale
      * @return string display name of the region for the $locale in the format appropriate for
      * $in_locale.
      */
-    public static function getDisplayRegion($locale, $displayLocale = null) {}
+    public static function getDisplayRegion(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $displayLocale = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1371,7 +1431,10 @@ class Locale
      * @param string $displayLocale [optional] <p>optional format locale</p>
      * @return string Display name of the locale in the format appropriate for $in_locale.
      */
-    public static function getDisplayName($locale, $displayLocale = null) {}
+    public static function getDisplayName(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $displayLocale = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1386,7 +1449,10 @@ class Locale
      * @return string display name of the language for the $locale in the format appropriate for
      * $in_locale.
      */
-    public static function getDisplayLanguage($locale, $displayLocale = null) {}
+    public static function getDisplayLanguage(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $displayLocale = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1401,7 +1467,10 @@ class Locale
      * @return string Display name of the variant for the $locale in the format appropriate for
      * $in_locale.
      */
-    public static function getDisplayVariant($locale, $displayLocale = null) {}
+    public static function getDisplayVariant(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $displayLocale = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1445,7 +1514,7 @@ class Locale
      * returned array will have variant0=&gt;varX , variant1=&gt;varY ,
      * variant2=&gt;varZ
      */
-    public static function parseLocale($locale) {}
+    public static function parseLocale(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1457,7 +1526,7 @@ class Locale
      * @return array|null The array containing the list of all variants subtag for the locale
      * or <b>NULL</b> if not present
      */
-    public static function getAllVariants($locale) {}
+    public static function getAllVariants(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1475,7 +1544,11 @@ class Locale
      * </p>
      * @return bool <b>TRUE</b> if $locale matches $langtag <b>FALSE</b> otherwise.
      */
-    public static function filterMatches($languageTag, $locale, $canonicalize = false) {}
+    public static function filterMatches(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $languageTag,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $canonicalize = false
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1497,14 +1570,19 @@ class Locale
      * </p>
      * @return string The closest matching language tag or default value.
      */
-    public static function lookup(array $languageTag, $locale, $canonicalize = false, $defaultLocale = null) {}
+    public static function lookup(
+        array $languageTag,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $canonicalize = false,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $defaultLocale = null
+    ) {}
 
     /**
      * @link https://php.net/manual/en/locale.canonicalize.php
      * @param string $locale
      * @return string
      */
-    public static function canonicalize($locale) {}
+    public static function canonicalize(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1515,7 +1593,7 @@ class Locale
      * </p>
      * @return string The corresponding locale identifier.
      */
-    public static function acceptFromHttp($header) {}
+    public static function acceptFromHttp(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $header) {}
 }
 
 class MessageFormatter
@@ -1536,7 +1614,10 @@ class MessageFormatter
      * @throws IntlException on failure.
      */
     #[Pure]
-    public function __construct($locale, $pattern) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $pattern
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1553,7 +1634,10 @@ class MessageFormatter
      * </p>
      * @return MessageFormatter The formatter object
      */
-    public static function create($locale, $pattern) {}
+    public static function create(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $pattern
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1585,7 +1669,11 @@ class MessageFormatter
      * </p>
      * @return string|false The formatted pattern string or <b>FALSE</b> if an error occurred
      */
-    public static function formatMessage($locale, $pattern, array $values) {}
+    public static function formatMessage(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $pattern,
+        array $values
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1597,7 +1685,7 @@ class MessageFormatter
      * @return array|false An array containing the items extracted, or <b>FALSE</b> on error
      */
     #[Pure]
-    public function parse($string) {}
+    public function parse(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $string) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1614,7 +1702,11 @@ class MessageFormatter
      * </p>
      * @return array|false An array containing items extracted, or <b>FALSE</b> on error
      */
-    public static function parseMessage($locale, $pattern, $message) {}
+    public static function parseMessage(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $pattern,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $message
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1628,7 +1720,7 @@ class MessageFormatter
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setPattern($pattern) {}
+    public function setPattern(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $pattern) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1725,7 +1817,13 @@ class IntlDateFormatter
      * @param string $pattern [optional]
      */
     #[Pure]
-    public function __construct($locale, $dateType, $timeType, $timezone = null, $calendar = null, $pattern = '') {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $dateType,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $timeType,
+        $timezone = null,
+        $calendar = null,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $pattern = '') {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1762,7 +1860,14 @@ class IntlDateFormatter
      * </p>
      * @return IntlDateFormatter
      */
-    public static function create($locale, $dateType, $timeType, $timezone = null, $calendar = null, $pattern = '') {}
+    public static function create(
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $dateType,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $timeType,
+        $timezone = null,
+        #[LanguageLevelTypeAware(['8.1' => 'IntlCalendar|int|null'], default: '')] $calendar = null,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $pattern = ''
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1801,7 +1906,7 @@ class IntlDateFormatter
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setCalendar($calendar) {}
+    public function setCalendar(#[LanguageLevelTypeAware(['8.1' => 'IntlCalendar|int|null'], default: '')] $calendar) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1896,7 +2001,7 @@ class IntlDateFormatter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * Bad formatstrings are usually the cause of the failure.
      */
-    public function setPattern($pattern) {}
+    public function setPattern(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $pattern) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1915,7 +2020,7 @@ class IntlDateFormatter
      * @return string|false the locale of this formatter or 'false' if error
      */
     #[Pure]
-    public function getLocale($type = null) {}
+    public function getLocale(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $type = null) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1926,7 +2031,7 @@ class IntlDateFormatter
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setLenient($lenient) {}
+    public function setLenient(#[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $lenient) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1975,7 +2080,7 @@ class IntlDateFormatter
      * The locale to use, or <b>NULL</b> to use the {@link "https://secure.php.net/manual/en/intl.configuration.php#ini.intl.default-locale" default one}.</p>
      * @return string|false A string with result or <b>FALSE</b> on failure.
      */
-    public static function formatObject($datetime, $format = null, $locale = null) {}
+    public static function formatObject($datetime, $format = null, #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $locale = null) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1993,7 +2098,7 @@ class IntlDateFormatter
      * </p>
      * @return int timestamp parsed value
      */
-    public function parse($string, &$offset = null) {}
+    public function parse(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $string, &$offset = null) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -2010,7 +2115,7 @@ class IntlDateFormatter
      * </p>
      * @return array Localtime compatible array of integers : contains 24 hour clock value in tm_hour field
      */
-    public function localtime($string, &$offset = null) {}
+    public function localtime(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $string, &$offset = null) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -2040,7 +2145,11 @@ class ResourceBundle implements IteratorAggregate, Countable
      * @param bool $fallback [optional] <p>Whether locale should match exactly or fallback to parent locale is allowed.</p>
      */
     #[Pure]
-    public function __construct($locale, $bundle, $fallback = true) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $bundle,
+        #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $fallback = true
+    ) {}
 
     /**
      * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
@@ -2057,7 +2166,11 @@ class ResourceBundle implements IteratorAggregate, Countable
      * </p>
      * @return ResourceBundle|false <b>ResourceBundle</b> object or <b>FALSE</b> on error.
      */
-    public static function create($locale, $bundle, $fallback = true) {}
+    public static function create(
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $bundle,
+        #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $fallback = true
+    ) {}
 
     /**
      * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
@@ -2072,7 +2185,7 @@ class ResourceBundle implements IteratorAggregate, Countable
      * returned as <b>ResourceBundle</b> object.
      */
     #[Pure]
-    public function get($index, $fallback = true) {}
+    public function get($index, #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $fallback = true) {}
 
     /**
      * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
@@ -2093,7 +2206,7 @@ class ResourceBundle implements IteratorAggregate, Countable
      * </p>
      * @return array the list of locales supported by the bundle.
      */
-    public static function getLocales($bundle) {}
+    public static function getLocales(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $bundle) {}
 
     /**
      * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
@@ -2155,7 +2268,10 @@ class Transliterator
      * @return Transliterator|null a <b>Transliterator</b> object on success,
      * or <b>NULL</b> on failure.
      */
-    public static function create($id, $direction = null) {}
+    public static function create(
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $id,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] #[EV([Transliterator::FORWARD, Transliterator::REVERSE])] $direction = null
+    ) {}
 
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
@@ -2173,7 +2289,10 @@ class Transliterator
      * @return Transliterator|null a <b>Transliterator</b> object on success,
      * or <b>NULL</b> on failure.
      */
-    public static function createFromRules($rules, $direction = null) {}
+    public static function createFromRules(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $rules,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] #[EV([Transliterator::FORWARD, Transliterator::REVERSE])] $direction = null
+    ) {}
 
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
@@ -2214,7 +2333,11 @@ class Transliterator
      * @return string|false The transfomed string on success, or <b>FALSE</b> on failure.
      */
     #[Pure]
-    public function transliterate($string, $start = null, $end = -1) {}
+    public function transliterate(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $string,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $start = null,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $end = -1
+    ) {}
 
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
@@ -2274,7 +2397,7 @@ class Spoofchecker
      * </p>
      * @return bool
      */
-    public function isSuspicious($string, &$errorCode = null) {}
+    public function isSuspicious(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $string, &$errorCode = null) {}
 
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
@@ -2288,7 +2411,11 @@ class Spoofchecker
      * </p>
      * @return bool
      */
-    public function areConfusable($string1, $string2, &$errorCode = null) {}
+    public function areConfusable(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $string1,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $string2,
+        &$errorCode = null
+    ) {}
 
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
@@ -2298,7 +2425,7 @@ class Spoofchecker
      * </p>
      * @return void
      */
-    public function setAllowedLocales($locales) {}
+    public function setAllowedLocales(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locales) {}
 
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
@@ -2308,7 +2435,7 @@ class Spoofchecker
      * </p>
      * @return void
      */
-    public function setChecks($checks) {}
+    public function setChecks(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $checks) {}
 
     public function setRestrictionLevel(int $level) {}
 }
@@ -2340,7 +2467,7 @@ class IntlGregorianCalendar extends IntlCalendar
     /**
      * @param float $timestamp
      */
-    public function setGregorianChange($timestamp) {}
+    public function setGregorianChange(#[LanguageLevelTypeAware(['8.1' => 'float'], default: '')] $timestamp) {}
 
     /**
      * @return float
@@ -2353,7 +2480,7 @@ class IntlGregorianCalendar extends IntlCalendar
      * @return bool
      */
     #[Pure]
-    public function isLeapYear($year) {}
+    public function isLeapYear(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $year) {}
 }
 
 /**
@@ -2417,7 +2544,10 @@ class IntlCalendar
      * For instance, hours for <b>IntlCalendar::FIELD_HOUR_OF_DAY</b>.</p>
      * @return bool Returns TRUE on success or FALSE on failure.
      */
-    public function add($field, $value) {}
+    public function add(
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $field,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $value
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2458,7 +2588,7 @@ class IntlCalendar
      * </p>
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure. Failure can only occur is invalid arguments are provided.
      */
-    public function clear($field = null) {}
+    public function clear(#[LanguageLevelTypeAware(['8.1' => 'int|null'], default: '')] $field = null) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2512,7 +2642,7 @@ class IntlCalendar
      * The created {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} instance or <b>NULL</b> on
      * failure.
      */
-    public static function createInstance($timezone = null, $locale = null) {}
+    public static function createInstance($timezone = null, #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $locale = null) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2528,7 +2658,7 @@ class IntlCalendar
      * </p>
      */
     #[Pure]
-    public function equals($other) {}
+    public function equals(#[LanguageLevelTypeAware(['8.1' => 'IntlCalendar'], default: '')] $other) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2553,7 +2683,10 @@ class IntlCalendar
      * specified field or <b>FALSE</b> on failure.
      */
     #[Pure]
-    public function fieldDifference($timestamp, $field) {}
+    public function fieldDifference(
+        #[LanguageLevelTypeAware(['8.1' => 'float'], default: '')] $timestamp,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $field
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a2)<br/>
@@ -2569,7 +2702,10 @@ class IntlCalendar
      * failure. If a {@link https://secure.php.net/manual/en/language.types.string.php string} is passed, any exception that occurs
      * inside the {@link https://secure.php.net/manual/en/class.datetime.php DateTime} constructor is propagated.
      */
-    public static function fromDateTime($datetime, $locale) {}
+    public static function fromDateTime(
+        #[LanguageLevelTypeAware(['8.1' => 'DateTime|string'], default: '')] $datetime,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $locale
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2583,7 +2719,7 @@ class IntlCalendar
      * @return int An integer with the value of the time field.
      */
     #[Pure]
-    public function get($field) {}
+    public function get(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $field) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2599,7 +2735,7 @@ class IntlCalendar
      * with the given <em>field</em> or <b>FALSE</b> on failure.
      */
     #[Pure]
-    public function getActualMaximum($field) {}
+    public function getActualMaximum(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $field) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2615,7 +2751,7 @@ class IntlCalendar
      * unit or <b>FALSE</b> on failure.
      */
     #[Pure]
-    public function getActualMinimum($field) {}
+    public function getActualMinimum(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $field) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2641,7 +2777,7 @@ class IntlCalendar
      * <b>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</b> or <b>FALSE</b> on failure.
      */
     #[Pure]
-    public function getDayOfWeekType($dayOfWeek) {}
+    public function getDayOfWeekType(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $dayOfWeek) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2686,7 +2822,7 @@ class IntlCalendar
      * unit, or <b>FALSE</b> on failure.
      */
     #[Pure]
-    public function getGreatestMinimum($field) {}
+    public function getGreatestMinimum(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $field) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2704,7 +2840,11 @@ class IntlCalendar
      * </p>
      * @return Iterator|false An iterator that yields strings with the locale keyword values or <b>FALSE</b> on failure.
      */
-    public static function getKeywordValuesForLocale($keyword, $locale, $onlyCommon) {}
+    public static function getKeywordValuesForLocale(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $keyword,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $locale,
+        #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $onlyCommon
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2720,7 +2860,7 @@ class IntlCalendar
      * unit or <b>FALSE</b> on failure.
      */
     #[Pure]
-    public function getLeastMaximum($field) {}
+    public function getLeastMaximum(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $field) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2737,7 +2877,7 @@ class IntlCalendar
      * @return string
      */
     #[Pure]
-    public function getLocale($type) {}
+    public function getLocale(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $type) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2751,7 +2891,7 @@ class IntlCalendar
      * @return int
      */
     #[Pure]
-    public function getMaximum($field) {}
+    public function getMaximum(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $field) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2776,7 +2916,7 @@ class IntlCalendar
      * An int representing a value for the given field in the field's unit or FALSE on failure.
      */
     #[Pure]
-    public function getMinimum($field) {}
+    public function getMinimum(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $field) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2854,7 +2994,7 @@ class IntlCalendar
      * ends or <b>FALSE</b> on failure.
      */
     #[Pure]
-    public function getWeekendTransition($dayOfWeek) {}
+    public function getWeekendTransition(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $dayOfWeek) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2909,7 +3049,7 @@ class IntlCalendar
      * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.</p>
      */
     #[Pure]
-    public function isWeekend($timestamp = null) {}
+    public function isWeekend(#[LanguageLevelTypeAware(['8.1' => 'float|null'], default: '')] $timestamp = null) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2928,7 +3068,7 @@ class IntlCalendar
      * </p>
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function roll($field, $value) {}
+    public function roll(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $field, $value) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2942,7 +3082,7 @@ class IntlCalendar
      * </p>
      * @return bool Assuming there are no argument errors, returns <b>TRUE</b> iif the field is set.
      */
-    public function PS_UNRESERVE_PREFIX_isSet($field) {}
+    public function PS_UNRESERVE_PREFIX_isSet(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $field) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2999,7 +3139,7 @@ class IntlCalendar
      * </p>
      * @return bool Returns TRUE on success. Failure can only happen due to invalid parameters.
      */
-    public function setFirstDayOfWeek($dayOfWeek) {}
+    public function setFirstDayOfWeek(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $dayOfWeek) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3010,7 +3150,7 @@ class IntlCalendar
      * </p>
      * @return bool Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
      */
-    public function setLenient($lenient) {}
+    public function setLenient(#[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $lenient) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3023,7 +3163,7 @@ class IntlCalendar
      * @return bool
      * Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
      */
-    public function setRepeatedWallTimeOption($option) {}
+    public function setRepeatedWallTimeOption(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $option) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3039,7 +3179,7 @@ class IntlCalendar
      * Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
      * </p>
      */
-    public function setSkippedWallTimeOption($option) {}
+    public function setSkippedWallTimeOption(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $option) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3052,7 +3192,7 @@ class IntlCalendar
      * @return bool
      * Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
      */
-    public function setTime($timestamp) {}
+    public function setTime(#[LanguageLevelTypeAware(['8.1' => 'float'], default: '')] $timestamp) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3113,7 +3253,7 @@ class IntlCalendar
      * @param int $days
      * @return bool
      */
-    public function setMinimalDaysInFirstWeek($days) {}
+    public function setMinimalDaysInFirstWeek(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $days) {}
 }
 
 /**
@@ -3166,7 +3306,7 @@ class IntlTimeZone
      * @param string $timezoneId
      * @return int|false number of IDs or <b>FALSE</b> on failure
      */
-    public static function countEquivalentIDs($timezoneId) {}
+    public static function countEquivalentIDs(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $timezoneId) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3192,7 +3332,7 @@ class IntlTimeZone
      * @param string $timezoneId
      * @return IntlTimeZone|null a timezone object or <b>NULL</b> on failure
      */
-    public static function createTimeZone($timezoneId) {}
+    public static function createTimeZone(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $timezoneId) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -3203,7 +3343,11 @@ class IntlTimeZone
      * @param int $rawOffset [optional]
      * @return IntlIterator|false an iterator or <b>FALSE</b> on failure
      */
-    public static function createTimeZoneIDEnumeration($type, $region = null, $rawOffset = 0) {}
+    public static function createTimeZoneIDEnumeration(
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $type,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $region = null,
+        #[LanguageLevelTypeAware(['8.1' => 'int|null'], default: '')] $rawOffset = 0
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3212,7 +3356,7 @@ class IntlTimeZone
      * @param DateTimeZone $timezone
      * @return IntlTimeZone|null a timezone object or <b>NULL</b> on failure
      */
-    public static function fromDateTimeZone($timezone) {}
+    public static function fromDateTimeZone(#[LanguageLevelTypeAware(['8.1' => 'DateTimeZone'], default: '')] $timezone) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3222,7 +3366,7 @@ class IntlTimeZone
      * @param bool &$isSystemId [optional]
      * @return string|false the timezone ID or <b>FALSE</b> on failure
      */
-    public static function getCanonicalID($timezoneId, &$isSystemId) {}
+    public static function getCanonicalID(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $timezoneId, &$isSystemId) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3233,7 +3377,11 @@ class IntlTimeZone
      * @return string|false the timezone name or <b>FALSE</b> on failure
      */
     #[Pure]
-    public function getDisplayName($dst = false, $style = 2, $locale) {}
+    public function getDisplayName(
+        #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $dst = false,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $style = 2,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $locale
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3252,7 +3400,10 @@ class IntlTimeZone
      * @param int $offset
      * @return string|false the time zone ID or <b>FALSE</b> on failure
      */
-    public static function getEquivalentID($timezoneId, $offset) {}
+    public static function getEquivalentID(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $timezoneId,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $offset
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3308,7 +3459,12 @@ class IntlTimeZone
      *   typically one hour.
      * @return bool boolean indication of success
      */
-    public function getOffset($timestamp, $local, &$rawOffset, &$dstOffset) {}
+    public function getOffset(
+        #[LanguageLevelTypeAware(['8.1' => 'float'], default: '')] $timestamp,
+        #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $local,
+        &$rawOffset,
+        &$dstOffset
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3326,7 +3482,7 @@ class IntlTimeZone
      * @param string $timezoneId
      * @return string|false region or <b>FALSE</b> on failure
      */
-    public static function getRegion($timezoneId) {}
+    public static function getRegion(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $timezoneId) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -6655,7 +6811,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @param string $locale
      * @return IntlBreakIterator
      */
-    public static function createCharacterInstance($locale = null) {}
+    public static function createCharacterInstance(#[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $locale = null) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -6672,7 +6828,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @param string $locale [optional]
      * @return IntlBreakIterator
      */
-    public static function createLineInstance($locale) {}
+    public static function createLineInstance(#[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $locale) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -6681,7 +6837,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @param string $locale [optional]
      * @return IntlBreakIterator
      */
-    public static function createSentenceInstance($locale) {}
+    public static function createSentenceInstance(#[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $locale) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -6690,7 +6846,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @param string $locale [optional]
      * @return IntlBreakIterator
      */
-    public static function createTitleInstance($locale) {}
+    public static function createTitleInstance(#[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $locale) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -6699,7 +6855,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @param string $locale [optional]
      * @return IntlBreakIterator
      */
-    public static function createWordInstance($locale) {}
+    public static function createWordInstance(#[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $locale) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -6723,7 +6879,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @link https://secure.php.net/manual/en/intlbreakiterator.following.php
      * @param int $offset
      */
-    public function following($offset) {}
+    public function following(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $offset) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -6750,7 +6906,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @param string $type
      */
     #[Pure]
-    public function getLocale($type) {}
+    public function getLocale(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $type) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -6775,7 +6931,7 @@ class IntlBreakIterator implements IteratorAggregate
      * </ul>
      */
     #[Pure]
-    public function getPartsIterator($type = IntlPartsIterator::KEY_SEQUENTIAL) {}
+    public function getPartsIterator(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $type = IntlPartsIterator::KEY_SEQUENTIAL) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -6792,7 +6948,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @param int $offset
      */
     #[Pure]
-    public function isBoundary($offset) {}
+    public function isBoundary(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $offset) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -6808,14 +6964,14 @@ class IntlBreakIterator implements IteratorAggregate
      * @param int $offset [optional]
      * @return int
      */
-    public function next($offset = null) {}
+    public function next(#[LanguageLevelTypeAware(['8.1' => 'int|null'], default: '')] $offset = null) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * @link https://secure.php.net/manual/en/intlbreakiterator.preceding.php
      * @param int $offset
      */
-    public function preceding($offset) {}
+    public function preceding(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $offset) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -6831,7 +6987,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @link https://secure.php.net/manual/en/intlbreakiterator.settext.php
      * @param string $text
      */
-    public function setText($text) {}
+    public function setText(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $text) {}
 
     /**
      * @return Traversable
@@ -6850,7 +7006,10 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * @param string $compiled [optional]
      */
     #[Pure]
-    public function __construct($rules, $compiled = false) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $rules,
+        #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $compiled = false
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7025,7 +7184,10 @@ class UConverter
      * @param string $source_encoding
      */
     #[Pure]
-    public function __construct($destination_encoding = null, $source_encoding = null) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $destination_encoding = null,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $source_encoding = null
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7036,7 +7198,10 @@ class UConverter
      * @return string
      */
     #[Pure]
-    public function convert($str, $reverse = false) {}
+    public function convert(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $str,
+        #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $reverse = false
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7048,7 +7213,12 @@ class UConverter
      * @param int &$error
      * @return mixed
      */
-    public function fromUCallback($reason, $source, $codePoint, &$error) {}
+    public function fromUCallback(
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $reason,
+        #[LanguageLevelTypeAware(['8.1' => 'array'], default: '')] $source,
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $codePoint,
+        &$error
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7057,7 +7227,7 @@ class UConverter
      * @param string $name
      * @return array
      */
-    public static function getAliases($name = null) {}
+    public static function getAliases(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $name = null) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7147,7 +7317,7 @@ class UConverter
      * @return string
      */
     #[Pure]
-    public static function reasonText($reason) {}
+    public static function reasonText(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $reason) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7156,7 +7326,7 @@ class UConverter
      * @param string $encoding
      * @return void
      */
-    public function setDestinationEncoding($encoding) {}
+    public function setDestinationEncoding(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $encoding) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7165,7 +7335,7 @@ class UConverter
      * @param string $encoding
      * @return void
      */
-    public function setSourceEncoding($encoding) {}
+    public function setSourceEncoding(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $encoding) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7174,7 +7344,7 @@ class UConverter
      * @param string $chars
      * @return void
      */
-    public function setSubstChars($chars) {}
+    public function setSubstChars(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $chars) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7186,7 +7356,12 @@ class UConverter
      * @param int &$error
      * @return mixed
      */
-    public function toUCallback($reason, $source, $codeUnits, &$error) {}
+    public function toUCallback(
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $reason,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $source,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $codeUnits,
+        &$error
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7198,6 +7373,11 @@ class UConverter
      * @param array $options
      * @return string
      */
-    public static function transcode($str, $toEncoding, $fromEncoding, array $options = []) {}
+    public static function transcode(
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $str,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $toEncoding,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $fromEncoding,
+        ?array $options = []
+    ) {}
 }
 // End of intl v.1.1.0

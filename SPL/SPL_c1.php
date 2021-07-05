@@ -666,7 +666,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $separator = ',',
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $enclosure = '"',
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $escape = "\\",
-        #[PhpStormStubsElementAvailable('8.1')] $eol = PHP_EOL
+        #[PhpStormStubsElementAvailable('8.1')] string $eol = PHP_EOL
     ) {}
 
     /**
