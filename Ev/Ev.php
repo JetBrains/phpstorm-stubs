@@ -248,7 +248,7 @@ final class Ev
      * @param int $signum Signal number. See signal(7) man page for details. You can use constants exported by pcntl
      *      extension.
      */
-    final public static function feedSignal($signum) {}
+    final public static function feedSignal(int $signum) {}
 
     /**
      * Feed signal event into the default loop
@@ -259,7 +259,7 @@ final class Ev
      * @param int $signum Signal number. See signal(7) man page for details. See also constants exported by pcntl
      *      extension.
      */
-    final public static function feedSignalEvent($signum) {}
+    final public static function feedSignalEvent(int $signum) {}
 
     /**
      * Return the number of times the default event loop has polled for new events.
@@ -330,7 +330,7 @@ final class Ev
      *
      * @param int $flags One of the Ev::FLAG_* flags
      */
-    final public static function run($flags = self::FLAG_AUTO) {}
+    final public static function run(int $flags = self::FLAG_AUTO) {}
 
     /**
      * Block the process for the given number of seconds.
@@ -344,7 +344,7 @@ final class Ev
      *
      * @param int $how One of the Ev::BREAK_* constants
      */
-    final public static function stop($how = self::BREAK_ONE) {}
+    final public static function stop(int $how = self::BREAK_ONE) {}
 
     /**
      * Returns the set of backends supported by current libev configuration.
@@ -1358,7 +1358,7 @@ final class EvLoop
      * @param float $io_interval
      * @param float $timeout_interval
      */
-    public function __construct($flags = Ev::FLAG_AUTO, $data = null, $io_interval = 0.0, $timeout_interval = 0.0) {}
+    public function __construct(int $flags = Ev::FLAG_AUTO, mixed $data = null, float $io_interval = 0.0, float $timeout_interval = 0.0) {}
 
     /**
      * Returns an integer describing the backend used by libev.
@@ -1507,7 +1507,7 @@ final class EvLoop
      *
      * @param int $flags One of the Ev::RUN_* flags.
      */
-    public function run($flags = Ev::FLAG_AUTO) {}
+    public function run(int $flags = Ev::FLAG_AUTO) {}
 
     /**
      * Creates EvSignal object associated with the current event loop instance.
@@ -1537,7 +1537,7 @@ final class EvLoop
      *
      * @param int $how One of the Ev::BREAK_* flags.
      */
-    public function stop($how = Ev::BREAK_ALL) {}
+    public function stop(int $how = Ev::BREAK_ALL) {}
 
     /**
      * Suspend the loop.
@@ -1578,9 +1578,9 @@ final class EvLoop
      * @param float $timeout_interval
      */
     public static function defaultLoop(
-        $flags = Ev::FLAG_AUTO,
-        $data = null,
-        $io_interval = 0.0,
-        $timeout_interval = 0.0
+        int $flags = Ev::FLAG_AUTO,
+        mixed $data = null,
+        float $io_interval = 0.0,
+        float $timeout_interval = 0.0
     ) {}
 }
