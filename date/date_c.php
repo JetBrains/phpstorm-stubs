@@ -201,7 +201,8 @@ class DateTimeImmutable implements DateTimeInterface
     public static function createFromFormat(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $format,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime,
-        #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')] $timezone = null) {}
+        #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')] $timezone = null
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.6.0)<br/>
@@ -272,7 +273,8 @@ class DateTimeImmutable implements DateTimeInterface
     public function setISODate(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $year,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $week,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $dayOfWeek = 1) {}
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $dayOfWeek = 1
+    ) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>

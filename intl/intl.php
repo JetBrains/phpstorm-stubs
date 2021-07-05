@@ -1147,7 +1147,8 @@ class NumberFormatter
      */
     #[Pure]
     public function getLocale(
-        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] #[EV([Locale::VALID_LOCALE, Locale::ACTUAL_LOCALE])] $type = null) {}
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] #[EV([Locale::VALID_LOCALE, Locale::ACTUAL_LOCALE])] $type = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1823,7 +1824,8 @@ class IntlDateFormatter
         #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $timeType,
         $timezone = null,
         $calendar = null,
-        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $pattern = '') {}
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $pattern = ''
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>

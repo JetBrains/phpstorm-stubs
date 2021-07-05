@@ -276,7 +276,9 @@ class SoapClient
      */
     #[Deprecated]
     public function __call(
-        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $name, array $args) {}
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $name,
+        array $args
+    ) {}
 
     /**
      * Calls a SOAP function
@@ -324,7 +326,8 @@ class SoapClient
         array $args,
         #[LanguageLevelTypeAware(['8.1' => 'array|null'], default: '')] $options = null,
         $inputHeaders = null,
-        &$outputHeaders = null) {}
+        &$outputHeaders = null
+    ) {}
 
     /**
      * Returns last SOAP request
@@ -410,7 +413,8 @@ class SoapClient
         #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $location,
         #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $action,
         #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $version,
-        #[LanguageLevelTypeAware(["8.0" => 'bool'], default: 'int')] $oneWay = false) {}
+        #[LanguageLevelTypeAware(["8.0" => 'bool'], default: 'int')] $oneWay = false
+    ) {}
 
     /**
      * The __setCookie purpose
@@ -647,7 +651,8 @@ class SoapServer
      */
     public function setClass(
         #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $class,
-        #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')] ...$args) {}
+        #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')] ...$args
+    ) {}
 
     /**
      * Sets the object which will be used to handle SOAP requests

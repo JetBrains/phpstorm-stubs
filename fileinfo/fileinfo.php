@@ -56,7 +56,9 @@ class finfo
     #[Pure]
     public function file(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FILEINFO_NONE, $context = null) {}
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FILEINFO_NONE,
+        $context = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>

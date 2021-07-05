@@ -54,7 +54,7 @@ class BaseFunctionsTest extends BaseStubsTest
         $phpstormFunction = $stubFunctions[$functionName];
         $filteredStubParameters = array_filter(
             $phpstormFunction->parameters,
-            fn($parameter) => BasePHPElement::entitySuitesCurrentPhpVersion($parameter)
+            fn ($parameter) => BasePHPElement::entitySuitesCurrentPhpVersion($parameter)
         );
         static::assertSameSize(
             $function->parameters,

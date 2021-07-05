@@ -241,7 +241,9 @@ class SplFileInfo implements Stringable
      */
     public function openFile(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $mode = 'r',
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $useIncludePath = false, $context = null) {}
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $useIncludePath = false,
+        $context = null
+    ) {}
 
     /**
      * Sets the class name used with <b>SplFileInfo::openFile</b>
@@ -581,7 +583,9 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $mode = 'r',
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $useIncludePath = false, $context = null) {}
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $useIncludePath = false,
+        $context = null
+    ) {}
 
     /**
      * Rewind the file to the first line
