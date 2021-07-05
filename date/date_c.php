@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * @since 5.5
