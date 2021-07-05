@@ -72,7 +72,8 @@ class SQLite3
     public function open(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $encryptionKey = null) {}
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $encryptionKey = null
+    ) {}
 
     /**
      * Closes the database connection
@@ -476,7 +477,8 @@ class SQLite3Stmt
      */
     private function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'SQLite3'], default: '')] $sqlite3,
-        #[PhpStormStubsElementAvailable(from: '8.0')] string $query) {}
+        #[PhpStormStubsElementAvailable(from: '8.0')] string $query
+    ) {}
 
     /**
      * Retrieves the SQL of the prepared statement. If expanded is FALSE, the unmodified SQL is retrieved.
