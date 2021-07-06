@@ -16,7 +16,6 @@ class BaseClassesTest extends BaseStubsTest
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::classWithParentProvider
-     * @param PHPClass|PHPInterface $class
      * @throws Exception|RuntimeException
      */
     public function testClassesParent(PHPClass|PHPInterface $class)
@@ -44,8 +43,6 @@ class BaseClassesTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $method
      * @throws Exception|RuntimeException
      */
     public function testClassesMethodsExist(PHPClass|PHPInterface $class, PHPMethod $method)
@@ -65,8 +62,6 @@ class BaseClassesTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classFinalMethodsProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $method
      * @throws RuntimeException
      */
     public function testClassesFinalMethods(PHPClass|PHPInterface $class, PHPMethod $method)
@@ -86,8 +81,6 @@ class BaseClassesTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classStaticMethodsProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $method
      * @throws RuntimeException
      */
     public function testClassesStaticMethods(PHPClass|PHPInterface $class, PHPMethod $method)
@@ -107,8 +100,6 @@ class BaseClassesTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsWithAccessProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $method
      * @throws RuntimeException
      */
     public function testClassesMethodsVisibility(PHPClass|PHPInterface $class, PHPMethod $method)
@@ -128,8 +119,6 @@ class BaseClassesTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsWithParametersProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $method
      * @throws Exception|RuntimeException
      */
     public function testClassMethodsParametersCount(PHPClass|PHPInterface $class, PHPMethod $method)
@@ -161,7 +150,6 @@ class BaseClassesTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::classesWithInterfacesProvider
-     * @param PHPClass $class
      * @throws Exception|RuntimeException
      */
     public function testClassInterfaces(PHPClass $class)
@@ -179,8 +167,6 @@ class BaseClassesTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider::classPropertiesProvider
-     * @param PHPClass $class
-     * @param PHPProperty $property
      * @throws Exception|RuntimeException
      */
     public function testClassProperties(PHPClass $class, PHPProperty $property)
@@ -198,8 +184,6 @@ class BaseClassesTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider::classStaticPropertiesProvider
-     * @param PHPClass $class
-     * @param PHPProperty $property
      * @throws RuntimeException
      */
     public function testClassStaticProperties(PHPClass $class, PHPProperty $property)
@@ -215,8 +199,6 @@ class BaseClassesTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider::classPropertiesWithAccessProvider
-     * @param PHPClass $class
-     * @param PHPProperty $property
      * @throws RuntimeException
      */
     public function testClassPropertiesVisibility(PHPClass $class, PHPProperty $property)
@@ -232,8 +214,6 @@ class BaseClassesTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider::classPropertiesWithTypeProvider
-     * @param PHPClass $class
-     * @param PHPProperty $property
      * @throws RuntimeException
      */
     public function testClassPropertiesType(PHPClass $class, PHPProperty $property)

@@ -22,11 +22,11 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
     /**
      * @var ExpectedFunctionArgumentsInfo[]
      */
-    private $expectedArgumentsInfos = [];
+    private array $expectedArgumentsInfos = [];
     /**
      * @var string[]
      */
-    private $registeredArgumentsSet = [];
+    private array $registeredArgumentsSet = [];
 
     /**
      * @throws LogicException
@@ -34,11 +34,16 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
      */
     public function __construct()
     {
-        StubParser::processStubs($this, null, function (SplFileInfo $file): bool {
-            return $file->getFilename() === '.phpstorm.meta.php';
-        });
+        StubParser::processStubs(
+            $this,
+            null,
+            fn (SplFileInfo $file): bool => $file->getFilename() === '.phpstorm.meta.php'
+        );
     }
 
+    /**
+     * @throws RuntimeException
+     */
     public function enterNode(Node $node): void
     {
         if ($node instanceof FuncCall) {

@@ -11,7 +11,7 @@ use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\Model\StubProblemType;
-use StubTests\Parsers\Utils;
+use StubTests\Parsers\ParserUtils;
 
 class EntitiesFilter
 {
@@ -59,9 +59,10 @@ class EntitiesFilter
         }
         /** @var PHPFunction[] $resultArray */
         $resultArray = [];
-        $allFunctions = array_filter($allFunctions, function ($function) {
-           return in_array(doubleval(getenv('PHP_VERSION')), Utils::getAvailableInVersions($function));
-        });
+        $allFunctions = array_filter(
+            $allFunctions,
+            fn ($function) => in_array(doubleval(getenv('PHP_VERSION')), ParserUtils::getAvailableInVersions($function))
+        );
         foreach (EntitiesFilter::getFiltered($allFunctions, null, StubProblemType::HAS_DUPLICATION, StubProblemType::FUNCTION_PARAMETER_MISMATCH) as $function) {
             $resultArray[] = $function;
         }
@@ -85,10 +86,8 @@ class EntitiesFilter
 
     public static function getFilterFunctionForLanguageLevel(float $languageVersion): callable
     {
-        return function ($class, PHPMethod $method, ?float $firstSinceVersion) use ($languageVersion) {
-            return $class !== null && !$method->isFinal && !$class->isFinal && $firstSinceVersion !== null &&
-                $firstSinceVersion < $languageVersion;
-        };
+        return fn ($class, PHPMethod $method, ?float $firstSinceVersion) => $class !== null && !$method->isFinal &&
+            !$class->isFinal && $firstSinceVersion !== null && $firstSinceVersion < $languageVersion;
     }
 
     public static function getFilterFunctionForAllowedTypeHintsInLanguageLevel(float $languageVersion): callable
@@ -97,9 +96,10 @@ class EntitiesFilter
             $reflectionClass = ReflectionStubsSingleton::getReflectionStubs()->getClass($stubClass->name);
             $reflectionMethod = null;
             if ($reflectionClass !== null) {
-                $reflectionMethods = array_filter($reflectionClass->methods, function (PHPMethod $method) use ($stubMethod) {
-                    return $stubMethod->name === $method->name;
-                });
+                $reflectionMethods = array_filter(
+                    $reflectionClass->methods,
+                    fn (PHPMethod $method) => $stubMethod->name === $method->name
+                );
                 $reflectionMethod = array_pop($reflectionMethods);
             }
             return $reflectionMethod !== null && ($stubMethod->isFinal || $stubClass->isFinal || $firstSinceVersion !== null &&

@@ -7,9 +7,9 @@ use PhpParser\Node\Expr;
 
 class ExpectedFunctionArgumentsInfo
 {
-    private $functionReference;
-    private $expectedArguments;
-    private $index;
+    private ?Expr $functionReference;
+    private array $expectedArguments;
+    private int $index;
 
     /**
      * ExpectedFunctionArgumentsInfo constructor.
@@ -55,9 +55,6 @@ class ExpectedFunctionArgumentsInfo
         $this->expectedArguments = $expectedArguments;
     }
 
-    /**
-     * @return int
-     */
     public function getIndex(): int
     {
         return $this->index;
