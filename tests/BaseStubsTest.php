@@ -17,7 +17,7 @@ use StubTests\Model\PHPClass;
 use StubTests\Model\PHPConst;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
-use StubTests\Parsers\Utils;
+use StubTests\Parsers\ParserUtils;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 use StubTests\TestData\Providers\ReflectionStubsSingleton;
 use function array_filter;
@@ -35,9 +35,6 @@ abstract class BaseStubsTest extends TestCase
     }
 
     /**
-     * @param mixed $defaultValue
-     * @param PHPClass|PHPInterface|null $contextClass
-     * @return bool|float|int|string|null
      * @throws Exception|RuntimeException
      */
     public static function getStringRepresentationOfDefaultParameterValue(mixed $defaultValue, PHPClass|PHPInterface $contextClass = null): float|bool|int|string|null
@@ -105,7 +102,7 @@ abstract class BaseStubsTest extends TestCase
     {
         $result = '';
         foreach ($function->parameters as $parameter) {
-            $types = array_unique($parameter->typesFromSignature + Utils::flattenArray($parameter->typesFromAttribute, false));
+            $types = array_unique($parameter->typesFromSignature + Model\CommonUtils::flattenArray($parameter->typesFromAttribute, false));
             if (!empty($types)) {
                 $result .= implode('|', $types) . ' ';
             }
@@ -121,19 +118,17 @@ abstract class BaseStubsTest extends TestCase
     }
 
     /**
-     * @param array $filtered
-     * @return array
      * @throws RuntimeException
      */
     protected static function getDuplicatedFunctions(array $filtered): array
     {
         $duplicatedFunctions = array_filter($filtered, function (PHPFunction $value, int|string $key) {
             $duplicatesOfFunction = self::getAllDuplicatesOfFunction($value->name);
-            $functionVersions[] = Utils::getAvailableInVersions(
+            $functionVersions[] = ParserUtils::getAvailableInVersions(
                 PhpStormStubsSingleton::getPhpStormStubs()->getFunction($value->name)
             );
             array_push($functionVersions, ...array_values(array_map(
-                fn (PHPFunction $function) => Utils::getAvailableInVersions($function),
+                fn (PHPFunction $function) => ParserUtils::getAvailableInVersions($function),
                 $duplicatesOfFunction
             )));
             $hasDuplicates = false;

@@ -33,10 +33,7 @@ class StubsConstantsAndParametersValuesTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionOptionalParametersWithDefaultValueProvider
-     * @param PHPFunction $function
-     * @param PHPParameter $parameter
-     * @throws Exception
-     * @throws RuntimeException
+     * @throws Exception|RuntimeException
      */
     public function testFunctionsDefaultParametersValue(PHPFunction $function, PHPParameter $parameter)
     {
@@ -61,11 +58,7 @@ class StubsConstantsAndParametersValuesTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodOptionalParametersWithDefaultValueProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $method
-     * @param PHPParameter $parameter
-     * @throws Exception
-     * @throws RuntimeException
+     * @throws Exception|RuntimeException
      */
     public function testMethodsDefaultParametersValue(PHPClass|PHPInterface $class, PHPMethod $method, PHPParameter $parameter)
     {

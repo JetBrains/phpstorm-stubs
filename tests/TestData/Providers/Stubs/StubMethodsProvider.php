@@ -8,7 +8,7 @@ use RuntimeException;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\StubProblemType;
-use StubTests\Parsers\Utils;
+use StubTests\Parsers\ParserUtils;
 use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
@@ -34,18 +34,14 @@ class StubMethodsProvider
         foreach (EntitiesFilter::getFiltered($coreClassesAndInterfaces) as $className => $class) {
             $filteredMethods = EntitiesFilter::getFiltered(
                 $class->methods,
-                function (PHPMethod $method) {
-                    return empty($method->returnTypesFromSignature) || empty($method->returnTypesFromPhpDoc)
-                        || $method->parentName === '___PHPSTORM_HELPERS\object';
-                },
+                fn (PHPMethod $method) => empty($method->returnTypesFromSignature) || empty($method->returnTypesFromPhpDoc)
+                    || $method->parentName === '___PHPSTORM_HELPERS\object',
                 StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE
             );
         }
         $filteredMethods += EntitiesFilter::getFiltered(
             $allFunctions,
-            function (PHPFunction $function) {
-                return empty($function->returnTypesFromSignature) || empty($function->returnTypesFromPhpDoc);
-            },
+            fn (PHPFunction $function) => empty($function->returnTypesFromSignature) || empty($function->returnTypesFromPhpDoc),
             StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE
         );
         foreach ($filteredMethods as $methodName => $method) {
@@ -106,12 +102,10 @@ class StubMethodsProvider
         foreach (EntitiesFilter::getFiltered($coreClassesAndInterfaces) as $className => $class) {
             foreach (EntitiesFilter::getFiltered(
                 $class->methods,
-                function (PHPMethod $method) {
-                    return $method->parentName === '___PHPSTORM_HELPERS\object';
-                },
+                fn (PHPMethod $method) => $method->parentName === '___PHPSTORM_HELPERS\object',
                 ...$problemTypes
             ) as $methodName => $method) {
-                $firstSinceVersion = Utils::getDeclaredSinceVersion($method);
+                $firstSinceVersion = ParserUtils::getDeclaredSinceVersion($method);
                 if ($filterFunction($class, $method, $firstSinceVersion) === true) {
                     yield "method $className::$methodName" => [$method];
                 }

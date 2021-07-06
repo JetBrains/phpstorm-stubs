@@ -5,36 +5,23 @@ namespace StubTests\Parsers;
 
 use phpDocumentor\Reflection\DocBlock\Tags\Deprecated;
 use phpDocumentor\Reflection\DocBlock\Tags\Since;
-use RecursiveArrayIterator;
-use RecursiveIteratorIterator;
 use RuntimeException;
 use StubTests\Model\BasePHPElement;
+use StubTests\Model\CommonUtils;
 use StubTests\Model\PHPConst;
 use StubTests\Model\PHPMethod;
-use StubTests\Model\PHPParameter;
 use StubTests\Model\PhpVersions;
 use StubTests\Model\Tags\RemovedTag;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
-class Utils
+class ParserUtils
 {
-    public static function flattenArray(array $array, bool $group): array
-    {
-        return iterator_to_array(new RecursiveIteratorIterator(new RecursiveArrayIterator($array)), $group);
-    }
-
-    /**
-     * @param Since|Deprecated|RemovedTag $tag
-     * @return bool
-     */
-    public static function tagDoesNotHaveZeroPatchVersion($tag): bool
+    public static function tagDoesNotHaveZeroPatchVersion(Since|RemovedTag|Deprecated $tag): bool
     {
         return (bool)preg_match('/^[1-9]+\.\d+(\.[1-9]+\d*)*$/', $tag->getVersion()); //find version like any but 7.4.0
     }
 
     /**
-     * @param BasePHPElement $element
-     * @return float|null
      * @throws RuntimeException
      */
     public static function getDeclaredSinceVersion(BasePHPElement $element): ?float
@@ -49,14 +36,12 @@ class Utils
         } elseif ($element instanceof PHPConst) {
             $allSinceVersions[] = self::getSinceVersionsFromParentClass($element);
         }
-        $flattenedArray = Utils::flattenArray($allSinceVersions, false);
+        $flattenedArray = CommonUtils::flattenArray($allSinceVersions, false);
         sort($flattenedArray, SORT_DESC);
         return array_pop($flattenedArray);
     }
 
     /**
-     * @param BasePHPElement $element
-     * @return float|null
      * @throws RuntimeException
      */
     public static function getLatestAvailableVersion(BasePHPElement $element): ?float
@@ -72,20 +57,18 @@ class Utils
             $latestVersionsFromPhpDoc[] = self::getLatestAvailableVersionsFromParentClass($element);
         }
         if (empty($latestVersionsFromAttribute)) {
-            $flattenedArray = Utils::flattenArray($latestVersionsFromPhpDoc, false);
+            $flattenedArray = CommonUtils::flattenArray($latestVersionsFromPhpDoc, false);
         } else {
-            $flattenedArray = Utils::flattenArray($latestVersionsFromAttribute, false);
+            $flattenedArray = CommonUtils::flattenArray($latestVersionsFromAttribute, false);
         }
         sort($flattenedArray, SORT_DESC);
         return array_pop($flattenedArray);
     }
 
     /**
-     * @param BasePHPElement|null $element
-     * @return array
      * @throws RuntimeException
      */
-    public static function getAvailableInVersions($element): array
+    public static function getAvailableInVersions(?BasePHPElement $element): array
     {
         if ($element !== null) {
             $firstSinceVersion = self::getDeclaredSinceVersion($element);
@@ -98,9 +81,7 @@ class Utils
             }
             return array_filter(
                 iterator_to_array(new PhpVersions()),
-                function ($version) use ($firstSinceVersion, $lastAvailableVersion) {
-                    return $version >= $firstSinceVersion && $version <= $lastAvailableVersion;
-                }
+                fn ($version) => $version >= $firstSinceVersion && $version <= $lastAvailableVersion
             );
         } else {
             return [];
@@ -108,31 +89,25 @@ class Utils
     }
 
     /**
-     * @param BasePHPElement $element
      * @return float[]
      */
     private static function getSinceVersionsFromPhpDoc(BasePHPElement $element): array
     {
         $allSinceVersions = [];
         if (!empty($element->sinceTags) && $element->stubBelongsToCore) {
-            $allSinceVersions[] = array_map(function (Since $tag) {
-                return (float)$tag->getVersion();
-            }, $element->sinceTags);
+            $allSinceVersions[] = array_map(fn (Since $tag) => (float)$tag->getVersion(), $element->sinceTags);
         }
         return $allSinceVersions;
     }
 
     /**
-     * @param BasePHPElement $element
      * @return float[]
      */
     private static function getLatestAvailableVersionFromPhpDoc(BasePHPElement $element): array
     {
         $latestAvailableVersion = [PhpVersions::getLatest()];
         if (!empty($element->removedTags) && $element->stubBelongsToCore) {
-            $allRemovedVersions = array_map(function (RemovedTag $tag) {
-                return (float)$tag->getVersion();
-            }, $element->removedTags);
+            $allRemovedVersions = array_map(fn (RemovedTag $tag) => (float)$tag->getVersion(), $element->removedTags);
             sort($allRemovedVersions, SORT_DESC);
             $removedVersion = array_pop($allRemovedVersions);
             $allVersions = new PhpVersions();
@@ -143,11 +118,10 @@ class Utils
     }
 
     /**
-     * @param PHPMethod|PHPConst $element
      * @return float[]
      * @throws RuntimeException
      */
-    private static function getSinceVersionsFromParentClass($element): array
+    private static function getSinceVersionsFromParentClass(PHPMethod|PHPConst $element): array
     {
         $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($element->parentName);
         if ($parentClass === null) {
@@ -159,11 +133,10 @@ class Utils
     }
 
     /**
-     * @param PHPMethod|PHPConst $element
      * @return float[]
      * @throws RuntimeException
      */
-    public static function getLatestAvailableVersionsFromParentClass($element): array
+    public static function getLatestAvailableVersionsFromParentClass(PHPMethod|PHPConst $element): array
     {
         $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($element->parentName);
         if ($parentClass === null) {
@@ -175,7 +148,6 @@ class Utils
     }
 
     /**
-     * @param BasePHPElement $element
      * @return float[]
      */
     public static function getSinceVersionsFromAttribute(BasePHPElement $element): array
@@ -188,7 +160,6 @@ class Utils
     }
 
     /**
-     * @param BasePHPElement $element
      * @return float[]
      */
     public static function getLatestAvailableVersionsFromAttribute(BasePHPElement $element): array
@@ -198,18 +169,5 @@ class Utils
             $latestAvailableVersions[] = $element->availableVersionsRangeFromAttribute['to'];
         }
         return $latestAvailableVersions;
-    }
-
-    /**
-     * @param PHPParameter $parameter
-     * @return bool
-     */
-    public static function parameterSuiteCurrentPhpVersionBasedOnAttribute(PHPParameter $parameter): bool
-    {
-        if (!empty($parameter->availableVersionsRangeFromAttribute)) {
-            return $parameter->availableVersionsRangeFromAttribute['from'] <= (doubleval(getenv('PHP_VERSION')) ?? PhpVersions::getFirst())
-                && $parameter->availableVersionsRangeFromAttribute['to'] >= (doubleval(getenv('PHP_VERSION')) ?? PhpVersions::getLatest());
-        }
-        return true;
     }
 }

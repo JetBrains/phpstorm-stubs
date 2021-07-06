@@ -45,7 +45,7 @@ class BaseFunctionsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::functionsForParamsAmountTestsProvider
-     * @throws Exception
+     * @throws Exception|RuntimeException
      */
     public function testFunctionsParametersAmount(PHPFunction $function)
     {
@@ -112,9 +112,6 @@ class BaseFunctionsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodOptionalParametersProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $method
-     * @param PHPParameter $parameter
      * @throws RuntimeException
      */
     public function testMethodsOptionalParameters(PHPClass|PHPInterface $class, PHPMethod $method, PHPParameter $parameter)

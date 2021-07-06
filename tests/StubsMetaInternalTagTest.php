@@ -75,7 +75,6 @@ class StubsMetaInternalTagTest extends BaseStubsTest
     }
 
     /**
-     * @param string $elementName
      * @throws Exception
      */
     private static function checkInternalMetaInOverride(string $elementName): void
