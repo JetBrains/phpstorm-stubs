@@ -839,11 +839,11 @@ function extract(array &$array, int $flags, string $prefix): int {}
  * arrays of variable names inside it; compact
  * handles it recursively.
  * </p>
- * @param mixed ...$var_names [optional]
+ * @param mixed ...$var_names
  * @return array the output array with all the variables added to it.
  */
 #[Pure]
-function compact(mixed $var_name, #[PhpStormStubsElementAvailable(from: '8.0')] ...$var_names): array {}
+function compact(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $var_name, #[Required(from: '5.3', to: '7.4')] ...$var_names): array {}
 
 /**
  * Fill an array with values
