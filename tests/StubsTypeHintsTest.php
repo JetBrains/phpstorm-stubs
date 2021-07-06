@@ -12,7 +12,7 @@ use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\Model\PhpVersions;
 use StubTests\Model\StubProblemType;
-use StubTests\Parsers\Utils;
+use StubTests\Parsers\ParserUtils;
 use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 use StubTests\TestData\Providers\ReflectionStubsSingleton;
@@ -21,7 +21,6 @@ class StubsTypeHintsTest extends BaseStubsTest
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::allFunctionsProvider
-     * @param PHPFunction $function
      * @throws RuntimeException
      */
     public function testFunctionsReturnTypeHints(PHPFunction $function)
@@ -30,7 +29,7 @@ class StubsTypeHintsTest extends BaseStubsTest
         $allEqualStubFunctions = EntitiesFilter::getFiltered(
             PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(),
             fn (PHPFunction $stubFunction) => $stubFunction->name !== $functionName ||
-                !in_array(PhpVersions::getLatest(), Utils::getAvailableInVersions($stubFunction))
+                !in_array(PhpVersions::getLatest(), ParserUtils::getAvailableInVersions($stubFunction))
         );
         /** @var PHPFunction $stubFunction */
         $stubFunction = array_pop($allEqualStubFunctions);
@@ -45,8 +44,6 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionParametersWithTypeProvider
-     * @param PHPFunction $function
-     * @param PHPParameter $parameter
      * @throws RuntimeException
      */
     public function testFunctionsParametersTypeHints(PHPFunction $function, PHPParameter $parameter)
@@ -74,8 +71,6 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsWithReturnTypeHintProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $method
      * @throws RuntimeException
      */
     public function testMethodsReturnTypeHints(PHPClass|PHPInterface $class, PHPMethod $method)
@@ -95,9 +90,6 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodParametersProvider
-     * @param PHPClass|PHPInterface $reflectionClass
-     * @param PHPMethod $reflectionMethod
-     * @param PHPParameter $reflectionParameter
      * @throws RuntimeException
      */
     public function testMethodsParametersTypeHints(PHPClass|PHPInterface $reflectionClass, PHPMethod $reflectionMethod, PHPParameter $reflectionParameter)
@@ -134,14 +126,11 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForScalarTypeHintTestsProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $stubMethod
-     * @param PHPParameter $parameter
      * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveScalarTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
-        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
+        $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
         self::assertEmpty(
             array_intersect(['int', 'float', 'string', 'bool', 'mixed', 'object'], $parameter->typesFromSignature),
             "Method '$class->name::$stubMethod->name' with @since '$sinceVersion'  
@@ -152,14 +141,11 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForNullableTypeHintTestsProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $stubMethod
-     * @param PHPParameter $parameter
      * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveNullableTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
-        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
+        $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
         self::assertEmpty(
             array_filter($parameter->typesFromSignature, fn (string $type) => str_contains($type, '?')),
             "Method '$class->name::$stubMethod->name' with @since '$sinceVersion'  
@@ -170,14 +156,11 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForUnionTypeHintTestsProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $stubMethod
-     * @param PHPParameter $parameter
      * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveUnionTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
-        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
+        $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
         self::assertLessThan(
             2,
             count($parameter->typesFromSignature),
@@ -189,24 +172,22 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForReturnTypeHintTestsProvider
-     * @param PHPMethod $stubMethod
      * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveReturnTypeHint(PHPMethod $stubMethod)
     {
-        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
+        $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
         self::assertEmpty($stubMethod->returnTypesFromSignature, "Method '$stubMethod->parentName::$stubMethod->name' has since version '$sinceVersion'
             but has return typehint '" . implode('|', $stubMethod->returnTypesFromSignature) . "' that supported only since PHP 7. Please declare return type via PhpDoc");
     }
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForNullableReturnTypeHintTestsProvider
-     * @param PHPMethod $stubMethod
      * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveNullableReturnTypeHint(PHPMethod $stubMethod)
     {
-        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
+        $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
         $returnTypes = $stubMethod->returnTypesFromSignature;
         self::assertEmpty(
             array_filter($returnTypes, fn (string $type) => str_contains($type, '?')),
@@ -218,12 +199,11 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForUnionReturnTypeHintTestsProvider
-     * @param PHPMethod $stubMethod
      * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveUnionReturnTypeHint(PHPMethod $stubMethod)
     {
-        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
+        $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
         self::assertLessThan(
             2,
             count($stubMethod->returnTypesFromSignature),
@@ -235,9 +215,6 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForAllowedScalarTypeHintTestsProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $stubMethod
-     * @param PHPParameter $stubParameter
      * @throws RuntimeException
      */
     public function testMethodScalarTypeHintsInParametersMatchReflection(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $stubParameter)
@@ -255,9 +232,6 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForAllowedNullableTypeHintTestsProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $stubMethod
-     * @param PHPParameter $stubParameter
      * @throws RuntimeException
      */
     public function testMethodNullableTypeHintsInParametersMatchReflection(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $stubParameter)
@@ -275,9 +249,6 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForAllowedUnionTypeHintTestsProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $stubMethod
-     * @param PHPParameter $stubParameter
      * @throws RuntimeException
      */
     public function testMethodUnionTypeHintsInParametersMatchReflection(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $stubParameter)
@@ -295,7 +266,6 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::allFunctionAndMethodsWithReturnTypeHintsProvider
-     * @param PHPFunction|PHPMethod $method
      * @throws Exception
      */
     public static function testSignatureTypeHintsComplainPhpDocInMethods(PHPFunction|PHPMethod $method)

@@ -13,6 +13,7 @@ use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RuntimeException;
 use SplFileInfo;
+use StubTests\Model\CommonUtils;
 use StubTests\Model\StubsContainer;
 use StubTests\Parsers\Visitors\ASTVisitor;
 use StubTests\Parsers\Visitors\CoreStubASTVisitor;
@@ -22,13 +23,9 @@ use UnexpectedValueException;
 
 class StubParser
 {
-    /**
-     * @var StubsContainer|null
-     */
-    private static $stubs = null;
+    private static ?StubsContainer $stubs = null;
 
     /**
-     * @return StubsContainer
      * @throws LogicException
      * @throws RuntimeException
      * @throws UnexpectedValueException
@@ -41,9 +38,7 @@ class StubParser
         self::processStubs(
             $visitor,
             $coreStubVisitor,
-            function (SplFileInfo $file): bool {
-                return $file->getFilename() !== '.phpstorm.meta.php';
-            }
+            fn (SplFileInfo $file): bool => $file->getFilename() !== '.phpstorm.meta.php'
         );
 
         $jsonData = json_decode(file_get_contents(__DIR__ . '/../TestData/mutedProblems.json'));
@@ -53,7 +48,7 @@ class StubParser
         }
         foreach (self::$stubs->getClasses() as $class) {
             $class->readMutedProblems($jsonData->classes);
-            $class->interfaces = Utils::flattenArray($visitor->combineImplementedInterfaces($class), false);
+            $class->interfaces = CommonUtils::flattenArray($visitor->combineImplementedInterfaces($class), false);
         }
         foreach (self::$stubs->getFunctions() as $function) {
             $function->readMutedProblems($jsonData->functions);
@@ -65,9 +60,6 @@ class StubParser
     }
 
     /**
-     * @param NodeVisitorAbstract $visitor
-     * @param CoreStubASTVisitor|null $coreStubASTVisitor
-     * @param callable $fileCondition
      * @throws LogicException
      * @throws UnexpectedValueException
      */

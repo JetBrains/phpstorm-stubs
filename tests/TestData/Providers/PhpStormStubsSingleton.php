@@ -11,7 +11,7 @@ class PhpStormStubsSingleton
     /**
      * @var StubsContainer|null
      */
-    private static $phpstormStubs = null;
+    private static ?StubsContainer $phpstormStubs = null;
 
     public static function getPhpStormStubs(): StubsContainer
     {

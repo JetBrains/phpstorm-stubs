@@ -3,11 +3,11 @@ declare(strict_types=1);
 
 namespace StubTests\TestData\Providers\Stubs;
 
-use StubTests\Parsers\Utils;
+use StubTests\Model\CommonUtils;
 
 class PhpCoreStubsProvider
 {
-    private static $StubDirectoryMap = [
+    private static array $StubDirectoryMap = [
         'CORE' => [
             'Core',
             'date',
@@ -149,6 +149,6 @@ class PhpCoreStubsProvider
         $coreStubs[] = self::$StubDirectoryMap['CORE'];
         $coreStubs[] = self::$StubDirectoryMap['BUNDLED'];
         $coreStubs[] = self::$StubDirectoryMap['EXTERNAL'];
-        return Utils::flattenArray($coreStubs, false);
+        return CommonUtils::flattenArray($coreStubs, false);
     }
 }

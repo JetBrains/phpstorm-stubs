@@ -27,9 +27,7 @@ class ReflectionClassesTestDataProviders
     {
         foreach (EntitiesFilter::getFiltered(
             ReflectionStubsSingleton::getReflectionStubs()->getClasses(),
-            function (PHPClass $class) {
-                return empty($class->interfaces);
-            },
+            fn (PHPClass $class) => empty($class->interfaces),
             StubProblemType::WRONG_INTERFACE
         ) as $class) {
             //exclude classes from PHPReflectionParser
@@ -45,9 +43,7 @@ class ReflectionClassesTestDataProviders
             ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
         $filtered = EntitiesFilter::getFiltered(
             $classesAndInterfaces,
-            function ($class) {
-                return empty($class->parentInterfaces) && empty($class->parentClass);
-            },
+            fn ($class) => empty($class->parentInterfaces) && empty($class->parentClass),
             StubProblemType::WRONG_PARENT
         );
         foreach ($filtered as $class) {

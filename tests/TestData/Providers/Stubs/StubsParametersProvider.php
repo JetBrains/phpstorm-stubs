@@ -6,7 +6,7 @@ namespace StubTests\TestData\Providers\Stubs;
 use Generator;
 use RuntimeException;
 use StubTests\Model\StubProblemType;
-use StubTests\Parsers\Utils;
+use StubTests\Parsers\ParserUtils;
 use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
@@ -77,9 +77,9 @@ class StubsParametersProvider
             foreach (EntitiesFilter::getFilteredFunctions($class) as $method) {
                 foreach (EntitiesFilter::getFilteredParameters($method, null, ...$problemTypes) as $parameter) {
                     if (!empty($parameter->availableVersionsRangeFromAttribute)) {
-                        $firstSinceVersion = max(Utils::getDeclaredSinceVersion($method), min($parameter->availableVersionsRangeFromAttribute));
+                        $firstSinceVersion = max(ParserUtils::getDeclaredSinceVersion($method), min($parameter->availableVersionsRangeFromAttribute));
                     } else {
-                        $firstSinceVersion = Utils::getDeclaredSinceVersion($method);
+                        $firstSinceVersion = ParserUtils::getDeclaredSinceVersion($method);
                     }
                     if ($filterFunction($class, $method, $firstSinceVersion) === true) {
                         yield "method $class->name::$method->name($parameter->name)" => [$class, $method, $parameter];
