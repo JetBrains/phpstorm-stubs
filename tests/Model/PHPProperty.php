@@ -42,7 +42,7 @@ class PHPProperty extends BasePHPElement
         }
         $this->access = $access;
         $this->is_static = $reflectionObject->isStatic();
-        if (doubleval(getenv('PHP_VERSION') >= 7.4)) {
+        if (method_exists($reflectionObject, 'getType')) {
             $this->typesFromSignature = self::getReflectionTypeAsArray($reflectionObject->getType());
         }
         return $this;
