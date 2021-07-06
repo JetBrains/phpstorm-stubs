@@ -5,6 +5,7 @@ namespace StubTests\Parsers;
 
 use ReflectionClass;
 use ReflectionFunction;
+use StubTests\Model\CommonUtils;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPDefineConstant;
 use StubTests\Model\PHPFunction;
@@ -23,7 +24,7 @@ class PHPReflectionParser
             $jsonData = json_decode(file_get_contents(__DIR__ . '/../TestData/mutedProblems.json'));
             $const_groups = get_defined_constants(true);
             unset($const_groups['user']);
-            $const_groups = Utils::flattenArray($const_groups, true);
+            $const_groups = CommonUtils::flattenArray($const_groups, true);
             foreach ($const_groups as $name => $value) {
                 $constant = (new PHPDefineConstant())->readObjectFromReflection([$name, $value]);
                 $constant->readMutedProblems($jsonData->constants);

@@ -11,7 +11,7 @@ class DocFactoryProvider
     /**
      * @var DocBlockFactory|null
      */
-    private static $docFactory = null;
+    private static ?DocBlockFactory $docFactory = null;
 
     public static function getDocFactory(): DocBlockFactory
     {
