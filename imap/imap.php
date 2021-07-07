@@ -49,7 +49,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  * @return resource|false an IMAP stream on success or <b>FALSE</b> on error.
  */
 #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection|false'], default: 'resource|false')]
-function imap_open(string $mailbox, string $user, string $password, int $flags = 0, int $retries = 0, ?array $options = null) {}
+function imap_open(string $mailbox, string $user, string $password, int $flags = 0, int $retries = 0, array $options = null) {}
 
 /**
  * Reopen IMAP stream to new mailbox

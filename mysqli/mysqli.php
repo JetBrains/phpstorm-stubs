@@ -1620,7 +1620,7 @@ function mysqli_commit(mysqli $mysql, int $flags = -1, ?string $name): bool {}
  * @param string|null $socket Specifies the socket or named pipe that should be used.
  * @return mysqli|false|null object which represents the connection to a MySQL Server or false if an error occurred.
  */
-function mysqli_connect(?string $hostname = null, ?string $username = null, ?string $password = null, ?string $database = null, ?int $port = null, ?string $socket = null): mysqli|false|null {}
+function mysqli_connect(?string $hostname = null, ?string $username = null, ?string $password = null, ?string $database = null, ?int $port = null, ?string $socket = null): mysqli|false {}
 
 /**
  * Returns the error code from last connect call
@@ -2696,7 +2696,7 @@ function mysqli_send_long_data(mysqli_stmt $statement, int $param_num, string $d
  * @param mixed $value
  * @return bool
  */
-function mysqli_set_opt(mysqli $mysql, int $option, mixed $value): bool {}
+function mysqli_set_opt(mysqli $mysql, int $option, $value): bool {}
 
 /**
  * <p>

@@ -22,7 +22,7 @@ class SyncMutex
      * @throws Exception if the mutex cannot be created or opened
      * @link https://php.net/manual/en/syncmutex.construct.php
      */
-    public function __construct(string $name) {}
+    public function __construct($name) {}
 
     /**
      * Waits for an exclusive lock
@@ -34,7 +34,7 @@ class SyncMutex
      * @see SyncMutex::unlock()
      * @link https://php.net/manual/en/syncmutex.lock.php
      */
-    public function lock(int $wait = -1) {}
+    public function lock($wait = -1) {}
 
     /**
      * Unlocks the mutex
@@ -46,7 +46,7 @@ class SyncMutex
      * @see SyncMutex::lock()
      * @link https://php.net/manual/en/syncmutex.unlock.php
      */
-    public function unlock(bool $all = false) {}
+    public function unlock($all = false) {}
     }
 
 /**
@@ -70,7 +70,7 @@ class SyncSemaphore
      * @throws Exception if the semaphore cannot be created or opened
      * @link https://php.net/manual/en/syncsemaphore.construct.php
      */
-    public function __construct(string $name, int $initialval = 1, bool $autounlock = true) {}
+    public function __construct($name, $initialval = 1, $autounlock = true) {}
 
     /**
      * Decreases the count of the semaphore or waits
@@ -82,7 +82,7 @@ class SyncSemaphore
      * @see SyncSemaphore::unlock()
      * @link https://php.net/manual/en/syncsemaphore.lock.php
      */
-    public function lock(int $wait = -1) {}
+    public function lock($wait = -1) {}
 
     /**
      * Increases the count of the semaphore
@@ -94,7 +94,7 @@ class SyncSemaphore
      * @see SyncSemaphore::lock()
      * @link https://php.net/manual/en/syncsemaphore.unlock.php
      */
-    public function unlock(int &$prevcount = 0) {}
+    public function unlock(&$prevcount = 0) {}
     }
 
 /**
@@ -151,7 +151,7 @@ class SyncEvent
      * @see SyncEvent::fire()
      * @link https://php.net/manual/en/syncevent.wait.php
      */
-    public function wait(int $wait = -1) {}
+    public function wait($wait = -1) {}
     }
 
 /**
@@ -174,7 +174,7 @@ class SyncReaderWriter
      * @throws Exception if the reader-writer cannot be created or opened.
      * @link https://php.net/manual/en/syncreaderwriter.construct.php
      */
-    public function __construct(string $name, bool $autounlock = true) {}
+    public function __construct($name, $autounlock = true) {}
 
     /**
      * Waits for a read lock
@@ -186,7 +186,7 @@ class SyncReaderWriter
      * @see SyncReaderWriter::readunlock()
      * @link https://php.net/manual/en/syncreaderwriter.readlock.php
      */
-    public function readlock(int $wait = -1) {}
+    public function readlock($wait = -1) {}
 
     /**
      * Releases a read lock
@@ -209,7 +209,7 @@ class SyncReaderWriter
      * @see SyncReaderWriter::writeunlock()
      * @link https://php.net/manual/en/syncreaderwriter.writelock.php
      */
-    public function writelock(int $wait = -1) {}
+    public function writelock($wait = -1) {}
 
     /**
      * Releases a write lock
@@ -245,7 +245,7 @@ class SyncSharedMemory
      * @throws Exception if the shared memory object cannot be created or opened.
      * @link https://php.net/manual/en/syncsharedmemory.construct.php
      */
-    public function __construct(string $name, int $size) {}
+    public function __construct($name, $size) {}
 
     /**
      * Check to see if the object is the first instance system-wide of named shared memory
@@ -268,7 +268,7 @@ class SyncSharedMemory
      * @see SyncSharedMemory::write()
      * @link https://php.net/manual/en/syncsharedmemory.read.php
      */
-    public function read(int $start = 0, int $length) {}
+    public function read($start = 0, $length) {}
 
     /**
      * Returns the size of the named shared memory
@@ -290,5 +290,5 @@ class SyncSharedMemory
      * @return int containing the number of bytes written to shared memory.
      * @link https://php.net/manual/en/syncsharedmemory.write.php
      */
-    public function write(string $string, int $start = 0) {}
+    public function write($string, $start = 0) {}
     }
