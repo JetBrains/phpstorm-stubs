@@ -164,7 +164,7 @@ final class Yaf_Application
      * @param Yaf_Bootstrap_Abstract $bootstrap A Yaf_Bootstrap_Abstract instance
      * @return Yaf_Application
      */
-    public function bootstrap(Yaf_Bootstrap_Abstract $bootstrap = null) {}
+    public function bootstrap($bootstrap = null) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-application.getconfig.php
@@ -370,7 +370,7 @@ final class Yaf_Dispatcher
      * @param Yaf_View_Interface $view A Yaf_View_Interface instance
      * @return Yaf_Dispatcher
      */
-    public function setView(Yaf_View_Interface $view) {}
+    public function setView($view) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-dispatcher.setrequest.php
@@ -378,7 +378,7 @@ final class Yaf_Dispatcher
      * @param Yaf_Request_Abstract $request
      * @return Yaf_Dispatcher
      */
-    public function setRequest(Yaf_Request_Abstract $request) {}
+    public function setRequest($request) {}
 
     /**
      * Retrieve the Yaf_Application instance. same as Yaf_Application::app().
@@ -413,7 +413,7 @@ final class Yaf_Dispatcher
      *
      * @return Yaf_Dispatcher
      */
-    public function setErrorHandler(callable $callback, $error_types = YAF_ERR_TYPE_ERROR) {}
+    public function setErrorHandler($callback, $error_types = YAF_ERR_TYPE_ERROR) {}
 
     /**
      * Change default module name
@@ -505,7 +505,7 @@ final class Yaf_Dispatcher
      *
      * @return Yaf_Response_Abstract
      */
-    public function dispatch(Yaf_Request_Abstract $request) {}
+    public function dispatch($request) {}
 
     /**
      * <p>Switch on/off exception throwing while unexpected error occurring. When this is on, Yaf will throwing exceptions instead of triggering catchable errors.</p><br/>
@@ -537,7 +537,7 @@ final class Yaf_Dispatcher
      * @param Yaf_Plugin_Abstract $plugin
      * @return Yaf_Dispatcher
      */
-    public function registerPlugin(Yaf_Plugin_Abstract $plugin) {}
+    public function registerPlugin($plugin) {}
 
     public function setResponse($response) {}
 }
@@ -964,7 +964,7 @@ class Yaf_Router
      *
      * @return Yaf_Router|false return FALSE on failure
      */
-    public function addRoute($name, Yaf_Route_Interface $route) {}
+    public function addRoute($name, $route) {}
 
     /**
      * <p>Add routes defined by configs into Yaf_Router's route stack</p>
@@ -975,7 +975,7 @@ class Yaf_Router
      *
      * @return Yaf_Router|false return FALSE on failure
      */
-    public function addConfig(Yaf_Config_Abstract $config) {}
+    public function addConfig($config) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-router.route.php
@@ -984,7 +984,7 @@ class Yaf_Router
      *
      * @return Yaf_Router|false return FALSE on failure
      */
-    public function route(Yaf_Request_Abstract $request) {}
+    public function route($request) {}
 
     /**
      * <p>Retrieve a route by name, see also Yaf_Router::getCurrentRoute()</p>
@@ -1222,7 +1222,7 @@ abstract class Yaf_Controller_Abstract
      * @see Yaf_Controller_Abstract::init()
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.construct.php
      */
-    public function __construct(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response, Yaf_View_Interface $view, ?array $args = null) {}
+    public function __construct($request, $response, $view, ?array $args = null) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.clone.php
@@ -1898,7 +1898,7 @@ interface Yaf_View_Interface
      * @param array $tpl_vars
      * @return bool
      */
-    public function display($tpl, array $tpl_vars = null);
+    public function display($tpl, $tpl_vars = null);
 
     /**
      * @link https://secure.php.net/manual/en/yaf-view-interface.getscriptpath.php
@@ -1916,7 +1916,7 @@ interface Yaf_View_Interface
      * @param array $tpl_vars
      * @return string
      */
-    public function render($tpl, array $tpl_vars = null);
+    public function render($tpl, $tpl_vars = null);
 
     /**
      * Set the templates base directory, this is usually called by Yaf_Dispatcher
@@ -1946,7 +1946,7 @@ interface Yaf_Route_Interface
      * @param Yaf_Request_Abstract $request
      * @return bool
      */
-    public function route(Yaf_Request_Abstract $request);
+    public function route($request);
 
     /**
      * <p><b>Yaf_Route_Interface::assemble()</b> - assemble a request</p><br/>
@@ -2005,7 +2005,7 @@ class Yaf_Response_Http extends Yaf_Response_Abstract
      *
      * @return bool
      */
-    public function setAllHeaders(array $headers) {}
+    public function setAllHeaders($headers) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-response-abstract.getheader.php
@@ -2413,7 +2413,7 @@ class Yaf_Config_Simple extends Yaf_Config_Abstract implements Iterator, ArrayAc
      * @param array $config
      * @param bool $readonly
      */
-    public function __construct(array $config, $readonly = null) {}
+    public function __construct($config, $readonly = null) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-config-simple.isset.php
@@ -2532,7 +2532,7 @@ class Yaf_View_Simple implements Yaf_View_Interface
      *
      * @return string|void
      */
-    public function render($tpl, array $tpl_vars = null) {}
+    public function render($tpl, $tpl_vars = null) {}
 
     /**
      * <p>Render a template and display the result instantly.</p>
@@ -2546,7 +2546,7 @@ class Yaf_View_Simple implements Yaf_View_Interface
      *
      * @return bool
      */
-    public function display($tpl, array $tpl_vars = null) {}
+    public function display($tpl, $tpl_vars = null) {}
 
     /**
      * <p>unlike Yaf_View_Simple::assign(), this method assign a ref value to engine.</p>
@@ -2617,7 +2617,7 @@ class Yaf_View_Simple implements Yaf_View_Interface
      * @param array $vars
      * @return void|false return FALSE on failure
      */
-    public function eval(string $tpl_str, array $vars = null) {}
+    public function eval($tpl_str, $vars = null) {}
 
     public function get($name = '') {}
 }
@@ -2650,7 +2650,7 @@ class Yaf_Route_Static implements Yaf_Route_Interface
      *
      * @return bool always TRUE
      */
-    public function route(Yaf_Request_Abstract $request) {}
+    public function route($request) {}
 
     /**
      * <p><b>Yaf_Route_Static::assemble()</b> - Assemble a url</p>
@@ -2710,7 +2710,7 @@ final class Yaf_Route_Simple implements Yaf_Route_Interface
      *
      * @return bool always TRUE
      */
-    public function route(Yaf_Request_Abstract $request) {}
+    public function route($request) {}
 
     /**
      * <p><b>Yaf_Route_Simple::assemble()</b> - Assemble a url</p>
@@ -2752,7 +2752,7 @@ final class Yaf_Route_Supervar implements Yaf_Route_Interface
      *
      * @return bool If there is a key(which was defined in Yaf_Route_Supervar::__construct()) in $_GET, return TRUE. otherwise return FALSE.
      */
-    public function route(Yaf_Request_Abstract $request) {}
+    public function route($request) {}
 
     /**
      * <p><b>Yaf_Route_Supervar::assemble()</b> - Assemble a url</p>
@@ -2807,7 +2807,7 @@ final class Yaf_Route_Rewrite extends Yaf_Router implements Yaf_Route_Interface
      *
      * @return bool
      */
-    public function route(Yaf_Request_Abstract $request) {}
+    public function route($request) {}
 
     /**
      * <p><b>Yaf_Route_Rewrite::assemble()</b> - Assemble a url</p>
@@ -2875,7 +2875,7 @@ final class Yaf_Route_Regex extends Yaf_Router implements Yaf_Route_Interface
      *
      * @return bool If the pattern given by the first parameter of Yaf_Route_Regex::_construct() matches the request uri, return TRUE, otherwise return FALSE.
      */
-    public function route(Yaf_Request_Abstract $request) {}
+    public function route($request) {}
 
     /**
      * <p><b>Yaf_Route_Regex::assemble()</b> - Assemble a url</p>
@@ -2924,7 +2924,7 @@ final class Yaf_Route_Map implements Yaf_Route_Interface
      *
      * @return bool
      */
-    public function route(Yaf_Request_Abstract $request) {}
+    public function route($request) {}
 
     /**
      * <p><b>Yaf_Route_Map::assemble()</b> - Assemble a url</p>

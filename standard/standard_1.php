@@ -1100,7 +1100,8 @@ function setlocale(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
     #[Required(from: '5.3', to: '7.4')]
     ...$locale,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest): string|false {}
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+): string|false {}
 
 /**
  * Get numeric formatting information
