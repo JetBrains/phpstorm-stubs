@@ -340,7 +340,7 @@ function array_uintersect(
     array $array,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
-    #[PhpStormStubsElementAvailable(from: '8.0')] array ...$rest
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
 ): array {}
 
 /**
