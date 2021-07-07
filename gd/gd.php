@@ -262,7 +262,7 @@ function imagecreatefromstring(string $data): GdImage|false {}
  * the specified one or <b>FALSE</b> on failure
  */
 #[Pure]
-function imagecolorclosest(GdImage $image, int $red, int $green, int $blue): int|false {}
+function imagecolorclosest(GdImage $image, int $red, int $green, int $blue): int {}
 
 /**
  * Get the index of the color which has the hue, white and blackness
@@ -275,7 +275,7 @@ function imagecolorclosest(GdImage $image, int $red, int $green, int $blue): int
  * the hue, white and blackness nearest the given color or <b>FALSE</b> on failure
  */
 #[Pure]
-function imagecolorclosesthwb(GdImage $image, int $red, int $green, int $blue): int|false {}
+function imagecolorclosesthwb(GdImage $image, int $red, int $green, int $blue): int {}
 
 /**
  * De-allocate a color for an image
@@ -298,7 +298,7 @@ function imagecolordeallocate(GdImage $image, int $color): bool {}
  * @return int|false a color index or <b>FALSE</b> on failure
  */
 #[Pure]
-function imagecolorresolve(GdImage $image, int $red, int $green, int $blue): int|false {}
+function imagecolorresolve(GdImage $image, int $red, int $green, int $blue): int {}
 
 /**
  * Get the index of the specified color
@@ -311,7 +311,7 @@ function imagecolorresolve(GdImage $image, int $red, int $green, int $blue): int
  * color does not exist, or <b>FALSE</b> on failure
  */
 #[Pure]
-function imagecolorexact(GdImage $image, int $red, int $green, int $blue): int|false {}
+function imagecolorexact(GdImage $image, int $red, int $green, int $blue): int {}
 
 /**
  * Set the color for the specified palette index
@@ -701,7 +701,7 @@ function imagecolorallocatealpha(GdImage $image, int $red, int $green, int $blue
  * @return int|false a color index or <b>FALSE</b> on failure
  */
 #[Pure]
-function imagecolorresolvealpha(GdImage $image, int $red, int $green, int $blue, int $alpha): int|false {}
+function imagecolorresolvealpha(GdImage $image, int $red, int $green, int $blue, int $alpha): int {}
 
 /**
  * Get the index of the closest color to the specified color + alpha
@@ -725,7 +725,7 @@ function imagecolorresolvealpha(GdImage $image, int $red, int $green, int $blue,
  * <b>FALSE</b> on failure
  */
 #[Pure]
-function imagecolorclosestalpha(GdImage $image, int $red, int $green, int $blue, int $alpha): int|false {}
+function imagecolorclosestalpha(GdImage $image, int $red, int $green, int $blue, int $alpha): int {}
 
 /**
  * Get the index of the specified color + alpha

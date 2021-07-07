@@ -165,7 +165,10 @@ abstract class BaseStubsTest extends TestCase
     {
         return !empty(array_filter(
             $typesFromAttribute,
-            fn (array $types) => count(array_intersect($reflectionTypes, $types)) == count($reflectionTypes)
+            fn (array $types) => empty(array_merge(
+                array_diff($reflectionTypes, $types),
+                array_diff($types, $reflectionTypes)
+            ))
         ));
     }
 

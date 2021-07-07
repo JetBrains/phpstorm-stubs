@@ -137,7 +137,7 @@ namespace MongoDB\Driver {
              * @throws WriteConcernException on Write Concern failure
              * @since 1.4.0
              */
-            final public function executeReadWriteCommand($db, Command $command, array $options = []) {}
+            final public function executeReadWriteCommand($db, Command $command, $options = []) {}
 
             /**
              * @link https://php.net/manual/en/mongodb-driver-manager.executewritecommand.php
@@ -268,7 +268,7 @@ namespace MongoDB\Driver {
              * @return Cursor
              * @since 1.0.0
              */
-            final public function executeCommand($db, Command $command, ReadPreference $options = null) {}
+            final public function executeCommand($db, Command $command, $options = null) {}
 
             /**
              * Execute a database command that reads on this server
@@ -542,7 +542,7 @@ namespace MongoDB\Driver {
              * @param array $options
              * @throws InvalidArgumentException if mode is invalid or if tagSets is provided for a primary read preference.
              */
-            final public function __construct(string|int $mode, ?array $tagSets = null, ?array $options = []) {}
+            final public function __construct($mode, ?array $tagSets = null, ?array $options = []) {}
 
             public static function __set_state(array $properties) {}
 
@@ -1182,7 +1182,7 @@ namespace MongoDB\Driver {
              * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors
              * @since 1.4.0
              */
-            final public function advanceOperationTime(\MongoDB\BSON\TimestampInterface $timestamp) {}
+            final public function advanceOperationTime($timestamp) {}
 
             /**
              * @link https://secure.php.net/manual/en/mongodb-driver-session.committransaction.php
