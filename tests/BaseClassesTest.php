@@ -233,7 +233,7 @@ class BaseClassesTest extends BaseStubsTest
                 self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesPropertyTypes[$languageVersion]);
             }
         }
-        $conditionToCompareWithSignature = self::ifReflectionTypesExistInSignature($unifiedReflectionPropertyTypes, $unifiedStubsPropertyTypes);
+        $conditionToCompareWithSignature = self::isReflectionTypesMatchSignature($unifiedReflectionPropertyTypes, $unifiedStubsPropertyTypes);
         $conditionToCompareWithAttribute = self::ifReflectionTypesExistInAttributes($unifiedReflectionPropertyTypes, $unifiedStubsAttributesPropertyTypes);
         $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
         self::assertTrue($testCondition, "Property $className::$propertyName has invalid typehint.

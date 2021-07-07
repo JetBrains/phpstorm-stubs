@@ -33,7 +33,7 @@ class StubsTypeHintsTest extends BaseStubsTest
         );
         /** @var PHPFunction $stubFunction */
         $stubFunction = array_pop($allEqualStubFunctions);
-        $conditionToCompareWithSignature = BaseStubsTest::ifReflectionTypesExistInSignature($function->returnTypesFromSignature, $stubFunction->returnTypesFromSignature);
+        $conditionToCompareWithSignature = BaseStubsTest::isReflectionTypesMatchSignature($function->returnTypesFromSignature, $stubFunction->returnTypesFromSignature);
         $conditionToCompareWithAttribute = BaseStubsTest::ifReflectionTypesExistInAttributes($function->returnTypesFromSignature, $stubFunction->returnTypesFromAttribute);
         $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
         self::assertTrue($testCondition, "Function $functionName has invalid return type.
@@ -314,7 +314,7 @@ class StubsTypeHintsTest extends BaseStubsTest
                 self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesParameterTypes[$languageVersion]);
             }
         }
-        $conditionToCompareWithSignature = BaseStubsTest::ifReflectionTypesExistInSignature($unifiedReflectionParameterTypes, $unifiedStubsParameterTypes);
+        $conditionToCompareWithSignature = BaseStubsTest::isReflectionTypesMatchSignature($unifiedReflectionParameterTypes, $unifiedStubsParameterTypes);
         $conditionToCompareWithAttribute = BaseStubsTest::ifReflectionTypesExistInAttributes($unifiedReflectionParameterTypes, $unifiedStubsAttributesParameterTypes);
         $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
         self::assertTrue($testCondition, "Type mismatch $functionName: \$$parameter->name \n

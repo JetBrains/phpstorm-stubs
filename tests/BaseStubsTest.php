@@ -155,9 +155,10 @@ abstract class BaseStubsTest extends TestCase
         );
     }
 
-    public static function ifReflectionTypesExistInSignature(array $reflectionTypes, array $typesFromSignature): bool
+    public static function isReflectionTypesMatchSignature(array $reflectionTypes, array $typesFromSignature): bool
     {
-        return count(array_intersect($reflectionTypes, $typesFromSignature)) === count($reflectionTypes);
+        $diff = array_merge(array_diff($reflectionTypes, $typesFromSignature), array_diff($typesFromSignature, $reflectionTypes));
+        return empty($diff);
     }
 
     public static function ifReflectionTypesExistInAttributes(array $reflectionTypes, array $typesFromAttribute): bool
