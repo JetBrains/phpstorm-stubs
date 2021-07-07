@@ -142,7 +142,13 @@ abstract class BasePHPElement
                     $types = [];
                     $versionTypesMap = $attr->args[0]->value->items;
                     foreach ($versionTypesMap as $item) {
-                        $types[$item->key->value] = explode('|', preg_replace('/\w+\[]/', 'array', $item->value->value));
+                        $firstVersionWithType = $item->key->value;
+                        foreach (new PhpVersions() as $version) {
+                            if ($version >= doubleval($firstVersionWithType)) {
+                                $types[number_format($version, 1, '.')] =
+                                    explode('|', preg_replace('/\w+\[]/', 'array', $item->value->value));
+                            }
+                        }
                     }
                     $types[$attr->args[1]->name->name] = explode('|', preg_replace('/\w+\[]/', 'array', $attr->args[1]->value->value));
                     return $types;
