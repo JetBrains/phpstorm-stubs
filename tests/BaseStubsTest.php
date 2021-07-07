@@ -157,18 +157,17 @@ abstract class BaseStubsTest extends TestCase
 
     public static function isReflectionTypesMatchSignature(array $reflectionTypes, array $typesFromSignature): bool
     {
-        $diff = array_merge(array_diff($reflectionTypes, $typesFromSignature), array_diff($typesFromSignature, $reflectionTypes));
-        return empty($diff);
+        return empty(array_merge(
+            array_diff($reflectionTypes, $typesFromSignature),
+            array_diff($typesFromSignature, $reflectionTypes)
+        ));
     }
 
     public static function ifReflectionTypesExistInAttributes(array $reflectionTypes, array $typesFromAttribute): bool
     {
-        return !empty(array_filter(
-            $typesFromAttribute,
-            fn (array $types) => empty(array_merge(
-                array_diff($reflectionTypes, $types),
-                array_diff($types, $reflectionTypes)
-            ))
+        return empty(array_merge(
+            array_diff($reflectionTypes, $typesFromAttribute),
+            array_diff($typesFromAttribute, $reflectionTypes)
         ));
     }
 

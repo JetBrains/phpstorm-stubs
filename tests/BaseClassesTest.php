@@ -227,19 +227,27 @@ class BaseClassesTest extends BaseStubsTest
         self::convertNullableTypesToUnion($property->typesFromSignature, $unifiedReflectionPropertyTypes);
         if (!empty($stubProperty->typesFromSignature)) {
             self::convertNullableTypesToUnion($stubProperty->typesFromSignature, $unifiedStubsPropertyTypes);
-        } else {
-            foreach ($stubProperty->typesFromAttribute as $languageVersion => $listOfTypes) {
-                $unifiedStubsAttributesPropertyTypes[$languageVersion] = [];
-                self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesPropertyTypes[$languageVersion]);
-            }
         }
-        $conditionToCompareWithSignature = self::isReflectionTypesMatchSignature($unifiedReflectionPropertyTypes, $unifiedStubsPropertyTypes);
-        $conditionToCompareWithAttribute = self::ifReflectionTypesExistInAttributes($unifiedReflectionPropertyTypes, $unifiedStubsAttributesPropertyTypes);
+        foreach ($stubProperty->typesFromAttribute as $languageVersion => $listOfTypes) {
+            $unifiedStubsAttributesPropertyTypes[$languageVersion] = [];
+            self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesPropertyTypes[$languageVersion]);
+        }
+        $conditionToCompareWithSignature = self::isReflectionTypesMatchSignature(
+            $unifiedReflectionPropertyTypes,
+            $unifiedStubsPropertyTypes
+        );
+        $typesFromAttribute = [];
+        if (!empty($unifiedStubsAttributesPropertyTypes)) {
+            $typesFromAttribute = !empty($unifiedStubsAttributesPropertyTypes[getenv('PHP_VERSION')]) ?
+                $unifiedStubsAttributesPropertyTypes[getenv('PHP_VERSION')] :
+                $unifiedStubsAttributesPropertyTypes['default'];
+        }
+        $conditionToCompareWithAttribute = self::ifReflectionTypesExistInAttributes($unifiedReflectionPropertyTypes, $typesFromAttribute);
         $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
         self::assertTrue($testCondition, "Property $className::$propertyName has invalid typehint.
         Reflection property has type " . implode('|', $unifiedReflectionPropertyTypes) . ' but stubs has type ' .
             implode('|', $unifiedStubsPropertyTypes) . ' in signature and attribute has types ' .
-            self::getStringRepresentationOfTypeHintsFromAttributes($unifiedStubsAttributesPropertyTypes));
+            implode('|', $typesFromAttribute));
     }
 
     /**
