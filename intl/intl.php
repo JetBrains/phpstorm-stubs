@@ -2271,7 +2271,7 @@ class Transliterator
      * or <b>NULL</b> on failure.
      */
     public static function create(
-        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $id,
+        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $id,
         #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] #[EV([Transliterator::FORWARD, Transliterator::REVERSE])] $direction = null
     ) {}
 
