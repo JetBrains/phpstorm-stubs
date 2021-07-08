@@ -44,15 +44,13 @@ jobs:
         run: docker-compose -f docker-compose.yml build >/dev/null
 
       - name: Composer Install
-        run: docker-compose -f docker-compose.yml run test_runner composer install -d /opt/project/phpstorm-stubs --ignore-platform-reqs
+        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=8.1 test_runner composer install -d /opt/project/phpstorm-stubs --ignore-platform-reqs
 
       - name: Dump Reflection To File
-        run: docker-compose -f docker-compose.yml run test_runner /usr/local/bin/php /opt/project/phpstorm-stubs/tests/Tools/dump-reflection-to-file.php
+        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=8.1 test_runner /usr/local/bin/php /opt/project/phpstorm-stubs/tests/Tools/dump-reflection-to-file.php
 
       - name: Run Tests
-        run: docker-compose -f docker-compose.yml run test_runner /opt/project/phpstorm-stubs/vendor/bin/phpunit /opt/project/phpstorm-stubs/tests/
-        env:
-          PHP_VERSION: '8.1'
+        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=8.1 test_runner /opt/project/phpstorm-stubs/vendor/bin/phpunit /opt/project/phpstorm-stubs/tests/
 
       - name: Test Stubs Map
         run: ./tests/check-stub-map
