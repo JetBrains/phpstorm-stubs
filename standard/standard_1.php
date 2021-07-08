@@ -988,7 +988,7 @@ function similar_text(string $string1, string $string2, &$percent): int {}
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string[]"], default: "string[]|false")]
-function explode(string $separator, string $string, int $limit): array|false {}
+function explode(string $separator, string $string, int $limit) {}
 
 /**
  * Join array elements with a string
