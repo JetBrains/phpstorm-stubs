@@ -1,10 +1,10 @@
 version: '3'
 services:
   php_under_test:
-    image: php:${PHP_VERSION}-alpine
+    build: tests/DockerImages/${PHP_VERSION}
     volumes:
       - .:/opt/project/phpstorm-stubs
   test_runner:
-    build: .
+    build: tests/DockerImages/8.0
     volumes:
       - .:/opt/project/phpstorm-stubs
