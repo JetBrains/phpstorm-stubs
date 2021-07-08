@@ -3,12 +3,12 @@ name: PhpStorm Stubs Tests
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  oldPhpVersions:
+  general:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        php: ['7.1', '7.2', '7.3', '7.4', '8.0']
+        php: ['7.1', '7.2', '7.3', '7.4', '8.0', '8.1']
     name: Run tests against php ${{matrix.php}}
     steps:
       - name: Checkout
@@ -33,24 +33,20 @@ jobs:
         run: docker-compose -f docker-compose.yml run -e PHP_VERSION=${{matrix.php}} test_runner /opt/project/phpstorm-stubs/vendor/bin/phpunit --configuration /opt/project/phpstorm-stubs/phpunit.xml --testsuite PHP_${{matrix.php}}
         env:
           PHP_VERSION: ${{matrix.php}}
-  latest:
+  additional:
     runs-on: ubuntu-latest
-    name: Run tests against latest php with extensions
+    name: Run checks for StubsMap and cs-fixer
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Build Docker Container
         run: docker-compose -f docker-compose.yml build >/dev/null
+        env:
+          PHP_VERSION: '8.0'
 
       - name: Composer Install
-        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=8.1 test_runner composer install -d /opt/project/phpstorm-stubs --ignore-platform-reqs
-
-      - name: Dump Reflection To File
-        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=8.1 test_runner /usr/local/bin/php /opt/project/phpstorm-stubs/tests/Tools/dump-reflection-to-file.php
-
-      - name: Run Tests
-        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=8.1 test_runner /opt/project/phpstorm-stubs/vendor/bin/phpunit /opt/project/phpstorm-stubs/tests/
+        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=8.0 test_runner composer install -d /opt/project/phpstorm-stubs --ignore-platform-reqs
 
       - name: Test Stubs Map
         run: ./tests/check-stub-map
