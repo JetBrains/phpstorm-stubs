@@ -227,7 +227,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      */
     public function addAttribute(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string', '8.1' => 'string|null'], default: '')] $value = null,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace = null
     ) {}
 
