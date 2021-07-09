@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace StubTests\Model;
 
 use RuntimeException;
+use StubTests\Parsers\ParserUtils;
 use function array_key_exists;
 
 class StubsContainer
@@ -38,6 +39,9 @@ class StubsContainer
      */
     public function addConstant(PHPConst $constant): void
     {
+        if (!empty(ParserUtils::getAvailableInVersions($constant)) && !BasePHPElement::entitySuitesCurrentPhpVersion($constant)) {
+            return;
+        }
         if (isset($constant->name)) {
             if (array_key_exists($constant->name, $this->constants)) {
                 $amount = count(array_filter(
@@ -95,6 +99,9 @@ class StubsContainer
 
     public function addFunction(PHPFunction $function): void
     {
+        if (!empty(ParserUtils::getAvailableInVersions($function)) && !BasePHPElement::entitySuitesCurrentPhpVersion($function)) {
+            return;
+        }
         if (isset($function->name)) {
             if (array_key_exists($function->name, $this->functions)) {
                 $amount = count(array_filter(
@@ -164,6 +171,9 @@ class StubsContainer
      */
     public function addClass(PHPClass $class): void
     {
+        if (!empty(ParserUtils::getAvailableInVersions($class)) && !BasePHPElement::entitySuitesCurrentPhpVersion($class)) {
+            return;
+        }
         if (isset($class->name)) {
             if (array_key_exists($class->name, $this->classes)) {
                 $amount = count(array_filter(
@@ -232,6 +242,9 @@ class StubsContainer
      */
     public function addInterface(PHPInterface $interface): void
     {
+        if (!empty(ParserUtils::getAvailableInVersions($interface)) && !BasePHPElement::entitySuitesCurrentPhpVersion($interface)) {
+            return;
+        }
         if (isset($interface->name)) {
             if (array_key_exists($interface->name, $this->interfaces)) {
                 $amount = count(array_filter(
