@@ -39,7 +39,9 @@ class StubsContainer
      */
     public function addConstant(PHPConst $constant): void
     {
-        if (!empty(ParserUtils::getAvailableInVersions($constant)) && !BasePHPElement::entitySuitesCurrentPhpVersion($constant)) {
+        if ($constant->stubBelongsToCore &&
+            !empty(ParserUtils::getAvailableInVersions($constant))
+            && !BasePHPElement::entitySuitesCurrentPhpVersion($constant)) {
             return;
         }
         if (isset($constant->name)) {
@@ -47,8 +49,7 @@ class StubsContainer
                 $amount = count(array_filter(
                     $this->constants,
                     function (PHPConst $nextConstant) use ($constant) {
-                        return $nextConstant->name === $constant->name
-                ;
+                        return $nextConstant->name === $constant->name;
                     }
                 ));
                 $this->constants[$constant->name . '_duplicated_' . $amount] = $constant;
@@ -99,7 +100,9 @@ class StubsContainer
 
     public function addFunction(PHPFunction $function): void
     {
-        if (!empty(ParserUtils::getAvailableInVersions($function)) && !BasePHPElement::entitySuitesCurrentPhpVersion($function)) {
+        if ($function->stubBelongsToCore
+            && !empty(ParserUtils::getAvailableInVersions($function))
+            && !BasePHPElement::entitySuitesCurrentPhpVersion($function)) {
             return;
         }
         if (isset($function->name)) {
@@ -107,8 +110,7 @@ class StubsContainer
                 $amount = count(array_filter(
                     $this->functions,
                     function (PHPFunction $nextFunction) use ($function) {
-                        return $nextFunction->name === $function->name
-                ;
+                        return $nextFunction->name === $function->name;
                     }
                 ));
                 $function->duplicateOtherElement = true;
@@ -171,7 +173,9 @@ class StubsContainer
      */
     public function addClass(PHPClass $class): void
     {
-        if (!empty(ParserUtils::getAvailableInVersions($class)) && !BasePHPElement::entitySuitesCurrentPhpVersion($class)) {
+        if ($class->stubBelongsToCore &&
+            !empty(ParserUtils::getAvailableInVersions($class)) &&
+            !BasePHPElement::entitySuitesCurrentPhpVersion($class)) {
             return;
         }
         if (isset($class->name)) {
@@ -179,8 +183,7 @@ class StubsContainer
                 $amount = count(array_filter(
                     $this->classes,
                     function (PHPClass $nextClass) use ($class) {
-                        return $nextClass->name === $class->name
-                ;
+                        return $nextClass->name === $class->name;
                     }
                 ));
                 $this->classes[$class->name . '_duplicated_' . $amount] = $class;
@@ -242,7 +245,7 @@ class StubsContainer
      */
     public function addInterface(PHPInterface $interface): void
     {
-        if (!empty(ParserUtils::getAvailableInVersions($interface)) && !BasePHPElement::entitySuitesCurrentPhpVersion($interface)) {
+        if ($interface->stubBelongsToCore && !empty(ParserUtils::getAvailableInVersions($interface)) && !BasePHPElement::entitySuitesCurrentPhpVersion($interface)) {
             return;
         }
         if (isset($interface->name)) {
@@ -250,8 +253,7 @@ class StubsContainer
                 $amount = count(array_filter(
                     $this->interfaces,
                     function (PHPInterface $nextInterface) use ($interface) {
-                        return $nextInterface->name === $interface->name
-                ;
+                        return $nextInterface->name === $interface->name;
                     }
                 ));
                 $this->interfaces[$interface->name . '_duplicated_' . $amount] = $interface;
