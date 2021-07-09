@@ -842,7 +842,15 @@ final class mysqli_warning
      * The __construct purpose
      * @link https://php.net/manual/en/mysqli-warning.construct.php
      */
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '8.0')]
     private function __construct() {}
+
+    /**
+     * The __construct purpose
+     * @link https://php.net/manual/en/mysqli-warning.construct.php
+     */
+    #[PhpStormStubsElementAvailable(from: '8.1')]
+    protected function __construct() {}
 
     /**
      * Move to the next warning
@@ -890,7 +898,10 @@ class mysqli_result implements IteratorAggregate
      * @param object $mysql [optional]
      * @param int $result_mode [optional]
      */
-    public function __construct(mysqli $mysql = null, int $result_mode = 0) {}
+    public function __construct(
+        #[PhpStormStubsElementAvailable(from: '7.2')] mysqli $mysql = null,
+        #[PhpStormStubsElementAvailable(from: '7.2')] int $result_mode = 0
+    ) {}
 
     /**
      * Frees the memory associated with a result

@@ -2023,7 +2023,11 @@ class IntlDateFormatter
      * @return string|false the locale of this formatter or 'false' if error
      */
     #[Pure]
-    public function getLocale(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $type = null) {}
+    public function getLocale(
+        #[PhpStormStubsElementAvailable(from: '7.2')]
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
+        $type = null
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -2707,7 +2711,7 @@ class IntlCalendar
      */
     public static function fromDateTime(
         #[LanguageLevelTypeAware(['8.1' => 'DateTime|string'], default: '')] $datetime,
-        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $locale
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] #[PhpStormStubsElementAvailable(from: '7.2')] $locale
     ) {}
 
     /**
@@ -4515,7 +4519,10 @@ function datefmt_set_calendar(IntlDateFormatter $formatter, IntlCalendar|int|nul
  * @return string|false the locale of this formatter or 'false' if error
  */
 #[Pure]
-function datefmt_get_locale(IntlDateFormatter $formatter, int $type = ULOC_ACTUAL_LOCALE): string|false {}
+function datefmt_get_locale(
+    IntlDateFormatter $formatter,
+    #[PhpStormStubsElementAvailable(from: '7.2')] int $type = ULOC_ACTUAL_LOCALE
+): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4648,7 +4655,10 @@ function datefmt_is_lenient(IntlDateFormatter $formatter): bool {}
  * </p>
  * @return void
  */
-function datefmt_set_lenient(IntlDateFormatter $formatter, bool $lenient): void {}
+function datefmt_set_lenient(
+    IntlDateFormatter $formatter,
+    #[PhpStormStubsElementAvailable(from: '7.2')] bool $lenient
+): void {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -5883,7 +5893,10 @@ function intlcal_set_skipped_wall_time_option(IntlCalendar $calendar, int $optio
  * @since 5.5
  */
 #[Pure]
-function intlcal_from_date_time(DateTime|string $datetime, ?string $locale = null): ?IntlCalendar {}
+function intlcal_from_date_time(
+    DateTime|string $datetime,
+    #[PhpStormStubsElementAvailable(from: '7.2')] ?string $locale = null
+): ?IntlCalendar {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a2)<br/>
