@@ -1908,7 +1908,7 @@ function mysqli_get_client_info(?mysqli $mysql = null) {}
  * @link https://php.net/manual/en/mysqli.get-client-version.php
  * @return int
  */
-function mysqli_get_client_version(): int {}
+function mysqli_get_client_version(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $link): int {}
 
 /**
  * Returns a string representing the type of connection used
@@ -2645,7 +2645,7 @@ function mysqli_client_encoding(mysqli $mysql): string {}
  * @param string $string The string to be escaped
  * @return string
  */
-function mysqli_escape_string(mysqli $mysql, string $string): string {}
+function mysqli_escape_string(mysqli $mysql, string $string, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $resultmode): string {}
 
 /**
  * Alias for <b>mysqli_stmt_fetch</b>

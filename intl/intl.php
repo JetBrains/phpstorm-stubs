@@ -5,6 +5,7 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\ExpectedValues as EV;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 class Collator
@@ -2056,7 +2057,7 @@ class IntlDateFormatter
      * </p>
      * @return string|false The formatted string or, if an error occurred, <b>FALSE</b>.
      */
-    public function format($datetime) {}
+    public function format($datetime, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $array) {}
 
     /**
      * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
