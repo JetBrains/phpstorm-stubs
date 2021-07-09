@@ -53,7 +53,7 @@ class ASTVisitor extends NodeVisitorAbstract
                 $this->stubs->addConstant($constant);
             } elseif ($this->stubs->getClass($constant->parentName, $this->sourceFilePath) !== null) {
                 $this->stubs->getClass($constant->parentName, $this->sourceFilePath)->constants[$constant->name] = $constant;
-            } else {
+            } elseif ($this->stubs->getInterface($constant->parentName, $this->sourceFilePath) !== null) {
                 $this->stubs->getInterface($constant->parentName, $this->sourceFilePath)->constants[$constant->name] = $constant;
             }
         } elseif ($node instanceof FuncCall) {
@@ -73,7 +73,7 @@ class ASTVisitor extends NodeVisitorAbstract
             }
             if ($this->stubs->getClass($method->parentName, $this->sourceFilePath) !== null) {
                 $this->stubs->getClass($method->parentName, $this->sourceFilePath)->methods[$method->name] = $method;
-            } else {
+            } elseif ($this->stubs->getInterface($method->parentName, $this->sourceFilePath) !== null) {
                 $this->stubs->getInterface($method->parentName, $this->sourceFilePath)->methods[$method->name] = $method;
             }
         } elseif ($node instanceof Interface_) {
