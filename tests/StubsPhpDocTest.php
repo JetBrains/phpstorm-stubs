@@ -197,6 +197,7 @@ class StubsPhpDocTest extends BaseStubsTest
             'see',
             'since',
             'throws',
+            'template',
             'uses',
             'var',
             'version',
