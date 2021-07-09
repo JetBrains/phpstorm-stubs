@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -2147,7 +2148,14 @@ function imagexbm(GdImage $image, ?string $filename, ?int $foreground_color = nu
  * @param int ...$args
  * @return bool true on success or false on failure.
  */
-function imagefilter(GdImage $image, int $filter, ...$args): bool {}
+function imagefilter(
+    GdImage $image,
+    int     $filter,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arg2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arg3,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arg4,
+    ...$args
+): bool {}
 
 /**
  * Apply a 3x3 convolution matrix, using coefficient and offset
