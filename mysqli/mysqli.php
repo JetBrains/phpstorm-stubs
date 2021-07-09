@@ -7,6 +7,7 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\Required;
 
 /**
  * mysqli_sql_exception
@@ -1914,7 +1915,7 @@ function mysqli_get_charset(mysqli $mysql): ?object {}
 #[LanguageLevelTypeAware(['8.0' => 'string'], default: '?string')]
 function mysqli_get_client_info(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.1')] mysqli $mysql,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ?mysqli $mysql = null
+    #[PhpStormStubsElementAvailable(from: '8.0')]?mysqli $mysql
 ) {}
 
 /**
@@ -2073,8 +2074,7 @@ function mysqli_more_results(mysqli $mysql): bool {}
 function mysqli_multi_query(
     mysqli $mysql,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] string $query = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] string $query
-): bool {}
+    #[PhpStormStubsElementAvailable(from: '8.0')] string $query = null): bool {}
 
 /**
  * Prepare next result from multi_query
@@ -2229,8 +2229,7 @@ function mysqli_real_escape_string(mysqli $mysql, string $string): string {}
 function mysqli_real_query(
     mysqli $mysql,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] string $query = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] string $query
-): bool {}
+    #[PhpStormStubsElementAvailable(from: '8.0')] string $query = null): bool {}
 
 /**
  * Get result from async query

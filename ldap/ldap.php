@@ -4,6 +4,7 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware as PhpVersionAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable as Available;
+use JetBrains\PhpStorm\Internal\Required;
 
 /**
  * PASSWD extended operation helper
