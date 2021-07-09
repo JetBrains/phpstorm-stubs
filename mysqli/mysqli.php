@@ -7,6 +7,7 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\Required;
 
 /**
  * mysqli_sql_exception
@@ -842,14 +843,14 @@ final class mysqli_warning
      * The __construct purpose
      * @link https://php.net/manual/en/mysqli-warning.construct.php
      */
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '8.0')]
+    #[PhpStormStubsElementAvailable(from: '8.0')]
     private function __construct() {}
 
     /**
      * The __construct purpose
      * @link https://php.net/manual/en/mysqli-warning.construct.php
      */
-    #[PhpStormStubsElementAvailable(from: '8.1')]
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
     protected function __construct() {}
 
     /**
@@ -899,8 +900,8 @@ class mysqli_result implements IteratorAggregate
      * @param int $result_mode [optional]
      */
     public function __construct(
-        #[PhpStormStubsElementAvailable(from: '7.2')] mysqli $mysql = null,
-        #[PhpStormStubsElementAvailable(from: '7.2')] int $result_mode = 0
+        #[PhpStormStubsElementAvailable(from: '8.0')] mysqli $mysql = null,
+        #[PhpStormStubsElementAvailable(from: '8.0')] int $result_mode = 0
     ) {}
 
     /**
@@ -1912,14 +1913,14 @@ function mysqli_get_charset(mysqli $mysql): ?object {}
  * @return string|null A string that represents the MySQL client library version
  */
 #[LanguageLevelTypeAware(['8.1' => 'string'], default: '?string')]
-function mysqli_get_client_info(?mysqli $mysql = null) {}
+function mysqli_get_client_info(?mysqli $mysql) {}
 
 /**
  * Returns the MySQL client version as an integer
  * @link https://php.net/manual/en/mysqli.get-client-version.php
  * @return int
  */
-function mysqli_get_client_version(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $link): int {}
+function mysqli_get_client_version(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $link): int {}
 
 /**
  * Returns a string representing the type of connection used
@@ -2067,7 +2068,7 @@ function mysqli_more_results(mysqli $mysql): bool {}
  * @param string $query One or more queries which are separated by semicolons.
  * @return bool Returns FALSE if the first statement failed. To retrieve subsequent errors from other statements you have to call mysqli_next_result() first.
  */
-function mysqli_multi_query(mysqli $mysql, string $query): bool {}
+function mysqli_multi_query(mysqli $mysql, string $query = null): bool {}
 
 /**
  * Prepare next result from multi_query
@@ -2219,7 +2220,7 @@ function mysqli_real_escape_string(mysqli $mysql, string $string): string {}
  * @param string $query
  * @return bool
  */
-function mysqli_real_query(mysqli $mysql, string $query): bool {}
+function mysqli_real_query(mysqli $mysql, string $query = null): bool {}
 
 /**
  * Get result from async query
@@ -2385,10 +2386,15 @@ function mysqli_stmt_send_long_data(mysqli_stmt $statement, int $param_num, stri
  * The number of variables and length of string
  * types must match the parameters in the statement.
  * </p>
- * @param mixed &...$vars [optional]
+ * @param mixed &...$vars
  * @return bool true on success or false on failure.
  */
-function mysqli_stmt_bind_param(mysqli_stmt $statement, string $types, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed &$var1, mixed &...$vars): bool {}
+function mysqli_stmt_bind_param(
+    mysqli_stmt $statement,
+    string $types,
+    #[PhpStormStubsElementAvailable(from: '8.0')] mixed &$var1,
+    #[Required(from: '5.3', to: '7.4')] mixed &...$vars
+): bool {}
 
 /**
  * Binds variables to a prepared statement for result storage
@@ -2400,8 +2406,8 @@ function mysqli_stmt_bind_param(mysqli_stmt $statement, string $types, #[PhpStor
  */
 function mysqli_stmt_bind_result(
     mysqli_stmt $statement,
-    #[PhpStormStubsElementAvailable(from: '7.2', to: '7.4')] mixed &$var1,
-    mixed &...$vars
+    #[PhpStormStubsElementAvailable(from: '8.0')] mixed &$var1,
+    #[Required(from: '5.3', to: '8.0')] mixed &...$vars
 ): bool {}
 
 /**
@@ -2656,7 +2662,10 @@ function mysqli_client_encoding(mysqli $mysql): string {}
  * @param string $string The string to be escaped
  * @return string
  */
-function mysqli_escape_string(mysqli $mysql, string $string, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $resultmode): string {}
+function mysqli_escape_string(
+    mysqli $mysql,
+    string $string,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $resultmode = null): string {}
 
 /**
  * Alias for <b>mysqli_stmt_fetch</b>
@@ -2708,7 +2717,11 @@ function mysqli_send_long_data(mysqli_stmt $statement, int $param_num, string $d
  * @param mixed $value
  * @return bool
  */
-function mysqli_set_opt(mysqli $mysql, int $option, $value): bool {}
+function mysqli_set_opt(
+    #[PhpStormStubsElementAvailable(from: '8.0')] mysqli $mysql,
+    #[PhpStormStubsElementAvailable(from: '8.0')] int $option,
+    #[PhpStormStubsElementAvailable(from: '8.0')] $value
+): bool {}
 
 /**
  * <p>

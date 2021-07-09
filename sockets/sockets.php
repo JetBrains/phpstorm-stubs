@@ -1,6 +1,8 @@
 <?php
 
 // Start of sockets v.
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\Required;
 
 /**
  * (PHP 7 &gt;= 7.2.0)<br/>
@@ -701,7 +703,7 @@ function socket_send(Socket $socket, string $data, int $length, int $flags): int
  * @return int|false
  * @since 5.5
  */
-function socket_sendmsg(Socket $socket, array $message, int $flags = 0): int|false {}
+function socket_sendmsg(Socket $socket, array $message, #[Required(from: '5.3', to: '7.4')] int $flags = 0): int|false {}
 
 /**
  * Receives data from a socket whether or not it is connection-oriented
@@ -782,11 +784,11 @@ function socket_recvfrom(Socket $socket, &$data, int $length, int $flags, &$addr
  * @link https://secure.php.net/manual/en/function.socket-recvmsg.php
  * @param resource|Socket $socket
  * @param array &$message
- * @param int $flags [optional]
+ * @param int $flags
  * @return int|false
  * @since 5.5
  */
-function socket_recvmsg(Socket $socket, array &$message, int $flags): int|false {}
+function socket_recvmsg(Socket $socket, array &$message, #[Required(from: '5.3', to: '7.4')] int $flags = null): int|false {}
 
 /**
  * Sends a message to a socket, whether it is connected or not
@@ -1314,7 +1316,11 @@ function socket_import_stream($stream): Socket|false {}
  * @return int|null
  * @since 5.5
  */
-function socket_cmsg_space(int $level, int $type, int $num = 0): ?int {}
+function socket_cmsg_space(
+    int $level,
+    int $type,
+    #[PhpStormStubsElementAvailable(from: '8.0')] int $num = 0
+): ?int {}
 
 /**
  * Alias of {@see socket_get_option}

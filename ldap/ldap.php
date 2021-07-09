@@ -4,19 +4,26 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware as PhpVersionAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable as Available;
+use JetBrains\PhpStorm\Internal\Required;
 
 /**
  * PASSWD extended operation helper
  * @link https://www.php.net/manual/en/function.ldap-exop-passwd.php
  * @param resource $ldap An LDAP link identifier, returned by ldap_connect().
- * @param string $user [optional] dn of the user to change the password of.
- * @param string $old_password [optional] The old password of this user. May be omitted depending of server configuration.
- * @param string $new_password [optional] The new password for this user. May be omitted or empty to have a generated password.
- * @param array &$controls [optional] If provided, a password policy request control is send with the request and this is filled with an array of LDAP Controls returned with the request.
+ * @param string $user dn of the user to change the password of.
+ * @param string $old_password The old password of this user. May be omitted depending of server configuration.
+ * @param string $new_password The new password for this user. May be omitted or empty to have a generated password.
+ * @param array &$controls If provided, a password policy request control is send with the request and this is filled with an array of LDAP Controls returned with the request.
  * @return string|bool Returns the generated password if newpw is empty or omitted. Otherwise returns TRUE on success and FALSE on failure.
  * @since 7.2
  */
-function ldap_exop_passwd(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap, string $user = "", string $old_password = "", string $new_password = "", &$controls = []): string|bool {}
+function ldap_exop_passwd(
+    #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
+    #[Required(from: '7.2', to: '7.2')] string $user = "",
+    #[Required(from: '7.2', to: '7.2')] string $old_password = "",
+    #[Required(from: '7.2', to: '7.2')] string $new_password = "",
+    #[Available(from: '7.3')] &$controls = []
+): string|bool {}
 
 /**
  * Refresh extended operation helper
@@ -58,8 +65,8 @@ function ldap_exop(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'res
  * @link https://www.php.net/manual/en/function.ldap-parse-exop.php
  * @param resource $ldap An LDAP link identifier, returned by ldap_connect().
  * @param resource $result An LDAP result resource, returned by ldap_exop().
- * @param string &$response_data [optional] Will be filled by the response data.
- * @param string &$response_oid [optional] Will be filled by the response OID.
+ * @param string &$response_data  Will be filled by the response data.
+ * @param string &$response_oid Will be filled by the response OID.
  * @return bool Returns TRUE on success or FALSE on failure.
  * @since 7.2
  */
@@ -1046,7 +1053,11 @@ function ldap_rename_ext(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ldap_get_option(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap, int $option, &$value = null): bool {}
+function ldap_get_option(
+    #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
+    int $option,
+    #[Required(from: '5.3', to: '8.0')] &$value = null
+): bool {}
 
 /**
  * Set the value of the given option

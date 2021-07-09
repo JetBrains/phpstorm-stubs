@@ -6,6 +6,7 @@ use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\ExpectedValues as EV;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\Required;
 use JetBrains\PhpStorm\Pure;
 
 class Collator
@@ -1248,15 +1249,16 @@ class Normalizer
     ) {}
 
     /**
+     * @since 7.3
      * @link https://www.php.net/manual/en/normalizer.getrawdecomposition.php
      * @param string $string <p>The input string to normalize</p>
-     * @param string $form [optional]
+     * @param string $form
      * @return string|null <p>Returns a string containing the Decomposition_Mapping property, if present in the UCD.
      * Returns null if there is no Decomposition_Mapping property for the character.</p>
      */
     public static function getRawDecomposition(
         string $string,
-        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $form = 16
+        #[PhpStormStubsElementAvailable(from: '8.0')] int $form = 16
     ) {}
 }
 
@@ -2024,7 +2026,7 @@ class IntlDateFormatter
      */
     #[Pure]
     public function getLocale(
-        #[PhpStormStubsElementAvailable(from: '7.2')]
+        #[PhpStormStubsElementAvailable(from: '8.0')]
         #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
         $type = null
     ) {}
@@ -2711,7 +2713,7 @@ class IntlCalendar
      */
     public static function fromDateTime(
         #[LanguageLevelTypeAware(['8.1' => 'DateTime|string'], default: '')] $datetime,
-        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] #[PhpStormStubsElementAvailable(from: '7.2')] $locale
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] #[PhpStormStubsElementAvailable(from: '8.0')] $locale
     ) {}
 
     /**
@@ -4429,14 +4431,14 @@ function msgfmt_get_error_message(MessageFormatter $formatter): string {}
  * @param string|null $locale <p>
  * Locale to use when formatting or parsing.
  * </p>
- * @param int $dateType [optional] <p>
+ * @param int $dateType <p>
  * Date type to use (<b>none</b>,
  * <b>short</b>, <b>medium</b>,
  * <b>long</b>, <b>full</b>).
  * This is one of the
  * IntlDateFormatter constants.
  * </p>
- * @param int $timeType [optional] <p>
+ * @param int $timeType <p>
  * Time type to use (<b>none</b>,
  * <b>short</b>, <b>medium</b>,
  * <b>long</b>, <b>full</b>).
@@ -4521,7 +4523,7 @@ function datefmt_set_calendar(IntlDateFormatter $formatter, IntlCalendar|int|nul
 #[Pure]
 function datefmt_get_locale(
     IntlDateFormatter $formatter,
-    #[PhpStormStubsElementAvailable(from: '7.2')] int $type = ULOC_ACTUAL_LOCALE
+    #[PhpStormStubsElementAvailable(from: '8.0')] int $type = ULOC_ACTUAL_LOCALE
 ): string|false {}
 
 /**
@@ -4657,7 +4659,7 @@ function datefmt_is_lenient(IntlDateFormatter $formatter): bool {}
  */
 function datefmt_set_lenient(
     IntlDateFormatter $formatter,
-    #[PhpStormStubsElementAvailable(from: '7.2')] bool $lenient
+    #[PhpStormStubsElementAvailable(from: '8.0')] bool $lenient
 ): void {}
 
 /**
@@ -5313,7 +5315,7 @@ function intlcal_set(IntlCalendar $calendar, int $year, int $month, int $dayOfMo
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.5
  */
-function intlcal_roll(IntlCalendar $calendar, int $field, $value): bool {}
+function intlcal_roll(IntlCalendar $calendar, int $field, $value = null): bool {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5895,7 +5897,7 @@ function intlcal_set_skipped_wall_time_option(IntlCalendar $calendar, int $optio
 #[Pure]
 function intlcal_from_date_time(
     DateTime|string $datetime,
-    #[PhpStormStubsElementAvailable(from: '7.2')] ?string $locale = null
+    #[PhpStormStubsElementAvailable(from: '8.0')] ?string $locale = null
 ): ?IntlCalendar {}
 
 /**
@@ -6135,7 +6137,7 @@ function intltz_get_tz_data_version(): string|false {}
  * @since 5.5
  */
 #[Pure]
-function intltz_has_same_rules(IntlTimeZone $timezone, IntlTimeZone $other): bool {}
+function intltz_has_same_rules(IntlTimeZone $timezone, #[Required(from: '8.0')] IntlTimeZone $other = null): bool {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -6441,7 +6443,7 @@ function intl_error_name(int $errorCode): string {}
  * @since 7.3
  */
 #[Pure]
-function normalizer_get_raw_decomposition(string $string, int $form = Normalizer::FORM_C): ?string {}
+function normalizer_get_raw_decomposition(string $string, #[PhpStormStubsElementAvailable(from: '8.0')] int $form = Normalizer::FORM_C): ?string {}
 
 /**
  * @return IntlTimeZone
@@ -7333,7 +7335,7 @@ class UConverter
      * @return string
      */
     #[Pure]
-    public static function reasonText(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $reason) {}
+    public static function reasonText(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $reason = 0) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
