@@ -909,7 +909,7 @@ class IntlChar
      * </ul>
      * @since 7.0
      */
-    public static function enumCharTypes(#[LanguageLevelTypeAware(['8.1' => 'callable'], default: '')] $callback) {}
+    public static function enumCharTypes(#[LanguageLevelTypeAware(['8.1' => 'callable'], default: '')] $callback = null) {}
 
     /**
      * Perform case folding on a code point

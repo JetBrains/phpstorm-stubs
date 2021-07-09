@@ -1145,7 +1145,7 @@ function imagefill(GdImage $image, int $x, int $y, int $color): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagefilledpolygon(GdImage $image, array $points, #[Deprecated(since: "8.1")] int $num_points_or_color, ?int $color = null): bool {}
+function imagefilledpolygon(GdImage $image, array $points, #[Deprecated(since: "8.1")] int $num_points_or_color, ?int $color): bool {}
 
 /**
  * Draw a filled rectangle
@@ -1334,7 +1334,7 @@ function imageloadfont(string $filename) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagepolygon(GdImage $image, array $points, int $num_points_or_color, ?int $color = null): bool {}
+function imagepolygon(GdImage $image, array $points, int $num_points_or_color, ?int $color): bool {}
 
 /**
  * Draw a rectangle
@@ -2151,9 +2151,9 @@ function imagexbm(GdImage $image, ?string $filename, ?int $foreground_color = nu
 function imagefilter(
     GdImage $image,
     int     $filter,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arg2,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arg3,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arg4,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arg2 = null,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arg3 = null,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arg4 = null,
     ...$args
 ): bool {}
 
@@ -2232,7 +2232,7 @@ function imagegetclip(GdImage $image): array {}
  * @since 7.2
  * @see imageplygon()
  */
-function imageopenpolygon(GdImage $image, array $points, #[Deprecated(since: "8.1")] int $num_points_or_color, ?int $color = null): bool {}
+function imageopenpolygon(GdImage $image, array $points, #[Deprecated(since: "8.1")] int $num_points_or_color, ?int $color): bool {}
 
 /**
  * <b>imagecreatefrombmp()</b> returns an image identifier representing the image obtained from the given filename.
@@ -2907,7 +2907,7 @@ function imageaffinematrixconcat(array $matrix1, array $matrix2): array|false {}
  * @return float[]|false Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
  * @since 5.5
  */
-function imageaffinematrixget(int $type, $options): array|false {}
+function imageaffinematrixget(int $type, #[Required(from: '8.0')] $options = null): array|false {}
 
 /**
  * Crop an image using the given coordinates and size, x, y, width and height

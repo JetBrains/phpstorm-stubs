@@ -486,7 +486,7 @@ function imap_fetchstructure(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_gc(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, int $flags): bool {}
+function imap_gc(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, int $flags = 0): bool {}
 
 /**
  * Delete all messages marked for deletion

@@ -2,6 +2,7 @@
 
 // Start of pcntl v.
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\Required;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -451,14 +452,14 @@ function pcntl_sigtimedwait(array $signals, &$info, int $seconds = 0, int $nanos
  * signal handling is enabled.
  * @link https://www.php.net/manual/en/function.pcntl-async-signals.php
  *
- * @param bool|null $enable [optional] <p>
+ * @param bool|null $enable <p>
  * Whether asynchronous signal handling should be enabled.
  * </p>
  *
  * @return bool
  * @since 7.1
  */
-function pcntl_async_signals(?bool $enable): bool {}
+function pcntl_async_signals(#[Required(from: '5.3', to: '7.4')] ?bool $enable = null): bool {}
 
 /**
  * Get the current handler for specified signal.
