@@ -28,13 +28,15 @@ interface Traversable extends iterable {}
 /**
  * Interface to create an external Iterator.
  * @link https://php.net/manual/en/class.iteratoraggregate.php
+ * @template TKey
+ * @template TValue
  */
 interface IteratorAggregate extends Traversable
 {
     /**
      * Retrieve an external iterator
      * @link https://php.net/manual/en/iteratoraggregate.getiterator.php
-     * @return Traversable An instance of an object implementing <b>Iterator</b> or
+     * @return Traversable|TValue An instance of an object implementing <b>Iterator</b> or
      * <b>Traversable</b>
      * @throws Exception on failure.
      */
