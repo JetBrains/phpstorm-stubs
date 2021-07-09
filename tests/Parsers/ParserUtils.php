@@ -16,7 +16,11 @@ use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
 class ParserUtils
 {
-    public static function tagDoesNotHaveZeroPatchVersion(Since|RemovedTag|Deprecated $tag): bool
+    /**
+     * @param Since|RemovedTag|Deprecated $tag
+     * @return bool
+     */
+    public static function tagDoesNotHaveZeroPatchVersion($tag): bool
     {
         return (bool)preg_match('/^[1-9]+\.\d+(\.[1-9]+\d*)*$/', $tag->getVersion()); //find version like any but 7.4.0
     }
@@ -124,10 +128,11 @@ class ParserUtils
     }
 
     /**
+     * @param PHPMethod|PHPConst $element
      * @return float[]
      * @throws RuntimeException
      */
-    private static function getSinceVersionsFromParentClass(PHPMethod|PHPConst $element): array
+    private static function getSinceVersionsFromParentClass($element): array
     {
         $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($element->parentName, shouldSuitCurrentPhpVersion: false);
         if ($parentClass === null) {
@@ -139,10 +144,11 @@ class ParserUtils
     }
 
     /**
+     * @param PHPMethod|PHPConst $element
      * @return float[]
      * @throws RuntimeException
      */
-    public static function getLatestAvailableVersionsFromParentClass(PHPMethod|PHPConst $element): array
+    public static function getLatestAvailableVersionsFromParentClass($element): array
     {
         $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($element->parentName, shouldSuitCurrentPhpVersion: false);
         if ($parentClass === null) {

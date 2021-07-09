@@ -6,6 +6,7 @@ use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\ExpectedValues as EV;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware as TypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable as ElementAvailable;
+use JetBrains\PhpStorm\Internal\Required;
 use JetBrains\PhpStorm\Pure;
 
 class Collator
