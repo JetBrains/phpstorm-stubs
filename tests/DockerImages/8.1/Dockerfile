@@ -1,6 +1,5 @@
 FROM php:8.1.0alpha2-alpine
 RUN echo 'memory_limit = 1024M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
-COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 RUN set -eux; \
     apk add --no-cache --virtual .build-deps \
