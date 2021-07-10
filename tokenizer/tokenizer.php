@@ -189,7 +189,7 @@ define('T_DOUBLE_COLON', 396);
  * @since 7.4
  */
 define('T_FN', 311);
-define('T_BAD_CHARACTER', 402);
+define('T_BAD_CHARACTER', 404);
 
 /**
  * @since 8.0
@@ -211,3 +211,13 @@ define('T_ATTRIBUTE', 350);
  * @since 8.0
  */
 define('T_NULLSAFE_OBJECT_OPERATOR', 384);
+
+/**
+ * @since 8.1
+ */
+define('T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG', 402);
+
+/**
+ * @since 8.1
+ */
+define('T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG', 403);

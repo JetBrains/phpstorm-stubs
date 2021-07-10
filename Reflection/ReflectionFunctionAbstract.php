@@ -282,4 +282,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
 
     #[PhpStormStubsElementAvailable('8.1')]
     public function getTentativeReturnType() {}
+
+    #[PhpStormStubsElementAvailable('8.1')]
+    public function isStatic() {}
 }
