@@ -779,7 +779,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * the end of <i>string</i> is reached, whichever comes
          * first.
          * </p>
-         * @return int the number of bytes written, or 0 on error.
+         * @return int|bool the number of bytes written, or false on error.
          */
         public function fwrite($data, $length = null) {}
 
