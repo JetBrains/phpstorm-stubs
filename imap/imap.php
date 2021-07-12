@@ -3,6 +3,7 @@
 // Start of imap v.
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\Required;
 
 /**
  * Open an IMAP stream to a mailbox
@@ -486,7 +487,10 @@ function imap_fetchstructure(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_gc(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, int $flags = 0): bool {}
+function imap_gc(
+    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
+    #[Required(from: '8.0')] int $flags = 0
+): bool {}
 
 /**
  * Delete all messages marked for deletion
