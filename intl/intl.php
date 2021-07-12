@@ -6710,7 +6710,6 @@ define('IDNA_NONTRANSITIONAL_TO_UNICODE', 32);
  * {@see idn_to_ascii}. This is the default.
  * @link https://php.net/manual/en/intl.constants.php
  * @deprecated 7.2 Use {@see INTL_IDNA_VARIANT_UTS46} instead.
- * @removed 8.0
  */
 define('INTL_IDNA_VARIANT_2003', 0);
 
