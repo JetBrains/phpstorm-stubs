@@ -723,6 +723,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @param string $filename <p>
      * The path on disk to the phar archive.
      * </p>
+     * @throws PharException
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     final public static function unlinkArchive(string $filename) {}
