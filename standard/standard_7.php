@@ -634,7 +634,7 @@ function is_executable(string $filename): bool {}
  * @return bool true if the filename exists and is a regular file, false
  * otherwise.
  */
-#[Pure]
+#[Pure(true)]
 function is_file(string $filename): bool {}
 
 /**
