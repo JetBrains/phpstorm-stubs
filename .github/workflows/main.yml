@@ -40,6 +40,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Composer Install
+        run: composer install --ignore-platform-reqs
+
       - name: Test Stubs Map
         run: ./tests/check-stub-map
 
