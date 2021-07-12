@@ -206,8 +206,8 @@ class mysqli
      * @since 5.5
      */
     public function begin_transaction(
-        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $flags = 0,
-        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $name = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $name = null
     ) {}
 
     /**
@@ -685,7 +685,7 @@ class mysqli
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 5.5
      */
-    public function release_savepoint(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $name) {}
+    public function release_savepoint(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
     /**
      * Rolls back current transaction
@@ -696,8 +696,8 @@ class mysqli
      * @since 5.5 Added flags and name parameters.
      */
     public function rollback(
-        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $flags = 0,
-        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $name = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $name = null
     ) {}
 
     /**
@@ -707,7 +707,7 @@ class mysqli
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 5.5
      */
-    public function savepoint(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $name) {}
+    public function savepoint(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
     /**
      * Selects the default database for database queries
@@ -814,7 +814,7 @@ class mysqli
      * @return bool TRUE if the refresh was a success, otherwise FALSE
      * @since 5.3
      */
-    public function refresh(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $flags) {}
+    public function refresh(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags) {}
 }
 
 /**
@@ -1912,7 +1912,7 @@ function mysqli_get_charset(mysqli $mysql): ?object {}
  * @param mysqli|null $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string|null A string that represents the MySQL client library version
  */
-#[LanguageLevelTypeAware(['8.1' => 'string'], default: '?string')]
+#[LanguageLevelTypeAware(['8.0' => 'string'], default: '?string')]
 function mysqli_get_client_info(?mysqli $mysql) {}
 
 /**

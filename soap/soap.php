@@ -263,7 +263,7 @@ class SoapClient
      * @since 5.0.1
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $wsdl,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $wsdl,
         array $options = null
     ) {}
 
@@ -276,7 +276,7 @@ class SoapClient
      */
     #[Deprecated]
     public function __call(
-        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         array $args
     ) {}
 
@@ -322,9 +322,9 @@ class SoapClient
      * @since 5.0.1
      */
     public function __soapCall(
-        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         array $args,
-        #[LanguageLevelTypeAware(['8.1' => 'array|null'], default: '')] $options = null,
+        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: '')] $options = null,
         $inputHeaders = null,
         &$outputHeaders = null
     ) {}
@@ -409,10 +409,10 @@ class SoapClient
      * @since 5.0.1
      */
     public function __doRequest(
-        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $request,
-        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $location,
-        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $action,
-        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $version,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $request,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $location,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $action,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $version,
         #[LanguageLevelTypeAware(["8.0" => 'bool'], default: 'int')] $oneWay = false
     ) {}
 
@@ -429,7 +429,7 @@ class SoapClient
      * @since 5.0.4
      */
     public function __setCookie(
-        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(["8.0" => "string|null"], default: "string")] $value
     ) {}
 
@@ -442,7 +442,7 @@ class SoapClient
      * @return string|null The old endpoint URL.
      * @since 5.0.1
      */
-    public function __setLocation(#[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $location = '') {}
+    public function __setLocation(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $location = '') {}
 
     /**
      * Sets SOAP headers for subsequent calls
@@ -570,7 +570,7 @@ class SoapServer
      * @since 5.0.1
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $wsdl,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $wsdl,
         array $options = null
     ) {}
 
@@ -637,7 +637,7 @@ class SoapServer
      * @return void No value is returned.
      * @since 5.1.2
      */
-    public function setPersistence(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $mode) {}
+    public function setPersistence(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode) {}
 
     /**
      * Sets the class which handles SOAP requests
@@ -650,8 +650,8 @@ class SoapServer
      * @since 5.0.1
      */
     public function setClass(
-        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $class,
-        #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')] ...$args
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $class,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$args
     ) {}
 
     /**
@@ -706,7 +706,7 @@ class SoapServer
      * @return void No value is returned.
      * @since 5.0.1
      */
-    public function handle(#[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $request = null) {}
+    public function handle(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $request = null) {}
 
     /**
      * Issue SoapServer fault indicating an error
@@ -730,11 +730,11 @@ class SoapServer
      * @since 5.0.1
      */
     public function fault(
-        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $code,
-        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $string,
-        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $actor = null,
-        #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')] $details = null,
-        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $name = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $code,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $actor = null,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $details = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name = null
     ) {}
 
     /**
@@ -806,12 +806,12 @@ class SoapFault extends Exception
      */
     #[\JetBrains\PhpStorm\Pure]
     public function __construct(
-        #[LanguageLevelTypeAware(['8.1' => 'array|string|null'], default: '')] $code,
-        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $string,
-        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $actor = null,
-        #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')] $details = null,
-        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $name = null,
-        #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')] $headerFault = null
+        #[LanguageLevelTypeAware(['8.0' => 'array|string|null'], default: '')] $code,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $actor = null,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $details = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $name = null,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $headerFault = null
     ) {}
 
     /**
@@ -870,8 +870,8 @@ class SoapParam
      * @since 5.0.1
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')] $data,
-        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $name
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name
     ) {}
 
     /**
@@ -918,11 +918,11 @@ class SoapHeader
      * @since 5.0.1
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $namespace,
-        #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')] $data = null,
-        #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')] $mustUnderstand = false,
-        #[LanguageLevelTypeAware(['8.1' => 'string|int|null'], default: '')] $actor = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data = null,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $mustUnderstand = false,
+        #[LanguageLevelTypeAware(['8.0' => 'string|int|null'], default: '')] $actor = null
     ) {}
 
     /**
