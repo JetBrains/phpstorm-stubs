@@ -213,7 +213,13 @@ class ReflectionProperty implements Reflector
      * @since 7.4
      */
     #[Pure]
-    #[LanguageLevelTypeAware(['8.0' => 'ReflectionNamedType|ReflectionUnionType|null'], default: 'ReflectionNamedType|null')]
+    #[LanguageLevelTypeAware(
+        [
+            '8.0' => 'ReflectionNamedType|ReflectionUnionType|null',
+            '8.1' => 'ReflectionNamedType|ReflectionUnionType|ReflectionIntersectionType|null'
+        ],
+        default: 'ReflectionNamedType|null'
+    )]
     public function getType() {}
 
     /**
