@@ -4462,8 +4462,8 @@ function msgfmt_get_error_message(MessageFormatter $formatter): string {}
 #[Pure]
 function datefmt_create(
     ?string $locale,
-    int $dateType,
-    int $timeType,
+    #[Required(from: '5.3', to: '8.0')] int $dateType = 0,
+    #[Required(from: '5.3', to: '8.0')] int $timeType = 0,
     $timezone = null,
     IntlCalendar|int|null $calendar = null,
     #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $pattern = null
@@ -5315,7 +5315,7 @@ function intlcal_set(IntlCalendar $calendar, int $year, int $month, int $dayOfMo
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.5
  */
-function intlcal_roll(IntlCalendar $calendar, int $field, $value = null): bool {}
+function intlcal_roll(IntlCalendar $calendar, int $field, #[Required(from: '8.0')] $value = null): bool {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>

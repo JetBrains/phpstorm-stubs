@@ -73,8 +73,8 @@ function ldap_exop(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'res
 function ldap_parse_exop(
     #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
     #[PhpVersionAware(['8.1' => 'LDAP\Result'], default: 'resource')] $result,
-    &$response_data,
-    &$response_oid
+    #[Required(from: '7.2', to: '7.4')] &$response_data = '',
+    #[Required(from: '7.2', to: '7.4')] &$response_oid = ''
 ): bool {}
 
 /**
@@ -1056,7 +1056,7 @@ function ldap_rename_ext(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default
 function ldap_get_option(
     #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
     int $option,
-    #[Required(from: '5.3', to: '8.0')] &$value = null
+    #[Required(from: '5.3', to: '7.4')] &$value = null
 ): bool {}
 
 /**

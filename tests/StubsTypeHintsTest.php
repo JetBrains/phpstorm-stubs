@@ -71,9 +71,7 @@ class StubsTypeHintsTest extends BaseStubsTest
         $functionName = $function->name;
         $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($functionName);
         /** @var PHPParameter $stubParameter */
-        $stubParameter = current(array_filter($phpstormFunction->parameters, fn (PHPParameter $stubParameter) => $stubParameter->name === $parameter->name));
-        self::assertNotFalse($stubParameter, "Parameter $$parameter->name not found at $phpstormFunction->name(" .
-            StubsParameterNamesTest::printParameters($phpstormFunction->parameters) . ')');
+        $stubParameter = current(array_filter($phpstormFunction->parameters, fn (PHPParameter $stubParameter) => $stubParameter->indexInSignature === $parameter->indexInSignature));
         self::compareTypeHintsWithReflection($parameter, $stubParameter, $functionName);
         if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_REFERENCE)) {
             self::assertEquals(
@@ -366,8 +364,8 @@ class StubsTypeHintsTest extends BaseStubsTest
         $conditionToCompareWithAttribute = BaseStubsTest::ifReflectionTypesExistInAttributes($unifiedReflectionParameterTypes, $typesFromAttribute);
         $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
         self::assertTrue($testCondition, "Type mismatch $functionName: \$$parameter->name \n
-        Reflection parameter has type '" . implode('|', $unifiedReflectionParameterTypes) .
-            "' but stub parameter has type '" . implode('|', $unifiedStubsParameterTypes) . "' in signature and " .
+        Reflection parameter $parameter->name with index $parameter->indexInSignature has type '" . implode('|', $unifiedReflectionParameterTypes) .
+            "' but stub parameter $stubParameter->name with index $stubParameter->indexInSignature has type '" . implode('|', $unifiedStubsParameterTypes) . "' in signature and " .
             implode('|', $typesFromAttribute) . ' in attribute');
     }
 }
