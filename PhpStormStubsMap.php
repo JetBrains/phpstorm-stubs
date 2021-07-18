@@ -513,6 +513,7 @@ const CLASSES = array (
   'MongoDB\\Driver\\ReadConcern' => 'mongodb/mongodb.php',
   'MongoDB\\Driver\\ReadPreference' => 'mongodb/mongodb.php',
   'MongoDB\\Driver\\Server' => 'mongodb/mongodb.php',
+  'MongoDB\\Driver\\ServerApi' => 'mongodb/ServerApi.php',
   'MongoDB\\Driver\\Session' => 'mongodb/mongodb.php',
   'MongoDB\\Driver\\WriteConcern' => 'mongodb/mongodb.php',
   'MongoDB\\Driver\\WriteConcernError' => 'mongodb/mongodb.php',
