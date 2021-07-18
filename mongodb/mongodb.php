@@ -209,6 +209,10 @@ namespace MongoDB\Driver {
              * @since 1.4.0
              */
             final public function startSession(array $options = []) {}
+
+            final public function addSubscriber($subscriber) {}
+
+            final public function removeSubscriber($subscriber) {}
         }
 
         /**
@@ -803,6 +807,8 @@ namespace MongoDB\Driver {
             final public function __toString() {}
 
             final public function __wakeup() {}
+
+            public static function __set_state($properties) {}
 
             /**
              * Serialize a CursorId
