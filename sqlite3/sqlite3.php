@@ -330,6 +330,7 @@ class SQLite3
      * @param SQLite3 $destination
      * @param string $sourceDatabase
      * @param string $destinationDatabase
+     * @return bool
      * @since 7.4
      */
     public function backup(SQLite3 $destination, string $sourceDatabase = 'main', string $destinationDatabase = 'main') {}
