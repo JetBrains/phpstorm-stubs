@@ -1285,9 +1285,9 @@ class RedisCluster
     /**
      * Deletes the elements of the sorted set stored at the specified key which have scores in the range [start,end].
      *
-     * @param   string       $key
-     * @param   float|string $start double or "+inf" or "-inf" string
-     * @param   float|string $end   double or "+inf" or "-inf" string
+     * @param   string $key
+     * @param   string $start double or "+inf" or "-inf" as a string
+     * @param   string $end double or "+inf" or "-inf" as a string
      *
      * @return  int             The number of values deleted from the sorted set
      * @link    https://redis.io/commands/zremrangebyscore
@@ -1296,7 +1296,7 @@ class RedisCluster
      * $redisCluster->zAdd('key', 0, 'val0');
      * $redisCluster->zAdd('key', 2, 'val2');
      * $redisCluster->zAdd('key', 10, 'val10');
-     * $redisCluster->zRemRangeByScore('key', 0, 3); // 2
+     * $redisCluster->zRemRangeByScore('key', '0', '3'); // 2
      * </pre>
      */
     public function zRemRangeByScore($key, $start, $end) {}
