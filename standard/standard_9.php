@@ -222,6 +222,7 @@ function array_change_key_case(array $array, int $case): array {}
  * of keys for the random entries. This is done so that you can pick
  * random keys as well as values out of the array.
  */
+#[Pure(true)]
 function array_rand(array $array, int $num = 1): array|string|int {}
 
 /**
