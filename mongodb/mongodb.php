@@ -27,6 +27,7 @@ namespace MongoDB\Driver {
     use MongoDB\Driver\Exception\UnexpectedValueException;
     use MongoDB\Driver\Exception\WriteConcernException;
     use MongoDB\Driver\Exception\WriteException;
+    use MongoDB\Driver\Monitoring\Subscriber;
     use Traversable;
 
         /**
@@ -210,9 +211,9 @@ namespace MongoDB\Driver {
              */
             final public function startSession(?array $options = []) {}
 
-            final public function addSubscriber($subscriber) {}
+            final public function addSubscriber(Subscriber $subscriber) {}
 
-            final public function removeSubscriber($subscriber) {}
+            final public function removeSubscriber(Subscriber $subscriber) {}
         }
 
         /**
@@ -808,7 +809,7 @@ namespace MongoDB\Driver {
 
             final public function __wakeup() {}
 
-            public static function __set_state($properties) {}
+            public static function __set_state(array $properties) {}
 
             /**
              * Serialize a CursorId
@@ -2859,6 +2860,6 @@ namespace MongoDB\BSON {
     }
 
 namespace {
-    define('MONGODB_VERSION', '1.9.1');
+    define('MONGODB_VERSION', '1.10.0');
     define('MONGODB_STABILITY', 'stable');
 }

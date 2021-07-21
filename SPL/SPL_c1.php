@@ -800,20 +800,20 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] &...$vars
     ) {}
 
-    /**
-     * Write to file
-     * @link https://php.net/manual/en/splfileobject.fwrite.php
-     * @param string $data <p>
-     * The string to be written to the file.
-     * </p>
-     * @param int $length [optional] <p>
-     * If the <i>length</i> argument is given, writing will
-     * stop after <i>length</i> bytes have been written or
-     * the end of <i>string</i> is reached, whichever comes
-     * first.
-     * </p>
-     * @return int|false the number of bytes written, or 0 (false since 7.4) on error.
-     */
+        /**
+         * Write to file
+         * @link https://php.net/manual/en/splfileobject.fwrite.php
+         * @param string $data <p>
+         * The string to be written to the file.
+         * </p>
+         * @param int $length [optional] <p>
+         * If the <i>length</i> argument is given, writing will
+         * stop after <i>length</i> bytes have been written or
+         * the end of <i>string</i> is reached, whichever comes
+         * first.
+         * </p>
+         * @return int|false the number of bytes written, or 0 (false since 7.4) on error.
+         */
         #[LanguageLevelTypeAware(['7.4' => 'int|false'], default: 'int')]
     public function fwrite(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data,

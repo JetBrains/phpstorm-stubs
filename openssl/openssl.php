@@ -798,7 +798,8 @@ function openssl_open(
     string $data,
     &$output,
     string $encrypted_key,
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key, #[Required(from: '8.0')] string $cipher_algo = "RC4",
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
+    #[Required(from: '8.0')] string $cipher_algo = "RC4",
     ?string $iv
 ): bool {}
 
