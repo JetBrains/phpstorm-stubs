@@ -2,6 +2,7 @@
 
 // Start of SPL v.0.2
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
@@ -779,8 +780,9 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * the end of <i>string</i> is reached, whichever comes
          * first.
          * </p>
-         * @return int the number of bytes written, or 0 on error.
+         * @return int|false the number of bytes written, or 0 (false since 7.4) on error.
          */
+        #[LanguageLevelTypeAware(['7.4' => 'int|false'], default: 'int')]
         public function fwrite($data, $length = null) {}
 
         /**
