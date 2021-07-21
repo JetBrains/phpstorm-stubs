@@ -104,7 +104,7 @@ interface ArrayAccess
      * <p>
      * The return value will be casted to boolean if non-boolean was returned.
      */
-    public function offsetExists($offset);
+    public function offsetExists(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $offset);
 
     /**
      * Offset to retrieve
@@ -114,7 +114,7 @@ interface ArrayAccess
      * </p>
      * @return mixed Can return all value types.
      */
-    public function offsetGet($offset);
+    public function offsetGet(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $offset);
 
     /**
      * Offset to set
@@ -127,7 +127,10 @@ interface ArrayAccess
      * </p>
      * @return void
      */
-    public function offsetSet($offset, $value);
+    public function offsetSet(
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $offset,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
+    );
 
     /**
      * Offset to unset
@@ -137,7 +140,7 @@ interface ArrayAccess
      * </p>
      * @return void
      */
-    public function offsetUnset($offset);
+    public function offsetUnset(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $offset);
 }
 
 /**
@@ -160,7 +163,7 @@ interface Serializable
      * @param string $data The string representation of the object.
      * @return void
      */
-    public function unserialize($data);
+    public function unserialize(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data);
 }
 
 /**
@@ -267,7 +270,7 @@ class Exception implements Throwable
      * @link https://php.net/manual/en/exception.clone.php
      * @return void
      */
-    private function __clone() {}
+    final private function __clone() {}
 
     /**
      * Construct the exception. Note: The message is NOT binary safe.
@@ -277,7 +280,11 @@ class Exception implements Throwable
      * @param null|Throwable $previous [optional] The previous throwable used for the exception chaining.
      */
     #[Pure]
-    public function __construct($message = "", $code = 0, Throwable $previous = null) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $message = "",
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $code = 0,
+        #[LanguageLevelTypeAware(['8.0' => 'Throwable|null'], default: 'Throwable')] $previous = null
+    ) {}
 
     /**
      * Gets the Exception message
@@ -375,7 +382,11 @@ class Error implements Throwable
      * @param null|Throwable $previous [optional] The previous throwable used for the exception chaining.
      */
     #[Pure]
-    public function __construct($message = "", $code = 0, Throwable $previous = null) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $message = "",
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $code = 0,
+        #[LanguageLevelTypeAware(['8.0' => 'Throwable|null'], default: 'Throwable')] $previous = null
+    ) {}
 
     /***
      * Gets the message
@@ -455,7 +466,7 @@ class Error implements Throwable
      * @return void
      * @link https://php.net/manual/en/error.clone.php
      */
-    private function __clone() {}
+    final private function __clone() {}
 
     public function __wakeup() {}
 }
@@ -536,7 +547,14 @@ class ErrorException extends Exception
      * @param Exception $previous [optional] The previous exception used for the exception chaining.
      */
     #[\JetBrains\PhpStorm\Pure]
-    public function __construct($message = "", $code = 0, $severity = 1, $filename = __FILE__, $line = __LINE__, $previous = null) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $message = "",
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $code = 0,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $severity = 1,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $filename = __FILE__,
+        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $line = __LINE__,
+        #[LanguageLevelTypeAware(['8.0' => 'Throwable|null'], default: 'Throwable')] $previous = null
+    ) {}
 
     /**
      * Gets the exception severity

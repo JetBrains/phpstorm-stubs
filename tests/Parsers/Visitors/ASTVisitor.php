@@ -13,6 +13,7 @@ use PhpParser\Node\Stmt\Function_;
 use PhpParser\Node\Stmt\Interface_;
 use PhpParser\NodeVisitorAbstract;
 use RuntimeException;
+use StubTests\Model\CommonUtils;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPConst;
 use StubTests\Model\PHPDefineConstant;
@@ -21,7 +22,6 @@ use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPProperty;
 use StubTests\Model\StubsContainer;
-use StubTests\Parsers\Utils;
 
 class ASTVisitor extends NodeVisitorAbstract
 {
@@ -32,8 +32,6 @@ class ASTVisitor extends NodeVisitorAbstract
     ) {}
 
     /**
-     * @param Node $node
-     * @return void
      * @throws Exception
      */
     public function enterNode(Node $node): void
@@ -166,7 +164,7 @@ class ASTVisitor extends NodeVisitorAbstract
                 $class->parentClass,
                 $class->stubBelongsToCore ? null : $class->sourceFilePath
             ));
-            $interfaces[] = Utils::flattenArray($inherited, false);
+            $interfaces[] = CommonUtils::flattenArray($inherited, false);
         }
         return $interfaces;
     }

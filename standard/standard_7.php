@@ -3,6 +3,7 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\Required;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -162,13 +163,13 @@ function pfsockopen(string $hostname, int $port = -1, &$error_code, &$error_mess
  * </tr>
  * </table>
  * </p>
- * @param mixed ...$values [optional] <p>
+ * @param mixed ...$values <p>
  * </p>
  * @return string|false a binary string containing data or false if the format string contains errors
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function pack(string $format, ...$values) {}
+function pack(string $format, #[Required(from: '5.3', to: '7.3')] mixed ...$values) {}
 
 /**
  * Unpack data from binary string

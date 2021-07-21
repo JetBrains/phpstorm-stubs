@@ -1,6 +1,7 @@
 <?php
 
 // Start of pcre v.
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -372,7 +373,14 @@ function preg_replace(array|string $pattern, array|string $replacement, array|st
  * If matches are found, the new subject will be returned, otherwise
  * <i>subject</i> will be returned unchanged.
  */
-function preg_replace_callback(array|string $pattern, callable $callback, array|string $subject, int $limit = -1, &$count, int $flags = 0): array|string|null {}
+function preg_replace_callback(
+    array|string $pattern,
+    callable $callback,
+    array|string $subject,
+    int $limit = -1,
+    &$count,
+    #[PhpStormStubsElementAvailable(from: '7.4')] int $flags = 0
+): array|string|null {}
 
 /**
  * Perform a regular expression search and replace using callbacks
@@ -385,7 +393,13 @@ function preg_replace_callback(array|string $pattern, callable $callback, array|
  * @return string|string[]|null  <p>preg_replace_callback_array() returns an array if the subject parameter is an array, or a string otherwise. On errors the return value is NULL</p>
  * <p>If matches are found, the new subject will be returned, otherwise subject will be returned unchanged.</p>
  */
-function preg_replace_callback_array(array $pattern, array|string $subject, int $limit = -1, &$count, int $flags = 0): array|string|null {}
+function preg_replace_callback_array(
+    array $pattern,
+    array|string $subject,
+    int $limit = -1,
+    &$count,
+    #[PhpStormStubsElementAvailable(from: '7.4')] int $flags = 0
+): array|string|null {}
 
 /**
  * Perform a regular expression search and replace

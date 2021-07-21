@@ -2,6 +2,8 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\Required;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -725,23 +727,23 @@ function key(object|array $array): string|int|null {}
  * Find lowest value
  * @link https://php.net/manual/en/function.min.php
  * @param array|mixed $value Array to look through or first value to compare
- * @param mixed ...$values [optional] any comparable value
+ * @param mixed ...$values any comparable value
  * @return mixed min returns the numerically lowest of the
  * parameter values.
  */
 #[Pure]
-function min(mixed $value, mixed ...$values): mixed {}
+function min(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, #[Required(from: '5.3', to: '7.4')] mixed ...$values): mixed {}
 
 /**
  * Find highest value
  * @link https://php.net/manual/en/function.max.php
  * @param array|mixed $value Array to look through or first value to compare
- * @param mixed ...$values [optional] any comparable value
+ * @param mixed ...$values any comparable value
  * @return mixed max returns the numerically highest of the
  * parameter values, either within a arg array or two arguments.
  */
 #[Pure]
-function max(mixed $value, mixed ...$values): mixed {}
+function max(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, #[Required(from: '5.3', to: '7.4')] mixed ...$values): mixed {}
 
 /**
  * Checks if a value exists in an array
@@ -837,11 +839,11 @@ function extract(array &$array, int $flags, string $prefix): int {}
  * arrays of variable names inside it; compact
  * handles it recursively.
  * </p>
- * @param mixed ...$var_names [optional]
+ * @param mixed ...$var_names
  * @return array the output array with all the variables added to it.
  */
 #[Pure]
-function compact(mixed $var_name, ...$var_names): array {}
+function compact(#[PhpStormStubsElementAvailable(from: '8.0')] $var_name, #[Required(from: '5.3', to: '7.4')] ...$var_names): array {}
 
 /**
  * Fill an array with values
@@ -910,7 +912,12 @@ function range($start, $end, int|float $step = 1): array {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_multisort(&$array, &...$rest): bool {}
+function array_multisort(
+    &$array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $sort_order = SORT_ASC,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $sort_flags = SORT_REGULAR,
+    &...$rest
+): bool {}
 
 /**
  * Push elements onto the end of array
@@ -920,12 +927,12 @@ function array_multisort(&$array, &...$rest): bool {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param mixed ...$values [optional] <p>
+ * @param mixed ...$values <p>
  * The pushed variables.
  * </p>
  * @return int the number of elements in the array.
  */
-function array_push(array &$array, ...$values): int {}
+function array_push(array &$array, #[Required(from: '5.3', to: '7.2')] mixed ...$values): int {}
 
 /**
  * Pop the element off the end of array
@@ -960,12 +967,12 @@ function array_shift(array &$array): mixed {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param mixed ...$values [optional] <p>
+ * @param mixed ...$values <p>
  * The prepended variables.
  * </p>
  * @return int the number of elements in the array.
  */
-function array_unshift(array &$array, ...$values): int {}
+function array_unshift(array &$array, #[Required(from: '5.3', to: '7.2')] mixed ...$values): int {}
 
 /**
  * Remove a portion of the array and replace it with something else
@@ -1049,11 +1056,14 @@ function array_slice(array $array, int $offset, ?int $length, bool $preserve_key
  * Merges the elements of one or more arrays together (if the input arrays have the same string keys, then the later value for that key will overwrite the previous one; if the arrays contain numeric keys, the later value will be appended)
  * Since 7.4.0 this function can be called without any parameter, and it will return empty array.
  * @link https://php.net/manual/en/function.array-merge.php
- * @param array ...$arrays <p>
+ * @param array ...$arrays [optional] <p>
  * Variable list of arrays to merge.
  * </p>
  * @return array the resulting array.
  * @meta
  */
 #[Pure]
-function array_merge(array ...$arrays): array {}
+function array_merge(
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $array,
+    array ...$arrays
+): array {}

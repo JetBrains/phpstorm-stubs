@@ -646,7 +646,14 @@ function sodium_crypto_pwhash_str_verify(string $hash, string $password): bool {
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_pwhash_scryptsalsa208sha256(int $length, string $password, string $salt, int $opslimit, int $memlimit): string {}
+function sodium_crypto_pwhash_scryptsalsa208sha256(
+    int $length,
+    string $password,
+    string $salt,
+    int $opslimit,
+    int $memlimit,
+    #[PhpStormStubsElementAvailable(from: '7.2', to: '7.4')] $alg = null
+): string {}
 
 /**
  * Get a formatted password hash (for storage)
@@ -1017,7 +1024,10 @@ function sodium_version_string(): string {}
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_scalarmult_base(string $secret_key): string {}
+function sodium_crypto_scalarmult_base(
+    string $secret_key,
+    #[PhpStormStubsElementAvailable(from: '7.2', to: '7.4')] $string_2
+): string {}
 
 /**
  * Creates a random key
@@ -1118,18 +1128,6 @@ function sodium_crypto_secretstream_xchacha20poly1305_keygen(): string {}
 function sodium_crypto_secretstream_xchacha20poly1305_init_push(string $key): array {}
 
 /**
- * @param string &$state
- * @param string $message
- * @param string $additional_data [optional]
- * @param int $tag [optional]
- * @return string
- * @throws SodiumException
- * @since 7.2
- * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-push.php
- */
-function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, string $message, string $additional_data, int $tag): string {}
-
-/**
  * @param string $header
  * @param string $key
  * @return string
@@ -1138,17 +1136,6 @@ function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, strin
  * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-init-pull.php
  */
 function sodium_crypto_secretstream_xchacha20poly1305_init_pull(string $header, string $key): string {}
-
-/**
- * @param string &$state
- * @param string $ciphertext
- * @param string $additional_data
- * @return array|false
- * @throws SodiumException
- * @since 7.2
- * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-pull.php
- */
-function sodium_crypto_secretstream_xchacha20poly1305_pull(string &$state, string $ciphertext, string $additional_data = ''): array|false {}
 
 /**
  * @param string &$state

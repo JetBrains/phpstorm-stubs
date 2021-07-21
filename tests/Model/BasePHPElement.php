@@ -4,10 +4,8 @@ declare(strict_types=1);
 namespace StubTests\Model;
 
 use Exception;
-use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use JetBrains\PhpStorm\Pure;
 use phpDocumentor\Reflection\Type;
 use PhpParser\Node;
 use PhpParser\Node\AttributeGroup;
@@ -21,25 +19,41 @@ use ReflectionNamedType;
 use ReflectionType;
 use ReflectionUnionType;
 use Reflector;
+use RuntimeException;
 use stdClass;
+use StubTests\Parsers\ParserUtils;
 
 abstract class BasePHPElement
 {
-    public ?string $name = null;
-    public bool $stubBelongsToCore = false;
-    public ?Exception $parseError = null;
-    public array $mutedProblems = [];
-    #[ArrayShape(['from' => 'float', 'to' => 'float'])]
-    public array $availableVersionsRangeFromAttribute = [];
-    public ?string $sourceFilePath = null;
+    /** @var string|null */
+    public $name = null;
+    public $stubBelongsToCore = false;
+    /** @var Exception|null */
+    public $parseError = null;
+    public $mutedProblems = [];
+    public $availableVersionsRangeFromAttribute = [];
+    /** @var string|null */
+    public $sourceFilePath = null;
+    /** @var bool */
+    public $duplicateOtherElement = false;
 
-    abstract public function readObjectFromReflection(Reflector $reflectionObject): static;
+    /**
+     * @param Reflector $reflectionObject
+     * @return static
+     */
+    abstract public function readObjectFromReflection($reflectionObject);
 
-    abstract public function readObjectFromStubNode(Node $node): static;
+    /**
+     * @param Node $node
+     * @return static
+     */
+    abstract public function readObjectFromStubNode($node);
 
-    abstract public function readMutedProblems(stdClass|array $jsonData): void;
+    /**
+     * @param stdClass|array $jsonData
+     */
+    abstract public function readMutedProblems($jsonData): void;
 
-    #[Pure]
     public static function getFQN(Node $node): string
     {
         $fqn = '';
@@ -75,7 +89,10 @@ abstract class BasePHPElement
         return $reflectionTypes;
     }
 
-    protected static function convertParsedTypeToArray(Name|Identifier|NullableType|string|UnionType|null|Type $type): array
+    /**
+     * @param Name|Identifier|NullableType|string|UnionType|null|Type $type
+     */
+    protected static function convertParsedTypeToArray($type): array
     {
         $types = [];
         if ($type !== null) {
@@ -92,8 +109,10 @@ abstract class BasePHPElement
         return $types;
     }
 
-    #[Pure]
-    protected static function getTypeNameFromNode(Name|Identifier|NullableType|string $type): string
+    /**
+     * @param Name|Identifier|NullableType|string $type
+     */
+    protected static function getTypeNameFromNode($type): string
     {
         $nullable = false;
         $typeName = '';
@@ -123,7 +142,13 @@ abstract class BasePHPElement
                     $types = [];
                     $versionTypesMap = $attr->args[0]->value->items;
                     foreach ($versionTypesMap as $item) {
-                        $types[$item->key->value] = explode('|', preg_replace('/\w+\[]/', 'array', $item->value->value));
+                        $firstVersionWithType = $item->key->value;
+                        foreach (new PhpVersions() as $version) {
+                            if ($version >= doubleval($firstVersionWithType)) {
+                                $types[number_format($version, 1, '.')] =
+                                    explode('|', preg_replace('/\w+\[]/', 'array', $item->value->value));
+                            }
+                        }
                     }
                     $types[$attr->args[1]->name->name] = explode('|', preg_replace('/\w+\[]/', 'array', $attr->args[1]->value->value));
                     return $types;
@@ -137,7 +162,6 @@ abstract class BasePHPElement
      * @param AttributeGroup[] $attrGroups
      * @return array
      */
-    #[ArrayShape(['from' => 'float', 'to' => 'float'])]
     protected static function findAvailableVersionsRangeFromAttribute(array $attrGroups): array
     {
         $versionRange = [];
@@ -168,9 +192,24 @@ abstract class BasePHPElement
         return $versionRange;
     }
 
-    #[Pure]
     public function hasMutedProblem(int $stubProblemType): bool
     {
-        return in_array($stubProblemType, $this->mutedProblems, true);
+        if (in_array($stubProblemType, array_keys($this->mutedProblems), true)) {
+            if (in_array(doubleval(getenv('PHP_VERSION')), $this->mutedProblems[$stubProblemType], true) ||
+                in_array('ALL', $this->mutedProblems[$stubProblemType], true)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @param BasePHPElement $element
+     * @return bool
+     * @throws RuntimeException
+     */
+    public static function entitySuitesCurrentPhpVersion(BasePHPElement $element): bool
+    {
+        return in_array(doubleval(getenv('PHP_VERSION')), ParserUtils::getAvailableInVersions($element));
     }
 }

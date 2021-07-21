@@ -8,6 +8,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\Link;
 use phpDocumentor\Reflection\DocBlock\Tags\Reference\Url;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
 use phpDocumentor\Reflection\DocBlock\Tags\Since;
+use PHPUnit\Framework\Exception;
 use StubTests\Model\BasePHPClass;
 use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPConst;
@@ -15,15 +16,14 @@ use StubTests\Model\PHPDocElement;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\Tags\RemovedTag;
-use StubTests\Parsers\Utils;
+use StubTests\Parsers\ParserUtils;
 use function trim;
 
 class StubsPhpDocTest extends BaseStubsTest
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubConstantsProvider::classConstantProvider
-     * @param BasePHPClass $class
-     * @param PHPConst $constant
+     * @throws Exception
      */
     public static function testClassConstantsPHPDocs(BasePHPClass $class, PHPConst $constant): void
     {
@@ -33,6 +33,7 @@ class StubsPhpDocTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubConstantsProvider::globalConstantProvider
+     * @throws Exception
      */
     public static function testConstantsPHPDocs(PHPConst $constant): void
     {
@@ -42,6 +43,7 @@ class StubsPhpDocTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsTestDataProviders::allFunctionsProvider
+     * @throws Exception
      */
     public static function testFunctionPHPDocs(PHPFunction $function): void
     {
@@ -51,6 +53,7 @@ class StubsPhpDocTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsTestDataProviders::allClassesProvider
+     * @throws Exception
      */
     public static function testClassesPHPDocs(BasePHPClass $class): void
     {
@@ -60,6 +63,7 @@ class StubsPhpDocTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::allMethodsProvider
+     * @throws Exception
      */
     public static function testMethodsPHPDocs(PHPMethod $method): void
     {
@@ -80,7 +84,7 @@ class StubsPhpDocTest extends BaseStubsTest
             if ($sinceTag instanceof Since) {
                 $version = $sinceTag->getVersion();
                 if ($version !== null) {
-                    self::assertTrue(Utils::tagDoesNotHaveZeroPatchVersion($sinceTag), "$elementName has 
+                    self::assertTrue(ParserUtils::tagDoesNotHaveZeroPatchVersion($sinceTag), "$elementName has 
                     'since' version $version.'Since' version for PHP Core functionality for style consistency 
                     should have X.X format for the case when patch version is '0'.");
                 }
@@ -90,7 +94,7 @@ class StubsPhpDocTest extends BaseStubsTest
             if ($deprecatedTag instanceof Deprecated) {
                 $version = $deprecatedTag->getVersion();
                 if ($version !== null) {
-                    self::assertTrue(Utils::tagDoesNotHaveZeroPatchVersion($deprecatedTag), "$elementName has 
+                    self::assertTrue(ParserUtils::tagDoesNotHaveZeroPatchVersion($deprecatedTag), "$elementName has 
                     'deprecated' version $version.'Deprecated' version for PHP Core functionality for style consistency 
                     should have X.X format for the case when patch version is '0'.");
                 }
@@ -100,7 +104,7 @@ class StubsPhpDocTest extends BaseStubsTest
             if ($removedTag instanceof RemovedTag) {
                 $version = $removedTag->getVersion();
                 if ($version !== null) {
-                    self::assertTrue(Utils::tagDoesNotHaveZeroPatchVersion($removedTag), "$elementName has 
+                    self::assertTrue(ParserUtils::tagDoesNotHaveZeroPatchVersion($removedTag), "$elementName has 
                     'removed' version $version.'Removed' version for PHP Core functionality for style consistency 
                     should have X.X format for the case when patch version is '0'.");
                 }
@@ -115,7 +119,7 @@ class StubsPhpDocTest extends BaseStubsTest
 
         $phpdoc = preg_replace(
             [
-                '#<br ?/>#',
+                '#<br\s*/>#',
                 '#<br>#i',
                 '#->#',
                 '#=>#',
@@ -174,6 +178,9 @@ class StubsPhpDocTest extends BaseStubsTest
         }
     }
 
+    /**
+     * @throws Exception
+     */
     private static function checkContainsOnlyValidTags(BasePHPElement $element, string $elementName): void
     {
         $VALID_TAGS = [
@@ -208,6 +215,9 @@ class StubsPhpDocTest extends BaseStubsTest
         }
     }
 
+    /**
+     * @throws Exception
+     */
     private static function checkPHPDocCorrectness(BasePHPElement $element, string $elementName): void
     {
         self::checkLinks($element, $elementName);

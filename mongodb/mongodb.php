@@ -27,6 +27,7 @@ namespace MongoDB\Driver {
     use MongoDB\Driver\Exception\UnexpectedValueException;
     use MongoDB\Driver\Exception\WriteConcernException;
     use MongoDB\Driver\Exception\WriteException;
+    use MongoDB\Driver\Monitoring\Subscriber;
     use Traversable;
 
         /**
@@ -137,7 +138,7 @@ namespace MongoDB\Driver {
              * @throws WriteConcernException on Write Concern failure
              * @since 1.4.0
              */
-            final public function executeReadWriteCommand($db, Command $command, array $options = []) {}
+            final public function executeReadWriteCommand($db, Command $command, $options = []) {}
 
             /**
              * @link https://php.net/manual/en/mongodb-driver-manager.executewritecommand.php
@@ -208,11 +209,11 @@ namespace MongoDB\Driver {
              * @link https://secure.php.net/manual/en/mongodb-driver-manager.startsession.php
              * @since 1.4.0
              */
-            final public function startSession(array $options = []) {}
+            final public function startSession(?array $options = []) {}
 
-            final public function addSubscriber($subscriber) {}
+            final public function addSubscriber(Subscriber $subscriber) {}
 
-            final public function removeSubscriber($subscriber) {}
+            final public function removeSubscriber(Subscriber $subscriber) {}
         }
 
         /**
@@ -268,7 +269,7 @@ namespace MongoDB\Driver {
              * @return Cursor
              * @since 1.0.0
              */
-            final public function executeCommand($db, Command $command, ReadPreference $options = null) {}
+            final public function executeCommand($db, Command $command, $options = null) {}
 
             /**
              * Execute a database command that reads on this server
@@ -466,7 +467,7 @@ namespace MongoDB\Driver {
              * @param array $options
              * @throws InvalidArgumentException on argument parsing errors.
              */
-            final public function __construct($filter, array $options = []) {}
+            final public function __construct($filter, ?array $options = []) {}
 
             final public function __wakeup() {}
         }
@@ -487,7 +488,7 @@ namespace MongoDB\Driver {
              * @link https://secure.php.net/manual/en/mongodb-driver-command.construct.php
              * @since 1.0.0
              */
-            final public function __construct($document, array $options = []) {}
+            final public function __construct($document, ?array $options = []) {}
 
             final public function __wakeup() {}
         }
@@ -542,7 +543,7 @@ namespace MongoDB\Driver {
              * @param array $options
              * @throws InvalidArgumentException if mode is invalid or if tagSets is provided for a primary read preference.
              */
-            final public function __construct(string|int $mode, array $tagSets = null, array $options = []) {}
+            final public function __construct($mode, ?array $tagSets = null, ?array $options = []) {}
 
             public static function __set_state(array $properties) {}
 
@@ -808,7 +809,7 @@ namespace MongoDB\Driver {
 
             final public function __wakeup() {}
 
-            public static function __set_state($properties) {}
+            public static function __set_state(array $properties) {}
 
             /**
              * Serialize a CursorId
@@ -849,7 +850,7 @@ namespace MongoDB\Driver {
              * @param array $options
              * @throws InvalidArgumentException on argument parsing errors.
              */
-            final public function __construct(array $options = []) {}
+            final public function __construct(?array $options = []) {}
 
             final public function __wakeup() {}
 
@@ -869,7 +870,7 @@ namespace MongoDB\Driver {
              * @param array $deleteOptions
              * @throws InvalidArgumentException on argument parsing errors.
              */
-            final public function delete($query, array $deleteOptions = []) {}
+            final public function delete($query, ?array $deleteOptions = []) {}
 
             /**
              * Add an insert operation to the bulk
@@ -889,7 +890,7 @@ namespace MongoDB\Driver {
              * @param array $updateOptions
              * @throws InvalidArgumentException on argument parsing errors.
              */
-            final public function update($query, $newObj, array $updateOptions = []) {}
+            final public function update($query, $newObj, ?array $updateOptions = []) {}
         }
 
         /**
@@ -1182,7 +1183,7 @@ namespace MongoDB\Driver {
              * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors
              * @since 1.4.0
              */
-            final public function advanceOperationTime(\MongoDB\BSON\TimestampInterface $timestamp) {}
+            final public function advanceOperationTime($timestamp) {}
 
             /**
              * @link https://secure.php.net/manual/en/mongodb-driver-session.committransaction.php
@@ -1282,7 +1283,7 @@ namespace MongoDB\Driver {
              * @throws \MongoDB\Driver\Exception\RuntimeException If the the transaction could not be started (e.g. a transaction was already started).
              * @since 1.4.0
              */
-            final public function startTransaction($options = []) {}
+            final public function startTransaction(?array $options = []) {}
         }
 
         /**
@@ -1358,17 +1359,17 @@ namespace MongoDB\Driver {
              * @throws InvalidArgumentException On argument parsing errors.
              * @throws EncryptionException If an error occurs while creating the data key.
              */
-            final public function createDataKey($kmsProvider, $options = []) {}
+            final public function createDataKey($kmsProvider, ?array $options = []) {}
 
             /**
              * Decrypts an encrypted value (BSON binary of subtype 6).
              * @link https://www.php.net/manual/en/mongodb-driver-clientencryption.decrypt.php
-             * @param \MongoDB\BSON\Binary $keyVaultClient A MongoDB\BSON\Binary instance with subtype 6 containing the encrypted value.
+             * @param \MongoDB\BSON\BinaryInterface $keyVaultClient A MongoDB\BSON\Binary instance with subtype 6 containing the encrypted value.
              * @return mixed Returns the decrypted value
              * @throws InvalidArgumentException On argument parsing errors.
              * @throws EncryptionException If an error occurs while decrypting the value.
              */
-            final public function decrypt(\MongoDB\BSON\Binary $keyVaultClient) {}
+            final public function decrypt(\MongoDB\BSON\BinaryInterface $keyVaultClient) {}
 
             /**
              * Encrypts a value with a given key and algorithm.
@@ -1379,7 +1380,7 @@ namespace MongoDB\Driver {
              * @throws InvalidArgumentException On argument parsing errors.
              * @throws EncryptionException If an error occurs while encrypting the value.
              */
-            final public function encrypt($value, $options = []) {}
+            final public function encrypt($value, ?array $options = []) {}
         }
     }
 
@@ -1949,7 +1950,7 @@ namespace MongoDB\BSON {
              */
             final public function getType() {}
 
-            public static function __set_state($properties) {}
+            public static function __set_state(array $properties) {}
 
             /**
              * Returns the Binary's data
@@ -2008,7 +2009,7 @@ namespace MongoDB\BSON {
              */
             final public function __toString() {}
 
-            public static function __set_state($properties) {}
+            public static function __set_state(array $properties) {}
 
             /**
              * Serialize a Decimal128
@@ -2054,7 +2055,7 @@ namespace MongoDB\BSON {
              */
             final public function __construct($javascript, $scope = []) {}
 
-            public static function __set_state($properties) {}
+            public static function __set_state(array $properties) {}
 
             /**
              * Returns the Javascript's code
@@ -2113,7 +2114,7 @@ namespace MongoDB\BSON {
          */
         final class MaxKey implements Type, MaxKeyInterface, \Serializable, JsonSerializable
         {
-            public static function __set_state($properties) {}
+            public static function __set_state(array $properties) {}
 
             /**
              * Serialize a MaxKey
@@ -2151,7 +2152,7 @@ namespace MongoDB\BSON {
          */
         final class MinKey implements Type, MinKeyInterface, \Serializable, JsonSerializable
         {
-            public static function __set_state($properties) {}
+            public static function __set_state(array $properties) {}
 
             /**
              * Serialize a MinKey
@@ -2273,7 +2274,7 @@ namespace MongoDB\BSON {
              */
             final public function __toString() {}
 
-            public static function __set_state($properties) {}
+            public static function __set_state(array $properties) {}
 
             /**
              * Serialize a Regex
@@ -2857,3 +2858,8 @@ namespace MongoDB\BSON {
             public function __toString();
         }
     }
+
+namespace {
+    define('MONGODB_VERSION', '1.10.0');
+    define('MONGODB_STABILITY', 'stable');
+}

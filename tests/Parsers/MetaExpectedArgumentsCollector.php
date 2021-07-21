@@ -34,9 +34,16 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
      */
     public function __construct()
     {
-        StubParser::processStubs($this, null, fn (SplFileInfo $file): bool => $file->getFilename() === '.phpstorm.meta.php');
+        StubParser::processStubs(
+            $this,
+            null,
+            fn (SplFileInfo $file): bool => $file->getFilename() === '.phpstorm.meta.php'
+        );
     }
 
+    /**
+     * @throws RuntimeException
+     */
     public function enterNode(Node $node): void
     {
         if ($node instanceof FuncCall) {
@@ -107,7 +114,9 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
      */
     private function getExpectedArgumentsInfo(?Expr $functionReference, $args, $index = -1): ExpectedFunctionArgumentsInfo
     {
-        $expressions = array_map(fn (Arg $arg): Expr => $arg->value, $args);
+        $expressions = array_map(function (Arg $arg): Expr {
+            return $arg->value;
+        }, $args);
         return new ExpectedFunctionArgumentsInfo($functionReference, $this->unpackArguments($expressions), $index);
     }
 }

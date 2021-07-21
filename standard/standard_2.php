@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\Required;
 use JetBrains\PhpStorm\Internal\ReturnTypeContract as TypeContract;
 use JetBrains\PhpStorm\Pure;
 
@@ -222,14 +223,14 @@ function ord(string $character): int {}
  * @param string $string <p>
  * The input string.
  * </p>
- * @param array &$result [optional] <p>
+ * @param array &$result <p>
  * If the second parameter arr is present,
  * variables are stored in this variable as array elements instead.<br/>
  * Since 7.2.0 this parameter is not optional.
  * </p>
  * @return void
  */
-function parse_str(string $string, &$result): void {}
+function parse_str(string $string, #[Required(from: '8.0')] &$result = []): void {}
 
 /**
  * Parse a CSV string into an array
@@ -333,7 +334,7 @@ function strchr(string $haystack, string $needle, bool $before_needle = false): 
  * format.
  */
 #[Pure]
-function sprintf(string $format, ...$values): string {}
+function sprintf(string $format, mixed ...$values): string {}
 
 /**
  * Output a formatted string
@@ -346,7 +347,7 @@ function sprintf(string $format, ...$values): string {}
  * </p>
  * @return int the length of the outputted string.
  */
-function printf(string $format, ...$values): int {}
+function printf(string $format, mixed ...$values): int {}
 
 /**
  * Output a formatted string
@@ -389,7 +390,7 @@ function vsprintf(string $format, array $values): string {}
  * </p>
  * @return int the length of the string written.
  */
-function fprintf($stream, string $format, ...$values): int {}
+function fprintf($stream, string $format, mixed ...$values): int {}
 
 /**
  * Write a formatted string to a stream
@@ -423,7 +424,7 @@ function vfprintf($stream, string $format, array $values): int {}
  * i stands for integer with base detection.
  * n stands for number of characters processed so far.
  * </p>
- * @param mixed &...$vars
+ * @param mixed &...$vars [optional]
  * @return array|int|null If only
  * two parameters were passed to this function, the values parsed
  * will be returned as an array. Otherwise, if optional parameters are passed,

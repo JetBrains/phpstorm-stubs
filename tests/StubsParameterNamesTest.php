@@ -56,7 +56,6 @@ class StubsParameterNamesTest extends BaseStubsTest
 
     /**
      * @param PHPParameter[] $params
-     * @return string
      */
     #[Pure]
     public static function printParameters(array $params): string

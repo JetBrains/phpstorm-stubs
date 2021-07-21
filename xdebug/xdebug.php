@@ -215,9 +215,10 @@ function xdebug_get_tracefile_name() {}
 function xdebug_get_profiler_filename() {}
 
 /**
+ * @param $prefix [optional]
  * @return bool
  */
-function xdebug_dump_aggr_profiling_data() {}
+function xdebug_dump_aggr_profiling_data($prefix) {}
 
 /**
  * @return bool

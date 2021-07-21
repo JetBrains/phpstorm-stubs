@@ -13,6 +13,7 @@ use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RuntimeException;
 use SplFileInfo;
+use StubTests\Model\CommonUtils;
 use StubTests\Model\StubsContainer;
 use StubTests\Parsers\Visitors\ASTVisitor;
 use StubTests\Parsers\Visitors\CoreStubASTVisitor;
@@ -25,7 +26,6 @@ class StubParser
     private static ?StubsContainer $stubs = null;
 
     /**
-     * @return StubsContainer
      * @throws LogicException
      * @throws RuntimeException
      * @throws UnexpectedValueException
@@ -48,7 +48,7 @@ class StubParser
         }
         foreach (self::$stubs->getClasses() as $class) {
             $class->readMutedProblems($jsonData->classes);
-            $class->interfaces = Utils::flattenArray($visitor->combineImplementedInterfaces($class), false);
+            $class->interfaces = CommonUtils::flattenArray($visitor->combineImplementedInterfaces($class), false);
         }
         foreach (self::$stubs->getFunctions() as $function) {
             $function->readMutedProblems($jsonData->functions);
@@ -60,9 +60,6 @@ class StubParser
     }
 
     /**
-     * @param NodeVisitorAbstract $visitor
-     * @param CoreStubASTVisitor|null $coreStubASTVisitor
-     * @param callable $fileCondition
      * @throws LogicException
      * @throws UnexpectedValueException
      */

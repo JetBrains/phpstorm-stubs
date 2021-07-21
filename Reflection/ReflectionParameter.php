@@ -29,7 +29,7 @@ class ReflectionParameter implements Reflector
      * of the parameter (starting with zero), or a the parameter name as string.
      * @throws \ReflectionException if the function or parameter does not exist.
      */
-    public function __construct(callable $function, $param) {}
+    public function __construct($function, #[LanguageLevelTypeAware(['8.0' => 'string|int'], default: '')] $param) {}
 
     /**
      * Exports
@@ -272,5 +272,5 @@ class ReflectionParameter implements Reflector
      * @link https://php.net/manual/en/reflectionparameter.clone.php
      * @return void
      */
-    private function __clone() {}
+    final private function __clone() {}
 }

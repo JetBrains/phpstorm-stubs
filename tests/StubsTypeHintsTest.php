@@ -12,7 +12,7 @@ use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\Model\PhpVersions;
 use StubTests\Model\StubProblemType;
-use StubTests\Parsers\Utils;
+use StubTests\Parsers\ParserUtils;
 use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 use StubTests\TestData\Providers\ReflectionStubsSingleton;
@@ -21,7 +21,6 @@ class StubsTypeHintsTest extends BaseStubsTest
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::allFunctionsProvider
-     * @param PHPFunction $function
      * @throws RuntimeException
      */
     public function testFunctionsReturnTypeHints(PHPFunction $function)
@@ -30,23 +29,41 @@ class StubsTypeHintsTest extends BaseStubsTest
         $allEqualStubFunctions = EntitiesFilter::getFiltered(
             PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(),
             fn (PHPFunction $stubFunction) => $stubFunction->name !== $functionName ||
-                !in_array(PhpVersions::getLatest(), Utils::getAvailableInVersions($stubFunction))
+                !in_array(PhpVersions::getLatest(), ParserUtils::getAvailableInVersions($stubFunction))
         );
         /** @var PHPFunction $stubFunction */
         $stubFunction = array_pop($allEqualStubFunctions);
-        $conditionToCompareWithSignature = BaseStubsTest::ifReflectionTypesExistInSignature($function->returnTypesFromSignature, $stubFunction->returnTypesFromSignature);
-        $conditionToCompareWithAttribute = BaseStubsTest::ifReflectionTypesExistInAttributes($function->returnTypesFromSignature, $stubFunction->returnTypesFromAttribute);
+        $unifiedStubsReturnTypes = [];
+        $unifiedStubsAttributesReturnTypes = [];
+        $unifiedReflectionReturnTypes = [];
+        self::convertNullableTypesToUnion($function->returnTypesFromSignature, $unifiedReflectionReturnTypes);
+        if (!empty($stubFunction->returnTypesFromSignature)) {
+            self::convertNullableTypesToUnion($stubFunction->returnTypesFromSignature, $unifiedStubsReturnTypes);
+        }
+        foreach ($stubFunction->returnTypesFromAttribute as $languageVersion => $listOfTypes) {
+            $unifiedStubsAttributesReturnTypes[$languageVersion] = [];
+            self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesReturnTypes[$languageVersion]);
+        }
+        $conditionToCompareWithSignature = BaseStubsTest::isReflectionTypesMatchSignature(
+            $unifiedReflectionReturnTypes,
+            $unifiedStubsReturnTypes
+        );
+        $typesFromAttribute = [];
+        if (!empty($unifiedStubsAttributesReturnTypes)) {
+            $typesFromAttribute = !empty($unifiedStubsAttributesReturnTypes[getenv('PHP_VERSION')]) ?
+                $unifiedStubsAttributesReturnTypes[getenv('PHP_VERSION')] :
+                $unifiedStubsAttributesReturnTypes['default'];
+        }
+        $conditionToCompareWithAttribute = BaseStubsTest::ifReflectionTypesExistInAttributes($unifiedReflectionReturnTypes, $typesFromAttribute);
         $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
         self::assertTrue($testCondition, "Function $functionName has invalid return type.
         Reflection function has return type " . implode('|', $function->returnTypesFromSignature) . ' but stubs has return type ' .
             implode('|', $stubFunction->returnTypesFromSignature) . ' in signature and attribute has types ' .
-            BaseStubsTest::getStringRepresentationOfTypeHintsFromAttributes($stubFunction->returnTypesFromAttribute));
+            implode('|', $typesFromAttribute));
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionParametersProvider
-     * @param PHPFunction $function
-     * @param PHPParameter $parameter
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionParametersWithTypeProvider
      * @throws RuntimeException
      */
     public function testFunctionsParametersTypeHints(PHPFunction $function, PHPParameter $parameter)
@@ -74,8 +91,6 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsWithReturnTypeHintProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $method
      * @throws RuntimeException
      */
     public function testMethodsReturnTypeHints(PHPClass|PHPInterface $class, PHPMethod $method)
@@ -86,18 +101,38 @@ class StubsTypeHintsTest extends BaseStubsTest
         } else {
             $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($class->name)->methods[$functionName];
         }
-        self::assertEquals(
-            $method->returnTypesFromSignature,
-            $stubMethod->returnTypesFromSignature,
-            "Method $class->name::$functionName has invalid return type"
+        $unifiedStubsReturnTypes = [];
+        $unifiedStubsAttributesReturnTypes = [];
+        $unifiedReflectionReturnTypes = [];
+        self::convertNullableTypesToUnion($method->returnTypesFromSignature, $unifiedReflectionReturnTypes);
+        if (!empty($stubMethod->returnTypesFromSignature)) {
+            self::convertNullableTypesToUnion($stubMethod->returnTypesFromSignature, $unifiedStubsReturnTypes);
+        } else {
+            foreach ($stubMethod->returnTypesFromAttribute as $languageVersion => $listOfTypes) {
+                $unifiedStubsAttributesReturnTypes[$languageVersion] = [];
+                self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesReturnTypes[$languageVersion]);
+            }
+        }
+        $conditionToCompareWithSignature = BaseStubsTest::isReflectionTypesMatchSignature(
+            $unifiedReflectionReturnTypes,
+            $unifiedStubsReturnTypes
         );
+        $typesFromAttribute = [];
+        if (!empty($unifiedStubsAttributesReturnTypes)) {
+            $typesFromAttribute = !empty($unifiedStubsAttributesReturnTypes[getenv('PHP_VERSION')]) ?
+                $unifiedStubsAttributesReturnTypes[getenv('PHP_VERSION')] :
+                $unifiedStubsAttributesReturnTypes['default'];
+        }
+        $conditionToCompareWithAttribute = BaseStubsTest::ifReflectionTypesExistInAttributes($unifiedReflectionReturnTypes, $typesFromAttribute);
+        $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
+        self::assertTrue($testCondition, "Function $functionName has invalid return type.
+        Reflection method $class->name::$functionName has return type " . implode('|', $method->returnTypesFromSignature) . ' but stubs has return type ' .
+            implode('|', $stubMethod->returnTypesFromSignature) . ' in signature and attribute has types ' .
+            implode('|', $typesFromAttribute));
     }
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodParametersProvider
-     * @param PHPClass|PHPInterface $reflectionClass
-     * @param PHPMethod $reflectionMethod
-     * @param PHPParameter $reflectionParameter
      * @throws RuntimeException
      */
     public function testMethodsParametersTypeHints(PHPClass|PHPInterface $reflectionClass, PHPMethod $reflectionMethod, PHPParameter $reflectionParameter)
@@ -117,6 +152,7 @@ class StubsTypeHintsTest extends BaseStubsTest
         self::assertNotFalse($stubParameter, "Parameter $$reflectionParameter->name not found at 
         $reflectionClass->name::$stubMethod->name(" .
             StubsParameterNamesTest::printParameters($stubMethod->parameters) . ')');
+        self::compareTypeHintsWithReflection($reflectionParameter, $stubParameter, $methodName);
         if (!$reflectionParameter->hasMutedProblem(StubProblemType::PARAMETER_REFERENCE)) {
             self::assertEquals(
                 $reflectionParameter->is_passed_by_ref,
@@ -133,16 +169,13 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForScalarTypeHintTestsProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $stubMethod
-     * @param PHPParameter $parameter
      * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveScalarTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
-        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
+        $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
         self::assertEmpty(
-            array_intersect(['int', 'float', 'string', 'bool'], $parameter->typesFromSignature),
+            array_intersect(['int', 'float', 'string', 'bool', 'mixed', 'object'], $parameter->typesFromSignature),
             "Method '$class->name::$stubMethod->name' with @since '$sinceVersion'  
                 has parameter '$parameter->name' with typehint '" . implode('|', $parameter->typesFromSignature) .
             "' but typehints available only since php 7"
@@ -151,14 +184,11 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForNullableTypeHintTestsProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $stubMethod
-     * @param PHPParameter $parameter
      * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveNullableTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
-        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
+        $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
         self::assertEmpty(
             array_filter($parameter->typesFromSignature, fn (string $type) => str_contains($type, '?')),
             "Method '$class->name::$stubMethod->name' with @since '$sinceVersion'  
@@ -169,14 +199,11 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForUnionTypeHintTestsProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $stubMethod
-     * @param PHPParameter $parameter
      * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveUnionTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
-        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
+        $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
         self::assertLessThan(
             2,
             count($parameter->typesFromSignature),
@@ -188,24 +215,22 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForReturnTypeHintTestsProvider
-     * @param PHPMethod $stubMethod
      * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveReturnTypeHint(PHPMethod $stubMethod)
     {
-        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
+        $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
         self::assertEmpty($stubMethod->returnTypesFromSignature, "Method '$stubMethod->parentName::$stubMethod->name' has since version '$sinceVersion'
             but has return typehint '" . implode('|', $stubMethod->returnTypesFromSignature) . "' that supported only since PHP 7. Please declare return type via PhpDoc");
     }
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForNullableReturnTypeHintTestsProvider
-     * @param PHPMethod $stubMethod
      * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveNullableReturnTypeHint(PHPMethod $stubMethod)
     {
-        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
+        $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
         $returnTypes = $stubMethod->returnTypesFromSignature;
         self::assertEmpty(
             array_filter($returnTypes, fn (string $type) => str_contains($type, '?')),
@@ -217,12 +242,11 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForUnionReturnTypeHintTestsProvider
-     * @param PHPMethod $stubMethod
      * @throws RuntimeException
      */
     public static function testMethodDoesNotHaveUnionReturnTypeHint(PHPMethod $stubMethod)
     {
-        $sinceVersion = Utils::getDeclaredSinceVersion($stubMethod);
+        $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
         self::assertLessThan(
             2,
             count($stubMethod->returnTypesFromSignature),
@@ -234,9 +258,6 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForAllowedScalarTypeHintTestsProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $stubMethod
-     * @param PHPParameter $stubParameter
      * @throws RuntimeException
      */
     public function testMethodScalarTypeHintsInParametersMatchReflection(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $stubParameter)
@@ -254,9 +275,6 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForAllowedNullableTypeHintTestsProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $stubMethod
-     * @param PHPParameter $stubParameter
      * @throws RuntimeException
      */
     public function testMethodNullableTypeHintsInParametersMatchReflection(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $stubParameter)
@@ -274,9 +292,6 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForAllowedUnionTypeHintTestsProvider
-     * @param PHPClass|PHPInterface $class
-     * @param PHPMethod $stubMethod
-     * @param PHPParameter $stubParameter
      * @throws RuntimeException
      */
     public function testMethodUnionTypeHintsInParametersMatchReflection(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $stubParameter)
@@ -294,7 +309,6 @@ class StubsTypeHintsTest extends BaseStubsTest
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::allFunctionAndMethodsWithReturnTypeHintsProvider
-     * @param PHPFunction|PHPMethod $method
      * @throws Exception
      */
     public static function testSignatureTypeHintsComplainPhpDocInMethods(PHPFunction|PHPMethod $method)
@@ -337,18 +351,23 @@ class StubsTypeHintsTest extends BaseStubsTest
         self::convertNullableTypesToUnion($parameter->typesFromSignature, $unifiedReflectionParameterTypes);
         if (!empty($stubParameter->typesFromSignature)) {
             self::convertNullableTypesToUnion($stubParameter->typesFromSignature, $unifiedStubsParameterTypes);
-        } else {
-            foreach ($stubParameter->typesFromAttribute as $languageVersion => $listOfTypes) {
-                $unifiedStubsAttributesParameterTypes[$languageVersion] = [];
-                self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesParameterTypes[$languageVersion]);
-            }
         }
-        $conditionToCompareWithSignature = BaseStubsTest::ifReflectionTypesExistInSignature($unifiedReflectionParameterTypes, $unifiedStubsParameterTypes);
-        $conditionToCompareWithAttribute = BaseStubsTest::ifReflectionTypesExistInAttributes($unifiedReflectionParameterTypes, $unifiedStubsAttributesParameterTypes);
+        foreach ($stubParameter->typesFromAttribute as $languageVersion => $listOfTypes) {
+            $unifiedStubsAttributesParameterTypes[$languageVersion] = [];
+            self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesParameterTypes[$languageVersion]);
+        }
+        $typesFromAttribute = [];
+        if (!empty($unifiedStubsAttributesParameterTypes)) {
+            $typesFromAttribute = !empty($unifiedStubsAttributesParameterTypes[getenv('PHP_VERSION')]) ?
+                $unifiedStubsAttributesParameterTypes[getenv('PHP_VERSION')] :
+                $unifiedStubsAttributesParameterTypes['default'];
+        }
+        $conditionToCompareWithSignature = BaseStubsTest::isReflectionTypesMatchSignature($unifiedReflectionParameterTypes, $unifiedStubsParameterTypes);
+        $conditionToCompareWithAttribute = BaseStubsTest::ifReflectionTypesExistInAttributes($unifiedReflectionParameterTypes, $typesFromAttribute);
         $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
         self::assertTrue($testCondition, "Type mismatch $functionName: \$$parameter->name \n
         Reflection parameter has type '" . implode('|', $unifiedReflectionParameterTypes) .
             "' but stub parameter has type '" . implode('|', $unifiedStubsParameterTypes) . "' in signature and " .
-            BaseStubsTest::getStringRepresentationOfTypeHintsFromAttributes($unifiedStubsAttributesParameterTypes) . ' in attribute');
+            implode('|', $typesFromAttribute) . ' in attribute');
     }
 }

@@ -26,7 +26,7 @@ class ReflectionExtension implements Reflector
      * @param string $name Name of the extension.
      * @throws \ReflectionException if the extension does not exist.
      */
-    public function __construct($name) {}
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
     /**
      * Exports a reflected extension.
@@ -166,5 +166,5 @@ class ReflectionExtension implements Reflector
      * @link https://php.net/manual/en/reflectionextension.clone.php
      * @return void No value is returned, if called a fatal error will occur.
      */
-    private function __clone() {}
+    final private function __clone() {}
 }

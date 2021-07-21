@@ -19,48 +19,57 @@ trait PHPDocElement
     /**
      * @var Link[]
      */
-    public array $links = [];
+    public $links = [];
 
-    public string $phpdoc = '';
+    /**
+     * @var string
+     */
+    public $phpdoc = '';
 
     /**
      * @var See[]
      */
-    public array $see = [];
+    public $see = [];
 
     /**
      * @var Since[]
      */
-    public array $sinceTags = [];
+    public $sinceTags = [];
 
     /**
      * @var Deprecated[]
      */
-    public array $deprecatedTags = [];
+    public $deprecatedTags = [];
 
     /**
      * @var RemovedTag[]
      */
-    public array $removedTags = [];
+    public $removedTags = [];
 
     /**
      * @var Param[]
      */
-    public array $paramTags = [];
+    public $paramTags = [];
 
     /**
      * @var Var_[]
      */
-    public array $varTags = [];
+    public $varTags = [];
 
     /**
      * @var string[]
      */
-    public array $tagNames = [];
+    public $tagNames = [];
 
-    public bool $hasInheritDocTag = false;
+    /**
+     * @var bool
+     */
+    public $hasInheritDocTag = false;
 
-    public bool $hasInternalMetaTag = false;
+    /**
+     * @var bool
+     */
+    public $hasInternalMetaTag = false;
 
     protected function collectTags(Node $node): void {
         if ($node->getDocComment() !== null) {

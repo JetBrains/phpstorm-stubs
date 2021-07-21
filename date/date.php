@@ -4,6 +4,8 @@
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\Required;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -411,22 +413,22 @@ function gmdate(string $format, ?int $timestamp) {}
 /**
  * Get Unix timestamp for a date
  * @link https://php.net/manual/en/function.mktime.php
- * @param int $hour [optional] <p>
+ * @param int $hour <p>
  * The number of the hour.
  * </p>
- * @param int $minute [optional] <p>
+ * @param int|null $minute [optional] <p>
  * The number of the minute.
  * </p>
- * @param int $second [optional] <p>
+ * @param int|null $second [optional] <p>
  * The number of seconds past the minute.
  * </p>
- * @param int $month [optional] <p>
+ * @param int|null $month [optional] <p>
  * The number of the month.
  * </p>
- * @param int $day [optional] <p>
+ * @param int|null $day [optional] <p>
  * The number of the day.
  * </p>
- * @param int $year [optional] <p>
+ * @param int|null $year [optional] <p>
  * The number of the year, may be a two or four digit value,
  * with values between 0-69 mapping to 2000-2069 and 70-100 to
  * 1970-2000. On systems where time_t is a 32bit signed integer, as
@@ -459,12 +461,21 @@ function gmdate(string $format, ?int $timestamp) {}
  * it returned -1).
  */
 #[Pure]
-function mktime($hour = null, $minute = null, $second = null, $month = null, $day = null, $year = null, #[Deprecated('Use the new timezone handling functions instead', since: '5.3')] $is_dst = -1): int|false {}
+function mktime(
+    #[Required(from: '8.0')] int $hour = null,
+    ?int $minute = null,
+    ?int $second = null,
+    ?int $month = null,
+    ?int $day = null,
+    ?int $year = null,
+    #[Deprecated('Use the new timezone handling functions instead', since: '5.3')]
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $is_dst = -1
+): int|false {}
 
 /**
  * Get Unix timestamp for a GMT date
  * @link https://php.net/manual/en/function.gmmktime.php
- * @param int $hour [optional] <p>
+ * @param int $hour <p>
  * The hour
  * </p>
  * @param int $minute [optional] <p>
@@ -489,7 +500,15 @@ function mktime($hour = null, $minute = null, $second = null, $month = null, $da
  * @return int|false a integer Unix timestamp.
  */
 #[Pure]
-function gmmktime($hour = null, $minute = null, $second = null, $month = null, $day = null, $year = null, $is_dst = null): int|false {}
+function gmmktime(
+    #[Required(from: '8.0')] int $hour = null,
+    ?int $minute = null,
+    ?int $second = null,
+    ?int $month = null,
+    ?int $day = null,
+    ?int $year = null,
+    #[PhpStormStubsElementAvailable(to: '7.0')] $is_dst = null
+): int|false {}
 
 /**
  * Validate a Gregorian date

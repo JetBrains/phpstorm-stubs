@@ -6,6 +6,7 @@
 
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\Required;
 use JetBrains\PhpStorm\Pure;
 
 define("ARRAY_FILTER_USE_BOTH", 1);
@@ -22,7 +23,7 @@ define("ARRAY_FILTER_USE_KEY", 2);
  * @return array An array of values resulted from merging the arguments together.
  */
 #[Pure]
-function array_merge_recursive(array ...$arrays): array {}
+function array_merge_recursive(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] array $arr1, array ...$arrays): array {}
 
 /**
  * array_replace() replaces the values of the first array with the same values from all the following arrays.
@@ -35,7 +36,7 @@ function array_merge_recursive(array ...$arrays): array {}
  * @param array $array <p>
  * The array in which elements are replaced.
  * </p>
- * @param array ...$replacements <p>
+ * @param array ...$replacements [optional] <p>
  * The array from which elements will be extracted.
  * </p>
  * @return array or null if an error occurs.
@@ -49,7 +50,7 @@ function array_replace(array $array, array ...$replacements): array {}
  * @param array $array <p>
  * The array in which elements are replaced.
  * </p>
- * @param array ...$replacements <p>
+ * @param array ...$replacements [optional] <p>
  * The array from which elements will be extracted.
  * </p>
  * @return array an array, or null if an error occurs.
@@ -265,85 +266,66 @@ function array_unique(array $array, int $flags = SORT_STRING): array {}
  * @param array $array <p>
  * The array with main values to check.
  * </p>
- * @param array ...$arrays <p>
- * An array to compare values against.
- * </p>
+ * @param array ...$arrays arrays to compare values against.
  * @return array an array containing all of the values in
  * array1 whose values exist in all of the parameters.
  * @meta
  */
 #[Pure]
-#[PhpStormStubsElementAvailable('8.0')]
-function array_intersect(array $array, array ...$arrays): array {}
-
-/**
- * Computes the intersection of arrays
- * @link https://php.net/manual/en/function.array-intersect.php
- * @param array $array1 <p>
- * The array with main values to check.
- * </p>
- * @param array $array2 <p>
- * An array to compare values against.
- * </p>
- * @param array ...$_ [optional]
- * @return array an array containing all of the values in
- * array1 whose values exist in all of the parameters.
- * @meta
- */
-#[Pure]
-#[PhpStormStubsElementAvailable(to: '7.4')]
-function array_intersect(array $array1, array $array2, array ...$_): array {}
+function array_intersect(array $array, #[Required(from: '5.3', to: '7.4')] array ...$arrays): array {}
 
 /**
  * Computes the intersection of arrays using keys for comparison
  * @link https://php.net/manual/en/function.array-intersect-key.php
- * @param array $array1 <p>
+ * @param array $array <p>
  * The array with main keys to check.
  * </p>
- * @param array $array2 <p>
- * An array to compare keys against.
- * </p>
- * @param array ...$_ [optional]
+ * @param array ...$arrays
  * @return array an associative array containing all the entries of
  * array1 which have keys that are present in all
  * arguments.
  * @meta
  */
 #[Pure]
-function array_intersect_key(array $array1, array $array2, array ...$_): array {}
+function array_intersect_key(array $array, #[Required(from: '5.3', to: '7.4')] array ...$arrays): array {}
 
 /**
  * Computes the intersection of arrays using a callback function on the keys for comparison
  * @link https://php.net/manual/en/function.array-intersect-ukey.php
- * @param array $array1 <p>
+ * @param array $array <p>
  * Initial array for comparison of the arrays.
  * </p>
  * @param array $array2 <p>
  * First array to compare keys against.
  * </p>
- * @param array ...$_ [optional]
  * @param callable $key_compare_func <p>
  * User supplied callback function to do the comparison.
  * </p>
+ * @param ...$rest [optional]
  * @return array the values of array1 whose keys exist
  * in all the arguments.
  * @meta
  */
-function array_intersect_ukey(array $array1, array $array2, array $_ = null, callable $key_compare_func): array {}
+function array_intersect_ukey(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+): array {}
 
 /**
  * Computes the intersection of arrays, compares data by a callback function
  * @link https://php.net/manual/en/function.array-uintersect.php
- * @param array $array1 <p>
+ * @param array $array <p>
  * The first array.
  * </p>
  * @param array $array2 <p>
  * The second array.
  * </p>
- * @param array ...$_ [optional]
  * @param callable $data_compare_func <p>
  * The callback comparison function.
  * </p>
+ * @param array ...$rest
  * <p>
  * The user supplied callback function is used for comparison.
  * It must return an integer less than, equal to, or greater than zero if
@@ -354,35 +336,36 @@ function array_intersect_ukey(array $array1, array $array2, array $_ = null, cal
  * that are present in all the arguments.
  * @meta
  */
-function array_uintersect(array $array1, array $array2, array $_ = null, callable $data_compare_func): array {}
+function array_uintersect(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+): array {}
 
 /**
  * Computes the intersection of arrays with additional index check
  * @link https://php.net/manual/en/function.array-intersect-assoc.php
- * @param array $array1 <p>
+ * @param array $array <p>
  * The array with main values to check.
  * </p>
- * @param array $array2 <p>
- * An array to compare values against.
- * </p>
- * @param array $_ [optional]
+ * @param array $arrays
  * @return array an associative array containing all the values in
  * array1 that are present in all of the arguments.
  * @meta
  */
 #[Pure]
-function array_intersect_assoc(array $array1, array $array2, array $_ = null): array {}
+function array_intersect_assoc(array $array, #[Required(from: '5.3', to: '7.4')] array ...$arrays): array {}
 
 /**
  * Computes the intersection of arrays with additional index check, compares data by a callback function
  * @link https://php.net/manual/en/function.array-uintersect-assoc.php
- * @param array $array1 <p>
+ * @param array $array <p>
  * The first array.
  * </p>
  * @param array $array2 <p>
  * The second array.
  * </p>
- * @param array ...$_ [optional]
  * @param callable $data_compare_func <p>
  * For comparison is used the user supplied callback function.
  * It must return an integer less than, equal
@@ -390,41 +373,51 @@ function array_intersect_assoc(array $array1, array $array2, array $_ = null): a
  * be respectively less than, equal to, or greater than the
  * second.
  * </p>
+ * @param array ...$rest
  * @return array an array containing all the values of
  * array1 that are present in all the arguments.
  * @meta
  */
-function array_uintersect_assoc(array $array1, array $array2, array $_ = null, callable $data_compare_func): array {}
+function array_uintersect_assoc(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+): array {}
 
 /**
  * Computes the intersection of arrays with additional index check, compares indexes by a callback function
  * @link https://php.net/manual/en/function.array-intersect-uassoc.php
- * @param array $array1 <p>
+ * @param array $array <p>
  * Initial array for comparison of the arrays.
  * </p>
  * @param array $array2 <p>
  * First array to compare keys against.
  * </p>
- * @param array ...$_ [optional]
  * @param callable $key_compare_func <p>
  * User supplied callback function to do the comparison.
  * </p>
+ * @param array ...$rest
  * @return array the values of array1 whose values exist
  * in all of the arguments.
  * @meta
  */
-function array_intersect_uassoc(array $array1, array $array2, array $_ = null, callable $key_compare_func): array {}
+function array_intersect_uassoc(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+): array {}
 
 /**
  * Computes the intersection of arrays with additional index check, compares data and indexes by separate callback functions
  * @link https://php.net/manual/en/function.array-uintersect-uassoc.php
- * @param array $array1 <p>
+ * @param array $array <p>
  * The first array.
  * </p>
  * @param array $array2 <p>
  * The second array.
  * </p>
- * @param array ...$_ [optional]
  * @param callable $data_compare_func <p>
  * For comparison is used the user supplied callback function.
  * It must return an integer less than, equal
@@ -435,12 +428,19 @@ function array_intersect_uassoc(array $array1, array $array2, array $_ = null, c
  * @param callable $key_compare_func <p>
  * Key comparison callback function.
  * </p>
+ * @param array ...$rest
  * @return array an array containing all the values of
  * array1 that are present in all the arguments.
  * @meta
  */
 #[Pure]
-function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, callable $data_compare_func, callable $key_compare_func): array {}
+function array_uintersect_uassoc(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+): array {}
 
 /**
  * Computes the difference of arrays
@@ -448,85 +448,67 @@ function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, 
  * @param array $array <p>
  * The array to compare from
  * </p>
- * @param array ...$excludes <p>
- * An array to compare against
- * </p>
+ * @param array ...$arrays
  * @return array an array containing all the entries from
  * array1 that are not present in any of the other arrays.
  * @meta
  */
 #[Pure]
-#[PhpStormStubsElementAvailable('8.0')]
-function array_diff(array $array, array ...$excludes): array {}
-
-/**
- * Computes the difference of arrays
- * @link https://php.net/manual/en/function.array-diff.php
- * @param array $array1 <p>
- * The array to compare from
- * </p>
- * @param array $array2 <p>
- * An array to compare against
- * </p>
- * @param array ...$_ [optional]
- * @return array an array containing all the entries from
- * array1 that are not present in any of the other arrays.
- * @meta
- */
-#[Pure]
-#[PhpStormStubsElementAvailable(to: '7.4')]
-function array_diff(array $array1, array $array2, array ...$_): array {}
+function array_diff(array $array, #[Required(from: '5.3', to: '7.4')] array ...$arrays): array {}
 
 /**
  * Computes the difference of arrays using keys for comparison
  * @link https://php.net/manual/en/function.array-diff-key.php
- * @param array $array1 <p>
+ * @param array $array <p>
  * The array to compare from
  * </p>
- * @param array $array2 <p>
+ * @param array $arrays <p>
  * An array to compare against
  * </p>
- * @param array ...$_ [optional]
  * @return array an array containing all the entries from
  * array1 whose keys are not present in any of the
  * other arrays.
  * @meta
  */
 #[Pure]
-function array_diff_key(array $array1, array $array2, array ...$_): array {}
+function array_diff_key(array $array, #[Required(from: '5.3', to: '7.4')] array ...$arrays): array {}
 
 /**
  * Computes the difference of arrays using a callback function on the keys for comparison
  * @link https://php.net/manual/en/function.array-diff-ukey.php
- * @param array $array1 <p>
+ * @param array $array <p>
  * The array to compare from
  * </p>
  * @param array $array2 <p>
  * An array to compare against
  * </p>
- * @param array ...$_ [optional]
  * @param callable $key_compare_func <p>
  * callback function to use.
  * The callback function must return an integer less than, equal
  * to, or greater than zero if the first argument is considered to
  * be respectively less than, equal to, or greater than the second.
  * </p>
+ * @param array ...$rest [optional]
  * @return array an array containing all the entries from
  * array1 that are not present in any of the other arrays.
  * @meta
  */
-function array_diff_ukey(array $array1, array $array2, array $_ = null, callable $key_compare_func): array {}
+function array_diff_ukey(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest,
+): array {}
 
 /**
  * Computes the difference of arrays by using a callback function for data comparison
  * @link https://php.net/manual/en/function.array-udiff.php
- * @param array $array1 <p>
+ * @param array $array <p>
  * The first array.
  * </p>
  * @param array $array2 <p>
  * The second array.
  * </p>
- * @param array ...$_ [optional]
  * @param callable $data_compare_func <p>
  * The callback comparison function.
  * </p>
@@ -536,39 +518,43 @@ function array_diff_ukey(array $array1, array $array2, array $_ = null, callable
  * the first argument is considered to be respectively less than, equal
  * to, or greater than the second.
  * </p>
+ * @param array ...$rest [optional]
  * @return array an array containing all the values of array1
  * that are not present in any of the other arguments.
  * @meta
  */
-function array_udiff(array $array1, array $array2, array $_ = null, callable $data_compare_func): array {}
+function array_udiff(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest,
+): array {}
 
 /**
  * Computes the difference of arrays with additional index check
  * @link https://php.net/manual/en/function.array-diff-assoc.php
- * @param array $array1 <p>
+ * @param array $array <p>
  * The array to compare from
  * </p>
- * @param array $array2 <p>
+ * @param array $arrays <p>
  * An array to compare against
  * </p>
- * @param array ...$_ [optional]
  * @return array an array containing all the values from
  * array1 that are not present in any of the other arrays.
  * @meta
  */
 #[Pure]
-function array_diff_assoc(array $array1, array $array2, array ...$_): array {}
+function array_diff_assoc(array $array, #[Required(from: '5.3', to: '7.4')] array ...$arrays): array {}
 
 /**
  * Computes the difference of arrays with additional index check, compares data by a callback function
  * @link https://php.net/manual/en/function.array-udiff-assoc.php
- * @param array $array1 <p>
+ * @param array $array <p>
  * The first array.
  * </p>
  * @param array $array2 <p>
  * The second array.
  * </p>
- * @param array ...$_ [optional]
  * @param callable $data_compare_func <p>
  * The callback comparison function.
  * </p>
@@ -578,6 +564,7 @@ function array_diff_assoc(array $array1, array $array2, array ...$_): array {}
  * the first argument is considered to be respectively less than, equal
  * to, or greater than the second.
  * </p>
+ * @param array ...$rest [optional]
  * @return array array_udiff_assoc returns an array
  * containing all the values from array1
  * that are not present in any of the other arguments.
@@ -589,40 +576,49 @@ function array_diff_assoc(array $array1, array $array2, array ...$_): array {}
  * comparison.
  * @meta
  */
-function array_udiff_assoc(array $array1, array $array2, array $_ = null, callable $data_compare_func): array {}
+function array_udiff_assoc(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest,
+): array {}
 
 /**
  * Computes the difference of arrays with additional index check which is performed by a user supplied callback function
  * @link https://php.net/manual/en/function.array-diff-uassoc.php
- * @param array $array1 <p>
+ * @param array $array <p>
  * The array to compare from
  * </p>
  * @param array $array2 <p>
  * An array to compare against
  * </p>
- * @param array ...$_ [optional]
  * @param callable $key_compare_func <p>
  * callback function to use.
  * The callback function must return an integer less than, equal
  * to, or greater than zero if the first argument is considered to
  * be respectively less than, equal to, or greater than the second.
  * </p>
+ * @param array ...$rest [optional]
  * @return array an array containing all the entries from
  * array1 that are not present in any of the other arrays.
  * @meta
  */
-function array_diff_uassoc(array $array1, array $array2, array $_ = null, callable $key_compare_func): array {}
+function array_diff_uassoc(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest,
+): array {}
 
 /**
  * Computes the difference of arrays with additional index check, compares data and indexes by a callback function
  * @link https://php.net/manual/en/function.array-udiff-uassoc.php
- * @param array $array1 <p>
+ * @param array $array <p>
  * The first array.
  * </p>
  * @param array $array2 <p>
  * The second array.
  * </p>
- * @param array ...$_ [optional]
  * @param callable $data_compare_func <p>
  * The callback comparison function.
  * </p>
@@ -645,12 +641,19 @@ function array_diff_uassoc(array $array1, array $array2, array $_ = null, callab
  * array_udiff_assoc does, since the latter compares
  * the indices by using an internal function.
  * </p>
+ * @param array ...$rest [optional]
  * @return array an array containing all the values from
  * array1 that are not present in any of the other
  * arguments.
  * @meta
  */
-function array_udiff_uassoc(array $array1, array $array2, array $_ = null, callable $data_compare_func, callable $key_compare_func): array {}
+function array_udiff_uassoc(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+): array {}
 
 /**
  * Calculate the sum of values in an array
@@ -719,12 +722,16 @@ function array_filter(array $array, ?callable $callback, int $mode = 0): array {
  * @param array $array <p>
  * An array to run through the callback function.
  * </p>
- * @param array ...$arrays [optional]
+ * @param array ...$arrays
  * @return array an array containing all the elements of arr1
  * after applying the callback function to each one.
  * @meta
  */
-function array_map(?callable $callback, array $array, array ...$arrays): array {}
+function array_map(
+    ?callable $callback,
+    #[PhpStormStubsElementAvailable(from: '8.0')] array $array,
+    #[Required(from: '5.3', to: '7.4')] array ...$arrays
+): array {}
 
 /**
  * Split an array into chunks
@@ -862,7 +869,10 @@ function key_exists($key, array $array): bool {}
  * <p>An optional description that will be included in the failure message if the assertion fails.</p>
  * @return bool false if the assertion is false, true otherwise.
  */
-function assert(mixed $assertion, $description = ''): bool {}
+function assert(
+    mixed $assertion,
+    #[LanguageLevelTypeAware(['8.0' => 'Throwable|string|null'], default: 'string')] $description = ''
+): bool {}
 
 /**
  * AssertionError is thrown when an assertion made via {@see assert()} fails.

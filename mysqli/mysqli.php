@@ -165,6 +165,8 @@ class mysqli
     #[LanguageLevelTypeAware(['8.1' => 'array'], default: '')]
     public $error_list;
 
+    public $stat;
+
     /**
      * Open a new connection to the MySQL server
      * @link https://php.net/manual/en/mysqli.construct.php
@@ -176,12 +178,12 @@ class mysqli
      * @param string $socket [optional] Specifies the socket or named pipe that should be used. Defaults to ini_get("mysqli.default_socket")
      */
     public function __construct(
-        $hostname = null,
-        $username = null,
-        $password = null,
-        $database = null,
-        $port = null,
-        $socket = null
+        ?string $hostname = null,
+        ?string $username = null,
+        ?string $password = null,
+        ?string $database = null,
+        ?int $port = null,
+        ?string $socket = null
     ) {}
 
     /**
@@ -192,7 +194,7 @@ class mysqli
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function autocommit($enable) {}
+    public function autocommit(bool $enable) {}
 
     /**
      * Starts a transaction
@@ -202,7 +204,10 @@ class mysqli
      * @return bool true on success or false on failure.
      * @since 5.5
      */
-    public function begin_transaction($flags = 0, $name = null) {}
+    public function begin_transaction(
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $flags = 0,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $name = null
+    ) {}
 
     /**
      * Changes the user of the specified database connection
@@ -223,7 +228,7 @@ class mysqli
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function change_user($username, $password, $database) {}
+    public function change_user(string $username, string $password, ?string $database) {}
 
     /**
      * Returns the default character set for the database connection
@@ -252,7 +257,7 @@ class mysqli
      * @param string $name If provided then COMMIT $name is executed.
      * @return bool true on success or false on failure.
      */
-    public function commit($flags = -1, $name = null) {}
+    public function commit(int $flags = -1, ?string $name = null) {}
 
     /**
      * @link https://php.net/manual/en/function.mysqli-connect.php
@@ -263,7 +268,14 @@ class mysqli
      * @param int $port [optional]
      * @param string $socket [optional]
      */
-    public function connect($hostname = null, $username = null, $password = null, $database = null, $port = null, $socket = null) {}
+    public function connect(
+        ?string $hostname = null,
+        ?string $username = null,
+        ?string $password = null,
+        ?string $database = null,
+        ?int $port = null,
+        ?string $socket = null
+    ) {}
 
     /**
      * Dump debugging information into the log
@@ -280,7 +292,7 @@ class mysqli
      * </p>
      * @return bool true.
      */
-    public function debug($options) {}
+    public function debug(string $options) {}
 
     /**
      * Returns a character set object
@@ -344,7 +356,7 @@ class mysqli
      * @param int $process_id
      * @return bool true on success or false on failure.
      */
-    public function kill($process_id) {}
+    public function kill(int $process_id) {}
 
     /**
      * Performs a query on the database
@@ -359,7 +371,7 @@ class mysqli
      * To retrieve subsequent errors from other statements you have to call
      * <b>mysqli_next_result</b> first.
      */
-    public function multi_query($query) {}
+    public function multi_query(string $query) {}
 
     /**
      * @link https://php.net/manual/en/mysqli.construct.php
@@ -437,7 +449,7 @@ class mysqli
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function options($option, $value) {}
+    public function options(int $option, $value) {}
 
     /**
      * Pings a server connection, or tries to reconnect if the connection has gone down
@@ -482,7 +494,7 @@ class mysqli
      * </p>
      * @return mysqli_stmt|false <b>mysqli_prepare</b> returns a statement object or false if an error occurred.
      */
-    public function prepare($query) {}
+    public function prepare(string $query) {}
 
     /**
      * Performs a query on the database
@@ -514,7 +526,7 @@ class mysqli
      * a <b>mysqli_result</b> object. For other successful queries <b>mysqli_query</b> will
      * return true and false on failure.
      */
-    public function query($query, $result_mode = MYSQLI_STORE_RESULT) {}
+    public function query(string $query, int $result_mode = MYSQLI_STORE_RESULT) {}
 
     /**
      * Opens a connection to a mysql server
@@ -592,7 +604,15 @@ class mysqli
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function real_connect($hostname = null, $username = null, $password = null, $database = null, $port = null, $socket = null, $flags = null) {}
+    public function real_connect(
+        ?string $hostname = null,
+        ?string $username = null,
+        ?string $password = null,
+        ?string $database = null,
+        ?int $port = null,
+        ?string $socket = null,
+        int $flags = null
+    ) {}
 
     /**
      * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection
@@ -606,7 +626,7 @@ class mysqli
      * </p>
      * @return string an escaped string.
      */
-    public function real_escape_string($string) {}
+    public function real_escape_string(string $string) {}
 
     /**
      * Poll connections
@@ -625,7 +645,7 @@ class mysqli
      * </p>
      * @return int|false number of ready connections in success, false otherwise.
      */
-    public static function poll(array &$read, array &$error, array &$reject, $seconds, $microseconds = 0) {}
+    public static function poll(?array &$read, ?array &$error, array &$reject, int $seconds, int $microseconds = 0) {}
 
     /**
      * Get result from async query
@@ -641,7 +661,7 @@ class mysqli
      * @return string
      * @link https://secure.php.net/manual/en/mysqli.real-escape-string.php
      */
-    public function escape_string($string) {}
+    public function escape_string(string $string) {}
 
     /**
      * Execute an SQL query
@@ -654,7 +674,7 @@ class mysqli
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function real_query($query) {}
+    public function real_query(string $query) {}
 
     /**
      * Execute an SQL query
@@ -663,7 +683,7 @@ class mysqli
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 5.5
      */
-    public function release_savepoint($name) {}
+    public function release_savepoint(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $name) {}
 
     /**
      * Rolls back current transaction
@@ -673,7 +693,10 @@ class mysqli
      * @return bool true on success or false on failure.
      * @since 5.5 Added flags and name parameters.
      */
-    public function rollback($flags = 0, $name = null) {}
+    public function rollback(
+        #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $flags = 0,
+        #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')] $name = null
+    ) {}
 
     /**
      * Set a named transaction savepoint
@@ -682,7 +705,7 @@ class mysqli
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 5.5
      */
-    public function savepoint($name) {}
+    public function savepoint(#[LanguageLevelTypeAware(['8.1' => 'string'], default: '')] $name) {}
 
     /**
      * Selects the default database for database queries
@@ -692,7 +715,7 @@ class mysqli
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function select_db($database) {}
+    public function select_db(string $database) {}
 
     /**
      * Sets the default client character set
@@ -702,14 +725,14 @@ class mysqli
      * </p>
      * @return bool true on success or false on failure..5
      */
-    public function set_charset($charset) {}
+    public function set_charset(string $charset) {}
 
     /**
      * @link https://php.net/manual/en/function.mysqli-set-opt
      * @param int   $option
      * @param mixed $value
      */
-    public function set_opt($option, $value) {}
+    public function set_opt(int $option, $value) {}
 
     /**
      * Used for establishing secure connections using SSL
@@ -731,7 +754,7 @@ class mysqli
      * </p>
      * @return bool This function always returns TRUE value.
      */
-    public function ssl_set($key, $certificate, $ca_certificate, $ca_path, $cipher_algos) {}
+    public function ssl_set(?string $key, ?string $certificate, ?string $ca_certificate, ?string $ca_path, ?string $cipher_algos) {}
 
     /**
      * Gets the current system status
@@ -767,7 +790,7 @@ class mysqli
      * <b>mysqli_field_count</b> returns a non-zero value, the
      * statement should have produced a non-empty result set.
      */
-    public function store_result($mode = null) {}
+    public function store_result(int $mode = null) {}
 
     /**
      * Returns whether thread safety is given or not
@@ -789,7 +812,7 @@ class mysqli
      * @return bool TRUE if the refresh was a success, otherwise FALSE
      * @since 5.3
      */
-    public function refresh($flags) {}
+    public function refresh(#[LanguageLevelTypeAware(['8.1' => 'int'], default: '')] $flags) {}
 }
 
 /**
@@ -866,7 +889,7 @@ class mysqli_result implements IteratorAggregate
      * @param object $mysql [optional]
      * @param int $result_mode [optional]
      */
-    public function __construct($mysql = null, $result_mode = 0) {}
+    public function __construct(mysqli $mysql = null, int $result_mode = 0) {}
 
     /**
      * Frees the memory associated with a result
@@ -891,7 +914,7 @@ class mysqli_result implements IteratorAggregate
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function data_seek($offset) {}
+    public function data_seek(int $offset) {}
 
     /**
      * Returns the next field in the result set
@@ -1087,7 +1110,7 @@ class mysqli_result implements IteratorAggregate
      * </tr>
      * </table>
      */
-    public function fetch_field_direct($index) {}
+    public function fetch_field_direct(int $index) {}
 
     /**
      * Fetches all result rows as an associative array, a numeric array, or both
@@ -1100,7 +1123,7 @@ class mysqli_result implements IteratorAggregate
      * </p>
      * @return mixed an array of associative or numeric arrays holding result rows.
      */
-    public function fetch_all($mode = MYSQLI_NUM) {}
+    public function fetch_all(int $mode = MYSQLI_NUM) {}
 
     /**
      * Fetch a result row as an associative, a numeric array, or both
@@ -1122,7 +1145,7 @@ class mysqli_result implements IteratorAggregate
      * @return mixed an array of strings that corresponds to the fetched row or null if there
      * are no more rows in resultset.
      */
-    public function fetch_array($mode = MYSQLI_BOTH) {}
+    public function fetch_array(int $mode = MYSQLI_BOTH) {}
 
     /**
      * Fetch a result row as an associative array
@@ -1153,7 +1176,7 @@ class mysqli_result implements IteratorAggregate
      * @return stdClass|object an object with string properties that corresponds to the fetched
      * row or null if there are no more rows in resultset.
      */
-    public function fetch_object($class = 'stdClass', array $constructor_args = null) {}
+    public function fetch_object(string $class = 'stdClass', array $constructor_args = null) {}
 
     /**
      * Get a result row as an enumerated array
@@ -1175,7 +1198,7 @@ class mysqli_result implements IteratorAggregate
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function field_seek($index) {}
+    public function field_seek(int $index) {}
 
     /**
      * Frees the memory associated with a result
@@ -1263,7 +1286,7 @@ class mysqli_stmt
      * </p>
      * @return int|false false if the attribute is not found, otherwise returns the value of the attribute.
      */
-    public function attr_get($attribute) {}
+    public function attr_get(int $attribute) {}
 
     /**
      * Used to modify the behavior of a prepared statement
@@ -1317,7 +1340,7 @@ class mysqli_stmt
      * @param int $value <p>The value to assign to the attribute.</p>
      * @return bool
      */
-    public function attr_set($attribute, $value) {}
+    public function attr_set(int $attribute, int $value) {}
 
     /**
      * Binds variables to a prepared statement as parameters
@@ -1383,14 +1406,14 @@ class mysqli_stmt
      * </p>
      * @return void
      */
-    public function data_seek($offset) {}
+    public function data_seek(int $offset) {}
 
     /**
      * Executes a prepared Query
      * @link https://php.net/manual/en/mysqli-stmt.execute.php
      * @return bool true on success or false on failure.
      */
-    public function execute(#[PhpStormStubsElementAvailable('8.1')] $params = null) {}
+    public function execute(#[PhpStormStubsElementAvailable('8.1')] ?array $params = null) {}
 
     /**
      * Fetch results from a prepared statement into the bound variables
@@ -1446,7 +1469,7 @@ class mysqli_stmt
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function send_long_data($param_num, $data) {}
+    public function send_long_data(int $param_num, string $data) {}
 
     /**
      * No documentation available
@@ -1501,7 +1524,7 @@ class mysqli_stmt
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function prepare($query) {}
+    public function prepare(string $query) {}
 
     /**
      * Transfers a result set from a prepared statement
@@ -1597,7 +1620,7 @@ function mysqli_commit(mysqli $mysql, int $flags = -1, ?string $name): bool {}
  * @param string|null $socket Specifies the socket or named pipe that should be used.
  * @return mysqli|false|null object which represents the connection to a MySQL Server or false if an error occurred.
  */
-function mysqli_connect(?string $hostname = null, ?string $username = null, ?string $password = null, ?string $database = null, ?int $port = null, ?string $socket = null): mysqli|false|null {}
+function mysqli_connect(?string $hostname = null, ?string $username = null, ?string $password = null, ?string $database = null, ?int $port = null, ?string $socket = null): mysqli|false {}
 
 /**
  * Returns the error code from last connect call
@@ -1873,11 +1896,11 @@ function mysqli_get_charset(mysqli $mysql): ?object {}
 /**
  * Get MySQL client info
  * @link https://php.net/manual/en/mysqli.get-client-info.php
- * @param mysqli|null $mysql [optional] A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli|null $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string|null A string that represents the MySQL client library version
  */
 #[LanguageLevelTypeAware(['8.1' => 'string'], default: '?string')]
-function mysqli_get_client_info(?mysqli $mysql) {}
+function mysqli_get_client_info(?mysqli $mysql = null) {}
 
 /**
  * Returns the MySQL client version as an integer
@@ -2350,20 +2373,24 @@ function mysqli_stmt_send_long_data(mysqli_stmt $statement, int $param_num, stri
  * The number of variables and length of string
  * types must match the parameters in the statement.
  * </p>
- * @param mixed &...$_ [optional]
+ * @param mixed &...$vars [optional]
  * @return bool true on success or false on failure.
  */
-function mysqli_stmt_bind_param(mysqli_stmt $statement, string $types, mixed &$var1, &...$_): bool {}
+function mysqli_stmt_bind_param(mysqli_stmt $statement, string $types, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed &$var1, mixed &...$vars): bool {}
 
 /**
  * Binds variables to a prepared statement for result storage
  * @link https://php.net/manual/en/mysqli-stmt.bind-result.php
  * @param mysqli_stmt $statement Statement
  * @param mixed &$var1 The variable to be bound.
- * @param mixed &...$_ The variables to be bound.
+ * @param mixed &...$vars The variables to be bound.
  * @return bool
  */
-function mysqli_stmt_bind_result(mysqli_stmt $statement, mixed &$var1, &...$_): bool {}
+function mysqli_stmt_bind_result(
+    mysqli_stmt $statement,
+    #[PhpStormStubsElementAvailable(from: '7.2', to: '7.4')] mixed &$var1,
+    mixed &...$vars
+): bool {}
 
 /**
  * Fetch results from a prepared statement into the bound variables
@@ -2669,7 +2696,7 @@ function mysqli_send_long_data(mysqli_stmt $statement, int $param_num, string $d
  * @param mixed $value
  * @return bool
  */
-function mysqli_set_opt(mysqli $mysql, int $option, mixed $value): bool {}
+function mysqli_set_opt(mysqli $mysql, int $option, $value): bool {}
 
 /**
  * <p>

@@ -21,7 +21,8 @@ class ReflectionFunctionsProvider
     {
         foreach (EntitiesFilter::getFiltered(
             ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
-            problemTypes: StubProblemType::FUNCTION_IS_DEPRECATED
+            null,
+            StubProblemType::FUNCTION_IS_DEPRECATED
         ) as $function) {
             yield "function $function->name" => [$function];
         }
@@ -31,7 +32,9 @@ class ReflectionFunctionsProvider
     {
         foreach (EntitiesFilter::getFiltered(
             ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
-            problemTypes: StubProblemType::FUNCTION_PARAMETER_MISMATCH
+            null,
+            StubProblemType::FUNCTION_PARAMETER_MISMATCH,
+            StubProblemType::HAS_DUPLICATION
         ) as $function) {
             yield "function $function->name" => [$function];
         }

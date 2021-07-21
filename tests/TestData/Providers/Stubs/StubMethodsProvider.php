@@ -4,10 +4,11 @@ declare(strict_types=1);
 namespace StubTests\TestData\Providers\Stubs;
 
 use Generator;
+use RuntimeException;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\StubProblemType;
-use StubTests\Parsers\Utils;
+use StubTests\Parsers\ParserUtils;
 use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
@@ -52,6 +53,9 @@ class StubMethodsProvider
         }
     }
 
+    /**
+     * @throws RuntimeException
+     */
     public static function methodsForReturnTypeHintTestsProvider(): ?Generator
     {
         $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(7);
@@ -62,6 +66,9 @@ class StubMethodsProvider
         );
     }
 
+    /**
+     * @throws RuntimeException
+     */
     public static function methodsForNullableReturnTypeHintTestsProvider(): ?Generator
     {
         $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(7.1);
@@ -72,6 +79,9 @@ class StubMethodsProvider
         );
     }
 
+    /**
+     * @throws RuntimeException
+     */
     public static function methodsForUnionReturnTypeHintTestsProvider(): ?Generator
     {
         $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(8);
@@ -82,6 +92,9 @@ class StubMethodsProvider
         );
     }
 
+    /**
+     * @throws RuntimeException
+     */
     private static function yieldFilteredMethods(callable $filterFunction, int ...$problemTypes): ?Generator
     {
         $coreClassesAndInterfaces = PhpStormStubsSingleton::getPhpStormStubs()->getCoreClasses() +
@@ -92,7 +105,7 @@ class StubMethodsProvider
                 fn (PHPMethod $method) => $method->parentName === '___PHPSTORM_HELPERS\object',
                 ...$problemTypes
             ) as $methodName => $method) {
-                $firstSinceVersion = Utils::getDeclaredSinceVersion($method);
+                $firstSinceVersion = ParserUtils::getDeclaredSinceVersion($method);
                 if ($filterFunction($class, $method, $firstSinceVersion) === true) {
                     yield "method $className::$methodName" => [$method];
                 }

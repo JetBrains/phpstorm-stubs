@@ -14,6 +14,19 @@ class ReflectionParametersProvider
     public static function functionParametersProvider(): ?Generator
     {
         foreach (EntitiesFilter::getFilteredFunctions() as $function) {
+            $PHPParameters = EntitiesFilter::getFilteredParameters(
+                $function,
+                null
+            );
+            foreach ($PHPParameters as $parameter) {
+                yield "$function->name($parameter->name)" => [$function, $parameter];
+            }
+        }
+    }
+
+    public static function functionParametersWithTypeProvider(): ?Generator
+    {
+        foreach (EntitiesFilter::getFilteredFunctions() as $function) {
             foreach (EntitiesFilter::getFilteredParameters(
                 $function,
                 null,
@@ -30,7 +43,8 @@ class ReflectionParametersProvider
             foreach (EntitiesFilter::getFilteredParameters(
                 $function,
                 fn (PHPParameter $parameter) => !$parameter->isOptional,
-                StubProblemType::PARAMETER_TYPE_MISMATCH
+                StubProblemType::PARAMETER_TYPE_MISMATCH,
+                StubProblemType::WRONG_OPTIONALLITY
             ) as $parameter) {
                 yield "$function->name($parameter->name)" => [$function, $parameter];
             }
@@ -43,7 +57,6 @@ class ReflectionParametersProvider
             foreach (EntitiesFilter::getFilteredParameters(
                 $function,
                 fn (PHPParameter $parameter) => !$parameter->isOptional || empty($parameter->defaultValue),
-                StubProblemType::PARAMETER_TYPE_MISMATCH,
                 StubProblemType::WRONG_PARAMETER_DEFAULT_VALUE
             ) as $parameter) {
                 yield "$function->name($parameter->name)" => [$function, $parameter];
@@ -78,7 +91,7 @@ class ReflectionParametersProvider
                     foreach (EntitiesFilter::getFilteredParameters(
                         $method,
                         fn (PHPParameter $parameter) => !$parameter->isOptional,
-                        StubProblemType::PARAMETER_TYPE_MISMATCH
+                        StubProblemType::WRONG_OPTIONALLITY
                     ) as $parameter) {
                         yield "$class->name::$method->name($parameter->name)" => [$class, $method, $parameter];
                     }
@@ -98,7 +111,6 @@ class ReflectionParametersProvider
                     foreach (EntitiesFilter::getFilteredParameters(
                         $method,
                         fn (PHPParameter $parameter) => !$parameter->isOptional || empty($parameter->defaultValue),
-                        StubProblemType::PARAMETER_TYPE_MISMATCH,
                         StubProblemType::WRONG_PARAMETER_DEFAULT_VALUE
                     ) as $parameter) {
                         yield "$class->name::$method->name($parameter->name)" => [$class, $method, $parameter];

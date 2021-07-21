@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -32,7 +33,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @param string|Closure $function The name of the function to reflect or a closure.
      * @throws ReflectionException if the function does not exist.
      */
-    public function __construct($function) {}
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'Closure|string'], default: '')] $function) {}
 
     /**
      * Returns the string representation of the ReflectionFunction object.
@@ -70,12 +71,12 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * Invokes function
      *
      * @link https://www.php.net/manual/en/reflectionfunction.invoke.php
-     * @param mixed ...$args The passed in argument list. It accepts a
+     * @param mixed ...$args [optional] The passed in argument list. It accepts a
      * variable number of arguments which are passed to the function much
      * like {@see call_user_func} is.
      * @return mixed Returns the result of the invoked function call.
      */
-    public function invoke(...$args) {}
+    public function invoke(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$args) {}
 
     /**
      * Invokes function args
