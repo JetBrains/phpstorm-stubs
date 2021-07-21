@@ -1,10 +1,12 @@
 <?php
 
 // Start of oci8 v.2.0.7
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * OCI8 LOB functionality for large binary (BLOB) and character (CLOB) objects.
  * @link https://php.net/manual/en/class.OCI-Lob.php
+ * @removed 8.0
  */
 class OCI_Lob
 {
@@ -164,7 +166,7 @@ class OCI_Lob
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function append(OCI_Lob $lob_from) {}
+    public function append(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_from) {}
 
     /**
      * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
@@ -274,6 +276,7 @@ class OCI_Lob
 /**
  * OCI8 Collection functionality.
  * @link https://php.net/manual/en/class.OCI-Collection.php
+ * @removed 8.0
  */
 class OCI_Collection
 {
@@ -324,7 +327,7 @@ class OCI_Collection
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function assign(OCI_Collection $from) {}
+    public function assign(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $from) {}
 
     /**
      * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
@@ -1516,7 +1519,10 @@ function oci_free_descriptor($descriptor) {}
  * </p>
  * @return bool <b>TRUE</b> if these objects are equal, <b>FALSE</b> otherwise.
  */
-function oci_lob_is_equal(OCI_Lob $lob1, OCI_Lob $lob2) {}
+function oci_lob_is_equal(
+    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob1,
+    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob2
+) {}
 
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
@@ -1533,7 +1539,11 @@ function oci_lob_is_equal(OCI_Lob $lob1, OCI_Lob $lob2) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function oci_lob_copy(OCI_Lob $lob_to, OCI_Lob $lob_from, $length = 0) {}
+function oci_lob_copy(
+    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_to,
+    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_from,
+    $length = 0
+) {}
 
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
@@ -1573,8 +1583,9 @@ function oci_rollback($connection) {}
  * <b>OCI_DTYPE_FILE</b>, <b>OCI_DTYPE_LOB</b> and
  * <b>OCI_DTYPE_ROWID</b>.
  * </p>
- * @return OCI_Lob|false A new LOB or FILE descriptor on success, <b>FALSE</b> on error.
+ * @return OCI_Lob|OCILob|false A new LOB or FILE descriptor on success, <b>FALSE</b> on error.
  */
+#[LanguageLevelTypeAware(['8.0' => 'OCILob|false'], default: 'OCI_Lob|false')]
 function oci_new_descriptor($connection, $type = OCI_DTYPE_LOB) {}
 
 /**
@@ -1699,6 +1710,7 @@ function oci_password_change($connection, $username, $old_password, $new_passwor
  * @return OCI_Collection|false A new <b>OCICollection</b> object or <b>FALSE</b> on
  * error.
  */
+#[LanguageLevelTypeAware(['8.0' => 'OCICollection|false'], default: 'OCI_Collection|false')]
 function oci_new_collection($connection, $tdo, $schema = null) {}
 
 /**
@@ -2015,46 +2027,51 @@ function ocifreedesc($lob_descriptor) {}
  * Alias of
  * {@see OCI-Lob::save}
  * @link https://php.net/manual/en/function.ocisavelob.php
- * @param OCI_Lob $lob_descriptor
+ * @param OCI_Lob|OCILob $lob_descriptor
  * @param string $data
  * @param int $offset [optional]
  * @return bool
  */
-function ocisavelob($lob_descriptor, $data, $offset) {}
+function ocisavelob(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor, $data, $offset) {}
 
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see OCI_Lob::import}
  * @link https://php.net/manual/en/function.ocisavelobfile.php
- * @param OCI_Lob $lob_descriptor
+ * @param OCI_Lob|OCILob $lob_descriptor
  * @param string $filename
  * @return bool
  */
-function ocisavelobfile($lob_descriptor, $filename) {}
+function ocisavelobfile(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor, $filename) {}
 
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see OCI_Lob::export}
  * @link https://php.net/manual/en/function.ociwritelobtofile.php
- * @param OCI_Lob $lob_descriptor
+ * @param OCI_Lob|OCILob $lob_descriptor
  * @param string $filename <p>Path to the file.</p>
  * @param int $start [optional] <p>Indicates from where to start exporting.</p>
  * @param int $length [optional] <p>Indicates the length of data to be exported.</p>
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ociwritelobtofile($lob_descriptor, $filename, $start, $length) {}
+function ociwritelobtofile(
+    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor,
+    $filename,
+    $start,
+    $length
+) {}
 
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see OCI_Lob::load}
  * @link https://php.net/manual/en/function.ociloadlob.php
- * @param OCI_Lob $lob_descriptor
+ * @param OCI_Lob|OCILob $lob_descriptor
  * @return string|false <p>Returns the contents of the object, or <b>FALSE</b> on errors.</p>
  */
-function ociloadlob($lob_descriptor) {}
+function ociloadlob(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor) {}
 
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
@@ -2093,6 +2110,7 @@ function ocirollback($connection_resource) {}
  * @param $type [optional] <p>Valid values for type are: <b>OCI_DTYPE_FILE</b>, <b>OCI_DTYPE_LOB</b> and <b>OCI_DTYPE_ROWID</b>.</p>
  * @return OCI_LOB|false Returns a new LOB or FILE descriptor on success, FALSE on error.
  */
+#[LanguageLevelTypeAware(['8.0' => 'OCILob|false'], default: 'OCI_Lob|false')]
 function ocinewdescriptor($connection_resource, $type = OCI_DTYPE_LOB) {}
 
 /**
@@ -2126,10 +2144,10 @@ function ocipasswordchange($connection_resource_or_connection_string_or_dbname, 
  * (PHP 4 &gt;= 4.0.7, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see OCI_Collection::free}
  * @link https://php.net/manual/en/function.ocifreecollection.php
- * @param OCI_Collection $collection
+ * @param OCI_Collection|OCICollection $collection
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ocifreecollection($collection) {}
+function ocifreecollection(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection) {}
 
 /**
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
@@ -2145,6 +2163,7 @@ function ocifreecollection($collection) {}
  * </p>
  * @return OCI_Collection|false <p>Returns a new OCI_Collection object or FALSE on error.</p>
  */
+#[LanguageLevelTypeAware(['8.0' => 'OCICollection|false'], default: 'OCI_Collection|false')]
 function ocinewcollection($connection_resource, $tdo, $schema = null) {}
 
 /**
@@ -2156,7 +2175,7 @@ function ocinewcollection($connection_resource, $tdo, $schema = null) {}
  * @param mixed $value <p>The value to be added to the collection. Can be a string or a number.</p>
  * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
  */
-function ocicollappend($collection, $value) {}
+function ocicollappend(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection, $value) {}
 
 /**
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
@@ -2167,7 +2186,7 @@ function ocicollappend($collection, $value) {}
  * @param int $index <p>The element index. First index is 0.</p>
  * @return mixed <p>Returns <b>FALSE</b> if such element doesn't exist; <b>NULL</b> if element is <b>NULL</b>; string if element is column of a string datatype or number if element is numeric field.</p>
  */
-function ocicollgetelem($collection, $index) {}
+function ocicollgetelem(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection, $index) {}
 
 /**
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
@@ -2178,7 +2197,7 @@ function ocicollgetelem($collection, $index) {}
  * @param $value <p>Can be a string or a number.</p>
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
-function ocicollassignelem($collection, $index, $value) {}
+function ocicollassignelem(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection, $index, $value) {}
 
 /**
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
@@ -2188,7 +2207,7 @@ function ocicollassignelem($collection, $index, $value) {}
  * @param OCI_Collection $collection
  * @return int|false <p>Returns the number of elements in the collection or <b>FALSE</b> on error.</p>
  */
-function ocicollsize($collection) {}
+function ocicollsize(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection) {}
 
 /**
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
@@ -2199,7 +2218,7 @@ function ocicollsize($collection) {}
  * @return int|false <p> Returns the maximum number as an integer, or <b>FALSE</b> on errors.
  * If the returned value is 0, then the number of elements is not limited.</p>
  */
-function ocicollmax($collection) {}
+function ocicollmax(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection) {}
 
 /**
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
@@ -2210,14 +2229,14 @@ function ocicollmax($collection) {}
  * @param int|float $number
  * @return bool Returns <b>TRUE</b> or <b>FALSE</b> on failure.
  */
-function ocicolltrim($collection, $number) {}
+function ocicolltrim(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection, $number) {}
 
 /**
  * (PHP 4 &gt;= 4.0.6, PECL OCI8 1.0)
  * Writes a temporary large object
  * Alias of {@see OCI-Lob::writeTemporary()}
  * @link https://php.net/manual/en/function.ociwritetemporarylob.php
- * @param OCI_Lob $lob_descriptor
+ * @param OCI_Lob|OCILob $lob_descriptor
  * @param string $data <p>The data to write.</p>
  * @param int $lob_type <p>
  * Can be one of the following:
@@ -2232,16 +2251,20 @@ function ocicolltrim($collection, $number) {}
  * </ul>
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
-function ociwritetemporarylob($lob_descriptor, $data, $lob_type = OCI_TEMP_CLOB) {}
+function ociwritetemporarylob(
+    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor,
+    $data,
+    $lob_type = OCI_TEMP_CLOB
+) {}
 
 /**
  * (PHP 4 &gt;= 4.0.6, PECL OCI8 1.0)
  * Alias of {@see OCI-Lob::close()}
  * @link https://php.net/manual/en/function.ocicloselob.php
- * @param OCI_Lob $lob_descriptor
+ * @param OCI_Lob|OCILob $lob_descriptor
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
-function ocicloselob($lob_descriptor) {}
+function ocicloselob(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor) {}
 
 /**
  * (PHP 4 >= 4.0.6, PECL OCI8 1.0)
@@ -2252,7 +2275,10 @@ function ocicloselob($lob_descriptor) {}
  * @param OCI_Collection $from An instance of OCI-Collection.
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
-function ocicollassign($to, $from) {}
+function ocicollassign(
+    #[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $to,
+    #[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $from
+) {}
 /**
  * See <b>OCI_NO_AUTO_COMMIT</b>.
  * @link https://php.net/manual/en/oci8.constants.php
