@@ -5,6 +5,10 @@ services:
     volumes:
       - .:/opt/project/phpstorm-stubs
   test_runner:
-    build: tests/DockerImages/8.0
+    build: tests/DockerImages/testRunner
+    volumes:
+      - .:/opt/project/phpstorm-stubs
+  pecl_extensions:
+    build: tests/DockerImages/peclExtensions
     volumes:
       - .:/opt/project/phpstorm-stubs
