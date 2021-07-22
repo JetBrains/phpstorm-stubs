@@ -1,0 +1,18 @@
+name: PhpStorm Stubs PECL Test
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build Docker Container
+        run: docker-compose -f docker-compose.yml build >/dev/null
+      - name: Composer Install
+        run: docker-compose -f docker-compose.yml run test_runner composer install -d /opt/project/phpstorm-stubs --ignore-platform-reqs
+      - name: Dump Reflection To File
+        run: docker-compose -f docker-compose.yml run pecl_extensions /usr/local/bin/php /opt/project/phpstorm-stubs/tests/Tools/dump-reflection-to-file.php
+      - name: Run Tests
+        run: docker-compose -f docker-compose.yml run test_runner /opt/project/phpstorm-stubs/vendor/bin/phpunit /opt/project/phpstorm-stubs/tests/
