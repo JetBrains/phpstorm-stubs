@@ -1533,6 +1533,7 @@ class MessageFormatter
      * umsg_autoQuoteApostrophe
      * before being interpreted.
      * </p>
+     * @throws IntlException on failure.
      */
     #[Pure]
     public function __construct($locale, $pattern) {}
@@ -1717,8 +1718,8 @@ class IntlDateFormatter
 
     /**
      * @param string|null $locale
-     * @param int $dateType
-     * @param int $timeType
+     * @param int $dateType [optional]
+     * @param int $timeType [optional]
      * @param mixed|null $timezone [optional]
      * @param mixed|null $calendar [optional]
      * @param string $pattern [optional]
@@ -1733,14 +1734,14 @@ class IntlDateFormatter
      * @param string $locale <p>
      * Locale to use when formatting or parsing; default is specified in the ini setting intl.default_locale.
      * </p>
-     * @param int $dateType <p>
+     * @param int $dateType [optional] <p>
      * Date type to use (<b>none</b>,
      * <b>short</b>, <b>medium</b>,
      * <b>long</b>, <b>full</b>).
      * This is one of the
      * IntlDateFormatter constants.
      * </p>
-     * @param int $timeType <p>
+     * @param int $timeType [optional] <p>
      * Time type to use (<b>none</b>,
      * <b>short</b>, <b>medium</b>,
      * <b>long</b>, <b>full</b>).
@@ -2128,6 +2129,7 @@ class Transliterator
     public const FORWARD = 0;
     public const REVERSE = 1;
 
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $id;
 
     /**
@@ -3609,7 +3611,7 @@ function collator_get_sort_key(Collator $object, string $string): string|false {
  * @return NumberFormatter|false|null <b>NumberFormatter</b> object or <b>FALSE</b> on error.
  */
 #[Pure]
-function numfmt_create(string $locale, int $style, #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $pattern = null): ?NumberFormatter {}
+function numfmt_create(string $locale, int $style, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $pattern = null): ?NumberFormatter {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -3843,7 +3845,8 @@ function numfmt_get_error_message(NumberFormatter $formatter): string {}
  * @return string|false The normalized string or <b>FALSE</b> if an error occurred.
  */
 #[Pure]
-function normalizer_normalize(string $string, int $form = Normalizer::FORM_C): string|false {}
+#[LanguageLevelTypeAware(['8.1' => 'string|false|null'], default: 'string|false')]
+function normalizer_normalize(string $string, int $form = Normalizer::FORM_C) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4198,7 +4201,8 @@ function msgfmt_parse(MessageFormatter $formatter, string $string): array|false 
  * @return array|false An array containing items extracted, or <b>FALSE</b> on error
  */
 #[Pure]
-function msgfmt_parse_message(string $locale, string $pattern, string $message): array|false {}
+#[LanguageLevelTypeAware(['8.1' => 'array|false|null'], default: 'array|false')]
+function msgfmt_parse_message(string $locale, string $pattern, string $message) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4262,14 +4266,14 @@ function msgfmt_get_error_message(MessageFormatter $formatter): string {}
  * @param string|null $locale <p>
  * Locale to use when formatting or parsing.
  * </p>
- * @param int $dateType <p>
+ * @param int $dateType [optional] <p>
  * Date type to use (<b>none</b>,
  * <b>short</b>, <b>medium</b>,
  * <b>long</b>, <b>full</b>).
  * This is one of the
  * IntlDateFormatter constants.
  * </p>
- * @param int $timeType <p>
+ * @param int $timeType [optional] <p>
  * Time type to use (<b>none</b>,
  * <b>short</b>, <b>medium</b>,
  * <b>long</b>, <b>full</b>).
@@ -4297,7 +4301,7 @@ function datefmt_create(
     int $timeType,
     $timezone = null,
     IntlCalendar|int|null $calendar = null,
-    #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $pattern = null
+    #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $pattern = null
 ): ?IntlDateFormatter {}
 
 /**
@@ -4960,7 +4964,8 @@ function intl_get($calendar, $field) {}
  * @since 5.5
  */
 #[Pure]
-function intlcal_get_time(IntlCalendar $calendar): float {}
+#[LanguageLevelTypeAware(['8.1' => 'float|false'], default: 'float')]
+function intlcal_get_time(IntlCalendar $calendar) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5185,7 +5190,8 @@ function intlcal_clear(IntlCalendar $calendar, ?int $field = null): bool {}
  * @since 5.5
  */
 #[Pure]
-function intlcal_field_difference(IntlCalendar $calendar, float $timestamp, int $field): int {}
+#[LanguageLevelTypeAware(['8.1' => 'int|false'], default: 'int')]
+function intlcal_field_difference(IntlCalendar $calendar, float $timestamp, int $field) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5205,7 +5211,8 @@ function intlcal_field_difference(IntlCalendar $calendar, float $timestamp, int 
  * @since 5.5
  */
 #[Pure]
-function intlcal_get_actual_maximum(IntlCalendar $calendar, int $field): int {}
+#[LanguageLevelTypeAware(['8.1' => 'int|false'], default: 'int')]
+function intlcal_get_actual_maximum(IntlCalendar $calendar, int $field) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5225,7 +5232,8 @@ function intlcal_get_actual_maximum(IntlCalendar $calendar, int $field): int {}
  * @since 5.5
  */
 #[Pure]
-function intlcal_get_actual_minimum(IntlCalendar $calendar, int $field): int {}
+#[LanguageLevelTypeAware(['8.1' => 'int|false'], default: 'int')]
+function intlcal_get_actual_minimum(IntlCalendar $calendar, int $field) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5248,7 +5256,8 @@ function intlcal_get_actual_minimum(IntlCalendar $calendar, int $field): int {}
  * @since 5.5
  */
 #[Pure]
-function intlcal_get_day_of_week_type(IntlCalendar $calendar, int $dayOfWeek): int {}
+#[LanguageLevelTypeAware(['8.1' => 'int|false'], default: 'int')]
+function intlcal_get_day_of_week_type(IntlCalendar $calendar, int $dayOfWeek) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5264,7 +5273,8 @@ function intlcal_get_day_of_week_type(IntlCalendar $calendar, int $dayOfWeek): i
  * @since 5.5
  */
 #[Pure]
-function intlcal_get_first_day_of_week(IntlCalendar $calendar): int {}
+#[LanguageLevelTypeAware(['8.1' => 'int|false'], default: 'int')]
+function intlcal_get_first_day_of_week(IntlCalendar $calendar) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5298,7 +5308,8 @@ function intlcal_greates_minimum($calendar, $field) {}
  * @return int An integer with the value of the time field.
  */
 #[Pure]
-function intlcal_get(IntlCalendar $calendar, int $field): int {}
+#[LanguageLevelTypeAware(['8.1' => 'int|false'], default: 'int')]
+function intlcal_get(IntlCalendar $calendar, int $field) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5319,7 +5330,8 @@ function intlcal_get(IntlCalendar $calendar, int $field): int {}
  * @since 5.5
  */
 #[Pure]
-function intlcal_get_least_maximum(IntlCalendar $calendar, int $field): int {}
+#[LanguageLevelTypeAware(['8.1' => 'int|false'], default: 'int')]
+function intlcal_get_least_maximum(IntlCalendar $calendar, int $field) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5338,7 +5350,8 @@ function intlcal_get_least_maximum(IntlCalendar $calendar, int $field): int {}
  * @since 5.5
  */
 #[Pure]
-function intlcal_get_greatest_minimum(IntlCalendar $calendar, int $field): int {}
+#[LanguageLevelTypeAware(['8.1' => 'int|false'], default: 'int')]
+function intlcal_get_greatest_minimum(IntlCalendar $calendar, int $field) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5360,7 +5373,8 @@ function intlcal_get_greatest_minimum(IntlCalendar $calendar, int $field): int {
  * @since 5.5
  */
 #[Pure]
-function intlcal_get_locale(IntlCalendar $calendar, int $type): string {}
+#[LanguageLevelTypeAware(['8.1' => 'string|false'], default: 'string')]
+function intlcal_get_locale(IntlCalendar $calendar, int $type) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5392,7 +5406,8 @@ function intcal_get_maximum($calendar, $field) {}
  * @since 5.5
  */
 #[Pure]
-function intlcal_get_minimal_days_in_first_week(IntlCalendar $calendar): int {}
+#[LanguageLevelTypeAware(['8.1' => 'int|false'], default: 'int')]
+function intlcal_get_minimal_days_in_first_week(IntlCalendar $calendar) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5411,7 +5426,8 @@ function intlcal_get_minimal_days_in_first_week(IntlCalendar $calendar): int {}
  * @since 5.5
  */
 #[Pure]
-function intlcal_get_minimum(IntlCalendar $calendar, int $field): int {}
+#[LanguageLevelTypeAware(['8.1' => 'int|false'], default: 'int')]
+function intlcal_get_minimum(IntlCalendar $calendar, int $field) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5461,7 +5477,8 @@ function intlcal_get_type(IntlCalendar $calendar): string {}
  * @since 5.5
  */
 #[Pure]
-function intlcal_get_weekend_transition(IntlCalendar $calendar, int $dayOfWeek): int {}
+#[LanguageLevelTypeAware(['8.1' => 'int|false'], default: 'int')]
+function intlcal_get_weekend_transition(IntlCalendar $calendar, int $dayOfWeek) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5528,7 +5545,8 @@ function intlcal_is_set(IntlCalendar $calendar, int $field): bool {}
  * @since 5.5
  */
 #[Pure]
-function intlcal_get_maximum(IntlCalendar $calendar, int $field): int {}
+#[LanguageLevelTypeAware(['8.1' => 'int|false'], default: 'int')]
+function intlcal_get_maximum(IntlCalendar $calendar, int $field) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>

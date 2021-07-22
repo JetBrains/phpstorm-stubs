@@ -22,7 +22,7 @@ class Parser
     public const ACTION_ACCEPT = 4;
     public const ERROR_SYNTAX = 0;
     public const ERROR_NON_ASSOCIATIVE = 1;
-    public const ERROR_UNKOWN_TOKEN = 2;
+    public const ERROR_UNKNOWN_TOKEN = 2;
 
     /* Properties */
     /**

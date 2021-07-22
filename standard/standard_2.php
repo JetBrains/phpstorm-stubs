@@ -479,16 +479,7 @@ function fscanf($stream, string $format, #[TypeContract(exists: "int|false|null"
  * If the component parameter is specified a
  * string is returned instead of an array.
  */
-#[ArrayShape([
-    "scheme" => "string",
-    "host" => "string",
-    "port" => "int",
-    "user" => "string",
-    "pass" => "string",
-    "query" => "string",
-    "path" => "string",
-    "fragment" => "string",
-])]
+#[ArrayShape(["scheme" => "string", "host" => "string", "port" => "int", "user" => "string", "pass" => "string", "query" => "string", "path" => "string", "fragment" => "string"])]
 #[Pure]
 function parse_url(string $url, int $component = -1) {}
 
@@ -911,16 +902,7 @@ function proc_terminate($process, int $signal = 15): bool {}
  * </td>
  * </tr>
  */
-#[ArrayShape([
-    "command" => "string",
-    "pid" => "int",
-    "running" => "bool",
-    "signaled" => "bool",
-    "stopped" => "bool",
-    "exitcode" => "int",
-    "termsig" => "int",
-    "stopsig" => "int",
-])]
+#[ArrayShape(["command" => "string", "pid" => "int", "running" => "bool", "signaled" => "bool", "stopped" => "bool", "exitcode" => "int", "termsig" => "int", "stopsig" => "int"])]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
 function proc_get_status($process) {}
 
@@ -945,6 +927,7 @@ function proc_nice(int $priority): bool {}
  * @return int A pseudo random value between min
  * (or 0) and max (or getrandmax, inclusive).
  */
+#[Pure(true)]
 function rand(int $min = 0, int $max): int {}
 
 /**
@@ -983,6 +966,7 @@ function getrandmax(): int {}
  * @return int A random integer value between min (or 0)
  * and max (or mt_getrandmax, inclusive)
  */
+#[Pure(true)]
 function mt_rand(int $min = 0, int $max): int {}
 
 /**

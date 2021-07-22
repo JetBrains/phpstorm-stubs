@@ -6,8 +6,11 @@ use JetBrains\PhpStorm\Pure;
 
 class CURLFile
 {
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $mime;
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $postname;
 
     /**
@@ -139,17 +142,7 @@ function curl_copy_handle(#[LanguageLevelTypeAware(["8.0" => "CurlHandle"], defa
  * <td>An array of protocols names supported by cURL</td>
  * </tr>
  */
-#[ArrayShape([
-    "version_number" => "string",
-    "version" => "string",
-    "ssl_version_number" => "int",
-    "ssl_version" => "string",
-    "libz_version" => "string",
-    "host" => "string",
-    "age" => "int",
-    "features" => "int",
-    "protocols" => "array",
-])]
+#[ArrayShape(["version_number" => "string", "version" => "string", "ssl_version_number" => "int", "ssl_version" => "string", "libz_version" => "string", "host" => "string", "age" => "int", "features" => "int", "protocols" => "array"])]
 #[Pure]
 function curl_version($age = null): array|false {}
 

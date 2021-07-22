@@ -2160,6 +2160,10 @@ define('AI_V4MAPPED', 8);
 define('AI_ALL', 16);
 
 /**
+ * @since 8.1
+ */
+define('TCP_DEFER_ACCEPT', 9);
+/**
  * @since 8.0
  */
 final class Socket

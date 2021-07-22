@@ -413,7 +413,7 @@ class Redis
      *
      * @param string       $key
      * @param string|mixed $value string if not used serializer
-     * @param int|array    $timeout [optional] Calling setex() is preferred if you want a timeout.<br>
+     * @param int|array    $timeout [optional] Calling setEx() is preferred if you want a timeout.<br>
      * Since 2.6.12 it also supports different flags inside an array. Example ['NX', 'EX' => 60]<br>
      *  - EX seconds -- Set the specified expire time, in seconds.<br>
      *  - PX milliseconds -- Set the specified expire time, in milliseconds.<br>
@@ -449,14 +449,14 @@ class Redis
      * @return bool TRUE if the command is successful
      *
      * @link    https://redis.io/commands/setex
-     * @example $redis->setex('key', 3600, 'value'); // sets key → value, with 1h TTL.
+     * @example $redis->setEx('key', 3600, 'value'); // sets key → value, with 1h TTL.
      */
-    public function setex($key, $ttl, $value) {}
+    public function setEx($key, $ttl, $value) {}
 
     /**
      * Set the value and expiration in milliseconds of a key.
      *
-     * @see     setex()
+     * @see     setEx()
      * @param   string       $key
      * @param   int          $ttl in milliseconds.
      * @param   string|mixed $value
@@ -464,9 +464,9 @@ class Redis
      * @return bool TRUE if the command is successful
      *
      * @link    https://redis.io/commands/psetex
-     * @example $redis->psetex('key', 1000, 'value'); // sets key → value, with 1sec TTL.
+     * @example $redis->pSetEx('key', 1000, 'value'); // sets key → value, with 1sec TTL.
      */
-    public function psetex($key, $ttl, $value) {}
+    public function pSetEx($key, $ttl, $value) {}
 
     /**
      * Set the string value in argument as value of the key if the key doesn't already exist in the database.
@@ -479,11 +479,11 @@ class Redis
      * @link    https://redis.io/commands/setnx
      * @example
      * <pre>
-     * $redis->setnx('key', 'value');   // return TRUE
-     * $redis->setnx('key', 'value');   // return FALSE
+     * $redis->setNx('key', 'value');   // return TRUE
+     * $redis->setNx('key', 'value');   // return FALSE
      * </pre>
      */
-    public function setnx($key, $value) {}
+    public function setNx($key, $value) {}
 
     /**
      * Remove specified keys.
@@ -2521,7 +2521,7 @@ class Redis
      * @link    https://redis.io/commands/ttl
      * @example
      * <pre>
-     * $redis->setex('key', 123, 'test');
+     * $redis->setEx('key', 123, 'test');
      * $redis->ttl('key'); // int(123)
      * </pre>
      */
@@ -2539,7 +2539,7 @@ class Redis
      * @link    https://redis.io/commands/pttl
      * @example
      * <pre>
-     * $redis->setex('key', 123, 'test');
+     * $redis->setEx('key', 123, 'test');
      * $redis->pttl('key'); // int(122999)
      * </pre>
      */
@@ -2624,7 +2624,7 @@ class Redis
      * // }
      * </pre>
      */
-    public function mget(array $array) {}
+    public function mGet(array $array) {}
 
     /**
      * @see mset()
@@ -2633,7 +2633,7 @@ class Redis
      *
      * @link    https://redis.io/commands/msetnx
      */
-    public function msetnx(array $array) {}
+    public function mSetNx(array $array) {}
 
     /**
      * Pops a value from the tail of a list, and pushes it to the front of another list.
@@ -2678,10 +2678,10 @@ class Redis
      * //}
      * </pre>
      */
-    public function rpoplpush($srcKey, $dstKey) {}
+    public function rPopLPush($srcKey, $dstKey) {}
 
     /**
-     * A blocking version of rpoplpush, with an integral timeout in the third parameter.
+     * A blocking version of rPopLPush, with an integral timeout in the third parameter.
      *
      * @param string $srcKey
      * @param string $dstKey
@@ -2691,7 +2691,7 @@ class Redis
      *
      * @link    https://redis.io/commands/brpoplpush
      */
-    public function brpoplpush($srcKey, $dstKey, $timeout) {}
+    public function bRPopLPush($srcKey, $dstKey, $timeout) {}
 
     /**
      * Adds the specified member with a given score to the sorted set stored at key
@@ -2938,9 +2938,9 @@ class Redis
     /**
      * Deletes the elements of the sorted set stored at the specified key which have scores in the range [start,end].
      *
-     * @param string       $key
-     * @param float|string $start double or "+inf" or "-inf" string
-     * @param float|string $end double or "+inf" or "-inf" string
+     * @param string $key
+     * @param string $start double or "+inf" or "-inf" as a string
+     * @param string $end double or "+inf" or "-inf" as a string
      *
      * @return int The number of values deleted from the sorted set
      *
@@ -2950,7 +2950,7 @@ class Redis
      * $redis->zAdd('key', 0, 'val0');
      * $redis->zAdd('key', 2, 'val2');
      * $redis->zAdd('key', 10, 'val10');
-     * $redis->zRemRangeByScore('key', 0, 3); // 2
+     * $redis->zRemRangeByScore('key', '0', '3'); // 2
      * </pre>
      */
     public function zRemRangeByScore($key, $start, $end) {}
@@ -3608,7 +3608,7 @@ class Redis
      * $redis->del('h');
      * $redis->hSet('h', 'field1', 'value1');
      * $redis->hSet('h', 'field2', 'value2');
-     * $redis->hmGet('h', array('field1', 'field2')); // returns array('field1' => 'value1', 'field2' => 'value2')
+     * $redis->hMGet('h', array('field1', 'field2')); // returns array('field1' => 'value1', 'field2' => 'value2')
      * </pre>
      */
     public function hMGet($key, $hashKeys) {}
@@ -3676,7 +3676,7 @@ class Redis
      * ); // 2
      * </pre>
      */
-    public function geoadd($key, $longitude, $latitude, $member) {}
+    public function geoAdd($key, $longitude, $latitude, $member) {}
 
     /**
      * Retrieve Geohash strings for one or more elements of a geospatial index.
@@ -3702,7 +3702,7 @@ class Redis
      * // }
      * </pre>
      */
-    public function geohash($key, ...$member) {}
+    public function geoHash($key, ...$member) {}
 
     /**
      * Return longitude, latitude positions for each requested member.
@@ -3733,7 +3733,7 @@ class Redis
      * }
      * </pre>
      */
-    public function geopos(string $key, string $member) {}
+    public function geoPos(string $key, string $member) {}
 
     /**
      * Return the distance between two members in a geospatial set.
@@ -3784,7 +3784,7 @@ class Redis
      * bool(false)
      * </pre>
      */
-    public function geodist($key, $member1, $member2, $unit = null) {}
+    public function geoDist($key, $member1, $member2, $unit = null) {}
 
     /**
      * Return members of a set with geospatial information that are within the radius specified by the caller.
@@ -3884,7 +3884,7 @@ class Redis
      * }
      * </pre>
      */
-    public function georadius($key, $longitude, $latitude, $radius, $unit, array $options = null) {}
+    public function geoRadius($key, $longitude, $latitude, $radius, $unit, array $options = null) {}
 
     /**
      * This method is identical to geoRadius except that instead of passing a longitude and latitude as the "source"
@@ -3924,7 +3924,7 @@ class Redis
      * }
      * </pre>
      */
-    public function georadiusbymember($key, $member, $radius, $units, array $options = null) {}
+    public function geoRadiusByMember($key, $member, $radius, $units, array $options = null) {}
 
     /**
      * Get or Set the redis config keys.

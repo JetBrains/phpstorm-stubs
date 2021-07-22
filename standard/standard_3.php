@@ -838,12 +838,7 @@ function microtime(#[TypeContract(true: "float", false: "string")] bool $as_floa
  * "dsttime" - type of dst correction
  */
 #[Pure]
-#[ArrayShape([
-    "sec" => "int",
-    "usec" => "int",
-    "minuteswest" => "int",
-    "dsttime" => "int"
-])]
+#[ArrayShape(["sec" => "int", "usec" => "int", "minuteswest" => "int", "dsttime" => "int"])]
 function gettimeofday(#[TypeContract(true: "float", false: "int[]")] bool $as_float = false): array|float {}
 
 /**

@@ -2,6 +2,8 @@
 
 // Start of SPL v.0.2
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
  * The SplFileInfo class offers a high-level object oriented interface to
@@ -362,12 +364,12 @@ class FilesystemIterator extends DirectoryIterator
         public const CURRENT_AS_SELF = 16;
         public const KEY_MODE_MASK = 3840;
         public const KEY_AS_PATHNAME = 0;
-        public const FOLLOW_SYMLINKS = 512;
+        public const FOLLOW_SYMLINKS = 16384;
         public const KEY_AS_FILENAME = 256;
         public const NEW_CURRENT_AND_KEY = 256;
         public const SKIP_DOTS = 4096;
         public const UNIX_PATHS = 8192;
-        public const OTHER_MODE_MASK = 12288;
+        public const OTHER_MODE_MASK = 28672;
 
         /**
          * Constructs a new filesystem iterator
@@ -641,7 +643,13 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @return int|false Returns the length of the written string or FALSE on failure.
      * @since 5.4
      */
-    public function fputcsv(array $fields, $separator = ',', $enclosure = '"', $escape = "\\") {}
+    public function fputcsv(
+        array $fields,
+        $separator = ',',
+        $enclosure = '"',
+        $escape = "\\",
+        #[PhpStormStubsElementAvailable('8.1')] $eol = PHP_EOL
+    ) {}
 
     /**
      * Set the delimiter and enclosure character for CSV
@@ -772,8 +780,9 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * the end of <i>string</i> is reached, whichever comes
          * first.
          * </p>
-         * @return int the number of bytes written, or 0 on error.
+         * @return int|false the number of bytes written, or 0 (false since 7.4) on error.
          */
+        #[LanguageLevelTypeAware(['7.4' => 'int|false'], default: 'int')]
         public function fwrite($data, $length = null) {}
 
         /**
@@ -1584,7 +1593,7 @@ class SplPriorityQueue implements Iterator, Countable
  * implementation.
  * @link https://php.net/manual/en/class.splfixedarray.php
  */
-class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggregate
+class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggregate, JsonSerializable
 {
         /**
          * Constructs a new fixed array
@@ -1722,6 +1731,8 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * @return Traversable
      */
     public function getIterator() {}
+
+    public function jsonSerialize() {}
 }
 
 /**

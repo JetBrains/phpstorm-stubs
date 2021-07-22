@@ -16,8 +16,11 @@ class __PHP_Incomplete_Class
 
 class php_user_filter
 {
-        public $filtername;
-        public $params;
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
+    public $filtername;
+
+    #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
+    public $params;
 
     /**
      * @link https://php.net/manual/en/php-user-filter.filter.php
@@ -408,7 +411,7 @@ function wordwrap(string $string, int $width = 75, string $break = "\n", bool $c
  * @return string The converted string.
  */
 #[Pure]
-function htmlspecialchars(string $string, int $flags = ENT_COMPAT|ENT_HTML401, ?string $encoding = 'UTF-8', bool $double_encode = true): string {}
+function htmlspecialchars(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?string $encoding = 'UTF-8', bool $double_encode = true): string {}
 
 /**
  * Convert all applicable characters to HTML entities
@@ -454,7 +457,7 @@ function htmlspecialchars(string $string, int $flags = ENT_COMPAT|ENT_HTML401, ?
  * @return string the encoded string.
  */
 #[Pure]
-function htmlentities(string $string, int $flags = ENT_COMPAT, ?string $encoding, bool $double_encode = true): string {}
+function htmlentities(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?string $encoding, bool $double_encode = true): string {}
 
 /**
  * Convert HTML entities  to their corresponding characters
@@ -495,7 +498,7 @@ function htmlentities(string $string, int $flags = ENT_COMPAT, ?string $encoding
  * @return string the decoded string.
  */
 #[Pure]
-function html_entity_decode(string $string, int $flags = ENT_COMPAT, ?string $encoding): string {}
+function html_entity_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?string $encoding): string {}
 
 /**
  * Convert special HTML entities back to characters
@@ -529,7 +532,7 @@ function html_entity_decode(string $string, int $flags = ENT_COMPAT, ?string $en
  * @return string the decoded string.
  */
 #[Pure]
-function htmlspecialchars_decode(string $string, int $flags = ENT_COMPAT): string {}
+function htmlspecialchars_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE): string {}
 
 /**
  * Returns the translation table used by <function>htmlspecialchars</function> and <function>htmlentities</function>
@@ -705,7 +708,7 @@ function htmlspecialchars_decode(string $string, int $flags = ENT_COMPAT): strin
  * @return array the translation table as an array.
  */
 #[Pure]
-function get_html_translation_table(int $table, int $flags = ENT_COMPAT, string $encoding = "UTF-8"): array {}
+function get_html_translation_table(int $table, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, string $encoding = "UTF-8"): array {}
 
 /**
  * Calculate the sha1 hash of a string

@@ -209,6 +209,10 @@ namespace MongoDB\Driver {
              * @since 1.4.0
              */
             final public function startSession(array $options = []) {}
+
+            final public function addSubscriber($subscriber) {}
+
+            final public function removeSubscriber($subscriber) {}
         }
 
         /**
@@ -803,6 +807,8 @@ namespace MongoDB\Driver {
             final public function __toString() {}
 
             final public function __wakeup() {}
+
+            public static function __set_state($properties) {}
 
             /**
              * Serialize a CursorId
@@ -2749,6 +2755,7 @@ namespace MongoDB\BSON {
          * Classes that implement this interface may return data to be serialized as a BSON array or document in lieu of the object's public properties
          * @link https://php.net/manual/en/class.mongodb-bson-serializable.php
          */
+        #[Deprecated(since: '8.1')]
         interface Serializable extends Type
         {
             /**

@@ -2,6 +2,8 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -16,12 +18,14 @@ class ReflectionClassConstant implements Reflector
      * @var string Constant name, same as calling the {@see ReflectionClassConstant::getName()} method
      */
     #[Immutable]
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
 
     /**
      * @var string Fully qualified class name where this constant was defined
      */
     #[Immutable]
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $class;
 
     /**
@@ -174,5 +178,8 @@ class ReflectionClassConstant implements Reflector
      *
      * @return void
      */
-    final private function __clone() {}
+    private function __clone() {}
+
+    #[PhpStormStubsElementAvailable('8.1')]
+    public function isEnumCase() {}
 }

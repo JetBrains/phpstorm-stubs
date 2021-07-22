@@ -1,6 +1,7 @@
 <?php
 
 // Start of json v.1.3.1
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -19,6 +20,7 @@ interface JsonSerializable
      * which is a value of any type other than a resource.
      * @since 5.4
      */
+    #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
     public function jsonSerialize();
 }
 

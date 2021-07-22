@@ -2,6 +2,7 @@
 
 // Start of zip v.1.14.0
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * A file archive, compressed with Zip.
@@ -575,25 +576,39 @@ class ZipArchive implements Countable
 
     /**
      * Status of the Zip Archive
+     * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $status;
     /**
      * System status of the Zip Archive
+     * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $statusSys;
     /**
      * Number of files in archive
+     * @var int
      */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $numFiles;
     /**
      * File name in the file system
+     * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $filename;
     /**
      * Comment for the archive
+     * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $comment;
 
+    /**
+     * @var int
+     */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $lastId;
 
     /**

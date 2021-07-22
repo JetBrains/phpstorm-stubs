@@ -350,10 +350,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * phar.require_hash INI variable
      * is set to true.
      */
-    #[ArrayShape([
-        "hash" => "string",
-        "hash_type" => "string",
-    ])]
+    #[ArrayShape(["hash" => "string", "hash_type" => "string"])]
     public function getSignature() {}
 
     /**
@@ -726,6 +723,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @param string $filename <p>
      * The path on disk to the phar archive.
      * </p>
+     * @throws PharException
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     final public static function unlinkArchive(string $filename) {}
@@ -811,7 +809,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     final public static function webPhar(
         ?string $alias = null,
         ?string $index = "index.php",
-        #[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $fileNotFoundScript = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $fileNotFoundScript = null,
         array $mimeTypes = null,
         ?callable $rewrite = null
     ) {}

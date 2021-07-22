@@ -1,6 +1,7 @@
 <?php
 
 // Start of SPL v.0.2
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * Exception that represents error in the program logic. This kind of
@@ -172,9 +173,9 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
     /**
      * Create a RecursiveCallbackFilterIterator from a RecursiveIterator
      * @param RecursiveIterator $iterator The recursive iterator to be filtered.
-     * @param string $callback The callback, which should return TRUE to accept the current item or FALSE otherwise. See Examples.
+     * @param callable $callback The callback, which should return TRUE to accept the current item or FALSE otherwise. See Examples.
      * May be any valid callable value.
-     * @link https://secure.php.net/manual/en/recursivecallbackfilteriterator.getchildren.php
+     * @link https://www.php.net/manual/en/recursivecallbackfilteriterator.construct.php
      */
     public function __construct(RecursiveIterator $iterator, $callback) {}
 
@@ -1074,6 +1075,7 @@ class RegexIterator extends FilterIterator
 
     public const INVERT_MATCH = 2;
 
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $replacement;
 
     /**

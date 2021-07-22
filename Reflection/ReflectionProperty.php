@@ -17,12 +17,14 @@ class ReflectionProperty implements Reflector
      * @var string Name of the property, same as calling the {@see ReflectionProperty::getName()} method
      */
     #[Immutable]
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
 
     /**
      * @var string Fully qualified class name where this property was defined
      */
     #[Immutable]
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $class;
 
     /**
@@ -211,7 +213,13 @@ class ReflectionProperty implements Reflector
      * @since 7.4
      */
     #[Pure]
-    #[LanguageLevelTypeAware(['8.0' => 'ReflectionNamedType|ReflectionUnionType|null'], default: 'ReflectionNamedType|null')]
+    #[LanguageLevelTypeAware(
+        [
+            '8.0' => 'ReflectionNamedType|ReflectionUnionType|null',
+            '8.1' => 'ReflectionNamedType|ReflectionUnionType|ReflectionIntersectionType|null'
+        ],
+        default: 'ReflectionNamedType|null'
+    )]
     public function getType() {}
 
     /**
@@ -250,7 +258,7 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.clone.php
      * @return void
      */
-    final private function __clone() {}
+    private function __clone() {}
 
     /**
      * @return bool

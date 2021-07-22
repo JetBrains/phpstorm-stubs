@@ -40,7 +40,7 @@ define('GNUPG_PK_ECC', 18);
 define('GNUPG_PK_ECDSA', 301);
 define('GNUPG_PK_ECDH', 302);
 define('GNUPG_PK_EDDSA', 303);
-define('GNUPG_GPGME_VERSION', '1.15.0');
+define('GNUPG_GPGME_VERSION', '1.15.1');
 
 /**
  * GNUPG Encryption Class

@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+
 const SODIUM_CRYPTO_AEAD_AES256GCM_KEYBYTES = 32;
 const SODIUM_CRYPTO_AEAD_AES256GCM_NSECBYTES = 0;
 const SODIUM_CRYPTO_AEAD_AES256GCM_NPUBBYTES = 12;
@@ -87,6 +89,68 @@ const SODIUM_CRYPTO_PWHASH_ALG_ARGON2I13 = 1;
 const SODIUM_CRYPTO_PWHASH_ALG_DEFAULT = 2;
 const SODIUM_CRYPTO_PWHASH_SALTBYTES = 16;
 const SODIUM_CRYPTO_PWHASH_STRPREFIX = '$argon2id$';
+const SODIUM_CRYPTO_STREAM_XCHACHA20_NONCEBYTES = 24;
+const SODIUM_CRYPTO_STREAM_XCHACHA20_KEYBYTES = 32;
+const SODIUM_CRYPTO_SCALARMULT_RISTRETTO255_BYTES = 32;
+const SODIUM_CRYPTO_SCALARMULT_RISTRETTO255_SCALARBYTES = 32;
+const SODIUM_CRYPTO_CORE_RISTRETTO255_BYTES = 32;
+const SODIUM_CRYPTO_CORE_RISTRETTO255_HASHBYTES = 64;
+const SODIUM_CRYPTO_CORE_RISTRETTO255_SCALARBYTES = 32;
+const SODIUM_CRYPTO_CORE_RISTRETTO255_NONREDUCEDSCALARBYTES = 64;
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_core_ristretto255_add(string $p, string $q): string {}
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_core_ristretto255_from_hash(string $s): string {}
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_core_ristretto255_is_valid_point(string $s): bool {}
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_core_ristretto255_random(): string {}
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_core_ristretto255_scalar_add(string $x, string $y): string {}
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_core_ristretto255_scalar_complement(string $s): string {}
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_core_ristretto255_scalar_invert(string $s): string {}
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_core_ristretto255_scalar_mul(string $x, string $y): string {}
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_core_ristretto255_scalar_negate(string $s): string {}
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_core_ristretto255_scalar_reduce(string $s): string {}
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_core_ristretto255_scalar_sub(string $x, string $y): string {}
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_core_ristretto255_scalar_random(): string {}
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_core_ristretto255_sub(string $p, string $q): string {}
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_scalarmult_ristretto255(string $n, string $p): string {}
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_scalarmult_ristretto255_base(string $n): string {}
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_stream_xchacha20(int $length, string $nonce, string $key): string {}
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_stream_xchacha20_xor(string $message, string $nonce, string $key): string {}
+
+#[PhpStormStubsElementAvailable('8.1')]
+function sodium_crypto_stream_xchacha20_keygen(): string {}
 
 /**
  * Can you access AES-256-GCM? This is only available if you have supported

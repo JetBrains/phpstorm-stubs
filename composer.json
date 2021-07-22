@@ -15,7 +15,7 @@
   ],
   "require-dev": {
     "php": "^8.0",
-    "nikic/php-parser": "@stable",
+    "nikic/php-parser": "dev-master",
     "phpdocumentor/reflection-docblock": "@stable",
     "phpunit/phpunit": "@stable",
     "friendsofphp/php-cs-fixer": "@stable"

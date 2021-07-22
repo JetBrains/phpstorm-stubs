@@ -4,7 +4,7 @@
  * The constants below are defined by this extension, and will only be available when the extension has either been compiled into PHP or dynamically loaded at runtime.
  * @link https://php.net/manual/en/yaf.constants.php
  */
-define('YAF_VERSION', '3.3.2', true);
+define('YAF_VERSION', '3.3.3', true);
 define('YAF_ENVIRON', 'product', true);
 define('YAF_ERR_STARTUP_FAILED', 512, true);
 define('YAF_ERR_ROUTE_FAILED', 513, true);

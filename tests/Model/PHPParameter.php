@@ -13,6 +13,8 @@ class PHPParameter extends BasePHPElement
     public array $typesFromSignature = [];
     /** @var string[] */
     public array $typesFromAttribute = [];
+    /** @var string[] */
+    public array $typesFromPhpDoc = [];
     public bool $is_vararg = false;
     public bool $is_passed_by_ref = false;
     public bool $isOptional = false;
