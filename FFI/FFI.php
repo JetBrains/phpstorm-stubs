@@ -31,7 +31,7 @@ namespace {
          * @return FFI
          * @throws ParserException
          */
-        public static function cdef(string $code, string $library = null): FFI {}
+        public static function cdef(string $code = '', ?string $library = null): FFI {}
 
         /**
          * <p>Instead of embedding of a long C definition into PHP string,
