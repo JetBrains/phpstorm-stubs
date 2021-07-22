@@ -98,13 +98,13 @@ namespace {
         /**
          * Method that creates an arbitrary C structure.
          *
-         * @param string|CData|mixed $type
+         * @param string|CType $type
          * @param bool $owned
          * @param bool $persistent
-         * @return CData
+         * @return CData|null
          * @throws ParserException
          */
-        public static function new($type, bool $owned = true, bool $persistent = false): CData {}
+        public static function new($type, bool $owned = true, bool $persistent = false): ?CData {}
 
         /**
          * Manually removes previously created "not-owned" data structure.
