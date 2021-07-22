@@ -803,7 +803,7 @@ function mb_decode_mimeheader(string $string): string {}
  * is omitted, detect_order is used.
  * </p>
  * @param string|array|object &$var var is the reference to the variable being converted.
- * @param string|array|object &...$vars [optional] <p>
+ * @param string|array|object &...$vars <p>
  * vars is the other references to the
  * variables being converted. String, Array and Object are accepted.
  * mb_convert_variables assumes all parameters
@@ -816,10 +816,8 @@ function mb_convert_variables(
     string $to_encoding,
     array|string $from_encoding,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]&$vars,
-    #[PhpStormStubsElementAvailable(from: '8.0')]
-    mixed &$var,
-    #[Required(from: '5.3', to: '7.4')]
-    mixed &...$vars
+    #[PhpStormStubsElementAvailable(from: '8.0')] mixed &$var,
+     mixed &...$vars
 ): string|false {}
 
 /**
