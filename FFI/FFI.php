@@ -27,11 +27,11 @@ namespace {
          * proxy object and may be accessed by elements.
          *
          * @param string $code The collection of C declarations.
-         * @param string|null $library DSO library.
+         * @param string|null $lib DSO library.
          * @return FFI
          * @throws ParserException
          */
-        public static function cdef(string $code = '', ?string $library = null): FFI {}
+        public static function cdef(string $code = '', ?string $lib = null): FFI {}
 
         /**
          * <p>Instead of embedding of a long C definition into PHP string,
@@ -109,10 +109,10 @@ namespace {
         /**
          * Manually removes previously created "not-owned" data structure.
          *
-         * @param CData $pointer
+         * @param CData $ptr
          * @return void
          */
-        public static function free(CData $pointer): void {}
+        public static function free(CData $ptr): void {}
 
         /**
          * Casts given $pointer to another C type, specified by C declaration
@@ -123,11 +123,11 @@ namespace {
          * case the first argument may reuse all type and tag names
          * defined in FFI::cdef().
          *
-         * @param mixed $type
-         * @param CData $pointer
-         * @return CData
+         * @param CType|string $type
+         * @param CData|int|float|bool|null $ptr
+         * @return CData|null
          */
-        public static function cast($type, CData $pointer): CData {}
+        public static function cast($type, $ptr): ?CData {}
 
         /**
          * This function creates and returns a FFI\CType object, representng
@@ -138,19 +138,19 @@ namespace {
          * first argument may reuse all type and tag names defined in
          * FFI::cdef().
          *
-         * @param string|CType $type
-         * @return CType
+         * @param string $type
+         * @return CType|null
          */
-        public static function type($type): CType {}
+        public static function type(string $type): ?CType {}
 
         /**
-         * This function returns a FFI\CType object, representing the type of
+         * This function returns the FFI\CType object, representing the type of
          * the given FFI\CData object.
          *
-         * @param CData $pointer
+         * @param CData $ptr
          * @return CType
          */
-        public static function typeof(CData $pointer): CType {}
+        public static function typeof(CData $ptr): CType {}
 
         /**
          * Constructs a new C array type with elements of $type and
@@ -169,70 +169,70 @@ namespace {
          * may be longer than life-time of the source object, and this may
          * cause dangling pointer dereference (like in regular C).
          *
-         * @param CData $pointer
+         * @param CData $ptr
          * @return CData
          */
-        public static function addr(CData $pointer): CData {}
+        public static function addr(CData $ptr): CData {}
 
         /**
          * Returns size of C data type of the given FFI\CData or FFI\CType.
          *
-         * @param CData|CType &$pointer
+         * @param CData|CType $ptr
          * @return int
          */
-        public static function sizeof(&$pointer): int {}
+        public static function sizeof($ptr): int {}
 
         /**
          * Returns size of C data type of the given FFI\CData or FFI\CType.
          *
-         * @param CData|CType &$pointer
+         * @param CData|CType $ptr
          * @return int
          */
-        public static function alignof(&$pointer): int {}
+        public static function alignof($ptr): int {}
 
         /**
          * Copies $size bytes from memory area $source to memory area $target.
          * $source may be any native data structure (FFI\CData) or PHP string.
          *
-         * @param CData $target
-         * @param mixed &$source
+         * @param CData $to
+         * @param CData|string $from
          * @param int $size
          */
-        public static function memcpy(CData $target, &$source, int $size): void {}
+        public static function memcpy(CData $to, $from, int $size): void {}
 
         /**
-         * Compares $size bytes from memory area $a and $b.
+         * Compares $size bytes from memory area $ptr1 and $ptr2.
          *
-         * @param CData|string &$a
-         * @param CData|string &$b
+         * @param CData|string $ptr1
+         * @param CData|string $ptr2
          * @param int $size
          * @return int
          */
-        public static function memcmp(&$a, &$b, int $size): int {}
+        public static function memcmp($ptr1, $ptr2, int $size): int {}
 
         /**
          * Fills the $size bytes of the memory area pointed to by $target with
          * the constant byte $byte.
          *
-         * @param CData $target
-         * @param int $byte
+         * @param CData $ptr
+         * @param int $value
          * @param int $size
          */
-        public static function memset(CData $target, int $byte, int $size): void {}
+        public static function memset(CData $ptr, int $value, int $size): void {}
 
         /**
          * Creates a PHP string from $size bytes of memory area pointed by
          * $source. If size is omitted, $source must be zero terminated
          * array of C chars.
          *
-         * @param CData $source
-         * @param int $size [optional]
+         * @param CData $ptr
+         * @param int|null $size
          * @return string
          */
-        public static function string(CData $source, int $size = 0): string {}
+        public static function string(CData $ptr, ?int $size = null): string {}
 
         /**
-         * Checks whether a FFI\CData is a null pointer.
+         * Checks whether the FFI\CData is a null pointer.
          *
          * @param CData $ptr
          * @return bool
