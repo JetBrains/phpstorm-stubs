@@ -29,6 +29,13 @@ class ReflectionClassConstant implements Reflector
     public $class;
 
     /**
+     * @var bool
+     * @since 8.1
+     */
+    #[Immutable]
+    public bool $isFinal;
+
+    /**
      * Indicates that the constant is public.
      *
      * @since 8.0
@@ -48,6 +55,11 @@ class ReflectionClassConstant implements Reflector
      * @since 8.0
      */
     public const IS_PRIVATE = 4;
+
+    /**
+     * @since 8.1
+     */
+    public const IS_FINAL = 5;
 
     /**
      * ReflectionClassConstant constructor.
@@ -182,4 +194,10 @@ class ReflectionClassConstant implements Reflector
 
     #[PhpStormStubsElementAvailable('8.1')]
     public function isEnumCase() {}
+
+    /**
+     * @since 8.1
+     * @return bool
+     */
+    public function isFinal(): bool{}
 }

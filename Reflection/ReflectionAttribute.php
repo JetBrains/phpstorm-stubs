@@ -74,4 +74,6 @@ class ReflectionAttribute
      * @since 8.0
      */
     private function __clone() {}
+
+    public function __toString() {}
 }
