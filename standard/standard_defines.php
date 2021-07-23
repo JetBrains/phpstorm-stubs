@@ -1021,6 +1021,10 @@ define('IMAGETYPE_UNKNOWN', 0);
 define('IMAGETYPE_COUNT', 19);
 
 /**
+ * @since 8.1
+ */
+define('IMAGETYPE_AVIF', 19);
+/**
  * IPv4 Address Resource
  * @link https://php.net/manual/en/network.constants.php
  */

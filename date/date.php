@@ -787,6 +787,7 @@ function checkdate(int $month, int $day, int $year): bool {}
  * with setlocale.
  * @deprecated 8.1
  */
+#[Deprecated(since: '8.1')]
 function strftime(string $format, ?int $timestamp): string|false {}
 
 /**
@@ -803,6 +804,7 @@ function strftime(string $format, ?int $timestamp): string|false {}
  * with setlocale.
  * @deprecated 8.1
  */
+#[Deprecated(since: '8.1')]
 function gmstrftime(string $format, ?int $timestamp): string|false {}
 
 /**
@@ -1413,6 +1415,7 @@ function date_default_timezone_get(): string {}
  * @deprecated 8.1
  */
 #[Pure]
+#[Deprecated(since: '8.1')]
 function date_sunrise(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, ?float $utcOffset): string|int|float|false {}
 
 /**
@@ -1464,6 +1467,7 @@ function date_sunrise(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?
  * @deprecated 8.1
  */
 #[Pure]
+#[Deprecated(since: '8.1')]
 function date_sunset(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, ?float $utcOffset): string|int|float|false {}
 
 /**

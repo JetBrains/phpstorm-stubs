@@ -2,6 +2,7 @@
 
 // Start of standard v.5.3.2-0.dotdeb.1
 
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
@@ -267,6 +268,7 @@ function time_sleep_until(float $timestamp): bool {}
  * @deprecated 8.1
  */
 #[Pure]
+#[Deprecated(since: '8.1')]
 function strptime(string $timestamp, string $format): array|false {}
 
 /**

@@ -1441,7 +1441,10 @@ define('SO_ERROR', 4);
 define('SO_BINDTODEVICE', 25);
 define('SOL_SOCKET', 1);
 define('SOMAXCONN', 128);
-
+/**
+ * @since 8.1
+ */
+define('SO_MARK', 36);
 /**
  * Used to disable Nagle TCP algorithm.
  * Added in PHP 5.2.7.

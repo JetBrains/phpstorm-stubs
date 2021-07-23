@@ -4010,8 +4010,7 @@ function numfmt_get_error_message(NumberFormatter $formatter): string {}
  * @return string|false The normalized string or <b>FALSE</b> if an error occurred.
  */
 #[Pure]
-#[LanguageLevelTypeAware(['8.1' => 'string|false|null'], default: 'string|false')]
-function normalizer_normalize(string $string, int $form = Normalizer::FORM_C) {}
+function normalizer_normalize(string $string, int $form = Normalizer::FORM_C): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4366,8 +4365,7 @@ function msgfmt_parse(MessageFormatter $formatter, string $string): array|false 
  * @return array|false An array containing items extracted, or <b>FALSE</b> on error
  */
 #[Pure]
-#[LanguageLevelTypeAware(['8.1' => 'array|false|null'], default: 'array|false')]
-function msgfmt_parse_message(string $locale, string $pattern, string $message) {}
+function msgfmt_parse_message(string $locale, string $pattern, string $message): array|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
