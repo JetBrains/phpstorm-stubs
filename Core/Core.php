@@ -336,7 +336,7 @@ function error_reporting(?int $error_level): int {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function define(string $constant_name, $value, #[Deprecated] bool $case_insensitive = false): bool {}
+function define(string $constant_name, mixed $value, #[Deprecated] bool $case_insensitive = false): bool {}
 
 /**
  * Checks whether a given named constant exists

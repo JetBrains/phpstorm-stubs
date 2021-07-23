@@ -1,6 +1,7 @@
 <?php
 
 // Start of hash v.1.0
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
@@ -311,6 +312,7 @@ function hash_pbkdf2(string $algo, string $password, string $salt, int $iteratio
  * @deprecated 8.1
  */
 #[Pure]
+#[Deprecated(since: '8.1')]
 function mhash_keygen_s2k(int $algo, string $password, string $salt, int $length): string|false {}
 
 /**
@@ -324,6 +326,7 @@ function mhash_keygen_s2k(int $algo, string $password, string $salt, int $length
  * @deprecated 8.1
  */
 #[Pure]
+#[Deprecated(since: '8.1')]
 function mhash_get_block_size(int $algo): int|false {}
 
 /**
@@ -336,6 +339,7 @@ function mhash_get_block_size(int $algo): int|false {}
  * @deprecated 8.1
  */
 #[Pure]
+#[Deprecated(since: '8.1')]
 function mhash_get_hash_name(int $algo): string|false {}
 
 /**
@@ -346,6 +350,7 @@ function mhash_get_hash_name(int $algo): string|false {}
  * @deprecated 8.1
  */
 #[Pure]
+#[Deprecated(since: '8.1')]
 function mhash_count(): int {}
 
 /**
@@ -368,6 +373,7 @@ function mhash_count(): int {}
  * @deprecated 8.1
  */
 #[Pure]
+#[Deprecated(since: '8.1')]
 function mhash(int $algo, string $data, ?string $key): string|false {}
 
 /**
