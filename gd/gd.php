@@ -2160,7 +2160,7 @@ function imagexbm(GdImage $image, ?string $filename, ?int $foreground_color = nu
  */
 function imagefilter(
     GdImage $image,
-    int     $filter,
+    int $filter,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arg2 = null,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arg3 = null,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arg4 = null,

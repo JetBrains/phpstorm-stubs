@@ -1914,8 +1914,8 @@ function mysqli_get_charset(mysqli $mysql): ?object {}
  */
 #[LanguageLevelTypeAware(['8.0' => 'string'], default: '?string')]
 function mysqli_get_client_info(
-  #[PhpStormStubsElementAvailable(from: '5.3', to: '7.1')] mysqli $mysql,
-  #[PhpStormStubsElementAvailable(from: '8.0')] ?mysqli $mysql = null
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.1')] mysqli $mysql,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ?mysqli $mysql = null
 ) {}
 
 /**
@@ -2665,7 +2665,8 @@ function mysqli_client_encoding(mysqli $mysql): string {}
 function mysqli_escape_string(
     mysqli $mysql,
     string $string,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $resultmode = null): string {}
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $resultmode = null
+): string {}
 
 /**
  * Alias for <b>mysqli_stmt_fetch</b>
