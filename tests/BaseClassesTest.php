@@ -68,9 +68,9 @@ class BaseClassesTest extends BaseStubsTest
     {
         $className = $class->name;
         if ($class instanceof PHPClass) {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->methods[$method->name];
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->getMethod($method->name);
         } else {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->methods[$method->name];
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->getMethod($method->name);
         }
         static::assertEquals(
             $method->isFinal,
@@ -87,9 +87,9 @@ class BaseClassesTest extends BaseStubsTest
     {
         $className = $class->name;
         if ($class instanceof PHPClass) {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->methods[$method->name];
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->getMethod($method->name);
         } else {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->methods[$method->name];
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->getMethod($method->name);
         }
         static::assertEquals(
             $method->isStatic,
@@ -125,9 +125,9 @@ class BaseClassesTest extends BaseStubsTest
     {
         $className = $class->name;
         if ($class instanceof PHPClass) {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->methods[$method->name];
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->getMethod($method->name);
         } else {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->methods[$method->name];
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->getMethod($method->name);
         }
         $filteredStubParameters = array_filter(
             $stubMethod->parameters,
@@ -189,7 +189,7 @@ class BaseClassesTest extends BaseStubsTest
     public function testClassStaticProperties(PHPClass $class, PHPProperty $property)
     {
         $className = $class->name;
-        $stubProperty = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->properties[$property->name];
+        $stubProperty = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->getProperty($property->name);
         static::assertEquals(
             $property->is_static,
             $stubProperty->is_static,
@@ -204,7 +204,7 @@ class BaseClassesTest extends BaseStubsTest
     public function testClassPropertiesVisibility(PHPClass $class, PHPProperty $property)
     {
         $className = $class->name;
-        $stubProperty = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->properties[$property->name];
+        $stubProperty = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->getProperty($property->name);
         static::assertEquals(
             $property->access,
             $stubProperty->access,
@@ -219,7 +219,7 @@ class BaseClassesTest extends BaseStubsTest
     public function testClassPropertiesType(PHPClass $class, PHPProperty $property)
     {
         $className = $class->name;
-        $stubProperty = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->properties[$property->name];
+        $stubProperty = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->getProperty($property->name);
         $propertyName = $stubProperty->name;
         $unifiedStubsPropertyTypes = [];
         $unifiedStubsAttributesPropertyTypes = [];
