@@ -28,6 +28,13 @@ class ReflectionProperty implements Reflector
     public $class;
 
     /**
+     * @var bool
+     * @since 8.1
+     */
+    #[Immutable]
+    public bool $isReadonly;
+
+    /**
      * Indicates that the property is static.
      *
      * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-static
@@ -54,6 +61,11 @@ class ReflectionProperty implements Reflector
      * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-private
      */
     public const IS_PRIVATE = 4;
+
+    /**
+     * @since 8.1
+     */
+    public const IS_READONLY = 5;
 
     /**
      * Construct a ReflectionProperty object
@@ -287,4 +299,10 @@ class ReflectionProperty implements Reflector
      */
     #[Pure]
     public function getAttributes(?string $name = null, int $flags = 0) {}
+
+    /**
+     * @since 8.1
+     * @return bool
+     */
+    public function isReadOnly(): bool {}
 }
