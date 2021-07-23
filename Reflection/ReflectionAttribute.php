@@ -5,7 +5,7 @@ use JetBrains\PhpStorm\Pure;
 /**
  * @since 8.0
  */
-class ReflectionAttribute
+final class ReflectionAttribute implements Reflector
 {
     /**
      * Indicates that the search for a suitable attribute should not be by
@@ -76,4 +76,6 @@ class ReflectionAttribute
     private function __clone() {}
 
     public function __toString() {}
+
+    public static function export() {}
 }

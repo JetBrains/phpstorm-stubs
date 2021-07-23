@@ -963,7 +963,6 @@ class DatePeriod implements IteratorAggregate
      * @return int|null
      * @link https://php.net/manual/en/dateperiod.getrecurrences.php
      * @since 7.2.17
-     * @since 7.3.4
      */
     public function getRecurrences() {}
 

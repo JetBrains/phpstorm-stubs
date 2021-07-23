@@ -8,12 +8,6 @@ use JetBrains\PhpStorm\Pure;
 
 class finfo
 {
-    /**
-     * @param $options [optional]
-     * @param $arg [optional]
-     */
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')]
-    public function finfo($options, $arg) {}
 
     /**
      * @param int $flags [optional]
@@ -23,6 +17,13 @@ class finfo
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $magic_database
     ) {}
+
+    /**
+     * @param $options [optional]
+     * @param $arg [optional]
+     */
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    public function finfo($options, $arg) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
