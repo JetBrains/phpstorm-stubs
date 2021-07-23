@@ -226,3 +226,8 @@ define('T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG', 404);
  * @since 8.1
  */
 define('T_READONLY', 327);
+
+/**
+ * @since 8.1
+ */
+define('T_READONLY', 327);
