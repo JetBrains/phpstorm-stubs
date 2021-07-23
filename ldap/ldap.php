@@ -252,7 +252,8 @@ function ldap_read(
     int $sizelimit = -1,
     int $timelimit = -1,
     int $deref,
-    #[Available(from: '7.3')] #[PhpVersionAware(["8.0" => "null|array"], default: "array")] $controls = []) {}
+    #[Available(from: '7.3')] #[PhpVersionAware(["8.0" => "null|array"], default: "array")] $controls = []
+) {}
 
 /**
  * Single-level search

@@ -94,12 +94,7 @@ function xdiff_file_patch_binary(string $file, string $patch, string $dest): boo
  * @return bool|string false if an internal error happened, string with rejected chunks if patch couldn't be applied
  * or true if patch has been successfully applied.
  */
-function xdiff_file_patch(
-    string $file,
-    string $patch,
-    string $dest,
-    #[ExpectedValues([XDIFF_PATCH_NORMAL|XDIFF_PATCH_REVERSE|XDIFF_PATCH_IGNORESPACE])] int $flags = XDIFF_PATCH_NORMAL
-) {}
+function xdiff_file_patch(string $file, string $patch, string $dest, #[ExpectedValues([XDIFF_PATCH_NORMAL|XDIFF_PATCH_REVERSE|XDIFF_PATCH_IGNORESPACE])] int $flags = XDIFF_PATCH_NORMAL) {}
 
 /**
  * Make binary diff of two files using the Rabin's polynomial fingerprinting algorithm
@@ -191,12 +186,7 @@ function xdiff_string_patch_binary(string $str, string $patch) {}
  * @param ?string $error If provided then rejected parts are stored inside this variable.
  * @return string|false the patched string, or false on error.
  */
-function xdiff_string_patch(
-    string $str,
-    string $patch,
-    #[ExpectedValues([XDIFF_PATCH_NORMAL|XDIFF_PATCH_REVERSE|XDIFF_PATCH_IGNORESPACE])] ?int $flags,
-    ?string &$error
-) {}
+function xdiff_string_patch(string $str, string $patch, #[ExpectedValues([XDIFF_PATCH_NORMAL|XDIFF_PATCH_REVERSE|XDIFF_PATCH_IGNORESPACE])] ?int $flags, ?string &$error) {}
 
 /**
  * Make binary diff of two strings using the Rabin's polynomial fingerprinting algorithm
