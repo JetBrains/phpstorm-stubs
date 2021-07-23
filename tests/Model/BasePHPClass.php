@@ -38,6 +38,18 @@ abstract class BasePHPClass extends BasePHPElement
         }
     }
 
+    public function getConstant($constantName)
+    {
+        $constants = array_filter($this->constants, function (PHPConst $constant) use ($constantName): bool {
+            return $constant->name === $constantName && $constant->duplicateOtherElement === false
+                && BasePHPElement::entitySuitesCurrentPhpVersion($constant);
+        });
+        if (empty($constants)) {
+            throw new RuntimeException("Constant $constantName not found in stubs for set language version");
+        }
+        return array_pop($constants);
+    }
+
     public function addMethod(PHPMethod $parsedMethod)
     {
         if (isset($parsedMethod->name)) {

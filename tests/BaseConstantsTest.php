@@ -57,15 +57,15 @@ class BaseConstantsTest extends BaseStubsTest
         $constantName = $constant->name;
         $constantVisibility = $constant->visibility;
         if ($class instanceof PHPClass) {
-            $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->constants;
+            $stubConstant = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->getConstant($constantName);
         } else {
-            $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($class->name)->constants;
+            $stubConstant = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($class->name)->getConstant($constantName);
         }
         static::assertEquals(
             $constantVisibility,
-            $stubConstants[$constantName]->visibility,
+            $stubConstant->visibility,
             "Constant visibility mismatch: const $constantName \n
-            Expected visibility: $constantVisibility but was {$stubConstants[$constantName]->visibility}"
+            Expected visibility: $constantVisibility but was $stubConstant->visibility"
         );
     }
 }

@@ -7,6 +7,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\PropertyRead;
 use phpDocumentor\Reflection\DocBlockFactory;
 use PhpParser\Node\Stmt\Class_;
 use ReflectionClass;
+use RuntimeException;
 use stdClass;
 
 class PHPClass extends BasePHPClass
@@ -167,5 +168,17 @@ class PHPClass extends BasePHPClass
                 $this->properties[$parsedProperty->name] = $parsedProperty;
             }
         }
+    }
+
+    public function getProperty($propertyName)
+    {
+        $properties = array_filter($this->properties, function (PHPProperty $property) use ($propertyName): bool {
+            return $property->name === $propertyName && $property->duplicateOtherElement === false
+                && BasePHPElement::entitySuitesCurrentPhpVersion($property);
+        });
+        if (empty($properties)) {
+            throw new RuntimeException("Property $propertyName not found in stubs for set language version");
+        }
+        return array_pop($properties);
     }
 }

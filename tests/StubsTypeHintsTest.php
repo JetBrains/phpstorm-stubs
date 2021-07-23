@@ -95,9 +95,9 @@ class StubsTypeHintsTest extends BaseStubsTest
     {
         $functionName = $method->name;
         if ($class instanceof PHPClass) {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->methods[$functionName];
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->getMethod($functionName);
         } else {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($class->name)->methods[$functionName];
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($class->name)->getMethod($functionName);
         }
         $unifiedStubsReturnTypes = [];
         $unifiedStubsAttributesReturnTypes = [];
@@ -138,9 +138,9 @@ class StubsTypeHintsTest extends BaseStubsTest
         $className = $reflectionClass->name;
         $methodName = $reflectionMethod->name;
         if ($reflectionClass instanceof PHPClass) {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->methods[$methodName];
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->getMethod($methodName);
         } else {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->methods[$methodName];
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->getMethod($methodName);
         }
         /** @var PHPParameter $stubParameter */
         $stubParameter = current(array_filter(
