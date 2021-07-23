@@ -15,6 +15,7 @@ exclude:
   - name: PhpReturnDocTypeMismatchInspection
   - name: PhpDocRedundantThrowsInspection
   - name: PhpMissingStrictTypesDeclarationInspection
+  - name: PhpUnused
     paths:
       - aerospike
       - amqp
