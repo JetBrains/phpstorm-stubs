@@ -36,21 +36,24 @@ class PHPClass extends BasePHPClass
             if ($method->getDeclaringClass()->getName() !== $this->name) {
                 continue;
             }
-            $this->methods[$method->name] = (new PHPMethod())->readObjectFromReflection($method);
+            $parsedMethod = (new PHPMethod())->readObjectFromReflection($method);
+            $this->addMethod($parsedMethod);
         }
 
         foreach ($reflectionObject->getReflectionConstants() as $constant) {
             if ($constant->getDeclaringClass()->getName() !== $this->name) {
                 continue;
             }
-            $this->constants[$constant->name] = (new PHPConst())->readObjectFromReflection($constant);
+            $parsedConstant = (new PHPConst())->readObjectFromReflection($constant);
+            $this->addConstant($parsedConstant);
         }
 
         foreach ($reflectionObject->getProperties() as $property) {
             if ($property->getDeclaringClass()->getName() !== $this->name) {
                 continue;
             }
-            $this->properties[$property->name] = (new PHPProperty())->readObjectFromReflection($property);
+            $parsedProperty = (new PHPProperty())->readObjectFromReflection($property);
+            $this->addProperty($parsedProperty);
         }
         return $this;
     }
@@ -82,8 +85,8 @@ class PHPClass extends BasePHPClass
             }
         }
         foreach ($node->getProperties() as $property) {
-            $propertyName = $property->props[0]->name->name;
-            $this->properties[$propertyName] = (new PHPProperty($this->name))->readObjectFromStubNode($property);
+            $parsedProperty = (new PHPProperty($this->name))->readObjectFromStubNode($property);
+            $this->addProperty($parsedProperty);
         }
         if ($node->getDocComment() !== null) {
             $docBlock = DocBlockFactory::createInstance()->create($node->getDocComment()->getText());
@@ -145,6 +148,23 @@ class PHPClass extends BasePHPClass
                     }
                 }
                 return;
+            }
+        }
+    }
+
+    public function addProperty(PHPProperty $parsedProperty)
+    {
+        if (isset($parsedProperty->name)) {
+            if (array_key_exists($parsedProperty->name, $this->properties)) {
+                $amount = count(array_filter(
+                    $this->properties,
+                    function (PHPProperty $nextProperty) use ($parsedProperty) {
+                        return $nextProperty->name === $parsedProperty->name;
+                    }
+                ));
+                $this->properties[$parsedProperty->name . '_duplicated_' . $amount] = $parsedProperty;
+            } else {
+                $this->properties[$parsedProperty->name] = $parsedProperty;
             }
         }
     }

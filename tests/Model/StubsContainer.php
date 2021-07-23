@@ -34,16 +34,36 @@ class StubsContainer
         return $this->constants;
     }
 
+    public function getConstant(string $constantName, ?string $sourceFilePath): ?PHPConst
+    {
+        $constants = array_filter($this->constants, function (PHPConst $const) use ($constantName): bool {
+            return $const->name === $constantName && $const->duplicateOtherElement === false
+                && BasePHPElement::entitySuitesCurrentPhpVersion($const);
+        });
+        if (count($constants) === 1) {
+            return array_pop($constants);
+        } else {
+            if ($sourceFilePath !== null) {
+                $constants = array_filter($constants, function (PHPConst $constant) use ($sourceFilePath) {
+                    return $constant->sourceFilePath === $sourceFilePath
+                        && BasePHPElement::entitySuitesCurrentPhpVersion($constant);
+                });
+            }
+            if (count($constants) > 1) {
+                throw new RuntimeException("Multiple constants with name $constantName found");
+            }
+            if (!empty($constants)) {
+                return array_pop($constants);
+            }
+        }
+        return null;
+    }
+
     /**
      * @param PHPConst $constant
      */
     public function addConstant(PHPConst $constant): void
     {
-        if ($constant->stubBelongsToCore &&
-            !empty(ParserUtils::getAvailableInVersions($constant))
-            && !BasePHPElement::entitySuitesCurrentPhpVersion($constant)) {
-            return;
-        }
         if (isset($constant->name)) {
             if (array_key_exists($constant->name, $this->constants)) {
                 $amount = count(array_filter(
@@ -100,11 +120,6 @@ class StubsContainer
 
     public function addFunction(PHPFunction $function): void
     {
-        if ($function->stubBelongsToCore
-            && !empty(ParserUtils::getAvailableInVersions($function))
-            && !BasePHPElement::entitySuitesCurrentPhpVersion($function)) {
-            return;
-        }
         if (isset($function->name)) {
             if (array_key_exists($function->name, $this->functions)) {
                 $amount = count(array_filter(
@@ -122,6 +137,14 @@ class StubsContainer
     }
 
     /**
+     * @return PHPClass[]
+     */
+    public function getClasses(): array
+    {
+        return $this->classes;
+    }
+
+    /**
      * @param string $name
      * @param string|null $sourceFilePath
      * @return PHPClass|null
@@ -130,14 +153,14 @@ class StubsContainer
     public function getClass(string $name, ?string $sourceFilePath = null): ?PHPClass
     {
         $classes = array_filter($this->classes, function (PHPClass $class) use ($name): bool {
-            return $class->name === $name;
+            return $class->name === $name && BasePHPElement::entitySuitesCurrentPhpVersion($class);
         });
         if (count($classes) === 1) {
             return array_pop($classes);
         } else {
             if ($sourceFilePath !== null) {
                 $classes = array_filter($classes, function (PHPClass $class) use ($sourceFilePath) {
-                    return $class->sourceFilePath === $sourceFilePath;
+                    return $class->sourceFilePath === $sourceFilePath && BasePHPElement::entitySuitesCurrentPhpVersion($class);
                 });
             }
             if (count($classes) > 1) {
@@ -148,14 +171,6 @@ class StubsContainer
             }
         }
         return null;
-    }
-
-    /**
-     * @return PHPClass[]
-     */
-    public function getClasses(): array
-    {
-        return $this->classes;
     }
 
     /**
@@ -173,11 +188,6 @@ class StubsContainer
      */
     public function addClass(PHPClass $class): void
     {
-        if ($class->stubBelongsToCore &&
-            !empty(ParserUtils::getAvailableInVersions($class)) &&
-            !BasePHPElement::entitySuitesCurrentPhpVersion($class)) {
-            return;
-        }
         if (isset($class->name)) {
             if (array_key_exists($class->name, $this->classes)) {
                 $amount = count(array_filter(
@@ -202,14 +212,14 @@ class StubsContainer
     public function getInterface(string $name, ?string $sourceFilePath = null): ?PHPInterface
     {
         $interfaces = array_filter($this->interfaces, function (PHPInterface $interface) use ($name): bool {
-            return $interface->name === $name;
+            return $interface->name === $name && BasePHPElement::entitySuitesCurrentPhpVersion($interface);
         });
         if (count($interfaces) === 1) {
             return array_pop($interfaces);
         } else {
             if ($sourceFilePath !== null) {
                 $interfaces = array_filter($interfaces, function (PHPInterface $interface) use ($sourceFilePath) {
-                    return $interface->sourceFilePath === $sourceFilePath;
+                    return $interface->sourceFilePath === $sourceFilePath && BasePHPElement::entitySuitesCurrentPhpVersion($interface);
                 });
             }
             if (count($interfaces) > 1) {
@@ -245,9 +255,6 @@ class StubsContainer
      */
     public function addInterface(PHPInterface $interface): void
     {
-        if ($interface->stubBelongsToCore && !empty(ParserUtils::getAvailableInVersions($interface)) && !BasePHPElement::entitySuitesCurrentPhpVersion($interface)) {
-            return;
-        }
         if (isset($interface->name)) {
             if (array_key_exists($interface->name, $this->interfaces)) {
                 $amount = count(array_filter(

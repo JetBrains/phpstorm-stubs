@@ -52,9 +52,9 @@ class ASTVisitor extends NodeVisitorAbstract
             if ($constant->parentName === null) {
                 $this->stubs->addConstant($constant);
             } elseif ($this->stubs->getClass($constant->parentName, $this->sourceFilePath) !== null) {
-                $this->stubs->getClass($constant->parentName, $this->sourceFilePath)->constants[$constant->name] = $constant;
+                $this->stubs->getClass($constant->parentName, $this->sourceFilePath)->addConstant($constant);
             } elseif ($this->stubs->getInterface($constant->parentName, $this->sourceFilePath) !== null) {
-                $this->stubs->getInterface($constant->parentName, $this->sourceFilePath)->constants[$constant->name] = $constant;
+                $this->stubs->getInterface($constant->parentName, $this->sourceFilePath)->addConstant($constant);
             }
         } elseif ($node instanceof FuncCall) {
             if ($node->name->parts[0] === 'define') {
@@ -72,9 +72,9 @@ class ASTVisitor extends NodeVisitorAbstract
                 $method->stubBelongsToCore = true;
             }
             if ($this->stubs->getClass($method->parentName, $this->sourceFilePath) !== null) {
-                $this->stubs->getClass($method->parentName, $this->sourceFilePath)->methods[$method->name] = $method;
+                $this->stubs->getClass($method->parentName, $this->sourceFilePath)->addMethod($method);
             } elseif ($this->stubs->getInterface($method->parentName, $this->sourceFilePath) !== null) {
-                $this->stubs->getInterface($method->parentName, $this->sourceFilePath)->methods[$method->name] = $method;
+                $this->stubs->getInterface($method->parentName, $this->sourceFilePath)->addMethod($method);
             }
         } elseif ($node instanceof Interface_) {
             $interface = (new PHPInterface())->readObjectFromStubNode($node);
@@ -98,7 +98,7 @@ class ASTVisitor extends NodeVisitorAbstract
             }
 
             if ($this->stubs->getClass($property->parentName, $this->sourceFilePath) !== null) {
-                $this->stubs->getClass($property->parentName, $this->sourceFilePath)->properties[$property->name] = $property;
+                $this->stubs->getClass($property->parentName, $this->sourceFilePath)->addProperty($property);
             }
         }
     }
