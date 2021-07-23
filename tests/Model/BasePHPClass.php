@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
+use RuntimeException;
+
 abstract class BasePHPClass extends BasePHPElement
 {
     use PHPDocElement;
@@ -53,12 +55,18 @@ abstract class BasePHPClass extends BasePHPElement
         }
     }
 
-    public function getMethod(string $methodName): PHPMethod
+    /**
+     * @throws RuntimeException
+     */
+    public function getMethod(string $methodName): ?PHPMethod
     {
         $methods = array_filter($this->methods, function (PHPMethod $method) use ($methodName): bool {
             return $method->name === $methodName && $method->duplicateOtherElement === false
                 && BasePHPElement::entitySuitesCurrentPhpVersion($method);
         });
+        if (empty($methods)) {
+            throw new RuntimeException("Method $methodName not found in stubs for set language version");
+        }
         return array_pop($methods);
     }
 }
