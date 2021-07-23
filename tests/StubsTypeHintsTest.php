@@ -54,7 +54,7 @@ class StubsTypeHintsTest extends BaseStubsTest
                 $unifiedStubsAttributesReturnTypes[getenv('PHP_VERSION')] :
                 $unifiedStubsAttributesReturnTypes['default'];
         }
-        $conditionToCompareWithAttribute = BaseStubsTest::ifReflectionTypesExistInAttributes($unifiedReflectionReturnTypes, $typesFromAttribute);
+        $conditionToCompareWithAttribute = BaseStubsTest::isReflectionTypesExistInAttributes($unifiedReflectionReturnTypes, $typesFromAttribute);
         $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
         self::assertTrue($testCondition, "Function $functionName has invalid return type.
         Reflection function has return type " . implode('|', $function->returnTypesFromSignature) . ' but stubs has return type ' .
@@ -121,7 +121,7 @@ class StubsTypeHintsTest extends BaseStubsTest
                 $unifiedStubsAttributesReturnTypes[getenv('PHP_VERSION')] :
                 $unifiedStubsAttributesReturnTypes['default'];
         }
-        $conditionToCompareWithAttribute = BaseStubsTest::ifReflectionTypesExistInAttributes($unifiedReflectionReturnTypes, $typesFromAttribute);
+        $conditionToCompareWithAttribute = BaseStubsTest::isReflectionTypesExistInAttributes($unifiedReflectionReturnTypes, $typesFromAttribute);
         $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
         self::assertTrue($testCondition, "Function $functionName has invalid return type.
         Reflection method $class->name::$functionName has return type " . implode('|', $method->returnTypesFromSignature) . ' but stubs has return type ' .
@@ -355,14 +355,15 @@ class StubsTypeHintsTest extends BaseStubsTest
             self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesParameterTypes[$languageVersion]);
         }
         $typesFromAttribute = [];
-        if (!empty($unifiedStubsAttributesParameterTypes)) {
-            $typesFromAttribute = !empty($unifiedStubsAttributesParameterTypes[getenv('PHP_VERSION')]) ?
-                $unifiedStubsAttributesParameterTypes[getenv('PHP_VERSION')] :
-                $unifiedStubsAttributesParameterTypes['default'];
+        $testCondition = BaseStubsTest::isReflectionTypesMatchSignature($unifiedReflectionParameterTypes, $unifiedStubsParameterTypes);
+        if (!$testCondition) {
+            if (!empty($unifiedStubsAttributesParameterTypes)) {
+                $typesFromAttribute = !empty($unifiedStubsAttributesParameterTypes[getenv('PHP_VERSION')]) ?
+                    $unifiedStubsAttributesParameterTypes[getenv('PHP_VERSION')] :
+                    $unifiedStubsAttributesParameterTypes['default'];
+                $testCondition = BaseStubsTest::isReflectionTypesExistInAttributes($unifiedReflectionParameterTypes, $typesFromAttribute);
+            }
         }
-        $conditionToCompareWithSignature = BaseStubsTest::isReflectionTypesMatchSignature($unifiedReflectionParameterTypes, $unifiedStubsParameterTypes);
-        $conditionToCompareWithAttribute = BaseStubsTest::ifReflectionTypesExistInAttributes($unifiedReflectionParameterTypes, $typesFromAttribute);
-        $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
         self::assertTrue($testCondition, "Type mismatch $functionName: \$$parameter->name \n
         Reflection parameter $parameter->name with index $parameter->indexInSignature has type '" . implode('|', $unifiedReflectionParameterTypes) .
             "' but stub parameter $stubParameter->name with index $stubParameter->indexInSignature has type '" . implode('|', $unifiedStubsParameterTypes) . "' in signature and " .

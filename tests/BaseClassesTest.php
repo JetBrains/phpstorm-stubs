@@ -232,18 +232,17 @@ class BaseClassesTest extends BaseStubsTest
             $unifiedStubsAttributesPropertyTypes[$languageVersion] = [];
             self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesPropertyTypes[$languageVersion]);
         }
-        $conditionToCompareWithSignature = self::isReflectionTypesMatchSignature(
-            $unifiedReflectionPropertyTypes,
-            $unifiedStubsPropertyTypes
-        );
         $typesFromAttribute = [];
-        if (!empty($unifiedStubsAttributesPropertyTypes)) {
-            $typesFromAttribute = !empty($unifiedStubsAttributesPropertyTypes[getenv('PHP_VERSION')]) ?
-                $unifiedStubsAttributesPropertyTypes[getenv('PHP_VERSION')] :
-                $unifiedStubsAttributesPropertyTypes['default'];
+        $testCondition = self::isReflectionTypesMatchSignature($unifiedReflectionPropertyTypes, $unifiedStubsPropertyTypes);
+        if (!$testCondition) {
+            if (!empty($unifiedStubsAttributesPropertyTypes)) {
+                $typesFromAttribute = !empty($unifiedStubsAttributesPropertyTypes[getenv('PHP_VERSION')]) ?
+                    $unifiedStubsAttributesPropertyTypes[getenv('PHP_VERSION')] :
+                    $unifiedStubsAttributesPropertyTypes['default'];
+                $conditionToCompareWithAttribute = self::isReflectionTypesExistInAttributes($unifiedReflectionPropertyTypes, $typesFromAttribute);
+                $testCondition = $conditionToCompareWithAttribute;
+            }
         }
-        $conditionToCompareWithAttribute = self::ifReflectionTypesExistInAttributes($unifiedReflectionPropertyTypes, $typesFromAttribute);
-        $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
         self::assertTrue($testCondition, "Property $className::$propertyName has invalid typehint.
         Reflection property has type " . implode('|', $unifiedReflectionPropertyTypes) . ' but stubs has type ' .
             implode('|', $unifiedStubsPropertyTypes) . ' in signature and attribute has types ' .

@@ -44,7 +44,7 @@ abstract class BaseStubsTest extends TestCase
             if ($defaultValueName !== 'false' && $defaultValueName !== 'true' && $defaultValueName !== 'null') {
                 $constants = array_filter(
                     PhpStormStubsSingleton::getPhpStormStubs()->getConstants(),
-                    fn (PHPConst $const) => $const->name === (string)$defaultValue->name
+                    fn(PHPConst $const) => $const->name === (string)$defaultValue->name
                 );
                 /** @var PHPConst $constant */
                 $constant = array_pop($constants);
@@ -58,19 +58,19 @@ abstract class BaseStubsTest extends TestCase
             if ($defaultValue->left instanceof ConstFetch && $defaultValue->right instanceof ConstFetch) {
                 $constants = array_filter(
                     PhpStormStubsSingleton::getPhpStormStubs()->getConstants(),
-                    fn (PHPConst $const) => property_exists($defaultValue->left, 'name') &&
+                    fn(PHPConst $const) => property_exists($defaultValue->left, 'name') &&
                         $const->name === (string)$defaultValue->left->name
                 );
                 /** @var PHPConst $leftConstant */
                 $leftConstant = array_pop($constants);
                 $constants = array_filter(
                     PhpStormStubsSingleton::getPhpStormStubs()->getConstants(),
-                    fn (PHPConst $const) => property_exists($defaultValue->right, 'name') &&
+                    fn(PHPConst $const) => property_exists($defaultValue->right, 'name') &&
                         $const->name === (string)$defaultValue->right->name
                 );
                 /** @var PHPConst $rightConstant */
                 $rightConstant = array_pop($constants);
-                $value = $leftConstant->value|$rightConstant->value;
+                $value = $leftConstant->value | $rightConstant->value;
             }
         } elseif ($defaultValue instanceof UnaryMinus && property_exists($defaultValue->expr, 'value')) {
             $value = '-' . $defaultValue->expr->value;
@@ -87,7 +87,7 @@ abstract class BaseStubsTest extends TestCase
             if ((string)$defaultValue->name === 'class') {
                 $value = (string)$defaultValue->class;
             } else {
-                $constants = array_filter($parentClass->constants, fn (PHPConst $const) => $const->name === (string)$defaultValue->name);
+                $constants = array_filter($parentClass->constants, fn(PHPConst $const) => $const->name === (string)$defaultValue->name);
                 /** @var PHPConst $constant */
                 $constant = array_pop($constants);
                 $value = $constant->value;
@@ -128,7 +128,7 @@ abstract class BaseStubsTest extends TestCase
                 PhpStormStubsSingleton::getPhpStormStubs()->getFunction($value->name)
             );
             array_push($functionVersions, ...array_values(array_map(
-                fn (PHPFunction $function) => ParserUtils::getAvailableInVersions($function),
+                fn(PHPFunction $function) => ParserUtils::getAvailableInVersions($function),
                 $duplicatesOfFunction
             )));
             $hasDuplicates = false;
@@ -143,14 +143,14 @@ abstract class BaseStubsTest extends TestCase
             }
             return $hasDuplicates;
         }, ARRAY_FILTER_USE_BOTH);
-        return array_unique(array_map(fn (PHPFunction $function) => $function->name, $duplicatedFunctions));
+        return array_unique(array_map(fn(PHPFunction $function) => $function->name, $duplicatedFunctions));
     }
 
     protected static function getAllDuplicatesOfFunction(?string $name): array
     {
         return array_filter(
             PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(),
-            fn ($duplicateValue, $duplicateKey) => $duplicateValue->name === $name && str_contains($duplicateKey, 'duplicated'),
+            fn($duplicateValue, $duplicateKey) => $duplicateValue->name === $name && str_contains($duplicateKey, 'duplicated'),
             ARRAY_FILTER_USE_BOTH
         );
     }
@@ -163,11 +163,11 @@ abstract class BaseStubsTest extends TestCase
         ));
     }
 
-    public static function ifReflectionTypesExistInAttributes(array $reflectionTypes, array $typesFromAttribute): bool
+    public static function isReflectionTypesExistInAttributes(array $reflectionTypes, array $typesFromAttribute): bool
     {
         return empty(array_merge(
-            array_diff($reflectionTypes, $typesFromAttribute),
-            array_diff($typesFromAttribute, $reflectionTypes)
+            array_diff($reflectionTypes, array_filter($typesFromAttribute, fn($type) => !empty($type))),
+            array_diff(array_filter($typesFromAttribute, fn($type) => !empty($type)), $reflectionTypes)
         ));
     }
 
