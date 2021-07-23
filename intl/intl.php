@@ -2063,10 +2063,7 @@ class IntlDateFormatter
    * </p>
    * @return string|false The formatted string or, if an error occurred, <b>FALSE</b>.
    */
-  public function format($datetime, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $array) {}
-
-  #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
-  public function format($args = null, $array = null) {}
+  public function format($datetime = null, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $array) {}
 
   /**
    * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
@@ -4679,11 +4676,7 @@ function datefmt_set_lenient(
  * @return string|false The formatted string or, if an error occurred, <b>FALSE</b>.
  */
 #[Pure]
-function datefmt_format(IntlDateFormatter $formatter, $datetime): string|false {}
-
-#[Pure]
-#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
-function datefmt_format($args = null, $array = null): string|false {}
+function datefmt_format($formatter, $datetime): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
