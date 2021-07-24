@@ -1,6 +1,6 @@
 name: PhpStorm Stubs PECL Test
 
-on: [workflow_dispatch]
+on: [push]
 
 jobs:
   build:
