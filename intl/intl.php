@@ -2251,7 +2251,7 @@ class Transliterator
   public const FORWARD = 0;
   public const REVERSE = 1;
 
-  #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+  #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
   public $id;
 
   /**
