@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace StubTests\Model;
 
 use RuntimeException;
-use StubTests\Parsers\ParserUtils;
 use function array_key_exists;
 
 class StubsContainer
@@ -147,20 +146,23 @@ class StubsContainer
     /**
      * @param string $name
      * @param string|null $sourceFilePath
+     * @param bool $shouldSuiteCurrentPhpVersion
      * @return PHPClass|null
      * @throws RuntimeException
      */
-    public function getClass(string $name, ?string $sourceFilePath = null): ?PHPClass
+    public function getClass(string $name, ?string $sourceFilePath = null, bool $shouldSuiteCurrentPhpVersion = true): ?PHPClass
     {
-        $classes = array_filter($this->classes, function (PHPClass $class) use ($name): bool {
-            return $class->name === $name && BasePHPElement::entitySuitesCurrentPhpVersion($class);
+        $classes = array_filter($this->classes, function (PHPClass $class) use ($shouldSuiteCurrentPhpVersion, $name): bool {
+            return $class->name === $name &&
+                (!$shouldSuiteCurrentPhpVersion || BasePHPElement::entitySuitesCurrentPhpVersion($class));
         });
         if (count($classes) === 1) {
             return array_pop($classes);
         } else {
             if ($sourceFilePath !== null) {
-                $classes = array_filter($classes, function (PHPClass $class) use ($sourceFilePath) {
-                    return $class->sourceFilePath === $sourceFilePath && BasePHPElement::entitySuitesCurrentPhpVersion($class);
+                $classes = array_filter($classes, function (PHPClass $class) use ($shouldSuiteCurrentPhpVersion, $sourceFilePath) {
+                    return $class->sourceFilePath === $sourceFilePath &&
+                        (!$shouldSuiteCurrentPhpVersion || BasePHPElement::entitySuitesCurrentPhpVersion($class));
                 });
             }
             if (count($classes) > 1) {
@@ -206,20 +208,23 @@ class StubsContainer
     /**
      * @param string $name
      * @param string|null $sourceFilePath
+     * @param bool $shouldSuitCurrentPhpVersion
      * @return PHPInterface|null
      * @throws RuntimeException
      */
-    public function getInterface(string $name, ?string $sourceFilePath = null): ?PHPInterface
+    public function getInterface(string $name, ?string $sourceFilePath = null, bool $shouldSuitCurrentPhpVersion = true): ?PHPInterface
     {
-        $interfaces = array_filter($this->interfaces, function (PHPInterface $interface) use ($name): bool {
-            return $interface->name === $name && BasePHPElement::entitySuitesCurrentPhpVersion($interface);
+        $interfaces = array_filter($this->interfaces, function (PHPInterface $interface) use ($shouldSuitCurrentPhpVersion, $name): bool {
+            return $interface->name === $name &&
+                (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitesCurrentPhpVersion($interface));
         });
         if (count($interfaces) === 1) {
             return array_pop($interfaces);
         } else {
             if ($sourceFilePath !== null) {
-                $interfaces = array_filter($interfaces, function (PHPInterface $interface) use ($sourceFilePath) {
-                    return $interface->sourceFilePath === $sourceFilePath && BasePHPElement::entitySuitesCurrentPhpVersion($interface);
+                $interfaces = array_filter($interfaces, function (PHPInterface $interface) use ($shouldSuitCurrentPhpVersion, $sourceFilePath) {
+                    return $interface->sourceFilePath === $sourceFilePath &&
+                        (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitesCurrentPhpVersion($interface));
                 });
             }
             if (count($interfaces) > 1) {

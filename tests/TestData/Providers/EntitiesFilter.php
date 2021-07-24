@@ -47,10 +47,11 @@ class EntitiesFilter
 
     /**
      * @param PHPClass|PHPInterface|null $class
+     * @param bool $shouldSuitCurrentPhpVersion
      * @return PHPFunction[]
      * @throws RuntimeException
      */
-    public static function getFilteredFunctions($class = null): array
+    public static function getFilteredFunctions(PHPInterface|PHPClass $class = null, bool $shouldSuitCurrentPhpVersion = true): array
     {
         if ($class === null) {
             $allFunctions = ReflectionStubsSingleton::getReflectionStubs()->getFunctions();
@@ -61,7 +62,7 @@ class EntitiesFilter
         $resultArray = [];
         $allFunctions = array_filter(
             $allFunctions,
-            fn ($function) => in_array(doubleval(getenv('PHP_VERSION')), ParserUtils::getAvailableInVersions($function))
+            fn ($function) => !$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitesCurrentPhpVersion($function)
         );
         foreach (EntitiesFilter::getFiltered($allFunctions, null, StubProblemType::HAS_DUPLICATION, StubProblemType::FUNCTION_PARAMETER_MISMATCH) as $function) {
             $resultArray[] = $function;
