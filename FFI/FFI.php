@@ -342,17 +342,17 @@ namespace FFI {
         /**
          * @since 8.1
          */
-        public const TYPE_VOID         = 0;
+        public const TYPE_VOID = 0;
 
         /**
          * @since 8.1
          */
-        public const TYPE_FLOAT        = 1;
+        public const TYPE_FLOAT = 1;
 
         /**
          * @since 8.1
          */
-        public const TYPE_DOUBLE       = 2;
+        public const TYPE_DOUBLE = 2;
 
         /**
          * Please note that this constant may NOT EXIST if there is
@@ -360,83 +360,82 @@ namespace FFI {
          *
          * @since 8.1
          */
-        public const TYPE_LONG_DOUBLE  = 3;
+        public const TYPE_LONG_DOUBLE = 3;
 
         /**
          * @since 8.1
          */
-        public const TYPE_UINT8        = 4;
+        public const TYPE_UINT8 = 4;
 
         /**
          * @since 8.1
          */
-        public const TYPE_SINT8        = 5;
+        public const TYPE_SINT8 = 5;
 
         /**
          * @since 8.1
          */
-        public const TYPE_UINT16       = 6;
+        public const TYPE_UINT16 = 6;
 
         /**
          * @since 8.1
          */
-        public const TYPE_SINT16       = 7;
+        public const TYPE_SINT16 = 7;
 
         /**
          * @since 8.1
          */
-        public const TYPE_UINT32       = 8;
+        public const TYPE_UINT32 = 8;
 
         /**
          * @since 8.1
          */
-        public const TYPE_SINT32       = 9;
+        public const TYPE_SINT32 = 9;
 
         /**
          * @since 8.1
          */
-        public const TYPE_UINT64       = 10;
+        public const TYPE_UINT64 = 10;
 
         /**
          * @since 8.1
          */
-        public const TYPE_SINT64       = 11;
+        public const TYPE_SINT64 = 11;
 
         /**
          * @since 8.1
          */
-        public const TYPE_ENUM         = 12;
+        public const TYPE_ENUM = 12;
 
         /**
          * @since 8.1
          */
-        public const TYPE_BOOL         = 13;
+        public const TYPE_BOOL = 13;
 
         /**
          * @since 8.1
          */
-        public const TYPE_CHAR         = 14;
+        public const TYPE_CHAR = 14;
 
         /**
          * @since 8.1
          */
-        public const TYPE_POINTER      = 15;
+        public const TYPE_POINTER = 15;
 
         /**
          * @since 8.1
          */
-        public const TYPE_FUNC         = 16;
+        public const TYPE_FUNC = 16;
 
         /**
          * @since 8.1
          */
-        public const TYPE_ARRAY        = 17;
+        public const TYPE_ARRAY = 17;
 
         /**
          * @since 8.1
          */
-        public const TYPE_STRUCT       = 18;
-
+        public const TYPE_STRUCT = 18;
 
         /**
          * @since 8.1
@@ -482,7 +481,6 @@ namespace FFI {
          * @since 8.1
          */
         public const ATTR_GCC_STRUCT = 256;
-
 
         /**
          * @since 8.1
@@ -533,7 +531,7 @@ namespace FFI {
          * @since 8.1
          */
         public const ABI_VECTORCALL = 9;
-        
+
         /**
          * Returns the name of the type.
          *
