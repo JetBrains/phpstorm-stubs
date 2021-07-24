@@ -1,6 +1,9 @@
 name: PhpStorm Stubs Check Links
 
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '* * 1 * *'
 
 jobs:
   build:
