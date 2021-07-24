@@ -2020,7 +2020,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
      * @return void
      */
     public function offsetSet(
-        $object,
+        #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')] $object,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $info = null
     ) {}
 

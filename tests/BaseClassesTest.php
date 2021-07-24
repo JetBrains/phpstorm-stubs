@@ -239,8 +239,7 @@ class BaseClassesTest extends BaseStubsTest
                 $typesFromAttribute = !empty($unifiedStubsAttributesPropertyTypes[getenv('PHP_VERSION')]) ?
                     $unifiedStubsAttributesPropertyTypes[getenv('PHP_VERSION')] :
                     $unifiedStubsAttributesPropertyTypes['default'];
-                $conditionToCompareWithAttribute = self::isReflectionTypesExistInAttributes($unifiedReflectionPropertyTypes, $typesFromAttribute);
-                $testCondition = $conditionToCompareWithAttribute;
+                $testCondition = self::isReflectionTypesExistInAttributes($unifiedReflectionPropertyTypes, $typesFromAttribute);
             }
         }
         self::assertTrue($testCondition, "Property $className::$propertyName has invalid typehint.

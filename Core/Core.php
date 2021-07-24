@@ -3,6 +3,7 @@
 // Start of Core v.5.3.6-13ubuntu3.2
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -336,7 +337,11 @@ function error_reporting(?int $error_level): int {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function define(string $constant_name, mixed $value, #[Deprecated] bool $case_insensitive = false): bool {}
+function define(
+    string $constant_name,
+    #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: 'null|array|bool|int|float|string')] $value,
+    #[Deprecated()] bool $case_insensitive = false
+): bool {}
 
 /**
  * Checks whether a given named constant exists
