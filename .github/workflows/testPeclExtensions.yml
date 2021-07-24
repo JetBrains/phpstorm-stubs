@@ -12,19 +12,19 @@ jobs:
       - name: Build Docker Container
         run: docker-compose -f docker-compose.yml build >/dev/null
         env:
-          PHP_VERSION: 8.0
+          PHP_VERSION: '8.0'
 
       - name: Composer Install
         run: docker-compose -f docker-compose.yml run test_runner composer install -d /opt/project/phpstorm-stubs --ignore-platform-reqs
         env:
-          PHP_VERSION: 8.0
+          PHP_VERSION: '8.0'
 
       - name: Dump Reflection To File
         run: docker-compose -f docker-compose.yml run pecl_extensions /usr/local/bin/php /opt/project/phpstorm-stubs/tests/Tools/dump-reflection-to-file.php
         env:
-          PHP_VERSION: 8.0
+          PHP_VERSION: '8.0'
 
       - name: Run Tests
         run: docker-compose -f docker-compose.yml run test_runner /opt/project/phpstorm-stubs/vendor/bin/phpunit /opt/project/phpstorm-stubs/tests/
         env:
-          PHP_VERSION: 8.0
+          PHP_VERSION: '8.0'
