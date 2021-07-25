@@ -118,12 +118,12 @@ class ASTVisitor extends NodeVisitorAbstract
             if ($this->stubs->getInterface(
                 $parentInterface,
                 $interface->stubBelongsToCore ? null : $interface->sourceFilePath,
-                false
-            ) !== null) {
+            false) !== null) {
                 foreach ($this->combineParentInterfaces(
                     $this->stubs->getInterface(
                         $parentInterface,
-                        $interface->stubBelongsToCore ? null : $interface->sourceFilePath,
+                        $interface->stubBelongsToCore ? null : $interface->sourceFilePath
+                    ,
                         false
                     )
                 ) as $value) {
@@ -146,7 +146,7 @@ class ASTVisitor extends NodeVisitorAbstract
             if ($this->stubs->getInterface(
                 $interface,
                 $class->stubBelongsToCore ? null : $class->sourceFilePath,
-                false
+            false
             ) !== null) {
                 $interfaces[] = $this->stubs->getInterface(
                     $interface,
@@ -161,7 +161,7 @@ class ASTVisitor extends NodeVisitorAbstract
         if ($this->stubs->getClass(
             $class->parentClass,
             $class->stubBelongsToCore ? null : $class->sourceFilePath,
-            false
+        false
         ) !== null) {
             $inherited = $this->combineImplementedInterfaces($this->stubs->getClass(
                 $class->parentClass,
