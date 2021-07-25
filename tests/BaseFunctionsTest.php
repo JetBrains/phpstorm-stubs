@@ -54,7 +54,7 @@ class BaseFunctionsTest extends BaseStubsTest
         $phpstormFunction = $stubFunctions[$functionName];
         $filteredStubParameters = array_filter(
             $phpstormFunction->parameters,
-            fn ($parameter) => BasePHPElement::entitySuitesCurrentPhpVersion($parameter)
+            fn ($parameter) => BasePHPElement::entitySuitsCurrentPhpVersion($parameter)
         );
         $uniqueParameterNames = array_unique(array_map(fn (PHPParameter $parameter) => $parameter->name, $filteredStubParameters));
 

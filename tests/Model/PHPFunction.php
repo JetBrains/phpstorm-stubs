@@ -72,7 +72,7 @@ class PHPFunction extends BasePHPElement
         $index = 0;
         foreach ($node->getParams() as $parameter) {
             $parsedParameter = (new PHPParameter())->readObjectFromStubNode($parameter);
-            if (self::entitySuitesCurrentPhpVersion($parsedParameter)) {
+            if (self::entitySuitsCurrentPhpVersion($parsedParameter)) {
                 $parsedParameter->indexInSignature = $index;
                 $this->parameters[] = $parsedParameter;
                 $index++;

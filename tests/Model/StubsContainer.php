@@ -37,7 +37,7 @@ class StubsContainer
     {
         $constants = array_filter($this->constants, function (PHPConst $const) use ($constantName): bool {
             return $const->name === $constantName && $const->duplicateOtherElement === false
-                && BasePHPElement::entitySuitesCurrentPhpVersion($const);
+                && BasePHPElement::entitySuitsCurrentPhpVersion($const);
         });
         if (count($constants) === 1) {
             return array_pop($constants);
@@ -45,7 +45,7 @@ class StubsContainer
             if ($sourceFilePath !== null) {
                 $constants = array_filter($constants, function (PHPConst $constant) use ($sourceFilePath) {
                     return $constant->sourceFilePath === $sourceFilePath
-                        && BasePHPElement::entitySuitesCurrentPhpVersion($constant);
+                        && BasePHPElement::entitySuitsCurrentPhpVersion($constant);
                 });
             }
             if (count($constants) > 1) {
@@ -96,7 +96,7 @@ class StubsContainer
     {
         $functions = array_filter($this->functions, function (PHPFunction $function) use ($name): bool {
             return $function->name === $name && $function->duplicateOtherElement === false
-                && BasePHPElement::entitySuitesCurrentPhpVersion($function);
+                && BasePHPElement::entitySuitsCurrentPhpVersion($function);
         });
         if (count($functions) === 1) {
             return array_pop($functions);
@@ -104,7 +104,7 @@ class StubsContainer
             if ($sourceFilePath !== null) {
                 $functions = array_filter($functions, function (PHPFunction $function) use ($sourceFilePath) {
                     return $function->sourceFilePath === $sourceFilePath
-                        && BasePHPElement::entitySuitesCurrentPhpVersion($function);
+                        && BasePHPElement::entitySuitsCurrentPhpVersion($function);
                 });
             }
             if (count($functions) > 1) {
@@ -154,7 +154,7 @@ class StubsContainer
     {
         $classes = array_filter($this->classes, function (PHPClass $class) use ($shouldSuiteCurrentPhpVersion, $name): bool {
             return $class->name === $name &&
-                (!$shouldSuiteCurrentPhpVersion || BasePHPElement::entitySuitesCurrentPhpVersion($class));
+                (!$shouldSuiteCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($class));
         });
         if (count($classes) === 1) {
             return array_pop($classes);
@@ -162,7 +162,7 @@ class StubsContainer
             if ($sourceFilePath !== null) {
                 $classes = array_filter($classes, function (PHPClass $class) use ($shouldSuiteCurrentPhpVersion, $sourceFilePath) {
                     return $class->sourceFilePath === $sourceFilePath &&
-                        (!$shouldSuiteCurrentPhpVersion || BasePHPElement::entitySuitesCurrentPhpVersion($class));
+                        (!$shouldSuiteCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($class));
                 });
             }
             if (count($classes) > 1) {
@@ -216,7 +216,7 @@ class StubsContainer
     {
         $interfaces = array_filter($this->interfaces, function (PHPInterface $interface) use ($shouldSuitCurrentPhpVersion, $name): bool {
             return $interface->name === $name &&
-                (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitesCurrentPhpVersion($interface));
+                (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($interface));
         });
         if (count($interfaces) === 1) {
             return array_pop($interfaces);
@@ -224,7 +224,7 @@ class StubsContainer
             if ($sourceFilePath !== null) {
                 $interfaces = array_filter($interfaces, function (PHPInterface $interface) use ($shouldSuitCurrentPhpVersion, $sourceFilePath) {
                     return $interface->sourceFilePath === $sourceFilePath &&
-                        (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitesCurrentPhpVersion($interface));
+                        (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($interface));
                 });
             }
             if (count($interfaces) > 1) {

@@ -42,7 +42,7 @@ abstract class BasePHPClass extends BasePHPElement
     {
         $constants = array_filter($this->constants, function (PHPConst $constant) use ($constantName): bool {
             return $constant->name === $constantName && $constant->duplicateOtherElement === false
-                && BasePHPElement::entitySuitesCurrentPhpVersion($constant);
+                && BasePHPElement::entitySuitsCurrentPhpVersion($constant);
         });
         if (empty($constants)) {
             throw new RuntimeException("Constant $constantName not found in stubs for set language version");
@@ -74,7 +74,7 @@ abstract class BasePHPClass extends BasePHPElement
     {
         $methods = array_filter($this->methods, function (PHPMethod $method) use ($methodName): bool {
             return $method->name === $methodName && $method->duplicateOtherElement === false
-                && BasePHPElement::entitySuitesCurrentPhpVersion($method);
+                && BasePHPElement::entitySuitsCurrentPhpVersion($method);
         });
         if (empty($methods)) {
             throw new RuntimeException("Method $methodName not found in stubs for set language version");

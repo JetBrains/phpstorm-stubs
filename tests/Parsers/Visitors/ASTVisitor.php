@@ -27,11 +27,9 @@ class ASTVisitor extends NodeVisitorAbstract
 {
     public function __construct(
         protected StubsContainer $stubs,
-        protected bool           $isStubCore = false,
-        public ?string           $sourceFilePath = null
-    )
-    {
-    }
+        protected bool $isStubCore = false,
+        public ?string $sourceFilePath = null
+    ) {}
 
     /**
      * @throws Exception
@@ -122,10 +120,12 @@ class ASTVisitor extends NodeVisitorAbstract
             if ($this->stubs->getInterface(
                 $parentInterface,
                 $interface->stubBelongsToCore ? null : $interface->sourceFilePath
-                ) !== null) {
-                foreach ($this->combineParentInterfaces($this->stubs->getInterface(
-                    $parentInterface,
-                    $interface->stubBelongsToCore ? null : $interface->sourceFilePath)
+            ) !== null) {
+                foreach ($this->combineParentInterfaces(
+                    $this->stubs->getInterface(
+                        $parentInterface,
+                        $interface->stubBelongsToCore ? null : $interface->sourceFilePath
+                    )
                 ) as $value) {
                     $parents[] = $value;
                 }
@@ -146,9 +146,9 @@ class ASTVisitor extends NodeVisitorAbstract
         foreach ($class->interfaces as $interface) {
             $interfaces[] = $interface;
             if ($this->stubs->getInterface(
-                    $interface,
-                    $class->stubBelongsToCore ? null : $class->sourceFilePath
-                ) !== null) {
+                $interface,
+                $class->stubBelongsToCore ? null : $class->sourceFilePath
+            ) !== null) {
                 $interfaces[] = $this->stubs->getInterface(
                     $interface,
                     $class->stubBelongsToCore ? null : $class->sourceFilePath
@@ -159,9 +159,9 @@ class ASTVisitor extends NodeVisitorAbstract
             return $interfaces;
         }
         if ($this->stubs->getClass(
-                $class->parentClass,
-                $class->stubBelongsToCore ? null : $class->sourceFilePath
-            ) !== null) {
+            $class->parentClass,
+            $class->stubBelongsToCore ? null : $class->sourceFilePath
+        ) !== null) {
             $inherited = $this->combineImplementedInterfaces($this->stubs->getClass(
                 $class->parentClass,
                 $class->stubBelongsToCore ? null : $class->sourceFilePath

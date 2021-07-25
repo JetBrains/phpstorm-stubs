@@ -4675,8 +4675,9 @@ function datefmt_set_lenient(
  */
 #[Pure]
 function datefmt_format(
-  #[LanguageLevelTypeAware(['8.0' => 'IntlDateFormatter'], default: '')] #[Required(from: '8.0')] $formatter = null,
-  #[Required(from: '8.0')] $datetime = null): string|false {}
+    #[LanguageLevelTypeAware(['8.0' => 'IntlDateFormatter'], default: '')] #[Required(from: '8.0')] $formatter = null,
+    #[Required(from: '8.0')] $datetime = null
+): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
