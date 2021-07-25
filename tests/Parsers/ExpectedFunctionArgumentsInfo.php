@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests\Parsers;
 
+use JetBrains\PhpStorm\Pure;
 use PhpParser\Node\Expr;
 
 class ExpectedFunctionArgumentsInfo
@@ -23,17 +24,11 @@ class ExpectedFunctionArgumentsInfo
         $this->functionReference = $functionReference;
     }
 
-    /**
-     * @return Expr|null
-     */
     public function getFunctionReference(): ?Expr
     {
         return $this->functionReference;
     }
 
-    /**
-     * @param Expr $functionReference
-     */
     public function setFunctionReference(Expr $functionReference): void
     {
         $this->functionReference = $functionReference;
@@ -60,6 +55,7 @@ class ExpectedFunctionArgumentsInfo
         return $this->index;
     }
 
+    #[Pure]
     public function __toString(): string
     {
         if ($this->functionReference === null) {
