@@ -1766,7 +1766,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * @param string $qualifiedName The tag name of the element. When also passing in namespaceURI, the element name may take a prefix to be associated with the URI.
      * @param string|null $value [optional] The value of the element.
      * @param string|null $namespace  [optional] A namespace URI to create the element within a specific namespace.
-     @throws DOMException If invalid $qualifiedName
+     * @throws DOMException If invalid $qualifiedName
      */
     public function __construct($qualifiedName, $value = null, $namespace = null) {}
 }
