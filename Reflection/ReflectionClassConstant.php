@@ -199,5 +199,5 @@ class ReflectionClassConstant implements Reflector
      * @since 8.1
      * @return bool
      */
-    public function isFinal(): bool{}
+    public function isFinal(): bool {}
 }

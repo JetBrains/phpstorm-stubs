@@ -208,7 +208,7 @@ abstract class BasePHPElement
      * @return bool
      * @throws RuntimeException
      */
-    public static function entitySuitesCurrentPhpVersion(BasePHPElement $element): bool
+    public static function entitySuitsCurrentPhpVersion(BasePHPElement $element): bool
     {
         return in_array(doubleval(getenv('PHP_VERSION')), ParserUtils::getAvailableInVersions($element));
     }

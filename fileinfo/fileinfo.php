@@ -8,7 +8,6 @@ use JetBrains\PhpStorm\Pure;
 
 class finfo
 {
-
     /**
      * @param int $flags [optional]
      * @param string $magic_database [optional]

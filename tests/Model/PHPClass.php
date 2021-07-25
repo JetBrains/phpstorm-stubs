@@ -174,7 +174,7 @@ class PHPClass extends BasePHPClass
     {
         $properties = array_filter($this->properties, function (PHPProperty $property) use ($propertyName): bool {
             return $property->name === $propertyName && $property->duplicateOtherElement === false
-                && BasePHPElement::entitySuitesCurrentPhpVersion($property);
+                && BasePHPElement::entitySuitsCurrentPhpVersion($property);
         });
         if (empty($properties)) {
             throw new RuntimeException("Property $propertyName not found in stubs for set language version");

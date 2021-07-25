@@ -11,7 +11,6 @@ use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\Model\StubProblemType;
-use StubTests\Parsers\ParserUtils;
 
 class EntitiesFilter
 {
@@ -62,7 +61,7 @@ class EntitiesFilter
         $resultArray = [];
         $allFunctions = array_filter(
             $allFunctions,
-            fn ($function) => !$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitesCurrentPhpVersion($function)
+            fn ($function) => !$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($function)
         );
         foreach (EntitiesFilter::getFiltered($allFunctions, null, StubProblemType::HAS_DUPLICATION, StubProblemType::FUNCTION_PARAMETER_MISMATCH) as $function) {
             $resultArray[] = $function;
