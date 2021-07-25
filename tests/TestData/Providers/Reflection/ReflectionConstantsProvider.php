@@ -50,10 +50,9 @@ class ReflectionConstantsProvider
     }
 
     /**
-     * @param PHPClass|PHPInterface|null $class
      * @return PHPConst[]
      */
-    public static function getFilteredConstants($class = null): array
+    public static function getFilteredConstants(PHPInterface|PHPClass $class = null): array
     {
         if ($class === null) {
             $allConstants = ReflectionStubsSingleton::getReflectionStubs()->getConstants();

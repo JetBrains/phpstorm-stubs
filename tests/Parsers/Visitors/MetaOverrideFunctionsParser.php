@@ -49,7 +49,7 @@ class MetaOverrideFunctionsParser extends NodeVisitorAbstract
         }
     }
 
-    private static function getOverrideFunctionName($param): string
+    private static function getOverrideFunctionName(Node\Arg $param): string
     {
         $paramValue = $param->value;
         if ($paramValue instanceof Expr\StaticCall) {

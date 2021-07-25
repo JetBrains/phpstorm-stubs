@@ -118,6 +118,8 @@ abstract class BaseStubsTest extends TestCase
     }
 
     /**
+     * @param PHPFunction[] $filtered
+     * @return PHPFunction[]
      * @throws RuntimeException
      */
     protected static function getDuplicatedFunctions(array $filtered): array
@@ -146,6 +148,9 @@ abstract class BaseStubsTest extends TestCase
         return array_unique(array_map(fn (PHPFunction $function) => $function->name, $duplicatedFunctions));
     }
 
+    /**
+     * @return PHPFunction[]
+     */
     protected static function getAllDuplicatesOfFunction(?string $name): array
     {
         return array_filter(
@@ -155,6 +160,10 @@ abstract class BaseStubsTest extends TestCase
         );
     }
 
+    /**
+     * @param string[] $reflectionTypes
+     * @param string[] $typesFromSignature
+     */
     public static function isReflectionTypesMatchSignature(array $reflectionTypes, array $typesFromSignature): bool
     {
         return empty(array_merge(
@@ -163,6 +172,10 @@ abstract class BaseStubsTest extends TestCase
         ));
     }
 
+    /**
+     * @param string[] $reflectionTypes
+     * @param string[] $typesFromAttribute
+     */
     public static function isReflectionTypesExistInAttributes(array $reflectionTypes, array $typesFromAttribute): bool
     {
         return empty(array_merge(
@@ -171,6 +184,9 @@ abstract class BaseStubsTest extends TestCase
         ));
     }
 
+    /**
+     * @param string[][] $typesFromAttribute
+     */
     public static function getStringRepresentationOfTypeHintsFromAttributes(array $typesFromAttribute): string
     {
         $resultString = '';
@@ -180,13 +196,17 @@ abstract class BaseStubsTest extends TestCase
         return $resultString;
     }
 
-    public static function convertNullableTypesToUnion($typesToProcess, array &$resultArray)
+    /**
+     * @param string[] $typesToProcess
+     * @param string[] $resultArray
+     */
+    public static function convertNullableTypesToUnion(array $typesToProcess, array &$resultArray)
     {
         array_walk($typesToProcess, function (string $type) use (&$resultArray) {
             if (str_contains($type, '?')) {
                 array_push($resultArray, 'null', ltrim($type, '?'));
             } else {
-                array_push($resultArray, $type);
+                $resultArray[] = $type;
             }
         });
     }

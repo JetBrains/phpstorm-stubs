@@ -12,7 +12,7 @@ class PHPParameter extends BasePHPElement
     public $indexInSignature = 0;
     /** @var string[] */
     public $typesFromSignature = [];
-    /** @var string[] */
+    /** @var string[][] */
     public $typesFromAttribute = [];
     /** @var string[] */
     public $typesFromPhpDoc = [];

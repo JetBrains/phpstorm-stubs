@@ -108,11 +108,11 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
 
     /**
      * @param Expr|null $functionReference
-     * @param $index
-     * @param $args
+     * @param Arg[] $args
+     * @param int $index
      * @return ExpectedFunctionArgumentsInfo
      */
-    private function getExpectedArgumentsInfo(?Expr $functionReference, $args, $index = -1): ExpectedFunctionArgumentsInfo
+    private function getExpectedArgumentsInfo(?Expr $functionReference, array $args, int $index = -1): ExpectedFunctionArgumentsInfo
     {
         $expressions = array_map(function (Arg $arg): Expr {
             return $arg->value;

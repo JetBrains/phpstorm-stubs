@@ -32,7 +32,7 @@ class PHPFunction extends BasePHPElement
     /** @var string[] */
     public $returnTypesFromPhpDoc = [];
 
-    /** @var string[] */
+    /** @var string[][] */
     public $returnTypesFromAttribute = [];
 
     /** @var string[] */

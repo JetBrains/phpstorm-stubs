@@ -16,6 +16,9 @@ use function array_pop;
 
 class StubsMetaInternalTagTest extends BaseStubsTest
 {
+    /**
+     * @var string[]
+     */
     private static array $overriddenFunctionsInMeta;
 
     public static function setUpBeforeClass(): void

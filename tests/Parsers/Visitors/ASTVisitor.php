@@ -104,8 +104,6 @@ class ASTVisitor extends NodeVisitorAbstract
     }
 
     /**
-     * @param PHPInterface $interface
-     * @return array
      * @throws RuntimeException
      */
     public function combineParentInterfaces(PHPInterface $interface): array
@@ -135,8 +133,6 @@ class ASTVisitor extends NodeVisitorAbstract
     }
 
     /**
-     * @param PHPClass $class
-     * @return array
      * @throws RuntimeException
      */
     public function combineImplementedInterfaces(PHPClass $class): array

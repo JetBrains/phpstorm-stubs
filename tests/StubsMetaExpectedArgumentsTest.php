@@ -38,8 +38,17 @@ class StubsMetaExpectedArgumentsTest extends BaseStubsTest
      * @var string[]
      */
     private static array $registeredArgumentsSet;
+    /**
+     * @var string[]
+     */
     private static array $functionsFqns;
+    /**
+     * @var string[]
+     */
     private static array $methodsFqns;
+    /**
+     * @var string[]
+     */
     private static array $constantsFqns;
 
     public static function setUpBeforeClass(): void
@@ -263,8 +272,6 @@ class StubsMetaExpectedArgumentsTest extends BaseStubsTest
     }
 
     /**
-     * @param Expr|null $expr
-     * @return string
      * @throws Exception
      */
     private static function getFqn(?Expr $expr): string
