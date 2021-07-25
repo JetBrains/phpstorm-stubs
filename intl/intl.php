@@ -4681,6 +4681,7 @@ function datefmt_format(
     #[TypeAware(['8.0' => 'IntlDateFormatter'], default: '')] #[ElementAvailable(from: '8.0')] $formatter,
     #[ElementAvailable(from: '5.3', to: '7.4')] $datetime = null,
     #[ElementAvailable(from: '8.0')] $datetime
+
 ): string|false {}
 
 /**
