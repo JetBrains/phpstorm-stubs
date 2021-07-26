@@ -352,8 +352,8 @@ class DOMNode
 class DOMException extends Exception
 {
     /**
-     * An integer indicating the type of error generated
      * @link https://php.net/manual/en/class.domexception.php#domexception.props.code
+     * @var int An integer indicating the type of error generated
      */
     public $code;
 }
@@ -425,14 +425,8 @@ class DOMImplementationSource
 class DOMImplementation
 {
     /**
-     * Creates a new DOMImplementation object
-     * @link https://php.net/manual/en/domimplementation.construct.php
-     */
-    public function __construct() {}
-
-    /**
-     * @param $feature
-     * @param $version
+     * @param string $feature
+     * @param string $version
      * @return mixed
      */
     public function getFeature($feature, $version) {}
@@ -445,8 +439,7 @@ class DOMImplementation
      * </p>
      * @param string $version <p>
      * The version number of the feature to test. In
-     * level 2, this can be either 2.0 or
-     * 1.0.
+     * level 2, this can be either 2.0 or 1.0.
      * </p>
      * @return bool true on success or false on failure.
      */
@@ -455,7 +448,7 @@ class DOMImplementation
     /**
      * Creates an empty DOMDocumentType object
      * @link https://php.net/manual/en/domimplementation.createdocumenttype.php
-     * @param string $qualifiedName [optional] <p>
+     * @param string $qualifiedName <p>
      * The qualified name of the document type to create.
      * </p>
      * @param string $publicId [optional] <p>
@@ -464,10 +457,11 @@ class DOMImplementation
      * @param string $systemId [optional] <p>
      * The external subset system identifier.
      * </p>
-     * @return DOMDocumentType A new DOMDocumentType node with its
+     * @return DOMDocumentType|false A new DOMDocumentType node with its
      * ownerDocument set to null.
+     * @throws DOMException If there is an error with the namespace
      */
-    public function createDocumentType($qualifiedName = null, $publicId = null, $systemId = null) {}
+    public function createDocumentType($qualifiedName, $publicId = '', $systemId = '') {}
 
     /**
      * Creates a DOMDocument object of the specified type with its document element
@@ -481,12 +475,15 @@ class DOMImplementation
      * @param DOMDocumentType|null $doctype [optional] <p>
      * The type of document to create or null.
      * </p>
-     * @return DOMDocument A new DOMDocument object. If
-     * namespaceURI, qualifiedName,
-     * and doctype are null, the returned
-     * DOMDocument is empty with no document element
+     * @return DOMDocument|false A new DOMDocument object. If
+     * namespaceURI, qualifiedName, and doctype are null, the
+     * returned DOMDocument is empty with no document element.
+     * @throws DOMException If $doctype has already been used
+     * with adifferent document or was created from a different
+     * implementation. If there is an error with the namespace,
+     * as determined by $namespace and $qualifiedName.
      */
-    public function createDocument($namespace = null, $qualifiedName = null, DOMDocumentType $doctype = null) {}
+    public function createDocument($namespace = null, $qualifiedName = '', DOMDocumentType $doctype = null) {}
 }
 
 class DOMNameSpaceNode
