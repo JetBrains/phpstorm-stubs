@@ -7,23 +7,23 @@ use StubTests\Model\CommonUtils;
 
 class PhpCoreStubsProvider
 {
-    private static array $StubDirectoryMap = [
+    public static array $StubDirectoryMap = [
         'CORE' => [
             'Core',
             'date',
-            'regex',
             'filter',
+            'fpm',
             'hash',
-            'Phar',
+            'meta',
             'pcre',
+            'Phar',
             'Reflection',
+            'regex',
             'session',
             'SPL',
             'standard',
             'superglobals',
-            'tokenizer',
-            'meta',
-            'fpm'
+            'tokenizer'
         ],
         'BUNDLED' => [
             'apache',
@@ -43,15 +43,16 @@ class PhpCoreStubsProvider
             'PDO',
             'posix',
             'shmop',
+            'sockets',
+            'sqlite3',
             'sysvmsg',
             'sysvsem',
             'sysvshm',
-            'sockets',
-            'sqlite3',
             'xmlrpc',
             'zlib'
         ],
         'EXTERNAL' => [
+            'aerospike',
             'bz2',
             'curl',
             'dom',
@@ -68,7 +69,6 @@ class PhpCoreStubsProvider
             'mysqli',
             'oci8',
             'odbc',
-            'Zend OPcache',
             'openssl',
             'pdo_ibm',
             'pdo_mysql',
@@ -89,13 +89,18 @@ class PhpCoreStubsProvider
             'xmlreader',
             'xmlwriter',
             'xsl',
+            'Zend OPcache',
             'zip'
         ],
         'PECL' => [
             'apcu',
-            'cubrid',
+            'ast',
             'crypto',
+            'cubrid',
+            'decimal',
+            'ds',
             'event',
+            'expect',
             'gearman',
             'geoip',
             'gmagick',
@@ -103,8 +108,9 @@ class PhpCoreStubsProvider
             'ibm_db2',
             'imagick',
             'inotify',
-            'libevent',
             'leveldb',
+            'libevent',
+            'LuaSandbox',
             'lzf',
             'mailparse',
             'memcache',
@@ -116,28 +122,80 @@ class PhpCoreStubsProvider
             'mysql_xdevapi',
             'ncurses',
             'oauth',
-            'Parle',
             'parallel',
+            'Parle',
+            'pcov',
             'pdflib',
+            'pq',
             'pthreads',
-            'Radius',
+            'radius',
             'rdkafka',
+            'rpminfo',
+            'solr',
             'SplType',
             'SQLite',
             'sqlsrv',
             'ssh2',
-            'solr',
+            'stats',
             'stomp',
             'svn',
             'sync',
             'uopz',
+            'uuid',
             'uv',
+            'winbinder',
             'wincache',
+            'xdiff',
             'xhprof',
-            'yaml',
+            'xxtea',
             'yaf',
+            'yaml',
             'yar',
             'zookeeper',
+            'zstd'
+        ],
+        'OTHERS' => [
+            'amqp',
+            'blackfire',
+            'cassandra',
+            'com_dotnet',
+            'couchbase',
+            'couchbase_v3',
+            'dio',
+            'Ev',
+            'fann',
+            'FFI',
+            'ffmpeg',
+            'geos',
+            'gnupg',
+            'grpc',
+            'igbinary',
+            'judy',
+            'libsodium',
+            'libvirt-php',
+            'lua',
+            'mapscript',
+            'meminfo',
+            'mosquitto-php',
+            'mqseries',
+            'newrelic',
+            'phpdbg',
+            'rar',
+            'redis',
+            'rrd',
+            'SaxonC',
+            'suhosin',
+            'svm',
+            'v8js',
+            'win32service',
+            'xcache',
+            'xdebug',
+            'xlswriter',
+            'zend',
+            'ZendCache',
+            'ZendDebugger',
+            'ZendUtils',
+            'zmq'
         ]
     ];
 
@@ -149,6 +207,16 @@ class PhpCoreStubsProvider
         $coreStubs[] = self::$StubDirectoryMap['CORE'];
         $coreStubs[] = self::$StubDirectoryMap['BUNDLED'];
         $coreStubs[] = self::$StubDirectoryMap['EXTERNAL'];
+        return CommonUtils::flattenArray($coreStubs, false);
+    }
+
+    /**
+     * @return string[]
+     */
+    public static function getNonCoreStubsDirectories(): array
+    {
+        $coreStubs[] = self::$StubDirectoryMap['PECL'];
+        $coreStubs[] = self::$StubDirectoryMap['OTHERS'];
         return CommonUtils::flattenArray($coreStubs, false);
     }
 }
