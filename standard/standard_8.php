@@ -732,7 +732,11 @@ function key(object|array $array): string|int|null {}
  * parameter values.
  */
 #[Pure]
-function min(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, #[Required(from: '5.3', to: '7.4')] mixed ...$values): mixed {}
+function min(
+    #[PhpStormStubsElementAvailable(from: '8.0')] mixed $value,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed $values,
+    mixed ...$values
+): mixed {}
 
 /**
  * Find highest value
@@ -743,7 +747,11 @@ function min(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, #[Requi
  * parameter values, either within a arg array or two arguments.
  */
 #[Pure]
-function max(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, #[Required(from: '5.3', to: '7.4')] mixed ...$values): mixed {}
+function max(
+    #[PhpStormStubsElementAvailable(from: '8.0')] mixed $value,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed $values,
+    mixed ...$values
+): mixed {}
 
 /**
  * Checks if a value exists in an array
@@ -843,7 +851,7 @@ function extract(array &$array, int $flags, string $prefix): int {}
  * @return array the output array with all the variables added to it.
  */
 #[Pure]
-function compact(#[PhpStormStubsElementAvailable(from: '8.0')] $var_name, #[Required(from: '5.3', to: '7.4')] ...$var_names): array {}
+function compact(#[PhpStormStubsElementAvailable(from: '8.0')] $var_name, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $var_names, ...$var_names): array {}
 
 /**
  * Fill an array with values
@@ -932,7 +940,11 @@ function array_multisort(
  * </p>
  * @return int the number of elements in the array.
  */
-function array_push(array &$array, #[Required(from: '5.3', to: '7.2')] mixed ...$values): int {}
+function array_push(
+    array &$array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] $values,
+    mixed ...$values
+): int {}
 
 /**
  * Pop the element off the end of array
@@ -972,7 +984,7 @@ function array_shift(array &$array): mixed {}
  * </p>
  * @return int the number of elements in the array.
  */
-function array_unshift(array &$array, #[Required(from: '5.3', to: '7.2')] mixed ...$values): int {}
+function array_unshift(array &$array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] $values, mixed ...$values): int {}
 
 /**
  * Remove a portion of the array and replace it with something else

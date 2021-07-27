@@ -272,7 +272,7 @@ function array_unique(array $array, int $flags = SORT_STRING): array {}
  * @meta
  */
 #[Pure]
-function array_intersect(array $array, #[Required(from: '5.3', to: '7.4')] array ...$arrays): array {}
+function array_intersect(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays): array {}
 
 /**
  * Computes the intersection of arrays using keys for comparison
@@ -287,7 +287,7 @@ function array_intersect(array $array, #[Required(from: '5.3', to: '7.4')] array
  * @meta
  */
 #[Pure]
-function array_intersect_key(array $array, #[Required(from: '5.3', to: '7.4')] array ...$arrays): array {}
+function array_intersect_key(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays): array {}
 
 /**
  * Computes the intersection of arrays using a callback function on the keys for comparison
@@ -355,7 +355,7 @@ function array_uintersect(
  * @meta
  */
 #[Pure]
-function array_intersect_assoc(array $array, #[Required(from: '5.3', to: '7.4')] array ...$arrays): array {}
+function array_intersect_assoc(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays): array {}
 
 /**
  * Computes the intersection of arrays with additional index check, compares data by a callback function
@@ -454,7 +454,7 @@ function array_uintersect_uassoc(
  * @meta
  */
 #[Pure]
-function array_diff(array $array, #[Required(from: '5.3', to: '7.4')] array ...$arrays): array {}
+function array_diff(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays): array {}
 
 /**
  * Computes the difference of arrays using keys for comparison
@@ -471,7 +471,7 @@ function array_diff(array $array, #[Required(from: '5.3', to: '7.4')] array ...$
  * @meta
  */
 #[Pure]
-function array_diff_key(array $array, #[Required(from: '5.3', to: '7.4')] array ...$arrays): array {}
+function array_diff_key(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays): array {}
 
 /**
  * Computes the difference of arrays using a callback function on the keys for comparison
@@ -544,7 +544,7 @@ function array_udiff(
  * @meta
  */
 #[Pure]
-function array_diff_assoc(array $array, #[Required(from: '5.3', to: '7.4')] array ...$arrays): array {}
+function array_diff_assoc(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays): array {}
 
 /**
  * Computes the difference of arrays with additional index check, compares data by a callback function
@@ -730,7 +730,8 @@ function array_filter(array $array, ?callable $callback, int $mode = 0): array {
 function array_map(
     ?callable $callback,
     #[PhpStormStubsElementAvailable(from: '8.0')] array $array,
-    #[Required(from: '5.3', to: '7.4')] array ...$arrays
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays,
+    array ...$arrays
 ): array {}
 
 /**
