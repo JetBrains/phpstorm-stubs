@@ -25,7 +25,8 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * </p>
  * @return string|false the name of the current session.
  */
-function session_name(?string $name = null): string|false {}
+#[LanguageLevelTypeAware(["8.0" => "string|false"], default: "string")]
+function session_name(#[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $name #[LanguageLevelTypeAware(['8.0' => '= null'], default: '')]) {}
 
 /**
  * Get and/or set the current session module.<br/>
@@ -37,7 +38,8 @@ function session_name(?string $name = null): string|false {}
  * </p>
  * @return string|false the name of the current session module.
  */
-function session_module_name(?string $module = null): string|false {}
+#[LanguageLevelTypeAware(["8.0" => "string|false"], default: "string")]
+function session_module_name(#[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $module #[LanguageLevelTypeAware(['8.0' => '= null'], default: '')]) {}
 
 /**
  * Get and/or set the current session save path
@@ -56,7 +58,8 @@ function session_module_name(?string $module = null): string|false {}
  * </p>
  * @return string|false the path of the current directory used for data storage.
  */
-function session_save_path(?string $path = null): string|false {}
+#[LanguageLevelTypeAware(["8.0" => "string|false"], default: "string")]
+function session_save_path(#[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $path #[LanguageLevelTypeAware(['8.0' => '= null'], default: '')]) {}
 
 /**
  * Get and/or set the current session id
@@ -77,7 +80,8 @@ function session_save_path(?string $path = null): string|false {}
  * session or the empty string ("") if there is no current
  * session (no current session id exists).
  */
-function session_id(?string $id = null): string|false {}
+#[LanguageLevelTypeAware(["8.0" => "string|false"], default: "string")]
+function session_id(#[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $id #[LanguageLevelTypeAware(['8.0' => '= null'], default: '')]) {}
 
 /**
  * Update the current session id with a newly generated one
@@ -152,7 +156,8 @@ function session_is_registered(string $name): bool {}
  * @link https://php.net/manual/en/function.session-encode.php
  * @return string|false the contents of the current session encoded.
  */
-function session_encode(): string|false {}
+#[LanguageLevelTypeAware(["8.0" => "string|false"], default: "string")]
+function session_encode() {}
 
 /**
  * Initialize session data
@@ -174,14 +179,16 @@ function session_start(array $options = []): bool {}
  * If it is used without active session, it omits collision check.
  * @since 7.1
  */
-function session_create_id(string $prefix = ''): string|false {}
+#[LanguageLevelTypeAware(["8.0" => "string|false"], default: "string")]
+function session_create_id(string $prefix = '') {}
 
 /**
  * Perform session data garbage collection
  * @return int|false number of deleted session data for success, false for failure.
  * @since 7.1
  */
-function session_gc(): int|false {}
+#[LanguageLevelTypeAware(["8.0" => "int|false"], default: "int")]
+function session_gc() {}
 
 /**
  * Destroys all data registered to a session
@@ -315,7 +322,8 @@ function session_set_save_handler(SessionHandlerInterface $session_handler, bool
  * </table>
  * @return string|false the name of the current cache limiter.
  */
-function session_cache_limiter(?string $value = null): string|false {}
+#[LanguageLevelTypeAware(["8.0" => "string|false"], default: "string")]
+function session_cache_limiter(#[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $value #[LanguageLevelTypeAware(['8.0' => '= null'], default: '')]) {}
 
 /**
  * Return current cache expire
@@ -332,7 +340,8 @@ function session_cache_limiter(?string $value = null): string|false {}
  * @return int|false the current setting of session.cache_expire.
  * The value returned should be read in minutes, defaults to 180.
  */
-function session_cache_expire(?int $value = null): int|false {}
+#[LanguageLevelTypeAware(["8.0" => "int|false"], default: "int")]
+function session_cache_expire(#[LanguageLevelTypeAware(['8.0' => '?int'], default: 'int')] $value #[LanguageLevelTypeAware(['8.0' => '= null'], default: '')]) {}
 
 /**
  * Set the session cookie parameters
@@ -431,6 +440,7 @@ function session_commit() {}
  * @return int <b>PHP_SESSION_DISABLED</b> if sessions are disabled.
  * <b>PHP_SESSION_NONE</b> if sessions are enabled, but none exists.
  * <b>PHP_SESSION_ACTIVE</b> if sessions are enabled, and one exists.
+ * @since 5.4
  */
 function session_status(): int {}
 
