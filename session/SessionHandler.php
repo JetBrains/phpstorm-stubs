@@ -17,6 +17,7 @@ interface SessionHandlerInterface
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
      * </p>
+     * @since 5.4
      */
     public function close(): bool;
 
@@ -28,6 +29,7 @@ interface SessionHandlerInterface
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
      * </p>
+     * @since 5.4
      */
     public function destroy(string $id): bool;
 
@@ -42,8 +44,10 @@ interface SessionHandlerInterface
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
      * </p>
+     * @since 5.4
      */
-    public function gc(int $max_lifetime): int|bool;
+    #[LanguageLevelTypeAware(["8.0" => "int|bool"], default: "int")]
+    public function gc(int $max_lifetime);
 
     /**
      * Initialize session
@@ -54,6 +58,7 @@ interface SessionHandlerInterface
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
      * </p>
+     * @since 5.4
      */
     public function open(string $path, string $name): bool;
 
@@ -66,8 +71,10 @@ interface SessionHandlerInterface
      * If nothing was read, it must return an empty string.
      * Note this value is returned internally to PHP for processing.
      * </p>
+     * @since 5.4
      */
-    public function read(string $id): string|false;
+    #[LanguageLevelTypeAware(["8.0" => "string|false"], default: "string")]
+    public function read(string $id);
 
     /**
      * Write session data
@@ -84,6 +91,7 @@ interface SessionHandlerInterface
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
      * </p>
+     * @since 5.4
      */
     public function write(string $id, string $data): bool;
 }
@@ -159,6 +167,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
      * </p>
+     * @since 5.4
      */
     public function close(): bool {}
 
@@ -178,6 +187,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
      * </p>
+     * @since 5.4
      */
     public function destroy(string $id): bool {}
 
@@ -192,8 +202,10 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
      * </p>
+     * @since 5.4
      */
-    public function gc(int $max_lifetime): int|bool {}
+    #[LanguageLevelTypeAware(["8.0" => "int|bool"], default: "int")]
+    public function gc(int $max_lifetime) {}
 
     /**
      * Initialize session
@@ -204,6 +216,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
      * </p>
+     * @since 5.4
      */
     public function open(string $path, string $name): bool {}
 
@@ -216,8 +229,10 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * If nothing was read, it must return an empty string.
      * Note this value is returned internally to PHP for processing.
      * </p>
+     * @since 5.4
      */
-    public function read(string $id): string|false {}
+    #[LanguageLevelTypeAware(["8.0" => "string|false"], default: "string")]
+    public function read(string $id) {}
 
     /**
      * Write session data
@@ -234,6 +249,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
      * </p>
+     * @since 5.4
      */
     public function write(string $id, string $data): bool {}
 }
