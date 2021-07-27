@@ -778,7 +778,15 @@ function openssl_verify(
  * <i>sealed_data</i>, and the envelope keys in
  * <i>env_keys</i>.
  */
-function openssl_seal(string $data, &$sealed_data, &$encrypted_keys, array $public_key, #[Required(from: '8.0')] string $cipher_algo = "RC4", &$iv = ''): int|false {}
+function openssl_seal(
+    string $data,
+    &$sealed_data,
+    &$encrypted_keys,
+    array $public_key,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] string $cipher_algo = '',
+    #[PhpStormStubsElementAvailable(from: '8.0')] string $cipher_algo,
+    &$iv = ''
+): int|false {}
 
 /**
  * Open sealed data
@@ -799,7 +807,8 @@ function openssl_open(
     &$output,
     string $encrypted_key,
     #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
-    #[Required(from: '8.0')] string $cipher_algo = "RC4",
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] string $cipher_algo = '',
+    #[PhpStormStubsElementAvailable(from: '8.0')] string $cipher_algo,
     ?string $iv
 ): bool {}
 

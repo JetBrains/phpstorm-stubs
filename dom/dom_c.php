@@ -494,7 +494,7 @@ class DOMImplementation
      * @throws DOMException If there is an error with the namespace
      */
     public function createDocumentType(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName ,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $publicId = '',
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $systemId = ''
     ) {}
@@ -1520,7 +1520,8 @@ class DOMAttr extends DOMNode
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value
-    = '') {}
+    = ''
+    ) {}
 }
 
 /**
