@@ -56,9 +56,11 @@ class BaseFunctionsTest extends BaseStubsTest
             $phpstormFunction->parameters,
             fn ($parameter) => BasePHPElement::entitySuitesCurrentPhpVersion($parameter)
         );
+        $uniqueParameterNames = array_unique(array_map(fn (PHPParameter $parameter) => $parameter->name, $filteredStubParameters));
+
         static::assertSameSize(
             $function->parameters,
-            $filteredStubParameters,
+            $uniqueParameterNames,
             "Parameter number mismatch for function $functionName. 
                 Expected: " . BaseStubsTest::getParameterRepresentation($function) . "\n" .
             'Actual: ' . BaseStubsTest::getParameterRepresentation($phpstormFunction)

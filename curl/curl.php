@@ -2496,7 +2496,8 @@ function curl_reset(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: '
  */
 function curl_multi_exec(
     #[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle,
-    #[Required(from: '8.0')] &$still_running = false
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] &$still_running = 0,
+    #[PhpStormStubsElementAvailable(from: '8.0')] &$still_running
 ): int {}
 
 /**

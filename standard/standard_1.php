@@ -4,7 +4,6 @@ use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use JetBrains\PhpStorm\Internal\Required;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -1097,10 +1096,8 @@ function join(array|string $separator = "", ?array $array): string {}
 function setlocale(
     int $category,
     #[PhpStormStubsElementAvailable(from: '8.0')] $locales,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
-    #[Required(from: '5.3', to: '7.4')]
-    ...$locale,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $rest,
+    ...$rest
 ): string|false {}
 
 /**
