@@ -35,6 +35,10 @@ class ReflectionPropertiesProvider
     {
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
+            if (!empty(getenv('PECL')) && (!empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getClass($class->name)) ||
+                    !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getInterface($class->name)))) {
+                continue;
+            }
             foreach (EntitiesFilter::getFiltered(
                 $class->properties,
                 fn (PHPProperty $property) => $property->access === 'private',

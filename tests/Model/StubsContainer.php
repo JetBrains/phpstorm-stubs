@@ -33,7 +33,7 @@ class StubsContainer
         return $this->constants;
     }
 
-    public function getConstant(string $constantName, ?string $sourceFilePath): ?PHPConst
+    public function getConstant(string $constantName, ?string $sourceFilePath = null): ?PHPConst
     {
         $constants = array_filter($this->constants, function (PHPConst $const) use ($constantName): bool {
             return $const->name === $constantName && $const->duplicateOtherElement === false
