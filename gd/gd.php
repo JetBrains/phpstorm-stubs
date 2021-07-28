@@ -3,7 +3,6 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use JetBrains\PhpStorm\Internal\Required;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -1151,6 +1150,7 @@ function imagefilledpolygon(
     array $points,
     #[Deprecated(since: "8.1")] int $num_points_or_color,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?int $color,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ?int $color,
     #[PhpStormStubsElementAvailable(from: '8.0')] ?int $color
 ): bool {}
 
@@ -1346,6 +1346,7 @@ function imagepolygon(
     array $points,
     int $num_points_or_color,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?int $color,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ?int $color,
     #[PhpStormStubsElementAvailable(from: '8.0')] ?int $color
 ): bool {}
 
@@ -2250,6 +2251,7 @@ function imageopenpolygon(
     array $points,
     #[Deprecated(since: "8.1")] int $num_points_or_color,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?int $color,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ?int $color,
     #[PhpStormStubsElementAvailable(from: '8.0')] ?int $color
 ): bool {}
 
