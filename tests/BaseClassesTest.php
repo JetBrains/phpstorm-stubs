@@ -155,7 +155,7 @@ class BaseClassesTest extends BaseStubsTest
     public function testClassInterfaces(PHPClass $class)
     {
         $className = $class->name;
-        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name);
+        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name, null, false);
         foreach ($class->interfaces as $interface) {
             static::assertContains(
                 $interface,

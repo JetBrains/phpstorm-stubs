@@ -462,7 +462,7 @@ function gmdate(string $format, ?int $timestamp) {}
 #[Pure]
 function mktime(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] int $hour = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] int $hour = null,
+    #[PhpStormStubsElementAvailable(from: '8.0')] int $hour,
     ?int $minute = null,
     ?int $second = null,
     ?int $month = null,
@@ -502,7 +502,7 @@ function mktime(
 #[Pure]
 function gmmktime(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] int $hour = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] int $hour = null,
+    #[PhpStormStubsElementAvailable(from: '8.0')] int $hour,
     ?int $minute = null,
     ?int $second = null,
     ?int $month = null,

@@ -815,9 +815,9 @@ function mb_decode_mimeheader(string $string): string {}
 function mb_convert_variables(
     string $to_encoding,
     array|string $from_encoding,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]&$vars,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] &$vars,
     #[PhpStormStubsElementAvailable(from: '8.0')] mixed &$var,
-     mixed &...$vars
+    mixed &...$vars
 ): string|false {}
 
 /**

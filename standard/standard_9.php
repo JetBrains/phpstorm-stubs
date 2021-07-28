@@ -545,7 +545,8 @@ function array_udiff(
 #[Pure]
 function array_diff_assoc(
     array $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays,
+    array ...$arrays
 ): array {}
 
 /**
