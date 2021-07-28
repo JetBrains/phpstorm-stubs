@@ -2,7 +2,7 @@
 
 // Start of pcntl v.
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\Required;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -459,7 +459,10 @@ function pcntl_sigtimedwait(array $signals, &$info, int $seconds = 0, int $nanos
  * @return bool
  * @since 7.1
  */
-function pcntl_async_signals(#[Required(from: '5.3', to: '7.4')] ?bool $enable = null): bool {}
+function pcntl_async_signals(
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?bool $enable,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ?bool $enable = null
+): bool {}
 
 /**
  * Get the current handler for specified signal.

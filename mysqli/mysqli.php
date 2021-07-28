@@ -7,7 +7,6 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use JetBrains\PhpStorm\Internal\Required;
 
 /**
  * mysqli_sql_exception
@@ -2071,7 +2070,11 @@ function mysqli_more_results(mysqli $mysql): bool {}
  * @param string $query One or more queries which are separated by semicolons.
  * @return bool Returns FALSE if the first statement failed. To retrieve subsequent errors from other statements you have to call mysqli_next_result() first.
  */
-function mysqli_multi_query(mysqli $mysql, #[Required(from: '8.0')] string $query = null): bool {}
+function mysqli_multi_query(
+    mysqli $mysql,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] string $query = null,
+    #[PhpStormStubsElementAvailable(from: '8.0')] string $query
+): bool {}
 
 /**
  * Prepare next result from multi_query
@@ -2223,7 +2226,11 @@ function mysqli_real_escape_string(mysqli $mysql, string $string): string {}
  * @param string $query
  * @return bool
  */
-function mysqli_real_query(mysqli $mysql, #[Required(from: '8.0')] string $query = null): bool {}
+function mysqli_real_query(
+    mysqli $mysql,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] string $query = null,
+    #[PhpStormStubsElementAvailable(from: '8.0')] string $query
+): bool {}
 
 /**
  * Get result from async query
@@ -2395,7 +2402,8 @@ function mysqli_stmt_send_long_data(mysqli_stmt $statement, int $param_num, stri
 function mysqli_stmt_bind_param(
     mysqli_stmt $statement,
     string $types,
-    #[Required(from: '5.3', to: '7.4')] mixed &...$vars
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed &$vars,
+    mixed &...$vars
 ): bool {}
 
 /**
@@ -2407,7 +2415,8 @@ function mysqli_stmt_bind_param(
  */
 function mysqli_stmt_bind_result(
     mysqli_stmt $statement,
-    #[Required(from: '5.3', to: '7.4')] mixed &...$vars
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed &$vars,
+    mixed &...$vars
 ): bool {}
 
 /**

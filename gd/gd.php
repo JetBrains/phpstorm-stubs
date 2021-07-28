@@ -1149,7 +1149,8 @@ function imagefilledpolygon(
     GdImage $image,
     array $points,
    #[Deprecated(since: "8.1")] int $num_points_or_color,
-    #[Required(from: '5.3', to: '7.4')] ?int $color = null
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?int $color,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ?int $color = null
 ): bool {}
 
 /**
@@ -1343,7 +1344,8 @@ function imagepolygon(
     GdImage $image,
     array $points,
     int $num_points_or_color,
-    #[Required(from: '5.3', to: '7.4')] ?int $color = null
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?int $color,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ?int $color = null
 ): bool {}
 
 /**
@@ -2246,7 +2248,8 @@ function imageopenpolygon(
     GdImage $image,
     array $points,
    #[Deprecated(since: "8.1")] int $num_points_or_color,
-    #[Required(from: '7.2', to: '7.4')] ?int $color = null
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?int $color,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ?int $color = null
 ): bool {}
 
 /**
@@ -2922,7 +2925,11 @@ function imageaffinematrixconcat(array $matrix1, array $matrix2): array|false {}
  * @return float[]|false Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
  * @since 5.5
  */
-function imageaffinematrixget(int $type, #[Required(from: '8.0')] $options = null): array|false {}
+function imageaffinematrixget(
+    int $type,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $options = null,
+    #[PhpStormStubsElementAvailable(from: '8.0')] $options
+): array|false {}
 
 /**
  * Crop an image using the given coordinates and size, x, y, width and height

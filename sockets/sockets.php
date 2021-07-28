@@ -2,7 +2,6 @@
 
 // Start of sockets v.
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use JetBrains\PhpStorm\Internal\Required;
 
 /**
  * (PHP 7 &gt;= 7.2.0)<br/>
@@ -703,7 +702,12 @@ function socket_send(Socket $socket, string $data, int $length, int $flags): int
  * @return int|false
  * @since 5.5
  */
-function socket_sendmsg(Socket $socket, array $message, #[Required(from: '5.3', to: '7.4')] int $flags = 0): int|false {}
+function socket_sendmsg(
+    Socket $socket,
+    array $message,
+    #[PhpStormStubsElementAvailable(from: '5.5', to: '7.4')] int $flags,
+    #[PhpStormStubsElementAvailable(from: '8.0')] int $flags = 0
+): int|false {}
 
 /**
  * Receives data from a socket whether or not it is connection-oriented
@@ -788,7 +792,12 @@ function socket_recvfrom(Socket $socket, &$data, int $length, int $flags, &$addr
  * @return int|false
  * @since 5.5
  */
-function socket_recvmsg(Socket $socket, array &$message, #[Required(from: '5.3', to: '7.4')] int $flags = null): int|false {}
+function socket_recvmsg(
+    Socket $socket,
+    array &$message,
+    #[PhpStormStubsElementAvailable(from: '5.5', to: '7.4')] int $flags,
+    #[PhpStormStubsElementAvailable(from: '8.0')] int $flags = 0
+): int|false {}
 
 /**
  * Sends a message to a socket, whether it is connected or not

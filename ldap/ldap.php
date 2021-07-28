@@ -4,7 +4,6 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware as PhpVersionAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable as Available;
-use JetBrains\PhpStorm\Internal\Required;
 
 /**
  * PASSWD extended operation helper
@@ -19,9 +18,15 @@ use JetBrains\PhpStorm\Internal\Required;
  */
 function ldap_exop_passwd(
     #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
-    #[Required(from: '7.2', to: '7.2')] string $user = "",
-    #[Required(from: '7.2', to: '7.2')] string $old_password = "",
-    #[Required(from: '7.2', to: '7.2')] string $new_password = "",
+    #[Available(from: '7.1', to: '7.1')] string $user = "",
+    #[Available(from: '7.2', to: '7.2')] string $user,
+    #[Available(from: '7.3')] string $user = "",
+    #[Available(from: '7.1', to: '7.1')] string $old_password = "",
+    #[Available(from: '7.2', to: '7.2')] string $old_password,
+    #[Available(from: '7.3')] string $old_password = "",
+    #[Available(from: '7.1', to: '7.1')] string $new_password = "",
+    #[Available(from: '7.2', to: '7.2')] string $new_password,
+    #[Available(from: '7.3')] string $new_password = "",
     #[Available(from: '7.3')] &$controls = []
 ): string|bool {}
 
@@ -73,8 +78,10 @@ function ldap_exop(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'res
 function ldap_parse_exop(
     #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
     #[PhpVersionAware(['8.1' => 'LDAP\Result'], default: 'resource')] $result,
-    #[Required(from: '7.2', to: '7.4')] &$response_data = '',
-    #[Required(from: '7.2', to: '7.4')] &$response_oid = ''
+    #[Available(from: '7.2', to: '7.4')] &$response_data,
+    #[Available(from: '8.0')] &$response_data = '',
+    #[Available(from: '7.2', to: '7.4')] &$response_oid,
+    #[Available(from: '8.0')] &$response_oid = ''
 ): bool {}
 
 /**
@@ -1057,7 +1064,8 @@ function ldap_rename_ext(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default
 function ldap_get_option(
     #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
     int $option,
-    #[Required(from: '5.3', to: '7.4')] &$value = null
+    #[Available(from: '5.3', to: '7.4')] &$value,
+    #[Available(from: '8.0')] &$value = null
 ): bool {}
 
 /**

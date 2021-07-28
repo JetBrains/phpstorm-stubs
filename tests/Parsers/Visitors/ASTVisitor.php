@@ -117,12 +117,14 @@ class ASTVisitor extends NodeVisitorAbstract
             $parents[] = $parentInterface;
             if ($this->stubs->getInterface(
                 $parentInterface,
-                $interface->stubBelongsToCore ? null : $interface->sourceFilePath
+                $interface->stubBelongsToCore ? null : $interface->sourceFilePath,
+                false
             ) !== null) {
                 foreach ($this->combineParentInterfaces(
                     $this->stubs->getInterface(
                         $parentInterface,
-                        $interface->stubBelongsToCore ? null : $interface->sourceFilePath
+                        $interface->stubBelongsToCore ? null : $interface->sourceFilePath,
+                        false
                     )
                 ) as $value) {
                     $parents[] = $value;
@@ -143,11 +145,13 @@ class ASTVisitor extends NodeVisitorAbstract
             $interfaces[] = $interface;
             if ($this->stubs->getInterface(
                 $interface,
-                $class->stubBelongsToCore ? null : $class->sourceFilePath
+                $class->stubBelongsToCore ? null : $class->sourceFilePath,
+                false
             ) !== null) {
                 $interfaces[] = $this->stubs->getInterface(
                     $interface,
-                    $class->stubBelongsToCore ? null : $class->sourceFilePath
+                    $class->stubBelongsToCore ? null : $class->sourceFilePath,
+                    false
                 )->parentInterfaces;
             }
         }
@@ -156,11 +160,13 @@ class ASTVisitor extends NodeVisitorAbstract
         }
         if ($this->stubs->getClass(
             $class->parentClass,
-            $class->stubBelongsToCore ? null : $class->sourceFilePath
+            $class->stubBelongsToCore ? null : $class->sourceFilePath,
+            false
         ) !== null) {
             $inherited = $this->combineImplementedInterfaces($this->stubs->getClass(
                 $class->parentClass,
-                $class->stubBelongsToCore ? null : $class->sourceFilePath
+                $class->stubBelongsToCore ? null : $class->sourceFilePath,
+                false
             ));
             $interfaces[] = CommonUtils::flattenArray($inherited, false);
         }
