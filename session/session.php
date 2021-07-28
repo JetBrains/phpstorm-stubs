@@ -26,7 +26,7 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * @return string|false the name of the current session.
  */
 #[LanguageLevelTypeAware(['8.0' => 'string|false'], default: 'string')]
-function session_name(#[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $name) {}
+function session_name(#[LanguageLevelTypeAware(['8.0' => 'null|string'], default: 'string')] $name) {}
 
 /**
  * Get and/or set the current session module.<br/>
@@ -39,7 +39,7 @@ function session_name(#[LanguageLevelTypeAware(['8.0' => '?string'], default: 's
  * @return string|false the name of the current session module.
  */
 #[LanguageLevelTypeAware(['8.0' => 'string|false'], default: 'string')]
-function session_module_name(#[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $module) {}
+function session_module_name(#[LanguageLevelTypeAware(['8.0' => 'null|string'], default: 'string')] $module) {}
 
 /**
  * Get and/or set the current session save path
@@ -59,7 +59,7 @@ function session_module_name(#[LanguageLevelTypeAware(['8.0' => '?string'], defa
  * @return string|false the path of the current directory used for data storage.
  */
 #[LanguageLevelTypeAware(['8.0' => 'string|false'], default: 'string')]
-function session_save_path(#[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $path) {}
+function session_save_path(#[LanguageLevelTypeAware(['8.0' => 'null|string'], default: 'string')] $path) {}
 
 /**
  * Get and/or set the current session id
@@ -81,7 +81,7 @@ function session_save_path(#[LanguageLevelTypeAware(['8.0' => '?string'], defaul
  * session (no current session id exists).
  */
 #[LanguageLevelTypeAware(['8.0' => 'string|false'], default: 'string')]
-function session_id(#[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $id) {}
+function session_id(#[LanguageLevelTypeAware(['8.0' => 'null|string'], default: 'string')] $id) {}
 
 /**
  * Update the current session id with a newly generated one
@@ -265,7 +265,7 @@ function session_set_save_handler(callable $open, callable $close, callable $rea
  * @param bool $register_shutdown [optional] Register session_write_close() as a register_shutdown_function() function.
  * @return bool true on success or false on failure.
  */
-function session_set_save_handler(SessionHandlerInterface $session_handler, bool $register_shutdown = true): bool {}
+function session_set_save_handler(SessionHandlerInterface $sessionhandler, bool $register_shutdown = true): bool {}
 
 /**
  * Get and/or set the current cache limiter
@@ -323,7 +323,7 @@ function session_set_save_handler(SessionHandlerInterface $session_handler, bool
  * @return string|false the name of the current cache limiter.
  */
 #[LanguageLevelTypeAware(["8.0" => "string|false"], default: "string")]
-function session_cache_limiter(#[LanguageLevelTypeAware(['8.0' => '?string'], default: 'string')] $value) {}
+function session_cache_limiter(#[LanguageLevelTypeAware(['8.0' => 'null|string'], default: 'string')] $value) {}
 
 /**
  * Return current cache expire
@@ -341,7 +341,7 @@ function session_cache_limiter(#[LanguageLevelTypeAware(['8.0' => '?string'], de
  * The value returned should be read in minutes, defaults to 180.
  */
 #[LanguageLevelTypeAware(["8.0" => "int|false"], default: "int")]
-function session_cache_expire(#[LanguageLevelTypeAware(['8.0' => '?int'], default: 'int')] $value) {}
+function session_cache_expire(#[LanguageLevelTypeAware(['8.0' => 'null|int'], default: 'int')] $value) {}
 
 /**
  * Set the session cookie parameters

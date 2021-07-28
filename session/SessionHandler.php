@@ -80,6 +80,7 @@ interface SessionHandlerInterface
      */
     public function read(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id);
 
+
     /**
      * Write session data
      * @link https://php.net/manual/en/sessionhandlerinterface.write.php
