@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\Required;
@@ -835,7 +836,19 @@ function array_search(mixed $needle, array $haystack, bool $strict = false): str
  * @return int the number of variables successfully imported into the symbol
  * table.
  */
-function extract(array &$array, int $flags, string $prefix): int {}
+function extract(
+    array &$array,
+    #[ExpectedValues(flags: [
+        EXTR_OVERWRITE,
+        EXTR_SKIP,
+        EXTR_PREFIX_SAME,
+        EXTR_PREFIX_ALL,
+        EXTR_PREFIX_INVALID,
+        EXTR_PREFIX_IF_EXISTS,
+        EXTR_REFS
+    ])] int $flags,
+    string $prefix
+): int {}
 
 /**
  * Create array containing variables and their values
