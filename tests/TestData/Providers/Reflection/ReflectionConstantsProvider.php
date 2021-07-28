@@ -16,6 +16,9 @@ class ReflectionConstantsProvider
     public static function constantProvider(): ?Generator
     {
         foreach (EntitiesFilter::getFiltered(ReflectionStubsSingleton::getReflectionStubs()->getConstants()) as $constant) {
+            if (!empty(getenv('PECL')) && !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getConstant($constant->name))) {
+                continue;
+            }
             yield "constant $constant->name" => [$constant];
         }
     }
@@ -23,6 +26,9 @@ class ReflectionConstantsProvider
     public static function constantValuesProvider(): ?Generator
     {
         foreach (self::getFilteredConstants() as $constant) {
+            if (!empty(getenv('PECL')) && !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getConstant($constant->name))) {
+                continue;
+            }
             yield "constant $constant->name" => [$constant];
         }
     }
@@ -32,6 +38,12 @@ class ReflectionConstantsProvider
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
             ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
+            if (!empty(getenv('PECL')) &&
+                (!empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getClass($class->name)) ||
+                    !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getInterface($class->name)))
+            ) {
+                continue;
+            }
             foreach (EntitiesFilter::getFiltered($class->constants) as $constant) {
                 yield "constant $class->name::$constant->name" => [$class, $constant];
             }
@@ -43,6 +55,9 @@ class ReflectionConstantsProvider
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
             ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
+            if (!empty(getenv('PECL')) && !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getClass($class->name))) {
+                continue;
+            }
             foreach (self::getFilteredConstants($class) as $constant) {
                 yield "constant $class->name::$constant->name" => [$class, $constant];
             }

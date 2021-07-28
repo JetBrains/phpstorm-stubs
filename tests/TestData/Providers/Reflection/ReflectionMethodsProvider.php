@@ -48,6 +48,11 @@ class ReflectionMethodsProvider
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
             ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
+            if (!empty(getenv('PECL')) &&
+                (!empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getClass($class->name))) ||
+            !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getInterface($class->name))) {
+                continue;
+            }
             foreach (EntitiesFilter::getFiltered($class->methods, null, ...$problemTypes) as $method) {
                 yield "Method $class->name::$method->name" => [$class, $method];
             }
