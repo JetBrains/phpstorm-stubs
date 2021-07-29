@@ -6,7 +6,6 @@
 
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use JetBrains\PhpStorm\Internal\Required;
 use JetBrains\PhpStorm\Pure;
 
 define("ARRAY_FILTER_USE_BOTH", 1);

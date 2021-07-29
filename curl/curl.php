@@ -3,7 +3,6 @@
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use JetBrains\PhpStorm\Internal\Required;
 use JetBrains\PhpStorm\Pure;
 
 class CURLFile
