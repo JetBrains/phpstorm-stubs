@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace StubTests\TestData\Providers\Reflection;
 
 use Generator;
+use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPClass;
 use StubTests\Model\StubProblemType;
 use StubTests\TestData\Providers\EntitiesFilter;
@@ -16,10 +17,7 @@ class ReflectionClassesTestDataProviders
         $allClassesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
             ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
         foreach (EntitiesFilter::getFiltered($allClassesAndInterfaces) as $class) {
-            if (!empty(getenv('PECL')) &&
-                (!empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getClass($class->name)) ||
-                !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getInterface($class->name)))
-            ) {
+            if (!empty(getenv('PECL')) && BasePHPElement::classExistInCoreReflection($class)) {
                 continue;
             }
             //exclude classes from PHPReflectionParser
@@ -36,10 +34,7 @@ class ReflectionClassesTestDataProviders
             fn (PHPClass $class) => empty($class->interfaces),
             StubProblemType::WRONG_INTERFACE
         ) as $class) {
-            if (!empty(getenv('PECL')) &&
-                (!empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getClass($class->name)) ||
-                !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getInterface($class->name)))
-            ) {
+            if (!empty(getenv('PECL')) && BasePHPElement::classExistInCoreReflection($class)) {
                 continue;
             }
             //exclude classes from PHPReflectionParser
@@ -59,10 +54,7 @@ class ReflectionClassesTestDataProviders
             StubProblemType::WRONG_PARENT
         );
         foreach ($filtered as $class) {
-            if (!empty(getenv('PECL')) &&
-                (!empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getClass($class->name)) ||
-                !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getInterface($class->name)))
-            ) {
+            if (!empty(getenv('PECL')) && BasePHPElement::classExistInCoreReflection($class)) {
                 continue;
             }
             yield "class $class->name" => [$class];

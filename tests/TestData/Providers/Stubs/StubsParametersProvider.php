@@ -5,11 +5,11 @@ namespace StubTests\TestData\Providers\Stubs;
 
 use Generator;
 use RuntimeException;
+use StubTests\Model\BasePHPElement;
 use StubTests\Model\StubProblemType;
 use StubTests\Parsers\ParserUtils;
 use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
-use StubTests\TestData\Providers\ReflectionStubsSingleton;
 
 class StubsParametersProvider
 {
@@ -75,10 +75,7 @@ class StubsParametersProvider
         $coreClassesAndInterfaces = PhpStormStubsSingleton::getPhpStormStubs()->getCoreClasses() +
             PhpStormStubsSingleton::getPhpStormStubs()->getCoreInterfaces();
         foreach (EntitiesFilter::getFiltered($coreClassesAndInterfaces) as $class) {
-            if (!empty(getenv('PECL')) &&
-                (!empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getClass($class->name)) ||
-                    !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getInterface($class->name)))
-            ) {
+            if (!empty(getenv('PECL')) && BasePHPElement::classExistInCoreReflection($class)) {
                 continue;
             }
             foreach (EntitiesFilter::getFilteredFunctions($class, false) as $method) {

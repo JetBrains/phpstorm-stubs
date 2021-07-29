@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace StubTests\TestData\Providers\Reflection;
 
 use Generator;
+use StubTests\Model\BasePHPElement;
 use StubTests\Model\StubProblemType;
 use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\ReflectionStubsSingleton;
@@ -48,9 +49,7 @@ class ReflectionMethodsProvider
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
             ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
-            if (!empty(getenv('PECL')) &&
-                (!empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getClass($class->name))) ||
-            !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getInterface($class->name))) {
+            if (!empty(getenv('PECL')) && BasePHPElement::classExistInCoreReflection($class)) {
                 continue;
             }
             foreach (EntitiesFilter::getFiltered($class->methods, null, ...$problemTypes) as $method) {
