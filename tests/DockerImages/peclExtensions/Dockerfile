@@ -34,18 +34,17 @@ RUN pecl install pcov
 RUN docker-php-ext-enable pcov
 RUN pecl install mcrypt
 RUN docker-php-ext-enable mcrypt
-#Extensions below require a lot of fixes
 RUN pecl install zip
 RUN docker-php-ext-enable zip
 RUN pecl install mongodb
 RUN docker-php-ext-enable mongodb
-#RUN pecl install rdkafka
-#RUN docker-php-ext-enable rdkafka
+RUN pecl install rdkafka
+RUN docker-php-ext-enable rdkafka
 RUN pecl install yaf
 RUN docker-php-ext-enable yaf
 RUN pecl install yar
 RUN docker-php-ext-enable yar
 RUN pecl install gnupg
 RUN docker-php-ext-enable gnupg
-#RUN pecl install uopz
-#RUN docker-php-ext-enable uopz
+RUN pecl install uopz
+RUN docker-php-ext-enable uopz
