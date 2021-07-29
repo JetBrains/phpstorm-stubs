@@ -931,10 +931,10 @@ function proc_nice(int $priority): bool {}
  * @param int $min [optional]
  * @param int $max [optional]
  * @return int A pseudo random value between min
- * (or 0) and max (or getrandmax, inclusive).
+ *  and max (or getrandmax, inclusive).
  */
 #[Pure(true)]
-function rand(int $min = 0, int $max): int {}
+function rand(int $min, int $max): int {}
 
 /**
  * Seed the random number generator
