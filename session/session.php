@@ -25,7 +25,8 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * </p>
  * @return string|false the name of the current session.
  */
-function session_name(?string $name): string|false {}
+#[LanguageLevelTypeAware(['8.0' => 'string|false'], default: 'string')]
+function session_name(#[LanguageLevelTypeAware(['8.0' => 'null|string'], default: 'string')] $name) {}
 
 /**
  * Get and/or set the current session module.<br/>
@@ -37,7 +38,8 @@ function session_name(?string $name): string|false {}
  * </p>
  * @return string|false the name of the current session module.
  */
-function session_module_name(?string $module): string|false {}
+#[LanguageLevelTypeAware(['8.0' => 'string|false'], default: 'string')]
+function session_module_name(#[LanguageLevelTypeAware(['8.0' => 'null|string'], default: 'string')] $module) {}
 
 /**
  * Get and/or set the current session save path
@@ -56,7 +58,8 @@ function session_module_name(?string $module): string|false {}
  * </p>
  * @return string|false the path of the current directory used for data storage.
  */
-function session_save_path(?string $path): string|false {}
+#[LanguageLevelTypeAware(['8.0' => 'string|false'], default: 'string')]
+function session_save_path(#[LanguageLevelTypeAware(['8.0' => 'null|string'], default: 'string')] $path) {}
 
 /**
  * Get and/or set the current session id
@@ -77,7 +80,8 @@ function session_save_path(?string $path): string|false {}
  * session or the empty string ("") if there is no current
  * session (no current session id exists).
  */
-function session_id(?string $id): string|false {}
+#[LanguageLevelTypeAware(['8.0' => 'string|false'], default: 'string')]
+function session_id(#[LanguageLevelTypeAware(['8.0' => 'null|string'], default: 'string')] $id) {}
 
 /**
  * Update the current session id with a newly generated one
@@ -152,7 +156,8 @@ function session_is_registered(string $name): bool {}
  * @link https://php.net/manual/en/function.session-encode.php
  * @return string|false the contents of the current session encoded.
  */
-function session_encode(): string|false {}
+#[LanguageLevelTypeAware(["8.0" => "string|false"], default: "string")]
+function session_encode() {}
 
 /**
  * Initialize session data
@@ -174,14 +179,16 @@ function session_start(array $options = []): bool {}
  * If it is used without active session, it omits collision check.
  * @since 7.1
  */
-function session_create_id(string $prefix): string|false {}
+#[LanguageLevelTypeAware(["8.0" => "string|false"], default: "string")]
+function session_create_id(string $prefix = '') {}
 
 /**
  * Perform session data garbage collection
  * @return int|false number of deleted session data for success, false for failure.
  * @since 7.1
  */
-function session_gc(): int|false {}
+#[LanguageLevelTypeAware(["8.0" => "int|false"], default: "int")]
+function session_gc() {}
 
 /**
  * Destroys all data registered to a session
@@ -238,26 +245,27 @@ function session_unset() {}
  * The garbage collector, this is executed when the session garbage collector
  * is executed and takes the max session lifetime as its only parameter.
  * </p>
- * @param callable $create_sid [optional]
+ * @param callable|null $create_sid [optional]
  * <p>This callback is executed when a new session ID is required.
  * No parameters are provided, and the return value should be a string that is a valid
  * session ID for your handler.</p>
- * @param callable $validate_sid [optional]
- * @param callable $update_timestamp [optional]
+ * @param callable|null $validate_sid [optional]
+ * @param callable|null $update_timestamp [optional]
  * @return bool true on success or false on failure.
  */
-function session_set_save_handler(callable $open, callable $close, callable $read, callable $write, callable $destroy, callable $gc, $create_sid, $validate_sid, $update_timestamp): bool {}
+function session_set_save_handler(callable $open, callable $close, callable $read, callable $write, callable $destroy, callable $gc, ?callable $create_sid = null, ?callable $validate_sid = null, ?callable $update_timestamp = null): bool {}
 
 /**
  * (PHP 5.4)<br/>
  * Sets user-level session storage functions
  * @link https://php.net/manual/en/function.session-set-save-handler.php
- * @param SessionHandlerInterface $sessionhandler An instance of a class implementing SessionHandlerInterface, such as SessionHandler,
+ * @param SessionHandlerInterface $session_handler An instance of a class implementing SessionHandlerInterface,
+ * and optionally SessionIdInterface and/or SessionUpdateTimestampHandlerInterface, such as SessionHandler,
  * to register as the session handler. Since PHP 5.4 only.
  * @param bool $register_shutdown [optional] Register session_write_close() as a register_shutdown_function() function.
  * @return bool true on success or false on failure.
  */
-function session_set_save_handler(SessionHandlerInterface $sessionhandler, $register_shutdown = true): bool {}
+function session_set_save_handler(SessionHandlerInterface $sessionhandler, bool $register_shutdown = true): bool {}
 
 /**
  * Get and/or set the current cache limiter
@@ -314,7 +322,8 @@ function session_set_save_handler(SessionHandlerInterface $sessionhandler, $regi
  * </table>
  * @return string|false the name of the current cache limiter.
  */
-function session_cache_limiter(?string $value): string|false {}
+#[LanguageLevelTypeAware(["8.0" => "string|false"], default: "string")]
+function session_cache_limiter(#[LanguageLevelTypeAware(['8.0' => 'null|string'], default: 'string')] $value) {}
 
 /**
  * Return current cache expire
@@ -331,12 +340,13 @@ function session_cache_limiter(?string $value): string|false {}
  * @return int|false the current setting of session.cache_expire.
  * The value returned should be read in minutes, defaults to 180.
  */
-function session_cache_expire(?int $value): int|false {}
+#[LanguageLevelTypeAware(["8.0" => "int|false"], default: "int")]
+function session_cache_expire(#[LanguageLevelTypeAware(['8.0' => 'null|int'], default: 'int')] $value) {}
 
 /**
  * Set the session cookie parameters
  * @link https://php.net/manual/en/function.session-set-cookie-params.php
- * @param array $options <p>
+ * @param array $lifetime_or_options <p>
  * An associative array which may have any of the keys lifetime, path, domain,
  * secure, httponly and samesite. The values have the same meaning as described
  * for the parameters with the same name. The value of the samesite element
@@ -348,12 +358,12 @@ function session_cache_expire(?int $value): int|false {}
  * @return bool returns true on success or false on failure.
  * @since 7.3
  */
-function session_set_cookie_params(array $options): bool {}
+function session_set_cookie_params(array $lifetime_or_options): bool {}
 
 /**
  * Set the session cookie parameters
  * @link https://php.net/manual/en/function.session-set-cookie-params.php
- * @param array|int $lifetime_or_options <p>
+ * @param int $lifetime_or_options <p>
  * Lifetime of the
  * session cookie, defined in seconds.
  * </p>
@@ -379,7 +389,7 @@ function session_set_cookie_params(array $options): bool {}
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
 #[LanguageLevelTypeAware(["7.2" => "bool"], default: "void")]
-function session_set_cookie_params(array|int $lifetime_or_options, ?string $path, ?string $domain, ?bool $secure = false, ?bool $httponly = false) {}
+function session_set_cookie_params(int $lifetime_or_options, ?string $path = null, ?string $domain = null, ?bool $secure = null, ?bool $httponly = null) {}
 
 /**
  * Get the session cookie parameters

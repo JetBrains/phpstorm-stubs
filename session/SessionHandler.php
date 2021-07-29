@@ -43,7 +43,7 @@ interface SessionHandlerInterface
      * Sessions that have not updated for
      * the last maxlifetime seconds will be removed.
      * </p>
-     * @return bool <p>
+     * @return int|bool <p>
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
      * </p>
@@ -71,7 +71,7 @@ interface SessionHandlerInterface
      * Read session data
      * @link https://php.net/manual/en/sessionhandlerinterface.read.php
      * @param string $id The session id to read data for.
-     * @return string <p>
+     * @return string|false <p>
      * Returns an encoded string of the read data.
      * If nothing was read, it must return an empty string.
      * Note this value is returned internally to PHP for processing.
@@ -113,7 +113,9 @@ interface SessionIdInterface
     /**
      * Create session ID
      * @link https://php.net/manual/en/sessionidinterface.create-sid.php
-     * @return string
+     * @return string <p>
+     * The new session ID. Note that this value is returned internally to PHP for processing.
+     * </p>
      */
     public function create_sid();
 }
@@ -129,6 +131,7 @@ interface SessionUpdateTimestampHandlerInterface
 {
     /**
      * Validate session id
+     * @link https://www.php.net/manual/sessionupdatetimestamphandlerinterface.validateid
      * @param string $id The session id
      * @return bool <p>
      * Note this value is returned internally to PHP for processing.
@@ -138,6 +141,7 @@ interface SessionUpdateTimestampHandlerInterface
 
     /**
      * Update timestamp of a session
+     * @link https://www.php.net/manual/sessionupdatetimestamphandlerinterface.updatetimestamp.php
      * @param string $id The session id
      * @param string $data <p>
      * The encoded session data. This data is the
@@ -206,7 +210,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * Sessions that have not updated for
      * the last maxlifetime seconds will be removed.
      * </p>
-     * @return bool <p>
+     * @return int|bool <p>
      * The return value (usually TRUE on success, FALSE on failure).
      * Note this value is returned internally to PHP for processing.
      * </p>
@@ -234,7 +238,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * Read session data
      * @link https://php.net/manual/en/sessionhandler.read.php
      * @param string $id The session id to read data for.
-     * @return string <p>
+     * @return string|false <p>
      * Returns an encoded string of the read data.
      * If nothing was read, it must return an empty string.
      * Note this value is returned internally to PHP for processing.
