@@ -16,7 +16,7 @@ class ReflectionStubsSingleton
     /**
      * @var StubsContainer|null
      */
-    private static $peclReflectionStubs = null;
+    private static $reflectionStubsNoPecl = null;
 
     public static function getReflectionStubs(): StubsContainer
     {
@@ -28,11 +28,11 @@ class ReflectionStubsSingleton
 
     public static function getReflectionStubsNoPecl(): StubsContainer
     {
-        if (self::$peclReflectionStubs === null) {
-            if (file_exists(__DIR__ . '/../../ReflectionDataNoPecl.json')) {
-                self::$reflectionStubs = unserialize(file_get_contents(__DIR__ . '/../../../ReflectionDataNoPecl.json'));
+        if (self::$reflectionStubsNoPecl === null) {
+            if (file_exists(__DIR__ . '/../../../ReflectionDataNoPecl.json')) {
+                self::$reflectionStubsNoPecl = unserialize(file_get_contents(__DIR__ . '/../../../ReflectionDataNoPecl.json'));
             }
         }
-        return self::$reflectionStubs;
+        return self::$reflectionStubsNoPecl;
     }
 }

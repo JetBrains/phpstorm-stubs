@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace StubTests\TestData\Providers\Reflection;
 
 use Generator;
+use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPConst;
 use StubTests\Model\PHPInterface;
@@ -38,10 +39,7 @@ class ReflectionConstantsProvider
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
             ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
-            if (!empty(getenv('PECL')) &&
-                (!empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getClass($class->name)) ||
-                    !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getInterface($class->name)))
-            ) {
+            if (!empty(getenv('PECL')) && BasePHPElement::classExistInCoreReflection($class)) {
                 continue;
             }
             foreach (EntitiesFilter::getFiltered($class->constants) as $constant) {
@@ -55,7 +53,7 @@ class ReflectionConstantsProvider
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
             ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
-            if (!empty(getenv('PECL')) && !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getClass($class->name))) {
+            if (!empty(getenv('PECL')) && BasePHPElement::classExistInCoreReflection($class)) {
                 continue;
             }
             foreach (self::getFilteredConstants($class) as $constant) {

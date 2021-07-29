@@ -1,8 +1,8 @@
 name: PhpStorm Stubs PECL Test
 
 on:
-  workflow_dispatch:
   push:
+  workflow_dispatch:
   schedule:
     - cron: '* * 1 * *'
 
