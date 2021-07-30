@@ -35,7 +35,7 @@ jobs:
           PHP_VERSION: '8.0'
 
       - name: Run Tests
-        run: docker-compose -f docker-compose.yml run -e PECL=true test_runner /opt/project/phpstorm-stubs/vendor/bin/phpunit /opt/project/phpstorm-stubs/tests/
+        run: docker-compose -f docker-compose.yml run -e PECL=true -e PHP_VERSION='8.0' test_runner /opt/project/phpstorm-stubs/vendor/bin/phpunit /opt/project/phpstorm-stubs/tests/
         env:
           PHP_VERSION: '8.0'
           PECL: true
