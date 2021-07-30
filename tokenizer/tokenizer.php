@@ -52,47 +52,47 @@ define('T_LOGICAL_XOR', 278);
 define('T_LOGICAL_AND', 279);
 define('T_PRINT', 280);
 define('T_YIELD', 281);
-define('T_DOUBLE_ARROW', 385);
+define('T_DOUBLE_ARROW', 386);
 define('T_YIELD_FROM', 282);
-define('T_POW_EQUAL', 401);
-define('T_SR_EQUAL', 361);
-define('T_SL_EQUAL', 360);
-define('T_XOR_EQUAL', 359);
-define('T_OR_EQUAL', 358);
-define('T_AND_EQUAL', 357);
-define('T_MOD_EQUAL', 356);
-define('T_CONCAT_EQUAL', 355);
-define('T_DIV_EQUAL', 354);
-define('T_MUL_EQUAL', 353);
-define('T_MINUS_EQUAL', 352);
-define('T_PLUS_EQUAL', 351);
+define('T_POW_EQUAL', 402);
+define('T_SR_EQUAL', 362);
+define('T_SL_EQUAL', 361);
+define('T_XOR_EQUAL', 360);
+define('T_OR_EQUAL', 359);
+define('T_AND_EQUAL', 358);
+define('T_MOD_EQUAL', 357);
+define('T_CONCAT_EQUAL', 356);
+define('T_DIV_EQUAL', 355);
+define('T_MUL_EQUAL', 354);
+define('T_MINUS_EQUAL', 353);
+define('T_PLUS_EQUAL', 352);
 /**
  * @since 7.4
  */
-define('T_COALESCE_EQUAL', 362);
-define('T_COALESCE', 399);
-define('T_BOOLEAN_OR', 363);
-define('T_BOOLEAN_AND', 364);
-define('T_SPACESHIP', 371);
-define('T_IS_NOT_IDENTICAL', 368);
-define('T_IS_IDENTICAL', 367);
-define('T_IS_NOT_EQUAL', 366);
-define('T_IS_EQUAL', 365);
-define('T_IS_GREATER_OR_EQUAL', 370);
-define('T_IS_SMALLER_OR_EQUAL', 369);
-define('T_SR', 373);
-define('T_SL', 372);
+define('T_COALESCE_EQUAL', 363);
+define('T_COALESCE', 400);
+define('T_BOOLEAN_OR', 364);
+define('T_BOOLEAN_AND', 365);
+define('T_SPACESHIP', 372);
+define('T_IS_NOT_IDENTICAL', 369);
+define('T_IS_IDENTICAL', 368);
+define('T_IS_NOT_EQUAL', 367);
+define('T_IS_EQUAL', 366);
+define('T_IS_GREATER_OR_EQUAL', 371);
+define('T_IS_SMALLER_OR_EQUAL', 370);
+define('T_SR', 374);
+define('T_SL', 373);
 define('T_INSTANCEOF', 283);
-define('T_UNSET_CAST', 382);
-define('T_BOOL_CAST', 381);
-define('T_OBJECT_CAST', 380);
-define('T_ARRAY_CAST', 379);
-define('T_STRING_CAST', 378);
-define('T_DOUBLE_CAST', 377);
-define('T_INT_CAST', 376);
-define('T_DEC', 375);
-define('T_INC', 374);
-define('T_POW', 400);
+define('T_UNSET_CAST', 383);
+define('T_BOOL_CAST', 382);
+define('T_OBJECT_CAST', 381);
+define('T_ARRAY_CAST', 380);
+define('T_STRING_CAST', 379);
+define('T_DOUBLE_CAST', 378);
+define('T_INT_CAST', 377);
+define('T_DEC', 376);
+define('T_INC', 375);
+define('T_POW', 401);
 define('T_CLONE', 285);
 define('T_NEW', 284);
 define('T_ELSEIF', 288);
@@ -144,52 +144,52 @@ define('T_THROW', 317);
 define('T_USE', 318);
 define('T_INSTEADOF', 319);
 define('T_GLOBAL', 320);
-define('T_VAR', 327);
-define('T_UNSET', 328);
-define('T_ISSET', 329);
-define('T_EMPTY', 330);
-define('T_HALT_COMPILER', 331);
-define('T_CLASS', 332);
-define('T_TRAIT', 333);
-define('T_INTERFACE', 334);
+define('T_VAR', 328);
+define('T_UNSET', 329);
+define('T_ISSET', 330);
+define('T_EMPTY', 331);
+define('T_HALT_COMPILER', 332);
+define('T_CLASS', 333);
+define('T_TRAIT', 334);
+define('T_INTERFACE', 335);
 /**
  * @since 8.1
  */
-define('T_ENUM', 335);
-define('T_EXTENDS', 336);
-define('T_IMPLEMENTS', 337);
-define('T_OBJECT_OPERATOR', 383);
-define('T_LIST', 339);
-define('T_ARRAY', 340);
-define('T_CALLABLE', 341);
-define('T_LINE', 342);
-define('T_FILE', 343);
-define('T_DIR', 344);
-define('T_CLASS_C', 345);
-define('T_TRAIT_C', 346);
-define('T_METHOD_C', 347);
-define('T_FUNC_C', 348);
-define('T_COMMENT', 386);
-define('T_DOC_COMMENT', 387);
-define('T_OPEN_TAG', 388);
-define('T_OPEN_TAG_WITH_ECHO', 389);
-define('T_CLOSE_TAG', 390);
-define('T_WHITESPACE', 391);
-define('T_START_HEREDOC', 392);
-define('T_END_HEREDOC', 393);
-define('T_DOLLAR_OPEN_CURLY_BRACES', 394);
-define('T_CURLY_OPEN', 395);
-define('T_PAAMAYIM_NEKUDOTAYIM', 396);
-define('T_NAMESPACE', 338);
-define('T_NS_C', 349);
-define('T_NS_SEPARATOR', 397);
-define('T_ELLIPSIS', 398);
-define('T_DOUBLE_COLON', 396);
+define('T_ENUM', 336);
+define('T_EXTENDS', 337);
+define('T_IMPLEMENTS', 338);
+define('T_OBJECT_OPERATOR', 384);
+define('T_LIST', 340);
+define('T_ARRAY', 341);
+define('T_CALLABLE', 342);
+define('T_LINE', 343);
+define('T_FILE', 344);
+define('T_DIR', 345);
+define('T_CLASS_C', 346);
+define('T_TRAIT_C', 347);
+define('T_METHOD_C', 348);
+define('T_FUNC_C', 349);
+define('T_COMMENT', 387);
+define('T_DOC_COMMENT', 388);
+define('T_OPEN_TAG', 389);
+define('T_OPEN_TAG_WITH_ECHO', 390);
+define('T_CLOSE_TAG', 391);
+define('T_WHITESPACE', 392);
+define('T_START_HEREDOC', 393);
+define('T_END_HEREDOC', 394);
+define('T_DOLLAR_OPEN_CURLY_BRACES', 395);
+define('T_CURLY_OPEN', 396);
+define('T_PAAMAYIM_NEKUDOTAYIM', 397);
+define('T_NAMESPACE', 339);
+define('T_NS_C', 350);
+define('T_NS_SEPARATOR', 398);
+define('T_ELLIPSIS', 399);
+define('T_DOUBLE_COLON', 397);
 /**
  * @since 7.4
  */
 define('T_FN', 311);
-define('T_BAD_CHARACTER', 404);
+define('T_BAD_CHARACTER', 405);
 
 /**
  * @since 8.0
@@ -206,21 +206,21 @@ define('T_NAME_QUALIFIED', 265);
 /**
  * @since 8.0
  */
-define('T_ATTRIBUTE', 350);
+define('T_ATTRIBUTE', 351);
 /**
  * @since 8.0
  */
-define('T_NULLSAFE_OBJECT_OPERATOR', 384);
+define('T_NULLSAFE_OBJECT_OPERATOR', 385);
 
 /**
  * @since 8.1
  */
-define('T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG', 402);
+define('T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG', 403);
 
 /**
  * @since 8.1
  */
-define('T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG', 403);
+define('T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG', 404);
 
 /**
  * @since 8.1
