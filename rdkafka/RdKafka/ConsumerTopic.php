@@ -21,7 +21,7 @@ class ConsumerTopic extends Topic
      *
      * @return void
      */
-    public function consumeQueueStart($partition, $offset, Queue $queue) {}
+    public function consumeQueueStart($partition, $offset, $queue) {}
 
     /**
      * @param int $partition

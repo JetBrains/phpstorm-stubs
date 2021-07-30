@@ -36,7 +36,7 @@ abstract class RdKafka
      *
      * @return Topic
      */
-    public function newTopic($topic_name, ?TopicConf $topic_conf = null) {}
+    public function newTopic($topic_name, $topic_conf = null) {}
 
     /**
      * @param int $timeout_ms
@@ -58,7 +58,7 @@ abstract class RdKafka
      *
      * @return TopicPartition[]
      */
-    public function offsetsForTimes(array $topic_partitions, int $timeout_ms) {}
+    public function offsetsForTimes($topic_partitions, $timeout_ms) {}
 
     /**
      * @param string $topic
@@ -69,21 +69,21 @@ abstract class RdKafka
      *
      * @return void
      */
-    public function queryWatermarkOffsets(string $topic, int $partition = 0, int &$low = 0, int &$high = 0, int $timeout_ms = 0) {}
+    public function queryWatermarkOffsets($topic, $partition = 0, &$low = 0, &$high = 0, $timeout_ms = 0) {}
 
     /**
      * @param int $purge_flags
      *
      * @return int
      */
-    public function purge(int $purge_flags) {}
+    public function purge($purge_flags) {}
 
     /**
      * @param int $timeout_ms
      *
      * @return int
      */
-    public function flush(int $timeout_ms) {}
+    public function flush($timeout_ms) {}
 
     public function metadata($all_topics, $only_topic = false, $timeout_ms = 0) {}
 

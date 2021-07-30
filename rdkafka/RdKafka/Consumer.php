@@ -7,7 +7,7 @@ class Consumer extends \RdKafka
     /**
      * @param null|Conf $conf
      */
-    public function __construct(?Conf $conf = null) {}
+    public function __construct($conf = null) {}
 
     /**
      * @param string    $topic_name

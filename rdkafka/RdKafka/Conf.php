@@ -27,54 +27,54 @@ class Conf
      *
      * @return void
      */
-    public function setDefaultTopicConf(TopicConf $topic_conf) {}
+    public function setDefaultTopicConf($topic_conf) {}
 
     /**
      * @param callable $callback
      *
      * @return void
      */
-    public function setDrMsgCb(callable $callback) {}
+    public function setDrMsgCb($callback) {}
 
     /**
      * @param callable $callback
      *
      * @return void
      */
-    public function setErrorCb(callable $callback) {}
+    public function setErrorCb($callback) {}
 
     /**
      * @param callable $callback
      *
      * @return void
      */
-    public function setRebalanceCb(callable $callback) {}
+    public function setRebalanceCb($callback) {}
 
     /**
      * @param callable $callback
      *
      * @return void
      */
-    public function setStatsCb(callable $callback) {}
+    public function setStatsCb($callback) {}
 
     /**
      * @param callable $callback
      *
      * @return void
      */
-    public function setOffsetCommitCb(callable $callback) {}
+    public function setOffsetCommitCb($callback) {}
 
     /**
      * @param callable $callback
      *
      * @return void
      */
-    public function setConsumeCb(callable $callback) {}
+    public function setConsumeCb($callback) {}
 
     /**
      * @param callable $callback
      *
      * @return void
      */
-    public function setLogCb(callable $callback) {}
+    public function setLogCb($callback) {}
 }
