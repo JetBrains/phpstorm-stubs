@@ -7,7 +7,7 @@ class KafkaConsumer
     /**
      * @param Conf $conf
      */
-    public function __construct(Conf $conf) {}
+    public function __construct($conf) {}
 
     /**
      * @param TopicPartition[] $topic_partitions
@@ -83,7 +83,7 @@ class KafkaConsumer
      *
      * @return array
      */
-    public function getCommittedOffsets(array $topic_partitions, int $timeout_ms) {}
+    public function getCommittedOffsets($topic_partitions, $timeout_ms) {}
 
     /**
      * @param TopicPartition[] $topic_partitions
@@ -91,7 +91,7 @@ class KafkaConsumer
      *
      * @return TopicPartition[]
      */
-    public function offsetsForTimes(array $topic_partitions, int $timeout_ms) {}
+    public function offsetsForTimes($topic_partitions, $timeout_ms) {}
 
     /**
      * @param string $topic
@@ -102,12 +102,12 @@ class KafkaConsumer
      *
      * @return void
      */
-    public function queryWatermarkOffsets(string $topic, int $partition = 0, int &$low = 0, int &$high = 0, int $timeout_ms = 0) {}
+    public function queryWatermarkOffsets($topic, $partition = 0, &$low = 0, &$high = 0, $timeout_ms = 0) {}
 
     /**
      * @param TopicPartition[] $topic_partitions
      */
-    public function getOffsetPositions(array $topic_partitions) {}
+    public function getOffsetPositions($topic_partitions) {}
 
     /**
      * @param string    $topic_name
@@ -115,7 +115,7 @@ class KafkaConsumer
      *
      * @return Topic
      */
-    public function newTopic($topic_name, ?TopicConf $topic_conf = null) {}
+    public function newTopic($topic_name, $topic_conf = null) {}
 
     /**
      * @return void
