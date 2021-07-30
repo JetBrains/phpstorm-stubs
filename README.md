@@ -29,7 +29,7 @@ The set of extensions enabled by default in PhpStorm can change anytime without 
 
 ### How to run tests
 1. Execute `docker-compose -f docker-compose.yml run test_runner composer install -d /opt/project/phpstorm-stubs --ignore-platform-reqs`
-2. Execute `docker-compose -f docker-compose.yml run -e PHP_VERSION=8.1 test_runner /opt/project/phpstorm-stubs/vendor/bin/phpunit /opt/project/phpstorm-stubs/tests/`
+2. Execute `docker-compose -f docker-compose.yml run -e PHP_VERSION=8.0 test_runner /opt/project/phpstorm-stubs/vendor/bin/phpunit --configuration /opt/project/phpstorm-stubs/phpunit.xml --testsuite PHP_8.0`
 
 ### How to update stub map
 Execute `docker-compose -f docker-compose.yml run test_runner /usr/local/bin/php /opt/project/phpstorm-stubs/generate-stub-map` and commit the resulting `PhpStormStubsMap.php`
