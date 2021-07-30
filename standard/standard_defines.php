@@ -1018,7 +1018,7 @@ define('IMAGETYPE_ICO', 17);
  */
 define('IMAGETYPE_WEBP', 18);
 define('IMAGETYPE_UNKNOWN', 0);
-define('IMAGETYPE_COUNT', 19);
+define('IMAGETYPE_COUNT', 20);
 
 /**
  * @since 8.1
