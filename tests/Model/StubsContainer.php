@@ -89,22 +89,27 @@ class StubsContainer
     /**
      * @param string $name
      * @param string|null $sourceFilePath
+     * @param bool $shouldSuitCurrentPhpVersion
      * @return PHPFunction|null
      * @throws RuntimeException
      */
-    public function getFunction(string $name, ?string $sourceFilePath = null): ?PHPFunction
+    public function getFunction(string $name, ?string $sourceFilePath = null, bool $shouldSuitCurrentPhpVersion = true): ?PHPFunction
     {
-        $functions = array_filter($this->functions, function (PHPFunction $function) use ($name): bool {
-            return $function->name === $name && $function->duplicateOtherElement === false
-                && BasePHPElement::entitySuitsCurrentPhpVersion($function);
+        $functions = array_filter($this->functions, function (PHPFunction $function) use ($shouldSuitCurrentPhpVersion, $name): bool {
+            return $function->name === $name && (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($function));
         });
+        if (count($functions) > 1) {
+            $functions = array_filter($functions, function (PHPFunction $function): bool {
+                return $function->duplicateOtherElement === false;
+            });
+        }
         if (count($functions) === 1) {
             return array_pop($functions);
         } else {
             if ($sourceFilePath !== null) {
-                $functions = array_filter($functions, function (PHPFunction $function) use ($sourceFilePath) {
+                $functions = array_filter($functions, function (PHPFunction $function) use ($shouldSuitCurrentPhpVersion, $sourceFilePath) {
                     return $function->sourceFilePath === $sourceFilePath
-                        && BasePHPElement::entitySuitsCurrentPhpVersion($function);
+                        && (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($function));
                 });
             }
             if (count($functions) > 1) {
@@ -146,23 +151,23 @@ class StubsContainer
     /**
      * @param string $name
      * @param string|null $sourceFilePath
-     * @param bool $shouldSuiteCurrentPhpVersion
+     * @param bool $shouldSuitCurrentPhpVersion
      * @return PHPClass|null
      * @throws RuntimeException
      */
-    public function getClass(string $name, ?string $sourceFilePath = null, bool $shouldSuiteCurrentPhpVersion = true): ?PHPClass
+    public function getClass(string $name, ?string $sourceFilePath = null, bool $shouldSuitCurrentPhpVersion = true): ?PHPClass
     {
-        $classes = array_filter($this->classes, function (PHPClass $class) use ($shouldSuiteCurrentPhpVersion, $name): bool {
+        $classes = array_filter($this->classes, function (PHPClass $class) use ($shouldSuitCurrentPhpVersion, $name): bool {
             return $class->name === $name &&
-                (!$shouldSuiteCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($class));
+                (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($class));
         });
         if (count($classes) === 1) {
             return array_pop($classes);
         } else {
             if ($sourceFilePath !== null) {
-                $classes = array_filter($classes, function (PHPClass $class) use ($shouldSuiteCurrentPhpVersion, $sourceFilePath) {
+                $classes = array_filter($classes, function (PHPClass $class) use ($shouldSuitCurrentPhpVersion, $sourceFilePath) {
                     return $class->sourceFilePath === $sourceFilePath &&
-                        (!$shouldSuiteCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($class));
+                        (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($class));
                 });
             }
             if (count($classes) > 1) {

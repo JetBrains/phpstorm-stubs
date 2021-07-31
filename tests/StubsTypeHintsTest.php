@@ -10,10 +10,8 @@ use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
-use StubTests\Model\PhpVersions;
 use StubTests\Model\StubProblemType;
 use StubTests\Parsers\ParserUtils;
-use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 use StubTests\TestData\Providers\ReflectionStubsSingleton;
 
@@ -26,13 +24,7 @@ class StubsTypeHintsTest extends BaseStubsTest
     public function testFunctionsReturnTypeHints(PHPFunction $function)
     {
         $functionName = $function->name;
-        $allEqualStubFunctions = EntitiesFilter::getFiltered(
-            PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(),
-            fn (PHPFunction $stubFunction) => $stubFunction->name !== $functionName ||
-                !in_array(PhpVersions::getLatest(), ParserUtils::getAvailableInVersions($stubFunction))
-        );
-        /** @var PHPFunction $stubFunction */
-        $stubFunction = array_pop($allEqualStubFunctions);
+        $stubFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($functionName);
         $unifiedStubsReturnTypes = [];
         $unifiedStubsAttributesReturnTypes = [];
         $unifiedReflectionReturnTypes = [];
@@ -260,12 +252,7 @@ class StubsTypeHintsTest extends BaseStubsTest
      */
     public function testMethodScalarTypeHintsInParametersMatchReflection(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $stubParameter)
     {
-        $reflectionMethods = array_filter(
-            ReflectionStubsSingleton::getReflectionStubs()->getClass($class->name)->methods,
-            fn (PHPMethod $method) => $method->name === $stubMethod->name
-        );
-        /** @var PHPMethod $reflectionMethod */
-        $reflectionMethod = array_pop($reflectionMethods);
+        $reflectionMethod = ReflectionStubsSingleton::getReflectionStubs()->getClass($class->name)->getMethod($stubMethod->name);
         $reflectionParameters = array_filter($reflectionMethod->parameters, fn (PHPParameter $parameter) => $parameter->name === $stubParameter->name);
         $reflectionParameter = array_pop($reflectionParameters);
         self::compareTypeHintsWithReflection($reflectionParameter, $stubParameter, $stubMethod->name);
@@ -277,12 +264,7 @@ class StubsTypeHintsTest extends BaseStubsTest
      */
     public function testMethodNullableTypeHintsInParametersMatchReflection(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $stubParameter)
     {
-        $reflectionMethods = array_filter(
-            ReflectionStubsSingleton::getReflectionStubs()->getClass($class->name)->methods,
-            fn (PHPMethod $method) => $method->name === $stubMethod->name
-        );
-        /** @var PHPMethod $reflectionMethod */
-        $reflectionMethod = array_pop($reflectionMethods);
+        $reflectionMethod = ReflectionStubsSingleton::getReflectionStubs()->getClass($class->name)->getMethod($stubMethod->name);
         $reflectionParameters = array_filter($reflectionMethod->parameters, fn (PHPParameter $parameter) => $parameter->name === $stubParameter->name);
         $reflectionParameter = array_pop($reflectionParameters);
         self::compareTypeHintsWithReflection($reflectionParameter, $stubParameter, $stubMethod->name);
@@ -294,12 +276,7 @@ class StubsTypeHintsTest extends BaseStubsTest
      */
     public function testMethodUnionTypeHintsInParametersMatchReflection(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $stubParameter)
     {
-        $reflectionMethods = array_filter(
-            ReflectionStubsSingleton::getReflectionStubs()->getClass($class->name)->methods,
-            fn (PHPMethod $method) => $method->name === $stubMethod->name
-        );
-        /** @var PHPMethod $reflectionMethod */
-        $reflectionMethod = array_pop($reflectionMethods);
+        $reflectionMethod = ReflectionStubsSingleton::getReflectionStubs()->getClass($class->name)->getMethod($stubMethod->name);
         $reflectionParameters = array_filter($reflectionMethod->parameters, fn (PHPParameter $parameter) => $parameter->name === $stubParameter->name);
         $reflectionParameter = array_pop($reflectionParameters);
         self::compareTypeHintsWithReflection($reflectionParameter, $stubParameter, $stubMethod->name);

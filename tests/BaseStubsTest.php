@@ -42,12 +42,7 @@ abstract class BaseStubsTest extends TestCase
         if ($defaultValue instanceof ConstFetch) {
             $defaultValueName = (string)$defaultValue->name;
             if ($defaultValueName !== 'false' && $defaultValueName !== 'true' && $defaultValueName !== 'null') {
-                $constants = array_filter(
-                    PhpStormStubsSingleton::getPhpStormStubs()->getConstants(),
-                    fn (PHPConst $const) => $const->name === (string)$defaultValue->name
-                );
-                /** @var PHPConst $constant */
-                $constant = array_pop($constants);
+                $constant = PhpStormStubsSingleton::getPhpStormStubs()->getConstant($defaultValueName);
                 $value = $constant->value;
             } else {
                 $value = $defaultValueName;
@@ -87,9 +82,7 @@ abstract class BaseStubsTest extends TestCase
             if ((string)$defaultValue->name === 'class') {
                 $value = (string)$defaultValue->class;
             } else {
-                $constants = array_filter($parentClass->constants, fn (PHPConst $const) => $const->name === (string)$defaultValue->name);
-                /** @var PHPConst $constant */
-                $constant = array_pop($constants);
+                $constant = $parentClass->getConstant((string)$defaultValue->name);;
                 $value = $constant->value;
             }
         } else {
@@ -127,7 +120,7 @@ abstract class BaseStubsTest extends TestCase
         $duplicatedFunctions = array_filter($filtered, function (PHPFunction $value, int|string $key) {
             $duplicatesOfFunction = self::getAllDuplicatesOfFunction($value->name);
             $functionVersions[] = ParserUtils::getAvailableInVersions(
-                PhpStormStubsSingleton::getPhpStormStubs()->getFunction($value->name)
+                PhpStormStubsSingleton::getPhpStormStubs()->getFunction($value->name, shouldSuitCurrentPhpVersion: false)
             );
             array_push($functionVersions, ...array_values(array_map(
                 fn (PHPFunction $function) => ParserUtils::getAvailableInVersions($function),
