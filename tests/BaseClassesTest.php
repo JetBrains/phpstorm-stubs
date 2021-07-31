@@ -252,6 +252,6 @@ class BaseClassesTest extends BaseStubsTest
         } else {
             $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className);
         }
-        static::assertNotEmpty($className, "Missing class $className: class $className {}");
+        static::assertNotEmpty($stubClass, "Missing class $className: class $className {}");
     }
 }
