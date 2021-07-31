@@ -44,7 +44,7 @@ jobs:
         run: composer install --ignore-platform-reqs
 
       - name: Test Stubs Map
-        run: ./tests/check-stub-map
+        run: ./tests/Tools/check-stub-map
 
       - name: run cs fixer
         run: composer cs

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -Eeuox pipefail
+
+scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+readonly CURRENT_FILE_HASH=$(md5sum "$scriptPath/../../PhpStormStubsMap.php" | awk '{ print $1 }')
+
+# Generate the stub map again
+php "$scriptPath/generate-stub-map"
+
+readonly NEW_FILE_HASH=$(md5sum "$scriptPath/../../PhpStormStubsMap.php" | awk '{ print $1 }')
+
+if [[ "${CURRENT_FILE_HASH}" != "${NEW_FILE_HASH}" ]]; then
+    echo "The commited stub map is not up to date. Please regenerate it using ./generate-stub-map";
+    cat "$scriptPath/../../PhpStormStubsMap.php"
+    exit 1;
+fi

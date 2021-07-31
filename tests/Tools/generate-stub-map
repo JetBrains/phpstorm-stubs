@@ -33,9 +33,9 @@ use function var_export;
 use const PHP_EOL;
 
 (function (): void {
-    require __DIR__ . '/vendor/autoload.php';
+    require __DIR__ . '/../../vendor/autoload.php';
 
-    $mapFile = __DIR__ . '/PhpStormStubsMap.php';
+    $mapFile = __DIR__ . '/../../PhpStormStubsMap.php';
 
     class InvalidConstantNode extends RuntimeException
     {
@@ -97,7 +97,7 @@ use const PHP_EOL;
         }
     }
 
-    $phpStormStubsDirectory = __DIR__;
+    $phpStormStubsDirectory = __DIR__ . '/../../';
 
     $fileVisitor = new class() extends NodeVisitorAbstract
     {
@@ -250,7 +250,7 @@ use const PHP_EOL;
         ksort($files);
 
         return array_map(static function (string $filePath) use ($phpStormStubsDirectory) : string {
-            return str_replace('\\', '/', substr($filePath, strlen($phpStormStubsDirectory) + 1));
+            return str_replace('\\', '/', substr($filePath, strlen($phpStormStubsDirectory)));
         }, $files);
     }, $map);
 
