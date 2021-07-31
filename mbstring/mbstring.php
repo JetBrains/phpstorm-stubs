@@ -199,7 +199,7 @@ function mb_substitute_character(string|int|null $substitute_character = null): 
  * </p>
  * @return bool true on success or false on failure.
  */
-#[PhpStormStubsElementAvailable(to: '7.4')]
+#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
 function mb_parse_str(string $string, &$result): bool {}
 
 /**
@@ -213,7 +213,7 @@ function mb_parse_str(string $string, &$result): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-#[PhpStormStubsElementAvailable('8.0')]
+#[PhpStormStubsElementAvailable(from: '8.0')]
 function mb_parse_str(string $string, &$result): bool {}
 
 /**

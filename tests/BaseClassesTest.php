@@ -53,11 +53,7 @@ class BaseClassesTest extends BaseStubsTest
         } else {
             $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className);
         }
-        static::assertArrayHasKey(
-            $method->name,
-            $stubClass->methods,
-            "Missing method $className::$method->name"
-        );
+        static::assertNotEmpty($stubClass->getMethod($method->name), "Missing method $className::$method->name");
     }
 
     /**
@@ -155,7 +151,7 @@ class BaseClassesTest extends BaseStubsTest
     public function testClassInterfaces(PHPClass $class)
     {
         $className = $class->name;
-        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name, null, false);
+        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name, shouldSuitCurrentPhpVersion: false);
         foreach ($class->interfaces as $interface) {
             static::assertContains(
                 $interface,
@@ -173,13 +169,9 @@ class BaseClassesTest extends BaseStubsTest
     {
         $className = $class->name;
         $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name);
-        static::assertArrayHasKey(
-            $property->name,
-            $stubClass->properties,
-            "Missing property $property->access "
+        static::assertNotEmpty($stubClass->getProperty($property->name), "Missing property $property->access "
             . implode('|', $property->typesFromSignature) .
-            "$className::$$property->name"
-        );
+            "$className::$$property->name");
     }
 
     /**
@@ -256,10 +248,10 @@ class BaseClassesTest extends BaseStubsTest
     {
         $className = $class->name;
         if ($class instanceof PHPClass) {
-            $stubClasses = PhpStormStubsSingleton::getPhpStormStubs()->getClasses();
+            $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className);
         } else {
-            $stubClasses = PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces();
+            $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className);
         }
-        static::assertArrayHasKey($className, $stubClasses, "Missing class $className: class $className {}");
+        static::assertNotEmpty($className, "Missing class $className: class $className {}");
     }
 }

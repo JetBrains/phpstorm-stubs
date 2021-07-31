@@ -20,10 +20,9 @@ class BaseConstantsTest extends BaseStubsTest
     {
         $constantName = $constant->name;
         $constantValue = $constant->value;
-        $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getConstants();
-        static::assertArrayHasKey(
-            $constantName,
-            $stubConstants,
+        $stubConstant = PhpStormStubsSingleton::getPhpStormStubs()->getConstant($constantName);
+        static::assertNotEmpty(
+            $stubConstant,
             "Missing constant: const $constantName = $constantValue\n"
         );
     }
@@ -37,13 +36,12 @@ class BaseConstantsTest extends BaseStubsTest
         $constantName = $constant->name;
         $constantValue = $constant->value;
         if ($class instanceof PHPClass) {
-            $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->constants;
+            $stubConstant = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->getConstant($constantName);
         } else {
-            $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($class->name)->constants;
+            $stubConstant = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($class->name)->getConstant($constantName);
         }
-        static::assertArrayHasKey(
-            $constantName,
-            $stubConstants,
+        static::assertNotEmpty(
+            $stubConstant,
             "Missing constant: const $constantName = $constantValue\n"
         );
     }

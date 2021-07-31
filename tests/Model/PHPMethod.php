@@ -8,7 +8,6 @@ use PhpParser\Node\Stmt\ClassMethod;
 use ReflectionMethod;
 use RuntimeException;
 use stdClass;
-use StubTests\Parsers\ParserUtils;
 
 class PHPMethod extends PHPFunction
 {
@@ -77,7 +76,7 @@ class PHPMethod extends PHPFunction
         $index = 0;
         foreach ($node->getParams() as $parameter) {
             $parsedParameter = (new PHPParameter())->readObjectFromStubNode($parameter);
-            if (in_array(doubleval(getenv('PHP_VERSION')), ParserUtils::getAvailableInVersions($parsedParameter))) {
+            if (self::entitySuitsCurrentPhpVersion($parsedParameter)) {
                 $parsedParameter->indexInSignature = $index;
                 $this->parameters[] = $parsedParameter;
                 $index++;

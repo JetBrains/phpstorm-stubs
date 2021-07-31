@@ -761,17 +761,6 @@
       ]
     },
     {
-      "name": "mb_parse_str",
-      "problems": [
-        {
-          "description": "has duplicate in stubs",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ]
-    },
-    {
       "name": "session_set_cookie_params",
       "problems": [
         {

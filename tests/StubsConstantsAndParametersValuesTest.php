@@ -22,12 +22,12 @@ class StubsConstantsAndParametersValuesTest extends BaseStubsTest
     {
         $constantName = $constant->name;
         $constantValue = $constant->value;
-        $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getConstants();
+        $stubConstant = PhpStormStubsSingleton::getPhpStormStubs()->getConstant($constantName);
         self::assertEquals(
             $constantValue,
-            $stubConstants[$constantName]->value,
+            $stubConstant->value,
             "Constant value mismatch: const $constantName \n
-            Expected value: $constantValue but was {$stubConstants[$constantName]->value}"
+            Expected value: $constantValue but was $stubConstant->value"
         );
     }
 

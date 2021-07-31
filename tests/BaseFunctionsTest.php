@@ -19,26 +19,26 @@ class BaseFunctionsTest extends BaseStubsTest
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::allFunctionsProvider
-     * @throws Exception
+     * @throws Exception|RuntimeException
      */
     public function testFunctionsExist(PHPFunction $function): void
     {
         $functionName = $function->name;
-        $stubFunctions = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions();
+        $stubFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($functionName);
         $params = BaseStubsTest::getParameterRepresentation($function);
-        static::assertArrayHasKey($functionName, $stubFunctions, "Missing function: function $functionName($params){}");
+        static::assertNotEmpty($stubFunction, "Missing function: function $functionName($params){}");
     }
 
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::functionsForDeprecationTestsProvider
+     * @throws RuntimeException
      */
     public function testFunctionsDeprecation(PHPFunction $function)
     {
         $functionName = $function->name;
-        $stubFunctions = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions();
-        $phpstormFunction = $stubFunctions[$functionName];
+        $stubFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($functionName);
         static::assertFalse(
-            $function->is_deprecated && $phpstormFunction->is_deprecated !== true,
+            $function->is_deprecated && $stubFunction->is_deprecated !== true,
             "Function $functionName is not deprecated in stubs"
         );
     }
@@ -50,10 +50,9 @@ class BaseFunctionsTest extends BaseStubsTest
     public function testFunctionsParametersAmount(PHPFunction $function)
     {
         $functionName = $function->name;
-        $stubFunctions = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions();
-        $phpstormFunction = $stubFunctions[$functionName];
+        $stubFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($functionName);
         $filteredStubParameters = array_filter(
-            $phpstormFunction->parameters,
+            $stubFunction->parameters,
             fn ($parameter) => BasePHPElement::entitySuitsCurrentPhpVersion($parameter)
         );
         $uniqueParameterNames = array_unique(array_map(fn (PHPParameter $parameter) => $parameter->name, $filteredStubParameters));
@@ -63,7 +62,7 @@ class BaseFunctionsTest extends BaseStubsTest
             $uniqueParameterNames,
             "Parameter number mismatch for function $functionName. 
                 Expected: " . BaseStubsTest::getParameterRepresentation($function) . "\n" .
-            'Actual: ' . BaseStubsTest::getParameterRepresentation($phpstormFunction)
+            'Actual: ' . BaseStubsTest::getParameterRepresentation($stubFunction)
         );
     }
 
