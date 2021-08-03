@@ -1,7 +1,7 @@
 <?php
 /**
  * Couchbase extension stubs
- * Gathered from https://docs.couchbase.com/sdk-api/couchbase-php-client-2.3.0/index.html
+ * Gathered from https://docs.couchbase.com/sdk-api/couchbase-php-client-3.1.2/index.html
  * Maintainer: sergey@couchbase.com
  *
  * https://github.com/couchbase/php-couchbase/tree/master/api
@@ -23,9 +23,6 @@
  *      necessary, use `new stdClass()` to persist empty JSON object. Note, that only JSON format considered supported by
  *      all Couchbase SDKs, everything else is private implementation (i.e. `"php"` format won't be readable by .NET SDK).
  *   * `"php"` - uses PHP serialize() method to encode the document.
- *   * `"igbinary"` - uses pecl/igbinary to encode the document in even more efficient than `"php"` format. Might not be
- *      available, if the Couchbase PHP SDK didn't find it during build phase, in this case constant
- *      \Couchbase\HAVE_IGBINARY will be false.
  *
  * * `couchbase.encoder.compression` (string), default: `"none"`
  *
@@ -36,7 +33,7 @@
  *     during build phase. In this case \Couchbase\HAVE_ZLIB will be false.
  *   * `"off"` or `"none"` - compression will be disabled, but the library will still read compressed values.
  *
- * * `couchbase.encoder.compression_threshold` (long), default: `0`
+ * * `couchbase.encoder.compression_threshold` (int), default: `0`
  *
  *   controls minimum size of the document value in bytes to use compression. For example, if threshold 100 bytes,
  *   and the document size is 50, compression will be disabled for this particular document.
@@ -47,2634 +44,1827 @@
  *   bytes. For example, the original document consists of 100 bytes. In this case factor 1.0 will require compressor
  *   to yield values not larger than 100 bytes (100/1.0), and 1.5 -- not larger than 66 bytes (100/1.5).
  *
- * * `couchbase.decoder.json_arrays` (boolean), default: `false`
+ * * `couchbase.decoder.json_arrays` (boolean), default: `true`
  *
  *   controls the form of the documents, returned by the server if they were in JSON format. When true, it will generate
  *   arrays of arrays, otherwise instances of stdClass.
  *
- * * `couchbase.pool.max_idle_time_sec` (long), default: `60`
+ * * `couchbase.pool.max_idle_time_sec` (int), default: `60`
  *
  *   controls the maximum interval the underlying connection object could be idle, i.e. without any data/query
  *   operations. All connections which idle more than this interval will be closed automatically. Cleanup function
  *   executed after each request using RSHUTDOWN hook.
+ *
+ * * `couchbase.allow_fallback_to_bucket_connection` (boolean), default: `false`
+ *
+ *   allows the library to switch to bucket connection when the connection string includes bucket name. It is useful
+ *   when the application connects to older Couchbase Server, that does not have G3CP feature.
  *
  * @package Couchbase
  */
 
 namespace Couchbase;
 
-/** If igbinary extension was not found during build phase this constant will store 0 */
-define("Couchbase\\HAVE_IGBINARY", 1);
-/** If libz headers was not found during build phase this constant will store 0 */
-define("Couchbase\\HAVE_ZLIB", 1);
-
-/** Encodes documents as JSON objects (see INI section for details)
- * @see \Couchbase\basicEncoderV1
- */
-define("Couchbase\\ENCODER_FORMAT_JSON", 0);
-/** Encodes documents using pecl/igbinary encoder (see INI section for details)
- * @see \Couchbase\basicEncoderV1
- */
-define("Couchbase\\ENCODER_FORMAT_IGBINARY", 1);
-/** Encodes documents using PHP serialize() (see INI section for details)
- * @see \Couchbase\basicEncoderV1
- */
-define("Couchbase\\ENCODER_FORMAT_PHP", 2);
-
-/** Do not use compression for the documents
- * @see \Couchbase\basicEncoderV1
- */
-define("Couchbase\\ENCODER_COMPRESSION_NONE", 0);
-/** Use zlib compressor for the documents
- * @see \Couchbase\basicEncoderV1
- */
-define("Couchbase\\ENCODER_COMPRESSION_ZLIB", 1);
-/** Use FastLZ compressor for the documents
- * @see \Couchbase\basicEncoderV1
- */
-define("Couchbase\\ENCODER_COMPRESSION_FASTLZ", 2);
-
-/**
- * Compress input using FastLZ algorithm.
- *
- * @param string $data original data
- * @return string compressed binary string
- */
-function fastlzCompress($data) {}
-
-/**
- * Decompress input using FastLZ algorithm.
- *
- * @param string $data compressed binary string
- * @return string original data
- */
-function fastlzDecompress($data) {}
-
-/**
- * Compress input using zlib. Raises Exception when extension compiled without zlib support.
- *
- * @param string $data original data
- * @return string compressed binary string
- * @see \Couchbase\HAVE_ZLIB
- */
-function zlibCompress($data) {}
-
-/**
- * Compress input using zlib. Raises Exception when extension compiled without zlib support.
- *
- * @param string $data compressed binary string
- * @return string original data
- * @see \Couchbase\HAVE_ZLIB
- */
-function zlibDecompress($data) {}
-
-/**
- * Returns value as it received from the server without any transformations.
- *
- * It is useful for debug purpose to inspect bare value.
- *
- * @param string $bytes
- * @param int $flags
- * @param int $datatype
- * @return string Document as it received from the Couchbase.
- *
- * @see \Couchbase\Bucket::setTranscoder()
- */
-function passthruDecoder($bytes, $flags, $datatype) {}
-
-/**
- * Returns the value, which has been passed and zero as flags and datatype.
- *
- * It is useful for debug purposes, or when the value known to be a string, otherwise behavior is not defined (most
- * likely it will generate error).
- *
- * @param string $value document to be stored in the Couchbase
- * @return array Array with three values: [bytes, 0, 0]
- *
- * @see \Couchbase\Bucket::setTranscoder()
- */
-function passthruEncoder($value) {}
-
-/**
- * Decodes value using \Couchbase\basicDecoderV1.
- *
- * It passes `couchbase.decoder.*` INI properties as $options.
- *
- * @param string $bytes Binary string received from the Couchbase, which contains encoded document
- * @param int $flags Flags which describes document encoding
- * @param int $datatype Extra field for datatype (not used at the moment)
- * @return mixed Decoded document object
- *
- * @see \Couchbase\basicDecoderV1
- * @see \Couchbase\Bucket::setTranscoder()
- */
-function defaultDecoder($bytes, $flags, $datatype) {}
-
-/**
- * Encodes value using \Couchbase\basicDecoderV1.
- *
- * It passes `couchbase.encoder.*` INI properties as $options.
- *
- * @param mixed $value document to be stored in the Couchbase
- * @return array Array with three values: [bytes, flags, datatype]
- *
- * @see \Couchbase\basicDecoderV1
- * @see \Couchbase\Bucket::setTranscoder()
- */
-function defaultEncoder($value) {}
-
-/**
- * Decodes value according to Common Flags (RFC-20)
- *
- * @param string $bytes Binary string received from the Couchbase, which contains encoded document
- * @param int $flags Flags which describes document encoding
- * @param int $datatype Extra field for datatype (not used at the moment)
- * @param array $options
- * @return mixed Decoded document object
- *
- * @see https://github.com/couchbaselabs/sdk-rfcs RFC-20 at SDK RFCs repository
- */
-function basicDecoderV1($bytes, $flags, $datatype, $options) {}
-
-/**
- * Encodes value according to Common Flags (RFC-20)
- *
- * @param mixed $value document to be stored in the Couchbase
- * @param array $options Encoder options (see detailed description in INI section)
- *   * "sertype" (default: \Couchbase::ENCODER_FORMAT_JSON) encoding format to use
- *   * "cmprtype" (default: \Couchbase::ENCODER_COMPRESSION_NONE) compression type
- *   * "cmprthresh" (default: 0) compression threshold
- *   * "cmprfactor" (default: 0) compression factor
- * @return array Array with three values: [bytes, flags, datatype]
- *
- * @see https://github.com/couchbaselabs/sdk-rfcs RFC-20 at SDK RFCs repository
- */
-function basicEncoderV1($value, $options) {}
-
-/**
- * Exception represeting all errors generated by the extension
- */
-class Exception extends \Exception {}
-
-/**
- * Represents Couchbase Document, which stores metadata and the value.
- *
- * The instances of this class returned by K/V commands of the \Couchbase\Bucket
- *
- * @see \Couchbase\Bucket
- */
-class Document
-{
-    /**
-     * @var Exception exception object in case of error, or NULL
-     */
-    public $error;
-
-    /**
-     * @var mixed The value stored in the Couchbase.
-     */
-    public $value;
-
-    /**
-     * @var int Flags, describing the encoding of the document on the server side.
-     */
-    public $flags;
-
-    /**
-     * @var string The last known CAS value of the document
-     */
-    public $cas;
-
-    /**
-     * @var MutationToken
-     * The optional, opaque mutation token set after a successful mutation.
-     *
-     * Note that the mutation token is always NULL, unless they are explicitly enabled on the
-     * connection string (`?fetch_mutation_tokens=true`), the server version is supported (>= 4.0.0)
-     * and the mutation operation succeeded.
-     *
-     * If set, it can be used for enhanced durability requirements, as well as optimized consistency
-     * for N1QL queries.
-     */
-    public $token;
-}
-
-/**
- * A fragment of a JSON Document returned by the sub-document API.
- *
- * @see \Couchbase\Bucket::mutateIn()
- * @see \Couchbase\Bucket::lookupIn()
- */
-class DocumentFragment
-{
-    /**
-     * @var Exception exception object in case of error, or NULL
-     */
-    public $error;
-
-    /**
-     * @var mixed The value sub-document command returned.
-     */
-    public $value;
-
-    /**
-     * @var string The last known CAS value of the document
-     */
-    public $cas;
-
-    /**
-     * @var MutationToken
-     * The optional, opaque mutation token related to updated document the environment.
-     *
-     * Note that the mutation token is always NULL, unless they are explicitly enabled on the
-     * connection string (`?fetch_mutation_tokens=true`), the server version is supported (>= 4.0.0)
-     * and the mutation operation succeeded.
-     *
-     * If set, it can be used for enhanced durability requirements, as well as optimized consistency
-     * for N1QL queries.
-     */
-    public $token;
-}
-
-/**
- * Represents a Couchbase Server Cluster.
- *
- * It is an entry point to the library, and in charge of opening connections to the Buckets.
- * In addition it can instantiate \Couchbase\ClusterManager to peform cluster-wide operations.
- *
- * @see \Couchbase\Bucket
- * @see \Couchbase\ClusterManager
- * @see \Couchbase\Authenticator
- */
-class Cluster
-{
-    /**
-     * Create cluster object
-     *
-     * @param string $connstr connection string
-     */
-    public function __construct($connstr) {}
-
-    /**
-     * Open connection to the Couchbase bucket
-     *
-     * @param string $name Name of the bucket.
-     * @param string $password Password of the bucket to override authenticator.
-     * @return Bucket
-     *
-     * @see \Couchbase\Authenticator
-     */
-    public function openBucket($name = "default", $password = "") {}
-
-    /**
-     * Open management connection to the Couchbase cluster.
-     *
-     * @param string $username Name of the administrator to override authenticator or NULL.
-     * @param string $password Password of the administrator to override authenticator or NULL.
-     * @return ClusterManager
-     *
-     * @see \Couchbase\Authenticator
-     */
-    public function manager($username = null, $password = null) {}
-
-    /**
-     * Associate authenticator with Cluster
-     *
-     * @param Authenticator $authenticator
-     * @return null
-     *
-     * @see \Couchbase\Authenticator
-     * @see \Couchbase\ClassicAuthenticator
-     * @see \Couchbase\PasswordAuthenticator
-     */
-    public function authenticate($authenticator) {}
-
-    /**
-     * Create \Couchbase\PasswordAuthenticator from given credentials and associate it with Cluster
-     *
-     * @param string $username
-     * @param string $password
-     * @return null
-     *
-     * @see \Couchbase\Authenticator
-     * @see \Couchbase\PasswordAuthenticator
-     */
-    public function authenticateAs($username, $password) {}
-}
-
-/**
- * Provides management capabilities for a Couchbase Server Cluster
- *
- * @see \Couchbase\Cluster
- */
-class ClusterManager
-{
-    /**
-     * The user account managed by Couchbase Cluster.
-     */
-    public const RBAC_DOMAIN_LOCAL = 1;
-    /**
-     * The user account managed by external system (e.g. LDAP).
-     */
-    public const RBAC_DOMAIN_EXTERNAL = 2;
-
-    final private function __construct() {}
-
-    /**
-     * Lists all buckets on this cluster.
-     *
-     * @return array
-     */
-    public function listBuckets() {}
-
-    /**
-     * Creates new bucket
-     *
-     * @param string $name Name of the bucket
-     * @param array $options Bucket options
-     *   * "authType" (default: "sasl") type of the bucket authentication
-     *   * "bucketType" (default: "couchbase") type of the bucket
-     *   * "ramQuotaMB" (default: 100) memory quota of the bucket
-     *   * "replicaNumber" (default: 1) number of replicas.
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/rest-api/rest-bucket-create.html
-     *   More options and details
-     */
-    public function createBucket($name, $options = []) {}
-
-    /**
-     * Removes a bucket identified by its name.
-     *
-     * @param string $name name of the bucket
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/rest-api/rest-bucket-delete.html
-     *   More details
-     */
-    public function removeBucket($name) {}
-
-    /**
-     * Provides information about the cluster.
-     *
-     * Returns an associative array of status information as seen on the cluster.  The exact structure of the returned
-     * data can be seen in the Couchbase Manual by looking at the cluster /info endpoint.
-     *
-     * @return array
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/rest-api/rest-cluster-get.html
-     *   Retrieving Cluster Information
-     */
-    public function info() {}
-
-    /**
-     * Lists all users on this cluster.
-     *
-     * @param int $domain RBAC domain
-     *
-     * @return array
-     *
-     * @see \Couchbase\ClusterManager::RBAC_DOMAIN_LOCAL
-     * @see \Couchbase\ClusterManager::RBAC_DOMAIN_EXTERNAL
-     */
-    public function listUsers($domain = RBAC_DOMAIN_LOCAL) {}
-
-    /**
-     * Fetch single user by its name
-     *
-     * @param string $username The user's identifier
-     * @param int $domain RBAC domain
-     *
-     * @return array
-     *
-     * @see \Couchbase\ClusterManager::RBAC_DOMAIN_LOCAL
-     * @see \Couchbase\ClusterManager::RBAC_DOMAIN_EXTERNAL
-     */
-    public function getUser($username, $domain = RBAC_DOMAIN_LOCAL) {}
-
-    /**
-     * Creates new user
-     *
-     * @param string $name Name of the user
-     * @param \Couchbase\UserSettings $settings settings (credentials and roles)
-     * @param int $domain RBAC domain
-     *
-     * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
-     *   More options and details
-     * @see \Couchbase\ClusterManager::RBAC_DOMAIN_LOCAL
-     * @see \Couchbase\ClusterManager::RBAC_DOMAIN_EXTERNAL
-     */
-    public function upsertUser($name, $settings, $domain = RBAC_DOMAIN_LOCAL) {}
-
-    /**
-     * Removes a user identified by its name.
-     *
-     * @param string $name name of the bucket
-     * @param int $domain RBAC domain
-     *
-     * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
-     *   More details
-     * @see \Couchbase\ClusterManager::RBAC_DOMAIN_LOCAL
-     * @see \Couchbase\ClusterManager::RBAC_DOMAIN_EXTERNAL
-     */
-    public function removeUser($name, $domain = RBAC_DOMAIN_LOCAL) {}
-}
-
-/**
- * Represents settings for new/updated user.
- *
- * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
- */
-class UserSettings
-{
-    /**
-     * Sets full name of the user (optional).
-     *
-     * @param string $fullName Full name of the user
-     *
-     * @return \Couchbase\UserSettings
-     *
-     * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
-     *   More details
-     */
-    public function fullName($fullName) {}
-
-    /**
-     * Sets password of the user.
-     *
-     * @param string $password Password of the user
-     *
-     * @return \Couchbase\UserSettings
-     *
-     * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
-     *   More details
-     */
-    public function password($password) {}
-
-    /**
-     * Adds role to the list of the accessible roles of the user.
-     *
-     * @param string $role identifier of the role
-     * @param string $bucket the bucket where this role applicable (or `*` for all buckets)
-     *
-     * @return \Couchbase\UserSettings
-     *
-     * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
-     *   More details
-     */
-    public function role($role, $bucket = null) {}
-}
-
-/**
- * Represents connection to the Couchbase Server
- *
- * @property int $operationTimeout
- *   The operation timeout (in microseconds) is the maximum amount of time the
- *   library will wait for an operation to receive a response before invoking
- *   its callback with a failure status.
- *
- *   An operation may timeout if:
- *
- *   * A server is taking too long to respond
- *   * An updated cluster configuration has not been promptly received
- *
- * @property int $viewTimeout
- *   The I/O timeout (in microseconds) for HTTP requests to Couchbase Views API
- *
- * @property int $n1qlTimeout
- *   The I/O timeout (in microseconds) for N1QL queries.
- *
- * @property int $httpTimeout
- *   The I/O timeout (in microseconds) for HTTP queries (management API).
- *
- * @property int $configTimeout
- *   How long (in microseconds) the client will wait to obtain the initial
- *   configuration.
- *
- * @property int $configNodeTimeout
- *   Per-node configuration timeout (in microseconds).
- *
- *   This timeout sets the amount of time to wait for each node within
- *   the bootstrap/configuration process. This interval is a subset of
- *   the $configTimeout option mentioned above and is intended to ensure
- *   that the bootstrap process does not wait too long for a given node.
- *   Nodes that are physically offline may never respond and it may take
- *   a long time until they are detected as being offline.
- *
- * @property int $configDelay
- *   Config refresh throttling
- *
- *   Modify the amount of time (in microseconds) before the configiration
- *   error threshold will forcefully be set to its maximum number forcing
- *   a configuration refresh.
- *
- *   Note that if you expect a high number of timeouts in your operations,
- *   you should set this to a high number. If you are using the default
- *   timeout setting, then this value is likely optimal.
- *
- * @property int $htconfigIdleTimeout
- *   Idling/Persistence for HTTP bootstrap (in microseconds)
- *
- *   By default the behavior of the library for HTTP bootstrap is to keep
- *   the stream open at all times (opening a new stream on a different host
- *   if the existing one is broken) in order to proactively receive
- *   configuration updates.
- *
- *   The default value for this setting is -1. Changing this to another
- *   number invokes the following semantics:
- *
- *   * The configuration stream is not kept alive indefinitely. It is kept
- *     open for the number of seconds specified in this setting. The socket
- *     is closed after a period of inactivity (indicated by this setting).
- *
- *   * If the stream is broken (and no current refresh was requested by
- *     the client) then a new stream is not opened.
- *
- * @property int $durabilityInterval
- *   The time (in microseconds) the client will wait between repeated probes
- *   to a given server.
- *
- * @property int $durabilityTimeout
- *   The time (in microseconds) the client will spend sending repeated probes
- *   to a given key's vBucket masters and replicas before they are deemed not
- *   to have satisfied the durability requirements
- *
- * @see https://developer.couchbase.com/documentation/server/current/sdk/php/start-using-sdk.html
- *   Start Using SDK
- */
-class Bucket
-{
-    /** Ping data (Key/Value) service. */
-    public const PINGSVC_KV = 0x01;
-    /** Ping query (N1QL) service. */
-    public const PINGSVC_N1QL = 0x02;
-    /** Ping views (Map/Reduce) service. */
-    public const PINGSVC_VIEWS = 0x04;
-    /** Ping full text search (FTS) service. */
-    public const PINGSVC_FTS = 0x08;
-
-    final private function __construct() {}
-
-    /**
-     * @param string $name
-     * @return int
-     */
-    final private function __get($name) {}
-
-    /**
-     * @param string $name
-     * @param int $value
-     * @return int
-     */
-    final private function __set($name, $value) {}
-
-    /**
-     * Returns the name of the bucket for current connection
-     *
-     * @return string
-     */
-    public function getName() {}
-
-    /**
-     * Returns an instance of a CouchbaseBucketManager for performing management operations against a bucket.
-     *
-     * @return BucketManager
-     */
-    public function manager() {}
-
-    /**
-     * Sets custom encoder and decoder functions for handling serialization.
-     *
-     * @param callable $encoder
-     * @param callable $decoder
-     *
-     * @see \Couchbase\defaultEncoder
-     * @see \Couchbase\defaultDecoder
-     * @see \Couchbase\passthruEncoder
-     * @see \Couchbase\passthruDecoder
-     */
-    public function setTranscoder($encoder, $decoder) {}
-
-    /**
-     * Retrieves a document
-     *
-     * @param string|array $ids one or more IDs
-     * @param array $options options
-     *   * "lockTime" non zero if the documents have to be locked
-     *   * "expiry" non zero if the expiration time should be updated
-     *   * "groupid" override value for hashing (not recommended to use)
-     * @return \Couchbase\Document|array document or list of the documents
-     *
-     * @see \Couchbase\Bucket::getAndLock()
-     * @see \Couchbase\Bucket::getAndTouch()
-     * @see \Couchbase\Bucket::unlock()
-     * @see \Couchbase\Bucket::touch()
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/core-operations.html
-     *   Overview of K/V operations
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
-     *   More details about K/V operations for PHP SDK
-     */
-    public function get($ids, $options = []) {}
-
-    /**
-     * Retrieves a document and locks it.
-     *
-     * After the document has been locked on the server, its CAS would be masked,
-     * and all mutations of it will be rejected until the server unlocks the document
-     * automatically or it will be done manually with \Couchbase\Bucket::unlock() operation.
-     *
-     * @param string|array $ids one or more IDs
-     * @param int $lockTime time to lock the documents
-     * @param array $options options
-     *   * "groupid" override value for hashing (not recommended to use)
-     * @return \Couchbase\Document|array document or list of the documents
-     *
-     * @see \Couchbase\Bucket::unlock()
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/core-operations.html
-     *   Overview of K/V operations
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
-     *   More details about K/V operations for PHP SDK
-     * @see https://forums.couchbase.com/t/is-there-a-way-to-do-pessimistic-locking-for-more-than-30-seconds/10666/3
-     *   Forum post about getting server defaults for the $lockTime
-     */
-    public function getAndLock($ids, $lockTime, $options = []) {}
-
-    /**
-     * Retrieves a document and updates its expiration time.
-     *
-     * @param string|array $ids one or more IDs
-     * @param int $expiry time after which the document will not be accessible.
-     *      If larger than 30 days (60*60*24*30), it will be interpreted by the
-     *      server as absolute UNIX time (seconds from epoch 1970-01-01T00:00:00).
-     * @param array $options options
-     *   * "groupid" override value for hashing (not recommended to use)
-     * @return \Couchbase\Document|array document or list of the documents
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/core-operations.html
-     *   Overview of K/V operations
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
-     *   More details about K/V operations for PHP SDK
-     */
-    public function getAndTouch($ids, $expiry, $options = []) {}
-
-    /**
-     * Retrieves a document from a replica.
-     *
-     * @param string|array $ids one or more IDs
-     * @param array $options options
-     *   * "index" the replica index. If the index is zero, it will return
-     *      first successful replica, otherwise it will read only selected node.
-     *   * "groupid" override value for hashing (not recommended to use)
-     * @return \Couchbase\Document|array document or list of the documents
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/core-operations.html
-     *   Overview of K/V operations
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
-     *   More details about K/V operations for PHP SDK
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/failure-considerations.html
-     *  More about failure considerations.
-     */
-    public function getFromReplica($ids, $options = []) {}
-
-    /**
-     * Inserts or updates a document, depending on whether the document already exists on the cluster.
-     *
-     * @param string|array $ids one or more IDs
-     * @param mixed $value value of the document
-     * @param array $options options
-     *   * "expiry" document expiration time in seconds. If larger than 30 days (60*60*24*30),
-     *      it will be interpreted by the server as absolute UNIX time (seconds from epoch
-     *      1970-01-01T00:00:00).
-     *   * "persist_to" how many nodes the key should be persisted to (including master).
-     *      If set to 0 then persistence will not be checked. If set to a negative
-     *      number, will be set to the maximum number of nodes to which persistence
-     *      is possible (which will always contain at least the master node).
-     *   * "replicate_to" how many nodes the key should be persisted to (excluding master).
-     *      If set to 0 then replication will not be checked. If set to a negative
-     *      number, will be set to the maximum number of nodes to which replication
-     *      is possible (which may be 0 if the bucket is not configured for replicas).
-     *   * "flags" override flags (not recommended to use)
-     *   * "groupid" override value for hashing (not recommended to use)
-     * @return \Couchbase\Document|array document or list of the documents
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/core-operations.html
-     *   Overview of K/V operations
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
-     *   More details about K/V operations for PHP SDK
-     */
-    public function upsert($ids, $value, $options = []) {}
-
-    /**
-     * Inserts a document. This operation will fail if the document already exists on the cluster.
-     *
-     * @param string|array $ids one or more IDs
-     * @param mixed $value value of the document
-     * @param array $options options
-     *   * "expiry" document expiration time in seconds. If larger than 30 days (60*60*24*30),
-     *      it will be interpreted by the server as absolute UNIX time (seconds from epoch
-     *      1970-01-01T00:00:00).
-     *   * "persist_to" how many nodes the key should be persisted to (including master).
-     *      If set to 0 then persistence will not be checked. If set to a negative
-     *      number, will be set to the maximum number of nodes to which persistence
-     *      is possible (which will always contain at least the master node).
-     *   * "replicate_to" how many nodes the key should be persisted to (excluding master).
-     *      If set to 0 then replication will not be checked. If set to a negative
-     *      number, will be set to the maximum number of nodes to which replication
-     *      is possible (which may be 0 if the bucket is not configured for replicas).
-     *   * "flags" override flags (not recommended to use)
-     *   * "groupid" override value for hashing (not recommended to use)
-     * @return \Couchbase\Document|array document or list of the documents
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/core-operations.html
-     *   Overview of K/V operations
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
-     *   More details about K/V operations for PHP SDK
-     */
-    public function insert($ids, $value, $options = []) {}
-
-    /**
-     * Replaces a document. This operation will fail if the document does not exists on the cluster.
-     *
-     * @param string|array $ids one or more IDs
-     * @param mixed $value value of the document
-     * @param array $options options
-     *   * "cas" last known document CAS, which serves for optimistic locking.
-     *   * "expiry" document expiration time in seconds. If larger than 30 days (60*60*24*30),
-     *      it will be interpreted by the server as absolute UNIX time (seconds from epoch
-     *      1970-01-01T00:00:00).
-     *   * "persist_to" how many nodes the key should be persisted to (including master).
-     *      If set to 0 then persistence will not be checked. If set to a negative
-     *      number, will be set to the maximum number of nodes to which persistence
-     *      is possible (which will always contain at least the master node).
-     *   * "replicate_to" how many nodes the key should be persisted to (excluding master).
-     *      If set to 0 then replication will not be checked. If set to a negative
-     *      number, will be set to the maximum number of nodes to which replication
-     *      is possible (which may be 0 if the bucket is not configured for replicas).
-     *   * "flags" override flags (not recommended to use)
-     *   * "groupid" override value for hashing (not recommended to use)
-     * @return \Couchbase\Document|array document or list of the documents
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/core-operations.html
-     *   Overview of K/V operations
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
-     *   More details about K/V operations for PHP SDK
-     */
-    public function replace($ids, $value, $options = []) {}
-
-    /**
-     * Appends content to a document.
-     *
-     * On the server side it just contatenate passed value to the existing one.
-     * Note that this might make the value un-decodable. Consider sub-document API
-     * for partial updates of the JSON documents.
-     *
-     * @param string|array $ids one or more IDs
-     * @param mixed $value value of the document
-     * @param array $options options
-     *   * "cas" last known document CAS, which serves for optimistic locking.
-     *   * "expiry" document expiration time in seconds. If larger than 30 days (60*60*24*30),
-     *      it will be interpreted by the server as absolute UNIX time (seconds from epoch
-     *      1970-01-01T00:00:00).
-     *   * "persist_to" how many nodes the key should be persisted to (including master).
-     *      If set to 0 then persistence will not be checked. If set to a negative
-     *      number, will be set to the maximum number of nodes to which persistence
-     *      is possible (which will always contain at least the master node).
-     *   * "replicate_to" how many nodes the key should be persisted to (excluding master).
-     *      If set to 0 then replication will not be checked. If set to a negative
-     *      number, will be set to the maximum number of nodes to which replication
-     *      is possible (which may be 0 if the bucket is not configured for replicas).
-     *   * "groupid" override value for hashing (not recommended to use)
-     * @return \Couchbase\Document|array document or list of the documents
-     *
-     * @see \Couchbase\Bucket::mutateIn()
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/core-operations.html
-     *   Overview of K/V operations
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
-     *   More details about K/V operations for PHP SDK
-     */
-    public function append($ids, $value, $options = []) {}
-
-    /**
-     * Prepends content to a document.
-     *
-     * On the server side it just contatenate existing value to the passed one.
-     * Note that this might make the value un-decodable. Consider sub-document API
-     * for partial updates of the JSON documents.
-     *
-     * @param string|array $ids one or more IDs
-     * @param mixed $value value of the document
-     * @param array $options options
-     *   * "cas" last known document CAS, which serves for optimistic locking.
-     *   * "expiry" document expiration time in seconds. If larger than 30 days (60*60*24*30),
-     *      it will be interpreted by the server as absolute UNIX time (seconds from epoch
-     *      1970-01-01T00:00:00).
-     *   * "persist_to" how many nodes the key should be persisted to (including master).
-     *      If set to 0 then persistence will not be checked. If set to a negative
-     *      number, will be set to the maximum number of nodes to which persistence
-     *      is possible (which will always contain at least the master node).
-     *   * "replicate_to" how many nodes the key should be persisted to (excluding master).
-     *      If set to 0 then replication will not be checked. If set to a negative
-     *      number, will be set to the maximum number of nodes to which replication
-     *      is possible (which may be 0 if the bucket is not configured for replicas).
-     *   * "groupid" override value for hashing (not recommended to use)
-     * @return \Couchbase\Document|array document or list of the documents
-     *
-     * @see \Couchbase\Bucket::mutateIn()
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/core-operations.html
-     *   Overview of K/V operations
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
-     *   More details about K/V operations for PHP SDK
-     */
-    public function prepend($ids, $value, $options = []) {}
-
-    /**
-     * Removes the document.
-     *
-     * @param string|array $ids one or more IDs
-     * @param array $options options
-     *   * "cas" last known document CAS, which serves for optimistic locking.
-     *   * "groupid" override value for hashing (not recommended to use)
-     * @return \Couchbase\Document|array document or list of the documents
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/core-operations.html
-     *   Overview of K/V operations
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
-     *   More details about K/V operations for PHP SDK
-     */
-    public function remove($ids, $options = []) {}
-
-    /**
-     * Unlocks previously locked document
-     *
-     * @param string|array $ids one or more IDs
-     * @param array $options options
-     *   * "cas" last known document CAS, which has been returned by locking command.
-     *   * "groupid" override value for hashing (not recommended to use)
-     * @return \Couchbase\Document|array document or list of the documents
-     *
-     * @see \Couchbase\Bucket::get()
-     * @see \Couchbase\Bucket::getAndLock()
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/core-operations.html
-     *   Overview of K/V operations
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
-     *   More details about K/V operations for PHP SDK
-     */
-    public function unlock($ids, $options = []) {}
-
-    /**
-     * Updates document's expiration time.
-     *
-     * @param string|array $ids one or more IDs
-     * @param int $expiry time after which the document will not be accessible.
-     *      If larger than 30 days (60*60*24*30), it will be interpreted by the
-     *      server as absolute UNIX time (seconds from epoch 1970-01-01T00:00:00).
-     * @param array $options options
-     *   * "groupid" override value for hashing (not recommended to use)
-     * @return \Couchbase\Document|array document or list of the documents
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/core-operations.html
-     *   Overview of K/V operations
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
-     *   More details about K/V operations for PHP SDK
-     */
-    public function touch($ids, $expiry, $options = []) {}
-
-    /**
-     * Increments or decrements a key (based on $delta)
-     *
-     * @param string|array $ids one or more IDs
-     * @param int $delta the number whih determines the sign (positive/negative) and the value of the increment
-     * @param array $options options
-     *   * "initial" initial value of the counter if it does not exist
-     *   * "expiry" time after which the document will not be accessible.
-     *      If larger than 30 days (60*60*24*30), it will be interpreted by the
-     *      server as absolute UNIX time (seconds from epoch 1970-01-01T00:00:00).
-     *   * "groupid" override value for hashing (not recommended to use)
-     * @return \Couchbase\Document|array document or list of the documents
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/core-operations.html
-     *   Overview of K/V operations
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
-     *   More details about K/V operations for PHP SDK
-     */
-    public function counter($ids, $delta = 1, $options = []) {}
-
-    /**
-     * Returns a builder for reading subdocument API.
-     *
-     * @param string $id The ID of the JSON document
-     * @return LookupInBuilder
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function lookupIn($id) {}
-
-    /**
-     * Retrieves specified paths in JSON document
-     *
-     * This is essentially a shortcut for `lookupIn($id)->get($paths)->execute()`.
-     *
-     * @param string $id The ID of the JSON document
-     * @param string ...$paths List of the paths inside JSON documents (see "Path syntax" section of the
-     *   "Sub-Document Operations" documentation).
-     * @return \Couchbase\DocumentFragment
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function retrieveIn($id, ...$paths) {}
-
-    /**
-     * Returns a builder for writing subdocument API.
-     *
-     * @param string $id The ID of the JSON document
-     * @param string $cas Last known document CAS value for optimisti locking
-     * @return MutateInBuilder
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function mutateIn($id, $cas) {}
-
-    /**
-     * Performs a query to Couchbase Server
-     *
-     * @param N1qlQuery|ViewQuery|SpatialViewQuery|SearchQuery|AnalyticsQuery $query
-     * @param bool $jsonAsArray if true, the values in the result rows (or hits) will be represented as
-     *    PHP arrays, otherwise they will be instances of the `stdClass`
-     * @return object Query-specific result object.
-     *
-     * @see \Couchbase\N1qlQuery
-     * @see \Couchbase\SearchQuery
-     * @see \Couchbase\ViewQuery
-     * @see \Couchbase\SpatialViewQuery
-     */
-    public function query($query, $jsonAsArray = false) {}
-
-    /**
-     * Returns size of the map
-     *
-     * @param string $id ID of the document
-     * @return int number of the key-value pairs
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function mapSize($id) {}
-
-    /**
-     * Add key to the map
-     *
-     * @param string $id ID of the document
-     * @param string $key key
-     * @param mixed $value value
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function mapAdd($id, $key, $value) {}
-
-    /**
-     * Removes key from the map
-     *
-     * @param string $id ID of the document
-     * @param string $key key
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function mapRemove($id, $key) {}
-
-    /**
-     * Get an item from a map
-     *
-     * @param string $id ID of the document
-     * @param string $key key
-     * @return mixed value associated with the key
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function mapGet($id, $key) {}
-
-    /**
-     * Returns size of the set
-     *
-     * @param string $id ID of the document
-     * @return int number of the elements
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function setSize($id) {}
-
-    /**
-     * Add value to the set
-     *
-     * Note, that currently only primitive values could be stored in the set (strings, integers and booleans).
-     *
-     * @param string $id ID of the document
-     * @param string|int|float|bool $value new value
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function setAdd($id, $value) {}
-
-    /**
-     * Check if the value exists in the set
-     *
-     * @param string $id ID of the document
-     * @param string|int|float|bool $value value to check
-     * @return bool true if the value exists in the set
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function setExists($id, $value) {}
-
-    /**
-     * Remove value from the set
-     *
-     * @param string $id ID of the document
-     * @param string|int|float|bool $value value to remove
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function setRemove($id, $value) {}
-
-    /**
-     * Returns size of the list
-     *
-     * @param string $id ID of the document
-     * @return int number of the elements
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function listSize($id) {}
-
-    /**
-     * Add an element to the end of the list
-     *
-     * @param string $id ID of the document
-     * @param mixed $value new value
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function listPush($id, $value) {}
-
-    /**
-     * Add an element to the beginning of the list
-     *
-     * @param string $id ID of the document
-     * @param mixed $value new value
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function listShift($id, $value) {}
-
-    /**
-     * Remove an element at the given position
-     *
-     * @param string $id ID of the document
-     * @param int $index index of the element to be removed
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function listRemove($id, $index) {}
-
-    /**
-     * Get an element at the given position
-     *
-     * @param string $id ID of the document
-     * @param int $index index of the element
-     * @return mixed the value
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function listGet($id, $index) {}
-
-    /**
-     * Set an element at the given position
-     *
-     * @param string $id ID of the document
-     * @param int $index index of the element
-     * @param mixed $value new value
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function listSet($id, $index, $value) {}
-
-    /**
-     * Check if the list contains specified value
-     *
-     * @param string $id ID of the document
-     * @param mixed $value value to look for
-     * @return bool true if the list contains the value
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function listExists($id, $value) {}
-
-    /**
-     * Returns size of the queue
-     *
-     * @param string $id ID of the document
-     * @return int number of the elements in the queue
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function queueSize($id) {}
-
-    /**
-     * Checks if the queue contains specified value
-     *
-     * @param string $id ID of the document
-     * @param mixed $value value to look for
-     * @return bool true if the queue contains the value
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function queueExists($id, $value) {}
-
-    /**
-     * Add an element to the beginning of the queue
-     *
-     * @param string $id ID of the document
-     * @param mixed $value new value
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function queueAdd($id, $value) {}
-
-    /**
-     * Remove the element at the end of the queue and return it
-     *
-     * @param string $id ID of the document
-     * @return mixed removed value
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
-     *   More details on Data Structures
-     * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
-     *   Overview of Sub-Document Operations
-     */
-    public function queueRemove($id) {}
-
-    /**
-     * Try to reach specified services, and measure network latency.
-     *
-     * @param int $services bitwise mask of required services (and all services when zero)
-     * @param string $reportId custom identifier, which will be appended to "id" property in report
-     * @return array the report object
-     *
-     * @see \Couchbase\Bucket::PINGSVC_KV
-     * @see \Couchbase\Bucket::PINGSVC_N1QL
-     * @see \Couchbase\Bucket::PINGSVC_VIEWS
-     * @see \Couchbase\Bucket::PINGSVC_FTS
-     *
-     * @see https://github.com/couchbaselabs/sdk-rfcs/blob/master/rfc/0034-health-check.md
-     *   SDK RFC #34, which describes the feature and report layout.
-     */
-    public function ping($services = 0, $reportId = null) {}
-
-    /**
-     * Collect and return information about state of internal network connections.
-     *
-     * @param string $reportId custom identifier, which will be appended to "id" property in report
-     * @return array the report object
-     *
-     * @see https://github.com/couchbaselabs/sdk-rfcs/blob/master/rfc/0034-health-check.md
-     *   SDK RFC #34, which describes the feature and report layout.
-     */
-    public function diag($reportId = null) {}
-
-    /**
-     * Encrypt fields inside specified document.
-     *
-     * @param array $document document structure
-     * @param array $fieldOptions specification for fields needed to be encrypted. Where 'alg' contains
-     *   a string with alias of the registed crypto provider, and 'name' contains the name of the field.
-     * @param string $prefix optional prefix for modified field (when null, the library will use "__crypt")
-     *
-     * @return array where the fields encrypted
-     *
-     * @see https://github.com/couchbase/php-couchbase-encryption
-     */
-    public function encryptFields($document, $fieldOptions, $prefix = null) {}
-
-    /**
-     * Decrypt fields inside specified document.
-     *
-     * @param array $document document structure
-     * @param array $fieldOptions specification for fields needed to be decrypted. Where 'alg' contains
-     *   a string with alias of the registed crypto provider, and 'name' contains the name of the field.
-     * @param string $prefix optional prefix for modified field (when null, the library will use "__crypt")
-     *
-     * @return array where the fields decrypted
-     *
-     * @see https://github.com/couchbase/php-couchbase-encryption
-     */
-    public function decryptFields($document, $fieldOptions, $prefix = null) {}
-}
-
-/**
- * Provides management capabilities for the Couchbase Bucket
- */
-class BucketManager
-{
-    final private function __construct() {}
-
-    /**
-     * Returns information about the bucket
-     *
-     * Returns an associative array of status information as seen by the cluster for
-     * this bucket. The exact structure of the returned data can be seen in the Couchbase
-     * Manual by looking at the bucket /info endpoint.
-     *
-     * @return array
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/rest-api/rest-bucket-info.html
-     *   Getting Single Bucket Information
-     */
-    public function info() {}
-
-    /**
-     * Flushes the bucket (clears all data)
-     */
-    public function flush() {}
-
-    /**
-     * Returns all design documents of the bucket.
-     *
-     * @return array
-     */
-    public function listDesignDocuments() {}
-
-    /**
-     * Get design document by its name
-     *
-     * @param string $name name of the design document (without _design/ prefix)
-     * @return array
-     */
-    public function getDesignDocument($name) {}
-
-    /**
-     * Removes design document by its name
-     *
-     * @param string $name name of the design document (without _design/ prefix)
-     */
-    public function removeDesignDocument($name) {}
-
-    /**
-     * Creates or replaces design document.
-     *
-     * @param string $name name of the design document (without _design/ prefix)
-     * @param array $document
-     */
-    public function upsertDesignDocument($name, $document) {}
-
-    /**
-     * Inserts design document and fails if it is exist already.
-     *
-     * @param string $name name of the design document (without _design/ prefix)
-     * @param array $document
-     */
-    public function insertDesignDocument($name, $document) {}
-
-    /**
-     * List all N1QL indexes that are registered for the current bucket.
-     *
-     * @return array
-     */
-    public function listN1qlIndexes() {}
-
-    /**
-     * Create a primary N1QL index.
-     *
-     * @param string $customName the custom name for the primary index.
-     * @param bool $ignoreIfExist if a primary index already exists, an exception
-     *   will be thrown unless this is set to true.
-     * @param bool $defer true to defer index building.
-     */
-    public function createN1qlPrimaryIndex($customName = '', $ignoreIfExist = false, $defer = false) {}
-
-    /**
-     * Create secondary N1QL index.
-     *
-     * @param string $name name of the index
-     * @param array $fields list of JSON fields to index
-     * @param string $whereClause the WHERE clause of the index.
-     * @param bool $ignoreIfExist if a secondary index already exists, an exception
-     *   will be thrown unless this is set to true.
-     * @param bool $defer true to defer index building.
-     */
-    public function createN1qlIndex($name, $fields, $whereClause = '', $ignoreIfExist = false, $defer = false) {}
-
-    /**
-     * Drop the given primary index
-     *
-     * @param string $customName the custom name for the primary index
-     * @param bool $ignoreIfNotExist if a primary index does not exist, an exception
-     *   will be thrown unless this is set to true.
-     */
-    public function dropN1qlPrimaryIndex($customName = '', $ignoreIfNotExist = false) {}
-
-    /**
-     * Drop the given secondary index
-     *
-     * @param string $name the index name
-     * @param bool $ignoreIfNotExist if a secondary index does not exist, an exception
-     *   will be thrown unless this is set to true.
-     */
-    public function dropN1qlIndex($name, $ignoreIfNotExist = false) {}
-}
-
-/**
- * Interface of authentication containers.
- *
- * @see \Couchbase\Cluster::authenticate()
- * @see \Couchbase\ClassicAuthenticator
- * @see \Couchbase\PasswordAuthenticator
- */
-interface Authenticator {}
-
-/**
- * Authenticator based on login/password credentials.
- *
- * This authenticator uses separate credentials for Cluster management interface
- * as well as for each bucket.
- *
- *
- *
- * @see \Couchbase\Cluster::authenticate()
- * @see \Couchbase\Authenticator
- */
-class ClassicAuthenticator implements Authenticator
-{
-    /**
-     * Registers cluster management credentials in the container
-     *
-     * @param string $username admin username
-     * @param string $password admin password
-     */
-    public function cluster($username, $password) {}
-
-    /**
-     * Registers bucket credentials in the container
-     *
-     * @param string $name bucket name
-     * @param string $password bucket password
-     */
-    public function bucket($name, $password) {}
-}
-
-/**
- * Authenticator based on RBAC feature of Couchbase Server 5+.
- *
- * This authenticator uses single credentials for all operations (data and management).
- *
- * @see \Couchbase\Cluster::authenticate()
- * @see \Couchbase\Authenticator
- */
-class PasswordAuthenticator implements Authenticator
-{
-    /**
-     * Sets username
-     *
-     * @param string $username username
-     * @return \Couchbase\PasswordAuthenticator
-     */
-    public function username($username) {}
-
-    /**
-     * Sets password
-     *
-     * @param string $password password
-     * @return \Couchbase\PasswordAuthenticator
-     */
-    public function password($password) {}
-}
+use JsonSerializable;
+use Exception;
+use Throwable;
+use DateTimeInterface;
 
 /**
  * An object which contains meta information of the document needed to enforce query consistency.
  */
-class MutationToken
+interface MutationToken
 {
-    final private function __construct() {}
-
-    /**
-     * Creates new mutation token
-     *
-     * @param string $bucketName name of the bucket
-     * @param int $vbucketId partition number
-     * @param string $vbucketUuid UUID of the partition
-     * @param string $sequenceNumber sequence number inside partition
-     */
-    public static function from($bucketName, $vbucketId, $vbucketUuid, $sequenceNumber) {}
-
     /**
      * Returns bucket name
      *
      * @return string
      */
-    public function bucketName() {}
+    public function bucketName();
 
     /**
      * Returns partition number
      *
      * @return int
      */
-    public function vbucketId() {}
+    public function partitionId();
 
     /**
      * Returns UUID of the partition
      *
      * @return string
      */
-    public function vbucketUuid() {}
+    public function partitionUuid();
 
     /**
      * Returns the sequence number inside partition
      *
      * @return string
      */
-    public function sequenceNumber() {}
+    public function sequenceNumber();
 }
 
 /**
- * Container for mutation tokens.
+ * Interface for retrieving metadata such as errors and metrics generated during N1QL queries.
+ */
+interface QueryMetaData
+{
+    /**
+     * Returns the query execution status
+     *
+     * @return string|null
+     */
+    public function status(): ?string;
+
+    /**
+     * Returns the identifier associated with the query
+     *
+     * @return string|null
+     */
+    public function requestId(): ?string;
+
+    /**
+     * Returns the client context id associated with the query
+     *
+     * @return string|null
+     */
+    public function clientContextId(): ?string;
+
+    /**
+     * Returns the signature of the query
+     *
+     * @return array|null
+     */
+    public function signature(): ?array;
+
+    /**
+     * Returns any warnings generated during query execution
+     *
+     * @return array|null
+     */
+    public function warnings(): ?array;
+
+    /**
+     * Returns any errors generated during query execution
+     *
+     * @return array|null
+     */
+    public function errors(): ?array;
+
+    /**
+     * Returns metrics generated during query execution such as timings and counts
+     *
+     * @return array|null
+     */
+    public function metrics(): ?array;
+
+    /**
+     * Returns the profile of the query if enabled
+     *
+     * @return array|null
+     */
+    public function profile(): ?array;
+}
+
+/**
+ * Interface for retrieving metadata such as error counts and metrics generated during search queries.
+ */
+interface SearchMetaData
+{
+    /**
+     * Returns the number of pindexes successfully queried
+     *
+     * @return int|null
+     */
+    public function successCount(): ?int;
+
+    /**
+     * Returns the number of errors messages reported by individual pindexes
+     *
+     * @return int|null
+     */
+    public function errorCount(): ?int;
+
+    /**
+     * Returns the time taken to complete the query
+     *
+     * @return int|null
+     */
+    public function took(): ?int;
+
+    /**
+     * Returns the total number of matches for this result
+     *
+     * @return int|null
+     */
+    public function totalHits(): ?int;
+
+    /**
+     * Returns the highest score of all documents for this search query.
+     *
+     * @return float|null
+     */
+    public function maxScore(): ?float;
+
+    /**
+     * Returns the metrics generated during execution of this search query.
+     *
+     * @return array|null
+     */
+    public function metrics(): ?array;
+}
+
+/**
+ * Interface for retrieving metadata generated during view queries.
+ */
+interface ViewMetaData
+{
+    /**
+     * Returns the total number of rows returned by this view query
+     *
+     * @return int|null
+     */
+    public function totalRows(): ?int;
+
+    /**
+     * Returns debug information for this view query if enabled
+     *
+     * @return array|null
+     */
+    public function debug(): ?array;
+}
+
+/**
+ * Base interface for all results generated by KV operations.
+ */
+interface Result
+{
+    /**
+     * Returns the CAS value for the document
+     *
+     * @return string|null
+     */
+    public function cas(): ?string;
+}
+
+/**
+ * Interface for results created by the get operation.
+ */
+interface GetResult extends Result
+{
+    /**
+     * Returns the content of the document fetched
+     *
+     * @return array|null
+     */
+    public function content(): ?array;
+
+    /**
+     * Returns the document expiration time or null if the document does not expire.
+     *
+     * Note, that this function will return expiry only when GetOptions had withExpiry set to true.
+     *
+     * @return DateTimeInterface|null
+     */
+    public function expiryTime(): ?DateTimeInterface;
+}
+
+/**
+ * Interface for results created by the getReplica operation.
+ */
+interface GetReplicaResult extends Result
+{
+    /**
+     * Returns the content of the document fetched
+     *
+     * @return array|null
+     */
+    public function content(): ?array;
+
+    /**
+     * Returns whether or not the document came from a replica server
+     *
+     * @return bool
+     */
+    public function isReplica(): bool;
+}
+
+/**
+ * Interface for results created by the exists operation.
+ */
+interface ExistsResult extends Result
+{
+    /**
+     * Returns whether or not the document exists
+     *
+     * @return bool
+     */
+    public function exists(): bool;
+}
+
+/**
+ * Interface for results created by operations that perform mutations.
+ */
+interface MutationResult extends Result
+{
+    /**
+     * Returns the mutation token generated during the mutation
+     *
+     * @return MutationToken|null
+     */
+    public function mutationToken(): ?MutationToken;
+}
+
+/**
+ * Interface for results created by the counter operation.
+ */
+interface CounterResult extends MutationResult
+{
+    /**
+     * Returns the new value of the counter
+     *
+     * @return int
+     */
+    public function content(): int;
+}
+
+/**
+ * Interface for results created by the lookupIn operation.
+ */
+interface LookupInResult extends Result
+{
+    /**
+     * Returns the value located at the index specified
+     *
+     * @param int $index the index to retrieve content from
+     * @return object|null
+     */
+    public function content(int $index): ?object;
+
+    /**
+     * Returns whether or not the path at the index specified exists
+     *
+     * @param int $index the index to check for existence
+     * @return bool
+     */
+    public function exists(int $index): bool;
+
+    /**
+     * Returns any error code for the path at the index specified
+     *
+     * @param int $index the index to retrieve the error code for
+     * @return int
+     */
+    public function status(int $index): int;
+
+    /**
+     * Returns the document expiration time or null if the document does not expire.
+     *
+     * Note, that this function will return expiry only when LookupInOptions had withExpiry set to true.
+     *
+     * @return DateTimeInterface|null
+     */
+    public function expiryTime(): ?DateTimeInterface;
+}
+
+/**
+ * Interface for results created by the mutateIn operation.
+ */
+interface MutateInResult extends MutationResult
+{
+    /**
+     * Returns any value located at the index specified
+     *
+     * @param int $index the index to retrieve content from
+     * @return array|null
+     */
+    public function content(int $index): ?array;
+}
+
+/**
+ * Interface for retrieving results from N1QL queries.
+ */
+interface QueryResult
+{
+    /**
+     * Returns metadata generated during query execution such as errors and metrics
+     *
+     * @return QueryMetaData|null
+     */
+    public function metaData(): ?QueryMetaData;
+
+    /**
+     * Returns the rows returns during query execution
+     *
+     * @return array|null
+     */
+    public function rows(): ?array;
+}
+
+/**
+ * Interface for retrieving results from analytics queries.
+ */
+interface AnalyticsResult
+{
+    /**
+     * Returns metadata generated during query execution
+     *
+     * @return QueryMetaData|null
+     */
+    public function metaData(): ?QueryMetaData;
+
+    /**
+     * Returns the rows returned during query execution
+     *
+     * @return array|null
+     */
+    public function rows(): ?array;
+}
+
+/**
+ * A range (or bucket) for a term search facet result.
+ * Counts the number of occurrences of a given term.
+ */
+interface TermFacetResult
+{
+    /**
+     * @return string
+     */
+    public function term(): string;
+
+    /**
+     * @return int
+     */
+    public function count(): int;
+}
+
+/**
+ * A range (or bucket) for a numeric range facet result. Counts the number of matches
+ * that fall into the named range (which can overlap with other user-defined ranges).
+ */
+interface NumericRangeFacetResult
+{
+    /**
+     * @return string
+     */
+    public function name(): string;
+
+    /**
+     * @return int|float|null
+     */
+    public function min();
+
+    /**
+     * @return int|float|null
+     */
+    public function max();
+
+    /**
+     * @return int
+     */
+    public function count(): int;
+}
+
+/**
+ * A range (or bucket) for a date range facet result. Counts the number of matches
+ * that fall into the named range (which can overlap with other user-defined ranges).
+ */
+interface DateRangeFacetResult
+{
+    /**
+     * @return string
+     */
+    public function name(): string;
+
+    /**
+     * @return string|null
+     */
+    public function start(): ?string;
+
+    /**
+     * @return string|null
+     */
+    public function end(): ?string;
+
+    /**
+     * @return int
+     */
+    public function count(): int;
+}
+
+/**
+ * Interface representing facet results.
+ *
+ * Only one method might return non-null value among terms(), numericRanges() and dateRanges().
+ */
+interface SearchFacetResult
+{
+    /**
+     * The field the SearchFacet was targeting.
+     *
+     * @return string
+     */
+    public function field(): string;
+
+    /**
+     * The total number of *valued* facet results. Total = other() + terms (but doesn't include * missing()).
+     *
+     * @return int
+     */
+    public function total(): int;
+
+    /**
+     * The number of results that couldn't be faceted, missing the adequate value. Not matter how many more
+     * buckets are added to the original facet, these result won't ever be included in one.
+     *
+     * @return int
+     */
+    public function missing(): int;
+
+    /**
+     * The number of results that could have been faceted (because they have a value for the facet's field) but
+     * weren't, due to not having a bucket in which they belong. Adding a bucket can result in these results being
+     * faceted.
+     *
+     * @return int
+     */
+    public function other(): int;
+
+    /**
+     * @return array of pairs string name to TermFacetResult
+     */
+    public function terms(): ?array;
+
+    /**
+     * @return array of pairs string name to NumericRangeFacetResult
+     */
+    public function numericRanges(): ?array;
+
+    /**
+     * @return array of pairs string name to DateRangeFacetResult
+     */
+    public function dateRanges(): ?array;
+}
+
+/**
+ * Interface for retrieving results from search queries.
+ */
+interface SearchResult
+{
+    /**
+     * Returns metadata generated during query execution
+     *
+     * @return SearchMetaData|null
+     */
+    public function metaData(): ?SearchMetaData;
+
+    /**
+     * Returns any facets returned by the query
+     *
+     * Array contains instances of SearchFacetResult
+     * @return array|null
+     */
+    public function facets(): ?array;
+
+    /**
+     * Returns any rows returned by the query
+     *
+     * @return array|null
+     */
+    public function rows(): ?array;
+}
+
+/**
+ * Interface for retrieving results from view queries.
+ */
+interface ViewResult
+{
+    /**
+     * Returns metadata generated during query execution
+     *
+     * @return ViewMetaData|null
+     */
+    public function metaData(): ?ViewMetaData;
+
+    /**
+     * Returns any rows returned by the query
+     *
+     * @return array|null
+     */
+    public function rows(): ?array;
+}
+
+/**
+ * Object for accessing a row returned as a part of the results from a viery query.
+ */
+class ViewRow
+{
+    /**
+     * Returns the id of the row
+     *
+     * @return string|null
+     */
+    public function id(): ?string {}
+
+    /**
+     * Returns the key of the document
+     */
+    public function key() {}
+
+    /**
+     * Returns the value of the row
+     */
+    public function value() {}
+
+    /**
+     * Returns the corresponding document for the row, if enabled
+     */
+    public function document() {}
+}
+
+/**
+ *  Base exception for exceptions that are thrown originating from Couchbase operations.
+ */
+class BaseException extends Exception implements Throwable
+{
+    /**
+     * Returns the underling reference string, if any
+     *
+     * @return string|null
+     */
+    public function ref(): ?string {}
+
+    /**
+     * Returns the underling error context, if any
+     *
+     * @return object|null
+     */
+    public function context(): ?object {}
+}
+
+class RequestCanceledException extends BaseException implements Throwable {}
+
+/**
+ *  Thrown for exceptions that originate from underlying Http operations.
+ */
+class HttpException extends BaseException implements Throwable {}
+
+class ParsingFailureException extends HttpException implements Throwable {}
+
+class IndexNotFoundException extends HttpException implements Throwable {}
+
+class PlanningFailureException extends HttpException implements Throwable {}
+
+class IndexFailureException extends HttpException implements Throwable {}
+
+class KeyspaceNotFoundException extends HttpException implements Throwable {}
+
+/**
+ *  Thrown for exceptions that originate from query operations.
+ */
+class QueryException extends HttpException implements Throwable {}
+
+/**
+ *  Thrown for exceptions that originate from query operations.
+ */
+class QueryErrorException extends QueryException implements Throwable {}
+
+class DmlFailureException extends QueryException implements Throwable {}
+
+class PreparedStatementException extends QueryException implements Throwable {}
+
+class QueryServiceException extends QueryException implements Throwable {}
+
+/**
+ *  Thrown for exceptions that originate from search operations.
+ */
+class SearchException extends HttpException implements Throwable {}
+
+/**
+ *  Thrown for exceptions that originate from analytics operations.
+ */
+class AnalyticsException extends HttpException implements Throwable {}
+
+/**
+ *  Thrown for exceptions that originate from view operations.
+ */
+class ViewException extends HttpException implements Throwable {}
+
+class PartialViewException extends HttpException implements Throwable {}
+
+class BindingsException extends BaseException implements Throwable {}
+
+class InvalidStateException extends BaseException implements Throwable {}
+
+/**
+ *  Base for exceptions that originate from key value operations
+ */
+class KeyValueException extends BaseException implements Throwable {}
+
+/**
+ *  Occurs when the requested document could not be found.
+ */
+class DocumentNotFoundException extends KeyValueException implements Throwable {}
+
+/**
+ *  Occurs when an attempt is made to insert a document but a document with that key already exists.
+ */
+class KeyExistsException extends KeyValueException implements Throwable {}
+
+/**
+ *  Occurs when a document has gone over the maximum size allowed by the server.
+ */
+class ValueTooBigException extends KeyValueException implements Throwable {}
+
+/**
+ *  Occurs when a mutation operation is attempted against a document that is locked.
+ */
+class KeyLockedException extends KeyValueException implements Throwable {}
+
+/**
+ *  Occurs when an operation has failed for a reason that is temporary.
+ */
+class TempFailException extends KeyValueException implements Throwable {}
+
+/**
+ *  Occurs when a sub-document operation targets a path which does not exist in the specified document.
+ */
+class PathNotFoundException extends KeyValueException implements Throwable {}
+
+/**
+ *  Occurs when a sub-document operation expects a path not to exists, but the path was found in the document.
+ */
+class PathExistsException extends KeyValueException implements Throwable {}
+
+/**
+ *  Occurs when a sub-document counter operation is performed and the specified delta is not valid.
+ */
+class InvalidRangeException extends KeyValueException implements Throwable {}
+
+/**
+ *  Occurs when a multi-operation sub-document operation is performed on a soft-deleted document.
+ */
+class KeyDeletedException extends KeyValueException implements Throwable {}
+
+/**
+ *  Occurs when an operation has been performed with a cas value that does not the value on the server.
+ */
+class CasMismatchException extends KeyValueException implements Throwable {}
+
+/**
+ *  Occurs when an invalid configuration has been specified for an operation.
+ */
+class InvalidConfigurationException extends BaseException implements Throwable {}
+
+/**
+ *  Occurs when the requested service is not available.
+ */
+class ServiceMissingException extends BaseException implements Throwable {}
+
+/**
+ *  Occurs when various generic network errors occur.
+ */
+class NetworkException extends BaseException implements Throwable {}
+
+/**
+ *  Occurs when an operation does not receive a response in a timely manner.
+ */
+class TimeoutException extends BaseException implements Throwable {}
+
+/**
+ *  Occurs when the specified bucket does not exist.
+ */
+class BucketMissingException extends BaseException implements Throwable {}
+
+/**
+ *  Occurs when the specified scope does not exist.
+ */
+class ScopeMissingException extends BaseException implements Throwable {}
+
+/**
+ *  Occurs when the specified collection does not exist.
+ */
+class CollectionMissingException extends BaseException implements Throwable {}
+
+/**
+ *  Occurs when authentication has failed.
+ */
+class AuthenticationException extends BaseException implements Throwable {}
+
+/**
+ *  Occurs when an operation is attempted with bad input.
+ */
+class BadInputException extends BaseException implements Throwable {}
+
+/**
+ *  Occurs when the specified durability could not be met for a mutation operation.
+ */
+class DurabilityException extends BaseException implements Throwable {}
+
+/**
+ *  Occurs when a subdocument operation could not be completed.
+ */
+class SubdocumentException extends BaseException implements Throwable {}
+
+class QueryIndex
+{
+    public function name(): string {}
+
+    public function isPrimary(): bool {}
+
+    public function type(): string {}
+
+    public function state(): string {}
+
+    public function keyspace(): string {}
+
+    public function indexKey(): array {}
+
+    public function condition(): ?string {}
+}
+
+class CreateQueryIndexOptions
+{
+    public function condition(string $condition): CreateQueryIndexOptions {}
+
+    public function ignoreIfExists(bool $shouldIgnore): CreateQueryIndexOptions {}
+
+    public function numReplicas(int $number): CreateQueryIndexOptions {}
+
+    public function deferred(bool $isDeferred): CreateQueryIndexOptions {}
+}
+
+class CreateQueryPrimaryIndexOptions
+{
+    public function indexName(string $name): CreateQueryPrimaryIndexOptions {}
+
+    public function ignoreIfExists(bool $shouldIgnore): CreateQueryPrimaryIndexOptions {}
+
+    public function numReplicas(int $number): CreateQueryPrimaryIndexOptions {}
+
+    public function deferred(bool $isDeferred): CreateQueryPrimaryIndexOptions {}
+}
+
+class DropQueryIndexOptions
+{
+    public function ignoreIfNotExists(bool $shouldIgnore): DropQueryIndexOptions {}
+}
+
+class DropQueryPrimaryIndexOptions
+{
+    public function indexName(string $name): DropQueryPrimaryIndexOptions {}
+
+    public function ignoreIfNotExists(bool $shouldIgnore): DropQueryPrimaryIndexOptions {}
+}
+
+class WatchQueryIndexesOptions
+{
+    public function watchPrimary(bool $shouldWatch): WatchQueryIndexesOptions {}
+}
+
+class QueryIndexManager
+{
+    public function getAllIndexes(string $bucketName): array {}
+
+    public function createIndex(string $bucketName, string $indexName, array $fields, CreateQueryIndexOptions $options = null) {}
+
+    public function createPrimaryIndex(string $bucketName, CreateQueryPrimaryIndexOptions $options = null) {}
+
+    public function dropIndex(string $bucketName, string $indexName, DropQueryIndexOptions $options = null) {}
+
+    public function dropPrimaryIndex(string $bucketName, DropQueryPrimaryIndexOptions $options = null) {}
+
+    public function watchIndexes(string $bucketName, array $indexNames, int $timeout, WatchQueryIndexesOptions $options = null) {}
+
+    public function buildDeferredIndexes(string $bucketName) {}
+}
+
+class SearchIndex implements JsonSerializable
+{
+    public function jsonSerialize() {}
+
+    public function type(): string {}
+
+    public function uuid(): string {}
+
+    public function params(): array {}
+
+    public function sourceType(): string {}
+
+    public function sourceUuid(): string {}
+
+    public function sourceName(): string {}
+
+    public function sourceParams(): array {}
+
+    public function setType(string $type): SearchIndex {}
+
+    public function setUuid(string $uuid): SearchIndex {}
+
+    public function setParams(string $params): SearchIndex {}
+
+    public function setSourceType(string $type): SearchIndex {}
+
+    public function setSourceUuid(string $uuid): SearchIndex {}
+
+    public function setSourcename(string $params): SearchIndex {}
+
+    public function setSourceParams(string $params): SearchIndex {}
+}
+
+class SearchIndexManager
+{
+    public function getIndex(string $name): SearchIndex {}
+
+    public function getAllIndexes(): array {}
+
+    public function upsertIndex(SearchIndex $indexDefinition) {}
+
+    public function dropIndex(string $name) {}
+
+    public function getIndexedDocumentsCount(string $indexName): int {}
+
+    public function pauseIngest(string $indexName) {}
+
+    public function resumeIngest(string $indexName) {}
+
+    public function allowQuerying(string $indexName) {}
+
+    public function disallowQuerying(string $indexName) {}
+
+    public function freezePlan(string $indexName) {}
+
+    public function unfreezePlan(string $indexName) {}
+
+    public function analyzeDocument(string $indexName, $document) {}
+}
+
+/**
+ * Cluster is an object containing functionality for performing cluster level operations
+ * against a cluster and for access to buckets.
+ */
+class Cluster
+{
+    public function __construct(string $connstr, ClusterOptions $options) {}
+
+    /**
+     * Returns a new bucket object.
+     *
+     * @param string $name the name of the bucket
+     * @return Bucket
+     */
+    public function bucket(string $name): Bucket {}
+
+    /**
+     * Executes a N1QL query against the cluster.
+     * Note: On Couchbase Server versions < 6.5 a bucket must be opened before using query.
+     *
+     * @param string $statement the N1QL query statement to execute
+     * @param QueryOptions $options the options to use when executing the query
+     * @return QueryResult
+     */
+    public function query(string $statement, QueryOptions $options = null): QueryResult {}
+
+    /**
+     * Executes an analytics query against the cluster.
+     * Note: On Couchbase Server versions < 6.5 a bucket must be opened before using analyticsQuery.
+     *
+     * @param string $statement the analytics query statement to execute
+     * @param AnalyticsOptions $options the options to use when executing the query
+     * @return AnalyticsResult
+     */
+    public function analyticsQuery(string $statement, AnalyticsOptions $options = null): AnalyticsResult {}
+
+    /**
+     * Executes a full text search query against the cluster.
+     * Note: On Couchbase Server versions < 6.5 a bucket must be opened before using searchQuery.
+     *
+     * @param string $indexName the fts index to use for the query
+     * @param SearchQuery $query the search query to execute
+     * @param SearchOptions $options the options to use when executing the query
+     * @return SearchResult
+     */
+    public function searchQuery(string $indexName, SearchQuery $query, SearchOptions $options = null): SearchResult {}
+
+    /**
+     * Creates a new bucket manager object for managing buckets.
+     *
+     * @return BucketManager
+     */
+    public function buckets(): BucketManager {}
+
+    /**
+     * Creates a new user manager object for managing users and groups.
+     *
+     * @return UserManager
+     */
+    public function users(): UserManager {}
+
+    /**
+     * Creates a new query index manager object for managing N1QL query indexes.
+     *
+     * @return QueryIndexManager
+     */
+    public function queryIndexes(): QueryIndexManager {}
+
+    /**
+     * Creates a new search index manager object for managing search query indexes.
+     *
+     * @return SearchIndexManager
+     */
+    public function searchIndexes(): SearchIndexManager {}
+}
+
+interface EvictionPolicy
+{
+    /**
+     * During ejection, everything (including key, metadata, and value) will be ejected.
+     *
+     * Full Ejection reduces the memory overhead requirement, at the cost of performance.
+     *
+     * This value is only valid for buckets of type COUCHBASE.
+     */
+    public const FULL = "fullEviction";
+
+    /**
+     * During ejection, only the value will be ejected (key and metadata will remain in memory).
+     *
+     * Value Ejection needs more system memory, but provides better performance than Full Ejection.
+     *
+     * This value is only valid for buckets of type COUCHBASE.
+     */
+    public const VALUE_ONLY = "valueOnly";
+
+    /**
+     * Couchbase Server keeps all data until explicitly deleted, but will reject
+     * any new data if you reach the quota (dedicated memory) you set for your bucket.
+     *
+     * This value is only valid for buckets of type EPHEMERAL.
+     */
+    public const NO_EVICTION = "noEviction";
+
+    /**
+     * When the memory quota is reached, Couchbase Server ejects data that has not been used recently.
+     *
+     * This value is only valid for buckets of type EPHEMERAL.
+     */
+    public const NOT_RECENTLY_USED = "nruEviction";
+}
+
+class BucketSettings
+{
+    public function name(): string {}
+
+    public function flushEnabled(): bool {}
+
+    public function ramQuotaMb(): int {}
+
+    public function numReplicas(): int {}
+
+    public function replicaIndexes(): bool {}
+
+    public function bucketType(): string {}
+
+    public function evictionPolicy(): string {}
+
+    public function maxTtl(): int {}
+
+    public function compressionMode(): string {}
+
+    public function setName(string $name): BucketSettings {}
+
+    public function enableFlush(bool $enable): BucketSettings {}
+
+    public function setRamQuotaMb(int $sizeInMb): BucketSettings {}
+
+    public function setNumReplicas(int $numReplicas): BucketSettings {}
+
+    public function enableReplicaIndexes(bool $enable): BucketSettings {}
+
+    public function setBucketType(string $type): BucketSettings {}
+
+    /**
+     * Configures eviction policy for the bucket.
+     *
+     * @param string $policy eviction policy. Use constants FULL, VALUE_ONLY,
+     *   NO_EVICTION, NOT_RECENTLY_USED.
+     *
+     * @see \EvictionPolicy::FULL
+     * @see \EvictionPolicy::VALUE_ONLY
+     * @see \EvictionPolicy::NO_EVICTION
+     * @see \EvictionPolicy::NOT_RECENTLY_USED
+     */
+    public function setEvictionPolicy(string $policy): BucketSettings {}
+
+    public function setMaxTtl(int $ttlSeconds): BucketSettings {}
+
+    public function setCompressionMode(string $mode): BucketSettings {}
+
+    /**
+     * Retrieves minimal durability level configured for the bucket
+     *
+     * @see \DurabilityLevel::NONE
+     * @see \DurabilityLevel::MAJORITY
+     * @see \DurabilityLevel::MAJORITY_AND_PERSIST_TO_ACTIVE
+     * @see \DurabilityLevel::PERSIST_TO_MAJORITY
+     */
+    public function minimalDurabilityLevel(): int {}
+
+    /**
+     * Configures minimal durability level for the bucket
+     *
+     * @param int $durabilityLevel durability level.
+     *
+     * @see \DurabilityLevel::NONE
+     * @see \DurabilityLevel::MAJORITY
+     * @see \DurabilityLevel::MAJORITY_AND_PERSIST_TO_ACTIVE
+     * @see \DurabilityLevel::PERSIST_TO_MAJORITY
+     */
+    public function setMinimalDurabilityLevel(int $durabilityLevel): BucketSettings {}
+}
+
+class BucketManager
+{
+    public function createBucket(BucketSettings $settings) {}
+
+    public function removeBucket(string $name) {}
+
+    public function getBucket(string $name): BucketSettings {}
+
+    public function getAllBuckets(): array {}
+
+    public function flush(string $name) {}
+}
+
+class Role
+{
+    public function name(): string {}
+
+    public function bucket(): ?string {}
+
+    public function scope(): ?string {}
+
+    public function collection(): ?string {}
+
+    public function setName(string $name): Role {}
+
+    public function setBucket(string $bucket): Role {}
+
+    public function setScope(string $bucket): Role {}
+
+    public function setCollection(string $bucket): Role {}
+}
+
+class RoleAndDescription
+{
+    public function role(): Role {}
+
+    public function displayName(): string {}
+
+    public function description(): string {}
+}
+
+class Origin
+{
+    public function type(): string {}
+
+    public function name(): string {}
+}
+
+class RoleAndOrigin
+{
+    public function role(): Role {}
+
+    public function origins(): array {}
+}
+
+class User
+{
+    public function username(): string {}
+
+    public function displayName(): string {}
+
+    public function groups(): array {}
+
+    public function roles(): array {}
+
+    public function setUsername(string $username): User {}
+
+    public function setPassword(string $password): User {}
+
+    public function setDisplayName(string $name): User {}
+
+    public function setGroups(array $groups): User {}
+
+    public function setRoles(array $roles): User {}
+}
+
+class Group
+{
+    public function name(): string {}
+
+    public function description(): string {}
+
+    public function roles(): array {}
+
+    public function ldapGroupReference(): ?string {}
+
+    public function setName(string $name): Group {}
+
+    public function setDescription(string $description): Group {}
+
+    public function setRoles(array $roles): Group {}
+}
+
+class UserAndMetadata
+{
+    public function domain(): string {}
+
+    public function user(): User {}
+
+    public function effectiveRoles(): array {}
+
+    public function passwordChanged(): string {}
+
+    public function externalGroups(): array {}
+}
+
+class GetAllUsersOptions
+{
+    public function domainName(string $name): GetAllUsersOptions {}
+}
+
+class GetUserOptions
+{
+    public function domainName(string $name): GetUserOptions {}
+}
+
+class DropUserOptions
+{
+    public function domainName(string $name): DropUserOptions {}
+}
+
+class UpsertUserOptions
+{
+    public function domainName(string $name): DropUserOptions {}
+}
+
+class UserManager
+{
+    public function getUser(string $name, GetUserOptions $options = null): UserAndMetadata {}
+
+    public function getAllUsers(GetAllUsersOptions $options = null): array {}
+
+    public function upsertUser(User $user, UpsertUserOptions $options = null) {}
+
+    public function dropUser(string $name, DropUserOptions $options = null) {}
+
+    public function getRoles(): array {}
+
+    public function getGroup(string $name): Group {}
+
+    public function getAllGroups(): array {}
+
+    public function upsertGroup(Group $group) {}
+
+    public function dropGroup(string $name) {}
+}
+
+/**
+ * BinaryCollection is an object containing functionality for performing KeyValue operations against the server with binary documents.
+ */
+class BinaryCollection
+{
+    /**
+     * Get the name of the binary collection.
+     *
+     * @return string
+     */
+    public function name(): string {}
+
+    /**
+     * Appends a value to a document.
+     *
+     * @param string $id the key of the document
+     * @param string $value the value to append
+     * @param AppendOptions $options the options to use for the operation
+     * @return MutationResult
+     */
+    public function append(string $id, string $value, AppendOptions $options = null): MutationResult {}
+
+    /**
+     * Prepends a value to a document.
+     *
+     * @param string $id the key of the document
+     * @param string $value the value to prepend
+     * @param PrependOptions $options the options to use for the operation
+     * @return MutationResult
+     */
+    public function prepend(string $id, string $value, PrependOptions $options = null): MutationResult {}
+
+    /**
+     * Increments a counter document by a value.
+     *
+     * @param string $id the key of the document
+     * @param IncrementOptions $options the options to use for the operation
+     * @return CounterResult
+     */
+    public function increment(string $id, IncrementOptions $options = null): CounterResult {}
+
+    /**
+     * Decrements a counter document by a value.
+     *
+     * @param string $id the key of the document
+     * @param DecrementOptions $options the options to use for the operation
+     * @return CounterResult
+     */
+    public function decrement(string $id, DecrementOptions $options = null): CounterResult {}
+}
+
+/**
+ * Collection is an object containing functionality for performing KeyValue operations against the server.
+ */
+class Collection
+{
+    /**
+     * Get the name of the collection.
+     *
+     * @return string
+     */
+    public function name(): string {}
+
+    /**
+     * Gets a document from the server.
+     *
+     * This can take 3 paths, a standard full document fetch, a subdocument full document fetch also
+     * fetching document expiry (when withExpiry is set), or a subdocument fetch (when projections are
+     * used).
+     *
+     * @param string $id the key of the document to fetch
+     * @param GetOptions $options the options to use for the operation
+     * @return GetResult
+     */
+    public function get(string $id, GetOptions $options = null): GetResult {}
+
+    /**
+     * Checks if a document exists on the server.
+     *
+     * @param string $id the key of the document to check if exists
+     * @param ExistsOptions $options the options to use for the operation
+     * @return ExistsResult
+     */
+    public function exists(string $id, ExistsOptions $options = null): ExistsResult {}
+
+    /**
+     * Gets a document from the server, locking the document so that no other processes can
+     * perform mutations against it.
+     *
+     * @param string $id the key of the document to get
+     * @param int $lockTime the length of time to lock the document in ms
+     * @param GetAndLockOptions $options the options to use for the operation
+     * @return GetResult
+     */
+    public function getAndLock(string $id, int $lockTime, GetAndLockOptions $options = null): GetResult {}
+
+    /**
+     * Gets a document from the server and simultaneously updates its expiry time.
+     *
+     * @param string $id the key of the document
+     * @param int $expiry the length of time to update the expiry to in ms
+     * @param GetAndTouchOptions $options the options to use for the operation
+     * @return GetResult
+     */
+    public function getAndTouch(string $id, int $expiry, GetAndTouchOptions $options = null): GetResult {}
+
+    /**
+     * Gets a document from any replica server in the cluster.
+     *
+     * @param string $id the key of the document
+     * @param GetAnyReplicaOptions $options the options to use for the operation
+     * @return GetReplicaResult
+     */
+    public function getAnyReplica(string $id, GetAnyReplicaOptions $options = null): GetReplicaResult {}
+
+    /**
+     * Gets a document from the active server and all replica servers in the cluster.
+     * Returns an array of documents, one per server.
+     *
+     * @param string $id the key of the document
+     * @param GetAllReplicasOptions $options the options to use for the operation
+     * @return array
+     */
+    public function getAllReplicas(string $id, GetAllReplicasOptions $options = null): array {}
+
+    /**
+     * Creates a document if it doesn't exist, otherwise updates it.
+     *
+     * @param string $id the key of the document
+     * @param mixed $value the value to use for the document
+     * @param UpsertOptions $options the options to use for the operation
+     * @return MutationResult
+     */
+    public function upsert(string $id, $value, UpsertOptions $options = null): MutationResult {}
+
+    /**
+     * Inserts a document if it doesn't exist, errors if it does exist.
+     *
+     * @param string $id the key of the document
+     * @param mixed $value the value to use for the document
+     * @param InsertOptions $options the options to use for the operation
+     * @return MutationResult
+     */
+    public function insert(string $id, $value, InsertOptions $options = null): MutationResult {}
+
+    /**
+     * Replaces a document if it exists, errors if it doesn't exist.
+     *
+     * @param string $id the key of the document
+     * @param mixed $value the value to use for the document
+     * @param ReplaceOptions $options the options to use for the operation
+     * @return MutationResult
+     */
+    public function replace(string $id, $value, ReplaceOptions $options = null): MutationResult {}
+
+    /**
+     * Removes a document.
+     *
+     * @param string $id the key of the document
+     * @param RemoveOptions $options the options to use for the operation
+     * @return MutationResult
+     */
+    public function remove(string $id, RemoveOptions $options = null): MutationResult {}
+
+    /**
+     * Unlocks a document which was locked using getAndLock. This frees the document to be
+     * modified by other processes.
+     *
+     * @param string $id the key of the document
+     * @param string $cas the current cas value of the document
+     * @param UnlockOptions $options the options to use for the operation
+     * @return Result
+     */
+    public function unlock(string $id, string $cas, UnlockOptions $options = null): Result {}
+
+    /**
+     * Touches a document, setting a new expiry time.
+     *
+     * @param string $id the key of the document
+     * @param int $expiry the expiry time for the document in ms
+     * @param TouchOptions $options the options to use for the operation
+     * @return MutationResult
+     */
+    public function touch(string $id, int $expiry, TouchOptions $options = null): MutationResult {}
+
+    /**
+     * Performs a set of subdocument lookup operations against the document.
+     *
+     * @param string $id the key of the document
+     * @param array $specs the LookupInSpecs to perform against the document
+     * @param LookupInOptions $options the options to use for the operation
+     * @return LookupInResult
+     */
+    public function lookupIn(string $id, array $specs, LookupInOptions $options = null): LookupInResult {}
+
+    /**
+     * Performs a set of subdocument lookup operations against the document.
+     *
+     * @param string $id the key of the document
+     * @param array $specs the MutateInSpecs to perform against the document
+     * @param MutateInOptions $options the options to use for the operation
+     * @return MutateInResult
+     */
+    public function mutateIn(string $id, array $specs, MutateInOptions $options = null): MutateInResult {}
+
+    /**
+     * Creates and returns a BinaryCollection object for use with binary type documents.
+     *
+     * @return BinaryCollection
+     */
+    public function binary(): BinaryCollection {}
+}
+
+/**
+ * Scope is an object for providing access to collections.
+ */
+class Scope
+{
+    public function __construct(Bucket $bucket, string $name) {}
+
+    /**
+     * Returns the name of the scope.
+     *
+     * @return string
+     */
+    public function name(): string {}
+
+    /**
+     * Returns a new Collection object representing the collection specified.
+     *
+     * @param string $name the name of the collection
+     * @return Collection
+     */
+    public function collection(string $name): Collection {}
+
+    /**
+     * Executes a N1QL query against the cluster with scopeName set implicitly.
+     *
+     * @param string $statement the N1QL query statement to execute
+     * @param QueryOptions $options the options to use when executing the query
+     * @return QueryResult
+     */
+    public function query(string $statement, QueryOptions $options = null): QueryResult {}
+}
+
+class ScopeSpec
+{
+    public function name(): string {}
+
+    public function collections(): array {}
+}
+
+class CollectionSpec
+{
+    public function name(): string {}
+
+    public function scopeName(): string {}
+
+    public function setName(string $name): CollectionSpec {}
+
+    public function setScopeName(string $name): CollectionSpec {}
+
+    public function setMaxExpiry(int $ms): CollectionSpec {}
+}
+
+class CollectionManager
+{
+    public function getScope(string $name): ScopeSpec {}
+
+    public function getAllScopes(): array {}
+
+    public function createScope(string $name) {}
+
+    public function dropScope(string $name) {}
+
+    public function createCollection(CollectionSpec $collection) {}
+
+    public function dropCollection(CollectionSpec $collection) {}
+}
+
+/**
+ * Bucket is an object containing functionality for performing bucket level operations
+ * against a cluster and for access to scopes and collections.
+ */
+class Bucket
+{
+    /**
+     * Returns a new Scope object representing the default scope.
+     *
+     * @return Scope
+     */
+    public function defaultScope(): Scope {}
+
+    /**
+     * Returns a new Collection object representing the default collectiom.
+     *
+     * @return Collection
+     */
+    public function defaultCollection(): Collection {}
+
+    /**
+     * Returns a new Scope object representing the given scope.
+     *
+     * @param string $name the name of the scope
+     * @return Scope
+     */
+    public function scope(string $name): Scope {}
+
+    /**
+     * Sets the default transcoder to be used when fetching or sending data.
+     *
+     * @param callable $encoder the encoder to use to encode data when sending data to the server
+     * @param callable $decoder the decoder to use to decode data when retrieving data from the server
+     */
+    public function setTranscoder(callable $encoder, callable $decoder) {}
+
+    /**
+     * Returns the name of the Bucket.
+     *
+     * @return string
+     */
+    public function name(): string {}
+
+    /**
+     * Executes a view query against the cluster.
+     *
+     * @param string $designDoc the design document to use for the query
+     * @param string $viewName the view to use for the query
+     * @param ViewOptions $options the options to use when executing the query
+     * @return ViewResult
+     */
+    public function viewQuery(string $designDoc, string $viewName, ViewOptions $options = null): ViewResult {}
+
+    /**
+     * Creates a new CollectionManager object for managing collections and scopes.
+     *
+     * @return CollectionManager
+     */
+    public function collections(): CollectionManager {}
+
+    /**
+     * Creates a new ViewIndexManager object for managing views and design documents.
+     *
+     * @return ViewIndexManager
+     */
+    public function viewIndexes(): ViewIndexManager {}
+
+    /**
+     * Executes a ping for each service against each node in the cluster. This can be used for determining
+     * the current health of the cluster.
+     *
+     * @param mixed $services the services to ping against
+     * @param mixed $reportId a name which will be included within the ping result
+     */
+    public function ping($services, $reportId) {}
+
+    /**
+     * Returns diagnostics information about connections that the SDK has to the cluster. This does not perform
+     * any operations.
+     *
+     * @param mixed $reportId a name which will be included within the ping result
+     */
+    public function diagnostics($reportId) {}
+}
+
+class View
+{
+    public function name(): string {}
+
+    public function map(): string {}
+
+    public function reduce(): string {}
+
+    public function setName(string $name): View {}
+
+    public function setMap(string $mapJsCode): View {}
+
+    public function setReduce(string $reduceJsCode): View {}
+}
+
+class DesignDocument
+{
+    public function name(): string {}
+
+    public function views(): array {}
+
+    public function setName(string $name): DesignDocument {}
+
+    public function setViews(array $views): DesignDocument {}
+}
+
+class ViewIndexManager
+{
+    public function getAllDesignDocuments(): array {}
+
+    public function getDesignDocument(string $name): DesignDocument {}
+
+    public function dropDesignDocument(string $name) {}
+
+    public function upsertDesignDocument(DesignDocument $document) {}
+}
+
+/**
+ * MutationState is an object which holds and aggregates mutation tokens across operations.
  */
 class MutationState
 {
-    final private function __construct() {}
+    public function __construct() {}
 
     /**
-     * Create container from the given mutation token holders.
+     * Adds the result of a mutation operation to this mutation state.
      *
-     * @param array|Document|DocumentFragment $source anything that can have attached MutationToken
+     * @param MutationResult $source the result object to add to this state
      * @return MutationState
-     *
-     * @see \Couchbase\MutationToken
      */
-    public static function from($source) {}
+    public function add(MutationResult $source): MutationState {}
+}
 
-    /**
-     * Update container with the given mutation token holders.
-     *
-     * @param array|Document|DocumentFragment $source anything that can have attached MutationToken
-     *
-     * @see \Couchbase\MutationToken
-     */
-    public function add($source) {}
+class AnalyticsOptions
+{
+    public function timeout(int $arg): AnalyticsOptions {}
+
+    public function namedParameters(array $pairs): AnalyticsOptions {}
+
+    public function positionalParameters(array $args): AnalyticsOptions {}
+
+    public function raw(string $key, $value): AnalyticsOptions {}
+
+    public function clientContextId(string $value): AnalyticsOptions {}
+
+    public function priority(bool $urgent): AnalyticsOptions {}
+
+    public function readonly(bool $arg): AnalyticsOptions {}
+
+    public function scanConsistency(string $arg): AnalyticsOptions {}
 }
 
 /**
- * Common interface for all View queries
- *
- * @see \Couchbase\ViewQuery
- * @see \Couchbase\SpatialViewQuery
+ * LookupInSpec is an interface for providing subdocument lookup operations.
  */
-interface ViewQueryEncodable
+interface LookupInSpec {}
+
+/**
+ * Indicates a path for a value to be retrieved from a document.
+ */
+class LookupGetSpec implements LookupInSpec
 {
-    /**
-     * Returns associative array, representing the View query.
-     *
-     * @return array object which is ready to be serialized.
-     */
-    public function encode();
+    public function __construct(string $path, bool $isXattr = false) {}
 }
 
 /**
- * Represents regular Couchbase Map/Reduce View query
- *
- * @see \Couchbase\Bucket::query()
- * @see \Couchbase\SpatialViewQuery
- * @see https://developer.couchbase.com/documentation/server/current/sdk/php/view-queries-with-sdk.html
- *   MapReduce Views
- * @see https://developer.couchbase.com/documentation/server/current/architecture/querying-data-with-views.html
- *   Querying Data with Views
- * @see https://developer.couchbase.com/documentation/server/current/rest-api/rest-views-get.html
- *   Getting Views Information
+ * Indicates to retrieve the count of array items or dictionary keys within a path in a document.
  */
-class ViewQuery implements ViewQueryEncodable
+class LookupCountSpec implements LookupInSpec
 {
-    /** Force a view update before returning data */
-    public const UPDATE_BEFORE = 1;
-    /** Allow stale views */
-    public const UPDATE_NONE = 2;
-    /** Allow stale view, update view after it has been accessed. */
-    public const UPDATE_AFTER = 3;
-
-    public const ORDER_ASCENDING = 1;
-    public const ORDER_DESCENDING = 2;
-
-    final private function __construct() {}
-
-    /**
-     * Creates a new Couchbase ViewQuery instance for performing a view query.
-     *
-     * @param string $designDocumentName the name of the design document to query
-     * @param string $viewName the name of the view to query
-     * @return ViewQuery
-     */
-    public static function from($designDocumentName, $viewName) {}
-
-    /**
-     * Creates a new Couchbase ViewQuery instance for performing a spatial query.
-     * @param string $designDocumentName the name of the design document to query
-     * @param string $viewName the name of the view to query
-     * @return SpatialViewQuery
-     */
-    public static function fromSpatial($designDocumentName, $viewName) {}
-
-    /**
-     * Returns associative array, representing the View query.
-     *
-     * @return array object which is ready to be serialized.
-     */
-    public function encode() {}
-
-    /**
-     * Limits the result set to a specified number rows.
-     *
-     * @param int $limit maximum number of records in the response
-     * @return ViewQuery
-     */
-    public function limit($limit) {}
-
-    /**
-     * Skips a number o records rom the beginning of the result set
-     *
-     * @param int $skip number of records to skip
-     * @return ViewQuery
-     */
-    public function skip($skip) {}
-
-    /**
-     * Specifies the mode of updating to perorm before and after executing the query
-     *
-     * @param int $consistency use constants UPDATE_BEFORE, UPDATE_NONE, UPDATE_AFTER
-     * @return ViewQuery
-     *
-     * @see \Couchbase\ViewQuery::UPDATE_BEFORE
-     * @see \Couchbase\ViewQuery::UPDATE_NONE
-     * @see \Couchbase\ViewQuery::UPDATE_AFTER
-     */
-    public function consistency($consistency) {}
-
-    /**
-     * Orders the results by key as specified
-     *
-     * @param int $order use contstants ORDER_ASCENDING, ORDER_DESCENDING
-     * @return ViewQuery
-     */
-    public function order($order) {}
-
-    /**
-     * Specifies whether the reduction function should be applied to results of the query.
-     *
-     * @param bool $reduce
-     * @return ViewQuery
-     */
-    public function reduce($reduce) {}
-
-    /**
-     * Group the results using the reduce function to a group or single row.
-     *
-     * Important: this setter and groupLevel should not be used together in the
-     * same ViewQuery. It is sufficient to only set the grouping level only and
-     * use this setter in cases where you always want the highest group level
-     * implictly.
-     *
-     * @param bool $group
-     * @return ViewQuery
-     *
-     * @see \Couchbase\ViewQuery::groupLevel
-     */
-    public function group($group) {}
-
-    /**
-     * Specify the group level to be used.
-     *
-     * Important: group() and this setter should not be used together in the
-     * same ViewQuery. It is sufficient to only use this setter and use group()
-     * in cases where you always want the highest group level implictly.
-     *
-     * @param int $groupLevel the number of elements in the keys to use
-     * @return ViewQuery
-     *
-     * @see \Couchbase\ViewQuery::group
-     */
-    public function groupLevel($groupLevel) {}
-
-    /**
-     * Restict results of the query to the specified key
-     *
-     * @param mixed $key key
-     * @return ViewQuery
-     */
-    public function key($key) {}
-
-    /**
-     * Restict results of the query to the specified set of keys
-     *
-     * @param array $keys set of keys
-     * @return ViewQuery
-     */
-    public function keys($keys) {}
-
-    /**
-     * Specifies a range of the keys to return from the index.
-     *
-     * @param mixed $startKey
-     * @param mixed $endKey
-     * @param bool $inclusiveEnd
-     * @return ViewQuery
-     */
-    public function range($startKey, $endKey, $inclusiveEnd = false) {}
-
-    /**
-     * Specifies start and end document IDs in addition to range limits.
-     *
-     * This might be needed for more precise pagination with a lot of documents
-     * with the same key selected into the same page.
-     *
-     * @param string $startKeyDocumentId document ID
-     * @param string $endKeyDocumentId document ID
-     * @return ViewQuery
-     */
-    public function idRange($startKeyDocumentId, $endKeyDocumentId) {}
-
-    /**
-     * Specifies custom options to pass to the server.
-     *
-     * Note that these options are expected to be already encoded.
-     *
-     * @param array $customParameters parameters
-     * @return ViewQuery
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/rest-api/rest-views-get.html
-     *   Getting Views Information
-     */
-    public function custom($customParameters) {}
+    public function __construct(string $path, bool $isXattr = false) {}
 }
 
 /**
- * Represents spatial Couchbase Map/Reduce View query
- *
- * @see \Couchbase\Bucket::query()
- * @see \Couchbase\ViewQuery
- * @see https://developer.couchbase.com/documentation/server/current/architecture/querying-geo-data-spatial-views.html
- *   Querying Geographic Data with Spatial Views
- * @see https://developer.couchbase.com/documentation/server/current/rest-api/rest-views-get.html
- *   Getting Views Information
- * @see https://developer.couchbase.com/documentation/server/current/views/sv-query-parameters.html
- *   Querying spatial views
+ * Indicates to check if a path exists in a document.
  */
-class SpatialViewQuery implements ViewQueryEncodable
+class LookupExistsSpec implements LookupInSpec
 {
-    final private function __construct() {}
-
-    /**
-     * Returns associative array, representing the View query.
-     *
-     * @return array object which is ready to be serialized.
-     */
-    public function encode() {}
-
-    /**
-     * Limits the result set to a specified number rows.
-     *
-     * @param int $limit maximum number of records in the response
-     * @return SpatialViewQuery
-     */
-    public function limit($limit) {}
-
-    /**
-     * Skips a number o records rom the beginning of the result set
-     *
-     * @param int $skip number of records to skip
-     * @return SpatialViewQuery
-     */
-    public function skip($skip) {}
-
-    /**
-     * Specifies the mode of updating to perorm before and after executing the query
-     *
-     * @param int $consistency use constants UPDATE_BEFORE, UPDATE_NONE, UPDATE_AFTER
-     * @return SpatialViewQuery
-     *
-     * @see \Couchbase\ViewQuery::UPDATE_BEFORE
-     * @see \Couchbase\ViewQuery::UPDATE_NONE
-     * @see \Couchbase\ViewQuery::UPDATE_AFTER
-     */
-    public function consistency($consistency) {}
-
-    /**
-     * Orders the results by key as specified
-     *
-     * @param int $order use contstants ORDER_ASCENDING, ORDER_DESCENDING
-     * @return SpatialViewQuery
-     */
-    public function order($order) {}
-
-    /**
-     * Specifies the bounding box to search within.
-     *
-     * Note, using bbox() is discouraged, startRange/endRange is more flexible and should be preferred.
-     *
-     * @param array $bbox bounding box coordinates expressed as a list of numeric values
-     * @return SpatialViewQuery
-     *
-     * @see \Couchbase\SpatialViewQuery::startRange()
-     * @see \Couchbase\SpatialViewQuery::endRange()
-     */
-    public function bbox($bbox) {}
-
-    /**
-     * Specify start range for query
-     *
-     * @param array $range
-     * @return SpatialViewQuery
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/views/sv-query-parameters.html
-     *   Querying spatial views
-     */
-    public function startRange($range) {}
-
-    /**
-     * Specify end range for query
-     *
-     * @param array $range
-     * @return SpatialViewQuery
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/views/sv-query-parameters.html
-     *   Querying spatial views
-     */
-    public function endRange($range) {}
-
-    /**
-     * Specifies custom options to pass to the server.
-     *
-     * Note that these options are expected to be already encoded.
-     *
-     * @param array $customParameters parameters
-     *
-     * @see https://developer.couchbase.com/documentation/server/current/rest-api/rest-views-get.html
-     *   Getting Views Information
-     * @see https://developer.couchbase.com/documentation/server/current/views/sv-query-parameters.html
-     *   Querying spatial views
-     */
-    public function custom($customParameters) {}
+    public function __construct(string $path, bool $isXattr = false) {}
 }
 
 /**
- * Represents a N1QL query
- *
- * @see https://developer.couchbase.com/documentation/server/current/sdk/n1ql-query.html
- *   Querying with N1QL
- * @see https://developer.couchbase.com/documentation/server/current/sdk/php/n1ql-queries-with-sdk.html
- *   N1QL from the SDKs
- * @see https://developer.couchbase.com/documentation/server/current/n1ql/n1ql-rest-api/index.html
- *   N1QL REST API
- * @see https://developer.couchbase.com/documentation/server/current/performance/index-scans.html
- *   Understanding Index Scans
- * @see https://developer.couchbase.com/documentation/server/current/performance/indexing-and-query-perf.html
- *   Indexing JSON Documents and Query Performance
+ * Indicates to retreive a whole document.
  */
-class N1qlQuery
+class LookupGetFullSpec implements LookupInSpec
 {
-    /**
-     * This is the default (for single-statement requests).
-     * No timestamp vector is used in the index scan.
-     * This is also the fastest mode, because we avoid the cost of obtaining the vector,
-     * and we also avoid any wait for the index to catch up to the vector.
-     */
-    public const NOT_BOUNDED = 1;
-    /**
-     * This implements strong consistency per request.
-     * Before processing the request, a current vector is obtained.
-     * The vector is used as a lower bound for the statements in the request.
-     * If there are DML statements in the request, RYOW is also applied within the request.
-     */
-    public const REQUEST_PLUS = 2;
-    /**
-     * This implements strong consistency per statement.
-     * Before processing each statement, a current vector is obtained
-     * and used as a lower bound for that statement.
-     */
-    public const STATEMENT_PLUS = 3;
-
-    /**
-     * Disables profiling. This is the default
-     */
-    public const PROFILE_NONE = 'off';
-    /**
-     * Enables phase profiling.
-     */
-    public const PROFILE_PHASES = 'phases';
-    /**
-     * Enables general timing profiling.
-     */
-    public const PROFILE_TIMINGS = 'timings';
-
-    final private function __construct() {}
-
-    /**
-     * Creates new N1qlQuery instance directly from the N1QL string.
-     *
-     * @param string $statement N1QL string
-     * @return N1qlQuery
-     */
-    public static function fromString($statement) {}
-
-    /**
-     * Allows to specify if this query is adhoc or not.
-     *
-     * If it is not adhoc (so performed often), the client will try to perform optimizations
-     * transparently based on the server capabilities, like preparing the statement and
-     * then executing a query plan instead of the raw query.
-     *
-     * @param bool $adhoc if query is adhoc, default is true (plain execution)
-     * @return N1qlQuery
-     */
-    public function adhoc($adhoc) {}
-
-    /**
-     * Allows to pull credentials from the Authenticator
-     *
-     * @param bool $crossBucket if query includes joins for multiple buckets (default is false)
-     * @return N1qlQuery
-     *
-     *
-     * @see \Couchbase\Authenticator
-     * @see \Couchbase\ClassicAuthenticator
-     */
-    public function crossBucket($crossBucket) {}
-
-    /**
-     * Specify array of positional parameters
-     *
-     * Previously specified positional parameters will be replaced.
-     * Note: carefully choose type of quotes for the query string, because PHP also uses `$`
-     * (dollar sign) for variable interpolation. If you are using double quotes, make sure
-     * that N1QL parameters properly escaped.
-     *
-     * @param array $params
-     * @return N1qlQuery
-     */
-    public function positionalParams($params) {}
-
-    /**
-     * Specify associative array of named parameters
-     *
-     * The supplied array of key/value pairs will be merged with already existing named parameters.
-     * Note: carefully choose type of quotes for the query string, because PHP also uses `$`
-     * (dollar sign) for variable interpolation. If you are using double quotes, make sure
-     * that N1QL parameters properly escaped.
-     *
-     * @param array $params
-     * @return N1qlQuery
-     */
-    public function namedParams($params) {}
-
-    /**
-     * Specifies the consistency level for this query
-     *
-     * @param int $consistency consistency level
-     * @return N1qlQuery
-     *
-     * @see \Couchbase\N1qlQuery::NOT_BOUNDED
-     * @see \Couchbase\N1qlQuery::REQUEST_PLUS
-     * @see \Couchbase\N1qlQuery::STATEMENT_PLUS
-     * @see \Couchbase\N1qlQuery::consistentWith()
-     */
-    public function consistency($consistency) {}
-
-    /**
-     * Controls the profiling mode used during query execution
-     *
-     * @param string $profileType
-     * @return N1qlQuery
-     * @see \Couchbase\N1qlQuery::PROFILE_NONE
-     * @see \Couchbase\N1qlQuery::PROFILE_PHASES
-     * @see \Couchbase\N1qlQuery::PROFILE_TIMINGS
-     */
-    public function profile($profileType) {}
-
-    /**
-     * Sets mutation state the query should be consistent with
-     *
-     * @param MutationState $state the container of mutation tokens
-     * @return N1qlQuery
-     *
-     * @see \Couchbase\MutationState
-     */
-    public function consistentWith($state) {}
-
-    /**
-     * If set to true, it will signal the query engine on the server that only non-data modifying requests
-     * are allowed. Note that this rule is enforced on the server and not the SDK side.
-     *
-     * Controls whether a query can change a resulting record set.
-     *
-     * If readonly is true, then the following statements are not allowed:
-     *  - CREATE INDEX
-     *  - DROP INDEX
-     *  - INSERT
-     *  - MERGE
-     *  - UPDATE
-     *  - UPSERT
-     *  - DELETE
-     *
-     * @param bool $readonly true if readonly should be forced, false is the default and will use the server side default.
-     * @return N1qlQuery
-     */
-    public function readonly($readonly) {}
-
-    /**
-     * Advanced: Maximum buffered channel size between the indexer client and the query service for index scans.
-     *
-     * This parameter controls when to use scan backfill. Use 0 or a negative number to disable.
-     *
-     * @param int $scanCap the scan_cap param, use 0 or negative number to disable.
-     * @return N1qlQuery
-     */
-    public function scanCap($scanCap) {}
-
-    /**
-     * Advanced: Controls the number of items execution operators can batch for Fetch from the KV.
-     *
-     * @param int $pipelineBatch the pipeline_batch param.
-     * @return N1qlQuery
-     */
-    public function pipelineBatch($pipelineBatch) {}
-
-    /**
-     * Advanced: Maximum number of items each execution operator can buffer between various operators.
-     *
-     * @param int $pipelineCap the pipeline_cap param.
-     * @return N1qlQuery
-     */
-    public function pipelineCap($pipelineCap) {}
-
-    /**
-     * Allows to override the default maximum parallelism for the query execution on the server side.
-     *
-     * @param int $maxParallelism the maximum parallelism for this query, 0 or negative values disable it.
-     * @return N1qlQuery
-     */
-    public function maxParallelism($maxParallelism) {}
+    public function __construct() {}
 }
 
 /**
- * Represents N1QL index definition
- *
- * @see https://developer.couchbase.com/documentation/server/current/performance/indexing-and-query-perf.html
- *   Indexing JSON Documents and Query Performance
+ * MutateInSpec is an interface for providing subdocument mutation operations.
  */
-class N1qlIndex
+interface MutateInSpec {}
+
+/**
+ * Indicates to insert a value at a path in a document.
+ */
+class MutateInsertSpec implements MutateInSpec
 {
-    public const UNSPECIFIED = 0;
-    public const GSI = 1;
-    public const VIEW = 2;
-
-    final private function __construct() {}
-
-    /**
-     * Name of the index
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * Is it primary index
-     *
-     * @var bool
-     */
-    public $isPrimary;
-
-    /**
-     * Type of the index
-     *
-     * @var int
-     *
-     * @see \Couchbase\N1qlIndex::UNSPECIFIED
-     * @see \Couchbase\N1qlIndex::GSI
-     * @see \Couchbase\N1qlIndex::VIEW
-     */
-    public $type;
-
-    /**
-     * The descriptive state of the index
-     *
-     * @var string
-     */
-    public $state;
-
-    /**
-     * The keyspace for the index, typically the bucket name
-     * @var string
-     */
-    public $keyspace;
-
-    /**
-     * The namespace for the index. A namespace is a resource pool that contains multiple keyspaces
-     * @var string
-     */
-    public $namespace;
-
-    /**
-     * The fields covered by index
-     * @var array
-     */
-    public $fields;
-
-    /**
-     * Return the string representation of the index's condition (the WHERE clause
-     * of the index), or an empty String if no condition was set.
-     *
-     * Note that the query service can present the condition in a slightly different
-     * manner from when you declared the index: for instance it will wrap expressions
-     * with parentheses and show the fields in an escaped format (surrounded by backticks).
-     *
-     * @var string
-     */
-    public $condition;
+    public function __construct(string $path, $value, bool $isXattr, bool $createPath, bool $expandMacros) {}
 }
 
 /**
- * A builder for subdocument lookups. In order to perform the final set of operations, use the
- * execute() method.
- *
- * Instances of this builder should be obtained through \Couchbase\Bucket->lookupIn()
- *
- * @see \Couchbase\Bucket::lookupIn
- * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
- *   Sub-Document Operations
+ * Indicates to replace a value at a path if it doesn't exist, otherwise create the path, in a document.
  */
-class LookupInBuilder
+class MutateUpsertSpec implements MutateInSpec
 {
-    final private function __construct() {}
-
-    /**
-     * Get a value inside the JSON document.
-     *
-     * @param string $path the path inside the document where to get the value from.
-     * @param array $options the array with command modificators. Supported values are
-     *   * "xattr" (default: false) if true, the path refers to a location
-     *     within the document's extended attributes, not the document body.
-     * @return LookupInBuilder
-     */
-    public function get($path, $options = []) {}
-
-    /**
-     * Get a count of values inside the JSON document.
-     *
-     * This method is only available with Couchbase Server 5.0 and later.
-     *
-     * @param string $path the path inside the document where to get the count from.
-     * @param array $options the array with command modificators. Supported values are
-     *   * "xattr" (default: false) if true, the path refers to a location
-     *     within the document's extended attributes, not the document body.
-     * @return LookupInBuilder
-     */
-    public function getCount($path, $options = []) {}
-
-    /**
-     * Check if a value exists inside the document.
-     *
-     * This doesn't transmit the value on the wire if it exists, saving the corresponding byte overhead.
-     *
-     * @param string $path the path inside the document to check for existence
-     * @param array $options the array with command modificators. Supported values are
-     *   * "xattr" (default: false) if true, the path refers to a location
-     *     within the document's extended attributes, not the document body.
-     * @return LookupInBuilder
-     */
-    public function exists($path, $options = []) {}
-
-    /**
-     * Perform several lookup operations inside a single existing JSON document, using a specific timeout
-     * @return DocumentFragment
-     */
-    public function execute() {}
+    public function __construct(string $path, $value, bool $isXattr, bool $createPath, bool $expandMacros) {}
 }
 
 /**
- * A builder for subdocument mutations. In order to perform the final set of operations, use the
- * execute() method.
- *
- * Instances of this builder should be obtained through \Couchbase\Bucket->mutateIn()
- *
- * @see \Couchbase\Bucket::mutateIn
- * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
- *   Sub-Document Operations
+ * Indicates to replace a value at a path if it doesn't exist in a document.
  */
-class MutateInBuilder
+class MutateReplaceSpec implements MutateInSpec
 {
-    public const FULLDOC_REPLACE = 0;
-    public const FULLDOC_UPSERT = 1;
-    public const FULLDOC_INSERT = 2;
-
-    final private function __construct() {}
-
-    /**
-     * Insert a fragment provided the last element of the path doesn't exists.
-     *
-     * @param string $path the path where to insert a new dictionary value.
-     * @param mixed $value the new dictionary value to insert.
-     * @param array|bool $options the array with command modificators.
-     *   The boolean value, controls "createPath" option. Supported values are:
-     *   * "createPath" (default: false) true to create missing intermediary nodes.
-     *   * "xattr" (default: false) if true, the path refers to a location
-     *     within the document's extended attributes, not the document body.
-     * @return MutateInBuilder
-     */
-    public function insert($path, $value, $options = []) {}
-
-    /**
-     * Select mode for new full-document operations.
-     *
-     * It defines behaviour of MutateInBuilder#upsert() method. The $mode
-     * could take one of three modes:
-     *  * FULLDOC_REPLACE: complain when document does not exist
-     *  * FULLDOC_INSERT: complain when document does exist
-     *  * FULLDOC_UPSERT: unconditionally set value for the document
-     *
-     * @param int $mode operation mode
-     */
-    public function modeDocument($mode) {}
-
-    /**
-     * Insert a fragment, replacing the old value if the path exists.
-     *
-     * When only one argument supplied, the library will handle it as full-document
-     * upsert, and treat this argument as value. See MutateInBuilder#modeDocument()
-     *
-     * @param string $path the path where to insert (or replace) a dictionary value
-     * @param mixed $value the new dictionary value to be applied.
-     * @param array|bool $options the array with command modificators.
-     *   The boolean value, controls "createPath" option. Supported values are:
-     *   * "createPath" (default: false) true to create missing intermediary nodes.
-     *   * "xattr" (default: false) if true, the path refers to a location
-     *     within the document's extended attributes, not the document body.
-     * @return MutateInBuilder
-     */
-    public function upsert($path, $value, $options = []) {}
-
-    /**
-     * Replace an existing value by the given fragment
-     *
-     * @param string $path the path where the value to replace is
-     * @param mixed $value the new value
-     * @param array $options the array with command modificators. Supported values are:
-     *   * "xattr" (default: false) if true, the path refers to a location
-     *     within the document's extended attributes, not the document body.
-     * @return MutateInBuilder
-     */
-    public function replace($path, $value, $options = []) {}
-
-    /**
-     * Remove an entry in a JSON document.
-     *
-     * Scalar, array element, dictionary entry, whole array or dictionary, depending on the path.
-     *
-     * @param string $path the path to remove
-     * @param array $options the array with command modificators. Supported values are:
-     *   * "xattr" (default: false) if true, the path refers to a location
-     *     within the document's extended attributes, not the document body.
-     * @return MutateInBuilder
-     */
-    public function remove($path, $options = []) {}
-
-    /**
-     * Prepend to an existing array, pushing the value to the front/first position in the array.
-     *
-     * @param string $path the path of the array
-     * @param mixed $value the value to insert at the front of the array
-     * @param array|bool $options the array with command modificators.
-     *   The boolean value, controls "createPath" option. Supported values are:
-     *   * "createPath" (default: false) true to create missing intermediary nodes.
-     *   * "xattr" (default: false) if true, the path refers to a location
-     *     within the document's extended attributes, not the document body.
-     * @return MutateInBuilder
-     */
-    public function arrayPrepend($path, $value, $options = []) {}
-
-    /**
-     * Prepend multiple values at once in an existing array.
-     *
-     * Push all values in the collection's iteration order to the front/start of the array.
-     * For example given an array [A, B, C], prepending the values X and Y yields [X, Y, A, B, C]
-     * and not [[X, Y], A, B, C].
-     *
-     * @param string $path the path of the array
-     * @param array $values the values to insert at the front of the array as individual elements
-     * @param array|bool $options the array with command modificators.
-     *   The boolean value, controls "createPath" option. Supported values are:
-     *   * "createPath" (default: false) true to create missing intermediary nodes.
-     *   * "xattr" (default: false) if true, the path refers to a location
-     *     within the document's extended attributes, not the document body.
-     * @return MutateInBuilder
-     */
-    public function arrayPrependAll($path, $values, $options = []) {}
-
-    /**
-     * Append to an existing array, pushing the value to the back/last position in the array.
-     *
-     * @param string $path the path of the array
-     * @param mixed $value the value to insert at the back of the array
-     * @param array|bool $options the array with command modificators.
-     *   The boolean value, controls "createPath" option. Supported values are:
-     *   * "createPath" (default: false) true to create missing intermediary nodes.
-     *   * "xattr" (default: false) if true, the path refers to a location
-     *     within the document's extended attributes, not the document body.
-     * @return MutateInBuilder
-     */
-    public function arrayAppend($path, $value, $options = []) {}
-
-    /**
-     * Append multiple values at once in an existing array.
-     *
-     * Push all values in the collection's iteration order to the back/end of the array.
-     * For example given an array [A, B, C], appending the values X and Y yields [A, B, C, X, Y]
-     * and not [A, B, C, [X, Y]].
-     *
-     * @param string $path the path of the array
-     * @param array $values the values to individually insert at the back of the array
-     * @param array|bool $options the array with command modificators.
-     *   The boolean value, controls "createPath" option. Supported values are:
-     *   * "createPath" (default: false) true to create missing intermediary nodes.
-     *   * "xattr" (default: false) if true, the path refers to a location
-     *     within the document's extended attributes, not the document body.
-     * @return MutateInBuilder
-     */
-    public function arrayAppendAll($path, $values, $options = []) {}
-
-    /**
-     * Insert into an existing array at a specific position
-     *
-     * Position denoted in the path, eg. "sub.array[2]".
-     *
-     * @param string $path the path (including array position) where to insert the value
-     * @param mixed $value the value to insert in the array
-     * @param array $options the array with command modificators. Supported values are:
-     *   * "xattr" (default: false) if true, the path refers to a location
-     *     within the document's extended attributes, not the document body.
-     * @return MutateInBuilder
-     */
-    public function arrayInsert($path, $value, $options = []) {}
-
-    /**
-     * Insert multiple values at once in an existing array at a specified position.
-     *
-     * Position denoted in the path, eg. "sub.array[2]"), inserting all values in the collection's iteration order
-     * at the given position and shifting existing values beyond the position by the number of elements in the
-     * collection.
-     *
-     * For example given an array [A, B, C], inserting the values X and Y at position 1 yields [A, B, X, Y, C]
-     * and not [A, B, [X, Y], C].
-     * @param string $path the path of the array
-     * @param array $values the values to insert at the specified position of the array, each value becoming
-     *   an entry at or after the insert position.
-     * @param array $options the array with command modificators. Supported values are:
-     *   * "xattr" (default: false) if true, the path refers to a location
-     *     within the document's extended attributes, not the document body.
-     * @return MutateInBuilder
-     */
-    public function arrayInsertAll($path, $values, $options = []) {}
-
-    /**
-     * Insert a value in an existing array only if the value
-     * isn't already contained in the array (by way of string comparison).
-     *
-     * @param string $path the path to mutate in the JSON
-     * @param mixed $value the value to insert
-     * @param array|bool $options the array with command modificators.
-     *   The boolean value, controls "createPath" option. Supported values are:
-     *   * "createPath" (default: false) true to create missing intermediary nodes.
-     *   * "xattr" (default: false) if true, the path refers to a location
-     *     within the document's extended attributes, not the document body.
-     * @return MutateInBuilder
-     */
-    public function arrayAddUnique($path, $value, $options = []) {}
-
-    /**
-     * Increment/decrement a numerical fragment in a JSON document.
-     *
-     * If the value (last element of the path) doesn't exist the counter
-     * is created and takes the value of the delta.
-     *
-     * @param string $path the path to the counter (must be containing a number).
-     * @param int $delta the value to increment or decrement the counter by
-     * @param array|bool $options the array with command modificators.
-     *   The boolean value, controls "createPath" option. Supported values are:
-     *   * "createPath" (default: false) true to create missing intermediary nodes.
-     *   * "xattr" (default: false) if true, the path refers to a location
-     *     within the document's extended attributes, not the document body.
-     * @return MutateInBuilder
-     */
-    public function counter($path, $delta, $options = []) {}
-
-    /**
-     * Change the expiry of the enclosing document as part of the mutation.
-     *
-     * @param mixed $expiry the new expiry to apply (or 0 to avoid changing the expiry)
-     * @return MutateInBuilder
-     */
-    public function withExpiry($expiry) {}
-
-    /**
-     * Perform several mutation operations inside a single existing JSON document.
-     * @return DocumentFragment
-     */
-    public function execute() {}
+    public function __construct(string $path, $value, bool $isXattr) {}
 }
 
 /**
- * Represents full text search query
- *
- * @see https://developer.couchbase.com/documentation/server/4.6/sdk/php/full-text-searching-with-sdk.html
- *   Searching from the SDK
+ * Indicates to remove a value at a path in a document.
  */
-class SearchQuery implements \JsonSerializable
+class MutateRemoveSpec implements MutateInSpec
 {
-    public const HIGHLIGHT_HTML = 'html';
-    public const HIGHLIGHT_ANSI = 'ansi';
-    public const HIGHLIGHT_SIMPLE = 'simple';
+    public function __construct(string $path, bool $isXattr) {}
+}
 
-    /**
-     * Prepare boolean search query
-     *
-     * @return BooleanSearchQuery
-     */
-    public static function boolean() {}
+/**
+ * Indicates to append a value to an array at a path in a document.
+ */
+class MutateArrayAppendSpec implements MutateInSpec
+{
+    public function __construct(string $path, array $values, bool $isXattr, bool $createPath, bool $expandMacros) {}
+}
 
-    /**
-     * Prepare date range search query
-     *
-     * @return DateRangeSearchQuery
-     */
-    public static function dateRange() {}
+/**
+ * Indicates to prepend a value to an array at a path in a document.
+ */
+class MutateArrayPrependSpec implements MutateInSpec
+{
+    public function __construct(string $path, array $values, bool $isXattr, bool $createPath, bool $expandMacros) {}
+}
 
-    /**
-     * Prepare numeric range search query
-     *
-     * @return NumericRangeSearchQuery
-     */
-    public static function numericRange() {}
+/**
+ * Indicates to insert a value into an array at a path in a document.
+ */
+class MutateArrayInsertSpec implements MutateInSpec
+{
+    public function __construct(string $path, array $values, bool $isXattr, bool $createPath, bool $expandMacros) {}
+}
 
-    /**
-     * Prepare term range search query
-     *
-     * @return TermRangeSearchQuery
-     */
-    public static function termRange() {}
+/**
+ * Indicates to add a value into an array at a path in a document so long as that value does not already exist
+ * in the array.
+ */
+class MutateArrayAddUniqueSpec implements MutateInSpec
+{
+    public function __construct(string $path, $value, bool $isXattr, bool $createPath, bool $expandMacros) {}
+}
 
-    /**
-     * Prepare boolean field search query
-     *
-     * @param bool $value
-     * @return BooleanFieldSearchQuery
-     */
-    public static function booleanField($value) {}
+/**
+ * Indicates to increment or decrement a counter value at a path in a document.
+ */
+class MutateCounterSpec implements MutateInSpec
+{
+    public function __construct(string $path, int $delta, bool $isXattr, bool $createPath) {}
+}
 
-    /**
-     * Prepare compound conjunction search query
-     *
-     * @param SearchQueryPart ...$queries list of inner query parts
-     * @return ConjunctionSearchQuery
-     */
-    public static function conjuncts(...$queries) {}
-
-    /**
-     * Prepare compound disjunction search query
-     *
-     * @param SearchQueryPart ...$queries list of inner query parts
-     * @return DisjunctionSearchQuery
-     */
-    public static function disjuncts(...$queries) {}
-
-    /**
-     * Prepare document ID search query
-     *
-     * @param string ...$documentIds
-     * @return DocIdSearchQuery
-     */
-    public static function docId(...$documentIds) {}
-
-    /**
-     * Prepare match search query
-     *
-     * @param string $match
-     * @return MatchSearchQuery
-     */
-    public static function match($match) {}
-
-    /**
-     * Prepare match all search query
-     *
-     * @return MatchAllSearchQuery
-     */
-    public static function matchAll() {}
-
-    /**
-     * Prepare match non search query
-     *
-     * @return MatchNoneSearchQuery
-     */
-    public static function matchNone() {}
-
-    /**
-     * Prepare phrase search query
-     *
-     * @param string ...$terms
-     * @return MatchPhraseSearchQuery
-     */
-    public static function matchPhrase(...$terms) {}
-
-    /**
-     * Prepare prefix search query
-     *
-     * @param string $prefix
-     * @return PrefixSearchQuery
-     */
-    public static function prefix($prefix) {}
-
-    /**
-     * Prepare query string search query
-     *
-     * @param string $queryString
-     * @return QueryStringSearchQuery
-     */
-    public static function queryString($queryString) {}
-
-    /**
-     * Prepare regexp search query
-     *
-     * @param string $regexp
-     * @return RegexpSearchQuery
-     */
-    public static function regexp($regexp) {}
-
-    /**
-     * Prepare term search query
-     *
-     * @param string $term
-     * @return TermSearchQuery
-     */
-    public static function term($term) {}
-
-    /**
-     * Prepare wildcard search query
-     *
-     * @param string $wildcard
-     * @return WildcardSearchQuery
-     */
-    public static function wildcard($wildcard) {}
-
-    /**
-     * Prepare geo distance search query
-     *
-     * @param float $longitude
-     * @param float $latitude
-     * @param string $distance e.g. "10mi"
-     * @return GeoDistanceSearchQuery
-     */
-    public static function geoDistance($longitude, $latitude, $distance) {}
-
-    /**
-     * Prepare geo bounding box search query
-     *
-     * @param float $topLeftLongitude
-     * @param float $topLeftLatitude
-     * @param float $bottomRightLongitude
-     * @param float $bottomRightLatitude
-     * @return GeoBoundingBoxSearchQuery
-     */
-    public static function geoBoundingBox($topLeftLongitude, $topLeftLatitude, $bottomRightLongitude, $bottomRightLatitude) {}
-
-    /**
-     * Prepare term search facet
-     *
-     * @param string $field
-     * @param int $limit
-     * @return TermSearchFacet
-     */
-    public static function termFacet($field, $limit) {}
-
-    /**
-     * Prepare date range search facet
-     *
-     * @param string $field
-     * @param int $limit
-     * @return DateRangeSearchFacet
-     */
-    public static function dateRangeFacet($field, $limit) {}
-
-    /**
-     * Prepare numeric range search facet
-     *
-     * @param string $field
-     * @param int $limit
-     * @return NumericRangeSearchFacet
-     */
-    public static function numericRangeFacet($field, $limit) {}
-
-    /**
-     * Prepare an FTS SearchQuery on an index.
-     *
-     * Top level query parameters can be set after that by using the fluent API.
-     *
-     * @param string $indexName the FTS index to search in
-     * @param SearchQueryPart $queryPart the body of the FTS query (e.g. a match phrase query)
-     */
-    public function __construct($indexName, $queryPart) {}
-
-    /**
-     * @return array
-     */
+class SearchOptions implements JsonSerializable
+{
     public function jsonSerialize() {}
+
+    /**
+     * Sets the server side timeout in milliseconds
+     *
+     * @param int $ms the server side timeout to apply
+     * @return SearchOptions
+     */
+    public function timeout(int $ms): SearchOptions {}
 
     /**
      * Add a limit to the query on the number of hits it can return
      *
      * @param int $limit the maximum number of hits to return
-     * @return SearchQuery
+     * @return SearchOptions
      */
-    public function limit($limit) {}
+    public function limit(int $limit): SearchOptions {}
 
     /**
      * Set the number of hits to skip (eg. for pagination).
      *
      * @param int $skip the number of results to skip
-     * @return SearchQuery
+     * @return SearchOptions
      */
-    public function skip($skip) {}
+    public function skip(int $skip): SearchOptions {}
 
     /**
      * Activates the explanation of each result hit in the response
      *
      * @param bool $explain
-     * @return SearchQuery
+     * @return SearchOptions
      */
-    public function explain($explain) {}
+    public function explain(bool $explain): SearchOptions {}
 
     /**
-     * Sets the server side timeout in milliseconds
+     * If set to true, the server will not perform any scoring on the hits
      *
-     * @param int $serverSideTimeout the server side timeout to apply
-     * @return SearchQuery
+     * @param bool $disabled
+     * @return SearchOptions
      */
-    public function serverSideTimeout($serverSideTimeout) {}
+    public function disableScoring(bool $disabled): SearchOptions {}
 
     /**
      * Sets the consistency to consider for this FTS query to AT_PLUS and
@@ -2683,9 +1873,9 @@ class SearchQuery implements \JsonSerializable
      * This replaces any consistency tuning previously set.
      *
      * @param MutationState $state the mutation state information to work with
-     * @return SearchQuery
+     * @return SearchOptions
      */
-    public function consistentWith($state) {}
+    public function consistentWith(string $index, MutationState $state): SearchOptions {}
 
     /**
      * Configures the list of fields for which the whole value should be included in the response.
@@ -2693,25 +1883,28 @@ class SearchQuery implements \JsonSerializable
      * If empty, no field values are included. This drives the inclusion of the fields in each hit.
      * Note that to be highlighted, the fields must be stored in the FTS index.
      *
-     * @param string ...$fields
-     * @return SearchQuery
+     * @param string[] $fields
+     * @return SearchOptions
      */
-    public function fields(...$fields) {}
+    public function fields(array $fields): SearchOptions {}
 
     /**
-     * Configures the highlighting of matches in the response
+     * Adds one SearchFacet-s to the query
      *
-     * @param string $style highlight style to apply. Use constants HIGHLIGHT_HTML,
-     *   HIGHLIGHT_ANSI, HIGHLIGHT_SIMPLE.
-     * @param string ...$fields the optional fields on which to highlight.
-     *   If none, all fields where there is a match are highlighted.
-     * @return SearchQuery
+     * This is an additive operation (the given facets are added to any facet previously requested),
+     * but if an existing facet has the same name it will be replaced.
      *
-     * @see \Couchbase\SearchQuery::HIGHLIGHT_HTML
-     * @see \Couchbase\SearchQuery::HIGHLIGHT_ANSI
-     * @see \Couchbase\SearchQuery::HIGHLIGHT_SIMPLE
+     * Note that to be faceted, a field's value must be stored in the FTS index.
+     *
+     * @param SearchFacet[] $facets
+     * @return SearchOptions
+     *
+     * @see \SearchFacet
+     * @see \TermSearchFacet
+     * @see \NumericRangeSearchFacet
+     * @see \DateRangeSearchFacet
      */
-    public function highlight($style, ...$fields) {}
+    public function facets(array $facets): SearchOptions {}
 
     /**
      * Configures the list of fields (including special fields) which are used for sorting purposes.
@@ -2726,181 +1919,143 @@ class SearchQuery implements \JsonSerializable
      * If no sort is provided, it is equal to sort("-_score"), since the server will sort it by score in descending
      * order.
      *
-     * @param mixed $sort the fields that should take part in the sorting.
-     * @return SearchQuery
+     * @param array $specs sort the fields that should take part in the sorting.
+     * @return SearchOptions
      */
-    public function sort(...$sort) {}
+    public function sort(array $specs): SearchOptions {}
 
     /**
-     * Adds one SearchFacet to the query
+     * Configures the highlighting of matches in the response
      *
-     * This is an additive operation (the given facets are added to any facet previously requested),
-     * but if an existing facet has the same name it will be replaced.
+     * @param string $style highlight style to apply. Use constants HIGHLIGHT_HTML,
+     *   HIGHLIGHT_ANSI, HIGHLIGHT_SIMPLE.
+     * @param string ...$fields the optional fields on which to highlight.
+     *   If none, all fields where there is a match are highlighted.
+     * @return SearchOptions
      *
-     * Note that to be faceted, a field's value must be stored in the FTS index.
-     *
-     * @param string $name
-     * @param SearchFacet $facet
-     * @return SearchQuery
-     *
-     * @see \Couchbase\SearchFacet
-     * @see \Couchbase\TermSearchFacet
-     * @see \Couchbase\NumericRangeSearchFacet
-     * @see \Couchbase\DateRangeSearchFacet
+     * @see \SearchHighlightMode::HTML
+     * @see \SearchHighlightMode::ANSI
+     * @see \SearchHighlightMode::SIMPLE
      */
-    public function addFacet($name, $facet) {}
+    public function highlight(string $style = null, array $fields = null): SearchOptions {}
+}
+
+interface SearchHighlightMode
+{
+    public const HTML = "html";
+    public const ANSI = "ansi";
+    public const SIMPLE = "simple";
 }
 
 /**
  * Common interface for all classes, which could be used as a body of SearchQuery
  *
- * @see \Couchbase\SearchQuery::__construct()
+ * Represents full text search query
+ *
+ * @see https://developer.couchbase.com/documentation/server/4.6/sdk/php/full-text-searching-with-sdk.html
+ *   Searching from the SDK
  */
-interface SearchQueryPart {}
+interface SearchQuery {}
 
 /**
  * A FTS query that queries fields explicitly indexed as boolean.
  */
-class BooleanFieldSearchQuery implements \JsonSerializable, SearchQueryPart
+class BooleanFieldSearchQuery implements JsonSerializable, SearchQuery
 {
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
     public function jsonSerialize() {}
+
+    public function __construct(bool $arg) {}
 
     /**
      * @param float $boost
      * @return BooleanFieldSearchQuery
      */
-    public function boost($boost) {}
+    public function boost(float $boost): BooleanFieldSearchQuery {}
 
     /**
      * @param string $field
      * @return BooleanFieldSearchQuery
      */
-    public function field($field) {}
+    public function field(string $field): BooleanFieldSearchQuery {}
 }
 
 /**
  * A compound FTS query that allows various combinations of sub-queries.
  */
-class BooleanSearchQuery implements \JsonSerializable, SearchQueryPart
+class BooleanSearchQuery implements JsonSerializable, SearchQuery
 {
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
     public function jsonSerialize() {}
+
+    public function __construct() {}
 
     /**
      * @param float $boost
      * @return BooleanSearchQuery
      */
-    public function boost($boost) {}
+    public function boost($boost): BooleanSearchQuery {}
 
     /**
-     * @param SearchQueryPart ...$queries
+     * @param ConjunctionSearchQuery $query
      * @return BooleanSearchQuery
      */
-    public function must(...$queries) {}
+    public function must(ConjunctionSearchQuery $query): BooleanSearchQuery {}
 
     /**
-     * @param SearchQueryPart ...$queries
+     * @param DisjunctionSearchQuery $query
      * @return BooleanSearchQuery
      */
-    public function mustNot(...$queries) {}
+    public function mustNot(DisjunctionSearchQuery $query): BooleanSearchQuery {}
 
     /**
-     * @param SearchQueryPart ...$queries
+     * @param DisjunctionSearchQuery $query
      * @return BooleanSearchQuery
      */
-    public function should(...$queries) {}
+    public function should(DisjunctionSearchQuery $query): BooleanSearchQuery {}
 }
 
 /**
  * A compound FTS query that performs a logical AND between all its sub-queries (conjunction).
  */
-class ConjunctionSearchQuery implements \JsonSerializable, SearchQueryPart
+class ConjunctionSearchQuery implements JsonSerializable, SearchQuery
 {
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
     public function jsonSerialize() {}
+
+    public function __construct(array $queries) {}
 
     /**
      * @param float $boost
      * @return ConjunctionSearchQuery
      */
-    public function boost($boost) {}
+    public function boost($boost): ConjunctionSearchQuery {}
 
     /**
-     * @param SearchQueryPart ...$queries
+     * @param SearchQuery ...$queries
      * @return ConjunctionSearchQuery
      */
-    public function every(...$queries) {}
-}
-
-/**
- * A compound FTS query that performs a logical OR between all its sub-queries (disjunction). It requires that a
- * minimum of the queries match. The minimum is configurable (default 1).
- */
-class DisjunctionSearchQuery implements \JsonSerializable, SearchQueryPart
-{
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
-    public function jsonSerialize() {}
-
-    /**
-     * @param float $boost
-     * @return DisjunctionSearchQuery
-     */
-    public function boost($boost) {}
-
-    /**
-     * @param SearchQueryPart ...$queries
-     * @return DisjunctionSearchQuery
-     */
-    public function either(...$queries) {}
-
-    /**
-     * @param int $min
-     * @return DisjunctionSearchQuery
-     */
-    public function min($min) {}
+    public function every(SearchQuery ...$queries): ConjunctionSearchQuery {}
 }
 
 /**
  * A FTS query that matches documents on a range of values. At least one bound is required, and the
  * inclusiveness of each bound can be configured.
  */
-class DateRangeSearchQuery implements \JsonSerializable, SearchQueryPart
+class DateRangeSearchQuery implements JsonSerializable, SearchQuery
 {
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
     public function jsonSerialize() {}
+
+    public function __construct() {}
 
     /**
      * @param float $boost
      * @return DateRangeSearchQuery
      */
-    public function boost($boost) {}
+    public function boost(float $boost): DateRangeSearchQuery {}
 
     /**
      * @param string $field
      * @return DateRangeSearchQuery
      */
-    public function field($field) {}
+    public function field(string $field): DateRangeSearchQuery {}
 
     /**
      * @param int|string $start The strings will be taken verbatim and supposed to be formatted with custom date
@@ -2909,7 +2064,7 @@ class DateRangeSearchQuery implements \JsonSerializable, SearchQueryPart
      * @param bool $inclusive
      * @return DateRangeSearchQuery
      */
-    public function start($start, $inclusive = true) {}
+    public function start($start, bool $inclusive = false): DateRangeSearchQuery {}
 
     /**
      * @param int|string $end The strings will be taken verbatim and supposed to be formatted with custom date
@@ -2918,397 +2073,93 @@ class DateRangeSearchQuery implements \JsonSerializable, SearchQueryPart
      * @param bool $inclusive
      * @return DateRangeSearchQuery
      */
-    public function end($end, $inclusive = false) {}
+    public function end($end, bool $inclusive = false): DateRangeSearchQuery {}
 
     /**
      * @param string $dateTimeParser
      * @return DateRangeSearchQuery
      */
-    public function dateTimeParser($dateTimeParser) {}
+    public function dateTimeParser(string $dateTimeParser): DateRangeSearchQuery {}
 }
 
 /**
- * A FTS query that matches documents on a range of values. At least one bound is required, and the
- * inclusiveness of each bound can be configured.
+ * A compound FTS query that performs a logical OR between all its sub-queries (disjunction). It requires that a
+ * minimum of the queries match. The minimum is configurable (default 1).
  */
-class NumericRangeSearchQuery implements \JsonSerializable, SearchQueryPart
+class DisjunctionSearchQuery implements JsonSerializable, SearchQuery
 {
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
     public function jsonSerialize() {}
+
+    public function __construct(array $queries) {}
 
     /**
      * @param float $boost
-     * @return NumericRangeSearchQuery
+     * @return DisjunctionSearchQuery
      */
-    public function boost($boost) {}
+    public function boost(float $boost): DisjunctionSearchQuery {}
 
     /**
-     * @param string $field
-     * @return NumericRangeSearchQuery
+     * @param SearchQuery ...$queries
+     * @return DisjunctionSearchQuery
      */
-    public function field($field) {}
+    public function either(SearchQuery ...$queries): DisjunctionSearchQuery {}
 
     /**
-     * @param float $min
-     * @param bool $inclusive
-     * @return NumericRangeSearchQuery
+     * @param int $min
+     * @return DisjunctionSearchQuery
      */
-    public function min($min, $inclusive = true) {}
-
-    /**
-     * @param float $max
-     * @param bool $inclusive
-     * @return NumericRangeSearchQuery
-     */
-    public function max($max, $inclusive = false) {}
+    public function min(int $min): DisjunctionSearchQuery {}
 }
 
 /**
  * A FTS query that matches on Couchbase document IDs. Useful to restrict the search space to a list of keys (by using
  * this in a compound query).
  */
-class DocIdSearchQuery implements \JsonSerializable, SearchQueryPart
+class DocIdSearchQuery implements JsonSerializable, SearchQuery
 {
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
     public function jsonSerialize() {}
+
+    public function __construct() {}
 
     /**
      * @param float $boost
      * @return DocIdSearchQuery
      */
-    public function boost($boost) {}
+    public function boost(float $boost): DocIdSearchQuery {}
 
     /**
      * @param string $field
      * @return DocIdSearchQuery
      */
-    public function field($field) {}
+    public function field(string $field): DocIdSearchQuery {}
 
     /**
      * @param string ...$documentIds
      * @return DocIdSearchQuery
      */
-    public function docIds(...$documentIds) {}
+    public function docIds(string ...$documentIds): DocIdSearchQuery {}
 }
 
 /**
- * A FTS query that matches all indexed documents (usually for debugging purposes).
+ * A FTS query which allows to match geo bounding boxes.
  */
-class MatchAllSearchQuery implements \JsonSerializable, SearchQueryPart
+class GeoBoundingBoxSearchQuery implements JsonSerializable, SearchQuery
 {
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
     public function jsonSerialize() {}
+
+    public function __construct(float $top_left_longitude, float $top_left_latitude, float $buttom_right_longitude, float $buttom_right_latitude) {}
 
     /**
      * @param float $boost
-     * @return MatchAllSearchQuery
+     * @return GeoBoundingBoxSearchQuery
      */
-    public function boost($boost) {}
-}
-
-/**
- * A FTS query that matches 0 document (usually for debugging purposes).
- */
-class MatchNoneSearchQuery implements \JsonSerializable, SearchQueryPart
-{
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
-    public function jsonSerialize() {}
-
-    /**
-     * @param float $boost
-     * @return MatchNoneSearchQuery
-     */
-    public function boost($boost) {}
-}
-
-/**
- * A FTS query that matches several given terms (a "phrase"), applying further processing
- * like analyzers to them.
- */
-class MatchPhraseSearchQuery implements \JsonSerializable, SearchQueryPart
-{
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
-    public function jsonSerialize() {}
-
-    /**
-     * @param float $boost
-     * @return MatchPhraseSearchQuery
-     */
-    public function boost($boost) {}
+    public function boost(float $boost): GeoBoundingBoxSearchQuery {}
 
     /**
      * @param string $field
-     * @return MatchPhraseSearchQuery
+     * @return GeoBoundingBoxSearchQuery
      */
-    public function field($field) {}
-
-    /**
-     * @param string $analyzer
-     * @return MatchPhraseSearchQuery
-     */
-    public function analyzer($analyzer) {}
-}
-
-/**
- * A FTS query that matches a given term, applying further processing to it
- * like analyzers, stemming and even #fuzziness(int).
- */
-class MatchSearchQuery implements \JsonSerializable, SearchQueryPart
-{
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
-    public function jsonSerialize() {}
-
-    /**
-     * @param float $boost
-     * @return MatchSearchQuery
-     */
-    public function boost($boost) {}
-
-    /**
-     * @param string $field
-     * @return MatchSearchQuery
-     */
-    public function field($field) {}
-
-    /**
-     * @param string $analyzer
-     * @return MatchSearchQuery
-     */
-    public function analyzer($analyzer) {}
-
-    /**
-     * @param int $prefixLength
-     * @return MatchSearchQuery
-     */
-    public function prefixLength($prefixLength) {}
-
-    /**
-     * @param int $fuzziness
-     * @return MatchSearchQuery
-     */
-    public function fuzziness($fuzziness) {}
-}
-
-/**
- * A FTS query that matches several terms (a "phrase") as is. The order of the terms mater and no further processing is
- * applied to them, so they must appear in the index exactly as provided.  Usually for debugging purposes, prefer
- * MatchPhraseQuery.
- */
-class PhraseSearchQuery implements \JsonSerializable, SearchQueryPart
-{
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
-    public function jsonSerialize() {}
-
-    /**
-     * @param float $boost
-     * @return PhraseSearchQuery
-     */
-    public function boost($boost) {}
-
-    /**
-     * @param string $field
-     * @return PhraseSearchQuery
-     */
-    public function field($field) {}
-}
-
-/**
- * A FTS query that allows for simple matching of regular expressions.
- */
-class RegexpSearchQuery implements \JsonSerializable, SearchQueryPart
-{
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
-    public function jsonSerialize() {}
-
-    /**
-     * @param float $boost
-     * @return RegexpSearchQuery
-     */
-    public function boost($boost) {}
-
-    /**
-     * @param string $field
-     * @return RegexpSearchQuery
-     */
-    public function field($field) {}
-}
-
-/**
- * A FTS query that allows for simple matching using wildcard characters (* and ?).
- */
-class WildcardSearchQuery implements \JsonSerializable, SearchQueryPart
-{
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
-    public function jsonSerialize() {}
-
-    /**
-     * @param float $boost
-     * @return WildcardSearchQuery
-     */
-    public function boost($boost) {}
-
-    /**
-     * @param string $field
-     * @return WildcardSearchQuery
-     */
-    public function field($field) {}
-}
-
-/**
- * A FTS query that allows for simple matching on a given prefix.
- */
-class PrefixSearchQuery implements \JsonSerializable, SearchQueryPart
-{
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
-    public function jsonSerialize() {}
-
-    /**
-     * @param float $boost
-     * @return PrefixSearchQuery
-     */
-    public function boost($boost) {}
-
-    /**
-     * @param string $field
-     * @return PrefixSearchQuery
-     */
-    public function field($field) {}
-}
-
-/**
- * A FTS query that performs a search according to the "string query" syntax.
- */
-class QueryStringSearchQuery implements \JsonSerializable, SearchQueryPart
-{
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
-    public function jsonSerialize() {}
-
-    /**
-     * @param float $boost
-     * @return QueryStringSearchQuery
-     */
-    public function boost($boost) {}
-}
-
-/**
- * A facet that gives the number of occurrences of the most recurring terms in all hits.
- */
-class TermSearchQuery implements \JsonSerializable, SearchQueryPart
-{
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
-    public function jsonSerialize() {}
-
-    /**
-     * @param float $boost
-     * @return TermSearchQuery
-     */
-    public function boost($boost) {}
-
-    /**
-     * @param string $field
-     * @return TermSearchQuery
-     */
-    public function field($field) {}
-
-    /**
-     * @param int $prefixLength
-     * @return TermSearchQuery
-     */
-    public function prefixLength($prefixLength) {}
-
-    /**
-     * @param int $fuzziness
-     * @return TermSearchQuery
-     */
-    public function fuzziness($fuzziness) {}
-}
-
-/**
- * A FTS query that matches documents on a range of values. At least one bound is required, and the
- * inclusiveness of each bound can be configured.
- */
-class TermRangeSearchQuery implements \JsonSerializable, SearchQueryPart
-{
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
-    public function jsonSerialize() {}
-
-    /**
-     * @param float $boost
-     * @return TermRangeSearchQuery
-     */
-    public function boost($boost) {}
-
-    /**
-     * @param string $field
-     * @return TermRangeSearchQuery
-     */
-    public function field($field) {}
-
-    /**
-     * @param string $min
-     * @param bool $inclusive
-     * @return TermRangeSearchQuery
-     */
-    public function min($min, $inclusive = true) {}
-
-    /**
-     * @param string $max
-     * @param bool $inclusive
-     * @return TermRangeSearchQuery
-     */
-    public function max($max, $inclusive = false) {}
+    public function field(string $field): GeoBoundingBoxSearchQuery {}
 }
 
 /**
@@ -3316,212 +2167,450 @@ class TermRangeSearchQuery implements \JsonSerializable, SearchQueryPart
  *
  * Both the point and the distance are required.
  */
-class GeoDistanceSearchQuery implements \JsonSerializable, SearchQueryPart
+class GeoDistanceSearchQuery implements JsonSerializable, SearchQuery
 {
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
     public function jsonSerialize() {}
+
+    public function __construct(float $longitude, float $latitude, string $distance = null) {}
 
     /**
      * @param float $boost
      * @return GeoDistanceSearchQuery
      */
-    public function boost($boost) {}
+    public function boost(float $boost): GeoDistanceSearchQuery {}
 
     /**
      * @param string $field
      * @return GeoDistanceSearchQuery
      */
-    public function field($field) {}
+    public function field(string $field): GeoDistanceSearchQuery {}
+}
+
+class Coordinate implements JsonSerializable
+{
+    public function jsonSerialize() {}
+
+    /**
+     * @param float $longitude
+     * @param float $latitude
+     *
+     * @see GeoPolygonQuery
+     */
+    public function __construct(float $longitude, float $latitude) {}
 }
 
 /**
- * A FTS query which allows to match geo bounding boxes.
+ * A FTS query that finds all matches within the given polygon area.
  */
-class GeoBoundingBoxSearchQuery implements \JsonSerializable, SearchQueryPart
+class GeoPolygonQuery implements JsonSerializable, SearchQuery
 {
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
     public function jsonSerialize() {}
 
     /**
-     * @param float $boost
-     * @return GeoBoundingBoxSearchQuery
+     * @param array $coordinates list of objects of type Coordinate
+     *
+     * @see Coordinate
      */
-    public function boost($boost) {}
+    public function __construct(array $coordinates) {}
+
+    /**
+     * @param float $boost
+     * @return GeoPolygonQuery
+     */
+    public function boost(float $boost): GeoPolygonQuery {}
 
     /**
      * @param string $field
-     * @return GeoBoundingBoxSearchQuery
+     * @return GeoPolygonQuery
      */
-    public function field($field) {}
+    public function field(string $field): GeoPolygonQuery {}
+}
+
+/**
+ * A FTS query that matches all indexed documents (usually for debugging purposes).
+ */
+class MatchAllSearchQuery implements JsonSerializable, SearchQuery
+{
+    public function jsonSerialize() {}
+
+    public function __construct() {}
+
+    /**
+     * @param float $boost
+     * @return MatchAllSearchQuery
+     */
+    public function boost(float $boost): MatchAllSearchQuery {}
+}
+
+/**
+ * A FTS query that matches 0 document (usually for debugging purposes).
+ */
+class MatchNoneSearchQuery implements JsonSerializable, SearchQuery
+{
+    public function jsonSerialize() {}
+
+    public function __construct() {}
+
+    /**
+     * @param float $boost
+     * @return MatchNoneSearchQuery
+     */
+    public function boost(float $boost): MatchNoneSearchQuery {}
+}
+
+/**
+ * A FTS query that matches several given terms (a "phrase"), applying further processing
+ * like analyzers to them.
+ */
+class MatchPhraseSearchQuery implements JsonSerializable, SearchQuery
+{
+    public function jsonSerialize() {}
+
+    public function __construct(string $value) {}
+
+    /**
+     * @param float $boost
+     * @return MatchPhraseSearchQuery
+     */
+    public function boost(float $boost): MatchPhraseSearchQuery {}
+
+    /**
+     * @param string $field
+     * @return MatchPhraseSearchQuery
+     */
+    public function field(string $field): MatchPhraseSearchQuery {}
+
+    /**
+     * @param string $analyzer
+     * @return MatchPhraseSearchQuery
+     */
+    public function analyzer(string $analyzer): MatchPhraseSearchQuery {}
+}
+
+/**
+ * A FTS query that matches a given term, applying further processing to it
+ * like analyzers, stemming and even #fuzziness(int).
+ */
+class MatchSearchQuery implements JsonSerializable, SearchQuery
+{
+    public function jsonSerialize() {}
+
+    public function __construct(string $value) {}
+
+    /**
+     * @param float $boost
+     * @return MatchSearchQuery
+     */
+    public function boost(float $boost): MatchSearchQuery {}
+
+    /**
+     * @param string $field
+     * @return MatchSearchQuery
+     */
+    public function field(string $field): MatchSearchQuery {}
+
+    /**
+     * @param string $analyzer
+     * @return MatchSearchQuery
+     */
+    public function analyzer(string $analyzer): MatchSearchQuery {}
+
+    /**
+     * @param int $prefixLength
+     * @return MatchSearchQuery
+     */
+    public function prefixLength(int $prefixLength): MatchSearchQuery {}
+
+    /**
+     * @param int $fuzziness
+     * @return MatchSearchQuery
+     */
+    public function fuzziness(int $fuzziness): MatchSearchQuery {}
+}
+
+/**
+ * A FTS query that matches documents on a range of values. At least one bound is required, and the
+ * inclusiveness of each bound can be configured.
+ */
+class NumericRangeSearchQuery implements JsonSerializable, SearchQuery
+{
+    public function jsonSerialize() {}
+
+    public function __construct() {}
+
+    /**
+     * @param float $boost
+     * @return NumericRangeSearchQuery
+     */
+    public function boost(float $boost): NumericRangeSearchQuery {}
+
+    /**
+     * @param string $field
+     * @return NumericRangeSearchQuery
+     */
+    public function field($field): NumericRangeSearchQuery {}
+
+    /**
+     * @param float $min
+     * @param bool $inclusive
+     * @return NumericRangeSearchQuery
+     */
+    public function min(float $min, bool $inclusive = false): NumericRangeSearchQuery {}
+
+    /**
+     * @param float $max
+     * @param bool $inclusive
+     * @return NumericRangeSearchQuery
+     */
+    public function max(float $max, bool $inclusive = false): NumericRangeSearchQuery {}
+}
+
+/**
+ * A FTS query that matches several terms (a "phrase") as is. The order of the terms mater and no further processing is
+ * applied to them, so they must appear in the index exactly as provided.  Usually for debugging purposes, prefer
+ * MatchPhraseQuery.
+ */
+class PhraseSearchQuery implements JsonSerializable, SearchQuery
+{
+    public function jsonSerialize() {}
+
+    public function __construct(string ...$terms) {}
+
+    /**
+     * @param float $boost
+     * @return PhraseSearchQuery
+     */
+    public function boost(float $boost): PhraseSearchQuery {}
+
+    /**
+     * @param string $field
+     * @return PhraseSearchQuery
+     */
+    public function field(string $field): PhraseSearchQuery {}
+}
+
+/**
+ * A FTS query that allows for simple matching on a given prefix.
+ */
+class PrefixSearchQuery implements JsonSerializable, SearchQuery
+{
+    public function jsonSerialize() {}
+
+    public function __construct(string $prefix) {}
+
+    /**
+     * @param float $boost
+     * @return PrefixSearchQuery
+     */
+    public function boost(float $boost): PrefixSearchQuery {}
+
+    /**
+     * @param string $field
+     * @return PrefixSearchQuery
+     */
+    public function field(string $field): PrefixSearchQuery {}
+}
+
+/**
+ * A FTS query that performs a search according to the "string query" syntax.
+ */
+class QueryStringSearchQuery implements JsonSerializable, SearchQuery
+{
+    public function jsonSerialize() {}
+
+    public function __construct(string $query_string) {}
+
+    /**
+     * @param float $boost
+     * @return QueryStringSearchQuery
+     */
+    public function boost(float $boost): QueryStringSearchQuery {}
+}
+
+/**
+ * A FTS query that allows for simple matching of regular expressions.
+ */
+class RegexpSearchQuery implements JsonSerializable, SearchQuery
+{
+    public function jsonSerialize() {}
+
+    public function __construct(string $regexp) {}
+
+    /**
+     * @param float $boost
+     * @return RegexpSearchQuery
+     */
+    public function boost(float $boost): RegexpSearchQuery {}
+
+    /**
+     * @param string $field
+     * @return RegexpSearchQuery
+     */
+    public function field(string $field): RegexpSearchQuery {}
+}
+
+/**
+ * A facet that gives the number of occurrences of the most recurring terms in all hits.
+ */
+class TermSearchQuery implements JsonSerializable, SearchQuery
+{
+    public function jsonSerialize() {}
+
+    public function __construct(string $term) {}
+
+    /**
+     * @param float $boost
+     * @return TermSearchQuery
+     */
+    public function boost(float $boost): TermSearchQuery {}
+
+    /**
+     * @param string $field
+     * @return TermSearchQuery
+     */
+    public function field(string $field): TermSearchQuery {}
+
+    /**
+     * @param int $prefixLength
+     * @return TermSearchQuery
+     */
+    public function prefixLength(int $prefixLength): TermSearchQuery {}
+
+    /**
+     * @param int $fuzziness
+     * @return TermSearchQuery
+     */
+    public function fuzziness(int $fuzziness): TermSearchQuery {}
+}
+
+/**
+ * A FTS query that matches documents on a range of values. At least one bound is required, and the
+ * inclusiveness of each bound can be configured.
+ */
+class TermRangeSearchQuery implements JsonSerializable, SearchQuery
+{
+    public function jsonSerialize() {}
+
+    public function __construct() {}
+
+    /**
+     * @param float $boost
+     * @return TermRangeSearchQuery
+     */
+    public function boost(float $boost): TermRangeSearchQuery {}
+
+    /**
+     * @param string $field
+     * @return TermRangeSearchQuery
+     */
+    public function field(string $field): TermRangeSearchQuery {}
+
+    /**
+     * @param string $min
+     * @param bool $inclusive
+     * @return TermRangeSearchQuery
+     */
+    public function min(string $min, bool $inclusive = true): TermRangeSearchQuery {}
+
+    /**
+     * @param string $max
+     * @param bool $inclusive
+     * @return TermRangeSearchQuery
+     */
+    public function max(string $max, bool $inclusive = false): TermRangeSearchQuery {}
+}
+
+/**
+ * A FTS query that allows for simple matching using wildcard characters (* and ?).
+ */
+class WildcardSearchQuery implements JsonSerializable, SearchQuery
+{
+    public function jsonSerialize() {}
+
+    public function __construct(string $wildcard) {}
+
+    /**
+     * @param float $boost
+     * @return WildcardSearchQuery
+     */
+    public function boost(float $boost): WildcardSearchQuery {}
+
+    /**
+     * @param string $field
+     * @return WildcardSearchQuery
+     */
+    public function field(string $field): WildcardSearchQuery {}
 }
 
 /**
  * Common interface for all search facets
  *
- * @see \Couchbase\SearchQuery::addFacet()
- * @see \Couchbase\TermSearchFacet
- * @see \Couchbase\DateRangeSearchFacet
- * @see \Couchbase\NumericRangeSearchFacet
+ * @see \SearchQuery::addFacet()
+ * @see \TermSearchFacet
+ * @see \DateRangeSearchFacet
+ * @see \NumericRangeSearchFacet
  */
 interface SearchFacet {}
 
 /**
  * A facet that gives the number of occurrences of the most recurring terms in all hits.
  */
-class TermSearchFacet implements \JsonSerializable, SearchFacet
+class TermSearchFacet implements JsonSerializable, SearchFacet
 {
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
-    public function jsonSerialize() {}
-}
-
-/**
- * A facet that categorizes hits inside date ranges (or buckets) provided by the user.
- */
-class DateRangeSearchFacet implements \JsonSerializable, SearchFacet
-{
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
     public function jsonSerialize() {}
 
-    /**
-     * @param string $name
-     * @param int|string $start
-     * @param int|string $end
-     * @return DateSearchFacet
-     */
-    public function addRange($name, $start, $end) {}
+    public function __construct(string $field, int $limit) {}
 }
 
 /**
  * A facet that categorizes hits into numerical ranges (or buckets) provided by the user.
  */
-class NumericRangeSearchFacet implements \JsonSerializable, SearchFacet
+class NumericRangeSearchFacet implements JsonSerializable, SearchFacet
 {
-    final private function __construct() {}
-
-    /**
-     * @return array
-     */
     public function jsonSerialize() {}
+
+    public function __construct(string $field, int $limit) {}
 
     /**
      * @param string $name
      * @param float $min
      * @param float $max
-     * @return NumericSearchFacet
+     * @return NumericRangeSearchFacet
      */
-    public function addRange($name, $min, $max) {}
+    public function addRange(string $name, float $min = null, float $max = null): NumericRangeSearchFacet {}
 }
 
 /**
- * Base class for all FTS sort options in querying.
+ * A facet that categorizes hits inside date ranges (or buckets) provided by the user.
  */
-class SearchSort
+class DateRangeSearchFacet implements JsonSerializable, SearchFacet
 {
-    private function __construct() {}
+    public function jsonSerialize() {}
+
+    public function __construct(string $field, int $limit) {}
 
     /**
-     * Sort by the document identifier.
-     *
-     * @return SearchSortId
+     * @param string $name
+     * @param int|string $start
+     * @param int|string $end
+     * @return DateRangeSearchFacet
      */
-    public static function id() {}
-
-    /**
-     * Sort by the hit score.
-     *
-     * @return SearchSortScore
-     */
-    public static function score() {}
-
-    /**
-     * Sort by a field in the hits.
-     *
-     * @param string $field the field name
-     *
-     * @return SearchSortField
-     */
-    public static function field($field) {}
-
-    /**
-     * Sort by geo location.
-     *
-     * @param string $field the field name
-     * @param float $longitude the longitude of the location
-     * @param float $latitude the latitude of the location
-     *
-     * @return SearchSortGeoDistance
-     */
-    public static function geoDistance($field, $longitude, $latitude) {}
+    public function addRange(string $name, $start = null, $end = null): DateRangeSearchFacet {}
 }
 
 /**
- * Sort by the document identifier.
+ * Base interface for all FTS sort options in querying.
  */
-class SearchSortId extends SearchSort implements \JsonSerializable
-{
-    private function __construct() {}
-
-    /**
-     * Direction of the sort
-     *
-     * @param bool $descending
-     *
-     * @return SearchSortId
-     */
-    public function descending($descending) {}
-}
-
-/**
- * Sort by the hit score.
- */
-class SearchSortScore extends SearchSort implements \JsonSerializable
-{
-    private function __construct() {}
-
-    /**
-     * Direction of the sort
-     *
-     * @param bool $descending
-     *
-     * @return SearchSortScore
-     */
-    public function descending($descending) {}
-}
+interface SearchSort {}
 
 /**
  * Sort by a field in the hits.
  */
-class SearchSortField extends SearchSort implements \JsonSerializable
+class SearchSortField implements JsonSerializable, SearchSort
 {
-    public const TYPE_AUTO = "auto";
-    public const TYPE_STRING = "string";
-    public const TYPE_NUMBER = "number";
-    public const TYPE_DATE = "date";
+    public function jsonSerialize() {}
 
-    public const MODE_DEFAULT = "default";
-    public const MODE_MIN = "min";
-    public const MODE_MAX = "max";
-
-    public const MISSING_FIRST = "first";
-    public const MISSING_LAST = "last";
-
-    private function __construct() {}
+    public function __construct(string $field) {}
 
     /**
      * Direction of the sort
@@ -3530,47 +2619,70 @@ class SearchSortField extends SearchSort implements \JsonSerializable
      *
      * @return SearchSortField
      */
-    public function descending($descending) {}
+    public function descending(bool $descending): SearchSortField {}
 
     /**
      * Set type of the field
      *
-     * @param string $type the type
+     * @param string type the type
      *
-     * @see SearchSortField::TYPE_AUTO
-     * @see SearchSortField::TYPE_STRING
-     * @see SearchSortField::TYPE_NUMBER
-     * @see SearchSortField::TYPE_DATE
+     * @see SearchSortType::AUTO
+     * @see SearchSortType::STRING
+     * @see SearchSortType::NUMBER
+     * @see SearchSortType::DATE
      */
-    public function type($type) {}
+    public function type(string $type): SearchSortField {}
 
     /**
      * Set mode of the sort
      *
-     * @param string $mode the mode
+     * @param string mode the mode
      *
-     * @see SearchSortField::MODE_MIN
-     * @see SearchSortField::MODE_MAX
+     * @see SearchSortMode::MIN
+     * @see SearchSortMode::MAX
      */
-    public function mode($mode) {}
+    public function mode(string $mode): SearchSortField {}
 
     /**
      * Set where the hits with missing field will be inserted
      *
-     * @param string $missing strategy for hits with missing fields
+     * @param string missing strategy for hits with missing fields
      *
-     * @see SearchSortField::MISSING_FIRST
-     * @see SearchSortField::MISSING_LAST
+     * @see SearchSortMissing::FIRST
+     * @see SearchSortMissing::LAST
      */
-    public function missing($missing) {}
+    public function missing(string $missing): SearchSortField {}
+}
+
+interface SearchSortType
+{
+    public const AUTO = "auto";
+    public const STRING = "string";
+    public const NUMBER = "number";
+    public const DATE = "date";
+}
+
+interface SearchSortMode
+{
+    public const DEFAULT = "default";
+    public const MIN = "min";
+    public const MAX = "max";
+}
+
+interface SearchSortMissing
+{
+    public const FIRST = "first";
+    public const LAST = "last";
 }
 
 /**
  * Sort by a location and unit in the hits.
  */
-class SearchSortGeoDistance extends SearchSort implements \JsonSerializable
+class SearchSortGeoDistance implements JsonSerializable, SearchSort
 {
-    private function __construct() {}
+    public function jsonSerialize() {}
+
+    public function __construct(string $field, float $logitude, float $latitude) {}
 
     /**
      * Direction of the sort
@@ -3579,7 +2691,7 @@ class SearchSortGeoDistance extends SearchSort implements \JsonSerializable
      *
      * @return SearchSortGeoDistance
      */
-    public function descending($descending) {}
+    public function descending(bool $descending): SearchSortGeoDistance {}
 
     /**
      * Name of the units
@@ -3588,24 +2700,835 @@ class SearchSortGeoDistance extends SearchSort implements \JsonSerializable
      *
      * @return SearchSortGeoDistance
      */
-    public function unit($unit) {}
+    public function unit(string $unit): SearchSortGeoDistance {}
 }
 
 /**
- * Represents a Analytics query (currently experimental support).
- *
- * @see https://developer.couchbase.com/documentation/server/4.5/analytics/quick-start.html
- *   Analytics quick start
+ * Sort by the document identifier.
  */
-class AnalyticsQuery
+class SearchSortId implements JsonSerializable, SearchSort
 {
-    final private function __construct() {}
+    public function jsonSerialize() {}
+
+    public function __construct() {}
 
     /**
-     * Creates new AnalyticsQuery instance directly from the string.
+     * Direction of the sort
      *
-     * @param string $statement statement string
-     * @return AnalyticsQuery
+     * @param bool $descending
+     *
+     * @return SearchSortId
      */
-    public static function fromString($statement) {}
+    public function descending(bool $descending): SearchSortId {}
 }
+
+/**
+ * Sort by the hit score.
+ */
+class SearchSortScore implements JsonSerializable, SearchSort
+{
+    public function jsonSerialize() {}
+
+    public function __construct() {}
+
+    /**
+     * Direction of the sort
+     *
+     * @param bool $descending
+     *
+     * @return SearchSortScore
+     */
+    public function descending(bool $descending): SearchSortScore {}
+}
+
+class GetOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return GetOptions
+     */
+    public function timeout(int $arg): GetOptions {}
+
+    /**
+     * Sets whether to include document expiry with the document content.
+     *
+     * When used this option will transparently transform the Get
+     * operation into a subdocument operation performing a full document
+     * fetch as well as the expiry.
+     *
+     * @param bool $arg whether or not to include document expiry
+     * @return GetOptions
+     */
+    public function withExpiry(bool $arg): GetOptions {}
+
+    /**
+     * Sets whether to cause the Get operation to only fetch the fields
+     * from the document indicated by the paths provided.
+     *
+     * When used this option will transparently transform the Get
+     * operation into a subdocument operation fetching only the required
+     * fields.
+     *
+     * @param array $arg the array of field names
+     * @return GetOptions
+     */
+    public function project(array $arg): GetOptions {}
+
+    /**
+     * Associate custom transcoder with the request.
+     *
+     * @param callable $arg decoding function with signature (returns decoded value):
+     *
+     *   `function decoder(string $bytes, int $flags, int $datatype): mixed`
+     */
+    public function decoder(callable $arg): GetOptions {}
+}
+
+class GetAndTouchOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return GetAndTouchOptions
+     */
+    public function timeout(int $arg): GetAndTouchOptions {}
+
+    /**
+     * Associate custom transcoder with the request.
+     *
+     * @param callable $arg decoding function with signature (returns decoded value):
+     *
+     *   `function decoder(string $bytes, int $flags, int $datatype): mixed`
+     */
+    public function decoder(callable $arg): GetAndTouchOptions {}
+}
+
+class GetAndLockOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return GetAndLockOptions
+     */
+    public function timeout(int $arg): GetAndLockOptions {}
+
+    /**
+     * Associate custom transcoder with the request.
+     *
+     * @param callable $arg decoding function with signature (returns decoded value):
+     *
+     *   `function decoder(string $bytes, int $flags, int $datatype): mixed`
+     */
+    public function decoder(callable $arg): GetAndLockOptions {}
+}
+
+class GetAllReplicasOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return GetAllReplicasOptions
+     */
+    public function timeout(int $arg): GetAllReplicasOptions {}
+
+    /**
+     * Associate custom transcoder with the request.
+     *
+     * @param callable $arg decoding function with signature (returns decoded value):
+     *
+     *   `function decoder(string $bytes, int $flags, int $datatype): mixed`
+     */
+    public function decoder(callable $arg): GetAllReplicasOptions {}
+}
+
+class GetAnyReplicaOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return GetAnyReplicaOptions
+     */
+    public function timeout(int $arg): GetAnyReplicaOptions {}
+
+    /**
+     * Associate custom transcoder with the request.
+     *
+     * @param callable $arg decoding function with signature (returns decoded value):
+     *
+     *   `function decoder(string $bytes, int $flags, int $datatype): mixed`
+     */
+    public function decoder(callable $arg): GetAnyReplicaOptions {}
+}
+
+class ExistsOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return ExistsOptions
+     */
+    public function timeout(int $arg): ExistsOptions {}
+}
+
+class UnlockOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return UnlockOptions
+     */
+    public function timeout(int $arg): UnlockOptions {}
+}
+
+class InsertOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return InsertOptions
+     */
+    public function timeout(int $arg): InsertOptions {}
+
+    /**
+     * Sets the expiry time for the document.
+     *
+     * @param int $arg the expiry time in ms
+     * @return InsertOptions
+     */
+    public function expiry(int $arg): InsertOptions {}
+
+    /**
+     * Sets the durability level to enforce when writing the document.
+     *
+     * @param int $arg the durability level to enforce
+     * @return InsertOptions
+     */
+    public function durabilityLevel(int $arg): InsertOptions {}
+
+    /**
+     * Associate custom transcoder with the request.
+     *
+     * @param callable $arg encoding function with signature (returns tuple of bytes, flags and datatype):
+     *
+     *   `function encoder($value): [string $bytes, int $flags, int $datatype]`
+     */
+    public function encoder(callable $arg): InsertOptions {}
+}
+
+class UpsertOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return UpsertOptions
+     */
+    public function timeout(int $arg): UpsertOptions {}
+
+    /**
+     * Sets the expiry time for the document.
+     *
+     * @param int|DateTimeInterface $arg the relative expiry time in seconds or DateTimeInterface object for absolute point in time
+     * @return UpsertOptions
+     */
+    public function expiry(mixed $arg): UpsertOptions {}
+
+    /**
+     * Sets the durability level to enforce when writing the document.
+     *
+     * @param int $arg the durability level to enforce
+     * @return UpsertOptions
+     */
+    public function durabilityLevel(int $arg): UpsertOptions {}
+
+    /**
+     * Associate custom transcoder with the request.
+     *
+     * @param callable $arg encoding function with signature (returns tuple of bytes, flags and datatype):
+     *
+     *   `function encoder($value): [string $bytes, int $flags, int $datatype]`
+     */
+    public function encoder(callable $arg): UpsertOptions {}
+}
+
+class ReplaceOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return ReplaceOptions
+     */
+    public function timeout(int $arg): ReplaceOptions {}
+
+    /**
+     * Sets the expiry time for the document.
+     *
+     * @param int|DateTimeInterface $arg the relative expiry time in seconds or DateTimeInterface object for absolute point in time
+     * @return ReplaceOptions
+     */
+    public function expiry(mixed $arg): ReplaceOptions {}
+
+    /**
+     * Sets the cas value for the operation.
+     *
+     * @param string $arg the cas value
+     * @return ReplaceOptions
+     */
+    public function cas(string $arg): ReplaceOptions {}
+
+    /**
+     * Sets the durability level to enforce when writing the document.
+     *
+     * @param int $arg the durability level to enforce
+     * @return ReplaceOptions
+     */
+    public function durabilityLevel(int $arg): ReplaceOptions {}
+
+    /**
+     * Associate custom transcoder with the request.
+     *
+     * @param callable $arg encoding function with signature (returns tuple of bytes, flags and datatype):
+     *
+     *   `function encoder($value): [string $bytes, int $flags, int $datatype]`
+     */
+    public function encoder(callable $arg): ReplaceOptions {}
+}
+
+class AppendOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return AppendOptions
+     */
+    public function timeout(int $arg): AppendOptions {}
+
+    /**
+     * Sets the durability level to enforce when writing the document.
+     *
+     * @param int $arg the durability level to enforce
+     * @return AppendOptions
+     */
+    public function durabilityLevel(int $arg): AppendOptions {}
+}
+
+class PrependOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return PrependOptions
+     */
+    public function timeout(int $arg): PrependOptions {}
+
+    /**
+     * Sets the durability level to enforce when writing the document.
+     *
+     * @param int $arg the durability level to enforce
+     * @return PrependOptions
+     */
+    public function durabilityLevel(int $arg): PrependOptions {}
+}
+
+/**
+ * An object which contains levels of durability that can be enforced when
+ * using mutation operations.
+ */
+interface DurabilityLevel
+{
+    /**
+     * Apply no durability level.
+     */
+    public const NONE = 0;
+
+    /**
+     * Apply a durability level where the document must be written to memory
+     * on a majority of nodes in the cluster.
+     */
+    public const MAJORITY = 1;
+
+    /**
+     * Apply a durability level where the document must be written to memory
+     * on a majority of nodes in the cluster and written to disk on the
+     * active node.
+     */
+    public const MAJORITY_AND_PERSIST_TO_ACTIVE = 2;
+
+    /**
+     * Apply a durability level where the document must be written to disk
+     * on a majority of nodes in the cluster.
+     */
+    public const PERSIST_TO_MAJORITY = 3;
+}
+
+class TouchOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return TouchOptions
+     */
+    public function timeout(int $arg): TouchOptions {}
+}
+
+class IncrementOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return IncrementOptions
+     */
+    public function timeout(int $arg): IncrementOptions {}
+
+    /**
+     * Sets the expiry time for the document.
+     *
+     * @param int|DateTimeInterface $arg the relative expiry time in seconds or DateTimeInterface object for absolute point in time
+     * @return IncrementOptions
+     */
+    public function expiry(mixed $arg): IncrementOptions {}
+
+    /**
+     * Sets the durability level to enforce when writing the document.
+     *
+     * @param int $arg the durability level to enforce
+     * @return IncrementOptions
+     */
+    public function durabilityLevel(int $arg): IncrementOptions {}
+
+    /**
+     * Sets the value to increment the counter by.
+     *
+     * @param int $arg the value to increment by
+     * @return IncrementOptions
+     */
+    public function delta(int $arg): IncrementOptions {}
+
+    /**
+     * Sets the value to initialize the counter to if the document does
+     * not exist.
+     *
+     * @param int $arg the initial value to use if counter does not exist
+     * @return IncrementOptions
+     */
+    public function initial(int $arg): IncrementOptions {}
+}
+
+class DecrementOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return DecrementOptions
+     */
+    public function timeout(int $arg): DecrementOptions {}
+
+    /**
+     * Sets the expiry time for the document.
+     *
+     * @param int|DateTimeInterface $arg the relative expiry time in seconds or DateTimeInterface object for absolute point in time
+     * @return DecrementOptions
+     */
+    public function expiry(mixed $arg): DecrementOptions {}
+
+    /**
+     * Sets the durability level to enforce when writing the document.
+     *
+     * @param int $arg the durability level to enforce
+     * @return DecrementOptions
+     */
+    public function durabilityLevel(int $arg): DecrementOptions {}
+
+    /**
+     * Sets the value to decrement the counter by.
+     *
+     * @param int $arg the value to decrement by
+     * @return DecrementOptions
+     */
+    public function delta(int $arg): DecrementOptions {}
+
+    /**
+     * Sets the value to initialize the counter to if the document does
+     * not exist.
+     *
+     * @param int $arg the initial value to use if counter does not exist
+     * @return DecrementOptions
+     */
+    public function initial(int $arg): DecrementOptions {}
+}
+
+class RemoveOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return RemoveOptions
+     */
+    public function timeout(int $arg): RemoveOptions {}
+
+    /**
+     * Sets the durability level to enforce when writing the document.
+     *
+     * @param int $arg the durability level to enforce
+     * @return RemoveOptions
+     */
+    public function durabilityLevel(int $arg): RemoveOptions {}
+
+    /**
+     * Sets the cas value to use when performing this operation.
+     *
+     * @param string $arg the cas value to use
+     * @return RemoveOptions
+     */
+    public function cas(string $arg): RemoveOptions {}
+}
+
+class LookupInOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return LookupInOptions
+     */
+    public function timeout(int $arg): LookupInOptions {}
+
+    /**
+     * Sets whether to include document expiry with the document content.
+     *
+     * When used this option will add one extra subdocument path into
+     * the LookupIn operation. This can cause the set of subdocument paths
+     * to exceed the maximum number (16) of paths allowed in a subdocument
+     * operation.
+     *
+     * @param bool $arg whether or not to include document expiry
+     * @return LookupInOptions
+     */
+    public function withExpiry(bool $arg): LookupInOptions {}
+}
+
+class MutateInOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return MutateInOptions
+     */
+    public function timeout(int $arg): MutateInOptions {}
+
+    /**
+     * Sets the cas value to use when performing this operation.
+     *
+     * @param string $arg the cas value to use
+     * @return MutateInOptions
+     */
+    public function cas(string $arg): MutateInOptions {}
+
+    /**
+     * Sets the expiry time for the document.
+     *
+     * @param int|DateTimeInterface $arg the relative expiry time in seconds or DateTimeInterface object for absolute point in time
+     * @return MutateInOptions
+     */
+    public function expiry(mixed $arg): MutateInOptions {}
+
+    /**
+     * Sets the durability level to enforce when writing the document.
+     *
+     * @param int $arg the durability level to enforce
+     * @return MutateInOptions
+     */
+    public function durabilityLevel(int $arg): MutateInOptions {}
+
+    /**
+     * Sets the document level action to use when performing the operation.
+     *
+     * @param int $arg the store semantic to use
+     * @return MutateInOptions
+     */
+    public function storeSemantics(int $arg): MutateInOptions {}
+}
+
+/**
+ * An object which contains how to define the document level action to take
+ * during a MutateIn operation.
+ */
+interface StoreSemantics
+{
+    /**
+     * Replace the document, and fail if it does not exist.
+     */
+    public const REPLACE = 0;
+
+    /**
+     * Replace the document or create it if it does not exist.
+     */
+    public const UPSERT = 1;
+
+    /**
+     * Create the document or fail if it already exists.
+     */
+    public const INSERT = 2;
+}
+
+class ViewOptions
+{
+    public function timeout(int $arg): ViewOptions {}
+
+    public function includeDocuments(bool $arg, int $maxConcurrentDocuments = 10): ViewOptions {}
+
+    public function key($arg): ViewOptions {}
+
+    public function keys(array $args): ViewOptions {}
+
+    public function limit(int $arg): ViewOptions {}
+
+    public function skip(int $arg): ViewOptions {}
+
+    public function scanConsistency(int $arg): ViewOptions {}
+
+    public function order(int $arg): ViewOptions {}
+
+    public function reduce(bool $arg): ViewOptions {}
+
+    public function group(bool $arg): ViewOptions {}
+
+    public function groupLevel(int $arg): ViewOptions {}
+
+    public function range($start, $end, $inclusiveEnd = false): ViewOptions {}
+
+    public function idRange($start, $end, $inclusiveEnd = false): ViewOptions {}
+
+    public function raw(string $key, $value): ViewOptions {}
+}
+
+interface ViewConsistency
+{
+    public const NOT_BOUNDED = 0;
+    public const REQUEST_PLUS = 1;
+    public const UPDATE_AFTER = 2;
+}
+
+interface ViewOrdering
+{
+    public const ASCENDING = 0;
+    public const DESCENDING = 1;
+}
+
+class QueryOptions
+{
+    /**
+     * Sets the operation timeout in milliseconds.
+     *
+     * @param int $arg the operation timeout to apply
+     * @return QueryOptions
+     */
+    public function timeout(int $arg): QueryOptions {}
+
+    /**
+     * Sets the mutation state to achieve consistency with for read your own writes (RYOW).
+     *
+     * @param MutationState $arg the mutation state to achieve consistency with
+     * @return QueryOptions
+     */
+    public function consistentWith(MutationState $arg): QueryOptions {}
+
+    /**
+     * Sets the scan consistency.
+     *
+     * @param int $arg the scan consistency level
+     * @return QueryOptions
+     */
+    public function scanConsistency(int $arg): QueryOptions {}
+
+    /**
+     * Sets the maximum buffered channel size between the indexer client and the query service for index scans.
+     *
+     * @param int $arg the maximum buffered channel size
+     * @return QueryOptions
+     */
+    public function scanCap(int $arg): QueryOptions {}
+
+    /**
+     * Sets the maximum number of items each execution operator can buffer between various operators.
+     *
+     * @param int $arg the maximum number of items each execution operation can buffer
+     * @return QueryOptions
+     */
+    public function pipelineCap(int $arg): QueryOptions {}
+
+    /**
+     * Sets the number of items execution operators can batch for fetch from the KV service.
+     *
+     * @param int $arg the pipeline batch size
+     * @return QueryOptions
+     */
+    public function pipelineBatch(int $arg): QueryOptions {}
+
+    /**
+     * Sets the maximum number of index partitions, for computing aggregation in parallel.
+     *
+     * @param int $arg the number of index partitions
+     * @return QueryOptions
+     */
+    public function maxParallelism(int $arg): QueryOptions {}
+
+    /**
+     * Sets the query profile mode to use.
+     *
+     * @param int $arg the query profile mode
+     * @return QueryOptions
+     */
+    public function profile(int $arg): QueryOptions {}
+
+    /**
+     * Sets whether or not this query is readonly.
+     *
+     * @param bool $arg whether the query is readonly
+     * @return QueryOptions
+     */
+    public function readonly(bool $arg): QueryOptions {}
+
+    /**
+     * Sets whether or not this query allowed to use FlexIndex (full text search integration).
+     *
+     * @param bool $arg whether the FlexIndex allowed
+     * @return QueryOptions
+     */
+    public function flexIndex(bool $arg): QueryOptions {}
+
+    /**
+     * Sets whether or not this query is adhoc.
+     *
+     * @param bool $arg whether the query is adhoc
+     * @return QueryOptions
+     */
+    public function adhoc(bool $arg): QueryOptions {}
+
+    /**
+     * Sets the named parameters for this query.
+     *
+     * @param array $pairs the associative array of parameters
+     * @return QueryOptions
+     */
+    public function namedParameters(array $pairs): QueryOptions {}
+
+    /**
+     * Sets the positional parameters for this query.
+     *
+     * @param array $args the array of parameters
+     * @return QueryOptions
+     */
+    public function positionalParameters(array $args): QueryOptions {}
+
+    /**
+     * Sets any extra query parameters that the SDK does not provide an option for.
+     *
+     * @param string $key the name of the parameter
+     * @param string $value the value of the parameter
+     * @return QueryOptions
+     */
+    public function raw(string $key, $value): QueryOptions {}
+
+    /**
+     * Sets the client context id for this query.
+     *
+     * @param string $arg the client context id
+     * @return QueryOptions
+     */
+    public function clientContextId(string $arg): QueryOptions {}
+
+    /**
+     * Sets whether or not to return metrics with the query.
+     *
+     * @param bool $arg whether to return metrics
+     * @return QueryOptions
+     */
+    public function metrics(bool $arg): QueryOptions {}
+
+    /**
+     * Associate scope name with query
+     *
+     * @param string $arg the name of the scope
+     * @return QueryOptions
+     */
+    public function scopeName(string $arg): QueryOptions {}
+
+    /**
+     * Associate scope qualifier (also known as `query_context`) with the query.
+     *
+     * The qualifier must be in form `${bucketName}.${scopeName}` or `default:${bucketName}.${scopeName}`
+     *
+     * @param string $arg the scope qualifier
+     * @return QueryOptions
+     */
+    public function scopeQualifier(string $arg): QueryOptions {}
+}
+
+/**
+ * Set of values for the scan consistency level of a query.
+ */
+interface QueryScanConsistency
+{
+    /**
+     * Set scan consistency to not bounded
+     */
+    public const NOT_BOUNDED = 1;
+
+    /**
+     * Set scan consistency to not request plus
+     */
+    public const REQUEST_PLUS = 2;
+
+    /**
+     * Set scan consistency to statement plus
+     */
+    public const STATEMENT_PLUS = 3;
+}
+
+/**
+ * Set of values for setting the profile mode of a query.
+ */
+interface QueryProfile
+{
+    /**
+     * Set profiling to off
+     */
+    public const OFF = 1;
+
+    /**
+     * Set profiling to include phase timings
+     */
+    public const PHASES = 2;
+
+    /**
+     * Set profiling to include execution timings
+     */
+    public const TIMINGS = 3;
+}
+
+class ClusterOptions
+{
+    public function credentials(string $username, string $password): ClusterOptions {}
+}
+
+/**
+ * vim: ts=4 sts=4 sw=4 et
+ */
