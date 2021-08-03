@@ -2,8 +2,7 @@
 
 /** @link https://github.com/krakjoe/pcov/blob/develop/README.md */
 
-namespace
-{
+namespace {
     define('pcov\all', 0);
     define('pcov\inclusive', 1);
     define('pcov\exclusive', 2);
