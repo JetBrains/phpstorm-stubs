@@ -1468,7 +1468,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * </p>
      * @return bool true if the requested index exists, otherwise false
      */
-    public function offsetExists($key) {}
+    public function offsetExists(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key) {}
 
     /**
      * Returns the value at the specified index
@@ -1478,7 +1478,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * </p>
      * @return mixed|false The value at the specified index or false.
      */
-    public function offsetGet($key) {}
+    public function offsetGet(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key) {}
 
     /**
      * Sets the value at the specified index to newval
@@ -1491,7 +1491,10 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * </p>
      * @return void
      */
-    public function offsetSet($key, #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value) {}
+    public function offsetSet(
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
+    ) {}
 
     /**
      * Unsets the value at the specified index
@@ -1501,7 +1504,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * </p>
      * @return void
      */
-    public function offsetUnset($key) {}
+    public function offsetUnset(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key) {}
 
     /**
      * Appends the value
@@ -1737,7 +1740,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * </p>
      * @return bool true if the offset exists, otherwise false
      */
-    public function offsetExists($key) {}
+    public function offsetExists(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key) {}
 
     /**
      * Get value for an offset
@@ -1747,7 +1750,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * </p>
      * @return mixed The value at offset <i>index</i>.
      */
-    public function offsetGet($key) {}
+    public function offsetGet(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key) {}
 
     /**
      * Set value for an offset
@@ -1760,7 +1763,10 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * </p>
      * @return void
      */
-    public function offsetSet($key, #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value) {}
+    public function offsetSet(
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
+    ) {}
 
     /**
      * Unset value for an offset
@@ -1770,7 +1776,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * </p>
      * @return void
      */
-    public function offsetUnset($key) {}
+    public function offsetUnset(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key) {}
 
     /**
      * Append an element
