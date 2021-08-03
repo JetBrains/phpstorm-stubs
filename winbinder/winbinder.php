@@ -188,10 +188,7 @@ function wb_main_loop() {}
  *
  * @return string
  */
-function wb_find_file($filename)
-{
-    return ''|0|null;
-}
+function wb_find_file($filename) {}
 
 /**
  * Creates and displays a message box under the style supplied and returns a value according to the button pressed.
@@ -221,10 +218,7 @@ function wb_find_file($filename)
  *
  * @return int
  */
-function wb_message_box($parent, $message, $title = null, $style = null)
-{
-    return ''|0|null;
-}
+function wb_message_box($parent, $message, $title = null, $style = null) {}
 
 /**
  * Loads and plays a sound file or system sound.
@@ -263,10 +257,7 @@ function wb_message_box($parent, $message, $title = null, $style = null)
  *
  * @return bool
  */
-function wb_play_sound($source, $command = null)
-{
-    return ''|0|null;
-}
+function wb_play_sound($source, $command = null) {}
 
 /**
  * Stops one or more sounds that were started with wb_play_sound().
@@ -283,10 +274,7 @@ function wb_play_sound($source, $command = null)
  *
  * @return bool
  */
-function wb_stop_sound($command = null)
-{
-    return ''|0|null;
-}
+function wb_stop_sound($command = null) {}
 
 /**
  * Opens or executes a command. The string passed to this function can be one of the following:.
@@ -305,10 +293,7 @@ function wb_stop_sound($command = null)
  *
  * @return bool
  */
-function wb_exec($command, $param = null)
-{
-    return ''|0|null;
-}
+function wb_exec($command, $param = null) {}
 
 /**
  * Returns information about the current system and application, according to the string info.
@@ -344,10 +329,7 @@ function wb_exec($command, $param = null)
  *
  * @return mixed
  */
-function wb_get_system_info($info)
-{
-    return ''|0|null;
-}
+function wb_get_system_info($info) {}
 
 /**
  * Reads a string or integer value from the Windows registry item referenced by key, subkey and entry.
@@ -362,12 +344,9 @@ function wb_get_system_info($info)
  * @param $subkey
  * @param null $entry
  *
- * @return string | NULL
+ * @return string|null
  */
-function wb_get_registry_key($key, $subkey, $entry = null)
-{
-    return ''|0|null;
-}
+function wb_get_registry_key($key, $subkey, $entry = null) {}
 
 /**
  * Reads a string or integer value from the Windows registry item referenced by key, subkey and entry.
@@ -385,10 +364,7 @@ function wb_get_registry_key($key, $subkey, $entry = null)
  *
  * @return bool
  */
-function wb_set_registry_key($key, $subkey, $entry = null, $value = null)
-{
-    return ''|0|null;
-}
+function wb_set_registry_key($key, $subkey, $entry = null, $value = null) {}
 
 /**
  * Creates a timer in the specified window.
@@ -411,10 +387,7 @@ function wb_set_registry_key($key, $subkey, $entry = null, $value = null)
  *
  * @return int
  */
-function wb_create_timer($window, $id, $interval)
-{
-    return ''|0|null;
-}
+function wb_create_timer($window, $id, $interval) {}
 
 /**
  * This function creates a delay and verifies if mouse buttons are pressed and/or the keyboard state.
@@ -434,10 +407,7 @@ function wb_create_timer($window, $id, $interval)
  *
  * @return int
  */
-function wb_wait($window = null, $pause = null, $flags = null)
-{
-    return ''|0|null;
-}
+function wb_wait($window = null, $pause = null, $flags = null) {}
 
 /**
  * Destroys a timer created with wb_create_timer().
@@ -448,10 +418,7 @@ function wb_wait($window = null, $pause = null, $flags = null)
  *
  * @return bool
  */
-function wb_destroy_timer($window, $id)
-{
-    return ''|0|null;
-}
+function wb_destroy_timer($window, $id) {}
 
 /**
  * Loads the image, icon or cursor file filename from disk and returns a handle to it.
@@ -468,10 +435,7 @@ function wb_destroy_timer($window, $id)
  *
  * @return int
  */
-function wb_load_image($filename, $index = null, $param = null)
-{
-    return ''|0|null;
-}
+function wb_load_image($filename, $index = null, $param = null) {}
 
 /**
  * Saves the bitmap image to file filename.
@@ -484,10 +448,7 @@ function wb_load_image($filename, $index = null, $param = null)
  *
  * @return bool
  */
-function wb_save_image($image, $filename)
-{
-    return ''|0|null;
-}
+function wb_save_image($image, $filename) {}
 
 /**
  * Creates a true-color image measuring width by height pixels.
@@ -501,10 +462,7 @@ function wb_save_image($image, $filename)
  *
  * @return int
  */
-function wb_create_image($width = 0, $height = 0, $dibbmi = null, $dibbits = null)
-{
-    return ''|0|null;
-}
+function wb_create_image($width = 0, $height = 0, $dibbmi = null, $dibbits = null) {}
 
 /**
  * Creates a transparency mask of a true-color bitmap.
@@ -517,10 +475,7 @@ function wb_create_image($width = 0, $height = 0, $dibbmi = null, $dibbits = nul
  *
  * @return int
  */
-function wb_create_mask($bitmap, $transparent_color)
-{
-    return ''|0|null;
-}
+function wb_create_mask($bitmap, $transparent_color) {}
 
 /**
  * Destroys an image created by wb_create_image(), wb_create_mask() or wb_load_image().
@@ -529,10 +484,7 @@ function wb_create_mask($bitmap, $transparent_color)
  *
  * @return bool
  */
-function wb_destroy_image($image)
-{
-    return ''|0|null;
-}
+function wb_destroy_image($image) {}
 
 /**
  * Returns a string of data containing a copy of the internal true-color representation of the given image.
@@ -544,10 +496,7 @@ function wb_destroy_image($image)
  *
  * @return int
  */
-function wb_get_image_data($image, $compress4to3)
-{
-    return ''|0|null;
-}
+function wb_get_image_data($image, $compress4to3) {}
 
 /**
  * Returns the RGB color value of the pixel at the given coordinates. The first parameter, source, may be a WinBinder object, a window handle, a drawing surface or a bitmap.
@@ -560,10 +509,7 @@ function wb_get_image_data($image, $compress4to3)
  *
  * @return int
  */
-function wb_get_pixel($source, $xpos, $ypos)
-{
-    return ''|0|null;
-}
+function wb_get_pixel($source, $xpos, $ypos) {}
 
 /**
  * Draws a point of color, setting the RGB color value of the pixel that exists at the given coordinates.
@@ -578,10 +524,7 @@ function wb_get_pixel($source, $xpos, $ypos)
  *
  * @return bool
  */
-function wb_draw_point($source, $xpos, $ypos, $color)
-{
-    return ''|0|null;
-}
+function wb_draw_point($source, $xpos, $ypos, $color) {}
 
 /**
  * Draws a straight line. The first parameter, target, may be a WinBinder object, a window handle, a drawing surface or a bitmap.
@@ -609,10 +552,7 @@ function wb_draw_point($source, $xpos, $ypos, $color)
  *
  * @return bool
  */
-function wb_draw_line($target, $x0, $y0, $x1, $y1, $color, $linewidth = null, $linestyle = null)
-{
-    return ''|0|null;
-}
+function wb_draw_line($target, $x0, $y0, $x1, $y1, $color, $linewidth = null, $linestyle = null) {}
 
 /**
  * Draws a filled or hollow rectangle.
@@ -637,10 +577,7 @@ function wb_draw_line($target, $x0, $y0, $x1, $y1, $color, $linewidth = null, $l
  *
  * @return bool
  */
-function wb_draw_rect($target, $xpos, $ypos, $width, $height, $color, $filled = null, $linewidth = null, $linestyle = null)
-{
-    return ''|0|null;
-}
+function wb_draw_rect($target, $xpos, $ypos, $width, $height, $color, $filled = null, $linewidth = null, $linestyle = null) {}
 
 /**
  * Draws a filled or hollow rectangle.
@@ -665,10 +602,7 @@ function wb_draw_rect($target, $xpos, $ypos, $width, $height, $color, $filled = 
  *
  * @return bool
  */
-function wb_draw_ellipse($target, $xpos, $ypos, $width, $height, $color, $filled = null, $linewidth = null, $linestyle = null)
-{
-    return ''|0|null;
-}
+function wb_draw_ellipse($target, $xpos, $ypos, $width, $height, $color, $filled = null, $linewidth = null, $linestyle = null) {}
 
 /**
  * Draws a string. The first parameter, target, may be a WinBinder object, a window handle, a drawing surface or a bitmap.
@@ -693,10 +627,7 @@ function wb_draw_ellipse($target, $xpos, $ypos, $width, $height, $color, $filled
  *
  * @return int
  */
-function wb_draw_text($target, $text, $xpos, $ypos, $width = null, $height = null, $font = null, $flags = null)
-{
-    return ''|0|null;
-}
+function wb_draw_text($target, $text, $xpos, $ypos, $width = null, $height = null, $font = null, $flags = null) {}
 
 /**
  * Draws a bitmap. The first parameter, target, may be a WinBinder object, a window handle, a drawing surface or another bitmap.
@@ -722,10 +653,7 @@ function wb_draw_text($target, $text, $xpos, $ypos, $width = null, $height = nul
  *
  * @return bool
  */
-function wb_draw_image($target, $bitmap, $xpos = 0, $ypos = 0, $width = null, $height = null, $transparentcolor = null, $xoffset = null, $yoffset = null)
-{
-    return ''|0|null;
-}
+function wb_draw_image($target, $bitmap, $xpos = 0, $ypos = 0, $width = null, $height = null, $transparentcolor = null, $xoffset = null, $yoffset = null) {}
 
 /**
  * Destroys a control created by wb_create_control().
@@ -739,10 +667,7 @@ function wb_draw_image($target, $bitmap, $xpos = 0, $ypos = 0, $width = null, $h
  *
  * @return bool
  */
-function wb_destroy_control($control)
-{
-    return ''|0|null;
-}
+function wb_destroy_control($control) {}
 
 /**
  * Retrieves the value of a control or control item. The item and subitem parameters are set to -1 if absent.
@@ -753,10 +678,7 @@ function wb_destroy_control($control)
  *
  * @return mixed
  */
-function wb_get_value($wbobject, $item = -1, $subitem = -1)
-{
-    return ''|0|null;
-}
+function wb_get_value($wbobject, $item = -1, $subitem = -1) {}
 
 /**
  * Refreshes or redraws the WinBinder object wbobject, forcing an immediate redraw if the parameter now is TRUE (the default).
@@ -775,10 +697,7 @@ function wb_get_value($wbobject, $item = -1, $subitem = -1)
  *
  * @return int
  */
-function wb_refresh($wbobject, $now = null, $xpos = null, $ypos = null, $width = null, $height = null)
-{
-    return ''|0|null;
-}
+function wb_refresh($wbobject, $now = null, $xpos = null, $ypos = null, $width = null, $height = null) {}
 
 /**
  * Enables or disables control according to the value of enabled.
@@ -790,10 +709,7 @@ function wb_refresh($wbobject, $now = null, $xpos = null, $ypos = null, $width =
  *
  * @return bool
  */
-function wb_set_enabled($control, $enabled)
-{
-    return ''|0|null;
-}
+function wb_set_enabled($control, $enabled) {}
 
 /**
  * Assigns the image source to the WinBinder object wbobject.
@@ -817,10 +733,7 @@ function wb_set_enabled($control, $enabled)
  *
  * @return bool
  */
-function wb_set_image($wbobject, $source, $transparentcolor = null, $index = null, $param = null)
-{
-    return ''|0|null;
-}
+function wb_set_image($wbobject, $source, $transparentcolor = null, $index = null, $param = null) {}
 
 /**
  * Retrieves a portion of the image already assigned to a control and assigns it to a item (and optional subitem).
@@ -835,10 +748,7 @@ function wb_set_image($wbobject, $source, $transparentcolor = null, $index = nul
  *
  * @return bool
  */
-function wb_set_item_image($wbobject, $index, $item = null, $subitem = null)
-{
-    return ''|0|null;
-}
+function wb_set_item_image($wbobject, $index, $item = null, $subitem = null) {}
 
 /**
  * Deletes an item, a range of items, or all items from a control. Returns TRUE on success or FALSE if an error occurs.
@@ -857,10 +767,7 @@ function wb_set_item_image($wbobject, $index, $item = null, $subitem = null)
  *
  * @return bool
  */
-function wb_delete_items($ctrl, $items = null)
-{
-    return ''|0|null;
-}
+function wb_delete_items($ctrl, $items = null) {}
 
 /**
  * Returns an integer that corresponds to the class of the object (control, window or menu) passed as the parameter.
@@ -870,10 +777,7 @@ function wb_delete_items($ctrl, $items = null)
  *
  * @return int
  */
-function wb_get_class($wbobject)
-{
-    return ''|0|null;
-}
+function wb_get_class($wbobject) {}
 
 /**
  * Returns an integer handle that corresponds to the WinBinder object (control, toolbar item or menu item) wbobject that has the supplied identifier id.
@@ -884,10 +788,7 @@ function wb_get_class($wbobject)
  *
  * @return int
  */
-function wb_get_control($wbobject, $id)
-{
-    return ''|0|null;
-}
+function wb_get_control($wbobject, $id) {}
 
 /**
  * Returns TRUE if wbobject is enabled or FALSE otherwise.
@@ -896,20 +797,14 @@ function wb_get_control($wbobject, $id)
  *
  * @return bool
  */
-function wb_get_enabled($wbobject)
-{
-    return ''|0|null;
-}
+function wb_get_enabled($wbobject) {}
 
 /**
  * Returns a handle to the window or control that has the keyboard focus.
  *
  * @return int
  */
-function wb_get_focus()
-{
-    return ''|0|null;
-}
+function wb_get_focus() {}
 
 /**
  * Returns the integer identifier of the wbobject control.
@@ -918,10 +813,7 @@ function wb_get_focus()
  *
  * @return int
  */
-function wb_get_id($wbobject)
-{
-    return ''|0|null;
-}
+function wb_get_id($wbobject) {}
 
 /**
  * Returns the number of items of wbobject.
@@ -934,10 +826,7 @@ function wb_get_id($wbobject)
  *
  * @return int
  */
-function wb_get_item_count($wbobject)
-{
-    return ''|0|null;
-}
+function wb_get_item_count($wbobject) {}
 
 /**
  * Returns the handle of the control parent if item specifies a control, or the node parent if item specifies a treeview node.
@@ -947,10 +836,7 @@ function wb_get_item_count($wbobject)
  *
  * @return int
  */
-function wb_get_parent($wbobject, $item = null)
-{
-    return ''|0|null;
-}
+function wb_get_parent($wbobject, $item = null) {}
 
 /**
  * Returns a value or array with the indices or identifiers of the selected elements or items in wbobject.
@@ -969,10 +855,7 @@ function wb_get_parent($wbobject, $item = null)
  *
  * @return mixed
  */
-function wb_get_selected($wbobject)
-{
-    return ''|0|null;
-}
+function wb_get_selected($wbobject) {}
 
 /**
  * Retrieves an integer representing the current state of a control item.
@@ -986,10 +869,7 @@ function wb_get_selected($wbobject)
  *
  * @return bool
  */
-function wb_get_state($wbobject, $item = null)
-{
-    return ''|0|null;
-}
+function wb_get_state($wbobject, $item = null) {}
 
 /**
  * Tells whether an object is visible. Returns TRUE if wbobject is visible and FALSE otherwise.
@@ -998,10 +878,7 @@ function wb_get_state($wbobject, $item = null)
  *
  * @return bool
  */
-function wb_get_visible($wbobject)
-{
-    return ''|0|null;
-}
+function wb_get_visible($wbobject) {}
 
 /**
  * Set or change the mouse cursor shape of a window, control, a whole class or application-wide. *
@@ -1015,10 +892,7 @@ function wb_get_visible($wbobject)
  *
  * @return bool
  */
-function wb_set_cursor($wbobject, $source)
-{
-    return ''|0|null;
-}
+function wb_set_cursor($wbobject, $source) {}
 
 /**
  * Assigns the keyboard focus to wbobject. Returns TRUE on success or FALSE if an error occurs.
@@ -1027,10 +901,7 @@ function wb_set_cursor($wbobject, $source)
  *
  * @return bool
  */
-function wb_set_focus($wbobject)
-{
-    return ''|0|null;
-}
+function wb_set_focus($wbobject) {}
 
 /**
  * Assigns the callback function fn_handler to window.
@@ -1047,10 +918,7 @@ function wb_set_focus($wbobject)
  *
  * @return bool|null
  */
-function wb_set_handler($window, $fn_handler)
-{
-    return ''|0|null;
-}
+function wb_set_handler($window, $fn_handler) {}
 
 /**
  * Sets the location of an HTMLControl or sends a special command to it.
@@ -1069,10 +937,7 @@ function wb_set_handler($window, $fn_handler)
  *
  * @return bool
  */
-function wb_set_location($wbobject, $location)
-{
-    return ''|0|null;
-}
+function wb_set_location($wbobject, $location) {}
 
 /**
  * Sets the valid range of values (vmin and vmax) of a control. Valid classes are Gauge, ScrollBar, Slider and Spinner.
@@ -1085,10 +950,7 @@ function wb_set_location($wbobject, $location)
  *
  * @return bool
  */
-function wb_set_range($control, $vmin, $vmax)
-{
-    return ''|0|null;
-}
+function wb_set_range($control, $vmin, $vmax) {}
 
 /**
  * Sets the state of a control item (a treeview node). Returns TRUE on success or FALSE if an error occurs.
@@ -1103,10 +965,7 @@ function wb_set_range($control, $vmin, $vmax)
  *
  * @return bool
  */
-function wb_set_state($wbobject, $item, $state)
-{
-    return ''|0|null;
-}
+function wb_set_state($wbobject, $item, $state) {}
 
 /**
  * Sets or resets one or more styles of the WinBinder object wbobject.
@@ -1128,10 +987,7 @@ function wb_set_state($wbobject, $item, $state)
  *
  * @return bool
  */
-function wb_set_style($wbobject, $style, $set)
-{
-    return ''|0|null;
-}
+function wb_set_style($wbobject, $style, $set) {}
 
 /**
  * Shows or hides the WinBinder object wbobject according to the value of visible.
@@ -1143,10 +999,7 @@ function wb_set_style($wbobject, $style, $set)
  *
  * @return bool
  */
-function wb_set_visible($wbobject, $visible)
-{
-    return ''|0|null;
-}
+function wb_set_visible($wbobject, $visible) {}
 
 /**
  * Sorts the contents of a control, a control item, a ListView column or a sub-item.
@@ -1168,10 +1021,7 @@ function wb_set_visible($wbobject, $visible)
  *
  * @return bool
  */
-function wb_sort($control, $ascending = null, $subitem = null)
-{
-    return ''|0|null;
-}
+function wb_sort($control, $ascending = null, $subitem = null) {}
 
 /**
  * Retrieves an integer representing the level of a control item.
@@ -1184,10 +1034,7 @@ function wb_sort($control, $ascending = null, $subitem = null)
  *
  * @return int
  */
-function wb_get_level($wbobject, $item)
-{
-    return ''|0|null;
-}
+function wb_get_level($wbobject, $item) {}
 
 /**
  * Creates a new font. name is the font name, height is its height in points (not pixels), and color is a RGB color value. flags can be a combination of the following values:.
@@ -1214,10 +1061,7 @@ function wb_get_level($wbobject, $item)
  *
  * @return int
  */
-function wb_create_font($name, $height, $color = null, $flags = null)
-{
-    return ''|0|null;
-}
+function wb_create_font($name, $height, $color = null, $flags = null) {}
 
 /**
  * Destroys a font.
@@ -1226,10 +1070,7 @@ function wb_create_font($name, $height, $color = null, $flags = null)
  *
  * @return bool
  */
-function wb_destroy_font($nfont)
-{
-    return ''|0|null;
-}
+function wb_destroy_font($nfont) {}
 
 /**
  * Sets the font of control. font is a unique integer value returned by wb_create_font().
@@ -1247,10 +1088,7 @@ function wb_destroy_font($nfont)
  *
  * @return bool
  */
-function wb_set_font($control, $font = null, $redraw = null)
-{
-    return ''|0|null;
-}
+function wb_set_font($control, $font = null, $redraw = null) {}
 
 /**
  * Returns the address (as an integer pointer) of the variable var.
@@ -1261,10 +1099,7 @@ function wb_set_font($control, $font = null, $redraw = null)
  *
  * @return int
  */
-function wb_get_address($var)
-{
-    return ''|0|null;
-}
+function wb_get_address($var) {}
 
 /**
  * Sends a Windows message to the HWND handle of the WinBinder object wbobject.
@@ -1284,10 +1119,7 @@ function wb_get_address($var)
  *
  * @return int
  */
-function wb_send_message($wbobject, $message, $wparam = 0, $lparam = 0)
-{
-    return ''|0|null;
-}
+function wb_send_message($wbobject, $message, $wparam = 0, $lparam = 0) {}
 
 /**
  * Gets the contents of a memory area pointed by address.
@@ -1299,10 +1131,7 @@ function wb_send_message($wbobject, $message, $wparam = 0, $lparam = 0)
  *
  * @return string
  */
-function wb_peek($address, $length = 0)
-{
-    return ''|0|null;
-}
+function wb_peek($address, $length = 0) {}
 
 /**
  * Sets the contents of a memory area pointed by address.
@@ -1313,10 +1142,7 @@ function wb_peek($address, $length = 0)
  *
  * @return bool
  */
-function wb_poke($address, $contents, $length = null)
-{
-    return ''|0|null;
-}
+function wb_poke($address, $contents, $length = null) {}
 
 /**
  * Loads a DLL into memory. Returns an integer identifying libname. If libname is NULL then returns the identifier of the last library returned. The function accepts fully qualified and raw names. Returns NULL if no library was found.
@@ -1346,10 +1172,7 @@ function wb_poke($address, $contents, $length = null)
  *
  * @return int
  */
-function wb_load_library($libname)
-{
-    return ''|0|null;
-}
+function wb_load_library($libname) {}
 
 /**
  * Releases the DLL identified by idlib from memory. The idlib identifier must have been obtained with a call to wb_load_library().
@@ -1360,10 +1183,7 @@ function wb_load_library($libname)
  *
  * @return bool
  */
-function wb_release_library($idlib)
-{
-    return ''|0|null;
-}
+function wb_release_library($idlib) {}
 
 /**
  * Returns the address of a library function. fname is the function name and idlib identifies a library already loaded.
@@ -1396,10 +1216,7 @@ function wb_release_library($idlib)
  *
  * @return int
  */
-function wb_get_function_address($fname, $idlib)
-{
-    return ''|0|null;
-}
+function wb_get_function_address($fname, $idlib) {}
 
 /**
  * Calls the DLL function pointed by address.
@@ -1413,10 +1230,7 @@ function wb_get_function_address($fname, $idlib)
  *
  * @return int
  */
-function wb_call_function($address, $args = [])
-{
-    return ''|0|null;
-}
+function wb_call_function($address, $args = []) {}
 
 /**
  * returns a pointer to MidiOutProc (can also be used for MidiInProc, WaveInProc, WaveOutProc
@@ -1424,29 +1238,20 @@ function wb_call_function($address, $args = [])
  *
  * @return int
  */
-function wb_get_midi_callback()
-{
-    return ''|0|null;
-}
+function wb_get_midi_callback() {}
 
 /**
  * Enumerate windows, i think: https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-enumwindows
  *
  * @return int
  */
-function wb_get_enum_callback()
-{
-    return ''|0|null;
-}
+function wb_get_enum_callback() {}
 
 /**
  * Unused, i think its https://docs.microsoft.com/en-us/windows/win32/api/winuser/nc-winuser-hookproc
  * @return int
  */
-function wb_get_hook_callback()
-{
-    return ''|0|null;
-}
+function wb_get_hook_callback() {}
 
 /**
  * Destroys a window created by wb_create_window().
@@ -1457,10 +1262,7 @@ function wb_get_hook_callback()
  *
  * @return bool
  */
-function wb_destroy_window($window)
-{
-    return ''|0|null;
-}
+function wb_destroy_window($window) {}
 
 /**
  * Gets the dimensions of a control, window, image or string.
@@ -1492,10 +1294,7 @@ function wb_destroy_window($window)
  * @param null $param
  * @return array
  */
-function wb_get_size($object, $param = null)
-{
-    return [];
-}
+function wb_get_size($object, $param = null) {}
 
 /**
  * Sizes the object wbobject to width and height pixels.
@@ -1514,10 +1313,7 @@ function wb_get_size($object, $param = null)
  *
  * @return bool
  */
-function wb_set_size($wbobject, $width, $height = null)
-{
-    return ''|0|null;
-}
+function wb_set_size($wbobject, $width, $height = null) {}
 
 /**
  * Moves the object wbobject to the coordinates xpos, ypos in relation to its parent window.
@@ -1531,10 +1327,7 @@ function wb_set_size($wbobject, $width, $height = null)
  *
  * @return bool
  */
-function wb_set_position($wbobject, $xpos = null, $ypos = null)
-{
-    return ''|0|null;
-}
+function wb_set_position($wbobject, $xpos = null, $ypos = null) {}
 
 /**
  * Returns an array with the position of the control or window related to its parent, in pixels.
@@ -1548,10 +1341,7 @@ function wb_set_position($wbobject, $xpos = null, $ypos = null)
  *
  * @return array
  */
-function wb_get_position($wbobject, $clientarea = null)
-{
-    return [];
-}
+function wb_get_position($wbobject, $clientarea = null) {}
 
 /**
  * Creates a window of class wclass. Click here for a list of the available window classes.
@@ -1579,10 +1369,7 @@ function wb_get_position($wbobject, $clientarea = null)
  *
  * @return int
  */
-function wb_create_window($parent, $wclass, $caption = null, $xpos = null, $ypos = null, $width = null, $height = null, $style = null, $param = null)
-{
-    return ''|0|null;
-}
+function wb_create_window($parent, $wclass, $caption = null, $xpos = null, $ypos = null, $width = null, $height = null, $style = null, $param = null) {}
 
 /**
  * Detects a running instance of a WinBinder application.
@@ -1604,10 +1391,7 @@ function wb_create_window($parent, $wclass, $caption = null, $xpos = null, $ypos
  *
  * @return bool
  */
-function wb_get_instance($caption, $bringtofront = null)
-{
-    return ''|0|null;
-}
+function wb_get_instance($caption, $bringtofront = null) {}
 
 /**
  * Returns an array with a list of the child controls in window or control wbobject. Each element is an integer identifier that represents a WinBinder object.
@@ -1616,10 +1400,7 @@ function wb_get_instance($caption, $bringtofront = null)
  *
  * @return array
  */
-function wb_get_item_list($wbobject)
-{
-    return [];
-}
+function wb_get_item_list($wbobject) {}
 
 /**
  * Sets a specific area in a window. Possible values for type are:.
@@ -1645,10 +1426,7 @@ function wb_get_item_list($wbobject)
  *
  * @return bool
  */
-function wb_set_area($window, $type, $x = null, $y = null, $width = null, $height = null)
-{
-    return ''|0|null;
-}
+function wb_set_area($window, $type, $x = null, $y = null, $width = null, $height = null) {}
 
 /**
  * Displays the standard Select Path dialog box. Returns the name of the selected path, if any, or a blank string if the dialog box was canceled. Returns NULL if not successful.
@@ -1665,10 +1443,7 @@ function wb_set_area($window, $type, $x = null, $y = null, $width = null, $heigh
  *
  * @return string
  */
-function wb_sys_dlg_path($parent, $title = null, $path = null)
-{
-    return ''|0|null;
-}
+function wb_sys_dlg_path($parent, $title = null, $path = null) {}
 
 /**
  * Displays the standard Select Color dialog box. Returns a RGB value which is the selected color value or NOCOLOR if the dialog box was canceled. Returns NULL if not successful.
@@ -1685,10 +1460,7 @@ function wb_sys_dlg_path($parent, $title = null, $path = null)
  *
  * @return int
  */
-function wb_sys_dlg_color($parent, $title = null, $color = null)
-{
-    return ''|0|null;
-}
+function wb_sys_dlg_color($parent, $title = null, $color = null) {}
 
 /**
  * @param $parent
@@ -1696,10 +1468,7 @@ function wb_sys_dlg_color($parent, $title = null, $color = null)
  *
  * @return int
  */
-function wbtemp_set_accel_table($parent, $accels)
-{
-    return ''|0|null;
-}
+function wbtemp_set_accel_table($parent, $accels) {}
 
 /**
  * @param $parent
@@ -1716,10 +1485,7 @@ function wbtemp_set_accel_table($parent, $accels)
  *
  * @return int
  */
-function wbtemp_create_control($parent, $class, $caption, $xpos, $ypos, $width, $height, $id, $style, $lparam, $ntab)
-{
-    return ''|0|null;
-}
+function wbtemp_create_control($parent, $class, $caption, $xpos, $ypos, $width, $height, $id, $style, $lparam, $ntab) {}
 
 /**
  * @param $ctrl
@@ -1727,10 +1493,7 @@ function wbtemp_create_control($parent, $class, $caption, $xpos, $ypos, $width, 
  *
  * @return int
  */
-function wbtemp_create_item($ctrl, $str)
-{
-    return ''|0|null;
-}
+function wbtemp_create_item($ctrl, $str) {}
 
 /**
  * @param $ctrl
@@ -1740,10 +1503,7 @@ function wbtemp_create_item($ctrl, $str)
  *
  * @return int
  */
-function wbtemp_create_statusbar_items($ctrl, $items, $clear, $param)
-{
-    return ''|0|null;
-}
+function wbtemp_create_statusbar_items($ctrl, $items, $clear, $param) {}
 
 /**
  * @param $ctrl
@@ -1751,10 +1511,7 @@ function wbtemp_create_statusbar_items($ctrl, $items, $clear, $param)
  *
  * @return int
  */
-function wbtemp_get_text($ctrl, $item = null)
-{
-    return ''|0|null;
-}
+function wbtemp_get_text($ctrl, $item = null) {}
 
 /**
  * @param $ctrl
@@ -1763,10 +1520,7 @@ function wbtemp_get_text($ctrl, $item = null)
  *
  * @return int
  */
-function wbtemp_set_text($ctrl, $text, $item)
-{
-    return ''|0|null;
-}
+function wbtemp_set_text($ctrl, $text, $item) {}
 
 /**
  * @param $ctrl
@@ -1774,10 +1528,7 @@ function wbtemp_set_text($ctrl, $text, $item)
  *
  * @return int
  */
-function wbtemp_select_tab($ctrl, $selitems)
-{
-    return ''|0|null;
-}
+function wbtemp_select_tab($ctrl, $selitems) {}
 
 /**
  * @param $ctrl
@@ -1786,10 +1537,7 @@ function wbtemp_select_tab($ctrl, $selitems)
  *
  * @return int
  */
-function wbtemp_set_value($ctrl, $value, $item = null)
-{
-    return ''|0|null;
-}
+function wbtemp_set_value($ctrl, $value, $item = null) {}
 
 /**
  * @param $ctrl
@@ -1799,10 +1547,7 @@ function wbtemp_set_value($ctrl, $value, $item = null)
  *
  * @return int
  */
-function wbtemp_create_listview_item($ctrl, $item, $image, $value)
-{
-    return ''|0|null;
-}
+function wbtemp_create_listview_item($ctrl, $item, $image, $value) {}
 
 /**
  * @param $ctrl
@@ -1811,10 +1556,7 @@ function wbtemp_create_listview_item($ctrl, $item, $image, $value)
  *
  * @return int
  */
-function wbtemp_set_listview_item_checked($ctrl, $index, $value)
-{
-    return ''|0|null;
-}
+function wbtemp_set_listview_item_checked($ctrl, $index, $value) {}
 
 /**
  * Return TRUE if the item's checkbox is checked
@@ -1822,10 +1564,7 @@ function wbtemp_set_listview_item_checked($ctrl, $index, $value)
  * @param $item
  * @return bool
  */
-function wbtemp_get_listview_item_checked($ctrl, $item)
-{
-    return ''|0|null;
-}
+function wbtemp_get_listview_item_checked($ctrl, $item) {}
 
 /**
  * @param $ctrl
@@ -1835,10 +1574,7 @@ function wbtemp_get_listview_item_checked($ctrl, $item)
  *
  * @return int
  */
-function wbtemp_set_listview_item_text($ctrl, $item, $subitem, $text)
-{
-    return ''|0|null;
-}
+function wbtemp_set_listview_item_text($ctrl, $item, $subitem, $text) {}
 
 /**
  * @param $ctrl
@@ -1846,10 +1582,7 @@ function wbtemp_set_listview_item_text($ctrl, $item, $subitem, $text)
  *
  * @return mixed
  */
-function wbtemp_get_listview_text($ctrl, $item)
-{
-    return ''|0|null|[];
-}
+function wbtemp_get_listview_text($ctrl, $item) {}
 
 /**
  * Get the number of columns in the pwbo control,
@@ -1858,10 +1591,7 @@ function wbtemp_get_listview_text($ctrl, $item)
  *
  * @return int
  */
-function wbtemp_get_listview_columns($ctrl)
-{
-    return ''|0|null;
-}
+function wbtemp_get_listview_columns($ctrl) {}
 
 /**
  * @param $ctrl
@@ -1872,20 +1602,14 @@ function wbtemp_get_listview_columns($ctrl)
  *
  * @return int
  */
-function wbtemp_create_listview_column($ctrl, $i, $text, $width, $align)
-{
-    return ''|0|null;
-}
+function wbtemp_create_listview_column($ctrl, $i, $text, $width, $align) {}
 
 /**
  * @param $ctrl
  *
  * @return int
  */
-function wbtemp_clear_listview_columns($ctrl)
-{
-    return ''|0|null;
-}
+function wbtemp_clear_listview_columns($ctrl) {}
 
 /**
  * @param $ctrl
@@ -1894,10 +1618,7 @@ function wbtemp_clear_listview_columns($ctrl)
  *
  * @return int
  */
-function wbtemp_select_listview_item($ctrl, $item, $selected)
-{
-    return ''|0|null;
-}
+function wbtemp_select_listview_item($ctrl, $item, $selected) {}
 
 /**
  * @param $ctrl
@@ -1905,10 +1626,7 @@ function wbtemp_select_listview_item($ctrl, $item, $selected)
  *
  * @return int
  */
-function wbtemp_select_all_listview_items($ctrl, $bool)
-{
-    return ''|0|null;
-}
+function wbtemp_select_all_listview_items($ctrl, $bool) {}
 
 /**
  * @param $parent
@@ -1916,10 +1634,7 @@ function wbtemp_select_all_listview_items($ctrl, $bool)
  *
  * @return int
  */
-function wbtemp_create_menu($parent, $caption)
-{
-    return ''|0|null;
-}
+function wbtemp_create_menu($parent, $caption) {}
 
 /**
  * @param $ctrl
@@ -1927,10 +1642,7 @@ function wbtemp_create_menu($parent, $caption)
  *
  * @return int
  */
-function wbtemp_get_menu_item_checked($ctrl, $item)
-{
-    return ''|0|null;
-}
+function wbtemp_get_menu_item_checked($ctrl, $item) {}
 
 /**
  * @param $ctrl
@@ -1939,10 +1651,7 @@ function wbtemp_get_menu_item_checked($ctrl, $item)
  *
  * @return int
  */
-function wbtemp_set_menu_item_checked($ctrl, $selitems, $selected)
-{
-    return ''|0|null;
-}
+function wbtemp_set_menu_item_checked($ctrl, $selitems, $selected) {}
 
 /**
  * @param $ctrl
@@ -1951,10 +1660,7 @@ function wbtemp_set_menu_item_checked($ctrl, $selitems, $selected)
  *
  * @return int
  */
-function wbtemp_set_menu_item_selected($ctrl, $item, $selected)
-{
-    return ''|0|null;
-}
+function wbtemp_set_menu_item_selected($ctrl, $item, $selected) {}
 
 /**
  * @param $ctrl
@@ -1963,10 +1669,7 @@ function wbtemp_set_menu_item_selected($ctrl, $item, $selected)
  *
  * @return int
  */
-function wbtemp_set_menu_item_image($ctrl, $item, $imageHandle)
-{
-    return ''|0|null;
-}
+function wbtemp_set_menu_item_image($ctrl, $item, $imageHandle) {}
 
 /**
  * @param $parent
@@ -1977,10 +1680,7 @@ function wbtemp_set_menu_item_image($ctrl, $item, $imageHandle)
  *
  * @return int
  */
-function wbtemp_create_toolbar($parent, $caption, $width, $height, $lparam)
-{
-    return ''|0|null;
-}
+function wbtemp_create_toolbar($parent, $caption, $width, $height, $lparam) {}
 
 /**
  * @param $ctrl
@@ -1993,10 +1693,7 @@ function wbtemp_create_toolbar($parent, $caption, $width, $height, $lparam)
  *
  * @return int
  */
-function wbtemp_create_treeview_item($ctrl, $name, $value, $where = 0, $image_index = 0, $selected_image = 0, $selected_image_index = 0)
-{
-    return ''|0|null;
-}
+function wbtemp_create_treeview_item($ctrl, $name, $value, $where = 0, $image_index = 0, $selected_image = 0, $selected_image_index = 0) {}
 
 /**
  * @param $ctrl
@@ -2004,10 +1701,7 @@ function wbtemp_create_treeview_item($ctrl, $name, $value, $where = 0, $image_in
  *
  * @return int
  */
-function wbtemp_set_treeview_item_selected($ctrl, $selitems)
-{
-    return ''|0|null;
-}
+function wbtemp_set_treeview_item_selected($ctrl, $selitems) {}
 
 /**
  * @param $ctrl
@@ -2016,10 +1710,7 @@ function wbtemp_set_treeview_item_selected($ctrl, $selitems)
  *
  * @return bool
  */
-function wbtemp_set_treeview_item_text($ctrl, $item, $text)
-{
-    return ''|0|null;
-}
+function wbtemp_set_treeview_item_text($ctrl, $item, $text) {}
 
 /**
  * @param $ctrl
@@ -2028,10 +1719,7 @@ function wbtemp_set_treeview_item_text($ctrl, $item, $text)
  *
  * @return int
  */
-function wbtemp_set_treeview_item_value($ctrl, $item, $value)
-{
-    return ''|0|null;
-}
+function wbtemp_set_treeview_item_value($ctrl, $item, $value) {}
 
 /**
  * @param $ctrl
@@ -2039,10 +1727,7 @@ function wbtemp_set_treeview_item_value($ctrl, $item, $value)
  *
  * @return int
  */
-function wbtemp_get_treeview_item_text($ctrl, $item)
-{
-    return ''|0|null;
-}
+function wbtemp_get_treeview_item_text($ctrl, $item) {}
 
 /**
  * @param $parent
@@ -2053,10 +1738,7 @@ function wbtemp_get_treeview_item_text($ctrl, $item)
  *
  * @return int
  */
-function wbtemp_sys_dlg_open($parent, $title = null, $filter = null, $path = null, $flags = null)
-{
-    return ''|0|null;
-}
+function wbtemp_sys_dlg_open($parent, $title = null, $filter = null, $path = null, $flags = null) {}
 
 /**
  * @param $wbObj
@@ -2068,7 +1750,4 @@ function wbtemp_sys_dlg_open($parent, $title = null, $filter = null, $path = nul
  *
  * @return int
  */
-function wbtemp_sys_dlg_save($wbObj, $title = '', $filter = '', $path = '', $filename = '', $defext = '')
-{
-    return ''|0|null;
-}
+function wbtemp_sys_dlg_save($wbObj, $title = '', $filter = '', $path = '', $filename = '', $defext = '') {}
