@@ -175,7 +175,7 @@
  * </p>
  * @return resource|false a resource on success, or false on error.
  */
-function ssh2_connect($host, $port = null, ?array $methods = null, ?array $callbacks = null) {}
+function ssh2_connect($host, $port = 22, ?array $methods = null, ?array $callbacks = null) {}
 
 /**
  * (PECL ssh2 &gt;= 1.0)<br/>
