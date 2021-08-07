@@ -774,10 +774,11 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return DOMElement|false A new instance of class DOMElement or false
      * if an error occurred.
+     * @throws DOMException If invalid $localName
      */
     public function createElement(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value = ''
     ) {}
 
     /**
@@ -840,6 +841,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * The name of the attribute.
      * </p>
      * @return DOMAttr|false The new DOMAttr or false if an error occurred.
+     * @throws DOMException If invalid $localName
      */
     public function createAttribute(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName) {}
 
@@ -888,7 +890,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
     /**
      * Create new element node with an associated namespace
      * @link https://php.net/manual/en/domdocument.createelementns.php
-     * @param string $namespace <p>
+     * @param string|null $namespace <p>
      * The URI of the namespace.
      * </p>
      * @param string $qualifiedName <p>
@@ -899,23 +901,25 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * You can also set the value later with DOMElement->nodeValue.
      * </p>
      * @return DOMElement|false The new DOMElement or false if an error occurred.
+     * @throws DOMException If invalid $namespace or $qualifiedName
      */
     public function createElementNS(
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value = ''
     ) {}
 
     /**
      * Create new attribute node with an associated namespace
      * @link https://php.net/manual/en/domdocument.createattributens.php
-     * @param string $namespace <p>
+     * @param string|null $namespace <p>
      * The URI of the namespace.
      * </p>
      * @param string $qualifiedName <p>
      * The tag name and prefix of the attribute, as prefix:tagname.
      * </p>
      * @return DOMAttr|false The new DOMAttr or false if an error occurred.
+     * @throws DOMException If invalid $namespace or $qualifiedName
      */
     public function createAttributeNS(
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
@@ -1885,7 +1889,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * @link https://php.net/manual/en/domelement.construct.php
      * @param string $qualifiedName The tag name of the element. When also passing in namespaceURI, the element name may take a prefix to be associated with the URI.
      * @param string|null $value [optional] The value of the element.
-     * @param string|null $namespace  [optional] A namespace URI to create the element within a specific namespace.
+     * @param string $namespace [optional] A namespace URI to create the element within a specific namespace.
      * @throws DOMException If invalid $qualifiedName
      */
     public function __construct(
