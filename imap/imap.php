@@ -1541,6 +1541,9 @@ function imap_mutf7_to_utf8(string $string): string|false {}
  */
 function imap_utf8_to_mutf7(string $string): string|false {}
 
+/**
+ * @deprecated 8.1
+ */
 define('NIL', 0);
 define('IMAP_OPENTIMEOUT', 1);
 define('IMAP_READTIMEOUT', 2);

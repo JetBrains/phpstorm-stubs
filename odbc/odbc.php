@@ -516,6 +516,7 @@ function odbc_result($result_id, $field) {}
  * Additional overall table formatting.
  * </p>
  * @return int|false the number of rows in the result or <b>FALSE</b> on error.
+ * @deprecated 8.1
  */
 function odbc_result_all($result_id, $format = null) {}
 

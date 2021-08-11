@@ -785,6 +785,7 @@ function checkdate(int $month, int $day, int $year): bool {}
  * local time if no timestamp is given. Month and weekday names and
  * other language-dependent strings respect the current locale set
  * with setlocale.
+ * @deprecated 8.1
  */
 function strftime(string $format, ?int $timestamp): string|false {}
 
@@ -800,6 +801,7 @@ function strftime(string $format, ?int $timestamp): string|false {}
  * local time if no timestamp is given. Month and weekday names and
  * other language dependent strings respect the current locale set
  * with setlocale.
+ * @deprecated 8.1
  */
 function gmstrftime(string $format, ?int $timestamp): string|false {}
 
@@ -1408,6 +1410,7 @@ function date_default_timezone_get(): string {}
  * @param float|null $utcOffset [optional]
  * @return string|int|float|false the sunrise time in a specified format on
  * success or false on failure.
+ * @deprecated 8.1
  */
 #[Pure]
 function date_sunrise(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, ?float $utcOffset): string|int|float|false {}
@@ -1458,6 +1461,7 @@ function date_sunrise(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?
  * @param float|null $utcOffset [optional]
  * @return string|int|float|false the sunset time in a specified format on
  * success or false on failure.
+ * @deprecated 8.1
  */
 #[Pure]
 function date_sunset(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, ?float $utcOffset): string|int|float|false {}

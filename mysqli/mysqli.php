@@ -347,6 +347,7 @@ class mysqli
      * Initializes MySQLi and returns a resource for use with mysqli_real_connect()
      * @link https://php.net/manual/en/mysqli.init.php
      * @return mysqli an object.
+     * @deprecated 8.1
      */
     public function init() {}
 

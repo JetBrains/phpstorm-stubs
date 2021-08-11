@@ -1144,7 +1144,7 @@ function imagefill(GdImage $image, int $x, int $y, int $color): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagefilledpolygon(GdImage $image, array $points, int $num_points_or_color, ?int $color = null): bool {}
+function imagefilledpolygon(GdImage $image, array $points, #[Deprecated(since: "8.1")] int $num_points_or_color, ?int $color = null): bool {}
 
 /**
  * Draw a filled rectangle
@@ -2224,7 +2224,7 @@ function imagegetclip(GdImage $image): array {}
  * @since 7.2
  * @see imageplygon()
  */
-function imageopenpolygon(GdImage $image, array $points, int $num_points_or_color, ?int $color = null): bool {}
+function imageopenpolygon(GdImage $image, array $points, #[Deprecated(since: "8.1")] int $num_points_or_color, ?int $color = null): bool {}
 
 /**
  * <b>imagecreatefrombmp()</b> returns an image identifier representing the image obtained from the given filename.

@@ -618,6 +618,7 @@ define('FILE_NO_DEFAULT_CONTEXT', 16);
  * </p>
  * @since 5.2.7
  * @link https://php.net/manual/en/filesystem.constants.php
+ * @deprecated 8.1
  */
 define('FILE_TEXT', 0);
 
@@ -628,6 +629,7 @@ define('FILE_TEXT', 0);
  * </p>
  * @since 5.2.7
  * @link https://php.net/manual/en/filesystem.constants.php
+ * @deprecated 8.1
  */
 define('FILE_BINARY', 0);
 

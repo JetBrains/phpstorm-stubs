@@ -264,6 +264,7 @@ function time_sleep_until(float $timestamp): bool {}
  * </tr>
  * </table>
  * </p>
+ * @deprecated 8.1
  */
 #[Pure]
 function strptime(string $timestamp, string $format): array|false {}
