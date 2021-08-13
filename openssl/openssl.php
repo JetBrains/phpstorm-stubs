@@ -771,7 +771,7 @@ function openssl_verify(
  * @param array &$encrypted_keys
  * @param array $public_key
  * @param string $cipher_algo
- * @param string &$iv [optional]
+ * @param string &$iv
  * @return int|false the length of the sealed data on success, or false on error.
  * If successful the sealed data is returned in
  * <i>sealed_data</i>, and the envelope keys in

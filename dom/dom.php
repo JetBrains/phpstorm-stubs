@@ -1,6 +1,7 @@
 <?php
 
 // Start of dom v.20031129
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * Gets a <b>DOMElement</b> object from a <b>SimpleXMLElement</b> object
@@ -10,7 +11,8 @@
  * </p>
  * @return DOMElement|null The <b>DOMElement</b> node added or <b>NULL</b> if any errors occur.
  */
-function dom_import_simplexml(object $node): ?DOMElement {}
+#[LanguageLevelTypeAware(['8.1' => 'DOMElement'], default: 'DOMElement|null')]
+function dom_import_simplexml(object $node) {}
 
 /**
  * Node is a <b>DOMElement</b>

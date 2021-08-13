@@ -10,8 +10,7 @@
  * @see https://github.com/grpc/grpc/tree/master/src/php/ext/grpc
  */
 
-namespace Grpc
-;
+namespace Grpc;
 
     /**
      * Register call error constants

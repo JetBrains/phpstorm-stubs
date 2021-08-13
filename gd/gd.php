@@ -1148,7 +1148,7 @@ function imagefill(GdImage $image, int $x, int $y, int $color): bool {}
 function imagefilledpolygon(
     GdImage $image,
     array $points,
-   #[Deprecated(since: "8.1")] int $num_points_or_color,
+    #[Deprecated(since: "8.1")] int $num_points_or_color,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?int $color,
     #[PhpStormStubsElementAvailable(from: '8.0')] ?int $color = null
 ): bool {}
@@ -2247,7 +2247,7 @@ function imagegetclip(GdImage $image): array {}
 function imageopenpolygon(
     GdImage $image,
     array $points,
-   #[Deprecated(since: "8.1")] int $num_points_or_color,
+    #[Deprecated(since: "8.1")] int $num_points_or_color,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?int $color,
     #[PhpStormStubsElementAvailable(from: '8.0')] ?int $color = null
 ): bool {}

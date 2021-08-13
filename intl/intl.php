@@ -7146,6 +7146,11 @@ class IntlPartsIterator extends IntlIterator implements Iterator
    */
   #[Pure]
   public function getBreakIterator() {}
+
+    /**
+     * @since 8.1
+     */
+    public function getRuleStatus() {}
 }
 
 class IntlCodePointBreakIterator extends IntlBreakIterator implements Traversable
