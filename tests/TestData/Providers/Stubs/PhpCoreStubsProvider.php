@@ -160,7 +160,7 @@ class PhpCoreStubsProvider
             'cassandra',
             'com_dotnet',
             'couchbase',
-            'couchbase_v3',
+            'couchbase_v2',
             'dio',
             'Ev',
             'fann',

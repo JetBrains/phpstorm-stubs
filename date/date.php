@@ -415,16 +415,16 @@ function gmdate(string $format, ?int $timestamp) {}
  * @param int $hour <p>
  * The number of the hour.
  * </p>
- * @param int|null $minute [optional] <p>
+ * @param int|null $minute <p>
  * The number of the minute.
  * </p>
- * @param int|null $second [optional] <p>
+ * @param int|null $second <p>
  * The number of seconds past the minute.
  * </p>
- * @param int|null $month [optional] <p>
+ * @param int|null $month <p>
  * The number of the month.
  * </p>
- * @param int|null $day [optional] <p>
+ * @param int|null $day <p>
  * The number of the day.
  * </p>
  * @param int|null $year [optional] <p>
@@ -478,22 +478,22 @@ function mktime(
  * @param int $hour <p>
  * The hour
  * </p>
- * @param int $minute [optional] <p>
+ * @param int $minute <p>
  * The minute
  * </p>
- * @param int $second [optional] <p>
+ * @param int $second <p>
  * The second
  * </p>
- * @param int $month [optional] <p>
+ * @param int $month <p>
  * The month
  * </p>
- * @param int $day [optional] <p>
+ * @param int $day <p>
  * The day
  * </p>
- * @param int $year [optional] <p>
+ * @param int $year <p>
  * The year
  * </p>
- * @param int $is_dst [optional] <p>
+ * @param int $is_dst <p>
  * Parameters always represent a GMT date so is_dst
  * doesn't influence the result.
  * </p>
@@ -508,7 +508,7 @@ function gmmktime(
     ?int $month = null,
     ?int $day = null,
     ?int $year = null,
-    #[PhpStormStubsElementAvailable(to: '7.0')] $is_dst = null
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $is_dst = null
 ): int|false {}
 
 /**
