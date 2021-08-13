@@ -16,12 +16,12 @@ abstract class RdKafka
     public function addBrokers($broker_list) {}
 
     /**
-     * @param bool  $all_topics
+     * @param bool $all_topics
      * @param Topic $only_topic
-     * @param int   $timeout_ms
+     * @param int $timeout_ms
      *
-     * @throws Exception
      * @return Metadata
+     * @throws Exception
      */
     public function getMetadata($all_topics, $only_topic = null, $timeout_ms = 0) {}
 
@@ -31,7 +31,7 @@ abstract class RdKafka
     public function getOutQLen() {}
 
     /**
-     * @param string    $topic_name
+     * @param string $topic_name
      * @param null|TopicConf $topic_conf
      *
      * @return Topic

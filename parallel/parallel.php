@@ -5,20 +5,17 @@ namespace parallel;
 use Closure;
 
 /**
- * Shall use the provided file to bootstrap all runtimes created for automatic scheduling via @see run().
- *
- * @param string $file
+ * Shall use the provided file to bootstrap all runtimes created for automatic scheduling via @param string $file
  *
  * @throws Runtime\Error\Bootstrap if previously called for this process.
  * @throws Runtime\Error\Bootstrap if called after @see run().
+ * @see run().
  */
 function bootstrap(string $file): void {}
 
 /**
- * @see Runtime::run() for more details
- * @link https://www.php.net/manual/en/parallel.run
  * @param Closure $task
- * @param array   $argv
+ * @param array $argv
  *
  * ### Automatic Scheduling
  * ---------------------------------------------------------------------------------------------------------------------
@@ -34,6 +31,8 @@ function bootstrap(string $file): void {}
  * @throws Runtime\Error\IllegalInstruction if task contains illegal instructions.
  * @throws Runtime\Error\IllegalParameter if task accepts or argv contains illegal variables.
  * @throws Runtime\Error\IllegalReturn if task returns illegally.
+ * @see Runtime::run() for more details
+ * @link https://www.php.net/manual/en/parallel.run
  */
 function run(Closure $task, array $argv = null): ?Future {}
 

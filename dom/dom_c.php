@@ -299,6 +299,7 @@ class DOMNode
      */
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
     public function lookupNamespaceUri($prefix) {}
+
     /**
      * @param DOMNode $arg
      * @return bool
@@ -332,12 +333,12 @@ class DOMNode
      */
     public function getNodePath() {}
 
-     /**
-      * Get line number for a node
-      * @link https://php.net/manual/en/domnode.getlineno.php
-      * @return int Always returns the line number where the node was defined in.
-      */
-     public function getLineNo() {}
+    /**
+     * Get line number for a node
+     * @link https://php.net/manual/en/domnode.getlineno.php
+     * @return int Always returns the line number where the node was defined in.
+     */
+    public function getLineNo() {}
 
     /**
      * Canonicalize nodes to a string
@@ -389,11 +390,11 @@ class DOMException extends Exception
 
 class DOMStringList
 {
-        /**
-         * @param $index
-         * @return mixed
-         */
-        public function item($index) {}
+    /**
+     * @param $index
+     * @return mixed
+     */
+    public function item($index) {}
 }
 
 /**
@@ -402,17 +403,17 @@ class DOMStringList
  */
 class DOMNameList
 {
-        /**
-         * @param $index
-         * @return mixed
-         */
-        public function getName($index) {}
+    /**
+     * @param $index
+     * @return mixed
+     */
+    public function getName($index) {}
 
-        /**
-         * @param $index
-         * @return mixed
-         */
-        public function getNamespaceURI($index) {}
+    /**
+     * @param $index
+     * @return mixed
+     */
+    public function getNamespaceURI($index) {}
 }
 
 /**
@@ -420,11 +421,11 @@ class DOMNameList
  */
 class DOMImplementationList
 {
-        /**
-         * @param $index
-         * @return mixed
-         */
-        public function item($index) {}
+    /**
+     * @param $index
+     * @return mixed
+     */
+    public function item($index) {}
 }
 
 /**
@@ -432,17 +433,17 @@ class DOMImplementationList
  */
 class DOMImplementationSource
 {
-        /**
-         * @param $features
-         * @return mixed
-         */
-        public function getDomimplementation($features) {}
+    /**
+     * @param $features
+     * @return mixed
+     */
+    public function getDomimplementation($features) {}
 
-        /**
-         * @param $features
-         * @return mixed
-         */
-        public function getDomimplementations($features) {}
+    /**
+     * @param $features
+     * @return mixed
+     */
+    public function getDomimplementations($features) {}
 }
 
 /**
@@ -1235,8 +1236,8 @@ class DOMNodeList implements IteratorAggregate, Countable
     public function count() {}
 
     /**
-     * @since 8.0
      * @return Traversable
+     * @since 8.0
      */
     public function getIterator() {}
 }
@@ -1310,14 +1311,14 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
     public function removeNamedItemNS($namespace, $localName) {}
 
     /**
-     * @since 7.2
      * @return int
+     * @since 7.2
      */
     public function count() {}
 
     /**
-     * @since 8.0
      * @return Traversable
+     * @since 8.0
      */
     public function getIterator() {}
 }
@@ -1523,8 +1524,7 @@ class DOMAttr extends DOMNode
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value
-    = ''
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value = ''
     ) {}
 }
 

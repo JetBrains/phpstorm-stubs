@@ -128,8 +128,8 @@ class OAuth
      * @param array $extra_parameters
      * @param string $http_method
      * @param array $http_headers
-     * @throws \OAuthException
      * @return mixed
+     * @throws \OAuthException
      */
     public function fetch($protected_resource_url, $extra_parameters = [], $http_method = null, $http_headers = []) {}
 
@@ -138,8 +138,8 @@ class OAuth
      * @param string $access_token_url
      * @param string $auth_session_handle
      * @param string $verifier_token
-     * @throws \OAuthException
      * @return array
+     * @throws \OAuthException
      */
     public function getAccessToken($access_token_url, $auth_session_handle = null, $verifier_token = null) {}
 
@@ -171,7 +171,7 @@ class OAuth
      * Generate OAuth header string signature
      * @param string $http_method
      * @param string $url
-     * @param mixed  $extra_parameters
+     * @param mixed $extra_parameters
      * @return string|false
      */
     public function getRequestHeader($http_method, $url, $extra_parameters = '') {}
@@ -181,8 +181,8 @@ class OAuth
      * @param string $request_token_url
      * @param string $callback_url
      * @param string $http_method
-     * @throws \OAuthException
      * @return array
+     * @throws \OAuthException
      */
     public function getRequestToken($request_token_url, $callback_url = null, $http_method = 'GET') {}
 

@@ -86,7 +86,7 @@ class PHPFunction extends BasePHPElement
             });
             /** @var Param $relatedParamTag */
             $relatedParamTag = array_pop($relatedParamTags);
-            if (!empty($relatedParamTag)){
+            if (!empty($relatedParamTag)) {
                 $parameter->isOptional = $parameter->isOptional || str_contains((string)$relatedParamTag->getDescription(), '[optional]');
             }
         }

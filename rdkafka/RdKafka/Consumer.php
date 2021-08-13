@@ -10,7 +10,7 @@ class Consumer extends \RdKafka
     public function __construct(?Conf $conf = null) {}
 
     /**
-     * @param string    $topic_name
+     * @param string $topic_name
      * @param null|TopicConf $topic_conf
      *
      * @return ConsumerTopic

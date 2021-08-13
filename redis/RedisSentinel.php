@@ -37,12 +37,12 @@ class RedisSentinel
     /**
      * Creates a Redis Sentinel
      *
-     * @param string      $host          Sentinel IP address or hostname
-     * @param int         $port          Sentinel Port
-     * @param float       $timeout       Value in seconds (optional, default is 0 meaning unlimited)
-     * @param string|null $persistent    Persistent connection id (optional, default is null meaning not persistent)
-     * @param int         $retryInterval Value in milliseconds (optional, default is 0)
-     * @param float       $readTimeout   Value in seconds (optional, default is 0 meaning unlimited)
+     * @param string $host Sentinel IP address or hostname
+     * @param int $port Sentinel Port
+     * @param float $timeout Value in seconds (optional, default is 0 meaning unlimited)
+     * @param string|null $persistent Persistent connection id (optional, default is null meaning not persistent)
+     * @param int $retryInterval Value in milliseconds (optional, default is 0)
+     * @param float $readTimeout Value in seconds (optional, default is 0 meaning unlimited)
      *
      * @example
      * // 1s timeout, 100ms delay between reconnection attempts.

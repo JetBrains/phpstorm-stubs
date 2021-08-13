@@ -1,4 +1,5 @@
 <?php
+
 class ffmpeg_movie
 {
     /**  Open a video or audio file and return it as an object.

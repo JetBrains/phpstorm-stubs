@@ -149,14 +149,14 @@ class AMQPBasicProperties
     /**
      * @param string $content_type
      * @param string $content_encoding
-     * @param array  $headers
-     * @param int    $delivery_mode
-     * @param int    $priority
+     * @param array $headers
+     * @param int $delivery_mode
+     * @param int $priority
      * @param string $correlation_id
      * @param string $reply_to
      * @param string $expiration
      * @param string $message_id
-     * @param int    $timestamp
+     * @param int $timestamp
      * @param string $type
      * @param string $user_id
      * @param string $app_id
@@ -286,11 +286,11 @@ class AMQPChannel
     /**
      * Commit a pending transaction.
      *
-     * @throws AMQPChannelException    If no transaction was started prior to
-     *                                 calling this method.
+     * @return bool TRUE on success or FALSE on failure.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return bool TRUE on success or FALSE on failure.
+     * @throws AMQPChannelException    If no transaction was started prior to
+     *                                 calling this method.
      */
     public function commitTransaction() {}
 
@@ -340,13 +340,12 @@ class AMQPChannel
      * flag set, the client will not do any prefetching of data, regardless of
      * the QOS settings.
      *
-     * @param int $size   The window size, in octets, to prefetch.
-     * @param int $count  The number of messages to prefetch.
-     * @param bool    $global TRUE for global, FALSE for consumer. FALSE by default.
-     *
-     * @throws AMQPConnectionException If the connection to the broker was lost.
+     * @param int $size The window size, in octets, to prefetch.
+     * @param int $count The number of messages to prefetch.
+     * @param bool $global TRUE for global, FALSE for consumer. FALSE by default.
      *
      * @return bool TRUE on success or FALSE on failure.
+     * @throws AMQPConnectionException If the connection to the broker was lost.
      */
     public function qos($size, $count, $global = false) {}
 
@@ -356,11 +355,11 @@ class AMQPChannel
      * Rollback an existing transaction. AMQPChannel::startTransaction() must
      * be called prior to this.
      *
-     * @throws AMQPChannelException    If no transaction was started prior to
-     *                                 calling this method.
+     * @return bool TRUE on success or FALSE on failure.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return bool TRUE on success or FALSE on failure.
+     * @throws AMQPChannelException    If no transaction was started prior to
+     *                                 calling this method.
      */
     public function rollbackTransaction() {}
 
@@ -372,9 +371,8 @@ class AMQPChannel
      *
      * @param int $count The number of messages to prefetch.
      *
-     * @throws AMQPConnectionException If the connection to the broker was lost.
-     *
      * @return bool TRUE on success or FALSE on failure.
+     * @throws AMQPConnectionException If the connection to the broker was lost.
      */
     public function setPrefetchCount($count) {}
 
@@ -397,9 +395,8 @@ class AMQPChannel
      *
      * @param int $size The window size, in octets, to prefetch.
      *
-     * @throws AMQPConnectionException If the connection to the broker was lost.
-     *
      * @return bool TRUE on success or FALSE on failure.
+     * @throws AMQPConnectionException If the connection to the broker was lost.
      */
     public function setPrefetchSize($size) {}
 
@@ -418,9 +415,8 @@ class AMQPChannel
      *
      * @param int $count The number of messages to prefetch.
      *
-     * @throws AMQPConnectionException If the connection to the broker was lost.
-     *
      * @return bool TRUE on success or FALSE on failure.
+     * @throws AMQPConnectionException If the connection to the broker was lost.
      */
     public function setGlobalPrefetchCount($count) {}
 
@@ -443,9 +439,8 @@ class AMQPChannel
      *
      * @param int $size The window size, in octets, to prefetch.
      *
-     * @throws AMQPConnectionException If the connection to the broker was lost.
-     *
      * @return bool TRUE on success or FALSE on failure.
+     * @throws AMQPConnectionException If the connection to the broker was lost.
      */
     public function setGlobalPrefetchSize($size) {}
 
@@ -462,9 +457,8 @@ class AMQPChannel
      * This method must be called on the given channel prior to calling
      * AMQPChannel::commitTransaction() or AMQPChannel::rollbackTransaction().
      *
-     * @throws AMQPConnectionException If the connection to the broker was lost.
-     *
      * @return bool TRUE on success or FALSE on failure.
+     * @throws AMQPConnectionException If the connection to the broker was lost.
      */
     public function startTransaction() {}
 
@@ -562,8 +556,8 @@ class AMQPConnection
      *
      * This method will initiate a connection with the AMQP broker.
      *
-     * @throws AMQPConnectionException
      * @return bool TRUE on success or throw an exception on failure.
+     * @throws AMQPConnectionException
      */
     public function connect() {}
 
@@ -666,8 +660,8 @@ class AMQPConnection
      * This method will initiate a connection with the AMQP broker
      * or reuse an existing one if present.
      *
-     * @throws AMQPConnectionException
      * @return bool TRUE on success or throws an exception on failure.
+     * @throws AMQPConnectionException
      */
     public function pconnect() {}
 
@@ -702,9 +696,8 @@ class AMQPConnection
      *
      * @param string $host The hostname of the AMQP broker.
      *
-     * @throws AMQPConnectionException If host is longer then 1024 characters.
-     *
      * @return bool TRUE on success or FALSE on failure.
+     * @throws AMQPConnectionException If host is longer then 1024 characters.
      */
     public function setHost($host) {}
 
@@ -714,9 +707,8 @@ class AMQPConnection
      * @param string $login The login string used to authenticate
      *                      with the AMQP broker.
      *
-     * @throws AMQPConnectionException If login is longer then 32 characters.
-     *
      * @return bool TRUE on success or FALSE on failure.
+     * @throws AMQPConnectionException If login is longer then 32 characters.
      */
     public function setLogin($login) {}
 
@@ -726,9 +718,8 @@ class AMQPConnection
      * @param string $password The password string used to authenticate
      *                         with the AMQP broker.
      *
-     * @throws AMQPConnectionException If password is longer then 32characters.
-     *
      * @return bool TRUE on success or FALSE on failure.
+     * @throws AMQPConnectionException If password is longer then 32characters.
      */
     public function setPassword($password) {}
 
@@ -737,10 +728,9 @@ class AMQPConnection
      *
      * @param int $port The port used to connect to the AMQP broker.
      *
+     * @return bool TRUE on success or FALSE on failure.
      * @throws AMQPConnectionException If port is longer not between
      *                                 1 and 65535.
-     *
-     * @return bool TRUE on success or FALSE on failure.
      */
     public function setPort($port) {}
 
@@ -750,9 +740,8 @@ class AMQPConnection
      * @param string $vhost The virtual host to use on the AMQP
      *                      broker.
      *
-     * @throws AMQPConnectionException If host is longer then 32 characters.
-     *
      * @return bool true on success or false on failure.
+     * @throws AMQPConnectionException If host is longer then 32 characters.
      */
     public function setVhost($vhost) {}
 
@@ -1087,13 +1076,13 @@ class AMQPExchange
      * Bind an exchange to another exchange using the specified routing key.
      *
      * @param string $exchange_name Name of the exchange to bind.
-     * @param string $routing_key   The routing key to use for binding.
-     * @param array  $arguments     Additional binding arguments.
+     * @param string $routing_key The routing key to use for binding.
+     * @param array $arguments Additional binding arguments.
      *
-     * @throws AMQPExchangeException   On failure.
+     * @return bool TRUE on success or FALSE on failure.
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
-     * @return bool TRUE on success or FALSE on failure.
+     * @throws AMQPExchangeException   On failure.
      */
     public function bind($exchange_name, $routing_key = '', array $arguments = []) {}
 
@@ -1103,13 +1092,13 @@ class AMQPExchange
      * Remove a routing key binding on an another exchange from the given exchange.
      *
      * @param string $exchange_name Name of the exchange to bind.
-     * @param string $routing_key   The routing key to use for binding.
-     * @param array  $arguments     Additional binding arguments.
+     * @param string $routing_key The routing key to use for binding.
+     * @param array $arguments Additional binding arguments.
      *
-     * @throws AMQPExchangeException   On failure.
+     * @return bool TRUE on success or FALSE on failure.
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
-     * @return bool TRUE on success or FALSE on failure.
+     * @throws AMQPExchangeException   On failure.
      */
     public function unbind($exchange_name, $routing_key = '', array $arguments = []) {}
 
@@ -1132,28 +1121,28 @@ class AMQPExchange
     /**
      * Declare a new exchange on the broker.
      *
-     * @throws AMQPExchangeException   On failure.
+     * @return bool TRUE on success or FALSE on failure.
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return bool TRUE on success or FALSE on failure.
+     * @throws AMQPExchangeException   On failure.
      */
     public function declareExchange() {}
 
     /**
      * Delete the exchange from the broker.
      *
-     * @param string  $exchangeName Optional name of exchange to delete.
-     * @param int $flags        Optionally AMQP_IFUNUSED can be specified
+     * @param string $exchangeName Optional name of exchange to delete.
+     * @param int $flags Optionally AMQP_IFUNUSED can be specified
      *                              to indicate the exchange should not be
      *                              deleted until no clients are connected to
      *                              it.
      *
-     * @throws AMQPExchangeException   On failure.
+     * @return bool TRUE on success or FALSE on failure.
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return bool TRUE on success or FALSE on failure.
+     * @throws AMQPExchangeException   On failure.
      */
     public function delete($exchangeName = null, $flags = AMQP_NOPARAM) {}
 
@@ -1211,21 +1200,21 @@ class AMQPExchange
      *
      * Publish a message to the exchange represented by the AMQPExchange object.
      *
-     * @param string  $message     The message to publish.
-     * @param string  $routing_key The optional routing key to which to
+     * @param string $message The message to publish.
+     * @param string $routing_key The optional routing key to which to
      *                             publish to.
-     * @param int $flags       One or more of AMQP_MANDATORY and
+     * @param int $flags One or more of AMQP_MANDATORY and
      *                             AMQP_IMMEDIATE.
-     * @param array   $attributes  One of content_type, content_encoding,
+     * @param array $attributes One of content_type, content_encoding,
      *                             message_id, user_id, app_id, delivery_mode,
      *                             priority, timestamp, expiration, type
      *                             or reply_to, headers.
      *
-     * @throws AMQPExchangeException   On failure.
+     * @return bool TRUE on success or FALSE on failure.
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return bool TRUE on success or FALSE on failure.
+     * @throws AMQPExchangeException   On failure.
      */
     public function publish(
         $message,
@@ -1237,7 +1226,7 @@ class AMQPExchange
     /**
      * Set the value for the given key.
      *
-     * @param string         $key   Name of the argument to set.
+     * @param string $key Name of the argument to set.
      * @param string|int $value Value of the argument to set.
      *
      * @return bool TRUE on success or FALSE on failure.
@@ -1329,15 +1318,15 @@ class AMQPQueue
      * without the AMQP_AUTOACK flag through AMQPQueue::get() or
      * AMQPQueue::consume()
      *
-     * @param string  $delivery_tag The message delivery tag of which to
+     * @param string $delivery_tag The message delivery tag of which to
      *                              acknowledge receipt.
-     * @param int $flags        The only valid flag that can be passed is
+     * @param int $flags The only valid flag that can be passed is
      *                              AMQP_MULTIPLE.
      *
-     * @throws AMQPChannelException    If the channel is not open.
+     * @return bool
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return bool
+     * @throws AMQPChannelException    If the channel is not open.
      */
     public function ack($delivery_tag, $flags = AMQP_NOPARAM) {}
 
@@ -1345,13 +1334,13 @@ class AMQPQueue
      * Bind the given queue to a routing key on an exchange.
      *
      * @param string $exchange_name Name of the exchange to bind to.
-     * @param string $routing_key   Pattern or routing key to bind with.
-     * @param array  $arguments     Additional binding arguments.
-     *
-     * @throws AMQPChannelException    If the channel is not open.
-     * @throws AMQPConnectionException If the connection to the broker was lost.
+     * @param string $routing_key Pattern or routing key to bind with.
+     * @param array $arguments Additional binding arguments.
      *
      * @return bool
+     * @throws AMQPConnectionException If the connection to the broker was lost.
+     *
+     * @throws AMQPChannelException    If the channel is not open.
      */
     public function bind($exchange_name, $routing_key = null, array $arguments = []) {}
 
@@ -1367,10 +1356,10 @@ class AMQPQueue
      *                             and it equals to latest consumer_tag on queue,
      *                             it will be interpreted as latest consumer_tag usage.
      *
-     * @throws AMQPChannelException    If the channel is not open.
+     * @return bool
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return bool
+     * @throws AMQPChannelException    If the channel is not open.
      */
     public function cancel($consumer_tag = '') {}
 
@@ -1391,7 +1380,7 @@ class AMQPQueue
      * Blocking function that will retrieve the next message from the queue as
      * it becomes available and will pass it off to the callback.
      *
-     * @param callable|null $callback    A callback function to which the
+     * @param callable|null $callback A callback function to which the
      *                              consumed message will be passed. The
      *                              function must accept at a minimum
      *                              one parameter, an AMQPEnvelope object,
@@ -1406,7 +1395,7 @@ class AMQPQueue
      *                              be made available to the first real callback
      *                              registered. That allows one to have a single
      *                              callback consuming from multiple queues.
-     * @param int $flags        A bitmask of any of the flags: AMQP_AUTOACK,
+     * @param int $flags A bitmask of any of the flags: AMQP_AUTOACK,
      *                              AMQP_JUST_CONSUME. Note: when AMQP_JUST_CONSUME
      *                              flag used all other flags are ignored and
      *                              $consumerTag parameter has no sense.
@@ -1414,14 +1403,14 @@ class AMQPQueue
      *                              `basic.consume` request and just run $callback
      *                              if it provided. Calling method with empty $callback
      *                              and AMQP_JUST_CONSUME makes no sense.
-     * @param string   $consumerTag A string describing this consumer. Used
+     * @param string $consumerTag A string describing this consumer. Used
      *                              for canceling subscriptions with cancel().
      *
-     * @throws AMQPChannelException    If the channel is not open.
+     * @return void
      * @throws AMQPConnectionException If the connection to the broker was lost.
      * @throws AMQPEnvelopeException   When no queue found for envelope.
      *
-     * @return void
+     * @throws AMQPChannelException    If the channel is not open.
      */
     public function consume(
         callable $callback = null,
@@ -1432,10 +1421,10 @@ class AMQPQueue
     /**
      * Declare a new queue on the broker.
      *
-     * @throws AMQPChannelException    If the channel is not open.
+     * @return int the message count.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return int the message count.
+     * @throws AMQPChannelException    If the channel is not open.
      */
     public function declareQueue() {}
 
@@ -1444,15 +1433,15 @@ class AMQPQueue
      *
      * This includes its entire contents of unread or unacknowledged messages.
      *
-     * @param int $flags        Optionally AMQP_IFUNUSED can be specified
+     * @param int $flags Optionally AMQP_IFUNUSED can be specified
      *                              to indicate the queue should not be
      *                              deleted until no clients are connected to
      *                              it.
      *
-     * @throws AMQPChannelException    If the channel is not open.
+     * @return int The number of deleted messages.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return int The number of deleted messages.
+     * @throws AMQPChannelException    If the channel is not open.
      */
     public function delete($flags = AMQP_NOPARAM) {}
 
@@ -1473,10 +1462,10 @@ class AMQPQueue
      *                       value is not provided, it will use the
      *                       value of ini-setting amqp.auto_ack.
      *
-     * @throws AMQPChannelException    If the channel is not open.
+     * @return AMQPEnvelope|false
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return AMQPEnvelope|false
+     * @throws AMQPChannelException    If the channel is not open.
      */
     public function get($flags = AMQP_NOPARAM) {}
 
@@ -1526,15 +1515,15 @@ class AMQPQueue
      * behavior of calling this method while connected to any other broker is
      * undefined.
      *
-     * @param string  $delivery_tag Delivery tag of last message to reject.
-     * @param int $flags        AMQP_REQUEUE to requeue the message(s),
+     * @param string $delivery_tag Delivery tag of last message to reject.
+     * @param int $flags AMQP_REQUEUE to requeue the message(s),
      *                              AMQP_MULTIPLE to nack all previous
      *                              unacked messages as well.
      *
-     * @throws AMQPChannelException    If the channel is not open.
+     * @return bool
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return bool
+     * @throws AMQPChannelException    If the channel is not open.
      */
     public function nack($delivery_tag, $flags = AMQP_NOPARAM) {}
 
@@ -1547,31 +1536,31 @@ class AMQPQueue
      * AMQPQueue::consume() and AMQPQueue::get() and using the AMQP_AUTOACK
      * flag are not eligible.
      *
-     * @param string  $delivery_tag Delivery tag of the message to reject.
-     * @param int $flags        AMQP_REQUEUE to requeue the message(s).
-     *
-     * @throws AMQPChannelException    If the channel is not open.
-     * @throws AMQPConnectionException If the connection to the broker was lost.
+     * @param string $delivery_tag Delivery tag of the message to reject.
+     * @param int $flags AMQP_REQUEUE to requeue the message(s).
      *
      * @return bool
+     * @throws AMQPConnectionException If the connection to the broker was lost.
+     *
+     * @throws AMQPChannelException    If the channel is not open.
      */
     public function reject($delivery_tag, $flags = AMQP_NOPARAM) {}
 
     /**
      * Purge the contents of a queue.
      *
-     * @throws AMQPChannelException    If the channel is not open.
+     * @return bool
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return bool
+     * @throws AMQPChannelException    If the channel is not open.
      */
     public function purge() {}
 
     /**
      * Set a queue argument.
      *
-     * @param string $key   The key to set.
-     * @param mixed  $value The value to set.
+     * @param string $key The key to set.
+     * @param mixed $value The value to set.
      *
      * @return bool
      */
@@ -1591,7 +1580,7 @@ class AMQPQueue
     /**
      * Check whether a queue has specific argument.
      *
-     * @param string $key   The key to check.
+     * @param string $key The key to check.
      *
      * @return bool
      */
@@ -1622,14 +1611,14 @@ class AMQPQueue
      *
      * @param string $exchange_name The name of the exchange on which the
      *                              queue is bound.
-     * @param string $routing_key   The binding routing key used by the
+     * @param string $routing_key The binding routing key used by the
      *                              queue.
-     * @param array  $arguments     Additional binding arguments.
-     *
-     * @throws AMQPChannelException    If the channel is not open.
-     * @throws AMQPConnectionException If the connection to the broker was lost.
+     * @param array $arguments Additional binding arguments.
      *
      * @return bool
+     * @throws AMQPConnectionException If the connection to the broker was lost.
+     *
+     * @throws AMQPChannelException    If the channel is not open.
      */
     public function unbind($exchange_name, $routing_key = null, array $arguments = []) {}
 

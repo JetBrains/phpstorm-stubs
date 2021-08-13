@@ -21,14 +21,14 @@ class ZendAPI_Queue
      *
      * @param string $password For authentication, password must be specified to connect to a queue
      * @param int $application_id Optional, if set, all subsequent calls to job related methods will use this application id (unless explicitly specified otherwise). I.e. When adding new job,
-        unless this job already set an application id, the job will be assigned the queue application id
+     * unless this job already set an application id, the job will be assigned the queue application id
      * @return bool Success
      */
     public function login($password, $application_id = null) {}
 
     /**
      * Insert a new job to the queue, the Job is passed by reference because
-        its new job ID and status will be set in the Job object
+     * its new job ID and status will be set in the Job object
      * If the returned job id is 0 it means the job could be added to the queue
      *
      * @param Job $job The Job we want to insert to the queue (by ref.)
@@ -46,10 +46,10 @@ class ZendAPI_Queue
 
     /**
      * Update an existing job in the queue with it's new properties. If job doesn't exists,
-        a new job will be added. Job is passed by reference and it's updated from the queue.
+     * a new job will be added. Job is passed by reference and it's updated from the queue.
      *
      * @param Job $job The Job object, the ID of the given job is the id of the job we try to update.
-        If the given Job doesn't have an assigned ID, a new job will be added
+     * If the given Job doesn't have an assigned ID, a new job will be added
      * @return int The id of the updated job
      */
     public function updateJob($job) {}
@@ -81,7 +81,7 @@ class ZendAPI_Queue
     /**
      * Requeue failed job back to the queue.
      *
-     * @param Job $job  job object to re-query
+     * @param Job $job job object to re-query
      * @return bool - true or false.
      */
     public function requeueJob($job) {}
@@ -89,13 +89,13 @@ class ZendAPI_Queue
     /**
      * returns job statistics
      * @return array with the following:
-                         "total_complete_jobs"
-                         "total_incomplete_jobs"
-                         "average_time_in_queue"  [msec]
-                         "average_waiting_time"   [sec]
-                         "added_jobs_in_window"
-                         "activated_jobs_in_window"
-                         "completed_jobs_in_window"
+     * "total_complete_jobs"
+     * "total_incomplete_jobs"
+     * "average_time_in_queue"  [msec]
+     * "average_waiting_time"   [sec]
+     * "added_jobs_in_window"
+     * "activated_jobs_in_window"
+     * "completed_jobs_in_window"
      * moving window size can be set through ini file
      */
     public function getStatistics() {}
@@ -118,9 +118,9 @@ class ZendAPI_Queue
      * If application id is set for this queue, only jobs with this application id will be returned
      *
      * @param array $filter_options Array of optional filter options to filter the jobs we want to get
-        from the queue. If not set, all jobs will be returned.<br>
+     * from the queue. If not set, all jobs will be returned.<br>
      *     Options can be: priority, application_id, name, status, recurring.
-     * @param int $max_jobs  Maximum jobs to retrieve. Default is -1, getting all jobs available.
+     * @param int $max_jobs Maximum jobs to retrieve. Default is -1, getting all jobs available.
      * @param bool $with_globals_and_output Whether gets the global variables dataand job output.
      *     Default is false.
      * @return array  Jobs that satisfies filter_options.
@@ -260,8 +260,8 @@ class ZendAPI_Job
     /**
      * Array holding all the variables that the user wants the job's script to have when it's called
      * The structure is variable_name => variable_value
-        i.e. if the user_variables array is array('my_var' => 8), when the script is called,
-        a global variable called $my_var will have the int value of 8
+     * i.e. if the user_variables array is array('my_var' => 8), when the script is called,
+     * a global variable called $my_var will have the int value of 8
      * By default there are no variables that we want to add to the job's script
      *
      * @var array
@@ -271,13 +271,13 @@ class ZendAPI_Job
     /**
      * Bit mask holding the global variables that the user want the job's script to have when it's called
      * Options are prefixed with "JOB_QUEUE_SAVE_" and may be:
-        POST|GET|COOKIE|SESSION|RAW_POST|SERVER|FILES|ENV
+     * POST|GET|COOKIE|SESSION|RAW_POST|SERVER|FILES|ENV
      * By default there are no global variables we want to add to the job's script
      * i.e. In order to save the current GET and COOKIE global variables,
-        this property should be JOB_QUEUE_SAVE_GET|JOB_QUEUE_SAVE_COOKIE (or the integer 6)
-        In that case (of GET and COOKIE), when the job is added, the current $_GET and
-        $_COOKIE variables  should be saved, and when the job's script is called,
-        those global variables should be populated
+     * this property should be JOB_QUEUE_SAVE_GET|JOB_QUEUE_SAVE_COOKIE (or the integer 6)
+     * In that case (of GET and COOKIE), when the job is added, the current $_GET and
+     * $_COOKIE variables  should be saved, and when the job's script is called,
+     * those global variables should be populated
      *
      * @var int
      */
@@ -286,7 +286,7 @@ class ZendAPI_Job
     /**
      * The job may have a dependency (another job that must be performed before this job)
      * This property hold the id of the job that must be performed. if this variable is an array of integers,
-        it means that there are several jobs that must be performed before this job
+     * it means that there are several jobs that must be performed before this job
      * By default there are no dependencies
      *
      * @var mixed (int|array)
@@ -302,33 +302,33 @@ class ZendAPI_Job
      */
     public $_scheduled_time = 0;
 
-         /**
-          * The job running frequency in seconds. The job should run every _internal seconds
-          * This property applys only to recurrent job.
-          * By default, its value is 0 e.g. run it only once.
-          *
-          * @var int
-          */
-         public $_interval = 0;
+    /**
+     * The job running frequency in seconds. The job should run every _internal seconds
+     * This property applys only to recurrent job.
+     * By default, its value is 0 e.g. run it only once.
+     *
+     * @var int
+     */
+    public $_interval = 0;
 
-     /**
-      * UNIX timestamp that it's the last time this job should occurs. If _interval was set, and _end_time
-      * was not, then this job will run forever.
-      * By default there is no end_time, so recurrent job will run forever. If the job is not recurrent
-      * (occurs only once) then the job will run at most once. If end_time has reached and the job was not
-      * execute yet, it will not run.
-      *
-      * @var int
-      */
-     public $_end_time = null;
+    /**
+     * UNIX timestamp that it's the last time this job should occurs. If _interval was set, and _end_time
+     * was not, then this job will run forever.
+     * By default there is no end_time, so recurrent job will run forever. If the job is not recurrent
+     * (occurs only once) then the job will run at most once. If end_time has reached and the job was not
+     * execute yet, it will not run.
+     *
+     * @var int
+     */
+    public $_end_time = null;
 
-     /**
-      * A bit that determine whether job can be deleted from history. When set, removeJob will not
-      * delete the job from history.
-      *
-      * @var int
-      */
-     public $_preserved = 0;
+    /**
+     * A bit that determine whether job can be deleted from history. When set, removeJob will not
+     * delete the job from history.
+     *
+     * @var int
+     */
+    public $_preserved = 0;
 
     /**
      * Instantiate a Job object, describe all the information and properties of a job
@@ -343,10 +343,10 @@ class ZendAPI_Job
     /**
      * Add the job the the specified queue (without instantiating a JobQueue object)
      * This function should be used for extreme simplicity of the user when adding a single job,
-            when the user want to insert more than one job and/or manipulating other jobs (or job tasks)
-            he should create and use the JobQueue object
+     * when the user want to insert more than one job and/or manipulating other jobs (or job tasks)
+     * he should create and use the JobQueue object
      * Actually what this function do is to create a new JobQueue, login to it (with the given parameters),
-            add this job to it and logout
+     * add this job to it and logout
      *
      * @param string $jobqueue_url Full address of the queue we want to connect to
      * @param string $password For authentication, the queue password
@@ -363,13 +363,21 @@ class ZendAPI_Job
 
     // All properties SET functions
     public function setJobName($name) {}
+
     public function setScript($script) {}
+
     public function setApplicationID($app_id) {}
+
     public function setUserVariables($vars) {}
+
     public function setGlobalVariables($vars) {}
+
     public function setJobDependency($job_id) {}
+
     public function setScheduledTime($timestamp) {}
+
     public function setRecurrenceData($interval, $end_time = null) {}
+
     public function setPreserved($preserved) {}
 
     /**
@@ -388,17 +396,29 @@ class ZendAPI_Job
 
     // All properties GET functions
     public function getID() {}
+
     public function getHost() {}
+
     public function getScript() {}
+
     public function getJobPriority() {}
+
     public function getJobName() {}
+
     public function getApplicationID() {}
+
     public function getUserVariables() {}
+
     public function getGlobalVariables() {}
+
     public function getJobDependency() {}
+
     public function getScheduledTime() {}
+
     public function getInterval() {}
+
     public function getEndTime() {}
+
     public function getPreserved() {}
 
     /**
@@ -412,21 +432,21 @@ class ZendAPI_Job
      */
     public function getJobStatus() {}
 
-     /**
-      * Get how much seconds there are until the next time the job will run.
-      * If the job is not recurrence or it past its end time, then return 0.
-      *
-      * @return int
-      */
-     public function getTimeToNextRepeat() {}
+    /**
+     * Get how much seconds there are until the next time the job will run.
+     * If the job is not recurrence or it past its end time, then return 0.
+     *
+     * @return int
+     */
+    public function getTimeToNextRepeat() {}
 
-     /**
-      * For recurring job get the status of the last execution. For simple job,
-      * getLastPerformedStatus is equivalent to getJobStatus.
-      * jobs that haven't been executed yet will return STATUS_WAITING
-      * @return int
-      */
-     public function getLastPerformedStatus() {}
+    /**
+     * For recurring job get the status of the last execution. For simple job,
+     * getLastPerformedStatus is equivalent to getJobStatus.
+     * jobs that haven't been executed yet will return STATUS_WAITING
+     * @return int
+     */
+    public function getLastPerformedStatus() {}
 }
 
 /**
@@ -574,7 +594,7 @@ function monitor_license_info() {}
  * an array keyed by the name the event handler was registered under. The event handlers
  * results array is saved in the event_extra_data table.
  * @param string $event_handler_func The callback function that will be call when the event is triggered, object methods may also be invoked statically using t
-his function by passing array($objectname, $methodname) to the function parameter
+ * his function by passing array($objectname, $methodname) to the function parameter
  * @param string $handler_register_name [optional] The name this function is registered under - if none is supplied, the function will be registered under it's own name
  * @param int $event_type_mask The mask of event types that the handler should be called on by default it's set to MONITOR_EVENT_ALL.
  * @return bool TRUE on success and FALSE if an error occurs.
@@ -617,7 +637,7 @@ class java
      * @removed 8.0
      */
     public function java($classname) {}
-};
+}
 
 class JavaException
 {
@@ -627,4 +647,4 @@ class JavaException
      * @return object
      */
     public function getCause() {}
-};
+}

@@ -8,7 +8,7 @@
  *
  * @link https://php.net/manual/en/function.xhprof-enable.php
  *
- * @param int   $flags   <p>Optional flags to add additional information to the profiling. See the a
+ * @param int $flags <p>Optional flags to add additional information to the profiling. See the a
  *                       href="https://secure.php.net/manual/en/xhprof.constants.php">XHprof constants</a> for further
  *                       information about these flags, e.g., <strong>XHPROF_FLAGS_MEMORY</strong> to enable memory
  *                       profiling.</p>

@@ -71,7 +71,8 @@ trait PHPDocElement
      */
     public $hasInternalMetaTag = false;
 
-    protected function collectTags(Node $node): void {
+    protected function collectTags(Node $node): void
+    {
         if ($node->getDocComment() !== null) {
             try {
                 $text = $node->getDocComment()->getText();

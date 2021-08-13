@@ -27,7 +27,7 @@ function xdebug_get_function_stack(): array {}
 /**
  * Displays the current function stack, in a similar way as what Xdebug would display in an error situation.
  * @param string $message
- * @param int $options    A bit mask of the following constants: XDEBUG_STACK_NO_DESC
+ * @param int $options A bit mask of the following constants: XDEBUG_STACK_NO_DESC
  * @return void
  */
 function xdebug_print_function_stack(string $message = 'user triggered', int $options = 0) {}
@@ -349,8 +349,8 @@ function xdebug_get_gc_run_count(): int {}
 function xdebug_get_gc_total_collected_roots(): int {}
 
 /**
- * @param int   $group
- * @param int   $listType
+ * @param int $group
+ * @param int $listType
  * @param array $configuration
  * @return void
  */

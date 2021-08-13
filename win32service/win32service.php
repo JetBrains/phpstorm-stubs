@@ -304,7 +304,7 @@ define("WIN32_REALTIME_PRIORITY_CLASS", 0x00000100);
  * resumes a paused service
  *
  * @param string $serviceName The short name of the service.
- * @param string $machine     Optional machine name. If omitted, the local machine is used.
+ * @param string $machine Optional machine name. If omitted, the local machine is used.
  *
  * @return int|false Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
  *             on failure.
@@ -314,7 +314,7 @@ function win32_continue_service($serviceName, $machine = "") {}
 /**
  * Creates a new service entry in the SCM database
  *
- * @param array  $details
+ * @param array $details
  *                              <ul>
  *                              <li>
  *                              <em>service</em>
@@ -405,7 +405,7 @@ function win32_continue_service($serviceName, $machine = "") {}
  *                              Classes.
  *                          </li>
  * </ul>
- * @param string $machine       The optional machine name on which you want to create a service. If omitted, it will
+ * @param string $machine The optional machine name on which you want to create a service. If omitted, it will
  *                              use the local machine.
  *
  * @return int|false Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
@@ -420,7 +420,7 @@ function win32_create_service($details, $machine = "") {}
  *  further attempts to delete it will fail, and attempts to create a new service with that name will also fail.
  *
  * @param string $serviceName The short name of the service.
- * @param string $machine     Optional machine name. If omitted, the local machine is used.
+ * @param string $machine Optional machine name. If omitted, the local machine is used.
  *
  * @return int|false Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
  *             on failure.
@@ -445,7 +445,7 @@ function win32_get_last_control_message() {}
  * Pauses a named service. Requires administrative privileges.
  *
  * @param string $serviceName The short name of the service.
- * @param string $machine     Optional machine name. If omitted, the local machine is used.
+ * @param string $machine Optional machine name. If omitted, the local machine is used.
  *
  * @return int|false Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
  *             on failure.
@@ -456,7 +456,7 @@ function win32_pause_service($serviceName, $machine = "") {}
  * Queries the current status for a service, returning an array of information.
  *
  * @param string $serviceName The short name of the service.
- * @param string $machine     Optional machine name. If omitted, the local machine is used.
+ * @param string $machine Optional machine name. If omitted, the local machine is used.
  *
  * @return array|false Returns an array consisting of the following information on success, FALSE if there is a problem with
  *               the parameters or a Win32 Error Code on failure.
@@ -514,11 +514,11 @@ function win32_query_service_status($serviceName, $machine = "") {}
  *  Since version 0.2.0, this function work only in "cli" SAPI. On other SAPI this function is disabled.
  * </p>
  *
- * @param int $status           The service status code, one of WIN32_SERVICE_RUNNING, WIN32_SERVICE_STOPPED,
+ * @param int $status The service status code, one of WIN32_SERVICE_RUNNING, WIN32_SERVICE_STOPPED,
  *                              WIN32_SERVICE_STOP_PENDING, WIN32_SERVICE_START_PENDING,
  *                              WIN32_SERVICE_CONTINUE_PENDING,
  *                              WIN32_SERVICE_PAUSE_PENDING, WIN32_SERVICE_PAUSED.
- * @param int $checkpoint       The checkpoint value the service increments periodically to report its progress during
+ * @param int $checkpoint The checkpoint value the service increments periodically to report its progress during
  *                              a lengthy start, stop, pause, or continue operation. For example, the service should
  *                              increment this value as it completes each step of its initialization when it is
  *                              starting up. The checkpoint is only valid when the status is one of
@@ -559,7 +559,7 @@ function win32_start_service_ctrl_dispatcher($name) {}
  * Attempts to start the named service. Usually requires administrative privileges.
  *
  * @param string $serviceName The short name of the service.
- * @param string $machine     Optional machine name. If omitted, the local machine is used.
+ * @param string $machine Optional machine name. If omitted, the local machine is used.
  *
  * @return int|false Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
  *             on failure.
@@ -570,7 +570,7 @@ function win32_start_service($serviceName, $machine = "") {}
  *   Stops a named service. Requires administrative privileges.
  *
  * @param string $serviceName The short name of the service.
- * @param string $machine     Optional machine name. If omitted, the local machine is used.
+ * @param string $machine Optional machine name. If omitted, the local machine is used.
  *
  * @return int|false Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
  *             on failure.

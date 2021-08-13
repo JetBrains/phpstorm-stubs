@@ -29,7 +29,7 @@ final class Decimal implements \JsonSerializable
      * Initializes a new instance using a given value and minimum precision.
      *
      * @param Decimal|string|int $value
-     * @param int                $precision
+     * @param int $precision
      *
      * @throws \BadMethodCallException if already constructed.
      * @throws \TypeError if the value is not a decimal, string, or integer.
@@ -48,7 +48,7 @@ final class Decimal implements \JsonSerializable
      * This method is equivalent to adding each value individually.
      *
      * @param array|\Traversable $values
-     * @param int                $precision Minimum precision of the sum.
+     * @param int $precision Minimum precision of the sum.
      *
      * @return Decimal the sum of all given values.
      *
@@ -68,7 +68,7 @@ final class Decimal implements \JsonSerializable
      * then dividing by the number of values.
      *
      * @param array|\Traversable $values
-     * @param int                $precision Minimum precision of the average.
+     * @param int $precision Minimum precision of the average.
      *
      * @return Decimal the average of all given values.
      *
@@ -161,8 +161,6 @@ final class Decimal implements \JsonSerializable
      * The precision of the result will be the max of this decimal's precision
      * and the given value's precision, where scalar values assume the default.
      *
-     * @see Decimal::rem for the decimal remainder.
-     *
      * @param Decimal|string|int $value
      *
      * @return Decimal the remainder after dividing the integer value of this
@@ -171,6 +169,7 @@ final class Decimal implements \JsonSerializable
      * @throws \TypeError if the value is not a decimal, string or integer.
      * @throws \DivisionByZeroError if the integer value of $value is zero.
      * @throws \ArithmeticError if the operation is undefined, eg. INF % -INF
+     * @see Decimal::rem for the decimal remainder.
      */
     public function mod($value): Decimal {}
 
@@ -265,7 +264,7 @@ final class Decimal implements \JsonSerializable
      * Round
      *
      * @param int $places The number of places behind the decimal to round to.
-     * @param int $mode   The rounding mode, which are constants of Decimal.
+     * @param int $mode The rounding mode, which are constants of Decimal.
      *
      * @return Decimal the value of this decimal with the same precision,
      *                 rounded according to the specified number of decimal
@@ -371,9 +370,9 @@ final class Decimal implements \JsonSerializable
     public function isZero(): bool {}
 
     /**
-     * @param int  $places   The number of places behind the decimal point.
-     * @param bool $commas   TRUE if thousands should be separated by a comma.
-     * @param int  $rounding
+     * @param int $places The number of places behind the decimal point.
+     * @param bool $commas TRUE if thousands should be separated by a comma.
+     * @param int $rounding
      *
      * @return string the value of this decimal formatted to a fixed number of
      *                decimal places, optionally with thousands comma-separated,

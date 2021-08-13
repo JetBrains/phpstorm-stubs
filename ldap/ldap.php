@@ -1223,7 +1223,7 @@ function ldap_escape(string $value, string $ignore = "", int $flags = 0): string
  * An LDAP link identifier, returned by
  * {@see ldap_connect()}.
  * </p>
- * @param  string $dn <p>The distinguished name of an LDAP entity.</p>
+ * @param string $dn <p>The distinguished name of an LDAP entity.</p>
  * @param array $modifications_info <p>An array that specifies the modifications to make. Each entry in this
  * array is an associative array with two or three keys:
  * <em>attrib</em> maps to the name of the attribute to modify,

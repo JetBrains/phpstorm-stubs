@@ -2169,11 +2169,11 @@ function ocinewcollection($connection_resource, $tdo, $schema = null) {}
 /**
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
- * (@see OCI_Collection::append)
- * @link https://php.net/manual/en/function.ocicollappend.php
- * @param OCI_Collection $collection
+ * (@param OCI_Collection $collection
  * @param mixed $value <p>The value to be added to the collection. Can be a string or a number.</p>
  * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
+ * @link https://php.net/manual/en/function.ocicollappend.php
+ * @see OCI_Collection::append)
  */
 function ocicollappend(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection, $value) {}
 
@@ -2279,6 +2279,7 @@ function ocicollassign(
     #[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $to,
     #[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $from
 ) {}
+
 /**
  * See <b>OCI_NO_AUTO_COMMIT</b>.
  * @link https://php.net/manual/en/oci8.constants.php

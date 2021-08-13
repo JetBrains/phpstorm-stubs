@@ -29,6 +29,7 @@ define('YAR_CLIENT_PROTOCOL_TCP', 2);
 define('YAR_CLIENT_PROTOCOL_UNIX', 4);
 
 define('YAR_OPT_RESOLVE', 32);
+
 /**
  * Class Yar_Server
  * Date 2018/6/9 下午3:02

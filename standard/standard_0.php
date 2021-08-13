@@ -8,10 +8,10 @@ use JetBrains\PhpStorm\Pure;
 
 class __PHP_Incomplete_Class
 {
-        /**
-         * @var string
-         */
-        public $__PHP_Incomplete_Class_Name;
+    /**
+     * @var string
+     */
+    public $__PHP_Incomplete_Class_Name;
 }
 
 class php_user_filter

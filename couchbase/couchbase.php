@@ -65,10 +65,10 @@
 
 namespace Couchbase;
 
-use JsonSerializable;
-use Exception;
-use Throwable;
 use DateTimeInterface;
+use Exception;
+use JsonSerializable;
+use Throwable;
 
 /**
  * An object which contains meta information of the document needed to enforce query consistency.

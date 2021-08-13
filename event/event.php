@@ -34,10 +34,10 @@ final class Event
      * Constructs Event object.
      *
      * @param EventBase $base
-     * @param mixed     $fd
-     * @param int       $what
-     * @param callable  $cb
-     * @param mixed     $arg  = null
+     * @param mixed $fd
+     * @param int $what
+     * @param callable $cb
+     * @param mixed $arg = null
      *
      * @see https://php.net/manual/en/event.construct.php
      */
@@ -145,10 +145,10 @@ final class Event
      * Re-configures event.
      *
      * @param EventBase $base
-     * @param mixed     $fd
-     * @param int       $what (optional)
-     * @param callable  $cb   (optional)
-     * @param mixed     $arg  (optional)
+     * @param mixed $fd
+     * @param int $what (optional)
+     * @param callable $cb (optional)
+     * @param mixed $arg (optional)
      *
      * @return bool
      *
@@ -172,8 +172,8 @@ final class Event
      * Re-configures timer event.
      *
      * @param EventBase $base
-     * @param callable  $cb
-     * @param mixed     $arg  (optional)
+     * @param callable $cb
+     * @param mixed $arg (optional)
      *
      * @return bool
      *
@@ -186,9 +186,9 @@ final class Event
      * Constructs signal event object.
      *
      * @param EventBase $base
-     * @param int       $signum
-     * @param callable  $cb
-     * @param mixed     $arg    (optional)
+     * @param int $signum
+     * @param callable $cb
+     * @param mixed $arg (optional)
      *
      * @return Event
      *
@@ -201,8 +201,8 @@ final class Event
      * Constructs timer event object.
      *
      * @param EventBase $base
-     * @param callable  $cb
-     * @param mixed     $arg  (optional)
+     * @param callable $cb
+     * @param mixed $arg (optional)
      *
      * @return Event
      *
@@ -212,6 +212,7 @@ final class Event
 }
 
 //  The EventBase class
+
 /**
  * EventBase.
  * EventBase class represents libevent's event base structure. It holds a set of events and can poll to determine which events are active.
@@ -389,6 +390,7 @@ final class EventBase
 }
 
 // The EventBuffer class
+
 /**
  * EventBuffer.
  * EventBuffer represents Libevent's "evbuffer", an utility functionality for buffered I/O.
@@ -459,7 +461,7 @@ class EventBuffer
      * Moves the specified number of bytes from a source buffer to the end of the current buffer.
      *
      * @param EventBuffer $buf
-     * @param int         $len
+     * @param int $len
      *
      * @return int
      *
@@ -472,7 +474,7 @@ class EventBuffer
      * Copies out specified number of bytes from the front of the buffer.
      *
      * @param string &$data
-     * @param int    $max_bytes
+     * @param int $max_bytes
      *
      * @return int
      *
@@ -582,7 +584,7 @@ class EventBuffer
      * Read data from a file onto the end of the buffer.
      *
      * @param mixed $fd
-     * @param int   $howmuch
+     * @param int $howmuch
      *
      * @return int
      *
@@ -607,8 +609,8 @@ class EventBuffer
      * Scans the buffer for an occurrence of a string.
      *
      * @param string $what
-     * @param int    $start = 1
-     * @param int    $end   = 1
+     * @param int $start = 1
+     * @param int $end = 1
      *
      * @return int|false
      *
@@ -620,7 +622,7 @@ class EventBuffer
      * searchEol.
      * Scans the buffer for an occurrence of an end of line.
      *
-     * @param int $start     = 1
+     * @param int $start = 1
      * @param int $eol_style = EOL_ANY
      *
      * @return int|false
@@ -679,6 +681,7 @@ class EventBuffer
 }
 
 // The EventBufferEvent class
+
 /**
  * EventBufferEvent.
  * Represents Libevent's buffer event.
@@ -733,9 +736,9 @@ final class EventBufferEvent
      * Constructs EventBufferEvent object.
      *
      * @param EventBase $base
-     * @param mixed     $socket  = null
-     * @param int       $options = 0
-     * @param null|callable $readcb  = null
+     * @param mixed $socket = null
+     * @param int $options = 0
+     * @param null|callable $readcb = null
      * @param null|callable $writecb = null
      * @param null|callable $eventcb = null
      *
@@ -769,9 +772,9 @@ final class EventBufferEvent
      * Connects to a hostname with optionally asyncronous DNS.
      *
      * @param null|EventDnsBase $dns_base
-     * @param string       $hostname
-     * @param int          $port
-     * @param int          $family   = EventUtil::AF_UNSPEC
+     * @param string $hostname
+     * @param int $port
+     * @param int $family = EventUtil::AF_UNSPEC
      *
      * @return bool
      *
@@ -796,7 +799,7 @@ final class EventBufferEvent
      * Creates two buffer events connected to each other.
      *
      * @param EventBase $base
-     * @param int       $options = 0
+     * @param int $options = 0
      *
      * @return array
      *
@@ -911,7 +914,7 @@ final class EventBufferEvent
      * @param callable $readcb
      * @param callable $writecb
      * @param callable $eventcb
-     * @param string   $arg     (optional)
+     * @param string $arg (optional)
      *
      * @see https://php.net/manual/en/eventbufferevent.setcallbacks.php
      */
@@ -968,11 +971,11 @@ final class EventBufferEvent
      * sslFilter.
      * Create a new SSL buffer event to send its data over another buffer event.
      *
-     * @param EventBase        $base
+     * @param EventBase $base
      * @param EventBufferEvent $underlying
-     * @param EventSslContext  $ctx
-     * @param int              $state
-     * @param int              $options    = 0
+     * @param EventSslContext $ctx
+     * @param int $state
+     * @param int $options = 0
      *
      * @return EventBufferEvent
      *
@@ -1070,6 +1073,7 @@ final class EventBufferEvent
 }
 
 // The EventConfig class
+
 /**
  * EventConfig.
  * Represents configuration structure which could be used in construction of the EventBase .
@@ -1141,6 +1145,7 @@ final class EventConfig
 }
 
 // The EventDnsBase class
+
 /**
  * EventDnsBase.
  * Represents Libevent's DNS base structure. Used to resolve DNS asyncronously, parse configuration files like resolv.conf etc.
@@ -1163,7 +1168,7 @@ final class EventDnsBase
      * Constructs EventDnsBase object.
      *
      * @param EventBase $base
-     * @param bool      $initialize
+     * @param bool $initialize
      *
      * @see https://secure.php.net/manual/en/eventdnsbase.construct.php
      */
@@ -1226,7 +1231,7 @@ final class EventDnsBase
      * parseResolvConf.
      * Scans the resolv.conf-formatted file.
      *
-     * @param int    $flags
+     * @param int $flags
      * @param string $filename
      *
      * @return bool
@@ -1262,6 +1267,7 @@ final class EventDnsBase
 }
 
 // The EventHttp class
+
 /**
  * EventHttp.
  * Represents HTTP server.
@@ -1277,7 +1283,7 @@ final class EventHttp
      * __construct.
      * Constructs EventHttp object(the HTTP server).
      *
-     * @param EventBase       $base
+     * @param EventBase $base
      * @param null|EventSslContext $ctx
      *
      * @see https://secure.php.net/manual/en/eventhttp.construct.php
@@ -1313,7 +1319,7 @@ final class EventHttp
      * Binds an HTTP server on the specified address and port.
      *
      * @param string $address
-     * @param int    $port
+     * @param int $port
      * @return bool
      *
      * @see https://secure.php.net/manual/en/eventhttp.bind.php
@@ -1397,6 +1403,7 @@ final class EventHttp
 }
 
 // The EventHttpConnection class
+
 /**
  * EventHttpConnection.
  * Represents an HTTP connection.
@@ -1412,10 +1419,10 @@ class EventHttpConnection
      * __construct.
      * Constructs EventHttpConnection object.
      *
-     * @param EventBase       $base
-     * @param EventDnsBase    $dns_base
-     * @param string          $address
-     * @param int             $port
+     * @param EventBase $base
+     * @param EventDnsBase $dns_base
+     * @param string $address
+     * @param int $port
      * @param null|EventSslContext $ctx
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.construct.php
@@ -1449,8 +1456,8 @@ class EventHttpConnection
      * Makes an HTTP request over the specified connection.
      *
      * @param EventHttpRequest $req
-     * @param int              $type
-     * @param string           $uri
+     * @param int $type
+     * @param string $uri
      *
      * @return bool
      *
@@ -1463,7 +1470,7 @@ class EventHttpConnection
      * Set callback for connection close.
      *
      * @param callable $callback
-     * @param mixed    $data     (optional)
+     * @param mixed $data (optional)
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.setclosecallback.php
      */
@@ -1609,6 +1616,7 @@ class EventHttpRequest
 }
 
 //  The EventListener class
+
 /**
  * EventListener.
  * Represents a connection listener.
@@ -1639,11 +1647,11 @@ final class EventListener
      * Creates new connection listener associated with an event base.
      *
      * @param EventBase $base
-     * @param callable  $cb
-     * @param mixed     $data
-     * @param int       $flags
-     * @param int       $backlog
-     * @param mixed     $target
+     * @param callable $cb
+     * @param mixed $data
+     * @param int $flags
+     * @param int $backlog
+     * @param mixed $target
      *
      * @see https://secure.php.net/manual/en/eventlistener.construct.php
      */
@@ -1697,7 +1705,7 @@ final class EventListener
      * The setCallback purpose.
      *
      * @param callable $cb
-     * @param mixed    $arg = null
+     * @param mixed $arg = null
      *
      * @see https://secure.php.net/manual/en/eventlistener.setcallback.php
      */
@@ -1715,6 +1723,7 @@ final class EventListener
 }
 
 //  The EventSslContext class
+
 /**
  * EventSslContext.
  * Represents SSL_CTX structure. Provides methods and properties to configure the SSL context.
@@ -1795,6 +1804,7 @@ final class EventSslContext
 }
 
 // The EventUtil class
+
 /**
  * EventUtil.
  * EventUtil is a singleton with supplimentary methods and constants.
@@ -1903,8 +1913,8 @@ final class EventUtil
      * Sets socket options.
      *
      * @param mixed $socket
-     * @param int   $level
-     * @param int   $optname
+     * @param int $level
+     * @param int $optname
      * @param int|array $optval
      *
      * @return bool

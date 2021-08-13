@@ -535,8 +535,8 @@ namespace FFI {
         /**
          * Returns the name of the type.
          *
-         * @since 8.0
          * @return string
+         * @since 8.0
          */
         public function getName(): string {}
 
@@ -564,32 +564,32 @@ namespace FFI {
          *  - {@see CType::TYPE_ARRAY}
          *  - {@see CType::TYPE_STRUCT}
          *
-         * @since 8.1
          * @return int
+         * @since 8.1
          */
         public function getKind(): int {}
 
         /**
          * Returns the size of the type in bytes.
          *
-         * @since 8.1
          * @return int
+         * @since 8.1
          */
         public function getSize(): int {}
 
         /**
          * Returns the alignment of the type in bytes.
          *
-         * @since 8.1
          * @return int
+         * @since 8.1
          */
         public function getAlignment(): int {}
 
         /**
          * Returns the bit-mask of type attributes.
          *
-         * @since 8.1
          * @return int
+         * @since 8.1
          */
         public function getAttributes(): int {}
 
@@ -600,45 +600,45 @@ namespace FFI {
          *  - {@see CType::TYPE_UINT32}
          *  - {@see CType::TYPE_UINT64}
          *
-         * @since 8.1
          * @return int
          * @throws Exception In the case that the type is not an enumeration.
+         * @since 8.1
          */
         public function getEnumKind(): int {}
 
         /**
          * Returns the type of array elements.
          *
-         * @since 8.1
          * @return CType
          * @throws Exception In the case that the type is not an array.
+         * @since 8.1
          */
         public function getArrayElementType(): CType {}
 
         /**
          * Returns the size of an array.
          *
-         * @since 8.1
          * @return int
          * @throws Exception In the case that the type is not an array.
+         * @since 8.1
          */
         public function getArrayLength(): int {}
 
         /**
          * Returns the original type of the pointer.
          *
-         * @since 8.1
          * @return CType
          * @throws Exception In the case that the type is not a pointer.
+         * @since 8.1
          */
         public function getPointerType(): CType {}
 
         /**
          * Returns the field string names of a structure or union.
          *
-         * @since 8.1
          * @return array<string>
          * @throws Exception In the case that the type is not a struct or union.
+         * @since 8.1
          */
         public function getStructFieldNames(): array {}
 
@@ -647,20 +647,20 @@ namespace FFI {
          * the case that the type is a union, then for each field of this type
          * the offset will be equal to 0.
          *
-         * @since 8.1
          * @param string $name
          * @return int
          * @throws Exception In the case that the type is not a struct or union.
+         * @since 8.1
          */
         public function getStructFieldOffset(string $name): int {}
 
         /**
          * Returns the field type of a structure or union.
          *
-         * @since 8.1
          * @param string $name
          * @return CType
          * @throws Exception In the case that the type is not a struct or union.
+         * @since 8.1
          */
         public function getStructFieldType(string $name): CType {}
 
@@ -680,37 +680,37 @@ namespace FFI {
          *  - {@see CType::ABI_SYSV}
          *  - {@see CType::ABI_VECTORCALL}
          *
-         * @since 8.1
          * @return int
          * @throws Exception In the case that the type is not a function.
+         * @since 8.1
          */
         public function getFuncABI(): int {}
 
         /**
          * Returns the return type of the function.
          *
-         * @since 8.1
          * @return CType
          * @throws Exception In the case that the type is not a function.
+         * @since 8.1
          */
         public function getFuncReturnType(): CType {}
 
         /**
          * Returns the number of arguments to the function.
          *
-         * @since 8.1
          * @return int
          * @throws Exception In the case that the type is not a function.
+         * @since 8.1
          */
         public function getFuncParameterCount(): int {}
 
         /**
          * Returns the type of the function argument by its numeric index.
          *
-         * @since 8.1
          * @param int $index
          * @return CType
          * @throws Exception In the case that the type is not a function.
+         * @since 8.1
          */
         public function getFuncParameterType(int $index): CType {}
     }

@@ -7,8 +7,8 @@ class ProducerTopic extends Topic
     private function __construct() {}
 
     /**
-     * @param int         $partition
-     * @param int         $msgflags
+     * @param int $partition
+     * @param int $msgflags
      * @param string|null $payload
      * @param string|null $key
      * @param string|null $msg_opaque
@@ -18,12 +18,12 @@ class ProducerTopic extends Topic
     public function produce($partition, $msgflags, $payload = null, $key = null, $msg_opaque = null) {}
 
     /**
-     * @param int         $partition
-     * @param int         $msgflags
+     * @param int $partition
+     * @param int $msgflags
      * @param string|null $payload
      * @param string|null $key
-     * @param array|null  $headers
-     * @param int         $timestamp_ms
+     * @param array|null $headers
+     * @param int $timestamp_ms
      * @param string|null $msg_opaque
      *
      * @return void

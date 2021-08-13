@@ -2,8 +2,8 @@
 
 // Start of ftp v.
 use JetBrains\PhpStorm\ExpectedValues as EV;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
  * append the contents of a file to another file on the ftp server
@@ -604,7 +604,7 @@ function ftp_nb_fget(
  * @param string $remote_filename <p>
  * The remote file path.
  * </p>
- * @param int $mode  <p>
+ * @param int $mode <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or <b>FTP_BINARY</b>. Optional since PHP 7.3
  * </p>
  * @param int $offset [optional] <p>The position in the remote file to start downloading from.</p>

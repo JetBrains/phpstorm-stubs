@@ -17,7 +17,7 @@ abstract class SplType
      * Creates a new value of some type
      *
      * @param mixed $initial_value
-     * @param bool $strict  If set to true then will throw UnexpectedValueException if value of other type will be assigned. True by default
+     * @param bool $strict If set to true then will throw UnexpectedValueException if value of other type will be assigned. True by default
      * @link https://php.net/manual/en/spltype.construct.php
      */
     public function __construct($initial_value = self::__default, $strict = true) {}

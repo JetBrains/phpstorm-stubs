@@ -347,11 +347,11 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $overwrite = false
     ) {}
 
-        /**
-         * @see setAlias
-         * @return string
-         */
-        public function getAlias() {}
+    /**
+     * @return string
+     * @see setAlias
+     */
+    public function getAlias() {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>

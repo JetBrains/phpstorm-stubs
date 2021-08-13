@@ -8,9 +8,9 @@ class LevelDB
 {
     /**
      * @param string $name Path to database
-     * @param array  $options
-     * @param array  $read_options
-     * @param array  $write_options
+     * @param array $options
+     * @param array $read_options
+     * @param array $write_options
      */
     public function __construct($name, array $options = [
         'create_if_missing' => true, // if the specified database does not exist will create a new one
@@ -33,7 +33,7 @@ class LevelDB
 
     /**
      * @param string $key
-     * @param array  $read_options
+     * @param array $read_options
      *
      * @return string|false
      */
@@ -44,20 +44,20 @@ class LevelDB
      *
      * @param string $key
      * @param string $value
-     * @param array  $write_options
+     * @param array $write_options
      */
     public function set($key, $value, array $write_options = []) {}
 
     /**
      * @param string $key
      * @param string $value
-     * @param array  $write_options
+     * @param array $write_options
      */
     public function put($key, $value, array $write_options = []) {}
 
     /**
      * @param string $key
-     * @param array  $write_options
+     * @param array $write_options
      *
      * @return bool
      */
@@ -67,7 +67,7 @@ class LevelDB
      * Executes all of the operations added in the write batch.
      *
      * @param LevelDBWriteBatch $batch
-     * @param array             $write_options
+     * @param array $write_options
      */
     public function write(LevelDBWriteBatch $batch, array $write_options = []) {}
 

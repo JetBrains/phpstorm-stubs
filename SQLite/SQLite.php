@@ -124,7 +124,7 @@ class SQLiteDatabase
      * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
      * Execute a query that does not prefetch and buffer all data
      * @link https://php.net/manual/en/function.sqlite-unbuffered-query.php
-     * @param string $query  <p>
+     * @param string $query <p>
      * The query to be executed.
      * </p>
      * <p>
@@ -371,6 +371,7 @@ final class SQLiteResult implements Iterator, Countable
      * option.</p>
      */
     public function current($result_type = SQLITE_BOTH, $decode_binary = true) {}
+
     /**
      * Return the key of the current element
      * @link https://php.net/manual/en/iterator.key.php
@@ -378,6 +379,7 @@ final class SQLiteResult implements Iterator, Countable
      * @since 5.0.0
      */
     public function key() {}
+
     /**
      * Seek to the next row number
      * @link https://php.net/manual/en/function.sqlite-next.php
@@ -385,6 +387,7 @@ final class SQLiteResult implements Iterator, Countable
      * @since 5.0.0
      */
     public function next() {}
+
     /**
      * Checks if current position is valid
      * @link https://php.net/manual/en/iterator.valid.php
@@ -395,6 +398,7 @@ final class SQLiteResult implements Iterator, Countable
      * @since 5.0.0
      */
     public function valid() {}
+
     /**
      * Rewind the Iterator to the first element
      * @link https://php.net/manual/en/iterator.rewind.php
@@ -425,13 +429,13 @@ final class SQLiteResult implements Iterator, Countable
     public function prev() {}
 
     /**
-     *@since 5.4.0
-     * Returns whether or not a previous row is available
-     * @link https://php.net/manual/en/function.sqlite-has-prev.php
      * @return bool <p>
      * Returns <b>TRUE</b> if there are more previous rows available from the
      * <i>result</i> handle, or <b>FALSE</b> otherwise.
      * </p>
+     * @link https://php.net/manual/en/function.sqlite-has-prev.php
+     * @since 5.4.0
+     * Returns whether or not a previous row is available
      */
     public function hasPrev() {}
 

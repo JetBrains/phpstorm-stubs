@@ -730,7 +730,7 @@ class mysqli
 
     /**
      * @link https://php.net/manual/en/function.mysqli-set-opt
-     * @param int   $option
+     * @param int $option
      * @param mixed $value
      */
     public function set_opt(int $option, $value) {}
@@ -1209,8 +1209,8 @@ class mysqli_result implements IteratorAggregate
     public function free_result() {}
 
     /**
-     * @since 8.0
      * @return Traversable
+     * @since 8.0
      */
     public function getIterator() {}
 }

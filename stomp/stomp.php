@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Stubs for stomp
  * https://pecl.php.net/package/stomp
@@ -11,7 +12,7 @@ class Stomp
      * @param string $broker The broker URI
      * @param string $username The username
      * @param string $password The password
-     * @param array  $headers additional headers (example: receipt).
+     * @param array $headers additional headers (example: receipt).
      */
     public function __construct($broker = null, $username = null, $password = null, array $headers = []) {}
 
@@ -32,9 +33,9 @@ class Stomp
     /**
      * Sends a message to a destination in the messaging system
      *
-     * @param string            $destination indicates where to send the message
+     * @param string $destination indicates where to send the message
      * @param string|StompFrame $msg message to be sent
-     * @param array             $headers additional headers (example: receipt).
+     * @param array $headers additional headers (example: receipt).
      * @return bool TRUE on success, or FALSE on failure
      */
     public function send($destination, $msg, array $headers = []) {}
@@ -43,7 +44,7 @@ class Stomp
      * Register to listen to a given destination
      *
      * @param string $destination indicates which destination to subscribe to
-     * @param array  $headers additional headers (example: receipt).
+     * @param array $headers additional headers (example: receipt).
      * @return bool TRUE on success, or FALSE on failure
      */
     public function subscribe($destination, array $headers = []) {}
@@ -52,7 +53,7 @@ class Stomp
      * Remove an existing subscription
      *
      * @param string $destination indicates which subscription to remove
-     * @param array  $headers additional headers (example: receipt).
+     * @param array $headers additional headers (example: receipt).
      * @return bool TRUE on success, or FALSE on failure
      */
     public function unsubscribe($destination, array $headers = []) {}
@@ -100,7 +101,7 @@ class Stomp
      * Acknowledge consumption of a message from a subscription using client acknowledgment
      *
      * @param string|StompFrame $msg message/messageId to be acknowledged
-     * @param array             $headers additional headers (example: receipt).
+     * @param array $headers additional headers (example: receipt).
      * @return bool TRUE on success, or FALSE on failure
      */
     public function ack($msg, array $headers = []) {}
@@ -173,7 +174,7 @@ function stomp_version() {}
  * @param string $broker broker URI
  * @param string $username The username
  * @param string $password The password
- * @param array  $headers additional headers (example: receipt).
+ * @param array $headers additional headers (example: receipt).
  * @return resource|false stomp connection identifier on success, or FALSE on failure
  */
 function stomp_connect($broker = null, $username = null, $password = null, array $headers = []) {}
@@ -197,10 +198,10 @@ function stomp_close($link) {}
 /**
  * Sends a message to a destination in the messaging system
  *
- * @param resource         $link identifier returned by stomp_connect
- * @param string            $destination indicates where to send the message
+ * @param resource $link identifier returned by stomp_connect
+ * @param string $destination indicates where to send the message
  * @param string|StompFrame $msg message to be sent
- * @param array             $headers additional headers (example: receipt).
+ * @param array $headers additional headers (example: receipt).
  * @return bool TRUE on success, or FALSE on failure
  */
 function stomp_send($link, $destination, $msg, array $headers = []) {}
@@ -209,8 +210,8 @@ function stomp_send($link, $destination, $msg, array $headers = []) {}
  * Registers to listen to a given destination
  *
  * @param resource $link identifier returned by stomp_connect
- * @param string    $destination indicates which destination to subscribe to
- * @param array     $headers additional headers (example: receipt).
+ * @param string $destination indicates which destination to subscribe to
+ * @param array $headers additional headers (example: receipt).
  * @return bool TRUE on success, or FALSE on failure
  */
 function stomp_subscribe($link, $destination, array $headers = []) {}
@@ -219,8 +220,8 @@ function stomp_subscribe($link, $destination, array $headers = []) {}
  * Removes an existing subscription
  *
  * @param resource $link identifier returned by stomp_connect
- * @param string    $destination indicates which subscription to remove
- * @param array     $headers additional headers (example: receipt).
+ * @param string $destination indicates which subscription to remove
+ * @param array $headers additional headers (example: receipt).
  * @return bool TRUE on success, or FALSE on failure
  */
 function stomp_unsubscribe($link, $destination, array $headers = []) {}
@@ -245,7 +246,7 @@ function stomp_read_frame($link) {}
  * Starts a transaction
  *
  * @param resource $link identifier returned by stomp_connect
- * @param string    $transaction_id transaction id
+ * @param string $transaction_id transaction id
  * @return bool TRUE on success, or FALSE on failure
  */
 function stomp_begin($link, $transaction_id) {}
@@ -254,7 +255,7 @@ function stomp_begin($link, $transaction_id) {}
  * Commits a transaction in progress
  *
  * @param resource $link identifier returned by stomp_connect
- * @param string    $transaction_id transaction id
+ * @param string $transaction_id transaction id
  * @return bool TRUE on success, or FALSE on failure
  */
 function stomp_commit($link, $transaction_id) {}
@@ -263,7 +264,7 @@ function stomp_commit($link, $transaction_id) {}
  * Rolls back a transaction in progress
  *
  * @param resource $link identifier returned by stomp_connect
- * @param string    $transaction_id transaction id
+ * @param string $transaction_id transaction id
  * @return bool TRUE on success, or FALSE on failure
  */
 function stomp_abort($link, $transaction_id) {}
@@ -271,9 +272,9 @@ function stomp_abort($link, $transaction_id) {}
 /**
  * Acknowledge consumption of a message from a subscription using client acknowledgment
  *
- * @param resource         $link identifier returned by stomp_connect
+ * @param resource $link identifier returned by stomp_connect
  * @param string|StompFrame $msg message/messageId to be acknowledged
- * @param array             $headers additional headers (example: receipt).
+ * @param array $headers additional headers (example: receipt).
  * @return bool TRUE on success, or FALSE on failure
  */
 function stomp_ack($link, $msg, array $headers = []) {}
@@ -290,8 +291,8 @@ function stomp_error($link) {}
  * Set timeout
  *
  * @param resource $link identifier returned by stomp_connect
- * @param int       $seconds the seconds part of the timeout to be set
- * @param int       $microseconds the microseconds part of the timeout to be set
+ * @param int $seconds the seconds part of the timeout to be set
+ * @param int $microseconds the microseconds part of the timeout to be set
  * @return void
  */
 function stomp_set_timeout($link, $seconds, $microseconds = 0) {}

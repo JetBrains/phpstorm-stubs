@@ -1159,10 +1159,10 @@ function sodium_bin2base64(string $string, int $id): string {}
  * @param string $string
  * @param int $id
  * @param string $ignore
- * @throws SodiumException
- * @since 7.2
- * @see https://www.php.net/manual/en/function.sodium-base642bin.php
  * @return string
+ * @throws SodiumException
+ * @see https://www.php.net/manual/en/function.sodium-base642bin.php
+ * @since 7.2
  */
 function sodium_base642bin(string $string, int $id, string $ignore = ''): string {}
 

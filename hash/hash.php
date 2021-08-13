@@ -248,9 +248,9 @@ function hash_hkdf(string $algo, string $key, int $length = 0, string $info = ''
 
 /**
  * Return a list of registered hashing algorithms suitable for hash_hmac
+ * @return string[] Returns a numerically indexed array containing the list of supported hashing algorithms suitable for {@see hash_hmac()}.
  * @since 7.2
  * Return a list of registered hashing algorithms suitable for hash_hmac
- * @return string[] Returns a numerically indexed array containing the list of supported hashing algorithms suitable for {@see hash_hmac()}.
  */
 #[Pure]
 function hash_hmac_algos(): array {}

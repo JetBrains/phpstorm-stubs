@@ -7,20 +7,20 @@
  * can be used to indicate an error in the script logic (e.g. database connection problem)
  * @param string $error_string the error string to display
  */
-function set_job_failed($error_string) {};
+function set_job_failed($error_string) {}
 
 /**
  * returns array containing following fields:
  * "license_ok" - whether license allows use of JobQueue
  * "expires" - license expiration date
  */
-function jobqueue_license_info() {};
+function jobqueue_license_info() {}
 
 /**
  * Create Java object
  *
- * @return object
  * @param string $class
+ * @return object
  */
 function java($class) {}
 
@@ -39,7 +39,7 @@ function java_last_exception_clear() {}
 /**
  * Set case sensitivity for Java calls.
  * @param bool $ignore if set, Java attribute and method names would be resolved disregarding case. NOTE: this does not make any Java functions case insensi
-tive, just things like $foo->bar and $foo->bar() would match Bar too.
+ * tive, just things like $foo->bar and $foo->bar() would match Bar too.
  * @return void
  */
 function java_set_ignore_case($ignore) {}
@@ -61,16 +61,16 @@ function java_throw_exceptions($throw) {}
 /**
  * Reload Jar's that were dynamically loaded
  *
- * @return array
  * @param string $new_jarpath
+ * @return array
  */
 function java_reload($new_jarpath) {}
 
 /**
  * Add to Java's classpath in runtime
  *
- * @return array
  * @param string $new_classpath
+ * @return array
  */
 function java_require($new_classpath) {}
 

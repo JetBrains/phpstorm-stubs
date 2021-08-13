@@ -3,6 +3,7 @@
  * sync PECL extension stubs v.0.1
  * @link https://php.net/manual/en/book.sync.php
  */
+
 /**
  * SyncMutex
  *
@@ -47,7 +48,7 @@ class SyncMutex
      * @link https://php.net/manual/en/syncmutex.unlock.php
      */
     public function unlock($all = false) {}
-    }
+}
 
 /**
  * SyncSemaphore
@@ -64,9 +65,9 @@ class SyncSemaphore
      *
      * Constructs a named or unnamed semaphore.
      *
-     * @param string $name       [optional] The name of the semaphore if this is a named semaphore object. Note: If the name already exists, it must be able to be opened by the current user that the process is running as or an exception will be thrown with a meaningless error message.
-     * @param int    $initialval [optional] The initial value of the semaphore. This is the number of locks that may be obtained.
-     * @param bool   $autounlock [optional] Specifies whether or not to automatically unlock the semaphore at the conclusion of the PHP script. Warning: If an object is: A named semaphore with an autounlock of FALSE, the object is locked, and the PHP script concludes before the object is unlocked, then the underlying semaphore will end up in an inconsistent state.
+     * @param string $name [optional] The name of the semaphore if this is a named semaphore object. Note: If the name already exists, it must be able to be opened by the current user that the process is running as or an exception will be thrown with a meaningless error message.
+     * @param int $initialval [optional] The initial value of the semaphore. This is the number of locks that may be obtained.
+     * @param bool $autounlock [optional] Specifies whether or not to automatically unlock the semaphore at the conclusion of the PHP script. Warning: If an object is: A named semaphore with an autounlock of FALSE, the object is locked, and the PHP script concludes before the object is unlocked, then the underlying semaphore will end up in an inconsistent state.
      * @throws Exception if the semaphore cannot be created or opened
      * @link https://php.net/manual/en/syncsemaphore.construct.php
      */
@@ -95,7 +96,7 @@ class SyncSemaphore
      * @link https://php.net/manual/en/syncsemaphore.unlock.php
      */
     public function unlock(&$prevcount = 0) {}
-    }
+}
 
 /**
  * SyncEvent
@@ -110,9 +111,9 @@ class SyncEvent
     /**
      * SyncEvent constructor.
      *
-     * @param string $name    The name of the event if this is a named event object. Note: If the name already exists, it must be able to be opened by the current user that the process is running as or an exception will be thrown with a meaningless error message.
-     * @param bool   $manual  [optional] Specifies whether or not the event object must be reset manually. Note: Manual reset event objects allow all waiting processes through until the object is reset.
-     * @param bool   $prefire [optional] Specifies whether or not to prefire (signal) the event object. Note: Only has impact if the calling process/thread is the first to create the object.
+     * @param string $name The name of the event if this is a named event object. Note: If the name already exists, it must be able to be opened by the current user that the process is running as or an exception will be thrown with a meaningless error message.
+     * @param bool $manual [optional] Specifies whether or not the event object must be reset manually. Note: Manual reset event objects allow all waiting processes through until the object is reset.
+     * @param bool $prefire [optional] Specifies whether or not to prefire (signal) the event object. Note: Only has impact if the calling process/thread is the first to create the object.
      * @throws Exception if the event object cannot be created or opened
      * @since 1.0.0
      * @since 1.1.0 Added $prefire
@@ -152,7 +153,7 @@ class SyncEvent
      * @link https://php.net/manual/en/syncevent.wait.php
      */
     public function wait($wait = -1) {}
-    }
+}
 
 /**
  * SyncReaderWriter
@@ -169,8 +170,8 @@ class SyncReaderWriter
      *
      * Constructs a named or unnamed reader-writer object.
      *
-     * @param string $name       [optional] The name of the reader-writer if this is a named reader-writer object. Note: If the name already exists, it must be able to be opened by the current user that the process is running as or an exception will be thrown with a meaningless error message.
-     * @param bool   $autounlock [optional] Specifies whether or not to automatically unlock the reader-writer at the conclusion of the PHP script. Warning: If an object is: A named reader-writer with an autounlock of FALSE, the object is locked for either reading or writing, and the PHP script concludes before the object is unlocked, then the underlying objects will end up in an inconsistent state.
+     * @param string $name [optional] The name of the reader-writer if this is a named reader-writer object. Note: If the name already exists, it must be able to be opened by the current user that the process is running as or an exception will be thrown with a meaningless error message.
+     * @param bool $autounlock [optional] Specifies whether or not to automatically unlock the reader-writer at the conclusion of the PHP script. Warning: If an object is: A named reader-writer with an autounlock of FALSE, the object is locked for either reading or writing, and the PHP script concludes before the object is unlocked, then the underlying objects will end up in an inconsistent state.
      * @throws Exception if the reader-writer cannot be created or opened.
      * @link https://php.net/manual/en/syncreaderwriter.construct.php
      */
@@ -221,7 +222,7 @@ class SyncReaderWriter
      * @link https://php.net/manual/en/syncreaderwriter.writeunlock.php
      */
     public function writeunlock() {}
-    }
+}
 
 /**
  * SyncSharedMemory
@@ -241,7 +242,7 @@ class SyncSharedMemory
      * Constructs a named shared memory object.
      *
      * @param string $name The name of the shared memory object. Note: If the name already exists, it must be able to be opened by the current user that the process is running as or an exception will be thrown with a meaningless error message.
-     * @param int    $size The size, in bytes, of shared memory to reserve. Note: The amount of memory cannot be resized later. Request sufficient storage up front.
+     * @param int $size The size, in bytes, of shared memory to reserve. Note: The amount of memory cannot be resized later. Request sufficient storage up front.
      * @throws Exception if the shared memory object cannot be created or opened.
      * @link https://php.net/manual/en/syncsharedmemory.construct.php
      */
@@ -262,7 +263,7 @@ class SyncSharedMemory
      *
      * Copies data from named shared memory.
      *
-     * @param int $start  [optional] The start/offset, in bytes, to begin reading. Note: If the value is negative, the starting position will begin at the specified number of bytes from the end of the shared memory segment.
+     * @param int $start [optional] The start/offset, in bytes, to begin reading. Note: If the value is negative, the starting position will begin at the specified number of bytes from the end of the shared memory segment.
      * @param int $length [optional] The number of bytes to read. Note: If unspecified, reading will stop at the end of the shared memory segment. If the value is negative, reading will stop the specified number of bytes from the end of the shared memory segment.
      * @return string containing the data read from shared memory.
      * @see SyncSharedMemory::write()
@@ -286,9 +287,9 @@ class SyncSharedMemory
      * Copies data to named shared memory.
      *
      * @param string $string The data to write to shared memoy. Note: If the size of the data exceeds the size of the shared memory, the number of bytes written returned will be less than the length of the input.
-     * @param int    $start  The start/offset, in bytes, to begin writing. Note: If the value is negative, the starting position will begin at the specified number of bytes from the end of the shared memory segment.
+     * @param int $start The start/offset, in bytes, to begin writing. Note: If the value is negative, the starting position will begin at the specified number of bytes from the end of the shared memory segment.
      * @return int containing the number of bytes written to shared memory.
      * @link https://php.net/manual/en/syncsharedmemory.write.php
      */
     public function write($string, $start = 0) {}
-    }
+}

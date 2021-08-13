@@ -2229,8 +2229,8 @@ class ResourceBundle implements IteratorAggregate, Countable
     public function getErrorMessage() {}
 
     /**
-     * @since 8.0
      * @return Traversable
+     * @since 8.0
      */
     #[Pure]
     public function getIterator() {}

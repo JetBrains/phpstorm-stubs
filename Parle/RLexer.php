@@ -124,8 +124,8 @@ class RLexer
      * @param int $id
      * Token id. If the lexer instance is meant to be used standalone, this can be an arbitrary number.
      * If the lexer instance is going to be passed to the parser, it has to be an id returned by Parle\RParser::tokenid().
-     * @see RParser::tokenId()
      * @return void
+     * @see RParser::tokenId()
      * @link https://php.net/manual/en/parle-rlexer.push.php
      */
     public function push(string $regex, int $id): void {}
@@ -141,7 +141,6 @@ class RLexer
      * @param int $id
      * Token id. If the lexer instance is meant to be used standalone, this can be an arbitrary number.
      * If the lexer instance is going to be passed to the parser, it has to be an id returned by Parle\RParser::tokenid().
-     * @see RParser::tokenId()
      * @param string $newState
      * New state name, after the rule was applied.
      * If '.' is specified as the exit state, then the lexer state is unchanged when that rule matches.
@@ -151,6 +150,7 @@ class RLexer
      * identify the match. Note that even in the case an id is specified, the rule will finish first when all the
      * previous pushes popped.
      * @return void
+     * @see RParser::tokenId()
      * @link https://php.net/manual/en/parle-rlexer.push.php
      */
     public function push(string $state, string $regex, int $id, string $newState): void {}
@@ -182,10 +182,10 @@ class RLexer
      * This allows you to lex different tokens depending on context, thus allowing simple parsing to take place.
      * Once a state pushed, it can be used with a suitable Parle\RLexer::push() signature variant.
      *
-     * @see RLexer::push()
-     * @link https://php.net/manual/en/parle-rlexer.pushstate.php
      * @param string $state Name of the state.
      * @return int
+     * @see RLexer::push()
+     * @link https://php.net/manual/en/parle-rlexer.pushstate.php
      */
     public function pushState(string $state): int {}
 

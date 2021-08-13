@@ -15,8 +15,8 @@ class ConsumerTopic extends Topic
     public function consume($partition, $timeout_ms) {}
 
     /**
-     * @param int   $partition
-     * @param int   $offset
+     * @param int $partition
+     * @param int $offset
      * @param Queue $queue
      *
      * @return void

@@ -369,10 +369,10 @@ class Gmagick
      * @link https://php.net/manual/en/gmagick.annotateimage.php
      *
      * @param GmagickDraw $GmagickDraw The GmagickDraw object that contains settings for drawing the text.
-     * @param float       $x           Horizontal offset in pixels to the left of text.
-     * @param float       $y           Vertical offset in pixels to the baseline of text.
-     * @param float       $angle       The angle at which to write the text.
-     * @param string      $text        The string to draw.
+     * @param float $x Horizontal offset in pixels to the left of text.
+     * @param float $y Vertical offset in pixels to the baseline of text.
+     * @param float $angle The angle at which to write the text.
+     * @param string $text The string to draw.
      *
      * @return Gmagick The Gmagick object with annotation made.
      *
@@ -385,9 +385,9 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.blurimage.php
      *
-     * @param float $radius  Blur radius.
-     * @param float $sigma   Standard deviation
-     * @param int   $channel [optional]
+     * @param float $radius Blur radius.
+     * @param float $sigma Standard deviation
+     * @param int $channel [optional]
      *
      * @return Gmagick The blurred Gmagick object.
      *
@@ -400,9 +400,9 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.borderimage.php
      *
-     * @param GmagickPixel $color  GmagickPixel object or a string containing the border color.
-     * @param int          $width  Border width.
-     * @param int          $height Border height.
+     * @param GmagickPixel $color GmagickPixel object or a string containing the border color.
+     * @param int $width Border width.
+     * @param int $height Border height.
      *
      * @return Gmagick The Gmagick object with border defined.
      *
@@ -416,7 +416,7 @@ class Gmagick
      * @link https://php.net/manual/en/gmagick.charcoalimage.php
      *
      * @param float $radius The radius of the Gaussian, in pixels, not counting the center pixel.
-     * @param float $sigma  The standard deviation of the Gaussian, in pixels.
+     * @param float $sigma The standard deviation of the Gaussian, in pixels.
      *
      * @return Gmagick The Gmagick object with charcoal simulation.
      *
@@ -429,10 +429,10 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.chopimage.php
      *
-     * @param int $width  Width of the chopped area.
+     * @param int $width Width of the chopped area.
      * @param int $height Height of the chopped area.
-     * @param int $x      X origo of the chopped area.
-     * @param int $y      Y origo of the chopped area.
+     * @param int $x X origo of the chopped area.
+     * @param int $y Y origo of the chopped area.
      *
      * @return Gmagick The chopped Gmagick object.
      *
@@ -469,10 +469,10 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.compositeimage.php
      *
-     * @param Gmagick $source  Gmagick object which holds the composite image.
-     * @param int     $COMPOSE Composite operator.
-     * @param int     $x       The column offset of the composited image.
-     * @param int     $y       The row offset of the composited image.
+     * @param Gmagick $source Gmagick object which holds the composite image.
+     * @param int $COMPOSE Composite operator.
+     * @param int $x The column offset of the composited image.
+     * @param int $y The row offset of the composited image.
      *
      * @return Gmagick The Gmagick object with compositions.
      *
@@ -485,10 +485,10 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.cropimage.php
      *
-     * @param int $width  The width of the crop.
+     * @param int $width The width of the crop.
      * @param int $height The height of the crop.
-     * @param int $x      The X coordinate of the cropped region's top left corner.
-     * @param int $y      The Y coordinate of the cropped region's top left corner.
+     * @param int $x The X coordinate of the cropped region's top left corner.
+     * @param int $y The Y coordinate of the cropped region's top left corner.
      *
      * @return Gmagick The cropped Gmagick object.
      *
@@ -501,7 +501,7 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.cropthumbnailimage.php
      *
-     * @param int $width  The width of the thumbnail.
+     * @param int $width The width of the thumbnail.
      * @param int $height The Height of the thumbnail.
      *
      * @return Gmagick The cropped Gmagick object.
@@ -605,7 +605,7 @@ class Gmagick
      * @link https://php.net/manual/en/gmagick.embossimage.php
      *
      * @param float $radius The radius of the effect.
-     * @param float $sigma  The sigma of the effect.
+     * @param float $sigma The sigma of the effect.
      *
      * @return Gmagick The embossed Gmagick object.
      *
@@ -664,11 +664,11 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.frameimage.php
      *
-     * @param GmagickPixel $color       GmagickPixel object or a float representing the matte color.
-     * @param int          $width       The width of the border.
-     * @param int          $height      The height of the border.
-     * @param int          $inner_bevel The inner bevel width.
-     * @param int          $outer_bevel The outer bevel width.
+     * @param GmagickPixel $color GmagickPixel object or a float representing the matte color.
+     * @param int $width The width of the border.
+     * @param int $height The height of the border.
+     * @param int $inner_bevel The inner bevel width.
+     * @param int $outer_bevel The outer bevel width.
      *
      * @return Gmagick The framed Gmagick object.
      *
@@ -1234,9 +1234,9 @@ class Gmagick
      * @link https://php.net/manual/en/gmagick.levelimage.php
      *
      * @param float $blackPoint The image black point.
-     * @param float $gamma      The gamma value.
+     * @param float $gamma The gamma value.
      * @param float $whitePoint The image white point.
-     * @param int   $channel    Provide any channel constant that is valid for your channel mode.
+     * @param int $channel Provide any channel constant that is valid for your channel mode.
      *                          To apply to more than one channel, combine channeltype constants using bitwise operators.
      *                          Refer to this list of channel constants.
      *
@@ -1263,7 +1263,7 @@ class Gmagick
      * @link https://php.net/manual/en/gmagick.mapimage.php
      *
      * @param gmagick $gmagick The reference image.
-     * @param bool    $dither  Set this integer value to something other than zero to dither the mapped image.
+     * @param bool $dither Set this integer value to something other than zero to dither the mapped image.
      *
      * @return Gmagick Gmagick object.
      *
@@ -1308,7 +1308,7 @@ class Gmagick
      *
      * @param float $brightness The percent change in brightness (-100 thru +100).
      * @param float $saturation The percent change in saturation (-100 thru +100).
-     * @param float $hue        The percent change in hue (-100 thru +100).
+     * @param float $hue The percent change in hue (-100 thru +100).
      *
      * @return Gmagick The Gmagick object on success.
      *
@@ -1327,8 +1327,8 @@ class Gmagick
      * @link https://php.net/manual/en/gmagick.motionblurimage.php
      *
      * @param float $radius The radius of the Gaussian, in pixels, not counting the center pixel.
-     * @param float $sigma  The standard deviation of the Gaussian, in pixels.
-     * @param float $angle  Apply the effect along this angle.
+     * @param float $sigma The standard deviation of the Gaussian, in pixels.
+     * @param float $angle Apply the effect along this angle.
      *
      * @return Gmagick The Gmagick object on success.
      *
@@ -1341,10 +1341,10 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.newimage.php
      *
-     * @param int    $width      Width of the new image
-     * @param int    $height     Height of the new image.
+     * @param int $width Width of the new image
+     * @param int $height Height of the new image.
      * @param string $background The background color used for this image.
-     * @param string $format     [optional] Image format.
+     * @param string $format [optional] Image format.
      *
      * @return Gmagick The Gmagick object on success.
      *
@@ -1414,7 +1414,7 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.profileimage.php
      *
-     * @param string $name    Name of profile to add or remove: ICC, IPTC, or generic profile.
+     * @param string $name Name of profile to add or remove: ICC, IPTC, or generic profile.
      * @param string $profile The profile.
      *
      * @return Gmagick The Gmagick object on success.
@@ -1431,16 +1431,16 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.quantizeimage.php
      *
-     * @param int  $numColors    The number of colors.
-     * @param int  $colorspace   Perform color reduction in this colorspace, typically RGBColorspace.
-     * @param int  $treeDepth    Normally, this integer value is zero or one.
+     * @param int $numColors The number of colors.
+     * @param int $colorspace Perform color reduction in this colorspace, typically RGBColorspace.
+     * @param int $treeDepth Normally, this integer value is zero or one.
      *                           A zero or one tells Quantize to choose a optimal tree depth of Log4(number_colors).
      *                           A tree of this depth generally allows the best representation of the reference image
      *                           with the least amount of memory and the fastest computational speed.
      *                           In some cases, such as an image with low color dispersion (a few number of colors),
      *                           a value other than Log4(number_colors) is required.
      *                           To expand the color tree completely, use a value of 8.
-     * @param bool $dither       A value other than zero distributes the difference between an original image and the
+     * @param bool $dither A value other than zero distributes the difference between an original image and the
      *                           corresponding color reduced algorithm to neighboring pixels along a Hilbert curve.
      * @param bool $measureError A value other than zero measures the difference between the original and quantized
      *                           images. This difference is the total quantization error. The error is computed by
@@ -1461,16 +1461,16 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.quantizeimages.php
      *
-     * @param int  $numColors    The number of colors.
-     * @param int  $colorspace   Perform color reduction in this colorspace, typically RGBColorspace.
-     * @param int  $treeDepth    Normally, this integer value is zero or one.
+     * @param int $numColors The number of colors.
+     * @param int $colorspace Perform color reduction in this colorspace, typically RGBColorspace.
+     * @param int $treeDepth Normally, this integer value is zero or one.
      *                           A zero or one tells Quantize to choose a optimal tree depth of Log4(number_colors).
      *                           A tree of this depth generally allows the best representation of the reference image
      *                           with the least amount of memory and the fastest computational speed.
      *                           In some cases, such as an image with low color dispersion (a few number of colors),
      *                           a value other than Log4(number_colors) is required.
      *                           To expand the color tree completely, use a value of 8.
-     * @param bool $dither       A value other than zero distributes the difference between an original image and the
+     * @param bool $dither A value other than zero distributes the difference between an original image and the
      *                           corresponding color reduced algorithm to neighboring pixels along a Hilbert curve.
      * @param bool $measureError A value other than zero measures the difference between the original and quantized
      *                           images. This difference is the total quantization error. The error is computed by
@@ -1489,7 +1489,7 @@ class Gmagick
      * @link https://php.net/manual/en/gmagick.queryfontmetrics.php
      *
      * @param GmagickDraw $draw
-     * @param string      $text
+     * @param string $text
      *
      * @return array
      *
@@ -1528,8 +1528,8 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.radialblurimage.php
      *
-     * @param float $angle   The angle of the blur in degrees.
-     * @param int   $channel [optional] Related channel.
+     * @param float $angle The angle of the blur in degrees.
+     * @param int $channel [optional] Related channel.
      *
      * @return Gmagick The Gmagick object on success.
      *
@@ -1545,11 +1545,11 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.raiseimage.php
      *
-     * @param int  $width  Width of the area to raise.
-     * @param int  $height Height of the area to raise.
-     * @param int  $x      X coordinate.
-     * @param int  $y      Y coordinate.
-     * @param bool $raise  A value other than zero creates a 3-D raise effect, otherwise it has a lowered effect.
+     * @param int $width Width of the area to raise.
+     * @param int $height Height of the area to raise.
+     * @param int $x X coordinate.
+     * @param int $y Y coordinate.
+     * @param bool $raise A value other than zero creates a 3-D raise effect, otherwise it has a lowered effect.
      *
      * @return Gmagick The Gmagick object on success.
      *
@@ -1591,7 +1591,7 @@ class Gmagick
      * @link https://php.net/manual/en/gmagick.readimageblob.php
      *
      * @param string $imageContents Content of image.
-     * @param string $filename      [optional] The image filename.
+     * @param string $filename [optional] The image filename.
      *
      * @return Gmagick The Gmagick object on success.
      *
@@ -1604,8 +1604,8 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.readimagefile.php
      *
-     * @param resource $fp       The file descriptor.
-     * @param string   $filename [optional]
+     * @param resource $fp The file descriptor.
+     * @param string $filename [optional]
      *
      * @return Gmagick The Gmagick object on success.
      *
@@ -1662,8 +1662,8 @@ class Gmagick
      *
      * @param float $xResolution The new image x resolution.
      * @param float $yResolution The new image y resolution.
-     * @param int   $filter      The image filter to use.
-     * @param float $blur        The blur factor where larger than 1 is blurry, smaller than 1 is sharp.
+     * @param int $filter The image filter to use.
+     * @param float $blur The blur factor where larger than 1 is blurry, smaller than 1 is sharp.
      *
      * @return Gmagick The Gmagick object on success.
      *
@@ -1676,11 +1676,11 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.resizeimage.php
      *
-     * @param int   $width  The number of columns in the scaled image.
-     * @param int   $height The number of rows in the scaled image.
-     * @param int   $filter Image filter to use.
-     * @param float $blur   The blur factor where larger than 1 is blurry, lesser than 1 is sharp.
-     * @param bool  $fit    [optional]
+     * @param int $width The number of columns in the scaled image.
+     * @param int $height The number of rows in the scaled image.
+     * @param int $filter Image filter to use.
+     * @param float $blur The blur factor where larger than 1 is blurry, lesser than 1 is sharp.
+     * @param bool $fit [optional]
      *
      * @return Gmagick The Gmagick object on success.
      *
@@ -1709,7 +1709,7 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.rotateimage.php
      *
-     * @param mixed $color   The background pixel.
+     * @param mixed $color The background pixel.
      * @param float $degrees The number of degrees to rotate the image.
      *
      * @return Gmagick The Gmagick object on success.
@@ -1725,9 +1725,9 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.scaleimage.php
      *
-     * @param int  $width  The number of columns in the scaled image.
-     * @param int  $height The number of rows in the scaled image.
-     * @param bool $fit    [optional]
+     * @param int $width The number of columns in the scaled image.
+     * @param int $height The number of rows in the scaled image.
+     * @param bool $fit [optional]
      *
      * @return Gmagick The Gmagick object on success.
      *
@@ -1825,7 +1825,7 @@ class Gmagick
      *
      * @param int $channel Identify which channel to extract: RedChannel, GreenChannel, BlueChannel,
      *                     OpacityChannel, CyanChannel, MagentaChannel, YellowChannel, BlackChannel.
-     * @param int $depth   The image depth in bits.
+     * @param int $depth The image depth in bits.
      *
      * @return Gmagick The Gmagick object on success.
      *
@@ -2001,7 +2001,7 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.setimageprofile.php
      *
-     * @param string $name    Name of profile to add or remove: ICC, IPTC, or generic profile.
+     * @param string $name Name of profile to add or remove: ICC, IPTC, or generic profile.
      * @param string $profile The profile.
      *
      * @return Gmagick The Gmagick object on success.
@@ -2130,7 +2130,7 @@ class Gmagick
      * @link https://php.net/manual/en/gmagick.setsize.php
      *
      * @param int $columns The width in pixels.
-     * @param int $rows    The height in pixels.
+     * @param int $rows The height in pixels.
      *
      * @return Gmagick The Gmagick object on success.
      *
@@ -2148,7 +2148,7 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.shearimage.php
      *
-     * @param mixed $color  The background pixel wand.
+     * @param mixed $color The background pixel wand.
      * @param float $xShear The number of degrees to shear the image.
      * @param float $yShear The number of degrees to shear the image.
      *
@@ -2226,9 +2226,9 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.thumbnailimage.php
      *
-     * @param int  $width  Image width.
-     * @param int  $height Image height.
-     * @param bool $fit    [optional]
+     * @param int $width Image width.
+     * @param int $height Image height.
+     * @param bool $fit [optional]
      *
      * @return Gmagick The Gmagick object on success.
      *
@@ -2278,8 +2278,8 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.writeimage.php
      *
-     * @param string $filename   The image filename.
-     * @param bool   $all_frames [optional]
+     * @param string $filename The image filename.
+     * @param bool $all_frames [optional]
      *
      * @return Gmagick The Gmagick object.
      *
@@ -2298,8 +2298,8 @@ class GmagickDraw
      *
      * @link https://php.net/manual/en/gmagickdraw.annotate.php
      *
-     * @param float  $x    x ordinate to left of text.
-     * @param float  $y    y ordinate to text baseline.
+     * @param float $x x ordinate to left of text.
+     * @param float $y y ordinate to text baseline.
      * @param string $text text to draw.
      *
      * @return GmagickDraw The GmagickDraw object on success.
@@ -2338,12 +2338,12 @@ class GmagickDraw
      *
      * @link https://php.net/manual/en/gmagickdraw.ellipse.php
      *
-     * @param float $ox    origin x ordinate.
-     * @param float $oy    origin y ordinate.
-     * @param float $rx    radius in x.
-     * @param float $ry    radius in y.
+     * @param float $ox origin x ordinate.
+     * @param float $oy origin y ordinate.
+     * @param float $rx radius in x.
+     * @param float $ry radius in y.
      * @param float $start starting rotation in degrees.
-     * @param float $end   ending rotation in degrees.
+     * @param float $end ending rotation in degrees.
      *
      * @return GmagickDraw The GmagickDraw object on success.
      */
@@ -2714,7 +2714,7 @@ class GmagickPixel
      *
      * @link https://php.net/manual/en/gmagickpixel.getcolor.php
      *
-     * @param bool $as_array        [optional] True to indicate return of array instead of string.
+     * @param bool $as_array [optional] True to indicate return of array instead of string.
      * @param bool $normalize_array [optional] Normalize the color values.
      *
      * @return mixed A string or array of channel values, each normalized if TRUE is given as param.
@@ -2772,7 +2772,7 @@ class GmagickPixel
      *
      * @link https://php.net/manual/en/gmagickpixel.setcolorvalue.php
      *
-     * @param int   $color One of the Gmagick channel color constants.
+     * @param int $color One of the Gmagick channel color constants.
      * @param float $value The value to set this channel to, ranging from 0 to 1.
      *
      * @return GmagickPixel The GmagickPixel object on success.

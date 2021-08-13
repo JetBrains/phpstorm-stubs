@@ -308,18 +308,18 @@ function event_add($event, $timeout = -1) {}
  *
  * <p>In case of matching event, these three arguments are passed to the callback function:
  * <table>
- * 	<tr>
- * 		<td><b>$fd</b></td>
- * 		<td>Signal number or resource indicating the stream.</td>
- * 	</tr>
- * 	<tr>
- * 		<td><b>$events</b></td>
- * 		<td>A flag indicating the event. Consists of the following flags: EV_TIMEOUT, EV_SIGNAL, EV_READ, EV_WRITE and EV_PERSIST.</td>
- * 	</tr>
- * 	<tr>
- * 		<td><b>$arg</b></td>
- * 		<td>Optional parameter, previously passed to {@link event_set}() as arg.</td>
- * 	</tr>
+ *    <tr>
+ *        <td><b>$fd</b></td>
+ *        <td>Signal number or resource indicating the stream.</td>
+ *    </tr>
+ *    <tr>
+ *        <td><b>$events</b></td>
+ *        <td>A flag indicating the event. Consists of the following flags: EV_TIMEOUT, EV_SIGNAL, EV_READ, EV_WRITE and EV_PERSIST.</td>
+ *    </tr>
+ *    <tr>
+ *        <td><b>$arg</b></td>
+ *        <td>Optional parameter, previously passed to {@link event_set}() as arg.</td>
+ *    </tr>
  * </table>
  * </p>
  *
@@ -384,11 +384,11 @@ function event_del($event) {}
  *
  * @link https://php.net/event_buffer_new
  *
- * @param resource      $stream  Valid PHP stream resource. Must be castable to file descriptor.
- * @param callable|null $readcb  Callback to invoke where there is data to read, or NULL if no callback is desired.
+ * @param resource $stream Valid PHP stream resource. Must be castable to file descriptor.
+ * @param callable|null $readcb Callback to invoke where there is data to read, or NULL if no callback is desired.
  * @param callable|null $writecb Callback to invoke where the descriptor is ready for writing, or NULL if no callback is desired.
- * @param callable      $errorcb Callback to invoke where there is an error on the descriptor, cannot be NULL.
- * @param mixed         $arg     An argument that will be passed to each of the callbacks (optional).
+ * @param callable $errorcb Callback to invoke where there is an error on the descriptor, cannot be NULL.
+ * @param mixed $arg An argument that will be passed to each of the callbacks (optional).
  *
  * @return resource|false returns new buffered event resource on success or FALSE on error.
  */
@@ -561,10 +561,10 @@ function event_buffer_timeout_set($bevent, $read_timeout, $write_timeout) {}
  *
  * @link https://php.net/event_buffer_watermark_set
  *
- * @param resource $bevent   Valid buffered event resource.
- * @param int      $events   Any combination of EV_READ and EV_WRITE.
- * @param int      $lowmark  Low watermark.
- * @param int      $highmark High watermark.
+ * @param resource $bevent Valid buffered event resource.
+ * @param int $events Any combination of EV_READ and EV_WRITE.
+ * @param int $lowmark Low watermark.
+ * @param int $highmark High watermark.
  *
  * @return void
  */
@@ -618,18 +618,18 @@ function event_timer_new() {}
  *
  * <p>In case of matching event, these three arguments are passed to the callback function:
  * <table>
- * 	<tr>
- * 		<td><b>$fd</b></td>
- * 		<td>null</td>
- * 	</tr>
- * 	<tr>
- * 		<td><b>$events</b></td>
- * 		<td>A flag indicating the event. EV_TIMEOUT.</td>
- * 	</tr>
- * 	<tr>
- * 		<td><b>$arg</b></td>
- * 		<td>Optional parameter, previously passed to {@link event_timer_set}() as arg.</td>
- * 	</tr>
+ *    <tr>
+ *        <td><b>$fd</b></td>
+ *        <td>null</td>
+ *    </tr>
+ *    <tr>
+ *        <td><b>$events</b></td>
+ *        <td>A flag indicating the event. EV_TIMEOUT.</td>
+ *    </tr>
+ *    <tr>
+ *        <td><b>$arg</b></td>
+ *        <td>Optional parameter, previously passed to {@link event_timer_set}() as arg.</td>
+ *    </tr>
  * </table>
  * </p>
  *

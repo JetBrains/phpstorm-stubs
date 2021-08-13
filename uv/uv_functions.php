@@ -1163,7 +1163,7 @@ function uv_fs_fstat($loop, $fd, callable $callback) {}
 /**
  * Async readdir.
  *
- * @param resource $loop  uv loop handle
+ * @param resource $loop uv loop handle
  * @param string $path
  * @param int $flags
  * @param callable $callback

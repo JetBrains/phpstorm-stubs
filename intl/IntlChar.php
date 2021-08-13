@@ -1142,6 +1142,7 @@ class IntlChar
      * @since 7.0
      */
     public static function isalpha(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Check if code point is a base character
      * @link https://php.net/manual/en/intlchar.isbase.php
@@ -1150,6 +1151,7 @@ class IntlChar
      * @since 7.0
      */
     public static function isbase(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Check if code point is a "blank" or "horizontal space" character
      * @link https://php.net/manual/en/intlchar.isblank.php
@@ -1185,6 +1187,7 @@ class IntlChar
      * @since 7.0
      */
     public static function isdigit(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Check if code point is a graphic character
      * @link https://php.net/manual/en/intlchar.isgraph.php
@@ -1193,6 +1196,7 @@ class IntlChar
      * @since 7.0
      */
     public static function isgraph(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Check if code point is an ignorable character
      * @link https://php.net/manual/en/intlchar.isidignorable.php
@@ -1201,6 +1205,7 @@ class IntlChar
      * @since 7.0
      */
     public static function isIDIgnorable(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Check if code point is permissible in an identifier
      * @link https://php.net/manual/en/intlchar.isidpart.php
@@ -1218,6 +1223,7 @@ class IntlChar
      * @since 7.0
      */
     public static function isIDStart(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Check if code point is an ISO control code
      * @link https://php.net/manual/en/intlchar.isisocontrol.php
@@ -1226,6 +1232,7 @@ class IntlChar
      * @since 7.0
      */
     public static function isISOControl(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Check if code point is permissible in a Java identifier
      * @link https://php.net/manual/en/intlchar.isjavaidpart.php
@@ -1234,6 +1241,7 @@ class IntlChar
      * @since 7.0
      */
     public static function isJavaIDPart(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Check if code point is permissible as the first character in a Java identifier
      * @link https://php.net/manual/en/intlchar.isjavaidstart.php
@@ -1242,6 +1250,7 @@ class IntlChar
      * @since 7.0
      */
     public static function isJavaIDStart(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Check if code point is a space character according to Java
      * @link https://php.net/manual/en/intlchar.isjavaspacechar.php
@@ -1260,6 +1269,7 @@ class IntlChar
      * @since 7.0
      */
     public static function islower(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Check if code point has the Bidi_Mirrored property
      * @link https://php.net/manual/en/intlchar.ismirrored.php
@@ -1287,6 +1297,7 @@ class IntlChar
      * @since 7.0
      */
     public static function ispunct(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Check if code point is a space character
      * @link https://php.net/manual/en/intlchar.isspace.php
@@ -1295,6 +1306,7 @@ class IntlChar
      * @since 7.0
      */
     public static function isspace(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Check if code point is a titlecase letter
      * @link https://php.net/manual/en/intlchar.istitle.php
@@ -1312,6 +1324,7 @@ class IntlChar
      * @since 7.0
      */
     public static function isUAlphabetic(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Check if code point has the Lowercase Unicode property
      * @link https://php.net/manual/en/intlchar.isulowercase.php
@@ -1320,6 +1333,7 @@ class IntlChar
      * @since 7.0
      */
     public static function isULowercase(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Check if code point has the general category "Lu" (uppercase letter)
      * @link https://php.net/manual/en/intlchar.isupper.php
@@ -1329,6 +1343,7 @@ class IntlChar
      * @since 7.0
      */
     public static function isupper(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Check if code point has the Uppercase Unicode property
      * @link https://php.net/manual/en/intlchar.isuuppercase.php
@@ -1337,6 +1352,7 @@ class IntlChar
      * @since 7.0
      */
     public static function isUUppercase(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Check if code point has the White_Space Unicode property
      * @link https://php.net/manual/en/intlchar.isuwhitespace.php
@@ -1345,6 +1361,7 @@ class IntlChar
      * @since 7.0
      */
     public static function isUWhiteSpace(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Check if code point is a whitespace character according to ICU
      * @link https://php.net/manual/en/intlchar.iswhitespace.php
@@ -1381,6 +1398,7 @@ class IntlChar
      * @since 7.0
      */
     public static function tolower(#[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')] $codepoint) {}
+
     /**
      * Make Unicode character titlecase
      * @link https://php.net/manual/en/intlchar.totitle.php

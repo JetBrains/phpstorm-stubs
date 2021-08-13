@@ -55,7 +55,7 @@ final class Channel
      * Shall make an unbuffered channel with the given name
      * Shall make a buffered channel with the given name and capacity
      *
-     * @param string $name     The name of the channel.
+     * @param string $name The name of the channel.
      * @param null|int $capacity May be Channel::Infinite or a positive integer
      *
      * @return Channel

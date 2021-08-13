@@ -156,9 +156,6 @@ function mysql_select_db($database_name, $link_identifier = null) {}
 function mysql_query($query, $link_identifier = null) {}
 
 /**
- * @deprecated 5.5
- * Send an SQL query to MySQL without fetching and buffering the result rows.
- * @link https://php.net/manual/en/function.mysql-unbuffered-query.php
  * @param string $query <p>
  * The SQL query to execute.
  * </p>
@@ -176,6 +173,9 @@ function mysql_query($query, $link_identifier = null) {}
  * <b>mysql_unbuffered_query</b> returns true on success
  * or false on error.
  * @removed 7.0
+ * @link https://php.net/manual/en/function.mysql-unbuffered-query.php
+ * @deprecated 5.5
+ * Send an SQL query to MySQL without fetching and buffering the result rows.
  */
 #[Deprecated(since: '5.5')]
 function mysql_unbuffered_query($query, $link_identifier = null) {}

@@ -6,8 +6,8 @@ class TopicPartition
 {
     /**
      * @param string $topic
-     * @param int    $partition
-     * @param int    $offset
+     * @param int $partition
+     * @param int $offset
      */
     public function __construct($topic, $partition, $offset = null) {}
 

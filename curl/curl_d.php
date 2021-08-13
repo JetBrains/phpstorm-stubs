@@ -1760,11 +1760,11 @@ define('CURLFTPMETHOD_NOCWD', 2);
  */
 define('CURLFTPMETHOD_SINGLECWD', 3);
 
- /**
-  * Value for the <b>CURLOPT_PROTOCOLS</b> option.
-  * @link https://www.php.net/manual/en/function.curl-setopt.php
-  */
- define('CURLPROTO_HTTP', 1);
+/**
+ * Value for the <b>CURLOPT_PROTOCOLS</b> option.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ */
+define('CURLPROTO_HTTP', 1);
 /**
  * Value for the <b>CURLOPT_PROTOCOLS</b> option.
  * @link https://www.php.net/manual/en/function.curl-setopt.php

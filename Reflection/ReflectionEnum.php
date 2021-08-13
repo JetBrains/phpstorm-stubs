@@ -20,8 +20,8 @@ class ReflectionEnum extends ReflectionClass
     public function getCases() {}
 
     /**
-     * @throws ReflectionException If no found single reflection object for the corresponding case
      * @return ReflectionEnumPureCase|ReflectionEnumBackedCase
+     * @throws ReflectionException If no found single reflection object for the corresponding case
      */
     public function getCase(string $name) {}
 

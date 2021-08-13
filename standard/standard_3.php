@@ -95,6 +95,7 @@ function abs(int|float $num): int|float {}
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "float"], default: "float|false")]
 function ceil(int|float $num) {}
+
 /**
  * Round fractions down
  * @link https://php.net/manual/en/function.floor.php

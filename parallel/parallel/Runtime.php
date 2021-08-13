@@ -40,7 +40,7 @@ final class Runtime
     /**
      * Shall schedule task for execution in parallel, passing argv at execution time.
      *
-     * @param Closure $task    A Closure with specific characteristics.
+     * @param Closure $task A Closure with specific characteristics.
      * @param null|array $argv An array of arguments with specific characteristics to be passed to task at execution
      *                         time.
      *
@@ -76,15 +76,7 @@ final class Runtime
      *     the mechanics to do this (without serialization) and so only objects that do not use a custom structure may
      *     be shared.
      *
-     * Some internal objects do not use a custom structure, for example @see \parallel\Events\Event and so may be
-     *     shared. Closures are a special kind of internal object and support being copied by value, and so may be
-     *     shared. Channels are central to writing parallel code and support concurrent access and execution by
-     *     necessity, and so may be shared.
-     *
-     * Warning: A user class that extends an internal class may use a custom structure as defined by the internal
-     *     class, in which case they cannot be copied by value safely, and so may not be shared.
-     *
-     * @return Future|null The return Future must not be ignored when the task contains a return or throw
+     * Some internal objects do not use a custom structure, for example @return Future|null The return Future must not be ignored when the task contains a return or throw
      *     statement.
      *
      * @throws Runtime\Error\Closed if \parallel\Runtime was closed.
@@ -92,6 +84,13 @@ final class Runtime
      * @throws Runtime\Error\IllegalInstruction if task contains illegal instructions.
      * @throws Runtime\Error\IllegalParameter if task accepts or argv contains illegal variables.
      * @throws Runtime\Error\IllegalReturn if task returns illegally.
+     * @see \parallel\Events\Event and so may be
+     *     shared. Closures are a special kind of internal object and support being copied by value, and so may be
+     *     shared. Channels are central to writing parallel code and support concurrent access and execution by
+     *     necessity, and so may be shared.
+     *
+     * Warning: A user class that extends an internal class may use a custom structure as defined by the internal
+     *     class, in which case they cannot be copied by value safely, and so may not be shared.
      */
     public function run(Closure $task, ?array $argv = null): ?Future {}
 

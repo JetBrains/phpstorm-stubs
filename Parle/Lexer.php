@@ -70,9 +70,9 @@ class Lexer
      * This method call has to be done after all the necessary rules was pushed.
      * The rule set becomes read only. The lexing can begin.
      *
-     * @see Lexer::push()
-     * @link https://php.net/manual/en/parle-lexer.build.php
      * @return void
+     * @link https://php.net/manual/en/parle-lexer.build.php
+     * @see Lexer::push()
      */
     public function build(): void {}
 

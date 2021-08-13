@@ -41,7 +41,6 @@ use JetBrains\PhpStorm\Deprecated;
  * aerospike.key_policy = 0; // only digest
  * // The unsupported type handler. 0: none, 1: PHP, 2: user-defined
  * aerospike.serializer = 1; // php serializer
-
  * // Path to the user-defined Lua function modules.
  * aerospike.udf.lua_user_path = /usr/local/aerospike/usr-lua;
  * // Indicates if shared memory should be used for cluster tending.
@@ -109,8 +108,6 @@ class Aerospike
      *   exit(1);
      * }
      * ```
-     * @see Aerospike php.ini config parameters
-     * @link https://github.com/aerospike/aerospike-client-php/blob/master/doc/README.md#configuration-in-a-web-server-context Configuration in a Web Server Context
      * @param array $config holds cluster connection and client config information
      * * _hosts_ a **required** array of host pairs. One node or more (for failover)
      *        may be defined. Once a connection is established to the
@@ -183,6 +180,8 @@ class Aerospike
      * * Aerospike::OPT_QUERY_DEFAULT_POL An array of default policies for query operations.
      * * Aerospike::OPT_SCAN_DEFAULT_POL An array of default policies for scan operations.
      * * Aerospike::OPT_APPLY_DEFAULT_POL An array of default policies for apply operations.
+     * @see Aerospike php.ini config parameters
+     * @link https://github.com/aerospike/aerospike-client-php/blob/master/doc/README.md#configuration-in-a-web-server-context Configuration in a Web Server Context
      * @see Aerospike::OPT_CONNECT_TIMEOUT Aerospike::OPT_CONNECT_TIMEOUT options
      * @see Aerospike::OPT_READ_TIMEOUT Aerospike::OPT_READ_TIMEOUT options
      * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT options
@@ -218,9 +217,9 @@ class Aerospike
      *   exit(1);
      * }
      * ```
-     * @see Aerospike::error() error()
-     * @see Aerospike::errorno() errorno()
      * @return bool
+     * @see Aerospike::errorno() errorno()
+     * @see Aerospike::error() error()
      */
     public function isConnected() {}
 
@@ -228,9 +227,9 @@ class Aerospike
      * Disconnect the client from all the cluster nodes.
      *
      * This method should be explicitly called when using non-persistent connections.
-     * @see Aerospike::isConnected()
-     * @see Aerospike::reconnect()
      * @return void
+     * @see Aerospike::reconnect()
+     * @see Aerospike::isConnected()
      */
     public function close() {}
 
@@ -249,9 +248,9 @@ class Aerospike
      *   exit(1);
      * }
      * ```
-     * @see Aerospike::error() error()
-     * @see Aerospike::errorno() errorno()
      * @return void
+     * @see Aerospike::errorno() errorno()
+     * @see Aerospike::error() error()
      */
     public function reconnect() {}
 
@@ -282,16 +281,16 @@ class Aerospike
      * ```
      * Unable to connect to server [-1]
      * ```
-     * @see Aerospike::OK Error Codes
      * @return string
+     * @see Aerospike::OK Error Codes
      */
     public function error() {}
 
     /**
      * Return the error code associated with the last operation.
      * If the operation was successful the return value should be 0 (Aerospike::OK)
-     * @see Aerospike::OK Error Codes
      * @return int
+     * @see Aerospike::OK Error Codes
      */
     public function errorno() {}
 
@@ -805,6 +804,7 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT options
      * @see Aerospike::OPT_POLICY_GEN Aerospike::OPT_POLICY_GEN options
      * @see Aerospike::OPT_POLICY_COMMIT_LEVEL Aerospike::OPT_POLICY_COMMIT_LEVEL options
@@ -814,7 +814,6 @@ class Aerospike
      * @see Aerospike::OPT_SOCKET_TIMEOUT Aerospike::OPT_SOCKET_TIMEOUT options
      * @see Aerospike::MAX_RETRIES Aerospike::MAX_RETRIES options
      * @see Aerospike::OK Aerospike::OK and error status codes
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function remove(array $key, array $options = []) {}
 
@@ -845,6 +844,7 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT options
      * @see Aerospike::OPT_POLICY_KEY Aerospike::OPT_POLICY_KEY options
      * @see Aerospike::OPT_POLICY_GEN Aerospike::OPT_POLICY_GEN options
@@ -855,7 +855,6 @@ class Aerospike
      * @see Aerospike::OPT_SOCKET_TIMEOUT Aerospike::OPT_SOCKET_TIMEOUT options
      * @see Aerospike::MAX_RETRIES Aerospike::MAX_RETRIES options
      * @see Aerospike::OK Aerospike::OK and error status codes
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function removeBin(array $key, array $bins, array $options = []) {}
 
@@ -887,10 +886,9 @@ class Aerospike
      * // Truncate all records in test, regardless of update time
      * $status = $client->truncate("test", null, 0);
      * ```
-     * @version 3.12 Requires server >= 3.12
      * @param string $ns the namespace
      * @param string $set the set within the given namespace
-     * @param int    $nanos cutoff threshold indicating that records
+     * @param int $nanos cutoff threshold indicating that records
      * last updated before the threshold will be removed. Units are in
      * nanoseconds since unix epoch (1970-01-01 00:00:00). A value of 0
      * indicates that all records in the set should be truncated
@@ -898,6 +896,7 @@ class Aerospike
      * @param array $options an optional array of write policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @version 3.12 Requires server >= 3.12
      */
     public function truncate(string $ns, string $set, int $nanos, array $options = []) {}
 
@@ -928,6 +927,7 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT options
      * @see Aerospike::OPT_TTL Aerospike::OPT_TTL options
      * @see Aerospike::OPT_POLICY_KEY Aerospike::OPT_POLICY_KEY options
@@ -939,7 +939,6 @@ class Aerospike
      * @see Aerospike::OPT_SOCKET_TIMEOUT Aerospike::OPT_SOCKET_TIMEOUT options
      * @see Aerospike::MAX_RETRIES Aerospike::MAX_RETRIES options
      * @see Aerospike::OK Aerospike::OK and error status codes
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function increment(array $key, string $bin, $offset, array $options = []) {}
 
@@ -970,6 +969,7 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT options
      * @see Aerospike::OPT_TTL Aerospike::OPT_TTL options
      * @see Aerospike::OPT_POLICY_KEY Aerospike::OPT_POLICY_KEY options
@@ -981,7 +981,6 @@ class Aerospike
      * @see Aerospike::OPT_SOCKET_TIMEOUT Aerospike::OPT_SOCKET_TIMEOUT options
      * @see Aerospike::MAX_RETRIES Aerospike::MAX_RETRIES options
      * @see Aerospike::OK Aerospike::OK and error status codes
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function append(array $key, string $bin, string $value, array $options = []) {}
 
@@ -1012,6 +1011,7 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT options
      * @see Aerospike::OPT_TTL Aerospike::OPT_TTL options
      * @see Aerospike::OPT_POLICY_KEY Aerospike::OPT_POLICY_KEY options
@@ -1023,7 +1023,6 @@ class Aerospike
      * @see Aerospike::OPT_SOCKET_TIMEOUT Aerospike::OPT_SOCKET_TIMEOUT options
      * @see Aerospike::MAX_RETRIES Aerospike::MAX_RETRIES options
      * @see Aerospike::OK Aerospike::OK and error status codes
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function prepend(array $key, string $bin, string $value, array $options = []) {}
 
@@ -1808,11 +1807,10 @@ class Aerospike
     /**
      * Count the number of elements in a list type bin
      *
-     * @version 3.7 Requires server >= 3.7
-     * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
+     * @param array $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
      * @param int    &$count pass-by-reference param
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
      * * Aerospike::OPT_POLICY_KEY
      * * Aerospike::OPT_POLICY_REPLICA
@@ -1822,6 +1820,8 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @version 3.7 Requires server >= 3.7
      * @see Aerospike::OPT_READ_TIMEOUT Aerospike::OPT_READ_TIMEOUT options
      * @see Aerospike::OPT_POLICY_KEY Aerospike::OPT_POLICY_KEY options
      * @see Aerospike::OPT_POLICY_REPLICA Aerospike::OPT_POLICY_REPLICA options
@@ -1834,18 +1834,16 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @see Aerospike::error() error()
      * @see Aerospike::errorno() errorno()
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function listSize(array $key, $bin, &$count, array $options = []) {}
 
     /**
      * Add a single value (of any type) to the end of a list type bin
      *
-     * @version 3.7 Requires server >= 3.7
-     * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
+     * @param array $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
-     * @param mixed  $value
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param mixed $value
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_TTL
      * * Aerospike::OPT_POLICY_KEY
@@ -1855,6 +1853,8 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @version 3.7 Requires server >= 3.7
      * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT options
      * @see Aerospike::OPT_TTL Aerospike::OPT_TTL options
      * @see Aerospike::OPT_POLICY_KEY Aerospike::OPT_POLICY_KEY options
@@ -1867,18 +1867,16 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @see Aerospike::error() error()
      * @see Aerospike::errorno() errorno()
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function listAppend(array $key, $bin, $value, array $options = []) {}
 
     /**
      * Add several items to the end of a list type bin
      *
-     * @version 3.7 Requires server >= 3.7
-     * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
+     * @param array $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
-     * @param array  $items
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array $items
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_TTL
      * * Aerospike::OPT_POLICY_KEY
@@ -1888,6 +1886,8 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @version 3.7 Requires server >= 3.7
      * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT options
      * @see Aerospike::OPT_TTL Aerospike::OPT_TTL options
      * @see Aerospike::OPT_POLICY_KEY Aerospike::OPT_POLICY_KEY options
@@ -1900,19 +1900,17 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @see Aerospike::error() error()
      * @see Aerospike::errorno() errorno()
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function listMerge(array $key, $bin, array $items, array $options = []) {}
 
     /**
      * Insert a single element (of any type) at a specified index of a list type bin
      *
-     * @version 3.7 Requires server >= 3.7
-     * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
+     * @param array $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
-     * @param int    $index
-     * @param mixed  $value
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param int $index
+     * @param mixed $value
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_TTL
      * * Aerospike::OPT_POLICY_KEY
@@ -1922,6 +1920,8 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @version 3.7 Requires server >= 3.7
      * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT options
      * @see Aerospike::OPT_TTL Aerospike::OPT_TTL options
      * @see Aerospike::OPT_POLICY_KEY Aerospike::OPT_POLICY_KEY options
@@ -1934,19 +1934,17 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @see Aerospike::error() error()
      * @see Aerospike::errorno() errorno()
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function listInsert(array $key, $bin, $index, $value, array $options = []) {}
 
     /**
      * Insert several elements at a specified index of a list type bin
      *
-     * @version 3.7 Requires server >= 3.7
-     * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
+     * @param array $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
-     * @param int    $index
-     * @param array  $elements
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param int $index
+     * @param array $elements
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_TTL
      * * Aerospike::OPT_POLICY_KEY
@@ -1956,6 +1954,8 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @version 3.7 Requires server >= 3.7
      * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT options
      * @see Aerospike::OPT_TTL Aerospike::OPT_TTL options
      * @see Aerospike::OPT_POLICY_KEY Aerospike::OPT_POLICY_KEY options
@@ -1968,7 +1968,6 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @see Aerospike::error() error()
      * @see Aerospike::errorno() errorno()
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function listInsertItems(array $key, $bin, $index, array $elements, array $options = []) {}
 
@@ -1976,12 +1975,11 @@ class Aerospike
      * Remove and get back the element at a specified index of a list type bin
      * Index -1 is the last item in the list, -3 is the third from last, 0 is the first in the list.
      *
-     * @version 3.7 Requires server >= 3.7
-     * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
+     * @param array $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
-     * @param int    $index
+     * @param int $index
      * @param mixed  &$element pass-by-reference param
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_TTL
      * * Aerospike::OPT_POLICY_KEY
@@ -1992,6 +1990,8 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @version 3.7 Requires server >= 3.7
      * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT options
      * @see Aerospike::OPT_TTL Aerospike::OPT_TTL options
      * @see Aerospike::OPT_POLICY_DURABLE_DELETE Aerospike::OPT_POLICY_DURABLE_DELETE options
@@ -2005,7 +2005,6 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @see Aerospike::error() error()
      * @see Aerospike::errorno() errorno()
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function listPop(array $key, $bin, $index, &$element, array $options = []) {}
 
@@ -2013,13 +2012,12 @@ class Aerospike
      * Remove and get back several elements at a specified index range of a list type bin
      * Index -1 is the last item in the list, -3 is the third from last, 0 is the first in the list.
      *
-     * @version 3.7 Requires server >= 3.7
-     * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
+     * @param array $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
-     * @param int    $index
-     * @param int    $count
+     * @param int $index
+     * @param int $count
      * @param array  &$elements pass-by-reference param. After the method call it will be an array holding the popped elements.
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_TTL
      * * Aerospike::OPT_POLICY_KEY
@@ -2030,6 +2028,8 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @version 3.7 Requires server >= 3.7
      * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT options
      * @see Aerospike::OPT_TTL Aerospike::OPT_TTL options
      * @see Aerospike::OPT_POLICY_KEY Aerospike::OPT_POLICY_KEY options
@@ -2043,18 +2043,16 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @see Aerospike::error() error()
      * @see Aerospike::errorno() errorno()
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function listPopRange(array $key, $bin, $index, $count, &$elements, array $options = []) {}
 
     /**
      * Remove a list element at a specified index of a list type bin
      *
-     * @version 3.7 Requires server >= 3.7
-     * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
+     * @param array $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
-     * @param int    $index
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param int $index
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_TTL
      * * Aerospike::OPT_POLICY_KEY
@@ -2065,6 +2063,8 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @version 3.7 Requires server >= 3.7
      * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT options
      * @see Aerospike::OPT_TTL Aerospike::OPT_TTL options
      * @see Aerospike::OPT_POLICY_KEY Aerospike::OPT_POLICY_KEY options
@@ -2078,19 +2078,17 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @see Aerospike::error() error()
      * @see Aerospike::errorno() errorno()
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function listRemove(array $key, $bin, $index, array $options = []) {}
 
     /**
      * Remove several list elements at a specified index range of a list type bin
      *
-     * @version 3.7 Requires server >= 3.7
-     * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
+     * @param array $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
-     * @param int    $index
-     * @param int    $count
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param int $index
+     * @param int $count
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_TTL
      * * Aerospike::OPT_POLICY_KEY
@@ -2101,6 +2099,8 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @version 3.7 Requires server >= 3.7
      * @see Aerospike::OPT_TTL Aerospike::OPT_TTL options
      * @see Aerospike::OPT_POLICY_KEY Aerospike::OPT_POLICY_KEY options
      * @see Aerospike::OPT_POLICY_GEN Aerospike::OPT_POLICY_GEN options
@@ -2113,19 +2113,17 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @see Aerospike::error() error()
      * @see Aerospike::errorno() errorno()
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function listRemoveRange(array $key, $bin, $index, $count, array $options = []) {}
 
     /**
      * Trim the list, removing all elements not in the specified index range of a list type bin
      *
-     * @version 3.7 Requires server >= 3.7
-     * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
+     * @param array $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
-     * @param int    $index
-     * @param int    $count
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param int $index
+     * @param int $count
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_TTL
      * * Aerospike::OPT_POLICY_KEY
@@ -2136,6 +2134,8 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @version 3.7 Requires server >= 3.7
      * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT options
      * @see Aerospike::OPT_TTL Aerospike::OPT_TTL options
      * @see Aerospike::OPT_POLICY_KEY Aerospike::OPT_POLICY_KEY options
@@ -2149,17 +2149,15 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @see Aerospike::error() error()
      * @see Aerospike::errorno() errorno()
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function listTrim(array $key, $bin, $index, $count, array $options = []) {}
 
     /**
      * Remove all the elements from a list type bin
      *
-     * @version 3.7 Requires server >= 3.7
-     * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
+     * @param array $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_TTL
      * * Aerospike::OPT_POLICY_KEY
@@ -2170,6 +2168,8 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @version 3.7 Requires server >= 3.7
      * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT options
      * @see Aerospike::OPT_TTL Aerospike::OPT_TTL options
      * @see Aerospike::OPT_POLICY_KEY Aerospike::OPT_POLICY_KEY options
@@ -2183,19 +2183,17 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @see Aerospike::error() error()
      * @see Aerospike::errorno() errorno()
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function listClear(array $key, $bin, array $options = []) {}
 
     /**
      * Set an element at a specified index of a list type bin
      *
-     * @version 3.7 Requires server >= 3.7
-     * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
+     * @param array $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
-     * @param int    $index
-     * @param mixed  $value
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param int $index
+     * @param mixed $value
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_TTL
      * * Aerospike::OPT_POLICY_KEY
@@ -2205,6 +2203,8 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @version 3.7 Requires server >= 3.7
      * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT options
      * @see Aerospike::OPT_TTL Aerospike::OPT_TTL options
      * @see Aerospike::OPT_POLICY_KEY Aerospike::OPT_POLICY_KEY options
@@ -2217,19 +2217,17 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @see Aerospike::error() error()
      * @see Aerospike::errorno() errorno()
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function listSet(array $key, $bin, $index, $value, array $options = []) {}
 
     /**
      * Get an element from a specified index of a list type bin
      *
-     * @version 3.7 Requires server >= 3.7
-     * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
+     * @param array $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
-     * @param int    $index
+     * @param int $index
      * @param array  &$element pass-by-reference param which will hold the returned element.
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
      * * Aerospike::OPT_POLICY_KEY
      * * Aerospike::OPT_POLICY_REPLICA
@@ -2239,6 +2237,8 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @version 3.7 Requires server >= 3.7
      * @see Aerospike::OPT_READ_TIMEOUT Aerospike::OPT_READ_TIMEOUT options
      * @see Aerospike::OPT_POLICY_KEY Aerospike::OPT_POLICY_KEY options
      * @see Aerospike::OPT_POLICY_REPLICA Aerospike::OPT_POLICY_REPLICA options
@@ -2251,20 +2251,18 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @see Aerospike::error() error()
      * @see Aerospike::errorno() errorno()
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function listGet(array $key, $bin, $index, array &$element, array $options = []) {}
 
     /**
      * Get several elements starting at a specified index from a list type bin
      *
-     * @version 3.7 Requires server >= 3.7
-     * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
+     * @param array $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
-     * @param int    $index
-     * @param int    $count
+     * @param int $index
+     * @param int $count
      * @param array  &$elements pass-by-reference param which will hold an array of returned elements from the specified list bin.
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
      * * Aerospike::OPT_POLICY_KEY
      * * Aerospike::OPT_POLICY_REPLICA
@@ -2274,6 +2272,8 @@ class Aerospike
      * * Aerospike::OPT_TOTAL_TIMEOUT
      * * Aerospike::OPT_MAX_RETRIES
      * * Aerospike::OPT_SOCKET_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @version 3.7 Requires server >= 3.7
      * @see Aerospike::OPT_READ_TIMEOUT Aerospike::OPT_READ_TIMEOUT options
      * @see Aerospike::OPT_POLICY_KEY Aerospike::OPT_POLICY_KEY options
      * @see Aerospike::OPT_POLICY_REPLICA Aerospike::OPT_POLICY_REPLICA options
@@ -2286,7 +2286,6 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @see Aerospike::error() error()
      * @see Aerospike::errorno() errorno()
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function listGetRange(array $key, $bin, $index, $count, &$elements, array $options = []) {}
 
@@ -2389,7 +2388,7 @@ class Aerospike
      *       ["digest"]=>
      *       string(20) "'?9?
      *                       ??????
-     * ?	?"
+     * ?    ?"
      *     }
      *     ["metadata"]=>
      *     array(2) {
@@ -2466,7 +2465,7 @@ class Aerospike
      *       ["digest"]=>
      *       string(20) "'?9?
      *                       ??????
-     * ?	?"
+     * ?    ?"
      *     }
      *     ["metadata"]=>
      *     array(2) {
@@ -2496,6 +2495,7 @@ class Aerospike
      * * Aerospike::OPT_BATCH_CONCURRENT
      * * Aerospike::OPT_SEND_SET_NAME
      * * Aerospike::OPT_ALLOW_INLINE
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      * @see Aerospike::USE_BATCH_DIRECT Aerospike::USE_BATCH_DIRECT options
      * @see Aerospike::OPT_SLEEP_BETWEEN_RETRIES Aerospike::OPT_SLEEP_BETWEEN_RETRIES options
      * @see Aerospike::OPT_TOTAL_TIMEOUT Aerospike::OPT_TOTAL_TIMEOUT options
@@ -2505,7 +2505,6 @@ class Aerospike
      * @see Aerospike::error() error()
      * @see Aerospike::errorno() errorno()
      * @see Aerospike::get() get()
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function getMany(array $keys, &$records, array $select = [], array $options = []) {}
 
@@ -2595,7 +2594,7 @@ class Aerospike
      *       ["digest"]=>
      *       string(20) "'?9?
      *                       ??????
-     * ?	?"
+     * ?    ?"
      *     }
      *     ["metadata"]=>
      *     array(2) {
@@ -2619,6 +2618,7 @@ class Aerospike
      * * Aerospike::OPT_BATCH_CONCURRENT
      * * Aerospike::OPT_SEND_SET_NAME
      * * Aerospike::OPT_ALLOW_INLINE
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      * @see Aerospike::USE_BATCH_DIRECT Aerospike::USE_BATCH_DIRECT options
      * @see Aerospike::OPT_SLEEP_BETWEEN_RETRIES Aerospike::OPT_SLEEP_BETWEEN_RETRIES options
      * @see Aerospike::OPT_TOTAL_TIMEOUT Aerospike::OPT_TOTAL_TIMEOUT options
@@ -2628,7 +2628,6 @@ class Aerospike
      * @see Aerospike::error() error()
      * @see Aerospike::errorno() errorno()
      * @see Aerospike::exists() exists()
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function existsMany(array $keys, array &$metadata, array $options = []) {}
 
@@ -2662,11 +2661,11 @@ class Aerospike
      * @link https://www.aerospike.com/docs/architecture/data-model.html Aerospike Data Model
      * @link https://www.aerospike.com/docs/guide/scan.html Scans
      * @link https://www.aerospike.com/docs/operations/manage/scans/ Managing Scans
-     * @param string   $ns the namespace
-     * @param string   $set the set within the given namespace
+     * @param string $ns the namespace
+     * @param string $set the set within the given namespace
      * @param callable $record_cb A callback function invoked for each record streaming back from the cluster
-     * @param array    $select An array of bin names which are the subset to be returned
-     * @param array    $options an optional array of policy options, whose keys include
+     * @param array $select An array of bin names which are the subset to be returned
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
      * * Aerospike::OPT_SOCKET_TIMEOUT maximum socket idle time in milliseconds (0 means do not apply a socket idle timeout)
      * * Aerospike::OPT_SCAN_PRIORITY
@@ -2709,8 +2708,8 @@ class Aerospike
      * @link https://www.aerospike.com/docs/architecture/data-model.html Aerospike Data Model
      * @link https://www.aerospike.com/docs/guide/query.html Query
      * @link https://www.aerospike.com/docs/operations/manage/queries/index.html Managing Queries
-     * @param string   $ns the namespace
-     * @param string   $set the set within the given namespace
+     * @param string $ns the namespace
+     * @param string $set the set within the given namespace
      * @param array $where the predicate for the query, usually created by the
      * predicate helper methods. The arrays conform to one of the following:
      * ```
@@ -2730,8 +2729,8 @@ class Aerospike
      * [] // no predicate
      * ```
      * @param callable $record_cb A callback function invoked for each record streaming back from the cluster
-     * @param array    $select An array of bin names which are the subset to be returned
-     * @param array    $options an optional array of policy options, whose keys include
+     * @param array $select An array of bin names which are the subset to be returned
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
      * * Aerospike::OPT_SLEEP_BETWEEN_RETRIES
      * * Aerospike::OPT_TOTAL_TIMEOUT
@@ -2752,11 +2751,8 @@ class Aerospike
 
     /**
      * Helper method for creating an EQUALS predicate
-     * @param string     $bin name
+     * @param string $bin name
      * @param int|string $val
-     * @see Aerospike::query()
-     * @see Aerospike::queryApply()
-     * @see Aerospike::aggregate()
      * @return array expressing the predicate, to be used by query(), queryApply() or aggregate()
      * ```
      * Associative Array:
@@ -2764,17 +2760,17 @@ class Aerospike
      *   op => Aerospike::OP_EQ
      *   val => scalar integer/string value
      * ```
+     * @see Aerospike::queryApply()
+     * @see Aerospike::aggregate()
+     * @see Aerospike::query()
      */
     public static function predicateEquals(string $bin, $val) {}
 
     /**
      * Helper method for creating a BETWEEN predicate
      * @param string $bin name
-     * @param int    $min
-     * @param int    $max
-     * @see Aerospike::query()
-     * @see Aerospike::queryApply()
-     * @see Aerospike::aggregate()
+     * @param int $min
+     * @param int $max
      * @return array expressing the predicate, to be used by query(), queryApply() or aggregate()
      * ```
      * Associative Array:
@@ -2782,6 +2778,9 @@ class Aerospike
      *   op  => Aerospike::OP_BETWEEN
      *   val => [min, max]
      * ```
+     * @see Aerospike::queryApply()
+     * @see Aerospike::aggregate()
+     * @see Aerospike::query()
      */
     public static function predicateBetween(string $bin, int $min, int $max) {}
 
@@ -2794,12 +2793,9 @@ class Aerospike
      * of a map (if the index type is *INDEX_TYPE_MAPKEYS*), or a record with the
      * given value contained in the values of a map (if the index type was
      * *INDEX_TYPE_MAPVALUES*).
-     * @param string     $bin name
-     * @param int        $index_type one of Aerospike::INDEX_TYPE_*
+     * @param string $bin name
+     * @param int $index_type one of Aerospike::INDEX_TYPE_*
      * @param int|string $val
-     * @see Aerospike::query()
-     * @see Aerospike::queryApply()
-     * @see Aerospike::aggregate()
      * @return array expressing the predicate, to be used by query(), queryApply() or aggregate()
      * ```
      * Associative Array:
@@ -2808,6 +2804,9 @@ class Aerospike
      *   op => Aerospike::OP_CONTAINS
      *   val => scalar integer/string value
      * ```
+     * @see Aerospike::queryApply()
+     * @see Aerospike::aggregate()
+     * @see Aerospike::query()
      */
     public static function predicateContains(string $bin, int $index_type, $val) {}
 
@@ -2821,12 +2820,9 @@ class Aerospike
      * given values contained in the values of a map (if the index type was
      * *INDEX_TYPE_MAPVALUES*)
      * @param string $bin name
-     * @param int    $index_type one of Aerospike::INDEX_TYPE_*
-     * @param int    $min
-     * @param int    $max
-     * @see Aerospike::query()
-     * @see Aerospike::queryApply()
-     * @see Aerospike::aggregate()
+     * @param int $index_type one of Aerospike::INDEX_TYPE_*
+     * @param int $min
+     * @param int $max
      * @return array expressing the predicate, to be used by query(), queryApply() or aggregate()
      * ```
      * Associative Array:
@@ -2835,6 +2831,9 @@ class Aerospike
      *   op  => Aerospike::OP_BETWEEN
      *   val => [min, max]
      * ```
+     * @see Aerospike::queryApply()
+     * @see Aerospike::aggregate()
+     * @see Aerospike::query()
      */
     public static function predicateRange(string $bin, int $index_type, int $min, int $max) {}
 
@@ -2842,9 +2841,6 @@ class Aerospike
      * Helper method for creating a GEOCONTAINS point predicate
      * @param string $bin name
      * @param string $point GeoJSON string describing a point
-     * @see Aerospike::query()
-     * @see Aerospike::queryApply()
-     * @see Aerospike::aggregate()
      * @return array expressing the predicate, to be used by query(), queryApply() or aggregate()
      * ```
      * Associative Array:
@@ -2852,17 +2848,17 @@ class Aerospike
      *   op => Aerospike::OP_GEOCONTAINSPOINT
      *   val => GeoJSON string
      * ```
+     * @see Aerospike::queryApply()
+     * @see Aerospike::aggregate()
+     * @see Aerospike::query()
      */
     public static function predicateGeoContainsGeoJSONPoint(string $bin, string $point) {}
 
     /**
      * Helper method for creating a GEOCONTAINS point predicate
      * @param string $bin name
-     * @param float  $long longitude of the point
-     * @param float  $lat  latitude of the point
-     * @see Aerospike::query()
-     * @see Aerospike::queryApply()
-     * @see Aerospike::aggregate()
+     * @param float $long longitude of the point
+     * @param float $lat latitude of the point
      * @return array expressing the predicate, to be used by query(), queryApply() or aggregate()
      * ```
      * Associative Array:
@@ -2870,6 +2866,9 @@ class Aerospike
      *   op => Aerospike::OP_GEOCONTAINSPOINT
      *   val => GeoJSON string produced from $long and $lat
      * ```
+     * @see Aerospike::queryApply()
+     * @see Aerospike::aggregate()
+     * @see Aerospike::query()
      */
     public static function predicateGeoContainsPoint(string $bin, float $long, float $lat) {}
 
@@ -2877,9 +2876,6 @@ class Aerospike
      * Helper method for creating a GEOWITHIN region predicate
      * @param string $bin name
      * @param string $region GeoJSON string describing the region (polygon)
-     * @see Aerospike::query()
-     * @see Aerospike::queryApply()
-     * @see Aerospike::aggregate()
      * @return array expressing the predicate, to be used by query(), queryApply() or aggregate()
      * ```
      * Associative Array:
@@ -2887,18 +2883,18 @@ class Aerospike
      *   op => Aerospike::OP_GEOWITHINREGION
      *   val => GeoJSON string
      * ```
+     * @see Aerospike::queryApply()
+     * @see Aerospike::aggregate()
+     * @see Aerospike::query()
      */
     public static function predicateGeoWithinGeoJSONRegion(string $bin, string $region) {}
 
     /**
      * Helper method for creating a GEOWITHIN circle region predicate
      * @param string $bin name
-     * @param float  $long longitude of the point
-     * @param float  $lat  latitude of the point
-     * @param float  $radiusMeter radius of the circle in meters
-     * @see Aerospike::query()
-     * @see Aerospike::queryApply()
-     * @see Aerospike::aggregate()
+     * @param float $long longitude of the point
+     * @param float $lat latitude of the point
+     * @param float $radiusMeter radius of the circle in meters
      * @return array expressing the predicate, to be used by query(), queryApply() or aggregate()
      * ```
      * Associative Array:
@@ -2906,6 +2902,9 @@ class Aerospike
      *   op => Aerospike::OP_GEOWITHINREGION
      *   val => GeoJSON string produced from $long, $lat and $radius
      * ```
+     * @see Aerospike::queryApply()
+     * @see Aerospike::aggregate()
+     * @see Aerospike::query()
      */
     public static function predicateGeoWithinRadius(string $bin, float $long, float $lat, float $radiusMeter) {}
 
@@ -2921,9 +2920,9 @@ class Aerospike
      * } while($job_info['status'] != Aerospike::JOB_STATUS_COMPLETED);
      * ```
      *
-     * @param int   $job_id  The Job ID
-     * @param int   $job_type The type of the job, either Aerospike::JOB_QUERY, or Aerospike::JOB_SCAN
-     * @param array &$info    The status of the background job filled (by reference) as an array of
+     * @param int $job_id The Job ID
+     * @param int $job_type The type of the job, either Aerospike::JOB_QUERY, or Aerospike::JOB_SCAN
+     * @param array &$info The status of the background job filled (by reference) as an array of
      * ```
      * [
      *   'progress_pct' => progress percentage for the job
@@ -2931,11 +2930,11 @@ class Aerospike
      *   'status'       => one of Aerospike::STATUS_*
      * ]
      * ```
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
-     * @see Aerospike::scanApply()
-     * @see Aerospike::queryApply()
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @see Aerospike::queryApply()
+     * @see Aerospike::scanApply()
      */
     public function jobInfo(int $job_id, $job_type, array &$info, array $options = []) {}
 
@@ -2961,8 +2960,8 @@ class Aerospike
      * @link https://www.aerospike.com/docs/udf/udf_guide.html UDF Development Guide
      * @param string $path the path to the Lua file on the client-side machine
      * @param string $module the name of the UDF module to register with the cluster
-     * @param int    $language
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param int $language
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT options
      * @see Aerospike::OK Aerospike::OK and error status codes
@@ -2982,11 +2981,11 @@ class Aerospike
      * }
      * ```
      * @param string $module the name of the UDF module registered with the cluster
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
-     * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT
-     * @see Aerospike::ERR_UDF_NOT_FOUND UDF error status codes
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @see Aerospike::ERR_UDF_NOT_FOUND UDF error status codes
+     * @see Aerospike::OPT_WRITE_TIMEOUT Aerospike::OPT_WRITE_TIMEOUT
      */
     public function deregister($module, $options = []) {}
 
@@ -3027,12 +3026,12 @@ class Aerospike
      * }
      * ```
      * @param array &$modules pass-by-reference param
-     * @param int   $language
+     * @param int $language
      * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
-     * @see Aerospike::OPT_READ_TIMEOUT Aerospike::OPT_READ_TIMEOUT
-     * @see Aerospike::OK Aerospike::OK and error status codes
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @see Aerospike::OK Aerospike::OK and error status codes
+     * @see Aerospike::OPT_READ_TIMEOUT Aerospike::OPT_READ_TIMEOUT
      */
     public function listRegistered(&$modules, $language = Aerospike::UDF_TYPE_LUA, $options = []) {}
 
@@ -3075,11 +3074,11 @@ class Aerospike
      * @param string $module the name of the UDF module registered with the cluster
      * @param string &$code pass-by-reference param
      * @param string $language
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
-     * @see Aerospike::OPT_READ_TIMEOUT Aerospike::OPT_READ_TIMEOUT
-     * @see Aerospike::ERR_LUA_FILE_NOT_FOUND UDF error status codes
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
+     * @see Aerospike::ERR_LUA_FILE_NOT_FOUND UDF error status codes
+     * @see Aerospike::OPT_READ_TIMEOUT Aerospike::OPT_READ_TIMEOUT
      */
     public function getRegistered($module, &$code, $language = Aerospike::UDF_TYPE_LUA, $options = []) {}
 
@@ -3114,9 +3113,9 @@ class Aerospike
      * @param array $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $module the name of the UDF module registered with the cluster
      * @param string $function the name of the UDF
-     * @param array  $args optional arguments for the UDF
+     * @param array $args optional arguments for the UDF
      * @param mixed  &$returned pass-by-reference param
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_POLICY_KEY
      * * Aerospike::OPT_SERIALIZER
@@ -3165,9 +3164,9 @@ class Aerospike
      * @param string $set the set within the given namespace
      * @param string $module the name of the UDF module registered with the cluster
      * @param string $function the name of the UDF
-     * @param array  $args optional arguments for the UDF
+     * @param array $args optional arguments for the UDF
      * @param int    &$job_id pass-by-reference filled by the job ID of the scan
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_POLICY_DURABLE_DELETE
      * * Aerospike::OPT_READ_TIMEOUT
@@ -3232,9 +3231,9 @@ class Aerospike
      * ```
      * @param string $module the name of the UDF module registered with the cluster
      * @param string $function the name of the UDF
-     * @param array  $args optional arguments for the UDF
+     * @param array $args optional arguments for the UDF
      * @param int    &$job_id pass-by-reference filled by the job ID of the scan
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_POLICY_DURABLE_DELETE
      * * Aerospike::OPT_READ_TIMEOUT
@@ -3370,9 +3369,9 @@ class Aerospike
      * ```
      * @param string $module the name of the UDF module registered with the cluster
      * @param string $function the name of the UDF
-     * @param array  $args optional arguments for the UDF
+     * @param array $args optional arguments for the UDF
      * @param mixed  &$returned pass-by-reference param
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
      * * Aerospike::OPT_READ_TIMEOUT
      * * Aerospike::OPT_SLEEP_BETWEEN_RETRIES
@@ -3420,13 +3419,13 @@ class Aerospike
      * @param string $set the set within the given namespace
      * @param string $bin the bin on which the secondary index is to be created
      * @param string $name the name of the index
-     * @param int    $indexType one of *Aerospike::INDEX\_TYPE\_\**
-     * @param int    $dataType one of *Aerospike::INDEX_NUMERIC* and *Aerospike::INDEX_STRING*
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param int $indexType one of *Aerospike::INDEX\_TYPE\_\**
+     * @param int $dataType one of *Aerospike::INDEX_NUMERIC* and *Aerospike::INDEX_STRING*
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
+     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      * @see Aerospike::INDEX_TYPE_DEFAULT
      * @see Aerospike::INDEX_STRING
-     * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
     public function addIndex(string $ns, string $set, string $bin, string $name, int $indexType, int $dataType, array $options = []) {}
 
@@ -3445,7 +3444,7 @@ class Aerospike
      * ```
      * @param string $ns the namespace
      * @param string $name the name of the index
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
@@ -3471,11 +3470,11 @@ class Aerospike
      * string(53) "bins/test	num-bin-names=2,bin-names-quota=32768,demo,characters"
      * ```
      * @link https://www.aerospike.com/docs/reference/info Info Command Reference
-     * @param string $request  a formatted info command
+     * @param string $request a formatted info command
      * @param string &$response a formatted response from the server, filled by reference
      * @param null|array $host an array holding the cluster node connection information cluster
      *                         and manage its connections to them. ```[ 'addr' => $addr , 'port' =>  $port ]```
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
@@ -3506,9 +3505,9 @@ class Aerospike
      * }
      * ```
      * @link https://www.aerospike.com/docs/reference/info Info Command Reference
-     * @param string $request  a formatted info command
+     * @param string $request a formatted info command
      * @param null|array $host an array of _host_ arrays, each with ```[ 'addr' => $addr , 'port' =>  $port ]```
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
      * @return array results in the format
      * ```
@@ -3606,11 +3605,11 @@ class Aerospike
      * });
      * ```
      *
-     * @see Aerospike::LOG_LEVEL_OFF Aerospike::LOG_LEVEL_* constants
      * @param callable $log_handler a callback function with the signature
      * ```php
      * function log_handler ( int $level, string $file, string $function, int $line ) : void
      * ```
+     * @see Aerospike::LOG_LEVEL_OFF Aerospike::LOG_LEVEL_* constants
      */
     public function setLogHandler(callable $log_handler) {}
 
@@ -4024,7 +4023,6 @@ class Aerospike
      * The OPT_TOTAL_TIMEOUT is tracked on the client and sent to the server along with
      * the transaction in the wire protocol.  The client will most likely timeout
      * first, but the server also has the capability to timeout the transaction.
-
      * If OPT_TOTAL_TIMEOUT is not zero and OPT_TOTAL_TIMEOUT is reached before the transaction
      * completes, the transaction will return error ERR_TIMEOUT.
      * If OPT_TOTAL_TIMEOUT is zero, there will be no total time limit.
@@ -4033,11 +4031,9 @@ class Aerospike
 
     /**
      * Socket idle timeout in milliseconds when processing a database command.
-
      * If OPT_SOCKET_TIMEOUT is not zero and the socket has been idle for at least OPT_SOCKET_TIMEOUT,
      * both OPT_MAX_RETRIES and OPT_TOTAL_TIMEOUT are checked.  If OPT_MAX_RETRIES and OPT_TOTAL_TIMEOUT are not
      * exceeded, the transaction is retried.
-
      * If both OPT_SOCKET_TIMEOUT and OPT_TOTAL_TIMEOUT are non-zero and OPT_SOCKET_TIMEOUT > OPT_TOTAL_TIMEOUT,
      * then OPT_SOCKET_TIMEOUT will be set to OPT_TOTAL_TIMEOUT.  If OPT_SOCKET_TIMEOUT is zero, there will be
      * no socket idle limit.

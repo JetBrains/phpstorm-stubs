@@ -121,7 +121,7 @@ class PHPClass extends BasePHPClass
             if ($class->name === $this->name) {
                 if (!empty($class->problems)) {
                     foreach ($class->problems as $problem) {
-                        switch ($problem->description){
+                        switch ($problem->description) {
                             case 'wrong parent':
                                 $this->mutedProblems[StubProblemType::WRONG_PARENT] = $problem->versions;
                                 break;

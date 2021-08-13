@@ -9,8 +9,7 @@ namespace {
     define('pcov\version', '1.0.6');
 }
 
-namespace pcov
-{
+namespace pcov {
     /**
      * (PHP &gt;= 7.0, PECL pcov &gt;= 1.0.0)<br/>
      * Shall start recording coverage information

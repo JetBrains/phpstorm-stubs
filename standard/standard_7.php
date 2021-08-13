@@ -382,8 +382,8 @@ function dir(string $directory, $context): Directory|false {}
  * Alias of dir()
  * @param string $directory
  * @param resource $context
- * @since 8.0
  * @return Directory|false
+ * @since 8.0
  * @see dir()
  */
 function getdir(string $directory, $context = null): Directory|false {}

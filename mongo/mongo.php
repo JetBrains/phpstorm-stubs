@@ -118,6 +118,7 @@ class MongoClient
      * @return bool If the connection was successfully closed.
      */
     public function close($connection) {}
+
     /**
      * Connects to a database server
      *
@@ -271,6 +272,7 @@ class Mongo extends MongoClient
      */
     #[Deprecated('This feature has been DEPRECATED as of version 1.2.3. Relying on this feature is highly discouraged. Please use MongoPool::getSize() instead.')]
     public function getPoolSize() {}
+
     /**
      * (PECL mongo &gt;= 1.1.0)<br/>
      * Returns the address being used by this for slaveOkay reads
@@ -283,6 +285,7 @@ class Mongo extends MongoClient
      * </p>
      */
     public function getSlave() {}
+
     /**
      * (PECL mongo &gt;= 1.1.0)<br/>
      * Get slaveOkay setting for this connection
@@ -290,6 +293,7 @@ class Mongo extends MongoClient
      * @return bool Returns the value of slaveOkay for this instance.
      */
     public function getSlaveOkay() {}
+
     /**
      * Connects to paired database server
      * @link https://secure.php.net/manual/en/mongo.pairconnect.php
@@ -334,6 +338,7 @@ class Mongo extends MongoClient
      * @return bool returns the former value of slaveOkay for this instance.
      */
     public function setSlaveOkay($ok) {}
+
     /**
      *(PECL mongo &gt;= 1.2.0)<br/>
      * Set the size for future connection pools.
@@ -344,6 +349,7 @@ class Mongo extends MongoClient
      */
     #[Deprecated('Relying on this feature is highly discouraged. Please use MongoPool::setSize() instead.')]
     public function setPoolSize($size) {}
+
     /**
      * Creates a persistent connection with a database server
      * @link https://secure.php.net/manual/en/mongo.persistconnect.php
@@ -375,22 +381,22 @@ class Mongo extends MongoClient
      */
     protected function connectUtil() {}
 
-   /**
-    * Check if there was an error on the most recent db operation performed
-    * @link https://secure.php.net/manual/en/mongo.lasterror.php
-    * @return array|null Returns the error, if there was one, or NULL.
-    * @see MongoDB::lastError()
-    */
-   #[Deprecated('Use MongoDB::lastError() instead.')]
+    /**
+     * Check if there was an error on the most recent db operation performed
+     * @link https://secure.php.net/manual/en/mongo.lasterror.php
+     * @return array|null Returns the error, if there was one, or NULL.
+     * @see MongoDB::lastError()
+     */
+    #[Deprecated('Use MongoDB::lastError() instead.')]
     public function lastError() {}
 
-   /**
-    * Checks for the last error thrown during a database operation
-    * @link https://secure.php.net/manual/en/mongo.preverror.php
-    * @return array Returns the error and the number of operations ago it occurred.
-    * @see MongoDB::prevError()
-    */
-   #[Deprecated('Use MongoDB::prevError() instead.')]
+    /**
+     * Checks for the last error thrown during a database operation
+     * @link https://secure.php.net/manual/en/mongo.preverror.php
+     * @return array Returns the error and the number of operations ago it occurred.
+     * @see MongoDB::prevError()
+     */
+    #[Deprecated('Use MongoDB::prevError() instead.')]
     public function prevError() {}
 
     /**
@@ -549,6 +555,7 @@ class MongoDB
      * @return bool Returns the value of slaveOkay for this instance.
      */
     public function getSlaveOkay() {}
+
     /**
      * (PECL mongo &gt;= 0.9.0)<br/>
      * Sets this database's profiling level
@@ -691,6 +698,7 @@ class MongoDB
      * and wtimeout denoting the maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
      */
     public function getWriteConcern() {}
+
     /**
      * (PECL mongo &gt;= 0.9.3)<br/>
      * Runs JavaScript code on the database server.
@@ -921,8 +929,8 @@ class MongoCollection
      *
      * @link https://php.net/manual/en/mongocollection.aggregatecursor.php
      *
-     * @param array $pipeline          <p> The Aggregation Framework pipeline to execute. </p>
-     * @param array $options            [optional] <p> Options for the aggregation command </p>
+     * @param array $pipeline <p> The Aggregation Framework pipeline to execute. </p>
+     * @param array $options [optional] <p> Options for the aggregation command </p>
      *
      * @return MongoCommandCursor Returns a {@link https://php.net/manual/en/class.mongocommandcursor.php MongoCommandCursor} object
      */
@@ -1256,7 +1264,7 @@ class MongoCollection
     public function getDBRef(array $ref) {}
 
     /**
-     * @param  mixed $keys
+     * @param mixed $keys
      * @return string
      */
     protected static function toIndexString($keys) {}
@@ -1296,6 +1304,7 @@ class MongoCursor implements Iterator
      * </p>
      */
     public static $timeout = 30000;
+
     /**
      * Create a new cursor
      * @link https://secure.php.net/manual/en/mongocursor.construct.php
@@ -1313,6 +1322,7 @@ class MongoCursor implements Iterator
      * @return MongoCursor Returns this cursor.
      */
     public function awaitData($wait = true) {}
+
     /**
      * Checks if there are any more elements in this cursor
      * @link https://secure.php.net/manual/en/mongocursor.hasnext.php
@@ -1500,9 +1510,9 @@ class MongoCursor implements Iterator
 
     /**
      * Returns the cursor to the beginning of the result set
-     * @throws MongoConnectionException
-     * @throws MongoCursorTimeoutException
      * @return void
+     * @throws MongoCursorTimeoutException
+     * @throws MongoConnectionException
      */
     public function rewind() {}
 
@@ -1704,7 +1714,7 @@ class MongoGridFS extends MongoCollection
      * @link https://php.net/manual/en/mongogridfs.construct.php
      * @param MongoDB $db Database
      * @param string $prefix [optional] <p>Optional collection name prefix.</p>
-     * @param mixed $chunks  [optional]
+     * @param mixed $chunks [optional]
      */
     public function __construct($db, $prefix = "fs", $chunks = "fs") {}
 
@@ -1910,11 +1920,11 @@ class MongoGridFSCursor extends MongoCursor implements Traversable, Iterator
  */
 class MongoId
 {
-     /**
-      * @var string <p> Note: The property name begins with a $ character. It may be accessed using
-      * {@link https://php.net/manual/en/language.types.string.php#language.types.string.parsing.complex complex variable parsed syntax} (e.g. $mongoId->{'$id'}).</p>
-      */
-     public $id = null;
+    /**
+     * @var string <p> Note: The property name begins with a $ character. It may be accessed using
+     * {@link https://php.net/manual/en/language.types.string.php#language.types.string.parsing.complex complex variable parsed syntax} (e.g. $mongoId->{'$id'}).</p>
+     */
+    public $id = null;
 
     /**
      * (PECL mongo &gt;= 0.8.0)
@@ -1936,6 +1946,7 @@ class MongoId
      * </p>
      */
     public static function isValid($value) {}
+
     /**
      * (PECL mongo &gt;= 0.8.0)
      * Returns a hexadecimal representation of this id
@@ -2507,7 +2518,7 @@ class MongoLog
      * instead of triggering warnings.
      * </p>
      * @link https://secure.php.net/manual/en/mongolog.setcallback.php
-     * @param callable $log_function   <p>
+     * @param callable $log_function <p>
      * The function to be called on events.
      * </p>
      * <p>

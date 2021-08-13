@@ -21,7 +21,9 @@
     "friendsofphp/php-cs-fixer": "@stable"
   },
   "autoload": {
-    "files": ["PhpStormStubsMap.php"]
+    "files": [
+      "PhpStormStubsMap.php"
+    ]
   },
   "autoload-dev": {
     "psr-4": {

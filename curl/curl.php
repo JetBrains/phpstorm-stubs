@@ -78,6 +78,7 @@ class CURLFile
      */
     public function __wakeup() {}
 }
+
 /**
  * Initialize a cURL session
  * @link https://php.net/manual/en/function.curl-init.php
@@ -2181,7 +2182,7 @@ function curl_share_init() {}
  * </tbody>
  *
  * </table>
- * @param string $value  <p><table>
+ * @param string $value <p><table>
  *
  * <thead>
  * <tr>
@@ -2253,6 +2254,7 @@ function curl_strerror(int $error_code): ?string {}
  */
 #[Pure]
 function curl_unescape(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle, string $string): string|false {}
+
 /**
  * Perform a cURL session
  * @link https://php.net/manual/en/function.curl-exec.php
@@ -2400,7 +2402,7 @@ function curl_multi_select(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle']
  * @param int $option <p>
  * One of the <b>CURLMOPT_*</b> constants.
  * </p>
- * @param mixed $value   <p>
+ * @param mixed $value <p>
  * The value to be set on <em>option</em>.
  * </p>
  * <p>

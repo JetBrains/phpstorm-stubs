@@ -18,7 +18,7 @@ final class Input
      * Shall set input for the given target
      *
      * @param string $target
-     * @param mixed  $value
+     * @param mixed $value
      *
      * @throws Input\Error\Existence if input for target already exists.
      * @throws Input\Error\IllegalValue if value is illegal (object, null).

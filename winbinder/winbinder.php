@@ -455,8 +455,8 @@ function wb_save_image($image, $filename) {}
  *
  * NOTE: The resulting image must be destroyed by a call to wb_destroy_image().
  *
- * @param int  $width
- * @param int  $height
+ * @param int $width
+ * @param int $height
  * @param null $dibbmi
  * @param null $dibbits
  *
@@ -643,8 +643,8 @@ function wb_draw_text($target, $text, $xpos, $ypos, $width = null, $height = nul
  *
  * @param $target
  * @param $bitmap
- * @param int  $xpos
- * @param int  $ypos
+ * @param int $xpos
+ * @param int $ypos
  * @param null $width
  * @param null $height
  * @param null $transparentcolor
@@ -673,8 +673,8 @@ function wb_destroy_control($control) {}
  * Retrieves the value of a control or control item. The item and subitem parameters are set to -1 if absent.
  *
  * @param null $wbobject
- * @param int  $item
- * @param int  $subitem
+ * @param int $item
+ * @param int $subitem
  *
  * @return mixed
  */

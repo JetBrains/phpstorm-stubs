@@ -43,8 +43,7 @@ class StubsContainer
                 $amount = count(array_filter(
                     $this->constants,
                     function (PHPConst $nextConstant) use ($constant) {
-                        return $nextConstant->name === $constant->name
-                ;
+                        return $nextConstant->name === $constant->name;
                     }
                 ));
                 $this->constants[$constant->name . '_duplicated_' . $amount] = $constant;
@@ -100,8 +99,7 @@ class StubsContainer
                 $amount = count(array_filter(
                     $this->functions,
                     function (PHPFunction $nextFunction) use ($function) {
-                        return $nextFunction->name === $function->name
-                ;
+                        return $nextFunction->name === $function->name;
                     }
                 ));
                 $function->duplicateOtherElement = true;
@@ -169,8 +167,7 @@ class StubsContainer
                 $amount = count(array_filter(
                     $this->classes,
                     function (PHPClass $nextClass) use ($class) {
-                        return $nextClass->name === $class->name
-                ;
+                        return $nextClass->name === $class->name;
                     }
                 ));
                 $this->classes[$class->name . '_duplicated_' . $amount] = $class;
@@ -237,8 +234,7 @@ class StubsContainer
                 $amount = count(array_filter(
                     $this->interfaces,
                     function (PHPInterface $nextInterface) use ($interface) {
-                        return $nextInterface->name === $interface->name
-                ;
+                        return $nextInterface->name === $interface->name;
                     }
                 ));
                 $this->interfaces[$interface->name . '_duplicated_' . $amount] = $interface;

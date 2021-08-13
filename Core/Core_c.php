@@ -246,6 +246,7 @@ interface Throwable extends Stringable
      */
     public function __toString();
 }
+
 /**
  * Exception is the base class for
  * all Exceptions.
@@ -823,6 +824,7 @@ final class Attribute
 final class InternalIterator implements Iterator
 {
     private function __construct() {}
+
     public function current() {}
 
     public function next() {}

@@ -17,7 +17,7 @@ class ImagickPixelException extends Exception {}
 class ImagickKernelException extends Exception {}
 
 /**
- * @method Imagick clone() (PECL imagick 2.0.0)<br/>Makes an exact copy of the Imagick object
+ * @method Imagick clone () (PECL imagick 2.0.0)<br/>Makes an exact copy of the Imagick object
  * @link https://php.net/manual/en/class.imagick.php
  */
 class Imagick implements Iterator, Countable
@@ -5180,8 +5180,8 @@ class Imagick implements Iterator, Countable
      * Merge multiple images of the same size together with the selected operator. https://www.imagemagick.org/Usage/layers/#evaluate-sequence
      * @param int $EVALUATE_CONSTANT
      * @return bool
-     * @see https://www.imagemagick.org/Usage/layers/#evaluate-sequence
      * @throws ImagickException on error.
+     * @see https://www.imagemagick.org/Usage/layers/#evaluate-sequence
      * @since 3.4.0
      */
     public function evaluateImages($EVALUATE_CONSTANT) {}
@@ -5246,7 +5246,7 @@ class Imagick implements Iterator, Countable
 }
 
 /**
- * @method ImagickDraw clone() (PECL imagick 2.0.0)<br/>Makes an exact copy of the specified ImagickDraw object
+ * @method ImagickDraw clone () (PECL imagick 2.0.0)<br/>Makes an exact copy of the specified ImagickDraw object
  * @link https://php.net/manual/en/class.imagickdraw.php
  */
 class ImagickDraw
@@ -7002,7 +7002,7 @@ class ImagickPixelIterator implements Iterator
 }
 
 /**
- * @method clone()
+ * @method clone ()
  * @link https://php.net/manual/en/class.imagickpixel.php
  */
 class ImagickPixel
@@ -7246,6 +7246,7 @@ class ImagickPixel
      */
     public function setColorFromPixel(ImagickPixel $srcPixel) {}
 }
+
 // End of imagick v.3.2.0RC1
 
 // Start of Imagick v3.3.0RC1

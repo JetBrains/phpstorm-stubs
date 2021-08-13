@@ -47,6 +47,7 @@ function gmp_intval(GMP|string|int $num): int {}
  * @since 7.0
  */
 function gmp_random_seed(GMP|string|int $seed): void {}
+
 /**
  * Convert GMP number to string
  * @link https://php.net/manual/en/function.gmp-strval.php

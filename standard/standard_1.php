@@ -992,7 +992,7 @@ function explode(string $separator, string $string, int $limit) {}
 /**
  * Join array elements with a string
  * @link https://php.net/manual/en/function.implode.php
- * @param array|string  $separator [optional]<p>
+ * @param array|string $separator [optional]<p>
  * Defaults to an empty string. This is not the preferred usage of
  * implode as glue would be
  * the second parameter and thus, the bad prototype would be used.
@@ -1010,7 +1010,7 @@ function implode(array|string $separator = "", ?array $array): string {}
  * Alias:
  * {@see implode}
  * @link https://php.net/manual/en/function.join.php
- * @param array|string  $separator [optional] <p>
+ * @param array|string $separator [optional] <p>
  * Defaults to an empty string. This is not the preferred usage of
  * implode as glue would be
  * the second parameter and thus, the bad prototype would be used.

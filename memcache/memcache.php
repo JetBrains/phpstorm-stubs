@@ -284,6 +284,7 @@ class MemcachePool
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function setCompressThreshold($thresold, $min_saving = 0.2) {}
+
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Increment item's value

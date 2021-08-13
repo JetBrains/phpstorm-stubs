@@ -588,7 +588,7 @@ final class EvChild extends EvWatcher
      *
      * The EvChild::createStopped() method doesn't start(activate) the newly created watcher.
      *
-     * @param int $pid  Wait for status changes of process PID(or any process if PID is specified as 0 ).
+     * @param int $pid Wait for status changes of process PID(or any process if PID is specified as 0 ).
      * @param bool $trace If FALSE, only activate the watcher when the process terminates. Otherwise(TRUE) additionally
      *      activate the watcher when the process is stopped or continued.
      * @param callable $callback
@@ -608,7 +608,7 @@ final class EvChild extends EvWatcher
      *
      * The same as EvChild::__construct() , but doesn't start the watcher automatically.
      *
-     * @param int $pid  Wait for status changes of process PID(or any process if PID is specified as 0 ).
+     * @param int $pid Wait for status changes of process PID(or any process if PID is specified as 0 ).
      * @param bool $trace If FALSE, only activate the watcher when the process terminates. Otherwise(TRUE) additionally
      *      activate the watcher when the process is stopped or continued.
      * @param callable $callback
@@ -622,7 +622,7 @@ final class EvChild extends EvWatcher
     /**
      * Configures the watcher
      *
-     * @param int $pid  Wait for status changes of process PID(or any process if PID is specified as 0 ).
+     * @param int $pid Wait for status changes of process PID(or any process if PID is specified as 0 ).
      * @param bool $trace If FALSE, only activate the watcher when the process terminates. Otherwise(TRUE) additionally
      *      activate the watcher when the process is stopped or continued.
      */
@@ -738,7 +738,7 @@ final class EvIo extends EvWatcher
      *
      * Constructs EvIo watcher object and starts the watcher automatically.
      *
-     * @param resource $fd  A stream opened with fopen() or similar functions, numeric file descriptor, or socket.
+     * @param resource $fd A stream opened with fopen() or similar functions, numeric file descriptor, or socket.
      * @param int $events Ev::READ and/or Ev::WRITE. See the bit masks.
      * @param callable $callback
      * @param mixed $data
@@ -755,7 +755,7 @@ final class EvIo extends EvWatcher
     /**
      * Configures the watcher.
      *
-     * @param resource $fd  A stream opened with fopen() or similar functions, numeric file descriptor, or socket.
+     * @param resource $fd A stream opened with fopen() or similar functions, numeric file descriptor, or socket.
      * @param int $events Ev::READ and/or Ev::WRITE. See the bit masks.
      */
     public function set(
@@ -768,7 +768,7 @@ final class EvIo extends EvWatcher
      *
      * The same as EvIo::__construct() , but doesn't start the watcher automatically.
      *
-     * @param resource $fd  A stream opened with fopen() or similar functions, numeric file descriptor, or socket.
+     * @param resource $fd A stream opened with fopen() or similar functions, numeric file descriptor, or socket.
      * @param int $events Ev::READ and/or Ev::WRITE. See the bit masks.
      * @param callable $callback
      * @param mixed $data

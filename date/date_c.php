@@ -226,7 +226,7 @@ class DateTimeImmutable implements DateTimeInterface
      * (PHP 5 &gt;=5.5.0)<br/>
      * Alters the timestamp
      * @link https://secure.php.net/manual/en/datetimeimmutable.modify.php
-     * @param string $modifier  <p>A date/time string. Valid formats are explained in
+     * @param string $modifier <p>A date/time string. Valid formats are explained in
      * {@link https://secure.php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
      * @return static|false Returns the newly created object or false on failure.
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
@@ -265,7 +265,7 @@ class DateTimeImmutable implements DateTimeInterface
      * Sets the ISO date
      * @link https://php.net/manual/en/class.datetimeimmutable.php
      * @param int $year <p>Year of the date.</p>
-     * @param int $week  <p>Week of the date.</p>
+     * @param int $week <p>Week of the date.</p>
      * @param int $dayOfWeek [optional] <p>Offset from the first day of the week.</p>
      * @return static|false
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
@@ -536,8 +536,8 @@ class DateTime implements DateTimeInterface
 
     /**
      * @param DateTimeImmutable $object
-     * @since 7.3
      * @return DateTime
+     * @since 7.3
      */
     public static function createFromImmutable(DateTimeImmutable $object) {}
 
@@ -834,8 +834,8 @@ class DateInterval
 
     /**
      * @param string $duration
-     * @link https://php.net/manual/en/dateinterval.construct.php
      * @throws \Exception when the $duration cannot be parsed as an interval.
+     * @link https://php.net/manual/en/dateinterval.construct.php
      */
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $duration) {}
 

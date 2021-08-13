@@ -61,16 +61,15 @@ final class Events implements Countable, Traversable
      * returned: Setting blocking mode to false will cause poll to return control if the first target polled is not
      * ready.
      *
-     * This differs from setting a timeout of 0 with @see Events::setTimeout(), since a timeout of 0, while
+     * This differs from setting a timeout of 0 with @param bool $blocking
+     *
+     * @throws Events\Error if loop has timeout set.
+     * @see Events::setTimeout(), since a timeout of 0, while
      * allowed, will cause an exception to be raised, which may be extremely slow or wasteful if what is really desired
      * is non-blocking behaviour.
      *
      * A non-blocking loop effects the return value of @see Events::poll(), such that it may be null before all events
      * have been processed.
-     *
-     * @param bool $blocking
-     *
-     * @throws Events\Error if loop has timeout set.
      */
     public function setBlocking(bool $blocking): void {}
 
@@ -82,12 +81,11 @@ final class Events implements Countable, Traversable
      * By default when events are polled for, blocking will occur (at the PHP level) until the first event can be
      * returned: Setting the timeout causes an exception to be thrown when the timeout is reached.
      *
-     * This differs from setting blocking mode to false with @see Events::setBlocking(), which will not cause an
-     * exception to be thrown.
-     *
+     * This differs from setting blocking mode to false with @param int $timeout
      * @throws Events\Error if loop is non-blocking.
      *
-     * @param int $timeout
+     * @see Events::setBlocking(), which will not cause an
+     * exception to be thrown.
      */
     public function setTimeout(int $timeout): void {}
 

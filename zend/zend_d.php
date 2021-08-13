@@ -11,8 +11,8 @@ define('JOB_QUEUE_STATUS_WAITING_PREDECESSOR', 5); // Job is waiting for it's pr
 define('JOB_QUEUE_STATUS_IN_PROCESS', 6);          // Job is in process in Queue
 define('JOB_QUEUE_STATUS_EXECUTION_FAILED', 7);    // Job execution failed in the ZendEnabler
 define('JOB_QUEUE_STATUS_LOGICALLY_FAILED', 8);    // Job was processed and failed logically either
-                                                   // because of job_fail command or script parse or
-                                                   // fatal error
+// because of job_fail command or script parse or
+// fatal error
 
 // Constants for different priorities of jobs
 define('JOB_QUEUE_PRIORITY_LOW', 0);

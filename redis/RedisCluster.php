@@ -76,12 +76,12 @@ class RedisCluster
     /**
      * Creates a Redis Cluster client
      *
-     * @param string|null   $name
-     * @param array         $seeds
-     * @param float         $timeout
-     * @param float         $readTimeout
-     * @param bool          $persistent
-     * @param string|null   $auth
+     * @param string|null $name
+     * @param array $seeds
+     * @param float $timeout
+     * @param float $readTimeout
+     * @param bool $persistent
+     * @param string|null $auth
      * @throws RedisClusterException
      *
      * @example
@@ -114,7 +114,7 @@ class RedisCluster
     /**
      * Get the value related to the specified key
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  string|false If key didn't exist, FALSE is returned. Otherwise, the value related to this key is
      *                       returned.
@@ -132,9 +132,9 @@ class RedisCluster
      *
      * @since    If you're using Redis >= 2.6.12, you can pass extended options as explained in example
      *
-     * @param   string    $key
-     * @param   string    $value
-     * @param   int|array $timeout If you pass an integer, phpredis will redirect to SETEX, and will try to use Redis
+     * @param string $key
+     * @param string $value
+     * @param int|array $timeout If you pass an integer, phpredis will redirect to SETEX, and will try to use Redis
      *                             >= 2.6.12 extended options if you pass an array with valid values.
      *
      * @return  bool TRUE if the command is successful.
@@ -193,7 +193,7 @@ class RedisCluster
      * Sets multiple key-value pairs in one atomic command.
      * MSETNX only returns TRUE if all the keys were set (see SETNX).
      *
-     * @param   array $array Pairs: array(key => value, ...)
+     * @param array $array Pairs: array(key => value, ...)
      *
      * @return  bool    TRUE in case of success, FALSE in case of failure.
      * @link    https://redis.io/commands/mset
@@ -210,11 +210,11 @@ class RedisCluster
     public function mset(array $array) {}
 
     /**
-     * @see     mset()
-     *
-     * @param   array $array
+     * @param array $array
      *
      * @return  int 1 (if the keys were set) or 0 (no key was set)
+     * @see     mset()
+     *
      * @link    https://redis.io/commands/msetnx
      */
     public function msetnx(array $array) {}
@@ -243,9 +243,9 @@ class RedisCluster
     /**
      * Set the string value in argument as value of the key, with a time to live.
      *
-     * @param   string $key
-     * @param   int    $ttl
-     * @param   string $value
+     * @param string $key
+     * @param int $ttl
+     * @param string $value
      *
      * @return  bool   TRUE if the command is successful.
      * @link    https://redis.io/commands/setex
@@ -260,9 +260,9 @@ class RedisCluster
      * PSETEX works exactly like SETEX with the sole difference that the expire time is specified in milliseconds
      * instead of seconds.
      *
-     * @param   string $key
-     * @param   int    $ttl
-     * @param   string $value
+     * @param string $key
+     * @param int $ttl
+     * @param string $value
      *
      * @return  bool   TRUE if the command is successful.
      * @link    https://redis.io/commands/psetex
@@ -276,8 +276,8 @@ class RedisCluster
     /**
      * Set the string value in argument as value of the key if the key doesn't already exist in the database.
      *
-     * @param   string $key
-     * @param   string $value
+     * @param string $key
+     * @param string $value
      *
      * @return  bool   TRUE in case of success, FALSE in case of failure.
      * @link    https://redis.io/commands/setnx
@@ -292,8 +292,8 @@ class RedisCluster
     /**
      * Sets a value and returns the previous entry at that key.
      *
-     * @param   string $key
-     * @param   string $value
+     * @param string $key
+     * @param string $value
      *
      * @return  string  A string, the previous value located at this key.
      * @link    https://redis.io/commands/getset
@@ -309,7 +309,7 @@ class RedisCluster
     /**
      * Verify if the specified key exists.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  bool If the key exists, return TRUE, otherwise return FALSE.
      * @link    https://redis.io/commands/exists
@@ -325,7 +325,7 @@ class RedisCluster
     /**
      * Returns the keys that match a certain pattern.
      *
-     * @param   string $pattern pattern, using '*' as a wildcard.
+     * @param string $pattern pattern, using '*' as a wildcard.
      *
      * @return  array   of STRING: The keys that match a certain pattern.
      * @link    https://redis.io/commands/keys
@@ -340,7 +340,7 @@ class RedisCluster
     /**
      * Returns the type of data pointed by a given key.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  int
      *
@@ -360,7 +360,7 @@ class RedisCluster
     /**
      * Returns and removes the first element of the list.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  string|false if command executed successfully BOOL FALSE in case of failure (empty list)
      * @link    https://redis.io/commands/lpop
@@ -390,7 +390,7 @@ class RedisCluster
     /**
      * Returns and removes the last element of the list.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  string|false if command executed successfully BOOL FALSE in case of failure (empty list)
      * @link    https://redis.io/commands/rpop
@@ -421,7 +421,7 @@ class RedisCluster
      * Set the list at index with the new value.
      *
      * @param string $key
-     * @param int    $index
+     * @param int $index
      * @param string $value
      *
      * @return bool TRUE if the new value is setted. FALSE if the index is out of range, or data type identified by key
@@ -442,7 +442,7 @@ class RedisCluster
     /**
      * Removes and returns a random element from the set value at Key.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  string  "popped" value
      * bool FALSE if set identified by key is empty or doesn't exist.
@@ -465,10 +465,10 @@ class RedisCluster
      * Adds the string values to the head (left) of the list. Creates the list if the key didn't exist.
      * If the key exists and is not a list, FALSE is returned.
      *
-     * @param   string $key
-     * @param   string $value1 String, value to push in key
-     * @param   string $value2 Optional
-     * @param   string $valueN Optional
+     * @param string $key
+     * @param string $value1 String, value to push in key
+     * @param string $value2 Optional
+     * @param string $valueN Optional
      *
      * @return  int|false    The new length of the list in case of success, FALSE in case of Failure.
      * @link    https://redis.io/commands/lpush
@@ -491,10 +491,10 @@ class RedisCluster
      * Adds the string values to the tail (right) of the list. Creates the list if the key didn't exist.
      * If the key exists and is not a list, FALSE is returned.
      *
-     * @param   string $key
-     * @param   string $value1 String, value to push in key
-     * @param   string $value2 Optional
-     * @param   string $valueN Optional
+     * @param string $key
+     * @param string $value1 String, value to push in key
+     * @param string $value2 Optional
+     * @param string $valueN Optional
      *
      * @return  int|false     The new length of the list in case of success, FALSE in case of Failure.
      * @link    https://redis.io/commands/rpush
@@ -520,9 +520,9 @@ class RedisCluster
      * An element is popped from the head of the first list that is non-empty,
      * with the given keys being checked in the order that they are given.
      *
-     * @param array $keys    Array containing the keys of the lists
+     * @param array $keys Array containing the keys of the lists
      *                       Or STRING Key1 STRING Key2 STRING Key3 ... STRING Keyn
-     * @param int   $timeout Timeout
+     * @param int $timeout Timeout
      *
      * @return  array array('listName', 'element')
      * @link    https://redis.io/commands/blpop
@@ -566,9 +566,9 @@ class RedisCluster
      * since BRPOP is identical to BLPOP with the only difference being that
      * it pops elements from the tail of a list instead of popping from the head.
      *
-     * @param array $keys    Array containing the keys of the lists
+     * @param array $keys Array containing the keys of the lists
      *                       Or STRING Key1 STRING Key2 STRING Key3 ... STRING Keyn
-     * @param int   $timeout Timeout
+     * @param int $timeout Timeout
      *
      * @return  array array('listName', 'element')
      * @link    https://redis.io/commands/brpop
@@ -605,8 +605,8 @@ class RedisCluster
     /**
      * Adds the string value to the tail (right) of the list if the ist exists. FALSE in case of Failure.
      *
-     * @param   string $key
-     * @param   string $value String, value to push in key
+     * @param string $key
+     * @param string $value String, value to push in key
      *
      * @return  int|false     The new length of the list in case of success, FALSE in case of Failure.
      * @link    https://redis.io/commands/rpushx
@@ -625,8 +625,8 @@ class RedisCluster
     /**
      * Adds the string value to the head (left) of the list if the list exists.
      *
-     * @param   string $key
-     * @param   string $value String, value to push in key
+     * @param string $key
+     * @param string $value String, value to push in key
      *
      * @return  int|false     The new length of the list in case of success, FALSE in case of Failure.
      * @link    https://redis.io/commands/lpushx
@@ -647,10 +647,10 @@ class RedisCluster
      * specify the position of the insert (before or after). If the list didn't exists,
      * or the pivot didn't exists, the value is not inserted.
      *
-     * @param   string $key
-     * @param   int    $position RedisCluster::BEFORE | RedisCluster::AFTER
-     * @param   string $pivot
-     * @param   string $value
+     * @param string $key
+     * @param int $position RedisCluster::BEFORE | RedisCluster::AFTER
+     * @param string $pivot
+     * @param string $value
      *
      * @return  int     The number of the elements in the list, -1 if the pivot didn't exists.
      * @link    https://redis.io/commands/linsert
@@ -680,7 +680,7 @@ class RedisCluster
      * Return FALSE in case of a bad index or a key that doesn't point to a list.
      *
      * @param string $key
-     * @param int    $index
+     * @param int $index
      *
      * @return string|false the element at this index
      * Bool FALSE if the key identifies a non-string data type, or no value corresponds to this index in the list Key.
@@ -702,9 +702,9 @@ class RedisCluster
      * If count is zero, all the matching elements are removed. If count is negative,
      * elements are removed from tail to head.
      *
-     * @param   string $key
-     * @param   string $value
-     * @param   int    $count
+     * @param string $key
+     * @param string $value
+     * @param int $count
      *
      * @return  int     the number of elements to remove
      * bool FALSE if the value identified by key is not a list.
@@ -727,9 +727,9 @@ class RedisCluster
     /**
      * A blocking version of rpoplpush, with an integral timeout in the third parameter.
      *
-     * @param   string $srcKey
-     * @param   string $dstKey
-     * @param   int    $timeout
+     * @param string $srcKey
+     * @param string $dstKey
+     * @param int $timeout
      *
      * @return  string|false  The element that was moved in case of success, FALSE in case of timeout.
      * @link    https://redis.io/commands/brpoplpush
@@ -740,12 +740,12 @@ class RedisCluster
      * Pops a value from the tail of a list, and pushes it to the front of another list.
      * Also return this value.
      *
-     * @since   redis >= 1.2
-     *
-     * @param   string $srcKey
-     * @param   string $dstKey
+     * @param string $srcKey
+     * @param string $dstKey
      *
      * @return  string|false  The element that was moved in case of success, FALSE in case of failure.
+     * @since   redis >= 1.2
+     *
      * @link    https://redis.io/commands/rpoplpush
      * @example
      * <pre>
@@ -784,7 +784,7 @@ class RedisCluster
      * Returns the size of a list identified by Key. If the list didn't exist or is empty,
      * the command returns 0. If the data type identified by Key is not a list, the command return FALSE.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  int     The size of the list identified by Key exists.
      * bool FALSE if the data type identified by Key is not list
@@ -804,7 +804,7 @@ class RedisCluster
     /**
      * Returns the set cardinality (number of elements) of the set stored at key.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  int   the cardinality (number of elements) of the set, or 0 if key does not exist.
      * @link    https://redis.io/commands/scard
@@ -823,7 +823,7 @@ class RedisCluster
      * Returns all the members of the set value stored at key.
      * This has the same effect as running SINTER with one argument key.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  array   All elements of the set.
      * @link    https://redis.io/commands/smembers
@@ -854,8 +854,8 @@ class RedisCluster
     /**
      * Returns if member is a member of the set stored at key.
      *
-     * @param   string $key
-     * @param   string $value
+     * @param string $key
+     * @param string $value
      *
      * @return  bool    TRUE if value is a member of the set at key key, FALSE otherwise.
      * @link    https://redis.io/commands/sismember
@@ -875,10 +875,10 @@ class RedisCluster
      * Adds a values to the set value stored at key.
      * If this value is already in the set, FALSE is returned.
      *
-     * @param   string $key    Required key
-     * @param   string $value1 Required value
-     * @param   string $value2 Optional value
-     * @param   string $valueN Optional value
+     * @param string $key Required key
+     * @param string $value1 Required value
+     * @param string $value2 Optional value
+     * @param string $valueN Optional value
      *
      * @return  int|false     The number of elements added to the set
      * @link    https://redis.io/commands/sadd
@@ -894,8 +894,8 @@ class RedisCluster
      * Adds a values to the set value stored at key.
      * If this value is already in the set, FALSE is returned.
      *
-     * @param   string $key Required key
-     * @param   array  $valueArray
+     * @param string $key Required key
+     * @param array $valueArray
      *
      * @return  int|false     The number of elements added to the set
      * @example
@@ -909,10 +909,10 @@ class RedisCluster
     /**
      * Removes the specified members from the set value stored at key.
      *
-     * @param   string $key
-     * @param   string $member1
-     * @param   string $member2
-     * @param   string $memberN
+     * @param string $key
+     * @param string $member1
+     * @param string $member2
+     * @param string $memberN
      *
      * @return  int     The number of elements removed from the set.
      * @link    https://redis.io/commands/srem
@@ -932,9 +932,9 @@ class RedisCluster
     /**
      * Performs the union between N sets and returns it.
      *
-     * @param   string $key1 Any number of keys corresponding to sets in redis.
-     * @param   string $key2 ...
-     * @param   string $keyN ...
+     * @param string $key1 Any number of keys corresponding to sets in redis.
+     * @param string $key2 ...
+     * @param string $keyN ...
      *
      * @return  array   of strings: The union of all these sets.
      * @link    https://redis.io/commands/sunionstore
@@ -970,10 +970,10 @@ class RedisCluster
     /**
      * Performs the same action as sUnion, but stores the result in the first key
      *
-     * @param   string $dstKey the key to store the diff into.
-     * @param   string $key1   Any number of keys corresponding to sets in redis.
-     * @param   string $key2   ...
-     * @param   string $keyN   ...
+     * @param string $dstKey the key to store the diff into.
+     * @param string $key1 Any number of keys corresponding to sets in redis.
+     * @param string $key2 ...
+     * @param string $keyN ...
      *
      * @return  int     Any number of keys corresponding to sets in redis.
      * @link    https://redis.io/commands/sunionstore
@@ -1013,9 +1013,9 @@ class RedisCluster
      * held at the specified keys. If just a single key is specified, then this command
      * produces the members of this set. If one of the keys is missing, FALSE is returned.
      *
-     * @param   string $key1 keys identifying the different sets on which we will apply the intersection.
-     * @param   string $key2 ...
-     * @param   string $keyN ...
+     * @param string $key1 keys identifying the different sets on which we will apply the intersection.
+     * @param string $key2 ...
+     * @param string $keyN ...
      *
      * @return  array contain the result of the intersection between those keys.
      * If the intersection between the different sets is empty, the return value will be empty array.
@@ -1050,10 +1050,10 @@ class RedisCluster
     /**
      * Performs a sInter command and stores the result in a new set.
      *
-     * @param   string $dstKey the key to store the diff into.
-     * @param   string $key1   are intersected as in sInter.
-     * @param   string $key2   ...
-     * @param   string $keyN   ...
+     * @param string $dstKey the key to store the diff into.
+     * @param string $key1 are intersected as in sInter.
+     * @param string $key2 ...
+     * @param string $keyN ...
      *
      * @return  int|false    The cardinality of the resulting set, or FALSE in case of a missing key.
      * @link    https://redis.io/commands/sinterstore
@@ -1089,9 +1089,9 @@ class RedisCluster
     /**
      * Performs the difference between N sets and returns it.
      *
-     * @param   string $key1 Any number of keys corresponding to sets in redis.
-     * @param   string $key2 ...
-     * @param   string $keyN ...
+     * @param string $key1 Any number of keys corresponding to sets in redis.
+     * @param string $key2 ...
+     * @param string $keyN ...
      *
      * @return  array   of strings: The difference of the first set will all the others.
      * @link    https://redis.io/commands/sdiff
@@ -1124,10 +1124,10 @@ class RedisCluster
     /**
      * Performs the same action as sDiff, but stores the result in the first key
      *
-     * @param   string $dstKey the key to store the diff into.
-     * @param   string $key1   Any number of keys corresponding to sets in redis
-     * @param   string $key2   ...
-     * @param   string $keyN   ...
+     * @param string $dstKey the key to store the diff into.
+     * @param string $key1 Any number of keys corresponding to sets in redis
+     * @param string $key2 ...
+     * @param string $keyN ...
      *
      * @return  int|false    The cardinality of the resulting set, or FALSE in case of a missing key.
      * @link    https://redis.io/commands/sdiffstore
@@ -1162,8 +1162,8 @@ class RedisCluster
     /**
      * Returns a random element(s) from the set value at Key, without removing it.
      *
-     * @param   string $key
-     * @param   int    $count [optional]
+     * @param string $key
+     * @param int $count [optional]
      *
      * @return  string|array  value(s) from the set
      * bool FALSE if set identified by key is empty or doesn't exist and count argument isn't passed.
@@ -1191,7 +1191,7 @@ class RedisCluster
     /**
      * Get the length of a string value.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  int
      * @link    https://redis.io/commands/strlen
@@ -1206,7 +1206,7 @@ class RedisCluster
     /**
      * Remove the expiration timer from a key.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  bool   TRUE if a timeout was removed, FALSE if the key didn’t exist or didn’t have an expiration timer.
      * @link    https://redis.io/commands/persist
@@ -1221,7 +1221,7 @@ class RedisCluster
      * but has no associated expire. Starting with Redis 2.8 the return value in case of error changed: Returns -2 if
      * the key does not exist. Returns -1 if the key exists but has no associated expire.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  int    the time left to live in seconds.
      * @link    https://redis.io/commands/ttl
@@ -1236,7 +1236,7 @@ class RedisCluster
      * no associated expire. Starting with Redis 2.8 the return value in case of error changed: Returns -2 if the key
      * does not exist. Returns -1 if the key exists but has no associated expire.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  int     the time left to live in milliseconds.
      * @link    https://redis.io/commands/pttl
@@ -1247,7 +1247,7 @@ class RedisCluster
     /**
      * Returns the cardinality of an ordered set.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  int     the set's cardinality
      * @link    https://redis.io/commands/zsize
@@ -1266,9 +1266,9 @@ class RedisCluster
      * scores in the range [start,end]. Adding a parenthesis before start or end excludes it
      * from the range. +inf and -inf are also valid limits.
      *
-     * @param   string $key
-     * @param   string $start
-     * @param   string $end
+     * @param string $key
+     * @param string $start
+     * @param string $end
      *
      * @return  int     the size of a corresponding zRangeByScore.
      * @link    https://redis.io/commands/zcount
@@ -1285,9 +1285,9 @@ class RedisCluster
     /**
      * Deletes the elements of the sorted set stored at the specified key which have scores in the range [start,end].
      *
-     * @param   string $key
-     * @param   string $start double or "+inf" or "-inf" as a string
-     * @param   string $end double or "+inf" or "-inf" as a string
+     * @param string $key
+     * @param string $start double or "+inf" or "-inf" as a string
+     * @param string $end double or "+inf" or "-inf" as a string
      *
      * @return  int             The number of values deleted from the sorted set
      * @link    https://redis.io/commands/zremrangebyscore
@@ -1304,8 +1304,8 @@ class RedisCluster
     /**
      * Returns the score of a given member in the specified sorted set.
      *
-     * @param   string $key
-     * @param   string $member
+     * @param string $key
+     * @param string $member
      *
      * @return  float
      * @link    https://redis.io/commands/zscore
@@ -1320,13 +1320,13 @@ class RedisCluster
     /**
      * Adds the specified member with a given score to the sorted set stored at key.
      *
-     * @param   string $key    Required key
-     * @param   float  $score1 Required score
-     * @param   string $value1 Required value
-     * @param   float  $score2 Optional score
-     * @param   string $value2 Optional value
-     * @param   float  $scoreN Optional score
-     * @param   string $valueN Optional value
+     * @param string $key Required key
+     * @param float $score1 Required score
+     * @param string $value1 Required value
+     * @param float $score2 Optional score
+     * @param string $value2 Optional value
+     * @param float $scoreN Optional score
+     * @param string $valueN Optional value
      *
      * @return  int     Number of values added
      * @link    https://redis.io/commands/zadd
@@ -1347,9 +1347,9 @@ class RedisCluster
     /**
      * Increments the score of a member from a sorted set by a given amount.
      *
-     * @param   string $key
-     * @param   float  $value (double) value that will be added to the member's score
-     * @param   string $member
+     * @param string $key
+     * @param float $value (double) value that will be added to the member's score
+     * @param string $member
      *
      * @return  float   the new value
      * @link    https://redis.io/commands/zincrby
@@ -1366,7 +1366,7 @@ class RedisCluster
     /**
      * Returns the length of a hash, in number of items
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  int|false     the number of items in a hash, FALSE if the key doesn't exist or isn't a hash.
      * @link    https://redis.io/commands/hlen
@@ -1383,7 +1383,7 @@ class RedisCluster
     /**
      * Returns the keys in a hash, as an array of strings.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  array   An array of elements, the keys of the hash. This works like PHP's array_keys().
      * @link    https://redis.io/commands/hkeys
@@ -1416,7 +1416,7 @@ class RedisCluster
     /**
      * Returns the values in a hash, as an array of strings.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  array   An array of elements, the values of the hash. This works like PHP's array_values().
      * @link    https://redis.io/commands/hvals
@@ -1450,8 +1450,8 @@ class RedisCluster
      * Gets a value from the hash stored at key.
      * If the hash table doesn't exist, or the key doesn't exist, FALSE is returned.
      *
-     * @param   string $key
-     * @param   string $hashKey
+     * @param string $key
+     * @param string $hashKey
      *
      * @return  string|false  The value, if the command executed successfully BOOL FALSE in case of failure
      * @link    https://redis.io/commands/hget
@@ -1467,7 +1467,7 @@ class RedisCluster
     /**
      * Returns the whole hash, as an array of strings indexed by strings.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  array   An array of elements, the contents of the hash.
      * @link    https://redis.io/commands/hgetall
@@ -1500,8 +1500,8 @@ class RedisCluster
     /**
      * Verify if the specified member exists in a key.
      *
-     * @param   string $key
-     * @param   string $hashKey
+     * @param string $key
+     * @param string $hashKey
      *
      * @return  bool   If the member exists in the hash table, return TRUE, otherwise return FALSE.
      * @link    https://redis.io/commands/hexists
@@ -1517,9 +1517,9 @@ class RedisCluster
     /**
      * Increments the value of a member from a hash by a given amount.
      *
-     * @param   string $key
-     * @param   string $hashKey
-     * @param   int    $value (integer) value that will be added to the member's value
+     * @param string $key
+     * @param string $hashKey
+     * @param int $value (integer) value that will be added to the member's value
      *
      * @return  int     the new value
      * @link    https://redis.io/commands/hincrby
@@ -1558,9 +1558,9 @@ class RedisCluster
     /**
      * Adds a value to the hash stored at key only if this field isn't already in the hash.
      *
-     * @param   string $key
-     * @param   string $hashKey
-     * @param   string $value
+     * @param string $key
+     * @param string $hashKey
+     * @param string $value
      *
      * @return  bool    TRUE if the field was set, FALSE if it was already present.
      * @link    https://redis.io/commands/hsetnx
@@ -1577,8 +1577,8 @@ class RedisCluster
     /**
      * Retrieve the values associated to the specified fields in the hash.
      *
-     * @param   string $key
-     * @param   array  $hashKeys
+     * @param string $key
+     * @param array $hashKeys
      *
      * @return  array   Array An array of elements, the values of the specified fields in the hash,
      * with the hash keys as array keys.
@@ -1598,8 +1598,8 @@ class RedisCluster
      * Fills in a whole hash. Non-string values are converted to string, using the standard (string) cast.
      * NULL values are stored as empty strings
      *
-     * @param   string $key
-     * @param   array  $hashKeys key → value array
+     * @param string $key
+     * @param array $hashKeys key → value array
      *
      * @return  bool
      * @link    https://redis.io/commands/hmset
@@ -1616,10 +1616,10 @@ class RedisCluster
      * Removes a values from the hash stored at key.
      * If the hash table doesn't exist, or the key doesn't exist, FALSE is returned.
      *
-     * @param   string $key
-     * @param   string $hashKey1
-     * @param   string $hashKey2
-     * @param   string $hashKeyN
+     * @param string $key
+     * @param string $hashKey1
+     * @param string $hashKey2
+     * @param string $hashKeyN
      *
      * @return  int     Number of deleted fields
      * @link    https://redis.io/commands/hdel
@@ -1650,9 +1650,9 @@ class RedisCluster
     /**
      * Increment the float value of a hash field by the given amount
      *
-     * @param   string $key
-     * @param   string $field
-     * @param   float  $increment
+     * @param string $key
+     * @param string $field
+     * @param float $increment
      *
      * @return  float
      * @link    https://redis.io/commands/hincrbyfloat
@@ -1680,7 +1680,7 @@ class RedisCluster
      * Dump a key out of a redis database, the value of which can later be passed into redis using the RESTORE command.
      * The data that comes out of DUMP is a binary representation of the key as Redis stores it.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  string|false  The Redis encoded value of the key, or FALSE if the key doesn't exist
      * @link    https://redis.io/commands/dump
@@ -1696,8 +1696,8 @@ class RedisCluster
      * Returns the rank of a given member in the specified sorted set, starting at 0 for the item
      * with the smallest score. zRevRank starts at 0 for the item with the largest score.
      *
-     * @param   string $key
-     * @param   string $member
+     * @param string $key
+     * @param string $member
      *
      * @return  int     the item's score.
      * @link    https://redis.io/commands/zrank
@@ -1715,12 +1715,12 @@ class RedisCluster
     public function zRank($key, $member) {}
 
     /**
-     * @see    zRank()
-     *
-     * @param  string $key
-     * @param  string $member
+     * @param string $key
+     * @param string $member
      *
      * @return int    the item's score
+     * @see    zRank()
+     *
      * @link   https://redis.io/commands/zrevrank
      */
     public function zRevRank($key, $member) {}
@@ -1728,7 +1728,7 @@ class RedisCluster
     /**
      * Increment the number stored at key by one.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  int    the new value
      * @link    https://redis.io/commands/incr
@@ -1745,7 +1745,7 @@ class RedisCluster
     /**
      * Decrement the number stored at key by one.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  int    the new value
      * @link    https://redis.io/commands/decr
@@ -1762,8 +1762,8 @@ class RedisCluster
      * Increment the number stored at key by one. If the second argument is filled, it will be used as the integer
      * value of the increment.
      *
-     * @param   string $key   key
-     * @param   int    $value value that will be added to key (only for incrBy)
+     * @param string $key key
+     * @param int $value value that will be added to key (only for incrBy)
      *
      * @return  int         the new value
      * @link    https://redis.io/commands/incrby
@@ -1782,8 +1782,8 @@ class RedisCluster
      * Decrement the number stored at key by one. If the second argument is filled, it will be used as the integer
      * value of the decrement.
      *
-     * @param   string $key
-     * @param   int    $value that will be subtracted to key (only for decrBy)
+     * @param string $key
+     * @param int $value that will be subtracted to key (only for decrBy)
      *
      * @return  int       the new value
      * @link    https://redis.io/commands/decrby
@@ -1800,8 +1800,8 @@ class RedisCluster
     /**
      * Increment the float value of a key by the given amount
      *
-     * @param   string $key
-     * @param   float  $increment
+     * @param string $key
+     * @param float $increment
      *
      * @return  float
      * @link    https://redis.io/commands/incrbyfloat
@@ -1818,8 +1818,8 @@ class RedisCluster
     /**
      * Sets an expiration date (a timeout) on an item.
      *
-     * @param   string $key The key that will disappear.
-     * @param   int    $ttl The key's remaining Time To Live, in seconds.
+     * @param string $key The key that will disappear.
+     * @param int $ttl The key's remaining Time To Live, in seconds.
      *
      * @return  bool   TRUE in case of success, FALSE in case of failure.
      * @link    https://redis.io/commands/expire
@@ -1836,8 +1836,8 @@ class RedisCluster
     /**
      * Sets an expiration date (a timeout in milliseconds) on an item.
      *
-     * @param   string $key The key that will disappear.
-     * @param   int    $ttl The key's remaining Time To Live, in milliseconds.
+     * @param string $key The key that will disappear.
+     * @param int $ttl The key's remaining Time To Live, in milliseconds.
      *
      * @return  bool   TRUE in case of success, FALSE in case of failure.
      * @link    https://redis.io/commands/pexpire
@@ -1854,8 +1854,8 @@ class RedisCluster
     /**
      * Sets an expiration date (a timestamp) on an item.
      *
-     * @param   string $key       The key that will disappear.
-     * @param   int    $timestamp Unix timestamp. The key's date of death, in seconds from Epoch time.
+     * @param string $key The key that will disappear.
+     * @param int $timestamp Unix timestamp. The key's date of death, in seconds from Epoch time.
      *
      * @return  bool   TRUE in case of success, FALSE in case of failure.
      * @link    https://redis.io/commands/expireat
@@ -1873,8 +1873,8 @@ class RedisCluster
     /**
      * Sets an expiration date (a timestamp) on an item. Requires a timestamp in milliseconds
      *
-     * @param   string $key       The key that will disappear.
-     * @param   int    $timestamp Unix timestamp. The key's date of death, in seconds from Epoch time.
+     * @param string $key The key that will disappear.
+     * @param int $timestamp Unix timestamp. The key's date of death, in seconds from Epoch time.
      *
      * @return  bool   TRUE in case of success, FALSE in case of failure.
      * @link    https://redis.io/commands/pexpireat
@@ -1891,8 +1891,8 @@ class RedisCluster
     /**
      * Append specified string to the string stored in specified key.
      *
-     * @param   string $key
-     * @param   string $value
+     * @param string $key
+     * @param string $value
      *
      * @return  int    Size of the value after the append
      * @link    https://redis.io/commands/append
@@ -1908,8 +1908,8 @@ class RedisCluster
     /**
      * Return a single bit out of a larger string
      *
-     * @param   string $key
-     * @param   int    $offset
+     * @param string $key
+     * @param int $offset
      *
      * @return  int    the bit value (0 or 1)
      * @link    https://redis.io/commands/getbit
@@ -1925,9 +1925,9 @@ class RedisCluster
     /**
      * Changes a single bit of a string.
      *
-     * @param   string   $key
-     * @param   int      $offset
-     * @param   bool|int $value bool or int (1 or 0)
+     * @param string $key
+     * @param int $offset
+     * @param bool|int $value bool or int (1 or 0)
      *
      * @return  int    0 or 1, the value of the bit before it was set.
      * @link    https://redis.io/commands/setbit
@@ -1944,11 +1944,11 @@ class RedisCluster
     /**
      * Bitwise operation on multiple keys.
      *
-     * @param   string $operation either "AND", "OR", "NOT", "XOR"
-     * @param   string $retKey    return key
-     * @param   string $key1
-     * @param   string $key2
-     * @param   string $key3
+     * @param string $operation either "AND", "OR", "NOT", "XOR"
+     * @param string $retKey return key
+     * @param string $key1
+     * @param string $key2
+     * @param string $key3
      *
      * @return  int     The size of the string stored in the destination key.
      * @link    https://redis.io/commands/bitop
@@ -1970,10 +1970,10 @@ class RedisCluster
      * string as an array of bits from left to right, where the first byte's most significant bit is at position 0,
      * the second byte's most significant bit is at position 8, and so forth.
      *
-     * @param   string $key
-     * @param   int    $bit
-     * @param   int    $start
-     * @param   int    $end
+     * @param string $key
+     * @param int $bit
+     * @param int $start
+     * @param int $end
      *
      * @return  int     The command returns the position of the first bit set to 1 or 0 according to the request.
      *                  If we look for set bits (the bit argument is 1) and the string is empty or composed of just
@@ -2002,7 +2002,7 @@ class RedisCluster
     /**
      * Count bits in a string.
      *
-     * @param   string $key
+     * @param string $key
      *
      * @return  int     The number of bits set to 1 in the value behind the input key.
      * @link    https://redis.io/commands/bitcount
@@ -2018,10 +2018,10 @@ class RedisCluster
     public function bitCount($key) {}
 
     /**
-     * @see     lIndex()
+     * @param string $key
+     * @param int $index
      *
-     * @param   string $key
-     * @param   int    $index
+     * @see     lIndex()
      *
      * @link    https://redis.io/commands/lindex
      */
@@ -2030,9 +2030,9 @@ class RedisCluster
     /**
      * Return a substring of a larger string
      *
-     * @param   string $key
-     * @param   int    $start
-     * @param   int    $end
+     * @param string $key
+     * @param int $start
+     * @param int $end
      *
      * @return  string the substring
      * @link    https://redis.io/commands/getrange
@@ -2049,8 +2049,8 @@ class RedisCluster
      * Trims an existing list so that it will contain only a specified range of elements.
      *
      * @param string $key
-     * @param int    $start
-     * @param int    $stop
+     * @param int $start
+     * @param int $stop
      *
      * @return array|false    Bool return FALSE if the key identify a non-list value.
      * @link        https://redis.io/commands/ltrim
@@ -2071,9 +2071,9 @@ class RedisCluster
      * the range [start, end]. start and stop are interpretated as indices: 0 the first element,
      * 1 the second ... -1 the last element, -2 the penultimate ...
      *
-     * @param   string $key
-     * @param   int    $start
-     * @param   int    $end
+     * @param string $key
+     * @param int $start
+     * @param int $end
      *
      * @return  array containing the values in specified range.
      * @link    https://redis.io/commands/lrange
@@ -2090,9 +2090,9 @@ class RedisCluster
     /**
      * Deletes the elements of the sorted set stored at the specified key which have rank in the range [start,end].
      *
-     * @param   string $key
-     * @param   int    $start
-     * @param   int    $end
+     * @param string $key
+     * @param int $start
+     * @param int $end
      *
      * @return  int     The number of values deleted from the sorted set
      * @link    https://redis.io/commands/zremrangebyrank
@@ -2110,11 +2110,11 @@ class RedisCluster
     /**
      * Publish messages to channels. Warning: this function will probably change in the future.
      *
-     * @param   string $channel a channel to publish to
-     * @param   string $message string
+     * @param string $channel a channel to publish to
+     * @param string $message string
      *
-     * @link    https://redis.io/commands/publish
      * @return  int Number of clients that received the message
+     * @link    https://redis.io/commands/publish
      * @example $redisCluster->publish('chan-1', 'hello, world!'); // send message.
      */
     public function publish($channel, $message) {}
@@ -2122,8 +2122,8 @@ class RedisCluster
     /**
      * Renames a key.
      *
-     * @param   string $srcKey
-     * @param   string $dstKey
+     * @param string $srcKey
+     * @param string $dstKey
      *
      * @return  bool   TRUE in case of success, FALSE in case of failure.
      * @link    https://redis.io/commands/rename
@@ -2143,8 +2143,8 @@ class RedisCluster
      * Same as rename, but will not replace a key if the destination already exists.
      * This is the same behaviour as setNx.
      *
-     * @param   string $srcKey
-     * @param   string $dstKey
+     * @param string $srcKey
+     * @param string $dstKey
      *
      * @return  bool   TRUE in case of success, FALSE in case of failure.
      * @link    https://redis.io/commands/renamenx
@@ -2162,7 +2162,7 @@ class RedisCluster
      * When called with a single key, returns the approximated cardinality computed by the HyperLogLog data
      * structure stored at the specified variable, which is 0 if the variable does not exist.
      *
-     * @param   string|array $key
+     * @param string|array $key
      *
      * @return  int
      * @link    https://redis.io/commands/pfcount
@@ -2179,8 +2179,8 @@ class RedisCluster
     /**
      * Adds all the element arguments to the HyperLogLog data structure stored at the key.
      *
-     * @param   string $key
-     * @param   array  $elements
+     * @param string $key
+     * @param array $elements
      *
      * @return  bool
      * @link    https://redis.io/commands/pfadd
@@ -2192,8 +2192,8 @@ class RedisCluster
      * Merge multiple HyperLogLog values into an unique value that will approximate the cardinality
      * of the union of the observed Sets of the source HyperLogLog structures.
      *
-     * @param   string $destKey
-     * @param   array  $sourceKeys
+     * @param string $destKey
+     * @param array $sourceKeys
      *
      * @return  bool
      * @link    https://redis.io/commands/pfmerge
@@ -2210,9 +2210,9 @@ class RedisCluster
     /**
      * Changes a substring of a larger string.
      *
-     * @param   string $key
-     * @param   int    $offset
-     * @param   string $value
+     * @param string $key
+     * @param int $offset
+     * @param string $value
      *
      * @return  string the length of the string after it was modified.
      * @link    https://redis.io/commands/setrange
@@ -2228,9 +2228,9 @@ class RedisCluster
     /**
      * Restore a key from the result of a DUMP operation.
      *
-     * @param   string $key   The key name
-     * @param   int    $ttl   How long the key should live (if zero, no expire will be set on the key)
-     * @param   string $value (binary).  The Redis encoded key value (from DUMP)
+     * @param string $key The key name
+     * @param int $ttl How long the key should live (if zero, no expire will be set on the key)
+     * @param string $value (binary).  The Redis encoded key value (from DUMP)
      *
      * @return  bool
      * @link    https://redis.io/commands/restore
@@ -2246,9 +2246,9 @@ class RedisCluster
     /**
      * Moves the specified member from the set at srcKey to the set at dstKey.
      *
-     * @param   string $srcKey
-     * @param   string $dstKey
-     * @param   string $member
+     * @param string $srcKey
+     * @param string $dstKey
+     * @param string $member
      *
      * @return  bool    If the operation is successful, return TRUE.
      * If the srcKey and/or dstKey didn't exist, and/or the member didn't exist in srcKey, FALSE is returned.
@@ -2274,10 +2274,10 @@ class RedisCluster
      * -1 the last element,
      * -2 the penultimate ...
      *
-     * @param   string $key
-     * @param   int    $start
-     * @param   int    $end
-     * @param   bool   $withscores
+     * @param string $key
+     * @param int $start
+     * @param int $end
+     * @param bool $withscores
      *
      * @return  array   Array containing the values in specified range.
      * @link    https://redis.io/commands/zrange
@@ -2301,10 +2301,10 @@ class RedisCluster
      * -1 the last element,
      * -2 the penultimate ...
      *
-     * @param   string $key
-     * @param   int    $start
-     * @param   int    $end
-     * @param   bool   $withscore
+     * @param string $key
+     * @param int $start
+     * @param int $end
+     * @param bool $withscore
      *
      * @return  array   Array containing the values in specified range.
      * @link    https://redis.io/commands/zrevrange
@@ -2328,10 +2328,10 @@ class RedisCluster
      *
      * zRevRangeByScore returns the same items in reverse order, when the start and end parameters are swapped.
      *
-     * @param   string $key
-     * @param   int    $start
-     * @param   int    $end
-     * @param   array  $options Two options are available:
+     * @param string $key
+     * @param int $start
+     * @param int $end
+     * @param array $options Two options are available:
      *                          - withscores => TRUE,
      *                          - and limit => array($offset, $count)
      *
@@ -2357,25 +2357,24 @@ class RedisCluster
     public function zRangeByScore($key, $start, $end, array $options = []) {}
 
     /**
-     * @see zRangeByScore()
-     *
-     * @param   string $key
-     * @param   int    $start
-     * @param   int    $end
-     * @param   array  $options
+     * @param string $key
+     * @param int $start
+     * @param int $end
+     * @param array $options
      *
      * @return    array
+     * @see zRangeByScore()
      */
     public function zRevRangeByScore($key, $start, $end, array $options = []) {}
 
     /**
      * Returns a range of members in a sorted set, by lexicographical range
      *
-     * @param   string $key    The ZSET you wish to run against.
-     * @param   int    $min    The minimum alphanumeric value you wish to get.
-     * @param   int    $max    The maximum alphanumeric value you wish to get.
-     * @param   int    $offset Optional argument if you wish to start somewhere other than the first element.
-     * @param   int    $limit  Optional argument if you wish to limit the number of elements returned.
+     * @param string $key The ZSET you wish to run against.
+     * @param int $min The minimum alphanumeric value you wish to get.
+     * @param int $max The maximum alphanumeric value you wish to get.
+     * @param int $offset Optional argument if you wish to start somewhere other than the first element.
+     * @param int $limit Optional argument if you wish to limit the number of elements returned.
      *
      * @return  array   Array containing the values in the specified range.
      * @link    https://redis.io/commands/zrangebylex
@@ -2393,15 +2392,15 @@ class RedisCluster
     public function zRangeByLex($key, $min, $max, $offset = null, $limit = null) {}
 
     /**
-     * @see     zRangeByLex()
-     *
-     * @param   string $key
-     * @param   int    $min
-     * @param   int    $max
-     * @param   int    $offset
-     * @param   int    $limit
+     * @param string $key
+     * @param int $min
+     * @param int $max
+     * @param int $offset
+     * @param int $limit
      *
      * @return  array
+     * @see     zRangeByLex()
+     *
      * @link    https://redis.io/commands/zrevrangebylex
      */
     public function zRevRangeByLex($key, $min, $max, $offset = null, $limit = null) {}
@@ -2409,9 +2408,9 @@ class RedisCluster
     /**
      * Count the number of members in a sorted set between a given lexicographical range.
      *
-     * @param   string $key
-     * @param   int    $min
-     * @param   int    $max
+     * @param string $key
+     * @param int $min
+     * @param int $max
      *
      * @return  int The number of elements in the specified score range.
      * @link    https://redis.io/commands/zlexcount
@@ -2428,9 +2427,9 @@ class RedisCluster
     /**
      * Remove all members in a sorted set between the given lexicographical range.
      *
-     * @param   string $key The ZSET you wish to run against.
-     * @param   int    $min The minimum alphanumeric value you wish to get.
-     * @param   int    $max The maximum alphanumeric value you wish to get.
+     * @param string $key The ZSET you wish to run against.
+     * @param int $min The minimum alphanumeric value you wish to get.
+     * @param int $max The maximum alphanumeric value you wish to get.
      *
      * @return  array    the number of elements removed.
      * @link    https://redis.io/commands/zremrangebylex
@@ -2449,7 +2448,7 @@ class RedisCluster
      * Add multiple sorted sets and store the resulting sorted set in a new key
      *
      * @param string $Output
-     * @param array  $ZSetKeys
+     * @param array $ZSetKeys
      * @param null|array $Weights
      * @param string $aggregateFunction Either "SUM", "MIN", or "MAX": defines the behaviour to use on
      *                                  duplicate entries during the zUnion.
@@ -2483,10 +2482,10 @@ class RedisCluster
     /**
      * Intersect multiple sorted sets and store the resulting sorted set in a new key
      *
-     * @param   string $Output
-     * @param   array  $ZSetKeys
-     * @param   null|array $Weights
-     * @param   string $aggregateFunction Either "SUM", "MIN", or "MAX":
+     * @param string $Output
+     * @param array $ZSetKeys
+     * @param null|array $Weights
+     * @param string $aggregateFunction Either "SUM", "MIN", or "MAX":
      *                                    defines the behaviour to use on duplicate entries during the zInterStore.
      *
      * @return  int     The number of values in the new sorted set.
@@ -2522,10 +2521,10 @@ class RedisCluster
     /**
      * Deletes a specified member from the ordered set.
      *
-     * @param   string $key
-     * @param   string $member1
-     * @param   string $member2
-     * @param   string $memberN
+     * @param string $key
+     * @param string $member1
+     * @param string $member2
+     * @param string $memberN
      *
      * @return  int     Number of deleted values
      * @link    https://redis.io/commands/zrem
@@ -2547,8 +2546,8 @@ class RedisCluster
     /**
      * Sort
      *
-     * @param   string $key
-     * @param   array  $option array(key => value, ...) - optional, with the following keys and values:
+     * @param string $key
+     * @param array $option array(key => value, ...) - optional, with the following keys and values:
      *                         - 'by' => 'some_pattern_*',
      *                         - 'limit' => array(0, 1),
      *                         - 'get' => 'some_other_pattern_*' or an array of patterns,
@@ -2583,8 +2582,8 @@ class RedisCluster
      * - "refcount"
      * - "idletime"
      *
-     * @param   string $string
-     * @param   string $key
+     * @param string $string
+     * @param string $key
      *
      * @return  string|false  for "encoding", int for "refcount" and "idletime", FALSE if the key doesn't exist.
      * @link    https://redis.io/commands/object
@@ -2600,7 +2599,7 @@ class RedisCluster
     /**
      * Subscribe to channels. Warning: this function will probably change in the future.
      *
-     * @param array        $channels an array of channels to subscribe to
+     * @param array $channels an array of channels to subscribe to
      * @param string|array $callback either a string or an array($instance, 'method_name').
      *                                 The callback function receives 3 parameters: the redis instance, the channel
      *                                 name, and the message.
@@ -2633,8 +2632,8 @@ class RedisCluster
     /**
      * Subscribe to channels by pattern
      *
-     * @param   array        $patterns     The number of elements removed from the set.
-     * @param   string|array $callback     Either a string or an array with an object and method.
+     * @param array $patterns The number of elements removed from the set.
+     * @param string|array $callback Either a string or an array with an object and method.
      *                                       The callback will get four arguments ($redis, $pattern, $channel, $message)
      *
      * @return  mixed           Any non-null return value in the callback will be returned to the caller.
@@ -2672,9 +2671,9 @@ class RedisCluster
      * In order to run this command Redis will have to have already loaded the script, either by running it or via
      * the SCRIPT LOAD command.
      *
-     * @param   string $scriptSha
-     * @param   array  $args
-     * @param   int    $numKeys
+     * @param string $scriptSha
+     * @param array $args
+     * @param int $numKeys
      *
      * @return  mixed   @see eval()
      * @see     eval()
@@ -2691,10 +2690,10 @@ class RedisCluster
     /**
      * Scan the keyspace for keys.
      *
-     * @param  int          &$iterator Iterator, initialized to NULL.
-     * @param  string|array $node      Node identified by key or host/port array
-     * @param  string       $pattern   Pattern to match.
-     * @param  int          $count     Count of keys per iteration (only a suggestion to Redis).
+     * @param int          &$iterator Iterator, initialized to NULL.
+     * @param string|array $node Node identified by key or host/port array
+     * @param string $pattern Pattern to match.
+     * @param int $count Count of keys per iteration (only a suggestion to Redis).
      *
      * @return array|false             This function will return an array of keys or FALSE if there are no more keys.
      * @link   https://redis.io/commands/scan
@@ -2713,10 +2712,10 @@ class RedisCluster
     /**
      * Scan a set for members.
      *
-     * @param   string $key      The set to search.
-     * @param   int    &$iterator LONG (reference) to the iterator as we go.
-     * @param   null   $pattern  String, optional pattern to match against.
-     * @param   int    $count    How many members to return at a time (Redis might return a different amount).
+     * @param string $key The set to search.
+     * @param int    &$iterator LONG (reference) to the iterator as we go.
+     * @param null $pattern String, optional pattern to match against.
+     * @param int $count How many members to return at a time (Redis might return a different amount).
      *
      * @return  array|false   PHPRedis will return an array of keys or FALSE when we're done iterating.
      * @link    https://redis.io/commands/sscan
@@ -2735,10 +2734,10 @@ class RedisCluster
     /**
      * Scan a sorted set for members, with optional pattern and count.
      *
-     * @param   string $key      String, the set to scan.
-     * @param   int    &$iterator Long (reference), initialized to NULL.
-     * @param   string $pattern  String (optional), the pattern to match.
-     * @param   int    $count    How many keys to return per iteration (Redis might return a different number).
+     * @param string $key String, the set to scan.
+     * @param int    &$iterator Long (reference), initialized to NULL.
+     * @param string $pattern String (optional), the pattern to match.
+     * @param int $count How many keys to return per iteration (Redis might return a different number).
      *
      * @return  array|false   PHPRedis will return matching keys from Redis, or FALSE when iteration is complete.
      * @link    https://redis.io/commands/zscan
@@ -2757,10 +2756,10 @@ class RedisCluster
     /**
      * Scan a HASH value for members, with an optional pattern and count.
      *
-     * @param   string $key
-     * @param   int    &$iterator
-     * @param   string $pattern Optional pattern to match against.
-     * @param   int    $count   How many keys to return in a go (only a sugestion to Redis).
+     * @param string $key
+     * @param int    &$iterator
+     * @param string $pattern Optional pattern to match against.
+     * @param int $count How many keys to return in a go (only a sugestion to Redis).
      *
      * @return  array     An array of members that match our pattern.
      * @link    https://redis.io/commands/hscan
@@ -2817,7 +2816,7 @@ class RedisCluster
     /**
      * Get client option
      *
-     * @param   string $name parameter name
+     * @param string $name parameter name
      *
      * @return  int     Parameter value.
      * @example
@@ -2829,8 +2828,8 @@ class RedisCluster
     /**
      * Set client option.
      *
-     * @param   string $name  parameter name
-     * @param   string $value parameter value
+     * @param string $name parameter name
+     * @param string $value parameter value
      *
      * @return  bool   TRUE on success, FALSE on error.
      * @example
@@ -2846,7 +2845,7 @@ class RedisCluster
     /**
      * A utility method to prefix the value with the prefix setting for phpredis.
      *
-     * @param   mixed $value The value you wish to prefix
+     * @param mixed $value The value you wish to prefix
      *
      * @return  string  If a prefix is set up, the value now prefixed.  If there is no prefix, the value will be returned unchanged.
      * @example
@@ -2863,7 +2862,7 @@ class RedisCluster
      * and out of EVAL commands as phpredis can't automatically do this itself.  Note that if no serializer is
      * set, phpredis will change Array values to 'Array', and Objects to 'Object'.
      *
-     * @param   mixed $value The value to be serialized.
+     * @param mixed $value The value to be serialized.
      *
      * @return  mixed
      * @example
@@ -2885,7 +2884,7 @@ class RedisCluster
      * exception will be thrown. This can be useful if phpredis is serializing values, and you return something from
      * redis in a LUA script that is serialized.
      *
-     * @param   string $value The value to be unserialized
+     * @param string $value The value to be unserialized
      *
      * @return mixed
      * @example
@@ -2938,8 +2937,8 @@ class RedisCluster
     public function multi($mode = RedisCluster::MULTI) {}
 
     /**
-     * @see     multi()
      * @return void|array
+     * @see     multi()
      * @link    https://redis.io/commands/exec
      */
     public function exec() {}
@@ -3061,7 +3060,7 @@ class RedisCluster
     /**
      * Returns an associative array of strings and integers
      *
-     * @param   string $option Optional. The option to provide redis.
+     * @param string $option Optional. The option to provide redis.
      *                         SERVER | CLIENTS | MEMORY | PERSISTENCE | STATS | REPLICATION | CPU | CLASTER | KEYSPACE
      *                         | COMANDSTATS
      *
@@ -3197,8 +3196,8 @@ class RedisCluster
      * - used_cpu_user_children
      * - cluster_enabled
      *
-     * @link    https://redis.io/commands/info
      * @return  array
+     * @link    https://redis.io/commands/info
      * @example
      * <pre>
      * $redisCluster->info();
@@ -3212,12 +3211,12 @@ class RedisCluster
     public function info($option = null) {}
 
     /**
-     * @since  redis >= 2.8.12.
-     *  Returns the role of the instance in the context of replication
-     *
      * @param string|array $nodeParams key or [host,port]
      *
      * @return array
+     * @since  redis >= 2.8.12.
+     *  Returns the role of the instance in the context of replication
+     *
      * @link   https://redis.io/commands/role
      * @example
      * <pre>
@@ -3278,7 +3277,7 @@ class RedisCluster
      * Returns message.
      *
      * @param string|array $nodeParams key or [host,port]
-     * @param string        $msg
+     * @param string $msg
      *
      * @return mixed
      */
@@ -3295,22 +3294,22 @@ class RedisCluster
      * Send arbitrary things to the redis server at the specified node
      *
      * @param string|array $nodeParams key or [host,port]
-     * @param string       $command    Required command to send to the server.
-     * @param mixed        $arguments  Optional variable amount of arguments to send to the server.
+     * @param string $command Required command to send to the server.
+     * @param mixed $arguments Optional variable amount of arguments to send to the server.
      *
      * @return  mixed
      */
     public function rawCommand($nodeParams, $command, $arguments) {}
 
     /**
+     * @param string|array $nodeParams key or [host,port]
+     * @param string $command Required command to send to the server.
+     * @param mixed $arguments Optional variable amount of arguments to send to the server.
+     *
+     * @return  mixed
      * @since redis >= 3.0
      * Executes cluster command
      *
-     * @param string|array $nodeParams key or [host,port]
-     * @param string       $command    Required command to send to the server.
-     * @param mixed        $arguments  Optional variable amount of arguments to send to the server.
-     *
-     * @return  mixed
      * @link  https://redis.io/commands#cluster
      * @example
      * <pre>
@@ -3323,8 +3322,8 @@ class RedisCluster
      * Allows you to get information of the cluster client
      *
      * @param string|array $nodeParams key or [host,port]
-     * @param string       $subCmd     can be: 'LIST', 'KILL', 'GETNAME', or 'SETNAME'
-     * @param string       $args       optional arguments
+     * @param string $subCmd can be: 'LIST', 'KILL', 'GETNAME', or 'SETNAME'
+     * @param string $args optional arguments
      */
     public function client($nodeParams, $subCmd, $args) {}
 
@@ -3332,9 +3331,9 @@ class RedisCluster
      * Get or Set the redis config keys.
      *
      * @param string|array $nodeParams key or [host,port]
-     * @param string       $operation  either `GET` or `SET`
-     * @param string       $key        for `SET`, glob-pattern for `GET`. See https://redis.io/commands/config-get for examples.
-     * @param string       $value      optional string (only for `SET`)
+     * @param string $operation either `GET` or `SET`
+     * @param string $key for `SET`, glob-pattern for `GET`. See https://redis.io/commands/config-get for examples.
+     * @param string $value optional string (only for `SET`)
      *
      * @return  array   Associative array for `GET`, key -> value
      * @link    https://redis.io/commands/config-get
@@ -3350,10 +3349,10 @@ class RedisCluster
     /**
      * A command allowing you to get information on the Redis pub/sub system.
      *
-     * @param    string|array $nodeParams key or [host,port]
+     * @param string|array $nodeParams key or [host,port]
      *
-     * @param    string       $keyword    String, which can be: "channels", "numsub", or "numpat"
-     * @param    string|array $argument   Optional, variant.
+     * @param string $keyword String, which can be: "channels", "numsub", or "numpat"
+     * @param string|array $argument Optional, variant.
      *                                    For the "channels" subcommand, you can pass a string pattern.
      *                                    For "numsub" an array of channel names
      *
@@ -3377,9 +3376,9 @@ class RedisCluster
     /**
      * Execute the Redis SCRIPT command to perform various operations on the scripting subsystem.
      *
-     * @param   string|array $nodeParams key or [host,port]
-     * @param   string       $command    load | flush | kill | exists
-     * @param   string       $script
+     * @param string|array $nodeParams key or [host,port]
+     * @param string $command load | flush | kill | exists
+     * @param string $script
      *
      * @return  mixed
      * @link    https://redis.io/commands/script-load
@@ -3404,9 +3403,9 @@ class RedisCluster
     /**
      * This function is used in order to read and reset the Redis slow queries log.
      *
-     * @param   string|array $nodeParams key or [host,port]
-     * @param   string       $command
-     * @param   mixed        $argument
+     * @param string|array $nodeParams key or [host,port]
+     * @param string $command
+     * @param mixed $argument
      *
      * @link  https://redis.io/commands/slowlog
      * @example
@@ -3420,8 +3419,8 @@ class RedisCluster
      * Add one or more geospatial items in the geospatial index represented using a sorted set
      *
      * @param string $key
-     * @param float  $longitude
-     * @param float  $latitude
+     * @param float $longitude
+     * @param float $latitude
      * @param string $member
      *
      * @link  https://redis.io/commands/geoadd
@@ -3468,10 +3467,10 @@ class RedisCluster
     /**
      * Returns the distance between two members of a geospatial index
      *
-     * @param    string $key
-     * @param    string $member1
-     * @param    string $member2
-     * @param    string $unit The unit must be one of the following, and defaults to meters:
+     * @param string $key
+     * @param string $member1
+     * @param string $member2
+     * @param string $unit The unit must be one of the following, and defaults to meters:
      *                        m for meters.
      *                        km for kilometers.
      *                        mi for miles.
@@ -3491,12 +3490,12 @@ class RedisCluster
     /**
      * Query a sorted set representing a geospatial index to fetch members matching a given maximum distance from a point
      *
-     * @param    string $key
-     * @param    float  $longitude
-     * @param    float  $latitude
-     * @param    float  $radius
-     * @param    string $radiusUnit String can be: "m" for meters; "km" for kilometers , "mi" for miles, or "ft" for feet.
-     * @param    array  $options
+     * @param string $key
+     * @param float $longitude
+     * @param float $latitude
+     * @param float $radius
+     * @param string $radiusUnit String can be: "m" for meters; "km" for kilometers , "mi" for miles, or "ft" for feet.
+     * @param array $options
      *
      * @link  https://redis.io/commands/georadius
      * @example
@@ -3557,13 +3556,12 @@ class RedisCluster
     /**
      * Query a sorted set representing a geospatial index to fetch members matching a given maximum distance from a member
      *
-     * @see geoRadius
-     *
      * @param string $key
      * @param string $member
-     * @param float  $radius
+     * @param float $radius
      * @param string $radiusUnit
-     * @param array  $options
+     * @param array $options
+     * @see geoRadius
      */
     public function geoRadiusByMember($key, $member, $radius, $radiusUnit, array $options) {}
 }

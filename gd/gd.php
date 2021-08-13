@@ -2212,10 +2212,10 @@ function imagegetclip(GdImage $image): array {}
  * @param resource|GdImage $image An image resource, returned by one of the image creation functions, such as {@see imagecreatetruecolor()}.
  * @param int[] $points An array containing the polygon's vertices, e.g.:
  * <pre>
- * points[0]	= x0
- * points[1]	= y0
- * points[2]	= x1
- * points[3]	= y1
+ * points[0]    = x0
+ * points[1]    = y0
+ * points[2]    = x1
+ * points[3]    = y1
  * </pre>
  * @param int $num_points_or_color Total number of points (vertices).
  * @param int|null $color A color identifier created with {@see imagecolorallocate()}.
@@ -2995,7 +2995,7 @@ function imagepalettetotruecolor(GdImage $image): bool {}
  * @param int $height [optional]
  * @param int $mode [optional] One of <b>IMG_NEAREST_NEIGHBOUR</b>, <b>IMG_BILINEAR_FIXED</b>, <b>IMG_BICUBIC</b>, <b>IMG_BICUBIC_FIXED</b> or anything else (will use two pass).
  * @return resource|GdImage|false Return scaled image resource on success or <b>FALSE</b> on failure.
- *@link https://secure.php.net/manual/en/function.imagescale.php
+ * @link https://secure.php.net/manual/en/function.imagescale.php
  * @since 5.5
  * Scale an image using the given new width and height
  */
@@ -3089,5 +3089,6 @@ final class GdImage
      * You cannot initialize a GdImage object except through helper functions.
      */
     private function __construct() {}
+
     private function __clone() {}
 }

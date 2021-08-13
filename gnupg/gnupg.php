@@ -316,10 +316,15 @@ class gnupg
 class gnupg_keylistiterator implements Iterator
 {
     public function __construct() {}
+
     public function current() {}
+
     public function key() {}
+
     public function next() {}
+
     public function rewind() {}
+
     public function valid() {}
 }
 
@@ -514,8 +519,11 @@ function gnupg_geterrorinfo($res) {}
  * @return bool Returns true on success or false on failure.
  */
 function gnupg_addsignkey($res, $kye, $passphrase) {}
+
 function gnupg_deletekey($res, $kye, $allow_secret) {}
+
 function gnupg_gettrustlist($res, $pattern) {}
+
 function gnupg_listsignatures($res, $kyeid) {}
 
 /**

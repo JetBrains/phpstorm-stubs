@@ -17,7 +17,8 @@ class ExpectedFunctionArgumentsInfo
      * @param Expr[] $expectedArguments
      * @param int $index
      */
-    public function __construct(?Expr $functionReference, array $expectedArguments, int $index) {
+    public function __construct(?Expr $functionReference, array $expectedArguments, int $index)
+    {
         $this->index = $index;
         $this->expectedArguments = $expectedArguments;
         $this->functionReference = $functionReference;

@@ -88,7 +88,7 @@ function expect_popen(string $command)
  * @param array &$match
  *
  * @return int Returns value associated with the pattern that was matched.
- * 			   On failure this function returns: <b>EXP_EOF</b>, <b>EXP_TIMEOUT</b> or <b>EXP_FULLBUFFER</b>
+ *               On failure this function returns: <b>EXP_EOF</b>, <b>EXP_TIMEOUT</b> or <b>EXP_FULLBUFFER</b>
  * @since PECL expect >= 0.1.0
  * @link https://www.php.net/manual/en/function.expect-expectl.php
  */

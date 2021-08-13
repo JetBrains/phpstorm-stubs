@@ -157,6 +157,7 @@ class XSLTProcessor
      */
     public function getSecurityPrefs() {}
 }
+
 define('XSL_CLONE_AUTO', 0);
 define('XSL_CLONE_NEVER', -1);
 define('XSL_CLONE_ALWAYS', 1);
