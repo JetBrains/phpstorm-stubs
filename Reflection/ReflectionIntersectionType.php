@@ -5,5 +5,6 @@
  */
 class ReflectionIntersectionType extends ReflectionType
 {
-    public function getTypes() {}
+    /** @return ReflectionType[] */
+    public function getTypes(): array {}
 }
