@@ -282,14 +282,18 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function getAttributes(?string $name = null, int $flags = 0) {}
 
     #[PhpStormStubsElementAvailable('8.1')]
-    public function getClosureUsedVariables() {}
+    #[Pure]
+    public function getClosureUsedVariables(): array {}
 
     #[PhpStormStubsElementAvailable('8.1')]
-    public function hasTentativeReturnType() {}
+    #[Pure]
+    public function hasTentativeReturnType(): bool {}
 
     #[PhpStormStubsElementAvailable('8.1')]
-    public function getTentativeReturnType() {}
+    #[Pure]
+    public function getTentativeReturnType(): ?ReflectionType {}
 
     #[PhpStormStubsElementAvailable('8.1')]
-    public function isStatic() {}
+    #[Pure]
+    public function isStatic(): bool {}
 }
