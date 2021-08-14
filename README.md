@@ -4,9 +4,9 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![Total Downloads](https://poser.pugx.org/jetbrains/phpstorm-stubs/downloads)](https://packagist.org/packages/jetbrains/phpstorm-stubs)
 
-[![PhpStorm Stubs Tests](https://github.com/isfedorov/phpstorm-stubs/actions/workflows/main.yml/badge.svg)](https://github.com/isfedorov/phpstorm-stubs/actions/workflows/main.yml)
-[![PhpStorm Stubs PECL Test](https://github.com/isfedorov/phpstorm-stubs/actions/workflows/testPeclExtensions.yml/badge.svg)](https://github.com/isfedorov/phpstorm-stubs/actions/workflows/testPeclExtensions.yml)
-[![PhpStorm Stubs Check Links](https://github.com/isfedorov/phpstorm-stubs/actions/workflows/checkLinks.yml/badge.svg)](https://github.com/isfedorov/phpstorm-stubs/actions/workflows/checkLinks.yml)
+[![PhpStorm Stubs Tests](https://github.com/JetBrains/phpstorm-stubs/actions/workflows/main.yml/badge.svg)](https://github.com/JetBrains/phpstorm-stubs/actions/workflows/main.yml)
+[![PhpStorm Stubs PECL Test](https://github.com/JetBrains/phpstorm-stubs/actions/workflows/testPeclExtensions.yml/badge.svg)](https://github.com/JetBrains/phpstorm-stubs/actions/workflows/testPeclExtensions.yml)
+[![PhpStorm Stubs Check Links](https://github.com/JetBrains/phpstorm-stubs/actions/workflows/testLinks.yml/badge.svg)](https://github.com/JetBrains/phpstorm-stubs/actions/workflows/testLinks.yml)
 
 STUBS are normal, syntactically correct PHP files that contain function & class signatures, constant definitions, etc. for all built-in PHP stuff and most standard extensions. Stubs need to include complete [PHPDOC], especially proper @return annotations.
 
