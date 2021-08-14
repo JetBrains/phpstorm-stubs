@@ -54,5 +54,8 @@
             <file>tests/StubsStructureTest.php</file>
             <file>tests/StubsTypeHintsTest.php</file>
         </testsuite>
+        <testsuite name="PhpDoc">
+            <file>tests/StubsPhpDocTest.php</file>
+        </testsuite>
     </testsuites>
 </phpunit>
