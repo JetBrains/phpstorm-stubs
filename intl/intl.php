@@ -6,7 +6,6 @@ use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\ExpectedValues as EV;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware as TypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable as ElementAvailable;
-use JetBrains\PhpStorm\Internal\Required;
 use JetBrains\PhpStorm\Pure;
 
 class Collator
@@ -4681,7 +4680,6 @@ function datefmt_format(
     #[TypeAware(['8.0' => 'IntlDateFormatter'], default: '')] #[ElementAvailable(from: '8.0')] $formatter,
     #[ElementAvailable(from: '5.3', to: '7.4')] $datetime = null,
     #[ElementAvailable(from: '8.0')] $datetime
-
 ): string|false {}
 
 /**
