@@ -1914,7 +1914,7 @@ function mysqli_get_charset(mysqli $mysql): ?object {}
 #[LanguageLevelTypeAware(['8.0' => 'string'], default: '?string')]
 function mysqli_get_client_info(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.1')] mysqli $mysql,
-    #[PhpStormStubsElementAvailable(from: '8.0')]?mysqli $mysql
+    #[PhpStormStubsElementAvailable(from: '8.0')] ?mysqli $mysql
 ) {}
 
 /**

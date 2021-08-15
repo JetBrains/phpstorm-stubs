@@ -123,8 +123,7 @@ class ASTVisitor extends NodeVisitorAbstract
                 foreach ($this->combineParentInterfaces(
                     $this->stubs->getInterface(
                         $parentInterface,
-                        $interface->stubBelongsToCore ? null : $interface->sourceFilePath
-                    ,
+                        $interface->stubBelongsToCore ? null : $interface->sourceFilePath,
                         false
                     )
                 ) as $value) {
