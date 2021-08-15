@@ -32,7 +32,7 @@ The set of extensions enabled by default in PhpStorm can change anytime without 
 2. Execute `docker-compose -f docker-compose.yml run -e PHP_VERSION=8.0 test_runner /opt/project/phpstorm-stubs/vendor/bin/phpunit --configuration /opt/project/phpstorm-stubs/phpunit.xml --testsuite PHP_8.0`
 
 ### How to update stub map
-Execute `docker-compose -f docker-compose.yml run test_runner /usr/local/bin/php /opt/project/phpstorm-stubs/generate-stub-map` and commit the resulting `PhpStormStubsMap.php`
+Execute `docker-compose -f docker-compose.yml run test_runner /usr/local/bin/php /opt/project/phpstorm-stubs/tests/Tools/generate-stub-map` and commit the resulting `PhpStormStubsMap.php`
 
 ### License
 [Apache 2]
