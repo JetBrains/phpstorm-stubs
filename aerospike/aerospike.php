@@ -3628,7 +3628,7 @@ class Aerospike
      * });
      * ```
      *
-     * @link https://github.com/citrusleaf/aerospike-client-php7/tree/master/doc#handling-unsupported-types Handling Unsupported Types
+     * @link https://github.com/aerospike/aerospike-client-php/tree/master/doc#handling-unsupported-types Handling Unsupported Types
      * @param callable $serialize_cb a callback invoked for each value of an unsupported type, when writing to the cluster. The function must follow the signature
      * ```php
      * function aerospike_serialize ( mixed $value ) : string
@@ -3649,7 +3649,7 @@ class Aerospike
      * });
      * ```
      *
-     * @link https://github.com/citrusleaf/aerospike-client-php7/tree/master/doc#handling-unsupported-types Handling Unsupported Types
+     * @link https://github.com/aerospike/aerospike-client-php/tree/master/doc#handling-unsupported-types Handling Unsupported Types
      * @param callable $unserialize_cb a callback invoked for each value of an unsupported type, when reading from the cluster. The function must follow the signature
      * ```php
      * // $value is binary data of type AS_BYTES_BLOB
