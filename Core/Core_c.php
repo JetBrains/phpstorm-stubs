@@ -839,7 +839,7 @@ final class InternalIterator implements Iterator
  */
 interface UnitEnum
 {
-    public string $name;
+    public readonly string $name;
 
     /**
      * @return static[]
@@ -875,7 +875,7 @@ interface BackedEnum extends UnitEnum
  */
 interface IntBackedEnum extends BackedEnum
 {
-    public int $value;
+    public readonly int $value;
 
     /**
      * @param int $value
@@ -898,7 +898,7 @@ interface IntBackedEnum extends BackedEnum
  */
 interface StringBackedEnum extends BackedEnum
 {
-    public string $value;
+    public readonly string $value;
 
     public static function from(string $value): static;
 
