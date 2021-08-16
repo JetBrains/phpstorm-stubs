@@ -3,6 +3,7 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -220,7 +221,20 @@ class ReflectionProperty implements Reflector
      * @param bool $accessible A boolean {@see true} to allow accessibility, or {@see false}
      * @return void No value is returned.
      */
+    #[PhpStormStubsElementAvailable(to: "8.0")]
     public function setAccessible(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $accessible) {}
+
+    /**
+     * Set property accessibility
+     * This method is no-op starting from PHP 8.1
+     *
+     * @link https://php.net/manual/en/reflectionproperty.setaccessible.php
+     * @param bool $accessible A boolean {@see true} to allow accessibility, or {@see false}
+     * @return void No value is returned.
+     */
+    #[Pure]
+    #[PhpStormStubsElementAvailable(from: "8.1")]
+    public function setAccessible(bool $accessible) {}
 
     /**
      * Gets property type

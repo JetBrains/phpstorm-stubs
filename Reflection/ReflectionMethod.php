@@ -3,6 +3,7 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -263,5 +264,18 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return void No value is returned.
      * @since 5.3.2
      */
+    #[PhpStormStubsElementAvailable(to: "8.0")]
     public function setAccessible(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $accessible) {}
+
+    /**
+     * Set method accessibility
+     * This method is no-op starting from PHP 8.1
+     *
+     * @link https://php.net/manual/en/reflectionmethod.setaccessible.php
+     * @param bool $accessible {@see true} to allow accessibility, or {@see false}
+     * @return void No value is returned.
+     */
+    #[Pure]
+    #[PhpStormStubsElementAvailable(from: "8.1")]
+    public function setAccessible(bool $accessible) {}
 }
