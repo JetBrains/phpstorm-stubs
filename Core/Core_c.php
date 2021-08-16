@@ -852,19 +852,19 @@ interface UnitEnum
  */
 interface BackedEnum extends UnitEnum
 {
-    public string $value;
+    public readonly string $value;
 
     /**
      * @param int|string $value
      * @return static
      */
-    public static function from(int|string $value);
+    public static function from(int|string $value): static;
 
     /**
      * @param int|string $value
      * @return static|null
      */
-    public static function tryFrom(int|string $value);
+    public static function tryFrom(int|string $value): ?static;
 }
 
 /**
@@ -881,13 +881,13 @@ interface IntBackedEnum extends BackedEnum
      * @param int $value
      * @return static
      */
-    public static function from(int $value);
+    public static function from(int $value): static;
 
     /**
      * @param int $value
      * @return static|null
      */
-    public static function tryFrom(int $value);
+    public static function tryFrom(int $value): ?static;
 }
 
 /**
