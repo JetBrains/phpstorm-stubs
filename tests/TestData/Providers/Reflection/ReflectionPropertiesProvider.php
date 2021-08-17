@@ -32,6 +32,11 @@ class ReflectionPropertiesProvider
         return self::yieldFilteredMethodProperties(StubProblemType::PROPERTY_TYPE);
     }
 
+    public static function classReadonlyPropertiesProvider(): Generator
+    {
+        return self::yieldFilteredMethodProperties(StubProblemType::PROPERTY_READONLY);
+    }
+
     private static function yieldFilteredMethodProperties(int ...$problemTypes): ?Generator
     {
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses();

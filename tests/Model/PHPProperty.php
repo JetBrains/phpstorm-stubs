@@ -20,6 +20,7 @@ class PHPProperty extends BasePHPElement
     public $access = '';
     public $is_static = false;
     public $parentName = null;
+    public $isReadonly = false;
 
     public function __construct(?string $parentName = null)
     {
@@ -45,6 +46,9 @@ class PHPProperty extends BasePHPElement
         if (method_exists($reflectionObject, 'getType')) {
             $this->typesFromSignature = self::getReflectionTypeAsArray($reflectionObject->getType());
         }
+        if (property_exists($reflectionObject, 'isReadonly')) {
+            $this->isReadonly = $reflectionObject->isReadonly;
+        }
         return $this;
     }
 
@@ -65,7 +69,7 @@ class PHPProperty extends BasePHPElement
             $access = 'public';
         }
         $this->access = $access;
-
+        $this->isReadonly = $node->isReadonly();
         $this->typesFromSignature = self::convertParsedTypeToArray($node->type);
         $this->typesFromAttribute = self::findTypesFromAttribute($node->attrGroups);
         foreach ($this->varTags as $varTag) {
@@ -90,6 +94,9 @@ class PHPProperty extends BasePHPElement
                     switch ($problem->description) {
                         case 'missing property':
                             $this->mutedProblems[StubProblemType::STUB_IS_MISSED] = $problem->versions;
+                            break;
+                        case 'wrong readonly':
+                            $this->mutedProblems[StubProblemType::PROPERTY_READONLY] = $problem->versions;
                             break;
                     }
                 }
