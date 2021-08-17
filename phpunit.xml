@@ -53,6 +53,7 @@
             <file>tests/StubsReflectionClassesTest.php</file>
             <file>tests/StubsStructureTest.php</file>
             <file>tests/StubsTypeHintsTest.php</file>
+            <file>tests/StubsPhp81Tests.php</file>
         </testsuite>
         <testsuite name="PhpDoc">
             <file>tests/StubsPhpDocTest.php</file>
