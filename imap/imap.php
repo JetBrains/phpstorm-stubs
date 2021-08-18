@@ -510,7 +510,7 @@ function imap_expunge(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], def
  * Mark a message for deletion from current mailbox
  * @link https://php.net/manual/en/function.imap-delete.php
  * @param resource $imap
- * @param int $message_num <p>
+ * @param string $message_num <p>
  * The message number
  * </p>
  * @param int $flags [optional] <p>
@@ -526,7 +526,7 @@ function imap_delete(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], defa
  * Unmark the message which is marked deleted
  * @link https://php.net/manual/en/function.imap-undelete.php
  * @param resource $imap
- * @param int $message_num <p>
+ * @param string $message_num <p>
  * The message number
  * </p>
  * @param int $flags [optional]
