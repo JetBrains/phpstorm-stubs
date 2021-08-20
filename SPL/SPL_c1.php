@@ -67,7 +67,7 @@ class SplFileInfo implements Stringable
     /**
      * Gets file permissions
      * @link https://php.net/manual/en/splfileinfo.getperms.php
-     * @return int the file permissions.
+     * @return int|false The file permissions on success, or <b>FALSE</b> on failure.
      * @since 5.1.2
      */
     public function getPerms() {}
@@ -75,7 +75,7 @@ class SplFileInfo implements Stringable
     /**
      * Gets the inode for the file
      * @link https://php.net/manual/en/splfileinfo.getinode.php
-     * @return int the inode number for the filesystem object.
+     * @return int|false The inode number for the filesystem object on success, or <b>FALSE</b> on failure.
      * @since 5.1.2
      */
     public function getInode() {}
@@ -83,7 +83,7 @@ class SplFileInfo implements Stringable
     /**
      * Gets file size
      * @link https://php.net/manual/en/splfileinfo.getsize.php
-     * @return int The filesize in bytes.
+     * @return int|false The filesize in bytes on success, or <b>FALSE</b> on failure.
      * @since 5.1.2
      */
     public function getSize() {}
@@ -91,7 +91,7 @@ class SplFileInfo implements Stringable
     /**
      * Gets the owner of the file
      * @link https://php.net/manual/en/splfileinfo.getowner.php
-     * @return int The owner id in numerical format.
+     * @return int|false The owner id in numerical format on success, or <b>FALSE</b> on failure.
      * @since 5.1.2
      */
     public function getOwner() {}
@@ -99,7 +99,7 @@ class SplFileInfo implements Stringable
     /**
      * Gets the file group
      * @link https://php.net/manual/en/splfileinfo.getgroup.php
-     * @return int The group id in numerical format.
+     * @return int|false The group id in numerical format on success, or <b>FALSE</b> on failure.
      * @since 5.1.2
      */
     public function getGroup() {}
@@ -107,7 +107,7 @@ class SplFileInfo implements Stringable
     /**
      * Gets last access time of the file
      * @link https://php.net/manual/en/splfileinfo.getatime.php
-     * @return int the time the file was last accessed.
+     * @return int|false The time the file was last accessed on success, or <b>FALSE</b> on failure.
      * @since 5.1.2
      */
     public function getATime() {}
@@ -115,7 +115,7 @@ class SplFileInfo implements Stringable
     /**
      * Gets the last modified time
      * @link https://php.net/manual/en/splfileinfo.getmtime.php
-     * @return int the last modified time for the file, in a Unix timestamp.
+     * @return int|false The last modified time for the file, in a Unix timestamp on success, or <b>FALSE</b> on failure.
      * @since 5.1.2
      */
     public function getMTime() {}
@@ -123,7 +123,7 @@ class SplFileInfo implements Stringable
     /**
      * Gets the inode change time
      * @link https://php.net/manual/en/splfileinfo.getctime.php
-     * @return int The last change time, in a Unix timestamp.
+     * @return int|false The last change time, in a Unix timestamp on success, or <b>FALSE</b> on failure.
      * @since 5.1.2
      */
     public function getCTime() {}
@@ -131,7 +131,7 @@ class SplFileInfo implements Stringable
     /**
      * Gets file type
      * @link https://php.net/manual/en/splfileinfo.gettype.php
-     * @return string A string representing the type of the entry.
+     * @return string|false A string representing the type of the entry. May be one of file, link, dir, block, fifo, char, socket, or unknown, or <b>FALSE</b> on failure.
      * May be one of file, link,
      * or dir
      * @since 5.1.2
@@ -189,7 +189,7 @@ class SplFileInfo implements Stringable
     /**
      * Gets the target of a link
      * @link https://php.net/manual/en/splfileinfo.getlinktarget.php
-     * @return string the target of the filesystem link.
+     * @return string|false The target of the filesystem link on success, or <b>FALSE</b> on failure.
      * @since 5.2.2
      */
     public function getLinkTarget() {}
@@ -219,7 +219,7 @@ class SplFileInfo implements Stringable
      * @param string $class [optional] <p>
      * Name of an <b>SplFileInfo</b> derived class to use.
      * </p>
-     * @return SplFileInfo an <b>SplFileInfo</b> object for the parent path of the file.
+     * @return SplFileInfo|null A <b>SplFileInfo</b> object for the parent path of the file on success, or <b>NULL</b> on failure.
      * @since 5.1.2
      */
     public function getPathInfo(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $class = null) {}
