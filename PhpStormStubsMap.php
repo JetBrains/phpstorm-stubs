@@ -7697,6 +7697,7 @@ const CONSTANTS = array (
   'IMG_TRIANGLE' => 'gd/gd.php',
   'IMG_WBMP' => 'gd/gd.php',
   'IMG_WEBP' => 'gd/gd.php',
+  'IMG_WEBP_LOSSLESS' => 'gd/gd.php',
   'IMG_WEIGHTED4' => 'gd/gd.php',
   'IMG_XPM' => 'gd/gd.php',
   'INF' => 'standard/standard_defines.php',

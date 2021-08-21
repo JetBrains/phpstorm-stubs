@@ -2896,6 +2896,11 @@ define('IMG_TGA', 128);
  * @since 8.1
  */
 define('IMG_AVIF', 256);
+
+/**
+ * @since 8.1
+ */
+define('IMG_WEBP_LOSSLESS', 101);
 /**
  * Return an image containing the affine tramsformed src image, using an optional clipping area
  * @link https://secure.php.net/manual/en/function.imageaffine.php
