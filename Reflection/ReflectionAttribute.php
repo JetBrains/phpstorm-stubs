@@ -4,6 +4,8 @@ use JetBrains\PhpStorm\Pure;
 
 /**
  * @since 8.0
+ *
+ * @template T of object
  */
 class ReflectionAttribute implements Reflector
 {
@@ -62,7 +64,7 @@ class ReflectionAttribute implements Reflector
     /**
      * Creates a new instance of the attribute with passed arguments
      *
-     * @return object
+     * @return T
      * @since 8.0
      */
     public function newInstance(): object {}

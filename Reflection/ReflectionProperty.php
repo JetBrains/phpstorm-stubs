@@ -325,9 +325,13 @@ class ReflectionProperty implements Reflector
     public function getDefaultValue(): mixed {}
 
     /**
-     * @param null|string $name
-     * @param int $flags
-     * @return ReflectionAttribute[]
+     * @template T
+     *
+     * Returns an array of property attributes.
+     *
+     * @param class-string<T>|null $name Name of an attribute class
+     * @param int $flags Сriteria by which the attribute is searched.
+     * @return ReflectionAttribute<T>[]
      * @since 8.0
      */
     #[Pure]

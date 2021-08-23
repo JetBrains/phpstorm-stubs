@@ -184,11 +184,13 @@ class ReflectionClassConstant implements Reflector
     public function __toString(): string {}
 
     /**
+     * @template T
+     *
      * Returns an array of constant attributes.
      *
-     * @param string|null $name Name of an attribute class
+     * @param class-string<T>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return ReflectionAttribute[]
+     * @return ReflectionAttribute<T>[]
      * @since 8.0
      */
     #[Pure]

@@ -642,11 +642,13 @@ class ReflectionClass implements Reflector
     public function getShortName(): string {}
 
     /**
-     * Returns an array of function attributes.
+     * @template T
      *
-     * @param string|null $name Name of an attribute class
+     * Returns an array of class attributes.
+     *
+     * @param class-string<T>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return ReflectionAttribute[]
+     * @return ReflectionAttribute<T>[]
      * @since 8.0
      */
     #[Pure]
