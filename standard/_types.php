@@ -176,7 +176,7 @@ namespace {
 
         /**
          * Returns whatever was passed to yield or null if nothing was passed or the generator is already closed.
-         * @return TYield
+         * @return TYield|null
          */
         public function current(): mixed {}
 
@@ -196,14 +196,14 @@ namespace {
         /**
          * Sets the return value of the yield expression and resumes the generator (unless the generator is already closed).
          * @param TSend $value
-         * @return TYield
+         * @return TYield|null
          */
         public function send(mixed $value): mixed {}
 
         /**
          * Throws an exception at the current suspension point in the generator.
          * @param Throwable $exception
-         * @return TYield
+         * @return TYield|null
          */
         public function PS_UNRESERVE_PREFIX_throw(Throwable $exception): mixed {}
 
