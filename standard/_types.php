@@ -147,9 +147,16 @@ namespace {
     function PS_UNRESERVE_PREFIX_eval($code) {};
 
     /**
+     * @template TKey of array-key
+     * @template TSend
+     * @template TReturn
+     * @template TYield
+     *
      * Generator objects are returned from generators, cannot be instantiated via new.
      * @link https://secure.php.net/manual/en/class.generator.php
      * @link https://wiki.php.net/rfc/generators
+     *
+     * @template-implements Iterator<TKey, TYield>
      */
     final class Generator implements Iterator
 {
@@ -165,12 +172,12 @@ namespace {
         public function valid() {}
         /**
          * Returns whatever was passed to yield or null if nothing was passed or the generator is already closed.
-         * @return mixed
+         * @return TYield
          */
         public function current() {}
         /**
          * Returns the yielded key or, if none was specified, an auto-incrementing key or null if the generator is already closed.
-         * @return string|float|int|bool|null
+         * @return TKey
          */
         public function key() {}
         /**
@@ -181,15 +188,15 @@ namespace {
 
         /**
          * Sets the return value of the yield expression and resumes the generator (unless the generator is already closed).
-         * @param mixed $value
-         * @return mixed
+         * @param TSend $value
+         * @return TYield
          */
         public function send(mixed $value) {}
 
         /**
          * Throws an exception at the current suspension point in the generator.
          * @param Throwable $exception
-         * @return mixed
+         * @return TYield
          */
         public function PS_UNRESERVE_PREFIX_throw(Throwable $exception) {}
 
@@ -197,7 +204,7 @@ namespace {
          * Returns whatever was passed to return or null if nothing.
          * Throws an exception if the generator is still valid.
          * @link https://wiki.php.net/rfc/generator-return-expressions
-         * @return mixed|null
+         * @return TReturn
          * @since 7.0
          */
         public function getReturn() {}

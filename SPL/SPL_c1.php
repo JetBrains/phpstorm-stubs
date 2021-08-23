@@ -959,8 +959,11 @@ class SplTempFileObject extends SplFileObject
 }
 
 /**
+ * @template TValue
  * The SplDoublyLinkedList class provides the main functionalities of a doubly linked list.
  * @link https://php.net/manual/en/class.spldoublylinkedlist.php
+ * @template-implements Iterator<int, TValue>
+ * @template-implements ArrayAccess<int, TValue>
  */
 class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializable
 {
@@ -1185,6 +1188,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
 }
 
 /**
+ * @template TValue
  * The SplQueue class provides the main functionalities of a queue implemented using a doubly linked list.
  * @link https://php.net/manual/en/class.splqueue.php
  */
@@ -1193,7 +1197,7 @@ class SplQueue extends SplDoublyLinkedList
     /**
      * Adds an element to the queue.
      * @link https://php.net/manual/en/splqueue.enqueue.php
-     * @param mixed $value <p>
+     * @param TValue $value <p>
      * The value to enqueue.
      * </p>
      * @return void
@@ -1203,7 +1207,7 @@ class SplQueue extends SplDoublyLinkedList
     /**
      * Dequeues a node from the queue
      * @link https://php.net/manual/en/splqueue.dequeue.php
-     * @return mixed The value of the dequeued node.
+     * @return TValue The value of the dequeued node.
      */
     public function dequeue() {}
 
@@ -1221,8 +1225,10 @@ class SplQueue extends SplDoublyLinkedList
 }
 
 /**
+ * @template TValue
  * The SplStack class provides the main functionalities of a stack implemented using a doubly linked list.
  * @link https://php.net/manual/en/class.splstack.php
+ * @template-extends SplDoublyLinkedList<TValue>
  */
 class SplStack extends SplDoublyLinkedList
 {
@@ -1240,8 +1246,10 @@ class SplStack extends SplDoublyLinkedList
 }
 
 /**
+ * @template TValue
  * The SplHeap class provides the main functionalities of an Heap.
  * @link https://php.net/manual/en/class.splheap.php
+ * @template-implements Iterator<int, TValue>
  */
 abstract class SplHeap implements Iterator, Countable
 {
@@ -1255,7 +1263,7 @@ abstract class SplHeap implements Iterator, Countable
     /**
      * Inserts an element in the heap by sifting it up.
      * @link https://php.net/manual/en/splheap.insert.php
-     * @param mixed $value <p>
+     * @param TValue $value <p>
      * The value to insert.
      * </p>
      * @return void
@@ -1265,7 +1273,7 @@ abstract class SplHeap implements Iterator, Countable
     /**
      * Peeks at the node from the top of the heap
      * @link https://php.net/manual/en/splheap.top.php
-     * @return mixed The value of the node on the top.
+     * @return TValue The value of the node on the top.
      */
     public function top() {}
 
@@ -1293,7 +1301,7 @@ abstract class SplHeap implements Iterator, Countable
     /**
      * Return current node pointed by the iterator
      * @link https://php.net/manual/en/splheap.current.php
-     * @return mixed The current node value.
+     * @return TValue The current node value.
      */
     public function current() {}
 
@@ -1354,18 +1362,20 @@ abstract class SplHeap implements Iterator, Countable
 }
 
 /**
+ * @template TValue
  * The SplMinHeap class provides the main functionalities of a heap, keeping the minimum on the top.
  * @link https://php.net/manual/en/class.splminheap.php
+ * @template-extends SplHeap<TValue>
  */
 class SplMinHeap extends SplHeap
 {
     /**
      * Compare elements in order to place them correctly in the heap while sifting up.
      * @link https://php.net/manual/en/splminheap.compare.php
-     * @param mixed $value1 <p>
+     * @param TValue $value1 <p>
      * The value of the first node being compared.
      * </p>
-     * @param mixed $value2 <p>
+     * @param TValue $value2 <p>
      * The value of the second node being compared.
      * </p>
      * @return void Result of the comparison, positive integer if <i>value1</i> is lower than <i>value2</i>, 0 if they are equal, negative integer otherwise.
@@ -1381,14 +1391,14 @@ class SplMinHeap extends SplHeap
     /**
      * Extracts a node from top of the heap and sift up.
      * @link https://php.net/manual/en/splheap.extract.php
-     * @return mixed The value of the extracted node.
+     * @return TValue The value of the extracted node.
      */
     public function extract() {}
 
     /**
      * Inserts an element in the heap by sifting it up.
      * @link https://php.net/manual/en/splheap.insert.php
-     * @param mixed $value <p>
+     * @param TValue $value <p>
      * The value to insert.
      * </p>
      * @return void
@@ -1398,7 +1408,7 @@ class SplMinHeap extends SplHeap
     /**
      * Peeks at the node from the top of the heap
      * @link https://php.net/manual/en/splheap.top.php
-     * @return mixed The value of the node on the top.
+     * @return TValue The value of the node on the top.
      */
     public function top() {}
 
@@ -1426,7 +1436,7 @@ class SplMinHeap extends SplHeap
     /**
      * Return current node pointed by the iterator
      * @link https://php.net/manual/en/splheap.current.php
-     * @return mixed The current node value.
+     * @return TValue The current node value.
      */
     public function current() {}
 
@@ -1460,18 +1470,20 @@ class SplMinHeap extends SplHeap
 }
 
 /**
+ * @template TValue
  * The SplMaxHeap class provides the main functionalities of a heap, keeping the maximum on the top.
  * @link https://php.net/manual/en/class.splmaxheap.php
+ * @template-extends SplHeap<TValue>
  */
 class SplMaxHeap extends SplHeap
 {
     /**
      * Compare elements in order to place them correctly in the heap while sifting up.
      * @link https://php.net/manual/en/splmaxheap.compare.php
-     * @param mixed $value1 <p>
+     * @param TValue $value1 <p>
      * The value of the first node being compared.
      * </p>
-     * @param mixed $value2 <p>
+     * @param TValue $value2 <p>
      * The value of the second node being compared.
      * </p>
      * @return void Result of the comparison, positive integer if <i>value1</i> is greater than <i>value2</i>, 0 if they are equal, negative integer otherwise.
@@ -1486,9 +1498,12 @@ class SplMaxHeap extends SplHeap
 }
 
 /**
+ * @template TPriority
+ * @template TValue
  * The SplPriorityQueue class provides the main functionalities of an
  * prioritized queue, implemented using a heap.
  * @link https://php.net/manual/en/class.splpriorityqueue.php
+ * @template-implements Iterator<int, TValue>
  */
 class SplPriorityQueue implements Iterator, Countable
 {
@@ -1505,10 +1520,10 @@ class SplPriorityQueue implements Iterator, Countable
     /**
      * Compare priorities in order to place elements correctly in the heap while sifting up.
      * @link https://php.net/manual/en/splpriorityqueue.compare.php
-     * @param mixed $priority1 <p>
+     * @param TPriority $priority1 <p>
      * The priority of the first node being compared.
      * </p>
-     * @param mixed $priority2 <p>
+     * @param TPriority $priority2 <p>
      * The priority of the second node being compared.
      * </p>
      * @return int Result of the comparison, positive integer if <i>priority1</i> is greater than <i>priority2</i>, 0 if they are equal, negative integer otherwise.
@@ -1524,10 +1539,10 @@ class SplPriorityQueue implements Iterator, Countable
     /**
      * Inserts an element in the queue by sifting it up.
      * @link https://php.net/manual/en/splpriorityqueue.insert.php
-     * @param mixed $value <p>
+     * @param TValue $value <p>
      * The value to insert.
      * </p>
-     * @param mixed $priority <p>
+     * @param TPriority $priority <p>
      * The associated priority.
      * </p>
      * @return true
@@ -1553,14 +1568,14 @@ class SplPriorityQueue implements Iterator, Countable
     /**
      * Peeks at the node from the top of the queue
      * @link https://php.net/manual/en/splpriorityqueue.top.php
-     * @return mixed The value or priority (or both) of the top node, depending on the extract flag.
+     * @return TValue The value or priority (or both) of the top node, depending on the extract flag.
      */
     public function top() {}
 
     /**
      * Extracts a node from top of the heap and sift up.
      * @link https://php.net/manual/en/splpriorityqueue.extract.php
-     * @return mixed The value or priority (or both) of the extracted node, depending on the extract flag.
+     * @return TValue The value or priority (or both) of the extracted node, depending on the extract flag.
      */
     public function extract() {}
 
@@ -1588,7 +1603,7 @@ class SplPriorityQueue implements Iterator, Countable
     /**
      * Return current node pointed by the iterator
      * @link https://php.net/manual/en/splpriorityqueue.current.php
-     * @return mixed The value or priority (or both) of the current node, depending on the extract flag.
+     * @return TValue The value or priority (or both) of the current node, depending on the extract flag.
      */
     public function current() {}
 
@@ -1638,12 +1653,16 @@ class SplPriorityQueue implements Iterator, Countable
 }
 
 /**
+ * @template TValue
  * The SplFixedArray class provides the main functionalities of array. The
  * main differences between a SplFixedArray and a normal PHP array is that
  * the SplFixedArray is of fixed length and allows only integers within
  * the range as indexes. The advantage is that it allows a faster array
  * implementation.
  * @link https://php.net/manual/en/class.splfixedarray.php
+ * @template-implements Iterator<int, TValue>
+ * @template-implements ArrayAccess<int, TValue>
+ * @template-implements IteratorAggregate<int, TValue>
  */
 class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggregate, JsonSerializable
 {
@@ -1664,7 +1683,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
     /**
      * Returns a PHP array from the fixed array
      * @link https://php.net/manual/en/splfixedarray.toarray.php
-     * @return array a PHP array, similar to the fixed array.
+     * @return TValue[] a PHP array, similar to the fixed array.
      */
     public function toArray() {}
 
@@ -1718,7 +1737,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * @param int $index <p>
      * The index with the value.
      * </p>
-     * @return mixed The value at the specified <i>index</i>.
+     * @return TValue The value at the specified <i>index</i>.
      */
     public function offsetGet($index) {}
 
@@ -1728,7 +1747,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * @param int $index <p>
      * The index being set.
      * </p>
-     * @param mixed $value <p>
+     * @param TValue $value <p>
      * The new value for the <i>index</i>.
      * </p>
      * @return void
@@ -1755,7 +1774,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
     /**
      * Return current array entry
      * @link https://php.net/manual/en/splfixedarray.current.php
-     * @return mixed The current element value.
+     * @return TValue The current element value.
      */
     public function current() {}
 
@@ -1783,7 +1802,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
     public function __wakeup() {}
 
     /**
-     * @return Traversable
+     * @return Traversable<int, TValue>
      */
     public function getIterator() {}
 
@@ -1844,20 +1863,24 @@ interface SplSubject
 }
 
 /**
+ * @template TObject of object
+ * @template TValue
  * The SplObjectStorage class provides a map from objects to data or, by
  * ignoring data, an object set. This dual purpose can be useful in many
  * cases involving the need to uniquely identify objects.
  * @link https://php.net/manual/en/class.splobjectstorage.php
+ * @template-implements Iterator<int, TObject>
+ * @template-implements ArrayAccess<TObject, TValue>
  */
 class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
 {
     /**
      * Adds an object in the storage
      * @link https://php.net/manual/en/splobjectstorage.attach.php
-     * @param object $object <p>
+     * @param TObject $object <p>
      * The object to add.
      * </p>
-     * @param mixed $info [optional] <p>
+     * @param TValue $info [optional] <p>
      * The data to associate with the object.
      * </p>
      * @return void
@@ -1870,7 +1893,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
     /**
      * Removes an object from the storage
      * @link https://php.net/manual/en/splobjectstorage.detach.php
-     * @param object $object <p>
+     * @param TObject $object <p>
      * The object to remove.
      * </p>
      * @return void
@@ -1880,7 +1903,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
     /**
      * Checks if the storage contains a specific object
      * @link https://php.net/manual/en/splobjectstorage.contains.php
-     * @param object $object <p>
+     * @param TObject $object <p>
      * The object to look for.
      * </p>
      * @return bool true if the object is in the storage, false otherwise.
@@ -1890,7 +1913,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
     /**
      * Adds all objects from another storage
      * @link https://php.net/manual/en/splobjectstorage.addall.php
-     * @param SplObjectStorage $storage <p>
+     * @param SplObjectStorage<TObject, TValue> $storage <p>
      * The storage you want to import.
      * </p>
      * @return void
@@ -1900,7 +1923,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
     /**
      * Removes objects contained in another storage from the current storage
      * @link https://php.net/manual/en/splobjectstorage.removeall.php
-     * @param SplObjectStorage $storage <p>
+     * @param SplObjectStorage<TObject, TValue> $storage <p>
      * The storage containing the elements to remove.
      * </p>
      * @return void
@@ -1910,7 +1933,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
     /**
      * Removes all objects except for those contained in another storage from the current storage
      * @link https://php.net/manual/en/splobjectstorage.removeallexcept.php
-     * @param SplObjectStorage $storage <p>
+     * @param SplObjectStorage<TObject, TValue> $storage <p>
      * The storage containing the elements to retain in the current storage.
      * </p>
      * @return void
@@ -1921,14 +1944,14 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
     /**
      * Returns the data associated with the current iterator entry
      * @link https://php.net/manual/en/splobjectstorage.getinfo.php
-     * @return mixed The data associated with the current iterator position.
+     * @return TValue The data associated with the current iterator position.
      */
     public function getInfo() {}
 
     /**
      * Sets the data associated with the current iterator entry
      * @link https://php.net/manual/en/splobjectstorage.setinfo.php
-     * @param mixed $info <p>
+     * @param TValue $info <p>
      * The data to associate with the current iterator entry.
      * </p>
      * @return void
@@ -1967,7 +1990,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
     /**
      * Returns the current storage entry
      * @link https://php.net/manual/en/splobjectstorage.current.php
-     * @return object The object at the current iterator position.
+     * @return TObject The object at the current iterator position.
      */
     public function current() {}
 
@@ -2000,7 +2023,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
     /**
      * Checks whether an object exists in the storage
      * @link https://php.net/manual/en/splobjectstorage.offsetexists.php
-     * @param object $object <p>
+     * @param TObject $object <p>
      * The object to look for.
      * </p>
      * @return bool true if the object exists in the storage,
@@ -2011,10 +2034,10 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
     /**
      * Associates data to an object in the storage
      * @link https://php.net/manual/en/splobjectstorage.offsetset.php
-     * @param object $object <p>
+     * @param TObject $object <p>
      * The object to associate data with.
      * </p>
-     * @param mixed $info [optional] <p>
+     * @param TValue $info [optional] <p>
      * The data to associate with the object.
      * </p>
      * @return void
@@ -2027,7 +2050,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
     /**
      * Removes an object from the storage
      * @link https://php.net/manual/en/splobjectstorage.offsetunset.php
-     * @param object $object <p>
+     * @param TObject $object <p>
      * The object to remove.
      * </p>
      * @return void
@@ -2037,17 +2060,17 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
     /**
      * Returns the data associated with an <type>object</type>
      * @link https://php.net/manual/en/splobjectstorage.offsetget.php
-     * @param object $object <p>
+     * @param TObject $object <p>
      * The object to look for.
      * </p>
-     * @return mixed The data previously associated with the object in the storage.
+     * @return TValue The data previously associated with the object in the storage.
      */
     public function offsetGet($object) {}
 
     /**
      * Calculate a unique identifier for the contained objects
      * @link https://php.net/manual/en/splobjectstorage.gethash.php
-     * @param object $object <p>
+     * @param TObject $object <p>
      * object whose identifier is to be calculated.
      * </p>
      * @return string A string with the calculated identifier.

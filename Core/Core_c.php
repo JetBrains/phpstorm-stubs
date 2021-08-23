@@ -22,6 +22,8 @@ interface iterable {}
  * Instead it must be implemented by either {@see IteratorAggregate} or {@see Iterator}.
  *
  * @link https://php.net/manual/en/class.traversable.php
+ * @template TKey
+ * @template TValue
  */
 interface Traversable extends iterable {}
 
@@ -30,13 +32,14 @@ interface Traversable extends iterable {}
  * @link https://php.net/manual/en/class.iteratoraggregate.php
  * @template TKey
  * @template TValue
+ * @template-implements Traversable<TKey, TValue>
  */
 interface IteratorAggregate extends Traversable
 {
     /**
      * Retrieve an external iterator
      * @link https://php.net/manual/en/iteratoraggregate.getiterator.php
-     * @return Traversable|TValue[] An instance of an object implementing <b>Iterator</b> or
+     * @return Traversable<TKey, TValue> An instance of an object implementing <b>Iterator</b> or
      * <b>Traversable</b>
      * @throws Exception on failure.
      */
@@ -47,13 +50,16 @@ interface IteratorAggregate extends Traversable
  * Interface for external iterators or objects that can be iterated
  * themselves internally.
  * @link https://php.net/manual/en/class.iterator.php
+ * @template TKey
+ * @template TValue
+ * @template-implements Traversable<TKey, TValue>
  */
 interface Iterator extends Traversable
 {
     /**
      * Return the current element
      * @link https://php.net/manual/en/iterator.current.php
-     * @return mixed Can return any type.
+     * @return TValue Can return any type.
      */
     public function current();
 
@@ -67,7 +73,7 @@ interface Iterator extends Traversable
     /**
      * Return the key of the current element
      * @link https://php.net/manual/en/iterator.key.php
-     * @return string|float|int|bool|null scalar on success, or null on failure.
+     * @return TKey|null TKey on success, or null on failure.
      */
     public function key();
 
@@ -90,6 +96,8 @@ interface Iterator extends Traversable
 /**
  * Interface to provide accessing objects as arrays.
  * @link https://php.net/manual/en/class.arrayaccess.php
+ * @template TKey
+ * @template TValue
  */
 interface ArrayAccess
 {
@@ -112,17 +120,17 @@ interface ArrayAccess
      * @param mixed $offset <p>
      * The offset to retrieve.
      * </p>
-     * @return mixed Can return all value types.
+     * @return TValue Can return all value types.
      */
     public function offsetGet(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $offset);
 
     /**
      * Offset to set
      * @link https://php.net/manual/en/arrayaccess.offsetset.php
-     * @param mixed $offset <p>
+     * @param TKey $offset <p>
      * The offset to assign the value to.
      * </p>
-     * @param mixed $value <p>
+     * @param TValue $value <p>
      * The value to set.
      * </p>
      * @return void
@@ -135,7 +143,7 @@ interface ArrayAccess
     /**
      * Offset to unset
      * @link https://php.net/manual/en/arrayaccess.offsetunset.php
-     * @param mixed $offset <p>
+     * @param TKey $offset <p>
      * The offset to unset.
      * </p>
      * @return void
@@ -692,6 +700,10 @@ class WeakReference
  * it will simply be removed from the map.
  *
  * @since 8.0
+ *
+ * @template TKey of object
+ * @template TValue
+ * @template-implements IteratorAggregate<TKey, TValue>
  */
 final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate
 {
@@ -699,7 +711,7 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate
      * Returns {@see true} if the value for the object is contained in
      * the {@see WeakMap} and {@see false} instead.
      *
-     * @param object $object Any object
+     * @param TKey $object Any object
      * @return bool
      */
     public function offsetExists($object) {}
@@ -707,16 +719,16 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate
     /**
      * Returns the existsing value by an object.
      *
-     * @param object $object Any object
-     * @return mixed Value associated with the key object
+     * @param TKey $object Any object
+     * @return TValue Value associated with the key object
      */
     public function offsetGet($object) {}
 
     /**
      * Sets a new value for an object.
      *
-     * @param object $object Any object
-     * @param mixed $value Any value
+     * @param TKey $object Any object
+     * @param TValue $value Any value
      * @return void
      */
     public function offsetSet($object, mixed $value) {}
@@ -724,7 +736,7 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate
     /**
      * Force removes an object value from the {@see WeakMap} instance.
      *
-     * @param object $object Any object
+     * @param TKey $object Any object
      * @return void
      */
     public function offsetUnset($object) {}
@@ -732,7 +744,7 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate
     /**
      * Returns an iterator in the "[object => mixed]" format.
      *
-     * @return Traversable
+     * @return Traversable<TKey, TValue>
      */
     public function getIterator() {}
 
@@ -907,6 +919,11 @@ interface StringBackedEnum extends BackedEnum
 
 /**
  * @since 8.1
+ *
+ * @template TStart
+ * @template TResume
+ * @template TReturn
+ * @template TSuspend
  */
 final class Fiber
 {
@@ -918,9 +935,9 @@ final class Fiber
     /**
      * Starts execution of the fiber. Returns when the fiber suspends or terminates.
      *
-     * @param mixed ...$args Arguments passed to fiber function.
+     * @param TStart ...$args Arguments passed to fiber function.
      *
-     * @return mixed Value from the first suspension point or NULL if the fiber returns.
+     * @return TSuspend|null Value from the first suspension point or NULL if the fiber returns.
      *
      * @throws FiberError If the fiber has already been started.
      * @throws Throwable If the fiber callable throws an uncaught exception.
@@ -931,9 +948,9 @@ final class Fiber
      * Resumes the fiber, returning the given value from {@see Fiber::suspend()}.
      * Returns when the fiber suspends or terminates.
      *
-     * @param mixed $value
+     * @param TResume $value
      *
-     * @return mixed Value from the next suspension point or NULL if the fiber returns.
+     * @return TSuspend|null Value from the next suspension point or NULL if the fiber returns.
      *
      * @throws FiberError If the fiber has not started, is running, or has terminated.
      * @throws Throwable If the fiber callable throws an uncaught exception.
@@ -946,7 +963,7 @@ final class Fiber
      *
      * @param Throwable $exception
      *
-     * @return mixed Value from the next suspension point or NULL if the fiber returns.
+     * @return TSuspend|null Value from the next suspension point or NULL if the fiber returns.
      *
      * @throws FiberError If the fiber has not started, is running, or has terminated.
      * @throws Throwable If the fiber callable throws an uncaught exception.
@@ -974,27 +991,25 @@ final class Fiber
     public function isTerminated() {}
 
     /**
-     * @return mixed Return value of the fiber callback. NULL is returned if the fiber does not have a return statement.
+     * @return TReturn Return value of the fiber callback. NULL is returned if the fiber does not have a return statement.
      *
      * @throws FiberError If the fiber has not terminated or the fiber threw an exception.
      */
     public function getReturn() {}
 
-    public static function getCurrent() {}
-
     /**
      * @return self|null Returns the currently executing fiber instance or NULL if in {main}.
      */
-    public static function this() {}
+    public static function getCurrent() {}
 
     /**
      * Suspend execution of the fiber. The fiber may be resumed with {@see Fiber::resume()} or {@see Fiber::throw()}.
      *
      * Cannot be called from {main}.
      *
-     * @param mixed $value Value to return from {@see Fiber::resume()} or {@see Fiber::throw()}.
+     * @param TSuspend $value Value to return from {@see Fiber::resume()} or {@see Fiber::throw()}.
      *
-     * @return mixed Value provided to {@see Fiber::resume()}.
+     * @return TResume Value provided to {@see Fiber::resume()}.
      *
      * @throws FiberError Thrown if not within a fiber (i.e., if called from {main}).
      * @throws Throwable Exception provided to {@see Fiber::throw()}.
