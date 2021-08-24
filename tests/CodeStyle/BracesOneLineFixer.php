@@ -26,6 +26,9 @@ final class BracesOneLineFixer implements FixerInterface
 
     public function fix(SplFileInfo $file, Tokens $tokens): void
     {
+        /**
+         * @var Token $token
+         */
         foreach ($tokens as $index => $token) {
             if (!$token->equals('{')) {
                 continue;
@@ -33,7 +36,8 @@ final class BracesOneLineFixer implements FixerInterface
             $braceStartIndex = $index;
             $braceEndIndex = $tokens->getNextMeaningfulToken($index);
 
-            if ($tokens[$braceEndIndex]->equals('}')) {
+            $token = $tokens[$braceEndIndex];
+            if ($token->equals('}')) {
                 $beforeBraceIndex = $tokens->getPrevNonWhitespace($braceStartIndex);
                 for ($i = $beforeBraceIndex + 1; $i <= $braceEndIndex; $i++) {
                     $tokens->clearAt($i);
