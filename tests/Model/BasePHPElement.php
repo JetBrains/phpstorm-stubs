@@ -22,7 +22,6 @@ use Reflector;
 use RuntimeException;
 use stdClass;
 use StubTests\Parsers\ParserUtils;
-use StubTests\TestData\Providers\ReflectionStubsSingleton;
 use function array_key_exists;
 use function count;
 use function in_array;
@@ -215,16 +214,5 @@ abstract class BasePHPElement
     public static function entitySuitsCurrentPhpVersion(BasePHPElement $element): bool
     {
         return in_array((float)getenv('PHP_VERSION'), ParserUtils::getAvailableInVersions($element), true);
-    }
-
-    /**
-     * @param PHPInterface|PHPClass $class
-     * @return bool
-     * @throws RuntimeException
-     */
-    public static function classExistInCoreReflection($class): bool
-    {
-        return ReflectionStubsSingleton::getReflectionStubsNoPecl()->getClass($class->name) !== null ||
-            ReflectionStubsSingleton::getReflectionStubsNoPecl()->getInterface($class->name) !== null;
     }
 }

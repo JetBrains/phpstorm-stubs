@@ -13,9 +13,6 @@ class ReflectionFunctionsProvider
     public static function allFunctionsProvider(): ?Generator
     {
         foreach (EntitiesFilter::getFiltered(ReflectionStubsSingleton::getReflectionStubs()->getFunctions()) as $function) {
-            if (!empty(getenv('PECL')) && !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getFunction($function->name))) {
-                continue;
-            }
             yield "function $function->name" => [$function];
         }
     }
@@ -27,9 +24,6 @@ class ReflectionFunctionsProvider
             null,
             StubProblemType::FUNCTION_IS_DEPRECATED
         ) as $function) {
-            if (!empty(getenv('PECL')) && !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getFunction($function->name))) {
-                continue;
-            }
             yield "function $function->name" => [$function];
         }
     }
@@ -42,9 +36,6 @@ class ReflectionFunctionsProvider
             StubProblemType::FUNCTION_PARAMETER_MISMATCH,
             StubProblemType::HAS_DUPLICATION
         ) as $function) {
-            if (!empty(getenv('PECL')) && !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getFunction($function->name))) {
-                continue;
-            }
             yield "function $function->name" => [$function];
         }
     }

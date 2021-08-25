@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace StubTests\TestData\Providers\Reflection;
 
 use Generator;
-use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPProperty;
 use StubTests\Model\StubProblemType;
 use StubTests\TestData\Providers\EntitiesFilter;
@@ -41,9 +40,6 @@ class ReflectionPropertiesProvider
     {
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
-            if (!empty(getenv('PECL')) && BasePHPElement::classExistInCoreReflection($class)) {
-                continue;
-            }
             foreach (EntitiesFilter::getFiltered(
                 $class->properties,
                 fn (PHPProperty $property) => $property->access === 'private',
