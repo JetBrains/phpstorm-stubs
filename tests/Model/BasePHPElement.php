@@ -28,6 +28,8 @@ use function in_array;
 
 abstract class BasePHPElement
 {
+    use PHPDocElement;
+
     /** @var string|null */
     public $name;
     public $stubBelongsToCore = false;

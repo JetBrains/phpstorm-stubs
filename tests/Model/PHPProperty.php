@@ -9,8 +9,6 @@ use stdClass;
 
 class PHPProperty extends BasePHPElement
 {
-    use PHPDocElement;
-
     /** @var string[] */
     public $typesFromSignature = [];
     /** @var string[][] */

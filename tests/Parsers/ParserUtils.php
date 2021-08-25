@@ -85,9 +85,8 @@ class ParserUtils
                     return $version >= $firstSinceVersion && $version <= $lastAvailableVersion;
                 }
             );
-        } else {
-            return [];
         }
+        return [];
     }
 
     /**
@@ -117,7 +116,7 @@ class ParserUtils
             sort($allRemovedVersions, SORT_DESC);
             $removedVersion = array_pop($allRemovedVersions);
             $allVersions = new PhpVersions();
-            $indexOfRemovedVersion = array_search($removedVersion, iterator_to_array($allVersions));
+            $indexOfRemovedVersion = array_search($removedVersion, iterator_to_array($allVersions), true);
             $latestAvailableVersion = [$allVersions[$indexOfRemovedVersion - 1]];
         }
         return $latestAvailableVersion;

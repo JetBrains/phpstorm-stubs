@@ -5,6 +5,7 @@ namespace StubTests\Parsers\Visitors;
 
 use PhpParser\Node;
 use PhpParser\NodeVisitorAbstract;
+use function count;
 
 /**
  * The visitor is required to provide "parent" attribute to nodes

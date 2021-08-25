@@ -14,8 +14,6 @@ use function in_array;
 
 class PHPConst extends BasePHPElement
 {
-    use PHPDocElement;
-
     /**
      * @var string|null
      */
