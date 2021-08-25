@@ -9,13 +9,16 @@ use PhpParser\Node\Stmt\Class_;
 use ReflectionClass;
 use RuntimeException;
 use stdClass;
+use function array_key_exists;
+use function assert;
+use function count;
 
 class PHPClass extends BasePHPClass
 {
     /**
      * @var false|string|null
      */
-    public $parentClass = null;
+    public $parentClass;
     public $interfaces = [];
     /** @var PHPProperty[] */
     public $properties = [];
@@ -153,7 +156,7 @@ class PHPClass extends BasePHPClass
         }
     }
 
-    public function addProperty(PHPProperty $parsedProperty)
+    public function addProperty(PHPProperty $parsedProperty): void
     {
         if (isset($parsedProperty->name)) {
             if (array_key_exists($parsedProperty->name, $this->properties)) {
@@ -170,7 +173,7 @@ class PHPClass extends BasePHPClass
         }
     }
 
-    public function getProperty($propertyName)
+    public function getProperty($propertyName): ?PHPProperty
     {
         $properties = array_filter($this->properties, function (PHPProperty $property) use ($propertyName): bool {
             return $property->name === $propertyName && $property->duplicateOtherElement === false

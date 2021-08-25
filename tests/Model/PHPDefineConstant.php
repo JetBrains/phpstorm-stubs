@@ -4,7 +4,9 @@ declare(strict_types=1);
 namespace StubTests\Model;
 
 use PhpParser\Node\Expr\FuncCall;
+use function in_array;
 use function is_float;
+use function is_resource;
 use function is_string;
 
 class PHPDefineConstant extends PHPConst

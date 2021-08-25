@@ -8,6 +8,7 @@ use PhpParser\Node\Stmt\ClassMethod;
 use ReflectionMethod;
 use RuntimeException;
 use stdClass;
+use function strlen;
 
 class PHPMethod extends PHPFunction
 {
@@ -89,7 +90,7 @@ class PHPMethod extends PHPFunction
             });
             /** @var Param $relatedParamTag */
             $relatedParamTag = array_pop($relatedParamTags);
-            if (!empty($relatedParamTag)) {
+            if ($relatedParamTag !== null) {
                 $parameter->isOptional = $parameter->isOptional || str_contains((string)$relatedParamTag->getDescription(), '[optional]');
             }
         }

@@ -23,18 +23,21 @@ use RuntimeException;
 use stdClass;
 use StubTests\Parsers\ParserUtils;
 use StubTests\TestData\Providers\ReflectionStubsSingleton;
+use function array_key_exists;
+use function count;
+use function in_array;
 
 abstract class BasePHPElement
 {
     /** @var string|null */
-    public $name = null;
+    public $name;
     public $stubBelongsToCore = false;
     /** @var Exception|null */
-    public $parseError = null;
+    public $parseError;
     public $mutedProblems = [];
     public $availableVersionsRangeFromAttribute = [];
     /** @var string|null */
-    public $sourceFilePath = null;
+    public $sourceFilePath;
     /** @var bool */
     public $duplicateOtherElement = false;
 
@@ -83,8 +86,8 @@ abstract class BasePHPElement
                 array_push($reflectionTypes, '?' . $type->getName()) : array_push($reflectionTypes, $type->getName());
         }
         if ($type instanceof ReflectionUnionType) {
-            foreach ($type->getTypes() as $type) {
-                array_push($reflectionTypes, $type->getName());
+            foreach ($type->getTypes() as $namedType) {
+                $reflectionTypes[] = $namedType->getName();
             }
         }
         return $reflectionTypes;
@@ -98,13 +101,13 @@ abstract class BasePHPElement
         $types = [];
         if ($type !== null) {
             if ($type instanceof UnionType) {
-                foreach ($type->types as $type) {
-                    array_push($types, self::getTypeNameFromNode($type));
+                foreach ($type->types as $namedType) {
+                    $types[] = self::getTypeNameFromNode($namedType);
                 }
             } elseif ($type instanceof Type) {
                 array_push($types, ...explode('|', (string)$type));
             } else {
-                array_push($types, self::getTypeNameFromNode($type));
+                $types[] = self::getTypeNameFromNode($type);
             }
         }
         return $types;
@@ -145,8 +148,8 @@ abstract class BasePHPElement
                     foreach ($versionTypesMap as $item) {
                         $firstVersionWithType = $item->key->value;
                         foreach (new PhpVersions() as $version) {
-                            if ($version >= doubleval($firstVersionWithType)) {
-                                $types[number_format($version, 1, '.')] =
+                            if ($version >= (float)$firstVersionWithType) {
+                                $types[number_format($version, 1)] =
                                     explode('|', preg_replace('/\w+\[]/', 'array', $item->value->value));
                             }
                         }
@@ -169,7 +172,7 @@ abstract class BasePHPElement
         foreach ($attrGroups as $attrGroup) {
             foreach ($attrGroup->attrs as $attr) {
                 if ($attr->name->toString() === PhpStormStubsElementAvailable::class) {
-                    if (count($attr->args) == 2) {
+                    if (count($attr->args) === 2) {
                         foreach ($attr->args as $arg) {
                             $versionRange[$arg->name->name] = (float)$arg->value->value;
                         }
@@ -182,7 +185,7 @@ abstract class BasePHPElement
                             }
                         } else {
                             $rangeName = $attr->args[0]->name;
-                            return $rangeName === null || $rangeName->name == 'from' ?
+                            return $rangeName === null || $rangeName->name === 'from' ?
                                 ['from' => (float)$arg->value, 'to' => PhpVersions::getLatest()] :
                                 ['from' => PhpVersions::getFirst(), 'to' => (float)$arg->value];
                         }
@@ -195,9 +198,9 @@ abstract class BasePHPElement
 
     public function hasMutedProblem(int $stubProblemType): bool
     {
-        if (in_array($stubProblemType, array_keys($this->mutedProblems), true)) {
-            if (in_array(doubleval(getenv('PHP_VERSION')), $this->mutedProblems[$stubProblemType], true) ||
-                in_array('ALL', $this->mutedProblems[$stubProblemType], true)) {
+        if (array_key_exists($stubProblemType, $this->mutedProblems)) {
+            if (in_array('ALL', $this->mutedProblems[$stubProblemType], true) ||
+                in_array((float)getenv('PHP_VERSION'), $this->mutedProblems[$stubProblemType], true)) {
                 return true;
             }
         }
@@ -211,7 +214,7 @@ abstract class BasePHPElement
      */
     public static function entitySuitsCurrentPhpVersion(BasePHPElement $element): bool
     {
-        return in_array(doubleval(getenv('PHP_VERSION')), ParserUtils::getAvailableInVersions($element));
+        return in_array((float)getenv('PHP_VERSION'), ParserUtils::getAvailableInVersions($element), true);
     }
 
     /**
@@ -221,7 +224,7 @@ abstract class BasePHPElement
      */
     public static function classExistInCoreReflection($class): bool
     {
-        return !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getClass($class->name)) ||
-            !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getInterface($class->name));
+        return ReflectionStubsSingleton::getReflectionStubsNoPecl()->getClass($class->name) !== null ||
+            ReflectionStubsSingleton::getReflectionStubsNoPecl()->getInterface($class->name) !== null;
     }
 }
