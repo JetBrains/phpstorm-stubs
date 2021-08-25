@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace StubTests\TestData\Providers\Reflection;
 
 use Generator;
-use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPParameter;
 use StubTests\Model\StubProblemType;
 use StubTests\TestData\Providers\EntitiesFilter;
@@ -15,9 +14,6 @@ class ReflectionParametersProvider
     public static function functionParametersProvider(): ?Generator
     {
         foreach (EntitiesFilter::getFilteredFunctions() as $function) {
-            if (!empty(getenv('PECL')) && !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getFunction($function->name))) {
-                continue;
-            }
             $PHPParameters = EntitiesFilter::getFilteredParameters(
                 $function,
                 null
@@ -31,9 +27,6 @@ class ReflectionParametersProvider
     public static function functionParametersWithTypeProvider(): ?Generator
     {
         foreach (EntitiesFilter::getFilteredFunctions() as $function) {
-            if (!empty(getenv('PECL')) && !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getFunction($function->name))) {
-                continue;
-            }
             foreach (EntitiesFilter::getFilteredParameters(
                 $function,
                 null,
@@ -47,9 +40,6 @@ class ReflectionParametersProvider
     public static function functionOptionalParametersProvider(): ?Generator
     {
         foreach (EntitiesFilter::getFilteredFunctions() as $function) {
-            if (!empty(getenv('PECL')) && !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getFunction($function->name))) {
-                continue;
-            }
             foreach (EntitiesFilter::getFilteredParameters(
                 $function,
                 fn (PHPParameter $parameter) => !$parameter->isOptional,
@@ -64,9 +54,6 @@ class ReflectionParametersProvider
     public static function functionOptionalParametersWithDefaultValueProvider(): ?Generator
     {
         foreach (EntitiesFilter::getFilteredFunctions() as $function) {
-            if (!empty(getenv('PECL')) && !empty(ReflectionStubsSingleton::getReflectionStubsNoPecl()->getFunction($function->name))) {
-                continue;
-            }
             foreach (EntitiesFilter::getFilteredParameters(
                 $function,
                 fn (PHPParameter $parameter) => !$parameter->isOptional || empty($parameter->defaultValue),
@@ -82,9 +69,6 @@ class ReflectionParametersProvider
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
             ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
-            if (!empty(getenv('PECL')) && BasePHPElement::classExistInCoreReflection($class)) {
-                continue;
-            }
             //exclude classes from PHPReflectionParser
             if (strncmp($class->name, 'PHP', 3) !== 0) {
                 foreach (EntitiesFilter::getFilteredFunctions($class) as $method) {
@@ -101,9 +85,6 @@ class ReflectionParametersProvider
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
             ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
-            if (!empty(getenv('PECL')) && BasePHPElement::classExistInCoreReflection($class)) {
-                continue;
-            }
             //exclude classes from PHPReflectionParser
             if (strncmp($class->name, 'PHP', 3) !== 0) {
                 foreach (EntitiesFilter::getFilteredFunctions($class) as $method) {
@@ -124,9 +105,6 @@ class ReflectionParametersProvider
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
             ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
-            if (!empty(getenv('PECL')) && BasePHPElement::classExistInCoreReflection($class)) {
-                continue;
-            }
             //exclude classes from PHPReflectionParser
             if (strncmp($class->name, 'PHP', 3) !== 0) {
                 foreach (EntitiesFilter::getFilteredFunctions($class) as $method) {

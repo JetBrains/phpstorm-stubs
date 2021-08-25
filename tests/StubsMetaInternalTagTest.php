@@ -5,7 +5,6 @@ namespace StubTests;
 
 use PHPUnit\Framework\Exception;
 use RuntimeException;
-use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\StubProblemType;
 use StubTests\Parsers\Visitors\MetaOverrideFunctionsParser;
@@ -39,9 +38,8 @@ class StubsMetaInternalTagTest extends BaseStubsTest
                     ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
                     fn ($refFunction) => $refFunction->name === $function->name
                 );
-                /** @var PHPFunction $reflectionFunction */
                 $reflectionFunction = array_pop($reflectionFunctions);
-                if (!$reflectionFunction->hasMutedProblem(StubProblemType::ABSENT_IN_META)) {
+                if ($reflectionFunction !== null && !$reflectionFunction->hasMutedProblem(StubProblemType::ABSENT_IN_META)) {
                     self::checkInternalMetaInOverride($function->name);
                 }
             }
