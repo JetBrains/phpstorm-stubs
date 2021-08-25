@@ -18,8 +18,6 @@ use StubTests\Parsers\DocFactoryProvider;
 
 class PHPFunction extends BasePHPElement
 {
-    use PHPDocElement;
-
     /**
      * @var bool
      */

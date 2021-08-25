@@ -9,8 +9,6 @@ use function count;
 
 abstract class BasePHPClass extends BasePHPElement
 {
-    use PHPDocElement;
-
     /**
      * @var PHPMethod[]
      */

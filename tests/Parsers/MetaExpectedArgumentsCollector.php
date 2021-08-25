@@ -13,6 +13,8 @@ use PhpParser\NodeVisitorAbstract;
 use RuntimeException;
 use SplFileInfo;
 use UnexpectedValueException;
+use function array_slice;
+use function count;
 
 class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
 {
