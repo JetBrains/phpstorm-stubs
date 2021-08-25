@@ -5,6 +5,7 @@ namespace StubTests\Model;
 
 use RuntimeException;
 use function array_key_exists;
+use function count;
 
 class StubsContainer
 {

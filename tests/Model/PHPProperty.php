@@ -19,7 +19,7 @@ class PHPProperty extends BasePHPElement
     public $typesFromPhpDoc = [];
     public $access = '';
     public $is_static = false;
-    public $parentName = null;
+    public $parentName;
     public $isReadonly = false;
 
     public function __construct(?string $parentName = null)

@@ -10,6 +10,7 @@ use PhpParser\Node\Stmt\Namespace_;
 use PhpParser\NodeAbstract;
 use ReflectionClassConstant;
 use stdClass;
+use function in_array;
 
 class PHPConst extends BasePHPElement
 {
@@ -18,7 +19,7 @@ class PHPConst extends BasePHPElement
     /**
      * @var string|null
      */
-    public $parentName = null;
+    public $parentName;
     /**
      * @var bool|int|string|float|null
      */
@@ -26,7 +27,7 @@ class PHPConst extends BasePHPElement
     /**
      * @var string|null
      */
-    public $visibility = null;
+    public $visibility;
 
     /**
      * @param ReflectionClassConstant $reflectionObject
