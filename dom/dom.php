@@ -11,7 +11,7 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * </p>
  * @return DOMElement|null The <b>DOMElement</b> node added or <b>NULL</b> if any errors occur.
  */
-#[LanguageLevelTypeAware(['8.1' => 'DOMElement'], default: 'DOMElement|null')]
+#[LanguageLevelTypeAware(['8.0' => 'DOMElement'], default: 'DOMElement|null')]
 function dom_import_simplexml(object $node) {}
 
 /**

@@ -132,6 +132,6 @@ function readline_redisplay(): void {}
  */
 function readline_on_new_line(): void {}
 
-define('READLINE_LIB', "libedit");
+define('READLINE_LIB', "readline");
 
 // End of readline v.5.5.3-1ubuntu2.1
