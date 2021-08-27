@@ -55,13 +55,13 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
                 if (count($args) < 3) {
                     throw new RuntimeException('Expected at least 3 arguments for expectedArguments call');
                 }
-                $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo($args[0]->value, array_slice($args, 2), $args[1]->value->value);
+                $this->expectedArgumentsInfos[] = self::getExpectedArgumentsInfo($args[0]->value, array_slice($args, 2), $args[1]->value->value);
             } elseif ($name === self::REGISTER_ARGUMENTS_SET_NAME) {
                 $args = $node->args;
                 if (count($args) < 2) {
                     throw new RuntimeException('Expected at least 2 arguments for registerArgumentsSet call');
                 }
-                $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo(null, array_slice($args, 1));
+                $this->expectedArgumentsInfos[] = self::getExpectedArgumentsInfo(null, array_slice($args, 1));
                 $name = $args[0]->value->value;
                 $this->registeredArgumentsSet[] = $name;
             } elseif ($name === self::EXPECTED_RETURN_VALUES) {
@@ -69,7 +69,7 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
                 if (count($args) < 2) {
                     throw new RuntimeException('Expected at least 2 arguments for expectedReturnValues call');
                 }
-                $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo($args[0]->value, array_slice($args, 1));
+                $this->expectedArgumentsInfos[] = self::getExpectedArgumentsInfo($args[0]->value, array_slice($args, 1));
             }
         }
     }
@@ -94,13 +94,13 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
      * @param Expr[] $expressions
      * @return Expr[]
      */
-    private function unpackArguments(array $expressions): array
+    private static function unpackArguments(array $expressions): array
     {
         $result = [];
         foreach ($expressions as $expr) {
             if ($expr instanceof BitwiseOr) {
                 /** @noinspection SlowArrayOperationsInLoopInspection */
-                $result = array_merge($result, $this->unpackArguments([$expr->left, $expr->right]));
+                $result = array_merge($result, self::unpackArguments([$expr->left, $expr->right]));
             } else {
                 $result[] = $expr;
             }
@@ -114,11 +114,9 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
      * @param int $index
      * @return ExpectedFunctionArgumentsInfo
      */
-    private function getExpectedArgumentsInfo(?Expr $functionReference, array $args, int $index = -1): ExpectedFunctionArgumentsInfo
+    private static function getExpectedArgumentsInfo(?Expr $functionReference, array $args, int $index = -1): ExpectedFunctionArgumentsInfo
     {
-        $expressions = array_map(function (Arg $arg): Expr {
-            return $arg->value;
-        }, $args);
-        return new ExpectedFunctionArgumentsInfo($functionReference, $this->unpackArguments($expressions), $index);
+        $expressions = array_map(fn (Arg $arg): Expr => $arg->value, $args);
+        return new ExpectedFunctionArgumentsInfo($functionReference, self::unpackArguments($expressions), $index);
     }
 }

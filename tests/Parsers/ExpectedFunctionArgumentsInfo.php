@@ -8,21 +8,13 @@ use PhpParser\Node\Expr;
 
 class ExpectedFunctionArgumentsInfo
 {
-    private ?Expr $functionReference;
-    private array $expectedArguments;
-    private int $index;
-
     /**
      * ExpectedFunctionArgumentsInfo constructor.
      * @param Expr|null $functionReference
      * @param Expr[] $expectedArguments
      * @param int $index
      */
-    public function __construct(?Expr $functionReference, array $expectedArguments, int $index) {
-        $this->index = $index;
-        $this->expectedArguments = $expectedArguments;
-        $this->functionReference = $functionReference;
-    }
+    public function __construct(private ?Expr $functionReference, private array $expectedArguments, private int $index) {}
 
     public function getFunctionReference(): ?Expr
     {

@@ -38,6 +38,9 @@ abstract class BasePHPClass extends BasePHPElement
         }
     }
 
+    /**
+     * @throws RuntimeException
+     */
     public function getConstant($constantName): ?PHPConst
     {
         $constants = array_filter($this->constants, function (PHPConst $constant) use ($constantName): bool {

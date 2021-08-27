@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
+use Exception;
 use phpDocumentor\Reflection\DocBlock\Tags\Param;
 use PhpParser\Node\Stmt\ClassMethod;
 use ReflectionMethod;
@@ -109,6 +110,7 @@ class PHPMethod extends PHPFunction
 
     /**
      * @param stdClass|array $jsonData
+     * @throws Exception
      */
     public function readMutedProblems($jsonData): void
     {
@@ -153,6 +155,8 @@ class PHPMethod extends PHPFunction
                             case 'has wrong static modifier':
                                 $this->mutedProblems[StubProblemType::WRONG_STATIC_MODIFIER] = $problem->versions;
                                 break;
+                            default:
+                                throw new Exception("Unexpected value $problem->description");
                         }
                     }
                 }
@@ -161,7 +165,6 @@ class PHPMethod extends PHPFunction
                         $parameter->readMutedProblems($method->parameters);
                     }
                 }
-                return;
             }
         }
     }

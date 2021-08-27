@@ -15,8 +15,7 @@ class ReflectionParametersProvider
     {
         foreach (EntitiesFilter::getFilteredFunctions() as $function) {
             $PHPParameters = EntitiesFilter::getFilteredParameters(
-                $function,
-                null
+                $function
             );
             foreach ($PHPParameters as $parameter) {
                 yield "$function->name($parameter->name)" => [$function, $parameter];
@@ -72,7 +71,7 @@ class ReflectionParametersProvider
             //exclude classes from PHPReflectionParser
             if (strncmp($class->name, 'PHP', 3) !== 0) {
                 foreach (EntitiesFilter::getFilteredFunctions($class) as $method) {
-                    foreach (EntitiesFilter::getFilteredParameters($method, null) as $parameter) {
+                    foreach (EntitiesFilter::getFilteredParameters($method) as $parameter) {
                         yield "$class->name::$method->name($parameter->name)" => [$class, $method, $parameter];
                     }
                 }

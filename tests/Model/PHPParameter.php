@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
+use Exception;
 use PhpParser\Node\Param;
 use ReflectionParameter;
 use stdClass;
@@ -63,6 +64,7 @@ class PHPParameter extends BasePHPElement
 
     /**
      * @param stdClass|array $jsonData
+     * @throws Exception
      */
     public function readMutedProblems($jsonData): void
     {
@@ -100,9 +102,10 @@ class PHPParameter extends BasePHPElement
                         case 'wrong optionallity':
                             $this->mutedProblems[StubProblemType::WRONG_OPTIONALLITY] = $problem->versions;
                             break;
+                        default:
+                            throw new Exception("Unexpected value $problem->description");
                     }
                 }
-                return;
             }
         }
     }

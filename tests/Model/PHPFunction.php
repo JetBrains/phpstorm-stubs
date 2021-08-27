@@ -127,6 +127,7 @@ class PHPFunction extends BasePHPElement
 
     /**
      * @param stdClass|array $jsonData
+     * @throws Exception
      */
     public function readMutedProblems($jsonData): void
     {
@@ -159,6 +160,8 @@ class PHPFunction extends BasePHPElement
                             case 'has type mismatch in signature and phpdoc':
                                 $this->mutedProblems[StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE] = $problem->versions;
                                 break;
+                            default:
+                                throw new Exception("Unexpected value $problem->description");
                         }
                     }
                 }
@@ -167,7 +170,6 @@ class PHPFunction extends BasePHPElement
                         $parameter->readMutedProblems($function->parameters);
                     }
                 }
-                return;
             }
         }
     }

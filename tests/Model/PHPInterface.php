@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
+use Exception;
 use PhpParser\Node\Stmt\Interface_;
 use ReflectionClass;
 use stdClass;
@@ -53,6 +54,7 @@ class PHPInterface extends BasePHPClass
 
     /**
      * @param stdClass|array $jsonData
+     * @throws Exception
      */
     public function readMutedProblems($jsonData): void
     {
@@ -67,6 +69,8 @@ class PHPInterface extends BasePHPClass
                             case 'missing interface':
                                 $this->mutedProblems[StubProblemType::STUB_IS_MISSED] = $problem->versions;
                                 break;
+                            default:
+                                throw new Exception("Unexpected value $problem->description");
                         }
                     }
                 }
@@ -80,7 +84,6 @@ class PHPInterface extends BasePHPClass
                         $constant->readMutedProblems($interface->constants);
                     }
                 }
-                return;
             }
         }
     }
