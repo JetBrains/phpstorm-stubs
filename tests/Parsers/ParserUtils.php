@@ -81,9 +81,7 @@ class ParserUtils
             }
             return array_filter(
                 iterator_to_array(new PhpVersions()),
-                function ($version) use ($firstSinceVersion, $lastAvailableVersion) {
-                    return $version >= $firstSinceVersion && $version <= $lastAvailableVersion;
-                }
+                fn ($version) => $version >= $firstSinceVersion && $version <= $lastAvailableVersion
             );
         }
         return [];
@@ -96,9 +94,7 @@ class ParserUtils
     {
         $allSinceVersions = [];
         if (!empty($element->sinceTags) && $element->stubBelongsToCore) {
-            $allSinceVersions[] = array_map(function (Since $tag) {
-                return (float)$tag->getVersion();
-            }, $element->sinceTags);
+            $allSinceVersions[] = array_map(fn (Since $tag) => (float)$tag->getVersion(), $element->sinceTags);
         }
         return $allSinceVersions;
     }
@@ -110,9 +106,7 @@ class ParserUtils
     {
         $latestAvailableVersion = [PhpVersions::getLatest()];
         if (!empty($element->removedTags) && $element->stubBelongsToCore) {
-            $allRemovedVersions = array_map(function (RemovedTag $tag) {
-                return (float)$tag->getVersion();
-            }, $element->removedTags);
+            $allRemovedVersions = array_map(fn (RemovedTag $tag) => (float)$tag->getVersion(), $element->removedTags);
             sort($allRemovedVersions, SORT_DESC);
             $removedVersion = array_pop($allRemovedVersions);
             $allVersions = new PhpVersions();
@@ -132,7 +126,7 @@ class ParserUtils
         if ($parentClass === null) {
             $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($element->parentName, shouldSuitCurrentPhpVersion: false);
         }
-        $allSinceVersions[] = self::getSinceVersionsFromPhpDoc($parentClass);
+        $allSinceVersions = [self::getSinceVersionsFromPhpDoc($parentClass)];
         $allSinceVersions[] = self::getSinceVersionsFromAttribute($parentClass);
         return $allSinceVersions;
     }

@@ -17,7 +17,7 @@ class PhpVersions implements ArrayAccess, IteratorAggregate
         return end(self::$versions);
     }
 
-    public static function getFirst()
+    public static function getFirst(): float
     {
         return self::$versions[0];
     }

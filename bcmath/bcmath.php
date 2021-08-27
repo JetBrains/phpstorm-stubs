@@ -195,17 +195,10 @@ function bcsqrt(string $num, ?int $scale) {}
  * @return int|bool
  */
 #[LanguageLevelTypeAware(['7.3' => 'int'], default: 'bool')]
-#[PhpStormStubsElementAvailable(to: '7.4')]
-function bcscale(int $scale) {}
-
-/**
- * Set default scale parameter for all bc math functions
- * @link https://php.net/manual/en/function.bcscale.php
- * @param int|null $scale
- * @return int Returns the old scale when used as setter. Otherwise the current scale is returned.
- */
-#[PhpStormStubsElementAvailable('8.0')]
-function bcscale(?int $scale = null): int {}
+function bcscale(
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] int $scale,
+    #[PhpStormStubsElementAvailable(from: '7.3')] #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: 'int')] $scale = null
+) {}
 
 /**
  * Compare two arbitrary precision numbers

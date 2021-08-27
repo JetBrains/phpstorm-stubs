@@ -204,7 +204,7 @@ class PhpCoreStubsProvider
      */
     public static function getCoreStubsDirectories(): array
     {
-        $coreStubs[] = self::$StubDirectoryMap['CORE'];
+        $coreStubs = [self::$StubDirectoryMap['CORE']];
         $coreStubs[] = self::$StubDirectoryMap['BUNDLED'];
         $coreStubs[] = self::$StubDirectoryMap['EXTERNAL'];
         return CommonUtils::flattenArray($coreStubs, false);
@@ -215,7 +215,7 @@ class PhpCoreStubsProvider
      */
     public static function getNonCoreStubsDirectories(): array
     {
-        $coreStubs[] = self::$StubDirectoryMap['PECL'];
+        $coreStubs = [self::$StubDirectoryMap['PECL']];
         $coreStubs[] = self::$StubDirectoryMap['OTHERS'];
         return CommonUtils::flattenArray($coreStubs, false);
     }

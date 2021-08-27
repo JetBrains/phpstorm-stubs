@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
+use Exception;
 use phpDocumentor\Reflection\DocBlock\Tags\PropertyRead;
 use phpDocumentor\Reflection\DocBlockFactory;
 use PhpParser\Node\Stmt\Class_;
@@ -121,6 +122,7 @@ class PHPClass extends BasePHPClass
 
     /**
      * @param stdClass|array $jsonData
+     * @throws Exception
      */
     public function readMutedProblems($jsonData): void
     {
@@ -128,7 +130,7 @@ class PHPClass extends BasePHPClass
             if ($class->name === $this->name) {
                 if (!empty($class->problems)) {
                     foreach ($class->problems as $problem) {
-                        switch ($problem->description){
+                        switch ($problem->description) {
                             case 'wrong parent':
                                 $this->mutedProblems[StubProblemType::WRONG_PARENT] = $problem->versions;
                                 break;
@@ -138,6 +140,8 @@ class PHPClass extends BasePHPClass
                             case 'missing class':
                                 $this->mutedProblems[StubProblemType::STUB_IS_MISSED] = $problem->versions;
                                 break;
+                            default:
+                                throw new Exception("Unexpected value $problem->description");
                         }
                     }
                 }
@@ -173,6 +177,9 @@ class PHPClass extends BasePHPClass
         }
     }
 
+    /**
+     * @throws RuntimeException
+     */
     public function getProperty($propertyName): ?PHPProperty
     {
         $properties = array_filter($this->properties, function (PHPProperty $property) use ($propertyName): bool {

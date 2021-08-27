@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
+use Exception;
 use PhpParser\Node\Stmt\Property;
 use ReflectionProperty;
 use stdClass;
@@ -83,6 +84,7 @@ class PHPProperty extends BasePHPElement
 
     /**
      * @param stdClass|array $jsonData
+     * @throws Exception
      */
     public function readMutedProblems($jsonData): void
     {
@@ -96,9 +98,10 @@ class PHPProperty extends BasePHPElement
                         case 'wrong readonly':
                             $this->mutedProblems[StubProblemType::PROPERTY_READONLY] = $problem->versions;
                             break;
+                        default:
+                            throw new Exception("Unexpected value $problem->description");
                     }
                 }
-                return;
             }
         }
     }

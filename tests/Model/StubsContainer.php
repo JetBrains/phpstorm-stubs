@@ -42,26 +42,23 @@ class StubsContainer
         });
         if (count($constants) === 1) {
             return array_pop($constants);
-        } else {
-            if ($sourceFilePath !== null) {
-                $constants = array_filter($constants, function (PHPConst $constant) use ($sourceFilePath) {
-                    return $constant->sourceFilePath === $sourceFilePath
-                        && BasePHPElement::entitySuitsCurrentPhpVersion($constant);
-                });
-            }
-            if (count($constants) > 1) {
-                throw new RuntimeException("Multiple constants with name $constantName found");
-            }
-            if (!empty($constants)) {
-                return array_pop($constants);
-            }
+        }
+
+        if ($sourceFilePath !== null) {
+            $constants = array_filter($constants, function (PHPConst $constant) use ($sourceFilePath) {
+                return $constant->sourceFilePath === $sourceFilePath
+                    && BasePHPElement::entitySuitsCurrentPhpVersion($constant);
+            });
+        }
+        if (count($constants) > 1) {
+            throw new RuntimeException("Multiple constants with name $constantName found");
+        }
+        if (!empty($constants)) {
+            return array_pop($constants);
         }
         return null;
     }
 
-    /**
-     * @param PHPConst $constant
-     */
     public function addConstant(PHPConst $constant): void
     {
         if (isset($constant->name)) {
@@ -106,19 +103,19 @@ class StubsContainer
         }
         if (count($functions) === 1) {
             return array_pop($functions);
-        } else {
-            if ($sourceFilePath !== null) {
-                $functions = array_filter($functions, function (PHPFunction $function) use ($shouldSuitCurrentPhpVersion, $sourceFilePath) {
-                    return $function->sourceFilePath === $sourceFilePath
-                        && (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($function));
-                });
-            }
-            if (count($functions) > 1) {
-                throw new RuntimeException("Multiple functions with name $name found");
-            }
-            if (!empty($functions)) {
-                return array_pop($functions);
-            }
+        }
+
+        if ($sourceFilePath !== null) {
+            $functions = array_filter($functions, function (PHPFunction $function) use ($shouldSuitCurrentPhpVersion, $sourceFilePath) {
+                return $function->sourceFilePath === $sourceFilePath
+                    && (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($function));
+            });
+        }
+        if (count($functions) > 1) {
+            throw new RuntimeException("Multiple functions with name $name found");
+        }
+        if (!empty($functions)) {
+            return array_pop($functions);
         }
         return null;
     }
@@ -164,19 +161,19 @@ class StubsContainer
         });
         if (count($classes) === 1) {
             return array_pop($classes);
-        } else {
-            if ($sourceFilePath !== null) {
-                $classes = array_filter($classes, function (PHPClass $class) use ($shouldSuitCurrentPhpVersion, $sourceFilePath) {
-                    return $class->sourceFilePath === $sourceFilePath &&
-                        (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($class));
-                });
-            }
-            if (count($classes) > 1) {
-                throw new RuntimeException("Multiple classes with name $name found");
-            }
-            if (!empty($classes)) {
-                return array_pop($classes);
-            }
+        }
+
+        if ($sourceFilePath !== null) {
+            $classes = array_filter($classes, function (PHPClass $class) use ($shouldSuitCurrentPhpVersion, $sourceFilePath) {
+                return $class->sourceFilePath === $sourceFilePath &&
+                    (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($class));
+            });
+        }
+        if (count($classes) > 1) {
+            throw new RuntimeException("Multiple classes with name $name found");
+        }
+        if (!empty($classes)) {
+            return array_pop($classes);
         }
         return null;
     }
@@ -191,9 +188,6 @@ class StubsContainer
         });
     }
 
-    /**
-     * @param PHPClass $class
-     */
     public function addClass(PHPClass $class): void
     {
         if (isset($class->name)) {
@@ -226,19 +220,19 @@ class StubsContainer
         });
         if (count($interfaces) === 1) {
             return array_pop($interfaces);
-        } else {
-            if ($sourceFilePath !== null) {
-                $interfaces = array_filter($interfaces, function (PHPInterface $interface) use ($shouldSuitCurrentPhpVersion, $sourceFilePath) {
-                    return $interface->sourceFilePath === $sourceFilePath &&
-                        (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($interface));
-                });
-            }
-            if (count($interfaces) > 1) {
-                throw new RuntimeException("Multiple interfaces with name $name found");
-            }
-            if (!empty($interfaces)) {
-                return array_pop($interfaces);
-            }
+        }
+
+        if ($sourceFilePath !== null) {
+            $interfaces = array_filter($interfaces, function (PHPInterface $interface) use ($shouldSuitCurrentPhpVersion, $sourceFilePath) {
+                return $interface->sourceFilePath === $sourceFilePath &&
+                    (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($interface));
+            });
+        }
+        if (count($interfaces) > 1) {
+            throw new RuntimeException("Multiple interfaces with name $name found");
+        }
+        if (!empty($interfaces)) {
+            return array_pop($interfaces);
         }
         return null;
     }
@@ -261,9 +255,6 @@ class StubsContainer
         });
     }
 
-    /**
-     * @param PHPInterface $interface
-     */
     public function addInterface(PHPInterface $interface): void
     {
         if (isset($interface->name)) {
