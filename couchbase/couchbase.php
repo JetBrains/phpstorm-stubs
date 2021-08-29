@@ -1632,7 +1632,7 @@ class Bucket
      *
      * @param mixed $reportId a name which will be included within the ping result
      */
-    public function diagnostics($reportId) {}
+    public function diagnostics($reportId): array {}
 }
 
 class View
