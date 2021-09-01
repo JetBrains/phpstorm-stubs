@@ -3,7 +3,7 @@ name: PhpStorm Stubs PECL Test
 on:
   workflow_dispatch:
   schedule:
-    - cron: '* * 1 * *'
+    - cron: '0 0 1 * *'
 
 jobs:
   build:
