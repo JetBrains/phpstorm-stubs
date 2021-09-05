@@ -1442,7 +1442,7 @@ class Memcached
      * @param string $password <p>
      * The password to use for authentication.
      * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return void
      */
     public function setSaslAuthData(string $username, string $password) {}
 
