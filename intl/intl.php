@@ -5981,7 +5981,7 @@ function intlz_create_default() {}
  * @since 5.5
  */
 #[Pure]
-function intltz_create_enumeration($countryOrRawOffset) {}
+function intltz_create_enumeration($countryOrRawOffset): IntlIterator|false {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -6242,7 +6242,7 @@ function resourcebundle_create(?string $locale, ?string $bundle, bool $fallback 
  * returned as <b>ResourceBundle</b> object.
  */
 #[Pure]
-function resourcebundle_get(ResourceBundle $bundle, $index, bool $fallback = true) {}
+function resourcebundle_get(ResourceBundle $bundle, $index, bool $fallback = true): mixed {}
 
 /**
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>

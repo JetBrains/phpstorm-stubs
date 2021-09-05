@@ -486,7 +486,7 @@ function fscanf($stream, string $format, #[TypeContract(exists: "int|false|null"
  */
 #[ArrayShape(["scheme" => "string", "host" => "string", "port" => "int", "user" => "string", "pass" => "string", "query" => "string", "path" => "string", "fragment" => "string"])]
 #[Pure]
-function parse_url(string $url, int $component = -1) {}
+function parse_url(string $url, int $component = -1): array|string|int|false|null {}
 
 /**
  * URL-encodes string
