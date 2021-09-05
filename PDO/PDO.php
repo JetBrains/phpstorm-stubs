@@ -1000,7 +1000,10 @@ class PDO
      * @param mixed $value
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setAttribute(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attribute, $value) {}
+    public function setAttribute(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attribute,
+        #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')] $value
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1219,7 +1222,7 @@ class PDO
      */
     public function quote(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_INT
     ) {}
 
     final public function __wakeup() {}
@@ -1365,7 +1368,7 @@ class PDOStatement implements IteratorAggregate
     public function bindParam(
         #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $param,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] &$var,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_INT,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxLength = null,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $driverOptions = null
     ) {}
@@ -1396,7 +1399,7 @@ class PDOStatement implements IteratorAggregate
     public function bindColumn(
         #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $column,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] &$var,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_INT,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxLength = null,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $driverOptions = null
     ) {}
@@ -1424,7 +1427,7 @@ class PDOStatement implements IteratorAggregate
     public function bindValue(
         #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $param,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_INT
     ) {}
 
     /**

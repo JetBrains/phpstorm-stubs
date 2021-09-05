@@ -370,7 +370,8 @@ function imagecolorstotal(GdImage $image): int {}
  * contain the appropriate values for the specified color index or <b>FALSE</b> on failure
  */
 #[Pure]
-function imagecolorsforindex(GdImage $image, int $color): array|false {}
+#[LanguageLevelTypeAware(['8.1' => 'array'], default: 'array|false')]
+function imagecolorsforindex(GdImage $image, int $color) {}
 
 /**
  * Copy part of an image

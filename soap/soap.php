@@ -465,6 +465,42 @@ class SoapClient
 class SoapVar
 {
     /**
+     * @var int
+     * @since 8.1
+     */
+    public int $enc_type;
+
+    /**
+     * @var mixed
+     * @since 8.1
+     */
+    public mixed $enc_value;
+
+    /**
+     * @var string|null
+     * @since 8.1
+     */
+    public string|null $enc_stype;
+
+    /**
+     * @var string|null
+     * @since 8.1
+     */
+    public string|null $enc_ns;
+
+    /**
+     * @var string|null
+     * @since 8.1
+     */
+    public string|null $enc_name;
+
+    /**
+     * @var string|null
+     * @since 8.1
+     */
+    public string|null $enc_namens;
+
+    /**
      * SoapVar constructor
      * @link https://php.net/manual/en/soapvar.construct.php
      * @param mixed $data <p>
@@ -758,27 +794,50 @@ class SoapFault extends Exception
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $faultcode;
+
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $faultstring;
+
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $faultactor;
+
     /**
      * @var mixed
      */
+    #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
     public $detail;
+
     /**
      * @var string
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $faultname;
+
     /**
      * @var mixed
      */
+    #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
     public $headerfault;
+
+    /**
+     * @var string|null
+     * @since 8.1
+     */
+    public string|null $faultcodens;
+
+    /**
+     * @var string|null
+     * @since 8.1
+     */
+    public string|null $_name;
 
     /**
      * SoapFault constructor
@@ -857,6 +916,18 @@ class SoapFault extends Exception
 class SoapParam
 {
     /**
+     * @var string
+     * @since 8.1
+     */
+    public string $param_name;
+
+    /**
+     * @var mixed
+     * @since 8.1
+     */
+    public mixed $param_data;
+
+    /**
      * SoapParam constructor
      * @link https://php.net/manual/en/soapparam.soapparam.php
      * @param mixed $data <p>
@@ -897,6 +968,36 @@ class SoapParam
  */
 class SoapHeader
 {
+    /**
+     * @var string
+     * @since 8.1
+     */
+    public string $namespace;
+
+    /**
+     * @var string
+     * @since 8.1
+     */
+    public string $name;
+
+    /**
+     * @var mixed
+     * @since 8.1
+     */
+    public mixed $data;
+
+    /**
+     * @var bool
+     * @since 8.1
+     */
+    public bool $mustUnderstand;
+
+    /**
+     * @var string|int|null
+     * @since 8.1
+     */
+    public string|int|null $actor;
+
     /**
      * SoapHeader constructor
      * @link https://www.php.net/manual/en/soapheader.construct.php

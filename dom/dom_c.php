@@ -2,8 +2,8 @@
 
 //20120405 AG synced to official docs
 use JetBrains\PhpStorm\Deprecated;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
  * The DOMNode class
@@ -2147,7 +2147,7 @@ class DOMEntity extends DOMNode
      * parsed entity. This is NULL if it an entity from the internal subset or if it is not known.
      * @link https://php.net/manual/en/class.domentity.php#domentity.props.actualencoding
      */
-    #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $actualEncoding;
 
     /**
@@ -2156,7 +2156,7 @@ class DOMEntity extends DOMNode
      * parsed entity. This is NULL otherwise.
      * @link https://php.net/manual/en/class.domentity.php#domentity.props.encoding
      */
-    #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $encoding;
 
     /**
@@ -2165,7 +2165,7 @@ class DOMEntity extends DOMNode
      * external parsed entity. This is NULL otherwise.
      * @link https://php.net/manual/en/class.domentity.php#domentity.props.version
      */
-    #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $version;
 }
 
