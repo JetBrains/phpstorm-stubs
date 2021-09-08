@@ -23,6 +23,8 @@ class php_user_filter
     #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
     public $params;
 
+    public $stream;
+
     /**
      * @link https://php.net/manual/en/php-user-filter.filter.php
      * @param resource $in <p> is a resource pointing to a <i>bucket brigade</i< which contains one or more <i>bucket</i> objects containing data to be filtered.</p>
@@ -93,11 +95,13 @@ class Directory
     /**
      * @var string The directory that was opened.
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $path;
 
     /**
      * @var resource Can be used with other directory functions such as {@see readdir()}, {@see rewinddir()} and {@see closedir()}.
      */
+    #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
     public $handle;
 
     /**
