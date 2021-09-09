@@ -43,8 +43,8 @@ interface SessionHandlerInterface
      * Sessions that have not updated for
      * the last maxlifetime seconds will be removed.
      * </p>
-     * @return int|bool <p>
-     * The return value (usually TRUE on success, FALSE on failure).
+     * @return int|false <p>
+     * Returns the number of deleted sessions on success, or false on failure.
      * Note this value is returned internally to PHP for processing.
      * </p>
      * @since 5.4
