@@ -73,7 +73,7 @@ interface SessionHandlerInterface
      * @param string $id The session id to read data for.
      * @return string|false <p>
      * Returns an encoded string of the read data.
-     * If nothing was read, it must return an empty string.
+     * If nothing was read, it must return false.
      * Note this value is returned internally to PHP for processing.
      * </p>
      * @since 5.4
