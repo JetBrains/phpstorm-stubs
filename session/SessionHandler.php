@@ -49,7 +49,7 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    #[LanguageLevelTypeAware(['7.1' => 'int|false'], default: 'bool')
+    #[LanguageLevelTypeAware(['7.1' => 'int|false'], default: 'bool')]
     public function gc(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $max_lifetime);
 
     /**
