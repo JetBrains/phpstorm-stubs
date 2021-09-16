@@ -223,7 +223,7 @@ function ord(string $character): int {}
  * @param string $string <p>
  * The input string.
  * </p>
- * @param array &$result <p>
+ * @param array $result <p>
  * If the second parameter arr is present,
  * variables are stored in this variable as array elements instead.<br/>
  * Since 7.2.0 this parameter is not optional.
@@ -644,7 +644,7 @@ function unlink(string $filename, $context): bool {}
  * @param string $command <p>
  * The command that will be executed.
  * </p>
- * @param array &$output [optional] <p>
+ * @param array $output [optional] <p>
  * If the output argument is present, then the
  * specified array will be filled with every line of output from the
  * command. Trailing whitespace, such as \n, is not
@@ -654,7 +654,7 @@ function unlink(string $filename, $context): bool {}
  * unset on the array before passing it to
  * exec.
  * </p>
- * @param int &$result_code [optional] <p>
+ * @param int $result_code [optional] <p>
  * If the return_var argument is present
  * along with the output argument, then the
  * return status of the executed command will be written to this
@@ -676,7 +676,7 @@ function exec(string $command, &$output, &$result_code): string|false {}
  * @param string $command <p>
  * The command that will be executed.
  * </p>
- * @param int &$result_code [optional] <p>
+ * @param int $result_code [optional] <p>
  * If the return_var argument is present, then the
  * return status of the executed command will be written to this
  * variable.
@@ -714,7 +714,7 @@ function escapeshellarg(string $arg): string {}
  * @param string $command <p>
  * The command that will be executed.
  * </p>
- * @param int &$result_code [optional] <p>
+ * @param int $result_code [optional] <p>
  * If the return_var argument is present, the
  * return status of the Unix command will be placed here.
  * </p>
@@ -769,7 +769,7 @@ function shell_exec(string $command): string|false|null {}
  * secure manner. It is also useful for reading status information
  * provided by those programs on auxiliary file descriptors.
  * </p>
- * @param array &$pipes <p>
+ * @param array $pipes <p>
  * Will be set to an indexed array of file pointers that correspond to
  * PHP's end of any pipes that are created.
  * </p>

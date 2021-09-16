@@ -610,8 +610,8 @@ class ZMQPoll
      *
      * @link https://secure.php.net/manual/en/zmqpoll.poll.php
      *
-     * @param array &$readable Array where readable ZMQSockets/PHP streams are returned. The array will be cleared at the beginning of the operation.
-     * @param array &$writable Array where writable ZMQSockets/PHP streams are returned. The array will be cleared at the beginning of the operation.
+     * @param array $readable Array where readable ZMQSockets/PHP streams are returned. The array will be cleared at the beginning of the operation.
+     * @param array $writable Array where writable ZMQSockets/PHP streams are returned. The array will be cleared at the beginning of the operation.
      * @param int $timeout Timeout for the operation. -1 means that poll waits until at least one item has activity. Please note that starting from version 1.0.0 the poll timeout is defined in milliseconds, rather than microseconds.
      *
      * @throws ZMQPollException if polling fails

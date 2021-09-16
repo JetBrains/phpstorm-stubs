@@ -326,7 +326,7 @@ function crypto_generichash_init(
  * Update the hash state with some data
  * BLAKE2b
  *
- * @param string &$hashState
+ * @param string $hashState
  * @param string $append
  * @return bool
  */
@@ -724,7 +724,7 @@ function hex2bin(
 /**
  * Increment a string in little-endian
  *
- * @param string &$nonce
+ * @param string $nonce
  * @return string
  */
 function increment(
@@ -734,7 +734,7 @@ function increment(
 /**
  * Add the right operand to the left
  *
- * @param string &$left
+ * @param string $left
  * @param string $right
  */
 function add(
@@ -769,7 +769,7 @@ function memcmp(
 /**
  * Wipe a buffer
  *
- * @param string &$target
+ * @param string $target
  */
 function memzero(string &$target) {}
 

@@ -17,7 +17,7 @@ use JetBrains\PhpStorm\Pure;
  * @param int $port [optional] <p>
  * The port number.
  * </p>
- * @param int &$error_code [optional] <p>
+ * @param int $error_code [optional] <p>
  * If provided, holds the system level error number that occurred in the
  * system-level connect() call.
  * </p>
@@ -28,7 +28,7 @@ use JetBrains\PhpStorm\Pure;
  * connect() call. This is most likely due to a
  * problem initializing the socket.
  * </p>
- * @param string &$error_message [optional] <p>
+ * @param string $error_message [optional] <p>
  * The error message as a string.
  * </p>
  * @param float|null $timeout [optional] <p>
@@ -55,8 +55,8 @@ function fsockopen(string $hostname, int $port = -1, &$error_code, &$error_messa
  * @see fsockopen
  * @param string $hostname
  * @param int $port [optional]
- * @param int &$error_code [optional]
- * @param string &$error_message [optional]
+ * @param int $error_code [optional]
+ * @param string $error_message [optional]
  * @param float|null $timeout [optional]
  * @return resource|false
  */

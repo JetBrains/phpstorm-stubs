@@ -471,7 +471,7 @@ class EventBuffer
      * copyout.
      * Copies out specified number of bytes from the front of the buffer.
      *
-     * @param string &$data
+     * @param string $data
      * @param int    $max_bytes
      *
      * @return int
@@ -1437,8 +1437,8 @@ class EventHttpConnection
      * getPeer.
      * Gets the remote address and port associated with the connection.
      *
-     * @param string &$address
-     * @param int    &$port
+     * @param string $address
+     * @param int    $port
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.getpeer.php
      */
@@ -1683,8 +1683,8 @@ final class EventListener
      * getSocketName.
      * Retreives the current address to which the listener's socket is bound.
      *
-     * @param string &$address
-     * @param mixed  &$port
+     * @param string $address
+     * @param mixed  $port
      *
      * @return bool
      *
@@ -1889,8 +1889,8 @@ final class EventUtil
      * Retreives the current address to which the socket is bound.
      *
      * @param mixed $socket
-     * @param string &$address
-     * @param mixed  &$port
+     * @param string $address
+     * @param mixed  $port
      *
      * @return bool
      *

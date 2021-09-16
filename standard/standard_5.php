@@ -109,7 +109,7 @@ function gettype(mixed $value): string {}
 /**
  * Set the type of a variable
  * @link https://php.net/manual/en/function.settype.php
- * @param mixed &$var <p>
+ * @param mixed $var <p>
  * The variable being converted.
  * </p>
  * @param string $type <p>
@@ -329,7 +329,7 @@ function is_scalar(mixed $value): bool {}
  * are supposed to have only 2 entries, the first of which is an object
  * or a string, and the second a string.
  * </p>
- * @param string &$callable_name [optional] <p>
+ * @param string $callable_name [optional] <p>
  * Receives the "callable name". In the example below it is
  * "someClass::someMethod". Note, however, that despite the implication
  * that someClass::SomeMethod() is a callable static method, this is not

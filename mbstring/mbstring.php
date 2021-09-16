@@ -194,7 +194,7 @@ function mb_substitute_character(string|int|null $substitute_character = null): 
  * @param string $string <p>
  * The URL encoded data.
  * </p>
- * @param array &$result [optional] <p>
+ * @param array $result [optional] <p>
  * An array containing decoded and character encoded converted values.
  * </p>
  * @return bool true on success or false on failure.
@@ -208,7 +208,7 @@ function mb_parse_str(string $string, &$result): bool {}
  * @param string $string <p>
  * The URL encoded data.
  * </p>
- * @param array &$result <p>
+ * @param array $result <p>
  * An array containing decoded and character encoded converted values.
  * </p>
  * @return bool true on success or false on failure.
@@ -802,8 +802,8 @@ function mb_decode_mimeheader(string $string): string {}
  * from-coding. When from_encoding
  * is omitted, detect_order is used.
  * </p>
- * @param string|array|object &$var var is the reference to the variable being converted.
- * @param string|array|object &...$vars <p>
+ * @param string|array|object $var var is the reference to the variable being converted.
+ * @param string|array|object ...$vars <p>
  * vars is the other references to the
  * variables being converted. String, Array and Object are accepted.
  * mb_convert_variables assumes all parameters
@@ -955,7 +955,7 @@ function mb_regex_set_options(?string $options): string {}
  * @param string $string <p>
  * The search string.
  * </p>
- * @param string[] &$matches [optional] <p>
+ * @param string[] $matches [optional] <p>
  * Contains a substring of the matched string.
  * </p>
  * @return bool
@@ -971,7 +971,7 @@ function mb_ereg(string $pattern, string $string, &$matches): bool {}
  * @param string $string <p>
  * The string being searched.
  * </p>
- * @param string[] &$matches [optional] <p>
+ * @param string[] $matches [optional] <p>
  * Contains a substring of the matched string.
  * </p>
  * @return bool|int
@@ -1217,7 +1217,7 @@ function mbregex_encoding($encoding) {}
 /**
  * @param string $pattern
  * @param string $string
- * @param array &$registers [optional]
+ * @param array $registers [optional]
  * @see mb_ereg
  * @removed 8.0
  */
@@ -1227,7 +1227,7 @@ function mbereg(string $pattern, string $string, array &$registers) {}
 /**
  * @param string $pattern
  * @param string $string
- * @param array &$registers [optional]
+ * @param array $registers [optional]
  * @see mb_eregi
  * @removed 8.0
  */

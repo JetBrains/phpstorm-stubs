@@ -786,7 +786,7 @@ function putenv(string $assignment): bool {}
  * For example, an longopts element "opt" recognizes an
  * option --opt.
  * Prior to PHP5.3.0 this parameter was only available on few systems
- * @param int &$rest_index [optional] If the optind parameter is present, then the index where argument parsing stopped will be written to this variable.
+ * @param int $rest_index [optional] If the optind parameter is present, then the index where argument parsing stopped will be written to this variable.
  * @return string[]|false[]|false This function will return an array of option / argument pairs or false on
  * failure.
  */

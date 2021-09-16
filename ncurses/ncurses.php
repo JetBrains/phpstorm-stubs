@@ -75,11 +75,11 @@ function ncurses_init_pair($pair, $fg, $bg) {}
  * @link https://php.net/manual/en/function.ncurses-color-content.php
  * @param int $color <p>
  * </p>
- * @param int &$r <p>
+ * @param int $r <p>
  * </p>
- * @param int &$g <p>
+ * @param int $g <p>
  * </p>
- * @param int &$b <p>
+ * @param int $b <p>
  * </p>
  * @return int
  */
@@ -90,9 +90,9 @@ function ncurses_color_content($color, &$r, &$g, &$b) {}
  * @link https://php.net/manual/en/function.ncurses-pair-content.php
  * @param int $pair <p>
  * </p>
- * @param int &$f <p>
+ * @param int $f <p>
  * </p>
- * @param int &$b <p>
+ * @param int $b <p>
  * </p>
  * @return int
  */
@@ -969,7 +969,7 @@ function ncurses_insstr($text) {}
 /**
  * Reads string from terminal screen
  * @link https://php.net/manual/en/function.ncurses-instr.php
- * @param string &$buffer <p>
+ * @param string $buffer <p>
  * The characters. Attributes will be stripped.
  * </p>
  * @return int the number of characters.
@@ -1125,7 +1125,7 @@ function ncurses_longname() {}
  * @param int $newmask <p>
  * Mouse mask options can be set with the following predefined constants:
  * <p>NCURSES_BUTTON1_PRESSED</p>
- * @param int &$oldmask <p>
+ * @param int $oldmask <p>
  * This will be set to the previous value of the mouse event mask.
  * </p>
  * @return int a mask to indicated which of the in parameter
@@ -1138,7 +1138,7 @@ function ncurses_mousemask($newmask, &$oldmask) {}
 /**
  * Reads mouse event
  * @link https://php.net/manual/en/function.ncurses-getmouse.php
- * @param array &$mevent <p>
+ * @param array $mevent <p>
  * Event options will be delivered in this parameter which has to be an
  * array, passed by reference (see example below).
  * </p>
@@ -1167,9 +1167,9 @@ function ncurses_ungetmouse(array $mevent) {}
 /**
  * Transforms coordinates
  * @link https://php.net/manual/en/function.ncurses-mouse-trafo.php
- * @param int &$y <p>
+ * @param int $y <p>
  * </p>
- * @param int &$x <p>
+ * @param int $x <p>
  * </p>
  * @param bool $toscreen <p>
  * </p>
@@ -1182,9 +1182,9 @@ function ncurses_mouse_trafo(&$y, &$x, $toscreen) {}
  * @link https://php.net/manual/en/function.ncurses-wmouse-trafo.php
  * @param resource $window <p>
  * </p>
- * @param int &$y <p>
+ * @param int $y <p>
  * </p>
- * @param int &$x <p>
+ * @param int $x <p>
  * </p>
  * @param bool $toscreen <p>
  * </p>
@@ -1443,9 +1443,9 @@ function ncurses_wvline($window, $charattr, $n) {}
  * @link https://php.net/manual/en/function.ncurses-getyx.php
  * @param resource $window <p>
  * </p>
- * @param int &$y <p>
+ * @param int $y <p>
  * </p>
- * @param int &$x <p>
+ * @param int $x <p>
  * </p>
  * @return void
  */
@@ -1457,10 +1457,10 @@ function ncurses_getyx($window, &$y, &$x) {}
  * @param resource $window <p>
  * The measured window
  * </p>
- * @param int &$y <p>
+ * @param int $y <p>
  * This will be set to the window height
  * </p>
- * @param int &$x <p>
+ * @param int $x <p>
  * This will be set to the window width
  * </p>
  * @return void

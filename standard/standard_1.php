@@ -781,7 +781,7 @@ function rtrim(string $string, string $characters = " \t\n\r\0\x0B"): string {}
  * subject, and the return value is an array as
  * well.
  * </p>
- * @param int &$count [optional] If passed, this will hold the number of matched and replaced needles.
+ * @param int $count [optional] If passed, this will hold the number of matched and replaced needles.
  * @return string|string[] This function returns a string or an array with the replaced values.
  */
 function str_replace(array|string $search, array|string $replace, array|string $subject, &$count): array|string {}
@@ -801,7 +801,7 @@ function str_replace(array|string $search, array|string $replace, array|string $
  * subject, and the return value is an array as
  * well.
  * </p>
- * @param int &$count [optional] <p>
+ * @param int $count [optional] <p>
  * The number of matched and replaced needles will
  * be returned in count which is passed by
  * reference.
@@ -947,7 +947,7 @@ function strip_tags(string $string, #[LanguageLevelTypeAware(["7.4" => "string[]
  * @param string $string2 <p>
  * The second string.
  * </p>
- * @param float &$percent [optional] <p>
+ * @param float $percent [optional] <p>
  * By passing a reference as third argument,
  * similar_text will calculate the similarity in
  * percent for you.

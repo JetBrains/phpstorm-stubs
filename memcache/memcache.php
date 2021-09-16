@@ -211,7 +211,7 @@ class MemcachePool
      * @param string|array $key <p>
      * The key or array of keys to fetch.
      * </p>
-     * @param int|array &$flags [optional] <p>
+     * @param int|array $flags [optional] <p>
      * If present, flags fetched along with the values will be written to this parameter. These
      * flags are the same as the ones given to for example {@link https://php.net/manual/en/memcache.set.php Memcache::set()}.
      * The lowest byte of the int is reserved for pecl/memcache internal usage (e.g. to indicate

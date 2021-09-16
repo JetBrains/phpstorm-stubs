@@ -707,7 +707,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * <i>operation</i> is one of the following:
      * <b>LOCK_SH</b> to acquire a shared lock (reader).
      * </p>
-     * @param int &$wouldBlock [optional] <p>
+     * @param int $wouldBlock [optional] <p>
      * Set to 1 if the lock would block (EWOULDBLOCK errno condition).
      * </p>
      * @return bool true on success or false on failure.

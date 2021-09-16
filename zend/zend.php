@@ -156,7 +156,7 @@ class ZendAPI_Queue
      * @param int $end_time UNIX timestamp. Get only jobs finished before $end_time.
      * @param int $index Get jobs starting from the $index-th place.
      * @param int $count Get only $count jobs.
-     * @param int &$total Pass by reference. Return the total number of jobs statisifed the query criteria.
+     * @param int $total Pass by reference. Return the total number of jobs statisifed the query criteria.
      *
      * @return array of jobs.
      */

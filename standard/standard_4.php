@@ -56,7 +56,7 @@ function call_user_func_array(callable $callback, array $args): mixed {}
  * Call a user method on an specific object
  * @link https://php.net/manual/en/function.call-user-method.php
  * @param string $method_name
- * @param object &$obj
+ * @param object $obj
  * @param mixed ...$parameter [optional]
  * @return mixed
  * @removed 7.0
@@ -69,7 +69,7 @@ function call_user_method(string $method_name, object &$obj, ...$parameter): mix
  * Call a user method given with an array of parameters
  * @link https://php.net/manual/en/function.call-user-method-array.php
  * @param string $method_name
- * @param object &$obj
+ * @param object $obj
  * @param array $params
  * @return mixed
  * @removed 7.0
@@ -692,14 +692,14 @@ function header_remove(?string $name): void {}
 /**
  * Checks if or where headers have been sent
  * @link https://php.net/manual/en/function.headers-sent.php
- * @param string &$filename [optional] <p>
+ * @param string $filename [optional] <p>
  * If the optional file and
  * line parameters are set,
  * headers_sent will put the PHP source file name
  * and line number where output started in the file
  * and line variables.
  * </p>
- * @param int &$line [optional] <p>
+ * @param int $line [optional] <p>
  * The line number where the output started.
  * </p>
  * @return bool headers_sent will return false if no HTTP headers
@@ -939,8 +939,8 @@ function checkdnsrr(string $hostname, string $type = 'MX'): bool {}
  * {@see getmxrr}
  * @link https://php.net/manual/en/function.dns-get-mx.php
  * @param string $hostname
- * @param array &$hosts
- * @param array &$weights [optional]
+ * @param array $hosts
+ * @param array $weights [optional]
  * @return bool
  */
 function dns_get_mx(string $hostname, &$hosts, &$weights): bool {}
@@ -951,11 +951,11 @@ function dns_get_mx(string $hostname, &$hosts, &$weights): bool {}
  * @param string $hostname <p>
  * The Internet host name.
  * </p>
- * @param array &$hosts <p>
+ * @param array $hosts <p>
  * A list of the MX records found is placed into the array
  * mxhosts.
  * </p>
- * @param array &$weights [optional] <p>
+ * @param array $weights [optional] <p>
  * If the weight array is given, it will be filled
  * with the weight information gathered.
  * </p>
@@ -999,11 +999,11 @@ function getmxrr(string $hostname, &$hosts, &$weights): bool {}
  * always return every record, the slower DNS_ALL
  * will collect all records more reliably.
  * </p>
- * @param array &$authoritative_name_servers [optional] <p>
+ * @param array $authoritative_name_servers [optional] <p>
  * Passed by reference and, if given, will be populated with Resource
  * Records for the Authoritative Name Servers.
  * </p>
- * @param array &$additional_records [optional] <p>
+ * @param array $additional_records [optional] <p>
  * Passed by reference and, if given, will be populated with any
  * Additional Records.
  * </p>

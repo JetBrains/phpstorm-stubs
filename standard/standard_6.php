@@ -10,18 +10,18 @@ use JetBrains\PhpStorm\Pure;
  * Runs the equivalent of the select() system call on the given
  * arrays of streams with a timeout specified by tv_sec and tv_usec
  * @link https://php.net/manual/en/function.stream-select.php
- * @param array|null &$read <p>
+ * @param array|null $read <p>
  * The streams listed in the read array will be watched to
  * see if characters become available for reading (more precisely, to see if
  * a read will not block - in particular, a stream resource is also ready on
  * end-of-file, in which case an fread will return
  * a zero length string).
  * </p>
- * @param array|null &$write <p>
+ * @param array|null $write <p>
  * The streams listed in the write array will be
  * watched to see if a write will not block.
  * </p>
- * @param array|null &$except <p>
+ * @param array|null $except <p>
  * The streams listed in the except array will be
  * watched for high priority exceptional ("out-of-band") data arriving.
  * </p>
@@ -281,10 +281,10 @@ function stream_filter_remove($stream_filter): bool {}
  * @param string $address <p>
  * Address to the socket to connect to.
  * </p>
- * @param int &$error_code [optional] <p>
+ * @param int $error_code [optional] <p>
  * Will be set to the system level error number if connection fails.
  * </p>
- * @param string &$error_message [optional] <p>
+ * @param string $error_message [optional] <p>
  * Will be set to the system level error message if the connection fails.
  * </p>
  * @param float|null $timeout [optional] <p>
@@ -338,7 +338,7 @@ function stream_socket_client(string $address, &$error_code, &$error_message, ?f
  * stream_get_transports. See
  * for a list of built-in transports.
  * </p>
- * @param int &$error_code [optional] <p>
+ * @param int $error_code [optional] <p>
  * If the optional errno and errstr
  * arguments are present they will be set to indicate the actual system
  * level error that occurred in the system-level socket(),
@@ -350,7 +350,7 @@ function stream_socket_client(string $address, &$error_code, &$error_message, ?f
  * Note that the errno and
  * errstr arguments will always be passed by reference.
  * </p>
- * @param string &$error_message [optional] <p>
+ * @param string $error_message [optional] <p>
  * See errno description.
  * </p>
  * @param int $flags [optional] <p>
@@ -375,7 +375,7 @@ function stream_socket_server(string $address, &$error_code, &$error_message, in
  * Override the default socket accept timeout. Time should be given in
  * seconds.
  * </p>
- * @param string &$peer_name [optional] <p>
+ * @param string $peer_name [optional] <p>
  * Will be set to the name (address) of the client which connected, if
  * included and available from the selected transport.
  * </p>
@@ -432,7 +432,7 @@ function stream_socket_get_name($socket, bool $remote): string|false {}
  * </tr>
  * </table>
  * </p>
- * @param string &$address [optional] <p>
+ * @param string $address [optional] <p>
  * If address is provided it will be populated with
  * the address of the remote socket.
  * </p>
@@ -664,7 +664,7 @@ function fputcsv(
  * @param int $operation <p>
  * operation is one of the following:
  * LOCK_SH to acquire a shared lock (reader).</p>
- * @param int &$would_block [optional] <p>
+ * @param int $would_block [optional] <p>
  * The optional third argument is set to 1 if the lock would block
  * (EWOULDBLOCK errno condition).
  * </p>

@@ -211,7 +211,7 @@ function ftp_chmod(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default
  * @param int $size <p>
  * The number of bytes to allocate.
  * </p>
- * @param string &$response [optional] <p>
+ * @param string $response [optional] <p>
  * A textual representation of the servers response will be returned by
  * reference in <i>result</i> if a variable is provided.
  * </p>

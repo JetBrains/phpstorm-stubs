@@ -303,7 +303,7 @@ class Collator
    * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
    * Sort array using specified collator
    * @link https://php.net/manual/en/collator.sort.php
-   * @param string[] &$array <p>
+   * @param string[] $array <p>
    * Array of strings to sort.
    * </p>
    * @param int $flags [optional] <p>
@@ -324,7 +324,7 @@ class Collator
    * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
    * Sort array using specified collator and sort keys
    * @link https://php.net/manual/en/collator.sortwithsortkeys.php
-   * @param string[] &$array <p>Array of strings to sort</p>
+   * @param string[] $array <p>Array of strings to sort</p>
    * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
    */
   public function sortWithSortKeys(array &$array) {}
@@ -333,7 +333,7 @@ class Collator
    * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
    * Sort array maintaining index association
    * @link https://php.net/manual/en/collator.asort.php
-   * @param string[] &$array <p>Array of strings to sort.</p>
+   * @param string[] $array <p>Array of strings to sort.</p>
    * @param int $flags [optional] <p>
    * Optional sorting type, one of the following:
    * <b>Collator::SORT_REGULAR</b>
@@ -971,7 +971,7 @@ class NumberFormatter
    * formatting type to use. By default,
    * <b>NumberFormatter::TYPE_DOUBLE</b> is used.
    * </p>
-   * @param int &$offset [optional] <p>
+   * @param int $offset [optional] <p>
    * Offset in the string at which to begin parsing. On return, this value
    * will hold the offset at which parsing ended.
    * </p>
@@ -1006,11 +1006,11 @@ class NumberFormatter
    * Parse a currency number
    * @link https://php.net/manual/en/numberformatter.parsecurrency.php
    * @param string $string
-   * @param string &$currency <p>
+   * @param string $currency <p>
    * Parameter to receive the currency name (3-letter ISO 4217 currency
    * code).
    * </p>
-   * @param int &$offset [optional] <p>
+   * @param int $offset [optional] <p>
    * Offset in the string at which to begin parsing. On return, this value
    * will hold the offset at which parsing ended.
    * </p>
@@ -2097,7 +2097,7 @@ class IntlDateFormatter
    * @param string $string <p>
    * string to convert to a time
    * </p>
-   * @param int &$offset [optional] <p>
+   * @param int $offset [optional] <p>
    * Position at which to start the parsing in $value (zero-based).
    * If no error occurs before $value is consumed, $parse_pos will contain -1
    * otherwise it will contain the position at which parsing ended (and the error occurred).
@@ -2115,7 +2115,7 @@ class IntlDateFormatter
    * @param string $string <p>
    * string to convert to a time
    * </p>
-   * @param int &$offset [optional] <p>
+   * @param int $offset [optional] <p>
    * Position at which to start the parsing in $value (zero-based).
    * If no error occurs before $value is consumed, $parse_pos will contain -1
    * otherwise it will contain the position at which parsing ended .
@@ -2401,7 +2401,7 @@ class Spoofchecker
    * @link https://php.net/manual/en/spoofchecker.issuspicious.php
    * @param string $string <p>
    * </p>
-   * @param string &$errorCode [optional] <p>
+   * @param string $errorCode [optional] <p>
    * </p>
    * @return bool
    */
@@ -2415,7 +2415,7 @@ class Spoofchecker
    * </p>
    * @param string $string2 <p>
    * </p>
-   * @param string &$errorCode [optional] <p>
+   * @param string $errorCode [optional] <p>
    * </p>
    * @return bool
    */
@@ -3371,7 +3371,7 @@ class IntlTimeZone
    * Get the canonical system timezone ID or the normalized custom time zone ID for the given time zone ID
    * @link https://secure.php.net/manual/en/intltimezone.getcanonicalid.php
    * @param string $timezoneId
-   * @param bool &$isSystemId [optional]
+   * @param bool $isSystemId [optional]
    * @return string|false the timezone ID or <b>FALSE</b> on failure
    */
   public static function getCanonicalID(#[TypeAware(['8.0' => 'string'], default: '')] $timezoneId, &$isSystemId) {}
@@ -3457,10 +3457,10 @@ class IntlTimeZone
    *   `local'.
    * @param bool $local
    *   if true, `date' is local wall time; otherwise it is in GMT time.
-   * @param int &$rawOffset
+   * @param int $rawOffset
    *   output parameter to receive the raw offset, that is, the offset not
    *   including DST adjustments
-   * @param int &$dstOffset
+   * @param int $dstOffset
    *   output parameter to receive the DST offset, that is, the offset to be added
    *   to `rawOffset' to obtain the total offset between local and GMT time. If
    *   DST is not in effect, this value is zero; otherwise it is a positive value,
@@ -3660,7 +3660,7 @@ function collator_set_strength(Collator $object, int $strength): bool {}
  * Sort array using specified collator
  * @link https://php.net/manual/en/collator.sort.php
  * @param Collator $object
- * @param string[] &$array <p>
+ * @param string[] $array <p>
  * Array of strings to sort.
  * </p>
  * @param int $flags [optional] <p>
@@ -3679,7 +3679,7 @@ function collator_sort(Collator $object, array &$array, int $flags = null): bool
  * Sort array using specified collator and sort keys
  * @link https://php.net/manual/en/collator.sortwithsortkeys.php
  * @param Collator $object
- * @param string[] &$array <p>Array of strings to sort</p>
+ * @param string[] $array <p>Array of strings to sort</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function collator_sort_with_sort_keys(Collator $object, array &$array): bool {}
@@ -3689,7 +3689,7 @@ function collator_sort_with_sort_keys(Collator $object, array &$array): bool {}
  * Sort array maintaining index association
  * @link https://php.net/manual/en/collator.asort.php
  * @param Collator $object
- * @param string[] &$array <p>Array of strings to sort.</p>
+ * @param string[] $array <p>Array of strings to sort.</p>
  * @param int $flags [optional] <p>
  * Optional sorting type, one of the following:
  * <b>Collator::SORT_REGULAR</b>
@@ -3806,7 +3806,7 @@ function numfmt_format(NumberFormatter $formatter, int|float $num, int $type = n
  * formatting type to use. By default,
  * <b>NumberFormatter::TYPE_DOUBLE</b> is used.
  * </p>
- * @param int &$offset [optional] <p>
+ * @param int $offset [optional] <p>
  * Offset in the string at which to begin parsing. On return, this value
  * will hold the offset at which parsing ended.
  * </p>
@@ -3837,11 +3837,11 @@ function numfmt_format_currency(NumberFormatter $formatter, float $amount, strin
  * @link https://php.net/manual/en/numberformatter.parsecurrency.php
  * @param NumberFormatter $formatter
  * @param string $string
- * @param string &$currency <p>
+ * @param string $currency <p>
  * Parameter to receive the currency name (3-letter ISO 4217 currency
  * code).
  * </p>
- * @param int &$offset [optional] <p>
+ * @param int $offset [optional] <p>
  * Offset in the string at which to begin parsing. On return, this value
  * will hold the offset at which parsing ended.
  * </p>
@@ -4717,7 +4717,7 @@ function datefmt_format_object($datetime, $format = null, ?string $locale = null
  * @param string $string <p>
  * string to convert to a time
  * </p>
- * @param int &$offset [optional] <p>
+ * @param int $offset [optional] <p>
  * Position at which to start the parsing in $value (zero-based).
  * If no error occurs before $value is consumed, $parse_pos will contain -1
  * otherwise it will contain the position at which parsing ended (and the error occurred).
@@ -4736,7 +4736,7 @@ function datefmt_parse(IntlDateFormatter $formatter, string $string, &$offset = 
  * @param string $string <p>
  * string to convert to a time
  * </p>
- * @param int &$offset [optional] <p>
+ * @param int $offset [optional] <p>
  * Position at which to start the parsing in $value (zero-based).
  * If no error occurs before $value is consumed, $parse_pos will contain -1
  * otherwise it will contain the position at which parsing ended .
@@ -4957,7 +4957,7 @@ function grapheme_stristr(string $haystack, string $needle, bool $beforeNeedle =
  * bytes. If $start does not point to the first byte of a UTF-8
  * character, the start position is moved to the next character boundary.
  * </p>
- * @param int &$next [optional] <p>
+ * @param int $next [optional] <p>
  * Reference to a value that will be set to the next starting position.
  * When the call returns, this may point to the first byte position past the end of the string.
  * </p>
@@ -4982,7 +4982,7 @@ function grapheme_extract(string $haystack, int $size, int $type = null, int $of
  * @param int $variant [optional] <p>
  * Either INTL_IDNA_VARIANT_2003 for IDNA 2003 or INTL_IDNA_VARIANT_UTS46 for UTS #46.
  * </p>
- * @param array &$idna_info [optional] <p>
+ * @param array $idna_info [optional] <p>
  * This parameter can be used only if INTL_IDNA_VARIANT_UTS46 was used for variant.
  * In that case, it will be filled with an array with the keys 'result',
  * the possibly illegal result of the transformation, 'isTransitionalDifferent',
@@ -5008,7 +5008,7 @@ function idn_to_ascii(string $domain, int $flags = 0, int $variant = INTL_IDNA_V
  * @param int $variant [optional] <p>
  * Either INTL_IDNA_VARIANT_2003 for IDNA 2003 or INTL_IDNA_VARIANT_UTS46 for UTS #46.
  * </p>
- * @param array &$idna_info [optional] <p>
+ * @param array $idna_info [optional] <p>
  * This parameter can be used only if INTL_IDNA_VARIANT_UTS46 was used for variant.
  * In that case, it will be filled with an array with the keys 'result',
  * the possibly illegal result of the transformation, 'isTransitionalDifferent',
@@ -6008,7 +6008,7 @@ function intltz_from_date_time_zone(DateTimeZone $timezone): ?IntlTimeZone {}
  * Get the canonical system timezone ID or the normalized custom time zone ID for the given time zone ID
  * @link https://secure.php.net/manual/en/intltimezone.getcanonicalid.php
  * @param string $timezoneId
- * @param bool &$isSystemId [optional]
+ * @param bool $isSystemId [optional]
  * @return string|false
  * @since 5.5
  */
@@ -6109,8 +6109,8 @@ function intltz_get_id(IntlTimeZone $timezone): string|false {}
  * @param IntlTimeZone $timezone
  * @param float $timestamp
  * @param bool $local
- * @param int &$rawOffset
- * @param int &$dstOffset
+ * @param int $rawOffset
+ * @param int $dstOffset
  * @return bool
  * @since 5.5
  */
@@ -7245,7 +7245,7 @@ class UConverter
    * @param int $reason
    * @param string $source
    * @param string $codePoint
-   * @param int &$error
+   * @param int $error
    * @return mixed
    */
   public function fromUCallback(
@@ -7388,7 +7388,7 @@ class UConverter
    * @param int $reason
    * @param string $source
    * @param string $codeUnits
-   * @param int &$error
+   * @param int $error
    * @return mixed
    */
   public function toUCallback(

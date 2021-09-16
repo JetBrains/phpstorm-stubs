@@ -13,7 +13,7 @@ use JetBrains\PhpStorm\Pure;
  * @param string $subject <p>
  * The input string.
  * </p>
- * @param string[] &$matches [optional] <p>
+ * @param string[] $matches [optional] <p>
  * If <i>matches</i> is provided, then it is filled with
  * the results of search. $matches[0] will contain the
  * text that matched the full pattern, $matches[1]
@@ -167,7 +167,7 @@ function preg_match(string $pattern, string $subject, &$matches, int $flags = 0,
  * @param string $subject <p>
  * The input string.
  * </p>
- * @param string[][] &$matches [optional] <p>
+ * @param string[][] $matches [optional] <p>
  * Array of all matches in multi-dimensional array ordered according to flags.
  * </p>
  * @param int $flags [optional] <p>
@@ -289,7 +289,7 @@ function preg_match_all(string $pattern, string $subject, &$matches, int $flags 
  * <i>subject</i> string. Defaults to
  * -1 (no limit).
  * </p>
- * @param int &$count [optional] <p>
+ * @param int $count [optional] <p>
  * If specified, this variable will be filled with the number of
  * replacements done.
  * </p>
@@ -360,7 +360,7 @@ function preg_replace(array|string $pattern, array|string $replacement, array|st
  * <i>subject</i> string. Defaults to
  * -1 (no limit).
  * </p>
- * @param int &$count [optional] <p>
+ * @param int $count [optional] <p>
  * If specified, this variable will be filled with the number of
  * replacements done.
  * </p>
@@ -388,7 +388,7 @@ function preg_replace_callback(
  * @param array|callable[] $pattern An associative array mapping patterns (keys) to callbacks (values)
  * @param string|string[] $subject
  * @param int $limit [optional]
- * @param int &$count [optional]
+ * @param int $count [optional]
  * @param int $flags [optional]
  * @return string|string[]|null  <p>preg_replace_callback_array() returns an array if the subject parameter is an array, or a string otherwise. On errors the return value is NULL</p>
  * <p>If matches are found, the new subject will be returned, otherwise subject will be returned unchanged.</p>
@@ -408,7 +408,7 @@ function preg_replace_callback_array(
  * @param string|string[] $replacement
  * @param string|string[] $subject
  * @param int $limit [optional]
- * @param int &$count [optional]
+ * @param int $count [optional]
  * @return string|string[]|null an array if the <i>subject</i>
  * parameter is an array, or a string otherwise.
  * </p>

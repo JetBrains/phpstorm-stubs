@@ -702,7 +702,7 @@ class Env
      * @param string $params HTTP header parameter's value to negotiate.
      * @param array $supported List of supported negotiation operands.
      * @param string $prim_typ_sep A "primary type separator", i.e. that would be a hyphen for content language negotiation (en-US, de-DE, etc.).
-     * @param array &$result Out parameter recording negotiation results.
+     * @param array $result Out parameter recording negotiation results.
      * @return string|null NULL if negotiation fails.
      * 		 or string the closest match negotiated, or the default (first entry of $supported).
      */
@@ -714,7 +714,7 @@ class Env
      * The first element of $supported character sets serves as a default if no character set matches.
      *
      * @param array $supported List of supported content character sets.
-     * @param array &$result Out parameter recording negotiation results.
+     * @param array $result Out parameter recording negotiation results.
      * @return string|null NULL if negotiation fails.
      * 		 or string the negotiated character set.
      */
@@ -726,7 +726,7 @@ class Env
      * The first element of $supported content types serves as a default if no content-type matches.
      *
      * @param array $supported List of supported MIME content types.
-     * @param array &$result Out parameter recording negotiation results.
+     * @param array $result Out parameter recording negotiation results.
      * @return string|null NULL if negotiation fails.
      * 		 or string the negotiated content type.
      */
@@ -738,7 +738,7 @@ class Env
      * The first element of $supported encodings serves as a default if no encoding matches.
      *
      * @param array $supported List of supported content encodings.
-     * @param array &$result Out parameter recording negotiation results.
+     * @param array $result Out parameter recording negotiation results.
      * @return string|null NULL if negotiation fails.
      * 		 or string the negotiated encoding.
      */
@@ -750,7 +750,7 @@ class Env
      * The first element of $supported languages serves as a default if no language matches.
      *
      * @param array $supported List of supported content languages.
-     * @param array &$result Out parameter recording negotiation results.
+     * @param array $result Out parameter recording negotiation results.
      * @return string|null NULL if negotiation fails.
      * 		 or string the negotiated language.
      */
@@ -866,7 +866,7 @@ class Header implements \Serializable
      * The first element of $supported serves as a default if no operand matches.
      *
      * @param array $supported The list of supported values to negotiate.
-     * @param array &$result Out parameter recording the negotiation results.
+     * @param array $result Out parameter recording the negotiation results.
      * @return string|null NULL if negotiation fails.
      * 		 or string the closest match negotiated, or the default (first entry of $supported).
      */
@@ -1136,7 +1136,7 @@ class Message implements \Countable, \Serializable, \Iterator
      *
      * See http\Message::splitMultipartBody().
      *
-     * @param string &$boundary A reference where the boundary string will be stored.
+     * @param string $boundary A reference where the boundary string will be stored.
      * @return bool whether this is a message with a multipart "Content-Type".
      */
     public function isMultipart(string &$boundary = null) {}
@@ -2468,7 +2468,7 @@ class Dechunk extends \http\Encoding\Stream
      * Decode chunked encoded data.
      *
      * @param string $data The data to decode.
-     * @param int &$decoded_len Out parameter with the length of $data that's been decoded.
+     * @param int $decoded_len Out parameter with the length of $data that's been decoded.
      *   Should be ```strlen($data)``` if not truncated.
      * @return string|string|string|false string the decoded data.
      * 		 or string the unencoded data.
@@ -3036,7 +3036,7 @@ class Parser
      *
      * @param string $data The (part of the) header to parse.
      * @param int $flags Any combination of [parser flags](http/Header/Parser#Parser.flags:).
-     * @param array &$header Successfully parsed headers.
+     * @param array $header Successfully parsed headers.
      * @throws \http\Exception\InvalidArgumentException
      * @return int http\Header\Parser::STATE_* constant.
      */
@@ -3046,7 +3046,7 @@ class Parser
      *
      * @param resource $stream The header stream to parse from.
      * @param int $flags Any combination of [parser flags](http/Header/Parser#Parser.flags:).
-     * @param array &$headers The headers parsed.
+     * @param array $headers The headers parsed.
      * @throws \http\Exception\InvalidArgumentException
      * @throws \http\Exception\UnexpectedValueException
      * @return int http\Header\Parser::STATE_* constant.

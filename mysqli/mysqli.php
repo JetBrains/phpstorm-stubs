@@ -632,11 +632,11 @@ class mysqli
     /**
      * Poll connections
      * @link https://php.net/manual/en/mysqli.poll.php
-     * @param array &$read <p>
+     * @param array $read <p>
      * </p>
-     * @param array &$error <p>
+     * @param array $error <p>
      * </p>
-     * @param array &$reject <p>
+     * @param array $reject <p>
      * </p>
      * @param int $seconds <p>
      * Number of seconds to wait, must be non-negative.
@@ -1384,11 +1384,11 @@ class mysqli_stmt
      * </tr>
      * </table>
      * </p>
-     * @param mixed &$var1 <p>
+     * @param mixed $var1 <p>
      * The number of variables and length of string
      * types must match the parameters in the statement.
      * </p>
-     * @param mixed &...$_ [optional]
+     * @param mixed ...$_ [optional]
      * @return bool true on success or false on failure.
      */
     public function bind_param($types, &$var1, &...$_) {}
@@ -1396,8 +1396,8 @@ class mysqli_stmt
     /**
      * Binds variables to a prepared statement for result storage
      * @link https://php.net/manual/en/mysqli-stmt.bind-result.php
-     * @param mixed &$var1 The variable to be bound.
-     * @param mixed &...$_ The variables to be bound.
+     * @param mixed $var1 The variable to be bound.
+     * @param mixed ...$_ The variables to be bound.
      * @return bool true on success or false on failure.
      */
     public function bind_result(&$var1, &...$_) {}
@@ -2123,9 +2123,9 @@ function mysqli_ping(mysqli $mysql): bool {}
 /**
  * Poll connections
  * @link https://php.net/manual/en/mysqli.poll.php
- * @param array|null &$read
- * @param array|null &$error
- * @param array &$reject
+ * @param array|null $read
+ * @param array|null $error
+ * @param array $reject
  * @param int $seconds
  * @param int $microseconds [optional]
  * @return int|false number of ready connections upon success, FALSE otherwise.
@@ -2392,11 +2392,11 @@ function mysqli_stmt_send_long_data(mysqli_stmt $statement, int $param_num, stri
  * </tr>
  * </table>
  * </p>
- * @param mixed &$var1 <p>
+ * @param mixed $var1 <p>
  * The number of variables and length of string
  * types must match the parameters in the statement.
  * </p>
- * @param mixed &...$vars
+ * @param mixed ...$vars
  * @return bool true on success or false on failure.
  */
 function mysqli_stmt_bind_param(
@@ -2648,7 +2648,7 @@ function mysqli_bind_param(mysqli_stmt $statement, string $types) {}
  * @link https://php.net/manual/en/function.mysqli-bind-result.php
  * @param mysqli_stmt $statement
  * @param string $types
- * @param mixed &$var1
+ * @param mixed $var1
  * @removed 5.4
  */
 #[Deprecated(since: '5.3')]

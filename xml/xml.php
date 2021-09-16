@@ -351,10 +351,10 @@ function xml_parse(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "re
  * @param string $data <p>
  * A string containing the XML data.
  * </p>
- * @param array &$values <p>
+ * @param array $values <p>
  * An array containing the values of the XML data
  * </p>
- * @param array &$index [optional] <p>
+ * @param array $index [optional] <p>
  * An array containing pointers to the location of the appropriate values in the $values.
  * </p>
  * @return int <b>xml_parse_into_struct</b> returns 0 for failure and 1 for

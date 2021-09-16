@@ -58,7 +58,7 @@ function pcntl_fork(): int {}
  * equivalent to the functionality <b>pcntl_wait</b> provides
  * (minus <i>options</i>).
  * </p>
- * @param int &$status <p>
+ * @param int $status <p>
  * <b>pcntl_waitpid</b> will store status information
  * in the <i>status</i> parameter which can be
  * evaluated using the following functions:
@@ -90,7 +90,7 @@ function pcntl_fork(): int {}
  * </tr>
  * </table>
  * </p>
- * @param array &$resource_usage [optional]
+ * @param array $resource_usage [optional]
  * @return int <b>pcntl_waitpid</b> returns the process ID of the
  * child which exited, -1 on error or zero if <b>WNOHANG</b> was used and no
  * child was available
@@ -100,7 +100,7 @@ function pcntl_waitpid(int $process_id, &$status, int $flags = 0, &$resource_usa
 /**
  * Waits on or returns the status of a forked child
  * @link https://php.net/manual/en/function.pcntl-wait.php
- * @param int &$status <p>
+ * @param int $status <p>
  * <b>pcntl_wait</b> will store status information
  * in the <i>status</i> parameter which can be
  * evaluated using the following functions:
@@ -136,7 +136,7 @@ function pcntl_waitpid(int $process_id, &$status, int $flags = 0, &$resource_usa
  * </tr>
  * </table>
  * </p>
- * @param array &$resource_usage [optional]
+ * @param array $resource_usage [optional]
  * @return int <b>pcntl_wait</b> returns the process ID of the
  * child which exited, -1 on error or zero if WNOHANG was provided as an
  * option (on wait3-available systems) and no child was available.
@@ -377,7 +377,7 @@ function pcntl_setpriority(int $priority, ?int $process_id, int $mode = PRIO_PRO
  * @param array $signals <p>
  * List of signals.
  * </p>
- * @param array &$old_signals [optional] <p>
+ * @param array $old_signals [optional] <p>
  * The <i>old_signals</i> parameter is set to an array
  * containing the list of the previously blocked signals.
  * </p>
@@ -391,7 +391,7 @@ function pcntl_sigprocmask(int $mode, array $signals, &$old_signals): bool {}
  * @param array $signals <p>
  * Array of signals to wait for.
  * </p>
- * @param array &$info [optional] <p>
+ * @param array $info [optional] <p>
  * The <i>info</i> parameter is set to an array containing
  * informations about the signal.
  * </p>
@@ -431,7 +431,7 @@ function pcntl_sigwaitinfo(array $signals, &$info): int|false {}
  * @param array $signals <p>
  * Array of signals to wait for.
  * </p>
- * @param array &$info [optional] <p>
+ * @param array $info [optional] <p>
  * The <i>siginfo</i> is set to an array containing
  * informations about the signal. See
  * <b>pcntl_sigwaitinfo</b>.

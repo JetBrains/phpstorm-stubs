@@ -84,7 +84,7 @@ function header_register_callback(callable $callback): bool {}
  * @since 5.4
  * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
  * @param string $string The image data, as a string.
- * @param array &$image_info [optional] This optional parameter allows you to extract<br>
+ * @param array $image_info [optional] This optional parameter allows you to extract<br>
  * some extended information from the image file. Currently, this will <br>
  * return the different JPG APP markers as an associative array. <br>
  * Some programs use these APP markers to embed text information in images. <br>
@@ -379,7 +379,7 @@ function ob_list_handlers(): array {}
 /**
  * Sort an array by key
  * @link https://php.net/manual/en/function.ksort.php
- * @param array &$array <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @param int $flags [optional] <p>
@@ -394,7 +394,7 @@ function ksort(array &$array, int $flags): bool {}
 /**
  * Sort an array by key in reverse order
  * @link https://php.net/manual/en/function.krsort.php
- * @param array &$array <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @param int $flags [optional] <p>
@@ -409,7 +409,7 @@ function krsort(array &$array, int $flags): bool {}
 /**
  * Sort an array using a "natural order" algorithm
  * @link https://php.net/manual/en/function.natsort.php
- * @param array &$array <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @return bool true on success or false on failure.
@@ -419,7 +419,7 @@ function natsort(array &$array): bool {}
 /**
  * Sort an array using a case insensitive "natural order" algorithm
  * @link https://php.net/manual/en/function.natcasesort.php
- * @param array &$array <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @return bool true on success or false on failure.
@@ -429,7 +429,7 @@ function natcasesort(array &$array): bool {}
 /**
  * Sort an array and maintain index association
  * @link https://php.net/manual/en/function.asort.php
- * @param array &$array <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @param int $flags [optional] <p>
@@ -444,7 +444,7 @@ function asort(array &$array, int $flags): bool {}
 /**
  * Sort an array in reverse order and maintain index association
  * @link https://php.net/manual/en/function.arsort.php
- * @param array &$array <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @param int $flags [optional] <p>
@@ -459,7 +459,7 @@ function arsort(array &$array, int $flags): bool {}
 /**
  * Sort an array
  * @link https://php.net/manual/en/function.sort.php
- * @param array &$array <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @param int $flags [optional] <p>
@@ -477,7 +477,7 @@ function sort(array &$array, int $flags): bool {}
 /**
  * Sort an array in reverse order
  * @link https://php.net/manual/en/function.rsort.php
- * @param array &$array <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @param int $flags [optional] <p>
@@ -492,7 +492,7 @@ function rsort(array &$array, int $flags): bool {}
 /**
  * Sort an array by values using a user-defined comparison function
  * @link https://php.net/manual/en/function.usort.php
- * @param array &$array <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @param callable $callback <p>
@@ -507,7 +507,7 @@ function usort(array &$array, callable $callback): bool {}
 /**
  * Sort an array with a user-defined comparison function and maintain index association
  * @link https://php.net/manual/en/function.uasort.php
- * @param array &$array <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @param callable $callback <p>
@@ -521,7 +521,7 @@ function uasort(array &$array, callable $callback): bool {}
 /**
  * Sort an array by keys using a user-defined comparison function
  * @link https://php.net/manual/en/function.uksort.php
- * @param array &$array <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @param callable $callback <p>
@@ -542,7 +542,7 @@ function uksort(array &$array, callable $callback): bool {}
 /**
  * Shuffle an array
  * @link https://php.net/manual/en/function.shuffle.php
- * @param array &$array <p>
+ * @param array $array <p>
  * The array.
  * </p>
  * @return bool true on success or false on failure.
@@ -552,7 +552,7 @@ function shuffle(array &$array): bool {}
 /**
  * Apply a user function to every member of an array
  * @link https://php.net/manual/en/function.array-walk.php
- * @param array|object &$array <p>
+ * @param array|object $array <p>
  * The input array.
  * </p>
  * @param callable $callback <p>
@@ -586,7 +586,7 @@ function array_walk(object|array &$array, callable $callback, mixed $arg): bool 
 /**
  * Apply a user function recursively to every member of an array
  * @link https://php.net/manual/en/function.array-walk-recursive.php
- * @param array|object &$array <p>
+ * @param array|object $array <p>
  * The input array.
  * </p>
  * @param callable $callback <p>
@@ -644,7 +644,7 @@ function count(Countable|array $value, int $mode = COUNT_NORMAL): int {}
 /**
  * Set the internal pointer of an array to its last element
  * @link https://php.net/manual/en/function.end.php
- * @param array|object &$array <p>
+ * @param array|object $array <p>
  * The array. This array is passed by reference because it is modified by
  * the function. This means you must pass it a real variable and not
  * a function returning an array because only actual variables may be
@@ -658,7 +658,7 @@ function end(object|array &$array): mixed {}
 /**
  * Rewind the internal array pointer
  * @link https://php.net/manual/en/function.prev.php
- * @param array|object &$array <p>
+ * @param array|object $array <p>
  * The input array.
  * </p>
  * @return mixed|false the array value in the previous place that's pointed to by
@@ -671,7 +671,7 @@ function prev(object|array &$array): mixed {}
 /**
  * Advance the internal array pointer of an array
  * @link https://php.net/manual/en/function.next.php
- * @param array|object &$array <p>
+ * @param array|object $array <p>
  * The array being affected.
  * </p>
  * @return mixed|false the array value in the next place that's pointed to by the
@@ -683,7 +683,7 @@ function next(object|array &$array): mixed {}
 /**
  * Set the internal pointer of an array to its first element
  * @link https://php.net/manual/en/function.reset.php
- * @param array|object &$array <p>
+ * @param array|object $array <p>
  * The input array.
  * </p>
  * @return mixed|false the value of the first array element, or false if the array is
@@ -812,7 +812,7 @@ function array_search(mixed $needle, array $haystack, bool $strict = false): str
 /**
  * Import variables into the current symbol table from an array
  * @link https://php.net/manual/en/function.extract.php
- * @param array &$array<p>
+ * @param array $array<p>
  * Note that prefix is only required if
  * extract_type is EXTR_PREFIX_SAME,
  * EXTR_PREFIX_ALL, EXTR_PREFIX_INVALID
@@ -922,7 +922,7 @@ function range($start, $end, int|float $step = 1): array {}
 /**
  * Sort multiple or multi-dimensional arrays
  * @link https://php.net/manual/en/function.array-multisort.php
- * @param array &$array <p>
+ * @param array $array <p>
  * An array being sorted.
  * </p>
  * @param  &...$rest [optional] <p>
@@ -944,7 +944,7 @@ function array_multisort(
  * Since 7.3.0 this function can be called with only one parameter.
  * For earlier versions at least two parameters are required.
  * @link https://php.net/manual/en/function.array-push.php
- * @param array &$array <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @param mixed ...$values <p>
@@ -961,7 +961,7 @@ function array_push(
 /**
  * Pop the element off the end of array
  * @link https://php.net/manual/en/function.array-pop.php
- * @param array &$array <p>
+ * @param array $array <p>
  * The array to get the value from.
  * </p>
  * @return mixed|null the last value of array.
@@ -974,7 +974,7 @@ function array_pop(array &$array): mixed {}
 /**
  * Shift an element off the beginning of array
  * @link https://php.net/manual/en/function.array-shift.php
- * @param array &$array <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @return mixed|null the shifted value, or null if array is
@@ -988,7 +988,7 @@ function array_shift(array &$array): mixed {}
  * Since 7.3.0 this function can be called with only one parameter.
  * For earlier versions at least two parameters are required.
  * @link https://php.net/manual/en/function.array-unshift.php
- * @param array &$array <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @param mixed ...$values <p>
@@ -1001,7 +1001,7 @@ function array_unshift(array &$array, #[PhpStormStubsElementAvailable(from: '5.3
 /**
  * Remove a portion of the array and replace it with something else
  * @link https://php.net/manual/en/function.array-splice.php
- * @param array &$array <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @param int $offset <p>

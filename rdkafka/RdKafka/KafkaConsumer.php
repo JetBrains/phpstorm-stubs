@@ -96,8 +96,8 @@ class KafkaConsumer
     /**
      * @param string $topic
      * @param int $partition
-     * @param int &$low
-     * @param int &$high
+     * @param int $low
+     * @param int $high
      * @param int $timeout_ms
      *
      * @return void

@@ -2483,7 +2483,7 @@ function curl_reset(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: '
  * Run the sub-connections of the current cURL handle
  * @link https://php.net/manual/en/function.curl-multi-exec.php
  * @param CurlMultiHandle|resource $multi_handle
- * @param int &$still_running <p>
+ * @param int $still_running <p>
  * A reference to a flag to tell whether the operations are still running.
  * </p>
  * @return int A cURL code defined in the cURL Predefined Constants.
@@ -2512,7 +2512,7 @@ function curl_multi_getcontent(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'],
  * Get information about the current transfers
  * @link https://php.net/manual/en/function.curl-multi-info-read.php
  * @param CurlMultiHandle|resource $multi_handle
- * @param int &$queued_messages [optional] <p>
+ * @param int $queued_messages [optional] <p>
  * Number of messages that are still in the queue
  * </p>
  * @return array|false On success, returns an associative array for the message, false on failure.

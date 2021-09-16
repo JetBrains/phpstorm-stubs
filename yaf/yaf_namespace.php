@@ -2470,7 +2470,7 @@ class Simple implements \Yaf\View_Interface
      * @link https://secure.php.net/manual/en/yaf-view-simple.assignref.php
      *
      * @param string $name A string name which will be used to access the value in the template.
-     * @param mixed &$value mixed value
+     * @param mixed $value mixed value
      *
      * @return \Yaf\View\Simple
      */

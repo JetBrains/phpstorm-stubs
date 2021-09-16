@@ -307,7 +307,7 @@ class SoapClient
      * @param mixed $inputHeaders [optional] <p>
      * An array of headers to be sent along with the SOAP request.
      * </p>
-     * @param array &$outputHeaders [optional] <p>
+     * @param array $outputHeaders [optional] <p>
      * If supplied, this array will be filled with the headers from the SOAP response.
      * </p>
      * @return mixed SOAP functions may return one, or multiple values. If only one value is returned

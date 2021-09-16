@@ -12,7 +12,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable as Available;
  * @param string $user dn of the user to change the password of.
  * @param string $old_password The old password of this user. May be omitted depending of server configuration.
  * @param string $new_password The new password for this user. May be omitted or empty to have a generated password.
- * @param array &$controls If provided, a password policy request control is send with the request and this is filled with an array of LDAP Controls returned with the request.
+ * @param array $controls If provided, a password policy request control is send with the request and this is filled with an array of LDAP Controls returned with the request.
  * @return string|bool Returns the generated password if newpw is empty or omitted. Otherwise returns TRUE on success and FALSE on failure.
  * @since 7.2
  */
@@ -57,8 +57,8 @@ function ldap_exop_whoami(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], defaul
  * @param string $request_oid The extended operation request OID. You may use one of LDAP_EXOP_START_TLS, LDAP_EXOP_MODIFY_PASSWD, LDAP_EXOP_REFRESH, LDAP_EXOP_WHO_AM_I, LDAP_EXOP_TURN, or a string with the OID of the operation you want to send.
  * @param string|null $request_data [optional] The extended operation request data. May be NULL for some operations like LDAP_EXOP_WHO_AM_I, may also need to be BER encoded.
  * @param array|null $controls [optional] If provided, a password policy request control is send with the request and this is filled with an array of LDAP Controls returned with the request.
- * @param string &$response_data [optional] Will be filled with the extended operation response data if provided. If not provided you may use ldap_parse_exop on the result object later to get this data.
- * @param string &$response_oid [optional] Will be filled with the response OID if provided, usually equal to the request OID.
+ * @param string $response_data [optional] Will be filled with the extended operation response data if provided. If not provided you may use ldap_parse_exop on the result object later to get this data.
+ * @param string $response_oid [optional] Will be filled with the response OID if provided, usually equal to the request OID.
  * @return resource|bool When used with retdata, returns TRUE on success or FALSE on error. When used without retdata, returns a result identifier or FALSE on error.
  * @since 7.2
  */
@@ -70,8 +70,8 @@ function ldap_exop(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'res
  * @link https://www.php.net/manual/en/function.ldap-parse-exop.php
  * @param resource $ldap An LDAP link identifier, returned by ldap_connect().
  * @param resource $result An LDAP result resource, returned by ldap_exop().
- * @param string &$response_data  Will be filled by the response data.
- * @param string &$response_oid Will be filled by the response OID.
+ * @param string $response_data  Will be filled by the response data.
+ * @param string $response_oid Will be filled by the response OID.
  * @return bool Returns TRUE on success or FALSE on failure.
  * @since 7.2
  */
@@ -1056,7 +1056,7 @@ function ldap_rename_ext(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default
  * <td>array</td>
  * </tr>
  * </p>
- * @param mixed &$value <p>
+ * @param mixed $value <p>
  * This will be set to the option value.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -1204,7 +1204,7 @@ function ldap_next_reference(
  * @link https://php.net/manual/en/function.ldap-parse-reference.php
  * @param resource $ldap
  * @param resource $entry
- * @param array &$referrals
+ * @param array $referrals
  * @return bool
  */
 function ldap_parse_reference(
@@ -1218,11 +1218,11 @@ function ldap_parse_reference(
  * @link https://php.net/manual/en/function.ldap-parse-result.php
  * @param resource $ldap
  * @param resource $result
- * @param int &$error_code
- * @param string &$matched_dn [optional]
- * @param string &$error_message [optional]
- * @param array &$referrals [optional]
- * @param array &$controls [optional] An array of LDAP Controls which have been sent with the response.
+ * @param int $error_code
+ * @param string $matched_dn [optional]
+ * @param string $error_message [optional]
+ * @param array $referrals [optional]
+ * @param array $controls [optional] An array of LDAP Controls which have been sent with the response.
  * @return bool
  */
 function ldap_parse_result(
@@ -1284,10 +1284,10 @@ function ldap_control_paged_result(#[PhpVersionAware(['8.1' => 'LDAP\Connection'
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
  * @param resource $result
- * @param string &$cookie [optional] <p>
+ * @param string $cookie [optional] <p>
  * An opaque structure sent by the server.
  * </p>
- * @param int &$estimated [optional] <p>
+ * @param int $estimated [optional] <p>
  * The estimated number of entries to retrieve.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.

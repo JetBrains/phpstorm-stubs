@@ -569,7 +569,7 @@ function sodium_crypto_generichash_init(
  * Update the hash state with some data
  * BLAKE2b
  * @link https://www.php.net/manual/en/function.sodium-crypto-generichash-update.php
- * @param string &$state
+ * @param string $state
  * @param string $message
  * @return bool
  * @throws SodiumException
@@ -581,7 +581,7 @@ function sodium_crypto_generichash_update(string &$state, string $message): bool
  * Get the final hash
  * BLAKE2b
  * @link https://www.php.net/manual/en/function.sodium-crypto-generichash-final.php
- * @param string &$state
+ * @param string $state
  * @param int $length
  * @return string
  * @throws SodiumException
@@ -957,7 +957,7 @@ function sodium_hex2bin(string $string, string $ignore): string {}
 /**
  * Increment a string in little-endian
  * @link https://www.php.net/manual/en/function.sodium-increment.php
- * @param string &$string
+ * @param string $string
  * @return void
  * @throws SodiumException
  * @since 7.2
@@ -967,7 +967,7 @@ function sodium_increment(string &$string): void {}
 /**
  * Add the right operand to the left
  * @link https://www.php.net/manual/en/function.sodium-add.php
- * @param string &$string1
+ * @param string $string1
  * @param string $string2
  * @throws SodiumException
  * @since 7.2
@@ -1002,7 +1002,7 @@ function sodium_memcmp(string $string1, string $string2): int {}
 /**
  * Wipe a buffer
  * @link https://www.php.net/manual/en/function.sodium-memzero.php
- * @param string &$string
+ * @param string $string
  * @throws SodiumException
  * @since 7.2
  */
@@ -1138,7 +1138,7 @@ function sodium_crypto_secretstream_xchacha20poly1305_init_push(string $key): ar
 function sodium_crypto_secretstream_xchacha20poly1305_init_pull(string $header, string $key): string {}
 
 /**
- * @param string &$state
+ * @param string $state
  * @throws SodiumException
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-rekey.php
