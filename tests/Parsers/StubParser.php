@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace StubTests\Parsers;
 
 use FilesystemIterator;
+use JsonException;
 use LogicException;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitor\NameResolver;
@@ -20,6 +21,9 @@ use StubTests\Parsers\Visitors\CoreStubASTVisitor;
 use StubTests\Parsers\Visitors\ParentConnector;
 use StubTests\TestData\Providers\Stubs\PhpCoreStubsProvider;
 use UnexpectedValueException;
+use function dirname;
+use function in_array;
+use function strlen;
 
 class StubParser
 {
@@ -29,6 +33,7 @@ class StubParser
      * @throws LogicException
      * @throws RuntimeException
      * @throws UnexpectedValueException
+     * @throws JsonException
      */
     public static function getPhpStormStubs(): StubsContainer
     {
@@ -41,7 +46,7 @@ class StubParser
             fn (SplFileInfo $file): bool => $file->getFilename() !== '.phpstorm.meta.php'
         );
 
-        $jsonData = json_decode(file_get_contents(__DIR__ . '/../TestData/mutedProblems.json'));
+        $jsonData = json_decode(file_get_contents(__DIR__ . '/../TestData/mutedProblems.json'), false, 512, JSON_THROW_ON_ERROR);
         foreach (self::$stubs->getInterfaces() as $interface) {
             $interface->readMutedProblems($jsonData->interfaces);
             $interface->parentInterfaces = $visitor->combineParentInterfaces($interface);

@@ -134,7 +134,8 @@ class StubsPhpDocTest extends BaseStubsTest
                 '#<pre>.*</pre>#sU',
                 '#<code>.*</code>#sU',
                 '#@author.*<.*>#U',
-                '#[\s,\|]array<[a-z,\s]+>#sU'
+                '#[\s,\|]array<[a-z,\s]+>#sU',
+                '#\s[A-Za-z]+<[A-Za-z,\s]+>[$\s]#sU'
             ],
             '',
             $phpdoc
@@ -205,6 +206,7 @@ class StubsPhpDocTest extends BaseStubsTest
             'since',
             'throws',
             'template',
+            'template-implements', // https://github.com/JetBrains/phpstorm-stubs/pull/1212#issuecomment-907263735
             'uses',
             'var',
             'version',

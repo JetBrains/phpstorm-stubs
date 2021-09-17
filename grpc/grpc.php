@@ -506,17 +506,17 @@ namespace Grpc;
         /**
          * Create SSL credentials.
          *
-         * @param string $pem_root_certs  PEM encoding of the server root certificates
-         * @param string $pem_private_key PEM encoding of the client's private key
-         * @param string $pem_cert_chain  PEM encoding of the client's certificate chain
+         * @param string|null $pem_root_certs  PEM encoding of the server root certificates
+         * @param string|null $pem_private_key PEM encoding of the client's private key
+         * @param string|null $pem_cert_chain  PEM encoding of the client's certificate chain
          *
          * @return ChannelCredentials The new SSL credentials object
          * @throws \InvalidArgumentException
          */
         public static function createSsl(
-            $pem_root_certs = '',
-            $pem_private_key = '',
-            $pem_cert_chain = ''
+            string $pem_root_certs = null,
+            string $pem_private_key = null,
+            string $pem_cert_chain = null
         ) {}
 
         /**

@@ -3,9 +3,11 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
+use Exception;
 use PhpParser\Node\Param;
 use ReflectionParameter;
 use stdClass;
+use function in_array;
 
 class PHPParameter extends BasePHPElement
 {
@@ -19,7 +21,7 @@ class PHPParameter extends BasePHPElement
     public $is_vararg = false;
     public $is_passed_by_ref = false;
     public $isOptional = false;
-    public $defaultValue = null;
+    public $defaultValue;
 
     /**
      * @param ReflectionParameter $reflectionObject
@@ -35,7 +37,7 @@ class PHPParameter extends BasePHPElement
         $this->indexInSignature = $reflectionObject->getPosition();
         if ($reflectionObject->isDefaultValueAvailable()) {
             $this->defaultValue = $reflectionObject->getDefaultValue();
-            if (in_array('bool', $this->typesFromSignature)) {
+            if (in_array('bool', $this->typesFromSignature, true)) {
                 $this->defaultValue = $reflectionObject->getDefaultValue() ? 'true' : 'false';
             }
         }
@@ -62,6 +64,7 @@ class PHPParameter extends BasePHPElement
 
     /**
      * @param stdClass|array $jsonData
+     * @throws Exception
      */
     public function readMutedProblems($jsonData): void
     {
@@ -99,9 +102,10 @@ class PHPParameter extends BasePHPElement
                         case 'wrong optionallity':
                             $this->mutedProblems[StubProblemType::WRONG_OPTIONALLITY] = $problem->versions;
                             break;
+                        default:
+                            throw new Exception("Unexpected value $problem->description");
                     }
                 }
-                return;
             }
         }
     }

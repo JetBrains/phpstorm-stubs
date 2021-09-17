@@ -4,11 +4,11 @@ declare(strict_types=1);
 namespace StubTests\Model;
 
 use RuntimeException;
+use function array_key_exists;
+use function count;
 
 abstract class BasePHPClass extends BasePHPElement
 {
-    use PHPDocElement;
-
     /**
      * @var PHPMethod[]
      */
@@ -21,7 +21,7 @@ abstract class BasePHPClass extends BasePHPElement
 
     public $isFinal = false;
 
-    public function addConstant(PHPConst $parsedConstant)
+    public function addConstant(PHPConst $parsedConstant): void
     {
         if (isset($parsedConstant->name)) {
             if (array_key_exists($parsedConstant->name, $this->constants)) {
@@ -38,7 +38,10 @@ abstract class BasePHPClass extends BasePHPElement
         }
     }
 
-    public function getConstant($constantName)
+    /**
+     * @throws RuntimeException
+     */
+    public function getConstant($constantName): ?PHPConst
     {
         $constants = array_filter($this->constants, function (PHPConst $constant) use ($constantName): bool {
             return $constant->name === $constantName && $constant->duplicateOtherElement === false
@@ -50,7 +53,7 @@ abstract class BasePHPClass extends BasePHPElement
         return array_pop($constants);
     }
 
-    public function addMethod(PHPMethod $parsedMethod)
+    public function addMethod(PHPMethod $parsedMethod): void
     {
         if (isset($parsedMethod->name)) {
             if (array_key_exists($parsedMethod->name, $this->methods)) {

@@ -43,12 +43,13 @@ interface SessionHandlerInterface
      * Sessions that have not updated for
      * the last maxlifetime seconds will be removed.
      * </p>
-     * @return int|bool <p>
-     * The return value (usually TRUE on success, FALSE on failure).
+     * @return int|false <p>
+     * Returns the number of deleted sessions on success, or false on failure. Prior to PHP version 7.1, the function returned true on success.
      * Note this value is returned internally to PHP for processing.
      * </p>
      * @since 5.4
      */
+    #[LanguageLevelTypeAware(['7.1' => 'int|false'], default: 'bool')]
     public function gc(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $max_lifetime);
 
     /**
@@ -73,7 +74,7 @@ interface SessionHandlerInterface
      * @param string $id The session id to read data for.
      * @return string|false <p>
      * Returns an encoded string of the read data.
-     * If nothing was read, it must return an empty string.
+     * If nothing was read, it must return false.
      * Note this value is returned internally to PHP for processing.
      * </p>
      * @since 5.4

@@ -343,6 +343,7 @@ define('FILTER_SANITIZE_STRING', 513);
 /**
  * ID of "stripped" filter.
  * @link https://php.net/manual/en/filter.constants.php
+ * @deprecated 8.1
  */
 define('FILTER_SANITIZE_STRIPPED', 513);
 

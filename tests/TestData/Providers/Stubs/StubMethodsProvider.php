@@ -31,7 +31,7 @@ class StubMethodsProvider
             PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces();
         $allFunctions = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions();
         $filteredMethods = [];
-        foreach (EntitiesFilter::getFiltered($coreClassesAndInterfaces) as $className => $class) {
+        foreach (EntitiesFilter::getFiltered($coreClassesAndInterfaces) as $class) {
             $filteredMethods = EntitiesFilter::getFiltered(
                 $class->methods,
                 fn (PHPMethod $method) => empty($method->returnTypesFromSignature) || empty($method->returnTypesFromPhpDoc)

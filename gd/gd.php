@@ -370,7 +370,8 @@ function imagecolorstotal(GdImage $image): int {}
  * contain the appropriate values for the specified color index or <b>FALSE</b> on failure
  */
 #[Pure]
-function imagecolorsforindex(GdImage $image, int $color): array|false {}
+#[LanguageLevelTypeAware(['8.1' => 'array'], default: 'array|false')]
+function imagecolorsforindex(GdImage $image, int $color) {}
 
 /**
  * Copy part of an image
@@ -2896,6 +2897,11 @@ define('IMG_TGA', 128);
  * @since 8.1
  */
 define('IMG_AVIF', 256);
+
+/**
+ * @since 8.1
+ */
+define('IMG_WEBP_LOSSLESS', 101);
 /**
  * Return an image containing the affine tramsformed src image, using an optional clipping area
  * @link https://secure.php.net/manual/en/function.imageaffine.php

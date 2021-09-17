@@ -3,14 +3,13 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
+use Exception;
 use PhpParser\Node\Stmt\Property;
 use ReflectionProperty;
 use stdClass;
 
 class PHPProperty extends BasePHPElement
 {
-    use PHPDocElement;
-
     /** @var string[] */
     public $typesFromSignature = [];
     /** @var string[][] */
@@ -19,7 +18,8 @@ class PHPProperty extends BasePHPElement
     public $typesFromPhpDoc = [];
     public $access = '';
     public $is_static = false;
-    public $parentName = null;
+    public $parentName;
+    public $isReadonly = false;
 
     public function __construct(?string $parentName = null)
     {
@@ -45,6 +45,9 @@ class PHPProperty extends BasePHPElement
         if (method_exists($reflectionObject, 'getType')) {
             $this->typesFromSignature = self::getReflectionTypeAsArray($reflectionObject->getType());
         }
+        if (property_exists($reflectionObject, 'isReadonly')) {
+            $this->isReadonly = $reflectionObject->isReadonly;
+        }
         return $this;
     }
 
@@ -65,7 +68,7 @@ class PHPProperty extends BasePHPElement
             $access = 'public';
         }
         $this->access = $access;
-
+        $this->isReadonly = $node->isReadonly();
         $this->typesFromSignature = self::convertParsedTypeToArray($node->type);
         $this->typesFromAttribute = self::findTypesFromAttribute($node->attrGroups);
         foreach ($this->varTags as $varTag) {
@@ -81,6 +84,7 @@ class PHPProperty extends BasePHPElement
 
     /**
      * @param stdClass|array $jsonData
+     * @throws Exception
      */
     public function readMutedProblems($jsonData): void
     {
@@ -91,9 +95,13 @@ class PHPProperty extends BasePHPElement
                         case 'missing property':
                             $this->mutedProblems[StubProblemType::STUB_IS_MISSED] = $problem->versions;
                             break;
+                        case 'wrong readonly':
+                            $this->mutedProblems[StubProblemType::PROPERTY_READONLY] = $problem->versions;
+                            break;
+                        default:
+                            throw new Exception("Unexpected value $problem->description");
                     }
                 }
-                return;
             }
         }
     }

@@ -42,6 +42,13 @@ function zend_shm_cache_delete($key) {}
 function zend_shm_cache_clear($namespace = '') {}
 
 /**
+ * Provide the user information about the memory data cache
+ *
+ * @return array|false FALSE when on failure
+ */
+function zend_shm_cache_info() {}
+
+/**
  * Stores a serializable variable into Disk Cache
  *
  * @param string $key the data's key. Possibly prefixed with namespace
@@ -78,5 +85,12 @@ function zend_disk_cache_delete($key) {}
  * @return bool TRUE on success, FALSE otherwise
  */
 function zend_disk_cache_clear($namespace = '') {}
+
+/**
+ * Provide the user information about the memory data cache
+ *
+ * @return array|false FALSE when on failure
+ */
+function zend_disk_cache_info() {}
 
 // End of Zend Cache v.

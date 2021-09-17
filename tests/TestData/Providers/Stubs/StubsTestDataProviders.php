@@ -5,8 +5,11 @@ namespace StubTests\TestData\Providers\Stubs;
 
 use DirectoryIterator;
 use Generator;
+use SplFileInfo;
 use StubTests\Model\PHPFunction;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
+use function dirname;
+use function in_array;
 
 class StubsTestDataProviders
 {
@@ -38,6 +41,7 @@ class StubsTestDataProviders
     public static function stubsDirectoriesProvider(): ?Generator
     {
         $stubsDirectory = dirname(__DIR__, 4);
+        /** @var SplFileInfo $directory */
         foreach (new DirectoryIterator($stubsDirectory) as $directory) {
             $directoryName = $directory->getBasename();
             if ($directory->isDot() || !$directory->isDir() || in_array($directoryName, ['tests', 'meta', 'vendor'], true) || str_starts_with($directoryName, '.')) {

@@ -5139,7 +5139,7 @@ function intl_get($calendar, $field) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.1' => 'float|false'], default: 'float')]
+#[TypeAware(['8.0' => 'float|false'], default: 'float')]
 function intlcal_get_time(IntlCalendar $calendar) {}
 
 /**
@@ -5370,7 +5370,7 @@ function intlcal_clear(IntlCalendar $calendar, ?int $field = null): bool {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.1' => 'int|false'], default: 'int')]
+#[TypeAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_field_difference(IntlCalendar $calendar, float $timestamp, int $field) {}
 
 /**
@@ -5391,7 +5391,7 @@ function intlcal_field_difference(IntlCalendar $calendar, float $timestamp, int 
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.1' => 'int|false'], default: 'int')]
+#[TypeAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_actual_maximum(IntlCalendar $calendar, int $field) {}
 
 /**
@@ -5412,7 +5412,7 @@ function intlcal_get_actual_maximum(IntlCalendar $calendar, int $field) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.1' => 'int|false'], default: 'int')]
+#[TypeAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_actual_minimum(IntlCalendar $calendar, int $field) {}
 
 /**
@@ -5436,7 +5436,7 @@ function intlcal_get_actual_minimum(IntlCalendar $calendar, int $field) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.1' => 'int|false'], default: 'int')]
+#[TypeAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_day_of_week_type(IntlCalendar $calendar, int $dayOfWeek) {}
 
 /**
@@ -5453,7 +5453,7 @@ function intlcal_get_day_of_week_type(IntlCalendar $calendar, int $dayOfWeek) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.1' => 'int|false'], default: 'int')]
+#[TypeAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_first_day_of_week(IntlCalendar $calendar) {}
 
 /**
@@ -5488,7 +5488,7 @@ function intlcal_greates_minimum($calendar, $field) {}
  * @return int An integer with the value of the time field.
  */
 #[Pure]
-#[TypeAware(['8.1' => 'int|false'], default: 'int')]
+#[TypeAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get(IntlCalendar $calendar, int $field) {}
 
 /**
@@ -5510,7 +5510,7 @@ function intlcal_get(IntlCalendar $calendar, int $field) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.1' => 'int|false'], default: 'int')]
+#[TypeAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_least_maximum(IntlCalendar $calendar, int $field) {}
 
 /**
@@ -5530,7 +5530,7 @@ function intlcal_get_least_maximum(IntlCalendar $calendar, int $field) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.1' => 'int|false'], default: 'int')]
+#[TypeAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_greatest_minimum(IntlCalendar $calendar, int $field) {}
 
 /**
@@ -5553,7 +5553,7 @@ function intlcal_get_greatest_minimum(IntlCalendar $calendar, int $field) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.1' => 'string|false'], default: 'string')]
+#[TypeAware(['8.0' => 'string|false'], default: 'string')]
 function intlcal_get_locale(IntlCalendar $calendar, int $type) {}
 
 /**
@@ -5586,7 +5586,7 @@ function intcal_get_maximum($calendar, $field) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.1' => 'int|false'], default: 'int')]
+#[TypeAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_minimal_days_in_first_week(IntlCalendar $calendar) {}
 
 /**
@@ -5606,7 +5606,7 @@ function intlcal_get_minimal_days_in_first_week(IntlCalendar $calendar) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.1' => 'int|false'], default: 'int')]
+#[TypeAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_minimum(IntlCalendar $calendar, int $field) {}
 
 /**
@@ -5657,7 +5657,7 @@ function intlcal_get_type(IntlCalendar $calendar): string {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.1' => 'int|false'], default: 'int')]
+#[TypeAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_weekend_transition(IntlCalendar $calendar, int $dayOfWeek) {}
 
 /**
@@ -5725,7 +5725,7 @@ function intlcal_is_set(IntlCalendar $calendar, int $field): bool {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.1' => 'int|false'], default: 'int')]
+#[TypeAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_maximum(IntlCalendar $calendar, int $field) {}
 
 /**
@@ -5981,7 +5981,7 @@ function intlz_create_default() {}
  * @since 5.5
  */
 #[Pure]
-function intltz_create_enumeration($countryOrRawOffset) {}
+function intltz_create_enumeration($countryOrRawOffset): IntlIterator|false {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -6242,7 +6242,7 @@ function resourcebundle_create(?string $locale, ?string $bundle, bool $fallback 
  * returned as <b>ResourceBundle</b> object.
  */
 #[Pure]
-function resourcebundle_get(ResourceBundle $bundle, $index, bool $fallback = true) {}
+function resourcebundle_get(ResourceBundle $bundle, $index, bool $fallback = true): mixed {}
 
 /**
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>

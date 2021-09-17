@@ -18,8 +18,6 @@ use StubTests\Parsers\DocFactoryProvider;
 
 class PHPFunction extends BasePHPElement
 {
-    use PHPDocElement;
-
     /**
      * @var bool
      */
@@ -86,7 +84,7 @@ class PHPFunction extends BasePHPElement
             });
             /** @var Param $relatedParamTag */
             $relatedParamTag = array_pop($relatedParamTags);
-            if (!empty($relatedParamTag)){
+            if ($relatedParamTag !== null){
                 $parameter->isOptional = $parameter->isOptional || str_contains((string)$relatedParamTag->getDescription(), '[optional]');
             }
         }
@@ -115,10 +113,10 @@ class PHPFunction extends BasePHPElement
                     $returnType = $parsedReturnTag[0]->getType();
                     if ($returnType instanceof Compound) {
                         foreach ($returnType as $nextType) {
-                            array_push($this->returnTypesFromPhpDoc, (string)$nextType);
+                            $this->returnTypesFromPhpDoc[] = (string)$nextType;
                         }
                     } else {
-                        array_push($this->returnTypesFromPhpDoc, (string)$returnType);
+                        $this->returnTypesFromPhpDoc[] = (string)$returnType;
                     }
                 }
             } catch (Exception $e) {
@@ -129,6 +127,7 @@ class PHPFunction extends BasePHPElement
 
     /**
      * @param stdClass|array $jsonData
+     * @throws Exception
      */
     public function readMutedProblems($jsonData): void
     {
@@ -161,6 +160,8 @@ class PHPFunction extends BasePHPElement
                             case 'has type mismatch in signature and phpdoc':
                                 $this->mutedProblems[StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE] = $problem->versions;
                                 break;
+                            default:
+                                throw new Exception("Unexpected value $problem->description");
                         }
                     }
                 }
@@ -169,7 +170,6 @@ class PHPFunction extends BasePHPElement
                         $parameter->readMutedProblems($function->parameters);
                     }
                 }
-                return;
             }
         }
     }
@@ -178,7 +178,7 @@ class PHPFunction extends BasePHPElement
     {
         foreach ($node->getAttrGroups() as $group) {
             foreach ($group->attrs as $attr) {
-                if ($attr->name == Deprecated::class) {
+                if ((string)$attr->name === Deprecated::class) {
                     return true;
                 }
             }
@@ -188,7 +188,7 @@ class PHPFunction extends BasePHPElement
 
     private static function hasDeprecatedDocTag(?Doc $docComment): bool
     {
-        $phpDoc = $docComment != null ? DocFactoryProvider::getDocFactory()->create($docComment->getText()) : null;
-        return $phpDoc != null && !empty($phpDoc->getTagsByName('deprecated'));
+        $phpDoc = $docComment !== null ? DocFactoryProvider::getDocFactory()->create($docComment->getText()) : null;
+        return $phpDoc !== null && !empty($phpDoc->getTagsByName('deprecated'));
     }
 }

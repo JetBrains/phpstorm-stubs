@@ -11,6 +11,7 @@ use RuntimeException;
 use SplFileInfo;
 use StubTests\Parsers\StubParser;
 use UnexpectedValueException;
+use function count;
 
 class MetaOverrideFunctionsParser extends NodeVisitorAbstract
 {

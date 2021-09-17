@@ -4457,7 +4457,7 @@ class Imagick implements Iterator, Countable
      * Repeatedly tiles the texture image
      * @link https://php.net/manual/en/imagick.textureimage.php
      * @param Imagick $texture_wand
-     * @return bool <b>TRUE</b> on success.
+     * @return Imagick a new Imagick object that has the repeated texture applied.
      * @throws ImagickException on error.
      */
     public function textureImage(Imagick $texture_wand) {}

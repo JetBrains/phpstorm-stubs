@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
+use Exception;
 use PhpParser\Node\Const_;
 use PhpParser\Node\Expr\UnaryMinus;
 use PhpParser\Node\Stmt\ClassConst;
@@ -10,15 +11,14 @@ use PhpParser\Node\Stmt\Namespace_;
 use PhpParser\NodeAbstract;
 use ReflectionClassConstant;
 use stdClass;
+use function in_array;
 
 class PHPConst extends BasePHPElement
 {
-    use PHPDocElement;
-
     /**
      * @var string|null
      */
-    public $parentName = null;
+    public $parentName;
     /**
      * @var bool|int|string|float|null
      */
@@ -26,7 +26,7 @@ class PHPConst extends BasePHPElement
     /**
      * @var string|null
      */
-    public $visibility = null;
+    public $visibility;
 
     /**
      * @param ReflectionClassConstant $reflectionObject
@@ -107,6 +107,7 @@ class PHPConst extends BasePHPElement
 
     /**
      * @param stdClass|array $jsonData
+     * @throws Exception
      */
     public function readMutedProblems($jsonData): void
     {
@@ -120,9 +121,10 @@ class PHPConst extends BasePHPElement
                         case 'missing constant':
                             $this->mutedProblems[StubProblemType::STUB_IS_MISSED] = $problem->versions;
                             break;
+                        default:
+                            throw new Exception("Unexpected value $problem->description");
                     }
                 }
-                return;
             }
         }
     }

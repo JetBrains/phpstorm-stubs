@@ -1013,7 +1013,7 @@ final class FiberError extends Error
 /**
  * @since 8.1
  */
-final class ReturnTypeWillChange
+#[Attribute(Attribute::TARGET_METHOD)] final class ReturnTypeWillChange
 {
     public function __construct() {}
 }
