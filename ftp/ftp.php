@@ -2,8 +2,8 @@
 
 // Start of ftp v.
 use JetBrains\PhpStorm\ExpectedValues as EV;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
  * append the contents of a file to another file on the ftp server
@@ -157,7 +157,8 @@ function ftp_exec(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default:
  * No parsing is performed on the response string, nor does
  * <b>ftp_raw</b> determine if the command succeeded.
  */
-function ftp_raw(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $command): array {}
+#[LanguageLevelTypeAware(['8.1' => 'array|null'], default: 'array')]
+function ftp_raw(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $command) {}
 
 /**
  * Creates a directory
