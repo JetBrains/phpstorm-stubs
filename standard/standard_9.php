@@ -4,6 +4,7 @@
  * @since 5.6
  */
 
+use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
@@ -973,7 +974,23 @@ function assert_options(int $option, mixed $value): mixed {}
  * function will return true if the relationship is the one specified
  * by the operator, false otherwise.
  */
-function version_compare(string $version1, string $version2, ?string $operator): int|bool {}
+function version_compare(string $version1, string $version2,
+    #[ExpectedValues(values: [
+        "<",
+        "lt",
+        "<=",
+        "le",
+        ">",
+        "gt",
+        ">=",
+        "ge",
+        "==",
+        "=",
+        "eq",
+        "!=",
+        "<>",
+        "ne"
+    ])] ?string $operator): int|bool {}
 
 /**
  * Convert a pathname and a project identifier to a System V IPC key
