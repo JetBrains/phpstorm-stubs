@@ -315,4 +315,10 @@ namespace PHPSTORM_META {
 
     expectedArguments(\get_html_translation_table(), 2, argumentsSet('encodings'));
     expectedArguments(\get_html_translation_table(), 2, argumentsSet('encodings_aliases'));
+
+    expectedArguments(\mb_convert_encoding(), 1, argumentsSet('encodings'));
+    expectedArguments(\mb_convert_encoding(), 1, argumentsSet('encodings_aliases'));
+
+    expectedArguments(\mb_convert_encoding(), 2, argumentsSet('encodings'));
+    expectedArguments(\mb_convert_encoding(), 2, argumentsSet('encodings_aliases'));
 }
