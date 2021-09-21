@@ -974,7 +974,9 @@ function assert_options(int $option, mixed $value): mixed {}
  * function will return true if the relationship is the one specified
  * by the operator, false otherwise.
  */
-function version_compare(string $version1, string $version2,
+function version_compare(
+    string $version1,
+    string $version2,
     #[ExpectedValues(values: [
         "<",
         "lt",
@@ -990,7 +992,8 @@ function version_compare(string $version1, string $version2,
         "!=",
         "<>",
         "ne"
-    ])] ?string $operator): int|bool {}
+    ])] ?string $operator
+): int|bool {}
 
 /**
  * Convert a pathname and a project identifier to a System V IPC key
