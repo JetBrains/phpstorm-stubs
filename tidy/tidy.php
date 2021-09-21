@@ -1,6 +1,7 @@
 <?php
 
 // Start of tidy v.2.0
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * An HTML node in an HTML file, as detected by tidy.
@@ -378,6 +379,7 @@ final class tidyNode
      * @return bool <b>TRUE</b> if the node has children, <b>FALSE</b> otherwise.
      * @since 5.0.1
      */
+    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public function hasChildren() {}
 
     /**
@@ -386,6 +388,7 @@ final class tidyNode
      * @return bool <b>TRUE</b> if the node has siblings, <b>FALSE</b> otherwise.
      * @since 5.0.1
      */
+    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public function hasSiblings() {}
 
     /**
@@ -394,6 +397,7 @@ final class tidyNode
      * @return bool <b>TRUE</b> if the node is a comment, <b>FALSE</b> otherwise.
      * @since 5.0.1
      */
+    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public function isComment() {}
 
     /**
@@ -402,6 +406,7 @@ final class tidyNode
      * @return bool <b>TRUE</b> if the node is part of a HTML document, <b>FALSE</b> otherwise.
      * @since 5.0.1
      */
+    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public function isHtml() {}
 
     /**
@@ -410,6 +415,7 @@ final class tidyNode
      * @return bool <b>TRUE</b> if the node represent a text, <b>FALSE</b> otherwise.
      * @since 5.0.1
      */
+    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public function isText() {}
 
     /**
@@ -418,6 +424,7 @@ final class tidyNode
      * @return bool <b>TRUE</b> if the node is JSTE, <b>FALSE</b> otherwise.
      * @since 5.0.1
      */
+    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public function isJste() {}
 
     /**
@@ -426,6 +433,7 @@ final class tidyNode
      * @return bool <b>TRUE</b> if the node is ASP, <b>FALSE</b> otherwise.
      * @since 5.0.1
      */
+    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public function isAsp() {}
 
     /**
@@ -434,6 +442,7 @@ final class tidyNode
      * @return bool <b>TRUE</b> if the current node is PHP code, <b>FALSE</b> otherwise.
      * @since 5.0.1
      */
+    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public function isPhp() {}
 
     /**
@@ -443,6 +452,7 @@ final class tidyNode
      * otherwise.
      * @since 5.2.2
      */
+    #[LanguageLevelTypeAware(['8.0' => 'tidyNode|null'], default: '')]
     public function getParent() {}
 
     private function __construct() {}

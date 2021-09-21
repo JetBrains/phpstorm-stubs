@@ -3,6 +3,8 @@
 // Start of soap v.
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\TentativeType;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * The SoapClient class provides a client for SOAP 1.1, SOAP 1.2 servers. It can be used in WSDL
@@ -275,10 +277,11 @@ class SoapClient
      * @since 5.0.1
      */
     #[Deprecated]
+    #[TentativeType]
     public function __call(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         array $args
-    ) {}
+    ): mixed {}
 
     /**
      * Calls a SOAP function
@@ -321,62 +324,69 @@ class SoapClient
      * option set to <b>FALSE</b>, a SoapFault object will be returned.
      * @since 5.0.1
      */
+    #[TentativeType]
     public function __soapCall(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         array $args,
         #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: '')] $options = null,
         $inputHeaders = null,
         &$outputHeaders = null
-    ) {}
+    ): mixed {}
 
     /**
      * Returns last SOAP request
      * @link https://php.net/manual/en/soapclient.getlastrequest.php
-     * @return string The last SOAP request, as an XML string.
+     * @return string|null The last SOAP request, as an XML string.
      * @since 5.0.1
      */
-    public function __getLastRequest() {}
+    #[TentativeType]
+    public function __getLastRequest(): ?string {}
 
     /**
      * Returns last SOAP response
      * @link https://php.net/manual/en/soapclient.getlastresponse.php
-     * @return string The last SOAP response, as an XML string.
+     * @return string|null The last SOAP response, as an XML string.
      * @since 5.0.1
      */
-    public function __getLastResponse() {}
+    #[TentativeType]
+    public function __getLastResponse(): ?string {}
 
     /**
      * Returns the SOAP headers from the last request
      * @link https://php.net/manual/en/soapclient.getlastrequestheaders.php
-     * @return string The last SOAP request headers.
+     * @return string|null The last SOAP request headers.
      * @since 5.0.1
      */
-    public function __getLastRequestHeaders() {}
+    #[TentativeType]
+    public function __getLastRequestHeaders(): ?string {}
 
     /**
      * Returns the SOAP headers from the last response
      * @link https://php.net/manual/en/soapclient.getlastresponseheaders.php
-     * @return string The last SOAP response headers.
+     * @return string|null The last SOAP response headers.
      * @since 5.0.1
      */
-    public function __getLastResponseHeaders() {}
+    #[TentativeType]
+    public function __getLastResponseHeaders(): ?string {}
 
     /**
      * Returns list of available SOAP functions
      * @link https://php.net/manual/en/soapclient.getfunctions.php
-     * @return array The array of SOAP function prototypes, detailing the return type,
+     * @return array|null The array of SOAP function prototypes, detailing the return type,
      * the function name and type-hinted parameters.
      * @since 5.0.1
      */
-    public function __getFunctions() {}
+    #[TentativeType]
+    public function __getFunctions(): ?array {}
 
     /**
      * Returns a list of SOAP types
      * @link https://php.net/manual/en/soapclient.gettypes.php
-     * @return array The array of SOAP types, detailing all structures and types.
+     * @return array|null The array of SOAP types, detailing all structures and types.
      * @since 5.0.1
      */
-    public function __getTypes() {}
+    #[TentativeType]
+    public function __getTypes(): ?array {}
 
     /**
      * Returns a list of all cookies
@@ -384,7 +394,8 @@ class SoapClient
      * @return array The array of all cookies
      * @since 5.4.3
      */
-    public function __getCookies() {}
+    #[TentativeType]
+    public function __getCookies(): array {}
 
     /**
      * Performs a SOAP request
@@ -408,13 +419,14 @@ class SoapClient
      * @return string|null The XML SOAP response.
      * @since 5.0.1
      */
+    #[TentativeType]
     public function __doRequest(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $request,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $location,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $action,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $version,
         #[LanguageLevelTypeAware(["8.0" => 'bool'], default: 'int')] $oneWay = false
-    ) {}
+    ): ?string {}
 
     /**
      * The __setCookie purpose
@@ -428,10 +440,11 @@ class SoapClient
      * @return void No value is returned.
      * @since 5.0.4
      */
+    #[TentativeType]
     public function __setCookie(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(["8.0" => "string|null"], default: "string")] $value
-    ) {}
+    ): void {}
 
     /**
      * Sets the location of the Web service to use
@@ -442,7 +455,8 @@ class SoapClient
      * @return string|null The old endpoint URL.
      * @since 5.0.1
      */
-    public function __setLocation(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $location = '') {}
+    #[TentativeType]
+    public function __setLocation(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $location = ''): ?string {}
 
     /**
      * Sets SOAP headers for subsequent calls
@@ -455,7 +469,8 @@ class SoapClient
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * @since 5.0.5
      */
-    public function __setSoapHeaders($headers = null) {}
+    #[TentativeType]
+    public function __setSoapHeaders($headers = null): bool {}
 }
 
 /**
@@ -673,7 +688,8 @@ class SoapServer
      * @return void No value is returned.
      * @since 5.1.2
      */
-    public function setPersistence(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode) {}
+    #[TentativeType]
+    public function setPersistence(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode): void {}
 
     /**
      * Sets the class which handles SOAP requests
@@ -685,10 +701,11 @@ class SoapServer
      * @return void No value is returned.
      * @since 5.0.1
      */
+    #[TentativeType]
     public function setClass(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $class,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$args
-    ) {}
+    ): void {}
 
     /**
      * Sets the object which will be used to handle SOAP requests
@@ -698,7 +715,8 @@ class SoapServer
      * </p>
      * @return void No value is returned.
      */
-    public function setObject(object $object) {}
+    #[TentativeType]
+    public function setObject(object $object): void {}
 
     /**
      * Adds one or more functions to handle SOAP requests
@@ -722,7 +740,8 @@ class SoapServer
      * @return void No value is returned.
      * @since 5.0.1
      */
-    public function addFunction($functions) {}
+    #[TentativeType]
+    public function addFunction($functions): void {}
 
     /**
      * Returns list of defined functions
@@ -730,7 +749,8 @@ class SoapServer
      * @return array An array of the defined functions.
      * @since 5.0.1
      */
-    public function getFunctions() {}
+    #[TentativeType]
+    public function getFunctions(): array {}
 
     /**
      * Handles a SOAP request
@@ -742,7 +762,8 @@ class SoapServer
      * @return void No value is returned.
      * @since 5.0.1
      */
-    public function handle(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $request = null) {}
+    #[TentativeType]
+    public function handle(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $request = null): void {}
 
     /**
      * Issue SoapServer fault indicating an error
@@ -765,13 +786,14 @@ class SoapServer
      * @return void No value is returned.
      * @since 5.0.1
      */
+    #[TentativeType]
     public function fault(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $code,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $actor = null,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $details = null,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name = null
-    ) {}
+    ): void {}
 
     /**
      * Add a SOAP header to the response
@@ -782,7 +804,8 @@ class SoapServer
      * @return void No value is returned.
      * @since 5.0.1
      */
-    public function addSoapHeader(SoapHeader $header) {}
+    #[TentativeType]
+    public function addSoapHeader(SoapHeader $header): void {}
 }
 
 /**
@@ -863,7 +886,7 @@ class SoapFault extends Exception
      * </p>
      * @since 5.0.1
      */
-    #[\JetBrains\PhpStorm\Pure]
+    #[Pure]
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'array|string|null'], default: '')] $code,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string,
@@ -906,6 +929,7 @@ class SoapFault extends Exception
      * @return string A string describing the SoapFault.
      * @since 5.0.1
      */
+    #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
     public function __toString() {}
 }
 

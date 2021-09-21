@@ -5,14 +5,15 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 class __PHP_Incomplete_Class
 {
-        /**
-         * @var string
-         */
-        public $__PHP_Incomplete_Class_Name;
+    /**
+     * @var string
+     */
+    public $__PHP_Incomplete_Class_Name;
 }
 
 class php_user_filter
@@ -68,23 +69,26 @@ class php_user_filter
      * </td>
      * </tr>
      */
+    #[TentativeType]
     public function filter(
         $in,
         $out,
         &$consumed,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $closing
-    ) {}
+    ): int {}
 
     /**
      * @link https://php.net/manual/en/php-user-filter.oncreate.php
      * @return bool
      */
-    public function onCreate() {}
+    #[TentativeType]
+    public function onCreate(): bool {}
 
     /**
      * @link https://php.net/manual/en/php-user-filter.onclose.php
      */
-    public function onClose() {}
+    #[TentativeType]
+    public function onClose(): void {}
 }
 
 /**

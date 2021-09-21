@@ -5,6 +5,9 @@ namespace StubTests\TestData\Providers\Stubs;
 
 use Generator;
 use RuntimeException;
+use StubTests\Model\PHPClass;
+use StubTests\Model\PHPInterface;
+use StubTests\Model\PHPMethod;
 use StubTests\Model\StubProblemType;
 use StubTests\Parsers\ParserUtils;
 use StubTests\TestData\Providers\EntitiesFilter;
@@ -17,7 +20,7 @@ class StubsParametersProvider
      */
     public static function parametersForScalarTypeHintTestsProvider(): ?Generator
     {
-        $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(7);
+        $filterFunction = self::getFilterFunctionForLanguageLevel(7);
         return self::yieldFilteredMethodParameters($filterFunction, StubProblemType::PARAMETER_HAS_SCALAR_TYPEHINT);
     }
 
@@ -26,7 +29,7 @@ class StubsParametersProvider
      */
     public static function parametersForNullableTypeHintTestsProvider(): ?Generator
     {
-        $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(7.1);
+        $filterFunction = self::getFilterFunctionForLanguageLevel(7.1);
         return self::yieldFilteredMethodParameters($filterFunction, StubProblemType::HAS_NULLABLE_TYPEHINT);
     }
 
@@ -35,7 +38,7 @@ class StubsParametersProvider
      */
     public static function parametersForUnionTypeHintTestsProvider(): ?Generator
     {
-        $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(8);
+        $filterFunction = self::getFilterFunctionForLanguageLevel(8);
         return self::yieldFilteredMethodParameters($filterFunction, StubProblemType::HAS_UNION_TYPEHINT);
     }
 
@@ -87,5 +90,11 @@ class StubsParametersProvider
                 }
             }
         }
+    }
+
+    private static function getFilterFunctionForLanguageLevel(float $languageVersion): callable
+    {
+        return fn (PHPClass|PHPInterface $class, PHPMethod $method, ?float $firstSinceVersion) => !$method->isFinal &&
+            !$class->isFinal && $firstSinceVersion !== null && $firstSinceVersion < $languageVersion;
     }
 }

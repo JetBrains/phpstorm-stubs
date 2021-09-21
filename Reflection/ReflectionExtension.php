@@ -3,6 +3,7 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -24,7 +25,7 @@ class ReflectionExtension implements Reflector
      *
      * @link https://php.net/manual/en/reflectionextension.construct.php
      * @param string $name Name of the extension.
-     * @throws \ReflectionException if the extension does not exist.
+     * @throws ReflectionException if the extension does not exist.
      */
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
@@ -60,16 +61,18 @@ class ReflectionExtension implements Reflector
      * @return string The extensions name.
      */
     #[Pure]
-    public function getName() {}
+    #[TentativeType]
+    public function getName(): string {}
 
     /**
      * Gets extension version
      *
      * @link https://php.net/manual/en/reflectionextension.getversion.php
-     * @return string The version of the extension.
+     * @return string|null The version of the extension.
      */
     #[Pure]
-    public function getVersion() {}
+    #[TentativeType]
+    public function getVersion(): ?string {}
 
     /**
      * Gets extension functions
@@ -80,7 +83,8 @@ class ReflectionExtension implements Reflector
      * names. If no function are defined, an empty array is returned.
      */
     #[Pure]
-    public function getFunctions() {}
+    #[TentativeType]
+    public function getFunctions(): array {}
 
     /**
      * Gets constants
@@ -89,7 +93,8 @@ class ReflectionExtension implements Reflector
      * @return array An associative array with constant names as keys.
      */
     #[Pure]
-    public function getConstants() {}
+    #[TentativeType]
+    public function getConstants(): array {}
 
     /**
      * Gets extension ini entries
@@ -99,7 +104,8 @@ class ReflectionExtension implements Reflector
      * with their defined values as values.
      */
     #[Pure]
-    public function getINIEntries() {}
+    #[TentativeType]
+    public function getINIEntries(): array {}
 
     /**
      * Gets classes
@@ -110,7 +116,8 @@ class ReflectionExtension implements Reflector
      * an empty array is returned.
      */
     #[Pure]
-    public function getClasses() {}
+    #[TentativeType]
+    public function getClasses(): array {}
 
     /**
      * Gets class names
@@ -120,7 +127,8 @@ class ReflectionExtension implements Reflector
      * If no classes are defined, an empty array is returned.
      */
     #[Pure]
-    public function getClassNames() {}
+    #[TentativeType]
+    public function getClassNames(): array {}
 
     /**
      * Gets dependencies
@@ -130,7 +138,8 @@ class ReflectionExtension implements Reflector
      * either Required, Optional or Conflicts as the values.
      */
     #[Pure]
-    public function getDependencies() {}
+    #[TentativeType]
+    public function getDependencies(): array {}
 
     /**
      * Print extension info
@@ -138,7 +147,8 @@ class ReflectionExtension implements Reflector
      * @link https://php.net/manual/en/reflectionextension.info.php
      * @return void Print extension info
      */
-    public function info() {}
+    #[TentativeType]
+    public function info(): void {}
 
     /**
      * Returns whether this extension is persistent
@@ -148,7 +158,8 @@ class ReflectionExtension implements Reflector
      * @since 5.4
      */
     #[Pure]
-    public function isPersistent() {}
+    #[TentativeType]
+    public function isPersistent(): bool {}
 
     /**
      * Returns whether this extension is temporary
@@ -158,7 +169,8 @@ class ReflectionExtension implements Reflector
      * @since 5.4
      */
     #[Pure]
-    public function isTemporary() {}
+    #[TentativeType]
+    public function isTemporary(): bool {}
 
     /**
      * Clones

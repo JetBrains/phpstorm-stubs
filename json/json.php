@@ -1,7 +1,7 @@
 <?php
 
 // Start of json v.1.3.1
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -20,8 +20,8 @@ interface JsonSerializable
      * which is a value of any type other than a resource.
      * @since 5.4
      */
-    #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
-    public function jsonSerialize();
+    #[TentativeType]
+    public function jsonSerialize(): mixed;
 }
 
 class JsonIncrementalParser
@@ -457,6 +457,6 @@ define('JSON_THROW_ON_ERROR', 4194304);
  * @since 7.3
  * @link https://wiki.php.net/rfc/json_throw_on_error
  */
-class JsonException extends \Exception {}
+class JsonException extends Exception {}
 
 // End of json v.1.3.1

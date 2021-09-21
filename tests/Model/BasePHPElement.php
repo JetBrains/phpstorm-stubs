@@ -6,6 +6,7 @@ namespace StubTests\Model;
 use Exception;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\TentativeType;
 use phpDocumentor\Reflection\Type;
 use PhpParser\Node;
 use PhpParser\Node\AttributeGroup;
@@ -195,6 +196,18 @@ abstract class BasePHPElement
             }
         }
         return $versionRange;
+    }
+
+    protected static function hasTentativeTypeAttribute(array $attrGroups): bool
+    {
+        foreach ($attrGroups as $attrGroup) {
+            foreach ($attrGroup->attrs as $attr) {
+                if ($attr->name->toString() === TentativeType::class) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public function hasMutedProblem(int $stubProblemType): bool

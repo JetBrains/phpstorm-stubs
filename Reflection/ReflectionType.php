@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -18,7 +19,8 @@ abstract class ReflectionType implements Stringable
      * @return bool Returns {@see true} if {@see null} is allowed, otherwise {@see false}
      * @since 7.0
      */
-    public function allowsNull() {}
+    #[TentativeType]
+    public function allowsNull(): bool {}
 
     /**
      * Checks if it is a built-in type

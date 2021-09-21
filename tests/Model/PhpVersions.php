@@ -6,6 +6,7 @@ namespace StubTests\Model;
 use ArrayAccess;
 use ArrayIterator;
 use IteratorAggregate;
+use ReturnTypeWillChange;
 use RuntimeException;
 
 class PhpVersions implements ArrayAccess, IteratorAggregate
@@ -27,16 +28,19 @@ class PhpVersions implements ArrayAccess, IteratorAggregate
         return isset(self::$versions[$offset]);
     }
 
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->offsetExists($offset) ? self::$versions[$offset] : null;
     }
 
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         throw new RuntimeException('Unsupported operation');
     }
 
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         throw new RuntimeException('Unsupported operation');
