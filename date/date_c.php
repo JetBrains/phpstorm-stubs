@@ -419,7 +419,7 @@ class DateTimeImmutable implements DateTimeInterface
      * @return DateTimeImmutable
      * @since 8.0
      */
-    public static function createFromInterface(DateTimeInterface $object) {}
+    public static function createFromInterface(DateTimeInterface $object): DateTimeImmutable {}
 }
 
 /**
@@ -717,7 +717,7 @@ class DateTime implements DateTimeInterface
      * @return DateTime
      * @since 8.0
      */
-    public static function createFromInterface(DateTimeInterface $object) {}
+    public static function createFromInterface(DateTimeInterface $object): DateTime {}
 }
 
 /**
@@ -1023,8 +1023,8 @@ class DatePeriod implements IteratorAggregate
     public function getRecurrences(): ?int {}
 
     /**
-     * @return DateTimeInterface[]
+     * @return Iterator
      * @since 8.0
      */
-    public function getIterator() {}
+    public function getIterator(): Iterator {}
 }

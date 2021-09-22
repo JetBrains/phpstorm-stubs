@@ -1746,10 +1746,10 @@ class PDOStatement implements IteratorAggregate
     final public function __sleep() {}
 
     /**
-     * @return Traversable
+     * @return Iterator
      * @since 8.0
      */
-    public function getIterator() {}
+    public function getIterator(): Iterator {}
 }
 
 final class PDORow

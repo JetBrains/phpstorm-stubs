@@ -103,6 +103,7 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.tostring.php
      * @return string
      */
+    #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
     public function __toString() {}
 
     /**
@@ -299,7 +300,7 @@ class ReflectionProperty implements Reflector
      * @since 8.0
      */
     #[Pure]
-    public function isPromoted() {}
+    public function isPromoted(): bool {}
 
     /**
      * Clone
@@ -307,13 +308,13 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.clone.php
      * @return void
      */
-    final private function __clone() {}
+    final private function __clone(): void {}
 
     /**
      * @return bool
      * @since 8.0
      */
-    public function hasDefaultValue() {}
+    public function hasDefaultValue(): bool {}
 
     /**
      * @return mixed
@@ -330,7 +331,7 @@ class ReflectionProperty implements Reflector
      * @since 8.0
      */
     #[Pure]
-    public function getAttributes(?string $name = null, int $flags = 0) {}
+    public function getAttributes(?string $name = null, int $flags = 0): array {}
 
     /**
      * @return bool

@@ -43,12 +43,12 @@ abstract class ReflectionType implements Stringable
      * @see ReflectionNamedType::getName()
      */
     #[Deprecated(since: "7.1")]
-    public function __toString() {}
+    public function __toString(): string {}
 
     /**
      * Cloning of this class is prohibited
      *
      * @return void
      */
-    final private function __clone() {}
+    final private function __clone(): void {}
 }

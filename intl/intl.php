@@ -7206,10 +7206,11 @@ class IntlBreakIterator implements IteratorAggregate
     public function setText(#[TypeAware(['8.0' => 'string'], default: '')] $text): ?bool {}
 
     /**
-     * @return Traversable
+     * @since 8.0
+     * @return Iterator
      */
     #[Pure]
-    public function getIterator() {}
+    public function getIterator(): Iterator {}
 }
 
 class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversable

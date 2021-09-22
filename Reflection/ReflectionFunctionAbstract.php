@@ -27,7 +27,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
      * @return void
      */
-    final private function __clone() {}
+    final private function __clone(): void {}
 
     /**
      * Checks if function in namespace
@@ -305,7 +305,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @since 8.0
      */
     #[Pure]
-    public function getAttributes(?string $name = null, int $flags = 0) {}
+    public function getAttributes(?string $name = null, int $flags = 0): array {}
 
     #[PhpStormStubsElementAvailable('8.1')]
     #[Pure]

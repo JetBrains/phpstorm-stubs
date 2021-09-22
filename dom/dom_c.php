@@ -592,12 +592,12 @@ class DOMDocumentFragment extends DOMNode implements DOMParentNode
     /**
      * {@inheritDoc}
      */
-    public function append(...$nodes) {}
+    public function append(...$nodes): void {}
 
     /**
      * {@inheritDoc}
      */
-    public function prepend(...$nodes) {}
+    public function prepend(...$nodes): void {}
 }
 
 /**
@@ -986,12 +986,12 @@ class DOMDocument extends DOMNode implements DOMParentNode
     /**
      * {@inheritDoc}
      */
-    public function append(...$nodes) {}
+    public function append(...$nodes): void {}
 
     /**
      * {@inheritDoc}
      */
-    public function prepend(...$nodes) {}
+    public function prepend(...$nodes): void {}
 
     /**
      * Normalizes the document
@@ -1266,10 +1266,10 @@ class DOMNodeList implements IteratorAggregate, Countable
     public function count(): int {}
 
     /**
-     * @return Traversable
+     * @return Iterator
      * @since 8.0
      */
-    public function getIterator() {}
+    public function getIterator(): Iterator {}
 }
 
 /**
@@ -1354,7 +1354,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
      * @return Traversable
      * @since 8.0
      */
-    public function getIterator() {}
+    public function getIterator(): Iterator {}
 }
 
 /**
@@ -1477,22 +1477,22 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
     /**
      * {@inheritDoc}
      */
-    public function remove() {}
+    public function remove(): void {}
 
     /**
      * {@inheritDoc}
      */
-    public function before(...$nodes) {}
+    public function before(...$nodes): void {}
 
     /**
      * {@inheritDoc}
      */
-    public function after(...$nodes) {}
+    public function after(...$nodes): void {}
 
     /**
      * {@inheritDoc}
      */
-    public function replaceWith(...$nodes) {}
+    public function replaceWith(...$nodes): void {}
 }
 
 /**
@@ -1908,32 +1908,32 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
     /**
      * {@inheritDoc}
      */
-    public function remove() {}
+    public function remove(): void {}
 
     /**
      * {@inheritDoc}
      */
-    public function before(...$nodes) {}
+    public function before(...$nodes): void {}
 
     /**
      * {@inheritDoc}
      */
-    public function after(...$nodes) {}
+    public function after(...$nodes): void {}
 
     /**
      * {@inheritDoc}
      */
-    public function replaceWith(...$nodes) {}
+    public function replaceWith(...$nodes): void {}
 
     /**
      * {@inheritDoc}
      */
-    public function append(...$nodes) {}
+    public function append(...$nodes): void {}
 
     /**
      * {@inheritDoc}
      */
-    public function prepend(...$nodes) {}
+    public function prepend(...$nodes): void {}
 
     /**
      * Creates a new DOMElement object
@@ -2403,7 +2403,7 @@ interface DOMParentNode
      * @return void
      * @since 8.0
      */
-    public function append(...$nodes);
+    public function append(...$nodes): void;
 
     /**
      * Prepends one or many nodes to the list of children before the first
@@ -2413,7 +2413,7 @@ interface DOMParentNode
      * @return void
      * @since 8.0
      */
-    public function prepend(...$nodes);
+    public function prepend(...$nodes): void;
 }
 
 /**
@@ -2430,7 +2430,7 @@ interface DOMChildNode
      * @return void
      * @since 8.0
      */
-    public function remove();
+    public function remove(): void;
 
     /**
      * Add passed node(s) before the current node
@@ -2439,7 +2439,7 @@ interface DOMChildNode
      * @return void
      * @since 8.0
      */
-    public function before(...$nodes);
+    public function before(...$nodes): void;
 
     /**
      * Add passed node(s) after  the current node
@@ -2448,7 +2448,7 @@ interface DOMChildNode
      * @return void
      * @since 8.0
      */
-    public function after(...$nodes);
+    public function after(...$nodes): void;
 
     /**
      * Replace current node with new node(s), a combination
@@ -2458,5 +2458,5 @@ interface DOMChildNode
      * @return void
      * @since 8.0
      */
-    public function replaceWith(...$nodes);
+    public function replaceWith(...$nodes): void;
 }

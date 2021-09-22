@@ -896,7 +896,7 @@ final class mysqli_warning
      * @link https://php.net/manual/en/mysqli-warning.next.php
      * @return bool True if it successfully moved to the next warning
      */
-    public function next() {}
+    public function next(): bool {}
 }
 
 /**
@@ -1249,7 +1249,7 @@ class mysqli_result implements IteratorAggregate
     public function fetch_row(): array|false|null {}
 
     #[PhpStormStubsElementAvailable('8.1')]
-    public function fetch_column(int $column = null) {}
+    public function fetch_column(int $column = null): string|int|float|false|null {}
 
     /**
      * Set result pointer to a specified field offset
@@ -1272,10 +1272,10 @@ class mysqli_result implements IteratorAggregate
     public function free_result(): void {}
 
     /**
-     * @return Traversable
+     * @return Iterator
      * @since 8.0
      */
-    public function getIterator() {}
+    public function getIterator(): Iterator {}
 }
 
 /**

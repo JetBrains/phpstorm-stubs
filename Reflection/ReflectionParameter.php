@@ -53,6 +53,7 @@ class ReflectionParameter implements Reflector
      * @link https://php.net/manual/en/reflectionparameter.tostring.php
      * @return string
      */
+    #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
     public function __toString() {}
 
     /**
@@ -272,7 +273,7 @@ class ReflectionParameter implements Reflector
      * @since 8.0
      */
     #[Pure]
-    public function isPromoted() {}
+    public function isPromoted(): bool {}
 
     /**
      * Returns an array of parameter attributes.
@@ -283,7 +284,7 @@ class ReflectionParameter implements Reflector
      * @since 8.0
      */
     #[Pure]
-    public function getAttributes(?string $name = null, int $flags = 0) {}
+    public function getAttributes(?string $name = null, int $flags = 0): array {}
 
     /**
      * Clone
@@ -291,5 +292,5 @@ class ReflectionParameter implements Reflector
      * @link https://php.net/manual/en/reflectionparameter.clone.php
      * @return void
      */
-    final private function __clone() {}
+    final private function __clone(): void {}
 }

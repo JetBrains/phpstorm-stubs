@@ -363,14 +363,14 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
      * @link https://php.net/manual/en/directoryiterator.key.php
      * @return string The key for the current <b>DirectoryIterator</b> item.
      */
-    public function key() {}
+    public function key(): mixed {}
 
     /**
      * Return the current DirectoryIterator item.
      * @link https://php.net/manual/en/directoryiterator.current.php
      * @return DirectoryIterator The current <b>DirectoryIterator</b> item.
      */
-    public function current() {}
+    public function current(): mixed {}
 
     /**
      * Move forward to next DirectoryIterator item
@@ -1929,10 +1929,9 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
     /**
      * @return Traversable
      */
-    #[LanguageLevelTypeAware(['8.0' => 'Iterator'], default: '')]
-    public function getIterator() {}
+    public function getIterator(): Iterator {}
 
-    public function jsonSerialize() {}
+    public function jsonSerialize(): array {}
 }
 
 /**

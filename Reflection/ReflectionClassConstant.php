@@ -181,7 +181,7 @@ class ReflectionClassConstant implements Reflector
      * @return string
      * @since 7.1
      */
-    public function __toString() {}
+    public function __toString(): string {}
 
     /**
      * Returns an array of constant attributes.
@@ -192,17 +192,17 @@ class ReflectionClassConstant implements Reflector
      * @since 8.0
      */
     #[Pure]
-    public function getAttributes(?string $name = null, int $flags = 0) {}
+    public function getAttributes(?string $name = null, int $flags = 0): array {}
 
     /**
      * ReflectionClassConstant cannot be cloned
      *
      * @return void
      */
-    final private function __clone() {}
+    final private function __clone(): void {}
 
     #[PhpStormStubsElementAvailable('8.1')]
-    public function isEnumCase() {}
+    public function isEnumCase(): bool {}
 
     /**
      * @return bool

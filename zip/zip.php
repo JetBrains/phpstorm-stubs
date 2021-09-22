@@ -1287,13 +1287,11 @@ class ZipArchive implements Countable
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
     ) {}
 
-    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public static function isEncryptionMethodSupported(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $method,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $enc = true
     ) {}
 
-    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public static function isCompressionMethodSupported(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $method,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $enc = true

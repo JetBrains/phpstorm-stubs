@@ -113,6 +113,5 @@ class ReflectionZendExtension implements Reflector
      * @return void
      * @since 5.4
      */
-    #[LanguageLevelTypeAware(['8.0' => 'void'], default: '')]
-    final private function __clone() {}
+    final private function __clone(): void {}
 }

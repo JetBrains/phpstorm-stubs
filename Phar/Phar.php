@@ -644,7 +644,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @link https://php.net/manual/en/phar.apiversion.php
      * @return string The API version string as in &#x00022;1.0.0&#x00022;.
      */
-    final public static function apiVersion() {}
+    final public static function apiVersion(): string {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
@@ -657,7 +657,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return bool <b>TRUE</b> if compression/decompression is available, <b>FALSE</b> if not.
      */
-    final public static function canCompress(int $compression = 0) {}
+    final public static function canCompress(int $compression = 0): bool {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
@@ -665,7 +665,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @link https://php.net/manual/en/phar.canwrite.php
      * @return bool <b>TRUE</b> if write access is enabled, <b>FALSE</b> if it is disabled.
      */
-    final public static function canWrite() {}
+    final public static function canWrite(): bool {}
 
     /**
      * (Unknown)<br/>
@@ -677,7 +677,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * that allows the created Phar archive to work with or without the Phar extension
      * enabled.
      */
-    final public static function createDefaultStub(?string $index = null, ?string $webIndex = null) {}
+    final public static function createDefaultStub(?string $index = null, ?string $webIndex = null): string {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
@@ -688,7 +688,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * the zlib extension or the
      * bz2 extension.
      */
-    final public static function getSupportedCompression() {}
+    final public static function getSupportedCompression(): array {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.1.0)<br/>
@@ -697,7 +697,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return string[] an array containing any of "MD5", "SHA-1",
      * "SHA-256", "SHA-512", or "OpenSSL".
      */
-    final public static function getSupportedSignatures() {}
+    final public static function getSupportedSignatures(): array {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -705,7 +705,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @link https://php.net/manual/en/phar.interceptfilefuncs.php
      * @return void
      */
-    final public static function interceptFileFuncs() {}
+    final public static function interceptFileFuncs(): void {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
@@ -720,7 +720,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return bool <b>TRUE</b> if the filename is valid, <b>FALSE</b> if not.
      */
-    final public static function isValidPharFilename(string $filename, bool $executable = true) {}
+    final public static function isValidPharFilename(string $filename, bool $executable = true): bool {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
@@ -737,7 +737,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    final public static function loadPhar(string $filename, ?string $alias = null) {}
+    final public static function loadPhar(string $filename, ?string $alias = null): bool {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
@@ -752,7 +752,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    final public static function mapPhar(?string $alias = null, int $offset = 0) {}
+    final public static function mapPhar(?string $alias = null, int $offset = 0): bool {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -764,7 +764,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return string the filename if valid, empty string otherwise.
      */
-    final public static function running(bool $returnPhar = true) {}
+    final public static function running(bool $returnPhar = true): string {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -779,7 +779,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return void No return. <b>PharException</b> is thrown on failure.
      */
-    final public static function mount(string $pharPath, string $externalPath) {}
+    final public static function mount(string $pharPath, string $externalPath): void {}
 
     /**
      * (Unknown)<br/>
@@ -794,7 +794,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return void No return.
      */
-    final public static function mungServer(array $variables) {}
+    final public static function mungServer(array $variables): void {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -806,7 +806,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @throws PharException
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    final public static function unlinkArchive(string $filename) {}
+    final public static function unlinkArchive(string $filename): bool {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -892,7 +892,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $fileNotFoundScript = null,
         array $mimeTypes = null,
         ?callable $rewrite = null
-    ) {}
+    ): void {}
 
     /**
      * Returns whether current entry is a directory and not '.' or '..'

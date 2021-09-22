@@ -7,29 +7,13 @@ final class ReflectionFiber
 {
     public function __construct(Fiber $fiber) {}
 
-    /**
-     * @return Fiber
-     */
-    public function getFiber() {}
+    public function getFiber(): Fiber {}
 
-    /**
-     * @return string
-     */
-    public function getExecutingFile() {}
+    public function getExecutingFile(): string {}
 
-    /**
-     * @return int
-     */
-    public function getExecutingLine() {}
+    public function getExecutingLine(): int {}
 
-    /**
-     * @return callable
-     */
-    public function getCallable() {}
+    public function getCallable(): callable {}
 
-    /**
-     * @param int $options
-     * @return array
-     */
-    public function getTrace(int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT) {}
+    public function getTrace(int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT): array {}
 }

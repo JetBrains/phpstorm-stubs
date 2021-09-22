@@ -72,6 +72,7 @@ class ReflectionClass implements Reflector
      * @link https://php.net/manual/en/reflectionclass.tostring.php
      * @return string A string representation of this {@see ReflectionClass} instance.
      */
+    #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
     public function __toString() {}
 
     /**
@@ -649,7 +650,7 @@ class ReflectionClass implements Reflector
      * @since 8.0
      */
     #[Pure]
-    public function getAttributes(?string $name = null, int $flags = 0) {}
+    public function getAttributes(?string $name = null, int $flags = 0): array {}
 
     /**
      * Clones object
@@ -657,8 +658,8 @@ class ReflectionClass implements Reflector
      * @link https://php.net/manual/en/reflectionclass.clone.php
      * @return void
      */
-    final private function __clone() {}
+    final private function __clone(): void {}
 
     #[PhpStormStubsElementAvailable('8.1')]
-    public function isEnum() {}
+    public function isEnum(): bool {}
 }

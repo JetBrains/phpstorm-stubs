@@ -52,6 +52,7 @@ class ReflectionExtension implements Reflector
      * @return string the exported extension as a string, in the same way as
      * the {@see ReflectionExtension::export()}.
      */
+    #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
     public function __toString() {}
 
     /**
@@ -178,5 +179,5 @@ class ReflectionExtension implements Reflector
      * @link https://php.net/manual/en/reflectionextension.clone.php
      * @return void No value is returned, if called a fatal error will occur.
      */
-    final private function __clone() {}
+    final private function __clone(): void {}
 }
