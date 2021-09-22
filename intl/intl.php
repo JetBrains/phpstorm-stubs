@@ -3209,7 +3209,8 @@ class IntlCalendar
      * </p>
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function roll(#[TypeAware(['8.0' => 'int'], default: '')] $field, $value) {}
+    #[TentativeType]
+    public function roll(#[TypeAware(['8.0' => 'int'], default: '')] $field, $value): bool {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
