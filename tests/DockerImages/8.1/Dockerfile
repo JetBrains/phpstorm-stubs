@@ -9,15 +9,4 @@ RUN set -eux; \
     gpgme gpgme-dev git
 
 RUN docker-php-ext-install imap gmp sockets intl gd ldap bz2 mysqli bcmath calendar dba exif gettext opcache pcntl \
-    pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap
-
-RUN git clone https://github.com/xdebug/xdebug
-WORKDIR xdebug
-RUN phpize && \
-    chmod +x configure && \
-    ./configure --enable-xdebug && \
-    make && \
-    make install
-RUN docker-php-ext-enable xdebug
-
-RUN echo 'memory_limit = 1024M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
+    pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap \
