@@ -42,7 +42,7 @@ class PhpToken implements Stringable
      *
      * @return string|null
      */
-    public function getTokenName() {}
+    public function getTokenName(): ?string {}
 
     /**
      * Same as {@see token_get_all()}, but returning array of {@see PhpToken}
@@ -52,7 +52,7 @@ class PhpToken implements Stringable
      * @param int $flags
      * @return static[]
      */
-    public static function tokenize(string $code, int $flags = 0) {}
+    public static function tokenize(string $code, int $flags = 0): array {}
 
     /**
      * Whether the token has the given ID, the given text, or has an ID/text
@@ -61,17 +61,17 @@ class PhpToken implements Stringable
      * @param int|string|array $kind
      * @return bool
      */
-    public function is($kind) {}
+    public function is($kind): bool {}
 
     /**
      * Whether this token would be ignored by the PHP parser.
      *
      * @return bool
      */
-    public function isIgnorable() {}
+    public function isIgnorable(): bool {}
 
     /**
      * {@inheritDoc}
      */
-    public function __toString() {}
+    public function __toString(): string {}
 }

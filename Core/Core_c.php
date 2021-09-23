@@ -3,6 +3,7 @@
 // Start of Core v.5.3.6-13ubuntu3.2
 use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -40,7 +41,8 @@ interface IteratorAggregate extends Traversable
      * <b>Traversable</b>
      * @throws Exception on failure.
      */
-    public function getIterator();
+    #[TentativeType]
+    public function getIterator(): Traversable;
 }
 
 /**
@@ -55,21 +57,24 @@ interface Iterator extends Traversable
      * @link https://php.net/manual/en/iterator.current.php
      * @return mixed Can return any type.
      */
-    public function current();
+    #[TentativeType]
+    public function current(): mixed;
 
     /**
      * Move forward to next element
      * @link https://php.net/manual/en/iterator.next.php
      * @return void Any returned value is ignored.
      */
-    public function next();
+    #[TentativeType]
+    public function next(): void;
 
     /**
      * Return the key of the current element
      * @link https://php.net/manual/en/iterator.key.php
      * @return string|float|int|bool|null scalar on success, or null on failure.
      */
-    public function key();
+    #[TentativeType]
+    public function key(): mixed;
 
     /**
      * Checks if current position is valid
@@ -77,14 +82,16 @@ interface Iterator extends Traversable
      * @return bool The return value will be casted to boolean and then evaluated.
      * Returns true on success or false on failure.
      */
-    public function valid();
+    #[TentativeType]
+    public function valid(): bool;
 
     /**
      * Rewind the Iterator to the first element
      * @link https://php.net/manual/en/iterator.rewind.php
      * @return void Any returned value is ignored.
      */
-    public function rewind();
+    #[TentativeType]
+    public function rewind(): void;
 }
 
 /**
@@ -104,7 +111,8 @@ interface ArrayAccess
      * <p>
      * The return value will be casted to boolean if non-boolean was returned.
      */
-    public function offsetExists(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $offset);
+    #[TentativeType]
+    public function offsetExists(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $offset): bool;
 
     /**
      * Offset to retrieve
@@ -114,7 +122,8 @@ interface ArrayAccess
      * </p>
      * @return mixed Can return all value types.
      */
-    public function offsetGet(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $offset);
+    #[TentativeType]
+    public function offsetGet(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $offset): mixed;
 
     /**
      * Offset to set
@@ -127,10 +136,11 @@ interface ArrayAccess
      * </p>
      * @return void
      */
+    #[TentativeType]
     public function offsetSet(
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $offset,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
-    );
+    ): void;
 
     /**
      * Offset to unset
@@ -140,7 +150,8 @@ interface ArrayAccess
      * </p>
      * @return void
      */
-    public function offsetUnset(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $offset);
+    #[TentativeType]
+    public function offsetUnset(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $offset): void;
 }
 
 /**
@@ -180,7 +191,7 @@ interface Throwable extends Stringable
      * @return string
      * @since 7.0
      */
-    public function getMessage();
+    public function getMessage(): string;
 
     /**
      * Gets the exception code
@@ -201,7 +212,7 @@ interface Throwable extends Stringable
      * @return string Returns the name of the file from which the object was thrown.
      * @since 7.0
      */
-    public function getFile();
+    public function getFile(): string;
 
     /**
      * Gets the line on which the object was instantiated
@@ -209,7 +220,7 @@ interface Throwable extends Stringable
      * @return int Returns the line number where the thrown object was instantiated.
      * @since 7.0
      */
-    public function getLine();
+    public function getLine(): int;
 
     /**
      * Gets the stack trace
@@ -220,7 +231,7 @@ interface Throwable extends Stringable
      * </p>
      * @since 7.0
      */
-    public function getTrace();
+    public function getTrace(): array;
 
     /**
      * Gets the stack trace as a string
@@ -228,7 +239,7 @@ interface Throwable extends Stringable
      * @return string Returns the stack trace as a string.
      * @since 7.0
      */
-    public function getTraceAsString();
+    public function getTraceAsString(): string;
 
     /**
      * Returns the previous Throwable
@@ -236,6 +247,7 @@ interface Throwable extends Stringable
      * @return null|Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
      * @since 7.0
      */
+    #[LanguageLevelTypeAware(['8.0' => 'Throwable|null'], default: '')]
     public function getPrevious();
 
     /**
@@ -246,6 +258,7 @@ interface Throwable extends Stringable
      */
     public function __toString();
 }
+
 /**
  * Exception is the base class for
  * all Exceptions.
@@ -270,7 +283,7 @@ class Exception implements Throwable
      * @link https://php.net/manual/en/exception.clone.php
      * @return void
      */
-    final private function __clone() {}
+    final private function __clone(): void {}
 
     /**
      * Construct the exception. Note: The message is NOT binary safe.
@@ -292,7 +305,7 @@ class Exception implements Throwable
      * @return string the Exception message as a string.
      */
     #[Pure]
-    final public function getMessage() {}
+    final public function getMessage(): string {}
 
     /**
      * Gets the Exception code
@@ -311,7 +324,7 @@ class Exception implements Throwable
      * @return string the filename in which the exception was created.
      */
     #[Pure]
-    final public function getFile() {}
+    final public function getFile(): string {}
 
     /**
      * Gets the line in which the exception occurred
@@ -319,7 +332,7 @@ class Exception implements Throwable
      * @return int the line number where the exception was created.
      */
     #[Pure]
-    final public function getLine() {}
+    final public function getLine(): int {}
 
     /**
      * Gets the stack trace
@@ -327,7 +340,7 @@ class Exception implements Throwable
      * @return array the Exception stack trace as an array.
      */
     #[Pure]
-    final public function getTrace() {}
+    final public function getTrace(): array {}
 
     /**
      * Returns previous Exception
@@ -336,7 +349,7 @@ class Exception implements Throwable
      * or null otherwise.
      */
     #[Pure]
-    final public function getPrevious() {}
+    final public function getPrevious(): ?Throwable {}
 
     /**
      * Gets the stack trace as a string
@@ -344,16 +357,18 @@ class Exception implements Throwable
      * @return string the Exception stack trace as a string.
      */
     #[Pure]
-    final public function getTraceAsString() {}
+    final public function getTraceAsString(): string {}
 
     /**
      * String representation of the exception
      * @link https://php.net/manual/en/exception.tostring.php
      * @return string the string representation of the exception.
      */
+    #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
     public function __toString() {}
 
-    public function __wakeup() {}
+    #[TentativeType]
+    public function __wakeup(): void {}
 }
 
 /**
@@ -394,7 +409,7 @@ class Error implements Throwable
      * @return string
      * @since 7.0
      */
-    final public function getMessage() {}
+    final public function getMessage(): string {}
 
     /**
      * Gets the exception code
@@ -415,7 +430,7 @@ class Error implements Throwable
      * @return string Returns the name of the file from which the object was thrown.
      * @since 7.0
      */
-    final public function getFile() {}
+    final public function getFile(): string {}
 
     /**
      * Gets the line on which the object was instantiated
@@ -423,7 +438,7 @@ class Error implements Throwable
      * @return int Returns the line number where the thrown object was instantiated.
      * @since 7.0
      */
-    final public function getLine() {}
+    final public function getLine(): int {}
 
     /**
      * Gets the stack trace
@@ -434,7 +449,7 @@ class Error implements Throwable
      * </p>
      * @since 7.0
      */
-    final public function getTrace() {}
+    final public function getTrace(): array {}
 
     /**
      * Gets the stack trace as a string
@@ -442,7 +457,7 @@ class Error implements Throwable
      * @return string Returns the stack trace as a string.
      * @since 7.0
      */
-    final public function getTraceAsString() {}
+    final public function getTraceAsString(): string {}
 
     /**
      * Returns the previous Throwable
@@ -450,7 +465,7 @@ class Error implements Throwable
      * @return null|Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
      * @since 7.0
      */
-    final public function getPrevious() {}
+    final public function getPrevious(): ?Throwable {}
 
     /**
      * Gets a string representation of the thrown object
@@ -458,7 +473,7 @@ class Error implements Throwable
      * @return string <p>Returns the string representation of the thrown object.</p>
      * @since 7.0
      */
-    public function __toString() {}
+    public function __toString(): string {}
 
     /**
      * Clone the error
@@ -466,9 +481,10 @@ class Error implements Throwable
      * @return void
      * @link https://php.net/manual/en/error.clone.php
      */
-    final private function __clone() {}
+    final private function __clone(): void {}
 
-    public function __wakeup() {}
+    #[TentativeType]
+    public function __wakeup(): void {}
 }
 
 class ValueError extends Error {}
@@ -546,7 +562,7 @@ class ErrorException extends Exception
      * @param int $line [optional] The line number where the exception is thrown.
      * @param Exception $previous [optional] The previous exception used for the exception chaining.
      */
-    #[\JetBrains\PhpStorm\Pure]
+    #[Pure]
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $message = "",
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $code = 0,
@@ -561,7 +577,7 @@ class ErrorException extends Exception
      * @link https://php.net/manual/en/errorexception.getseverity.php
      * @return int the severity level of the exception.
      */
-    final public function getSeverity() {}
+    final public function getSeverity(): int {}
 }
 
 /**
@@ -600,7 +616,7 @@ final class Closure
      * This determines the visibility of protected and private methods of the bound object.
      * @return Closure|false Returns the newly created Closure object or FALSE on failure
      */
-    public function bindTo(?object $newThis, object|string|null $newScope = 'static') {}
+    public function bindTo(?object $newThis, object|string|null $newScope = 'static'): ?Closure {}
 
     /**
      * This method is a static version of Closure::bindTo().
@@ -613,7 +629,7 @@ final class Closure
      * This determines the visibility of protected and private methods of the bound object.
      * @return Closure|false Returns the newly created Closure object or FALSE on failure
      */
-    public static function bind(Closure $closure, ?object $newThis, object|string|null $newScope = 'static') {}
+    public static function bind(Closure $closure, ?object $newThis, object|string|null $newScope = 'static'): ?Closure {}
 
     /**
      * Temporarily binds the closure to newthis, and calls it with any given parameters.
@@ -623,14 +639,14 @@ final class Closure
      * @return mixed
      * @since 7.0
      */
-    public function call(object $newThis, mixed ...$args) {}
+    public function call(object $newThis, mixed ...$args): mixed {}
 
     /**
      * @param callable $callback
      * @return Closure
      * @since 7.1
      */
-    public static function fromCallable(callable $callback) {}
+    public static function fromCallable(callable $callback): Closure {}
 }
 
 /**
@@ -648,7 +664,8 @@ interface Countable
      * The return value is cast to an integer.
      * </p>
      */
-    public function count();
+    #[TentativeType]
+    public function count(): int;
 }
 
 /**
@@ -682,7 +699,7 @@ class WeakReference
      * @return object|null
      * @since 7.4
      */
-    public function get() {}
+    public function get(): ?object {}
 }
 
 /**
@@ -693,7 +710,7 @@ class WeakReference
  *
  * @since 8.0
  */
-final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate
+final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
 {
     /**
      * Returns {@see true} if the value for the object is contained in
@@ -702,7 +719,7 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate
      * @param object $object Any object
      * @return bool
      */
-    public function offsetExists($object) {}
+    public function offsetExists($object): bool {}
 
     /**
      * Returns the existsing value by an object.
@@ -710,7 +727,7 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate
      * @param object $object Any object
      * @return mixed Value associated with the key object
      */
-    public function offsetGet($object) {}
+    public function offsetGet($object): mixed {}
 
     /**
      * Sets a new value for an object.
@@ -719,7 +736,7 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate
      * @param mixed $value Any value
      * @return void
      */
-    public function offsetSet($object, mixed $value) {}
+    public function offsetSet($object, mixed $value): void {}
 
     /**
      * Force removes an object value from the {@see WeakMap} instance.
@@ -727,21 +744,21 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate
      * @param object $object Any object
      * @return void
      */
-    public function offsetUnset($object) {}
+    public function offsetUnset($object): void {}
 
     /**
      * Returns an iterator in the "[object => mixed]" format.
      *
      * @return Traversable
      */
-    public function getIterator() {}
+    public function getIterator(): Iterator {}
 
     /**
      * Returns the number of items in the {@see WeakMap} instance.
      *
      * @return int
      */
-    public function count() {}
+    public function count(): int {}
 }
 
 /**
@@ -759,7 +776,7 @@ interface Stringable
      * @return string Returns string representation of the object that
      * implements this interface (and/or "__toString" magic method).
      */
-    public function __toString();
+    public function __toString(): string;
 }
 
 /**
@@ -823,15 +840,16 @@ final class Attribute
 final class InternalIterator implements Iterator
 {
     private function __construct() {}
-    public function current() {}
 
-    public function next() {}
+    public function current(): mixed {}
 
-    public function key() {}
+    public function next(): void {}
 
-    public function valid() {}
+    public function key(): mixed {}
 
-    public function rewind() {}
+    public function valid(): bool {}
+
+    public function rewind(): void {}
 }
 
 /**
@@ -844,7 +862,7 @@ interface UnitEnum
     /**
      * @return static[]
      */
-    public static function cases();
+    public static function cases(): array;
 }
 
 /**
@@ -858,13 +876,13 @@ interface BackedEnum extends UnitEnum
      * @param int|string $value
      * @return static
      */
-    public static function from(int|string $value);
+    public static function from(int|string $value): static;
 
     /**
      * @param int|string $value
      * @return static|null
      */
-    public static function tryFrom(int|string $value);
+    public static function tryFrom(int|string $value): ?static;
 }
 
 /**
@@ -881,13 +899,13 @@ interface IntBackedEnum extends BackedEnum
      * @param int $value
      * @return static
      */
-    public static function from(int $value);
+    public static function from(int $value): static;
 
     /**
      * @param int $value
      * @return static|null
      */
-    public static function tryFrom(int $value);
+    public static function tryFrom(int $value): ?static;
 }
 
 /**
@@ -925,7 +943,7 @@ final class Fiber
      * @throws FiberError If the fiber has already been started.
      * @throws Throwable If the fiber callable throws an uncaught exception.
      */
-    public function start(mixed ...$args) {}
+    public function start(mixed ...$args): mixed {}
 
     /**
      * Resumes the fiber, returning the given value from {@see Fiber::suspend()}.
@@ -938,7 +956,7 @@ final class Fiber
      * @throws FiberError If the fiber has not started, is running, or has terminated.
      * @throws Throwable If the fiber callable throws an uncaught exception.
      */
-    public function resume(mixed $value = null) {}
+    public function resume(mixed $value = null): mixed {}
 
     /**
      * Throws the given exception into the fiber from {@see Fiber::suspend()}.
@@ -951,36 +969,36 @@ final class Fiber
      * @throws FiberError If the fiber has not started, is running, or has terminated.
      * @throws Throwable If the fiber callable throws an uncaught exception.
      */
-    public function throw(Throwable $exception) {}
+    public function throw(Throwable $exception): mixed {}
 
     /**
      * @return bool True if the fiber has been started.
      */
-    public function isStarted() {}
+    public function isStarted(): bool {}
 
     /**
      * @return bool True if the fiber is suspended.
      */
-    public function isSuspended() {}
+    public function isSuspended(): bool {}
 
     /**
      * @return bool True if the fiber is currently running.
      */
-    public function isRunning() {}
+    public function isRunning(): bool {}
 
     /**
      * @return bool True if the fiber has completed execution (returned or threw).
      */
-    public function isTerminated() {}
+    public function isTerminated(): bool {}
 
     /**
      * @return mixed Return value of the fiber callback. NULL is returned if the fiber does not have a return statement.
      *
      * @throws FiberError If the fiber has not terminated or the fiber threw an exception.
      */
-    public function getReturn() {}
+    public function getReturn(): mixed {}
 
-    public static function getCurrent() {}
+    public static function getCurrent(): ?Fiber {}
 
     /**
      * @return self|null Returns the currently executing fiber instance or NULL if in {main}.
@@ -999,7 +1017,7 @@ final class Fiber
      * @throws FiberError Thrown if not within a fiber (i.e., if called from {main}).
      * @throws Throwable Exception provided to {@see Fiber::throw()}.
      */
-    public static function suspend(mixed $value = null) {}
+    public static function suspend(mixed $value = null): mixed {}
 }
 
 /**
@@ -1013,7 +1031,8 @@ final class FiberError extends Error
 /**
  * @since 8.1
  */
-#[Attribute(Attribute::TARGET_METHOD)] final class ReturnTypeWillChange
+#[Attribute(Attribute::TARGET_METHOD)]
+final class ReturnTypeWillChange
 {
     public function __construct() {}
 }

@@ -4,6 +4,7 @@ use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -92,7 +93,8 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-    public function getDeclaringClass() {}
+    #[TentativeType]
+    public function getDeclaringClass(): ReflectionClass {}
 
     /**
      * Gets doc comments
@@ -102,7 +104,8 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-    public function getDocComment() {}
+    #[TentativeType]
+    public function getDocComment(): string|false {}
 
     /**
      * Gets the class constant modifiers
@@ -113,7 +116,8 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-    public function getModifiers() {}
+    #[TentativeType]
+    public function getModifiers(): int {}
 
     /**
      * Get name of the constant
@@ -123,7 +127,8 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-    public function getName() {}
+    #[TentativeType]
+    public function getName(): string {}
 
     /**
      * Gets value
@@ -133,7 +138,8 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-    public function getValue() {}
+    #[TentativeType]
+    public function getValue(): mixed {}
 
     /**
      * Checks if class constant is private
@@ -143,7 +149,8 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-    public function isPrivate() {}
+    #[TentativeType]
+    public function isPrivate(): bool {}
 
     /**
      * Checks if class constant is protected
@@ -153,7 +160,8 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-    public function isProtected() {}
+    #[TentativeType]
+    public function isProtected(): bool {}
 
     /**
      * Checks if class constant is public
@@ -163,7 +171,8 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     #[Pure]
-    public function isPublic() {}
+    #[TentativeType]
+    public function isPublic(): bool {}
 
     /**
      * Returns the string representation of the ReflectionClassConstant object.
@@ -172,7 +181,7 @@ class ReflectionClassConstant implements Reflector
      * @return string
      * @since 7.1
      */
-    public function __toString() {}
+    public function __toString(): string {}
 
     /**
      * Returns an array of constant attributes.
@@ -183,21 +192,21 @@ class ReflectionClassConstant implements Reflector
      * @since 8.0
      */
     #[Pure]
-    public function getAttributes(?string $name = null, int $flags = 0) {}
+    public function getAttributes(?string $name = null, int $flags = 0): array {}
 
     /**
      * ReflectionClassConstant cannot be cloned
      *
      * @return void
      */
-    final private function __clone() {}
+    final private function __clone(): void {}
 
     #[PhpStormStubsElementAvailable('8.1')]
-    public function isEnumCase() {}
+    public function isEnumCase(): bool {}
 
     /**
-     * @since 8.1
      * @return bool
+     * @since 8.1
      */
     public function isFinal(): bool {}
 }

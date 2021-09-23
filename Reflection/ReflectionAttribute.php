@@ -30,7 +30,7 @@ final class ReflectionAttribute implements Reflector
      * @since 8.0
      */
     #[Pure]
-    public function getName() {}
+    public function getName(): string {}
 
     /**
      * Returns the target of the attribute as a bit mask format.
@@ -39,7 +39,7 @@ final class ReflectionAttribute implements Reflector
      * @since 8.0
      */
     #[Pure]
-    public function getTarget() {}
+    public function getTarget(): int {}
 
     /**
      * Returns {@see true} if the attribute is repeated.
@@ -48,7 +48,7 @@ final class ReflectionAttribute implements Reflector
      * @since 8.0
      */
     #[Pure]
-    public function isRepeated() {}
+    public function isRepeated(): bool {}
 
     /**
      * Gets list of passed attribute's arguments.
@@ -57,7 +57,7 @@ final class ReflectionAttribute implements Reflector
      * @since 8.0
      */
     #[Pure]
-    public function getArguments() {}
+    public function getArguments(): array {}
 
     /**
      * Creates a new instance of the attribute with passed arguments
@@ -65,7 +65,7 @@ final class ReflectionAttribute implements Reflector
      * @return object
      * @since 8.0
      */
-    public function newInstance() {}
+    public function newInstance(): object {}
 
     /**
      * ReflectionAttribute cannot be cloned
@@ -73,9 +73,9 @@ final class ReflectionAttribute implements Reflector
      * @return void
      * @since 8.0
      */
-    private function __clone() {}
+    private function __clone(): void {}
 
-    public function __toString() {}
+    public function __toString(): string {}
 
     public static function export() {}
 }

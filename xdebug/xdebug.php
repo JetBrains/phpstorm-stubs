@@ -3,7 +3,7 @@
 /**
  * Show diagnostic information
  */
-function xdebug_info() {}
+function xdebug_info(string $category = '') {}
 
 /**
  * Returns an array of ALL valid ini options with values and is not the same as ini_get_all() which returns only
@@ -27,7 +27,7 @@ function xdebug_get_function_stack(): array {}
 /**
  * Displays the current function stack, in a similar way as what Xdebug would display in an error situation.
  * @param string $message
- * @param int $options    A bit mask of the following constants: XDEBUG_STACK_NO_DESC
+ * @param int $options A bit mask of the following constants: XDEBUG_STACK_NO_DESC
  * @return void
  */
 function xdebug_print_function_stack(string $message = 'user triggered', int $options = 0) {}
@@ -349,12 +349,16 @@ function xdebug_get_gc_run_count(): int {}
 function xdebug_get_gc_total_collected_roots(): int {}
 
 /**
- * @param int   $group
- * @param int   $listType
+ * @param int $group
+ * @param int $listType
  * @param array $configuration
  * @return void
  */
 function xdebug_set_filter(int $group, int $listType, array $configuration) {}
+
+function xdebug_connect_to_client(): bool {}
+
+function xdebug_notify(mixed $data): bool {}
 
 define('XDEBUG_STACK_NO_DESC', 1);
 define('XDEBUG_TRACE_APPEND', 1);

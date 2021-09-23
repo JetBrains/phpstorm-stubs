@@ -3,6 +3,7 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -40,6 +41,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      *
      * @link https://php.net/manual/en/reflectionfunction.tostring.php
      */
+    #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
     public function __toString() {}
 
     /**
@@ -65,7 +67,8 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      */
     #[Deprecated(since: '8.0')]
     #[Pure]
-    public function isDisabled() {}
+    #[TentativeType]
+    public function isDisabled(): bool {}
 
     /**
      * Invokes function
@@ -76,7 +79,8 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * like {@see call_user_func} is.
      * @return mixed Returns the result of the invoked function call.
      */
-    public function invoke(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$args) {}
+    #[TentativeType]
+    public function invoke(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$args): mixed {}
 
     /**
      * Invokes function args
@@ -86,7 +90,8 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * like {@see call_user_func_array} works.
      * @return mixed the result of the invoked function
      */
-    public function invokeArgs(array $args) {}
+    #[TentativeType]
+    public function invokeArgs(array $args): mixed {}
 
     /**
      * Returns a dynamically created closure for the function
@@ -95,5 +100,6 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @return Closure Returns {@see Closure} or {@see null} in case of an error.
      */
     #[Pure]
-    public function getClosure() {}
+    #[TentativeType]
+    public function getClosure(): Closure {}
 }

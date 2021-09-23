@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -27,5 +28,6 @@ class ReflectionNamedType extends ReflectionType
      * @since 8.0 method was removed from the parent {@see ReflectionType} class.
      */
     #[Pure]
-    public function isBuiltin() {}
+    #[TentativeType]
+    public function isBuiltin(): bool {}
 }

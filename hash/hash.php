@@ -447,15 +447,18 @@ define('MHASH_XXH3', 40);
  */
 define('MHASH_XXH128', 41);
 
+/**
+ * @since 7.2
+ */
 class HashContext
 {
     private function __construct() {}
 
-    public function __serialize() {}
+    public function __serialize(): array {}
 
     /**
      * @param array $data
      */
-    public function __unserialize(#[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] $data) {}
+    public function __unserialize(#[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] $data): void {}
 }
 // End of hash v.1.0

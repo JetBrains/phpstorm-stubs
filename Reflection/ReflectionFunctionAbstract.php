@@ -3,6 +3,7 @@
 use JetBrains\PhpStorm\Immutable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -26,7 +27,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
      * @return void
      */
-    final private function __clone() {}
+    final private function __clone(): void {}
 
     /**
      * Checks if function in namespace
@@ -34,7 +35,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.innamespace.php
      * @return bool {@see true} if it's in a namespace, otherwise {@see false}
      */
-    public function inNamespace() {}
+    #[TentativeType]
+    public function inNamespace(): bool {}
 
     /**
      * Checks if closure
@@ -43,7 +45,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return bool {@see true} if it's a closure, otherwise {@see false}
      */
     #[Pure]
-    public function isClosure() {}
+    #[TentativeType]
+    public function isClosure(): bool {}
 
     /**
      * Checks if deprecated
@@ -52,7 +55,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return bool {@see true} if it's deprecated, otherwise {@see false}
      */
     #[Pure]
-    public function isDeprecated() {}
+    #[TentativeType]
+    public function isDeprecated(): bool {}
 
     /**
      * Checks if is internal
@@ -61,7 +65,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return bool {@see true} if it's internal, otherwise {@see false}
      */
     #[Pure]
-    public function isInternal() {}
+    #[TentativeType]
+    public function isInternal(): bool {}
 
     /**
      * Checks if user defined
@@ -70,7 +75,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return bool {@see true} if it's user-defined, otherwise {@see false}
      */
     #[Pure]
-    public function isUserDefined() {}
+    #[TentativeType]
+    public function isUserDefined(): bool {}
 
     /**
      * Returns whether this function is a generator
@@ -80,7 +86,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @since 5.5
      */
     #[Pure]
-    public function isGenerator() {}
+    #[TentativeType]
+    public function isGenerator(): bool {}
 
     /**
      * Returns whether this function is variadic
@@ -90,7 +97,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @since 5.6
      */
     #[Pure]
-    public function isVariadic() {}
+    #[TentativeType]
+    public function isVariadic(): bool {}
 
     /**
      * Returns this pointer bound to closure
@@ -99,7 +107,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return object|null Returns $this pointer or {@see null} in case of an error.
      */
     #[Pure]
-    public function getClosureThis() {}
+    #[TentativeType]
+    public function getClosureThis(): ?object {}
 
     /**
      * Returns the scope associated to the closure
@@ -110,7 +119,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @since 5.4
      */
     #[Pure]
-    public function getClosureScopeClass() {}
+    #[TentativeType]
+    public function getClosureScopeClass(): ?ReflectionClass {}
 
     /**
      * Gets doc comment
@@ -119,7 +129,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return string|false The doc comment if it exists, otherwise {@see false}
      */
     #[Pure]
-    public function getDocComment() {}
+    #[TentativeType]
+    public function getDocComment(): string|false {}
 
     /**
      * Gets end line number
@@ -129,7 +140,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * or {@see false} if unknown.
      */
     #[Pure]
-    public function getEndLine() {}
+    #[TentativeType]
+    public function getEndLine(): int|false {}
 
     /**
      * Gets extension info
@@ -139,16 +151,18 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * {@see ReflectionExtension} object or {@see null} instead.
      */
     #[Pure]
-    public function getExtension() {}
+    #[TentativeType]
+    public function getExtension(): ?ReflectionExtension {}
 
     /**
      * Gets extension name
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getextensionname.php
-     * @return string|null The extension's name or {@see null} instead.
+     * @return string|false The extension's name or {@see false} instead.
      */
     #[Pure]
-    public function getExtensionName() {}
+    #[TentativeType]
+    public function getExtensionName(): string|false {}
 
     /**
      * Gets file name
@@ -157,7 +171,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return string|false The file name or {@see false} in case of error.
      */
     #[Pure]
-    public function getFileName() {}
+    #[TentativeType]
+    public function getFileName(): string|false {}
 
     /**
      * Gets function name
@@ -166,7 +181,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return string The name of the function.
      */
     #[Pure]
-    public function getName() {}
+    #[TentativeType]
+    public function getName(): string {}
 
     /**
      * Gets namespace name
@@ -175,7 +191,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return string The namespace name.
      */
     #[Pure]
-    public function getNamespaceName() {}
+    #[TentativeType]
+    public function getNamespaceName(): string {}
 
     /**
      * Gets number of parameters
@@ -185,7 +202,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @since 5.0.3
      */
     #[Pure]
-    public function getNumberOfParameters() {}
+    #[TentativeType]
+    public function getNumberOfParameters(): int {}
 
     /**
      * Gets number of required parameters
@@ -195,7 +213,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @since 5.0.3
      */
     #[Pure]
-    public function getNumberOfRequiredParameters() {}
+    #[TentativeType]
+    public function getNumberOfRequiredParameters(): int {}
 
     /**
      * Gets parameters
@@ -204,7 +223,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return ReflectionParameter[] The parameters, as a ReflectionParameter objects.
      */
     #[Pure]
-    public function getParameters() {}
+    #[TentativeType]
+    public function getParameters(): array {}
 
     /**
      * Gets the specified return type of a function
@@ -223,7 +243,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
         ],
         default: 'ReflectionType|null'
     )]
-    public function getReturnType() {}
+    #[TentativeType]
+    public function getReturnType(): ?ReflectionType {}
 
     /**
      * Gets function short name
@@ -232,7 +253,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return string The short name of the function.
      */
     #[Pure]
-    public function getShortName() {}
+    #[TentativeType]
+    public function getShortName(): string {}
 
     /**
      * Gets starting line number
@@ -241,7 +263,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return int|false The starting line number or {@see false} if unknown.
      */
     #[Pure]
-    public function getStartLine() {}
+    #[TentativeType]
+    public function getStartLine(): int|false {}
 
     /**
      * Gets static variables
@@ -250,7 +273,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return array An array of static variables.
      */
     #[Pure]
-    public function getStaticVariables() {}
+    #[TentativeType]
+    public function getStaticVariables(): array {}
 
     /**
      * Checks if returns reference
@@ -258,7 +282,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.returnsreference.php
      * @return bool {@see true} if it returns a reference, otherwise {@see false}
      */
-    public function returnsReference() {}
+    #[TentativeType]
+    public function returnsReference(): bool {}
 
     /**
      * Checks if the function has a specified return type
@@ -268,7 +293,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * type, otherwise {@see false}.
      * @since 7.0
      */
-    public function hasReturnType() {}
+    #[TentativeType]
+    public function hasReturnType(): bool {}
 
     /**
      * Returns an array of function attributes.
@@ -279,7 +305,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @since 8.0
      */
     #[Pure]
-    public function getAttributes(?string $name = null, int $flags = 0) {}
+    public function getAttributes(?string $name = null, int $flags = 0): array {}
 
     #[PhpStormStubsElementAvailable('8.1')]
     #[Pure]
@@ -295,5 +321,6 @@ abstract class ReflectionFunctionAbstract implements Reflector
 
     #[PhpStormStubsElementAvailable('8.1')]
     #[Pure]
+    #[TentativeType]
     public function isStatic(): bool {}
 }

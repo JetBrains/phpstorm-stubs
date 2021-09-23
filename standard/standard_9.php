@@ -978,21 +978,21 @@ function version_compare(
     string $version1,
     string $version2,
     #[ExpectedValues(values: [
-        "<",
-        "lt",
-        "<=",
-        "le",
-        ">",
-        "gt",
-        ">=",
-        "ge",
-        "==",
-        "=",
-        "eq",
-        "!=",
-        "<>",
-        "ne"
-    ])] ?string $operator
+               "<",
+               "lt",
+               "<=",
+               "le",
+               ">",
+               "gt",
+               ">=",
+               "ge",
+               "==",
+               "=",
+               "eq",
+               "!=",
+               "<>",
+               "ne"
+           ])] ?string $operator
 ): int|bool {}
 
 /**
