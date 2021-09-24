@@ -1009,7 +1009,7 @@ class PDO
     #[TentativeType]
     public function setAttribute(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attribute,
-        #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')] $value
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
     ): bool {}
 
     /**
