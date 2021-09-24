@@ -157,7 +157,7 @@ function ftp_exec(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default:
  * No parsing is performed on the response string, nor does
  * <b>ftp_raw</b> determine if the command succeeded.
  */
-#[LanguageLevelTypeAware(['8.1' => 'array|null'], default: 'array')]
+#[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')]
 function ftp_raw(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $command) {}
 
 /**
