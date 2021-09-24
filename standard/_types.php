@@ -1,6 +1,8 @@
 <?php
 
 namespace {
+    use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+
     /**
      * Creates an array.
      * @link https://php.net/manual/en/function.array.php
@@ -173,9 +175,10 @@ namespace {
 
         /**
          * Returns the yielded key or, if none was specified, an auto-incrementing key or null if the generator is already closed.
-         * @return mixed
+         * @return string|float|int|bool|null
          */
-        public function key(): mixed {}
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: 'string|float|int|bool|null')]
+        public function key() {}
 
         /**
          * Resumes the generator (unless the generator is already closed).
