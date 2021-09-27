@@ -232,7 +232,7 @@ function ftp_alloc(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default
  * Note that this parameter isn't escaped so there may be some issues with
  * filenames containing spaces and other characters.
  * </p>
- * @return array|false an array of filenames from the specified directory on success or
+ * @return string[]|false an array of filenames from the specified directory on success or
  * <b>FALSE</b> on error.
  */
 function ftp_nlist(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $directory): array|false {}
@@ -250,7 +250,7 @@ function ftp_nlist(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default
  * @param bool $recursive [optional] <p>
  * If set to <b>TRUE</b>, the issued command will be LIST -R.
  * </p>
- * @return array|false an array where each element corresponds to one line of text.
+ * @return string[]|false an array where each element corresponds to one line of text.
  * <p>
  * The output is not parsed in any way. The system type identifier returned by
  * <b>ftp_systype</b> can be used to determine how the results
