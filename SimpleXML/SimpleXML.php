@@ -316,19 +316,21 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     /**
      * Returns the current element
      * @link https://php.net/manual/en/simplexmliterator.current.php
-     * @return static the current element as a <b>SimpleXMLElement</b> object or <b>NULL</b> on failure.
+     * @return static|null the current element as a <b>SimpleXMLElement</b> object or <b>NULL</b> on failure.
      */
     #[Pure]
     #[TentativeType]
-    public function current(): SimpleXMLElement {}
+    #[LanguageLevelTypeAware(['8.0' => 'SimpleXMLElement'], default: '')]
+    public function current() {}
 
     /**
      * Return current key
      * @link https://php.net/manual/en/simplexmliterator.key.php
-     * @return string the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object
+     * @return string|false the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object
      */
     #[TentativeType]
-    public function key(): string {}
+    #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+    public function key() {}
 
     /**
      * Move to next element
