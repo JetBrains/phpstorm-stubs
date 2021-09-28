@@ -53,7 +53,8 @@ class ReflectionMethodsProvider
                 $class->methods,
                 fn (PHPMethod $method) => $method->isReturnTypeTentative,
                 StubProblemType::HAS_DUPLICATION,
-                StubProblemType::FUNCTION_PARAMETER_MISMATCH
+                StubProblemType::FUNCTION_PARAMETER_MISMATCH,
+                StubProblemType::WRONG_RETURN_TYPEHINT
             ) as $method) {
                 yield "Method $class->name::$method->name" => [$class, $method];
             }
@@ -69,7 +70,8 @@ class ReflectionMethodsProvider
                 $class->methods,
                 fn (PHPMethod $method) => !$method->isReturnTypeTentative,
                 StubProblemType::HAS_DUPLICATION,
-                StubProblemType::FUNCTION_PARAMETER_MISMATCH
+                StubProblemType::FUNCTION_PARAMETER_MISMATCH,
+                StubProblemType::WRONG_RETURN_TYPEHINT
             ) as $method) {
                 yield "Method $class->name::$method->name" => [$class, $method];
             }
