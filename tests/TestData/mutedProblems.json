@@ -3163,6 +3163,17 @@
               ]
             }
           ]
+        },
+        {
+          "name": "current",
+          "problems": [
+            {
+              "description": "wrong return typehint",
+              "versions": [
+                "ALL"
+              ]
+            }
+          ]
         }
       ]
     },
