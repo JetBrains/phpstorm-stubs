@@ -125,7 +125,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     public function attributes(
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespaceOrPrefix = null,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isPrefix = false
-    ): ?SimpleXMLElement {}
+    ): ?static {}
 
     /**
      * Finds children of given node
