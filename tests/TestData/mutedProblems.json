@@ -3174,6 +3174,17 @@
               ]
             }
           ]
+        },
+        {
+          "name": "attributes",
+          "problems": [
+            {
+              "description": "wrong return typehint",
+              "versions": [
+                "ALL"
+              ]
+            }
+          ]
         }
       ]
     },
