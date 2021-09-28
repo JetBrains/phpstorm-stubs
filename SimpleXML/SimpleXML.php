@@ -320,8 +320,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      */
     #[Pure]
     #[TentativeType]
-    #[LanguageLevelTypeAware(['8.0' => 'SimpleXMLElement'], default: '')]
-    public function current() {}
+    public function current(): ?static {}
 
     /**
      * Return current key
@@ -329,7 +328,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @return string|false the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object
      */
     #[TentativeType]
-    #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+    #[LanguageLevelTypeAware(['8.0' => 'string'], default: 'string|false')]
     public function key() {}
 
     /**
