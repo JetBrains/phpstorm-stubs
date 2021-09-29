@@ -131,6 +131,7 @@ class PhpCoreStubsProvider
             'radius',
             'rdkafka',
             'rpminfo',
+            'simple_kafka_client',
             'solr',
             'SplType',
             'SQLite',
