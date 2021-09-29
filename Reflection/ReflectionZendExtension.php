@@ -48,8 +48,8 @@ class ReflectionZendExtension implements Reflector
      * @return string
      * @since 5.4
      */
-    #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
-    public function __toString() {}
+    #[TentativeType]
+    public function __toString(): string {}
 
     /**
      * Gets name
