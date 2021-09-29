@@ -3185,6 +3185,28 @@
               ]
             }
           ]
+        },
+        {
+          "name": "children",
+          "problems": [
+            {
+              "description": "wrong return typehint",
+              "versions": [
+                "ALL"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "addChild",
+          "problems": [
+            {
+              "description": "wrong return typehint",
+              "versions": [
+                "ALL"
+              ]
+            }
+          ]
         }
       ]
     },
