@@ -148,7 +148,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     public function children(
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespaceOrPrefix = null,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isPrefix = false
-    ): ?SimpleXMLElement {}
+    ): ?static {}
 
     /**
      * Returns namespaces used in document
@@ -219,7 +219,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $value = null,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace = null
-    ): ?SimpleXMLElement {}
+    ): ?static {}
 
     /**
      * Adds an attribute to the SimpleXML element

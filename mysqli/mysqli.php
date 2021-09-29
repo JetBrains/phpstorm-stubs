@@ -267,12 +267,13 @@ class mysqli
 
     /**
      * @link https://php.net/manual/en/function.mysqli-connect.php
-     * @param string $hostname [optional]
-     * @param string $username [optional]
-     * @param string $password [optional]
-     * @param string $database [optional]
-     * @param int $port [optional]
-     * @param string $socket [optional]
+     * @param string|null $hostname [optional]
+     * @param string|null $username [optional]
+     * @param string|null $password [optional]
+     * @param string|null $database [optional]
+     * @param int|null $port [optional]
+     * @param string|null $socket [optional]
+     * @return bool
      */
     #[TentativeType]
     public function connect(
