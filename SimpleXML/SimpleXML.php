@@ -249,8 +249,8 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @link https://php.net/manual/en/simplexmlelement.tostring.php
      * @return string the string content on success or an empty string on failure.
      */
-    #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
-    public function __toString() {}
+    #[TentativeType]
+    public function __toString(): string {}
 
     /**
      * Counts the children of an element
