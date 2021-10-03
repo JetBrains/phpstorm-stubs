@@ -650,7 +650,7 @@ function count(Countable|array $value, int $mode = COUNT_NORMAL): int {}
  * a function returning an array because only actual variables may be
  * passed by reference.
  * </p>
- * @return mixed the value of the last element or false for empty array.
+ * @return mixed|false the value of the last element or false for empty array.
  * @meta
  */
 function end(object|array &$array): mixed {}
