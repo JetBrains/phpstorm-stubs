@@ -1198,4 +1198,5 @@ function realpath(string $path): string|false {}
  * </p>
  * @return bool true if there is a match, false otherwise.
  */
+#[Pure]
 function fnmatch(string $pattern, string $filename, int $flags): bool {}
