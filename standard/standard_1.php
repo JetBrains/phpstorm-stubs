@@ -258,7 +258,7 @@ function dirname(string $path, int $levels = 1): string {}
  * If options is used, this function will return a
  * string if not all elements are requested.
  */
-#[Pure]
+#[Pure(true)]
 function pathinfo(string $path, int $flags = PATHINFO_ALL): array|string {}
 
 /**

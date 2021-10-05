@@ -1252,7 +1252,7 @@ function sys_get_temp_dir(): string {}
  * the cache.
  * @since 5.3.2
  */
-#[Pure]
+#[Pure(true)]
 function realpath_cache_get(): array {}
 
 /**
@@ -1261,7 +1261,7 @@ function realpath_cache_get(): array {}
  * @return int Returns how much memory realpath cache is using.
  * @since 5.3.2
  */
-#[Pure]
+#[Pure(true)]
 function realpath_cache_size(): int {}
 
 /**

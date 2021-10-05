@@ -790,6 +790,7 @@ function ignore_user_abort(?bool $enable): int {}
  * @return array|false The settings are returned as an associative array on success,
  * and false on failure.
  */
+#[Pure(true)]
 function parse_ini_file(string $filename, bool $process_sections = false, int $scanner_mode = INI_SCANNER_NORMAL): array|false {}
 
 /**
@@ -823,7 +824,7 @@ function parse_ini_string(string $ini_string, bool $process_sections = false, in
  * </p>
  * @return bool true on success or false on failure.
  */
-#[Pure]
+#[Pure(true)]
 function is_uploaded_file(string $filename): bool {}
 
 /**
