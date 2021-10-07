@@ -358,7 +358,6 @@ function strrchr(string $haystack, string $needle): string|false {}
  * </p>
  * @return string the shuffled string.
  */
-#[Pure]
 function str_shuffle(string $string): string {}
 
 /**
