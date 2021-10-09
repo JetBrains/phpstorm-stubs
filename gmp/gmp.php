@@ -509,7 +509,6 @@ function gmp_sign(GMP|string|int $num): int {}
  * @removed 8.0
  */
 #[Deprecated(reason: "Use see gmp_random_bits() or see gmp_random_range() instead", since: "7.2")]
-#[Pure(true)]
 function gmp_random($limiter = 20) {}
 
 /**
