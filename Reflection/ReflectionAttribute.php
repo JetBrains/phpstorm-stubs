@@ -5,7 +5,7 @@ use JetBrains\PhpStorm\Pure;
 /**
  * @since 8.0
  */
-final class ReflectionAttribute implements Reflector
+class ReflectionAttribute implements Reflector
 {
     /**
      * Indicates that the search for a suitable attribute should not be by
