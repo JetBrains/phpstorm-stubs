@@ -450,7 +450,7 @@ define('MHASH_XXH128', 41);
 /**
  * @since 7.2
  */
-class HashContext
+final class HashContext
 {
     private function __construct() {}
 

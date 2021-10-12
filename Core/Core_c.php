@@ -673,8 +673,9 @@ interface Countable
  * object which does not prevent the object from being destroyed.
  * They are useful for implementing cache like structures.
  * @link https://www.php.net/manual/en/class.weakreference.php
+ * @since 7.4
  */
-class WeakReference
+final class WeakReference
 {
     /**
      * This method exists only to disallow instantiation of the WeakReference

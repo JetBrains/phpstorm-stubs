@@ -3,4 +3,4 @@
 /**
  * @since 8.1
  */
-class GdFont {}
+final class GdFont {}

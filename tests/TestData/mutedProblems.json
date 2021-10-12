@@ -1069,6 +1069,15 @@
     },
     {
       "name": "ReflectionReference",
+      "problems": [
+        {
+          "description": "has wrong final modifier",
+          "versions": [
+            8.0,
+            8.1
+          ]
+        }
+      ],
       "methods": [
         {
           "name": "fromArrayElement",
@@ -3296,6 +3305,45 @@
                 }
               ]
             }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReflectionGenerator",
+      "problems": [
+        {
+          "description": "has wrong final modifier",
+          "versions": [
+            8.0,
+            8.1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReflectionAttribute",
+      "problems": [
+        {
+          "description": "has wrong final modifier",
+          "versions": [
+            7.1,
+            7.2,
+            7.3,
+            7.4,
+            8.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "__PHP_Incomplete_Class",
+      "problems": [
+        {
+          "description": "has wrong final modifier",
+          "versions": [
+            8.0,
+            8.1
           ]
         }
       ]

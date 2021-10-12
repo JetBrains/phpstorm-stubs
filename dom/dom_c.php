@@ -392,7 +392,7 @@ class DOMNode
  * when an operation is impossible to perform for logical reasons.
  * @link https://php.net/manual/en/class.domexception.php
  */
-class DOMException extends Exception
+final class DOMException extends Exception
 {
     /**
      * @link https://php.net/manual/en/class.domexception.php#domexception.props.code
