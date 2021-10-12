@@ -12,7 +12,7 @@ use JetBrains\PhpStorm\Internal\TentativeType;
 /**
  * mysqli_sql_exception
  */
-class mysqli_sql_exception extends RuntimeException
+final class mysqli_sql_exception extends RuntimeException
 {
     /**
      * The sql state with the error.
