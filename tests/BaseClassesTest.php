@@ -254,4 +254,19 @@ class BaseClassesTest extends BaseStubsTest
         }
         static::assertNotEmpty($stubClass, "Missing class $className: class $className {}");
     }
+
+    /**
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::finalClassesProvider
+     * @throws Exception|RuntimeException
+     */
+    public function testClassesFinal(PHPClass|PHPInterface $class): void
+    {
+        $className = $class->name;
+        if ($class instanceof PHPClass) {
+            $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className);
+        } else {
+            $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className);
+        }
+        static::assertEquals($class->isFinal, $stubClass->isFinal, "Final modifier of class $className is incorrect");
+    }
 }
