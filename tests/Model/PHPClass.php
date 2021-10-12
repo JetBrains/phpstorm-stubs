@@ -36,7 +36,7 @@ class PHPClass extends BasePHPClass
             $this->parentClass = $parent->getName();
         }
         $this->interfaces = $reflectionObject->getInterfaceNames();
-
+        $this->isFinal = $reflectionObject->isFinal();
         foreach ($reflectionObject->getMethods() as $method) {
             if ($method->getDeclaringClass()->getName() !== $this->name) {
                 continue;
@@ -139,6 +139,9 @@ class PHPClass extends BasePHPClass
                                 break;
                             case 'missing class':
                                 $this->mutedProblems[StubProblemType::STUB_IS_MISSED] = $problem->versions;
+                                break;
+                            case 'has wrong final modifier':
+                                $this->mutedProblems[StubProblemType::WRONG_FINAL_MODIFIER] = $problem->versions;
                                 break;
                             default:
                                 throw new Exception("Unexpected value $problem->description");
