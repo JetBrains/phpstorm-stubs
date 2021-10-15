@@ -185,7 +185,11 @@ function unserialize(string $data, array $options = []): mixed {}
  * @param mixed ...$values [optional]
  * @return void
  */
-function var_dump(mixed $value, mixed ...$values): void {}
+function var_dump(
+    mixed $value,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] mixed ...$values
+    #[PhpStormStubsElementAvailable(from: '7.1')] mixed ...$vars
+): void {}
 
 /**
  * Outputs or returns a parsable string representation of a variable
