@@ -704,13 +704,21 @@ function openssl_encrypt(string $data, string $cipher_algo, string $passphrase, 
  * @param string $iv [optional] <p>
  * A non-NULL Initialization Vector.
  * </p>
- * @param string $tag [optional] <p>
+ * @param string|null $tag [optional] <p>
  * The authentication tag in AEAD cipher mode. If it is incorrect, the authentication fails and the function returns <b>FALSE</b>.
  * </p>
  * @param string $aad [optional] <p>Additional authentication data.</p>
  * @return string|false The decrypted string on success or false on failure.
  */
-function openssl_decrypt(string $data, string $cipher_algo, string $passphrase, int $options = 0, string $iv = "", string $tag = "", string $aad = ""): string|false {}
+function openssl_decrypt(
+    string $data,
+    string $cipher_algo,
+    string $passphrase,
+    int $options = 0,
+    string $iv = "",
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: 'string')] $tag = "",
+    string $aad = ""
+): string|false {}
 
 /**
  * (PHP 5 &gt;= PHP 5.3.3)<br/>

@@ -752,7 +752,8 @@ function imagecolorclosestalpha(GdImage $image, int $red, int $green, int $blue,
  * on failure
  */
 #[Pure]
-function imagecolorexactalpha(GdImage $image, int $red, int $green, int $blue, int $alpha): int|false {}
+#[LanguageLevelTypeAware(['8.1' => 'int'], default: 'int|false')]
+function imagecolorexactalpha(GdImage $image, int $red, int $green, int $blue, int $alpha) {}
 
 /**
  * Copy and resize part of an image with resampling
