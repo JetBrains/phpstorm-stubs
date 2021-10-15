@@ -25,7 +25,7 @@ interface iterable {}
  * @link https://php.net/manual/en/class.traversable.php
  * @template TKey
  * @template TValue
- * 
+ *
  * @template-implements iterable<TKey, TValue>
  */
 interface Traversable extends iterable {}
