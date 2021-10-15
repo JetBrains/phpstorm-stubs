@@ -137,7 +137,7 @@ define('PASSWORD_ARGON2_DEFAULT_THREADS', 1);
 /**
  * @since 7.4
  */
-define('PASSWORD_ARGON2_PROVIDER', 'sodium');
+define('PASSWORD_ARGON2_PROVIDER', 'standard');
 
 /**
  * Returns information about the given hash

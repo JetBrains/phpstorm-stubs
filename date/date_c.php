@@ -125,7 +125,8 @@ interface DateTimeInterface
      * Returns the Unix timestamp representing the date.
      */
     #[TentativeType]
-    public function getTimestamp(): int|false;
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: 'int|false')]
+    public function getTimestamp();
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
