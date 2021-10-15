@@ -183,6 +183,7 @@ function unserialize(string $data, array $options = []): mixed {}
  * @link https://php.net/manual/en/function.var-dump.php
  * @param mixed $value The variable you want to export.
  * @param mixed ...$values [optional]
+ * @param mixed ...$vars [optional]
  * @return void
  */
 function var_dump(
