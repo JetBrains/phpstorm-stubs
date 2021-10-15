@@ -25,6 +25,8 @@ interface iterable {}
  * @link https://php.net/manual/en/class.traversable.php
  * @template TKey
  * @template TValue
+ * 
+ * @template-implements iterable<TKey, TValue>
  */
 interface Traversable extends iterable {}
 
@@ -1019,7 +1021,7 @@ final class Fiber
     /**
      * @return self|null Returns the currently executing fiber instance or NULL if in {main}.
      */
-    public static function getCurrent() {}
+    public static function getCurrent(): ?Fiber {}
 
     /**
      * Suspend execution of the fiber. The fiber may be resumed with {@see Fiber::resume()} or {@see Fiber::throw()}.
