@@ -1105,7 +1105,7 @@ class PDO
      * @param string $name [optional] <p>
      * Name of the sequence object from which the ID should be returned.
      * </p>
-     * @return string If a sequence name was not specified for the <i>name</i>
+     * @return string|false If a sequence name was not specified for the <i>name</i>
      * parameter, <b>PDO::lastInsertId</b> returns a
      * string representing the row ID of the last row that was inserted into
      * the database.
