@@ -185,9 +185,14 @@ function unserialize(string $data, array $options = []): mixed {}
  * The variable you want to export.
  * </p>
  * @param mixed ...$values [optional]
+ * @param mixed ...$vars [optional]
  * @return void
  */
-function var_dump(mixed $value, #[PhpStormStubsElementAvailable(from: '8.0')] mixed ...$values): void {}
+function var_dump(
+    #[PhpStormStubsElementAvailable(from: '5.6', to: '7.4')] mixed ...$vars,
+    #[PhpStormStubsElementAvailable(from: '8.0')] mixed $value,
+    #[PhpStormStubsElementAvailable(from: '8.0')] mixed ...$values
+): void {}
 
 /**
  * Outputs or returns a parsable string representation of a variable
