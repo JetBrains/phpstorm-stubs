@@ -1220,7 +1220,7 @@ function timezone_open(string $timezone): DateTimeZone|false {}
  * {@see DateTimeZone} for which to get a name.</p>
  * @return string One of the timezone names in the list of timezones.
  */
-#[Pure(true)]
+#[Pure]
 function timezone_name_get(DateTimeZone $object): string {}
 
 /**
@@ -1307,7 +1307,7 @@ function timezone_identifiers_list(int $timezoneGroup = DateTimeZone::ALL, ?stri
  * @link https://php.net/manual/en/function.timezone-abbreviations-list.php
  * @return array|false Array on success or <b>FALSE</b> on failure.
  */
-#[Pure(true)]
+#[Pure]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
 function timezone_abbreviations_list() {}
 
@@ -1316,7 +1316,7 @@ function timezone_abbreviations_list() {}
  * @link https://php.net/manual/en/function.timezone-version-get.php
  * @return string a string.
  */
-#[Pure(true)]
+#[Pure]
 function timezone_version_get(): string {}
 
 /**
@@ -1363,7 +1363,7 @@ function date_default_timezone_set(string $timezoneId): bool {}
  * @link https://php.net/manual/en/function.date-default-timezone-get.php
  * @return string a string.
  */
-#[Pure(true)]
+#[Pure]
 function date_default_timezone_get(): string {}
 
 /**
