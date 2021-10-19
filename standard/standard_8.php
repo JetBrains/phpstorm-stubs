@@ -352,6 +352,7 @@ function ob_get_status(bool $full_status = false): array {}
  * @return string|false This will return the contents of the output buffer or false, if output
  * buffering isn't active.
  */
+#[Pure(true)]
 function ob_get_contents(): string|false {}
 
 /**
