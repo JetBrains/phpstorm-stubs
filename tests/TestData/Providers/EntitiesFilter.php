@@ -80,12 +80,6 @@ class EntitiesFilter
         return $resultArray;
     }
 
-    public static function getFilterFunctionForLanguageLevel(float $languageVersion): callable
-    {
-        return fn (PHPClass|PHPInterface $class, PHPMethod $method, ?float $firstSinceVersion) => !$method->isFinal &&
-            !$class->isFinal && $firstSinceVersion !== null && $firstSinceVersion < $languageVersion;
-    }
-
     public static function getFilterFunctionForAllowedTypeHintsInLanguageLevel(float $languageVersion): callable
     {
         return function (PHPClass|PHPInterface $stubClass, PHPMethod $stubMethod, ?float $firstSinceVersion) use ($languageVersion) {

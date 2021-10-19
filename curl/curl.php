@@ -3,6 +3,7 @@
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 class CURLFile
@@ -35,7 +36,8 @@ class CURLFile
      * @since 5.5
      */
     #[Pure]
-    public function getFilename() {}
+    #[TentativeType]
+    public function getFilename(): string {}
 
     /**
      * Get MIME type
@@ -44,7 +46,8 @@ class CURLFile
      * @since 5.5
      */
     #[Pure]
-    public function getMimeType() {}
+    #[TentativeType]
+    public function getMimeType(): string {}
 
     /**
      * Get file name for POST
@@ -53,7 +56,8 @@ class CURLFile
      * @since 5.5
      */
     #[Pure]
-    public function getPostFilename() {}
+    #[TentativeType]
+    public function getPostFilename(): string {}
 
     /**
      * Set MIME type
@@ -61,7 +65,8 @@ class CURLFile
      * @param string $mime_type
      * @since 5.5
      */
-    public function setMimeType(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $mime_type) {}
+    #[TentativeType]
+    public function setMimeType(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $mime_type): void {}
 
     /**
      * Set file name for POST
@@ -69,7 +74,8 @@ class CURLFile
      * @param string $posted_filename
      * @since 5.5
      */
-    public function setPostFilename(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $posted_filename) {}
+    #[TentativeType]
+    public function setPostFilename(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $posted_filename): void {}
 
     /**
      * @link https://secure.php.net/manual/en/curlfile.wakeup.php
@@ -78,6 +84,7 @@ class CURLFile
      */
     public function __wakeup() {}
 }
+
 /**
  * Initialize a cURL session
  * @link https://php.net/manual/en/function.curl-init.php
@@ -2181,7 +2188,7 @@ function curl_share_init() {}
  * </tbody>
  *
  * </table>
- * @param string $value  <p><table>
+ * @param string $value <p><table>
  *
  * <thead>
  * <tr>
@@ -2253,6 +2260,7 @@ function curl_strerror(int $error_code): ?string {}
  */
 #[Pure]
 function curl_unescape(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle, string $string): string|false {}
+
 /**
  * Perform a cURL session
  * @link https://php.net/manual/en/function.curl-exec.php
@@ -2400,7 +2408,7 @@ function curl_multi_select(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle']
  * @param int $option <p>
  * One of the <b>CURLMOPT_*</b> constants.
  * </p>
- * @param mixed $value   <p>
+ * @param mixed $value <p>
  * The value to be set on <em>option</em>.
  * </p>
  * <p>

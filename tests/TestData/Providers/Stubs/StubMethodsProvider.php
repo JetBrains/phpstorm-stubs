@@ -5,7 +5,9 @@ namespace StubTests\TestData\Providers\Stubs;
 
 use Generator;
 use RuntimeException;
+use StubTests\Model\PHPClass;
 use StubTests\Model\PHPFunction;
+use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\StubProblemType;
 use StubTests\Parsers\ParserUtils;
@@ -58,7 +60,7 @@ class StubMethodsProvider
      */
     public static function methodsForReturnTypeHintTestsProvider(): ?Generator
     {
-        $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(7);
+        $filterFunction = self::getFilterFunctionForLanguageLevel(7);
         return self::yieldFilteredMethods(
             $filterFunction,
             StubProblemType::FUNCTION_HAS_RETURN_TYPEHINT,
@@ -71,7 +73,7 @@ class StubMethodsProvider
      */
     public static function methodsForNullableReturnTypeHintTestsProvider(): ?Generator
     {
-        $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(7.1);
+        $filterFunction = self::getFilterFunctionForLanguageLevel(7.1);
         return self::yieldFilteredMethods(
             $filterFunction,
             StubProblemType::HAS_NULLABLE_TYPEHINT,
@@ -84,12 +86,18 @@ class StubMethodsProvider
      */
     public static function methodsForUnionReturnTypeHintTestsProvider(): ?Generator
     {
-        $filterFunction = EntitiesFilter::getFilterFunctionForLanguageLevel(8);
+        $filterFunction = self::getFilterFunctionForLanguageLevel(8);
         return self::yieldFilteredMethods(
             $filterFunction,
             StubProblemType::HAS_UNION_TYPEHINT,
             StubProblemType::WRONG_RETURN_TYPEHINT
         );
+    }
+
+    private static function getFilterFunctionForLanguageLevel(float $languageVersion): callable
+    {
+        return fn (PHPClass|PHPInterface $class, PHPMethod $method, ?float $firstSinceVersion) => !$method->isFinal &&
+            !$class->isFinal && $firstSinceVersion !== null && $firstSinceVersion < $languageVersion && !$method->isReturnTypeTentative;
     }
 
     /**

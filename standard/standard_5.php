@@ -454,6 +454,7 @@ function fclose($stream): bool {}
  * @return bool true if the file pointer is at EOF or an error occurs
  * (including socket timeout); otherwise returns false.
  */
+#[Pure(true)]
 function feof($stream): bool {}
 
 /**
@@ -748,6 +749,7 @@ function ftruncate($stream, int $size): bool {}
  * @return array|false an array with the statistics of the file; the format of the array
  * is described in detail on the stat manual page.
  */
+#[Pure(true)]
 function fstat($stream): array|false {}
 
 /**
@@ -793,6 +795,7 @@ function fseek($stream, int $offset, int $whence = SEEK_SET): int {}
  * <p>
  * If an error occurs, returns false.
  */
+#[Pure(true)]
 function ftell($stream): int|false {}
 
 /**
@@ -982,6 +985,7 @@ function tmpfile() {}
  * present.
  * </p>
  */
+#[Pure(true)]
 function file(string $filename, int $flags, $context): array|false {}
 
 /**
@@ -1008,6 +1012,7 @@ function file(string $filename, int $flags, $context): array|false {}
  * </p>
  * @return string|false The function returns the read data or false on failure.
  */
+#[Pure(true)]
 function file_get_contents(string $filename, bool $use_include_path = false, $context, int $offset = 0, ?int $length): string|false {}
 
 /**

@@ -433,7 +433,7 @@ function scandir(string $directory, int $sorting_order, $context): array|false {
  * On some systems it is impossible to distinguish between empty match and an
  * error.</p>
  */
-#[Pure]
+#[Pure(true)]
 function glob(string $pattern, int $flags): array|false {}
 
 /**
@@ -445,7 +445,7 @@ function glob(string $pattern, int $flags): array|false {}
  * @return int|false the time the file was last accessed, or false on failure.
  * The time is returned as a Unix timestamp.
  */
-#[Pure]
+#[Pure(true)]
 function fileatime(string $filename): int|false {}
 
 /**
@@ -457,7 +457,7 @@ function fileatime(string $filename): int|false {}
  * @return int|false the time the file was last changed, or false on failure.
  * The time is returned as a Unix timestamp.
  */
-#[Pure]
+#[Pure(true)]
 function filectime(string $filename): int|false {}
 
 /**
@@ -471,7 +471,7 @@ function filectime(string $filename): int|false {}
  * posix_getgrgid to resolve it to a group name.
  * Upon failure, false is returned.
  */
-#[Pure]
+#[Pure(true)]
 function filegroup(string $filename): int|false {}
 
 /**
@@ -482,7 +482,7 @@ function filegroup(string $filename): int|false {}
  * </p>
  * @return int|false the inode number of the file, or false on failure.
  */
-#[Pure]
+#[Pure(true)]
 function fileinode(string $filename): int|false {}
 
 /**
@@ -495,7 +495,7 @@ function fileinode(string $filename): int|false {}
  * The time is returned as a Unix timestamp, which is
  * suitable for the date function.
  */
-#[Pure]
+#[Pure(true)]
 function filemtime(string $filename): int|false {}
 
 /**
@@ -508,7 +508,7 @@ function filemtime(string $filename): int|false {}
  * The user ID is returned in numerical format, use
  * posix_getpwuid to resolve it to a username.
  */
-#[Pure]
+#[Pure(true)]
 function fileowner(string $filename): int|false {}
 
 /**
@@ -519,7 +519,7 @@ function fileowner(string $filename): int|false {}
  * </p>
  * @return int|false the permissions on the file, or false on failure.
  */
-#[Pure]
+#[Pure(true)]
 function fileperms(string $filename): int|false {}
 
 /**
@@ -531,7 +531,7 @@ function fileperms(string $filename): int|false {}
  * @return int|false the size of the file in bytes, or false (and generates an error
  * of level E_WARNING) in case of an error.
  */
-#[Pure]
+#[Pure(true)]
 function filesize(string $filename): int|false {}
 
 /**
@@ -548,7 +548,7 @@ function filesize(string $filename): int|false {}
  * produce an E_NOTICE message if the stat call fails
  * or if the file type is unknown.
  */
-#[Pure]
+#[Pure(true)]
 function filetype(string $filename): string|false {}
 
 /**
@@ -614,7 +614,7 @@ function is_writeable(string $filename): bool {}
  * @return bool true if the file or directory specified by
  * filename exists and is readable, false otherwise.
  */
-#[Pure]
+#[Pure(true)]
 function is_readable(string $filename): bool {}
 
 /**
@@ -626,7 +626,7 @@ function is_readable(string $filename): bool {}
  * @return bool true if the filename exists and is executable, or false on
  * error.
  */
-#[Pure]
+#[Pure(true)]
 function is_executable(string $filename): bool {}
 
 /**
@@ -665,7 +665,7 @@ function is_dir(string $filename): bool {}
  * @return bool true if the filename exists and is a symbolic link, false
  * otherwise.
  */
-#[Pure]
+#[Pure(true)]
 function is_link(string $filename): bool {}
 
 /**
@@ -757,7 +757,7 @@ function is_link(string $filename): bool {}
  * <p>
  * In case of error, stat returns false.
  */
-#[Pure]
+#[Pure(true)]
 function stat(string $filename): array|false {}
 
 /**
@@ -774,7 +774,7 @@ function stat(string $filename): array|false {}
  * link, the status of the symbolic link is returned, not the status of the
  * file pointed to by the symbolic link.
  */
-#[Pure]
+#[Pure(true)]
 function lstat(string $filename): array|false {}
 
 /**
@@ -908,6 +908,7 @@ function clearstatcache(bool $clear_realpath_cache = false, string $filename): v
  * @return float|false the total number of bytes as a float
  * or false on failure.
  */
+#[Pure(true)]
 function disk_total_space(string $directory): float|false {}
 
 /**

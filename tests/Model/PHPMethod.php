@@ -31,19 +31,20 @@ class PHPMethod extends PHPFunction
     public $parentName;
 
     /**
+     * @var bool
+     */
+    public $isReturnTypeTentative;
+
+    /**
      * @param ReflectionMethod $reflectionObject
      * @return static
      */
     public function readObjectFromReflection($reflectionObject)
     {
-        $this->name = $reflectionObject->name;
+        parent::readObjectFromReflection($reflectionObject);
         $this->isStatic = $reflectionObject->isStatic();
         $this->isFinal = $reflectionObject->isFinal();
         $this->parentName = $reflectionObject->class;
-        foreach ($reflectionObject->getParameters() as $parameter) {
-            $this->parameters[] = (new PHPParameter())->readObjectFromReflection($parameter);
-        }
-
         if ($reflectionObject->isProtected()) {
             $access = 'protected';
         } elseif ($reflectionObject->isPrivate()) {
@@ -52,6 +53,17 @@ class PHPMethod extends PHPFunction
             $access = 'public';
         }
         $this->access = $access;
+        if (method_exists($reflectionObject, 'hasTentativeReturnType')) {
+            $this->isReturnTypeTentative = $reflectionObject->hasTentativeReturnType();
+            if ($this->isReturnTypeTentative) {
+                $returnTypes = self::getReflectionTypeAsArray($reflectionObject->getTentativeReturnType());
+                if (!empty($returnTypes)) {
+                    array_push($this->returnTypesFromSignature, ...$returnTypes);
+                }
+            }
+        } else {
+            $this->isReturnTypeTentative = false;
+        }
         return $this;
     }
 
@@ -65,6 +77,7 @@ class PHPMethod extends PHPFunction
         $this->parentName = self::getFQN($node->getAttribute('parent'));
         $this->name = $node->name->name;
         $typesFromAttribute = self::findTypesFromAttribute($node->attrGroups);
+        $this->isReturnTypeTentative = self::hasTentativeTypeAttribute($node->attrGroups);
         $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
         $this->returnTypesFromAttribute = $typesFromAttribute;
         array_push($this->returnTypesFromSignature, ...self::convertParsedTypeToArray($node->getReturnType()));

@@ -526,7 +526,7 @@ function inflate_get_status(#[LanguageLevelTypeAware(["8.0" => "InflateContext"]
 /**
  * @since 8.0
  */
-class InflateContext
+final class InflateContext
 {
     /**
      * Use inflate_init() instead
@@ -538,7 +538,7 @@ class InflateContext
 /**
  * @since 8.0
  */
-class DeflateContext
+final class DeflateContext
 {
     /**
      * Use deflate_init() instead

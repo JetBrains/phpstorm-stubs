@@ -80,7 +80,7 @@ class StubsTypeHintsTest extends BaseStubsTest
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsWithReturnTypeHintProvider
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsWithoutTentitiveReturnTypeProvider
      * @throws RuntimeException
      */
     public function testMethodsReturnTypeHints(PHPClass|PHPInterface $class, PHPMethod $method)
@@ -115,8 +115,8 @@ class StubsTypeHintsTest extends BaseStubsTest
         }
         $conditionToCompareWithAttribute = BaseStubsTest::isReflectionTypesExistInAttributes($unifiedReflectionReturnTypes, $typesFromAttribute);
         $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
-        self::assertTrue($testCondition, "Function $functionName has invalid return type.
-        Reflection method $class->name::$functionName has return type " . implode('|', $method->returnTypesFromSignature) . ' but stubs has return type ' .
+        self::assertTrue($testCondition, "Method $class->name::$functionName has invalid return type.
+        Reflection method has return type " . implode('|', $method->returnTypesFromSignature) . ' but stubs has return type ' .
             implode('|', $stubMethod->returnTypesFromSignature) . ' in signature and attribute has types ' .
             implode('|', $typesFromAttribute));
     }

@@ -12,6 +12,7 @@ use PhpParser\Comment\Doc;
 use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Stmt\Function_;
 use ReflectionFunction;
+use ReflectionFunctionAbstract;
 use RuntimeException;
 use stdClass;
 use StubTests\Parsers\DocFactoryProvider;
@@ -37,7 +38,7 @@ class PHPFunction extends BasePHPElement
     public $returnTypesFromSignature = [];
 
     /**
-     * @param ReflectionFunction $reflectionObject
+     * @param ReflectionFunction|ReflectionFunctionAbstract $reflectionObject
      * @return static
      */
     public function readObjectFromReflection($reflectionObject)
@@ -84,7 +85,7 @@ class PHPFunction extends BasePHPElement
             });
             /** @var Param $relatedParamTag */
             $relatedParamTag = array_pop($relatedParamTags);
-            if ($relatedParamTag !== null){
+            if ($relatedParamTag !== null) {
                 $parameter->isOptional = $parameter->isOptional || str_contains((string)$relatedParamTag->getDescription(), '[optional]');
             }
         }

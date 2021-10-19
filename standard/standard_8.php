@@ -81,8 +81,6 @@ function header_register_callback(callable $callback): bool {}
 
 /**
  * Get the size of an image from a string.
- * @since 5.4
- * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
  * @param string $string The image data, as a string.
  * @param array &$image_info [optional] This optional parameter allows you to extract<br>
  * some extended information from the image file. Currently, this will <br>
@@ -96,6 +94,8 @@ function header_register_callback(callable $callback): bool {}
  * Index 3 is a text string with the correct <b>height="yyy" width="xxx"</b> string<br>
  * that can be used directly in an IMG tag.<br>
  * On failure, FALSE is returned.
+ * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
+ * @since 5.4
  * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
  * @since 5.4
  */
@@ -812,7 +812,7 @@ function array_search(mixed $needle, array $haystack, bool $strict = false): str
 /**
  * Import variables into the current symbol table from an array
  * @link https://php.net/manual/en/function.extract.php
- * @param array &$array<p>
+ * @param array &$array <p>
  * Note that prefix is only required if
  * extract_type is EXTR_PREFIX_SAME,
  * EXTR_PREFIX_ALL, EXTR_PREFIX_INVALID
@@ -838,14 +838,14 @@ function array_search(mixed $needle, array $haystack, bool $strict = false): str
 function extract(
     array &$array,
     #[ExpectedValues(flags: [
-        EXTR_OVERWRITE,
-        EXTR_SKIP,
-        EXTR_PREFIX_SAME,
-        EXTR_PREFIX_ALL,
-        EXTR_PREFIX_INVALID,
-        EXTR_PREFIX_IF_EXISTS,
-        EXTR_REFS
-    ])] int $flags,
+               EXTR_OVERWRITE,
+               EXTR_SKIP,
+               EXTR_PREFIX_SAME,
+               EXTR_PREFIX_ALL,
+               EXTR_PREFIX_INVALID,
+               EXTR_PREFIX_IF_EXISTS,
+               EXTR_REFS
+           ])] int $flags,
     string $prefix
 ): int {}
 

@@ -5,4 +5,4 @@ namespace LDAP;
 /**
  * @since 8.1
  */
-class Result {}
+final class Result {}

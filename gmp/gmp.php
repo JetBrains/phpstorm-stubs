@@ -391,7 +391,6 @@ function gmp_prob_prime(GMP|string|int $num, int $repetitions = 10): int {}
  * or a numeric string provided that it is possible to convert the latter to a number.</p>
  * @return GMP A random GMP number.
  */
-#[Pure(true)]
 function gmp_random_bits(int $bits): GMP {}
 
 /**
@@ -401,7 +400,6 @@ function gmp_random_bits(int $bits): GMP {}
  * @param GMP|string|int $max <p>A GMP number representing the upper bound for the random number</p>
  * @return GMP A random GMP number.
  */
-#[Pure(true)]
 function gmp_random_range(GMP|string|int $min, GMP|string|int $max): GMP {}
 
 /**
@@ -511,7 +509,6 @@ function gmp_sign(GMP|string|int $num): int {}
  * @removed 8.0
  */
 #[Deprecated(reason: "Use see gmp_random_bits() or see gmp_random_range() instead", since: "7.2")]
-#[Pure(true)]
 function gmp_random($limiter = 20) {}
 
 /**

@@ -50,4 +50,18 @@ class ReflectionClassesTestDataProviders
             yield "class $class->name" => [$class];
         }
     }
+
+    public static function finalClassesProvider(): ?Generator
+    {
+        $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
+            ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
+        $filtered = EntitiesFilter::getFiltered(
+            $classesAndInterfaces,
+            null,
+            StubProblemType::WRONG_FINAL_MODIFIER
+        );
+        foreach ($filtered as $class) {
+            yield "class $class->name" => [$class];
+        }
+    }
 }

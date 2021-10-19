@@ -370,7 +370,7 @@ function imagecolorstotal(GdImage $image): int {}
  * contain the appropriate values for the specified color index or <b>FALSE</b> on failure
  */
 #[Pure]
-#[LanguageLevelTypeAware(['8.1' => 'array'], default: 'array|false')]
+#[LanguageLevelTypeAware(['8.0' => 'array'], default: 'array|false')]
 function imagecolorsforindex(GdImage $image, int $color) {}
 
 /**
@@ -752,7 +752,8 @@ function imagecolorclosestalpha(GdImage $image, int $red, int $green, int $blue,
  * on failure
  */
 #[Pure]
-function imagecolorexactalpha(GdImage $image, int $red, int $green, int $blue, int $alpha): int|false {}
+#[LanguageLevelTypeAware(['8.1' => 'int'], default: 'int|false')]
+function imagecolorexactalpha(GdImage $image, int $red, int $green, int $blue, int $alpha) {}
 
 /**
  * Copy and resize part of an image with resampling

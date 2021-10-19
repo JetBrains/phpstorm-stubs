@@ -590,6 +590,7 @@ function http_build_query(object|array $data, string $numeric_prefix = "", ?stri
  * </p>
  * @return string|false the contents of the symbolic link path or false on error.
  */
+#[Pure(true)]
 function readlink(string $path): string|false {}
 
 /**
@@ -602,7 +603,7 @@ function readlink(string $path): string|false {}
  * of the Unix C stat structure returned by the lstat
  * system call. Returns 0 or false in case of error.
  */
-#[Pure]
+#[Pure(true)]
 function linkinfo(string $path): int|false {}
 
 /**
@@ -932,7 +933,6 @@ function proc_nice(int $priority): bool {}
  * @return int A pseudo random value between min
  * (or 0) and max (or getrandmax, inclusive).
  */
-#[Pure(true)]
 function rand(int $min = 0, int $max): int {}
 
 /**
@@ -971,7 +971,6 @@ function getrandmax(): int {}
  * @return int A random integer value between min (or 0)
  * and max (or mt_getrandmax, inclusive)
  */
-#[Pure(true)]
 function mt_rand(int $min = 0, int $max): int {}
 
 /**

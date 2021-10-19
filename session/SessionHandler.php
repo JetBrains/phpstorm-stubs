@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\TentativeType;
 
 /**
  * <b>SessionHandlerInterface</b> is an interface which defines
@@ -22,7 +23,8 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function close();
+    #[TentativeType]
+    public function close(): bool;
 
     /**
      * Destroy a session
@@ -34,7 +36,8 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function destroy(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id);
+    #[TentativeType]
+    public function destroy(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id): bool;
 
     /**
      * Cleanup old sessions
@@ -50,7 +53,8 @@ interface SessionHandlerInterface
      * @since 5.4
      */
     #[LanguageLevelTypeAware(['7.1' => 'int|false'], default: 'bool')]
-    public function gc(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $max_lifetime);
+    #[TentativeType]
+    public function gc(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $max_lifetime): int|false;
 
     /**
      * Initialize session
@@ -63,10 +67,11 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
+    #[TentativeType]
     public function open(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $path,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name
-    );
+    ): bool;
 
     /**
      * Read session data
@@ -79,7 +84,8 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
-    public function read(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id);
+    #[TentativeType]
+    public function read(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id): string|false;
 
     /**
      * Write session data
@@ -98,10 +104,11 @@ interface SessionHandlerInterface
      * </p>
      * @since 5.4
      */
+    #[TentativeType]
     public function write(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data
-    );
+    ): bool;
 }
 
 /**
@@ -118,7 +125,8 @@ interface SessionIdInterface
      * The new session ID. Note that this value is returned internally to PHP for processing.
      * </p>
      */
-    public function create_sid();
+    #[TentativeType]
+    public function create_sid(): string;
 }
 
 /**
@@ -138,7 +146,8 @@ interface SessionUpdateTimestampHandlerInterface
      * Note this value is returned internally to PHP for processing.
      * </p>
      */
-    public function validateId(string $id);
+    #[TentativeType]
+    public function validateId(string $id): bool;
 
     /**
      * Update timestamp of a session
@@ -153,7 +162,8 @@ interface SessionUpdateTimestampHandlerInterface
      * </p>
      * @return bool
      */
-    public function updateTimestamp(string $id, string $data);
+    #[TentativeType]
+    public function updateTimestamp(string $id, string $data): bool;
 }
 
 /**
@@ -182,7 +192,8 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * </p>
      * @since 5.4
      */
-    public function close() {}
+    #[TentativeType]
+    public function close(): bool {}
 
     /**
      * Return a new session ID
@@ -190,7 +201,8 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * @return string <p>A session ID valid for the default session handler.</p>
      * @since 5.5.1
      */
-    public function create_sid() {}
+    #[TentativeType]
+    public function create_sid(): string {}
 
     /**
      * Destroy a session
@@ -202,7 +214,8 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * </p>
      * @since 5.4
      */
-    public function destroy(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id) {}
+    #[TentativeType]
+    public function destroy(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id): bool {}
 
     /**
      * Cleanup old sessions
@@ -217,7 +230,8 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * </p>
      * @since 5.4
      */
-    public function gc(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $max_lifetime) {}
+    #[TentativeType]
+    public function gc(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $max_lifetime): int|false {}
 
     /**
      * Initialize session
@@ -230,10 +244,11 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * </p>
      * @since 5.4
      */
+    #[TentativeType]
     public function open(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $path,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name
-    ) {}
+    ): bool {}
 
     /**
      * Read session data
@@ -246,7 +261,8 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * </p>
      * @since 5.4
      */
-    public function read(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id) {}
+    #[TentativeType]
+    public function read(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id): string|false {}
 
     /**
      * Write session data
@@ -265,10 +281,11 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * </p>
      * @since 5.4
      */
+    #[TentativeType]
     public function write(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data
-    ) {}
+    ): bool {}
 
     /**
      * Validate session id

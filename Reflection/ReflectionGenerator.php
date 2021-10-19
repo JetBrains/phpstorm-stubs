@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -27,7 +28,8 @@ class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-    public function getExecutingLine() {}
+    #[TentativeType]
+    public function getExecutingLine(): int {}
 
     /**
      * Gets the file name of the currently executing generator
@@ -38,7 +40,8 @@ class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-    public function getExecutingFile() {}
+    #[TentativeType]
+    public function getExecutingFile(): string {}
 
     /**
      * Gets the trace of the executing generator
@@ -57,7 +60,8 @@ class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-    public function getTrace(int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT) {}
+    #[TentativeType]
+    public function getTrace(int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT): array {}
 
     /**
      * Gets the function name of the generator
@@ -69,7 +73,8 @@ class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-    public function getFunction() {}
+    #[TentativeType]
+    public function getFunction(): ReflectionFunctionAbstract {}
 
     /**
      * Gets the function name of the generator
@@ -80,7 +85,8 @@ class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-    public function getThis() {}
+    #[TentativeType]
+    public function getThis(): ?object {}
 
     /**
      * Gets the executing Generator object
@@ -90,5 +96,6 @@ class ReflectionGenerator
      * @since 7.0
      */
     #[Pure]
-    public function getExecutingGenerator() {}
+    #[TentativeType]
+    public function getExecutingGenerator(): Generator {}
 }

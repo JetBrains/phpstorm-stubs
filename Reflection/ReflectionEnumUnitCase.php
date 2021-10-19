@@ -8,10 +8,10 @@ class ReflectionEnumUnitCase extends ReflectionClassConstant
 {
     public function __construct(object|string $class, string $constant) {}
 
-    public function getValue() {}
+    public function getValue(): UnitEnum {}
 
     /**
      * @return ReflectionEnum
      */
-    public function getEnum() {}
+    public function getEnum(): ReflectionEnum {}
 }
