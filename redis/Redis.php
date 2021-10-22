@@ -443,47 +443,47 @@ class Redis
      * Set the string value in argument as value of the key, with a time to live.
      *
      * @param string       $key
-     * @param int          $ttl
+     * @param int          $expire
      * @param string|mixed $value
      *
-     * @return bool TRUE if the command is successful
+     * @return bool|Redis
      *
      * @link    https://redis.io/commands/setex
-     * @example $redis->setEx('key', 3600, 'value'); // sets key → value, with 1h TTL.
+     * @example $redis->setex('key', 3600, 'value'); // sets key → value, with 1h TTL.
      */
-    public function setEx($key, $ttl, $value) {}
+    public function setex($key, $expire, $value) {}
 
     /**
      * Set the value and expiration in milliseconds of a key.
      *
-     * @see     setEx()
+     * @see     setex()
      * @param   string       $key
-     * @param   int          $ttl in milliseconds.
+     * @param   int          $expire in milliseconds.
      * @param   string|mixed $value
      *
-     * @return bool TRUE if the command is successful
+     * @return bool|Redis
      *
      * @link    https://redis.io/commands/psetex
-     * @example $redis->pSetEx('key', 1000, 'value'); // sets key → value, with 1sec TTL.
+     * @example $redis->psetex('key', 1000, 'value'); // sets key → value, with 1sec TTL.
      */
-    public function pSetEx($key, $ttl, $value) {}
+    public function psetex($key, $expire, $value) {}
 
     /**
      * Set the string value in argument as value of the key if the key doesn't already exist in the database.
      *
      * @param string       $key
-     * @param string|mixed $value
+     * @param mixed $value
      *
-     * @return bool TRUE in case of success, FALSE in case of failure
+     * @return bool|array|Redis
      *
      * @link    https://redis.io/commands/setnx
      * @example
      * <pre>
-     * $redis->setNx('key', 'value');   // return TRUE
-     * $redis->setNx('key', 'value');   // return FALSE
+     * $redis->setnx('key', 'value');   // return TRUE
+     * $redis->setnx('key', 'value');   // return FALSE
      * </pre>
      */
-    public function setNx($key, $value) {}
+    public function setnx($key, $value) {}
 
     /**
      * Remove specified keys.
@@ -1878,7 +1878,7 @@ class Redis
      * Renames a key
      *
      * Same as rename, but will not replace a key if the destination already exists.
-     * This is the same behaviour as setNx.
+     * This is the same behaviour as setnx.
      *
      * @param string $srcKey
      * @param string $dstKey
@@ -2633,7 +2633,7 @@ class Redis
      *
      * @link    https://redis.io/commands/msetnx
      */
-    public function mSetNx(array $array) {}
+    public function msetnx(array $array) {}
 
     /**
      * Pops a value from the tail of a list, and pushes it to the front of another list.
