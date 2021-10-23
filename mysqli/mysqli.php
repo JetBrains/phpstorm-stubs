@@ -1044,8 +1044,7 @@ class mysqli_result implements IteratorAggregate
     /**
      * Returns an array of objects representing the fields in a result set
      * @link https://php.net/manual/en/mysqli-result.fetch-fields.php
-     * @return array|false an array of objects which contains field definition information or
-     * false if no field information is available.
+     * @return array an array of objects which contains field definition information.
      * </p>
      * <p>
      * <table>
@@ -1809,10 +1808,9 @@ function mysqli_fetch_field(mysqli_result $result): object|false {}
  * @link https://secure.php.net/manual/en/mysqli-result.fetch-fields.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
- * @return array|false Returns an array of objects which contains field definition information or FALSE if no field information is available.
+ * @return array Returns an array of objects which contains field definition information.
  */
-#[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-function mysqli_fetch_fields(mysqli_result $result) {}
+function mysqli_fetch_fields(mysqli_result $result): array {}
 
 /**
  * Fetch meta-data for a single field
