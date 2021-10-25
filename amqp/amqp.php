@@ -511,6 +511,8 @@ class AMQPChannel
      * Note, this method also catch all basic.return message from server.
      *
      * @param float $timeout Timeout in seconds. May be fractional.
+     *
+     * @throws AMQPQueueException If timeout occurs.
      */
     public function waitForConfirm($timeout = 0.0) {}
 
@@ -536,6 +538,8 @@ class AMQPChannel
      * Start wait loop for basic.return AMQP server methods
      *
      * @param float $timeout Timeout in seconds. May be fractional.
+     *
+     * @throws AMQPQueueException If timeout occurs.
      */
     public function waitForBasicReturn($timeout = 0.0) {}
 
@@ -759,7 +763,9 @@ class AMQPConnection
     /**
      * Sets the interval of time to wait for income activity from AMQP broker
      *
-     * @param int $timeout
+     * @param float $timeout
+     *
+     * @throws AMQPConnectionException If timeout is less than 0.
      *
      * @return bool
      */
@@ -778,7 +784,9 @@ class AMQPConnection
     /**
      * Sets the interval of time to wait for income activity from AMQP broker
      *
-     * @param int $timeout
+     * @param float $timeout
+     *
+     * @throws AMQPConnectionException If timeout is less than 0.
      *
      * @return bool
      */
@@ -795,7 +803,9 @@ class AMQPConnection
     /**
      * Sets the interval of time to wait for outcome activity to AMQP broker
      *
-     * @param int $timeout
+     * @param float $timeout
+     *
+     * @throws AMQPConnectionException If timeout is less than 0.
      *
      * @return bool
      */
@@ -812,7 +822,9 @@ class AMQPConnection
     /**
      * Sets the interval of time to wait for RPC activity to AMQP broker
      *
-     * @param int $timeout
+     * @param float $timeout
+     *
+     * @throws AMQPConnectionException If timeout is less than 0.
      *
      * @return bool
      */
@@ -1420,6 +1432,7 @@ class AMQPQueue
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      * @throws AMQPEnvelopeException   When no queue found for envelope.
+     * @throws AMQPQueueException      If timeout occurs or queue is not exists.
      *
      * @return void
      */
@@ -1434,6 +1447,7 @@ class AMQPQueue
      *
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
+     * @throws AMQPQueueException      On failure.
      *
      * @return int the message count.
      */
@@ -1475,6 +1489,7 @@ class AMQPQueue
      *
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
+     * @throws AMQPQueueException      If queue is not exist.
      *
      * @return AMQPEnvelope|false
      */
