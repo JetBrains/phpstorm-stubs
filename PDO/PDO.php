@@ -1278,6 +1278,152 @@ class PDO
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function sqliteCreateFunction($function_name, $callback, $num_args = -1, $flags = 0) {}
+
+    /**
+     * (PHP 5 &gt;= 5.3.3, PHP 7, PHP 8)<br/>
+     * Copy data from PHP array into table
+     * @link https://www.php.net/manual/en/pdo.pgsqlcopyfromarray.php
+     * @param string $tableName <p>
+     * String containing table name
+     * </p>
+     * @param array $rows <p>
+     * Array of strings with fields separated by <i>separator</i>
+     * </p>
+     * @param string $separator <p>
+     * Separator used in <i>rows</i> array
+     * </p>
+     * @param string $nullAs <p>
+     * How to interpret null values
+     * </p>
+     * @param ?string $fields <p>
+     * List of fields to insert
+     * </p>
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function pgsqlCopyFromArray(string $tableName, array $rows, string $separator = "\t", string $nullAs = "\\\\N", ?string $fields = null): bool {}
+
+    /**
+     * (PHP 5 &gt;= 5.3.3, PHP 7, PHP 8)<br/>
+     * Copy data from file into table
+     * @link https://www.php.net/manual/en/pdo.pgsqlcopyfromfile.php
+     * @param string $tableName <p>
+     * String containing table name
+     * </p>
+     * @param string $filename <p>
+     * Filename containing data to import
+     * </p>
+     * @param string $separator <p>
+     * Separator used in file specified by <i>filename</i>
+     * </p>
+     * @param string $nullAs <p>
+     * How to interpret null values
+     * </p>
+     * @param ?string $fields <p>
+     * List of fields to insert
+     * </p>
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function pgsqlCopyFromFile(string $tableName, string $filename, string $separator = "\t", string $nullAs = "\\\\N", ?string $fields = null): bool {}
+
+    /**
+     * (PHP 5 &gt;= 5.3.3, PHP 7, PHP 8)<br/>
+     * Copy data from database table into PHP array
+     * @link https://www.php.net/manual/en/pdo.pgsqlcopytoarray.php
+     * @param string $tableName <p>
+     * String containing table name
+     * </p>
+     * @param string $separator <p>
+     * Separator used in rows
+     * </p>
+     * @param string $nullAs <p>
+     * How to interpret null values
+     * </p>
+     * @param ?string $fields <p>
+     * List of fields to insert
+     * </p>
+     * @return array|false returns an array of rows, or <b>FALSE</b> on failure.
+     */
+    public function pgsqlCopyToArray(string $tableName, string $separator = "\t", string $nullAs = "\\\\N", ?string $fields = null): array|false {}
+
+    /**
+     * (PHP 5 &gt;= 5.3.3, PHP 7, PHP 8)<br/>
+     * Copy data from table into file
+     * @link https://www.php.net/manual/en/pdo.pgsqlcopytofile.php
+     * @param string $tableName <p>
+     * String containing table name
+     * </p>
+     * @param string $filename <p>
+     * Filename to export data
+     * </p>
+     * @param string $separator <p>
+     * Separator used in file specified by <i>filename</i>
+     * </p>
+     * @param string $nullAs <p>
+     * How to interpret null values
+     * </p>
+     * @param ?string $fields <p>
+     * List of fields to insert
+     * </p>
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function pgsqlCopyToFile(string $tableName, string $filename, string $separator = "\t", string $nullAs = "\\\\N", ?string $fields = null): bool {}
+
+    /**
+     * (PHP 5 &gt;= 5.1.2, PHP 7, PHP 8, PECL pdo_pgsql &gt;= 1.0.2)<br/>
+     * Creates a new large object
+     * @link https://www.php.net/manual/en/pdo.pgsqllobcreate.php
+     * @return string|false returns the OID of the newly created large object on success,
+     * or <b>FALSE</b> on failure.
+     */
+    public function pgsqlLOBCreate(): string|false {}
+
+    /**
+     * (PHP 5 &gt;= 5.1.2, PHP 7, PHP 8, PECL pdo_pgsql &gt;= 1.0.2)<br/>
+     * Opens an existing large object stream
+     * @link https://www.php.net/manual/en/pdo.pgsqllobopen.php
+     * @param string $oid <p>
+     * A large object identifier.
+     * </p>
+     * @param string $mode <p>
+     * If mode is r, open the stream for reading. If mode is w, open the stream for writing.
+     * </p>
+     * @return resource|false returns a stream resource on success or <b>FALSE</b> on failure.
+     */
+    public function pgsqlLOBOpen(string $oid, string $mode = "rb") {}
+
+    /**
+     * (PHP 5 &gt;= 5.1.2, PHP 7, PHP 8, PECL pdo_pgsql &gt;= 1.0.2)<br/>
+     * Deletes the large object
+     * @link https://www.php.net/manual/en/pdo.pgsqllobunlink.php
+     * @param string $oid <p>
+     * A large object identifier.
+     * </p>
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function pgsqlLOBUnlink(string $oid): bool {}
+
+    /**
+     * (PHP 5 &gt;= 5.6.0, PHP 7, PHP 8)<br/>
+     * Get asynchronous notification
+     * @link https://www.php.net/manual/en/pdo.pgsqlgetnotify.php
+     * @param int $fetchMode <p>
+     * The format the result set should be returned as, represented as a <b>PDO::FETCH_*</b> constant.
+     * </p>
+     * @param int $timeoutMilliseconds <p>
+     * The length of time to wait for a response, in milliseconds.
+     * </p>
+     * @return array|false if one or more notifications is pending, returns a single row,
+     * with fields message and pid, otherwise <b>FALSE</b>.
+     */
+    public function pgsqlGetNotify(int $fetchMode = PDO::FETCH_DEFAULT, int $timeoutMilliseconds = 0): array|false {}
+
+    /**
+     * (PHP 5 &gt;= 5.6.0, PHP 7, PHP 8)<br/>
+     * Get the server PID
+     * @link https://www.php.net/manual/en/pdo.pgsqlgetpid.php
+     * @return int The server's PID.
+     */
+    public function pgsqlGetPid(): int {}
 }
 
 /**
