@@ -157,7 +157,7 @@ namespace {
          * dimensions specified by $dimensions.
          *
          * @param CType $type
-         * @param array|int[] $dimensions
+         * @param int[] $dimensions
          * @return CType
          */
         public static function arrayType(CType $type, array $dimensions): CType {}

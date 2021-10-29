@@ -119,7 +119,7 @@ class V8Js
 
     /**
      * Returns extensions successfully registered with V8Js::registerExtension().
-     * @return array|string[]
+     * @return string[]
      */
     public static function getExtensions() {}
 
