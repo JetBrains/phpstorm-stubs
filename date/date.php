@@ -15,7 +15,7 @@ use JetBrains\PhpStorm\Pure;
  * the time, since PHP 5.0.0 they are allowed but ignored.
  * </p>
  * @param int|null $baseTimestamp [optional] <p>
- * Default value: now()
+ * Default value: null
  * The timestamp which is used as a base for the calculation of relative
  * dates.
  * </p>
@@ -287,7 +287,7 @@ function strtotime(string $datetime, ?int $baseTimestamp): int|false {}
  * date_format function with user based timestamps
  * created with date_create.
  * </p>
- * @param int|null $timestamp [optional] Default value: now(). The optional timestamp parameter is an integer Unix timestamp
+ * @param int|null $timestamp [optional] Default value: time(). The optional timestamp parameter is an integer Unix timestamp
  * that defaults to the current local time if a timestamp is not given.
  * @return string|false a formatted date string. If a non-numeric value is used for
  * timestamp, false is returned and an
