@@ -996,7 +996,7 @@ function explode(string $separator, string $string, int $limit) {}
  * implode as glue would be
  * the second parameter and thus, the bad prototype would be used.
  * </p>
- * @param array|null $array <p>
+ * @param float[]|int[]|string[]|Stringable[]|null $array <p>
  * The array of strings to implode.
  * </p>
  * @return string a string containing a string representation of all the array
@@ -1014,7 +1014,7 @@ function implode(array|string $separator = "", ?array $array): string {}
  * implode as glue would be
  * the second parameter and thus, the bad prototype would be used.
  * </p>
- * @param array|null $array <p>
+ * @param float[]|int[]|string[]|Stringable[]|null $array <p>
  * The array of strings to implode.
  * </p>
  * @return string a string containing a string representation of all the array
