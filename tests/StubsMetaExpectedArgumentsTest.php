@@ -188,9 +188,8 @@ class StubsMetaExpectedArgumentsTest extends BaseStubsTest
             $functionReferenceFqn = self::getFqn($argument->getFunctionReference());
             $index = $argument->getIndex();
             if (array_key_exists($functionReferenceFqn, $functionsFqnsWithIndeces)) {
-                $indices = $functionsFqnsWithIndeces[$functionReferenceFqn];
-                self::assertNotContains($index, $indices, 'Expected arguments for ' . $functionReferenceFqn . ' with index ' . $index . ' already registered');
-                $indices[] = $index;
+                self::assertNotContains($index, $functionsFqnsWithIndeces[$functionReferenceFqn], 'Expected arguments for ' . $functionReferenceFqn . ' with index ' . $index . ' already registered');
+                $functionsFqnsWithIndeces[$functionReferenceFqn][] = $index;
             } else {
                 $functionsFqnsWithIndeces[$functionReferenceFqn] = [$index];
             }
