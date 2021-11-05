@@ -35,7 +35,7 @@ function error_get_last(): ?array {}
  * not passed by reference.
  * call_user_func example and references
  * </p>
- * @return mixed|false the function result, or false on error.
+ * @return mixed the function result, or false on error.
  */
 function call_user_func(callable $callback, mixed ...$args): mixed {}
 
@@ -48,7 +48,7 @@ function call_user_func(callable $callback, mixed ...$args): mixed {}
  * @param array $args <p>
  * The parameters to be passed to the function, as an indexed array.
  * </p>
- * @return mixed|false the function result, or false on error.
+ * @return mixed the function result, or false on error.
  */
 function call_user_func_array(callable $callback, array $args): mixed {}
 
@@ -89,7 +89,7 @@ function call_user_method_array(string $method_name, object &$obj, array $params
  * @param mixed ...$args [optional] <p>
  * Zero or more parameters to be passed to the function.
  * </p>
- * @return mixed|false the function result, or false on error.
+ * @return mixed the function result, or false on error.
  */
 function forward_static_call(callable $callback, mixed ...$args): mixed {}
 
@@ -102,7 +102,7 @@ function forward_static_call(callable $callback, mixed ...$args): mixed {}
  * name.
  * </p>
  * @param array $args
- * @return mixed|false the function result, or false on error.
+ * @return mixed the function result, or false on error.
  */
 function forward_static_call_array(callable $callback, array $args): mixed {}
 
