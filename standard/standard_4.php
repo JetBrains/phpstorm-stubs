@@ -183,11 +183,11 @@ function unserialize(string $data, array $options = []): mixed {}
  * @link https://php.net/manual/en/function.var-dump.php
  * @param mixed $value The variable you want to export.
  * @param mixed ...$values [optional]
- * @param mixed ...$vars [optional]
+ * @param mixed ...$vars Used instead $value and $values after 7.1
  * @return void
  */
 function var_dump(
-    mixed $value,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed $value,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] mixed ...$values
     #[PhpStormStubsElementAvailable(from: '7.1')] mixed ...$vars
 ): void {}
