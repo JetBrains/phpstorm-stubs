@@ -1293,8 +1293,8 @@ function timezone_location_get(DateTimeZone $object): array|false {}
  * @link https://php.net/manual/en/function.timezone-identifiers-list.php
  * @param int $timezoneGroup [optional] One of DateTimeZone class constants.
  * @param string|null $countryCode [optional] A two-letter ISO 3166-1 compatible country code.
+ * Note: This option is only used when $timezoneGroup is set to DateTimeZone::PER_COUNTRY.
  * @return array|false Returns array on success or FALSE on failure.
- * Note: This option is only used when what is set to DateTimeZone::PER_COUNTRY.
  */
 #[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
