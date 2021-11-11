@@ -8,10 +8,6 @@ services:
     build: tests/DockerImages/testRunner
     volumes:
       - .:/opt/project/phpstorm-stubs
-  csfixer_runner:
-    build: tests/DockerImages/csfixer_runner
-    volumes:
-      - .:/opt/project/phpstorm-stubs
   pecl_extensions:
     build: tests/DockerImages/peclExtensions
     volumes:
