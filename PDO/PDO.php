@@ -1239,7 +1239,7 @@ class PDO
     #[TentativeType]
     public function quote(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_INT
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR
     ): string|false {}
 
     final public function __wakeup() {}
@@ -1535,7 +1535,7 @@ class PDOStatement implements IteratorAggregate
     public function bindParam(
         #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $param,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] &$var,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_INT,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxLength = null,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $driverOptions = null
     ): bool {}
@@ -1567,7 +1567,7 @@ class PDOStatement implements IteratorAggregate
     public function bindColumn(
         #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $column,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] &$var,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_INT,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxLength = null,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $driverOptions = null
     ): bool {}
@@ -1596,7 +1596,7 @@ class PDOStatement implements IteratorAggregate
     public function bindValue(
         #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $param,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_INT
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR
     ): bool {}
 
     /**
