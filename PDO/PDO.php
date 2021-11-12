@@ -27,28 +27,40 @@ class PDOException extends RuntimeException
 class PDO
 {
     /**
-     * Represents a boolean data type.
-     * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-bool
-     */
-    public const PARAM_BOOL = 1;
-
-    /**
      * Represents the SQL NULL data type.
      * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-null
      */
     public const PARAM_NULL = 0;
-
+    
     /**
      * Represents the SQL INTEGER data type.
      * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-int
      */
-    public const PARAM_INT = 2;
-
+    public const PARAM_INT = 1;
+    
     /**
      * Represents the SQL CHAR, VARCHAR, or other string data type.
      * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-str
      */
-    public const PARAM_STR = 3;
+    public const PARAM_STR = 2;
+    
+    /**
+     * Represents the SQL large object data type.
+     * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-lob
+     */
+    public const PARAM_LOB = 3;
+
+    /**
+     * Represents a recordset type. Not currently supported by any drivers.
+     * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-stmt
+     */
+    public const PARAM_STMT = 4;
+    
+    /**
+     * Represents a boolean data type.
+     * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-bool
+     */
+    public const PARAM_BOOL = 5;
 
     /**
      * Flag to denote a string uses the national character set.
@@ -97,18 +109,6 @@ class PDO
      * @since 7.3
      */
     public const SQLITE_ATTR_OPEN_FLAGS = 1000;
-
-    /**
-     * Represents the SQL large object data type.
-     * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-lob
-     */
-    public const PARAM_LOB = 4;
-
-    /**
-     * Represents a recordset type. Not currently supported by any drivers.
-     * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-stmt
-     */
-    public const PARAM_STMT = 5;
 
     /**
      * Specifies that the parameter is an INOUT parameter for a stored
