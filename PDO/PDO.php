@@ -31,19 +31,19 @@ class PDO
      * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-null
      */
     public const PARAM_NULL = 0;
-    
+
     /**
      * Represents the SQL INTEGER data type.
      * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-int
      */
     public const PARAM_INT = 1;
-    
+
     /**
      * Represents the SQL CHAR, VARCHAR, or other string data type.
      * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-str
      */
     public const PARAM_STR = 2;
-    
+
     /**
      * Represents the SQL large object data type.
      * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-lob
@@ -55,7 +55,7 @@ class PDO
      * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-stmt
      */
     public const PARAM_STMT = 4;
-    
+
     /**
      * Represents a boolean data type.
      * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-bool
