@@ -30,7 +30,7 @@ exclude:
       - com_dotnet
       - Core
       - couchbase
-      - couchbase_v3
+      - couchbase_v2
       - crypto
       - ctype
       - cubrid
@@ -175,6 +175,7 @@ exclude:
       - wincache
       - xcache
       - xdebug
+      - xdiff
       - xhprof
       - xlswriter
       - xml
@@ -197,4 +198,3 @@ exclude:
       - zmq
       - zookeeper
       - zstd
-      - xdiff
