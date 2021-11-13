@@ -1752,7 +1752,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param string $data <p>
      * The serialized <b>ArrayObject</b>.
      * </p>
-     * @return void The unserialized <b>ArrayObject</b>.
+     * @return void
      */
     #[TentativeType]
     public function unserialize(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data): void {}
@@ -2011,7 +2011,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @param string $data <p>
      * The serialized ArrayIterator object to be unserialized.
      * </p>
-     * @return string The <b>ArrayIterator</b>.
+     * @return void
      */
     #[TentativeType]
     public function unserialize(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data): void {}
