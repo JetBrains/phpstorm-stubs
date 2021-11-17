@@ -612,7 +612,7 @@ function stream_supports_lock($stream): bool {}
  * @param string $escape [optional] <p>
  * Set the escape character (one character only). Defaults as a backslash.
  * </p>
- * @return array|false an indexed array containing the fields read.
+ * @return array|false|null an indexed array containing the fields read.
  * <p>
  * A blank line in a CSV file will be returned as an array
  * comprising a single null field, and will not be treated
@@ -624,7 +624,8 @@ function stream_supports_lock($stream): bool {}
  * including end of file.
  * </p>
  */
-function fgetcsv($stream, ?int $length = 0, string $separator = ',', string $enclosure = '"', string $escape = '\\'): array|false {}
+#[LanguageLevelTypeAware(['8.0' => 'array|false'], default: 'array|false|null')]
+function fgetcsv($stream, ?int $length = 0, string $separator = ',', string $enclosure = '"', string $escape = '\\') {}
 
 /**
  * Format line as CSV and write to file pointer

@@ -689,7 +689,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @param string $escape [optional] <p>
      * The escape character (one character only). Defaults as a backslash (\) or the value set using <b>SplFileObject::setCsvControl</b>.
      * </p>
-     * @return array|false an indexed array containing the fields read, or false on error.
+     * @return array|false|null an indexed array containing the fields read, or false on error.
      * </p>
      * <p>
      * A blank line in a CSV file will be returned as an array
@@ -697,11 +697,12 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * in which case empty lines are skipped.
      */
     #[TentativeType]
+    #[LanguageLevelTypeAware(['8.1' => 'array|false'], default: 'array|false|null')]
     public function fgetcsv(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $separator = ",",
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $enclosure = "\"",
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $escape = "\\"
-    ): array|false {}
+    ) {}
 
     /**
      * Write a field array as a CSV line
