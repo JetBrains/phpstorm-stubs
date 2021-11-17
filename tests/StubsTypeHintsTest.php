@@ -286,7 +286,7 @@ class StubsTypeHintsTest extends BaseStubsTest
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::allFunctionAndMethodsWithReturnTypeHintsProvider
      * @throws Exception
      */
-    public static function testSignatureTypeHintsComplainPhpDocInMethods(PHPFunction|PHPMethod $method)
+    public static function testSignatureTypeHintsConformPhpDocInMethods(PHPFunction|PHPMethod $method)
     {
         $functionName = $method->name;
         $unifiedPhpDocTypes = array_map(function (string $type) {
@@ -298,14 +298,13 @@ class StubsTypeHintsTest extends BaseStubsTest
         }, $method->returnTypesFromPhpDoc);
         $unifiedSignatureTypes = $method->returnTypesFromSignature;
         if (count($unifiedSignatureTypes) === 1) {
-            $unifiedSignatureTypes = [];
-            $type = array_pop($method->returnTypesFromSignature);
+            $type = array_pop($unifiedSignatureTypes);
             if (str_contains($type, '?')) {
-                array_push($unifiedSignatureTypes, 'null');
+                $unifiedSignatureTypes[] = 'null';
             }
             $typeParts = explode('\\', ltrim($type, '?'));
             $typeName = end($typeParts);
-            array_push($unifiedSignatureTypes, $typeName);
+            $unifiedSignatureTypes[] = $typeName;
         }
         $typesIntersection = array_intersect($unifiedSignatureTypes, $unifiedPhpDocTypes);
         self::assertSameSize(
