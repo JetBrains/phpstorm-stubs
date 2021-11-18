@@ -360,7 +360,7 @@ class mysqli
     /**
      * Initializes MySQLi object
      * @link https://php.net/manual/en/mysqli.init.php
-     * @return void
+     * @return bool|null
      * @deprecated 8.1
      */
     public function init() {}
