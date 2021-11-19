@@ -162,6 +162,7 @@ class PhpCoreStubsProvider
             'couchbase',
             'couchbase_v2',
             'dio',
+            'elastic_apm',
             'Ev',
             'fann',
             'FFI',
