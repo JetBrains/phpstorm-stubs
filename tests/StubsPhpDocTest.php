@@ -74,7 +74,6 @@ class StubsPhpDocTest extends BaseStubsTest
         self::checkPHPDocCorrectness($method, "method $method->name");
     }
 
-    //TODO IF: Add test to check that core stubs don't have psalm, phpstan etc typehints in phpdoc
     //TODO IF: Add test to check that phpdocs contain only resource, object etc typehints or if contains type like Resource then Resource should be declared in stubs
 
     private static function checkDeprecatedRemovedSinceVersionsMajor(BasePHPElement $element, string $elementName): void
