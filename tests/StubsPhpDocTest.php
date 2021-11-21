@@ -133,9 +133,7 @@ class StubsPhpDocTest extends BaseStubsTest
                 '#<pre>.*</pre>#sU',
                 '#<code>.*</code>#sU',
                 '#@author.*<.*>#U',
-                '#[\s,\|]array<[a-z,\s]+>#sU',
-                '#\s[A-Za-z]+<[A-Za-z,\s]+>[$\s]#sU',
-                '#<\w+\s*,\s*\w+>#'
+                '#(\s[\w]+[-][\w]+<[a-zA-Z,\s]+>[\s|]+)|([\w]+<[a-zA-Z,\s]+>[\s|\W]+)#'
             ],
             '',
             $phpdoc
