@@ -1229,9 +1229,11 @@ class mysqli_result implements IteratorAggregate
     public function fetch_assoc(): array|false|null {}
 
     /**
+     * @template T
+     *
      * Fetch the next row of a result set as an object
      * @link https://php.net/manual/en/mysqli-result.fetch-object.php
-     * @param string $class [optional] <p>
+     * @param class-string<T> $class [optional] <p>
      * The name of the class to instantiate, set the properties of and return.
      * If not specified, a <b>stdClass</b> object is returned.
      * </p>
@@ -1239,7 +1241,7 @@ class mysqli_result implements IteratorAggregate
      * An optional array of parameters to pass to the constructor
      * for <i>class_name</i> objects.
      * </p>
-     * @return object|false|null an object representing the fetched row, where each property
+     * @return T|object|null an object representing the fetched row, where each property
      * represents the name of the result set's column, null if there
      * are no more rows in the result set, or false on failure.
      */
@@ -1881,13 +1883,15 @@ function mysqli_fetch_array(mysqli_result $result, int $mode = MYSQLI_BOTH): arr
 function mysqli_fetch_assoc(mysqli_result $result): array|null|false {}
 
 /**
+ * @template T
+ * 
  * Fetch the next row of a result set as an object
  * @link https://php.net/manual/en/mysqli-result.fetch-object.php
  * @param mysqli_result $result A mysqli_result object returned by mysqli_query(),
  * mysqli_store_result(), mysqli_use_result() or mysqli_stmt_get_result().
- * @param string $class [optional] The name of the class to instantiate, set the properties of and return. If not specified, a stdClass object is returned.
+ * @param class-string<T> $class [optional] The name of the class to instantiate, set the properties of and return. If not specified, a stdClass object is returned.
  * @param array $constructor_args [optional] An optional array of parameters to pass to the constructor for class_name objects.
- * @return object|null|false an object representing the fetched row,
+ * @return T|null|false an object representing the fetched row,
  * where each property represents the name of the result set's column,
  * null if there are no more rows in the result set, or false on failure.
  */

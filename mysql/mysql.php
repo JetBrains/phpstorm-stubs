@@ -444,10 +444,12 @@ function mysql_fetch_array($result, $result_type = MYSQL_BOTH) {}
 function mysql_fetch_assoc($result) {}
 
 /**
+ * @template T
+ *
  * Fetch a result row as an object
  * @link https://php.net/manual/en/function.mysql-fetch-object.php
  * @param resource $result
- * @param string $class_name [optional] <p>
+ * @param class-string<T> $class_name [optional] <p>
  * The name of the class to instantiate, set the properties of and return.
  * If not specified, a <b>stdClass</b> object is returned.
  * </p>
@@ -455,7 +457,7 @@ function mysql_fetch_assoc($result) {}
  * An optional array of parameters to pass to the constructor
  * for <i>class_name</i> objects.
  * </p>
- * @return stdClass|object an object with string properties that correspond to the
+ * @return T|object an object with string properties that correspond to the
  * fetched row, or false if there are no more rows.
  * </p>
  * <p>
