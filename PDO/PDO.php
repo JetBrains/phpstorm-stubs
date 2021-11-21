@@ -1679,16 +1679,18 @@ class PDOStatement implements IteratorAggregate
     ): array {}
 
     /**
+     * @template T
+     *
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.4)<br/>
      * Fetches the next row and returns it as an object.
      * @link https://php.net/manual/en/pdostatement.fetchobject.php
-     * @param string $class [optional] <p>
+     * @param class-string<T> $class [optional] <p>
      * Name of the created class.
      * </p>
      * @param array $constructorArgs [optional] <p>
      * Elements of this array are passed to the constructor.
      * </p>
-     * @return mixed an instance of the required class with property names that
+     * @return T an instance of the required class with property names that
      * correspond to the column names or <b>FALSE</b> on failure.
      */
     #[TentativeType]
