@@ -5,6 +5,7 @@ namespace StubTests\Model;
 
 use Exception;
 use phpDocumentor\Reflection\DocBlock\Tags\Deprecated;
+use phpDocumentor\Reflection\DocBlock\Tags\Generic;
 use phpDocumentor\Reflection\DocBlock\Tags\Link;
 use phpDocumentor\Reflection\DocBlock\Tags\Param;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
@@ -71,6 +72,8 @@ trait PHPDocElement
      */
     public $hasInternalMetaTag = false;
 
+    public $templateTypes = null;
+
     protected function collectTags(Node $node): void {
         if ($node->getDocComment() !== null) {
             try {
@@ -91,6 +94,11 @@ trait PHPDocElement
                 $this->hasInternalMetaTag = $phpDoc->hasTag('meta');
                 $this->hasInheritDocTag = $phpDoc->hasTag('inheritdoc') || $phpDoc->hasTag('inheritDoc') ||
                     stripos($phpDoc->getSummary(), 'inheritdoc') > 0;
+                $this->templateTypes = array_map(
+                    function (Generic $tag) {
+                        return preg_split("/\W/", $tag->getDescription()->getBodyTemplate())[0];
+                    },
+                    $phpDoc->getTagsByName('template'));
             } catch (Exception $e) {
                 $this->parseError = $e;
             }
