@@ -930,7 +930,7 @@ class mysqli_result implements IteratorAggregate
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $field_count;
     /**
-     * @var int[]|null
+     * @var ?array
      */
     #[LanguageLevelTypeAware(['8.1' => 'array|null'], default: '')]
     public $lengths;
