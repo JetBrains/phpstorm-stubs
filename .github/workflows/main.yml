@@ -20,7 +20,7 @@ jobs:
           PHP_VERSION: ${{matrix.php}}
 
       - name: Composer Install
-        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=${{matrix.php}} test_runner composer install -d /opt/project/phpstorm-stubs
+        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=${{matrix.php}} test_runner composer update -d /opt/project/phpstorm-stubs
         env:
           PHP_VERSION: ${{matrix.php}}
 
