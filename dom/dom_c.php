@@ -1333,7 +1333,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
     public function getNamedItemNS(
         #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $namespaceURI = '',
         #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName = '',
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $localName = '',
         #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName
     ): ?DOMNode {}
 
