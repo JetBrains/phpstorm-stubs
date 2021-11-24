@@ -3,6 +3,7 @@
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\ReturnTypeContract as TypeContract;
 use JetBrains\PhpStorm\Pure;
 
@@ -748,7 +749,7 @@ function long2ip(int $ip): string|false {}
 /**
  * Gets the value of an environment variable
  * @link https://php.net/manual/en/function.getenv.php
- * @param string|null $name [optional] <p>
+ * @param string|null $name <p>
  * The variable name.
  * </p>
  * @param bool $local_only [optional] <p>
@@ -759,7 +760,11 @@ function long2ip(int $ip): string|false {}
  * is provided, or false on an error.
  */
 #[Pure]
-function getenv(?string $name, bool $local_only = false): array|string|false {}
+function getenv(
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $varname,
+    #[PhpStormStubsElementAvailable(from: '7.1')] ?string $name = null,
+    bool $local_only = false
+): array|string|false {}
 
 /**
  * Sets the value of an environment variable
@@ -790,7 +795,11 @@ function putenv(string $assignment): bool {}
  * @return string[]|false[]|false This function will return an array of option / argument pairs or false on
  * failure.
  */
-function getopt(string $short_options, array $long_options, &$rest_index): array|false {}
+function getopt(
+    string $short_options,
+    array $long_options,
+    #[PhpStormStubsElementAvailable(from: '7.1')] &$rest_index
+): array|false {}
 
 /**
  * Gets system load average

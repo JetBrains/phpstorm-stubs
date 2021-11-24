@@ -19,11 +19,15 @@ define("ARRAY_FILTER_USE_KEY", 2);
 /**
  * Merge two or more arrays recursively
  * @link https://php.net/manual/en/function.array-merge-recursive.php
- * @param array ...$arrays [optional] Variable list of arrays to recursively merge.
+ * @param array ...$arrays Variable list of arrays to recursively merge.
  * @return array An array of values resulted from merging the arguments together.
  */
 #[Pure]
-function array_merge_recursive(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] array $arr1, array ...$arrays): array {}
+function array_merge_recursive(
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] array $arr1,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] array $arrays,
+    #[PhpStormStubsElementAvailable(from: '7.1')] array ...$arrays
+): array {}
 
 /**
  * array_replace() replaces the values of the first array with the same values from all the following arrays.
@@ -36,13 +40,17 @@ function array_merge_recursive(#[PhpStormStubsElementAvailable(from: '5.3', to: 
  * @param array $array <p>
  * The array in which elements are replaced.
  * </p>
- * @param array ...$replacements [optional] <p>
+ * @param array ...$replacements <p>
  * The array from which elements will be extracted.
  * </p>
  * @return array or null if an error occurs.
  */
 #[Pure]
-function array_replace(array $array, array ...$replacements): array {}
+function array_replace(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $arrays,
+    #[PhpStormStubsElementAvailable(from: '7.1')] array ...$replacements
+): array {}
 
 /**
  * Replaces elements from passed arrays into the first array recursively
@@ -50,13 +58,17 @@ function array_replace(array $array, array ...$replacements): array {}
  * @param array $array <p>
  * The array in which elements are replaced.
  * </p>
- * @param array ...$replacements [optional] <p>
+ * @param array ...$replacements <p>
  * The array from which elements will be extracted.
  * </p>
  * @return array an array, or null if an error occurs.
  */
 #[Pure]
-function array_replace_recursive(array $array, array ...$replacements): array {}
+function array_replace_recursive(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $arrays,
+    #[PhpStormStubsElementAvailable(from: '7.1')] array ...$replacements
+): array {}
 
 /**
  * Return all the keys or a subset of the keys of an array

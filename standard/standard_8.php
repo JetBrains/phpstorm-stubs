@@ -1081,7 +1081,7 @@ function array_slice(array $array, int $offset, ?int $length, bool $preserve_key
  * Merges the elements of one or more arrays together (if the input arrays have the same string keys, then the later value for that key will overwrite the previous one; if the arrays contain numeric keys, the later value will be appended)
  * Since 7.4.0 this function can be called without any parameter, and it will return empty array.
  * @link https://php.net/manual/en/function.array-merge.php
- * @param array ...$arrays [optional] <p>
+ * @param array ...$arrays <p>
  * Variable list of arrays to merge.
  * </p>
  * @return array the resulting array.
@@ -1090,5 +1090,6 @@ function array_slice(array $array, int $offset, ?int $length, bool $preserve_key
 #[Pure]
 function array_merge(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $array,
-    array ...$arrays
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $arrays,
+    #[PhpStormStubsElementAvailable(from: '7.1')] array ...$arrays
 ): array {}

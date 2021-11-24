@@ -278,7 +278,11 @@ function openssl_x509_free(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificat
  * @return array|false The structure of the returned data is (deliberately) not
  * yet documented, as it is still subject to change.
  */
-function openssl_x509_parse(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, bool $short_names = true): array|false {}
+function openssl_x509_parse(
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] bool $shortname,
+    #[PhpStormStubsElementAvailable(from: '7.1')] bool $short_names = true
+): array|false {}
 
 /**
  * Verifies if a certificate can be used for a particular purpose
@@ -327,7 +331,7 @@ function openssl_x509_parse(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertifica
  * </table>
  * These options are not bitfields - you may specify one only!
  * </p>
- * @param array $ca_info [optional] <p>
+ * @param array $ca_info <p>
  * <i>cainfo</i> should be an array of trusted CA files/dirs
  * as described in Certificate
  * Verification.
@@ -340,7 +344,13 @@ function openssl_x509_parse(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertifica
  * @return int|bool true if the certificate can be used for the intended purpose,
  * false if it cannot, or -1 on error.
  */
-function openssl_x509_checkpurpose(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, int $purpose, array $ca_info, ?string $untrusted_certificates_file): int|bool {}
+function openssl_x509_checkpurpose(
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate,
+    int $purpose,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] array $ca_info,
+    #[PhpStormStubsElementAvailable(from: '7.1')] array $ca_info = [],
+    ?string $untrusted_certificates_file
+): int|bool {}
 
 /**
  * Checks if a private key corresponds to a certificate
@@ -409,7 +419,7 @@ function openssl_x509_verify(
  * @param string $passphrase <p>
  * Encryption password for unlocking the PKCS#12 file.
  * </p>
- * @param array $options [optional]
+ * @param array $options
  * @return bool true on success or false on failure.
  * @since 5.2.2
  */
@@ -418,7 +428,8 @@ function openssl_pkcs12_export(
     &$output,
     #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
     string $passphrase,
-    array $options
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $args,
+    #[PhpStormStubsElementAvailable(from: '7.1')] array $options = []
 ): bool {}
 
 /**
@@ -628,7 +639,10 @@ function openssl_csr_sign(
  * @param bool $short_names [optional]
  * @return array|false
  */
-function openssl_csr_get_subject(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")] $csr, bool $short_names = true): array|false {}
+function openssl_csr_get_subject(
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")] $csr,
+    #[PhpStormStubsElementAvailable(from: '7.1')] bool $short_names = true
+): array|false {}
 
 /**
  * Returns the public key of a CERT
@@ -638,7 +652,10 @@ function openssl_csr_get_subject(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCert
  * @return OpenSSLAsymmetricKey|resource|false
  */
 #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey|false"], default: "resource|false")]
-function openssl_csr_get_public_key(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")] $csr, bool $short_names = true) {}
+function openssl_csr_get_public_key(
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")] $csr,
+    #[PhpStormStubsElementAvailable(from: '7.1')] bool $short_names = true
+) {}
 
 /**
  * Computes a digest
@@ -682,7 +699,16 @@ function openssl_digest(string $data, string $digest_algo, bool $binary = false)
  * </p>
  * @return string|false the encrypted string on success or false on failure.
  */
-function openssl_encrypt(string $data, string $cipher_algo, string $passphrase, int $options = 0, string $iv = "", &$tag, string $aad = "", int $tag_length = 16): string|false {}
+function openssl_encrypt(
+    string $data,
+    string $cipher_algo,
+    string $passphrase,
+    int $options = 0,
+    string $iv = "",
+    #[PhpStormStubsElementAvailable(from: '7.1')] &$tag,
+    #[PhpStormStubsElementAvailable(from: '7.1')] string $aad = "",
+    #[PhpStormStubsElementAvailable(from: '7.1')] int $tag_length = 16
+): string|false {}
 
 /**
  * Decrypts data
@@ -716,8 +742,8 @@ function openssl_decrypt(
     string $passphrase,
     int $options = 0,
     string $iv = "",
-    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: 'string')] $tag = "",
-    string $aad = ""
+    #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: 'string')] $tag = "",
+    #[PhpStormStubsElementAvailable(from: '7.1')] string $aad = ""
 ): string|false {}
 
 /**

@@ -14,7 +14,7 @@ use JetBrains\PhpStorm\Pure;
  * or tls:// to use an SSL or TLS client connection
  * over TCP/IP to connect to the remote host.
  * </p>
- * @param int $port [optional] <p>
+ * @param int $port <p>
  * The port number.
  * </p>
  * @param int &$error_code [optional] <p>
@@ -47,20 +47,34 @@ use JetBrains\PhpStorm\Pure;
  * fwrite, fclose, and
  * feof). If the call fails, it will return false
  */
-function fsockopen(string $hostname, int $port = -1, &$error_code, &$error_message, ?float $timeout) {}
+function fsockopen(
+    string $hostname,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] int $port,
+    #[PhpStormStubsElementAvailable(from: '7.1')] int $port = -1,
+    &$error_code,
+    &$error_message,
+    ?float $timeout
+) {}
 
 /**
  * Open persistent Internet or Unix domain socket connection
  * @link https://php.net/manual/en/function.pfsockopen.php
  * @see fsockopen
  * @param string $hostname
- * @param int $port [optional]
+ * @param int $port
  * @param int &$error_code [optional]
  * @param string &$error_message [optional]
  * @param float|null $timeout [optional]
  * @return resource|false
  */
-function pfsockopen(string $hostname, int $port = -1, &$error_code, &$error_message, ?float $timeout) {}
+function pfsockopen(
+    string $hostname,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] int $port,
+    #[PhpStormStubsElementAvailable(from: '7.1')] int $port = -1,
+    &$error_code,
+    &$error_message,
+    ?float $timeout
+) {}
 
 /**
  * Pack data into binary string
@@ -188,7 +202,11 @@ function pack(
  * string or false if the format string contains errors
  */
 #[Pure]
-function unpack(string $format, string $string, int $offset = 0): array|false {}
+function unpack(
+    string $format,
+    string $string,
+    #[PhpStormStubsElementAvailable(from: '7.1')] int $offset = 0
+): array|false {}
 
 /**
  * Tells what the user's browser is capable of
