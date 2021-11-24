@@ -45,12 +45,14 @@ class PHPClass extends BasePHPClass
             $this->addMethod($parsedMethod);
         }
 
-        foreach ($reflectionObject->getReflectionConstants() as $constant) {
-            if ($constant->getDeclaringClass()->getName() !== $this->name) {
-                continue;
+        if (method_exists($reflectionObject, 'getReflectionConstants')) {
+            foreach ($reflectionObject->getReflectionConstants() as $constant) {
+                if ($constant->getDeclaringClass()->getName() !== $this->name) {
+                    continue;
+                }
+                $parsedConstant = (new PHPConst())->readObjectFromReflection($constant);
+                $this->addConstant($parsedConstant);
             }
-            $parsedConstant = (new PHPConst())->readObjectFromReflection($constant);
-            $this->addConstant($parsedConstant);
         }
 
         foreach ($reflectionObject->getProperties() as $property) {
@@ -124,7 +126,7 @@ class PHPClass extends BasePHPClass
      * @param stdClass|array $jsonData
      * @throws Exception
      */
-    public function readMutedProblems($jsonData): void
+    public function readMutedProblems($jsonData)
     {
         foreach ($jsonData as $class) {
             if ($class->name === $this->name) {
@@ -163,7 +165,7 @@ class PHPClass extends BasePHPClass
         }
     }
 
-    public function addProperty(PHPProperty $parsedProperty): void
+    public function addProperty(PHPProperty $parsedProperty)
     {
         if (isset($parsedProperty->name)) {
             if (array_key_exists($parsedProperty->name, $this->properties)) {
@@ -181,9 +183,10 @@ class PHPClass extends BasePHPClass
     }
 
     /**
+     * @return PHPProperty|null
      * @throws RuntimeException
      */
-    public function getProperty($propertyName): ?PHPProperty
+    public function getProperty($propertyName)
     {
         $properties = array_filter($this->properties, function (PHPProperty $property) use ($propertyName): bool {
             return $property->name === $propertyName && $property->duplicateOtherElement === false

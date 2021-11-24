@@ -18,7 +18,7 @@
     "nikic/php-parser": "@stable",
     "phpdocumentor/reflection-docblock": "@stable",
     "phpunit/phpunit": "@stable",
-    "friendsofphp/php-cs-fixer": "dev-master"
+    "friendsofphp/php-cs-fixer": "@stable"
   },
   "autoload": {
     "files": ["PhpStormStubsMap.php"]

@@ -10,17 +10,27 @@ use phpDocumentor\Reflection\Types\Context;
 
 class RemovedTag extends BaseTag
 {
-    private const REGEX_VECTOR = '(?:\d\S*|[^\s\:]+\:\s*\$[^\$]+\$)';
+    const REGEX_VECTOR = '(?:\d\S*|[^\s\:]+\:\s*\$[^\$]+\$)';
     private $version;
 
-    public function __construct(?string $version = null, Description $description = null)
+    /**
+     * @param string|null $version
+     * @param Description|null $description
+     */
+    public function __construct($version = null, Description $description = null)
     {
         $this->version = $version;
         $this->name = 'removed';
         $this->description = $description;
     }
 
-    public static function create(?string $body, ?DescriptionFactory $descriptionFactory = null, ?Context $context = null): RemovedTag
+    /**
+     * @param string|null $body
+     * @param DescriptionFactory|null $descriptionFactory
+     * @param Context|null $context
+     * @return RemovedTag
+     */
+    public static function create(string $body, $descriptionFactory = null, $context = null): RemovedTag
     {
         if (empty($body)) {
             return new self();
@@ -40,7 +50,10 @@ class RemovedTag extends BaseTag
         return new self();
     }
 
-    public function getVersion(): ?string
+    /**
+     * @return string|null
+     */
+    public function getVersion()
     {
         return $this->version;
     }

@@ -125,7 +125,7 @@ class PHPMethod extends PHPFunction
      * @param stdClass|array $jsonData
      * @throws Exception
      */
-    public function readMutedProblems($jsonData): void
+    public function readMutedProblems($jsonData)
     {
         foreach ($jsonData as $method) {
             if ($method->name === $this->name) {

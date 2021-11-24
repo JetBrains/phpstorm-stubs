@@ -66,7 +66,7 @@ class PHPParameter extends BasePHPElement
      * @param stdClass|array $jsonData
      * @throws Exception
      */
-    public function readMutedProblems($jsonData): void
+    public function readMutedProblems($jsonData)
     {
         foreach ($jsonData as $parameter) {
             if ($parameter->name === $this->name && !empty($parameter->problems)) {
