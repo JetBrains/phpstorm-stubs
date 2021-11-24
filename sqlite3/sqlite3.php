@@ -256,7 +256,7 @@ class SQLite3
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $argCount = -1,
-        int $flags = 0
+        #[PhpStormStubsElementAvailable(from: '7.1')] int $flags = 0
     ): bool {}
 
     /**

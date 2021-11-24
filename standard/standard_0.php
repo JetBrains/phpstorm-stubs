@@ -1390,9 +1390,13 @@ function strcspn(string $string, string $characters, int $offset, ?int $length):
  * @param string $string <p>
  * The string being split up into smaller strings (tokens).
  * </p>
- * @param string|null $token [optional] <p>
+ * @param string|null $token <p>
  * The delimiter used when splitting up str.
  * </p>
  * @return string|false A string token.
  */
-function strtok(string $string, ?string $token): string|false {}
+function strtok(
+    string $string,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $token,
+    #[PhpStormStubsElementAvailable(from: '7.1')] ?string $token = null
+): string|false {}

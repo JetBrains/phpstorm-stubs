@@ -954,6 +954,17 @@
           ]
         }
       ]
+    },
+    {
+      "name": "hash_update_file",
+      "problems": [
+        {
+          "description": "parameter mismatch",
+          "versions": [
+            7.0
+          ]
+        }
+      ]
     }
   ],
   "classes": [
@@ -3064,6 +3075,7 @@
         {
           "description": "wrong parent",
           "versions": [
+            7.0,
             7.1,
             7.2
           ]
@@ -3079,6 +3091,7 @@
             {
               "description": "has wrong final modifier",
               "versions": [
+                7.0,
                 7.1,
                 7.2,
                 7.3,
@@ -3142,6 +3155,7 @@
             {
               "description": "has wrong static modifier",
               "versions": [
+                7.0,
                 7.1,
                 7.2,
                 7.3,
@@ -3156,6 +3170,7 @@
             {
               "description": "has wrong static modifier",
               "versions": [
+                7.0,
                 7.1,
                 7.2,
                 7.3,

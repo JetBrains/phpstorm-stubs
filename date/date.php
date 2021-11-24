@@ -469,7 +469,7 @@ function mktime(
     ?int $day = null,
     ?int $year = null,
     #[Deprecated('Use the new timezone handling functions instead', since: '5.3')]
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $is_dst = -1
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $is_dst = -1
 ): int|false {}
 
 /**
@@ -508,7 +508,7 @@ function gmmktime(
     ?int $month = null,
     ?int $day = null,
     ?int $year = null,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $is_dst = null
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $is_dst = null
 ): int|false {}
 
 /**
@@ -1138,7 +1138,13 @@ function date_diff(DateTimeInterface $baseObject, DateTimeInterface $targetObjec
  * @return DateTime <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
-function date_time_set(DateTime $object, int $hour, int $minute, int $second = 0, int $microsecond = 0): DateTime {}
+function date_time_set(
+    DateTime $object,
+    int $hour,
+    int $minute,
+    int $second = 0,
+    #[PhpStormStubsElementAvailable(from: '7.1')] int $microsecond = 0
+): DateTime {}
 
 /**
  * Alias:

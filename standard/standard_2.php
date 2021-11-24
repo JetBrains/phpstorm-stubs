@@ -949,7 +949,10 @@ function rand(int $min = 0, int $max): int {}
  * </p>
  * @return void
  */
-function srand(int $seed, int $mode = MT_RAND_MT19937): void {}
+function srand(
+    int $seed,
+    #[PhpStormStubsElementAvailable(from: '7.1')] int $mode = MT_RAND_MT19937
+): void {}
 
 /**
  * Show largest possible random value
@@ -984,7 +987,10 @@ function mt_rand(int $min = 0, int $max): int {}
  * </p>
  * @return void
  */
-function mt_srand(int $seed, int $mode = MT_RAND_MT19937): void {}
+function mt_srand(
+    int $seed,
+    #[PhpStormStubsElementAvailable(from: '7.1')] int $mode = MT_RAND_MT19937
+): void {}
 
 /**
  * Show largest possible random value

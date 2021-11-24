@@ -1312,7 +1312,10 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
      * in this map).
      */
     #[TentativeType]
-    public function item(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index): ?DOMNode {}
+    public function item(
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $index = 0,
+        #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index
+    ): ?DOMNode {}
 
     /**
      * Retrieves a node specified by local name and namespace URI
@@ -1328,8 +1331,10 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
      */
     #[TentativeType]
     public function getNamedItemNS(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $namespaceURI = '',
+        #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName = '',
+        #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName
     ): ?DOMNode {}
 
     /**

@@ -558,7 +558,10 @@ class mysqli
      * return true.
      */
     #[TentativeType]
-    public function query(string $query, int $result_mode = MYSQLI_STORE_RESULT): mysqli_result|bool {}
+    public function query(
+        string $query,
+        #[PhpStormStubsElementAvailable(from: '7.1')] int $result_mode = MYSQLI_STORE_RESULT
+    ): mysqli_result|bool {}
 
     /**
      * Opens a connection to a mysql server
@@ -2161,7 +2164,8 @@ function mysqli_more_results(mysqli $mysql): bool {}
  */
 function mysqli_multi_query(
     mysqli $mysql,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] string $query = null,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] string $query,
+    #[PhpStormStubsElementAvailable(from: '7.1', to: '7.4')] string $query = null,
     #[PhpStormStubsElementAvailable(from: '8.0')] string $query
 ): bool {}
 
@@ -2281,7 +2285,11 @@ function mysqli_report(int $flags): bool {}
  * For other successful queries mysqli_query() will return TRUE.
  * Returns FALSE on failure.
  */
-function mysqli_query(mysqli $mysql, string $query, int $result_mode = MYSQLI_STORE_RESULT): mysqli_result|bool {}
+function mysqli_query(
+    mysqli $mysql,
+    string $query,
+    #[PhpStormStubsElementAvailable(from: '7.1')] int $result_mode = MYSQLI_STORE_RESULT
+): mysqli_result|bool {}
 
 /**
  * Opens a connection to a mysql server
@@ -2317,7 +2325,8 @@ function mysqli_real_escape_string(mysqli $mysql, string $string): string {}
  */
 function mysqli_real_query(
     mysqli $mysql,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] string $query = null,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] string $query,
+    #[PhpStormStubsElementAvailable(from: '7.1', to: '7.4')] string $query = null,
     #[PhpStormStubsElementAvailable(from: '8.0')] string $query
 ): bool {}
 
@@ -2765,7 +2774,7 @@ function mysqli_client_encoding(mysqli $mysql): string {}
 function mysqli_escape_string(
     mysqli $mysql,
     string $string,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $resultmode = null
+    #[PhpStormStubsElementAvailable(from: '7.1', to: '7.4')] $resultmode = null
 ): string {}
 
 /**

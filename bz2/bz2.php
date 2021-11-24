@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -120,7 +121,7 @@ function bzerror($bz): array {}
  * @param string $data <p>
  * The string to compress.
  * </p>
- * @param int $block_size [optional] <p>
+ * @param int $block_size <p>
  * Specifies the blocksize used during compression and should be a number
  * from 1 to 9 with 9 giving the best compression, but using more
  * resources to do so.
@@ -137,7 +138,12 @@ function bzerror($bz): array {}
  * @return string|int The compressed string, or an error number if an error occurred.
  */
 #[Pure]
-function bzcompress(string $data, int $block_size = 4, int $work_factor = 0): string|int {}
+function bzcompress(
+    string $data,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] int $blocksize,
+    #[PhpStormStubsElementAvailable(from: '7.1')] int $block_size = 4,
+    int $work_factor = 0
+): string|int {}
 
 /**
  * Decompresses bzip2 encoded data

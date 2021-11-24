@@ -418,7 +418,11 @@ function str_split(string $string, int $length = 1): array|false {}
  * not found.
  */
 #[Pure]
-function strpbrk(string $string, string $characters): string|false {}
+function strpbrk(
+    string $string,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $char_list = '',
+    #[PhpStormStubsElementAvailable(from: '7.1')] string $characters
+): string|false {}
 
 /**
  * Binary safe comparison of two strings from an offset, up to length characters
