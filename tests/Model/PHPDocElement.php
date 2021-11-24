@@ -74,7 +74,7 @@ trait PHPDocElement
 
     public $templateTypes = null;
 
-    protected function collectTags(Node $node): void {
+    protected function collectTags(Node $node) {
         if ($node->getDocComment() !== null) {
             try {
                 $text = $node->getDocComment()->getText();

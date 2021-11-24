@@ -58,7 +58,7 @@ abstract class BasePHPElement
     /**
      * @param stdClass|array $jsonData
      */
-    abstract public function readMutedProblems($jsonData): void;
+    abstract public function readMutedProblems($jsonData);
 
     public static function getFQN(Node $node): string
     {
@@ -80,7 +80,11 @@ abstract class BasePHPElement
         return rtrim($fqn, "\\");
     }
 
-    protected static function getReflectionTypeAsArray(?ReflectionType $type): array
+    /**
+     * @param ReflectionType|null $type
+     * @return array
+     */
+    protected static function getReflectionTypeAsArray($type): array
     {
         $reflectionTypes = [];
         if ($type instanceof ReflectionNamedType) {

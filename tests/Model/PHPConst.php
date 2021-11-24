@@ -109,7 +109,7 @@ class PHPConst extends BasePHPElement
      * @param stdClass|array $jsonData
      * @throws Exception
      */
-    public function readMutedProblems($jsonData): void
+    public function readMutedProblems($jsonData)
     {
         foreach ($jsonData as $constant) {
             if ($constant->name === $this->name && !empty($constant->problems)) {

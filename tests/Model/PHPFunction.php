@@ -95,7 +95,7 @@ class PHPFunction extends BasePHPElement
         return $this;
     }
 
-    protected function checkDeprecationTag(FunctionLike $node): void
+    protected function checkDeprecationTag(FunctionLike $node)
     {
         try {
             $this->is_deprecated = self::hasDeprecatedAttribute($node) || self::hasDeprecatedDocTag($node->getDocComment());
@@ -104,7 +104,7 @@ class PHPFunction extends BasePHPElement
         }
     }
 
-    protected function checkReturnTag(FunctionLike $node): void
+    protected function checkReturnTag(FunctionLike $node)
     {
         if ($node->getDocComment() !== null) {
             try {
@@ -130,7 +130,7 @@ class PHPFunction extends BasePHPElement
      * @param stdClass|array $jsonData
      * @throws Exception
      */
-    public function readMutedProblems($jsonData): void
+    public function readMutedProblems($jsonData)
     {
         foreach ($jsonData as $function) {
             if ($function->name === $this->name) {
@@ -187,7 +187,11 @@ class PHPFunction extends BasePHPElement
         return false;
     }
 
-    private static function hasDeprecatedDocTag(?Doc $docComment): bool
+    /**
+     * @param Doc|null $docComment
+     * @return bool
+     */
+    private static function hasDeprecatedDocTag($docComment): bool
     {
         $phpDoc = $docComment !== null ? DocFactoryProvider::getDocFactory()->create($docComment->getText()) : null;
         return $phpDoc !== null && !empty($phpDoc->getTagsByName('deprecated'));
