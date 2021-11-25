@@ -1763,44 +1763,6 @@
               ]
             }
           ]
-        },
-        {
-          "name": "addEmptyDir",
-          "parameters": [
-            {
-              "name": "dirname",
-              "problems": [
-                {
-                  "description": "wrong optionallity",
-                  "versions": [
-                    7.1,
-                    7.2,
-                    7.3,
-                    7.4
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "addFromString",
-          "parameters": [
-            {
-              "name": "contents",
-              "problems": [
-                {
-                  "description": "wrong optionallity",
-                  "versions": [
-                    7.1,
-                    7.2,
-                    7.3,
-                    7.4
-                  ]
-                }
-              ]
-            }
-          ]
         }
       ]
     },
@@ -3189,39 +3151,6 @@
           "parameters": [
             {
               "name": "index",
-              "problems": [
-                {
-                  "description": "wrong optionallity",
-                  "versions": [
-                    7.1,
-                    7.2,
-                    7.3,
-                    7.4
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "getNamedItemNS",
-          "parameters": [
-            {
-              "name": "namespaceURI",
-              "problems": [
-                {
-                  "description": "wrong optionallity",
-                  "versions": [
-                    7.1,
-                    7.2,
-                    7.3,
-                    7.4
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "localName",
               "problems": [
                 {
                   "description": "wrong optionallity",

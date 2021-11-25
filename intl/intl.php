@@ -418,11 +418,11 @@ class Collator
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get the locale name of the collator
      * @link https://php.net/manual/en/collator.getlocale.php
-     * @param int $type [optional] <p>
+     * @param int $type <p>
      * You can choose between valid and actual locale (
      * <b>Locale::VALID_LOCALE</b> and
      * <b>Locale::ACTUAL_LOCALE</b>,
-     * respectively). The default is the actual locale.
+     * respectively).
      * </p>
      * @return string|false Real locale name from which the collation data comes. If the collator was
      * instantiated from rules or an error occurred, returns
@@ -433,7 +433,7 @@ class Collator
     public function getLocale(
         #[TypeAware(['8.0' => 'int'], default: '')]
         #[EV([Locale::VALID_LOCALE, Locale::ACTUAL_LOCALE])]
-        $type = null
+        $type
     ): string|false {}
 
     /**
@@ -1872,8 +1872,8 @@ class IntlDateFormatter
 
     /**
      * @param string|null $locale
-     * @param int $dateType [optional]
-     * @param int $timeType [optional]
+     * @param int $dateType
+     * @param int $timeType
      * @param mixed|null $timezone [optional]
      * @param mixed|null $calendar [optional]
      * @param string $pattern [optional]
@@ -1881,8 +1881,10 @@ class IntlDateFormatter
     #[Pure]
     public function __construct(
         #[TypeAware(['8.0' => 'string|null'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'int'], default: '')] $dateType,
-        #[TypeAware(['8.0' => 'int'], default: '')] $timeType,
+        #[ElementAvailable(from: '5.3', to: '8.0')] #[TypeAware(['8.0' => 'int'], default: '')] $dateType,
+        #[ElementAvailable(from: '5.3', to: '8.0')] #[TypeAware(['8.0' => 'int'], default: '')] $timeType,
+        #[ElementAvailable(from: '8.1')] int $dateType = 0,
+        #[ElementAvailable(from: '8.1')] int $timeType = 0,
         $timezone = null,
         $calendar = null,
         #[TypeAware(['8.0' => 'string|null'], default: '')] $pattern = ''
@@ -1895,14 +1897,14 @@ class IntlDateFormatter
      * @param string $locale <p>
      * Locale to use when formatting or parsing; default is specified in the ini setting intl.default_locale.
      * </p>
-     * @param int $dateType [optional] <p>
+     * @param int $dateType <p>
      * Date type to use (<b>none</b>,
      * <b>short</b>, <b>medium</b>,
      * <b>long</b>, <b>full</b>).
      * This is one of the
      * IntlDateFormatter constants.
      * </p>
-     * @param int $timeType [optional] <p>
+     * @param int $timeType <p>
      * Time type to use (<b>none</b>,
      * <b>short</b>, <b>medium</b>,
      * <b>long</b>, <b>full</b>).
@@ -1926,8 +1928,10 @@ class IntlDateFormatter
     #[TentativeType]
     public static function create(
         #[TypeAware(['8.0' => 'string|null'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'int'], default: '')] $dateType,
-        #[TypeAware(['8.0' => 'int'], default: '')] $timeType,
+        #[ElementAvailable(from: '5.3', to: '8.0')] #[TypeAware(['8.0' => 'int'], default: '')] $dateType,
+        #[ElementAvailable(from: '5.3', to: '8.0')] #[TypeAware(['8.0' => 'int'], default: '')] $timeType,
+        #[ElementAvailable(from: '8.1')] int $dateType = 0,
+        #[ElementAvailable(from: '8.1')] int $timeType = 0,
         $timezone = null,
         #[TypeAware(['8.0' => 'IntlCalendar|int|null'], default: '')] $calendar = null,
         #[TypeAware(['8.0' => 'string|null'], default: '')] $pattern = ''
@@ -2136,7 +2140,10 @@ class IntlDateFormatter
      * @return string|false The formatted string or, if an error occurred, <b>FALSE</b>.
      */
     #[TentativeType]
-    public function format($datetime = null, #[ElementAvailable(from: '5.3', to: '7.4')] $array = null): string|false {}
+    public function format(
+        #[ElementAvailable(from: '5.3', to: '7.4')] $datetime = null,
+        #[ElementAvailable(from: '8.0')] $datetime,
+        #[ElementAvailable(from: '5.3', to: '7.4')] $array = null): string|false {}
 
     /**
      * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
@@ -7460,7 +7467,7 @@ class UConverter
      * @return array|false|null
      */
     #[TentativeType]
-    public static function getAliases(#[TypeAware(['8.0' => 'string'], default: '')] $name = null): array|false|null {}
+    public static function getAliases(#[TypeAware(['8.0' => 'string'], default: '')] $name): array|false|null {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7560,7 +7567,10 @@ class UConverter
      */
     #[Pure]
     #[TentativeType]
-    public static function reasonText(#[TypeAware(['8.0' => 'int'], default: '')] $reason = 0): string {}
+    public static function reasonText(
+        #[ElementAvailable(from: '5.3', to: '7.4')] $reason = 0,
+        #[ElementAvailable(from: '8.0')]  int $reason
+        ): string {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>

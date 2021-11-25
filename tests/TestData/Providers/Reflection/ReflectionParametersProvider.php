@@ -89,7 +89,7 @@ class ReflectionParametersProvider
                 foreach (EntitiesFilter::getFilteredFunctions($class) as $method) {
                     foreach (EntitiesFilter::getFilteredParameters(
                         $method,
-                        fn (PHPParameter $parameter) => !$parameter->isOptional,
+                        null,
                         StubProblemType::WRONG_OPTIONALLITY
                     ) as $parameter) {
                         yield "$class->name::$method->name($parameter->name)" => [$class, $method, $parameter];
