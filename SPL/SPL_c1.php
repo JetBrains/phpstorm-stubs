@@ -467,14 +467,17 @@ class FilesystemIterator extends DirectoryIterator
     /**
      * Sets handling flags
      * @link https://php.net/manual/en/filesystemiterator.setflags.php
-     * @param int $flags [optional] <p>
+     * @param int $flags <p>
      * The handling flags to set.
      * See the FilesystemIterator constants.
      * </p>
      * @return void
      */
     #[TentativeType]
-    public function setFlags(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null): void {}
+    public function setFlags(
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $flags = null,
+        #[PhpStormStubsElementAvailable(from: '8.0')] int $flags
+    ): void {}
 }
 
 /**
@@ -2284,9 +2287,12 @@ class MultipleIterator implements Iterator
     /**
      * Constructs a new MultipleIterator
      * @link https://php.net/manual/en/multipleiterator.construct.php
-     * @param int $flags [optional] Defaults to MultipleIterator::MIT_NEED_ALL | MultipleIterator::MIT_KEYS_NUMERIC
+     * @param int $flags Defaults to MultipleIterator::MIT_NEED_ALL | MultipleIterator::MIT_KEYS_NUMERIC
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = MultipleIterator::MIT_NEED_ALL|MultipleIterator::MIT_KEYS_NUMERIC) {}
+    public function __construct(
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $flags,
+        #[PhpStormStubsElementAvailable(from: '8.0')] int $flags = MultipleIterator::MIT_NEED_ALL|MultipleIterator::MIT_KEYS_NUMERIC
+    ) {}
 
     /**
      * Gets the flag information

@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
@@ -922,7 +923,10 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function enumCharTypes(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback = null): void {}
+    public static function enumCharTypes(
+        #[PhpStormStubsElementAvailable(from: '7.0', to: '7.4')] $callback = null,
+        #[PhpStormStubsElementAvailable(from: '8.0')] callable $callback
+    ): void {}
 
     /**
      * Perform case folding on a code point

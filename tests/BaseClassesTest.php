@@ -139,7 +139,7 @@ class BaseClassesTest extends BaseStubsTest
         static::assertSameSize(
             $method->parameters,
             $filteredStubParameters,
-            "Parameter number mismatch for method $className::$method->name. 
+            "Parameter number mismatch for method $className::$method->name.
                          Expected: " . self::getParameterRepresentation($method)
         );
     }

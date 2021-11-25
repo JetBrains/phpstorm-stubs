@@ -950,11 +950,11 @@ class mysqli_result implements IteratorAggregate
 
     /**
      * Constructor (no docs available)
-     * @param object $mysql [optional]
+     * @param object $mysql
      * @param int $result_mode [optional]
      */
     public function __construct(
-        #[PhpStormStubsElementAvailable(from: '8.0')] mysqli $mysql = null,
+        #[PhpStormStubsElementAvailable(from: '8.0')] mysqli $mysql,
         #[PhpStormStubsElementAvailable(from: '8.0')] int $result_mode = MYSQLI_STORE_RESULT
     ) {}
 

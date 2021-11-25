@@ -74,8 +74,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      */
     #[TentativeType]
     public function addEmptyDir(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $directory = '',
-        #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $directory
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $directory = '',
+        #[PhpStormStubsElementAvailable(from: '8.0')] string $directory
     ): void {}
 
     /**
@@ -112,8 +112,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     #[TentativeType]
     public function addFromString(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $contents = '',
-        #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $contents
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $contents = '',
+        #[PhpStormStubsElementAvailable(from: '8.0')] string $contents
     ): void {}
 
     /**

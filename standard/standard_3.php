@@ -763,7 +763,7 @@ function long2ip(int $ip): string|false {}
 function getenv(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $varname,
     #[PhpStormStubsElementAvailable(from: '7.1')] ?string $name = null,
-    bool $local_only = false
+    #[PhpStormStubsElementAvailable(from: '5.6')] bool $local_only = false
 ): array|string|false {}
 
 /**

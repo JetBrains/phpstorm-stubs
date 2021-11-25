@@ -2,6 +2,7 @@
 
 // Start of SimpleXML v.0.1
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
@@ -227,7 +228,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @param string $qualifiedName <p>
      * The name of the attribute to add.
      * </p>
-     * @param string $value [optional] <p>
+     * @param string $value <p>
      * The value of the attribute.
      * </p>
      * @param string $namespace [optional] <p>
@@ -239,7 +240,9 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     #[TentativeType]
     public function addAttribute(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
-        #[LanguageLevelTypeAware(['8.0' => 'string', '8.1' => 'string|null'], default: '')] $value = null,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $value = null,
+        #[PhpStormStubsElementAvailable(from: '8.0', to: '8.0')] string $value,
+        #[PhpStormStubsElementAvailable(from: '8.1')] ?string $value = null,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace = null
     ): void {}
 

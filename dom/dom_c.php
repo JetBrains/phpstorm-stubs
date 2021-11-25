@@ -498,10 +498,10 @@ class DOMImplementation
      * @param string $qualifiedName <p>
      * The qualified name of the document type to create.
      * </p>
-     * @param string $publicId [optional] <p>
+     * @param string $publicId <p>
      * The external subset public identifier.
      * </p>
-     * @param string $systemId [optional] <p>
+     * @param string $systemId <p>
      * The external subset system identifier.
      * </p>
      * @return DOMDocumentType|false A new DOMDocumentType node with its
@@ -510,20 +510,22 @@ class DOMImplementation
      */
     public function createDocumentType(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $publicId = '',
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $systemId = ''
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $publicId,
+        #[PhpStormStubsElementAvailable(from: '8.0')] string $publicId = '',
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $systemId,
+        #[PhpStormStubsElementAvailable(from: '8.0')] string $systemId = ''
     ) {}
 
     /**
      * Creates a DOMDocument object of the specified type with its document element
      * @link https://php.net/manual/en/domimplementation.createdocument.php
-     * @param string|null $namespace [optional] <p>
+     * @param string|null $namespace <p>
      * The namespace URI of the document element to create.
      * </p>
-     * @param string $qualifiedName [optional] <p>
+     * @param string $qualifiedName <p>
      * The qualified name of the document element to create.
      * </p>
-     * @param DOMDocumentType|null $doctype [optional] <p>
+     * @param DOMDocumentType|null $doctype <p>
      * The type of document to create or null.
      * </p>
      * @return DOMDocument|false A new DOMDocument object. If
@@ -535,9 +537,12 @@ class DOMImplementation
      * as determined by $namespace and $qualifiedName.
      */
     public function createDocument(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace = null,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName = '',
-        #[LanguageLevelTypeAware(['8.0' => 'DOMDocumentType|null'], default: 'DOMDocumentType')] $doctype = null
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $namespace,
+        #[PhpStormStubsElementAvailable(from: '8.0')] ?string $namespace = null,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $qualifiedName,
+        #[PhpStormStubsElementAvailable(from: '8.0')] string $qualifiedName = '',
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] DOMDocumentType $doctype,
+        #[PhpStormStubsElementAvailable(from: '7.4')] #[LanguageLevelTypeAware(['8.0' => 'DOMDocumentType|null'], default: 'DOMDocumentType')] $doctype = null
     ) {}
 }
 
@@ -843,14 +848,15 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @param string $target <p>
      * The target of the processing instruction.
      * </p>
-     * @param string $data [optional] <p>
+     * @param string $data <p>
      * The content of the processing instruction.
      * </p>
      * @return DOMProcessingInstruction|false The new DOMProcessingInstruction or false if an error occurred.
      */
     public function createProcessingInstruction(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $target,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data = null
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $data,
+        #[PhpStormStubsElementAvailable(from: '7.4')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data = null
     ) {}
 
     /**
@@ -896,7 +902,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @param DOMNode $node <p>
      * The node to import.
      * </p>
-     * @param bool $deep [optional] <p>
+     * @param bool $deep <p>
      * If set to true, this method will recursively import the subtree under
      * the importedNode.
      * </p>
@@ -905,7 +911,11 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return DOMNode|false The copied node or false, if it cannot be copied.
      */
-    public function importNode(DOMNode $node, #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $deep = false) {}
+    public function importNode(
+        DOMNode $node,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $deep,
+        #[PhpStormStubsElementAvailable(from: '7.4')] #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $deep = false
+    ) {}
 
     /**
      * Create new element node with an associated namespace
@@ -1331,10 +1341,10 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
      */
     #[TentativeType]
     public function getNamedItemNS(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $namespaceURI = '',
-        #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $localName = '',
-        #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $namespaceURI = '',
+        #[PhpStormStubsElementAvailable(from: '8.0')] ?string $namespace,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $localName = '',
+        #[PhpStormStubsElementAvailable(from: '8.0')] string $localName
     ): ?DOMNode {}
 
     /**

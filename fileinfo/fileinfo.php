@@ -41,7 +41,7 @@ class finfo
      * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
      * Return information about a file
      * @link https://php.net/manual/en/function.finfo-file.php
-     * @param string $filename [optional] <p>
+     * @param string $filename <p>
      * Name of a file to be checked.
      * </p>
      * @param int $flags [optional] <p>
@@ -57,7 +57,7 @@ class finfo
     #[Pure]
     #[TentativeType]
     public function file(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FILEINFO_NONE,
         $context = null
     ): string|false {}
@@ -66,7 +66,7 @@ class finfo
      * (PHP 5 &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
      * Return information about a string buffer
      * @link https://php.net/manual/en/function.finfo-buffer.php
-     * @param string $string [optional] <p>
+     * @param string $string <p>
      * Content of a file to be checked.
      * </p>
      * @param int $flags [optional] <p>
@@ -80,7 +80,7 @@ class finfo
     #[Pure]
     #[TentativeType]
     public function buffer(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FILEINFO_NONE,
         $context = null
     ): string|false {}
