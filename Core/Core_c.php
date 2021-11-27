@@ -3,6 +3,7 @@
 // Start of Core v.5.3.6-13ubuntu3.2
 use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
@@ -295,7 +296,17 @@ class Exception implements Throwable
      * @link https://php.net/manual/en/exception.clone.php
      * @return void
      */
+    #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
     final private function __clone(): void {}
+
+    /**
+     * Clone the exception
+     * Tries to clone the Exception, which results in Fatal error.
+     * @link https://php.net/manual/en/exception.clone.php
+     * @return void
+     */
+    #[PhpStormStubsElementAvailable("8.1")]
+    private function __clone(): void {}
 
     /**
      * Construct the exception. Note: The message is NOT binary safe.
@@ -493,7 +504,17 @@ class Error implements Throwable
      * @return void
      * @link https://php.net/manual/en/error.clone.php
      */
+    #[PhpStormStubsElementAvailable(from: "7.0", to: "8.0")]
     final private function __clone(): void {}
+
+    /**
+     * Clone the error
+     * Error can not be clone, so this method results in fatal error.
+     * @return void
+     * @link https://php.net/manual/en/error.clone.php
+     */
+    #[PhpStormStubsElementAvailable('8.1')]
+    private function __clone(): void {}
 
     #[TentativeType]
     public function __wakeup(): void {}

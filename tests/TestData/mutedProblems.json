@@ -958,38 +958,6 @@
   ],
   "classes": [
     {
-      "name": "Exception",
-      "methods": [
-        {
-          "name": "__clone",
-          "problems": [
-            {
-              "description":"has wrong final modifier",
-              "versions": [
-                8.1
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Error",
-      "methods": [
-        {
-          "name": "__clone",
-          "problems": [
-            {
-              "description":"has wrong final modifier",
-              "versions": [
-                8.1
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "Yaf_Application",
       "methods": [
         {
