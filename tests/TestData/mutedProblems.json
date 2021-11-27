@@ -3059,44 +3059,6 @@
       ]
     },
     {
-      "name": "Directory",
-      "methods": [
-        {
-          "name": "close",
-          "problems": [
-            {
-              "description": "parameter mismatch",
-              "versions": [
-                "ALL"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rewind",
-          "problems": [
-            {
-              "description": "parameter mismatch",
-              "versions": [
-                "ALL"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "read",
-          "problems": [
-            {
-              "description": "parameter mismatch",
-              "versions": [
-                "ALL"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "IntlCalendar",
       "methods": [
         {
