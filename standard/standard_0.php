@@ -5,6 +5,7 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
@@ -115,16 +116,16 @@ class Directory
      * @link https://secure.php.net/manual/en/directory.close.php
      */
     #[TentativeType]
-    public function close($dir_handle = null): void {}
+    public function close(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null): void {}
 
     /**
-     *  Rewind directory handle.
+     * Rewind directory handle.
      * Same as rewinddir(), only dir_handle defaults to $this.
      * @param resource $dir_handle [optional]
      * @link https://secure.php.net/manual/en/directory.rewind.php
      */
     #[TentativeType]
-    public function rewind($dir_handle = null): void {}
+    public function rewind(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null): void {}
 
     /**
      * Read entry from directory handle.
@@ -134,7 +135,7 @@ class Directory
      * @link https://secure.php.net/manual/en/directory.read.php
      */
     #[TentativeType]
-    public function read($dir_handle = null): string|false {}
+    public function read(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null): string|false {}
 }
 
 /**
