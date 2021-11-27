@@ -719,11 +719,10 @@ final class WeakReference
     /**
      * Create a new weak reference.
      * @link https://www.php.net/manual/en/weakreference.create.php
-     * @param object $referent The object to be weakly referenced.
      * @return WeakReference the freshly instantiated object.
      * @since 7.4
      */
-    public static function create($referent) {}
+    public static function create(object $object): WeakReference {}
 
     /**
      * Gets a weakly referenced object. If the object has already been
