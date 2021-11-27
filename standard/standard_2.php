@@ -332,13 +332,17 @@ function strchr(string $haystack, string $needle, bool $before_needle = false): 
  * (- or +) to be used on a number. By default, only the - sign is used
  * on a number if it's negative. This specifier forces positive numbers
  * to have the + sign attached as well, and was added in PHP 4.3.0.</p>
- * @param string|int|float ...$values [optional] <p>
+ * @param string|int|float ...$values <p>
  * </p>
  * @return string a string produced according to the formatting string
  * format.
  */
 #[Pure]
-function sprintf(string $format, mixed ...$values): string {}
+function sprintf(
+    string $format,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $values,
+    #[PhpStormStubsElementAvailable(from: '7.0')] mixed ...$values
+): string {}
 
 /**
  * Output a formatted string
