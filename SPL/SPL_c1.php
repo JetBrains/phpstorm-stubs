@@ -1795,11 +1795,10 @@ class SplPriorityQueue implements Iterator, Countable
  * the range as indexes. The advantage is that it allows a faster array
  * implementation.
  * @link https://php.net/manual/en/class.splfixedarray.php
- * @template-implements Iterator<int, TValue>
  * @template-implements ArrayAccess<int, TValue>
  * @template-implements IteratorAggregate<int, TValue>
  */
-class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggregate, JsonSerializable
+class SplFixedArray implements ArrayAccess, Countable, IteratorAggregate, JsonSerializable
 {
     /**
      * Constructs a new fixed array
