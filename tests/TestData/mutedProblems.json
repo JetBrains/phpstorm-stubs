@@ -3027,22 +3027,6 @@
       ]
     },
     {
-      "name": "WeakReference",
-      "methods": [
-        {
-          "name": "create",
-          "problems": [
-            {
-              "description": "parameter mismatch",
-              "versions": [
-                "ALL"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "IntlCalendar",
       "methods": [
         {
