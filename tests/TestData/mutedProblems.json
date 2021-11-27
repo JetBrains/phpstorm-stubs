@@ -2936,22 +2936,6 @@
       ]
     },
     {
-      "name": "Closure",
-      "methods": [
-        {
-          "name": "__invoke",
-          "problems": [
-            {
-              "description": "parameter mismatch",
-              "versions": [
-                "ALL"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "SyncEvent",
       "methods": [
         {
