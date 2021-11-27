@@ -923,6 +923,38 @@ function range($start, $end, int|float $step = 1): array {}
 /**
  * Sort multiple or multi-dimensional arrays
  * @link https://php.net/manual/en/function.array-multisort.php
+ * @param array &$arr1 <p>
+ * An array being sorted.
+ * </p>
+ * @param array|int $array1_sort_order [optional] <p>
+ * The order used to sort the previous array argument.
+ * Either SORT_ASC to sort ascendingly or SORT_DESC to sort descendingly.
+ * This argument can be swapped with array1_sort_flags or omitted entirely, in which case SORT_ASC is assumed.
+ * </p>
+ * @param array|int $array1_sort_flags [optional] <p>
+ * Sort options for the previous array argument:
+ * Sorting type flags:
+ * SORT_REGULAR - compare items normally (don't change types)
+ * SORT_NUMERIC - compare items numerically
+ * SORT_STRING - compare items as strings
+ * SORT_LOCALE_STRING - compare items as strings, based on the current locale. It uses the locale, which can be changed using setlocale()
+ * SORT_NATURAL - compare items as strings using "natural ordering" like natsort()
+ * SORT_FLAG_CASE - can be combined (bitwise OR) with SORT_STRING or SORT_NATURAL to sort strings case-insensitively
+ * This argument can be swapped with array1_sort_order or omitted entirely, in which case SORT_REGULAR is assumed.
+ * </p>
+ * @param array|int &...$arr2 [optional] <p>
+ * More arrays, optionally followed by sort order and flags.
+ * Only elements corresponding to equivalent elements in previous arrays are compared.
+ * In other words, the sort is lexicographical.
+ * </p>
+ * @return bool true on success or false on failure.
+ */
+#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+function array_multisort (array &$arr1, $array1_sort_order = null, $array1_sort_flags = null, &...$arr2) {}
+
+/**
+ * Sort multiple or multi-dimensional arrays
+ * @link https://php.net/manual/en/function.array-multisort.php
  * @param array &$array <p>
  * An array being sorted.
  * </p>
@@ -933,12 +965,8 @@ function range($start, $end, int|float $step = 1): array {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_multisort(
-    &$array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $sort_order = SORT_ASC,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $sort_flags = SORT_REGULAR,
-    &...$rest
-): bool {}
+#[PhpStormStubsElementAvailable('8.0')]
+function array_multisort(&$array, &...$rest): bool {}
 
 /**
  * Push elements onto the end of array
