@@ -1120,13 +1120,6 @@ define('PHP_QUERY_RFC3986', 2);
 //WI-11254 Stubs for missing constants from PHP 5.4
 
 /**
- * Specifies where the manpages were installed into.
- * @since 5.3.7
- * @link https://php.net/manual/en/reserved.constants.php
- */
-define('PHP_MANDIR', '/usr/local/php/php/man');
-
-/**
  * (PHP4, PHP5)
  * <p>Constant containing either the session name and session ID in the form of "name=ID" or
  * empty string if session ID was set in an appropriate session cookie.
