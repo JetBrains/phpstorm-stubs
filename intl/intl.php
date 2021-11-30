@@ -6687,8 +6687,8 @@ function intltz_get_id_for_windows_id(string $timezoneId, ?string $region = null
  * @link https://php.net/manual/en/intl.constants.php
  */
 define('INTL_MAX_LOCALE_LEN', 156);
-define('INTL_ICU_VERSION', "67.1");
-define('INTL_ICU_DATA_VERSION', "67.1");
+define('INTL_ICU_VERSION', "69.1");
+define('INTL_ICU_DATA_VERSION', "69.1");
 define('ULOC_ACTUAL_LOCALE', 0);
 define('ULOC_VALID_LOCALE', 1);
 define('GRAPHEME_EXTR_COUNT', 0);
@@ -6735,7 +6735,7 @@ define('U_INVALID_STATE_ERROR', 27);
 define('U_COLLATOR_VERSION_MISMATCH', 28);
 define('U_USELESS_COLLATOR_ERROR', 29);
 define('U_NO_WRITE_PERMISSION', 30);
-define('U_STANDARD_ERROR_LIMIT', 31);
+define('U_STANDARD_ERROR_LIMIT', 32);
 define('U_BAD_VARIABLE_DEFINITION', 65536);
 define('U_PARSE_ERROR_START', 65536);
 define('U_MALFORMED_RULE', 65537);
