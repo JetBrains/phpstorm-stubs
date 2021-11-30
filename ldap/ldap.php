@@ -1725,4 +1725,14 @@ define("LDAP_EXOP_TURN", "1.3.6.1.1.19");
  */
 define("LDAP_EXOP_WHO_AM_I", "1.3.6.1.4.1.4203.1.11.3");
 
+/**
+ * @since 7.3
+ */
+define('LDAP_CONTROL_AUTHZID_REQUEST', '2.16.840.1.113730.3.4.16');
+
+/**
+ * @since 7.3
+ */
+define('LDAP_CONTROL_AUTHZID_RESPONSE', '2.16.840.1.113730.3.4.15');
+
 // End of ldap v.

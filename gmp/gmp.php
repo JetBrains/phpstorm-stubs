@@ -805,6 +805,8 @@ class GMP implements Serializable
      */
     public function serialize() {}
 
+    public function __serialize():array {}
+
     /**
      * Constructs the object
      * @link https://php.net/manual/en/serializable.unserialize.php
@@ -814,5 +816,7 @@ class GMP implements Serializable
      * @return void
      */
     public function unserialize($serialized) {}
+
+    public function __unserialize(array $data):void {}
 }
 // End of gmp v.

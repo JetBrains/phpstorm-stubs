@@ -165,7 +165,9 @@ interface ArrayAccess
 }
 
 /**
- * Interface for customized serializing.
+ * Interface for customized serializing.<br>
+ * As of PHP 8.1.0, a class which implements Serializable without also implementing `__serialize()` and `__unserialize()`
+ * will generate a deprecation warning.
  * @link https://php.net/manual/en/class.serializable.php
  */
 interface Serializable
