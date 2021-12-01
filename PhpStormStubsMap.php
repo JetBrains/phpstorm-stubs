@@ -686,6 +686,7 @@ const CLASSES = array (
   'Mosquitto\\Exception' => 'mosquitto-php/mosquitto-php.php',
   'Mosquitto\\Message' => 'mosquitto-php/mosquitto-php.php',
   'MultipleIterator' => 'SPL/SPL_c1.php',
+  'Nerd4ever\\Kaya' => 'kaya/kaya.php',
   'NoRewindIterator' => 'SPL/SPL.php',
   'Normalizer' => 'intl/intl.php',
   'NumberFormatter' => 'intl/intl.php',
