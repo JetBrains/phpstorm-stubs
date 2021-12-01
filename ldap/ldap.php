@@ -4,6 +4,7 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware as PhpVersionAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable as Available;
+use LDAP\Result;
 
 /**
  * PASSWD extended operation helper
@@ -407,10 +408,13 @@ function ldap_search(
 /**
  * Free result memory
  * @link https://php.net/manual/en/function.ldap-free-result.php
- * @param resource $result
+ * @param resource|Result $result
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ldap_free_result(#[PhpVersionAware(['8.1' => 'LDAP\Result'], default: 'resource')] $result): bool {}
+function ldap_free_result(
+    #[Available(from: '5.3', to: '8.0')] $ldap,
+    #[Available(from: '8.1')] Result $result
+): bool {}
 
 /**
  * Count the number of entries in a search
