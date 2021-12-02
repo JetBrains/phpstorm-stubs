@@ -2817,20 +2817,20 @@ class RedisCluster
     /**
      * Get client option
      *
-     * @param   string $name parameter name
+     * @param   int $option parameter
      *
-     * @return  int     Parameter value.
+     * @return  int|string     Parameter value.
      * @example
      * // return RedisCluster::SERIALIZER_NONE, RedisCluster::SERIALIZER_PHP, or RedisCluster::SERIALIZER_IGBINARY.
      * $redisCluster->getOption(RedisCluster::OPT_SERIALIZER);
      */
-    public function getOption($name) {}
+    public function getOption($option) {}
 
     /**
      * Set client option.
      *
-     * @param   string $name  parameter name
-     * @param   string $value parameter value
+     * @param   int        $option parameter
+     * @param   int|string $value  parameter value
      *
      * @return  bool   TRUE on success, FALSE on error.
      * @example
@@ -2841,7 +2841,7 @@ class RedisCluster
      * $redisCluster->setOption(RedisCluster::OPT_PREFIX, 'myAppName:');                             // use custom prefix on all keys
      * </pre>
      */
-    public function setOption($name, $value) {}
+    public function setOption($option, $value) {}
 
     /**
      * A utility method to prefix the value with the prefix setting for phpredis.
