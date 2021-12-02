@@ -1,14 +1,12 @@
 <?php
 /**
  * Stubs for Kaya
- * https://github.com/nerd4ever/kaya-for-php
  * @category   Marketplace
  * @package    php-kaya
  * @author     Sileno de Oliveira Brito <sobrito@nerd4ever.com.br>
  * @copyright  Copyright 2020-2021 Nerd4ever, Ltda.
  * @license    https://nerd4ever.s3.us-east-2.amazonaws.com/legal/Kaya+Universal+Endoint.pdf proprietary
  * @link       https://www.nerd4ever.com.br
- * @see        https://github.com/nerd4ever/kaya-for-php 
  * @version    2.0.4
  */
 namespace Nerd4ever{
