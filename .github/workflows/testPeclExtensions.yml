@@ -18,7 +18,7 @@ jobs:
           PHP_VERSION: '8.0'
 
       - name: Composer Install
-        run: docker-compose -f docker-compose.yml run test_runner composer install -d /opt/project/phpstorm-stubs --ignore-platform-reqs
+        run: docker-compose -f docker-compose.yml run test_runner composer install -d /opt/project/phpstorm-stubs
 
       - name: Dump Reflection With Pecl To File
         run: docker-compose -f docker-compose.yml run pecl_extensions /usr/local/bin/php /opt/project/phpstorm-stubs/tests/Tools/dump-reflection-to-file.php ReflectionDataPecl.json
