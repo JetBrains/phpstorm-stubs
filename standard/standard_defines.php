@@ -842,6 +842,10 @@ define('ASSERT_ACTIVE', 1);
 define('ASSERT_CALLBACK', 2);
 define('ASSERT_BAIL', 3);
 define('ASSERT_WARNING', 4);
+
+/**
+ * @removed 8.0
+ */
 define('ASSERT_QUIET_EVAL', 5);
 define('ASSERT_EXCEPTION', 5);
 
