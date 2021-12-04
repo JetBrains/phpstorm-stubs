@@ -1690,7 +1690,7 @@ class PDOStatement implements IteratorAggregate
      * @param array $constructorArgs [optional] <p>
      * Elements of this array are passed to the constructor.
      * </p>
-     * @return T an instance of the required class with property names that
+     * @return T|stdClass|null an instance of the required class with property names that
      * correspond to the column names or <b>FALSE</b> on failure.
      */
     #[TentativeType]

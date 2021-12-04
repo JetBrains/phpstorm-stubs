@@ -457,7 +457,7 @@ function mysql_fetch_assoc($result) {}
  * An optional array of parameters to pass to the constructor
  * for <i>class_name</i> objects.
  * </p>
- * @return T|object an object with string properties that correspond to the
+ * @return T|stdClass an object with string properties that correspond to the
  * fetched row, or false if there are no more rows.
  * </p>
  * <p>
