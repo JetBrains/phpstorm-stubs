@@ -634,10 +634,11 @@ final class Closure
     /**
      * This is for consistency with other classes that implement calling magic,
      * as this method is not used for calling the function.
+     * @param mixed ...$_ [optional]
      * @return mixed
      * @link https://secure.php.net/manual/en/class.closure.php
      */
-    public function __invoke() {}
+    public function __invoke(...$_) {}
 
     /**
      * Duplicates the closure with a new bound object and class scope
