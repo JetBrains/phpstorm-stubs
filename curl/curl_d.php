@@ -3396,7 +3396,7 @@ define("CURLOPT_MAIL_AUTH", 10217);
  *  <b>CURLSSLOPT_ALLOW_BEAST</b>: do not attempt to use any workarounds for a security flaw in the SSL3 and TLS1.0 protocols.
  *  <b>CURLSSLOPT_NO_REVOKE</b>: disable certificate revocation checks for those SSL backends where such behavior is present.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
- * @since 7.0.7
+ * @since 5.6
  */
 define("CURLOPT_SSL_OPTIONS", 216);
 /**
@@ -3426,7 +3426,7 @@ define("CURLOPT_TCP_KEEPINTVL", 215);
  * Value for the <b>CURLOPT_SSL_OPTIONS</b> option.
  * Do not attempt to use any workarounds for a security flaw in the SSL3 and TLS1.0 protocols.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
- * @since 7.0.7
+ * @since 5.6
  */
 define("CURLSSLOPT_ALLOW_BEAST", 1);
 /**

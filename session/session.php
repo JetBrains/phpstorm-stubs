@@ -4,6 +4,7 @@
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
  * Get and/or set the current session name.<br/>
@@ -167,7 +168,7 @@ function session_encode() {}
  * @return bool This function returns true if a session was successfully started,
  * otherwise false.
  */
-function session_start(array $options = []): bool {}
+function session_start(#[PhpStormStubsElementAvailable(from: '7.0')] array $options = []): bool {}
 
 /**
  * Create new session id

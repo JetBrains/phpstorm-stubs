@@ -1073,7 +1073,12 @@ function mb_ereg_replace_callback(string $pattern, callable $callback, string $s
  * @return string|false|null The resultant string or false on error.
  */
 #[Pure]
-function mb_eregi_replace(string $pattern, string $replacement, string $string, ?string $options = null): string|false|null {}
+function mb_eregi_replace(
+    string $pattern,
+    string $replacement,
+    string $string,
+    #[PhpStormStubsElementAvailable(from: '7.0')] ?string $options = null
+): string|false|null {}
 
 /**
  * Split multibyte string using regular expression
@@ -1255,7 +1260,12 @@ function mbereg_replace($pattern, $replacement, $string, $option) {}
  * @removed 8.0
  */
 #[Deprecated(replacement: "mb_eregi_replace(%parametersList%)", since: "7.3")]
-function mberegi_replace($pattern, $replacement, $string, string $option = "msri"): string {}
+function mberegi_replace(
+    $pattern,
+    $replacement,
+    $string,
+    #[PhpStormStubsElementAvailable(from: '7.0')] string $option = "msri"
+): string {}
 
 /**
  * @param $pattern

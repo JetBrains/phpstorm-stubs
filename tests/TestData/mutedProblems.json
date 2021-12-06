@@ -961,6 +961,7 @@
         {
           "description": "parameter mismatch",
           "versions": [
+            5.6,
             7.0
           ]
         }
@@ -968,6 +969,28 @@
     }
   ],
   "classes": [
+    {
+      "name": "DOMException",
+      "problems": [
+        {
+          "description": "has wrong final modifier",
+          "versions": [
+            5.6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mysqli_sql_exception",
+      "problems": [
+        {
+          "description": "has wrong final modifier",
+          "versions": [
+            5.6
+          ]
+        }
+      ]
+    },
     {
       "name": "Yaf_Application",
       "methods": [
@@ -3054,6 +3077,7 @@
             {
               "description": "has wrong final modifier",
               "versions": [
+                5.6,
                 7.0,
                 7.1,
                 7.2,
@@ -3118,6 +3142,7 @@
             {
               "description": "has wrong static modifier",
               "versions": [
+                5.6,
                 7.0,
                 7.1,
                 7.2,
@@ -3133,6 +3158,7 @@
             {
               "description": "has wrong static modifier",
               "versions": [
+                5.6,
                 7.0,
                 7.1,
                 7.2,

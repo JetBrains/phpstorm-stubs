@@ -176,7 +176,7 @@ function serialize(mixed $value): string {}
  * In case the passed string is not unserializeable, false is returned and
  * E_NOTICE is issued.</p>
  */
-function unserialize(string $data, array $options = []): mixed {}
+function unserialize(string $data, #[PhpStormStubsElementAvailable(from: '7.0')] array $options = []): mixed {}
 
 /**
  * Dumps information about a variable
@@ -440,7 +440,7 @@ function ini_get(string $option): string|false {}
  * </p>
  */
 #[Pure(true)]
-function ini_get_all(?string $extension, bool $details = true): array|false {}
+function ini_get_all(?string $extension, #[PhpStormStubsElementAvailable(from: '7.0')] bool $details = true): array|false {}
 
 /**
  * Sets the value of a configuration option

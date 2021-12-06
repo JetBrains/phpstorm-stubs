@@ -2,6 +2,7 @@
 
 // Start of xmlreader v.0.2
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 
 /**
@@ -449,6 +450,8 @@ class XMLReader
      * @since 5.1.2
      */
     #[TentativeType]
-    public function expand(#[LanguageLevelTypeAware(['8.0' => 'DOMNode|null'], default: '')] $baseNode = null): DOMNode|false {}
+    public function expand(
+        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'DOMNode|null'], default: '')] $baseNode = null
+    ): DOMNode|false {}
 }
 // End of xmlreader v.0.2
