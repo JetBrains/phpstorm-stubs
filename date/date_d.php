@@ -4,6 +4,12 @@
 
 define('DATE_ATOM', "Y-m-d\TH:i:sP");
 define('DATE_COOKIE', "l, d-M-Y H:i:s T");
+
+/**
+ * This format is not compatible with ISO-8601, but is left this way for backward compatibility reasons.
+ * Use DateTime::ATOM or DATE_ATOM for compatibility with ISO-8601 instead.
+ * @deprecated
+ */
 define('DATE_ISO8601', "Y-m-d\TH:i:sO");
 define('DATE_RFC822', "D, d M y H:i:s O");
 define('DATE_RFC850', "l, d-M-y H:i:s T");

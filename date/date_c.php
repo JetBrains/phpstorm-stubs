@@ -22,7 +22,10 @@ interface DateTimeInterface
     public const COOKIE = 'l, d-M-Y H:i:s T';
 
     /**
+     * This format is not compatible with ISO-8601, but is left this way for backward compatibility reasons.
+     * Use DateTime::ATOM or DATE_ATOM for compatibility with ISO-8601 instead.
      * @since 7.2
+     * @deprecated
      */
     public const ISO8601 = 'Y-m-d\TH:i:sO';
 
