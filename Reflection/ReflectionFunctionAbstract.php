@@ -325,4 +325,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     #[Pure]
     #[TentativeType]
     public function isStatic(): bool {}
+
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')]
+    public function __toString() {}
 }
