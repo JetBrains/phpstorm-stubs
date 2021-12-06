@@ -89,9 +89,6 @@ use const PHP_EOL;
             throw InvalidConstantNode::create($node);
         }
         $valueNode = $node->args[1]->value;
-        if ($valueNode instanceof Node\Expr\FuncCall) {
-            throw InvalidConstantNode::create($node);
-        }
         if ($valueNode instanceof Node\Expr\Variable) {
             throw InvalidConstantNode::create($node);
         }
