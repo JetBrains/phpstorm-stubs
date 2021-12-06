@@ -205,13 +205,16 @@ class DOMNode
     /**
      * Clones a node
      * @link https://php.net/manual/en/domnode.clonenode.php
-     * @param bool $deep [optional] <p>
+     * @param bool $deep <p>
      * Indicates whether to copy all descendant nodes. This parameter is
      * defaulted to false.
      * </p>
      * @return static The cloned node.
      */
-    public function cloneNode(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $deep = false) {}
+    public function cloneNode(
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $deep,
+        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $deep = false
+    ) {}
 
     /**
      * Normalizes the node
@@ -1090,7 +1093,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @return string|false the XML, or false if an error occurred.
      */
     #[TentativeType]
-    public function saveXML(?DOMNode $node = null, #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null): string|false {}
+    public function saveXML(
+        ?DOMNode $node = null,
+        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null
+    ): string|false {}
 
     /**
      * Creates a new DOMDocument object

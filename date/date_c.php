@@ -766,15 +766,17 @@ class DateTimeZone
 
     /**
      * Returns all transitions for the timezone
-     * @param int $timestampBegin [optional]
-     * @param int $timestampEnd [optional]
+     * @param int $timestampBegin
+     * @param int $timestampEnd
      * @return array|false
      * @link https://php.net/manual/en/datetimezone.gettransitions.php
      */
     #[TentativeType]
     public function getTransitions(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestampBegin = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestampEnd = null
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $timestampBegin,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $timestampEnd,
+        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestampBegin = null,
+        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestampEnd = null
     ): array|false {}
 
     /**

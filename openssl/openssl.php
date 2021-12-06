@@ -818,7 +818,7 @@ function openssl_seal(
     array $public_key,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] string $cipher_algo = '',
     #[PhpStormStubsElementAvailable(from: '8.0')] string $cipher_algo,
-    &$iv = null
+    #[PhpStormStubsElementAvailable(from: '7.0')] &$iv = null
 ): int|false {}
 
 /**
@@ -840,9 +840,9 @@ function openssl_open(
     &$output,
     string $encrypted_key,
     #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] string $cipher_algo = '',
+    #[PhpStormStubsElementAvailable(from: '7.0', to: '7.4')] string $cipher_algo = '',
     #[PhpStormStubsElementAvailable(from: '8.0')] string $cipher_algo,
-    ?string $iv
+    #[PhpStormStubsElementAvailable(from: '7.0')] ?string $iv
 ): bool {}
 
 /**

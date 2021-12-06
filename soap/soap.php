@@ -3,6 +3,7 @@
 // Start of soap v.
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
@@ -461,7 +462,7 @@ class SoapClient
     /**
      * Sets SOAP headers for subsequent calls
      * @link https://php.net/manual/en/soapclient.setsoapheaders.php
-     * @param mixed $headers [optional] <p>
+     * @param mixed $headers <p>
      * The headers to be set. It could be <b>SoapHeader</b>
      * object or array of <b>SoapHeader</b> objects.
      * If not specified or set to <b>NULL</b>, the headers will be deleted.
@@ -470,7 +471,10 @@ class SoapClient
      * @since 5.0.5
      */
     #[TentativeType]
-    public function __setSoapHeaders($headers = null): bool {}
+    public function __setSoapHeaders(
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $headers,
+        #[PhpStormStubsElementAvailable(from: '7.0')] $headers = null
+    ): bool {}
 }
 
 /**

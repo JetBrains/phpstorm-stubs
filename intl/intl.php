@@ -332,7 +332,10 @@ class Collator
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function sortWithSortKeys(array &$array): bool {}
+    public function sortWithSortKeys(
+        array &$array,
+        #[ElementAvailable(from: '5.3', to: '5.6')] $flags = []
+    ): bool {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -457,7 +460,10 @@ class Collator
      */
     #[Pure]
     #[TentativeType]
-    public function getSortKey(#[TypeAware(['8.0' => 'string'], default: '')] $string): string|false {}
+    public function getSortKey(
+        #[TypeAware(['8.0' => 'string'], default: '')] $string,
+        #[ElementAvailable(from: '5.3', to: '5.6')] $arg2
+    ): string|false {}
 }
 
 class NumberFormatter
@@ -1252,13 +1258,15 @@ class Normalizer
      * Normalizes the input provided and returns the normalized string
      * @link https://php.net/manual/en/normalizer.normalize.php
      * @param string $string <p>The input string to normalize</p>
-     * @param int $form [optional] <p>One of the normalization forms.</p>
+     * @param int $form <p>One of the normalization forms.</p>
      * @return string|false The normalized string or <b>FALSE</b> if an error occurred.
      */
     #[TentativeType]
     public static function normalize(
         #[TypeAware(['8.0' => 'string'], default: '')] $string,
-        #[TypeAware(['8.0' => 'int'], default: '')] $form = Normalizer::FORM_C
+        #[ElementAvailable(from: '5.3', to: '5.6')] $form,
+        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'int'], default: '')] $form = Normalizer::FORM_C,
+        #[ElementAvailable(from: '5.3', to: '5.6')] $arg3
     ): string|false {}
 
     /**
@@ -1266,7 +1274,7 @@ class Normalizer
      * Checks if the provided string is already in the specified normalization form.
      * @link https://php.net/manual/en/normalizer.isnormalized.php
      * @param string $string <p>The input string to normalize</p>
-     * @param int $form [optional] <p>
+     * @param int $form <p>
      * One of the normalization forms.
      * </p>
      * @return bool <b>TRUE</b> if normalized, <b>FALSE</b> otherwise or if there an error
@@ -1274,7 +1282,9 @@ class Normalizer
     #[TentativeType]
     public static function isNormalized(
         #[TypeAware(['8.0' => 'string'], default: '')] $string,
-        #[TypeAware(['8.0' => 'int'], default: '')] $form = Normalizer::FORM_C
+        #[ElementAvailable(from: '5.3', to: '5.6')] $form,
+        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'int'], default: '')] $form = Normalizer::FORM_C,
+        #[ElementAvailable(from: '5.3', to: '5.6')] $arg3
     ): bool {}
 
     /**
@@ -1431,7 +1441,7 @@ class Locale
      * @param string $locale <p>
      * The locale to return a display script for
      * </p>
-     * @param string $displayLocale [optional] <p>
+     * @param string $displayLocale <p>
      * Optional format locale to use to display the script name
      * </p>
      * @return string Display name of the script for the $locale in the format appropriate for
@@ -1440,7 +1450,8 @@ class Locale
     #[TentativeType]
     public static function getDisplayScript(
         #[TypeAware(['8.0' => 'string'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
+        #[ElementAvailable(from: '5.3', to: '5.6')] $displayLocale,
+        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
     ): string|false {}
 
     /**
@@ -1450,7 +1461,7 @@ class Locale
      * @param string $locale <p>
      * The locale to return a display region for.
      * </p>
-     * @param string $displayLocale [optional] <p>
+     * @param string $displayLocale <p>
      * Optional format locale to use to display the region name
      * </p>
      * @return string display name of the region for the $locale in the format appropriate for
@@ -1459,7 +1470,8 @@ class Locale
     #[TentativeType]
     public static function getDisplayRegion(
         #[TypeAware(['8.0' => 'string'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
+        #[ElementAvailable(from: '5.3', to: '5.6')] $displayLocale,
+        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
     ): string|false {}
 
     /**
@@ -1469,13 +1481,14 @@ class Locale
      * @param string $locale <p>
      * The locale to return a display name for.
      * </p>
-     * @param string $displayLocale [optional] <p>optional format locale</p>
+     * @param string $displayLocale <p>optional format locale</p>
      * @return string|false Display name of the locale in the format appropriate for $in_locale.
      */
     #[TentativeType]
     public static function getDisplayName(
         #[TypeAware(['8.0' => 'string'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
+        #[ElementAvailable(from: '5.3', to: '5.6')] $displayLocale,
+        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
     ): string|false {}
 
     /**
@@ -1485,7 +1498,7 @@ class Locale
      * @param string $locale <p>
      * The locale to return a display language for
      * </p>
-     * @param string $displayLocale [optional] <p>
+     * @param string $displayLocale <p>
      * Optional format locale to use to display the language name
      * </p>
      * @return string|false display name of the language for the $locale in the format appropriate for
@@ -1494,7 +1507,8 @@ class Locale
     #[TentativeType]
     public static function getDisplayLanguage(
         #[TypeAware(['8.0' => 'string'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
+        #[ElementAvailable(from: '5.3', to: '5.6')] $displayLocale,
+        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
     ): string|false {}
 
     /**
@@ -1504,7 +1518,7 @@ class Locale
      * @param string $locale <p>
      * The locale to return a display variant for
      * </p>
-     * @param string $displayLocale [optional] <p>
+     * @param string $displayLocale <p>
      * Optional format locale to use to display the variant name
      * </p>
      * @return string|false Display name of the variant for the $locale in the format appropriate for
@@ -1513,7 +1527,8 @@ class Locale
     #[TentativeType]
     public static function getDisplayVariant(
         #[TypeAware(['8.0' => 'string'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
+        #[ElementAvailable(from: '5.3', to: '5.6')] $displayLocale,
+        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
     ): string|false {}
 
     /**
@@ -1585,7 +1600,7 @@ class Locale
      * @param string $locale <p>
      * The language range to check against
      * </p>
-     * @param bool $canonicalize [optional] <p>
+     * @param bool $canonicalize <p>
      * If true, the arguments will be converted to canonical form before
      * matching.
      * </p>
@@ -1595,7 +1610,8 @@ class Locale
     public static function filterMatches(
         #[TypeAware(['8.0' => 'string'], default: '')] $languageTag,
         #[TypeAware(['8.0' => 'string'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'bool'], default: '')] $canonicalize = false
+        #[ElementAvailable(from: '5.3', to: '5.6')] $canonicalize,
+        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'bool'], default: '')] $canonicalize = false
     ): ?bool {}
 
     /**
@@ -1609,11 +1625,11 @@ class Locale
      * @param string $locale <p>
      * The locale to use as the language range when matching.
      * </p>
-     * @param bool $canonicalize [optional] <p>
+     * @param bool $canonicalize <p>
      * If true, the arguments will be converted to canonical form before
      * matching.
      * </p>
-     * @param string $defaultLocale [optional] <p>
+     * @param string $defaultLocale <p>
      * The locale to use if no match is found.
      * </p>
      * @return string The closest matching language tag or default value.
@@ -1622,8 +1638,10 @@ class Locale
     public static function lookup(
         array $languageTag,
         #[TypeAware(['8.0' => 'string'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'bool'], default: '')] $canonicalize = false,
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $defaultLocale = null
+        #[ElementAvailable(from: '5.3', to: '5.6')] $canonicalize,
+        #[ElementAvailable(from: '5.3', to: '5.6')] $defaultLocale,
+        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'bool'], default: '')] $canonicalize = false,
+        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'string|null'], default: '')] $defaultLocale = null
     ): ?string {}
 
     /**
@@ -3855,7 +3873,11 @@ function collator_sort(Collator $object, array &$array, int $flags = 0): bool {}
  * @param string[] &$array <p>Array of strings to sort</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function collator_sort_with_sort_keys(Collator $object, array &$array): bool {}
+function collator_sort_with_sort_keys(
+    Collator $object,
+    array &$array,
+    #[ElementAvailable(from: '5.3', to: '5.6')] $sort_flags = []
+): bool {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -3921,7 +3943,11 @@ function collator_get_error_message(Collator $object): string|false {}
  * @return string|false the collation key for the string. Collation keys can be compared directly instead of strings.
  */
 #[Pure]
-function collator_get_sort_key(Collator $object, string $string): string|false {}
+function collator_get_sort_key(
+    Collator $object,
+    string $string,
+    #[ElementAvailable(from: '5.3', to: '5.6')] $arg3
+): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4273,14 +4299,18 @@ function locale_get_keywords(string $locale): array|false|null {}
  * @param string $locale <p>
  * The locale to return a display script for
  * </p>
- * @param string|null $displayLocale [optional] <p>
+ * @param string|null $displayLocale <p>
  * Optional format locale to use to display the script name
  * </p>
  * @return string|false Display name of the script for the $locale in the format appropriate for
  * $in_locale.
  */
 #[Pure]
-function locale_get_display_script(string $locale, ?string $displayLocale = null): string|false {}
+function locale_get_display_script(
+    string $locale,
+    #[ElementAvailable(from: '5.3', to: '5.6')] ?string $displayLocale,
+    #[ElementAvailable(from: '7.0')] ?string $displayLocale = null
+): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4289,14 +4319,18 @@ function locale_get_display_script(string $locale, ?string $displayLocale = null
  * @param string $locale <p>
  * The locale to return a display region for.
  * </p>
- * @param string|null $displayLocale [optional] <p>
+ * @param string|null $displayLocale <p>
  * Optional format locale to use to display the region name
  * </p>
  * @return string|false display name of the region for the $locale in the format appropriate for
  * $in_locale.
  */
 #[Pure]
-function locale_get_display_region(string $locale, ?string $displayLocale = null): string|false {}
+function locale_get_display_region(
+    string $locale,
+    #[ElementAvailable(from: '5.3', to: '5.6')] ?string $displayLocale,
+    #[ElementAvailable(from: '7.0')] ?string $displayLocale = null
+): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4305,11 +4339,15 @@ function locale_get_display_region(string $locale, ?string $displayLocale = null
  * @param string $locale <p>
  * The locale to return a display name for.
  * </p>
- * @param string|null $displayLocale [optional] <p>optional format locale</p>
+ * @param string|null $displayLocale <p>optional format locale</p>
  * @return string|false Display name of the locale in the format appropriate for $in_locale.
  */
 #[Pure]
-function locale_get_display_name(string $locale, ?string $displayLocale = null): string|false {}
+function locale_get_display_name(
+    string $locale,
+    #[ElementAvailable(from: '5.3', to: '5.6')] ?string $displayLocale,
+    #[ElementAvailable(from: '7.0')] ?string $displayLocale = null
+): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4318,14 +4356,18 @@ function locale_get_display_name(string $locale, ?string $displayLocale = null):
  * @param string $locale <p>
  * The locale to return a display language for
  * </p>
- * @param string|null $displayLocale [optional] <p>
+ * @param string|null $displayLocale <p>
  * Optional format locale to use to display the language name
  * </p>
  * @return string|false display name of the language for the $locale in the format appropriate for
  * $in_locale.
  */
 #[Pure]
-function locale_get_display_language(string $locale, ?string $displayLocale = null): string|false {}
+function locale_get_display_language(
+    string $locale,
+    #[ElementAvailable(from: '5.3', to: '5.6')] ?string $displayLocale,
+    #[ElementAvailable(from: '7.0')] ?string $displayLocale = null
+): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4334,14 +4376,18 @@ function locale_get_display_language(string $locale, ?string $displayLocale = nu
  * @param string $locale <p>
  * The locale to return a display variant for
  * </p>
- * @param string|null $displayLocale [optional] <p>
+ * @param string|null $displayLocale <p>
  * Optional format locale to use to display the variant name
  * </p>
  * @return string|false Display name of the variant for the $locale in the format appropriate for
  * $in_locale.
  */
 #[Pure]
-function locale_get_display_variant(string $locale, ?string $displayLocale = null): string|false {}
+function locale_get_display_variant(
+    string $locale,
+    #[ElementAvailable(from: '5.3', to: '5.6')] ?string $displayLocale,
+    #[ElementAvailable(from: '7.0')] ?string $displayLocale = null
+): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4412,14 +4458,19 @@ function locale_get_all_variants(string $locale): ?array {}
  * @param string $locale <p>
  * The language range to check against
  * </p>
- * @param bool $canonicalize [optional] <p>
+ * @param bool $canonicalize <p>
  * If true, the arguments will be converted to canonical form before
  * matching.
  * </p>
  * @return bool|null <b>TRUE</b> if $locale matches $langtag <b>FALSE</b> otherwise.
  */
 #[Pure]
-function locale_filter_matches(string $languageTag, string $locale, bool $canonicalize = false): ?bool {}
+function locale_filter_matches(
+    string $languageTag,
+    string $locale,
+    #[ElementAvailable(from: '5.3', to: '5.6')] bool $canonicalize,
+    #[ElementAvailable(from: '7.0')] bool $canonicalize = false
+): ?bool {}
 
 /**
  * Canonicalize the locale string
@@ -4441,17 +4492,24 @@ function locale_canonicalize(string $locale): ?string {}
  * @param string $locale <p>
  * The locale to use as the language range when matching.
  * </p>
- * @param bool $canonicalize [optional] <p>
+ * @param bool $canonicalize <p>
  * If true, the arguments will be converted to canonical form before
  * matching.
  * </p>
- * @param string|null $defaultLocale [optional] <p>
+ * @param string|null $defaultLocale <p>
  * The locale to use if no match is found.
  * </p>
  * @return string|null The closest matching language tag or default value.
  */
 #[Pure]
-function locale_lookup(array $languageTag, string $locale, bool $canonicalize = false, ?string $defaultLocale = null): ?string {}
+function locale_lookup(
+    array $languageTag,
+    string $locale,
+    #[ElementAvailable(from: '5.3', to: '5.6')] bool $canonicalize,
+    #[ElementAvailable(from: '5.3', to: '5.6')] ?string $defaultLocale,
+    #[ElementAvailable(from: '7.0')] bool $canonicalize = false,
+    #[ElementAvailable(from: '7.0')] ?string $defaultLocale = null,
+): ?string {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -7466,7 +7524,10 @@ class UConverter
      * @return array|false|null
      */
     #[TentativeType]
-    public static function getAliases(#[TypeAware(['8.0' => 'string'], default: '')] $name): array|false|null {}
+    public static function getAliases(
+        #[ElementAvailable(from: '5.5', to: '5.6')] $name = '',
+        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'string'], default: '')] $name
+    ): array|false|null {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>

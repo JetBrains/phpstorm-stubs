@@ -652,7 +652,7 @@ function fputcsv(
     array $fields,
     string $separator = ",",
     string $enclosure = '"',
-    string $escape = "\\",
+    #[PhpStormStubsElementAvailable(from: '7.0')] string $escape = "\\",
     #[PhpStormStubsElementAvailable('8.1')] string $eol = PHP_EOL
 ): int|false {}
 
@@ -1045,7 +1045,12 @@ function get_headers(
  * </p>
  * @return bool true on success or false on failure.
  */
-function stream_set_timeout($stream, int $seconds, int $microseconds = 0): bool {}
+function stream_set_timeout(
+    $stream,
+    int $seconds,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] int $microseconds,
+    #[PhpStormStubsElementAvailable(from: '7.0')] int $microseconds = 0
+): bool {}
 
 /**
  * Alias:
@@ -1058,12 +1063,17 @@ function stream_set_timeout($stream, int $seconds, int $microseconds = 0): bool 
  * @param int $seconds <p>
  * The seconds part of the timeout to be set.
  * </p>
- * @param int $microseconds [optional] <p>
+ * @param int $microseconds <p>
  * The microseconds part of the timeout to be set.
  * </p>
  * @return bool true on success or false on failure.
  */
-function socket_set_timeout($stream, int $seconds, int $microseconds = 0): bool {}
+function socket_set_timeout(
+    $stream,
+    int $seconds,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] int $microseconds,
+    #[PhpStormStubsElementAvailable(from: '7.0')] int $microseconds = 0
+): bool {}
 
 /**
  * Alias:
