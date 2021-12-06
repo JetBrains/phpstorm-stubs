@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace StubTests\TestData\Providers;
 
@@ -13,7 +12,10 @@ class ReflectionStubsSingleton
      */
     private static $reflectionStubs;
 
-    public static function getReflectionStubs(): StubsContainer
+    /**
+     * @return StubsContainer
+     */
+    public static function getReflectionStubs()
     {
         if (self::$reflectionStubs === null) {
             self::$reflectionStubs = PHPReflectionParser::getStubs();

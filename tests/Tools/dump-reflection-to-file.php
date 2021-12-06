@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace StubTests\Tools;
 
@@ -9,5 +8,5 @@ ModelAutoloader::register();
 
 use StubTests\TestData\Providers\ReflectionStubsSingleton;
 
-$reflectionFileName = $argv[1];
+$reflectionFileName = 'ReflectionData.json';
 file_put_contents(__DIR__ . "/../../$reflectionFileName", serialize(ReflectionStubsSingleton::getReflectionStubs()));

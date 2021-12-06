@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace StubTests\Model;
 
@@ -32,7 +31,7 @@ class StubsContainer
     /**
      * @return PHPConst[]
      */
-    public function getConstants(): array
+    public function getConstants()
     {
         return $this->constants;
     }
@@ -43,9 +42,9 @@ class StubsContainer
      * @return PHPConst|null
      * @throws RuntimeException
      */
-    public function getConstant(string $constantName, $sourceFilePath = null)
+    public function getConstant($constantName, $sourceFilePath = null)
     {
-        $constants = array_filter($this->constants, function (PHPConst $const) use ($constantName): bool {
+        $constants = array_filter($this->constants, function (PHPConst $const) use ($constantName) {
             return $const->name === $constantName && $const->duplicateOtherElement === false
                 && BasePHPElement::entitySuitsCurrentPhpVersion($const);
         });
@@ -89,7 +88,7 @@ class StubsContainer
     /**
      * @return PHPFunction[]
      */
-    public function getFunctions(): array
+    public function getFunctions()
     {
         return $this->functions;
     }
@@ -101,13 +100,13 @@ class StubsContainer
      * @return PHPFunction|null
      * @throws RuntimeException
      */
-    public function getFunction(string $name, $sourceFilePath = null, bool $shouldSuitCurrentPhpVersion = true)
+    public function getFunction($name, $sourceFilePath = null, $shouldSuitCurrentPhpVersion = true)
     {
-        $functions = array_filter($this->functions, function (PHPFunction $function) use ($shouldSuitCurrentPhpVersion, $name): bool {
+        $functions = array_filter($this->functions, function (PHPFunction $function) use ($shouldSuitCurrentPhpVersion, $name) {
             return $function->name === $name && (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($function));
         });
         if (count($functions) > 1) {
-            $functions = array_filter($functions, function (PHPFunction $function): bool {
+            $functions = array_filter($functions, function (PHPFunction $function) {
                 return $function->duplicateOtherElement === false;
             });
         }
@@ -151,7 +150,7 @@ class StubsContainer
     /**
      * @return PHPClass[]
      */
-    public function getClasses(): array
+    public function getClasses()
     {
         return $this->classes;
     }
@@ -163,9 +162,9 @@ class StubsContainer
      * @return PHPClass|null
      * @throws RuntimeException
      */
-    public function getClass(string $name, $sourceFilePath = null, bool $shouldSuitCurrentPhpVersion = true)
+    public function getClass($name, $sourceFilePath = null, $shouldSuitCurrentPhpVersion = true)
     {
-        $classes = array_filter($this->classes, function (PHPClass $class) use ($shouldSuitCurrentPhpVersion, $name): bool {
+        $classes = array_filter($this->classes, function (PHPClass $class) use ($shouldSuitCurrentPhpVersion, $name) {
             return $class->name === $name &&
                 (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($class));
         });
@@ -191,9 +190,9 @@ class StubsContainer
     /**
      * @return PHPClass[]
      */
-    public function getCoreClasses(): array
+    public function getCoreClasses()
     {
-        return array_filter($this->classes, function (PHPClass $class): bool {
+        return array_filter($this->classes, function (PHPClass $class) {
             return $class->stubBelongsToCore === true;
         });
     }
@@ -222,9 +221,9 @@ class StubsContainer
      * @return PHPInterface|null
      * @throws RuntimeException
      */
-    public function getInterface(string $name, $sourceFilePath = null, bool $shouldSuitCurrentPhpVersion = true)
+    public function getInterface($name, $sourceFilePath = null, $shouldSuitCurrentPhpVersion = true)
     {
-        $interfaces = array_filter($this->interfaces, function (PHPInterface $interface) use ($shouldSuitCurrentPhpVersion, $name): bool {
+        $interfaces = array_filter($this->interfaces, function (PHPInterface $interface) use ($shouldSuitCurrentPhpVersion, $name) {
             return $interface->name === $name &&
                 (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($interface));
         });
@@ -250,7 +249,7 @@ class StubsContainer
     /**
      * @return PHPInterface[]
      */
-    public function getInterfaces(): array
+    public function getInterfaces()
     {
         return $this->interfaces;
     }
@@ -258,9 +257,9 @@ class StubsContainer
     /**
      * @return PHPInterface[]
      */
-    public function getCoreInterfaces(): array
+    public function getCoreInterfaces()
     {
-        return array_filter($this->interfaces, function (PHPInterface $interface): bool {
+        return array_filter($this->interfaces, function (PHPInterface $interface) {
             return $interface->stubBelongsToCore === true;
         });
     }

@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace StubTests\Model;
 
@@ -33,7 +32,9 @@ class PHPParameter extends BasePHPElement
     public function readObjectFromReflection($reflectionObject)
     {
         $this->name = $reflectionObject->name;
-        $this->typesFromSignature = self::getReflectionTypeAsArray($reflectionObject->getType());
+        if (method_exists($reflectionObject, 'getType')){
+            $this->typesFromSignature = self::getReflectionTypeAsArray($reflectionObject->getType());
+        }
         $this->is_vararg = $reflectionObject->isVariadic();
         $this->is_passed_by_ref = $reflectionObject->isPassedByReference() && !$reflectionObject->canBePassedByValue();
         $this->isOptional = $reflectionObject->isOptional();

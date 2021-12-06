@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace StubTests\Model;
 
@@ -43,7 +42,7 @@ abstract class BasePHPClass extends BasePHPElement
      */
     public function getConstant($constantName)
     {
-        $constants = array_filter($this->constants, function (PHPConst $constant) use ($constantName): bool {
+        $constants = array_filter($this->constants, function (PHPConst $constant) use ($constantName) {
             return $constant->name === $constantName && $constant->duplicateOtherElement === false
                 && BasePHPElement::entitySuitsCurrentPhpVersion($constant);
         });
@@ -71,12 +70,13 @@ abstract class BasePHPClass extends BasePHPElement
     }
 
     /**
+     * @param string $methodName
      * @return PHPMethod|null
      * @throws RuntimeException
      */
-    public function getMethod(string $methodName)
+    public function getMethod($methodName)
     {
-        $methods = array_filter($this->methods, function (PHPMethod $method) use ($methodName): bool {
+        $methods = array_filter($this->methods, function (PHPMethod $method) use ($methodName) {
             return $method->name === $methodName && $method->duplicateOtherElement === false
                 && BasePHPElement::entitySuitsCurrentPhpVersion($method);
         });
