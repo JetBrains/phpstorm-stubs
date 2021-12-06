@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace StubTests\Model;
 
@@ -189,7 +188,7 @@ class PHPClass extends BasePHPClass
      */
     public function getProperty($propertyName)
     {
-        $properties = array_filter($this->properties, function (PHPProperty $property) use ($propertyName): bool {
+        $properties = array_filter($this->properties, function (PHPProperty $property) use ($propertyName) {
             return $property->name === $propertyName && $property->duplicateOtherElement === false
                 && BasePHPElement::entitySuitsCurrentPhpVersion($property);
         });

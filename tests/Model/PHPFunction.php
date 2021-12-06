@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace StubTests\Model;
 
@@ -49,7 +48,9 @@ class PHPFunction extends BasePHPElement
         foreach ($reflectionObject->getParameters() as $parameter) {
             $this->parameters[] = (new PHPParameter())->readObjectFromReflection($parameter);
         }
-        $returnTypes = self::getReflectionTypeAsArray($reflectionObject->getReturnType());
+        if (method_exists($reflectionObject, 'getReturnType')) {
+            $returnTypes = self::getReflectionTypeAsArray($reflectionObject->getReturnType());
+        }
         if (!empty($returnTypes)) {
             array_push($this->returnTypesFromSignature, ...$returnTypes);
         }
@@ -174,7 +175,11 @@ class PHPFunction extends BasePHPElement
         }
     }
 
-    private static function hasDeprecatedAttribute(FunctionLike $node): bool
+    /**
+     * @param FunctionLike $node
+     * @return bool
+     */
+    private static function hasDeprecatedAttribute(FunctionLike $node)
     {
         foreach ($node->getAttrGroups() as $group) {
             foreach ($group->attrs as $attr) {
@@ -190,7 +195,7 @@ class PHPFunction extends BasePHPElement
      * @param Doc|null $docComment
      * @return bool
      */
-    private static function hasDeprecatedDocTag($docComment): bool
+    private static function hasDeprecatedDocTag($docComment)
     {
         $phpDoc = $docComment !== null ? DocFactoryProvider::getDocFactory()->create($docComment->getText()) : null;
         return $phpDoc !== null && !empty($phpDoc->getTagsByName('deprecated'));

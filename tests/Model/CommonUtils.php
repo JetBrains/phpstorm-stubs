@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace StubTests\Model;
 
@@ -8,7 +7,12 @@ use RecursiveIteratorIterator;
 
 class CommonUtils
 {
-    public static function flattenArray(array $array, bool $group): array
+    /**
+     * @param array $array
+     * @param bool $group
+     * @return array
+     */
+    public static function flattenArray(array $array, $group)
     {
         return iterator_to_array(new RecursiveIteratorIterator(new RecursiveArrayIterator($array)), $group);
     }

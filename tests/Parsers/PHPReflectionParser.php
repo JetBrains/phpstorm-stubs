@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace StubTests\Parsers;
 
@@ -14,7 +13,11 @@ use StubTests\Model\StubsContainer;
 
 class PHPReflectionParser
 {
-    public static function getStubs(): StubsContainer
+    /**
+     * @return StubsContainer
+     * @throws \ReflectionException
+     */
+    public static function getStubs()
     {
         if (file_exists(__DIR__ . '/../../ReflectionData.json')) {
             $stubs = unserialize(file_get_contents(__DIR__ . '/../../ReflectionData.json'));

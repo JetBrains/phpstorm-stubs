@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace StubTests\Model\Tags;
 
@@ -30,7 +29,7 @@ class RemovedTag extends BaseTag
      * @param Context|null $context
      * @return RemovedTag
      */
-    public static function create(string $body, $descriptionFactory = null, $context = null): RemovedTag
+    public static function create($body, $descriptionFactory = null, $context = null)
     {
         if (empty($body)) {
             return new self();
@@ -44,7 +43,7 @@ class RemovedTag extends BaseTag
 
             return new self(
                 $matches[1],
-                $descriptionFactory->create($matches[2] ?? '', $context)
+                $descriptionFactory->create(isset($matches[2]) ? $matches[2] : '', $context)
             );
         }
         return new self();
@@ -58,7 +57,10 @@ class RemovedTag extends BaseTag
         return $this->version;
     }
 
-    public function __toString(): string
+    /**
+     * @return string
+     */
+    public function __toString()
     {
         return "PhpStorm internal '@removed' tag";
     }
