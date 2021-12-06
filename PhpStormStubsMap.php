@@ -12753,6 +12753,7 @@ const CONSTANTS = array (
   'T_CALLABLE' => 'tokenizer/tokenizer.php',
   'T_CASE' => 'tokenizer/tokenizer.php',
   'T_CATCH' => 'tokenizer/tokenizer.php',
+  'T_CHARACTER' => 'tokenizer/tokenizer.php',
   'T_CLASS' => 'tokenizer/tokenizer.php',
   'T_CLASS_C' => 'tokenizer/tokenizer.php',
   'T_CLONE' => 'tokenizer/tokenizer.php',
