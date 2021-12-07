@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests;
 
+use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\BinaryOp\BitwiseOr;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\ConstFetch;
@@ -87,7 +88,10 @@ abstract class BaseStubsTest extends TestCase
             }
         } elseif ($defaultValue === null) {
             $value = "null";
-        } else {
+        } elseif (is_array($defaultValue) || $defaultValue instanceof Array_) {
+            $value = '[]';
+        }
+        else {
             $value = strval($defaultValue);
         }
         return $value;
