@@ -85,6 +85,8 @@ abstract class BaseStubsTest extends TestCase
                 $constant = $parentClass->getConstant((string)$defaultValue->name);;
                 $value = $constant->value;
             }
+        } elseif ($defaultValue === null) {
+            $value = "null";
         } else {
             $value = strval($defaultValue);
         }
