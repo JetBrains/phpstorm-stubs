@@ -1091,5 +1091,5 @@ function array_slice(array $array, int $offset, ?int $length, bool $preserve_key
 function array_merge(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $array,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $arrays,
-    #[PhpStormStubsElementAvailable(from: '7.1')] array ...$arrays
+    #[PhpStormStubsElementAvailable(from: '7.0')] array ...$arrays
 ): array {}
