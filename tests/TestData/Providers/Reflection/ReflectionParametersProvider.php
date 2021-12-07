@@ -55,7 +55,7 @@ class ReflectionParametersProvider
         foreach (EntitiesFilter::getFilteredFunctions() as $function) {
             foreach (EntitiesFilter::getFilteredParameters(
                 $function,
-                fn (PHPParameter $parameter) => !$parameter->isOptional || empty($parameter->defaultValue),
+                fn (PHPParameter $parameter) => !$parameter->isOptional,
                 StubProblemType::WRONG_PARAMETER_DEFAULT_VALUE
             ) as $parameter) {
                 yield "$function->name($parameter->name)" => [$function, $parameter];
