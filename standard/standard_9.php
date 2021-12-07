@@ -48,8 +48,8 @@ function array_merge_recursive(
 #[Pure]
 function array_replace(
     array $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $arrays,
-    #[PhpStormStubsElementAvailable(from: '7.1')] array ...$replacements
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $replacements,
+    #[PhpStormStubsElementAvailable(from: '7.0')] array ...$replacements
 ): array {}
 
 /**
@@ -66,8 +66,8 @@ function array_replace(
 #[Pure]
 function array_replace_recursive(
     array $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $arrays,
-    #[PhpStormStubsElementAvailable(from: '7.1')] array ...$replacements
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $replacements,
+    #[PhpStormStubsElementAvailable(from: '7.0')] array ...$replacements
 ): array {}
 
 /**
