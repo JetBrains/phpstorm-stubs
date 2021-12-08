@@ -93,7 +93,17 @@ class PHPMethod extends PHPFunction
             $parsedParameter = (new PHPParameter())->readObjectFromStubNode($parameter);
             if (self::entitySuitsCurrentPhpVersion($parsedParameter)) {
                 $parsedParameter->indexInSignature = $index;
-                $this->parameters[] = $parsedParameter;
+                $addedParameters = array_filter($this->parameters, function (PHPParameter $addedParameter) use ($parsedParameter) {
+                    return $addedParameter->name === $parsedParameter->name;
+                });
+                if (!empty($addedParameters)) {
+                    if ($parsedParameter->is_vararg) {
+                        $parsedParameter->isOptional = false;
+                        $index--;
+                        $parsedParameter->indexInSignature = $index;
+                    }
+                }
+                $this->parameters[$parsedParameter->name] = $parsedParameter;
                 $index++;
             }
         }

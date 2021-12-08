@@ -109,6 +109,21 @@ class BaseFunctionsTest extends BaseStubsTest
                 $stubOptionalParameter->isOptional ? 'is optional' : 'is not optional'
             )
         );
+        self::assertEquals(
+            $parameter->is_vararg,
+            $stubOptionalParameter->is_vararg,
+            sprintf(
+                'Reflection function %s %s vararg parameter %s with index %d 
+            but stubs parameter %s with index %d %s',
+                $function->name,
+                $parameter->is_vararg ? 'has' : 'has no',
+                $parameter->name,
+                $parameter->indexInSignature,
+                $stubOptionalParameter->name,
+                $stubOptionalParameter->indexInSignature,
+                $stubOptionalParameter->is_vararg ? 'is vararg' : 'is not vararg'
+            )
+        );
     }
 
     /**
