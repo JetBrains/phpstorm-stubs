@@ -26,7 +26,7 @@ define("ARRAY_FILTER_USE_KEY", 2);
 function array_merge_recursive(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] array $arr1,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] array $arrays,
-    #[PhpStormStubsElementAvailable(from: '7.1')] array ...$arrays
+    array ...$arrays
 ): array {}
 
 /**
@@ -49,7 +49,7 @@ function array_merge_recursive(
 function array_replace(
     array $array,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $replacements,
-    #[PhpStormStubsElementAvailable(from: '7.0')] array ...$replacements
+    array ...$replacements
 ): array {}
 
 /**
@@ -67,7 +67,7 @@ function array_replace(
 function array_replace_recursive(
     array $array,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $replacements,
-    #[PhpStormStubsElementAvailable(from: '7.0')] array ...$replacements
+    array ...$replacements
 ): array {}
 
 /**
