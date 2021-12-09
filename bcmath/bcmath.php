@@ -219,7 +219,7 @@ function bcscale(
  * <i>right_operand</i>, -1 otherwise.
  */
 #[Pure]
-function bccomp(string $num1, string $num2, ?int $scale = 0): int {}
+function bccomp(string $num1, string $num2, ?int $scale = null): int {}
 
 /**
  * Raise an arbitrary precision number to another, reduced by a specified modulus
