@@ -47,7 +47,7 @@ class StubsConstantsAndParametersValuesTest extends BaseStubsTest
             $reflectionValue,
             $stubValue,
             sprintf(
-                'Reflection function %s has optional parameter %s with default value %s but stub parameter has value %s',
+                'Reflection function %s has optional parameter %s with default value "%s" but stub parameter has value "%s"',
                 $function->name,
                 $parameter->name,
                 $reflectionValue,

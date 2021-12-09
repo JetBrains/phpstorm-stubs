@@ -25,7 +25,7 @@ use JetBrains\PhpStorm\Pure;
  * binary representation of the message digest is returned.
  */
 #[Pure]
-function hash(string $algo, string $data, bool $binary = false, #[PhpStormStubsElementAvailable('8.1')] array $options = null): string|false {}
+function hash(string $algo, string $data, bool $binary = false, #[PhpStormStubsElementAvailable('8.1')] array $options = []): string|false {}
 
 /**
  * Timing attack safe string comparison
@@ -57,7 +57,7 @@ function hash_equals(string $known_string, string $user_string): bool {}
  * binary representation of the message digest is returned.
  */
 #[Pure]
-function hash_file(string $algo, string $filename, bool $binary = false, #[PhpStormStubsElementAvailable('8.1')] array $options = null): string|false {}
+function hash_file(string $algo, string $filename, bool $binary = false, #[PhpStormStubsElementAvailable('8.1')] array $options = []): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -122,7 +122,7 @@ function hash_hmac_file(string $algo, string $data, string $key, bool $binary = 
  * <b>HASH_HMAC</b>. When specified, the <i>key</i>
  * must be specified.
  * </p>
- * @param string $key [optional] <p>
+ * @param string $key <p>
  * When <b>HASH_HMAC</b> is specified for <i>options</i>,
  * a shared secret key to be used with the HMAC hashing method must be supplied in this
  * parameter.
@@ -133,7 +133,7 @@ function hash_hmac_file(string $algo, string $data, string $key, bool $binary = 
  */
 #[Pure]
 #[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")]
-function hash_init(string $algo, int $flags = 0, string $key, #[PhpStormStubsElementAvailable('8.1')] array $options = null) {}
+function hash_init(string $algo, int $flags = 0, string $key = "", #[PhpStormStubsElementAvailable('8.1')] array $options = []) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>

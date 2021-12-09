@@ -676,12 +676,12 @@ function setrawcookie(string $name, $value = '', array $options = []): bool {}
  * but if you pass in false as the second argument you can force
  * multiple headers of the same type. For example:
  * </p>
- * @param int $response_code [optional] <p>
+ * @param int $response_code <p>
  * Forces the HTTP response code to the specified value.
  * </p>
  * @return void
  */
-function header(string $header, bool $replace = true, int $response_code): void {}
+function header(string $header, bool $replace = true, int $response_code = 0): void {}
 
 /**
  * Remove previously set headers

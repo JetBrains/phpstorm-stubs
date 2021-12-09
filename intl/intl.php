@@ -3838,7 +3838,7 @@ function collator_set_strength(Collator $object, int $strength): bool {}
  * @param string[] &$array <p>
  * Array of strings to sort.
  * </p>
- * @param int $flags [optional] <p>
+ * @param int $flags <p>
  * Optional sorting type, one of the following:
  * </p>
  * <p>
@@ -3847,7 +3847,7 @@ function collator_set_strength(Collator $object, int $strength): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function collator_sort(Collator $object, array &$array, int $flags = null): bool {}
+function collator_sort(Collator $object, array &$array, int $flags = 0): bool {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -3865,14 +3865,14 @@ function collator_sort_with_sort_keys(Collator $object, array &$array): bool {}
  * @link https://php.net/manual/en/collator.asort.php
  * @param Collator $object
  * @param string[] &$array <p>Array of strings to sort.</p>
- * @param int $flags [optional] <p>
+ * @param int $flags <p>
  * Optional sorting type, one of the following:
  * <b>Collator::SORT_REGULAR</b>
  * - compare items normally (don't change types)
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function collator_asort(Collator $object, array &$array, int $flags = null): bool {}
+function collator_asort(Collator $object, array &$array, int $flags = 0): bool {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -3961,14 +3961,14 @@ function numfmt_create(string $locale, int $style, #[TypeAware(['8.0' => 'string
  * The value to format. Can be integer or float,
  * other values will be converted to a numeric value.
  * </p>
- * @param int $type [optional] <p>
+ * @param int $type <p>
  * The
  * formatting type to use.
  * </p>
  * @return string|false the string containing formatted value, or <b>FALSE</b> on error.
  */
 #[Pure]
-function numfmt_format(NumberFormatter $formatter, int|float $num, int $type = null): string|false {}
+function numfmt_format(NumberFormatter $formatter, int|float $num, int $type = 0): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4144,7 +4144,7 @@ function numfmt_get_pattern(NumberFormatter $formatter): string|false {}
  * Get formatter locale
  * @link https://php.net/manual/en/numberformatter.getlocale.php
  * @param NumberFormatter $formatter
- * @param int $type [optional] <p>
+ * @param int $type <p>
  * You can choose between valid and actual locale (
  * <b>Locale::VALID_LOCALE</b>,
  * <b>Locale::ACTUAL_LOCALE</b>,
@@ -4153,7 +4153,7 @@ function numfmt_get_pattern(NumberFormatter $formatter): string|false {}
  * @return string|false The locale name used to create the formatter.
  */
 #[Pure]
-function numfmt_get_locale(NumberFormatter $formatter, int $type = null): string|false {}
+function numfmt_get_locale(NumberFormatter $formatter, int $type = 0): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -5115,7 +5115,7 @@ function grapheme_stristr(string $haystack, string $needle, bool $beforeNeedle =
  * @param int $size <p>
  * Maximum number items - based on the $extract_type - to return.
  * </p>
- * @param int $type [optional] <p>
+ * @param int $type <p>
  * Defines the type of units referred to by the $size parameter:
  * </p>
  * <p>
@@ -5139,7 +5139,7 @@ function grapheme_stristr(string $haystack, string $needle, bool $beforeNeedle =
  * @return string|false A string starting at offset $start and ending on a default grapheme cluster
  * boundary that conforms to the $size and $extract_type specified.
  */
-function grapheme_extract(string $haystack, int $size, int $type = null, int $offset = 0, &$next = null): string|false {}
+function grapheme_extract(string $haystack, int $size, int $type = 0, int $offset = 0, &$next = null): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.2, PHP 7, PECL idn &gt;= 0.1)<br/>
@@ -6469,7 +6469,7 @@ function resourcebundle_get_error_message(ResourceBundle $bundle): string {}
  * @param string $id <p>
  * The id.
  * </p>
- * @param int $direction [optional] <p>
+ * @param int $direction <p>
  * The direction, defaults to
  * Transliterator::FORWARD.
  * May also be set to
@@ -6480,7 +6480,7 @@ function resourcebundle_get_error_message(ResourceBundle $bundle): string {}
  * @since 5.4
  */
 #[Pure]
-function transliterator_create(string $id, int $direction = null): ?Transliterator {}
+function transliterator_create(string $id, int $direction = 0): ?Transliterator {}
 
 /**
  * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
@@ -6489,7 +6489,7 @@ function transliterator_create(string $id, int $direction = null): ?Transliterat
  * @param string $rules <p>
  * The rules.
  * </p>
- * @param int $direction [optional] <p>
+ * @param int $direction <p>
  * The direction, defaults to
  * Transliterator::FORWARD.
  * May also be set to
@@ -6500,7 +6500,7 @@ function transliterator_create(string $id, int $direction = null): ?Transliterat
  * @since 5.4
  */
 #[Pure]
-function transliterator_create_from_rules(string $rules, int $direction = null): ?Transliterator {}
+function transliterator_create_from_rules(string $rules, int $direction = 0): ?Transliterator {}
 
 /**
  * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
@@ -6533,12 +6533,12 @@ function transliterator_create_inverse(Transliterator $transliterator): ?Transli
  * @param string $string <p>
  * The string to be transformed.
  * </p>
- * @param int $start [optional] <p>
+ * @param int $start <p>
  * The start index (in UTF-16 code units) from which the string will start
  * to be transformed, inclusive. Indexing starts at 0. The text before will
  * be left as is.
  * </p>
- * @param int $end [optional] <p>
+ * @param int $end <p>
  * The end index (in UTF-16 code units) until which the string will be
  * transformed, exclusive. Indexing starts at 0. The text after will be
  * left as is.
@@ -6547,7 +6547,7 @@ function transliterator_create_inverse(Transliterator $transliterator): ?Transli
  * @since 5.4
  */
 #[Pure]
-function transliterator_transliterate(Transliterator|string $transliterator, string $string, int $start = null, int $end = -1): string|false {}
+function transliterator_transliterate(Transliterator|string $transliterator, string $string, int $start = 0, int $end = -1): string|false {}
 
 /**
  * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>

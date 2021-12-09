@@ -966,7 +966,7 @@ function tmpfile() {}
  * @param string $filename <p>
  * Path to the file.
  * </p>
- * @param int $flags [optional] <p>
+ * @param int $flags <p>
  * The optional parameter flags can be one, or
  * more, of the following constants:
  * FILE_USE_INCLUDE_PATH
@@ -986,7 +986,7 @@ function tmpfile() {}
  * </p>
  */
 #[Pure(true)]
-function file(string $filename, int $flags, $context): array|false {}
+function file(string $filename, int $flags = 0, $context): array|false {}
 
 /**
  * Reads entire file into a string

@@ -568,7 +568,7 @@ function rawurldecode(string $string): string {}
  * This is meant to allow for legal variable names when the data is
  * decoded by PHP or another CGI application later on.
  * </p>
- * @param string|null $arg_separator [optional] <p>
+ * @param string|null $arg_separator <p>
  * arg_separator.output
  * is used to separate arguments, unless this parameter is specified,
  * and is then used.
@@ -580,7 +580,7 @@ function rawurldecode(string $string): string {}
  * @return string a URL-encoded string.
  */
 #[Pure]
-function http_build_query(object|array $data, string $numeric_prefix = "", ?string $arg_separator = "&", int $encoding_type = PHP_QUERY_RFC1738): string {}
+function http_build_query(object|array $data, string $numeric_prefix = "", ?string $arg_separator = null, int $encoding_type = PHP_QUERY_RFC1738): string {}
 
 /**
  * Returns the target of a symbolic link
@@ -928,12 +928,12 @@ function proc_nice(int $priority): bool {}
 /**
  * Generate a random integer
  * @link https://php.net/manual/en/function.rand.php
- * @param int $min [optional]
+ * @param int $min
  * @param int $max [optional]
  * @return int A pseudo random value between min
  * (or 0) and max (or getrandmax, inclusive).
  */
-function rand(int $min = 0, int $max): int {}
+function rand(int $min = null, int $max): int {}
 
 /**
  * Seed the random number generator
@@ -941,7 +941,7 @@ function rand(int $min = 0, int $max): int {}
  * an alias of {@see mt_srand()}.
  * </p>
  * @link https://php.net/manual/en/function.srand.php
- * @param int $seed [optional] <p>
+ * @param int $seed <p>
  * Optional seed value
  * </p>
  * @param int $mode [optional] <p>
@@ -950,7 +950,7 @@ function rand(int $min = 0, int $max): int {}
  * @return void
  */
 function srand(
-    int $seed,
+    int $seed = 0,
     #[PhpStormStubsElementAvailable(from: '7.1')] int $mode = MT_RAND_MT19937
 ): void {}
 
@@ -965,7 +965,7 @@ function getrandmax(): int {}
 /**
  * Generate a random value via the Mersenne Twister Random Number Generator
  * @link https://php.net/manual/en/function.mt-rand.php
- * @param int $min [optional] <p>
+ * @param int $min <p>
  * Optional lowest value to be returned (default: 0)
  * </p>
  * @param int $max [optional] <p>
@@ -974,12 +974,12 @@ function getrandmax(): int {}
  * @return int A random integer value between min (or 0)
  * and max (or mt_getrandmax, inclusive)
  */
-function mt_rand(int $min = 0, int $max): int {}
+function mt_rand(int $min = null, int $max): int {}
 
 /**
  * Seeds the Mersenne Twister Random Number Generator
  * @link https://php.net/manual/en/function.mt-srand.php
- * @param int $seed [optional] <p>
+ * @param int $seed <p>
  * An optional seed value
  * </p>
  * @param int $mode [optional] <p>
@@ -988,7 +988,7 @@ function mt_rand(int $min = 0, int $max): int {}
  * @return void
  */
 function mt_srand(
-    int $seed,
+    int $seed = 0,
     #[PhpStormStubsElementAvailable(from: '7.1')] int $mode = MT_RAND_MT19937
 ): void {}
 

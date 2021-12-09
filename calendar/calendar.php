@@ -191,12 +191,12 @@ function easter_days(?int $year, int $mode = CAL_EASTER_DEFAULT): int {}
 /**
  * Convert Unix timestamp to Julian Day
  * @link https://php.net/manual/en/function.unixtojd.php
- * @param int|null $timestamp [optional] defaults to time() <p>
+ * @param int|null $timestamp defaults to time() <p>
  * A unix timestamp to convert.
  * </p>
  * @return int|false A julian day number as integer.
  */
-function unixtojd(?int $timestamp = 0): int|false {}
+function unixtojd(?int $timestamp = null): int|false {}
 
 /**
  * Convert Julian Day to Unix timestamp

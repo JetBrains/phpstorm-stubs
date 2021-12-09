@@ -77,7 +77,7 @@ function libxml_set_streams_context($context): void {}
 /**
  * Disable libxml errors and allow user to fetch error information as needed
  * @link https://php.net/manual/en/function.libxml-use-internal-errors.php
- * @param bool|null $use_errors [optional] <p>
+ * @param bool|null $use_errors <p>
  * Enable (<b>TRUE</b>) user error handling or disable (<b>FALSE</b>) user error handling. Disabling will also clear any existing libxml errors.
  * </p>
  * @return bool This function returns the previous value of

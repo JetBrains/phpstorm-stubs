@@ -90,12 +90,12 @@ function pcntl_fork(): int {}
  * </tr>
  * </table>
  * </p>
- * @param array &$resource_usage [optional]
+ * @param array &$resource_usage
  * @return int <b>pcntl_waitpid</b> returns the process ID of the
  * child which exited, -1 on error or zero if <b>WNOHANG</b> was used and no
  * child was available
  */
-function pcntl_waitpid(int $process_id, &$status, int $flags = 0, &$resource_usage): int {}
+function pcntl_waitpid(int $process_id, &$status, int $flags = 0, &$resource_usage = []): int {}
 
 /**
  * Waits on or returns the status of a forked child
@@ -136,12 +136,12 @@ function pcntl_waitpid(int $process_id, &$status, int $flags = 0, &$resource_usa
  * </tr>
  * </table>
  * </p>
- * @param array &$resource_usage [optional]
+ * @param array &$resource_usage
  * @return int <b>pcntl_wait</b> returns the process ID of the
  * child which exited, -1 on error or zero if WNOHANG was provided as an
  * option (on wait3-available systems) and no child was available.
  */
-function pcntl_wait(&$status, int $flags = 0, &$resource_usage): int {}
+function pcntl_wait(&$status, int $flags = 0, &$resource_usage = []): int {}
 
 /**
  * Installs a signal handler
@@ -265,11 +265,11 @@ function pcntl_wstopsig(int $status): int|false {}
  * #!/usr/local/bin/perl for example) as the first line. See your system's
  * man execve(2) page for additional information.
  * </p>
- * @param array $args [optional] <p>
+ * @param array $args <p>
  * <i>args</i> is an array of argument strings passed to the
  * program.
  * </p>
- * @param array $env_vars [optional] <p>
+ * @param array $env_vars <p>
  * <i>envs</i> is an array of strings which are passed as
  * environment to the program. The array is in the format of name => value,
  * the key being the name of the environmental variable and the value being
@@ -277,7 +277,7 @@ function pcntl_wstopsig(int $status): int|false {}
  * </p>
  * @return bool <b>FALSE</b> on error and does not return on success.
  */
-function pcntl_exec(string $path, array $args, array $env_vars): bool {}
+function pcntl_exec(string $path, array $args = [], array $env_vars = []): bool {}
 
 /**
  * Set an alarm clock for delivery of a signal
@@ -391,7 +391,7 @@ function pcntl_sigprocmask(int $mode, array $signals, &$old_signals): bool {}
  * @param array $signals <p>
  * Array of signals to wait for.
  * </p>
- * @param array &$info [optional] <p>
+ * @param array &$info <p>
  * The <i>info</i> parameter is set to an array containing
  * informations about the signal.
  * </p>
@@ -423,7 +423,7 @@ function pcntl_sigprocmask(int $mode, array $signals, &$old_signals): bool {}
  * </p>
  * @return int|false On success, <b>pcntl_sigwaitinfo</b> returns a signal number.
  */
-function pcntl_sigwaitinfo(array $signals, &$info): int|false {}
+function pcntl_sigwaitinfo(array $signals, &$info = []): int|false {}
 
 /**
  * Waits for signals, with a timeout
@@ -431,7 +431,7 @@ function pcntl_sigwaitinfo(array $signals, &$info): int|false {}
  * @param array $signals <p>
  * Array of signals to wait for.
  * </p>
- * @param array &$info [optional] <p>
+ * @param array &$info <p>
  * The <i>siginfo</i> is set to an array containing
  * informations about the signal. See
  * <b>pcntl_sigwaitinfo</b>.
@@ -444,7 +444,7 @@ function pcntl_sigwaitinfo(array $signals, &$info): int|false {}
  * </p>
  * @return int|false On success, <b>pcntl_sigtimedwait</b> returns a signal number.
  */
-function pcntl_sigtimedwait(array $signals, &$info, int $seconds = 0, int $nanoseconds = 0): int|false {}
+function pcntl_sigtimedwait(array $signals, &$info = [], int $seconds = 0, int $nanoseconds = 0): int|false {}
 
 /**
  * Enable/disable asynchronous signal handling or return the old setting.<br>

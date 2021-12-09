@@ -2302,10 +2302,10 @@ function mysqli_query(
  * @param string|null $database [optional]
  * @param int|null $port [optional]
  * @param string|null $socket [optional]
- * @param int $flags [optional]
+ * @param int $flags
  * @return bool
  */
-function mysqli_real_connect(mysqli $mysql, ?string $hostname, ?string $username, ?string $password, ?string $database, ?int $port, ?string $socket, int $flags): bool {}
+function mysqli_real_connect(mysqli $mysql, ?string $hostname, ?string $username, ?string $password, ?string $database, ?int $port, ?string $socket, int $flags = 0): bool {}
 
 /**
  * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection

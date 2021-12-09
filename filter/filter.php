@@ -18,7 +18,7 @@ use JetBrains\PhpStorm\Pure;
  * The ID of the filter to apply. The
  * manual page lists the available filters.
  * </p>
- * @param array|int $options [optional] <p>
+ * @param array|int $options <p>
  * Associative array of options or bitwise disjunction of flags. If filter
  * accepts options, flags can be provided in "flags" field of array.
  * </p>
@@ -28,7 +28,7 @@ use JetBrains\PhpStorm\Pure;
  * returns <b>FALSE</b> if the variable is not set and <b>NULL</b> if the filter fails.
  */
 #[Pure]
-function filter_input(int $type, string $var_name, int $filter = FILTER_DEFAULT, array|int $options): mixed {}
+function filter_input(int $type, string $var_name, int $filter = FILTER_DEFAULT, array|int $options = 0): mixed {}
 
 /**
  * Filters a variable with a specified filter
@@ -40,7 +40,7 @@ function filter_input(int $type, string $var_name, int $filter = FILTER_DEFAULT,
  * The ID of the filter to apply. The
  * manual page lists the available filters.
  * </p>
- * @param array|int $options [optional] <p>
+ * @param array|int $options <p>
  * Associative array of options or bitwise disjunction of flags. If filter
  * accepts options, flags can be provided in "flags" field of array. For
  * the "callback" filter, callable type should be passed. The
@@ -84,7 +84,7 @@ function filter_input(int $type, string $var_name, int $filter = FILTER_DEFAULT,
  * @return mixed the filtered data, or <b>FALSE</b> if the filter fails.
  */
 #[Pure]
-function filter_var(mixed $value, int $filter = FILTER_DEFAULT, array|int $options): mixed {}
+function filter_var(mixed $value, int $filter = FILTER_DEFAULT, array|int $options = 0): mixed {}
 
 /**
  * Gets external variables and optionally filters them

@@ -2191,13 +2191,13 @@ function imageconvolution(GdImage $image, array $matrix, float $divisor, float $
 
 /**
  * @param resource|GdImage $image An image resource, returned by one of the image creation functions, such as {@see imagecreatetruecolor()}.
- * @param int|null $resolution_x [optional] The horizontal resolution in DPI.
- * @param int|null $resolution_y [optional] The vertical resolution in DPI.
+ * @param int|null $resolution_x The horizontal resolution in DPI.
+ * @param int|null $resolution_y The vertical resolution in DPI.
  * @return array|bool When used as getter (that is without the optional parameters), it returns <b>TRUE</b> on success, or <b>FALSE</b> on failure. When used as setter (that is with one or both optional parameters given), it returns an indexed array of the horizontal and vertical resolution on success, or <b>FALSE</b> on failure.
  * @link https://php.net/manual/en/function.imageresolution.php
  * @since 7.2
  */
-function imageresolution(GdImage $image, ?int $resolution_x = 96, ?int $resolution_y = 96): array|bool {}
+function imageresolution(GdImage $image, ?int $resolution_x = null, ?int $resolution_y = null): array|bool {}
 
 /**
  * <b>imagesetclip()</b> sets the current clipping rectangle, i.e. the area beyond which no pixels will be drawn.
