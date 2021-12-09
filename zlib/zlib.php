@@ -72,12 +72,12 @@ function gzgetc($stream): string|false {}
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
  * </p>
- * @param int|null $length [optional] <p>
+ * @param int|null $length <p>
  * The length of data to get.
  * </p>
  * @return string|false The uncompressed string, or <b>FALSE</b> on error.
  */
-function gzgets($stream, ?int $length = 1024): string|false {}
+function gzgets($stream, ?int $length = null): string|false {}
 
 /**
  * Get line from gz-file pointer and strip HTML tags
@@ -354,14 +354,14 @@ function gzencode(string $data, int $level = -1, int $encoding = FORCE_GZIP): st
  * @param string $data <p>
  * The data to decode, encoded by <b>gzencode</b>.
  * </p>
- * @param int $max_length [optional] <p>
+ * @param int $max_length <p>
  * The maximum length of data to decode.
  * </p>
  * @return string|false The decoded string, or <b>FALSE</b> if an error occurred.
  * @since 5.4
  */
 #[Pure]
-function gzdecode(string $data, int $max_length): string|false {}
+function gzdecode(string $data, int $max_length = 0): string|false {}
 
 /**
  * Compress data with the specified encoding
@@ -383,13 +383,13 @@ function zlib_encode(string $data, int $encoding, int $level = -1): string|false
  * @link https://php.net/manual/en/function.zlib-decode.php
  * @param string $data <p>
  * </p>
- * @param int $max_length [optional] <p>
+ * @param int $max_length <p>
  * </p>
  * @return string|false
  * @since 5.4
  */
 #[Pure]
-function zlib_decode(string $data, int $max_length): string|false {}
+function zlib_decode(string $data, int $max_length = 0): string|false {}
 
 /**
  * Returns the coding type used for output compression

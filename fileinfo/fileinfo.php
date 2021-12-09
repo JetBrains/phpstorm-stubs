@@ -90,7 +90,7 @@ class finfo
  * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
  * Create a new fileinfo resource
  * @link https://php.net/manual/en/function.finfo-open.php
- * @param int $flags [optional] <p>
+ * @param int $flags <p>
  * One or disjunction of more Fileinfo
  * constants.
  * </p>
@@ -105,7 +105,7 @@ class finfo
  * @return resource|false a magic database resource on success or <b>FALSE</b> on failure.
  */
 #[LanguageLevelTypeAware(['8.1' => 'finfo|false'], default: 'resource|false')]
-function finfo_open(int $flags, ?string $magic_database = null) {}
+function finfo_open(int $flags = 0, ?string $magic_database = null) {}
 
 /**
  * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
@@ -143,7 +143,7 @@ function finfo_set_flags(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: '
  * @param string $filename <p>
  * Name of a file to be checked.
  * </p>
- * @param int $flags [optional] <p>
+ * @param int $flags <p>
  * One or disjunction of more Fileinfo
  * constants.
  * </p>
@@ -153,7 +153,7 @@ function finfo_set_flags(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: '
  * @return string|false a textual description of the contents of the
  * <i>filename</i> argument, or <b>FALSE</b> if an error occurred.
  */
-function finfo_file(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo, string $filename, int $flags, $context): string|false {}
+function finfo_file(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo, string $filename, int $flags = 0, $context): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>

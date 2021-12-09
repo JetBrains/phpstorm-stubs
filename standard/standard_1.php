@@ -70,7 +70,7 @@ function strpos(string $haystack, string $needle, int $offset = 0): int|false {}
  * If needle is not a string, it is converted to
  * an integer and applied as the ordinal value of a character.
  * </p>
- * @param int $offset [optional] <p>
+ * @param int $offset <p>
  * The optional offset parameter allows you
  * to specify which character in haystack to
  * start searching. The position returned is still relative to the
@@ -80,7 +80,7 @@ function strpos(string $haystack, string $needle, int $offset = 0): int|false {}
  * stripos will return boolean false.
  */
 #[Pure]
-function stripos(string $haystack, string $needle, int $offset): int|false {}
+function stripos(string $haystack, string $needle, int $offset = 0): int|false {}
 
 /**
  * Find the position of the last occurrence of a substring in a string
@@ -117,7 +117,7 @@ function strrpos(string $haystack, string $needle, int $offset = 0): int|false {
  * Note that the needle may be a string of one or
  * more characters.
  * </p>
- * @param int $offset [optional] <p>
+ * @param int $offset <p>
  * The offset parameter may be specified to begin
  * searching an arbitrary number of characters into the string.
  * </p>
@@ -134,7 +134,7 @@ function strrpos(string $haystack, string $needle, int $offset = 0): int|false {
  * If needle is not found, false is returned.
  */
 #[Pure]
-function strripos(string $haystack, string $needle, int $offset): int|false {}
+function strripos(string $haystack, string $needle, int $offset = 0): int|false {}
 
 /**
  * Reverse a string
@@ -153,14 +153,14 @@ function strrev(string $string): string {}
  * @param string $string <p>
  * A Hebrew input string.
  * </p>
- * @param int $max_chars_per_line [optional] <p>
+ * @param int $max_chars_per_line <p>
  * This optional parameter indicates maximum number of characters per
  * line that will be returned.
  * </p>
  * @return string the visual string.
  */
 #[Pure]
-function hebrev(string $string, int $max_chars_per_line): string {}
+function hebrev(string $string, int $max_chars_per_line = 0): string {}
 
 /**
  * Convert logical Hebrew text to visual text with newline conversion
@@ -203,14 +203,14 @@ function nl2br(string $string, bool $use_xhtml = true): string {}
  * (\) are used as directory separator character. In
  * other environments, it is the forward slash (/).
  * </p>
- * @param string $suffix [optional] <p>
+ * @param string $suffix <p>
  * If the filename ends in suffix this will also
  * be cut off.
  * </p>
  * @return string the base name of the given path.
  */
 #[Pure]
-function basename(string $path, string $suffix): string {}
+function basename(string $path, string $suffix = ''): string {}
 
 /**
  * Returns a parent directory's path
@@ -840,7 +840,7 @@ function str_repeat(string $string, int $times): string {}
  * @param string $string <p>
  * The examined string.
  * </p>
- * @param int $mode [optional] <p>
+ * @param int $mode <p>
  * See return values.
  * </p>
  * @return int[]|string Depending on mode
@@ -855,7 +855,7 @@ function str_repeat(string $string, int $times): string {}
  * 4 - a string containing all not used characters is returned.
  */
 #[Pure]
-function count_chars(string $string, int $mode): array|string {}
+function count_chars(string $string, int $mode = 0): array|string {}
 
 /**
  * Split a string into smaller chunks

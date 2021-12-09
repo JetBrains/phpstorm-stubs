@@ -412,7 +412,7 @@ function getdir(string $directory, $context = null): Directory|false {}
  * @param string $directory <p>
  * The directory that will be scanned.
  * </p>
- * @param int $sorting_order [optional] <p>
+ * @param int $sorting_order <p>
  * By default, the sorted order is alphabetical in ascending order. If
  * the optional sorting_order is set to non-zero,
  * then the sort order is alphabetical in descending order.
@@ -427,7 +427,7 @@ function getdir(string $directory, $context = null): Directory|false {}
  * boolean false is returned, and an error of level
  * E_WARNING is generated.
  */
-function scandir(string $directory, int $sorting_order, $context): array|false {}
+function scandir(string $directory, int $sorting_order = 0, $context): array|false {}
 
 /**
  * Find pathnames matching a pattern
@@ -435,7 +435,7 @@ function scandir(string $directory, int $sorting_order, $context): array|false {
  * @param string $pattern <p>
  * The pattern. No tilde expansion or parameter substitution is done.
  * </p>
- * @param int $flags [optional] <p>
+ * @param int $flags <p>
  * Valid flags:
  * GLOB_MARK - Adds a slash to each directory returned
  * GLOB_NOSORT - Return files as they appear in the directory (no sorting). When this flag is not used, the pathnames are sorted alphabetically
@@ -452,7 +452,7 @@ function scandir(string $directory, int $sorting_order, $context): array|false {
  * error.</p>
  */
 #[Pure(true)]
-function glob(string $pattern, int $flags): array|false {}
+function glob(string $pattern, int $flags = 0): array|false {}
 
 /**
  * Gets last access time of file
@@ -909,13 +909,13 @@ function touch(string $filename, ?int $mtime, ?int $atime): bool {}
  * @param bool $clear_realpath_cache [optional] <p>
  * Whenever to clear realpath cache or not.
  * </p>
- * @param string $filename [optional] <p>
+ * @param string $filename <p>
  * Clear realpath cache on a specific filename, only used if
  * clear_realpath_cache is true.
  * </p>
  * @return void
  */
-function clearstatcache(bool $clear_realpath_cache = false, string $filename): void {}
+function clearstatcache(bool $clear_realpath_cache = false, string $filename = ''): void {}
 
 /**
  * Returns the total size of a filesystem or disk partition
@@ -994,7 +994,7 @@ function diskfreespace(string $directory): float|false {}
  * $text = str_replace("\n.", "\n..", $text);
  * ?>
  * </pre>
- * @param string|array $additional_headers [optional] <p>
+ * @param string|array $additional_headers <p>
  * String or array to be inserted at the end of the email header.<br/>
  * Since 7.2.0 accepts an array. Its keys are the header names and its values are the respective header values.
  * </p>
@@ -1022,7 +1022,7 @@ function diskfreespace(string $directory): float|false {}
  * This should be a last resort, as it does not comply with
  * RFC 2822.
  * </p>
- * @param string $additional_params [optional] <p>
+ * @param string $additional_params <p>
  * The additional_parameters parameter
  * can be used to pass additional flags as command line options to the
  * program configured to be used when sending mail, as defined by the
@@ -1042,7 +1042,7 @@ function diskfreespace(string $directory): float|false {}
  * it does NOT mean the mail will actually reach the intended destination.
  * </p>
  */
-function mail(string $to, string $subject, string $message, array|string $additional_headers, string $additional_params): bool {}
+function mail(string $to, string $subject, string $message, array|string $additional_headers = [], string $additional_params = ''): bool {}
 
 /**
  * Calculate the hash value needed by EZMLM

@@ -947,12 +947,12 @@ function sodium_compare(string $string1, string $string2): int {}
  * Convert from hex without side-chanels
  * @link https://www.php.net/manual/en/function.sodium-hex2bin.php
  * @param string $string
- * @param string $ignore [optional]
+ * @param string $ignore
  * @return string
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_hex2bin(string $string, string $ignore): string {}
+function sodium_hex2bin(string $string, string $ignore = ''): string {}
 
 /**
  * Increment a string in little-endian

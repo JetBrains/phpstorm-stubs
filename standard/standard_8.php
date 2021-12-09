@@ -196,7 +196,7 @@ function metaphone(string $string, int $max_phonemes = 0): false|string {}
  * what type of content encoding the browser will accept and will return
  * its output accordingly.
  * </p>
- * @param int $chunk_size [optional] <p>
+ * @param int $chunk_size <p>
  * If the optional parameter chunk_size is passed, the
  * buffer will be flushed after any output call which causes the buffer's
  * length to equal or exceed chunk_size.
@@ -210,7 +210,7 @@ function metaphone(string $string, int $max_phonemes = 0): false|string {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function ob_start($callback, int $chunk_size, int $flags = PHP_OUTPUT_HANDLER_STDFLAGS): bool {}
+function ob_start($callback, int $chunk_size = 0, int $flags = PHP_OUTPUT_HANDLER_STDFLAGS): bool {}
 
 /**
  * Flush (send) the output buffer
@@ -383,14 +383,14 @@ function ob_list_handlers(): array {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param int $flags [optional] <p>
+ * @param int $flags <p>
  * You may modify the behavior of the sort using the optional
  * parameter sort_flags, for details
  * see sort.
  * </p>
  * @return bool true on success or false on failure.
  */
-function ksort(array &$array, int $flags): bool {}
+function ksort(array &$array, int $flags = SORT_REGULAR): bool {}
 
 /**
  * Sort an array by key in reverse order
@@ -398,14 +398,14 @@ function ksort(array &$array, int $flags): bool {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param int $flags [optional] <p>
+ * @param int $flags <p>
  * You may modify the behavior of the sort using the optional parameter
  * sort_flags, for details see
  * sort.
  * </p>
  * @return bool true on success or false on failure.
  */
-function krsort(array &$array, int $flags): bool {}
+function krsort(array &$array, int $flags = SORT_REGULAR): bool {}
 
 /**
  * Sort an array using a "natural order" algorithm
@@ -433,14 +433,14 @@ function natcasesort(array &$array): bool {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param int $flags [optional] <p>
+ * @param int $flags <p>
  * You may modify the behavior of the sort using the optional
  * parameter sort_flags, for details
  * see sort.
  * </p>
  * @return bool true on success or false on failure.
  */
-function asort(array &$array, int $flags): bool {}
+function asort(array &$array, int $flags = SORT_REGULAR): bool {}
 
 /**
  * Sort an array in reverse order and maintain index association
@@ -448,14 +448,14 @@ function asort(array &$array, int $flags): bool {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param int $flags [optional] <p>
+ * @param int $flags <p>
  * You may modify the behavior of the sort using the optional parameter
  * sort_flags, for details see
  * sort.
  * </p>
  * @return bool true on success or false on failure.
  */
-function arsort(array &$array, int $flags): bool {}
+function arsort(array &$array, int $flags = SORT_REGULAR): bool {}
 
 /**
  * Sort an array
@@ -463,7 +463,7 @@ function arsort(array &$array, int $flags): bool {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param int $flags [optional] <p>
+ * @param int $flags <p>
  * The optional second parameter sort_flags
  * may be used to modify the sorting behavior using these values.
  * </p>
@@ -473,7 +473,7 @@ function arsort(array &$array, int $flags): bool {}
  * (don't change types)</p>
  * @return bool true on success or false on failure.
  */
-function sort(array &$array, int $flags): bool {}
+function sort(array &$array, int $flags = SORT_REGULAR): bool {}
 
 /**
  * Sort an array in reverse order
@@ -481,14 +481,14 @@ function sort(array &$array, int $flags): bool {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param int $flags [optional] <p>
+ * @param int $flags <p>
  * You may modify the behavior of the sort using the optional
  * parameter sort_flags, for details see
  * sort.
  * </p>
  * @return bool true on success or false on failure.
  */
-function rsort(array &$array, int $flags): bool {}
+function rsort(array &$array, int $flags = SORT_REGULAR): bool {}
 
 /**
  * Sort an array by values using a user-defined comparison function
@@ -822,13 +822,13 @@ function array_search(mixed $needle, array $haystack, bool $strict = false): str
  * imported into the symbol table. Prefixes are automatically separated from
  * the array key by an underscore character.
  * </p>
- * @param int $flags [optional] <p>
+ * @param int $flags <p>
  * The way invalid/numeric keys and collisions are treated is determined
  * by the extract_type. It can be one of the
  * following values:
  * EXTR_OVERWRITE
  * If there is a collision, overwrite the existing variable.</p>
- * @param string $prefix [optional] <p>Only overwrite the variable if it already exists in the
+ * @param string $prefix <p>Only overwrite the variable if it already exists in the
  * current symbol table, otherwise do nothing. This is useful
  * for defining a list of valid variables and then extracting
  * only those variables you have defined out of
@@ -846,8 +846,8 @@ function extract(
                EXTR_PREFIX_INVALID,
                EXTR_PREFIX_IF_EXISTS,
                EXTR_REFS
-           ])] int $flags,
-    string $prefix
+           ])] int $flags = EXTR_OVERWRITE,
+    string $prefix = ""
 ): int {}
 
 /**
@@ -1025,7 +1025,7 @@ function array_unshift(array &$array, #[PhpStormStubsElementAvailable(from: '5.3
  * count($input) for
  * length.
  * </p>
- * @param mixed $replacement [optional] <p>
+ * @param mixed $replacement <p>
  * If replacement array is specified, then the
  * removed elements are replaced with elements from this array.
  * </p>
@@ -1043,7 +1043,7 @@ function array_unshift(array &$array, #[PhpStormStubsElementAvailable(from: '5.3
  * </p>
  * @return array the array consisting of the extracted elements.
  */
-function array_splice(array &$array, int $offset, ?int $length, mixed $replacement): array {}
+function array_splice(array &$array, int $offset, ?int $length, mixed $replacement = []): array {}
 
 /**
  * Extract a slice of the array

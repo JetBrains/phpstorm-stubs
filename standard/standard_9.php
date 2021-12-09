@@ -211,7 +211,7 @@ function array_flip(array $array): array {}
  * @param array $array <p>
  * The array to work on
  * </p>
- * @param int $case [optional] <p>
+ * @param int $case <p>
  * Either CASE_UPPER or
  * CASE_LOWER (default)
  * </p>
@@ -219,7 +219,7 @@ function array_flip(array $array): array {}
  * @meta
  */
 #[Pure]
-function array_change_key_case(array $array, int $case): array {}
+function array_change_key_case(array $array, int $case = CASE_LOWER): array {}
 
 /**
  * Pick one or more random keys out of an array
@@ -887,7 +887,7 @@ function key_exists($key, array $array): bool {}
  */
 function assert(
     mixed $assertion,
-    #[LanguageLevelTypeAware(['8.0' => 'Throwable|string|null'], default: 'string')] $description = ''
+    #[LanguageLevelTypeAware(['8.0' => 'Throwable|string|null'], default: 'string')] $description = null
 ): bool {}
 
 /**

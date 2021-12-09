@@ -11,24 +11,24 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * two letter ISO 639 language code and an optional two letter ISO
  * 3166 country code after a dash or underscore.
  * </p>
- * @param string $spelling [optional] <p>
+ * @param string $spelling <p>
  * The spelling parameter is the requested spelling for languages
  * with more than one spelling such as English. Known values are
  * 'american', 'british', and 'canadian'.
  * </p>
- * @param string $jargon [optional] <p>
+ * @param string $jargon <p>
  * The jargon parameter contains extra information to distinguish
  * two different words lists that have the same language and
  * spelling parameters.
  * </p>
- * @param string $encoding [optional] <p>
+ * @param string $encoding <p>
  * The encoding parameter is the encoding that words are expected to
  * be in. Valid values are 'utf-8', 'iso8859-*', 'koi8-r',
  * 'viscii', 'cp1252', 'machine unsigned 16', 'machine unsigned
  * 32'. This parameter is largely untested, so be careful when
  * using.
  * </p>
- * @param int $mode [optional] <p>
+ * @param int $mode <p>
  * The mode parameter is the mode in which spellchecker will work.
  * There are several modes available:
  * <b>PSPELL_FAST</b> - Fast mode (least number of
@@ -36,7 +36,7 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * @return int|false the dictionary link identifier on success or <b>FALSE</b> on failure.
  */
 #[LanguageLevelTypeAware(['8.1' => 'PSpell\Dictionary|false'], default: 'int|false')]
-function pspell_new(string $language, string $spelling = null, string $jargon = null, string $encoding = null, int $mode = 0) {}
+function pspell_new(string $language, string $spelling = "", string $jargon = "", string $encoding = "", int $mode = 0) {}
 
 /**
  * Load a new dictionary with personal wordlist
@@ -52,29 +52,29 @@ function pspell_new(string $language, string $spelling = null, string $jargon = 
  * code and an optional two letter ISO 3166 country code after a dash
  * or underscore.
  * </p>
- * @param string $spelling [optional] <p>
+ * @param string $spelling <p>
  * The requested spelling for languages with more than one spelling such
  * as English. Known values are 'american', 'british', and 'canadian'.
  * </p>
- * @param string $jargon [optional] <p>
+ * @param string $jargon <p>
  * Extra information to distinguish two different words lists that have
  * the same language and spelling parameters.
  * </p>
- * @param string $encoding [optional] <p>
+ * @param string $encoding <p>
  * The encoding that words are expected to be in. Valid values are
  * utf-8, iso8859-*,
  * koi8-r, viscii,
  * cp1252, machine unsigned 16,
  * machine unsigned 32.
  * </p>
- * @param int $mode [optional] <p>
+ * @param int $mode <p>
  * The mode in which spellchecker will work. There are several modes available:
  * <b>PSPELL_FAST</b> - Fast mode (least number of
  * suggestions)</p>
  * @return int|false the dictionary link identifier for use in other pspell functions.
  */
 #[LanguageLevelTypeAware(['8.1' => 'PSpell\Dictionary|false'], default: 'int|false')]
-function pspell_new_personal(string $filename, string $language, string $spelling = null, string $jargon = null, string $encoding = null, int $mode = 0) {}
+function pspell_new_personal(string $filename, string $language, string $spelling = "", string $jargon = "", string $encoding = "", int $mode = 0) {}
 
 /**
  * Load a new dictionary with settings based on a given config
@@ -176,17 +176,17 @@ function pspell_save_wordlist(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Diction
  * two letter ISO 639 language code and an optional two letter ISO
  * 3166 country code after a dash or underscore.
  * </p>
- * @param string $spelling [optional] <p>
+ * @param string $spelling <p>
  * The spelling parameter is the requested spelling for languages
  * with more than one spelling such as English. Known values are
  * 'american', 'british', and 'canadian'.
  * </p>
- * @param string $jargon [optional] <p>
+ * @param string $jargon <p>
  * The jargon parameter contains extra information to distinguish
  * two different words lists that have the same language and
  * spelling parameters.
  * </p>
- * @param string $encoding [optional] <p>
+ * @param string $encoding <p>
  * The encoding parameter is the encoding that words are expected to
  * be in. Valid values are 'utf-8', 'iso8859-*', 'koi8-r',
  * 'viscii', 'cp1252', 'machine unsigned 16', 'machine unsigned
@@ -196,7 +196,7 @@ function pspell_save_wordlist(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Diction
  * @return int Retuns a pspell config identifier.
  */
 #[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], default: 'int')]
-function pspell_config_create(string $language, string $spelling = null, string $jargon = null, string $encoding = null) {}
+function pspell_config_create(string $language, string $spelling = "", string $jargon = "", string $encoding = "") {}
 
 /**
  * Consider run-together words as valid compounds

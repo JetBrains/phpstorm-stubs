@@ -93,7 +93,7 @@ function openssl_pkey_export_to_file(
  * </li>
  * <li>A PEM formatted private key.</li>
  * </ol></p>
- * @param string|null $passphrase [optional] <p>
+ * @param string|null $passphrase <p>
  * The optional parameter <b><em>passphrase</em></b> must be used
  * if the specified key is encrypted (protected by a passphrase).
  * </p>
@@ -102,7 +102,7 @@ function openssl_pkey_export_to_file(
 #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey|false"], default: "resource|false")]
 function openssl_pkey_get_private(
     #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
-    ?string $passphrase = ""
+    ?string $passphrase = null
 ) {}
 
 /**
@@ -445,11 +445,11 @@ function openssl_pkcs12_export(
  * @param string $passphrase <p>
  * Encryption password for unlocking the PKCS#12 file.
  * </p>
- * @param array $options [optional]
+ * @param array $options
  * @return bool true on success or false on failure.
  * @since 5.2.2
  */
-function openssl_pkcs12_export_to_file(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, string $output_filename, $private_key, string $passphrase, array $options): bool {}
+function openssl_pkcs12_export_to_file(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, string $output_filename, $private_key, string $passphrase, array $options = []): bool {}
 
 /**
  * Parse a PKCS#12 Certificate Store into an array
@@ -730,7 +730,7 @@ function openssl_encrypt(
  * @param string $iv [optional] <p>
  * A non-NULL Initialization Vector.
  * </p>
- * @param string|null $tag [optional] <p>
+ * @param string|null $tag <p>
  * The authentication tag in AEAD cipher mode. If it is incorrect, the authentication fails and the function returns <b>FALSE</b>.
  * </p>
  * @param string $aad [optional] <p>Additional authentication data.</p>
@@ -742,7 +742,7 @@ function openssl_decrypt(
     string $passphrase,
     int $options = 0,
     string $iv = "",
-    #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: 'string')] $tag = "",
+    #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: 'string')] $tag = null,
     #[PhpStormStubsElementAvailable(from: '7.1')] string $aad = ""
 ): string|false {}
 
@@ -818,7 +818,7 @@ function openssl_seal(
     array $public_key,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] string $cipher_algo = '',
     #[PhpStormStubsElementAvailable(from: '8.0')] string $cipher_algo,
-    &$iv = ''
+    &$iv = null
 ): int|false {}
 
 /**
@@ -874,7 +874,7 @@ function openssl_pbkdf2(string $password, string $salt, int $key_length, int $it
  * string holding the name of a file into which the certificates of the
  * persons that signed the messages will be stored in PEM format.
  * </p>
- * @param array $ca_info [optional] <p>
+ * @param array $ca_info <p>
  * If the <i>cainfo</i> is specified, it should hold
  * information about the trusted CA certificates to use in the verification
  * process - see certificate
@@ -898,7 +898,7 @@ function openssl_pkcs7_verify(
     string $input_filename,
     int $flags,
     ?string $signers_certificates_filename,
-    array $ca_info,
+    array $ca_info = [],
     ?string $untrusted_certificates_filename,
     ?string $content,
     #[PhpStormStubsElementAvailable("7.2")] ?string $output_filename
@@ -1178,7 +1178,7 @@ function openssl_pkcs7_read(string $data, &$certificates): bool {}
  * @param string $input_filename
  * @param int $flags [optional]
  * @param string|null $certificates [optional]
- * @param array $ca_info [optional]
+ * @param array $ca_info
  * @param string|null $untrusted_certificates_filename [optional]
  * @param string|null $content [optional]
  * @param string|null $pk7 [optional]
@@ -1187,7 +1187,7 @@ function openssl_pkcs7_read(string $data, &$certificates): bool {}
  * @return bool
  * @since 8.0
  */
-function openssl_cms_verify(string $input_filename, int $flags = 0, ?string $certificates, array $ca_info, ?string $untrusted_certificates_filename, ?string $content, ?string $pk7, ?string $sigfile, int $encoding = OPENSSL_ENCODING_SMIME): bool {}
+function openssl_cms_verify(string $input_filename, int $flags = 0, ?string $certificates, array $ca_info = [], ?string $untrusted_certificates_filename, ?string $content, ?string $pk7, ?string $sigfile, int $encoding = OPENSSL_ENCODING_SMIME): bool {}
 
 /**
  * Encrypts the message in the file with the certificates and outputs the result to the supplied file.

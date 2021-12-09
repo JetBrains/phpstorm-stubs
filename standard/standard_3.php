@@ -785,7 +785,7 @@ function putenv(string $assignment): bool {}
  * For example, an option string "x" recognizes an
  * option -x.
  * Only a-z, A-Z and 0-9 are allowed.
- * @param array $long_options [optional] An array of options. Each element in this array will be used as option
+ * @param array $long_options An array of options. Each element in this array will be used as option
  * strings and matched against options passed to the script starting with
  * two hyphens (--).
  * For example, an longopts element "opt" recognizes an
@@ -797,7 +797,7 @@ function putenv(string $assignment): bool {}
  */
 function getopt(
     string $short_options,
-    array $long_options,
+    array $long_options = [],
     #[PhpStormStubsElementAvailable(from: '7.1')] &$rest_index
 ): array|false {}
 
@@ -853,7 +853,7 @@ function gettimeofday(#[TypeContract(true: "float", false: "int[]")] bool $as_fl
 /**
  * Gets the current resource usages
  * @link https://php.net/manual/en/function.getrusage.php
- * @param int $mode [optional] <p>
+ * @param int $mode <p>
  * If who is 1, getrusage will be called with
  * RUSAGE_CHILDREN.
  * </p>
@@ -861,7 +861,7 @@ function gettimeofday(#[TypeContract(true: "float", false: "int[]")] bool $as_fl
  * call. All entries are accessible by using their documented field names.
  */
 #[Pure(true)]
-function getrusage(int $mode): array|false {}
+function getrusage(int $mode = 0): array|false {}
 
 /**
  * Generate a unique ID
@@ -1041,7 +1041,7 @@ function import_request_variables(string $types, $prefix = null): bool {}
  * @param string $message <p>
  * The error message that should be logged.
  * </p>
- * @param int $message_type [optional] <p>
+ * @param int $message_type <p>
  * Says where the error should go. The possible message types are as
  * follows:
  * </p>
@@ -1101,4 +1101,4 @@ function import_request_variables(string $types, $prefix = null): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function error_log(string $message, int $message_type, ?string $destination, ?string $additional_headers): bool {}
+function error_log(string $message, int $message_type = 0, ?string $destination, ?string $additional_headers): bool {}

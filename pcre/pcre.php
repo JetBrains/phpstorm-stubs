@@ -171,7 +171,7 @@ function preg_match(string $pattern, string $subject, &$matches, int $flags = 0,
  * @param string[][] &$matches [optional] <p>
  * Array of all matches in multi-dimensional array ordered according to flags.
  * </p>
- * @param int $flags [optional] <p>
+ * @param int $flags <p>
  * Can be a combination of the following flags (note that it doesn't make
  * sense to use <b>PREG_PATTERN_ORDER</b> together with
  * <b>PREG_SET_ORDER</b>):
@@ -216,7 +216,7 @@ function preg_match(string $pattern, string $subject, &$matches, int $flags = 0,
  * or <b>FALSE</b> if an error occurred.
  */
 #[LanguageLevelTypeAware(['8.0' => 'int|false'], default: 'int|false|null')]
-function preg_match_all(string $pattern, string $subject, &$matches, int $flags = PREG_PATTERN_ORDER, int $offset = 0) {}
+function preg_match_all(string $pattern, string $subject, &$matches, int $flags = 0, int $offset = 0) {}
 
 /**
  * Perform a regular expression search and replace

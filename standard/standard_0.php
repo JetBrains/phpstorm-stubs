@@ -409,7 +409,7 @@ function wordwrap(string $string, int $width = 75, string $break = "\n", bool $c
  * </tbody>
  *
  * </table>
- * @param string|null $encoding [optional] <p>
+ * @param string|null $encoding <p>
  * Defines encoding used in conversion.
  * If omitted, the default value for this argument is ISO-8859-1 in
  * versions of PHP prior to 5.4.0, and UTF-8 from PHP 5.4.0 onwards.
@@ -431,7 +431,7 @@ function wordwrap(string $string, int $width = 75, string $break = "\n", bool $c
  * @return string The converted string.
  */
 #[Pure]
-function htmlspecialchars(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?string $encoding = 'UTF-8', bool $double_encode = true): string {}
+function htmlspecialchars(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?string $encoding = null, bool $double_encode = true): string {}
 
 /**
  * Convert all applicable characters to HTML entities
@@ -557,7 +557,7 @@ function htmlspecialchars_decode(string $string, int $flags = ENT_QUOTES|ENT_SUB
 /**
  * Returns the translation table used by <function>htmlspecialchars</function> and <function>htmlentities</function>
  * @link https://php.net/manual/en/function.get-html-translation-table.php
- * @param int $table [optional] <p>
+ * @param int $table <p>
  * There are two new constants (HTML_ENTITIES,
  * HTML_SPECIALCHARS) that allow you to specify the
  * table you want.
@@ -728,7 +728,7 @@ function htmlspecialchars_decode(string $string, int $flags = ENT_QUOTES|ENT_SUB
  * @return array the translation table as an array.
  */
 #[Pure]
-function get_html_translation_table(int $table, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, string $encoding = "UTF-8"): array {}
+function get_html_translation_table(int $table = 0, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, string $encoding = "UTF-8"): array {}
 
 /**
  * Calculate the sha1 hash of a string
@@ -827,14 +827,14 @@ function iptcparse(string $iptc_block): array|false {}
  * @param string $filename <p>
  * Path to the JPEG image.
  * </p>
- * @param int $spool [optional] <p>
+ * @param int $spool <p>
  * Spool flag. If the spool flag is over 2 then the JPEG will be
  * returned as a string.
  * </p>
  * @return string|bool If success and spool flag is lower than 2 then the JPEG will not be
  * returned as a string, false on errors.
  */
-function iptcembed(string $iptc_data, string $filename, int $spool): string|bool {}
+function iptcembed(string $iptc_data, string $filename, int $spool = 0): string|bool {}
 
 /**
  * Get the size of an image
@@ -1293,7 +1293,7 @@ function strnatcasecmp(string $string1, string $string2): int {}
  * @param string $needle <p>
  * The substring to search for
  * </p>
- * @param int $offset [optional] <p>
+ * @param int $offset <p>
  * The offset where to start counting
  * </p>
  * @param int|null $length [optional] <p>
@@ -1304,7 +1304,7 @@ function strnatcasecmp(string $string1, string $string2): int {}
  * @return int This functions returns an integer.
  */
 #[Pure]
-function substr_count(string $haystack, string $needle, int $offset, ?int $length): int {}
+function substr_count(string $haystack, string $needle, int $offset = 0, ?int $length): int {}
 
 /**
  * Finds the length of the initial segment of a string consisting
@@ -1316,7 +1316,7 @@ function substr_count(string $haystack, string $needle, int $offset, ?int $lengt
  * @param string $characters <p>
  * The list of allowable characters to include in counted segments.
  * </p>
- * @param int $offset [optional] <p>
+ * @param int $offset <p>
  * The position in subject to
  * start searching.
  * </p>
@@ -1357,7 +1357,7 @@ function substr_count(string $haystack, string $needle, int $offset, ?int $lengt
  * which consists entirely of characters in str2.
  */
 #[Pure]
-function strspn(string $string, string $characters, int $offset, ?int $length): int {}
+function strspn(string $string, string $characters, int $offset = 0, ?int $length): int {}
 
 /**
  * Find length of initial segment not matching mask
@@ -1368,7 +1368,7 @@ function strspn(string $string, string $characters, int $offset, ?int $length): 
  * @param string $characters <p>
  * The second string.
  * </p>
- * @param int $offset [optional] <p>
+ * @param int $offset <p>
  * The start position of the string to examine.
  * </p>
  * @param int|null $length [optional] <p>
@@ -1377,7 +1377,7 @@ function strspn(string $string, string $characters, int $offset, ?int $length): 
  * @return int the length of the segment as an integer.
  */
 #[Pure]
-function strcspn(string $string, string $characters, int $offset, ?int $length): int {}
+function strcspn(string $string, string $characters, int $offset = 0, ?int $length): int {}
 
 /**
  * Tokenize string

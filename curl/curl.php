@@ -2572,14 +2572,14 @@ function curl_escape(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 
  * Create a CURLFile object
  * @link https://secure.php.net/manual/en/curlfile.construct.php
  * @param string $filename <p> Path to the file which will be uploaded.</p>
- * @param string|null $mime_type [optional] <p>Mimetype of the file.</p>
- * @param string|null $posted_filename [optional] <p>Name of the file.</p>
+ * @param string|null $mime_type <p>Mimetype of the file.</p>
+ * @param string|null $posted_filename <p>Name of the file.</p>
  * @return CURLFile
  * Returns a {@link https://secure.php.net/manual/en/class.curlfile.php CURLFile} object.
  * @since 5.5
  */
 #[Pure]
-function curl_file_create(string $filename, ?string $mime_type = '', ?string $posted_filename = ''): CURLFile {}
+function curl_file_create(string $filename, ?string $mime_type = null, ?string $posted_filename = null): CURLFile {}
 
 /**
  * Close a cURL session
