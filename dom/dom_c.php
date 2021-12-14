@@ -1245,17 +1245,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
 /**
  * The DOMNodeList class
  * @link https://php.net/manual/en/class.domnodelist.php
+ * @property-read int $length The number of nodes in the list. The range of valid child node indices is 0 to length - 1 inclusive.
  */
-class DOMNodeList implements IteratorAggregate, Countable
+class DOMNodeList implements IteratorAggregate, Traversable, Countable
 {
-    /**
-     * @var int
-     * The number of nodes in the list. The range of valid child node indices is 0 to length - 1 inclusive.
-     * @link https://php.net/manual/en/class.domnodelist.php#domnodelist.props.length
-     */
-    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
-    public $length;
-
     /**
      * Retrieves a node specified by index
      * @link https://php.net/manual/en/domnodelist.item.php
@@ -1287,7 +1280,7 @@ class DOMNodeList implements IteratorAggregate, Countable
  * @link https://php.net/manual/en/class.domnamednodemap.php
  * @property-read int $length The number of nodes in the map. The range of valid child node indices is 0 to length - 1 inclusive.
  */
-class DOMNamedNodeMap implements IteratorAggregate, Countable
+class DOMNamedNodeMap implements IteratorAggregate, Traversable, Countable
 {
     /**
      * Retrieves a node specified by name
@@ -1366,7 +1359,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
     public function count(): int {}
 
     /**
-     * @return Traversable
+     * @return Iterator
      * @since 8.0
      */
     public function getIterator(): Iterator {}
