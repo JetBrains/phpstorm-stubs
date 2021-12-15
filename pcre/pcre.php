@@ -466,7 +466,7 @@ function preg_split(string $pattern, string $subject, int $limit = -1, int $flag
  * @return string the quoted (escaped) string.
  */
 #[Pure]
-function preg_quote(string $str, ?string $delimiter): string {}
+function preg_quote(string $str, ?string $delimiter = null): string {}
 
 /**
  * Return array entries that match the pattern
