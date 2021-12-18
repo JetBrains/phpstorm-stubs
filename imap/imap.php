@@ -510,7 +510,7 @@ function imap_expunge(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], def
  * Mark a message for deletion from current mailbox
  * @link https://php.net/manual/en/function.imap-delete.php
  * @param resource $imap
- * @param string $message_num <p>
+ * @param string $message_nums <p>
  * The message number
  * </p>
  * @param int $flags [optional] <p>
@@ -520,19 +520,19 @@ function imap_expunge(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], def
  * </p>
  * @return bool <b>TRUE</b>.
  */
-function imap_delete(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $message_num, int $flags = 0): bool {}
+function imap_delete(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $message_nums, int $flags = 0): bool {}
 
 /**
  * Unmark the message which is marked deleted
  * @link https://php.net/manual/en/function.imap-undelete.php
  * @param resource $imap
- * @param string $message_num <p>
+ * @param string $message_nums <p>
  * The message number
  * </p>
  * @param int $flags [optional]
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_undelete(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $message_num, int $flags = 0): bool {}
+function imap_undelete(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $message_nums, int $flags = 0): bool {}
 
 /**
  * Check current mailbox

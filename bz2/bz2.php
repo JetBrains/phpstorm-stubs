@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
@@ -87,7 +88,8 @@ function bzclose($bz): bool {}
  * @return int the error number as an integer.
  */
 #[Pure]
-function bzerrno($bz): int {}
+#[LanguageLevelTypeAware(['8.1' => 'int', '8.0' => 'int|false'], default: 'int')]
+function bzerrno($bz) {}
 
 /**
  * Returns a bzip2 error string
@@ -99,7 +101,8 @@ function bzerrno($bz): int {}
  * @return string a string containing the error message.
  */
 #[Pure]
-function bzerrstr($bz): string {}
+#[LanguageLevelTypeAware(['8.1' => 'string', '8.0' => 'string|false'], default: 'string')]
+function bzerrstr($bz) {}
 
 /**
  * Returns the bzip2 error number and error string in an array
@@ -113,7 +116,8 @@ function bzerrstr($bz): string {}
  * errstr entry.
  */
 #[Pure]
-function bzerror($bz): array {}
+#[LanguageLevelTypeAware(['8.1' => 'array', '8.0' => 'array|false'], default: 'array')]
+function bzerror($bz) {}
 
 /**
  * Compress a string into bzip2 encoded data

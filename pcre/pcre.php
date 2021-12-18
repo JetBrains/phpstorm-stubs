@@ -215,7 +215,7 @@ function preg_match(string $pattern, string $subject, &$matches, int $flags = 0,
  * @return int|false|null the number of full pattern matches (which might be zero),
  * or <b>FALSE</b> if an error occurred.
  */
-#[LanguageLevelTypeAware(['8.1' => 'int|false'], default: 'int|false|null')]
+#[LanguageLevelTypeAware(['8.0' => 'int|false'], default: 'int|false|null')]
 function preg_match_all(string $pattern, string $subject, &$matches, int $flags = PREG_PATTERN_ORDER, int $offset = 0) {}
 
 /**
@@ -629,7 +629,7 @@ define('PCRE_VERSION_MAJOR', 10);
 /**
  * @since 7.3
  */
-define('PCRE_VERSION_MINOR', 37);
+define('PCRE_VERSION_MINOR', 39);
 
 /**
  * @since 7.3
