@@ -34,12 +34,15 @@ abstract class BasePHPElement
     /** @var string|null */
     public $name;
     public $stubBelongsToCore = false;
+
     /** @var Exception|null */
     public $parseError;
     public $mutedProblems = [];
     public $availableVersionsRangeFromAttribute = [];
+
     /** @var string|null */
     public $sourceFilePath;
+
     /** @var bool */
     public $duplicateOtherElement = false;
 

@@ -23,6 +23,7 @@ class PHPFunction extends BasePHPElement
      * @var bool
      */
     public $is_deprecated;
+
     /**
      * @var PHPParameter[]
      */

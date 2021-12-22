@@ -603,14 +603,17 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * Drop newlines at the end of a line.
      */
     public const DROP_NEW_LINE = 1;
+
     /**
      * Read on rewind/next.
      */
     public const READ_AHEAD = 2;
+
     /**
      * Skip empty lines in the file. This requires the {@see READ_AHEAD} flag to work as expected.
      */
     public const SKIP_EMPTY = 4;
+
     /**
      * Read lines as CSV rows.
      */

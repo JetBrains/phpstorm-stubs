@@ -18,7 +18,6 @@ abstract class BasePHPClass extends BasePHPElement
      * @var PHPConst[]
      */
     public $constants = [];
-
     public $isFinal = false;
 
     public function addConstant(PHPConst $parsedConstant)

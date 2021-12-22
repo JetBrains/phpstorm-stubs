@@ -371,6 +371,7 @@ final class SQLiteResult implements Iterator, Countable
      * option.</p>
      */
     public function current($result_type = SQLITE_BOTH, $decode_binary = true) {}
+
     /**
      * Return the key of the current element
      * @link https://php.net/manual/en/iterator.key.php
@@ -378,6 +379,7 @@ final class SQLiteResult implements Iterator, Countable
      * @since 5.0.0
      */
     public function key() {}
+
     /**
      * Seek to the next row number
      * @link https://php.net/manual/en/function.sqlite-next.php
@@ -385,6 +387,7 @@ final class SQLiteResult implements Iterator, Countable
      * @since 5.0.0
      */
     public function next() {}
+
     /**
      * Checks if current position is valid
      * @link https://php.net/manual/en/iterator.valid.php
@@ -395,6 +398,7 @@ final class SQLiteResult implements Iterator, Countable
      * @since 5.0.0
      */
     public function valid() {}
+
     /**
      * Rewind the Iterator to the first element
      * @link https://php.net/manual/en/iterator.rewind.php

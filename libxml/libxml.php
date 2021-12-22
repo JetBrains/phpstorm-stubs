@@ -23,6 +23,7 @@ class LibXMLError
      * @var int
      */
     public int $level;
+
     /**
      * <p style="margin-top:0;">
      * The error's code.
@@ -30,6 +31,7 @@ class LibXMLError
      * @var int
      */
     public int $code;
+
     /**
      * <p style="margin-top:0;">
      * The column where the error occurred.
@@ -42,6 +44,7 @@ class LibXMLError
      * @var int
      */
     public int $column;
+
     /**
      * <p style="margin-top:0;">
      * The error message, if any.
@@ -49,11 +52,13 @@ class LibXMLError
      * @var string
      */
     public string $message;
+
     /**
      * <p style="margin-top:0;">The filename, or empty if the XML was loaded from a string.</p>
      * @var string
      */
     public string $file;
+
     /**
      * <p style="margin-top:0;">
      * The line where the error occurred.

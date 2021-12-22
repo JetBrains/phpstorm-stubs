@@ -12,10 +12,13 @@ use function in_array;
 class PHPParameter extends BasePHPElement
 {
     public $indexInSignature = 0;
+
     /** @var string[] */
     public $typesFromSignature = [];
+
     /** @var string[][] */
     public $typesFromAttribute = [];
+
     /** @var string[] */
     public $typesFromPhpDoc = [];
     public $is_vararg = false;

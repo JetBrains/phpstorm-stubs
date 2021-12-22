@@ -17,14 +17,17 @@ class PHPMethod extends PHPFunction
      * @var string
      */
     public $access;
+
     /**
      * @var bool
      */
     public $isStatic;
+
     /**
      * @var bool
      */
     public $isFinal;
+
     /**
      * @var string
      */

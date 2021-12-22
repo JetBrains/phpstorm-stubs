@@ -7,37 +7,21 @@ namespace Swoole\Server;
 class Port
 {
     public $host;
-
     public $port = 0;
-
     public $type = 0;
-
     public $sock = -1;
-
     public $setting;
-
     public $connections;
-
     private $onConnect;
-
     private $onReceive;
-
     private $onClose;
-
     private $onPacket;
-
     private $onBufferFull;
-
     private $onBufferEmpty;
-
     private $onRequest;
-
     private $onHandShake;
-
     private $onOpen;
-
     private $onMessage;
-
     private $onDisconnect;
 
     private function __construct() {}

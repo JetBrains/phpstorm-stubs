@@ -22,50 +22,60 @@ class Client implements \SplSubject, \Countable
      * Debug callback's $data contains human readable text.
      */
     public const DEBUG_INFO = 0;
+
     /**
      * Debug callback's $data contains data received.
      */
     public const DEBUG_IN = 1;
+
     /**
      * Debug callback's $data contains data sent.
      */
     public const DEBUG_OUT = 2;
+
     /**
      * Debug callback's $data contains headers.
      */
     public const DEBUG_HEADER = 16;
+
     /**
      * Debug callback's $data contains a body part.
      */
     public const DEBUG_BODY = 32;
+
     /**
      * Debug callback's $data contains SSL data.
      */
     public const DEBUG_SSL = 64;
+
     /**
      * Attached observers.
      *
      * @var \SplObjectStorage
      */
     private $observers = null;
+
     /**
      * Set options.
      *
      * @var array
      */
     protected $options = null;
+
     /**
      * Request/response history.
      *
      * @var \http\Message
      */
     protected $history = null;
+
     /**
      * Whether to record history in http\Client::$history.
      *
      * @var bool
      */
     public $recordHistory = false;
+
     /**
      * Create a new HTTP client.
      *
@@ -79,6 +89,7 @@ class Client implements \SplSubject, \Countable
      * @throws \http\Exception\RuntimeException
      */
     public function __construct(string $driver = null, string $persistent_handle_id = null) {}
+
     /**
      * Add custom cookies.
      * See http\Client::setCookies().
@@ -88,6 +99,7 @@ class Client implements \SplSubject, \Countable
      * @return \http\Client self.
      */
     public function addCookies(array $cookies = null) {}
+
     /**
      * Add specific SSL options.
      * See http\Client::setSslOptions(), http\Client::setOptions() and http\Client\Curl\$ssl options.
@@ -97,6 +109,7 @@ class Client implements \SplSubject, \Countable
      * @return \http\Client self.
      */
     public function addSslOptions(array $ssl_options = null) {}
+
     /**
      * Implements SplSubject. Attach another observer.
      * Attached observers will be notified with progress of each transfer.
@@ -107,6 +120,7 @@ class Client implements \SplSubject, \Countable
      * @return \http\Client self.
      */
     public function attach(\SplObserver $observer) {}
+
     /**
      * Configure the client's low level options.
      *
@@ -120,6 +134,7 @@ class Client implements \SplSubject, \Countable
      * @return \http\Client self.
      */
     public function configure(array $configuration) {}
+
     /**
      * Implements Countable. Retrieve the number of enqueued requests.
      *
@@ -129,6 +144,7 @@ class Client implements \SplSubject, \Countable
      * @return int number of enqueued requests.
      */
     public function count() {}
+
     /**
      * Dequeue the http\Client\Request $request.
      *
@@ -141,6 +157,7 @@ class Client implements \SplSubject, \Countable
      * @return \http\Client self.
      */
     public function dequeue(http\Client\Request $request) {}
+
     /**
      * Implements SplSubject. Detach $observer, which has been previously attached.
      *
@@ -150,6 +167,7 @@ class Client implements \SplSubject, \Countable
      * @return \http\Client self.
      */
     public function detach(\SplObserver $observer) {}
+
     /**
      * Enable usage of an event library like libevent, which might improve performance with big socket sets.
      *
@@ -161,6 +179,7 @@ class Client implements \SplSubject, \Countable
      */
     #[Deprecated('This method has been deprecated in 2.3.0. Use http\Client::configure() instead')]
     public function enableEvents(bool $enable = true) {}
+
     /**
      * Enable sending pipelined requests to the same host if the driver supports it.
      *
@@ -172,6 +191,7 @@ class Client implements \SplSubject, \Countable
      */
     #[Deprecated('This method has been deprecated in 2.3.0. Use http\Client::configure() instead')]
     public function enablePipelining(bool $enable = true) {}
+
     /**
      * Add another http\Client\Request to the request queue.
      * If the optional callback $cb returns true, the request will be automatically dequeued.
@@ -195,6 +215,7 @@ class Client implements \SplSubject, \Countable
      * @return \http\Client self.
      */
     public function enqueue(http\Client\Request $request, callable $cb = null) {}
+
     /**
      * Get a list of available configuration options and their default values.
      *
@@ -204,12 +225,14 @@ class Client implements \SplSubject, \Countable
      * @return array list of key/value pairs of available configuration options and their default values.
      */
     public function getAvailableConfiguration() {}
+
     /**
      * List available drivers.
      *
      * @return array list of supported drivers.
      */
     public function getAvailableDrivers() {}
+
     /**
      * Retrieve a list of available request options and their default values.
      *
@@ -219,6 +242,7 @@ class Client implements \SplSubject, \Countable
      * @return array list of key/value pairs of available request options and their default values.
      */
     public function getAvailableOptions() {}
+
     /**
      * Get priorly set custom cookies.
      * See http\Client::setCookies().
@@ -226,6 +250,7 @@ class Client implements \SplSubject, \Countable
      * @return array custom cookies.
      */
     public function getCookies() {}
+
     /**
      * Simply returns the http\Message chain representing the request/response history.
      *
@@ -236,6 +261,7 @@ class Client implements \SplSubject, \Countable
      * @return \http\Message the request/response message chain representing the client's history.
      */
     public function getHistory() {}
+
     /**
      * Returns the SplObjectStorage holding attached observers.
      *
@@ -244,6 +270,7 @@ class Client implements \SplSubject, \Countable
      * @return \SplObjectStorage observer storage.
      */
     public function getObservers() {}
+
     /**
      * Get priorly set options.
      * See http\Client::setOptions().
@@ -251,6 +278,7 @@ class Client implements \SplSubject, \Countable
      * @return array options.
      */
     public function getOptions() {}
+
     /**
      * Retrieve the progress information for $request.
      *
@@ -261,6 +289,7 @@ class Client implements \SplSubject, \Countable
      * 		 or NULL if $request is not enqueued.
      */
     public function getProgressInfo(http\Client\Request $request) {}
+
     /**
      * Retrieve the corresponding response of an already finished request, or the last received response if $request is not set.
      *
@@ -274,6 +303,7 @@ class Client implements \SplSubject, \Countable
      * 		 or NULL if no more response was available to pop, when no $request was given.
      */
     public function getResponse(http\Client\Request $request = null) {}
+
     /**
      * Retrieve priorly set SSL options.
      * See http\Client::getOptions() and http\Client::setSslOptions().
@@ -281,6 +311,7 @@ class Client implements \SplSubject, \Countable
      * @return array SSL options.
      */
     public function getSslOptions() {}
+
     /**
      * Get transfer related information for a running or finished request.
      *
@@ -290,6 +321,7 @@ class Client implements \SplSubject, \Countable
      * @return object stdClass instance holding transfer related information.
      */
     public function getTransferInfo(http\Client\Request $request) {}
+
     /**
      * Implements SplSubject. Notify attached observers about progress with $request.
      *
@@ -300,6 +332,7 @@ class Client implements \SplSubject, \Countable
      * @return \http\Client self.
      */
     public function notify(http\Client\Request $request = null, $progress = null) {}
+
     /**
      * Perform outstanding transfer actions.
      * See http\Client::wait() for the completing interface.
@@ -307,6 +340,7 @@ class Client implements \SplSubject, \Countable
      * @return bool true if there are more transfers to complete.
      */
     public function once() {}
+
     /**
      * Requeue an http\Client\Request.
      *
@@ -320,12 +354,14 @@ class Client implements \SplSubject, \Countable
      * @return \http\Client self.
      */
     public function requeue(http\Client\Request $request, callable $cb = null) {}
+
     /**
      * Reset the client to the initial state.
      *
      * @return \http\Client self.
      */
     public function reset() {}
+
     /**
      * Send all enqueued requests.
      * See http\Client::once() and http\Client::wait() for a more fine grained interface.
@@ -335,6 +371,7 @@ class Client implements \SplSubject, \Countable
      * @return \http\Client self.
      */
     public function send() {}
+
     /**
      * Set custom cookies.
      * See http\Client::addCookies() and http\Client::getCookies().
@@ -344,6 +381,7 @@ class Client implements \SplSubject, \Countable
      * @return \http\Client self.
      */
     public function setCookies(array $cookies = null) {}
+
     /**
      * Set client debugging callback.
      *
@@ -356,6 +394,7 @@ class Client implements \SplSubject, \Countable
      * @return \http\Client self.
      */
     public function setDebug(callable $callback) {}
+
     /**
      * Set client options.
      * See http\Client\Curl.
@@ -368,6 +407,7 @@ class Client implements \SplSubject, \Countable
      * @return \http\Client self.
      */
     public function setOptions(array $options = null) {}
+
     /**
      * Specifically set SSL options.
      * See http\Client::setOptions() and http\Client\Curl\$ssl options.
@@ -377,6 +417,7 @@ class Client implements \SplSubject, \Countable
      * @return \http\Client self.
      */
     public function setSslOptions(array $ssl_options = null) {}
+
     /**
      * Wait for $timeout seconds for transfers to provide data.
      * This is the completion call to http\Client::once().
@@ -395,14 +436,17 @@ class Cookie
      * Do not decode cookie contents.
      */
     public const PARSE_RAW = 1;
+
     /**
      * The cookies' flags have the secure attribute set.
      */
     public const SECURE = 16;
+
     /**
      * The cookies' flags have the httpOnly attribute set.
      */
     public const HTTPONLY = 32;
+
     /**
      * Create a new cookie list.
      *
@@ -413,12 +457,14 @@ class Cookie
      * @throws \http\Exception\RuntimeException
      */
     public function __construct($cookies = null, int $flags = 0, array $allowed_extras = null) {}
+
     /**
      * String cast handler. Alias of http\Cookie::toString().
      *
      * @return string the cookie(s) represented as string.
      */
     public function __toString() {}
+
     /**
      * Add a cookie.
      * See http\Cookie::setCookie() and http\Cookie::addCookies().
@@ -429,6 +475,7 @@ class Cookie
      * @return \http\Cookie self.
      */
     public function addCookie(string $cookie_name, string $cookie_value) {}
+
     /**
      * (Re)set the cookies.
      * See http\Cookie::setCookies().
@@ -438,6 +485,7 @@ class Cookie
      * @return \http\Cookie self.
      */
     public function addCookies(array $cookies) {}
+
     /**
      * Add an extra attribute to the cookie list.
      * See http\Cookie::setExtra().
@@ -448,6 +496,7 @@ class Cookie
      * @return \http\Cookie self.
      */
     public function addExtra(string $extra_name, string $extra_value) {}
+
     /**
      * Add several extra attributes.
      * See http\Cookie::addExtra().
@@ -457,6 +506,7 @@ class Cookie
      * @return \http\Cookie self.
      */
     public function addExtras(array $extras) {}
+
     /**
      * Retrieve a specific cookie value.
      * See http\Cookie::setCookie().
@@ -466,6 +516,7 @@ class Cookie
      * 		 or NULL if $cookie_name could not be found.
      */
     public function getCookie(string $cookie_name) {}
+
     /**
      * Get the list of cookies.
      * See http\Cookie::setCookies().
@@ -473,6 +524,7 @@ class Cookie
      * @return array the list of cookies of form ["name" => "value"].
      */
     public function getCookies() {}
+
     /**
      * Retrieve the effective domain of the cookie list.
      * See http\Cookie::setDomain().
@@ -480,6 +532,7 @@ class Cookie
      * @return string the effective domain.
      */
     public function getDomain() {}
+
     /**
      * Get the currently set expires attribute.
      * See http\Cookie::setExpires().
@@ -490,6 +543,7 @@ class Cookie
      * @return int the currently set expires attribute as seconds since the epoch.
      */
     public function getExpires() {}
+
     /**
      * Retrieve an extra attribute.
      * See http\Cookie::setExtra().
@@ -498,6 +552,7 @@ class Cookie
      * @return string the value of the extra attribute.
      */
     public function getExtra(string $name) {}
+
     /**
      * Retrieve the list of extra attributes.
      * See http\Cookie::setExtras().
@@ -505,6 +560,7 @@ class Cookie
      * @return array the list of extra attributes of the form ["key" => "value"].
      */
     public function getExtras() {}
+
     /**
      * Get the currently set flags.
      * See http\Cookie::SECURE and http\Cookie::HTTPONLY constants.
@@ -512,6 +568,7 @@ class Cookie
      * @return int the currently set flags bitmask.
      */
     public function getFlags() {}
+
     /**
      * Get the currently set max-age attribute of the cookie list.
      * See http\Cookie::setMaxAge().
@@ -522,6 +579,7 @@ class Cookie
      * @return int the currently set max-age.
      */
     public function getMaxAge() {}
+
     /**
      * Retrieve the path the cookie(s) of this cookie list are effective at.
      * See http\Cookie::setPath().
@@ -529,6 +587,7 @@ class Cookie
      * @return string the effective path.
      */
     public function getPath() {}
+
     /**
      * (Re)set a cookie.
      * See http\Cookie::addCookie() and http\Cookie::setCookies().
@@ -542,6 +601,7 @@ class Cookie
      * @return \http\Cookie self.
      */
     public function setCookie(string $cookie_name, string $cookie_value) {}
+
     /**
      * (Re)set the cookies.
      * See http\Cookie::addCookies().
@@ -551,6 +611,7 @@ class Cookie
      * @return \http\Cookie self.
      */
     public function setCookies(array $cookies = null) {}
+
     /**
      * Set the effective domain of the cookie list.
      * See http\Cookie::setPath().
@@ -560,6 +621,7 @@ class Cookie
      * @return \http\Cookie self.
      */
     public function setDomain(string $value = null) {}
+
     /**
      * Set the traditional expires timestamp.
      * See http\Cookie::setMaxAge() for a safer alternative.
@@ -569,6 +631,7 @@ class Cookie
      * @return \http\Cookie self.
      */
     public function setExpires(int $value = -1) {}
+
     /**
      * (Re)set an extra attribute.
      * See http\Cookie::addExtra().
@@ -582,6 +645,7 @@ class Cookie
      * @return \http\Cookie self.
      */
     public function setExtra(string $extra_name, string $extra_value = null) {}
+
     /**
      * (Re)set the extra attributes.
      * See http\Cookie::addExtras().
@@ -591,6 +655,7 @@ class Cookie
      * @return \http\Cookie self.
      */
     public function setExtras(array $extras = null) {}
+
     /**
      * Set the flags to specified $value.
      * See http\Cookie::SECURE and http\Cookie::HTTPONLY constants.
@@ -600,6 +665,7 @@ class Cookie
      * @return \http\Cookie self.
      */
     public function setFlags(int $value = 0) {}
+
     /**
      * Set the maximum age the cookie may have on the client side.
      * This is a client clock departure safe alternative to the "expires" attribute.
@@ -610,6 +676,7 @@ class Cookie
      * @return \http\Cookie self.
      */
     public function setMaxAge(int $value = -1) {}
+
     /**
      * Set the path the cookie(s) of this cookie list should be effective at.
      * See http\Cookie::setDomain().
@@ -619,12 +686,14 @@ class Cookie
      * @return \http\Cookie self.
      */
     public function setPath(string $path = null) {}
+
     /**
      * Get the cookie list as array.
      *
      * @return array the cookie list as array.
      */
     public function toArray() {}
+
     /**
      * Retrieve the string representation of the cookie list.
      * See http\Cookie::toArray().
@@ -652,6 +721,7 @@ class Env
      * @return \http\Message\Body instance representing the request body
      */
     public function getRequestBody(string $body_class_name = null) {}
+
     /**
      * Retrieve one or all headers of the current HTTP request.
      *
@@ -661,12 +731,14 @@ class Env
      * 		 or array of all headers if $header_name was not specified
      */
     public function getRequestHeader(string $header_name = null) {}
+
     /**
      * Get the HTTP response code to send.
      *
      * @return int the HTTP response code.
      */
     public function getResponseCode() {}
+
     /**
      * Get one or all HTTP response headers to be sent.
      *
@@ -676,6 +748,7 @@ class Env
      * 		 or array of all response headers, if $header_name was not specified
      */
     public function getResponseHeader(string $header_name = null) {}
+
     /**
      * Retrieve a list of all known HTTP response status.
      *
@@ -686,6 +759,7 @@ class Env
      *   \]
      */
     public function getResponseStatusForAllCodes() {}
+
     /**
      * Retrieve the string representation of specified HTTP response code.
      *
@@ -693,6 +767,7 @@ class Env
      * @return string the HTTP response status message (may be empty, if no message for this code was found)
      */
     public function getResponseStatusForCode(int $code) {}
+
     /**
      * Generic negotiator. For specific client negotiation see http\Env::negotiateContentType() and related methods.
      *
@@ -707,6 +782,7 @@ class Env
      * 		 or string the closest match negotiated, or the default (first entry of $supported).
      */
     public function negotiate(string $params, array $supported, string $prim_typ_sep = null, array &$result = null) {}
+
     /**
      * Negotiate the client's preferred character set.
      *
@@ -719,6 +795,7 @@ class Env
      * 		 or string the negotiated character set.
      */
     public function negotiateCharset(array $supported, array &$result = null) {}
+
     /**
      * Negotiate the client's preferred MIME content type.
      *
@@ -731,6 +808,7 @@ class Env
      * 		 or string the negotiated content type.
      */
     public function negotiateContentType(array $supported, array &$result = null) {}
+
     /**
      * Negotiate the client's preferred encoding.
      *
@@ -743,6 +821,7 @@ class Env
      * 		 or string the negotiated encoding.
      */
     public function negotiateEncoding(array $supported, array &$result = null) {}
+
     /**
      * Negotiate the client's preferred language.
      *
@@ -755,6 +834,7 @@ class Env
      * 		 or string the negotiated language.
      */
     public function negotiateLanguage(array $supported, array &$result = null) {}
+
     /**
      * Set the HTTP response code to send.
      *
@@ -762,6 +842,7 @@ class Env
      * @return bool Success.
      */
     public function setResponseCode(int $code) {}
+
     /**
      * Set a response header, either replacing a prior set header, or appending the new header value, depending on $replace.
      *
@@ -794,34 +875,41 @@ class Header implements \Serializable
      * None of the following match constraints applies.
      */
     public const MATCH_LOOSE = 0;
+
     /**
      * Perform case sensitive matching.
      */
     public const MATCH_CASE = 1;
+
     /**
      * Match only on word boundaries (according by CType alpha-numeric).
      */
     public const MATCH_WORD = 16;
+
     /**
      * Match the complete string.
      */
     public const MATCH_FULL = 32;
+
     /**
      * Case sensitively match the full string (same as MATCH_CASE|MATCH_FULL).
      */
     public const MATCH_STRICT = 33;
+
     /**
      * The name of the HTTP header.
      *
      * @var string
      */
     public $name = null;
+
     /**
      * The value of the HTTP header.
      *
      * @var mixed
      */
     public $value = null;
+
     /**
      * Create an http\Header instance for use of simple matching or negotiation. If the value of the header is an array it may be compounded to a single comma separated string.
      *
@@ -831,12 +919,14 @@ class Header implements \Serializable
      * # Throws:
      */
     public function __construct(string $name = null, $value = null) {}
+
     /**
      * String cast handler. Alias of http\Header::serialize().
      *
      * @return string the serialized form of the HTTP header (i.e. "Name: value").
      */
     public function __toString() {}
+
     /**
      * Create a parameter list out of the HTTP header value.
      *
@@ -847,6 +937,7 @@ class Header implements \Serializable
      * @return \http\Params instance
      */
     public function getParams($ps = null, $as = null, $vs = null, int $flags = null) {}
+
     /**
      * Match the HTTP header's value against provided $value according to $flags.
      *
@@ -855,6 +946,7 @@ class Header implements \Serializable
      * @return bool whether $value matches the header value according to $flags.
      */
     public function match(string $value, int $flags = null) {}
+
     /**
      * Negotiate the header's value against a list of supported values in $supported.
      * Negotiation operation is adopted according to the header name, i.e. if the
@@ -871,6 +963,7 @@ class Header implements \Serializable
      * 		 or string the closest match negotiated, or the default (first entry of $supported).
      */
     public function negotiate(array $supported, array &$result = null) {}
+
     /**
      * Parse HTTP headers.
      * See also http\Header\Parser.
@@ -881,18 +974,21 @@ class Header implements \Serializable
      * 		 or false if parsing fails.
      */
     public function parse(string $header, string $header_class = null) {}
+
     /**
      * Implements Serializable.
      *
      * @return string serialized representation of HTTP header (i.e. "Name: value")
      */
     public function serialize() {}
+
     /**
      * Convenience method. Alias of http\Header::serialize().
      *
      * @return string the serialized form of the HTTP header (i.e. "Name: value").
      */
     public function toString() {}
+
     /**
      * Implements Serializable.
      *
@@ -911,68 +1007,80 @@ class Message implements \Countable, \Serializable, \Iterator
      * No specific type of message.
      */
     public const TYPE_NONE = 0;
+
     /**
      * A request message.
      */
     public const TYPE_REQUEST = 1;
+
     /**
      * A response message.
      */
     public const TYPE_RESPONSE = 2;
+
     /**
      * The message type. See http\Message::TYPE_* constants.
      *
      * @var int
      */
     protected $type = \http\Message::TYPE_NONE;
+
     /**
      * The message's body.
      *
      * @var \http\Message\Body
      */
     protected $body = null;
+
     /**
      * The request method if the message is of type request.
      *
      * @var string
      */
     protected $requestMethod = "";
+
     /**
      * The request url if the message is of type request.
      *
      * @var string
      */
     protected $requestUrl = "";
+
     /**
      * The response status phrase if the message is of type response.
      *
      * @var string
      */
     protected $responseStatus = "";
+
     /**
      * The response code if the message is of type response.
      *
      * @var int
      */
     protected $responseCode = 0;
+
     /**
      * A custom HTTP protocol version.
      *
      * @var string
      */
     protected $httpVersion = null;
+
     /**
      * Any message headers.
      *
      * @var array
      */
     protected $headers = null;
+
     /**
      * Any parent message.
      *
      * @var \http\Message
      */
     protected $parentMessage;
+
     /**
      * Create a new HTTP message.
      *
@@ -982,6 +1090,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @throws \http\Exception\BadMessageException
      */
     public function __construct($message = null, bool $greedy = true) {}
+
     /**
      * Retrieve the message serialized to a string.
      * Alias of http\Message::toString().
@@ -989,6 +1098,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return string the single serialized HTTP message.
      */
     public function __toString() {}
+
     /**
      * Append the data of $body to the message's body.
      * See http\Message::setBody() and http\Message\Body::append().
@@ -997,6 +1107,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message self.
      */
     public function addBody(http\Message\Body $body) {}
+
     /**
      * Add an header, appending to already existing headers.
      * See http\Message::addHeaders() and http\Message::setHeader().
@@ -1006,6 +1117,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message self.
      */
     public function addHeader(string $name, $value) {}
+
     /**
      * Add headers, optionally appending values, if header keys already exist.
      * See http\Message::addHeader() and http\Message::setHeaders().
@@ -1015,12 +1127,14 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message self.
      */
     public function addHeaders(array $headers, bool $append = false) {}
+
     /**
      * Implements Countable.
      *
      * @return int the count of messages in the chain above the current message.
      */
     public function count() {}
+
     /**
      * Implements iterator.
      * See http\Message::valid() and http\Message::rewind().
@@ -1028,6 +1142,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message the current message in the iterated message chain.
      */
     public function current() {}
+
     /**
      * Detach a clone of this message from any message chain.
      *
@@ -1035,6 +1150,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message clone.
      */
     public function detach() {}
+
     /**
      * Retrieve the message's body.
      * See http\Message::setBody().
@@ -1044,6 +1160,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message\Body the message body.
      */
     public function getBody() {}
+
     /**
      * Retrieve a single header, optionally hydrated into a http\Header extending class.
      *
@@ -1053,6 +1170,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * 		 or \http\Header descendant.
      */
     public function getHeader(string $header, string $into_class = null) {}
+
     /**
      * Retrieve all message headers.
      * See http\Message::setHeaders() and http\Message::getHeader().
@@ -1060,6 +1178,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return array the message's headers.
      */
     public function getHeaders() {}
+
     /**
      * Retrieve the HTTP protocol version of the message.
      * See http\Message::setHttpVersion().
@@ -1067,6 +1186,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return string the HTTP protocol version, e.g. "1.0"; defaults to "1.1".
      */
     public function getHttpVersion() {}
+
     /**
      * Retrieve the first line of a request or response message.
      * See http\Message::setInfo and also:
@@ -1082,6 +1202,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * 		 or NULL if the message is neither of type request nor response.
      */
     public function getInfo() {}
+
     /**
      * Retrieve any parent message.
      * See http\Message::reverse().
@@ -1091,6 +1212,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message the parent message.
      */
     public function getParentMessage() {}
+
     /**
      * Retrieve the request method of the message.
      * See http\Message::setRequestMethod() and http\Message::getRequestUrl().
@@ -1099,6 +1221,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * 		 or false if the message was not of type request.
      */
     public function getRequestMethod() {}
+
     /**
      * Retrieve the request URL of the message.
      * See http\Message::setRequestUrl().
@@ -1107,6 +1230,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * 		 or false if the message was not of type request.
      */
     public function getRequestUrl() {}
+
     /**
      * Retrieve the response code of the message.
      * See http\Message::setResponseCode() and http\Message::getResponseStatus().
@@ -1115,6 +1239,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * 		 or false if the message is not of type response.
      */
     public function getResponseCode() {}
+
     /**
      * Retrieve the response status of the message.
      * See http\Message::setResponseStatus() and http\Message::getResponseCode().
@@ -1123,6 +1248,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * 		 or false if the message is not of type response.
      */
     public function getResponseStatus() {}
+
     /**
      * Retrieve the type of the message.
      * See http\Message::setType() and http\Message::getInfo().
@@ -1130,6 +1256,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return int the message type. See http\Message::TYPE_* constants.
      */
     public function getType() {}
+
     /**
      * Check whether this message is a multipart message based on it's content type.
      * If the message is a multipart message and a reference $boundary is given, the boundary string of the multipart message will be stored in $boundary.
@@ -1140,6 +1267,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return bool whether this is a message with a multipart "Content-Type".
      */
     public function isMultipart(string &$boundary = null) {}
+
     /**
      * Implements Iterator.
      * See http\Message::current() and http\Message::rewind().
@@ -1147,11 +1275,13 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return int a non-sequential integer key.
      */
     public function key() {}
+
     /**
      * Implements Iterator.
      * See http\Message::valid() and http\Message::rewind().
      */
     public function next() {}
+
     /**
      * Prepend message(s) $message to this message, or the top most message of this message chain.
      *
@@ -1165,6 +1295,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message self.
      */
     public function prepend(http\Message $message, bool $top = true) {}
+
     /**
      * Reverse the message chain and return the former top-most message.
      *
@@ -1177,16 +1308,19 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message the other end of the message chain.
      */
     public function reverse() {}
+
     /**
      * Implements Iterator.
      */
     public function rewind() {}
+
     /**
      * Implements Serializable.
      *
      * @return string the serialized HTTP message.
      */
     public function serialize() {}
+
     /**
      * Set the message's body.
      * See http\Message::getBody() and http\Message::addBody().
@@ -1197,6 +1331,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message self.
      */
     public function setBody(http\Message\Body $body) {}
+
     /**
      * Set a single header.
      * See http\Message::getHeader() and http\Message::addHeader().
@@ -1210,6 +1345,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message self.
      */
     public function setHeader(string $header, $value = null) {}
+
     /**
      * Set the message headers.
      * See http\Message::getHeaders() and http\Message::addHeaders().
@@ -1222,6 +1358,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message null.
      */
     public function setHeaders(array $headers = null) {}
+
     /**
      * Set the HTTP protocol version of the message.
      * See http\Message::getHttpVersion().
@@ -1232,6 +1369,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message self.
      */
     public function setHttpVersion(string $http_version) {}
+
     /**
      * Set the complete message info, i.e. type and response resp. request information, at once.
      * See http\Message::getInfo().
@@ -1242,6 +1380,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message self.
      */
     public function setInfo(string $http_info) {}
+
     /**
      * Set the request method of the message.
      * See http\Message::getRequestMethod() and http\Message::setRequestUrl().
@@ -1252,6 +1391,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message self.
      */
     public function setRequestMethod(string $method) {}
+
     /**
      * Set the request URL of the message.
      * See http\Message::getRequestUrl() and http\Message::setRequestMethod().
@@ -1262,6 +1402,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message self.
      */
     public function setRequestUrl(string $url) {}
+
     /**
      * Set the response status code.
      * See http\Message::getResponseCode() and http\Message::setResponseStatus().
@@ -1276,6 +1417,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message self.
      */
     public function setResponseCode(int $response_code, bool $strict = true) {}
+
     /**
      * Set the response status phrase.
      * See http\Message::getResponseStatus() and http\Message::setResponseCode().
@@ -1286,6 +1428,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message self.
      */
     public function setResponseStatus(string $response_status) {}
+
     /**
      * Set the message type and reset the message info.
      * See http\Message::getType() and http\Message::setInfo().
@@ -1294,6 +1437,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message self.
      */
     public function setType(int $type) {}
+
     /**
      * Splits the body of a multipart message.
      * See http\Message::isMultipart() and http\Message\Body::addPart().
@@ -1304,6 +1448,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message a message chain of all messages of the multipart body.
      */
     public function splitMultipartBody() {}
+
     /**
      * Stream the message through a callback.
      *
@@ -1311,6 +1456,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message self.
      */
     public function toCallback(callable $callback) {}
+
     /**
      * Stream the message into stream $stream, starting from $offset, streaming $maxlen at most.
      *
@@ -1318,6 +1464,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return \http\Message self.
      */
     public function toStream($stream) {}
+
     /**
      * Retrieve the message serialized to a string.
      *
@@ -1325,12 +1472,14 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return string the HTTP message chain serialized to a string.
      */
     public function toString(bool $include_parent = false) {}
+
     /**
      * Implements Serializable.
      *
      * @param string $data The serialized message.
      */
     public function unserialize($data) {}
+
     /**
      * Implements Iterator.
      * See http\Message::current() and http\Message::rewind().
@@ -1348,80 +1497,97 @@ class Params implements \ArrayAccess
      * The default parameter separator (",").
      */
     public const DEF_PARAM_SEP = ',';
+
     /**
      * The default argument separator (";").
      */
     public const DEF_ARG_SEP = ';';
+
     /**
      * The default value separator ("=").
      */
     public const DEF_VAL_SEP = '=';
+
     /**
      * Empty param separator to parse cookies.
      */
     public const COOKIE_PARAM_SEP = '';
+
     /**
      * Do not interpret the parsed parameters.
      */
     public const PARSE_RAW = 0;
+
     /**
      * Interpret input as default formatted parameters.
      */
     public const PARSE_DEFAULT = 17;
+
     /**
      * Parse backslash escaped (quoted) strings.
      */
     public const PARSE_ESCAPED = 1;
+
     /**
      * Urldecode single units of parameters, arguments and values.
      */
     public const PARSE_URLENCODED = 4;
+
     /**
      * Parse sub dimensions indicated by square brackets.
      */
     public const PARSE_DIMENSION = 8;
+
     /**
      * Parse URL querystring (same as http\Params::PARSE_URLENCODED|http\Params::PARSE_DIMENSION).
      */
     public const PARSE_QUERY = 12;
+
     /**
      * Parse [RFC5987](http://tools.ietf.org/html/rfc5987) style encoded character set and language information embedded in HTTP header params.
      */
     public const PARSE_RFC5987 = 16;
+
     /**
      * Parse [RFC5988](http://tools.ietf.org/html/rfc5988) (Web Linking) tags of Link headers.
      */
     public const PARSE_RFC5988 = 32;
+
     /**
      * The (parsed) parameters.
      *
      * @var array
      */
     public $params = null;
+
     /**
      * The parameter separator(s).
      *
      * @var array
      */
     public $param_sep = \http\Params::DEF_PARAM_SEP;
+
     /**
      * The argument separator(s).
      *
      * @var array
      */
     public $arg_sep = \http\Params::DEF_ARG_SEP;
+
     /**
      * The value separator(s).
      *
      * @var array
      */
     public $val_sep = \http\Params::DEF_VAL_SEP;
+
     /**
      * The modus operandi of the parser. See http\Params::PARSE_* constants.
      *
      * @var int
      */
     public $flags = \http\Params::PARSE_DEFAULT;
+
     /**
      * Instantiate a new HTTP (header) parameter set.
      *
@@ -1434,6 +1600,7 @@ class Params implements \ArrayAccess
      * @throws \http\Exception\RuntimeException
      */
     public function __construct($params = null, $ps = null, $as = null, $vs = null, int $flags = null) {}
+
     /**
      * String cast handler. Alias of http\Params::toString().
      * Returns a stringified version of the parameters.
@@ -1441,6 +1608,7 @@ class Params implements \ArrayAccess
      * @return string version of the parameters.
      */
     public function __toString() {}
+
     /**
      * Implements ArrayAccess.
      *
@@ -1448,6 +1616,7 @@ class Params implements \ArrayAccess
      * @return bool Existence.
      */
     public function offsetExists($name) {}
+
     /**
      * Implements ArrayAccess.
      *
@@ -1455,6 +1624,7 @@ class Params implements \ArrayAccess
      * @return mixed contents at offset.
      */
     public function offsetGet($name) {}
+
     /**
      * Implements ArrayAccess.
      *
@@ -1462,18 +1632,21 @@ class Params implements \ArrayAccess
      * @param mixed $value The value to set.
      */
     public function offsetSet($name, $value) {}
+
     /**
      * Implements ArrayAccess.
      *
      * @param string $name The offset to delete.
      */
     public function offsetUnset($name) {}
+
     /**
      * Convenience method that simply returns http\Params::$params.
      *
      * @return array of parameters.
      */
     public function toArray() {}
+
     /**
      * Returns a stringified version of the parameters.
      *
@@ -1490,38 +1663,46 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * Cast requested value to bool.
      */
     public const TYPE_BOOL = 16;
+
     /**
      * Cast requested value to int.
      */
     public const TYPE_INT = 4;
+
     /**
      * Cast requested value to float.
      */
     public const TYPE_FLOAT = 5;
+
     /**
      * Cast requested value to string.
      */
     public const TYPE_STRING = 6;
+
     /**
      * Cast requested value to an array.
      */
     public const TYPE_ARRAY = 7;
+
     /**
      * Cast requested value to an object.
      */
     public const TYPE_OBJECT = 8;
+
     /**
      * The global instance. See http\QueryString::getGlobalInstance().
      *
      * @var \http\QueryString
      */
     private $instance = null;
+
     /**
      * The data.
      *
      * @var array
      */
     private $queryArray = null;
+
     /**
      * Create an independent querystring instance.
      *
@@ -1529,12 +1710,14 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * @throws \http\Exception\BadQueryStringException
      */
     public function __construct($params = null) {}
+
     /**
      * Get the string representation of the querystring (x-www-form-urlencoded).
      *
      * @return string the x-www-form-urlencoded querystring.
      */
     public function __toString() {}
+
     /**
      * Retrieve an querystring value.
      *
@@ -1551,6 +1734,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * 		 or string the querystring value if the key $name exists and $type is not specified or equals http\QueryString::TYPE_STRING.
      */
     public function get(string $name = null, $type = null, $defval = null, bool $delete = false) {}
+
     /**
      * Retrieve an array value with at offset $name.
      *
@@ -1561,6 +1745,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * 		 or mixed $defval if offset $name does not exist.
      */
     public function getArray(string $name, $defval = null, bool $delete = false) {}
+
     /**
      * Retrieve a boolean value at offset $name.
      *
@@ -1571,6 +1756,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * 		 or mixed $defval if offset $name does not exist.
      */
     public function getBool(string $name, $defval = null, bool $delete = false) {}
+
     /**
      * Retrieve a float value at offset $name.
      *
@@ -1581,6 +1767,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * 		 or mixed $defval if offset $name does not exist.
      */
     public function getFloat(string $name, $defval = null, bool $delete = false) {}
+
     /**
      * Retrieve the global querystring instance referencing $_GET.
      *
@@ -1588,6 +1775,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * @return \http\QueryString the http\QueryString::$instance
      */
     public function getGlobalInstance() {}
+
     /**
      * Retrieve a int value at offset $name.
      *
@@ -1598,6 +1786,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * 		 or mixed $defval if offset $name does not exist.
      */
     public function getInt(string $name, $defval = null, bool $delete = false) {}
+
     /**
      * Implements IteratorAggregate.
      *
@@ -1605,6 +1794,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * @throws \InvalidArgumentException
      */
     public function getIterator() {}
+
     /**
      * Retrieve a object value with at offset $name.
      *
@@ -1615,6 +1805,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * 		 or mixed $defval if offset $name does not exist.
      */
     public function getObject(string $name, $defval = null, bool $delete = false) {}
+
     /**
      * Retrieve a string value with at offset $name.
      *
@@ -1625,6 +1816,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * 		 or mixed $defval if offset $name does not exist.
      */
     public function getString(string $name, $defval = null, bool $delete = false) {}
+
     /**
      * Set additional $params to a clone of this instance.
      * See http\QueryString::set().
@@ -1637,6 +1829,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * @return \http\QueryString clone.
      */
     public function mod($params = null) {}
+
     /**
      * Implements ArrayAccess.
      *
@@ -1644,6 +1837,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * @return bool whether the key $name isset.
      */
     public function offsetExists($name) {}
+
     /**
      * Implements ArrayAccess.
      *
@@ -1652,6 +1846,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * 		 or NULL if key $name could not be found.
      */
     public function offsetGet($offset) {}
+
     /**
      * Implements ArrayAccess.
      *
@@ -1659,12 +1854,14 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * @param mixed $data The data to place at offset $name.
      */
     public function offsetSet($name, $data) {}
+
     /**
      * Implements ArrayAccess.
      *
      * @param string $name The offset to look up.
      */
     public function offsetUnset($name) {}
+
     /**
      * Implements Serializable.
      * See http\QueryString::toString().
@@ -1672,6 +1869,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * @return string the x-www-form-urlencoded querystring.
      */
     public function serialize() {}
+
     /**
      * Set additional querystring entries.
      *
@@ -1679,18 +1877,21 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * @return \http\QueryString self.
      */
     public function set($params) {}
+
     /**
      * Simply returns http\QueryString::$queryArray.
      *
      * @return array the $queryArray property.
      */
     public function toArray() {}
+
     /**
      * Get the string representation of the querystring (x-www-form-urlencoded).
      *
      * @return string the x-www-form-urlencoded querystring.
      */
     public function toString() {}
+
     /**
      * Implements Serializable.
      *
@@ -1698,6 +1899,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * @throws \http\Exception
      */
     public function unserialize($serialized) {}
+
     /**
      * Translate character encodings of the querystring with ext/iconv.
      *
@@ -1721,139 +1923,169 @@ class Url
      * Replace parts of the old URL with parts of the new.
      */
     public const REPLACE = 0;
+
     /**
      * Whether a relative path should be joined into the old path.
      */
     public const JOIN_PATH = 1;
+
     /**
      * Whether the querystrings should be joined.
      */
     public const JOIN_QUERY = 2;
+
     /**
      * Strip the user information from the URL.
      */
     public const STRIP_USER = 4;
+
     /**
      * Strip the password from the URL.
      */
     public const STRIP_PASS = 8;
+
     /**
      * Strip user and password information from URL (same as STRIP_USER|STRIP_PASS).
      */
     public const STRIP_AUTH = 12;
+
     /**
      * Do not include the port.
      */
     public const STRIP_PORT = 32;
+
     /**
      * Do not include the URL path.
      */
     public const STRIP_PATH = 64;
+
     /**
      * Do not include the URL querystring.
      */
     public const STRIP_QUERY = 128;
+
     /**
      * Strip the fragment (hash) from the URL.
      */
     public const STRIP_FRAGMENT = 256;
+
     /**
      * Strip everything except scheme and host information.
      */
     public const STRIP_ALL = 492;
+
     /**
      * Import initial URL parts from the SAPI environment.
      */
     public const FROM_ENV = 4096;
+
     /**
      * Whether to sanitize the URL path (consolidate double slashes, directory jumps etc.)
      */
     public const SANITIZE_PATH = 8192;
+
     /**
      * Parse UTF-8 encoded multibyte sequences.
      */
     public const PARSE_MBUTF8 = 131072;
+
     /**
      * Parse locale encoded multibyte sequences (on systems with wide character support).
      */
     public const PARSE_MBLOC = 65536;
+
     /**
      * Parse and convert multibyte hostnames according to IDNA (with IDNA support).
      */
     public const PARSE_TOIDN = 1048576;
+
     /**
      * Explicitly request IDNA2003 implementation if available (libidn, idnkit or ICU).
      */
     public const PARSE_TOIDN_2003 = 9437184;
+
     /**
      * Explicitly request IDNA2008 implementation if available (libidn2, idnkit2 or ICU).
      */
     public const PARSE_TOIDN_2008 = 5242880;
+
     /**
      * Percent encode multibyte sequences in the userinfo, path, query and fragment parts of the URL.
      */
     public const PARSE_TOPCT = 2097152;
+
     /**
      * Continue parsing when encountering errors.
      */
     public const IGNORE_ERRORS = 268435456;
+
     /**
      * Suppress errors/exceptions.
      */
     public const SILENT_ERRORS = 536870912;
+
     /**
      * Standard flags used by default internally for e.g. http\Message::setRequestUrl().
      *   Enables joining path and query, sanitizing path, multibyte/unicode, international domain names and transient percent encoding.
      */
     public const STDFLAGS = 3350531;
+
     /**
      * The URL's scheme.
      *
      * @var string
      */
     public $scheme = null;
+
     /**
      * Authenticating user.
      *
      * @var string
      */
     public $user = null;
+
     /**
      * Authentication password.
      *
      * @var string
      */
     public $pass = null;
+
     /**
      * Hostname/domain.
      *
      * @var string
      */
     public $host = null;
+
     /**
      * Port.
      *
      * @var string
      */
     public $port = null;
+
     /**
      * URL path.
      *
      * @var string
      */
     public $path = null;
+
     /**
      * URL querystring.
      *
      * @var string
      */
     public $query = null;
+
     /**
      * URL fragment (hash).
      *
      * @var string
      */
     public $fragment = null;
+
     /**
      * Create an instance of an http\Url.
      *
@@ -1869,12 +2101,14 @@ class Url
      * @throws \http\Exception\BadUrlException
      */
     public function __construct($old_url = null, $new_url = null, int $flags = 0) {}
+
     /**
      * String cast handler. Alias of http\Url::toString().
      *
      * @return string the URL as string.
      */
     public function __toString() {}
+
     /**
      * Clone this URL and apply $parts to the cloned URL.
      *
@@ -1888,12 +2122,14 @@ class Url
      * @return \http\Url clone.
      */
     public function mod($parts, int $flags = \http\Url::JOIN_PATH|\http\Url::JOIN_QUERY|\http\Url::SANITIZE_PATH) {}
+
     /**
      * Retrieve the URL parts as array.
      *
      * @return array the URL parts.
      */
     public function toArray() {}
+
     /**
      * Get the string prepresentation of the URL.
      *
@@ -2066,6 +2302,7 @@ class Request extends \http\Message
      * @var array
      */
     protected $options = null;
+
     /**
      * Create a new client request message to be enqueued and sent by http\Client.
      *
@@ -2077,6 +2314,7 @@ class Request extends \http\Message
      * @throws \http\Exception\UnexpectedValueException
      */
     public function __construct(string $meth = null, string $url = null, array $headers = null, http\Message\Body $body = null) {}
+
     /**
      * Add querystring data.
      * See http\Client\Request::setQuery() and http\Message::setRequestUrl().
@@ -2087,6 +2325,7 @@ class Request extends \http\Message
      * @return \http\Client\Request self.
      */
     public function addQuery($query_data) {}
+
     /**
      * Add specific SSL options.
      * See http\Client\Request::setSslOptions(), http\Client\Request::setOptions() and http\Client\Curl\$ssl options.
@@ -2096,6 +2335,7 @@ class Request extends \http\Message
      * @return \http\Client\Request self.
      */
     public function addSslOptions(array $ssl_options = null) {}
+
     /**
      * Extract the currently set "Content-Type" header.
      * See http\Client\Request::setContentType().
@@ -2104,6 +2344,7 @@ class Request extends \http\Message
      * 		 or NULL if no "Content-Type" header is set.
      */
     public function getContentType() {}
+
     /**
      * Get priorly set options.
      * See http\Client\Request::setOptions().
@@ -2111,6 +2352,7 @@ class Request extends \http\Message
      * @return array options.
      */
     public function getOptions() {}
+
     /**
      * Retrieve the currently set querystring.
      *
@@ -2118,6 +2360,7 @@ class Request extends \http\Message
      * 		 or NULL if no querystring is set.
      */
     public function getQuery() {}
+
     /**
      * Retrieve priorly set SSL options.
      * See http\Client\Request::getOptions() and http\Client\Request::setSslOptions().
@@ -2125,6 +2368,7 @@ class Request extends \http\Message
      * @return array SSL options.
      */
     public function getSslOptions() {}
+
     /**
      * Set the MIME content type of the request message.
      *
@@ -2134,6 +2378,7 @@ class Request extends \http\Message
      * @return \http\Client\Request self.
      */
     public function setContentType(string $content_type) {}
+
     /**
      * Set client options.
      * See http\Client::setOptions() and http\Client\Curl.
@@ -2148,6 +2393,7 @@ class Request extends \http\Message
      * @return \http\Client\Request self.
      */
     public function setOptions(array $options = null) {}
+
     /**
      * (Re)set the querystring.
      * See http\Client\Request::addQuery() and http\Message::setRequestUrl().
@@ -2158,6 +2404,7 @@ class Request extends \http\Message
      * @return \http\Client\Request self.
      */
     public function setQuery($query_data) {}
+
     /**
      * Specifically set SSL options.
      * See http\Client\Request::setOptions() and http\Client\Curl\$ssl options.
@@ -2182,6 +2429,7 @@ class Response extends \http\Message
      * @return array list of http\Cookie instances.
      */
     public function getCookies(int $flags = 0, array $allowed_extras = null) {}
+
     /**
      * Retrieve transfer related information after the request has completed.
      * See http\Client::getTransferInfo().
@@ -2210,22 +2458,27 @@ interface User
      * No action.
      */
     public const POLL_NONE = 0;
+
     /**
      * Poll for read readiness.
      */
     public const POLL_IN = 1;
+
     /**
      * Poll for write readiness.
      */
     public const POLL_OUT = 2;
+
     /**
      * Poll for read/write readiness.
      */
     public const POLL_INOUT = 3;
+
     /**
      * Stop polling for activity on this descriptor.
      */
     public const POLL_REMOVE = 4;
+
     /**
      * Initialize the event loop.
      *
@@ -2237,6 +2490,7 @@ interface User
      * The callback should be run when a timeout occurs or a watched socket needs action.
      */
     public function init(callable $run);
+
     /**
      * Run the loop as long as it does not block.
      *
@@ -2244,6 +2498,7 @@ interface User
      * This method is called by http\Client::once(), so it does not need to have an actual implementation if http\Client::once() is never called.
      */
     public function once();
+
     /**
      * Run the loop.
      *
@@ -2251,6 +2506,7 @@ interface User
      * This method is called by http\Client::send(), so it does not need to have an actual implementation if http\Client::send() is never called.
      */
     public function send();
+
     /**
      * Register (or deregister) a socket watcher.
      *
@@ -2258,12 +2514,14 @@ interface User
      * @param int $poll http\Client\Curl\User::POLL_* constant.
      */
     public function socket($socket, int $poll);
+
     /**
      * Register a timeout watcher.
      *
      * @param int $timeout_ms Desired maximum timeout in milliseconds.
      */
     public function timer(int $timeout_ms);
+
     /**
      * Wait/poll/select (block the loop) until events fire.
      *
@@ -2396,14 +2654,17 @@ abstract class Stream
      * Do no intermittent flushes.
      */
     public const FLUSH_NONE = 0;
+
     /**
      * Flush at appropriate transfer points.
      */
     public const FLUSH_SYNC = 1048576;
+
     /**
      * Flush at each IO operation.
      */
     public const FLUSH_FULL = 2097152;
+
     /**
      * Base constructor for encoding stream implementations.
      *
@@ -2412,12 +2673,14 @@ abstract class Stream
      * @throws \http\Exception\RuntimeException
      */
     public function __construct(int $flags = 0) {}
+
     /**
      * Check whether the encoding stream is already done.
      *
      * @return bool whether the encoding stream is completed.
      */
     public function done() {}
+
     /**
      * Finish and reset the encoding stream.
      * Returns any pending data.
@@ -2425,6 +2688,7 @@ abstract class Stream
      * @return string any pending data.
      */
     public function finish() {}
+
     /**
      * Flush the encoding stream.
      * Returns any pending data.
@@ -2432,6 +2696,7 @@ abstract class Stream
      * @return string any pending data.
      */
     public function flush() {}
+
     /**
      * Update the encoding stream with more input.
      *
@@ -2486,42 +2751,52 @@ class Deflate extends \http\Encoding\Stream
      * Gzip encoding. RFC1952
      */
     public const TYPE_GZIP = 16;
+
     /**
      * Zlib encoding. RFC1950
      */
     public const TYPE_ZLIB = 0;
+
     /**
      * Deflate encoding. RFC1951
      */
     public const TYPE_RAW = 32;
+
     /**
      * Default compression level.
      */
     public const LEVEL_DEF = 0;
+
     /**
      * Least compression level.
      */
     public const LEVEL_MIN = 1;
+
     /**
      * Greatest compression level.
      */
     public const LEVEL_MAX = 9;
+
     /**
      * Default compression strategy.
      */
     public const STRATEGY_DEF = 0;
+
     /**
      * Filtered compression strategy.
      */
     public const STRATEGY_FILT = 256;
+
     /**
      * Huffman strategy only.
      */
     public const STRATEGY_HUFF = 512;
+
     /**
      * Run-length encoding strategy.
      */
     public const STRATEGY_RLE = 768;
+
     /**
      * Encoding with fixed Huffman codes only.
      *
@@ -2542,6 +2817,7 @@ class Deflate extends \http\Encoding\Stream
      * >_Source: [zlib Manual](http://www.zlib.net/manual.html)_
      */
     public const STRATEGY_FIXED = 1024;
+
     /**
      * Encode data with deflate/zlib/gzip encoding.
      *
@@ -2563,38 +2839,47 @@ class Enbrotli extends \http\Encoding\Stream
      * Default compression level.
      */
     public const LEVEL_DEF = null;
+
     /**
      * Least compression level.
      */
     public const LEVEL_MIN = null;
+
     /**
      * Greatest compression level.
      */
     public const LEVEL_MAX = null;
+
     /**
      * Default window bits.
      */
     public const WBITS_DEF = null;
+
     /**
      * Minimum window bits.
      */
     public const WBITS_MIN = null;
+
     /**
      * Maximum window bits.
      */
     public const WBITS_MAX = null;
+
     /**
      * Default compression mode.
      */
     public const MODE_GENERIC = null;
+
     /**
      * Compression mode for UTF-8 formatted text.
      */
     public const MODE_TEXT = null;
+
     /**
      * Compression mode used in WOFF 2.0.
      */
     public const MODE_FONT = null;
+
     /**
      * Encode data with brotli encoding.
      *
@@ -2633,24 +2918,28 @@ class Request extends \http\Message
      * @var \http\QueryString
      */
     protected $query = null;
+
     /**
      * The request's form parameters. ($_POST)
      *
      * @var \http\QueryString
      */
     protected $form = null;
+
     /**
      * The request's form uploads. ($_FILES)
      *
      * @var array
      */
     protected $files = null;
+
     /**
      * The request's cookies. ($_COOKIE)
      *
      * @var array
      */
     protected $cookie = null;
+
     /**
      * Create an instance of the server's current HTTP request.
      *
@@ -2662,6 +2951,7 @@ class Request extends \http\Message
      * @throws \http\Exception\UnexpectedValueException
      */
     public function __construct() {}
+
     /**
      * Retrieve an URL query value ($_GET).
      *
@@ -2678,12 +2968,14 @@ class Request extends \http\Message
      * 		 or string the querystring value if the key $name exists and $type is not specified or equals http\QueryString::TYPE_STRING.
      */
     public function getCookie(string $name = null, $type = null, $defval = null, bool $delete = false) {}
+
     /**
      * Retrieve the uploaded files list ($_FILES).
      *
      * @return array the consolidated upload files array.
      */
     public function getFiles() {}
+
     /**
      * Retrieve a form value ($_POST).
      *
@@ -2700,6 +2992,7 @@ class Request extends \http\Message
      * 		 or string the querystring value if the key $name exists and $type is not specified or equals http\QueryString::TYPE_STRING.
      */
     public function getForm(string $name = null, $type = null, $defval = null, bool $delete = false) {}
+
     /**
      * Retrieve an URL query value ($_GET).
      *
@@ -2728,82 +3021,97 @@ class Response extends \http\Message
      * Do not use content encoding.
      */
     public const CONTENT_ENCODING_NONE = 0;
+
     /**
      * Support "Accept-Encoding" requests with gzip and deflate encoding.
      */
     public const CONTENT_ENCODING_GZIP = 1;
+
     /**
      * No caching info available.
      */
     public const CACHE_NO = 0;
+
     /**
      * The cache was hit.
      */
     public const CACHE_HIT = 1;
+
     /**
      * The cache was missed.
      */
     public const CACHE_MISS = 2;
+
     /**
      * A request instance which overrides the environments default request.
      *
      * @var \http\Env\Request
      */
     protected $request = null;
+
     /**
      * The response's MIME content type.
      *
      * @var string
      */
     protected $contentType = null;
+
     /**
      * The response's MIME content disposition.
      *
      * @var string
      */
     protected $contentDisposition = null;
+
     /**
      * See http\Env\Response::CONTENT_ENCODING_* constants.
      *
      * @var int
      */
     protected $contentEncoding = null;
+
     /**
      * How the client should treat this response in regards to caching.
      *
      * @var string
      */
     protected $cacheControl = null;
+
     /**
      * A custom ETag.
      *
      * @var string
      */
     protected $etag = null;
+
     /**
      * A "Last-Modified" time stamp.
      *
      * @var int
      */
     protected $lastModified = null;
+
     /**
      * Any throttling delay.
      *
      * @var int
      */
     protected $throttleDelay = null;
+
     /**
      * The chunk to send every $throttleDelay seconds.
      *
      * @var int
      */
     protected $throttleChunk = null;
+
     /**
      * The response's cookies.
      *
      * @var array
      */
     protected $cookies = null;
+
     /**
      * Create a new env response message instance.
      *
@@ -2811,6 +3119,7 @@ class Response extends \http\Message
      * @throws \http\Exception\UnexpectedValueException
      */
     public function __construct() {}
+
     /**
      * Output buffer handler.
      * Appends output data to the body.
@@ -2820,6 +3129,7 @@ class Response extends \http\Message
      * @return bool success.
      */
     public function __invoke(string $data, int $ob_flags = 0) {}
+
     /**
      * Manually test the header $header_name of the environment's request for a cache hit.
      * http\Env\Response::send() checks that itself, though.
@@ -2828,6 +3138,7 @@ class Response extends \http\Message
      * @return int a http\Env\Response::CACHE_* constant.
      */
     public function isCachedByEtag(string $header_name = "If-None-Match") {}
+
     /**
      * Manually test the header $header_name of the environment's request for a cache hit.
      * http\Env\Response::send() checks that itself, though.
@@ -2836,6 +3147,7 @@ class Response extends \http\Message
      * @return int a http\Env\Response::CACHE_* constant.
      */
     public function isCachedByLastModified(string $header_name = "If-Modified-Since") {}
+
     /**
      * Send the response through the SAPI or $stream.
      * Flushes all output buffers.
@@ -2844,6 +3156,7 @@ class Response extends \http\Message
      * @return bool success.
      */
     public function send($stream = null) {}
+
     /**
      * Make suggestions to the client how it should cache the response.
      *
@@ -2852,6 +3165,7 @@ class Response extends \http\Message
      * @return \http\Env\Response self.
      */
     public function setCacheControl(string $cache_control) {}
+
     /**
      * Set the response's content disposition parameters.
      *
@@ -2860,6 +3174,7 @@ class Response extends \http\Message
      * @return \http\Env\Response self.
      */
     public function setContentDisposition(array $disposition_params) {}
+
     /**
      * Enable support for "Accept-Encoding" requests with deflate or gzip.
      * The response will be compressed if the client indicates support and wishes that.
@@ -2869,6 +3184,7 @@ class Response extends \http\Message
      * @return \http\Env\Response self.
      */
     public function setContentEncoding(int $content_encoding) {}
+
     /**
      * Set the MIME content type of the response.
      *
@@ -2877,6 +3193,7 @@ class Response extends \http\Message
      * @return \http\Env\Response self.
      */
     public function setContentType(string $content_type) {}
+
     /**
      * Add cookies to the response to send.
      *
@@ -2886,6 +3203,7 @@ class Response extends \http\Message
      * @return \http\Env\Response self.
      */
     public function setCookie($cookie) {}
+
     /**
      * Override the environment's request.
      *
@@ -2894,6 +3212,7 @@ class Response extends \http\Message
      * @return \http\Env\Response self.
      */
     public function setEnvRequest(http\Message $env_request) {}
+
     /**
      * Set a custom ETag.
      *
@@ -2905,6 +3224,7 @@ class Response extends \http\Message
      * @return \http\Env\Response self.
      */
     public function setEtag(string $etag) {}
+
     /**
      * Set a custom last modified time stamp.
      *
@@ -2916,6 +3236,7 @@ class Response extends \http\Message
      * @return \http\Env\Response self.
      */
     public function setLastModified(int $last_modified) {}
+
     /**
      * Enable throttling.
      * Send $chunk_size bytes every $delay seconds.
@@ -2992,30 +3313,37 @@ class Parser
      * Finish up parser at end of (incomplete) input.
      */
     public const CLEANUP = 1;
+
     /**
      * Parse failure.
      */
     public const STATE_FAILURE = -1;
+
     /**
      * Expecting HTTP info (request/response line) or headers.
      */
     public const STATE_START = 0;
+
     /**
      * Expecting a key or already parsing a key.
      */
     public const STATE_KEY = 1;
+
     /**
      * Expecting a value or already parsing the value.
      */
     public const STATE_VALUE = 2;
+
     /**
      * At EOL of an header, checking whether a folded header line follows.
      */
     public const STATE_VALUE_EX = 3;
+
     /**
      * A header was completed.
      */
     public const STATE_HEADER_DONE = 4;
+
     /**
      * Finished parsing the headers.
      *
@@ -3023,6 +3351,7 @@ class Parser
      * Most of this states won't be returned to the user, because the parser immediately jumps to the next expected state.
      */
     public const STATE_DONE = 5;
+
     /**
      * Retrieve the current state of the parser.
      * See http\Header\Parser::STATE_* constants.
@@ -3031,6 +3360,7 @@ class Parser
      * @return int http\Header\Parser::STATE_* constant.
      */
     public function getState() {}
+
     /**
      * Parse a string.
      *
@@ -3041,6 +3371,7 @@ class Parser
      * @return int http\Header\Parser::STATE_* constant.
      */
     public function parse(string $data, int $flags, array &$header = null) {}
+
     /**
      * Parse a stream.
      *
@@ -3072,12 +3403,14 @@ class Body implements \Serializable
      * @throws \http\Exception\UnexpectedValueException
      */
     public function __construct($stream = null) {}
+
     /**
      * String cast handler.
      *
      * @return string the message body.
      */
     public function __toString() {}
+
     /**
      * Add form fields and files to the message body.
      *
@@ -3122,6 +3455,7 @@ class Body implements \Serializable
      * @return \http\Message\Body self.
      */
     public function addForm(array $fields = null, array $files = null) {}
+
     /**
      * Add a part to a multipart body.
      *
@@ -3131,6 +3465,7 @@ class Body implements \Serializable
      * @return \http\Message\Body self.
      */
     public function addPart(http\Message $part) {}
+
     /**
      * Append plain bytes to the message body.
      *
@@ -3140,6 +3475,7 @@ class Body implements \Serializable
      * @return \http\Message\Body self.
      */
     public function append(string $data) {}
+
     /**
      * Retrieve the ETag of the body.
      *
@@ -3148,6 +3484,7 @@ class Body implements \Serializable
      * 		 or false if http.etag.mode is not a known hash algorithm.
      */
     public function etag() {}
+
     /**
      * Retrieve any boundary of the message body.
      * See http\Message::splitMultipartBody().
@@ -3156,12 +3493,14 @@ class Body implements \Serializable
      * 		 or NULL if this message body has no boundary.
      */
     public function getBoundary() {}
+
     /**
      * Retrieve the underlying stream resource.
      *
      * @return resource the underlying stream.
      */
     public function getResource() {}
+
     /**
      * Implements Serializable.
      * Alias of http\Message\Body::__toString().
@@ -3169,6 +3508,7 @@ class Body implements \Serializable
      * @return string serialized message body.
      */
     public function serialize() {}
+
     /**
      * Stat size, atime, mtime and/or ctime.
      *
@@ -3177,6 +3517,7 @@ class Body implements \Serializable
      * 		 or object stdClass instance holding all four stat fields.
      */
     public function stat(string $field = null) {}
+
     /**
      * Stream the message body through a callback.
      *
@@ -3186,6 +3527,7 @@ class Body implements \Serializable
      * @return \http\Message\Body self.
      */
     public function toCallback(callable $callback, int $offset = 0, int $maxlen = 0) {}
+
     /**
      * Stream the message body into another stream $stream, starting from $offset, streaming $maxlen at most.
      *
@@ -3195,6 +3537,7 @@ class Body implements \Serializable
      * @return \http\Message\Body self.
      */
     public function toStream($stream, int $offset = 0, int $maxlen = 0) {}
+
     /**
      * Retrieve the message body serialized to a string.
      * Alias of http\Message\Body::__toString().
@@ -3202,6 +3545,7 @@ class Body implements \Serializable
      * @return string message body.
      */
     public function toString() {}
+
     /**
      * Implements Serializable.
      *
@@ -3221,58 +3565,72 @@ class Parser
      * Finish up parser at end of (incomplete) input.
      */
     public const CLEANUP = 1;
+
     /**
      * Soak up the rest of input if no entity length is deducible.
      */
     public const DUMB_BODIES = 2;
+
     /**
      * Redirect messages do not contain any body despite of indication of such.
      */
     public const EMPTY_REDIRECTS = 4;
+
     /**
      * Continue parsing while input is available.
      */
     public const GREEDY = 8;
+
     /**
      * Parse failure.
      */
     public const STATE_FAILURE = -1;
+
     /**
      * Expecting HTTP info (request/response line) or headers.
      */
     public const STATE_START = 0;
+
     /**
      * Parsing headers.
      */
     public const STATE_HEADER = 1;
+
     /**
      * Completed parsing headers.
      */
     public const STATE_HEADER_DONE = 2;
+
     /**
      * Parsing the body.
      */
     public const STATE_BODY = 3;
+
     /**
      * Soaking up all input as body.
      */
     public const STATE_BODY_DUMB = 4;
+
     /**
      * Reading body as indicated by `Content-Length` or `Content-Range`.
      */
     public const STATE_BODY_LENGTH = 5;
+
     /**
      * Parsing `chunked` encoded body.
      */
     public const STATE_BODY_CHUNKED = 6;
+
     /**
      * Finished parsing the body.
      */
     public const STATE_BODY_DONE = 7;
+
     /**
      * Updating Content-Length based on body size.
      */
     public const STATE_UPDATE_CL = 8;
+
     /**
      * Finished parsing the message.
      *
@@ -3280,6 +3638,7 @@ class Parser
      * Most of this states won't be returned to the user, because the parser immediately jumps to the next expected state.
      */
     public const STATE_DONE = 9;
+
     /**
      * Retrieve the current state of the parser.
      * See http\Message\Parser::STATE_* constants.
@@ -3288,6 +3647,7 @@ class Parser
      * @return int http\Message\Parser::STATE_* constant.
      */
     public function getState() {}
+
     /**
      * Parse a string.
      *
@@ -3298,6 +3658,7 @@ class Parser
      * @return int http\Message\Parser::STATE_* constant.
      */
     public function parse(string $data, int $flags, http\Message $message) {}
+
     /**
      * Parse a stream.
      *

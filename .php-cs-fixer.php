@@ -40,8 +40,11 @@ return (new PhpCsFixer\Config())
         'no_empty_phpdoc' => true,
         'no_extra_blank_lines' => ['tokens' => [
             'case', 'continue', 'curly_brace_block', 'default', 'extra', 'parenthesis_brace_block',
-            'square_brace_block', 'switch', 'throw', 'use', 'use_trait'
+            'square_brace_block', 'switch', 'throw', 'use'
         ]
+        ],
+        'class_attributes_separation' => [
+          'elements' => ['const' => 'only_if_meta', 'method' => 'one', 'property' => 'only_if_meta', 'trait_import' => 'none']
         ],
         'no_leading_namespace_whitespace' => true,
         'no_multiline_whitespace_around_double_arrow' => true,

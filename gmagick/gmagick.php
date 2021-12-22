@@ -17,9 +17,7 @@ class Gmagick
     public const COLOR_OPACITY = 0;
     public const COLOR_ALPHA = 0;
     public const COLOR_FUZZ = 0;
-
     public const GMAGICK_EXTNUM = 0;
-
     public const COMPOSITE_DEFAULT = 0;
     public const COMPOSITE_UNDEFINED = 0;
     public const COMPOSITE_NO = 0;
@@ -70,16 +68,13 @@ class Gmagick
     public const COMPOSITE_VIVIDLIGHT = 0;
     public const COMPOSITE_PINLIGHT = 0;
     public const COMPOSITE_HARDMIX = 0;
-
     public const MONTAGEMODE_FRAME = 0;
     public const MONTAGEMODE_UNFRAME = 0;
     public const MONTAGEMODE_CONCATENATE = 0;
-
     public const STYLE_NORMAL = 0;
     public const STYLE_ITALIC = 0;
     public const STYLE_OBLIQUE = 0;
     public const STYLE_ANY = 0;
-
     public const FILTER_UNDEFINED = 0;
     public const FILTER_POINT = 0;
     public const FILTER_BOX = 0;
@@ -96,7 +91,6 @@ class Gmagick
     public const FILTER_LANCZOS = 0;
     public const FILTER_BESSEL = 0;
     public const FILTER_SINC = 0;
-
     public const IMGTYPE_UNDEFINED = 0;
     public const IMGTYPE_BILEVEL = 0;
     public const IMGTYPE_GRAYSCALE = 0;
@@ -108,11 +102,9 @@ class Gmagick
     public const IMGTYPE_COLORSEPARATION = 0;
     public const IMGTYPE_COLORSEPARATIONMATTE = 0;
     public const IMGTYPE_OPTIMIZE = 0;
-
     public const RESOLUTION_UNDEFINED = 0;
     public const RESOLUTION_PIXELSPERINCH = 0;
     public const RESOLUTION_PIXELSPERCENTIMETER = 0;
-
     public const COMPRESSION_UNDEFINED = 0;
     public const COMPRESSION_NO = 0;
     public const COMPRESSION_BZIP = 0;
@@ -128,18 +120,15 @@ class Gmagick
     public const COMPRESSION_JPEG2000 = 0;
     public const COMPRESSION_JBIG1 = 0;
     public const COMPRESSION_JBIG2 = 0;
-
     public const INTERLACE_NONE = 0;
     public const INTERLACE_LINE = 0;
     public const INTERLACE_PLANE = 0;
     public const INTERLACE_PARTITION = 0;
-
     public const PAINT_POINT = 0;
     public const PAINT_REPLACE = 0;
     public const PAINT_FLOODFILL = 0;
     public const PAINT_FILLTOBORDER = 0;
     public const PAINT_RESET = 0;
-
     public const GRAVITY_NORTHWEST = 0;
     public const GRAVITY_NORTH = 0;
     public const GRAVITY_NORTHEAST = 0;
@@ -149,7 +138,6 @@ class Gmagick
     public const GRAVITY_SOUTHWEST = 0;
     public const GRAVITY_SOUTH = 0;
     public const GRAVITY_SOUTHEAST = 0;
-
     public const STRETCH_NORMAL = 0;
     public const STRETCH_ULTRACONDENSED = 0;
     public const STRETCH_CONDENSED = 0;
@@ -160,17 +148,14 @@ class Gmagick
     public const STRETCH_ULTRAEXPANDED = 0;
     public const STRETCH_ANY = 0;
     public const STRETCH_EXTRACONDENSED = 0;
-
     public const ALIGN_UNDEFINED = 0;
     public const ALIGN_LEFT = 0;
     public const ALIGN_CENTER = 0;
     public const ALIGN_RIGHT = 0;
-
     public const DECORATION_NO = 0;
     public const DECORATION_UNDERLINE = 0;
     public const DECORATION_OVERLINE = 0;
     public const DECORATION_LINETROUGH = 0;
-
     public const NOISE_UNIFORM = 0;
     public const NOISE_GAUSSIAN = 0;
     public const NOISE_MULTIPLICATIVEGAUSSIAN = 0;
@@ -178,7 +163,6 @@ class Gmagick
     public const NOISE_LAPLACIAN = 0;
     public const NOISE_POISSON = 0;
     public const NOISE_RANDOM = 0;
-
     public const CHANNEL_UNDEFINED = 0;
     public const CHANNEL_RED = 0;
     public const CHANNEL_GRAY = 0;
@@ -193,21 +177,18 @@ class Gmagick
     public const CHANNEL_INDEX = 0;
     public const CHANNEL_ALL = 0;
     public const CHANNEL_DEFAULT = 0;
-
     public const METRIC_UNDEFINED = 0;
     public const METRIC_MEANABSOLUTEERROR = 0;
     public const METRIC_MEANSQUAREERROR = 0;
     public const METRIC_PEAKABSOLUTEERROR = 0;
     public const METRIC_PEAKSIGNALTONOISERATIO = 0;
     public const METRIC_ROOTMEANSQUAREDERROR = 0;
-
     public const PIXEL_CHAR = 0;
     public const PIXEL_DOUBLE = 0;
     public const PIXEL_FLOAT = 0;
     public const PIXEL_INTEGER = 0;
     public const PIXEL_LONG = 0;
     public const PIXEL_SHORT = 0;
-
     public const COLORSPACE_UNDEFINED = 0;
     public const COLORSPACE_RGB = 0;
     public const COLORSPACE_GRAY = 0;
@@ -229,13 +210,11 @@ class Gmagick
     public const COLORSPACE_CINEONLOGRGB = 0;
     public const COLORSPACE_REC601YCBCR = 0;
     public const COLORSPACE_REC709YCBCR = 0;
-
     public const VIRTUALPIXELMETHOD_UNDEFINED = 0;
     public const VIRTUALPIXELMETHOD_CONSTANT = 0;
     public const VIRTUALPIXELMETHOD_EDGE = 0;
     public const VIRTUALPIXELMETHOD_MIRROR = 0;
     public const VIRTUALPIXELMETHOD_TILE = 0;
-
     public const PREVIEW_UNDEFINED = 0;
     public const PREVIEW_ROTATE = 0;
     public const PREVIEW_SHEAR = 0;
@@ -266,34 +245,27 @@ class Gmagick
     public const PREVIEW_OILPAINT = 0;
     public const PREVIEW_CHARCOALDRAWING = 0;
     public const PREVIEW_JPEG = 0;
-
     public const RENDERINGINTENT_UNDEFINED = 0;
     public const RENDERINGINTENT_SATURATION = 0;
     public const RENDERINGINTENT_PERCEPTUAL = 0;
     public const RENDERINGINTENT_ABSOLUTE = 0;
     public const RENDERINGINTENT_RELATIVE = 0;
-
     public const INTERLACE_UNDEFINED = 0;
     public const INTERLACE_NO = 0;
-
     public const FILLRULE_UNDEFINED = 0;
     public const FILLRULE_EVENODD = 0;
     public const FILLRULE_NONZERO = 0;
-
     public const PATHUNITS_USERSPACE = 0;
     public const PATHUNITS_USERSPACEONUSE = 0;
     public const PATHUNITS_OBJECTBOUNDINGBOX = 0;
-
     public const LINECAP_UNDEFINED = 0;
     public const LINECAP_BUTT = 0;
     public const LINECAP_ROUND = 0;
     public const LINECAP_SQUARE = 0;
-
     public const LINEJOIN_UNDEFINED = 0;
     public const LINEJOIN_MITER = 0;
     public const LINEJOIN_ROUND = 0;
     public const LINEJOIN_BEVEL = 0;
-
     public const RESOURCETYPE_UNDEFINED = 0;
     public const RESOURCETYPE_AREA = 0;
     public const RESOURCETYPE_DISK = 0;
@@ -304,12 +276,10 @@ class Gmagick
     public const RESOURCETYPE_THREADS = 0;
     public const RESOURCETYPE_WIDTH = 0;
     public const RESOURCETYPE_HEIGHT = 0;
-
     public const DISPOSE_UNDEFINED = 0;
     public const DISPOSE_NONE = 0;
     public const DISPOSE_BACKGROUND = 0;
     public const DISPOSE_PREVIOUS = 0;
-
     public const ORIENTATION_UNDEFINED = 0;
     public const ORIENTATION_TOPLEFT = 0;
     public const ORIENTATION_TOPRIGHT = 0;
@@ -319,10 +289,8 @@ class Gmagick
     public const ORIENTATION_RIGHTTOP = 0;
     public const ORIENTATION_RIGHTBOTTOM = 0;
     public const ORIENTATION_LEFTBOTTOM = 0;
-
     public const QUANTUM_DEPTH = 0;
     public const QUANTUM = 0;
-
     public const VERSION_LIB = 0;
     public const VERSION_NUM = 0;
     public const VERSION_TXT = '';

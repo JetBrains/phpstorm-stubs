@@ -7,9 +7,7 @@ namespace Swoole;
 class Table implements \Iterator, \ArrayAccess, \Countable
 {
     public const TYPE_INT = 1;
-
     public const TYPE_STRING = 3;
-
     public const TYPE_FLOAT = 2;
 
     /**

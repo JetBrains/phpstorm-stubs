@@ -46,25 +46,30 @@ final class mysqli_driver
      */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $client_info;
+
     /**
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $client_version;
+
     /**
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $driver_version;
+
     /**
      * @var string
      */
     public $embedded;
+
     /**
      * @var bool
      */
     #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')]
     public $reconnect;
+
     /**
      * @var int
      */
@@ -83,81 +88,97 @@ class mysqli
      */
     #[LanguageLevelTypeAware(['8.1' => 'string|int'], default: '')]
     public $affected_rows;
+
     /**
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $client_info;
+
     /**
      * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $client_version;
+
     /**
      * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $connect_errno;
+
     /**
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $connect_error;
+
     /**
      * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $errno;
+
     /**
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $error;
+
     /**
      * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $field_count;
+
     /**
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $host_info;
+
     /**
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $info;
+
     /**
      * @var int|string
      */
     #[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')]
     public $insert_id;
+
     /**
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $server_info;
+
     /**
      * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $server_version;
+
     /**
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $sqlstate;
+
     /**
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $protocol_version;
+
     /**
      * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $thread_id;
+
     /**
      * @var int
      */
@@ -170,7 +191,6 @@ class mysqli
      */
     #[LanguageLevelTypeAware(['8.1' => 'array'], default: '')]
     public $error_list;
-
     public $stat;
 
     /**
@@ -887,11 +907,13 @@ final class mysqli_warning
      */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $message;
+
     /**
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $sqlstate;
+
     /**
      * @var int
      */
@@ -932,21 +954,25 @@ class mysqli_result implements IteratorAggregate
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $current_field;
+
     /**
      * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $field_count;
+
     /**
      * @var array|null
      */
     #[LanguageLevelTypeAware(['8.1' => 'array|null'], default: '')]
     public $lengths;
+
     /**
      * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')]
     public $num_rows;
+
     /**
      * @var mixed
      */
@@ -1317,46 +1343,55 @@ class mysqli_stmt
      */
     #[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')]
     public $affected_rows;
+
     /**
      * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')]
     public $insert_id;
+
     /**
      * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int|string'], default: '')]
     public $num_rows;
+
     /**
      * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $param_count;
+
     /**
      * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $field_count;
+
     /**
      * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $errno;
+
     /**
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $error;
+
     /**
      * @var array
      */
     #[LanguageLevelTypeAware(['8.1' => 'array'], default: '')]
     public $error_list;
+
     /**
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $sqlstate;
+
     /**
      * @var string
      */

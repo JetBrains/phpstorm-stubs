@@ -7,21 +7,13 @@ namespace Swoole\Coroutine\Http2;
 class Client
 {
     public $errCode = 0;
-
     public $errMsg = 0;
-
     public $sock = -1;
-
     public $type = 0;
-
     public $setting;
-
     public $connected = false;
-
     public $host;
-
     public $port = 0;
-
     public $ssl = false;
 
     public function __construct($host, $port = null, $open_ssl = null) {}

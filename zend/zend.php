@@ -363,13 +363,21 @@ class ZendAPI_Job
 
     // All properties SET functions
     public function setJobName($name) {}
+
     public function setScript($script) {}
+
     public function setApplicationID($app_id) {}
+
     public function setUserVariables($vars) {}
+
     public function setGlobalVariables($vars) {}
+
     public function setJobDependency($job_id) {}
+
     public function setScheduledTime($timestamp) {}
+
     public function setRecurrenceData($interval, $end_time = null) {}
+
     public function setPreserved($preserved) {}
 
     /**
@@ -388,17 +396,29 @@ class ZendAPI_Job
 
     // All properties GET functions
     public function getID() {}
+
     public function getHost() {}
+
     public function getScript() {}
+
     public function getJobPriority() {}
+
     public function getJobName() {}
+
     public function getApplicationID() {}
+
     public function getUserVariables() {}
+
     public function getGlobalVariables() {}
+
     public function getJobDependency() {}
+
     public function getScheduledTime() {}
+
     public function getInterval() {}
+
     public function getEndTime() {}
+
     public function getPreserved() {}
 
     /**

@@ -71,7 +71,6 @@ trait PHPDocElement
      * @var bool
      */
     public $hasInternalMetaTag = false;
-
     public $templateTypes = null;
 
     protected function collectTags(Node $node) {

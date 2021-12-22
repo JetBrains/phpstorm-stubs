@@ -72,7 +72,6 @@ class SNMP
      * @link https://secure.php.net/manual/en/class.snmp.php#snmp.props.info
      */
     public $info;
-
     public const VERSION_1 = 0;
     public const VERSION_2c = 1;
     public const VERSION_2C = 1;
@@ -292,6 +291,7 @@ class SNMPException extends RuntimeException
      * @var string Textual error message. Exception::getMessage() to access it.
      */
     protected $message;
+
     /**
      * @var string SNMP library error code. Use Exception::getCode() to access it.
      */

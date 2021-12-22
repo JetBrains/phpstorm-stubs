@@ -112,7 +112,6 @@ class Yar_Concurrent_Client
     protected static $_callstack;
     protected static $_callback;
     protected static $_error_callback;
-
     protected static $_start;
 
     /**

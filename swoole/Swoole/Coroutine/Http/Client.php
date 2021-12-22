@@ -7,39 +7,22 @@ namespace Swoole\Coroutine\Http;
 class Client
 {
     public $errCode = 0;
-
     public $errMsg = '';
-
     public $connected = false;
-
     public $host = '';
-
     public $port = 0;
-
     public $ssl = false;
-
     public $setting;
-
     public $requestMethod;
-
     public $requestHeaders;
-
     public $requestBody;
-
     public $uploadFiles;
-
     public $downloadFile;
-
     public $downloadOffset = 0;
-
     public $statusCode = 0;
-
     public $headers;
-
     public $set_cookie_headers;
-
     public $cookies;
-
     public $body = '';
 
     public function __construct($host, $port = null, $ssl = null) {}

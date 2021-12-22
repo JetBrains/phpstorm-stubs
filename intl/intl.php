@@ -1202,7 +1202,6 @@ class NumberFormatter
 class Normalizer
 {
     public const NFKC_CF = 48;
-
     public const FORM_KC_CF = 48;
 
     /**
@@ -1864,7 +1863,6 @@ class IntlDateFormatter
      * @link https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants
      */
     public const TRADITIONAL = 0;
-
     public const RELATIVE_FULL = 128;
     public const RELATIVE_LONG = 129;
     public const RELATIVE_MEDIUM = 130;
