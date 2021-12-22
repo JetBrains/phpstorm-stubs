@@ -438,124 +438,154 @@ class Memcached
      * <p>MEMCACHED_BAD_KEY_PROVIDED: The key provided is not a valid key.</p>
      */
     public const RES_BAD_KEY_PROVIDED = 33;
+
     /**
      * <p>MEMCACHED_STORED: The requested object has been successfully stored on the server.</p>
      */
     public const RES_STORED = 15;
+
     /**
      * <p>MEMCACHED_DELETED: The object requested by the key has been deleted.</p>
      */
     public const RES_DELETED = 22;
+
     /**
      * <p>MEMCACHED_STAT: A “stat” command has been returned in the protocol.</p>
      */
     public const RES_STAT = 24;
+
     /**
      * <p>MEMCACHED_ITEM: An item has been fetched (this is an internal error only).</p>
      */
     public const RES_ITEM = 25;
+
     /**
      * <p>MEMCACHED_NOT_SUPPORTED: The given method is not supported in the server.</p>
      */
     public const RES_NOT_SUPPORTED = 28;
+
     /**
      * <p>MEMCACHED_FETCH_NOTFINISHED: A request has been made, but the server has not finished the fetch of the last request.</p>
      */
     public const RES_FETCH_NOTFINISHED = 30;
+
     /**
      * <p>MEMCACHED_SERVER_MARKED_DEAD: The requested server has been marked dead.</p>
      */
     public const RES_SERVER_MARKED_DEAD = 35;
+
     /**
      * <p>MEMCACHED_UNKNOWN_STAT_KEY: The server you are communicating with has a stat key which has not be defined in the protocol.</p>
      */
     public const RES_UNKNOWN_STAT_KEY = 36;
+
     /**
      * <p>MEMCACHED_INVALID_HOST_PROTOCOL: The server you are connecting too has an invalid protocol. Most likely you are connecting to an older server that does not speak the binary protocol.</p>
      */
     public const RES_INVALID_HOST_PROTOCOL = 34;
+
     /**
      * <p>MEMCACHED_MEMORY_ALLOCATION_FAILURE: An error has occurred while trying to allocate memory.</p>
      */
     public const RES_MEMORY_ALLOCATION_FAILURE = 17;
+
     /**
      * <p>MEMCACHED_E2BIG: Item is too large for the server to store.</p>
      */
     public const RES_E2BIG = 37;
+
     /**
      * <p>MEMCACHED_KEY_TOO_BIG: The key that has been provided is too large for the given server.</p>
      */
     public const RES_KEY_TOO_BIG = 39;
+
     /**
      * <p>MEMCACHED_SERVER_TEMPORARILY_DISABLED</p>
      */
     public const RES_SERVER_TEMPORARILY_DISABLED = 47;
+
     /**
      * <p>MEMORY_ALLOCATION_FAILURE: An error has occurred while trying to allocate memory.
      *
      * #if defined(LIBMEMCACHED_VERSION_HEX) && LIBMEMCACHED_VERSION_HEX >= 0x01000008</p>
      */
     public const RES_SERVER_MEMORY_ALLOCATION_FAILURE = 48;
+
     /**
      * <p>MEMCACHED_AUTH_PROBLEM: An unknown issue has occured during authentication.</p>
      */
     public const RES_AUTH_PROBLEM = 40;
+
     /**
      * <p>MEMCACHED_AUTH_FAILURE: The credentials provided are not valid for this server.</p>
      */
     public const RES_AUTH_FAILURE = 41;
+
     /**
      * <p>MEMCACHED_AUTH_CONTINUE: Authentication has been paused.</p>
      */
     public const RES_AUTH_CONTINUE = 42;
+
     /**
      * <p>MEMCACHED_CONNECTION_FAILURE: A unknown error has occured while trying to connect to a server.</p>
      */
     public const RES_CONNECTION_FAILURE = 3;
+
     /**
      * MEMCACHED_CONNECTION_BIND_FAILURE: We were not able to bind() to the socket.
      */
     #[Deprecated('Deprecated since version 0.30(libmemcached)')]
     public const RES_CONNECTION_BIND_FAILURE = 4;
+
     /**
      * <p>MEMCACHED_READ_FAILURE: A read failure has occurred.</p>
      */
     public const RES_READ_FAILURE = 6;
+
     /**
      * <p>MEMCACHED_DATA_DOES_NOT_EXIST: The data requested with the key given was not found.</p>
      */
     public const RES_DATA_DOES_NOT_EXIST = 13;
+
     /**
      * <p>MEMCACHED_VALUE: A value has been returned from the server (this is an internal condition only).</p>
      */
     public const RES_VALUE = 23;
+
     /**
      * <p>MEMCACHED_FAIL_UNIX_SOCKET: A connection was not established with the server via a unix domain socket.</p>
      */
     public const RES_FAIL_UNIX_SOCKET = 27;
+
     /**
      * No key was provided.</p>
      */
     #[Deprecated('Deprecated since version 0.30 (libmemcached). Use MEMCACHED_BAD_KEY_PROVIDED instead.')]
     public const RES_NO_KEY_PROVIDED = 29;
+
     /**
      * <p>MEMCACHED_INVALID_ARGUMENTS: The arguments supplied to the given function were not valid.</p>
      */
     public const RES_INVALID_ARGUMENTS = 38;
+
     /**
      * <p>MEMCACHED_PARSE_ERROR: An error has occurred while trying to parse the configuration string. You should use memparse to determine what the error was.</p>
      */
     public const RES_PARSE_ERROR = 43;
+
     /**
      * <p>MEMCACHED_PARSE_USER_ERROR: An error has occurred in parsing the configuration string.</p>
      */
     public const RES_PARSE_USER_ERROR = 44;
+
     /**
      * <p>MEMCACHED_DEPRECATED: The method that was requested has been deprecated.</p>
      */
     public const RES_DEPRECATED = 45;
+
     //unknow
     public const RES_IN_PROGRESS = 46;
+
     /**
      * <p>MEMCACHED_MAXIMUM_RETURN: This in an internal only state.</p>
      */
@@ -580,6 +610,7 @@ class Memcached
     public const ON_SET = 12;
     public const ON_STAT = 13;
     public const ON_VERSION = 14;
+
     /**
      * Constants used when compiled with --memcached-protocol
      * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/memcached-api.php
@@ -633,12 +664,12 @@ class Memcached
      */
     public const SERIALIZER_JSON = 3;
     public const SERIALIZER_JSON_ARRAY = 4;
+
     /**
      * <p>The msgpack serializer.</p>
      * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/memcached-api.php
      */
     public const SERIALIZER_MSGPACK = 5;
-
     public const COMPRESSION_FASTLZ = 2;
     public const COMPRESSION_ZLIB = 1;
 
@@ -657,7 +688,6 @@ class Memcached
      * @link https://php.net/manual/en/memcached.constants.php
      */
     public const GET_EXTENDED = 2;
-
     public const GET_ERROR_RETURN_VALUE = false;
 
     /**

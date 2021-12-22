@@ -7,13 +7,9 @@ namespace Swoole\Http;
 class Response
 {
     public $fd = 0;
-
     public $socket;
-
     public $header;
-
     public $cookie;
-
     public $trailer;
 
     public function __destruct() {}

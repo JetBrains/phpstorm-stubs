@@ -1159,7 +1159,6 @@ class RegexIterator extends FilterIterator
      * Special flag: Match the entry key instead of the entry value.
      */
     public const USE_KEY = 1;
-
     public const INVERT_MATCH = 2;
 
     #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
@@ -1366,7 +1365,6 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
 {
     public const BYPASS_CURRENT = 4;
     public const BYPASS_KEY = 8;
-
     public const PREFIX_LEFT = 0;
     public const PREFIX_MID_HAS_NEXT = 1;
     public const PREFIX_MID_LAST = 2;

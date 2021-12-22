@@ -12,8 +12,10 @@ class PHPProperty extends BasePHPElement
 {
     /** @var string[] */
     public $typesFromSignature = [];
+
     /** @var string[][] */
     public $typesFromAttribute = [];
+
     /** @var string[] */
     public $typesFromPhpDoc = [];
     public $access = '';

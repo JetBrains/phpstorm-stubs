@@ -18,7 +18,6 @@ class PDOException extends RuntimeException
 {
     #[LanguageLevelTypeAware(['8.1' => 'array|null'], default: '')]
     public $errorInfo;
-
     protected $code;
 }
 
@@ -685,7 +684,6 @@ class PDO
      * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ignore-space
      */
     public const MYSQL_ATTR_IGNORE_SPACE = 1006;
-
     public const MYSQL_ATTR_SERVER_PUBLIC_KEY = 1012;
 
     /**
@@ -765,6 +763,7 @@ class PDO
 
     #[Deprecated("Use PDO::ATTR_EMULATE_PREPARES instead")]
     public const PGSQL_ASSOC = 1;
+
     /**
      * @removed 7.1
      */
@@ -781,7 +780,6 @@ class PDO
     public const PGSQL_TRANSACTION_INTRANS = 2;
     public const PGSQL_TRANSACTION_INERROR = 3;
     public const PGSQL_TRANSACTION_UNKNOWN = 4;
-
     public const PGSQL_CONNECT_ASYNC = 4;
     public const PGSQL_CONNECT_FORCE_NEW = 2;
     public const PGSQL_CONNECTION_AUTH_OK = 5;
@@ -865,6 +863,7 @@ class PDO
      * @since 7.4
      */
     public const SQLITE_ATTR_READONLY_STATEMENT = 1001;
+
     /**
      * @since 7.4
      */

@@ -373,6 +373,7 @@ class ClusterManager
      * The user account managed by Couchbase Cluster.
      */
     public const RBAC_DOMAIN_LOCAL = 1;
+
     /**
      * The user account managed by external system (e.g. LDAP).
      */
@@ -604,10 +605,13 @@ class Bucket
 {
     /** Ping data (Key/Value) service. */
     public const PINGSVC_KV = 0x01;
+
     /** Ping query (N1QL) service. */
     public const PINGSVC_N1QL = 0x02;
+
     /** Ping views (Map/Reduce) service. */
     public const PINGSVC_VIEWS = 0x04;
+
     /** Ping full text search (FTS) service. */
     public const PINGSVC_FTS = 0x08;
 
@@ -1606,11 +1610,12 @@ class ViewQuery implements ViewQueryEncodable
 {
     /** Force a view update before returning data */
     public const UPDATE_BEFORE = 1;
+
     /** Allow stale views */
     public const UPDATE_NONE = 2;
+
     /** Allow stale view, update view after it has been accessed. */
     public const UPDATE_AFTER = 3;
-
     public const ORDER_ASCENDING = 1;
     public const ORDER_DESCENDING = 2;
 
@@ -1897,6 +1902,7 @@ class N1qlQuery
      * and we also avoid any wait for the index to catch up to the vector.
      */
     public const NOT_BOUNDED = 1;
+
     /**
      * This implements strong consistency per request.
      * Before processing the request, a current vector is obtained.
@@ -1904,6 +1910,7 @@ class N1qlQuery
      * If there are DML statements in the request, RYOW is also applied within the request.
      */
     public const REQUEST_PLUS = 2;
+
     /**
      * This implements strong consistency per statement.
      * Before processing each statement, a current vector is obtained
@@ -1915,10 +1922,12 @@ class N1qlQuery
      * Disables profiling. This is the default
      */
     public const PROFILE_NONE = 'off';
+
     /**
      * Enables phase profiling.
      */
     public const PROFILE_PHASES = 'phases';
+
     /**
      * Enables general timing profiling.
      */
@@ -3513,11 +3522,9 @@ class SearchSortField extends SearchSort implements \JsonSerializable
     public const TYPE_STRING = "string";
     public const TYPE_NUMBER = "number";
     public const TYPE_DATE = "date";
-
     public const MODE_DEFAULT = "default";
     public const MODE_MIN = "min";
     public const MODE_MAX = "max";
-
     public const MISSING_FIRST = "first";
     public const MISSING_LAST = "last";
 

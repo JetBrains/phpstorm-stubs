@@ -15,29 +15,24 @@ class Zookeeper
     public const PERM_DELETE = 8;
     public const PERM_ADMIN = 16;
     public const PERM_ALL = 31;
-
     public const EPHEMERAL = 1;
     public const SEQUENCE = 2;
-
     public const EXPIRED_SESSION_STATE = -112;
     public const AUTH_FAILED_STATE = -113;
     public const CONNECTING_STATE = 1;
     public const ASSOCIATING_STATE = 2;
     public const CONNECTED_STATE = 3;
     public const NOTCONNECTED_STATE = 999;
-
     public const CREATED_EVENT = 1;
     public const DELETED_EVENT = 2;
     public const CHANGED_EVENT = 3;
     public const CHILD_EVENT = 4;
     public const SESSION_EVENT = -1;
     public const NOTWATCHING_EVENT = -2;
-
     public const LOG_LEVEL_ERROR = 1;
     public const LOG_LEVEL_WARN = 2;
     public const LOG_LEVEL_INFO = 3;
     public const LOG_LEVEL_DEBUG = 4;
-
     public const SYSTEMERROR = -1;
     public const RUNTIMEINCONSISTENCY = -2;
     public const DATAINCONSISTENCY = -3;
@@ -47,15 +42,16 @@ class Zookeeper
     public const OPERATIONTIMEOUT = -7;
     public const BADARGUMENTS = -8;
     public const INVALIDSTATE = -9;
+
     /**
      * @since 3.5
      */
     public const NEWCONFIGNOQUORUM = -13;
+
     /**
      * @since 3.5
      */
     public const RECONFIGINPROGRESS = -14;
-
     public const OK = 0;
     public const APIERROR = -100;
     public const NONODE = -101;

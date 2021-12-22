@@ -7,19 +7,12 @@ namespace Swoole\Coroutine;
 class Redis
 {
     public $host = '';
-
     public $port = 0;
-
     public $setting;
-
     public $sock = -1;
-
     public $connected = false;
-
     public $errType = 0;
-
     public $errCode = 0;
-
     public $errMsg = '';
 
     public function __construct($config = null) {}

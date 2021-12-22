@@ -7,13 +7,9 @@ namespace Swoole\WebSocket;
 class Frame
 {
     public $fd = 0;
-
     public $data = '';
-
     public $opcode = 1;
-
     public $flags = 1;
-
     public $finish;
 
     public function __toString(): string {}

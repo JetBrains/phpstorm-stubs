@@ -24,7 +24,6 @@ class php_user_filter
 
     #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
     public $params;
-
     public $stream;
 
     /**

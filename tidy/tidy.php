@@ -325,36 +325,43 @@ final class tidyNode
      * @var string
      */
     public $value;
+
     /**
      * <p style="margin-top:0;">The name of the HTML node</p>
      * @var string
      */
     public $name;
+
     /**
      * <p style="margin-top:0;">The type of the tag (one of the constants above, e.g. <b><code>TIDY_NODETYPE_PHP</code></b>)</p>
      * @var int
      */
     public $type;
+
     /**
      * <p style="margin-top:0;">The line number at which the tags is located in the file</p>
      * @var int
      */
     public $line;
+
     /**
      * <p style="margin-top:0;">The column number at which the tags is located in the file</p>
      * @var int
      */
     public $column;
+
     /**
      * <p style="margin-top:0;">Indicates if the node is a proprietary tag</p>
      * @var bool
      */
     public $proprietary;
+
     /**
      * <p style="margin-top:0;">The ID of the tag (one of the constants above, e.g. <b><code>TIDY_TAG_FRAME</code></b>)</p>
      * @var int
      */
     public $id;
+
     /**
      * <p style="margin-top:0;">
      * An array of string, representing
@@ -363,6 +370,7 @@ final class tidyNode
      * @var array
      */
     public $attribute;
+
     /**
      * <p style="margin-top:0;">
      * An array of <b>tidyNode</b>, representing

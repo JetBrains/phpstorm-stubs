@@ -16,10 +16,8 @@ final class Decimal implements \JsonSerializable
     public const ROUND_HALF_EVEN = 0; /* Round to nearest, ties towards even. */
     public const ROUND_HALF_ODD = 0; /* Round to nearest, ties towards odd. */
     public const ROUND_TRUNCATE = 0; /* Truncate, keeping infinity. */
-
     public const DEFAULT_ROUNDING = Decimal::ROUND_HALF_EVEN;
     public const DEFAULT_PRECISION = 28;
-
     public const MIN_PRECISION = 1;
     public const MAX_PRECISION = 0; /* This value may change across platforms */
 

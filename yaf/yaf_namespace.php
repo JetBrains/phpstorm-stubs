@@ -34,31 +34,38 @@ final class Application
      * @var \Yaf\Application
      */
     protected static $_app;
+
     /**
      * @var \Yaf\Config_Abstract
      */
     protected $config;
+
     /**
      * @var \Yaf\Dispatcher
      */
     protected $dispatcher;
+
     /**
      * @var array
      */
     protected $_modules;
+
     /**
      * @var string
      */
     protected $_running = "";
+
     /**
      * @var string
      */
     protected $_environ = YAF_ENVIRON;
+
     /**
      * @since 2.1.2
      * @var int
      */
     protected $_err_no = 0;
+
     /**
      * @since 2.1.2
      * @var string
@@ -257,42 +264,52 @@ final class Dispatcher
      * @var \Yaf\Dispatcher
      */
     protected static $_instance;
+
     /**
      * @var \Yaf\Router
      */
     protected $_router;
+
     /**
      * @var \Yaf\View_Interface
      */
     protected $_view;
+
     /**
      * @var \Yaf\Request_Abstract
      */
     protected $_request;
+
     /**
      * @var \Yaf\Plugin_Abstract
      */
     protected $_plugins;
+
     /**
      * @var bool
      */
     protected $_auto_render = true;
+
     /**
      * @var string
      */
     protected $_return_response = "";
+
     /**
      * @var string
      */
     protected $_instantly_flush = "";
+
     /**
      * @var string
      */
     protected $_default_module;
+
     /**
      * @var string
      */
     protected $_default_controller;
+
     /**
      * @var string
      */
@@ -544,15 +561,18 @@ class Loader
      * @var string
      */
     protected $_local_ns;
+
     /**
      * By default, this value is application.directory . "/library", you can change this either in the application.ini(application.library) or call to \Yaf\Loader::setLibraryPath()
      * @var string
      */
     protected $_library;
+
     /**
      * @var string
      */
     protected $_global_library;
+
     /**
      * @var \Yaf\Loader
      */
@@ -672,6 +692,7 @@ final class Registry
      * @var \Yaf\Registry
      */
     protected static $_instance;
+
     /**
      * @var array
      */
@@ -737,10 +758,12 @@ final class Session implements \Iterator, \Traversable, \ArrayAccess, \Countable
      * @var \Yaf\Session
      */
     protected static $_instance;
+
     /**
      * @var array
      */
     protected $_session;
+
     /**
      * @var bool
      */
@@ -905,6 +928,7 @@ class Router
      * @var \Yaf\Route_Interface[] registered routes stack
      */
     protected $_routes;
+
     /**
      * @var string after routing phase, this indicated the name of which route is used to route current request. you can get this name by \Yaf\Router::getCurrentRoute()
      */
@@ -1008,26 +1032,32 @@ abstract class Controller_Abstract
      * @var array You can also define a action method in a separate PHP script by using this property and \Yaf\Action_Abstract.
      */
     public $actions;
+
     /**
      * @var string module name
      */
     protected $_module;
+
     /**
      * @var string controller name
      */
     protected $_name;
+
     /**
      * @var \Yaf\Request_Abstract current request object
      */
     protected $_request;
+
     /**
      * @var \Yaf\Response_Abstract current response object
      */
     protected $_response;
+
     /**
      * @var array
      */
     protected $_invoke_args;
+
     /**
      * @var \Yaf\View_Interface view engine object
      */
@@ -1230,6 +1260,7 @@ abstract class Config_Abstract
      * @var array
      */
     protected $_config = null;
+
     /**
      * @var bool
      */
@@ -1272,46 +1303,57 @@ abstract class Request_Abstract
 {
     public const SCHEME_HTTP = 'http';
     public const SCHEME_HTTPS = 'https';
+
     /**
      * @var string
      */
     public $module;
+
     /**
      * @var string
      */
     public $controller;
+
     /**
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $method;
+
     /**
      * @var array
      */
     protected $params;
+
     /**
      * @var string
      */
     protected $language;
+
     /**
      * @var \Yaf\Exception
      */
     protected $_exception;
+
     /**
      * @var string
      */
     protected $_base_uri = "";
+
     /**
      * @var string
      */
     protected $uri = "";
+
     /**
      * @var string
      */
     protected $dispatched = "";
+
     /**
      * @var string
      */
@@ -1644,14 +1686,17 @@ abstract class Plugin_Abstract
 abstract class Response_Abstract
 {
     public const DEFAULT_BODY = "content";
+
     /**
      * @var string
      */
     protected $_header;
+
     /**
      * @var string
      */
     protected $_body;
+
     /**
      * @var bool
      */
@@ -2399,10 +2444,12 @@ class Simple implements \Yaf\View_Interface
      * @var string
      */
     protected $_tpl_dir;
+
     /**
      * @var array
      */
     protected $_tpl_vars;
+
     /**
      * @var array
      */
@@ -2544,10 +2591,12 @@ final class Simple implements \Yaf\Route_Interface
      * @var string
      */
     protected $controller;
+
     /**
      * @var string
      */
     protected $module;
+
     /**
      * @var string
      */
@@ -2638,10 +2687,12 @@ final class Rewrite extends \Yaf\Router implements \Yaf\Route_Interface
      * @var string
      */
     protected $_route;
+
     /**
      * @var array
      */
     protected $_default;
+
     /**
      * @var array
      */
@@ -2691,18 +2742,22 @@ final class Regex extends \Yaf\Router implements \Yaf\Route_Interface
      * @var string
      */
     protected $_route;
+
     /**
      * @var array
      */
     protected $_default;
+
     /**
      * @var array
      */
     protected $_maps;
+
     /**
      * @var array
      */
     protected $_verify;
+
     /**
      * @var string
      */
@@ -2757,6 +2812,7 @@ final class Map implements \Yaf\Route_Interface
      * @var string
      */
     protected $_ctl_router = '';
+
     /**
      * @var string
      */
