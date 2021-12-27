@@ -907,7 +907,7 @@ interface UnitEnum
  */
 interface BackedEnum extends UnitEnum
 {
-    public readonly string $value;
+    public readonly int|string $value;
 
     /**
      * @param int|string $value
