@@ -901,6 +901,21 @@ class PDO
      * @since 8.0
      */
     public const OCI_ATTR_CALL_TIMEOUT = 1004;
+    
+    /**
+     * Sets the date format.
+     */
+    public const FB_ATTR_DATE_FORMAT = 1000;
+    
+    /**
+     * Sets the time format.
+     */
+    public const FB_ATTR_TIME_FORMAT = 1001;
+    
+    /**
+     * Sets the timestamp format.
+     */
+    public const FB_ATTR_TIMESTAMP_FORMAT = 1002;
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
