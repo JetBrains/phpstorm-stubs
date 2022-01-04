@@ -1,6 +1,7 @@
 <?php
 
 // Start of oci8 v.2.0.7
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
@@ -861,6 +862,7 @@ function oci_fetch_array($statement, $mode = null) {}
  * @param int $mode [optional]
  * @return int|bool
  */
+#[Deprecated(since: "5.4")]
 function ocifetchinto($statement_resource, &$result, $mode = null) {}
 
 /**
@@ -1729,6 +1731,7 @@ function oci_free_cursor($statement_resource) {}
  * @param resource $statement_resource
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
+#[Deprecated(replacement: "oci_free_statement", since: "5.4")]
 function ocifreecursor($statement_resource) {}
 
 /**
@@ -1742,6 +1745,7 @@ function ocifreecursor($statement_resource) {}
  * @param int $type [optional]
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
+#[Deprecated(replacement: "oci_bind_by_name", since: "5.4")]
 function ocibindbyname($statement, $column_name, &$variable, $maximum_length = -1, $type = SQLT_CHR) {}
 
 /**
@@ -1755,6 +1759,7 @@ function ocibindbyname($statement, $column_name, &$variable, $maximum_length = -
  * You can optionally use {@see oci_new_descriptor()} to allocate LOB/ROWID/BFILE descriptors.</p>
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
+#[Deprecated(replacement: "oci_define_by_name", since: "5.4")]
 function ocidefinebyname($statement, $column_name, &$variable, $type = SQLT_CHR) {}
 
 /**
@@ -1765,6 +1770,7 @@ function ocidefinebyname($statement, $column_name, &$variable, $type = SQLT_CHR)
  * @param mixed $column_number_or_name
  * @return bool Returns TRUE if field is NULL, FALSE otherwise.
  */
+#[Deprecated(replacement: "oci_field_is_null", since: "5.4")]
 function ocicolumnisnull($statement, $column_number_or_name) {}
 
 /**
@@ -1775,6 +1781,7 @@ function ocicolumnisnull($statement, $column_number_or_name) {}
  * @param mixed $column_number
  * @return string|false Returns the name as a string, or FALSE on errors.
  */
+#[Deprecated(replacement: "oci_field_name", since: "5.4")]
 function ocicolumnname($statement, $column_number) {}
 
 /**
@@ -1785,6 +1792,7 @@ function ocicolumnname($statement, $column_number) {}
  * @param mixed $column_number_or_name
  * @return int|false Returns the size of a field in bytes, or <b>FALSE</b> on errors.
  */
+#[Deprecated(replacement: "oci_field_size", since: "5.4")]
 function ocicolumnsize($statement, $column_number_or_name) {}
 
 /**
@@ -1795,6 +1803,7 @@ function ocicolumnsize($statement, $column_number_or_name) {}
  * @param $column_number
  * @return int|false Returns the scale as an integer, or <b>FALSE</b> on errors.
  */
+#[Deprecated(replacement: "oci_field_scale", since: "5.4")]
 function ocicolumnscale($statement_resource, $column_number) {}
 
 /**
@@ -1805,6 +1814,7 @@ function ocicolumnscale($statement_resource, $column_number) {}
  * @param string|int $column_number
  * @return int|false Returns the precision  as an integer, or <b>FALSE</b> on errors.
  */
+#[Deprecated(replacement: "oci_field_precision", since: "5.4")]
 function ocicolumnprecision($statement_resource, $column_number) {}
 
 /**
@@ -1815,6 +1825,7 @@ function ocicolumnprecision($statement_resource, $column_number) {}
  * @param string|int $column_number
  * @return mixed|false Returns the field data type as a string, or FALSE on errors.
  */
+#[Deprecated(replacement: "oci_field_type", since: "5.4")]
 function ocicolumntype($statement_resource, $column_number) {}
 
 /**
@@ -1825,6 +1836,7 @@ function ocicolumntype($statement_resource, $column_number) {}
  * @param string|int $column_number
  * @return int|false Returns Oracle's raw data type as a number, or FALSE on errors.
  */
+#[Deprecated(replacement: "oci_field_type_raw", since: "5.4")]
 function ocicolumntyperaw($statement_resource, $column_number) {}
 
 /**
@@ -1835,6 +1847,7 @@ function ocicolumntyperaw($statement_resource, $column_number) {}
  * @param $mode [optional]
  * @return bool Returns TRUE on success or FALSE on failure
  */
+#[Deprecated(replacement: "oci_execute", since: "5.4")]
 function ociexecute($statement_resource, $mode = OCI_COMMIT_ON_SUCCESS) {}
 
 /**
@@ -1844,6 +1857,7 @@ function ociexecute($statement_resource, $mode = OCI_COMMIT_ON_SUCCESS) {}
  * @param resource $statement_resource
  * @return bool Returns TRUE on success or FALSE on failure
  */
+#[Deprecated(replacement: 'oci_cancel', since: "5.4")]
 function ocicancel($statement_resource) {}
 
 /**
@@ -1853,6 +1867,7 @@ function ocicancel($statement_resource) {}
  * @param resource $statement_resource
  * @return bool Returns TRUE on success or FALSE if there are no more rows in the statement.
  */
+#[Deprecated(replacement: "oci_fetch", since: "5.4")]
 function ocifetch($statement_resource) {}
 
 /**
@@ -1866,6 +1881,7 @@ function ocifetch($statement_resource) {}
  * @param int $flags [optional]
  * @return int|false Returns the number of rows in output, which may be 0 or more, or FALSE on failure.
  */
+#[Deprecated(replacement: "oci_fetch_all", since: "5.4")]
 function ocifetchstatement($statement_resource, &$output, $skip, $maximum_rows, $flags) {}
 
 /**
@@ -1875,6 +1891,7 @@ function ocifetchstatement($statement_resource, &$output, $skip, $maximum_rows, 
  * @param resource $statement_resource
  * @return bool Returns TRUE on success or FALSE on failure.
  */
+#[Deprecated(replacement: "oci_free_statement", since: "5.4")]
 function ocifreestatement($statement_resource) {}
 
 /**
@@ -1884,6 +1901,7 @@ function ocifreestatement($statement_resource) {}
  * @param bool $mode
  * @removed 8.0
  */
+#[Deprecated(replacement: "oci_internal_debug", since: "5.4")]
 function ociinternaldebug($mode) {}
 
 /**
@@ -1893,6 +1911,7 @@ function ociinternaldebug($mode) {}
  * @param resource $statement_resource
  * @return int|false Returns the number of columns as an integer, or FALSE on errors.
  */
+#[Deprecated(replacement: "oci_num_fields", since: "5.4")]
 function ocinumcols($statement_resource) {}
 
 /**
@@ -1903,6 +1922,7 @@ function ocinumcols($statement_resource) {}
  * @param string $sql_text
  * @return resource|false Returns a statement handle on success, or FALSE on error.
  */
+#[Deprecated(replacement: "oci_parse", since: "5.4")]
 function ociparse($connection_resource, $sql_text) {}
 
 /**
@@ -1912,6 +1932,7 @@ function ociparse($connection_resource, $sql_text) {}
  * @param resource $connection_resource
  * @return resource|false Returns a new statement handle, or FALSE on error.
  */
+#[Deprecated(replacement: "oci_new_cursor", since: "5.4")]
 function ocinewcursor($connection_resource) {}
 
 /**
@@ -1922,6 +1943,7 @@ function ocinewcursor($connection_resource) {}
  * @param $column_number_or_name
  * @return false|mixed Returns everything as strings except for abstract types (ROWIDs, LOBs and FILEs). Returns FALSE on error.
  */
+#[Deprecated(replacement: "oci_result", since: "5.4")]
 function ociresult($statement_resource, $column_number_or_name) {}
 
 /**
@@ -1931,6 +1953,7 @@ function ociresult($statement_resource, $column_number_or_name) {}
  * @param $connection_resource
  * @return string|false Returns the version information as a string or FALSE on error.
  */
+#[Deprecated(replacement: "oci_server_version", since: "5.4")]
 function ociserverversion($connection_resource) {}
 
 /**
@@ -1940,6 +1963,7 @@ function ociserverversion($connection_resource) {}
  * @param resource $statement_resource
  * @return string|false Returns everything as strings except for abstract types (ROWIDs, LOBs and FILEs). Returns FALSE on error.
  */
+#[Deprecated(replacement: "oci_statement_type", since: "5.4")]
 function ocistatementtype($statement_resource) {}
 
 /**
@@ -1949,6 +1973,7 @@ function ocistatementtype($statement_resource) {}
  * @param resource $statement_resource
  * @return int|false Returns the number of rows affected as an integer, or FALSE on errors.
  */
+#[Deprecated(replacement: "oci_num_rows", since: "5.4")]
 function ocirowcount($statement_resource) {}
 
 /**
@@ -1958,6 +1983,7 @@ function ocirowcount($statement_resource) {}
  * @param resource $connection_resource
  * @return bool Returns TRUE on success or FALSE on failure.
  */
+#[Deprecated(replacement: "oci_close", since: "5.4")]
 function ocilogoff($connection_resource) {}
 
 /**
@@ -1971,6 +1997,7 @@ function ocilogoff($connection_resource) {}
  * @param int $session_mode [optional]
  * @return resource|false Returns a connection identifier or FALSE on error.
  */
+#[Deprecated(replacement: "oci_connect", since: "5.4")]
 function ocilogon($username, $password, $connection_string, $character_set, $session_mode) {}
 
 /**
@@ -1985,6 +2012,7 @@ function ocilogon($username, $password, $connection_string, $character_set, $ses
  * @param $session_mode [optional]
  * @return resource|false <p>Returns a connection identifier or <b>FALSE</b> on error.</p>
  */
+#[Deprecated(replacement: "oci_new_connect", since: "5.4")]
 function ocinlogon($username, $password, $connection_string, $character_set, $session_mode) {}
 
 /**
@@ -1999,6 +2027,7 @@ function ocinlogon($username, $password, $connection_string, $character_set, $se
  * @param $session_mode [optional]
  * @return resource|false <p>Returns a connection identifier or <b>FALSE</b> on error.</p>
  */
+#[Deprecated(replacement: "oci_pconnect", since: "5.4")]
 function ociplogon($username, $password, $connection_string, $character_set, $session_mode) {}
 
 /**
@@ -2010,6 +2039,7 @@ function ociplogon($username, $password, $connection_string, $character_set, $se
  * For connection errors with oci_connect(), oci_new_connect() or oci_pconnect() do not pass resource.
  * @return array|false If no error is found, oci_error() returns FALSE. Otherwise, oci_error() returns the error information as an associative array.
  */
+#[Deprecated(replacement: "oci_error", since: "5.4")]
 function ocierror($connection_or_statement_resource) {}
 
 /**
@@ -2020,6 +2050,7 @@ function ocierror($connection_or_statement_resource) {}
  * @param $lob_descriptor
  * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
  */
+#[Deprecated(replacement: "OCI-Lob::free", since: "5.4")]
 function ocifreedesc($lob_descriptor) {}
 
 /**
@@ -2032,6 +2063,7 @@ function ocifreedesc($lob_descriptor) {}
  * @param int $offset [optional]
  * @return bool
  */
+#[Deprecated(replacement: "OCI-Lob::save", since: "5.4")]
 function ocisavelob(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor, $data, $offset) {}
 
 /**
@@ -2043,6 +2075,7 @@ function ocisavelob(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_
  * @param string $filename
  * @return bool
  */
+#[Deprecated(replacement: "OCI_Lob::import", since: "5.4")]
 function ocisavelobfile(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor, $filename) {}
 
 /**
@@ -2056,6 +2089,7 @@ function ocisavelobfile(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: '
  * @param int $length [optional] <p>Indicates the length of data to be exported.</p>
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
+#[Deprecated(replacement: "OCI_Lob::export", since: "5.4")]
 function ociwritelobtofile(
     #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor,
     $filename,
@@ -2071,6 +2105,7 @@ function ociwritelobtofile(
  * @param OCI_Lob|OCILob $lob_descriptor
  * @return string|false <p>Returns the contents of the object, or <b>FALSE</b> on errors.</p>
  */
+#[Deprecated(replacement: "OCI_Lob::load", since: "5.4")]
 function ociloadlob(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor) {}
 
 /**
@@ -2086,6 +2121,7 @@ function ociloadlob(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_
  * </p>
  * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
  */
+#[Deprecated(replacement: "oci_commit", since: "5.4")]
 function ocicommit($connection_resource) {}
 
 /**
@@ -2096,6 +2132,7 @@ function ocicommit($connection_resource) {}
  * @param resource $connection_resource
  * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
  */
+#[Deprecated(replacement: "oci_rollback", since: "5.4")]
 function ocirollback($connection_resource) {}
 
 /**
@@ -2110,6 +2147,7 @@ function ocirollback($connection_resource) {}
  * @param $type [optional] <p>Valid values for type are: <b>OCI_DTYPE_FILE</b>, <b>OCI_DTYPE_LOB</b> and <b>OCI_DTYPE_ROWID</b>.</p>
  * @return OCI_LOB|false Returns a new LOB or FILE descriptor on success, FALSE on error.
  */
+#[Deprecated(replacement: "oci_new_descriptor", since: "5.4")]
 #[LanguageLevelTypeAware(['8.0' => 'OCILob|false'], default: 'OCI_Lob|false')]
 function ocinewdescriptor($connection_resource, $type = OCI_DTYPE_LOB) {}
 
@@ -2125,6 +2163,7 @@ function ocinewdescriptor($connection_resource, $type = OCI_DTYPE_LOB) {}
  * @param $number_of_rows
  * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
  */
+#[Deprecated(replacement: "oci_set_prefetch", since: "5.4")]
 function ocisetprefetch($statement_resource, $number_of_rows) {}
 
 /**
@@ -2147,6 +2186,7 @@ function ocipasswordchange($connection_resource_or_connection_string_or_dbname, 
  * @param OCI_Collection|OCICollection $collection
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
+#[Deprecated(replacement: "OCI_Collection::free", since: "5.4")]
 function ocifreecollection(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection) {}
 
 /**
@@ -2163,6 +2203,7 @@ function ocifreecollection(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], 
  * </p>
  * @return OCI_Collection|false <p>Returns a new OCI_Collection object or FALSE on error.</p>
  */
+#[Deprecated(replacement: "oci_new_collection", since: "5.4")]
 #[LanguageLevelTypeAware(['8.0' => 'OCICollection|false'], default: 'OCI_Collection|false')]
 function ocinewcollection($connection_resource, $tdo, $schema = null) {}
 
@@ -2175,6 +2216,7 @@ function ocinewcollection($connection_resource, $tdo, $schema = null) {}
  * @param mixed $value <p>The value to be added to the collection. Can be a string or a number.</p>
  * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
  */
+#[Deprecated(replacement: "OCI_Collection::append", since: "5.4")]
 function ocicollappend(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection, $value) {}
 
 /**
@@ -2186,6 +2228,7 @@ function ocicollappend(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], defa
  * @param int $index <p>The element index. First index is 0.</p>
  * @return mixed <p>Returns <b>FALSE</b> if such element doesn't exist; <b>NULL</b> if element is <b>NULL</b>; string if element is column of a string datatype or number if element is numeric field.</p>
  */
+#[Deprecated(replacement: "OCI_COLLection::getElem", since: "5.4")]
 function ocicollgetelem(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection, $index) {}
 
 /**
@@ -2197,6 +2240,7 @@ function ocicollgetelem(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], def
  * @param $value <p>Can be a string or a number.</p>
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
+#[Deprecated(replacement: "OCI_Collection::assignElem", since: "5.4")]
 function ocicollassignelem(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection, $index, $value) {}
 
 /**
@@ -2207,6 +2251,7 @@ function ocicollassignelem(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], 
  * @param OCI_Collection $collection
  * @return int|false <p>Returns the number of elements in the collection or <b>FALSE</b> on error.</p>
  */
+#[Deprecated(replacement: "OCI_COLLection::size", since: "5.4")]
 function ocicollsize(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection) {}
 
 /**
@@ -2218,6 +2263,7 @@ function ocicollsize(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], defaul
  * @return int|false <p> Returns the maximum number as an integer, or <b>FALSE</b> on errors.
  * If the returned value is 0, then the number of elements is not limited.</p>
  */
+#[Deprecated(replacement: "OCI_COLLection::max", since: "5.4")]
 function ocicollmax(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection) {}
 
 /**
@@ -2229,6 +2275,7 @@ function ocicollmax(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default
  * @param int|float $number
  * @return bool Returns <b>TRUE</b> or <b>FALSE</b> on failure.
  */
+#[Deprecated(replacement: "OCI_Collection::trim", since: "5.4")]
 function ocicolltrim(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection, $number) {}
 
 /**
@@ -2251,6 +2298,7 @@ function ocicolltrim(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], defaul
  * </ul>
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
+#[Deprecated(replacement: "OCI-Lob::writeTemporary", since: "5.4")]
 function ociwritetemporarylob(
     #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor,
     $data,
@@ -2264,6 +2312,7 @@ function ociwritetemporarylob(
  * @param OCI_Lob|OCILob $lob_descriptor
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
+#[Deprecated(replacement: "OCI-Lob::close()", since: "5.4")]
 function ocicloselob(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor) {}
 
 /**
@@ -2275,6 +2324,7 @@ function ocicloselob(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI
  * @param OCI_Collection $from An instance of OCI-Collection.
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
+#[Deprecated(replacement: "OCI-Collection::assign", since: "5.4")]
 function ocicollassign(
     #[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $to,
     #[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $from
