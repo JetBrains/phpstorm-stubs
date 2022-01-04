@@ -1087,7 +1087,7 @@ function imap_last_error(): string|false {}
  * <i>criteria</i> or no messages have been found.
  * </p>
  */
-function imap_search(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $criteria, int $flags = SE_FREE, string $charset = NIL): array|false {}
+function imap_search(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $criteria, int $flags = SE_FREE, string $charset = ''): array|false {}
 
 /**
  * Decodes a modified UTF-7 encoded string
