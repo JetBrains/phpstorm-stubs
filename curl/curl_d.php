@@ -615,7 +615,7 @@ define('CURLOPT_MAXCONNECTS', 71);
 /**
  * This option is deprecated, as it was never implemented in cURL and never had any effect.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
- * @deprecated 5.6
+ * @removed 5.6
  */
 define('CURLOPT_CLOSEPOLICY', 72);
 /**
@@ -977,31 +977,31 @@ define('CURLINFO_RTSP_SESSION_ID', 1048612);
 /**
  * Value for the <b>CURLOPT_CLOSEPOLICY</b> option.
  * @link https://www.php.net/manual/en/curl.constants.php
- * @deprecated it was never implemented in cURL and never had any effect.
+ * @removed 5.6
  */
 define('CURLCLOSEPOLICY_LEAST_RECENTLY_USED', 2);
 /**
  * Value for the <b>CURLOPT_CLOSEPOLICY</b> option.
  * @link https://www.php.net/manual/en/curl.constants.php
- * @deprecated it was never implemented in cURL and never had any effect.
+ * @removed 5.6
  */
 define('CURLCLOSEPOLICY_LEAST_TRAFFIC', 3);
 /**
  * Value for the <b>CURLOPT_CLOSEPOLICY</b> option.
  * @link https://www.php.net/manual/en/curl.constants.php
- * @deprecated it was never implemented in cURL and never had any effect.
+ * @removed 5.6
  */
 define('CURLCLOSEPOLICY_SLOWEST', 4);
 /**
  * Value for the <b>CURLOPT_CLOSEPOLICY</b> option.
  * @link https://www.php.net/manual/en/curl.constants.php
- * @deprecated it was never implemented in cURL and never had any effect.
+ * @removed 5.6
  */
 define('CURLCLOSEPOLICY_CALLBACK', 5);
 /**
  * Value for the <b>CURLOPT_CLOSEPOLICY</b> option.
  * @link https://www.php.net/manual/en/curl.constants.php
- * @deprecated it was never implemented in cURL and never had any effect.
+ * @removed 5.6
  */
 define('CURLCLOSEPOLICY_OLDEST', 1);
 /**
@@ -2083,7 +2083,7 @@ define('CURLPIPE_NOTHING', 0);
  * If this bit is set, libcurl will try to pipeline HTTP/1.1 requests on connections that are already established and in use to hosts.
  * @link https://php.net/manual/en/curl.constants.php
  * @link https://curl.haxx.se/libcurl/c/CURLMOPT_PIPELINING.html
- * @deprecated has no effect since version 7.62.0.
+ * @deprecated 7.4
  * @since 7.0.7
  */
 define('CURLPIPE_HTTP1', 1);

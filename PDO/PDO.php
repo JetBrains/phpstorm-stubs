@@ -763,6 +763,9 @@ class PDO
 
     #[Deprecated("Use PDO::ATTR_EMULATE_PREPARES instead")]
     public const PGSQL_ASSOC = 1;
+    /**
+     * @removed 7.1
+     */
     public const PGSQL_ATTR_DISABLE_NATIVE_PREPARED_STATEMENT = 1000;
 
     /**

@@ -189,6 +189,9 @@ define('T_DOUBLE_COLON', 397);
  * @since 7.4
  */
 define('T_FN', 311);
+/**
+ * @removed 7.0
+ */
 define('T_BAD_CHARACTER', 405);
 
 /**
