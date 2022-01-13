@@ -57,7 +57,7 @@ function cli_set_process_title(string $title): bool {}
  * @return string|null Return a string with the current process title or <b>NULL</b> on error.
  * @since 5.5
  */
-#[Pure]
+#[Pure(true)]
 function cli_get_process_title(): ?string {}
 
 /**

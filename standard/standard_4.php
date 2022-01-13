@@ -14,7 +14,7 @@ use JetBrains\PhpStorm\Pure;
  * yet.
  */
 #[ArrayShape(["type" => "int", "message" => "string", "file" => "string", "line" => "int"])]
-#[Pure]
+#[Pure(true)]
 function error_get_last(): ?array {}
 
 /**
@@ -253,7 +253,7 @@ function print_r(mixed $value, bool $return = false): string|bool {}
  * </p>
  * @return int the memory amount in bytes.
  */
-#[Pure]
+#[Pure(true)]
 function memory_get_usage(bool $real_usage = false): int {}
 
 /**
@@ -266,7 +266,7 @@ function memory_get_usage(bool $real_usage = false): int {}
  * </p>
  * @return int the memory peak in bytes.
  */
-#[Pure]
+#[Pure(true)]
 function memory_get_peak_usage(bool $real_usage = false): int {}
 
 /**
@@ -368,7 +368,7 @@ function highlight_string(string $string, bool $return = false): string|bool {}
  * @return int[]|int|float|false Returns an array of integers in the form [seconds, nanoseconds], if the parameter get_as_number is false.
  * Otherwise the nanoseconds are returned as integer (64bit platforms) or float (32bit platforms).
  */
-#[Pure]
+#[Pure(true)]
 function hrtime(
     #[PhpStormStubsElementAvailable(from: '7.3', to: '7.4')] bool $as_number,
     #[PhpStormStubsElementAvailable(from: '8.0')] bool $as_number = false
@@ -389,7 +389,7 @@ function hrtime(
  * prior behavior, see bug report
  * #29606.
  */
-#[Pure]
+#[Pure(true)]
 function php_strip_whitespace(string $filename): string {}
 
 /**
@@ -402,7 +402,7 @@ function php_strip_whitespace(string $filename): string {}
  * @return string|false the value of the configuration option as a string on success, or
  * an empty string on failure or for null values.
  */
-#[Pure]
+#[Pure(true)]
 function ini_get(string $option): string|false {}
 
 /**
@@ -438,7 +438,7 @@ function ini_get(string $option): string|false {}
  * why access shows the appropriate bitmask values.
  * </p>
  */
-#[Pure]
+#[Pure(true)]
 function ini_get_all(?string $extension, bool $details = true): array|false {}
 
 /**
@@ -486,7 +486,7 @@ function ini_restore(string $option): void {}
  * @link https://php.net/manual/en/function.get-include-path.php
  * @return string|false the path, as a string.
  */
-#[Pure]
+#[Pure(true)]
 function get_include_path(): string|false {}
 
 /**
@@ -741,7 +741,7 @@ function getallheaders(): false|array {}
  * @link https://php.net/manual/en/function.connection-aborted.php
  * @return int 1 if client disconnected, 0 otherwise.
  */
-#[Pure]
+#[Pure(true)]
 function connection_aborted(): int {}
 
 /**
@@ -751,7 +751,7 @@ function connection_aborted(): int {}
  * CONNECTION_XXX constants to determine the connection
  * status.
  */
-#[Pure]
+#[Pure(true)]
 function connection_status(): int {}
 
 /**

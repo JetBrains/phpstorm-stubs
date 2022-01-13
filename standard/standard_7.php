@@ -235,7 +235,7 @@ function unpack(
  * cookies are accepted is to set one with setcookie,
  * reload, and check for the value.
  */
-#[Pure]
+#[Pure(true)]
 function get_browser(?string $user_agent, bool $return_array = false): object|array|false {}
 
 /**

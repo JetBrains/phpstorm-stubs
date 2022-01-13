@@ -724,7 +724,7 @@ function get_declared_classes(): array {}
  * @return string[] an array of the names of the declared interfaces in the current
  * script.
  */
-#[Pure]
+#[Pure(true)]
 function get_declared_interfaces(): array {}
 
 /**
@@ -734,7 +734,7 @@ function get_declared_interfaces(): array {}
  * @see class_uses()
  * @since 5.4
  */
-#[Pure]
+#[Pure(true)]
 function get_declared_traits(): array {}
 
 /**
@@ -747,7 +747,7 @@ function get_declared_traits(): array {}
  * the user defined ones using $arr["user"] (see example
  * below).
  */
-#[Pure]
+#[Pure(true)]
 function get_defined_functions(#[PhpStormStubsElementAvailable(from: '7.1')] bool $exclude_disabled = true): array {}
 
 /**
@@ -755,7 +755,7 @@ function get_defined_functions(#[PhpStormStubsElementAvailable(from: '7.1')] boo
  * @link https://php.net/manual/en/function.get-defined-vars.php
  * @return array A multidimensional array with all the variables.
  */
-#[Pure]
+#[Pure(true)]
 function get_defined_vars(): array {}
 
 /**
@@ -1041,7 +1041,7 @@ function gc_collect_cycles(): int {}
  * @link https://php.net/manual/en/function.gc-enabled.php
  * @return bool true if the garbage collector is enabled, false otherwise.
  */
-#[Pure]
+#[Pure(true)]
 function gc_enabled(): bool {}
 
 /**
@@ -1071,7 +1071,7 @@ function gc_disable(): void {}
  * @since 7.3
  */
 #[ArrayShape(["runs" => "int", "collected" => "int", "threshold" => "int", "roots" => "int"])]
-#[Pure]
+#[Pure(true)]
 function gc_status(): array {}
 
 /**
@@ -1096,5 +1096,5 @@ function gc_mem_caches(): int {}
  * @return resource[] Returns an array of currently active resources, indexed by resource number.
  * @since 7.0
  */
-#[Pure]
+#[Pure(true)]
 function get_resources(?string $type): array {}

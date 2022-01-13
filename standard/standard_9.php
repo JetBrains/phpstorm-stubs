@@ -1018,7 +1018,7 @@ function version_compare(
  * @return int On success the return value will be the created key value, otherwise
  * -1 is returned.
  */
-#[Pure]
+#[Pure(true)]
 function ftok(string $filename, string $project_id): int {}
 
 /**
@@ -1038,7 +1038,7 @@ function str_rot13(string $string): string {}
  * @return array an indexed array containing the name of all stream filters
  * available.
  */
-#[Pure]
+#[Pure(true)]
 function stream_get_filters(): array {}
 
 /**

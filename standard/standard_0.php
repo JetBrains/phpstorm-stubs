@@ -147,7 +147,7 @@ class Directory
  * @return mixed the value of the constant, or null if the constant is not
  * defined.
  */
-#[Pure]
+#[Pure(true)]
 function constant(string $name): mixed {}
 
 /**
@@ -279,7 +279,7 @@ function time_sleep_until(float $timestamp): bool {}
  * </p>
  * @deprecated 8.1
  */
-#[Pure]
+#[Pure(true)]
 #[Deprecated(since: '8.1')]
 function strptime(string $timestamp, string $format): array|false {}
 
@@ -759,7 +759,7 @@ function sha1(string $string, bool $binary = false): string {}
  * </p>
  * @return string|false a string on success, false otherwise.
  */
-#[Pure]
+#[Pure(true)]
 function sha1_file(string $filename, bool $binary = false): string|false {}
 
 /**
@@ -790,7 +790,7 @@ function md5(string $string, bool $binary = false): string {}
  * </p>
  * @return string|false a string on success, false otherwise.
  */
-#[Pure]
+#[Pure(true)]
 function md5_file(string $filename, bool $binary = false): string|false {}
 
 /**
@@ -1224,7 +1224,7 @@ function php_sapi_name(): string|false {}
  * the sequence "s n r v m".</p>
  * @return string the description, as a string.
  */
-#[Pure]
+#[Pure(true)]
 function php_uname(string $mode = 'a'): string {}
 
 /**

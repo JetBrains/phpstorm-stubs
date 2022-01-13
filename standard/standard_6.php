@@ -710,7 +710,7 @@ function flock($stream, int $operation, &$would_block): bool {}
  * name, only the last one is returned.
  * </p>
  */
-#[Pure]
+#[Pure(true)]
 function get_meta_tags(string $filename, bool $use_include_path = false): array|false {}
 
 /**
@@ -986,7 +986,7 @@ function stream_wrapper_restore(string $protocol): bool {}
  * @return array an indexed array containing the name of all stream wrappers
  * available on the running system.
  */
-#[Pure]
+#[Pure(true)]
 function stream_get_wrappers(): array {}
 
 /**
@@ -994,7 +994,7 @@ function stream_get_wrappers(): array {}
  * @link https://php.net/manual/en/function.stream-get-transports.php
  * @return array an indexed array of socket transports names.
  */
-#[Pure]
+#[Pure(true)]
 function stream_get_transports(): array {}
 
 /**
@@ -1024,7 +1024,7 @@ function stream_is_local($stream): bool {}
  * @return array|false an indexed or associative array with the headers, or false on
  * failure.
  */
-#[Pure]
+#[Pure(true)]
 function get_headers(
     string $url,
     #[LanguageLevelTypeAware(['8.0' => 'bool'], default: 'int')] $associative = false,
@@ -1203,5 +1203,5 @@ function realpath(string $path): string|false {}
  * </p>
  * @return bool true if there is a match, false otherwise.
  */
-#[Pure]
+#[Pure(true)]
 function fnmatch(string $pattern, string $filename, int $flags): bool {}
