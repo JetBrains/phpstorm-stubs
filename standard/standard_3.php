@@ -883,7 +883,6 @@ function getrusage(int $mode): array|false {}
  * </p>
  * @return string the unique identifier, as a string.
  */
-#[Pure]
 function uniqid(string $prefix = "", bool $more_entropy = false): string {}
 
 /**
