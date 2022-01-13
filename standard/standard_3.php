@@ -14,7 +14,7 @@ use JetBrains\PhpStorm\Pure;
  * page. The value returned is a Unix timestamp, suitable for
  * feeding to date. Returns false on error.
  */
-#[Pure]
+#[Pure(true)]
 function getlastmod(): int|false {}
 
 /**
@@ -759,7 +759,7 @@ function long2ip(int $ip): string|false {}
  * varname or an associative array with all environment variables if no variable name
  * is provided, or false on an error.
  */
-#[Pure]
+#[Pure(true)]
 function getenv(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $varname,
     #[PhpStormStubsElementAvailable(from: '7.1')] ?string $name = null,
@@ -808,7 +808,7 @@ function getopt(
  * minutes).
  * @since 5.1.3
  */
-#[Pure]
+#[Pure(true)]
 function sys_getloadavg(): array|false {}
 
 /**
@@ -846,7 +846,7 @@ function microtime(#[TypeContract(true: "float", false: "string")] bool $as_floa
  * "minuteswest" - minutes west of Greenwich
  * "dsttime" - type of dst correction
  */
-#[Pure]
+#[Pure(true)]
 #[ArrayShape(["sec" => "int", "usec" => "int", "minuteswest" => "int", "dsttime" => "int"])]
 function gettimeofday(#[TypeContract(true: "float", false: "int[]")] bool $as_float = false): array|float {}
 
@@ -860,7 +860,7 @@ function gettimeofday(#[TypeContract(true: "float", false: "int[]")] bool $as_fl
  * @return array|false an associative array containing the data returned from the system
  * call. All entries are accessible by using their documented field names.
  */
-#[Pure]
+#[Pure(true)]
 function getrusage(int $mode): array|false {}
 
 /**
@@ -935,7 +935,7 @@ function convert_cyr_string(string $str, string $from, string $to): string {}
  * @link https://php.net/manual/en/function.get-current-user.php
  * @return string the username as a string.
  */
-#[Pure]
+#[Pure(true)]
 function get_current_user(): string {}
 
 /**

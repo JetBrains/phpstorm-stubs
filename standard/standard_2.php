@@ -151,7 +151,7 @@ use JetBrains\PhpStorm\Pure;
  * @return string|false the element as a string, or false if item
  * is not valid.
  */
-#[Pure]
+#[Pure(true)]
 function nl_langinfo(int $item): string|false {}
 
 /**
