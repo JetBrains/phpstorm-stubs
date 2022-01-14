@@ -140,7 +140,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * <i>ns</i> will be regarded as a namespace
      * URL.
      * </p>
-     * @return static|null a <b>SimpleXMLElement</b> element, whether the node
+     * @return static a <b>SimpleXMLElement</b> element, whether the node
      * has children or not.
      * @since 5.0.1
      */
@@ -149,7 +149,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     public function children(
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespaceOrPrefix = null,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isPrefix = false
-    ): ?static {}
+    ): static {}
 
     /**
      * Returns namespaces used in document
