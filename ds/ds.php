@@ -1933,6 +1933,22 @@ namespace Ds;
         public function join(?string $glue = null): string {}
 
         /**
+         * Returns the result of applying a callback function to each value in
+         * the set.
+         * @param callable $callback A callable to apply to each value in the
+         * set.
+         * The callable should return what the new value will be in the new
+         * set.
+         * <code>callback ( mixed $value ) : mixed</code>
+         * @return Set The result of applying a callback to each value in
+         * the set.
+         * <p><b>Note:</b> The values of the current instance won't be affected.</p>
+         */
+        public function map(callable $callback): Set
+        {
+        }
+
+        /**
          * Returns the result of adding all given values to the set.
          *
          * <p><b>Note:</b> The current instance won't be affected.</p>
