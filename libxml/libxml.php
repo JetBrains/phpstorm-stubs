@@ -2,6 +2,7 @@
 
 // Start of libxml v.
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -82,7 +83,10 @@ function libxml_set_streams_context($context): void {}
  * @return bool This function returns the previous value of
  * <i>use_errors</i>.
  */
-function libxml_use_internal_errors(?bool $use_errors = false): bool {}
+function libxml_use_internal_errors(
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] bool $use_errors = false,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ?bool $use_errors = null
+): bool {}
 
 /**
  * Retrieve last error from libxml
