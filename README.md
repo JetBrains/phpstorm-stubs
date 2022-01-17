@@ -16,6 +16,8 @@ Note that the stubs for “non-standard” extensions are provided as is. (Non-S
 
 The support for such “non-standard” stubs is community-driven, and we only validate their PHPDoc. We do not check whether a stub matches the actual extension or whether the provided descriptions are correct.
 
+Please note that currently there are no tests for the thrown exceptions so @throws tags should be checked manually according to official docs or PHP source code
+
 [Relevant open issues]
 
 ### Contribution process
