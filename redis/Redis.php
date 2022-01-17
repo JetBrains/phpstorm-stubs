@@ -574,7 +574,7 @@ class Redis
     /**
      * Returns a Redis instance which can simply transmitted faster to the server.
      *
-     * @return Redis|Redis returns the Redis instance.
+     * @return Redis returns the Redis instance.
      * Once in pipeline-mode, all subsequent method calls return the same object until exec() is called.
      * Pay attention, that Pipeline is not a transaction, so you can get unexpected
      * results in case of big pipelines and small read/write timeouts.
@@ -4650,7 +4650,7 @@ class RedisArray
     /**
      * @param string $host The host you want to retrieve the instance for
      *
-     * @return Redis|Redis a redis instance connected to a specific node
+     * @return Redis a redis instance connected to a specific node
      */
     public function _instance($host) {}
 
