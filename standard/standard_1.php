@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
@@ -1097,7 +1098,7 @@ function join(array|string $separator = "", ?array $array): string {}
  * what the system setlocale function returns.</p>
  */
 function setlocale(
-    int $category,
+    #[ExpectedValues([LC_ALL,  LC_COLLATE,  LC_CTYPE,  LC_MONETARY,  LC_NUMERIC,  LC_TIME,  LC_MESSAGES])] int $category,
     #[PhpStormStubsElementAvailable(from: '8.0')] $locales,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $rest,
     ...$rest
