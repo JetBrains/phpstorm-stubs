@@ -53,9 +53,9 @@ class BaseFunctionsTest extends BaseStubsTest
         $stubFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($functionName);
         $filteredStubParameters = array_filter(
             $stubFunction->parameters,
-            fn($parameter) => BasePHPElement::entitySuitsCurrentPhpVersion($parameter)
+            fn ($parameter) => BasePHPElement::entitySuitsCurrentPhpVersion($parameter)
         );
-        $uniqueParameterNames = array_unique(array_map(fn(PHPParameter $parameter) => $parameter->name, $filteredStubParameters));
+        $uniqueParameterNames = array_unique(array_map(fn (PHPParameter $parameter) => $parameter->name, $filteredStubParameters));
 
         static::assertSameSize(
             $function->parameters,
@@ -91,7 +91,7 @@ class BaseFunctionsTest extends BaseStubsTest
     public function testFunctionsOptionalParameters(PHPFunction $function, PHPParameter $parameter)
     {
         $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($function->name);
-        $stubParameters = array_filter($phpstormFunction->parameters, fn(PHPParameter $stubParameter) => $stubParameter->indexInSignature === $parameter->indexInSignature);
+        $stubParameters = array_filter($phpstormFunction->parameters, fn (PHPParameter $stubParameter) => $stubParameter->indexInSignature === $parameter->indexInSignature);
         /** @var PHPParameter $stubOptionalParameter */
         $stubOptionalParameter = array_pop($stubParameters);
         self::assertEquals(
@@ -137,7 +137,7 @@ class BaseFunctionsTest extends BaseStubsTest
         } else {
             $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($class->name)->getMethod($method->name);
         }
-        $stubParameters = array_filter($phpstormFunction->parameters, fn(PHPParameter $stubParameter) => $stubParameter->indexInSignature === $parameter->indexInSignature);
+        $stubParameters = array_filter($phpstormFunction->parameters, fn (PHPParameter $stubParameter) => $stubParameter->indexInSignature === $parameter->indexInSignature);
         /** @var PHPParameter $stubOptionalParameter */
         $stubOptionalParameter = array_pop($stubParameters);
         self::assertEquals(
@@ -164,14 +164,14 @@ class BaseFunctionsTest extends BaseStubsTest
     {
         $implodeFunctions = array_filter(
             PhpStormStubsSingleton::getPhpStormStubs()->getFunctions(),
-            fn(PHPFunction $function) => $function->name === 'implode'
+            fn (PHPFunction $function) => $function->name === 'implode'
         );
         self::assertCount(1, $implodeFunctions);
         /** @var PHPFunction $implodeFunction */
         $implodeFunction = array_pop($implodeFunctions);
         $implodeParameters = $implodeFunction->parameters;
-        $separatorParameters = array_filter($implodeParameters, fn(PHPParameter $parameter) => $parameter->name === 'separator');
-        $arrayParameters = array_filter($implodeParameters, fn(PHPParameter $parameter) => $parameter->name === 'array');
+        $separatorParameters = array_filter($implodeParameters, fn (PHPParameter $parameter) => $parameter->name === 'separator');
+        $arrayParameters = array_filter($implodeParameters, fn (PHPParameter $parameter) => $parameter->name === 'array');
         /** @var PHPParameter $separatorParameter */
         $separatorParameter = array_pop($separatorParameters);
         /** @var PHPParameter $arrayParameter */

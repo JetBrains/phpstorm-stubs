@@ -805,7 +805,7 @@ class GMP implements Serializable
      */
     public function serialize() {}
 
-    public function __serialize():array {}
+    public function __serialize(): array {}
 
     /**
      * Constructs the object
@@ -817,6 +817,6 @@ class GMP implements Serializable
      */
     public function unserialize($serialized) {}
 
-    public function __unserialize(array $data):void {}
+    public function __unserialize(array $data): void {}
 }
 // End of gmp v.

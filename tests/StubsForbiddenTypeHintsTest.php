@@ -20,7 +20,7 @@ class StubsForbiddenTypeHintsTest extends BaseStubsTest
         $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
         $returnTypes = $stubMethod->returnTypesFromSignature;
         self::assertEmpty(
-            array_filter($returnTypes, fn(string $type) => str_contains($type, '?')),
+            array_filter($returnTypes, fn (string $type) => str_contains($type, '?')),
             "Method '$stubMethod->parentName::$stubMethod->name' has since version '$sinceVersion'
             but has nullable return typehint '" . implode('|', $returnTypes) . "' that supported only since PHP 7.1. 
             Please declare return type via PhpDoc"
@@ -51,7 +51,7 @@ class StubsForbiddenTypeHintsTest extends BaseStubsTest
     {
         $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
         self::assertEmpty(
-            array_filter($parameter->typesFromSignature, fn(string $type) => str_contains($type, '?')),
+            array_filter($parameter->typesFromSignature, fn (string $type) => str_contains($type, '?')),
             "Method '$class->name::$stubMethod->name' with @since '$sinceVersion'  
                 has nullable parameter '$parameter->name' with typehint '" . implode('|', $parameter->typesFromSignature) . "' 
                 but nullable typehints available only since php 7.1"

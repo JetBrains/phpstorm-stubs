@@ -2143,7 +2143,8 @@ class IntlDateFormatter
     public function format(
         #[ElementAvailable(from: '5.3', to: '7.4')] $datetime = null,
         #[ElementAvailable(from: '8.0')] $datetime,
-        #[ElementAvailable(from: '5.3', to: '7.4')] $array = null): string|false {}
+        #[ElementAvailable(from: '5.3', to: '7.4')] $array = null
+    ): string|false {}
 
     /**
      * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
@@ -7569,8 +7570,8 @@ class UConverter
     #[TentativeType]
     public static function reasonText(
         #[ElementAvailable(from: '5.3', to: '7.4')] $reason = 0,
-        #[ElementAvailable(from: '8.0')]  int $reason
-        ): string {}
+        #[ElementAvailable(from: '8.0')] int $reason
+    ): string {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>

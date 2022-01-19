@@ -1887,7 +1887,7 @@ function mysqli_fetch_assoc(mysqli_result $result): array|null|false {}
 
 /**
  * @template T
- * 
+ *
  * Fetch the next row of a result set as an object
  * @link https://php.net/manual/en/mysqli-result.fetch-object.php
  * @param mysqli_result $result A mysqli_result object returned by mysqli_query(),
@@ -2538,7 +2538,7 @@ function mysqli_stmt_free_result(mysqli_stmt $statement): void {}
  * @link https://php.net/manual/en/mysqli-stmt.get-result.php
  * @param mysqli_stmt $statement
  * @return mysqli_result|false Returns false on failure. For successful queries which produce a result set,
- * such as SELECT, SHOW, DESCRIBE or EXPLAIN, mysqli_stmt_get_result() will return a mysqli_result object. 
+ * such as SELECT, SHOW, DESCRIBE or EXPLAIN, mysqli_stmt_get_result() will return a mysqli_result object.
  * For other successful queries, mysqli_stmt_get_result() will return false.
  */
 function mysqli_stmt_get_result(mysqli_stmt $statement): mysqli_result|false {}

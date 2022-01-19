@@ -191,7 +191,8 @@ function var_dump(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $vars,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ...$vars,
     #[PhpStormStubsElementAvailable(from: '8.0')] mixed $value,
-    #[PhpStormStubsElementAvailable(from: '8.0')] mixed ...$values): void {}
+    #[PhpStormStubsElementAvailable(from: '8.0')] mixed ...$values
+): void {}
 
 /**
  * Outputs or returns a parsable string representation of a variable

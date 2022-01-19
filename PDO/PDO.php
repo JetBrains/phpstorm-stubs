@@ -901,17 +901,17 @@ class PDO
      * @since 8.0
      */
     public const OCI_ATTR_CALL_TIMEOUT = 1004;
-    
+
     /**
      * Sets the date format.
      */
     public const FB_ATTR_DATE_FORMAT = 1000;
-    
+
     /**
      * Sets the time format.
      */
     public const FB_ATTR_TIME_FORMAT = 1001;
-    
+
     /**
      * Sets the timestamp format.
      */
