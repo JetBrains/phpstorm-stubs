@@ -46,5 +46,5 @@ jobs:
       - name: Test Stubs Map
         run: ./tests/Tools/check-stub-map
 
-      #- name: run cs fixer
-      #  run: docker-compose -f docker-compose.yml run test_runner composer cs -d /opt/project/phpstorm-stubs
+      - name: run cs fixer
+        run: docker-compose -f docker-compose.yml run test_runner composer cs -d /opt/project/phpstorm-stubs

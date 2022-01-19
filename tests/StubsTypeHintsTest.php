@@ -199,7 +199,7 @@ class StubsTypeHintsTest extends BaseStubsTest
     public static function testSignatureTypeHintsConformPhpDocInMethods(PHPFunction|PHPMethod $method)
     {
         $functionName = $method->name;
-        $unifiedPhpDocTypes = array_map(function (string $type) use ($method){
+        $unifiedPhpDocTypes = array_map(function (string $type) use ($method) {
             $typeParts = explode('\\', $type);
             $typeName = end($typeParts);
             foreach ($method->templateTypes as $templateType) {

@@ -40,7 +40,7 @@ class StubsContainer
      * @return PHPConst|null
      * @throws RuntimeException
      */
-    public function getConstant(string $constantName,$sourceFilePath = null)
+    public function getConstant(string $constantName, $sourceFilePath = null)
     {
         $constants = array_filter($this->constants, function (PHPConst $const) use ($constantName): bool {
             return $const->name === $constantName && $const->duplicateOtherElement === false

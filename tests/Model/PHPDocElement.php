@@ -98,7 +98,8 @@ trait PHPDocElement
                     function (Generic $tag) {
                         return preg_split("/\W/", $tag->getDescription()->getBodyTemplate())[0];
                     },
-                    $phpDoc->getTagsByName('template'));
+                    $phpDoc->getTagsByName('template')
+                );
             } catch (Exception $e) {
                 $this->parseError = $e;
             }

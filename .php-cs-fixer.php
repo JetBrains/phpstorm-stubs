@@ -78,7 +78,7 @@ return (new PhpCsFixer\Config())
         'switch_continue_to_break' => true,
         'trim_array_spaces' => true,
         'unary_operator_spaces' => true,
-        'visibility_required' => ['elements' => ['const', 'method', 'property']],
+        'visibility_required' => ['elements' => ['method', 'property']],
         'whitespace_after_comma_in_array' => true,
         'encoding' => true,
         'full_opening_tag' => true,

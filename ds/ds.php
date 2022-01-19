@@ -1944,9 +1944,7 @@ namespace Ds;
          * the set.
          * <p><b>Note:</b> The values of the current instance won't be affected.</p>
          */
-        public function map(callable $callback): Set
-        {
-        }
+        public function map(callable $callback): Set {}
 
         /**
          * Returns the result of adding all given values to the set.
