@@ -142,6 +142,7 @@ class PhpCoreStubsProvider
             'svn',
             'sync',
             'uopz',
+            'uploadprogress',
             'uuid',
             'uv',
             'winbinder',
