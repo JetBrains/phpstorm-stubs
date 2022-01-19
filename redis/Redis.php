@@ -3975,7 +3975,7 @@ class Redis
      * @param   string  $script
      * @param   array   $args
      * @param   int     $numKeys
-     * @return  mixed|Redis   @see eval() or Redis if in multi mode
+     * @return  mixed|Redis   @see eval() , returns Redis if in multi mode
      */
     #[Deprecated(replacement: '%class%->eval(%parametersList%)')]
     public function evaluate($script, $args = [], $numKeys = 0) {}
@@ -3989,7 +3989,7 @@ class Redis
      * @param array  $args
      * @param int    $numKeys
      *
-     * @return mixed|Redis @see eval() or Redis if in multi mode
+     * @return mixed|Redis @see eval() , returns Redis if in multi mode
      *
      * @see     eval()
      * @link    https://redis.io/commands/evalsha
@@ -4039,7 +4039,7 @@ class Redis
     /**
      * The last error message (if any)
      *
-     * @return string|null|Redis A string with the last returned script based error message, or NULL if there is no error or Redis if in multi mode
+     * @return string|null A string with the last returned script based error message, or NULL if there is no error
      *
      * @example
      * <pre>
@@ -4053,7 +4053,7 @@ class Redis
     /**
      * Clear the last error message
      *
-     * @return bool|Redis true or Redis if in multi mode
+     * @return bool true
      *
      * @example
      * <pre>
@@ -4078,7 +4078,7 @@ class Redis
      *
      * @param string $command
      * @param string $value
-     * @return mixed|Redis This will vary depending on which client command was executed: or Redis if in multi mode
+     * @return mixed This will vary depending on which client command was executed:
      * - CLIENT LIST will return an array of arrays with client information.
      * - CLIENT GETNAME will return the client name or false if none has been set
      * - CLIENT SETNAME will return true if it can be set and false if not
@@ -4106,7 +4106,7 @@ class Redis
      *
      * @param mixed $value The value you wish to prefix
      *
-     * @return string|Redis If a prefix is set up, the value now prefixed or Redis if in multi mode
+     * @return string If a prefix is set up, the value now prefixed
      * If there is no prefix, the value will be returned unchanged.
      *
      * @example
@@ -4125,7 +4125,7 @@ class Redis
      *
      * @param string $value The value to be unserialized
      *
-     * @return mixed|Redis returns Redis if in multi mode
+     * @return mixed
      * @example
      * <pre>
      * $redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_PHP);
@@ -4142,7 +4142,7 @@ class Redis
      *
      * @param mixed $value The value to be serialized.
      *
-     * @return  mixed|Redis returns Redis if in multi mode
+     * @return  mixed
      * @example
      * <pre>
      * $redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_NONE);
@@ -4161,7 +4161,7 @@ class Redis
      * The data that comes out of DUMP is a binary representation of the key as Redis stores it.
      * @param string $key
      *
-     * @return string|false|Redis The Redis encoded value of the key, or FALSE if the key doesn't exist or Redis if in multi mode
+     * @return string|false The Redis encoded value of the key, or FALSE if the key doesn't exist
      *
      * @link    https://redis.io/commands/dump
      * @example
@@ -4179,7 +4179,7 @@ class Redis
      * @param int    $ttl   How long the key should live (if zero, no expire will be set on the key)
      * @param string $value (binary).  The Redis encoded key value (from DUMP)
      *
-     * @return bool|Redis returns Redis if in multi mode
+     * @return bool
      *
      * @link    https://redis.io/commands/restore
      * @example
@@ -4202,7 +4202,7 @@ class Redis
      * @param bool   $copy    Should we send the COPY flag to redis.
      * @param bool   $replace Should we send the REPLACE flag to redis.
      *
-     * @return bool|Redis returns Redis if in multi mode
+     * @return bool
      *
      * @link    https://redis.io/commands/migrate
      * @example
@@ -4215,7 +4215,7 @@ class Redis
     /**
      * Return the current Redis server time.
      *
-     * @return array|Redis If successful, the time will come back as an associative array with element zero being the or Redis if in multi mode
+     * @return array If successful, the time will come back as an associative array with element zero being the
      * unix timestamp, and element one being microseconds.
      *
      * @link    https://redis.io/commands/time
@@ -4631,19 +4631,19 @@ class RedisArray
     public function __construct($hosts, ?array $opts = null) {}
 
     /**
-     * @return array|Redis list of hosts for the selected array or Redis if in multi mode
+     * @return array list of hosts for the selected array
      */
     public function _hosts() {}
 
     /**
-     * @return string|Redis the name of the function used to extract key parts during consistent hashing or Redis if in multi mode
+     * @return string the name of the function used to extract key parts during consistent hashing
      */
     public function _function() {}
 
     /**
      * @param string $key The key for which you want to lookup the host
      *
-     * @return  string|Redis  the host to be used for a certain key or Redis if in multi mode
+     * @return  string the host to be used for a certain key
      */
     public function _target($key) {}
 
@@ -4793,7 +4793,7 @@ class RedisArray
      * - cluster_enabled
      *
      * @link    https://redis.io/commands/info
-     * @return  array|Redis returns Redis if in multi mode
+     * @return  array
      * @example
      * <pre>
      * $redis->info();
