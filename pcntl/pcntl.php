@@ -100,7 +100,8 @@ function pcntl_waitpid(
     &$status,
     int $flags = 0,
     #[PhpStormStubsElementAvailable(from: '7.0')] &$resource_usage
-= []): int {}
+= []
+): int {}
 
 /**
  * Waits on or returns the status of a forked child
@@ -150,7 +151,8 @@ function pcntl_wait(
     &$status,
     int $flags = 0,
     #[PhpStormStubsElementAvailable(from: '7.0')] &$resource_usage
-= []): int {}
+= []
+): int {}
 
 /**
  * Installs a signal handler

@@ -341,7 +341,7 @@ function strchr(string $haystack, string $needle, bool $before_needle = false): 
 function sprintf(
     string $format,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $values,
-    #[PhpStormStubsElementAvailable(from: '7.0')] mixed ...$values
+    mixed ...$values
 ): string {}
 
 /**

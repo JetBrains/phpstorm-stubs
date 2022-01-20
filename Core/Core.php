@@ -342,7 +342,7 @@ function define(
     string $constant_name,
     #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: 'null|array|bool|int|float|string')] $value,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] bool $case_insensitive,
-    #[Deprecated(since: 7.3)] bool $case_insensitive = false
+    #[PhpStormStubsElementAvailable(from: '7.0')] #[Deprecated(since: 7.3)] bool $case_insensitive = false
 ): bool {}
 
 /**
