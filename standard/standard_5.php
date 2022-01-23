@@ -969,8 +969,12 @@ function tmpfile() {}
  * @param int $flags <p>
  * The optional parameter flags can be one, or
  * more, of the following constants:
- * FILE_USE_INCLUDE_PATH
- * Search for the file in the include_path.</p>
+ * <ul>
+ * <li><tt>FILE_USE_INCLUDE_PATH</tt> - Search for the file in the include_path.</li>
+ * <li><tt>FILE_IGNORE_NEW_LINES</tt> - Omit newline at the end of each array element</li>
+ * <li><tt>FILE_SKIP_EMPTY_LINES</tt> - Skip empty lines</li>
+ * </ul>
+ * </p>
  * @param resource $context [optional] <p>
  * A context resource created with the
  * stream_context_create function.
