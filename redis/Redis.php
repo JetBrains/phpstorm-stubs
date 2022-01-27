@@ -2496,6 +2496,19 @@ class Redis
     public function info($option = null) {}
 
     /**
+     * Returns an indexed array whose first element is the role
+     *
+     * @return array|Redis returns Redis if in multi mode
+     *
+     * @link    https://redis.io/commands/role
+     * @example
+     * <pre>
+     * $redis->role();
+     * </pre>
+     */
+    public function role() {}
+
+    /**
      * Resets the statistics reported by Redis using the INFO command (`info()` function).
      * These are the counters that are reset:
      *      - Keyspace hits
