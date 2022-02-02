@@ -140,6 +140,7 @@ class PhpCoreStubsProvider
             'stats',
             'stomp',
             'svn',
+            'swoole',
             'sync',
             'uopz',
             'uploadprogress',
