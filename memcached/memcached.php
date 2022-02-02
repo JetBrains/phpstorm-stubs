@@ -50,14 +50,14 @@ class Memcached
      * <p>Type: boolean.</p>
      * @link https://php.net/manual/en/memcached.constants.php
      */
-    public const HAVE_IGBINARY = 0;
+    public const HAVE_IGBINARY = false;
 
     /**
      * <p>Indicates whether JSON serializer support is available.</p>
      * <p>Type: boolean.</p>
      * @link https://php.net/manual/en/memcached.constants.php
      */
-    public const HAVE_JSON = 0;
+    public const HAVE_JSON = false;
 
     /**
      * <p>Indicates whether msgpack serializer support is available.</p>
@@ -66,20 +66,20 @@ class Memcached
      * @since 3.0.0
      * @link https://php.net/manual/en/memcached.constants.php
      */
-    public const HAVE_MSGPACK = 0;
+    public const HAVE_MSGPACK = false;
 
     /**
      * <p>Indicate whether set_encoding_key is available</p>
      * <p>Type: boolean.</p>
      * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/memcached-api.php, https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c#L4387
      */
-    public const HAVE_ENCODING = 0;
+    public const HAVE_ENCODING = false;
 
     /**
      * Feature support
      */
-    public const HAVE_SESSION = 1;
-    public const HAVE_SASL = 0;
+    public const HAVE_SESSION = true;
+    public const HAVE_SASL = false;
 
     /**
      * <p>Specifies the hashing algorithm used for the item keys. The valid
