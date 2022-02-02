@@ -75,6 +75,7 @@ class StubsContainer
                         return $nextConstant->name === $constant->name;
                     }
                 ));
+                $constant->duplicateOtherElement = true;
                 $this->constants[$constant->name . '_duplicated_' . $amount] = $constant;
             } else {
                 $this->constants[$constant->name] = $constant;
