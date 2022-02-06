@@ -1102,7 +1102,6 @@ function openssl_get_md_methods(bool $aliases = false): array {}
 function openssl_get_cipher_methods(bool $aliases = false): array {}
 
 /**
- * (No version information available, might only be in SVN)<br/>
  * Computes shared secret for public value of remote DH key and local DH key
  * @link https://php.net/manual/en/function.openssl-dh-compute-key.php
  * @param string $public_key <p>
@@ -1112,6 +1111,7 @@ function openssl_get_cipher_methods(bool $aliases = false): array {}
  * DH key
  * </p>
  * @return string|false computed key on success or false on failure.
+ * @since 5.3
  */
 function openssl_dh_compute_key(string $public_key, #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey"], default: "resource")] $private_key): string|false {}
 

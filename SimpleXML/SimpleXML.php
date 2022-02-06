@@ -247,10 +247,10 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     ): void {}
 
     /**
-     * (No version information available, might only be in SVN)<br/>
      * Returns the string content
      * @link https://php.net/manual/en/simplexmlelement.tostring.php
      * @return string the string content on success or an empty string on failure.
+     * @since 5.3
      */
     #[TentativeType]
     public function __toString(): string {}
@@ -419,10 +419,10 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
     public function getChildren() {}
 
     /**
-     * (No version information available, might only be in SVN)<br/>
      * Returns the string content
      * @link https://php.net/manual/en/simplexmlelement.tostring.php
      * @return string the string content on success or an empty string on failure.
+     * @since 5.3
      */
     public function __toString() {}
 
