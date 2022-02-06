@@ -447,7 +447,7 @@ class Collator
     public function getErrorMessage(): string|false {}
 
     /**
-     * (No version information available, might only be in SVN)<br/>
+     * (PHP 5 &gt;= 5.3.2, PECL intl &gt;= 1.0.3)<br/>
      * Get sorting key for a string
      * @link https://php.net/manual/en/collator.getsortkey.php
      * @param string $string <p>
