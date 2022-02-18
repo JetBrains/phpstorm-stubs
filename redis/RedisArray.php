@@ -5,8 +5,7 @@
  *
  * @mixin \Redis
  *
- * @author Avtandil Kikabidze <akalongman@gmail.com>
- * @link   https://github.com/akalongman/phpstorm-stubs
+ * @link   https://github.com/phpredis/phpredis/blob/develop/redis_array.stub.php
  */
 class RedisArray
 {
@@ -15,8 +14,6 @@ class RedisArray
      *
      * @param string|string[] $hosts Name of the redis array from redis.ini or array of hosts to construct the array with
      * @param null|array      $opts  Array of options
-     *
-     * @link https://github.com/phpredis/phpredis/blob/develop/redis_array.stub.php
      */
     public function __construct(string|array $hosts, ?array $opts = null) {}
 
