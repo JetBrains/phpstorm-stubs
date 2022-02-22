@@ -3,6 +3,7 @@
 // Start of pcre v.
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Language;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -157,7 +158,7 @@ use JetBrains\PhpStorm\Pure;
  * matches given <i>subject</i>, 0 if it does not, or <b>FALSE</b>
  * if an error occurred.
  */
-function preg_match(string $pattern, string $subject, &$matches, int $flags = 0, int $offset = 0): int|false {}
+function preg_match(#[Language('PhpRegExp')] string $pattern, string $subject, &$matches, int $flags = 0, int $offset = 0): int|false {}
 
 /**
  * Perform a global regular expression match
@@ -216,7 +217,7 @@ function preg_match(string $pattern, string $subject, &$matches, int $flags = 0,
  * or <b>FALSE</b> if an error occurred.
  */
 #[LanguageLevelTypeAware(['8.0' => 'int|false'], default: 'int|false|null')]
-function preg_match_all(string $pattern, string $subject, &$matches, int $flags = 0, int $offset = 0) {}
+function preg_match_all(#[Language('PhpRegExp')] string $pattern, string $subject, &$matches, int $flags = 0, int $offset = 0) {}
 
 /**
  * Perform a regular expression search and replace
@@ -396,7 +397,7 @@ function preg_replace_callback(
  * <p>If matches are found, the new subject will be returned, otherwise subject will be returned unchanged.</p>
  */
 function preg_replace_callback_array(
-    array $pattern,
+    #[Language('PhpRegExp')] array $pattern,
     array|string $subject,
     int $limit = -1,
     &$count,
@@ -449,7 +450,7 @@ function preg_filter(array|string $pattern, array|string $replacement, array|str
  * if an error occurred.
  */
 #[Pure]
-function preg_split(string $pattern, string $subject, int $limit = -1, int $flags = 0): array|false {}
+function preg_split(#[Language('PhpRegExp')] string $pattern, string $subject, int $limit = -1, int $flags = 0): array|false {}
 
 /**
  * Quote regular expression characters
@@ -486,7 +487,7 @@ function preg_quote(string $str, ?string $delimiter = null): string {}
  * <i>input</i> array or false when pattern cannot be compiled.
  */
 #[Pure]
-function preg_grep(string $pattern, array $array, int $flags = 0): array|false {}
+function preg_grep(#[Language('PhpRegExp')] string $pattern, array $array, int $flags = 0): array|false {}
 
 /**
  * Returns the error code of the last PCRE regex execution
