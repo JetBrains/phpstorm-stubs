@@ -5,6 +5,7 @@ use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
+use JetBrains\PhpStorm\Language;
 
 /**
  * The DOMNode class
@@ -2363,7 +2364,7 @@ class DOMXPath
      */
     #[TentativeType]
     public function query(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $expression,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] #[Language('XPath')] $expression,
         #[LanguageLevelTypeAware(['8.0' => 'DOMNode|null'], default: '')] $contextNode = null,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $registerNodeNS = true
     ): mixed {}
@@ -2388,7 +2389,7 @@ class DOMXPath
      */
     #[TentativeType]
     public function evaluate(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $expression,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] #[Language('XPath')] $expression,
         #[LanguageLevelTypeAware(['8.0' => 'DOMNode|null'], default: '')] $contextNode = null,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $registerNodeNS = true
     ): mixed {}
