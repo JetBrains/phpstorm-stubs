@@ -19,7 +19,7 @@ use StubTests\Model\Tags\RemovedTag;
 use StubTests\Parsers\ParserUtils;
 use function trim;
 
-class StubsPhpDocTest extends BaseStubsTest
+class StubsPhpDocTest extends AbstractBaseStubsTestCase
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubConstantsProvider::classConstantProvider

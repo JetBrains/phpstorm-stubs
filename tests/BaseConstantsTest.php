@@ -10,7 +10,7 @@ use StubTests\Model\PHPConst;
 use StubTests\Model\PHPInterface;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
-class BaseConstantsTest extends BaseStubsTest
+class BaseConstantsTest extends AbstractBaseStubsTestCase
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::constantProvider

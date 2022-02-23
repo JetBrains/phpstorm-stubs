@@ -9,7 +9,7 @@ use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPProperty;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
-class StubsPhp81Tests extends BaseStubsTest
+class StubsPhp81Tests extends AbstractBaseStubsTestCase
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider::classReadonlyPropertiesProvider
@@ -50,7 +50,7 @@ class StubsPhp81Tests extends BaseStubsTest
                 self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesReturnTypes[$languageVersion]);
             }
         }
-        $conditionToCompareWithSignature = BaseStubsTest::isReflectionTypesMatchSignature(
+        $conditionToCompareWithSignature = AbstractBaseStubsTestCase::isReflectionTypesMatchSignature(
             $unifiedReflectionReturnTypes,
             $unifiedStubsReturnTypes
         );
@@ -60,7 +60,7 @@ class StubsPhp81Tests extends BaseStubsTest
                 $unifiedStubsAttributesReturnTypes[getenv('PHP_VERSION')] :
                 $unifiedStubsAttributesReturnTypes['default'];
         }
-        $conditionToCompareWithAttribute = BaseStubsTest::isReflectionTypesExistInAttributes($unifiedReflectionReturnTypes, $typesFromAttribute);
+        $conditionToCompareWithAttribute = AbstractBaseStubsTestCase::isReflectionTypesExistInAttributes($unifiedReflectionReturnTypes, $typesFromAttribute);
         $testCondition = $conditionToCompareWithSignature || $conditionToCompareWithAttribute;
         self::assertTrue(
             $testCondition,

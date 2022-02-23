@@ -12,7 +12,7 @@ use StubTests\Model\PHPProperty;
 use StubTests\Model\PhpVersions;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
-class BaseClassesTest extends BaseStubsTest
+class BaseClassesTest extends AbstractBaseStubsTestCase
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::classWithParentProvider

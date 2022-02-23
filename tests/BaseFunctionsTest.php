@@ -15,7 +15,7 @@ use StubTests\Model\StubProblemType;
 use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
-class BaseFunctionsTest extends BaseStubsTest
+class BaseFunctionsTest extends AbstractBaseStubsTestCase
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::allFunctionsProvider
@@ -25,7 +25,7 @@ class BaseFunctionsTest extends BaseStubsTest
     {
         $functionName = $function->name;
         $stubFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($functionName);
-        $params = BaseStubsTest::getParameterRepresentation($function);
+        $params = AbstractBaseStubsTestCase::getParameterRepresentation($function);
         static::assertNotEmpty($stubFunction, "Missing function: function $functionName($params){}");
     }
 
@@ -61,8 +61,8 @@ class BaseFunctionsTest extends BaseStubsTest
             $function->parameters,
             $uniqueParameterNames,
             "Parameter number mismatch for function $functionName. 
-                Expected: " . BaseStubsTest::getParameterRepresentation($function) . "\n" .
-            'Actual: ' . BaseStubsTest::getParameterRepresentation($stubFunction)
+                Expected: " . AbstractBaseStubsTestCase::getParameterRepresentation($function) . "\n" .
+            'Actual: ' . AbstractBaseStubsTestCase::getParameterRepresentation($stubFunction)
         );
     }
 

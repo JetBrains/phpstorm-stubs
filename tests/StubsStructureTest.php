@@ -6,7 +6,7 @@ use RecursiveArrayIterator;
 use RecursiveIteratorIterator;
 use StubTests\TestData\Providers\Stubs\PhpCoreStubsProvider;
 
-class StubsStructureTest extends BaseStubsTest
+class StubsStructureTest extends AbstractBaseStubsTestCase
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsTestDataProviders::stubsDirectoriesProvider

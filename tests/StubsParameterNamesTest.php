@@ -12,7 +12,7 @@ use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
-class StubsParameterNamesTest extends BaseStubsTest
+class StubsParameterNamesTest extends AbstractBaseStubsTestCase
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionParametersProvider

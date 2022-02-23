@@ -10,7 +10,7 @@ use StubTests\TestData\Providers\PhpStormStubsSingleton;
 /**
  * Class to test typehints of some Reflection* classes as reflection for these classes returns null.
  */
-class StubsReflectionClassesTest extends BaseStubsTest
+class StubsReflectionClassesTest extends AbstractBaseStubsTestCase
 {
     /**
      * @throws Exception|RuntimeException

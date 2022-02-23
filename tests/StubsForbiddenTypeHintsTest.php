@@ -9,7 +9,7 @@ use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\Parsers\ParserUtils;
 
-class StubsForbiddenTypeHintsTest extends BaseStubsTest
+class StubsForbiddenTypeHintsTest extends AbstractBaseStubsTestCase
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForNullableReturnTypeHintTestsProvider
