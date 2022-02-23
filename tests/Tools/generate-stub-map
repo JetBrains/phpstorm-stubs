@@ -35,7 +35,7 @@ use const PHP_EOL;
 (function (): void {
     require __DIR__ . '/../../vendor/autoload.php';
 
-    $mapFile = __DIR__ . '/../../PhpStormStubsMap.php';
+    $mapFile = __DIR__ . '/../../src/PhpStormStubsMap.php';
 
     class InvalidConstantNode extends RuntimeException
     {
@@ -267,11 +267,11 @@ namespace JetBrains\PHPStormStub;
  */
 final class PhpStormStubsMap
 {
-const CLASSES = {$exportedClasses};
+    const CLASSES = {$exportedClasses};
 
-const FUNCTIONS = {$exportedFunctions};
+    const FUNCTIONS = {$exportedFunctions};
 
-const CONSTANTS = {$exportedConstants};
+    const CONSTANTS = {$exportedConstants};
 }
 PHP;
 
