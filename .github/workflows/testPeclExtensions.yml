@@ -18,18 +18,18 @@ jobs:
           PHP_VERSION: '8.0'
 
       - name: Composer Install
-        run: docker-compose -f docker-compose.yml run test_runner composer install -d /opt/project/phpstorm-stubs
+        run: docker-compose -f docker-compose.yml run test_runner composer install
 
       - name: Dump Reflection With Pecl To File
-        run: docker-compose -f docker-compose.yml run pecl_extensions /usr/local/bin/php /opt/project/phpstorm-stubs/tests/Tools/dump-reflection-to-file.php ReflectionDataPecl.json
+        run: docker-compose -f docker-compose.yml run pecl_extensions /usr/local/bin/php tests/Tools/dump-reflection-to-file.php ReflectionDataPecl.json
 
       - name: Dump Reflection Without Pecl To File
-        run: docker-compose -f docker-compose.yml run php_under_test /usr/local/bin/php /opt/project/phpstorm-stubs/tests/Tools/dump-reflection-to-file.php ReflectionData.json
+        run: docker-compose -f docker-compose.yml run php_under_test /usr/local/bin/php tests/Tools/dump-reflection-to-file.php ReflectionData.json
 
       - name: Build Reflection Data With Pecl Only
-        run: docker-compose -f docker-compose.yml run php_under_test /usr/local/bin/php /opt/project/phpstorm-stubs/tests/Tools/dump-pecl-to-file.php
+        run: docker-compose -f docker-compose.yml run php_under_test /usr/local/bin/php tests/Tools/dump-pecl-to-file.php
 
       - name: Run Tests
-        run: docker-compose -f docker-compose.yml run -e PHP_VERSION='8.0' test_runner /opt/project/phpstorm-stubs/vendor/bin/phpunit /opt/project/phpstorm-stubs/tests/
+        run: docker-compose -f docker-compose.yml run -e PHP_VERSION='8.0' test_runner vendor/bin/phpunit tests/
         env:
           PHP_VERSION: '8.0'
