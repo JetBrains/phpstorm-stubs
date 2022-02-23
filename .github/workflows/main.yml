@@ -30,7 +30,7 @@ jobs:
           PHP_VERSION: ${{matrix.php}}
 
       - name: Run Tests
-        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=${{matrix.php}} test_runner /opt/project/phpstorm-stubs/vendor/bin/phpunit --configuration /opt/project/phpstorm-stubs/phpunit.xml --testsuite PHP_${{matrix.php}}
+        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=${{matrix.php}} test_runner vendor/bin/phpunit --testsuite PHP_${{matrix.php}}
         env:
           PHP_VERSION: ${{matrix.php}}
   additional:
