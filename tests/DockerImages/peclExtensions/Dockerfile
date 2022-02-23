@@ -48,3 +48,5 @@ RUN pecl install gnupg
 RUN docker-php-ext-enable gnupg
 RUN pecl install uopz
 RUN docker-php-ext-enable uopz
+
+WORKDIR /opt/project/phpstorm-stubs

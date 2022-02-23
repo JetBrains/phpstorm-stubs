@@ -9,3 +9,5 @@ RUN set -eux; \
 
 RUN docker-php-ext-install imap gmp sockets intl bz2 mysqli bcmath calendar dba exif gettext opcache pcntl \
     pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap pspell
+
+WORKDIR /opt/project/phpstorm-stubs
