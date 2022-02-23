@@ -9913,6 +9913,7 @@ const CONSTANTS = array (
   'MYSQLI_ENUM_FLAG' => 'mysqli/mysqli.php',
   'MYSQLI_GROUP_FLAG' => 'mysqli/mysqli.php',
   'MYSQLI_INIT_COMMAND' => 'mysqli/mysqli.php',
+  'MYSQLI_IS_MARIADB' => 'mysqli/mysqli.php',
   'MYSQLI_MULTIPLE_KEY_FLAG' => 'mysqli/mysqli.php',
   'MYSQLI_NOT_NULL_FLAG' => 'mysqli/mysqli.php',
   'MYSQLI_NO_DATA' => 'mysqli/mysqli.php',

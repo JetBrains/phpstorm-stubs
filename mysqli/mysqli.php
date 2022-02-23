@@ -28,6 +28,11 @@ final class mysqli_sql_exception extends RuntimeException
      * @var int
      */
     protected $code;
+
+    /**
+     * @since 8.1
+     */
+    public function getSqlState(): string {}
 }
 
 /**
@@ -3494,3 +3499,7 @@ define('MYSQLI_TRANS_COR_RELEASE', 4);
 define('MYSQLI_TRANS_COR_NO_RELEASE', 8);
 define('MYSQLI_OPT_LOAD_DATA_LOCAL_DIR', 43);
 define('MYSQLI_REFRESH_REPLICA', 64);
+/**
+ * @since 8.1
+ */
+define('MYSQLI_IS_MARIADB', 0);

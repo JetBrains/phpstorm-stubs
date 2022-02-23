@@ -18,6 +18,8 @@ class PDOException extends RuntimeException
 {
     #[LanguageLevelTypeAware(['8.1' => 'array|null'], default: '')]
     public $errorInfo;
+
+    protected $code;
 }
 
 /**
