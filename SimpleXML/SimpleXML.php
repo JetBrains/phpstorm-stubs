@@ -241,8 +241,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     public function addAttribute(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
         #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $value = null,
-        #[PhpStormStubsElementAvailable(from: '8.0', to: '8.0')] string $value,
-        #[PhpStormStubsElementAvailable(from: '8.1')] ?string $value = null,
+        #[PhpStormStubsElementAvailable(from: '8.0')] string $value,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace = null
     ): void {}
 
