@@ -12,7 +12,7 @@ do
   echo "Dumping reflection data to file $SCRIPT_DIR/ReflectionData.json for PHP_$i..."
   docker-compose -f docker-compose.yml run -e PHP_VERSION="$i" php_under_test /usr/local/bin/php /opt/project/phpstorm-stubs/tests/Tools/dump-reflection-to-file.php ReflectionData.json
   echo "Running tests agains PHP_$i..."
-  docker-compose -f docker-compose.yml run -e PHP_VERSION="$i" test_runner /opt/project/phpstorm-stubs/vendor/bin/phpunit --configuration /opt/project/phpstorm-stubs/phpunit.xml --testsuite PHP_"$i"
+  docker-compose -f docker-compose.yml run -e PHP_VERSION="$i" test_runner vendor/bin/phpunit --testsuite PHP_"$i"
   echo "Removing file $SCRIPT_DIR/ReflectionData.json with reflection data for PHP_$i..."
   rm -f "$SCRIPT_DIR/ReflectionData.json"
 done
