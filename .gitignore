@@ -11,9 +11,11 @@ rest-client.private.env.json
 .idea/workspace.xml
 .idea/shelf
 
-#Composer
+# Composer
 vendor
 composer.lock
 
 .php_cs.cache
 .phpunit.result.cache
+
+ReflectionData.json
