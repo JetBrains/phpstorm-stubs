@@ -9,7 +9,7 @@ Please check our [issue tracker] for issues corresponding to the problem you're 
 * Please avoid any unnecessary changes e.g., spacing, line endings, HTML formatting. Remember, these files are NOT for human consumption. We want to preserve meaningful history.
 * Please try to match existing style for any particular file - formatting, spacing, naming conventions.
 * Please add corresponding @since tags
-* Please run `docker-compose -f docker-compose.yml run test_runner composer cs -d /opt/project/phpstorm-stubs` to check the code style and `docker-compose -f docker-compose.yml run test_runner composer cs-fix -d /opt/project/phpstorm-stubs` to fix it
+* Please run `docker-compose -f docker-compose.yml run test_runner composer cs` to check the code style and `docker-compose -f docker-compose.yml run test_runner composer cs-fix` to fix it
 
 ## Typehints In Signature
 * Please ensure that typehints in signature match types returned by reflection. If reflection doesn't return any type please add such typehints via PhpDoc
