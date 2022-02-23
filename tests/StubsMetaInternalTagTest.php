@@ -13,7 +13,7 @@ use StubTests\TestData\Providers\ReflectionStubsSingleton;
 use function array_filter;
 use function array_pop;
 
-class StubsMetaInternalTagTest extends BaseStubsTest
+class StubsMetaInternalTagTest extends AbstractBaseStubsTestCase
 {
     /**
      * @var string[]

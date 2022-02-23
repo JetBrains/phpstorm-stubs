@@ -26,7 +26,7 @@ use function array_pop;
 use function property_exists;
 use function strval;
 
-abstract class BaseStubsTest extends TestCase
+abstract class AbstractBaseStubsTestCase extends TestCase
 {
     public static function setUpBeforeClass(): void
     {

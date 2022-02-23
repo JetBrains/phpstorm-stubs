@@ -13,7 +13,7 @@ use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
-class StubsConstantsAndParametersValuesTest extends BaseStubsTest
+class StubsConstantsAndParametersValuesTest extends AbstractBaseStubsTestCase
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::constantValuesProvider
@@ -41,8 +41,8 @@ class StubsConstantsAndParametersValuesTest extends BaseStubsTest
         $stubParameters = array_filter($phpstormFunction->parameters, fn (PHPParameter $stubParameter) => $stubParameter->indexInSignature === $parameter->indexInSignature);
         /** @var PHPParameter $stubOptionalParameter */
         $stubOptionalParameter = array_pop($stubParameters);
-        $reflectionValue = BaseStubsTest::getStringRepresentationOfDefaultParameterValue($parameter->defaultValue);
-        $stubValue = BaseStubsTest::getStringRepresentationOfDefaultParameterValue($stubOptionalParameter->defaultValue);
+        $reflectionValue = AbstractBaseStubsTestCase::getStringRepresentationOfDefaultParameterValue($parameter->defaultValue);
+        $stubValue = AbstractBaseStubsTestCase::getStringRepresentationOfDefaultParameterValue($stubOptionalParameter->defaultValue);
         self::assertEquals(
             $reflectionValue,
             $stubValue,
@@ -70,8 +70,8 @@ class StubsConstantsAndParametersValuesTest extends BaseStubsTest
         $stubParameters = array_filter($phpstormFunction->parameters, fn (PHPParameter $stubParameter) => $stubParameter->indexInSignature === $parameter->indexInSignature);
         /** @var PHPParameter $stubOptionalParameter */
         $stubOptionalParameter = array_pop($stubParameters);
-        $reflectionValue = BaseStubsTest::getStringRepresentationOfDefaultParameterValue($parameter->defaultValue);
-        $stubValue = BaseStubsTest::getStringRepresentationOfDefaultParameterValue($stubOptionalParameter->defaultValue, $class);
+        $reflectionValue = AbstractBaseStubsTestCase::getStringRepresentationOfDefaultParameterValue($parameter->defaultValue);
+        $stubValue = AbstractBaseStubsTestCase::getStringRepresentationOfDefaultParameterValue($stubOptionalParameter->defaultValue, $class);
         self::assertEquals(
             $reflectionValue,
             $stubValue,

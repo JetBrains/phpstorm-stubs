@@ -4,7 +4,7 @@ namespace StubTests;
 
 use StubTests\Model\PHPFunction;
 
-class StubsCompositeMixedReturnTypeTest extends BaseStubsTest
+class StubsCompositeMixedReturnTypeTest extends AbstractBaseStubsTestCase
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\Stubs\StubsCompositeMixedProvider::expectedFunctionsMixedFalseReturnProvider

@@ -28,7 +28,7 @@ use function property_exists;
 use function str_starts_with;
 use function substr;
 
-class StubsMetaExpectedArgumentsTest extends BaseStubsTest
+class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
 {
     /**
      * @var ExpectedFunctionArgumentsInfo[]
