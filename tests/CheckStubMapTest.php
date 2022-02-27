@@ -7,29 +7,35 @@ use PHPUnit\Framework\TestCase;
 
 class CheckStubMapTest extends TestCase
 {
+    private $oldMapFile = __DIR__ . '/../PhpStormStubsMap.php';
+    private $newMapFile;
+
     public function testStubMapIsUpToDate(): void
     {
         $this->assertFileEquals(
-            $this->getNewStubMapFile(),
-            $this->getOldStubMapFile(),
+            $this->newMapFile,
+            $this->oldMapFile,
             'The commited stub map is not up to date. Please regenerate it using ./generate-stub-map'
         );
     }
 
-    private function getOldStubMapFile(): string
+    protected function setUp(): void
     {
-        return __DIR__ . '/../PhpStormStubsMap.php';
-    }
+        parent::setUp();
 
-    private function getNewStubMapFile(): string
-    {
-        $tempStubMap = tempnam(sys_get_temp_dir(), 'stub');
+        $this->newMapFile = tempnam(__DIR__ . '/../', 'stub');
         $generator = escapeshellarg(__DIR__ . '/Tools/generate-stub-map');
-        $newStubMap = escapeshellarg($tempStubMap);
+        $newStubMap = escapeshellarg($this->newMapFile);
         exec("php $generator $newStubMap", $output, $exitCode);
         if ($exitCode) {
             $this->fail("PHP script $generator exited with code $exitCode: " . implode("\n", $output));
         }
-        return $tempStubMap;
+    }
+
+    protected function tearDown(): void
+    {
+        parent::tearDown();
+
+        unlink($this->newMapFile);
     }
 }
