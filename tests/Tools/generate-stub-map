@@ -35,7 +35,7 @@ use const PHP_EOL;
 (function (): void {
     require __DIR__ . '/../../vendor/autoload.php';
 
-    $mapFile = __DIR__ . '/../../src/PhpStormStubsMap.php';
+    $mapFile = __DIR__ . '/../../PhpStormStubsMap.php';
 
     class InvalidConstantNode extends RuntimeException
     {
