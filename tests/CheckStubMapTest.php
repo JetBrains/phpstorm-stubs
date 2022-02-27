@@ -10,8 +10,8 @@ class CheckStubMapTest extends TestCase
     public function testStubMapIsUpToDate(): void
     {
         $this->assertFileEquals(
-            $this->getOldStubMapFile(),
             $this->getNewStubMapFile(),
+            $this->getOldStubMapFile(),
             'The commited stub map is not up to date. Please regenerate it using ./generate-stub-map'
         );
     }
