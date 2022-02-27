@@ -94,7 +94,8 @@ use const PHP_EOL;
         }
     }
 
-    $phpStormStubsDirectory = __DIR__ . '/../../';
+    $phpStormStubsDirectory = __DIR__ . '/../../src/';
+    $excludedStubDirNames = ['meta', 'couchbase_v2'];
 
     $fileVisitor = new class() extends NodeVisitorAbstract
     {
@@ -205,7 +206,7 @@ use const PHP_EOL;
             continue;
         }
 
-        if (in_array($directoryInfo->getBasename(), ['tests', 'meta', 'vendor', 'couchbase_v2'], true)) {
+        if (in_array($directoryInfo->getBasename(), $excludedStubDirNames, true)) {
             continue;
         }
 
@@ -243,11 +244,11 @@ use const PHP_EOL;
         }
     }
 
-    $mapWithRelativeFilePaths = array_map(static function (array $files) use ($phpStormStubsDirectory) : array {
+    $mapWithRelativeFilePaths = array_map(static function (array $files) use ($mapFile) : array {
         ksort($files);
 
-        return array_map(static function (string $filePath) use ($phpStormStubsDirectory) : string {
-            return str_replace('\\', '/', substr($filePath, strlen($phpStormStubsDirectory)));
+        return array_map(static function (string $filePath) use ($mapFile) : string {
+            return str_replace('\\', '/', substr($filePath, strlen(dirname($mapFile)) + 1));
         }, $files);
     }, $map);
 
