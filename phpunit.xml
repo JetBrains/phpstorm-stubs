@@ -73,5 +73,8 @@
         <testsuite name="PhpDoc">
             <file>tests/StubsPhpDocTest.php</file>
         </testsuite>
+        <testsuite name="Check_Stub_Map">
+            <file>tests/CheckStubMapTest.php</file>
+        </testsuite>
     </testsuites>
 </phpunit>
