@@ -40,7 +40,7 @@ class StubsTestDataProviders
 
     public static function stubsDirectoriesProvider(): ?Generator
     {
-        $stubsDirectory = dirname(__DIR__, 4);
+        $stubsDirectory = dirname(__DIR__, 4) . '/src';
         /** @var SplFileInfo $directory */
         foreach (new DirectoryIterator($stubsDirectory) as $directory) {
             $directoryName = $directory->getBasename();
