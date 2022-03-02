@@ -25,6 +25,10 @@ class Redis
     public const OPT_COMPRESSION = 7;
     public const OPT_REPLY_LITERAL = 8;
     public const OPT_COMPRESSION_LEVEL = 9;
+    public const OPT_MAX_RETRIES = 11;
+    public const OPT_BACKOFF_ALGORITHM = 12;
+    public const OPT_BACKOFF_BASE = 13;
+    public const OPT_BACKOFF_CAP = 14;
 
     /**
      * Cluster options
@@ -93,6 +97,18 @@ class Redis
     public const REDIS_STREAM = 6;
 
     /**
+     * Backoff algorithms
+     * @since 5.3.5
+     */
+    public const BACKOFF_ALGORITHM_DEFAULT = 0;
+    public const BACKOFF_ALGORITHM_DECORRELATED_JITTER = 1;
+    public const BACKOFF_ALGORITHM_FULL_JITTER = 2;
+    public const BACKOFF_ALGORITHM_EQUAL_JITTER = 3;
+    public const BACKOFF_ALGORITHM_EXPONENTIAL = 4;
+    public const BACKOFF_ALGORITHM_UNIFORM = 5;
+    public const BACKOFF_ALGORITHM_CONSTANT = 6;
+
+    /**
      * Creates a Redis client
      *
      * @example $redis = new Redis();
@@ -102,12 +118,12 @@ class Redis
     /**
      * Connects to a Redis instance.
      *
-     * @param string $host          can be a host, or the path to a unix domain socket
-     * @param int    $port          optional
-     * @param float  $timeout       value in seconds (optional, default is 0.0 meaning unlimited)
-     * @param null   $reserved      should be null if $retryInterval is specified
-     * @param int    $retryInterval retry interval in milliseconds.
-     * @param float  $readTimeout   value in seconds (optional, default is 0 meaning unlimited)
+     * @param string $host           can be a host, or the path to a unix domain socket
+     * @param int    $port           optional
+     * @param float  $timeout        value in seconds (optional, default is 0.0 meaning unlimited)
+     * @param null   $reserved       should be null if $retryInterval is specified
+     * @param int    $retry_interval retry interval in milliseconds.
+     * @param float  $read_timeout   value in seconds (optional, default is 0 meaning unlimited)
      *
      * @return bool TRUE on success, FALSE on error
      *
@@ -124,8 +140,8 @@ class Redis
         $port = 6379,
         $timeout = 0.0,
         $reserved = null,
-        $retryInterval = 0,
-        $readTimeout = 0.0
+        $retry_interval = 0,
+        $read_timeout = 0.0
     ) {}
 
     /**
