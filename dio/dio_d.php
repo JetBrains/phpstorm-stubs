@@ -139,11 +139,3 @@ define('F_GETOWN', 9);
 define('F_UNLCK', 2);
 define('F_RDLCK', 0);
 define('F_WRLCK', 1);
-
-
-
-
-
-
-
-
