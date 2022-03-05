@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 echo "Installing composer packages..."
 docker-compose -f docker-compose.yml run test_runner composer install --ignore-platform-reqs
+echo "Checking stub map..."
+docker-compose -f docker-compose.yml run test_runner vendor/bin/phpunit --testsuite Check_Stub_Map
 phpVersions=("7.1" "7.2" "7.3" "7.4" "8.0" "8.1")
 for i in "${phpVersions[@]}"
 do
