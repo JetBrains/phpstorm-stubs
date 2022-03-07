@@ -174,7 +174,7 @@ function easter_date(?int $year, #[PhpStormStubsElementAvailable(from: '8.0')] i
 /**
  * Get number of days after March 21 on which Easter falls for a given year
  * @link https://php.net/manual/en/function.easter-days.php
- * @param int|null $year [optional] <p>
+ * @param positive-int|null $year [optional] <p>
  * The year as a positive number
  * </p>
  * @param int $mode [optional] <p>

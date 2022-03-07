@@ -187,10 +187,10 @@ function usleep(int $microseconds): void {}
 /**
  * Delay for a number of seconds and nanoseconds
  * @link https://php.net/manual/en/function.time-nanosleep.php
- * @param int $seconds <p>
+ * @param positive-int $seconds <p>
  * Must be a positive integer.
  * </p>
- * @param int $nanoseconds <p>
+ * @param positive-int $nanoseconds <p>
  * Must be a positive integer less than 1 billion.
  * </p>
  * @return bool|array true on success or false on failure.
