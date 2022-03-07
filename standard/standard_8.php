@@ -908,7 +908,7 @@ function array_fill_keys(array $keys, mixed $value): array {}
  * @param mixed $end <p>
  * The sequence is ended upon reaching the end value.
  * </p>
- * @param int|float $step [optional] <p>
+ * @param positive-int|float $step [optional] <p>
  * If a step value is given, it will be used as the
  * increment between elements in the sequence. step
  * should be given as a positive number. If not specified,
