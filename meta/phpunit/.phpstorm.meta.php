@@ -37,6 +37,11 @@ namespace PHPSTORM_META {
     );
 
     override(
+        \PHPUnit\Framework\TestCase::getMockForTrait(0),
+        map(["" => "$0"])
+    );
+
+    override(
         \PHPUnit_Framework_TestCase::createMock(0),
         map(["" => "$0"])
     );
