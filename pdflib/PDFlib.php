@@ -781,16 +781,16 @@ class PDFlib
     public function fit_pdi_page($page, $x, $y, $optlist) {}
 
     /**
-     * @param int $table
-     * @param float $llx
-     * @param float $lly
-     * @param float $urx
-     * @param float $ury
-     * @param string $optlist
+     * @param int $table A valid table handle retrieved with a call to PDF_add_table_cell()
+     * @param float $llx X Coordinate of the lower left corner of the target rectangle for the table instance (the fitbox) in user coordinates.
+     * @param float $lly Y Coordinate of the lower left corner of the target rectangle for the table instance (the fitbox) in user coordinates.
+     * @param float $urx X Coordinate of the upper right corner of the target rectangle for the table instance (the fitbox) in user coordinates.
+     * @param float $ury Y Coordinate of the upper right corner of the target rectangle for the table instance (the fitbox) in user coordinates.
+     * @param string $optlist An option list specifying filling details according to Table 5.18.
+	 *
+     * @return string A string which specifies the reason for returning from the function
      *
-     * @return string
-     *
-     * @link https://secure.php.net/manual/en/function.pdf-fit-table.php
+     * @link https://www.pdflib.com/fileadmin/pdflib/pdf/manuals/PDFlib-9.3.0-API-reference.pdf
      */
     public function fit_table($table, $llx, $lly, $urx, $ury, $optlist) {}
 
