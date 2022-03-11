@@ -6988,7 +6988,6 @@ const CONSTANTS = array (
   'DATE_RFC850' => 'date/date_d.php',
   'DATE_RSS' => 'date/date_d.php',
   'DATE_W3C' => 'date/date_d.php',
-  'DATE_W3C' => 'dio/dio_d.php',
   'O_RDONLY' => 'dio/dio_d.php',
   'O_WRONLY' => 'dio/dio_d.php',
   'O_RDWR' => 'dio/dio_d.php',
