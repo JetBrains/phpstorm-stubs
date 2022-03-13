@@ -7,21 +7,13 @@ namespace Swoole\Coroutine;
 class MySQL
 {
     public $serverInfo;
-
     public $sock = -1;
-
     public $connected = false;
-
     public $connect_errno = 0;
-
     public $connect_error = '';
-
     public $affected_rows = 0;
-
     public $insert_id = 0;
-
     public $error = '';
-
     public $errno = 0;
 
     public function __construct() {}

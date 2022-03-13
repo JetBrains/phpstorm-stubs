@@ -7,19 +7,12 @@ namespace Swoole;
 class Process
 {
     public const IPC_NOWAIT = 256;
-
     public const PIPE_MASTER = 1;
-
     public const PIPE_WORKER = 2;
-
     public const PIPE_READ = 3;
-
     public const PIPE_WRITE = 4;
-
     public $pipe;
-
     public $msgQueueId;
-
     public $msgQueueKey;
 
     /**
@@ -39,7 +32,6 @@ class Process
      * @var int
      */
     public $id;
-
     private $callback;
 
     public function __construct(callable $callback, $redirect_stdin_and_stdout = null, $pipe_type = null, $enable_coroutine = null) {}

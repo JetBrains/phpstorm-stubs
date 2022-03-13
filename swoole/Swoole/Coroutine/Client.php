@@ -7,25 +7,15 @@ namespace Swoole\Coroutine;
 class Client
 {
     public const MSG_OOB = 1;
-
     public const MSG_PEEK = 2;
-
     public const MSG_DONTWAIT = 64;
-
     public const MSG_WAITALL = 256;
-
     public $errCode = 0;
-
     public $errMsg = '';
-
     public $fd = -1;
-
     public $type = 1;
-
     public $setting;
-
     public $connected = false;
-
     private $socket;
 
     public function __construct($type) {}

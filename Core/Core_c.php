@@ -281,11 +281,14 @@ class Exception implements Throwable
 {
     /** The error message */
     protected $message;
+
     /** The error code */
     protected $code;
+
     /** The filename where the error happened  */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     protected $file;
+
     /** The line where the error happened */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     protected $line;
@@ -403,11 +406,14 @@ class Error implements Throwable
 {
     /** The error message */
     protected $message;
+
     /** The error code */
     protected $code;
+
     /** The filename where the error happened  */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     protected $file;
+
     /** The line where the error happened */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     protected $line;
@@ -822,6 +828,7 @@ interface Stringable
 final class Attribute
 {
     public int $flags;
+
     /**
      * Marks that attribute declaration is allowed only in classes.
      */

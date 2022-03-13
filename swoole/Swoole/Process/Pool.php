@@ -7,7 +7,6 @@ namespace Swoole\Process;
 class Pool
 {
     public $master_pid = -1;
-
     public $workers;
 
     public function __construct($worker_num, $ipc_type = null, $msgqueue_key = null, $enable_coroutine = null) {}

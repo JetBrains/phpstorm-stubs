@@ -19,10 +19,12 @@ class PHPConst extends BasePHPElement
      * @var string|null
      */
     public $parentName;
+
     /**
      * @var bool|int|string|float|null
      */
     public $value;
+
     /**
      * @var string|null
      */

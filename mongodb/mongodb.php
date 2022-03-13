@@ -509,18 +509,22 @@ namespace MongoDB\Driver {
              * @since 1.7.0
              */
             public const PRIMARY = 'primary';
+
             /**
              * @since 1.7.0
              */
             public const PRIMARY_PREFERRED = 'primaryPreferred';
+
             /**
              * @since 1.7.0
              */
             public const SECONDARY = 'secondary';
+
             /**
              * @since 1.7.0
              */
             public const SECONDARY_PREFERRED = 'secondaryPreferred';
+
             /**
              * @since 1.7.0
              */
@@ -530,6 +534,7 @@ namespace MongoDB\Driver {
              * @since 1.2.0
              */
             public const NO_MAX_STALENESS = -1;
+
             /**
              * @since 1.2.0
              */
@@ -623,6 +628,7 @@ namespace MongoDB\Driver {
             public const LINEARIZABLE = 'linearizable';
             public const LOCAL = 'local';
             public const MAJORITY = 'majority';
+
             /**
              * @since 1.4.0
              */
@@ -1131,18 +1137,22 @@ namespace MongoDB\Driver {
              * @since 1.7.0
              */
             public const TRANSACTION_NONE = 'none';
+
             /**
              * @since 1.7.0
              */
             public const TRANSACTION_STARTING = 'starting';
+
             /**
              * @since 1.7.0
              */
             public const TRANSACTION_IN_PROGRESS = 'in_progress';
+
             /**
              * @since 1.7.0
              */
             public const TRANSACTION_COMMITTED = 'committed';
+
             /**
              * @since 1.7.0
              */
@@ -1400,6 +1410,7 @@ namespace MongoDB\Driver\Exception {
              * @since 1.6.0
              */
             protected $errorLabels;
+
             /**
              * Whether the given errorLabel is associated with this exception
              *
@@ -1922,6 +1933,7 @@ namespace MongoDB\BSON {
             public const TYPE_OLD_UUID = 3;
             public const TYPE_UUID = 4;
             public const TYPE_MD5 = 5;
+
             /**
              * @since 1.7.0
              */

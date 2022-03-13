@@ -21,7 +21,6 @@ final class Event
      */
     #[Immutable]
     public $pending;
-
     public const ET = 32;
     public const PERSIST = 16;
     public const READ = 2;
@@ -412,7 +411,6 @@ class EventBuffer
      */
     #[Immutable]
     public $contiguous_space;
-
     public const EOL_ANY = 0;
     public const EOL_CRLF = 1;
     public const EOL_CRLF_STRICT = 2;
@@ -713,7 +711,6 @@ final class EventBufferEvent
      */
     #[Immutable]
     public $output;
-
     public const READING = 1;
     public const WRITING = 2;
     public const EOF = 16;
@@ -1625,7 +1622,6 @@ final class EventListener
      */
     #[Immutable]
     public $fd;
-
     public const OPT_LEAVE_SOCKETS_BLOCKING = 1;
     public const OPT_CLOSE_ON_FREE = 2;
     public const OPT_CLOSE_ON_EXEC = 4;

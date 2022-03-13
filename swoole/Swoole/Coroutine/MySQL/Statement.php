@@ -7,13 +7,9 @@ namespace Swoole\Coroutine\MySQL;
 class Statement
 {
     public $id = 0;
-
     public $affected_rows = 0;
-
     public $insert_id = 0;
-
     public $error = '';
-
     public $errno = 0;
 
     /**

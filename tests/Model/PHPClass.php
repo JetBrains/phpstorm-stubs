@@ -21,6 +21,7 @@ class PHPClass extends BasePHPClass
      */
     public $parentClass;
     public $interfaces = [];
+
     /** @var PHPProperty[] */
     public $properties = [];
 

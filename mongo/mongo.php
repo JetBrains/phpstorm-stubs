@@ -118,6 +118,7 @@ class MongoClient
      * @return bool If the connection was successfully closed.
      */
     public function close($connection) {}
+
     /**
      * Connects to a database server
      *
@@ -271,6 +272,7 @@ class Mongo extends MongoClient
      */
     #[Deprecated('This feature has been DEPRECATED as of version 1.2.3. Relying on this feature is highly discouraged. Please use MongoPool::getSize() instead.')]
     public function getPoolSize() {}
+
     /**
      * (PECL mongo &gt;= 1.1.0)<br/>
      * Returns the address being used by this for slaveOkay reads
@@ -283,6 +285,7 @@ class Mongo extends MongoClient
      * </p>
      */
     public function getSlave() {}
+
     /**
      * (PECL mongo &gt;= 1.1.0)<br/>
      * Get slaveOkay setting for this connection
@@ -290,6 +293,7 @@ class Mongo extends MongoClient
      * @return bool Returns the value of slaveOkay for this instance.
      */
     public function getSlaveOkay() {}
+
     /**
      * Connects to paired database server
      * @link https://secure.php.net/manual/en/mongo.pairconnect.php
@@ -334,6 +338,7 @@ class Mongo extends MongoClient
      * @return bool returns the former value of slaveOkay for this instance.
      */
     public function setSlaveOkay($ok) {}
+
     /**
      *(PECL mongo &gt;= 1.2.0)<br/>
      * Set the size for future connection pools.
@@ -344,6 +349,7 @@ class Mongo extends MongoClient
      */
     #[Deprecated('Relying on this feature is highly discouraged. Please use MongoPool::setSize() instead.')]
     public function setPoolSize($size) {}
+
     /**
      * Creates a persistent connection with a database server
      * @link https://secure.php.net/manual/en/mongo.persistconnect.php
@@ -549,6 +555,7 @@ class MongoDB
      * @return bool Returns the value of slaveOkay for this instance.
      */
     public function getSlaveOkay() {}
+
     /**
      * (PECL mongo &gt;= 0.9.0)<br/>
      * Sets this database's profiling level
@@ -691,6 +698,7 @@ class MongoDB
      * and wtimeout denoting the maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
      */
     public function getWriteConcern() {}
+
     /**
      * (PECL mongo &gt;= 0.9.3)<br/>
      * Runs JavaScript code on the database server.
@@ -1296,6 +1304,7 @@ class MongoCursor implements Iterator
      * </p>
      */
     public static $timeout = 30000;
+
     /**
      * Create a new cursor
      * @link https://secure.php.net/manual/en/mongocursor.construct.php
@@ -1313,6 +1322,7 @@ class MongoCursor implements Iterator
      * @return MongoCursor Returns this cursor.
      */
     public function awaitData($wait = true) {}
+
     /**
      * Checks if there are any more elements in this cursor
      * @link https://secure.php.net/manual/en/mongocursor.hasnext.php
@@ -1936,6 +1946,7 @@ class MongoId
      * </p>
      */
     public static function isValid($value) {}
+
     /**
      * (PECL mongo &gt;= 0.8.0)
      * Returns a hexadecimal representation of this id
@@ -2366,7 +2377,6 @@ class MongoResultException extends MongoException
      * @return array <p>The full result document as an array, including partial data if available and additional keys.</p>
      */
     public function getDocument() {}
-
     public $document;
 }
 
@@ -2497,7 +2507,6 @@ class MongoLog
      * @link https://php.net/manual/en/class.mongolog.php#mongolog.constants.parse
      */
     public const PARSE = 0;
-
     public const CON = 2;
 
     /**

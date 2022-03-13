@@ -8,9 +8,9 @@ do
   SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
   cd "$SCRIPT_DIR" || exit
   echo "Building docker container for PHP_$i..."
-  docker-compose -f docker-compose.yml build >/dev/null
+  docker-compose -f docker-compose.yml build
   echo "Dumping reflection data to file $SCRIPT_DIR/ReflectionData.json for PHP_$i..."
-  docker-compose -f docker-compose.yml run -e PHP_VERSION="$i" php_under_test /usr/local/bin/php /opt/project/phpstorm-stubs/tests/Tools/dump-reflection-to-file.php
+  docker-compose -f docker-compose.yml run -e PHP_VERSION="$i" php_under_test /usr/local/bin/php /opt/project/phpstorm-stubs/tests/Tools/dump-reflection-to-file.php ReflectionData.json
   echo "Running tests agains PHP_$i..."
   docker-compose -f docker-compose.yml run -e PHP_VERSION="$i" test_runner /opt/project/phpstorm-stubs/vendor/bin/phpunit --configuration /opt/project/phpstorm-stubs/phpunit.xml --testsuite PHP_"$i"
   echo "Removing file $SCRIPT_DIR/ReflectionData.json with reflection data for PHP_$i..."

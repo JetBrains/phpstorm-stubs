@@ -36,31 +36,38 @@ final class Yaf_Application
      * @var Yaf_Application
      */
     protected static $_app;
+
     /**
      * @var Yaf_Config_Abstract
      */
     protected $config;
+
     /**
      * @var Yaf_Dispatcher
      */
     protected $dispatcher;
+
     /**
      * @var array
      */
     protected $_modules;
+
     /**
      * @var string
      */
     protected $_running = "";
+
     /**
      * @var string
      */
     protected $_environ = YAF_ENVIRON;
+
     /**
      * @since 2.1.2
      * @var int
      */
     protected $_err_no = 0;
+
     /**
      * @since 2.1.2
      * @var string
@@ -262,42 +269,52 @@ final class Yaf_Dispatcher
      * @var Yaf_Dispatcher
      */
     protected static $_instance;
+
     /**
      * @var Yaf_Router
      */
     protected $_router;
+
     /**
      * @var Yaf_View_Interface
      */
     protected $_view;
+
     /**
      * @var Yaf_Request_Abstract
      */
     protected $_request;
+
     /**
      * @var Yaf_Plugin_Abstract
      */
     protected $_plugins;
+
     /**
      * @var bool
      */
     protected $_auto_render = true;
+
     /**
      * @var string
      */
     protected $_return_response = "";
+
     /**
      * @var string
      */
     protected $_instantly_flush = "";
+
     /**
      * @var string
      */
     protected $_default_module;
+
     /**
      * @var string
      */
     protected $_default_controller;
+
     /**
      * @var string
      */
@@ -561,15 +578,18 @@ class Yaf_Loader
      * @var string
      */
     protected $_local_ns;
+
     /**
      * By default, this value is application.directory . "/library", you can change this either in the application.ini(application.library) or call to Yaf_Loader::setLibraryPath()
      * @var string
      */
     protected $_library;
+
     /**
      * @var string
      */
     protected $_global_library;
+
     /**
      * @var Yaf_Loader
      */
@@ -697,6 +717,7 @@ final class Yaf_Registry
      * @var Yaf_Registry
      */
     protected static $_instance;
+
     /**
      * @var array
      */
@@ -764,10 +785,12 @@ final class Yaf_Session implements Iterator, ArrayAccess, Countable
      * @var Yaf_Session
      */
     protected static $_instance;
+
     /**
      * @var array
      */
     protected $_session;
+
     /**
      * @var bool
      */
@@ -942,6 +965,7 @@ class Yaf_Router
      * @var Yaf_Route_Interface[] registered routes stack
      */
     protected $_routes;
+
     /**
      * @var string after routing phase, this indicated the name of which route is used to route current request. you can get this name by Yaf_Router::getCurrentRoute()
      */
@@ -1049,26 +1073,32 @@ abstract class Yaf_Controller_Abstract
      * @var array You can also define a action method in a separate PHP script by using this property and Yaf_Action_Abstract.
      */
     public $actions;
+
     /**
      * @var string module name
      */
     protected $_module;
+
     /**
      * @var string controller name
      */
     protected $_name;
+
     /**
      * @var Yaf_Request_Abstract current request object
      */
     protected $_request;
+
     /**
      * @var Yaf_Response_Abstract current response object
      */
     protected $_response;
+
     /**
      * @var array
      */
     protected $_invoke_args;
+
     /**
      * @var Yaf_View_Interface view engine object
      */
@@ -1277,6 +1307,7 @@ abstract class Yaf_Config_Abstract implements Iterator, ArrayAccess, Countable
      * @var array
      */
     protected $_config = null;
+
     /**
      * @var bool
      */
@@ -1345,46 +1376,57 @@ abstract class Yaf_Request_Abstract
 {
     public const SCHEME_HTTP = 'http';
     public const SCHEME_HTTPS = 'https';
+
     /**
      * @var string
      */
     public $module;
+
     /**
      * @var string
      */
     public $controller;
+
     /**
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $method;
+
     /**
      * @var array
      */
     protected $params;
+
     /**
      * @var string
      */
     protected $language;
+
     /**
      * @var Yaf_Exception
      */
     protected $_exception;
+
     /**
      * @var string
      */
     protected $_base_uri = "";
+
     /**
      * @var string
      */
     protected $uri = "";
+
     /**
      * @var string
      */
     protected $dispatched = "";
+
     /**
      * @var string
      */
@@ -1744,14 +1786,17 @@ abstract class Yaf_Plugin_Abstract
 abstract class Yaf_Response_Abstract
 {
     public const DEFAULT_BODY = "content";
+
     /**
      * @var string
      */
     protected $_header;
+
     /**
      * @var string
      */
     protected $_body;
+
     /**
      * @var bool
      */
@@ -2482,10 +2527,12 @@ class Yaf_View_Simple implements Yaf_View_Interface
      * @var string
      */
     protected $_tpl_dir;
+
     /**
      * @var array
      */
     protected $_tpl_vars;
+
     /**
      * @var array
      */
@@ -2679,10 +2726,12 @@ final class Yaf_Route_Simple implements Yaf_Route_Interface
      * @var string
      */
     protected $controller;
+
     /**
      * @var string
      */
     protected $module;
+
     /**
      * @var string
      */
@@ -2777,10 +2826,12 @@ final class Yaf_Route_Rewrite extends Yaf_Router implements Yaf_Route_Interface
      * @var string
      */
     protected $_route;
+
     /**
      * @var array
      */
     protected $_default;
+
     /**
      * @var array
      */
@@ -2834,18 +2885,22 @@ final class Yaf_Route_Regex extends Yaf_Router implements Yaf_Route_Interface
      * @var string
      */
     protected $_route;
+
     /**
      * @var array
      */
     protected $_default;
+
     /**
      * @var array
      */
     protected $_maps;
+
     /**
      * @var array
      */
     protected $_verify;
+
     /**
      * @var string
      */
@@ -2904,6 +2959,7 @@ final class Yaf_Route_Map implements Yaf_Route_Interface
      * @var string
      */
     protected $_ctl_router = '';
+
     /**
      * @var string
      */

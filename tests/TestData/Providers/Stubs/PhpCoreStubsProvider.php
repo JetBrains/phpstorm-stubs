@@ -99,6 +99,7 @@ class PhpCoreStubsProvider
             'cubrid',
             'decimal',
             'ds',
+            'eio',
             'event',
             'expect',
             'gearman',

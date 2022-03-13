@@ -34,18 +34,22 @@ class StubsMetaExpectedArgumentsTest extends BaseStubsTest
      * @var ExpectedFunctionArgumentsInfo[]
      */
     private static array $expectedArguments;
+
     /**
      * @var string[]
      */
     private static array $registeredArgumentsSet;
+
     /**
      * @var string[]
      */
     private static array $functionsFqns;
+
     /**
      * @var string[]
      */
     private static array $methodsFqns;
+
     /**
      * @var string[]
      */

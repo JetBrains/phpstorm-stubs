@@ -7,29 +7,17 @@ namespace Swoole;
 class Server
 {
     public $setting;
-
     public $connections;
-
     public $host = '';
-
     public $port = 0;
-
     public $type = 0;
-
     public $mode = 0;
-
     public $ports;
-
     public $master_pid = 0;
-
     public $manager_pid = 0;
-
     public $worker_id = -1;
-
     public $taskworker = false;
-
     public $worker_pid = 0;
-
     public $stats_timer;
 
     /**

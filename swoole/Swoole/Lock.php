@@ -7,15 +7,10 @@ namespace Swoole;
 class Lock
 {
     public const FILELOCK = 2;
-
     public const MUTEX = 3;
-
     public const SEM = 4;
-
     public const RWLOCK = 1;
-
     public const SPINLOCK = 5;
-
     public $errCode = 0;
 
     public function __construct(int $type = self::MUTEX, string $filename = '') {}

@@ -391,11 +391,8 @@ class LuaSandboxFunction
 class LuaSandboxError extends Exception
 {
     public const RUN = 2;
-
     public const SYNTAX = 3;
-
     public const MEM = 4;
-
     public const ERR = 5;
 }
 

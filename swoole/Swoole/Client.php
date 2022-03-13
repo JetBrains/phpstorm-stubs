@@ -7,31 +7,18 @@ namespace Swoole;
 class Client
 {
     public const MSG_OOB = 1;
-
     public const MSG_PEEK = 2;
-
     public const MSG_DONTWAIT = 64;
-
     public const MSG_WAITALL = 256;
-
     public const SHUT_RDWR = 2;
-
     public const SHUT_RD = 0;
-
     public const SHUT_WR = 1;
-
     public $errCode = 0;
-
     public $sock = -1;
-
     public $reuse = false;
-
     public $reuseCount = 0;
-
     public $type = 0;
-
     public $id;
-
     public $setting;
 
     public function __construct($type, $async = null, $id = null) {}

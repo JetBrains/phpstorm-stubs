@@ -21,10 +21,12 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
     private const EXPECTED_ARGUMENTS = 'expectedArguments';
     private const EXPECTED_RETURN_VALUES = 'expectedReturnValues';
     private const REGISTER_ARGUMENTS_SET_NAME = 'registerArgumentsSet';
+
     /**
      * @var ExpectedFunctionArgumentsInfo[]
      */
     private array $expectedArgumentsInfos = [];
+
     /**
      * @var string[]
      */

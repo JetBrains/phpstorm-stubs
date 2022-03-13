@@ -175,7 +175,6 @@ class HttpMessage implements Countable, Serializable, Iterator
     public const TYPE_NONE = 0;
     public const TYPE_REQUEST = 1;
     public const TYPE_RESPONSE = 2;
-
     protected $type;
     protected $body;
     protected $requestMethod;
@@ -557,7 +556,6 @@ class HttpQueryString implements Serializable, ArrayAccess
     public const TYPE_STRING = 6;
     public const TYPE_ARRAY = 4;
     public const TYPE_OBJECT = 5;
-
     private static $instance;
     private $queryArray;
     private $queryString;
@@ -842,7 +840,6 @@ class HttpRequest
     public const PROXY_SOCKS4 = 4;
     public const PROXY_SOCKS5 = 5;
     public const PROXY_HTTP = 0;
-
     private $options;
     private $postFields;
     private $postFiles;
@@ -1672,7 +1669,6 @@ class HttpResponse
     public const REDIRECT_POST = 303;
     public const REDIRECT_PROXY = 305;
     public const REDIRECT_TEMP = 307;
-
     private static $sent;
     private static $catch;
     private static $mode;

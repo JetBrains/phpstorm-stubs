@@ -6,10 +6,13 @@ class Metadata
 {
     /** @var string[] List of supported flags. The flags are given as names of constants, such as "ast\flags\TYPE_STRING". */
     public $flags;
+
     /** @var bool Whether the flags are exclusive or combinable. Exclusive flags should be checked using ===, while combinable flags should be checked using &. */
     public $flagsCombinable;
+
     /** @var int AST node kind (one of the `ast\AST_*` constants). */
     public $kind;
+
     /** @var string Name of the node kind (e.g. "AST_NAME"). */
     public $name;
 }

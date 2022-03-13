@@ -13,14 +13,17 @@ class StubsContainer
      * @var PHPConst[]
      */
     private $constants = [];
+
     /**
      * @var PHPFunction[]
      */
     private $functions = [];
+
     /**
      * @var PHPClass[]
      */
     private $classes = [];
+
     /**
      * @var PHPInterface[]
      */

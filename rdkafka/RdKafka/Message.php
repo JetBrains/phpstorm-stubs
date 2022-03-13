@@ -48,7 +48,6 @@ class Message
      * @var array
      */
     public $headers;
-
     public $opaque;
 
     /**

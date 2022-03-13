@@ -5,7 +5,6 @@ class V8Js
     /* Constants */
 
     public const V8_VERSION = '';
-
     public const FLAG_NONE = 1;
     public const FLAG_FORCE_ARRAY = 2;
     public const FLAG_PROPAGATE_PHP_EXCEPTIONS = 4;
@@ -144,10 +143,12 @@ final class V8JsScriptException extends Exception
      * @return int
      */
     final public function getJsLineNumber() {}
+
     /**
      * @return int
      */
     final public function getJsStartColumn() {}
+
     /**
      * @return int
      */
@@ -157,6 +158,7 @@ final class V8JsScriptException extends Exception
      * @return string
      */
     final public function getJsSourceLine() {}
+
     /**
      * @return string
      */

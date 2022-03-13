@@ -744,6 +744,7 @@ class PDFlib
      * @link https://secure.php.net/manual/en/function.pdf-fill.php
      */
     public function fill() {}
+
     /**
      * @param string $fontname
      * @param string $encoding
@@ -754,6 +755,7 @@ class PDFlib
      * @link https://secure.php.net/manual/en/function.pdf-findfont.php(Dep)
      */
     public function findfont($fontname, $encoding, $embed) {}
+
     /**
      * @param int $image
      * @param float $x
@@ -765,6 +767,7 @@ class PDFlib
      * @link https://secure.php.net/manual/en/function.pdf-fit-image.php
      */
     public function fit_image($image, $x, $y, $optlist) {}
+
     /**
      * @param int $page
      * @param float $x
@@ -776,19 +779,21 @@ class PDFlib
      * @link https://secure.php.net/manual/en/function.pdf-fit-pdi-page.php
      */
     public function fit_pdi_page($page, $x, $y, $optlist) {}
+
     /**
-     * @param int $table
-     * @param float $llx
-     * @param float $lly
-     * @param float $urx
-     * @param float $ury
-     * @param string $optlist
+     * @param int $table A valid table handle retrieved with a call to PDF_add_table_cell()
+     * @param float $llx X Coordinate of the lower left corner of the target rectangle for the table instance (the fitbox) in user coordinates.
+     * @param float $lly Y Coordinate of the lower left corner of the target rectangle for the table instance (the fitbox) in user coordinates.
+     * @param float $urx X Coordinate of the upper right corner of the target rectangle for the table instance (the fitbox) in user coordinates.
+     * @param float $ury Y Coordinate of the upper right corner of the target rectangle for the table instance (the fitbox) in user coordinates.
+     * @param string $optlist An option list specifying filling details according to Table 5.18.
+	 *
+     * @return string A string which specifies the reason for returning from the function
      *
-     * @return string
-     *
-     * @link https://secure.php.net/manual/en/function.pdf-fit-table.php
+     * @link https://www.pdflib.com/fileadmin/pdflib/pdf/manuals/PDFlib-9.3.0-API-reference.pdf
      */
     public function fit_table($table, $llx, $lly, $urx, $ury, $optlist) {}
+
     /**
      * @param int $textflow
      * @param float $llx
@@ -802,6 +807,7 @@ class PDFlib
      * @link https://secure.php.net/manual/en/function.pdf-fit-textflow.php
      */
     public function fit_textflow($textflow, $llx, $lly, $urx, $ury, $optlist) {}
+
     /**
      * @param string $text
      * @param float $x
@@ -813,42 +819,49 @@ class PDFlib
      * @link https://secure.php.net/manual/en/function.pdf-fit-textline.php
      */
     public function fit_textline($text, $x, $y, $optlist) {}
+
     /**
      * @return string
      *
      * @link https://secure.php.net/manual/en/function.pdf-get-apiname.php
      */
     public function get_apiname() {}
+
     /**
      * @return string
      *
      * @link https://secure.php.net/manual/en/function.pdf-get-buffer.php
      */
     public function get_buffer() {}
+
     /**
      * @return string
      *
      * @link https://secure.php.net/manual/en/function.pdf-get-errmsg.php
      */
     public function get_errmsg() {}
+
     /**
      * @return int
      *
      * @link https://secure.php.net/manual/en/function.pdf-get-errnum.php
      */
     public function get_errnum() {}
+
     /**
      * @return int
      *
      * @link https://secure.php.net/manual/en/function.pdf-get-majorversion.php(dep)
      */
     public function get_majorversion() {}
+
     /**
      * @return int
      *
      * @link https://secure.php.net/manual/en/function.pdf-get-minorversion.php(dep)
      */
     public function get_minorversion() {}
+
     /**
      * @param string $key
      * @param float $modifier
@@ -858,6 +871,7 @@ class PDFlib
      * @link https://secure.php.net/manual/en/function.pdf-get-parameter.php
      */
     public function get_parameter($key, $modifier) {}
+
     /**
      * @param string $key
      * @param int $doc
@@ -869,6 +883,7 @@ class PDFlib
      * @link https://secure.php.net/manual/en/function.pdf-get-pdi-parameter.php
      */
     public function get_pdi_parameter($key, $doc, $page, $reserved) {}
+
     /**
      * @param string $key
      * @param int $doc
@@ -880,6 +895,7 @@ class PDFlib
      * @link https://secure.php.net/manual/en/function.pdf-get-pdi-value.php
      */
     public function get_pdi_value($key, $doc, $page, $reserved) {}
+
     /**
      * @param string $key
      * @param float $modifier
@@ -889,6 +905,7 @@ class PDFlib
      * @link https://secure.php.net/manual/en/function.pdf-get-value.php
      */
     public function get_value($key, $modifier) {}
+
     /**
      * @param int $font
      * @param string $keyword
@@ -899,6 +916,7 @@ class PDFlib
      * @link https://secure.php.net/manual/en/function.pdf-info-font.php
      */
     public function info_font($font, $keyword, $optlist) {}
+
     /**
      * @param string $boxname
      * @param int $num
@@ -909,6 +927,7 @@ class PDFlib
      * @link https://secure.php.net/manual/en/function.pdf-info-matchbox.php
      */
     public function info_matchbox($boxname, $num, $keyword) {}
+
     /**
      * @param int $table
      * @param string $keyword
@@ -918,6 +937,7 @@ class PDFlib
      * @link https://secure.php.net/manual/en/function.pdf-info-table.php
      */
     public function info_table($table, $keyword) {}
+
     /**
      * @param int $textflow
      * @param string $keyword

@@ -20,46 +20,87 @@ class Svn
     public const UNSPECIFIED = -5;
 
     public static function checkout() {}
+
     public static function cat() {}
+
     public static function ls() {}
+
     public static function log() {}
+
     public static function auth_set_parameter() {}
+
     public static function auth_get_parameter() {}
+
     public static function client_version() {}
+
     public static function config_ensure() {}
+
     public static function diff() {}
+
     public static function cleanup() {}
+
     public static function revert() {}
+
     public static function resolved() {}
+
     public static function commit() {}
+
     public static function lock() {}
+
     public static function unlock() {}
+
     public static function add() {}
+
     public static function status() {}
+
     public static function update() {}
+
     public static function update2() {}
+
     public static function import() {}
+
     public static function info() {}
+
     public static function export() {}
+
     public static function copy() {}
+
     public static function switch() {}
+
     public static function blame() {}
+
     public static function delete() {}
+
     public static function mkdir() {}
+
     public static function move() {}
+
     public static function proplist() {}
+
     public static function propget() {}
+
     public static function propset() {}
+
     public static function prop_delete() {}
+
     public static function revprop_get() {}
+
     public static function revprop_set() {}
+
     public static function revprop_delete() {}
+
     public static function repos_create() {}
+
     public static function repos_recover() {}
+
     public static function repos_hotcopy() {}
+
     public static function repos_open() {}
+
     public static function repos_fs() {}
+
     public static function repos_fs_begin_txn_for_commit() {}
+
     public static function repos_fs_commit_txn() {}
 }
 

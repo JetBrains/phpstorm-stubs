@@ -19,5 +19,6 @@ class NoReturn
      * Use this constant to skip function argument on the specified position
      */
     public const ANY_ARGUMENT = 1;
+
     public function __construct(...$arguments) {}
 }

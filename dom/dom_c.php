@@ -550,18 +550,25 @@ class DOMNameSpaceNode
 {
     #[LanguageLevelTypeAware(['8.1' => 'DOMNode|null'], default: '')]
     public $parentNode;
+
     #[LanguageLevelTypeAware(['8.1' => 'DOMDocument|null'], default: '')]
     public $ownerDocument;
+
     #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $namespaceURI;
+
     #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $localName;
+
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $prefix;
+
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $nodeType;
+
     #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $nodeValue;
+
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $nodeName;
 }

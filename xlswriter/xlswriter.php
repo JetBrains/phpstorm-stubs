@@ -19,11 +19,9 @@ namespace Vtiful\Kernel;
         public const TYPE_INT = 0x02;
         public const TYPE_DOUBLE = 0x04;
         public const TYPE_TIMESTAMP = 0x08;
-
         public const SKIP_NONE = 0x00;
         public const SKIP_EMPTY_ROW = 0x01;
         public const SKIP_EMPTY_CELLS = 0x02;
-
         public const GRIDLINES_HIDE_ALL = 0;
         public const GRIDLINES_SHOW_SCREEN = 1;
         public const GRIDLINES_SHOW_PRINT = 2;
@@ -411,7 +409,6 @@ namespace Vtiful\Kernel;
         public const UNDERLINE_DOUBLE = 0x00;
         public const UNDERLINE_SINGLE_ACCOUNTING = 0x00;
         public const UNDERLINE_DOUBLE_ACCOUNTING = 0x00;
-
         public const FORMAT_ALIGN_LEFT = 0x00;
         public const FORMAT_ALIGN_CENTER = 0x00;
         public const FORMAT_ALIGN_RIGHT = 0x00;
@@ -424,7 +421,6 @@ namespace Vtiful\Kernel;
         public const FORMAT_ALIGN_VERTICAL_CENTER = 0x00;
         public const FORMAT_ALIGN_VERTICAL_JUSTIFY = 0x00;
         public const FORMAT_ALIGN_VERTICAL_DISTRIBUTED = 0x00;
-
         public const COLOR_BLACK = 0x00;
         public const COLOR_BLUE = 0x00;
         public const COLOR_BROWN = 0x00;
@@ -441,7 +437,6 @@ namespace Vtiful\Kernel;
         public const COLOR_SILVER = 0x00;
         public const COLOR_WHITE = 0x00;
         public const COLOR_YELLOW = 0x00;
-
         public const PATTERN_NONE = 0x00;
         public const PATTERN_SOLID = 0x00;
         public const PATTERN_MEDIUM_GRAY = 0x00;
@@ -461,7 +456,6 @@ namespace Vtiful\Kernel;
         public const PATTERN_LIGHT_TRELLIS = 0x00;
         public const PATTERN_GRAY_125 = 0x00;
         public const PATTERN_GRAY_0625 = 0x00;
-
         public const BORDER_THIN = 0x00;
         public const BORDER_MEDIUM = 0x00;
         public const BORDER_DASHED = 0x00;

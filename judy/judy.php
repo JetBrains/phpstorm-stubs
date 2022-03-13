@@ -13,21 +13,25 @@ class Judy implements ArrayAccess
      * @link https://php.net/manual/en/class.judy.php#judy.constants.bitset
      */
     public const BITSET = 1;
+
     /**
      * Define the Judy Array with key/values as Integer, and Integer only.
      * @link https://php.net/manual/en/class.judy.php#judy.constants.int-to-int
      */
     public const INT_TO_INT = 2;
+
     /**
      * Define the Judy Array with keys as Integer and Values of any type.
      * @link https://php.net/manual/en/class.judy.php#judy.constants.int-to-mixed
      */
     public const INT_TO_MIXED = 3;
+
     /**
      * Define the Judy Array with keys as a String and Values as Integer, and Integer only.
      * @link https://php.net/manual/en/class.judy.php#judy.constants.string-to-int
      */
     public const STRING_TO_INT = 4;
+
     /**
      * Define the Judy Array with keys as a String and Values of any type.
      * @link https://php.net/manual/en/class.judy.php#judy.constants.string-to-mixed
