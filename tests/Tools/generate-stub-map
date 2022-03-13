@@ -27,6 +27,7 @@ use function preg_match;
 use function sprintf;
 use function str_replace;
 use function strlen;
+use function strpos;
 use function strtolower;
 use function substr;
 use function var_export;
@@ -113,6 +114,10 @@ use const PHP_EOL;
         public function enterNode(Node $node): ?int
         {
             if ($node instanceof Node\Stmt\ClassLike) {
+                if ($node->getDocComment() !== null && strpos($node->getDocComment()->getText(), '@internal') !== false) {
+                    return NodeTraverser::DONT_TRAVERSE_CHILDREN;
+                }
+
                 $this->classNames[] = $node->namespacedName->toString();
 
                 return NodeTraverser::DONT_TRAVERSE_CHILDREN;
