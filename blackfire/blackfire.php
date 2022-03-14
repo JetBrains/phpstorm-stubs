@@ -120,14 +120,14 @@ final class BlackfireProbe
      * @return void
      */
     public function ignoreTransaction() {}
-    
+
     /**
      * Manually starts a transaction. Useful for CLI/Consumer monitoring.
      *
      * @return void
      */
     public function startTransaction() {}
-    
+
     /**
      * Manually stops a transaction. Useful for CLI/Consumer monitoring.
      *
