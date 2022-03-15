@@ -112,26 +112,26 @@ final class BlackfireProbe
      *
      * @return void
      */
-    public function setTransactionName(string $transactionName) {}
+    public static function setTransactionName(string $transactionName) {}
 
     /**
      * Disables Blackfire Monitoring instrumentation for a transaction.
      *
      * @return void
      */
-    public function ignoreTransaction() {}
+    public static function ignoreTransaction() {}
 
     /**
      * Manually starts a transaction. Useful for CLI/Consumer monitoring.
      *
      * @return void
      */
-    public function startTransaction() {}
+    public static function startTransaction() {}
 
     /**
      * Manually stops a transaction. Useful for CLI/Consumer monitoring.
      *
      * @return void
      */
-    public function stopTransaction() {}
+    public static function stopTransaction() {}
 }
