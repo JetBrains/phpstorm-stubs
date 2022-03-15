@@ -787,7 +787,7 @@ class PDFlib
      * @param float $urx X Coordinate of the upper right corner of the target rectangle for the table instance (the fitbox) in user coordinates.
      * @param float $ury Y Coordinate of the upper right corner of the target rectangle for the table instance (the fitbox) in user coordinates.
      * @param string $optlist An option list specifying filling details according to Table 5.18.
-	 *
+     *
      * @return string A string which specifies the reason for returning from the function
      *
      * @link https://www.pdflib.com/fileadmin/pdflib/pdf/manuals/PDFlib-9.3.0-API-reference.pdf
