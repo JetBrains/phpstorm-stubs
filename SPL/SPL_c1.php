@@ -1503,7 +1503,7 @@ class SplMinHeap extends SplHeap
      * @param TValue $value2 <p>
      * The value of the second node being compared.
      * </p>
-     * @return void Result of the comparison, positive integer if <i>value1</i> is lower than <i>value2</i>, 0 if they are equal, negative integer otherwise.
+     * @return int Result of the comparison, positive integer if <i>value1</i> is lower than <i>value2</i>, 0 if they are equal, negative integer otherwise.
      * </p>
      * <p>
      * Having multiple elements with the same value in a Heap is not recommended. They will end up in an arbitrary relative position.
@@ -1612,7 +1612,7 @@ class SplMaxHeap extends SplHeap
      * @param TValue $value2 <p>
      * The value of the second node being compared.
      * </p>
-     * @return void Result of the comparison, positive integer if <i>value1</i> is greater than <i>value2</i>, 0 if they are equal, negative integer otherwise.
+     * @return int Result of the comparison, positive integer if <i>value1</i> is greater than <i>value2</i>, 0 if they are equal, negative integer otherwise.
      * </p>
      * <p>
      * Having multiple elements with the same value in a Heap is not recommended. They will end up in an arbitrary relative position.
