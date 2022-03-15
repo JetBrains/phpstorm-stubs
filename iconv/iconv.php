@@ -419,7 +419,7 @@ function iconv_mime_decode_headers(string $headers, int $mode = 0, ?string $enco
  * string
  * @link https://php.net/manual/en/iconv.constants.php
  */
-define('ICONV_IMPL', "unknown");
+define('ICONV_IMPL', "libiconv");
 
 /**
  * string

@@ -97,8 +97,7 @@ use const PHP_EOL;
 
     $phpStormStubsDirectory = __DIR__ . '/../../';
 
-    $fileVisitor = new class() extends NodeVisitorAbstract
-    {
+    $fileVisitor = new class() extends NodeVisitorAbstract {
         /** @var string[] */
         private $classNames = [];
 
@@ -248,10 +247,10 @@ use const PHP_EOL;
         }
     }
 
-    $mapWithRelativeFilePaths = array_map(static function (array $files) use ($phpStormStubsDirectory) : array {
+    $mapWithRelativeFilePaths = array_map(static function (array $files) use ($phpStormStubsDirectory): array {
         ksort($files);
 
-        return array_map(static function (string $filePath) use ($phpStormStubsDirectory) : string {
+        return array_map(static function (string $filePath) use ($phpStormStubsDirectory): string {
             return str_replace('\\', '/', substr($filePath, strlen($phpStormStubsDirectory)));
         }, $files);
     }, $map);

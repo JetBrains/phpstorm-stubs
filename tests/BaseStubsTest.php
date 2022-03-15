@@ -90,8 +90,7 @@ abstract class BaseStubsTest extends TestCase
             $value = "null";
         } elseif (is_array($defaultValue) || $defaultValue instanceof Array_) {
             $value = '[]';
-        }
-        else {
+        } else {
             $value = strval($defaultValue);
         }
         return $value;
