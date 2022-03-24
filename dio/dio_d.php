@@ -42,9 +42,6 @@
  */
 
 /**
- */
-
-/**
  * O_RDONLY - opens the file for read access.
  */
 define('O_RDONLY', 0);

@@ -25,7 +25,7 @@
  * @param resource $fd The file descriptor returned by dio_open()
  * @return void
  */
-function dio_close($fd) : void {}
+function dio_close($fd): void {}
 
 /**
  * The dio_fcntl() function performs the operation specified by cmd on the file descriptor fd.
@@ -81,7 +81,7 @@ function dio_open(string $filename, int $flags, int $mode = 0) {}
  * @return string The bytes read from fd.
  * @link https://www.php.net/manual/en/function.dio-read.php
  */
-function dio_read($fd, int $len = 1024) { }
+function dio_read($fd, int $len = 1024) {}
 
 /**
  * Seeks to pos on fd from whence
