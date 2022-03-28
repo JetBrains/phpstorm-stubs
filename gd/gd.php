@@ -864,6 +864,15 @@ function imagecreatefrompng(string $filename): GdImage|false {}
 
 /**
  * Create a new image from file or URL
+ * @link https://www.php.net/manual/function.imagecreatefromavif.php
+ * @param string $filename Path to the AVIF raster image.
+ * @return GdImage|false returns an image object representing the image obtained from the given filename
+ * @since 8.1.0
+ */
+function imagecreatefromavif(string $filename): GdImage|false {}
+
+/**
+ * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefromgif.php
  * @param string $filename <p>
  * Path to the GIF image.
@@ -2904,6 +2913,19 @@ define('IMG_AVIF', 256);
  * @since 8.1
  */
 define('IMG_WEBP_LOSSLESS', 101);
+
+/**
+ * Outputs or saves a AVIF Raster image from the given image
+ * @link https://www.php.net/manual/function.imageavif.php
+ * @param GdImage $image A GdImage object, returned by one of the image creation functions, such as imagecreatetruecolor().
+ * @param resource|string|null $file The path or an open stream resource (which is automatically closed after this function returns) to save the file to. If not set or null, the raw image stream will be output directly.
+ * @param int $quality quality is optional, and ranges from 0 (worst quality, smaller file) to 100 (best quality, larger file). If -1 is provided, the default value 30 is used.
+ * @param int $speed speed is optional, and ranges from 0 (slow, smaller file) to 10 (fast, larger file). If -1 is provided, the default value 6 is used.
+ * @return bool Returns true on success or false on failure. However, if libgd fails to output the image, this function returns true.
+ * @sine 8.1.0
+ */
+function imageavif(GdImage $image, string|null $file = null, int $quality = -1, int $speed = -1): bool {}
+
 /**
  * Return an image containing the affine tramsformed src image, using an optional clipping area
  * @link https://secure.php.net/manual/en/function.imageaffine.php
