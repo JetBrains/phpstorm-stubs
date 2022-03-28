@@ -867,7 +867,7 @@ function imagecreatefrompng(string $filename): GdImage|false {}
  * @link https://www.php.net/manual/function.imagecreatefromavif.php
  * @param string $filename Path to the AVIF raster image.
  * @return GdImage|false returns an image object representing the image obtained from the given filename
- * @since 8.1.0
+ * @since 8.1
  */
 function imagecreatefromavif(string $filename): GdImage|false {}
 
@@ -2922,7 +2922,7 @@ define('IMG_WEBP_LOSSLESS', 101);
  * @param int $quality quality is optional, and ranges from 0 (worst quality, smaller file) to 100 (best quality, larger file). If -1 is provided, the default value 30 is used.
  * @param int $speed speed is optional, and ranges from 0 (slow, smaller file) to 10 (fast, larger file). If -1 is provided, the default value 6 is used.
  * @return bool Returns true on success or false on failure. However, if libgd fails to output the image, this function returns true.
- * @sine 8.1.0
+ * @since 8.1
  */
 function imageavif(GdImage $image, string|null $file = null, int $quality = -1, int $speed = -1): bool {}
 
