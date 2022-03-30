@@ -22,7 +22,7 @@ class DOMNode
     public $nodeName;
 
     /**
-     * @var string
+     * @var string|null
      * The value of this node, depending on its type
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.nodevalue
      */
@@ -119,7 +119,7 @@ class DOMNode
     public $prefix;
 
     /**
-     * @var string
+     * @var string|null
      * Returns the local part of the qualified name of this node.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.localname
      */
@@ -1597,35 +1597,35 @@ class DOMAttr extends DOMNode
 class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
 {
     /**
-     * @var DOMElement|null
+     * @var DOMNode|null
      * The parent of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.parentnode
      */
     public $parentNode;
 
     /**
-     * @var DOMElement|null
+     * @var DOMNode|null
      * The first child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.firstchild
      */
     public $firstChild;
 
     /**
-     * @var DOMElement|null
+     * @var DOMNode|null
      * The last child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.lastchild
      */
     public $lastChild;
 
     /**
-     * @var DOMElement|null
+     * @var DOMNode|null
      * The node immediately preceding this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
      */
     public $previousSibling;
 
     /**
-     * @var DOMElement|null
+     * @var DOMNode|null
      * The node immediately following this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
      */
