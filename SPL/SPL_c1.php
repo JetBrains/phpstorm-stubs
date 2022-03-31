@@ -586,7 +586,7 @@ class GlobIterator extends FilesystemIterator implements Countable
     /**
      * Get the number of directories and files
      * @link https://php.net/manual/en/globiterator.count.php
-     * @return int The number of returned directories and files, as an
+     * @return int<0,max> The number of returned directories and files, as an
      * integer.
      */
     #[TentativeType]
@@ -975,7 +975,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Get maximum line length
      * @link https://php.net/manual/en/splfileobject.getmaxlinelen.php
-     * @return int the maximum line length if one has been set with
+     * @return int<0, max> the maximum line length if one has been set with
      * <b>SplFileObject::setMaxLineLen</b>, default is 0.
      */
     #[TentativeType]

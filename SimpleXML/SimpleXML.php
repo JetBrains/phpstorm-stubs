@@ -257,7 +257,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     /**
      * Counts the children of an element
      * @link https://php.net/manual/en/simplexmlelement.count.php
-     * @return int the number of elements of an element.
+     * @return int<0,max> the number of elements of an element.
      */
     #[Pure]
     #[TentativeType]

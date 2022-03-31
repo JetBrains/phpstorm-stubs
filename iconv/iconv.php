@@ -167,7 +167,7 @@ function iconv_substr(string $string, int $offset, ?int $length, ?string $encodi
  * <i>string</i> are assumed to be encoded in
  * iconv.internal_encoding.
  * </p>
- * @return int|false the numeric position of the first occurrence of
+ * @return int<0,max>|false the numeric position of the first occurrence of
  * <i>needle</i> in <i>haystack</i>.
  * <p>
  * If <i>needle</i> is not found,

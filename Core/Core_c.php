@@ -698,7 +698,7 @@ interface Countable
     /**
      * Count elements of an object
      * @link https://php.net/manual/en/countable.count.php
-     * @return int The custom count as an integer.
+     * @return int<0,max> The custom count as an integer.
      * <p>
      * The return value is cast to an integer.
      * </p>
@@ -799,7 +799,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
     /**
      * Returns the number of items in the {@see WeakMap} instance.
      *
-     * @return int
+     * @return int<0,max>
      */
     public function count(): int {}
 }
