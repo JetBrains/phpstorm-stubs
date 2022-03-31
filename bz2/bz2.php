@@ -28,7 +28,7 @@ function bzopen($file, string $mode) {}
  * The file pointer. It must be valid and must point to a file
  * successfully opened by <b>bzopen</b>.
  * </p>
- * @param int $length [optional] <p>
+ * @param int<1024, 8192> $length [optional] <p>
  * If not specified, <b>bzread</b> will read 1024
  * (uncompressed) bytes at a time. A maximum of 8192
  * uncompressed bytes will be read at a time.

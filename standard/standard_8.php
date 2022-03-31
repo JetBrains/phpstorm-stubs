@@ -623,7 +623,7 @@ function array_walk_recursive(object|array &$array, callable $callback, mixed $a
  * COUNT_RECURSIVE (or 1), count
  * will recursively count the array. This is particularly useful for
  * counting all the elements of a multidimensional array. count does not detect infinite recursion.
- * @return int the number of elements in var, which is
+ * @return int<0,max> the number of elements in var, which is
  * typically an array, since anything else will have one
  * element.
  * <p>

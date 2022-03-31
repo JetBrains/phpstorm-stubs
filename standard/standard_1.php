@@ -39,11 +39,11 @@ function strtolower(string $string): string {}
  * If <b>needle</b> is not a string, it is converted
  * to an integer and applied as the ordinal value of a character.
  * </p>
- * @param int $offset [optional] <p>
+ * @param int<0,max> $offset [optional] <p>
  * If specified, search will start this number of characters counted from
  * the beginning of the string. Unlike {@see strrpos()} and {@see strripos()}, the offset cannot be negative.
  * </p>
- * @return int|false <p>
+ * @return int<0,max>|false <p>
  * Returns the position where the needle exists relative to the beginnning of
  * the <b>haystack</b> string (independent of search direction
  * or offset).

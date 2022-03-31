@@ -267,11 +267,11 @@ function mb_strlen(string $string, #[LanguageLevelTypeAware(['8.0' => 'string|nu
  * @param string $needle <p>
  * The position counted from the beginning of haystack.
  * </p>
- * @param int $offset [optional] <p>
+ * @param int<0,max> $offset [optional] <p>
  * The search offset. If it is not specified, 0 is used.
  * </p>
  * @param string|null $encoding [optional]
- * @return int|false the numeric position of
+ * @return int<0,max>|false the numeric position of
  * the first occurrence of needle in the
  * haystack string. If
  * needle is not found, it returns false.

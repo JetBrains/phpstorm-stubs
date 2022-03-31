@@ -1919,7 +1919,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Count elements
      * @link https://php.net/manual/en/arrayiterator.count.php
-     * @return int The number of elements or public properties in the associated
+     * @return int<0,max> The number of elements or public properties in the associated
      * array or object, respectively.
      */
     #[TentativeType]

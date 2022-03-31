@@ -2286,7 +2286,7 @@ class ResourceBundle implements IteratorAggregate, Countable
      * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
      * Get number of elements in the bundle
      * @link https://php.net/manual/en/resourcebundle.count.php
-     * @return int number of elements in the bundle.
+     * @return int<0,max> number of elements in the bundle.
      */
     #[Pure]
     #[TentativeType]

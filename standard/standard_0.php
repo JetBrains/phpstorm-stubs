@@ -1300,7 +1300,7 @@ function strnatcasecmp(string $string1, string $string2): int {}
  * substring. It outputs a warning if the offset plus the length is
  * greater than the haystack length.
  * </p>
- * @return int This functions returns an integer.
+ * @return int<0,max> This functions returns an integer.
  */
 #[Pure]
 function substr_count(string $haystack, string $needle, int $offset = 0, ?int $length): int {}

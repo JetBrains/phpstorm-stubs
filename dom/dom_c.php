@@ -1278,6 +1278,7 @@ class DOMNodeList implements IteratorAggregate, Countable
     public function item(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index) {}
 
     /**
+     * @return int<0, max>
      * @since 7.2
      */
     #[TentativeType]
@@ -1367,7 +1368,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
     public function removeNamedItemNS($namespace, $localName) {}
 
     /**
-     * @return int
+     * @return int<0,max>
      * @since 7.2
      */
     #[TentativeType]

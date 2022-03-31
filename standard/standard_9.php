@@ -852,7 +852,7 @@ function pos(object|array $array): mixed {}
  * @link https://php.net/manual/en/function.sizeof.php
  * @param array|Countable $value
  * @param int $mode [optional]
- * @return int
+ * @return int<0, max>
  */
 #[Pure]
 function sizeof(Countable|array $value, int $mode = COUNT_NORMAL): int {}

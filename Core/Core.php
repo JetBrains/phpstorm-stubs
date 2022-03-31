@@ -51,7 +51,7 @@ function func_get_args(): array {}
  * @param string $string <p>
  * The string being measured for length.
  * </p>
- * @return int The length of the <i>string</i> on success,
+ * @return int<0,max> The length of the <i>string</i> on success,
  * and 0 if the <i>string</i> is empty.
  */
 #[Pure]

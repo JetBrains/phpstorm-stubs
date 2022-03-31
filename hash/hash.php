@@ -345,7 +345,7 @@ function mhash_get_hash_name(int $algo): string|false {}
 /**
  * Gets the highest available hash ID
  * @link https://php.net/manual/en/function.mhash-count.php
- * @return int the highest available hash ID. Hashes are numbered from 0 to this
+ * @return int<0, max> the highest available hash ID. Hashes are numbered from 0 to this
  * hash ID.
  * @deprecated 8.1
  */

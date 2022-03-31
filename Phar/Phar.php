@@ -316,7 +316,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * Returns the number of entries (files) in the Phar archive
      * @link https://php.net/manual/en/phar.count.php
      * @param int $mode [optional]
-     * @return int The number of files contained within this phar, or 0 (the number zero)
+     * @return int<0,max> The number of files contained within this phar, or 0 (the number zero)
      * if none.
      */
     #[TentativeType]
@@ -1178,7 +1178,7 @@ class PharFileInfo extends SplFileInfo
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Returns the actual size of the file (with compression) inside the Phar archive
      * @link https://php.net/manual/en/pharfileinfo.getcompressedsize.php
-     * @return int The size in bytes of the file within the Phar archive on disk.
+     * @return int<0, max> The size in bytes of the file within the Phar archive on disk.
      */
     #[TentativeType]
     public function getCompressedSize(): int {}
