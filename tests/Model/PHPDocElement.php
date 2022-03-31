@@ -8,6 +8,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\Deprecated;
 use phpDocumentor\Reflection\DocBlock\Tags\Generic;
 use phpDocumentor\Reflection\DocBlock\Tags\Link;
 use phpDocumentor\Reflection\DocBlock\Tags\Param;
+use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
 use phpDocumentor\Reflection\DocBlock\Tags\Since;
 use phpDocumentor\Reflection\DocBlock\Tags\Var_;
@@ -53,6 +54,11 @@ trait PHPDocElement
     public $paramTags = [];
 
     /**
+     * @var Return_[]
+     */
+    public $returnTags = [];
+
+    /**
      * @var Var_[]
      */
     public $varTags = [];
@@ -78,6 +84,7 @@ trait PHPDocElement
         if ($node->getDocComment() !== null) {
             try {
                 $text = $node->getDocComment()->getText();
+                $text = preg_replace("/int\<\w+,\s*\w+\>/", "int", $text);
                 $this->phpdoc = $text;
                 $phpDoc = DocFactoryProvider::getDocFactory()->create($text);
                 $tags = $phpDoc->getTags();
@@ -85,6 +92,7 @@ trait PHPDocElement
                     $this->tagNames[] = $tag->getName();
                 }
                 $this->paramTags = $phpDoc->getTagsByName('param');
+                $this->returnTags = $phpDoc->getTagsByName('return');
                 $this->varTags = $phpDoc->getTagsByName('var');
                 $this->links = $phpDoc->getTagsByName('link');
                 $this->see = $phpDoc->getTagsByName('see');

@@ -86,7 +86,7 @@ class PHPMethod extends PHPFunction
         array_push($this->returnTypesFromSignature, ...self::convertParsedTypeToArray($node->getReturnType()));
         $this->collectTags($node);
         $this->checkDeprecationTag($node);
-        $this->checkReturnTag($node);
+        $this->checkReturnTag();
 
         if (strncmp($this->name, 'PS_UNRESERVE_PREFIX_', 20) === 0) {
             $this->name = substr($this->name, strlen('PS_UNRESERVE_PREFIX_'));
