@@ -47,7 +47,7 @@ class StubsPhpDocTest extends AbstractBaseStubsTestCase
      */
     public static function testFunctionPHPDocs(PHPFunction $function): void
     {
-        self::assertNull($function->parseError, $function->parseError ?: '');
+        self::assertNull($function->parseError, $function->parseError?->getMessage() ?: '');
         self::checkPHPDocCorrectness($function, "function $function->name");
     }
 
@@ -57,7 +57,7 @@ class StubsPhpDocTest extends AbstractBaseStubsTestCase
      */
     public static function testClassesPHPDocs(BasePHPClass $class): void
     {
-        self::assertNull($class->parseError, $class->parseError ?: '');
+        self::assertNull($class->parseError, $class->parseError?->getMessage() ?: '');
         self::checkPHPDocCorrectness($class, "class $class->name");
     }
 

@@ -38,7 +38,7 @@ class BaseFunctionsTest extends AbstractBaseStubsTestCase
         $functionName = $function->name;
         $stubFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($functionName);
         static::assertFalse(
-            $function->is_deprecated && $stubFunction->is_deprecated !== true,
+            $function->isDeprecated && $stubFunction->isDeprecated !== true,
             "Function $functionName is not deprecated in stubs"
         );
     }

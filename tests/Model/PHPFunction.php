@@ -22,7 +22,7 @@ class PHPFunction extends BasePHPElement
     /**
      * @var bool
      */
-    public $is_deprecated;
+    public $isDeprecated;
 
     /**
      * @var PHPParameter[]
@@ -45,7 +45,7 @@ class PHPFunction extends BasePHPElement
     public function readObjectFromReflection($reflectionObject)
     {
         $this->name = $reflectionObject->name;
-        $this->is_deprecated = $reflectionObject->isDeprecated();
+        $this->isDeprecated = $reflectionObject->isDeprecated();
         foreach ($reflectionObject->getParameters() as $parameter) {
             $this->parameters[] = (new PHPParameter())->readObjectFromReflection($parameter);
         }
@@ -102,37 +102,25 @@ class PHPFunction extends BasePHPElement
         }
 
         $this->checkDeprecationTag($node);
-        $this->checkReturnTag($node);
+        $this->checkReturnTag();
         return $this;
     }
 
     protected function checkDeprecationTag(FunctionLike $node)
     {
-        try {
-            $this->is_deprecated = self::hasDeprecatedAttribute($node) || self::hasDeprecatedDocTag($node->getDocComment());
-        } catch (Exception $e) {
-            $this->parseError = $e;
-        }
+        $this->isDeprecated = self::hasDeprecatedAttribute($node) || !empty($this->deprecatedTags);
     }
 
-    protected function checkReturnTag(FunctionLike $node)
+    protected function checkReturnTag()
     {
-        if ($node->getDocComment() !== null) {
-            try {
-                $phpDoc = DocFactoryProvider::getDocFactory()->create($node->getDocComment()->getText());
-                $parsedReturnTag = $phpDoc->getTagsByName('return');
-                if (!empty($parsedReturnTag) && $parsedReturnTag[0] instanceof Return_) {
-                    $returnType = $parsedReturnTag[0]->getType();
-                    if ($returnType instanceof Compound) {
-                        foreach ($returnType as $nextType) {
-                            $this->returnTypesFromPhpDoc[] = (string)$nextType;
-                        }
-                    } else {
-                        $this->returnTypesFromPhpDoc[] = (string)$returnType;
-                    }
+        if (!empty($this->returnTags) && $this->returnTags[0] instanceof Return_) {
+            $returnType = $this->returnTags[0]->getType();
+            if ($returnType instanceof Compound) {
+                foreach ($returnType as $nextType) {
+                    $this->returnTypesFromPhpDoc[] = (string)$nextType;
                 }
-            } catch (Exception $e) {
-                $this->parseError = $e;
+            } else {
+                $this->returnTypesFromPhpDoc[] = (string)$returnType;
             }
         }
     }
