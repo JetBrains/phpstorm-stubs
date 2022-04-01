@@ -905,6 +905,7 @@ interface UnitEnum
     /**
      * @return static[]
      */
+    #[Pure]
     public static function cases(): array;
 }
 
@@ -919,12 +920,14 @@ interface BackedEnum extends UnitEnum
      * @param int|string $value
      * @return static
      */
+    #[Pure]
     public static function from(int|string $value): static;
 
     /**
      * @param int|string $value
      * @return static|null
      */
+    #[Pure]
     public static function tryFrom(int|string $value): ?static;
 }
 
@@ -942,12 +945,14 @@ interface IntBackedEnum extends BackedEnum
      * @param int $value
      * @return static
      */
+    #[Pure]
     public static function from(int $value): static;
 
     /**
      * @param int $value
      * @return static|null
      */
+    #[Pure]
     public static function tryFrom(int $value): ?static;
 }
 
@@ -961,8 +966,10 @@ interface StringBackedEnum extends BackedEnum
 {
     public readonly string $value;
 
+    #[Pure]
     public static function from(string $value): static;
 
+    #[Pure]
     public static function tryFrom(string $value): ?static;
 }
 
