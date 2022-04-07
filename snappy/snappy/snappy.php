@@ -15,4 +15,3 @@ function snappy_compress(string $data): string|false {}
  * @return string|false The original uncompressed data or FALSE on error.
  */
 function snappy_uncompress(string $data): string|false {}
-
