@@ -59,6 +59,7 @@
             <file>tests/BaseClassesTest.php</file>
             <file>tests/BaseConstantsTest.php</file>
             <file>tests/BaseFunctionsTest.php</file>
+            <file>tests/StubsConstantsAndParametersValuesTest.php</file>
             <file>tests/StubsMetaExpectedArgumentsTest.php</file>
             <file>tests/StubsMetaInternalTagTest.php</file>
             <file>tests/StubsParameterNamesTest.php</file>
@@ -67,16 +68,13 @@
             <file>tests/StubsForbiddenTypeHintsTest.php</file>
             <file>tests/StubsPhp81Tests.php</file>
         </testsuite>
-        <testsuite name="Reflection">
-            <file>tests/StubsReflectionClassesTest.php</file>
-            <file>tests/StubsConstantsAndParametersValuesTest.php</file>
-        </testsuite>
         <testsuite name="PhpDoc">
             <file>tests/StubsPhpDocTest.php</file>
         </testsuite>
         <testsuite name="Structure">
             <file>tests/CheckStubMapTest.php</file>
             <file>tests/StubsStructureTest.php</file>
+            <file>tests/StubsReflectionClassesTest.php</file>
         </testsuite>
     </testsuites>
 </phpunit>
