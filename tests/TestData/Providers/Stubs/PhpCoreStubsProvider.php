@@ -189,6 +189,7 @@ class PhpCoreStubsProvider
             'redis',
             'rrd',
             'SaxonC',
+            'snappy',
             'suhosin',
             'svm',
             'v8js',
