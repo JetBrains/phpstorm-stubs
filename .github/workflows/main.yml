@@ -35,7 +35,7 @@ jobs:
           PHP_VERSION: ${{matrix.php}}
   additional:
     runs-on: ubuntu-latest
-    name: Run checks for StubsMap and cs-fixer
+    name: Run cs-fixer and stubs structure tests
     steps:
       - name: Checkout
         uses: actions/checkout@v2
