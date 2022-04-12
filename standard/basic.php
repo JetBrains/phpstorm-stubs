@@ -142,20 +142,30 @@ function sapi_windows_cp_is_utf8(): bool {}
  *
  * If VT100 support is enabled, it is possible to use control sequences as they are known from the VT100 terminal.
  * They allow the modification of the terminal's output. On Windows these sequences are called Console Virtual Terminal Sequences.
+ * 
+ * <b>Warning</b> This function uses the <b>ENABLE_VIRTUAL_TERMINAL_PROCESSING</b> flag implemented in the Windows 10 API, so the VT100 feature may not be available on older Windows versions.
+ * 
  * @link https://php.net/manual/en/function.sapi-windows-vt100-support.php
- * @param resource $stream
- * @param bool $enable [optional]<p>
- *
- * If <i>enable</i> is omitted, the function returns TRUE if the stream stream has VT100 control codes enabled, FALSE otherwise.
- *
- * If <i>enable</i> is specified, the function will try to enable or disable the VT100 features of the stream stream.
- * If the feature has been successfully enabled (or disabled), the function will return TRUE, or FALSE otherwise.
+ * @param resource $stream The stream on which the function will operate.
+ * @param bool|null $enable <p>
+ * If bool, the VT100 feature will be enabled (if true) or disabled (if false).
  * </p>
- * @return bool If <i>enable</i> is not specified: returns TRUE if the VT100 feature is enabled, FALSE otherwise.
- * If <i>enable</i> is specified: Returns TRUE on success or FALSE on failure.
+ * <p>
+ * If <i>enable</i> is <b>null</b>, the function returns <b>true</b> if the stream <i>stream</i> has VT100 control codes enabled, <b>false</b> otherwise.
+ * </p>
+ * <p>
+ * If <i>enable</i> is a bool, the function will try to enable or disable the VT100 features of the stream <i>stream</i>. 
+ * If the feature has been successfully enabled (or disabled), the function will return <b>true</b>, or <b>false</b> otherwise.
+ * </p>
+ * @return bool <p>
+ * If <i>enable</i> is <b>null</b>: returns <b>true</b> if the VT100 feature is enabled, <b>false</b> otherwise.
+ * </p>
+ * <p>
+ * If <i>enable</i> is a bool: Returns <b>true</b> on success or <b>false</b> on failure.
+ * </p>
  * @since 7.2
  */
-function sapi_windows_vt100_support($stream, bool $enable): bool {}
+function sapi_windows_vt100_support($stream, ?bool $enable = null): bool {}
 
 /**
  * Set or remove a CTRL event handler.
@@ -168,14 +178,14 @@ function sapi_windows_vt100_support($stream, bool $enable): bool {}
  * A callback function to set or remove. If set, this function will be called whenever a CTRL+C or CTRL+BREAK event occurs.
  * </p>
  * <p>
- * The function is supposed to have the following signature:<br>
- * `handler(int $event): void`<br>
+ * The function is supposed to have the following signature:<br/>
+ * `handler(int $event): void`<br/>
  * `event` The CTRL event which has been received; either <b>PHP_WINDOWS_EVENT_CTRL_C</b> or <b>PHP_WINDOWS_EVENT_CTRL_BREAK</b>.
  * </p>
  * <p>
  * Setting a <b>null</b> handler causes the process to ignore CTRL+C events, but not CTRL+BREAK events.
  * </p>
- * @param bool $add [optional] If <b>true</b>, the handler is set. If <b>false</b>, the handler is removed.
+ * @param bool $add If <b>true</b>, the handler is set. If <b>false</b>, the handler is removed.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 7.4
  */
