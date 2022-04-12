@@ -160,20 +160,33 @@ function sapi_windows_vt100_support($stream, bool $enable): bool {}
 /**
  * Set or remove a CTRL event handler.
  *
+ * Sets or removes a CTRL event handler, which allows Windows CLI processes to intercept or ignore CTRL+C and CTRL+BREAK events.
+ * Note that in multithreaded environments, this is only possible when called from the main thread.
+ *
  * @link https://www.php.net/manual/en/function.sapi-windows-set-ctrl-handler.php
- * @param callable $callable
- * @param bool $add [optional]
+ * @param callable|null $handler <p>
+ * A callback function to set or remove. If set, this function will be called whenever a CTRL+C or CTRL+BREAK event occurs.
+ * </p>
+ * <p>
+ * The function is supposed to have the following signature:<br>
+ * `handler(int $event): void`<br>
+ * `event` The CTRL event which has been received; either <b>PHP_WINDOWS_EVENT_CTRL_C</b> or <b>PHP_WINDOWS_EVENT_CTRL_BREAK</b>.
+ * </p>
+ * <p>
+ * Setting a <b>null</b> handler causes the process to ignore CTRL+C events, but not CTRL+BREAK events.
+ * </p>
+ * @param bool $add [optional] If <b>true</b>, the handler is set. If <b>false</b>, the handler is removed.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 7.4
  */
-function sapi_windows_set_ctrl_handler(callable $callable, bool $add = true): bool {}
+function sapi_windows_set_ctrl_handler(?callable $handler, bool $add = true): bool {}
 
 /**
  * Send a CTRL event to another process.
  *
  * @link https://www.php.net/manual/en/function.sapi-windows-generate-ctrl-event.php
- * @param int $event
- * @param int $pid [optional]
+ * @param int $event The CTRL even to send; <b>either PHP_WINDOWS_EVENT_CTRL_C</b> or <b>PHP_WINDOWS_EVENT_CTRL_BREAK</b>.
+ * @param int $pid [optional] The ID of the process to which to send the event to. If 0 is given, the event is sent to all processes of the process group.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 7.4
  */
