@@ -53,6 +53,9 @@ function cli_set_process_title(string $title): bool {}
 
 /**
  * Returns the current process title
+ * 
+ * Returns the current process title, as set by cli_set_process_title(). Note that this may not exactly match what is shown in ps or top, depending on your operating system.
+ * 
  * @link https://php.net/manual/en/function.cli-get-process-title.php
  * @return string|null Return a string with the current process title or <b>NULL</b> on error.
  * @since 5.5
@@ -103,32 +106,40 @@ function error_clear_last(): void {}
 
 /**
  * Get process codepage
- * @param string $kind
- * @return int
+ * @link https://php.net/manual/en/function.sapi-windows-cp-get
+ * @param string $kind The kind of operating system codepage to get, either 'ansi' or 'oem'. Any other value refers to the current codepage of the process.
+ * @return int <p>
+ * If <i>kind</i> is 'ansi', the current ANSI code page of the operating system is returned.
+ * If <i>kind</i> is 'oem', the current OEM code page of the operating system is returned.
+ * Otherwise, the current codepage of the process is returned.
+ * </p>
  * @since 7.1
  */
-function sapi_windows_cp_get(string $kind): int {}
+function sapi_windows_cp_get(string $kind = ""): int {}
 
 /**
  * Set process codepage
- * @param int $cp
- * @return bool
+ * @link https://php.net/manual/en/function.sapi-windows-cp-set
+ * @param int $codepage A codepage identifier.
+ * @return bool Returns <i>true</i> on success or <i>false</i> on failure.
  * @since 7.1
  */
-function sapi_windows_cp_set(int $cp): bool {}
+function sapi_windows_cp_set(int $codepage): bool {}
 
 /**
  * Convert string from one codepage to another
- * @param int|string $in_codepage
- * @param int|string $out_codepage
- * @param string $subject
- * @return string
+ * @link https://php.net/manual/en/function.sapi-windows-cp-conv.php
+ * @param int|string $in_codepage The codepage of the <i>subject</i> string. Either the codepage name or identifier.
+ * @param int|string $out_codepage The codepage to convert the <i>subject</i> string to. Either the codepage name or identifier.
+ * @param string $subject The string to convert.
+ * @return string|null The <i>subject</i> string converted to <i>out_codepage</i>, or <b>null</b> on failure.
  * @since 7.1
  */
-function sapi_windows_cp_conv(int|string $in_codepage, int|string $out_codepage, string $subject): string {}
+function sapi_windows_cp_conv(int|string $in_codepage, int|string $out_codepage, string $subject): ?string {}
 
 /**
  * Indicates whether the codepage is utf-8 compatible
+ * @link https://www.php.net/manual/en/function.sapi-windows-cp-is-utf8.php
  * @return bool
  * @since 7.1
  */
