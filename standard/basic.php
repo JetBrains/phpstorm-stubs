@@ -185,9 +185,11 @@ function sapi_windows_vt100_support($stream, ?bool $enable = null): bool {}
  * A callback function to set or remove. If set, this function will be called whenever a CTRL+C or CTRL+BREAK event occurs.
  * </p>
  * <p>
- * The function is supposed to have the following signature:<br/>
- * `handler(int $event): void`<br/>
- * `event` The CTRL event which has been received; either <b>PHP_WINDOWS_EVENT_CTRL_C</b> or <b>PHP_WINDOWS_EVENT_CTRL_BREAK</b>.
+ * The function is supposed to have the following signature:
+ * <code>
+ * handler(int $event): void
+ * </code>
+ * <code>event</code> The CTRL event which has been received; either <b>PHP_WINDOWS_EVENT_CTRL_C</b> or <b>PHP_WINDOWS_EVENT_CTRL_BREAK</b>.
  * </p>
  * <p>
  * Setting a <b>null</b> handler causes the process to ignore CTRL+C events, but not CTRL+BREAK events.
