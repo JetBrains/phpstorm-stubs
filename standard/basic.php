@@ -52,8 +52,6 @@ function dl(string $extension_filename): bool {}
 function cli_set_process_title(string $title): bool {}
 
 /**
- * Returns the current process title
- *
  * Returns the current process title, as set by cli_set_process_title(). Note that this may not exactly match what is shown in ps or top, depending on your operating system.
  *
  * @link https://php.net/manual/en/function.cli-get-process-title.php
@@ -179,9 +177,7 @@ function sapi_windows_cp_is_utf8(): bool {}
 function sapi_windows_vt100_support($stream, ?bool $enable = null): bool {}
 
 /**
- * Set or remove a CTRL event handler.
- *
- * Sets or removes a CTRL event handler, which allows Windows CLI processes to intercept or ignore CTRL+C and CTRL+BREAK events.
+ * Set or remove a CTRL event handler, which allows Windows CLI processes to intercept or ignore CTRL+C and CTRL+BREAK events.
  * Note that in multithreaded environments, this is only possible when called from the main thread.
  *
  * @link https://www.php.net/manual/en/function.sapi-windows-set-ctrl-handler.php
