@@ -53,9 +53,9 @@ function cli_set_process_title(string $title): bool {}
 
 /**
  * Returns the current process title
- * 
+ *
  * Returns the current process title, as set by cli_set_process_title(). Note that this may not exactly match what is shown in ps or top, depending on your operating system.
- * 
+ *
  * @link https://php.net/manual/en/function.cli-get-process-title.php
  * @return string|null Return a string with the current process title or <b>NULL</b> on error.
  * @since 5.5
@@ -153,9 +153,9 @@ function sapi_windows_cp_is_utf8(): bool {}
  *
  * If VT100 support is enabled, it is possible to use control sequences as they are known from the VT100 terminal.
  * They allow the modification of the terminal's output. On Windows these sequences are called Console Virtual Terminal Sequences.
- * 
+ *
  * <b>Warning</b> This function uses the <b>ENABLE_VIRTUAL_TERMINAL_PROCESSING</b> flag implemented in the Windows 10 API, so the VT100 feature may not be available on older Windows versions.
- * 
+ *
  * @link https://php.net/manual/en/function.sapi-windows-vt100-support.php
  * @param resource $stream The stream on which the function will operate.
  * @param bool|null $enable <p>
