@@ -165,7 +165,7 @@ function sapi_windows_cp_is_utf8(): bool {}
  * If <i>enable</i> is <b>null</b>, the function returns <b>true</b> if the stream <i>stream</i> has VT100 control codes enabled, <b>false</b> otherwise.
  * </p>
  * <p>
- * If <i>enable</i> is a bool, the function will try to enable or disable the VT100 features of the stream <i>stream</i>. 
+ * If <i>enable</i> is a bool, the function will try to enable or disable the VT100 features of the stream <i>stream</i>.
  * If the feature has been successfully enabled (or disabled), the function will return <b>true</b>, or <b>false</b> otherwise.
  * </p>
  * @return bool <p>
