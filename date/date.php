@@ -1418,10 +1418,10 @@ function date_default_timezone_get(): string {}
  * @param float|null $utcOffset [optional]
  * @return string|int|float|false the sunrise time in a specified format on
  * success or false on failure.
- * @deprecated 8.1
+ * @deprecated in 8.1.  Use {@link date_sun_info} instead
  */
 #[Pure(true)]
-#[Deprecated(since: '8.1')]
+#[Deprecated(reason: 'in 8.1.  Use date_sun_info instead', since: '8.1')]
 function date_sunrise(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, ?float $utcOffset): string|int|float|false {}
 
 /**
@@ -1470,10 +1470,10 @@ function date_sunrise(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?
  * @param float|null $utcOffset [optional]
  * @return string|int|float|false the sunset time in a specified format on
  * success or false on failure.
- * @deprecated 8.1
+ * @deprecated in 8.1.  Use {@link date_sun_info} instead
  */
 #[Pure(true)]
-#[Deprecated(since: '8.1')]
+#[Deprecated(reason: 'in 8.1.  Use date_sun_info instead', since: '8.1')]
 function date_sunset(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, ?float $utcOffset): string|int|float|false {}
 
 /**
@@ -1488,11 +1488,36 @@ function date_sunset(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?f
  * @param float $longitude <p>
  * Longitude in degrees.
  * </p>
- * @return array|false array on success or false on failure.
+ * @return array{
+ *              sunrise: int|bool,
+ *              sunset: int|bool,
+ *              transit: int|bool,
+ *              civil_twilight_begin: int|bool,
+ *              civil_twilight_end: int|bool,
+ *              nautical_twilight_begin: int|bool,
+ *              nautical_twilight_end: int|bool,
+ *              astronomical_twilight_begin: int|bool,
+ *              astronomical_twilight_end: int|bool,
+ *         }|false Returns array on success or <strong><code>false</code></strong> on failure. The structure of the array is detailed in the following list:
+ * <table>
+ * <tr><td>sunrise</td><td>The timestamp of the sunrise (zenith angle = 90°35&#039;).</td></tr>
+ * <tr><td>sunset</td><td>The timestamp of the sunset (zenith angle = 90°35&#039;).</td></tr>
+ * <tr><td>transit</td><td>The timestamp when the sun is at its zenith, i.e. has reached its topmost point.</td></tr>
+ * <tr><td>civil_twilight_begin</td><td>The start of the civil dawn (zenith angle = 96°). It ends at <code>sunrise</code>.</td></tr>
+ * <tr><td>civil_twilight_end</td><td>The end of the civil dusk (zenith angle = 96°). It starts at <code>sunset</code>.</td></tr>
+ * <tr><td>nautical_twilight_begin</td><td>The start of the nautical dawn (zenith angle = 102°). It ends at <code>civil_twilight_begin</code>.</td></tr>
+ * <tr><td>nautical_twilight_end</td><td>The end of the nautical dusk (zenith angle = 102°). It starts at <code>civil_twilight_end</code>.</td></tr>
+ * <tr><td>astronomical_twilight_begin</td><td>The start of the astronomical dawn (zenith angle = 108°). It ends at <code>nautical_twilight_begin</code>.</td></tr>
+ * <tr><td>astronomical_twilight_end</td><td>The end of the astronomical dusk (zenith angle = 108°). It starts at <code>nautical_twilight_end</code>.</td></tr>
+ * </table>
+ * <br>
+ * The values of the array elements are either UNIX timestamps, <strong><code>false</code></strong> if the
+ * sun is below the respective zenith for the whole day, or <strong><code>true</code></strong> if the sun is
+ * above the respective zenith for the whole day.
  * @since 5.1.2
  */
 #[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-function date_sun_info(int $timestamp, float $latitude, float $longitude) {}
+function date_sun_info(int $timestamp, float $latitude, float $longitude): array|false {}
 
 // End of date v.5.3.2-0.dotdeb.1
