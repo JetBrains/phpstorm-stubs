@@ -445,6 +445,11 @@ define('JSON_ERROR_UTF16', 10);
 define('JSON_THROW_ON_ERROR', 4194304);
 
 /**
+ * @since 8.1
+ */
+define('JSON_ERROR_NON_BACKED_ENUM', 11);
+
+/**
  * Class JsonException
  *
  * <p>A new flag has been added, JSON_THROW_ON_ERROR, which can be used with

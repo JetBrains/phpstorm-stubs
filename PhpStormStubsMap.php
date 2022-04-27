@@ -8081,6 +8081,7 @@ const CONSTANTS = array (
   'JSON_ERROR_INF_OR_NAN' => 'json/json.php',
   'JSON_ERROR_INVALID_PROPERTY_NAME' => 'json/json.php',
   'JSON_ERROR_NONE' => 'json/json.php',
+  'JSON_ERROR_NON_BACKED_ENUM' => 'json/json.php',
   'JSON_ERROR_RECURSION' => 'json/json.php',
   'JSON_ERROR_STATE_MISMATCH' => 'json/json.php',
   'JSON_ERROR_SYNTAX' => 'json/json.php',

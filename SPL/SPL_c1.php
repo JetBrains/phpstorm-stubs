@@ -363,6 +363,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
      * @link https://php.net/manual/en/directoryiterator.key.php
      * @return string The key for the current <b>DirectoryIterator</b> item.
      */
+    #[TentativeType]
     public function key(): mixed {}
 
     /**
@@ -370,6 +371,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
      * @link https://php.net/manual/en/directoryiterator.current.php
      * @return DirectoryIterator The current <b>DirectoryIterator</b> item.
      */
+    #[TentativeType]
     public function current(): mixed {}
 
     /**
