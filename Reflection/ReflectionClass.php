@@ -8,6 +8,7 @@ use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 /**
+ * @template T
  * The <b>ReflectionClass</b> class reports information about a class.
  *
  * @link https://php.net/manual/en/class.reflectionclass.php
@@ -46,7 +47,7 @@ class ReflectionClass implements Reflector
      * Constructs a ReflectionClass
      *
      * @link https://php.net/manual/en/reflectionclass.construct.php
-     * @param string|object $objectOrClass Either a string containing the name of
+     * @param string|object|T $objectOrClass Either a string containing the name of
      * the class to reflect, or an object.
      * @throws ReflectionException if the class does not exist.
      */
@@ -457,7 +458,7 @@ class ReflectionClass implements Reflector
      * Creates a new class instance without invoking the constructor.
      *
      * @link https://php.net/manual/en/reflectionclass.newinstancewithoutconstructor.php
-     * @return object a new instance of the class.
+     * @return object|T a new instance of the class.
      * @throws ReflectionException if the class is an internal class that
      * cannot be instantiated without invoking the constructor. In PHP 5.6.0
      * onwards, this exception is limited only to internal classes that are final.
