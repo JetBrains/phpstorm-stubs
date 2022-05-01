@@ -180,7 +180,7 @@ class ReflectionProperty implements Reflector
      * Checks if property is static
      *
      * @link https://php.net/manual/en/reflectionproperty.isstatic.php
-     * @return bool Retruns {@see true} if the property is static, {@see false} otherwise.
+     * @return bool Returns {@see true} if the property is static, {@see false} otherwise.
      */
     #[Pure]
     #[TentativeType]
