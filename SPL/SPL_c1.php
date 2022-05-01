@@ -1641,12 +1641,6 @@ class SplPriorityQueue implements Iterator, Countable
     public const EXTR_DATA = 1;
 
     /**
-     * Construct a new SplPriorityQueue object
-     * @link https://www.php.net/manual/en/splpriorityqueue.construct.php
-     */
-    public function __construct() {}
-
-    /**
      * Compare priorities in order to place elements correctly in the heap while sifting up.
      * @link https://php.net/manual/en/splpriorityqueue.compare.php
      * @param TPriority $priority1 <p>
