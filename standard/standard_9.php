@@ -292,7 +292,7 @@ function array_intersect(array $array, #[PhpStormStubsElementAvailable(from: '5.
  * The array with main keys to check.
  * </p>
  * @param array ...$arrays
- * @return array an associative array containing all the entries of
+ * @return array an associative array containing all the values and keys of
  * array1 which have keys that are present in all
  * arguments.
  * @meta
@@ -343,7 +343,7 @@ function array_intersect_ukey(
  * the first argument is considered to be respectively less than, equal
  * to, or greater than the second.
  * </p>
- * @return array an array containing all the values of array1
+ * @return array an array containing all the values and keys of array1
  * that are present in all the arguments.
  * @meta
  */
@@ -361,7 +361,7 @@ function array_uintersect(
  * The array with main values to check.
  * </p>
  * @param array $arrays
- * @return array an associative array containing all the values in
+ * @return array an associative array containing all the values and keys in
  * array1 that are present in all of the arguments.
  * @meta
  */
@@ -385,7 +385,7 @@ function array_intersect_assoc(array $array, #[PhpStormStubsElementAvailable(fro
  * second.
  * </p>
  * @param array ...$rest
- * @return array an array containing all the values of
+ * @return array an array containing all the values and keys of
  * array1 that are present in all the arguments.
  * @meta
  */
@@ -440,7 +440,7 @@ function array_intersect_uassoc(
  * Key comparison callback function.
  * </p>
  * @param array ...$rest
- * @return array an array containing all the values of
+ * @return array an array containing all the values and keys of
  * array1 that are present in all the arguments.
  * @meta
  */
@@ -476,7 +476,7 @@ function array_diff(array $array, #[PhpStormStubsElementAvailable(from: '5.3', t
  * @param array $arrays <p>
  * An array to compare against
  * </p>
- * @return array an array containing all the entries from
+ * @return array an array containing all the values and keys from
  * array1 whose keys are not present in any of the
  * other arrays.
  * @meta
@@ -500,7 +500,7 @@ function array_diff_key(array $array, #[PhpStormStubsElementAvailable(from: '5.3
  * be respectively less than, equal to, or greater than the second.
  * </p>
  * @param array ...$rest [optional]
- * @return array an array containing all the entries from
+ * @return array an array containing all the values and keys from
  * array1 that are not present in any of the other arrays.
  * @meta
  */
@@ -530,7 +530,7 @@ function array_diff_ukey(
  * to, or greater than the second.
  * </p>
  * @param array ...$rest [optional]
- * @return array an array containing all the values of array1
+ * @return array an array containing all the values and keys of array1
  * that are not present in any of the other arguments.
  * @meta
  */
@@ -581,7 +581,7 @@ function array_diff_assoc(
  * </p>
  * @param array ...$rest [optional]
  * @return array array_udiff_assoc returns an array
- * containing all the values from array1
+ * containing all the values and keys from array1
  * that are not present in any of the other arguments.
  * Note that the keys are used in the comparison unlike
  * array_diff and array_udiff.
@@ -614,7 +614,7 @@ function array_udiff_assoc(
  * be respectively less than, equal to, or greater than the second.
  * </p>
  * @param array ...$rest [optional]
- * @return array an array containing all the entries from
+ * @return array an array containing all the values and keys from
  * array1 that are not present in any of the other arrays.
  * @meta
  */
@@ -657,7 +657,7 @@ function array_diff_uassoc(
  * the indices by using an internal function.
  * </p>
  * @param array ...$rest [optional]
- * @return array an array containing all the values from
+ * @return array an array containing all the values and keys from
  * array1 that are not present in any of the other
  * arguments.
  * @meta
