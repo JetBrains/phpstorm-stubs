@@ -2312,7 +2312,10 @@ function mysqli_prepare(mysqli $mysql, string $query): mysqli_stmt|false {}
  * </p>
  * @return bool
  */
-function mysqli_report(int $flags): bool {}
+function mysqli_report(
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '8.0')] int $flags,
+    #[PhpStormStubsElementAvailable(from: '8.1')] int $flags = MYSQLI_REPORT_ERROR|MYSQLI_REPORT_STRICT,
+): bool {}
 
 /**
  * Performs a query on the database
