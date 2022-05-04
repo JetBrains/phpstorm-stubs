@@ -4675,7 +4675,7 @@ class Imagick implements Iterator, Countable
      * @link https://php.net/manual/en/imagick.getquantumrange.php
      * @return array the Imagick quantum range as a string.
      */
-    #[ArrayShape(["quantumDepthLong" => "int", "quantumDepthString" => "string"])]
+    #[ArrayShape(["quantumRangeLong" => "int", "quantumRangeString" => "string"])]
     public static function getQuantumRange() {}
 
     /**
