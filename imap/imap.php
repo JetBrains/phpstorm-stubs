@@ -918,22 +918,22 @@ function imap_clearflag_full(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection
  * @param int $criteria <p>
  * Criteria can be one (and only one) of the following:
  * <b>SORTDATE</b> - message Date</p>
- * @param int $reverse <p>
+ * @param bool $reverse <p>
  * Set this to 1 for reverse sorting
  * </p>
  * @param int $flags [optional] <p>
  * The <i>options</i> are a bitmask of one or more of the
  * following:
  * <b>SE_UID</b> - Return UIDs instead of sequence numbers</p>
- * @param string $search_criteria [optional]
- * @param string $charset
+ * @param string|null $search_criteria [optional]
+ * @param string|null $charset [optional]
  * @return array|false an array of message numbers sorted by the given
  * parameters.
  */
 function imap_sort(
     #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
     int $criteria,
-    bool $reverse,
+    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: 'int')] $reverse,
     int $flags = 0,
     ?string $search_criteria = null,
     ?string $charset = null
