@@ -169,7 +169,7 @@ function array_reverse(array $array, bool $preserve_keys = false): array {}
  * </p>
  * @meta
  */
-function array_reduce(array $array, callable $callback, mixed $initial): mixed {}
+function array_reduce(array $array, callable $callback, mixed $initial = null): mixed {}
 
 /**
  * Pad array to the specified length with a value
