@@ -2848,7 +2848,7 @@ class Redis
      * @link    https://redis.io/commands/mset
      * @example
      * <pre>
-     * $redis->mset(array('key0' => 'value0', 'key1' => 'value1'));
+     * $redis->mSet(array('key0' => 'value0', 'key1' => 'value1'));
      * var_dump($redis->get('key0'));
      * var_dump($redis->get('key1'));
      * // Output:
@@ -2856,7 +2856,7 @@ class Redis
      * // string(6) "value1"
      * </pre>
      */
-    public function mset(array $array) {}
+    public function mSet(array $array) {}
 
     /**
      * Get the values of all the specified keys.
