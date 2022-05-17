@@ -683,6 +683,7 @@ class Memcached
     public const GET_PRESERVE_ORDER = 1;
 
     /**
+     * (PECL memcached &gt;= 3.0.0)<br/>
      * A flag for <b>Memcached::get()</b>, <b>Memcached::getMulti()</b> and
      * <b>Memcached::getMultiByKey()</b> to ensure that the CAS token values are returned as well.
      * @link https://php.net/manual/en/memcached.constants.php
