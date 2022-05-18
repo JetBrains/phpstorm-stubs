@@ -887,7 +887,7 @@ function key_exists($key, array $array): bool {}
  */
 function assert(
     mixed $assertion,
-    #[LanguageLevelTypeAware(['8.0' => 'Throwable|string|null'], default: 'string')] $description = null
+    #[LanguageLevelTypeAware(['7.0' => 'Throwable|string|null'], default: 'string')] $description = null
 ): bool {}
 
 /**
