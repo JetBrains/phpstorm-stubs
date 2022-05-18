@@ -11,6 +11,7 @@
 namespace Ds;
 
     use Countable;
+    use IteratorAggregate;
     use JsonSerializable;
     use OutOfBoundsException;
     use OutOfRangeException;
@@ -24,7 +25,7 @@ namespace Ds;
      * json_encode().
      * @package Ds
      */
-    interface Collection extends Traversable, Countable, JsonSerializable
+    interface Collection extends Countable, IteratorAggregate, JsonSerializable
     {
         /**
          * Removes all values from the collection.
@@ -550,6 +551,8 @@ namespace Ds;
          */
         public function get(int $index) {}
 
+        public function getIterator(): Traversable {}
+
         /**
          * Inserts values into the sequence at a given index.
          *
@@ -825,6 +828,8 @@ namespace Ds;
          * @return Collection
          */
         public function copy(): Collection {}
+
+        public function getIterator(): Traversable {}
 
         /**
          * Returns whether the deque is empty.
@@ -1261,6 +1266,8 @@ namespace Ds;
          * @link https://www.php.net/manual/en/ds-map.get.php
          */
         public function get($key, $default = null) {}
+
+        public function getIterator(): Traversable {}
 
         /**
          * Determines whether the map contains a given key
@@ -1897,6 +1904,8 @@ namespace Ds;
          */
         public function get(int $index) {}
 
+        public function getIterator(): Traversable {}
+
         /**
          * Creates a new set using values common to both the current instance
          * and another set. In other words, returns a copy of the current
@@ -2210,6 +2219,8 @@ namespace Ds;
          */
         public function copy(): Stack {}
 
+        public function getIterator(): Traversable {}
+
         /**
          * Returns whether the collection is empty.
          * @link https://www.php.net/manual/en/ds-stack.isempty.php
@@ -2336,6 +2347,8 @@ namespace Ds;
          */
         public function copy(): Stack {}
 
+        public function getIterator(): Traversable {}
+
         /**
          * Returns whether the collection is empty.
          * @link https://www.php.net/manual/en/ds-queue.isempty.php
@@ -2431,6 +2444,8 @@ namespace Ds;
          * @return Collection
          */
         public function copy() {}
+
+        public function getIterator(): Traversable {}
 
         /**
          * Returns whether the collection is empty.
