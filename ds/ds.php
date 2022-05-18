@@ -2455,6 +2455,15 @@ namespace Ds;
         public function isEmpty(): bool {}
 
         /**
+         * Returns the value at the front of the queue, but does not remove it.
+         * @link https://www.php.net/manual/en/ds-priorityqueue.peek.php
+         *
+         * @return mixed The value at the front of the queue.
+         * @throws UnderflowException if empty.
+         */
+        public function peek() {}
+
+        /**
          * Pushes a value with a given priority into the queue.
          *
          * @param mixed $value
