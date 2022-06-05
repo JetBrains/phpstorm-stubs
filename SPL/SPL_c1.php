@@ -1699,7 +1699,7 @@ class SplPriorityQueue implements Iterator, Countable
     public function top(): mixed {}
 
     /**
-     * Extracts a node from top of the heap and sift up.
+     * Extracts a node from top of the heap and shift up.
      * @link https://php.net/manual/en/splpriorityqueue.extract.php
      * @return TValue The value or priority (or both) of the extracted node, depending on the extract flag.
      */
