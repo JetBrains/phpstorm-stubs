@@ -1368,7 +1368,7 @@ class SplStack extends SplDoublyLinkedList
 abstract class SplHeap implements Iterator, Countable
 {
     /**
-     * Extracts a node from top of the heap and sift up.
+     * Extracts a node from top of the heap and shift up.
      * @link https://php.net/manual/en/splheap.extract.php
      * @return mixed The value of the extracted node.
      */
@@ -1376,7 +1376,7 @@ abstract class SplHeap implements Iterator, Countable
     public function extract(): mixed {}
 
     /**
-     * Inserts an element in the heap by sifting it up.
+     * Inserts an element in the heap by shifting it up.
      * @link https://php.net/manual/en/splheap.insert.php
      * @param TValue $value <p>
      * The value to insert.
@@ -1459,7 +1459,7 @@ abstract class SplHeap implements Iterator, Countable
     public function recoverFromCorruption(): bool {}
 
     /**
-     * Compare elements in order to place them correctly in the heap while sifting up.
+     * Compare elements in order to place them correctly in the heap while shifting up.
      * @link https://php.net/manual/en/splheap.compare.php
      * @param mixed $value1 <p>
      * The value of the first node being compared.
@@ -1497,7 +1497,7 @@ abstract class SplHeap implements Iterator, Countable
 class SplMinHeap extends SplHeap
 {
     /**
-     * Compare elements in order to place them correctly in the heap while sifting up.
+     * Compare elements in order to place them correctly in the heap while shifting up.
      * @link https://php.net/manual/en/splminheap.compare.php
      * @param TValue $value1 <p>
      * The value of the first node being compared.
@@ -1517,14 +1517,14 @@ class SplMinHeap extends SplHeap
     ): int {}
 
     /**
-     * Extracts a node from top of the heap and sift up.
+     * Extracts a node from top of the heap and shift up.
      * @link https://php.net/manual/en/splheap.extract.php
      * @return TValue The value of the extracted node.
      */
     public function extract() {}
 
     /**
-     * Inserts an element in the heap by sifting it up.
+     * Inserts an element in the heap by shifting it up.
      * @link https://php.net/manual/en/splheap.insert.php
      * @param TValue $value <p>
      * The value to insert.
@@ -1606,7 +1606,7 @@ class SplMinHeap extends SplHeap
 class SplMaxHeap extends SplHeap
 {
     /**
-     * Compare elements in order to place them correctly in the heap while sifting up.
+     * Compare elements in order to place them correctly in the heap while shifting up.
      * @link https://php.net/manual/en/splmaxheap.compare.php
      * @param TValue $value1 <p>
      * The value of the first node being compared.
@@ -1641,7 +1641,7 @@ class SplPriorityQueue implements Iterator, Countable
     public const EXTR_DATA = 1;
 
     /**
-     * Compare priorities in order to place elements correctly in the heap while sifting up.
+     * Compare priorities in order to place elements correctly in the heap while shifting up.
      * @link https://php.net/manual/en/splpriorityqueue.compare.php
      * @param TPriority $priority1 <p>
      * The priority of the first node being compared.
@@ -1661,7 +1661,7 @@ class SplPriorityQueue implements Iterator, Countable
     ): int {}
 
     /**
-     * Inserts an element in the queue by sifting it up.
+     * Inserts an element in the queue by shifting it up.
      * @link https://php.net/manual/en/splpriorityqueue.insert.php
      * @param TValue $value <p>
      * The value to insert.
