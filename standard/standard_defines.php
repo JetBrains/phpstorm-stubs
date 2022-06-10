@@ -126,12 +126,12 @@ define('M_SQRT3', 1.7320508075689);
 /**
  * The infinite
  */
-define('INF', INF);
+define('INF', (float)INF);
 
 /**
  * Not A Number
  */
-define('NAN', NAN);
+define('NAN', (float)NAN);
 
 /**
  * Round halves up
