@@ -5,6 +5,7 @@ namespace StubTests\Model;
 
 use Exception;
 use PhpParser\Node\Const_;
+use PhpParser\Node\Expr\Cast;
 use PhpParser\Node\Expr\UnaryMinus;
 use PhpParser\Node\Stmt\ClassConst;
 use PhpParser\Node\Stmt\Namespace_;
@@ -86,6 +87,8 @@ class PHPConst extends BasePHPElement
         if (in_array('expr', $node->value->getSubNodeNames(), true)) {
             if ($node->value instanceof UnaryMinus) {
                 return -$node->value->expr->value;
+            } elseif ($node->value instanceof Cast) {
+                return $node->value->expr->name->parts[0];
             }
             return $node->value->expr->value;
         }
