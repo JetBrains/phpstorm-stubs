@@ -50,7 +50,7 @@ class KafkaConsumer
 
     /**
      * @param bool               $all_topics
-     * @param KafkaConsumerTopic $only_topic
+     * @param null|KafkaConsumerTopic $only_topic
      * @param int                $timeout_ms
      *
      * @throws Exception

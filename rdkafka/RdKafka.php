@@ -17,7 +17,7 @@ abstract class RdKafka
 
     /**
      * @param bool  $all_topics
-     * @param Topic $only_topic
+     * @param null|Topic $only_topic
      * @param int   $timeout_ms
      *
      * @throws Exception
