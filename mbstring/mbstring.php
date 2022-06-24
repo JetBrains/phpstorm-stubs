@@ -880,7 +880,7 @@ function mb_decode_numericentity(string $string, array $map, ?string $encoding =
  * newline ("\n").
  * </p>
  * @param string|null $additional_params [optional] <p>
- * additional_parameter is a MTA command line
+ * additional_parameter is an MTA command line
  * parameter. It is useful when setting the correct Return-Path
  * header when using sendmail.
  * </p>
