@@ -360,7 +360,7 @@ namespace FFI {
          *
          * @since 8.1
          */
-        public const TYPE_LONG_DOUBLE = 3;
+        public const TYPE_LONGDOUBLE = 3;
 
         /**
          * @since 8.1
@@ -547,7 +547,7 @@ namespace FFI {
          *  - {@see CType::TYPE_VOID}
          *  - {@see CType::TYPE_FLOAT}
          *  - {@see CType::TYPE_DOUBLE}
-         *  - {@see CType::TYPE_LONG_DOUBLE}
+         *  - {@see CType::TYPE_LONGDOUBLE}
          *  - {@see CType::TYPE_UINT8}
          *  - {@see CType::TYPE_SINT8}
          *  - {@see CType::TYPE_UINT16}

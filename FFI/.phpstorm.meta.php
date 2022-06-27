@@ -50,7 +50,7 @@ namespace PHPSTORM_META {
         \FFI\CType::TYPE_VOID,
         \FFI\CType::TYPE_FLOAT,
         \FFI\CType::TYPE_DOUBLE,
-        \FFI\CType::TYPE_LONG_DOUBLE,
+        \FFI\CType::TYPE_LONGDOUBLE,
         \FFI\CType::TYPE_UINT8,
         \FFI\CType::TYPE_SINT8,
         \FFI\CType::TYPE_UINT16,
