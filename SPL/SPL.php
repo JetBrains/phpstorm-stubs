@@ -119,7 +119,7 @@ class EmptyIterator implements Iterator
     /**
      * Return the key of the current element
      * @link https://php.net/manual/en/iterator.key.php
-     * @return string|float|int|bool|null scalar on success, or null on failure.
+     * @return mixed scalar on success, or null on failure.
      */
     #[TentativeType]
     public function key(): never {}
@@ -290,7 +290,7 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * Access the current key
      * @link https://php.net/manual/en/recursiveiteratoriterator.key.php
-     * @return string|float|int|bool|null The current key.
+     * @return mixed The current key.
      */
     #[TentativeType]
     public function key(): mixed {}
@@ -475,7 +475,7 @@ class IteratorIterator implements OuterIterator
     /**
      * Get the key of the current element
      * @link https://php.net/manual/en/iteratoriterator.key.php
-     * @return string|float|int|bool|null The key of the current element.
+     * @return mixed The key of the current element.
      */
     #[TentativeType]
     public function key(): mixed {}
@@ -538,16 +538,16 @@ abstract class FilterIterator extends IteratorIterator
     /**
      * Get the current key
      * @link https://php.net/manual/en/filteriterator.key.php
-     * @return string|float|int|bool|null The current key.
+     * @return mixed The current key.
      */
-    public function key() {}
+    public function key(): mixed {}
 
     /**
      * Get the current element value
      * @link https://php.net/manual/en/filteriterator.current.php
      * @return mixed The current element value.
      */
-    public function current() {}
+    public function current(): mixed {}
 
     /**
      * Move the iterator forward
@@ -690,16 +690,16 @@ class LimitIterator extends IteratorIterator
     /**
      * Get current key
      * @link https://php.net/manual/en/limititerator.key.php
-     * @return string|float|int|bool|null the key for the current item.
+     * @return mixed the key for the current item.
      */
-    public function key() {}
+    public function key(): mixed {}
 
     /**
      * Get current element
      * @link https://php.net/manual/en/limititerator.current.php
      * @return mixed the current element or null if there is none.
      */
-    public function current() {}
+    public function current(): mixed {}
 
     /**
      * Move the iterator forward
@@ -802,16 +802,16 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * Return the key for the current element
      * @link https://php.net/manual/en/cachingiterator.key.php
-     * @return string|float|int|bool|null
+     * @return mixed
      */
-    public function key() {}
+    public function key(): mixed {}
 
     /**
      * Return the current element
      * @link https://php.net/manual/en/cachingiterator.current.php
      * @return mixed
      */
-    public function current() {}
+    public function current(): mixed {}
 
     /**
      * Move the iterator forward
@@ -985,7 +985,7 @@ class NoRewindIterator extends IteratorIterator
     /**
      * Get the current key
      * @link https://php.net/manual/en/norewinditerator.key.php
-     * @return string|float|int|bool|null The current key.
+     * @return mixed The current key.
      */
     #[TentativeType]
     public function key(): mixed {}
@@ -1056,9 +1056,9 @@ class AppendIterator extends IteratorIterator
     /**
      * Gets the current key
      * @link https://php.net/manual/en/appenditerator.key.php
-     * @return string|float|int|bool|null The current key if it is valid or null otherwise.
+     * @return mixed The current key if it is valid or null otherwise.
      */
-    public function key() {}
+    public function key(): mixed {}
 
     /**
      * Gets the current value
