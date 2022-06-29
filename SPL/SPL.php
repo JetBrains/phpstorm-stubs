@@ -1392,7 +1392,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      * @link https://php.net/manual/en/recursivetreeiterator.rewind.php
      * @return void
      */
-    public function rewind() {}
+    public function rewind(): void {}
 
     /**
      * Check validity
