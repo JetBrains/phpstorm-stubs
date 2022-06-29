@@ -533,7 +533,7 @@ abstract class FilterIterator extends IteratorIterator
      * @link https://php.net/manual/en/filteriterator.valid.php
      * @return bool true if the current element is valid, otherwise false
      */
-    public function valid() {}
+    public function valid(): bool {}
 
     /**
      * Get the current key
@@ -1399,7 +1399,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      * @link https://php.net/manual/en/recursivetreeiterator.valid.php
      * @return bool true if the current position is valid, otherwise false
      */
-    public function valid() {}
+    public function valid(): bool {}
 
     /**
      * Get the key of the current element
