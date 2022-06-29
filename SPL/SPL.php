@@ -1422,7 +1422,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      * @link https://php.net/manual/en/recursivetreeiterator.next.php
      * @return void
      */
-    public function next() {}
+    public function next(): void {}
 
     /**
      * Begin iteration
