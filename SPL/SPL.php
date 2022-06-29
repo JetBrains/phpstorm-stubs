@@ -562,7 +562,7 @@ abstract class FilterIterator extends IteratorIterator
      * @link https://php.net/manual/en/filteriterator.getinneriterator.php
      * @return Iterator The inner iterator.
      */
-    public function getInnerIterator() {}
+    public function getInnerIterator(): Iterator {}
 }
 
 /**
@@ -733,7 +733,7 @@ class LimitIterator extends IteratorIterator
      * @link https://php.net/manual/en/limititerator.getinneriterator.php
      * @return Iterator The inner iterator passed to <b>LimitIterator::__construct</b>.
      */
-    public function getInnerIterator() {}
+    public function getInnerIterator(): Iterator {}
 }
 
 /**
@@ -842,7 +842,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      * @link https://php.net/manual/en/cachingiterator.getinneriterator.php
      * @return Iterator an object implementing the Iterator interface.
      */
-    public function getInnerIterator() {}
+    public function getInnerIterator(): Iterator {}
 
     /**
      * Get flags used
@@ -1011,7 +1011,7 @@ class NoRewindIterator extends IteratorIterator
      * @link https://php.net/manual/en/norewinditerator.getinneriterator.php
      * @return Iterator The inner iterator, as passed to <b>NoRewindIterator::__construct</b>.
      */
-    public function getInnerIterator() {}
+    public function getInnerIterator(): Iterator {}
 }
 
 /**
@@ -1081,7 +1081,7 @@ class AppendIterator extends IteratorIterator
      * @link https://php.net/manual/en/appenditerator.getinneriterator.php
      * @return Iterator the current inner Iterator.
      */
-    public function getInnerIterator() {}
+    public function getInnerIterator(): Iterator {}
 
     /**
      * Gets an index of iterators
