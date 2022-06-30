@@ -119,7 +119,7 @@ class EmptyIterator implements Iterator
     /**
      * Return the key of the current element
      * @link https://php.net/manual/en/iterator.key.php
-     * @return mixed scalar on success, or null on failure.
+     * @return mixed The key of the current element.
      */
     #[TentativeType]
     public function key(): never {}
@@ -290,7 +290,7 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * Access the current key
      * @link https://php.net/manual/en/recursiveiteratoriterator.key.php
-     * @return mixed The current key.
+     * @return mixed The key of the current element.
      */
     #[TentativeType]
     public function key(): mixed {}
@@ -538,7 +538,7 @@ abstract class FilterIterator extends IteratorIterator
     /**
      * Get the current key
      * @link https://php.net/manual/en/filteriterator.key.php
-     * @return mixed The current key.
+     * @return mixed The key of the current element.
      */
     public function key(): mixed {}
 
@@ -690,7 +690,7 @@ class LimitIterator extends IteratorIterator
     /**
      * Get current key
      * @link https://php.net/manual/en/limititerator.key.php
-     * @return mixed the key for the current item.
+     * @return mixed The key of the current element.
      */
     public function key(): mixed {}
 
@@ -802,7 +802,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * Return the key for the current element
      * @link https://php.net/manual/en/cachingiterator.key.php
-     * @return mixed
+     * @return mixed The key of the current element.
      */
     public function key(): mixed {}
 
@@ -985,7 +985,7 @@ class NoRewindIterator extends IteratorIterator
     /**
      * Get the current key
      * @link https://php.net/manual/en/norewinditerator.key.php
-     * @return mixed The current key.
+     * @return mixed The key of the current element.
      */
     #[TentativeType]
     public function key(): mixed {}
@@ -1056,7 +1056,7 @@ class AppendIterator extends IteratorIterator
     /**
      * Gets the current key
      * @link https://php.net/manual/en/appenditerator.key.php
-     * @return mixed The current key if it is valid or null otherwise.
+     * @return mixed The key of the current element.
      */
     public function key(): mixed {}
 
@@ -2041,7 +2041,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Return current array key
      * @link https://php.net/manual/en/arrayiterator.key.php
-     * @return string|int|null The current array key.
+     * @return string|int|null The key of the current element.
      */
     #[TentativeType]
     public function key(): string|int|null {}
