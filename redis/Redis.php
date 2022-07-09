@@ -4333,7 +4333,7 @@ class Redis
      * $redis->config("SET", "dir", "/var/run/redis/dumps/");
      * </pre>
      */
-    public function config($operation, $key, $value) {}
+    public function config($operation, $key, $value = '') {}
 
     /**
      * Evaluate a LUA script serverside
