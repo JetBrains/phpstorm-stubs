@@ -1,5 +1,4 @@
 FROM php:5.6-alpine
-
 RUN set -eux; \
     apk add --no-cache --virtual .build-deps \
     bash gcc g++ make autoconf pkgconfig git \
@@ -9,3 +8,5 @@ RUN set -eux; \
 
 RUN docker-php-ext-install imap gmp sockets intl bz2 mysqli bcmath calendar dba exif gettext opcache pcntl \
     pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap
+
+WORKDIR /opt/project/phpstorm-stubs
