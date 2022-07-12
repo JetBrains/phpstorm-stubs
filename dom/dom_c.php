@@ -1261,7 +1261,7 @@ class DOMNodeList implements IteratorAggregate, Countable
      * The number of nodes in the list. The range of valid child node indices is 0 to length - 1 inclusive.
      * @link https://php.net/manual/en/class.domnodelist.php#domnodelist.props.length
      */
-    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'readonly int'], default: '')]
     public $length;
 
     /**
@@ -1375,7 +1375,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
     public function count(): int {}
 
     /**
-     * @return Traversable
+     * @return Iterator
      * @since 8.0
      */
     public function getIterator(): Iterator {}
