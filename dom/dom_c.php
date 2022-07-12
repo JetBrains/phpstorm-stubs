@@ -2,6 +2,7 @@
 
 //20120405 AG synced to official docs
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Immutable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
@@ -1267,7 +1268,8 @@ class DOMNodeList implements IteratorAggregate, Countable
      * The number of nodes in the list. The range of valid child node indices is 0 to length - 1 inclusive.
      * @link https://php.net/manual/en/class.domnodelist.php#domnodelist.props.length
      */
-    #[LanguageLevelTypeAware(['8.1' => 'readonly int'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
+    #[Immutable]
     public $length;
 
     /**
