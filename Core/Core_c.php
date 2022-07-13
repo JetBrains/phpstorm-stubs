@@ -1089,3 +1089,21 @@ final class ReturnTypeWillChange
 {
     public function __construct() {}
 }
+
+/**
+ * @since 8.2
+ */
+#[Attribute(Attribute::TARGET_CLASS)]
+final class AllowDynamicProperties
+{
+    public function __construct() {}
+}
+
+/**
+ * @since 8.2
+ */
+#[Attribute(Attribute::TARGET_PARAMETER)]
+final class SensitiveParameter
+{
+    public function __construct() {}
+}
