@@ -85,7 +85,7 @@ class BaseFunctionsTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionParametersProvider
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionOptionalParametersProvider
      * @throws RuntimeException
      */
     public function testFunctionsOptionalParameters(PHPFunction $function, PHPParameter $parameter)
