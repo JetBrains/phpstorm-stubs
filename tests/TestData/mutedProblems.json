@@ -966,6 +966,27 @@
           ]
         }
       ]
+    },
+    {
+      "name": "var_dump",
+      "parameters": [
+        {
+          "name": "vars",
+          "problems": [
+            {
+              "description": "wrong optionallity",
+              "versions": [
+                5.6,
+                7.0,
+                7.1,
+                7.2,
+                7.3,
+                7.4
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "classes": [
