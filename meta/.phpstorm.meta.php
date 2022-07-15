@@ -668,6 +668,8 @@ namespace PHPSTORM_META {
     expectedArguments(\ksort(), 1, argumentsSet('SortFlags'));
     expectedArguments(\krsort(), 1, argumentsSet('SortFlags'));
 
+    expectedArguments(\array_unique(), 1, SORT_REGULAR, SORT_NUMERIC, SORT_STRING, SORT_LOCALE_STRING);
+
     /**
      * Use this constant to mark the function with an argument on the specified position as an exit point
      *
