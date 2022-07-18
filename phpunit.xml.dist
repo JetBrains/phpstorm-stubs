@@ -76,7 +76,7 @@
             <file>tests/StubsForbiddenTypeHintsTest.php</file>
             <file>tests/StubsPhp81Tests.php</file>
         </testsuite>
-        <testsuite name="PHP_8.2alpha">
+        <testsuite name="PHP_8.2">
             <file>tests/BaseClassesTest.php</file>
             <file>tests/BaseConstantsTest.php</file>
             <file>tests/BaseFunctionsTest.php</file>
