@@ -2181,6 +2181,137 @@ define('AI_ALL', 16);
  * @since 8.1
  */
 define('TCP_DEFER_ACCEPT', 9);
+
+/**
+ * @since 8.2
+ */
+define('SO_INCOMING_CPU', 1);
+
+/**
+ * @since 8.2
+ */
+define('SO_MEMINFO', 1);
+
+/**
+ * @since 8.2
+ */
+define('SO_BPF_EXTENSIONS', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_OFF', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_PROTOCOL', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_PKTTYPE', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_IFINDEX', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_NLATTR', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_NLATTR_NEST', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_MARK', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_QUEUE', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_HATYPE', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_RXHASH', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_CPU', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_ALU_XOR_X', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_VLAN_TAG', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_VLAN_TAG_PRESENT', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_PAY_OFFSET', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_RANDOM', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_VLAN_TPID', 1);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_MAX', 1);
+
+/**
+ * @since 8.2
+ */
+define('TCP_CONGESTION', 1);
+
+/**
+ * @since 8.2
+ */
+define('TCP_NOTSENT_LOWAT', 1);
+
+/**
+ * @since 8.2
+ */
+define('TCP_KEEPIDLE', 1);
+
+/**
+ * @since 8.2
+ */
+define('TCP_KEEPINTVL', 1);
+
+/**
+ * @since 8.2
+ */
+define('TCP_KEEPCNT', 1);
+
 /**
  * @since 8.0
  */

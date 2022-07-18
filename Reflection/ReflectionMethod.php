@@ -298,4 +298,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     #[PhpStormStubsElementAvailable(from: "8.1")]
     #[TentativeType]
     public function setAccessible(bool $accessible): void {}
+
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function hasPrototype(): bool {}
 }

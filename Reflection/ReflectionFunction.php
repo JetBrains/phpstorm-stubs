@@ -3,6 +3,7 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
@@ -102,4 +103,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
     #[Pure]
     #[TentativeType]
     public function getClosure(): Closure {}
+
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function isAnonymous(): bool {}
 }

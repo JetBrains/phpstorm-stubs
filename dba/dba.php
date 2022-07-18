@@ -1,6 +1,7 @@
 <?php
 
 // Start of dba v.
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
  * Open database
@@ -119,7 +120,11 @@
  * @param mixed ...$handler_params [optional]
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
+#[PhpStormStubsElementAvailable(from: '5.3', to: '8.1')]
 function dba_open($path, $mode, $handler, ...$handler_params) {}
+
+#[PhpStormStubsElementAvailable(from: '8.2')]
+function dba_open(string $path, string $mode, ?string $handler = null, int $permission = 0o644, int $map_size = 0) {}
 
 /**
  * Open database persistently
@@ -142,7 +147,11 @@ function dba_open($path, $mode, $handler, ...$handler_params) {}
  * @param mixed ...$handler_params [optional]
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
+#[PhpStormStubsElementAvailable(from: '5.3', to: '8.1')]
 function dba_popen($path, $mode, $handler, ...$handler_params) {}
+
+#[PhpStormStubsElementAvailable(from: '8.2')]
+function dba_popen(string $path, string $mode, ?string $handler = null, int $permission = 0o644, int $map_size = 0) {}
 
 /**
  * Close a DBA database
