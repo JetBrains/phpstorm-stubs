@@ -2795,6 +2795,10 @@ function curl_share_errno(#[LanguageLevelTypeAware(['8.0' => 'CurlShareHandle'],
 function curl_share_strerror(int $error_code): ?string {}
 
 /**
+ * @since 8.2
+ */
+function curl_upkeep(CurlHandle $handle): bool {}
+/**
  * @since 8.0
  */
 final class CurlHandle

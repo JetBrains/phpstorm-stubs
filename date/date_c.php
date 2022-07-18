@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Immutable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
@@ -150,6 +151,12 @@ interface DateTimeInterface
      */
     #[TentativeType]
     public function __wakeup(): void;
+
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function __serialize(): array;
+
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function __unserialize(array $data): void;
 }
 
 /**
@@ -412,6 +419,12 @@ class DateTimeImmutable implements DateTimeInterface
      * @since 8.0
      */
     public static function createFromInterface(DateTimeInterface $object): DateTimeImmutable {}
+
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function __serialize(): array {}
+
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function __unserialize(array $data): void {}
 }
 
 /**
@@ -710,6 +723,12 @@ class DateTime implements DateTimeInterface
      * @since 8.0
      */
     public static function createFromInterface(DateTimeInterface $object): DateTime {}
+
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function __serialize(): array {}
+
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function __unserialize(array $data): void {}
 }
 
 /**
@@ -808,6 +827,12 @@ class DateTimeZone
     public function __wakeup(): void {}
 
     public static function __set_state($an_array) {}
+
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function __serialize(): array {}
+
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function __unserialize(array $data): void {}
 }
 
 /**
@@ -903,6 +928,12 @@ class DateInterval
     public function __wakeup(): void {}
 
     public static function __set_state($an_array) {}
+
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function __serialize(): array {}
+
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function __unserialize(array $data): void {}
 }
 
 /**
@@ -914,40 +945,61 @@ class DatePeriod implements IteratorAggregate
     public const EXCLUDE_START_DATE = 1;
 
     /**
+     * @since 8.2
+     */
+    public const INCLUDE_END_DATE = 2;
+
+    /**
      * Start date
      * @var DateTimeInterface
      */
+    #[LanguageLevelTypeAware(['8.2' => 'DateTimeInterface|null'], default: '')]
+    #[Immutable]
     public $start;
 
     /**
      * Current iterator value.
      * @var DateTimeInterface|null
      */
+    #[LanguageLevelTypeAware(['8.2' => 'DateTimeInterface|null'], default: '')]
     public $current;
 
     /**
      * End date.
      * @var DateTimeInterface|null
      */
+    #[LanguageLevelTypeAware(['8.2' => 'DateTimeInterface|null'], default: '')]
+    #[Immutable]
     public $end;
 
     /**
      * The interval
      * @var DateInterval
      */
+    #[LanguageLevelTypeAware(['8.2' => 'DateInterval|null'], default: '')]
+    #[Immutable]
     public $interval;
 
     /**
      * Number of recurrences.
      * @var int
      */
+    #[LanguageLevelTypeAware(['8.2' => 'int'], default: '')]
+    #[Immutable]
     public $recurrences;
 
     /**
      * Start of period.
      * @var bool
      */
+    #[LanguageLevelTypeAware(['8.2' => 'bool'], default: '')]
+    #[Immutable]
     public $include_start_date;
+
+    /**
+     * @since 8.2
+     */
+    public readonly bool $include_end_date;
 
     /**
      * @param DateTimeInterface $start
@@ -1021,4 +1073,10 @@ class DatePeriod implements IteratorAggregate
      * @since 8.0
      */
     public function getIterator(): Iterator {}
+
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function __serialize(): array {}
+
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function __unserialize(array $data): void {}
 }

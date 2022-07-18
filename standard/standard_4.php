@@ -278,6 +278,11 @@ function memory_get_usage(bool $real_usage = false): int {}
 function memory_get_peak_usage(bool $real_usage = false): int {}
 
 /**
+ * @since 8.2
+ */
+function memory_reset_peak_usage(): void {}
+
+/**
  * Register a function for execution on shutdown
  * @link https://php.net/manual/en/function.register-shutdown-function.php
  * @param callable $callback <p>

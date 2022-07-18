@@ -44,6 +44,11 @@ class ReflectionClass implements Reflector
     public const IS_FINAL = 32;
 
     /**
+     * @since 8.2
+     */
+    public const IS_READONLY = 65536;
+
+    /**
      * Constructs a ReflectionClass
      *
      * @link https://php.net/manual/en/reflectionclass.construct.php
@@ -665,4 +670,7 @@ class ReflectionClass implements Reflector
 
     #[PhpStormStubsElementAvailable('8.1')]
     public function isEnum(): bool {}
+
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function isReadOnly(): bool {}
 }

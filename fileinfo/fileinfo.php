@@ -247,4 +247,9 @@ define('FILEINFO_RAW', 256);
  */
 define('FILEINFO_EXTENSION', 2097152);
 
+/**
+ * @since 8.2
+ */
+define('FILEINFO_APPLE', 1);
+
 // End of fileinfo v.1.0.5
