@@ -201,7 +201,16 @@ class ReflectionClassConstant implements Reflector
      *
      * @return void
      */
+    #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
     final private function __clone(): void {}
+
+    /**
+     * ReflectionClassConstant cannot be cloned
+     *
+     * @return void
+     */
+    #[PhpStormStubsElementAvailable(from: "8.1")]
+    private function __clone(): void {}
 
     #[PhpStormStubsElementAvailable('8.1')]
     public function isEnumCase(): bool {}

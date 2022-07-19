@@ -3,6 +3,7 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
@@ -294,5 +295,15 @@ class ReflectionParameter implements Reflector
      * @link https://php.net/manual/en/reflectionparameter.clone.php
      * @return void
      */
+    #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
     final private function __clone(): void {}
+
+    /**
+     * Clone
+     *
+     * @link https://php.net/manual/en/reflectionparameter.clone.php
+     * @return void
+     */
+    #[PhpStormStubsElementAvailable(from: "8.1")]
+    private function __clone(): void {}
 }

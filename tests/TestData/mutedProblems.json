@@ -987,6 +987,15 @@
           ]
         }
       ]
+    },
+    {
+      "name": "sodium_crypto_stream_xchacha20_xor_ic",
+      "problems": [
+        {
+          "description": "missing function",
+          "versions": [
+            8.2
+          ]
     }
   ],
   "classes": [
@@ -1077,17 +1086,6 @@
               ]
             }
           ]
-        },
-        {
-          "name": "__clone",
-          "problems": [
-            {
-              "description": "has wrong final modifier",
-              "versions": [
-                8.1
-              ]
-            }
-          ]
         }
       ]
     },
@@ -1098,7 +1096,8 @@
           "description": "has wrong final modifier",
           "versions": [
             8.0,
-            8.1
+            8.1,
+            8.2
           ]
         }
       ],
@@ -1139,17 +1138,6 @@
               ]
             }
           ]
-        },
-        {
-          "name": "__clone",
-          "problems": [
-            {
-              "description": "has wrong final modifier",
-              "versions": [
-                8.1
-              ]
-            }
-          ]
         }
       ]
     },
@@ -1179,33 +1167,6 @@
               "description": "has type mismatch in signature and phpdoc",
               "versions": [
                 "ALL"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "__clone",
-          "problems": [
-            {
-              "description": "has wrong final modifier",
-              "versions": [
-                8.1
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ReflectionZendExtension",
-      "methods": [
-        {
-          "name": "__clone",
-          "problems": [
-            {
-              "description": "has wrong final modifier",
-              "versions": [
-                8.1
               ]
             }
           ]
@@ -2501,17 +2462,6 @@
               ]
             }
           ]
-        },
-        {
-          "name": "__clone",
-          "problems": [
-            {
-              "description": "has wrong final modifier",
-              "versions": [
-                8.1
-              ]
-            }
-          ]
         }
       ]
     },
@@ -2528,33 +2478,6 @@
               ]
             }
           ]
-        },
-        {
-          "name": "__clone",
-          "problems": [
-            {
-              "description": "has wrong final modifier",
-              "versions": [
-                8.1
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ReflectionType",
-      "methods": [
-        {
-          "name": "__clone",
-          "problems": [
-            {
-              "description": "has wrong final modifier",
-              "versions": [
-                8.1
-              ]
-            }
-          ]
         }
       ]
     },
@@ -2568,17 +2491,6 @@
               "description": "parameter mismatch",
               "versions": [
                 "ALL"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "__clone",
-          "problems": [
-            {
-              "description": "has wrong final modifier",
-              "versions": [
-                8.1
               ]
             }
           ]
@@ -3222,7 +3134,8 @@
           "description": "has wrong final modifier",
           "versions": [
             8.0,
-            8.1
+            8.1,
+            8.2
           ]
         }
       ]
@@ -3248,7 +3161,8 @@
           "description": "has wrong final modifier",
           "versions": [
             8.0,
-            8.1
+            8.1,
+            8.2
           ]
         }
       ]

@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\Immutable;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
@@ -113,5 +114,16 @@ class ReflectionZendExtension implements Reflector
      * @return void
      * @since 5.4
      */
+    #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
     final private function __clone(): void {}
+
+    /**
+     * Clone handler
+     *
+     * @link https://php.net/manual/en/reflectionzendextension.clone.php
+     * @return void
+     * @since 5.4
+     */
+    #[PhpStormStubsElementAvailable(from: "8.1")]
+    private function __clone(): void {}
 }
