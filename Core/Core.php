@@ -679,6 +679,7 @@ function set_error_handler(?callable $callback, int $error_levels = E_ALL|E_STRI
  * @link https://php.net/manual/en/function.restore-error-handler.php
  * @return bool This function always returns true.
  */
+#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function restore_error_handler(): bool {}
 
 /**
@@ -702,6 +703,7 @@ function set_exception_handler(?callable $callback) {}
  * @link https://php.net/manual/en/function.restore-exception-handler.php
  * @return bool This function always returns true.
  */
+#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function restore_exception_handler(): bool {}
 
 /**

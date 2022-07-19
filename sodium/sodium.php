@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 const SODIUM_CRYPTO_AEAD_AES256GCM_KEYBYTES = 32;
@@ -575,6 +576,7 @@ function sodium_crypto_generichash_init(
  * @throws SodiumException
  * @since 7.2
  */
+#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function sodium_crypto_generichash_update(string &$state, string $message): bool {}
 
 /**

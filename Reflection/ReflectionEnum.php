@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+
 /**
  * @link https://php.net/manual/en/class.reflectionenum.php
  * @since 8.1
@@ -33,5 +35,6 @@ class ReflectionEnum extends ReflectionClass
     /**
      * @return ReflectionType|null
      */
+    #[LanguageLevelTypeAware(['8.2' => '?ReflectionNamedType'], default: '?ReflectionType')]
     public function getBackingType(): ?ReflectionType {}
 }

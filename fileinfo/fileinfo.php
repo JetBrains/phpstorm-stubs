@@ -250,6 +250,6 @@ define('FILEINFO_EXTENSION', 2097152);
 /**
  * @since 8.2
  */
-define('FILEINFO_APPLE', 1);
+define('FILEINFO_APPLE', 2048);
 
 // End of fileinfo v.1.0.5
