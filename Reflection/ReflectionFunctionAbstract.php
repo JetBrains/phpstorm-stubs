@@ -27,7 +27,17 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
      * @return void
      */
+    #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
     final private function __clone(): void {}
+
+    /**
+     * Clones function
+     *
+     * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
+     * @return void
+     */
+    #[PhpStormStubsElementAvailable(from: "8.1")]
+    private function __clone(): void {}
 
     /**
      * Checks if function in namespace
