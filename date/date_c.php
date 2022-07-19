@@ -219,6 +219,7 @@ class DateTimeImmutable implements DateTimeInterface
      * @return DateTimeImmutable returns a new DateTimeImmutable instance.
      */
     #[TentativeType]
+    #[LanguageLevelTypeAware(['8.2' => 'static'], default: 'DateTimeImmutable')]
     public static function createFromMutable(DateTime $object): DateTimeImmutable {}
 
     /**
@@ -572,6 +573,7 @@ class DateTime implements DateTimeInterface
      * @since 7.3
      */
     #[TentativeType]
+    #[LanguageLevelTypeAware(['8.2' => 'static'], default: 'DateTime')]
     public static function createFromImmutable(DateTimeImmutable $object): DateTime {}
 
     /**
@@ -947,6 +949,7 @@ class DatePeriod implements IteratorAggregate
     /**
      * @since 8.2
      */
+    #[Immutable]
     public const INCLUDE_END_DATE = 2;
 
     /**
