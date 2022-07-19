@@ -81,6 +81,7 @@ function is_iterable(mixed $value): bool {}
  * @deprecated 8.2 Consider to use {@link mb_convert_encoding}, {@link UConverter::transcode()} or {@link iconv()}
  */
 #[Pure]
+#[Deprecated(replacement: "mb_convert_encoding", since: "8.2")]
 function utf8_encode(string $string): string {}
 
 /**
@@ -94,6 +95,7 @@ function utf8_encode(string $string): string {}
  * @deprecated 8.2 Consider to use {@link mb_convert_encoding}, {@link UConverter::transcode()} or {@link iconv()}
  */
 #[Pure]
+#[Deprecated(replacement: "mb_convert_encoding", since: "8.2")]
 function utf8_decode(string $string): string {}
 
 /**
