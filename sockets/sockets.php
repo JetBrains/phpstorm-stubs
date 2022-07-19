@@ -2185,132 +2185,132 @@ define('TCP_DEFER_ACCEPT', 9);
 /**
  * @since 8.2
  */
-define('SO_INCOMING_CPU', 1);
+define('SO_INCOMING_CPU', 49);
 
 /**
  * @since 8.2
  */
-define('SO_MEMINFO', 1);
+define('SO_MEMINFO', 55);
 
 /**
  * @since 8.2
  */
-define('SO_BPF_EXTENSIONS', 1);
+define('SO_BPF_EXTENSIONS', 48);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_OFF', 1);
+define('SKF_AD_OFF', -4096);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_PROTOCOL', 1);
+define('SKF_AD_PROTOCOL', 0);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_PKTTYPE', 1);
+define('SKF_AD_PKTTYPE', 4);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_IFINDEX', 1);
+define('SKF_AD_IFINDEX', 8);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_NLATTR', 1);
+define('SKF_AD_NLATTR', 12);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_NLATTR_NEST', 1);
+define('SKF_AD_NLATTR_NEST', 16);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_MARK', 1);
+define('SKF_AD_MARK', 20);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_QUEUE', 1);
+define('SKF_AD_QUEUE', 24);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_HATYPE', 1);
+define('SKF_AD_HATYPE', 28);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_RXHASH', 1);
+define('SKF_AD_RXHASH', 32);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_CPU', 1);
+define('SKF_AD_CPU', 36);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_ALU_XOR_X', 1);
+define('SKF_AD_ALU_XOR_X', 40);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_VLAN_TAG', 1);
+define('SKF_AD_VLAN_TAG', 44);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_VLAN_TAG_PRESENT', 1);
+define('SKF_AD_VLAN_TAG_PRESENT', 48);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_PAY_OFFSET', 1);
+define('SKF_AD_PAY_OFFSET', 52);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_RANDOM', 1);
+define('SKF_AD_RANDOM', 56);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_VLAN_TPID', 1);
+define('SKF_AD_VLAN_TPID', 60);
 
 /**
  * @since 8.2
  */
-define('SKF_AD_MAX', 1);
+define('SKF_AD_MAX', 64);
 
 /**
  * @since 8.2
  */
-define('TCP_CONGESTION', 1);
+define('TCP_CONGESTION', 13);
 
 /**
  * @since 8.2
  */
-define('TCP_NOTSENT_LOWAT', 1);
+define('TCP_NOTSENT_LOWAT', 25);
 
 /**
  * @since 8.2
  */
-define('TCP_KEEPIDLE', 1);
+define('TCP_KEEPIDLE', 4);
 
 /**
  * @since 8.2
  */
-define('TCP_KEEPINTVL', 1);
+define('TCP_KEEPINTVL', 5);
 
 /**
  * @since 8.2
  */
-define('TCP_KEEPCNT', 1);
+define('TCP_KEEPCNT', 6);
 
 /**
  * @since 8.0

@@ -1659,7 +1659,7 @@ define('SE_FREE', 2);
  */
 define('SE_NOPREFETCH', 4);
 define('SO_FREE', 8);
-define('SO_NOSERVER', 16);
+define('SO_NOSERVER', 8);
 define('SA_MESSAGES', 1);
 define('SA_RECENT', 2);
 define('SA_UNSEEN', 4);

@@ -1089,6 +1089,7 @@ function image_type_to_extension(int $image_type, bool $include_dot = true): str
  * </p>
  * @return bool true on success or false on failure.
  */
+#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function phpinfo(#[ExpectedValues(flags: [INFO_GENERAL, INFO_CREDITS, INFO_CONFIGURATION, INFO_MODULES, INFO_ENVIRONMENT, INFO_VARIABLES, INFO_LICENSE, INFO_ALL])] int $flags = INFO_ALL): bool {}
 
 /**
@@ -1168,6 +1169,7 @@ function phpversion(?string $extension): string|false {}
  * </p>
  * @return bool true on success or false on failure.
  */
+#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function phpcredits(int $flags = CREDITS_ALL): bool {}
 
 /**

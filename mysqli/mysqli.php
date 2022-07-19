@@ -1734,6 +1734,7 @@ function mysqli_character_set_name(mysqli $mysql): string {}
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return bool
  */
+#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function mysqli_close(mysqli $mysql): bool {}
 
 /**
@@ -1798,6 +1799,7 @@ function mysqli_dump_debug_info(mysqli $mysql): bool {}
  * @param string $options
  * @return bool
  */
+#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function mysqli_debug(string $options): bool {}
 
 /**
@@ -2645,6 +2647,7 @@ function mysqli_stat(mysqli $mysql): string|false {}
  * @param string|null $cipher_algos A list of allowable ciphers to use for SSL encryption
  * @return bool This function always returns TRUE value.
  */
+#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function mysqli_ssl_set(
     mysqli $mysql,
     #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $key,
@@ -2660,6 +2663,7 @@ function mysqli_ssl_set(
  * @param mysqli_stmt $statement
  * @return bool
  */
+#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function mysqli_stmt_close(mysqli_stmt $statement): bool {}
 
 /**

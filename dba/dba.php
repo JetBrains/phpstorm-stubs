@@ -1,6 +1,7 @@
 <?php
 
 // Start of dba v.
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
@@ -176,7 +177,7 @@ function dba_close($dba): void {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_delete($key, $dba): bool {}
+function dba_delete(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key, $dba): bool {}
 
 /**
  * Check whether key exists
@@ -190,7 +191,7 @@ function dba_delete($key, $dba): bool {}
  * </p>
  * @return bool <b>TRUE</b> if the key exists, <b>FALSE</b> otherwise.
  */
-function dba_exists($key, $dba): bool {}
+function dba_exists(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key, $dba): bool {}
 
 /**
  * Fetch data specified by key
@@ -250,7 +251,7 @@ function dba_fetch($key, $skip, $dba): string|false {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_insert($key, string $value, $dba): bool {}
+function dba_insert(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key, string $value, $dba): bool {}
 
 /**
  * Replace or insert entry
@@ -267,7 +268,7 @@ function dba_insert($key, string $value, $dba): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_replace($key, string $value, $dba): bool {}
+function dba_replace(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')]  $key, string $value, $dba): bool {}
 
 /**
  * Fetch first key
