@@ -171,7 +171,7 @@ define('PHP_MINOR_VERSION', 3);
 define('PHP_RELEASE_VERSION', 6);
 define('PHP_EXTRA_VERSION', "-13ubuntu3.2");
 define('PHP_VERSION_ID', 50306);
-define('PHP_ZTS', 0);
+define('PHP_ZTS', 1);
 define('PHP_DEBUG', 0);
 define('PHP_OS', "Linux");
 /**
