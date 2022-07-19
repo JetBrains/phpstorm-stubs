@@ -131,6 +131,7 @@ class EmptyIterator implements Iterator
      * Returns true on success or false on failure.
      */
     #[TentativeType]
+    #[LanguageLevelTypeAware(['8.2' => 'false'], default: 'bool')]
     public function valid(): bool {}
 
     /**

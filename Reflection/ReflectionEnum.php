@@ -35,6 +35,6 @@ class ReflectionEnum extends ReflectionClass
     /**
      * @return ReflectionType|null
      */
-    #[LanguageLevelTypeAware(['8.2' => '?ReflectionNamedType'], default: '?ReflectionType')]
+    #[LanguageLevelTypeAware(['8.2' => 'null|ReflectionNamedType'], default: 'null|ReflectionType')]
     public function getBackingType(): ?ReflectionType {}
 }

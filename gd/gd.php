@@ -329,7 +329,7 @@ function imagecolorexact(GdImage $image, int $red, int $green, int $blue): int {
  * </p>
  * @return bool|null
  */
-#[LanguageLevelTypeAware(['8.2' => '?false'], default: '?bool')]
+#[LanguageLevelTypeAware(['8.2' => 'null|false'], default: 'null|bool')]
 function imagecolorset(GdImage $image, int $color, int $red, int $green, int $blue, int $alpha = 0): ?bool {}
 
 /**

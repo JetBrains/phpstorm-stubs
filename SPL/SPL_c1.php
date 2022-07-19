@@ -990,6 +990,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @since 5.1.2
      */
     #[TentativeType]
+    #[LanguageLevelTypeAware(['8.2' => 'false'], default: 'bool')]
     public function hasChildren(): bool {}
 
     /**
@@ -998,6 +999,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @return null|RecursiveIterator An SplFileObject does not have children so this method returns NULL.
      */
     #[TentativeType]
+    #[LanguageLevelTypeAware(['8.2' => 'null|null'], default: 'null|RecursiveIterator')]
     public function getChildren(): ?RecursiveIterator {}
 
     /**
