@@ -4210,7 +4210,7 @@ define('CURLOPT_AWS_SIGV4', 10305);
 /**
  * @since 8.2
  */
-define('CURLINFO_REFERER', 1048636 );
+define('CURLINFO_REFERER', 1048636);
 
 /**
  * @since 8.2
