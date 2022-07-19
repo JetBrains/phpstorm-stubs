@@ -268,7 +268,7 @@ function dba_insert(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default:
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_replace(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')]  $key, string $value, $dba): bool {}
+function dba_replace(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key, string $value, $dba): bool {}
 
 /**
  * Fetch first key
