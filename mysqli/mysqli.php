@@ -1859,6 +1859,16 @@ function mysqli_stmt_execute(mysqli_stmt $statement, #[PhpStormStubsElementAvail
 function mysqli_execute(mysqli_stmt $statement, #[PhpStormStubsElementAvailable('8.1')] ?array $params = null): bool {}
 
 /**
+ * @param mysqli $mysql
+ * @param string $query
+ * @param array|null $params
+ * @return mysqli_result|bool
+ * @since 8.2
+ */
+function mysqli_execute_query(mysqli $mysql, string $query, ?array $params = null): mysqli_result|bool {}
+
+
+/**
  * Returns the next field in the result set
  * @link https://secure.php.net/manual/en/mysqli-result.fetch-field.php
  * @param mysqli_result $result A mysqli_result object returned by mysqli_query(),
