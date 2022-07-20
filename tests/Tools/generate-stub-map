@@ -258,6 +258,25 @@ use const PHP_EOL;
     $exportedFunctions = var_export($mapWithRelativeFilePaths['functions'], true);
     $exportedConstants = var_export($mapWithRelativeFilePaths['constants'], true);
 
+    $getFileNameMethod = <<<'PHP'
+    /**
+     * @param string $name
+     * @return string|null
+     */
+    public static function getFileName($name)
+    {
+        $file = null;
+        if (isset(self::CLASSES[$name]) {
+            $file = self::CLASSES[$name];
+        } elseif (isset(self::FUNCTIONS[$name])) {
+            $file = self::FUNCTIONS[$name];
+        } elseif (isset(self::CONSTANTS[$name])) {
+            $file = self::CONSTANTS[$name];
+        }
+        return $file !== null ? \realpath($file) : null;
+    }
+PHP;
+
     $output = <<<"PHP"
 <?php
 
@@ -276,22 +295,7 @@ const FUNCTIONS = {$exportedFunctions};
 
 const CONSTANTS = {$exportedConstants};
 
-/**
- * @param string \$name
- * @return string|null
- */
-public static function getFileName(\$name)
-{
-    \$file = null;
-    if (isset(self::CLASSES[\$name]) {
-        \$file = self::CLASSES[\$name];
-    } elseif (isset(self::FUNCTIONS[\$name])) {
-        \$file = self::FUNCTIONS[\$name];
-    } elseif (isset(self::CONSTANTS[\$name])) {
-        \$file = self::CONSTANTS[\$name];
-    }
-    return \$file !== null ? realpath(\$file) : null;
-}
+{$getFileNameMethod}
 }
 PHP;
 
