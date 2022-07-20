@@ -426,6 +426,13 @@ class ReflectionClass implements Reflector
     public function isFinal(): bool {}
 
     /**
+     * @return bool
+     */
+    #[Pure]
+    public function isReadOnly(): bool {}
+
+
+    /**
      * Gets modifiers
      *
      * @link https://php.net/manual/en/reflectionclass.getmodifiers.php
