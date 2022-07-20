@@ -1002,7 +1002,8 @@ class DatePeriod implements IteratorAggregate
     /**
      * @since 8.2
      */
-    public readonly bool $include_end_date;
+    #[Immutable]
+    public bool $include_end_date;
 
     /**
      * @param DateTimeInterface $start
