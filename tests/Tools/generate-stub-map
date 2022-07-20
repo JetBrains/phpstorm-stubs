@@ -275,6 +275,23 @@ const CLASSES = {$exportedClasses};
 const FUNCTIONS = {$exportedFunctions};
 
 const CONSTANTS = {$exportedConstants};
+
+/**
+ * @param string $name
+ * @return string|null
+ */
+public static function getFileName($name)
+{
+    $file = null;
+    if (isset(self::CLASSES[$name]) {
+        $file = self::CLASSES[$name];
+    } elseif (isset(self::FUNCTIONS[$name])) {
+        $file = self::FUNCTIONS[$name];
+    } elseif (isset(self::CONSTANTS[$name])) {
+        $file = self::CONSTANTS[$name];
+    }
+    return $file !== null ? \realpath($file) : null;
+}
 }
 PHP;
 
