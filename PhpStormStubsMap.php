@@ -14124,4 +14124,13 @@ const CONSTANTS = array (
   'yaf_err_type_error' => 'yaf/yaf.php',
   'yaf_version' => 'yaf/yaf.php',
 );
+  /**
+   * @param string $className
+   * @psalm-param class-string $className
+   * @return string|null
+   */
+  public function getFilename($className)
+  {
+    return isset(self::CLASSES[$className]) ? \realpath(self::CLASSES[$className]) : null;
+  }
 }
