@@ -78,6 +78,7 @@ function is_iterable(mixed $value): bool {}
  * An ISO-8859-1 string.
  * </p>
  * @return string the UTF-8 translation of <i>data</i>.
+ * @deprecated 8.2 Consider to use {@link mb_convert_encoding}, {@link UConverter::transcode()} or {@link iconv()}
  */
 #[Pure]
 function utf8_encode(string $string): string {}
@@ -90,6 +91,7 @@ function utf8_encode(string $string): string {}
  * An UTF-8 encoded string.
  * </p>
  * @return string the ISO-8859-1 translation of <i>data</i>.
+ * @deprecated 8.2 Consider to use {@link mb_convert_encoding}, {@link UConverter::transcode()} or {@link iconv()}
  */
 #[Pure]
 function utf8_decode(string $string): string {}
