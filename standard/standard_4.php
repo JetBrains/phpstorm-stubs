@@ -496,6 +496,13 @@ function ini_alter(string $option, #[LanguageLevelTypeAware(['8.1' => 'string|in
 function ini_restore(string $option): void {}
 
 /**
+ * @param string $shorthand
+ * @return int
+ * @since 8.2
+ */
+function ini_parse_quantity(string $shorthand): int {}
+
+/**
  * Gets the current include_path configuration option
  * @link https://php.net/manual/en/function.get-include-path.php
  * @return string|false the path, as a string.

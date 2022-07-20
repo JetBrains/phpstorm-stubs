@@ -3136,6 +3136,7 @@ const FUNCTIONS = array (
   'ini_alter' => 'standard/standard_4.php',
   'ini_get' => 'standard/standard_4.php',
   'ini_get_all' => 'standard/standard_4.php',
+  'ini_parse_quantity' => 'standard/standard_4.php',
   'ini_restore' => 'standard/standard_4.php',
   'ini_set' => 'standard/standard_4.php',
   'inotify_add_watch' => 'inotify/inotify.php',
