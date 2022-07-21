@@ -220,7 +220,7 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.2' => 'static'], default: 'DateTimeImmutable')]
-    public static function createFromMutable(DateTime $object): DateTimeImmutable {}
+    public static function createFromMutable(DateTime $object) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -574,7 +574,7 @@ class DateTime implements DateTimeInterface
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.2' => 'static'], default: 'DateTime')]
-    public static function createFromImmutable(DateTimeImmutable $object): DateTime {}
+    public static function createFromImmutable(DateTimeImmutable $object) {}
 
     /**
      * Subtracts an amount of days, months, years, hours, minutes and seconds from a DateTime object
@@ -949,7 +949,6 @@ class DatePeriod implements IteratorAggregate
     /**
      * @since 8.2
      */
-    #[Immutable]
     public const INCLUDE_END_DATE = 2;
 
     /**

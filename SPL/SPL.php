@@ -132,7 +132,7 @@ class EmptyIterator implements Iterator
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.2' => 'false'], default: 'bool')]
-    public function valid(): bool {}
+    public function valid() {}
 
     /**
      * Rewind the Iterator to the first element
