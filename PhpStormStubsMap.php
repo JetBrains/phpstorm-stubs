@@ -3936,6 +3936,7 @@ const FUNCTIONS = array (
   'mysqli_error_list' => 'mysqli/mysqli.php',
   'mysqli_escape_string' => 'mysqli/mysqli.php',
   'mysqli_execute' => 'mysqli/mysqli.php',
+  'mysqli_execute_query' => 'mysqli/mysqli.php',
   'mysqli_fetch' => 'mysqli/mysqli.php',
   'mysqli_fetch_all' => 'mysqli/mysqli.php',
   'mysqli_fetch_array' => 'mysqli/mysqli.php',
