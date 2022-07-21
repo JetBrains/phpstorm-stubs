@@ -1867,7 +1867,6 @@ function mysqli_execute(mysqli_stmt $statement, #[PhpStormStubsElementAvailable(
  */
 function mysqli_execute_query(mysqli $mysql, string $query, ?array $params = null): mysqli_result|bool {}
 
-
 /**
  * Returns the next field in the result set
  * @link https://secure.php.net/manual/en/mysqli-result.fetch-field.php

@@ -431,7 +431,6 @@ class ReflectionClass implements Reflector
     #[Pure]
     public function isReadOnly(): bool {}
 
-
     /**
      * Gets modifiers
      *
