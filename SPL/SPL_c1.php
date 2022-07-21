@@ -991,7 +991,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.2' => 'false'], default: 'bool')]
-    public function hasChildren(): bool {}
+    public function hasChildren() {}
 
     /**
      * No purpose
@@ -1000,7 +1000,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.2' => 'null|null'], default: 'null|RecursiveIterator')]
-    public function getChildren(): ?RecursiveIterator {}
+    public function getChildren() {}
 
     /**
      * Seek to specified line
