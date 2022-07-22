@@ -2317,14 +2317,14 @@ define('TCP_KEEPCNT', 6);
  * It avoids copy b/w userland and kernel for both TCP and UDP protocols.
  * @since 8.2
  */
-define('SO_ZEROCOPY', 6);
+define('SO_ZEROCOPY', 60);
 
 /**
  * Socket_set_option for the socket_send* functions.
  * It avoids copy b/w userland and kernel for both TCP and UDP protocols.
  * @since 8.2
  */
-define('MSG_ZEROCOPY', 6);
+define('MSG_ZEROCOPY', 67108864);
 
 /**
  * @since 8.0

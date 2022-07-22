@@ -788,4 +788,12 @@ function version_string(): string {}
  */
 function crypto_scalarmult_base(string $sk): string {}
 
+/**
+ * @param string $message
+ * @param string $nonce
+ * @param int $counter
+ * @param string $key
+ * @return string
+ * @since 8.2
+ */
 function sodium_crypto_stream_xchacha20_xor_ic(#[\SensitiveParameter] string $message, string $nonce, int $counter, #[\SensitiveParameter] string $key): string {}
