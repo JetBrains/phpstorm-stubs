@@ -857,6 +857,7 @@ function extract(
                EXTR_PREFIX_SAME,
                EXTR_PREFIX_ALL,
                EXTR_PREFIX_INVALID,
+               EXTR_IF_EXISTS,
                EXTR_PREFIX_IF_EXISTS,
                EXTR_REFS
            ])] int $flags = EXTR_OVERWRITE,
