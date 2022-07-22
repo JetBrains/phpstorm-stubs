@@ -1,7 +1,6 @@
 <?php
 
 namespace {
-
     use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
     use JetBrains\PhpStorm\Pure;
 
@@ -57,7 +56,7 @@ namespace {
      */
     function rand(int $min = null, int $max): int {}
 
-        /**
+    /**
      * Generate a random value via the Mersenne Twister Random Number Generator
      * @link https://php.net/manual/en/function.mt-rand.php
      * @param int $min <p>
@@ -111,7 +110,6 @@ namespace {
 
 namespace Random\Engine
 {
-
     /**
      * @since 8.2
      */
@@ -196,9 +194,7 @@ namespace Random
     /**
      * @since 8.2
      */
-    interface CryptoSafeEngine extends Engine
-    {
-    }
+    interface CryptoSafeEngine extends Engine {}
 
     /**
      * @since 8.2
