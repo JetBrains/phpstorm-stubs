@@ -125,13 +125,6 @@ function stream_set_chunk_size($stream, int $size) {}
 function define_syslog_variables() {}
 
 /**
- * Combined linear congruential generator
- * @link https://php.net/manual/en/function.lcg-value.php
- * @return float A pseudo random float value in the range of (0, 1)
- */
-function lcg_value(): float {}
-
-/**
  * Calculate the metaphone key of a string
  * @link https://php.net/manual/en/function.metaphone.php
  * @param string $string <p>
