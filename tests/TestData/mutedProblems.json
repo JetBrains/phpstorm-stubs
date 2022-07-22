@@ -987,17 +987,6 @@
           ]
         }
       ]
-    },
-    {
-      "name": "sodium_crypto_stream_xchacha20_xor_ic",
-      "problems": [
-        {
-          "description": "missing function",
-          "versions": [
-            8.2
-          ]
-        }
-      ]
     }
   ],
   "classes": [

@@ -1,4 +1,4 @@
-FROM php:8.2.0alpha3-zts-alpine
+FROM php:8.2.0beta1-zts-alpine
 
 RUN set -eux; \
     apk add --no-cache --virtual .build-deps \
