@@ -126,6 +126,11 @@ class StubsContainer
         if (!empty($functions)) {
             return array_pop($functions);
         }
+        // Added this while tracking down "Attempt to read property "parameters" on null" error.
+        // Happens when BasePHPElement::entitySuitsCurrentPhpVersion returns false when running tests on PHP beta: getenv('PHP_VERSION')
+        if (!$functions) {
+            throw new RuntimeException("Could not get function " . $name . " from reflection, possibly unsupported PHP_VERSION in getenv");
+        }
         return null;
     }
 
