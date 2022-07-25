@@ -987,6 +987,17 @@
           ]
         }
       ]
+    },
+    {
+      "name": "sodium_crypto_stream_xchacha20_xor_ic",
+      "problems": [
+        {
+          "description": "missing function",
+          "versions": [
+            8.2
+          ]
+        }
+      ]
     }
   ],
   "classes": [
@@ -3153,6 +3164,17 @@
           "versions": [
             8.0,
             8.1,
+            8.2
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Random\\Randomizer",
+      "problems": [
+        {
+          "description": "readonly modifier is incorrect",
+          "versions": [
             8.2
           ]
         }
