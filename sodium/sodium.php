@@ -1145,7 +1145,6 @@ function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, #[\Se
  */
 function sodium_crypto_secretstream_xchacha20poly1305_init_pull(string $header, string $key): string {}
 
-/** @return array<int, int|string>|false */
 #[PhpStormStubsElementAvailable('7.2')]
 function sodium_crypto_secretstream_xchacha20poly1305_pull(string &$state, string $ciphertext, string $additional_data = ""): array|false {}
 
