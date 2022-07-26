@@ -150,6 +150,9 @@ function sodium_crypto_stream_xchacha20(int $length, string $nonce, string $key)
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_stream_xchacha20_xor(string $message, string $nonce, string $key): string {}
 
+#[PhpStormStubsElementAvailable('8.2')]
+function sodium_crypto_stream_xchacha20_xor_ic(#[\SensitiveParameter] string $message, string $nonce, int $counter, #[\SensitiveParameter] string $key): string {}
+
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_stream_xchacha20_keygen(): string {}
 
@@ -1129,6 +1132,9 @@ function sodium_crypto_secretstream_xchacha20poly1305_keygen(): string {}
  */
 function sodium_crypto_secretstream_xchacha20poly1305_init_push(string $key): array {}
 
+#[PhpStormStubsElementAvailable('8.2')]
+function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, #[\SensitiveParameter] string $message, string $additional_data = "", int $tag = SODIUM_CRYPTO_SECRETSTREAM_XCHACHA20POLY1305_TAG_MESSAGE): string {}
+
 /**
  * @param string $header
  * @param string $key
@@ -1138,6 +1144,10 @@ function sodium_crypto_secretstream_xchacha20poly1305_init_push(string $key): ar
  * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-init-pull.php
  */
 function sodium_crypto_secretstream_xchacha20poly1305_init_pull(string $header, string $key): string {}
+
+/** @return array<int, int|string>|false */
+#[PhpStormStubsElementAvailable('8.2')]
+function sodium_crypto_secretstream_xchacha20poly1305_pull(string &$state, string $ciphertext, string $additional_data = ""): array|false {}
 
 /**
  * @param string &$state
