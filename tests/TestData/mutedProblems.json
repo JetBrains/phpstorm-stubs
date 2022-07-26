@@ -934,28 +934,6 @@
       ]
     },
     {
-      "name": "sodium_crypto_secretstream_xchacha20poly1305_push",
-      "problems": [
-        {
-          "description": "missing function",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "sodium_crypto_secretstream_xchacha20poly1305_pull",
-      "problems": [
-        {
-          "description": "missing function",
-          "versions": [
-            "ALL"
-          ]
-        }
-      ]
-    },
-    {
       "name": "hash_update_file",
       "problems": [
         {
@@ -984,17 +962,6 @@
                 7.4
               ]
             }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "sodium_crypto_stream_xchacha20_xor_ic",
-      "problems": [
-        {
-          "description": "missing function",
-          "versions": [
-            8.2
           ]
         }
       ]
