@@ -1132,7 +1132,7 @@ function sodium_crypto_secretstream_xchacha20poly1305_keygen(): string {}
  */
 function sodium_crypto_secretstream_xchacha20poly1305_init_push(string $key): array {}
 
-#[PhpStormStubsElementAvailable('8.2')]
+#[PhpStormStubsElementAvailable('7.2')]
 function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, #[\SensitiveParameter] string $message, string $additional_data = "", int $tag = SODIUM_CRYPTO_SECRETSTREAM_XCHACHA20POLY1305_TAG_MESSAGE): string {}
 
 /**
@@ -1146,7 +1146,7 @@ function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, #[\Se
 function sodium_crypto_secretstream_xchacha20poly1305_init_pull(string $header, string $key): string {}
 
 /** @return array<int, int|string>|false */
-#[PhpStormStubsElementAvailable('8.2')]
+#[PhpStormStubsElementAvailable('7.2')]
 function sodium_crypto_secretstream_xchacha20poly1305_pull(string &$state, string $ciphertext, string $additional_data = ""): array|false {}
 
 /**
