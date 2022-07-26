@@ -429,6 +429,7 @@ class ReflectionClass implements Reflector
      * @return bool
      */
     #[Pure]
+    #[PhpStormStubsElementAvailable(from: '8.2')]
     public function isReadOnly(): bool {}
 
     /**
@@ -686,7 +687,4 @@ class ReflectionClass implements Reflector
 
     #[PhpStormStubsElementAvailable('8.1')]
     public function isEnum(): bool {}
-
-    #[PhpStormStubsElementAvailable(from: '8.2')]
-    public function isReadOnly(): bool {}
 }
