@@ -97,7 +97,7 @@ class StubsContainer
      * @param string $name
      * @param string|null $sourceFilePath
      * @param bool $shouldSuitCurrentPhpVersion
-     * @return PHPFunction|null
+     * @return PHPFunction
      * @throws RuntimeException
      */
     public function getFunction($name, $sourceFilePath = null, $shouldSuitCurrentPhpVersion = true)
@@ -125,8 +125,9 @@ class StubsContainer
         }
         if (!empty($functions)) {
             return array_pop($functions);
+        } else {
+            throw new RuntimeException("Could not get function {$name} from reflection, possibly unsupported PHP_VERSION in getenv");
         }
-        return null;
     }
 
     public function addFunction(PHPFunction $function)
