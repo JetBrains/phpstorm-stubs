@@ -99,14 +99,26 @@ class Directory
     /**
      * @var string The directory that was opened.
      */
-    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
+    #[PhpStormStubsElementAvailable(to:'8.0')]
     public $path;
+
+    /**
+     * @var string The directory that was opened.
+     */
+    #[PhpStormStubsElementAvailable(from:'8.1')]
+    public readonly string $path;
 
     /**
      * @var resource Can be used with other directory functions such as {@see readdir()}, {@see rewinddir()} and {@see closedir()}.
      */
-    #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
+    #[PhpStormStubsElementAvailable(to:'8.0')]
     public $handle;
+
+    /**
+     * @var resource Can be used with other directory functions such as {@see readdir()}, {@see rewinddir()} and {@see closedir()}.
+     */
+    #[PhpStormStubsElementAvailable(from:'8.1')]
+    public readonly $handle;
 
     /**
      * Close directory handle.
