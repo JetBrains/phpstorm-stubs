@@ -17,7 +17,7 @@ class PHPDefineConstant extends PHPConst
     public function readObjectFromReflection($reflectionObject)
     {
         if (is_string($reflectionObject[0])) {
-            $this->name = utf8_encode($reflectionObject[0]);
+            $this->name = mb_convert_encoding($reflectionObject[0], 'UTF-8');
         } else {
             $this->name = $reflectionObject[0];
         }
@@ -26,7 +26,7 @@ class PHPDefineConstant extends PHPConst
             if (is_resource($constantValue)) {
                 $this->value = 'PHPSTORM_RESOURCE';
             } elseif (is_string($constantValue) || is_float($constantValue)) {
-                $this->value = utf8_encode((string)$constantValue);
+                $this->value = mb_convert_encoding((string)$constantValue, 'UTF-8');
             } else {
                 $this->value = $constantValue;
             }

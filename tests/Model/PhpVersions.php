@@ -29,6 +29,7 @@ class PhpVersions implements ArrayAccess, IteratorAggregate
      * @param $offset
      * @return bool
      */
+    #[ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset(self::$versions[$offset]);
@@ -55,6 +56,7 @@ class PhpVersions implements ArrayAccess, IteratorAggregate
     /**
      * @return ArrayIterator
      */
+    #[ReturnTypeWillChange]
     public function getIterator()
     {
         return new ArrayIterator(self::$versions);
