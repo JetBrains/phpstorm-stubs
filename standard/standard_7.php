@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
@@ -776,6 +777,21 @@ function is_link(string $filename): bool {}
  * In case of error, stat returns false.
  */
 #[Pure(true)]
+#[ArrayShape([
+    "dev" => "int",
+    "ino" => "int",
+    "mode" => "int",
+    "nlink" => "int",
+    "uid" => "int",
+    "gid" => "int",
+    "rdev" => "int",
+    "size" => "int",
+    "atime" => "int",
+    "mtime" => "int",
+    "ctime" => "int",
+    "blksize" => "int",
+    "blocks" => "int"
+])]
 function stat(string $filename): array|false {}
 
 /**
