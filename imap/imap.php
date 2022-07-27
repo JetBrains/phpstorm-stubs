@@ -1384,6 +1384,7 @@ function imap_mail(string $to, string $subject, string $message, ?string $additi
  * <dt>fetchsubject</dt><dd>subject line formatted to fit subjectlength characters</dd>
  * </dl>
  */
+#[PhpStormStubsElementAvailable(to: '7.4')]
 function imap_header($stream_id, $msg_no, $from_length = 0, $subject_length = 0, $default_host = null) {}
 
 /**

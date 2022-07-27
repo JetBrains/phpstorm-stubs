@@ -16,6 +16,7 @@ class PhpCoreStubsProvider
             'hash',
             'meta',
             'pcre',
+            'random',
             'Phar',
             'Reflection',
             'regex',

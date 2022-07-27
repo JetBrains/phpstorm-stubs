@@ -49,8 +49,8 @@ class PHPProperty extends BasePHPElement
         if (method_exists($reflectionObject, 'getType')) {
             $this->typesFromSignature = self::getReflectionTypeAsArray($reflectionObject->getType());
         }
-        if (property_exists($reflectionObject, 'isReadonly')) {
-            $this->isReadonly = $reflectionObject->isReadonly;
+        if (method_exists($reflectionObject, 'isReadonly')) {
+            $this->isReadonly = $reflectionObject->isReadOnly();
         }
         return $this;
     }
