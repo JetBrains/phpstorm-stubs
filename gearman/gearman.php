@@ -1505,12 +1505,12 @@ class GearmanClient
      * priority tasks in the job queue.
      *
      * @link https://php.net/manual/en/gearmanclient.dolow.php
-     * @param string $function_name
+     * @param string $function
      * @param string $workload
-     * @param string $unique
+     * @param string|null $unique
      * @return string A string representing the results of running a task
      */
-    public function doLow($function_name, $workload, $unique = null) {}
+    public function doLow($function, $workload, $unique = null) {}
 
     /**
      * Gets that job handle for a running task. This should be used between repeated
@@ -1537,12 +1537,12 @@ class GearmanClient
      * the status of the running task.
      *
      * @link https://php.net/manual/en/gearmanclient.dobackground.php
-     * @param string $function_name
+     * @param string $function
      * @param string $workload
-     * @param string $unique
+     * @param string|null $unique
      * @return string The job handle for the submitted task
      */
-    public function doBackground($function_name, $workload, $unique = null) {}
+    public function doBackground($function, $workload, $unique = null) {}
 
     /**
      * Runs a high priority task in the background, returning a job handle which can be
@@ -1550,12 +1550,12 @@ class GearmanClient
      * over normal and low priority tasks in the job queue.
      *
      * @link https://php.net/manual/en/gearmanclient.dohighbackground.php
-     * @param string $function_name
+     * @param string $function
      * @param string $workload
-     * @param string $unique
+     * @param string|null $unique
      * @return string The job handle for the submitted task
      */
-    public function doHighBackground($function_name, $workload, $unique = null) {}
+    public function doHighBackground($function, $workload, $unique = null) {}
 
     /**
      * Runs a low priority task in the background, returning a job handle which can be
@@ -1563,12 +1563,12 @@ class GearmanClient
      * precedence over low priority tasks in the job queue.
      *
      * @link https://php.net/manual/en/gearmanclient.dolowbackground.php
-     * @param string $function_name
+     * @param string $function
      * @param string $workload
-     * @param string $unique
+     * @param string|null $unique
      * @return string The job handle for the submitted task
      */
-    public function doLowBackground($function_name, $workload, $unique = null) {}
+    public function doLowBackground($function, $workload, $unique = null) {}
 
     /**
      * Object oriented style (method):.
