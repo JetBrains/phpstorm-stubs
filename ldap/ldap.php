@@ -741,7 +741,7 @@ function ldap_delete_ext(
 /**
  * This function is an alias of: ldap_mod_replace().
  * Replace attribute values with new ones
- * @link https://php.net/manual/en/function.ldap-mod-replace.php
+ * @link https://www.php.net/manual/en/function.ldap-modify.php
  * @param resource $ldap <p>
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
@@ -751,7 +751,6 @@ function ldap_delete_ext(
  * @param array $entry
  * @param array|null $controls Array of LDAP Controls to send with the request.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 7.0
  */
 function ldap_modify(
     #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
