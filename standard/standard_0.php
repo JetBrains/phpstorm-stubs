@@ -118,7 +118,7 @@ class Directory
      * @var resource Can be used with other directory functions such as {@see readdir()}, {@see rewinddir()} and {@see closedir()}.
      */
     #[PhpStormStubsElementAvailable(from: '8.1')]
-    public readonly $handle;
+    public readonly mixed $handle;
 
     /**
      * Close directory handle.
