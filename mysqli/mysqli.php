@@ -351,6 +351,16 @@ class mysqli
     public function get_charset(): ?object {}
 
     /**
+     * @param mysqli $mysql
+     * @param string $query
+     * @param array|null $params
+     * @return mysqli_result|bool
+     * @see mysqli_execute_query
+     * @since 8.2
+     */
+    public function execute_query(string $query, ?array $params = null): mysqli_result|bool {}
+
+    /**
      * Returns the MySQL client version as a string
      * @link https://php.net/manual/en/mysqli.get-client-info.php
      * @return string A string that represents the MySQL client library version
