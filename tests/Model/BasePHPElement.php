@@ -249,6 +249,9 @@ abstract class BasePHPElement
      */
     public static function entitySuitsCurrentPhpVersion(BasePHPElement $element)
     {
-        return in_array((float)getenv('PHP_VERSION'), ParserUtils::getAvailableInVersions($element), true);
+        if (!in_array((float)getenv('PHP_VERSION'), ParserUtils::getAvailableInVersions($element), true)){
+            throw new RuntimeException("{$element->name} does not suit current PHP version");
+        }
+        return true;
     }
 }
