@@ -30,13 +30,6 @@ class ReflectionProperty implements Reflector
     public $class;
 
     /**
-     * @var bool
-     * @since 8.1
-     */
-    #[Immutable]
-    public bool $isReadonly;
-
-    /**
      * Indicates that the property is static.
      *
      * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-static
