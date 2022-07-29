@@ -40,7 +40,9 @@ class PHPClass extends BasePHPClass
         }
         $this->interfaces = $reflectionObject->getInterfaceNames();
         $this->isFinal = $reflectionObject->isFinal();
-        $this->isReadonly = $reflectionObject->isReadOnly();
+        if (method_exists($reflectionObject,'isReadOnly')) {
+            $this->isReadonly = $reflectionObject->isReadOnly();
+        }
         foreach ($reflectionObject->getMethods() as $method) {
             if ($method->getDeclaringClass()->getName() !== $this->name) {
                 continue;
