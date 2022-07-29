@@ -24,6 +24,9 @@ class PHPClass extends BasePHPClass
     /** @var PHPProperty[] */
     public $properties = [];
 
+    /** @since 8.2 */
+    public $isReadonly = false;
+
     /**
      * @param ReflectionClass $reflectionObject
      * @return static
@@ -37,6 +40,7 @@ class PHPClass extends BasePHPClass
         }
         $this->interfaces = $reflectionObject->getInterfaceNames();
         $this->isFinal = $reflectionObject->isFinal();
+        $this->isReadonly = $reflectionObject->isReadOnly();
         foreach ($reflectionObject->getMethods() as $method) {
             if ($method->getDeclaringClass()->getName() !== $this->name) {
                 continue;

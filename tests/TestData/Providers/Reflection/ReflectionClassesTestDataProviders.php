@@ -64,4 +64,17 @@ class ReflectionClassesTestDataProviders
             yield "class $class->name" => [$class];
         }
     }
+
+        public static function readonlyClassesProvider(): ?Generator
+    {
+        $classes = ReflectionStubsSingleton::getReflectionStubs()->getClasses();
+        $filtered = EntitiesFilter::getFiltered(
+            $classes,
+            null,
+            StubProblemType::CLASS_READONLY
+        );
+        foreach ($filtered as $class) {
+            yield "class $class->name" => [$class];
+        }
+    }
 }
