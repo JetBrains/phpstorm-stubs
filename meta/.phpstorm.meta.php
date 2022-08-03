@@ -165,6 +165,7 @@ namespace PHPSTORM_META {
     expectedReturnValues(\dirname(), argumentsSet('common_dirname_return'));    // this allows completion for "dirname()" inside dirname(<caret>)
 
     expectedArguments(\EvLoop::__construct(), 0, \Ev::FLAG_AUTO,\Ev::FLAG_NOENV,\Ev::FLAG_FORKCHECK,\Ev::FLAG_NOINOTIFY,\Ev::FLAG_SIGNALFD,\Ev::FLAG_NOSIGMASK); //todo support
+    expectedArguments(\DatePeriod::__construct(), 3, \DatePeriod::EXCLUDE_START_DATE | \DatePeriod::INCLUDE_END_DATE); //todo support multiple signatures
     expectedArguments(\Ev::run(), 0, \Ev::FLAG_AUTO,\Ev::FLAG_NOENV,\Ev::FLAG_FORKCHECK,\Ev::FLAG_NOINOTIFY,\Ev::FLAG_SIGNALFD,\Ev::FLAG_NOSIGMASK);
     expectedArguments(\EvLoop::run(), 0, \Ev::RUN_NOWAIT,\Ev::RUN_ONCE);
     expectedArguments(\EvLoop::defaultLoop(), 0, \Ev::FLAG_AUTO,\Ev::FLAG_NOENV,\Ev::FLAG_FORKCHECK,\Ev::FLAG_NOINOTIFY,\Ev::FLAG_SIGNALFD,\Ev::FLAG_NOSIGMASK);
