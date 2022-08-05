@@ -4,6 +4,12 @@
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
+/** @since 8.2 */
+const DBA_LMDB_USE_SUB_DIR = 0;
+
+/** @since 8.2 */
+const DBA_LMDB_NO_SUB_DIR = 0;
+
 /**
  * Open database
  * @link https://php.net/manual/en/function.dba-open.php
@@ -125,7 +131,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 function dba_open($path, $mode, $handler, ...$handler_params) {}
 
 #[PhpStormStubsElementAvailable(from: '8.2')]
-function dba_open(string $path, string $mode, ?string $handler = null, int $permission = 0o644, int $map_size = 0) {}
+function dba_open(string $path, string $mode, ?string $handler = null, int $permission = 0o644, int $map_size = 0, ?int $flags = null) {}
 
 /**
  * Open database persistently
@@ -152,7 +158,7 @@ function dba_open(string $path, string $mode, ?string $handler = null, int $perm
 function dba_popen($path, $mode, $handler, ...$handler_params) {}
 
 #[PhpStormStubsElementAvailable(from: '8.2')]
-function dba_popen(string $path, string $mode, ?string $handler = null, int $permission = 0o644, int $map_size = 0) {}
+function dba_popen(string $path, string $mode, ?string $handler = null, int $permission = 0o644, int $map_size = 0, ?int $flags = null) {}
 
 /**
  * Close a DBA database

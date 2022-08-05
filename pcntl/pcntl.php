@@ -734,7 +734,7 @@ define('FPE_FLTOVF', 4);
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-define('FPE_FLTUND', 7);
+define('FPE_FLTUND', 5);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
