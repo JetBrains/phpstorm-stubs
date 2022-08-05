@@ -2364,8 +2364,9 @@ class Transliterator
     #[PhpStormStubsElementAvailable(to: '8.1')]
     public $id;
 
+    #[TypeAware(['8.2' => 'string'], default: '')]
     #[PhpStormStubsElementAvailable(from: '8.2')]
-    public readonly string $id;
+    public readonly $id;
 
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
