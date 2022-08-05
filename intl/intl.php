@@ -5,6 +5,7 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\ExpectedValues as EV;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware as TypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable as ElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
@@ -2360,7 +2361,11 @@ class Transliterator
     public const REVERSE = 1;
 
     #[TypeAware(['8.1' => 'string'], default: '')]
+    #[PhpStormStubsElementAvailable(to: '8.1')]
     public $id;
+
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public readonly string $id;
 
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
