@@ -23,8 +23,6 @@ class PHPClass extends BasePHPClass
 
     /** @var PHPProperty[] */
     public $properties = [];
-
-    /** @since 8.2 */
     public $isReadonly = false;
 
     /**

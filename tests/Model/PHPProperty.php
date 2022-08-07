@@ -100,7 +100,7 @@ class PHPProperty extends BasePHPElement
                             $this->mutedProblems[StubProblemType::STUB_IS_MISSED] = $problem->versions;
                             break;
                         case 'wrong readonly':
-                            $this->mutedProblems[StubProblemType::PROPERTY_READONLY] = $problem->versions;
+                            $this->mutedProblems[StubProblemType::WRONG_READONLY] = $problem->versions;
                             break;
                         default:
                             throw new Exception("Unexpected value $problem->description");

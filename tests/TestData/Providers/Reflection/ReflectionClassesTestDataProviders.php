@@ -70,8 +70,8 @@ class ReflectionClassesTestDataProviders
         $classes = ReflectionStubsSingleton::getReflectionStubs()->getClasses();
         $filtered = EntitiesFilter::getFiltered(
             $classes,
-            null,
-            StubProblemType::CLASS_READONLY
+            fn (PhpClass $class) => $class->isReadonly === false,
+            StubProblemType::WRONG_READONLY
         );
         foreach ($filtered as $class) {
             yield "class $class->name" => [$class];

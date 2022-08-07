@@ -33,7 +33,7 @@ class ReflectionPropertiesProvider
 
     public static function classReadonlyPropertiesProvider(): Generator
     {
-        return self::yieldFilteredMethodProperties(StubProblemType::PROPERTY_READONLY);
+        return self::yieldFilteredMethodProperties(StubProblemType::WRONG_READONLY);
     }
 
     private static function yieldFilteredMethodProperties(int ...$problemTypes): ?Generator
