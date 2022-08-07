@@ -1015,7 +1015,7 @@ class NumberFormatter
      * @param string $currency <p>
      * The 3-letter ISO 4217 currency code indicating the currency to use.
      * </p>
-     * @return string String representing the formatted currency value.
+     * @return string|false String representing the formatted currency value.
      */
     #[Pure]
     #[TentativeType]
