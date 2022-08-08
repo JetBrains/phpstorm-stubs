@@ -269,4 +269,19 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
         }
         static::assertEquals($class->isFinal, $stubClass->isFinal, "Final modifier of class $className is incorrect");
     }
+
+    /**
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::readonlyClassesProvider
+     * @throws RuntimeException
+     */
+    public function testClassesReadonly(PHPClass $class): void
+    {
+        $className = $class->name;
+        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className);
+        static::assertEquals(
+            $class->isReadonly,
+            $stubClass->isReadonly,
+            "Readonly modifier for class $className is incorrect"
+        );
+    }
 }

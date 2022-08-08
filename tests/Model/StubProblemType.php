@@ -30,5 +30,5 @@ interface StubProblemType
     const WRONG_PARAMETER_DEFAULT_VALUE = 23;
     const WRONG_RETURN_TYPEHINT = 24;
     const WRONG_OPTIONALLITY = 27;
-    const PROPERTY_READONLY = 28;
+    const WRONG_READONLY = 28;
 }
