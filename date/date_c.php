@@ -31,6 +31,11 @@ interface DateTimeInterface
     public const ISO8601 = 'Y-m-d\TH:i:sO';
 
     /**
+     * @since 8.2
+     */
+    public const ISO8601_EXPANDED = DATE_ISO8601_EXPANDED;
+
+    /**
      * @since 7.2
      */
     public const RFC822 = 'D, d M y H:i:s O';
@@ -448,11 +453,6 @@ class DateTime implements DateTimeInterface
      * @removed 7.2
      */
     public const ISO8601 = 'Y-m-d\TH:i:sO';
-
-    /**
-     * @since 8.2
-     */
-    public const ISO8601_EXPANDED = DATE_ISO8601_EXPANDED;
 
     /**
      * @removed 7.2
