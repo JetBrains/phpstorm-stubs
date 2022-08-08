@@ -3135,6 +3135,23 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Transliterator",
+      "properties": [
+        {
+          "name": "id",
+          "problems": [
+            {
+              "description": "wrong readonly",
+              "versions": [
+                8.1,
+                8.2
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "interfaces": [
