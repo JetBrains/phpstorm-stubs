@@ -149,6 +149,9 @@ class PHPClass extends BasePHPClass
                             case 'has wrong final modifier':
                                 $this->mutedProblems[StubProblemType::WRONG_FINAL_MODIFIER] = $problem->versions;
                                 break;
+                            case 'wrong readonly':
+                                $this->mutedProblems[StubProblemType::WRONG_READONLY] = $problem->versions;
+                                break;
                             default:
                                 throw new Exception("Unexpected value $problem->description");
                         }
