@@ -149,9 +149,6 @@ class PHPClass extends BasePHPClass
                             case 'has wrong final modifier':
                                 $this->mutedProblems[StubProblemType::WRONG_FINAL_MODIFIER] = $problem->versions;
                                 break;
-                            case 'wrong readonly':
-                                $this->mutedProblems[StubProblemType::WRONG_READONLY] = $problem->versions;
-                                break;
                             default:
                                 throw new Exception("Unexpected value $problem->description");
                         }
@@ -165,6 +162,11 @@ class PHPClass extends BasePHPClass
                 if (!empty($class->constants)) {
                     foreach ($this->constants as $constant) {
                         $constant->readMutedProblems($class->constants);
+                    }
+                }
+                if (!empty($class->properties)) {
+                    foreach ($this->properties as $property) {
+                        $property->readMutedProblems($class->properties);
                     }
                 }
                 return;
