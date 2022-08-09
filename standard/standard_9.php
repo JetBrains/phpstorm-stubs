@@ -985,6 +985,7 @@ function assert_options(int $option, mixed $value): mixed {}
  * function will return true if the relationship is the one specified
  * by the operator, false otherwise.
  */
+#[ExpectedValues([-1, 0, 1, false, true])]
 function version_compare(
     string $version1,
     string $version2,
