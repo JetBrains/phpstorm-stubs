@@ -244,12 +244,12 @@ function debug_zval_dump(
  * to true, print_r will return its output, instead of
  * printing it (which it does by default).
  * </p>
- * @return string|bool If given a string, integer or float,
+ * @return string|true If given a string, integer or float,
  * the value itself will be printed. If given an array, values
  * will be presented in a format that shows keys and elements. Similar
  * notation is used for objects.
  */
-function print_r(mixed $value, bool $return = false): string|bool {}
+function print_r(mixed $value, bool $return = false): string|true {}
 
 /**
  * Returns the amount of memory allocated to PHP
@@ -494,6 +494,11 @@ function ini_alter(string $option, #[LanguageLevelTypeAware(['8.1' => 'string|in
  * @return void
  */
 function ini_restore(string $option): void {}
+
+/**
+ * @since 8.2
+ */
+function ini_parse_quantity(string $shorthand): int {}
 
 /**
  * @param string $shorthand
