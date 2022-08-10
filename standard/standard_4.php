@@ -496,11 +496,6 @@ function ini_alter(string $option, #[LanguageLevelTypeAware(['8.1' => 'string|in
 function ini_restore(string $option): void {}
 
 /**
- * @since 8.2
- */
-function ini_parse_quantity(string $shorthand): int {}
-
-/**
  * @param string $shorthand
  * @return int
  * @since 8.2
