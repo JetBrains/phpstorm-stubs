@@ -946,6 +946,9 @@ class DateInterval
 /**
  * Representation of date period.
  * @link https://php.net/manual/en/class.dateperiod.php
+ * @template TDate of DateTimeInterface
+ * @template TEnd of ?DateTimeInterface
+ * @implements \IteratorAggregate<int, TDate>
  */
 class DatePeriod implements IteratorAggregate
 {
@@ -1010,16 +1013,16 @@ class DatePeriod implements IteratorAggregate
     public bool $include_end_date;
 
     /**
-     * @param DateTimeInterface $start
+     * @param TDate $start
      * @param DateInterval $interval
-     * @param DateTimeInterface $end
+     * @param TEnd $end
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link https://php.net/manual/en/dateperiod.construct.php
      */
     public function __construct(DateTimeInterface $start, DateInterval $interval, DateTimeInterface $end, $options = 0) {}
 
     /**
-     * @param DateTimeInterface $start
+     * @param TDate $start
      * @param DateInterval $interval
      * @param int $recurrences Number of recurrences
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
@@ -1048,6 +1051,7 @@ class DatePeriod implements IteratorAggregate
      * @return DateTimeInterface|null
      * @link https://php.net/manual/en/dateperiod.getenddate.php
      * @since 5.6.5
+     * @return TEnd
      */
     #[TentativeType]
     public function getEndDate(): ?DateTimeInterface {}
@@ -1057,6 +1061,7 @@ class DatePeriod implements IteratorAggregate
      * @return DateTimeInterface
      * @link https://php.net/manual/en/dateperiod.getstartdate.php
      * @since 5.6.5
+     * @return TDate
      */
     #[TentativeType]
     public function getStartDate(): DateTimeInterface {}
@@ -1077,7 +1082,7 @@ class DatePeriod implements IteratorAggregate
     public function getRecurrences(): ?int {}
 
     /**
-     * @return Iterator
+     * @return \Iterator<int, TDate>
      * @since 8.0
      */
     public function getIterator(): Iterator {}
