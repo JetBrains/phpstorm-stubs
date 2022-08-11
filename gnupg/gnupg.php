@@ -91,12 +91,12 @@ class gnupg
      * Add a key for decryption
      * @link https://php.net/manual/en/function.gnupg-adddecryptkey.php
      *
-     * @param string $kye
+     * @param string $key
      * @param string $passphrase
      *
      * @return bool
      */
-    public function adddecryptkey($kye, $passphrase) {}
+    public function adddecryptkey($key, $passphrase) {}
 
     /**
      * Verifies a signed text
@@ -115,28 +115,28 @@ class gnupg
      * Add a key for encryption
      * @link https://php.net/manual/en/function.gnupg-addencryptkey.php
      *
-     * @param string $kye
+     * @param string $key
      *
      * @return bool
      */
-    public function addencryptkey($kye) {}
+    public function addencryptkey($key) {}
 
     /**
      * Add a key for signing
      * @link https://php.net/manual/en/function.gnupg-addsignkey.php
      *
-     * @param string $kye
+     * @param string $key
      * @param string $passphrase
      *
      * @return bool
      */
-    public function addsignkey($kye, $passphrase = null) {}
+    public function addsignkey($key, $passphrase = null) {}
 
-    public function deletekey($kye, $allow_secret) {}
+    public function deletekey($key, $allow_secret) {}
 
     public function gettrustlist($pattern) {}
 
-    public function listsignatures($kyeid) {}
+    public function listsignatures($keyid) {}
 
     /**
      * Removes all keys which were set for decryption before
@@ -396,20 +396,20 @@ function gnupg_cleardecryptkeys($res) {}
  * Add a key for decryption
  * @link https://www.php.net/manual/en/function.gnupg-adddecryptkey.php
  * @param resource $res The gnupg identifier, from a call to gnupg_init() or gnupg.
- * @param string $kye The fingerprint key.
+ * @param string $key The fingerprint key.
  * @param string $passphrase The pass phrase.
  * @return bool Returns true on success or false on failure.
  */
-function gnupg_adddecryptkey($res, $kye, $passphrase) {}
+function gnupg_adddecryptkey($res, $key, $passphrase) {}
 
 /**
  * Add a key for encryption
  * @link https://www.php.net/manual/en/function.gnupg-addencryptkey.php
  * @param resource $res The gnupg identifier, from a call to gnupg_init() or gnupg.
- * @param string $kye The fingerprint key.
+ * @param string $key The fingerprint key.
  * @return bool Returns true on success or false on failure.
  */
-function gnupg_addencryptkey($res, $kye) {}
+function gnupg_addencryptkey($res, $key) {}
 
 /**
  * Toggle armored output
@@ -452,11 +452,11 @@ function gnupg_export($res, $pattern) {}
  * Imports a key
  * @link https://www.php.net/manual/en/function.gnupg-import.php
  * @param resource $res The gnupg identifier, from a call to gnupg_init() or gnupg.
- * @param string $kye The data key that is being imported.
+ * @param string $key The data key that is being imported.
  * @return array|false On success, this function returns and info-array about the importprocess.
  * On failure, this function returns false.
  */
-function gnupg_import($res, $kye) {}
+function gnupg_import($res, $key) {}
 
 function gnupg_getengineinfo($res) {}
 
@@ -514,14 +514,14 @@ function gnupg_geterrorinfo($res) {}
  * Add a key for signing
  * @link https://www.php.net/manual/en/function.gnupg-addsignkey.php
  * @param resource $res The gnupg identifier, from a call to gnupg_init() or gnupg.
- * @param string $kye The fingerprint key.
+ * @param string $key The fingerprint key.
  * @param string $passphrase The pass phrase.
  * @return bool Returns true on success or false on failure.
  */
-function gnupg_addsignkey($res, $kye, $passphrase) {}
-function gnupg_deletekey($res, $kye, $allow_secret) {}
+function gnupg_addsignkey($res, $key, $passphrase) {}
+function gnupg_deletekey($res, $key, $allow_secret) {}
 function gnupg_gettrustlist($res, $pattern) {}
-function gnupg_listsignatures($res, $kyeid) {}
+function gnupg_listsignatures($res, $keyid) {}
 
 /**
  * Sets the mode for error_reporting
