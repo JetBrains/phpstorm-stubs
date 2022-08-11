@@ -2207,6 +2207,7 @@ function imageconvolution(GdImage $image, array $matrix, float $divisor, float $
  * @link https://php.net/manual/en/function.imageresolution.php
  * @since 7.2
  */
+#[LanguageLevelTypeAware(['8.2' => 'array|true'], default: 'array|bool')]
 function imageresolution(GdImage $image, ?int $resolution_x = null, ?int $resolution_y = null): array|bool {}
 
 /**

@@ -169,6 +169,7 @@ function mb_http_output(?string $encoding): string|bool {}
  * When getting the encoding detection order, an ordered array
  * of the encodings is returned.
  */
+#[LanguageLevelTypeAware(['8.2' => 'array|true'], default: 'array|bool')]
 function mb_detect_order(array|string|null $encoding = null): array|bool {}
 
 /**
