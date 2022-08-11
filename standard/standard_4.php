@@ -249,7 +249,8 @@ function debug_zval_dump(
  * will be presented in a format that shows keys and elements. Similar
  * notation is used for objects.
  */
-function print_r(mixed $value, bool $return = false): string|true {}
+#[LanguageLevelTypeAware(['8.2' => 'string|true'], default: 'string|bool')]
+function print_r(mixed $value, bool $return = false): string|bool {}
 
 /**
  * Returns the amount of memory allocated to PHP
