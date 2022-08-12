@@ -244,7 +244,7 @@ function debug_zval_dump(
  * to true, print_r will return its output, instead of
  * printing it (which it does by default).
  * </p>
- * @return string|true If given a string, integer or float,
+ * @return string|bool If given a string, integer or float,
  * the value itself will be printed. If given an array, values
  * will be presented in a format that shows keys and elements. Similar
  * notation is used for objects.
