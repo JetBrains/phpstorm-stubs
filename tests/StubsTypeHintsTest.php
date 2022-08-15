@@ -17,7 +17,7 @@ use StubTests\TestData\Providers\ReflectionStubsSingleton;
 class StubsTypeHintsTest extends AbstractBaseStubsTestCase
 {
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::allFunctionsProvider
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::functionsForTypeHintsTestProvider
      * @throws RuntimeException
      */
     public function testFunctionsReturnTypeHints(PHPFunction $function)
