@@ -17,7 +17,7 @@ class ReflectionFunctionsProvider
         }
     }
 
-        public static function functionsForTypeHintsTestProvider(): ?Generator
+    public static function functionsForTypeHintsTestProvider(): ?Generator
     {
         foreach (EntitiesFilter::getFiltered(
             ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
