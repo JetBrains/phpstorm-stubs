@@ -2433,6 +2433,22 @@ namespace Ds;
         public function count(): int {}
 
         /**
+         * Allocates enough memory for a required capacity
+         * @link https://www.php.net/manual/en/ds-priorityqueue.allocate.php
+         *
+         * @param int   $capacity
+         */
+        public function allocate(int $capacity): void {}
+        
+        /**
+         * Returns the current capacity
+         * @link https://www.php.net/manual/en/ds-priorityqueue.capacity.php
+         *
+         * @return int
+         */
+        public function capacity(): int {}
+        
+        /**
          * Removes all values from the collection.
          * @link https://www.php.net/manual/en/ds-collection.clear.php
          */
@@ -2463,6 +2479,15 @@ namespace Ds;
          */
         public function peek() {}
 
+        /**
+         * Removes and returns the value with the highest priority
+         * @link https://www.php.net/manual/en/ds-priorityqueue.pop.php
+         *
+         * @return mixed The removed value which was at the front of the queue.
+         * @throws UnderflowException if empty.
+         */
+        public function pop() {}
+        
         /**
          * Pushes a value with a given priority into the queue.
          *
