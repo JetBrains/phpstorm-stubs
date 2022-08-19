@@ -1665,7 +1665,7 @@ define('SOCKET_EINVAL', 22);
  * File table overflow.
  * @link https://php.net/manual/en/sockets.constants.php
  */
-define('SOCKET_ENFILE', 23);
+define('SOCKET_ENFILE', 24);
 
 /**
  * Too many open files.
@@ -2045,7 +2045,7 @@ define('SOCKET_ECONNABORTED', 103);
  * Connection reset by peer.
  * @link https://php.net/manual/en/sockets.constants.php
  */
-define('SOCKET_ECONNRESET', 104);
+define('SOCKET_ECONNRESET', 103);
 
 /**
  * No buffer space available.
