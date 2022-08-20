@@ -1665,7 +1665,7 @@ function imagettfbbox($size, $angle, $font_filename, $text) {}
  * corner when you see the text horizontally.
  * Returns false on error.
  */
-function imagettftext($image, $size, $angle, $x, $y, $color, $font_filename, $text) {}
+function imagettftext(GdImage $image, float $size, float $angle, int $x, int $y, int $color, string $font_filename, string $text, array $options = []): array|false {}
 
 /**
  * Give the bounding box of a text using fonts via freetype2
