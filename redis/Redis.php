@@ -861,13 +861,13 @@ class Redis
      * @link    https://redis.io/commands/pubsub
      * @example
      * <pre>
-     * $redis->pubaub('channels'); // All channels
-     * $redis->pubaub('channels', '*pattern*'); // Just channels matching your pattern
-     * $redis->pubaub('numsub', array('chan1', 'chan2')); // Get subscriber counts for 'chan1' and 'chan2'
-     * $redis->pubaub('numpat'); // Get the number of pattern subscribers
+     * $redis->pubsub('channels'); // All channels
+     * $redis->pubsub('channels', '*pattern*'); // Just channels matching your pattern
+     * $redis->pubsub('numsub', array('chan1', 'chan2')); // Get subscriber counts for 'chan1' and 'chan2'
+     * $redis->pubsub('numpat'); // Get the number of pattern subscribers
      * </pre>
      */
-    public function pubaub($keyword, $argument = null) {}
+    public function pubsub($keyword, $argument = null) {}
 
     /**
      * Stop listening for messages posted to the given channels.
