@@ -1193,4 +1193,5 @@ function ezmlm_hash(string $addr): int {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function openlog(string $prefix, int $flags, int $facility): bool {}
+#[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
+function openlog(string $prefix, int $flags, int $facility) {}
