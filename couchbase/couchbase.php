@@ -990,7 +990,6 @@ interface AnalyticsEncryptionLevel
     public const FULL = "full";
 }
 
-
 class EncryptionSettings
 {
     /**
@@ -1013,9 +1012,7 @@ class EncryptionSettings
     public function clientKey(string $key) {}
 }
 
-interface AnalyticsLink
-{
-}
+interface AnalyticsLink {}
 
 class CouchbaseRemoteAnalyticsLink implements AnalyticsLink
 {
@@ -1411,7 +1408,6 @@ interface EvictionPolicy
      */
     public const NOT_RECENTLY_USED = "nruEviction";
 }
-
 
 interface StorageBackend
 {
@@ -2356,7 +2352,6 @@ class SearchOptions implements JsonSerializable
      * @see \SearchHighlightMode::SIMPLE
      */
     public function highlight(string $style = null, array $fields = null): SearchOptions {}
-
 
     /**
      * Configures the list of collections to use for restricting results.
@@ -3998,7 +3993,6 @@ interface ValueRecorder
  */
 interface Meter
 {
-
     /**
      * Creates a new value recorder for a metric with the specified tags.
      *
@@ -4040,7 +4034,8 @@ class LoggingMeter implements Meter
 /**
  * Represents a span of time an event occurs over.
  */
-interface RequestSpan {
+interface RequestSpan
+{
     /**
      * Adds an tag to this span.
      *
@@ -4058,7 +4053,8 @@ interface RequestSpan {
 /**
  * Represents a tracer capable of creating trace spans.
  */
-interface RequestTracer {
+interface RequestTracer
+{
     /**
      * Creates a new request span.
      *
@@ -4075,7 +4071,8 @@ interface RequestTracer {
  * used by the SDK, and simply acts as a placeholder which triggers a
  * native implementation to be used instead.
  */
-class ThresholdLoggingTracer implements RequestTracer {
+class ThresholdLoggingTracer implements RequestTracer
+{
     public function requestSpan(string $name, RequestSpan $parent = null) {}
 
     /**
@@ -4127,7 +4124,8 @@ class ThresholdLoggingTracer implements RequestTracer {
  * used by the SDK, and simply acts as a placeholder which triggers a
  * native implementation to be used instead.
  */
-class NoopTracer implements RequestTracer {
+class NoopTracer implements RequestTracer
+{
     public function requestSpan(string $name, RequestSpan $parent = null) {}
 }
 
