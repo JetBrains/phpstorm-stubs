@@ -4797,8 +4797,8 @@ class Redis
     /**
      * Send arbitrary things to the redis server.
      *
-     * @param string $command   Required command to send to the server.
-     * @param mixed  $arguments Optional variable amount of arguments to send to the server.
+     * @param string $command      Required command to send to the server.
+     * @param mixed  ...$arguments Optional variable amount of arguments to send to the server.
      *
      * @return mixed|Redis returns Redis if in multi mode
      *
