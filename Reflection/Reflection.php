@@ -16,7 +16,7 @@ class Reflection
      *
      * @link https://php.net/manual/en/reflection.getmodifiernames.php
      * @param int $modifiers Bitfield of the modifiers to get.
-     * @return array An array of modifier names.
+     * @return string[] An array of modifier names.
      */
     #[TentativeType]
     public static function getModifierNames(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $modifiers): array {}
