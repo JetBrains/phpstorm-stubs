@@ -1950,6 +1950,15 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
     #[TentativeType]
     public function __wakeup(): void {}
 
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function __serialize(): array {}
+
+    /**
+     * @param array $data
+     */
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function __unserialize(array $data): void {}
+
     /**
      * @return Traversable<int, TValue>
      */
