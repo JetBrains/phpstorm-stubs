@@ -999,7 +999,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @return null|RecursiveIterator An SplFileObject does not have children so this method returns NULL.
      */
     #[TentativeType]
-    #[LanguageLevelTypeAware(['8.2' => 'null|null'], default: 'null|RecursiveIterator')]
+    #[LanguageLevelTypeAware(['8.2' => 'null'], default: 'null|RecursiveIterator')]
     public function getChildren() {}
 
     /**
@@ -1949,6 +1949,15 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
 
     #[TentativeType]
     public function __wakeup(): void {}
+
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function __serialize(): array {}
+
+    /**
+     * @param array $data
+     */
+    #[PhpStormStubsElementAvailable(from: '8.2')]
+    public function __unserialize(array $data): void {}
 
     /**
      * @return Traversable<int, TValue>
