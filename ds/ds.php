@@ -2439,7 +2439,7 @@ namespace Ds;
          * @param int   $capacity
          */
         public function allocate(int $capacity): void {}
-        
+
         /**
          * Returns the current capacity
          * @link https://www.php.net/manual/en/ds-priorityqueue.capacity.php
@@ -2447,7 +2447,7 @@ namespace Ds;
          * @return int
          */
         public function capacity(): int {}
-        
+
         /**
          * Removes all values from the collection.
          * @link https://www.php.net/manual/en/ds-collection.clear.php
@@ -2487,7 +2487,7 @@ namespace Ds;
          * @throws UnderflowException if empty.
          */
         public function pop() {}
-        
+
         /**
          * Pushes a value with a given priority into the queue.
          *
