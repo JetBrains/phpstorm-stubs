@@ -131,7 +131,7 @@ namespace Random\Engine
      */
     final class PcgOneseq128XslRr64 implements \Random\Engine
     {
-        public function __construct(string|int|null $seed = null, string|int $sequence = 0) {}
+        public function __construct(string|int|null $seed = null) {}
 
         public function generate(): string {}
 
@@ -175,6 +175,9 @@ namespace Random\Engine
 
 namespace Random
 {
+    use Error;
+    use Exception;
+
     /**
      * @since 8.2
      */
@@ -212,4 +215,19 @@ namespace Random
 
         public function __unserialize(array $data): void {}
     }
+
+    /**
+     * @since 8.2
+     */
+    class RandomError extends Error {}
+
+    /**
+     * @since 8.2
+     */
+    class BrokenRandomEngineError extends RandomError {}
+
+    /**
+     * @since 8.2
+     */
+    class RandomException extends Exception {}
 }

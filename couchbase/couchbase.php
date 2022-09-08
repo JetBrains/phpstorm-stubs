@@ -1,7 +1,7 @@
 <?php
 /**
  * Couchbase extension stubs
- * Gathered from https://docs.couchbase.com/sdk-api/couchbase-php-client-3.1.2/index.html
+ * Gathered from https://docs.couchbase.com/sdk-api/couchbase-php-client-3.2.2/index.html
  * Maintainer: sergey@couchbase.com
  *
  * https://github.com/couchbase/php-couchbase/tree/master/api
@@ -644,6 +644,10 @@ class BaseException extends Exception implements Throwable
 
 class RequestCanceledException extends BaseException implements Throwable {}
 
+class RateLimitedException extends BaseException implements Throwable {}
+
+class QuotaLimitedException extends BaseException implements Throwable {}
+
 /**
  *  Thrown for exceptions that originate from underlying Http operations.
  */
@@ -879,6 +883,353 @@ class QueryIndexManager
     public function buildDeferredIndexes(string $bucketName) {}
 }
 
+class CreateAnalyticsDataverseOptions
+{
+    public function ignoreIfExists(bool $shouldIgnore): CreateAnalyticsDataverseOptions {}
+}
+
+class DropAnalyticsDataverseOptions
+{
+    public function ignoreIfNotExists(bool $shouldIgnore): DropAnalyticsDataverseOptions {}
+}
+
+class CreateAnalyticsDatasetOptions
+{
+    public function ignoreIfExists(bool $shouldIgnore): CreateAnalyticsDatasetOptions {}
+
+    public function condition(string $condition): CreateAnalyticsDatasetOptions {}
+
+    public function dataverseName(string $dataverseName): CreateAnalyticsDatasetOptions {}
+}
+
+class DropAnalyticsDatasetOptions
+{
+    public function ignoreIfNotExists(bool $shouldIgnore): DropAnalyticsDatasetOptions {}
+
+    public function dataverseName(string $dataverseName): DropAnalyticsDatasetOptions {}
+}
+
+class CreateAnalyticsIndexOptions
+{
+    public function ignoreIfExists(bool $shouldIgnore): CreateAnalyticsIndexOptions {}
+
+    public function dataverseName(string $dataverseName): CreateAnalyticsIndexOptions {}
+}
+
+class DropAnalyticsIndexOptions
+{
+    public function ignoreIfNotExists(bool $shouldIgnore): DropAnalyticsIndexOptions {}
+
+    public function dataverseName(string $dataverseName): DropAnalyticsIndexOptions {}
+}
+
+class ConnectAnalyticsLinkOptions
+{
+    public function linkName(bstring $linkName): ConnectAnalyticsLinkOptions {}
+
+    public function dataverseName(string $dataverseName): ConnectAnalyticsLinkOptions {}
+}
+
+class DisconnectAnalyticsLinkOptions
+{
+    public function linkName(bstring $linkName): DisconnectAnalyticsLinkOptions {}
+
+    public function dataverseName(string $dataverseName): DisconnectAnalyticsLinkOptions {}
+}
+
+class CreateAnalyticsLinkOptions
+{
+    public function timeout(int $arg): CreateAnalyticsLinkOptions {}
+}
+
+class ReplaceAnalyticsLinkOptions
+{
+    public function timeout(int $arg): ReplaceAnalyticsLinkOptions {}
+}
+
+class DropAnalyticsLinkOptions
+{
+    public function timeout(int $arg): DropAnalyticsLinkOptions {}
+}
+
+interface AnalyticsLinkType
+{
+    public const COUCHBASE = "couchbase";
+    public const S3 = "s3";
+    public const AZURE_BLOB = "azureblob";
+}
+
+class GetAnalyticsLinksOptions
+{
+    public function timeout(int $arg): DropAnalyticsLinkOptions {}
+
+    /**
+     * @param string $tupe restricts the results to the given link type.
+     *
+     * @see AnalyticsLinkType::COUCHBASE
+     * @see AnalyticsLinkType::S3
+     * @see AnalyticsLinkType::AZURE_BLOB
+     */
+    public function linkType(string $type): DropAnalyticsLinkOptions {}
+
+    /**
+     * @param string $dataverse restricts the results to a given dataverse, can be given in the form of "namepart" or "namepart1/namepart2".
+     */
+    public function dataverse(string $dataverse): DropAnalyticsLinkOptions {}
+
+    /**
+     * @param string $name restricts the results to the link with the specified name. If set then dataverse must also be set.
+     */
+    public function name(string $name): DropAnalyticsLinkOptions {}
+}
+
+interface AnalyticsEncryptionLevel
+{
+    public const NONE = "none";
+    public const HALF = "half";
+    public const FULL = "full";
+}
+
+class EncryptionSettings
+{
+    /**
+     * Sets encryption level.
+     *
+     * @param string $level Accepted values are 'none', 'half', 'full'.
+     *
+     * @see AnalyticsEncryptionLevel::NONE
+     * @see AnalyticsEncryptionLevel::HALF
+     * @see AnalyticsEncryptionLevel::FULL
+     *
+     * @return EncryptionSettings
+     */
+    public function level(string $level) {}
+
+    public function certificate(string $certificate) {}
+
+    public function clientCertificate(string $certificate) {}
+
+    public function clientKey(string $key) {}
+}
+
+interface AnalyticsLink {}
+
+class CouchbaseRemoteAnalyticsLink implements AnalyticsLink
+{
+    /**
+     * Sets name of the link
+     *
+     * @param string $name
+     * @return CouchbaseRemoteAnalyticsLink
+     */
+    public function name(string $name): CouchbaseRemoteAnalyticsLink {}
+
+    /**
+     * Sets dataverse this link belongs to
+     *
+     * @param string $dataverse
+     * @return CouchbaseRemoteAnalyticsLink
+     */
+    public function dataverse(string $dataverse): CouchbaseRemoteAnalyticsLink {}
+
+    /**
+     * Sets the hostname of the target Couchbase cluster
+     *
+     * @param string $hostname
+     * @return CouchbaseRemoteAnalyticsLink
+     */
+    public function hostname(string $hostname): CouchbaseRemoteAnalyticsLink {}
+
+    /**
+     * Sets the username to use for authentication with the remote cluster.
+     *
+     * Optional if client-certificate authentication is being used.
+     *
+     * @param string $username
+     * @return CouchbaseRemoteAnalyticsLink
+     */
+    public function username(string $username): CouchbaseRemoteAnalyticsLink {}
+
+    /**
+     * Sets the password to use for authentication with the remote cluster.
+     *
+     * Optional if client-certificate authentication is being used.
+     *
+     * @param string $password
+     * @return CouchbaseRemoteAnalyticsLink
+     */
+    public function password(string $password): CouchbaseRemoteAnalyticsLink {}
+
+    /**
+     * Sets settings for connection encryption
+     *
+     * @param EncryptionSettings $settings
+     * @return CouchbaseRemoteAnalyticsLink
+     */
+    public function encryption(EncryptionSettings $settings): CouchbaseRemoteAnalyticsLink {}
+}
+
+class AzureBlobExternalAnalyticsLink implements AnalyticsLink
+{
+    /**
+     * Sets name of the link
+     *
+     * @param string $name
+     * @return AzureBlobExternalAnalyticsLink
+     */
+    public function name(string $name): AzureBlobExternalAnalyticsLink {}
+
+    /**
+     * Sets dataverse this link belongs to
+     *
+     * @param string $dataverse
+     * @return AzureBlobExternalAnalyticsLink
+     */
+    public function dataverse(string $dataverse): AzureBlobExternalAnalyticsLink {}
+
+    /**
+     * Sets the connection string can be used as an authentication method, '$connectionString' contains other
+     * authentication methods embedded inside the string. Only a single authentication method can be used.
+     * (e.g. "AccountName=myAccountName;AccountKey=myAccountKey").
+     *
+     * @param string $connectionString
+     * @return AzureBlobExternalAnalyticsLink
+     */
+    public function connectionString(string $connectionString): AzureBlobExternalAnalyticsLink {}
+
+    /**
+     * Sets Azure blob storage account name
+     *
+     * @param string $accountName
+     * @return AzureBlobExternalAnalyticsLink
+     */
+    public function accountName(string $accountName): AzureBlobExternalAnalyticsLink {}
+
+    /**
+     * Sets Azure blob storage account key
+     *
+     * @param string $accountKey
+     * @return AzureBlobExternalAnalyticsLink
+     */
+    public function accountKey(string $accountKey): AzureBlobExternalAnalyticsLink {}
+
+    /**
+     * Sets token that can be used for authentication
+     *
+     * @param string $signature
+     * @return AzureBlobExternalAnalyticsLink
+     */
+    public function sharedAccessSignature(string $signature): AzureBlobExternalAnalyticsLink {}
+
+    /**
+     * Sets Azure blob storage endpoint
+     *
+     * @param string $blobEndpoint
+     * @return AzureBlobExternalAnalyticsLink
+     */
+    public function blobEndpoint(string $blobEndpoint): AzureBlobExternalAnalyticsLink {}
+
+    /**
+     * Sets Azure blob endpoint suffix
+     *
+     * @param string $suffix
+     * @return AzureBlobExternalAnalyticsLink
+     */
+    public function endpointSuffix(string $suffix): AzureBlobExternalAnalyticsLink {}
+}
+
+class S3ExternalAnalyticsLink implements AnalyticsLink
+{
+    /**
+     * Sets name of the link
+     *
+     * @param string $name
+     * @return S3ExternalAnalyticsLink
+     */
+    public function name(string $name): S3ExternalAnalyticsLink {}
+
+    /**
+     * Sets dataverse this link belongs to
+     *
+     * @param string $dataverse
+     * @return S3ExternalAnalyticsLink
+     */
+    public function dataverse(string $dataverse): S3ExternalAnalyticsLink {}
+
+    /**
+     * Sets AWS S3 access key ID
+     *
+     * @param string $accessKeyId
+     * @return S3ExternalAnalyticsLink
+     */
+    public function accessKeyId(string $accessKeyId): S3ExternalAnalyticsLink {}
+
+    /**
+     * Sets AWS S3 secret key
+     *
+     * @param string $secretAccessKey
+     * @return S3ExternalAnalyticsLink
+     */
+    public function secretAccessKey(string $secretAccessKey): S3ExternalAnalyticsLink {}
+
+    /**
+     * Sets AWS S3 region
+     *
+     * @param string $region
+     * @return S3ExternalAnalyticsLink
+     */
+    public function region(string $region): S3ExternalAnalyticsLink {}
+
+    /**
+     * Sets AWS S3 token if temporary credentials are provided. Only available in 7.0+
+     *
+     * @param string $sessionToken
+     * @return S3ExternalAnalyticsLink
+     */
+    public function sessionToken(string $sessionToken): S3ExternalAnalyticsLink {}
+
+    /**
+     * Sets AWS S3 service endpoint
+     *
+     * @param string $serviceEndpoint
+     * @return S3ExternalAnalyticsLink
+     */
+    public function serviceEndpoint(string $serviceEndpoint): S3ExternalAnalyticsLink {}
+}
+
+class AnalyticsIndexManager
+{
+    public function createDataverse(string $dataverseName, CreateAnalyticsDataverseOptions $options = null) {}
+
+    public function dropDataverse(string $dataverseName, DropAnalyticsDataverseOptions $options = null) {}
+
+    public function createDataset(string $datasetName, string $bucketName, CreateAnalyticsDatasetOptions $options = null) {}
+
+    public function dropDataset(string $datasetName, DropAnalyticsDatasetOptions $options = null) {}
+
+    public function getAllDatasets() {}
+
+    public function createIndex(string $datasetName, string $indexName, array $fields, CreateAnalyticsIndexOptions $options = null) {}
+
+    public function dropIndex(string $datasetName, string $indexName, DropAnalyticsIndexOptions $options = null) {}
+
+    public function getAllIndexes() {}
+
+    public function connectLink(ConnectAnalyticsLinkOptions $options = null) {}
+
+    public function disconnectLink(DisconnectAnalyticsLinkOptions $options = null) {}
+
+    public function getPendingMutations() {}
+
+    public function createLink(AnalyticsLink $link, CreateAnalyticsLinkOptions $options = null) {}
+
+    public function replaceLink(AnalyticsLink $link, ReplaceAnalyticsLinkOptions $options = null) {}
+
+    public function dropLink(string $linkName, string $dataverseName, DropAnalyticsLinkOptions $options = null) {}
+
+    public function getLinks(GetAnalyticsLinksOptions $options = null) {}
+}
+
 class SearchIndex implements JsonSerializable
 {
     public function jsonSerialize() {}
@@ -1001,6 +1352,13 @@ class Cluster
     public function users(): UserManager {}
 
     /**
+     * Creates a new query index manager object for managing analytics query indexes.
+     *
+     * @return AnalyticsIndexManager
+     */
+    public function analyticsIndexes(): AnalyticsIndexManager {}
+
+    /**
      * Creates a new query index manager object for managing N1QL query indexes.
      *
      * @return QueryIndexManager
@@ -1051,6 +1409,12 @@ interface EvictionPolicy
     public const NOT_RECENTLY_USED = "nruEviction";
 }
 
+interface StorageBackend
+{
+    public const COUCHSTORE = "couchstore";
+    public const MAGMA = "magma";
+}
+
 class BucketSettings
 {
     public function name(): string {}
@@ -1066,6 +1430,8 @@ class BucketSettings
     public function bucketType(): string {}
 
     public function evictionPolicy(): string {}
+
+    public function storageBackend(): string {}
 
     public function maxTtl(): int {}
 
@@ -1095,6 +1461,16 @@ class BucketSettings
      * @see \EvictionPolicy::NOT_RECENTLY_USED
      */
     public function setEvictionPolicy(string $policy): BucketSettings {}
+
+    /**
+     * Configures storage backend for the bucket.
+     *
+     * @param string $policy storage backend. Use constants COUCHSTORE, MAGMA.
+     *
+     * @see \StorageBackend::COUCHSTORE
+     * @see \StorageBackend::MAGMA
+     */
+    public function setStorageBackend(string $policy): BucketSettings {}
 
     public function setMaxTtl(int $ttlSeconds): BucketSettings {}
 
@@ -1476,6 +1852,35 @@ class Collection
     public function mutateIn(string $id, array $specs, MutateInOptions $options = null): MutateInResult {}
 
     /**
+     * Retrieves a group of documents. If the document does not exist, it will not raise an exception, but rather fill
+     * non-null value in error() property of the corresponding result object.
+     *
+     * @param array $ids array of IDs, organized like this ["key1", "key2", ...]
+     * @param GetOptions $options the options to use for the operation
+     * @return array array of GetResult, one for each of the entries
+     */
+    public function getMulti(array $ids, RemoveOptions $options = null): array {}
+
+    /**
+     * Removes a group of documents. If second element of the entry (CAS) is null, then the operation will
+     * remove the document unconditionally.
+     *
+     * @param array $entries array of arrays, organized like this [["key1", "encodedCas1"], ["key2", , "encodedCas2"], ...] or ["key1", "key2", ...]
+     * @param RemoveOptions $options the options to use for the operation
+     * @return array array of MutationResult, one for each of the entries
+     */
+    public function removeMulti(array $entries, RemoveOptions $options = null): array {}
+
+    /**
+     * Creates a group of documents if they don't exist, otherwise updates them.
+     *
+     * @param array $entries array of arrays, organized like this [["key1", $value1], ["key2", $value2], ...]
+     * @param UpsertOptions $options the options to use for the operation
+     * @return array array of MutationResult, one for each of the entries
+     */
+    public function upsertMulti(array $entries, UpsertOptions $options = null): array {}
+
+    /**
      * Creates and returns a BinaryCollection object for use with binary type documents.
      *
      * @return BinaryCollection
@@ -1513,6 +1918,15 @@ class Scope
      * @return QueryResult
      */
     public function query(string $statement, QueryOptions $options = null): QueryResult {}
+
+    /**
+     * Executes an analytics query against the cluster with scopeName set implicitly.
+     *
+     * @param string $statement the analytics query statement to execute
+     * @param AnalyticsOptions $options the options to use when executing the query
+     * @return AnalyticsResult
+     */
+    public function analyticsQuery(string $statement, AnalyticsOptions $options = null): AnalyticsResult {}
 }
 
 class ScopeSpec
@@ -1632,7 +2046,7 @@ class Bucket
      *
      * @param mixed $reportId a name which will be included within the ping result
      */
-    public function diagnostics($reportId): array {}
+    public function diagnostics($reportId) {}
 }
 
 class View
@@ -1938,6 +2352,14 @@ class SearchOptions implements JsonSerializable
      * @see \SearchHighlightMode::SIMPLE
      */
     public function highlight(string $style = null, array $fields = null): SearchOptions {}
+
+    /**
+     * Configures the list of collections to use for restricting results.
+     *
+     * @param string[] $collectionNames
+     * @return SearchOptions
+     */
+    public function collections(array $collectionNames): SearchOptions {}
 }
 
 interface SearchHighlightMode
@@ -2943,6 +3365,14 @@ class UpsertOptions
     public function expiry(mixed $arg): UpsertOptions {}
 
     /**
+     * Sets whether the original expiration should be preserved (by default Replace operation updates expiration).
+     *
+     * @param bool $shouldPreserve if true, the expiration time will not be updated
+     * @return UpsertOptions
+     */
+    public function preserveExpiry(bool $shouldPreserve): UpsertOptions {}
+
+    /**
      * Sets the durability level to enforce when writing the document.
      *
      * @param int $arg the durability level to enforce
@@ -2977,6 +3407,14 @@ class ReplaceOptions
      * @return ReplaceOptions
      */
     public function expiry(mixed $arg): ReplaceOptions {}
+
+    /**
+     * Sets whether the original expiration should be preserved (by default Replace operation updates expiration).
+     *
+     * @param bool $shouldPreserve if true, the expiration time will not be updated
+     * @return ReplaceOptions
+     */
+    public function preserveExpiry(bool $shouldPreserve): ReplaceOptions {}
 
     /**
      * Sets the cas value for the operation.
@@ -3248,6 +3686,14 @@ class MutateInOptions
      * @return MutateInOptions
      */
     public function expiry(mixed $arg): MutateInOptions {}
+
+    /**
+     * Sets whether the original expiration should be preserved (by default Replace operation updates expiration).
+     *
+     * @param bool $shouldPreserve if true, the expiration time will not be updated
+     * @return MutateInOptions
+     */
+    public function preserveExpiry(bool $shouldPreserve): MutateInOptions {}
 
     /**
      * Sets the durability level to enforce when writing the document.
@@ -3527,6 +3973,160 @@ interface QueryProfile
 class ClusterOptions
 {
     public function credentials(string $username, string $password): ClusterOptions {}
+}
+
+/**
+ * Provides an interface for recording values.
+ */
+interface ValueRecorder
+{
+    /**
+     * Records a new value.
+     *
+     * @param int $value The value to record.
+     */
+    public function recordValue(int $value): void;
+}
+
+/**
+ * Providers an interface to create value recorders for recording metrics.
+ */
+interface Meter
+{
+    /**
+     * Creates a new value recorder for a metric with the specified tags.
+     *
+     * @param string $name The name of the metric.
+     * @param array $tags The tags to associate with the metric.
+     *
+     * @return ValueRecorder
+     */
+    public function valueRecorder(string $name, array $tags): ValueRecorder;
+}
+
+/**
+ * Implements a no-op meter which performs no metrics instrumentation.  Note that
+ * to reduce the performance impact of using this meter, this class is not
+ * actually used by the SDK, and simply acts as a placeholder which triggers a
+ * native implementation to be used instead.
+ */
+class NoopMeter implements Meter
+{
+    public function valueRecorder(string $name, array $tags): ValueRecorder {}
+}
+
+/**
+ * Implements a default meter which logs metrics on a regular basis.  Note that
+ * to reduce the performance impact of using this meter, this class is not
+ * actually used by the SDK, and simply acts as a placeholder which triggers a
+ * native implementation to be used instead.
+ */
+class LoggingMeter implements Meter
+{
+    /**
+     * @param int $duration duration in microseconds how often the metrics should be flushed in the log.
+     */
+    public function flushInterval(int $duration): LoggingMeter {}
+
+    public function valueRecorder(string $name, array $tags): ValueRecorder {}
+}
+
+/**
+ * Represents a span of time an event occurs over.
+ */
+interface RequestSpan
+{
+    /**
+     * Adds an tag to this span.
+     *
+     * @param string $key The key of the tag to add.
+     * @param int|string $value The value to assign to the tag.
+     */
+    public function addTag(string $key, $value): void;
+
+    /**
+     * Ends this span.
+     */
+    public function end(): void;
+}
+
+/**
+ * Represents a tracer capable of creating trace spans.
+ */
+interface RequestTracer
+{
+    /**
+     * Creates a new request span.
+     *
+     * @param string $name The name of the span.
+     * @param string|null $parent The parent of the span, if one exists.
+     */
+    public function requestSpan(string $name, RequestSpan $parent = null);
+}
+
+/**
+ * This implements a basic default tracer which keeps track of operations
+ * which falls outside a specified threshold.  Note that to reduce the
+ * performance impact of using this tracer, this class is not actually
+ * used by the SDK, and simply acts as a placeholder which triggers a
+ * native implementation to be used instead.
+ */
+class ThresholdLoggingTracer implements RequestTracer
+{
+    public function requestSpan(string $name, RequestSpan $parent = null) {}
+
+    /**
+     * Specifies how often aggregated trace information should be logged,
+     * specified in microseconds.
+     */
+    public function emitInterval(int $duration) {}
+
+    /**
+     * Specifies the threshold for when a kv request should be included
+     * in the aggregated metrics, specified in microseconds.
+     */
+    public function kvThreshold(int $duration) {}
+
+    /**
+     * Specifies the threshold for when a query request should be included
+     * in the aggregated metrics, specified in microseconds.
+     */
+    public function queryThreshold(int $duration) {}
+
+    /**
+     * Specifies the threshold for when a views request should be included
+     * in the aggregated metrics, specified in microseconds.
+     */
+    public function viewsThreshold(int $duration) {}
+
+    /**
+     * Specifies the threshold for when a search request should be included
+     * in the aggregated metrics, specified in microseconds.
+     */
+    public function searchThreshold(int $duration) {}
+
+    /**
+     * Specifies the threshold for when an analytics request should be included
+     * in the aggregated metrics, specified in microseconds.
+     */
+    public function analyticsThreshold(int $duration) {}
+
+    /**
+     * Specifies the number of entries which should be kept between each
+     * logging interval.
+     */
+    public function sampleSize(int $size) {}
+}
+
+/**
+ * Implements a no-op tracer which performs no work.  Note that to reduce the
+ * performance impact of using this tracer, this class is not actually
+ * used by the SDK, and simply acts as a placeholder which triggers a
+ * native implementation to be used instead.
+ */
+class NoopTracer implements RequestTracer
+{
+    public function requestSpan(string $name, RequestSpan $parent = null) {}
 }
 
 /**

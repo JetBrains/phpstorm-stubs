@@ -212,7 +212,7 @@ function chr(int $codepoint): string {}
  * @param string $character <p>
  * A character.
  * </p>
- * @return int the ASCII value as an integer.
+ * @return int<0, 255> the ASCII value as an integer.
  */
 #[Pure]
 function ord(string $character): int {}

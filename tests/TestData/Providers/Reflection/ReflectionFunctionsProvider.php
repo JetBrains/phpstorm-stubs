@@ -17,6 +17,17 @@ class ReflectionFunctionsProvider
         }
     }
 
+    public static function functionsForReturnTypeHintsTestProvider(): ?Generator
+    {
+        foreach (EntitiesFilter::getFiltered(
+            ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
+            null,
+            StubProblemType::WRONG_RETURN_TYPEHINT
+        ) as $function) {
+            yield "function $function->name" => [$function];
+        }
+    }
+
     public static function functionsForDeprecationTestsProvider(): ?Generator
     {
         foreach (EntitiesFilter::getFiltered(

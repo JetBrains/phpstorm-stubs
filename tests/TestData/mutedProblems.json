@@ -965,6 +965,32 @@
           ]
         }
       ]
+    },
+    {
+      "name": "print_r",
+      "problems": [
+        {
+          "description": "wrong return typehint",
+          "versions": [
+            8.0,
+            8.1,
+            8.2
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rewinddir",
+      "problems": [
+        {
+          "description": "wrong return typehint",
+          "versions": [
+            8.0,
+            8.1,
+            8.2
+          ]
+        }
+      ]
     }
   ],
   "classes": [
