@@ -711,7 +711,7 @@ interface Countable
  * Weak references allow the programmer to retain a reference to an
  * object which does not prevent the object from being destroyed.
  * They are useful for implementing cache like structures.
- * @template T
+ * @template T of object
  * @link https://www.php.net/manual/en/class.weakreference.php
  * @since 7.4
  */
@@ -727,7 +727,7 @@ final class WeakReference
     /**
      * Create a new weak reference.
      * @link https://www.php.net/manual/en/weakreference.create.php
-     * @template TIn
+     * @template TIn of object
      * @param TIn $object
      * @return WeakReference<TIn> the freshly instantiated object.
      * @since 7.4
