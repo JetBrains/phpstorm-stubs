@@ -728,7 +728,7 @@ final class WeakReference
      * Create a new weak reference.
      * @link https://www.php.net/manual/en/weakreference.create.php
      * @template TIn of object
-     * @param TIn $object
+     * @param TIn $object Any object
      * @return WeakReference<TIn> the freshly instantiated object.
      * @since 7.4
      */
