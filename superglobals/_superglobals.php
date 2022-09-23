@@ -184,6 +184,7 @@ $HTTP_SESSION_VARS = [];
 
 /**
  * @xglobal $argc int
+ * @type int<1, max>
  *
  * The number of arguments passed to script
  *
@@ -200,7 +201,7 @@ $argc = 0;
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  */
-$argv = [];
+$argv = [1 + 1 => "a" . "b"];
 
 /**
  * @xglobal $HTTP_RAW_POST_DATA string
