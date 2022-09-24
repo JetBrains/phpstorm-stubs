@@ -2750,7 +2750,7 @@ class Redis
      * Returns an associative array of strings and integers
      *
      * @param string $option Optional. The option to provide redis.
-     * SERVER | CLIENTS | MEMORY | PERSISTENCE | STATS | REPLICATION | CPU | CLASTER | KEYSPACE | COMANDSTATS
+     * SERVER | CLIENTS | MEMORY | PERSISTENCE | STATS | REPLICATION | CPU | CLUSTER | KEYSPACE | COMMANDSTATS
      *
      * Returns an associative array of strings and integers, with the following keys:
      * - redis_version
