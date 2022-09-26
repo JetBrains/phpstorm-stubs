@@ -109,11 +109,11 @@ namespace PHPSTORM_META {
   override(\simplexml_load_string(1), map(["" => "$1"]));
   override(\simplexml_import_dom(1), map(["" => "$1"]));
 
-    function expectedArguments($functionReference, $argumentIndex, $values) {
+    function expectedArguments($functionReference, $argumentIndex, ...$values) {
         return "expectedArguments " . $functionReference . "at " . $argumentIndex . ": " . $values;
     }
 
-    function registerArgumentsSet($setName, $values) {
+    function registerArgumentsSet($setName, ...$values) {
         return "registerArgumentsSet " . $setName . ": "  . $values;
     }
 
