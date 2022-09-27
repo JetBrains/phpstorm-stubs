@@ -133,7 +133,9 @@ class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
             foreach ($expectedArguments as $constantReference) {
                 if ($constantReference instanceof ClassConstFetch) {
                     $fqn = self::getClassMemberFqn($constantReference->class->toCodeString(), (string)$constantReference->name);
-                    self::assertArrayHasKey($fqn, self::$constantsFqns, "Can't resolve class constant " . $fqn);
+                    if (!str_starts_with($fqn, self::PSR_LOG_LOGGER_NAMESPACE_PREFIX)) {
+                        self::assertArrayHasKey($fqn, self::$constantsFqns, "Can't resolve class constant " . $fqn);
+                    }
                 } elseif ($constantReference instanceof ConstFetch) {
                     $fqn = self::toPresentableFqn($constantReference->name->toCodeString());
                     self::assertArrayHasKey($fqn, self::$constantsFqns, "Can't resolve constant " . $fqn);
