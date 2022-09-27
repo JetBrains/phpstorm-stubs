@@ -31,6 +31,7 @@ use function substr;
 class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
 {
     private const PSR_LOG_LOGGER_NAMESPACE_PREFIX = "Psr\\Log\\";
+
     /**
      * @var ExpectedFunctionArgumentsInfo[]
      */
