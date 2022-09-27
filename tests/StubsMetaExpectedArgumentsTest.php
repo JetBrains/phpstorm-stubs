@@ -30,6 +30,7 @@ use function substr;
 
 class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
 {
+    private const PSR_LOG_LOGGER_NAMESPACE_PREFIX = "Psr\\Log\\";
     /**
      * @var ExpectedFunctionArgumentsInfo[]
      */
@@ -104,11 +105,15 @@ class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
             $expr = $argument->getFunctionReference();
             if ($expr instanceof FuncCall) {
                 $fqn = self::toPresentableFqn($expr->name->toCodeString());
-                self::assertArrayHasKey($fqn, self::$functionsFqns, "Can't resolve function " . $fqn);
+                if (!str_starts_with($fqn, self::PSR_LOG_LOGGER_NAMESPACE_PREFIX)) {
+                    self::assertArrayHasKey($fqn, self::$functionsFqns, "Can't resolve function " . $fqn);
+                }
             } elseif ($expr instanceof StaticCall) {
                 if ((string)$expr->name !== '__construct') {
                     $fqn = self::getClassMemberFqn($expr->class->toCodeString(), (string)$expr->name);
-                    self::assertArrayHasKey($fqn, self::$methodsFqns, "Can't resolve method " . $fqn);
+                    if (!str_starts_with($fqn, self::PSR_LOG_LOGGER_NAMESPACE_PREFIX)) {
+                        self::assertArrayHasKey($fqn, self::$methodsFqns, "Can't resolve method " . $fqn);
+                    }
                 }
             } elseif ($expr !== null) {
                 self::fail('First argument should be function reference or method reference, got: ' . $expr::class);
