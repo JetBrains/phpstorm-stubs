@@ -251,7 +251,7 @@ function dirname(string $path, #[PhpStormStubsElementAvailable(from: '7.0')] int
  * PATHINFO_FILENAME. It
  * defaults to return all elements.
  * </p>
- * @return string[]|string The following associative array elements are returned:
+ * @return array{dirname: string, basename: string, extension: string, filename: string} The following associative array elements are returned:
  * dirname, basename,
  * extension (if any), and filename.
  * </p>
@@ -260,7 +260,12 @@ function dirname(string $path, #[PhpStormStubsElementAvailable(from: '7.0')] int
  * string if not all elements are requested.
  */
 #[Pure(true)]
-function pathinfo(string $path, int $flags = PATHINFO_ALL): array|string {}
+function pathinfo(string $path, #[ExpectedValues(flags: [
+    PATHINFO_DIRNAME,
+    PATHINFO_BASENAME,
+    PATHINFO_EXTENSION,
+    PATHINFO_FILENAME
+])] int $flags = PATHINFO_ALL): array|string {}
 
 /**
  * Un-quotes a quoted string
