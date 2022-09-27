@@ -1036,7 +1036,7 @@ function str_rot13(string $string): string {}
 /**
  * Retrieve list of registered filters
  * @link https://php.net/manual/en/function.stream-get-filters.php
- * @return array an indexed array containing the name of all stream filters
+ * @return list<string> an indexed array containing the name of all stream filters
  * available.
  */
 #[Pure(true)]

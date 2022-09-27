@@ -983,7 +983,7 @@ function stream_wrapper_restore(string $protocol): bool {}
 /**
  * Retrieve list of registered streams
  * @link https://php.net/manual/en/function.stream-get-wrappers.php
- * @return array an indexed array containing the name of all stream wrappers
+ * @return list<string> an indexed array containing the name of all stream wrappers
  * available on the running system.
  */
 #[Pure(true)]
@@ -992,7 +992,7 @@ function stream_get_wrappers(): array {}
 /**
  * Retrieve list of registered socket transports
  * @link https://php.net/manual/en/function.stream-get-transports.php
- * @return array an indexed array of socket transports names.
+ * @return list<string> an indexed array of socket transports names.
  */
 #[Pure(true)]
 function stream_get_transports(): array {}
