@@ -991,6 +991,39 @@
           ]
         }
       ]
+    },
+    {
+      "name": "stream_get_filters",
+      "problems": [
+        {
+          "description": "has type mismatch in signature and phpdoc",
+          "versions": [
+            "ALL"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stream_get_transports",
+      "problems": [
+        {
+          "description": "has type mismatch in signature and phpdoc",
+          "versions": [
+            "ALL"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stream_get_wrappers",
+      "problems": [
+        {
+          "description": "has type mismatch in signature and phpdoc",
+          "versions": [
+            "ALL"
+          ]
+        }
+      ]
     }
   ],
   "classes": [
