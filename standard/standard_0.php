@@ -2,6 +2,7 @@
 
 // Start of standard v.5.3.2-0.dotdeb.1
 
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
@@ -912,6 +913,7 @@ function iptcembed(string $iptc_data, string $filename, int $spool = 0): string|
  * On failure, false is returned.
  * </p>
  */
+#[ArrayShape([0 => "int", 1 => "int", 2 => "int", 3 => "string", "bits" => "int", "channels" => "int", "mime" => "string"])]
 function getimagesize(string $filename, &$image_info): array|false {}
 
 /**
