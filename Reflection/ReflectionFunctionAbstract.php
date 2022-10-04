@@ -133,6 +133,15 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function getClosureScopeClass(): ?ReflectionClass {}
 
     /**
+     * @return ReflectionClass|null Returns the class on success or {@see null}
+     * on failure.
+     * @since 8.0
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getClosureCalledClass(): ?ReflectionClass {}
+
+    /**
      * Gets doc comment
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getdoccomment.php
