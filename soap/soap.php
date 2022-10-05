@@ -878,7 +878,7 @@ class SoapFault extends Exception
      * @param string $actor [optional] <p>
      * A string identifying the actor that caused the error.
      * </p>
-     * @param string $details [optional] <p>
+     * @param mixed $details [optional] <p>
      * More details about the cause of the error.
      * </p>
      * @param string $name [optional] <p>
