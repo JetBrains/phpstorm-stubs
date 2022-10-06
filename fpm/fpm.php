@@ -2,9 +2,9 @@
 /**
  * Returns FPM status info array
  * @since 7.3
- * @return array
+ * @return array|false
  */
-function fpm_get_status(): array {}
+function fpm_get_status(): array|false {}
 
 /**
  * This function flushes all response data to the client and finishes the request.
