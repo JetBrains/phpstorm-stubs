@@ -2757,6 +2757,7 @@ function curl_multi_getcontent(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'],
  * @return array|false On success, returns an associative array for the message, false on failure.
  */
 #[Pure]
+#[ArrayShape(["msg" => "string", "result" => "string", "handle" => "resource"])]
 function curl_multi_info_read(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle, &$queued_messages): array|false {}
 
 /**

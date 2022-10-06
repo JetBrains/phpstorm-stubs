@@ -4,6 +4,7 @@
  * @link https://php.net/manual/en/book.mysqli.php
  */
 
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
@@ -1827,6 +1828,11 @@ function mysqli_errno(mysqli $mysql): int {}
  * @return array A list of errors, each as an associative array containing the errno, error, and sqlstate.
  * @since 5.4
  */
+#[ArrayShape([
+    "errno" => "int",
+    "sqlstate" => "string",
+    "error" => "string",
+])]
 function mysqli_error_list(mysqli $mysql): array {}
 
 /**
@@ -2121,6 +2127,7 @@ function mysqli_get_host_info(mysqli $mysql): string {}
  * </dl>
  * @since 5.6
  */
+#[ArrayShape(["total" => "int", "active_plinks" => "int", "cached_plinks" => "int"])]
 function mysqli_get_links_stats(): array {}
 
 /**

@@ -779,6 +779,12 @@ class DateTimeZone
      * @link https://php.net/manual/en/datetimezone.getlocation.php
      */
     #[TentativeType]
+    #[ArrayShape([
+        'country_code' => 'string',
+        'latitude' => 'double',
+        'longitude' => 'double',
+        'comments' => 'string',
+    ])]
     public function getLocation(): array|false {}
 
     /**

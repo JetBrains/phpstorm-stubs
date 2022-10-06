@@ -1,6 +1,7 @@
 <?php
 
 // Start of iconv v.
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -60,6 +61,7 @@ function ob_iconv_handler(string $contents, int $status): string {}
  * </p>
  */
 #[Pure]
+#[ArrayShape(["input_encoding" => "string", "output_encoding" => "string", "internal_encoding" => "string"])]
 function iconv_get_encoding(string $type = "all"): array|string|false {}
 
 /**

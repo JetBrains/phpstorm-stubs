@@ -133,6 +133,7 @@ function stream_context_set_params($context, array $params): bool {}
  * </p>
  * @return array an associate array containing all context options and parameters.
  */
+#[ArrayShape(["notification" => "string", "options" => "array"])]
 function stream_context_get_params($context): array {}
 
 /**

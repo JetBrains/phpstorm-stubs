@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
@@ -84,6 +85,22 @@ use JetBrains\PhpStorm\Pure;
  * </p>
  */
 #[Pure]
+#[ArrayShape([
+    "GD Version" => "string",
+    "FreeType Support" => "bool",
+    "GIF Read Support" => "bool",
+    "GIF Create Support" => "bool",
+    "JPEG Support" => "bool",
+    "PNG Support" => "bool",
+    "WBMP Support" => "bool",
+    "XPM Support" => "bool",
+    "XBM Support" => "bool",
+    "WebP Support" => "bool",
+    "BMP Support" => "bool",
+    "TGA Read Support" => "bool",
+    "AVIF Support" => "bool",
+    "JIS-mapped Japanese Font Support" => "bool"
+])]
 function gd_info(): array {}
 
 /**
@@ -372,6 +389,7 @@ function imagecolorstotal(GdImage $image): int {}
  */
 #[Pure]
 #[LanguageLevelTypeAware(['8.0' => 'array'], default: 'array|false')]
+#[ArrayShape(["red" => "int", "green" => "int", "blue" => "int", "alpha" => "int"])]
 function imagecolorsforindex(GdImage $image, int $color) {}
 
 /**

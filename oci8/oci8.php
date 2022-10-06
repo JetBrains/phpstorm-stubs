@@ -1,6 +1,7 @@
 <?php
 
 // Start of oci8 v.2.0.7
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
@@ -1498,6 +1499,7 @@ function oci_pconnect($username, $password, $connection_string = null, $characte
  * </tr>
  * </table>
  */
+#[ArrayShape(["code" => "int", "message" => "string", "offset" => "int", "sqltext" => "string"])]
 function oci_error($resource = null) {}
 
 /**

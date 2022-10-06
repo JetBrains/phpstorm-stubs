@@ -1,6 +1,7 @@
 <?php
 
 // Start of posix v.
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -207,6 +208,14 @@ function posix_getsid(int $process_id): int|false {}
  * libc.
  */
 #[Pure]
+#[ArrayShape([
+    'sysname' => 'string',
+    'nodename' => 'string',
+    'release' => 'string',
+    'version' => 'string',
+    'machine' => 'string',
+    'domainname' => 'string',
+])]
 function posix_uname(): array|false {}
 
 /**
@@ -222,6 +231,13 @@ function posix_uname(): array|false {}
  * cstime - system time used by current process and children.
  */
 #[Pure]
+#[ArrayShape([
+    'ticks' => 'int',
+    'utime' => 'int',
+    'stime' => 'int',
+    'cutime' => 'int',
+    'cstime' => 'int'
+])]
 function posix_times(): array|false {}
 
 /**
@@ -505,6 +521,15 @@ function posix_getgrgid(int $group_id): array|false {}
  * </table>
  */
 #[Pure]
+#[ArrayShape([
+    "name" => "string",
+    "passwd" => "string",
+    "uid" => "int",
+    "gid" => "int",
+    "gecos" => "string",
+    "dir" => "string",
+    "shell" => "string",
+])]
 function posix_getpwnam(string $username): array|false {}
 
 /**
@@ -581,6 +606,15 @@ function posix_getpwnam(string $username): array|false {}
  * </table>
  */
 #[Pure]
+#[ArrayShape([
+    'name' => 'string',
+    'passwd' => 'string',
+    'uid' => 'int',
+    'gid' => 'int',
+    'gecos' => 'string',
+    'dir' => 'string',
+    'shell' => 'string',
+])]
 function posix_getpwuid(int $user_id): array|false {}
 
 /**

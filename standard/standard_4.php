@@ -453,6 +453,7 @@ function ini_get(string $option): string|false {}
  * </p>
  */
 #[Pure(true)]
+#[ArrayShape(["global_value" => "string", "local_value" => "string", "access" => "int"])]
 function ini_get_all(?string $extension, #[PhpStormStubsElementAvailable(from: '7.0')] bool $details = true): array|false {}
 
 /**
@@ -879,6 +880,7 @@ function move_uploaded_file(string $from, string $to): bool {}
  * @since 7.3
  */
 #[Pure]
+#[ArrayShape(["description" => "string", "mac" => "string", "mtu" => "int", "unicast" => "array", "up" => "bool"])]
 function net_get_interfaces(): array|false {}
 
 /**

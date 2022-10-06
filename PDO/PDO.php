@@ -1851,6 +1851,7 @@ class PDOStatement implements IteratorAggregate
      * or if no result set exists.
      */
     #[TentativeType]
+    #[ArrayShape(["name" => "string", "len" => "int", "precision" => "int", "native_type" => "string", "flags" => "array", "pdo_type" => "int"])]
     public function getColumnMeta(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $column): array|false {}
 
     /**
