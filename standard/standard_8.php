@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
@@ -101,6 +102,7 @@ function header_register_callback(callable $callback): bool {}
  * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
  * @since 5.4
  */
+#[ArrayShape([0 => 'int', 1 => 'int', 2 => 'int', 3 => 'string', 'bits' => 'int', 'channels' => 'int', 'mime' => 'string'])]
 function getimagesizefromstring(string $string, &$image_info): array|false {}
 
 /**
@@ -339,6 +341,16 @@ function ob_get_level(): int {}
  * <tr><td>blocksize</td><td>...</td></tr>
  * </table>
  */
+#[ArrayShape([
+    "level" => "int",
+    "type" => "int",
+    "status" => "int",
+    "name" => "string",
+    "del" => "int",
+    "chunk_size" => "int",
+    "buffer_size" => "int",
+    "buffer_used" => "int",
+])]
 function ob_get_status(bool $full_status = false): array {}
 
 /**

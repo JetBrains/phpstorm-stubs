@@ -2,6 +2,7 @@
 
 // Start of mbstring v.
 
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
@@ -907,6 +908,21 @@ function mb_send_mail(string $to, string $subject, string $message, array|string
  * is not specified, otherwise a specific type.
  */
 #[Pure]
+#[ArrayShape([
+    'internal_encoding' => 'string',
+    'http_input' => 'string',
+    'http_output' => 'string',
+    'http_output_conv_mimetypes' => 'string',
+    'mail_charset' => 'string',
+    'mail_header_encoding' => 'string',
+    'mail_body_encoding' => 'string',
+    'illegal_chars' => 'string',
+    'encoding_translation' => 'string',
+    'language' => 'string',
+    'detect_order' => 'string',
+    'substitute_character' => 'string',
+    'strict_detection' => 'string',
+])]
 function mb_get_info(string $type = 'all'): array|string|int|false {}
 
 /**

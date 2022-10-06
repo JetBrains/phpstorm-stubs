@@ -1,6 +1,7 @@
 <?php
 
 // Start of odbc v.1.0
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
@@ -159,6 +160,7 @@ function odbc_cursor($result_id) {}
  * </p>
  * @return array|false <b>FALSE</b> on error, and an array upon success.
  */
+#[ArrayShape(["server" => "string", "description" => "string"])]
 function odbc_data_source($connection_id, $fetch_type) {}
 
 /**

@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
@@ -117,6 +118,7 @@ function bzerrstr($bz) {}
  */
 #[Pure]
 #[LanguageLevelTypeAware(['8.1' => 'array', '8.0' => 'array|false'], default: 'array')]
+#[ArrayShape(["errno" => "int", "errstr" => "string"])]
 function bzerror($bz) {}
 
 /**

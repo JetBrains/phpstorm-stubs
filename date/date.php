@@ -830,6 +830,17 @@ function time(): int {}
  * @return array
  */
 #[Pure(true)]
+#[ArrayShape([
+    'tm_sec' => 'int',
+    'tm_min' => 'int',
+    'tm_hour' => 'int',
+    'tm_mday' => 'int',
+    'tm_mon' => 'int',
+    'tm_year' => 'int',
+    'tm_wday' => 'int',
+    'tm_yday' => 'int',
+    'tm_isdst' => 'int',
+])]
 function localtime(?int $timestamp, bool $associative = false): array {}
 
 /**
@@ -912,6 +923,19 @@ function localtime(?int $timestamp, bool $associative = false): array {}
  * </table>
  */
 #[Pure(true)]
+#[ArrayShape([
+    'seconds' => 'int',
+    'minutes' => 'int',
+    'hours' => 'int',
+    'mday' => 'int',
+    'wday' => 'int',
+    'mon' => 'int',
+    'year' => 'int',
+    'yday' => 'int',
+    'weekday' => 'int',
+    'month' => 'string',
+    0 => 'int',
+])]
 function getdate(?int $timestamp): array {}
 
 /**
@@ -984,6 +1008,26 @@ function date_create_from_format(string $format, string $datetime, ?DateTimeZone
  */
 #[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
+#[ArrayShape([
+    "year" => "int",
+    "month" => "int",
+    "day" => "int",
+    "hour" => "int",
+    "minute" => "int",
+    "second" => "int",
+    "fraction" => "double",
+    "is_localtime" => "bool",
+    "zone_type" => "int",
+    "zone" => "int",
+    "is_dst" => "bool",
+    "tz_abbr" => "string",
+    "tz_id" => "string",
+    "relative" => "array",
+    "warning_count" => "int",
+    "warnings" => "array",
+    "error_count" => "int",
+    "errors" => "array"
+])]
 function date_parse(string $datetime): false|array {}
 
 /**
@@ -998,6 +1042,26 @@ function date_parse(string $datetime): false|array {}
  * @return array associative array with detailed info about given date.
  */
 #[Pure(true)]
+#[ArrayShape([
+    'year' => 'int',
+    'month' => 'int',
+    'day' => 'int',
+    'hour' => 'int',
+    'minute' => 'int',
+    'second' => 'int',
+    'fraction' => 'double',
+    'is_localtime' => 'bool',
+    'zone_type' => 'int',
+    'zone' => 'int',
+    'is_dst' => 'bool',
+    'tz_abbr' => 'string',
+    'tz_id' => 'string',
+    'relative' => 'array',
+    'warning_count' => 'int',
+    'warnings' => 'array',
+    'error_count' => 'int',
+    'errors' => 'array'
+])]
 function date_parse_from_format(string $format, string $datetime): array {}
 
 /**
@@ -1290,6 +1354,12 @@ function timezone_transitions_get(DateTimeZone $object, int $timestampBegin, int
  * @return array|false <p>Array containing location information about timezone.</p>
  */
 #[Pure(true)]
+#[ArrayShape([
+    'country_code' => 'string',
+    'latitude' => 'double',
+    'longitude' => 'double',
+    'comments' => 'string',
+])]
 function timezone_location_get(DateTimeZone $object): array|false {}
 
 /**
@@ -1518,6 +1588,17 @@ function date_sunset(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?f
  */
 #[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
+#[ArrayShape([
+    "sunrise" => "int",
+    "sunset" => "int",
+    "transit" => "int",
+    "civil_twilight_begin" => "int",
+    "civil_twilight_end" => "int",
+    "nautical_twilight_begin" => "int",
+    "nautical_twilight_end" => "int",
+    "astronomical_twilight_begin" => "int",
+    "astronomical_twilight_end" => "int"
+])]
 function date_sun_info(int $timestamp, float $latitude, float $longitude): array|false {}
 
 // End of date v.5.3.2-0.dotdeb.1

@@ -1,6 +1,7 @@
 <?php
 
 // Start of calendar v.
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
@@ -247,6 +248,17 @@ function cal_to_jd(int $calendar, int $month, int $day, int $year): int {}
  * day of week, abbreviated and full names of weekday and month and the
  * date in string form "month/day/year".
  */
+#[ArrayShape([
+    "date" => "string",
+    "month" => "int",
+    "day" => "int",
+    "year" => "int",
+    "dow" => "int",
+    "abbrevdayname" => "string",
+    "dayname" => "string",
+    "abbrevmonth" => "string",
+    "monthname" => "string"
+])]
 function cal_from_jd(int $julian_day, int $calendar): array {}
 
 /**
@@ -274,6 +286,7 @@ function cal_days_in_month(int $calendar, int $month, int $year): int {}
  * </p>
  * @return array
  */
+#[ArrayShape(["months" => "array", "abbrevmonths" => "array", "maxdaysinmonth" => "int", "calname" => "string", "calsymbol" => "string"])]
 function cal_info(int $calendar = -1): array {}
 
 define('CAL_GREGORIAN', 0);

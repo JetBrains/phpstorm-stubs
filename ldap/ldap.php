@@ -1,6 +1,7 @@
 <?php
 
 // Start of ldap v.
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware as PhpVersionAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable as Available;
@@ -624,6 +625,7 @@ function ldap_get_dn(
  * represents the number of returned values, next elements are numerically
  * indexed DN components.
  */
+#[ArrayShape(["count" => "int"])]
 function ldap_explode_dn(string $dn, int $with_attrib): array|false {}
 
 /**

@@ -260,6 +260,7 @@ function dirname(string $path, #[PhpStormStubsElementAvailable(from: '7.0')] int
  * string if not all elements are requested.
  */
 #[Pure(true)]
+#[ArrayShape(['dirname' => 'string', 'basename' => 'string', 'extension' => 'string', 'filename' => 'string'])]
 function pathinfo(string $path, #[ExpectedValues(flags: [
     PATHINFO_DIRNAME,
     PATHINFO_BASENAME,

@@ -216,6 +216,7 @@ function usleep(int $microseconds): void {}
  * remaining in the delay
  * </p>
  */
+#[ArrayShape(["seconds" => "int", "nanoseconds" => "int"])]
 function time_nanosleep(int $seconds, int $nanoseconds): array|bool {}
 
 /**
@@ -293,6 +294,17 @@ function time_sleep_until(float $timestamp): bool {}
  */
 #[Pure(true)]
 #[Deprecated(since: '8.1')]
+#[ArrayShape([
+    'tm_sec' => 'int',
+    'tm_min' => 'int',
+    'tm_hour' => 'int',
+    'tm_mday' => 'int',
+    'tm_mon' => 'int',
+    'tm_year' => 'int',
+    'tm_wday' => 'int',
+    'tm_yday' => 'int',
+    'unparsed' => 'string'
+])]
 function strptime(string $timestamp, string $format): array|false {}
 
 /**

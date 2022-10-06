@@ -1,6 +1,7 @@
 <?php
 
 // Start of imap v.
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
@@ -1218,6 +1219,7 @@ function imap_timeout(int $timeout_type, int $timeout = -1): int|bool {}
  * For backwards compatibility reasons, the original access methods are
  * still available for use, although it is suggested to update.
  */
+#[ArrayShape(["usage" => "int", "limit" => "int"])]
 function imap_get_quota(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $quota_root): array|false {}
 
 /**

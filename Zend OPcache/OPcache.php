@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\ArrayShape;
+
 /**
  * (PHP 5 &gt;= 5.5.5, PECL ZendOpcache &gt;= 7.0.2 )<br/>
  * Compiles and caches a PHP script without executing it
@@ -44,6 +46,19 @@ function opcache_reset(): bool {}
  * @return array|false <p>Returns an array of information, optionally containing script specific state information</p>
  * @since 5.5
  */
+#[ArrayShape([
+    'opcache_enabled' => 'bool',
+    'file_cache' => 'string',
+    'file_cache_only' => 'bool',
+    'cache_full' => 'bool',
+    'restart_pending' => 'bool',
+    'restart_in_progress' => 'bool',
+    'memory_usage' => 'array',
+    'interned_strings_usage' => 'array',
+    'opcache_statistics' => 'array',
+    'preload_statistics' => 'array',
+    'scripts' => 'array',
+])]
 function opcache_get_status(bool $include_scripts = true): array|false {}
 
 /**
@@ -53,6 +68,7 @@ function opcache_get_status(bool $include_scripts = true): array|false {}
  * @return array|false <p>Returns an array of information, including ini, blacklist and version</p>
  * @since 5.5
  */
+#[ArrayShape(["directives" => "array", "version" => "string[]", "blacklist" => "array"])]
 function opcache_get_configuration(): array|false {}
 
 /**
