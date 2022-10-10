@@ -7,6 +7,63 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 
 /**
+ * The <b>SplObserver</b> interface is used alongside
+ * <b>SplSubject</b> to implement the Observer Design Pattern.
+ * @link https://php.net/manual/en/class.splobserver.php
+ */
+interface SplObserver
+{
+    /**
+     * Receive update from subject
+     * @link https://php.net/manual/en/splobserver.update.php
+     * @param SplSubject $subject <p>
+     * The <b>SplSubject</b> notifying the observer of an update.
+     * </p>
+     * @return void
+     */
+    #[TentativeType]
+    public function update(SplSubject $subject): void;
+}
+
+/**
+ * The <b>SplSubject</b> interface is used alongside
+ * <b>SplObserver</b> to implement the Observer Design Pattern.
+ * @link https://php.net/manual/en/class.splsubject.php
+ */
+interface SplSubject
+{
+    /**
+     * Attach an SplObserver
+     * @link https://php.net/manual/en/splsubject.attach.php
+     * @param SplObserver $observer <p>
+     * The <b>SplObserver</b> to attach.
+     * </p>
+     * @return void
+     */
+    #[TentativeType]
+    public function attach(SplObserver $observer): void;
+
+    /**
+     * Detach an observer
+     * @link https://php.net/manual/en/splsubject.detach.php
+     * @param SplObserver $observer <p>
+     * The <b>SplObserver</b> to detach.
+     * </p>
+     * @return void
+     */
+    #[TentativeType]
+    public function detach(SplObserver $observer): void;
+
+    /**
+     * Notify an observer
+     * @link https://php.net/manual/en/splsubject.notify.php
+     * @return void
+     */
+    #[TentativeType]
+    public function notify(): void;
+}
+
+/**
  * The SplFileInfo class offers a high-level object oriented interface to
  * information for an individual file.
  * @link https://php.net/manual/en/class.splfileinfo.php
@@ -777,7 +834,10 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @return bool true on success or false on failure.
      */
     #[TentativeType]
-    public function flock(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $operation, &$wouldBlock = null): bool {}
+    public function flock(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $operation,
+        &$wouldBlock = null
+    ): bool {}
 
     /**
      * Flushes the output to the file
@@ -1461,6 +1521,19 @@ abstract class SplHeap implements Iterator, Countable
     public function recoverFromCorruption(): bool {}
 
     /**
+     * @return bool
+     */
+    #[TentativeType]
+    public function isCorrupted(): bool {}
+
+    /**
+     * @return array
+     * @since 7.4
+     */
+    #[TentativeType]
+    public function __debugInfo(): array {}
+
+    /**
      * Compare elements in order to place them correctly in the heap while sifting up.
      * @link https://php.net/manual/en/splheap.compare.php
      * @param mixed $value1 <p>
@@ -1475,19 +1548,6 @@ abstract class SplHeap implements Iterator, Countable
      * Having multiple elements with the same value in a Heap is not recommended. They will end up in an arbitrary relative position.
      */
     abstract protected function compare($value1, $value2);
-
-    /**
-     * @return bool
-     */
-    #[TentativeType]
-    public function isCorrupted(): bool {}
-
-    /**
-     * @return array
-     * @since 7.4
-     */
-    #[TentativeType]
-    public function __debugInfo(): array {}
 }
 
 /**
@@ -1498,26 +1558,6 @@ abstract class SplHeap implements Iterator, Countable
  */
 class SplMinHeap extends SplHeap
 {
-    /**
-     * Compare elements in order to place them correctly in the heap while sifting up.
-     * @link https://php.net/manual/en/splminheap.compare.php
-     * @param TValue $value1 <p>
-     * The value of the first node being compared.
-     * </p>
-     * @param TValue $value2 <p>
-     * The value of the second node being compared.
-     * </p>
-     * @return int Result of the comparison, positive integer if <i>value1</i> is lower than <i>value2</i>, 0 if they are equal, negative integer otherwise.
-     * </p>
-     * <p>
-     * Having multiple elements with the same value in a Heap is not recommended. They will end up in an arbitrary relative position.
-     */
-    #[TentativeType]
-    protected function compare(
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value1,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value2
-    ): int {}
-
     /**
      * Extracts a node from top of the heap and sift up.
      * @link https://php.net/manual/en/splheap.extract.php
@@ -1597,6 +1637,26 @@ class SplMinHeap extends SplHeap
      * @return void
      */
     public function recoverFromCorruption() {}
+
+    /**
+     * Compare elements in order to place them correctly in the heap while sifting up.
+     * @link https://php.net/manual/en/splminheap.compare.php
+     * @param TValue $value1 <p>
+     * The value of the first node being compared.
+     * </p>
+     * @param TValue $value2 <p>
+     * The value of the second node being compared.
+     * </p>
+     * @return int Result of the comparison, positive integer if <i>value1</i> is lower than <i>value2</i>, 0 if they are equal, negative integer otherwise.
+     * </p>
+     * <p>
+     * Having multiple elements with the same value in a Heap is not recommended. They will end up in an arbitrary relative position.
+     */
+    #[TentativeType]
+    protected function compare(
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value1,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value2
+    ): int {}
 }
 
 /**
@@ -1813,22 +1873,6 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $size = 0) {}
 
     /**
-     * Returns the size of the array
-     * @link https://php.net/manual/en/splfixedarray.count.php
-     * @return int the size of the array.
-     */
-    #[TentativeType]
-    public function count(): int {}
-
-    /**
-     * Returns a PHP array from the fixed array
-     * @link https://php.net/manual/en/splfixedarray.toarray.php
-     * @return TValue[] a PHP array, similar to the fixed array.
-     */
-    #[TentativeType]
-    public function toArray(): array {}
-
-    /**
      * Import a PHP array in a <b>SplFixedArray</b> instance
      * @link https://php.net/manual/en/splfixedarray.fromarray.php
      * @param array $array <p>
@@ -1845,6 +1889,22 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
         #[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] $array,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $preserveKeys = true
     ): SplFixedArray {}
+
+    /**
+     * Returns the size of the array
+     * @link https://php.net/manual/en/splfixedarray.count.php
+     * @return int the size of the array.
+     */
+    #[TentativeType]
+    public function count(): int {}
+
+    /**
+     * Returns a PHP array from the fixed array
+     * @link https://php.net/manual/en/splfixedarray.toarray.php
+     * @return TValue[] a PHP array, similar to the fixed array.
+     */
+    #[TentativeType]
+    public function toArray(): array {}
 
     /**
      * Gets the size of the array
@@ -1965,63 +2025,6 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
     public function getIterator(): Iterator {}
 
     public function jsonSerialize(): array {}
-}
-
-/**
- * The <b>SplObserver</b> interface is used alongside
- * <b>SplSubject</b> to implement the Observer Design Pattern.
- * @link https://php.net/manual/en/class.splobserver.php
- */
-interface SplObserver
-{
-    /**
-     * Receive update from subject
-     * @link https://php.net/manual/en/splobserver.update.php
-     * @param SplSubject $subject <p>
-     * The <b>SplSubject</b> notifying the observer of an update.
-     * </p>
-     * @return void
-     */
-    #[TentativeType]
-    public function update(SplSubject $subject): void;
-}
-
-/**
- * The <b>SplSubject</b> interface is used alongside
- * <b>SplObserver</b> to implement the Observer Design Pattern.
- * @link https://php.net/manual/en/class.splsubject.php
- */
-interface SplSubject
-{
-    /**
-     * Attach an SplObserver
-     * @link https://php.net/manual/en/splsubject.attach.php
-     * @param SplObserver $observer <p>
-     * The <b>SplObserver</b> to attach.
-     * </p>
-     * @return void
-     */
-    #[TentativeType]
-    public function attach(SplObserver $observer): void;
-
-    /**
-     * Detach an observer
-     * @link https://php.net/manual/en/splsubject.detach.php
-     * @param SplObserver $observer <p>
-     * The <b>SplObserver</b> to detach.
-     * </p>
-     * @return void
-     */
-    #[TentativeType]
-    public function detach(SplObserver $observer): void;
-
-    /**
-     * Notify an observer
-     * @link https://php.net/manual/en/splsubject.notify.php
-     * @return void
-     */
-    #[TentativeType]
-    public function notify(): void;
 }
 
 /**
@@ -2337,7 +2340,10 @@ class MultipleIterator implements Iterator
      * @return void Description...
      */
     #[TentativeType]
-    public function attachIterator(Iterator $iterator, #[LanguageLevelTypeAware(['8.0' => 'int|string|null'], default: '')] $info = null): void {}
+    public function attachIterator(
+        Iterator $iterator,
+        #[LanguageLevelTypeAware(['8.0' => 'int|string|null'], default: '')] $info = null
+    ): void {}
 
     /**
      * Detaches an iterator

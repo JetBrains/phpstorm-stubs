@@ -455,7 +455,11 @@ function deflate_init(int $encoding, array $options = []) {}
  * </p>
  * @since 7.0
  */
-function deflate_add(#[LanguageLevelTypeAware(["8.0" => "DeflateContext"], default: "resource")] $context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string|false {}
+function deflate_add(
+    #[LanguageLevelTypeAware(["8.0" => "DeflateContext"], default: "resource")] $context,
+    string $data,
+    int $flush_mode = ZLIB_SYNC_FLUSH
+): string|false {}
 
 /**
  * Initialize an incremental inflate context
@@ -503,7 +507,11 @@ function inflate_init(int $encoding, array $options = []) {}
  * </p>
  * @since 7.0
  */
-function inflate_add(#[LanguageLevelTypeAware(["8.0" => "InflateContext"], default: "resource")] $context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string|false {}
+function inflate_add(
+    #[LanguageLevelTypeAware(["8.0" => "InflateContext"], default: "resource")] $context,
+    string $data,
+    int $flush_mode = ZLIB_SYNC_FLUSH
+): string|false {}
 
 /**
  * Get number of bytes read so far

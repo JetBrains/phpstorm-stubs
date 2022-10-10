@@ -249,6 +249,26 @@ namespace ___PHPSTORM_HELPERS {
         public function __construct() {}
 
         /**
+         * is triggered when invoking inaccessible methods in a static context.
+         *
+         * @param string $name
+         * @param array $arguments
+         * @return mixed
+         * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.methods
+         */
+        public static function __callStatic(string $name, array $arguments) {}
+
+        /**
+         * This static method is called for classes exported by var_export() since PHP 5.1.0.
+         * The only parameter of this method is an array containing exported properties in the form array('property' => value, ...).
+         *
+         * @param array $an_array
+         * @return object
+         * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.set-state
+         */
+        public static function __set_state(array $an_array): object {}
+
+        /**
          * PHP 5 introduces a destructor concept similar to that of other object-oriented languages, such as C++.
          * The destructor method will be called as soon as all references to a particular object are removed or
          * when the object is explicitly destroyed or in any order in shutdown sequence.
@@ -275,16 +295,6 @@ namespace ___PHPSTORM_HELPERS {
          * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.methods
          */
         public function __call(string $name, array $arguments) {}
-
-        /**
-         * is triggered when invoking inaccessible methods in a static context.
-         *
-         * @param string $name
-         * @param array $arguments
-         * @return mixed
-         * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.methods
-         */
-        public static function __callStatic(string $name, array $arguments) {}
 
         /**
          * is utilized for reading data from inaccessible members.
@@ -371,16 +381,6 @@ namespace ___PHPSTORM_HELPERS {
          * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.debuginfo
          */
         public function __debugInfo(): ?array {}
-
-        /**
-         * This static method is called for classes exported by var_export() since PHP 5.1.0.
-         * The only parameter of this method is an array containing exported properties in the form array('property' => value, ...).
-         *
-         * @param array $an_array
-         * @return object
-         * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.set-state
-         */
-        public static function __set_state(array $an_array): object {}
 
         /**
          * When an object is cloned, PHP 5 will perform a shallow copy of all of the object's properties.

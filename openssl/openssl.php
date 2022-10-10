@@ -210,7 +210,11 @@ function openssl_get_publickey(#[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymme
  * @return string|false Returns a signed public key and challenge string or NULL on failure.
  * @since 5.6
  */
-function openssl_spki_new(#[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey"], default: "resource")] $private_key, string $challenge, int $digest_algo = 2): string|false {}
+function openssl_spki_new(
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey"], default: "resource")] $private_key,
+    string $challenge,
+    int $digest_algo = 2
+): string|false {}
 
 /**
  * Verifies a signed public key and challenge
@@ -238,6 +242,7 @@ function openssl_spki_export_challenge(string $spki): string|false {}
  * @since 5.6
  */
 function openssl_spki_export(string $spki): string|false {}
+
 /**
  * Parse an X.509 certificate and return a resource identifier for
  * it
@@ -255,7 +260,12 @@ function openssl_x509_read(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificat
  * @return string|false <b>FALSE</b> on failure
  * @since 5.6
  */
-function openssl_x509_fingerprint(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, string $digest_algo = 'sha1', bool $binary = false): string|false {}
+function openssl_x509_fingerprint(
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate,
+    string $digest_algo = 'sha1',
+    bool $binary = false
+): string|false {}
+
 /**
  * Free certificate resource
  * @link https://php.net/manual/en/function.openssl-x509-free.php
@@ -379,7 +389,11 @@ function openssl_x509_check_private_key(
  * @param bool $no_text [optional]
  * @return bool true on success or false on failure.
  */
-function openssl_x509_export(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, &$output, bool $no_text = true): bool {}
+function openssl_x509_export(
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate,
+    &$output,
+    bool $no_text = true
+): bool {}
 
 /**
  * Exports a certificate to file
@@ -391,7 +405,11 @@ function openssl_x509_export(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertific
  * @param bool $no_text [optional]
  * @return bool true on success or false on failure.
  */
-function openssl_x509_export_to_file(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, string $output_filename, bool $no_text = true): bool {}
+function openssl_x509_export_to_file(
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate,
+    string $output_filename,
+    bool $no_text = true
+): bool {}
 
 /**
  * Verifies digital signature of x509 certificate against a public key
@@ -449,7 +467,13 @@ function openssl_pkcs12_export(
  * @return bool true on success or false on failure.
  * @since 5.2.2
  */
-function openssl_pkcs12_export_to_file(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, string $output_filename, $private_key, string $passphrase, array $options = []): bool {}
+function openssl_pkcs12_export_to_file(
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate,
+    string $output_filename,
+    $private_key,
+    string $passphrase,
+    array $options = []
+): bool {}
 
 /**
  * Parse a PKCS#12 Certificate Store into an array
@@ -575,7 +599,11 @@ function openssl_csr_new(
  * @param bool $no_text [optional]
  * @return bool true on success or false on failure.
  */
-function openssl_csr_export(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")] $csr, &$output, bool $no_text = true): bool {}
+function openssl_csr_export(
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")] $csr,
+    &$output,
+    bool $no_text = true
+): bool {}
 
 /**
  * Exports a CSR to a file
@@ -587,7 +615,11 @@ function openssl_csr_export(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertifica
  * @param bool $no_text [optional]
  * @return bool true on success or false on failure.
  */
-function openssl_csr_export_to_file(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")] $csr, string $output_filename, bool $no_text = true): bool {}
+function openssl_csr_export_to_file(
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")] $csr,
+    string $output_filename,
+    bool $no_text = true
+): bool {}
 
 /**
  * Sign a CSR with another certificate (or itself) and generate a certificate
@@ -865,7 +897,13 @@ function openssl_open(
  * @return string|false Returns string or FALSE on failure.
  * @since 5.5
  */
-function openssl_pbkdf2(string $password, string $salt, int $key_length, int $iterations, string $digest_algo = 'sha1'): string|false {}
+function openssl_pbkdf2(
+    string $password,
+    string $salt,
+    int $key_length,
+    int $iterations,
+    string $digest_algo = 'sha1'
+): string|false {}
 
 /**
  * Verifies the signature of an S/MIME signed message
@@ -992,7 +1030,14 @@ function openssl_pkcs7_sign(
  * </p>
  * @return bool true on success or false on failure.
  */
-function openssl_pkcs7_encrypt(string $input_filename, string $output_filename, $certificate, ?array $headers, int $flags = 0, int $cipher_algo = OPENSSL_CIPHER_AES_128_CBC): bool {}
+function openssl_pkcs7_encrypt(
+    string $input_filename,
+    string $output_filename,
+    $certificate,
+    ?array $headers,
+    int $flags = 0,
+    int $cipher_algo = OPENSSL_CIPHER_AES_128_CBC
+): bool {}
 
 /**
  * Encrypts data with private key
@@ -1122,7 +1167,10 @@ function openssl_get_cipher_methods(bool $aliases = false): array {}
  * @return string|false computed key on success or false on failure.
  * @since 5.3
  */
-function openssl_dh_compute_key(string $public_key, #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey"], default: "resource")] $private_key): string|false {}
+function openssl_dh_compute_key(
+    string $public_key,
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey"], default: "resource")] $private_key
+): string|false {}
 
 /**
  * @param OpenSSLAsymmetricKey|OpenSSLCertificate|array|string $public_key
@@ -1196,7 +1244,17 @@ function openssl_pkcs7_read(string $data, &$certificates): bool {}
  * @return bool
  * @since 8.0
  */
-function openssl_cms_verify(string $input_filename, int $flags = 0, ?string $certificates, array $ca_info = [], ?string $untrusted_certificates_filename, ?string $content, ?string $pk7, ?string $sigfile, int $encoding = OPENSSL_ENCODING_SMIME): bool {}
+function openssl_cms_verify(
+    string $input_filename,
+    int $flags = 0,
+    ?string $certificates,
+    array $ca_info = [],
+    ?string $untrusted_certificates_filename,
+    ?string $content,
+    ?string $pk7,
+    ?string $sigfile,
+    int $encoding = OPENSSL_ENCODING_SMIME
+): bool {}
 
 /**
  * Encrypts the message in the file with the certificates and outputs the result to the supplied file.
@@ -1210,7 +1268,15 @@ function openssl_cms_verify(string $input_filename, int $flags = 0, ?string $cer
  * @return bool
  * @since 8.0
  */
-function openssl_cms_encrypt(string $input_filename, string $output_filename, $certificate, ?array $headers, int $flags = 0, int $encoding = OPENSSL_ENCODING_SMIME, int $cipher_algo = OPENSSL_CIPHER_AES_128_CBC): bool {}
+function openssl_cms_encrypt(
+    string $input_filename,
+    string $output_filename,
+    $certificate,
+    ?array $headers,
+    int $flags = 0,
+    int $encoding = OPENSSL_ENCODING_SMIME,
+    int $cipher_algo = OPENSSL_CIPHER_AES_128_CBC
+): bool {}
 
 /**
  * Signs the MIME message in the file with a cert and key and output the result to the supplied file.
@@ -1225,7 +1291,16 @@ function openssl_cms_encrypt(string $input_filename, string $output_filename, $c
  * @return bool
  * @since 8.0
  */
-function openssl_cms_sign(string $input_filename, string $output_filename, OpenSSLCertificate|string $certificate, $private_key, ?array $headers, int $flags = 0, int $encoding = OPENSSL_ENCODING_SMIME, ?string $untrusted_certificates_filename): bool {}
+function openssl_cms_sign(
+    string $input_filename,
+    string $output_filename,
+    OpenSSLCertificate|string $certificate,
+    $private_key,
+    ?array $headers,
+    int $flags = 0,
+    int $encoding = OPENSSL_ENCODING_SMIME,
+    ?string $untrusted_certificates_filename
+): bool {}
 
 /**
  * Decrypts the S/MIME message in the file and outputs the results to the supplied file.
@@ -1237,7 +1312,13 @@ function openssl_cms_sign(string $input_filename, string $output_filename, OpenS
  * @return bool
  * @since 8.0
  */
-function openssl_cms_decrypt(string $input_filename, string $output_filename, $certificate, $private_key = null, int $encoding = OPENSSL_ENCODING_SMIME): bool {}
+function openssl_cms_decrypt(
+    string $input_filename,
+    string $output_filename,
+    $certificate,
+    $private_key = null,
+    int $encoding = OPENSSL_ENCODING_SMIME
+): bool {}
 
 /**
  * Exports the CMS file to an array of PEM certificates.
@@ -1432,12 +1513,12 @@ define('OPENSSL_ENCODING_SMIME', 1);
 define('OPENSSL_ENCODING_PEM', 2);
 
 define('OPENSSL_DEFAULT_STREAM_CIPHERS', "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:" .
-"ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:" .
-"DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:" .
-"ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:" .
-"ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:" .
-"DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:" .
-"AES256-GCM-SHA384:AES128:AES256:HIGH:!SSLv2:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!RC4:!ADH");
+    "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:" .
+    "DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:" .
+    "ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:" .
+    "ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:" .
+    "DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:" .
+    "AES256-GCM-SHA384:AES128:AES256:HIGH:!SSLv2:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!RC4:!ADH");
 
 /**
  * @since 8.0

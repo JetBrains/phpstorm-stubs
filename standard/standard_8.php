@@ -845,15 +845,15 @@ function array_search(mixed $needle, array $haystack, bool $strict = false): str
 function extract(
     array &$array,
     #[ExpectedValues(flags: [
-               EXTR_OVERWRITE,
-               EXTR_SKIP,
-               EXTR_PREFIX_SAME,
-               EXTR_PREFIX_ALL,
-               EXTR_PREFIX_INVALID,
-               EXTR_IF_EXISTS,
-               EXTR_PREFIX_IF_EXISTS,
-               EXTR_REFS
-           ])] int $flags = EXTR_OVERWRITE,
+        EXTR_OVERWRITE,
+        EXTR_SKIP,
+        EXTR_PREFIX_SAME,
+        EXTR_PREFIX_ALL,
+        EXTR_PREFIX_INVALID,
+        EXTR_IF_EXISTS,
+        EXTR_PREFIX_IF_EXISTS,
+        EXTR_REFS
+    ])] int $flags = EXTR_OVERWRITE,
     string $prefix = ""
 ): int {}
 
@@ -871,7 +871,11 @@ function extract(
  * @return array the output array with all the variables added to it.
  */
 #[Pure]
-function compact(#[PhpStormStubsElementAvailable(from: '8.0')] $var_name, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $var_names, ...$var_names): array {}
+function compact(
+    #[PhpStormStubsElementAvailable(from: '8.0')] $var_name,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $var_names,
+    ...$var_names
+): array {}
 
 /**
  * Fill an array with values
@@ -1004,7 +1008,11 @@ function array_shift(array &$array): mixed {}
  * </p>
  * @return int the number of elements in the array.
  */
-function array_unshift(array &$array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] $values, mixed ...$values): int {}
+function array_unshift(
+    array &$array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] $values,
+    mixed ...$values
+): int {}
 
 /**
  * Remove a portion of the array and replace it with something else

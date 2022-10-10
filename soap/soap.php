@@ -135,11 +135,13 @@ class SoapClient
      * <b>SOAP_SSL_METHOD_SSLv3</b> or
      * <b>SOAP_SSL_METHOD_SSLv23</b>.
      * </p>
+     * @throws SoapFault A SoapFault exception will be thrown if the wsdl URI cannot be loaded.
      * @since 5.0.1
-     *
-     * @removed 8.0
      */
-    public function SoapClient($wsdl, array $options = null) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $wsdl,
+        array $options = null
+    ) {}
 
     /**
      * SoapClient constructor
@@ -262,13 +264,11 @@ class SoapClient
      * <b>SOAP_SSL_METHOD_SSLv3</b> or
      * <b>SOAP_SSL_METHOD_SSLv23</b>.
      * </p>
-     * @throws SoapFault A SoapFault exception will be thrown if the wsdl URI cannot be loaded.
      * @since 5.0.1
+     *
+     * @removed 8.0
      */
-    public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $wsdl,
-        array $options = null
-    ) {}
+    public function SoapClient($wsdl, array $options = null) {}
 
     /**
      * @link https://php.net/manual/en/soapclient.call.php
@@ -575,7 +575,14 @@ class SoapVar
      * @since 5.0.1
      * @removed 8.0
      */
-    public function SoapVar($data, $encoding, $type_name = '', $type_namespace = '', $node_name = '', $node_namespace = '') {}
+    public function SoapVar(
+        $data,
+        $encoding,
+        $type_name = '',
+        $type_namespace = '',
+        $node_name = '',
+        $node_namespace = ''
+    ) {}
 }
 
 /**
@@ -925,7 +932,14 @@ class SoapFault extends Exception
      * @since 5.0.1
      * @removed 8.0
      */
-    public function SoapFault($faultcode, $faultstring, $faultactor = null, $detail = null, $faultname = null, $headerfault = null) {}
+    public function SoapFault(
+        $faultcode,
+        $faultstring,
+        $faultactor = null,
+        $detail = null,
+        $faultname = null,
+        $headerfault = null
+    ) {}
 
     /**
      * Obtain a string representation of a SoapFault

@@ -51,6 +51,55 @@ class SQLite3
     public const RECURSIVE = 33;
 
     /**
+     * Instantiates an SQLite3 object and opens an SQLite 3 database
+     * @link https://php.net/manual/en/sqlite3.construct.php
+     * @param string $filename <p>
+     * Path to the SQLite database, or :memory: to use in-memory database.
+     * </p>
+     * @param int $flags <p>
+     * Optional flags used to determine how to open the SQLite database. By
+     * default, open uses SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE.
+     * </p>
+     * <p>
+     * SQLITE3_OPEN_READONLY: Open the database for
+     * reading only.
+     * </p>
+     * @param string $encryptionKey <p>
+     * An optional encryption key used when encrypting and decrypting an
+     * SQLite database.
+     * </p>
+     */
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $flags,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $encryptionKey,
+        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE,
+        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $encryptionKey = null
+    ) {}
+
+    /**
+     * Returns the SQLite3 library version as a string constant and as a number
+     * @link https://php.net/manual/en/sqlite3.version.php
+     * @return array an associative array with the keys "versionString" and
+     * "versionNumber".
+     */
+    #[ArrayShape(["versionString" => "string", "versionNumber" => "int"])]
+    #[TentativeType]
+    public static function version(): array {}
+
+    /**
+     * Returns a string that has been properly escaped
+     * @link https://php.net/manual/en/sqlite3.escapestring.php
+     * @param string $string <p>
+     * The string to be escaped.
+     * </p>
+     * @return string a properly escaped string that may be used safely in an SQL
+     * statement.
+     */
+    #[TentativeType]
+    public static function escapeString(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string): string {}
+
+    /**
      * Opens an SQLite database
      * @link https://php.net/manual/en/sqlite3.open.php
      * @param string $filename <p>
@@ -97,16 +146,6 @@ class SQLite3
      */
     #[TentativeType]
     public function exec(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $query): bool {}
-
-    /**
-     * Returns the SQLite3 library version as a string constant and as a number
-     * @link https://php.net/manual/en/sqlite3.version.php
-     * @return array an associative array with the keys "versionString" and
-     * "versionNumber".
-     */
-    #[ArrayShape(["versionString" => "string", "versionNumber" => "int"])]
-    #[TentativeType]
-    public static function version(): array {}
 
     /**
      * Returns the row ID of the most recent INSERT into the database
@@ -168,18 +207,6 @@ class SQLite3
      */
     #[TentativeType]
     public function changes(): int {}
-
-    /**
-     * Returns a string that has been properly escaped
-     * @link https://php.net/manual/en/sqlite3.escapestring.php
-     * @param string $string <p>
-     * The string to be escaped.
-     * </p>
-     * @return string a properly escaped string that may be used safely in an SQL
-     * statement.
-     */
-    #[TentativeType]
-    public static function escapeString(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string): string {}
 
     /**
      * Prepares an SQL statement for execution
@@ -308,7 +335,10 @@ class SQLite3
      * @since 5.3.11
      */
     #[TentativeType]
-    public function createCollation(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name, callable $callback): bool {}
+    public function createCollation(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        callable $callback
+    ): bool {}
 
     /**
      * Opens a stream resource to read a BLOB
@@ -342,33 +372,6 @@ class SQLite3
     ): bool {}
 
     /**
-     * Instantiates an SQLite3 object and opens an SQLite 3 database
-     * @link https://php.net/manual/en/sqlite3.construct.php
-     * @param string $filename <p>
-     * Path to the SQLite database, or :memory: to use in-memory database.
-     * </p>
-     * @param int $flags <p>
-     * Optional flags used to determine how to open the SQLite database. By
-     * default, open uses SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE.
-     * </p>
-     * <p>
-     * SQLITE3_OPEN_READONLY: Open the database for
-     * reading only.
-     * </p>
-     * @param string $encryptionKey <p>
-     * An optional encryption key used when encrypting and decrypting an
-     * SQLite database.
-     * </p>
-     */
-    public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $flags,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $encryptionKey,
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE,
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $encryptionKey = null
-    ) {}
-
-    /**
      * @return int
      * @since 7.4
      */
@@ -393,7 +396,11 @@ class SQLite3
      * @since 7.4
      */
     #[TentativeType]
-    public function backup(SQLite3 $destination, string $sourceDatabase = 'main', string $destinationDatabase = 'main'): bool {}
+    public function backup(
+        SQLite3 $destination,
+        string $sourceDatabase = 'main',
+        string $destinationDatabase = 'main'
+    ): bool {}
 
     /**
      * @param null|callable $callback
@@ -410,6 +417,15 @@ class SQLite3
  */
 class SQLite3Stmt
 {
+    /**
+     * @param SQLite3 $sqlite3
+     * @param string $query
+     */
+    private function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'SQLite3'], default: '')] $sqlite3,
+        #[PhpStormStubsElementAvailable(from: '8.0')] string $query
+    ) {}
+
     /**
      * Returns the number of parameters within the prepared statement
      * @link https://php.net/manual/en/sqlite3stmt.paramcount.php
@@ -512,15 +528,6 @@ class SQLite3Stmt
     public function readOnly(): bool {}
 
     /**
-     * @param SQLite3 $sqlite3
-     * @param string $query
-     */
-    private function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'SQLite3'], default: '')] $sqlite3,
-        #[PhpStormStubsElementAvailable(from: '8.0')] string $query
-    ) {}
-
-    /**
      * Retrieves the SQL of the prepared statement. If expanded is FALSE, the unmodified SQL is retrieved.
      * If expanded is TRUE, all query parameters are replaced with their bound values, or with an SQL NULL, if not already bound.
      * @param bool $expand Whether to retrieve the expanded SQL. Passing TRUE is only supported as of libsqlite 3.14.
@@ -537,6 +544,8 @@ class SQLite3Stmt
  */
 class SQLite3Result
 {
+    private function __construct() {}
+
     /**
      * Returns the number of columns in the result set
      * @link https://php.net/manual/en/sqlite3result.numcolumns.php
@@ -605,8 +614,6 @@ class SQLite3Result
      * @return bool <b>TRUE</b>.
      */
     public function finalize() {}
-
-    private function __construct() {}
 }
 
 /**

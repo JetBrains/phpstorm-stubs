@@ -25,7 +25,12 @@ use JetBrains\PhpStorm\Pure;
  * binary representation of the message digest is returned.
  */
 #[Pure]
-function hash(string $algo, string $data, bool $binary = false, #[PhpStormStubsElementAvailable('8.1')] array $options = []): string {}
+function hash(
+    string $algo,
+    string $data,
+    bool $binary = false,
+    #[PhpStormStubsElementAvailable('8.1')] array $options = []
+): string {}
 
 /**
  * Timing attack safe string comparison
@@ -57,7 +62,12 @@ function hash_equals(string $known_string, string $user_string): bool {}
  * binary representation of the message digest is returned.
  */
 #[Pure]
-function hash_file(string $algo, string $filename, bool $binary = false, #[PhpStormStubsElementAvailable('8.1')] array $options = []): string|false {}
+function hash_file(
+    string $algo,
+    string $filename,
+    bool $binary = false,
+    #[PhpStormStubsElementAvailable('8.1')] array $options = []
+): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -133,7 +143,12 @@ function hash_hmac_file(string $algo, string $filename, string $key, bool $binar
  */
 #[Pure]
 #[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")]
-function hash_init(string $algo, int $flags = 0, string $key = "", #[PhpStormStubsElementAvailable('8.1')] array $options = []) {}
+function hash_init(
+    string $algo,
+    int $flags = 0,
+    string $key = "",
+    #[PhpStormStubsElementAvailable('8.1')] array $options = []
+) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -147,7 +162,10 @@ function hash_init(string $algo, int $flags = 0, string $key = "", #[PhpStormStu
  * </p>
  * @return bool <b>TRUE</b>.
  */
-function hash_update(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, string $data): bool {}
+function hash_update(
+    #[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context,
+    string $data
+): bool {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -165,7 +183,11 @@ function hash_update(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default:
  * </p>
  * @return int Actual number of bytes added to the hashing context from <i>handle</i>.
  */
-function hash_update_stream(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, $stream, int $length = -1): int {}
+function hash_update_stream(
+    #[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context,
+    $stream,
+    int $length = -1
+): int {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -182,7 +204,11 @@ function hash_update_stream(#[LanguageLevelTypeAware(["7.2" => "HashContext"], d
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function hash_update_file(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, string $filename, $stream_context): bool {}
+function hash_update_file(
+    #[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context,
+    string $filename,
+    $stream_context
+): bool {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -199,7 +225,10 @@ function hash_update_file(#[LanguageLevelTypeAware(["7.2" => "HashContext"], def
  * unless <i>raw_output</i> is set to true in which case the raw
  * binary representation of the message digest is returned.
  */
-function hash_final(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, bool $binary = false): string {}
+function hash_final(
+    #[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context,
+    bool $binary = false
+): string {}
 
 /**
  * Copy hashing context
@@ -249,9 +278,9 @@ function hash_hkdf(string $algo, string $key, int $length = 0, string $info = ''
 
 /**
  * Return a list of registered hashing algorithms suitable for hash_hmac
+ * @return string[] Returns a numerically indexed array containing the list of supported hashing algorithms suitable for {@see hash_hmac()}.
  * @since 7.2
  * Return a list of registered hashing algorithms suitable for hash_hmac
- * @return string[] Returns a numerically indexed array containing the list of supported hashing algorithms suitable for {@see hash_hmac()}.
  */
 #[Pure]
 function hash_hmac_algos(): array {}
@@ -286,7 +315,14 @@ function hash_hmac_algos(): array {}
  * @since 5.5
  */
 #[Pure]
-function hash_pbkdf2(string $algo, string $password, string $salt, int $iterations, int $length = 0, bool $binary = false): string {}
+function hash_pbkdf2(
+    string $algo,
+    string $password,
+    string $salt,
+    int $iterations,
+    int $length = 0,
+    bool $binary = false
+): string {}
 
 /**
  * Generates a key

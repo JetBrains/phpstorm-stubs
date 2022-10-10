@@ -582,7 +582,11 @@ function mb_strimwidth(string $string, int $start, int $width, string $trim_mark
  * @return array|string|false The encoded string.
  */
 #[Pure]
-function mb_convert_encoding(array|string $string, string $to_encoding, array|string|null $from_encoding = null): array|string|false {}
+function mb_convert_encoding(
+    array|string $string,
+    string $to_encoding,
+    array|string|null $from_encoding = null
+): array|string|false {}
 
 /**
  * Detect character encoding
@@ -778,7 +782,13 @@ function mb_convert_kana(string $string, string $mode = 'KV', ?string $encoding)
  * @return string A converted version of the string represented in ASCII.
  */
 #[Pure]
-function mb_encode_mimeheader(string $string, ?string $charset, ?string $transfer_encoding, string $newline = "\n", int $indent = 0): string {}
+function mb_encode_mimeheader(
+    string $string,
+    ?string $charset,
+    ?string $transfer_encoding,
+    string $newline = "\n",
+    int $indent = 0
+): string {}
 
 /**
  * Decode string in MIME header field
@@ -856,7 +866,12 @@ function mb_encode_numericentity(string $string, array $map, ?string $encoding =
  */
 #[Pure]
 #[LanguageLevelTypeAware(['8.0' => 'string'], default: 'string|false|null')]
-function mb_decode_numericentity(string $string, array $map, ?string $encoding = null, #[PhpStormStubsElementAvailable(from: '7.2', to: '7.4')] $is_hex = false) {}
+function mb_decode_numericentity(
+    string $string,
+    array $map,
+    ?string $encoding = null,
+    #[PhpStormStubsElementAvailable(from: '7.2', to: '7.4')] $is_hex = false
+) {}
 
 /**
  * Send encoded mail
@@ -887,7 +902,13 @@ function mb_decode_numericentity(string $string, array $map, ?string $encoding =
  * </p>
  * @return bool true on success or false on failure.
  */
-function mb_send_mail(string $to, string $subject, string $message, array|string $additional_headers = [], ?string $additional_params): bool {}
+function mb_send_mail(
+    string $to,
+    string $subject,
+    string $message,
+    array|string $additional_headers = [],
+    ?string $additional_params
+): bool {}
 
 /**
  * Get internal settings of mbstring
@@ -1009,7 +1030,12 @@ function mb_eregi(string $pattern, string $string, &$matches): bool {}
  * @return string|false|null The resultant string on success, or false on error.
  */
 #[Pure]
-function mb_ereg_replace(string $pattern, string $replacement, string $string, ?string $options = null): string|false|null {}
+function mb_ereg_replace(
+    string $pattern,
+    string $replacement,
+    string $string,
+    ?string $options = null
+): string|false|null {}
 
 /**
  * Perform a regular expresssion seach and replace with multibyte support using a callback
@@ -1054,7 +1080,12 @@ function mb_ereg_replace(string $pattern, string $replacement, string $string, ?
  * </p>
  * @since 5.4.1
  */
-function mb_ereg_replace_callback(string $pattern, callable $callback, string $string, ?string $options = null): string|false|null {}
+function mb_ereg_replace_callback(
+    string $pattern,
+    callable $callback,
+    string $string,
+    ?string $options = null
+): string|false|null {}
 
 /**
  * Replace regular expression with multibyte support ignoring case

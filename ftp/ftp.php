@@ -33,7 +33,10 @@ function ftp_append(
  * @return array|false
  * @since 7.2
  */
-function ftp_mlsd(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $directory): array|false {}
+function ftp_mlsd(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    string $directory
+): array|false {}
 
 /**
  * Opens an FTP connection
@@ -94,7 +97,11 @@ function ftp_ssl_connect(string $hostname, int $port = 21, int $timeout = 90) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * If login fails, PHP will also throw a warning.
  */
-function ftp_login(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $username, string $password): bool {}
+function ftp_login(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    string $username,
+    string $password
+): bool {}
 
 /**
  * Returns the current directory name
@@ -128,7 +135,10 @@ function ftp_cdup(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default:
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * If changing directory fails, PHP will also throw a warning.
  */
-function ftp_chdir(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $directory): bool {}
+function ftp_chdir(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    string $directory
+): bool {}
 
 /**
  * Requests execution of a command on the FTP server
@@ -142,7 +152,10 @@ function ftp_chdir(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default
  * @return bool <b>TRUE</b> if the command was successful (server sent response code:
  * 200); otherwise returns <b>FALSE</b>.
  */
-function ftp_exec(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $command): bool {}
+function ftp_exec(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    string $command
+): bool {}
 
 /**
  * Sends an arbitrary command to an FTP server
@@ -171,7 +184,10 @@ function ftp_raw(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 
  * </p>
  * @return string|false the newly created directory name on success or <b>FALSE</b> on error.
  */
-function ftp_mkdir(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $directory): string|false {}
+function ftp_mkdir(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    string $directory
+): string|false {}
 
 /**
  * Removes a directory
@@ -185,7 +201,10 @@ function ftp_mkdir(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_rmdir(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $directory): bool {}
+function ftp_rmdir(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    string $directory
+): bool {}
 
 /**
  * Set permissions on a file via FTP
@@ -201,7 +220,11 @@ function ftp_rmdir(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default
  * </p>
  * @return int|false the new file permissions on success or <b>FALSE</b> on error.
  */
-function ftp_chmod(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, int $permissions, string $filename): int|false {}
+function ftp_chmod(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    int $permissions,
+    string $filename
+): int|false {}
 
 /**
  * Allocates space for a file to be uploaded
@@ -218,7 +241,11 @@ function ftp_chmod(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_alloc(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, int $size, &$response): bool {}
+function ftp_alloc(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    int $size,
+    &$response
+): bool {}
 
 /**
  * Returns a list of files in the given directory
@@ -235,7 +262,10 @@ function ftp_alloc(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default
  * @return string[]|false an array of filenames from the specified directory on success or
  * <b>FALSE</b> on error.
  */
-function ftp_nlist(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $directory): array|false {}
+function ftp_nlist(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    string $directory
+): array|false {}
 
 /**
  * Returns a detailed list of files in the given directory
@@ -257,7 +287,11 @@ function ftp_nlist(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default
  * should be interpreted.
  * </p>
  */
-function ftp_rawlist(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $directory, bool $recursive = false): array|false {}
+function ftp_rawlist(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    string $directory,
+    bool $recursive = false
+): array|false {}
 
 /**
  * Returns the system type identifier of the remote FTP server
@@ -280,7 +314,10 @@ function ftp_systype(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], defau
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_pasv(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, bool $enable): bool {}
+function ftp_pasv(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    bool $enable
+): bool {}
 
 /**
  * Downloads a file from the FTP server
@@ -421,7 +458,10 @@ function ftp_fput(
  * </p>
  * @return int the file size on success, or -1 on error.
  */
-function ftp_size(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $filename): int {}
+function ftp_size(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    string $filename
+): int {}
 
 /**
  * Returns the last modified time of the given file
@@ -435,7 +475,10 @@ function ftp_size(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default:
  * @return int the last modified time as a Unix timestamp on success, or -1 on
  * error.
  */
-function ftp_mdtm(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $filename): int {}
+function ftp_mdtm(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    string $filename
+): int {}
 
 /**
  * Renames a file or a directory on the FTP server
@@ -451,7 +494,11 @@ function ftp_mdtm(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default:
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_rename(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $from, string $to): bool {}
+function ftp_rename(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    string $from,
+    string $to
+): bool {}
 
 /**
  * Deletes a file on the FTP server
@@ -464,7 +511,10 @@ function ftp_rename(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], defaul
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_delete(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $filename): bool {}
+function ftp_delete(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    string $filename
+): bool {}
 
 /**
  * Sends a SITE command to the server
@@ -478,7 +528,10 @@ function ftp_delete(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], defaul
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_site(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, string $command): bool {}
+function ftp_site(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    string $command
+): bool {}
 
 /**
  * Closes an FTP connection
@@ -528,7 +581,11 @@ function ftp_close(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default
  * supported or the passed <i>value</i> doesn't match the
  * expected value for the given <i>option</i>.
  */
-function ftp_set_option(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, #[EV(flags: [FTP_TIMEOUT_SEC, FTP_AUTOSEEK, FTP_USEPASVADDRESS])] int $option, $value): bool {}
+function ftp_set_option(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    #[EV(flags: [FTP_TIMEOUT_SEC, FTP_AUTOSEEK, FTP_USEPASVADDRESS])] int $option,
+    $value
+): bool {}
 
 /**
  * Retrieves various runtime behaviours of the current FTP stream
@@ -558,7 +615,10 @@ function ftp_set_option(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], de
  * <i>option</i> is not supported. In the latter case, a
  * warning message is also thrown.
  */
-function ftp_get_option(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, #[EV(flags: [FTP_TIMEOUT_SEC, FTP_AUTOSEEK])] int $option): int|bool {}
+function ftp_get_option(
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    #[EV(flags: [FTP_TIMEOUT_SEC, FTP_AUTOSEEK])] int $option
+): int|bool {}
 
 /**
  * Retrieves a file from the FTP server and writes it to an open file (non-blocking)
@@ -605,7 +665,7 @@ function ftp_nb_fget(
  * @param string $remote_filename <p>
  * The remote file path.
  * </p>
- * @param int $mode  <p>
+ * @param int $mode <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or <b>FTP_BINARY</b>. Optional since PHP 7.3
  * </p>
  * @param int $offset [optional] <p>The position in the remote file to start downloading from.</p>

@@ -193,15 +193,6 @@ class DateTimeImmutable implements DateTimeInterface
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
-     * Adds an amount of days, months, years, hours, minutes and seconds
-     * @param DateInterval $interval
-     * @return static
-     */
-    #[TentativeType]
-    public function add(DateInterval $interval): DateTimeImmutable {}
-
-    /**
-     * (PHP 5 &gt;=5.5.0)<br/>
      * Returns new DateTimeImmutable object formatted according to the specified format
      * @link https://secure.php.net/manual/en/datetimeimmutable.createfromformat.php
      * @param string $format
@@ -239,6 +230,32 @@ class DateTimeImmutable implements DateTimeInterface
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
+     * The __set_state handler
+     * @link https://secure.php.net/manual/en/datetimeimmutable.set-state.php
+     * @param array $array <p>Initialization array.</p>
+     * @return DateTimeImmutable
+     * Returns a new instance of a {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object.
+     */
+    public static function __set_state(array $array) {}
+
+    /**
+     * @param DateTimeInterface $object
+     * @return DateTimeImmutable
+     * @since 8.0
+     */
+    public static function createFromInterface(DateTimeInterface $object): DateTimeImmutable {}
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Adds an amount of days, months, years, hours, minutes and seconds
+     * @param DateInterval $interval
+     * @return static
+     */
+    #[TentativeType]
+    public function add(DateInterval $interval): DateTimeImmutable {}
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
      * Alters the timestamp
      * @link https://secure.php.net/manual/en/datetimeimmutable.modify.php
      * @param string $modifier <p>A date/time string. Valid formats are explained in
@@ -249,16 +266,6 @@ class DateTimeImmutable implements DateTimeInterface
     #[Pure]
     #[TentativeType]
     public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier): DateTimeImmutable|false {}
-
-    /**
-     * (PHP 5 &gt;=5.5.0)<br/>
-     * The __set_state handler
-     * @link https://secure.php.net/manual/en/datetimeimmutable.set-state.php
-     * @param array $array <p>Initialization array.</p>
-     * @return DateTimeImmutable
-     * Returns a new instance of a {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object.
-     */
-    public static function __set_state(array $array) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -419,13 +426,6 @@ class DateTimeImmutable implements DateTimeInterface
     #[TentativeType]
     public function __wakeup(): void {}
 
-    /**
-     * @param DateTimeInterface $object
-     * @return DateTimeImmutable
-     * @since 8.0
-     */
-    public static function createFromInterface(DateTimeInterface $object): DateTimeImmutable {}
-
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __serialize(): array {}
 
@@ -538,6 +538,54 @@ class DateTime implements DateTimeInterface
     ) {}
 
     /**
+     * @param DateTimeImmutable $object
+     * @return DateTime
+     * @since 7.3
+     */
+    #[TentativeType]
+    #[LanguageLevelTypeAware(['8.2' => 'static'], default: 'DateTime')]
+    public static function createFromImmutable(DateTimeImmutable $object) {}
+
+    /**
+     * Parse a string into a new DateTime object according to the specified format
+     * @param string $format Format accepted by date().
+     * @param string $datetime String representing the time.
+     * @param null|DateTimeZone $timezone A DateTimeZone object representing the desired time zone.
+     * @return DateTime|false
+     * @link https://php.net/manual/en/datetime.createfromformat.php
+     */
+    #[TentativeType]
+    public static function createFromFormat(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $format,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime,
+        #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')] $timezone = null
+    ): DateTime|false {}
+
+    /**
+     * Returns an array of warnings and errors found while parsing a date/time string
+     * @return array|false
+     * @link https://php.net/manual/en/datetime.getlasterrors.php
+     */
+    #[ArrayShape(["warning_count" => "int", "warnings" => "string[]", "error_count" => "int", "errors" => "string[]"])]
+    #[TentativeType]
+    public static function getLastErrors(): array|false {}
+
+    /**
+     * The __set_state handler
+     * @link https://php.net/manual/en/datetime.set-state.php
+     * @param array $array <p>Initialization array.</p>
+     * @return DateTime <p>Returns a new instance of a DateTime object.</p>
+     */
+    public static function __set_state($array) {}
+
+    /**
+     * @param DateTimeInterface $object
+     * @return DateTime
+     * @since 8.0
+     */
+    public static function createFromInterface(DateTimeInterface $object): DateTime {}
+
+    /**
      * @return void
      * @link https://php.net/manual/en/datetime.wakeup.php
      */
@@ -571,15 +619,6 @@ class DateTime implements DateTimeInterface
      */
     #[TentativeType]
     public function add(DateInterval $interval): DateTime {}
-
-    /**
-     * @param DateTimeImmutable $object
-     * @return DateTime
-     * @since 7.3
-     */
-    #[TentativeType]
-    #[LanguageLevelTypeAware(['8.2' => 'static'], default: 'DateTime')]
-    public static function createFromImmutable(DateTimeImmutable $object) {}
 
     /**
      * Subtracts an amount of days, months, years, hours, minutes and seconds from a DateTime object
@@ -692,45 +731,6 @@ class DateTime implements DateTimeInterface
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $absolute = false
     ): DateInterval {}
 
-    /**
-     * Parse a string into a new DateTime object according to the specified format
-     * @param string $format Format accepted by date().
-     * @param string $datetime String representing the time.
-     * @param null|DateTimeZone $timezone A DateTimeZone object representing the desired time zone.
-     * @return DateTime|false
-     * @link https://php.net/manual/en/datetime.createfromformat.php
-     */
-    #[TentativeType]
-    public static function createFromFormat(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $format,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime,
-        #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')] $timezone = null
-    ): DateTime|false {}
-
-    /**
-     * Returns an array of warnings and errors found while parsing a date/time string
-     * @return array|false
-     * @link https://php.net/manual/en/datetime.getlasterrors.php
-     */
-    #[ArrayShape(["warning_count" => "int", "warnings" => "string[]", "error_count" => "int", "errors" => "string[]"])]
-    #[TentativeType]
-    public static function getLastErrors(): array|false {}
-
-    /**
-     * The __set_state handler
-     * @link https://php.net/manual/en/datetime.set-state.php
-     * @param array $array <p>Initialization array.</p>
-     * @return DateTime <p>Returns a new instance of a DateTime object.</p>
-     */
-    public static function __set_state($array) {}
-
-    /**
-     * @param DateTimeInterface $object
-     * @return DateTime
-     * @since 8.0
-     */
-    public static function createFromInterface(DateTimeInterface $object): DateTime {}
-
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __serialize(): array {}
 
@@ -764,6 +764,30 @@ class DateTimeZone
      * @link https://php.net/manual/en/datetimezone.construct.php
      */
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $timezone) {}
+
+    /**
+     * Returns associative array containing dst, offset and the timezone name
+     * @return array
+     * @link https://php.net/manual/en/datetimezone.listabbreviations.php
+     */
+    #[TentativeType]
+    public static function listAbbreviations(): array {}
+
+    /**
+     * Returns a numerically indexed array with all timezone identifiers
+     * @param int $timezoneGroup
+     * @param string $countryCode
+     * @return array|false Returns the array of timezone identifiers, or <b>FALSE</b> on failure. Since PHP8, always returns <b>array</b>.
+     * @link https://php.net/manual/en/datetimezone.listidentifiers.php
+     */
+    #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
+    #[TentativeType]
+    public static function listIdentifiers(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timezoneGroup = DateTimeZone::ALL,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $countryCode = null
+    ): array {}
+
+    public static function __set_state($an_array) {}
 
     /**
      * Returns the name of the timezone
@@ -806,34 +830,10 @@ class DateTimeZone
     ): array|false {}
 
     /**
-     * Returns associative array containing dst, offset and the timezone name
-     * @return array
-     * @link https://php.net/manual/en/datetimezone.listabbreviations.php
-     */
-    #[TentativeType]
-    public static function listAbbreviations(): array {}
-
-    /**
-     * Returns a numerically indexed array with all timezone identifiers
-     * @param int $timezoneGroup
-     * @param string $countryCode
-     * @return array|false Returns the array of timezone identifiers, or <b>FALSE</b> on failure. Since PHP8, always returns <b>array</b>.
-     * @link https://php.net/manual/en/datetimezone.listidentifiers.php
-     */
-    #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-    #[TentativeType]
-    public static function listIdentifiers(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timezoneGroup = DateTimeZone::ALL,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $countryCode = null
-    ): array {}
-
-    /**
      * @link https://php.net/manual/en/datetime.wakeup.php
      */
     #[TentativeType]
     public function __wakeup(): void {}
-
-    public static function __set_state($an_array) {}
 
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __serialize(): array {}
@@ -913,15 +913,6 @@ class DateInterval
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $duration) {}
 
     /**
-     * Formats the interval
-     * @param string $format
-     * @return string
-     * @link https://php.net/manual/en/dateinterval.format.php
-     */
-    #[TentativeType]
-    public function format(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $format): string {}
-
-    /**
      * Sets up a DateInterval from the relative parts of the string
      * @param string $datetime
      * @return DateInterval|false Returns a new {@link https://www.php.net/manual/en/class.dateinterval.php DateInterval}
@@ -931,10 +922,19 @@ class DateInterval
     #[TentativeType]
     public static function createFromDateString(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime): DateInterval|false {}
 
+    public static function __set_state($an_array) {}
+
+    /**
+     * Formats the interval
+     * @param string $format
+     * @return string
+     * @link https://php.net/manual/en/dateinterval.format.php
+     */
+    #[TentativeType]
+    public function format(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $format): string {}
+
     #[TentativeType]
     public function __wakeup(): void {}
-
-    public static function __set_state($an_array) {}
 
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __serialize(): array {}
@@ -1019,7 +1019,12 @@ class DatePeriod implements IteratorAggregate
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link https://php.net/manual/en/dateperiod.construct.php
      */
-    public function __construct(DateTimeInterface $start, DateInterval $interval, DateTimeInterface $end, $options = 0) {}
+    public function __construct(
+        DateTimeInterface $start,
+        DateInterval $interval,
+        DateTimeInterface $end,
+        $options = 0
+    ) {}
 
     /**
      * @param TDate $start
@@ -1036,6 +1041,9 @@ class DatePeriod implements IteratorAggregate
      * @link https://php.net/manual/en/dateperiod.construct.php
      */
     public function __construct($isostr, $options = 0) {}
+
+    #[TentativeType]
+    public static function __set_state(#[PhpStormStubsElementAvailable(from: '7.3')] array $array): DatePeriod {}
 
     /**
      * Gets the interval
@@ -1065,9 +1073,6 @@ class DatePeriod implements IteratorAggregate
      */
     #[TentativeType]
     public function getStartDate(): DateTimeInterface {}
-
-    #[TentativeType]
-    public static function __set_state(#[PhpStormStubsElementAvailable(from: '7.3')] array $array): DatePeriod {}
 
     #[TentativeType]
     public function __wakeup(): void {}

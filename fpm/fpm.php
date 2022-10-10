@@ -1,8 +1,8 @@
 <?php
 /**
  * Returns FPM status info array
- * @since 7.3
  * @return array|false
+ * @since 7.3
  */
 function fpm_get_status(): array|false {}
 
@@ -13,4 +13,4 @@ function fpm_get_status(): array|false {}
  * @link https://php.net/manual/en/install.fpm.php
  * @since 5.3.3
  */
-function fastcgi_finish_request() {};
+function fastcgi_finish_request() {}
