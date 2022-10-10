@@ -52,7 +52,13 @@ use JetBrains\PhpStorm\Deprecated;
  * @removed 7.0
  */
 #[Deprecated(since: '5.5')]
-function mysql_connect($server = 'ini_get("mysql.default_host")', $username = 'ini_get("mysql.default_user")', $password = 'ini_get("mysql.default_password")', $new_link = false, $client_flags = 0) {}
+function mysql_connect(
+    $server = 'ini_get("mysql.default_host")',
+    $username = 'ini_get("mysql.default_user")',
+    $password = 'ini_get("mysql.default_password")',
+    $new_link = false,
+    $client_flags = 0
+) {}
 
 /**
  * Open a persistent connection to a MySQL server
@@ -88,7 +94,12 @@ function mysql_connect($server = 'ini_get("mysql.default_host")', $username = 'i
  * @removed 7.0
  */
 #[Deprecated(since: '5.5')]
-function mysql_pconnect($server = 'ini_get("mysql.default_host")', $username = 'ini_get("mysql.default_user")', $password = 'ini_get("mysql.default_password")', $client_flags = null) {}
+function mysql_pconnect(
+    $server = 'ini_get("mysql.default_host")',
+    $username = 'ini_get("mysql.default_user")',
+    $password = 'ini_get("mysql.default_password")',
+    $client_flags = null
+) {}
 
 /**
  * Close MySQL connection
@@ -156,9 +167,6 @@ function mysql_select_db($database_name, $link_identifier = null) {}
 function mysql_query($query, $link_identifier = null) {}
 
 /**
- * @deprecated 5.5
- * Send an SQL query to MySQL without fetching and buffering the result rows.
- * @link https://php.net/manual/en/function.mysql-unbuffered-query.php
  * @param string $query <p>
  * The SQL query to execute.
  * </p>
@@ -176,6 +184,9 @@ function mysql_query($query, $link_identifier = null) {}
  * <b>mysql_unbuffered_query</b> returns true on success
  * or false on error.
  * @removed 7.0
+ * @link https://php.net/manual/en/function.mysql-unbuffered-query.php
+ * @deprecated 5.5
+ * Send an SQL query to MySQL without fetching and buffering the result rows.
  */
 #[Deprecated(since: '5.5')]
 function mysql_unbuffered_query($query, $link_identifier = null) {}

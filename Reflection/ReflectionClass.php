@@ -16,13 +16,6 @@ use JetBrains\PhpStorm\Pure;
 class ReflectionClass implements Reflector
 {
     /**
-     * @var class-string<T> Name of the class, same as calling the {@see ReflectionClass::getName()} method
-     */
-    #[Immutable]
-    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
-    public $name;
-
-    /**
      * Indicates class that is abstract because it has some abstract methods.
      *
      * @link https://www.php.net/manual/en/class.reflectionclass.php#reflectionclass.constants.is-implicit-abstract
@@ -47,6 +40,13 @@ class ReflectionClass implements Reflector
      * @since 8.2
      */
     public const IS_READONLY = 65536;
+
+    /**
+     * @var class-string<T> Name of the class, same as calling the {@see ReflectionClass::getName()} method
+     */
+    #[Immutable]
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
+    public $name;
 
     /**
      * Constructs a ReflectionClass
@@ -667,6 +667,9 @@ class ReflectionClass implements Reflector
     #[Pure]
     public function getAttributes(?string $name = null, int $flags = 0): array {}
 
+    #[PhpStormStubsElementAvailable('8.1')]
+    public function isEnum(): bool {}
+
     /**
      * Clones object
      *
@@ -684,7 +687,4 @@ class ReflectionClass implements Reflector
      */
     #[PhpStormStubsElementAvailable(from: "8.1")]
     private function __clone(): void {}
-
-    #[PhpStormStubsElementAvailable('8.1')]
-    public function isEnum(): bool {}
 }

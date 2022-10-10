@@ -1,5 +1,6 @@
 <?php
 // Start of password v.
+
 /**
  * <p>
  * <b>PASSWORD_BCRYPT</b> is used to create new password

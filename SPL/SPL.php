@@ -6,6 +6,64 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 
 /**
+ * Classes implementing <b>RecursiveIterator</b> can be used to iterate
+ * over iterators recursively.
+ * @link https://php.net/manual/en/class.recursiveiterator.php
+ */
+interface RecursiveIterator extends Iterator
+{
+    /**
+     * Returns if an iterator can be created for the current entry.
+     * @link https://php.net/manual/en/recursiveiterator.haschildren.php
+     * @return bool true if the current entry can be iterated over, otherwise returns false.
+     */
+    #[TentativeType]
+    public function hasChildren(): bool;
+
+    /**
+     * Returns an iterator for the current entry.
+     * @link https://php.net/manual/en/recursiveiterator.getchildren.php
+     * @return RecursiveIterator|null An iterator for the current entry.
+     */
+    #[TentativeType]
+    public function getChildren(): ?RecursiveIterator;
+}
+
+/**
+ * Classes implementing <b>OuterIterator</b> can be used to iterate
+ * over iterators.
+ * @link https://php.net/manual/en/class.outeriterator.php
+ */
+interface OuterIterator extends Iterator
+{
+    /**
+     * Returns the inner iterator for the current entry.
+     * @link https://php.net/manual/en/outeriterator.getinneriterator.php
+     * @return Iterator|null The inner iterator for the current entry.
+     */
+    #[TentativeType]
+    public function getInnerIterator(): ?Iterator;
+}
+
+/**
+ * The Seekable iterator.
+ * @link https://php.net/manual/en/class.seekableiterator.php
+ */
+interface SeekableIterator extends Iterator
+{
+    /**
+     * Seeks to a position
+     * @link https://php.net/manual/en/seekableiterator.seek.php
+     * @param int $offset <p>
+     * The position to seek to.
+     * </p>
+     * @return void
+     */
+    #[TentativeType]
+    public function seek(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset): void;
+}
+
+/**
  * Exception that represents error in the program logic. This kind of
  * exception should lead directly to a fix in your code.
  * @link https://php.net/manual/en/class.logicexception.php
@@ -209,30 +267,6 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
 }
 
 /**
- * Classes implementing <b>RecursiveIterator</b> can be used to iterate
- * over iterators recursively.
- * @link https://php.net/manual/en/class.recursiveiterator.php
- */
-interface RecursiveIterator extends Iterator
-{
-    /**
-     * Returns if an iterator can be created for the current entry.
-     * @link https://php.net/manual/en/recursiveiterator.haschildren.php
-     * @return bool true if the current entry can be iterated over, otherwise returns false.
-     */
-    #[TentativeType]
-    public function hasChildren(): bool;
-
-    /**
-     * Returns an iterator for the current entry.
-     * @link https://php.net/manual/en/recursiveiterator.getchildren.php
-     * @return RecursiveIterator|null An iterator for the current entry.
-     */
-    #[TentativeType]
-    public function getChildren(): ?RecursiveIterator;
-}
-
-/**
  * Can be used to iterate through recursive iterators.
  * @link https://php.net/manual/en/class.recursiveiteratoriterator.php
  */
@@ -415,22 +449,6 @@ class RecursiveIteratorIterator implements OuterIterator
 }
 
 /**
- * Classes implementing <b>OuterIterator</b> can be used to iterate
- * over iterators.
- * @link https://php.net/manual/en/class.outeriterator.php
- */
-interface OuterIterator extends Iterator
-{
-    /**
-     * Returns the inner iterator for the current entry.
-     * @link https://php.net/manual/en/outeriterator.getinneriterator.php
-     * @return Iterator|null The inner iterator for the current entry.
-     */
-    #[TentativeType]
-    public function getInnerIterator(): ?Iterator;
-}
-
-/**
  * This iterator wrapper allows the conversion of anything that is
  * Traversable into an Iterator.
  * It is important to understand that most classes that do not implement
@@ -447,7 +465,10 @@ class IteratorIterator implements OuterIterator
      * @param Traversable $iterator
      * @param string|null $class [optional]
      */
-    public function __construct(Traversable $iterator, #[PhpStormStubsElementAvailable(from: '8.0')] ?string $class = '') {}
+    public function __construct(
+        Traversable $iterator,
+        #[PhpStormStubsElementAvailable(from: '8.0')] ?string $class = ''
+    ) {}
 
     /**
      * Get the inner iterator
@@ -507,19 +528,19 @@ class IteratorIterator implements OuterIterator
 abstract class FilterIterator extends IteratorIterator
 {
     /**
+     * Construct a filterIterator
+     * @link https://php.net/manual/en/filteriterator.construct.php
+     * @param Iterator $iterator
+     */
+    public function __construct(Iterator $iterator) {}
+
+    /**
      * Check whether the current element of the iterator is acceptable
      * @link https://php.net/manual/en/filteriterator.accept.php
      * @return bool true if the current element is acceptable, otherwise false.
      */
     #[TentativeType]
     abstract public function accept(): bool;
-
-    /**
-     * Construct a filterIterator
-     * @link https://php.net/manual/en/filteriterator.construct.php
-     * @param Iterator $iterator
-     */
-    public function __construct(Iterator $iterator) {}
 
     /**
      * Rewind the iterator
@@ -605,19 +626,19 @@ abstract class RecursiveFilterIterator extends FilterIterator implements Recursi
 class ParentIterator extends RecursiveFilterIterator
 {
     /**
+     * Constructs a ParentIterator
+     * @link https://php.net/manual/en/parentiterator.construct.php
+     * @param RecursiveIterator $iterator
+     */
+    public function __construct(RecursiveIterator $iterator) {}
+
+    /**
      * Determines acceptability
      * @link https://php.net/manual/en/parentiterator.accept.php
      * @return bool true if the current element is acceptable, otherwise false.
      */
     #[TentativeType]
     public function accept(): bool {}
-
-    /**
-     * Constructs a ParentIterator
-     * @link https://php.net/manual/en/parentiterator.construct.php
-     * @param RecursiveIterator $iterator
-     */
-    public function __construct(RecursiveIterator $iterator) {}
 
     /**
      * Check whether the inner iterator's current element has children
@@ -632,24 +653,6 @@ class ParentIterator extends RecursiveFilterIterator
      * @return ParentIterator containing the inner iterator's children.
      */
     public function getChildren() {}
-}
-
-/**
- * The Seekable iterator.
- * @link https://php.net/manual/en/class.seekableiterator.php
- */
-interface SeekableIterator extends Iterator
-{
-    /**
-     * Seeks to a position
-     * @link https://php.net/manual/en/seekableiterator.seek.php
-     * @param int $offset <p>
-     * The position to seek to.
-     * </p>
-     * @return void
-     */
-    #[TentativeType]
-    public function seek(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset): void;
 }
 
 /**
@@ -782,7 +785,10 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      * @param Iterator $iterator The iterator to cache.
      * @param int $flags [optional] A bitmask of flags. See CachingIterator class constants for details.
      */
-    public function __construct(Iterator $iterator, #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = self::CALL_TOSTRING) {}
+    public function __construct(
+        Iterator $iterator,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = self::CALL_TOSTRING
+    ) {}
 
     /**
      * Rewind the iterator
@@ -935,7 +941,10 @@ class RecursiveCachingIterator extends CachingIterator implements RecursiveItera
      * @param Iterator $iterator The iterator to cache.
      * @param int $flags [optional] A bitmask of flags. See CachingIterator class constants for details.
      */
-    public function __construct(Iterator $iterator, #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = self::CALL_TOSTRING) {}
+    public function __construct(
+        Iterator $iterator,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = self::CALL_TOSTRING
+    ) {}
 
     /**
      * Check whether the current element of the inner iterator has children

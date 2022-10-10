@@ -7,30 +7,30 @@ namespace PHPSTORM_META {
     );
 
     registerArgumentsSet('ReflectionClassModifiers',
-        \ReflectionClass::IS_FINAL|
-        \ReflectionClass::IS_EXPLICIT_ABSTRACT|
+        \ReflectionClass::IS_FINAL |
+        \ReflectionClass::IS_EXPLICIT_ABSTRACT |
         \ReflectionClass::IS_IMPLICIT_ABSTRACT
     );
 
     registerArgumentsSet('ReflectionMethodModifiers',
-        \ReflectionMethod::IS_ABSTRACT|
-        \ReflectionMethod::IS_FINAL|
-        \ReflectionMethod::IS_PUBLIC|
-        \ReflectionMethod::IS_PRIVATE|
-        \ReflectionMethod::IS_PROTECTED|
+        \ReflectionMethod::IS_ABSTRACT |
+        \ReflectionMethod::IS_FINAL |
+        \ReflectionMethod::IS_PUBLIC |
+        \ReflectionMethod::IS_PRIVATE |
+        \ReflectionMethod::IS_PROTECTED |
         \ReflectionMethod::IS_STATIC
     );
 
     registerArgumentsSet('ReflectionPropertyModifiers',
-        \ReflectionProperty::IS_PUBLIC|
-        \ReflectionProperty::IS_PRIVATE|
-        \ReflectionProperty::IS_PROTECTED|
+        \ReflectionProperty::IS_PUBLIC |
+        \ReflectionProperty::IS_PRIVATE |
+        \ReflectionProperty::IS_PROTECTED |
         \ReflectionProperty::IS_STATIC
     );
 
     registerArgumentsSet('ReflectionConstantModifiers',
-        \ReflectionClassConstant::IS_PUBLIC|
-        \ReflectionClassConstant::IS_PRIVATE|
+        \ReflectionClassConstant::IS_PUBLIC |
+        \ReflectionClassConstant::IS_PRIVATE |
         \ReflectionClassConstant::IS_PROTECTED
     );
 
@@ -40,12 +40,12 @@ namespace PHPSTORM_META {
     );
 
     registerArgumentsSet('ReflectionAttributeTarget',
-        \Attribute::TARGET_CLASS|
-        \Attribute::TARGET_FUNCTION|
-        \Attribute::TARGET_METHOD|
-        \Attribute::TARGET_PROPERTY|
-        \Attribute::TARGET_CLASS_CONSTANT|
-        \Attribute::TARGET_PARAMETER|
+        \Attribute::TARGET_CLASS |
+        \Attribute::TARGET_FUNCTION |
+        \Attribute::TARGET_METHOD |
+        \Attribute::TARGET_PROPERTY |
+        \Attribute::TARGET_CLASS_CONSTANT |
+        \Attribute::TARGET_PARAMETER |
         \Attribute::TARGET_ALL
     );
 

@@ -116,7 +116,16 @@ function gd_info(): array {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imagearc(GdImage $image, int $center_x, int $center_y, int $width, int $height, int $start_angle, int $end_angle, int $color): bool {}
+function imagearc(
+    GdImage $image,
+    int $center_x,
+    int $center_y,
+    int $width,
+    int $height,
+    int $start_angle,
+    int $end_angle,
+    int $color
+): bool {}
 
 /**
  * Draw an ellipse
@@ -403,7 +412,16 @@ function imagecolorsforindex(GdImage $image, int $color) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagecopy(GdImage $dst_image, GdImage $src_image, int $dst_x, int $dst_y, int $src_x, int $src_y, int $src_width, int $src_height): bool {}
+function imagecopy(
+    GdImage $dst_image,
+    GdImage $src_image,
+    int $dst_x,
+    int $dst_y,
+    int $src_x,
+    int $src_y,
+    int $src_width,
+    int $src_height
+): bool {}
 
 /**
  * Copy and merge part of an image
@@ -441,7 +459,17 @@ function imagecopy(GdImage $dst_image, GdImage $src_image, int $dst_x, int $dst_
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagecopymerge(GdImage $dst_image, GdImage $src_image, int $dst_x, int $dst_y, int $src_x, int $src_y, int $src_width, int $src_height, int $pct): bool {}
+function imagecopymerge(
+    GdImage $dst_image,
+    GdImage $src_image,
+    int $dst_x,
+    int $dst_y,
+    int $src_x,
+    int $src_y,
+    int $src_width,
+    int $src_height,
+    int $pct
+): bool {}
 
 /**
  * Copy and merge part of an image with gray scale
@@ -479,7 +507,17 @@ function imagecopymerge(GdImage $dst_image, GdImage $src_image, int $dst_x, int 
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagecopymergegray(GdImage $dst_image, GdImage $src_image, int $dst_x, int $dst_y, int $src_x, int $src_y, int $src_width, int $src_height, int $pct): bool {}
+function imagecopymergegray(
+    GdImage $dst_image,
+    GdImage $src_image,
+    int $dst_x,
+    int $dst_y,
+    int $src_x,
+    int $src_y,
+    int $src_width,
+    int $src_height,
+    int $pct
+): bool {}
 
 /**
  * Copy and resize part of an image
@@ -512,7 +550,18 @@ function imagecopymergegray(GdImage $dst_image, GdImage $src_image, int $dst_x, 
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagecopyresized(GdImage $dst_image, GdImage $src_image, int $dst_x, int $dst_y, int $src_x, int $src_y, int $dst_width, int $dst_height, int $src_width, int $src_height): bool {}
+function imagecopyresized(
+    GdImage $dst_image,
+    GdImage $src_image,
+    int $dst_x,
+    int $dst_y,
+    int $src_x,
+    int $src_y,
+    int $dst_width,
+    int $dst_height,
+    int $src_width,
+    int $src_height
+): bool {}
 
 /**
  * Create a new palette based image
@@ -612,7 +661,17 @@ function imagesetthickness(GdImage $image, int $thickness): bool {}
  * IMG_ARC_PIE</p>
  * @return bool true on success or false on failure.
  */
-function imagefilledarc(GdImage $image, int $center_x, int $center_y, int $width, int $height, int $start_angle, int $end_angle, int $color, int $style): bool {}
+function imagefilledarc(
+    GdImage $image,
+    int $center_x,
+    int $center_y,
+    int $width,
+    int $height,
+    int $start_angle,
+    int $end_angle,
+    int $color,
+    int $style
+): bool {}
 
 /**
  * Draw a filled ellipse
@@ -787,7 +846,18 @@ function imagecolorexactalpha(GdImage $image, int $red, int $green, int $blue, i
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagecopyresampled(GdImage $dst_image, GdImage $src_image, int $dst_x, int $dst_y, int $src_x, int $src_y, int $dst_width, int $dst_height, int $src_width, int $src_height): bool {}
+function imagecopyresampled(
+    GdImage $dst_image,
+    GdImage $src_image,
+    int $dst_x,
+    int $dst_y,
+    int $src_x,
+    int $src_y,
+    int $dst_width,
+    int $dst_height,
+    int $src_width,
+    int $src_height
+): bool {}
 
 /**
  * Rotate an image with a given angle
@@ -804,7 +874,12 @@ function imagecopyresampled(GdImage $dst_image, GdImage $src_image, int $dst_x, 
  * </p>
  * @return resource|GdImage|false the rotated image or <b>FALSE</b> on failure
  */
-function imagerotate(GdImage $image, float $angle, int $background_color, bool $ignore_transparent = false): GdImage|false {}
+function imagerotate(
+    GdImage $image,
+    float $angle,
+    int $background_color,
+    bool $ignore_transparent = false
+): GdImage|false {}
 
 /**
  * Should antialias functions be used or not. <br/>
@@ -1665,7 +1740,17 @@ function imagettfbbox($size, $angle, $font_filename, $text) {}
  * corner when you see the text horizontally.
  * Returns false on error.
  */
-function imagettftext(GdImage $image, float $size, float $angle, int $x, int $y, int $color, string $font_filename, string $text, array $options = []): array|false {}
+function imagettftext(
+    GdImage $image,
+    float $size,
+    float $angle,
+    int $x,
+    int $y,
+    int $color,
+    string $font_filename,
+    string $text,
+    array $options = []
+): array|false {}
 
 /**
  * Give the bounding box of a text using fonts via freetype2
@@ -2004,7 +2089,20 @@ function imagepsslantfont($font_index, $slant) {}
  * Returns false on error.
  * @removed 7.0 This function was REMOVED in PHP 7.0.0.
  */
-function imagepstext($image, $text, $font_index, $size, $foreground, $background, $x, $y, $space = null, $tightness = null, $angle = null, $antialias_steps = null) {}
+function imagepstext(
+    $image,
+    $text,
+    $font_index,
+    $size,
+    $foreground,
+    $background,
+    $x,
+    $y,
+    $space = null,
+    $tightness = null,
+    $angle = null,
+    $antialias_steps = null
+) {}
 
 /**
  * Give the bounding box of a text rectangle using PostScript Type1 fonts
@@ -2246,10 +2344,10 @@ function imagegetclip(GdImage $image): array {}
  * @param resource|GdImage $image An image resource, returned by one of the image creation functions, such as {@see imagecreatetruecolor()}.
  * @param int[] $points An array containing the polygon's vertices, e.g.:
  * <pre>
- * points[0]	= x0
- * points[1]	= y0
- * points[2]	= x1
- * points[3]	= y1
+ * points[0]    = x0
+ * points[1]    = y0
+ * points[2]    = x1
+ * points[3]    = y1
  * </pre>
  * @param int $num_points_or_color Total number of points (vertices).
  * @param int|null $color A color identifier created with {@see imagecolorallocate()}.
@@ -2994,7 +3092,12 @@ function imagecrop(GdImage $image, array $rectangle): GdImage|false {}
  * @return resource|GdImage|false Return cropped image resource on success or <b>FALSE</b> on failure.
  * @since 5.5
  */
-function imagecropauto(GdImage $image, int $mode = IMG_CROP_DEFAULT, float $threshold = .5, int $color = -1): GdImage|false {}
+function imagecropauto(
+    GdImage $image,
+    int $mode = IMG_CROP_DEFAULT,
+    float $threshold = .5,
+    int $color = -1
+): GdImage|false {}
 
 /**
  * Flips an image using a given mode
@@ -3057,7 +3160,7 @@ function imagepalettetotruecolor(GdImage $image): bool {}
  * @param int $height [optional]
  * @param int $mode [optional] One of <b>IMG_NEAREST_NEIGHBOUR</b>, <b>IMG_BILINEAR_FIXED</b>, <b>IMG_BICUBIC</b>, <b>IMG_BICUBIC_FIXED</b> or anything else (will use two pass).
  * @return resource|GdImage|false Return scaled image resource on success or <b>FALSE</b> on failure.
- *@link https://secure.php.net/manual/en/function.imagescale.php
+ * @link https://secure.php.net/manual/en/function.imagescale.php
  * @since 5.5
  * Scale an image using the given new width and height
  */

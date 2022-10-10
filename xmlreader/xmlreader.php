@@ -139,6 +139,52 @@ class XMLReader
     public const SUBST_ENTITIES = 4;
 
     /**
+     * Set the URI containing the XML to parse
+     * @link https://php.net/manual/en/xmlreader.open.php
+     * @param string $uri <p>
+     * URI pointing to the document.
+     * </p>
+     * @param string $encoding [optional] <p>
+     * The document encoding or <b>NULL</b>.
+     * </p>
+     * @param int $flags [optional] <p>
+     * A bitmask of the LIBXML_*
+     * constants.
+     * </p>
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure. If called statically, returns an
+     * <b>XMLReader</b> or <b>FALSE</b> on failure.
+     * @since 5.1.2
+     */
+    public static function open(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $uri,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $encoding = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
+    ) {}
+
+    /**
+     * Set the data containing the XML to parse
+     * @link https://php.net/manual/en/xmlreader.xml.php
+     * @param string $source <p>
+     * String containing the XML to be parsed.
+     * </p>
+     * @param string $encoding [optional] <p>
+     * The document encoding or <b>NULL</b>.
+     * </p>
+     * @param int $flags [optional] <p>
+     * A bitmask of the LIBXML_*
+     * constants.
+     * </p>
+     * @return XMLReader|bool <b>TRUE</b> on success or <b>FALSE</b> on failure. If called statically, returns an
+     * <b>XMLReader</b> or <b>FALSE</b> on failure.
+     * @since 5.1.2
+     */
+    public static function XML(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $source,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $encoding = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
+    ) {}
+
+    /**
      * Close the XMLReader input
      * @link https://php.net/manual/en/xmlreader.close.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -297,29 +343,6 @@ class XMLReader
     public function moveToNextAttribute(): bool {}
 
     /**
-     * Set the URI containing the XML to parse
-     * @link https://php.net/manual/en/xmlreader.open.php
-     * @param string $uri <p>
-     * URI pointing to the document.
-     * </p>
-     * @param string $encoding [optional] <p>
-     * The document encoding or <b>NULL</b>.
-     * </p>
-     * @param int $flags [optional] <p>
-     * A bitmask of the LIBXML_*
-     * constants.
-     * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure. If called statically, returns an
-     * <b>XMLReader</b> or <b>FALSE</b> on failure.
-     * @since 5.1.2
-     */
-    public static function open(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $uri,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $encoding = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
-    ) {}
-
-    /**
      * Move to next node in document
      * @link https://php.net/manual/en/xmlreader.read.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -418,29 +441,6 @@ class XMLReader
      */
     #[TentativeType]
     public function setRelaxNGSchemaSource(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $source): bool {}
-
-    /**
-     * Set the data containing the XML to parse
-     * @link https://php.net/manual/en/xmlreader.xml.php
-     * @param string $source <p>
-     * String containing the XML to be parsed.
-     * </p>
-     * @param string $encoding [optional] <p>
-     * The document encoding or <b>NULL</b>.
-     * </p>
-     * @param int $flags [optional] <p>
-     * A bitmask of the LIBXML_*
-     * constants.
-     * </p>
-     * @return XMLReader|bool <b>TRUE</b> on success or <b>FALSE</b> on failure. If called statically, returns an
-     * <b>XMLReader</b> or <b>FALSE</b> on failure.
-     * @since 5.1.2
-     */
-    public static function XML(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $source,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $encoding = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
-    ) {}
 
     /**
      * Returns a copy of the current node as a DOM object

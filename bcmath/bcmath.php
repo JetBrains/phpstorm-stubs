@@ -102,7 +102,7 @@ function bcdiv(string $num1, string $num2, ?int $scale = 0): ?string {}
  * this has not been set.
  * </p>
  * @return string the result of the division as a string.
- * @throws \DivisionByZeroError if <i>divisor</i> is 0. Available since PHP 8.0.
+ * @throws DivisionByZeroError if <i>divisor</i> is 0. Available since PHP 8.0.
  */
 #[Pure]
 #[PhpStormStubsElementAvailable('8.0')]
@@ -146,7 +146,7 @@ function bcmod(string $num1, string $num2, ?int $scale = 0): ?string {}
  * this has not been set. Available since PHP 7.2.
  * </p>
  * @return string the modulus as a string.
- * @throws \DivisionByZeroError if <i>divisor</i> is 0. Available since PHP 8.0.
+ * @throws DivisionByZeroError if <i>divisor</i> is 0. Available since PHP 8.0.
  */
 #[Pure]
 #[PhpStormStubsElementAvailable('8.0')]
