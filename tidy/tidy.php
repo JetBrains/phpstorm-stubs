@@ -15,6 +15,39 @@ class tidy
 
     /**
      * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
+     * Constructs a new <b>tidy</b> object
+     * @link https://php.net/manual/en/tidy.construct.php
+     * @param string $filename [optional] <p>
+     * If the <i>filename</i> parameter is given, this function
+     * will also read that file and initialize the object with the file,
+     * acting like <b>tidy_parse_file</b>.
+     * </p>
+     * @param mixed $config [optional] <p>
+     * The config <i>config</i> can be passed either as an
+     * array or as a string. If a string is passed, it is interpreted as the
+     * name of the configuration file, otherwise, it is interpreted as the
+     * options themselves.
+     * </p>
+     * <p>
+     * For an explanation about each option, visit http://tidy.sourceforge.net/docs/quickref.html.
+     * </p>
+     * @param string|null $encoding [optional] <p>
+     * The <i>encoding</i> parameter sets the encoding for
+     * input/output documents. The possible values for encoding are:
+     * ascii, latin0, latin1,
+     * raw, utf8, iso2022,
+     * mac, win1252, ibm858,
+     * utf16, utf16le, utf16be,
+     * big5, and shiftjis.
+     * </p>
+     * @param bool $use_include_path [optional] <p>
+     * Search for the file in the include_path.
+     * </p>
+     */
+    public function __construct($filename = null, $config = null, $encoding = null, $use_include_path = null) {}
+
+    /**
+     * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
      * Returns the value of the specified configuration option for the tidy document
      * @link https://php.net/manual/en/tidy.getopt.php
      * @param string $option <p>
@@ -279,39 +312,6 @@ class tidy
      * &lt;body&gt; tag of the tidy parse tree.
      */
     public function body() {}
-
-    /**
-     * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
-     * Constructs a new <b>tidy</b> object
-     * @link https://php.net/manual/en/tidy.construct.php
-     * @param string $filename [optional] <p>
-     * If the <i>filename</i> parameter is given, this function
-     * will also read that file and initialize the object with the file,
-     * acting like <b>tidy_parse_file</b>.
-     * </p>
-     * @param mixed $config [optional] <p>
-     * The config <i>config</i> can be passed either as an
-     * array or as a string. If a string is passed, it is interpreted as the
-     * name of the configuration file, otherwise, it is interpreted as the
-     * options themselves.
-     * </p>
-     * <p>
-     * For an explanation about each option, visit http://tidy.sourceforge.net/docs/quickref.html.
-     * </p>
-     * @param string|null $encoding [optional] <p>
-     * The <i>encoding</i> parameter sets the encoding for
-     * input/output documents. The possible values for encoding are:
-     * ascii, latin0, latin1,
-     * raw, utf8, iso2022,
-     * mac, win1252, ibm858,
-     * utf16, utf16le, utf16be,
-     * big5, and shiftjis.
-     * </p>
-     * @param bool $use_include_path [optional] <p>
-     * Search for the file in the include_path.
-     * </p>
-     */
-    public function __construct($filename = null, $config = null, $encoding = null, $use_include_path = null) {}
 }
 
 /**
@@ -379,6 +379,8 @@ final class tidyNode
      * @var array
      */
     public $child;
+
+    private function __construct() {}
 
     /**
      * Checks if a node has children
@@ -452,8 +454,6 @@ final class tidyNode
      * @since 5.2.2
      */
     public function getParent() {}
-
-    private function __construct() {}
 }
 
 /**

@@ -22,24 +22,6 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public $name;
 
     /**
-     * Clones function
-     *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
-     * @return void
-     */
-    #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
-    final private function __clone(): void {}
-
-    /**
-     * Clones function
-     *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
-     * @return void
-     */
-    #[PhpStormStubsElementAvailable(from: "8.1")]
-    private function __clone(): void {}
-
-    /**
      * Checks if function in namespace
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.innamespace.php
@@ -347,4 +329,22 @@ abstract class ReflectionFunctionAbstract implements Reflector
 
     #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')]
     public function __toString() {}
+
+    /**
+     * Clones function
+     *
+     * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
+     * @return void
+     */
+    #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
+    final private function __clone(): void {}
+
+    /**
+     * Clones function
+     *
+     * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
+     * @return void
+     */
+    #[PhpStormStubsElementAvailable(from: "8.1")]
+    private function __clone(): void {}
 }

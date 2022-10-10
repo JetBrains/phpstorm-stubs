@@ -62,7 +62,11 @@ function shm_detach(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], defa
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function shm_put_var(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], default: "resource")] $shm, int $key, mixed $value): bool {}
+function shm_put_var(
+    #[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], default: "resource")] $shm,
+    int $key,
+    mixed $value
+): bool {}
 
 /**
  * Check whether a specific entry exists
@@ -75,7 +79,10 @@ function shm_put_var(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], def
  * </p>
  * @return bool <b>TRUE</b> if the entry exists, otherwise <b>FALSE</b>
  */
-function shm_has_var(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], default: "resource")] $shm, int $key): bool {}
+function shm_has_var(
+    #[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], default: "resource")] $shm,
+    int $key
+): bool {}
 
 /**
  * Returns a variable from shared memory
@@ -88,7 +95,10 @@ function shm_has_var(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], def
  * </p>
  * @return mixed the variable with the given key.
  */
-function shm_get_var(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], default: "resource")] $shm, int $key): mixed {}
+function shm_get_var(
+    #[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], default: "resource")] $shm,
+    int $key
+): mixed {}
 
 /**
  * Removes a variable from shared memory
@@ -102,7 +112,10 @@ function shm_get_var(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], def
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function shm_remove_var(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], default: "resource")] $shm, int $key): bool {}
+function shm_remove_var(
+    #[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], default: "resource")] $shm,
+    int $key
+): bool {}
 
 /**
  * @since 8.0

@@ -131,7 +131,14 @@ const DBA_LMDB_NO_SUB_DIR = 0;
 function dba_open($path, $mode, $handler, ...$handler_params) {}
 
 #[PhpStormStubsElementAvailable(from: '8.2')]
-function dba_open(string $path, string $mode, ?string $handler = null, int $permission = 0o644, int $map_size = 0, ?int $flags = null) {}
+function dba_open(
+    string $path,
+    string $mode,
+    ?string $handler = null,
+    int $permission = 0o644,
+    int $map_size = 0,
+    ?int $flags = null
+) {}
 
 /**
  * Open database persistently
@@ -158,7 +165,14 @@ function dba_open(string $path, string $mode, ?string $handler = null, int $perm
 function dba_popen($path, $mode, $handler, ...$handler_params) {}
 
 #[PhpStormStubsElementAvailable(from: '8.2')]
-function dba_popen(string $path, string $mode, ?string $handler = null, int $permission = 0o644, int $map_size = 0, ?int $flags = null) {}
+function dba_popen(
+    string $path,
+    string $mode,
+    ?string $handler = null,
+    int $permission = 0o644,
+    int $map_size = 0,
+    ?int $flags = null
+) {}
 
 /**
  * Close a DBA database
@@ -257,7 +271,11 @@ function dba_fetch($key, $skip, $dba): string|false {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_insert(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key, string $value, $dba): bool {}
+function dba_insert(
+    #[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key,
+    string $value,
+    $dba
+): bool {}
 
 /**
  * Replace or insert entry
@@ -274,7 +292,11 @@ function dba_insert(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default:
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_replace(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key, string $value, $dba): bool {}
+function dba_replace(
+    #[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key,
+    string $value,
+    $dba
+): bool {}
 
 /**
  * Fetch first key

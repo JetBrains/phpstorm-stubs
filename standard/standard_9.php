@@ -283,7 +283,11 @@ function array_unique(array $array, int $flags = SORT_STRING): array {}
  * @meta
  */
 #[Pure]
-function array_intersect(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays): array {}
+function array_intersect(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays,
+    array ...$arrays
+): array {}
 
 /**
  * Computes the intersection of arrays using keys for comparison
@@ -298,7 +302,11 @@ function array_intersect(array $array, #[PhpStormStubsElementAvailable(from: '5.
  * @meta
  */
 #[Pure]
-function array_intersect_key(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays): array {}
+function array_intersect_key(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays,
+    array ...$arrays
+): array {}
 
 /**
  * Computes the intersection of arrays using a callback function on the keys for comparison
@@ -366,7 +374,11 @@ function array_uintersect(
  * @meta
  */
 #[Pure]
-function array_intersect_assoc(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays): array {}
+function array_intersect_assoc(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays,
+    array ...$arrays
+): array {}
 
 /**
  * Computes the intersection of arrays with additional index check, compares data by a callback function
@@ -465,7 +477,11 @@ function array_uintersect_uassoc(
  * @meta
  */
 #[Pure]
-function array_diff(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays): array {}
+function array_diff(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays,
+    array ...$arrays
+): array {}
 
 /**
  * Computes the difference of arrays using keys for comparison
@@ -482,7 +498,11 @@ function array_diff(array $array, #[PhpStormStubsElementAvailable(from: '5.3', t
  * @meta
  */
 #[Pure]
-function array_diff_key(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays): array {}
+function array_diff_key(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays,
+    array ...$arrays
+): array {}
 
 /**
  * Computes the difference of arrays using a callback function on the keys for comparison
@@ -798,7 +818,10 @@ function array_combine(array $keys, array $values) {}
  * @return bool true on success or false on failure.
  */
 #[Pure]
-function array_key_exists($key, #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|ArrayObject")] $array): bool {}
+function array_key_exists(
+    $key,
+    #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|ArrayObject")] $array
+): bool {}
 
 /**
  * Gets the first key of an array
@@ -990,21 +1013,21 @@ function version_compare(
     string $version1,
     string $version2,
     #[ExpectedValues(values: [
-               "<",
-               "lt",
-               "<=",
-               "le",
-               ">",
-               "gt",
-               ">=",
-               "ge",
-               "==",
-               "=",
-               "eq",
-               "!=",
-               "<>",
-               "ne"
-           ])] ?string $operator
+        "<",
+        "lt",
+        "<=",
+        "le",
+        ">",
+        "gt",
+        ">=",
+        "ge",
+        "==",
+        "=",
+        "eq",
+        "!=",
+        "<>",
+        "ne"
+    ])] ?string $operator
 ): int|bool {}
 
 /**

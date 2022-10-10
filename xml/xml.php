@@ -62,8 +62,10 @@ function xml_parser_create_ns(?string $encoding, string $separator = ':') {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-#[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
-function xml_set_object(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, object $object) {}
+function xml_set_object(
+    #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
+    object $object
+): bool {}
 
 /**
  * Set up start and end element handlers
@@ -92,8 +94,11 @@ function xml_set_object(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default
  * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-#[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
-function xml_set_element_handler(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, $start_handler, $end_handler) {}
+function xml_set_element_handler(
+    #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
+    $start_handler,
+    $end_handler
+): bool {}
 
 /**
  * Set up character data handler
@@ -117,8 +122,10 @@ function xml_set_element_handler(#[LanguageLevelTypeAware(["8.0" => "XMLParser"]
  * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-#[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
-function xml_set_character_data_handler(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, $handler) {}
+function xml_set_character_data_handler(
+    #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
+    $handler
+): bool {}
 
 /**
  * Set up processing instruction (PI) handler
@@ -143,8 +150,10 @@ function xml_set_character_data_handler(#[LanguageLevelTypeAware(["8.0" => "XMLP
  * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-#[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
-function xml_set_processing_instruction_handler(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, $handler) {}
+function xml_set_processing_instruction_handler(
+    #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
+    $handler
+): bool {}
 
 /**
  * Set up default handler
@@ -168,8 +177,10 @@ function xml_set_processing_instruction_handler(#[LanguageLevelTypeAware(["8.0" 
  * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-#[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
-function xml_set_default_handler(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, $handler) {}
+function xml_set_default_handler(
+    #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
+    $handler
+): bool {}
 
 /**
  * Set up unparsed entity declaration handler
@@ -198,8 +209,10 @@ function xml_set_default_handler(#[LanguageLevelTypeAware(["8.0" => "XMLParser"]
  * handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-#[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
-function xml_set_unparsed_entity_decl_handler(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, $handler) {}
+function xml_set_unparsed_entity_decl_handler(
+    #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
+    $handler
+): bool {}
 
 /**
  * Set up notation declaration handler
@@ -226,8 +239,10 @@ function xml_set_unparsed_entity_decl_handler(#[LanguageLevelTypeAware(["8.0" =>
  * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-#[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
-function xml_set_notation_decl_handler(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, $handler) {}
+function xml_set_notation_decl_handler(
+    #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
+    $handler
+): bool {}
 
 /**
  * Set up external entity reference handler
@@ -258,8 +273,10 @@ function xml_set_notation_decl_handler(#[LanguageLevelTypeAware(["8.0" => "XMLPa
  * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-#[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
-function xml_set_external_entity_ref_handler(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, $handler) {}
+function xml_set_external_entity_ref_handler(
+    #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
+    $handler
+): bool {}
 
 /**
  * Set up start namespace declaration handler
@@ -288,8 +305,10 @@ function xml_set_external_entity_ref_handler(#[LanguageLevelTypeAware(["8.0" => 
  * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-#[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
-function xml_set_start_namespace_decl_handler(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, $handler) {}
+function xml_set_start_namespace_decl_handler(
+    #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
+    $handler
+): bool {}
 
 /**
  * Set up end namespace declaration handler
@@ -317,8 +336,10 @@ function xml_set_start_namespace_decl_handler(#[LanguageLevelTypeAware(["8.0" =>
  * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-#[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
-function xml_set_end_namespace_decl_handler(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, $handler) {}
+function xml_set_end_namespace_decl_handler(
+    #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
+    $handler
+): bool {}
 
 /**
  * Start parsing an XML document
@@ -350,7 +371,11 @@ function xml_set_end_namespace_decl_handler(#[LanguageLevelTypeAware(["8.0" => "
  * <i>is_final</i> is set and <b>TRUE</b>.
  * </p>
  */
-function xml_parse(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, string $data, bool $is_final = false): int {}
+function xml_parse(
+    #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
+    string $data,
+    bool $is_final = false
+): int {}
 
 /**
  * Parse XML data into an array structure
@@ -371,7 +396,12 @@ function xml_parse(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "re
  * success. This is not the same as <b>FALSE</b> and <b>TRUE</b>, be careful with
  * operators such as ===.
  */
-function xml_parse_into_struct(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, string $data, &$values, &$index): int {}
+function xml_parse_into_struct(
+    #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
+    string $data,
+    &$values,
+    &$index
+): int {}
 
 /**
  * Get XML parser error code
@@ -512,7 +542,11 @@ function xml_parser_free(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], defaul
  * refer to a valid parser, or if the option could not be set. Else the
  * option is set and <b>TRUE</b> is returned.
  */
-function xml_parser_set_option(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, int $option, $value): bool {}
+function xml_parser_set_option(
+    #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
+    int $option,
+    $value
+): bool {}
 
 /**
  * Get options from an XML parser
@@ -527,7 +561,10 @@ function xml_parser_set_option(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], 
  * Else the option's value is returned.
  */
 #[Pure]
-function xml_parser_get_option(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, int $option): string|int {}
+function xml_parser_get_option(
+    #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
+    int $option
+): string|int {}
 
 define('XML_ERROR_NONE', 0);
 define('XML_ERROR_NO_MEMORY', 1);

@@ -455,7 +455,12 @@ function wordwrap(string $string, int $width = 75, string $break = "\n", bool $c
  * @return string The converted string.
  */
 #[Pure]
-function htmlspecialchars(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?string $encoding = null, bool $double_encode = true): string {}
+function htmlspecialchars(
+    string $string,
+    int $flags = ENT_QUOTES|ENT_SUBSTITUTE,
+    ?string $encoding = null,
+    bool $double_encode = true
+): string {}
 
 /**
  * Convert all applicable characters to HTML entities
@@ -501,7 +506,12 @@ function htmlspecialchars(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE
  * @return string the encoded string.
  */
 #[Pure]
-function htmlentities(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?string $encoding, bool $double_encode = true): string {}
+function htmlentities(
+    string $string,
+    int $flags = ENT_QUOTES|ENT_SUBSTITUTE,
+    ?string $encoding,
+    bool $double_encode = true
+): string {}
 
 /**
  * Convert HTML entities  to their corresponding characters

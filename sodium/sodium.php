@@ -151,7 +151,12 @@ function sodium_crypto_stream_xchacha20(int $length, string $nonce, string $key)
 function sodium_crypto_stream_xchacha20_xor(string $message, string $nonce, string $key): string {}
 
 #[PhpStormStubsElementAvailable('8.2')]
-function sodium_crypto_stream_xchacha20_xor_ic(#[\SensitiveParameter] string $message, string $nonce, int $counter, #[\SensitiveParameter] string $key): string {}
+function sodium_crypto_stream_xchacha20_xor_ic(
+    #[SensitiveParameter] string $message,
+    string $nonce,
+    int $counter,
+    #[SensitiveParameter] string $key
+): string {}
 
 #[PhpStormStubsElementAvailable('8.1')]
 function sodium_crypto_stream_xchacha20_keygen(): string {}
@@ -177,7 +182,12 @@ function sodium_crypto_aead_aes256gcm_is_available(): bool {}
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_aead_aes256gcm_decrypt(string $ciphertext, string $additional_data, string $nonce, string $key): string|false {}
+function sodium_crypto_aead_aes256gcm_decrypt(
+    string $ciphertext,
+    string $additional_data,
+    string $nonce,
+    string $key
+): string|false {}
 
 /**
  * Authenticated Encryption with Associated Data (encrypt)
@@ -191,7 +201,12 @@ function sodium_crypto_aead_aes256gcm_decrypt(string $ciphertext, string $additi
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_aead_aes256gcm_encrypt(string $message, string $additional_data, string $nonce, string $key): string {}
+function sodium_crypto_aead_aes256gcm_encrypt(
+    string $message,
+    string $additional_data,
+    string $nonce,
+    string $key
+): string {}
 
 /**
  * Authenticated Encryption with Associated Data (decrypt)
@@ -205,7 +220,12 @@ function sodium_crypto_aead_aes256gcm_encrypt(string $message, string $additiona
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_aead_chacha20poly1305_decrypt(string $ciphertext, string $additional_data, string $nonce, string $key): string|false {}
+function sodium_crypto_aead_chacha20poly1305_decrypt(
+    string $ciphertext,
+    string $additional_data,
+    string $nonce,
+    string $key
+): string|false {}
 
 /**
  * Authenticated Encryption with Associated Data (encrypt)
@@ -219,7 +239,12 @@ function sodium_crypto_aead_chacha20poly1305_decrypt(string $ciphertext, string 
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_aead_chacha20poly1305_encrypt(string $message, string $additional_data, string $nonce, string $key): string {}
+function sodium_crypto_aead_chacha20poly1305_encrypt(
+    string $message,
+    string $additional_data,
+    string $nonce,
+    string $key
+): string {}
 
 /**
  * Authenticated Encryption with Associated Data (decrypt)
@@ -233,7 +258,12 @@ function sodium_crypto_aead_chacha20poly1305_encrypt(string $message, string $ad
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_aead_chacha20poly1305_ietf_decrypt(string $ciphertext, string $additional_data, string $nonce, string $key): string|false {}
+function sodium_crypto_aead_chacha20poly1305_ietf_decrypt(
+    string $ciphertext,
+    string $additional_data,
+    string $nonce,
+    string $key
+): string|false {}
 
 /**
  * Authenticated Encryption with Associated Data (encrypt)
@@ -611,7 +641,14 @@ function sodium_crypto_generichash_final(
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_pwhash(int $length, string $password, string $salt, int $opslimit, int $memlimit, int $algo = SODIUM_CRYPTO_PWHASH_ALG_DEFAULT): string {}
+function sodium_crypto_pwhash(
+    int $length,
+    string $password,
+    string $salt,
+    int $opslimit,
+    int $memlimit,
+    int $algo = SODIUM_CRYPTO_PWHASH_ALG_DEFAULT
+): string {}
 
 /**
  * Get a formatted password hash (for storage)
@@ -1087,7 +1124,12 @@ function sodium_crypto_aead_chacha20poly1305_ietf_keygen(): string {}
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-decrypt.php
  */
-function sodium_crypto_aead_xchacha20poly1305_ietf_decrypt(string $ciphertext, string $additional_data, string $nonce, string $key): string|false {}
+function sodium_crypto_aead_xchacha20poly1305_ietf_decrypt(
+    string $ciphertext,
+    string $additional_data,
+    string $nonce,
+    string $key
+): string|false {}
 
 /**
  * @param string $message
@@ -1099,7 +1141,12 @@ function sodium_crypto_aead_xchacha20poly1305_ietf_decrypt(string $ciphertext, s
  * @since 7.2
  * https://www.php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-encrypt.php
  */
-function sodium_crypto_aead_xchacha20poly1305_ietf_encrypt(string $message, string $additional_data, string $nonce, string $key): string {}
+function sodium_crypto_aead_xchacha20poly1305_ietf_encrypt(
+    string $message,
+    string $additional_data,
+    string $nonce,
+    string $key
+): string {}
 
 /**
  * @since 7.2
@@ -1133,7 +1180,12 @@ function sodium_crypto_secretstream_xchacha20poly1305_keygen(): string {}
 function sodium_crypto_secretstream_xchacha20poly1305_init_push(string $key): array {}
 
 #[PhpStormStubsElementAvailable('7.2')]
-function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, #[\SensitiveParameter] string $message, string $additional_data = "", int $tag = SODIUM_CRYPTO_SECRETSTREAM_XCHACHA20POLY1305_TAG_MESSAGE): string {}
+function sodium_crypto_secretstream_xchacha20poly1305_push(
+    string &$state,
+    #[SensitiveParameter] string $message,
+    string $additional_data = "",
+    int $tag = SODIUM_CRYPTO_SECRETSTREAM_XCHACHA20POLY1305_TAG_MESSAGE
+): string {}
 
 /**
  * @param string $header
@@ -1146,7 +1198,11 @@ function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, #[\Se
 function sodium_crypto_secretstream_xchacha20poly1305_init_pull(string $header, string $key): string {}
 
 #[PhpStormStubsElementAvailable('7.2')]
-function sodium_crypto_secretstream_xchacha20poly1305_pull(string &$state, string $ciphertext, string $additional_data = ""): array|false {}
+function sodium_crypto_secretstream_xchacha20poly1305_pull(
+    string &$state,
+    string $ciphertext,
+    string $additional_data = ""
+): array|false {}
 
 /**
  * @param string &$state
@@ -1170,10 +1226,10 @@ function sodium_bin2base64(string $string, int $id): string {}
  * @param string $string
  * @param int $id
  * @param string $ignore
- * @throws SodiumException
- * @since 7.2
- * @see https://www.php.net/manual/en/function.sodium-base642bin.php
  * @return string
+ * @throws SodiumException
+ * @see https://www.php.net/manual/en/function.sodium-base642bin.php
+ * @since 7.2
  */
 function sodium_base642bin(string $string, int $id, string $ignore = ''): string {}
 

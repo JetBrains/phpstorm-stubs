@@ -510,7 +510,14 @@ function oci_bind_by_name($statement, $bv_name, &$variable, $maxlength = -1, $ty
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function oci_bind_array_by_name($statement, $name, array &$var_array, $max_table_length, $max_item_length = -1, $type = SQLT_AFC) {}
+function oci_bind_array_by_name(
+    $statement,
+    $name,
+    array &$var_array,
+    $max_table_length,
+    $max_item_length = -1,
+    $type = SQLT_AFC
+) {}
 
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
@@ -954,7 +961,13 @@ function ocifetchinto($statement_resource, &$result, $mode = null) {}
  * @return int|false The number of rows in <i>output</i>, which
  * may be 0 or more, or <b>FALSE</b> on failure.
  */
-function oci_fetch_all($statement, array &$output, $skip = 0, $maxrows = -1, $flags = OCI_FETCHSTATEMENT_BY_COLUMN|OCI_ASSOC) {}
+function oci_fetch_all(
+    $statement,
+    array &$output,
+    $skip = 0,
+    $maxrows = -1,
+    $flags = OCI_FETCHSTATEMENT_BY_COLUMN|OCI_ASSOC
+) {}
 
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
@@ -1349,7 +1362,13 @@ function oci_connect($username, $password, $connection_string = null, $character
  * </p>
  * @return resource|false A connection identifier or <b>FALSE</b> on error.
  */
-function oci_new_connect($username, $password, $connection_string = null, $character_set = null, $session_mode = null) {}
+function oci_new_connect(
+    $username,
+    $password,
+    $connection_string = null,
+    $character_set = null,
+    $session_mode = null
+) {}
 
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
@@ -2066,7 +2085,11 @@ function ocifreedesc($lob_descriptor) {}
  * @return bool
  */
 #[Deprecated(replacement: "OCI-Lob::save", since: "5.4")]
-function ocisavelob(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor, $data, $offset) {}
+function ocisavelob(
+    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor,
+    $data,
+    $offset
+) {}
 
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
@@ -2078,7 +2101,10 @@ function ocisavelob(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_
  * @return bool
  */
 #[Deprecated(replacement: "OCI_Lob::import", since: "5.4")]
-function ocisavelobfile(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor, $filename) {}
+function ocisavelobfile(
+    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor,
+    $filename
+) {}
 
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
@@ -2179,7 +2205,12 @@ function ocisetprefetch($statement_resource, $number_of_rows) {}
  * @param string $new_password <p>The new password to be set.</p>
  * @return resource|bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure or <b>resource</b>, depending on the function parameters.</p>
  */
-function ocipasswordchange($connection_resource_or_connection_string_or_dbname, $username, $old_password, $new_password) {}
+function ocipasswordchange(
+    $connection_resource_or_connection_string_or_dbname,
+    $username,
+    $old_password,
+    $new_password
+) {}
 
 /**
  * (PHP 4 &gt;= 4.0.7, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
@@ -2212,14 +2243,17 @@ function ocinewcollection($connection_resource, $tdo, $schema = null) {}
 /**
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
- * (@see OCI_Collection::append)
- * @link https://php.net/manual/en/function.ocicollappend.php
- * @param OCI_Collection $collection
+ * (@param OCI_Collection $collection
  * @param mixed $value <p>The value to be added to the collection. Can be a string or a number.</p>
  * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
+ * @link https://php.net/manual/en/function.ocicollappend.php
+ * @see OCI_Collection::append)
  */
 #[Deprecated(replacement: "OCI_Collection::append", since: "5.4")]
-function ocicollappend(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection, $value) {}
+function ocicollappend(
+    #[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection,
+    $value
+) {}
 
 /**
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
@@ -2231,7 +2265,10 @@ function ocicollappend(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], defa
  * @return mixed <p>Returns <b>FALSE</b> if such element doesn't exist; <b>NULL</b> if element is <b>NULL</b>; string if element is column of a string datatype or number if element is numeric field.</p>
  */
 #[Deprecated(replacement: "OCI_COLLection::getElem", since: "5.4")]
-function ocicollgetelem(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection, $index) {}
+function ocicollgetelem(
+    #[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection,
+    $index
+) {}
 
 /**
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
@@ -2243,7 +2280,11 @@ function ocicollgetelem(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], def
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
 #[Deprecated(replacement: "OCI_Collection::assignElem", since: "5.4")]
-function ocicollassignelem(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection, $index, $value) {}
+function ocicollassignelem(
+    #[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection,
+    $index,
+    $value
+) {}
 
 /**
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
@@ -2278,7 +2319,10 @@ function ocicollmax(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default
  * @return bool Returns <b>TRUE</b> or <b>FALSE</b> on failure.
  */
 #[Deprecated(replacement: "OCI_Collection::trim", since: "5.4")]
-function ocicolltrim(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection, $number) {}
+function ocicolltrim(
+    #[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $collection,
+    $number
+) {}
 
 /**
  * (PHP 4 &gt;= 4.0.6, PECL OCI8 1.0)
@@ -2331,6 +2375,7 @@ function ocicollassign(
     #[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $to,
     #[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $from
 ) {}
+
 /**
  * See <b>OCI_NO_AUTO_COMMIT</b>.
  * @link https://php.net/manual/en/oci8.constants.php

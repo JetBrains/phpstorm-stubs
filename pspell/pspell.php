@@ -36,7 +36,13 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * @return int|false the dictionary link identifier on success or <b>FALSE</b> on failure.
  */
 #[LanguageLevelTypeAware(['8.1' => 'PSpell\Dictionary|false'], default: 'int|false')]
-function pspell_new(string $language, string $spelling = "", string $jargon = "", string $encoding = "", int $mode = 0) {}
+function pspell_new(
+    string $language,
+    string $spelling = "",
+    string $jargon = "",
+    string $encoding = "",
+    int $mode = 0
+) {}
 
 /**
  * Load a new dictionary with personal wordlist
@@ -74,7 +80,14 @@ function pspell_new(string $language, string $spelling = "", string $jargon = ""
  * @return int|false the dictionary link identifier for use in other pspell functions.
  */
 #[LanguageLevelTypeAware(['8.1' => 'PSpell\Dictionary|false'], default: 'int|false')]
-function pspell_new_personal(string $filename, string $language, string $spelling = "", string $jargon = "", string $encoding = "", int $mode = 0) {}
+function pspell_new_personal(
+    string $filename,
+    string $language,
+    string $spelling = "",
+    string $jargon = "",
+    string $encoding = "",
+    int $mode = 0
+) {}
 
 /**
  * Load a new dictionary with settings based on a given config
@@ -97,7 +110,10 @@ function pspell_new_config(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], 
  * </p>
  * @return bool <b>TRUE</b> if the spelling is correct, <b>FALSE</b> if not.
  */
-function pspell_check(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Dictionary'], default: 'int')] $dictionary, string $word): bool {}
+function pspell_check(
+    #[LanguageLevelTypeAware(['8.1' => 'PSpell\Dictionary'], default: 'int')] $dictionary,
+    string $word
+): bool {}
 
 /**
  * Suggest spellings of a word
@@ -108,7 +124,10 @@ function pspell_check(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Dictionary'], d
  * </p>
  * @return array|false an array of possible spellings.
  */
-function pspell_suggest(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Dictionary'], default: 'int')] $dictionary, string $word): array|false {}
+function pspell_suggest(
+    #[LanguageLevelTypeAware(['8.1' => 'PSpell\Dictionary'], default: 'int')] $dictionary,
+    string $word
+): array|false {}
 
 /**
  * Store a replacement pair for a word
@@ -125,7 +144,11 @@ function pspell_suggest(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Dictionary'],
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_store_replacement(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Dictionary'], default: 'int')] $dictionary, string $misspelled, string $correct): bool {}
+function pspell_store_replacement(
+    #[LanguageLevelTypeAware(['8.1' => 'PSpell\Dictionary'], default: 'int')] $dictionary,
+    string $misspelled,
+    string $correct
+): bool {}
 
 /**
  * Add the word to a personal wordlist
@@ -136,7 +159,10 @@ function pspell_store_replacement(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Dic
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_add_to_personal(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Dictionary'], default: 'int')] $dictionary, string $word): bool {}
+function pspell_add_to_personal(
+    #[LanguageLevelTypeAware(['8.1' => 'PSpell\Dictionary'], default: 'int')] $dictionary,
+    string $word
+): bool {}
 
 /**
  * Add the word to the wordlist in the current session
@@ -147,7 +173,10 @@ function pspell_add_to_personal(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Dicti
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_add_to_session(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Dictionary'], default: 'int')] $dictionary, string $word): bool {}
+function pspell_add_to_session(
+    #[LanguageLevelTypeAware(['8.1' => 'PSpell\Dictionary'], default: 'int')] $dictionary,
+    string $word
+): bool {}
 
 /**
  * Clear the current session
@@ -208,7 +237,10 @@ function pspell_config_create(string $language, string $spelling = "", string $j
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_config_runtogether(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], default: 'int')] $config, bool $allow): bool {}
+function pspell_config_runtogether(
+    #[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], default: 'int')] $config,
+    bool $allow
+): bool {}
 
 /**
  * Change the mode number of suggestions returned
@@ -221,7 +253,10 @@ function pspell_config_runtogether(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Co
  * suggestions)</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_config_mode(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], default: 'int')] $config, int $mode): bool {}
+function pspell_config_mode(
+    #[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], default: 'int')] $config,
+    int $mode
+): bool {}
 
 /**
  * Ignore words less than N characters long
@@ -232,7 +267,10 @@ function pspell_config_mode(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'],
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_config_ignore(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], default: 'int')] $config, int $min_length): bool {}
+function pspell_config_ignore(
+    #[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], default: 'int')] $config,
+    int $min_length
+): bool {}
 
 /**
  * Set a file that contains personal wordlist
@@ -244,7 +282,10 @@ function pspell_config_ignore(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_config_personal(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], default: 'int')] $config, string $filename): bool {}
+function pspell_config_personal(
+    #[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], default: 'int')] $config,
+    string $filename
+): bool {}
 
 /**
  * Location of the main word list
@@ -253,7 +294,10 @@ function pspell_config_personal(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Confi
  * @param string $directory
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_config_dict_dir(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], default: 'int')] $config, string $directory): bool {}
+function pspell_config_dict_dir(
+    #[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], default: 'int')] $config,
+    string $directory
+): bool {}
 
 /**
  * location of language data files
@@ -262,7 +306,10 @@ function pspell_config_dict_dir(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Confi
  * @param string $directory
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_config_data_dir(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], default: 'int')] $config, string $directory): bool {}
+function pspell_config_data_dir(
+    #[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], default: 'int')] $config,
+    string $directory
+): bool {}
 
 /**
  * Set a file that contains replacement pairs
@@ -273,7 +320,10 @@ function pspell_config_data_dir(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Confi
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_config_repl(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], default: 'int')] $config, string $filename): bool {}
+function pspell_config_repl(
+    #[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], default: 'int')] $config,
+    string $filename
+): bool {}
 
 /**
  * Determine whether to save a replacement pairs list
@@ -285,7 +335,10 @@ function pspell_config_repl(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'],
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_config_save_repl(#[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], default: 'int')] $config, bool $save): bool {}
+function pspell_config_save_repl(
+    #[LanguageLevelTypeAware(['8.1' => 'PSpell\Config'], default: 'int')] $config,
+    bool $save
+): bool {}
 
 define('PSPELL_FAST', 1);
 define('PSPELL_NORMAL', 2);

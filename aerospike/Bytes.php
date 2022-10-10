@@ -24,6 +24,8 @@
 
 namespace Aerospike;
 
+use Serializable;
+
 /**
  * \Aerospike\Bytes is a utility for wrapping PHP strings containing
  * potentially harmful bytes such as \0. By wrapping the binary-string, the
@@ -37,7 +39,7 @@ namespace Aerospike;
  * @package    Aerospike
  * @author     Ronen Botzer <rbotzer@aerospike.com>
  */
-class Bytes implements \Serializable
+class Bytes implements Serializable
 {
     /**
      * The container for the binary-string
@@ -50,8 +52,20 @@ class Bytes implements \Serializable
      *
      * @param string $bin_str a PHP binary-string such as gzdeflate() produces.
      */
-    public function __construct($bin_str) {
+    public function __construct($bin_str)
+    {
         $this->s = $bin_str;
+    }
+
+    /**
+     * Unwraps an \Aerospike\Bytes object, returning the binary-string inside.
+     *
+     * @param Bytes $bytes_wrap
+     * @return string
+     */
+    public static function unwrap(Bytes $bytes_wrap)
+    {
+        return $bytes_wrap->s;
     }
 
     /**
@@ -60,7 +74,8 @@ class Bytes implements \Serializable
      *
      * @return string
      */
-    public function serialize() {
+    public function serialize()
+    {
         return $this->s;
     }
 
@@ -70,7 +85,8 @@ class Bytes implements \Serializable
      * @param string $bin_str a PHP binary-string. Called by unserialize().
      * @return string
      */
-    public function unserialize($bin_str) {
+    public function unserialize($bin_str)
+    {
         return $this->s = $bin_str;
     }
 
@@ -79,17 +95,8 @@ class Bytes implements \Serializable
      *
      * @return string
      */
-    public function __toString() {
+    public function __toString()
+    {
         return $this->s;
-    }
-
-    /**
-     * Unwraps an \Aerospike\Bytes object, returning the binary-string inside.
-     *
-     * @param \Aerospike\Bytes $bytes_wrap
-     * @return string
-     */
-    public static function unwrap(Bytes $bytes_wrap) {
-        return $bytes_wrap->s;
     }
 }

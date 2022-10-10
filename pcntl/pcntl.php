@@ -100,7 +100,7 @@ function pcntl_waitpid(
     &$status,
     int $flags = 0,
     #[PhpStormStubsElementAvailable(from: '7.0')] &$resource_usage
-= []
+    = []
 ): int {}
 
 /**
@@ -151,7 +151,7 @@ function pcntl_wait(
     &$status,
     int $flags = 0,
     #[PhpStormStubsElementAvailable(from: '7.0')] &$resource_usage
-= []
+    = []
 ): int {}
 
 /**

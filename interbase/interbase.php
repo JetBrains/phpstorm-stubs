@@ -43,7 +43,16 @@
  * @return resource|false an InterBase link identifier on success, or false on error.
  * @removed 7.4
  */
-function ibase_connect($database = null, $username = null, $password = null, $charset = null, $buffers = null, $dialect = null, $role = null, $sync = null) {}
+function ibase_connect(
+    $database = null,
+    $username = null,
+    $password = null,
+    $charset = null,
+    $buffers = null,
+    $dialect = null,
+    $role = null,
+    $sync = null
+) {}
 
 /**
  * Open a persistent connection to an InterBase database
@@ -86,7 +95,16 @@ function ibase_connect($database = null, $username = null, $password = null, $ch
  * @return resource|false an InterBase link identifier on success, or false on error.
  * @removed 7.4
  */
-function ibase_pconnect($database = null, $username = null, $password = null, $charset = null, $buffers = null, $dialect = null, $role = null, $sync = null) {}
+function ibase_pconnect(
+    $database = null,
+    $username = null,
+    $password = null,
+    $charset = null,
+    $buffers = null,
+    $dialect = null,
+    $role = null,
+    $sync = null
+) {}
 
 /**
  * Close a connection to an InterBase database
@@ -591,7 +609,14 @@ function ibase_errcode() {}
  * @return bool true on success or false on failure.
  * @removed 7.4
  */
-function ibase_add_user($service_handle, $user_name, $password, $first_name = null, $middle_name = null, $last_name = null) {}
+function ibase_add_user(
+    $service_handle,
+    $user_name,
+    $password,
+    $first_name = null,
+    $middle_name = null,
+    $last_name = null
+) {}
 
 /**
  * Modify a user to a security database (only for IB6 or later)
@@ -605,7 +630,14 @@ function ibase_add_user($service_handle, $user_name, $password, $first_name = nu
  * @return bool true on success or false on failure.
  * @removed 7.4
  */
-function ibase_modify_user($service_handle, $user_name, $password, $first_name = null, $middle_name = null, $last_name = null) {}
+function ibase_modify_user(
+    $service_handle,
+    $user_name,
+    $password,
+    $first_name = null,
+    $middle_name = null,
+    $last_name = null
+) {}
 
 /**
  * Delete a user from a security database (only for IB6 or later)
@@ -790,7 +822,16 @@ function ibase_free_event_handler($event) {}
  * </p>
  * @return resource|false an InterBase link identifier on success, or false on error.
  */
-function fbird_connect($database = null, $username = null, $password = null, $charset = null, $buffers = null, $dialect = null, $role = null, $sync = null) {}
+function fbird_connect(
+    $database = null,
+    $username = null,
+    $password = null,
+    $charset = null,
+    $buffers = null,
+    $dialect = null,
+    $role = null,
+    $sync = null
+) {}
 
 /**
  * This is an alias of ibase_pconnect
@@ -833,7 +874,16 @@ function fbird_connect($database = null, $username = null, $password = null, $ch
  * </p>
  * @return resource|false an InterBase link identifier on success, or false on error.
  */
-function fbird_pconnect($database = null, $username = null, $password = null, $charset = null, $buffers = null, $dialect = null, $role = null, $sync = null) {}
+function fbird_pconnect(
+    $database = null,
+    $username = null,
+    $password = null,
+    $charset = null,
+    $buffers = null,
+    $dialect = null,
+    $role = null,
+    $sync = null
+) {}
 
 /**
  * This is an alias of ibase_close
@@ -1337,7 +1387,14 @@ function fbird_errcode() {}
  * @param string $last_name [optional]
  * @return bool true on success or false on failure.
  */
-function fbird_add_user($service_handle, $user_name, $password, $first_name = null, $middle_name = null, $last_name = null) {}
+function fbird_add_user(
+    $service_handle,
+    $user_name,
+    $password,
+    $first_name = null,
+    $middle_name = null,
+    $last_name = null
+) {}
 
 /**
  * This is an alias of ibase_modify_user
@@ -1351,7 +1408,14 @@ function fbird_add_user($service_handle, $user_name, $password, $first_name = nu
  * @param string $last_name [optional]
  * @return bool true on success or false on failure.
  */
-function fbird_modify_user($service_handle, $user_name, $password, $first_name = null, $middle_name = null, $last_name = null) {}
+function fbird_modify_user(
+    $service_handle,
+    $user_name,
+    $password,
+    $first_name = null,
+    $middle_name = null,
+    $last_name = null
+) {}
 
 /**
  * This is an alias of ibase_delete_user

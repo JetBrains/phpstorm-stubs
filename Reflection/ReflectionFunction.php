@@ -16,17 +16,17 @@ use JetBrains\PhpStorm\Pure;
 class ReflectionFunction extends ReflectionFunctionAbstract
 {
     /**
-     * @var string Function name, same as calling the {@see ReflectionFunction::getName()} method
-     */
-    #[Immutable]
-    public $name;
-
-    /**
      * Indicates deprecated functions.
      *
      * @link https://www.php.net/manual/en/class.reflectionfunction.php#reflectionfunction.constants.is-deprecated
      */
     public const IS_DEPRECATED = 2048;
+
+    /**
+     * @var string Function name, same as calling the {@see ReflectionFunction::getName()} method
+     */
+    #[Immutable]
+    public $name;
 
     /**
      * Constructs a ReflectionFunction object
@@ -36,14 +36,6 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @throws ReflectionException if the function does not exist.
      */
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'Closure|string'], default: '')] $function) {}
-
-    /**
-     * Returns the string representation of the ReflectionFunction object.
-     *
-     * @link https://php.net/manual/en/reflectionfunction.tostring.php
-     */
-    #[TentativeType]
-    public function __toString(): string {}
 
     /**
      * Exports function
@@ -59,6 +51,14 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      */
     #[Deprecated(since: '7.4')]
     public static function export($name, $return = false) {}
+
+    /**
+     * Returns the string representation of the ReflectionFunction object.
+     *
+     * @link https://php.net/manual/en/reflectionfunction.tostring.php
+     */
+    #[TentativeType]
+    public function __toString(): string {}
 
     /**
      * Checks if function is disabled

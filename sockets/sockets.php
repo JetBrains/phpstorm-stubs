@@ -120,7 +120,13 @@ function socket_addrinfo_explain(AddressInfo $address): array {}
  * }
  * </code>
  */
-function socket_select(?array &$read, ?array &$write, ?array &$except, ?int $seconds, int $microseconds = 0): int|false {}
+function socket_select(
+    ?array &$read,
+    ?array &$write,
+    ?array &$except,
+    ?int $seconds,
+    int $microseconds = 0
+): int|false {}
 
 /**
  * Create a socket (endpoint for communication)
@@ -870,7 +876,14 @@ function socket_recvmsg(
  * @return int|false <b>socket_sendto</b> returns the number of bytes sent to the
  * remote host, or <b>FALSE</b> if an error occurred.
  */
-function socket_sendto(Socket $socket, string $data, int $length, int $flags, string $address, ?int $port = null): int|false {}
+function socket_sendto(
+    Socket $socket,
+    string $data,
+    int $length,
+    int $flags,
+    string $address,
+    ?int $port = null
+): int|false {}
 
 /**
  * Gets socket options for the socket

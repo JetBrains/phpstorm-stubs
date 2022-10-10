@@ -83,6 +83,7 @@ function posix_seteuid(int $user_id): bool {}
  * @since 7.0
  */
 function posix_setrlimit(int $resource, int $soft_limit, int $hard_limit): bool {}
+
 /**
  * Return the real group ID of the current process
  * @link https://php.net/manual/en/function.posix-getgid.php

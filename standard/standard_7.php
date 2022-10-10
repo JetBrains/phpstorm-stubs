@@ -402,8 +402,8 @@ function dir(string $directory, $context): Directory|false {}
  * Alias of dir()
  * @param string $directory
  * @param resource $context
- * @since 8.0
  * @return Directory|false
+ * @since 8.0
  * @see dir()
  */
 function getdir(string $directory, $context = null): Directory|false {}
@@ -1059,7 +1059,13 @@ function diskfreespace(string $directory): float|false {}
  * it does NOT mean the mail will actually reach the intended destination.
  * </p>
  */
-function mail(string $to, string $subject, string $message, array|string $additional_headers = [], string $additional_params = ''): bool {}
+function mail(
+    string $to,
+    string $subject,
+    string $message,
+    array|string $additional_headers = [],
+    string $additional_params = ''
+): bool {}
 
 /**
  * Calculate the hash value needed by EZMLM

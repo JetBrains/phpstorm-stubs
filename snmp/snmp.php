@@ -8,6 +8,19 @@
  */
 class SNMP
 {
+    public const VERSION_1 = 0;
+    public const VERSION_2c = 1;
+    public const VERSION_2C = 1;
+    public const VERSION_3 = 3;
+    public const ERRNO_NOERROR = 0;
+    public const ERRNO_ANY = 126;
+    public const ERRNO_GENERIC = 2;
+    public const ERRNO_TIMEOUT = 4;
+    public const ERRNO_ERROR_IN_REPLY = 8;
+    public const ERRNO_OID_NOT_INCREASING = 16;
+    public const ERRNO_OID_PARSING_ERROR = 32;
+    public const ERRNO_MULTIPLE_SET_QUERIES = 64;
+
     /**
      * @var int Maximum OID per GET/SET/GETBULK request
      * @link https://secure.php.net/manual/en/class.snmp.php#snmp.props.max-oids
@@ -72,18 +85,6 @@ class SNMP
      * @link https://secure.php.net/manual/en/class.snmp.php#snmp.props.info
      */
     public $info;
-    public const VERSION_1 = 0;
-    public const VERSION_2c = 1;
-    public const VERSION_2C = 1;
-    public const VERSION_3 = 3;
-    public const ERRNO_NOERROR = 0;
-    public const ERRNO_ANY = 126;
-    public const ERRNO_GENERIC = 2;
-    public const ERRNO_TIMEOUT = 4;
-    public const ERRNO_ERROR_IN_REPLY = 8;
-    public const ERRNO_OID_NOT_INCREASING = 16;
-    public const ERRNO_OID_PARSING_ERROR = 32;
-    public const ERRNO_MULTIPLE_SET_QUERIES = 64;
 
     /**
      * Creates SNMP instance representing session to remote SNMP agent
@@ -146,7 +147,15 @@ class SNMP
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * @since 5.4
      */
-    public function setSecurity($sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $contextName, $contextEngineID) {}
+    public function setSecurity(
+        $sec_level,
+        $auth_protocol,
+        $auth_passphrase,
+        $priv_protocol,
+        $priv_passphrase,
+        $contextName,
+        $contextEngineID
+    ) {}
 
     /**
      * Fetch an SNMP object
@@ -720,7 +729,18 @@ function snmp2_set($host, $community, $object_id, $type, $value, $timeout = 1000
  * </p>
  * @return string|false SNMP object value on success or <b>FALSE</b> on error.
  */
-function snmp3_get($host, $sec_name, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $object_id, $timeout = 1000000, $retries = 5) {}
+function snmp3_get(
+    $host,
+    $sec_name,
+    $sec_level,
+    $auth_protocol,
+    $auth_passphrase,
+    $priv_protocol,
+    $priv_passphrase,
+    $object_id,
+    $timeout = 1000000,
+    $retries = 5
+) {}
 
 /**
  * Fetch the SNMP object which follows the given object id
@@ -759,7 +779,18 @@ function snmp3_get($host, $sec_name, $sec_level, $auth_protocol, $auth_passphras
  * @return string|false SNMP object value on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
  */
-function snmp3_getnext($host, $sec_name, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $object_id, $timeout = 1000000, $retries = 5) {}
+function snmp3_getnext(
+    $host,
+    $sec_name,
+    $sec_level,
+    $auth_protocol,
+    $auth_passphrase,
+    $priv_protocol,
+    $priv_passphrase,
+    $object_id,
+    $timeout = 1000000,
+    $retries = 5
+) {}
 
 /**
  * Fetch all the SNMP objects from an agent
@@ -803,7 +834,18 @@ function snmp3_getnext($host, $sec_name, $sec_level, $auth_protocol, $auth_passp
  * @return array an array of SNMP object values starting from the
  * <i>object_id</i> as root or <b>FALSE</b> on error.
  */
-function snmp3_walk($host, $sec_name, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $object_id, $timeout = 1000000, $retries = 5) {}
+function snmp3_walk(
+    $host,
+    $sec_name,
+    $sec_level,
+    $auth_protocol,
+    $auth_passphrase,
+    $priv_protocol,
+    $priv_passphrase,
+    $object_id,
+    $timeout = 1000000,
+    $retries = 5
+) {}
 
 /**
  * Return all objects including their respective object ID within the specified one
@@ -843,7 +885,18 @@ function snmp3_walk($host, $sec_name, $sec_level, $auth_protocol, $auth_passphra
  * SNMP object ids and their values on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
  */
-function snmp3_real_walk($host, $sec_name, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $object_id, $timeout = null, $retries = null) {}
+function snmp3_real_walk(
+    $host,
+    $sec_name,
+    $sec_level,
+    $auth_protocol,
+    $auth_passphrase,
+    $priv_protocol,
+    $priv_passphrase,
+    $object_id,
+    $timeout = null,
+    $retries = null
+) {}
 
 /**
  * Set the value of an SNMP object
@@ -927,7 +980,20 @@ function snmp3_real_walk($host, $sec_name, $sec_level, $auth_protocol, $auth_pas
  * If an unknown or invalid OID is specified the warning probably reads "Could not add variable".
  * </p>
  */
-function snmp3_set($host, $sec_name, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $object_id, $type, $value, $timeout = 1000000, $retries = 5) {}
+function snmp3_set(
+    $host,
+    $sec_name,
+    $sec_level,
+    $auth_protocol,
+    $auth_passphrase,
+    $priv_protocol,
+    $priv_passphrase,
+    $object_id,
+    $type,
+    $value,
+    $timeout = 1000000,
+    $retries = 5
+) {}
 
 /**
  * Specify the method how the SNMP values will be returned

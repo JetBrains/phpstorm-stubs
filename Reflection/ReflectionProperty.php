@@ -16,20 +16,6 @@ use JetBrains\PhpStorm\Pure;
 class ReflectionProperty implements Reflector
 {
     /**
-     * @var string Name of the property, same as calling the {@see ReflectionProperty::getName()} method
-     */
-    #[Immutable]
-    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
-    public $name;
-
-    /**
-     * @var string Fully qualified class name where this property was defined
-     */
-    #[Immutable]
-    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
-    public $class;
-
-    /**
      * Indicates that the property is static.
      *
      * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-static
@@ -61,6 +47,20 @@ class ReflectionProperty implements Reflector
      * @since 8.1
      */
     public const IS_READONLY = 5;
+
+    /**
+     * @var string Name of the property, same as calling the {@see ReflectionProperty::getName()} method
+     */
+    #[Immutable]
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
+    public $name;
+
+    /**
+     * @var string Fully qualified class name where this property was defined
+     */
+    #[Immutable]
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
+    public $class;
 
     /**
      * Construct a ReflectionProperty object
@@ -296,24 +296,6 @@ class ReflectionProperty implements Reflector
     public function isPromoted(): bool {}
 
     /**
-     * Clone
-     *
-     * @link https://php.net/manual/en/reflectionproperty.clone.php
-     * @return void
-     */
-    #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
-    final private function __clone(): void {}
-
-    /**
-     * Clone
-     *
-     * @link https://php.net/manual/en/reflectionproperty.clone.php
-     * @return void
-     */
-    #[PhpStormStubsElementAvailable(from: "8.1")]
-    private function __clone(): void {}
-
-    /**
      * @return bool
      * @since 8.0
      */
@@ -345,4 +327,22 @@ class ReflectionProperty implements Reflector
      * @since 8.1
      */
     public function isReadOnly(): bool {}
+
+    /**
+     * Clone
+     *
+     * @link https://php.net/manual/en/reflectionproperty.clone.php
+     * @return void
+     */
+    #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
+    final private function __clone(): void {}
+
+    /**
+     * Clone
+     *
+     * @link https://php.net/manual/en/reflectionproperty.clone.php
+     * @return void
+     */
+    #[PhpStormStubsElementAvailable(from: "8.1")]
+    private function __clone(): void {}
 }
