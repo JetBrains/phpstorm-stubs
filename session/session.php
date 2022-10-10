@@ -254,7 +254,17 @@ function session_unset() {}
  * @param callable|null $update_timestamp [optional]
  * @return bool true on success or false on failure.
  */
-function session_set_save_handler(callable $open, callable $close, callable $read, callable $write, callable $destroy, callable $gc, ?callable $create_sid = null, ?callable $validate_sid = null, ?callable $update_timestamp = null): bool {}
+function session_set_save_handler(
+    callable $open,
+    callable $close,
+    callable $read,
+    callable $write,
+    callable $destroy,
+    callable $gc,
+    ?callable $create_sid = null,
+    ?callable $validate_sid = null,
+    ?callable $update_timestamp = null
+): bool {}
 
 /**
  * (PHP 5.4)<br/>
@@ -390,7 +400,13 @@ function session_set_cookie_params(array $lifetime_or_options): bool {}
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
 #[LanguageLevelTypeAware(["7.2" => "bool"], default: "void")]
-function session_set_cookie_params(int $lifetime_or_options, ?string $path = null, ?string $domain = null, ?bool $secure = null, ?bool $httponly = null) {}
+function session_set_cookie_params(
+    int $lifetime_or_options,
+    ?string $path = null,
+    ?string $domain = null,
+    ?bool $secure = null,
+    ?bool $httponly = null
+) {}
 
 /**
  * Get the session cookie parameters

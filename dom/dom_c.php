@@ -9,6 +9,81 @@ use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Language;
 
 /**
+ * @property-read DOMElement|null $firstElementChild
+ * @property-read DOMElement|null $lastElementChild
+ * @property-read int $childElementCount
+ *
+ * @since 8.0
+ */
+interface DOMParentNode
+{
+    /**
+     * Appends one or many nodes to the list of children behind the last
+     * child node.
+     *
+     * @param DOMNode|string|null ...$nodes
+     * @return void
+     * @since 8.0
+     */
+    public function append(...$nodes): void;
+
+    /**
+     * Prepends one or many nodes to the list of children before the first
+     * child node.
+     *
+     * @param DOMNode|string|null ...$nodes
+     * @return void
+     * @since 8.0
+     */
+    public function prepend(...$nodes): void;
+}
+
+/**
+ * @property-read DOMElement|null $previousElementSibling
+ * @property-read DOMElement|null $nextElementSibling
+ *
+ * @since 8.0
+ */
+interface DOMChildNode
+{
+    /**
+     * Acts as a simpler version of {@see DOMNode::removeChild()}.
+     *
+     * @return void
+     * @since 8.0
+     */
+    public function remove(): void;
+
+    /**
+     * Add passed node(s) before the current node
+     *
+     * @param DOMNode|string|null ...$nodes
+     * @return void
+     * @since 8.0
+     */
+    public function before(...$nodes): void;
+
+    /**
+     * Add passed node(s) after  the current node
+     *
+     * @param DOMNode|string|null ...$nodes
+     * @return void
+     * @since 8.0
+     */
+    public function after(...$nodes): void;
+
+    /**
+     * Replace current node with new node(s), a combination
+     * of {@see DOMChildNode::remove()} + {@see DOMChildNode::append()}.
+     *
+     * @param DOMNode|string|null ...$nodes
+     * @return void
+     * @since 8.0
+     */
+    public function replaceWith(...$nodes): void;
+}
+
+/**
  * The DOMNode class
  * @link https://php.net/manual/en/class.domnode.php
  */
@@ -796,6 +871,17 @@ class DOMDocument extends DOMNode implements DOMParentNode
     public $firstElementChild;
 
     /**
+     * Creates a new DOMDocument object
+     * @link https://php.net/manual/en/domdocument.construct.php
+     * @param string $version [optional] The version number of the document as part of the XML declaration.
+     * @param string $encoding [optional] The encoding of the document as part of the XML declaration.
+     */
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $version = '1.0',
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $encoding = ''
+    ) {}
+
+    /**
      * Create new element node
      * @link https://php.net/manual/en/domdocument.createelement.php
      * @param string $localName <p>
@@ -1098,17 +1184,6 @@ class DOMDocument extends DOMNode implements DOMParentNode
         ?DOMNode $node = null,
         #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null
     ): string|false {}
-
-    /**
-     * Creates a new DOMDocument object
-     * @link https://php.net/manual/en/domdocument.construct.php
-     * @param string $version [optional] The version number of the document as part of the XML declaration.
-     * @param string $encoding [optional] The encoding of the document as part of the XML declaration.
-     */
-    public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $version = '1.0',
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $encoding = ''
-    ) {}
 
     /**
      * Validates the document based on its DTD
@@ -1579,14 +1654,6 @@ class DOMAttr extends DOMNode
     public $value;
 
     /**
-     * Checks if attribute is a defined ID
-     * @link https://php.net/manual/en/domattr.isid.php
-     * @return bool true on success or false on failure.
-     */
-    #[TentativeType]
-    public function isId(): bool {}
-
-    /**
      * Creates a new {@see DOMAttr} object
      * @link https://php.net/manual/en/domattr.construct.php
      * @param string $name <p>The tag name of the attribute.</p>
@@ -1597,6 +1664,14 @@ class DOMAttr extends DOMNode
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value = ''
     ) {}
+
+    /**
+     * Checks if attribute is a defined ID
+     * @link https://php.net/manual/en/domattr.isid.php
+     * @return bool true on success or false on failure.
+     */
+    #[TentativeType]
+    public function isId(): bool {}
 }
 
 /**
@@ -1670,6 +1745,20 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
 
     #[LanguageLevelTypeAware(['8.1' => 'DOMElement|null'], default: '')]
     public $nextElementSibling;
+
+    /**
+     * Creates a new DOMElement object
+     * @link https://php.net/manual/en/domelement.construct.php
+     * @param string $qualifiedName The tag name of the element. When also passing in namespaceURI, the element name may take a prefix to be associated with the URI.
+     * @param string|null $value [optional] The value of the element.
+     * @param string $namespace [optional] A namespace URI to create the element within a specific namespace.
+     * @throws DOMException If invalid $qualifiedName
+     */
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $value = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace = null
+    ) {}
 
     /**
      * Returns value of attribute
@@ -1935,7 +2024,10 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * @return void
      */
     #[TentativeType]
-    public function setIdAttributeNode(DOMAttr $attr, #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isId): void {}
+    public function setIdAttributeNode(
+        DOMAttr $attr,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isId
+    ): void {}
 
     /**
      * {@inheritDoc}
@@ -1966,20 +2058,6 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * {@inheritDoc}
      */
     public function prepend(...$nodes): void {}
-
-    /**
-     * Creates a new DOMElement object
-     * @link https://php.net/manual/en/domelement.construct.php
-     * @param string $qualifiedName The tag name of the element. When also passing in namespaceURI, the element name may take a prefix to be associated with the URI.
-     * @param string|null $value [optional] The value of the element.
-     * @param string $namespace [optional] A namespace URI to create the element within a specific namespace.
-     * @throws DOMException If invalid $qualifiedName
-     */
-    public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $value = null,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace = null
-    ) {}
 }
 
 /**
@@ -1995,6 +2073,13 @@ class DOMText extends DOMCharacterData
      */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $wholeText;
+
+    /**
+     * Creates a new <classname>DOMText</classname> object
+     * @link https://php.net/manual/en/domtext.construct.php
+     * @param string $data [optional] The value of the text node. If not supplied an empty text node is created.
+     */
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data) {}
 
     /**
      * Breaks this node into two nodes at the specified offset
@@ -2022,13 +2107,6 @@ class DOMText extends DOMCharacterData
      * @param $content
      */
     public function replaceWholeText($content) {}
-
-    /**
-     * Creates a new <classname>DOMText</classname> object
-     * @link https://php.net/manual/en/domtext.construct.php
-     * @param string $data [optional] The value of the text node. If not supplied an empty text node is created.
-     */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data) {}
 }
 
 /**
@@ -2334,7 +2412,10 @@ class DOMXPath
      * @param DOMDocument $document The <classname>DOMDocument</classname> associated with the <classname>DOMXPath</classname>.
      * @param bool $registerNodeNS [optional] allow global flag to configure query() or evaluate() calls. Since 8.0.
      */
-    public function __construct(DOMDocument $document, #[PhpStormStubsElementAvailable(from: '8.0')] bool $registerNodeNS = true) {}
+    public function __construct(
+        DOMDocument $document,
+        #[PhpStormStubsElementAvailable(from: '8.0')] bool $registerNodeNS = true
+    ) {}
 
     /**
      * Registers the namespace with the <classname>DOMXPath</classname> object
@@ -2416,79 +2497,4 @@ class DOMXPath
      * @return void
      */
     public function registerPhpFunctions($restrict = null) {}
-}
-
-/**
- * @property-read DOMElement|null $firstElementChild
- * @property-read DOMElement|null $lastElementChild
- * @property-read int $childElementCount
- *
- * @since 8.0
- */
-interface DOMParentNode
-{
-    /**
-     * Appends one or many nodes to the list of children behind the last
-     * child node.
-     *
-     * @param DOMNode|string|null ...$nodes
-     * @return void
-     * @since 8.0
-     */
-    public function append(...$nodes): void;
-
-    /**
-     * Prepends one or many nodes to the list of children before the first
-     * child node.
-     *
-     * @param DOMNode|string|null ...$nodes
-     * @return void
-     * @since 8.0
-     */
-    public function prepend(...$nodes): void;
-}
-
-/**
- * @property-read DOMElement|null $previousElementSibling
- * @property-read DOMElement|null $nextElementSibling
- *
- * @since 8.0
- */
-interface DOMChildNode
-{
-    /**
-     * Acts as a simpler version of {@see DOMNode::removeChild()}.
-     *
-     * @return void
-     * @since 8.0
-     */
-    public function remove(): void;
-
-    /**
-     * Add passed node(s) before the current node
-     *
-     * @param DOMNode|string|null ...$nodes
-     * @return void
-     * @since 8.0
-     */
-    public function before(...$nodes): void;
-
-    /**
-     * Add passed node(s) after  the current node
-     *
-     * @param DOMNode|string|null ...$nodes
-     * @return void
-     * @since 8.0
-     */
-    public function after(...$nodes): void;
-
-    /**
-     * Replace current node with new node(s), a combination
-     * of {@see DOMChildNode::remove()} + {@see DOMChildNode::append()}.
-     *
-     * @param DOMNode|string|null ...$nodes
-     * @return void
-     * @since 8.0
-     */
-    public function replaceWith(...$nodes): void;
 }

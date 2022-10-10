@@ -38,13 +38,6 @@ class PhpToken implements Stringable
     final public function __construct(int $id, string $text, int $line = -1, int $pos = -1) {}
 
     /**
-     * Get the name of the token.
-     *
-     * @return string|null
-     */
-    public function getTokenName(): ?string {}
-
-    /**
      * Same as {@see token_get_all()}, but returning array of {@see PhpToken}
      * or an instance of a child class.
      *
@@ -53,6 +46,13 @@ class PhpToken implements Stringable
      * @return static[]
      */
     public static function tokenize(string $code, int $flags = 0): array {}
+
+    /**
+     * Get the name of the token.
+     *
+     * @return string|null
+     */
+    public function getTokenName(): ?string {}
 
     /**
      * Whether the token has the given ID, the given text, or has an ID/text

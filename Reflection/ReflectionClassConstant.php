@@ -16,27 +16,6 @@ use JetBrains\PhpStorm\Pure;
 class ReflectionClassConstant implements Reflector
 {
     /**
-     * @var string Constant name, same as calling the {@see ReflectionClassConstant::getName()} method
-     */
-    #[Immutable]
-    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
-    public $name;
-
-    /**
-     * @var string Fully qualified class name where this constant was defined
-     */
-    #[Immutable]
-    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
-    public $class;
-
-    /**
-     * @var bool
-     * @since 8.1
-     */
-    #[Immutable]
-    public bool $isFinal;
-
-    /**
      * Indicates that the constant is public.
      *
      * @since 8.0
@@ -63,6 +42,27 @@ class ReflectionClassConstant implements Reflector
     public const IS_FINAL = 5;
 
     /**
+     * @var string Constant name, same as calling the {@see ReflectionClassConstant::getName()} method
+     */
+    #[Immutable]
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
+    public $name;
+
+    /**
+     * @var string Fully qualified class name where this constant was defined
+     */
+    #[Immutable]
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
+    public $class;
+
+    /**
+     * @var bool
+     * @since 8.1
+     */
+    #[Immutable]
+    public bool $isFinal;
+
+    /**
      * ReflectionClassConstant constructor.
      *
      * @param string|object $class Either a string containing the name of the class to reflect, or an object.
@@ -70,7 +70,10 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      * @link https://php.net/manual/en/reflectionclassconstant.construct.php
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string|object'], default: '')] $class, string $constant) {}
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string|object'], default: '')] $class,
+        string $constant
+    ) {}
 
     /**
      * @link https://php.net/manual/en/reflectionclassconstant.export.php
@@ -196,6 +199,15 @@ class ReflectionClassConstant implements Reflector
     #[Pure]
     public function getAttributes(?string $name = null, int $flags = 0): array {}
 
+    #[PhpStormStubsElementAvailable('8.1')]
+    public function isEnumCase(): bool {}
+
+    /**
+     * @return bool
+     * @since 8.1
+     */
+    public function isFinal(): bool {}
+
     /**
      * ReflectionClassConstant cannot be cloned
      *
@@ -211,13 +223,4 @@ class ReflectionClassConstant implements Reflector
      */
     #[PhpStormStubsElementAvailable(from: "8.1")]
     private function __clone(): void {}
-
-    #[PhpStormStubsElementAvailable('8.1')]
-    public function isEnumCase(): bool {}
-
-    /**
-     * @return bool
-     * @since 8.1
-     */
-    public function isFinal(): bool {}
 }

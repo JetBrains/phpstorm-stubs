@@ -16,19 +16,6 @@ use JetBrains\PhpStorm\Pure;
 class ReflectionMethod extends ReflectionFunctionAbstract
 {
     /**
-     * @var string Name of the method, same as calling the {@see ReflectionMethod::getName()} method
-     */
-    #[Immutable]
-    public $name;
-
-    /**
-     * @var string Fully qualified class name where this method was defined
-     */
-    #[Immutable]
-    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
-    public $class;
-
-    /**
      * Indicates that the method is static.
      */
     public const IS_STATIC = 16;
@@ -57,6 +44,19 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * Indicates that the method is final.
      */
     public const IS_FINAL = 32;
+
+    /**
+     * @var string Name of the method, same as calling the {@see ReflectionMethod::getName()} method
+     */
+    #[Immutable]
+    public $name;
+
+    /**
+     * @var string Fully qualified class name where this method was defined
+     */
+    #[Immutable]
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
+    public $class;
 
     /**
      * Constructs a ReflectionMethod
@@ -250,7 +250,10 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * invocation failed.
      */
     #[TentativeType]
-    public function invokeArgs(#[LanguageLevelTypeAware(['8.0' => 'object|null'], default: '')] $object, array $args): mixed {}
+    public function invokeArgs(
+        #[LanguageLevelTypeAware(['8.0' => 'object|null'], default: '')] $object,
+        array $args
+    ): mixed {}
 
     /**
      * Gets declaring class for the reflected method.

@@ -8,12 +8,6 @@ use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 /**
- * Created by typecasting to object.
- * @link https://php.net/manual/en/reserved.classes.php
- */
-class stdClass {}
-
-/**
  * @link https://wiki.php.net/rfc/iterable
  */
 interface iterable {}
@@ -273,6 +267,126 @@ interface Throwable extends Stringable
 }
 
 /**
+ * Classes implementing <b>Countable</b> can be used with the
+ * <b>count</b> function.
+ * @link https://php.net/manual/en/class.countable.php
+ */
+interface Countable
+{
+    /**
+     * Count elements of an object
+     * @link https://php.net/manual/en/countable.count.php
+     * @return int<0,max> The custom count as an integer.
+     * <p>
+     * The return value is cast to an integer.
+     * </p>
+     */
+    #[TentativeType]
+    public function count(): int;
+}
+
+/**
+ * Stringable interface denotes a class as having a __toString() method.
+ *
+ * @since 8.0
+ */
+interface Stringable
+{
+    /**
+     * Magic method {@see https://www.php.net/manual/en/language.oop5.magic.php#object.tostring}
+     * allows a class to decide how it will react when it is treated like a string.
+     *
+     * @return string Returns string representation of the object that
+     * implements this interface (and/or "__toString" magic method).
+     */
+    public function __toString(): string;
+}
+
+/**
+ * @since 8.1
+ */
+interface UnitEnum
+{
+    public readonly string $name;
+
+    /**
+     * @return static[]
+     */
+    #[Pure]
+    public static function cases(): array;
+}
+
+/**
+ * @since 8.1
+ */
+interface BackedEnum extends UnitEnum
+{
+    public readonly int|string $value;
+
+    /**
+     * @param int|string $value
+     * @return static
+     */
+    #[Pure]
+    public static function from(int|string $value): static;
+
+    /**
+     * @param int|string $value
+     * @return static|null
+     */
+    #[Pure]
+    public static function tryFrom(int|string $value): ?static;
+}
+
+/**
+ * @since 8.1
+ * @internal
+ *
+ * Internal interface to ensure precise type inference
+ */
+interface IntBackedEnum extends BackedEnum
+{
+    public readonly int $value;
+
+    /**
+     * @param int $value
+     * @return static
+     */
+    #[Pure]
+    public static function from(int $value): static;
+
+    /**
+     * @param int $value
+     * @return static|null
+     */
+    #[Pure]
+    public static function tryFrom(int $value): ?static;
+}
+
+/**
+ * @since 8.1
+ * @internal
+ *
+ * Internal interface to ensure precise type inference
+ */
+interface StringBackedEnum extends BackedEnum
+{
+    public readonly string $value;
+
+    #[Pure]
+    public static function from(string $value): static;
+
+    #[Pure]
+    public static function tryFrom(string $value): ?static;
+}
+
+/**
+ * Created by typecasting to object.
+ * @link https://php.net/manual/en/reserved.classes.php
+ */
+class stdClass {}
+
+/**
  * Exception is the base class for
  * all Exceptions.
  * @link https://php.net/manual/en/class.exception.php
@@ -292,24 +406,6 @@ class Exception implements Throwable
     /** The line where the error happened */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     protected $line;
-
-    /**
-     * Clone the exception
-     * Tries to clone the Exception, which results in Fatal error.
-     * @link https://php.net/manual/en/exception.clone.php
-     * @return void
-     */
-    #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
-    final private function __clone(): void {}
-
-    /**
-     * Clone the exception
-     * Tries to clone the Exception, which results in Fatal error.
-     * @link https://php.net/manual/en/exception.clone.php
-     * @return void
-     */
-    #[PhpStormStubsElementAvailable("8.1")]
-    private function __clone(): void {}
 
     /**
      * Construct the exception. Note: The message is NOT binary safe.
@@ -395,6 +491,24 @@ class Exception implements Throwable
 
     #[TentativeType]
     public function __wakeup(): void {}
+
+    /**
+     * Clone the exception
+     * Tries to clone the Exception, which results in Fatal error.
+     * @link https://php.net/manual/en/exception.clone.php
+     * @return void
+     */
+    #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
+    final private function __clone(): void {}
+
+    /**
+     * Clone the exception
+     * Tries to clone the Exception, which results in Fatal error.
+     * @link https://php.net/manual/en/exception.clone.php
+     * @return void
+     */
+    #[PhpStormStubsElementAvailable("8.1")]
+    private function __clone(): void {}
 }
 
 /**
@@ -504,6 +618,9 @@ class Error implements Throwable
      */
     public function __toString(): string {}
 
+    #[TentativeType]
+    public function __wakeup(): void {}
+
     /**
      * Clone the error
      * Error can not be clone, so this method results in fatal error.
@@ -521,9 +638,6 @@ class Error implements Throwable
      */
     #[PhpStormStubsElementAvailable('8.1')]
     private function __clone(): void {}
-
-    #[TentativeType]
-    public function __wakeup(): void {}
 }
 
 class ValueError extends Error {}
@@ -638,6 +752,30 @@ final class Closure
     private function __construct() {}
 
     /**
+     * This method is a static version of Closure::bindTo().
+     * See the documentation of that method for more information.
+     * @link https://secure.php.net/manual/en/closure.bind.php
+     * @param Closure $closure The anonymous functions to bind.
+     * @param object|null $newThis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
+     * @param mixed $newScope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
+     * If an object is given, the type of the object will be used instead.
+     * This determines the visibility of protected and private methods of the bound object.
+     * @return Closure|false Returns the newly created Closure object or FALSE on failure
+     */
+    public static function bind(
+        Closure $closure,
+        ?object $newThis,
+        object|string|null $newScope = 'static'
+    ): ?Closure {}
+
+    /**
+     * @param callable $callback
+     * @return Closure
+     * @since 7.1
+     */
+    public static function fromCallable(callable $callback): Closure {}
+
+    /**
      * This is for consistency with other classes that implement calling magic,
      * as this method is not used for calling the function.
      * @param mixed ...$_ [optional]
@@ -658,19 +796,6 @@ final class Closure
     public function bindTo(?object $newThis, object|string|null $newScope = 'static'): ?Closure {}
 
     /**
-     * This method is a static version of Closure::bindTo().
-     * See the documentation of that method for more information.
-     * @link https://secure.php.net/manual/en/closure.bind.php
-     * @param Closure $closure The anonymous functions to bind.
-     * @param object|null $newThis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
-     * @param mixed $newScope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
-     * If an object is given, the type of the object will be used instead.
-     * This determines the visibility of protected and private methods of the bound object.
-     * @return Closure|false Returns the newly created Closure object or FALSE on failure
-     */
-    public static function bind(Closure $closure, ?object $newThis, object|string|null $newScope = 'static'): ?Closure {}
-
-    /**
      * Temporarily binds the closure to newthis, and calls it with any given parameters.
      * @link https://php.net/manual/en/closure.call.php
      * @param object $newThis The object to bind the closure to for the duration of the call.
@@ -679,32 +804,6 @@ final class Closure
      * @since 7.0
      */
     public function call(object $newThis, mixed ...$args): mixed {}
-
-    /**
-     * @param callable $callback
-     * @return Closure
-     * @since 7.1
-     */
-    public static function fromCallable(callable $callback): Closure {}
-}
-
-/**
- * Classes implementing <b>Countable</b> can be used with the
- * <b>count</b> function.
- * @link https://php.net/manual/en/class.countable.php
- */
-interface Countable
-{
-    /**
-     * Count elements of an object
-     * @link https://php.net/manual/en/countable.count.php
-     * @return int<0,max> The custom count as an integer.
-     * <p>
-     * The return value is cast to an integer.
-     * </p>
-     */
-    #[TentativeType]
-    public function count(): int;
 }
 
 /**
@@ -808,30 +907,11 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
 }
 
 /**
- * Stringable interface denotes a class as having a __toString() method.
- *
- * @since 8.0
- */
-interface Stringable
-{
-    /**
-     * Magic method {@see https://www.php.net/manual/en/language.oop5.magic.php#object.tostring}
-     * allows a class to decide how it will react when it is treated like a string.
-     *
-     * @return string Returns string representation of the object that
-     * implements this interface (and/or "__toString" magic method).
-     */
-    public function __toString(): string;
-}
-
-/**
  * @since 8.0
  */
 #[Attribute(Attribute::TARGET_CLASS)]
 final class Attribute
 {
-    public int $flags;
-
     /**
      * Marks that attribute declaration is allowed only in classes.
      */
@@ -872,6 +952,7 @@ final class Attribute
      * allowed multiple times.
      */
     public const IS_REPEATABLE = 64;
+    public int $flags;
 
     /**
      * @param int $flags A value in the form of a bitmask indicating the places
@@ -900,84 +981,6 @@ final class InternalIterator implements Iterator
 
 /**
  * @since 8.1
- */
-interface UnitEnum
-{
-    public readonly string $name;
-
-    /**
-     * @return static[]
-     */
-    #[Pure]
-    public static function cases(): array;
-}
-
-/**
- * @since 8.1
- */
-interface BackedEnum extends UnitEnum
-{
-    public readonly int|string $value;
-
-    /**
-     * @param int|string $value
-     * @return static
-     */
-    #[Pure]
-    public static function from(int|string $value): static;
-
-    /**
-     * @param int|string $value
-     * @return static|null
-     */
-    #[Pure]
-    public static function tryFrom(int|string $value): ?static;
-}
-
-/**
- * @since 8.1
- * @internal
- *
- * Internal interface to ensure precise type inference
- */
-interface IntBackedEnum extends BackedEnum
-{
-    public readonly int $value;
-
-    /**
-     * @param int $value
-     * @return static
-     */
-    #[Pure]
-    public static function from(int $value): static;
-
-    /**
-     * @param int $value
-     * @return static|null
-     */
-    #[Pure]
-    public static function tryFrom(int $value): ?static;
-}
-
-/**
- * @since 8.1
- * @internal
- *
- * Internal interface to ensure precise type inference
- */
-interface StringBackedEnum extends BackedEnum
-{
-    public readonly string $value;
-
-    #[Pure]
-    public static function from(string $value): static;
-
-    #[Pure]
-    public static function tryFrom(string $value): ?static;
-}
-
-/**
- * @since 8.1
  *
  * @template TStart
  * @template TResume
@@ -990,6 +993,25 @@ final class Fiber
      * @param callable $callback Function to invoke when starting the fiber.
      */
     public function __construct(callable $callback) {}
+
+    /**
+     * @return self|null Returns the currently executing fiber instance or NULL if in {main}.
+     */
+    public static function getCurrent(): ?Fiber {}
+
+    /**
+     * Suspend execution of the fiber. The fiber may be resumed with {@see Fiber::resume()} or {@see Fiber::throw()}.
+     *
+     * Cannot be called from {main}.
+     *
+     * @param TSuspend $value Value to return from {@see Fiber::resume()} or {@see Fiber::throw()}.
+     *
+     * @return TResume Value provided to {@see Fiber::resume()}.
+     *
+     * @throws FiberError Thrown if not within a fiber (i.e., if called from {main}).
+     * @throws Throwable Exception provided to {@see Fiber::throw()}.
+     */
+    public static function suspend(mixed $value = null): mixed {}
 
     /**
      * Starts execution of the fiber. Returns when the fiber suspends or terminates.
@@ -1055,25 +1077,6 @@ final class Fiber
      * @throws FiberError If the fiber has not terminated or the fiber threw an exception.
      */
     public function getReturn(): mixed {}
-
-    /**
-     * @return self|null Returns the currently executing fiber instance or NULL if in {main}.
-     */
-    public static function getCurrent(): ?Fiber {}
-
-    /**
-     * Suspend execution of the fiber. The fiber may be resumed with {@see Fiber::resume()} or {@see Fiber::throw()}.
-     *
-     * Cannot be called from {main}.
-     *
-     * @param TSuspend $value Value to return from {@see Fiber::resume()} or {@see Fiber::throw()}.
-     *
-     * @return TResume Value provided to {@see Fiber::resume()}.
-     *
-     * @throws FiberError Thrown if not within a fiber (i.e., if called from {main}).
-     * @throws Throwable Exception provided to {@see Fiber::throw()}.
-     */
-    public static function suspend(mixed $value = null): mixed {}
 }
 
 /**

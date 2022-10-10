@@ -453,8 +453,10 @@ function ini_get(string $option): string|false {}
  * </p>
  */
 #[Pure(true)]
-#[ArrayShape(["global_value" => "string", "local_value" => "string", "access" => "int"])]
-function ini_get_all(?string $extension, #[PhpStormStubsElementAvailable(from: '7.0')] bool $details = true): array|false {}
+function ini_get_all(
+    ?string $extension,
+    #[PhpStormStubsElementAvailable(from: '7.0')] bool $details = true
+): array|false {}
 
 /**
  * Sets the value of a configuration option
@@ -472,7 +474,10 @@ function ini_get_all(?string $extension, #[PhpStormStubsElementAvailable(from: '
  * </p>
  * @return string|false the old value on success, false on failure.
  */
-function ini_set(string $option, #[LanguageLevelTypeAware(['8.1' => 'string|int|float|bool|null'], default: 'string')] $value): string|false {}
+function ini_set(
+    string $option,
+    #[LanguageLevelTypeAware(['8.1' => 'string|int|float|bool|null'], default: 'string')] $value
+): string|false {}
 
 /**
  * Alias:
@@ -483,7 +488,10 @@ function ini_set(string $option, #[LanguageLevelTypeAware(['8.1' => 'string|int|
  * @param string $value
  * @return string|false
  */
-function ini_alter(string $option, #[LanguageLevelTypeAware(['8.1' => 'string|int|float|bool|null'], default: 'string')] $value): string|false {}
+function ini_alter(
+    string $option,
+    #[LanguageLevelTypeAware(['8.1' => 'string|int|float|bool|null'], default: 'string')] $value
+): string|false {}
 
 /**
  * Restores the value of a configuration option
@@ -606,7 +614,15 @@ function restore_include_path() {}
  * setcookie successfully runs, it will return true.
  * This does not indicate whether the user accepted the cookie.
  */
-function setcookie(string $name, $value = "", $expires_or_options = 0, $path = "", $domain = "", $secure = false, $httponly = false): bool {}
+function setcookie(
+    string $name,
+    $value = "",
+    $expires_or_options = 0,
+    $path = "",
+    $domain = "",
+    $secure = false,
+    $httponly = false
+): bool {}
 
 /**
  * Send a cookie
@@ -643,7 +659,15 @@ function setcookie(string $name, $value = '', array $options = []): bool {}
  * @param bool $httponly [optional]
  * @return bool true on success or false on failure.
  */
-function setrawcookie(string $name, $value = '', $expires_or_options = 0, $path = "", $domain = "", $secure = false, $httponly = false): bool {}
+function setrawcookie(
+    string $name,
+    $value = '',
+    $expires_or_options = 0,
+    $path = "",
+    $domain = "",
+    $secure = false,
+    $httponly = false
+): bool {}
 
 /**
  * Send a cookie without urlencoding the cookie value
@@ -817,7 +841,11 @@ function ignore_user_abort(?bool $enable): int {}
  * and false on failure.
  */
 #[Pure(true)]
-function parse_ini_file(string $filename, bool $process_sections = false, int $scanner_mode = INI_SCANNER_NORMAL): array|false {}
+function parse_ini_file(
+    string $filename,
+    bool $process_sections = false,
+    int $scanner_mode = INI_SCANNER_NORMAL
+): array|false {}
 
 /**
  * Parse a configuration string
@@ -840,7 +868,11 @@ function parse_ini_file(string $filename, bool $process_sections = false, int $s
  * and false on failure.
  */
 #[Pure]
-function parse_ini_string(string $ini_string, bool $process_sections = false, int $scanner_mode = INI_SCANNER_NORMAL): array|false {}
+function parse_ini_string(
+    string $ini_string,
+    bool $process_sections = false,
+    int $scanner_mode = INI_SCANNER_NORMAL
+): array|false {}
 
 /**
  * Tells whether the file was uploaded via HTTP POST
@@ -880,7 +912,6 @@ function move_uploaded_file(string $from, string $to): bool {}
  * @since 7.3
  */
 #[Pure]
-#[ArrayShape(["description" => "string", "mac" => "string", "mtu" => "int", "unicast" => "array", "up" => "bool"])]
 function net_get_interfaces(): array|false {}
 
 /**
@@ -1199,4 +1230,10 @@ function getmxrr(string $hostname, &$hosts, &$weights): bool {}
  * </tr>
  * </table>
  */
-function dns_get_record(string $hostname, int $type = DNS_ANY, &$authoritative_name_servers, &$additional_records, bool $raw = false): array|false {}
+function dns_get_record(
+    string $hostname,
+    int $type = DNS_ANY,
+    &$authoritative_name_servers,
+    &$additional_records,
+    bool $raw = false
+): array|false {}
