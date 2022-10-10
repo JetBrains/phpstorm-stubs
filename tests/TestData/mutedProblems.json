@@ -3017,6 +3017,22 @@
       ]
     },
     {
+      "name": "IntlBreakIterator",
+      "methods": [
+        {
+          "name": "getPartsIterator",
+          "problems": [
+            {
+              "description": "parameter type mismatch",
+              "versions": [
+                "ALL"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "ParseError",
       "problems": [
         {
