@@ -3021,11 +3021,16 @@
       "methods": [
         {
           "name": "getPartsIterator",
-          "problems": [
+          "parameters": [
             {
-              "description": "parameter type mismatch",
-              "versions": [
-                "ALL"
+              "name": "type",
+              "problems": [
+                {
+                  "description": "parameter type mismatch",
+                  "versions": [
+                    "ALL"
+                  ]
+                }
               ]
             }
           ]
