@@ -460,7 +460,13 @@ function strpbrk(
  * false.
  */
 #[Pure]
-function substr_compare(string $haystack, string $needle, int $offset, ?int $length, bool $case_insensitive = false): int {}
+function substr_compare(
+    string $haystack,
+    string $needle,
+    int $offset,
+    ?int $length,
+    bool $case_insensitive = false
+): int {}
 
 /**
  * Locale based string comparison
@@ -601,7 +607,12 @@ function substr(string $string, int $offset, ?int $length) {}
  * array then array is returned.
  */
 #[Pure]
-function substr_replace(array|string $string, array|string $replace, array|int $offset, array|int|null $length = null): array|string {}
+function substr_replace(
+    array|string $string,
+    array|string $replace,
+    array|int $offset,
+    array|int|null $length = null
+): array|string {}
 
 /**
  * Quote meta characters
@@ -946,7 +957,10 @@ function ltrim(string $string, string $characters = " \t\n\r\0\x0B"): string {}
  * @return string the stripped string.
  */
 #[Pure]
-function strip_tags(string $string, #[LanguageLevelTypeAware(["7.4" => "string[]|string|null"], default: "string|null")] $allowed_tags = null): string {}
+function strip_tags(
+    string $string,
+    #[LanguageLevelTypeAware(["7.4" => "string[]|string|null"], default: "string|null")] $allowed_tags = null
+): string {}
 
 /**
  * Calculate the similarity between two strings
@@ -1002,7 +1016,7 @@ function explode(string $separator, string $string, int $limit) {}
 /**
  * Join array elements with a string
  * @link https://php.net/manual/en/function.implode.php
- * @param array|string  $separator [optional]<p>
+ * @param array|string $separator [optional]<p>
  * Defaults to an empty string. This is not the preferred usage of
  * implode as glue would be
  * the second parameter and thus, the bad prototype would be used.
@@ -1020,7 +1034,7 @@ function implode(array|string $separator = "", ?array $array): string {}
  * Alias:
  * {@see implode}
  * @link https://php.net/manual/en/function.join.php
- * @param array|string  $separator [optional] <p>
+ * @param array|string $separator [optional] <p>
  * Defaults to an empty string. This is not the preferred usage of
  * implode as glue would be
  * the second parameter and thus, the bad prototype would be used.
@@ -1104,7 +1118,7 @@ function join(array|string $separator = "", ?array $array): string {}
  * what the system setlocale function returns.</p>
  */
 function setlocale(
-    #[ExpectedValues([LC_ALL,  LC_COLLATE,  LC_CTYPE,  LC_MONETARY,  LC_NUMERIC,  LC_TIME,  LC_MESSAGES])] int $category,
+    #[ExpectedValues([LC_ALL, LC_COLLATE, LC_CTYPE, LC_MONETARY, LC_NUMERIC, LC_TIME, LC_MESSAGES])] int $category,
     #[PhpStormStubsElementAvailable(from: '8.0')] $locales,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $rest,
     ...$rest

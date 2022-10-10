@@ -96,6 +96,7 @@ function abs(int|float $num): int|float {}
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "float"], default: "float|false")]
 function ceil(int|float $num) {}
+
 /**
  * Round fractions down
  * @link https://php.net/manual/en/function.floor.php
@@ -670,7 +671,12 @@ function base_convert(string $num, int $from_base, int $to_base): string {}
  * @return string A formatted version of number.
  */
 #[Pure]
-function number_format(float $num, int $decimals = 0, ?string $decimal_separator = '.', ?string $thousands_separator = ','): string {}
+function number_format(
+    float $num,
+    int $decimals = 0,
+    ?string $decimal_separator = '.',
+    ?string $thousands_separator = ','
+): string {}
 
 /**
  * Returns the floating point remainder (modulo) of the division

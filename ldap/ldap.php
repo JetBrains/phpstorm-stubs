@@ -41,7 +41,11 @@ function ldap_exop_passwd(
  * @return int|false From RFC: The responseTtl field is the time in seconds which the server chooses to have as the time-to-live field for that entry. It must not be any smaller than that which the client requested, and it may be larger. However, to allow servers to maintain a relatively accurate directory, and to prevent clients from abusing the dynamic extensions, servers are permitted to shorten a client-requested time-to-live value, down to a minimum of 86400 seconds (one day). FALSE will be returned on error.
  * @since 7.3
  */
-function ldap_exop_refresh(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap, string $dn, int $ttl): int|false {}
+function ldap_exop_refresh(
+    #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
+    string $dn,
+    int $ttl
+): int|false {}
 
 /**
  * WHOAMI extended operation helper
@@ -65,14 +69,21 @@ function ldap_exop_whoami(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], defaul
  * @since 7.2
  */
 #[PhpVersionAware(['8.1' => 'LDAP\Result|bool'], default: 'resource|bool')]
-function ldap_exop(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap, string $request_oid, ?string $request_data, #[PhpVersionAware(["8.0" => "null|array"], default: "array")] $controls = null, &$response_data, &$response_oid) {}
+function ldap_exop(
+    #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
+    string $request_oid,
+    ?string $request_data,
+    #[PhpVersionAware(["8.0" => "null|array"], default: "array")] $controls = null,
+    &$response_data,
+    &$response_oid
+) {}
 
 /**
  * Parse LDAP extended operation data from result object result
  * @link https://www.php.net/manual/en/function.ldap-parse-exop.php
  * @param resource $ldap An LDAP link identifier, returned by ldap_connect().
  * @param resource $result An LDAP result resource, returned by ldap_exop().
- * @param string &$response_data  Will be filled by the response data.
+ * @param string &$response_data Will be filled by the response data.
  * @param string &$response_oid Will be filled by the response OID.
  * @return bool Returns TRUE on success or FALSE on failure.
  * @since 7.2
@@ -146,7 +157,11 @@ function ldap_close(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 're
  * @param string|null $password [optional]
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ldap_bind(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap, ?string $dn, ?string $password): bool {}
+function ldap_bind(
+    #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
+    ?string $dn,
+    ?string $password
+): bool {}
 
 /**
  * Bind to LDAP directory
@@ -182,7 +197,16 @@ function ldap_bind_ext(
  * @param string $props [optional]
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ldap_sasl_bind(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap, $binddn = null, $password = null, $sasl_mech = null, $sasl_realm = null, $sasl_authc_id = null, $sasl_authz_id = null, $props = null): bool {}
+function ldap_sasl_bind(
+    #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
+    $binddn = null,
+    $password = null,
+    $sasl_mech = null,
+    $sasl_realm = null,
+    $sasl_authc_id = null,
+    $sasl_authz_id = null,
+    $props = null
+): bool {}
 
 /**
  * Unbind from LDAP directory
@@ -840,7 +864,12 @@ function ldap_mod_replace(
  * @since 7.3
  */
 #[PhpVersionAware(['8.1' => 'LDAP\Result|false'], default: 'resource|false')]
-function ldap_mod_replace_ext(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap, string $dn, array $entry, #[PhpVersionAware(["8.0" => "null|array"], default: "array")] $controls = null) {}
+function ldap_mod_replace_ext(
+    #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
+    string $dn,
+    array $entry,
+    #[PhpVersionAware(["8.0" => "null|array"], default: "array")] $controls = null
+) {}
 
 /**
  * Delete attribute values from current attributes
@@ -878,7 +907,12 @@ function ldap_mod_del(
  * @since 7.3
  */
 #[PhpVersionAware(['8.1' => 'LDAP\Result|false'], default: 'resource|false')]
-function ldap_mod_del_ext(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap, string $dn, array $entry, #[PhpVersionAware(["8.0" => "null|array"], default: "array")] $controls = null) {}
+function ldap_mod_del_ext(
+    #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
+    string $dn,
+    array $entry,
+    #[PhpVersionAware(["8.0" => "null|array"], default: "array")] $controls = null
+) {}
 
 /**
  * Return the LDAP error number of the last LDAP command
@@ -955,7 +989,11 @@ function ldap_compare(
  * @return bool
  */
 #[Deprecated(since: "7.0")]
-function ldap_sort(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap, $result, string $sortfilter): bool {}
+function ldap_sort(
+    #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
+    $result,
+    string $sortfilter
+): bool {}
 
 /**
  * Modify the name of an entry
@@ -1013,7 +1051,14 @@ function ldap_rename(
  * @since 7.3
  */
 #[PhpVersionAware(['8.1' => 'LDAP\Result|false'], default: 'resource|false')]
-function ldap_rename_ext(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap, string $dn, string $new_rdn, string $new_parent, bool $delete_old_rdn, #[PhpVersionAware(["8.0" => "null|array"], default: "array")] $controls = null) {}
+function ldap_rename_ext(
+    #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
+    string $dn,
+    string $new_rdn,
+    string $new_parent,
+    bool $delete_old_rdn,
+    #[PhpVersionAware(["8.0" => "null|array"], default: "array")] $controls = null
+) {}
 
 /**
  * Get the current value for given option
@@ -1274,7 +1319,10 @@ function ldap_start_tls(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default:
  * @param callable|null $callback
  * @return bool
  */
-function ldap_set_rebind_proc(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap, ?callable $callback): bool {}
+function ldap_set_rebind_proc(
+    #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
+    ?callable $callback
+): bool {}
 
 /**
  * Send LDAP pagination control
@@ -1299,7 +1347,12 @@ function ldap_set_rebind_proc(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], de
  * @removed 8.0
  */
 #[Deprecated(since: "7.4")]
-function ldap_control_paged_result(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap, int $pagesize, $iscritical = false, $cookie = ""): bool {}
+function ldap_control_paged_result(
+    #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
+    int $pagesize,
+    $iscritical = false,
+    $cookie = ""
+): bool {}
 
 /**
  * Retrieve the LDAP pagination cookie
@@ -1319,7 +1372,12 @@ function ldap_control_paged_result(#[PhpVersionAware(['8.1' => 'LDAP\Connection'
  * @removed 8.0
  */
 #[Deprecated(since: "7.4")]
-function ldap_control_paged_result_response(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap, $result, &$cookie = null, &$estimated = null): bool {}
+function ldap_control_paged_result_response(
+    #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
+    $result,
+    &$cookie = null,
+    &$estimated = null
+): bool {}
 
 /**
  * Escape a string for use in an LDAP filter or DN
@@ -1339,7 +1397,7 @@ function ldap_escape(string $value, string $ignore = "", int $flags = 0): string
  * An LDAP link identifier, returned by
  * {@see ldap_connect()}.
  * </p>
- * @param  string $dn <p>The distinguished name of an LDAP entity.</p>
+ * @param string $dn <p>The distinguished name of an LDAP entity.</p>
  * @param array $modifications_info <p>An array that specifies the modifications to make. Each entry in this
  * array is an associative array with two or three keys:
  * <em>attrib</em> maps to the name of the attribute to modify,

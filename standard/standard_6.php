@@ -316,7 +316,14 @@ function stream_filter_remove($stream_filter): bool {}
  * fwrite, fclose, and
  * feof), false on failure.
  */
-function stream_socket_client(string $address, &$error_code, &$error_message, ?float $timeout, int $flags = STREAM_CLIENT_CONNECT, $context) {}
+function stream_socket_client(
+    string $address,
+    &$error_code,
+    &$error_message,
+    ?float $timeout,
+    int $flags = STREAM_CLIENT_CONNECT,
+    $context
+) {}
 
 /**
  * Create an Internet or Unix domain server socket
@@ -366,7 +373,13 @@ function stream_socket_client(string $address, &$error_code, &$error_message, ?f
  * </p>
  * @return resource|false the created stream, or false on error.
  */
-function stream_socket_server(string $address, &$error_code, &$error_message, int $flags = STREAM_SERVER_BIND|STREAM_SERVER_LISTEN, $context) {}
+function stream_socket_server(
+    string $address,
+    &$error_code,
+    &$error_message,
+    int $flags = STREAM_SERVER_BIND|STREAM_SERVER_LISTEN,
+    $context
+) {}
 
 /**
  * Accept a connection on a socket created by {@see stream_socket_server}
@@ -626,7 +639,13 @@ function stream_supports_lock($stream): bool {}
  * </p>
  */
 #[LanguageLevelTypeAware(['8.0' => 'array|false'], default: 'array|false|null')]
-function fgetcsv($stream, ?int $length = null, string $separator = ',', string $enclosure = '"', string $escape = '\\') {}
+function fgetcsv(
+    $stream,
+    ?int $length = null,
+    string $separator = ',',
+    string $enclosure = '"',
+    string $escape = '\\'
+) {}
 
 /**
  * Format line as CSV and write to file pointer

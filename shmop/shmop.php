@@ -47,7 +47,11 @@ function shmop_open(int $key, string $mode, int $permissions, int $size) {}
  * @return string|false the data or <b>FALSE</b> on failure.
  */
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function shmop_read(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop, int $offset, int $size) {}
+function shmop_read(
+    #[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop,
+    int $offset,
+    int $size
+) {}
 
 /**
  * Close shared memory block
@@ -91,7 +95,11 @@ function shmop_size(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resou
  * failure.
  */
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
-function shmop_write(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop, string $data, int $offset) {}
+function shmop_write(
+    #[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop,
+    string $data,
+    int $offset
+) {}
 
 /**
  * Delete shared memory block

@@ -936,6 +936,16 @@ class PDO
     ) {}
 
     /**
+     * (PHP 5 &gt;= 5.1.3, PHP 7, PECL pdo &gt;= 1.0.3)<br/>
+     * Return an array of available PDO drivers
+     * @link https://php.net/manual/en/pdo.getavailabledrivers.php
+     * @return array <b>PDO::getAvailableDrivers</b> returns an array of PDO driver names. If
+     * no drivers are available, it returns an empty array.
+     */
+    #[TentativeType]
+    public static function getAvailableDrivers(): array {}
+
+    /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
      * Prepares a statement for execution and returns a statement object
      * @link https://php.net/manual/en/pdo.prepare.php
@@ -963,7 +973,10 @@ class PDO
      * so <b>PDO::prepare</b> does not check the statement.
      */
     #[TentativeType]
-    public function prepare(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $query, array $options = []): PDOStatement|false {}
+    public function prepare(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $query,
+        array $options = []
+    ): PDOStatement|false {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1266,16 +1279,6 @@ class PDO
     final public function __sleep() {}
 
     /**
-     * (PHP 5 &gt;= 5.1.3, PHP 7, PECL pdo &gt;= 1.0.3)<br/>
-     * Return an array of available PDO drivers
-     * @link https://php.net/manual/en/pdo.getavailabledrivers.php
-     * @return array <b>PDO::getAvailableDrivers</b> returns an array of PDO driver names. If
-     * no drivers are available, it returns an empty array.
-     */
-    #[TentativeType]
-    public static function getAvailableDrivers(): array {}
-
-    /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo_sqlite &gt;= 1.0.0)<br/>
      * Registers a User Defined Function for use in SQL statements
      * @link https://php.net/manual/en/pdo.sqlitecreatefunction.php
@@ -1319,7 +1322,13 @@ class PDO
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function pgsqlCopyFromArray(string $tableName, array $rows, string $separator = "\t", string $nullAs = "\\\\N", ?string $fields = null): bool {}
+    public function pgsqlCopyFromArray(
+        string $tableName,
+        array $rows,
+        string $separator = "\t",
+        string $nullAs = "\\\\N",
+        ?string $fields = null
+    ): bool {}
 
     /**
      * (PHP 5 &gt;= 5.3.3, PHP 7, PHP 8)<br/>
@@ -1342,7 +1351,13 @@ class PDO
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function pgsqlCopyFromFile(string $tableName, string $filename, string $separator = "\t", string $nullAs = "\\\\N", ?string $fields = null): bool {}
+    public function pgsqlCopyFromFile(
+        string $tableName,
+        string $filename,
+        string $separator = "\t",
+        string $nullAs = "\\\\N",
+        ?string $fields = null
+    ): bool {}
 
     /**
      * (PHP 5 &gt;= 5.3.3, PHP 7, PHP 8)<br/>
@@ -1362,7 +1377,12 @@ class PDO
      * </p>
      * @return array|false returns an array of rows, or <b>FALSE</b> on failure.
      */
-    public function pgsqlCopyToArray(string $tableName, string $separator = "\t", string $nullAs = "\\\\N", ?string $fields = null): array|false {}
+    public function pgsqlCopyToArray(
+        string $tableName,
+        string $separator = "\t",
+        string $nullAs = "\\\\N",
+        ?string $fields = null
+    ): array|false {}
 
     /**
      * (PHP 5 &gt;= 5.3.3, PHP 7, PHP 8)<br/>
@@ -1385,7 +1405,13 @@ class PDO
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function pgsqlCopyToFile(string $tableName, string $filename, string $separator = "\t", string $nullAs = "\\\\N", ?string $fields = null): bool {}
+    public function pgsqlCopyToFile(
+        string $tableName,
+        string $filename,
+        string $separator = "\t",
+        string $nullAs = "\\\\N",
+        ?string $fields = null
+    ): bool {}
 
     /**
      * (PHP 5 &gt;= 5.1.2, PHP 7, PHP 8, PECL pdo_pgsql &gt;= 1.0.2)<br/>
@@ -1713,7 +1739,10 @@ class PDOStatement implements IteratorAggregate
      * correspond to the column names or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function fetchObject(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $class = "stdClass", array $constructorArgs = []): object|false {}
+    public function fetchObject(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $class = "stdClass",
+        array $constructorArgs = []
+    ): object|false {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>

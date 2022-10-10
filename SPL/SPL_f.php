@@ -147,7 +147,10 @@ function spl_object_hash(object $object): string {}
  * </p>
  * @return array An array containing the elements of the iterator.
  */
-function iterator_to_array(#[LanguageLevelTypeAware(['8.2' => 'Traversable|array'], default: 'Traversable')] $iterator, bool $preserve_keys = true): array {}
+function iterator_to_array(
+    #[LanguageLevelTypeAware(['8.2' => 'Traversable|array'], default: 'Traversable')] $iterator,
+    bool $preserve_keys = true
+): array {}
 
 /**
  * Count the elements in an iterator

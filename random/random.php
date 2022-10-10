@@ -108,12 +108,14 @@ namespace {
     function random_int(int $min, int $max): int {}
 }
 
-namespace Random\Engine
-{
+namespace Random\Engine {
+    use Random\CryptoSafeEngine;
+    use Random\Engine;
+
     /**
      * @since 8.2
      */
-    final class Mt19937 implements \Random\Engine
+    final class Mt19937 implements Engine
     {
         public function __construct(int|null $seed = null, int $mode = MT_RAND_MT19937) {}
 
@@ -129,7 +131,7 @@ namespace Random\Engine
     /**
      * @since 8.2
      */
-    final class PcgOneseq128XslRr64 implements \Random\Engine
+    final class PcgOneseq128XslRr64 implements Engine
     {
         public function __construct(string|int|null $seed = null) {}
 
@@ -147,7 +149,7 @@ namespace Random\Engine
     /**
      * @since 8.2
      */
-    final class Xoshiro256StarStar implements \Random\Engine
+    final class Xoshiro256StarStar implements Engine
     {
         public function __construct(string|int|null $seed = null) {}
 
@@ -167,14 +169,13 @@ namespace Random\Engine
     /**
      * @since 8.2
      */
-    final class Secure implements \Random\CryptoSafeEngine
+    final class Secure implements CryptoSafeEngine
     {
         public function generate(): string {}
     }
 }
 
-namespace Random
-{
+namespace Random {
     use Error;
     use Exception;
 
@@ -185,6 +186,7 @@ namespace Random
     {
         public function generate(): string;
     }
+
     /**
      * @since 8.2
      */

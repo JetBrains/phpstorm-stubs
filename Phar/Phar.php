@@ -62,6 +62,265 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
         #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $fileformat = null
     ) {}
 
+    /**
+     * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
+     * Returns the api version
+     * @link https://php.net/manual/en/phar.apiversion.php
+     * @return string The API version string as in &#x00022;1.0.0&#x00022;.
+     */
+    final public static function apiVersion(): string {}
+
+    /**
+     * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
+     * Returns whether phar extension supports compression using either zlib or bzip2
+     * @link https://php.net/manual/en/phar.cancompress.php
+     * @param int $compression [optional] <p>
+     * Either Phar::GZ or Phar::BZ2 can be
+     * used to test whether compression is possible with a specific compression
+     * algorithm (zlib or bzip2).
+     * </p>
+     * @return bool <b>TRUE</b> if compression/decompression is available, <b>FALSE</b> if not.
+     */
+    final public static function canCompress(int $compression = 0): bool {}
+
+    /**
+     * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
+     * Returns whether phar extension supports writing and creating phars
+     * @link https://php.net/manual/en/phar.canwrite.php
+     * @return bool <b>TRUE</b> if write access is enabled, <b>FALSE</b> if it is disabled.
+     */
+    final public static function canWrite(): bool {}
+
+    /**
+     * (Unknown)<br/>
+     * Create a phar-file format specific stub
+     * @link https://php.net/manual/en/phar.createdefaultstub.php
+     * @param string|null $index [optional]
+     * @param string|null $webIndex [optional]
+     * @return string a string containing the contents of a customized bootstrap loader (stub)
+     * that allows the created Phar archive to work with or without the Phar extension
+     * enabled.
+     */
+    final public static function createDefaultStub(?string $index = null, ?string $webIndex = null): string {}
+
+    /**
+     * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
+     * Return array of supported compression algorithms
+     * @link https://php.net/manual/en/phar.getsupportedcompression.php
+     * @return string[] an array containing any of "GZ" or
+     * "BZ2", depending on the availability of
+     * the zlib extension or the
+     * bz2 extension.
+     */
+    final public static function getSupportedCompression(): array {}
+
+    /**
+     * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.1.0)<br/>
+     * Return array of supported signature types
+     * @link https://php.net/manual/en/phar.getsupportedsignatures.php
+     * @return string[] an array containing any of "MD5", "SHA-1",
+     * "SHA-256", "SHA-512", or "OpenSSL".
+     */
+    final public static function getSupportedSignatures(): array {}
+
+    /**
+     * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
+     * instructs phar to intercept fopen, file_get_contents, opendir, and all of the stat-related functions
+     * @link https://php.net/manual/en/phar.interceptfilefuncs.php
+     * @return void
+     */
+    final public static function interceptFileFuncs(): void {}
+
+    /**
+     * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
+     * Returns whether the given filename is a valid phar filename
+     * @link https://php.net/manual/en/phar.isvalidpharfilename.php
+     * @param string $filename <p>
+     * The name or full path to a phar archive not yet created
+     * </p>
+     * @param bool $executable [optional] <p>
+     * This parameter determines whether the filename should be treated as
+     * a phar executable archive, or a data non-executable archive
+     * </p>
+     * @return bool <b>TRUE</b> if the filename is valid, <b>FALSE</b> if not.
+     */
+    final public static function isValidPharFilename(string $filename, bool $executable = true): bool {}
+
+    /**
+     * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
+     * Loads any phar archive with an alias
+     * @link https://php.net/manual/en/phar.loadphar.php
+     * @param string $filename <p>
+     * the full or relative path to the phar archive to open
+     * </p>
+     * @param string|null $alias [optional] <p>
+     * The alias that may be used to refer to the phar archive. Note
+     * that many phar archives specify an explicit alias inside the
+     * phar archive, and a <b>PharException</b> will be thrown if
+     * a new alias is specified in this case.
+     * </p>
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    final public static function loadPhar(string $filename, ?string $alias = null): bool {}
+
+    /**
+     * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
+     * Reads the currently executed file (a phar) and registers its manifest
+     * @link https://php.net/manual/en/phar.mapphar.php
+     * @param string|null $alias [optional] <p>
+     * The alias that can be used in phar:// URLs to
+     * refer to this archive, rather than its full path.
+     * </p>
+     * @param int $offset [optional] <p>
+     * Unused variable, here for compatibility with PEAR's PHP_Archive.
+     * </p>
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    final public static function mapPhar(?string $alias = null, int $offset = 0): bool {}
+
+    /**
+     * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
+     * Returns the full path on disk or full phar URL to the currently executing Phar archive
+     * @link https://php.net/manual/en/phar.running.php
+     * @param bool $returnPhar <p>
+     * If <b>FALSE</b>, the full path on disk to the phar
+     * archive is returned. If <b>TRUE</b>, a full phar URL is returned.
+     * </p>
+     * @return string the filename if valid, empty string otherwise.
+     */
+    final public static function running(
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $returnPhar,
+        #[PhpStormStubsElementAvailable(from: '7.0')] bool $returnPhar = true
+    ): string {}
+
+    /**
+     * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
+     * Mount an external path or file to a virtual location within the phar archive
+     * @link https://php.net/manual/en/phar.mount.php
+     * @param string $pharPath <p>
+     * The internal path within the phar archive to use as the mounted path location.
+     * This must be a relative path within the phar archive, and must not already exist.
+     * </p>
+     * @param string $externalPath <p>
+     * A path or URL to an external file or directory to mount within the phar archive
+     * </p>
+     * @return void No return. <b>PharException</b> is thrown on failure.
+     */
+    final public static function mount(string $pharPath, string $externalPath): void {}
+
+    /**
+     * (Unknown)<br/>
+     * Defines a list of up to 4 $_SERVER variables that should be modified for execution
+     * @link https://php.net/manual/en/phar.mungserver.php
+     * @param array $variables <p>
+     * an array containing as string indices any of
+     * REQUEST_URI, PHP_SELF,
+     * SCRIPT_NAME and SCRIPT_FILENAME.
+     * Other values trigger an exception, and <b>Phar::mungServer</b>
+     * is case-sensitive.
+     * </p>
+     * @return void No return.
+     */
+    final public static function mungServer(array $variables): void {}
+
+    /**
+     * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
+     * Completely remove a phar archive from disk and from memory
+     * @link https://php.net/manual/en/phar.unlinkarchive.php
+     * @param string $filename <p>
+     * The path on disk to the phar archive.
+     * </p>
+     * @throws PharException
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    final public static function unlinkArchive(string $filename): bool {}
+
+    /**
+     * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
+     * mapPhar for web-based phars. front controller for web applications
+     * @link https://php.net/manual/en/phar.webphar.php
+     * @param null|string $alias [optional] <p>
+     * The alias that can be used in phar:// URLs to
+     * refer to this archive, rather than its full path.
+     * </p>
+     * @param string|null $index [optional] <p>
+     * The location within the phar of the directory index.
+     * </p>
+     * @param null|string $fileNotFoundScript [optional] <p>
+     * The location of the script to run when a file is not found. This
+     * script should output the proper HTTP 404 headers.
+     * </p>
+     * @param null|array $mimeTypes [optional] <p>
+     * An array mapping additional file extensions to MIME type.
+     * If the default mapping is sufficient, pass an empty array.
+     * By default, these extensions are mapped to these MIME types:
+     * <code>
+     * $mimes = array(
+     * 'phps' => Phar::PHPS, // pass to highlight_file()
+     * 'c' => 'text/plain',
+     * 'cc' => 'text/plain',
+     * 'cpp' => 'text/plain',
+     * 'c++' => 'text/plain',
+     * 'dtd' => 'text/plain',
+     * 'h' => 'text/plain',
+     * 'log' => 'text/plain',
+     * 'rng' => 'text/plain',
+     * 'txt' => 'text/plain',
+     * 'xsd' => 'text/plain',
+     * 'php' => Phar::PHP, // parse as PHP
+     * 'inc' => Phar::PHP, // parse as PHP
+     * 'avi' => 'video/avi',
+     * 'bmp' => 'image/bmp',
+     * 'css' => 'text/css',
+     * 'gif' => 'image/gif',
+     * 'htm' => 'text/html',
+     * 'html' => 'text/html',
+     * 'htmls' => 'text/html',
+     * 'ico' => 'image/x-ico',
+     * 'jpe' => 'image/jpeg',
+     * 'jpg' => 'image/jpeg',
+     * 'jpeg' => 'image/jpeg',
+     * 'js' => 'application/x-javascript',
+     * 'midi' => 'audio/midi',
+     * 'mid' => 'audio/midi',
+     * 'mod' => 'audio/mod',
+     * 'mov' => 'movie/quicktime',
+     * 'mp3' => 'audio/mp3',
+     * 'mpg' => 'video/mpeg',
+     * 'mpeg' => 'video/mpeg',
+     * 'pdf' => 'application/pdf',
+     * 'png' => 'image/png',
+     * 'swf' => 'application/shockwave-flash',
+     * 'tif' => 'image/tiff',
+     * 'tiff' => 'image/tiff',
+     * 'wav' => 'audio/wav',
+     * 'xbm' => 'image/xbm',
+     * 'xml' => 'text/xml',
+     * );
+     * </code>
+     * </p>
+     * @param null|callable $rewrite [optional] <p>
+     * The rewrites function is passed a string as its only parameter and must return a string or <b>FALSE</b>.
+     * </p>
+     * <p>
+     * If you are using fast-cgi or cgi then the parameter passed to the function is the value of the
+     * $_SERVER['PATH_INFO'] variable. Otherwise, the parameter passed to the function is the value
+     * of the $_SERVER['REQUEST_URI'] variable.
+     * </p>
+     * <p>
+     * If a string is returned it is used as the internal file path. If <b>FALSE</b> is returned then webPhar() will
+     * send a HTTP 403 Denied Code.
+     * </p>
+     * @return void No value is returned.
+     */
+    final public static function webPhar(
+        ?string $alias = null,
+        ?string $index = "index.php",
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $fileNotFoundScript = null,
+        array $mimeTypes = null,
+        ?callable $rewrite = null
+    ): void {}
+
     public function __destruct() {}
 
     /**
@@ -642,265 +901,6 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      */
     #[TentativeType]
     public function stopBuffering(): void {}
-
-    /**
-     * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
-     * Returns the api version
-     * @link https://php.net/manual/en/phar.apiversion.php
-     * @return string The API version string as in &#x00022;1.0.0&#x00022;.
-     */
-    final public static function apiVersion(): string {}
-
-    /**
-     * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
-     * Returns whether phar extension supports compression using either zlib or bzip2
-     * @link https://php.net/manual/en/phar.cancompress.php
-     * @param int $compression [optional] <p>
-     * Either Phar::GZ or Phar::BZ2 can be
-     * used to test whether compression is possible with a specific compression
-     * algorithm (zlib or bzip2).
-     * </p>
-     * @return bool <b>TRUE</b> if compression/decompression is available, <b>FALSE</b> if not.
-     */
-    final public static function canCompress(int $compression = 0): bool {}
-
-    /**
-     * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
-     * Returns whether phar extension supports writing and creating phars
-     * @link https://php.net/manual/en/phar.canwrite.php
-     * @return bool <b>TRUE</b> if write access is enabled, <b>FALSE</b> if it is disabled.
-     */
-    final public static function canWrite(): bool {}
-
-    /**
-     * (Unknown)<br/>
-     * Create a phar-file format specific stub
-     * @link https://php.net/manual/en/phar.createdefaultstub.php
-     * @param string|null $index [optional]
-     * @param string|null $webIndex [optional]
-     * @return string a string containing the contents of a customized bootstrap loader (stub)
-     * that allows the created Phar archive to work with or without the Phar extension
-     * enabled.
-     */
-    final public static function createDefaultStub(?string $index = null, ?string $webIndex = null): string {}
-
-    /**
-     * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
-     * Return array of supported compression algorithms
-     * @link https://php.net/manual/en/phar.getsupportedcompression.php
-     * @return string[] an array containing any of "GZ" or
-     * "BZ2", depending on the availability of
-     * the zlib extension or the
-     * bz2 extension.
-     */
-    final public static function getSupportedCompression(): array {}
-
-    /**
-     * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.1.0)<br/>
-     * Return array of supported signature types
-     * @link https://php.net/manual/en/phar.getsupportedsignatures.php
-     * @return string[] an array containing any of "MD5", "SHA-1",
-     * "SHA-256", "SHA-512", or "OpenSSL".
-     */
-    final public static function getSupportedSignatures(): array {}
-
-    /**
-     * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
-     * instructs phar to intercept fopen, file_get_contents, opendir, and all of the stat-related functions
-     * @link https://php.net/manual/en/phar.interceptfilefuncs.php
-     * @return void
-     */
-    final public static function interceptFileFuncs(): void {}
-
-    /**
-     * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
-     * Returns whether the given filename is a valid phar filename
-     * @link https://php.net/manual/en/phar.isvalidpharfilename.php
-     * @param string $filename <p>
-     * The name or full path to a phar archive not yet created
-     * </p>
-     * @param bool $executable [optional] <p>
-     * This parameter determines whether the filename should be treated as
-     * a phar executable archive, or a data non-executable archive
-     * </p>
-     * @return bool <b>TRUE</b> if the filename is valid, <b>FALSE</b> if not.
-     */
-    final public static function isValidPharFilename(string $filename, bool $executable = true): bool {}
-
-    /**
-     * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
-     * Loads any phar archive with an alias
-     * @link https://php.net/manual/en/phar.loadphar.php
-     * @param string $filename <p>
-     * the full or relative path to the phar archive to open
-     * </p>
-     * @param string|null $alias [optional] <p>
-     * The alias that may be used to refer to the phar archive. Note
-     * that many phar archives specify an explicit alias inside the
-     * phar archive, and a <b>PharException</b> will be thrown if
-     * a new alias is specified in this case.
-     * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    final public static function loadPhar(string $filename, ?string $alias = null): bool {}
-
-    /**
-     * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
-     * Reads the currently executed file (a phar) and registers its manifest
-     * @link https://php.net/manual/en/phar.mapphar.php
-     * @param string|null $alias [optional] <p>
-     * The alias that can be used in phar:// URLs to
-     * refer to this archive, rather than its full path.
-     * </p>
-     * @param int $offset [optional] <p>
-     * Unused variable, here for compatibility with PEAR's PHP_Archive.
-     * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    final public static function mapPhar(?string $alias = null, int $offset = 0): bool {}
-
-    /**
-     * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
-     * Returns the full path on disk or full phar URL to the currently executing Phar archive
-     * @link https://php.net/manual/en/phar.running.php
-     * @param bool $returnPhar <p>
-     * If <b>FALSE</b>, the full path on disk to the phar
-     * archive is returned. If <b>TRUE</b>, a full phar URL is returned.
-     * </p>
-     * @return string the filename if valid, empty string otherwise.
-     */
-    final public static function running(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $returnPhar,
-        #[PhpStormStubsElementAvailable(from: '7.0')] bool $returnPhar = true
-    ): string {}
-
-    /**
-     * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
-     * Mount an external path or file to a virtual location within the phar archive
-     * @link https://php.net/manual/en/phar.mount.php
-     * @param string $pharPath <p>
-     * The internal path within the phar archive to use as the mounted path location.
-     * This must be a relative path within the phar archive, and must not already exist.
-     * </p>
-     * @param string $externalPath <p>
-     * A path or URL to an external file or directory to mount within the phar archive
-     * </p>
-     * @return void No return. <b>PharException</b> is thrown on failure.
-     */
-    final public static function mount(string $pharPath, string $externalPath): void {}
-
-    /**
-     * (Unknown)<br/>
-     * Defines a list of up to 4 $_SERVER variables that should be modified for execution
-     * @link https://php.net/manual/en/phar.mungserver.php
-     * @param array $variables <p>
-     * an array containing as string indices any of
-     * REQUEST_URI, PHP_SELF,
-     * SCRIPT_NAME and SCRIPT_FILENAME.
-     * Other values trigger an exception, and <b>Phar::mungServer</b>
-     * is case-sensitive.
-     * </p>
-     * @return void No return.
-     */
-    final public static function mungServer(array $variables): void {}
-
-    /**
-     * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
-     * Completely remove a phar archive from disk and from memory
-     * @link https://php.net/manual/en/phar.unlinkarchive.php
-     * @param string $filename <p>
-     * The path on disk to the phar archive.
-     * </p>
-     * @throws PharException
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    final public static function unlinkArchive(string $filename): bool {}
-
-    /**
-     * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
-     * mapPhar for web-based phars. front controller for web applications
-     * @link https://php.net/manual/en/phar.webphar.php
-     * @param null|string $alias [optional] <p>
-     * The alias that can be used in phar:// URLs to
-     * refer to this archive, rather than its full path.
-     * </p>
-     * @param string|null $index [optional] <p>
-     * The location within the phar of the directory index.
-     * </p>
-     * @param null|string $fileNotFoundScript [optional] <p>
-     * The location of the script to run when a file is not found. This
-     * script should output the proper HTTP 404 headers.
-     * </p>
-     * @param null|array $mimeTypes [optional] <p>
-     * An array mapping additional file extensions to MIME type.
-     * If the default mapping is sufficient, pass an empty array.
-     * By default, these extensions are mapped to these MIME types:
-     * <code>
-     * $mimes = array(
-     * 'phps' => Phar::PHPS, // pass to highlight_file()
-     * 'c' => 'text/plain',
-     * 'cc' => 'text/plain',
-     * 'cpp' => 'text/plain',
-     * 'c++' => 'text/plain',
-     * 'dtd' => 'text/plain',
-     * 'h' => 'text/plain',
-     * 'log' => 'text/plain',
-     * 'rng' => 'text/plain',
-     * 'txt' => 'text/plain',
-     * 'xsd' => 'text/plain',
-     * 'php' => Phar::PHP, // parse as PHP
-     * 'inc' => Phar::PHP, // parse as PHP
-     * 'avi' => 'video/avi',
-     * 'bmp' => 'image/bmp',
-     * 'css' => 'text/css',
-     * 'gif' => 'image/gif',
-     * 'htm' => 'text/html',
-     * 'html' => 'text/html',
-     * 'htmls' => 'text/html',
-     * 'ico' => 'image/x-ico',
-     * 'jpe' => 'image/jpeg',
-     * 'jpg' => 'image/jpeg',
-     * 'jpeg' => 'image/jpeg',
-     * 'js' => 'application/x-javascript',
-     * 'midi' => 'audio/midi',
-     * 'mid' => 'audio/midi',
-     * 'mod' => 'audio/mod',
-     * 'mov' => 'movie/quicktime',
-     * 'mp3' => 'audio/mp3',
-     * 'mpg' => 'video/mpeg',
-     * 'mpeg' => 'video/mpeg',
-     * 'pdf' => 'application/pdf',
-     * 'png' => 'image/png',
-     * 'swf' => 'application/shockwave-flash',
-     * 'tif' => 'image/tiff',
-     * 'tiff' => 'image/tiff',
-     * 'wav' => 'audio/wav',
-     * 'xbm' => 'image/xbm',
-     * 'xml' => 'text/xml',
-     * );
-     * </code>
-     * </p>
-     * @param null|callable $rewrite [optional] <p>
-     * The rewrites function is passed a string as its only parameter and must return a string or <b>FALSE</b>.
-     * </p>
-     * <p>
-     * If you are using fast-cgi or cgi then the parameter passed to the function is the value of the
-     * $_SERVER['PATH_INFO'] variable. Otherwise, the parameter passed to the function is the value
-     * of the $_SERVER['REQUEST_URI'] variable.
-     * </p>
-     * <p>
-     * If a string is returned it is used as the internal file path. If <b>FALSE</b> is returned then webPhar() will
-     * send a HTTP 403 Denied Code.
-     * </p>
-     * @return void No value is returned.
-     */
-    final public static function webPhar(
-        ?string $alias = null,
-        ?string $index = "index.php",
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $fileNotFoundScript = null,
-        array $mimeTypes = null,
-        ?callable $rewrite = null
-    ): void {}
 
     /**
      * Returns whether current entry is a directory and not '.' or '..'

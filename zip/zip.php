@@ -614,6 +614,16 @@ class ZipArchive implements Countable
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $lastId;
 
+    public static function isEncryptionMethodSupported(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $method,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $enc = true
+    ) {}
+
+    public static function isCompressionMethodSupported(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $method,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $enc = true
+    ) {}
+
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
      * Open a ZIP file archive
@@ -1288,16 +1298,6 @@ class ZipArchive implements Countable
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] &$opsys,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] &$attr,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ) {}
-
-    public static function isEncryptionMethodSupported(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $method,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $enc = true
-    ) {}
-
-    public static function isCompressionMethodSupported(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $method,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $enc = true
     ) {}
 
     public function registerCancelCallback(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback) {}
