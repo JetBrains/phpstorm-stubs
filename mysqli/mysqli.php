@@ -213,6 +213,32 @@ class mysqli
     ) {}
 
     /**
+     * Poll connections
+     * @link https://php.net/manual/en/mysqli.poll.php
+     * @param array &$read <p>
+     * </p>
+     * @param array &$error <p>
+     * </p>
+     * @param array &$reject <p>
+     * </p>
+     * @param int $seconds <p>
+     * Number of seconds to wait, must be non-negative.
+     * </p>
+     * @param int $microseconds [optional] <p>
+     * Number of microseconds to wait, must be non-negative.
+     * </p>
+     * @return int|false number of ready connections in success, false otherwise.
+     */
+    #[TentativeType]
+    public static function poll(
+        ?array &$read,
+        ?array &$error,
+        array &$reject,
+        int $seconds,
+        int $microseconds = 0
+    ): int|false {}
+
+    /**
      * Turns on or off auto-committing database modifications
      * @link https://php.net/manual/en/mysqli.autocommit.php
      * @param bool $enable <p>
@@ -440,7 +466,14 @@ class mysqli
      *
      * @removed 8.0
      */
-    public function mysqli($host = null, $username = null, $password = null, $database = null, $port = null, $socket = null) {}
+    public function mysqli(
+        $host = null,
+        $username = null,
+        $password = null,
+        $database = null,
+        $port = null,
+        $socket = null
+    ) {}
 
     /**
      * Check if there are any more query results from a multi query
@@ -701,26 +734,6 @@ class mysqli
     public function real_escape_string(string $string): string {}
 
     /**
-     * Poll connections
-     * @link https://php.net/manual/en/mysqli.poll.php
-     * @param array &$read <p>
-     * </p>
-     * @param array &$error <p>
-     * </p>
-     * @param array &$reject <p>
-     * </p>
-     * @param int $seconds <p>
-     * Number of seconds to wait, must be non-negative.
-     * </p>
-     * @param int $microseconds [optional] <p>
-     * Number of microseconds to wait, must be non-negative.
-     * </p>
-     * @return int|false number of ready connections in success, false otherwise.
-     */
-    #[TentativeType]
-    public static function poll(?array &$read, ?array &$error, array &$reject, int $seconds, int $microseconds = 0): int|false {}
-
-    /**
      * Get result from async query
      * @link https://php.net/manual/en/mysqli.reap-async-query.php
      * @return mysqli_result|false mysqli_result in success, false otherwise.
@@ -839,7 +852,13 @@ class mysqli
      * </p>
      * @return bool This function always returns TRUE value.
      */
-    public function ssl_set(?string $key, ?string $certificate, ?string $ca_certificate, ?string $ca_path, ?string $cipher_algos) {}
+    public function ssl_set(
+        ?string $key,
+        ?string $certificate,
+        ?string $ca_certificate,
+        ?string $ca_path,
+        ?string $cipher_algos
+    ) {}
 
     /**
      * Gets the current system status
@@ -1769,7 +1788,14 @@ function mysqli_commit(mysqli $mysql, int $flags = 0, ?string $name = null): boo
  * @param string|null $socket Specifies the socket or named pipe that should be used.
  * @return mysqli|false object which represents the connection to a MySQL Server or false if an error occurred.
  */
-function mysqli_connect(?string $hostname = null, ?string $username = null, ?string $password = null, ?string $database = null, ?int $port = null, ?string $socket = null): mysqli|false {}
+function mysqli_connect(
+    ?string $hostname = null,
+    ?string $username = null,
+    ?string $password = null,
+    ?string $database = null,
+    ?int $port = null,
+    ?string $socket = null
+): mysqli|false {}
 
 /**
  * Returns the error code from last connect call
@@ -1854,7 +1880,10 @@ function mysqli_error(mysqli $mysql): string {}
  * as there are bound parameters in the SQL statement being executed. Each value is treated as a string.
  * @return bool true on success or false on failure.
  */
-function mysqli_stmt_execute(mysqli_stmt $statement, #[PhpStormStubsElementAvailable('8.1')] ?array $params = null): bool {}
+function mysqli_stmt_execute(
+    mysqli_stmt $statement,
+    #[PhpStormStubsElementAvailable('8.1')] ?array $params = null
+): bool {}
 
 /**
  * Executes a prepared statement
@@ -1962,7 +1991,11 @@ function mysqli_fetch_assoc(mysqli_result $result): array|null|false {}
  * where each property represents the name of the result set's column,
  * null if there are no more rows in the result set, or false on failure.
  */
-function mysqli_fetch_object(mysqli_result $result, string $class = 'stdClass', array $constructor_args = []): object|null|false {}
+function mysqli_fetch_object(
+    mysqli_result $result,
+    string $class = 'stdClass',
+    array $constructor_args = []
+): object|null|false {}
 
 /**
  * Fetch the next row of a result set as an enumerated array
@@ -2369,7 +2402,16 @@ function mysqli_query(
  * @param int $flags
  * @return bool
  */
-function mysqli_real_connect(mysqli $mysql, ?string $hostname, ?string $username, ?string $password, ?string $database, ?int $port, ?string $socket, int $flags = 0): bool {}
+function mysqli_real_connect(
+    mysqli $mysql,
+    ?string $hostname,
+    ?string $username,
+    ?string $password,
+    ?string $database,
+    ?int $port,
+    ?string $socket,
+    int $flags = 0
+): bool {}
 
 /**
  * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection

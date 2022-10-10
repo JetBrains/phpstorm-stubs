@@ -193,7 +193,13 @@ function soundex(string $string): string {}
  * two argument strings or -1, if one of the argument strings
  * is longer than the limit of 255 characters.
  */
-function levenshtein(string $string1, string $string2, int $insertion_cost = 1, int $replacement_cost = 1, int $deletion_cost = 1): int {}
+function levenshtein(
+    string $string1,
+    string $string2,
+    int $insertion_cost = 1,
+    int $replacement_cost = 1,
+    int $deletion_cost = 1
+): int {}
 
 /**
  * Generate a single-byte string from a number
@@ -439,7 +445,11 @@ function vfprintf($stream, string $format, array $values): int {}
  * the function will return the number of assigned values. The optional
  * parameters must be passed by reference.
  */
-function sscanf(string $string, string $format, #[TypeContract(exists: "int|null", notExists: "array|null")] mixed &...$vars): array|int|null {}
+function sscanf(
+    string $string,
+    string $format,
+    #[TypeContract(exists: "int|null", notExists: "array|null")] mixed &...$vars
+): array|int|null {}
 
 /**
  * Parses input from a file according to a format
@@ -455,7 +465,11 @@ function sscanf(string $string, string $format, #[TypeContract(exists: "int|null
  * function will return the number of assigned values. The optional
  * parameters must be passed by reference.
  */
-function fscanf($stream, string $format, #[TypeContract(exists: "int|false|null", notExists: "array|false|null")] mixed &...$vars): array|int|false|null {}
+function fscanf(
+    $stream,
+    string $format,
+    #[TypeContract(exists: "int|false|null", notExists: "array|false|null")] mixed &...$vars
+): array|int|false|null {}
 
 /**
  * Parse a URL and return its components
@@ -584,7 +598,12 @@ function rawurldecode(string $string): string {}
  * @return string a URL-encoded string.
  */
 #[Pure]
-function http_build_query(object|array $data, string $numeric_prefix = "", ?string $arg_separator = null, int $encoding_type = PHP_QUERY_RFC1738): string {}
+function http_build_query(
+    object|array $data,
+    string $numeric_prefix = "",
+    ?string $arg_separator = null,
+    int $encoding_type = PHP_QUERY_RFC1738
+): string {}
 
 /**
  * Returns the target of a symbolic link
@@ -808,7 +827,14 @@ function shell_exec(string $command): string|false|null {}
  * proc_close when you are finished with it. On failure
  * returns false.
  */
-function proc_open(array|string $command, array $descriptor_spec, &$pipes, ?string $cwd, ?array $env_vars, ?array $options) {}
+function proc_open(
+    array|string $command,
+    array $descriptor_spec,
+    &$pipes,
+    ?string $cwd,
+    ?array $env_vars,
+    ?array $options
+) {}
 
 /**
  * Close a process opened by {@see proc_open} and return the exit code of that process

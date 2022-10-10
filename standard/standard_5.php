@@ -140,7 +140,10 @@ function gettype(mixed $value): string {}
  * </ul>
  * @return bool true on success or false on failure.
  */
-function settype(mixed &$var, #[ExpectedValues(["bool", "boolean", "int", "integer", "float", "double", "string", "array", "object", "null"])] string $type): bool {}
+function settype(
+    mixed &$var,
+    #[ExpectedValues(["bool", "boolean", "int", "integer", "float", "double", "string", "array", "object", "null"])] string $type
+): bool {}
 
 /**
  * Finds whether a variable is null.
@@ -1017,7 +1020,13 @@ function file(string $filename, int $flags = 0, $context): array|false {}
  * @return string|false The function returns the read data or false on failure.
  */
 #[Pure(true)]
-function file_get_contents(string $filename, bool $use_include_path = false, $context, int $offset = 0, ?int $length): string|false {}
+function file_get_contents(
+    string $filename,
+    bool $use_include_path = false,
+    $context,
+    int $offset = 0,
+    ?int $length
+): string|false {}
 
 /**
  * Write a string to a file

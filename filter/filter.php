@@ -149,7 +149,11 @@ function filter_input_array(int $type, array|int $options = FILTER_DEFAULT, bool
  * the variable is not set.
  */
 #[Pure]
-function filter_var_array(array $array, array|int $options = FILTER_DEFAULT, bool $add_empty = true): array|false|null {}
+function filter_var_array(
+    array $array,
+    array|int $options = FILTER_DEFAULT,
+    bool $add_empty = true
+): array|false|null {}
 
 /**
  * Returns a list of all supported filters

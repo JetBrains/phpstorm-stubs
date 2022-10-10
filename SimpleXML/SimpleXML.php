@@ -34,14 +34,6 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     ) {}
 
     /**
-     * Provides access to element's children
-     * private Method not callable directly, stub exists for typehint only
-     * @param string $name child name
-     * @return static
-     */
-    private function __get($name) {}
-
-    /**
      * Return a well-formed XML string based on SimpleXML element
      * @link https://php.net/manual/en/simplexmlelement.asxml.php
      * @param string $filename [optional] <p>
@@ -355,6 +347,14 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     #[Pure]
     #[TentativeType]
     public function getChildren(): ?SimpleXMLElement {}
+
+    /**
+     * Provides access to element's children
+     * private Method not callable directly, stub exists for typehint only
+     * @param string $name child name
+     * @return static
+     */
+    private function __get($name) {}
 }
 
 /**
@@ -468,7 +468,13 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
  * @return SimpleXMLElement|false an object of class SimpleXMLElement with
  * properties containing the data held within the XML document, or <b>FALSE</b> on failure.
  */
-function simplexml_load_file(string $filename, ?string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false): SimpleXMLElement|false {}
+function simplexml_load_file(
+    string $filename,
+    ?string $class_name = "SimpleXMLElement",
+    int $options = 0,
+    string $namespace_or_prefix = "",
+    bool $is_prefix = false
+): SimpleXMLElement|false {}
 
 /**
  * Interprets a string of XML into an object
@@ -496,7 +502,13 @@ function simplexml_load_file(string $filename, ?string $class_name = "SimpleXMLE
  * @return SimpleXMLElement|false an object of class SimpleXMLElement with
  * properties containing the data held within the xml document, or <b>FALSE</b> on failure.
  */
-function simplexml_load_string(string $data, ?string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false): SimpleXMLElement|false {}
+function simplexml_load_string(
+    string $data,
+    ?string $class_name = "SimpleXMLElement",
+    int $options = 0,
+    string $namespace_or_prefix = "",
+    bool $is_prefix = false
+): SimpleXMLElement|false {}
 
 /**
  * Get a SimpleXMLElement object from a DOM node.
@@ -512,6 +524,9 @@ function simplexml_load_string(string $data, ?string $class_name = "SimpleXMLEle
  * </p>
  * @return SimpleXMLElement|null a SimpleXMLElement or <b>FALSE</b> on failure.
  */
-function simplexml_import_dom(SimpleXMLElement|DOMNode $node, ?string $class_name = "SimpleXMLElement"): ?SimpleXMLElement {}
+function simplexml_import_dom(
+    SimpleXMLElement|DOMNode $node,
+    ?string $class_name = "SimpleXMLElement"
+): ?SimpleXMLElement {}
 
 // End of SimpleXML v.0.1

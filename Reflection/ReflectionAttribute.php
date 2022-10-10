@@ -25,6 +25,8 @@ class ReflectionAttribute implements Reflector
      */
     private function __construct() {}
 
+    public static function export() {}
+
     /**
      * Gets attribute name
      *
@@ -69,6 +71,8 @@ class ReflectionAttribute implements Reflector
      */
     public function newInstance(): object {}
 
+    public function __toString(): string {}
+
     /**
      * ReflectionAttribute cannot be cloned
      *
@@ -76,8 +80,4 @@ class ReflectionAttribute implements Reflector
      * @since 8.0
      */
     private function __clone(): void {}
-
-    public function __toString(): string {}
-
-    public static function export() {}
 }

@@ -2116,7 +2116,11 @@ function curl_version(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $
  * </table>
  * @return bool true on success or false on failure.
  */
-function curl_setopt(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle, int $option, mixed $value): bool {}
+function curl_setopt(
+    #[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle,
+    int $option,
+    mixed $value
+): bool {}
 
 /**
  * Set multiple options for a cURL transfer
@@ -2132,7 +2136,10 @@ function curl_setopt(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 
  * future options in the options array.
  * @since 5.1.3
  */
-function curl_setopt_array(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle, array $options): bool {}
+function curl_setopt_array(
+    #[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle,
+    array $options
+): bool {}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
@@ -2233,7 +2240,11 @@ function curl_share_init() {}
  * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.5
  */
-function curl_share_setopt(#[LanguageLevelTypeAware(['8.0' => 'CurlShareHandle'], default: 'resource')] $share_handle, int $option, mixed $value): bool {}
+function curl_share_setopt(
+    #[LanguageLevelTypeAware(['8.0' => 'CurlShareHandle'], default: 'resource')] $share_handle,
+    int $option,
+    mixed $value
+): bool {}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
@@ -2261,7 +2272,10 @@ function curl_strerror(int $error_code): ?string {}
  * @since 5.5
  */
 #[Pure]
-function curl_unescape(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle, string $string): string|false {}
+function curl_unescape(
+    #[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle,
+    string $string
+): string|false {}
 
 /**
  * Perform a cURL session
@@ -2533,7 +2547,10 @@ function curl_exec(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'r
  * </ul>
  */
 #[Pure(true)]
-function curl_getinfo(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle, ?int $option): mixed {}
+function curl_getinfo(
+    #[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle,
+    ?int $option
+): mixed {}
 
 /**
  * Return a string containing the last error for the current session
@@ -2567,7 +2584,10 @@ function curl_errno(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: '
  * @since 5.5
  */
 #[Pure]
-function curl_escape(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle, string $string): string|false {}
+function curl_escape(
+    #[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle,
+    string $string
+): string|false {}
 
 /**
  * (PHP 5 >= 5.5.0) <br/>
@@ -2607,7 +2627,10 @@ function curl_multi_init(): CurlMultiHandle {}
  * @return int 0 on success, or one of the CURLM_XXX errors
  * code.
  */
-function curl_multi_add_handle(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle, #[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle): int {}
+function curl_multi_add_handle(
+    #[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle,
+    #[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle
+): int {}
 
 /**
  * Remove a multi handle from a set of cURL handles
@@ -2617,7 +2640,10 @@ function curl_multi_add_handle(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiHand
  * @return int|false On success, returns one of the CURLM_XXX error codes, false on failure.
  */
 #[LanguageLevelTypeAware(['8.0' => 'int'], default: 'int|false')]
-function curl_multi_remove_handle(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle, #[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle) {}
+function curl_multi_remove_handle(
+    #[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle,
+    #[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle
+) {}
 
 /**
  * Wait for activity on any curl_multi connection
@@ -2629,7 +2655,10 @@ function curl_multi_remove_handle(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiH
  * @return int On success, returns the number of descriptors contained in,
  * the descriptor sets. On failure, this function will return -1 on a select failure or timeout (from the underlying select system call).
  */
-function curl_multi_select(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle, float $timeout = 1.0): int {}
+function curl_multi_select(
+    #[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle,
+    float $timeout = 1.0
+): int {}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
@@ -2681,7 +2710,11 @@ function curl_multi_select(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle']
  * @return bool Returns TRUE on success or FALSE on failure.
  * @since 5.5
  */
-function curl_multi_setopt(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle, int $option, mixed $value): bool {}
+function curl_multi_setopt(
+    #[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle,
+    int $option,
+    mixed $value
+): bool {}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
@@ -2757,7 +2790,10 @@ function curl_multi_getcontent(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'],
  * @return array|false On success, returns an associative array for the message, false on failure.
  */
 #[Pure]
-function curl_multi_info_read(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle, &$queued_messages): array|false {}
+function curl_multi_info_read(
+    #[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle,
+    &$queued_messages
+): array|false {}
 
 /**
  * Close a set of cURL handles
@@ -2798,6 +2834,7 @@ function curl_share_strerror(int $error_code): ?string {}
  * @since 8.2
  */
 function curl_upkeep(CurlHandle $handle): bool {}
+
 /**
  * @since 8.0
  */

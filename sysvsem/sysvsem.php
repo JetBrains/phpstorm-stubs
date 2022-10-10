@@ -40,7 +40,10 @@ function sem_get(int $key, int $max_acquire = 1, int $permissions = 0666, bool $
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function sem_acquire(#[LanguageLevelTypeAware(["8.0" => "SysvSemaphore"], default: "resource")] $semaphore, bool $non_blocking = false): bool {}
+function sem_acquire(
+    #[LanguageLevelTypeAware(["8.0" => "SysvSemaphore"], default: "resource")] $semaphore,
+    bool $non_blocking = false
+): bool {}
 
 /**
  * Release a semaphore
