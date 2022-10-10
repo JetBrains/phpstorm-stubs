@@ -3,6 +3,7 @@
 // Start of intl v.1.1.0
 
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\ExpectedValues as EV;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware as TypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable as ElementAvailable;
@@ -7208,7 +7209,7 @@ class IntlBreakIterator implements IteratorAggregate
      */
     #[Pure]
     #[TentativeType]
-    public function getPartsIterator(#[TypeAware(['8.0' => 'string'], default: '')] $type = IntlPartsIterator::KEY_SEQUENTIAL): IntlPartsIterator {}
+    public function getPartsIterator(#[TypeAware(['8.0' => 'int'], default: 0)] #[ExpectedValues([IntlPartsIterator::KEY_SEQUENTIAL, IntlPartsIterator::KEY_LEFT, IntlPartsIterator::KEY_RIGHT])] $type): IntlPartsIterator {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
