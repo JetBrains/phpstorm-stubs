@@ -630,7 +630,7 @@ class ZipArchive implements Countable
      * <b>ZipArchive::OVERWRITE</b>
      * </p>
      *
-     * @return mixed <i>Error codes</i>
+     * @return int|true <i>Error codes</i>
      * <p>
      * Returns <b>TRUE</b> on success or the error code.
      * </p>
@@ -1154,7 +1154,7 @@ class ZipArchive implements Countable
      * @param string $pathto <p>
      * Location where to extract the files.
      * </p>
-     * @param mixed $files [optional] <p>
+     * @param string[]|string|null $files [optional] <p>
      * The entries to extract. It accepts either a single entry name or
      * an array of names.
      * </p>
