@@ -206,6 +206,7 @@ class StubsPhpDocTest extends AbstractBaseStubsTestCase
             'template',
             'template-implements', // https://github.com/JetBrains/phpstorm-stubs/pull/1212#issuecomment-907263735
             'template-extends',
+            'template-covariant',
             'uses',
             'var',
             'version',
