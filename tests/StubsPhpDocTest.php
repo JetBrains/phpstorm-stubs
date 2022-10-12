@@ -190,6 +190,7 @@ class StubsPhpDocTest extends AbstractBaseStubsTestCase
             'inheritdoc',
             'inheritDoc',
             'internal',
+            'implements',
             'link',
             'meta',
             'method',
