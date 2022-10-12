@@ -133,7 +133,7 @@ class StubsPhpDocTest extends AbstractBaseStubsTestCase
                 '#<pre>.*</pre>#sU',
                 '#<code>.*</code>#sU',
                 '#@author.*<.*>#U',
-                '#(\s[\w]+[-][\w]+<[a-zA-Z,\s]+>[\s|]+)|([\w]+<[a-zA-Z,\s]+>[\s|\W]+)#'
+                '#(\s[\w]+[-][\w]+<[a-zA-Z,\s]+>[\s|]+)|([\w]+<[a-zA-Z,|\s]+>[\s|\W]+)#'
             ],
             '',
             $phpdoc

@@ -167,8 +167,7 @@ class Redis
         $retry_interval = 0,
         $read_timeout = 0,
         $context = null
-    ) {
-    }
+    ) {}
 
     /**
      * Connects to a Redis instance.
@@ -194,8 +193,7 @@ class Redis
         $retry_interval = 0,
         $read_timeout = 0,
         $context = null
-    ) {
-    }
+    ) {}
 
     /**
      * A method to determine if a phpredis object thinks it's connected to a server
@@ -326,8 +324,7 @@ class Redis
         $retry_interval = 0,
         $read_timeout = 0,
         $context = null
-    ) {
-    }
+    ) {}
 
     /**
      * @param string $host
@@ -351,8 +348,7 @@ class Redis
         $retry_interval = 0,
         $read_timeout = 0,
         $context = null
-    ) {
-    }
+    ) {}
 
     /**
      * Disconnects from the Redis instance.
@@ -586,7 +582,7 @@ class Redis
      * $redis->setnx('key', 'value');   // return FALSE
      * </pre>
      */
-    public function setnx(string $key, string  $value) {}
+    public function setnx(string $key, string $value) {}
 
     /**
      * Remove specified keys.
@@ -1956,7 +1952,7 @@ class Redis
      */
     public function sMembers($key) {}
 
-    public function sMisMember(string $key, string $member, string ...$other_members): array|false{}
+    public function sMisMember(string $key, string $member, string ...$other_members): array|false {}
 
     /**
      * @link    https://redis.io/commands/smembers
@@ -2653,7 +2649,7 @@ class Redis
      * @param string $key1         first key
      * @param string ...$otherKeys variadic list of keys
      *
-     * @return False|int|Redis The size of the string stored in the destination key or Redis if in multimode
+     * @return false|int|Redis The size of the string stored in the destination key or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -3254,13 +3250,13 @@ class Redis
      */
     public function zRangeByLex(string $key, string $min, string $max, int $offset = -1, int $count = -1) {}
 
-    public function zMscore(string $key, string $member, string ...$other_members): array|false{}
+    public function zMscore(string $key, string $member, string ...$other_members): array|false {}
 
-    public function zPopMax(string $key, int $value = null): array|false{}
+    public function zPopMax(string $key, int $value = null): array|false {}
 
-    public function zPopMin(string $key, int $value = null): array|false{}
+    public function zPopMin(string $key, int $value = null): array|false {}
 
-    public function zRandMember(string $key, array $options = null): string|array|false{}
+    public function zRandMember(string $key, array $options = null): string|array|false {}
 
     /**
      * @param  string  $key
@@ -3290,7 +3286,6 @@ class Redis
      * @link    https://redis.io/commands/zremrangebylex
      */
     public function zRemRangeByLex(string $key, string $min, string $max) {}
-
 
     /**
      * Returns the number of elements of the sorted set stored at the specified key which have
@@ -3403,7 +3398,7 @@ class Redis
      */
     public function zCard($key) {}
 
-    public function zdiff(array $keys, array $options = null): array|false{}
+    public function zdiff(array $keys, array $options = null): array|false {}
 
     /**
      * @param string $key
@@ -4192,9 +4187,9 @@ class Redis
      */
     public function geoPos(string $key, string ...$member) {}
 
-    public function geosearch(string $key, array|string $position, array|int|float $shape, string $unit, array $options = []): array|false{}
+    public function geosearch(string $key, array|string $position, array|int|float $shape, string $unit, array $options = []): array|false {}
 
-    public function geosearchstore(string $dst, string $src, array|string $position, array|int|float $shape, string $unit, array $options = []): array|false{}
+    public function geosearchstore(string $dst, string $src, array|string $position, array|int|float $shape, string $unit, array $options = []): array|false {}
 
     /**
      * Return the distance between two members in a geospatial set.
@@ -5149,6 +5144,4 @@ class Redis
     public function sAddArray($key, array $values) {}
 }
 
-class RedisException extends Exception
-{
-}
+class RedisException extends Exception {}
