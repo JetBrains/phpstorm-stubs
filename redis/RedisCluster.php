@@ -3569,6 +3569,4 @@ class RedisCluster
     public function geoRadiusByMember($key, $member, $radius, $radiusUnit, array $options) {}
 }
 
-class RedisClusterException extends Exception
-{
-}
+class RedisClusterException extends Exception {}
