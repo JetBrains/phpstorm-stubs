@@ -284,6 +284,7 @@ function openssl_x509_free(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificat
     'name' => 'string',
     'subject' => 'string',
     'hash' => 'string',
+    'issuer' => 'string',
     'version' => 'int',
     'serialNumber' => 'string',
     'serialNumberHex' => 'string',

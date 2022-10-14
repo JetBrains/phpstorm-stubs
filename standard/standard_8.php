@@ -344,7 +344,7 @@ function ob_get_level(): int {}
 #[ArrayShape([
     "level" => "int",
     "type" => "int",
-    "status" => "int",
+    "flags" => "int",
     "name" => "string",
     "del" => "int",
     "chunk_size" => "int",
