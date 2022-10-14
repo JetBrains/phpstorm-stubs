@@ -426,7 +426,7 @@ function gmp_gcd(GMP|string|int $num1, GMP|string|int $num2): GMP {}
  * @return array An array of GMP numbers.
  */
 #[Pure]
-#[ArrayShape(["g" => "int", "s" => "int", "t" => "int"])]
+#[ArrayShape(["g" => "mixed", "s" => "mixed", "t" => "mixed"])]
 function gmp_gcdext(GMP|string|int $num1, GMP|string|int $num2): array {}
 
 /**
