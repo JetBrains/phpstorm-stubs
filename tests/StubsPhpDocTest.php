@@ -133,7 +133,7 @@ class StubsPhpDocTest extends AbstractBaseStubsTestCase
                 '#<pre>.*</pre>#sU',
                 '#<code>.*</code>#sU',
                 '#@author.*<.*>#U',
-                '#(\s[\w]+[-][\w]+<[a-zA-Z,\s]+>[\s|]+)|([\w]+<[a-zA-Z,\s]+>[\s|\W]+)#'
+                '#(\s[\w]+[-][\w]+<[a-zA-Z,\s]+>[\s|]+)|([\w]+<[a-zA-Z,|\s]+>[\s|\W]+)#'
             ],
             '',
             $phpdoc
@@ -190,6 +190,7 @@ class StubsPhpDocTest extends AbstractBaseStubsTestCase
             'inheritdoc',
             'inheritDoc',
             'internal',
+            'implements',
             'link',
             'meta',
             'method',
@@ -206,6 +207,7 @@ class StubsPhpDocTest extends AbstractBaseStubsTestCase
             'template',
             'template-implements', // https://github.com/JetBrains/phpstorm-stubs/pull/1212#issuecomment-907263735
             'template-extends',
+            'template-covariant',
             'uses',
             'var',
             'version',

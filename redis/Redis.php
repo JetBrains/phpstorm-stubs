@@ -530,7 +530,7 @@ class Redis
      *
      * @link     https://redis.io/commands/set
      */
-    public function set($key, $value, $timeout = null) {}
+    public function set($key, string $value, mixed $timeout = null) {}
 
     /**
      * Set the string value in argument as value of the key, with a time to live.
@@ -546,7 +546,7 @@ class Redis
      * @link    https://redis.io/commands/setex
      * @example $redis->setex('key', 3600, 'value'); // sets key → value, with 1h TTL.
      */
-    public function setex($key, $expire, $value) {}
+    public function setex($key, $expire, string $value) {}
 
     /**
      * Set the value and expiration in milliseconds of a key.
@@ -563,7 +563,7 @@ class Redis
      * @link    https://redis.io/commands/psetex
      * @example $redis->psetex('key', 1000, 'value'); // sets key → value, with 1sec TTL.
      */
-    public function psetex($key, $expire, $value) {}
+    public function psetex($key, $expire, string $value) {}
 
     /**
      * Set the string value in argument as value of the key if the key doesn't already exist in the database.
@@ -582,7 +582,7 @@ class Redis
      * $redis->setnx('key', 'value');   // return FALSE
      * </pre>
      */
-    public function setnx($key, $value) {}
+    public function setnx(string $key, string $value) {}
 
     /**
      * Remove specified keys.
@@ -590,7 +590,7 @@ class Redis
      * @param   int|string|array $key1 An array of keys, or an undefined number of parameters, each a key: key1 key2 key3 ... keyN
      * @param   int|string       ...$otherKeys
      *
-     * @return int|Redis Number of keys deleted or Redis if in multimode
+     * @return false|int|Redis Number of keys deleted or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -614,7 +614,7 @@ class Redis
      * @param string|array $key An array of keys, or an undefined number of parameters, each a key: key1 key2 key3 ... keyN
      * @param string       ...$otherKeys
      *
-     * @return int|Redis Number of keys deleted or Redis if in multimode
+     * @return false|int|Redis Number of keys deleted or Redis if in multimode
      *
      * @throws RedisException
      */
@@ -628,7 +628,7 @@ class Redis
      * @param string|array $key An array of keys, or an undefined number of parameters, each a key: key1 key2 key3 ... keyN
      * @param string       ...$other_keys
      *
-     * @return int|Redis Number of keys unlinked or Redis if in multimode
+     * @return false|int|Redis Number of keys unlinked or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -765,41 +765,21 @@ class Redis
     public function unwatch() {}
 
     /**
-     * Subscribe to channels.
+     * Subscribes the client to the specified channels.
      *
-     * Warning: this function will probably change in the future.
+     * Once the client enters the subscribed state it is not supposed to issue any other commands, except for additional SUBSCRIBE, SSUBSCRIBE, PSUBSCRIBE, UNSUBSCRIBE, SUNSUBSCRIBE, PUNSUBSCRIBE, PING, RESET and QUIT commands.
      *
-     * @param string[]     $channels an array of channels to subscribe
-     * @param string|array|callable $callback either a string or an array($instance, 'method_name').
-     * The callback function receives 3 parameters: the redis instance, the channel name, and the message.
+     * @param  string  $channel
+     * @param  string  ...$other_channels
      *
-     * @return mixed|null|Redis Any non-null return value in the callback will be returned to the caller or Redis if in multimode
+     * @return false|array|Redis
      *
      * @throws RedisException
      *
      * @link    https://redis.io/commands/subscribe
-     * @example
-     * <pre>
-     * function f($redis, $chan, $msg) {
-     *  switch($chan) {
-     *      case 'chan-1':
-     *          ...
-     *          break;
-     *
-     *      case 'chan-2':
-     *                     ...
-     *          break;
-     *
-     *      case 'chan-2':
-     *          ...
-     *          break;
-     *      }
-     * }
-     *
-     * $redis->subscribe(array('chan-1', 'chan-2', 'chan-3'), 'f'); // subscribe to 3 chans
-     * </pre>
+     * @since 2.0
      */
-    public function subscribe($channels, $callback) {}
+    public function subscribe(string $channel, string ...$other_channels) {}
 
     /**
      * Subscribe to channels by pattern
@@ -833,7 +813,7 @@ class Redis
      * @param string $channel a channel to publish to
      * @param string $message string
      *
-     * @return int|Redis Number of clients that received the message or Redis if in multimode
+     * @return false|int|Redis Number of clients that received the message or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -872,7 +852,8 @@ class Redis
     /**
      * Stop listening for messages posted to the given channels.
      *
-     * @param array $channels an array of channels to usubscribe
+     * @param  string  $channel
+     * @param  string  ...$other_channels
      *
      * @return bool|array
      *
@@ -880,20 +861,20 @@ class Redis
      *
      * @link    https://redis.io/commands/unsubscribe
      */
-    public function unsubscribe($channels) {}
+    public function unsubscribe(string $channel, string ...$other_channels) {}
 
     /**
      * Stop listening for messages posted to the given channels.
      *
      * @param array $patterns   an array of glob-style patterns to unsubscribe
      *
-     * @return bool|array
+     * @return false|array
      *
      * @throws RedisException
      *
      * @link https://redis.io/commands/punsubscribe
      */
-    public function punsubscribe($patterns) {}
+    public function punsubscribe(array $patterns) {}
 
     /**
      * Verify if the specified key/keys exists
@@ -927,7 +908,7 @@ class Redis
      *
      * @param   string $key
      *
-     * @return int|Redis the new value or Redis if in multimode
+     * @return false|int|Redis the new value or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -969,7 +950,7 @@ class Redis
      * @param string $key   key
      * @param int    $value value that will be added to key (only for incrBy)
      *
-     * @return int|Redis the new value or Redis if in multimode
+     * @return false|int|Redis the new value or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -990,7 +971,7 @@ class Redis
      *
      * @param string $key
      *
-     * @return int|Redis the new value or Redis if in multimode
+     * @return false|int|Redis the new value or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -1011,7 +992,7 @@ class Redis
      * @param string $key
      * @param int    $value  that will be subtracted to key (only for decrBy)
      *
-     * @return int|Redis the new value or Redis if in multimode
+     * @return false|int|Redis the new value or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -1103,7 +1084,7 @@ class Redis
      * // key1 now points to the following list: [ 'A', 'B', 'C' ]
      * </pre>
      */
-    public function lPushx($key, $value) {}
+    public function lPushx($key, string $value) {}
 
     /**
      * Adds the string value to the tail (right) of the list if the ist exists. FALSE in case of Failure.
@@ -1126,7 +1107,7 @@ class Redis
      * // key1 now points to the following list: [ 'A', 'B', 'C' ]
      * </pre>
      */
-    public function rPushx($key, $value) {}
+    public function rPushx($key, string $value) {}
 
     /**
      * Returns and removes the first element of the list.
@@ -1290,7 +1271,7 @@ class Redis
      *
      * @param string $key
      *
-     * @return int|Redis The size of the list identified by Key exists or Redis if in multimode
+     * @return false|int|Redis The size of the list identified by Key exists or Redis if in multimode
      *
      * @throws RedisException
      */
@@ -1359,7 +1340,7 @@ class Redis
      * $redis->lIndex('key1', 0);     // 'X'
      * </pre>
      */
-    public function lSet($key, $index, $value) {}
+    public function lSet($key, $index, string $value) {}
 
     /**
      * Returns the specified elements of the list stored at the specified key in
@@ -1486,7 +1467,7 @@ class Redis
      * @param mixed        $pivot
      * @param string|mixed $value
      *
-     * @return int|Redis The number of the elements in the list, -1 if the pivot didn't exists or Redis if in multimode
+     * @return false|int|Redis The number of the elements in the list, -1 if the pivot didn't exists or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -1514,13 +1495,12 @@ class Redis
     /**
      * Adds a values to the set value stored at key.
      *
-     * @param string       $key       Required key
-     * @param string|mixed ...$value1 Variadic list of values
+     * @param  string  $key  Required key
+     * @param  string  $value
+     * @param  mixed  ...$other_values  Variadic list of values
      *
      * @return int|bool|Redis The number of elements added to the set or Redis if in multimode
      * If this value is already in the set, FALSE is returned
-     *
-     * @throws RedisException
      *
      * @link    https://redis.io/commands/sadd
      * @example
@@ -1529,17 +1509,16 @@ class Redis
      * $redis->sAdd('k', 'v1', 'v2', 'v3');    // int(2)
      * </pre>
      */
-    public function sAdd($key, ...$value1) {}
+    public function sAdd(string $key, string $value, mixed ...$other_values) {}
 
     /**
      * Removes the specified members from the set value stored at key.
      *
-     * @param   string       $key
-     * @param   string|mixed ...$member1 Variadic list of members
+     * @param  string  $key
+     * @param  string  $value
+     * @param  string|mixed  ...$other_values  Variadic list of members
      *
-     * @return int|Redis The number of elements removed from the set or Redis if in multimode
-     *
-     * @throws RedisException
+     * @return false|int|Redis The number of elements removed from the set or Redis if in multimode
      *
      * @link    https://redis.io/commands/srem
      * @example
@@ -1553,7 +1532,7 @@ class Redis
      * // }
      * </pre>
      */
-    public function sRem($key, ...$member1) {}
+    public function sRem(string $key, string $value, ...$other_values) {}
 
     /**
      * @link    https://redis.io/commands/srem
@@ -1571,7 +1550,7 @@ class Redis
      *
      * @param string       $srcKey
      * @param string       $dstKey
-     * @param string|mixed $member
+     * @param string       $member
      *
      * @return bool|Redis If the operation is successful, return TRUE or Redis if in multimode
      * If the srcKey and/or dstKey didn't exist, and/or the member didn't exist in srcKey, FALSE is returned.
@@ -1590,7 +1569,7 @@ class Redis
      *                                          // 'key2' =>  {'set21', 'set22', 'set13'}
      * </pre>
      */
-    public function sMove($srcKey, $dstKey, $member) {}
+    public function sMove($srcKey, $dstKey, string $member) {}
 
     /**
      * Checks if value is a member of the set stored at the key key.
@@ -1613,7 +1592,7 @@ class Redis
      * $redis->sIsMember('key1', 'setX'); // FALSE
      * </pre>
      */
-    public function sIsMember($key, $value) {}
+    public function sIsMember(string $key, string $value) {}
 
     /**
      * @link    https://redis.io/commands/sismember
@@ -1631,7 +1610,7 @@ class Redis
      *
      * @param string $key
      *
-     * @return int|Redis the cardinality of the set identified by key, 0 if the set doesn't exist or Redis if in multimode
+     * @return false|int|Redis the cardinality of the set identified by key, 0 if the set doesn't exist or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -1834,7 +1813,7 @@ class Redis
      * @param string $key1         first key for union
      * @param string ...$otherKeys variadic list of keys corresponding to sets in redis
      *
-     * @return int|Redis Any number of keys corresponding to sets in redis or Redis if in multimode
+     * @return false|int|Redis Any number of keys corresponding to sets in redis or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -1973,6 +1952,8 @@ class Redis
      */
     public function sMembers($key) {}
 
+    public function sMisMember(string $key, string $member, string ...$other_members): array|false {}
+
     /**
      * @link    https://redis.io/commands/smembers
      *
@@ -2027,7 +2008,7 @@ class Redis
      * $newValue = $redis->get('x')'            // return 'lol'
      * </pre>
      */
-    public function getSet($key, $value) {}
+    public function getSet($key, string $value) {}
 
     /**
      * Returns a random key
@@ -2271,7 +2252,7 @@ class Redis
     /**
      * Returns the current database's size
      *
-     * @return int|Redis DB size, in number of keys or Redis if in multimode
+     * @return false|int|Redis DB size, in number of keys or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -2418,7 +2399,7 @@ class Redis
     /**
      * Returns the timestamp of the last disk save.
      *
-     * @return int|Redis timestamp or Redis if in multimode
+     * @return false|int|Redis timestamp or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -2449,7 +2430,7 @@ class Redis
      *
      * @param string $key
      *
-     * @return int|Redis returns Redis if in multimode
+     * @return false|int|Redis returns Redis if in multimode
      * Depending on the type of the data pointed by the key,
      * this method will return the following value:
      * - string: Redis::REDIS_STRING
@@ -2465,7 +2446,7 @@ class Redis
      * @link    https://redis.io/commands/type
      * @example $redis->type('key');
      */
-    public function type($key) {}
+    public function type(string $key) {}
 
     /**
      * Append specified string to the string stored in specified key.
@@ -2473,7 +2454,7 @@ class Redis
      * @param string       $key
      * @param string|mixed $value
      *
-     * @return int|Redis Size of the value after the append or Redis if in multimode
+     * @return false|int|Redis Size of the value after the append or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -2485,7 +2466,7 @@ class Redis
      * $redis->get('key');              // 'value1value2'
      * </pre>
      */
-    public function append($key, $value) {}
+    public function append($key, string $value) {}
 
     /**
      * Return a substring of a larger string
@@ -2527,7 +2508,7 @@ class Redis
      * @param int    $offset
      * @param string $value
      *
-     * @return int|Redis the length of the string after it was modified or Redis if in multimode
+     * @return false|int|Redis the length of the string after it was modified or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -2545,7 +2526,7 @@ class Redis
      * Get the length of a string value.
      *
      * @param string $key
-     * @return int|Redis returns Redis if in multimode
+     * @return false|int|Redis returns Redis if in multimode
      *
      * @throws RedisException
      *
@@ -2568,7 +2549,7 @@ class Redis
      * @param int    $start
      * @param int    $end
      *
-     * @return int|Redis The command returns the position of the first bit set to 1 or 0 according to the request or Redis if in multimode
+     * @return false|int|Redis The command returns the position of the first bit set to 1 or 0 according to the request or Redis if in multimode
      * If we look for set bits (the bit argument is 1) and the string is empty or composed of just
      * zero bytes, -1 is returned. If we look for clear bits (the bit argument is 0) and the string
      * only contains bit set to 1, the function returns the first bit not part of the string on the
@@ -2601,7 +2582,7 @@ class Redis
      * @param string $key
      * @param int    $offset
      *
-     * @return int|Redis the bit value (0 or 1) or Redis if in multimode
+     * @return false|int|Redis the bit value (0 or 1) or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -2622,7 +2603,7 @@ class Redis
      * @param int      $offset
      * @param bool|int $value  bool or int (1 or 0)
      *
-     * @return int|Redis 0 or 1, the value of the bit before it was set or Redis if in multimode
+     * @return false|int|Redis 0 or 1, the value of the bit before it was set or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -2644,7 +2625,7 @@ class Redis
      * @param int $start
      * @param int $end
      *
-     * @return int|Redis The number of bits set to 1 in the value behind the input key or Redis if in multimode
+     * @return false|int|Redis The number of bits set to 1 in the value behind the input key or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -2668,7 +2649,7 @@ class Redis
      * @param string $key1         first key
      * @param string ...$otherKeys variadic list of keys
      *
-     * @return int|Redis The size of the string stored in the destination key or Redis if in multimode
+     * @return false|int|Redis The size of the string stored in the destination key or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -2903,7 +2884,7 @@ class Redis
      * Sets multiple key-value pairs in one atomic command.
      * MSETNX only returns TRUE if all the keys were set (see SETNX).
      *
-     * @param array $array Pairs: array(key => value, ...)
+     * @param array<string, string> $array Pairs: array(key => value, ...)
      *
      * @return bool|Redis TRUE in case of success, FALSE in case of failure or Redis if in multimode
      *
@@ -2920,7 +2901,7 @@ class Redis
      * // string(6) "value1"
      * </pre>
      */
-    public function mSet(array $array) {}
+    public function mSet($array) {}
 
     /**
      * Get the values of all the specified keys.
@@ -2952,7 +2933,7 @@ class Redis
      *
      * @param array $array
      *
-     * @return array|Redis returns Redis if in multimode
+     * @return false|list<false|string>|Redis returns Redis if in multimode
      *
      * @throws RedisException
      *
@@ -2976,8 +2957,8 @@ class Redis
 
     /**
      * @see mset()
-     * @param array $array
-     * @return int|Redis 1 (if the keys were set) or 0 (no key was set) or Redis if in multimode
+     * @param array<string, string> $array
+     * @return false|int|Redis 1 (if the keys were set) or 0 (no key was set) or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -3059,7 +3040,7 @@ class Redis
      * @param float|string|mixed    $scoreN  Optional score or value if options omitted
      * @param string|float|mixed    $valueN  Optional value or score if options omitted
      *
-     * @return int|Redis Number of values added or Redis if in multimode
+     * @return false|int|Redis Number of values added or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -3130,7 +3111,7 @@ class Redis
      * @param string|mixed $member1
      * @param string|mixed ...$otherMembers
      *
-     * @return int|Redis Number of deleted values or Redis if in multimode
+     * @return false|int|Redis Number of deleted values or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -3156,7 +3137,7 @@ class Redis
      * @param string|mixed $member1
      * @param string|mixed ...$otherMembers
      *
-     * @return int|Redis Number of deleted values or Redis if in multimode
+     * @return false|int|Redis Number of deleted values or Redis if in multimode
      *
      * @throws RedisException
      */
@@ -3227,17 +3208,17 @@ class Redis
     public function zRangeByScore($key, $start, $end, array $options = []) {}
 
     /**
-     * @see zRangeByScore()
      * @param string $key
-     * @param int    $start
-     * @param int    $end
-     * @param array  $options
+     * @param  string  $start
+     * @param  string  $end
+     * @param  array  $options
      *
      * @return array|Redis returns Redis if in multimode
      *
      * @throws RedisException
+     * @see zRangeByScore()
      */
-    public function zRevRangeByScore($key, $start, $end, array $options = []) {}
+    public function zRevRangeByScore(string $key, string $start, string $end, array $options = []) {}
 
     /**
      * Returns a lexigraphical range of members in a sorted set, assuming the members have the same score. The
@@ -3245,11 +3226,11 @@ class Redis
      * '-' (negative inf) or '+' (positive inf).  The command must be called with either three *or* five
      * arguments or will return FALSE.
      *
-     * @param string $key    The ZSET you wish to run against.
-     * @param int    $min    The minimum alphanumeric value you wish to get.
-     * @param int    $max    The maximum alphanumeric value you wish to get.
-     * @param int    $offset Optional argument if you wish to start somewhere other than the first element.
-     * @param int    $limit  Optional argument if you wish to limit the number of elements returned.
+     * @param  string  $key  The ZSET you wish to run against.
+     * @param  string  $min  The minimum alphanumeric value you wish to get.
+     * @param  string  $max  The maximum alphanumeric value you wish to get.
+     * @param  int  $offset  Optional argument if you wish to start somewhere other than the first element.
+     * @param  int  $limit  Optional argument if you wish to limit the number of elements returned.
      *
      * @return array|false|Redis Array containing the values in the specified range or Redis if in multimode
      *
@@ -3267,23 +3248,44 @@ class Redis
      * $redis->zRangeByLex('key', '-', '[c'); // array('b', 'c')
      * </pre>
      */
-    public function zRangeByLex($key, $min, $max, $offset = -1, $limit = -1) {}
+    public function zRangeByLex(string $key, string $min, string $max, int $offset = -1, int $count = -1) {}
+
+    public function zMscore(string $key, string $member, string ...$other_members): array|false {}
+
+    public function zPopMax(string $key, int $value = null): array|false {}
+
+    public function zPopMin(string $key, int $value = null): array|false {}
+
+    public function zRandMember(string $key, array $options = null): string|array|false {}
 
     /**
-     * @see zRangeByLex()
-     * @param string $key
-     * @param int    $min
-     * @param int    $max
-     * @param int    $offset
-     * @param int    $limit
+     * @param  string  $key
+     * @param  string  $min
+     * @param  string  $max
+     * @param  int  $offset
+     * @param  int  $limit
      *
-     * @return array|Redis returns Redis if in multimode
+     * @return false|array|Redis returns Redis if in multimode
      *
      * @throws RedisException
      *
+     * @see zRangeByLex()
      * @link    https://redis.io/commands/zrevrangebylex
      */
-    public function zRevRangeByLex($key, $min, $max, $offset = -1, $limit = -1) {}
+    public function zRevRangeByLex(string $key, string $min, string $max, int $offset = -1, int $count = -1) {}
+
+    /**
+     * Removes all elements in the sorted set stored at key between the lexicographical range specified by min and max.
+     * Applies when all the elements in a sorted set are inserted with the same score, in order to force lexicographical ordering.
+     *
+     * @param  string  $key  The ZSET you wish to run against.
+     * @param  string  $min  The minimum alphanumeric value you wish to get.
+     * @param  string  $max  The maximum alphanumeric value you wish to get.
+     *
+     * @return  int|false    the number of elements removed.
+     * @link    https://redis.io/commands/zremrangebylex
+     */
+    public function zRemRangeByLex(string $key, string $min, string $max) {}
 
     /**
      * Returns the number of elements of the sorted set stored at the specified key which have
@@ -3294,7 +3296,7 @@ class Redis
      * @param string $start
      * @param string $end
      *
-     * @return int|Redis the size of a corresponding zRangeByScore or Redis if in multimode
+     * @return false|int|Redis the size of a corresponding zRangeByScore or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -3316,7 +3318,7 @@ class Redis
      * @param string $start double or "+inf" or "-inf" as a string
      * @param string $end double or "+inf" or "-inf" as a string
      *
-     * @return int|Redis The number of values deleted from the sorted set or Redis if in multimode
+     * @return false|int|Redis The number of values deleted from the sorted set or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -3348,7 +3350,7 @@ class Redis
      * @param int    $start
      * @param int    $end
      *
-     * @return int|Redis The number of values deleted from the sorted set or Redis if in multimode
+     * @return false|int|Redis The number of values deleted from the sorted set or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -3381,7 +3383,7 @@ class Redis
      *
      * @param string $key
      *
-     * @return int|Redis the set's cardinality or Redis if in multimode
+     * @return false|int|Redis the set's cardinality or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -3396,9 +3398,11 @@ class Redis
      */
     public function zCard($key) {}
 
+    public function zdiff(array $keys, array $options = null): array|false {}
+
     /**
      * @param string $key
-     * @return int|Redis returns Redis if in multimode
+     * @return false|int|Redis returns Redis if in multimode
      *
      * @throws RedisException
      */
@@ -3498,7 +3502,7 @@ class Redis
      * @param string $aggregateFunction  Either "SUM", "MIN", or "MAX": defines the behaviour to use on
      * duplicate entries during the zUnionStore
      *
-     * @return int|Redis The number of values in the new sorted set or Redis if in multimode
+     * @return false|int|Redis The number of values in the new sorted set or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -3552,7 +3556,7 @@ class Redis
      * @param string $aggregateFunction Either "SUM", "MIN", or "MAX":
      * defines the behaviour to use on duplicate entries during the zInterStore.
      *
-     * @return int|Redis The number of values in the new sorted set or Redis if in multimode
+     * @return false|int|Redis The number of values in the new sorted set or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -3628,7 +3632,7 @@ class Redis
      * @param string|int|array $timeout_or_key ...
      * @param mixed            ...$extra_args
      *
-     * @return array|Redis Either an array with the key member and score of the highest or lowest element or an empty array or Redis if in multimode
+     * @return false|array|Redis Either an array with the key member and score of the highest or lowest element or an empty array or Redis if in multimode
      * if the timeout was reached without an element to pop.
      *
      * @throws RedisException
@@ -3653,7 +3657,7 @@ class Redis
      * @param string|int|array $timeout_or_key ...
      * @param mixed            ...$extra_args
      *
-     * @return array|Redis Either an array with the key member and score of the highest or lowest element or an empty array or Redis if in multimode
+     * @return false|array|Redis Either an array with the key member and score of the highest or lowest element or an empty array or Redis if in multimode
      * if the timeout was reached without an element to pop.
      *
      * @throws RedisException
@@ -3734,7 +3738,7 @@ class Redis
      * $redis->hGet('h', 'key1');           // returns "plop"
      * </pre>
      */
-    public function hSet($key, $hashKey, $value) {}
+    public function hSet($key, $hashKey, string $value) {}
 
     /**
      * Adds a value to the hash stored at key only if this field isn't already in the hash.
@@ -3960,7 +3964,7 @@ class Redis
      * @param string $hashKey
      * @param int    $value (integer) value that will be added to the member's value
      *
-     * @return int|Redis the new value or Redis if in multimode
+     * @return false|int|Redis the new value or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -4081,7 +4085,7 @@ class Redis
      * @param string $key
      * @param string $field
      *
-     * @return int|Redis the string length of the value associated with field, or zero when field is not present in the hash or Redis if in multimode
+     * @return false|int|Redis the string length of the value associated with field, or zero when field is not present in the hash or Redis if in multimode
      * or key does not exist at all.
      *
      * @throws RedisException
@@ -4101,7 +4105,7 @@ class Redis
      * @param string $member
      * @param mixed  ...$other_triples
      *
-     * @return int|Redis The number of elements added to the geospatial key or Redis if in multimode
+     * @return false|int|Redis The number of elements added to the geospatial key or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -4128,7 +4132,7 @@ class Redis
      * @param string $key
      * @param string ...$member variadic list of members
      *
-     * @return array|Redis One or more Redis Geohash encoded strings or Redis if in multimode
+     * @return false|array|Redis One or more Redis Geohash encoded strings or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -4182,6 +4186,10 @@ class Redis
      * </pre>
      */
     public function geoPos(string $key, string ...$member) {}
+
+    public function geosearch(string $key, array|string $position, array|int|float $shape, string $unit, array $options = []): array|false {}
+
+    public function geosearchstore(string $dst, string $src, array|string $position, array|int|float $shape, string $unit, array $options = []): array|false {}
 
     /**
      * Return the distance between two members in a geospatial set.
@@ -4695,7 +4703,7 @@ class Redis
     /**
      * Return the current Redis server time.
      *
-     * @return array If successful, the time will come back as an associative array with element zero being the
+     * @return false|array If successful, the time will come back as an associative array with element zero being the
      * unix timestamp, and element one being microseconds.
      *
      * @throws RedisException
@@ -4757,7 +4765,7 @@ class Redis
      *
      * @param string|array $key
      *
-     * @return int|Redis returns Redis if in multimode
+     * @return false|int|Redis returns Redis if in multimode
      *
      * @throws RedisException
      *
@@ -4815,7 +4823,7 @@ class Redis
     /**
      * Detect whether we're in ATOMIC/MULTI/PIPELINE mode.
      *
-     * @return int|Redis Either Redis::ATOMIC, Redis::MULTI or Redis::PIPELINE or Redis if in multimode
+     * @return false|int|Redis Either Redis::ATOMIC, Redis::MULTI or Redis::PIPELINE or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -4830,7 +4838,7 @@ class Redis
      * @param string $group
      * @param array  $messages
      *
-     * @return int|Redis The number of messages Redis reports as acknowledged or Redis if in multimode
+     * @return false|int|Redis The number of messages Redis reports as acknowledged or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -4872,11 +4880,11 @@ class Redis
      * @param string $key
      * @param string $group
      * @param string $consumer
-     * @param int    $minIdleTime
+     * @param int    $min_iddle
      * @param array  $ids
      * @param array  $options ['IDLE' => $value, 'TIME' => $value, 'RETRYCOUNT' => $value, 'FORCE', 'JUSTID']
      *
-     * @return array|Redis Either an array of message IDs along with corresponding data, or just an array of IDs or Redis if in multimode
+     * @return false|array|Redis Either an array of message IDs along with corresponding data, or just an array of IDs or Redis if in multimode
      * (if the 'JUSTID' option was passed).
      *
      * @throws RedisException
@@ -4901,7 +4909,7 @@ class Redis
      * );
      * </pre>
      */
-    public function xClaim($key, $group, $consumer, $minIdleTime, $ids, $options = []) {}
+    public function xClaim(string $key, string $group, string $consumer, int $min_iddle, array $ids, array $options) {}
 
     /**
      * Delete one or more messages from a stream
@@ -4909,7 +4917,7 @@ class Redis
      * @param string $key
      * @param array  $ids
      *
-     * @return int|Redis The number of messages removed or Redis if in multimode
+     * @return false|int|Redis The number of messages removed or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -4966,7 +4974,7 @@ class Redis
      *
      * @param string $stream
      *
-     * @return int|Redis The number of messages in the stream or Redis if in multimode
+     * @return false|int|Redis The number of messages in the stream or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -5098,7 +5106,7 @@ class Redis
      * @param int    $maxLen
      * @param bool   $isApproximate
      *
-     * @return int|Redis The number of messages trimed from the stream or Redis if in multimode
+     * @return false|int|Redis The number of messages trimed from the stream or Redis if in multimode
      *
      * @throws RedisException
      *

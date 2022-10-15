@@ -2429,11 +2429,11 @@ class RedisCluster
     /**
      * Remove all members in a sorted set between the given lexicographical range.
      *
-     * @param   string $key The ZSET you wish to run against.
-     * @param   int    $min The minimum alphanumeric value you wish to get.
-     * @param   int    $max The maximum alphanumeric value you wish to get.
+     * @param  string  $key  The ZSET you wish to run against.
+     * @param  string  $min  The minimum alphanumeric value you wish to get.
+     * @param  string  $max  The maximum alphanumeric value you wish to get.
      *
-     * @return  array    the number of elements removed.
+     * @return  int|false    the number of elements removed.
      * @link    https://redis.io/commands/zremrangebylex
      * @example
      * <pre>
@@ -2444,7 +2444,7 @@ class RedisCluster
      * $redisCluster->zRange('key',0,-1);// array('a','b','e','f','g')
      * </pre>
      */
-    public function zRemRangeByLex($key, $min, $max) {}
+    public function zRemRangeByLex(string $key, string $min, string $max) {}
 
     /**
      * Add multiple sorted sets and store the resulting sorted set in a new key

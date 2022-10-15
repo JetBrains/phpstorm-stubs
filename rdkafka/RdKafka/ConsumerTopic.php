@@ -10,7 +10,7 @@ class ConsumerTopic extends Topic
      * @param int $partition
      * @param int $timeout_ms
      *
-     * @return Message
+     * @return Message|null
      */
     public function consume($partition, $timeout_ms) {}
 
