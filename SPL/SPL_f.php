@@ -1,7 +1,5 @@
 <?php
 
-// Start of SPL v.0.2
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -80,8 +78,7 @@ function spl_autoload_unregister(callable $callback): bool {}
  * If no function is registered the return value will be an empty array.
  * @since 5.1.2
  */
-#[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-function spl_autoload_functions() {}
+function spl_autoload_functions(): array|false {}
 
 /**
  * Try all registered __autoload() functions to load the requested class
@@ -147,10 +144,7 @@ function spl_object_hash(object $object): string {}
  * </p>
  * @return array An array containing the elements of the iterator.
  */
-function iterator_to_array(
-    #[LanguageLevelTypeAware(['8.2' => 'Traversable|array'], default: 'Traversable')] $iterator,
-    bool $preserve_keys = true
-): array {}
+function iterator_to_array(Traversable $iterator, bool $preserve_keys = true): array {}
 
 /**
  * Count the elements in an iterator
@@ -161,7 +155,7 @@ function iterator_to_array(
  * @return int The number of elements in iterator.
  */
 #[Pure]
-function iterator_count(#[LanguageLevelTypeAware(['8.2' => 'Traversable|array'], default: 'Traversable')] $iterator): int {}
+function iterator_count(Traversable $iterator): int {}
 
 /**
  * Call a function for every element in an iterator
@@ -180,25 +174,3 @@ function iterator_count(#[LanguageLevelTypeAware(['8.2' => 'Traversable|array'],
  * @return int the iteration count.
  */
 function iterator_apply(Traversable $iterator, callable $callback, ?array $args): int {}
-
-// End of SPL v.0.2
-
-/**
- * Return the traits used by the given class
- * @param object|string $object_or_class An object (class instance) or a string (class name).
- * @param bool $autoload Whether to allow this function to load the class automatically through the __autoload() magic method.
- * @return string[]|false An array on success, or false on error.
- * @link https://php.net/manual/en/function.class-uses.php
- * @see class_parents()
- * @see get_declared_traits()
- * @since 5.4
- */
-function class_uses($object_or_class, bool $autoload = true): array|false {}
-
-/**
- * return the integer object handle for given object
- * @param object $object
- * @return int
- * @since 7.2
- */
-function spl_object_id(object $object): int {}

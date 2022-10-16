@@ -1,19 +1,5 @@
 <?php
 
-// Start of dom v.20031129
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-
-/**
- * Gets a <b>DOMElement</b> object from a <b>SimpleXMLElement</b> object
- * @link https://php.net/manual/en/function.dom-import-simplexml.php
- * @param SimpleXMLElement $node <p>
- * The <b>SimpleXMLElement</b> node.
- * </p>
- * @return DOMElement|null The <b>DOMElement</b> node added or <b>NULL</b> if any errors occur.
- */
-#[LanguageLevelTypeAware(['8.0' => 'DOMElement'], default: 'DOMElement|null')]
-function dom_import_simplexml(object $node) {}
-
 /**
  * Node is a <b>DOMElement</b>
  * @link https://php.net/manual/en/dom.constants.php
@@ -85,21 +71,37 @@ define('XML_DOCUMENT_FRAG_NODE', 11);
  * @link https://php.net/manual/en/dom.constants.php
  */
 define('XML_NOTATION_NODE', 12);
+
 define('XML_HTML_DOCUMENT_NODE', 13);
+
 define('XML_DTD_NODE', 14);
+
 define('XML_ELEMENT_DECL_NODE', 15);
+
 define('XML_ATTRIBUTE_DECL_NODE', 16);
+
 define('XML_ENTITY_DECL_NODE', 17);
+
 define('XML_NAMESPACE_DECL_NODE', 18);
+
 define('XML_LOCAL_NAMESPACE', 18);
+
 define('XML_ATTRIBUTE_CDATA', 1);
+
 define('XML_ATTRIBUTE_ID', 2);
+
 define('XML_ATTRIBUTE_IDREF', 3);
+
 define('XML_ATTRIBUTE_IDREFS', 4);
+
 define('XML_ATTRIBUTE_ENTITY', 6);
+
 define('XML_ATTRIBUTE_NMTOKEN', 7);
+
 define('XML_ATTRIBUTE_NMTOKENS', 8);
+
 define('XML_ATTRIBUTE_ENUMERATION', 9);
+
 define('XML_ATTRIBUTE_NOTATION', 10);
 
 /**
@@ -208,4 +210,12 @@ define('DOM_INVALID_ACCESS_ERR', 15);
  */
 define('DOM_VALIDATION_ERR', 16);
 
-// End of dom v.20031129
+/**
+ * Gets a <b>DOMElement</b> object from a <b>SimpleXMLElement</b> object
+ * @link https://php.net/manual/en/function.dom-import-simplexml.php
+ * @param SimpleXMLElement $node <p>
+ * The <b>SimpleXMLElement</b> node.
+ * </p>
+ * @return DOMElement|null The <b>DOMElement</b> node added or <b>NULL</b> if any errors occur.
+ */
+function dom_import_simplexml(object $node): DOMElement|null {}

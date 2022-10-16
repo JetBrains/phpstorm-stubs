@@ -1,7 +1,296 @@
 <?php
 
-// Start of mcrypt v.
 use JetBrains\PhpStorm\Deprecated;
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_ENCRYPT', 0);
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_DECRYPT', 1);
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_DEV_RANDOM', 0);
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_DEV_URANDOM', 1);
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_RAND', 2);
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_3DES', "tripledes");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_ARCFOUR_IV', "arcfour-iv");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_ARCFOUR', "arcfour");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_BLOWFISH', "blowfish");
+
+define('MCRYPT_BLOWFISH_COMPAT', "blowfish-compat");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_CAST_128', "cast-128");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_CAST_256', "cast-256");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_CRYPT', "crypt");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_DES', "des");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_DES_COMPAT', "des-compat");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_ENIGNA', "crypt");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_GOST', "gost");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_LOKI97', "loki97");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_PANAMA', "panama");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_RC2', "rc2");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_RC4', "rc4");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_RIJNDAEL_128', "rijndael-128");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_RIJNDAEL_192', "rijndael-192");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_RIJNDAEL_256', "rijndael-256");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_SAFER64', "safer-sk64");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_SAFER128', "safer-sk128");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_SAFERPLUS', "saferplus");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_SERPENT', "serpent");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_SERPENT_128', "serpent-128");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_SERPENT_192', "serpent-192");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_SERPENT_256', "serpent-256");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_THREEWAY', "threeway");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_TRIPLEDES', "tripledes");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_TWOFISH', "twofish");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_WAKE', "wake");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_XTEA', "xtea");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_IDEA', "idea");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_MARS', "mars");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_RC6', "rc6");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_RC6_128', "rc6-128");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_RC6_192', "rc6-192");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_RC6_256', "rc6-256");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_SKIPJACK', "skipjack");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_MODE_CBC', "cbc");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_MODE_CFB', "cfb");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_MODE_ECB', "ecb");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_MODE_NOFB', "nofb");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_MODE_OFB', "ofb");
+
+/**
+ * @deprecated 7.1
+ * @removed 7.2
+ */
+define('MCRYPT_MODE_STREAM', "stream");
 
 /**
  * Encrypt/decrypt data in ECB mode
@@ -41,7 +330,7 @@ function mcrypt_cbc($cipher, $key, $data, $mode, $iv = null) {}
  * @return string
  * @removed 7.0
  */
-#[Deprecated(since: '5.5')]
+#[Deprecated(since: "5.5")]
 function mcrypt_cfb($cipher, $key, $data, $mode, $iv = null) {}
 
 /**
@@ -55,7 +344,7 @@ function mcrypt_cfb($cipher, $key, $data, $mode, $iv = null) {}
  * @return string
  * @removed 7.0
  */
-#[Deprecated(since: '5.5')]
+#[Deprecated(since: "5.5")]
 function mcrypt_ofb($cipher, $key, $data, $mode, $iv = null) {}
 
 /**
@@ -66,7 +355,7 @@ function mcrypt_ofb($cipher, $key, $data, $mode, $iv = null) {}
  * @return int
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_get_key_size($cipher, $module) {}
 
 /**
@@ -81,7 +370,7 @@ function mcrypt_get_key_size($cipher, $module) {}
  * @return int Gets the block size, as an integer.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_get_block_size($cipher, $module) {}
 
 /**
@@ -95,7 +384,7 @@ function mcrypt_get_block_size($cipher, $module) {}
  * not exist.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_get_cipher_name($cipher) {}
 
 /**
@@ -125,7 +414,7 @@ function mcrypt_get_cipher_name($cipher) {}
  * @return string|false the initialization vector, or false on error.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_create_iv($size, $source = MCRYPT_DEV_URANDOM) {}
 
 /**
@@ -139,7 +428,7 @@ function mcrypt_create_iv($size, $source = MCRYPT_DEV_URANDOM) {}
  * @return array an array with all the supported algorithms.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_list_algorithms($lib_dir = null) {}
 
 /**
@@ -153,7 +442,7 @@ function mcrypt_list_algorithms($lib_dir = null) {}
  * @return array an array with all the supported modes.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_list_modes($lib_dir = null) {}
 
 /**
@@ -175,7 +464,7 @@ function mcrypt_list_modes($lib_dir = null) {}
  * combination zero is returned.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_get_iv_size($cipher, $module) {}
 
 /**
@@ -217,7 +506,7 @@ function mcrypt_get_iv_size($cipher, $module) {}
  * @return string the encrypted data, as a string.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_encrypt($cipher, $key, $data, $mode, $iv = null) {}
 
 /**
@@ -251,7 +540,7 @@ function mcrypt_encrypt($cipher, $key, $data, $mode, $iv = null) {}
  * @return string the decrypted data as a string.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_decrypt($cipher, $key, $data, $mode, $iv = null) {}
 
 /**
@@ -279,7 +568,7 @@ function mcrypt_decrypt($cipher, $key, $data, $mode, $iv = null) {}
  * @return resource|false Normally it returns an encryption descriptor, or false on error.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_module_open($cipher, $cipher_directory, $mode, $mode_directory) {}
 
 /**
@@ -309,7 +598,7 @@ function mcrypt_module_open($cipher, $cipher_directory, $mode, $mode_directory) 
  * were passed.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_generic_init($td, $key, $iv) {}
 
 /**
@@ -331,7 +620,7 @@ function mcrypt_generic_init($td, $key, $iv) {}
  * @return string the encrypted data.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_generic($td, $data) {}
 
 /**
@@ -347,7 +636,7 @@ function mcrypt_generic($td, $data) {}
  * @return string
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mdecrypt_generic($td, $data) {}
 
 /**
@@ -357,7 +646,7 @@ function mdecrypt_generic($td, $data) {}
  * @return bool
  * @removed 7.0
  */
-#[Deprecated(since: '5.3')]
+#[Deprecated(since: "5.3")]
 function mcrypt_generic_end($td) {}
 
 /**
@@ -369,7 +658,7 @@ function mcrypt_generic_end($td) {}
  * @return bool true on success or false on failure.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_generic_deinit($td) {}
 
 /**
@@ -381,7 +670,7 @@ function mcrypt_generic_deinit($td) {}
  * @return int Returns 0 on success and a negative integer on failure
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_enc_self_test($td) {}
 
 /**
@@ -394,7 +683,7 @@ function mcrypt_enc_self_test($td) {}
  * returns false.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_enc_is_block_algorithm_mode($td) {}
 
 /**
@@ -407,7 +696,7 @@ function mcrypt_enc_is_block_algorithm_mode($td) {}
  * a stream one.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_enc_is_block_algorithm($td) {}
 
 /**
@@ -419,7 +708,7 @@ function mcrypt_enc_is_block_algorithm($td) {}
  * @return bool true if the mode outputs blocks of bytes or false if it outputs bytes.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_enc_is_block_mode($td) {}
 
 /**
@@ -431,7 +720,7 @@ function mcrypt_enc_is_block_mode($td) {}
  * @return int the block size of the specified algorithm in bytes.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_enc_get_block_size($td) {}
 
 /**
@@ -443,7 +732,7 @@ function mcrypt_enc_get_block_size($td) {}
  * @return int the maximum supported key size of the algorithm in bytes.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_enc_get_key_size($td) {}
 
 /**
@@ -459,7 +748,7 @@ function mcrypt_enc_get_key_size($td) {}
  * algorithm.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_enc_get_supported_key_sizes($td) {}
 
 /**
@@ -471,7 +760,7 @@ function mcrypt_enc_get_supported_key_sizes($td) {}
  * @return int the size of the IV, or 0 if the IV is ignored in the algorithm.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_enc_get_iv_size($td) {}
 
 /**
@@ -483,7 +772,7 @@ function mcrypt_enc_get_iv_size($td) {}
  * @return string the name of the opened algorithm as a string.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_enc_get_algorithms_name($td) {}
 
 /**
@@ -495,7 +784,7 @@ function mcrypt_enc_get_algorithms_name($td) {}
  * @return string the name as a string.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_enc_get_modes_name($td) {}
 
 /**
@@ -512,7 +801,7 @@ function mcrypt_enc_get_modes_name($td) {}
  * fails.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_module_self_test($algorithm, $lib_dir = null) {}
 
 /**
@@ -530,7 +819,7 @@ function mcrypt_module_self_test($algorithm, $lib_dir = null) {}
  * true for cbc, cfb, ofb).
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_module_is_block_algorithm_mode($mode, $lib_dir = null) {}
 
 /**
@@ -547,7 +836,7 @@ function mcrypt_module_is_block_algorithm_mode($mode, $lib_dir = null) {}
  * algorithm, or false is it is a stream algorithm.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_module_is_block_algorithm($algorithm, $lib_dir = null) {}
 
 /**
@@ -565,7 +854,7 @@ function mcrypt_module_is_block_algorithm($algorithm, $lib_dir = null) {}
  * false for cfb and stream).
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_module_is_block_mode($mode, $lib_dir = null) {}
 
 /**
@@ -581,7 +870,7 @@ function mcrypt_module_is_block_mode($mode, $lib_dir = null) {}
  * @return int the block size of the algorithm specified in bytes.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_module_get_algo_block_size($algorithm, $lib_dir = null) {}
 
 /**
@@ -598,7 +887,7 @@ function mcrypt_module_get_algo_block_size($algorithm, $lib_dir = null) {}
  * algorithm specified in bytes.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_module_get_algo_key_size($algorithm, $lib_dir = null) {}
 
 /**
@@ -617,7 +906,7 @@ function mcrypt_module_get_algo_key_size($algorithm, $lib_dir = null) {}
  * algorithm.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_module_get_supported_key_sizes($algorithm, $lib_dir = null) {}
 
 /**
@@ -629,249 +918,5 @@ function mcrypt_module_get_supported_key_sizes($algorithm, $lib_dir = null) {}
  * @return bool true on success or false on failure.
  * @removed 7.2
  */
-#[Deprecated(since: '7.1')]
+#[Deprecated(since: "7.1")]
 function mcrypt_module_close($td) {}
-
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_ENCRYPT', 0);
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_DECRYPT', 1);
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_DEV_RANDOM', 0);
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_DEV_URANDOM', 1);
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_RAND', 2);
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_3DES', "tripledes");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_ARCFOUR_IV', "arcfour-iv");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_ARCFOUR', "arcfour");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_BLOWFISH', "blowfish");
-define('MCRYPT_BLOWFISH_COMPAT', "blowfish-compat");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_CAST_128', "cast-128");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_CAST_256', "cast-256");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_CRYPT', "crypt");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_DES', "des");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_DES_COMPAT', "des-compat");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_ENIGNA', "crypt");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_GOST', "gost");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_LOKI97', "loki97");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_PANAMA', "panama");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_RC2', "rc2");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_RC4', "rc4");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_RIJNDAEL_128', "rijndael-128");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_RIJNDAEL_192', "rijndael-192");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_RIJNDAEL_256', "rijndael-256");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_SAFER64', "safer-sk64");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_SAFER128', "safer-sk128");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_SAFERPLUS', "saferplus");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_SERPENT', "serpent");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_SERPENT_128', "serpent-128");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_SERPENT_192', "serpent-192");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_SERPENT_256', "serpent-256");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_THREEWAY', "threeway");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_TRIPLEDES', "tripledes");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_TWOFISH', "twofish");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_WAKE', "wake");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_XTEA', "xtea");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_IDEA', "idea");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_MARS', "mars");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_RC6', "rc6");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_RC6_128', "rc6-128");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_RC6_192', "rc6-192");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_RC6_256', "rc6-256");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_SKIPJACK', "skipjack");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_MODE_CBC', "cbc");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_MODE_CFB', "cfb");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_MODE_ECB', "ecb");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_MODE_NOFB', "nofb");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_MODE_OFB', "ofb");
-/**
- * @deprecated 7.1
- * @removed 7.2
- */
-define('MCRYPT_MODE_STREAM', "stream");
-
-// End of mcrypt v.

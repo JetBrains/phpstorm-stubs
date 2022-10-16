@@ -1,9 +1,32 @@
 <?php
 
-// Start of gmp v.
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Pure;
+
+define('GMP_ROUND_ZERO', 0);
+
+define('GMP_ROUND_PLUSINF', 1);
+
+define('GMP_ROUND_MINUSINF', 2);
+
+define('GMP_MSW_FIRST', 1);
+
+define('GMP_LSW_FIRST', 2);
+
+define('GMP_LITTLE_ENDIAN', 4);
+
+define('GMP_BIG_ENDIAN', 8);
+
+define('GMP_NATIVE_ENDIAN', 16);
+
+/**
+ * The GMP library version
+ * @link https://php.net/manual/en/gmp.constants.php
+ */
+define('GMP_VERSION', "6.2.1");
+
+define('GMP_MPIR_VERSION', "3.0.0");
 
 /**
  * Create GMP number
@@ -37,17 +60,6 @@ function gmp_init(string|int $num, int $base = 0): GMP {}
  */
 #[Pure]
 function gmp_intval(GMP|string|int $num): int {}
-
-/**
- * Sets the RNG seed
- * @param resource|string|int|GMP $seed <p>
- * The seed to be set for the {@see gmp_random()}, {@see gmp_random_bits()}, and {@see gmp_random_range()} functions.
- * </p>
- * Either a GMP number resource in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.
- * @return void|null|false Returns NULL on success.
- * @since 7.0
- */
-function gmp_random_seed(GMP|string|int $seed): void {}
 
 /**
  * Convert GMP number to string
@@ -666,57 +678,6 @@ function gmp_popcount(GMP|string|int $num): int {}
 function gmp_hamdist(GMP|string|int $num1, GMP|string|int $num2): int {}
 
 /**
- * Import from a binary string
- * @link https://php.net/manual/en/function.gmp-import.php
- * @param string $data The binary string being imported
- * @param int $word_size <p>Default value is 1. The number of bytes in each chunk of binary
- * data. This is mainly used in conjunction with the options parameter.</p>
- * @param int $flags Default value is GMP_MSW_FIRST | GMP_NATIVE_ENDIAN.
- * @return GMP|false Returns a GMP number or FALSE on failure.
- * @since 5.6.1
- */
-#[Pure]
-function gmp_import(string $data, int $word_size = 1, int $flags = GMP_MSW_FIRST|GMP_NATIVE_ENDIAN): GMP {}
-
-/**
- * Export to a binary string
- * @link https://php.net/manual/en/function.gmp-export.php
- * @param GMP|string|int $num The GMP number being exported
- * @param int $word_size <p>Default value is 1. The number of bytes in each chunk of binary
- * data. This is mainly used in conjunction with the options parameter.</p>
- * @param int $flags Default value is GMP_MSW_FIRST | GMP_NATIVE_ENDIAN.
- * @return string|false Returns a string or FALSE on failure.
- * @since 5.6.1
- */
-#[Pure]
-function gmp_export(GMP|string|int $num, int $word_size = 1, int $flags = GMP_MSW_FIRST|GMP_NATIVE_ENDIAN): string {}
-
-/**
- * Takes the nth root of a and returns the integer component of the result.
- * @link https://php.net/manual/en/function.gmp-root.php
- * @param GMP|string|int $num <p>Either a GMP number resource in PHP 5.5 and earlier, a GMP object in PHP 5.6
- * and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
- * @param positive-int $nth The positive root to take of a <b>num</b>.
- * @return GMP The integer component of the resultant root, as a GMP number.
- * @since 5.6
- */
-#[Pure]
-function gmp_root(GMP|string|int $num, int $nth): GMP {}
-
-/**
- * Takes the nth root of a and returns the integer component and remainder of the result.
- * @link https://php.net/manual/en/function.gmp-rootrem.php
- * @param GMP|string|int $num <p>Either a GMP number resource in PHP 5.5 and earlier, a GMP object in PHP 5.6
- * and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
- * @param positive-int $nth The positive root to take of a <b>num</b>.
- * @return array|GMP[] <p>A two element array, where the first element is the integer component of
- * the root, and the second element is the remainder, both represented as GMP numbers.</p>
- * @since 5.6
- */
-#[Pure]
-function gmp_rootrem(GMP|string|int $num, int $nth): array {}
-
-/**
  * Find next prime number
  * @link https://php.net/manual/en/function.gmp-nextprime.php
  * @param int|resource|string|GMP $num <p>It can be either a GMP number resource, or a
@@ -726,78 +687,6 @@ function gmp_rootrem(GMP|string|int $num, int $nth): array {}
  */
 #[Pure]
 function gmp_nextprime(GMP|string|int $num): GMP {}
-
-/**
- * Calculates binomial coefficient
- *
- * @link https://www.php.net/manual/en/function.gmp-binomial.php
- *
- * @param GMP|string|float|int $n
- * @param int $k
- * @return GMP|false
- *
- * @since 7.3
- */
-#[Pure]
-function gmp_binomial(GMP|string|int $n, int $k): GMP {}
-
-/**
- * Computes the Kronecker symbol
- *
- * @link https://www.php.net/manual/en/function.gmp-kronecker.php
- *
- * @param GMP|string|float|int $num1
- * @param GMP|string|float|int $num2
- * @return int
- *
- * @since 7.3
- */
-#[Pure]
-function gmp_kronecker(GMP|string|int $num1, GMP|string|int $num2): int {}
-
-/**
- * Computes the least common multiple of A and B
- *
- * @link https://www.php.net/manual/en/function.gmp-lcm.php
- *
- * @param GMP|string|float|int $num1
- * @param GMP|string|float|int $num2
- * @return GMP
- *
- * @since 7.3
- */
-#[Pure]
-function gmp_lcm(GMP|string|int $num1, GMP|string|int $num2): GMP {}
-
-/**
- * Perfect power check
- *
- * @link https://www.php.net/manual/en/function.gmp-perfect-power.php
- *
- * @param GMP|string|float|int $num
- * @return bool
- *
- * @since 7.3
- */
-#[Pure]
-function gmp_perfect_power(GMP|string|int $num): bool {}
-
-define('GMP_ROUND_ZERO', 0);
-define('GMP_ROUND_PLUSINF', 1);
-define('GMP_ROUND_MINUSINF', 2);
-define('GMP_MSW_FIRST', 1);
-define('GMP_LSW_FIRST', 2);
-define('GMP_LITTLE_ENDIAN', 4);
-define('GMP_BIG_ENDIAN', 8);
-define('GMP_NATIVE_ENDIAN', 16);
-
-/**
- * The GMP library version
- * @link https://php.net/manual/en/gmp.constants.php
- */
-define('GMP_VERSION', "6.2.1");
-
-define('GMP_MPIR_VERSION', '3.0.0');
 
 class GMP implements Serializable
 {
@@ -822,4 +711,3 @@ class GMP implements Serializable
 
     public function __unserialize(array $data): void {}
 }
-// End of gmp v.

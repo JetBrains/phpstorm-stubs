@@ -1,7 +1,5 @@
 <?php
 
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -83,30 +81,7 @@ function bcmul(string $num1, string $num2, ?int $scale = null): string {}
  * <i>divisor</i> is 0.
  */
 #[Pure]
-#[PhpStormStubsElementAvailable(to: '7.4')]
 function bcdiv(string $num1, string $num2, ?int $scale = 0): ?string {}
-
-/**
- * Divide two arbitrary precision numbers
- * @link https://php.net/manual/en/function.bcdiv.php
- * @param string $num1 <p>
- * The dividend, as a string.
- * </p>
- * @param string $num2 <p>
- * The divisor, as a string.
- * </p>
- * @param int|null $scale [optional] <p>
- * This optional parameter is used to set the number of digits after the
- * decimal place in the result. If omitted, it will default to the scale
- * set globally with the {@link bcscale()} function, or fallback to 0 if
- * this has not been set.
- * </p>
- * @return string the result of the division as a string.
- * @throws DivisionByZeroError if <i>divisor</i> is 0. Available since PHP 8.0.
- */
-#[Pure]
-#[PhpStormStubsElementAvailable('8.0')]
-function bcdiv(string $num1, string $num2, ?int $scale = 0): string {}
 
 /**
  * Get modulus of an arbitrary precision number
@@ -127,30 +102,7 @@ function bcdiv(string $num1, string $num2, ?int $scale = 0): string {}
  * <i>divisor</i> is 0.
  */
 #[Pure]
-#[PhpStormStubsElementAvailable(to: '7.4')]
 function bcmod(string $num1, string $num2, ?int $scale = 0): ?string {}
-
-/**
- * Get modulus of an arbitrary precision number
- * @link https://php.net/manual/en/function.bcmod.php
- * @param string $num1 <p>
- * The dividend, as a string. Since PHP 7.2, the divided is no longer truncated to an integer.
- * </p>
- * @param string $num2 <p>
- * The divisor, as a string. Since PHP 7.2, the divisor is no longer truncated to an integer.
- * </p>
- * @param int|null $scale [optional] <p>
- * This optional parameter is used to set the number of digits after the
- * decimal place in the result. If omitted, it will default to the scale
- * set globally with the {@link bcscale()} function, or fallback to 0 if
- * this has not been set. Available since PHP 7.2.
- * </p>
- * @return string the modulus as a string.
- * @throws DivisionByZeroError if <i>divisor</i> is 0. Available since PHP 8.0.
- */
-#[Pure]
-#[PhpStormStubsElementAvailable('8.0')]
-function bcmod(string $num1, string $num2, ?int $scale = 0): string {}
 
 /**
  * Raise an arbitrary precision number to another
@@ -185,8 +137,7 @@ function bcpow(string $num, string $exponent, ?int $scale = null): string {}
  * <i>operand</i> is negative.
  */
 #[Pure]
-#[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
-function bcsqrt(string $num, ?int $scale) {}
+function bcsqrt(string $num, ?int $scale): ?string {}
 
 /**
  * Set default scale parameter for all bc math functions
@@ -194,11 +145,7 @@ function bcsqrt(string $num, ?int $scale) {}
  * @param int $scale
  * @return int|bool
  */
-#[LanguageLevelTypeAware(['7.3' => 'int'], default: 'bool')]
-function bcscale(
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] int $scale,
-    #[PhpStormStubsElementAvailable(from: '7.3')] #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: 'int')] $scale = null
-) {}
+function bcscale(int $scale): bool {}
 
 /**
  * Compare two arbitrary precision numbers
@@ -244,5 +191,4 @@ function bccomp(string $num1, string $num2, ?int $scale = null): int {}
  * is 0 or <i>exponent</i> is negative.
  */
 #[Pure]
-#[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
-function bcpowmod(string $num, string $exponent, string $modulus, ?int $scale = null) {}
+function bcpowmod(string $num, string $exponent, string $modulus, ?int $scale = null): ?string {}
