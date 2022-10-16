@@ -1,154 +1,10 @@
 <?php
 
-// Start of standard v.5.3.2-0.dotdeb.1
-
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\ExpectedValues;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
-
-class __PHP_Incomplete_Class
-{
-    /**
-     * @var string
-     */
-    public $__PHP_Incomplete_Class_Name;
-}
-
-class php_user_filter
-{
-    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
-    public $filtername;
-
-    #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
-    public $params;
-    public $stream;
-
-    /**
-     * @link https://php.net/manual/en/php-user-filter.filter.php
-     * @param resource $in <p> is a resource pointing to a <i>bucket brigade</i< which contains one or more <i>bucket</i> objects containing data to be filtered.</p>
-     * @param resource $out <p>is a resource pointing to a second bucket brigade into which your modified buckets should be placed.</p>
-     * @param int &$consumed <p>which must <i>always</i> be declared by reference, should be incremented by the length of the data which your filter reads in and alters. In most cases this means you will increment consumed by <i>$bucket->datalen</i> for each <i>$bucket</i>.</p>
-     * @param bool $closing <p>If the stream is in the process of closing (and therefore this is the last pass through the filterchain), the closing parameter will be set to <b>TRUE</b>
-     * @return int <p>
-     * The <b>filter()</b> method must return one of
-     * three values upon completion.
-     * </p><table>
-     *
-     * <thead>
-     * <tr>
-     * <th>Return Value</th>
-     * <th>Meaning</th>
-     * </tr>
-     *
-     * </thead>
-     *
-     * <tbody class="tbody">
-     * <tr>
-     * <td><b>PSFS_PASS_ON</b></td>
-     * <td>
-     * Filter processed successfully with data available in the
-     * <code class="parameter">out</code> <em>bucket brigade</em>.
-     * </td>
-     * </tr>
-     *
-     * <tr>
-     * <td><b>PSFS_FEED_ME</b></td>
-     * <td>
-     * Filter processed successfully, however no data was available to
-     * return. More data is required from the stream or prior filter.
-     * </td>
-     * </tr>
-     *
-     * <tr>
-     * <td><b>PSFS_ERR_FATAL</b> (default)</td>
-     * <td>
-     * The filter experienced an unrecoverable error and cannot continue.
-     * </td>
-     * </tr>
-     */
-    #[TentativeType]
-    public function filter(
-        $in,
-        $out,
-        &$consumed,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $closing
-    ): int {}
-
-    /**
-     * @link https://php.net/manual/en/php-user-filter.oncreate.php
-     * @return bool
-     */
-    #[TentativeType]
-    public function onCreate(): bool {}
-
-    /**
-     * @link https://php.net/manual/en/php-user-filter.onclose.php
-     */
-    #[TentativeType]
-    public function onClose(): void {}
-}
-
-/**
- * Instances of Directory are created by calling the dir() function, not by the new operator.
- */
-class Directory
-{
-    /**
-     * @var string The directory that was opened.
-     */
-    #[PhpStormStubsElementAvailable(to: '8.0')]
-    public $path;
-
-    /**
-     * @var string The directory that was opened.
-     */
-    #[PhpStormStubsElementAvailable(from: '8.1')]
-    public readonly string $path;
-
-    /**
-     * @var resource Can be used with other directory functions such as {@see readdir()}, {@see rewinddir()} and {@see closedir()}.
-     */
-    #[PhpStormStubsElementAvailable(to: '8.0')]
-    public $handle;
-
-    /**
-     * @var resource Can be used with other directory functions such as {@see readdir()}, {@see rewinddir()} and {@see closedir()}.
-     */
-    #[PhpStormStubsElementAvailable(from: '8.1')]
-    public readonly mixed $handle;
-
-    /**
-     * Close directory handle.
-     * Same as closedir(), only dir_handle defaults to $this.
-     * @param resource $dir_handle [optional]
-     * @link https://secure.php.net/manual/en/directory.close.php
-     */
-    #[TentativeType]
-    public function close(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null): void {}
-
-    /**
-     * Rewind directory handle.
-     * Same as rewinddir(), only dir_handle defaults to $this.
-     * @param resource $dir_handle [optional]
-     * @link https://secure.php.net/manual/en/directory.rewind.php
-     */
-    #[TentativeType]
-    public function rewind(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null): void {}
-
-    /**
-     * Read entry from directory handle.
-     * Same as readdir(), only dir_handle defaults to $this.
-     * @param resource $dir_handle [optional]
-     * @return string|false
-     * @link https://secure.php.net/manual/en/directory.read.php
-     */
-    #[TentativeType]
-    public function read(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null): string|false {}
-}
 
 /**
  * Returns the value of a constant
@@ -183,8 +39,7 @@ function bin2hex(string $string): string {}
  * by a signal, sleep returns the number of seconds left
  * to sleep.
  */
-#[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
-function sleep(int $seconds) {}
+function sleep(int $seconds): int|false {}
 
 /**
  * Delay execution in microseconds
@@ -216,6 +71,7 @@ function usleep(int $microseconds): void {}
  * remaining in the delay
  * </p>
  */
+#[ArrayShape(["seconds" => "int", "nanoseconds" => "int"])]
 function time_nanosleep(int $seconds, int $nanoseconds): array|bool {}
 
 /**
@@ -292,7 +148,8 @@ function time_sleep_until(float $timestamp): bool {}
  * @deprecated 8.1
  */
 #[Pure(true)]
-#[Deprecated(since: '8.1')]
+#[Deprecated(since: "8.1")]
+#[ArrayShape(["tm_sec" => "int", "tm_min" => "int", "tm_hour" => "int", "tm_mday" => "int", "tm_mon" => "int", "tm_year" => "int", "tm_wday" => "int", "tm_yday" => "int", "unparsed" => "string"])]
 function strptime(string $timestamp, string $format): array|false {}
 
 /**
@@ -443,12 +300,7 @@ function wordwrap(string $string, int $width = 75, string $break = "\n", bool $c
  * @return string The converted string.
  */
 #[Pure]
-function htmlspecialchars(
-    string $string,
-    int $flags = ENT_QUOTES|ENT_SUBSTITUTE,
-    ?string $encoding = null,
-    bool $double_encode = true
-): string {}
+function htmlspecialchars(string $string, int $flags = ENT_QUOTES, ?string $encoding = null, bool $double_encode = true): string {}
 
 /**
  * Convert all applicable characters to HTML entities
@@ -494,12 +346,7 @@ function htmlspecialchars(
  * @return string the encoded string.
  */
 #[Pure]
-function htmlentities(
-    string $string,
-    int $flags = ENT_QUOTES|ENT_SUBSTITUTE,
-    ?string $encoding,
-    bool $double_encode = true
-): string {}
+function htmlentities(string $string, int $flags = ENT_QUOTES, ?string $encoding, bool $double_encode = true): string {}
 
 /**
  * Convert HTML entities  to their corresponding characters
@@ -540,7 +387,7 @@ function htmlentities(
  * @return string the decoded string.
  */
 #[Pure]
-function html_entity_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?string $encoding): string {}
+function html_entity_decode(string $string, int $flags = ENT_QUOTES, ?string $encoding): string {}
 
 /**
  * Convert special HTML entities back to characters
@@ -574,7 +421,7 @@ function html_entity_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITU
  * @return string the decoded string.
  */
 #[Pure]
-function htmlspecialchars_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE): string {}
+function htmlspecialchars_decode(string $string, int $flags = ENT_QUOTES): string {}
 
 /**
  * Returns the translation table used by <function>htmlspecialchars</function> and <function>htmlentities</function>
@@ -750,11 +597,7 @@ function htmlspecialchars_decode(string $string, int $flags = ENT_QUOTES|ENT_SUB
  * @return array the translation table as an array.
  */
 #[Pure]
-function get_html_translation_table(
-    int $table = 0,
-    int $flags = ENT_QUOTES|ENT_SUBSTITUTE,
-    #[PhpStormStubsElementAvailable(from: '7.0')] string $encoding = "UTF-8"
-): array {}
+function get_html_translation_table(int $table = 0, int $flags = ENT_QUOTES): array {}
 
 /**
  * Calculate the sha1 hash of a string
@@ -1113,8 +956,7 @@ function image_type_to_extension(int $image_type, bool $include_dot = true): str
  * </p>
  * @return bool true on success or false on failure.
  */
-#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function phpinfo(#[ExpectedValues(flags: [INFO_GENERAL, INFO_CREDITS, INFO_CONFIGURATION, INFO_MODULES, INFO_ENVIRONMENT, INFO_VARIABLES, INFO_LICENSE, INFO_ALL])] int $flags = INFO_ALL): bool {}
+function phpinfo(#[ExpectedValues([INFO_GENERAL, INFO_CREDITS, INFO_CONFIGURATION, INFO_MODULES, INFO_ENVIRONMENT, INFO_VARIABLES, INFO_LICENSE, INFO_ALL])] int $flags = INFO_ALL): bool {}
 
 /**
  * Gets the current PHP version
@@ -1193,7 +1035,6 @@ function phpversion(?string $extension): string|false {}
  * </p>
  * @return bool true on success or false on failure.
  */
-#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function phpcredits(int $flags = CREDITS_ALL): bool {}
 
 /**
@@ -1241,6 +1082,7 @@ function zend_logo_guid(): string {}
  * </p>
  */
 #[Pure]
+#[ExpectedValues(["cli", "phpdbg", "embed", "apache", "apache2handler", "cgi-fcgi", "cli-server", "fpm-fcgi", "litespeed"])]
 function php_sapi_name(): string|false {}
 
 /**
@@ -1254,7 +1096,7 @@ function php_sapi_name(): string|false {}
  * @return string the description, as a string.
  */
 #[Pure(true)]
-function php_uname(#[PhpStormStubsElementAvailable(from: '7.0')] string $mode = 'a'): string {}
+function php_uname(): string {}
 
 /**
  * Return a list of .ini files parsed from the additional ini dir
@@ -1424,8 +1266,122 @@ function strcspn(string $string, string $characters, int $offset = 0, ?int $leng
  * </p>
  * @return string|false A string token.
  */
-function strtok(
-    string $string,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $token,
-    #[PhpStormStubsElementAvailable(from: '7.1')] ?string $token = null
-): string|false {}
+function strtok(string $string, $token): string|false {}
+
+class __PHP_Incomplete_Class
+{
+    /**
+     * @var string
+     */
+    public $__PHP_Incomplete_Class_Name;
+}
+
+class php_user_filter
+{
+    public $filtername;
+    public $params;
+    public $stream;
+
+    /**
+     * @link https://php.net/manual/en/php-user-filter.filter.php
+     * @param resource $in <p> is a resource pointing to a <i>bucket brigade</i< which contains one or more <i>bucket</i> objects containing data to be filtered.</p>
+     * @param resource $out <p>is a resource pointing to a second bucket brigade into which your modified buckets should be placed.</p>
+     * @param int &$consumed <p>which must <i>always</i> be declared by reference, should be incremented by the length of the data which your filter reads in and alters. In most cases this means you will increment consumed by <i>$bucket->datalen</i> for each <i>$bucket</i>.</p>
+     * @param bool $closing <p>If the stream is in the process of closing (and therefore this is the last pass through the filterchain), the closing parameter will be set to <b>TRUE</b>
+     * @return int <p>
+     * The <b>filter()</b> method must return one of
+     * three values upon completion.
+     * </p><table>
+     *
+     * <thead>
+     * <tr>
+     * <th>Return Value</th>
+     * <th>Meaning</th>
+     * </tr>
+     *
+     * </thead>
+     *
+     * <tbody class="tbody">
+     * <tr>
+     * <td><b>PSFS_PASS_ON</b></td>
+     * <td>
+     * Filter processed successfully with data available in the
+     * <code class="parameter">out</code> <em>bucket brigade</em>.
+     * </td>
+     * </tr>
+     *
+     * <tr>
+     * <td><b>PSFS_FEED_ME</b></td>
+     * <td>
+     * Filter processed successfully, however no data was available to
+     * return. More data is required from the stream or prior filter.
+     * </td>
+     * </tr>
+     *
+     * <tr>
+     * <td><b>PSFS_ERR_FATAL</b> (default)</td>
+     * <td>
+     * The filter experienced an unrecoverable error and cannot continue.
+     * </td>
+     * </tr>
+     */
+    #[TentativeType]
+    public function filter($in, $out, &$consumed, $closing): int {}
+
+    /**
+     * @link https://php.net/manual/en/php-user-filter.oncreate.php
+     * @return bool
+     */
+    #[TentativeType]
+    public function onCreate(): bool {}
+
+    /**
+     * @link https://php.net/manual/en/php-user-filter.onclose.php
+     */
+    #[TentativeType]
+    public function onClose(): void {}
+}
+
+/**
+ * Instances of Directory are created by calling the dir() function, not by the new operator.
+ */
+class Directory
+{
+    /**
+     * @var string The directory that was opened.
+     */
+    public $path;
+
+    /**
+     * @var resource Can be used with other directory functions such as {@see readdir()}, {@see rewinddir()} and {@see closedir()}.
+     */
+    public $handle;
+
+    /**
+     * Close directory handle.
+     * Same as closedir(), only dir_handle defaults to $this.
+     * @param resource $dir_handle [optional]
+     * @link https://secure.php.net/manual/en/directory.close.php
+     */
+    #[TentativeType]
+    public function close($dir_handle = null): void {}
+
+    /**
+     * Rewind directory handle.
+     * Same as rewinddir(), only dir_handle defaults to $this.
+     * @param resource $dir_handle [optional]
+     * @link https://secure.php.net/manual/en/directory.rewind.php
+     */
+    #[TentativeType]
+    public function rewind($dir_handle = null): void {}
+
+    /**
+     * Read entry from directory handle.
+     * Same as readdir(), only dir_handle defaults to $this.
+     * @param resource $dir_handle [optional]
+     * @return string|false
+     * @link https://secure.php.net/manual/en/directory.read.php
+     */
+    #[TentativeType]
+    public function read($dir_handle = null): string|false {}
+}

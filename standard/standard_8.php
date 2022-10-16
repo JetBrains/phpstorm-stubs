@@ -1,9 +1,8 @@
 <?php
 
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\ExpectedValues;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -60,7 +59,6 @@ use JetBrains\PhpStorm\Pure;
  * </p>
  * @return bool true on success or false on failure.
  */
-#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function syslog(int $priority, string $message): bool {}
 
 /**
@@ -68,7 +66,6 @@ function syslog(int $priority, string $message): bool {}
  * @link https://php.net/manual/en/function.closelog.php
  * @return bool true on success or false on failure.
  */
-#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function closelog(): bool {}
 
 /**
@@ -82,46 +79,12 @@ function closelog(): bool {}
 function header_register_callback(callable $callback): bool {}
 
 /**
- * Get the size of an image from a string.
- * @param string $string The image data, as a string.
- * @param array &$image_info [optional] This optional parameter allows you to extract<br>
- * some extended information from the image file. Currently, this will <br>
- * return the different JPG APP markers as an associative array. <br>
- * Some programs use these APP markers to embed text information in images. <br>
- * A very common one is to embed » IPTC information in the APP13 marker. <br>
- * You can use the iptcparse() function to parse the binary APP13 marker into something readable.
- * @return array|false Returns an array with 7 elements.<br>
- * Index 0 and 1 contains respectively the width and the height of the image.<br>
- * Index 2 is one of the <b>IMAGETYPE_XXX</b> constants indicating the type of the image.<br>
- * Index 3 is a text string with the correct <b>height="yyy" width="xxx"</b> string<br>
- * that can be used directly in an IMG tag.<br>
- * On failure, FALSE is returned.
- * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
- * @since 5.4
- * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
- * @since 5.4
- */
-function getimagesizefromstring(string $string, &$image_info): array|false {}
-
-/**
- * Set the stream chunk size.
- * @param resource $stream The target stream.
- * @param int $size The desired new chunk size.
- * @return int|false Returns the previous chunk size on success.<br>
- * Will return <b>FALSE</b> if chunk_size is less than 1 or greater than <b>PHP_INT_MAX</b>.
- * @link https://secure.php.net/manual/en/function.stream-set-chunk-size.php
- * @since 5.4
- */
-#[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
-function stream_set_chunk_size($stream, int $size) {}
-
-/**
  * Initializes all syslog related variables
  * @link https://php.net/manual/en/function.define-syslog-variables.php
  * @return void
  * @removed 5.4
  */
-#[Deprecated(since: '5.3')]
+#[Deprecated(since: "5.3")]
 function define_syslog_variables() {}
 
 /**
@@ -137,8 +100,7 @@ function define_syslog_variables() {}
  * @return string|false the metaphone key as a string, or FALSE on failure
  */
 #[Pure]
-#[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function metaphone(string $string, int $max_phonemes = 0): false|string {}
+function metaphone(string $string, int $max_phonemes = 0): string|false {}
 
 /**
  * Turn on output buffering
@@ -339,6 +301,7 @@ function ob_get_level(): int {}
  * <tr><td>blocksize</td><td>...</td></tr>
  * </table>
  */
+#[ArrayShape(["level" => "int", "type" => "int", "flags" => "int", "name" => "string", "del" => "int", "chunk_size" => "int", "buffer_size" => "int", "buffer_used" => "int"])]
 function ob_get_status(bool $full_status = false): array {}
 
 /**
@@ -359,7 +322,7 @@ function ob_get_contents(): string|false {}
  * </p>
  * @return void
  */
-function ob_implicit_flush(#[LanguageLevelTypeAware(["8.0" => "bool"], default: "int")] $enable = true): void {}
+function ob_implicit_flush(int $enable = 1): void {}
 
 /**
  * List all output handlers in use
@@ -385,7 +348,6 @@ function ob_list_handlers(): array {}
  * </p>
  * @return bool true on success or false on failure.
  */
-#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function ksort(array &$array, int $flags = SORT_REGULAR): bool {}
 
 /**
@@ -401,7 +363,6 @@ function ksort(array &$array, int $flags = SORT_REGULAR): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function krsort(array &$array, int $flags = SORT_REGULAR): bool {}
 
 /**
@@ -437,7 +398,6 @@ function natcasesort(array &$array): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function asort(array &$array, int $flags = SORT_REGULAR): bool {}
 
 /**
@@ -453,7 +413,6 @@ function asort(array &$array, int $flags = SORT_REGULAR): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function arsort(array &$array, int $flags = SORT_REGULAR): bool {}
 
 /**
@@ -472,7 +431,6 @@ function arsort(array &$array, int $flags = SORT_REGULAR): bool {}
  * (don't change types)</p>
  * @return bool true on success or false on failure.
  */
-#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function sort(array &$array, int $flags = SORT_REGULAR): bool {}
 
 /**
@@ -503,7 +461,6 @@ function rsort(array &$array, int $flags = SORT_REGULAR): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function usort(array &$array, callable $callback): bool {}
 
 /**
@@ -518,7 +475,6 @@ function usort(array &$array, callable $callback): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function uasort(array &$array, callable $callback): bool {}
 
 /**
@@ -540,7 +496,6 @@ function uasort(array &$array, callable $callback): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function uksort(array &$array, callable $callback): bool {}
 
 /**
@@ -551,7 +506,6 @@ function uksort(array &$array, callable $callback): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function shuffle(array &$array): bool {}
 
 /**
@@ -586,7 +540,6 @@ function shuffle(array &$array): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function array_walk(object|array &$array, callable $callback, mixed $arg): bool {}
 
 /**
@@ -615,7 +568,6 @@ function array_walk(object|array &$array, callable $callback, mixed $arg): bool 
  * </p>
  * @return bool true on success or false on failure.
  */
-#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function array_walk_recursive(object|array &$array, callable $callback, mixed $arg): bool {}
 
 /**
@@ -739,11 +691,7 @@ function key(object|array $array): string|int|null {}
  * parameter values.
  */
 #[Pure]
-function min(
-    #[PhpStormStubsElementAvailable(from: '8.0')] mixed $value,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed $values,
-    mixed ...$values
-): mixed {}
+function min(mixed ...$values): mixed {}
 
 /**
  * Find highest value
@@ -754,11 +702,7 @@ function min(
  * parameter values, either within a arg array or two arguments.
  */
 #[Pure]
-function max(
-    #[PhpStormStubsElementAvailable(from: '8.0')] mixed $value,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed $values,
-    mixed ...$values
-): mixed {}
+function max(mixed ...$values): mixed {}
 
 /**
  * Checks if a value exists in an array
@@ -842,20 +786,7 @@ function array_search(mixed $needle, array $haystack, bool $strict = false): str
  * @return int the number of variables successfully imported into the symbol
  * table.
  */
-function extract(
-    array &$array,
-    #[ExpectedValues(flags: [
-        EXTR_OVERWRITE,
-        EXTR_SKIP,
-        EXTR_PREFIX_SAME,
-        EXTR_PREFIX_ALL,
-        EXTR_PREFIX_INVALID,
-        EXTR_IF_EXISTS,
-        EXTR_PREFIX_IF_EXISTS,
-        EXTR_REFS
-    ])] int $flags = EXTR_OVERWRITE,
-    string $prefix = ""
-): int {}
+function extract(array &$array, #[ExpectedValues([EXTR_OVERWRITE, EXTR_SKIP, EXTR_PREFIX_SAME, EXTR_PREFIX_ALL, EXTR_PREFIX_INVALID, EXTR_IF_EXISTS, EXTR_PREFIX_IF_EXISTS, EXTR_REFS])] int $flags = EXTR_OVERWRITE, string $prefix = ''): int {}
 
 /**
  * Create array containing variables and their values
@@ -871,11 +802,7 @@ function extract(
  * @return array the output array with all the variables added to it.
  */
 #[Pure]
-function compact(
-    #[PhpStormStubsElementAvailable(from: '8.0')] $var_name,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $var_names,
-    ...$var_names
-): array {}
+function compact(...$var_names): array {}
 
 /**
  * Fill an array with values
@@ -944,12 +871,7 @@ function range($start, $end, int|float $step = 1): array {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_multisort(
-    &$array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $sort_order = SORT_ASC,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $sort_flags = SORT_REGULAR,
-    &...$rest
-): bool {}
+function array_multisort(&$array, $sort_order = SORT_ASC, $sort_flags = SORT_REGULAR, &...$rest): bool {}
 
 /**
  * Push elements onto the end of array
@@ -964,11 +886,7 @@ function array_multisort(
  * </p>
  * @return int the number of elements in the array.
  */
-function array_push(
-    array &$array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] $values,
-    mixed ...$values
-): int {}
+function array_push(array &$array, mixed ...$values): int {}
 
 /**
  * Pop the element off the end of array
@@ -1008,11 +926,7 @@ function array_shift(array &$array): mixed {}
  * </p>
  * @return int the number of elements in the array.
  */
-function array_unshift(
-    array &$array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] $values,
-    mixed ...$values
-): int {}
+function array_unshift(array &$array, mixed ...$values): int {}
 
 /**
  * Remove a portion of the array and replace it with something else
@@ -1103,8 +1017,4 @@ function array_slice(array $array, int $offset, ?int $length, bool $preserve_key
  * @meta
  */
 #[Pure]
-function array_merge(
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $arrays,
-    array ...$arrays
-): array {}
+function array_merge($array, array ...$arrays): array {}

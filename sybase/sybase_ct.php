@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Opens a Sybase server connection
  * @link https://php.net/manual/en/function.sybase-connect.php

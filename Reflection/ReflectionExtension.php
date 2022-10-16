@@ -2,8 +2,6 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
@@ -18,7 +16,6 @@ class ReflectionExtension implements Reflector
      * @var string Name of the extension, same as calling the {@see ReflectionExtension::getName()} method
      */
     #[Immutable]
-    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
 
     /**
@@ -28,7 +25,7 @@ class ReflectionExtension implements Reflector
      * @param string $name Name of the extension.
      * @throws ReflectionException if the extension does not exist.
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
+    public function __construct($name) {}
 
     /**
      * Exports a reflected extension.
@@ -43,7 +40,7 @@ class ReflectionExtension implements Reflector
      * the export is returned as a string, otherwise {@see null} is returned.
      * @removed 8.0
      */
-    #[Deprecated(since: '7.4')]
+    #[Deprecated(since: "7.4")]
     public static function export($name, $return = false) {}
 
     /**
@@ -151,44 +148,4 @@ class ReflectionExtension implements Reflector
      */
     #[TentativeType]
     public function info(): void {}
-
-    /**
-     * Returns whether this extension is persistent
-     *
-     * @link https://php.net/manual/en/reflectionextension.ispersistent.php
-     * @return bool Returns {@see true} for extensions loaded by extension, {@see false} otherwise.
-     * @since 5.4
-     */
-    #[Pure]
-    #[TentativeType]
-    public function isPersistent(): bool {}
-
-    /**
-     * Returns whether this extension is temporary
-     *
-     * @link https://php.net/manual/en/reflectionextension.istemporary.php
-     * @return bool Returns {@see true} for extensions loaded by {@see dl()}, {@see false} otherwise.
-     * @since 5.4
-     */
-    #[Pure]
-    #[TentativeType]
-    public function isTemporary(): bool {}
-
-    /**
-     * Clones
-     *
-     * @link https://php.net/manual/en/reflectionextension.clone.php
-     * @return void No value is returned, if called a fatal error will occur.
-     */
-    #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
-    final private function __clone(): void {}
-
-    /**
-     * Clones
-     *
-     * @link https://php.net/manual/en/reflectionextension.clone.php
-     * @return void No value is returned, if called a fatal error will occur.
-     */
-    #[PhpStormStubsElementAvailable(from: "8.1")]
-    private function __clone(): void {}
 }

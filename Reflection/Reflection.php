@@ -1,7 +1,6 @@
 <?php
 
 use JetBrains\PhpStorm\Deprecated;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\TentativeType;
 
 /**
@@ -19,7 +18,7 @@ class Reflection
      * @return string[] An array of modifier names.
      */
     #[TentativeType]
-    public static function getModifierNames(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $modifiers): array {}
+    public static function getModifierNames($modifiers): array {}
 
     /**
      * Exports
@@ -32,6 +31,6 @@ class Reflection
      * export is returned as a string, otherwise {@see null} is returned.
      * @removed 8.0
      */
-    #[Deprecated(since: '7.4')]
+    #[Deprecated(since: "7.4")]
     public static function export(Reflector $reflector, $return = false) {}
 }

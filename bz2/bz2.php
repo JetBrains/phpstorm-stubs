@@ -1,7 +1,6 @@
 <?php
 
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -88,8 +87,7 @@ function bzclose($bz): bool {}
  * @return int the error number as an integer.
  */
 #[Pure]
-#[LanguageLevelTypeAware(['8.1' => 'int', '8.0' => 'int|false'], default: 'int')]
-function bzerrno($bz) {}
+function bzerrno($bz): int {}
 
 /**
  * Returns a bzip2 error string
@@ -101,8 +99,7 @@ function bzerrno($bz) {}
  * @return string a string containing the error message.
  */
 #[Pure]
-#[LanguageLevelTypeAware(['8.1' => 'string', '8.0' => 'string|false'], default: 'string')]
-function bzerrstr($bz) {}
+function bzerrstr($bz): string {}
 
 /**
  * Returns the bzip2 error number and error string in an array
@@ -116,8 +113,8 @@ function bzerrstr($bz) {}
  * errstr entry.
  */
 #[Pure]
-#[LanguageLevelTypeAware(['8.1' => 'array', '8.0' => 'array|false'], default: 'array')]
-function bzerror($bz) {}
+#[ArrayShape(["errno" => "int", "errstr" => "string"])]
+function bzerror($bz): array {}
 
 /**
  * Compress a string into bzip2 encoded data
@@ -142,12 +139,7 @@ function bzerror($bz) {}
  * @return string|int The compressed string, or an error number if an error occurred.
  */
 #[Pure]
-function bzcompress(
-    string $data,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] int $blocksize,
-    #[PhpStormStubsElementAvailable(from: '7.1')] int $block_size = 4,
-    int $work_factor = 0
-): string|int {}
+function bzcompress(string $data, int $blocksize, int $work_factor = 0): string|int {}
 
 /**
  * Decompresses bzip2 encoded data

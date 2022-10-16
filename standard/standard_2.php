@@ -1,9 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\ArrayShape;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use JetBrains\PhpStorm\Internal\ReturnTypeContract as TypeContract;
+use JetBrains\PhpStorm\Internal\ReturnTypeContract;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -193,13 +191,7 @@ function soundex(string $string): string {}
  * two argument strings or -1, if one of the argument strings
  * is longer than the limit of 255 characters.
  */
-function levenshtein(
-    string $string1,
-    string $string2,
-    int $insertion_cost = 1,
-    int $replacement_cost = 1,
-    int $deletion_cost = 1
-): int {}
+function levenshtein(string $string1, string $string2, int $insertion_cost = 1, int $replacement_cost = 1, int $deletion_cost = 1): int {}
 
 /**
  * Generate a single-byte string from a number
@@ -236,11 +228,7 @@ function ord(string $character): int {}
  * </p>
  * @return void
  */
-function parse_str(
-    string $string,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] &$result = [],
-    #[PhpStormStubsElementAvailable(from: '8.0')] &$result
-): void {}
+function parse_str(string $string, &$result = []): void {}
 
 /**
  * Parse a CSV string into an array
@@ -261,7 +249,7 @@ function parse_str(
  * @return array an indexed array containing the fields read.
  */
 #[Pure]
-function str_getcsv(string $string, string $separator = ",", string $enclosure = '"', string $escape = "\\"): array {}
+function str_getcsv(string $string, string $separator = ',', string $enclosure = '"', string $escape = "\\"): array {}
 
 /**
  * Pad a string to a certain length with another string
@@ -289,7 +277,7 @@ function str_getcsv(string $string, string $separator = ",", string $enclosure =
  * @return string the padded string.
  */
 #[Pure]
-function str_pad(string $string, int $length, string $pad_string = " ", int $pad_type = STR_PAD_RIGHT): string {}
+function str_pad(string $string, int $length, string $pad_string = ' ', int $pad_type = STR_PAD_RIGHT): string {}
 
 /**
  * Alias:
@@ -344,11 +332,7 @@ function strchr(string $haystack, string $needle, bool $before_needle = false): 
  * format.
  */
 #[Pure]
-function sprintf(
-    string $format,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $values,
-    mixed ...$values
-): string {}
+function sprintf(string $format, mixed ...$values): string {}
 
 /**
  * Output a formatted string
@@ -445,11 +429,7 @@ function vfprintf($stream, string $format, array $values): int {}
  * the function will return the number of assigned values. The optional
  * parameters must be passed by reference.
  */
-function sscanf(
-    string $string,
-    string $format,
-    #[TypeContract(exists: "int|null", notExists: "array|null")] mixed &...$vars
-): array|int|null {}
+function sscanf(string $string, string $format, #[ReturnTypeContract(exists: "int|null", notExists: "array|null")] mixed &...$vars): array|int|null {}
 
 /**
  * Parses input from a file according to a format
@@ -465,11 +445,7 @@ function sscanf(
  * function will return the number of assigned values. The optional
  * parameters must be passed by reference.
  */
-function fscanf(
-    $stream,
-    string $format,
-    #[TypeContract(exists: "int|false|null", notExists: "array|false|null")] mixed &...$vars
-): array|int|false|null {}
+function fscanf($stream, string $format, #[ReturnTypeContract(exists: "int|false|null", notExists: "array|false|null")] mixed &...$vars): array|int|false|null {}
 
 /**
  * Parse a URL and return its components
@@ -598,12 +574,7 @@ function rawurldecode(string $string): string {}
  * @return string a URL-encoded string.
  */
 #[Pure]
-function http_build_query(
-    object|array $data,
-    string $numeric_prefix = "",
-    ?string $arg_separator = null,
-    int $encoding_type = PHP_QUERY_RFC1738
-): string {}
+function http_build_query(object|array $data, string $numeric_prefix = '', ?string $arg_separator = null, int $encoding_type = PHP_QUERY_RFC1738): string {}
 
 /**
  * Returns the target of a symbolic link
@@ -744,8 +715,7 @@ function escapeshellarg(string $arg): string {}
  * </p>
  * @return bool|null null on success or false on failure.
  */
-#[LanguageLevelTypeAware(['8.2' => 'null|false'], default: 'null|bool')]
-function passthru(string $command, &$result_code): ?bool {}
+function passthru(string $command, &$result_code): null|bool {}
 
 /**
  * Execute command via shell and return the complete output as a string
@@ -827,14 +797,7 @@ function shell_exec(string $command): string|false|null {}
  * proc_close when you are finished with it. On failure
  * returns false.
  */
-function proc_open(
-    array|string $command,
-    array $descriptor_spec,
-    &$pipes,
-    ?string $cwd,
-    ?array $env_vars,
-    ?array $options
-) {}
+function proc_open(array|string $command, array $descriptor_spec, &$pipes, ?string $cwd, ?array $env_vars, ?array $options) {}
 
 /**
  * Close a process opened by {@see proc_open} and return the exit code of that process
@@ -940,8 +903,7 @@ function proc_terminate($process, int $signal = 15): bool {}
  * </tr>
  */
 #[ArrayShape(["command" => "string", "pid" => "int", "running" => "bool", "signaled" => "bool", "stopped" => "bool", "exitcode" => "int", "termsig" => "int", "stopsig" => "int"])]
-#[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-function proc_get_status($process) {}
+function proc_get_status($process): array|false {}
 
 /**
  * Change the priority of the current process. <br/>

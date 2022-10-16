@@ -2,8 +2,6 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
@@ -55,7 +53,6 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @var string Fully qualified class name where this method was defined
      */
     #[Immutable]
-    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $class;
 
     /**
@@ -75,10 +72,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * classname or an object.
      * @throws ReflectionException if the class or method does not exist.
      */
-    public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'object|string'], default: '')] $objectOrMethod,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $method = null
-    ) {}
+    public function __construct($objectOrMethod, $method = null) {}
 
     /**
      * Export a reflection method.
@@ -93,7 +87,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * the export is returned as a string, otherwise {@see null} is returned.
      * @removed 8.0
      */
-    #[Deprecated(since: '7.4')]
+    #[Deprecated(since: "7.4")]
     public static function export($class, $name, $return = false) {}
 
     /**
@@ -186,21 +180,6 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     public function isDestructor(): bool {}
 
     /**
-     * Returns a dynamically created closure for the method
-     *
-     * @link https://php.net/manual/en/reflectionmethod.getclosure.php
-     * @param object $object Forbidden for static methods, required for other methods or nothing.
-     * @return Closure|null Returns {@see Closure} or {@see null} in case of an error.
-     * @since 5.4
-     */
-    #[Pure]
-    #[TentativeType]
-    public function getClosure(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $object,
-        #[PhpStormStubsElementAvailable(from: '7.4')] #[LanguageLevelTypeAware(['8.0' => 'object|null'], default: '')] $object = null
-    ): Closure {}
-
-    /**
      * Gets the method modifiers
      *
      * @link https://php.net/manual/en/reflectionmethod.getmodifiers.php
@@ -250,10 +229,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * invocation failed.
      */
     #[TentativeType]
-    public function invokeArgs(
-        #[LanguageLevelTypeAware(['8.0' => 'object|null'], default: '')] $object,
-        array $args
-    ): mixed {}
+    public function invokeArgs($object, array $args): mixed {}
 
     /**
      * Gets declaring class for the reflected method.
@@ -285,23 +261,6 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return void No value is returned.
      * @since 5.3.2
      */
-    #[PhpStormStubsElementAvailable(to: "8.0")]
     #[TentativeType]
-    public function setAccessible(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $accessible): void {}
-
-    /**
-     * Set method accessibility
-     * This method is no-op starting from PHP 8.1
-     *
-     * @link https://php.net/manual/en/reflectionmethod.setaccessible.php
-     * @param bool $accessible {@see true} to allow accessibility, or {@see false}
-     * @return void No value is returned.
-     */
-    #[Pure]
-    #[PhpStormStubsElementAvailable(from: "8.1")]
-    #[TentativeType]
-    public function setAccessible(bool $accessible): void {}
-
-    #[PhpStormStubsElementAvailable(from: '8.2')]
-    public function hasPrototype(): bool {}
+    public function setAccessible($accessible): void {}
 }
