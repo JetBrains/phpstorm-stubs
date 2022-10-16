@@ -1,5 +1,4 @@
 <?php
-
 /**
  * <b>Reflector</b> is an interface implemented by all
  * exportable Reflection classes.

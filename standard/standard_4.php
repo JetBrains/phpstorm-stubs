@@ -2,8 +2,6 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -176,19 +174,7 @@ function serialize(mixed $value): string {}
  * In case the passed string is not unserializeable, false is returned and
  * E_NOTICE is issued.</p>
  */
-function unserialize(string $data, #[PhpStormStubsElementAvailable(from: '7.0')] array $options = []): mixed {}
-
-/**
- * Dumps information about a variable
- * @link https://php.net/manual/en/function.var-dump.php
- * @param mixed $value <p>
- * The variable you want to export.
- * </p>
- * @param mixed ...$values [optional]
- * @return void
- */
-#[PhpStormStubsElementAvailable(from: '8.0')]
-function var_dump(mixed $value, mixed ...$values): void {}
+function unserialize(string $data): mixed {}
 
 /**
  * Dumps information about a variable
@@ -198,7 +184,6 @@ function var_dump(mixed $value, mixed ...$values): void {}
  * </p>
  * @return void
  */
-#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
 function var_dump(...$vars): void {}
 
 /**
@@ -226,11 +211,7 @@ function var_export(mixed $value, bool $return = false): ?string {}
  * </p>
  * @return void
  */
-function debug_zval_dump(
-    #[PhpStormStubsElementAvailable(from: '8.0')] mixed $value,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $values,
-    mixed ...$values
-): void {}
+function debug_zval_dump(mixed ...$values): void {}
 
 /**
  * Prints human-readable information about a variable
@@ -278,11 +259,6 @@ function memory_get_usage(bool $real_usage = false): int {}
 function memory_get_peak_usage(bool $real_usage = false): int {}
 
 /**
- * @since 8.2
- */
-function memory_reset_peak_usage(): void {}
-
-/**
  * Register a function for execution on shutdown
  * @link https://php.net/manual/en/function.register-shutdown-function.php
  * @param callable $callback <p>
@@ -305,8 +281,7 @@ function memory_reset_peak_usage(): void {}
  * </p>
  * @return bool|null
  */
-#[LanguageLevelTypeAware(['8.2' => 'void'], default: 'null|bool')]
-function register_shutdown_function(callable $callback, mixed ...$args): ?bool {}
+function register_shutdown_function(callable $callback, mixed ...$args): null|bool {}
 
 /**
  * Register a function for execution on each tick
@@ -375,20 +350,6 @@ function show_source(string $filename, bool $return = false): string|bool {}
 function highlight_string(string $string, bool $return = false): string|bool {}
 
 /**
- * Get the system's high resolution time
- * @link https://secure.php.net/manual/en/function.hrtime.php
- * @param bool $as_number <p>Whether the high resolution time should be returned as array or number.<p>
- * @since 7.3
- * @return int[]|int|float|false Returns an array of integers in the form [seconds, nanoseconds], if the parameter get_as_number is false.
- * Otherwise the nanoseconds are returned as integer (64bit platforms) or float (32bit platforms).
- */
-#[Pure(true)]
-function hrtime(
-    #[PhpStormStubsElementAvailable(from: '7.3', to: '7.4')] bool $as_number,
-    #[PhpStormStubsElementAvailable(from: '8.0')] bool $as_number = false
-): array|int|float|false {}
-
-/**
  * Return source with stripped comments and whitespace
  * @link https://php.net/manual/en/function.php-strip-whitespace.php
  * @param string $filename <p>
@@ -453,10 +414,8 @@ function ini_get(string $option): string|false {}
  * </p>
  */
 #[Pure(true)]
-function ini_get_all(
-    ?string $extension,
-    #[PhpStormStubsElementAvailable(from: '7.0')] bool $details = true
-): array|false {}
+#[ArrayShape(["global_value" => "string", "local_value" => "string", "access" => "int"])]
+function ini_get_all(?string $extension): array|false {}
 
 /**
  * Sets the value of a configuration option
@@ -474,10 +433,7 @@ function ini_get_all(
  * </p>
  * @return string|false the old value on success, false on failure.
  */
-function ini_set(
-    string $option,
-    #[LanguageLevelTypeAware(['8.1' => 'string|int|float|bool|null'], default: 'string')] $value
-): string|false {}
+function ini_set(string $option, string $value): string|false {}
 
 /**
  * Alias:
@@ -488,10 +444,7 @@ function ini_set(
  * @param string $value
  * @return string|false
  */
-function ini_alter(
-    string $option,
-    #[LanguageLevelTypeAware(['8.1' => 'string|int|float|bool|null'], default: 'string')] $value
-): string|false {}
+function ini_alter(string $option, string $value): string|false {}
 
 /**
  * Restores the value of a configuration option
@@ -503,13 +456,6 @@ function ini_alter(
  * @return void
  */
 function ini_restore(string $option): void {}
-
-/**
- * @param string $shorthand
- * @return int
- * @since 8.2
- */
-function ini_parse_quantity(string $shorthand): int {}
 
 /**
  * Gets the current include_path configuration option
@@ -536,7 +482,7 @@ function set_include_path(string $include_path): string|false {}
  * @return void
  * @removed 8.0
  */
-#[Deprecated(since: '7.4')]
+#[Deprecated(since: "7.4")]
 function restore_include_path() {}
 
 /**
@@ -614,38 +560,7 @@ function restore_include_path() {}
  * setcookie successfully runs, it will return true.
  * This does not indicate whether the user accepted the cookie.
  */
-function setcookie(
-    string $name,
-    $value = "",
-    $expires_or_options = 0,
-    $path = "",
-    $domain = "",
-    $secure = false,
-    $httponly = false
-): bool {}
-
-/**
- * Send a cookie
- *
- * @link  https://php.net/manual/en/function.setcookie.php
- *
- * @param string $name The name of the cookie.
- * @param string $value [optional] The value of the cookie. This value is stored on the clients
- *                        computer; do not store sensitive information.
- *                        Assuming the name is 'cookiename', this value is retrieved through $_COOKIE['cookiename']
- * @param array $options [optional] An associative array which may have any of the keys expires, path, domain, secure,
- *                        httponly and samesite. The values have the same meaning as described for the parameters with
- *                        the same name. The value of the samesite element should be either Lax or Strict.
- *                        If any of the allowed options are not given, their default values are the same
- *                        as the default values of the explicit parameters. If the samesite element is omitted,
- *                        no SameSite cookie attribute is set.
- *
- * @return bool           If output exists prior to calling this function, setcookie will fail and return false. If
- *                        setcookie successfully runs, it will return true.
- *                        This does not indicate whether the user accepted the cookie.
- * @since 7.3
- */
-function setcookie(string $name, $value = '', array $options = []): bool {}
+function setcookie(string $name, $value = '', $expires_or_options = 0, $path = '', $domain = '', $secure = false, $httponly = false): bool {}
 
 /**
  * Send a cookie without urlencoding the cookie value
@@ -659,38 +574,7 @@ function setcookie(string $name, $value = '', array $options = []): bool {}
  * @param bool $httponly [optional]
  * @return bool true on success or false on failure.
  */
-function setrawcookie(
-    string $name,
-    $value = '',
-    $expires_or_options = 0,
-    $path = "",
-    $domain = "",
-    $secure = false,
-    $httponly = false
-): bool {}
-
-/**
- * Send a cookie without urlencoding the cookie value
- *
- * @link https://php.net/manual/en/function.setrawcookie.php
- *
- * @param string $name The name of the cookie.
- * @param string $value [optional] The value of the cookie. This value is stored on the clients
- *                        computer; do not store sensitive information.
- *                        Assuming the name is 'cookiename', this value is retrieved through $_COOKIE['cookiename']
- * @param array $options [optional] An associative array which may have any of the keys expires, path, domain, secure,
- *                        httponly and samesite. The values have the same meaning as described for the parameters with
- *                        the same name. The value of the samesite element should be either Lax or Strict.
- *                        If any of the allowed options are not given, their default values are the same
- *                        as the default values of the explicit parameters. If the samesite element is omitted,
- *                        no SameSite cookie attribute is set.
- *
- * @return bool           If output exists prior to calling this function, setcookie will fail and return false. If
- *                        setcookie successfully runs, it will return true.
- *                        This does not indicate whether the user accepted the cookie.
- * @since 7.3
- */
-function setrawcookie(string $name, $value = '', array $options = []): bool {}
+function setrawcookie(string $name, $value = '', $expires_or_options = 0, $path = '', $domain = '', $secure = false, $httponly = false): bool {}
 
 /**
  * Send a raw HTTP header
@@ -841,11 +725,7 @@ function ignore_user_abort(?bool $enable): int {}
  * and false on failure.
  */
 #[Pure(true)]
-function parse_ini_file(
-    string $filename,
-    bool $process_sections = false,
-    int $scanner_mode = INI_SCANNER_NORMAL
-): array|false {}
+function parse_ini_file(string $filename, bool $process_sections = false, int $scanner_mode = INI_SCANNER_NORMAL): array|false {}
 
 /**
  * Parse a configuration string
@@ -868,11 +748,7 @@ function parse_ini_file(
  * and false on failure.
  */
 #[Pure]
-function parse_ini_string(
-    string $ini_string,
-    bool $process_sections = false,
-    int $scanner_mode = INI_SCANNER_NORMAL
-): array|false {}
+function parse_ini_string(string $ini_string, bool $process_sections = false, int $scanner_mode = INI_SCANNER_NORMAL): array|false {}
 
 /**
  * Tells whether the file was uploaded via HTTP POST
@@ -906,13 +782,6 @@ function is_uploaded_file(string $filename): bool {}
  * false. Additionally, a warning will be issued.
  */
 function move_uploaded_file(string $from, string $to): bool {}
-
-/**
- * @return array|false
- * @since 7.3
- */
-#[Pure]
-function net_get_interfaces(): array|false {}
 
 /**
  * Get the Internet host name corresponding to a given IP address
@@ -1197,7 +1066,7 @@ function getmxrr(string $hostname, &$hosts, &$weights): bool {}
  * </td>
  * </tr>
  * <tr valign="top">
- * <td>A6(PHP &gt;= 5.1.0)</td>
+ * <td>A6(PHP >= 5.1.0)</td>
  * <td>
  * masklen: Length (in bits) to inherit from the target
  * specified by chain.
@@ -1230,10 +1099,4 @@ function getmxrr(string $hostname, &$hosts, &$weights): bool {}
  * </tr>
  * </table>
  */
-function dns_get_record(
-    string $hostname,
-    int $type = DNS_ANY,
-    &$authoritative_name_servers,
-    &$additional_records,
-    bool $raw = false
-): array|false {}
+function dns_get_record(string $hostname, int $type = DNS_ANY, &$authoritative_name_servers, &$additional_records, bool $raw = false): array|false {}

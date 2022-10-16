@@ -1,13 +1,17 @@
 <?php
 
-// Start of standard v.5.3.1-0.dotdeb.1
-
 define('CONNECTION_ABORTED', 1);
+
 define('CONNECTION_NORMAL', 0);
+
 define('CONNECTION_TIMEOUT', 2);
+
 define('INI_USER', 1);
+
 define('INI_PERDIR', 2);
+
 define('INI_SYSTEM', 4);
+
 define('INI_ALL', 7);
 
 /**
@@ -17,25 +21,25 @@ define('INI_ALL', 7);
 define('INI_SCANNER_NORMAL', 0);
 
 /**
- * Typed INI scanner mode
- * @since 5.6.1
- * @link https://php.net/manual/en/function.parse-ini-file.php
- */
-define('INI_SCANNER_TYPED', 2);
-
-/**
  * Raw INI scanner mode
  * @link https://php.net/manual/en/filesystem.constants.php
  */
 define('INI_SCANNER_RAW', 1);
 
 define('PHP_URL_SCHEME', 0);
+
 define('PHP_URL_HOST', 1);
+
 define('PHP_URL_PORT', 2);
+
 define('PHP_URL_USER', 3);
+
 define('PHP_URL_PASS', 4);
+
 define('PHP_URL_PATH', 5);
+
 define('PHP_URL_QUERY', 6);
+
 define('PHP_URL_FRAGMENT', 7);
 
 /**
@@ -156,6 +160,7 @@ define('PHP_ROUND_HALF_EVEN', 3);
  * @link https://php.net/manual/en/math.constants.php
  */
 define('PHP_ROUND_HALF_ODD', 4);
+
 define('INFO_GENERAL', 1);
 
 /**
@@ -197,6 +202,7 @@ define('INFO_VARIABLES', 32);
  * @link https://php.net/manual/en/info.constants.php
  */
 define('INFO_LICENSE', 64);
+
 define('INFO_ALL', 4294967295);
 
 /**
@@ -251,7 +257,9 @@ define('CREDITS_QA', 64);
  * @link https://php.net/manual/en/info.constants.php
  */
 define('CREDITS_ALL', 4294967295);
+
 define('HTML_SPECIALCHARS', 0);
+
 define('HTML_ENTITIES', 1);
 
 /**
@@ -278,28 +286,46 @@ define('ENT_NOQUOTES', 0);
  * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_IGNORE', 4);
+
 define('STR_PAD_LEFT', 0);
+
 define('STR_PAD_RIGHT', 1);
+
 define('STR_PAD_BOTH', 2);
+
 define('PATHINFO_DIRNAME', 1);
+
 define('PATHINFO_BASENAME', 2);
+
 define('PATHINFO_EXTENSION', 4);
 
 /**
  * @link https://php.net/manual/en/filesystem.constants.php
  */
 define('PATHINFO_FILENAME', 8);
+
 define('PATHINFO_ALL', 15);
+
 define('CHAR_MAX', 127);
+
 define('LC_CTYPE', 0);
+
 define('LC_NUMERIC', 1);
+
 define('LC_TIME', 2);
+
 define('LC_COLLATE', 3);
+
 define('LC_MONETARY', 4);
+
 define('LC_ALL', 6);
+
 define('LC_MESSAGES', 5);
+
 define('SEEK_SET', 0);
+
 define('SEEK_CUR', 1);
+
 define('SEEK_END', 2);
 
 /**
@@ -566,7 +592,9 @@ define('STREAM_SOCK_SEQPACKET', 5);
  * @link https://php.net/manual/en/stream.constants.php
  */
 define('STREAM_SOCK_RDM', 4);
+
 define('STREAM_PEEK', 2);
+
 define('STREAM_OOB', 1);
 
 /**
@@ -609,6 +637,7 @@ define('FILE_SKIP_EMPTY_LINES', 4);
  * @link https://php.net/manual/en/filesystem.constants.php
  */
 define('FILE_APPEND', 8);
+
 define('FILE_NO_DEFAULT_CONTEXT', 16);
 
 /**
@@ -697,87 +726,169 @@ define('PSFS_FLAG_FLUSH_INC', 1);
  * @link https://php.net/manual/en/stream.constants.php
  */
 define('PSFS_FLAG_FLUSH_CLOSE', 2);
+
 define('ABDAY_1', 131072);
+
 define('ABDAY_2', 131073);
+
 define('ABDAY_3', 131074);
+
 define('ABDAY_4', 131075);
+
 define('ABDAY_5', 131076);
+
 define('ABDAY_6', 131077);
+
 define('ABDAY_7', 131078);
+
 define('DAY_1', 131079);
+
 define('DAY_2', 131080);
+
 define('DAY_3', 131081);
+
 define('DAY_4', 131082);
+
 define('DAY_5', 131083);
+
 define('DAY_6', 131084);
+
 define('DAY_7', 131085);
+
 define('ABMON_1', 131086);
+
 define('ABMON_2', 131087);
+
 define('ABMON_3', 131088);
+
 define('ABMON_4', 131089);
+
 define('ABMON_5', 131090);
+
 define('ABMON_6', 131091);
+
 define('ABMON_7', 131092);
+
 define('ABMON_8', 131093);
+
 define('ABMON_9', 131094);
+
 define('ABMON_10', 131095);
+
 define('ABMON_11', 131096);
+
 define('ABMON_12', 131097);
+
 define('MON_1', 131098);
+
 define('MON_2', 131099);
+
 define('MON_3', 131100);
+
 define('MON_4', 131101);
+
 define('MON_5', 131102);
+
 define('MON_6', 131103);
+
 define('MON_7', 131104);
+
 define('MON_8', 131105);
+
 define('MON_9', 131106);
+
 define('MON_10', 131107);
+
 define('MON_11', 131108);
+
 define('MON_12', 131109);
+
 define('AM_STR', 131110);
+
 define('PM_STR', 131111);
+
 define('D_T_FMT', 131112);
+
 define('D_FMT', 131113);
+
 define('T_FMT', 131114);
+
 define('T_FMT_AMPM', 131115);
+
 define('ERA', 131116);
+
 define('ERA_D_T_FMT', 131120);
+
 define('ERA_D_FMT', 131118);
+
 define('ERA_T_FMT', 131121);
+
 define('ALT_DIGITS', 131119);
+
 define('CRNCYSTR', 262159);
+
 define('RADIXCHAR', 65536);
+
 define('THOUSEP', 65537);
+
 define('YESEXPR', 327680);
+
 define('NOEXPR', 327681);
+
 define('YESSTR', 327682);
+
 define('NOSTR', 327683);
+
 define('CODESET', 14);
+
 define('CRYPT_SALT_LENGTH', 123);
+
 define('CRYPT_STD_DES', 1);
+
 define('CRYPT_EXT_DES', 1);
+
 define('CRYPT_MD5', 1);
+
 define('CRYPT_BLOWFISH', 1);
+
 define('CRYPT_SHA256', 1);
+
 define('CRYPT_SHA512', 1);
+
 define('DIRECTORY_SEPARATOR', "/");
+
 define('PATH_SEPARATOR', ":");
+
 define('GLOB_BRACE', 1024);
+
 define('GLOB_MARK', 2);
+
 define('GLOB_NOSORT', 4);
+
 define('GLOB_NOCHECK', 16);
+
 define('GLOB_NOESCAPE', 64);
+
 define('GLOB_ERR', 1);
+
 define('GLOB_ONLYDIR', 1073741824);
+
 define('GLOB_AVAILABLE_FLAGS', 1073741911);
+
 define('EXTR_OVERWRITE', 0);
+
 define('EXTR_SKIP', 1);
+
 define('EXTR_PREFIX_SAME', 2);
+
 define('EXTR_PREFIX_ALL', 3);
+
 define('EXTR_PREFIX_INVALID', 4);
+
 define('EXTR_PREFIX_IF_EXISTS', 5);
+
 define('EXTR_IF_EXISTS', 6);
+
 define('EXTR_REFS', 256);
 
 /**
@@ -836,17 +947,24 @@ define('CASE_LOWER', 0);
  * @link https://php.net/manual/en/array.constants.php
  */
 define('CASE_UPPER', 1);
+
 define('COUNT_NORMAL', 0);
+
 define('COUNT_RECURSIVE', 1);
+
 define('ASSERT_ACTIVE', 1);
+
 define('ASSERT_CALLBACK', 2);
+
 define('ASSERT_BAIL', 3);
+
 define('ASSERT_WARNING', 4);
 
 /**
  * @removed 8.0
  */
 define('ASSERT_QUIET_EVAL', 5);
+
 define('ASSERT_EXCEPTION', 5);
 
 /**
@@ -854,7 +972,9 @@ define('ASSERT_EXCEPTION', 5);
  * @link https://php.net/manual/en/stream.constants.php
  */
 define('STREAM_USE_PATH', 1);
+
 define('STREAM_IGNORE_URL', 2);
+
 define('STREAM_ENFORCE_SAFE_MODE', 4);
 
 /**
@@ -881,16 +1001,27 @@ define('STREAM_REPORT_ERRORS', 8);
  * @link https://php.net/manual/en/internals2.ze1.streams.constants.php
  */
 define('STREAM_MUST_SEEK', 16);
+
 define('STREAM_URL_STAT_LINK', 1);
+
 define('STREAM_URL_STAT_QUIET', 2);
+
 define('STREAM_MKDIR_RECURSIVE', 1);
+
 define('STREAM_IS_URL', 1);
+
 define('STREAM_OPTION_BLOCKING', 1);
+
 define('STREAM_OPTION_READ_TIMEOUT', 4);
+
 define('STREAM_OPTION_READ_BUFFER', 2);
+
 define('STREAM_OPTION_WRITE_BUFFER', 3);
+
 define('STREAM_BUFFER_NONE', 0);
+
 define('STREAM_BUFFER_LINE', 1);
+
 define('STREAM_BUFFER_FULL', 2);
 
 /**
@@ -1015,19 +1146,10 @@ define('IMAGETYPE_XBM', 16);
  */
 define('IMAGETYPE_ICO', 17);
 
-/**
- * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
- * @since 7.1
- */
-define('IMAGETYPE_WEBP', 18);
 define('IMAGETYPE_UNKNOWN', 0);
+
 define('IMAGETYPE_COUNT', 20);
 
-/**
- * @since 8.1
- */
-define('IMAGETYPE_AVIF', 19);
 /**
  * IPv4 Address Resource
  * @link https://php.net/manual/en/network.constants.php
@@ -1079,7 +1201,9 @@ define('DNS_MX', 16384);
  * @link https://php.net/manual/en/network.constants.php
  */
 define('DNS_TXT', 32768);
+
 define('DNS_SRV', 33554432);
+
 define('DNS_NAPTR', 67108864);
 
 /**
@@ -1087,6 +1211,7 @@ define('DNS_NAPTR', 67108864);
  * @link https://php.net/manual/en/network.constants.php
  */
 define('DNS_AAAA', 134217728);
+
 define('DNS_A6', 16777216);
 
 /**
@@ -1105,23 +1230,18 @@ define('DNS_ANY', 268435456);
  */
 define('DNS_ALL', 251721779);
 
-// End of standard v.5.3.1-0.dotdeb.1
-
-//WI-11084 Constant not defined PHP_QUERY_RFC3986
-
 /**
  * Encoding is performed per RFC 1738 and the application/x-www-form-urlencoded media type,
  * which implies that spaces are encoded as plus (+) signs.
  * @link https://php.net/manual/en/function.http-build-query.php
  */
 define('PHP_QUERY_RFC1738', 1);
+
 /**
  * Encoding is performed according to RFC 3986, and spaces will be percent encoded (%20).
  * @link https://php.net/manual/en/function.http-build-query.php
  */
 define('PHP_QUERY_RFC3986', 2);
-
-//WI-11254 Stubs for missing constants from PHP 5.4
 
 /**
  * (PHP4, PHP5)
@@ -1132,143 +1252,73 @@ define('PHP_QUERY_RFC3986', 2);
  * @link https://php.net/manual/en/session.constants.php
  */
 define('SID', "name=ID");
-/**
- * Return value of session_status() if sessions are disabled.
- * @since 5.4
- * @link https://php.net/manual/en/function.session-status.php
- */
-define('PHP_SESSION_DISABLED', 0);
-/**
- * Return value of session_status() if sessions are enabled, but no session exists.
- * @since 5.4
- * @link https://php.net/manual/en/function.session-status.php
- */
-define('PHP_SESSION_NONE', 1);
-/**
- * Return value of session_status() if sessions are enabled, and a session exists.
- * @since 5.4
- * @link https://php.net/manual/en/function.session-status.php
- */
-define('PHP_SESSION_ACTIVE', 2);
-
-/**
- * Replace invalid code unit sequences with a Unicode Replacement Character
- * U+FFFD (UTF-8) or &#FFFD; (otherwise) instead of returning an empty string.
- * @since 5.4
- * @link https://php.net/manual/en/function.htmlspecialchars.php
- */
-define('ENT_SUBSTITUTE', 8);
-/**
- * Replace invalid code points for the given document type with
- * a Unicode Replacement Character U+FFFD (UTF-8) or &#FFFD;
- * (otherwise) instead of leaving them as is. This may be useful,
- * for instance, to ensure the well-formedness of XML documents
- * with embedded external content.
- * @since 5.4
- * @link https://php.net/manual/en/function.htmlspecialchars.php
- */
-define('ENT_DISALLOWED', 128);
-/**
- * Handle code as HTML 4.01.
- * @since 5.4
- * @link https://php.net/manual/en/function.htmlspecialchars.php
- */
-define('ENT_HTML401', 0);
-/**
- * Handle code as XML 1.
- * @since 5.4
- * @link https://php.net/manual/en/function.htmlspecialchars.php
- */
-define('ENT_XML1', 16);
-/**
- * Handle code as XHTML.
- * @since 5.4
- * @link https://php.net/manual/en/function.htmlspecialchars.php
- */
-define('ENT_XHTML', 32);
-/**
- * Handle code as HTML 5.
- * @since 5.4
- * @link https://php.net/manual/en/function.htmlspecialchars.php
- */
-define('ENT_HTML5', 48);
 
 /** @link https://php.net/manual/en/function.scandir.php */
 define('SCANDIR_SORT_ASCENDING', 0);
+
 /** @link https://php.net/manual/en/function.scandir.php */
 define('SCANDIR_SORT_DESCENDING', 1);
+
 /** @link https://php.net/manual/en/function.scandir.php */
 define('SCANDIR_SORT_NONE', 2);
 
-/**
- * SORT_NATURAL is used to compare items as strings using "natural ordering" like natsort().
- * @since 5.4
- * @link https://php.net/manual/en/array.constants.php
- */
-define('SORT_NATURAL', 6);
-/**
- * SORT_FLAG_CASE can be combined (bitwise OR) with SORT_STRING or SORT_NATURAL to sort strings case-insensitively.
- * @since 5.4
- * @link https://php.net/manual/en/array.constants.php
- */
-define('SORT_FLAG_CASE', 8);
-
 /** @link https://php.net/manual/en/streamwrapper.stream-metadata.php */
 define('STREAM_META_TOUCH', 1);
+
 /** @link https://php.net/manual/en/streamwrapper.stream-metadata.php */
 define('STREAM_META_OWNER', 3);
+
 /** @link https://php.net/manual/en/streamwrapper.stream-metadata.php */
 define('STREAM_META_OWNER_NAME', 2);
+
 /** @link https://php.net/manual/en/streamwrapper.stream-metadata.php */
 define('STREAM_META_GROUP', 5);
+
 /** @link https://php.net/manual/en/streamwrapper.stream-metadata.php */
 define('STREAM_META_GROUP_NAME', 4);
+
 /** @link https://php.net/manual/en/streamwrapper.stream-metadata.php */
 define('STREAM_META_ACCESS', 6);
 
 define('STREAM_CRYPTO_METHOD_SSLv2_CLIENT', 3);
+
 define('STREAM_CRYPTO_METHOD_SSLv3_CLIENT', 5);
+
 define('STREAM_CRYPTO_METHOD_SSLv23_CLIENT', 57);
+
 define('STREAM_CRYPTO_METHOD_TLS_CLIENT', 121);
+
 define('STREAM_CRYPTO_METHOD_SSLv2_SERVER', 2);
+
 define('STREAM_CRYPTO_METHOD_SSLv3_SERVER', 4);
+
 define('STREAM_CRYPTO_METHOD_SSLv23_SERVER', 120);
+
 define('STREAM_CRYPTO_METHOD_TLS_SERVER', 120);
 
-define("STREAM_CRYPTO_METHOD_ANY_CLIENT", 127);
-define("STREAM_CRYPTO_METHOD_ANY_SERVER", 126);
-define("STREAM_CRYPTO_METHOD_TLSv1_0_CLIENT", 9);
-define("STREAM_CRYPTO_METHOD_TLSv1_0_SERVER", 8);
-define("STREAM_CRYPTO_METHOD_TLSv1_1_CLIENT", 17);
-define("STREAM_CRYPTO_METHOD_TLSv1_1_SERVER", 16);
-define("STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT", 33);
-define("STREAM_CRYPTO_METHOD_TLSv1_2_SERVER", 32);
-/**
- * @since 7.4
- */
-define("STREAM_CRYPTO_METHOD_TLSv1_3_CLIENT", 65);
-/**
- * @since 7.4
- */
-define("STREAM_CRYPTO_METHOD_TLSv1_3_SERVER", 64);
+define('STREAM_CRYPTO_METHOD_ANY_CLIENT', 127);
 
-define("STREAM_CRYPTO_PROTO_SSLv3", 4);
-define("STREAM_CRYPTO_PROTO_TLSv1_0", 8);
-define("STREAM_CRYPTO_PROTO_TLSv1_1", 16);
-define("STREAM_CRYPTO_PROTO_TLSv1_2", 32);
-/**
- * @since 7.4
- */
-define("STREAM_CRYPTO_PROTO_TLSv1_3", 64);
+define('STREAM_CRYPTO_METHOD_ANY_SERVER', 126);
 
-/**
- * @since 7.1
- */
-define("MT_RAND_MT19937", 0);
-/**
- * @since 7.1
- */
-define("MT_RAND_PHP", 1);
+define('STREAM_CRYPTO_METHOD_TLSv1_0_CLIENT', 9);
+
+define('STREAM_CRYPTO_METHOD_TLSv1_0_SERVER', 8);
+
+define('STREAM_CRYPTO_METHOD_TLSv1_1_CLIENT', 17);
+
+define('STREAM_CRYPTO_METHOD_TLSv1_1_SERVER', 16);
+
+define('STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT', 33);
+
+define('STREAM_CRYPTO_METHOD_TLSv1_2_SERVER', 32);
+
+define('STREAM_CRYPTO_PROTO_SSLv3', 4);
+
+define('STREAM_CRYPTO_PROTO_TLSv1_0', 8);
+
+define('STREAM_CRYPTO_PROTO_TLSv1_1', 16);
+
+define('STREAM_CRYPTO_PROTO_TLSv1_2', 32);
 
 /**
  * system is unusable
@@ -1384,13 +1434,21 @@ define('LOG_CRON', 72);
  * @link https://php.net/manual/en/network.constants.php
  */
 define('LOG_AUTHPRIV', 80);
+
 define('LOG_LOCAL0', 128);
+
 define('LOG_LOCAL1', 136);
+
 define('LOG_LOCAL2', 144);
+
 define('LOG_LOCAL3', 152);
+
 define('LOG_LOCAL4', 160);
+
 define('LOG_LOCAL5', 168);
+
 define('LOG_LOCAL6', 176);
+
 define('LOG_LOCAL7', 184);
 
 /**
@@ -1418,6 +1476,7 @@ define('LOG_ODELAY', 4);
  * @link https://php.net/manual/en/network.constants.php
  */
 define('LOG_NDELAY', 8);
+
 define('LOG_NOWAIT', 16);
 
 /**
@@ -1425,82 +1484,3 @@ define('LOG_NOWAIT', 16);
  * @link https://php.net/manual/en/network.constants.php
  */
 define('LOG_PERROR', 32);
-
-/**
- * @since 8.2
- */
-define('DECIMAL_POINT', 65536);
-/**
- * @since 8.2
- */
-define('THOUSANDS_SEP', 65537);
-/**
- * @since 8.2
- */
-define('GROUPING', 65538);
-
-/**
- * @since 8.2
- */
-define('ERA_YEAR', 131117);
-
-/**
- * @since 8.2
- */
-define('INT_CURR_SYMBOL', 262144);
-/**
- * @since 8.2
- */
-define('CURRENCY_SYMBOL', 262145);
-/**
- * @since 8.2
- */
-define('MON_DECIMAL_POINT', 262146);
-/**
- * @since 8.2
- */
-define('MON_THOUSANDS_SEP', 262147);
-/**
- * @since 8.2
- */
-define('MON_GROUPING', 262148);
-/**
- * @since 8.2
- */
-define('POSITIVE_SIGN', 262149);
-/**
- * @since 8.2
- */
-define('NEGATIVE_SIGN', 262150);
-/**
- * @since 8.2
- */
-define('INT_FRAC_DIGITS', 262151);
-/**
- * @since 8.2
- */
-define('FRAC_DIGITS', 262152);
-/**
- * @since 8.2
- */
-define('P_CS_PRECEDES', 262153);
-/**
- * @since 8.2
- */
-define('P_SEP_BY_SPACE', 262154);
-/**
- * @since 8.2
- */
-define('N_CS_PRECEDES', 262155);
-/**
- * @since 8.2
- */
-define('N_SEP_BY_SPACE', 262156);
-/**
- * @since 8.2
- */
-define('P_SIGN_POSN', 262157);
-/**
- * @since 8.2
- */
-define('N_SIGN_POSN', 262158);

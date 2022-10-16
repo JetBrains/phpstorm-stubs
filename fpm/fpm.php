@@ -1,10 +1,4 @@
 <?php
-/**
- * Returns FPM status info array
- * @return array|false
- * @since 7.3
- */
-function fpm_get_status(): array|false {}
 
 /**
  * This function flushes all response data to the client and finishes the request.

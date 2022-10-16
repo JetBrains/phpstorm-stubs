@@ -2,18 +2,7 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\ExpectedValues;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
-
-/**
- * (PHP 5.5.0)<br/>
- * Get the boolean value of a variable
- * @param mixed $value <p>the scalar value being converted to a boolean.</p>
- * @return bool The boolean value of var.
- * @since 5.5
- */
-#[Pure]
-function boolval(mixed $value): bool {}
 
 /**
  * Get the integer value of a variable
@@ -101,9 +90,7 @@ function strval(mixed $value): string {}
  * "resource (closed)" since 7.2.0
  */
 #[Pure]
-#[ExpectedValues([
-    "boolean", "integer", "double", "string", "array", "object", "resource", "NULL", "unknown type", "resource (closed)"
-])]
+#[ExpectedValues(["boolean", "integer", "double", "string", "array", "object", "resource", "NULL", "unknown type", "resource (closed)"])]
 function gettype(mixed $value): string {}
 
 /**
@@ -140,10 +127,7 @@ function gettype(mixed $value): string {}
  * </ul>
  * @return bool true on success or false on failure.
  */
-function settype(
-    mixed &$var,
-    #[ExpectedValues(["bool", "boolean", "int", "integer", "float", "double", "string", "array", "object", "null"])] string $type
-): bool {}
+function settype(mixed &$var, #[ExpectedValues(["bool", "boolean", "int", "integer", "float", "double", "string", "array", "object", "null"])] string $type): bool {}
 
 /**
  * Finds whether a variable is null.
@@ -255,7 +239,7 @@ function is_double(mixed $value): bool {}
  * false otherwise.
  */
 #[Pure]
-#[Deprecated(since: '7.4')]
+#[Deprecated(since: "7.4")]
 function is_real(mixed $var): bool {}
 
 /**
@@ -342,17 +326,6 @@ function is_scalar(mixed $value): bool {}
  * otherwise.
  */
 function is_callable(mixed $value, bool $syntax_only = false, &$callable_name): bool {}
-
-/**
- * Verify that the contents of a variable is a countable value
- * @link https://secure.php.net/is_countable
- *
- * @param mixed $value The value to check
- * @return bool <b>TRUE</b> if $var is countable, <b>FALSE</b> otherwise.
- * @since 7.3
- */
-#[Pure]
-function is_countable(mixed $value): bool {}
 
 /**
  * Closes process file pointer
@@ -512,7 +485,7 @@ function fgets($stream, ?int $length): string|false {}
  * If an error occurs, returns false.
  * @removed 8.0
  */
-#[Deprecated(since: '7.3')]
+#[Deprecated(since: "7.3")]
 function fgetss($handle, ?int $length = null, $allowable_tags = null): false|string {}
 
 /**
@@ -718,8 +691,7 @@ function fopen(string $filename, string $mode, bool $use_include_path = false, $
  * the number of characters read from handle
  * and passed through to the output.
  */
-#[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
-function fpassthru($stream) {}
+function fpassthru($stream): int|false {}
 
 /**
  * Truncates a file to a given length
@@ -810,20 +782,6 @@ function ftell($stream): int|false {}
 function fflush($stream): bool {}
 
 /**
- * Sync file to storage. Similar to fflush() but blocks until OS buffers have flushed.
- * @param resource $stream
- * @since 8.1
- */
-function fsync($stream): bool {}
-
-/**
- * Sync file data only to storage. Similar to fsync but does not flush modified metadata. POSIX only, aliased to fsync on Win32.
- * @param resource $stream
- * @since 8.1
- */
-function fdatasync($stream): bool {}
-
-/**
  * Binary-safe file write
  * @link https://php.net/manual/en/function.fwrite.php
  * @param resource $stream &fs.file.pointer;
@@ -898,7 +856,7 @@ function fputs($stream, string $data, ?int $length): int|false {}
  * @param resource $context [optional]
  * @return bool true on success or false on failure.
  */
-function mkdir(string $directory, int $permissions = 0777, bool $recursive = false, $context): bool {}
+function mkdir(string $directory, int $permissions = 511, bool $recursive = false, $context): bool {}
 
 /**
  * Renames a file or directory
@@ -1020,13 +978,7 @@ function file(string $filename, int $flags = 0, $context): array|false {}
  * @return string|false The function returns the read data or false on failure.
  */
 #[Pure(true)]
-function file_get_contents(
-    string $filename,
-    bool $use_include_path = false,
-    $context,
-    int $offset = 0,
-    ?int $length
-): string|false {}
+function file_get_contents(string $filename, bool $use_include_path = false, $context, int $offset = 0, ?int $length): string|false {}
 
 /**
  * Write a string to a file

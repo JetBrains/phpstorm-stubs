@@ -1,7 +1,48 @@
 <?php
 
-// Start of calendar v.
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\ArrayShape;
+
+define('CAL_GREGORIAN', 0);
+
+define('CAL_JULIAN', 1);
+
+define('CAL_JEWISH', 2);
+
+define('CAL_FRENCH', 3);
+
+define('CAL_NUM_CALS', 4);
+
+define('CAL_DOW_DAYNO', 0);
+
+define('CAL_DOW_SHORT', 2);
+
+define('CAL_DOW_LONG', 1);
+
+define('CAL_MONTH_GREGORIAN_SHORT', 0);
+
+define('CAL_MONTH_GREGORIAN_LONG', 1);
+
+define('CAL_MONTH_JULIAN_SHORT', 2);
+
+define('CAL_MONTH_JULIAN_LONG', 3);
+
+define('CAL_MONTH_JEWISH', 4);
+
+define('CAL_MONTH_FRENCH', 5);
+
+define('CAL_EASTER_DEFAULT', 0);
+
+define('CAL_EASTER_ROMAN', 1);
+
+define('CAL_EASTER_ALWAYS_GREGORIAN', 2);
+
+define('CAL_EASTER_ALWAYS_JULIAN', 3);
+
+define('CAL_JEWISH_ADD_ALAFIM_GERESH', 2);
+
+define('CAL_JEWISH_ADD_ALAFIM', 4);
+
+define('CAL_JEWISH_ADD_GERESHAYIM', 8);
 
 /**
  * Converts Julian Day Count to Gregorian date
@@ -169,7 +210,7 @@ function jdmonthname(int $julian_day, int $mode): string {}
  * @param int $mode [optional] Allows Easter dates to be calculated based on the Julian calendar when set to CAL_EASTER_ALWAYS_JULIAN
  * @return int The easter date as a unix timestamp.
  */
-function easter_date(?int $year, #[PhpStormStubsElementAvailable(from: '8.0')] int $mode = CAL_EASTER_DEFAULT): int {}
+function easter_date(?int $year): int {}
 
 /**
  * Get number of days after March 21 on which Easter falls for a given year
@@ -247,6 +288,7 @@ function cal_to_jd(int $calendar, int $month, int $day, int $year): int {}
  * day of week, abbreviated and full names of weekday and month and the
  * date in string form "month/day/year".
  */
+#[ArrayShape(["date" => "string", "month" => "int", "day" => "int", "year" => "int", "dow" => "int", "abbrevdayname" => "string", "dayname" => "string", "abbrevmonth" => "string", "monthname" => "string"])]
 function cal_from_jd(int $julian_day, int $calendar): array {}
 
 /**
@@ -274,28 +316,5 @@ function cal_days_in_month(int $calendar, int $month, int $year): int {}
  * </p>
  * @return array
  */
+#[ArrayShape(["months" => "array", "abbrevmonths" => "array", "maxdaysinmonth" => "int", "calname" => "string", "calsymbol" => "string"])]
 function cal_info(int $calendar = -1): array {}
-
-define('CAL_GREGORIAN', 0);
-define('CAL_JULIAN', 1);
-define('CAL_JEWISH', 2);
-define('CAL_FRENCH', 3);
-define('CAL_NUM_CALS', 4);
-define('CAL_DOW_DAYNO', 0);
-define('CAL_DOW_SHORT', 2);
-define('CAL_DOW_LONG', 1);
-define('CAL_MONTH_GREGORIAN_SHORT', 0);
-define('CAL_MONTH_GREGORIAN_LONG', 1);
-define('CAL_MONTH_JULIAN_SHORT', 2);
-define('CAL_MONTH_JULIAN_LONG', 3);
-define('CAL_MONTH_JEWISH', 4);
-define('CAL_MONTH_FRENCH', 5);
-define('CAL_EASTER_DEFAULT', 0);
-define('CAL_EASTER_ROMAN', 1);
-define('CAL_EASTER_ALWAYS_GREGORIAN', 2);
-define('CAL_EASTER_ALWAYS_JULIAN', 3);
-define('CAL_JEWISH_ADD_ALAFIM_GERESH', 2);
-define('CAL_JEWISH_ADD_ALAFIM', 4);
-define('CAL_JEWISH_ADD_GERESHAYIM', 8);
-
-// End of calendar v.

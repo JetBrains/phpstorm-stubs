@@ -1,12 +1,19 @@
 <?php
 
-// Start of PDO v.1.0.4dev
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
+
+/**
+ * (PHP 5 >= 5.1.3, PHP 7, PECL pdo >= 1.0.3)<br/>
+ * Return an array of available PDO drivers
+ * @link https://php.net/manual/en/pdo.getavailabledrivers.php
+ * @return array <b>PDO::getAvailableDrivers</b> returns an array of PDO driver names. If
+ * no drivers are available, it returns an empty array.
+ */
+#[Pure]
+function pdo_drivers(): array {}
 
 /**
  * Represents an error raised by PDO. You should not throw a
@@ -16,7 +23,6 @@ use JetBrains\PhpStorm\Pure;
  */
 class PDOException extends RuntimeException
 {
-    #[LanguageLevelTypeAware(['8.1' => 'array|null'], default: '')]
     public $errorInfo;
     protected $code;
 }
@@ -62,54 +68,6 @@ class PDO
      * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-bool
      */
     public const PARAM_BOOL = 5;
-
-    /**
-     * Flag to denote a string uses the national character set.
-     * @since 7.2
-     * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-str-natl
-     */
-    public const PARAM_STR_NATL = 1073741824;
-
-    /**
-     * Flag to denote a string uses the regular character set.
-     * @since 7.2
-     * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-str-char
-     */
-    public const PARAM_STR_CHAR = 536870912;
-
-    /**
-     * Sets the default string parameter type, this can be one of PDO::PARAM_STR_NATL and PDO::PARAM_STR_CHAR.
-     * @since 7.2
-     * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.attr-default-str-param
-     */
-    public const ATTR_DEFAULT_STR_PARAM = 21;
-
-    /**
-     * Specifies that a function created with PDO::sqliteCreateFunction() is deterministic, i.e. it always returns the same result given the same inputs within a single SQL statement.
-     * @since 7.1.4
-     * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.sqlite-deterministic
-     */
-    public const SQLITE_DETERMINISTIC = 2048;
-
-    /**
-     * @since 7.3
-     */
-    public const SQLITE_OPEN_READONLY = 1;
-
-    /**
-     * @since 7.3
-     */
-    public const SQLITE_OPEN_READWRITE = 2;
-
-    /**
-     * @since 7.3
-     */
-    public const SQLITE_OPEN_CREATE = 4;
-
-    /**
-     * @since 7.3
-     */
-    public const SQLITE_ATTR_OPEN_FLAGS = 1000;
 
     /**
      * Specifies that the parameter is an INOUT parameter for a stored
@@ -553,13 +511,6 @@ class PDO
     public const FETCH_ORI_REL = 5;
 
     /**
-     * Specifies that the default fetch mode shall be used.
-     * @since 8.0.7
-     * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.fetch-default
-     */
-    public const FETCH_DEFAULT = 0;
-
-    /**
      * Create a <b>PDOStatement</b> object with a forward-only cursor. This is the
      * default cursor choice, as it is the fastest and most common data access
      * pattern in PHP.
@@ -734,33 +685,6 @@ class PDO
      */
     public const MYSQL_ATTR_SSL_CIPHER = 1011;
 
-    /**
-     * <p>
-     * Disables multi query execution in both {@see PDO::prepare()} and {@see PDO::query()} when set to FALSE.
-     * </p>
-     * <p>
-     * Note, this constant can only be used in the driver_options array when constructing a new database handle.
-     * </p>
-     * @since 5.5.21
-     * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-multi-statements
-     */
-    public const MYSQL_ATTR_MULTI_STATEMENTS = 1013;
-
-    /**
-     * <p>
-     * Disables SSL peer verification when set to FALSE.
-     * </p>
-     * @since 7.0.18
-     * @since 7.1.4
-     * @link https://bugs.php.net/bug.php?id=71003
-     */
-    public const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1014;
-
-    /**
-     * @since 8.1
-     */
-    public const MYSQL_ATTR_LOCAL_INFILE_DIRECTORY = 1015;
-
     #[Deprecated("Use PDO::ATTR_EMULATE_PREPARES instead")]
     public const PGSQL_ASSOC = 1;
 
@@ -768,11 +692,6 @@ class PDO
      * @removed 7.1
      */
     public const PGSQL_ATTR_DISABLE_NATIVE_PREPARED_STATEMENT = 1000;
-
-    /**
-     * @since 5.6
-     */
-    public const PGSQL_ATTR_DISABLE_PREPARES = 1000;
     public const PGSQL_BAD_RESPONSE = 5;
     public const PGSQL_BOTH = 3;
     public const PGSQL_TRANSACTION_IDLE = 0;
@@ -834,11 +753,11 @@ class PDO
     public const PGSQL_STATUS_LONG = 1;
     public const PGSQL_STATUS_STRING = 2;
     public const PGSQL_TUPLES_OK = 2;
-    public const SQLSRV_TXN_READ_UNCOMMITTED = "READ_UNCOMMITTED";
-    public const SQLSRV_TXN_READ_COMMITTED = "READ_COMMITTED";
-    public const SQLSRV_TXN_REPEATABLE_READ = "REPEATABLE_READ";
-    public const SQLSRV_TXN_SNAPSHOT = "SNAPSHOT";
-    public const SQLSRV_TXN_SERIALIZABLE = "SERIALIZABLE";
+    public const SQLSRV_TXN_READ_UNCOMMITTED = 'READ_UNCOMMITTED';
+    public const SQLSRV_TXN_READ_COMMITTED = 'READ_COMMITTED';
+    public const SQLSRV_TXN_REPEATABLE_READ = 'REPEATABLE_READ';
+    public const SQLSRV_TXN_SNAPSHOT = 'SNAPSHOT';
+    public const SQLSRV_TXN_SERIALIZABLE = 'SERIALIZABLE';
     public const SQLSRV_ENCODING_BINARY = 2;
     public const SQLSRV_ENCODING_SYSTEM = 3;
     public const SQLSRV_ENCODING_UTF8 = 65001;
@@ -860,50 +779,6 @@ class PDO
     public const SQLSRV_CURSOR_BUFFERED = 42;
 
     /**
-     * @since 7.4
-     */
-    public const SQLITE_ATTR_READONLY_STATEMENT = 1001;
-
-    /**
-     * @since 7.4
-     */
-    public const SQLITE_ATTR_EXTENDED_RESULT_CODES = 1002;
-
-    /**
-     * Provides a way to specify the action on the database session.
-     * @since 7.2.16
-     * @since 7.3.3
-     */
-    public const OCI_ATTR_ACTION = 1000;
-
-    /**
-     * Provides a way to specify the client info on the database session.
-     * @since 7.2.16
-     * @since 7.3.3
-     */
-    public const OCI_ATTR_CLIENT_INFO = 1001;
-
-    /**
-     * Provides a way to specify the client identifier on the database session.
-     * @since 7.2.16
-     * @since 7.3.3
-     */
-    public const OCI_ATTR_CLIENT_IDENTIFIER = 1002;
-
-    /**
-     * Provides a way to specify the module on the database session.
-     * @since 7.2.16
-     * @since 7.3.3
-     */
-    public const OCI_ATTR_MODULE = 1003;
-
-    /**
-     * The number of milliseconds to wait for individual round trips to the database to complete before timing out.
-     * @since 8.0
-     */
-    public const OCI_ATTR_CALL_TIMEOUT = 1004;
-
-    /**
      * Sets the date format.
      */
     public const FB_ATTR_DATE_FORMAT = 1000;
@@ -919,7 +794,7 @@ class PDO
     public const FB_ATTR_TIMESTAMP_FORMAT = 1002;
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Creates a PDO instance representing a connection to a database
      * @link https://php.net/manual/en/pdo.construct.php
      * @param string $dsn
@@ -928,15 +803,10 @@ class PDO
      * @param array $options [optional]
      * @throws PDOException if the attempt to connect to the requested database fails.
      */
-    public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $dsn,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $username = null,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $password = null,
-        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: '')] $options = null
-    ) {}
+    public function __construct($dsn, $username = null, $password = null, $options = null) {}
 
     /**
-     * (PHP 5 &gt;= 5.1.3, PHP 7, PECL pdo &gt;= 1.0.3)<br/>
+     * (PHP 5 >= 5.1.3, PHP 7, PECL pdo >= 1.0.3)<br/>
      * Return an array of available PDO drivers
      * @link https://php.net/manual/en/pdo.getavailabledrivers.php
      * @return array <b>PDO::getAvailableDrivers</b> returns an array of PDO driver names. If
@@ -946,7 +816,7 @@ class PDO
     public static function getAvailableDrivers(): array {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Prepares a statement for execution and returns a statement object
      * @link https://php.net/manual/en/pdo.prepare.php
      * @param string $query <p>
@@ -973,13 +843,10 @@ class PDO
      * so <b>PDO::prepare</b> does not check the statement.
      */
     #[TentativeType]
-    public function prepare(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $query,
-        array $options = []
-    ): PDOStatement|false {}
+    public function prepare($query, array $options = []): PDOStatement|false {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Initiates a transaction
      * <p>
      * Turns off autocommit mode. While autocommit mode is turned off,
@@ -1006,7 +873,7 @@ class PDO
     public function beginTransaction(): bool {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Commits a transaction
      * @link https://php.net/manual/en/pdo.commit.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -1016,7 +883,7 @@ class PDO
     public function commit(): bool {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Rolls back a transaction
      * @link https://php.net/manual/en/pdo.rollback.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -1026,7 +893,7 @@ class PDO
     public function rollBack(): bool {}
 
     /**
-     * (PHP 5 &gt;= 5.3.3, Bundled pdo_pgsql, PHP 7)<br/>
+     * (PHP 5 >= 5.3.3, Bundled pdo_pgsql, PHP 7)<br/>
      * Checks if inside a transaction
      * @link https://php.net/manual/en/pdo.intransaction.php
      * @return bool <b>TRUE</b> if a transaction is currently active, and <b>FALSE</b> if not.
@@ -1035,7 +902,7 @@ class PDO
     public function inTransaction(): bool {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Set an attribute
      * @link https://php.net/manual/en/pdo.setattribute.php
      * @param int $attribute
@@ -1043,13 +910,10 @@ class PDO
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function setAttribute(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attribute,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
-    ): bool {}
+    public function setAttribute($attribute, $value): bool {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Execute an SQL statement and return the number of affected rows
      * @link https://php.net/manual/en/pdo.exec.php
      * @param string $statement <p>
@@ -1077,10 +941,10 @@ class PDO
      * </code>
      */
     #[TentativeType]
-    public function exec(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $statement): int|false {}
+    public function exec($statement): int|false {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0)<br/>
      * Executes an SQL statement, returning a result set as a PDOStatement object
      * @link https://php.net/manual/en/pdo.query.php
      * @param string $statement <p>
@@ -1103,35 +967,10 @@ class PDO
      * on failure.
      * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
      */
-    #[PhpStormStubsElementAvailable(to: '7.4')]
     public function query($statement, $mode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null, array $ctorargs = []) {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
-     * Executes an SQL statement, returning a result set as a PDOStatement object
-     * @link https://php.net/manual/en/pdo.query.php
-     * @param string $statement <p>
-     * The SQL statement to prepare and execute.
-     * </p>
-     * <p>
-     * Data inside the query should be properly escaped.
-     * </p>
-     * @param int $mode <p>
-     * The fetch mode must be one of the PDO::FETCH_* constants.
-     * </p>
-     * @param mixed $fetch_mode_args <p>
-     * Arguments of custom class constructor when the <i>mode</i>
-     * parameter is set to <b>PDO::FETCH_CLASS</b>.
-     * </p>
-     * @return PDOStatement|false <b>PDO::query</b> returns a PDOStatement object, or <b>FALSE</b>
-     * on failure.
-     * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
-     */
-    #[PhpStormStubsElementAvailable('8.0')]
-    public function query($statement, $mode = PDO::ATTR_DEFAULT_FETCH_MODE, ...$fetch_mode_args) {}
-
-    /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Returns the ID of the last inserted row or sequence value
      * @link https://php.net/manual/en/pdo.lastinsertid.php
      * @param string $name [optional] <p>
@@ -1154,10 +993,10 @@ class PDO
      * IM001 SQLSTATE.
      */
     #[TentativeType]
-    public function lastInsertId(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $name = null): string|false {}
+    public function lastInsertId($name = null): string|false {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Fetch the SQLSTATE associated with the last operation on the database handle
      * @link https://php.net/manual/en/pdo.errorcode.php
      * @return mixed an SQLSTATE, a five characters alphanumeric identifier defined in
@@ -1186,7 +1025,7 @@ class PDO
     public function errorCode(): ?string {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Fetch extended error information associated with the last operation on the database handle
      * @link https://php.net/manual/en/pdo.errorinfo.php
      * @return array <b>PDO::errorInfo</b> returns an array of error information
@@ -1229,7 +1068,7 @@ class PDO
     public function errorInfo(): array {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0)<br/>
      * Retrieve a database connection attribute
      * @link https://php.net/manual/en/pdo.getattribute.php
      * @param int $attribute <p>
@@ -1252,10 +1091,10 @@ class PDO
      * An unsuccessful call returns null.
      */
     #[TentativeType]
-    public function getAttribute(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attribute): mixed {}
+    public function getAttribute($attribute): mixed {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.1)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.1)<br/>
      * Quotes a string for use in a query.
      * @link https://php.net/manual/en/pdo.quote.php
      * @param string $string <p>
@@ -1269,17 +1108,14 @@ class PDO
      * this way.
      */
     #[TentativeType]
-    public function quote(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR
-    ): string|false {}
+    public function quote($string, $type = PDO::PARAM_STR): string|false {}
 
     final public function __wakeup() {}
 
     final public function __sleep() {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo_sqlite &gt;= 1.0.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo_sqlite >= 1.0.0)<br/>
      * Registers a User Defined Function for use in SQL statements
      * @link https://php.net/manual/en/pdo.sqlitecreatefunction.php
      * @param string $function_name <p>
@@ -1302,7 +1138,7 @@ class PDO
     public function sqliteCreateFunction($function_name, $callback, $num_args = -1, $flags = 0) {}
 
     /**
-     * (PHP 5 &gt;= 5.3.3, PHP 7, PHP 8)<br/>
+     * (PHP 5 >= 5.3.3, PHP 7, PHP 8)<br/>
      * Copy data from PHP array into table
      * @link https://www.php.net/manual/en/pdo.pgsqlcopyfromarray.php
      * @param string $tableName <p>
@@ -1322,16 +1158,10 @@ class PDO
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function pgsqlCopyFromArray(
-        string $tableName,
-        array $rows,
-        string $separator = "\t",
-        string $nullAs = "\\\\N",
-        ?string $fields = null
-    ): bool {}
+    public function pgsqlCopyFromArray(string $tableName, array $rows, string $separator = "\t", string $nullAs = "\\\\N", ?string $fields = null): bool {}
 
     /**
-     * (PHP 5 &gt;= 5.3.3, PHP 7, PHP 8)<br/>
+     * (PHP 5 >= 5.3.3, PHP 7, PHP 8)<br/>
      * Copy data from file into table
      * @link https://www.php.net/manual/en/pdo.pgsqlcopyfromfile.php
      * @param string $tableName <p>
@@ -1351,16 +1181,10 @@ class PDO
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function pgsqlCopyFromFile(
-        string $tableName,
-        string $filename,
-        string $separator = "\t",
-        string $nullAs = "\\\\N",
-        ?string $fields = null
-    ): bool {}
+    public function pgsqlCopyFromFile(string $tableName, string $filename, string $separator = "\t", string $nullAs = "\\\\N", ?string $fields = null): bool {}
 
     /**
-     * (PHP 5 &gt;= 5.3.3, PHP 7, PHP 8)<br/>
+     * (PHP 5 >= 5.3.3, PHP 7, PHP 8)<br/>
      * Copy data from database table into PHP array
      * @link https://www.php.net/manual/en/pdo.pgsqlcopytoarray.php
      * @param string $tableName <p>
@@ -1377,15 +1201,10 @@ class PDO
      * </p>
      * @return array|false returns an array of rows, or <b>FALSE</b> on failure.
      */
-    public function pgsqlCopyToArray(
-        string $tableName,
-        string $separator = "\t",
-        string $nullAs = "\\\\N",
-        ?string $fields = null
-    ): array|false {}
+    public function pgsqlCopyToArray(string $tableName, string $separator = "\t", string $nullAs = "\\\\N", ?string $fields = null): array|false {}
 
     /**
-     * (PHP 5 &gt;= 5.3.3, PHP 7, PHP 8)<br/>
+     * (PHP 5 >= 5.3.3, PHP 7, PHP 8)<br/>
      * Copy data from table into file
      * @link https://www.php.net/manual/en/pdo.pgsqlcopytofile.php
      * @param string $tableName <p>
@@ -1405,16 +1224,10 @@ class PDO
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function pgsqlCopyToFile(
-        string $tableName,
-        string $filename,
-        string $separator = "\t",
-        string $nullAs = "\\\\N",
-        ?string $fields = null
-    ): bool {}
+    public function pgsqlCopyToFile(string $tableName, string $filename, string $separator = "\t", string $nullAs = "\\\\N", ?string $fields = null): bool {}
 
     /**
-     * (PHP 5 &gt;= 5.1.2, PHP 7, PHP 8, PECL pdo_pgsql &gt;= 1.0.2)<br/>
+     * (PHP 5 >= 5.1.2, PHP 7, PHP 8, PECL pdo_pgsql >= 1.0.2)<br/>
      * Creates a new large object
      * @link https://www.php.net/manual/en/pdo.pgsqllobcreate.php
      * @return string|false returns the OID of the newly created large object on success,
@@ -1423,7 +1236,7 @@ class PDO
     public function pgsqlLOBCreate(): string|false {}
 
     /**
-     * (PHP 5 &gt;= 5.1.2, PHP 7, PHP 8, PECL pdo_pgsql &gt;= 1.0.2)<br/>
+     * (PHP 5 >= 5.1.2, PHP 7, PHP 8, PECL pdo_pgsql >= 1.0.2)<br/>
      * Opens an existing large object stream
      * @link https://www.php.net/manual/en/pdo.pgsqllobopen.php
      * @param string $oid <p>
@@ -1434,10 +1247,10 @@ class PDO
      * </p>
      * @return resource|false returns a stream resource on success or <b>FALSE</b> on failure.
      */
-    public function pgsqlLOBOpen(string $oid, string $mode = "rb") {}
+    public function pgsqlLOBOpen(string $oid, string $mode = 'rb') {}
 
     /**
-     * (PHP 5 &gt;= 5.1.2, PHP 7, PHP 8, PECL pdo_pgsql &gt;= 1.0.2)<br/>
+     * (PHP 5 >= 5.1.2, PHP 7, PHP 8, PECL pdo_pgsql >= 1.0.2)<br/>
      * Deletes the large object
      * @link https://www.php.net/manual/en/pdo.pgsqllobunlink.php
      * @param string $oid <p>
@@ -1446,33 +1259,10 @@ class PDO
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function pgsqlLOBUnlink(string $oid): bool {}
-
-    /**
-     * (PHP 5 &gt;= 5.6.0, PHP 7, PHP 8)<br/>
-     * Get asynchronous notification
-     * @link https://www.php.net/manual/en/pdo.pgsqlgetnotify.php
-     * @param int $fetchMode <p>
-     * The format the result set should be returned as, represented as a <b>PDO::FETCH_*</b> constant.
-     * </p>
-     * @param int $timeoutMilliseconds <p>
-     * The length of time to wait for a response, in milliseconds.
-     * </p>
-     * @return array|false if one or more notifications is pending, returns a single row,
-     * with fields message and pid, otherwise <b>FALSE</b>.
-     */
-    public function pgsqlGetNotify(int $fetchMode = PDO::FETCH_DEFAULT, int $timeoutMilliseconds = 0): array|false {}
-
-    /**
-     * (PHP 5 &gt;= 5.6.0, PHP 7, PHP 8)<br/>
-     * Get the server PID
-     * @link https://www.php.net/manual/en/pdo.pgsqlgetpid.php
-     * @return int The server's PID.
-     */
-    public function pgsqlGetPid(): int {}
 }
 
 /**
- * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 1.0.0)<br/>
+ * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 1.0.0)<br/>
  * Represents a prepared statement and, after the statement is executed, an
  * associated result set.
  * @link https://php.net/manual/en/class.pdostatement.php
@@ -1482,11 +1272,10 @@ class PDOStatement implements IteratorAggregate
     /**
      * @var string
      */
-    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $queryString;
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Executes a prepared statement
      * @link https://php.net/manual/en/pdostatement.execute.php
      * @param array $params [optional] <p>
@@ -1509,10 +1298,10 @@ class PDOStatement implements IteratorAggregate
      * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
      */
     #[TentativeType]
-    public function execute(#[LanguageLevelTypeAware(['8.0' => 'array|null'], default: '')] $params = null): bool {}
+    public function execute($params = null): bool {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Fetches the next row from a result set
      * @link https://php.net/manual/en/pdostatement.fetch.php
      * @param int $mode [optional] <p>
@@ -1540,14 +1329,10 @@ class PDOStatement implements IteratorAggregate
      * all cases, <b>FALSE</b> is returned on failure.
      */
     #[TentativeType]
-    public function fetch(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = PDO::FETCH_BOTH,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $cursorOrientation = PDO::FETCH_ORI_NEXT,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $cursorOffset = 0
-    ): mixed {}
+    public function fetch($mode = PDO::FETCH_BOTH, $cursorOrientation = PDO::FETCH_ORI_NEXT, $cursorOffset = 0): mixed {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Binds a parameter to the specified variable name
      * @link https://php.net/manual/en/pdostatement.bindparam.php
      * @param mixed $param <p>
@@ -1577,16 +1362,10 @@ class PDOStatement implements IteratorAggregate
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function bindParam(
-        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $param,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] &$var,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxLength = null,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $driverOptions = null
-    ): bool {}
+    public function bindParam($param, &$var, $type = PDO::PARAM_STR, $maxLength = null, $driverOptions = null): bool {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Bind a column to a PHP variable
      * @link https://php.net/manual/en/pdostatement.bindcolumn.php
      * @param mixed $column <p>
@@ -1609,16 +1388,10 @@ class PDOStatement implements IteratorAggregate
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function bindColumn(
-        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $column,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] &$var,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxLength = null,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $driverOptions = null
-    ): bool {}
+    public function bindColumn($column, &$var, $type = PDO::PARAM_STR, $maxLength = null, $driverOptions = null): bool {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 1.0.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 1.0.0)<br/>
      * Binds a value to a parameter
      * @link https://php.net/manual/en/pdostatement.bindvalue.php
      * @param mixed $param <p>
@@ -1638,14 +1411,10 @@ class PDOStatement implements IteratorAggregate
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function bindValue(
-        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $param,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR
-    ): bool {}
+    public function bindValue($param, $value, $type = PDO::PARAM_STR): bool {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Returns the number of rows affected by the last SQL statement
      * @link https://php.net/manual/en/pdostatement.rowcount.php
      * @return int the number of rows.
@@ -1654,7 +1423,7 @@ class PDOStatement implements IteratorAggregate
     public function rowCount(): int {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.9.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.9.0)<br/>
      * Returns a single column from the next row of a result set
      * @link https://php.net/manual/en/pdostatement.fetchcolumn.php
      * @param int $column [optional] <p>
@@ -1670,10 +1439,10 @@ class PDOStatement implements IteratorAggregate
      * use <b>PDOStatement::fetchColumn</b> to retrieve data.
      */
     #[TentativeType]
-    public function fetchColumn(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $column = 0): mixed {}
+    public function fetchColumn($column = 0): mixed {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Returns an array containing all of the result set rows
      * @link https://php.net/manual/en/pdostatement.fetchall.php
      * @param int $mode [optional] <p>
@@ -1717,16 +1486,12 @@ class PDOStatement implements IteratorAggregate
      * processing them with PHP.
      */
     #[TentativeType]
-    public function fetchAll(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = PDO::FETCH_BOTH,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $fetch_argument = null,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$args
-    ): array {}
+    public function fetchAll($mode = PDO::FETCH_BOTH, $fetch_argument = null, ...$args): array {}
 
     /**
      * @template T
      *
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.4)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.4)<br/>
      * Fetches the next row and returns it as an object.
      * @link https://php.net/manual/en/pdostatement.fetchobject.php
      * @param class-string<T> $class [optional] <p>
@@ -1739,13 +1504,10 @@ class PDOStatement implements IteratorAggregate
      * correspond to the column names or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function fetchObject(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $class = "stdClass",
-        array $constructorArgs = []
-    ): object|false {}
+    public function fetchObject($class = 'stdClass', array $constructorArgs = []): object|false {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Fetch the SQLSTATE associated with the last operation on the statement handle
      * @link https://php.net/manual/en/pdostatement.errorcode.php
      * @return string Identical to <b>PDO::errorCode</b>, except that
@@ -1756,7 +1518,7 @@ class PDOStatement implements IteratorAggregate
     public function errorCode(): ?string {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
      * Fetch extended error information associated with the last operation on the statement handle
      * @link https://php.net/manual/en/pdostatement.errorinfo.php
      * @return array <b>PDOStatement::errorInfo</b> returns an array of
@@ -1785,7 +1547,7 @@ class PDOStatement implements IteratorAggregate
     public function errorInfo(): array {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0)<br/>
      * Set a statement attribute
      * @link https://php.net/manual/en/pdostatement.setattribute.php
      * @param int $attribute
@@ -1793,23 +1555,20 @@ class PDOStatement implements IteratorAggregate
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function setAttribute(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attribute,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
-    ): bool {}
+    public function setAttribute($attribute, $value): bool {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0)<br/>
      * Retrieve a statement attribute
      * @link https://php.net/manual/en/pdostatement.getattribute.php
      * @param int $name
      * @return mixed the attribute value.
      */
     #[TentativeType]
-    public function getAttribute(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $name): mixed {}
+    public function getAttribute($name): mixed {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0)<br/>
      * Returns the number of columns in the result set
      * @link https://php.net/manual/en/pdostatement.columncount.php
      * @return int the number of columns in the result set represented by the
@@ -1820,7 +1579,7 @@ class PDOStatement implements IteratorAggregate
     public function columnCount(): int {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0)<br/>
      * Returns metadata for a column in a result set
      * @link https://php.net/manual/en/pdostatement.getcolumnmeta.php
      * @param int $column <p>
@@ -1880,10 +1639,11 @@ class PDOStatement implements IteratorAggregate
      * or if no result set exists.
      */
     #[TentativeType]
-    public function getColumnMeta(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $column): array|false {}
+    #[ArrayShape(["name" => "string", "len" => "int", "precision" => "int", "oci:decl_type" => "int|string", "native_type" => "string", "scale" => "int", "flags" => "array", "pdo_type" => "int"])]
+    public function getColumnMeta($column): array|false {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0)<br/>
      * Set the default fetch mode for this statement
      * @link https://php.net/manual/en/pdostatement.setfetchmode.php
      * @param int $mode <p>
@@ -1895,27 +1655,10 @@ class PDOStatement implements IteratorAggregate
      * @param array $params [optional] <p> Constructor arguments. </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    #[PhpStormStubsElementAvailable(to: '7.4')]
     public function setFetchMode($mode, $className = null, array $params = []) {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
-     * Set the default fetch mode for this statement
-     * @link https://php.net/manual/en/pdostatement.setfetchmode.php
-     * @param int $mode <p>
-     * The fetch mode must be one of the PDO::FETCH_* constants.
-     * </p>
-     * @param string|object|null $className [optional] <p>
-     * Class name or object
-     * </p>
-     * @param mixed ...$params <p> Constructor arguments. </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    #[PhpStormStubsElementAvailable('8.0')]
-    public function setFetchMode($mode, $className = null, ...$params) {}
-
-    /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0)<br/>
      * Advances to the next rowset in a multi-rowset statement handle
      * @link https://php.net/manual/en/pdostatement.nextrowset.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -1924,7 +1667,7 @@ class PDOStatement implements IteratorAggregate
     public function nextRowset(): bool {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.9.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.9.0)<br/>
      * Closes the cursor, enabling the statement to be executed again.
      * @link https://php.net/manual/en/pdostatement.closecursor.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -1933,7 +1676,7 @@ class PDOStatement implements IteratorAggregate
     public function closeCursor(): bool {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.9.0)<br/>
+     * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.9.0)<br/>
      * Dump an SQL prepared command
      * @link https://php.net/manual/en/pdostatement.debugdumpparams.php
      * @return bool|null No value is returned.
@@ -1944,28 +1687,9 @@ class PDOStatement implements IteratorAggregate
     final public function __wakeup() {}
 
     final public function __sleep() {}
-
-    /**
-     * @return Iterator
-     * @since 8.0
-     */
-    public function getIterator(): Iterator {}
 }
 
 final class PDORow
 {
-    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $queryString;
 }
-
-/**
- * (PHP 5 &gt;= 5.1.3, PHP 7, PECL pdo &gt;= 1.0.3)<br/>
- * Return an array of available PDO drivers
- * @link https://php.net/manual/en/pdo.getavailabledrivers.php
- * @return array <b>PDO::getAvailableDrivers</b> returns an array of PDO driver names. If
- * no drivers are available, it returns an empty array.
- */
-#[Pure]
-function pdo_drivers(): array {}
-
-// End of PDO v.1.0.4dev
