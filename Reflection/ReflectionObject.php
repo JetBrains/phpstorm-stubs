@@ -1,7 +1,6 @@
 <?php
 
 use JetBrains\PhpStorm\Deprecated;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * The <b>ReflectionObject</b> class reports
@@ -17,7 +16,7 @@ class ReflectionObject extends ReflectionClass
      * @link https://php.net/manual/en/reflectionobject.construct.php
      * @param object $object An object instance.
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'object'], default: '')] $object) {}
+    public function __construct($object) {}
 
     /**
      * Export
@@ -31,6 +30,6 @@ class ReflectionObject extends ReflectionClass
      * the export is returned as a string, otherwise {@see null} is returned.
      * @removed 8.0
      */
-    #[Deprecated(since: '7.4')]
+    #[Deprecated(since: "7.4")]
     public static function export($argument, $return = false) {}
 }

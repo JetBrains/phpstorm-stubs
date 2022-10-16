@@ -1,7 +1,5 @@
 <?php
 
-// Start of xmlrpc v.0.51
-
 /**
  * Generates XML for a PHP value
  * @link https://php.net/manual/en/function.xmlrpc-encode.php
@@ -22,7 +20,7 @@ function xmlrpc_encode($value) {}
  * @return mixed either an array, or an integer, or a string, or a boolean according
  * to the response returned by the XMLRPC method.
  */
-function xmlrpc_decode($xml, $encoding = "iso-8859-1") {}
+function xmlrpc_decode($xml, $encoding = 'iso-8859-1') {}
 
 /**
  * Decodes XML into native PHP types
@@ -148,5 +146,3 @@ function xmlrpc_server_add_introspection_data($server, array $desc) {}
  * @return bool
  */
 function xmlrpc_server_register_introspection_callback($server, $function) {}
-
-// End of xmlrpc v.0.51

@@ -2,9 +2,7 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use JetBrains\PhpStorm\Internal\ReturnTypeContract as TypeContract;
+use JetBrains\PhpStorm\Internal\ReturnTypeContract;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -94,8 +92,7 @@ function abs(int|float $num): int|float {}
  * usually bigger than that of integer.
  */
 #[Pure]
-#[LanguageLevelTypeAware(["8.0" => "float"], default: "float|false")]
-function ceil(int|float $num) {}
+function ceil(int|float $num): float|false {}
 
 /**
  * Round fractions down
@@ -109,8 +106,7 @@ function ceil(int|float $num) {}
  * usually bigger than that of integer.
  */
 #[Pure]
-#[LanguageLevelTypeAware(["8.0" => "float"], default: "float|false")]
-function floor(int|float $num) {}
+function floor(int|float $num): float|false {}
 
 /**
  * Returns the rounded value of val to specified precision (number of digits after the decimal point).
@@ -337,19 +333,6 @@ function is_finite(float $num): bool {}
  */
 #[Pure]
 function is_nan(float $num): bool {}
-
-/**
- * Integer division
- * @link https://php.net/manual/en/function.intdiv.php
- * @param int $num1 <p>Number to be divided.</p>
- * @param int $num2 <p>Number which divides the <b><i>dividend</i></b></p>
- * @return int
- * @since 7.0
- * @throws DivisionByZeroError <p>if divisor is 0</p>
- * @throws ArithmeticError <p>if the <b><i>dividend</i></b> is <b>PHP_INT_MIN</b> and the <b><i>divisor</i></b> is -1</p>
- */
-#[Pure]
-function intdiv(int $num1, int $num2): int {}
 
 /**
  * Finds whether a value is infinite
@@ -671,12 +654,7 @@ function base_convert(string $num, int $from_base, int $to_base): string {}
  * @return string A formatted version of number.
  */
 #[Pure]
-function number_format(
-    float $num,
-    int $decimals = 0,
-    ?string $decimal_separator = '.',
-    ?string $thousands_separator = ','
-): string {}
+function number_format(float $num, int $decimals = 0, ?string $decimal_separator = '.', ?string $thousands_separator = ','): string {}
 
 /**
  * Returns the floating point remainder (modulo) of the division
@@ -693,18 +671,6 @@ function number_format(
  */
 #[Pure]
 function fmod(float $num1, float $num2): float {}
-
-/**
- * Performs a floating-point division under
- * IEEE 754 semantics. Division by zero is considered well-defined and
- * will return one of Inf, -Inf or NaN.
- * @param float $num1
- * @param float $num2
- * @return float
- * @since 8.0
- */
-#[Pure]
-function fdiv(float $num1, float $num2): float {}
 
 /**
  * Converts a packed internet address to a human readable representation
@@ -766,11 +732,7 @@ function long2ip(int $ip): string|false {}
  * is provided, or false on an error.
  */
 #[Pure(true)]
-function getenv(
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $varname,
-    #[PhpStormStubsElementAvailable(from: '7.1')] ?string $name = null,
-    #[PhpStormStubsElementAvailable(from: '5.6')] bool $local_only = false
-): array|string|false {}
+function getenv($varname): array|string|false {}
 
 /**
  * Sets the value of an environment variable
@@ -801,11 +763,7 @@ function putenv(string $assignment): bool {}
  * @return string[]|false[]|false This function will return an array of option / argument pairs or false on
  * failure.
  */
-function getopt(
-    string $short_options,
-    array $long_options = [],
-    #[PhpStormStubsElementAvailable(from: '7.1')] &$rest_index
-): array|false {}
+function getopt(string $short_options, array $long_options = []): array|false {}
 
 /**
  * Gets system load average
@@ -834,7 +792,7 @@ function sys_getloadavg(): array|false {}
  * @return string|float
  */
 #[Pure(true)]
-function microtime(#[TypeContract(true: "float", false: "string")] bool $as_float = false): string|float {}
+function microtime(#[ReturnTypeContract(true: "float", false: "string")] bool $as_float = false): string|float {}
 
 /**
  * Get current time
@@ -854,7 +812,7 @@ function microtime(#[TypeContract(true: "float", false: "string")] bool $as_floa
  */
 #[Pure(true)]
 #[ArrayShape(["sec" => "int", "usec" => "int", "minuteswest" => "int", "dsttime" => "int"])]
-function gettimeofday(#[TypeContract(true: "float", false: "int[]")] bool $as_float = false): array|float {}
+function gettimeofday(#[ReturnTypeContract(true: "float", false: "int[]")] bool $as_float = false): array|float {}
 
 /**
  * Gets the current resource usages
@@ -889,7 +847,7 @@ function getrusage(int $mode = 0): array|false {}
  * </p>
  * @return string the unique identifier, as a string.
  */
-function uniqid(string $prefix = "", bool $more_entropy = false): string {}
+function uniqid(string $prefix = '', bool $more_entropy = false): string {}
 
 /**
  * Convert a quoted-printable string to an 8 bit string
@@ -932,7 +890,7 @@ function quoted_printable_encode(string $string): string {}
  * @see UConverter
  */
 #[Pure]
-#[Deprecated(since: '7.4', reason: 'Us mb_convert_string(), iconv() or UConverter instead.')]
+#[Deprecated(since: "7.4", reason: "Us mb_convert_string(), iconv() or UConverter instead.")]
 function convert_cyr_string(string $str, string $from, string $to): string {}
 
 /**
@@ -973,7 +931,7 @@ function get_cfg_var(string $option): array|string|false {}
  * @param bool $new_setting
  * @removed 7.0
  */
-#[Deprecated(since: '5.3')]
+#[Deprecated(since: "5.3")]
 function magic_quotes_runtime(bool $new_setting) {}
 
 /**
@@ -994,7 +952,7 @@ function set_magic_quotes_runtime(bool $new_setting): bool {}
  * @return int 0 if magic quotes gpc are off, 1 otherwise.
  * @removed 8.0
  */
-#[Deprecated(since: '7.4')]
+#[Deprecated(since: "7.4")]
 function get_magic_quotes_gpc(): int {}
 
 /**
@@ -1002,7 +960,7 @@ function get_magic_quotes_gpc(): int {}
  * @link https://php.net/manual/en/function.get-magic-quotes-runtime.php
  * @return int 0 if magic quotes runtime is off, 1 otherwise.
  */
-#[Deprecated(since: '7.4')]
+#[Deprecated(since: "7.4")]
 function get_magic_quotes_runtime(): int {}
 
 /**

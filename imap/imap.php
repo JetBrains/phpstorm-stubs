@@ -1,8 +1,263 @@
 <?php
 
-// Start of imap v.
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\ArrayShape;
+
+/**
+ * @deprecated 8.1
+ */
+define('NIL', 0);
+
+define('IMAP_OPENTIMEOUT', 1);
+
+define('IMAP_READTIMEOUT', 2);
+
+define('IMAP_WRITETIMEOUT', 3);
+
+define('IMAP_CLOSETIMEOUT', 4);
+
+define('OP_DEBUG', 1);
+
+/**
+ * Open mailbox read-only
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('OP_READONLY', 2);
+
+/**
+ * Don't use or update a .newsrc for news
+ * (NNTP only)
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('OP_ANONYMOUS', 4);
+
+define('OP_SHORTCACHE', 8);
+
+define('OP_SILENT', 16);
+
+define('OP_PROTOTYPE', 32);
+
+/**
+ * For IMAP and NNTP
+ * names, open a connection but don't open a mailbox.
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('OP_HALFOPEN', 64);
+
+define('OP_EXPUNGE', 128);
+
+define('OP_SECURE', 256);
+
+/**
+ * silently expunge the mailbox before closing when
+ * calling <b>imap_close</b>
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('CL_EXPUNGE', 32768);
+
+/**
+ * The parameter is a UID
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('FT_UID', 1);
+
+/**
+ * Do not set the \Seen flag if not already set
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('FT_PEEK', 2);
+
+define('FT_NOT', 4);
+
+/**
+ * The return string is in internal format, will not canonicalize to CRLF.
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('FT_INTERNAL', 8);
+
+define('FT_PREFETCHTEXT', 32);
+
+/**
+ * The sequence argument contains UIDs instead of sequence numbers
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('ST_UID', 1);
+
+define('ST_SILENT', 2);
+
+define('ST_SET', 4);
+
+/**
+ * the sequence numbers contain UIDS
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('CP_UID', 1);
+
+/**
+ * Delete the messages from the current mailbox after copying
+ * with <b>imap_mail_copy</b>
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('CP_MOVE', 2);
+
+/**
+ * Return UIDs instead of sequence numbers
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('SE_UID', 1);
+
+define('SE_FREE', 2);
+
+/**
+ * Don't prefetch searched messages
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('SE_NOPREFETCH', 4);
+
+define('SO_FREE', 8);
+
+define('SO_NOSERVER', 8);
+
+define('SA_MESSAGES', 1);
+
+define('SA_RECENT', 2);
+
+define('SA_UNSEEN', 4);
+
+define('SA_UIDNEXT', 8);
+
+define('SA_UIDVALIDITY', 16);
+
+define('SA_ALL', 31);
+
+/**
+ * This mailbox has no "children" (there are no
+ * mailboxes below this one).
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('LATT_NOINFERIORS', 1);
+
+/**
+ * This is only a container, not a mailbox - you
+ * cannot open it.
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('LATT_NOSELECT', 2);
+
+/**
+ * This mailbox is marked. Only used by UW-IMAPD.
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('LATT_MARKED', 4);
+
+/**
+ * This mailbox is not marked. Only used by
+ * UW-IMAPD.
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('LATT_UNMARKED', 8);
+
+define('LATT_REFERRAL', 16);
+
+define('LATT_HASCHILDREN', 32);
+
+define('LATT_HASNOCHILDREN', 64);
+
+/**
+ * Sort criteria for <b>imap_sort</b>:
+ * message Date
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('SORTDATE', 0);
+
+/**
+ * Sort criteria for <b>imap_sort</b>:
+ * arrival date
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('SORTARRIVAL', 1);
+
+/**
+ * Sort criteria for <b>imap_sort</b>:
+ * mailbox in first From address
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('SORTFROM', 2);
+
+/**
+ * Sort criteria for <b>imap_sort</b>:
+ * message subject
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('SORTSUBJECT', 3);
+
+/**
+ * Sort criteria for <b>imap_sort</b>:
+ * mailbox in first To address
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('SORTTO', 4);
+
+/**
+ * Sort criteria for <b>imap_sort</b>:
+ * mailbox in first cc address
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('SORTCC', 5);
+
+/**
+ * Sort criteria for <b>imap_sort</b>:
+ * size of message in octets
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('SORTSIZE', 6);
+
+define('TYPETEXT', 0);
+
+define('TYPEMULTIPART', 1);
+
+define('TYPEMESSAGE', 2);
+
+define('TYPEAPPLICATION', 3);
+
+define('TYPEAUDIO', 4);
+
+define('TYPEIMAGE', 5);
+
+define('TYPEVIDEO', 6);
+
+define('TYPEMODEL', 7);
+
+define('TYPEOTHER', 8);
+
+define('ENC7BIT', 0);
+
+define('ENC8BIT', 1);
+
+define('ENCBINARY', 2);
+
+define('ENCBASE64', 3);
+
+define('ENCQUOTEDPRINTABLE', 4);
+
+define('ENCOTHER', 5);
+
+/**
+ * Garbage collector, clear message cache elements.
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('IMAP_GC_ELT', 1);
+
+/**
+ * Garbage collector, clear envelopes and bodies.
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('IMAP_GC_ENV', 2);
+
+/**
+ * Garbage collector, clear texts.
+ * @link https://php.net/manual/en/imap.constants.php
+ */
+define('IMAP_GC_TEXTS', 4);
 
 /**
  * Open an IMAP stream to a mailbox
@@ -48,15 +303,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  * DISABLE_AUTHENTICATOR - Disable authentication properties</p>
  * @return resource|false an IMAP stream on success or <b>FALSE</b> on error.
  */
-#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection|false'], default: 'resource|false')]
-function imap_open(
-    string $mailbox,
-    string $user,
-    string $password,
-    int $flags = 0,
-    int $retries = 0,
-    array $options = []
-) {}
+function imap_open(string $mailbox, string $user, string $password, int $flags = 0, int $retries = 0, array $options = []) {}
 
 /**
  * Reopen IMAP stream to new mailbox
@@ -75,12 +322,7 @@ function imap_open(
  * </p>
  * @return bool <b>TRUE</b> if the stream is reopened, <b>FALSE</b> otherwise.
  */
-function imap_reopen(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $mailbox,
-    int $flags = 0,
-    int $retries = 0
-): bool {}
+function imap_reopen($imap, string $mailbox, int $flags = 0, int $retries = 0): bool {}
 
 /**
  * Close an IMAP stream
@@ -94,10 +336,7 @@ function imap_reopen(
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_close(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    int $flags = 0
-): bool {}
+function imap_close($imap, int $flags = 0): bool {}
 
 /**
  * Gets the number of messages in the current mailbox
@@ -105,7 +344,7 @@ function imap_close(
  * @param resource $imap
  * @return int|false Return the number of messages in the current mailbox, as an integer.
  */
-function imap_num_msg(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap): int|false {}
+function imap_num_msg($imap): int|false {}
 
 /**
  * Gets the number of recent messages in current mailbox
@@ -114,7 +353,7 @@ function imap_num_msg(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], def
  * @return int the number of recent messages in the current mailbox, as an
  * integer.
  */
-function imap_num_recent(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap): int {}
+function imap_num_recent($imap): int {}
 
 /**
  * Returns headers for all messages in a mailbox
@@ -123,7 +362,7 @@ function imap_num_recent(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], 
  * @return array|false an array of string formatted with header info. One
  * element per mail message.
  */
-function imap_headers(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap): array|false {}
+function imap_headers($imap): array|false {}
 
 /**
  * Read the header of the message
@@ -173,13 +412,7 @@ function imap_headers(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], def
  * <dt>fetchsubject</dt><dd>subject line formatted to fit subjectlength characters</dd>
  * </dl>
  */
-function imap_headerinfo(
-    #[LanguageLevelTypeAware(['8.0' => 'IMAP\Connection'], default: 'resource')] $imap,
-    int $message_num,
-    int $from_length = 0,
-    int $subject_length = 0,
-    #[PhpStormStubsElementAvailable(to: '7.4')] $default_host = null
-): stdClass|false {}
+function imap_headerinfo($imap, int $message_num, int $from_length = 0, int $subject_length = 0, $default_host = null): stdClass|false {}
 
 /**
  * Parse mail headers from a string
@@ -194,7 +427,7 @@ function imap_headerinfo(
  * <b>imap_header</b>, except for the flags and other
  * properties that come from the IMAP server.
  */
-function imap_rfc822_parse_headers(string $headers, string $default_hostname = "UNKNOWN"): stdClass {}
+function imap_rfc822_parse_headers(string $headers, string $default_hostname = 'UNKNOWN'): stdClass {}
 
 /**
  * Returns a properly formatted email address given the mailbox, host, and personal info
@@ -245,11 +478,7 @@ function imap_rfc822_parse_adrlist(string $string, string $default_hostname): ar
  * <b>FT_UID</b> - The <i>msg_number</i> is a UID</p>
  * @return string|false the body of the specified message, as a string.
  */
-function imap_body(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    int $message_num,
-    int $flags = 0
-): string|false {}
+function imap_body($imap, int $message_num, int $flags = 0): string|false {}
 
 /**
  * Read the structure of a specified body section of a specific message
@@ -265,12 +494,7 @@ function imap_body(
  * of the object structure and properties see
  * <b>imap_fetchstructure</b>.
  */
-#[LanguageLevelTypeAware(['8.1' => 'stdClass|false'], default: 'object')]
-function imap_bodystruct(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    int $message_num,
-    string $section
-) {}
+function imap_bodystruct($imap, int $message_num, string $section): object {}
 
 /**
  * Fetch a particular section of the body of the message
@@ -289,12 +513,7 @@ function imap_bodystruct(
  * @return string|false a particular section of the body of the specified messages as a
  * text string.
  */
-function imap_fetchbody(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    int $message_num,
-    string $section,
-    int $flags = 0
-): string|false {}
+function imap_fetchbody($imap, int $message_num, string $section, int $flags = 0): string|false {}
 
 /**
  * Fetch MIME headers for a particular section of the message
@@ -314,12 +533,7 @@ function imap_fetchbody(
  * text string.
  * @since 5.3.6
  */
-function imap_fetchmime(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    int $message_num,
-    string $section,
-    int $flags = 0
-): string|false {}
+function imap_fetchmime($imap, int $message_num, string $section, int $flags = 0): string|false {}
 
 /**
  * Save a specific body section to a file
@@ -342,13 +556,7 @@ function imap_fetchmime(
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.1.3
  */
-function imap_savebody(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    $file,
-    int $message_num,
-    string $section = "",
-    int $flags = 0
-): bool {}
+function imap_savebody($imap, $file, int $message_num, string $section = '', int $flags = 0): bool {}
 
 /**
  * Returns header for a message
@@ -363,11 +571,7 @@ function imap_savebody(
  * argument is a UID</p>
  * @return string|false the header of the specified message as a text string.
  */
-function imap_fetchheader(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    int $message_num,
-    int $flags = 0
-): string|false {}
+function imap_fetchheader($imap, int $message_num, int $flags = 0): string|false {}
 
 /**
  * Read the structure of a particular message
@@ -491,11 +695,7 @@ function imap_fetchheader(
  * <tr valign="top"><td>5</td><td>OTHER</td></tr>
  * </table>
  */
-function imap_fetchstructure(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    int $message_num,
-    int $flags = 0
-): stdClass|false {}
+function imap_fetchstructure($imap, int $message_num, int $flags = 0): stdClass|false {}
 
 /**
  * Clears IMAP cache
@@ -510,11 +710,7 @@ function imap_fetchstructure(
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_gc(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] int $flags = 0,
-    #[PhpStormStubsElementAvailable(from: '8.0')] int $flags
-): bool {}
+function imap_gc($imap, int $flags = 0): bool {}
 
 /**
  * Delete all messages marked for deletion
@@ -522,7 +718,7 @@ function imap_gc(
  * @param resource $imap
  * @return bool <b>TRUE</b>.
  */
-function imap_expunge(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap): bool {}
+function imap_expunge($imap): bool {}
 
 /**
  * Mark a message for deletion from current mailbox
@@ -538,11 +734,7 @@ function imap_expunge(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], def
  * </p>
  * @return bool <b>TRUE</b>.
  */
-function imap_delete(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $message_nums,
-    int $flags = 0
-): bool {}
+function imap_delete($imap, string $message_nums, int $flags = 0): bool {}
 
 /**
  * Unmark the message which is marked deleted
@@ -554,11 +746,7 @@ function imap_delete(
  * @param int $flags [optional]
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_undelete(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $message_nums,
-    int $flags = 0
-): bool {}
+function imap_undelete($imap, string $message_nums, int $flags = 0): bool {}
 
 /**
  * Check current mailbox
@@ -575,7 +763,7 @@ function imap_undelete(
  * <p>
  * Returns <b>FALSE</b> on failure.
  */
-function imap_check(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap): stdClass|false {}
+function imap_check($imap): stdClass|false {}
 
 /**
  * Returns the list of mailboxes that matches the given text
@@ -603,12 +791,7 @@ function imap_check(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], defau
  * @return array|false an array containing the names of the mailboxes that have
  * <i>content</i> in the text of the mailbox.
  */
-function imap_listscan(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $reference,
-    string $pattern,
-    string $content
-): array|false {}
+function imap_listscan($imap, string $reference, string $pattern, string $content): array|false {}
 
 /**
  * Copy specified messages to a mailbox
@@ -627,12 +810,7 @@ function imap_listscan(
  * <b>CP_UID</b> - the sequence numbers contain UIDS</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_mail_copy(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $message_nums,
-    string $mailbox,
-    int $flags = 0
-): bool {}
+function imap_mail_copy($imap, string $message_nums, string $mailbox, int $flags = 0): bool {}
 
 /**
  * Move specified messages to a mailbox
@@ -651,12 +829,7 @@ function imap_mail_copy(
  * <b>CP_UID</b> - the sequence numbers contain UIDS</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_mail_move(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $message_nums,
-    string $mailbox,
-    int $flags = 0
-): bool {}
+function imap_mail_move($imap, string $message_nums, string $mailbox, int $flags = 0): bool {}
 
 /**
  * Create a MIME message based on given envelope and body sections
@@ -691,10 +864,7 @@ function imap_mail_compose(array $envelope, array $bodies): string|false {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_createmailbox(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $mailbox
-): bool {}
+function imap_createmailbox($imap, string $mailbox): bool {}
 
 /**
  * Rename an old mailbox to new mailbox
@@ -710,11 +880,7 @@ function imap_createmailbox(
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_renamemailbox(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $from,
-    string $to
-): bool {}
+function imap_renamemailbox($imap, string $from, string $to): bool {}
 
 /**
  * Delete a mailbox
@@ -726,10 +892,7 @@ function imap_renamemailbox(
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_deletemailbox(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $mailbox
-): bool {}
+function imap_deletemailbox($imap, string $mailbox): bool {}
 
 /**
  * Subscribe to a mailbox
@@ -741,10 +904,7 @@ function imap_deletemailbox(
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_subscribe(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $mailbox
-): bool {}
+function imap_subscribe($imap, string $mailbox): bool {}
 
 /**
  * Unsubscribe from a mailbox
@@ -756,10 +916,7 @@ function imap_subscribe(
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_unsubscribe(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $mailbox
-): bool {}
+function imap_unsubscribe($imap, string $mailbox): bool {}
 
 /**
  * Append a string message to a specified mailbox
@@ -786,13 +943,7 @@ function imap_unsubscribe(
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_append(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $folder,
-    string $message,
-    ?string $options = null,
-    ?string $internal_date = null
-): bool {}
+function imap_append($imap, string $folder, string $message, ?string $options = null, ?string $internal_date = null): bool {}
 
 /**
  * Check if the IMAP stream is still active
@@ -800,7 +951,7 @@ function imap_append(
  * @param resource $imap
  * @return bool <b>TRUE</b> if the stream is still alive, <b>FALSE</b> otherwise.
  */
-function imap_ping(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap): bool {}
+function imap_ping($imap): bool {}
 
 /**
  * Decode BASE64 encoded text
@@ -874,12 +1025,7 @@ function imap_utf8(string $mime_encoded_text): string {}
  * flags is also set, which contains a bitmask which can
  * be checked against any of the above constants.</p>
  */
-#[LanguageLevelTypeAware(['8.1' => 'stdClass|false'], default: 'object')]
-function imap_status(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $mailbox,
-    int $flags
-) {}
+function imap_status($imap, string $mailbox, int $flags): object {}
 
 /**
  * @param $stream_id
@@ -931,7 +1077,7 @@ function imap_status_current($stream_id, $options) {}
  * <p>
  * Returns <b>FALSE</b> on failure.
  */
-function imap_mailboxmsginfo(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap): stdClass {}
+function imap_mailboxmsginfo($imap): stdClass {}
 
 /**
  * Sets flags on messages
@@ -954,12 +1100,7 @@ function imap_mailboxmsginfo(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection
  * instead of sequence numbers</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_setflag_full(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $sequence,
-    string $flag,
-    int $options = NIL
-): bool {}
+function imap_setflag_full($imap, string $sequence, string $flag, int $options = NIL): bool {}
 
 /**
  * Clears flags on messages
@@ -981,12 +1122,7 @@ function imap_setflag_full(
  * instead of sequence numbers</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_clearflag_full(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $sequence,
-    string $flag,
-    int $options = 0
-): bool {}
+function imap_clearflag_full($imap, string $sequence, string $flag, int $options = 0): bool {}
 
 /**
  * Gets and sort messages
@@ -1007,14 +1143,7 @@ function imap_clearflag_full(
  * @return array|false an array of message numbers sorted by the given
  * parameters.
  */
-function imap_sort(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    int $criteria,
-    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: 'int')] $reverse,
-    int $flags = 0,
-    ?string $search_criteria = null,
-    ?string $charset = null
-): array|false {}
+function imap_sort($imap, int $criteria, int $reverse, int $flags = 0, ?string $search_criteria = null, ?string $charset = null): array|false {}
 
 /**
  * This function returns the UID for the given message sequence number
@@ -1025,10 +1154,7 @@ function imap_sort(
  * </p>
  * @return int|false The UID of the given message.
  */
-function imap_uid(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    int $message_num
-): int|false {}
+function imap_uid($imap, int $message_num): int|false {}
 
 /**
  * Gets the message sequence number for the given UID
@@ -1040,10 +1166,7 @@ function imap_uid(
  * @return int the message sequence number for the given
  * <i>uid</i>.
  */
-function imap_msgno(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    int $message_uid
-): int {}
+function imap_msgno($imap, int $message_uid): int {}
 
 /**
  * Read the list of mailboxes
@@ -1067,11 +1190,7 @@ function imap_msgno(
  * mailboxes; &#x00027;~/mail/&#37;&#x00027; on UW_IMAPD will return every mailbox in the ~/mail directory, but none in subfolders of that directory.</p>
  * @return array|false an array containing the names of the mailboxes.
  */
-function imap_list(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $reference,
-    string $pattern
-): array|false {}
+function imap_list($imap, string $reference, string $pattern): array|false {}
 
 /**
  * List all the subscribed mailboxes
@@ -1095,11 +1214,7 @@ function imap_list(
  * mailboxes; &#x00027;~/mail/&#37;&#x00027; on UW_IMAPD will return every mailbox in the ~/mail directory, but none in subfolders of that directory.</p>
  * @return array|false an array of all the subscribed mailboxes.
  */
-function imap_lsub(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $reference,
-    string $pattern
-): array|false {}
+function imap_lsub($imap, string $reference, string $pattern): array|false {}
 
 /**
  * Read an overview of the information in the headers of the given message
@@ -1135,11 +1250,7 @@ function imap_lsub(
  * seen - this message is flagged as already read
  * draft - this message is flagged as being a draft
  */
-function imap_fetch_overview(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $sequence,
-    int $flags = 0
-): array|false {}
+function imap_fetch_overview($imap, string $sequence, int $flags = 0): array|false {}
 
 /**
  * Returns all IMAP alert messages that have occurred
@@ -1189,12 +1300,7 @@ function imap_last_error(): string|false {}
  * <i>criteria</i> or no messages have been found.
  * </p>
  */
-function imap_search(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $criteria,
-    int $flags = SE_FREE,
-    string $charset = ""
-): array|false {}
+function imap_search($imap, string $criteria, int $flags = SE_FREE, string $charset = ''): array|false {}
 
 /**
  * Decodes a modified UTF-7 encoded string
@@ -1262,10 +1368,7 @@ function imap_mime_header_decode(string $string): array|false {}
  * $thread["XX.branch"]
  * </p>
  */
-function imap_thread(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    int $flags = SE_FREE
-): array|false {}
+function imap_thread($imap, int $flags = SE_FREE): array|false {}
 
 /**
  * Set or fetch imap timeout
@@ -1316,10 +1419,8 @@ function imap_timeout(int $timeout_type, int $timeout = -1): int|bool {}
  * For backwards compatibility reasons, the original access methods are
  * still available for use, although it is suggested to update.
  */
-function imap_get_quota(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $quota_root
-): array|false {}
+#[ArrayShape(["usage" => "int", "limit" => "int"])]
+function imap_get_quota($imap, string $quota_root): array|false {}
 
 /**
  * Retrieve the quota settings per user
@@ -1338,10 +1439,7 @@ function imap_get_quota(
  * array of information about the connection upon an un-parsable response
  * from the server.
  */
-function imap_get_quotaroot(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $mailbox
-): array|false {}
+function imap_get_quotaroot($imap, string $mailbox): array|false {}
 
 /**
  * Sets a quota for a given mailbox
@@ -1356,11 +1454,7 @@ function imap_get_quotaroot(
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_set_quota(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $quota_root,
-    int $mailbox_size
-): bool {}
+function imap_set_quota($imap, string $quota_root, int $mailbox_size): bool {}
 
 /**
  * Sets the ACL for a given mailbox
@@ -1379,12 +1473,7 @@ function imap_set_quota(
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_setacl(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $mailbox,
-    string $user_id,
-    string $rights
-): bool {}
+function imap_setacl($imap, string $mailbox, string $user_id, string $rights): bool {}
 
 /**
  * Gets the ACL for a given mailbox
@@ -1396,10 +1485,7 @@ function imap_setacl(
  * </p>
  * @return array|false an associative array of "folder" => "acl" pairs.
  */
-function imap_getacl(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $mailbox
-): array|false {}
+function imap_getacl($imap, string $mailbox): array|false {}
 
 /**
  * @param $stream_id
@@ -1450,15 +1536,7 @@ function imap_getannotation($stream_id, $mailbox, $entry, $attr) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_mail(
-    string $to,
-    string $subject,
-    string $message,
-    ?string $additional_headers = null,
-    ?string $cc = null,
-    ?string $bcc = null,
-    ?string $return_path = null
-): bool {}
+function imap_mail(string $to, string $subject, string $message, ?string $additional_headers = null, ?string $cc = null, ?string $bcc = null, ?string $return_path = null): bool {}
 
 /**
  * Alias of <b>imap_headerinfo</b>
@@ -1508,7 +1586,6 @@ function imap_mail(
  * <dt>fetchsubject</dt><dd>subject line formatted to fit subjectlength characters</dd>
  * </dl>
  */
-#[PhpStormStubsElementAvailable(to: '7.4')]
 function imap_header($stream_id, $msg_no, $from_length = 0, $subject_length = 0, $default_host = null) {}
 
 /**
@@ -1519,11 +1596,7 @@ function imap_header($stream_id, $msg_no, $from_length = 0, $subject_length = 0,
  * @param string $pattern
  * @return array|false
  */
-function imap_listmailbox(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $reference,
-    string $pattern
-): array|false {}
+function imap_listmailbox($imap, string $reference, string $pattern): array|false {}
 
 /**
  * Read the list of mailboxes, returning detailed information on each one
@@ -1572,11 +1645,7 @@ function imap_listmailbox(
  * provided, you can assume the IMAP server supports this feature for this mailbox.
  * </p>
  */
-function imap_getmailboxes(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $reference,
-    string $pattern
-): array|false {}
+function imap_getmailboxes($imap, string $reference, string $pattern): array|false {}
 
 /**
  * Alias of <b>imap_listscan</b>
@@ -1586,12 +1655,7 @@ function imap_getmailboxes(
  * @param $pattern
  * @param $content
  */
-function imap_scanmailbox(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $reference,
-    string $pattern,
-    string $content
-): array|false {}
+function imap_scanmailbox($imap, string $reference, string $pattern, string $content): array|false {}
 
 /**
  * Alias of <b>imap_lsub</b>
@@ -1601,11 +1665,7 @@ function imap_scanmailbox(
  * @param string $pattern
  * @return array|false
  */
-function imap_listsubscribed(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $reference,
-    string $pattern
-): array|false {}
+function imap_listsubscribed($imap, string $reference, string $pattern): array|false {}
 
 /**
  * List all the subscribed mailboxes
@@ -1643,11 +1703,7 @@ function imap_listsubscribed(
  * <b>LATT_UNMARKED</b> - This mailbox is not marked.
  * Only used by UW-IMAPD.
  */
-function imap_getsubscribed(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $reference,
-    string $pattern
-): array|false {}
+function imap_getsubscribed($imap, string $reference, string $pattern): array|false {}
 
 /**
  * (PHP 4, PHP 5)<br/>
@@ -1660,11 +1716,7 @@ function imap_getsubscribed(
  * <li>FT_INTERNAL - The return string is in internal format, will not canonicalize to CRLF.</ul><p>
  * @return string|false body of the specified message
  */
-function imap_fetchtext(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    int $message_num,
-    int $flags = 0
-): string|false {}
+function imap_fetchtext($imap, int $message_num, int $flags = 0): string|false {}
 
 /**
  * Alias of <b>imap_listscan</b>
@@ -1674,12 +1726,7 @@ function imap_fetchtext(
  * @param $pattern
  * @param $content
  */
-function imap_scan(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $reference,
-    string $pattern,
-    string $content
-): array|false {}
+function imap_scan($imap, string $reference, string $pattern, string $content): array|false {}
 
 /**
  * Alias of <b>imap_createmailbox</b>
@@ -1687,10 +1734,7 @@ function imap_scan(
  * @param $imap
  * @param $mailbox
  */
-function imap_create(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $mailbox
-): bool {}
+function imap_create($imap, string $mailbox): bool {}
 
 /**
  * Alias of <b>imap_renamemailbox</b>
@@ -1699,11 +1743,7 @@ function imap_create(
  * @param $from
  * @param $to
  */
-function imap_rename(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    string $from,
-    string $to
-): bool {}
+function imap_rename($imap, string $from, string $to): bool {}
 
 /**
  * Decode a modified UTF-7 string to UTF-8
@@ -1724,219 +1764,3 @@ function imap_mutf7_to_utf8(string $string): string|false {}
  * @return string|false
  */
 function imap_utf8_to_mutf7(string $string): string|false {}
-
-/**
- * @deprecated 8.1
- */
-define('NIL', 0);
-define('IMAP_OPENTIMEOUT', 1);
-define('IMAP_READTIMEOUT', 2);
-define('IMAP_WRITETIMEOUT', 3);
-define('IMAP_CLOSETIMEOUT', 4);
-define('OP_DEBUG', 1);
-
-/**
- * Open mailbox read-only
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('OP_READONLY', 2);
-
-/**
- * Don't use or update a .newsrc for news
- * (NNTP only)
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('OP_ANONYMOUS', 4);
-define('OP_SHORTCACHE', 8);
-define('OP_SILENT', 16);
-define('OP_PROTOTYPE', 32);
-
-/**
- * For IMAP and NNTP
- * names, open a connection but don't open a mailbox.
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('OP_HALFOPEN', 64);
-define('OP_EXPUNGE', 128);
-define('OP_SECURE', 256);
-
-/**
- * silently expunge the mailbox before closing when
- * calling <b>imap_close</b>
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('CL_EXPUNGE', 32768);
-
-/**
- * The parameter is a UID
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('FT_UID', 1);
-
-/**
- * Do not set the \Seen flag if not already set
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('FT_PEEK', 2);
-define('FT_NOT', 4);
-
-/**
- * The return string is in internal format, will not canonicalize to CRLF.
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('FT_INTERNAL', 8);
-define('FT_PREFETCHTEXT', 32);
-
-/**
- * The sequence argument contains UIDs instead of sequence numbers
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('ST_UID', 1);
-define('ST_SILENT', 2);
-define('ST_SET', 4);
-
-/**
- * the sequence numbers contain UIDS
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('CP_UID', 1);
-
-/**
- * Delete the messages from the current mailbox after copying
- * with <b>imap_mail_copy</b>
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('CP_MOVE', 2);
-
-/**
- * Return UIDs instead of sequence numbers
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('SE_UID', 1);
-define('SE_FREE', 2);
-
-/**
- * Don't prefetch searched messages
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('SE_NOPREFETCH', 4);
-define('SO_FREE', 8);
-define('SO_NOSERVER', 8);
-define('SA_MESSAGES', 1);
-define('SA_RECENT', 2);
-define('SA_UNSEEN', 4);
-define('SA_UIDNEXT', 8);
-define('SA_UIDVALIDITY', 16);
-define('SA_ALL', 31);
-
-/**
- * This mailbox has no "children" (there are no
- * mailboxes below this one).
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('LATT_NOINFERIORS', 1);
-
-/**
- * This is only a container, not a mailbox - you
- * cannot open it.
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('LATT_NOSELECT', 2);
-
-/**
- * This mailbox is marked. Only used by UW-IMAPD.
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('LATT_MARKED', 4);
-
-/**
- * This mailbox is not marked. Only used by
- * UW-IMAPD.
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('LATT_UNMARKED', 8);
-define('LATT_REFERRAL', 16);
-define('LATT_HASCHILDREN', 32);
-define('LATT_HASNOCHILDREN', 64);
-
-/**
- * Sort criteria for <b>imap_sort</b>:
- * message Date
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('SORTDATE', 0);
-
-/**
- * Sort criteria for <b>imap_sort</b>:
- * arrival date
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('SORTARRIVAL', 1);
-
-/**
- * Sort criteria for <b>imap_sort</b>:
- * mailbox in first From address
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('SORTFROM', 2);
-
-/**
- * Sort criteria for <b>imap_sort</b>:
- * message subject
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('SORTSUBJECT', 3);
-
-/**
- * Sort criteria for <b>imap_sort</b>:
- * mailbox in first To address
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('SORTTO', 4);
-
-/**
- * Sort criteria for <b>imap_sort</b>:
- * mailbox in first cc address
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('SORTCC', 5);
-
-/**
- * Sort criteria for <b>imap_sort</b>:
- * size of message in octets
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('SORTSIZE', 6);
-define('TYPETEXT', 0);
-define('TYPEMULTIPART', 1);
-define('TYPEMESSAGE', 2);
-define('TYPEAPPLICATION', 3);
-define('TYPEAUDIO', 4);
-define('TYPEIMAGE', 5);
-define('TYPEVIDEO', 6);
-define('TYPEMODEL', 7);
-define('TYPEOTHER', 8);
-define('ENC7BIT', 0);
-define('ENC8BIT', 1);
-define('ENCBINARY', 2);
-define('ENCBASE64', 3);
-define('ENCQUOTEDPRINTABLE', 4);
-define('ENCOTHER', 5);
-
-/**
- * Garbage collector, clear message cache elements.
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('IMAP_GC_ELT', 1);
-
-/**
- * Garbage collector, clear envelopes and bodies.
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('IMAP_GC_ENV', 2);
-
-/**
- * Garbage collector, clear texts.
- * @link https://php.net/manual/en/imap.constants.php
- */
-define('IMAP_GC_TEXTS', 4);

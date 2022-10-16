@@ -1,9 +1,64 @@
 <?php
 
-// Start of zlib v.2.0
 use JetBrains\PhpStorm\Deprecated;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
+
+define('FORCE_GZIP', 31);
+
+define('FORCE_DEFLATE', 15);
+
+/** @link https://php.net/manual/en/zlib.constants.php */
+define('ZLIB_ENCODING_RAW', -15);
+
+/** @link https://php.net/manual/en/zlib.constants.php */
+define('ZLIB_ENCODING_GZIP', 31);
+
+/** @link https://php.net/manual/en/zlib.constants.php */
+define('ZLIB_ENCODING_DEFLATE', 15);
+
+define('ZLIB_NO_FLUSH', 0);
+
+define('ZLIB_PARTIAL_FLUSH', 1);
+
+define('ZLIB_SYNC_FLUSH', 2);
+
+define('ZLIB_FULL_FLUSH', 3);
+
+define('ZLIB_BLOCK', 5);
+
+define('ZLIB_FINISH', 4);
+
+define('ZLIB_FILTERED', 1);
+
+define('ZLIB_HUFFMAN_ONLY', 2);
+
+define('ZLIB_RLE', 3);
+
+define('ZLIB_FIXED', 4);
+
+define('ZLIB_DEFAULT_STRATEGY', 0);
+
+define('ZLIB_OK', 0);
+
+define('ZLIB_STREAM_END', 1);
+
+define('ZLIB_NEED_DICT', 2);
+
+define('ZLIB_ERRNO', -1);
+
+define('ZLIB_STREAM_ERROR', -2);
+
+define('ZLIB_DATA_ERROR', -3);
+
+define('ZLIB_MEM_ERROR', -4);
+
+define('ZLIB_BUF_ERROR', -5);
+
+define('ZLIB_VERSION_ERROR', -6);
+
+define('ZLIB_VERSION', "zlib_version_string");
+
+define('ZLIB_VERNUM', "zlib_version_string");
 
 /**
  * Output a gz-file
@@ -349,49 +404,6 @@ function gzinflate(string $data, int $max_length = 0): string|false {}
 function gzencode(string $data, int $level = -1, int $encoding = FORCE_GZIP): string|false {}
 
 /**
- * Decodes a gzip compressed string
- * @link https://php.net/manual/en/function.gzdecode.php
- * @param string $data <p>
- * The data to decode, encoded by <b>gzencode</b>.
- * </p>
- * @param int $max_length <p>
- * The maximum length of data to decode.
- * </p>
- * @return string|false The decoded string, or <b>FALSE</b> if an error occurred.
- * @since 5.4
- */
-#[Pure]
-function gzdecode(string $data, int $max_length = 0): string|false {}
-
-/**
- * Compress data with the specified encoding
- * @link https://php.net/manual/en/function.zlib-encode.php
- * @param string $data <p>
- * </p>
- * @param int $encoding <p>
- * </p>
- * @param int $level [optional] default -1 <p>
- * </p>
- * @return string|false
- * @since 5.4
- */
-#[Pure]
-function zlib_encode(string $data, int $encoding, int $level = -1): string|false {}
-
-/**
- * Uncompress any raw/gzip/zlib encoded data
- * @link https://php.net/manual/en/function.zlib-decode.php
- * @param string $data <p>
- * </p>
- * @param int $max_length <p>
- * </p>
- * @return string|false
- * @since 5.4
- */
-#[Pure]
-function zlib_decode(string $data, int $max_length = 0): string|false {}
-
-/**
  * Returns the coding type used for output compression
  * @link https://php.net/manual/en/function.zlib-get-coding-type.php
  * @return string|false Possible return values are gzip, deflate,
@@ -408,183 +420,3 @@ function zlib_get_coding_type(): string|false {}
  * @return string|false
  */
 function ob_gzhandler(string $data, int $flags): string|false {}
-
-/**
- * Initialize an incremental deflate context
- * @link https://php.net/manual/en/function.deflate-init.php
- * @param int $encoding <p>
- * One of the <b>ZLIB_ENCODING_*</b> constants.
- * </p>
- * @param array $options <p>
- * An associative array which may contain the following elements:
- * <b>level</b>The compression level in range -1..9; defaults to -1.
- * <b>memory</b>The compression memory level in range 1..9; defaults to 8.
- * <b>window</b>The zlib window size (logarithmic) in range 8..15; defaults
- * to 15. <b>strategy</b>One of <b>ZLIB_FILTERED</b>, <b>ZLIB_HUFFMAN_ONLY</b>,
- * <b>ZLIB_RLE</b>, <b>ZLIB_FIXED</b> or <b>ZLIB_DEFAULT_STRATEGY</b> (the
- * default). <b>dictionary</b>A string or an array of strings of the preset
- * dictionary (default: no preset dictionary).</p>
- * @return resource|false|DeflateContext <p>
- * Returns a deflate context resource (zlib.deflate) on success, or
- * <b>FALSE</b> on failure.
- * </p>
- * @since 7.0
- */
-#[Pure]
-#[LanguageLevelTypeAware(["8.0" => "DeflateContext|false"], default: "resource|false")]
-function deflate_init(int $encoding, array $options = []) {}
-
-/**
- * Incrementally deflate data
- * @link https://php.net/manual/en/function.deflate-add.php
- * @param DeflateContext|resource $context <p>
- * A context created with <b>deflate_init()</b>.
- * </p>
- * @param string $data <p>
- * A chunk of data to compress.
- * </p>
- * @param int $flush_mode [optional] <p>
- * One of <b>ZLIB_BLOCK</b>, <b>ZLIB_NO_FLUSH</b>, <b>ZLIB_PARTIAL_FLUSH</b>,
- * <b>ZLIB_SYNC_FLUSH</b> (default), <b>ZLIB_FULL_FLUSH</b>,
- * <b>ZLIB_FINISH</b>. Normally you will want to set <b>ZLIB_NO_FLUSH</b> to
- * maximize compression, and <b>ZLIB_FINISH</b> to terminate with
- * the last chunk of data.
- * </p>
- * @return string|false <p>
- * Returns a chunk of compressed data, or <b>FALSE</b> on failure.
- * </p>
- * @since 7.0
- */
-function deflate_add(
-    #[LanguageLevelTypeAware(["8.0" => "DeflateContext"], default: "resource")] $context,
-    string $data,
-    int $flush_mode = ZLIB_SYNC_FLUSH
-): string|false {}
-
-/**
- * Initialize an incremental inflate context
- * @link https://php.net/manual/en/function.inflate-init.php
- * @param int $encoding <p>
- * One of the ZLIB_ENCODING_* constants.
- * </p>
- * @param array $options [optional] <p>
- * An associative array which may contain the following elements:
- * <b>level</b>The compression level in range -1..9; defaults to -1.
- * <b>memory</b>The compression memory level in range 1..9; defaults to 8.
- * <b>window</b>The zlib window size (logarithmic) in range 8..15; defaults
- * to 15. <b>strategy</b>One of <b>ZLIB_FILTERED</b>, <b>ZLIB_HUFFMAN_ONLY</b>,
- * <b>ZLIB_RLE</b>, <b>ZLIB_FIXED</b> or <b>ZLIB_DEFAULT_STRATEGY</b> (the
- * default). <b>dictionary</b>A string or an array of strings of the preset
- * dictionary (default: no preset dictionary).</p>
- * @return resource|false|InflateContext <p>
- * Returns an inflate context resource (zlib.inflate) on success, or
- * <b>FALSE</b> on failure.
- * </p>
- * @since 7.0
- */
-#[Pure]
-#[LanguageLevelTypeAware(["8.0" => "InflateContext|false"], default: "resource|false")]
-function inflate_init(int $encoding, array $options = []) {}
-
-/**
- * Incrementally inflate encoded data
- * @link https://php.net/manual/en/function.inflate-add.php
- * @param InflateContext|resource $context <p>
- * A context created with <b>inflate_init()</b>.
- * </p>
- * @param string $data <p>
- * A chunk of compressed data.
- * </p>
- * @param int $flush_mode [optional] <p>
- * One of <b>ZLIB_BLOCK</b>, <b>ZLIB_NO_FLUSH</b>, <b>ZLIB_PARTIAL_FLUSH</b>,
- * <b>ZLIB_SYNC_FLUSH</b> (default), <b>ZLIB_FULL_FLUSH</b>,
- * <b>ZLIB_FINISH</b>. Normally you will want to set <b>ZLIB_NO_FLUSH</b> to
- * maximize compression, and <b>ZLIB_FINISH</b> to terminate with
- * the last chunk of data.
- * </p>
- * @return string|false <p>
- * Returns a chunk of uncompressed data, or <b>FALSE</b> on failure.
- * </p>
- * @since 7.0
- */
-function inflate_add(
-    #[LanguageLevelTypeAware(["8.0" => "InflateContext"], default: "resource")] $context,
-    string $data,
-    int $flush_mode = ZLIB_SYNC_FLUSH
-): string|false {}
-
-/**
- * Get number of bytes read so far
- * @param InflateContext|resource $context
- * @return int
- * @since 7.2
- */
-#[Pure]
-function inflate_get_read_len(#[LanguageLevelTypeAware(["8.0" => "InflateContext"], default: "resource")] $context): int {}
-
-/**
- * Get decompression status
- * @param InflateContext|resource $context
- * @return int
- * @since 7.2
- */
-#[Pure]
-function inflate_get_status(#[LanguageLevelTypeAware(["8.0" => "InflateContext"], default: "resource")] $context): int {}
-
-/**
- * @since 8.0
- */
-final class InflateContext
-{
-    /**
-     * Use inflate_init() instead
-     * @see inflate_init()
-     */
-    private function __construct() {}
-}
-
-/**
- * @since 8.0
- */
-final class DeflateContext
-{
-    /**
-     * Use deflate_init() instead
-     * @see deflate_init()
-     */
-    private function __construct() {}
-}
-
-define('FORCE_GZIP', 31);
-define('FORCE_DEFLATE', 15);
-/** @link https://php.net/manual/en/zlib.constants.php */
-define('ZLIB_ENCODING_RAW', -15);
-/** @link https://php.net/manual/en/zlib.constants.php */
-define('ZLIB_ENCODING_GZIP', 31);
-/** @link https://php.net/manual/en/zlib.constants.php */
-define('ZLIB_ENCODING_DEFLATE', 15);
-
-define('ZLIB_NO_FLUSH', 0);
-define('ZLIB_PARTIAL_FLUSH', 1);
-define('ZLIB_SYNC_FLUSH', 2);
-define('ZLIB_FULL_FLUSH', 3);
-define('ZLIB_BLOCK', 5);
-define('ZLIB_FINISH', 4);
-
-define('ZLIB_FILTERED', 1);
-define('ZLIB_HUFFMAN_ONLY', 2);
-define('ZLIB_RLE', 3);
-define('ZLIB_FIXED', 4);
-define('ZLIB_DEFAULT_STRATEGY', 0);
-define('ZLIB_OK', 0);
-define('ZLIB_STREAM_END', 1);
-define('ZLIB_NEED_DICT', 2);
-define('ZLIB_ERRNO', -1);
-define('ZLIB_STREAM_ERROR', -2);
-define('ZLIB_DATA_ERROR', -3);
-define('ZLIB_MEM_ERROR', -4);
-define('ZLIB_BUF_ERROR', -5);
-define('ZLIB_VERSION_ERROR', -6);
-
-define('ZLIB_VERSION', 'zlib_version_string'); // This is set to the zlib version
-define('ZLIB_VERNUM', 'zlib_version_string'); // This is set to the zlib version

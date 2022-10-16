@@ -1,6 +1,380 @@
 <?php
 
-// Start of interbase v.
+/**
+ * The default transaction settings are to be used.
+ * This default is determined by the client library, which defines it as IBASE_WRITE|IBASE_CONCURRENCY|IBASE_WAIT in most cases.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ * @removed 7.4
+ */
+define('IBASE_DEFAULT', 0);
+
+/**
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
+define('IBASE_CREATE', 0);
+
+/**
+ * Causes BLOB contents to be fetched inline, instead of being fetched as BLOB identifiers.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
+define('IBASE_TEXT', 1);
+
+/**
+ * Also available as IBASE_TEXT for backward compatibility.
+ * Causes BLOB contents to be fetched inline, instead of being fetched as BLOB identifiers.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ * @removed 7.4
+ */
+define('IBASE_FETCH_BLOBS', 1);
+
+/**
+ * Causes arrays to be fetched inline. Otherwise, array identifiers are returned.
+ * Array identifiers can only be used as arguments to INSERT operations, as no functions to handle array identifiers are currently available.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ * @removed 7.4
+ */
+define('IBASE_FETCH_ARRAYS', 2);
+
+/**
+ * Causes date and time fields not to be returned as strings, but as UNIX timestamps (the number of seconds since the epoch, which is 1-Jan-1970 0:00 UTC).
+ * Might be problematic if used with dates before 1970 on some systems.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ * @removed 7.4
+ */
+define('IBASE_UNIXTIME', 4);
+
+/**
+ * Starts a read-write transaction.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ * @removed 7.4
+ */
+define('IBASE_WRITE', 1);
+
+/**
+ * Starts a read-only transaction.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ * @removed 7.4
+ */
+define('IBASE_READ', 2);
+
+/**
+ * Starts a transaction with the isolation level set to 'read committed'.
+ * This flag should be combined with either <b>IBASE_REC_VERSION</b> or <b>IBASE_REC_NO_VERSION</b>.
+ * This isolation level allows access to changes that were committed after the transaction was started.
+ * If <b>IBASE_REC_NO_VERSION</b> was specified, only the latest version of a row can be read.
+ * If <b>IBASE_REC_VERSION</b> was specified, a row can even be read when a modification to it is pending in a concurrent transaction.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ * @removed 7.4
+ */
+define('IBASE_COMMITTED', 8);
+
+/**
+ * Starts a transaction with the isolation level set to 'consistency',
+ * which means the transaction cannot read from tables that are being modified by other concurrent transactions.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ * @removed 7.4
+ */
+define('IBASE_CONSISTENCY', 16);
+
+/**
+ * Starts a transaction with the isolation level set to 'concurrency' (or 'snapshot'),
+ * which means the transaction has access to all tables,
+ * but cannot see changes that were committed by other transactions after the transaction was started.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ * @removed 7.4
+ */
+define('IBASE_CONCURRENCY', 4);
+
+/**
+ * Row can even be read when a modification to it is pending in a concurrent transaction.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
+define('IBASE_REC_VERSION', 64);
+
+/**
+ * Only the latest version of a row can be read
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
+define('IBASE_REC_NO_VERSION', 32);
+
+/**
+ * Indicated that a transaction should fail immediately when a conflict occurs.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ * @removed 7.4
+ */
+define('IBASE_NOWAIT', 256);
+
+/**
+ * Indicated that a transaction should wait and retry when a conflict occurs.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ * @removed 7.4
+ */
+define('IBASE_WAIT', 128);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_BKP_IGNORE_CHECKSUMS', 1);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_BKP_IGNORE_LIMBO', 2);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_BKP_METADATA_ONLY', 4);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_BKP_NO_GARBAGE_COLLECT', 8);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_BKP_OLD_DESCRIPTIONS', 16);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_BKP_NON_TRANSPORTABLE', 32);
+
+/**
+ * Options to ibase_backup
+ * @link https://php.net/manual/en/ibase.constants.php
+ * @removed 7.4
+ */
+define('IBASE_BKP_CONVERT', 64);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_RES_DEACTIVATE_IDX', 256);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_RES_NO_SHADOW', 512);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_RES_NO_VALIDITY', 1024);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_RES_ONE_AT_A_TIME', 2048);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_RES_REPLACE', 4096);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_RES_CREATE', 8192);
+
+/**
+ * Options to ibase_restore
+ * @link https://php.net/manual/en/ibase.constants.php
+ * @removed 7.4
+ */
+define('IBASE_RES_USE_ALL_SPACE', 16384);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_PRP_PAGE_BUFFERS', 5);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_PRP_SWEEP_INTERVAL', 6);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_PRP_SHUTDOWN_DB', 7);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_PRP_DENY_NEW_TRANSACTIONS', 10);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_PRP_DENY_NEW_ATTACHMENTS', 9);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_PRP_RESERVE_SPACE', 11);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_PRP_RES_USE_FULL', 35);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_PRP_RES', 36);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_PRP_WRITE_MODE', 12);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_PRP_WM_ASYNC', 37);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_PRP_WM_SYNC', 38);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_PRP_ACCESS_MODE', 13);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_PRP_AM_READONLY', 39);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_PRP_AM_READWRITE', 40);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_PRP_SET_SQL_DIALECT', 14);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_PRP_ACTIVATE', 256);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_PRP_DB_ONLINE', 512);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_RPR_CHECK_DB', 16);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_RPR_IGNORE_CHECKSUM', 32);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_RPR_KILL_SHADOWS', 64);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_RPR_MEND_DB', 4);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_RPR_VALIDATE_DB', 1);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_RPR_FULL', 128);
+
+/**
+ * Options to ibase_maintain_db
+ * @link https://php.net/manual/en/ibase.constants.php
+ * @removed 7.4
+ */
+define('IBASE_RPR_SWEEP_DB', 2);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_STS_DATA_PAGES', 1);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_STS_DB_LOG', 2);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_STS_HDR_PAGES', 4);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_STS_IDX_PAGES', 8);
+
+/**
+ * Options to ibase_db_info
+ * @link https://php.net/manual/en/ibase.constants.php
+ * @removed 7.4
+ */
+define('IBASE_STS_SYS_RELATIONS', 16);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_SVC_SERVER_VERSION', 55);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_SVC_IMPLEMENTATION', 56);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_SVC_GET_ENV', 59);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_SVC_GET_ENV_LOCK', 60);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_SVC_GET_ENV_MSG', 61);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_SVC_USER_DBPATH', 58);
+
+/**
+ * @removed 7.4
+ */
+define('IBASE_SVC_SVR_DB_INFO', 50);
+
+/**
+ * Options to ibase_server_info
+ * @link https://php.net/manual/en/ibase.constants.php
+ * @removed 7.4
+ */
+define('IBASE_SVC_GET_USERS', 68);
 
 /**
  * Open a connection to an InterBase database
@@ -43,16 +417,7 @@
  * @return resource|false an InterBase link identifier on success, or false on error.
  * @removed 7.4
  */
-function ibase_connect(
-    $database = null,
-    $username = null,
-    $password = null,
-    $charset = null,
-    $buffers = null,
-    $dialect = null,
-    $role = null,
-    $sync = null
-) {}
+function ibase_connect($database = null, $username = null, $password = null, $charset = null, $buffers = null, $dialect = null, $role = null, $sync = null) {}
 
 /**
  * Open a persistent connection to an InterBase database
@@ -95,16 +460,7 @@ function ibase_connect(
  * @return resource|false an InterBase link identifier on success, or false on error.
  * @removed 7.4
  */
-function ibase_pconnect(
-    $database = null,
-    $username = null,
-    $password = null,
-    $charset = null,
-    $buffers = null,
-    $dialect = null,
-    $role = null,
-    $sync = null
-) {}
+function ibase_pconnect($database = null, $username = null, $password = null, $charset = null, $buffers = null, $dialect = null, $role = null, $sync = null) {}
 
 /**
  * Close a connection to an InterBase database
@@ -609,14 +965,7 @@ function ibase_errcode() {}
  * @return bool true on success or false on failure.
  * @removed 7.4
  */
-function ibase_add_user(
-    $service_handle,
-    $user_name,
-    $password,
-    $first_name = null,
-    $middle_name = null,
-    $last_name = null
-) {}
+function ibase_add_user($service_handle, $user_name, $password, $first_name = null, $middle_name = null, $last_name = null) {}
 
 /**
  * Modify a user to a security database (only for IB6 or later)
@@ -630,14 +979,7 @@ function ibase_add_user(
  * @return bool true on success or false on failure.
  * @removed 7.4
  */
-function ibase_modify_user(
-    $service_handle,
-    $user_name,
-    $password,
-    $first_name = null,
-    $middle_name = null,
-    $last_name = null
-) {}
+function ibase_modify_user($service_handle, $user_name, $password, $first_name = null, $middle_name = null, $last_name = null) {}
 
 /**
  * Delete a user from a security database (only for IB6 or later)
@@ -822,16 +1164,7 @@ function ibase_free_event_handler($event) {}
  * </p>
  * @return resource|false an InterBase link identifier on success, or false on error.
  */
-function fbird_connect(
-    $database = null,
-    $username = null,
-    $password = null,
-    $charset = null,
-    $buffers = null,
-    $dialect = null,
-    $role = null,
-    $sync = null
-) {}
+function fbird_connect($database = null, $username = null, $password = null, $charset = null, $buffers = null, $dialect = null, $role = null, $sync = null) {}
 
 /**
  * This is an alias of ibase_pconnect
@@ -874,16 +1207,7 @@ function fbird_connect(
  * </p>
  * @return resource|false an InterBase link identifier on success, or false on error.
  */
-function fbird_pconnect(
-    $database = null,
-    $username = null,
-    $password = null,
-    $charset = null,
-    $buffers = null,
-    $dialect = null,
-    $role = null,
-    $sync = null
-) {}
+function fbird_pconnect($database = null, $username = null, $password = null, $charset = null, $buffers = null, $dialect = null, $role = null, $sync = null) {}
 
 /**
  * This is an alias of ibase_close
@@ -1387,14 +1711,7 @@ function fbird_errcode() {}
  * @param string $last_name [optional]
  * @return bool true on success or false on failure.
  */
-function fbird_add_user(
-    $service_handle,
-    $user_name,
-    $password,
-    $first_name = null,
-    $middle_name = null,
-    $last_name = null
-) {}
+function fbird_add_user($service_handle, $user_name, $password, $first_name = null, $middle_name = null, $last_name = null) {}
 
 /**
  * This is an alias of ibase_modify_user
@@ -1408,14 +1725,7 @@ function fbird_add_user(
  * @param string $last_name [optional]
  * @return bool true on success or false on failure.
  */
-function fbird_modify_user(
-    $service_handle,
-    $user_name,
-    $password,
-    $first_name = null,
-    $middle_name = null,
-    $last_name = null
-) {}
+function fbird_modify_user($service_handle, $user_name, $password, $first_name = null, $middle_name = null, $last_name = null) {}
 
 /**
  * This is an alias of ibase_delete_user
@@ -1558,321 +1868,3 @@ function fbird_set_event_handler($event_handler, $event_name1, $event_name2 = nu
  * @return bool true on success or false on failure.
  */
 function fbird_free_event_handler($event) {}
-
-/**
- * The default transaction settings are to be used.
- * This default is determined by the client library, which defines it as IBASE_WRITE|IBASE_CONCURRENCY|IBASE_WAIT in most cases.
- * @link https://www.php.net/manual/en/ibase.constants.php
- * @removed 7.4
- */
-define('IBASE_DEFAULT', 0);
-/**
- * @link https://www.php.net/manual/en/ibase.constants.php
- */
-define('IBASE_CREATE', 0);
-/**
- * Causes BLOB contents to be fetched inline, instead of being fetched as BLOB identifiers.
- * @link https://www.php.net/manual/en/ibase.constants.php
- */
-define('IBASE_TEXT', 1);
-/**
- * Also available as IBASE_TEXT for backward compatibility.
- * Causes BLOB contents to be fetched inline, instead of being fetched as BLOB identifiers.
- * @link https://www.php.net/manual/en/ibase.constants.php
- * @removed 7.4
- */
-define('IBASE_FETCH_BLOBS', 1);
-/**
- * Causes arrays to be fetched inline. Otherwise, array identifiers are returned.
- * Array identifiers can only be used as arguments to INSERT operations, as no functions to handle array identifiers are currently available.
- * @link https://www.php.net/manual/en/ibase.constants.php
- * @removed 7.4
- */
-define('IBASE_FETCH_ARRAYS', 2);
-/**
- * Causes date and time fields not to be returned as strings, but as UNIX timestamps (the number of seconds since the epoch, which is 1-Jan-1970 0:00 UTC).
- * Might be problematic if used with dates before 1970 on some systems.
- * @link https://www.php.net/manual/en/ibase.constants.php
- * @removed 7.4
- */
-define('IBASE_UNIXTIME', 4);
-/**
- * Starts a read-write transaction.
- * @link https://www.php.net/manual/en/ibase.constants.php
- * @removed 7.4
- */
-define('IBASE_WRITE', 1);
-/**
- * Starts a read-only transaction.
- * @link https://www.php.net/manual/en/ibase.constants.php
- * @removed 7.4
- */
-define('IBASE_READ', 2);
-/**
- * Starts a transaction with the isolation level set to 'read committed'.
- * This flag should be combined with either <b>IBASE_REC_VERSION</b> or <b>IBASE_REC_NO_VERSION</b>.
- * This isolation level allows access to changes that were committed after the transaction was started.
- * If <b>IBASE_REC_NO_VERSION</b> was specified, only the latest version of a row can be read.
- * If <b>IBASE_REC_VERSION</b> was specified, a row can even be read when a modification to it is pending in a concurrent transaction.
- * @link https://www.php.net/manual/en/ibase.constants.php
- * @removed 7.4
- */
-define('IBASE_COMMITTED', 8);
-/**
- * Starts a transaction with the isolation level set to 'consistency',
- * which means the transaction cannot read from tables that are being modified by other concurrent transactions.
- * @link https://www.php.net/manual/en/ibase.constants.php
- * @removed 7.4
- */
-define('IBASE_CONSISTENCY', 16);
-/**
- * Starts a transaction with the isolation level set to 'concurrency' (or 'snapshot'),
- * which means the transaction has access to all tables,
- * but cannot see changes that were committed by other transactions after the transaction was started.
- * @link https://www.php.net/manual/en/ibase.constants.php
- * @removed 7.4
- */
-define('IBASE_CONCURRENCY', 4);
-/**
- * Row can even be read when a modification to it is pending in a concurrent transaction.
- * @link https://www.php.net/manual/en/ibase.constants.php
- */
-define('IBASE_REC_VERSION', 64);
-/**
- * Only the latest version of a row can be read
- * @link https://www.php.net/manual/en/ibase.constants.php
- */
-define('IBASE_REC_NO_VERSION', 32);
-/**
- * Indicated that a transaction should fail immediately when a conflict occurs.
- * @link https://www.php.net/manual/en/ibase.constants.php
- * @removed 7.4
- */
-define('IBASE_NOWAIT', 256);
-/**
- * Indicated that a transaction should wait and retry when a conflict occurs.
- * @link https://www.php.net/manual/en/ibase.constants.php
- * @removed 7.4
- */
-define('IBASE_WAIT', 128);
-/**
- * @removed 7.4
- */
-define('IBASE_BKP_IGNORE_CHECKSUMS', 1);
-/**
- * @removed 7.4
- */
-define('IBASE_BKP_IGNORE_LIMBO', 2);
-/**
- * @removed 7.4
- */
-define('IBASE_BKP_METADATA_ONLY', 4);
-/**
- * @removed 7.4
- */
-define('IBASE_BKP_NO_GARBAGE_COLLECT', 8);
-/**
- * @removed 7.4
- */
-define('IBASE_BKP_OLD_DESCRIPTIONS', 16);
-/**
- * @removed 7.4
- */
-define('IBASE_BKP_NON_TRANSPORTABLE', 32);
-
-/**
- * Options to ibase_backup
- * @link https://php.net/manual/en/ibase.constants.php
- * @removed 7.4
- */
-define('IBASE_BKP_CONVERT', 64);
-/**
- * @removed 7.4
- */
-define('IBASE_RES_DEACTIVATE_IDX', 256);
-/**
- * @removed 7.4
- */
-define('IBASE_RES_NO_SHADOW', 512);
-/**
- * @removed 7.4
- */
-define('IBASE_RES_NO_VALIDITY', 1024);
-/**
- * @removed 7.4
- */
-define('IBASE_RES_ONE_AT_A_TIME', 2048);
-/**
- * @removed 7.4
- */
-define('IBASE_RES_REPLACE', 4096);
-/**
- * @removed 7.4
- */
-define('IBASE_RES_CREATE', 8192);
-
-/**
- * Options to ibase_restore
- * @link https://php.net/manual/en/ibase.constants.php
- * @removed 7.4
- */
-define('IBASE_RES_USE_ALL_SPACE', 16384);
-/**
- * @removed 7.4
- */
-define('IBASE_PRP_PAGE_BUFFERS', 5);
-/**
- * @removed 7.4
- */
-define('IBASE_PRP_SWEEP_INTERVAL', 6);
-/**
- * @removed 7.4
- */
-define('IBASE_PRP_SHUTDOWN_DB', 7);
-/**
- * @removed 7.4
- */
-define('IBASE_PRP_DENY_NEW_TRANSACTIONS', 10);
-/**
- * @removed 7.4
- */
-define('IBASE_PRP_DENY_NEW_ATTACHMENTS', 9);
-/**
- * @removed 7.4
- */
-define('IBASE_PRP_RESERVE_SPACE', 11);
-/**
- * @removed 7.4
- */
-define('IBASE_PRP_RES_USE_FULL', 35);
-/**
- * @removed 7.4
- */
-define('IBASE_PRP_RES', 36);
-/**
- * @removed 7.4
- */
-define('IBASE_PRP_WRITE_MODE', 12);
-/**
- * @removed 7.4
- */
-define('IBASE_PRP_WM_ASYNC', 37);
-/**
- * @removed 7.4
- */
-define('IBASE_PRP_WM_SYNC', 38);
-/**
- * @removed 7.4
- */
-define('IBASE_PRP_ACCESS_MODE', 13);
-/**
- * @removed 7.4
- */
-define('IBASE_PRP_AM_READONLY', 39);
-/**
- * @removed 7.4
- */
-define('IBASE_PRP_AM_READWRITE', 40);
-/**
- * @removed 7.4
- */
-define('IBASE_PRP_SET_SQL_DIALECT', 14);
-/**
- * @removed 7.4
- */
-define('IBASE_PRP_ACTIVATE', 256);
-/**
- * @removed 7.4
- */
-define('IBASE_PRP_DB_ONLINE', 512);
-/**
- * @removed 7.4
- */
-define('IBASE_RPR_CHECK_DB', 16);
-/**
- * @removed 7.4
- */
-define('IBASE_RPR_IGNORE_CHECKSUM', 32);
-/**
- * @removed 7.4
- */
-define('IBASE_RPR_KILL_SHADOWS', 64);
-/**
- * @removed 7.4
- */
-define('IBASE_RPR_MEND_DB', 4);
-/**
- * @removed 7.4
- */
-define('IBASE_RPR_VALIDATE_DB', 1);
-/**
- * @removed 7.4
- */
-define('IBASE_RPR_FULL', 128);
-
-/**
- * Options to ibase_maintain_db
- * @link https://php.net/manual/en/ibase.constants.php
- * @removed 7.4
- */
-define('IBASE_RPR_SWEEP_DB', 2);
-/**
- * @removed 7.4
- */
-define('IBASE_STS_DATA_PAGES', 1);
-/**
- * @removed 7.4
- */
-define('IBASE_STS_DB_LOG', 2);
-/**
- * @removed 7.4
- */
-define('IBASE_STS_HDR_PAGES', 4);
-/**
- * @removed 7.4
- */
-define('IBASE_STS_IDX_PAGES', 8);
-
-/**
- * Options to ibase_db_info
- * @link https://php.net/manual/en/ibase.constants.php
- * @removed 7.4
- */
-define('IBASE_STS_SYS_RELATIONS', 16);
-/**
- * @removed 7.4
- */
-define('IBASE_SVC_SERVER_VERSION', 55);
-/**
- * @removed 7.4
- */
-define('IBASE_SVC_IMPLEMENTATION', 56);
-/**
- * @removed 7.4
- */
-define('IBASE_SVC_GET_ENV', 59);
-/**
- * @removed 7.4
- */
-define('IBASE_SVC_GET_ENV_LOCK', 60);
-/**
- * @removed 7.4
- */
-define('IBASE_SVC_GET_ENV_MSG', 61);
-/**
- * @removed 7.4
- */
-define('IBASE_SVC_USER_DBPATH', 58);
-/**
- * @removed 7.4
- */
-define('IBASE_SVC_SVR_DB_INFO', 50);
-
-/**
- * Options to ibase_server_info
- * @link https://php.net/manual/en/ibase.constants.php
- * @removed 7.4
- */
-define('IBASE_SVC_GET_USERS', 68);
-
-// End of interbase v.
