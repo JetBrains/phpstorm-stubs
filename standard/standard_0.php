@@ -1243,6 +1243,7 @@ function zend_logo_guid(): string {}
  * </p>
  */
 #[Pure]
+#[ExpectedValues(['cli', 'phpdbg', 'embed', 'apache', 'apache2handler', 'cgi-fcgi', 'cli-server', 'fpm-fcgi', 'litespeed'])]
 function php_sapi_name(): string|false {}
 
 /**
