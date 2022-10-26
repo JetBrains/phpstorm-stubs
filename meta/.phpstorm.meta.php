@@ -667,6 +667,10 @@ namespace PHPSTORM_META {
 
     expectedArguments(\array_unique(), 1, SORT_REGULAR, SORT_NUMERIC, SORT_STRING, SORT_LOCALE_STRING);
 
+    expectedReturnValues(\PHP_OS_FAMILY, 'Windows', 'Linux', 'Darwin', 'BSD', 'Solaris', 'Unknown');
+    expectedReturnValues(\PHP_OS, 'Darwin', 'Linux', 'Windows', 'WIN32', 'WINNT', 'FreeBSD', 'CYGWIN_NT-5.1', 'HP-UX', 'IRIX64', 'NetBSD', 'OpenBSD', 'OpenBSD');
+    expectedReturnValues(\PHP_SAPI, 'cli', 'phpdbg', 'embed', 'apache', 'apache2handler', 'cgi-fcgi', 'cli-server', 'fpm-fcgi', 'litespeed');
+
     /**
      * Use this constant to mark the function with an argument on the specified position as an exit point
      *
