@@ -116,7 +116,13 @@ class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
                         self::assertArrayHasKey($fqn, self::$methodsFqns, "Can't resolve method " . $fqn);
                     }
                 }
-            } elseif ($expr !== null) {
+            } elseif ($expr instanceof ConstFetch) {
+                $fqn = self::toPresentableFqn($expr->name->toCodeString());
+                if (!str_starts_with($fqn, self::PSR_LOG_LOGGER_NAMESPACE_PREFIX)) {
+                    self::assertArrayHasKey($fqn, self::$constantsFqns, "Can't resolve constant " . $fqn);
+                }
+            }
+            elseif ($expr !== null) {
                 self::fail('First argument should be function reference or method reference, got: ' . $expr::class);
             }
         }
