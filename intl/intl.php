@@ -1354,7 +1354,7 @@ function msgfmt_get_error_message(MessageFormatter $formatter): string {}
  * @return IntlDateFormatter|null
  */
 #[Pure]
-function datefmt_create(?string $locale, int $dateType, int $timeType, $timezone = null, $calendar = null, string $pattern = null): ?IntlDateFormatter {}
+function datefmt_create(?string $locale, int $dateType, int $timeType, $timezone = null, IntlCalendar|int|null $calendar = null, string $pattern = null): ?IntlDateFormatter {}
 
 /**
  * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -1397,7 +1397,7 @@ function datefmt_get_calendar(IntlDateFormatter $formatter): int|false {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function datefmt_set_calendar(IntlDateFormatter $formatter, $calendar): bool {}
+function datefmt_set_calendar(IntlDateFormatter $formatter, IntlCalendar|int|null $calendar): bool {}
 
 /**
  * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -1428,7 +1428,17 @@ function datefmt_get_timezone_id(IntlDateFormatter $formatter): string|false {}
  * @return IntlCalendar|false|null A copy of the internal calendar object used by this formatter.
  */
 #[Pure]
-function datefmt_get_calendar_object(IntlDateFormatter $formatter) {}
+function datefmt_get_calendar_object(IntlDateFormatter $formatter): IntlCalendar|false|null {}
+
+/**
+ * (PHP 5 >= 5.5.0, PECL intl >= 3.0.0)<br/>
+ *  Get formatter's timezone
+ * @link https://secure.php.net/manual/en/intldateformatter.gettimezone.php
+ * @param IntlDateFormatter $formatter
+ * @return IntlTimeZone|false The associated IntlTimeZone object or FALSE on failure.
+ */
+#[Pure]
+function datefmt_get_timezone(IntlDateFormatter $formatter): IntlTimeZone|false {}
 
 /**
  * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -1445,6 +1455,47 @@ function datefmt_get_calendar_object(IntlDateFormatter $formatter) {}
  */
 #[Deprecated(replacement: "datefmt_set_timezone(%parametersList%)", since: "5.5")]
 function datefmt_set_timezone_id(MessageFormatter $mf, $zone) {}
+
+/**
+ * (PHP 5 >= 5.5.0, PECL intl >= 3.0.0)<br/>
+ * Sets formatter's timezone
+ * @link https://php.net/manual/en/intldateformatter.settimezone.php
+ * @param IntlDateFormatter $formatter
+ * @param IntlTimeZone|DateTimeZone|string|null $timezone <p>
+ * The timezone to use for this formatter. This can be specified in the
+ * following forms:
+ * <ul>
+ * <li>
+ * <p>
+ * <b>NULL</b>, in which case the default timezone will be used, as specified in
+ * the ini setting {@link "https://secure.php.net/manual/en/datetime.configuration.php#ini.date.timezone" date.timezone} or
+ * through the function  {@link "https://secure.php.net/manual/en/function.date-default-timezone-set.php" date_default_timezone_set()} and as
+ * returned by {@link "https://secure.php.net/manual/en/function.date-default-timezone-get.php" date_default_timezone_get()}.
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * An {@link "https://secure.php.net/manual/en/class.intltimezone.php" IntlTimeZone}, which will be used directly.
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * A {@link "https://secure.php.net/manual/en/class.datetimezone.php" DateTimeZone}. Its identifier will be extracted
+ * and an ICU timezone object will be created; the timezone will be backed
+ * by ICU's database, not PHP's.
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * A {@link "https://secure.php.net/manual/en/language.types.string.php" string}, which should be a valid ICU timezone identifier.
+ * See <b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw offsets such as <em>"GMT+08:30"</em> are also accepted.
+ * </p>
+ * </li>
+ * </ul>
+ * </p>
+ * @return bool|null <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ */
+function datefmt_set_timezone(IntlDateFormatter $formatter, $timezone): ?bool {}
 
 /**
  * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -1507,6 +1558,33 @@ function datefmt_set_lenient(IntlDateFormatter $formatter): void {}
  */
 #[Pure]
 function datefmt_format($formatter = null, $datetime = null): string|false {}
+
+/**
+ * (PHP 5 >= 5.5.0, PECL intl >= 3.0.0)<br/>
+ * Formats an object
+ * @link https://secure.php.net/manual/en/intldateformatter.formatobject.php
+ * @param IntlCalendar|DateTimeInterface $datetime <p>
+ * An object of type IntlCalendar or DateTime. The timezone information in the object will be used.
+ * </p>
+ * @param array|int|string|null $format [optional] <p>
+ * How to format the date/time. This can either be an {https://secure.php.net/manual/en/language.types.array.php array}  with
+ * two elements (first the date style, then the time style, these being one
+ * of the constants <b>IntlDateFormatter::NONE</b>,
+ * <b>IntlDateFormatter::SHORT</b>,
+ * <b>IntlDateFormatter::MEDIUM</b>,
+ * <b>IntlDateFormatter::LONG</b>,
+ * <b>IntlDateFormatter::FULL</b>), a long with
+ * the value of one of these constants (in which case it will be used both
+ * for the time and the date) or a {@link https://secure.php.net/manual/en/language.types.string.php} with the format
+ * described in {@link http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details the ICU documentation}
+ * documentation. If <b>NULL</b>, the default style will be used.
+ * </p>
+ * @param string|null $locale [optional] <p>
+ * The locale to use, or NULL to use the default one.</p>
+ * @return string|false The formatted string or, if an error occurred, <b>FALSE</b>.
+ */
+#[Pure]
+function datefmt_format_object($datetime, $format = null, ?string $locale = null): string|false {}
 
 /**
  * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -1822,27 +1900,1159 @@ function idn_to_ascii(string $domain, int $flags = 0, int $variant = INTL_IDNA_V
 function idn_to_utf8(string $domain, int $flags = 0, int $variant = INTL_IDNA_VARIANT_UTS46, &$idna_info): string|false {}
 
 /**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Create a new IntlCalendar
+ * @link https://secure.php.net/manual/en/intlcalendar.createinstance.php
+ * @param IntlTimeZone|DateTimeZone|string|null $timezone [optional] <p> <p>
+ * The timezone to use.
+ * </p>
+ *
+ * <ul>
+ * <li>
+ * <p>
+ * <b>NULL</b>, in which case the default timezone will be used, as specified in
+ * the ini setting {@link https://secure.php.net/manual/en/datetime.configuration.php#ini.date.timezone date.timezone} or
+ * through the function  {@link https://secure.php.net/manual/en/function.date-default-timezone-set.php date_default_timezone_set()} and as
+ * returned by {@link https://secure.php.net/manual/en/function.date-default-timezone-get.php date_default_timezone_get()}.
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * An {@link https://secure.php.net/manual/en/class.intltimezone.php IntlTimeZone}, which will be used directly.
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * A {@link https://secure.php.net/manual/en/class.datetimezone.php DateTimeZone}. Its identifier will be extracted
+ * and an ICU timezone object will be created; the timezone will be backed
+ * by ICU's database, not PHP's.
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * A {@link https://secure.php.net/manual/en/language.types.string.php string}, which should be a valid ICU timezone identifier.
+ * See  <b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw
+ * offsets such as <em>"GMT+08:30"</em> are also accepted.
+ * </p>
+ * </li>
+ * </ul>
+ * </p>
+ * @param string|null $locale [optional] <p>
+ * A locale to use or <b>NULL</b> to use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.default-locale the default locale}.
+ * </p>
+ * @return IntlCalendar|null
+ * The created {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} instance or <b>NULL</b> on
+ * failure.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_create_instance($timezone = null, ?string $locale = null): ?IntlCalendar {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get set of locale keyword values
+ * @param string $keyword <p>
+ * The locale keyword for which relevant values are to be queried. Only
+ * <em>'calendar'</em> is supported.
+ * </p>
+ * @param string $locale <p>
+ * The locale onto which the keyword/value pair are to be appended.
+ * </p>
+ * @param bool $onlyCommon
+ * <p>
+ * Whether to show only the values commonly used for the specified locale.
+ * </p>
+ * @return IntlIterator|false An iterator that yields strings with the locale keyword values or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_keyword_values_for_locale(string $keyword, string $locale, bool $onlyCommon): IntlIterator|false {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get number representing the current time
+ * @link https://secure.php.net/manual/en/intlcalendar.getnow.php
+ * @return float A float representing a number of milliseconds since the epoch, not counting leap seconds.
+ * @since 5.5
+ */
+#[Pure(true)]
+function intlcal_get_now(): float {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get array of locales for which there is data
+ * @link https://secure.php.net/manual/en/intlcalendar.getavailablelocales.php
+ * @return string[] An array of strings, one for which locale.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_available_locales(): array {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get the value for a field
+ * @link https://secure.php.net/manual/en/intlcalendar.get.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $field <p>
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * values between <em>0</em> and
+ * <b>IntlCalendar::FIELD_COUNT</b>.
+ * </p>
+ * @return int An integer with the value of the time field.
+ * @since 5.5
+ */
+#[Pure]
+function intl_get($calendar, $field) {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get time currently represented by the object
+ * @param IntlCalendar $calendar <p>The calendar whose time will be checked against this object's time.</p>
+ * @return float
+ * A {@link https://secure.php.net/manual/en/language.types.float.php float} representing the number of milliseconds elapsed since the
+ * reference time (1 Jan 1970 00:00:00 UTC).
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_time(IntlCalendar $calendar): float {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Set the calendar time in milliseconds since the epoch
+ * @link https://secure.php.net/manual/en/intlcalendar.settime.php
+ * @param IntlCalendar $calendar <p>
+ * The IntlCalendar resource.
+ * </p>
+ * @param float $timestamp <p>
+ * An instant represented by the number of number of milliseconds between
+ * such instant and the epoch, ignoring leap seconds.
+ * </p>
+ * @return bool
+ * Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+function intlcal_set_time(IntlCalendar $calendar, float $timestamp): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Add a (signed) amount of time to a field
+ * @link https://secure.php.net/manual/en/intlcalendar.add.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $field <p>
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
+ * These are integer values between <em>0</em> and
+ * <b>IntlCalendar::FIELD_COUNT</b>.
+ * </p>
+ * @param int $value <p>The signed amount to add to the current field. If the amount is positive, the instant will be moved forward; if it is negative, the instant wil be moved into the past. The unit is implicit to the field type.
+ * For instance, hours for IntlCalendar::FIELD_HOUR_OF_DAY.</p>
+ * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+function intlcal_add(IntlCalendar $calendar, int $field, int $value): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Set the timezone used by this calendar
+ * @link https://secure.php.net/manual/en/intlcalendar.settimezone.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param IntlTimeZone|DateTimeZone|string|null $timezone <p>
+ * The new timezone to be used by this calendar. It can be specified in the
+ * following ways:
+ *
+ * </p><ul>
+ * <li>
+ * <p>
+ * <b>NULL</b>, in which case the default timezone will be used, as specified in
+ * the ini setting {@link https://secure.php.net/manual/en/datetime.configuration.php#ini.date.timezone date.timezone} or
+ * through the function  {@link https://secure.php.net/manual/en/function.date-default-timezone-set.php date_default_timezone_set()} and as
+ * returned by  {@link https://secure.php.net/manual/en/function.date-default-timezone-get.php date_default_timezone_get()}.
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * An {@link https://secure.php.net/manual/en/class.intltimezone.php IntlTimeZone}, which will be used directly.
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * A {@link https://secure.php.net/manual/en/class.datetimezone.php DateTimeZone}. Its identifier will be extracted
+ * and an ICU timezone object will be created; the timezone will be backed
+ * by ICU's database, not PHP's.
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * A {@link https://secure.php.net/manual/en/language.types.string.php string}, which should be a valid ICU timezone identifier.
+ * See  <b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw
+ * offsets such as <em>"GMT+08:30"</em> are also accepted.
+ * </p>
+ * </li>
+ * </ul>
+ * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+function intlcal_set_time_zone(IntlCalendar $calendar, $timezone): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Whether this object's time is after that of the passed object
+ * https://secure.php.net/manual/en/intlcalendar.after.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param IntlCalendar $other <p>The calendar whose time will be checked against this object's time.</p>
+ * @return bool
+ * Returns <b>TRUE</b> if this object's current time is after that of the
+ * <em>calendar</em> argument's time. Returns <b>FALSE</b> otherwise.
+ * Also returns <b>FALSE</b> on failure. You can use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or
+ * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_after(IntlCalendar $calendar, IntlCalendar $other): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Whether this object's time is before that of the passed object
+ * @link https://secure.php.net/manual/en/intlcalendar.before.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param IntlCalendar $other <p> The calendar whose time will be checked against this object's time.</p>
+ * @return bool
+ * <p>
+ * Returns <b>TRUE</B> if this object's current time is before that of the
+ * <em>calendar</em> argument's time. Returns <b>FALSE</b> otherwise.
+ * Also returns <b>FALSE</b> on failure. You can use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or
+ * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
+ * </p>
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_before(IntlCalendar $calendar, IntlCalendar $other): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Set a time field or several common fields at once
+ * @link https://secure.php.net/manual/en/intlcalendar.set.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $year <p>
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * values between <em>0</em> and
+ * <b>IntlCalendar::FIELD_COUNT</b>.
+ * </p>
+ * @param int $month <p>
+ * The new value for <b>IntlCalendar::FIELD_MONTH</b>.
+ * </p>
+ * @param int $dayOfMonth [optional] <p>
+ * The new value for <b>IntlCalendar::FIELD_DAY_OF_MONTH</b>.
+ * The month sequence is zero-based, i.e., January is represented by 0,
+ * February by 1, ..., December is 11 and Undecember (if the calendar has
+ * it) is 12.
+ * </p>
+ * @param int $hour [optional]
+ * <p>
+ * The new value for <b>IntlCalendar::FIELD_HOUR_OF_DAY</b>.
+ * </p>
+ * @param int $minute [optional]
+ * <p>
+ * The new value for <b>IntlCalendar::FIELD_MINUTE</b>.
+ * </p>
+ * @param int $second [optional] <p>
+ * The new value for <b>IntlCalendar::FIELD_SECOND</b>.
+ * </p>
+ * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+function intlcal_set(IntlCalendar $calendar, int $year, int $month, int $dayOfMonth = null, int $hour = null, int $minute = null, int $second = null): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Add value to field without carrying into more significant fields
+ * @link https://secure.php.net/manual/en/intlcalendar.roll.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $field <p>One of the
+ * {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time
+ * {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
+ * These are integer values between <em>0</em> and
+ * <b>IntlCalendar::FIELD_COUNT</b>.
+ * </p>
+ * @param int|bool $value <p>
+ * The (signed) amount to add to the field, <b>TRUE</b> for rolling up (adding
+ * <em>1</em>), or <b>FALSE</b> for rolling down (subtracting
+ * <em>1</em>).
+ * </p>
+ * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+function intlcal_roll(IntlCalendar $calendar, int $field, $value = null): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Clear a field or all fields
+ * @link https://secure.php.net/manual/en/intlcalendar.clear.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int|null $field [optional] <p>
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * values between <em>0</em> and
+ * <b>IntlCalendar::FIELD_COUNT</b>.
+ * </p>
+ * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure. Failure can only occur is invalid arguments are provided.
+ * @since 5.5
+ */
+function intlcal_clear(IntlCalendar $calendar, ?int $field = null): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Calculate difference between given time and this object's time
+ * @link https://secure.php.net/manual/en/intlcalendar.fielddifference.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param float $timestamp <p>
+ * The time against which to compare the quantity represented by the
+ * <em>field</em>. For the result to be positive, the time
+ * given for this parameter must be ahead of the time of the object the
+ * method is being invoked on.
+ * </p>
+ * @param int $field <p>
+ * The field that represents the quantity being compared.
+ * </p>
+ *
+ * <p>
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * values between <em>0</em> and
+ * <b>IntlCalendar::FIELD_COUNT</b>.
+ * </p>
+ * @return int Returns a (signed) difference of time in the unit associated with the
+ * specified field or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_field_difference(IntlCalendar $calendar, float $timestamp, int $field): int {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * The maximum value for a field, considering the object's current time
+ * @link https://secure.php.net/manual/en/intlcalendar.getactualmaximum.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $field <p>
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * values between <em>0</em> and
+ * <b>IntlCalendar::FIELD_COUNT</b>.
+ * </p>
+ * @return int
+ * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing the maximum value in the units associated
+ * with the given <em>field</em> or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_actual_maximum(IntlCalendar $calendar, int $field): int {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * The minimum value for a field, considering the object's current time
+ * @link https://secure.php.net/manual/en/intlcalendar.getactualminimum.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $field <p>
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
+ * These are integer values between <em>0</em> and
+ * <b>IntlCalendar::FIELD_COUNT</b>.
+ * </p>
+ * @return int
+ * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing the minimum value in the field's
+ * unit or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_actual_minimum(IntlCalendar $calendar, int $field): int {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * @link https://secure.php.net/manual/en/intlcalendar.getdayofweektype.php
+ * Tell whether a day is a weekday, weekend or a day that has a transition between the two
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $dayOfWeek <p>
+ * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
+ * <b>IntlCalendar::DOW_MONDAY</b>, ...,
+ * <b>IntlCalendar::DOW_SATURDAY</b>.
+ * </p>
+ * @return int
+ * Returns one of the constants
+ * <b>IntlCalendar::DOW_TYPE_WEEKDAY</b>,
+ * <b>IntlCalendar::DOW_TYPE_WEEKEND</b>,
+ * <b>IntlCalendar::DOW_TYPE_WEEKEND_OFFSET</b> or
+ * <b>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</b> or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_day_of_week_type(IntlCalendar $calendar, int $dayOfWeek): int {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get the first day of the week for the calendar's locale
+ * @link https://secure.php.net/manual/en/intlcalendar.getfirstdayofweek.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @return int
+ * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
+ * <b>IntlCalendar::DOW_MONDAY</b>, ...,
+ * <b>IntlCalendar::DOW_SATURDAY</b> or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_first_day_of_week(IntlCalendar $calendar): int {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get the largest local minimum value for a field
+ * @link https://secure.php.net/manual/en/intlcalendar.getgreatestminimum.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $field <p>
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * values between <em>0</em> and
+ * <b>IntlCalendar::FIELD_COUNT</b>.</p>
+ * @return int
+ * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing a field value, in the field's
+ * unit, or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_greates_minimum($calendar, $field) {}
+
+/**
+ * (PHP >= 5.5.0, PECL intl >= 3.0.0a1)<br/>
+ * Gets the value for a specific field.
+ * @link https://www.php.net/manual/en/intlcalendar.get.php
+ * @param IntlCalendar $calendar <p>
+ * The IntlCalendar resource.
+ * </p>
+ * @param int $field <p>
+ * One of the IntlCalendar date/time field constants. These are integer values between 0 and IntlCalendar::FIELD_COUNT.
+ * </p>
+ * @return int An integer with the value of the time field.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get(IntlCalendar $calendar, int $field): int {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get the smallest local maximum for a field
+ * @link https://secure.php.net/manual/en/intlcalendar.getleastmaximum.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $field <p>
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * values between <em>0</em> and
+ * <b>IntlCalendar::FIELD_COUNT</b>.
+ * </p>
+ * @return int
+ * <p>An {@link https://secure.php.net/manual/en/language.types.integer.ph int} representing a field value in the field's
+ * unit or <b>FALSE</b> on failure.
+ * </p>
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_least_maximum(IntlCalendar $calendar, int $field): int {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get the largest local minimum value for a field
+ * @link https://secure.php.net/manual/en/intlcalendar.getgreatestminimum.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $field <p>
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * values between <em>0</em> and
+ * <b>IntlCalendar::FIELD_COUNT</b>.</p>
+ * @return int
+ * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing a field value, in the field's
+ * unit, or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_greatest_minimum(IntlCalendar $calendar, int $field): int {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get the locale associated with the object
+ * @link https://secure.php.net/manual/en/intlcalendar.getlocale.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $type <p>
+ * Whether to fetch the actual locale (the locale from which the calendar
+ * data originates, with <b>Locale::ACTUAL_LOCALE</b>) or the
+ * valid locale, i.e., the most specific locale supported by ICU relatively
+ * to the requested locale – see <b>Locale::VALID_LOCALE</b>.
+ * From the most general to the most specific, the locales are ordered in
+ * this fashion – actual locale, valid locale, requested locale.
+ * </p>
+ * @return string
+ * A locale string or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_locale(IntlCalendar $calendar, int $type): string {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get the global maximum value for a field
+ * @link https://secure.php.net/manual/en/intlcalendar.getmaximum.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $field <p>
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * values between <em>0</em> and
+ * <b>IntlCalendar::FIELD_COUNT</b>.
+ * </p>
+ * @return int|false
+ * @since 5.5
+ */
+#[Pure]
+function intcal_get_maximum($calendar, $field) {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * @link https://secure.php.net/manual/en/intlcalendar.getminimaldaysinfirstweek.php
+ * Get minimal number of days the first week in a year or month can have
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @return int
+ * An {@link https://secure.php.net/manual/en/language.types.integer.php  int} representing a number of days or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_minimal_days_in_first_week(IntlCalendar $calendar): int {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get the global minimum value for a field
+ * @link https://secure.php.net/manual/en/intlcalendar.getminimum.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $field <p>
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field}. These are integer
+ * values between <em>0</em> and
+ * <b>IntlCalendar::FIELD_COUNT</b>.
+ * </p>
+ * @return int
+ * An int representing a value for the given field in the field's unit or FALSE on failure.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_minimum(IntlCalendar $calendar, int $field): int {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get the object's timezone
+ * @link https://secure.php.net/manual/en/intlcalendar.gettimezone.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @return IntlTimeZone|false
+ * An {@link https://secure.php.net/manual/en/class.intltimezone.php IntlTimeZone} object corresponding to the one used
+ * internally in this object.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_time_zone(IntlCalendar $calendar): IntlTimeZone|false {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get the calendar type
+ * @link https://secure.php.net/manual/en/intlcalendar.gettype.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @return string
+ * A {@link https://secure.php.net/manual/en/language.types.string.php string} representing the calendar type, such as
+ * <em>'gregorian'</em>, <em>'islamic'</em>, etc.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_type(IntlCalendar $calendar): string {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get time of the day at which weekend begins or ends
+ * @link https://secure.php.net/manual/en/intlcalendar.getweekendtransition.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param string $dayOfWeek <p>
+ * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
+ * <b>IntlCalendar::DOW_MONDAY</b>, ...,
+ * <b>IntlCalendar::DOW_SATURDAY</b>.
+ * </p>
+ * @return int
+ * The number of milliseconds into the day at which the the weekend begins or
+ * ends or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_weekend_transition(IntlCalendar $calendar, int $dayOfWeek): int {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Whether the object's time is in Daylight Savings Time
+ * @link https://secure.php.net/manual/en/intlcalendar.indaylighttime.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @return bool
+ * Returns <b>TRUE</b> if the date is in Daylight Savings Time, <b>FALSE</b> otherwise.
+ * The value <b>FALSE</b> may also be returned on failure, for instance after
+ * specifying invalid field values on non-lenient mode; use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or query
+ * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_in_daylight_time(IntlCalendar $calendar): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Whether date/time interpretation is in lenient mode
+ * @link https://secure.php.net/manual/en/intlcalendar.islenient.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @return bool
+ * A {@link https://secure.php.net/manual/en/language.types.boolean.php bool} representing whether the calendar is set to lenient mode.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_is_lenient(IntlCalendar $calendar): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Whether a field is set
+ * @link https://secure.php.net/manual/en/intlcalendar.isset.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $field <p>
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * values between <em>0</em> and
+ * <b>IntlCalendar::FIELD_COUNT</b>.
+ * </p>
+ * @return bool Assuming there are no argument errors, returns <b>TRUE</b> iif the field is set.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_is_set(IntlCalendar $calendar, int $field): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get the global maximum value for a field
+ * @link https://secure.php.net/manual/en/intlcalendar.getmaximum.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $field <p>
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * values between <em>0</em> and
+ * <b>IntlCalendar::FIELD_COUNT</b>.
+ * </p>
+ * @return int|false
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_maximum(IntlCalendar $calendar, int $field): int {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Whether another calendar is equal but for a different time
+ * @link https://secure.php.net/manual/en/intlcalendar.isequivalentto.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param IntlCalendar $other The other calendar against which the comparison is to be made.
+ * @return bool
+ * Assuming there are no argument errors, returns <b>TRUE</b> iif the calendars are equivalent except possibly for their set time.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_is_equivalent_to(IntlCalendar $calendar, IntlCalendar $other): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Whether a certain date/time is in the weekend
+ * @link https://secure.php.net/manual/en/intlcalendar.isweekend.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param float|null $timestamp [optional] <p>
+ * An optional timestamp representing the number of milliseconds since the
+ * epoch, excluding leap seconds. If <b>NULL</b>, this object's current time is
+ * used instead.
+ * </p>
+ * @return bool
+ * <p> A {@link https://secure.php.net/manual/en/language.types.boolean.php bool} indicating whether the given or this object's time occurs
+ * in a weekend.
+ * </p>
+ * <p>
+ * The value <b>FALSE</b> may also be returned on failure, for instance after giving
+ * a date out of bounds on non-lenient mode; use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or query
+ * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.</p>
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_is_weekend(IntlCalendar $calendar, ?float $timestamp = null): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Set the day on which the week is deemed to start
+ * @link https://secure.php.net/manual/en/intlcalendar.setfirstdayofweek.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $dayOfWeek <p>
+ * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
+ * <b>IntlCalendar::DOW_MONDAY</b>, ...,
+ * <b>IntlCalendar::DOW_SATURDAY</b>.
+ * </p>
+ * @return bool Returns TRUE on success. Failure can only happen due to invalid parameters.
+ * @since 5.5
+ */
+function intlcal_set_first_day_of_week(IntlCalendar $calendar, int $dayOfWeek): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Set whether date/time interpretation is to be lenient
+ * @link https://secure.php.net/manual/en/intlcalendar.setlenient.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param bool $lenient <p>
+ * Use <b>TRUE</b> to activate the lenient mode; <b>FALSE</b> otherwise.
+ * </p>
+ * @return bool Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+ * @since 5.5
+ */
+function intlcal_set_lenient(IntlCalendar $calendar, bool $lenient): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get behavior for handling repeating wall time
+ * @link https://secure.php.net/manual/en/intlcalendar.getrepeatedwalltimeoption.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @return int
+ * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b> or
+ * <b>IntlCalendar::WALLTIME_LAST</b>.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_repeated_wall_time_option(IntlCalendar $calendar): int {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Compare time of two IntlCalendar objects for equality
+ * @link https://secure.php.net/manual/en/intlcalendar.equals.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param IntlCalendar $other
+ * @return bool <p>
+ * Returns <b>TRUE</b> if the current time of both this and the passed in
+ * {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} object are the same, or <b>FALSE</b>
+ * otherwise. The value <b>FALSE</b> can also be returned on failure. This can only
+ * happen if bad arguments are passed in. In any case, the two cases can be
+ * distinguished by calling  {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()}.
+ * </p>
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_equals(IntlCalendar $calendar, IntlCalendar $other): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get behavior for handling skipped wall time
+ * @link https://secure.php.net/manual/en/intlcalendar.getskippedwalltimeoption.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @return int
+ * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b>,
+ * <b>IntlCalendar::WALLTIME_LAST</b> or
+ * <b>IntlCalendar::WALLTIME_NEXT_VALID</b>.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_get_skipped_wall_time_option(IntlCalendar $calendar): int {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Set behavior for handling repeating wall times at negative timezone offset transitions
+ * @link https://secure.php.net/manual/en/intlcalendar.setrepeatedwalltimeoption.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $option <p>
+ * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b> or
+ * <b>IntlCalendar::WALLTIME_LAST</b>.
+ * </p>
+ * @return bool
+ * Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+ * @since 5.5
+ */
+function intlcal_set_repeated_wall_time_option(IntlCalendar $calendar, int $option): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Set behavior for handling skipped wall times at positive timezone offset transitions
+ * @link https://secure.php.net/manual/en/intlcalendar.setskippedwalltimeoption.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @param int $option <p>
+ * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b>,
+ * <b>IntlCalendar::WALLTIME_LAST</b> or
+ * <b>IntlCalendar::WALLTIME_NEXT_VALID</b>.
+ * </p>
+ * @return bool
+ * <p>
+ * Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+ * </p>
+ * @since 5.5
+ */
+function intlcal_set_skipped_wall_time_option(IntlCalendar $calendar, int $option): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a2)<br/>
+ * Create an IntlCalendar from a DateTime object or string
+ * @link https://secure.php.net/manual/en/intlcalendar.fromdatetime.php
+ * @param DateTime|string $datetime <p>
+ * A {@link https://secure.php.net/manual/en/class.datetime.php DateTime} object or a {@link https://secure.php.net/manual/en/language.types.string.php string} that
+ * can be passed to  {@link https://secure.php.net/manual/en/datetime.construct.php DateTime::__construct()}.
+ * </p>
+ * @param null|string $locale
+ * @return IntlCalendar|null
+ * The created {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} object or <b>NULL</b> in case of
+ * failure. If a {@link https://secure.php.net/manual/en/language.types.string.php string} is passed, any exception that occurs
+ * inside the {@link https://secure.php.net/manual/en/class.datetime.php DateTime} constructor is propagated.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_from_date_time(DateTime|string $datetime): ?IntlCalendar {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a2)<br/>
+ * Convert an IntlCalendar into a DateTime object
+ * @link https://secure.php.net/manual/en/intlcalendar.todatetime.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @return DateTime|false
+ * A {@link https://secure.php.net/manual/en/class.datetime.php DateTime} object with the same timezone as this
+ * object (though using PHP's database instead of ICU's) and the same time,
+ * except for the smaller precision (second precision instead of millisecond).
+ * Returns <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+#[Pure]
+function intlcal_to_date_time(IntlCalendar $calendar): DateTime|false {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get last error code on the object
+ * @link https://secure.php.net/manual/en/intlcalendar.geterrorcode.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @return int|false An ICU error code indicating either success, failure or a warning.
+ * @since 5.5
+ */
+#[Pure(true)]
+function intlcal_get_error_code(IntlCalendar $calendar): int|false {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get last error message on the object
+ * @link https://secure.php.net/manual/en/intlcalendar.geterrormessage.php
+ * @param IntlCalendar $calendar <p>
+ * The calendar object, on the procedural style interface.
+ * </p>
+ * @return string|false The error message associated with last error that occurred in a function call on this object, or a string indicating the non-existance of an error.
+ * @since 5.5
+ */
+#[Pure(true)]
+function intlcal_get_error_message(IntlCalendar $calendar): string|false {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get the number of IDs in the equivalency group that includes the given ID
+ * @link https://secure.php.net/manual/en/intltimezone.countequivalentids.php
+ * @param string $timezoneId
+ * @return int|false
+ * @since 5.5
+ */
+#[Pure]
+function intltz_count_equivalent_ids(string $timezoneId): int|false {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Create a new copy of the default timezone for this host
+ * @link https://secure.php.net/manual/en/intltimezone.createdefault.php
+ * @return IntlTimeZone
+ * @since 5.5
+ */
+#[Pure]
+function intlz_create_default() {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * @link https://secure.php.net/manual/en/intltimezone.createenumeration.php
+ * @param IntlTimeZone|string|int|float|null $countryOrRawOffset [optional]
+ * @return IntlIterator|false
+ * @since 5.5
+ */
+#[Pure]
+function intltz_create_enumeration($countryOrRawOffset): IntlIterator|false {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * @link https://secure.php.net/manual/en/intltimezone.createtimezone.php
+ * @param string $timezoneId
+ * @return IntlTimeZone|null
+ * @since 5.5
+ */
+#[Pure]
+function intltz_create_time_zone(string $timezoneId): ?IntlTimeZone {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * @link https://secure.php.net/manual/en/intltimezone.fromdatetimezone.php
+ * @param DateTimeZone $timezone
+ * @return IntlTimeZone|null
+ * @since 5.5
+ */
+#[Pure]
+function intltz_from_date_time_zone(DateTimeZone $timezone): ?IntlTimeZone {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get the canonical system timezone ID or the normalized custom time zone ID for the given time zone ID
+ * @link https://secure.php.net/manual/en/intltimezone.getcanonicalid.php
+ * @param string $timezoneId
+ * @param bool &$isSystemId [optional]
+ * @return string|false
+ * @since 5.5
+ */
+#[Pure]
+function intltz_get_canonical_id(string $timezoneId, &$isSystemId): string|false {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get a name of this time zone suitable for presentation to the user
+ * @param IntlTimeZone $timezone - <p>
+ * The time zone object, on the procedural style interface.
+ * </p>
+ * @param bool $dst [optional]
+ * @param int $style [optional]
+ * @param string|null $locale [optional]
+ * @return string|false
+ * @since 5.5
+ */
+#[Pure]
+function intltz_get_display_name(IntlTimeZone $timezone, bool $dst = false, int $style = 2, ?string $locale): string|false {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get the amount of time to be added to local standard time to get local wall clock time
+ * @param IntlTimeZone $timezone - <p>
+ * The time zone object, on the procedural style interface.
+ * </p>
+ * @return int
+ * @link https://secure.php.net/manual/en/intltimezone.getequivalentid.php
+ * @since 5.5
+ */
+#[Pure]
+function intltz_get_dst_savings(IntlTimeZone $timezone): int {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get an ID in the equivalency group that includes the given ID
+ * @link https://secure.php.net/manual/en/intltimezone.getequivalentid.php
+ * @param string $timezoneId
+ * @param int $offset
+ * @return string|false
+ * @since 5.5
+ */
+#[Pure]
+function intltz_get_equivalent_id(string $timezoneId, int $offset): string|false {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get last error code on the object
+ * @link https://secure.php.net/manual/en/intltimezone.geterrorcode.php
+ * @param IntlTimeZone $timezone - <p>
+ * The time zone object, on the procedural style interface.
+ * </p>
+ * @return int|false
+ * @since 5.5
+ */
+#[Pure(true)]
+function intltz_get_error_code(IntlTimeZone $timezone): int|false {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get last error message on the object
+ * @link https://secure.php.net/manual/en/intltimezone.geterrormessage.php
+ * @param IntlTimeZone $timezone - <p>
+ * The time zone object, on the procedural style interface.
+ * </p>
+ * @return string|false
+ * @since 5.5
+ */
+#[Pure(true)]
+function intltz_get_error_message(IntlTimeZone $timezone): string|false {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Create GMT (UTC) timezone
+ * @link https://secure.php.net/manual/en/intltimezone.getgmt.php
+ * @return IntlTimeZone
+ * @since 5.5
+ */
+#[Pure]
+function intltz_getGMT(): IntlTimeZone {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get timezone ID
+ * @link https://secure.php.net/manual/en/intltimezone.getid.php
+ * @param IntlTimeZone $timezone
+ * @return string|false
+ * @since 5.5
+ */
+#[Pure]
+function intltz_get_id(IntlTimeZone $timezone): string|false {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get the time zone raw and GMT offset for the given moment in time
+ * @link https://secure.php.net/manual/en/intltimezone.getoffset.php
+ * @param IntlTimeZone $timezone
+ * @param float $timestamp
+ * @param bool $local
+ * @param int &$rawOffset
+ * @param int &$dstOffset
+ * @return bool
+ * @since 5.5
+ */
+#[Pure]
+function intltz_get_offset(IntlTimeZone $timezone, float $timestamp, bool $local, &$rawOffset, &$dstOffset): bool {}
+
+/**
  * Get the raw GMT offset (before taking daylight savings time into account
  * @link https://secure.php.net/manual/en/intltimezone.getrawoffset.php
  * @param IntlTimeZone $timezone
  * @return int
  */
 #[Pure]
-function intltz_get_raw_offset($timezone): int {}
+function intltz_get_raw_offset(IntlTimeZone $timezone): int {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Get the timezone data version currently used by ICU
+ * @link https://secure.php.net/manual/en/intltimezone.gettzdataversion.php
+ * @return string|false
+ * @since 5.5
+ */
+#[Pure]
+function intltz_get_tz_data_version(): string|false {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Check if this zone has the same rules and offset as another zone
+ * @link https://secure.php.net/manual/en/intltimezone.hassamerules.php
+ * @param IntlTimeZone $timezone
+ * @param IntlTimeZone $other
+ * @return bool
+ * @since 5.5
+ */
+#[Pure]
+function intltz_has_same_rules(IntlTimeZone $timezone, IntlTimeZone $other = null): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Convert to DateTimeZone object
+ * @link https://secure.php.net/manual/en/intltimezone.todatetimezone.php
+ * @param IntlTimeZone $timezone
+ * @return DateTimeZone|false
+ * @since 5.5
+ */
+#[Pure]
+function intltz_to_date_time_zone(IntlTimeZone $timezone): DateTimeZone|false {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * Check if this time zone uses daylight savings time
+ * @link https://secure.php.net/manual/en/intltimezone.usedaylighttime.php
+ * @param IntlTimeZone $timezone
+ * @return bool
+ * @since 5.5
+ */
+#[Pure]
+function intltz_use_daylight_time(IntlTimeZone $timezone): bool {}
+
+/**
+ * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+ * @param DateTimeZone|IntlTimeZone|string|int|null $timezoneOrYear
+ * @param string|null $localeOrMonth
+ * @param int $day
+ * @param int $hour
+ * @param int $minute
+ * @param int $second
+ * @return IntlGregorianCalendar|null
+ * @since 5.5
+ */
+#[Pure]
+function intlgregcal_create_instance($timezoneOrYear = null, $localeOrMonth = null, $day = null, $hour = null, $minute = null, $second = null): ?IntlGregorianCalendar {}
 
 /**
  * @param IntlGregorianCalendar $calendar
  * @param float $timestamp
  * @return bool
  */
-function intlgregcal_set_gregorian_change($calendar, float $timestamp): bool {}
+function intlgregcal_set_gregorian_change(IntlGregorianCalendar $calendar, float $timestamp): bool {}
 
 /**
  * @param IntlGregorianCalendar $calendar
  * @return float
  */
 #[Pure]
-function intlgregcal_get_gregorian_change($calendar): float {}
+function intlgregcal_get_gregorian_change(IntlGregorianCalendar $calendar): float {}
 
 /**
  * @param IntlGregorianCalendar $calendar
@@ -1850,7 +3060,7 @@ function intlgregcal_get_gregorian_change($calendar): float {}
  * @return bool
  */
 #[Pure]
-function intlgregcal_is_leap_year($calendar, int $year): bool {}
+function intlgregcal_is_leap_year(IntlGregorianCalendar $calendar, int $year): bool {}
 
 /**
  * (PHP >= 5.3.2, PECL intl >= 2.0.0)<br/>
@@ -2085,6 +3295,58 @@ function intl_is_failure(int $errorCode): bool {}
  */
 #[Pure]
 function intl_error_name(int $errorCode): string {}
+
+/**
+ * @return IntlTimeZone
+ * @since 5.5
+ */
+#[Pure]
+function intltz_create_default(): IntlTimeZone {}
+
+/**
+ * @return IntlTimeZone
+ * @since 5.5
+ */
+#[Pure]
+function intltz_get_gmt(): IntlTimeZone {}
+
+/**
+ * @return IntlTimeZone
+ * @since 5.5
+ */
+#[Pure]
+function intltz_get_unknown(): IntlTimeZone {}
+
+/**
+ * @param int $type
+ * @param null|string $region
+ * @param null|int $rawOffset
+ * @return IntlIterator|false
+ * @since 5.5
+ */
+#[Pure]
+function intltz_create_time_zone_id_enumeration(int $type, ?string $region = null, ?int $rawOffset = null): IntlIterator|false {}
+
+/**
+ * @param string $timezoneId
+ * @return string|false
+ * @since 5.5
+ */
+#[Pure]
+function intltz_get_region(string $timezoneId): string|false {}
+
+/**
+ * Set minimal number of days the first week in a year or month can have
+ *
+ * @link https://www.php.net/manual/en/intlcalendar.setminimaldaysinfirstweek.php
+ *
+ * @param IntlCalendar $calendar
+ * @param int $days
+ * @return bool
+ *
+ * @since 5.5
+ */
+function intlcal_set_minimal_days_in_first_week(IntlCalendar $calendar, int $days): bool {}
 
 function intltz_get_windows_id(string $timezoneId): string|false {}
 
@@ -3896,6 +5158,34 @@ class IntlDateFormatter
     public static function create($locale, $dateType, $timeType, $timezone = null, $calendar = null, $pattern = ''): ?IntlDateFormatter {}
 
     /**
+     * (PHP 5 >= 5.5.0, PECL intl >= 3.0.0)<br/>
+     * Formats an object
+     * @link https://secure.php.net/manual/en/intldateformatter.formatobject.php
+     * @param object $datetime <p>
+     * An object of type {@link "https://secure.php.net/manual/en/class.intlcalendar.php" IntlCalendar} or {@link "https://secure.php.net/manual/en/class.datetime.php" DateTime}. The timezone information in the object will be used.
+     * </p>
+     * @param mixed $format [optional] <p>
+     * How to format the date/time. This can either be an {@link "https://secure.php.net/manual/en/language.types.array.php" array} with
+     * two elements (first the date style, then the time style, these being one
+     * of the constants <b>IntlDateFormatter::NONE</b>,
+     * <b>IntlDateFormatter::SHORT</b>,
+     * <b>IntlDateFormatter::MEDIUM</b>,
+     * <b>IntlDateFormatter::LONG</b>,
+     * <b>IntlDateFormatter::FULL</b>), a long with
+     * the value of one of these constants (in which case it will be used both
+     * for the time and the date) or a {@link "https://secure.php.net/manual/en/language.types.string.php" string} with the format
+     * described in {@link "http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details" the ICU documentation}.
+     * If <b>NULL</b>, the default style will be used.
+     * </p>
+     * @param string|null $locale [optional] <p>
+     * The locale to use, or <b>NULL</b> to use the {@link "https://secure.php.net/manual/en/intl.configuration.php#ini.intl.default-locale" default one}.</p>
+     * @return string|false A string with result or <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function formatObject($datetime, $format = null, $locale = null): string|false {}
+
+    /**
      * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
      * Get the datetype used for the IntlDateFormatter
      * @link https://php.net/manual/en/intldateformatter.getdatetype.php
@@ -3949,6 +5239,28 @@ class IntlDateFormatter
     public function getTimeZoneId(): string|false {}
 
     /**
+     * (PHP 5 >= 5.5.0, PECL intl >= 3.0.0)<br/>
+     * Get copy of formatter's calendar object
+     * @link https://secure.php.net/manual/en/intldateformatter.getcalendarobject.php
+     * @return IntlCalendar|false|null A copy of the internal calendar object used by this formatter.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getCalendarObject(): IntlCalendar|false|null {}
+
+    /**
+     * (PHP 5 >= 5.5.0, PECL intl >= 3.0.0)<br/>
+     *  Get formatter's timezone
+     * @link https://secure.php.net/manual/en/intldateformatter.gettimezone.php
+     * @return IntlTimeZone|false The associated IntlTimeZone object or FALSE on failure.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getTimeZone(): IntlTimeZone|false {}
+
+    /**
      * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
      * Sets the time zone to use
      * @link https://php.net/manual/en/intldateformatter.settimezoneid.php
@@ -3962,6 +5274,48 @@ class IntlDateFormatter
      */
     #[Deprecated(replacement: "%class%->setTimeZone(%parametersList%)", since: "5.5")]
     public function setTimeZoneId($zone) {}
+
+    /**
+     * (PHP 5 >= 5.5.0, PECL intl >= 3.0.0)<br/>
+     * Sets formatter's timezone
+     * @link https://php.net/manual/en/intldateformatter.settimezone.php
+     * @param mixed $timezone <p>
+     * The timezone to use for this formatter. This can be specified in the
+     * following forms:
+     * <ul>
+     * <li>
+     * <p>
+     * <b>NULL</b>, in which case the default timezone will be used, as specified in
+     * the ini setting {@link "https://secure.php.net/manual/en/datetime.configuration.php#ini.date.timezone" date.timezone} or
+     * through the function  {@link "https://secure.php.net/manual/en/function.date-default-timezone-set.php" date_default_timezone_set()} and as
+     * returned by {@link "https://secure.php.net/manual/en/function.date-default-timezone-get.php" date_default_timezone_get()}.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * An {@link "https://secure.php.net/manual/en/class.intltimezone.php" IntlTimeZone}, which will be used directly.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * A {@link "https://secure.php.net/manual/en/class.datetimezone.php" DateTimeZone}. Its identifier will be extracted
+     * and an ICU timezone object will be created; the timezone will be backed
+     * by ICU's database, not PHP's.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * A {@link "https://secure.php.net/manual/en/language.types.string.php" string}, which should be a valid ICU timezone identifier.
+     * See <b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw offsets such as <em>"GMT+08:30"</em> are also accepted.
+     * </p>
+     * </li>
+     * </ul>
+     * </p>
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function setTimeZone($timezone): ?bool {}
 
     /**
      * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -4401,9 +5755,1600 @@ class Spoofchecker
     public function setRestrictionLevel(int $level): void {}
 }
 
-class IntlRuleBasedBreakIterator implements Traversable {}
+/**
+ * @since 5.5
+ */
+class IntlGregorianCalendar extends IntlCalendar
+{
+    /**
+     * @link https://www.php.net/manual/en/intlgregoriancalendar.construct
+     * @param int $timezoneOrYear [optional]
+     * @param int $localeOrMonth [optional]
+     * @param int $day [optional]
+     * @param int $hour [optional]
+     * @param int $minute [optional]
+     * @param int $second [optional]
+     */
+    public function __construct($timezoneOrYear, $localeOrMonth, $day, $hour, $minute, $second) {}
 
-class IntlCodePointBreakIterator implements Traversable {}
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * @param mixed $timeZone
+     * @param string $locale
+     * @return IntlGregorianCalendar
+     * @since 5.5
+     */
+    public static function createInstance($timeZone = null, $locale = null) {}
+
+    /**
+     * @param float $timestamp
+     */
+    #[TentativeType]
+    public function setGregorianChange($timestamp): bool {}
+
+    /**
+     * @return float
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getGregorianChange(): float {}
+
+    /**
+     * @param int $year
+     * @return bool
+     */
+    #[Pure]
+    #[TentativeType]
+    public function isLeapYear($year): bool {}
+}
+
+/**
+ * @since 5.5
+ */
+class IntlCalendar
+{
+    public const FIELD_ERA = 0;
+    public const FIELD_YEAR = 1;
+    public const FIELD_MONTH = 2;
+    public const FIELD_WEEK_OF_YEAR = 3;
+    public const FIELD_WEEK_OF_MONTH = 4;
+    public const FIELD_DATE = 5;
+    public const FIELD_DAY_OF_YEAR = 6;
+    public const FIELD_DAY_OF_WEEK = 7;
+    public const FIELD_DAY_OF_WEEK_IN_MONTH = 8;
+    public const FIELD_AM_PM = 9;
+    public const FIELD_HOUR = 10;
+    public const FIELD_HOUR_OF_DAY = 11;
+    public const FIELD_MINUTE = 12;
+    public const FIELD_SECOND = 13;
+    public const FIELD_MILLISECOND = 14;
+    public const FIELD_ZONE_OFFSET = 15;
+    public const FIELD_DST_OFFSET = 16;
+    public const FIELD_YEAR_WOY = 17;
+    public const FIELD_DOW_LOCAL = 18;
+    public const FIELD_EXTENDED_YEAR = 19;
+    public const FIELD_JULIAN_DAY = 20;
+    public const FIELD_MILLISECONDS_IN_DAY = 21;
+    public const FIELD_IS_LEAP_MONTH = 22;
+    public const FIELD_FIELD_COUNT = 23;
+    public const FIELD_DAY_OF_MONTH = 5;
+    public const DOW_SUNDAY = 1;
+    public const DOW_MONDAY = 2;
+    public const DOW_TUESDAY = 3;
+    public const DOW_WEDNESDAY = 4;
+    public const DOW_THURSDAY = 5;
+    public const DOW_FRIDAY = 6;
+    public const DOW_SATURDAY = 7;
+    public const DOW_TYPE_WEEKDAY = 0;
+    public const DOW_TYPE_WEEKEND = 1;
+    public const DOW_TYPE_WEEKEND_OFFSET = 2;
+    public const DOW_TYPE_WEEKEND_CEASE = 3;
+    public const WALLTIME_FIRST = 1;
+    public const WALLTIME_LAST = 0;
+    public const WALLTIME_NEXT_VALID = 2;
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Private constructor for disallowing instantiation
+     * @link https://secure.php.net/manual/en/intlcalendar.construct.php
+     * @since 5.5
+     */
+    private function __construct() {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Create a new IntlCalendar
+     * @link https://secure.php.net/manual/en/intlcalendar.createinstance.php
+     * @param mixed $timezone [optional] <p> <p>
+     * The timezone to use.
+     * </p>
+     *
+     * <ul>
+     * <li>
+     * <p>
+     * <b>NULL</b>, in which case the default timezone will be used, as specified in
+     * the ini setting {@link https://secure.php.net/manual/en/datetime.configuration.php#ini.date.timezone date.timezone} or
+     * through the function  {@link https://secure.php.net/manual/en/function.date-default-timezone-set.php date_default_timezone_set()} and as
+     * returned by {@link https://secure.php.net/manual/en/function.date-default-timezone-get.php date_default_timezone_get()}.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * An {@link https://secure.php.net/manual/en/class.intltimezone.php IntlTimeZone}, which will be used directly.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * A {@link https://secure.php.net/manual/en/class.datetimezone.php DateTimeZone}. Its identifier will be extracted
+     * and an ICU timezone object will be created; the timezone will be backed
+     * by ICU's database, not PHP's.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * A {@link https://secure.php.net/manual/en/language.types.string.php string}, which should be a valid ICU timezone identifier.
+     * See  <b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw
+     * offsets such as <em>"GMT+08:30"</em> are also accepted.
+     * </p>
+     * </li>
+     * </ul>
+     * </p>
+     * @param string|null $locale [optional] <p>
+     * A locale to use or <b>NULL</b> to use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.default-locale the default locale}.
+     * </p>
+     * @return IntlCalendar|null
+     * The created {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} instance or <b>NULL</b> on
+     * failure.
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function createInstance($timezone = null, $locale = null): ?IntlCalendar {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a2)<br/>
+     * Create an IntlCalendar from a DateTime object or string
+     * @link https://secure.php.net/manual/en/intlcalendar.fromdatetime.php
+     * @param mixed $datetime <p>
+     * A {@link https://secure.php.net/manual/en/class.datetime.php DateTime} object or a {@link https://secure.php.net/manual/en/language.types.string.php string} that
+     * can be passed to  {@link https://secure.php.net/manual/en/datetime.construct.php DateTime::__construct()}.
+     * </p>
+     * @param $locale [optional]
+     * @return IntlCalendar|null
+     * The created {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} object or <b>NULL</b> in case of
+     * failure. If a {@link https://secure.php.net/manual/en/language.types.string.php string} is passed, any exception that occurs
+     * inside the {@link https://secure.php.net/manual/en/class.datetime.php DateTime} constructor is propagated.
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function fromDateTime($datetime): ?IntlCalendar {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get array of locales for which there is data
+     * @link https://secure.php.net/manual/en/intlcalendar.getavailablelocales.php
+     * @return string[] An array of strings, one for which locale.
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function getAvailableLocales(): array {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get set of locale keyword values
+     * @param string $keyword <p>
+     * The locale keyword for which relevant values are to be queried. Only
+     * <em>'calendar'</em> is supported.
+     * </p>
+     * @param string $locale <p>
+     * The locale onto which the keyword/value pair are to be appended.
+     * </p>
+     * @param bool $onlyCommon
+     * <p>
+     * Whether to show only the values commonly used for the specified locale.
+     * </p>
+     * @return Iterator|false An iterator that yields strings with the locale keyword values or <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function getKeywordValuesForLocale($keyword, $locale, $onlyCommon): IntlIterator|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get number representing the current time
+     * @return float A float representing a number of milliseconds since the epoch, not counting leap seconds.
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function getNow(): float {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Add a (signed) amount of time to a field
+     * @link https://secure.php.net/manual/en/intlcalendar.add.php
+     * @param int $field <p>
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
+     * These are integer values between <em>0</em> and
+     * <b>IntlCalendar::FIELD_COUNT</b>.
+     * </p>
+     * @param int $value <p>The signed amount to add to the current field. If the amount is positive, the instant will be moved forward; if it is negative, the instant wil be moved into the past. The unit is implicit to the field type.
+     * For instance, hours for <b>IntlCalendar::FIELD_HOUR_OF_DAY</b>.</p>
+     * @return bool Returns TRUE on success or FALSE on failure.
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function add($field, $value): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Whether this object's time is after that of the passed object
+     * https://secure.php.net/manual/en/intlcalendar.after.php
+     * @param IntlCalendar $other <p>The calendar whose time will be checked against this object's time.</p>
+     * @return bool
+     * Returns <b>TRUE</b> if this object's current time is after that of the
+     * <em>calendar</em> argument's time. Returns <b>FALSE</b> otherwise.
+     * Also returns <b>FALSE</b> on failure. You can use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or
+     * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function after(IntlCalendar $other): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Whether this object's time is before that of the passed object
+     * @link https://secure.php.net/manual/en/intlcalendar.before.php
+     * @param IntlCalendar $other <p> The calendar whose time will be checked against this object's time.</p>
+     * @return bool
+     * Returns <b>TRUE</B> if this object's current time is before that of the
+     * <em>calendar</em> argument's time. Returns <b>FALSE</b> otherwise.
+     * Also returns <b>FALSE</b> on failure. You can use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or
+     * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function before(IntlCalendar $other): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Clear a field or all fields
+     * @link https://secure.php.net/manual/en/intlcalendar.clear.php
+     * @param int $field [optional] <p>
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * values between <em>0</em> and
+     * <b>IntlCalendar::FIELD_COUNT</b>.
+     * </p>
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure. Failure can only occur is invalid arguments are provided.
+     * @since 5.5
+     */
+    public function clear($field = null) {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Compare time of two IntlCalendar objects for equality
+     * @link https://secure.php.net/manual/en/intlcalendar.equals.php
+     * @param IntlCalendar $other
+     * @return bool <p>
+     * Returns <b>TRUE</b> if the current time of both this and the passed in
+     * {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} object are the same, or <b>FALSE</b>
+     * otherwise. The value <b>FALSE</b> can also be returned on failure. This can only
+     * happen if bad arguments are passed in. In any case, the two cases can be
+     * distinguished by calling  {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()}.
+     * </p>
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function equals($other): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Calculate difference between given time and this object's time
+     * @link https://secure.php.net/manual/en/intlcalendar.fielddifference.php
+     * @param float $timestamp <p>
+     * The time against which to compare the quantity represented by the
+     * <em>field</em>. For the result to be positive, the time
+     * given for this parameter must be ahead of the time of the object the
+     * method is being invoked on.
+     * </p>
+     * @param int $field <p>
+     * The field that represents the quantity being compared.
+     * </p>
+     *
+     * <p>
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * values between <em>0</em> and
+     * <b>IntlCalendar::FIELD_COUNT</b>.
+     * </p>
+     * @return int Returns a (signed) difference of time in the unit associated with the
+     * specified field or <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function fieldDifference($timestamp, $field): int|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get the value for a field
+     * @link https://secure.php.net/manual/en/intlcalendar.get.php
+     * @param int $field <p>
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * values between <em>0</em> and
+     * <b>IntlCalendar::FIELD_COUNT</b>.
+     * </p>
+     * @return int An integer with the value of the time field.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function get($field): int|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * The maximum value for a field, considering the object's current time
+     * @link https://secure.php.net/manual/en/intlcalendar.getactualmaximum.php
+     * @param int $field <p>
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * values between <em>0</em> and
+     * <b>IntlCalendar::FIELD_COUNT</b>.
+     * </p>
+     * @return int
+     * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing the maximum value in the units associated
+     * with the given <em>field</em> or <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getActualMaximum($field): int|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * The minimum value for a field, considering the object's current time
+     * @link https://secure.php.net/manual/en/intlcalendar.getactualminimum.php
+     * @param int $field <p>
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
+     * These are integer values between <em>0</em> and
+     * <b>IntlCalendar::FIELD_COUNT</b>.
+     * </p>
+     * @return int
+     * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing the minimum value in the field's
+     * unit or <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getActualMinimum($field): int|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Tell whether a day is a weekday, weekend or a day that has a transition between the two
+     * @param int $dayOfWeek <p>
+     * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
+     * <b>IntlCalendar::DOW_MONDAY</b>, ...,
+     * <b>IntlCalendar::DOW_SATURDAY</b>.
+     * </p>
+     * @return int|false
+     * Returns one of the constants
+     * <b>IntlCalendar::DOW_TYPE_WEEKDAY</b>,
+     * <b>IntlCalendar::DOW_TYPE_WEEKEND</b>,
+     * <b>IntlCalendar::DOW_TYPE_WEEKEND_OFFSET</b> or
+     * <b>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</b> or <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getDayOfWeekType($dayOfWeek): int|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get last error code on the object
+     * @link https://secure.php.net/manual/en/intlcalendar.geterrorcode.php
+     * @return int|false An ICU error code indicating either success, failure or a warning.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getErrorCode(): int|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get last error message on the object
+     * @link https://secure.php.net/manual/en/intlcalendar.geterrormessage.php
+     * @return string|false The error message associated with last error that occurred in a function call on this object, or a string indicating the non-existance of an error.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getErrorMessage(): string|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get the first day of the week for the calendar's locale
+     * @link https://secure.php.net/manual/en/intlcalendar.getfirstdayofweek.php
+     * @return int|false
+     * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
+     * <b>IntlCalendar::DOW_MONDAY</b>, ...,
+     * <b>IntlCalendar::DOW_SATURDAY</b> or <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getFirstDayOfWeek(): int|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get the largest local minimum value for a field
+     * @link https://secure.php.net/manual/en/intlcalendar.getgreatestminimum.php
+     * @param int $field
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * values between <em>0</em> and
+     * <b>IntlCalendar::FIELD_COUNT</b>.
+     * @return int|false
+     * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing a field value, in the field's
+     * unit, or <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getGreatestMinimum($field): int|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get the smallest local maximum for a field
+     * @link https://secure.php.net/manual/en/intlcalendar.getleastmaximum.php
+     * @param int $field <p>
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * values between <em>0</em> and
+     * <b>IntlCalendar::FIELD_COUNT</b>.
+     * </p>
+     * @return int|false
+     * An {@link https://secure.php.net/manual/en/language.types.integer.ph int} representing a field value in the field's
+     * unit or <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getLeastMaximum($field): int|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get the locale associated with the object
+     * @link https://secure.php.net/manual/en/intlcalendar.getlocale.php
+     * @param int $type <p>
+     * Whether to fetch the actual locale (the locale from which the calendar
+     * data originates, with <b>Locale::ACTUAL_LOCALE</b>) or the
+     * valid locale, i.e., the most specific locale supported by ICU relatively
+     * to the requested locale – see <b>Locale::VALID_LOCALE</b>.
+     * From the most general to the most specific, the locales are ordered in
+     * this fashion – actual locale, valid locale, requested locale.
+     * </p>
+     * @return string
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getLocale($type): string|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get the global maximum value for a field
+     * @link https://secure.php.net/manual/en/intlcalendar.getmaximum.php
+     * @param int $field <p>
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * values between <em>0</em> and
+     * <b>IntlCalendar::FIELD_COUNT</b>.
+     * </p>
+     * @return int|false
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getMaximum($field): int|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get minimal number of days the first week in a year or month can have
+     * @link https://secure.php.net/manual/en/intlcalendar.getminimaldaysinfirstweek.php
+     * @return int|false
+     * An {@link https://secure.php.net/manual/en/language.types.integer.php  int} representing a number of days or <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getMinimalDaysInFirstWeek(): int|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get the global minimum value for a field
+     * @link https://secure.php.net/manual/en/intlcalendar.getminimum.php
+     * @param int $field <p>
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field}. These are integer
+     * values between <em>0</em> and
+     * <b>IntlCalendar::FIELD_COUNT</b>.
+     * </p>
+     * @return int|false
+     * An int representing a value for the given field in the field's unit or FALSE on failure.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getMinimum($field): int|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get behavior for handling repeating wall time
+     * @link https://secure.php.net/manual/en/intlcalendar.getrepeatedwalltimeoption.php
+     * @return int
+     * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b> or
+     * <b>IntlCalendar::WALLTIME_LAST</b>.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getRepeatedWallTimeOption(): int {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get behavior for handling skipped wall time
+     * @link https://secure.php.net/manual/en/intlcalendar.getskippedwalltimeoption.php
+     * @return int
+     * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b>,
+     * <b>IntlCalendar::WALLTIME_LAST</b> or
+     * <b>IntlCalendar::WALLTIME_NEXT_VALID</b>.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getSkippedWallTimeOption(): int {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get time currently represented by the object
+     * @return float|false
+     * A {@link https://secure.php.net/manual/en/language.types.float.php float} representing the number of milliseconds elapsed since the
+     * reference time (1 Jan 1970 00:00:00 UTC).
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getTime(): float|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get the object's timezone
+     * @link https://secure.php.net/manual/en/intlcalendar.gettimezone.php
+     * @return IntlTimeZone|false
+     * An {@link https://secure.php.net/manual/en/class.intltimezone.php IntlTimeZone} object corresponding to the one used
+     * internally in this object.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getTimeZone(): IntlTimeZone|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get the calendar type
+     * @link https://secure.php.net/manual/en/intlcalendar.gettype.php
+     * @return string
+     * A {@link https://secure.php.net/manual/en/language.types.string.php string} representing the calendar type, such as
+     * <em>'gregorian'</em>, <em>'islamic'</em>, etc.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getType(): string {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get time of the day at which weekend begins or ends
+     * @link https://secure.php.net/manual/en/intlcalendar.getweekendtransition.php
+     * @param string $dayOfWeek <p>
+     * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
+     * <b>IntlCalendar::DOW_MONDAY</b>, ...,
+     * <b>IntlCalendar::DOW_SATURDAY</b>.
+     * </p>
+     * @return int|false
+     * The number of milliseconds into the day at which the the weekend begins or
+     * ends or <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getWeekendTransition($dayOfWeek): int|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Whether the object's time is in Daylight Savings Time
+     * @link https://secure.php.net/manual/en/intlcalendar.indaylighttime.php
+     * @return bool
+     * Returns <b>TRUE</b> if the date is in Daylight Savings Time, <b>FALSE</b> otherwise.
+     * The value <b>FALSE</b> may also be returned on failure, for instance after
+     * specifying invalid field values on non-lenient mode; use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or query
+     * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function inDaylightTime(): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Whether another calendar is equal but for a different time
+     * @link https://secure.php.net/manual/en/intlcalendar.isequivalentto.php
+     * @param IntlCalendar $other The other calendar against which the comparison is to be made.
+     * @return bool
+     * Assuming there are no argument errors, returns <b>TRUE</b> iif the calendars are equivalent except possibly for their set time.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function isEquivalentTo(IntlCalendar $other): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Whether date/time interpretation is in lenient mode
+     * @link https://secure.php.net/manual/en/intlcalendar.islenient.php
+     * @return bool
+     * A {@link https://secure.php.net/manual/en/language.types.boolean.php bool} representing whether the calendar is set to lenient mode.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function isLenient(): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Whether a certain date/time is in the weekend
+     * @link https://secure.php.net/manual/en/intlcalendar.isweekend.php
+     * @param float|null $timestamp [optional] <p>
+     * An optional timestamp representing the number of milliseconds since the
+     * epoch, excluding leap seconds. If <b>NULL</b>, this object's current time is
+     * used instead.
+     * </p>
+     * @return bool
+     * <p> A {@link https://secure.php.net/manual/en/language.types.boolean.php bool} indicating whether the given or this object's time occurs
+     * in a weekend.
+     * </p>
+     * <p>
+     * The value <b>FALSE</b> may also be returned on failure, for instance after giving
+     * a date out of bounds on non-lenient mode; use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or query
+     * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.</p>
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function isWeekend($timestamp = null): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Add value to field without carrying into more significant fields
+     * @link https://secure.php.net/manual/en/intlcalendar.roll.php
+     * @param int $field
+     * <p>One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time
+     * {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * values between <em>0</em> and
+     * <b>IntlCalendar::FIELD_COUNT</b>.
+     * </p>
+     * @param mixed $value <p>
+     * The (signed) amount to add to the field, <b>TRUE</b> for rolling up (adding
+     * <em>1</em>), or <b>FALSE</b> for rolling down (subtracting
+     * <em>1</em>).
+     * </p>
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function roll($field, $value): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Whether a field is set
+     * @link https://secure.php.net/manual/en/intlcalendar.isset.php
+     * @param int $field <p>
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time
+     * {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
+     * These are integer values between <em>0</em> and
+     * <b>IntlCalendar::FIELD_COUNT</b>.
+     * </p>
+     * @return bool Assuming there are no argument errors, returns <b>TRUE</b> iif the field is set.
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function isSet($field): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Set a time field or several common fields at once
+     * @link https://secure.php.net/manual/en/intlcalendar.set.php
+     * @param int $year <p>
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * values between <em>0</em> and
+     * <b>IntlCalendar::FIELD_COUNT</b>.
+     * </p>
+     * @param int $month <p>
+     * The new value for <b>IntlCalendar::FIELD_MONTH</b>.
+     * </p>
+     * @param int $dayOfMonth [optional] <p>
+     * The new value for <b>IntlCalendar::FIELD_DAY_OF_MONTH</b>.
+     * The month sequence is zero-based, i.e., January is represented by 0,
+     * February by 1, ..., December is 11 and Undecember (if the calendar has
+     * it) is 12.
+     * </p>
+     * @param int $hour [optional]
+     * <p>
+     * The new value for <b>IntlCalendar::FIELD_HOUR_OF_DAY</b>.
+     * </p>
+     * @param int $minute [optional]
+     * <p>
+     * The new value for <b>IntlCalendar::FIELD_MINUTE</b>.
+     * </p>
+     * @param int $second [optional] <p>
+     * The new value for <b>IntlCalendar::FIELD_SECOND</b>.
+     * </p>
+     * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    public function set($year, $month, $dayOfMonth = null, $hour = null, $minute = null, $second = null) {}
+
+    /**
+     * (PHP 5 >= 5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Set a time field or several common fields at once
+     * @link https://secure.php.net/manual/en/intlcalendar.set.php
+     * @param int $field One of the IntlCalendar date/time field constants. These are integer values between 0 and IntlCalendar::FIELD_COUNT.
+     * @param int $value The new value of the given field.
+     * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    public function set($field, $value) {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Set the day on which the week is deemed to start
+     * @link https://secure.php.net/manual/en/intlcalendar.setfirstdayofweek.php
+     * @param int $dayOfWeek <p>
+     * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
+     * <b>IntlCalendar::DOW_MONDAY</b>, ...,
+     * <b>IntlCalendar::DOW_SATURDAY</b>.
+     * </p>
+     * @return bool Returns TRUE on success. Failure can only happen due to invalid parameters.
+     * @since 5.5
+     */
+    public function setFirstDayOfWeek($dayOfWeek) {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Set whether date/time interpretation is to be lenient
+     * @link https://secure.php.net/manual/en/intlcalendar.setlenient.php
+     * @param bool $lenient <p>
+     * Use <b>TRUE</b> to activate the lenient mode; <b>FALSE</b> otherwise.
+     * </p>
+     * @return bool Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+     * @since 5.5
+     */
+    public function setLenient($lenient) {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Set behavior for handling repeating wall times at negative timezone offset transitions
+     * @link https://secure.php.net/manual/en/intlcalendar.setrepeatedwalltimeoption.php
+     * @param int $option <p>
+     * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b> or
+     * <b>IntlCalendar::WALLTIME_LAST</b>.
+     * </p>
+     * @return bool
+     * Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+     * @since 5.5
+     */
+    public function setRepeatedWallTimeOption($option) {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Set behavior for handling skipped wall times at positive timezone offset transitions
+     * @link https://secure.php.net/manual/en/intlcalendar.setskippedwalltimeoption.php
+     * @param int $option <p>
+     * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b>,
+     * <b>IntlCalendar::WALLTIME_LAST</b> or
+     * <b>IntlCalendar::WALLTIME_NEXT_VALID</b>.
+     * </p>
+     * @return bool
+     * <p>
+     * Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+     * </p>
+     * @since 5.5
+     */
+    public function setSkippedWallTimeOption($option) {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Set the calendar time in milliseconds since the epoch
+     * @link https://secure.php.net/manual/en/intlcalendar.settime.php
+     * @param float $timestamp <p>
+     * An instant represented by the number of number of milliseconds between
+     * such instant and the epoch, ignoring leap seconds.
+     * </p>
+     * @return bool
+     * Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function setTime($timestamp): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Set the timezone used by this calendar
+     * @link https://secure.php.net/manual/en/intlcalendar.settimezone.php
+     * @param mixed $timezone <p>
+     * The new timezone to be used by this calendar. It can be specified in the
+     * following ways:
+     *
+     * </p><ul>
+     * <li>
+     * <p>
+     * <b>NULL</b>, in which case the default timezone will be used, as specified in
+     * the ini setting {@link https://secure.php.net/manual/en/datetime.configuration.php#ini.date.timezone date.timezone} or
+     * through the function  {@link https://secure.php.net/manual/en/function.date-default-timezone-set.php date_default_timezone_set()} and as
+     * returned by  {@link https://secure.php.net/manual/en/function.date-default-timezone-get.php date_default_timezone_get()}.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * An {@link https://secure.php.net/manual/en/class.intltimezone.php IntlTimeZone}, which will be used directly.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * A {@link https://secure.php.net/manual/en/class.datetimezone.php DateTimeZone}. Its identifier will be extracted
+     * and an ICU timezone object will be created; the timezone will be backed
+     * by ICU's database, not PHP's.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * A {@link https://secure.php.net/manual/en/language.types.string.php string}, which should be a valid ICU timezone identifier.
+     * See  b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw
+     * offsets such as <em>"GMT+08:30"</em> are also accepted.
+     * </p>
+     * </li>
+     * </ul>
+     * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function setTimeZone($timezone): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a2)<br/>
+     * Convert an IntlCalendar into a DateTime object
+     * @link https://secure.php.net/manual/en/intlcalendar.todatetime.php
+     * @return DateTime|false
+     * A {@link https://secure.php.net/manual/en/class.datetime.php DateTime} object with the same timezone as this
+     * object (though using PHP's database instead of ICU's) and the same time,
+     * except for the smaller precision (second precision instead of millisecond).
+     * Returns <b>FALSE</b> on failure.
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function toDateTime(): DateTime|false {}
+
+    /**
+     * @link https://www.php.net/manual/en/intlcalendar.setminimaldaysinfirstweek.php
+     * @param int $days
+     * @return bool
+     */
+    public function setMinimalDaysInFirstWeek($days) {}
+}
+
+/**
+ * @since 5.5
+ */
+class IntlIterator implements Iterator
+{
+    #[TentativeType]
+    public function current(): mixed {}
+
+    #[TentativeType]
+    public function key(): mixed {}
+
+    #[TentativeType]
+    public function next(): void {}
+
+    #[TentativeType]
+    public function rewind(): void {}
+
+    #[TentativeType]
+    public function valid(): bool {}
+}
+
+/**
+ * @since 5.5
+ */
+class IntlException extends Exception {}
+
+/**
+ * @since 5.5
+ */
+class IntlTimeZone
+{
+    public const DISPLAY_SHORT = 1;
+    public const DISPLAY_LONG = 2;
+    public const DISPLAY_SHORT_GENERIC = 3;
+    public const DISPLAY_LONG_GENERIC = 4;
+    public const DISPLAY_SHORT_GMT = 5;
+    public const DISPLAY_LONG_GMT = 6;
+    public const DISPLAY_SHORT_COMMONLY_USED = 7;
+    public const DISPLAY_GENERIC_LOCATION = 8;
+    public const TYPE_ANY = 0;
+    public const TYPE_CANONICAL = 1;
+    public const TYPE_CANONICAL_LOCATION = 2;
+
+    private function __construct() {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get the number of IDs in the equivalency group that includes the given ID
+     * @link https://secure.php.net/manual/en/intltimezone.countequivalentids.php
+     * @param string $timezoneId
+     * @return int|false number of IDs or <b>FALSE</b> on failure
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function countEquivalentIDs($timezoneId): int|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Create a new copy of the default timezone for this host
+     * @link https://secure.php.net/manual/en/intltimezone.createdefault.php
+     * @return IntlTimeZone
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function createDefault(): IntlTimeZone {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get an enumeration over time zone IDs associated with the given country or offset
+     * @link https://secure.php.net/manual/en/intltimezone.createenumeration.php
+     * @param mixed $countryOrRawOffset [optional]
+     * @return IntlIterator|false an iterator or <b>FALSE</b> on failure
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function createEnumeration($countryOrRawOffset): IntlIterator|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Create a timezone object for the given ID
+     * @link https://secure.php.net/manual/en/intltimezone.createtimezone.php
+     * @param string $timezoneId
+     * @return IntlTimeZone|null a timezone object or <b>NULL</b> on failure
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function createTimeZone($timezoneId): ?IntlTimeZone {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get an enumeration over system time zone IDs with the given filter conditions
+     * @link https://secure.php.net/manual/en/intltimezone.createtimezoneidenumeration.php
+     * @param int $type
+     * @param string|null $region [optional]
+     * @param int $rawOffset [optional]
+     * @return IntlIterator|false an iterator or <b>FALSE</b> on failure
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function createTimeZoneIDEnumeration($type, $region = null, $rawOffset = 0): IntlIterator|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Create a timezone object from DateTimeZone
+     * @link https://secure.php.net/manual/en/intltimezone.fromdatetimezone.php
+     * @param DateTimeZone $timezone
+     * @return IntlTimeZone|null a timezone object or <b>NULL</b> on failure
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function fromDateTimeZone($timezone): ?IntlTimeZone {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get the canonical system timezone ID or the normalized custom time zone ID for the given time zone ID
+     * @link https://secure.php.net/manual/en/intltimezone.getcanonicalid.php
+     * @param string $timezoneId
+     * @param bool &$isSystemId [optional]
+     * @return string|false the timezone ID or <b>FALSE</b> on failure
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function getCanonicalID($timezoneId, &$isSystemId): string|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get an ID in the equivalency group that includes the given ID
+     * @link https://secure.php.net/manual/en/intltimezone.getequivalentid.php
+     * @param string $timezoneId
+     * @param int $offset
+     * @return string|false the time zone ID or <b>FALSE</b> on failure
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function getEquivalentID($timezoneId, $offset): string|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Create GMT (UTC) timezone
+     * @link https://secure.php.net/manual/en/intltimezone.getgmt.php
+     * @return IntlTimeZone
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function getGMT(): IntlTimeZone {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get the region code associated with the given system time zone ID
+     * @link https://secure.php.net/manual/en/intltimezone.getregion.php
+     * @param string $timezoneId
+     * @return string|false region or <b>FALSE</b> on failure
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function getRegion($timezoneId): string|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get the timezone data version currently used by ICU
+     * @link https://secure.php.net/manual/en/intltimezone.gettzdataversion.php
+     * @return string
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function getTZDataVersion(): string|false {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get the "unknown" time zone
+     * @link https://secure.php.net/manual/en/intltimezone.getunknown.php
+     * @return IntlTimeZone
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function getUnknown(): IntlTimeZone {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get a name of this time zone suitable for presentation to the user
+     * @param bool $dst [optional]
+     * @param int $style [optional]
+     * @param string $locale [optional]
+     * @return string|false the timezone name or <b>FALSE</b> on failure
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getDisplayName($dst = false, $style = 2, $locale): string|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get the amount of time to be added to local standard time to get local wall clock time
+     * @link https://secure.php.net/manual/en/intltimezone.getequivalentid.php
+     * @return int
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getDSTSavings(): int {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get last error code on the object
+     * @link https://secure.php.net/manual/en/intltimezone.geterrorcode.php
+     * @return int
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getErrorCode(): int|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get last error message on the object
+     * @link https://secure.php.net/manual/en/intltimezone.geterrormessage.php
+     * @return string|false
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getErrorMessage(): string|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get timezone ID
+     * @return string
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getID(): string|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get the time zone raw and GMT offset for the given moment in time
+     * @link https://secure.php.net/manual/en/intltimezone.getoffset.php
+     * @param float $timestamp
+     *   moment in time for which to return offsets, in units of milliseconds from
+     *   January 1, 1970 0:00 GMT, either GMT time or local wall time, depending on
+     *   `local'.
+     * @param bool $local
+     *   if true, `date' is local wall time; otherwise it is in GMT time.
+     * @param int &$rawOffset
+     *   output parameter to receive the raw offset, that is, the offset not
+     *   including DST adjustments
+     * @param int &$dstOffset
+     *   output parameter to receive the DST offset, that is, the offset to be added
+     *   to `rawOffset' to obtain the total offset between local and GMT time. If
+     *   DST is not in effect, this value is zero; otherwise it is a positive value,
+     *   typically one hour.
+     * @return bool boolean indication of success
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function getOffset($timestamp, $local, &$rawOffset, &$dstOffset): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Get the raw GMT offset (before taking daylight savings time into account
+     * @link https://secure.php.net/manual/en/intltimezone.getrawoffset.php
+     * @return int
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getRawOffset(): int {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Check if this zone has the same rules and offset as another zone
+     * @link https://secure.php.net/manual/en/intltimezone.hassamerules.php
+     * @param IntlTimeZone $other
+     * @return bool
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function hasSameRules(IntlTimeZone $other): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Convert to DateTimeZone object
+     * @link https://secure.php.net/manual/en/intltimezone.todatetimezone.php
+     * @return DateTimeZone|false the DateTimeZone object or <b>FALSE</b> on failure
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function toDateTimeZone(): DateTimeZone|false {}
+
+    /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Check if this time zone uses daylight savings time
+     * @link https://secure.php.net/manual/en/intltimezone.usedaylighttime.php
+     * @return bool
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function useDaylightTime(): bool {}
+}
+
+/**
+ * @since 5.5
+ */
+class IntlBreakIterator implements IteratorAggregate
+{
+    public const DONE = -1;
+    public const WORD_NONE = 0;
+    public const WORD_NONE_LIMIT = 100;
+    public const WORD_NUMBER = 100;
+    public const WORD_NUMBER_LIMIT = 200;
+    public const WORD_LETTER = 200;
+    public const WORD_LETTER_LIMIT = 300;
+    public const WORD_KANA = 300;
+    public const WORD_KANA_LIMIT = 400;
+    public const WORD_IDEO = 400;
+    public const WORD_IDEO_LIMIT = 500;
+    public const LINE_SOFT = 0;
+    public const LINE_SOFT_LIMIT = 100;
+    public const LINE_HARD = 100;
+    public const LINE_HARD_LIMIT = 200;
+    public const SENTENCE_TERM = 0;
+    public const SENTENCE_TERM_LIMIT = 100;
+    public const SENTENCE_SEP = 100;
+    public const SENTENCE_SEP_LIMIT = 200;
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Private constructor for disallowing instantiation
+     * @since 5.5
+     */
+    private function __construct() {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Create break iterator for boundaries of combining character sequences
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createcharacterinstance.php
+     * @param string $locale
+     * @return IntlBreakIterator
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function createCharacterInstance($locale = null): ?IntlBreakIterator {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Create break iterator for boundaries of code points
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createcodepointinstance.php
+     * @return IntlCodePointBreakIterator
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function createCodePointInstance(): IntlCodePointBreakIterator {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Create break iterator for logically possible line breaks
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createlineinstance.php
+     * @param string $locale [optional]
+     * @return IntlBreakIterator|null
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function createLineInstance($locale): ?IntlBreakIterator {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Create break iterator for sentence breaks
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createsentenceinstance.php
+     * @param string $locale [optional]
+     * @return IntlBreakIterator|null
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function createSentenceInstance($locale): ?IntlBreakIterator {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Create break iterator for title-casing breaks
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createtitleinstance.php
+     * @param string $locale [optional]
+     * @return IntlBreakIterator|null
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function createTitleInstance($locale): ?IntlBreakIterator {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Create break iterator for word breaks
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createwordinstance.php
+     * @param string $locale [optional]
+     * @return IntlBreakIterator|null
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function createWordInstance($locale): ?IntlBreakIterator {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get index of current position
+     * @link https://secure.php.net/manual/en/intlbreakiterator.current.php
+     * @return int
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function current(): int {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Set position to the first character in the text
+     * @link https://secure.php.net/manual/en/intlbreakiterator.first.php
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function first(): int {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Advance the iterator to the first boundary following specified offset
+     * @link https://secure.php.net/manual/en/intlbreakiterator.following.php
+     * @param int $offset
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function following($offset): int {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get last error code on the object
+     * @link https://secure.php.net/manual/en/intlbreakiterator.geterrorcode.php
+     * @return int
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getErrorCode(): int {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get last error message on the object
+     * @link https://secure.php.net/manual/en/intlbreakiterator.geterrormessage.php
+     * @return string
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getErrorMessage(): string {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get the locale associated with the object
+     * @link https://secure.php.net/manual/en/intlbreakiterator.getlocale.php
+     * @param string $type
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getLocale($type): string|false {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Create iterator for navigating fragments between boundaries
+     * @link https://secure.php.net/manual/en/intlbreakiterator.getpartsiterator.php
+     * @param int $type [optional]
+     * <p>
+     * Optional key type. Possible values are:
+     * </p><ul>
+     * <li>
+     * {@see IntlPartsIterator::KEY_SEQUENTIAL}
+     * - The default. Sequentially increasing integers used as key.
+     * </li>
+     * <li>
+     * {@see IntlPartsIterator::KEY_LEFT}
+     * - Byte offset left of current part used as key.
+     * </li>
+     * <li>
+     * {@see IntlPartsIterator::KEY_RIGHT}
+     * - Byte offset right of current part used as key.
+     * </li>
+     * </ul>
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getPartsIterator($type = IntlPartsIterator::KEY_SEQUENTIAL): IntlPartsIterator {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get the text being scanned
+     * @link https://secure.php.net/manual/en/intlbreakiterator.gettext.php
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getText(): ?string {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Tell whether an offset is a boundary's offset
+     * @link https://secure.php.net/manual/en/intlbreakiterator.isboundary.php
+     * @param int $offset
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function isBoundary($offset): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Set the iterator position to index beyond the last character
+     * @link https://secure.php.net/manual/en/intlbreakiterator.last.php
+     * @return int
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function last(): int {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * @link https://secure.php.net/manual/en/intlbreakiterator.next.php
+     * @param int $offset [optional]
+     * @return int
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function next($offset = null): int {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * @link https://secure.php.net/manual/en/intlbreakiterator.preceding.php
+     * @param int $offset
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function preceding($offset): int {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Set the iterator position to the boundary immediately before the current
+     * @link https://secure.php.net/manual/en/intlbreakiterator.previous.php
+     * @return int
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function previous(): int {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Set the text being scanned
+     * @link https://secure.php.net/manual/en/intlbreakiterator.settext.php
+     * @param string $text
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function setText($text): ?bool {}
+}
+
+class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversable
+{
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * @link https://secure.php.net/manual/en/intlbreakiterator.construct.php
+     * @param string $rules
+     * @param string $compiled [optional]
+     * @since 5.5
+     */
+    #[Pure]
+    public function __construct($rules, $compiled = false) {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Create break iterator for boundaries of combining character sequences
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createcharacterinstance.php
+     * @param string $locale
+     * @return IntlRuleBasedBreakIterator
+     * @since 5.5
+     */
+    public static function createCharacterInstance($locale) {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Create break iterator for boundaries of code points
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createcodepointinstance.php
+     * @return IntlRuleBasedBreakIterator
+     * @since 5.5
+     */
+    public static function createCodePointInstance() {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Create break iterator for logically possible line breaks
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createlineinstance.php
+     * @param string $locale [optional]
+     * @return IntlRuleBasedBreakIterator
+     * @since 5.5
+     */
+    public static function createLineInstance($locale) {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Create break iterator for sentence breaks
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createsentenceinstance.php
+     * @param string $locale [optional]
+     * @return IntlRuleBasedBreakIterator
+     * @since 5.5
+     */
+    public static function createSentenceInstance($locale) {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Create break iterator for title-casing breaks
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createtitleinstance.php
+     * @param string $locale [optional]
+     * @return IntlRuleBasedBreakIterator
+     * @since 5.5
+     */
+    public static function createTitleInstance($locale) {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Create break iterator for word breaks
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createwordinstance.php
+     * @param string $locale [optional]
+     * @return IntlRuleBasedBreakIterator
+     * @since 5.5
+     */
+    public static function createWordInstance($locale) {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * @link https://secure.php.net/manual/en/intlrulebasedbreakiterator.getbinaryrules.php
+     * Get the binary form of compiled rules
+     * @return string
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getBinaryRules(): string|false {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * @link https://secure.php.net/manual/en/intlrulebasedbreakiterator.getrules.php
+     * Get the rule set used to create this object
+     * @return string|false
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getRules(): string|false {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * @link https://secure.php.net/manual/en/intlrulebasedbreakiterator.getrulesstatus.php
+     * Get the largest status value from the break rules that determined the current break position
+     * @return int
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getRuleStatus(): int {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * @link https://secure.php.net/manual/en/intlrulebasedbreakiterator.getrulestatusvec.php
+     * Get the status values from the break rules that determined the current break position
+     * @return array|false
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getRuleStatusVec(): array|false {}
+}
+
+/**
+ * @link https://www.php.net/manual/en/class.intlpartsiterator.php
+ * @since 5.5
+ */
+class IntlPartsIterator extends IntlIterator implements Iterator
+{
+    public const KEY_SEQUENTIAL = 0;
+    public const KEY_LEFT = 1;
+    public const KEY_RIGHT = 2;
+
+    /**
+     * @return IntlBreakIterator
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getBreakIterator(): IntlBreakIterator {}
+}
+
+class IntlCodePointBreakIterator extends IntlBreakIterator implements Traversable
+{
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get last code point passed over after advancing or receding the iterator
+     * @link https://secure.php.net/manual/en/intlcodepointbreakiterator.getlastcodepoint.php
+     * @return int
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getLastCodePoint(): int {}
+}
 
 class UConverter
 {
@@ -4448,4 +7393,224 @@ class UConverter
     public const UTF32 = 30;
     public const CESU8 = 31;
     public const IMAP_MAILBOX = 32;
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Create UConverter object
+     * @link https://php.net/manual/en/uconverter.construct.php
+     * @param string $destination_encoding
+     * @param string $source_encoding
+     * @since 5.5
+     */
+    #[Pure]
+    public function __construct($destination_encoding = null, $source_encoding = null) {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get the aliases of the given name
+     * @link https://php.net/manual/en/uconverter.getaliases.php
+     * @param string $name
+     * @return array|false|null
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function getAliases($name = ''): array|false|null {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get the available canonical converter names
+     * @link https://php.net/manual/en/uconverter.getavailable.php
+     * @return array
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function getAvailable(): array {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get standards associated to converter names
+     * @link https://php.net/manual/en/uconverter.getstandards.php
+     * @return array|null
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public static function getStandards(): ?array {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get string representation of the callback reason
+     * @link https://php.net/manual/en/uconverter.reasontext.php
+     * @param int $reason
+     * @return string
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public static function reasonText($reason = 0): string {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Convert string from one charset to another
+     * @link https://php.net/manual/en/uconverter.transcode.php
+     * @param string $str
+     * @param string $toEncoding
+     * @param string $fromEncoding
+     * @param array $options
+     * @return string|false
+     * @since 5.5
+     */
+    #[TentativeType]
+    public static function transcode($str, $toEncoding, $fromEncoding, ?array $options = []): string|false {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Convert string from one charset to anothe
+     * @link https://php.net/manual/en/uconverter.convert.php
+     * @param string $str
+     * @param bool $reverse [optional]
+     * @return string|false
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function convert($str, $reverse = false): string|false {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Default "from" callback function
+     * @link https://php.net/manual/en/uconverter.fromucallback.php
+     * @param int $reason
+     * @param string $source
+     * @param string $codePoint
+     * @param int &$error
+     * @return array|string|int|null
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function fromUCallback($reason, $source, $codePoint, &$error): array|string|int|null {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get the destination encoding
+     * @link https://php.net/manual/en/uconverter.getdestinationencoding.php
+     * @return string|false|null
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getDestinationEncoding(): string|false|null {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get the destination converter type
+     * @link https://php.net/manual/en/uconverter.getdestinationtype.php
+     * @return int|false|null
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getDestinationType(): int|false|null {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get last error code on the object
+     * @link https://php.net/manual/en/uconverter.geterrorcode.php
+     * @return int
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getErrorCode(): int {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get last error message on the object
+     * @link https://php.net/manual/en/uconverter.geterrormessage.php
+     * @return string|null
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getErrorMessage(): ?string {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get the source encoding
+     * @link https://php.net/manual/en/uconverter.getsourceencoding.php
+     * @return string|false|null
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getSourceEncoding(): string|false|null {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get the source convertor type
+     * @link https://php.net/manual/en/uconverter.getsourcetype.php
+     * @return int|false|null
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getSourceType(): int|false|null {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Get substitution chars
+     * @link https://php.net/manual/en/uconverter.getsubstchars.php
+     * @return string|false|null
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getSubstChars(): string|false|null {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Set the destination encoding
+     * @link https://php.net/manual/en/uconverter.setdestinationencoding.php
+     * @param string $encoding
+     * @return bool
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function setDestinationEncoding($encoding): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Set the source encoding
+     * @link https://php.net/manual/en/uconverter.setsourceencoding.php
+     * @param string $encoding
+     * @return bool
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function setSourceEncoding($encoding): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Set the substitution chars
+     * @link https://php.net/manual/en/uconverter.setsubstchars.php
+     * @param string $chars
+     * @return bool
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function setSubstChars($chars): bool {}
+
+    /**
+     * (PHP 5 >=5.5.0)<br/>
+     * Default "to" callback function
+     * @link https://php.net/manual/en/uconverter.toucallback.php
+     * @param int $reason
+     * @param string $source
+     * @param string $codeUnits
+     * @param int &$error
+     * @return array|string|int|null
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function toUCallback($reason, $source, $codeUnits, &$error): array|string|int|null {}
 }

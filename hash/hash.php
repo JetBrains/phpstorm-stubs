@@ -278,6 +278,38 @@ function hash_copy($context) {}
 function hash_algos(): array {}
 
 /**
+ * Generate a PBKDF2 key derivation of a supplied password
+ * @link https://php.net/manual/en/function.hash-pbkdf2.php
+ * @param string $algo <p>
+ * Name of selected hashing algorithm (i.e. "md5", "sha256", "haval160,4", etc..) See <b>hash_algos</b> for a list of supported algorithms.<br/>
+ * Since 7.2.0 usage of non-cryptographic hash functions (adler32, crc32, crc32b, fnv132, fnv1a32, fnv164, fnv1a64, joaat) was disabled.
+ * </p>
+ * @param string $password <p>
+ * The password to use for the derivation.
+ * </p>
+ * @param string $salt <p>
+ * The salt to use for the derivation. This value should be generated randomly.
+ * </p>
+ * @param int $iterations <p>
+ * The number of internal iterations to perform for the derivation.
+ * </p>
+ * @param int $length [optional] <p>
+ * The length of the output string. If raw_output is TRUE this corresponds to the byte-length of the derived key,
+ * if raw_output is FALSE this corresponds to twice the byte-length of the derived key (as every byte of the key is returned as two hexits). <br/>
+ * If 0 is passed, the entire output of the supplied algorithm is used.
+ * </p>
+ * @param bool $binary [optional] <p>
+ * When set to TRUE, outputs raw binary data. FALSE outputs lowercase hexits.
+ * </p>
+ * @return string a string containing the derived key as lowercase hexits unless
+ * <i>raw_output</i> is set to <b>TRUE</b> in which case the raw
+ * binary representation of the derived key is returned.
+ * @since 5.5
+ */
+#[Pure]
+function hash_pbkdf2(string $algo, string $password, string $salt, int $iterations, int $length = 0, bool $binary = false): string {}
+
+/**
  * Generates a key
  * @link https://php.net/manual/en/function.mhash-keygen-s2k.php
  * @param int $algo <p>

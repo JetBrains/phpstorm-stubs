@@ -5,6 +5,16 @@ use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\Pure;
 
 /**
+ * (PHP 5.5.0)<br/>
+ * Get the boolean value of a variable
+ * @param mixed $value <p>the scalar value being converted to a boolean.</p>
+ * @return bool The boolean value of var.
+ * @since 5.5
+ */
+#[Pure]
+function boolval(mixed $value): bool {}
+
+/**
  * Get the integer value of a variable
  * @link https://php.net/manual/en/function.intval.php
  * @param mixed $value <p>

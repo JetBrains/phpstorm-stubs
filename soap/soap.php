@@ -159,6 +159,30 @@ define('WSDL_CACHE_MEMORY', 2);
 define('WSDL_CACHE_BOTH', 3);
 
 /**
+ * @link https://php.net/manual/en/soap.constants.php
+ * @since 5.5
+ */
+define('SOAP_SSL_METHOD_TLS', 0);
+
+/**
+ * @link https://php.net/manual/en/soap.constants.php
+ * @since 5.5
+ */
+define('SOAP_SSL_METHOD_SSLv2', 1);
+
+/**
+ * @link https://php.net/manual/en/soap.constants.php
+ * @since 5.5
+ */
+define('SOAP_SSL_METHOD_SSLv3', 2);
+
+/**
+ * @link https://php.net/manual/en/soap.constants.php
+ * @since 5.5
+ */
+define('SOAP_SSL_METHOD_SSLv23', 3);
+
+/**
  * Set whether to use the SOAP error handler
  * @link https://php.net/manual/en/function.use-soap-error-handler.php
  * @param bool $enable [optional] <p>

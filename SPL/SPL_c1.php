@@ -699,6 +699,18 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     public function fgets(): string {}
 
     /**
+     * Read from file
+     * @link https://php.net/manual/en/splfileobject.fread.php
+     * @param int $length <p>
+     * The number of bytes to read.
+     * </p>
+     * @return string|false returns the string read from the file or FALSE on failure.
+     * @since 5.5.11
+     */
+    #[TentativeType]
+    public function fread($length): string|false {}
+
+    /**
      * Gets line from file and parse as CSV fields
      * @link https://php.net/manual/en/splfileobject.fgetcsv.php
      * @param string $separator [optional] <p>
@@ -1044,6 +1056,17 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
     public const IT_MODE_FIFO = 0;
     public const IT_MODE_DELETE = 1;
     public const IT_MODE_KEEP = 0;
+
+    /**
+     * Add/insert a new value at the specified index
+     * @param mixed $index The index where the new value is to be inserted.
+     * @param mixed $value The new value for the index.
+     * @return void
+     * @link https://php.net/spldoublylinkedlist.add
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function add($index, $value): void {}
 
     /**
      * Pops a node from the end of the doubly linked list

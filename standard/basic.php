@@ -109,6 +109,27 @@ define('__NAMESPACE__', "");
 function dl(string $extension_filename): bool {}
 
 /**
+ * Sets the process title
+ * @link https://php.net/manual/en/function.cli-set-process-title.php
+ * @param string $title <p>
+ * The new title.
+ * </p>
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+function cli_set_process_title(string $title): bool {}
+
+/**
+ * Returns the current process title, as set by cli_set_process_title(). Note that this may not exactly match what is shown in ps or top, depending on your operating system.
+ *
+ * @link https://php.net/manual/en/function.cli-get-process-title.php
+ * @return string|null Return a string with the current process title or <b>NULL</b> on error.
+ * @since 5.5
+ */
+#[Pure(true)]
+function cli_get_process_title(): ?string {}
+
+/**
  * Encodes an ISO-8859-1 string to UTF-8
  * @link https://php.net/manual/en/function.utf8-encode.php
  * @param string $string <p>
