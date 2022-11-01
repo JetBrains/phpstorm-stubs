@@ -84,6 +84,13 @@ define('LIBXML_NOCDATA', 16384);
 define('LIBXML_NONET', 2048);
 
 /**
+ * Sets XML_PARSE_PEDANTIC flag, which enables pedentic error reporting.
+ * @link https://php.net/manual/en/libxml.constants.php
+ * @since 5.4
+ */
+define('LIBXML_PEDANTIC', 128);
+
+/**
  * Activate small nodes allocation optimization. This may speed up your
  * application without needing to change the code.
  * <p>
@@ -247,6 +254,20 @@ function libxml_get_errors(): array {}
  */
 #[Deprecated(since: "8.0")]
 function libxml_disable_entity_loader(bool $disable = true): bool {}
+
+/**
+ * Changes the default external entity loader
+ * @link https://php.net/manual/en/function.libxml-set-external-entity-loader.php
+ * @param callable|null $resolver_function <p>
+ * A callable that takes three arguments. Two strings, a public id
+ * and system id, and a context (an array with four keys) as the third argument.
+ * This callback should return a resource, a string from which a resource can be
+ * opened, or <b>NULL</b>.
+ * </p>
+ * @return bool
+ * @since 5.4
+ */
+function libxml_set_external_entity_loader(?callable $resolver_function): bool {}
 
 /**
  * Contains various information about errors thrown by libxml. The error codes

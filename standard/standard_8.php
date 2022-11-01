@@ -79,6 +79,40 @@ function closelog(): bool {}
 function header_register_callback(callable $callback): bool {}
 
 /**
+ * Get the size of an image from a string.
+ * @param string $string The image data, as a string.
+ * @param array &$image_info [optional] This optional parameter allows you to extract<br>
+ * some extended information from the image file. Currently, this will <br>
+ * return the different JPG APP markers as an associative array. <br>
+ * Some programs use these APP markers to embed text information in images. <br>
+ * A very common one is to embed » IPTC information in the APP13 marker. <br>
+ * You can use the iptcparse() function to parse the binary APP13 marker into something readable.
+ * @return array|false Returns an array with 7 elements.<br>
+ * Index 0 and 1 contains respectively the width and the height of the image.<br>
+ * Index 2 is one of the <b>IMAGETYPE_XXX</b> constants indicating the type of the image.<br>
+ * Index 3 is a text string with the correct <b>height="yyy" width="xxx"</b> string<br>
+ * that can be used directly in an IMG tag.<br>
+ * On failure, FALSE is returned.
+ * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
+ * @since 5.4
+ * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
+ * @since 5.4
+ */
+#[ArrayShape([0 => "int", 1 => "int", 2 => "int", 3 => "string", "bits" => "int", "channels" => "int", "mime" => "string"])]
+function getimagesizefromstring(string $string, &$image_info): array|false {}
+
+/**
+ * Set the stream chunk size.
+ * @param resource $stream The target stream.
+ * @param int $size The desired new chunk size.
+ * @return int|false Returns the previous chunk size on success.<br>
+ * Will return <b>FALSE</b> if chunk_size is less than 1 or greater than <b>PHP_INT_MAX</b>.
+ * @link https://secure.php.net/manual/en/function.stream-set-chunk-size.php
+ * @since 5.4
+ */
+function stream_set_chunk_size($stream, int $size): int|false {}
+
+/**
  * Initializes all syslog related variables
  * @link https://php.net/manual/en/function.define-syslog-variables.php
  * @return void

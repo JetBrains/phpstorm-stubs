@@ -148,4 +148,34 @@ class ReflectionExtension implements Reflector
      */
     #[TentativeType]
     public function info(): void {}
+
+    /**
+     * Returns whether this extension is persistent
+     *
+     * @link https://php.net/manual/en/reflectionextension.ispersistent.php
+     * @return bool Returns {@see true} for extensions loaded by extension, {@see false} otherwise.
+     * @since 5.4
+     */
+    #[Pure]
+    #[TentativeType]
+    public function isPersistent(): bool {}
+
+    /**
+     * Returns whether this extension is temporary
+     *
+     * @link https://php.net/manual/en/reflectionextension.istemporary.php
+     * @return bool Returns {@see true} for extensions loaded by {@see dl()}, {@see false} otherwise.
+     * @since 5.4
+     */
+    #[Pure]
+    #[TentativeType]
+    public function isTemporary(): bool {}
+
+    /**
+     * Clones
+     *
+     * @link https://php.net/manual/en/reflectionextension.clone.php
+     * @return void No value is returned, if called a fatal error will occur.
+     */
+    final private function __clone(): void {}
 }

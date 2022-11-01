@@ -77,7 +77,7 @@ function curl_version($age = null): array|false {}
 /**
  * Set an option for a cURL transfer
  * @link https://php.net/manual/en/function.curl-setopt.php
- * @param CurlHandle|resource $handle
+ * @param resource $handle
  * @param int $option <p>
  * The CURLOPT_XXX option to set.
  * </p>
@@ -2035,7 +2035,7 @@ function curl_setopt($handle, int $option, mixed $value): bool {}
 /**
  * Set multiple options for a cURL transfer
  * @link https://php.net/manual/en/function.curl-setopt-array.php
- * @param CurlHandle|resource $handle
+ * @param resource $handle
  * @param array $options <p>
  * An array specifying which options to set and their values.
  * The keys should be valid curl_setopt constants or
@@ -2323,7 +2323,7 @@ function curl_getinfo($handle, ?int $option): mixed {}
 /**
  * Return a string containing the last error for the current session
  * @link https://php.net/manual/en/function.curl-error.php
- * @param CurlHandle|resource $handle
+ * @param resource $handle
  * @return string the error message or '' (the empty string) if no
  * error occurred.
  */
@@ -2377,14 +2377,14 @@ function curl_multi_remove_handle($multi_handle, $handle): int|false {}
 /**
  * Wait for activity on any curl_multi connection
  * @link https://php.net/manual/en/function.curl-multi-select.php
- * @param CurlMultiHandle|resource $multi_handle
+ * @param resource $multi_handle
  * @param float $timeout [optional] <p>
  * Time, in seconds, to wait for a response.
  * </p>
  * @return int On success, returns the number of descriptors contained in,
  * the descriptor sets. On failure, this function will return -1 on a select failure or timeout (from the underlying select system call).
  */
-function curl_multi_select($multi_handle, float $timeout = 1.0): int {}
+function curl_multi_select($multi_handle, float $timeout = '1'): int {}
 
 /**
  * Run the sub-connections of the current cURL handle

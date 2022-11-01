@@ -114,6 +114,17 @@ class ReflectionClass implements Reflector
     public function isInstantiable(): bool {}
 
     /**
+     * Returns whether this class is cloneable
+     *
+     * @link https://php.net/manual/en/reflectionclass.iscloneable.php
+     * @return bool Returns {@see true} if the class is cloneable, {@see false} otherwise.
+     * @since 5.4
+     */
+    #[Pure]
+    #[TentativeType]
+    public function isCloneable(): bool {}
+
+    /**
      * Gets the filename of the file in which the class has been defined
      *
      * @link https://php.net/manual/en/reflectionclass.getfilename.php
@@ -303,6 +314,55 @@ class ReflectionClass implements Reflector
     public function isInterface(): bool {}
 
     /**
+     * Returns an array of traits used by this class
+     *
+     * @link https://php.net/manual/en/reflectionclass.gettraits.php
+     * @return ReflectionClass[] an array with trait names in keys and
+     * instances of trait's {@see ReflectionClass} in values.
+     * @since 5.4
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getTraits(): array {}
+
+    /**
+     * Returns an array of names of traits used by this class
+     *
+     * @link https://php.net/manual/en/reflectionclass.gettraitnames.php
+     * @return string[] An array with trait names in values.
+     * Returns {@see null} in case of an error.
+     * @since 5.4
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getTraitNames(): array {}
+
+    /**
+     * Returns an array of trait aliases
+     *
+     * @link https://php.net/manual/en/reflectionclass.gettraitaliases.php
+     * @return string[] an array with new method names in keys and original
+     * names (in the format "TraitName::original") in values.
+     * Returns {@see null} in case of an error.
+     * @since 5.4
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getTraitAliases(): array {}
+
+    /**
+     * Returns whether this is a trait
+     *
+     * @link https://php.net/manual/en/reflectionclass.istrait.php
+     * @return bool Returns {@see true} if this is a trait, {@see false} otherwise.
+     * Returns {@see null} in case of an error.
+     * @since 5.4
+     */
+    #[Pure]
+    #[TentativeType]
+    public function isTrait(): bool {}
+
+    /**
      * Checks if class is abstract
      *
      * @link https://php.net/manual/en/reflectionclass.isabstract.php
@@ -355,6 +415,19 @@ class ReflectionClass implements Reflector
      * one or more parameters.
      */
     public function newInstance(...$args) {}
+
+    /**
+     * Creates a new class instance without invoking the constructor.
+     *
+     * @link https://php.net/manual/en/reflectionclass.newinstancewithoutconstructor.php
+     * @return T a new instance of the class.
+     * @throws ReflectionException if the class is an internal class that
+     * cannot be instantiated without invoking the constructor. In PHP 5.6.0
+     * onwards, this exception is limited only to internal classes that are final.
+     * @since 5.4
+     */
+    #[TentativeType]
+    public function newInstanceWithoutConstructor(): object {}
 
     /**
      * Creates a new class instance from given arguments.
@@ -513,4 +586,13 @@ class ReflectionClass implements Reflector
     #[Pure]
     #[TentativeType]
     public function getShortName(): string {}
+
+    /**
+     * Clones object
+     *
+     * @link https://php.net/manual/en/reflectionclass.clone.php
+     * @return void
+     * @since 5.4
+     */
+    final private function __clone(): void {}
 }

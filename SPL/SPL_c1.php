@@ -721,6 +721,23 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     public function fgetcsv($separator = ',', $enclosure = '"', $escape = "\\"): array|false|null {}
 
     /**
+     * Write a field array as a CSV line
+     * @link https://php.net/manual/en/splfileobject.fputcsv.php
+     * @param array $fields An array of values
+     * @param string $separator [optional] <p>
+     * The field delimiter (one character only). Defaults as a comma or the value set using <b>SplFileObject::setCsvControl</b>.
+     * </p>
+     * @param string $enclosure [optional] <p>
+     * The field enclosure character (one character only). Defaults as a double quotation mark or the value set using <b>SplFileObject::setCsvControl</b>.
+     * </p>
+     * @param string $escape The optional escape parameter sets the escape character (one character only).
+     * @return int|false Returns the length of the written string or FALSE on failure.
+     * @since 5.4
+     */
+    #[TentativeType]
+    public function fputcsv(array $fields, $separator = ',', $enclosure = '"', $escape = "\\"): int|false {}
+
+    /**
      * Set the delimiter and enclosure character for CSV
      * @link https://php.net/manual/en/splfileobject.setcsvcontrol.php
      * @param string $separator [optional] <p>
@@ -1213,6 +1230,25 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      */
     #[TentativeType]
     public function valid(): bool {}
+
+    /**
+     * Unserializes the storage
+     * @link https://php.net/manual/en/spldoublylinkedlist.serialize.php
+     * @param string $data The serialized string.
+     * @return void
+     * @since 5.4
+     */
+    #[TentativeType]
+    public function unserialize($data): void {}
+
+    /**
+     * Serializes the storage
+     * @link https://php.net/manual/en/spldoublylinkedlist.unserialize.php
+     * @return string The serialized string.
+     * @since 5.4
+     */
+    #[TentativeType]
+    public function serialize(): string {}
 }
 
 /**
@@ -1691,7 +1727,7 @@ class SplPriorityQueue implements Iterator, Countable
  * @template-implements ArrayAccess<int, TValue>
  * @template-implements IteratorAggregate<int, TValue>
  */
-class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggregate
+class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggregate, JsonSerializable
 {
     /**
      * Constructs a new fixed array
@@ -2061,6 +2097,18 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
      */
     #[TentativeType]
     public function offsetGet($object): mixed {}
+
+    /**
+     * Calculate a unique identifier for the contained objects
+     * @link https://php.net/manual/en/splobjectstorage.gethash.php
+     * @param TObject $object <p>
+     * object whose identifier is to be calculated.
+     * </p>
+     * @return string A string with the calculated identifier.
+     * @since 5.4
+     */
+    #[TentativeType]
+    public function getHash($object): string {}
 }
 
 /**

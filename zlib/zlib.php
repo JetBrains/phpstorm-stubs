@@ -404,6 +404,49 @@ function gzinflate(string $data, int $max_length = 0): string|false {}
 function gzencode(string $data, int $level = -1, int $encoding = FORCE_GZIP): string|false {}
 
 /**
+ * Decodes a gzip compressed string
+ * @link https://php.net/manual/en/function.gzdecode.php
+ * @param string $data <p>
+ * The data to decode, encoded by <b>gzencode</b>.
+ * </p>
+ * @param int $max_length <p>
+ * The maximum length of data to decode.
+ * </p>
+ * @return string|false The decoded string, or <b>FALSE</b> if an error occurred.
+ * @since 5.4
+ */
+#[Pure]
+function gzdecode(string $data, int $max_length = 0): string|false {}
+
+/**
+ * Compress data with the specified encoding
+ * @link https://php.net/manual/en/function.zlib-encode.php
+ * @param string $data <p>
+ * </p>
+ * @param int $encoding <p>
+ * </p>
+ * @param int $level [optional] default -1 <p>
+ * </p>
+ * @return string|false
+ * @since 5.4
+ */
+#[Pure]
+function zlib_encode(string $data, int $encoding, int $level = -1): string|false {}
+
+/**
+ * Uncompress any raw/gzip/zlib encoded data
+ * @link https://php.net/manual/en/function.zlib-decode.php
+ * @param string $data <p>
+ * </p>
+ * @param int $max_length <p>
+ * </p>
+ * @return string|false
+ * @since 5.4
+ */
+#[Pure]
+function zlib_decode(string $data, int $max_length = 0): string|false {}
+
+/**
  * Returns the coding type used for output compression
  * @link https://php.net/manual/en/function.zlib-get-coding-type.php
  * @return string|false Possible return values are gzip, deflate,
