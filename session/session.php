@@ -227,6 +227,19 @@ function session_unset(): void {}
 function session_set_save_handler(callable $open, callable $close, callable $read, callable $write, callable $destroy, callable $gc, ?callable $create_sid = null, ?callable $validate_sid = null, ?callable $update_timestamp = null): bool {}
 
 /**
+ * (PHP 5.4)<br/>
+ * Sets user-level session storage functions
+ * @link https://php.net/manual/en/function.session-set-save-handler.php
+ * @param SessionHandlerInterface $session_handler An instance of a class implementing SessionHandlerInterface,
+ * and optionally SessionIdInterface and/or SessionUpdateTimestampHandlerInterface, such as SessionHandler,
+ * to register as the session handler. Since PHP 5.4 only.
+ * @param bool $register_shutdown [optional] Register session_write_close() as a register_shutdown_function() function.
+ * @return bool true on success or false on failure.
+ * @since 5.4
+ */
+function session_set_save_handler(SessionHandlerInterface $sessionhandler, bool $register_shutdown = true): bool {}
+
+/**
  * Get and/or set the current cache limiter
  * @link https://php.net/manual/en/function.session-cache-limiter.php
  * @param string|null $value [optional] <p>
@@ -362,3 +375,14 @@ function session_write_close(): void {}
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
 function session_commit(): void {}
+
+/**
+ * (PHP 5 >= 5.4.0)<br>
+ * Returns the current session status
+ * @link https://php.net/manual/en/function.session-status.php
+ * @return int <b>PHP_SESSION_DISABLED</b> if sessions are disabled.
+ * <b>PHP_SESSION_NONE</b> if sessions are enabled, but none exists.
+ * <b>PHP_SESSION_ACTIVE</b> if sessions are enabled, and one exists.
+ * @since 5.4
+ */
+function session_status(): int {}

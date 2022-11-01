@@ -384,6 +384,16 @@ function method_exists($object_or_class, string $method): bool {}
 function property_exists($object_or_class, string $property): bool {}
 
 /**
+ * Checks if the trait exists
+ * @param string $trait Name of the trait to check
+ * @param bool $autoload [optional] Whether to autoload if not already loaded.
+ * @return bool Returns TRUE if trait exists, FALSE if not, NULL in case of an error.
+ * @link https://secure.php.net/manual/en/function.trait-exists.php
+ * @since 5.4
+ */
+function trait_exists(string $trait, bool $autoload = true): bool {}
+
+/**
  * Checks if the class has been defined
  * @link https://php.net/manual/en/function.class-exists.php
  * @param string $class <p>
@@ -657,6 +667,16 @@ function get_declared_classes(): array {}
  */
 #[Pure(true)]
 function get_declared_interfaces(): array {}
+
+/**
+ * Returns an array of all declared traits
+ * @return array with names of all declared traits in values. Returns NULL in case of a failure.
+ * @link https://secure.php.net/manual/en/function.get-declared-traits.php
+ * @see class_uses()
+ * @since 5.4
+ */
+#[Pure(true)]
+function get_declared_traits(): array {}
 
 /**
  * Returns an array of all defined functions

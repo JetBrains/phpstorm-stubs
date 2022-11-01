@@ -207,7 +207,6 @@ namespace {
          */
         public function PS_UNRESERVE_PREFIX_throw(Exception $exception): mixed {}
 
-
         /**
          * Serialize callback
          * Throws an exception as generators can't be serialized.

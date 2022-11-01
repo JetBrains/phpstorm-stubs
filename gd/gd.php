@@ -1180,6 +1180,17 @@ function imagecreatefromwbmp(string $filename) {}
 
 /**
  * Create a new image from file or URL
+ * @link https://php.net/manual/en/function.imagecreatefromwebp.php
+ * @param string $filename <p>
+ * Path to the WebP image.
+ * </p>
+ * @return resource|false an image resource identifier on success, false on errors.
+ * @since 5.4
+ */
+function imagecreatefromwebp(string $filename) {}
+
+/**
+ * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefromxbm.php
  * @param string $filename <p>
  * Path to the XBM image.
@@ -1265,6 +1276,22 @@ function imagecreatefromgd2part(string $filename, int $x, int $y, int $width, in
  * @return bool true on success or false on failure.
  */
 function imagepng($image, $file = null, int $quality = -1, int $filters = -1): bool {}
+
+/**
+ * Output a WebP image to browser or file
+ * @link https://php.net/manual/en/function.imagewebp.php
+ * @param resource $image
+ * @param string $to [optional] <p>
+ * The path to save the file to. If not set or null, the raw image stream
+ * will be outputted directly.
+ * </p>
+ * @param int $quality [optional] <p>
+ * quality ranges from 0 (worst quality, smaller file) to 100 (best quality, biggest file).
+ * </p>
+ * @return bool true on success or false on failure.
+ * @since 5.4
+ */
+function imagewebp($image, $to = null, $quality = 80): bool {}
 
 /**
  * Output image to browser or file

@@ -180,6 +180,18 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     public function isDestructor(): bool {}
 
     /**
+     * Returns a dynamically created closure for the method
+     *
+     * @link https://php.net/manual/en/reflectionmethod.getclosure.php
+     * @param object $object Forbidden for static methods, required for other methods or nothing.
+     * @return Closure|null Returns {@see Closure} or {@see null} in case of an error.
+     * @since 5.4
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getClosure($object): Closure {}
+
+    /**
      * Gets the method modifiers
      *
      * @link https://php.net/manual/en/reflectionmethod.getmodifiers.php

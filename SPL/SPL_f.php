@@ -174,3 +174,15 @@ function iterator_count(Traversable $iterator): int {}
  * @return int the iteration count.
  */
 function iterator_apply(Traversable $iterator, callable $callback, ?array $args): int {}
+
+/**
+ * Return the traits used by the given class
+ * @param object|string $object_or_class An object (class instance) or a string (class name).
+ * @param bool $autoload Whether to allow this function to load the class automatically through the __autoload() magic method.
+ * @return string[]|false An array on success, or false on error.
+ * @link https://php.net/manual/en/function.class-uses.php
+ * @see class_parents()
+ * @see get_declared_traits()
+ * @since 5.4
+ */
+function class_uses($object_or_class, bool $autoload = true): array|false {}

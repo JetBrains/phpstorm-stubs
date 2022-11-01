@@ -78,6 +78,18 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function getClosureThis(): ?object {}
 
     /**
+     * Returns the scope associated to the closure
+     *
+     * @link https://php.net/manual/en/reflectionfunctionabstract.getclosurescopeclass.php
+     * @return ReflectionClass|null Returns the class on success or {@see null}
+     * on failure.
+     * @since 5.4
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getClosureScopeClass(): ?ReflectionClass {}
+
+    /**
      * Gets doc comment
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getdoccomment.php
@@ -221,4 +233,13 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function returnsReference(): bool {}
 
     public function __toString() {}
+
+    /**
+     * Clones function
+     *
+     * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
+     * @return void
+     * @since 5.4
+     */
+    final private function __clone(): void {}
 }

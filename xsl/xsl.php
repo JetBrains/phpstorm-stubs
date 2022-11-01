@@ -188,4 +188,21 @@ class XSLTProcessor
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function setProfiling($filename) {}
+
+    /**
+     * Set security preferences
+     * @link https://php.net/manual/en/xsltprocessor.setsecurityprefs.php
+     * @param int $securityPrefs
+     * @return int
+     * @since 5.4
+     */
+    public function setSecurityPrefs($securityPrefs) {}
+
+    /**
+     * Get security preferences
+     * @link https://php.net/manual/en/xsltprocessor.getsecurityprefs.php
+     * @return int
+     * @since 5.4
+     */
+    public function getSecurityPrefs() {}
 }

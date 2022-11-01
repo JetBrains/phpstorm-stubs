@@ -75,6 +75,17 @@ class ReflectionParameter implements Reflector
     public function isPassedByReference(): bool {}
 
     /**
+     * Returns whether this parameter can be passed by value
+     *
+     * @link https://php.net/manual/en/reflectionparameter.canbepassedbyvalue.php
+     * @return bool|null {@see true} if the parameter can be passed by value, {@see false} otherwise.
+     * Returns {@see null} in case of an error.
+     * @since 5.4
+     */
+    #[TentativeType]
+    public function canBePassedByValue(): bool {}
+
+    /**
      * Gets declaring function
      *
      * @link https://php.net/manual/en/reflectionparameter.getdeclaringfunction.php
@@ -119,6 +130,20 @@ class ReflectionParameter implements Reflector
     #[Pure]
     #[TentativeType]
     public function isArray(): bool {}
+
+    /**
+     * Returns whether parameter MUST be callable
+     *
+     * @link https://php.net/manual/en/reflectionparameter.iscallable.php
+     * @return bool|null Returns {@see true} if the parameter is callable, {@see false}
+     * if it is not or {@see null} on failure.
+     * @since 5.4
+     * @see ReflectionParameter::getType()
+     */
+    #[Deprecated(reason: "Use ReflectionParameter::getType() and the ReflectionType APIs should be used instead.", since: "8.0")]
+    #[Pure]
+    #[TentativeType]
+    public function isCallable(): bool {}
 
     /**
      * Checks if null is allowed
@@ -174,4 +199,35 @@ class ReflectionParameter implements Reflector
     #[Pure]
     #[TentativeType]
     public function getDefaultValue(): mixed {}
+
+    /**
+     * Returns whether the default value of this parameter is constant
+     *
+     * @link https://php.net/manual/en/reflectionparameter.isdefaultvalueconstant.php
+     * @return bool Returns {@see true} if the default value is constant, and {@see false} otherwise.
+     * @since 5.4.6
+     */
+    #[Pure]
+    #[TentativeType]
+    public function isDefaultValueConstant(): bool {}
+
+    /**
+     * Returns the default value's constant name if default value is constant or null
+     *
+     * @link https://php.net/manual/en/reflectionparameter.getdefaultvalueconstantname.php
+     * @return string|null Returns string on success or {@see null} on failure.
+     * @throws ReflectionException if the parameter is not optional
+     * @since 5.4.6
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getDefaultValueConstantName(): ?string {}
+
+    /**
+     * Clone
+     *
+     * @link https://php.net/manual/en/reflectionparameter.clone.php
+     * @return void
+     */
+    final private function __clone(): void {}
 }
