@@ -332,6 +332,15 @@ function json_decode(string $json, ?bool $associative = null, int $depth = 512, 
 function json_last_error(): int {}
 
 /**
+ * Returns the error string of the last json_encode() or json_decode() call, which did not specify <b>JSON_THROW_ON_ERROR</b>.
+ * @link https://php.net/manual/en/function.json-last-error-msg.php
+ * @return string Returns the error message on success, "No error" if no error has occurred.
+ * @since 5.5
+ */
+#[Pure]
+function json_last_error_msg(): string {}
+
+/**
  * Objects implementing JsonSerializable
  * can customize their JSON representation when encoded with
  * <b>json_encode</b>.

@@ -303,6 +303,252 @@ define('PNG_FILTER_PAETH', 128);
  */
 define('PNG_ALL_FILTERS', 248);
 
+/**
+ * An affine transformation type constant used by the {@see imageaffinematrixget()} function.
+ * @since 5.5
+ * @link https://php.net/manual/en/image.constants.php#constant.img-affine-translate
+ */
+define('IMG_AFFINE_TRANSLATE', 0);
+
+/**
+ * An affine transformation type constant used by the {@see imageaffinematrixget()} function.
+ * @since 5.5
+ * @link https://php.net/manual/en/image.constants.php#constant.img-affine-scale
+ */
+define('IMG_AFFINE_SCALE', 1);
+
+/**
+ * An affine transformation type constant used by the {@see imageaffinematrixget()} function.
+ * @since 5.5
+ * @link https://php.net/manual/en/image.constants.php#constant.img-affine-rotate
+ */
+define('IMG_AFFINE_ROTATE', 2);
+
+/**
+ * An affine transformation type constant used by the {@see imageaffinematrixget()} function.
+ * @since 5.5
+ * @link https://php.net/manual/en/image.constants.php#constant.img-affine-shear-horizontal
+ */
+define('IMG_AFFINE_SHEAR_HORIZONTAL', 3);
+
+/**
+ * An affine transformation type constant used by the {@see imageaffinematrixget()} function.
+ * @since 5.5
+ * @link https://php.net/manual/en/image.constants.php#constant.img-affine-shear-vertical
+ */
+define('IMG_AFFINE_SHEAR_VERTICAL', 4);
+
+/**
+ * Same as {@see IMG_CROP_TRANSPARENT}. Before PHP 7.4.0, the bundled libgd fell back to
+ * {@see IMG_CROP_SIDES}, if the image had no transparent color.
+ * Used together with {@see imagecropauto()}.
+ * @since 5.5
+ */
+define('IMG_CROP_DEFAULT', 0);
+
+/**
+ * Crops out a transparent background.
+ * Used together with {@see imagecropauto()}.
+ * @since 5.5
+ */
+define('IMG_CROP_TRANSPARENT', 1);
+
+/**
+ * Crops out a black background.
+ * Used together with {@see imagecropauto()}.
+ * @since 5.5
+ */
+define('IMG_CROP_BLACK', 2);
+
+/**
+ * Crops out a white background.
+ * Used together with {@see imagecropauto()}.
+ * @since 5.5
+ */
+define('IMG_CROP_WHITE', 3);
+
+/**
+ * Uses the 4 corners of the image to attempt to detect the background to crop.
+ * Used together with {@see imagecropauto()}.
+ * @since 5.5
+ */
+define('IMG_CROP_SIDES', 4);
+
+/**
+ * Crops an image using the given <b>threshold</b> and <b>color</b>.
+ * Used together with {@see imagecropauto()}.
+ * @since 5.5
+ */
+define('IMG_CROP_THRESHOLD', 5);
+
+/**
+ * Used together with {@see imageflip()}
+ * @since 5.5
+ * @link https://php.net/manual/en/image.constants.php#constant.img-flip-both
+ */
+define('IMG_FLIP_BOTH', 3);
+
+/**
+ * Used together with {@see imageflip()}
+ * @since 5.5
+ * @link https://php.net/manual/en/image.constants.php#constant.img-flip-horizontal
+ */
+define('IMG_FLIP_HORIZONTAL', 1);
+
+/**
+ * Used together with {@see imageflip()}
+ * @since 5.5
+ * @link https://php.net/manual/en/image.constants.php#constant.img-flip-vertical
+ */
+define('IMG_FLIP_VERTICAL', 2);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-bell
+ * @since 5.5
+ */
+define('IMG_BELL', 1);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-bessel
+ * @since 5.5
+ */
+define('IMG_BESSEL', 2);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-bicubic
+ * @since 5.5
+ */
+define('IMG_BICUBIC', 4);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-bicubic-fixed
+ * @since 5.5
+ */
+define('IMG_BICUBIC_FIXED', 5);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-bilinear-fixed
+ * @since 5.5
+ */
+define('IMG_BILINEAR_FIXED', 3);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-blackman
+ * @since 5.5
+ */
+define('IMG_BLACKMAN', 6);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-box
+ * @since 5.5
+ */
+define('IMG_BOX', 7);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-bspline
+ * @since 5.5
+ */
+define('IMG_BSPLINE', 8);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-catmullrom
+ * @since 5.5
+ */
+define('IMG_CATMULLROM', 9);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-gaussian
+ * @since 5.5
+ */
+define('IMG_GAUSSIAN', 10);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-generalized-cubic
+ * @since 5.5
+ */
+define('IMG_GENERALIZED_CUBIC', 11);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-hermite
+ * @since 5.5
+ */
+define('IMG_HERMITE', 12);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-hamming
+ * @since 5.5
+ */
+define('IMG_HAMMING', 13);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-hanning
+ * @since 5.5
+ */
+define('IMG_HANNING', 14);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-mitchell
+ * @since 5.5
+ */
+define('IMG_MITCHELL', 15);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-power
+ * @since 5.5
+ */
+define('IMG_POWER', 17);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-quadratic
+ * @since 5.5
+ */
+define('IMG_QUADRATIC', 18);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-sinc
+ * @since 5.5
+ */
+define('IMG_SINC', 19);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-nearest-neighbour
+ * @since 5.5
+ */
+define('IMG_NEAREST_NEIGHBOUR', 16);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-weighted4
+ * @since 5.5
+ */
+define('IMG_WEIGHTED4', 21);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-triangle
+ * @since 5.5
+ */
+define('IMG_TRIANGLE', 20);
+
 define('IMG_TGA', 128);
 
 /**
@@ -2489,3 +2735,202 @@ function imagegetinterpolation($image): int {}
  * @return resource|false Return affined image resource on success or FALSE on failure.
  */
 function imageaffine($image, array $affine, ?array $clip = null) {}
+
+/**
+ * Concat two matrices (as in doing many ops in one go)
+ * @link https://secure.php.net/manual/en/function.imageaffinematrixconcat.php
+ * @param array $matrix1 <p>Array with keys 0 to 5.</p>
+ * @param array $matrix2 <p>Array with keys 0 to 5.</p>
+ * @return float[]|false Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+function imageaffinematrixconcat(array $matrix1, array $matrix2): array|false {}
+
+/**
+ * Return an image containing the affine tramsformed src image, using an optional clipping area
+ * @link https://secure.php.net/manual/en/function.imageaffinematrixget.php
+ * @param int $type <p> One of <b>IMG_AFFINE_*</b> constants.</p>
+ * @param mixed $options
+ * @return float[]|false Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+function imageaffinematrixget(int $type, $options = null): array|false {}
+
+/**
+ * Crop an image using the given coordinates and size, x, y, width and height
+ * @link https://secure.php.net/manual/en/function.imagecrop.php
+ * @param resource $image <p>
+ * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
+ * </p>
+ * @param array $rectangle <p>Array with keys "x", "y", "width" and "height".</p>
+ * @return resource|false Return cropped image resource on success or FALSE on failure.
+ * @since 5.5
+ */
+function imagecrop($image, array $rectangle) {}
+
+/**
+ * Crop an image automatically using one of the available modes
+ * @link https://secure.php.net/manual/en/function.imagecropauto.php
+ * @param resource $image <p>
+ * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
+ * </p>
+ * @param int $mode [optional] <p>
+ * One of <b>IMG_CROP_*</b> constants.
+ * </p>
+ * @param float $threshold [optional] <p>
+ * Used <b>IMG_CROP_THRESHOLD</b> mode.
+ * </p>
+ * @param int $color [optional]
+ * <p>
+ * Used in <b>IMG_CROP_THRESHOLD</b> mode.
+ * </p>
+ * @return resource|false Return cropped image resource on success or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+function imagecropauto($image, int $mode = IMG_CROP_DEFAULT, float $threshold = '0.5', int $color = -1) {}
+
+/**
+ * Flips an image using a given mode
+ * @link https://secure.php.net/manual/en/function.imageflip.php
+ * @param resource $image <p>
+ * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
+ * </p>
+ * @param int $mode <p>
+ * Flip mode, this can be one of the <b>IMG_FLIP_*</b> constants:
+ * </p>
+ * <table>
+ * <thead>
+ * <tr>
+ * <th>Constant</th>
+ * <th>Meaning</th>
+ * </tr>
+ * </thead>
+ * <tbody>
+ * <tr>
+ * <td><b>IMG_FLIP_HORIZONTAL</b></td>
+ * <td>
+ * Flips the image horizontally.
+ * </td>
+ * </tr>
+ * <tr>
+ * <td><b>IMG_FLIP_VERTICAL</b></td>
+ * <td>
+ * Flips the image vertically.
+ * </td>
+ * </tr>
+ * <tr>
+ * <td><b>IMG_FLIP_BOTH</b></td>
+ * <td>
+ * Flips the image both horizontally and vertically.
+ * </td>
+ * </tr>
+ * </tbody>
+ * </table>
+ * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 5.5
+ */
+function imageflip($image, int $mode): bool {}
+
+/**
+ * Converts a palette based image to true color
+ * @link https://secure.php.net/manual/en/function.imagepalettetotruecolor.php
+ * @param resource $image <p>
+ * An image resource, returnd by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
+ * </p>
+ * @return bool Returns <b>TRUE</b> if the convertion was complete, or if the source image already is a true color image, otherwise <b>FALSE</b> is returned.
+ * @since 5.5
+ */
+function imagepalettetotruecolor($image): bool {}
+
+/**
+ * @param resource $image <p>
+ * An image resource, returnd by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
+ * </p>
+ * @param int $width
+ * @param int $height [optional]
+ * @param int $mode [optional] One of <b>IMG_NEAREST_NEIGHBOUR</b>, <b>IMG_BILINEAR_FIXED</b>, <b>IMG_BICUBIC</b>, <b>IMG_BICUBIC_FIXED</b> or anything else (will use two pass).
+ * @return resource|false Return scaled image resource on success or <b>FALSE</b> on failure.
+ * @link https://secure.php.net/manual/en/function.imagescale.php
+ * @since 5.5
+ * Scale an image using the given new width and height
+ */
+function imagescale($image, int $width, int $height = -1, int $mode = IMG_BILINEAR_FIXED) {}
+
+/**
+ * Set the interpolation method
+ * @link https://secure.php.net/manual/en/function.imagesetinterpolation.php
+ * @param resource $image <p>
+ * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
+ * </p>
+ * @param int $method <p>
+ * The interpolation method, which can be one of the following:
+ * <ul>
+ * <li>
+ * IMG_BELL: Bell filter.
+ * </li>
+ * <li>
+ * IMG_BESSEL: Bessel filter.
+ * </li>
+ * <li>
+ * IMG_BICUBIC: Bicubic interpolation.
+ * </li>
+ * <li>
+ * IMG_BICUBIC_FIXED: Fixed point implementation of the bicubic interpolation.
+ * </li>
+ * <li>
+ * IMG_BILINEAR_FIXED: Fixed point implementation of the  bilinear interpolation (<em>default (also on image creation)</em>).
+ * </li>
+ * <li>
+ * IMG_BLACKMAN: Blackman window function.
+ * </li>
+ * <li>
+ * IMG_BOX: Box blur filter.
+ * </li>
+ * <li>
+ * IMG_BSPLINE: Spline interpolation.
+ * </li>
+ * <li>
+ * IMG_CATMULLROM: Cubbic Hermite spline interpolation.
+ * </li>
+ * <li>
+ * IMG_GAUSSIAN: Gaussian function.
+ * </li>
+ * <li>
+ * IMG_GENERALIZED_CUBIC: Generalized cubic spline fractal interpolation.
+ * </li>
+ * <li>
+ * IMG_HERMITE: Hermite interpolation.
+ * </li>
+ * <li>
+ * IMG_HAMMING: Hamming filter.
+ * </li>
+ * <li>
+ * IMG_HANNING: Hanning filter.
+ * </li>
+ * <li>
+ * IMG_MITCHELL: Mitchell filter.
+ * </li>
+ * <li>
+ * IMG_POWER: Power interpolation.
+ * </li>
+ * <li>
+ * IMG_QUADRATIC: Inverse quadratic interpolation.
+ * </li>
+ * <li>
+ * IMG_SINC: Sinc function.
+ * </li>
+ * <li>
+ * IMG_NEAREST_NEIGHBOUR: Nearest neighbour interpolation.
+ * </li>
+ * <li>
+ * IMG_WEIGHTED4: Weighting filter.
+ * </li>
+ * <li>
+ * IMG_TRIANGLE: Triangle interpolation.
+ * </li>
+ * </ul>
+ * </p>
+ * @return bool Returns TRUE on success or FALSE on failure.
+ * @since 5.5
+ */
+function imagesetinterpolation($image, int $method = IMG_BILINEAR_FIXED): bool {}
