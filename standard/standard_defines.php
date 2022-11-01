@@ -1253,6 +1253,74 @@ define('PHP_QUERY_RFC3986', 2);
  */
 define('SID', "name=ID");
 
+/**
+ * Return value of session_status() if sessions are disabled.
+ * @since 5.4
+ * @link https://php.net/manual/en/function.session-status.php
+ */
+define('PHP_SESSION_DISABLED', 0);
+
+/**
+ * Return value of session_status() if sessions are enabled, but no session exists.
+ * @since 5.4
+ * @link https://php.net/manual/en/function.session-status.php
+ */
+define('PHP_SESSION_NONE', 1);
+
+/**
+ * Return value of session_status() if sessions are enabled, and a session exists.
+ * @since 5.4
+ * @link https://php.net/manual/en/function.session-status.php
+ */
+define('PHP_SESSION_ACTIVE', 2);
+
+/**
+ * Replace invalid code unit sequences with a Unicode Replacement Character
+ * U+FFFD (UTF-8) or &#FFFD; (otherwise) instead of returning an empty string.
+ * @since 5.4
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
+ */
+define('ENT_SUBSTITUTE', 8);
+
+/**
+ * Replace invalid code points for the given document type with
+ * a Unicode Replacement Character U+FFFD (UTF-8) or &#FFFD;
+ * (otherwise) instead of leaving them as is. This may be useful,
+ * for instance, to ensure the well-formedness of XML documents
+ * with embedded external content.
+ * @since 5.4
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
+ */
+define('ENT_DISALLOWED', 128);
+
+/**
+ * Handle code as HTML 4.01.
+ * @since 5.4
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
+ */
+define('ENT_HTML401', 0);
+
+/**
+ * Handle code as XML 1.
+ * @since 5.4
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
+ */
+define('ENT_XML1', 16);
+
+/**
+ * Handle code as XHTML.
+ * @since 5.4
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
+ */
+define('ENT_XHTML', 32);
+
+/**
+ * Handle code as HTML 5.
+ * @since 5.4
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
+ */
+define('ENT_HTML5', 48);
+
 /** @link https://php.net/manual/en/function.scandir.php */
 define('SCANDIR_SORT_ASCENDING', 0);
 
@@ -1261,6 +1329,20 @@ define('SCANDIR_SORT_DESCENDING', 1);
 
 /** @link https://php.net/manual/en/function.scandir.php */
 define('SCANDIR_SORT_NONE', 2);
+
+/**
+ * SORT_NATURAL is used to compare items as strings using "natural ordering" like natsort().
+ * @since 5.4
+ * @link https://php.net/manual/en/array.constants.php
+ */
+define('SORT_NATURAL', 6);
+
+/**
+ * SORT_FLAG_CASE can be combined (bitwise OR) with SORT_STRING or SORT_NATURAL to sort strings case-insensitively.
+ * @since 5.4
+ * @link https://php.net/manual/en/array.constants.php
+ */
+define('SORT_FLAG_CASE', 8);
 
 /** @link https://php.net/manual/en/streamwrapper.stream-metadata.php */
 define('STREAM_META_TOUCH', 1);

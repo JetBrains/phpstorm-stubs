@@ -1391,7 +1391,7 @@ class DOMAttr extends DOMNode
 class DOMElement extends DOMNode
 {
     /**
-     * @var \DOMNode|null
+     * @var DOMNode|null
      * The parent of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.parentnode
      */

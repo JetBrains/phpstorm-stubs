@@ -198,6 +198,68 @@ class EmptyIterator implements Iterator
 }
 
 /**
+ * Filtered iterator using the callback to determine which items are accepted or rejected.
+ * @link https://secure.php.net/manual/en/class.callbackfilteriterator.php
+ * @since 5.4
+ */
+class CallbackFilterIterator extends FilterIterator
+{
+    /**
+     * Creates a filtered iterator using the callback to determine which items are accepted or rejected.
+     * @param Iterator $iterator The iterator to be filtered.
+     * @param callable $callback The callback, which should return TRUE to accept the current item or FALSE otherwise.
+     * May be any valid callable value.
+     * The callback should accept up to three arguments: the current item, the current key and the iterator, respectively.
+     * <code> function my_callback($current, $key, $iterator) </code>
+     * @link https://secure.php.net/manual/en/callbackfilteriterator.construct.php
+     */
+    public function __construct(Iterator $iterator, callable $callback) {}
+
+    /**
+     * This method calls the callback with the current value, current key and the inner iterator.
+     * The callback is expected to return TRUE if the current item is to be accepted, or FALSE otherwise.
+     * @link https://secure.php.net/manual/en/callbackfilteriterator.accept.php
+     * @return bool true if the current element is acceptable, otherwise false.
+     */
+    #[TentativeType]
+    public function accept(): bool {}
+}
+
+/**
+ * (PHP 5 >= 5.4.0)<br>
+ * RecursiveCallbackFilterIterator from a RecursiveIterator
+ * @link https://secure.php.net/manual/en/class.recursivecallbackfilteriterator.php
+ * @since 5.4
+ */
+class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements RecursiveIterator
+{
+    /**
+     * Create a RecursiveCallbackFilterIterator from a RecursiveIterator
+     * @param RecursiveIterator $iterator The recursive iterator to be filtered.
+     * @param callable $callback The callback, which should return TRUE to accept the current item or FALSE otherwise. See Examples.
+     * May be any valid callable value.
+     * @link https://www.php.net/manual/en/recursivecallbackfilteriterator.construct.php
+     */
+    public function __construct(RecursiveIterator $iterator, $callback) {}
+
+    /**
+     * Check whether the inner iterator's current element has children
+     * @link https://php.net/manual/en/recursiveiterator.haschildren.php
+     * @return bool Returns TRUE if the current element has children, FALSE otherwise.
+     */
+    #[TentativeType]
+    public function hasChildren(): bool {}
+
+    /**
+     * Returns an iterator for the current entry.
+     * @link https://secure.php.net/manual/en/recursivecallbackfilteriterator.haschildren.php
+     * @return RecursiveCallbackFilterIterator containing the children.
+     */
+    #[TentativeType]
+    public function getChildren(): RecursiveCallbackFilterIterator {}
+}
+
+/**
  * Can be used to iterate through recursive iterators.
  * @link https://php.net/manual/en/class.recursiveiteratoriterator.php
  */
@@ -1202,6 +1264,15 @@ class RegexIterator extends FilterIterator
      */
     #[TentativeType]
     public function setFlags($flags): void {}
+
+    /**
+     * Returns current regular expression
+     * @link https://secure.php.net/manual/en/regexiterator.getregex.php
+     * @return string
+     * @since 5.4
+     */
+    #[TentativeType]
+    public function getRegex(): string {}
 
     /**
      * Returns the regular expression flags.

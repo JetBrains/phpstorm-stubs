@@ -5,6 +5,7 @@
  * @link https://php.net/manual/en/json.constants.php
  */
 
+use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 define('JSON_HEX_TAG', 1);
@@ -41,6 +42,27 @@ define('JSON_FORCE_OBJECT', 16);
  * @link https://php.net/manual/en/json.constants.php
  */
 define('JSON_NUMERIC_CHECK', 32);
+
+/**
+ * Don't escape /.
+ * @since 5.4
+ * @link https://php.net/manual/en/json.constants.php
+ */
+define('JSON_UNESCAPED_SLASHES', 64);
+
+/**
+ * Use whitespace in returned data to format it.
+ * @since 5.4
+ * @link https://php.net/manual/en/json.constants.php
+ */
+define('JSON_PRETTY_PRINT', 128);
+
+/**
+ * Encode multibyte Unicode characters literally (default is to escape as \uXXXX).
+ * @since 5.4
+ * @link https://php.net/manual/en/json.constants.php
+ */
+define('JSON_UNESCAPED_UNICODE', 256);
 
 define('JSON_PARTIAL_OUTPUT_ON_ERROR', 512);
 
@@ -125,7 +147,21 @@ define('JSON_ERROR_DEPTH', 1);
  */
 define('JSON_ERROR_SYNTAX', 4);
 
+/**
+ * Decodes JSON objects as PHP array.
+ * @since 5.4
+ * @link https://php.net/manual/en/json.constants.php
+ */
+define('JSON_OBJECT_AS_ARRAY', 1);
+
 define('JSON_PARSER_NOTSTRICT', 4);
+
+/**
+ * Decodes large integers as their original string value.
+ * @since 5.4
+ * @link https://php.net/manual/en/json.constants.php
+ */
+define('JSON_BIGINT_AS_STRING', 2);
 
 /**
  * (PHP 5 >= 5.2.0, PECL json >= 1.2.0)<br/>
@@ -294,6 +330,26 @@ function json_decode(string $json, ?bool $associative = null, int $depth = 512, 
  */
 #[Pure(true)]
 function json_last_error(): int {}
+
+/**
+ * Objects implementing JsonSerializable
+ * can customize their JSON representation when encoded with
+ * <b>json_encode</b>.
+ * @link https://php.net/manual/en/class.jsonserializable.php
+ * @since 5.4
+ */
+interface JsonSerializable
+{
+    /**
+     * Specify data which should be serialized to JSON
+     * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4
+     */
+    #[TentativeType]
+    public function jsonSerialize(): mixed;
+}
 
 class JsonIncrementalParser
 {

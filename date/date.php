@@ -907,7 +907,7 @@ function getdate(?int $timestamp): array {}
 function date_create(string $datetime = 'now', ?DateTimeZone $timezone): DateTime|false {}
 
 /**
- * Returns new DateTimeImmutable object formatted according to the specified format
+ * Returns new DateTime object formatted according to the specified format
  * @link https://php.net/manual/en/function.date-create-immutable-from-format.php
  * @param string $format
  * @param string $datetime
