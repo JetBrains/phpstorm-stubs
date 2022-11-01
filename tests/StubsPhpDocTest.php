@@ -118,6 +118,8 @@ class StubsPhpDocTest extends AbstractBaseStubsTestCase
 
         $phpdoc = preg_replace(
             [
+                '#\d+\s+>=#',
+                "#\d+\s+<=#",
                 '#<br\s*/>#',
                 '#<br>#i',
                 '#->#',
