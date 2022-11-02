@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
+
 /**
  * string
  * @link https://php.net/manual/en/iconv.constants.php
