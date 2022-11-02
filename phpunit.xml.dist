@@ -7,7 +7,6 @@
         <testsuite name="Structure">
             <file>tests/CheckStubMapTest.php</file>
             <file>tests/StubsStructureTest.php</file>
-            <file>tests/StubsReflectionClassesTest.php</file>
         </testsuite>
     </testsuites>
 </phpunit>
