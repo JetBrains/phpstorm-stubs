@@ -1507,6 +1507,18 @@ function socket_recv($socket, &$data, int $length, int $flags): int|false {}
 function socket_send($socket, string $data, int $length, int $flags): int|false {}
 
 /**
+ * (PHP 5 >=5.5.0)<br/>
+ * Send a message
+ * @link https://secure.php.net/manual/en/function.socket-sendmsg.php
+ * @param resource|Socket $socket
+ * @param array $message
+ * @param int $flags
+ * @return int|false
+ * @since 5.5
+ */
+function socket_sendmsg($socket, array $message, int $flags): int|false {}
+
+/**
  * Receives data from a socket whether or not it is connection-oriented
  * @link https://php.net/manual/en/function.socket-recvfrom.php
  * @param resource  $socket <p>
@@ -1579,6 +1591,17 @@ function socket_send($socket, string $data, int $length, int $flags): int|false 
  * of the error.
  */
 function socket_recvfrom($socket, &$data, int $length, int $flags, &$address, &$port = null): int|false {}
+
+/**
+ * Read a message
+ * @link https://secure.php.net/manual/en/function.socket-recvmsg.php
+ * @param resource|Socket $socket
+ * @param array &$message
+ * @param int $flags
+ * @return int|false
+ * @since 5.5
+ */
+function socket_recvmsg($socket, array &$message, int $flags): int|false {}
 
 /**
  * Sends a message to a socket, whether it is connected or not
@@ -2096,6 +2119,17 @@ function socket_clear_error($socket = null): void {}
  * @since 5.4
  */
 function socket_import_stream($stream) {}
+
+/**
+ * Calculate message buffer size
+ * @link https://php.net/manual/en/function.socket-cmsg-space.php
+ * @param int $level
+ * @param int $type
+ * @param int $num [optional]
+ * @return int|null
+ * @since 5.5
+ */
+function socket_cmsg_space(int $level, int $type): ?int {}
 
 /**
  * Alias of {@see socket_get_option}

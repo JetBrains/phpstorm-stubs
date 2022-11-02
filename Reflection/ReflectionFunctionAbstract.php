@@ -68,6 +68,17 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function isUserDefined(): bool {}
 
     /**
+     * Returns whether this function is a generator
+     *
+     * @link https://php.net/manual/en/reflectionfunctionabstract.isgenerator.php
+     * @return bool {@see true} if the function is generator, otherwise {@see false}
+     * @since 5.5
+     */
+    #[Pure]
+    #[TentativeType]
+    public function isGenerator(): bool {}
+
+    /**
      * Returns this pointer bound to closure
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getclosurethis.php
