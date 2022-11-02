@@ -547,6 +547,30 @@ define('CURL_SSLVERSION_SSLv2', 2);
 define('CURL_SSLVERSION_SSLv3', 3);
 
 /**
+ * Value for the <b>CURLOPT_SSLVERSION</b> option.
+ * @link https://www.php.net/manual/en/curl.constants.php
+ * @since 5.6.3
+ * @since 5.5.19
+ */
+define('CURL_SSLVERSION_TLSv1_0', 4);
+
+/**
+ * Value for the <b>CURLOPT_SSLVERSION</b> option.
+ * @link https://www.php.net/manual/en/curl.constants.php
+ * @since 5.6.3
+ * @since 5.5.19
+ */
+define('CURL_SSLVERSION_TLSv1_1', 5);
+
+/**
+ * Value for the <b>CURLOPT_SSLVERSION</b> option.
+ * @link https://www.php.net/manual/en/curl.constants.php
+ * @since 5.6.3
+ * @since 5.5.19
+ */
+define('CURL_SSLVERSION_TLSv1_2', 6);
+
+/**
  * How <b>CURLOPT_TIMEVALUE</b> is treated.
  * Use <b>CURL_TIMECOND_IFMODSINCE</b> to return the page only if it has been modified since the time specified in <b>CURLOPT_TIMEVALUE</b>.
  * If it hasn't been modified, a "304 Not Modified" header will be returned assuming <b>CURLOPT_HEADER</b> is <b>TRUE</b>.
@@ -3013,6 +3037,15 @@ define('CURLOPT_ACCEPTTIMEOUT_MS', 212);
 define('CURLOPT_MAIL_AUTH', 10217);
 
 /**
+ * Set SSL behavior options, which is a bitmask of any of the following constants:
+ *  <b>CURLSSLOPT_ALLOW_BEAST</b>: do not attempt to use any workarounds for a security flaw in the SSL3 and TLS1.0 protocols.
+ *  <b>CURLSSLOPT_NO_REVOKE</b>: disable certificate revocation checks for those SSL backends where such behavior is present.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 5.6
+ */
+define('CURLOPT_SSL_OPTIONS', 216);
+
+/**
  * If set to 1, TCP keepalive probes will be sent.
  * The delay and frequency of these probes can be controlled by the <b>CURLOPT_TCP_KEEPIDLE</b> and <b>CURLOPT_TCP_KEEPINTVL</b> options,
  * provided the operating system supports them.
@@ -3037,6 +3070,14 @@ define('CURLOPT_TCP_KEEPIDLE', 214);
  * @since 5.5
  */
 define('CURLOPT_TCP_KEEPINTVL', 215);
+
+/**
+ * Value for the <b>CURLOPT_SSL_OPTIONS</b> option.
+ * Do not attempt to use any workarounds for a security flaw in the SSL3 and TLS1.0 protocols.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 5.6
+ */
+define('CURLSSLOPT_ALLOW_BEAST', 1);
 
 /**
  * Supports HTTP2.

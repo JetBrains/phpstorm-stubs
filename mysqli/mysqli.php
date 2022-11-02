@@ -1055,6 +1055,44 @@ function mysqli_get_client_version($link): int {}
 function mysqli_get_host_info(mysqli $mysql): string {}
 
 /**
+ * Return information about open and cached links
+ * @link https://php.net/manual/en/function.mysqli-get-links-stats.php
+ * @return array mysqli_get_links_stats() returns an associative array with three elements, keyed as follows:
+ * <dl>
+ * <dt>
+ * <code>total</code></dt>
+ * <dd>
+ * <p>
+ * An integer indicating the total number of open links in
+ * any state.
+ * </p>
+ * </dd>
+ *
+ * <dt>
+ * <code>active_plinks</code></dt>
+ * <dd>
+ * <p>
+ * An integer representing the number of active persistent
+ * connections.
+ * </p>
+ * </dd>
+ *
+ * <dt>
+ * <code>cached_plinks</code></dt>
+ * <dd>
+ * <p>
+ * An integer representing the number of inactive persistent
+ * connections.
+ * </p>
+ * </dd>
+ *
+ * </dl>
+ * @since 5.6
+ */
+#[ArrayShape(["total" => "int", "active_plinks" => "int", "cached_plinks" => "int"])]
+function mysqli_get_links_stats(): array {}
+
+/**
  * Returns the version of the MySQL protocol used
  * @link https://php.net/manual/en/mysqli.get-proto-info.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()

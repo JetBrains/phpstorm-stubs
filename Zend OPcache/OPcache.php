@@ -58,3 +58,14 @@ function opcache_get_status(bool $include_scripts = true): array|false {}
  */
 #[ArrayShape(["directives" => "array", "version" => "string[]", "blacklist" => "array"])]
 function opcache_get_configuration(): array|false {}
+
+/**
+ * (PHP 5 >= 5.6, PECL ZendOpcache >= 7.0.4 )<br/>
+ * This function checks if a PHP script has been cached in OPCache.
+ * This can be used to more easily detect the "warming" of the cache for a particular script.
+ * @link https://secure.php.net/manual/en/function.opcache-is-script-cached.php
+ * @param string $filename The path to the PHP script to be checked.
+ * @return bool Returns TRUE if file is cached in OPCache, FALSE otherwise.
+ * @since 5.6
+ */
+function opcache_is_script_cached(string $filename): bool {}

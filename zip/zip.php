@@ -437,8 +437,135 @@ class ZipArchive implements Countable
 
     /**
      * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_DOS = 0;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_AMIGA = 1;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_OPENVMS = 2;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_UNIX = 3;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_VM_CMS = 4;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_ATARI_ST = 5;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_OS_2 = 6;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_MACINTOSH = 7;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_Z_SYSTEM = 8;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @removed 8.0 Use {@link ZipArchive::ZOPSYS_CPM} instead.
+     * @since 5.6
+     */
+    public const OPSYS_Z_CPM = 9;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_WINDOWS_NTFS = 10;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_MVS = 11;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_VSE = 12;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_ACORN_RISC = 13;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_VFAT = 14;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_ALTERNATE_MVS = 15;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_BEOS = 16;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_TANDEM = 17;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_OS_400 = 18;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_OS_X = 19;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     public const OPSYS_CPM = 9;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     * @since 5.6
+     */
+    public const OPSYS_DEFAULT = 3;
 
     /**
      * Status of the Zip Archive
@@ -742,6 +869,14 @@ class ZipArchive implements Countable
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function setCommentName($name, $comment) {}
+
+    /**
+     * (PHP 5 >= 5.6.0, PECL zip >= 1.12.0)<br/>
+     * @param string $password
+     * @return bool
+     * @since 5.6
+     */
+    public function setPassword($password) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.4.0)<br/>

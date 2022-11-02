@@ -79,6 +79,17 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function isGenerator(): bool {}
 
     /**
+     * Returns whether this function is variadic
+     *
+     * @link https://php.net/manual/en/reflectionfunctionabstract.isvariadic.php
+     * @return bool {@see true} if the function is variadic, otherwise {@see false}
+     * @since 5.6
+     */
+    #[Pure]
+    #[TentativeType]
+    public function isVariadic(): bool {}
+
+    /**
      * Returns this pointer bound to closure
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getclosurethis.php

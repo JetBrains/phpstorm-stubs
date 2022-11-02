@@ -164,6 +164,13 @@ define('JSON_PARSER_NOTSTRICT', 4);
 define('JSON_BIGINT_AS_STRING', 2);
 
 /**
+ * Ensures that float values are always encoded as a float value.
+ * @since 5.6.6
+ * @link https://php.net/manual/en/json.constants.php
+ */
+define('JSON_PRESERVE_ZERO_FRACTION', 1024);
+
+/**
  * (PHP 5 >= 5.2.0, PECL json >= 1.2.0)<br/>
  * Returns the JSON representation of a value
  * @link https://php.net/manual/en/function.json-encode.php
