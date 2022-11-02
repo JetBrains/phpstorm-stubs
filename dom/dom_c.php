@@ -1137,7 +1137,6 @@ class DOMNodeList implements IteratorAggregate, Countable
  */
 class DOMNamedNodeMap implements IteratorAggregate, Countable
 {
-
     /**
      * Retrieves a node specified by name
      * @link https://php.net/manual/en/domnamednodemap.getnameditem.php
