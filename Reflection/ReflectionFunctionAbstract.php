@@ -1,8 +1,6 @@
 <?php
 
 use JetBrains\PhpStorm\Immutable;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
@@ -18,7 +16,6 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @var string Name of the function, same as calling the {@see ReflectionFunctionAbstract::getName()} method
      */
     #[Immutable]
-    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
 
     /**
@@ -71,28 +68,6 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function isUserDefined(): bool {}
 
     /**
-     * Returns whether this function is a generator
-     *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.isgenerator.php
-     * @return bool {@see true} if the function is generator, otherwise {@see false}
-     * @since 5.5
-     */
-    #[Pure]
-    #[TentativeType]
-    public function isGenerator(): bool {}
-
-    /**
-     * Returns whether this function is variadic
-     *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.isvariadic.php
-     * @return bool {@see true} if the function is variadic, otherwise {@see false}
-     * @since 5.6
-     */
-    #[Pure]
-    #[TentativeType]
-    public function isVariadic(): bool {}
-
-    /**
      * Returns this pointer bound to closure
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getclosurethis.php
@@ -101,27 +76,6 @@ abstract class ReflectionFunctionAbstract implements Reflector
     #[Pure]
     #[TentativeType]
     public function getClosureThis(): ?object {}
-
-    /**
-     * Returns the scope associated to the closure
-     *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getclosurescopeclass.php
-     * @return ReflectionClass|null Returns the class on success or {@see null}
-     * on failure.
-     * @since 5.4
-     */
-    #[Pure]
-    #[TentativeType]
-    public function getClosureScopeClass(): ?ReflectionClass {}
-
-    /**
-     * @return ReflectionClass|null Returns the class on success or {@see null}
-     * on failure.
-     * @since 8.0
-     */
-    #[Pure]
-    #[TentativeType]
-    public function getClosureCalledClass(): ?ReflectionClass {}
 
     /**
      * Gets doc comment
@@ -228,26 +182,6 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function getParameters(): array {}
 
     /**
-     * Gets the specified return type of a function
-     *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getreturntype.php
-     * @return ReflectionType|null Returns a {@see ReflectionType} object if a
-     * return type is specified, {@see null} otherwise.
-     * @since 7.0
-     */
-    #[Pure]
-    #[LanguageLevelTypeAware(
-        [
-            '7.1' => 'ReflectionNamedType|null',
-            '8.0' => 'ReflectionNamedType|ReflectionUnionType|null',
-            '8.1' => 'ReflectionNamedType|ReflectionUnionType|ReflectionIntersectionType|null'
-        ],
-        default: 'ReflectionType|null'
-    )]
-    #[TentativeType]
-    public function getReturnType(): ?ReflectionType {}
-
-    /**
      * Gets function short name
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getshortname.php
@@ -286,65 +220,5 @@ abstract class ReflectionFunctionAbstract implements Reflector
     #[TentativeType]
     public function returnsReference(): bool {}
 
-    /**
-     * Checks if the function has a specified return type
-     *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.hasreturntype.php
-     * @return bool Returns {@see true} if the function is a specified return
-     * type, otherwise {@see false}.
-     * @since 7.0
-     */
-    #[TentativeType]
-    public function hasReturnType(): bool {}
-
-    /**
-     * @template T
-     *
-     * Returns an array of function attributes.
-     *
-     * @param class-string<T>|null $name Name of an attribute class
-     * @param int $flags Сriteria by which the attribute is searched.
-     * @return ReflectionAttribute<T>[]
-     * @since 8.0
-     */
-    #[Pure]
-    public function getAttributes(?string $name = null, int $flags = 0): array {}
-
-    #[PhpStormStubsElementAvailable('8.1')]
-    #[Pure]
-    public function getClosureUsedVariables(): array {}
-
-    #[PhpStormStubsElementAvailable('8.1')]
-    #[Pure]
-    public function hasTentativeReturnType(): bool {}
-
-    #[PhpStormStubsElementAvailable('8.1')]
-    #[Pure]
-    public function getTentativeReturnType(): ?ReflectionType {}
-
-    #[PhpStormStubsElementAvailable('8.1')]
-    #[Pure]
-    #[TentativeType]
-    public function isStatic(): bool {}
-
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')]
     public function __toString() {}
-
-    /**
-     * Clones function
-     *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
-     * @return void
-     */
-    #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
-    final private function __clone(): void {}
-
-    /**
-     * Clones function
-     *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
-     * @return void
-     */
-    #[PhpStormStubsElementAvailable(from: "8.1")]
-    private function __clone(): void {}
 }

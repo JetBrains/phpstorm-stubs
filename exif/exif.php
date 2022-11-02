@@ -1,7 +1,8 @@
 <?php
 
-// Start of exif v.1.4 $Id$
 use JetBrains\PhpStorm\Deprecated;
+
+define('EXIF_USE_MBSTRING', 1);
 
 /**
  * Reads the EXIF headers from JPEG or TIFF
@@ -77,12 +78,7 @@ use JetBrains\PhpStorm\Deprecated;
  * those headers. If no data can be returned,
  * <b>exif_read_data</b> will return <b>FALSE</b>.
  */
-function exif_read_data(
-    $file,
-    ?string $required_sections,
-    bool $as_arrays = false,
-    bool $read_thumbnail = false
-): array|false {}
+function exif_read_data($file, ?string $required_sections, bool $as_arrays = false, bool $read_thumbnail = false): array|false {}
 
 /**
  * Alias of <b>exif_read_data</b>
@@ -145,7 +141,3 @@ function exif_thumbnail($file, &$width, &$height, &$image_type): string|false {}
  * determine the image type.
  */
 function exif_imagetype(string $filename): int|false {}
-
-define('EXIF_USE_MBSTRING', 1);
-
-// End of exif v.1.4 $Id$

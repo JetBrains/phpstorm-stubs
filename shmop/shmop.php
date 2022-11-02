@@ -1,8 +1,6 @@
 <?php
 
-// Start of shmop v.
 use JetBrains\PhpStorm\Deprecated;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * Create or open shared memory block
@@ -28,7 +26,6 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * use to access the shared memory segment you've created. <b>FALSE</b> is
  * returned on failure.
  */
-#[LanguageLevelTypeAware(["8.0" => "Shmop|false"], default: "resource|false")]
 function shmop_open(int $key, string $mode, int $permissions, int $size) {}
 
 /**
@@ -46,12 +43,7 @@ function shmop_open(int $key, string $mode, int $permissions, int $size) {}
  * </p>
  * @return string|false the data or <b>FALSE</b> on failure.
  */
-#[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function shmop_read(
-    #[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop,
-    int $offset,
-    int $size
-) {}
+function shmop_read($shmop, int $offset, int $size): string|false {}
 
 /**
  * Close shared memory block
@@ -62,8 +54,8 @@ function shmop_read(
  * </p>
  * @return void No value is returned.
  */
-#[Deprecated(since: '8.0')]
-function shmop_close(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop): void {}
+#[Deprecated(since: "8.0")]
+function shmop_close($shmop): void {}
 
 /**
  * Get size of shared memory block
@@ -75,7 +67,7 @@ function shmop_close(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "reso
  * @return int an int, which represents the number of bytes the shared memory
  * block occupies.
  */
-function shmop_size(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop): int {}
+function shmop_size($shmop): int {}
 
 /**
  * Write data into shared memory block
@@ -94,12 +86,7 @@ function shmop_size(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resou
  * @return int|false The size of the written <i>data</i>, or <b>FALSE</b> on
  * failure.
  */
-#[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
-function shmop_write(
-    #[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop,
-    string $data,
-    int $offset
-) {}
+function shmop_write($shmop, string $data, int $offset): int|false {}
 
 /**
  * Delete shared memory block
@@ -110,11 +97,4 @@ function shmop_write(
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function shmop_delete(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop): bool {}
-
-/**
- * @since 8.0
- */
-final class Shmop {}
-
-// End of shmop v.
+function shmop_delete($shmop): bool {}

@@ -1,10 +1,6 @@
 <?php
 
-// Start of Core v.5.3.6-13ubuntu3.2
-use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -129,42 +125,6 @@ function strcasecmp(string $string1, string $string2): int {}
  */
 #[Pure]
 function strncasecmp(string $string1, string $string2, int $length): int {}
-
-/**
- * The function returns {@see true} if the passed $haystack starts from the
- * $needle string or {@see false} otherwise.
- *
- * @param string $haystack
- * @param string $needle
- * @return bool
- * @since 8.0
- */
-#[Pure]
-function str_starts_with(string $haystack, string $needle): bool {}
-
-/**
- * The function returns {@see true} if the passed $haystack ends with the
- * $needle string or {@see false} otherwise.
- *
- * @param string $haystack
- * @param string $needle
- * @return bool
- * @since 8.0
- */
-#[Pure]
-function str_ends_with(string $haystack, string $needle): bool {}
-
-/**
- * Checks if $needle is found in $haystack and returns a boolean value
- * (true/false) whether or not the $needle was found.
- *
- * @param string $haystack
- * @param string $needle
- * @return bool
- * @since 8.0
- */
-#[Pure]
-function str_contains(string $haystack, string $needle): bool {}
 
 /**
  * Return the current key and value pair from an array and advance the array cursor
@@ -338,12 +298,7 @@ function error_reporting(?int $error_level): int {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function define(
-    string $constant_name,
-    #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: 'null|array|bool|int|float|string')] $value,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] bool $case_insensitive,
-    #[PhpStormStubsElementAvailable(from: '7.0')] #[Deprecated(since: 7.3)] bool $case_insensitive = false
-): bool {}
+function define(string $constant_name, null|array|bool|int|float|string $value, bool $case_insensitive): bool {}
 
 /**
  * Checks whether a given named constant exists
@@ -429,16 +384,6 @@ function method_exists($object_or_class, string $method): bool {}
 function property_exists($object_or_class, string $property): bool {}
 
 /**
- * Checks if the trait exists
- * @param string $trait Name of the trait to check
- * @param bool $autoload [optional] Whether to autoload if not already loaded.
- * @return bool Returns TRUE if trait exists, FALSE if not, NULL in case of an error.
- * @link https://secure.php.net/manual/en/function.trait-exists.php
- * @since 5.4
- */
-function trait_exists(string $trait, bool $autoload = true): bool {}
-
-/**
  * Checks if the class has been defined
  * @link https://php.net/manual/en/function.class-exists.php
  * @param string $class <p>
@@ -482,21 +427,6 @@ function interface_exists(string $interface, bool $autoload = true): bool {}
  */
 #[Pure(true)]
 function function_exists(string $function): bool {}
-
-/**
- * Checks if the enum has been defined
- * @link https://php.net/manual/en/function.enum-exists.php
- * @param string $enum <p>
- * The enum name. The name is matched in a case-insensitive manner.
- * </p>
- * @param bool $autoload [optional] <p>
- * Whether or not to call autoload by default.
- * </p>
- * @return bool true if <i>enum</i> is a defined enum,
- * false otherwise.
- * @since 8.1
- */
-function enum_exists(string $enum, bool $autoload = true): bool {}
 
 /**
  * Creates an alias for a class
@@ -679,7 +609,6 @@ function set_error_handler(?callable $callback, int $error_levels = E_ALL|E_STRI
  * @link https://php.net/manual/en/function.restore-error-handler.php
  * @return bool This function always returns true.
  */
-#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function restore_error_handler(): bool {}
 
 /**
@@ -703,7 +632,6 @@ function set_exception_handler(?callable $callback) {}
  * @link https://php.net/manual/en/function.restore-exception-handler.php
  * @return bool This function always returns true.
  */
-#[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function restore_exception_handler(): bool {}
 
 /**
@@ -731,16 +659,6 @@ function get_declared_classes(): array {}
 function get_declared_interfaces(): array {}
 
 /**
- * Returns an array of all declared traits
- * @return array with names of all declared traits in values. Returns NULL in case of a failure.
- * @link https://secure.php.net/manual/en/function.get-declared-traits.php
- * @see class_uses()
- * @since 5.4
- */
-#[Pure(true)]
-function get_declared_traits(): array {}
-
-/**
  * Returns an array of all defined functions
  * @link https://php.net/manual/en/function.get-defined-functions.php
  * @param bool $exclude_disabled [optional] Whether disabled functions should be excluded from the return value.
@@ -751,7 +669,7 @@ function get_declared_traits(): array {}
  * below).
  */
 #[Pure(true)]
-function get_defined_functions(#[PhpStormStubsElementAvailable(from: '7.1')] bool $exclude_disabled = true): array {}
+function get_defined_functions(): array {}
 
 /**
  * Returns an array of all defined variables
@@ -1030,10 +948,7 @@ function debug_backtrace(int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT, int $lim
  * </p>
  * @return void
  */
-function debug_print_backtrace(
-    int $options = 0,
-    #[PhpStormStubsElementAvailable(from: '7.0')] int $limit = 0
-): void {}
+function debug_print_backtrace(int $options = 0): void {}
 
 /**
  * Forces collection of any existing garbage cycles
@@ -1063,44 +978,3 @@ function gc_enable(): void {}
  * @return void
  */
 function gc_disable(): void {}
-
-/**
- * Gets information about the garbage collector
- * @link https://php.net/manual/en/function.gc-status.php
- * @return int[] associative array with the following elements:
- * <ul>
- * <li>"runs"</li>
- * <li>"collected"</li>
- * <li>"threshold"</li>
- * <li>"roots"</li>
- * </ul>
- * @since 7.3
- */
-#[ArrayShape(["runs" => "int", "collected" => "int", "threshold" => "int", "roots" => "int"])]
-#[Pure(true)]
-function gc_status(): array {}
-
-/**
- * Reclaims memory used by the Zend Engine memory manager
- * @link https://php.net/manual/en/function.gc-mem-caches.php
- * @return int Returns the number of bytes freed.
- * @since 7.0
- */
-function gc_mem_caches(): int {}
-
-/**
- * Returns active resources
- * @link https://php.net/manual/en/function.get-resources.php
- * @param string|null $type [optional]<p>
- *
- * If defined, this will cause get_resources() to only return resources of the given type. A list of resource types is available.
- *
- * If the string Unknown is provided as the type, then only resources that are of an unknown type will be returned.
- *
- * If omitted, all resources will be returned.
- * </p>
- * @return resource[] Returns an array of currently active resources, indexed by resource number.
- * @since 7.0
- */
-#[Pure(true)]
-function get_resources(?string $type): array {}

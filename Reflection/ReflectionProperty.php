@@ -2,8 +2,6 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
@@ -44,22 +42,15 @@ class ReflectionProperty implements Reflector
     public const IS_PRIVATE = 4;
 
     /**
-     * @since 8.1
-     */
-    public const IS_READONLY = 5;
-
-    /**
      * @var string Name of the property, same as calling the {@see ReflectionProperty::getName()} method
      */
     #[Immutable]
-    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
 
     /**
      * @var string Fully qualified class name where this property was defined
      */
     #[Immutable]
-    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $class;
 
     /**
@@ -70,10 +61,7 @@ class ReflectionProperty implements Reflector
      * @param string $property The name of the property being reflected.
      * @throws ReflectionException if the class or property does not exist.
      */
-    public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'object|string'], default: '')] $class,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $property
-    ) {}
+    public function __construct($class, $property) {}
 
     /**
      * Export
@@ -87,7 +75,7 @@ class ReflectionProperty implements Reflector
      * @return string|null
      * @removed 8.0
      */
-    #[Deprecated(since: '7.4')]
+    #[Deprecated(since: "7.4")]
     public static function export($class, $name, $return = false) {}
 
     /**
@@ -121,7 +109,7 @@ class ReflectionProperty implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getValue(#[LanguageLevelTypeAware(['8.0' => 'object|null'], default: '')] $object = null): mixed {}
+    public function getValue($object = null): mixed {}
 
     /**
      * Set property value
@@ -134,10 +122,7 @@ class ReflectionProperty implements Reflector
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function setValue(
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $objectOrValue,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value = null
-    ): void {}
+    public function setValue($objectOrValue, $value = null): void {}
 
     /**
      * Checks if property is public
@@ -227,122 +212,6 @@ class ReflectionProperty implements Reflector
      * @param bool $accessible A boolean {@see true} to allow accessibility, or {@see false}
      * @return void No value is returned.
      */
-    #[PhpStormStubsElementAvailable(to: "8.0")]
     #[TentativeType]
-    public function setAccessible(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $accessible): void {}
-
-    /**
-     * Set property accessibility
-     * This method is no-op starting from PHP 8.1
-     *
-     * @link https://php.net/manual/en/reflectionproperty.setaccessible.php
-     * @param bool $accessible A boolean {@see true} to allow accessibility, or {@see false}
-     * @return void No value is returned.
-     */
-    #[Pure]
-    #[PhpStormStubsElementAvailable(from: "8.1")]
-    #[TentativeType]
-    public function setAccessible(bool $accessible): void {}
-
-    /**
-     * Gets property type
-     *
-     * @link https://php.net/manual/en/reflectionproperty.gettype.php
-     * @return ReflectionNamedType|ReflectionUnionType|null Returns a {@see ReflectionType} if the
-     * property has a type, and {@see null} otherwise.
-     * @since 7.4
-     */
-    #[Pure]
-    #[LanguageLevelTypeAware(
-        [
-            '8.0' => 'ReflectionNamedType|ReflectionUnionType|null',
-            '8.1' => 'ReflectionNamedType|ReflectionUnionType|ReflectionIntersectionType|null'
-        ],
-        default: 'ReflectionNamedType|null'
-    )]
-    #[TentativeType]
-    public function getType(): ?ReflectionType {}
-
-    /**
-     * Checks if property has type
-     *
-     * @link https://php.net/manual/en/reflectionproperty.hastype.php
-     * @return bool Returns {@see true} if a type is specified, {@see false} otherwise.
-     * @since 7.4
-     */
-    #[TentativeType]
-    public function hasType(): bool {}
-
-    /**
-     * Checks if property is initialized
-     *
-     * @link https://php.net/manual/en/reflectionproperty.isinitialized.php
-     * @param object|null $object If the property is non-static an object must be provided to fetch the property from.
-     * @return bool Returns {@see false} for typed properties prior to initialization, and for properties that have
-     * been explicitly {@see unset()}. For all other properties {@see true} will be returned.
-     * @since 7.4
-     */
-    #[Pure]
-    #[TentativeType]
-    public function isInitialized(?object $object = null): bool {}
-
-    /**
-     * Returns information about whether the property was promoted.
-     *
-     * @return bool Returns {@see true} if the property was promoted or {@see false} instead.
-     * @since 8.0
-     */
-    #[Pure]
-    public function isPromoted(): bool {}
-
-    /**
-     * @return bool
-     * @since 8.0
-     */
-    public function hasDefaultValue(): bool {}
-
-    /**
-     * @return mixed
-     * @since 8.0
-     */
-    #[Pure]
-    #[TentativeType]
-    public function getDefaultValue(): mixed {}
-
-    /**
-     * @template T
-     *
-     * Returns an array of property attributes.
-     *
-     * @param class-string<T>|null $name Name of an attribute class
-     * @param int $flags Сriteria by which the attribute is searched.
-     * @return ReflectionAttribute<T>[]
-     * @since 8.0
-     */
-    #[Pure]
-    public function getAttributes(?string $name = null, int $flags = 0): array {}
-
-    /**
-     * @return bool
-     * @since 8.1
-     */
-    public function isReadOnly(): bool {}
-
-    /**
-     * Clone
-     *
-     * @link https://php.net/manual/en/reflectionproperty.clone.php
-     * @return void
-     */
-    #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
-    final private function __clone(): void {}
-
-    /**
-     * Clone
-     *
-     * @link https://php.net/manual/en/reflectionproperty.clone.php
-     * @return void
-     */
-    #[PhpStormStubsElementAvailable(from: "8.1")]
-    private function __clone(): void {}
+    public function setAccessible($accessible): void {}
 }

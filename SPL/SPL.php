@@ -1,8 +1,5 @@
 <?php
 
-// Start of SPL v.0.2
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 
 /**
@@ -60,7 +57,7 @@ interface SeekableIterator extends Iterator
      * @return void
      */
     #[TentativeType]
-    public function seek(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset): void;
+    public function seek($offset): void;
 }
 
 /**
@@ -164,7 +161,7 @@ class EmptyIterator implements Iterator
      * @return mixed Can return any type.
      */
     #[TentativeType]
-    public function current(): never {}
+    public function current() {}
 
     /**
      * Move forward to next element
@@ -180,7 +177,7 @@ class EmptyIterator implements Iterator
      * @return mixed The key of the current element.
      */
     #[TentativeType]
-    public function key(): never {}
+    public function key() {}
 
     /**
      * Checks if current position is valid
@@ -189,8 +186,7 @@ class EmptyIterator implements Iterator
      * Returns true on success or false on failure.
      */
     #[TentativeType]
-    #[LanguageLevelTypeAware(['8.2' => 'false'], default: 'bool')]
-    public function valid() {}
+    public function valid(): bool {}
 
     /**
      * Rewind the Iterator to the first element
@@ -199,71 +195,6 @@ class EmptyIterator implements Iterator
      */
     #[TentativeType]
     public function rewind(): void {}
-}
-
-/**
- * Filtered iterator using the callback to determine which items are accepted or rejected.
- * @link https://secure.php.net/manual/en/class.callbackfilteriterator.php
- * @since 5.4
- */
-class CallbackFilterIterator extends FilterIterator
-{
-    /**
-     * Creates a filtered iterator using the callback to determine which items are accepted or rejected.
-     * @param Iterator $iterator The iterator to be filtered.
-     * @param callable $callback The callback, which should return TRUE to accept the current item or FALSE otherwise.
-     * May be any valid callable value.
-     * The callback should accept up to three arguments: the current item, the current key and the iterator, respectively.
-     * <code> function my_callback($current, $key, $iterator) </code>
-     * @link https://secure.php.net/manual/en/callbackfilteriterator.construct.php
-     */
-    public function __construct(Iterator $iterator, callable $callback) {}
-
-    /**
-     * This method calls the callback with the current value, current key and the inner iterator.
-     * The callback is expected to return TRUE if the current item is to be accepted, or FALSE otherwise.
-     * @link https://secure.php.net/manual/en/callbackfilteriterator.accept.php
-     * @return bool true if the current element is acceptable, otherwise false.
-     */
-    #[TentativeType]
-    public function accept(): bool {}
-}
-
-/**
- * (PHP 5 >= 5.4.0)<br>
- * RecursiveCallbackFilterIterator from a RecursiveIterator
- * @link https://secure.php.net/manual/en/class.recursivecallbackfilteriterator.php
- * @since 5.4
- */
-class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements RecursiveIterator
-{
-    /**
-     * Create a RecursiveCallbackFilterIterator from a RecursiveIterator
-     * @param RecursiveIterator $iterator The recursive iterator to be filtered.
-     * @param callable $callback The callback, which should return TRUE to accept the current item or FALSE otherwise. See Examples.
-     * May be any valid callable value.
-     * @link https://www.php.net/manual/en/recursivecallbackfilteriterator.construct.php
-     */
-    public function __construct(
-        RecursiveIterator $iterator,
-        #[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback
-    ) {}
-
-    /**
-     * Check whether the inner iterator's current element has children
-     * @link https://php.net/manual/en/recursiveiterator.haschildren.php
-     * @return bool Returns TRUE if the current element has children, FALSE otherwise.
-     */
-    #[TentativeType]
-    public function hasChildren(): bool {}
-
-    /**
-     * Returns an iterator for the current entry.
-     * @link https://secure.php.net/manual/en/recursivecallbackfilteriterator.haschildren.php
-     * @return RecursiveCallbackFilterIterator containing the children.
-     */
-    #[TentativeType]
-    public function getChildren(): RecursiveCallbackFilterIterator {}
 }
 
 /**
@@ -300,11 +231,7 @@ class RecursiveIteratorIterator implements OuterIterator
      * @param int $flags [optional] A bitmask of special flags. See class constants for details.
      * @since 5.1.3
      */
-    public function __construct(
-        Traversable $iterator,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = self::LEAVES_ONLY,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
-    ) {}
+    public function __construct(Traversable $iterator, $mode = RecursiveIteratorIterator::LEAVES_ONLY, $flags = 0) {}
 
     /**
      * Rewind the iterator to the first element of the top level inner iterator
@@ -361,7 +288,7 @@ class RecursiveIteratorIterator implements OuterIterator
      * @return RecursiveIterator|null The current active sub iterator.
      */
     #[TentativeType]
-    public function getSubIterator(#[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $level): ?RecursiveIterator {}
+    public function getSubIterator($level): ?RecursiveIterator {}
 
     /**
      * Get inner iterator
@@ -437,7 +364,7 @@ class RecursiveIteratorIterator implements OuterIterator
      * @return void
      */
     #[TentativeType]
-    public function setMaxDepth(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxDepth = -1): void {}
+    public function setMaxDepth($maxDepth = -1): void {}
 
     /**
      * Get max depth
@@ -465,10 +392,7 @@ class IteratorIterator implements OuterIterator
      * @param Traversable $iterator
      * @param string|null $class [optional]
      */
-    public function __construct(
-        Traversable $iterator,
-        #[PhpStormStubsElementAvailable(from: '8.0')] ?string $class = ''
-    ) {}
+    public function __construct(Traversable $iterator) {}
 
     /**
      * Get the inner iterator
@@ -669,11 +593,7 @@ class LimitIterator extends IteratorIterator
      * @param int $offset [optional] The offset to start at. Must be zero or greater.
      * @param int $limit [optional] The number of items to iterate. Must be -1 or greater. -1, the default, means no limit.
      */
-    public function __construct(
-        Iterator $iterator,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset = 0,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $limit = -1
-    ) {}
+    public function __construct(Iterator $iterator, $offset = 0, $limit = -1) {}
 
     /**
      * Rewind the iterator to the specified starting offset
@@ -722,7 +642,7 @@ class LimitIterator extends IteratorIterator
      * @return int the offset position after seeking.
      */
     #[TentativeType]
-    public function seek(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset): int {}
+    public function seek($offset): int {}
 
     /**
      * Return the current position
@@ -744,7 +664,7 @@ class LimitIterator extends IteratorIterator
  * This object supports cached iteration over another iterator.
  * @link https://php.net/manual/en/class.cachingiterator.php
  */
-class CachingIterator extends IteratorIterator implements ArrayAccess, Countable, Stringable
+class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
 {
     /**
      * String conversion flag (mutually exclusive): Uses the current element for the iterator's string conversion.
@@ -785,10 +705,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      * @param Iterator $iterator The iterator to cache.
      * @param int $flags [optional] A bitmask of flags. See CachingIterator class constants for details.
      */
-    public function __construct(
-        Iterator $iterator,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = self::CALL_TOSTRING
-    ) {}
+    public function __construct(Iterator $iterator, $flags = CachingIterator::CALL_TOSTRING) {}
 
     /**
      * Rewind the iterator
@@ -866,7 +783,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      * @return void
      */
     #[TentativeType]
-    public function setFlags(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags): void {}
+    public function setFlags($flags): void {}
 
     /**
      * Internal cache array index to retrieve.
@@ -887,7 +804,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      */
     #[TentativeType]
-    public function offsetSet($key, #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value): void {}
+    public function offsetSet($key, $value): void {}
 
     /**
      * Remove an element from the internal cache array.
@@ -941,10 +858,7 @@ class RecursiveCachingIterator extends CachingIterator implements RecursiveItera
      * @param Iterator $iterator The iterator to cache.
      * @param int $flags [optional] A bitmask of flags. See CachingIterator class constants for details.
      */
-    public function __construct(
-        Iterator $iterator,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = self::CALL_TOSTRING
-    ) {}
+    public function __construct(Iterator $iterator, $flags = CachingIterator::CALL_TOSTRING) {}
 
     /**
      * Check whether the current element of the inner iterator has children
@@ -1170,8 +1084,6 @@ class RegexIterator extends FilterIterator
      */
     public const USE_KEY = 1;
     public const INVERT_MATCH = 2;
-
-    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $replacement;
 
     /**
@@ -1183,13 +1095,7 @@ class RegexIterator extends FilterIterator
      * @param int $flags [optional] Special flags, see RegexIterator::setFlags() for a list of available flags.
      * @param int $pregFlags [optional] The regular expression flags. These flags depend on the operation mode parameter
      */
-    public function __construct(
-        Iterator $iterator,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pattern,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = self::MATCH,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $pregFlags = 0
-    ) {}
+    public function __construct(Iterator $iterator, $pattern, $mode = RegexIterator::MATCH, $flags = 0, $pregFlags = 0) {}
 
     /**
      * Get accept status
@@ -1258,7 +1164,7 @@ class RegexIterator extends FilterIterator
      * @return void
      */
     #[TentativeType]
-    public function setMode(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode): void {}
+    public function setMode($mode): void {}
 
     /**
      * Get flags
@@ -1295,16 +1201,7 @@ class RegexIterator extends FilterIterator
      * @return void
      */
     #[TentativeType]
-    public function setFlags(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags): void {}
-
-    /**
-     * Returns current regular expression
-     * @link https://secure.php.net/manual/en/regexiterator.getregex.php
-     * @return string
-     * @since 5.4
-     */
-    #[TentativeType]
-    public function getRegex(): string {}
+    public function setFlags($flags): void {}
 
     /**
      * Returns the regular expression flags.
@@ -1324,7 +1221,7 @@ class RegexIterator extends FilterIterator
      * @return void
      */
     #[TentativeType]
-    public function setPregFlags(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $pregFlags): void {}
+    public function setPregFlags($pregFlags): void {}
 }
 
 /**
@@ -1342,13 +1239,7 @@ class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
      * @param int $flags [optional] Special flags, see RegexIterator::setFlags() for a list of available flags.
      * @param int $pregFlags [optional] The regular expression flags. These flags depend on the operation mode parameter
      */
-    public function __construct(
-        RecursiveIterator $iterator,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pattern,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = self::MATCH,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $pregFlags = 0
-    ) {}
+    public function __construct(RecursiveIterator $iterator, $pattern, $mode = RegexIterator::MATCH, $flags = 0, $pregFlags = 0) {}
 
     /**
      * Returns whether an iterator can be obtained for the current entry.
@@ -1390,12 +1281,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      * @param int $cachingIteratorFlags [optional] Flags to affect the behavior of the {@see RecursiveCachingIterator} used internally.
      * @param int $mode [optional] Flags to affect the behavior of the {@see RecursiveIteratorIterator} used internally.
      */
-    public function __construct(
-        $iterator,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = self::BYPASS_KEY,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $cachingIteratorFlags = CachingIterator::CATCH_GET_CHILD,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = self::SELF_FIRST
-    ) {}
+    public function __construct($iterator, $flags = self::BYPASS_KEY, $cachingIteratorFlags = CachingIterator::CATCH_GET_CHILD, $mode = RecursiveIteratorIterator::SELF_FIRST) {}
 
     /**
      * Rewind iterator
@@ -1495,7 +1381,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      * @param string $postfix
      */
     #[TentativeType]
-    public function setPostfix(#[PhpStormStubsElementAvailable(from: '7.3')] string $postfix): void {}
+    public function setPostfix(): void {}
 
     /**
      * Set a part of the prefix
@@ -1509,10 +1395,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      * @return void
      */
     #[TentativeType]
-    public function setPrefixPart(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $part,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value
-    ): void {}
+    public function setPrefixPart($part, $value): void {}
 
     /**
      * Get current entry
@@ -1554,11 +1437,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param int $flags Flags to control the behaviour of the ArrayObject object.
      * @param string $iteratorClass Specify the class that will be used for iteration of the ArrayObject object. ArrayIterator is the default class used.
      */
-    public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'object|array'], default: '')] $array = [],
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0,
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $iteratorClass = "ArrayIterator"
-    ) {}
+    public function __construct($array = []) {}
 
     /**
      * Returns whether the requested index exists
@@ -1569,7 +1448,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return bool true if the requested index exists, otherwise false
      */
     #[TentativeType]
-    public function offsetExists(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key): bool {}
+    public function offsetExists($key): bool {}
 
     /**
      * Returns the value at the specified index
@@ -1580,7 +1459,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return mixed|false The value at the specified index or false.
      */
     #[TentativeType]
-    public function offsetGet(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key): mixed {}
+    public function offsetGet($key): mixed {}
 
     /**
      * Sets the value at the specified index to newval
@@ -1594,10 +1473,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return void
      */
     #[TentativeType]
-    public function offsetSet(
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
-    ): void {}
+    public function offsetSet($key, $value): void {}
 
     /**
      * Unsets the value at the specified index
@@ -1608,7 +1484,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return void
      */
     #[TentativeType]
-    public function offsetUnset(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key): void {}
+    public function offsetUnset($key): void {}
 
     /**
      * Appends the value
@@ -1619,7 +1495,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return void
      */
     #[TentativeType]
-    public function append(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value): void {}
+    public function append($value): void {}
 
     /**
      * Creates a copy of the ArrayObject.
@@ -1683,7 +1559,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return void
      */
     #[TentativeType]
-    public function setFlags(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags): void {}
+    public function setFlags($flags): void {}
 
     /**
      * Sort the entries by value
@@ -1692,7 +1568,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return bool
      */
     #[TentativeType]
-    public function asort(#[PhpStormStubsElementAvailable(from: '8.0')] int $flags = SORT_REGULAR): bool {}
+    public function asort(): bool {}
 
     /**
      * Sort the entries by key
@@ -1701,7 +1577,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return bool
      */
     #[TentativeType]
-    public function ksort(#[PhpStormStubsElementAvailable(from: '8.0')] int $flags = SORT_REGULAR): bool {}
+    public function ksort(): bool {}
 
     /**
      * Sort the entries with a user-defined comparison function and maintain key association
@@ -1717,7 +1593,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return bool
      */
     #[TentativeType]
-    public function uasort(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback): bool {}
+    public function uasort($callback): bool {}
 
     /**
      * Sort the entries by keys using a user-defined comparison function
@@ -1736,7 +1612,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return bool
      */
     #[TentativeType]
-    public function uksort(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback): bool {}
+    public function uksort($callback): bool {}
 
     /**
      * Sort entries using a "natural order" algorithm
@@ -1763,7 +1639,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return void
      */
     #[TentativeType]
-    public function unserialize(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data): void {}
+    public function unserialize($data): void {}
 
     /**
      * Serialize an ArrayObject
@@ -1772,27 +1648,6 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      */
     #[TentativeType]
     public function serialize(): string {}
-
-    /**
-     * @return array
-     * @since 7.4
-     */
-    #[TentativeType]
-    public function __debugInfo(): array {}
-
-    /**
-     * @return array
-     * @since 7.4
-     */
-    #[TentativeType]
-    public function __serialize(): array {}
-
-    /**
-     * @param array $data
-     * @since 7.4
-     */
-    #[TentativeType]
-    public function __unserialize(array $data): void {}
 
     /**
      * Create a new iterator from an ArrayObject instance
@@ -1811,7 +1666,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return array the old array.
      */
     #[TentativeType]
-    public function exchangeArray(#[LanguageLevelTypeAware(['8.0' => 'object|array'], default: '')] $array): array {}
+    public function exchangeArray($array): array {}
 
     /**
      * Sets the iterator classname for the ArrayObject.
@@ -1822,7 +1677,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return void
      */
     #[TentativeType]
-    public function setIteratorClass(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $iteratorClass): void {}
+    public function setIteratorClass($iteratorClass): void {}
 
     /**
      * Gets the iterator classname for the ArrayObject.
@@ -1850,11 +1705,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @param int $flags Flags to control the behaviour of the ArrayObject object.
      * @see ArrayObject::setFlags()
      */
-    public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'object|array'], default: '')] $array = [],
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0,
-        #[PhpStormStubsElementAvailable(from: '7.0', to: '7.1')] $iterator_class = null
-    ) {}
+    public function __construct($array = []) {}
 
     /**
      * Check if offset exists
@@ -1865,7 +1716,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return bool true if the offset exists, otherwise false
      */
     #[TentativeType]
-    public function offsetExists(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key): bool {}
+    public function offsetExists($key): bool {}
 
     /**
      * Get value for an offset
@@ -1876,7 +1727,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return mixed The value at offset <i>index</i>.
      */
     #[TentativeType]
-    public function offsetGet(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key): mixed {}
+    public function offsetGet($key): mixed {}
 
     /**
      * Set value for an offset
@@ -1890,10 +1741,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return void
      */
     #[TentativeType]
-    public function offsetSet(
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
-    ): void {}
+    public function offsetSet($key, $value): void {}
 
     /**
      * Unset value for an offset
@@ -1904,7 +1752,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return void
      */
     #[TentativeType]
-    public function offsetUnset(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key): void {}
+    public function offsetUnset($key): void {}
 
     /**
      * Append an element
@@ -1915,7 +1763,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return void
      */
     #[TentativeType]
-    public function append(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value): void {}
+    public function append($value): void {}
 
     /**
      * Get array copy
@@ -1955,7 +1803,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return void
      */
     #[TentativeType]
-    public function setFlags(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags): void {}
+    public function setFlags($flags): void {}
 
     /**
      * Sort array by values
@@ -1964,7 +1812,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return bool
      */
     #[TentativeType]
-    public function asort(#[PhpStormStubsElementAvailable(from: '8.0')] int $flags = SORT_REGULAR): bool {}
+    public function asort(): bool {}
 
     /**
      * Sort array by keys
@@ -1973,7 +1821,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return bool
      */
     #[TentativeType]
-    public function ksort(#[PhpStormStubsElementAvailable(from: '8.0')] int $flags = SORT_REGULAR): bool {}
+    public function ksort(): bool {}
 
     /**
      * User defined sort
@@ -1984,7 +1832,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return void
      */
     #[TentativeType]
-    public function uasort(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback): bool {}
+    public function uasort($callback): bool {}
 
     /**
      * User defined sort
@@ -1995,7 +1843,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return void
      */
     #[TentativeType]
-    public function uksort(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback): bool {}
+    public function uksort($callback): bool {}
 
     /**
      * Sort an array naturally
@@ -2022,7 +1870,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return void
      */
     #[TentativeType]
-    public function unserialize(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data): void {}
+    public function unserialize($data): void {}
 
     /**
      * Serialize
@@ -2081,28 +1929,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return void
      */
     #[TentativeType]
-    public function seek(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset): void {}
-
-    /**
-     * @return array
-     * @since 7.4
-     */
-    #[TentativeType]
-    public function __debugInfo(): array {}
-
-    /**
-     * @return array
-     * @since 7.4
-     */
-    #[TentativeType]
-    public function __serialize(): array {}
-
-    /**
-     * @param array $data
-     * @since 7.4
-     */
-    #[TentativeType]
-    public function __unserialize(array $data): void {}
+    public function seek($offset): void {}
 }
 
 /**
