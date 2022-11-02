@@ -47,6 +47,15 @@ define('__FUNCTION__', "");
 define('__METHOD__', "");
 
 /**
+ * The trait name. (Added in PHP 5.4.0) As of PHP 5.4 this constant
+ * returns the trait as it was declared (case-sensitive). The trait name includes the namespace
+ * it was declared in (e.g. Foo\Bar).
+ * @since 5.4
+ * @link https://php.net/manual/en/language.constants.predefined.php
+ */
+define('__TRAIT__', "");
+
+/**
  * The directory of the file. If used inside an include,
  * the directory of the included file is returned. This is equivalent
  * to `dirname(__FILE__)`. This directory name

@@ -20,6 +20,20 @@ define('__COMPILER_HALT_OFFSET__', 0);
 function PS_UNRESERVE_PREFIX___halt_compiler() {}
 
 /**
+ * Convert hexadecimal string to its binary representation.
+ *
+ * If the hexadecimal input string is of odd length or invalid hexadecimal string an <code>E_WARNING</code> level error is emitted.
+ *
+ * @link https://php.net/manual/en/function.hex2bin.php
+ * @param string $string Hexadecimal string to convert.
+ * @return string|false The binary representation of the given data or <b>FALSE</b> on failure.
+ * @see bin2hex()
+ * @see unpack()
+ * @since 5.4
+ */
+function hex2bin(string $string): string|false {}
+
+/**
  * Get or Set the HTTP response code
  * @param int $response_code The optional response_code will set the response code.
  * @return int|bool The current response code. By default the return value is int(200).

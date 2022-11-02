@@ -301,6 +301,15 @@ class Exception
 
     #[TentativeType]
     public function __wakeup(): void {}
+
+    /**
+     * Clone the exception
+     * Tries to clone the Exception, which results in Fatal error.
+     * @link https://php.net/manual/en/exception.clone.php
+     * @return void
+     * @since 5.4
+     */
+    final private function __clone(): void {}
 }
 
 class ValueError {}

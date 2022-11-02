@@ -1005,6 +1005,51 @@ function mb_eregi(string $pattern, string $string, &$matches): false|int {}
 function mb_ereg_replace(string $pattern, string $replacement, string $string, ?string $options = null): string|false|null {}
 
 /**
+ * Perform a regular expresssion seach and replace with multibyte support using a callback
+ * @link https://secure.php.net/manual/en/function.mb-ereg-replace-callback.php
+ * @param string $pattern <p>
+ * The regular expression pattern.
+ * </p>
+ * <p>
+ * Multibyte characters may be used in <b>pattern</b>.
+ * </p>
+ * @param callable $callback <p>
+ * A callback that will be called and passed an array of matched elements
+ * in the  <b>subject</b> string. The callback should
+ * return the replacement string.
+ * </p>
+ * <p>
+ * You'll often need the <b>callback</b> function
+ * for a <b>mb_ereg_replace_callback()</b> in just one place.
+ * In this case you can use an anonymous function to
+ * declare the callback within the call to
+ * <b>mb_ereg_replace_callback()</b>. By doing it this way
+ * you have all information for the call in one place and do not
+ * clutter the function namespace with a callback function's name
+ * not used anywhere else.
+ * </p>
+ * @param string $string <p>
+ * The string being checked.
+ * </p>
+ * @param string $options <p>
+ * Matching condition can be set by <em><b>option</b></em>
+ * parameter. If <em>i</em> is specified for this
+ * parameter, the case will be ignored. If <em>x</em> is
+ * specified, white space will be ignored. If <em>m</em>
+ * is specified, match will be executed in multiline mode and line
+ * break will be included in '.'. If <em>p</em> is
+ * specified, match will be executed in POSIX mode, line break
+ * will be considered as normal character. Note that <em>e</em>
+ * cannot be used for <b>mb_ereg_replace_callback()</b>.
+ * </p>
+ * @return string|false|null <p>
+ * The resultant string on success, or <b>FALSE</b> on error.
+ * </p>
+ * @since 5.4.1
+ */
+function mb_ereg_replace_callback(string $pattern, callable $callback, string $string, ?string $options = null): string|false|null {}
+
+/**
  * Replace regular expression with multibyte support ignoring case
  * @link https://php.net/manual/en/function.mb-eregi-replace.php
  * @param string $pattern <p>

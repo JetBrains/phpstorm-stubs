@@ -1082,3 +1082,123 @@ function ldap_start_tls($ldap): bool {}
  * @return bool
  */
 function ldap_set_rebind_proc($ldap, ?callable $callback): bool {}
+
+/**
+ * Send LDAP pagination control
+ * @link https://php.net/manual/en/function.ldap-control-paged-result.php
+ * @param resource $ldap <p>
+ * An LDAP link identifier, returned by <b>ldap_connect</b>.
+ * </p>
+ * @param int $pagesize <p>
+ * The number of entries by page.
+ * </p>
+ * @param bool $iscritical [optional] <p>
+ * Indicates whether the pagination is critical of not.
+ * If true and if the server doesn't support pagination, the search
+ * will return no result.
+ * </p>
+ * @param string $cookie [optional] <p>
+ * An opaque structure sent by the server
+ * (<b>ldap_control_paged_result_response</b>).
+ * </p>
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 5.4
+ * @removed 8.0
+ */
+#[Deprecated(since: "7.4")]
+function ldap_control_paged_result($ldap, int $pagesize, $iscritical = false, $cookie = ''): bool {}
+
+/**
+ * Retrieve the LDAP pagination cookie
+ * @link https://php.net/manual/en/function.ldap-control-paged-result-response.php
+ * @param resource $ldap <p>
+ * An LDAP link identifier, returned by <b>ldap_connect</b>.
+ * </p>
+ * @param resource $result
+ * @param string &$cookie [optional] <p>
+ * An opaque structure sent by the server.
+ * </p>
+ * @param int &$estimated [optional] <p>
+ * The estimated number of entries to retrieve.
+ * </p>
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 5.4
+ * @removed 8.0
+ */
+#[Deprecated(since: "7.4")]
+function ldap_control_paged_result_response($ldap, $result, &$cookie = null, &$estimated = null): bool {}
+
+/**
+ * (PHP 5.4 >= 5.4.26, PHP 5.5 >= 5.5.10, PHP 5.6 >= 5.6.0)
+ * Batch and execute modifications on an LDAP entry
+ * @link https://php.net/manual/en/function.ldap-modify-batch.php
+ * @param $ldap <p>
+ * An LDAP link identifier, returned by
+ * {@see ldap_connect()}.
+ * </p>
+ * @param string $dn <p>The distinguished name of an LDAP entity.</p>
+ * @param array $modifications_info <p>An array that specifies the modifications to make. Each entry in this
+ * array is an associative array with two or three keys:
+ * <em>attrib</em> maps to the name of the attribute to modify,
+ * <em>modtype</em> maps to the type of modification to perform,
+ * and (depending on the type of modification) <em>values</em>
+ * maps to an array of attribute values relevant to the modification.
+ * </p>
+ * <p>
+ * Possible values for <em>modtype</em> include:
+ * </p>
+ * <dl>
+ *
+ * <dt>
+ * <b>LDAP_MODIFY_BATCH_ADD</b></dt>
+ * <dd>
+ * <p>
+ * Each value specified through <em>values</em> is added (as
+ * an additional value) to the attribute named by
+ * <em>attrib</em>.
+ * </p>
+ * </dd>
+ *
+ * <dt>
+ * <b>LDAP_MODIFY_BATCH_REMOVE</b></dt>
+ * <dd>
+ * <p>
+ * Each value specified through <em>values</em> is removed
+ * from the attribute named by <em>attrib</em>. Any value of
+ * the attribute not contained in the <em>values</em> array
+ * will remain untouched.
+ * </p>
+ * </dd>
+ *
+ * <dt>
+ * <b>LDAP_MODIFY_BATCH_REMOVE_ALL</b></dt>
+ * <dd>
+ * <p>
+ * All values are removed from the attribute named by
+ * <em>attrib</em>. A <em>values</em> entry must
+ * not be provided.
+ * </p>
+ * </dd>
+ *
+ * <dt>
+ * <b>LDAP_MODIFY_BATCH_REPLACE</b></dt>
+ * <dd>
+ * <p>
+ * All current values of the attribute named by
+ * <em>attrib</em> are replaced with the values specified
+ * through <em>values</em>.
+ * </p>
+ * </dd>
+ *
+ * </dl>
+ * <p>
+ * Note that any value for <em>attrib</em> must be a string, any
+ * value for <em>values</em> must be an array of strings, and
+ * any value for <em>modtype</em> must be one of the
+ * <b>LDAP_MODIFY_BATCH_*</b> constants listed above.
+ * </p>
+ * @param array|null $controls Array of LDAP Controls to send with the request.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 5.4
+ */
+function ldap_modify_batch($ldap, string $dn, array $modifications_info): bool {}

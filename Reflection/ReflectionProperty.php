@@ -214,4 +214,13 @@ class ReflectionProperty implements Reflector
      */
     #[TentativeType]
     public function setAccessible($accessible): void {}
+
+    /**
+     * Clone
+     *
+     * @link https://php.net/manual/en/reflectionproperty.clone.php
+     * @return void
+     * @since 5.4
+     */
+    final private function __clone(): void {}
 }
