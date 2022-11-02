@@ -1703,6 +1703,40 @@ function pg_escape_string($connection = null, string $string = null): string {}
 function pg_escape_bytea($connection = null, string $string = null): string {}
 
 /**
+ * Escape a identifier for insertion into a text field
+ * @link https://php.net/manual/en/function.pg-escape-identifier.php
+ * @param resource $connection <p>
+ * PostgreSQL database connection resource. When
+ * <i>connection</i> is not present, the default connection
+ * is used. The default connection is the last connection made by
+ * <b>pg_connect</b> or <b>pg_pconnect</b>.
+ * </p>
+ * @param string $string <p>
+ * A string containing text to be escaped.
+ * </p>
+ * @return string|false A string containing the escaped data.
+ * @since 5.4.4
+ */
+function pg_escape_identifier($connection = null, string $string = null): string|false {}
+
+/**
+ * Escape a literal for insertion into a text field
+ * @link https://php.net/manual/en/function.pg-escape-literal.php
+ * @param resource $connection <p>
+ * PostgreSQL database connection resource. When
+ * <i>connection</i> is not present, the default connection
+ * is used. The default connection is the last connection made by
+ * <b>pg_connect</b> or <b>pg_pconnect</b>.
+ * </p>
+ * @param string $string <p>
+ * A string containing text to be escaped.
+ * </p>
+ * @return string|false A string containing the escaped data.
+ * @since 5.4.4
+ */
+function pg_escape_literal($connection = null, string $string = null): string|false {}
+
+/**
  * Unescape binary for bytea type
  * @link https://php.net/manual/en/function.pg-unescape-bytea.php
  * @param string $string <p>

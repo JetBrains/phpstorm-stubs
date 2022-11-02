@@ -808,6 +808,25 @@ function mysqli_debug(string $options): bool {}
 function mysqli_errno(mysqli $mysql): int {}
 
 /**
+ * Returns a list of errors from the last command executed
+ * @link https://php.net/manual/en/mysqli.error-list.php
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
+ * @return array A list of errors, each as an associative array containing the errno, error, and sqlstate.
+ * @since 5.4
+ */
+#[ArrayShape(["errno" => "int", "sqlstate" => "string", "error" => "string"])]
+function mysqli_error_list(mysqli $mysql): array {}
+
+/**
+ * Returns a list of errors from the last statement executed
+ * @link https://secure.php.net/manual/en/mysqli-stmt.error-list.php
+ * @param mysqli_stmt $statement A statement identifier returned by mysqli_stmt_init().
+ * @return array A list of errors, each as an associative array containing the errno, error, and sqlstate.
+ * @since 5.4
+ */
+function mysqli_stmt_error_list(mysqli_stmt $statement): array {}
+
+/**
  * Returns a string description of the last error
  * @link https://secure.php.net/manual/en/mysqli.error.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()

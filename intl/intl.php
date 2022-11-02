@@ -382,6 +382,78 @@ define('INTL_IDNA_VARIANT_UTS46', 1);
 define('IDNA_ERROR_EMPTY_LABEL', 1);
 
 /**
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
+ */
+define('IDNA_ERROR_LABEL_TOO_LONG', 2);
+
+/**
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
+ */
+define('IDNA_ERROR_DOMAIN_NAME_TOO_LONG', 4);
+
+/**
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
+ */
+define('IDNA_ERROR_LEADING_HYPHEN', 8);
+
+/**
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
+ */
+define('IDNA_ERROR_TRAILING_HYPHEN', 16);
+
+/**
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
+ */
+define('IDNA_ERROR_HYPHEN_3_4', 32);
+
+/**
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
+ */
+define('IDNA_ERROR_LEADING_COMBINING_MARK', 64);
+
+/**
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
+ */
+define('IDNA_ERROR_DISALLOWED', 128);
+
+/**
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
+ */
+define('IDNA_ERROR_PUNYCODE', 256);
+
+/**
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
+ */
+define('IDNA_ERROR_LABEL_HAS_DOT', 512);
+
+/**
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
+ */
+define('IDNA_ERROR_INVALID_ACE_LABEL', 1024);
+
+/**
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
+ */
+define('IDNA_ERROR_BIDI', 2048);
+
+/**
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
+ */
+define('IDNA_ERROR_CONTEXTJ', 4096);
+
+/**
  * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
  * Create a collator
  * @link https://php.net/manual/en/collator.create.php
@@ -1856,6 +1928,117 @@ function resourcebundle_get_error_code(ResourceBundle $bundle): int {}
  */
 #[Pure(true)]
 function resourcebundle_get_error_message(ResourceBundle $bundle): string {}
+
+/**
+ * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+ * Create a transliterator
+ * @link https://php.net/manual/en/transliterator.create.php
+ * @param string $id <p>
+ * The id.
+ * </p>
+ * @param int $direction <p>
+ * The direction, defaults to
+ * Transliterator::FORWARD.
+ * May also be set to
+ * Transliterator::REVERSE.
+ * </p>
+ * @return Transliterator|null a <b>Transliterator</b> object on success,
+ * or <b>NULL</b> on failure.
+ * @since 5.4
+ */
+#[Pure]
+function transliterator_create(string $id, int $direction = 0): ?Transliterator {}
+
+/**
+ * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+ * Create transliterator from rules
+ * @link https://php.net/manual/en/transliterator.createfromrules.php
+ * @param string $rules <p>
+ * The rules.
+ * </p>
+ * @param int $direction <p>
+ * The direction, defaults to
+ * Transliterator::FORWARD.
+ * May also be set to
+ * Transliterator::REVERSE.
+ * </p>
+ * @return Transliterator|null a <b>Transliterator</b> object on success,
+ * or <b>NULL</b> on failure.
+ * @since 5.4
+ */
+#[Pure]
+function transliterator_create_from_rules(string $rules, int $direction = 0): ?Transliterator {}
+
+/**
+ * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+ * Get transliterator IDs
+ * @link https://php.net/manual/en/transliterator.listids.php
+ * @return string[]|false An array of registered transliterator IDs on success,
+ * or <b>FALSE</b> on failure.
+ * @since 5.4
+ */
+#[Pure]
+function transliterator_list_ids(): array|false {}
+
+/**
+ * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+ * Create an inverse transliterator
+ * @link https://php.net/manual/en/transliterator.createinverse.php
+ * @param Transliterator $transliterator
+ * @return Transliterator|null a <b>Transliterator</b> object on success,
+ * or <b>NULL</b> on failure
+ * @since 5.4
+ */
+#[Pure]
+function transliterator_create_inverse(Transliterator $transliterator): ?Transliterator {}
+
+/**
+ * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+ * Transliterate a string
+ * @link https://php.net/manual/en/transliterator.transliterate.php
+ * @param Transliterator|string $transliterator
+ * @param string $string <p>
+ * The string to be transformed.
+ * </p>
+ * @param int $start <p>
+ * The start index (in UTF-16 code units) from which the string will start
+ * to be transformed, inclusive. Indexing starts at 0. The text before will
+ * be left as is.
+ * </p>
+ * @param int $end <p>
+ * The end index (in UTF-16 code units) until which the string will be
+ * transformed, exclusive. Indexing starts at 0. The text after will be
+ * left as is.
+ * </p>
+ * @return string|false The transfomed string on success, or <b>FALSE</b> on failure.
+ * @since 5.4
+ */
+#[Pure]
+function transliterator_transliterate(Transliterator|string $transliterator, string $string, int $start = 0, int $end = -1): string|false {}
+
+/**
+ * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+ * Get last error code
+ * @link https://php.net/manual/en/transliterator.geterrorcode.php
+ * @param Transliterator $transliterator
+ * @return int|false The error code on success,
+ * or <b>FALSE</b> if none exists, or on failure.
+ * @since 5.4
+ */
+#[Pure(true)]
+function transliterator_get_error_code(Transliterator $transliterator): int|false {}
+
+/**
+ * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+ * Get last error message
+ * @link https://php.net/manual/en/transliterator.geterrormessage.php
+ * @param Transliterator $transliterator
+ * @return string|false The error code on success,
+ * or <b>FALSE</b> if none exists, or on failure.
+ * @since 5.4
+ */
+#[Pure(true)]
+function transliterator_get_error_message(Transliterator $transliterator): string|false {}
 
 /**
  * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -4000,6 +4183,139 @@ class ResourceBundle implements IteratorAggregate, Countable
 }
 
 /**
+ * @since 5.4
+ */
+class Transliterator
+{
+    public const FORWARD = 0;
+    public const REVERSE = 1;
+
+    /**
+     * Starting 8.2 $id is readonly to unlock subclassing it
+     */
+    public $id;
+
+    /**
+     * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+     * Private constructor to deny instantiation
+     * @link https://php.net/manual/en/transliterator.construct.php
+     * @since 5.4
+     */
+    final private function __construct() {}
+
+    /**
+     * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+     * Create a transliterator
+     * @link https://php.net/manual/en/transliterator.create.php
+     * @param string $id <p>
+     * The id.
+     * </p>
+     * @param int $direction [optional] <p>
+     * The direction, defaults to
+     * Transliterator::FORWARD.
+     * May also be set to
+     * Transliterator::REVERSE.
+     * </p>
+     * @return Transliterator|null a <b>Transliterator</b> object on success,
+     * or <b>NULL</b> on failure.
+     * @since 5.4
+     */
+    #[TentativeType]
+    public static function create($id, #[ExpectedValues([Transliterator::FORWARD, Transliterator::REVERSE])] $direction = null): ?Transliterator {}
+
+    /**
+     * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+     * Create transliterator from rules
+     * @link https://php.net/manual/en/transliterator.createfromrules.php
+     * @param string $rules <p>
+     * The rules.
+     * </p>
+     * @param int $direction [optional] <p>
+     * The direction, defaults to
+     * {@see Transliterator::FORWARD}.
+     * May also be set to
+     * {@see Transliterator::REVERSE}.
+     * </p>
+     * @return Transliterator|null a <b>Transliterator</b> object on success,
+     * or <b>NULL</b> on failure.
+     * @since 5.4
+     */
+    #[TentativeType]
+    public static function createFromRules($rules, #[ExpectedValues([Transliterator::FORWARD, Transliterator::REVERSE])] $direction = null): ?Transliterator {}
+
+    /**
+     * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+     * Get transliterator IDs
+     * @link https://php.net/manual/en/transliterator.listids.php
+     * @return array|false An array of registered transliterator IDs on success,
+     * or <b>FALSE</b> on failure.
+     * @since 5.4
+     */
+    #[TentativeType]
+    public static function listIDs(): array|false {}
+
+    /**
+     * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+     * Create an inverse transliterator
+     * @link https://php.net/manual/en/transliterator.createinverse.php
+     * @return Transliterator|null a <b>Transliterator</b> object on success,
+     * or <b>NULL</b> on failure
+     * @since 5.4
+     */
+    #[Pure]
+    #[TentativeType]
+    public function createInverse(): ?Transliterator {}
+
+    /**
+     * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+     * Transliterate a string
+     * @link https://php.net/manual/en/transliterator.transliterate.php
+     * @param string $string <p>
+     * The string to be transformed.
+     * </p>
+     * @param int $start [optional] <p>
+     * The start index (in UTF-16 code units) from which the string will start
+     * to be transformed, inclusive. Indexing starts at 0. The text before will
+     * be left as is.
+     * </p>
+     * @param int $end [optional] <p>
+     * The end index (in UTF-16 code units) until which the string will be
+     * transformed, exclusive. Indexing starts at 0. The text after will be
+     * left as is.
+     * </p>
+     * @return string|false The transfomed string on success, or <b>FALSE</b> on failure.
+     * @since 5.4
+     */
+    #[Pure]
+    #[TentativeType]
+    public function transliterate($string, $start = null, $end = -1): string|false {}
+
+    /**
+     * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+     * Get last error code
+     * @link https://php.net/manual/en/transliterator.geterrorcode.php
+     * @return int|false The error code on success,
+     * or <b>FALSE</b> if none exists, or on failure.
+     * @since 5.4
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getErrorCode(): int|false {}
+
+    /**
+     * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+     * Get last error message
+     * @link https://php.net/manual/en/transliterator.geterrormessage.php
+     * @return string|false The error code on success,
+     * or <b>FALSE</b> if none exists, or on failure.
+     * @since 5.4
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getErrorMessage(): string|false {}
+}
+
+/**
  * @link https://php.net/manual/en/class.spoofchecker.php
  */
 class Spoofchecker
@@ -4017,6 +4333,69 @@ class Spoofchecker
     public const MINIMALLY_RESTRICTIVE = 1342177280;
     public const UNRESTRICTIVE = 1610612736;
     public const SINGLE_SCRIPT_RESTRICTIVE = 536870912;
+
+    /**
+     * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+     * Constructor
+     * @link https://php.net/manual/en/spoofchecker.construct.php
+     * @since 5.4
+     */
+    #[Pure]
+    public function __construct() {}
+
+    /**
+     * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+     * Checks if a given text contains any suspicious characters
+     * @link https://php.net/manual/en/spoofchecker.issuspicious.php
+     * @param string $string <p>
+     * </p>
+     * @param string &$errorCode [optional] <p>
+     * </p>
+     * @return bool
+     * @since 5.4
+     */
+    #[TentativeType]
+    public function isSuspicious($string, &$errorCode = null): bool {}
+
+    /**
+     * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+     * Checks if a given text contains any confusable characters
+     * @link https://php.net/manual/en/spoofchecker.areconfusable.php
+     * @param string $string1 <p>
+     * </p>
+     * @param string $string2 <p>
+     * </p>
+     * @param string &$errorCode [optional] <p>
+     * </p>
+     * @return bool
+     * @since 5.4
+     */
+    #[TentativeType]
+    public function areConfusable($string1, $string2, &$errorCode = null): bool {}
+
+    /**
+     * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+     * Locales to use when running checks
+     * @link https://php.net/manual/en/spoofchecker.setallowedlocales.php
+     * @param string $locales <p>
+     * </p>
+     * @return void
+     * @since 5.4
+     */
+    #[TentativeType]
+    public function setAllowedLocales($locales): void {}
+
+    /**
+     * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
+     * Set the checks to run
+     * @link https://php.net/manual/en/spoofchecker.setchecks.php
+     * @param int $checks <p>
+     * </p>
+     * @return void
+     * @since 5.4
+     */
+    #[TentativeType]
+    public function setChecks($checks): void {}
 
     #[TentativeType]
     public function setRestrictionLevel(int $level): void {}

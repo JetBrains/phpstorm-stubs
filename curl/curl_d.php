@@ -22,6 +22,34 @@ define('CURLOPT_SSH_AUTH_TYPES', 151);
 define('CURLINFO_REDIRECT_URL', 1048607);
 
 /**
+ * IP address of the most recent connection
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ * @since 5.4.7
+ */
+define('CURLINFO_PRIMARY_IP', 1048608);
+
+/**
+ * Destination port of the most recent connection
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ * @since 5.4.7
+ */
+define('CURLINFO_PRIMARY_PORT', 2097192);
+
+/**
+ * Local (source) IP address of the most recent connection
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ * @since 5.4.7
+ */
+define('CURLINFO_LOCAL_IP', 1048617);
+
+/**
+ * Local (source) port of the most recent connection
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ * @since 5.4.7
+ */
+define('CURLINFO_LOCAL_PORT', 2097194);
+
+/**
  * Allows an application to select what kind of IP addresses to use when resolving host names.
  * This is only interesting when using host names that resolve addresses using more than one version of IP,
  * possible values are <b>CURL_IPRESOLVE_WHATEVER</b>, <b>CURL_IPRESOLVE_V4</b>, <b>CURL_IPRESOLVE_V6</b>, by default <b>CURL_IPRESOLVE_WHATEVER</b>.
@@ -250,6 +278,24 @@ define('CURLOPT_PROTOCOLS', 181);
  * @since 5.2.10
  */
 define('CURLOPT_REDIR_PROTOCOLS', 182);
+
+/**
+ * If a download exceeds this speed (counted in bytes per second) on cumulative average during the transfer,
+ * the transfer will pause to keep the average rate less than or equal to the parameter value.
+ * Defaults to unlimited speed.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 5.4
+ */
+define('CURLOPT_MAX_RECV_SPEED_LARGE', 30146);
+
+/**
+ * If an upload exceeds this speed (counted in bytes per second) on cumulative average during the transfer,
+ * the transfer will pause to keep the average rate less than or equal to the parameter value.
+ * Defaults to unlimited speed.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 5.4
+ */
+define('CURLOPT_MAX_SEND_SPEED_LARGE', 30145);
 
 /**
  * A callback accepting three parameters.

@@ -549,6 +549,15 @@ class SoapClient
     public function __getTypes(): ?array {}
 
     /**
+     * Returns a list of all cookies
+     * @link https://php.net/manual/en/soapclient.getcookies.php
+     * @return array The array of all cookies
+     * @since 5.4.3
+     */
+    #[TentativeType]
+    public function __getCookies(): array {}
+
+    /**
      * Performs a SOAP request
      * @link https://php.net/manual/en/soapclient.dorequest.php
      * @param string $request <p>
