@@ -2,8 +2,6 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -79,13 +77,7 @@ use JetBrains\PhpStorm\Pure;
  * is returned and a warning raised (this can happen if the system call is
  * interrupted by an incoming signal).
  */
-function stream_select(
-    ?array &$read,
-    ?array &$write,
-    ?array &$except,
-    ?int $seconds,
-    #[LanguageLevelTypeAware(['8.1' => 'int|null'], default: 'int')] $microseconds
-): int|false {}
+function stream_select(?array &$read, ?array &$write, ?array &$except, ?int $seconds, int $microseconds): int|false {}
 
 /**
  * Create a stream context
@@ -316,14 +308,7 @@ function stream_filter_remove($stream_filter): bool {}
  * fwrite, fclose, and
  * feof), false on failure.
  */
-function stream_socket_client(
-    string $address,
-    &$error_code,
-    &$error_message,
-    ?float $timeout,
-    int $flags = STREAM_CLIENT_CONNECT,
-    $context
-) {}
+function stream_socket_client(string $address, &$error_code, &$error_message, ?float $timeout, int $flags = STREAM_CLIENT_CONNECT, $context) {}
 
 /**
  * Create an Internet or Unix domain server socket
@@ -373,13 +358,7 @@ function stream_socket_client(
  * </p>
  * @return resource|false the created stream, or false on error.
  */
-function stream_socket_server(
-    string $address,
-    &$error_code,
-    &$error_message,
-    int $flags = STREAM_SERVER_BIND|STREAM_SERVER_LISTEN,
-    $context
-) {}
+function stream_socket_server(string $address, &$error_code, &$error_message, int $flags = STREAM_SERVER_BIND|STREAM_SERVER_LISTEN, $context) {}
 
 /**
  * Accept a connection on a socket created by {@see stream_socket_server}
@@ -638,14 +617,7 @@ function stream_supports_lock($stream): bool {}
  * including end of file.
  * </p>
  */
-#[LanguageLevelTypeAware(['8.0' => 'array|false'], default: 'array|false|null')]
-function fgetcsv(
-    $stream,
-    ?int $length = null,
-    string $separator = ',',
-    string $enclosure = '"',
-    string $escape = '\\'
-) {}
+function fgetcsv($stream, ?int $length = null, string $separator = ',', string $enclosure = '"', string $escape = "\\"): array|false|null {}
 
 /**
  * Format line as CSV and write to file pointer
@@ -667,14 +639,7 @@ function fgetcsv(
  * </p>
  * @return int|false the length of the written string or false on failure.
  */
-function fputcsv(
-    $stream,
-    array $fields,
-    string $separator = ",",
-    string $enclosure = '"',
-    #[PhpStormStubsElementAvailable(from: '7.0')] string $escape = "\\",
-    #[PhpStormStubsElementAvailable('8.1')] string $eol = PHP_EOL
-): int|false {}
+function fputcsv($stream, array $fields, string $separator = ',', string $enclosure = '"'): int|false {}
 
 /**
  * Portable advisory file locking
@@ -798,7 +763,7 @@ function set_file_buffer($stream, int $size): int {}
  * @removed 7.0
  * @see stream_set_blocking()
  */
-#[Deprecated(replacement: "stream_set_blocking(%parametersList%)", since: 5.3)]
+#[Deprecated(replacement: "stream_set_blocking(%parametersList%)", since: "5.3")]
 function set_socket_blocking($socket, bool $mode): bool {}
 
 /**
@@ -1045,11 +1010,7 @@ function stream_is_local($stream): bool {}
  * failure.
  */
 #[Pure(true)]
-function get_headers(
-    string $url,
-    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: 'int')] $associative = false,
-    #[PhpStormStubsElementAvailable(from: '7.1')] $context = null
-): array|false {}
+function get_headers(string $url, int $associative = false): array|false {}
 
 /**
  * Set timeout period on a stream
@@ -1065,12 +1026,7 @@ function get_headers(
  * </p>
  * @return bool true on success or false on failure.
  */
-function stream_set_timeout(
-    $stream,
-    int $seconds,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] int $microseconds,
-    #[PhpStormStubsElementAvailable(from: '7.0')] int $microseconds = 0
-): bool {}
+function stream_set_timeout($stream, int $seconds, int $microseconds): bool {}
 
 /**
  * Alias:
@@ -1088,12 +1044,7 @@ function stream_set_timeout(
  * </p>
  * @return bool true on success or false on failure.
  */
-function socket_set_timeout(
-    $stream,
-    int $seconds,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] int $microseconds,
-    #[PhpStormStubsElementAvailable(from: '7.0')] int $microseconds = 0
-): bool {}
+function socket_set_timeout($stream, int $seconds, int $microseconds): bool {}
 
 /**
  * Alias:

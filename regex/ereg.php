@@ -1,6 +1,5 @@
 <?php
 
-// Start of ereg v.
 use JetBrains\PhpStorm\Deprecated;
 
 /**
@@ -223,7 +222,5 @@ function spliti($pattern, $string, $limit = -1) {}
  * uppercase and lowercase form. Other characters remain unchanged.
  * @removed 7.0
  */
-#[Deprecated(since: '5.3')]
+#[Deprecated(since: "5.3")]
 function sql_regcase($string) {}
-
-// End of ereg v.

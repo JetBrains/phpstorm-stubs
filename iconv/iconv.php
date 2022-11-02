@@ -1,8 +1,31 @@
 <?php
 
-// Start of iconv v.
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
+
+/**
+ * string
+ * @link https://php.net/manual/en/iconv.constants.php
+ */
+define('ICONV_IMPL', "libiconv");
+
+/**
+ * string
+ * @link https://php.net/manual/en/iconv.constants.php
+ */
+define('ICONV_VERSION', 2.17);
+
+/**
+ * integer
+ * @link https://php.net/manual/en/iconv.constants.php
+ */
+define('ICONV_MIME_DECODE_STRICT', 1);
+
+/**
+ * integer
+ * @link https://php.net/manual/en/iconv.constants.php
+ */
+define('ICONV_MIME_DECODE_CONTINUE_ON_ERROR', 2);
 
 /**
  * Convert string to requested character encoding
@@ -62,7 +85,7 @@ function ob_iconv_handler(string $contents, int $status): string {}
  */
 #[Pure]
 #[ArrayShape(["input_encoding" => "string", "output_encoding" => "string", "internal_encoding" => "string"])]
-function iconv_get_encoding(string $type = "all"): array|string|false {}
+function iconv_get_encoding(string $type = 'all'): array|string|false {}
 
 /**
  * Set current setting for character encoding conversion
@@ -416,29 +439,3 @@ function iconv_mime_decode(string $string, int $mode = 0, ?string $encoding = nu
  */
 #[Pure]
 function iconv_mime_decode_headers(string $headers, int $mode = 0, ?string $encoding = null): array|false {}
-
-/**
- * string
- * @link https://php.net/manual/en/iconv.constants.php
- */
-define('ICONV_IMPL', "libiconv");
-
-/**
- * string
- * @link https://php.net/manual/en/iconv.constants.php
- */
-define('ICONV_VERSION', 2.17);
-
-/**
- * integer
- * @link https://php.net/manual/en/iconv.constants.php
- */
-define('ICONV_MIME_DECODE_STRICT', 1);
-
-/**
- * integer
- * @link https://php.net/manual/en/iconv.constants.php
- */
-define('ICONV_MIME_DECODE_CONTINUE_ON_ERROR', 2);
-
-// End of iconv v.

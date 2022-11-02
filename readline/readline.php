@@ -1,7 +1,8 @@
 <?php
 
-// Start of readline v.5.5.3-1ubuntu2.1
 use JetBrains\PhpStorm\ArrayShape;
+
+define('READLINE_LIB', "readline");
 
 /**
  * Reads a line
@@ -32,22 +33,7 @@ function readline(?string $prompt): string|false {}
  * <p>
  * If called with one or two parameters, the old value is returned.
  */
-#[ArrayShape([
-    'line_buffer' => 'string',
-    'point' => 'int',
-    'end' => 'int',
-    'mark' => 'int',
-    'done' => 'int',
-    'pending_input' => 'int',
-    'prompt' => 'string',
-    'terminal_name' => 'string',
-    'completion_append_character' => 'string',
-    'completion_suppress_append' => 'bool',
-    'erase_empty_line' => 'int',
-    'library_version' => 'string',
-    'readline_name' => 'string',
-    'attempted_completion_over' => 'int',
-])]
+#[ArrayShape(["line_buffer" => "string", "point" => "int", "end" => "int", "mark" => "int", "done" => "int", "pending_input" => "int", "prompt" => "string", "terminal_name" => "string", "completion_append_character" => "string", "completion_suppress_append" => "bool", "erase_empty_line" => "int", "library_version" => "string", "readline_name" => "string", "attempted_completion_over" => "int"])]
 function readline_info(?string $var_name, $value): mixed {}
 
 /**
@@ -148,7 +134,3 @@ function readline_redisplay(): void {}
  * @return void No value is returned.
  */
 function readline_on_new_line(): void {}
-
-define('READLINE_LIB', "readline");
-
-// End of readline v.5.5.3-1ubuntu2.1

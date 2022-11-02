@@ -52,10 +52,7 @@ class Bytes implements Serializable
      *
      * @param string $bin_str a PHP binary-string such as gzdeflate() produces.
      */
-    public function __construct($bin_str)
-    {
-        $this->s = $bin_str;
-    }
+    public function __construct($bin_str) {}
 
     /**
      * Unwraps an \Aerospike\Bytes object, returning the binary-string inside.
@@ -63,10 +60,7 @@ class Bytes implements Serializable
      * @param Bytes $bytes_wrap
      * @return string
      */
-    public static function unwrap(Bytes $bytes_wrap)
-    {
-        return $bytes_wrap->s;
-    }
+    public static function unwrap(Bytes $bytes_wrap) {}
 
     /**
      * Returns a serialized representation of the binary-string.
@@ -74,10 +68,7 @@ class Bytes implements Serializable
      *
      * @return string
      */
-    public function serialize()
-    {
-        return $this->s;
-    }
+    public function serialize() {}
 
     /**
      * Re-wraps the binary-string when called by unserialize().
@@ -85,18 +76,12 @@ class Bytes implements Serializable
      * @param string $bin_str a PHP binary-string. Called by unserialize().
      * @return string
      */
-    public function unserialize($bin_str)
-    {
-        return $this->s = $bin_str;
-    }
+    public function unserialize($bin_str) {}
 
     /**
      * Returns the binary-string held in the \Aerospike\Bytes object.
      *
      * @return string
      */
-    public function __toString()
-    {
-        return $this->s;
-    }
+    public function __toString() {}
 }

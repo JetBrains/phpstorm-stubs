@@ -1,7 +1,5 @@
 <?php
 
-// Start of recode v.
-
 /**
  * Recode a string according to a recode request
  * @link https://php.net/manual/en/function.recode-string.php
@@ -44,5 +42,3 @@ function recode_file($request, $input, $output) {}
  * @removed 7.4
  */
 function recode($request, $str) {}
-
-// End of recode v.

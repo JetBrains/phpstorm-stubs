@@ -1,8 +1,120 @@
 <?php
 
-// Start of odbc v.1.0
 use JetBrains\PhpStorm\ArrayShape;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+
+define('ODBC_TYPE', "unixODBC");
+
+define('ODBC_BINMODE_PASSTHRU', 0);
+
+define('ODBC_BINMODE_RETURN', 1);
+
+define('ODBC_BINMODE_CONVERT', 2);
+
+define('SQL_ODBC_CURSORS', 110);
+
+define('SQL_CUR_USE_DRIVER', 2);
+
+define('SQL_CUR_USE_IF_NEEDED', 0);
+
+define('SQL_CUR_USE_ODBC', 1);
+
+define('SQL_CONCURRENCY', 7);
+
+define('SQL_CONCUR_READ_ONLY', 1);
+
+define('SQL_CONCUR_LOCK', 2);
+
+define('SQL_CONCUR_ROWVER', 3);
+
+define('SQL_CONCUR_VALUES', 4);
+
+define('SQL_CURSOR_TYPE', 6);
+
+define('SQL_CURSOR_FORWARD_ONLY', 0);
+
+define('SQL_CURSOR_KEYSET_DRIVEN', 1);
+
+define('SQL_CURSOR_DYNAMIC', 2);
+
+define('SQL_CURSOR_STATIC', 3);
+
+define('SQL_KEYSET_SIZE', 8);
+
+define('SQL_FETCH_FIRST', 2);
+
+define('SQL_FETCH_NEXT', 1);
+
+define('SQL_CHAR', 1);
+
+define('SQL_VARCHAR', 12);
+
+define('SQL_LONGVARCHAR', -1);
+
+define('SQL_DECIMAL', 3);
+
+define('SQL_NUMERIC', 2);
+
+define('SQL_BIT', -7);
+
+define('SQL_TINYINT', -6);
+
+define('SQL_SMALLINT', 5);
+
+define('SQL_INTEGER', 4);
+
+define('SQL_BIGINT', -5);
+
+define('SQL_REAL', 7);
+
+define('SQL_FLOAT', 6);
+
+define('SQL_DOUBLE', 8);
+
+define('SQL_BINARY', -2);
+
+define('SQL_VARBINARY', -3);
+
+define('SQL_LONGVARBINARY', -4);
+
+define('SQL_DATE', 9);
+
+define('SQL_TIME', 10);
+
+define('SQL_TIMESTAMP', 11);
+
+define('SQL_TYPE_DATE', 91);
+
+define('SQL_TYPE_TIME', 92);
+
+define('SQL_TYPE_TIMESTAMP', 93);
+
+define('SQL_WCHAR', -8);
+
+define('SQL_WVARCHAR', -9);
+
+define('SQL_WLONGVARCHAR', -10);
+
+define('SQL_BEST_ROWID', 1);
+
+define('SQL_ROWVER', 2);
+
+define('SQL_SCOPE_CURROW', 0);
+
+define('SQL_SCOPE_TRANSACTION', 1);
+
+define('SQL_SCOPE_SESSION', 2);
+
+define('SQL_NO_NULLS', 0);
+
+define('SQL_NULLABLE', 1);
+
+define('SQL_INDEX_UNIQUE', 0);
+
+define('SQL_INDEX_ALL', 1);
+
+define('SQL_ENSURE', 1);
+
+define('SQL_QUICK', 0);
 
 /**
  * Toggle autocommit behaviour
@@ -235,11 +347,7 @@ function odbc_errormsg($connection_id = null) {}
  * @return resource|false an ODBC result identifier if the SQL command was executed
  * successfully, or <b>FALSE</b> on error.
  */
-function odbc_exec(
-    $connection_id,
-    $query_string,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $flags = null
-) {}
+function odbc_exec($connection_id, $query_string, $flags = null) {}
 
 /**
  * Fetch a result row as an associative array
@@ -894,63 +1002,3 @@ function odbc_do($connection_id, $query, $flags) {}
  * @param $field_number
  */
 function odbc_field_precision($result_id, $field_number) {}
-
-define('ODBC_TYPE', "unixODBC");
-define('ODBC_BINMODE_PASSTHRU', 0);
-define('ODBC_BINMODE_RETURN', 1);
-define('ODBC_BINMODE_CONVERT', 2);
-define('SQL_ODBC_CURSORS', 110);
-define('SQL_CUR_USE_DRIVER', 2);
-define('SQL_CUR_USE_IF_NEEDED', 0);
-define('SQL_CUR_USE_ODBC', 1);
-define('SQL_CONCURRENCY', 7);
-define('SQL_CONCUR_READ_ONLY', 1);
-define('SQL_CONCUR_LOCK', 2);
-define('SQL_CONCUR_ROWVER', 3);
-define('SQL_CONCUR_VALUES', 4);
-define('SQL_CURSOR_TYPE', 6);
-define('SQL_CURSOR_FORWARD_ONLY', 0);
-define('SQL_CURSOR_KEYSET_DRIVEN', 1);
-define('SQL_CURSOR_DYNAMIC', 2);
-define('SQL_CURSOR_STATIC', 3);
-define('SQL_KEYSET_SIZE', 8);
-define('SQL_FETCH_FIRST', 2);
-define('SQL_FETCH_NEXT', 1);
-define('SQL_CHAR', 1);
-define('SQL_VARCHAR', 12);
-define('SQL_LONGVARCHAR', -1);
-define('SQL_DECIMAL', 3);
-define('SQL_NUMERIC', 2);
-define('SQL_BIT', -7);
-define('SQL_TINYINT', -6);
-define('SQL_SMALLINT', 5);
-define('SQL_INTEGER', 4);
-define('SQL_BIGINT', -5);
-define('SQL_REAL', 7);
-define('SQL_FLOAT', 6);
-define('SQL_DOUBLE', 8);
-define('SQL_BINARY', -2);
-define('SQL_VARBINARY', -3);
-define('SQL_LONGVARBINARY', -4);
-define('SQL_DATE', 9);
-define('SQL_TIME', 10);
-define('SQL_TIMESTAMP', 11);
-define('SQL_TYPE_DATE', 91);
-define('SQL_TYPE_TIME', 92);
-define('SQL_TYPE_TIMESTAMP', 93);
-define('SQL_WCHAR', -8);
-define('SQL_WVARCHAR', -9);
-define('SQL_WLONGVARCHAR', -10);
-define('SQL_BEST_ROWID', 1);
-define('SQL_ROWVER', 2);
-define('SQL_SCOPE_CURROW', 0);
-define('SQL_SCOPE_TRANSACTION', 1);
-define('SQL_SCOPE_SESSION', 2);
-define('SQL_NO_NULLS', 0);
-define('SQL_NULLABLE', 1);
-define('SQL_INDEX_UNIQUE', 0);
-define('SQL_INDEX_ALL', 1);
-define('SQL_ENSURE', 1);
-define('SQL_QUICK', 0);
-
-// End of odbc v.1.0

@@ -1,12 +1,29 @@
 <?php
 
-// Start of mbstring v.
-
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
+
+/**
+ * @removed 8.0
+ */
+define('MB_OVERLOAD_MAIL', 1);
+
+/**
+ * @removed 8.0
+ */
+define('MB_OVERLOAD_STRING', 2);
+
+/**
+ * @removed 8.0
+ */
+define('MB_OVERLOAD_REGEX', 4);
+
+define('MB_CASE_UPPER', 0);
+
+define('MB_CASE_LOWER', 1);
+
+define('MB_CASE_TITLE', 2);
 
 /**
  * Perform case folding on a string
@@ -170,7 +187,6 @@ function mb_http_output(?string $encoding): string|bool {}
  * When getting the encoding detection order, an ordered array
  * of the encodings is returned.
  */
-#[LanguageLevelTypeAware(['8.2' => 'array|true'], default: 'array|bool')]
 function mb_detect_order(array|string|null $encoding = null): array|bool {}
 
 /**
@@ -201,21 +217,6 @@ function mb_substitute_character(string|int|null $substitute_character = null): 
  * </p>
  * @return bool true on success or false on failure.
  */
-#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
-function mb_parse_str(string $string, &$result): bool {}
-
-/**
- * Parse GET/POST/COOKIE data and set global variable
- * @link https://php.net/manual/en/function.mb-parse-str.php
- * @param string $string <p>
- * The URL encoded data.
- * </p>
- * @param array &$result <p>
- * An array containing decoded and character encoded converted values.
- * </p>
- * @return bool true on success or false on failure.
- */
-#[PhpStormStubsElementAvailable(from: '8.0')]
 function mb_parse_str(string $string, &$result): bool {}
 
 /**
@@ -257,8 +258,7 @@ function mb_preferred_mime_name(string $encoding): string|false {}
  * counted as 1.
  */
 #[Pure]
-#[LanguageLevelTypeAware(['8.0' => 'int'], default: 'int|false')]
-function mb_strlen(string $string, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $encoding) {}
+function mb_strlen(string $string, string $encoding): int|false {}
 
 /**
  * Find position of first occurrence of string in a string
@@ -583,11 +583,7 @@ function mb_strimwidth(string $string, int $start, int $width, string $trim_mark
  * @return array|string|false The encoded string.
  */
 #[Pure]
-function mb_convert_encoding(
-    array|string $string,
-    string $to_encoding,
-    array|string|null $from_encoding = null
-): array|string|false {}
+function mb_convert_encoding(array|string $string, string $to_encoding, array|string|null $from_encoding = null): array|string|false {}
 
 /**
  * Detect character encoding
@@ -630,8 +626,7 @@ function mb_list_encodings(): array {}
  * @link https://php.net/manual/en/function.mb-encoding-aliases.php
  */
 #[Pure]
-#[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-function mb_encoding_aliases(string $encoding) {}
+function mb_encoding_aliases(string $encoding): array|false {}
 
 /**
  * Convert "kana" one from another ("zen-kaku", "han-kaku" and more)
@@ -783,13 +778,7 @@ function mb_convert_kana(string $string, string $mode = 'KV', ?string $encoding)
  * @return string A converted version of the string represented in ASCII.
  */
 #[Pure]
-function mb_encode_mimeheader(
-    string $string,
-    ?string $charset,
-    ?string $transfer_encoding,
-    string $newline = "\n",
-    int $indent = 0
-): string {}
+function mb_encode_mimeheader(string $string, ?string $charset, ?string $transfer_encoding, string $newline = "\n", int $indent = 0): string {}
 
 /**
  * Decode string in MIME header field
@@ -824,13 +813,7 @@ function mb_decode_mimeheader(string $string): string {}
  * @return string|false The character encoding before conversion for success,
  * or false for failure.
  */
-function mb_convert_variables(
-    string $to_encoding,
-    array|string $from_encoding,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] &$vars,
-    #[PhpStormStubsElementAvailable(from: '8.0')] mixed &$var,
-    mixed &...$vars
-): string|false {}
+function mb_convert_variables(string $to_encoding, array|string $from_encoding, mixed &...$vars): string|false {}
 
 /**
  * Encode character to HTML numeric string reference
@@ -866,13 +849,7 @@ function mb_encode_numericentity(string $string, array $map, ?string $encoding =
  * @return string|false|null The converted string.
  */
 #[Pure]
-#[LanguageLevelTypeAware(['8.0' => 'string'], default: 'string|false|null')]
-function mb_decode_numericentity(
-    string $string,
-    array $map,
-    ?string $encoding = null,
-    #[PhpStormStubsElementAvailable(from: '7.2', to: '7.4')] $is_hex = false
-) {}
+function mb_decode_numericentity(string $string, array $map, ?string $encoding = null): string|false|null {}
 
 /**
  * Send encoded mail
@@ -903,13 +880,7 @@ function mb_decode_numericentity(
  * </p>
  * @return bool true on success or false on failure.
  */
-function mb_send_mail(
-    string $to,
-    string $subject,
-    string $message,
-    array|string $additional_headers = [],
-    ?string $additional_params
-): bool {}
+function mb_send_mail(string $to, string $subject, string $message, array|string $additional_headers = [], ?string $additional_params): bool {}
 
 /**
  * Get internal settings of mbstring
@@ -929,21 +900,7 @@ function mb_send_mail(
  * is not specified, otherwise a specific type.
  */
 #[Pure]
-#[ArrayShape([
-    'internal_encoding' => 'string',
-    'http_input' => 'string',
-    'http_output' => 'string',
-    'http_output_conv_mimetypes' => 'string',
-    'mail_charset' => 'string',
-    'mail_header_encoding' => 'string',
-    'mail_body_encoding' => 'string',
-    'illegal_chars' => 'string',
-    'encoding_translation' => 'string',
-    'language' => 'string',
-    'detect_order' => 'string',
-    'substitute_character' => 'string',
-    'strict_detection' => 'string',
-])]
+#[ArrayShape(["internal_encoding" => "string", "http_input" => "string", "http_output" => "string", "http_output_conv_mimetypes" => "string", "mail_charset" => "string", "mail_header_encoding" => "string", "mail_body_encoding" => "string", "illegal_chars" => "string", "encoding_translation" => "string", "language" => "string", "detect_order" => "string", "substitute_character" => "string", "strict_detection" => "string"])]
 function mb_get_info(string $type = 'all'): array|string|int|false {}
 
 /**
@@ -1014,8 +971,7 @@ function mb_ereg(string $pattern, string $string, &$matches): bool {}
  * </p>
  * @return bool|int
  */
-#[LanguageLevelTypeAware(["8.0" => "bool"], default: "false|int")]
-function mb_eregi(string $pattern, string $string, &$matches): bool {}
+function mb_eregi(string $pattern, string $string, &$matches): false|int {}
 
 /**
  * Replace regular expression with multibyte support
@@ -1046,62 +1002,7 @@ function mb_eregi(string $pattern, string $string, &$matches): bool {}
  * @return string|false|null The resultant string on success, or false on error.
  */
 #[Pure]
-function mb_ereg_replace(
-    string $pattern,
-    string $replacement,
-    string $string,
-    ?string $options = null
-): string|false|null {}
-
-/**
- * Perform a regular expresssion seach and replace with multibyte support using a callback
- * @link https://secure.php.net/manual/en/function.mb-ereg-replace-callback.php
- * @param string $pattern <p>
- * The regular expression pattern.
- * </p>
- * <p>
- * Multibyte characters may be used in <b>pattern</b>.
- * </p>
- * @param callable $callback <p>
- * A callback that will be called and passed an array of matched elements
- * in the  <b>subject</b> string. The callback should
- * return the replacement string.
- * </p>
- * <p>
- * You'll often need the <b>callback</b> function
- * for a <b>mb_ereg_replace_callback()</b> in just one place.
- * In this case you can use an anonymous function to
- * declare the callback within the call to
- * <b>mb_ereg_replace_callback()</b>. By doing it this way
- * you have all information for the call in one place and do not
- * clutter the function namespace with a callback function's name
- * not used anywhere else.
- * </p>
- * @param string $string <p>
- * The string being checked.
- * </p>
- * @param string $options <p>
- * Matching condition can be set by <em><b>option</b></em>
- * parameter. If <em>i</em> is specified for this
- * parameter, the case will be ignored. If <em>x</em> is
- * specified, white space will be ignored. If <em>m</em>
- * is specified, match will be executed in multiline mode and line
- * break will be included in '.'. If <em>p</em> is
- * specified, match will be executed in POSIX mode, line break
- * will be considered as normal character. Note that <em>e</em>
- * cannot be used for <b>mb_ereg_replace_callback()</b>.
- * </p>
- * @return string|false|null <p>
- * The resultant string on success, or <b>FALSE</b> on error.
- * </p>
- * @since 5.4.1
- */
-function mb_ereg_replace_callback(
-    string $pattern,
-    callable $callback,
-    string $string,
-    ?string $options = null
-): string|false|null {}
+function mb_ereg_replace(string $pattern, string $replacement, string $string, ?string $options = null): string|false|null {}
 
 /**
  * Replace regular expression with multibyte support ignoring case
@@ -1121,12 +1022,7 @@ function mb_ereg_replace_callback(
  * @return string|false|null The resultant string or false on error.
  */
 #[Pure]
-function mb_eregi_replace(
-    string $pattern,
-    string $replacement,
-    string $string,
-    #[PhpStormStubsElementAvailable(from: '7.0')] ?string $options = null
-): string|false|null {}
+function mb_eregi_replace(string $pattern, string $replacement, string $string): string|false|null {}
 
 /**
  * Split multibyte string using regular expression
@@ -1245,7 +1141,7 @@ function mb_ereg_search_getregs(): array|false {}
  * @return int
  */
 #[Pure]
-#[Deprecated(since: '7.3')]
+#[Deprecated(since: "7.3")]
 function mb_ereg_search_getpos(): int {}
 
 /**
@@ -1274,7 +1170,7 @@ function mbregex_encoding($encoding) {}
  * @see mb_ereg
  * @removed 8.0
  */
-#[Deprecated(replacement: 'mb_ereg(%parametersList%)', since: '7.3')]
+#[Deprecated(replacement: "mb_ereg(%parametersList%)", since: "7.3")]
 function mbereg(string $pattern, string $string, array &$registers) {}
 
 /**
@@ -1295,7 +1191,7 @@ function mberegi(string $pattern, string $string, array &$registers) {}
  * @see mb_ereg_replace
  * @removed 8.0
  */
-#[Deprecated(replacement: 'mb_ereg_replace(%parametersList%)', since: '7.3')]
+#[Deprecated(replacement: "mb_ereg_replace(%parametersList%)", since: "7.3")]
 function mbereg_replace($pattern, $replacement, $string, $option) {}
 
 /**
@@ -1308,12 +1204,7 @@ function mbereg_replace($pattern, $replacement, $string, $option) {}
  * @removed 8.0
  */
 #[Deprecated(replacement: "mb_eregi_replace(%parametersList%)", since: "7.3")]
-function mberegi_replace(
-    $pattern,
-    $replacement,
-    $string,
-    #[PhpStormStubsElementAvailable(from: '7.0')] string $option = "msri"
-): string {}
+function mberegi_replace($pattern, $replacement, $string): string {}
 
 /**
  * @param $pattern
@@ -1322,7 +1213,7 @@ function mberegi_replace(
  * @see mb_split
  * @removed 8.0
  */
-#[Deprecated(replacement: 'mb_split(%parametersList%)', since: '7.3')]
+#[Deprecated(replacement: "mb_split(%parametersList%)", since: "7.3")]
 function mbsplit($pattern, $string, $limit) {}
 
 /**
@@ -1359,7 +1250,7 @@ function mbereg_search_pos($pattern, $option) {}
  * @see mb_ereg_search_regs
  * @removed 8.0
  */
-#[Deprecated(replacement: 'mb_ereg_search_regs(%parametersList%)', since: '7.3')]
+#[Deprecated(replacement: "mb_ereg_search_regs(%parametersList%)", since: "7.3")]
 function mbereg_search_regs($pattern, $option) {}
 
 /**
@@ -1376,7 +1267,7 @@ function mbereg_search_init($string, $pattern, $option) {}
  * @see mb_ereg_search_getregs
  * @removed 8.0
  */
-#[Deprecated(replacement: 'mb_ereg_search_getregs(%parametersList%)', since: '7.3')]
+#[Deprecated(replacement: "mb_ereg_search_getregs(%parametersList%)", since: "7.3")]
 function mbereg_search_getregs() {}
 
 /**
@@ -1387,105 +1278,9 @@ function mbereg_search_getregs() {}
 function mbereg_search_getpos() {}
 
 /**
- * Get a specific character.
- * @link https://www.php.net/manual/en/function.mb-chr.php
- * @param int $codepoint
- * @param string|null $encoding [optional]
- * @return string|false specific character or FALSE on failure.
- * @since 7.2
- */
-#[Pure]
-function mb_chr(int $codepoint, ?string $encoding): string|false {}
-
-/**
- * Get code point of character
- * @link https://www.php.net/manual/en/function.mb-ord.php
- * @param string $string
- * @param string|null $encoding [optional]
- * @return int|false code point of character or FALSE on failure.
- * @since 7.2
- */
-#[Pure]
-function mb_ord(string $string, ?string $encoding): int|false {}
-
-/**
- * Scrub broken multibyte strings.
- * @link https://www.php.net/manual/en/function.mb-scrub.php
- * @param string $string
- * @param string|null $encoding [optional]
- * @return string|false
- * @since 7.2
- */
-#[Pure]
-#[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function mb_scrub(string $string, ?string $encoding): false|string {}
-
-/**
  * @param $position
  * @see mb_ereg_search_setpos
  */
 #[Deprecated(replacement: "mb_ereg_search_setpos(%parametersList%)", since: "7.3")]
 #[Pure]
 function mbereg_search_setpos($position) {}
-
-/**
- * Function performs string splitting to an array of defined size chunks.
- * @param string $string <p>
- * The string to split into characters or chunks.
- * </p>
- * @param int $length [optional] <p>
- * If specified, each element of the returned array will be composed of multiple characters instead of a single character.
- * </p>
- * @param string|null $encoding [optional] <p>
- * Character encoding name to use.
- * If it is omitted, internal character encoding is used.
- * </p>
- * @return string[]|false
- * @since 7.4
- */
-#[Pure]
-#[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-function mb_str_split(string $string, int $length = 1, ?string $encoding) {}
-
-/**
- * @removed 8.0
- */
-define('MB_OVERLOAD_MAIL', 1);
-/**
- * @removed 8.0
- */
-define('MB_OVERLOAD_STRING', 2);
-/**
- * @removed 8.0
- */
-define('MB_OVERLOAD_REGEX', 4);
-define('MB_CASE_UPPER', 0);
-define('MB_CASE_LOWER', 1);
-define('MB_CASE_TITLE', 2);
-/**
- * @since 7.3
- */
-define('MB_CASE_FOLD', 3);
-/**
- * @since 7.3
- */
-define('MB_CASE_UPPER_SIMPLE', 4);
-/**
- * @since 7.3
- */
-define('MB_CASE_LOWER_SIMPLE', 5);
-/**
- * @since 7.3
- */
-define('MB_CASE_TITLE_SIMPLE', 6);
-/**
- * @since 7.3
- */
-define('MB_CASE_FOLD_SIMPLE', 7);
-
-/**
- * @since 7.4
- */
-define('MB_ONIGURUMA_VERSION', '6.9.8');
-
-// End of mbstring v.

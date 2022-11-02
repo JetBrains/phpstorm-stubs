@@ -2,8 +2,6 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
@@ -37,15 +35,9 @@ class ReflectionClass implements Reflector
     public const IS_FINAL = 32;
 
     /**
-     * @since 8.2
-     */
-    public const IS_READONLY = 65536;
-
-    /**
      * @var class-string<T> Name of the class, same as calling the {@see ReflectionClass::getName()} method
      */
     #[Immutable]
-    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
 
     /**
@@ -56,7 +48,7 @@ class ReflectionClass implements Reflector
      * the class to reflect, or an object.
      * @throws ReflectionException if the class does not exist.
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'object|string'], default: '')] $objectOrClass) {}
+    public function __construct($objectOrClass) {}
 
     /**
      * Exports a reflected class
@@ -69,7 +61,7 @@ class ReflectionClass implements Reflector
      * export is returned as a string, otherwise {@see null} is returned.
      * @removed 8.0
      */
-    #[Deprecated(since: '7.4')]
+    #[Deprecated(since: "7.4")]
     public static function export($argument, $return = false) {}
 
     /**
@@ -120,17 +112,6 @@ class ReflectionClass implements Reflector
     #[Pure]
     #[TentativeType]
     public function isInstantiable(): bool {}
-
-    /**
-     * Returns whether this class is cloneable
-     *
-     * @link https://php.net/manual/en/reflectionclass.iscloneable.php
-     * @return bool Returns {@see true} if the class is cloneable, {@see false} otherwise.
-     * @since 5.4
-     */
-    #[Pure]
-    #[TentativeType]
-    public function isCloneable(): bool {}
 
     /**
      * Gets the filename of the file in which the class has been defined
@@ -194,7 +175,7 @@ class ReflectionClass implements Reflector
      * @return bool Returns {@see true} if it has the method, otherwise {@see false}
      */
     #[TentativeType]
-    public function hasMethod(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name): bool {}
+    public function hasMethod($name): bool {}
 
     /**
      * Gets a <b>ReflectionMethod</b> for a class method.
@@ -206,7 +187,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getMethod(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name): ReflectionMethod {}
+    public function getMethod($name): ReflectionMethod {}
 
     /**
      * Gets an array of methods for the class.
@@ -219,7 +200,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getMethods(#[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $filter = null): array {}
+    public function getMethods($filter = null): array {}
 
     /**
      * Checks if property is defined
@@ -229,7 +210,7 @@ class ReflectionClass implements Reflector
      * @return bool Returns {@see true} if it has the property, otherwise {@see false}
      */
     #[TentativeType]
-    public function hasProperty(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name): bool {}
+    public function hasProperty($name): bool {}
 
     /**
      * Gets a <b>ReflectionProperty</b> for a class's property
@@ -241,7 +222,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getProperty(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name): ReflectionProperty {}
+    public function getProperty($name): ReflectionProperty {}
 
     /**
      * Gets properties
@@ -254,31 +235,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getProperties(#[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $filter = null): array {}
-
-    /**
-     * Gets a ReflectionClassConstant for a class's property
-     *
-     * @link https://php.net/manual/en/reflectionclass.getreflectionconstant.php
-     * @param string $name The class constant name.
-     * @return ReflectionClassConstant|false A {@see ReflectionClassConstant}.
-     * @since 7.1
-     */
-    #[Pure]
-    #[TentativeType]
-    public function getReflectionConstant(string $name): ReflectionClassConstant|false {}
-
-    /**
-     * Gets class constants
-     *
-     * @link https://php.net/manual/en/reflectionclass.getreflectionconstants.php
-     * @param int|null $filter [optional] allows the filtering of constants defined in a class by their visibility. Since 8.0.
-     * @return ReflectionClassConstant[] An array of ReflectionClassConstant objects.
-     * @since 7.1
-     */
-    #[Pure]
-    #[TentativeType]
-    public function getReflectionConstants(#[PhpStormStubsElementAvailable(from: '8.0')] ?int $filter = ReflectionClassConstant::IS_PUBLIC|ReflectionClassConstant::IS_PROTECTED|ReflectionClassConstant::IS_PRIVATE): array {}
+    public function getProperties($filter = null): array {}
 
     /**
      * Checks if constant is defined
@@ -288,7 +245,7 @@ class ReflectionClass implements Reflector
      * @return bool Returns {@see true} if the constant is defined, otherwise {@see false}
      */
     #[TentativeType]
-    public function hasConstant(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name): bool {}
+    public function hasConstant($name): bool {}
 
     /**
      * Gets constants
@@ -300,7 +257,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getConstants(#[PhpStormStubsElementAvailable(from: '8.0')] ?int $filter = ReflectionClassConstant::IS_PUBLIC|ReflectionClassConstant::IS_PROTECTED|ReflectionClassConstant::IS_PRIVATE): array {}
+    public function getConstants(): array {}
 
     /**
      * Gets defined constant
@@ -312,7 +269,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getConstant(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name): mixed {}
+    public function getConstant($name): mixed {}
 
     /**
      * Gets the interfaces
@@ -336,17 +293,6 @@ class ReflectionClass implements Reflector
     public function getInterfaceNames(): array {}
 
     /**
-     * Checks if the class is anonymous
-     *
-     * @link https://php.net/manual/en/reflectionclass.isanonymous.php
-     * @return bool Returns {@see true} on success or {@see false} on failure.
-     * @since 7.0
-     */
-    #[Pure]
-    #[TentativeType]
-    public function isAnonymous(): bool {}
-
-    /**
      * Checks if the class is an interface
      *
      * @link https://php.net/manual/en/reflectionclass.isinterface.php
@@ -355,55 +301,6 @@ class ReflectionClass implements Reflector
     #[Pure]
     #[TentativeType]
     public function isInterface(): bool {}
-
-    /**
-     * Returns an array of traits used by this class
-     *
-     * @link https://php.net/manual/en/reflectionclass.gettraits.php
-     * @return ReflectionClass[] an array with trait names in keys and
-     * instances of trait's {@see ReflectionClass} in values.
-     * @since 5.4
-     */
-    #[Pure]
-    #[TentativeType]
-    public function getTraits(): array {}
-
-    /**
-     * Returns an array of names of traits used by this class
-     *
-     * @link https://php.net/manual/en/reflectionclass.gettraitnames.php
-     * @return string[] An array with trait names in values.
-     * Returns {@see null} in case of an error.
-     * @since 5.4
-     */
-    #[Pure]
-    #[TentativeType]
-    public function getTraitNames(): array {}
-
-    /**
-     * Returns an array of trait aliases
-     *
-     * @link https://php.net/manual/en/reflectionclass.gettraitaliases.php
-     * @return string[] an array with new method names in keys and original
-     * names (in the format "TraitName::original") in values.
-     * Returns {@see null} in case of an error.
-     * @since 5.4
-     */
-    #[Pure]
-    #[TentativeType]
-    public function getTraitAliases(): array {}
-
-    /**
-     * Returns whether this is a trait
-     *
-     * @link https://php.net/manual/en/reflectionclass.istrait.php
-     * @return bool Returns {@see true} if this is a trait, {@see false} otherwise.
-     * Returns {@see null} in case of an error.
-     * @since 5.4
-     */
-    #[Pure]
-    #[TentativeType]
-    public function isTrait(): bool {}
 
     /**
      * Checks if class is abstract
@@ -426,13 +323,6 @@ class ReflectionClass implements Reflector
     public function isFinal(): bool {}
 
     /**
-     * @return bool
-     */
-    #[Pure]
-    #[PhpStormStubsElementAvailable(from: '8.2')]
-    public function isReadOnly(): bool {}
-
-    /**
      * Gets modifiers
      *
      * @link https://php.net/manual/en/reflectionclass.getmodifiers.php
@@ -451,7 +341,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function isInstance(#[LanguageLevelTypeAware(['8.0' => 'object'], default: '')] $object): bool {}
+    public function isInstance($object): bool {}
 
     /**
      * Creates a new class instance from given arguments.
@@ -465,19 +355,6 @@ class ReflectionClass implements Reflector
      * one or more parameters.
      */
     public function newInstance(...$args) {}
-
-    /**
-     * Creates a new class instance without invoking the constructor.
-     *
-     * @link https://php.net/manual/en/reflectionclass.newinstancewithoutconstructor.php
-     * @return T a new instance of the class.
-     * @throws ReflectionException if the class is an internal class that
-     * cannot be instantiated without invoking the constructor. In PHP 5.6.0
-     * onwards, this exception is limited only to internal classes that are final.
-     * @since 5.4
-     */
-    #[TentativeType]
-    public function newInstanceWithoutConstructor(): object {}
 
     /**
      * Creates a new class instance from given arguments.
@@ -514,7 +391,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function isSubclassOf(#[LanguageLevelTypeAware(['8.0' => 'ReflectionClass|string'], default: '')] $class): bool {}
+    public function isSubclassOf($class): bool {}
 
     /**
      * Gets static properties
@@ -539,10 +416,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getStaticPropertyValue(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $default = null
-    ): mixed {}
+    public function getStaticPropertyValue($name, $default = null): mixed {}
 
     /**
      * Sets static property value
@@ -553,10 +427,7 @@ class ReflectionClass implements Reflector
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function setStaticPropertyValue(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
-    ): void {}
+    public function setStaticPropertyValue($name, $value): void {}
 
     /**
      * Gets default properties
@@ -583,17 +454,6 @@ class ReflectionClass implements Reflector
     public function isIterateable(): bool {}
 
     /**
-     * Check whether this class is iterable
-     *
-     * @link https://php.net/manual/en/reflectionclass.isiterable.php
-     * @return bool Returns {@see true} on success or {@see false} on failure.
-     * @since 7.2
-     */
-    #[Pure]
-    #[TentativeType]
-    public function isIterable(): bool {}
-
-    /**
      * Checks whether it implements an interface.
      *
      * @link https://php.net/manual/en/reflectionclass.implementsinterface.php
@@ -601,7 +461,7 @@ class ReflectionClass implements Reflector
      * @return bool Returns {@see true} on success or {@see false} on failure.
      */
     #[TentativeType]
-    public function implementsInterface(#[LanguageLevelTypeAware(['8.0' => 'ReflectionClass|string'], default: '')] $interface): bool {}
+    public function implementsInterface($interface): bool {}
 
     /**
      * Gets a <b>ReflectionExtension</b> object for the extension which defined the class
@@ -653,38 +513,4 @@ class ReflectionClass implements Reflector
     #[Pure]
     #[TentativeType]
     public function getShortName(): string {}
-
-    /**
-     * @template T
-     *
-     * Returns an array of class attributes.
-     *
-     * @param class-string<T>|null $name Name of an attribute class
-     * @param int $flags Сriteria by which the attribute is searched.
-     * @return ReflectionAttribute<T>[]
-     * @since 8.0
-     */
-    #[Pure]
-    public function getAttributes(?string $name = null, int $flags = 0): array {}
-
-    #[PhpStormStubsElementAvailable('8.1')]
-    public function isEnum(): bool {}
-
-    /**
-     * Clones object
-     *
-     * @link https://php.net/manual/en/reflectionclass.clone.php
-     * @return void
-     */
-    #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
-    final private function __clone(): void {}
-
-    /**
-     * Clones object
-     *
-     * @link https://php.net/manual/en/reflectionclass.clone.php
-     * @return void
-     */
-    #[PhpStormStubsElementAvailable(from: "8.1")]
-    private function __clone(): void {}
 }

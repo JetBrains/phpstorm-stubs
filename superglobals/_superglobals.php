@@ -90,7 +90,7 @@ $_POST = [];
 $HTTP_POST_VARS = [];
 
 /**
- * @xglobal $_REQUEST array
+ *  @xglobal $_REQUEST array
  * Variables provided to the script via the GET, POST, and COOKIE input mechanisms,
  * and which therefore cannot be trusted.
  * The presence and order of variable inclusion in this array is defined according to the
@@ -165,8 +165,8 @@ $_SERVER['PATH_INFO'] = '';
 $_SERVER['ORIG_PATH_INFO'] = '';
 
 /**
- * @xglobal $_SESSION array
- * @xglobal $HTTP_SESSION_VARS array
+ *  @xglobal $_SESSION array
+ *  @xglobal $HTTP_SESSION_VARS array
  *
  * Variables which are currently registered to a script's session.
  * Analogous to the old $HTTP_SESSION_VARS array (which is still available, but deprecated).
@@ -194,7 +194,7 @@ $HTTP_SESSION_VARS = [];
 $argc = 0;
 
 /**
- * @xglobal $argv array
+ *  @xglobal $argv array
  *
  * Array of arguments passed to script
  *
