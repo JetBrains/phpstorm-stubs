@@ -709,6 +709,17 @@ function mysqli_affected_rows(mysqli $mysql): string|int {}
 function mysqli_autocommit(mysqli $mysql, bool $enable): bool {}
 
 /**
+ * Starts a transaction
+ * @link https://secure.php.net/manual/en/mysqli.begin-transaction.php
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param int $flags [optional]
+ * @param string|null $name [optional]
+ * @return bool true on success or false on failure.
+ * @since 5.5
+ */
+function mysqli_begin_transaction(mysqli $mysql, int $flags = 0, ?string $name): bool {}
+
+/**
  * Changes the user of the specified database connection
  * @link https://php.net/manual/en/mysqli.change-user.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
@@ -1311,6 +1322,16 @@ function mysqli_real_query(mysqli $mysql, string $query): bool {}
 function mysqli_reap_async_query(mysqli $mysql): mysqli_result|bool {}
 
 /**
+ * Removes the named savepoint from the set of savepoints of the current transaction
+ * @link https://secure.php.net/manual/en/mysqli.release-savepoint.php
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param string $name
+ * @return bool Returns TRUE on success or FALSE on failure.
+ * @since 5.5
+ */
+function mysqli_release_savepoint(mysqli $mysql, string $name): bool {}
+
+/**
  * Rolls back current transaction
  * @link https://php.net/manual/en/mysqli.rollback.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
@@ -1319,6 +1340,16 @@ function mysqli_reap_async_query(mysqli $mysql): mysqli_result|bool {}
  * @return bool
  */
 function mysqli_rollback(mysqli $mysql, int $flags = 0, ?string $name): bool {}
+
+/**
+ * Set a named transaction savepoint
+ * @link https://secure.php.net/manual/en/mysqli.savepoint.php
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param string $name
+ * @return bool Returns TRUE on success or FALSE on failure.
+ * @since 5.5
+ */
+function mysqli_savepoint(mysqli $mysql, string $name): bool {}
 
 /**
  * Selects the default database for database queries
@@ -1957,6 +1988,17 @@ class mysqli
     public function autocommit(bool $enable): bool {}
 
     /**
+     * Starts a transaction
+     * @link https://secure.php.net/manual/en/mysqli.begin-transaction.php
+     * @param int $flags [optional]
+     * @param string $name [optional]
+     * @return bool true on success or false on failure.
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function begin_transaction($flags = 0, $name = null): bool {}
+
+    /**
      * Changes the user of the specified database connection
      * @link https://php.net/manual/en/mysqli.change-user.php
      * @param string $username <p>
@@ -2425,6 +2467,37 @@ class mysqli
      */
     #[TentativeType]
     public function real_query(string $query): bool {}
+
+    /**
+     * Removes the named savepoint from the set of savepoints of the current transaction
+     * @link https://php.net/manual/en/mysqli.release-savepoint.php
+     * @param string $name The identifier of the savepoint.
+     * @return bool Returns TRUE on success or FALSE on failure.
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function release_savepoint($name): bool {}
+
+    /**
+     * Rolls back current transaction
+     * @link https://php.net/manual/en/mysqli.rollback.php
+     * @param int $flags [optional] A bitmask of MYSQLI_TRANS_COR_* constants.
+     * @param string $name [optional] If provided then ROLLBACK $name is executed.
+     * @return bool true on success or false on failure.
+     * @since 5.5 Added flags and name parameters.
+     */
+    #[TentativeType]
+    public function rollback($flags = 0, $name = null): bool {}
+
+    /**
+     * Set a named transaction savepoint
+     * @link https://secure.php.net/manual/en/mysqli.savepoint.php
+     * @param string $name
+     * @return bool Returns TRUE on success or FALSE on failure.
+     * @since 5.5
+     */
+    #[TentativeType]
+    public function savepoint($name): bool {}
 
     /**
      * Selects the default database for database queries

@@ -104,6 +104,24 @@ interface SessionHandlerInterface
 }
 
 /**
+ * <b>SessionIdInterface</b>
+ * @link https://php.net/manual/en/class.sessionidinterface.php
+ * @since 5.5.1
+ */
+interface SessionIdInterface
+{
+    /**
+     * Create session ID
+     * @link https://php.net/manual/en/sessionidinterface.create-sid.php
+     * @return string <p>
+     * The new session ID. Note that this value is returned internally to PHP for processing.
+     * </p>
+     */
+    #[TentativeType]
+    public function create_sid(): string;
+}
+
+/**
  * <b>SessionHandler</b> a special class that can
  * be used to expose the current internal PHP session
  * save handler by inheritance. There are six methods
@@ -118,7 +136,7 @@ interface SessionHandlerInterface
  * @link https://php.net/manual/en/class.reflectionzendextension.php
  * @since 5.4
  */
-class SessionHandler implements SessionHandlerInterface
+class SessionHandler implements SessionHandlerInterface, SessionIdInterface
 {
     /**
      * Close the session
@@ -131,6 +149,15 @@ class SessionHandler implements SessionHandlerInterface
      */
     #[TentativeType]
     public function close(): bool {}
+
+    /**
+     * Return a new session ID
+     * @link https://php.net/manual/en/sessionhandler.create-sid.php
+     * @return string <p>A session ID valid for the default session handler.</p>
+     * @since 5.5.1
+     */
+    #[TentativeType]
+    public function create_sid(): string {}
 
     /**
      * Destroy a session

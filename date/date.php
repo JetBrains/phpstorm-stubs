@@ -455,7 +455,7 @@ function gmdate(string $format, ?int $timestamp): string|false {}
  * it returned -1).
  */
 #[Pure(true)]
-function mktime(int $hour = null, ?int $minute = null, ?int $second = null, ?int $month = null, ?int $day = null, ?int $year = null): int|false {}
+function mktime(int $hour = null, ?int $minute = null, ?int $second = null, ?int $month = null, ?int $day = null, ?int $year = null, #[Deprecated("Use the new timezone handling functions instead", since: "5.3")] $is_dst = -1): int|false {}
 
 /**
  * Get Unix timestamp for a GMT date
@@ -485,7 +485,7 @@ function mktime(int $hour = null, ?int $minute = null, ?int $second = null, ?int
  * @return int|false a integer Unix timestamp.
  */
 #[Pure(true)]
-function gmmktime(int $hour = null, ?int $minute = null, ?int $second = null, ?int $month = null, ?int $day = null, ?int $year = null): int|false {}
+function gmmktime(int $hour = null, ?int $minute = null, ?int $second = null, ?int $month = null, ?int $day = null, ?int $year = null, $is_dst = null): int|false {}
 
 /**
  * Validate a Gregorian date
@@ -907,15 +907,34 @@ function getdate(?int $timestamp): array {}
 function date_create(string $datetime = 'now', ?DateTimeZone $timezone): DateTime|false {}
 
 /**
- * Returns new DateTime object formatted according to the specified format
+ * (PHP 5.5)<br/>
+ * Alias:
+ * {@see DateTimeImmutable::__construct}
+ * Returns new DateTimeImmutable object
+ * @link https://php.net/manual/en/function.date-create-immutable.php
+ * @see DateTimeImmutable::__construct()
+ * @param string $datetime [optional] <p>
+ * String in a format accepted by strtotime.
+ * </p>
+ * @param DateTimeZone|null $timezone [optional] <p>
+ * Time zone of the time.
+ * </p>
+ * @return DateTimeImmutable|false DateTime object on success or false on failure.
+ * @since 5.5
+ */
+#[Pure(true)]
+function date_create_immutable(string $datetime = 'now', ?DateTimeZone $timezone): DateTimeImmutable|false {}
+
+/**
+ * Returns new DateTimeImmutable object formatted according to the specified format
  * @link https://php.net/manual/en/function.date-create-immutable-from-format.php
  * @param string $format
  * @param string $datetime
  * @param DateTimeZone|null $timezone [optional]
- * @return DateTime|false
+ * @return DateTimeImmutable|false
  */
 #[Pure(true)]
-function date_create_immutable_from_format(string $format, string $datetime, ?DateTimeZone $timezone) {}
+function date_create_immutable_from_format(string $format, string $datetime, ?DateTimeZone $timezone): DateTimeImmutable|false {}
 
 /**
  * Alias:
@@ -976,12 +995,12 @@ function date_get_last_errors(): array|false {}
  * Alias:
  * {@see DateTime::format}
  * @link https://php.net/manual/en/function.date-format.php
- * @param DateTime $object
+ * @param DateTimeInterface $object
  * @param string $format
  * @return string|false formatted date string on success or <b>FALSE</b> on failure.
  */
 #[Pure(true)]
-function date_format($object, string $format): string|false {}
+function date_format(DateTimeInterface $object, string $format): string|false {}
 
 /**
  * Alter the timestamp of a DateTime object by incrementing or decrementing
@@ -1028,7 +1047,7 @@ function date_sub(DateTime $object, DateInterval $interval): DateTime|false {}
  * Alias:
  * {@see DateTime::getTimezone}
  * @link https://php.net/manual/en/function.date-timezone-get.php
- * @param DateTime $object <p>Procedural style only: A
+ * @param DateTimeInterface $object <p>Procedural style only: A
  * {@see DateTime} object
  * returned by
  * {@see date_create()}</p>
@@ -1040,14 +1059,14 @@ function date_sub(DateTime $object, DateInterval $interval): DateTime|false {}
  * </p>
  */
 #[Pure(true)]
-function date_timezone_get($object): DateTimeZone|false {}
+function date_timezone_get(DateTimeInterface $object): DateTimeZone|false {}
 
 /**
  * Sets the time zone for the datetime object
  * Alias:
  * {@see DateTime::setTimezone}
  * @link https://php.net/manual/en/function.date-timezone-set.php
- * @param DateTime $object <p>A
+ * @param DateTimeInterface $object <p>A
  * {@see DateTime} object returned by
  * {@see date_create()}. The function modifies this object.</p>
  * @param DateTimeZone $timezone <p>A
@@ -1055,31 +1074,31 @@ function date_timezone_get($object): DateTimeZone|false {}
  * @return DateTime|false <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
-function date_timezone_set($object, DateTimeZone $timezone): DateTime|false {}
+function date_timezone_set(DateTimeInterface $object, DateTimeZone $timezone): DateTime|false {}
 
 /**
  * Alias:
  * {@see DateTime::getOffset}
  * @link https://php.net/manual/en/function.date-offset-get.php
- * @param DateTime $object <p>Procedural style only: A {@see DateTime} object
+ * @param DateTimeInterface $object <p>Procedural style only: A {@see DateTime} object
  * returned by {@see date_create()}</p>
  * @return int|false <p>Returns the timezone offset in seconds from UTC on success or <b>FALSE</b> on failure.</p>
  */
 #[Pure(true)]
-function date_offset_get($object): int|false {}
+function date_offset_get(DateTimeInterface $object): int|false {}
 
 /**
  * Returns the difference between two datetime objects
  * Alias:
  * {@see DateTime::diff}
  * @link https://php.net/manual/en/function.date-diff.php
- * @param DateTime $baseObject
- * @param DateTime $targetObject The date to compare to
+ * @param DateTimeInterface $baseObject
+ * @param DateTimeInterface $targetObject The date to compare to
  * @param bool $absolute [optional] Whether to return absolute difference.
  * @return DateInterval|false The DateInterval object representing the difference between the two dates or FALSE on failure.
  */
 #[Pure(true)]
-function date_diff($baseObject, $targetObject, bool $absolute = false): DateInterval|false {}
+function date_diff(DateTimeInterface $baseObject, DateTimeInterface $targetObject, bool $absolute = false): DateInterval|false {}
 
 /**
  * Alias:
@@ -1146,11 +1165,11 @@ function date_timestamp_set(DateTime $object, int $timestamp): DateTime|false {}
  * Alias:
  * {@see DateTime::getTimestamp}
  * @link https://php.net/manual/en/function.date-timestamp-get.php
- * @param DateTime $object
+ * @param DateTimeInterface $object
  * @return int <p>Returns the Unix timestamp representing the date.</p>
  */
 #[Pure(true)]
-function date_timestamp_get($object): int {}
+function date_timestamp_get(DateTimeInterface $object): int {}
 
 /**
  * Returns new DateTimeZone object
@@ -1206,11 +1225,11 @@ function timezone_name_from_abbr(string $abbr, int $utcOffset = -1, int $isDST =
  * {@see DateTimeZone} object
  * returned by
  * {@see timezone_open()}</p>
- * @param DateTime $datetime <p>DateTime that contains the date/time to compute the offset from.</p>
+ * @param DateTimeInterface $datetime <p>DateTime that contains the date/time to compute the offset from.</p>
  * @return int|false <p>Returns time zone offset in seconds on success or <b>FALSE</b> on failure.</p>
  */
 #[Pure(true)]
-function timezone_offset_get(DateTimeZone $object, $datetime): int|false {}
+function timezone_offset_get(DateTimeZone $object, DateTimeInterface $datetime): int|false {}
 
 /**
  * Returns all transitions for the timezone

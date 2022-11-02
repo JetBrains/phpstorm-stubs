@@ -850,6 +850,19 @@ function openssl_seal(string $data, &$sealed_data, &$encrypted_keys, array $publ
 function openssl_open(string $data, &$output, string $encrypted_key, $private_key): bool {}
 
 /**
+ * Generates a PKCS5 v2 PBKDF2 string, defaults to SHA-1
+ * @link https://secure.php.net/manual/en/function.openssl-pbkdf2.php
+ * @param string $password
+ * @param string $salt
+ * @param int $key_length
+ * @param int $iterations
+ * @param string $digest_algo [optional]
+ * @return string|false Returns string or FALSE on failure.
+ * @since 5.5
+ */
+function openssl_pbkdf2(string $password, string $salt, int $key_length, int $iterations, string $digest_algo = 'sha1'): string|false {}
+
+/**
  * Verifies the signature of an S/MIME signed message
  * @link https://php.net/manual/en/function.openssl-pkcs7-verify.php
  * @param string $input_filename <p>
