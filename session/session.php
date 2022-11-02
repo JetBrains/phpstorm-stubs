@@ -386,3 +386,21 @@ function session_commit(): void {}
  * @since 5.4
  */
 function session_status(): int {}
+
+/**
+ * (PHP 5 >= 5.6.0)<br>
+ * Discard session array changes and finish session
+ * @link https://php.net/manual/en/function.session-abort.php
+ * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
+ * @since 5.6
+ */
+function session_abort(): void {}
+
+/**
+ * (PHP 5 >= 5.6.0)<br>
+ * Re-initialize session array with original values
+ * @link https://php.net/manual/en/function.session-reset.php
+ * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
+ * @since 5.6
+ */
+function session_reset(): void {}

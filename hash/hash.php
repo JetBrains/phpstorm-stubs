@@ -95,6 +95,17 @@ define('MHASH_JOAAT', 33);
 function hash(string $algo, string $data, bool $binary = false): string {}
 
 /**
+ * Timing attack safe string comparison
+ * @link https://php.net/manual/en/function.hash-equals.php
+ * @param string $known_string <p>The string of known length to compare against</p>
+ * @param string $user_string <p>The user-supplied string</p>
+ * @return bool <p>Returns <b>TRUE</b> when the two strings are equal, <b>FALSE</b> otherwise.</p>
+ * @since 5.6
+ */
+#[Pure]
+function hash_equals(string $known_string, string $user_string): bool {}
+
+/**
  * (PHP 5 >= 5.1.2, PECL hash >= 1.1)<br/>
  * Generate a hash value using the contents of a given file
  * @link https://php.net/manual/en/function.hash-file.php

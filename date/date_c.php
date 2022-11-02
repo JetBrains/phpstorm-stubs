@@ -121,6 +121,17 @@ class DateTimeImmutable implements DateTimeInterface
     public static function createFromFormat($format, $datetime, DateTimeZone $timezone = null): DateTimeImmutable|false {}
 
     /**
+     * (PHP 5 >=5.6.0)<br/>
+     * Returns new DateTimeImmutable object encapsulating the given DateTime object
+     * @link https://secure.php.net/manual/en/datetimeimmutable.createfrommutable.php
+     * @param DateTime $object The mutable DateTime object that you want to convert to an immutable version. This object is not modified, but instead a new DateTimeImmutable object is created containing the same date time and timezone information.
+     * @return DateTimeImmutable returns a new DateTimeImmutable instance.
+     * @since 5.6
+     */
+    #[TentativeType]
+    public static function createFromMutable(DateTime $object): DateTimeImmutable {}
+
+    /**
      * (PHP 5 >=5.5.0)<br/>
      * Returns the warnings and errors
      * @link https://secure.php.net/manual/en/datetimeimmutable.getlasterrors.php
@@ -853,6 +864,35 @@ class DatePeriod implements IteratorAggregate
 
     #[TentativeType]
     public static function __set_state(): DatePeriod {}
+
+    /**
+     * Gets the interval
+     * @return DateInterval
+     * @link https://php.net/manual/en/dateperiod.getdateinterval.php
+     * @since 5.6.5
+     */
+    #[TentativeType]
+    public function getDateInterval(): DateInterval {}
+
+    /**
+     * Gets the end date
+     * @return DateTimeInterface|null
+     * @return TEnd
+     * @since 5.6.5
+     * @link https://php.net/manual/en/dateperiod.getenddate.php
+     */
+    #[TentativeType]
+    public function getEndDate(): ?DateTimeInterface {}
+
+    /**
+     * Gets the start date
+     * @return DateTimeInterface
+     * @return TDate
+     * @since 5.6.5
+     * @link https://php.net/manual/en/dateperiod.getstartdate.php
+     */
+    #[TentativeType]
+    public function getStartDate(): DateTimeInterface {}
 
     #[TentativeType]
     public function __wakeup(): void {}

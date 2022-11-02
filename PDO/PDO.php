@@ -704,6 +704,11 @@ class PDO
      * @removed 7.1
      */
     public const PGSQL_ATTR_DISABLE_NATIVE_PREPARED_STATEMENT = 1000;
+
+    /**
+     * @since 5.6
+     */
+    public const PGSQL_ATTR_DISABLE_PREPARES = 1000;
     public const PGSQL_BAD_RESPONSE = 5;
     public const PGSQL_BOTH = 3;
     public const PGSQL_TRANSACTION_IDLE = 0;
@@ -1271,6 +1276,31 @@ class PDO
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function pgsqlLOBUnlink(string $oid): bool {}
+
+    /**
+     * (PHP 5 >= 5.6.0, PHP 7, PHP 8)<br/>
+     * Get asynchronous notification
+     * @link https://www.php.net/manual/en/pdo.pgsqlgetnotify.php
+     * @param int $fetchMode <p>
+     * The format the result set should be returned as, represented as a <b>PDO::FETCH_*</b> constant.
+     * </p>
+     * @param int $timeoutMilliseconds <p>
+     * The length of time to wait for a response, in milliseconds.
+     * </p>
+     * @return array|false if one or more notifications is pending, returns a single row,
+     * with fields message and pid, otherwise <b>FALSE</b>.
+     * @since 5.6
+     */
+    public function pgsqlGetNotify(int $fetchMode = PDO::FETCH_LAZY, int $timeoutMilliseconds = 0): array|false {}
+
+    /**
+     * (PHP 5 >= 5.6.0, PHP 7, PHP 8)<br/>
+     * Get the server PID
+     * @link https://www.php.net/manual/en/pdo.pgsqlgetpid.php
+     * @return int The server's PID.
+     * @since 5.6
+     */
+    public function pgsqlGetPid(): int {}
 }
 
 /**

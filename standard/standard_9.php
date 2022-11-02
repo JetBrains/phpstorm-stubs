@@ -6,6 +6,11 @@ use JetBrains\PhpStorm\Pure;
 define('ARRAY_FILTER_USE_BOTH', 1);
 
 /**
+ * @since 5.6
+ */
+define('ARRAY_FILTER_USE_KEY', 2);
+
+/**
  * Merge two or more arrays recursively
  * @link https://php.net/manual/en/function.array-merge-recursive.php
  * @param array ...$arrays Variable list of arrays to recursively merge.

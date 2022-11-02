@@ -732,7 +732,7 @@ function long2ip(int $ip): string|false {}
  * is provided, or false on an error.
  */
 #[Pure(true)]
-function getenv($varname): array|string|false {}
+function getenv($varname, bool $local_only = false): array|string|false {}
 
 /**
  * Sets the value of an environment variable

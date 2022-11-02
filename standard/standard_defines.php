@@ -21,6 +21,13 @@ define('INI_ALL', 7);
 define('INI_SCANNER_NORMAL', 0);
 
 /**
+ * Typed INI scanner mode
+ * @since 5.6.1
+ * @link https://php.net/manual/en/function.parse-ini-file.php
+ */
+define('INI_SCANNER_TYPED', 2);
+
+/**
  * Raw INI scanner mode
  * @link https://php.net/manual/en/filesystem.constants.php
  */

@@ -1129,6 +1129,16 @@ function ldap_control_paged_result($ldap, int $pagesize, $iscritical = false, $c
 function ldap_control_paged_result_response($ldap, $result, &$cookie = null, &$estimated = null): bool {}
 
 /**
+ * Escape a string for use in an LDAP filter or DN
+ * @param string $value The value to escape.
+ * @param string $ignore [optional] Characters to ignore when escaping.
+ * @param int $flags [optional] The context the escaped string will be used in: LDAP_ESCAPE_FILTER for filters to be used with ldap_search(), or LDAP_ESCAPE_DN for DNs. If neither flag is passed, all chars are escaped.
+ * @return string
+ * @since 5.6
+ */
+function ldap_escape(string $value, string $ignore = '', int $flags = 0): string {}
+
+/**
  * (PHP 5.4 >= 5.4.26, PHP 5.5 >= 5.5.10, PHP 5.6 >= 5.6.0)
  * Batch and execute modifications on an LDAP entry
  * @link https://php.net/manual/en/function.ldap-modify-batch.php
