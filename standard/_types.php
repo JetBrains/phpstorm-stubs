@@ -1,7 +1,6 @@
 <?php
 
 namespace {
-
     use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
     /**
