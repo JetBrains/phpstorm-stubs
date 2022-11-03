@@ -174,7 +174,7 @@ function serialize(mixed $value): string {}
  * In case the passed string is not unserializeable, false is returned and
  * E_NOTICE is issued.</p>
  */
-function unserialize(string $data): mixed {}
+function unserialize(string $data, array $options = []): mixed {}
 
 /**
  * Dumps information about a variable
@@ -415,7 +415,7 @@ function ini_get(string $option): string|false {}
  */
 #[Pure(true)]
 #[ArrayShape(["global_value" => "string", "local_value" => "string", "access" => "int"])]
-function ini_get_all(?string $extension): array|false {}
+function ini_get_all(?string $extension, bool $details = true): array|false {}
 
 /**
  * Sets the value of a configuration option

@@ -769,7 +769,7 @@ function key_exists($key, array $array): bool {}
  * <p>An optional description that will be included in the failure message if the assertion fails.</p>
  * @return bool false if the assertion is false, true otherwise.
  */
-function assert(mixed $assertion): bool {}
+function assert(mixed $assertion, Throwable|string|null $description = null): bool {}
 
 /**
  * Set/get the various assert flags
@@ -1111,3 +1111,10 @@ function realpath_cache_get(): array {}
  */
 #[Pure(true)]
 function realpath_cache_size(): int {}
+
+/**
+ * AssertionError is thrown when an assertion made via {@see assert()} fails.
+ * @link https://php.net/manual/en/class.assertionerror.php
+ * @since 7.0
+ */
+class AssertionError extends Error {}

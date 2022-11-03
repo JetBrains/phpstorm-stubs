@@ -155,3 +155,11 @@ function utf8_encode(string $string): string {}
 #[Pure]
 #[Deprecated(replacement: "mb_convert_encoding(%parameter0%, 'ISO-8859-1')", since: "8.2")]
 function utf8_decode(string $string): string {}
+
+/**
+ * Clear the most recent error
+ * @link https://php.net/manual/en/function.error-clear-last.php
+ * @return void
+ * @since 7.0
+ */
+function error_clear_last(): void {}

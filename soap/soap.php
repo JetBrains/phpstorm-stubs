@@ -645,7 +645,7 @@ class SoapClient
      * @since 5.0.5
      */
     #[TentativeType]
-    public function __setSoapHeaders($headers): bool {}
+    public function __setSoapHeaders($headers = null): bool {}
 }
 
 /**

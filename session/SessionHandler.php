@@ -122,6 +122,43 @@ interface SessionIdInterface
 }
 
 /**
+ * <b>SessionUpdateTimestampHandlerInterface</b> is an interface which
+ * defines a prototype for updating the life time of an existing session.
+ * In order to use the lazy_write option must be enabled and a custom session
+ * handler must implement this interface.
+ * @since 7.0
+ */
+interface SessionUpdateTimestampHandlerInterface
+{
+    /**
+     * Validate session id
+     * @link https://www.php.net/manual/sessionupdatetimestamphandlerinterface.validateid
+     * @param string $id The session id
+     * @return bool <p>
+     * Note this value is returned internally to PHP for processing.
+     * </p>
+     */
+    #[TentativeType]
+    public function validateId(string $id): bool;
+
+    /**
+     * Update timestamp of a session
+     * @link https://www.php.net/manual/sessionupdatetimestamphandlerinterface.updatetimestamp.php
+     * @param string $id The session id
+     * @param string $data <p>
+     * The encoded session data. This data is the
+     * result of the PHP internally encoding
+     * the $_SESSION superglobal to a serialized
+     * string and passing it as this parameter.
+     * Please note sessions use an alternative serialization method.
+     * </p>
+     * @return bool
+     */
+    #[TentativeType]
+    public function updateTimestamp(string $id, string $data): bool;
+}
+
+/**
  * <b>SessionHandler</b> a special class that can
  * be used to expose the current internal PHP session
  * save handler by inheritance. There are six methods

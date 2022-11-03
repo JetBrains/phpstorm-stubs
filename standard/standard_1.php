@@ -232,7 +232,7 @@ function basename(string $path, string $suffix = ''): string {}
  * /component removed.
  */
 #[Pure]
-function dirname(string $path): string {}
+function dirname(string $path, int $levels = 1): string {}
 
 /**
  * Returns information about a file path

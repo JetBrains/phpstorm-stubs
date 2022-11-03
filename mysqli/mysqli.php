@@ -912,7 +912,7 @@ function mysqli_fetch_lengths(mysqli_result $result): array|false {}
  * @param int $mode
  * @return array Returns an array of associative or numeric arrays holding result rows.
  */
-function mysqli_fetch_all(mysqli_result $result): array {}
+function mysqli_fetch_all(mysqli_result $result, int $mode = MYSQLI_NUM): array {}
 
 /**
  * Fetch the next row of a result set as an associative, a numeric array, or both
@@ -2966,7 +2966,7 @@ class mysqli_result implements IteratorAggregate
      * @return array an array of associative or numeric arrays holding result rows.
      */
     #[TentativeType]
-    public function fetch_all(): array {}
+    public function fetch_all(int $mode = MYSQLI_NUM): array {}
 
     /**
      * Fetch the next row of a result set as an associative, a numeric array, or both

@@ -190,7 +190,7 @@ class DOMNode
      * </p>
      * @return static The cloned node.
      */
-    public function cloneNode($deep) {}
+    public function cloneNode($deep = false) {}
 
     /**
      * Normalizes the node
@@ -962,7 +962,7 @@ class DOMDocument extends DOMNode
      * @return string|false the XML, or false if an error occurred.
      */
     #[TentativeType]
-    public function saveXML(?DOMNode $node = null): string|false {}
+    public function saveXML(?DOMNode $node = null, $options = null): string|false {}
 
     /**
      * Validates the document based on its DTD

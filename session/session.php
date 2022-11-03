@@ -160,7 +160,7 @@ function session_encode(): string {}
  * @return bool This function returns true if a session was successfully started,
  * otherwise false.
  */
-function session_start(): bool {}
+function session_start(array $options = []): bool {}
 
 /**
  * Destroys all data registered to a session

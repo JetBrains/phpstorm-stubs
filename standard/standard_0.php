@@ -597,7 +597,7 @@ function htmlspecialchars_decode(string $string, int $flags = ENT_QUOTES|ENT_SUB
  * @return array the translation table as an array.
  */
 #[Pure]
-function get_html_translation_table(int $table = 0, int $flags = ENT_QUOTES|ENT_SUBSTITUTE): array {}
+function get_html_translation_table(int $table = 0, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, string $encoding = 'UTF-8'): array {}
 
 /**
  * Calculate the sha1 hash of a string
@@ -1096,7 +1096,7 @@ function php_sapi_name(): string|false {}
  * @return string the description, as a string.
  */
 #[Pure(true)]
-function php_uname(): string {}
+function php_uname(string $mode = 'a'): string {}
 
 /**
  * Return a list of .ini files parsed from the additional ini dir

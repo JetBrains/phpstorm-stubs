@@ -455,7 +455,7 @@ function gmdate(string $format, ?int $timestamp): string|false {}
  * it returned -1).
  */
 #[Pure(true)]
-function mktime(int $hour = null, ?int $minute = null, ?int $second = null, ?int $month = null, ?int $day = null, ?int $year = null, #[Deprecated("Use the new timezone handling functions instead", since: "5.3")] $is_dst = -1): int|false {}
+function mktime(int $hour = null, ?int $minute = null, ?int $second = null, ?int $month = null, ?int $day = null, ?int $year = null): int|false {}
 
 /**
  * Get Unix timestamp for a GMT date
@@ -485,7 +485,7 @@ function mktime(int $hour = null, ?int $minute = null, ?int $second = null, ?int
  * @return int|false a integer Unix timestamp.
  */
 #[Pure(true)]
-function gmmktime(int $hour = null, ?int $minute = null, ?int $second = null, ?int $month = null, ?int $day = null, ?int $year = null, $is_dst = null): int|false {}
+function gmmktime(int $hour = null, ?int $minute = null, ?int $second = null, ?int $month = null, ?int $day = null, ?int $year = null): int|false {}
 
 /**
  * Validate a Gregorian date

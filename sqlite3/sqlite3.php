@@ -139,7 +139,7 @@ class SQLite3
      * SQLite database.
      * </p>
      */
-    public function __construct($filename, $flags, $encryptionKey) {}
+    public function __construct($filename, $flags = SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE, $encryptionKey = null) {}
 
     /**
      * Returns the SQLite3 library version as a string constant and as a number
@@ -184,7 +184,7 @@ class SQLite3
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function open($filename, $flags, $encryptionKey): void {}
+    public function open($filename, $flags = SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE, $encryptionKey = null): void {}
 
     /**
      * Closes the database connection
@@ -402,7 +402,7 @@ class SQLite3
      * @return bool Returns the old value; true if exceptions were enabled, false otherwise.
      */
     #[TentativeType]
-    public function enableExceptions($enable): bool {}
+    public function enableExceptions($enable = false): bool {}
 }
 
 /**

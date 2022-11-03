@@ -120,6 +120,36 @@ class ReflectionParameter implements Reflector
     public function getClass(): ?ReflectionClass {}
 
     /**
+     * Checks if the parameter has a type associated with it.
+     *
+     * @link https://php.net/manual/en/reflectionparameter.hastype.php
+     * @return bool {@see true} if a type is specified, {@see false} otherwise.
+     * @since 7.0
+     */
+    #[TentativeType]
+    public function hasType(): bool {}
+
+    /**
+     * Gets a parameter's type
+     *
+     * @link https://php.net/manual/en/reflectionparameter.gettype.php
+     * @return ReflectionType|null Returns a {@see ReflectionType} object if a
+     * parameter type is specified, {@see null} otherwise.
+     * @since 7.0
+     */
+    #[Pure]
+    #[LanguageLevelTypeAware(
+        [
+            '7.1' => 'ReflectionNamedType|null',
+            '8.0' => 'ReflectionNamedType|ReflectionUnionType|null',
+            '8.1' => 'ReflectionNamedType|ReflectionUnionType|ReflectionIntersectionType|null'
+        ],
+        default: 'ReflectionType|null'
+    )]
+    #[TentativeType]
+    public function getType(): ?ReflectionType {}
+
+    /**
      * Checks if parameter expects an array
      *
      * @link https://php.net/manual/en/reflectionparameter.isarray.php

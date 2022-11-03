@@ -459,7 +459,7 @@ function pcntl_fork(): int {}
  * child which exited, -1 on error or zero if <b>WNOHANG</b> was used and no
  * child was available
  */
-function pcntl_waitpid(int $process_id, &$status, int $flags = 0): int {}
+function pcntl_waitpid(int $process_id, &$status, int $flags = 0, &$resource_usage = []): int {}
 
 /**
  * Waits on or returns the status of a forked child
@@ -505,7 +505,7 @@ function pcntl_waitpid(int $process_id, &$status, int $flags = 0): int {}
  * child which exited, -1 on error or zero if WNOHANG was provided as an
  * option (on wait3-available systems) and no child was available.
  */
-function pcntl_wait(&$status, int $flags = 0): int {}
+function pcntl_wait(&$status, int $flags = 0, &$resource_usage = []): int {}
 
 /**
  * Installs a signal handler

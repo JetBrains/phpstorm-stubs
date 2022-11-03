@@ -235,6 +235,21 @@ function posix_geteuid(): int {}
 function posix_seteuid(int $user_id): bool {}
 
 /**
+ * Set system resource limits
+ * @link https://php.net/manual/en/function.posix-setrlimit.php
+ * @param int $resource <p>
+ * The
+ * {@link https://php.net/manual/en/posix.constants.setrlimit.php resource limit constant}
+ * corresponding to the limit that is being set.
+ * </p>
+ * @param int $soft_limit The soft limit, in whatever unit the resource limit requires, or POSIX_RLIMIT_INFINITY.
+ * @param int $hard_limit The hard limit, in whatever unit the resource limit requires, or POSIX_RLIMIT_INFINITY.
+ * @return bool Returns TRUE on success or FALSE on failure.
+ * @since 7.0
+ */
+function posix_setrlimit(int $resource, int $soft_limit, int $hard_limit): bool {}
+
+/**
  * Return the real group ID of the current process
  * @link https://php.net/manual/en/function.posix-getgid.php
  * @return int the real group id, as an integer.

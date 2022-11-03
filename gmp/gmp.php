@@ -62,6 +62,17 @@ function gmp_init(string|int $num, int $base = 0): GMP {}
 function gmp_intval(GMP|string|int $num): int {}
 
 /**
+ * Sets the RNG seed
+ * @param resource|string|int|GMP $seed <p>
+ * The seed to be set for the {@see gmp_random()}, {@see gmp_random_bits()}, and {@see gmp_random_range()} functions.
+ * </p>
+ * Either a GMP number resource in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.
+ * @return void|null|false Returns NULL on success.
+ * @since 7.0
+ */
+function gmp_random_seed(GMP|string|int $seed): void {}
+
+/**
  * Convert GMP number to string
  * @link https://php.net/manual/en/function.gmp-strval.php
  * @param resource|int|string|GMP $num <p>

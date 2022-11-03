@@ -639,7 +639,7 @@ function fgetcsv($stream, ?int $length = null, string $separator = ',', string $
  * </p>
  * @return int|false the length of the written string or false on failure.
  */
-function fputcsv($stream, array $fields, string $separator = ',', string $enclosure = '"'): int|false {}
+function fputcsv($stream, array $fields, string $separator = ',', string $enclosure = '"', string $escape = "\\"): int|false {}
 
 /**
  * Portable advisory file locking
@@ -1026,7 +1026,7 @@ function get_headers(string $url, int $associative = false): array|false {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function stream_set_timeout($stream, int $seconds, int $microseconds): bool {}
+function stream_set_timeout($stream, int $seconds, int $microseconds = 0): bool {}
 
 /**
  * Alias:
@@ -1044,7 +1044,7 @@ function stream_set_timeout($stream, int $seconds, int $microseconds): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function socket_set_timeout($stream, int $seconds, int $microseconds): bool {}
+function socket_set_timeout($stream, int $seconds, int $microseconds = 0): bool {}
 
 /**
  * Alias:
