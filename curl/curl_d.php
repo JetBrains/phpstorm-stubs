@@ -2158,6 +2158,367 @@ define('CURL_LOCK_DATA_SSL_SESSION', 4);
 define('CURLOPT_KEYPASSWD', 10026);
 
 /**
+ * Value for the <b>CURLOPT_FTP_CREATE_MISSING_DIRS</b> option.
+ * libcurl will attempt to create any remote directory that it fails to "move" into.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/CURLOPT_FTP_CREATE_MISSING_DIRS.html
+ * @since 7.0.7
+ */
+define('CURLFTP_CREATE_DIR', 1);
+
+/**
+ * Value for the <b>CURLOPT_FTP_CREATE_MISSING_DIRS</b> option.
+ * libcurl will not attempt to create any remote directory that it fails to "move" into.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/CURLOPT_FTP_CREATE_MISSING_DIRS.html
+ * @since 7.0.7
+ */
+define('CURLFTP_CREATE_DIR_NONE', 0);
+
+/**
+ * Value for the <b>CURLOPT_HTTPAUTH</b> option.
+ * NTLM delegating to winbind helper.
+ * Authentication is performed by a separate binary application that is executed when needed.
+ * The name of the application is specified at compile time but is typically <em>/usr/bin/ntlm_auth</em>.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLAUTH_NTLM_WB', 32);
+
+/**
+ * Value for the <b>CURLOPT_HTTP_VERSION</b> option.
+ * Alias of <b>CURL_HTTP_VERSION_2_0</b>
+ * Attempts HTTP 2
+ * @link https://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURL_HTTP_VERSION_2', 3);
+
+/**
+ * Value for the <b>CURLOPT_HTTP_VERSION</b> option.
+ * Attempts HTTP 2 over TLS (HTTPS) only
+ * @link https://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURL_HTTP_VERSION_2TLS', 4);
+
+/**
+ * Value for the <b>CURLOPT_HTTP_VERSION</b> option.
+ * Issues non-TLS HTTP requests using HTTP/2 without HTTP/1.1 Upgrade
+ * @link https://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE', 5);
+
+/**
+ * <b>TRUE</b> to enable sending the initial response in the first packet.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_SASL_IR', 218);
+
+/**
+ * Set the name of the network interface that the DNS resolver should bind to. This must be an interface name (not an address).
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_DNS_INTERFACE', 10221);
+
+/**
+ * Set the local IPv4 address that the resolver should bind to. The argument should contain a single numerical IPv4 address as a string.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_DNS_LOCAL_IP4', 10222);
+
+/**
+ * Set the local IPv6 address that the resolver should bind to. The argument should contain a single numerical IPv6 address as a string.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_DNS_LOCAL_IP6', 10223);
+
+/**
+ * Specifies the OAuth 2.0 access token.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_XOAUTH2_BEARER', 10220);
+
+/**
+ * Can be used to set protocol specific login options, such as the preferred authentication mechanism via "<em>AUTH=NTLM</em>" or "<em>AUTH=*</em>",
+ * and should be used in conjunction with the <b>CURLOPT_USERNAME</b> option.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_LOGIN_OPTIONS', 10224);
+
+/**
+ * The timeout for Expect: 100-continue responses in milliseconds. Defaults to 1000 milliseconds.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_EXPECT_100_TIMEOUT_MS', 227);
+
+/**
+ * <b>FALSE</b> to disable ALPN in the SSL handshake (if the SSL backend libcurl is built to use supports it),
+ * which can be used to negotiate http2.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_SSL_ENABLE_ALPN', 226);
+
+/**
+ * <b>FALSE</b> to disable NPN in the SSL handshake (if the SSL backend libcurl is built to use supports it),
+ * which can be used to negotiate http2.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_SSL_ENABLE_NPN', 225);
+
+/**
+ * Set the pinned public key. The string can be the file name of your pinned public key. The file format expected is "<em>PEM</em>" or "<em>DER</em>".
+ * The string can also be any number of base64 encoded sha256 hashes preceded by "sha256//" and separated by ";".
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_PINNEDPUBLICKEY', 10230);
+
+/**
+ * Enables the use of Unix domain sockets as connection endpoint and sets the path to the given string.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_UNIX_SOCKET_PATH', 10231);
+
+/**
+ * <b>TRUE</b> to verify the certificate's status.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_SSL_VERIFYSTATUS', 232);
+
+/**
+ * <b>TRUE</b> to not handle dot dot sequences.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_PATH_AS_IS', 234);
+
+/**
+ * <b>TRUE</b> to enable TLS false start.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_SSL_FALSESTART', 233);
+
+/**
+ * <b>TRUE</b> to wait for pipelining/multiplexing.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_PIPEWAIT', 237);
+
+/**
+ * The proxy authentication service name.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_PROXY_SERVICE_NAME', 10235);
+
+/**
+ * The authentication service name.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_SERVICE_NAME', 10236);
+
+/**
+ * Value for the <b>CURLOPT_SSH_AUTH_TYPES</b> option.
+ * libcurl attempts to connect to ssh-agent or pageant and let the agent attempt the authentication.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLSSH_AUTH_AGENT', 16);
+
+/**
+ * Value for the <b>CURLMOPT_PIPELINING</b> option.
+ * Default, which means doing no attempts at pipelining or multiplexing.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/CURLMOPT_PIPELINING.html
+ * @since 7.0.7
+ */
+define('CURLPIPE_NOTHING', 0);
+
+/**
+ * Value for the <b>CURLMOPT_PIPELINING</b> option.
+ * If this bit is set, libcurl will try to pipeline HTTP/1.1 requests on connections that are already established and in use to hosts.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/CURLMOPT_PIPELINING.html
+ * @deprecated 7.4
+ * @since 7.0.7
+ */
+define('CURLPIPE_HTTP1', 1);
+
+/**
+ * Value for the <b>CURLMOPT_PIPELINING</b> option.
+ * If this bit is set, libcurl will try to multiplex the new transfer over an existing connection if possible. This requires HTTP/2.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/CURLMOPT_PIPELINING.html
+ * @since 7.0.7
+ */
+define('CURLPIPE_MULTIPLEX', 2);
+
+/**
+ * Value for the <b>CURLOPT_HEADEROPT</b> option.
+ * Makes <b>CURLOPT_HTTPHEADER</b> headers only get sent to a server and not to a proxy.
+ * Proxy headers must be set with <b>CURLOPT_PROXYHEADER</b> to get used.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLHEADER_SEPARATE', 1);
+
+/**
+ * Value for the <b>CURLOPT_HEADEROPT</b> option.
+ * The headers specified in <b>CURLOPT_HTTPHEADER</b> will be used in requests both to servers and proxies.
+ * With this option enabled, <b>CURLOPT_PROXYHEADER</b> will not have any effect.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLHEADER_UNIFIED', 0);
+
+/**
+ * Value for the <b>CURLOPT_PROTOCOLS</b> option.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLPROTO_SMB', 67108864);
+
+/**
+ * Value for the <b>CURLOPT_PROTOCOLS</b> option.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLPROTO_SMBS', 134217728);
+
+/**
+ * How to deal with headers.
+ * One of the following constants:
+ *  <b>CURLHEADER_UNIFIED</b>: the headers specified in <b>CURLOPT_HTTPHEADER</b> will be used in requests both to servers and proxies.
+ *   With this option enabled, <b>CURLOPT_PROXYHEADER</b> will not have any effect.
+ *  <b>CURLHEADER_SEPARATE</b>: makes <b>CURLOPT_HTTPHEADER</b> headers only get sent to a server and not to a proxy.
+ *   Proxy headers must be set with <b>CURLOPT_PROXYHEADER</b> to get used.
+ *   Note that if a non-CONNECT request is sent to a proxy, libcurl will send both server headers and proxy headers.
+ *   When doing CONNECT, libcurl will send <b>CURLOPT_PROXYHEADER</b> headers only to the proxy and then <b>CURLOPT_HTTPHEADER</b> headers only to the server.
+ *  Defaults to <b>CURLHEADER_SEPARATE</b> as of cURL 7.42.1, and <b>CURLHEADER_UNIFIED</b> before.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_HEADEROPT', 229);
+
+/**
+ * An array of custom HTTP headers to pass to proxies.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_PROXYHEADER', 10228);
+
+/**
+ * Value for the <b>CURLOPT_POSTREDIR</b> option.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURL_REDIR_POST_301', 1);
+
+/**
+ * Value for the <b>CURLOPT_POSTREDIR</b> option.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURL_REDIR_POST_302', 2);
+
+/**
+ * Value for the <b>CURLOPT_POSTREDIR</b> option.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURL_REDIR_POST_303', 4);
+
+/**
+ * Value for the <b>CURLOPT_PROXYTYPE</b> option.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLPROXY_HTTP_1_0', 1);
+
+/**
+ * Value for the <b>CURLOPT_POSTREDIR</b> option.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURL_REDIR_POST_ALL', 7);
+
+/**
+ * Pass a number that specifies the chunk length threshold for pipelining in bytes.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
+ * @since 7.0.7
+ */
+define('CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE', 30010);
+
+/**
+ * Pass a number that specifies the size threshold for pipelining penalty in bytes.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
+ * @since 7.0.7
+ */
+define('CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE', 30009);
+
+/**
+ * Pass a number that specifies the maximum number of connections to a single host.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
+ * @since 7.0.7
+ */
+define('CURLMOPT_MAX_HOST_CONNECTIONS', 7);
+
+/**
+ * Pass a number that specifies the maximum number of requests in a pipeline.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
+ * @since 7.0.7
+ */
+define('CURLMOPT_MAX_PIPELINE_LENGTH', 8);
+
+/**
+ * Pass a number that specifies the maximum number of simultaneously open connections.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
+ * @since 7.0.7
+ */
+define('CURLMOPT_MAX_TOTAL_CONNECTIONS', 13);
+
+/**
+ * Value for the <b>CURLOPT_FTP_CREATE_MISSING_DIRS</b> option.
+ * libcurl will not attempt to create any remote directory that it fails to "move" into.
+ * Tells libcurl to retry the CWD command again if the subsequent MKD command fails.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/CURLOPT_FTP_CREATE_MISSING_DIRS.html
+ * @since 7.0.7
+ */
+define('CURLFTP_CREATE_DIR_RETRY', 2);
+
+/**
+ * Value for the <b>CURLOPT_HTTPAUTH</b> option.
+ * HTTP Negotiate (SPNEGO) authentication
+ * @link https://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLAUTH_NEGOTIATE', 4);
+
+/**
+ * The default buffer size for <b>CURLOPT_BUFFERSIZE</b>
+ * @link https://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURL_MAX_READ_SIZE', 524288);
+
+/**
  * Time allowed to wait for FTP response.
  * @link https://curl.haxx.se/libcurl/c/CURLOPT_FTP_RESPONSE_TIMEOUT.html
  * @since 5.5
@@ -3085,3 +3446,61 @@ define('CURLSSLOPT_ALLOW_BEAST', 1);
  * @since 5.5.24
  */
 define('CURL_VERSION_HTTP2', 65536);
+
+/**
+ * Value for the <b>CURLOPT_SSL_OPTIONS</b> option.
+ * Disable certificate revocation checks for those SSL backends where such behavior is present.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLSSLOPT_NO_REVOKE', 2);
+
+/**
+ * The default protocol to use if the URL is missing a scheme name.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_DEFAULT_PROTOCOL', 10238);
+
+/**
+ * Set the numerical stream weight (a number between 1 and 256).
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_STREAM_WEIGHT', 239);
+
+/**
+ * <b>TRUE</b> to not send TFTP options requests.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_TFTP_NO_OPTIONS', 242);
+
+/**
+ * Connect to a specific host and port instead of the URL's host and port.
+ * Accepts an array of strings with the format HOST:PORT:CONNECT-TO-HOST:CONNECT-TO-PORT.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_CONNECT_TO', 10243);
+
+/**
+ * <b>TRUE</b> to enable TCP Fast Open.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
+ * @since 7.0.7
+ */
+define('CURLOPT_TCP_FASTOPEN', 244);
+
+/**
+ * Supports the Mozilla's Public Suffix List.
+ * @link https://www.php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURL_VERSION_PSL', 1048576);
+
+/**
+ * Supports UNIX sockets.
+ * @link https://www.php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURL_VERSION_UNIX_SOCKETS', 524288);

@@ -436,6 +436,41 @@ class ZipArchive implements Countable
     public const ER_DELETED = 23;
 
     /**
+     * Guess string encoding (is default)
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.0.8
+     */
+    public const FL_ENC_GUESS = 0;
+
+    /**
+     * Get unmodified string
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.0.8
+     */
+    public const FL_ENC_RAW = 64;
+
+    /**
+     * Follow specification strictly
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.0.8
+     */
+    public const FL_ENC_STRICT = 128;
+
+    /**
+     * String is UTF-8 encoded
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.0.8
+     */
+    public const FL_ENC_UTF_8 = 2048;
+
+    /**
+     * String is CP437 encoded
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.0.8
+     */
+    public const FL_ENC_CP437 = 4096;
+
+    /**
      * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      * @since 5.6
      */
@@ -869,6 +904,28 @@ class ZipArchive implements Countable
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function setCommentName($name, $comment) {}
+
+    /**
+     * Set the compression method of an entry defined by its index
+     * @link https://php.net/manual/en/ziparchive.setcompressionindex.php
+     * @param int $index Index of the entry.
+     * @param int $method The compression method. Either ZipArchive::CM_DEFAULT, ZipArchive::CM_STORE or ZipArchive::CM_DEFLATE.
+     * @param int $compflags [optional] Compression flags. Currently unused.
+     * @return bool Returns TRUE on success or FALSE on failure.
+     * @since 7.0
+     */
+    public function setCompressionIndex(int $index, int $method, int $compflags = 0) {}
+
+    /**
+     * Set the compression method of an entry defined by its name
+     * https://secure.php.net/manual/en/ziparchive.setcompressionname.php
+     * @param string $name Name of the entry.
+     * @param int $method The compression method. Either ZipArchive::CM_DEFAULT, ZipArchive::CM_STORE or ZipArchive::CM_DEFLATE.
+     * @param int $compflags [optional] Compression flags. Currently unused.
+     * @return bool Returns TRUE on success or FALSE on failure.
+     * @since 7.0
+     */
+    public function setCompressionName(string $name, int $method, int $compflags = 0) {}
 
     /**
      * (PHP 5 >= 5.6.0, PECL zip >= 1.12.0)<br/>

@@ -298,7 +298,7 @@ function error_reporting(?int $error_level): int {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function define(string $constant_name, null|array|bool|int|float|string $value, bool $case_insensitive): bool {}
+function define(string $constant_name, null|array|bool|int|float|string $value, #[Deprecated(since: "7.3")] bool $case_insensitive = false): bool {}
 
 /**
  * Checks whether a given named constant exists
@@ -968,7 +968,7 @@ function debug_backtrace(int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT, int $lim
  * </p>
  * @return void
  */
-function debug_print_backtrace(int $options = 0): void {}
+function debug_print_backtrace(int $options = 0, int $limit = 0): void {}
 
 /**
  * Forces collection of any existing garbage cycles
@@ -998,3 +998,28 @@ function gc_enable(): void {}
  * @return void
  */
 function gc_disable(): void {}
+
+/**
+ * Reclaims memory used by the Zend Engine memory manager
+ * @link https://php.net/manual/en/function.gc-mem-caches.php
+ * @return int Returns the number of bytes freed.
+ * @since 7.0
+ */
+function gc_mem_caches(): int {}
+
+/**
+ * Returns active resources
+ * @link https://php.net/manual/en/function.get-resources.php
+ * @param string|null $type [optional]<p>
+ *
+ * If defined, this will cause get_resources() to only return resources of the given type. A list of resource types is available.
+ *
+ * If the string Unknown is provided as the type, then only resources that are of an unknown type will be returned.
+ *
+ * If omitted, all resources will be returned.
+ * </p>
+ * @return resource[] Returns an array of currently active resources, indexed by resource number.
+ * @since 7.0
+ */
+#[Pure(true)]
+function get_resources(?string $type): array {}

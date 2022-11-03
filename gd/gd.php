@@ -44,6 +44,14 @@ define('IMG_WBMP', 8);
 define('IMG_XPM', 16);
 
 /**
+ * Used as a return value by {@see imagetypes()}
+ * @since 5.6.25
+ * @since 7.0.10
+ * @link https://php.net/manual/en/image.constants.php#constant.img-webp
+ */
+define('IMG_WEBP', 32);
+
+/**
  * Special color option which can be used instead of color allocated with
  * {@see imagecolorallocate()} or {@see imagecolorallocatealpha()}
  * @link https://php.net/manual/en/image.constants.php#constant.img-color-tiled

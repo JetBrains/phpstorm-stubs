@@ -884,7 +884,7 @@ function openssl_verify(string $data, string $signature, $public_key, string|int
  * <i>sealed_data</i>, and the envelope keys in
  * <i>env_keys</i>.
  */
-function openssl_seal(string $data, &$sealed_data, &$encrypted_keys, array $public_key, string $cipher_algo = ''): int|false {}
+function openssl_seal(string $data, &$sealed_data, &$encrypted_keys, array $public_key, string $cipher_algo = '', &$iv = null): int|false {}
 
 /**
  * Open sealed data
@@ -900,7 +900,7 @@ function openssl_seal(string $data, &$sealed_data, &$encrypted_keys, array $publ
  * @param string|null $iv [optional] The initialization vector.
  * @return bool true on success or false on failure.
  */
-function openssl_open(string $data, &$output, string $encrypted_key, $private_key): bool {}
+function openssl_open(string $data, &$output, string $encrypted_key, $private_key, string $cipher_algo = '', ?string $iv): bool {}
 
 /**
  * Generates a PKCS5 v2 PBKDF2 string, defaults to SHA-1

@@ -309,7 +309,7 @@ define('T_CHARACTER', 315);
  * content of the original token in element 1 and the line number in element 2.
  */
 #[Pure]
-function token_get_all(string $code): array {}
+function token_get_all(string $code, int $flags = 0): array {}
 
 /**
  * Get the symbolic name of a given PHP token

@@ -12,6 +12,12 @@ use JetBrains\PhpStorm\Pure;
 define('PREG_PATTERN_ORDER', 1);
 
 /**
+ * Returned by {@see preg_last_error()} if the last PCRE function failed due to limited JIT stack space.
+ * @since 7.0
+ */
+define('PREG_JIT_STACKLIMIT_ERROR', 6);
+
+/**
  * Orders results so that $matches[0] is an array of first set of
  * matches, $matches[1] is an array of second set of matches, and so
  * on. This flag is only used with <b>preg_match_all</b>.

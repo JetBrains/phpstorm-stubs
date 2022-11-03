@@ -356,7 +356,7 @@ function ob_get_contents(): string|false {}
  * </p>
  * @return void
  */
-function ob_implicit_flush(int $enable = 1): void {}
+function ob_implicit_flush(int $enable = true): void {}
 
 /**
  * List all output handlers in use

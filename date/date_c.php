@@ -675,7 +675,7 @@ class DateTimeZone
      * @link https://php.net/manual/en/datetimezone.gettransitions.php
      */
     #[TentativeType]
-    public function getTransitions($timestampBegin, $timestampEnd): array|false {}
+    public function getTransitions($timestampBegin = null, $timestampEnd = null): array|false {}
 
     /**
      * @link https://php.net/manual/en/datetime.wakeup.php

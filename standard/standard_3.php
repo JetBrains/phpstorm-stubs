@@ -335,6 +335,19 @@ function is_finite(float $num): bool {}
 function is_nan(float $num): bool {}
 
 /**
+ * Integer division
+ * @link https://php.net/manual/en/function.intdiv.php
+ * @param int $num1 <p>Number to be divided.</p>
+ * @param int $num2 <p>Number which divides the <b><i>dividend</i></b></p>
+ * @return int
+ * @since 7.0
+ * @throws DivisionByZeroError <p>if divisor is 0</p>
+ * @throws ArithmeticError <p>if the <b><i>dividend</i></b> is <b>PHP_INT_MIN</b> and the <b><i>divisor</i></b> is -1</p>
+ */
+#[Pure]
+function intdiv(int $num1, int $num2): int {}
+
+/**
  * Finds whether a value is infinite
  * @link https://php.net/manual/en/function.is-infinite.php
  * @param float $num <p>

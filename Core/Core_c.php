@@ -178,6 +178,87 @@ interface Serializable
 }
 
 /**
+ * Throwable is the base interface for any object that can be thrown via a throw statement in PHP 7,
+ * including Error and Exception.
+ * @link https://php.net/manual/en/class.throwable.php
+ * @since 7.0
+ */
+interface Throwable extends Stringable
+{
+    /**
+     * Gets the message
+     * @link https://php.net/manual/en/throwable.getmessage.php
+     * @return string
+     * @since 7.0
+     */
+    public function getMessage(): string;
+
+    /**
+     * Gets the exception code
+     * @link https://php.net/manual/en/throwable.getcode.php
+     * @return int <p>
+     * Returns the exception code as integer in
+     * {@see Exception} but possibly as other type in
+     * {@see Exception} descendants (for example as
+     * string in {@see PDOException}).
+     * </p>
+     * @since 7.0
+     */
+    public function getCode();
+
+    /**
+     * Gets the file in which the exception occurred
+     * @link https://php.net/manual/en/throwable.getfile.php
+     * @return string Returns the name of the file from which the object was thrown.
+     * @since 7.0
+     */
+    public function getFile(): string;
+
+    /**
+     * Gets the line on which the object was instantiated
+     * @link https://php.net/manual/en/throwable.getline.php
+     * @return int Returns the line number where the thrown object was instantiated.
+     * @since 7.0
+     */
+    public function getLine(): int;
+
+    /**
+     * Gets the stack trace
+     * @link https://php.net/manual/en/throwable.gettrace.php
+     * @return array <p>
+     * Returns the stack trace as an array in the same format as
+     * {@see debug_backtrace()}.
+     * </p>
+     * @since 7.0
+     */
+    public function getTrace(): array;
+
+    /**
+     * Gets the stack trace as a string
+     * @link https://php.net/manual/en/throwable.gettraceasstring.php
+     * @return string Returns the stack trace as a string.
+     * @since 7.0
+     */
+    public function getTraceAsString(): string;
+
+    /**
+     * Returns the previous Throwable
+     * @link https://php.net/manual/en/throwable.getprevious.php
+     * @return null|Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
+     * @since 7.0
+     */
+    public function getPrevious();
+
+    /**
+     * Gets a string representation of the thrown object
+     * @link https://php.net/manual/en/throwable.tostring.php
+     * @return string <p>Returns the string representation of the thrown object.</p>
+     * @since 7.0
+     */
+    public function __toString();
+}
+
+/**
  * Classes implementing <b>Countable</b> can be used with the
  * <b>count</b> function.
  * @link https://php.net/manual/en/class.countable.php
@@ -207,7 +288,7 @@ class stdClass {}
  * all Exceptions.
  * @link https://php.net/manual/en/class.exception.php
  */
-class Exception
+class Exception implements Throwable
 {
     /** The error message */
     protected $message;
@@ -226,10 +307,10 @@ class Exception
      * @link https://php.net/manual/en/exception.construct.php
      * @param string $message [optional] The Exception message to throw.
      * @param int $code [optional] The Exception code.
-     * @param null|Exception $previous [optional] The previous throwable used for the exception chaining.
+     * @param null|Throwable $previous [optional] The previous throwable used for the exception chaining.
      */
     #[Pure]
-    public function __construct($message = '', $code = 0, Exception $previous = null) {}
+    public function __construct($message = '', $code = 0, Throwable $previous = null) {}
 
     /**
      * Gets the Exception message
@@ -307,12 +388,151 @@ class Exception
      * Tries to clone the Exception, which results in Fatal error.
      * @link https://php.net/manual/en/exception.clone.php
      * @return void
-     * @since 5.4
      */
     final private function __clone(): void {}
 }
 
-class ValueError {}
+/**
+ * Error is the base class for all internal PHP error exceptions.
+ * @link https://php.net/manual/en/class.error.php
+ * @since 7.0
+ */
+class Error implements Throwable
+{
+    /** The error message */
+    protected $message;
+
+    /** The error code */
+    protected $code;
+
+    /** The filename where the error happened  */
+    protected $file;
+
+    /** The line where the error happened */
+    protected $line;
+
+    /**
+     * Construct the error object.
+     * @link https://php.net/manual/en/error.construct.php
+     * @param string $message [optional] The Error message to throw.
+     * @param int $code [optional] The Error code.
+     * @param null|Throwable $previous [optional] The previous throwable used for the exception chaining.
+     */
+    #[Pure]
+    public function __construct($message = '', $code = 0, Throwable $previous = null) {}
+
+    final public function getMessage(): string {}
+
+    /**
+     * Gets the exception code
+     * @link https://php.net/manual/en/throwable.getcode.php
+     * @return int <p>
+     * Returns the exception code as integer in
+     * {@see Exception} but possibly as other type in
+     * {@see Exception} descendants (for example as
+     * string in {@see PDOException}).
+     * </p>
+     * @since 7.0
+     */
+    final public function getCode() {}
+
+    /**
+     * Gets the file in which the exception occurred
+     * @link https://php.net/manual/en/throwable.getfile.php
+     * @return string Returns the name of the file from which the object was thrown.
+     * @since 7.0
+     */
+    final public function getFile(): string {}
+
+    /**
+     * Gets the line on which the object was instantiated
+     * @link https://php.net/manual/en/throwable.getline.php
+     * @return int Returns the line number where the thrown object was instantiated.
+     * @since 7.0
+     */
+    final public function getLine(): int {}
+
+    /**
+     * Gets the stack trace
+     * @link https://php.net/manual/en/throwable.gettrace.php
+     * @return array <p>
+     * Returns the stack trace as an array in the same format as
+     * {@see debug_backtrace()}.
+     * </p>
+     * @since 7.0
+     */
+    final public function getTrace(): array {}
+
+    /**
+     * Gets the stack trace as a string
+     * @link https://php.net/manual/en/throwable.gettraceasstring.php
+     * @return string Returns the stack trace as a string.
+     * @since 7.0
+     */
+    final public function getTraceAsString(): string {}
+
+    /**
+     * Returns the previous Throwable
+     * @link https://php.net/manual/en/throwable.getprevious.php
+     * @return null|Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
+     * @since 7.0
+     */
+    final public function getPrevious(): ?Throwable {}
+
+    /**
+     * Gets a string representation of the thrown object
+     * @link https://php.net/manual/en/throwable.tostring.php
+     * @return string <p>Returns the string representation of the thrown object.</p>
+     * @since 7.0
+     */
+    public function __toString(): string {}
+
+    #[TentativeType]
+    public function __wakeup(): void {}
+
+    /**
+     * Clone the error
+     * Error can not be clone, so this method results in fatal error.
+     * @return void
+     * @link https://php.net/manual/en/error.clone.php
+     */
+    final private function __clone(): void {}
+}
+
+class ValueError extends Error {}
+
+/**
+ * There are three scenarios where a TypeError may be thrown.
+ * The first is where the argument type being passed to a function does not match its corresponding declared
+ * parameter type. The second is where a value being returned from a function does not match the declared function return type. The third is where an
+ * invalid number of arguments are passed to a built-in PHP function (strict mode only).
+ * @link https://php.net/manual/en/class.typeerror.php
+ * @since 7.0
+ */
+class TypeError extends Error {}
+
+/**
+ * ParseError is thrown when an error occurs while parsing PHP code, such as when {@see eval()} is called.
+ * @link https://php.net/manual/en/class.parseerror.php
+ * @since 7.0
+ */
+class ParseError extends Error {}
+
+/**
+ * ArithmeticError is thrown when an error occurs while performing mathematical operations.
+ * In PHP 7.0, these errors include attempting to perform a bitshift by a negative amount,
+ * and any call to {@see intdiv()} that would result in a value outside the possible bounds of an integer.
+ * @link https://php.net/manual/en/class.arithmeticerror.php
+ * @since 7.0
+ */
+class ArithmeticError extends Error {}
+
+/**
+ * DivisionByZeroError is thrown when an attempt is made to divide a number by zero.
+ * @link https://php.net/manual/en/class.divisionbyzeroerror.php
+ * @since 7.0
+ */
+class DivisionByZeroError extends ArithmeticError {}
 
 /**
  * An Error Exception.
@@ -333,7 +553,7 @@ class ErrorException extends Exception
      * @param Exception $previous [optional] The previous exception used for the exception chaining.
      */
     #[Pure]
-    public function __construct($message = '', $code = 0, $severity = 1, $filename = __FILE__, $line = __LINE__, Exception $previous = null) {}
+    public function __construct($message = '', $code = 0, $severity = 1, $filename = __FILE__, $line = __LINE__, Throwable $previous = null) {}
 
     /**
      * Gets the exception severity
@@ -393,4 +613,14 @@ final class Closure
      * @return Closure|false Returns the newly created Closure object or FALSE on failure
      */
     public function bindTo(?object $newThis, object|string|null $newScope = 'static'): ?Closure {}
+
+    /**
+     * Temporarily binds the closure to newthis, and calls it with any given parameters.
+     * @link https://php.net/manual/en/closure.call.php
+     * @param object $newThis The object to bind the closure to for the duration of the call.
+     * @param mixed $args [optional] Zero or more parameters, which will be given as parameters to the closure.
+     * @return mixed
+     * @since 7.0
+     */
+    public function call(object $newThis, mixed ...$args): mixed {}
 }

@@ -216,6 +216,26 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function getParameters(): array {}
 
     /**
+     * Gets the specified return type of a function
+     *
+     * @link https://php.net/manual/en/reflectionfunctionabstract.getreturntype.php
+     * @return ReflectionType|null Returns a {@see ReflectionType} object if a
+     * return type is specified, {@see null} otherwise.
+     * @since 7.0
+     */
+    #[Pure]
+    #[LanguageLevelTypeAware(
+        [
+            '7.1' => 'ReflectionNamedType|null',
+            '8.0' => 'ReflectionNamedType|ReflectionUnionType|null',
+            '8.1' => 'ReflectionNamedType|ReflectionUnionType|ReflectionIntersectionType|null'
+        ],
+        default: 'ReflectionType|null'
+    )]
+    #[TentativeType]
+    public function getReturnType(): ?ReflectionType {}
+
+    /**
      * Gets function short name
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getshortname.php
@@ -254,7 +274,16 @@ abstract class ReflectionFunctionAbstract implements Reflector
     #[TentativeType]
     public function returnsReference(): bool {}
 
-    public function __toString() {}
+    /**
+     * Checks if the function has a specified return type
+     *
+     * @link https://php.net/manual/en/reflectionfunctionabstract.hasreturntype.php
+     * @return bool Returns {@see true} if the function is a specified return
+     * type, otherwise {@see false}.
+     * @since 7.0
+     */
+    #[TentativeType]
+    public function hasReturnType(): bool {}
 
     /**
      * Clones function

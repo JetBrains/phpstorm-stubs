@@ -579,7 +579,7 @@ function collator_sort(Collator $object, array &$array, int $flags = 0): bool {}
  * @param string[] &$array <p>Array of strings to sort</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function collator_sort_with_sort_keys(Collator $object, array &$array, $sort_flags = []): bool {}
+function collator_sort_with_sort_keys(Collator $object, array &$array): bool {}
 
 /**
  * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -645,7 +645,7 @@ function collator_get_error_message(Collator $object): string|false {}
  * @return string|false the collation key for the string. Collation keys can be compared directly instead of strings.
  */
 #[Pure]
-function collator_get_sort_key(Collator $object, string $string, $arg3): string|false {}
+function collator_get_sort_key(Collator $object, string $string): string|false {}
 
 /**
  * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -1004,7 +1004,7 @@ function locale_get_keywords(string $locale): array|false|null {}
  * $in_locale.
  */
 #[Pure]
-function locale_get_display_script(string $locale, ?string $displayLocale): string|false {}
+function locale_get_display_script(string $locale, ?string $displayLocale = null): string|false {}
 
 /**
  * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -1020,7 +1020,7 @@ function locale_get_display_script(string $locale, ?string $displayLocale): stri
  * $in_locale.
  */
 #[Pure]
-function locale_get_display_region(string $locale, ?string $displayLocale): string|false {}
+function locale_get_display_region(string $locale, ?string $displayLocale = null): string|false {}
 
 /**
  * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -1033,7 +1033,7 @@ function locale_get_display_region(string $locale, ?string $displayLocale): stri
  * @return string|false Display name of the locale in the format appropriate for $in_locale.
  */
 #[Pure]
-function locale_get_display_name(string $locale, ?string $displayLocale): string|false {}
+function locale_get_display_name(string $locale, ?string $displayLocale = null): string|false {}
 
 /**
  * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -1049,7 +1049,7 @@ function locale_get_display_name(string $locale, ?string $displayLocale): string
  * $in_locale.
  */
 #[Pure]
-function locale_get_display_language(string $locale, ?string $displayLocale): string|false {}
+function locale_get_display_language(string $locale, ?string $displayLocale = null): string|false {}
 
 /**
  * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -1065,7 +1065,7 @@ function locale_get_display_language(string $locale, ?string $displayLocale): st
  * $in_locale.
  */
 #[Pure]
-function locale_get_display_variant(string $locale, ?string $displayLocale): string|false {}
+function locale_get_display_variant(string $locale, ?string $displayLocale = null): string|false {}
 
 /**
  * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -1143,7 +1143,7 @@ function locale_get_all_variants(string $locale): ?array {}
  * @return bool|null <b>TRUE</b> if $locale matches $langtag <b>FALSE</b> otherwise.
  */
 #[Pure]
-function locale_filter_matches(string $languageTag, string $locale, bool $canonicalize): ?bool {}
+function locale_filter_matches(string $languageTag, string $locale, bool $canonicalize = false): ?bool {}
 
 /**
  * Canonicalize the locale string
@@ -1175,7 +1175,7 @@ function locale_canonicalize(string $locale): ?string {}
  * @return string|null The closest matching language tag or default value.
  */
 #[Pure]
-function locale_lookup(array $languageTag, string $locale, bool $canonicalize, ?string $defaultLocale): ?string {}
+function locale_lookup(array $languageTag, string $locale, bool $canonicalize = false, ?string $defaultLocale = null): ?string {}
 
 /**
  * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -3669,7 +3669,7 @@ class Collator
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function sortWithSortKeys(array &$array, $flags = []): bool {}
+    public function sortWithSortKeys(array &$array): bool {}
 
     /**
      * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -3784,7 +3784,7 @@ class Collator
      */
     #[Pure]
     #[TentativeType]
-    public function getSortKey($string, $arg2): string|false {}
+    public function getSortKey($string): string|false {}
 }
 
 class NumberFormatter
@@ -4554,7 +4554,7 @@ class Normalizer
      * @return string|false The normalized string or <b>FALSE</b> if an error occurred.
      */
     #[TentativeType]
-    public static function normalize($string, $form, $arg3): string|false {}
+    public static function normalize($string, $form = Normalizer::FORM_C): string|false {}
 
     /**
      * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -4567,7 +4567,7 @@ class Normalizer
      * @return bool <b>TRUE</b> if normalized, <b>FALSE</b> otherwise or if there an error
      */
     #[TentativeType]
-    public static function isNormalized($string, $form, $arg3): bool {}
+    public static function isNormalized($string, $form = Normalizer::FORM_C): bool {}
 }
 
 class Locale
@@ -4716,7 +4716,7 @@ class Locale
      * $in_locale.
      */
     #[TentativeType]
-    public static function getDisplayScript($locale, $displayLocale): string|false {}
+    public static function getDisplayScript($locale, $displayLocale = null): string|false {}
 
     /**
      * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -4732,7 +4732,7 @@ class Locale
      * $in_locale.
      */
     #[TentativeType]
-    public static function getDisplayRegion($locale, $displayLocale): string|false {}
+    public static function getDisplayRegion($locale, $displayLocale = null): string|false {}
 
     /**
      * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -4745,7 +4745,7 @@ class Locale
      * @return string|false Display name of the locale in the format appropriate for $in_locale.
      */
     #[TentativeType]
-    public static function getDisplayName($locale, $displayLocale): string|false {}
+    public static function getDisplayName($locale, $displayLocale = null): string|false {}
 
     /**
      * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -4761,7 +4761,7 @@ class Locale
      * $in_locale.
      */
     #[TentativeType]
-    public static function getDisplayLanguage($locale, $displayLocale): string|false {}
+    public static function getDisplayLanguage($locale, $displayLocale = null): string|false {}
 
     /**
      * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -4777,7 +4777,7 @@ class Locale
      * $in_locale.
      */
     #[TentativeType]
-    public static function getDisplayVariant($locale, $displayLocale): string|false {}
+    public static function getDisplayVariant($locale, $displayLocale = null): string|false {}
 
     /**
      * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -4855,7 +4855,7 @@ class Locale
      * @return bool <b>TRUE</b> if $locale matches $langtag <b>FALSE</b> otherwise.
      */
     #[TentativeType]
-    public static function filterMatches($languageTag, $locale, $canonicalize): ?bool {}
+    public static function filterMatches($languageTag, $locale, $canonicalize = false): ?bool {}
 
     /**
      * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -4878,7 +4878,7 @@ class Locale
      * @return string The closest matching language tag or default value.
      */
     #[TentativeType]
-    public static function lookup(array $languageTag, $locale, $canonicalize, $defaultLocale): ?string {}
+    public static function lookup(array $languageTag, $locale, $canonicalize = false, $defaultLocale = null): ?string {}
 
     /**
      * @link https://php.net/manual/en/locale.canonicalize.php
@@ -7414,7 +7414,7 @@ class UConverter
      * @since 5.5
      */
     #[TentativeType]
-    public static function getAliases($name = ''): array|false|null {}
+    public static function getAliases($name): array|false|null {}
 
     /**
      * (PHP 5 >=5.5.0)<br/>

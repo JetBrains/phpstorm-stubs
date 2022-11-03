@@ -1508,7 +1508,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param int $flags Flags to control the behaviour of the ArrayObject object.
      * @param string $iteratorClass Specify the class that will be used for iteration of the ArrayObject object. ArrayIterator is the default class used.
      */
-    public function __construct($array = []) {}
+    public function __construct($array = [], $flags = 0, $iteratorClass = 'ArrayIterator') {}
 
     /**
      * Returns whether the requested index exists
@@ -1776,7 +1776,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @param int $flags Flags to control the behaviour of the ArrayObject object.
      * @see ArrayObject::setFlags()
      */
-    public function __construct($array = []) {}
+    public function __construct($array = [], $flags = 0, $iterator_class = null) {}
 
     /**
      * Check if offset exists

@@ -430,5 +430,5 @@ class XMLReader
      * @since 5.1.2
      */
     #[TentativeType]
-    public function expand(): DOMNode|false {}
+    public function expand($baseNode = null): DOMNode|false {}
 }

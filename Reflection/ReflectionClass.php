@@ -304,6 +304,17 @@ class ReflectionClass implements Reflector
     public function getInterfaceNames(): array {}
 
     /**
+     * Checks if the class is anonymous
+     *
+     * @link https://php.net/manual/en/reflectionclass.isanonymous.php
+     * @return bool Returns {@see true} on success or {@see false} on failure.
+     * @since 7.0
+     */
+    #[Pure]
+    #[TentativeType]
+    public function isAnonymous(): bool {}
+
+    /**
      * Checks if the class is an interface
      *
      * @link https://php.net/manual/en/reflectionclass.isinterface.php
@@ -545,7 +556,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getExtension(): ?ReflectionExtension {}
+    public function getExtension() {}
 
     /**
      * Gets the name of the extension which defined the class

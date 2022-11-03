@@ -171,6 +171,22 @@ define('JSON_BIGINT_AS_STRING', 2);
 define('JSON_PRESERVE_ZERO_FRACTION', 1024);
 
 /**
+ * A key starting with \u0000 character was in the string passed to json_decode() when decoding a JSON object into a PHP object.
+ * Available since PHP 7.0.0.
+ * @link https://php.net/manual/en/json.constants.php
+ * @since 7.0
+ */
+define('JSON_ERROR_INVALID_PROPERTY_NAME', 9);
+
+/**
+ * Single unpaired UTF-16 surrogate in unicode escape contained in the JSON string passed to json_encode().
+ * Available since PHP 7.0.0.
+ * @link https://php.net/manual/en/json.constants.php
+ * @since 7.0
+ */
+define('JSON_ERROR_UTF16', 10);
+
+/**
  * (PHP 5 >= 5.2.0, PECL json >= 1.2.0)<br/>
  * Returns the JSON representation of a value
  * @link https://php.net/manual/en/function.json-encode.php
