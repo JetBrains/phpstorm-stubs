@@ -244,6 +244,10 @@ namespace PHPSTORM_META {
     expectedArguments(\mb_decode_numericentity(), 2, argumentsSet('encodings'));
     expectedArguments(\mb_check_encoding(), 1, argumentsSet('encodings'));
     expectedArguments(\mb_regex_encoding(), 0, argumentsSet('encodings'));
+    expectedArguments(\mb_chr(), 1, argumentsSet('encodings'));
+    expectedArguments(\mb_ord(), 1, argumentsSet('encodings'));
+    expectedArguments(\mb_scrub(), 1, argumentsSet('encodings'));
+    expectedArguments(\mb_str_split(), 2, argumentsSet('encodings'));
     expectedArguments(\htmlspecialchars(), 2, argumentsSet('encodings'));
     expectedArguments(\htmlentities(), 2, argumentsSet('encodings'));
     expectedArguments(\html_entity_decode(), 2, argumentsSet('encodings'));
