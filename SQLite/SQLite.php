@@ -1399,11 +1399,3 @@ define('SQLITE_ROW', 100);
  * @link https://php.net/manual/en/sqlite.constants.php
  */
 define('SQLITE_DONE', 101);
-
-/**
- * Specifies that a function created with {@see SQLite3::createFunction()} is deterministic,
- * i.e. it always returns the same result given the same inputs within a single SQL statement.
- * @since 7.1.4
- * @link https://php.net/manual/en/sqlite.constants.php
- */
-define('SQLITE3_DETERMINISTIC', 2048);
