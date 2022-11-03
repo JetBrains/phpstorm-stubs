@@ -1112,7 +1112,7 @@ function date_diff(DateTimeInterface $baseObject, DateTimeInterface $targetObjec
  * @return DateTime <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
-function date_time_set(DateTime $object, int $hour, int $minute, int $second = 0): DateTime {}
+function date_time_set(DateTime $object, int $hour, int $minute, int $second = 0, int $microsecond = 0): DateTime {}
 
 /**
  * Alias:

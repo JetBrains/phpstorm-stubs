@@ -417,7 +417,7 @@ function str_split(string $string, int $length = 1): array|false {}
  * not found.
  */
 #[Pure]
-function strpbrk(string $string, $char_list = ''): string|false {}
+function strpbrk(string $string, string $characters): string|false {}
 
 /**
  * Binary safe comparison of two strings from an offset, up to length characters

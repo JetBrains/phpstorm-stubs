@@ -1510,7 +1510,7 @@ function socket_send($socket, string $data, int $length, int $flags): int|false 
  * (PHP 5 >=5.5.0)<br/>
  * Send a message
  * @link https://secure.php.net/manual/en/function.socket-sendmsg.php
- * @param resource|Socket $socket
+ * @param resource $socket
  * @param array $message
  * @param int $flags
  * @return int|false
@@ -1595,7 +1595,7 @@ function socket_recvfrom($socket, &$data, int $length, int $flags, &$address, &$
 /**
  * Read a message
  * @link https://secure.php.net/manual/en/function.socket-recvmsg.php
- * @param resource|Socket $socket
+ * @param resource $socket
  * @param array &$message
  * @param int $flags
  * @return int|false
@@ -2102,7 +2102,7 @@ function socket_last_error($socket = null): int {}
 /**
  * Clears the error on the socket or the last error code
  * @link https://php.net/manual/en/function.socket-clear-error.php
- * @param resource |null $socket [optional] <p>
+ * @param resource|null $socket [optional] <p>
  * A valid socket resource created with <b>socket_create</b>.
  * </p>
  * @return void No value is returned.

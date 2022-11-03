@@ -519,6 +519,15 @@ class TypeError extends Error {}
 class ParseError extends Error {}
 
 /**
+ * ArgumentCountError is thrown when too few arguments are passed to a user
+ * defined routine.
+ *
+ * @since 7.1
+ * @see https://php.net/migration71.incompatible#migration71.incompatible.too-few-arguments-exception
+ */
+class ArgumentCountError extends TypeError {}
+
+/**
  * ArithmeticError is thrown when an error occurs while performing mathematical operations.
  * In PHP 7.0, these errors include attempting to perform a bitshift by a negative amount,
  * and any call to {@see intdiv()} that would result in a value outside the possible bounds of an integer.
@@ -593,6 +602,13 @@ final class Closure
      * @return Closure|false Returns the newly created Closure object or FALSE on failure
      */
     public static function bind(Closure $closure, ?object $newThis, object|string|null $newScope = 'static'): ?Closure {}
+
+    /**
+     * @param callable $callback
+     * @return Closure
+     * @since 7.1
+     */
+    public static function fromCallable(callable $callback): Closure {}
 
     /**
      * This is for consistency with other classes that implement calling magic,

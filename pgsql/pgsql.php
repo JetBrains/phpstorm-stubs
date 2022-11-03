@@ -331,6 +331,24 @@ define('PGSQL_DML_ASYNC', 1024);
 
 define('PGSQL_DML_STRING', 2048);
 
+/**
+ * @link https://php.net/manual/en/function.pg-last-notice.php
+ * @since 7.1
+ */
+define('PGSQL_NOTICE_LAST', 1);
+
+/**
+ * @link https://php.net/manual/en/function.pg-last-notice.php
+ * @since 7.1
+ */
+define('PGSQL_NOTICE_ALL', 2);
+
+/**
+ * @link https://php.net/manual/en/function.pg-last-notice.php
+ * @since 7.1
+ */
+define('PGSQL_NOTICE_CLEAR', 3);
+
 define('PGSQL_CONNECT_ASYNC', 4);
 
 define('PGSQL_CONNECTION_AUTH_OK', 5);

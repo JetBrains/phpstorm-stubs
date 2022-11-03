@@ -46,7 +46,7 @@ use JetBrains\PhpStorm\Pure;
  * fwrite, fclose, and
  * feof). If the call fails, it will return false
  */
-function fsockopen(string $hostname, int $port, &$error_code, &$error_message, ?float $timeout) {}
+function fsockopen(string $hostname, int $port = -1, &$error_code, &$error_message, ?float $timeout) {}
 
 /**
  * Open persistent Internet or Unix domain socket connection
@@ -59,7 +59,7 @@ function fsockopen(string $hostname, int $port, &$error_code, &$error_message, ?
  * @param float|null $timeout [optional]
  * @return resource|false
  */
-function pfsockopen(string $hostname, int $port, &$error_code, &$error_message, ?float $timeout) {}
+function pfsockopen(string $hostname, int $port = -1, &$error_code, &$error_message, ?float $timeout) {}
 
 /**
  * Pack data into binary string
@@ -182,7 +182,7 @@ function pack(string $format, mixed ...$values): string|false {}
  * string or false if the format string contains errors
  */
 #[Pure]
-function unpack(string $format, string $string): array|false {}
+function unpack(string $format, string $string, int $offset = 0): array|false {}
 
 /**
  * Tells what the user's browser is capable of

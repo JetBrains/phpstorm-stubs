@@ -70,6 +70,13 @@ class PDO
     public const PARAM_BOOL = 5;
 
     /**
+     * Specifies that a function created with PDO::sqliteCreateFunction() is deterministic, i.e. it always returns the same result given the same inputs within a single SQL statement.
+     * @since 7.1.4
+     * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.sqlite-deterministic
+     */
+    public const SQLITE_DETERMINISTIC = 2048;
+
+    /**
      * Specifies that the parameter is an INOUT parameter for a stored
      * procedure. You must bitwise-OR this value with an explicit
      * PDO::PARAM_* data type.
@@ -697,6 +704,16 @@ class PDO
      */
     public const MYSQL_ATTR_MULTI_STATEMENTS = 1013;
 
+    /**
+     * <p>
+     * Disables SSL peer verification when set to FALSE.
+     * </p>
+     * @since 7.0.18
+     * @since 7.1.4
+     * @link https://bugs.php.net/bug.php?id=71003
+     */
+    public const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1014;
+
     #[Deprecated("Use PDO::ATTR_EMULATE_PREPARES instead")]
     public const PGSQL_ASSOC = 1;
 
@@ -1291,7 +1308,7 @@ class PDO
      * with fields message and pid, otherwise <b>FALSE</b>.
      * @since 5.6
      */
-    public function pgsqlGetNotify(int $fetchMode = PDO::FETCH_LAZY, int $timeoutMilliseconds = 0): array|false {}
+    public function pgsqlGetNotify($fetchMode = PDO::FETCH_LAZY, $timeoutMilliseconds = 0) {}
 
     /**
      * (PHP 5 >= 5.6.0, PHP 7, PHP 8)<br/>
@@ -1300,7 +1317,7 @@ class PDO
      * @return int The server's PID.
      * @since 5.6
      */
-    public function pgsqlGetPid(): int {}
+    public function pgsqlGetPid() {}
 }
 
 /**

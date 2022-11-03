@@ -2676,6 +2676,33 @@ function curl_multi_info_read($multi_handle, &$queued_messages): array|false {}
  */
 function curl_multi_close($multi_handle): void {}
 
+/**
+ * Return the last multi curl error number
+ * @param resource $multi_handle
+ * @return int
+ * @since 7.1
+ */
+#[Pure(true)]
+function curl_multi_errno($multi_handle): int {}
+
+/**
+ * Return the last share curl error number
+ * @param resource $share_handle
+ * @return int
+ * @since 7.1
+ */
+#[Pure(true)]
+function curl_share_errno($share_handle): int {}
+
+/**
+ * Return string describing the given error code
+ * @param int $error_code
+ * @return string|null
+ * @since 7.1
+ */
+#[Pure]
+function curl_share_strerror(int $error_code): ?string {}
+
 class CURLFile
 {
     public $name;

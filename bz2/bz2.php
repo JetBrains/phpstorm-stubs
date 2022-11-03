@@ -139,7 +139,7 @@ function bzerror($bz): array {}
  * @return string|int The compressed string, or an error number if an error occurred.
  */
 #[Pure]
-function bzcompress(string $data, int $blocksize, int $work_factor = 0): string|int {}
+function bzcompress(string $data, int $block_size = 4, int $work_factor = 0): string|int {}
 
 /**
  * Decompresses bzip2 encoded data

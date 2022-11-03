@@ -1,8 +1,6 @@
 <?php
 
 namespace {
-    use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-
     /**
      * Creates an array.
      * @link https://php.net/manual/en/function.array.php
@@ -184,8 +182,7 @@ namespace {
          * Returns the yielded key or, if none was specified, an auto-incrementing key or null if the generator is already closed.
          * @return TKey
          */
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: 'string|float|int|bool|null')]
-        public function key() {}
+        public function key(): string|float|int|bool|null {}
 
         /**
          * Resumes the generator (unless the generator is already closed).
@@ -202,10 +199,10 @@ namespace {
 
         /**
          * Throws an exception at the current suspension point in the generator.
-         * @param Exception $exception
+         * @param Throwable $exception
          * @return TYield
          */
-        public function PS_UNRESERVE_PREFIX_throw(Exception $exception): mixed {}
+        public function throw(Throwable $exception): mixed {}
 
         /**
          * Returns whatever was passed to return or null if nothing.
@@ -393,20 +390,5 @@ namespace ___PHPSTORM_HELPERS {
          * @link https://php.net/manual/en/language.oop5.cloning.php
          */
         public function __clone(): void {}
-
-        /**
-         * Returns array containing all the necessary state of the object.
-         * @since 7.4
-         * @link https://wiki.php.net/rfc/custom_object_serialization
-         */
-        public function __serialize(): array {}
-
-        /**
-         * Restores the object state from the given data array.
-         * @param array $data
-         * @since 7.4
-         * @link https://wiki.php.net/rfc/custom_object_serialization
-         */
-        public function __unserialize(array $data): void {}
     }
 }

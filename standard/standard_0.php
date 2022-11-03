@@ -1266,7 +1266,7 @@ function strcspn(string $string, string $characters, int $offset = 0, ?int $leng
  * </p>
  * @return string|false A string token.
  */
-function strtok(string $string, $token): string|false {}
+function strtok(string $string, ?string $token = null): string|false {}
 
 class __PHP_Incomplete_Class
 {

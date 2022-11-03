@@ -6820,6 +6820,28 @@ class IntlTimeZone
     public static function getUnknown(): IntlTimeZone {}
 
     /**
+     * (PHP 7 >=7.1.0)<br/>
+     * Translates a system timezone (e.g. "America/Los_Angeles") into a Windows
+     * timezone (e.g. "Pacific Standard Time").
+     * @link https://secure.php.net/manual/en/intltimezone.getwindowsid.php
+     * @param string $timezoneId
+     * @return string|false the Windows timezone or <b>FALSE</b> on failure
+     * @since 7.1
+     */
+    #[TentativeType]
+    public static function getWindowsID(string $timezoneId): string|false {}
+
+    /**
+     * @link https://www.php.net/manual/en/intltimezone.getidforwindowsid.php
+     * @param string $timezoneId
+     * @param string|null $region
+     * @return string|false the Windows timezone or <b>FALSE</b> on failure
+     * @since 7.1
+     */
+    #[TentativeType]
+    public static function getIDForWindowsID(string $timezoneId, ?string $region = null): string|false {}
+
+    /**
      * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
      * Get a name of this time zone suitable for presentation to the user
      * @param bool $dst [optional]
@@ -7461,7 +7483,7 @@ class UConverter
      * @since 5.5
      */
     #[TentativeType]
-    public static function transcode($str, $toEncoding, $fromEncoding, ?array $options = []): string|false {}
+    public static function transcode($str, $toEncoding, $fromEncoding, $options = []) {}
 
     /**
      * (PHP 5 >=5.5.0)<br/>
