@@ -2512,6 +2512,35 @@ define('CURLFTP_CREATE_DIR_RETRY', 2);
 define('CURLAUTH_NEGOTIATE', 4);
 
 /**
+ * Pass a <em>callable</em> that will be registered to handle server pushes and should have the following signature:
+ *  <b>parent_ch</b>
+ *   The parent cURL handle (the request the client made).
+ *  <b>pushed_ch</b>
+ *   A new cURL handle for the pushed request.
+ *  <b>headers</b>
+ *   The push promise headers.
+ *   The push function is supposed to return either <b>CURL_PUSH_OK</b> if it can handle the push,
+ *   or <b>CURL_PUSH_DENY</b> to reject it.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
+ * @since 7.1
+ */
+define('CURLMOPT_PUSHFUNCTION', 20014);
+
+/**
+ * Returned value from the push function - can handle the push.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
+ * @since 7.1
+ */
+define('CURL_PUSH_OK', 0);
+
+/**
+ * Returned value from the push function - can't handle the push.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
+ * @since 7.1
+ */
+define('CURL_PUSH_DENY', 1);
+
+/**
  * The default buffer size for <b>CURLOPT_BUFFERSIZE</b>
  * @link https://php.net/manual/en/curl.constants.php
  * @since 7.0.7

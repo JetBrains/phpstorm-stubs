@@ -249,6 +249,30 @@ class ReflectionClass implements Reflector
     public function getProperties($filter = null): array {}
 
     /**
+     * Gets a ReflectionClassConstant for a class's property
+     *
+     * @link https://php.net/manual/en/reflectionclass.getreflectionconstant.php
+     * @param string $name The class constant name.
+     * @return ReflectionClassConstant|false A {@see ReflectionClassConstant}.
+     * @since 7.1
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getReflectionConstant(string $name): ReflectionClassConstant|false {}
+
+    /**
+     * Gets class constants
+     *
+     * @link https://php.net/manual/en/reflectionclass.getreflectionconstants.php
+     * @param int|null $filter [optional] allows the filtering of constants defined in a class by their visibility. Since 8.0.
+     * @return ReflectionClassConstant[] An array of ReflectionClassConstant objects.
+     * @since 7.1
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getReflectionConstants(): array {}
+
+    /**
      * Checks if constant is defined
      *
      * @link https://php.net/manual/en/reflectionclass.hasconstant.php
@@ -556,7 +580,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getExtension() {}
+    public function getExtension(): ?ReflectionExtension {}
 
     /**
      * Gets the name of the extension which defined the class

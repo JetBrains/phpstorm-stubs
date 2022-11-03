@@ -1170,7 +1170,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
      * in this map).
      */
     #[TentativeType]
-    public function item($index = 0): ?DOMNode {}
+    public function item($index): ?DOMNode {}
 
     /**
      * Retrieves a node specified by local name and namespace URI

@@ -1195,7 +1195,7 @@ function mysqli_more_results(mysqli $mysql): bool {}
  * @param string $query A string containing the queries to be executed. Multiple queries must be separated by a semicolon.
  * @return bool Returns FALSE if the first statement failed. To retrieve subsequent errors from other statements you have to call mysqli_next_result() first.
  */
-function mysqli_multi_query(mysqli $mysql, string $query): bool {}
+function mysqli_multi_query(mysqli $mysql, string $query = null): bool {}
 
 /**
  * Prepare next result from multi_query
@@ -1313,7 +1313,7 @@ function mysqli_report(int $flags): bool {}
  * For other successful queries mysqli_query() will return TRUE.
  * Returns FALSE on failure.
  */
-function mysqli_query(mysqli $mysql, string $query): mysqli_result|bool {}
+function mysqli_query(mysqli $mysql, string $query, int $result_mode = MYSQLI_STORE_RESULT): mysqli_result|bool {}
 
 /**
  * Opens a connection to a mysql server
@@ -1347,7 +1347,7 @@ function mysqli_real_escape_string(mysqli $mysql, string $string): string {}
  * @param string $query
  * @return bool
  */
-function mysqli_real_query(mysqli $mysql, string $query): bool {}
+function mysqli_real_query(mysqli $mysql, string $query = null): bool {}
 
 /**
  * Get result from async query
@@ -1773,7 +1773,7 @@ function mysqli_client_encoding(mysqli $mysql): string {}
  * @param string $string The string to be escaped
  * @return string
  */
-function mysqli_escape_string(mysqli $mysql, string $string): string {}
+function mysqli_escape_string(mysqli $mysql, string $string, $resultmode = null): string {}
 
 /**
  * Alias for <b>mysqli_stmt_fetch</b>
@@ -2375,7 +2375,7 @@ class mysqli
      * return true.
      */
     #[TentativeType]
-    public function query(string $query): mysqli_result|bool {}
+    public function query(string $query, int $result_mode = MYSQLI_STORE_RESULT): mysqli_result|bool {}
 
     /**
      * Opens a connection to a mysql server

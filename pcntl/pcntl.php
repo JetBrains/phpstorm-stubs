@@ -808,3 +808,31 @@ function pcntl_sigwaitinfo(array $signals, &$info = []): int|false {}
  * @return int|false On success, <b>pcntl_sigtimedwait</b> returns a signal number.
  */
 function pcntl_sigtimedwait(array $signals, &$info = [], int $seconds = 0, int $nanoseconds = 0): int|false {}
+
+/**
+ * Enable/disable asynchronous signal handling or return the old setting.<br>
+ * If the <b>enable</b> parameter is omitted, it returns whether asynchronous
+ * signal handling is enabled.
+ * @link https://www.php.net/manual/en/function.pcntl-async-signals.php
+ *
+ * @param bool|null $enable <p>
+ * Whether asynchronous signal handling should be enabled.
+ * </p>
+ *
+ * @return bool
+ * @since 7.1
+ */
+function pcntl_async_signals(?bool $enable): bool {}
+
+/**
+ * Get the current handler for specified signal.
+ * @link https://www.php.net/manual/en/function.pcntl-signal-get-handler.php
+ *
+ * @param int $signal <p>
+ * The signal number.
+ * </p>
+ *
+ * @return bool|resource
+ * @since 7.1
+ */
+function pcntl_signal_get_handler(int $signal) {}

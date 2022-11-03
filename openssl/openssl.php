@@ -432,7 +432,7 @@ function openssl_x509_free($certificate): void {}
  * yet documented, as it is still subject to change.
  */
 #[ArrayShape(["name" => "string", "subject" => "string", "hash" => "string", "issuer" => "string", "version" => "int", "serialNumber" => "string", "serialNumberHex" => "string", "validFrom" => "string", "validTo" => "string", "validFrom_time_t" => "int", "validTo_time_t" => "int", "alias" => "string", "signatureTypeSN" => "string", "signatureTypeLN" => "string", "signatureTypeNID" => "int", "purposes" => "array", "extensions" => "array"])]
-function openssl_x509_parse($certificate, bool $shortname): array|false {}
+function openssl_x509_parse($certificate, bool $short_names = true): array|false {}
 
 /**
  * Verifies if a certificate can be used for a particular purpose
@@ -494,7 +494,7 @@ function openssl_x509_parse($certificate, bool $shortname): array|false {}
  * @return int|bool true if the certificate can be used for the intended purpose,
  * false if it cannot, or -1 on error.
  */
-function openssl_x509_checkpurpose($certificate, int $purpose, array $ca_info, ?string $untrusted_certificates_file): int|bool {}
+function openssl_x509_checkpurpose($certificate, int $purpose, array $ca_info = [], ?string $untrusted_certificates_file): int|bool {}
 
 /**
  * Checks if a private key corresponds to a certificate
@@ -551,7 +551,7 @@ function openssl_x509_export_to_file($certificate, string $output_filename, bool
  * @return bool true on success or false on failure.
  * @since 5.2.2
  */
-function openssl_pkcs12_export($certificate, &$output, $private_key, string $passphrase, $args): bool {}
+function openssl_pkcs12_export($certificate, &$output, $private_key, string $passphrase, array $options = []): bool {}
 
 /**
  * Exports a PKCS#12 Compatible Certificate Store File
@@ -746,7 +746,7 @@ function openssl_csr_sign($csr, $ca_certificate, $private_key, int $days, ?array
  * @param bool $short_names [optional]
  * @return array|false
  */
-function openssl_csr_get_subject($csr): array|false {}
+function openssl_csr_get_subject($csr, bool $short_names = true): array|false {}
 
 /**
  * Returns the public key of a CERT
@@ -755,7 +755,7 @@ function openssl_csr_get_subject($csr): array|false {}
  * @param bool $short_names [optional]
  * @return OpenSSLAsymmetricKey|resource|false
  */
-function openssl_csr_get_public_key($csr) {}
+function openssl_csr_get_public_key($csr, bool $short_names = true) {}
 
 /**
  * Computes a digest
@@ -799,7 +799,7 @@ function openssl_digest(string $data, string $digest_algo, bool $binary = false)
  * </p>
  * @return string|false the encrypted string on success or false on failure.
  */
-function openssl_encrypt(string $data, string $cipher_algo, string $passphrase, int $options = 0, string $iv = ''): string|false {}
+function openssl_encrypt(string $data, string $cipher_algo, string $passphrase, int $options = 0, string $iv = '', &$tag, string $aad = '', int $tag_length = 16): string|false {}
 
 /**
  * Decrypts data
@@ -827,7 +827,7 @@ function openssl_encrypt(string $data, string $cipher_algo, string $passphrase, 
  * @param string $aad [optional] <p>Additional authentication data.</p>
  * @return string|false The decrypted string on success or false on failure.
  */
-function openssl_decrypt(string $data, string $cipher_algo, string $passphrase, int $options = 0, string $iv = ''): string|false {}
+function openssl_decrypt(string $data, string $cipher_algo, string $passphrase, int $options = 0, string $iv = '', string $tag = null, string $aad = ''): string|false {}
 
 /**
  * (PHP 5 >= PHP 5.3.3)<br/>

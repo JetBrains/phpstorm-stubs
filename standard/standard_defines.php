@@ -1153,6 +1153,13 @@ define('IMAGETYPE_XBM', 16);
  */
 define('IMAGETYPE_ICO', 17);
 
+/**
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
+ * @link https://php.net/manual/en/image.constants.php
+ * @since 7.1
+ */
+define('IMAGETYPE_WEBP', 18);
+
 define('IMAGETYPE_UNKNOWN', 0);
 
 define('IMAGETYPE_COUNT', 20);
@@ -1408,6 +1415,16 @@ define('STREAM_CRYPTO_PROTO_TLSv1_0', 8);
 define('STREAM_CRYPTO_PROTO_TLSv1_1', 16);
 
 define('STREAM_CRYPTO_PROTO_TLSv1_2', 32);
+
+/**
+ * @since 7.1
+ */
+define('MT_RAND_MT19937', 0);
+
+/**
+ * @since 7.1
+ */
+define('MT_RAND_PHP', 1);
 
 /**
  * system is unusable

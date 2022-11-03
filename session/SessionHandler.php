@@ -52,7 +52,7 @@ interface SessionHandlerInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function gc($max_lifetime): bool;
+    public function gc($max_lifetime): int|false;
 
     /**
      * Initialize session

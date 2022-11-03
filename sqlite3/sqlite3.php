@@ -77,6 +77,14 @@ define('SQLITE3_OPEN_READWRITE', 2);
 define('SQLITE3_OPEN_CREATE', 4);
 
 /**
+ * Specifies that a function created with {@see SQLite3::createFunction()} is deterministic,
+ * i.e. it always returns the same result given the same inputs within a single SQL statement.
+ * @since 7.1.4
+ * @link https://php.net/manual/en/sqlite.constants.php
+ */
+define('SQLITE3_DETERMINISTIC', 2048);
+
+/**
  * A class that interfaces SQLite 3 databases.
  * @link https://php.net/manual/en/class.sqlite3.php
  */
@@ -336,7 +344,7 @@ class SQLite3
      * @return bool <b>TRUE</b> upon successful creation of the function, <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function createFunction($name, $callback, $argCount = -1): bool {}
+    public function createFunction($name, $callback, $argCount = -1, int $flags = 0): bool {}
 
     /**
      * Registers a PHP function for use as an SQL aggregate function

@@ -689,7 +689,7 @@ function get_declared_traits(): array {}
  * below).
  */
 #[Pure(true)]
-function get_defined_functions(): array {}
+function get_defined_functions(bool $exclude_disabled = true): array {}
 
 /**
  * Returns an array of all defined variables

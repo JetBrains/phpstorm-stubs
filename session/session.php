@@ -163,6 +163,25 @@ function session_encode(): string {}
 function session_start(array $options = []): bool {}
 
 /**
+ * Create new session id
+ * @link https://www.php.net/manual/en/function.session-create-id.php
+ * @param string $prefix [optional] If prefix is specified, new session id is prefixed by prefix.
+ * Not all characters are allowed within the session id.
+ * Characters in the range a-z A-Z 0-9 , (comma) and - (minus) are allowed.
+ * @return string|false new collision free session id for the current session.
+ * If it is used without active session, it omits collision check.
+ * @since 7.1
+ */
+function session_create_id(string $prefix = ''): string {}
+
+/**
+ * Perform session data garbage collection
+ * @return int|false number of deleted session data for success, false for failure.
+ * @since 7.1
+ */
+function session_gc(): int {}
+
+/**
  * Destroys all data registered to a session
  * @link https://php.net/manual/en/function.session-destroy.php
  * @return bool true on success or false on failure.

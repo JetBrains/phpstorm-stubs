@@ -218,7 +218,7 @@ class DateTimeImmutable implements DateTimeInterface
      * @since 5.5
      */
     #[TentativeType]
-    public function setTime($hour, $minute, $second = 0): DateTimeImmutable {}
+    public function setTime($hour, $minute, $second = 0, $microsecond = 0): DateTimeImmutable {}
 
     /**
      * (PHP 5 >=5.5.0)<br/>
@@ -542,7 +542,7 @@ class DateTime implements DateTimeInterface
      * @link https://php.net/manual/en/datetime.settime.php
      */
     #[TentativeType]
-    public function setTime($hour, $minute, $second = 0): DateTime {}
+    public function setTime($hour, $minute, $second = 0, $microsecond = 0): DateTime {}
 
     /**
      * Sets the current date of the DateTime object to a different date.

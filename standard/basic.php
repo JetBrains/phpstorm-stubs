@@ -130,6 +130,16 @@ function cli_set_process_title(string $title): bool {}
 function cli_get_process_title(): ?string {}
 
 /**
+ * Verify that the contents of a variable is accepted by the iterable pseudo-type, i.e. that it is an array or an object implementing Traversable
+ * @param mixed $value
+ * @return bool
+ * @since 7.1
+ * @link https://php.net/manual/en/function.is-iterable.php
+ */
+#[Pure]
+function is_iterable(mixed $value): bool {}
+
+/**
  * Encodes an ISO-8859-1 string to UTF-8
  * @link https://php.net/manual/en/function.utf8-encode.php
  * @param string $string <p>
@@ -163,3 +173,44 @@ function utf8_decode(string $string): string {}
  * @since 7.0
  */
 function error_clear_last(): void {}
+
+/**
+ * Get process codepage
+ * @link https://php.net/manual/en/function.sapi-windows-cp-get
+ * @param string $kind The kind of operating system codepage to get, either 'ansi' or 'oem'. Any other value refers to the current codepage of the process.
+ * @return int <p>
+ * If <i>kind</i> is 'ansi', the current ANSI code page of the operating system is returned.
+ * If <i>kind</i> is 'oem', the current OEM code page of the operating system is returned.
+ * Otherwise, the current codepage of the process is returned.
+ * </p>
+ * @since 7.1
+ */
+function sapi_windows_cp_get(string $kind = ''): int {}
+
+/**
+ * Set process codepage
+ * @link https://php.net/manual/en/function.sapi-windows-cp-set
+ * @param int $codepage A codepage identifier.
+ * @return bool Returns <i>true</i> on success or <i>false</i> on failure.
+ * @since 7.1
+ */
+function sapi_windows_cp_set(int $codepage): bool {}
+
+/**
+ * Convert string from one codepage to another
+ * @link https://php.net/manual/en/function.sapi-windows-cp-conv.php
+ * @param int|string $in_codepage The codepage of the <i>subject</i> string. Either the codepage name or identifier.
+ * @param int|string $out_codepage The codepage to convert the <i>subject</i> string to. Either the codepage name or identifier.
+ * @param string $subject The string to convert.
+ * @return string|null The <i>subject</i> string converted to <i>out_codepage</i>, or <b>null</b> on failure.
+ * @since 7.1
+ */
+function sapi_windows_cp_conv(int|string $in_codepage, int|string $out_codepage, string $subject): ?string {}
+
+/**
+ * Indicates whether the codepage is utf-8 compatible
+ * @link https://www.php.net/manual/en/function.sapi-windows-cp-is-utf8.php
+ * @return bool
+ * @since 7.1
+ */
+function sapi_windows_cp_is_utf8(): bool {}

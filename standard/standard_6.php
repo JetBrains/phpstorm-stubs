@@ -1010,7 +1010,7 @@ function stream_is_local($stream): bool {}
  * failure.
  */
 #[Pure(true)]
-function get_headers(string $url, int $associative = false): array|false {}
+function get_headers(string $url, int $associative = false, $context = null): array|false {}
 
 /**
  * Set timeout period on a stream

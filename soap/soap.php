@@ -604,7 +604,7 @@ class SoapClient
      * @since 5.0.1
      */
     #[TentativeType]
-    public function __doRequest($request, $location, $action, $version, int $oneWay = false): ?string {}
+    public function __doRequest($request, $location, $action, $version, $oneWay = false) {}
 
     /**
      * The __setCookie purpose
@@ -619,7 +619,7 @@ class SoapClient
      * @since 5.0.4
      */
     #[TentativeType]
-    public function __setCookie($name, string $value): void {}
+    public function __setCookie($name, $value) {}
 
     /**
      * Sets the location of the Web service to use
@@ -713,7 +713,7 @@ class SoapVar
      * </p>
      * @since 5.0.1
      */
-    public function __construct($data, int $encoding, string $typeName, $typeNamespace = '', $nodeName = '', $nodeNamespace = '') {}
+    public function __construct($data, $encoding, $typeName, $typeNamespace = '', $nodeName = '', $nodeNamespace = '') {}
 
     /**
      * SoapVar constructor
