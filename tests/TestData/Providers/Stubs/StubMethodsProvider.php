@@ -97,7 +97,10 @@ class StubMethodsProvider
     private static function getFilterFunctionForLanguageLevel(float $languageVersion): callable
     {
         return fn (PHPClass|PHPInterface $class, PHPMethod $method, ?float $firstSinceVersion) => !$method->isFinal &&
-            !$class->isFinal && $firstSinceVersion !== null && $firstSinceVersion < $languageVersion && !$method->isReturnTypeTentative;
+            !$class->isFinal && $firstSinceVersion !== null &&
+            $firstSinceVersion < $languageVersion &&
+            !$method->isReturnTypeTentative &&
+            (float)getenv('PHP_VERSION') < $languageVersion;
     }
 
     /**
