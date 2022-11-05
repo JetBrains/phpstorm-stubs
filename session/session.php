@@ -191,9 +191,9 @@ function session_destroy(): bool {}
 /**
  * Free all session variables
  * @link https://php.net/manual/en/function.session-unset.php
- * @return void|bool since 7.2.0 returns true on success or false on failure.
+ * @return bool since 7.2.0 returns true on success or false on failure.
  */
-function session_unset(): void {}
+function session_unset(): bool {}
 
 /**
  * Sets user-level session storage functions
@@ -358,9 +358,9 @@ function session_cache_expire(int $value): int {}
  * httponly
  * flag when setting the session cookie.
  * </p>
- * @return void
+ * @return bool since 7.2.0 returns true on success or false on failure.
  */
-function session_set_cookie_params(int $lifetime_or_options, ?string $path = null, ?string $domain = null, ?bool $secure = null, ?bool $httponly = null): void {}
+function session_set_cookie_params(int $lifetime_or_options, ?string $path = null, ?string $domain = null, ?bool $secure = null, ?bool $httponly = null): bool {}
 
 /**
  * Get the session cookie parameters
@@ -384,16 +384,16 @@ function session_get_cookie_params(): array {}
 /**
  * Write session data and end session
  * @link https://php.net/manual/en/function.session-write-close.php
- * @return void|bool since 7.2.0 returns true on success or false on failure.
+ * @return bool since 7.2.0 returns true on success or false on failure.
  */
-function session_write_close(): void {}
+function session_write_close(): bool {}
 
 /**
  * Alias of <b>session_write_close</b>
  * @link https://php.net/manual/en/function.session-commit.php
- * @return void|bool since 7.2.0 returns true on success or false on failure.
+ * @return bool since 7.2.0 returns true on success or false on failure.
  */
-function session_commit(): void {}
+function session_commit(): bool {}
 
 /**
  * (PHP 5 >= 5.4.0)<br>
@@ -410,16 +410,16 @@ function session_status(): int {}
  * (PHP 5 >= 5.6.0)<br>
  * Discard session array changes and finish session
  * @link https://php.net/manual/en/function.session-abort.php
- * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
+ * @return bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
  * @since 5.6
  */
-function session_abort(): void {}
+function session_abort(): bool {}
 
 /**
  * (PHP 5 >= 5.6.0)<br>
  * Re-initialize session array with original values
  * @link https://php.net/manual/en/function.session-reset.php
- * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
+ * @return bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
  * @since 5.6
  */
-function session_reset(): void {}
+function session_reset(): bool {}

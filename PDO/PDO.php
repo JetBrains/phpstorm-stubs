@@ -70,6 +70,27 @@ class PDO
     public const PARAM_BOOL = 5;
 
     /**
+     * Flag to denote a string uses the national character set.
+     * @since 7.2
+     * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-str-natl
+     */
+    public const PARAM_STR_NATL = 1073741824;
+
+    /**
+     * Flag to denote a string uses the regular character set.
+     * @since 7.2
+     * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-str-char
+     */
+    public const PARAM_STR_CHAR = 536870912;
+
+    /**
+     * Sets the default string parameter type, this can be one of PDO::PARAM_STR_NATL and PDO::PARAM_STR_CHAR.
+     * @since 7.2
+     * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.attr-default-str-param
+     */
+    public const ATTR_DEFAULT_STR_PARAM = 21;
+
+    /**
      * Specifies that a function created with PDO::sqliteCreateFunction() is deterministic, i.e. it always returns the same result given the same inputs within a single SQL statement.
      * @since 7.1.4
      * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.sqlite-deterministic
@@ -1308,7 +1329,7 @@ class PDO
      * with fields message and pid, otherwise <b>FALSE</b>.
      * @since 5.6
      */
-    public function pgsqlGetNotify($fetchMode = PDO::FETCH_LAZY, $timeoutMilliseconds = 0) {}
+    public function pgsqlGetNotify(int $fetchMode = PDO::FETCH_LAZY, int $timeoutMilliseconds = 0) {}
 
     /**
      * (PHP 5 >= 5.6.0, PHP 7, PHP 8)<br/>
@@ -1317,7 +1338,7 @@ class PDO
      * @return int The server's PID.
      * @since 5.6
      */
-    public function pgsqlGetPid() {}
+    public function pgsqlGetPid(): int {}
 }
 
 /**

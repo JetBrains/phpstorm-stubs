@@ -11,6 +11,74 @@ use JetBrains\PhpStorm\Pure;
 interface DateTimeInterface
 {
     /**
+     * @since 7.2
+     */
+    public const ATOM = 'Y-m-d\TH:i:sP';
+
+    /**
+     * @since 7.2
+     */
+    public const COOKIE = 'l, d-M-Y H:i:s T';
+
+    /**
+     * This format is not compatible with ISO-8601, but is left this way for backward compatibility reasons.
+     * Use DateTime::ATOM or DATE_ATOM for compatibility with ISO-8601 instead.
+     * @since 7.2
+     * @deprecated
+     */
+    public const ISO8601 = 'Y-m-d\TH:i:sO';
+
+    /**
+     * @since 7.2
+     */
+    public const RFC822 = 'D, d M y H:i:s O';
+
+    /**
+     * @since 7.2
+     */
+    public const RFC850 = 'l, d-M-y H:i:s T';
+
+    /**
+     * @since 7.2
+     */
+    public const RFC1036 = 'D, d M y H:i:s O';
+
+    /**
+     * @since 7.2
+     */
+    public const RFC1123 = 'D, d M Y H:i:s O';
+
+    /**
+     * @since 7.2
+     */
+    public const RFC2822 = 'D, d M Y H:i:s O';
+
+    /**
+     * @since 7.2
+     */
+    public const RFC3339 = 'Y-m-d\TH:i:sP';
+
+    /**
+     * @since 7.2
+     */
+    public const RFC3339_EXTENDED = 'Y-m-d\TH:i:s.vP';
+
+    /**
+     * @since 7.2
+     */
+    public const RFC7231 = 'D, d M Y H:i:s \G\M\T';
+
+    /**
+     * @since 7.2
+     */
+    public const RSS = 'D, d M Y H:i:s O';
+
+    /**
+     * @since 7.2
+     */
+    public const W3C = 'Y-m-d\TH:i:sP';
+
+    /**
      * (PHP 5 >=5.5.0)<br/>
      * Returns the difference between two DateTime objects
      * @link https://secure.php.net/manual/en/datetime.diff.php
@@ -896,4 +964,13 @@ class DatePeriod implements IteratorAggregate
 
     #[TentativeType]
     public function __wakeup(): void {}
+
+    /**
+     * Get the number of recurrences
+     * @return int|null
+     * @link https://php.net/manual/en/dateperiod.getrecurrences.php
+     * @since 7.2.17
+     */
+    #[TentativeType]
+    public function getRecurrences(): ?int {}
 }

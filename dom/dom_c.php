@@ -1128,6 +1128,13 @@ class DOMNodeList implements IteratorAggregate, Countable
      * index.
      */
     public function item($index) {}
+
+    /**
+     * @return int<0, max>
+     * @since 7.2
+     */
+    #[TentativeType]
+    public function count(): int {}
 }
 
 /**
@@ -1197,6 +1204,13 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
      * @param $localName [optional]
      */
     public function removeNamedItemNS($namespace, $localName) {}
+
+    /**
+     * @return int<0,max>
+     * @since 7.2
+     */
+    #[TentativeType]
+    public function count(): int {}
 }
 
 /**
