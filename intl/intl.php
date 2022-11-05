@@ -7461,7 +7461,7 @@ class UConverter
      * @since 5.5
      */
     #[TentativeType]
-    public static function transcode($str, $toEncoding, $fromEncoding, $options = []): string|false {}
+    public static function transcode($str, $toEncoding, $fromEncoding, $options = []) {}
 
     /**
      * (PHP 5 >=5.5.0)<br/>
