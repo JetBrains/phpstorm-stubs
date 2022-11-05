@@ -1776,7 +1776,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @param int $flags Flags to control the behaviour of the ArrayObject object.
      * @see ArrayObject::setFlags()
      */
-    public function __construct($array = [], $flags = 0, $iterator_class = null) {}
+    public function __construct($array = [], $flags = 0) {}
 
     /**
      * Check if offset exists

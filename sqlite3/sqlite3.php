@@ -401,7 +401,7 @@ class SQLite3
      * <p>Either <b>SQLITE3_OPEN_READONLY</b> or <b>SQLITE3_OPEN_READWRITE</b> to open the stream for reading only, or for reading and writing, respectively.</p>
      * @return resource|false Returns a stream resource, or FALSE on failure.
      */
-    public function openBlob($table, $column, $rowid, $database = 'main') {}
+    public function openBlob($table, $column, $rowid, $database = 'main', int $flags = SQLITE3_OPEN_READONLY) {}
 
     /**
      * Enable throwing exceptions

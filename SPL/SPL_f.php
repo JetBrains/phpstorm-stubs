@@ -186,3 +186,11 @@ function iterator_apply(Traversable $iterator, callable $callback, ?array $args)
  * @since 5.4
  */
 function class_uses($object_or_class, bool $autoload = true): array|false {}
+
+/**
+ * return the integer object handle for given object
+ * @param object $object
+ * @return int
+ * @since 7.2
+ */
+function spl_object_id(object $object): int {}

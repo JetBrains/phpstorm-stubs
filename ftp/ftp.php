@@ -78,6 +78,26 @@ define('FTP_FINISHED', 1);
 define('FTP_MOREDATA', 2);
 
 /**
+ * append the contents of a file to another file on the ftp server
+ * @param resource $ftp
+ * @param string $remote_filename
+ * @param string $local_filename
+ * @param int $mode Optional since PHP 7.3
+ * @return bool
+ * @since 7.2
+ */
+function ftp_append($ftp, string $remote_filename, string $local_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode): bool {}
+
+/**
+ * returns a list of files in the given directory
+ * @param resource $ftp
+ * @param string $directory
+ * @return array|false
+ * @since 7.2
+ */
+function ftp_mlsd($ftp, string $directory): array|false {}
+
+/**
  * Opens an FTP connection
  * @link https://php.net/manual/en/function.ftp-connect.php
  * @param string $hostname <p>

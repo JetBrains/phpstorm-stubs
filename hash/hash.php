@@ -199,7 +199,7 @@ function hash_hmac_file(string $algo, string $filename, string $key, bool $binar
  * and <b>hash_final</b>.
  */
 #[Pure]
-function hash_init(string $algo, int $flags = 0, string $key = '') {}
+function hash_init(string $algo, int $flags = 0, string $key = ''): HashContext {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL hash >= 1.1)<br/>
@@ -213,7 +213,7 @@ function hash_init(string $algo, int $flags = 0, string $key = '') {}
  * </p>
  * @return bool <b>TRUE</b>.
  */
-function hash_update($context, string $data): bool {}
+function hash_update(HashContext $context, string $data): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL hash >= 1.1)<br/>
@@ -231,7 +231,7 @@ function hash_update($context, string $data): bool {}
  * </p>
  * @return int Actual number of bytes added to the hashing context from <i>handle</i>.
  */
-function hash_update_stream($context, $stream, int $length = -1): int {}
+function hash_update_stream(HashContext $context, $stream, int $length = -1): int {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL hash >= 1.1)<br/>
@@ -248,7 +248,7 @@ function hash_update_stream($context, $stream, int $length = -1): int {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function hash_update_file($context, string $filename, $stream_context): bool {}
+function hash_update_file(HashContext $context, string $filename, $stream_context): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL hash >= 1.1)<br/>
@@ -265,7 +265,7 @@ function hash_update_file($context, string $filename, $stream_context): bool {}
  * unless <i>raw_output</i> is set to true in which case the raw
  * binary representation of the message digest is returned.
  */
-function hash_final($context, bool $binary = false): string {}
+function hash_final(HashContext $context, bool $binary = false): string {}
 
 /**
  * Copy hashing context
@@ -276,7 +276,7 @@ function hash_final($context, bool $binary = false): string {}
  * @return HashContext|resource a copy of Hashing Context resource.
  */
 #[Pure]
-function hash_copy($context) {}
+function hash_copy(HashContext $context): HashContext {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL hash >= 1.1)<br/>
@@ -310,6 +310,15 @@ function hash_algos(): array {}
  */
 #[Pure]
 function hash_hkdf(string $algo, string $key, int $length = 0, string $info = '', string $salt = ''): string|false {}
+
+/**
+ * Return a list of registered hashing algorithms suitable for hash_hmac
+ * @return string[] Returns a numerically indexed array containing the list of supported hashing algorithms suitable for {@see hash_hmac()}.
+ * @since 7.2
+ * Return a list of registered hashing algorithms suitable for hash_hmac
+ */
+#[Pure]
+function hash_hmac_algos(): array {}
 
 /**
  * Generate a PBKDF2 key derivation of a supplied password
@@ -430,3 +439,18 @@ function mhash_count(): int {}
 #[Pure]
 #[Deprecated(since: "8.1")]
 function mhash(int $algo, string $data, ?string $key): string|false {}
+
+/**
+ * @since 7.2
+ */
+final class HashContext
+{
+    private function __construct() {}
+
+    public function __serialize(): array {}
+
+    /**
+     * @param array $data
+     */
+    public function __unserialize($data): void {}
+}

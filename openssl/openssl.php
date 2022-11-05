@@ -951,7 +951,7 @@ function openssl_pbkdf2(string $password, string $salt, int $key_length, int $it
  * (the message has been tampered with, or the signing certificate is invalid),
  * or -1 on error.
  */
-function openssl_pkcs7_verify(string $input_filename, int $flags, ?string $signers_certificates_filename, array $ca_info = [], ?string $untrusted_certificates_filename, ?string $content): int|bool {}
+function openssl_pkcs7_verify(string $input_filename, int $flags, ?string $signers_certificates_filename, array $ca_info = [], ?string $untrusted_certificates_filename, ?string $content, ?string $output_filename): int|bool {}
 
 /**
  * Decrypts an S/MIME encrypted message
@@ -1167,3 +1167,11 @@ function openssl_error_string(): string|false {}
 function openssl_get_cert_locations(): array {}
 
 function openssl_get_curve_names(): array|false {}
+
+/**
+ * @param string $data
+ * @param array &$certificates
+ * @return bool
+ * @since 7.2
+ */
+function openssl_pkcs7_read(string $data, &$certificates): bool {}

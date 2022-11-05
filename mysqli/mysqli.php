@@ -1037,7 +1037,7 @@ function mysqli_get_charset(mysqli $mysql): ?object {}
  * @param mysqli|null $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string|null A string that represents the MySQL client library version
  */
-function mysqli_get_client_info(mysqli $mysql): ?string {}
+function mysqli_get_client_info(): ?string {}
 
 /**
  * Returns the MySQL client version as an integer

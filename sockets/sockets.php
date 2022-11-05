@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\ArrayShape;
+
 define('AF_UNIX', 1);
 
 define('AF_INET', 2);
@@ -873,6 +875,62 @@ define('AI_V4MAPPED', 8);
 define('AI_ALL', 16);
 
 /**
+ * (PHP 7 >= 7.2.0)<br/>
+ * Get array with contents of getaddrinfo about the given hostname.
+ * @link https://www.php.net/manual/en/function.socket-addrinfo-lookup.php
+ * @param string $host <p>
+ * Hostname to search.
+ * </p>
+ * @param string $service [optional] <p>
+ * The service to connect to. If service is a name, it is translated to the corresponding port number.
+ * </p>
+ * @param array $hints <p>
+ * Hints provide criteria for selecting addresses returned. You may specify the hints as defined by getadrinfo.
+ * </p>
+ * @return AddressInfo[]|false of AddrInfo resource handles that can be used with the other socket_addrinfo functions.
+ * @since 7.2
+ */
+function socket_addrinfo_lookup(string $host, ?string $service, array $hints = []): array|false {}
+
+/**
+ * Create a Socket resource, and connect it to the provided AddrInfo resource.<br/>
+ * The return value of this function may be used with the rest of the socket functions.
+ * @link https://www.php.net/manual/en/function.socket-addrinfo-connect.php
+ * @param resource|AddressInfo $address <p>
+ * Resource created from {@see socket_addrinfo_lookup()}
+ * </p>
+ * @return resource|null|false Socket resource on success or NULL on failure.
+ * @since 7.2
+ */
+function socket_addrinfo_connect(AddressInfo $address) {}
+
+/**
+ * (PHP 7 >= 7.2.0)<br/>
+ * Create a Socket resource, and bind it to the provided AddrInfo resource.<br/>
+ * The return value of this function may be used with {@see socket_listen()}.
+ * @link https://www.php.net/manual/en/function.socket-addrinfo-bind.php
+ * @param resource|AddressInfo $address <p>
+ * Resource created from {@see socket_addrinfo_lookup()}
+ * </p>
+ * @return resource|null|false Socket resource on success or NULL on failure.
+ * @since 7.2
+ */
+function socket_addrinfo_bind(AddressInfo $address) {}
+
+/**
+ * (PHP 7 >= 7.2.0)<br/>
+ * Get information about addrinfo
+ * @link https://www.php.net/manual/en/function.socket-addrinfo-explain.php
+ * @param resource|AddressInfo $address <p>
+ * Resource created from {@see socket_addrinfo_lookup()}
+ * </p>
+ * @return array containing the fields in the addrinfo structure.
+ * @since 7.2
+ */
+#[ArrayShape(["ai_flags" => "int", "ai_family" => "int", "ai_socktype" => "int", "ai_protocol" => "int", "ai_canonname" => "string", "ai_addr" => ["sin_port" => "int", "sin_addr" => "string", "sin6_port" => "int", "sin6_addr" => "string"]])]
+function socket_addrinfo_explain(AddressInfo $address): array {}
+
+/**
  * Runs the select() system call on the given arrays of sockets with a specified timeout
  * @link https://php.net/manual/en/function.socket-select.php
  * @param array|null &$read <p>
@@ -1226,7 +1284,7 @@ function socket_write($socket, string $data, ?int $length = null): int|false {}
 /**
  * Reads a maximum of length bytes from a socket
  * @link https://php.net/manual/en/function.socket-read.php
- * @param resource  $socket <p>
+ * @param resource $socket <p>
  * A valid socket resource created with <b>socket_create</b>
  * or <b>socket_accept</b>.
  * </p>
@@ -1257,7 +1315,7 @@ function socket_read($socket, int $length, int $mode = PHP_BINARY_READ): string|
 /**
  * Queries the local side of the given socket which may either result in host/port or in a Unix filesystem path, dependent on its type
  * @link https://php.net/manual/en/function.socket-getsockname.php
- * @param resource  $socket <p>
+ * @param resource $socket <p>
  * A valid socket resource created with <b>socket_create</b>
  * or <b>socket_accept</b>.
  * </p>
@@ -1288,7 +1346,7 @@ function socket_getsockname($socket, &$address, &$port = null): bool {}
 /**
  * Queries the remote side of the given socket which may either result in host/port or in a Unix filesystem path, dependent on its type
  * @link https://php.net/manual/en/function.socket-getpeername.php
- * @param resource  $socket <p>
+ * @param resource $socket <p>
  * A valid socket resource created with <b>socket_create</b>
  * or <b>socket_accept</b>.
  * </p>
@@ -1321,7 +1379,7 @@ function socket_getpeername($socket, &$address, &$port = null): bool {}
 /**
  * Initiates a connection on a socket
  * @link https://php.net/manual/en/function.socket-connect.php
- * @param resource  $socket
+ * @param resource $socket
  * @param string $address <p>
  * The <i>address</i> parameter is either an IPv4 address
  * in dotted-quad notation (e.g. 127.0.0.1) if
@@ -1363,7 +1421,7 @@ function socket_strerror(int $error_code): string {}
 /**
  * Binds a name to a socket
  * @link https://php.net/manual/en/function.socket-bind.php
- * @param resource  $socket <p>
+ * @param resource $socket <p>
  * A valid socket resource created with <b>socket_create</b>.
  * </p>
  * @param string $address <p>
@@ -1393,7 +1451,7 @@ function socket_bind($socket, string $address, int $port = 0): bool {}
 /**
  * Receives data from a connected socket
  * @link https://php.net/manual/en/function.socket-recv.php
- * @param resource  $socket <p>
+ * @param resource $socket <p>
  * The <i>socket</i> must be a socket resource previously
  * created by socket_create().
  * </p>
@@ -1457,7 +1515,7 @@ function socket_recv($socket, &$data, int $length, int $flags): int|false {}
 /**
  * Sends data to a connected socket
  * @link https://php.net/manual/en/function.socket-send.php
- * @param resource  $socket <p>
+ * @param resource $socket <p>
  * A valid socket resource created with <b>socket_create</b>
  * or <b>socket_accept</b>.
  * </p>
@@ -1521,7 +1579,7 @@ function socket_sendmsg($socket, array $message, int $flags): int|false {}
 /**
  * Receives data from a socket whether or not it is connection-oriented
  * @link https://php.net/manual/en/function.socket-recvfrom.php
- * @param resource  $socket <p>
+ * @param resource $socket <p>
  * The <i>socket</i> must be a socket resource previously
  * created by socket_create().
  * </p>
@@ -1606,7 +1664,7 @@ function socket_recvmsg($socket, array &$message, int $flags): int|false {}
 /**
  * Sends a message to a socket, whether it is connected or not
  * @link https://php.net/manual/en/function.socket-sendto.php
- * @param resource  $socket <p>
+ * @param resource $socket <p>
  * A valid socket resource created using <b>socket_create</b>.
  * </p>
  * @param string $data <p>
@@ -1665,7 +1723,7 @@ function socket_sendto($socket, string $data, int $length, int $flags, string $a
 /**
  * Gets socket options for the socket
  * @link https://php.net/manual/en/function.socket-get-option.php
- * @param resource  $socket <p>
+ * @param resource $socket <p>
  * A valid socket resource created with <b>socket_create</b>
  * or <b>socket_accept</b>.
  * </p>
@@ -2031,7 +2089,7 @@ function socket_get_option($socket, int $level, int $option): array|int|false {}
 /**
  * Sets socket options for the socket
  * @link https://php.net/manual/en/function.socket-set-option.php
- * @param resource  $socket <p>
+ * @param resource $socket <p>
  * A valid socket resource created with <b>socket_create</b>
  * or <b>socket_accept</b>.
  * </p>
@@ -2058,7 +2116,7 @@ function socket_set_option($socket, int $level, int $option, $value): bool {}
 /**
  * Shuts down a socket for receiving, sending, or both
  * @link https://php.net/manual/en/function.socket-shutdown.php
- * @param resource  $socket <p>
+ * @param resource $socket <p>
  * A valid socket resource created with <b>socket_create</b>.
  * </p>
  * @param int $mode [optional] <p>
@@ -2092,7 +2150,7 @@ function socket_shutdown($socket, int $mode = 2): bool {}
 /**
  * Returns the last error on the socket
  * @link https://php.net/manual/en/function.socket-last-error.php
- * @param resource  $socket [optional] <p>
+ * @param resource $socket [optional] <p>
  * A valid socket resource created with <b>socket_create</b>.
  * </p>
  * @return int This function returns a socket error code.

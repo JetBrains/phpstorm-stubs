@@ -889,6 +889,16 @@ function str_rot13(string $string): string {}
 function stream_get_filters(): array {}
 
 /**
+ * Check if a stream is a TTY
+ * @link https://php.net/manual/en/function.stream-isatty.php
+ * @param resource $stream
+ * @return bool
+ * @since 7.2
+ */
+#[Pure]
+function stream_isatty($stream): bool {}
+
+/**
  * Register a user defined stream filter
  * @link https://php.net/manual/en/function.stream-filter-register.php
  * @param string $filter_name <p>

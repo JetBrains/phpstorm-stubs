@@ -849,7 +849,7 @@ function mb_encode_numericentity(string $string, array $map, ?string $encoding =
  * @return string|false|null The converted string.
  */
 #[Pure]
-function mb_decode_numericentity(string $string, array $map, ?string $encoding = null): string|false|null {}
+function mb_decode_numericentity(string $string, array $map, ?string $encoding = null, $is_hex = false): string|false|null {}
 
 /**
  * Send encoded mail
@@ -1321,6 +1321,39 @@ function mbereg_search_getregs() {}
  */
 #[Deprecated(replacement: "mb_ereg_search_getpos()", since: "7.3")]
 function mbereg_search_getpos() {}
+
+/**
+ * Get a specific character.
+ * @link https://www.php.net/manual/en/function.mb-chr.php
+ * @param int $codepoint
+ * @param string|null $encoding [optional]
+ * @return string|false specific character or FALSE on failure.
+ * @since 7.2
+ */
+#[Pure]
+function mb_chr(int $codepoint, ?string $encoding): string|false {}
+
+/**
+ * Get code point of character
+ * @link https://www.php.net/manual/en/function.mb-ord.php
+ * @param string $string
+ * @param string|null $encoding [optional]
+ * @return int|false code point of character or FALSE on failure.
+ * @since 7.2
+ */
+#[Pure]
+function mb_ord(string $string, ?string $encoding): int|false {}
+
+/**
+ * Scrub broken multibyte strings.
+ * @link https://www.php.net/manual/en/function.mb-scrub.php
+ * @param string $string
+ * @param string|null $encoding [optional]
+ * @return string|false
+ * @since 7.2
+ */
+#[Pure]
+function mb_scrub(string $string, ?string $encoding): string|false {}
 
 /**
  * @param $position

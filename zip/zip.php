@@ -436,6 +436,34 @@ class ZipArchive implements Countable
     public const ER_DELETED = 23;
 
     /**
+     * No encryption
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.2
+     */
+    public const EM_NONE = 0;
+
+    /**
+     * AES 128 encryption
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.2
+     */
+    public const EM_AES_128 = 257;
+
+    /**
+     * AES 192 encryption
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.2
+     */
+    public const EM_AES_192 = 258;
+
+    /**
+     * AES 256 encryption
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.2
+     */
+    public const EM_AES_256 = 259;
+
+    /**
      * Guess string encoding (is default)
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.0.8
@@ -727,6 +755,15 @@ class ZipArchive implements Countable
     public function close() {}
 
     /**
+     * (PHP 7 >= 7.2.0, PECL zip >= 1.15.0)<br/>
+     * Counts the number of files in the archive.
+     * @link https://www.php.net/manual/en/ziparchive.count.php
+     * @return int
+     * @since 7.2
+     */
+    public function count() {}
+
+    /**
      * Returns the status error message, system and/or zip messages
      * @link https://php.net/manual/en/ziparchive.getstatusstring.php
      * @return string|false a string with the status message on success or <b>FALSE</b> on failure.
@@ -926,6 +963,28 @@ class ZipArchive implements Countable
      * @since 7.0
      */
     public function setCompressionName(string $name, int $method, int $compflags = 0) {}
+
+    /**
+     * Set the encryption method of an entry defined by its index
+     * @link https://php.net/manual/en/ziparchive.setencryptionindex.php
+     * @param int $index Index of the entry.
+     * @param int $method The encryption method defined by one of the ZipArchive::EM_ constants.
+     * @param string|null $password [optional] Optional password, default used when missing.
+     * @return bool Returns TRUE on success or FALSE on failure.
+     * @since 7.2
+     */
+    public function setEncryptionIndex(int $index, int $method, ?string $password = null) {}
+
+    /**
+     * Set the encryption method of an entry defined by its name
+     * @link https://php.net/manual/en/ziparchive.setencryptionname.php
+     * @param string $name Name of the entry.
+     * @param int $method The encryption method defined by one of the ZipArchive::EM_ constants.
+     * @param string|null $password [optional] Optional password, default used when missing.
+     * @return bool Returns TRUE on success or FALSE on failure.
+     * @since 7.2
+     */
+    public function setEncryptionName(string $name, int $method, ?string $password = null) {}
 
     /**
      * (PHP 5 >= 5.6.0, PECL zip >= 1.12.0)<br/>

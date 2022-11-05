@@ -557,3 +557,21 @@ function inflate_init(int $encoding, array $options = []) {}
  * @since 7.0
  */
 function inflate_add($context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string|false {}
+
+/**
+ * Get number of bytes read so far
+ * @param InflateContext|resource $context
+ * @return int
+ * @since 7.2
+ */
+#[Pure]
+function inflate_get_read_len($context): int {}
+
+/**
+ * Get decompression status
+ * @param InflateContext|resource $context
+ * @return int
+ * @since 7.2
+ */
+#[Pure]
+function inflate_get_status($context): int {}
