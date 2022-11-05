@@ -1291,7 +1291,7 @@ class PDO
      * with fields message and pid, otherwise <b>FALSE</b>.
      * @since 5.6
      */
-    public function pgsqlGetNotify(int $fetchMode = PDO::FETCH_LAZY, int $timeoutMilliseconds = 0): array|false {}
+    public function pgsqlGetNotify(int $fetchMode = PDO::FETCH_LAZY, int $timeoutMilliseconds = 0) {}
 
     /**
      * (PHP 5 >= 5.6.0, PHP 7, PHP 8)<br/>

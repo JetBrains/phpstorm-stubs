@@ -18,17 +18,17 @@ jobs:
           PHP_VERSION: '7.0'
 
       - name: Composer Install
-        run: docker-compose -f docker-compose.yml run -e PHP_VERSION='7.0' test_runner composer update
+        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=7.0 test_runner composer update
         env:
           PHP_VERSION: '7.0'
 
       - name: Dump Reflection To File
-        run: docker-compose -f docker-compose.yml run -e PHP_VERSION='7.0' php_under_test /usr/local/bin/php tests/Tools/dump-reflection-to-file.php ReflectionData.json
+        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=7.0 php_under_test /usr/local/bin/php tests/Tools/dump-reflection-to-file.php ReflectionData.json
         env:
           PHP_VERSION: '7.0'
 
       - name: Run Tests
-        run: docker-compose -f docker-compose.yml run -e PHP_VERSION='7.0' test_runner vendor/bin/phpunit --testsuite PHP_7.0
+        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=7.0 test_runner vendor/bin/phpunit --testsuite PHP_7.0
         env:
           PHP_VERSION: '7.0'
   additional:
