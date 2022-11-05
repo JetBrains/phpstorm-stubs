@@ -5,7 +5,7 @@
             <file>tests/BaseClassesTest.php</file>
             <file>tests/BaseConstantsTest.php</file>
             <file>tests/BaseFunctionsTest.php</file>
-            <file>tests/StubsPhpDocTest.php</file>
+            <file>tests/StubsForbiddenTypeHintsTest.php</file>
         </testsuite>
         <testsuite name="PhpDoc">
             <file>tests/StubsPhpDocTest.php</file>
