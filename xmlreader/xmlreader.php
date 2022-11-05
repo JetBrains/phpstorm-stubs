@@ -309,7 +309,7 @@ class XMLReader
      * A bitmask of the LIBXML_*
      * constants.
      * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure. If called statically, returns an
+     * @return XMLReader|bool <b>TRUE</b> on success or <b>FALSE</b> on failure. If called statically, returns an
      * <b>XMLReader</b> or <b>FALSE</b> on failure.
      * @since 5.1.2
      */
