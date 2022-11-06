@@ -2206,3 +2206,40 @@ function socket_getopt($socket, int $level, int $option): array|int|false {}
  * @return bool
  */
 function socket_setopt($socket, int $level, int $option, $value): bool {}
+
+/**
+ * Exports the WSAPROTOCOL_INFO Structure
+ *
+ * @link https://www.php.net/manual/en/function.socket-wsaprotocol-info-export.php
+ *
+ * @param resource $socket
+ * @param int $target_pid
+ * @return string|false
+ *
+ * @since 7.3
+ */
+function socket_wsaprotocol_info_export($socket, $target_pid) {}
+
+/**
+ * Imports a Socket from another Process
+ *
+ * @link https://www.php.net/manual/en/function.socket-wsaprotocol-info-import.php
+ *
+ * @param string $info_id
+ * @return resource|false
+ *
+ * @since 7.3
+ */
+function socket_wsaprotocol_info_import($info_id) {}
+
+/**
+ * Releases an exported WSAPROTOCOL_INFO Structure
+ *
+ * @link https://www.php.net/manual/en/function.socket-wsaprotocol-info-release.php
+ *
+ * @param string $info_id
+ * @return bool
+ *
+ * @since 7.3
+ */
+function socket_wsaprotocol_info_release($info_id) {}

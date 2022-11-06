@@ -116,6 +116,21 @@ define('PREG_UNMATCHED_AS_NULL', 512);
 define('PCRE_VERSION', "8.31 2012-07-06");
 
 /**
+ * @since 7.3
+ */
+define('PCRE_VERSION_MAJOR', 10);
+
+/**
+ * @since 7.3
+ */
+define('PCRE_VERSION_MINOR', 40);
+
+/**
+ * @since 7.3
+ */
+define('PCRE_JIT_SUPPORT', 1);
+
+/**
  * Perform a regular expression match
  * @link https://php.net/manual/en/function.preg-match.php
  * @param string $pattern <p>

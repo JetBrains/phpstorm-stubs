@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-    name: Run tests against php 7.2
+    name: Run tests against php 7.3
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -15,22 +15,22 @@ jobs:
       - name: Build Docker Container
         run: docker-compose -f docker-compose.yml build >/dev/null
         env:
-          PHP_VERSION: '7.2'
+          PHP_VERSION: '7.3'
 
       - name: Composer Install
-        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=7.2 test_runner composer update
+        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=7.3 test_runner composer update
         env:
-          PHP_VERSION: '7.2'
+          PHP_VERSION: '7.3'
 
       - name: Dump Reflection To File
-        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=7.2 php_under_test /usr/local/bin/php tests/Tools/dump-reflection-to-file.php ReflectionData.json
+        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=7.3 php_under_test /usr/local/bin/php tests/Tools/dump-reflection-to-file.php ReflectionData.json
         env:
-          PHP_VERSION: '7.2'
+          PHP_VERSION: '7.3'
 
       - name: Run Tests
-        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=7.2 test_runner vendor/bin/phpunit --testsuite PHP_7.2
+        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=7.3 test_runner vendor/bin/phpunit --testsuite PHP_7.3
         env:
-          PHP_VERSION: '7.2'
+          PHP_VERSION: '7.3'
   additional:
     runs-on: ubuntu-latest
     name: Run cs-fixer and stubs structure tests

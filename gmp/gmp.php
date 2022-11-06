@@ -750,6 +750,61 @@ function gmp_rootrem(GMP|string|int $num, int $nth): array {}
 #[Pure]
 function gmp_nextprime(GMP|string|int $num): GMP {}
 
+/**
+ * Calculates binomial coefficient
+ *
+ * @link https://www.php.net/manual/en/function.gmp-binomial.php
+ *
+ * @param GMP|string|float|int $n
+ * @param int $k
+ * @return GMP|false
+ *
+ * @since 7.3
+ */
+#[Pure]
+function gmp_binomial(GMP|string|int $n, int $k): GMP {}
+
+/**
+ * Computes the Kronecker symbol
+ *
+ * @link https://www.php.net/manual/en/function.gmp-kronecker.php
+ *
+ * @param GMP|string|float|int $num1
+ * @param GMP|string|float|int $num2
+ * @return int
+ *
+ * @since 7.3
+ */
+#[Pure]
+function gmp_kronecker(GMP|string|int $num1, GMP|string|int $num2): int {}
+
+/**
+ * Computes the least common multiple of A and B
+ *
+ * @link https://www.php.net/manual/en/function.gmp-lcm.php
+ *
+ * @param GMP|string|float|int $num1
+ * @param GMP|string|float|int $num2
+ * @return GMP
+ *
+ * @since 7.3
+ */
+#[Pure]
+function gmp_lcm(GMP|string|int $num1, GMP|string|int $num2): GMP {}
+
+/**
+ * Perfect power check
+ *
+ * @link https://www.php.net/manual/en/function.gmp-perfect-power.php
+ *
+ * @param GMP|string|float|int $num
+ * @return bool
+ *
+ * @since 7.3
+ */
+#[Pure]
+function gmp_perfect_power(GMP|string|int $num): bool {}
+
 class GMP implements Serializable
 {
     /**

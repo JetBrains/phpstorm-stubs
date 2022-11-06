@@ -1452,7 +1452,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      * @param string $postfix
      */
     #[TentativeType]
-    public function setPostfix(): void {}
+    public function setPostfix(string $postfix): void {}
 
     /**
      * Set a part of the prefix

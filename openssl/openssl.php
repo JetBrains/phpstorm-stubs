@@ -1132,6 +1132,15 @@ function openssl_get_cipher_methods(bool $aliases = false): array {}
 function openssl_dh_compute_key(string $public_key, $private_key): string|false {}
 
 /**
+ * @param OpenSSLAsymmetricKey|OpenSSLCertificate|array|string $public_key
+ * @param OpenSSLAsymmetricKey|OpenSSLCertificate|array|string $private_key
+ * @param int $key_length
+ * @return string|false
+ * @since 7.3
+ */
+function openssl_pkey_derive($public_key, $private_key, int $key_length = 0): string|false {}
+
+/**
  * Generates a string of pseudo-random bytes, with the number of bytes determined by the length parameter.
  * <p>It also indicates if a cryptographically strong algorithm was used to produce the pseudo-random bytes,
  * and does this via the optional crypto_strong parameter. It's rare for this to be FALSE, but some systems may be broken or old.</p>

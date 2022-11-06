@@ -3297,6 +3297,20 @@ function intl_is_failure(int $errorCode): bool {}
 function intl_error_name(int $errorCode): string {}
 
 /**
+ * Gets the Decomposition_Mapping property for the given UTF-8 encoded code point
+ *
+ * @link https://www.php.net/manual/en/normalizer.getrawdecomposition.php
+ *
+ * @param string $string
+ * @param int $form
+ * @return string|null
+ *
+ * @since 7.3
+ */
+#[Pure]
+function normalizer_get_raw_decomposition(string $string): ?string {}
+
+/**
  * @return IntlTimeZone
  * @since 5.5
  */
@@ -4568,6 +4582,17 @@ class Normalizer
      */
     #[TentativeType]
     public static function isNormalized($string, $form = Normalizer::FORM_C): bool {}
+
+    /**
+     * @param string $string <p>The input string to normalize</p>
+     * @param string $form
+     * @return string|null <p>Returns a string containing the Decomposition_Mapping property, if present in the UCD.
+     * Returns null if there is no Decomposition_Mapping property for the character.</p>
+     * @link https://www.php.net/manual/en/normalizer.getrawdecomposition.php
+     * @since 7.3
+     */
+    #[TentativeType]
+    public static function getRawDecomposition(string $string): ?string {}
 }
 
 class Locale
