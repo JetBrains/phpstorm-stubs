@@ -670,6 +670,8 @@ namespace PHPSTORM_META {
     expectedReturnValues(\PHP_OS_FAMILY, 'Windows', 'Linux', 'Darwin', 'BSD', 'Solaris', 'Unknown');
     expectedReturnValues(\PHP_OS, 'Darwin', 'Linux', 'Windows', 'WIN32', 'WINNT', 'FreeBSD', 'CYGWIN_NT-5.1', 'HP-UX', 'IRIX64', 'NetBSD', 'OpenBSD', 'OpenBSD');
     expectedReturnValues(\PHP_SAPI, 'cli', 'phpdbg', 'embed', 'apache', 'apache2handler', 'cgi-fcgi', 'cli-server', 'fpm-fcgi', 'litespeed');
+    expectedReturnValues(\PHP_VERSION, '5.3', '5.4', '5.5', '5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2');
+    expectedReturnValues(\PHP_VERSION_ID, 50300, 50400, 50500, 50600, 70000, 70100, 70200, 70300, 70400, 80000, 80100, 80200);
 
     /**
      * Use this constant to mark the function with an argument on the specified position as an exit point
