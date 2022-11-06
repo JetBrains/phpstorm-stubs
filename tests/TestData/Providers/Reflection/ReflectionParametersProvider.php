@@ -79,6 +79,26 @@ class ReflectionParametersProvider
         }
     }
 
+    public static function methodParametersWithTypeHintProvider(): ?Generator
+    {
+        $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
+            ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
+        foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
+            //exclude classes from PHPReflectionParser
+            if (strncmp($class->name, 'PHP', 3) !== 0) {
+                foreach (EntitiesFilter::getFilteredFunctions($class) as $method) {
+                    foreach (EntitiesFilter::getFilteredParameters(
+                        $method,
+                        null,
+                        StubProblemType::PARAMETER_TYPE_MISMATCH
+                    ) as $parameter) {
+                        yield "$class->name::$method->name($parameter->name)" => [$class, $method, $parameter];
+                    }
+                }
+            }
+        }
+    }
+
     public static function methodOptionalParametersProvider(): ?Generator
     {
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +

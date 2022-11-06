@@ -7208,7 +7208,11 @@ class IntlBreakIterator implements IteratorAggregate
      */
     #[Pure]
     #[TentativeType]
-    public function getPartsIterator(#[TypeAware(['8.0' => 'string'], default: '')] $type = IntlPartsIterator::KEY_SEQUENTIAL): IntlPartsIterator {}
+    public function getPartsIterator(
+        #[TypeAware(['8.0' => 'int'], default: '')]
+        #[EV([IntlPartsIterator::KEY_SEQUENTIAL, IntlPartsIterator::KEY_LEFT, IntlPartsIterator::KEY_RIGHT])]
+        $type = IntlPartsIterator::KEY_SEQUENTIAL
+    ): IntlPartsIterator {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
