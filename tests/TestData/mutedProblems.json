@@ -575,6 +575,17 @@
   ],
   "functions": [
     {
+      "name": "imagefilledpolygon",
+      "problems": [
+        {
+          "description": "has duplicate in stubs",
+          "versions": [
+            "ALL"
+          ]
+        }
+      ]
+    },
+    {
       "name": "session_set_save_handler",
       "problems": [
         {
