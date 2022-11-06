@@ -3028,6 +3028,29 @@
       ]
     },
     {
+      "name": "IntlBreakIterator",
+      "methods": [
+        {
+          "name": "getPartsIterator",
+          "parameters": [
+            {
+              "name": "type",
+              "problems": [
+                {
+                  "description": "parameter type mismatch",
+                  "versions": [
+                    8.0,
+                    8.1,
+                    8.2
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "ParseError",
       "problems": [
         {

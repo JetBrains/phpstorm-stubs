@@ -121,7 +121,7 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodParametersProvider
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodParametersWithTypeHintProvider
      * @throws RuntimeException
      */
     public function testMethodsParametersTypeHints(PHPClass|PHPInterface $reflectionClass, PHPMethod $reflectionMethod, PHPParameter $reflectionParameter)
