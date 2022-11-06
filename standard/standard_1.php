@@ -1070,7 +1070,7 @@ function join(array|string $separator = "", ?array $array): string {}
  *
  * </li>
  * </ul>
- * @param string|array|int $locales <p>
+ * @param string|string[]|int $locales <p>
  * If locale is null or the empty string
  * "", the locale names will be set from the
  * values of environment variables with the same names as the above
@@ -1087,7 +1087,7 @@ function join(array|string $separator = "", ?array $array): string {}
  * different names on different systems or for providing a fallback
  * for a possibly not available locale.
  * </p>
- * @param string ...$rest
+ * @param string|string[] ...$rest
  * @return string|false <p>the new current locale, or false if the locale functionality is
  * not implemented on your platform, the specified locale does not exist or
  * the category name is invalid.
