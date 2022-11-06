@@ -1179,8 +1179,28 @@ function imagefilledpolygon(
     GdImage $image,
     array $points,
     #[Deprecated(since: "8.1")] int $num_points_or_color,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?int $color,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ?int $color = null
+    ?int $color
+): bool {}
+
+/**
+ * Draw a filled polygon
+ * @link https://php.net/manual/en/function.imagefilledpolygon.php
+ * @param GdImage $image
+ * @param int[] $points <p>
+ * An array containing the x and y
+ * coordinates of the polygons vertices consecutively.
+ * </p>
+ * @param int|null $color <p>
+ * A color identifier created with
+ * imagecolorallocate.
+ * </p>
+ * @return bool true on success or false on failure.
+ */
+#[PhpStormStubsElementAvailable(from: '8.0')]
+function imagefilledpolygon(
+    GdImage $image,
+    array $points,
+    ?int $color
 ): bool {}
 
 /**
