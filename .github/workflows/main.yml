@@ -15,22 +15,22 @@ jobs:
       - name: Build Docker Container
         run: docker-compose -f docker-compose.yml build >/dev/null
         env:
-          PHP_VERSION: 5.6
+          PHP_VERSION: '5.6'
 
       - name: Composer Install
         run: docker-compose -f docker-compose.yml run -e PHP_VERSION=5.6 test_runner composer update
         env:
-          PHP_VERSION: 5.6
+          PHP_VERSION: '5.6'
 
       - name: Dump Reflection To File
         run: docker-compose -f docker-compose.yml run -e PHP_VERSION=5.6 php_under_test /usr/local/bin/php tests/Tools/dump-reflection-to-file.php ReflectionData.json
         env:
-          PHP_VERSION: 5.6
+          PHP_VERSION: '5.6'
 
       - name: Run Tests
         run: docker-compose -f docker-compose.yml run -e PHP_VERSION=5.6 test_runner vendor/bin/phpunit --testsuite PHP_5.6
         env:
-          PHP_VERSION: 5.6
+          PHP_VERSION: '5.6'
   additional:
     runs-on: ubuntu-latest
     name: Run cs-fixer and stubs structure tests
