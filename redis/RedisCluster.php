@@ -649,7 +649,7 @@ class RedisCluster
      * or the pivot didn't exists, the value is not inserted.
      *
      * @param   string $key
-     * @param   int    $position RedisCluster::BEFORE | RedisCluster::AFTER
+     * @param   string $position RedisCluster::BEFORE | RedisCluster::AFTER
      * @param   string $pivot
      * @param   string $value
      *
