@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Pure;
 
@@ -998,6 +999,22 @@ function gc_enable(): void {}
  * @return void
  */
 function gc_disable(): void {}
+
+/**
+ * Gets information about the garbage collector
+ * @link https://php.net/manual/en/function.gc-status.php
+ * @return int[] associative array with the following elements:
+ * <ul>
+ * <li>"runs"</li>
+ * <li>"collected"</li>
+ * <li>"threshold"</li>
+ * <li>"roots"</li>
+ * </ul>
+ * @since 7.3
+ */
+#[ArrayShape(["runs" => "int", "collected" => "int", "threshold" => "int", "roots" => "int"])]
+#[Pure(true)]
+function gc_status(): array {}
 
 /**
  * Reclaims memory used by the Zend Engine memory manager

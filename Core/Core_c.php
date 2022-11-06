@@ -516,7 +516,7 @@ class TypeError extends Error {}
  * @link https://php.net/manual/en/class.parseerror.php
  * @since 7.0
  */
-class ParseError extends Error {}
+class ParseError extends CompileError {}
 
 /**
  * ArgumentCountError is thrown when too few arguments are passed to a user
@@ -535,6 +535,13 @@ class ArgumentCountError extends TypeError {}
  * @since 7.0
  */
 class ArithmeticError extends Error {}
+
+/**
+ * Class CompileError
+ * @link https://secure.php.net/manual/en/class.compileerror.php
+ * @since 7.3
+ */
+class CompileError extends Error {}
 
 /**
  * DivisionByZeroError is thrown when an attempt is made to divide a number by zero.

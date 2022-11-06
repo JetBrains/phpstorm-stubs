@@ -143,9 +143,9 @@ function bcsqrt(string $num, ?int $scale): ?string {}
  * Set default scale parameter for all bc math functions
  * @link https://php.net/manual/en/function.bcscale.php
  * @param int $scale
- * @return int|bool
+ * @return int
  */
-function bcscale(int $scale): bool {}
+function bcscale(int $scale = null): int {}
 
 /**
  * Compare two arbitrary precision numbers

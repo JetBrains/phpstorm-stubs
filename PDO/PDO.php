@@ -98,6 +98,26 @@ class PDO
     public const SQLITE_DETERMINISTIC = 2048;
 
     /**
+     * @since 7.3
+     */
+    public const SQLITE_OPEN_READONLY = 1;
+
+    /**
+     * @since 7.3
+     */
+    public const SQLITE_OPEN_READWRITE = 2;
+
+    /**
+     * @since 7.3
+     */
+    public const SQLITE_OPEN_CREATE = 4;
+
+    /**
+     * @since 7.3
+     */
+    public const SQLITE_ATTR_OPEN_FLAGS = 1000;
+
+    /**
      * Specifies that the parameter is an INOUT parameter for a stored
      * procedure. You must bitwise-OR this value with an explicit
      * PDO::PARAM_* data type.
@@ -832,6 +852,34 @@ class PDO
     public const SQLSRV_CURSOR_DYNAMIC = 2;
     public const SQLSRV_CURSOR_STATIC = 3;
     public const SQLSRV_CURSOR_BUFFERED = 42;
+
+    /**
+     * Provides a way to specify the action on the database session.
+     * @since 7.2.16
+     * @since 7.3.3
+     */
+    public const OCI_ATTR_ACTION = 1000;
+
+    /**
+     * Provides a way to specify the client info on the database session.
+     * @since 7.2.16
+     * @since 7.3.3
+     */
+    public const OCI_ATTR_CLIENT_INFO = 1001;
+
+    /**
+     * Provides a way to specify the client identifier on the database session.
+     * @since 7.2.16
+     * @since 7.3.3
+     */
+    public const OCI_ATTR_CLIENT_IDENTIFIER = 1002;
+
+    /**
+     * Provides a way to specify the module on the database session.
+     * @since 7.2.16
+     * @since 7.3.3
+     */
+    public const OCI_ATTR_MODULE = 1003;
 
     /**
      * Sets the date format.

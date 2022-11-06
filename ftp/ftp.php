@@ -86,7 +86,7 @@ define('FTP_MOREDATA', 2);
  * @return bool
  * @since 7.2
  */
-function ftp_append($ftp, string $remote_filename, string $local_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode): bool {}
+function ftp_append($ftp, string $remote_filename, string $local_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY): bool {}
 
 /**
  * returns a list of files in the given directory
@@ -361,7 +361,7 @@ function ftp_pasv($ftp, bool $enable): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_get($ftp, string $local_filename, string $remote_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode, int $offset = 0): bool {}
+function ftp_get($ftp, string $local_filename, string $remote_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool {}
 
 /**
  * Downloads a file from the FTP server and saves to an open file
@@ -383,7 +383,7 @@ function ftp_get($ftp, string $local_filename, string $remote_filename, #[Expect
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_fget($ftp, $stream, string $remote_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode, int $offset = 0): bool {}
+function ftp_fget($ftp, $stream, string $remote_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool {}
 
 /**
  * Uploads a file to the FTP server
@@ -403,7 +403,7 @@ function ftp_fget($ftp, $stream, string $remote_filename, #[ExpectedValues([FTP_
  * @param int $offset [optional] <p>The position in the remote file to start uploading to.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_put($ftp, string $remote_filename, string $local_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode, int $offset = 0): bool {}
+function ftp_put($ftp, string $remote_filename, string $local_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool {}
 
 /**
  * Uploads from an open file to the FTP server
@@ -423,7 +423,7 @@ function ftp_put($ftp, string $remote_filename, string $local_filename, #[Expect
  * @param int $offset [optional] <p>The position in the remote file to start uploading to.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_fput($ftp, string $remote_filename, $stream, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode, int $offset = 0): bool {}
+function ftp_fput($ftp, string $remote_filename, $stream, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool {}
 
 /**
  * Returns the size of the given file
@@ -595,7 +595,7 @@ function ftp_get_option($ftp, #[ExpectedValues([FTP_TIMEOUT_SEC, FTP_AUTOSEEK])]
  * or <b>FTP_MOREDATA</b>.
  */
 #[ExpectedValues([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
-function ftp_nb_fget($ftp, $stream, string $remote_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode, int $offset = 0): int {}
+function ftp_nb_fget($ftp, $stream, string $remote_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int {}
 
 /**
  * Retrieves a file from the FTP server and writes it to a local file (non-blocking)
@@ -617,7 +617,7 @@ function ftp_nb_fget($ftp, $stream, string $remote_filename, #[ExpectedValues([F
  * or <b>FTP_MOREDATA</b>.
  */
 #[ExpectedValues([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
-function ftp_nb_get($ftp, string $local_filename, string $remote_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode, int $offset = 0): int {}
+function ftp_nb_get($ftp, string $local_filename, string $remote_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int {}
 
 /**
  * Continues retrieving/sending a file (non-blocking)
@@ -651,7 +651,7 @@ function ftp_nb_continue($ftp): int {}
  * or <b>FTP_MOREDATA</b>.
  */
 #[ExpectedValues([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
-function ftp_nb_put($ftp, string $remote_filename, string $local_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode, int $offset = 0): int|false {}
+function ftp_nb_put($ftp, string $remote_filename, string $local_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int|false {}
 
 /**
  * Stores a file from an open file to the FTP server (non-blocking)
@@ -673,7 +673,7 @@ function ftp_nb_put($ftp, string $remote_filename, string $local_filename, #[Exp
  * or <b>FTP_MOREDATA</b>.
  */
 #[ExpectedValues([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
-function ftp_nb_fput($ftp, string $remote_filename, $stream, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode, int $offset = 0): int {}
+function ftp_nb_fput($ftp, string $remote_filename, $stream, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int {}
 
 /**
  * Alias of <b>ftp_close</b>

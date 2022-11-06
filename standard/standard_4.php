@@ -350,6 +350,17 @@ function show_source(string $filename, bool $return = false): string|bool {}
 function highlight_string(string $string, bool $return = false): string|bool {}
 
 /**
+ * Get the system's high resolution time
+ * @link https://secure.php.net/manual/en/function.hrtime.php
+ * @param bool $as_number <p>Whether the high resolution time should be returned as array or number.<p>
+ * @since 7.3
+ * @return int[]|int|float|false Returns an array of integers in the form [seconds, nanoseconds], if the parameter get_as_number is false.
+ * Otherwise the nanoseconds are returned as integer (64bit platforms) or float (32bit platforms).
+ */
+#[Pure(true)]
+function hrtime(bool $as_number): array|int|float|false {}
+
+/**
  * Return source with stripped comments and whitespace
  * @link https://php.net/manual/en/function.php-strip-whitespace.php
  * @param string $filename <p>
@@ -563,6 +574,29 @@ function restore_include_path() {}
 function setcookie(string $name, $value = '', $expires_or_options = 0, $path = '', $domain = '', $secure = false, $httponly = false): bool {}
 
 /**
+ * Send a cookie
+ *
+ * @link  https://php.net/manual/en/function.setcookie.php
+ *
+ * @param string $name The name of the cookie.
+ * @param string $value [optional] The value of the cookie. This value is stored on the clients
+ *                        computer; do not store sensitive information.
+ *                        Assuming the name is 'cookiename', this value is retrieved through $_COOKIE['cookiename']
+ * @param array $options [optional] An associative array which may have any of the keys expires, path, domain, secure,
+ *                        httponly and samesite. The values have the same meaning as described for the parameters with
+ *                        the same name. The value of the samesite element should be either Lax or Strict.
+ *                        If any of the allowed options are not given, their default values are the same
+ *                        as the default values of the explicit parameters. If the samesite element is omitted,
+ *                        no SameSite cookie attribute is set.
+ *
+ * @return bool           If output exists prior to calling this function, setcookie will fail and return false. If
+ *                        setcookie successfully runs, it will return true.
+ *                        This does not indicate whether the user accepted the cookie.
+ * @since 7.3
+ */
+function setcookie(string $name, $value = '', array $options = []): bool {}
+
+/**
  * Send a cookie without urlencoding the cookie value
  * @link https://php.net/manual/en/function.setrawcookie.php
  * @param string $name
@@ -575,6 +609,29 @@ function setcookie(string $name, $value = '', $expires_or_options = 0, $path = '
  * @return bool true on success or false on failure.
  */
 function setrawcookie(string $name, $value = '', $expires_or_options = 0, $path = '', $domain = '', $secure = false, $httponly = false): bool {}
+
+/**
+ * Send a cookie without urlencoding the cookie value
+ *
+ * @link https://php.net/manual/en/function.setrawcookie.php
+ *
+ * @param string $name The name of the cookie.
+ * @param string $value [optional] The value of the cookie. This value is stored on the clients
+ *                        computer; do not store sensitive information.
+ *                        Assuming the name is 'cookiename', this value is retrieved through $_COOKIE['cookiename']
+ * @param array $options [optional] An associative array which may have any of the keys expires, path, domain, secure,
+ *                        httponly and samesite. The values have the same meaning as described for the parameters with
+ *                        the same name. The value of the samesite element should be either Lax or Strict.
+ *                        If any of the allowed options are not given, their default values are the same
+ *                        as the default values of the explicit parameters. If the samesite element is omitted,
+ *                        no SameSite cookie attribute is set.
+ *
+ * @return bool           If output exists prior to calling this function, setcookie will fail and return false. If
+ *                        setcookie successfully runs, it will return true.
+ *                        This does not indicate whether the user accepted the cookie.
+ * @since 7.3
+ */
+function setrawcookie(string $name, $value = '', array $options = []): bool {}
 
 /**
  * Send a raw HTTP header
@@ -782,6 +839,14 @@ function is_uploaded_file(string $filename): bool {}
  * false. Additionally, a warning will be issued.
  */
 function move_uploaded_file(string $from, string $to): bool {}
+
+/**
+ * @return array|false
+ * @since 7.3
+ */
+#[Pure]
+#[ArrayShape(["description" => "string", "mac" => "string", "mtu" => "int", "unicast" => "array", "up" => "bool"])]
+function net_get_interfaces(): array|false {}
 
 /**
  * Get the Internet host name corresponding to a given IP address

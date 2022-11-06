@@ -207,6 +207,15 @@ define('JSON_ERROR_INVALID_PROPERTY_NAME', 9);
 define('JSON_ERROR_UTF16', 10);
 
 /**
+ * Throws JsonException if an error occurs instead of setting the global error state
+ * that is retrieved with json_last_error() and json_last_error_msg().
+ *
+ * {@see JSON_PARTIAL_OUTPUT_ON_ERROR} takes precedence over JSON_THROW_ON_ERROR.
+ * @since 7.3
+ */
+define('JSON_THROW_ON_ERROR', 4194304);
+
+/**
  * (PHP 5 >= 5.2.0, PECL json >= 1.2.0)<br/>
  * Returns the JSON representation of a value
  * @link https://php.net/manual/en/function.json-encode.php
@@ -436,3 +445,18 @@ class JsonIncrementalParser
     #[Pure]
     public function get($options) {}
 }
+
+/**
+ * Class JsonException
+ *
+ * <p>A new flag has been added, JSON_THROW_ON_ERROR, which can be used with
+ * json_decode() or json_encode() and causes these functions to throw a
+ * JsonException upon an error, instead of setting the global error state that
+ * is retrieved with json_last_error(). JSON_PARTIAL_OUTPUT_ON_ERROR takes
+ * precedence over <b>JSON_THROW_ON_ERROR</b>.
+ * </p>
+ *
+ * @since 7.3
+ * @link https://wiki.php.net/rfc/json_throw_on_error
+ */
+class JsonException extends Exception {}

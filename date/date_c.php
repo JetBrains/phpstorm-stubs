@@ -504,6 +504,14 @@ class DateTime implements DateTimeInterface
     public function __construct($datetime = 'now', DateTimeZone $timezone = null) {}
 
     /**
+     * @param DateTimeImmutable $object
+     * @return DateTime
+     * @since 7.3
+     */
+    #[TentativeType]
+    public static function createFromImmutable(DateTimeImmutable $object): DateTime {}
+
+    /**
      * Parse a string into a new DateTime object according to the specified format
      * @param string $format Format accepted by date().
      * @param string $datetime String representing the time.
@@ -931,7 +939,7 @@ class DatePeriod implements IteratorAggregate
     public function __construct($isostr, $options = 0) {}
 
     #[TentativeType]
-    public static function __set_state(): DatePeriod {}
+    public static function __set_state(array $array): DatePeriod {}
 
     /**
      * Gets the interval
