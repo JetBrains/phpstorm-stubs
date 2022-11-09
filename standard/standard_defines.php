@@ -1408,6 +1408,16 @@ define('STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT', 33);
 
 define('STREAM_CRYPTO_METHOD_TLSv1_2_SERVER', 32);
 
+/**
+ * @since 7.4
+ */
+define('STREAM_CRYPTO_METHOD_TLSv1_3_CLIENT', 65);
+
+/**
+ * @since 7.4
+ */
+define('STREAM_CRYPTO_METHOD_TLSv1_3_SERVER', 64);
+
 define('STREAM_CRYPTO_PROTO_SSLv3', 4);
 
 define('STREAM_CRYPTO_PROTO_TLSv1_0', 8);
@@ -1415,6 +1425,11 @@ define('STREAM_CRYPTO_PROTO_TLSv1_0', 8);
 define('STREAM_CRYPTO_PROTO_TLSv1_1', 16);
 
 define('STREAM_CRYPTO_PROTO_TLSv1_2', 32);
+
+/**
+ * @since 7.4
+ */
+define('STREAM_CRYPTO_PROTO_TLSv1_3', 64);
 
 /**
  * @since 7.1

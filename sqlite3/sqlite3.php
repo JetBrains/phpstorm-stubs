@@ -411,6 +411,30 @@ class SQLite3
      */
     #[TentativeType]
     public function enableExceptions($enable = false): bool {}
+
+    /**
+     * @return int
+     * @since 7.4
+     */
+    #[TentativeType]
+    public function lastExtendedErrorCode(): int {}
+
+    /**
+     * @param bool $enable
+     * @since 7.4
+     */
+    #[TentativeType]
+    public function enableExtendedResultCodes(bool $enable): bool {}
+
+    /**
+     * @param SQLite3 $destination
+     * @param string $sourceDatabase
+     * @param string $destinationDatabase
+     * @return bool
+     * @since 7.4
+     */
+    #[TentativeType]
+    public function backup(SQLite3 $destination, string $sourceDatabase = 'main', string $destinationDatabase = 'main'): bool {}
 }
 
 /**
@@ -517,6 +541,16 @@ class SQLite3Stmt
 
     #[TentativeType]
     public function readOnly(): bool {}
+
+    /**
+     * Retrieves the SQL of the prepared statement. If expanded is FALSE, the unmodified SQL is retrieved.
+     * If expanded is TRUE, all query parameters are replaced with their bound values, or with an SQL NULL, if not already bound.
+     * @param bool $expand Whether to retrieve the expanded SQL. Passing TRUE is only supported as of libsqlite 3.14.
+     * @return string|false Returns the SQL of the prepared statement, or FALSE on failure.
+     * @since 7.4
+     */
+    #[TentativeType]
+    public function getSQL(bool $expand = false): string|false {}
 }
 
 /**

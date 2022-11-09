@@ -1045,7 +1045,7 @@ function mysqli_get_client_info(): ?string {}
  * @link https://php.net/manual/en/mysqli.get-client-version.php
  * @return int
  */
-function mysqli_get_client_version($link): int {}
+function mysqli_get_client_version(): int {}
 
 /**
  * Returns a string representing the type of connection used

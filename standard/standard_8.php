@@ -1051,4 +1051,4 @@ function array_slice(array $array, int $offset, ?int $length, bool $preserve_key
  * @meta
  */
 #[Pure]
-function array_merge($array, array ...$arrays): array {}
+function array_merge(array ...$arrays): array {}

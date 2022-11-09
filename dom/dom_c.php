@@ -480,7 +480,7 @@ class DOMImplementation
      * implementation. If there is an error with the namespace,
      * as determined by $namespace and $qualifiedName.
      */
-    public function createDocument($namespace, $qualifiedName, DOMDocumentType $doctype) {}
+    public function createDocument($namespace, $qualifiedName, DOMDocumentType $doctype = null) {}
 }
 
 class DOMNameSpaceNode
@@ -757,7 +757,7 @@ class DOMDocument extends DOMNode
      * </p>
      * @return DOMProcessingInstruction|false The new DOMProcessingInstruction or false if an error occurred.
      */
-    public function createProcessingInstruction($target, $data) {}
+    public function createProcessingInstruction($target, $data = null) {}
 
     /**
      * Create new attribute
@@ -811,7 +811,7 @@ class DOMDocument extends DOMNode
      * </p>
      * @return DOMNode|false The copied node or false, if it cannot be copied.
      */
-    public function importNode(DOMNode $node, $deep) {}
+    public function importNode(DOMNode $node, $deep = false) {}
 
     /**
      * Create new element node with an associated namespace

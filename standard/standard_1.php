@@ -933,7 +933,7 @@ function ltrim(string $string, string $characters = " \t\n\r\u0000\u000b"): stri
  * @return string the stripped string.
  */
 #[Pure]
-function strip_tags(string $string, string|null $allowed_tags = null): string {}
+function strip_tags(string $string, array|string|null $allowed_tags = null): string {}
 
 /**
  * Calculate the similarity between two strings

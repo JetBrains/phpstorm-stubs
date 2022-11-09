@@ -854,6 +854,16 @@ class PDO
     public const SQLSRV_CURSOR_BUFFERED = 42;
 
     /**
+     * @since 7.4
+     */
+    public const SQLITE_ATTR_READONLY_STATEMENT = 1001;
+
+    /**
+     * @since 7.4
+     */
+    public const SQLITE_ATTR_EXTENDED_RESULT_CODES = 1002;
+
+    /**
      * Provides a way to specify the action on the database session.
      * @since 7.2.16
      * @since 7.3.3

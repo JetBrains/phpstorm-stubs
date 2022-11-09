@@ -216,6 +216,41 @@ class ReflectionProperty implements Reflector
     public function setAccessible($accessible): void {}
 
     /**
+     * Gets property type
+     *
+     * @link https://php.net/manual/en/reflectionproperty.gettype.php
+     * @return ReflectionNamedType|ReflectionUnionType|null Returns a {@see ReflectionType} if the
+     * property has a type, and {@see null} otherwise.
+     * @since 7.4
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getType(): ReflectionNamedType|null {}
+
+    /**
+     * Checks if property has type
+     *
+     * @link https://php.net/manual/en/reflectionproperty.hastype.php
+     * @return bool Returns {@see true} if a type is specified, {@see false} otherwise.
+     * @since 7.4
+     */
+    #[TentativeType]
+    public function hasType(): bool {}
+
+    /**
+     * Checks if property is initialized
+     *
+     * @link https://php.net/manual/en/reflectionproperty.isinitialized.php
+     * @param object|null $object If the property is non-static an object must be provided to fetch the property from.
+     * @return bool Returns {@see false} for typed properties prior to initialization, and for properties that have
+     * been explicitly {@see unset()}. For all other properties {@see true} will be returned.
+     * @since 7.4
+     */
+    #[Pure]
+    #[TentativeType]
+    public function isInitialized(?object $object = null): bool {}
+
+    /**
      * Clone
      *
      * @link https://php.net/manual/en/reflectionproperty.clone.php

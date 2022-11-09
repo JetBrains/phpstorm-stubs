@@ -13,6 +13,11 @@ define('HASH_HMAC', 1);
 
 define('MHASH_CRC32', 0);
 
+/**
+ * @since 7.4
+ */
+define('MHASH_CRC32C', 34);
+
 define('MHASH_MD5', 1);
 
 define('MHASH_SHA1', 2);

@@ -51,6 +51,11 @@ define('MB_CASE_TITLE_SIMPLE', 6);
 define('MB_CASE_FOLD_SIMPLE', 7);
 
 /**
+ * @since 7.4
+ */
+define('MB_ONIGURUMA_VERSION', "6.9.8");
+
+/**
  * Perform case folding on a string
  * @link https://php.net/manual/en/function.mb-convert-case.php
  * @param string $string <p>
@@ -1387,3 +1392,21 @@ function mb_scrub(string $string, ?string $encoding): string|false {}
 #[Deprecated(replacement: "mb_ereg_search_setpos(%parametersList%)", since: "7.3")]
 #[Pure]
 function mbereg_search_setpos($position) {}
+
+/**
+ * Function performs string splitting to an array of defined size chunks.
+ * @param string $string <p>
+ * The string to split into characters or chunks.
+ * </p>
+ * @param int $length [optional] <p>
+ * If specified, each element of the returned array will be composed of multiple characters instead of a single character.
+ * </p>
+ * @param string|null $encoding [optional] <p>
+ * Character encoding name to use.
+ * If it is omitted, internal character encoding is used.
+ * </p>
+ * @return string[]|false
+ * @since 7.4
+ */
+#[Pure]
+function mb_str_split(string $string, int $length = 1, ?string $encoding): array|false {}
