@@ -249,6 +249,13 @@ define('IMG_FILTER_SMOOTH', 10);
 define('IMG_FILTER_PIXELATE', 11);
 
 /**
+ * Special GD filter used by the {@see imagefilter()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-filter-scatter
+ * @since 7.4
+ */
+define('IMG_FILTER_SCATTER', 12);
+
+/**
  * The GD version PHP was compiled against.
  * @since 5.2.4
  * @link https://php.net/manual/en/image.constants.php#constant.gd-version

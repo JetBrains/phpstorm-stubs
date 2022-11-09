@@ -159,6 +159,13 @@ function zip_entry_compressionmethod($zip_entry): string|false {}
 class ZipArchive implements Countable
 {
     /**
+     * Zip library version
+     * @link https://php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+    public const LIBZIP_VERSION = '1.7.3';
+
+    /**
      * Create the archive if it does not exist.
      * @link https://php.net/manual/en/zip.constants.php
      */
@@ -464,6 +471,13 @@ class ZipArchive implements Countable
     public const EM_AES_256 = 259;
 
     /**
+     * Open archive in read only mode
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+    public const RDONLY = 16;
+
+    /**
      * Guess string encoding (is default)
      * @link https://secure.php.net/manual/en/zip.constants.php
      * @since 7.0.8
@@ -497,6 +511,83 @@ class ZipArchive implements Countable
      * @since 7.0.8
      */
     public const FL_ENC_CP437 = 4096;
+
+    /**
+     * LZMA2 algorithm
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+    public const CM_LZMA2 = 33;
+
+    /**
+     * XZ algorithm
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+    public const CM_XZ = 95;
+
+    /**
+     * Encryption method not support
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+    public const ER_ENCRNOTSUPP = 24;
+
+    /**
+     * Read-only archive
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+    public const ER_RDONLY = 25;
+
+    /**
+     * No password provided
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+    public const ER_NOPASSWD = 26;
+
+    /**
+     * Wrong password provided
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+    public const ER_WRONGPASSWD = 27;
+
+    /**
+     * Operation not supported
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+    public const ER_OPNOTSUPP = 28;
+
+    /**
+     * Resource still in use
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+    public const ER_INUSE = 29;
+
+    /**
+     * Tell error
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+    public const ER_TELL = 30;
+
+    /**
+     * Compressed data invalid
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+    public const ER_COMPRESSED_DATA = 31;
+
+    /**
+     * Operation cancelled
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+    public const ER_CANCELLED = 32;
 
     /**
      * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default

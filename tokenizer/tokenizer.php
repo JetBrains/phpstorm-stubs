@@ -52,6 +52,11 @@ define('T_MINUS_EQUAL', 353);
 
 define('T_PLUS_EQUAL', 352);
 
+/**
+ * @since 7.4
+ */
+define('T_COALESCE_EQUAL', 363);
+
 define('T_COALESCE', 400);
 
 define('T_BOOLEAN_OR', 364);
@@ -273,6 +278,11 @@ define('T_NS_SEPARATOR', 398);
 define('T_ELLIPSIS', 399);
 
 define('T_DOUBLE_COLON', 397);
+
+/**
+ * @since 7.4
+ */
+define('T_FN', 311);
 
 /**
  * @removed 7.0

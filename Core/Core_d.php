@@ -184,6 +184,16 @@ define('PHP_WINDOWS_NT_SERVER', 3);
 
 define('PHP_WINDOWS_NT_WORKSTATION', 1);
 
+/**
+ * @since 7.4
+ */
+define('PHP_WINDOWS_EVENT_CTRL_C', 0);
+
+/**
+ * @since 7.4
+ */
+define('PHP_WINDOWS_EVENT_CTRL_BREAK', 1);
+
 define('PHP_VERSION', "5.3.6-13ubuntu3.2");
 
 define('PHP_MAJOR_VERSION', 5);
@@ -209,6 +219,11 @@ define('PHP_OS', "Linux");
 define('PHP_OS_FAMILY', "Linux");
 
 define('PHP_SAPI', "cli");
+
+/**
+ * @since 7.4
+ */
+define('PHP_CLI_PROCESS_TITLE', 1);
 
 define('DEFAULT_INCLUDE_PATH', ".:/usr/share/php:/usr/share/pear");
 

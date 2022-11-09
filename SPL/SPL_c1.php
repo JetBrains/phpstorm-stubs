@@ -357,6 +357,13 @@ class SplFileInfo
     final public function _bad_state_ex(): void {}
 
     public function __wakeup() {}
+
+    /**
+     * @return array
+     * @since 7.4
+     */
+    #[TentativeType]
+    public function __debugInfo(): array {}
 }
 
 /**
@@ -890,7 +897,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @return int|false the number of bytes written, or 0 (false since 7.4) on error.
      */
     #[TentativeType]
-    public function fwrite($data, $length = null): int {}
+    public function fwrite($data, $length = null): int|false {}
 
     /**
      * Gets information about the file
@@ -1272,6 +1279,27 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      */
     #[TentativeType]
     public function serialize(): string {}
+
+    /**
+     * @return array
+     * @since 7.4
+     */
+    #[TentativeType]
+    public function __debugInfo(): array {}
+
+    /**
+     * @return array
+     * @since 7.4
+     */
+    #[TentativeType]
+    public function __serialize(): array {}
+
+    /**
+     * @param array $data
+     * @since 7.4
+     */
+    #[TentativeType]
+    public function __unserialize(array $data): void {}
 }
 
 /**
@@ -1438,6 +1466,13 @@ abstract class SplHeap implements Iterator, Countable
      */
     #[TentativeType]
     public function isCorrupted(): bool {}
+
+    /**
+     * @return array
+     * @since 7.4
+     */
+    #[TentativeType]
+    public function __debugInfo(): array {}
 
     /**
      * Compare elements in order to place them correctly in the heap while sifting up.
@@ -1736,6 +1771,13 @@ class SplPriorityQueue implements Iterator, Countable
      */
     #[TentativeType]
     public function getExtractFlags(): int {}
+
+    /**
+     * @return array
+     * @since 7.4
+     */
+    #[TentativeType]
+    public function __debugInfo(): array {}
 }
 
 /**
@@ -2132,6 +2174,27 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
      */
     #[TentativeType]
     public function getHash($object): string {}
+
+    /**
+     * @return array
+     * @since 7.4
+     */
+    #[TentativeType]
+    public function __serialize(): array {}
+
+    /**
+     * @param array $data
+     * @since 7.4
+     */
+    #[TentativeType]
+    public function __unserialize(array $data): void {}
+
+    /**
+     * @return array
+     * @since 7.4
+     */
+    #[TentativeType]
+    public function __debugInfo(): array {}
 }
 
 /**
@@ -2261,4 +2324,11 @@ class MultipleIterator implements Iterator
      */
     #[TentativeType]
     public function next(): void {}
+
+    /**
+     * @return array
+     * @since 7.4
+     */
+    #[TentativeType]
+    public function __debugInfo(): array {}
 }

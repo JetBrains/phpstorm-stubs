@@ -97,6 +97,11 @@ define('PASSWORD_ARGON2_DEFAULT_TIME_COST', 4);
 define('PASSWORD_ARGON2_DEFAULT_THREADS', 1);
 
 /**
+ * @since 7.4
+ */
+define('PASSWORD_ARGON2_PROVIDER', "standard");
+
+/**
  * Returns information about the given hash
  * @link https://secure.php.net/manual/en/function.password-get-info.php
  * @param string $hash A hash created by password_hash().
@@ -158,3 +163,10 @@ function password_needs_rehash(string $hash, string|int|null $algo, array $optio
  * @since 5.5
  */
 function password_verify(string $password, string $hash): bool {}
+
+/**
+ * Return a complete list of all registered password hashing algorithms.
+ * @return string[]
+ * @since 7.4
+ */
+function password_algos(): array {}

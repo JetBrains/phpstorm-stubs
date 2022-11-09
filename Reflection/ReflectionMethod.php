@@ -189,7 +189,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      */
     #[Pure]
     #[TentativeType]
-    public function getClosure($object): Closure {}
+    public function getClosure($object = null): Closure {}
 
     /**
      * Gets the method modifiers

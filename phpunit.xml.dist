@@ -1,7 +1,7 @@
 <phpunit bootstrap="vendor/autoload.php"
          failOnWarning="true">
     <testsuites>
-        <testsuite name="PHP_7.3">
+        <testsuite name="PHP_7.4">
             <file>tests/BaseClassesTest.php</file>
             <file>tests/BaseConstantsTest.php</file>
             <file>tests/BaseFunctionsTest.php</file>

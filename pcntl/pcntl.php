@@ -370,6 +370,51 @@ define('PCNTL_ENOTDIR', 20);
 define('PCNTL_ETXTBSY', 26);
 
 /**
+ * @since 7.4
+ */
+define('PCNTL_ENOSPC', 28);
+
+/**
+ * @since 7.4
+ */
+define('PCNTL_EUSERS', 87);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWNS', 131072);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWIPC', 134217728);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWUTS', 67108864);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWNET', 1073741824);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWPID', 536870912);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWUSER', 268435456);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWCGROUP', 33554432);
+
+/**
  * Forks the currently running process
  * @link https://php.net/manual/en/function.pcntl-fork.php
  * @return int On success, the PID of the child process is returned in the
@@ -836,3 +881,10 @@ function pcntl_async_signals(?bool $enable): bool {}
  * @since 7.1
  */
 function pcntl_signal_get_handler(int $signal) {}
+
+/**
+ * @param int $flags
+ * @return bool
+ * @since 7.4
+ */
+function pcntl_unshare(int $flags): bool {}

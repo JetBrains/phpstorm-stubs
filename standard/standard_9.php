@@ -17,7 +17,7 @@ define('ARRAY_FILTER_USE_KEY', 2);
  * @return array An array of values resulted from merging the arguments together.
  */
 #[Pure]
-function array_merge_recursive(array $arr1, array ...$arrays): array {}
+function array_merge_recursive(array ...$arrays): array {}
 
 /**
  * array_replace() replaces the values of the first array with the same values from all the following arrays.
@@ -1147,6 +1147,16 @@ function realpath_cache_get(): array {}
  */
 #[Pure(true)]
 function realpath_cache_size(): int {}
+
+/**
+ * It returns the same result as (array) $object, with the
+ * exception that it ignores overloaded array casts, such as used by
+ * ArrayObject.
+ * @param object $object
+ * @return array returns the mangled object properties
+ * @since 7.4
+ */
+function get_mangled_object_vars(object $object): array {}
 
 /**
  * AssertionError is thrown when an assertion made via {@see assert()} fails.
