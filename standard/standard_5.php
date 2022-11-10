@@ -707,12 +707,11 @@ function fopen(string $filename, string $mode, bool $use_include_path = false, $
  * Output all remaining data on a file pointer
  * @link https://php.net/manual/en/function.fpassthru.php
  * @param resource $stream The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
- * @return int|false If an error occurs, fpassthru returns
- * false. Otherwise, fpassthru returns
+ * @return int returns
  * the number of characters read from handle
  * and passed through to the output.
  */
-function fpassthru($stream): int|false {}
+function fpassthru($stream): int {}
 
 /**
  * Truncates a file to a given length

@@ -182,7 +182,7 @@ namespace {
          * Returns the yielded key or, if none was specified, an auto-incrementing key or null if the generator is already closed.
          * @return TKey
          */
-        public function key(): string|float|int|bool|null {}
+        public function key(): mixed {}
 
         /**
          * Resumes the generator (unless the generator is already closed).

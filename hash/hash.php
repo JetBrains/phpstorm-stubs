@@ -308,13 +308,13 @@ function hash_algos(): array {}
  * If <b>length</b> is 0, the output length will default to the chosen hash function size.</p>
  * @param string $info [optional] <p>Application/context-specific info string.</p>
  * @param string $salt [optional] <p>Salt to use during derivation. While optional, adding random salt significantly improves the strength of HKDF.</p>
- * @return string|false <p>Returns a string containing a raw binary representation of the derived key (also known as output keying material - OKM); or <b>FALSE</b> on failure.</p>
+ * @return string <p>Returns a string containing a raw binary representation of the derived key (also known as output keying material - OKM)</p>
  * @since 7.1.2
  * Generate a HKDF key derivation of a supplied key input
  * @link https://php.net/manual/en/function.hash-hkdf.php
  */
 #[Pure]
-function hash_hkdf(string $algo, string $key, int $length = 0, string $info = '', string $salt = ''): string|false {}
+function hash_hkdf(string $algo, string $key, int $length = 0, string $info = '', string $salt = ''): string {}
 
 /**
  * Return a list of registered hashing algorithms suitable for hash_hmac
@@ -457,5 +457,5 @@ final class HashContext
     /**
      * @param array $data
      */
-    public function __unserialize($data): void {}
+    public function __unserialize(array $data): void {}
 }

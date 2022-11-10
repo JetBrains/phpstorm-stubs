@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
@@ -113,7 +114,7 @@ interface ArrayAccess
      * The return value will be casted to boolean if non-boolean was returned.
      */
     #[TentativeType]
-    public function offsetExists($offset): bool;
+    public function offsetExists(mixed $offset): bool;
 
     /**
      * Offset to retrieve
@@ -124,7 +125,7 @@ interface ArrayAccess
      * @return TValue Can return all value types.
      */
     #[TentativeType]
-    public function offsetGet($offset): mixed;
+    public function offsetGet(mixed $offset): mixed;
 
     /**
      * Offset to set
@@ -138,7 +139,7 @@ interface ArrayAccess
      * @return void
      */
     #[TentativeType]
-    public function offsetSet($offset, $value): void;
+    public function offsetSet(mixed $offset, mixed $value): void;
 
     /**
      * Offset to unset
@@ -149,7 +150,7 @@ interface ArrayAccess
      * @return void
      */
     #[TentativeType]
-    public function offsetUnset($offset): void;
+    public function offsetUnset(mixed $offset): void;
 }
 
 /**
@@ -174,7 +175,7 @@ interface Serializable
      * @param string $data The string representation of the object.
      * @return void
      */
-    public function unserialize($data);
+    public function unserialize(string $data);
 }
 
 /**
@@ -247,7 +248,7 @@ interface Throwable extends Stringable
      * @return null|Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
      * @since 7.0
      */
-    public function getPrevious();
+    public function getPrevious(): Throwable|null;
 
     /**
      * Gets a string representation of the thrown object
@@ -275,6 +276,23 @@ interface Countable
      */
     #[TentativeType]
     public function count(): int;
+}
+
+/**
+ * Stringable interface denotes a class as having a __toString() method.
+ *
+ * @since 8.0
+ */
+interface Stringable
+{
+    /**
+     * Magic method {@see https://www.php.net/manual/en/language.oop5.magic.php#object.tostring}
+     * allows a class to decide how it will react when it is treated like a string.
+     *
+     * @return string Returns string representation of the object that
+     * implements this interface (and/or "__toString" magic method).
+     */
+    public function __toString(): string;
 }
 
 /**
@@ -310,7 +328,7 @@ class Exception implements Throwable
      * @param null|Throwable $previous [optional] The previous throwable used for the exception chaining.
      */
     #[Pure]
-    public function __construct($message = '', $code = 0, Throwable $previous = null) {}
+    public function __construct(string $message = '', int $code = 0, Throwable|null $previous = null) {}
 
     /**
      * Gets the Exception message
@@ -419,7 +437,7 @@ class Error implements Throwable
      * @param null|Throwable $previous [optional] The previous throwable used for the exception chaining.
      */
     #[Pure]
-    public function __construct($message = '', $code = 0, Throwable $previous = null) {}
+    public function __construct(string $message = '', int $code = 0, Throwable|null $previous = null) {}
 
     final public function getMessage(): string {}
 
@@ -551,6 +569,11 @@ class CompileError extends Error {}
 class DivisionByZeroError extends ArithmeticError {}
 
 /**
+ * @since 8.0
+ */
+class UnhandledMatchError extends Error {}
+
+/**
  * An Error Exception.
  * @link https://php.net/manual/en/class.errorexception.php
  */
@@ -569,7 +592,7 @@ class ErrorException extends Exception
      * @param Exception $previous [optional] The previous exception used for the exception chaining.
      */
     #[Pure]
-    public function __construct($message = '', $code = 0, $severity = 1, $filename = __FILE__, $line = __LINE__, Throwable $previous = null) {}
+    public function __construct(string $message = '', int $code = 0, int $severity = 1, string|null $filename = __FILE__, int|null $line = __LINE__, Throwable|null $previous = null) {}
 
     /**
      * Gets the exception severity
@@ -683,4 +706,139 @@ final class WeakReference
      * @since 7.4
      */
     public function get(): ?object {}
+}
+
+/**
+ * Weak maps allow creating a map from objects to arbitrary values
+ * (similar to SplObjectStorage) without preventing the objects that are used
+ * as keys from being garbage collected. If an object key is garbage collected,
+ * it will simply be removed from the map.
+ *
+ * @since 8.0
+ *
+ * @template TKey of object
+ * @template TValue
+ * @template-implements IteratorAggregate<TKey, TValue>
+ */
+final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
+{
+    /**
+     * Returns {@see true} if the value for the object is contained in
+     * the {@see WeakMap} and {@see false} instead.
+     *
+     * @param TKey $object Any object
+     * @return bool
+     */
+    public function offsetExists($object): bool {}
+
+    /**
+     * Returns the existsing value by an object.
+     *
+     * @param TKey $object Any object
+     * @return TValue Value associated with the key object
+     */
+    public function offsetGet($object): mixed {}
+
+    /**
+     * Sets a new value for an object.
+     *
+     * @param TKey $object Any object
+     * @param TValue $value Any value
+     * @return void
+     */
+    public function offsetSet($object, mixed $value): void {}
+
+    /**
+     * Force removes an object value from the {@see WeakMap} instance.
+     *
+     * @param TKey $object Any object
+     * @return void
+     */
+    public function offsetUnset($object): void {}
+
+    /**
+     * Returns an iterator in the "[object => mixed]" format.
+     *
+     * @return Traversable<TKey, TValue>
+     */
+    public function getIterator(): Iterator {}
+
+    /**
+     * Returns the number of items in the {@see WeakMap} instance.
+     *
+     * @return int<0,max>
+     */
+    public function count(): int {}
+}
+
+/**
+ * @since 8.0
+ */
+final class Attribute
+{
+    /**
+     * Marks that attribute declaration is allowed only in classes.
+     */
+    public const TARGET_CLASS = 1;
+
+    /**
+     * Marks that attribute declaration is allowed only in functions.
+     */
+    public const TARGET_FUNCTION = 2;
+
+    /**
+     * Marks that attribute declaration is allowed only in class methods.
+     */
+    public const TARGET_METHOD = 4;
+
+    /**
+     * Marks that attribute declaration is allowed only in class properties.
+     */
+    public const TARGET_PROPERTY = 8;
+
+    /**
+     * Marks that attribute declaration is allowed only in class constants.
+     */
+    public const TARGET_CLASS_CONSTANT = 16;
+
+    /**
+     * Marks that attribute declaration is allowed only in function or method parameters.
+     */
+    public const TARGET_PARAMETER = 32;
+
+    /**
+     * Marks that attribute declaration is allowed anywhere.
+     */
+    public const TARGET_ALL = 63;
+
+    /**
+     * Notes that an attribute declaration in the same place is
+     * allowed multiple times.
+     */
+    public const IS_REPEATABLE = 64;
+    public int $flags;
+
+    /**
+     * @param int $flags A value in the form of a bitmask indicating the places
+     * where attributes can be defined.
+     */
+    public function __construct(#[ExpectedValues([Attribute::class])] int $flags = self::TARGET_ALL) {}
+}
+
+/**
+ * @since 8.0
+ */
+final class InternalIterator implements Iterator
+{
+    private function __construct() {}
+
+    public function current(): mixed {}
+
+    public function next(): void {}
+
+    public function key(): mixed {}
+
+    public function valid(): bool {}
+
+    public function rewind(): void {}
 }

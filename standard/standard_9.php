@@ -299,7 +299,7 @@ function array_intersect_key(array $array, array ...$arrays): array {}
  * in all the arguments.
  * @meta
  */
-function array_intersect_ukey(array $array, array $array2, callable $key_compare_func): array {}
+function array_intersect_ukey(array $array, ...$rest): array {}
 
 /**
  * Computes the intersection of arrays, compares data by a callback function
@@ -324,7 +324,7 @@ function array_intersect_ukey(array $array, array $array2, callable $key_compare
  * that are present in all the arguments.
  * @meta
  */
-function array_uintersect(array $array, array $array2, callable $data_compare_func): array {}
+function array_uintersect(array $array, ...$rest): array {}
 
 /**
  * Computes the intersection of arrays with additional index check
@@ -361,7 +361,7 @@ function array_intersect_assoc(array $array, array ...$arrays): array {}
  * array1 that are present in all the arguments.
  * @meta
  */
-function array_uintersect_assoc(array $array, array $array2, callable $data_compare_func): array {}
+function array_uintersect_assoc(array $array, ...$rest): array {}
 
 /**
  * Computes the intersection of arrays with additional index check, compares indexes by a callback function
@@ -380,7 +380,7 @@ function array_uintersect_assoc(array $array, array $array2, callable $data_comp
  * in all of the arguments.
  * @meta
  */
-function array_intersect_uassoc(array $array, array $array2, callable $key_compare_func): array {}
+function array_intersect_uassoc(array $array, ...$rest): array {}
 
 /**
  * Computes the intersection of arrays with additional index check, compares data and indexes by separate callback functions
@@ -407,7 +407,7 @@ function array_intersect_uassoc(array $array, array $array2, callable $key_compa
  * @meta
  */
 #[Pure]
-function array_uintersect_uassoc(array $array, array $array2, callable $data_compare_func, callable $key_compare_func): array {}
+function array_uintersect_uassoc(array $array, ...$rest): array {}
 
 /**
  * Computes the difference of arrays
@@ -460,7 +460,7 @@ function array_diff_key(array $array, array ...$arrays): array {}
  * array1 that are not present in any of the other arrays.
  * @meta
  */
-function array_diff_ukey(array $array, array $array2, callable $key_compare_func): array {}
+function array_diff_ukey(array $array, ...$rest): array {}
 
 /**
  * Computes the difference of arrays by using a callback function for data comparison
@@ -485,7 +485,7 @@ function array_diff_ukey(array $array, array $array2, callable $key_compare_func
  * that are not present in any of the other arguments.
  * @meta
  */
-function array_udiff(array $array, array $array2, callable $data_compare_func): array {}
+function array_udiff(array $array, ...$rest): array {}
 
 /**
  * Computes the difference of arrays with additional index check
@@ -533,7 +533,7 @@ function array_diff_assoc(array $array, array ...$arrays): array {}
  * comparison.
  * @meta
  */
-function array_udiff_assoc(array $array, array $array2, callable $data_compare_func): array {}
+function array_udiff_assoc(array $array, ...$rest): array {}
 
 /**
  * Computes the difference of arrays with additional index check which is performed by a user supplied callback function
@@ -555,7 +555,7 @@ function array_udiff_assoc(array $array, array $array2, callable $data_compare_f
  * array1 that are not present in any of the other arrays.
  * @meta
  */
-function array_diff_uassoc(array $array, array $array2, callable $key_compare_func): array {}
+function array_diff_uassoc(array $array, ...$rest): array {}
 
 /**
  * Computes the difference of arrays with additional index check, compares data and indexes by a callback function
@@ -594,7 +594,7 @@ function array_diff_uassoc(array $array, array $array2, callable $key_compare_fu
  * arguments.
  * @meta
  */
-function array_udiff_uassoc(array $array, array $array2, callable $data_compare_func, callable $key_compare_func): array {}
+function array_udiff_uassoc(array $array, ...$rest): array {}
 
 /**
  * Calculate the sum of values in an array
@@ -668,7 +668,7 @@ function array_filter(array $array, ?callable $callback, int $mode = 0): array {
  * after applying the callback function to each one.
  * @meta
  */
-function array_map(?callable $callback, array ...$arrays): array {}
+function array_map(?callable $callback, array $array, array ...$arrays): array {}
 
 /**
  * Split an array into chunks
@@ -704,7 +704,7 @@ function array_chunk(array $array, int $length, bool $preserve_keys = false): ar
  * @meta
  */
 #[Pure]
-function array_combine(array $keys, array $values): array|false {}
+function array_combine(array $keys, array $values): array {}
 
 /**
  * Checks if the given key or index exists in the array
@@ -718,7 +718,7 @@ function array_combine(array $keys, array $values): array|false {}
  * @return bool true on success or false on failure.
  */
 #[Pure]
-function array_key_exists($key, array|ArrayObject $array): bool {}
+function array_key_exists($key, array $array): bool {}
 
 /**
  * Gets the first key of an array
@@ -1157,6 +1157,36 @@ function realpath_cache_size(): int {}
  * @since 7.4
  */
 function get_mangled_object_vars(object $object): array {}
+
+/**
+ * Get the type or object name of a variable
+ *
+ * @param mixed $value The variable being type checked.
+ * @return string Possibles values for the returned string are:
+ *  - "int"
+ *  - "float"
+ *  - "bool"
+ *  - "string"
+ *  - "array"
+ *  - "null"
+ *  - A class name for named classes
+ *  - "class@anonymous" for an anonymous classes
+ *  - "resource (xxx)" for any resources where "xxx" is a name of resource
+ *  - "resource (closed)" for closed resources
+ * @since 8.0
+ */
+#[Pure]
+function get_debug_type(mixed $value): string {}
+
+/**
+ * A more obvious and type-safe form of "(int) $resource"
+ *
+ * @param resource $resource
+ * @return int
+ * @since 8.0
+ */
+#[Pure]
+function get_resource_id($resource): int {}
 
 /**
  * AssertionError is thrown when an assertion made via {@see assert()} fails.

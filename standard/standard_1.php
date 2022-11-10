@@ -389,20 +389,14 @@ function str_word_count(string $string, int $format = 0, ?string $characters): a
  * @param int $length [optional] <p>
  * Maximum length of the chunk.
  * </p>
- * @return string[]|false <p>If the optional split_length parameter is
+ * @return string[] <p>If the optional split_length parameter is
  * specified, the returned array will be broken down into chunks with each
  * being split_length in length, otherwise each chunk
  * will be one character in length.
  * </p>
- * <p>
- * <b>FALSE</b> is returned if split_length is less than 1.
- * If the split_length length exceeds the length of
- * string, the entire string is returned as the first
- * (and only) array element.
- * </p>
  */
 #[Pure]
-function str_split(string $string, int $length = 1): array|false {}
+function str_split(string $string, int $length = 1): array {}
 
 /**
  * Search a string for any of a set of characters
@@ -547,10 +541,10 @@ function money_format(string $format, float $number): ?string {}
  * $rest = substr("abcdef", -3, -1); // returns "de"
  * ?>
  * </pre>
- * @return string|false the extracted part of string or false on failure.
+ * @return string the extracted part of string.
  */
 #[Pure]
-function substr(string $string, int $offset, ?int $length): string|false {}
+function substr(string $string, int $offset, ?int $length): string {}
 
 /**
  * Replace text within a portion of a string
@@ -974,8 +968,7 @@ function similar_text(string $string1, string $string2, &$percent): int {}
  * <p>
  * If the limit parameter is zero, then this is treated as 1.
  * </p>
- * @return string[]|false If delimiter is an empty string (""),
- * explode will return false.
+ * @return string[]
  * If delimiter contains a value that is not
  * contained in string and a negative
  * limit is used, then an empty array will be
@@ -983,7 +976,7 @@ function similar_text(string $string1, string $string2, &$percent): int {}
  * string will be returned.
  */
 #[Pure]
-function explode(string $separator, string $string, int $limit): array|false {}
+function explode(string $separator, string $string, int $limit): array {}
 
 /**
  * Join array elements with a string
@@ -1089,7 +1082,7 @@ function join(array|string $separator = '', ?array $array): string {}
  * on the system that PHP is running. It returns exactly
  * what the system setlocale function returns.</p>
  */
-function setlocale(#[ExpectedValues([LC_ALL, LC_COLLATE, LC_CTYPE, LC_MONETARY, LC_NUMERIC, LC_TIME, LC_MESSAGES])] int $category, $rest, ...$rest): string|false {}
+function setlocale(#[ExpectedValues([LC_ALL, LC_COLLATE, LC_CTYPE, LC_MONETARY, LC_NUMERIC, LC_TIME, LC_MESSAGES])] int $category, $locales, ...$rest): string|false {}
 
 /**
  * Get numeric formatting information

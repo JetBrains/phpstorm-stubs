@@ -84,10 +84,10 @@ function bzclose($bz): bool {}
  * The file pointer. It must be valid and must point to a file
  * successfully opened by <b>bzopen</b>.
  * </p>
- * @return int the error number as an integer.
+ * @return int|false the error number as an integer.
  */
 #[Pure]
-function bzerrno($bz): int {}
+function bzerrno($bz): int|false {}
 
 /**
  * Returns a bzip2 error string
@@ -96,10 +96,10 @@ function bzerrno($bz): int {}
  * The file pointer. It must be valid and must point to a file
  * successfully opened by <b>bzopen</b>.
  * </p>
- * @return string a string containing the error message.
+ * @return string|false a string containing the error message.
  */
 #[Pure]
-function bzerrstr($bz): string {}
+function bzerrstr($bz): string|false {}
 
 /**
  * Returns the bzip2 error number and error string in an array
@@ -108,13 +108,13 @@ function bzerrstr($bz): string {}
  * The file pointer. It must be valid and must point to a file
  * successfully opened by <b>bzopen</b>.
  * </p>
- * @return array an associative array, with the error code in the
+ * @return array|false an associative array, with the error code in the
  * errno entry, and the error message in the
  * errstr entry.
  */
 #[Pure]
 #[ArrayShape(["errno" => "int", "errstr" => "string"])]
-function bzerror($bz): array {}
+function bzerror($bz): array|false {}
 
 /**
  * Compress a string into bzip2 encoded data

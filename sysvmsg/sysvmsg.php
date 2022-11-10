@@ -22,14 +22,14 @@ define('MSG_EXCEPT', 4);
  * Queue permissions. Default to 0666. If the message queue already
  * exists, the <i>perms</i> will be ignored.
  * </p>
- * @return resource|SysvMessageQueue|false a resource handle that can be used to access the System V message queue.
+ * @return SysvMessageQueue|false a resource handle that can be used to access the System V message queue.
  */
-function msg_get_queue(int $key, int $permissions = 438) {}
+function msg_get_queue(int $key, int $permissions = 438): SysvMessageQueue|false {}
 
 /**
  * Send a message to a message queue
  * @link https://php.net/manual/en/function.msg-send.php
- * @param SysvMessageQueue|resource $queue
+ * @param SysvMessageQueue $queue
  * @param int $message_type
  * @param mixed $message
  * @param bool $serialize [optional] <p>
@@ -62,7 +62,7 @@ function msg_get_queue(int $key, int $permissions = 438) {}
  * <i>msg_stime</i> is set to the current time.
  * </p>
  */
-function msg_send($queue, int $message_type, $message, bool $serialize = true, bool $blocking = true, &$error_code): bool {}
+function msg_send(SysvMessageQueue $queue, int $message_type, $message, bool $serialize = true, bool $blocking = true, &$error_code): bool {}
 
 /**
  * Receive a message from a message queue
@@ -149,7 +149,7 @@ function msg_send($queue, int $message_type, $message, bool $serialize = true, b
  * msg_rtime is set to the current time.
  * </p>
  */
-function msg_receive($queue, int $desired_message_type, &$received_message_type, int $max_message_size, mixed &$message, bool $unserialize = true, int $flags = 0, &$error_code): bool {}
+function msg_receive(SysvMessageQueue $queue, int $desired_message_type, &$received_message_type, int $max_message_size, mixed &$message, bool $unserialize = true, int $flags = 0, &$error_code): bool {}
 
 /**
  * Destroy a message queue
@@ -159,7 +159,7 @@ function msg_receive($queue, int $desired_message_type, &$received_message_type,
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function msg_remove_queue($queue): bool {}
+function msg_remove_queue(SysvMessageQueue $queue): bool {}
 
 /**
  * Returns information from the message queue data structure
@@ -236,7 +236,7 @@ function msg_remove_queue($queue): bool {}
  * </table>
  */
 #[ArrayShape(["msg_perm.uid" => "int", "msg_perm.gid" => "int", "msg_perm.mode" => "int", "msg_stime" => "int", "msg_rtime" => "int", "msg_ctime" => "int", "msg_qnum" => "int", "msg_qbytes" => "int", "msg_lspid" => "int", "msg_lrpid" => "int"])]
-function msg_stat_queue($queue): array|false {}
+function msg_stat_queue(SysvMessageQueue $queue): array|false {}
 
 /**
  * Set information in the message queue data structure
@@ -250,7 +250,7 @@ function msg_stat_queue($queue): array|false {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function msg_set_queue($queue, array $data): bool {}
+function msg_set_queue(SysvMessageQueue $queue, array $data): bool {}
 
 /**
  * Check whether a message queue exists
@@ -261,3 +261,15 @@ function msg_set_queue($queue, array $data): bool {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function msg_queue_exists(int $key): bool {}
+
+/**
+ * @since 8.0
+ */
+final class SysvMessageQueue
+{
+    /**
+     * Cannot directly construct SysvMessageQueue, use msg_get_queue() instead
+     * @see msg_get_queue()
+     */
+    private function __construct() {}
+}

@@ -14,9 +14,9 @@
  * @param int $permissions [optional] <p>
  * The optional permission bits. Default to 0666.
  * </p>
- * @return resource|SysvSharedMemory|false a shared memory segment identifier.
+ * @return SysvSharedMemory|false a shared memory segment identifier.
  */
-function shm_attach(int $key, ?int $size, int $permissions = 438) {}
+function shm_attach(int $key, ?int $size, int $permissions = 438): SysvSharedMemory|false {}
 
 /**
  * Removes shared memory from Unix systems
@@ -27,7 +27,7 @@ function shm_attach(int $key, ?int $size, int $permissions = 438) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function shm_remove($shm): bool {}
+function shm_remove(SysvSharedMemory $shm): bool {}
 
 /**
  * Disconnects from shared memory segment
@@ -38,7 +38,7 @@ function shm_remove($shm): bool {}
  * </p>
  * @return bool <b>shm_detach</b> always returns <b>TRUE</b>.
  */
-function shm_detach($shm): bool {}
+function shm_detach(SysvSharedMemory $shm): bool {}
 
 /**
  * Inserts or updates a variable in shared memory
@@ -58,7 +58,7 @@ function shm_detach($shm): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function shm_put_var($shm, int $key, mixed $value): bool {}
+function shm_put_var(SysvSharedMemory $shm, int $key, mixed $value): bool {}
 
 /**
  * Check whether a specific entry exists
@@ -71,7 +71,7 @@ function shm_put_var($shm, int $key, mixed $value): bool {}
  * </p>
  * @return bool <b>TRUE</b> if the entry exists, otherwise <b>FALSE</b>
  */
-function shm_has_var($shm, int $key): bool {}
+function shm_has_var(SysvSharedMemory $shm, int $key): bool {}
 
 /**
  * Returns a variable from shared memory
@@ -84,7 +84,7 @@ function shm_has_var($shm, int $key): bool {}
  * </p>
  * @return mixed the variable with the given key.
  */
-function shm_get_var($shm, int $key): mixed {}
+function shm_get_var(SysvSharedMemory $shm, int $key): mixed {}
 
 /**
  * Removes a variable from shared memory
@@ -98,4 +98,16 @@ function shm_get_var($shm, int $key): mixed {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function shm_remove_var($shm, int $key): bool {}
+function shm_remove_var(SysvSharedMemory $shm, int $key): bool {}
+
+/**
+ * @since 8.0
+ */
+final class SysvSharedMemory
+{
+    /**
+     * Cannot directly construct SysvSharedMemory, use shm_attach() instead
+     * @see shm_attach()
+     */
+    private function __construct() {}
+}

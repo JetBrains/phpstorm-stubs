@@ -25,7 +25,7 @@ class ReflectionReference
      * @param int|string $key The key; either an integer or a string.
      * @return self|null
      */
-    public static function fromArrayElement(array $array, $key): ?ReflectionReference {}
+    public static function fromArrayElement(array $array, string|int $key): ?ReflectionReference {}
 
     /**
      * Returns unique identifier for the reference. The return value format is unspecified

@@ -179,12 +179,13 @@ function unserialize(string $data, array $options = []): mixed {}
 /**
  * Dumps information about a variable
  * @link https://php.net/manual/en/function.var-dump.php
- * @param mixed ...$vars <p>
+ * @param mixed $value <p>
  * The variable you want to export.
  * </p>
+ * @param mixed ...$values [optional]
  * @return void
  */
-function var_dump(...$vars): void {}
+function var_dump(mixed $value, mixed ...$values): void {}
 
 /**
  * Outputs or returns a parsable string representation of a variable
@@ -211,7 +212,7 @@ function var_export(mixed $value, bool $return = false): ?string {}
  * </p>
  * @return void
  */
-function debug_zval_dump(mixed ...$values): void {}
+function debug_zval_dump(mixed $value, mixed ...$values): void {}
 
 /**
  * Prints human-readable information about a variable
@@ -358,7 +359,7 @@ function highlight_string(string $string, bool $return = false): string|bool {}
  * Otherwise the nanoseconds are returned as integer (64bit platforms) or float (32bit platforms).
  */
 #[Pure(true)]
-function hrtime(bool $as_number): array|int|float|false {}
+function hrtime(bool $as_number = false): array|int|float|false {}
 
 /**
  * Return source with stripped comments and whitespace

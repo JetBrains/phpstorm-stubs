@@ -147,7 +147,7 @@ class SQLite3
      * SQLite database.
      * </p>
      */
-    public function __construct($filename, $flags = SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE, $encryptionKey = null) {}
+    public function __construct(string $filename, int $flags = SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE, string $encryptionKey = null) {}
 
     /**
      * Returns the SQLite3 library version as a string constant and as a number
@@ -169,7 +169,7 @@ class SQLite3
      * statement.
      */
     #[TentativeType]
-    public static function escapeString($string): string {}
+    public static function escapeString(string $string): string {}
 
     /**
      * Opens an SQLite database
@@ -192,7 +192,7 @@ class SQLite3
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function open($filename, $flags = SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE, $encryptionKey = null): void {}
+    public function open(string $filename, int $flags = SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE, string $encryptionKey = null): void {}
 
     /**
      * Closes the database connection
@@ -211,7 +211,7 @@ class SQLite3
      * @return bool <b>TRUE</b> if the query succeeded, <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function exec($query): bool {}
+    public function exec(string $query): bool {}
 
     /**
      * Returns the row ID of the most recent INSERT into the database
@@ -249,7 +249,7 @@ class SQLite3
      * @since 5.3.3
      */
     #[TentativeType]
-    public function busyTimeout($milliseconds): bool {}
+    public function busyTimeout(int $milliseconds): bool {}
 
     /**
      * Attempts to load an SQLite extension library
@@ -261,7 +261,7 @@ class SQLite3
      * @return bool <b>TRUE</b> if the extension is successfully loaded, <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function loadExtension($name): bool {}
+    public function loadExtension(string $name): bool {}
 
     /**
      * Returns the number of database rows that were changed (or inserted or
@@ -283,7 +283,7 @@ class SQLite3
      * @return SQLite3Stmt|false an <b>SQLite3Stmt</b> object on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function prepare($query): SQLite3Stmt|false {}
+    public function prepare(string $query): SQLite3Stmt|false {}
 
     /**
      * Executes an SQL query
@@ -294,7 +294,7 @@ class SQLite3
      * @return SQLite3Result|false an <b>SQLite3Result</b> object, or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function query($query): SQLite3Result|false {}
+    public function query(string $query): SQLite3Result|false {}
 
     /**
      * Executes a query and returns a single result
@@ -320,7 +320,7 @@ class SQLite3
      * Invalid or failing queries will return <b>FALSE</b>.
      */
     #[TentativeType]
-    public function querySingle($query, $entireRow = false): mixed {}
+    public function querySingle(string $query, bool $entireRow = false): mixed {}
 
     /**
      * Registers a PHP function for use as an SQL scalar function
@@ -344,7 +344,7 @@ class SQLite3
      * @return bool <b>TRUE</b> upon successful creation of the function, <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function createFunction($name, $callback, $argCount = -1, int $flags = 0): bool {}
+    public function createFunction(string $name, callable $callback, int $argCount = -1, int $flags = 0): bool {}
 
     /**
      * Registers a PHP function for use as an SQL aggregate function
@@ -369,7 +369,7 @@ class SQLite3
      * failure.
      */
     #[TentativeType]
-    public function createAggregate($name, $stepCallback, $finalCallback, $argCount = -1): bool {}
+    public function createAggregate(string $name, callable $stepCallback, callable $finalCallback, int $argCount = -1): bool {}
 
     /**
      * Registers a PHP function for use as an SQL collating function
@@ -388,7 +388,7 @@ class SQLite3
      * @since 5.3.11
      */
     #[TentativeType]
-    public function createCollation($name, callable $callback): bool {}
+    public function createCollation(string $name, callable $callback): bool {}
 
     /**
      * Opens a stream resource to read a BLOB
@@ -401,7 +401,7 @@ class SQLite3
      * <p>Either <b>SQLITE3_OPEN_READONLY</b> or <b>SQLITE3_OPEN_READWRITE</b> to open the stream for reading only, or for reading and writing, respectively.</p>
      * @return resource|false Returns a stream resource, or FALSE on failure.
      */
-    public function openBlob($table, $column, $rowid, $database = 'main', int $flags = SQLITE3_OPEN_READONLY) {}
+    public function openBlob(string $table, string $column, int $rowid, string $database = 'main', int $flags = SQLITE3_OPEN_READONLY) {}
 
     /**
      * Enable throwing exceptions
@@ -410,7 +410,7 @@ class SQLite3
      * @return bool Returns the old value; true if exceptions were enabled, false otherwise.
      */
     #[TentativeType]
-    public function enableExceptions($enable = false): bool {}
+    public function enableExceptions(bool $enable = false): bool {}
 
     /**
      * @return int
@@ -424,7 +424,7 @@ class SQLite3
      * @since 7.4
      */
     #[TentativeType]
-    public function enableExtendedResultCodes(bool $enable): bool {}
+    public function enableExtendedResultCodes(bool $enable = true): bool {}
 
     /**
      * @param SQLite3 $destination
@@ -435,6 +435,14 @@ class SQLite3
      */
     #[TentativeType]
     public function backup(SQLite3 $destination, string $sourceDatabase = 'main', string $destinationDatabase = 'main'): bool {}
+
+    /**
+     * @param null|callable $callback
+     * @return bool
+     * @since 8.0
+     */
+    #[TentativeType]
+    public function setAuthorizer(?callable $callback): bool {}
 }
 
 /**
@@ -447,7 +455,7 @@ class SQLite3Stmt
      * @param SQLite3 $sqlite3
      * @param string $query
      */
-    private function __construct($sqlite3) {}
+    private function __construct(SQLite3 $sqlite3, string $query) {}
 
     /**
      * Returns the number of parameters within the prepared statement
@@ -513,7 +521,7 @@ class SQLite3Stmt
      * on failure.
      */
     #[TentativeType]
-    public function bindParam($param, &$var, $type = SQLITE3_TEXT): bool {}
+    public function bindParam(string|int $param, mixed &$var, int $type = SQLITE3_TEXT): bool {}
 
     /**
      * Binds the value of a parameter to a statement variable
@@ -537,7 +545,7 @@ class SQLite3Stmt
      * on failure.
      */
     #[TentativeType]
-    public function bindValue($param, $value, $type = SQLITE3_TEXT): bool {}
+    public function bindValue(string|int $param, mixed $value, int $type = SQLITE3_TEXT): bool {}
 
     #[TentativeType]
     public function readOnly(): bool {}
@@ -579,7 +587,7 @@ class SQLite3Result
      * <i>column_number</i>.
      */
     #[TentativeType]
-    public function columnName($column): string|false {}
+    public function columnName(int $column): string|false {}
 
     /**
      * Returns the type of the nth column
@@ -594,7 +602,7 @@ class SQLite3Result
      * <b>SQLITE3_NULL</b>).
      */
     #[TentativeType]
-    public function columnType($column): int|false {}
+    public function columnType(int $column): int|false {}
 
     /**
      * Fetches a result row as an associative or numerically indexed array or both
@@ -612,7 +620,7 @@ class SQLite3Result
      * both. Alternately will return <b>FALSE</b> if there are no more rows.
      */
     #[TentativeType]
-    public function fetchArray($mode = SQLITE3_BOTH): array|false {}
+    public function fetchArray(int $mode = SQLITE3_BOTH): array|false {}
 
     /**
      * Resets the result set back to the first row

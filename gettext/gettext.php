@@ -78,7 +78,7 @@ function dcgettext(string $domain, string $message, int $category): string {}
  * </p>
  * @return string|false The full pathname for the <i>domain</i> currently being set.
  */
-function bindtextdomain(string $domain, string $directory): string|false {}
+function bindtextdomain(string $domain, string|null $directory): string|false {}
 
 /**
  * Plural version of gettext
@@ -133,4 +133,4 @@ function dcngettext(string $domain, string $singular, string $plural, int $count
  * </p>
  * @return string|false A string on success.
  */
-function bind_textdomain_codeset(string $domain, string $codeset): string|false {}
+function bind_textdomain_codeset(string $domain, string|null $codeset): string|false {}

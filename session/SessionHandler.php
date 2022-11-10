@@ -36,7 +36,7 @@ interface SessionHandlerInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function destroy($id): bool;
+    public function destroy(string $id): bool;
 
     /**
      * Cleanup old sessions
@@ -52,7 +52,7 @@ interface SessionHandlerInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function gc($max_lifetime): int|false;
+    public function gc(int $max_lifetime): int|false;
 
     /**
      * Initialize session
@@ -66,7 +66,7 @@ interface SessionHandlerInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function open($path, $name): bool;
+    public function open(string $path, string $name): bool;
 
     /**
      * Read session data
@@ -80,7 +80,7 @@ interface SessionHandlerInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function read($id): string|false;
+    public function read(string $id): string|false;
 
     /**
      * Write session data
@@ -100,7 +100,7 @@ interface SessionHandlerInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function write($id, $data): bool;
+    public function write(string $id, string $data): bool;
 }
 
 /**
@@ -207,7 +207,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function destroy($id): bool {}
+    public function destroy(string $id): bool {}
 
     /**
      * Cleanup old sessions
@@ -223,7 +223,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function gc($max_lifetime): int|false {}
+    public function gc(int $max_lifetime): int|false {}
 
     /**
      * Initialize session
@@ -237,7 +237,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function open($path, $name): bool {}
+    public function open(string $path, string $name): bool {}
 
     /**
      * Read session data
@@ -251,7 +251,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function read($id): string|false {}
+    public function read(string $id): string|false {}
 
     /**
      * Write session data
@@ -271,7 +271,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function write($id, $data): bool {}
+    public function write(string $id, string $data): bool {}
 
     /**
      * Validate session id

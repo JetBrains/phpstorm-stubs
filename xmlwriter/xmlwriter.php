@@ -9,25 +9,25 @@ use JetBrains\PhpStorm\Internal\TentativeType;
  * @param string $uri <p>
  * The URI of the resource for the output.
  * </p>
- * @return false|resource|XMLWriter Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return false|XMLWriter Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * <p>
  * Procedural style: Returns a new xmlwriter resource for later use with the
  * xmlwriter functions on success, <b>FALSE</b> on error.
  * </p>
  */
-function xmlwriter_open_uri(string $uri) {}
+function xmlwriter_open_uri(string $uri): XMLWriter|false {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
  * Create new xmlwriter using memory for string output
  * @link https://php.net/manual/en/function.xmlwriter-openmemory.php
- * @return XMLWriter|false|resource Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return XMLWriter|false Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * <p>
  * Procedural style: Returns a new xmlwriter resource for later use with the
  * xmlwriter functions on success, <b>FALSE</b> on error.
  * </p>
  */
-function xmlwriter_open_memory() {}
+function xmlwriter_open_memory(): XMLWriter|false {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -43,7 +43,7 @@ function xmlwriter_open_memory() {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_set_indent($writer, bool $enable): bool {}
+function xmlwriter_set_indent(XMLWriter $writer, bool $enable): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -59,7 +59,7 @@ function xmlwriter_set_indent($writer, bool $enable): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_set_indent_string($writer, string $indentation): bool {}
+function xmlwriter_set_indent_string(XMLWriter $writer, string $indentation): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 1.0.0)<br/>
@@ -72,7 +72,7 @@ function xmlwriter_set_indent_string($writer, string $indentation): bool {}
  * or {@link https://php.net/manual/en/function.xmlwriter-openmemory.php" xmlwriter_open_memory()}.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_comment($writer): bool {}
+function xmlwriter_start_comment(XMLWriter $writer): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 1.0.0)<br/>
@@ -85,7 +85,7 @@ function xmlwriter_start_comment($writer): bool {}
  * or {@link https://php.net/manual/en/function.xmlwriter-openmemory.php" xmlwriter_open_memory()}.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_comment($writer): bool {}
+function xmlwriter_end_comment(XMLWriter $writer): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -101,7 +101,7 @@ function xmlwriter_end_comment($writer): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_attribute($writer, string $name): bool {}
+function xmlwriter_start_attribute(XMLWriter $writer, string $name): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -113,7 +113,7 @@ function xmlwriter_start_attribute($writer, string $name): bool {}
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-openuri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-openmemory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_attribute($writer): bool {}
+function xmlwriter_end_attribute(XMLWriter $writer): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -132,7 +132,7 @@ function xmlwriter_end_attribute($writer): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_attribute($writer, string $name, string $value): bool {}
+function xmlwriter_write_attribute(XMLWriter $writer, string $name, string $value): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -154,7 +154,7 @@ function xmlwriter_write_attribute($writer, string $name, string $value): bool {
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_attribute_ns($writer, ?string $prefix, string $name, ?string $namespace): bool {}
+function xmlwriter_start_attribute_ns(XMLWriter $writer, ?string $prefix, string $name, ?string $namespace): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -179,7 +179,7 @@ function xmlwriter_start_attribute_ns($writer, ?string $prefix, string $name, ?s
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_attribute_ns($writer, ?string $prefix, string $name, ?string $namespace, string $value): bool {}
+function xmlwriter_write_attribute_ns(XMLWriter $writer, ?string $prefix, string $name, ?string $namespace, string $value): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -195,7 +195,7 @@ function xmlwriter_write_attribute_ns($writer, ?string $prefix, string $name, ?s
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_element($writer, string $name): bool {}
+function xmlwriter_start_element(XMLWriter $writer, string $name): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -207,7 +207,7 @@ function xmlwriter_start_element($writer, string $name): bool {}
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-openuri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-openmemory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_element($writer): bool {}
+function xmlwriter_end_element(XMLWriter $writer): bool {}
 
 /**
  * (PHP 5 >= 5.2.0, PECL xmlwriter >= 2.0.4)<br/>
@@ -219,7 +219,7 @@ function xmlwriter_end_element($writer): bool {}
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-openuri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-openmemory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_full_end_element($writer): bool {}
+function xmlwriter_full_end_element(XMLWriter $writer): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -241,7 +241,7 @@ function xmlwriter_full_end_element($writer): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_element_ns($writer, ?string $prefix, string $name, ?string $namespace): bool {}
+function xmlwriter_start_element_ns(XMLWriter $writer, ?string $prefix, string $name, ?string $namespace): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -260,7 +260,7 @@ function xmlwriter_start_element_ns($writer, ?string $prefix, string $name, ?str
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_element($writer, string $name, ?string $content): bool {}
+function xmlwriter_write_element(XMLWriter $writer, string $name, ?string $content): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -285,7 +285,7 @@ function xmlwriter_write_element($writer, string $name, ?string $content): bool 
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_element_ns($writer, ?string $prefix, string $name, ?string $namespace, ?string $content): bool {}
+function xmlwriter_write_element_ns(XMLWriter $writer, ?string $prefix, string $name, ?string $namespace, ?string $content): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -301,7 +301,7 @@ function xmlwriter_write_element_ns($writer, ?string $prefix, string $name, ?str
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_pi($writer, string $target): bool {}
+function xmlwriter_start_pi(XMLWriter $writer, string $target): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -313,7 +313,7 @@ function xmlwriter_start_pi($writer, string $target): bool {}
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-openuri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-openmemory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_pi($writer): bool {}
+function xmlwriter_end_pi(XMLWriter $writer): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -333,7 +333,7 @@ function xmlwriter_end_pi($writer): bool {}
  *
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_pi($writer, string $target, string $content): bool {}
+function xmlwriter_write_pi(XMLWriter $writer, string $target, string $content): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -346,7 +346,7 @@ function xmlwriter_write_pi($writer, string $target, string $content): bool {}
  * or {@link https://php.net/manual/en/function.xmlwriter-openmemory.php" xmlwriter_open_memory()}.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_cdata($writer): bool {}
+function xmlwriter_start_cdata(XMLWriter $writer): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -359,7 +359,7 @@ function xmlwriter_start_cdata($writer): bool {}
  * or {@link https://php.net/manual/en/function.xmlwriter-openmemory.php" xmlwriter_open_memory()}.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_cdata($writer): bool {}
+function xmlwriter_end_cdata(XMLWriter $writer): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -375,7 +375,7 @@ function xmlwriter_end_cdata($writer): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_cdata($writer, string $content): bool {}
+function xmlwriter_write_cdata(XMLWriter $writer, string $content): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -391,7 +391,7 @@ function xmlwriter_write_cdata($writer, string $content): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_text($writer, string $content): bool {}
+function xmlwriter_text(XMLWriter $writer, string $content): bool {}
 
 /**
  * (PHP 5 >= 5.2.0, PECL xmlwriter >= 2.0.4)<br/>
@@ -407,7 +407,7 @@ function xmlwriter_text($writer, string $content): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_raw($writer, string $content): bool {}
+function xmlwriter_write_raw(XMLWriter $writer, string $content): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -429,7 +429,7 @@ function xmlwriter_write_raw($writer, string $content): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_document($writer, ?string $version = '1.0', ?string $encoding, ?string $standalone): bool {}
+function xmlwriter_start_document(XMLWriter $writer, ?string $version = '1.0', ?string $encoding, ?string $standalone): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -442,7 +442,7 @@ function xmlwriter_start_document($writer, ?string $version = '1.0', ?string $en
  * or {@link https://php.net/manual/en/function.xmlwriter-openmemory.php" xmlwriter_open_memory()}.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_document($writer): bool {}
+function xmlwriter_end_document(XMLWriter $writer): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -458,7 +458,7 @@ function xmlwriter_end_document($writer): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_comment($writer, string $content): bool {}
+function xmlwriter_write_comment(XMLWriter $writer, string $content): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -480,7 +480,7 @@ function xmlwriter_write_comment($writer, string $content): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_dtd($writer, string $qualifiedName, ?string $publicId, ?string $systemId): bool {}
+function xmlwriter_start_dtd(XMLWriter $writer, string $qualifiedName, ?string $publicId, ?string $systemId): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -492,7 +492,7 @@ function xmlwriter_start_dtd($writer, string $qualifiedName, ?string $publicId, 
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-openuri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-openmemory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_dtd($writer): bool {}
+function xmlwriter_end_dtd(XMLWriter $writer): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -517,7 +517,7 @@ function xmlwriter_end_dtd($writer): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_dtd($writer, string $name, ?string $publicId, ?string $systemId, ?string $content): bool {}
+function xmlwriter_write_dtd(XMLWriter $writer, string $name, ?string $publicId, ?string $systemId, ?string $content): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -533,7 +533,7 @@ function xmlwriter_write_dtd($writer, string $name, ?string $publicId, ?string $
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_dtd_element($writer, string $qualifiedName): bool {}
+function xmlwriter_start_dtd_element(XMLWriter $writer, string $qualifiedName): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -542,7 +542,7 @@ function xmlwriter_start_dtd_element($writer, string $qualifiedName): bool {}
  * @param $writer
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_dtd_element($writer): bool {}
+function xmlwriter_end_dtd_element(XMLWriter $writer): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -561,7 +561,7 @@ function xmlwriter_end_dtd_element($writer): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_dtd_element($writer, string $name, string $content): bool {}
+function xmlwriter_write_dtd_element(XMLWriter $writer, string $name, string $content): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -577,7 +577,7 @@ function xmlwriter_write_dtd_element($writer, string $name, string $content): bo
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_dtd_attlist($writer, string $name): bool {}
+function xmlwriter_start_dtd_attlist(XMLWriter $writer, string $name): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -589,7 +589,7 @@ function xmlwriter_start_dtd_attlist($writer, string $name): bool {}
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-openuri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-openmemory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_dtd_attlist($writer): bool {}
+function xmlwriter_end_dtd_attlist(XMLWriter $writer): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -608,7 +608,7 @@ function xmlwriter_end_dtd_attlist($writer): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_dtd_attlist($writer, string $name, string $content): bool {}
+function xmlwriter_write_dtd_attlist(XMLWriter $writer, string $name, string $content): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -625,7 +625,7 @@ function xmlwriter_write_dtd_attlist($writer, string $name, string $content): bo
  * @param bool $isParam
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_dtd_entity($writer, string $name, bool $isParam): bool {}
+function xmlwriter_start_dtd_entity(XMLWriter $writer, string $name, bool $isParam): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -637,7 +637,7 @@ function xmlwriter_start_dtd_entity($writer, string $name, bool $isParam): bool 
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-openuri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-openmemory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_dtd_entity($writer): bool {}
+function xmlwriter_end_dtd_entity(XMLWriter $writer): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -660,7 +660,7 @@ function xmlwriter_end_dtd_entity($writer): bool {}
  * @param string $notationData
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_dtd_entity($writer, string $name, string $content): bool {}
+function xmlwriter_write_dtd_entity(XMLWriter $writer, string $name, string $content, bool $isParam = false, ?string $publicId = null, ?string $systemId = null, ?string $notationData = null): bool {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -676,7 +676,7 @@ function xmlwriter_write_dtd_entity($writer, string $name, string $content): boo
  * </p>
  * @return string the current buffer as a string.
  */
-function xmlwriter_output_memory($writer, bool $flush = true): string {}
+function xmlwriter_output_memory(XMLWriter $writer, bool $flush = true): string {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 1.0.0)<br/>
@@ -694,7 +694,7 @@ function xmlwriter_output_memory($writer, bool $flush = true): string {}
  * Else, if using URI, this function will write the buffer and return the number of
  * written bytes.
  */
-function xmlwriter_flush($writer, bool $empty = true): string|int {}
+function xmlwriter_flush(XMLWriter $writer, bool $empty = true): string|int {}
 
 class XMLWriter
 {
@@ -712,7 +712,7 @@ class XMLWriter
      * xmlwriter functions on success, <b>FALSE</b> on error.
      */
     #[TentativeType]
-    public function openUri($uri): bool {}
+    public function openUri(string $uri): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -737,7 +737,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function setIndent($enable): bool {}
+    public function setIndent(bool $enable): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -749,7 +749,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function setIndentString($indentation): bool {}
+    public function setIndentString(string $indentation): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 1.0.0)<br/>
@@ -779,7 +779,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function startAttribute($name): bool {}
+    public function startAttribute(string $name): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -803,7 +803,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function writeAttribute($name, $value): bool {}
+    public function writeAttribute(string $name, string $value): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -821,7 +821,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function startAttributeNs($prefix, $name, $namespace): bool {}
+    public function startAttributeNs(string|null $prefix, string $name, string|null $namespace): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -842,7 +842,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function writeAttributeNs($prefix, $name, $namespace, $value): bool {}
+    public function writeAttributeNs(string|null $prefix, string $name, string|null $namespace, string $value): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -854,7 +854,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function startElement($name): bool {}
+    public function startElement(string $name): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -890,7 +890,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function startElementNs($prefix, $name, $namespace): bool {}
+    public function startElementNs(string|null $prefix, string $name, string|null $namespace): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -905,7 +905,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function writeElement($name, $content = null): bool {}
+    public function writeElement(string $name, string|null $content = null): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -926,7 +926,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function writeElementNs($prefix, $name, $namespace, $content = null): bool {}
+    public function writeElementNs(string|null $prefix, string $name, string|null $namespace, string|null $content = null): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -938,7 +938,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function startPi($target): bool {}
+    public function startPi(string $target): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -962,7 +962,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function writePi($target, $content): bool {}
+    public function writePi(string $target, string $content): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -992,7 +992,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function writeCdata($content): bool {}
+    public function writeCdata(string $content): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -1004,7 +1004,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function text($content): bool {}
+    public function text(string $content): bool {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL xmlwriter >= 2.0.4)<br/>
@@ -1016,7 +1016,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function writeRaw($content): bool {}
+    public function writeRaw(string $content): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -1034,7 +1034,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function startDocument($version = '1.0', $encoding = null, $standalone = null): bool {}
+    public function startDocument(string|null $version = '1.0', string|null $encoding = null, string|null $standalone = null): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -1055,7 +1055,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function writeComment($content): bool {}
+    public function writeComment(string $content): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -1073,7 +1073,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function startDtd($qualifiedName, $publicId = null, $systemId = null): bool {}
+    public function startDtd(string $qualifiedName, string|null $publicId = null, string|null $systemId = null): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -1103,7 +1103,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function writeDtd($name, $publicId = null, $systemId = null, $content = null): bool {}
+    public function writeDtd(string $name, string|null $publicId = null, string|null $systemId = null, string|null $content = null): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -1115,7 +1115,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function startDtdElement($qualifiedName): bool {}
+    public function startDtdElement(string $qualifiedName): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -1139,7 +1139,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function writeDtdElement($name, $content): bool {}
+    public function writeDtdElement(string $name, string $content): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -1151,7 +1151,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function startDtdAttlist($name): bool {}
+    public function startDtdAttlist(string $name): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -1175,7 +1175,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function writeDtdAttlist($name, $content): bool {}
+    public function writeDtdAttlist(string $name, string $content): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -1188,7 +1188,7 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function startDtdEntity($name, $isParam): bool {}
+    public function startDtdEntity(string $name, bool $isParam): bool {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -1215,7 +1215,7 @@ class XMLWriter
      * @param string $ndataid
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function writeDtdEntity($name, $content, $pe, $pubid, $sysid, $ndataid) {}
+    public function writeDtdEntity(string $name, string $content, $pe, $pubid, $sysid, $ndataid) {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
@@ -1227,7 +1227,7 @@ class XMLWriter
      * @return string the current buffer as a string.
      */
     #[TentativeType]
-    public function outputMemory($flush = true): string {}
+    public function outputMemory(bool $flush = true): string {}
 
     /**
      * (PHP 5 >= 5.1.2, PECL xmlwriter >= 1.0.0)<br/>
@@ -1241,5 +1241,5 @@ class XMLWriter
      * written bytes.
      */
     #[TentativeType]
-    public function flush($empty = true): string|int {}
+    public function flush(bool $empty = true): string|int {}
 }

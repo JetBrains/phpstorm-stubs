@@ -25,7 +25,7 @@ class ReflectionExtension implements Reflector
      * @param string $name Name of the extension.
      * @throws ReflectionException if the extension does not exist.
      */
-    public function __construct($name) {}
+    public function __construct(string $name) {}
 
     /**
      * Exports a reflected extension.

@@ -128,6 +128,42 @@ function strcasecmp(string $string1, string $string2): int {}
 function strncasecmp(string $string1, string $string2, int $length): int {}
 
 /**
+ * The function returns {@see true} if the passed $haystack starts from the
+ * $needle string or {@see false} otherwise.
+ *
+ * @param string $haystack
+ * @param string $needle
+ * @return bool
+ * @since 8.0
+ */
+#[Pure]
+function str_starts_with(string $haystack, string $needle): bool {}
+
+/**
+ * The function returns {@see true} if the passed $haystack ends with the
+ * $needle string or {@see false} otherwise.
+ *
+ * @param string $haystack
+ * @param string $needle
+ * @return bool
+ * @since 8.0
+ */
+#[Pure]
+function str_ends_with(string $haystack, string $needle): bool {}
+
+/**
+ * Checks if $needle is found in $haystack and returns a boolean value
+ * (true/false) whether or not the $needle was found.
+ *
+ * @param string $haystack
+ * @param string $needle
+ * @return bool
+ * @since 8.0
+ */
+#[Pure]
+function str_contains(string $haystack, string $needle): bool {}
+
+/**
  * Return the current key and value pair from an array and advance the array cursor
  * @link https://php.net/manual/en/function.each.php
  * @param array|ArrayObject &$array <p>
@@ -299,7 +335,7 @@ function error_reporting(?int $error_level): int {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function define(string $constant_name, null|array|bool|int|float|string $value, #[Deprecated(since: "7.3")] bool $case_insensitive = false): bool {}
+function define(string $constant_name, $value, #[Deprecated(since: "7.3")] bool $case_insensitive = false): bool {}
 
 /**
  * Checks whether a given named constant exists

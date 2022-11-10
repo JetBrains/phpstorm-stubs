@@ -1038,7 +1038,7 @@ function mysqli_get_charset(mysqli $mysql): ?object {}
  * @param mysqli|null $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string|null A string that represents the MySQL client library version
  */
-function mysqli_get_client_info(): ?string {}
+function mysqli_get_client_info(?mysqli $mysql = null): string {}
 
 /**
  * Returns the MySQL client version as an integer
@@ -1196,7 +1196,7 @@ function mysqli_more_results(mysqli $mysql): bool {}
  * @param string $query A string containing the queries to be executed. Multiple queries must be separated by a semicolon.
  * @return bool Returns FALSE if the first statement failed. To retrieve subsequent errors from other statements you have to call mysqli_next_result() first.
  */
-function mysqli_multi_query(mysqli $mysql, string $query = null): bool {}
+function mysqli_multi_query(mysqli $mysql, string $query): bool {}
 
 /**
  * Prepare next result from multi_query
@@ -1348,7 +1348,7 @@ function mysqli_real_escape_string(mysqli $mysql, string $string): string {}
  * @param string $query
  * @return bool
  */
-function mysqli_real_query(mysqli $mysql, string $query = null): bool {}
+function mysqli_real_query(mysqli $mysql, string $query): bool {}
 
 /**
  * Get result from async query
@@ -1421,9 +1421,9 @@ function mysqli_stmt_affected_rows(mysqli_stmt $statement): string|int {}
  * @link https://php.net/manual/en/mysqli-stmt.attr-get.php
  * @param mysqli_stmt $statement
  * @param int $attribute
- * @return int|false Returns FALSE if the attribute is not found, otherwise returns the value of the attribute.
+ * @return int returns the value of the attribute.
  */
-function mysqli_stmt_attr_get(mysqli_stmt $statement, int $attribute): int|false {}
+function mysqli_stmt_attr_get(mysqli_stmt $statement, int $attribute): int {}
 
 /**
  * Used to modify the behavior of a prepared statement
@@ -1612,7 +1612,7 @@ function mysqli_stat(mysqli $mysql): string|false {}
  * @param string|null $cipher_algos A list of allowable ciphers to use for SSL encryption
  * @return bool This function always returns TRUE value.
  */
-function mysqli_ssl_set(mysqli $mysql, string $key, string $certificate, string $ca_certificate, string $ca_path, string $cipher_algos): bool {}
+function mysqli_ssl_set(mysqli $mysql, string|null $key, string|null $certificate, string|null $ca_certificate, string|null $ca_path, string|null $cipher_algos): bool {}
 
 /**
  * Closes a prepared statement
@@ -1774,7 +1774,7 @@ function mysqli_client_encoding(mysqli $mysql): string {}
  * @param string $string The string to be escaped
  * @return string
  */
-function mysqli_escape_string(mysqli $mysql, string $string, $resultmode = null): string {}
+function mysqli_escape_string(mysqli $mysql, string $string): string {}
 
 /**
  * Alias for <b>mysqli_stmt_fetch</b>
@@ -1826,7 +1826,7 @@ function mysqli_send_long_data(mysqli_stmt $statement, int $param_num, string $d
  * @param string|int $value
  * @return bool
  */
-function mysqli_set_opt(): bool {}
+function mysqli_set_opt(mysqli $mysql, int $option, $value): bool {}
 
 /**
  * mysqli_sql_exception
@@ -2035,7 +2035,7 @@ class mysqli
      * @since 5.5
      */
     #[TentativeType]
-    public function begin_transaction($flags = 0, $name = null): bool {}
+    public function begin_transaction(int $flags = 0, string|null $name = null): bool {}
 
     /**
      * Changes the user of the specified database connection
@@ -2515,7 +2515,7 @@ class mysqli
      * @since 5.5
      */
     #[TentativeType]
-    public function release_savepoint($name): bool {}
+    public function release_savepoint(string $name): bool {}
 
     /**
      * Rolls back current transaction
@@ -2526,7 +2526,7 @@ class mysqli
      * @since 5.5 Added flags and name parameters.
      */
     #[TentativeType]
-    public function rollback($flags = 0, $name = null): bool {}
+    public function rollback(int $flags = 0, string|null $name = null): bool {}
 
     /**
      * Set a named transaction savepoint
@@ -2536,7 +2536,7 @@ class mysqli
      * @since 5.5
      */
     #[TentativeType]
-    public function savepoint($name): bool {}
+    public function savepoint(string $name): bool {}
 
     /**
      * Selects the default database for database queries
@@ -2652,7 +2652,7 @@ class mysqli
      * @since 5.3
      */
     #[TentativeType]
-    public function refresh($flags): bool {}
+    public function refresh(int $flags): bool {}
 }
 
 /**
@@ -2680,7 +2680,7 @@ final class mysqli_warning
      * The __construct purpose
      * @link https://php.net/manual/en/mysqli-warning.construct.php
      */
-    protected function __construct() {}
+    private function __construct() {}
 
     /**
      * Move to the next warning
@@ -2727,7 +2727,7 @@ class mysqli_result implements IteratorAggregate
      * @param object $mysql
      * @param int $result_mode [optional]
      */
-    public function __construct() {}
+    public function __construct(mysqli $mysql, int $result_mode = MYSQLI_STORE_RESULT) {}
 
     /**
      * Frees the memory associated with a result
@@ -3051,6 +3051,12 @@ class mysqli_result implements IteratorAggregate
      */
     #[TentativeType]
     public function free_result(): void {}
+
+    /**
+     * @return Iterator
+     * @since 8.0
+     */
+    public function getIterator(): Iterator {}
 }
 
 /**

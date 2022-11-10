@@ -20,7 +20,7 @@
  * @return resource|false|SysvSemaphore a positive semaphore identifier on success, or <b>FALSE</b> on
  * error.
  */
-function sem_get(int $key, int $max_acquire = 1, int $permissions = 438, bool $auto_release = true) {}
+function sem_get(int $key, int $max_acquire = 1, int $permissions = 438, bool $auto_release = true): SysvSemaphore|false {}
 
 /**
  * Acquire a semaphore
@@ -36,7 +36,7 @@ function sem_get(int $key, int $max_acquire = 1, int $permissions = 438, bool $a
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function sem_acquire($semaphore, bool $non_blocking = false): bool {}
+function sem_acquire(SysvSemaphore $semaphore, bool $non_blocking = false): bool {}
 
 /**
  * Release a semaphore
@@ -47,7 +47,7 @@ function sem_acquire($semaphore, bool $non_blocking = false): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function sem_release($semaphore): bool {}
+function sem_release(SysvSemaphore $semaphore): bool {}
 
 /**
  * Remove a semaphore
@@ -58,4 +58,16 @@ function sem_release($semaphore): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function sem_remove($semaphore): bool {}
+function sem_remove(SysvSemaphore $semaphore): bool {}
+
+/**
+ * @since 8.0
+ */
+final class SysvSemaphore
+{
+    /**
+     * Cannot directly construct SysvSemaphore, use sem_get() instead
+     * @see sem_get()
+     */
+    private function __construct() {}
+}

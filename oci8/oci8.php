@@ -1586,24 +1586,24 @@ function oci_free_descriptor($descriptor) {}
  * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
  * Compares two LOB/FILE locators for equality
  * @link https://php.net/manual/en/function.oci-lob-is-equal.php
- * @param OCI_Lob $lob1 <p>
+ * @param OCILob $lob1 <p>
  * A LOB identifier.
  * </p>
- * @param OCI_Lob $lob2 <p>
+ * @param OCILob $lob2 <p>
  * A LOB identifier.
  * </p>
  * @return bool <b>TRUE</b> if these objects are equal, <b>FALSE</b> otherwise.
  */
-function oci_lob_is_equal(OCI_Lob $lob1, OCI_Lob $lob2) {}
+function oci_lob_is_equal(OCILob $lob1, OCILob $lob2) {}
 
 /**
  * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
  * Copies large object
  * @link https://php.net/manual/en/function.oci-lob-copy.php
- * @param OCI_Lob $lob_to <p>
+ * @param OCILob $lob_to <p>
  * The destination LOB.
  * </p>
- * @param OCI_Lob $lob_from <p>
+ * @param OCILob $lob_from <p>
  * The copied LOB.
  * </p>
  * @param int $length [optional] <p>
@@ -1611,7 +1611,7 @@ function oci_lob_is_equal(OCI_Lob $lob1, OCI_Lob $lob2) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function oci_lob_copy(OCI_Lob $lob_to, OCI_Lob $lob_from, $length = 0) {}
+function oci_lob_copy(OCILob $lob_to, OCILob $lob_from, $length = 0) {}
 
 /**
  * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
@@ -1651,9 +1651,9 @@ function oci_rollback($connection) {}
  * <b>OCI_DTYPE_FILE</b>, <b>OCI_DTYPE_LOB</b> and
  * <b>OCI_DTYPE_ROWID</b>.
  * </p>
- * @return OCI_Lob|OCILob|false A new LOB or FILE descriptor on success, <b>FALSE</b> on error.
+ * @return OCILob|false A new LOB or FILE descriptor on success, <b>FALSE</b> on error.
  */
-function oci_new_descriptor($connection, $type = OCI_DTYPE_LOB): OCI_Lob|false {}
+function oci_new_descriptor($connection, $type = OCI_DTYPE_LOB): OCILob|false {}
 
 /**
  * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
@@ -1774,10 +1774,10 @@ function oci_password_change($connection, $username, $old_password, $new_passwor
  * Should point to the scheme, where the named type was created. The name
  * of the current user is the default value.
  * </p>
- * @return OCI_Collection|false A new <b>OCICollection</b> object or <b>FALSE</b> on
+ * @return OCICollection|false A new <b>OCICollection</b> object or <b>FALSE</b> on
  * error.
  */
-function oci_new_collection($connection, $tdo, $schema = null): OCI_Collection|false {}
+function oci_new_collection($connection, $tdo, $schema = null): OCICollection|false {}
 
 /**
  * Alias of {@see oci_free_statement()}
@@ -2122,50 +2122,50 @@ function ocifreedesc($lob_descriptor) {}
  * Alias of
  * {@see OCI-Lob::save}
  * @link https://php.net/manual/en/function.ocisavelob.php
- * @param OCI_Lob|OCILob $lob_descriptor
+ * @param OCILob $lob_descriptor
  * @param string $data
  * @param int $offset [optional]
  * @return bool
  */
 #[Deprecated(replacement: "OCI-Lob::save", since: "5.4")]
-function ocisavelob(OCI_Lob $lob_descriptor, $data, $offset) {}
+function ocisavelob(OCILob $lob_descriptor, $data, $offset) {}
 
 /**
  * (PHP 4, PHP 5, PECL OCI8 >= 1.0.0)<br/>
  * Alias of
- * {@see OCI_Lob::import}
+ * {@see OCILob::import}
  * @link https://php.net/manual/en/function.ocisavelobfile.php
- * @param OCI_Lob|OCILob $lob_descriptor
+ * @param OCILob $lob_descriptor
  * @param string $filename
  * @return bool
  */
-#[Deprecated(replacement: "OCI_Lob::import", since: "5.4")]
-function ocisavelobfile(OCI_Lob $lob_descriptor, $filename) {}
+#[Deprecated(replacement: "OCILob::import", since: "5.4")]
+function ocisavelobfile(OCILob $lob_descriptor, $filename) {}
 
 /**
  * (PHP 4, PHP 5, PECL OCI8 >= 1.0.0)<br/>
  * Alias of
- * {@see OCI_Lob::export}
+ * {@see OCILob::export}
  * @link https://php.net/manual/en/function.ociwritelobtofile.php
- * @param OCI_Lob|OCILob $lob_descriptor
+ * @param OCILob $lob_descriptor
  * @param string $filename <p>Path to the file.</p>
  * @param int $start [optional] <p>Indicates from where to start exporting.</p>
  * @param int $length [optional] <p>Indicates the length of data to be exported.</p>
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-#[Deprecated(replacement: "OCI_Lob::export", since: "5.4")]
-function ociwritelobtofile(OCI_Lob $lob_descriptor, $filename, $start, $length) {}
+#[Deprecated(replacement: "OCILob::export", since: "5.4")]
+function ociwritelobtofile(OCILob $lob_descriptor, $filename, $start, $length) {}
 
 /**
  * (PHP 4, PHP 5, PECL OCI8 >= 1.0.0)<br/>
  * Alias of
- * {@see OCI_Lob::load}
+ * {@see OCILob::load}
  * @link https://php.net/manual/en/function.ociloadlob.php
- * @param OCI_Lob|OCILob $lob_descriptor
+ * @param OCILob $lob_descriptor
  * @return string|false <p>Returns the contents of the object, or <b>FALSE</b> on errors.</p>
  */
-#[Deprecated(replacement: "OCI_Lob::load", since: "5.4")]
-function ociloadlob(OCI_Lob $lob_descriptor) {}
+#[Deprecated(replacement: "OCILob::load", since: "5.4")]
+function ociloadlob(OCILob $lob_descriptor) {}
 
 /**
  * (PHP 4, PHP 5, PECL OCI8 >= 1.0.0)<br/>
@@ -2204,10 +2204,10 @@ function ocirollback($connection_resource) {}
  * {@see oci_connect()} or {@see oci_pconnect()}.
  * </p>
  * @param $type [optional] <p>Valid values for type are: <b>OCI_DTYPE_FILE</b>, <b>OCI_DTYPE_LOB</b> and <b>OCI_DTYPE_ROWID</b>.</p>
- * @return OCI_LOB|false Returns a new LOB or FILE descriptor on success, FALSE on error.
+ * @return OCILob|false Returns a new LOB or FILE descriptor on success, FALSE on error.
  */
 #[Deprecated(replacement: "oci_new_descriptor", since: "5.4")]
-function ocinewdescriptor($connection_resource, $type = OCI_DTYPE_LOB): OCI_Lob|false {}
+function ocinewdescriptor($connection_resource, $type = OCI_DTYPE_LOB): OCILob|false {}
 
 /**
  * (PHP 4, PHP 5, PECL OCI8 >= 1.0.0)<br/>
@@ -2239,13 +2239,13 @@ function ocipasswordchange($connection_resource_or_connection_string_or_dbname, 
 
 /**
  * (PHP 4 >= 4.0.7, PHP 5, PECL OCI8 >= 1.0.0)<br/>
- * Alias of {@see OCI_Collection::free}
+ * Alias of {@see OCICollection::free}
  * @link https://php.net/manual/en/function.ocifreecollection.php
- * @param OCI_Collection|OCICollection $collection
+ * @param OCICollection $collection
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-#[Deprecated(replacement: "OCI_Collection::free", since: "5.4")]
-function ocifreecollection(OCI_Collection $collection) {}
+#[Deprecated(replacement: "OCICollection::free", since: "5.4")]
+function ocifreecollection(OCICollection $collection) {}
 
 /**
  * (PHP 4 >= 4.0.6, PHP 5, PECL OCI8 >= 1.0.0)<br/>
@@ -2259,88 +2259,88 @@ function ocifreecollection(OCI_Collection $collection) {}
  * @param $tdo <p>Should be a valid named type (uppercase).</p>
  * @param $schema <p>Should point to the scheme, where the named type was created. The name of the current user is the default value.</p>
  * </p>
- * @return OCI_Collection|false <p>Returns a new OCI_Collection object or FALSE on error.</p>
+ * @return OCICollection|false <p>Returns a new OCICollection object or FALSE on error.</p>
  */
 #[Deprecated(replacement: "oci_new_collection", since: "5.4")]
-function ocinewcollection($connection_resource, $tdo, $schema = null): OCI_Collection|false {}
+function ocinewcollection($connection_resource, $tdo, $schema = null): OCICollection|false {}
 
 /**
  * (PHP 4 >= 4.0.6, PHP 5, PECL OCI8 >= 1.0.0)<br/>
  * Alias of
- * (@param OCI_Collection $collection
+ * (@param OCICollection $collection
  * @param mixed $value <p>The value to be added to the collection. Can be a string or a number.</p>
  * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
  * @link https://php.net/manual/en/function.ocicollappend.php
- * @see OCI_Collection::append)
+ * @see OCICollection::append)
  */
-#[Deprecated(replacement: "OCI_Collection::append", since: "5.4")]
-function ocicollappend(OCI_Collection $collection, $value) {}
+#[Deprecated(replacement: "OCICollection::append", since: "5.4")]
+function ocicollappend(OCICollection $collection, $value) {}
 
 /**
  * (PHP 4 >= 4.0.6, PHP 5, PECL OCI8 >= 1.0.0)<br/>
  * Alias of
- * {@see OCI_COLLection::getElem}
+ * {@see OCICollection::getElem}
  * @link https://php.net/manual/en/function.ocicollgetelem.php
- * @param OCI_Collection $collection
+ * @param OCICollection $collection
  * @param int $index <p>The element index. First index is 0.</p>
  * @return mixed <p>Returns <b>FALSE</b> if such element doesn't exist; <b>NULL</b> if element is <b>NULL</b>; string if element is column of a string datatype or number if element is numeric field.</p>
  */
-#[Deprecated(replacement: "OCI_COLLection::getElem", since: "5.4")]
-function ocicollgetelem(OCI_Collection $collection, $index) {}
+#[Deprecated(replacement: "OCICollection::getElem", since: "5.4")]
+function ocicollgetelem(OCICollection $collection, $index) {}
 
 /**
  * (PHP 4 >= 4.0.6, PHP 5, PECL OCI8 >= 1.0.0)<br/>
- * Alias of {@see OCI_Collection::assignElem}
+ * Alias of {@see OCICollection::assignElem}
  * @link https://php.net/manual/en/function.ocicollassignelem.php
- * @param OCI_Collection $collection
+ * @param OCICollection $collection
  * @param $index <p>The element index. First index is 0.</p>
  * @param $value <p>Can be a string or a number.</p>
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
-#[Deprecated(replacement: "OCI_Collection::assignElem", since: "5.4")]
-function ocicollassignelem(OCI_Collection $collection, $index, $value) {}
+#[Deprecated(replacement: "OCICollection::assignElem", since: "5.4")]
+function ocicollassignelem(OCICollection $collection, $index, $value) {}
 
 /**
  * (PHP 4 >= 4.0.6, PHP 5, PECL OCI8 >= 1.0.0)<br/>
  * Alias of
- * {@see OCI_COLLection::size}
+ * {@see OCICollection::size}
  * @link https://php.net/manual/en/function.ocicollsize.php
- * @param OCI_Collection $collection
+ * @param OCICollection $collection
  * @return int|false <p>Returns the number of elements in the collection or <b>FALSE</b> on error.</p>
  */
-#[Deprecated(replacement: "OCI_COLLection::size", since: "5.4")]
-function ocicollsize(OCI_Collection $collection) {}
+#[Deprecated(replacement: "OCICollection::size", since: "5.4")]
+function ocicollsize(OCICollection $collection) {}
 
 /**
  * (PHP 4 >= 4.0.6, PHP 5, PECL OCI8 >= 1.0.0)<br/>
  * Alias of
- * {@see OCI_COLLection::max}
+ * {@see OCICollection::max}
  * @link https://php.net/manual/en/function.ocicollmax.php
- * @param OCI_Collection $collection
+ * @param OCICollection $collection
  * @return int|false <p> Returns the maximum number as an integer, or <b>FALSE</b> on errors.
  * If the returned value is 0, then the number of elements is not limited.</p>
  */
-#[Deprecated(replacement: "OCI_COLLection::max", since: "5.4")]
-function ocicollmax(OCI_Collection $collection) {}
+#[Deprecated(replacement: "OCICollection::max", since: "5.4")]
+function ocicollmax(OCICollection $collection) {}
 
 /**
  * (PHP 4 >= 4.0.6, PHP 5, PECL OCI8 >= 1.0.0)<br/>
  * Alias of
- * {@see OCI_Collection::trim}
+ * {@see OCICollection::trim}
  * @link https://php.net/manual/en/function.ocicolltrim.php
- * @param OCI_Collection $collection
+ * @param OCICollection $collection
  * @param int|float $number
  * @return bool Returns <b>TRUE</b> or <b>FALSE</b> on failure.
  */
-#[Deprecated(replacement: "OCI_Collection::trim", since: "5.4")]
-function ocicolltrim(OCI_Collection $collection, $number) {}
+#[Deprecated(replacement: "OCICollection::trim", since: "5.4")]
+function ocicolltrim(OCICollection $collection, $number) {}
 
 /**
  * (PHP 4 >= 4.0.6, PECL OCI8 1.0)
  * Writes a temporary large object
  * Alias of {@see OCI-Lob::writeTemporary()}
  * @link https://php.net/manual/en/function.ociwritetemporarylob.php
- * @param OCI_Lob|OCILob $lob_descriptor
+ * @param OCILob $lob_descriptor
  * @param string $data <p>The data to write.</p>
  * @param int $lob_type <p>
  * Can be one of the following:
@@ -2356,391 +2356,26 @@ function ocicolltrim(OCI_Collection $collection, $number) {}
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
 #[Deprecated(replacement: "OCI-Lob::writeTemporary", since: "5.4")]
-function ociwritetemporarylob(OCI_Lob $lob_descriptor, $data, $lob_type = OCI_TEMP_CLOB) {}
+function ociwritetemporarylob(OCILob $lob_descriptor, $data, $lob_type = OCI_TEMP_CLOB) {}
 
 /**
  * (PHP 4 >= 4.0.6, PECL OCI8 1.0)
  * Alias of {@see OCI-Lob::close()}
  * @link https://php.net/manual/en/function.ocicloselob.php
- * @param OCI_Lob|OCILob $lob_descriptor
+ * @param OCILob $lob_descriptor
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
 #[Deprecated(replacement: "OCI-Lob::close()", since: "5.4")]
-function ocicloselob(OCI_Lob $lob_descriptor) {}
+function ocicloselob(OCILob $lob_descriptor) {}
 
 /**
  * (PHP 4 >= 4.0.6, PECL OCI8 1.0)
  * Alias of {@see OCI-Collection::assign()}
  * Assigns a value to the collection from another existing collection
  * @link https://php.net/manual/en/function.ocicollassign.php
- * @param OCI_Collection $to
- * @param OCI_Collection $from An instance of OCI-Collection.
+ * @param OCICollection $to
+ * @param OCICollection $from An instance of OCI-Collection.
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
 #[Deprecated(replacement: "OCI-Collection::assign", since: "5.4")]
-function ocicollassign(OCI_Collection $to, OCI_Collection $from) {}
-
-/**
- * OCI8 LOB functionality for large binary (BLOB) and character (CLOB) objects.
- * @link https://php.net/manual/en/class.OCI-Lob.php
- * @removed 8.0
- */
-class OCI_Lob
-{
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Returns large object's contents
-     * @link https://php.net/manual/en/oci-lob.load.php
-     * @return string|false The contents of the object, or <b>FALSE</b> on errors.
-     */
-    public function load() {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Returns the current position of internal pointer of large object
-     * @link https://php.net/manual/en/oci-lob.tell.php
-     * @return int|false Current position of a LOB's internal pointer or <b>FALSE</b> if an
-     * error occurred.
-     */
-    public function tell() {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Truncates large object
-     * @link https://php.net/manual/en/oci-lob.truncate.php
-     * @param int $length [optional] <p>
-     * If provided, this method will truncate the LOB to
-     * <i>length</i> bytes. Otherwise, it will completely
-     * purge the LOB.
-     * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    public function truncate($length = 0) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Erases a specified portion of the internal LOB data
-     * @link https://php.net/manual/en/oci-lob.erase.php
-     * @param int $offset [optional]
-     * @param int $length [optional]
-     * @return int|false The actual number of characters/bytes erased or <b>FALSE</b> on failure.
-     */
-    public function erase($offset = null, $length = null) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Flushes/writes buffer of the LOB to the server
-     * @link https://php.net/manual/en/oci-lob.flush.php
-     * @param int $flag [optional] <p>
-     * By default, resources are not freed, but using flag
-     * <b>OCI_LOB_BUFFER_FREE</b> you can do it explicitly.
-     * Be sure you know what you're doing - next read/write operation to the
-     * same part of LOB will involve a round-trip to the server and initialize
-     * new buffer resources. It is recommended to use
-     * <b>OCI_LOB_BUFFER_FREE</b> flag only when you are not
-     * going to work with the LOB anymore.
-     * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * </p>
-     * <p>
-     * Returns <b>FALSE</b> if buffering was not enabled or an error occurred.
-     */
-    public function flush($flag = null) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Changes current state of buffering for the large object
-     * @link https://php.net/manual/en/oci-lob.setbuffering.php
-     * @param bool $on_off <p>
-     * <b>TRUE</b> for on and <b>FALSE</b> for off.
-     * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure. Repeated calls to this method with the same flag will
-     * return <b>TRUE</b>.
-     */
-    public function setbuffering($on_off) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Returns current state of buffering for the large object
-     * @link https://php.net/manual/en/oci-lob.getbuffering.php
-     * @return bool <b>FALSE</b> if buffering for the large object is off and <b>TRUE</b> if
-     * buffering is used.
-     */
-    public function getbuffering() {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Moves the internal pointer to the beginning of the large object
-     * @link https://php.net/manual/en/oci-lob.rewind.php
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    public function rewind() {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Reads part of the large object
-     * @link https://php.net/manual/en/oci-lob.read.php
-     * @param int $length <p>
-     * The length of data to read, in bytes. Large values will be rounded down to 1 MB.
-     * </p>
-     * @return string|false The contents as a string, or <b>FALSE</b> on failure.
-     */
-    public function read($length) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Tests for end-of-file on a large object's descriptor
-     * @link https://php.net/manual/en/oci-lob.eof.php
-     * @return bool <b>TRUE</b> if internal pointer of large object is at the end of LOB.
-     * Otherwise returns <b>FALSE</b>.
-     */
-    public function eof() {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Sets the internal pointer of the large object
-     * @link https://php.net/manual/en/oci-lob.seek.php
-     * @param int $offset <p>
-     * Indicates the amount of bytes, on which internal pointer should be
-     * moved from the position, pointed by <i>whence</i>.
-     * </p>
-     * @param int $whence [optional] <p>
-     * May be one of:
-     * <b>OCI_SEEK_SET</b> - sets the position equal to
-     * <i>offset</i>
-     * <b>OCI_SEEK_CUR</b> - adds <i>offset</i>
-     * bytes to the current position
-     * <b>OCI_SEEK_END</b> - adds <i>offset</i>
-     * bytes to the end of large object (use negative value to move to a position
-     * before the end of large object)
-     * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    public function seek($offset, $whence = OCI_SEEK_SET) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Writes data to the large object
-     * @link https://php.net/manual/en/oci-lob.write.php
-     * @param string $data <p>
-     * The data to write in the LOB.
-     * </p>
-     * @param int $length [optional] <p>
-     * If this parameter is given, writing will stop after
-     * <i>length</i> bytes have been written or the end of
-     * <i>data</i> is reached, whichever comes first.
-     * </p>
-     * @return int|false The number of bytes written or <b>FALSE</b> on failure.
-     */
-    public function write($data, $length = null) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Appends data from the large object to another large object
-     * @link https://php.net/manual/en/oci-lob.append.php
-     * @param OCI_Lob $lob_from <p>
-     * The copied LOB.
-     * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    public function append(OCI_Lob $lob_from) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Returns size of large object
-     * @link https://php.net/manual/en/oci-lob.size.php
-     * @return int|false Length of large object value or <b>FALSE</b> on failure.
-     * Empty objects have zero length.
-     */
-    public function size() {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Alias of {@see OCI_Lob::export}
-     * @link https://php.net/manual/en/oci-lob.writetofile.php
-     * @param $filename
-     * @param $start [optional]
-     * @param $length [optional]
-     * @return bool TRUE on success or FALSE on failure.
-     */
-    public function writetofile($filename, $start, $length) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Exports LOB's contents to a file
-     * @link https://php.net/manual/en/oci-lob.export.php
-     * @param string $filename <p>
-     * Path to the file.
-     * </p>
-     * @param int $start [optional] <p>
-     * Indicates from where to start exporting.
-     * </p>
-     * @param int $length [optional] <p>
-     * Indicates the length of data to be exported.
-     * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    public function export($filename, $start = null, $length = null) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Imports file data to the LOB
-     * @link https://php.net/manual/en/oci-lob.import.php
-     * @param string $filename <p>
-     * Path to the file.
-     * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    public function import($filename) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Writes a temporary large object
-     * @link https://php.net/manual/en/oci-lob.writetemporary.php
-     * @param string $data <p>
-     * The data to write.
-     * </p>
-     * @param int $lob_type [optional] <p>
-     * Can be one of the following:
-     * <b>OCI_TEMP_BLOB</b> is used to create temporary BLOBs
-     * <b>OCI_TEMP_CLOB</b> is used to create
-     * temporary CLOBs
-     * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    public function writeTemporary($data, $lob_type = OCI_TEMP_CLOB) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Closes LOB descriptor
-     * @link https://php.net/manual/en/oci-lob.close.php
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    public function close() {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Saves data to the large object
-     * @link https://php.net/manual/en/oci-lob.save.php
-     * @param string $data <p>
-     * The data to be saved.
-     * </p>
-     * @param int $offset [optional] <p>
-     * Can be used to indicate offset from the beginning of the large object.
-     * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    public function save($data, $offset = null) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Alias of {@see OCI_Lob::import}
-     * @link https://php.net/manual/en/oci-lob.savefile.php
-     * @param $filename
-     * @return bool Return true on success and false on failure
-     */
-    public function savefile($filename) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Frees resources associated with the LOB descriptor
-     * @link https://php.net/manual/en/oci-lob.free.php
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    public function free() {}
-}
-
-/**
- * OCI8 Collection functionality.
- * @link https://php.net/manual/en/class.OCI-Collection.php
- * @removed 8.0
- */
-class OCI_Collection
-{
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Appends element to the collection
-     * @link https://php.net/manual/en/oci-collection.append.php
-     * @param mixed $value <p>
-     * The value to be added to the collection. Can be a string or a number.
-     * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    public function append($value) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Returns value of the element
-     * @link https://php.net/manual/en/oci-collection.getelem.php
-     * @param int $index <p>
-     * The element index. First index is 0.
-     * </p>
-     * @return mixed <b>FALSE</b> if such element doesn't exist; <b>NULL</b> if element is <b>NULL</b>;
-     * string if element is column of a string datatype or number if element is
-     * numeric field.
-     */
-    public function getelem($index) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Assigns a value to the element of the collection
-     * @link https://php.net/manual/en/oci-collection.assignelem.php
-     * @param int $index <p>
-     * The element index. First index is 0.
-     * </p>
-     * @param mixed $value <p>
-     * Can be a string or a number.
-     * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    public function assignelem($index, $value) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Assigns a value to the collection from another existing collection
-     * @link https://php.net/manual/en/oci-collection.assign.php
-     * @param OCI_Collection $from <p>
-     * An instance of OCI-Collection.
-     * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    public function assign(OCI_Collection $from) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Returns size of the collection
-     * @link https://php.net/manual/en/oci-collection.size.php
-     * @return int|false The number of elements in the collection or <b>FALSE</b> on error.
-     */
-    public function size() {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Returns the maximum number of elements in the collection
-     * @link https://php.net/manual/en/oci-collection.max.php
-     * @return int|false The maximum number as an integer, or <b>FALSE</b> on errors.
-     * </p>
-     * <p>
-     * If the returned value is 0, then the number of elements is not limited.
-     */
-    public function max() {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Trims elements from the end of the collection
-     * @link https://php.net/manual/en/oci-collection.trim.php
-     * @param int $num <p>
-     * The number of elements to be trimmed.
-     * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    public function trim($num) {}
-
-    /**
-     * (PHP 5, PECL OCI8 >= 1.1.0)<br/>
-     * Frees the resources associated with the collection object
-     * @link https://php.net/manual/en/oci-collection.free.php
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    public function free() {}
-}
+function ocicollassign(OCICollection $to, OCICollection $from) {}

@@ -12,18 +12,18 @@ use JetBrains\PhpStorm\Pure;
  * to its value. You can manually set this using the
  * curl_setopt function.
  * </p>
- * @return resource|false a cURL handle on success, false on errors.
+ * @return false|CurlHandle a cURL handle on success, false on errors.
  */
-function curl_init(?string $url) {}
+function curl_init(?string $url): CurlHandle|false {}
 
 /**
  * Copy a cURL handle along with all of its preferences
  * @link https://php.net/manual/en/function.curl-copy-handle.php
- * @param resource $handle
- * @return resource|false a new cURL handle.
+ * @param CurlHandle $handle
+ * @return CurlHandle|false a new cURL handle.
  */
 #[Pure]
-function curl_copy_handle($handle) {}
+function curl_copy_handle(CurlHandle $handle): CurlHandle|false {}
 
 /**
  * Gets cURL version information
@@ -73,12 +73,12 @@ function curl_copy_handle($handle) {}
  */
 #[ArrayShape(["version_number" => "string", "version" => "string", "ssl_version_number" => "int", "ssl_version" => "string", "libz_version" => "string", "host" => "string", "age" => "int", "features" => "int", "protocols" => "array"])]
 #[Pure]
-function curl_version($age = null): array|false {}
+function curl_version(): array|false {}
 
 /**
  * Set an option for a cURL transfer
  * @link https://php.net/manual/en/function.curl-setopt.php
- * @param resource $handle
+ * @param CurlHandle $handle
  * @param int $option <p>
  * The CURLOPT_XXX option to set.
  * </p>
@@ -2031,12 +2031,12 @@ function curl_version($age = null): array|false {}
  * </table>
  * @return bool true on success or false on failure.
  */
-function curl_setopt($handle, int $option, mixed $value): bool {}
+function curl_setopt(CurlHandle $handle, int $option, mixed $value): bool {}
 
 /**
  * Set multiple options for a cURL transfer
  * @link https://php.net/manual/en/function.curl-setopt-array.php
- * @param resource $handle
+ * @param CurlHandle $handle
  * @param array $options <p>
  * An array specifying which options to set and their values.
  * The keys should be valid curl_setopt constants or
@@ -2047,34 +2047,34 @@ function curl_setopt($handle, int $option, mixed $value): bool {}
  * future options in the options array.
  * @since 5.1.3
  */
-function curl_setopt_array($handle, array $options): bool {}
+function curl_setopt_array(CurlHandle $handle, array $options): bool {}
 
 /**
  * (PHP 5 >=5.5.0)<br/>
  * Close a cURL share handle
  * @link https://secure.php.net/manual/en/function.curl-share-close.php
- * @param CurlShareHandle|resource $share_handle <p>
+ * @param CurlShareHandle $share_handle <p>
  * A cURL share handle returned by  {@link https://secure.php.net/manual/en/function.curl-share-init.php curl_share_init()}
  * </p>
  * @return void
  * @since 5.5
  */
-function curl_share_close($share_handle): void {}
+function curl_share_close(CurlShareHandle $share_handle): void {}
 
 /**
  * (PHP 5 >=5.5.0)<br/>
  * Initialize a cURL share handle
  * @link https://secure.php.net/manual/en/function.curl-share-init.php
- * @return resource|CurlShareHandle Returns resource of type "cURL Share Handle".
+ * @return CurlShareHandle Returns resource of type "cURL Share Handle".
  * @since 5.5
  */
-function curl_share_init() {}
+function curl_share_init(): CurlShareHandle {}
 
 /**
  * (PHP 5 >=5.5.0)<br/>
  * Set an option for a cURL share handle.
  * @link https://secure.php.net/manual/en/function.curl-share-setopt.php
- * @param CurlShareHandle|resource $share_handle <p>
+ * @param CurlShareHandle $share_handle <p>
  * A cURL share handle returned by  {@link https://secure.php.net/manual/en/function.curl-share-init.php curl_share_init()}.
  * </p>
  * @param int $option <table>
@@ -2147,7 +2147,7 @@ function curl_share_init() {}
  * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.5
  */
-function curl_share_setopt($share_handle, int $option, mixed $value): bool {}
+function curl_share_setopt(CurlShareHandle $share_handle, int $option, mixed $value): bool {}
 
 /**
  * (PHP 5 >=5.5.0)<br/>
@@ -2166,7 +2166,7 @@ function curl_strerror(int $error_code): ?string {}
  * (PHP 5 >=5.5.0)<br/>
  * Decodes the given URL encoded string
  * @link https://secure.php.net/manual/en/function.curl-unescape.php
- * @param resource $handle <p>A cURL handle returned by
+ * @param CurlHandle $handle <p>A cURL handle returned by
  * {@link https://secure.php.net/manual/en/function.curl-init.php curl_init()}.</p>
  * @param string $string <p>
  * The URL encoded string to be decoded.
@@ -2175,21 +2175,21 @@ function curl_strerror(int $error_code): ?string {}
  * @since 5.5
  */
 #[Pure]
-function curl_unescape($handle, string $string): string|false {}
+function curl_unescape(CurlHandle $handle, string $string): string|false {}
 
 /**
  * Perform a cURL session
  * @link https://php.net/manual/en/function.curl-exec.php
- * @param resource $handle
+ * @param CurlHandle $handle
  * @return string|bool true on success or false on failure. However, if the CURLOPT_RETURNTRANSFER
  * option is set, it will return the result on success, false on failure.
  */
-function curl_exec($handle): string|bool {}
+function curl_exec(CurlHandle $handle): string|bool {}
 
 /**
  * Get information regarding a specific transfer
  * @link https://php.net/manual/en/function.curl-getinfo.php
- * @param resource $handle
+ * @param CurlHandle $handle
  * @param int|null $option [optional] <p>
  * This may be one of the following constants:
  * <ul>
@@ -2447,32 +2447,32 @@ function curl_exec($handle): string|bool {}
  * </ul>
  */
 #[Pure(true)]
-function curl_getinfo($handle, ?int $option): mixed {}
+function curl_getinfo(CurlHandle $handle, ?int $option): mixed {}
 
 /**
  * Return a string containing the last error for the current session
  * @link https://php.net/manual/en/function.curl-error.php
- * @param resource $handle
+ * @param CurlHandle $handle
  * @return string the error message or '' (the empty string) if no
  * error occurred.
  */
 #[Pure(true)]
-function curl_error($handle): string {}
+function curl_error(CurlHandle $handle): string {}
 
 /**
  * Return the last error number
  * @link https://php.net/manual/en/function.curl-errno.php
- * @param resource $handle
+ * @param CurlHandle $handle
  * @return int the error number or 0 (zero) if no error
  * occurred.
  */
 #[Pure(true)]
-function curl_errno($handle): int {}
+function curl_errno(CurlHandle $handle): int {}
 
 /**
  * URL encodes the given string
  * @link https://secure.php.net/manual/en/function.curl-escape.php
- * @param resource $handle <p>
+ * @param CurlHandle $handle <p>
  * A cURL handle returned by
  * {@link https://secure.php.net/manual/en/function.curl-init.php curl_init()}.</p>
  * @param string $string <p>
@@ -2481,7 +2481,7 @@ function curl_errno($handle): int {}
  * @since 5.5
  */
 #[Pure]
-function curl_escape($handle, string $string): string|false {}
+function curl_escape(CurlHandle $handle, string $string): string|false {}
 
 /**
  * (PHP 5 >= 5.5.0) <br/>
@@ -2500,54 +2500,54 @@ function curl_file_create(string $filename, ?string $mime_type = null, ?string $
 /**
  * Close a cURL session
  * @link https://php.net/manual/en/function.curl-close.php
- * @param resource $handle
+ * @param CurlHandle $handle
  * @return void
  */
-function curl_close($handle): void {}
+function curl_close(CurlHandle $handle): void {}
 
 /**
  * Returns a new cURL multi handle
  * @link https://php.net/manual/en/function.curl-multi-init.php
- * @return resource|false a cURL multi handle resource on success, false on failure.
+ * @return CurlMultiHandle|false a cURL multi handle resource on success, false on failure.
  */
-function curl_multi_init() {}
+function curl_multi_init(): CurlMultiHandle {}
 
 /**
  * Add a normal cURL handle to a cURL multi handle
  * @link https://php.net/manual/en/function.curl-multi-add-handle.php
- * @param resource $multi_handle
- * @param resource $handle
+ * @param CurlMultiHandle $multi_handle
+ * @param CurlHandle $handle
  * @return int 0 on success, or one of the CURLM_XXX errors
  * code.
  */
-function curl_multi_add_handle($multi_handle, $handle): int {}
+function curl_multi_add_handle(CurlMultiHandle $multi_handle, CurlHandle $handle): int {}
 
 /**
  * Remove a multi handle from a set of cURL handles
  * @link https://php.net/manual/en/function.curl-multi-remove-handle.php
- * @param resource $multi_handle
- * @param resource $handle
+ * @param CurlMultiHandle $multi_handle
+ * @param CurlHandle $handle
  * @return int|false On success, returns one of the CURLM_XXX error codes, false on failure.
  */
-function curl_multi_remove_handle($multi_handle, $handle): int|false {}
+function curl_multi_remove_handle(CurlMultiHandle $multi_handle, CurlHandle $handle): int {}
 
 /**
  * Wait for activity on any curl_multi connection
  * @link https://php.net/manual/en/function.curl-multi-select.php
- * @param resource $multi_handle
+ * @param CurlMultiHandle $multi_handle
  * @param float $timeout [optional] <p>
  * Time, in seconds, to wait for a response.
  * </p>
  * @return int On success, returns the number of descriptors contained in,
  * the descriptor sets. On failure, this function will return -1 on a select failure or timeout (from the underlying select system call).
  */
-function curl_multi_select($multi_handle, float $timeout = 1.0): int {}
+function curl_multi_select(CurlMultiHandle $multi_handle, float $timeout = '1'): int {}
 
 /**
  * (PHP 5 >=5.5.0)<br/>
  * Set an option for the cURL multi handle
  * @link https://secure.php.net/manual/en/function.curl-multi-setopt.php
- * @param resource $multi_handle
+ * @param CurlMultiHandle $multi_handle
  * @param int $option <p>
  * One of the <b>CURLMOPT_*</b> constants.
  * </p>
@@ -2593,7 +2593,7 @@ function curl_multi_select($multi_handle, float $timeout = 1.0): int {}
  * @return bool Returns TRUE on success or FALSE on failure.
  * @since 5.5
  */
-function curl_multi_setopt($multi_handle, int $option, mixed $value): bool {}
+function curl_multi_setopt(CurlMultiHandle $multi_handle, int $option, mixed $value): bool {}
 
 /**
  * (PHP 5 >=5.5.0)<br/>
@@ -2611,29 +2611,29 @@ function curl_multi_strerror(int $error_code): ?string {}
  * (PHP 5 >=5.5.0)<br/>
  * Pause and unpause a connection
  * @link https://secure.php.net/manual/en/function.curl-pause.php
- * @param resource $handle
+ * @param CurlHandle $handle
  * <p>A cURL handle returned by {@link https://secure.php.net/manual/en/function.curl-init.php curl_init()}.</p>
  * @param int $flags <p>One of <b>CURLPAUSE_*</b> constants.</p>
  * @return int Returns an error code (<b>CURLE_OK</b> for no error).
  * @since 5.5
  */
-function curl_pause($handle, int $flags): int {}
+function curl_pause(CurlHandle $handle, int $flags): int {}
 
 /**
  * (PHP 5 >=5.5.0)<br/>
  * Reset all options of a libcurl session handle
  * @link https://secure.php.net/manual/en/function.curl-reset.php
- * @param resource $handle <p>A cURL handle returned by
+ * @param CurlHandle $handle <p>A cURL handle returned by
  * {@link https://secure.php.net/manual/en/function.curl-init.php curl_init()}.</p>
  * @return void
  * @since 5.5
  */
-function curl_reset($handle): void {}
+function curl_reset(CurlHandle $handle): void {}
 
 /**
  * Run the sub-connections of the current cURL handle
  * @link https://php.net/manual/en/function.curl-multi-exec.php
- * @param resource $multi_handle
+ * @param CurlMultiHandle $multi_handle
  * @param int &$still_running <p>
  * A reference to a flag to tell whether the operations are still running.
  * </p>
@@ -2644,21 +2644,21 @@ function curl_reset($handle): void {}
  * CURLM_OK.
  * </p>
  */
-function curl_multi_exec($multi_handle, &$still_running = 0): int {}
+function curl_multi_exec(CurlMultiHandle $multi_handle, &$still_running): int {}
 
 /**
  * Return the content of a cURL handle if <constant>CURLOPT_RETURNTRANSFER</constant> is set
  * @link https://php.net/manual/en/function.curl-multi-getcontent.php
- * @param resource $handle
+ * @param CurlHandle $handle
  * @return null|string Return the content of a cURL handle if CURLOPT_RETURNTRANSFER is set.
  */
 #[Pure]
-function curl_multi_getcontent($handle): ?string {}
+function curl_multi_getcontent(CurlHandle $handle): ?string {}
 
 /**
  * Get information about the current transfers
  * @link https://php.net/manual/en/function.curl-multi-info-read.php
- * @param resource $multi_handle
+ * @param CurlMultiHandle $multi_handle
  * @param int &$queued_messages [optional] <p>
  * Number of messages that are still in the queue
  * </p>
@@ -2666,33 +2666,33 @@ function curl_multi_getcontent($handle): ?string {}
  */
 #[Pure]
 #[ArrayShape(["msg" => "int", "result" => "int", "handle" => "resource"])]
-function curl_multi_info_read($multi_handle, &$queued_messages): array|false {}
+function curl_multi_info_read(CurlMultiHandle $multi_handle, &$queued_messages): array|false {}
 
 /**
  * Close a set of cURL handles
  * @link https://php.net/manual/en/function.curl-multi-close.php
- * @param resource $multi_handle
+ * @param CurlMultiHandle $multi_handle
  * @return void
  */
-function curl_multi_close($multi_handle): void {}
+function curl_multi_close(CurlMultiHandle $multi_handle): void {}
 
 /**
  * Return the last multi curl error number
- * @param resource $multi_handle
+ * @param CurlMultiHandle $multi_handle
  * @return int
  * @since 7.1
  */
 #[Pure(true)]
-function curl_multi_errno($multi_handle): int {}
+function curl_multi_errno(CurlMultiHandle $multi_handle): int {}
 
 /**
  * Return the last share curl error number
- * @param resource $share_handle
+ * @param CurlMultiHandle $share_handle
  * @return int
  * @since 7.1
  */
 #[Pure(true)]
-function curl_share_errno($share_handle): int {}
+function curl_share_errno(CurlShareHandle $share_handle): int {}
 
 /**
  * Return string describing the given error code
@@ -2717,7 +2717,7 @@ class CURLFile
      * @param string $posted_filename [optional] <p>Name of the file.</p>
      * @since 5.5
      */
-    public function __construct($filename, $mime_type = '', $posted_filename = '') {}
+    public function __construct(string $filename, string|null $mime_type = '', string|null $posted_filename = '') {}
 
     /**
      * Get file name
@@ -2756,7 +2756,7 @@ class CURLFile
      * @since 5.5
      */
     #[TentativeType]
-    public function setMimeType($mime_type): void {}
+    public function setMimeType(string $mime_type): void {}
 
     /**
      * Set file name for POST
@@ -2765,7 +2765,7 @@ class CURLFile
      * @since 5.5
      */
     #[TentativeType]
-    public function setPostFilename($posted_filename): void {}
+    public function setPostFilename(string $posted_filename): void {}
 
     /**
      * @link https://secure.php.net/manual/en/curlfile.wakeup.php
@@ -2773,4 +2773,40 @@ class CURLFile
      * @since 5.5
      */
     public function __wakeup() {}
+}
+
+/**
+ * @since 8.0
+ */
+final class CurlHandle
+{
+    /**
+     * Cannot directly construct CurlHandle, use curl_init() instead
+     * @see curl_init()
+     */
+    private function __construct() {}
+}
+
+/**
+ * @since 8.0
+ */
+final class CurlMultiHandle
+{
+    /**
+     * Cannot directly construct CurlMultiHandle, use curl_multi_init() instead
+     * @see curl_multi_init()
+     */
+    private function __construct() {}
+}
+
+/**
+ * @since 8.0
+ */
+final class CurlShareHandle
+{
+    /**
+     * Cannot directly construct CurlShareHandle, use curl_share_init() instead
+     * @see  curl_share_init()
+     */
+    private function __construct() {}
 }

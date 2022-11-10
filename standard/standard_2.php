@@ -228,7 +228,7 @@ function ord(string $character): int {}
  * </p>
  * @return void
  */
-function parse_str(string $string, &$result = []): void {}
+function parse_str(string $string, &$result): void {}
 
 /**
  * Parse a CSV string into an array
@@ -834,8 +834,8 @@ function proc_terminate($process, int $signal = 15): bool {}
  * The proc_open resource that will
  * be evaluated.
  * </p>
- * @return array|false An array of collected information on success, and false
- * on failure. The returned array contains the following elements:
+ * @return array An array of collected information on success.
+ * The returned array contains the following elements:
  * </p>
  * <p>
  * <tr valign="top"><td>element</td><td>type</td><td>description</td></tr>
@@ -903,7 +903,7 @@ function proc_terminate($process, int $signal = 15): bool {}
  * </tr>
  */
 #[ArrayShape(["command" => "string", "pid" => "int", "running" => "bool", "signaled" => "bool", "stopped" => "bool", "exitcode" => "int", "termsig" => "int", "stopsig" => "int"])]
-function proc_get_status($process): array|false {}
+function proc_get_status($process): array {}
 
 /**
  * Change the priority of the current process. <br/>

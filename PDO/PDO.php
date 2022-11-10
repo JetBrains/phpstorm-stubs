@@ -559,6 +559,13 @@ class PDO
     public const FETCH_ORI_REL = 5;
 
     /**
+     * Specifies that the default fetch mode shall be used.
+     * @since 8.0.7
+     * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.fetch-default
+     */
+    public const FETCH_DEFAULT = 0;
+
+    /**
      * Create a <b>PDOStatement</b> object with a forward-only cursor. This is the
      * default cursor choice, as it is the fastest and most common data access
      * pattern in PHP.
@@ -892,6 +899,12 @@ class PDO
     public const OCI_ATTR_MODULE = 1003;
 
     /**
+     * The number of milliseconds to wait for individual round trips to the database to complete before timing out.
+     * @since 8.0
+     */
+    public const OCI_ATTR_CALL_TIMEOUT = 1004;
+
+    /**
      * Sets the date format.
      */
     public const FB_ATTR_DATE_FORMAT = 1000;
@@ -911,12 +924,12 @@ class PDO
      * Creates a PDO instance representing a connection to a database
      * @link https://php.net/manual/en/pdo.construct.php
      * @param string $dsn
-     * @param string $username [optional]
-     * @param string $password [optional]
-     * @param array $options [optional]
+     * @param string|null $username [optional]
+     * @param string|null $password [optional]
+     * @param array|null $options [optional]
      * @throws PDOException if the attempt to connect to the requested database fails.
      */
-    public function __construct($dsn, $username = null, $password = null, $options = null) {}
+    public function __construct(string $dsn, string|null $username = null, string|null $password = null, array|null $options = null) {}
 
     /**
      * (PHP 5 >= 5.1.3, PHP 7, PECL pdo >= 1.0.3)<br/>
@@ -956,7 +969,7 @@ class PDO
      * so <b>PDO::prepare</b> does not check the statement.
      */
     #[TentativeType]
-    public function prepare($query, array $options = []): PDOStatement|false {}
+    public function prepare(string $query, array $options = []): PDOStatement|false {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
@@ -1023,7 +1036,7 @@ class PDO
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function setAttribute($attribute, $value): bool {}
+    public function setAttribute(int $attribute, mixed $value): bool {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
@@ -1054,7 +1067,7 @@ class PDO
      * </code>
      */
     #[TentativeType]
-    public function exec($statement): int|false {}
+    public function exec(string $statement): int|false {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0)<br/>
@@ -1069,10 +1082,7 @@ class PDO
      * @param int $mode <p>
      * The fetch mode must be one of the PDO::FETCH_* constants.
      * </p>
-     * @param mixed $arg3 <p>
-     * The second and following parameters are the same as the parameters for PDOStatement::setFetchMode.
-     * </p>
-     * @param array $ctorargs [optional] <p>
+     * @param mixed $fetch_mode_args <p>
      * Arguments of custom class constructor when the <i>mode</i>
      * parameter is set to <b>PDO::FETCH_CLASS</b>.
      * </p>
@@ -1080,7 +1090,7 @@ class PDO
      * on failure.
      * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
      */
-    public function query($statement, $mode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null, array $ctorargs = []) {}
+    public function query($statement, $mode = PDO::ATTR_DEFAULT_FETCH_MODE, ...$fetch_mode_args) {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
@@ -1106,7 +1116,7 @@ class PDO
      * IM001 SQLSTATE.
      */
     #[TentativeType]
-    public function lastInsertId($name = null): string|false {}
+    public function lastInsertId(string|null $name = null): string|false {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
@@ -1204,7 +1214,7 @@ class PDO
      * An unsuccessful call returns null.
      */
     #[TentativeType]
-    public function getAttribute($attribute): mixed {}
+    public function getAttribute(int $attribute): mixed {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.1)<br/>
@@ -1221,7 +1231,7 @@ class PDO
      * this way.
      */
     #[TentativeType]
-    public function quote($string, $type = PDO::PARAM_STR): string|false {}
+    public function quote(string $string, int $type = PDO::PARAM_STR): string|false {}
 
     final public function __wakeup() {}
 
@@ -1387,7 +1397,7 @@ class PDO
      * with fields message and pid, otherwise <b>FALSE</b>.
      * @since 5.6
      */
-    public function pgsqlGetNotify(int $fetchMode = PDO::FETCH_LAZY, int $timeoutMilliseconds = 0) {}
+    public function pgsqlGetNotify(int $fetchMode = PDO::FETCH_DEFAULT, int $timeoutMilliseconds = 0): array|false {}
 
     /**
      * (PHP 5 >= 5.6.0, PHP 7, PHP 8)<br/>
@@ -1436,7 +1446,7 @@ class PDOStatement implements IteratorAggregate
      * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
      */
     #[TentativeType]
-    public function execute($params = null): bool {}
+    public function execute(array|null $params = null): bool {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
@@ -1467,7 +1477,7 @@ class PDOStatement implements IteratorAggregate
      * all cases, <b>FALSE</b> is returned on failure.
      */
     #[TentativeType]
-    public function fetch($mode = PDO::FETCH_BOTH, $cursorOrientation = PDO::FETCH_ORI_NEXT, $cursorOffset = 0): mixed {}
+    public function fetch(int $mode = PDO::FETCH_BOTH, int $cursorOrientation = PDO::FETCH_ORI_NEXT, int $cursorOffset = 0): mixed {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
@@ -1500,7 +1510,7 @@ class PDOStatement implements IteratorAggregate
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function bindParam($param, &$var, $type = PDO::PARAM_STR, $maxLength = null, $driverOptions = null): bool {}
+    public function bindParam(int|string $param, mixed &$var, int $type = PDO::PARAM_STR, int $maxLength = null, mixed $driverOptions = null): bool {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
@@ -1526,7 +1536,7 @@ class PDOStatement implements IteratorAggregate
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function bindColumn($column, &$var, $type = PDO::PARAM_STR, $maxLength = null, $driverOptions = null): bool {}
+    public function bindColumn(int|string $column, mixed &$var, int $type = PDO::PARAM_STR, int $maxLength = null, mixed $driverOptions = null): bool {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 1.0.0)<br/>
@@ -1549,7 +1559,7 @@ class PDOStatement implements IteratorAggregate
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function bindValue($param, $value, $type = PDO::PARAM_STR): bool {}
+    public function bindValue(int|string $param, mixed $value, int $type = PDO::PARAM_STR): bool {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
@@ -1577,7 +1587,7 @@ class PDOStatement implements IteratorAggregate
      * use <b>PDOStatement::fetchColumn</b> to retrieve data.
      */
     #[TentativeType]
-    public function fetchColumn($column = 0): mixed {}
+    public function fetchColumn(int $column = 0): mixed {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
@@ -1624,7 +1634,7 @@ class PDOStatement implements IteratorAggregate
      * processing them with PHP.
      */
     #[TentativeType]
-    public function fetchAll($mode = PDO::FETCH_BOTH, $fetch_argument = null, ...$args): array {}
+    public function fetchAll(int $mode = PDO::FETCH_BOTH, mixed ...$args): array {}
 
     /**
      * @template T
@@ -1642,7 +1652,7 @@ class PDOStatement implements IteratorAggregate
      * correspond to the column names or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function fetchObject($class = 'stdClass', array $constructorArgs = []): object|false {}
+    public function fetchObject(string|null $class = 'stdClass', array $constructorArgs = []): object|false {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
@@ -1693,7 +1703,7 @@ class PDOStatement implements IteratorAggregate
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function setAttribute($attribute, $value): bool {}
+    public function setAttribute(int $attribute, mixed $value): bool {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0)<br/>
@@ -1703,7 +1713,7 @@ class PDOStatement implements IteratorAggregate
      * @return mixed the attribute value.
      */
     #[TentativeType]
-    public function getAttribute($name): mixed {}
+    public function getAttribute(int $name): mixed {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0)<br/>
@@ -1778,7 +1788,7 @@ class PDOStatement implements IteratorAggregate
      */
     #[TentativeType]
     #[ArrayShape(["name" => "string", "len" => "int", "precision" => "int", "oci:decl_type" => "int|string", "native_type" => "string", "scale" => "int", "flags" => "array", "pdo_type" => "int"])]
-    public function getColumnMeta($column): array|false {}
+    public function getColumnMeta(int $column): array|false {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0)<br/>
@@ -1787,13 +1797,13 @@ class PDOStatement implements IteratorAggregate
      * @param int $mode <p>
      * The fetch mode must be one of the PDO::FETCH_* constants.
      * </p>
-     * @param null|string|object $className [optional] <p>
+     * @param string|object|null $className [optional] <p>
      * Class name or object
      * </p>
-     * @param array $params [optional] <p> Constructor arguments. </p>
+     * @param mixed ...$params <p> Constructor arguments. </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setFetchMode($mode, $className = null, array $params = []) {}
+    public function setFetchMode($mode, $className = null, ...$params) {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0)<br/>
@@ -1825,6 +1835,12 @@ class PDOStatement implements IteratorAggregate
     final public function __wakeup() {}
 
     final public function __sleep() {}
+
+    /**
+     * @return Iterator
+     * @since 8.0
+     */
+    public function getIterator(): Iterator {}
 }
 
 final class PDORow

@@ -216,6 +216,6 @@ define('DOM_VALIDATION_ERR', 16);
  * @param SimpleXMLElement $node <p>
  * The <b>SimpleXMLElement</b> node.
  * </p>
- * @return DOMElement|null The <b>DOMElement</b> node added or <b>NULL</b> if any errors occur.
+ * @return DOMElement The <b>DOMElement</b> node added.
  */
-function dom_import_simplexml(object $node): DOMElement|null {}
+function dom_import_simplexml(object $node): DOMElement {}

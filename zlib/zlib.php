@@ -486,7 +486,7 @@ function ob_gzhandler(string $data, int $flags): string|false {}
  * @since 7.0
  */
 #[Pure]
-function deflate_init(int $encoding, array $options = []) {}
+function deflate_init(int $encoding, array $options = []): DeflateContext|false {}
 
 /**
  * Incrementally deflate data
@@ -509,7 +509,7 @@ function deflate_init(int $encoding, array $options = []) {}
  * </p>
  * @since 7.0
  */
-function deflate_add($context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string|false {}
+function deflate_add(DeflateContext $context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string|false {}
 
 /**
  * Initialize an incremental inflate context
@@ -533,7 +533,7 @@ function deflate_add($context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH):
  * @since 7.0
  */
 #[Pure]
-function inflate_init(int $encoding, array $options = []) {}
+function inflate_init(int $encoding, array $options = []): InflateContext|false {}
 
 /**
  * Incrementally inflate encoded data
@@ -556,7 +556,7 @@ function inflate_init(int $encoding, array $options = []) {}
  * </p>
  * @since 7.0
  */
-function inflate_add($context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string|false {}
+function inflate_add(InflateContext $context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string|false {}
 
 /**
  * Get number of bytes read so far
@@ -565,7 +565,7 @@ function inflate_add($context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH):
  * @since 7.2
  */
 #[Pure]
-function inflate_get_read_len($context): int {}
+function inflate_get_read_len(InflateContext $context): int {}
 
 /**
  * Get decompression status
@@ -574,4 +574,28 @@ function inflate_get_read_len($context): int {}
  * @since 7.2
  */
 #[Pure]
-function inflate_get_status($context): int {}
+function inflate_get_status(InflateContext $context): int {}
+
+/**
+ * @since 8.0
+ */
+final class InflateContext
+{
+    /**
+     * Use inflate_init() instead
+     * @see inflate_init()
+     */
+    private function __construct() {}
+}
+
+/**
+ * @since 8.0
+ */
+final class DeflateContext
+{
+    /**
+     * Use deflate_init() instead
+     * @see deflate_init()
+     */
+    private function __construct() {}
+}

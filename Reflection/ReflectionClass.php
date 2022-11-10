@@ -48,7 +48,7 @@ class ReflectionClass implements Reflector
      * the class to reflect, or an object.
      * @throws ReflectionException if the class does not exist.
      */
-    public function __construct($objectOrClass) {}
+    public function __construct(object|string $objectOrClass) {}
 
     /**
      * Exports a reflected class
@@ -186,7 +186,7 @@ class ReflectionClass implements Reflector
      * @return bool Returns {@see true} if it has the method, otherwise {@see false}
      */
     #[TentativeType]
-    public function hasMethod($name): bool {}
+    public function hasMethod(string $name): bool {}
 
     /**
      * Gets a <b>ReflectionMethod</b> for a class method.
@@ -198,7 +198,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getMethod($name): ReflectionMethod {}
+    public function getMethod(string $name): ReflectionMethod {}
 
     /**
      * Gets an array of methods for the class.
@@ -211,7 +211,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getMethods($filter = null): array {}
+    public function getMethods(int|null $filter = null): array {}
 
     /**
      * Checks if property is defined
@@ -221,7 +221,7 @@ class ReflectionClass implements Reflector
      * @return bool Returns {@see true} if it has the property, otherwise {@see false}
      */
     #[TentativeType]
-    public function hasProperty($name): bool {}
+    public function hasProperty(string $name): bool {}
 
     /**
      * Gets a <b>ReflectionProperty</b> for a class's property
@@ -233,7 +233,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getProperty($name): ReflectionProperty {}
+    public function getProperty(string $name): ReflectionProperty {}
 
     /**
      * Gets properties
@@ -246,7 +246,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getProperties($filter = null): array {}
+    public function getProperties(int|null $filter = null): array {}
 
     /**
      * Gets a ReflectionClassConstant for a class's property
@@ -270,7 +270,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getReflectionConstants(): array {}
+    public function getReflectionConstants(?int $filter = ReflectionClassConstant::IS_PUBLIC|ReflectionClassConstant::IS_PROTECTED|ReflectionClassConstant::IS_PRIVATE): array {}
 
     /**
      * Checks if constant is defined
@@ -280,7 +280,7 @@ class ReflectionClass implements Reflector
      * @return bool Returns {@see true} if the constant is defined, otherwise {@see false}
      */
     #[TentativeType]
-    public function hasConstant($name): bool {}
+    public function hasConstant(string $name): bool {}
 
     /**
      * Gets constants
@@ -292,7 +292,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getConstants(): array {}
+    public function getConstants(?int $filter = ReflectionClassConstant::IS_PUBLIC|ReflectionClassConstant::IS_PROTECTED|ReflectionClassConstant::IS_PRIVATE): array {}
 
     /**
      * Gets defined constant
@@ -304,7 +304,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getConstant($name): mixed {}
+    public function getConstant(string $name): mixed {}
 
     /**
      * Gets the interfaces
@@ -436,7 +436,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function isInstance($object): bool {}
+    public function isInstance(object $object): bool {}
 
     /**
      * Creates a new class instance from given arguments.
@@ -499,7 +499,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function isSubclassOf($class): bool {}
+    public function isSubclassOf(ReflectionClass|string $class): bool {}
 
     /**
      * Gets static properties
@@ -524,7 +524,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getStaticPropertyValue($name, $default = null): mixed {}
+    public function getStaticPropertyValue(string $name, mixed $default = null): mixed {}
 
     /**
      * Sets static property value
@@ -535,7 +535,7 @@ class ReflectionClass implements Reflector
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function setStaticPropertyValue($name, $value): void {}
+    public function setStaticPropertyValue(string $name, mixed $value): void {}
 
     /**
      * Gets default properties
@@ -580,7 +580,7 @@ class ReflectionClass implements Reflector
      * @return bool Returns {@see true} on success or {@see false} on failure.
      */
     #[TentativeType]
-    public function implementsInterface($interface): bool {}
+    public function implementsInterface(ReflectionClass|string $interface): bool {}
 
     /**
      * Gets a <b>ReflectionExtension</b> object for the extension which defined the class
@@ -632,6 +632,19 @@ class ReflectionClass implements Reflector
     #[Pure]
     #[TentativeType]
     public function getShortName(): string {}
+
+    /**
+     * @template T
+     *
+     * Returns an array of class attributes.
+     *
+     * @param class-string<T>|null $name Name of an attribute class
+     * @param int $flags Сriteria by which the attribute is searched.
+     * @return ReflectionAttribute<T>[]
+     * @since 8.0
+     */
+    #[Pure]
+    public function getAttributes(?string $name = null, int $flags = 0): array {}
 
     /**
      * Clones object

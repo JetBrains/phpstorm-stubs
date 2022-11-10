@@ -33,7 +33,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @param string|Closure $function The name of the function to reflect or a closure.
      * @throws ReflectionException if the function does not exist.
      */
-    public function __construct($function) {}
+    public function __construct(Closure|string $function) {}
 
     /**
      * Exports function
@@ -79,7 +79,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @return mixed Returns the result of the invoked function call.
      */
     #[TentativeType]
-    public function invoke(...$args): mixed {}
+    public function invoke(mixed ...$args): mixed {}
 
     /**
      * Invokes function args

@@ -665,7 +665,7 @@ function sodium_crypto_pwhash_str_verify(string $hash, string $password): bool {
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_pwhash_scryptsalsa208sha256(int $length, string $password, string $salt, int $opslimit, int $memlimit, $alg = null): string {}
+function sodium_crypto_pwhash_scryptsalsa208sha256(int $length, string $password, string $salt, int $opslimit, int $memlimit): string {}
 
 /**
  * Get a formatted password hash (for storage)
@@ -1025,7 +1025,7 @@ function sodium_version_string(): string {}
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_scalarmult_base(string $secret_key, $string_2): string {}
+function sodium_crypto_scalarmult_base(string $secret_key): string {}
 
 /**
  * Creates a random key

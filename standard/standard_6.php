@@ -605,19 +605,14 @@ function stream_supports_lock($stream): bool {}
  * @param string $escape [optional] <p>
  * Set the escape character (one character only). Defaults as a backslash.
  * </p>
- * @return array|false|null an indexed array containing the fields read.
+ * @return array|false an indexed array containing the fields read.
  * <p>
  * A blank line in a CSV file will be returned as an array
  * comprising a single null field, and will not be treated
  * as an error.
  * </p>
- * <p>
- * fgetcsv returns null if an invalid
- * handle is supplied or false on other errors,
- * including end of file.
- * </p>
  */
-function fgetcsv($stream, ?int $length = null, string $separator = ',', string $enclosure = '"', string $escape = "\\"): array|false|null {}
+function fgetcsv($stream, ?int $length = null, string $separator = ',', string $enclosure = '"', string $escape = "\\"): array|false {}
 
 /**
  * Format line as CSV and write to file pointer
@@ -1010,7 +1005,7 @@ function stream_is_local($stream): bool {}
  * failure.
  */
 #[Pure(true)]
-function get_headers(string $url, int $associative = false, $context = null): array|false {}
+function get_headers(string $url, bool $associative = false, $context = null): array|false {}
 
 /**
  * Set timeout period on a stream

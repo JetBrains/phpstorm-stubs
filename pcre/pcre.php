@@ -337,10 +337,10 @@ function preg_match(string $pattern, string $subject, &$matches, int $flags = 0,
  * So, $out[0] contains array of strings that matched full pattern,
  * and $out[1] contains array of strings enclosed by tags.
  * </p>
- * @return int|false|null the number of full pattern matches (which might be zero),
+ * @return int|false the number of full pattern matches (which might be zero),
  * or <b>FALSE</b> if an error occurred.
  */
-function preg_match_all(string $pattern, string $subject, &$matches, int $flags = 0, int $offset = 0): int|false|null {}
+function preg_match_all(string $pattern, string $subject, &$matches, int $flags = 0, int $offset = 0): int|false {}
 
 /**
  * Perform a regular expression search and replace
@@ -612,3 +612,12 @@ function preg_grep(string $pattern, array $array, int $flags = 0): array|false {
  */
 #[Pure(true)]
 function preg_last_error(): int {}
+
+/**
+ * Returns the error message of the last PCRE regex execution
+ *
+ * @return string one of the error messages or "No error" if there is no error.
+ * @since 8.0
+ */
+#[Pure(true)]
+function preg_last_error_msg(): string {}

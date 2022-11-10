@@ -28,7 +28,7 @@ class ReflectionParameter implements Reflector
      * of the parameter (starting with zero), or a the parameter name as string.
      * @throws ReflectionException if the function or parameter does not exist.
      */
-    public function __construct($function, $param) {}
+    public function __construct($function, string|int $param) {}
 
     /**
      * Exports
@@ -139,7 +139,7 @@ class ReflectionParameter implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getType(): ReflectionNamedType|null {}
+    public function getType(): ReflectionNamedType|ReflectionUnionType|null {}
 
     /**
      * Checks if parameter expects an array
@@ -255,6 +255,28 @@ class ReflectionParameter implements Reflector
     #[Pure]
     #[TentativeType]
     public function isVariadic(): bool {}
+
+    /**
+     * Returns information about whether the parameter is a promoted.
+     *
+     * @return bool Returns {@see true} if the parameter promoted or {@see false} instead
+     * @since 8.0
+     */
+    #[Pure]
+    public function isPromoted(): bool {}
+
+    /**
+     * @template T
+     *
+     * Returns an array of parameter attributes.
+     *
+     * @param class-string<T>|null $name Name of an attribute class
+     * @param int $flags Сriteria by which the attribute is searched.
+     * @return ReflectionAttribute<T>[]
+     * @since 8.0
+     */
+    #[Pure]
+    public function getAttributes(?string $name = null, int $flags = 0): array {}
 
     /**
      * Clone

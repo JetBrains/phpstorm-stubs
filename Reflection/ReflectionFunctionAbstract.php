@@ -112,6 +112,15 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function getClosureScopeClass(): ?ReflectionClass {}
 
     /**
+     * @return ReflectionClass|null Returns the class on success or {@see null}
+     * on failure.
+     * @since 8.0
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getClosureCalledClass(): ?ReflectionClass {}
+
+    /**
      * Gets doc comment
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.getdoccomment.php
@@ -225,7 +234,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getReturnType(): ReflectionNamedType|null {}
+    public function getReturnType(): ReflectionNamedType|ReflectionUnionType|null {}
 
     /**
      * Gets function short name
@@ -276,6 +285,19 @@ abstract class ReflectionFunctionAbstract implements Reflector
      */
     #[TentativeType]
     public function hasReturnType(): bool {}
+
+    /**
+     * @template T
+     *
+     * Returns an array of function attributes.
+     *
+     * @param class-string<T>|null $name Name of an attribute class
+     * @param int $flags Сriteria by which the attribute is searched.
+     * @return ReflectionAttribute<T>[]
+     * @since 8.0
+     */
+    #[Pure]
+    public function getAttributes(?string $name = null, int $flags = 0): array {}
 
     /**
      * Clones function
