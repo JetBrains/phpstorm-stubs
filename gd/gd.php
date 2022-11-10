@@ -581,6 +581,16 @@ define('IMG_TRIANGLE', 20);
 define('IMG_TGA', 128);
 
 /**
+ * @since 8.1
+ */
+define('IMG_AVIF', 256);
+
+/**
+ * @since 8.1
+ */
+define('IMG_WEBP_LOSSLESS', 101);
+
+/**
  * Retrieve information about the currently installed GD library
  * @link https://php.net/manual/en/function.gd-info.php
  * @return array an associative array.
@@ -738,7 +748,7 @@ function imageellipse(GdImage $image, int $center_x, int $center_y, int $width, 
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imagechar(GdImage $image, int $font, int $x, int $y, string $char, int $color): bool {}
+function imagechar(GdImage $image, GdFont|int $font, int $x, int $y, string $char, int $color): bool {}
 
 /**
  * Draw a character vertically
@@ -760,7 +770,7 @@ function imagechar(GdImage $image, int $font, int $x, int $y, string $char, int 
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imagecharup(GdImage $image, int $font, int $x, int $y, string $char, int $color): bool {}
+function imagecharup(GdImage $image, GdFont|int $font, int $x, int $y, string $char, int $color): bool {}
 
 /**
  * Get the index of the color of a pixel
@@ -1423,6 +1433,15 @@ function imagecreatefrompng(string $filename): GdImage|false {}
 
 /**
  * Create a new image from file or URL
+ * @link https://www.php.net/manual/function.imagecreatefromavif.php
+ * @param string $filename Path to the AVIF raster image.
+ * @return GdImage|false returns an image object representing the image obtained from the given filename
+ * @since 8.1
+ */
+function imagecreatefromavif(string $filename): GdImage|false {}
+
+/**
+ * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefromgif.php
  * @param string $filename <p>
  * Path to the GIF image.
@@ -1761,7 +1780,7 @@ function imagefilltoborder(GdImage $image, int $x, int $y, int $border_color, in
  * @return int the width of the pixel
  */
 #[Pure]
-function imagefontwidth(int $font): int {}
+function imagefontwidth(GdFont|int $font): int {}
 
 /**
  * Get font height
@@ -1770,7 +1789,7 @@ function imagefontwidth(int $font): int {}
  * @return int the height of the pixel.
  */
 #[Pure]
-function imagefontheight(int $font): int {}
+function imagefontheight(GdFont|int $font): int {}
 
 /**
  * Enable or disable interlace
@@ -1857,10 +1876,10 @@ function imageline(GdImage $image, int $x1, int $y1, int $x2, int $y2, int $colo
  * </tr>
  * </table>
  * </p>
- * @return int|false The font identifier which is always bigger than 5 to avoid conflicts with
+ * @return GdFont|false The font identifier which is always bigger than 5 to avoid conflicts with
  * built-in fonts or false on errors.
  */
-function imageloadfont(string $filename): int|false {}
+function imageloadfont(string $filename): GdFont|false {}
 
 /**
  * Draws a polygon
@@ -1959,7 +1978,7 @@ function imagesetpixel(GdImage $image, int $x, int $y, int $color): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagestring(GdImage $image, int $font, int $x, int $y, string $string, int $color): bool {}
+function imagestring(GdImage $image, GdFont|int $font, int $x, int $y, string $string, int $color): bool {}
 
 /**
  * Draw a string vertically
@@ -1981,7 +2000,7 @@ function imagestring(GdImage $image, int $font, int $x, int $y, string $string, 
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagestringup(GdImage $image, int $font, int $x, int $y, string $string, int $color): bool {}
+function imagestringup(GdImage $image, GdFont|int $font, int $x, int $y, string $string, int $color): bool {}
 
 /**
  * Get image width
@@ -2592,6 +2611,18 @@ function imagegrabwindow($handle, $client_area = null) {}
  */
 #[Pure]
 function imagegetinterpolation(GdImage $image): int {}
+
+/**
+ * Outputs or saves a AVIF Raster image from the given image
+ * @link https://www.php.net/manual/function.imageavif.php
+ * @param GdImage $image A GdImage object, returned by one of the image creation functions, such as imagecreatetruecolor().
+ * @param resource|string|null $file The path or an open stream resource (which is automatically closed after this function returns) to save the file to. If not set or null, the raw image stream will be output directly.
+ * @param int $quality quality is optional, and ranges from 0 (worst quality, smaller file) to 100 (best quality, larger file). If -1 is provided, the default value 30 is used.
+ * @param int $speed speed is optional, and ranges from 0 (slow, smaller file) to 10 (fast, larger file). If -1 is provided, the default value 6 is used.
+ * @return bool Returns true on success or false on failure. However, if libgd fails to output the image, this function returns true.
+ * @since 8.1
+ */
+function imageavif(GdImage $image, string|null $file = null, int $quality = -1, int $speed = -1): bool {}
 
 /**
  * Return an image containing the affine tramsformed src image, using an optional clipping area

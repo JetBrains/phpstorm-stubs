@@ -105,7 +105,8 @@ function getimagesizefromstring(string $string, &$image_info): array|false {}
  * Set the stream chunk size.
  * @param resource $stream The target stream.
  * @param int $size The desired new chunk size.
- * @return int Returns the previous chunk size on success.
+ * @return int|false Returns the previous chunk size on success.<br>
+ * Will return <b>FALSE</b> if chunk_size is less than 1 or greater than <b>PHP_INT_MAX</b>.
  * @link https://secure.php.net/manual/en/function.stream-set-chunk-size.php
  * @since 5.4
  */
@@ -130,7 +131,7 @@ function define_syslog_variables() {}
  * This parameter restricts the returned metaphone key to phonemes characters in length.
  * The default value of 0 means no restriction.
  * </p>
- * @return string the metaphone key as a string
+ * @return string|false the metaphone key as a string, or FALSE on failure
  */
 #[Pure]
 function metaphone(string $string, int $max_phonemes = 0): string {}

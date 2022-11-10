@@ -1,12 +1,13 @@
 <?php
 
-use JetBrains\PhpStorm\ArrayShape;
-use JetBrains\PhpStorm\Pure;
-
 /**
  * Check whether the file exists.
  * @link https://php.net/manual/en/posix.constants.php
  */
+
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
+
 define('POSIX_F_OK', 0);
 
 /**

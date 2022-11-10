@@ -1,11 +1,12 @@
 <?php
 
-use JetBrains\PhpStorm\Deprecated;
-
 /**
  * @deprecated 7.1
  * @removed 7.2
  */
+
+use JetBrains\PhpStorm\Deprecated;
+
 define('MCRYPT_ENCRYPT', 0);
 
 /**

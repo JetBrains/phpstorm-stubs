@@ -1354,7 +1354,7 @@ function msgfmt_get_error_message(MessageFormatter $formatter): string {}
  * @return IntlDateFormatter|null
  */
 #[Pure]
-function datefmt_create(?string $locale, int $dateType, int $timeType, $timezone = null, IntlCalendar|int|null $calendar = null, string|null $pattern = null): ?IntlDateFormatter {}
+function datefmt_create(?string $locale, int $dateType = 0, int $timeType = 0, $timezone = null, IntlCalendar|int|null $calendar = null, string|null $pattern = null): ?IntlDateFormatter {}
 
 /**
  * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -5142,7 +5142,7 @@ class IntlDateFormatter
      * @param string $pattern [optional]
      */
     #[Pure]
-    public function __construct(string|null $locale, int $dateType, int $timeType, $timezone = null, $calendar = null, string|null $pattern = '') {}
+    public function __construct(string|null $locale, int $dateType = 0, int $timeType = 0, $timezone = null, $calendar = null, string|null $pattern = '') {}
 
     /**
      * (PHP 5 >= 5.3.0, PECL intl >= 1.0.0)<br/>
@@ -5180,7 +5180,7 @@ class IntlDateFormatter
      * @return IntlDateFormatter
      */
     #[TentativeType]
-    public static function create(string|null $locale, int $dateType, int $timeType, $timezone = null, IntlCalendar|int|null $calendar = null, string|null $pattern = ''): ?IntlDateFormatter {}
+    public static function create(string|null $locale, int $dateType = 0, int $timeType = 0, $timezone = null, IntlCalendar|int|null $calendar = null, string|null $pattern = ''): ?IntlDateFormatter {}
 
     /**
      * (PHP 5 >= 5.5.0, PECL intl >= 3.0.0)<br/>
@@ -5579,7 +5579,7 @@ class Transliterator
     /**
      * Starting 8.2 $id is readonly to unlock subclassing it
      */
-    public $id;
+    public string $id;
 
     /**
      * (PHP >= 5.4.0, PECL intl >= 2.0.0)<br/>
@@ -7395,6 +7395,12 @@ class IntlPartsIterator extends IntlIterator implements Iterator
     #[Pure]
     #[TentativeType]
     public function getBreakIterator(): IntlBreakIterator {}
+
+    /**
+     * @since 8.1
+     */
+    #[TentativeType]
+    public function getRuleStatus(): int {}
 }
 
 class IntlCodePointBreakIterator extends IntlBreakIterator implements Traversable

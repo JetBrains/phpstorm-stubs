@@ -17,7 +17,7 @@ class ReflectionParameter implements Reflector
      * @var string Name of the parameter, same as calling the {@see ReflectionParameter::getName()} method
      */
     #[Immutable]
-    public $name;
+    public string $name;
 
     /**
      * Construct
@@ -139,7 +139,7 @@ class ReflectionParameter implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getType(): ReflectionNamedType|ReflectionUnionType|null {}
+    public function getType(): ReflectionNamedType|ReflectionUnionType|ReflectionIntersectionType|null {}
 
     /**
      * Checks if parameter expects an array
@@ -284,5 +284,5 @@ class ReflectionParameter implements Reflector
      * @link https://php.net/manual/en/reflectionparameter.clone.php
      * @return void
      */
-    final private function __clone(): void {}
+    private function __clone(): void {}
 }

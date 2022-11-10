@@ -724,7 +724,7 @@ function pcntl_errno(): int {}
  * @link https://php.net/manual/en/function.pcntl-strerror.php
  * @param int $error_code <p>
  * </p>
- * @return string error description.
+ * @return string|false error description on success or <b>FALSE</b> on failure.
  * @since 5.3.4
  */
 #[Pure]

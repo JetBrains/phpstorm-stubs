@@ -1,7 +1,5 @@
 <?php
 
-use JetBrains\PhpStorm\Pure;
-
 /**
  * Orders results so that $matches[0] is an array of full pattern
  * matches, $matches[1] is an array of strings matched by the first
@@ -9,6 +7,9 @@ use JetBrains\PhpStorm\Pure;
  * <b>preg_match_all</b>.
  * @link https://php.net/manual/en/pcre.constants.php
  */
+
+use JetBrains\PhpStorm\Pure;
+
 define('PREG_PATTERN_ORDER', 1);
 
 /**
@@ -337,7 +338,7 @@ function preg_match(string $pattern, string $subject, &$matches, int $flags = 0,
  * So, $out[0] contains array of strings that matched full pattern,
  * and $out[1] contains array of strings enclosed by tags.
  * </p>
- * @return int|false the number of full pattern matches (which might be zero),
+ * @return int|false|null the number of full pattern matches (which might be zero),
  * or <b>FALSE</b> if an error occurred.
  */
 function preg_match_all(string $pattern, string $subject, &$matches, int $flags = 0, int $offset = 0): int|false {}

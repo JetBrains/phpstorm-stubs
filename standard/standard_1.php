@@ -389,10 +389,16 @@ function str_word_count(string $string, int $format = 0, ?string $characters): a
  * @param int $length [optional] <p>
  * Maximum length of the chunk.
  * </p>
- * @return string[] <p>If the optional split_length parameter is
+ * @return string[]|false <p>If the optional split_length parameter is
  * specified, the returned array will be broken down into chunks with each
  * being split_length in length, otherwise each chunk
  * will be one character in length.
+ * </p>
+ * <p>
+ * <b>FALSE</b> is returned if split_length is less than 1.
+ * If the split_length length exceeds the length of
+ * string, the entire string is returned as the first
+ * (and only) array element.
  * </p>
  */
 #[Pure]
@@ -541,7 +547,7 @@ function money_format(string $format, float $number): ?string {}
  * $rest = substr("abcdef", -3, -1); // returns "de"
  * ?>
  * </pre>
- * @return string the extracted part of string.
+ * @return string|false the extracted part of string or false on failure.
  */
 #[Pure]
 function substr(string $string, int $offset, ?int $length): string {}
@@ -968,7 +974,8 @@ function similar_text(string $string1, string $string2, &$percent): int {}
  * <p>
  * If the limit parameter is zero, then this is treated as 1.
  * </p>
- * @return string[]
+ * @return string[]|false If delimiter is an empty string (""),
+ * explode will return false.
  * If delimiter contains a value that is not
  * contained in string and a negative
  * limit is used, then an empty array will be

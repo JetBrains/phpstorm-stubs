@@ -14,7 +14,7 @@
  * @param int $permissions [optional] <p>
  * The optional permission bits. Default to 0666.
  * </p>
- * @return SysvSharedMemory|false a shared memory segment identifier.
+ * @return resource|SysvSharedMemory|false a shared memory segment identifier.
  */
 function shm_attach(int $key, ?int $size, int $permissions = 438): SysvSharedMemory|false {}
 

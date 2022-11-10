@@ -53,7 +53,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @var string Fully qualified class name where this method was defined
      */
     #[Immutable]
-    public $class;
+    public string $class;
 
     /**
      * Constructs a ReflectionMethod
@@ -267,12 +267,13 @@ class ReflectionMethod extends ReflectionFunctionAbstract
 
     /**
      * Set method accessibility
+     * This method is no-op starting from PHP 8.1
      *
      * @link https://php.net/manual/en/reflectionmethod.setaccessible.php
      * @param bool $accessible {@see true} to allow accessibility, or {@see false}
      * @return void No value is returned.
-     * @since 5.3.2
      */
+    #[Pure]
     #[TentativeType]
     public function setAccessible(bool $accessible): void {}
 }

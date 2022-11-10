@@ -77,7 +77,7 @@ use JetBrains\PhpStorm\Pure;
  * is returned and a warning raised (this can happen if the system call is
  * interrupted by an incoming signal).
  */
-function stream_select(?array &$read, ?array &$write, ?array &$except, ?int $seconds, int $microseconds): int|false {}
+function stream_select(?array &$read, ?array &$write, ?array &$except, ?int $seconds, int|null $microseconds): int|false {}
 
 /**
  * Create a stream context
@@ -605,11 +605,16 @@ function stream_supports_lock($stream): bool {}
  * @param string $escape [optional] <p>
  * Set the escape character (one character only). Defaults as a backslash.
  * </p>
- * @return array|false an indexed array containing the fields read.
+ * @return array|false|null an indexed array containing the fields read.
  * <p>
  * A blank line in a CSV file will be returned as an array
  * comprising a single null field, and will not be treated
  * as an error.
+ * </p>
+ * <p>
+ * fgetcsv returns null if an invalid
+ * handle is supplied or false on other errors,
+ * including end of file.
  * </p>
  */
 function fgetcsv($stream, ?int $length = null, string $separator = ',', string $enclosure = '"', string $escape = "\\"): array|false {}
@@ -634,7 +639,7 @@ function fgetcsv($stream, ?int $length = null, string $separator = ',', string $
  * </p>
  * @return int|false the length of the written string or false on failure.
  */
-function fputcsv($stream, array $fields, string $separator = ',', string $enclosure = '"', string $escape = "\\"): int|false {}
+function fputcsv($stream, array $fields, string $separator = ',', string $enclosure = '"', string $escape = "\\", string $eol = PHP_EOL): int|false {}
 
 /**
  * Portable advisory file locking

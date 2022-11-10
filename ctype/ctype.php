@@ -17,7 +17,7 @@ function ctype_alnum(mixed $text): bool {}
 /**
  * Check for alphabetic character(s)
  * @link https://php.net/manual/en/function.ctype-alpha.php
- * @param string $text <p>
+ * @param mixed $text <p>
  * The tested string.
  * </p>
  * @return bool <b>TRUE</b> if every character in <i>text</i> is
@@ -29,7 +29,7 @@ function ctype_alpha(mixed $text): bool {}
 /**
  * Check for control character(s)
  * @link https://php.net/manual/en/function.ctype-cntrl.php
- * @param string $text <p>
+ * @param mixed $text <p>
  * The tested string.
  * </p>
  * @return bool <b>TRUE</b> if every character in <i>text</i> is
@@ -41,7 +41,7 @@ function ctype_cntrl(mixed $text): bool {}
 /**
  * Check for numeric character(s)
  * @link https://php.net/manual/en/function.ctype-digit.php
- * @param string $text <p>
+ * @param mixed $text <p>
  * The tested string.
  * </p>
  * @return bool <b>TRUE</b> if every character in the string
@@ -53,7 +53,7 @@ function ctype_digit(mixed $text): bool {}
 /**
  * Check for lowercase character(s)
  * @link https://php.net/manual/en/function.ctype-lower.php
- * @param string $text <p>
+ * @param mixed $text <p>
  * The tested string.
  * </p>
  * @return bool <b>TRUE</b> if every character in <i>text</i> is
@@ -65,7 +65,7 @@ function ctype_lower(mixed $text): bool {}
 /**
  * Check for any printable character(s) except space
  * @link https://php.net/manual/en/function.ctype-graph.php
- * @param string $text <p>
+ * @param mixed $text <p>
  * The tested string.
  * </p>
  * @return bool <b>TRUE</b> if every character in <i>text</i> is
@@ -78,7 +78,7 @@ function ctype_graph(mixed $text): bool {}
 /**
  * Check for printable character(s)
  * @link https://php.net/manual/en/function.ctype-print.php
- * @param string $text <p>
+ * @param mixed $text <p>
  * The tested string.
  * </p>
  * @return bool <b>TRUE</b> if every character in <i>text</i>
@@ -93,7 +93,7 @@ function ctype_print(mixed $text): bool {}
  * Check for any printable character which is not whitespace or an
  * alphanumeric character
  * @link https://php.net/manual/en/function.ctype-punct.php
- * @param string $text <p>
+ * @param mixed $text <p>
  * The tested string.
  * </p>
  * @return bool <b>TRUE</b> if every character in <i>text</i>
@@ -105,7 +105,7 @@ function ctype_punct(mixed $text): bool {}
 /**
  * Check for whitespace character(s)
  * @link https://php.net/manual/en/function.ctype-space.php
- * @param string $text <p>
+ * @param mixed $text <p>
  * The tested string.
  * </p>
  * @return bool <b>TRUE</b> if every character in <i>text</i>
@@ -119,7 +119,7 @@ function ctype_space(mixed $text): bool {}
 /**
  * Check for uppercase character(s)
  * @link https://php.net/manual/en/function.ctype-upper.php
- * @param string $text <p>
+ * @param mixed $text <p>
  * The tested string.
  * </p>
  * @return bool <b>TRUE</b> if every character in <i>text</i> is
@@ -131,7 +131,7 @@ function ctype_upper(mixed $text): bool {}
 /**
  * Check for character(s) representing a hexadecimal digit
  * @link https://php.net/manual/en/function.ctype-xdigit.php
- * @param string $text <p>
+ * @param mixed $text <p>
  * The tested string.
  * </p>
  * @return bool <b>TRUE</b> if every character in <i>text</i> is

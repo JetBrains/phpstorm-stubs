@@ -834,8 +834,8 @@ function proc_terminate($process, int $signal = 15): bool {}
  * The proc_open resource that will
  * be evaluated.
  * </p>
- * @return array An array of collected information on success.
- * The returned array contains the following elements:
+ * @return array|false An array of collected information on success, and false
+ * on failure. The returned array contains the following elements:
  * </p>
  * <p>
  * <tr valign="top"><td>element</td><td>type</td><td>description</td></tr>

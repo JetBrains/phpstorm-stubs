@@ -1,7 +1,5 @@
 <?php
 
-use JetBrains\PhpStorm\Deprecated;
-
 /**
  * Columns are returned into the array having the fieldname as the array
  * index.
@@ -9,6 +7,9 @@ use JetBrains\PhpStorm\Deprecated;
  * @deprecated 5.5
  * @removed 7.0
  */
+
+use JetBrains\PhpStorm\Deprecated;
+
 define('MYSQL_ASSOC', 1);
 
 /**

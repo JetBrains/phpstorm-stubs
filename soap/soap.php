@@ -973,32 +973,32 @@ class SoapFault extends Exception
     /**
      * @var string
      */
-    public $faultcode;
+    public string|null $faultcode;
 
     /**
      * @var string
      */
-    public $faultstring;
+    public string $faultstring;
 
     /**
      * @var string
      */
-    public $faultactor;
+    public string|null $faultactor;
 
     /**
      * @var mixed
      */
-    public $detail;
+    public mixed $detail;
 
     /**
      * @var string
      */
-    public $faultname;
+    public string $faultname;
 
     /**
      * @var mixed
      */
-    public $headerfault;
+    public mixed $headerfault;
 
     /**
      * @var string|null

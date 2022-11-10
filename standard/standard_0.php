@@ -35,7 +35,7 @@ function bin2hex(string $string): string {}
  * @param int $seconds <p>
  * Halt time in seconds.
  * </p>
- * @return int zero on success. If the call was interrupted
+ * @return int|false zero on success, or false on errors. If the call was interrupted
  * by a signal, sleep returns the number of seconds left
  * to sleep.
  */
@@ -1278,8 +1278,8 @@ class __PHP_Incomplete_Class
 
 class php_user_filter
 {
-    public $filtername;
-    public $params;
+    public string $filtername;
+    public mixed $params;
     public $stream;
 
     /**
@@ -1353,13 +1353,24 @@ class Directory
     public $path;
 
     /**
+     * @var string The directory that was opened.
+     */
+    public readonly string $path;
+
+    /**
      * @var resource Can be used with other directory functions such as {@see readdir()}, {@see rewinddir()} and {@see closedir()}.
      */
     public $handle;
 
     /**
+     * @var resource Can be used with other directory functions such as {@see readdir()}, {@see rewinddir()} and {@see closedir()}.
+     */
+    public readonly mixed $handle;
+
+    /**
      * Close directory handle.
      * Same as closedir(), only dir_handle defaults to $this.
+     * @param resource $dir_handle [optional]
      * @link https://secure.php.net/manual/en/directory.close.php
      */
     #[TentativeType]
@@ -1368,6 +1379,7 @@ class Directory
     /**
      * Rewind directory handle.
      * Same as rewinddir(), only dir_handle defaults to $this.
+     * @param resource $dir_handle [optional]
      * @link https://secure.php.net/manual/en/directory.rewind.php
      */
     #[TentativeType]
@@ -1376,6 +1388,7 @@ class Directory
     /**
      * Read entry from directory handle.
      * Same as readdir(), only dir_handle defaults to $this.
+     * @param resource $dir_handle [optional]
      * @return string|false
      * @link https://secure.php.net/manual/en/directory.read.php
      */

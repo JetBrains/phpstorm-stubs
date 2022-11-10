@@ -23,7 +23,7 @@ function pdo_drivers(): array {}
  */
 class PDOException extends RuntimeException
 {
-    public $errorInfo;
+    public array|null $errorInfo;
     protected $code;
 }
 
@@ -762,6 +762,11 @@ class PDO
      */
     public const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1014;
 
+    /**
+     * @since 8.1
+     */
+    public const MYSQL_ATTR_LOCAL_INFILE_DIRECTORY = 1015;
+
     #[Deprecated("Use PDO::ATTR_EMULATE_PREPARES instead")]
     public const PGSQL_ASSOC = 1;
 
@@ -924,9 +929,9 @@ class PDO
      * Creates a PDO instance representing a connection to a database
      * @link https://php.net/manual/en/pdo.construct.php
      * @param string $dsn
-     * @param string|null $username [optional]
-     * @param string|null $password [optional]
-     * @param array|null $options [optional]
+     * @param string $username [optional]
+     * @param string $password [optional]
+     * @param array $options [optional]
      * @throws PDOException if the attempt to connect to the requested database fails.
      */
     public function __construct(string $dsn, string|null $username = null, string|null $password = null, array|null $options = null) {}
@@ -1420,7 +1425,7 @@ class PDOStatement implements IteratorAggregate
     /**
      * @var string
      */
-    public $queryString;
+    public string $queryString;
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0)<br/>
@@ -1845,5 +1850,5 @@ class PDOStatement implements IteratorAggregate
 
 final class PDORow
 {
-    public $queryString;
+    public string $queryString;
 }

@@ -1,12 +1,13 @@
 <?php
 
+/**
+ * @removed 8.0
+ */
+
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Pure;
 
-/**
- * @removed 8.0
- */
 define('MB_OVERLOAD_MAIL', 1);
 
 /**
@@ -652,7 +653,7 @@ function mb_list_encodings(): array {}
 /**
  * Get aliases of a known encoding type
  * @param string $encoding The encoding type being checked, for aliases.
- * @return string[] a numerically indexed array of encoding aliases on success
+ * @return string[]|false a numerically indexed array of encoding aliases on success, or FALSE on failure
  * @link https://php.net/manual/en/function.mb-encoding-aliases.php
  */
 #[Pure]
@@ -873,7 +874,10 @@ function mb_encode_numericentity(string $string, array $map, ?string $encoding =
  * the code area to convert.
  * </p>
  * @param null|string $encoding
- * @return string The converted string.
+ * @param bool $is_hex [optional] <p>
+ * this parameter is not used.
+ * </p>
+ * @return string|false|null The converted string.
  */
 #[Pure]
 function mb_decode_numericentity(string $string, array $map, ?string $encoding = null): string {}
@@ -996,7 +1000,7 @@ function mb_ereg(string $pattern, string $string, &$matches): bool {}
  * @param string[] &$matches [optional] <p>
  * Contains a substring of the matched string.
  * </p>
- * @return bool
+ * @return bool|int
  */
 function mb_eregi(string $pattern, string $string, &$matches): bool {}
 
@@ -1376,7 +1380,7 @@ function mb_ord(string $string, ?string $encoding): int|false {}
  * @link https://www.php.net/manual/en/function.mb-scrub.php
  * @param string $string
  * @param string|null $encoding [optional]
- * @return string
+ * @return string|false
  * @since 7.2
  */
 #[Pure]
@@ -1402,7 +1406,7 @@ function mbereg_search_setpos($position) {}
  * Character encoding name to use.
  * If it is omitted, internal character encoding is used.
  * </p>
- * @return string[]
+ * @return string[]|false
  * @since 7.4
  */
 #[Pure]

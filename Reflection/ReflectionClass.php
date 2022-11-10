@@ -38,7 +38,7 @@ class ReflectionClass implements Reflector
      * @var class-string<T> Name of the class, same as calling the {@see ReflectionClass::getName()} method
      */
     #[Immutable]
-    public $name;
+    public string $name;
 
     /**
      * Constructs a ReflectionClass
@@ -646,12 +646,13 @@ class ReflectionClass implements Reflector
     #[Pure]
     public function getAttributes(?string $name = null, int $flags = 0): array {}
 
+    public function isEnum(): bool {}
+
     /**
      * Clones object
      *
      * @link https://php.net/manual/en/reflectionclass.clone.php
      * @return void
-     * @since 5.4
      */
-    final private function __clone(): void {}
+    private function __clone(): void {}
 }

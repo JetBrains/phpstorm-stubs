@@ -191,7 +191,7 @@ function session_destroy(): bool {}
 /**
  * Free all session variables
  * @link https://php.net/manual/en/function.session-unset.php
- * @return bool since 7.2.0 returns true on success or false on failure.
+ * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
 function session_unset(): bool {}
 
@@ -375,7 +375,7 @@ function session_set_cookie_params(array $lifetime_or_options): bool {}
  * httponly
  * flag when setting the session cookie.
  * </p>
- * @return bool since 7.2.0 returns true on success or false on failure.
+ * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
 function session_set_cookie_params(int $lifetime_or_options, ?string $path = null, ?string $domain = null, ?bool $secure = null, ?bool $httponly = null): bool {}
 
@@ -401,7 +401,7 @@ function session_get_cookie_params(): array {}
 /**
  * Write session data and end session
  * @link https://php.net/manual/en/function.session-write-close.php
- * @return bool since 7.2.0 returns true on success or false on failure.
+ * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
 function session_write_close(): bool {}
 
@@ -427,7 +427,7 @@ function session_status(): int {}
  * (PHP 5 >= 5.6.0)<br>
  * Discard session array changes and finish session
  * @link https://php.net/manual/en/function.session-abort.php
- * @return bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
+ * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
  * @since 5.6
  */
 function session_abort(): bool {}
@@ -436,7 +436,7 @@ function session_abort(): bool {}
  * (PHP 5 >= 5.6.0)<br>
  * Re-initialize session array with original values
  * @link https://php.net/manual/en/function.session-reset.php
- * @return bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
+ * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
  * @since 5.6
  */
 function session_reset(): bool {}

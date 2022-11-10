@@ -35,16 +35,21 @@ class ReflectionClassConstant implements Reflector
     public const IS_PRIVATE = 4;
 
     /**
+     * @since 8.1
+     */
+    public const IS_FINAL = 5;
+
+    /**
      * @var string Constant name, same as calling the {@see ReflectionClassConstant::getName()} method
      */
     #[Immutable]
-    public $name;
+    public string $name;
 
     /**
      * @var string Fully qualified class name where this constant was defined
      */
     #[Immutable]
-    public $class;
+    public string $class;
 
     /**
      * @var bool
@@ -187,10 +192,18 @@ class ReflectionClassConstant implements Reflector
     #[Pure]
     public function getAttributes(?string $name = null, int $flags = 0): array {}
 
+    public function isEnumCase(): bool {}
+
+    /**
+     * @return bool
+     * @since 8.1
+     */
+    public function isFinal(): bool {}
+
     /**
      * ReflectionClassConstant cannot be cloned
      *
      * @return void
      */
-    final private function __clone(): void {}
+    private function __clone(): void {}
 }

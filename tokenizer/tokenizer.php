@@ -221,6 +221,11 @@ define('T_TRAIT', 334);
 
 define('T_INTERFACE', 335);
 
+/**
+ * @since 8.1
+ */
+define('T_ENUM', 336);
+
 define('T_EXTENDS', 337);
 
 define('T_IMPLEMENTS', 338);
@@ -313,6 +318,21 @@ define('T_ATTRIBUTE', 351);
  * @since 8.0
  */
 define('T_NULLSAFE_OBJECT_OPERATOR', 385);
+
+/**
+ * @since 8.1
+ */
+define('T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG', 403);
+
+/**
+ * @since 8.1
+ */
+define('T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG', 404);
+
+/**
+ * @since 8.1
+ */
+define('T_READONLY', 327);
 
 /**
  * @removed 7.0

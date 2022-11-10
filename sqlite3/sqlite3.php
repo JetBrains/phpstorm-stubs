@@ -1,14 +1,15 @@
 <?php
 
-use JetBrains\PhpStorm\ArrayShape;
-use JetBrains\PhpStorm\Internal\TentativeType;
-
 /**
  * Specifies that the <b>Sqlite3Result::fetchArray</b>
  * method shall return an array indexed by column name as returned in the
  * corresponding result set.
  * @link https://php.net/manual/en/sqlite3.constants.php
  */
+
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Internal\TentativeType;
+
 define('SQLITE3_ASSOC', 1);
 
 /**

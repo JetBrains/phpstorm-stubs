@@ -1,13 +1,14 @@
 <phpunit bootstrap="vendor/autoload.php"
          failOnWarning="true">
     <testsuites>
-        <testsuite name="PHP_8.0">
+        <testsuite name="PHP_8.1">
             <file>tests/BaseClassesTest.php</file>
             <file>tests/BaseConstantsTest.php</file>
             <file>tests/BaseFunctionsTest.php</file>
             <file>tests/StubsParameterNamesTest.php</file>
             <file>tests/StubsTypeHintsTest.php</file>
             <file>tests/StubsForbiddenTypeHintsTest.php</file>
+            <file>tests/StubsPhp81Tests.php</file>
         </testsuite>
         <testsuite name="PhpDoc">
             <file>tests/StubsPhpDocTest.php</file>

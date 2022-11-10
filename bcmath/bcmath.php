@@ -143,7 +143,7 @@ function bcsqrt(string $num, ?int $scale): string {}
  * Set default scale parameter for all bc math functions
  * @link https://php.net/manual/en/function.bcscale.php
  * @param int $scale
- * @return int
+ * @return int|bool
  */
 function bcscale(int|null $scale = null): int {}
 

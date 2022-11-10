@@ -296,6 +296,76 @@ interface Stringable
 }
 
 /**
+ * @since 8.1
+ */
+interface UnitEnum
+{
+    /**
+     * @return static[]
+     */
+    #[Pure]
+    public static function cases(): array;
+}
+
+/**
+ * @since 8.1
+ */
+interface BackedEnum extends UnitEnum
+{
+    /**
+     * @param int|string $value
+     * @return static
+     */
+    #[Pure]
+    public static function from(int|string $value): static;
+
+    /**
+     * @param int|string $value
+     * @return static|null
+     */
+    #[Pure]
+    public static function tryFrom(int|string $value): ?static;
+}
+
+/**
+ * @since 8.1
+ * @internal
+ *
+ * Internal interface to ensure precise type inference
+ */
+interface IntBackedEnum extends BackedEnum
+{
+    /**
+     * @param int $value
+     * @return static
+     */
+    #[Pure]
+    public static function from(int $value): static;
+
+    /**
+     * @param int $value
+     * @return static|null
+     */
+    #[Pure]
+    public static function tryFrom(int $value): ?static;
+}
+
+/**
+ * @since 8.1
+ * @internal
+ *
+ * Internal interface to ensure precise type inference
+ */
+interface StringBackedEnum extends BackedEnum
+{
+    #[Pure]
+    public static function from(string $value): static;
+
+    #[Pure]
+    public static function tryFrom(string $value): ?static;
+}
+
+/**
  * Created by typecasting to object.
  * @link https://php.net/manual/en/reserved.classes.php
  */
@@ -315,10 +385,10 @@ class Exception implements Throwable
     protected $code;
 
     /** The filename where the error happened  */
-    protected $file;
+    protected string $file;
 
     /** The line where the error happened */
-    protected $line;
+    protected int $line;
 
     /**
      * Construct the exception. Note: The message is NOT binary safe.
@@ -407,7 +477,7 @@ class Exception implements Throwable
      * @link https://php.net/manual/en/exception.clone.php
      * @return void
      */
-    final private function __clone(): void {}
+    private function __clone(): void {}
 }
 
 /**
@@ -424,10 +494,10 @@ class Error implements Throwable
     protected $code;
 
     /** The filename where the error happened  */
-    protected $file;
+    protected string $file;
 
     /** The line where the error happened */
-    protected $line;
+    protected int $line;
 
     /**
      * Construct the error object.
@@ -514,7 +584,7 @@ class Error implements Throwable
      * @return void
      * @link https://php.net/manual/en/error.clone.php
      */
-    final private function __clone(): void {}
+    private function __clone(): void {}
 }
 
 class ValueError extends Error {}
@@ -579,7 +649,7 @@ class UnhandledMatchError extends Error {}
  */
 class ErrorException extends Exception
 {
-    protected $severity;
+    protected int $severity;
 
     /**
      * Constructs the exception
@@ -841,4 +911,120 @@ final class InternalIterator implements Iterator
     public function valid(): bool {}
 
     public function rewind(): void {}
+}
+
+/**
+ * @since 8.1
+ *
+ * @template TStart
+ * @template TResume
+ * @template TReturn
+ * @template TSuspend
+ */
+final class Fiber
+{
+    /**
+     * @param callable $callback Function to invoke when starting the fiber.
+     */
+    public function __construct(callable $callback) {}
+
+    /**
+     * @return self|null Returns the currently executing fiber instance or NULL if in {main}.
+     */
+    public static function getCurrent(): ?Fiber {}
+
+    /**
+     * Suspend execution of the fiber. The fiber may be resumed with {@see Fiber::resume()} or {@see Fiber::throw()}.
+     *
+     * Cannot be called from {main}.
+     *
+     * @param TSuspend $value Value to return from {@see Fiber::resume()} or {@see Fiber::throw()}.
+     *
+     * @return TResume Value provided to {@see Fiber::resume()}.
+     *
+     * @throws FiberError Thrown if not within a fiber (i.e., if called from {main}).
+     * @throws Throwable Exception provided to {@see Fiber::throw()}.
+     */
+    public static function suspend(mixed $value = null): mixed {}
+
+    /**
+     * Starts execution of the fiber. Returns when the fiber suspends or terminates.
+     *
+     * @param TStart ...$args Arguments passed to fiber function.
+     *
+     * @return TSuspend|null Value from the first suspension point or NULL if the fiber returns.
+     *
+     * @throws FiberError If the fiber has already been started.
+     * @throws Throwable If the fiber callable throws an uncaught exception.
+     */
+    public function start(mixed ...$args): mixed {}
+
+    /**
+     * Resumes the fiber, returning the given value from {@see Fiber::suspend()}.
+     * Returns when the fiber suspends or terminates.
+     *
+     * @param TResume $value
+     *
+     * @return TSuspend|null Value from the next suspension point or NULL if the fiber returns.
+     *
+     * @throws FiberError If the fiber has not started, is running, or has terminated.
+     * @throws Throwable If the fiber callable throws an uncaught exception.
+     */
+    public function resume(mixed $value = null): mixed {}
+
+    /**
+     * Throws the given exception into the fiber from {@see Fiber::suspend()}.
+     * Returns when the fiber suspends or terminates.
+     *
+     * @param Throwable $exception
+     *
+     * @return TSuspend|null Value from the next suspension point or NULL if the fiber returns.
+     *
+     * @throws FiberError If the fiber has not started, is running, or has terminated.
+     * @throws Throwable If the fiber callable throws an uncaught exception.
+     */
+    public function throw(Throwable $exception): mixed {}
+
+    /**
+     * @return bool True if the fiber has been started.
+     */
+    public function isStarted(): bool {}
+
+    /**
+     * @return bool True if the fiber is suspended.
+     */
+    public function isSuspended(): bool {}
+
+    /**
+     * @return bool True if the fiber is currently running.
+     */
+    public function isRunning(): bool {}
+
+    /**
+     * @return bool True if the fiber has completed execution (returned or threw).
+     */
+    public function isTerminated(): bool {}
+
+    /**
+     * @return TReturn Return value of the fiber callback. NULL is returned if the fiber does not have a return statement.
+     *
+     * @throws FiberError If the fiber has not terminated or the fiber threw an exception.
+     */
+    public function getReturn(): mixed {}
+}
+
+/**
+ * @since 8.1
+ */
+final class FiberError extends Error
+{
+    public function __construct() {}
+}
+
+/**
+ * @since 8.1
+ */
+final class ReturnTypeWillChange
+{
+    public function __construct() {}
 }

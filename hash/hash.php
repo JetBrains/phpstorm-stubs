@@ -79,6 +79,41 @@ define('MHASH_FNV1A64', 32);
 define('MHASH_JOAAT', 33);
 
 /**
+ * @since 8.1
+ */
+define('MHASH_MURMUR3A', 35);
+
+/**
+ * @since 8.1
+ */
+define('MHASH_MURMUR3C', 36);
+
+/**
+ * @since 8.1
+ */
+define('MHASH_MURMUR3F', 37);
+
+/**
+ * @since 8.1
+ */
+define('MHASH_XXH32', 38);
+
+/**
+ * @since 8.1
+ */
+define('MHASH_XXH64', 39);
+
+/**
+ * @since 8.1
+ */
+define('MHASH_XXH3', 40);
+
+/**
+ * @since 8.1
+ */
+define('MHASH_XXH128', 41);
+
+/**
  * (PHP 5 >= 5.1.2, PECL hash >= 1.1)<br/>
  * Generate a hash value (message digest)
  * @link https://php.net/manual/en/function.hash.php
@@ -97,7 +132,7 @@ define('MHASH_JOAAT', 33);
  * binary representation of the message digest is returned.
  */
 #[Pure]
-function hash(string $algo, string $data, bool $binary = false): string {}
+function hash(string $algo, string $data, bool $binary = false, array $options = []): string {}
 
 /**
  * Timing attack safe string comparison
@@ -129,7 +164,7 @@ function hash_equals(string $known_string, string $user_string): bool {}
  * binary representation of the message digest is returned.
  */
 #[Pure]
-function hash_file(string $algo, string $filename, bool $binary = false): string|false {}
+function hash_file(string $algo, string $filename, bool $binary = false, array $options = []): string|false {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL hash >= 1.1)<br/>
@@ -204,7 +239,7 @@ function hash_hmac_file(string $algo, string $filename, string $key, bool $binar
  * and <b>hash_final</b>.
  */
 #[Pure]
-function hash_init(string $algo, int $flags = 0, string $key = ''): HashContext {}
+function hash_init(string $algo, int $flags = 0, string $key = '', array $options = []): HashContext {}
 
 /**
  * (PHP 5 >= 5.1.2, PECL hash >= 1.1)<br/>

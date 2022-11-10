@@ -110,7 +110,7 @@ interface DateTimeInterface
     /**
      * (PHP 5 >=5.5.0)<br/>
      * Returns the timezone offset
-     * @return int|false
+     * @return int
      * Returns the timezone offset in seconds from UTC.
      * @since 5.5
      */
@@ -125,7 +125,7 @@ interface DateTimeInterface
      * Returns the Unix timestamp representing the date.
      */
     #[TentativeType]
-    public function getTimestamp(): int|false;
+    public function getTimestamp(): int;
 
     /**
      * (PHP 5 >=5.5.0)<br/>

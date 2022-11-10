@@ -2705,9 +2705,9 @@ function curl_share_strerror(int $error_code): ?string {}
 
 class CURLFile
 {
-    public $name;
-    public $mime;
-    public $postname;
+    public string $name;
+    public string $mime;
+    public string $postname;
 
     /**
      * Create a CURLFile object

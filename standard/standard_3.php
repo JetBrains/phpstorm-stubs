@@ -85,7 +85,7 @@ function abs(int|float $num): int|float {}
  * @param int|float $num <p>
  * The value to round
  * </p>
- * @return float value rounded up to the next highest
+ * @return float|false value rounded up to the next highest
  * integer.
  * The return value of ceil is still of type
  * float as the value range of float is
@@ -100,7 +100,7 @@ function ceil(int|float $num): float {}
  * @param int|float $num <p>
  * The numeric value to round
  * </p>
- * @return float value rounded to the next lowest integer.
+ * @return float|false value rounded to the next lowest integer.
  * The return value of floor is still of type
  * float because the value range of float is
  * usually bigger than that of integer.

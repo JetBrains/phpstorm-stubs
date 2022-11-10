@@ -707,7 +707,8 @@ function fopen(string $filename, string $mode, bool $use_include_path = false, $
  * Output all remaining data on a file pointer
  * @link https://php.net/manual/en/function.fpassthru.php
  * @param resource $stream The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
- * @return int returns
+ * @return int|false If an error occurs, fpassthru returns
+ * false. Otherwise, fpassthru returns
  * the number of characters read from handle
  * and passed through to the output.
  */
@@ -800,6 +801,20 @@ function ftell($stream): int|false {}
  * @return bool true on success or false on failure.
  */
 function fflush($stream): bool {}
+
+/**
+ * Sync file to storage. Similar to fflush() but blocks until OS buffers have flushed.
+ * @param resource $stream
+ * @since 8.1
+ */
+function fsync($stream): bool {}
+
+/**
+ * Sync file data only to storage. Similar to fsync but does not flush modified metadata. POSIX only, aliased to fsync on Win32.
+ * @param resource $stream
+ * @since 8.1
+ */
+function fdatasync($stream): bool {}
 
 /**
  * Binary-safe file write

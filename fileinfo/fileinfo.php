@@ -83,9 +83,9 @@ define('FILEINFO_EXTENSION', 2097152);
  * A .mime and/or .mgc suffix is added if
  * needed.
  * </p>
- * @return resource|false a magic database resource on success or <b>FALSE</b> on failure.
+ * @return finfo|false a magic database resource on success or <b>FALSE</b> on failure.
  */
-function finfo_open(int $flags = 0, ?string $magic_database = null) {}
+function finfo_open(int $flags = 0, ?string $magic_database = null): finfo|false {}
 
 /**
  * (PHP >= 5.3.0, PECL fileinfo >= 0.1.0)<br/>
@@ -96,7 +96,7 @@ function finfo_open(int $flags = 0, ?string $magic_database = null) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function finfo_close($finfo): bool {}
+function finfo_close(finfo $finfo): bool {}
 
 /**
  * (PHP >= 5.3.0, PECL fileinfo >= 0.1.0)<br/>
@@ -111,7 +111,7 @@ function finfo_close($finfo): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function finfo_set_flags($finfo, int $flags): bool {}
+function finfo_set_flags(finfo $finfo, int $flags): bool {}
 
 /**
  * (PHP >= 5.3.0, PECL fileinfo >= 0.1.0)<br/>
@@ -133,7 +133,7 @@ function finfo_set_flags($finfo, int $flags): bool {}
  * @return string|false a textual description of the contents of the
  * <i>filename</i> argument, or <b>FALSE</b> if an error occurred.
  */
-function finfo_file($finfo, string $filename, int $flags = 0, $context): string|false {}
+function finfo_file(finfo $finfo, string $filename, int $flags = 0, $context): string|false {}
 
 /**
  * (PHP 5 >= 5.3.0, PECL fileinfo >= 0.1.0)<br/>
@@ -151,7 +151,7 @@ function finfo_file($finfo, string $filename, int $flags = 0, $context): string|
  * @return string|false a textual description of the <i>string</i>
  * argument, or <b>FALSE</b> if an error occurred.
  */
-function finfo_buffer($finfo, string $string, int $flags = FILEINFO_NONE, $context): string|false {}
+function finfo_buffer(finfo $finfo, string $string, int $flags = FILEINFO_NONE, $context): string|false {}
 
 /**
  * Detect MIME Content-type for a file
