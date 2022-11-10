@@ -22,14 +22,14 @@ define('MSG_EXCEPT', 4);
  * Queue permissions. Default to 0666. If the message queue already
  * exists, the <i>perms</i> will be ignored.
  * </p>
- * @return SysvMessageQueue|false a resource handle that can be used to access the System V message queue.
+ * @return resource|SysvMessageQueue|false a resource handle that can be used to access the System V message queue.
  */
 function msg_get_queue(int $key, int $permissions = 438): SysvMessageQueue|false {}
 
 /**
  * Send a message to a message queue
  * @link https://php.net/manual/en/function.msg-send.php
- * @param SysvMessageQueue $queue
+ * @param SysvMessageQueue|resource $queue
  * @param int $message_type
  * @param mixed $message
  * @param bool $serialize [optional] <p>

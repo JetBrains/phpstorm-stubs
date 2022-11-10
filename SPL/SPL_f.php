@@ -73,7 +73,8 @@ function spl_autoload_unregister(callable $callback): bool {}
 /**
  * Return all registered __autoload() functions
  * @link https://php.net/manual/en/function.spl-autoload-functions.php
- * @return array An array of all registered __autoload functions.
+ * @return array|false An array of all registered __autoload functions.
+ * If the autoload stack is not activated then the return value is false.
  * If no function is registered the return value will be an empty array.
  * @since 5.1.2
  */

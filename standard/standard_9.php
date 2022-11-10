@@ -747,6 +747,16 @@ function array_key_first(array $array): string|int|null {}
 function array_key_last(array $array): string|int|null {}
 
 /**
+ * @link https://secure.php.net/array_is_list
+ * @param array $array An array
+ * @return bool return true if the array keys are 0 .. count($array)-1 in that order.
+ * For other arrays, it returns false. For non-arrays, it throws a TypeError.
+ * @since 8.1
+ */
+#[Pure]
+function array_is_list(array $array): bool {}
+
+/**
  * Alias:
  * {@see current}
  * @link https://php.net/manual/en/function.pos.php
@@ -862,7 +872,16 @@ function assert_options(int $option, mixed $value): mixed {}
  * </p>
  * @param string|null $operator [optional] <p>
  * If you specify the third optional operator
- * argument, you can test for a particular relationship.</p>
+ * argument, you can test for a particular relationship. The
+ * possible operators are: &lt;,
+ * lt, &lt;=,
+ * le, &gt;,
+ * gt, >=,
+ * ge, ==,
+ * =, eq,
+ * !=, &lt;&gt;,
+ * ne respectively.
+ * </p>
  * <p>
  * This parameter is case-sensitive, so values should be lowercase.
  * </p>

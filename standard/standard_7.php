@@ -163,7 +163,7 @@ function pfsockopen(string $hostname, int $port = -1, &$error_code, &$error_mess
  * </p>
  * @param mixed ...$values <p>
  * </p>
- * @return string a binary string containing data
+ * @return string|false a binary string containing data or false if the format string contains errors
  */
 #[Pure]
 function pack(string $format, mixed ...$values): string {}

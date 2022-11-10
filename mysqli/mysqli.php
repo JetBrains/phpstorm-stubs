@@ -1,9 +1,5 @@
 <?php
 
-use JetBrains\PhpStorm\ArrayShape;
-use JetBrains\PhpStorm\Deprecated;
-use JetBrains\PhpStorm\Internal\TentativeType;
-
 /**
  * <p>
  * Read options from the named group from my.cnf
@@ -11,6 +7,11 @@ use JetBrains\PhpStorm\Internal\TentativeType;
  * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
+
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\TentativeType;
+
 define('MYSQLI_READ_DEFAULT_GROUP', 5);
 
 /**
@@ -690,6 +691,11 @@ define('MYSQLI_OPT_LOAD_DATA_LOCAL_DIR', 43);
 define('MYSQLI_REFRESH_REPLICA', 64);
 
 /**
+ * @since 8.1
+ */
+define('MYSQLI_IS_MARIADB', 0);
+
+/**
  * Gets the number of affected rows in a previous MySQL operation
  * @link https://secure.php.net/manual/en/mysqli.affected-rows.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
@@ -854,7 +860,7 @@ function mysqli_error(mysqli $mysql): string {}
  * as there are bound parameters in the SQL statement being executed. Each value is treated as a string.
  * @return bool true on success or false on failure.
  */
-function mysqli_stmt_execute(mysqli_stmt $statement): bool {}
+function mysqli_stmt_execute(mysqli_stmt $statement, ?array $params = null): bool {}
 
 /**
  * Executes a prepared statement
@@ -866,7 +872,7 @@ function mysqli_stmt_execute(mysqli_stmt $statement): bool {}
  * @return bool
  */
 #[Deprecated(since: "5.3")]
-function mysqli_execute(mysqli_stmt $statement): bool {}
+function mysqli_execute(mysqli_stmt $statement, ?array $params = null): bool {}
 
 /**
  * Returns the next field in the result set
@@ -962,6 +968,20 @@ function mysqli_fetch_object(mysqli_result $result, string $class = 'stdClass', 
  * @link https://php.net/manual/en/mysqli-result.fetch-row.php
  */
 function mysqli_fetch_row(mysqli_result $result): array|false|null {}
+
+/**
+ * Fetch a single column from the next row of a result set
+ * @link https://php.net/manual/en/mysqli-result.fetch-column.php
+ * @param mysqli_result $result A mysqli_result object returned by mysqli_query(),
+ * mysqli_store_result(), mysqli_use_result() or mysqli_stmt_get_result().
+ * @param int $column [optional] <p>
+ * 0-indexed number of the column you wish to retrieve from the row.
+ * If no value is supplied, the first column will be returned.
+ * </p>
+ * @return string|int|float|false|null a single column from
+ * the next row of a result set or false if there are no more rows.
+ */
+function mysqli_fetch_column(mysqli_result $result, int $column = 0): string|int|float|false|null {}
 
 /**
  * Returns the number of columns for the most recent query
@@ -1421,7 +1441,7 @@ function mysqli_stmt_affected_rows(mysqli_stmt $statement): string|int {}
  * @link https://php.net/manual/en/mysqli-stmt.attr-get.php
  * @param mysqli_stmt $statement
  * @param int $attribute
- * @return int returns the value of the attribute.
+ * @return int|false Returns FALSE if the attribute is not found, otherwise returns the value of the attribute.
  */
 function mysqli_stmt_attr_get(mysqli_stmt $statement, int $attribute): int {}
 
@@ -1838,7 +1858,7 @@ final class mysqli_sql_exception extends RuntimeException
      *
      * @var string
      */
-    protected $sqlstate;
+    protected string $sqlstate;
 
     /**
      * The error code
@@ -1846,6 +1866,11 @@ final class mysqli_sql_exception extends RuntimeException
      * @var int
      */
     protected $code;
+
+    /**
+     * @since 8.1
+     */
+    public function getSqlState(): string {}
 }
 
 /**
@@ -1857,17 +1882,17 @@ final class mysqli_driver
     /**
      * @var string
      */
-    public $client_info;
+    public string $client_info;
 
     /**
      * @var string
      */
-    public $client_version;
+    public int $client_version;
 
     /**
      * @var string
      */
-    public $driver_version;
+    public int $driver_version;
 
     /**
      * @var string
@@ -1877,12 +1902,12 @@ final class mysqli_driver
     /**
      * @var bool
      */
-    public $reconnect;
+    public bool $reconnect;
 
     /**
      * @var int
      */
-    public $report_mode;
+    public int $report_mode;
 }
 
 /**
@@ -1894,93 +1919,93 @@ class mysqli
     /**
      * @var int
      */
-    public $affected_rows;
+    public string|int $affected_rows;
 
     /**
      * @var string
      */
-    public $client_info;
+    public string $client_info;
 
     /**
      * @var int
      */
-    public $client_version;
+    public int $client_version;
 
     /**
      * @var int
      */
-    public $connect_errno;
+    public int $connect_errno;
 
     /**
      * @var string
      */
-    public $connect_error;
+    public string|null $connect_error;
 
     /**
      * @var int
      */
-    public $errno;
+    public int $errno;
 
     /**
      * @var string
      */
-    public $error;
+    public string $error;
 
     /**
      * @var int
      */
-    public $field_count;
+    public int $field_count;
 
     /**
      * @var string
      */
-    public $host_info;
+    public string $host_info;
 
     /**
      * @var string
      */
-    public $info;
+    public string|null $info;
 
     /**
      * @var int|string
      */
-    public $insert_id;
+    public int|string $insert_id;
 
     /**
      * @var string
      */
-    public $server_info;
+    public string $server_info;
 
     /**
      * @var int
      */
-    public $server_version;
+    public int $server_version;
 
     /**
      * @var string
      */
-    public $sqlstate;
+    public string $sqlstate;
 
     /**
      * @var string
      */
-    public $protocol_version;
+    public int $protocol_version;
 
     /**
      * @var int
      */
-    public $thread_id;
+    public int $thread_id;
 
     /**
      * @var int
      */
-    public $warning_count;
+    public int $warning_count;
 
     /**
      * @var array A list of errors, each as an associative array containing the errno, error, and sqlstate.
      * @link https://secure.php.net/manual/en/mysqli.error-list.php
      */
-    public $error_list;
+    public array $error_list;
     public $stat;
 
     /**
@@ -2664,17 +2689,17 @@ final class mysqli_warning
     /**
      * @var string
      */
-    public $message;
+    public string $message;
 
     /**
      * @var string
      */
-    public $sqlstate;
+    public string $sqlstate;
 
     /**
      * @var int
      */
-    public $errno;
+    public int $errno;
 
     /**
      * The __construct purpose
@@ -2700,27 +2725,27 @@ class mysqli_result implements IteratorAggregate
     /**
      * @var int
      */
-    public $current_field;
+    public int $current_field;
 
     /**
      * @var int
      */
-    public $field_count;
+    public int $field_count;
 
     /**
      * @var array|null
      */
-    public $lengths;
+    public array|null $lengths;
 
     /**
      * @var int
      */
-    public $num_rows;
+    public int|string $num_rows;
 
     /**
      * @var mixed
      */
-    public $type;
+    public int $type;
 
     /**
      * Constructor (no docs available)
@@ -3033,6 +3058,18 @@ class mysqli_result implements IteratorAggregate
     public function fetch_row(): array|false|null {}
 
     /**
+     * Fetch a single column from the next row of a result set
+     *
+     * @param int $column [optional] <p>
+     * 0-indexed number of the column you wish to retrieve from the row.
+     * If no value is supplied, the first column will be returned.
+     * </p>
+     * @return string|int|float|false|null a single column from
+     * the next row of a result set or false if there are no more rows.
+     */
+    public function fetch_column(int $column = 0): string|int|float|false|null {}
+
+    /**
      * Set result pointer to a specified field offset
      * @link https://php.net/manual/en/mysqli-result.field-seek.php
      * @param int $index <p>
@@ -3068,52 +3105,52 @@ class mysqli_stmt
     /**
      * @var int
      */
-    public $affected_rows;
+    public int|string $affected_rows;
 
     /**
      * @var int
      */
-    public $insert_id;
+    public int|string $insert_id;
 
     /**
      * @var int
      */
-    public $num_rows;
+    public int|string $num_rows;
 
     /**
      * @var int
      */
-    public $param_count;
+    public int $param_count;
 
     /**
      * @var int
      */
-    public $field_count;
+    public int $field_count;
 
     /**
      * @var int
      */
-    public $errno;
+    public int $errno;
 
     /**
      * @var string
      */
-    public $error;
+    public string $error;
 
     /**
      * @var array
      */
-    public $error_list;
+    public array $error_list;
 
     /**
      * @var string
      */
-    public $sqlstate;
+    public string $sqlstate;
 
     /**
      * @var string
      */
-    public $id;
+    public int $id;
 
     /**
      * mysqli_stmt constructor
@@ -3261,7 +3298,7 @@ class mysqli_stmt
      * @return bool true on success or false on failure.
      */
     #[TentativeType]
-    public function execute(): bool {}
+    public function execute(?array $params = null): bool {}
 
     /**
      * Fetch results from a prepared statement into the bound variables

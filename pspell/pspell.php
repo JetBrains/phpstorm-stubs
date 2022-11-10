@@ -1,5 +1,8 @@
 <?php
 
+use PSpell\Config;
+use PSpell\Dictionary;
+
 define('PSPELL_FAST', 1);
 
 define('PSPELL_NORMAL', 2);
@@ -38,9 +41,9 @@ define('PSPELL_RUN_TOGETHER', 8);
  * There are several modes available:
  * <b>PSPELL_FAST</b> - Fast mode (least number of
  * suggestions)</p>
- * @return int|false the dictionary link identifier on success or <b>FALSE</b> on failure.
+ * @return Dictionary|false the dictionary link identifier on success or <b>FALSE</b> on failure.
  */
-function pspell_new(string $language, string $spelling = '', string $jargon = '', string $encoding = '', int $mode = 0): int|false {}
+function pspell_new(string $language, string $spelling = '', string $jargon = '', string $encoding = '', int $mode = 0): Dictionary|false {}
 
 /**
  * Load a new dictionary with personal wordlist
@@ -75,9 +78,9 @@ function pspell_new(string $language, string $spelling = '', string $jargon = ''
  * The mode in which spellchecker will work. There are several modes available:
  * <b>PSPELL_FAST</b> - Fast mode (least number of
  * suggestions)</p>
- * @return int|false the dictionary link identifier for use in other pspell functions.
+ * @return Dictionary|false the dictionary link identifier for use in other pspell functions.
  */
-function pspell_new_personal(string $filename, string $language, string $spelling = '', string $jargon = '', string $encoding = '', int $mode = 0): int|false {}
+function pspell_new_personal(string $filename, string $language, string $spelling = '', string $jargon = '', string $encoding = '', int $mode = 0): Dictionary|false {}
 
 /**
  * Load a new dictionary with settings based on a given config
@@ -86,9 +89,9 @@ function pspell_new_personal(string $filename, string $language, string $spellin
  * The <i>config</i> parameter is the one returned by
  * <b>pspell_config_create</b> when the config was created.
  * </p>
- * @return int|false a dictionary link identifier on success.
+ * @return Dictionary|false a dictionary link identifier on success.
  */
-function pspell_new_config(int $config): int|false {}
+function pspell_new_config(Config $config): Dictionary|false {}
 
 /**
  * Check a word
@@ -99,7 +102,7 @@ function pspell_new_config(int $config): int|false {}
  * </p>
  * @return bool <b>TRUE</b> if the spelling is correct, <b>FALSE</b> if not.
  */
-function pspell_check(int $dictionary, string $word): bool {}
+function pspell_check(Dictionary $dictionary, string $word): bool {}
 
 /**
  * Suggest spellings of a word
@@ -110,7 +113,7 @@ function pspell_check(int $dictionary, string $word): bool {}
  * </p>
  * @return array|false an array of possible spellings.
  */
-function pspell_suggest(int $dictionary, string $word): array|false {}
+function pspell_suggest(Dictionary $dictionary, string $word): array|false {}
 
 /**
  * Store a replacement pair for a word
@@ -127,7 +130,7 @@ function pspell_suggest(int $dictionary, string $word): array|false {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_store_replacement(int $dictionary, string $misspelled, string $correct): bool {}
+function pspell_store_replacement(Dictionary $dictionary, string $misspelled, string $correct): bool {}
 
 /**
  * Add the word to a personal wordlist
@@ -138,7 +141,7 @@ function pspell_store_replacement(int $dictionary, string $misspelled, string $c
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_add_to_personal(int $dictionary, string $word): bool {}
+function pspell_add_to_personal(Dictionary $dictionary, string $word): bool {}
 
 /**
  * Add the word to the wordlist in the current session
@@ -149,7 +152,7 @@ function pspell_add_to_personal(int $dictionary, string $word): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_add_to_session(int $dictionary, string $word): bool {}
+function pspell_add_to_session(Dictionary $dictionary, string $word): bool {}
 
 /**
  * Clear the current session
@@ -157,7 +160,7 @@ function pspell_add_to_session(int $dictionary, string $word): bool {}
  * @param int $dictionary
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_clear_session(int $dictionary): bool {}
+function pspell_clear_session(Dictionary $dictionary): bool {}
 
 /**
  * Save the personal wordlist to a file
@@ -168,7 +171,7 @@ function pspell_clear_session(int $dictionary): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_save_wordlist(int $dictionary): bool {}
+function pspell_save_wordlist(Dictionary $dictionary): bool {}
 
 /**
  * Create a config used to open a dictionary
@@ -195,9 +198,9 @@ function pspell_save_wordlist(int $dictionary): bool {}
  * 32'. This parameter is largely untested, so be careful when
  * using.
  * </p>
- * @return int Retuns a pspell config identifier.
+ * @return Config Retuns a pspell config identifier.
  */
-function pspell_config_create(string $language, string $spelling = '', string $jargon = '', string $encoding = ''): int {}
+function pspell_config_create(string $language, string $spelling = '', string $jargon = '', string $encoding = ''): Config {}
 
 /**
  * Consider run-together words as valid compounds
@@ -209,7 +212,7 @@ function pspell_config_create(string $language, string $spelling = '', string $j
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_config_runtogether(int $config, bool $allow): bool {}
+function pspell_config_runtogether(Config $config, bool $allow): bool {}
 
 /**
  * Change the mode number of suggestions returned
@@ -222,7 +225,7 @@ function pspell_config_runtogether(int $config, bool $allow): bool {}
  * suggestions)</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_config_mode(int $config, int $mode): bool {}
+function pspell_config_mode(Config $config, int $mode): bool {}
 
 /**
  * Ignore words less than N characters long
@@ -233,7 +236,7 @@ function pspell_config_mode(int $config, int $mode): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_config_ignore(int $config, int $min_length): bool {}
+function pspell_config_ignore(Config $config, int $min_length): bool {}
 
 /**
  * Set a file that contains personal wordlist
@@ -245,7 +248,7 @@ function pspell_config_ignore(int $config, int $min_length): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_config_personal(int $config, string $filename): bool {}
+function pspell_config_personal(Config $config, string $filename): bool {}
 
 /**
  * Location of the main word list
@@ -254,7 +257,7 @@ function pspell_config_personal(int $config, string $filename): bool {}
  * @param string $directory
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_config_dict_dir(int $config, string $directory): bool {}
+function pspell_config_dict_dir(Config $config, string $directory): bool {}
 
 /**
  * location of language data files
@@ -263,7 +266,7 @@ function pspell_config_dict_dir(int $config, string $directory): bool {}
  * @param string $directory
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_config_data_dir(int $config, string $directory): bool {}
+function pspell_config_data_dir(Config $config, string $directory): bool {}
 
 /**
  * Set a file that contains replacement pairs
@@ -274,7 +277,7 @@ function pspell_config_data_dir(int $config, string $directory): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_config_repl(int $config, string $filename): bool {}
+function pspell_config_repl(Config $config, string $filename): bool {}
 
 /**
  * Determine whether to save a replacement pairs list
@@ -286,4 +289,4 @@ function pspell_config_repl(int $config, string $filename): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pspell_config_save_repl(int $config, bool $save): bool {}
+function pspell_config_save_repl(Config $config, bool $save): bool {}

@@ -1,5 +1,6 @@
 <?php
 
+use FTP\Connection;
 use JetBrains\PhpStorm\ExpectedValues;
 
 /**
@@ -79,23 +80,23 @@ define('FTP_MOREDATA', 2);
 
 /**
  * append the contents of a file to another file on the ftp server
- * @param resource $ftp
+ * @param Connection $ftp
  * @param string $remote_filename
  * @param string $local_filename
  * @param int $mode Optional since PHP 7.3
  * @return bool
  * @since 7.2
  */
-function ftp_append($ftp, string $remote_filename, string $local_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY): bool {}
+function ftp_append(Connection $ftp, string $remote_filename, string $local_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY): bool {}
 
 /**
  * returns a list of files in the given directory
- * @param resource $ftp
+ * @param Connection $ftp
  * @param string $directory
  * @return array|false
  * @since 7.2
  */
-function ftp_mlsd($ftp, string $directory): array|false {}
+function ftp_mlsd(Connection $ftp, string $directory): array|false {}
 
 /**
  * Opens an FTP connection
@@ -114,9 +115,9 @@ function ftp_mlsd($ftp, string $directory): array|false {}
  * queried at any time with <b>ftp_set_option</b> and
  * <b>ftp_get_option</b>.
  * </p>
- * @return resource|false a FTP stream on success or <b>FALSE</b> on error.
+ * @return Connection|false a FTP stream on success or <b>FALSE</b> on error.
  */
-function ftp_connect(string $hostname, int $port = 21, int $timeout = 90) {}
+function ftp_connect(string $hostname, int $port = 21, int $timeout = 90): Connection|false {}
 
 /**
  * Opens a Secure SSL-FTP connection
@@ -135,14 +136,14 @@ function ftp_connect(string $hostname, int $port = 21, int $timeout = 90) {}
  * queried at any time with <b>ftp_set_option</b> and
  * <b>ftp_get_option</b>.
  * </p>
- * @return resource|false a SSL-FTP stream on success or <b>FALSE</b> on error.
+ * @return Connection|false a SSL-FTP stream on success or <b>FALSE</b> on error.
  */
-function ftp_ssl_connect(string $hostname, int $port = 21, int $timeout = 90) {}
+function ftp_ssl_connect(string $hostname, int $port = 21, int $timeout = 90): Connection|false {}
 
 /**
  * Logs in to an FTP connection
  * @link https://php.net/manual/en/function.ftp-login.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $username <p>
@@ -154,32 +155,32 @@ function ftp_ssl_connect(string $hostname, int $port = 21, int $timeout = 90) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * If login fails, PHP will also throw a warning.
  */
-function ftp_login($ftp, string $username, string $password): bool {}
+function ftp_login(Connection $ftp, string $username, string $password): bool {}
 
 /**
  * Returns the current directory name
  * @link https://php.net/manual/en/function.ftp-pwd.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @return string|false the current directory name or <b>FALSE</b> on error.
  */
-function ftp_pwd($ftp): string|false {}
+function ftp_pwd(Connection $ftp): string|false {}
 
 /**
  * Changes to the parent directory
  * @link https://php.net/manual/en/function.ftp-cdup.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_cdup($ftp): bool {}
+function ftp_cdup(Connection $ftp): bool {}
 
 /**
  * Changes the current directory on a FTP server
  * @link https://php.net/manual/en/function.ftp-chdir.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $directory <p>
@@ -188,12 +189,12 @@ function ftp_cdup($ftp): bool {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * If changing directory fails, PHP will also throw a warning.
  */
-function ftp_chdir($ftp, string $directory): bool {}
+function ftp_chdir(Connection $ftp, string $directory): bool {}
 
 /**
  * Requests execution of a command on the FTP server
  * @link https://php.net/manual/en/function.ftp-exec.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $command <p>
@@ -202,12 +203,12 @@ function ftp_chdir($ftp, string $directory): bool {}
  * @return bool <b>TRUE</b> if the command was successful (server sent response code:
  * 200); otherwise returns <b>FALSE</b>.
  */
-function ftp_exec($ftp, string $command): bool {}
+function ftp_exec(Connection $ftp, string $command): bool {}
 
 /**
  * Sends an arbitrary command to an FTP server
  * @link https://php.net/manual/en/function.ftp-raw.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $command <p>
@@ -217,12 +218,12 @@ function ftp_exec($ftp, string $command): bool {}
  * No parsing is performed on the response string, nor does
  * <b>ftp_raw</b> determine if the command succeeded.
  */
-function ftp_raw($ftp, string $command): array|null {}
+function ftp_raw(Connection $ftp, string $command): array|null {}
 
 /**
  * Creates a directory
  * @link https://php.net/manual/en/function.ftp-mkdir.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $directory <p>
@@ -230,12 +231,12 @@ function ftp_raw($ftp, string $command): array|null {}
  * </p>
  * @return string|false the newly created directory name on success or <b>FALSE</b> on error.
  */
-function ftp_mkdir($ftp, string $directory): string|false {}
+function ftp_mkdir(Connection $ftp, string $directory): string|false {}
 
 /**
  * Removes a directory
  * @link https://php.net/manual/en/function.ftp-rmdir.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $directory <p>
@@ -244,12 +245,12 @@ function ftp_mkdir($ftp, string $directory): string|false {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_rmdir($ftp, string $directory): bool {}
+function ftp_rmdir(Connection $ftp, string $directory): bool {}
 
 /**
  * Set permissions on a file via FTP
  * @link https://php.net/manual/en/function.ftp-chmod.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param int $permissions <p>
@@ -260,12 +261,12 @@ function ftp_rmdir($ftp, string $directory): bool {}
  * </p>
  * @return int|false the new file permissions on success or <b>FALSE</b> on error.
  */
-function ftp_chmod($ftp, int $permissions, string $filename): int|false {}
+function ftp_chmod(Connection $ftp, int $permissions, string $filename): int|false {}
 
 /**
  * Allocates space for a file to be uploaded
  * @link https://php.net/manual/en/function.ftp-alloc.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param int $size <p>
@@ -277,12 +278,12 @@ function ftp_chmod($ftp, int $permissions, string $filename): int|false {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_alloc($ftp, int $size, &$response): bool {}
+function ftp_alloc(Connection $ftp, int $size, &$response): bool {}
 
 /**
  * Returns a list of files in the given directory
  * @link https://php.net/manual/en/function.ftp-nlist.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $directory <p>
@@ -294,12 +295,12 @@ function ftp_alloc($ftp, int $size, &$response): bool {}
  * @return string[]|false an array of filenames from the specified directory on success or
  * <b>FALSE</b> on error.
  */
-function ftp_nlist($ftp, string $directory): array|false {}
+function ftp_nlist(Connection $ftp, string $directory): array|false {}
 
 /**
  * Returns a detailed list of files in the given directory
  * @link https://php.net/manual/en/function.ftp-rawlist.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $directory <p>
@@ -316,22 +317,22 @@ function ftp_nlist($ftp, string $directory): array|false {}
  * should be interpreted.
  * </p>
  */
-function ftp_rawlist($ftp, string $directory, bool $recursive = false): array|false {}
+function ftp_rawlist(Connection $ftp, string $directory, bool $recursive = false): array|false {}
 
 /**
  * Returns the system type identifier of the remote FTP server
  * @link https://php.net/manual/en/function.ftp-systype.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @return string|false the remote system type, or <b>FALSE</b> on error.
  */
-function ftp_systype($ftp): string|false {}
+function ftp_systype(Connection $ftp): string|false {}
 
 /**
  * Turns passive mode on or off
  * @link https://php.net/manual/en/function.ftp-pasv.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param bool $enable <p>
@@ -339,12 +340,12 @@ function ftp_systype($ftp): string|false {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_pasv($ftp, bool $enable): bool {}
+function ftp_pasv(Connection $ftp, bool $enable): bool {}
 
 /**
  * Downloads a file from the FTP server
  * @link https://php.net/manual/en/function.ftp-get.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $local_filename <p>
@@ -361,12 +362,12 @@ function ftp_pasv($ftp, bool $enable): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_get($ftp, string $local_filename, string $remote_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool {}
+function ftp_get(Connection $ftp, string $local_filename, string $remote_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool {}
 
 /**
  * Downloads a file from the FTP server and saves to an open file
  * @link https://php.net/manual/en/function.ftp-fget.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param resource $stream <p>
@@ -383,12 +384,12 @@ function ftp_get($ftp, string $local_filename, string $remote_filename, #[Expect
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_fget($ftp, $stream, string $remote_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool {}
+function ftp_fget(Connection $ftp, $stream, string $remote_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool {}
 
 /**
  * Uploads a file to the FTP server
  * @link https://php.net/manual/en/function.ftp-put.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $remote_filename <p>
@@ -403,12 +404,12 @@ function ftp_fget($ftp, $stream, string $remote_filename, #[ExpectedValues([FTP_
  * @param int $offset [optional] <p>The position in the remote file to start uploading to.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_put($ftp, string $remote_filename, string $local_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool {}
+function ftp_put(Connection $ftp, string $remote_filename, string $local_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool {}
 
 /**
  * Uploads from an open file to the FTP server
  * @link https://php.net/manual/en/function.ftp-fput.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $remote_filename <p>
@@ -423,12 +424,12 @@ function ftp_put($ftp, string $remote_filename, string $local_filename, #[Expect
  * @param int $offset [optional] <p>The position in the remote file to start uploading to.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_fput($ftp, string $remote_filename, $stream, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool {}
+function ftp_fput(Connection $ftp, string $remote_filename, $stream, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): bool {}
 
 /**
  * Returns the size of the given file
  * @link https://php.net/manual/en/function.ftp-size.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $filename <p>
@@ -436,12 +437,12 @@ function ftp_fput($ftp, string $remote_filename, $stream, #[ExpectedValues([FTP_
  * </p>
  * @return int the file size on success, or -1 on error.
  */
-function ftp_size($ftp, string $filename): int {}
+function ftp_size(Connection $ftp, string $filename): int {}
 
 /**
  * Returns the last modified time of the given file
  * @link https://php.net/manual/en/function.ftp-mdtm.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $filename <p>
@@ -450,12 +451,12 @@ function ftp_size($ftp, string $filename): int {}
  * @return int the last modified time as a Unix timestamp on success, or -1 on
  * error.
  */
-function ftp_mdtm($ftp, string $filename): int {}
+function ftp_mdtm(Connection $ftp, string $filename): int {}
 
 /**
  * Renames a file or a directory on the FTP server
  * @link https://php.net/manual/en/function.ftp-rename.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $from <p>
@@ -466,12 +467,12 @@ function ftp_mdtm($ftp, string $filename): int {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_rename($ftp, string $from, string $to): bool {}
+function ftp_rename(Connection $ftp, string $from, string $to): bool {}
 
 /**
  * Deletes a file on the FTP server
  * @link https://php.net/manual/en/function.ftp-delete.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $filename <p>
@@ -479,12 +480,12 @@ function ftp_rename($ftp, string $from, string $to): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_delete($ftp, string $filename): bool {}
+function ftp_delete(Connection $ftp, string $filename): bool {}
 
 /**
  * Sends a SITE command to the server
  * @link https://php.net/manual/en/function.ftp-site.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $command <p>
@@ -493,22 +494,22 @@ function ftp_delete($ftp, string $filename): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_site($ftp, string $command): bool {}
+function ftp_site(Connection $ftp, string $command): bool {}
 
 /**
  * Closes an FTP connection
  * @link https://php.net/manual/en/function.ftp-close.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_close($ftp): bool {}
+function ftp_close(Connection $ftp): bool {}
 
 /**
  * Set miscellaneous runtime FTP options
  * @link https://php.net/manual/en/function.ftp-set-option.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param int $option <p>
@@ -543,12 +544,12 @@ function ftp_close($ftp): bool {}
  * supported or the passed <i>value</i> doesn't match the
  * expected value for the given <i>option</i>.
  */
-function ftp_set_option($ftp, #[ExpectedValues([FTP_TIMEOUT_SEC, FTP_AUTOSEEK, FTP_USEPASVADDRESS])] int $option, $value): bool {}
+function ftp_set_option(Connection $ftp, #[ExpectedValues([FTP_TIMEOUT_SEC, FTP_AUTOSEEK, FTP_USEPASVADDRESS])] int $option, $value): bool {}
 
 /**
  * Retrieves various runtime behaviours of the current FTP stream
  * @link https://php.net/manual/en/function.ftp-get-option.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param int $option <p>
@@ -573,12 +574,12 @@ function ftp_set_option($ftp, #[ExpectedValues([FTP_TIMEOUT_SEC, FTP_AUTOSEEK, F
  * <i>option</i> is not supported. In the latter case, a
  * warning message is also thrown.
  */
-function ftp_get_option($ftp, #[ExpectedValues([FTP_TIMEOUT_SEC, FTP_AUTOSEEK])] int $option): int|bool {}
+function ftp_get_option(Connection $ftp, #[ExpectedValues([FTP_TIMEOUT_SEC, FTP_AUTOSEEK])] int $option): int|bool {}
 
 /**
  * Retrieves a file from the FTP server and writes it to an open file (non-blocking)
  * @link https://php.net/manual/en/function.ftp-nb-fget.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param resource $stream <p>
@@ -595,12 +596,12 @@ function ftp_get_option($ftp, #[ExpectedValues([FTP_TIMEOUT_SEC, FTP_AUTOSEEK])]
  * or <b>FTP_MOREDATA</b>.
  */
 #[ExpectedValues([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
-function ftp_nb_fget($ftp, $stream, string $remote_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int {}
+function ftp_nb_fget(Connection $ftp, $stream, string $remote_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int {}
 
 /**
  * Retrieves a file from the FTP server and writes it to a local file (non-blocking)
  * @link https://php.net/manual/en/function.ftp-nb-get.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $local_filename <p>
@@ -617,24 +618,24 @@ function ftp_nb_fget($ftp, $stream, string $remote_filename, #[ExpectedValues([F
  * or <b>FTP_MOREDATA</b>.
  */
 #[ExpectedValues([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
-function ftp_nb_get($ftp, string $local_filename, string $remote_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int {}
+function ftp_nb_get(Connection $ftp, string $local_filename, string $remote_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int {}
 
 /**
  * Continues retrieving/sending a file (non-blocking)
  * @link https://php.net/manual/en/function.ftp-nb-continue.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
 #[ExpectedValues([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
-function ftp_nb_continue($ftp): int {}
+function ftp_nb_continue(Connection $ftp): int {}
 
 /**
  * Stores a file on the FTP server (non-blocking)
  * @link https://php.net/manual/en/function.ftp-nb-put.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $remote_filename <p>
@@ -651,12 +652,12 @@ function ftp_nb_continue($ftp): int {}
  * or <b>FTP_MOREDATA</b>.
  */
 #[ExpectedValues([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
-function ftp_nb_put($ftp, string $remote_filename, string $local_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int|false {}
+function ftp_nb_put(Connection $ftp, string $remote_filename, string $local_filename, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int|false {}
 
 /**
  * Stores a file from an open file to the FTP server (non-blocking)
  * @link https://php.net/manual/en/function.ftp-nb-fput.php
- * @param resource $ftp <p>
+ * @param Connection $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $remote_filename <p>
@@ -673,12 +674,12 @@ function ftp_nb_put($ftp, string $remote_filename, string $local_filename, #[Exp
  * or <b>FTP_MOREDATA</b>.
  */
 #[ExpectedValues([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
-function ftp_nb_fput($ftp, string $remote_filename, $stream, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int {}
+function ftp_nb_fput(Connection $ftp, string $remote_filename, $stream, #[ExpectedValues([FTP_ASCII, FTP_BINARY])] int $mode = FTP_BINARY, int $offset = 0): int {}
 
 /**
  * Alias of <b>ftp_close</b>
  * @link https://php.net/manual/en/function.ftp-quit.php
- * @param resource $ftp
+ * @param Connection $ftp
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_quit($ftp): bool {}
+function ftp_quit(Connection $ftp): bool {}

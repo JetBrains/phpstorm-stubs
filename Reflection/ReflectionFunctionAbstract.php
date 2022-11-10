@@ -16,7 +16,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @var string Name of the function, same as calling the {@see ReflectionFunctionAbstract::getName()} method
      */
     #[Immutable]
-    public $name;
+    public string $name;
 
     /**
      * Checks if function in namespace
@@ -234,7 +234,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getReturnType(): ReflectionNamedType|ReflectionUnionType|null {}
+    public function getReturnType(): ReflectionNamedType|ReflectionUnionType|ReflectionIntersectionType|null {}
 
     /**
      * Gets function short name
@@ -299,12 +299,24 @@ abstract class ReflectionFunctionAbstract implements Reflector
     #[Pure]
     public function getAttributes(?string $name = null, int $flags = 0): array {}
 
+    #[Pure]
+    public function getClosureUsedVariables(): array {}
+
+    #[Pure]
+    public function hasTentativeReturnType(): bool {}
+
+    #[Pure]
+    public function getTentativeReturnType(): ?ReflectionType {}
+
+    #[Pure]
+    #[TentativeType]
+    public function isStatic(): bool {}
+
     /**
      * Clones function
      *
      * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
      * @return void
-     * @since 5.4
      */
-    final private function __clone(): void {}
+    private function __clone(): void {}
 }

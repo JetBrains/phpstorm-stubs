@@ -42,16 +42,21 @@ class ReflectionProperty implements Reflector
     public const IS_PRIVATE = 4;
 
     /**
+     * @since 8.1
+     */
+    public const IS_READONLY = 5;
+
+    /**
      * @var string Name of the property, same as calling the {@see ReflectionProperty::getName()} method
      */
     #[Immutable]
-    public $name;
+    public string $name;
 
     /**
      * @var string Fully qualified class name where this property was defined
      */
     #[Immutable]
-    public $class;
+    public string $class;
 
     /**
      * Construct a ReflectionProperty object
@@ -207,11 +212,13 @@ class ReflectionProperty implements Reflector
 
     /**
      * Set property accessibility
+     * This method is no-op starting from PHP 8.1
      *
      * @link https://php.net/manual/en/reflectionproperty.setaccessible.php
      * @param bool $accessible A boolean {@see true} to allow accessibility, or {@see false}
      * @return void No value is returned.
      */
+    #[Pure]
     #[TentativeType]
     public function setAccessible(bool $accessible): void {}
 
@@ -225,7 +232,7 @@ class ReflectionProperty implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getType(): ReflectionNamedType|ReflectionUnionType|null {}
+    public function getType(): ReflectionNamedType|ReflectionUnionType|ReflectionIntersectionType|null {}
 
     /**
      * Checks if property has type
@@ -287,11 +294,16 @@ class ReflectionProperty implements Reflector
     public function getAttributes(?string $name = null, int $flags = 0): array {}
 
     /**
+     * @return bool
+     * @since 8.1
+     */
+    public function isReadOnly(): bool {}
+
+    /**
      * Clone
      *
      * @link https://php.net/manual/en/reflectionproperty.clone.php
      * @return void
-     * @since 5.4
      */
-    final private function __clone(): void {}
+    private function __clone(): void {}
 }

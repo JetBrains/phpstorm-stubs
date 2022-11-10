@@ -725,36 +725,36 @@ class ZipArchive implements Countable
      * Status of the Zip Archive
      * @var int
      */
-    public $status;
+    public int $status;
 
     /**
      * System status of the Zip Archive
      * @var int
      */
-    public $statusSys;
+    public int $statusSys;
 
     /**
      * Number of files in archive
      * @var int
      */
-    public $numFiles;
+    public int $numFiles;
 
     /**
      * File name in the file system
      * @var string
      */
-    public $filename;
+    public string $filename;
 
     /**
      * Comment for the archive
      * @var string
      */
-    public $comment;
+    public string $comment;
 
     /**
      * @var int
      */
-    public $lastId;
+    public int $lastId;
 
     public static function isEncryptionMethodSupported(int $method, bool $enc = true) {}
 

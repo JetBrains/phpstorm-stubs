@@ -9,7 +9,7 @@ use JetBrains\PhpStorm\Internal\TentativeType;
  * @param string $uri <p>
  * The URI of the resource for the output.
  * </p>
- * @return false|XMLWriter Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return false|resource|XMLWriter Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * <p>
  * Procedural style: Returns a new xmlwriter resource for later use with the
  * xmlwriter functions on success, <b>FALSE</b> on error.
@@ -21,7 +21,7 @@ function xmlwriter_open_uri(string $uri): XMLWriter|false {}
  * (PHP 5 >= 5.1.2, PECL xmlwriter >= 0.1.0)<br/>
  * Create new xmlwriter using memory for string output
  * @link https://php.net/manual/en/function.xmlwriter-openmemory.php
- * @return XMLWriter|false Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return XMLWriter|false|resource Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * <p>
  * Procedural style: Returns a new xmlwriter resource for later use with the
  * xmlwriter functions on success, <b>FALSE</b> on error.

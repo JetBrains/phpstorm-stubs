@@ -216,6 +216,11 @@ define('JSON_ERROR_UTF16', 10);
 define('JSON_THROW_ON_ERROR', 4194304);
 
 /**
+ * @since 8.1
+ */
+define('JSON_ERROR_NON_BACKED_ENUM', 11);
+
+/**
  * (PHP 5 >= 5.2.0, PECL json >= 1.2.0)<br/>
  * Returns the JSON representation of a value
  * @link https://php.net/manual/en/function.json-encode.php

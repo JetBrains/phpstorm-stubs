@@ -445,7 +445,7 @@ function ini_get_all(?string $extension, bool $details = true): array|false {}
  * </p>
  * @return string|false the old value on success, false on failure.
  */
-function ini_set(string $option, string $value): string|false {}
+function ini_set(string $option, string|int|float|bool|null $value): string|false {}
 
 /**
  * Alias:
@@ -456,7 +456,7 @@ function ini_set(string $option, string $value): string|false {}
  * @param string $value
  * @return string|false
  */
-function ini_alter(string $option, string $value): string|false {}
+function ini_alter(string $option, string|int|float|bool|null $value): string|false {}
 
 /**
  * Restores the value of a configuration option

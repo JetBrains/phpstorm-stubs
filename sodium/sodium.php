@@ -172,7 +172,7 @@ define('SODIUM_CRYPTO_PWHASH_ALG_DEFAULT', 2);
 
 define('SODIUM_CRYPTO_PWHASH_SALTBYTES', 16);
 
-define('SODIUM_CRYPTO_PWHASH_STRPREFIX', '$argon2id$');
+define('SODIUM_CRYPTO_PWHASH_STRPREFIX', "$argon2id$");
 
 define('SODIUM_CRYPTO_STREAM_XCHACHA20_NONCEBYTES', 24);
 
@@ -189,6 +189,42 @@ define('SODIUM_CRYPTO_CORE_RISTRETTO255_HASHBYTES', 64);
 define('SODIUM_CRYPTO_CORE_RISTRETTO255_SCALARBYTES', 32);
 
 define('SODIUM_CRYPTO_CORE_RISTRETTO255_NONREDUCEDSCALARBYTES', 64);
+
+function sodium_crypto_core_ristretto255_add(string $p, string $q): string {}
+
+function sodium_crypto_core_ristretto255_from_hash(string $s): string {}
+
+function sodium_crypto_core_ristretto255_is_valid_point(string $s): bool {}
+
+function sodium_crypto_core_ristretto255_random(): string {}
+
+function sodium_crypto_core_ristretto255_scalar_add(string $x, string $y): string {}
+
+function sodium_crypto_core_ristretto255_scalar_complement(string $s): string {}
+
+function sodium_crypto_core_ristretto255_scalar_invert(string $s): string {}
+
+function sodium_crypto_core_ristretto255_scalar_mul(string $x, string $y): string {}
+
+function sodium_crypto_core_ristretto255_scalar_negate(string $s): string {}
+
+function sodium_crypto_core_ristretto255_scalar_reduce(string $s): string {}
+
+function sodium_crypto_core_ristretto255_scalar_sub(string $x, string $y): string {}
+
+function sodium_crypto_core_ristretto255_scalar_random(): string {}
+
+function sodium_crypto_core_ristretto255_sub(string $p, string $q): string {}
+
+function sodium_crypto_scalarmult_ristretto255(string $n, string $p): string {}
+
+function sodium_crypto_scalarmult_ristretto255_base(string $n): string {}
+
+function sodium_crypto_stream_xchacha20(int $length, string $nonce, string $key): string {}
+
+function sodium_crypto_stream_xchacha20_xor(string $message, string $nonce, string $key): string {}
+
+function sodium_crypto_stream_xchacha20_keygen(): string {}
 
 /**
  * Can you access AES-256-GCM? This is only available if you have supported

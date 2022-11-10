@@ -1,12 +1,13 @@
 <?php
 
-use JetBrains\PhpStorm\Deprecated;
-use JetBrains\PhpStorm\Pure;
-
 /**
  * libxml version like 20605 or 20617
  * @link https://php.net/manual/en/libxml.constants.php
  */
+
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Pure;
+
 define('LIBXML_VERSION', 20901);
 
 /**

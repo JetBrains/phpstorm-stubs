@@ -50,5 +50,5 @@ abstract class ReflectionType implements Stringable
      *
      * @return void
      */
-    final private function __clone(): void {}
+    private function __clone(): void {}
 }

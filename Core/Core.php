@@ -335,7 +335,7 @@ function error_reporting(?int $error_level): int {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function define(string $constant_name, $value, #[Deprecated(since: "7.3")] bool $case_insensitive = false): bool {}
+function define(string $constant_name, mixed $value, #[Deprecated(since: "7.3")] bool $case_insensitive = false): bool {}
 
 /**
  * Checks whether a given named constant exists
@@ -474,6 +474,21 @@ function interface_exists(string $interface, bool $autoload = true): bool {}
  */
 #[Pure(true)]
 function function_exists(string $function): bool {}
+
+/**
+ * Checks if the enum has been defined
+ * @link https://php.net/manual/en/function.enum-exists.php
+ * @param string $enum <p>
+ * The enum name. The name is matched in a case-insensitive manner.
+ * </p>
+ * @param bool $autoload [optional] <p>
+ * Whether or not to call autoload by default.
+ * </p>
+ * @return bool true if <i>enum</i> is a defined enum,
+ * false otherwise.
+ * @since 8.1
+ */
+function enum_exists(string $enum, bool $autoload = true): bool {}
 
 /**
  * Creates an alias for a class

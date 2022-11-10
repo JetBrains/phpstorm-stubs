@@ -77,7 +77,7 @@ define('XML_SAX_IMPL', "libxml");
  * encodings are ISO-8859-1, UTF-8 and
  * US-ASCII.
  * </p>
- * @return XMLParser a resource handle for the new XML parser.
+ * @return resource|false|XMLParser a resource handle for the new XML parser.
  */
 #[Pure]
 function xml_parser_create(?string $encoding): XMLParser {}
@@ -101,7 +101,7 @@ function xml_parser_create(?string $encoding): XMLParser {}
  * handler functions will consist of namespace and tag name separated by
  * the string specified in <i>separator</i>.
  * </p>
- * @return XMLParser a resource handle for the new XML parser.
+ * @return resource|false|XMLParser a resource handle for the new XML parser.
  */
 #[Pure]
 function xml_parser_create_ns(?string $encoding, string $separator = ':'): XMLParser {}

@@ -16,7 +16,7 @@ class ReflectionExtension implements Reflector
      * @var string Name of the extension, same as calling the {@see ReflectionExtension::getName()} method
      */
     #[Immutable]
-    public $name;
+    public string $name;
 
     /**
      * Constructs a ReflectionExtension
@@ -177,5 +177,5 @@ class ReflectionExtension implements Reflector
      * @link https://php.net/manual/en/reflectionextension.clone.php
      * @return void No value is returned, if called a fatal error will occur.
      */
-    final private function __clone(): void {}
+    private function __clone(): void {}
 }

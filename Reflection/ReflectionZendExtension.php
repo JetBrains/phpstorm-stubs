@@ -14,7 +14,7 @@ class ReflectionZendExtension implements Reflector
      * @var string Name of the extension, same as calling the {@see ReflectionZendExtension::getName()} method
      */
     #[Immutable]
-    public $name;
+    public string $name;
 
     /**
      * Constructs a ReflectionZendExtension object
@@ -111,5 +111,5 @@ class ReflectionZendExtension implements Reflector
      * @return void
      * @since 5.4
      */
-    final private function __clone(): void {}
+    private function __clone(): void {}
 }

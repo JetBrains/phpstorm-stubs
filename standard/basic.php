@@ -1,8 +1,5 @@
 <?php
 
-use JetBrains\PhpStorm\Deprecated;
-use JetBrains\PhpStorm\Pure;
-
 /**
  * The full path and filename of the file. If used inside an include,
  * the name of the included file is returned.
@@ -11,6 +8,10 @@ use JetBrains\PhpStorm\Pure;
  * under some circumstances.
  * @link https://php.net/manual/en/language.constants.predefined.php
  */
+
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Pure;
+
 define('__FILE__', "");
 
 /**

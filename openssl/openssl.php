@@ -892,7 +892,7 @@ function openssl_encrypt(string $data, string $cipher_algo, string $passphrase, 
  * @param string $aad [optional] <p>Additional authentication data.</p>
  * @return string|false The decrypted string on success or false on failure.
  */
-function openssl_decrypt(string $data, string $cipher_algo, string $passphrase, int $options = 0, string $iv = '', string $tag = null, string $aad = ''): string|false {}
+function openssl_decrypt(string $data, string $cipher_algo, string $passphrase, int $options = 0, string $iv = '', string|null $tag = null, string $aad = ''): string|false {}
 
 /**
  * (PHP 5 >= PHP 5.3.3)<br/>
@@ -1219,7 +1219,7 @@ function openssl_pkey_derive($public_key, $private_key, int $key_length = 0): st
  * if the algorithm used was "cryptographically strong", e.g., safe for usage with GPG,
  * passwords, etc. true if it did, otherwise false
  * </p>
- * @return string the generated string of bytes.
+ * @return string|false the generated string of bytes on success, or false on failure.
  */
 function openssl_random_pseudo_bytes(int $length, &$strong_result): string {}
 

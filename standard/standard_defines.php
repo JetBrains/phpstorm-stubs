@@ -137,12 +137,12 @@ define('M_SQRT3', 1.7320508075689);
 /**
  * The infinite
  */
-define('INF', (float)INF);
+define('INF', "INF");
 
 /**
  * Not A Number
  */
-define('NAN', (float)NAN);
+define('NAN', "NAN");
 
 /**
  * Round halves up
@@ -1163,6 +1163,11 @@ define('IMAGETYPE_WEBP', 18);
 define('IMAGETYPE_UNKNOWN', 0);
 
 define('IMAGETYPE_COUNT', 20);
+
+/**
+ * @since 8.1
+ */
+define('IMAGETYPE_AVIF', 19);
 
 /**
  * IPv4 Address Resource

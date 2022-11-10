@@ -161,7 +161,7 @@ class EmptyIterator implements Iterator
      * @return mixed Can return any type.
      */
     #[TentativeType]
-    public function current() {}
+    public function current(): never {}
 
     /**
      * Move forward to next element
@@ -177,7 +177,7 @@ class EmptyIterator implements Iterator
      * @return mixed The key of the current element.
      */
     #[TentativeType]
-    public function key() {}
+    public function key(): never {}
 
     /**
      * Checks if current position is valid
@@ -1146,7 +1146,7 @@ class RegexIterator extends FilterIterator
      */
     public const USE_KEY = 1;
     public const INVERT_MATCH = 2;
-    public $replacement;
+    public string|null $replacement;
 
     /**
      * Create a new RegexIterator

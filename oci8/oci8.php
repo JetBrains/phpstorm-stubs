@@ -1,12 +1,13 @@
 <?php
 
-use JetBrains\PhpStorm\ArrayShape;
-use JetBrains\PhpStorm\Deprecated;
-
 /**
  * See <b>OCI_NO_AUTO_COMMIT</b>.
  * @link https://php.net/manual/en/oci8.constants.php
  */
+
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Deprecated;
+
 define('OCI_DEFAULT', 0);
 
 /**
@@ -2109,25 +2110,25 @@ function ocierror($connection_or_statement_resource) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 >= 1.0.0)<br/>
  * Alias of
- * {@see OCI-Lob::free}
+ * {@see OCILob::free}
  * @link https://php.net/manual/en/function.ocifreedesc.php
  * @param $lob_descriptor
  * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
  */
-#[Deprecated(replacement: "OCI-Lob::free", since: "5.4")]
+#[Deprecated(replacement: "OCILob::free", since: "5.4")]
 function ocifreedesc($lob_descriptor) {}
 
 /**
  * (PHP 4, PHP 5, PECL OCI8 >= 1.0.0)<br/>
  * Alias of
- * {@see OCI-Lob::save}
+ * {@see OCILob::save}
  * @link https://php.net/manual/en/function.ocisavelob.php
  * @param OCILob $lob_descriptor
  * @param string $data
  * @param int $offset [optional]
  * @return bool
  */
-#[Deprecated(replacement: "OCI-Lob::save", since: "5.4")]
+#[Deprecated(replacement: "OCILob::save", since: "5.4")]
 function ocisavelob(OCILob $lob_descriptor, $data, $offset) {}
 
 /**
@@ -2338,7 +2339,7 @@ function ocicolltrim(OCICollection $collection, $number) {}
 /**
  * (PHP 4 >= 4.0.6, PECL OCI8 1.0)
  * Writes a temporary large object
- * Alias of {@see OCI-Lob::writeTemporary()}
+ * Alias of {@see OCILob::writeTemporary()}
  * @link https://php.net/manual/en/function.ociwritetemporarylob.php
  * @param OCILob $lob_descriptor
  * @param string $data <p>The data to write.</p>
@@ -2355,17 +2356,17 @@ function ocicolltrim(OCICollection $collection, $number) {}
  * </ul>
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
-#[Deprecated(replacement: "OCI-Lob::writeTemporary", since: "5.4")]
+#[Deprecated(replacement: "OCILob::writeTemporary", since: "5.4")]
 function ociwritetemporarylob(OCILob $lob_descriptor, $data, $lob_type = OCI_TEMP_CLOB) {}
 
 /**
  * (PHP 4 >= 4.0.6, PECL OCI8 1.0)
- * Alias of {@see OCI-Lob::close()}
+ * Alias of {@see OCILob::close()}
  * @link https://php.net/manual/en/function.ocicloselob.php
  * @param OCILob $lob_descriptor
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
-#[Deprecated(replacement: "OCI-Lob::close()", since: "5.4")]
+#[Deprecated(replacement: "OCILob::close()", since: "5.4")]
 function ocicloselob(OCILob $lob_descriptor) {}
 
 /**
