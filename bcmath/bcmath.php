@@ -77,11 +77,11 @@ function bcmul(string $num1, string $num2, ?int $scale = null): string {}
  * set globally with the {@link bcscale()} function, or fallback to 0 if
  * this has not been set.
  * </p>
- * @return string|null the result of the division as a string, or <b>NULL</b> if
- * <i>divisor</i> is 0.
+ * @return string the result of the division as a string.
+ * @throws DivisionByZeroError if <i>divisor</i> is 0. Available since PHP 8.0.
  */
 #[Pure]
-function bcdiv(string $num1, string $num2, ?int $scale = 0): ?string {}
+function bcdiv(string $num1, string $num2, ?int $scale = 0): string {}
 
 /**
  * Get modulus of an arbitrary precision number
@@ -98,11 +98,11 @@ function bcdiv(string $num1, string $num2, ?int $scale = 0): ?string {}
  * set globally with the {@link bcscale()} function, or fallback to 0 if
  * this has not been set. Available since PHP 7.2.
  * </p>
- * @return string|null the modulus as a string, or <b>NULL</b> if
- * <i>divisor</i> is 0.
+ * @return string the modulus as a string.
+ * @throws DivisionByZeroError if <i>divisor</i> is 0. Available since PHP 8.0.
  */
 #[Pure]
-function bcmod(string $num1, string $num2, ?int $scale = 0): ?string {}
+function bcmod(string $num1, string $num2, ?int $scale = 0): string {}
 
 /**
  * Raise an arbitrary precision number to another
@@ -137,7 +137,7 @@ function bcpow(string $num, string $exponent, ?int $scale = null): string {}
  * <i>operand</i> is negative.
  */
 #[Pure]
-function bcsqrt(string $num, ?int $scale): ?string {}
+function bcsqrt(string $num, ?int $scale): string {}
 
 /**
  * Set default scale parameter for all bc math functions
@@ -145,7 +145,7 @@ function bcsqrt(string $num, ?int $scale): ?string {}
  * @param int $scale
  * @return int
  */
-function bcscale(int $scale = null): int {}
+function bcscale(int|null $scale = null): int {}
 
 /**
  * Compare two arbitrary precision numbers
@@ -191,4 +191,4 @@ function bccomp(string $num1, string $num2, ?int $scale = null): int {}
  * is 0 or <i>exponent</i> is negative.
  */
 #[Pure]
-function bcpowmod(string $num, string $exponent, string $modulus, ?int $scale = null): ?string {}
+function bcpowmod(string $num, string $exponent, string $modulus, ?int $scale = null): string {}

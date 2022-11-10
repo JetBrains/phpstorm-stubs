@@ -214,7 +214,7 @@ function libxml_set_streams_context($context): void {}
  * @return bool This function returns the previous value of
  * <i>use_errors</i>.
  */
-function libxml_use_internal_errors(bool $use_errors = false): bool {}
+function libxml_use_internal_errors(?bool $use_errors = null): bool {}
 
 /**
  * Retrieve last error from libxml

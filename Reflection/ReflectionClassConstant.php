@@ -14,6 +14,27 @@ use JetBrains\PhpStorm\Pure;
 class ReflectionClassConstant implements Reflector
 {
     /**
+     * Indicates that the constant is public.
+     *
+     * @since 8.0
+     */
+    public const IS_PUBLIC = 1;
+
+    /**
+     * Indicates that the constant is protected.
+     *
+     * @since 8.0
+     */
+    public const IS_PROTECTED = 2;
+
+    /**
+     * Indicates that the constant is private.
+     *
+     * @since 8.0
+     */
+    public const IS_PRIVATE = 4;
+
+    /**
      * @var string Constant name, same as calling the {@see ReflectionClassConstant::getName()} method
      */
     #[Immutable]
@@ -40,7 +61,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      * @link https://php.net/manual/en/reflectionclassconstant.construct.php
      */
-    public function __construct($class, string $constant) {}
+    public function __construct(string|object $class, string $constant) {}
 
     /**
      * @link https://php.net/manual/en/reflectionclassconstant.export.php
@@ -152,6 +173,19 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      */
     public function __toString(): string {}
+
+    /**
+     * @template T
+     *
+     * Returns an array of constant attributes.
+     *
+     * @param class-string<T>|null $name Name of an attribute class
+     * @param int $flags Сriteria by which the attribute is searched.
+     * @return ReflectionAttribute<T>[]
+     * @since 8.0
+     */
+    #[Pure]
+    public function getAttributes(?string $name = null, int $flags = 0): array {}
 
     /**
      * ReflectionClassConstant cannot be cloned

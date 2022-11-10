@@ -333,7 +333,7 @@ class SoapClient
      * @throws SoapFault A SoapFault exception will be thrown if the wsdl URI cannot be loaded.
      * @since 5.0.1
      */
-    public function __construct($wsdl, array $options = null) {}
+    public function __construct(string|null $wsdl, array $options = null) {}
 
     /**
      * SoapClient constructor
@@ -471,7 +471,7 @@ class SoapClient
      */
     #[Deprecated]
     #[TentativeType]
-    public function __call($name, array $args): mixed {}
+    public function __call(string $name, array $args): mixed {}
 
     /**
      * Calls a SOAP function
@@ -515,7 +515,7 @@ class SoapClient
      * @since 5.0.1
      */
     #[TentativeType]
-    public function __soapCall($name, array $args, $options = null, $inputHeaders = null, &$outputHeaders = null): mixed {}
+    public function __soapCall(string $name, array $args, array|null $options = null, $inputHeaders = null, &$outputHeaders = null): mixed {}
 
     /**
      * Returns last SOAP request
@@ -604,7 +604,7 @@ class SoapClient
      * @since 5.0.1
      */
     #[TentativeType]
-    public function __doRequest($request, $location, $action, $version, int $oneWay = 0): ?string {}
+    public function __doRequest(string $request, string $location, string $action, int $version, bool $oneWay = false): ?string {}
 
     /**
      * The __setCookie purpose
@@ -619,7 +619,7 @@ class SoapClient
      * @since 5.0.4
      */
     #[TentativeType]
-    public function __setCookie($name, string $value): void {}
+    public function __setCookie(string $name, string|null $value): void {}
 
     /**
      * Sets the location of the Web service to use
@@ -631,7 +631,7 @@ class SoapClient
      * @since 5.0.1
      */
     #[TentativeType]
-    public function __setLocation($location = ''): ?string {}
+    public function __setLocation(string|null $location = ''): ?string {}
 
     /**
      * Sets SOAP headers for subsequent calls
@@ -713,7 +713,7 @@ class SoapVar
      * </p>
      * @since 5.0.1
      */
-    public function __construct($data, ?int $encoding, string $typeName, $typeNamespace = '', $nodeName = '', $nodeNamespace = '') {}
+    public function __construct(mixed $data, int|null $encoding, string|null $typeName, string|null $typeNamespace = '', string|null $nodeName = '', string|null $nodeNamespace = '') {}
 
     /**
      * SoapVar constructor
@@ -788,7 +788,7 @@ class SoapServer
      * </p>
      * @since 5.0.1
      */
-    public function __construct($wsdl, array $options = null) {}
+    public function __construct(string|null $wsdl, array $options = null) {}
 
     /**
      * SoapServer constructor
@@ -854,7 +854,7 @@ class SoapServer
      * @since 5.1.2
      */
     #[TentativeType]
-    public function setPersistence($mode): void {}
+    public function setPersistence(int $mode): void {}
 
     /**
      * Sets the class which handles SOAP requests
@@ -867,7 +867,7 @@ class SoapServer
      * @since 5.0.1
      */
     #[TentativeType]
-    public function setClass($class, ...$args): void {}
+    public function setClass(string $class, mixed ...$args): void {}
 
     /**
      * Sets the object which will be used to handle SOAP requests
@@ -925,7 +925,7 @@ class SoapServer
      * @since 5.0.1
      */
     #[TentativeType]
-    public function handle($request = null): void {}
+    public function handle(string|null $request = null): void {}
 
     /**
      * Issue SoapServer fault indicating an error
@@ -949,7 +949,7 @@ class SoapServer
      * @since 5.0.1
      */
     #[TentativeType]
-    public function fault($code, $string, $actor = null, $details = null, $name = null): void {}
+    public function fault(string $code, string $string, string $actor = null, mixed $details = null, string $name = null): void {}
 
     /**
      * Add a SOAP header to the response
@@ -1037,7 +1037,7 @@ class SoapFault extends Exception
      * @since 5.0.1
      */
     #[Pure]
-    public function __construct($code, $string, $actor = null, $details = null, $name = null, $headerFault = null) {}
+    public function __construct(array|string|null $code, string $string, string|null $actor = null, mixed $details = null, string|null $name = null, mixed $headerFault = null) {}
 
     /**
      * SoapFault constructor
@@ -1072,7 +1072,7 @@ class SoapFault extends Exception
      * @return string A string describing the SoapFault.
      * @since 5.0.1
      */
-    public function __toString() {}
+    public function __toString(): string {}
 }
 
 /**
@@ -1106,7 +1106,7 @@ class SoapParam
      * </p>
      * @since 5.0.1
      */
-    public function __construct($data, $name) {}
+    public function __construct(mixed $data, string $name) {}
 
     /**
      * SoapParam constructor
@@ -1181,7 +1181,7 @@ class SoapHeader
      * </p>
      * @since 5.0.1
      */
-    public function __construct($namespace, $name, $data = null, $mustUnderstand = false, $actor = null) {}
+    public function __construct(string $namespace, string $name, mixed $data = null, bool $mustUnderstand = false, string|int|null $actor = null) {}
 
     /**
      * SoapHeader constructor

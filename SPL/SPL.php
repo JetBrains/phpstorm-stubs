@@ -57,7 +57,7 @@ interface SeekableIterator extends Iterator
      * @return void
      */
     #[TentativeType]
-    public function seek($offset): void;
+    public function seek(int $offset): void;
 }
 
 /**
@@ -240,7 +240,7 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
      * May be any valid callable value.
      * @link https://www.php.net/manual/en/recursivecallbackfilteriterator.construct.php
      */
-    public function __construct(RecursiveIterator $iterator, $callback) {}
+    public function __construct(RecursiveIterator $iterator, callable $callback) {}
 
     /**
      * Check whether the inner iterator's current element has children
@@ -293,7 +293,7 @@ class RecursiveIteratorIterator implements OuterIterator
      * @param int $flags [optional] A bitmask of special flags. See class constants for details.
      * @since 5.1.3
      */
-    public function __construct(Traversable $iterator, $mode = RecursiveIteratorIterator::LEAVES_ONLY, $flags = 0) {}
+    public function __construct(Traversable $iterator, int $mode = RecursiveIteratorIterator::LEAVES_ONLY, int $flags = 0) {}
 
     /**
      * Rewind the iterator to the first element of the top level inner iterator
@@ -350,7 +350,7 @@ class RecursiveIteratorIterator implements OuterIterator
      * @return RecursiveIterator|null The current active sub iterator.
      */
     #[TentativeType]
-    public function getSubIterator($level): ?RecursiveIterator {}
+    public function getSubIterator(int|null $level): ?RecursiveIterator {}
 
     /**
      * Get inner iterator
@@ -426,7 +426,7 @@ class RecursiveIteratorIterator implements OuterIterator
      * @return void
      */
     #[TentativeType]
-    public function setMaxDepth($maxDepth = -1): void {}
+    public function setMaxDepth(int $maxDepth = -1): void {}
 
     /**
      * Get max depth
@@ -454,7 +454,7 @@ class IteratorIterator implements OuterIterator
      * @param Traversable $iterator
      * @param string|null $class [optional]
      */
-    public function __construct(Traversable $iterator) {}
+    public function __construct(Traversable $iterator, ?string $class = '') {}
 
     /**
      * Get the inner iterator
@@ -655,7 +655,7 @@ class LimitIterator extends IteratorIterator
      * @param int $offset [optional] The offset to start at. Must be zero or greater.
      * @param int $limit [optional] The number of items to iterate. Must be -1 or greater. -1, the default, means no limit.
      */
-    public function __construct(Iterator $iterator, $offset = 0, $limit = -1) {}
+    public function __construct(Iterator $iterator, int $offset = 0, int $limit = -1) {}
 
     /**
      * Rewind the iterator to the specified starting offset
@@ -704,7 +704,7 @@ class LimitIterator extends IteratorIterator
      * @return int the offset position after seeking.
      */
     #[TentativeType]
-    public function seek($offset): int {}
+    public function seek(int $offset): int {}
 
     /**
      * Return the current position
@@ -726,7 +726,7 @@ class LimitIterator extends IteratorIterator
  * This object supports cached iteration over another iterator.
  * @link https://php.net/manual/en/class.cachingiterator.php
  */
-class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
+class CachingIterator extends IteratorIterator implements ArrayAccess, Countable, Stringable
 {
     /**
      * String conversion flag (mutually exclusive): Uses the current element for the iterator's string conversion.
@@ -767,7 +767,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      * @param Iterator $iterator The iterator to cache.
      * @param int $flags [optional] A bitmask of flags. See CachingIterator class constants for details.
      */
-    public function __construct(Iterator $iterator, $flags = CachingIterator::CALL_TOSTRING) {}
+    public function __construct(Iterator $iterator, int $flags = CachingIterator::CALL_TOSTRING) {}
 
     /**
      * Rewind the iterator
@@ -845,7 +845,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      * @return void
      */
     #[TentativeType]
-    public function setFlags($flags): void {}
+    public function setFlags(int $flags): void {}
 
     /**
      * Internal cache array index to retrieve.
@@ -866,7 +866,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      */
     #[TentativeType]
-    public function offsetSet($key, $value): void {}
+    public function offsetSet($key, mixed $value): void {}
 
     /**
      * Remove an element from the internal cache array.
@@ -920,7 +920,7 @@ class RecursiveCachingIterator extends CachingIterator implements RecursiveItera
      * @param Iterator $iterator The iterator to cache.
      * @param int $flags [optional] A bitmask of flags. See CachingIterator class constants for details.
      */
-    public function __construct(Iterator $iterator, $flags = CachingIterator::CALL_TOSTRING) {}
+    public function __construct(Iterator $iterator, int $flags = CachingIterator::CALL_TOSTRING) {}
 
     /**
      * Check whether the current element of the inner iterator has children
@@ -1157,7 +1157,7 @@ class RegexIterator extends FilterIterator
      * @param int $flags [optional] Special flags, see RegexIterator::setFlags() for a list of available flags.
      * @param int $pregFlags [optional] The regular expression flags. These flags depend on the operation mode parameter
      */
-    public function __construct(Iterator $iterator, $pattern, $mode = RegexIterator::MATCH, $flags = 0, $pregFlags = 0) {}
+    public function __construct(Iterator $iterator, string $pattern, int $mode = RegexIterator::MATCH, int $flags = 0, int $pregFlags = 0) {}
 
     /**
      * Get accept status
@@ -1226,7 +1226,7 @@ class RegexIterator extends FilterIterator
      * @return void
      */
     #[TentativeType]
-    public function setMode($mode): void {}
+    public function setMode(int $mode): void {}
 
     /**
      * Get flags
@@ -1263,7 +1263,7 @@ class RegexIterator extends FilterIterator
      * @return void
      */
     #[TentativeType]
-    public function setFlags($flags): void {}
+    public function setFlags(int $flags): void {}
 
     /**
      * Returns current regular expression
@@ -1292,7 +1292,7 @@ class RegexIterator extends FilterIterator
      * @return void
      */
     #[TentativeType]
-    public function setPregFlags($pregFlags): void {}
+    public function setPregFlags(int $pregFlags): void {}
 }
 
 /**
@@ -1310,7 +1310,7 @@ class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
      * @param int $flags [optional] Special flags, see RegexIterator::setFlags() for a list of available flags.
      * @param int $pregFlags [optional] The regular expression flags. These flags depend on the operation mode parameter
      */
-    public function __construct(RecursiveIterator $iterator, $pattern, $mode = RegexIterator::MATCH, $flags = 0, $pregFlags = 0) {}
+    public function __construct(RecursiveIterator $iterator, string $pattern, int $mode = RegexIterator::MATCH, int $flags = 0, int $pregFlags = 0) {}
 
     /**
      * Returns whether an iterator can be obtained for the current entry.
@@ -1352,7 +1352,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      * @param int $cachingIteratorFlags [optional] Flags to affect the behavior of the {@see RecursiveCachingIterator} used internally.
      * @param int $mode [optional] Flags to affect the behavior of the {@see RecursiveIteratorIterator} used internally.
      */
-    public function __construct($iterator, $flags = self::BYPASS_KEY, $cachingIteratorFlags = CachingIterator::CATCH_GET_CHILD, $mode = RecursiveIteratorIterator::SELF_FIRST) {}
+    public function __construct($iterator, int $flags = self::BYPASS_KEY, int $cachingIteratorFlags = CachingIterator::CATCH_GET_CHILD, int $mode = RecursiveIteratorIterator::SELF_FIRST) {}
 
     /**
      * Rewind iterator
@@ -1466,7 +1466,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      * @return void
      */
     #[TentativeType]
-    public function setPrefixPart($part, $value): void {}
+    public function setPrefixPart(int $part, string $value): void {}
 
     /**
      * Get current entry
@@ -1508,7 +1508,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param int $flags Flags to control the behaviour of the ArrayObject object.
      * @param string $iteratorClass Specify the class that will be used for iteration of the ArrayObject object. ArrayIterator is the default class used.
      */
-    public function __construct($array = [], $flags = 0, $iteratorClass = 'ArrayIterator') {}
+    public function __construct(object|array $array = [], int $flags = 0, string $iteratorClass = 'ArrayIterator') {}
 
     /**
      * Returns whether the requested index exists
@@ -1519,7 +1519,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return bool true if the requested index exists, otherwise false
      */
     #[TentativeType]
-    public function offsetExists($key): bool {}
+    public function offsetExists(mixed $key): bool {}
 
     /**
      * Returns the value at the specified index
@@ -1530,7 +1530,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return mixed|false The value at the specified index or false.
      */
     #[TentativeType]
-    public function offsetGet($key): mixed {}
+    public function offsetGet(mixed $key): mixed {}
 
     /**
      * Sets the value at the specified index to newval
@@ -1544,7 +1544,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return void
      */
     #[TentativeType]
-    public function offsetSet($key, $value): void {}
+    public function offsetSet(mixed $key, mixed $value): void {}
 
     /**
      * Unsets the value at the specified index
@@ -1555,7 +1555,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return void
      */
     #[TentativeType]
-    public function offsetUnset($key): void {}
+    public function offsetUnset(mixed $key): void {}
 
     /**
      * Appends the value
@@ -1566,7 +1566,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return void
      */
     #[TentativeType]
-    public function append($value): void {}
+    public function append(mixed $value): void {}
 
     /**
      * Creates a copy of the ArrayObject.
@@ -1630,7 +1630,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return void
      */
     #[TentativeType]
-    public function setFlags($flags): void {}
+    public function setFlags(int $flags): void {}
 
     /**
      * Sort the entries by value
@@ -1639,7 +1639,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return bool
      */
     #[TentativeType]
-    public function asort(): bool {}
+    public function asort(int $flags = SORT_REGULAR): bool {}
 
     /**
      * Sort the entries by key
@@ -1648,7 +1648,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return bool
      */
     #[TentativeType]
-    public function ksort(): bool {}
+    public function ksort(int $flags = SORT_REGULAR): bool {}
 
     /**
      * Sort the entries with a user-defined comparison function and maintain key association
@@ -1664,7 +1664,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return bool
      */
     #[TentativeType]
-    public function uasort($callback): bool {}
+    public function uasort(callable $callback): bool {}
 
     /**
      * Sort the entries by keys using a user-defined comparison function
@@ -1683,7 +1683,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return bool
      */
     #[TentativeType]
-    public function uksort($callback): bool {}
+    public function uksort(callable $callback): bool {}
 
     /**
      * Sort entries using a "natural order" algorithm
@@ -1710,7 +1710,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return void
      */
     #[TentativeType]
-    public function unserialize($data): void {}
+    public function unserialize(string $data): void {}
 
     /**
      * Serialize an ArrayObject
@@ -1758,7 +1758,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return array the old array.
      */
     #[TentativeType]
-    public function exchangeArray($array): array {}
+    public function exchangeArray(object|array $array): array {}
 
     /**
      * Sets the iterator classname for the ArrayObject.
@@ -1769,7 +1769,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return void
      */
     #[TentativeType]
-    public function setIteratorClass($iteratorClass): void {}
+    public function setIteratorClass(string $iteratorClass): void {}
 
     /**
      * Gets the iterator classname for the ArrayObject.
@@ -1797,7 +1797,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @param int $flags Flags to control the behaviour of the ArrayObject object.
      * @see ArrayObject::setFlags()
      */
-    public function __construct($array = [], $flags = 0) {}
+    public function __construct(object|array $array = [], int $flags = 0) {}
 
     /**
      * Check if offset exists
@@ -1808,7 +1808,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return bool true if the offset exists, otherwise false
      */
     #[TentativeType]
-    public function offsetExists($key): bool {}
+    public function offsetExists(mixed $key): bool {}
 
     /**
      * Get value for an offset
@@ -1819,7 +1819,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return mixed The value at offset <i>index</i>.
      */
     #[TentativeType]
-    public function offsetGet($key): mixed {}
+    public function offsetGet(mixed $key): mixed {}
 
     /**
      * Set value for an offset
@@ -1833,7 +1833,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return void
      */
     #[TentativeType]
-    public function offsetSet($key, $value): void {}
+    public function offsetSet(mixed $key, mixed $value): void {}
 
     /**
      * Unset value for an offset
@@ -1844,7 +1844,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return void
      */
     #[TentativeType]
-    public function offsetUnset($key): void {}
+    public function offsetUnset(mixed $key): void {}
 
     /**
      * Append an element
@@ -1855,7 +1855,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return void
      */
     #[TentativeType]
-    public function append($value): void {}
+    public function append(mixed $value): void {}
 
     /**
      * Get array copy
@@ -1895,7 +1895,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return void
      */
     #[TentativeType]
-    public function setFlags($flags): void {}
+    public function setFlags(int $flags): void {}
 
     /**
      * Sort array by values
@@ -1904,7 +1904,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return bool
      */
     #[TentativeType]
-    public function asort(): bool {}
+    public function asort(int $flags = SORT_REGULAR): bool {}
 
     /**
      * Sort array by keys
@@ -1913,7 +1913,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return bool
      */
     #[TentativeType]
-    public function ksort(): bool {}
+    public function ksort(int $flags = SORT_REGULAR): bool {}
 
     /**
      * User defined sort
@@ -1924,7 +1924,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return void
      */
     #[TentativeType]
-    public function uasort($callback): bool {}
+    public function uasort(callable $callback): bool {}
 
     /**
      * User defined sort
@@ -1935,7 +1935,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return void
      */
     #[TentativeType]
-    public function uksort($callback): bool {}
+    public function uksort(callable $callback): bool {}
 
     /**
      * Sort an array naturally
@@ -1962,7 +1962,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return void
      */
     #[TentativeType]
-    public function unserialize($data): void {}
+    public function unserialize(string $data): void {}
 
     /**
      * Serialize
@@ -2021,7 +2021,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return void
      */
     #[TentativeType]
-    public function seek($offset): void {}
+    public function seek(int $offset): void {}
 
     /**
      * @return array

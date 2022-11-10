@@ -170,13 +170,7 @@ class finfo
      * @param int $flags [optional]
      * @param string $magic_database [optional]
      */
-    public function __construct($flags, $magic_database) {}
-
-    /**
-     * @param $options [optional]
-     * @param $arg [optional]
-     */
-    public function finfo($options, $arg) {}
+    public function __construct(int $flags, string|null $magic_database) {}
 
     /**
      * (PHP >= 5.3.0, PECL fileinfo >= 0.1.0)<br/>
@@ -188,7 +182,7 @@ class finfo
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function set_flags($flags) {}
+    public function set_flags(int $flags) {}
 
     /**
      * (PHP >= 5.3.0, PECL fileinfo >= 0.1.0)<br/>
@@ -209,7 +203,7 @@ class finfo
      */
     #[Pure]
     #[TentativeType]
-    public function file($filename, $flags = FILEINFO_NONE, $context = null): string|false {}
+    public function file(string $filename, int $flags = FILEINFO_NONE, $context = null): string|false {}
 
     /**
      * (PHP 5 >= 5.3.0, PECL fileinfo >= 0.1.0)<br/>
@@ -228,5 +222,5 @@ class finfo
      */
     #[Pure]
     #[TentativeType]
-    public function buffer($string, $flags = FILEINFO_NONE, $context = null): string|false {}
+    public function buffer(string $string, int $flags = FILEINFO_NONE, $context = null): string|false {}
 }

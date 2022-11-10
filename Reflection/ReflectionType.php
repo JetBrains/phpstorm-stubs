@@ -10,7 +10,7 @@ use JetBrains\PhpStorm\Pure;
  * @link https://www.php.net/manual/en/class.reflectiontype.php
  * @since 7.0
  */
-abstract class ReflectionType
+abstract class ReflectionType implements Stringable
 {
     /**
      * Checks if null is allowed

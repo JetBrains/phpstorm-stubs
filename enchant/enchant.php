@@ -218,6 +218,21 @@ function enchant_dict_add_to_personal($dict, $word) {}
 function enchant_dict_add_to_session($dict, $word) {}
 
 /**
+ * (PHP 8)<br/>
+ * Add a word to personal word list
+ * @link https://php.net/manual/en/function.enchant-dict-add.php
+ * @param EnchantDictionary $dictionary <p>
+ * An Enchant dictionary returned by enchant_broker_request_dict() or enchant_broker_request_pwl_dict().
+ * </p>
+ * @param string $word <p>
+ * The word to add
+ * </p>
+ * @return void
+ * @since 8.0
+ */
+function enchant_dict_add($dictionary, $word) {}
+
+/**
  * (PHP 5 >= 5.3.0, PECL enchant >= 0.1.0 )<br/>
  * whether or not 'word' exists in this spelling-session
  * @link https://php.net/manual/en/function.enchant-dict-is-in-session.php
@@ -260,6 +275,21 @@ function enchant_dict_store_replacement($dict, $mis, $cor) {}
  * @return string|false the error message as string or <b>FALSE</b> if no error occurred.
  */
 function enchant_dict_get_error($dict) {}
+
+/**
+ * (PHP 8)<br/>
+ * Whether or not 'word' exists in this spelling-session
+ * @link https://php.net/manual/en/function.enchant-dict-is-added.php
+ * @param EnchantDictionary $dictionary <p>
+ * An Enchant dictionary returned by enchant_broker_request_dict() or enchant_broker_request_pwl_dict().
+ * </p>
+ * @param string $word <p>
+ * The word to lookup
+ * </p>
+ * @return bool <b>TRUE</b> if the word exists or <b>FALSE</b>
+ * @since 8.0
+ */
+function enchant_dict_is_added($dictionary, $word) {}
 
 /**
  * (PHP 5 >= 5.3.0, PECL enchant >= 0.1.0 )<br/>

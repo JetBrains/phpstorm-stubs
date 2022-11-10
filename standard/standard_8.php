@@ -105,12 +105,11 @@ function getimagesizefromstring(string $string, &$image_info): array|false {}
  * Set the stream chunk size.
  * @param resource $stream The target stream.
  * @param int $size The desired new chunk size.
- * @return int|false Returns the previous chunk size on success.<br>
- * Will return <b>FALSE</b> if chunk_size is less than 1 or greater than <b>PHP_INT_MAX</b>.
+ * @return int Returns the previous chunk size on success.
  * @link https://secure.php.net/manual/en/function.stream-set-chunk-size.php
  * @since 5.4
  */
-function stream_set_chunk_size($stream, int $size): int|false {}
+function stream_set_chunk_size($stream, int $size): int {}
 
 /**
  * Initializes all syslog related variables
@@ -131,10 +130,10 @@ function define_syslog_variables() {}
  * This parameter restricts the returned metaphone key to phonemes characters in length.
  * The default value of 0 means no restriction.
  * </p>
- * @return string|false the metaphone key as a string, or FALSE on failure
+ * @return string the metaphone key as a string
  */
 #[Pure]
-function metaphone(string $string, int $max_phonemes = 0): string|false {}
+function metaphone(string $string, int $max_phonemes = 0): string {}
 
 /**
  * Turn on output buffering
@@ -356,7 +355,7 @@ function ob_get_contents(): string|false {}
  * </p>
  * @return void
  */
-function ob_implicit_flush(int $enable = true): void {}
+function ob_implicit_flush(bool $enable = true): void {}
 
 /**
  * List all output handlers in use
@@ -725,7 +724,7 @@ function key(object|array $array): string|int|null {}
  * parameter values.
  */
 #[Pure]
-function min(mixed ...$values): mixed {}
+function min(mixed $value, mixed ...$values): mixed {}
 
 /**
  * Find highest value
@@ -736,7 +735,7 @@ function min(mixed ...$values): mixed {}
  * parameter values, either within a arg array or two arguments.
  */
 #[Pure]
-function max(mixed ...$values): mixed {}
+function max(mixed $value, mixed ...$values): mixed {}
 
 /**
  * Checks if a value exists in an array
@@ -836,7 +835,7 @@ function extract(array &$array, #[ExpectedValues([EXTR_OVERWRITE, EXTR_SKIP, EXT
  * @return array the output array with all the variables added to it.
  */
 #[Pure]
-function compact(...$var_names): array {}
+function compact($var_name, ...$var_names): array {}
 
 /**
  * Fill an array with values
@@ -905,7 +904,7 @@ function range($start, $end, int|float $step = 1): array {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_multisort(&$array, $sort_order = SORT_ASC, $sort_flags = SORT_REGULAR, &...$rest): bool {}
+function array_multisort(&$array, &...$rest): bool {}
 
 /**
  * Push elements onto the end of array

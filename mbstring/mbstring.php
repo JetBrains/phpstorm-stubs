@@ -242,7 +242,7 @@ function mb_substitute_character(string|int|null $substitute_character = null): 
  * @param string $string <p>
  * The URL encoded data.
  * </p>
- * @param array &$result [optional] <p>
+ * @param array &$result <p>
  * An array containing decoded and character encoded converted values.
  * </p>
  * @return bool true on success or false on failure.
@@ -288,7 +288,7 @@ function mb_preferred_mime_name(string $encoding): string|false {}
  * counted as 1.
  */
 #[Pure]
-function mb_strlen(string $string, string $encoding): int|false {}
+function mb_strlen(string $string, string|null $encoding): int {}
 
 /**
  * Find position of first occurrence of string in a string
@@ -652,11 +652,11 @@ function mb_list_encodings(): array {}
 /**
  * Get aliases of a known encoding type
  * @param string $encoding The encoding type being checked, for aliases.
- * @return string[]|false a numerically indexed array of encoding aliases on success, or FALSE on failure
+ * @return string[] a numerically indexed array of encoding aliases on success
  * @link https://php.net/manual/en/function.mb-encoding-aliases.php
  */
 #[Pure]
-function mb_encoding_aliases(string $encoding): array|false {}
+function mb_encoding_aliases(string $encoding): array {}
 
 /**
  * Convert "kana" one from another ("zen-kaku", "han-kaku" and more)
@@ -843,7 +843,7 @@ function mb_decode_mimeheader(string $string): string {}
  * @return string|false The character encoding before conversion for success,
  * or false for failure.
  */
-function mb_convert_variables(string $to_encoding, array|string $from_encoding, mixed &...$vars): string|false {}
+function mb_convert_variables(string $to_encoding, array|string $from_encoding, mixed &$var, mixed &...$vars): string|false {}
 
 /**
  * Encode character to HTML numeric string reference
@@ -873,13 +873,10 @@ function mb_encode_numericentity(string $string, array $map, ?string $encoding =
  * the code area to convert.
  * </p>
  * @param null|string $encoding
- * @param bool $is_hex [optional] <p>
- * this parameter is not used.
- * </p>
- * @return string|false|null The converted string.
+ * @return string The converted string.
  */
 #[Pure]
-function mb_decode_numericentity(string $string, array $map, ?string $encoding = null, $is_hex = false): string|false|null {}
+function mb_decode_numericentity(string $string, array $map, ?string $encoding = null): string {}
 
 /**
  * Send encoded mail
@@ -999,9 +996,9 @@ function mb_ereg(string $pattern, string $string, &$matches): bool {}
  * @param string[] &$matches [optional] <p>
  * Contains a substring of the matched string.
  * </p>
- * @return bool|int
+ * @return bool
  */
-function mb_eregi(string $pattern, string $string, &$matches): false|int {}
+function mb_eregi(string $pattern, string $string, &$matches): bool {}
 
 /**
  * Replace regular expression with multibyte support
@@ -1379,11 +1376,11 @@ function mb_ord(string $string, ?string $encoding): int|false {}
  * @link https://www.php.net/manual/en/function.mb-scrub.php
  * @param string $string
  * @param string|null $encoding [optional]
- * @return string|false
+ * @return string
  * @since 7.2
  */
 #[Pure]
-function mb_scrub(string $string, ?string $encoding): string|false {}
+function mb_scrub(string $string, ?string $encoding): string {}
 
 /**
  * @param $position
@@ -1405,8 +1402,8 @@ function mbereg_search_setpos($position) {}
  * Character encoding name to use.
  * If it is omitted, internal character encoding is used.
  * </p>
- * @return string[]|false
+ * @return string[]
  * @since 7.4
  */
 #[Pure]
-function mb_str_split(string $string, int $length = 1, ?string $encoding): array|false {}
+function mb_str_split(string $string, int $length = 1, ?string $encoding): array {}

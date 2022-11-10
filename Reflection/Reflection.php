@@ -18,7 +18,7 @@ class Reflection
      * @return string[] An array of modifier names.
      */
     #[TentativeType]
-    public static function getModifierNames($modifiers): array {}
+    public static function getModifierNames(int $modifiers): array {}
 
     /**
      * Exports

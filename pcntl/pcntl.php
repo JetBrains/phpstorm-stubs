@@ -724,11 +724,11 @@ function pcntl_errno(): int {}
  * @link https://php.net/manual/en/function.pcntl-strerror.php
  * @param int $error_code <p>
  * </p>
- * @return string|false error description on success or <b>FALSE</b> on failure.
+ * @return string error description.
  * @since 5.3.4
  */
 #[Pure]
-function pcntl_strerror(int $error_code): string|false {}
+function pcntl_strerror(int $error_code): string {}
 
 /**
  * Get the priority of any process
@@ -867,7 +867,7 @@ function pcntl_sigtimedwait(array $signals, &$info = [], int $seconds = 0, int $
  * @return bool
  * @since 7.1
  */
-function pcntl_async_signals(?bool $enable): bool {}
+function pcntl_async_signals(?bool $enable = null): bool {}
 
 /**
  * Get the current handler for specified signal.

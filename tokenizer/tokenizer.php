@@ -290,6 +290,31 @@ define('T_FN', 311);
 define('T_BAD_CHARACTER', 405);
 
 /**
+ * @since 8.0
+ */
+define('T_NAME_FULLY_QUALIFIED', 263);
+
+/**
+ * @since 8.0
+ */
+define('T_NAME_RELATIVE', 264);
+
+/**
+ * @since 8.0
+ */
+define('T_NAME_QUALIFIED', 265);
+
+/**
+ * @since 8.0
+ */
+define('T_ATTRIBUTE', 351);
+
+/**
+ * @since 8.0
+ */
+define('T_NULLSAFE_OBJECT_OPERATOR', 385);
+
+/**
  * @removed 7.0
  */
 define('T_CHARACTER', 315);

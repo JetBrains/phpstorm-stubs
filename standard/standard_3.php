@@ -85,14 +85,14 @@ function abs(int|float $num): int|float {}
  * @param int|float $num <p>
  * The value to round
  * </p>
- * @return float|false value rounded up to the next highest
+ * @return float value rounded up to the next highest
  * integer.
  * The return value of ceil is still of type
  * float as the value range of float is
  * usually bigger than that of integer.
  */
 #[Pure]
-function ceil(int|float $num): float|false {}
+function ceil(int|float $num): float {}
 
 /**
  * Round fractions down
@@ -100,13 +100,13 @@ function ceil(int|float $num): float|false {}
  * @param int|float $num <p>
  * The numeric value to round
  * </p>
- * @return float|false value rounded to the next lowest integer.
+ * @return float value rounded to the next lowest integer.
  * The return value of floor is still of type
  * float because the value range of float is
  * usually bigger than that of integer.
  */
 #[Pure]
-function floor(int|float $num): float|false {}
+function floor(int|float $num): float {}
 
 /**
  * Returns the rounded value of val to specified precision (number of digits after the decimal point).
@@ -684,6 +684,18 @@ function number_format(float $num, int $decimals = 0, ?string $decimal_separator
  */
 #[Pure]
 function fmod(float $num1, float $num2): float {}
+
+/**
+ * Performs a floating-point division under
+ * IEEE 754 semantics. Division by zero is considered well-defined and
+ * will return one of Inf, -Inf or NaN.
+ * @param float $num1
+ * @param float $num2
+ * @return float
+ * @since 8.0
+ */
+#[Pure]
+function fdiv(float $num1, float $num2): float {}
 
 /**
  * Converts a packed internet address to a human readable representation

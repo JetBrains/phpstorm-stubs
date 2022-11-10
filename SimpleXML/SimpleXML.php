@@ -87,7 +87,7 @@ function simplexml_import_dom(SimpleXMLElement|DOMNode $node, ?string $class_nam
  * Represents an element in an XML document.
  * @link https://php.net/manual/en/class.simplexmlelement.php
  */
-class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator, RecursiveIterator
+class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator, Stringable, RecursiveIterator
 {
     /**
      * Creates a new SimpleXMLElement object
@@ -102,7 +102,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @since 5.0.1
      */
     #[Pure]
-    public function __construct($data, $options = 0, $dataIsURL = false, $namespaceOrPrefix = '', $isPrefix = false) {}
+    public function __construct(string $data, int $options = 0, bool $dataIsURL = false, string $namespaceOrPrefix = '', bool $isPrefix = false) {}
 
     /**
      * Return a well-formed XML string based on SimpleXML element
@@ -118,7 +118,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @since 5.0.1
      */
     #[TentativeType]
-    public function asXML($filename = null): string|bool {}
+    public function asXML(string|null $filename = null): string|bool {}
 
     /**
      * Alias of <b>SimpleXMLElement::asXML</b>
@@ -134,7 +134,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * successfully and false otherwise.
      */
     #[TentativeType]
-    public function saveXML($filename = null): string|bool {}
+    public function saveXML(string|null $filename = null): string|bool {}
 
     /**
      * Runs XPath query on XML data
@@ -146,7 +146,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * case of an error.
      */
     #[TentativeType]
-    public function xpath($expression): array|false|null {}
+    public function xpath(string $expression): array|false|null {}
 
     /**
      * Creates a prefix/ns context for the next XPath query
@@ -163,7 +163,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function registerXPathNamespace($prefix, $namespace): bool {}
+    public function registerXPathNamespace(string $prefix, string $namespace): bool {}
 
     /**
      * Identifies an element's attributes
@@ -183,7 +183,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @since 5.0.1
      */
     #[TentativeType]
-    public function attributes($namespaceOrPrefix = null, $isPrefix = false): ?static {}
+    public function attributes(string|null $namespaceOrPrefix = null, bool $isPrefix = false): ?static {}
 
     /**
      * Finds children of given node
@@ -203,7 +203,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      */
     #[Pure]
     #[TentativeType]
-    public function children($namespaceOrPrefix = null, $isPrefix = false): ?static {}
+    public function children(string|null $namespaceOrPrefix = null, bool $isPrefix = false): ?static {}
 
     /**
      * Returns namespaces used in document
@@ -218,7 +218,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      */
     #[Pure]
     #[TentativeType]
-    public function getNamespaces($recursive = false): array {}
+    public function getNamespaces(bool $recursive = false): array {}
 
     /**
      * Returns namespaces declared in document
@@ -237,7 +237,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      */
     #[Pure]
     #[TentativeType]
-    public function getDocNamespaces($recursive = false, $fromRoot = true): array|false {}
+    public function getDocNamespaces(bool $recursive = false, bool $fromRoot = true): array|false {}
 
     /**
      * Gets the name of the XML element
@@ -267,7 +267,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @since 5.1.3
      */
     #[TentativeType]
-    public function addChild($qualifiedName, $value = null, $namespace = null): ?static {}
+    public function addChild(string $qualifiedName, string|null $value = null, string|null $namespace = null): ?static {}
 
     /**
      * Adds an attribute to the SimpleXML element
@@ -285,7 +285,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @since 5.1.3
      */
     #[TentativeType]
-    public function addAttribute($qualifiedName, $value = null, $namespace = null): void {}
+    public function addAttribute(string $qualifiedName, string $value, string|null $namespace = null): void {}
 
     /**
      * Returns the string content
@@ -372,7 +372,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @return string|false the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object
      */
     #[TentativeType]
-    public function key(): string|false {}
+    public function key(): string {}
 
     /**
      * Move to next element
@@ -381,6 +381,21 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      */
     #[TentativeType]
     public function next(): void {}
+
+    /**
+     * @return bool
+     * @since 8.0
+     */
+    #[Pure]
+    #[TentativeType]
+    public function hasChildren(): bool {}
+
+    /**
+     * @since 8.0
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getChildren(): ?SimpleXMLElement {}
 
     /**
      * Provides access to element's children
@@ -395,7 +410,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
  * The SimpleXMLIterator provides recursive iteration over all nodes of a <b>SimpleXMLElement</b> object.
  * @link https://php.net/manual/en/class.simplexmliterator.php
  */
-class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, Countable
+class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, Countable, Stringable
 {
     /**
      * Rewind to the first element

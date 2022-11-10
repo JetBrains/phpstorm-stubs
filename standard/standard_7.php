@@ -163,10 +163,10 @@ function pfsockopen(string $hostname, int $port = -1, &$error_code, &$error_mess
  * </p>
  * @param mixed ...$values <p>
  * </p>
- * @return string|false a binary string containing data or false if the format string contains errors
+ * @return string a binary string containing data
  */
 #[Pure]
-function pack(string $format, mixed ...$values): string|false {}
+function pack(string $format, mixed ...$values): string {}
 
 /**
  * Unpack data from binary string
@@ -230,10 +230,10 @@ function get_browser(?string $user_agent, bool $return_array = false): object|ar
  * is generated once. If you are calling this function repeatedly, this
  * may impact both appearance and security.
  * </p>
- * @return string|null the encrypted string or <b>NULL</b> if an error occurs
+ * @return string the encrypted string or <b>NULL</b> if an error occurs
  */
 #[Pure]
-function crypt($string, $salt): ?string {}
+function crypt(string $string, string $salt): string {}
 
 /**
  * Open directory handle
@@ -349,6 +349,16 @@ function readdir($dir_handle): string|false {}
  * parameters, or <b>FALSE</b> in case of another error
  */
 function dir(string $directory, $context): Directory|false {}
+
+/**
+ * Alias of dir()
+ * @param string $directory
+ * @param resource $context
+ * @return Directory|false
+ * @since 8.0
+ * @see dir()
+ */
+function getdir(string $directory, $context = null): Directory|false {}
 
 /**
  * List files and directories inside the specified path

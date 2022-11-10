@@ -35,11 +35,11 @@ function bin2hex(string $string): string {}
  * @param int $seconds <p>
  * Halt time in seconds.
  * </p>
- * @return int|false zero on success, or false on errors. If the call was interrupted
+ * @return int zero on success. If the call was interrupted
  * by a signal, sleep returns the number of seconds left
  * to sleep.
  */
-function sleep(int $seconds): int|false {}
+function sleep(int $seconds): int {}
 
 /**
  * Delay execution in microseconds
@@ -1326,7 +1326,7 @@ class php_user_filter
      * </tr>
      */
     #[TentativeType]
-    public function filter($in, $out, &$consumed, $closing): int {}
+    public function filter($in, $out, &$consumed, bool $closing): int {}
 
     /**
      * @link https://php.net/manual/en/php-user-filter.oncreate.php
@@ -1360,28 +1360,25 @@ class Directory
     /**
      * Close directory handle.
      * Same as closedir(), only dir_handle defaults to $this.
-     * @param resource $dir_handle [optional]
      * @link https://secure.php.net/manual/en/directory.close.php
      */
     #[TentativeType]
-    public function close($dir_handle = null): void {}
+    public function close(): void {}
 
     /**
      * Rewind directory handle.
      * Same as rewinddir(), only dir_handle defaults to $this.
-     * @param resource $dir_handle [optional]
      * @link https://secure.php.net/manual/en/directory.rewind.php
      */
     #[TentativeType]
-    public function rewind($dir_handle = null): void {}
+    public function rewind(): void {}
 
     /**
      * Read entry from directory handle.
      * Same as readdir(), only dir_handle defaults to $this.
-     * @param resource $dir_handle [optional]
      * @return string|false
      * @link https://secure.php.net/manual/en/directory.read.php
      */
     #[TentativeType]
-    public function read($dir_handle = null): string|false {}
+    public function read(): string|false {}
 }

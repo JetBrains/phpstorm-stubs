@@ -213,11 +213,11 @@ function ftp_exec($ftp, string $command): bool {}
  * @param string $command <p>
  * The command to execute.
  * </p>
- * @return string[] the server's response as an array of strings.
+ * @return string[]|null the server's response as an array of strings.
  * No parsing is performed on the response string, nor does
  * <b>ftp_raw</b> determine if the command succeeded.
  */
-function ftp_raw($ftp, string $command): array {}
+function ftp_raw($ftp, string $command): array|null {}
 
 /**
  * Creates a directory

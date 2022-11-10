@@ -23,7 +23,7 @@ use JetBrains\PhpStorm\Deprecated;
  * </p>
  * @return string|false the name of the current session.
  */
-function session_name(string $name): string {}
+function session_name(null|string $name): string|false {}
 
 /**
  * Get and/or set the current session module.<br/>
@@ -35,7 +35,7 @@ function session_name(string $name): string {}
  * </p>
  * @return string|false the name of the current session module.
  */
-function session_module_name(string $module): string {}
+function session_module_name(null|string $module): string|false {}
 
 /**
  * Get and/or set the current session save path
@@ -54,7 +54,7 @@ function session_module_name(string $module): string {}
  * </p>
  * @return string|false the path of the current directory used for data storage.
  */
-function session_save_path(string $path): string {}
+function session_save_path(null|string $path): string|false {}
 
 /**
  * Get and/or set the current session id
@@ -75,7 +75,7 @@ function session_save_path(string $path): string {}
  * session or the empty string ("") if there is no current
  * session (no current session id exists).
  */
-function session_id(string $id): string {}
+function session_id(null|string $id): string|false {}
 
 /**
  * Update the current session id with a newly generated one
@@ -150,7 +150,7 @@ function session_is_registered(string $name): bool {}
  * @link https://php.net/manual/en/function.session-encode.php
  * @return string|false the contents of the current session encoded.
  */
-function session_encode(): string {}
+function session_encode(): string|false {}
 
 /**
  * Initialize session data
@@ -172,14 +172,14 @@ function session_start(array $options = []): bool {}
  * If it is used without active session, it omits collision check.
  * @since 7.1
  */
-function session_create_id(string $prefix = ''): string {}
+function session_create_id(string $prefix = ''): string|false {}
 
 /**
  * Perform session data garbage collection
  * @return int|false number of deleted session data for success, false for failure.
  * @since 7.1
  */
-function session_gc(): int {}
+function session_gc(): int|false {}
 
 /**
  * Destroys all data registered to a session
@@ -313,7 +313,7 @@ function session_set_save_handler(SessionHandlerInterface $sessionhandler, bool 
  * </table>
  * @return string|false the name of the current cache limiter.
  */
-function session_cache_limiter(string $value): string {}
+function session_cache_limiter(null|string $value): string|false {}
 
 /**
  * Return current cache expire
@@ -330,7 +330,7 @@ function session_cache_limiter(string $value): string {}
  * @return int|false the current setting of session.cache_expire.
  * The value returned should be read in minutes, defaults to 180.
  */
-function session_cache_expire(int $value): int {}
+function session_cache_expire(null|int $value): int|false {}
 
 /**
  * Set the session cookie parameters
@@ -408,7 +408,7 @@ function session_write_close(): bool {}
 /**
  * Alias of <b>session_write_close</b>
  * @link https://php.net/manual/en/function.session-commit.php
- * @return bool since 7.2.0 returns true on success or false on failure.
+ * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
 function session_commit(): bool {}
 

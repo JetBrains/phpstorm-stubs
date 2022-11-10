@@ -756,9 +756,9 @@ class ZipArchive implements Countable
      */
     public $lastId;
 
-    public static function isEncryptionMethodSupported($method, $enc = true) {}
+    public static function isEncryptionMethodSupported(int $method, bool $enc = true) {}
 
-    public static function isCompressionMethodSupported($method, $enc = true) {}
+    public static function isCompressionMethodSupported(int $method, bool $enc = true) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.1.0)<br/>
@@ -835,7 +835,7 @@ class ZipArchive implements Countable
      * Seek error.
      * </p>
      */
-    public function open($filename, $flags = null) {}
+    public function open(string $filename, int $flags = null) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.1.0)<br/>
@@ -872,7 +872,7 @@ class ZipArchive implements Countable
      * @param int $flags [optional] Set how to manage name encoding (ZipArchive::FL_ENC_*) and entry replacement (ZipArchive::FL_OVERWRITE)
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function addEmptyDir($dirname, $flags) {}
+    public function addEmptyDir(string $dirname, int $flags) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.1.0)<br/>
@@ -888,7 +888,7 @@ class ZipArchive implements Countable
      * @param int $flags [optional] Set how to manage name encoding (ZipArchive::FL_ENC_*) and entry replacement (ZipArchive::FL_OVERWRITE)
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function addFromString($name, $content, $flags = 8192) {}
+    public function addFromString(string $name, string $content, int $flags = 8192) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.1.0)<br/>
@@ -909,7 +909,7 @@ class ZipArchive implements Countable
      * @param int $flags [optional] Set how to manage name encoding (ZipArchive::FL_ENC_*) and entry replacement (ZipArchive::FL_OVERWRITE)
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function addFile($filepath, $entryname = null, $start = 0, $length = 0, $flags = 8192) {}
+    public function addFile(string $filepath, string $entryname = null, int $start = 0, int $length = 0, int $flags = 8192) {}
 
     /**
      * (PHP 5 >= 5.3.0, PECL zip >= 1.9.0)<br/>
@@ -935,7 +935,7 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function addGlob($pattern, $flags = 0, array $options = []) {}
+    public function addGlob(string $pattern, int $flags = 0, array $options = []) {}
 
     /**
      * (PHP 5 >= 5.3.0, PECL zip >= 1.9.0)<br/>
@@ -952,7 +952,7 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function addPattern($pattern, $path = '.', array $options = []) {}
+    public function addPattern(string $pattern, string $path = '.', array $options = []) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.5.0)<br/>
@@ -966,7 +966,7 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function renameIndex($index, $new_name) {}
+    public function renameIndex(int $index, string $new_name) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.5.0)<br/>
@@ -980,7 +980,7 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function renameName($name, $new_name) {}
+    public function renameName(string $name, string $new_name) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.4.0)<br/>
@@ -991,7 +991,7 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setArchiveComment($comment) {}
+    public function setArchiveComment(string $comment) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.1.0)<br/>
@@ -1003,7 +1003,7 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the Zip archive comment or <b>FALSE</b> on failure.
      */
-    public function getArchiveComment($flags = null) {}
+    public function getArchiveComment(int $flags = null) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.4.0)<br/>
@@ -1017,7 +1017,7 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setCommentIndex($index, $comment) {}
+    public function setCommentIndex(int $index, string $comment) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.4.0)<br/>
@@ -1031,7 +1031,7 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setCommentName($name, $comment) {}
+    public function setCommentName(string $name, string $comment) {}
 
     /**
      * Set the compression method of an entry defined by its index
@@ -1083,7 +1083,7 @@ class ZipArchive implements Countable
      * @return bool
      * @since 5.6
      */
-    public function setPassword($password) {}
+    public function setPassword(string $password) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.4.0)<br/>
@@ -1098,7 +1098,7 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the comment on success or <b>FALSE</b> on failure.
      */
-    public function getCommentIndex($index, $flags = null) {}
+    public function getCommentIndex(int $index, int $flags = null) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.4.0)<br/>
@@ -1113,7 +1113,7 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the comment on success or <b>FALSE</b> on failure.
      */
-    public function getCommentName($name, $flags = null) {}
+    public function getCommentName(string $name, int $flags = null) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.5.0)<br/>
@@ -1124,7 +1124,7 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function deleteIndex($index) {}
+    public function deleteIndex(int $index) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.5.0)<br/>
@@ -1135,7 +1135,7 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function deleteName($name) {}
+    public function deleteName(string $name) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.5.0)<br/>
@@ -1153,7 +1153,7 @@ class ZipArchive implements Countable
      * </p>
      * @return array|false an array containing the entry details or <b>FALSE</b> on failure.
      */
-    public function statName($name, $flags = null) {}
+    public function statName(string $name, int $flags = null) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.1.0)<br/>
@@ -1169,7 +1169,7 @@ class ZipArchive implements Countable
      * </p>
      * @return array|false an array containing the entry details or <b>FALSE</b> on failure.
      */
-    public function statIndex($index, $flags = null) {}
+    public function statIndex(int $index, int $flags = null) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.5.0)<br/>
@@ -1185,7 +1185,7 @@ class ZipArchive implements Countable
      * </p>
      * @return int|false the index of the entry on success or <b>FALSE</b> on failure.
      */
-    public function locateName($name, $flags = null) {}
+    public function locateName(string $name, int $flags = null) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.5.0)<br/>
@@ -1200,7 +1200,7 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the name on success or <b>FALSE</b> on failure.
      */
-    public function getNameIndex($index, $flags = null) {}
+    public function getNameIndex(int $index, int $flags = null) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.1.0)<br/>
@@ -1227,7 +1227,7 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function unchangeIndex($index) {}
+    public function unchangeIndex(int $index) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.5.0)<br/>
@@ -1238,7 +1238,7 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function unchangeName($name) {}
+    public function unchangeName(string $name) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.1.0)<br/>
@@ -1253,7 +1253,7 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function extractTo($pathto, $files = null) {}
+    public function extractTo(string $pathto, array|string|null $files = null) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.1.0)<br/>
@@ -1273,7 +1273,7 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the contents of the entry on success or <b>FALSE</b> on failure.
      */
-    public function getFromName($name, $len = 0, $flags = null) {}
+    public function getFromName(string $name, int $len = 0, int $flags = null) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.3.0)<br/>
@@ -1295,7 +1295,7 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the contents of the entry on success or <b>FALSE</b> on failure.
      */
-    public function getFromIndex($index, $len = 0, $flags = null) {}
+    public function getFromIndex(int $index, int $len = 0, int $flags = null) {}
 
     /**
      * (PHP 5 >= 5.2.0, PECL zip >= 1.1.0)<br/>
@@ -1306,7 +1306,7 @@ class ZipArchive implements Countable
      * </p>
      * @return resource|false a file pointer (resource) on success or <b>FALSE</b> on failure.
      */
-    public function getStream($name) {}
+    public function getStream(string $name) {}
 
     /**
      * Set the external attributes of an entry defined by its name
@@ -1317,7 +1317,7 @@ class ZipArchive implements Countable
      * @param int $flags [optional] Optional flags. Currently unused.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setExternalAttributesName($name, $opsys, $attr, $flags = null) {}
+    public function setExternalAttributesName(string $name, int $opsys, int $attr, int $flags = null) {}
 
     /**
      * Retrieve the external attributes of an entry defined by its name
@@ -1328,7 +1328,7 @@ class ZipArchive implements Countable
      * @param int $flags [optional] If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged attributes are returned.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function getExternalAttributesName($name, &$opsys, &$attr, $flags = null) {}
+    public function getExternalAttributesName(string $name, int &$opsys, int &$attr, int $flags = null) {}
 
     /**
      * Set the external attributes of an entry defined by its index
@@ -1339,7 +1339,7 @@ class ZipArchive implements Countable
      * @param int $flags [optional] Optional flags. Currently unused.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setExternalAttributesIndex($index, $opsys, $attr, $flags = null) {}
+    public function setExternalAttributesIndex(int $index, int $opsys, int $attr, int $flags = null) {}
 
     /**
      * Retrieve the external attributes of an entry defined by its index
@@ -1350,15 +1350,15 @@ class ZipArchive implements Countable
      * @param int $flags [optional] If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged attributes are returned.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function getExternalAttributesIndex($index, &$opsys, &$attr, $flags = null) {}
+    public function getExternalAttributesIndex(int $index, int &$opsys, int &$attr, int $flags = null) {}
 
-    public function registerCancelCallback($callback) {}
+    public function registerCancelCallback(callable $callback) {}
 
-    public function registerProgressCallback($rate, $callback) {}
+    public function registerProgressCallback(float $rate, callable $callback) {}
 
-    public function setMtimeName($name, $timestamp, $flags = null) {}
+    public function setMtimeName(string $name, int $timestamp, int $flags = null) {}
 
-    public function setMtimeIndex($index, $timestamp, $flags = null) {}
+    public function setMtimeIndex(int $index, int $timestamp, int $flags = null) {}
 
-    public function replaceFile($filepath, $index, $start = null, $length = null, $flags = null) {}
+    public function replaceFile(string $filepath, string $index, int $start = null, int $length = null, int $flags = null) {}
 }

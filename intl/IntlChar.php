@@ -686,7 +686,7 @@ class IntlChar
      */
     #[Pure]
     #[TentativeType]
-    public static function hasBinaryProperty($codepoint, $property): ?bool {}
+    public static function hasBinaryProperty(int|string $codepoint, int $property): ?bool {}
 
     /**
      * @link https://php.net/manual/en/intlchar.charage.php
@@ -697,7 +697,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function charAge($codepoint): ?array {}
+    public static function charAge(int|string $codepoint): ?array {}
 
     /**
      * @link https://php.net/manual/en/intlchar.chardigitvalue.php
@@ -708,7 +708,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function charDigitValue($codepoint): ?int {}
+    public static function charDigitValue(int|string $codepoint): ?int {}
 
     /**
      * Get bidirectional category value for a code point
@@ -746,7 +746,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function charDirection($codepoint): ?int {}
+    public static function charDirection(int|string $codepoint): ?int {}
 
     /**
      * @link https://php.net/manual/en/intlchar.charfromname.php
@@ -765,7 +765,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function charFromName($name, $type = IntlChar::UNICODE_CHAR_NAME): ?int {}
+    public static function charFromName(string $name, int $type = IntlChar::UNICODE_CHAR_NAME): ?int {}
 
     /**
      * @link https://php.net/manual/en/intlchar.charmirror.php
@@ -776,7 +776,7 @@ class IntlChar
      * Or NULL if <em>codepoint</em> will be out of bound.
      */
     #[TentativeType]
-    public static function charMirror($codepoint): string|int|null {}
+    public static function charMirror(int|string $codepoint): string|int|null {}
 
     /**
      * Retrieve the name of a Unicode character
@@ -794,7 +794,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function charName($codepoint, $type = IntlChar::UNICODE_CHAR_NAME): ?string {}
+    public static function charName(int|string $codepoint, int $type = IntlChar::UNICODE_CHAR_NAME): ?string {}
 
     /**
      * Get the general category value for a code point
@@ -838,7 +838,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function charType($codepoint): ?int {}
+    public static function charType(int|string $codepoint): ?int {}
 
     /**
      * Return Unicode character by code point value
@@ -849,7 +849,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function chr($codepoint): ?string {}
+    public static function chr(int|string $codepoint): ?string {}
 
     /**
      * Get the decimal digit value of a code point for a given radix
@@ -862,7 +862,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function digit($codepoint, $base = 10): int|false|null {}
+    public static function digit(int|string $codepoint, int $base = 10): int|false|null {}
 
     /**
      * Enumerate all assigned Unicode characters within a range
@@ -888,7 +888,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function enumCharNames($start, $end, $callback, $type = IntlChar::UNICODE_CHAR_NAME): ?bool {}
+    public static function enumCharNames(int|string $start, int|string $end, callable $callback, int $type = IntlChar::UNICODE_CHAR_NAME): ?bool {}
 
     /**
      * Enumerate all code points with their Unicode general categories
@@ -904,7 +904,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function enumCharTypes($callback = null): void {}
+    public static function enumCharTypes(callable $callback): void {}
 
     /**
      * Perform case folding on a code point
@@ -916,7 +916,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function foldCase($codepoint, $options = IntlChar::FOLD_CASE_DEFAULT): string|int|null {}
+    public static function foldCase(int|string $codepoint, int $options = IntlChar::FOLD_CASE_DEFAULT): string|int|null {}
 
     /**
      * Get character representation for a given digit and radix
@@ -927,7 +927,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function forDigit($digit, $base = 10): int {}
+    public static function forDigit(int $digit, int $base = 10): int {}
 
     /**
      * Get the paired bracket character for a code point
@@ -939,7 +939,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function getBidiPairedBracket($codepoint): string|int|null {}
+    public static function getBidiPairedBracket(int|string $codepoint): string|int|null {}
 
     /**
      * Get the Unicode allocation block containing a code point
@@ -950,7 +950,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function getBlockCode($codepoint): ?int {}
+    public static function getBlockCode(int|string $codepoint): ?int {}
 
     /**
      * Get the combining class of a code point
@@ -961,7 +961,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function getCombiningClass($codepoint): ?int {}
+    public static function getCombiningClass(int|string $codepoint): ?int {}
 
     /**
      * Get the FC_NFKC_Closure property for a code point
@@ -973,7 +973,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function getFC_NFKC_Closure($codepoint): string|false|null {}
+    public static function getFC_NFKC_Closure(int|string $codepoint): string|false|null {}
 
     /**
      * Get the max value for a Unicode property
@@ -983,7 +983,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function getIntPropertyMaxValue($property): int {}
+    public static function getIntPropertyMaxValue(int $property): int {}
 
     /**
      * Get the min value for a Unicode property
@@ -993,7 +993,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function getIntPropertyMinValue($property): int {}
+    public static function getIntPropertyMinValue(int $property): int {}
 
     /**
      * Get the value for a Unicode property for a code point
@@ -1020,7 +1020,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function getIntPropertyValue($codepoint, $property): ?int {}
+    public static function getIntPropertyValue(int|string $codepoint, int $property): ?int {}
 
     /**
      * Get the numeric value for a Unicode code point
@@ -1030,7 +1030,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function getNumericValue($codepoint): ?float {}
+    public static function getNumericValue(int|string $codepoint): ?float {}
 
     /**
      * Get the property constant value for a given property name
@@ -1040,7 +1040,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function getPropertyEnum($alias): int {}
+    public static function getPropertyEnum(string $alias): int {}
 
     /**
      * Get the Unicode name for a property
@@ -1062,7 +1062,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function getPropertyName($property, $type = IntlChar::LONG_PROPERTY_NAME): string|false {}
+    public static function getPropertyName(int $property, int $type = IntlChar::LONG_PROPERTY_NAME): string|false {}
 
     /**
      * Get the property value for a given value name
@@ -1074,7 +1074,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function getPropertyValueEnum($property, $name): int {}
+    public static function getPropertyValueEnum(int $property, string $name): int {}
 
     /**
      * Get the Unicode name for a property value
@@ -1105,7 +1105,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function getPropertyValueName($property, $value, $type = IntlChar::LONG_PROPERTY_NAME): string|false {}
+    public static function getPropertyValueName(int $property, int $value, int $type = IntlChar::LONG_PROPERTY_NAME): string|false {}
 
     /**
      * Get the Unicode version
@@ -1124,7 +1124,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isalnum($codepoint): ?bool {}
+    public static function isalnum(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is a letter character
@@ -1134,7 +1134,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isalpha($codepoint): ?bool {}
+    public static function isalpha(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is a base character
@@ -1144,7 +1144,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isbase($codepoint): ?bool {}
+    public static function isbase(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is a "blank" or "horizontal space" character
@@ -1154,7 +1154,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isblank($codepoint): ?bool {}
+    public static function isblank(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is a control character
@@ -1164,7 +1164,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function iscntrl($codepoint): ?bool {}
+    public static function iscntrl(int|string $codepoint): ?bool {}
 
     /**
      * Check whether the code point is defined
@@ -1174,7 +1174,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isdefined($codepoint): ?bool {}
+    public static function isdefined(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is a digit character
@@ -1184,7 +1184,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isdigit($codepoint): ?bool {}
+    public static function isdigit(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is a graphic character
@@ -1194,7 +1194,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isgraph($codepoint): ?bool {}
+    public static function isgraph(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is an ignorable character
@@ -1204,7 +1204,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isIDIgnorable($codepoint): ?bool {}
+    public static function isIDIgnorable(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is permissible in an identifier
@@ -1214,7 +1214,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isIDPart($codepoint): ?bool {}
+    public static function isIDPart(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is permissible as the first character in an identifier
@@ -1224,7 +1224,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isIDStart($codepoint): ?bool {}
+    public static function isIDStart(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is an ISO control code
@@ -1234,7 +1234,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isISOControl($codepoint): ?bool {}
+    public static function isISOControl(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is permissible in a Java identifier
@@ -1244,7 +1244,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isJavaIDPart($codepoint): ?bool {}
+    public static function isJavaIDPart(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is permissible as the first character in a Java identifier
@@ -1254,7 +1254,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isJavaIDStart($codepoint): ?bool {}
+    public static function isJavaIDStart(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is a space character according to Java
@@ -1264,7 +1264,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isJavaSpaceChar($codepoint): ?bool {}
+    public static function isJavaSpaceChar(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is a lowercase letter
@@ -1275,7 +1275,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function islower($codepoint): ?bool {}
+    public static function islower(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point has the Bidi_Mirrored property
@@ -1285,7 +1285,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isMirrored($codepoint): ?bool {}
+    public static function isMirrored(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is a printable character
@@ -1295,7 +1295,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isprint($codepoint): ?bool {}
+    public static function isprint(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is punctuation character
@@ -1306,7 +1306,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function ispunct($codepoint): ?bool {}
+    public static function ispunct(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is a space character
@@ -1316,7 +1316,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isspace($codepoint): ?bool {}
+    public static function isspace(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is a titlecase letter
@@ -1326,7 +1326,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function istitle($codepoint): ?bool {}
+    public static function istitle(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point has the Alphabetic Unicode property
@@ -1336,7 +1336,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isUAlphabetic($codepoint): ?bool {}
+    public static function isUAlphabetic(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point has the Lowercase Unicode property
@@ -1346,7 +1346,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isULowercase($codepoint): ?bool {}
+    public static function isULowercase(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point has the general category "Lu" (uppercase letter)
@@ -1357,7 +1357,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isupper($codepoint): ?bool {}
+    public static function isupper(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point has the Uppercase Unicode property
@@ -1367,7 +1367,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isUUppercase($codepoint): ?bool {}
+    public static function isUUppercase(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point has the White_Space Unicode property
@@ -1377,7 +1377,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isUWhiteSpace($codepoint): ?bool {}
+    public static function isUWhiteSpace(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is a whitespace character according to ICU
@@ -1387,7 +1387,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isWhitespace($codepoint): ?bool {}
+    public static function isWhitespace(int|string $codepoint): ?bool {}
 
     /**
      * Check if code point is a hexadecimal digit
@@ -1396,7 +1396,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function isxdigit($codepoint): ?bool {}
+    public static function isxdigit(int|string $codepoint): ?bool {}
 
     /**
      * Return Unicode code point value of character
@@ -1406,7 +1406,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function ord($character): ?int {}
+    public static function ord(int|string $character): ?int {}
 
     /**
      * Make Unicode character lowercase
@@ -1418,7 +1418,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function tolower($codepoint): string|int|null {}
+    public static function tolower(int|string $codepoint): string|int|null {}
 
     /**
      * Make Unicode character titlecase
@@ -1430,7 +1430,7 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function totitle($codepoint): string|int|null {}
+    public static function totitle(int|string $codepoint): string|int|null {}
 
     /**
      * Make Unicode character uppercase
@@ -1442,5 +1442,5 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
-    public static function toupper($codepoint): string|int|null {}
+    public static function toupper(int|string $codepoint): string|int|null {}
 }

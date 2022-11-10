@@ -72,7 +72,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * classname or an object.
      * @throws ReflectionException if the class or method does not exist.
      */
-    public function __construct($objectOrMethod, $method = null) {}
+    public function __construct(object|string $objectOrMethod, string|null $method = null) {}
 
     /**
      * Export a reflection method.
@@ -189,7 +189,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      */
     #[Pure]
     #[TentativeType]
-    public function getClosure($object = null): Closure {}
+    public function getClosure(object|null $object = null): Closure {}
 
     /**
      * Gets the method modifiers
@@ -241,7 +241,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * invocation failed.
      */
     #[TentativeType]
-    public function invokeArgs($object, array $args): mixed {}
+    public function invokeArgs(object|null $object, array $args): mixed {}
 
     /**
      * Gets declaring class for the reflected method.
@@ -274,5 +274,5 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @since 5.3.2
      */
     #[TentativeType]
-    public function setAccessible($accessible): void {}
+    public function setAccessible(bool $accessible): void {}
 }

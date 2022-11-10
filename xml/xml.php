@@ -77,10 +77,10 @@ define('XML_SAX_IMPL', "libxml");
  * encodings are ISO-8859-1, UTF-8 and
  * US-ASCII.
  * </p>
- * @return resource|false|XMLParser a resource handle for the new XML parser.
+ * @return XMLParser a resource handle for the new XML parser.
  */
 #[Pure]
-function xml_parser_create(?string $encoding) {}
+function xml_parser_create(?string $encoding): XMLParser {}
 
 /**
  * Create an XML parser with namespace support
@@ -101,10 +101,10 @@ function xml_parser_create(?string $encoding) {}
  * handler functions will consist of namespace and tag name separated by
  * the string specified in <i>separator</i>.
  * </p>
- * @return resource|false|XMLParser a resource handle for the new XML parser.
+ * @return XMLParser a resource handle for the new XML parser.
  */
 #[Pure]
-function xml_parser_create_ns(?string $encoding, string $separator = ':') {}
+function xml_parser_create_ns(?string $encoding, string $separator = ':'): XMLParser {}
 
 /**
  * Use XML Parser within an object
@@ -117,7 +117,7 @@ function xml_parser_create_ns(?string $encoding, string $separator = ':') {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_object($parser, object $object): bool {}
+function xml_set_object(XMLParser $parser, object $object): bool {}
 
 /**
  * Set up start and end element handlers
@@ -146,7 +146,7 @@ function xml_set_object($parser, object $object): bool {}
  * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_element_handler($parser, $start_handler, $end_handler): bool {}
+function xml_set_element_handler(XMLParser $parser, $start_handler, $end_handler): bool {}
 
 /**
  * Set up character data handler
@@ -170,7 +170,7 @@ function xml_set_element_handler($parser, $start_handler, $end_handler): bool {}
  * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_character_data_handler($parser, $handler): bool {}
+function xml_set_character_data_handler(XMLParser $parser, $handler): bool {}
 
 /**
  * Set up processing instruction (PI) handler
@@ -195,7 +195,7 @@ function xml_set_character_data_handler($parser, $handler): bool {}
  * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_processing_instruction_handler($parser, $handler): bool {}
+function xml_set_processing_instruction_handler(XMLParser $parser, $handler): bool {}
 
 /**
  * Set up default handler
@@ -219,7 +219,7 @@ function xml_set_processing_instruction_handler($parser, $handler): bool {}
  * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_default_handler($parser, $handler): bool {}
+function xml_set_default_handler(XMLParser $parser, $handler): bool {}
 
 /**
  * Set up unparsed entity declaration handler
@@ -248,7 +248,7 @@ function xml_set_default_handler($parser, $handler): bool {}
  * handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_unparsed_entity_decl_handler($parser, $handler): bool {}
+function xml_set_unparsed_entity_decl_handler(XMLParser $parser, $handler): bool {}
 
 /**
  * Set up notation declaration handler
@@ -275,7 +275,7 @@ function xml_set_unparsed_entity_decl_handler($parser, $handler): bool {}
  * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_notation_decl_handler($parser, $handler): bool {}
+function xml_set_notation_decl_handler(XMLParser $parser, $handler): bool {}
 
 /**
  * Set up external entity reference handler
@@ -306,7 +306,7 @@ function xml_set_notation_decl_handler($parser, $handler): bool {}
  * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_external_entity_ref_handler($parser, $handler): bool {}
+function xml_set_external_entity_ref_handler(XMLParser $parser, $handler): bool {}
 
 /**
  * Set up start namespace declaration handler
@@ -335,7 +335,7 @@ function xml_set_external_entity_ref_handler($parser, $handler): bool {}
  * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_start_namespace_decl_handler($parser, $handler): bool {}
+function xml_set_start_namespace_decl_handler(XMLParser $parser, $handler): bool {}
 
 /**
  * Set up end namespace declaration handler
@@ -363,7 +363,7 @@ function xml_set_start_namespace_decl_handler($parser, $handler): bool {}
  * reference to the XML parser calling the handler.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_end_namespace_decl_handler($parser, $handler): bool {}
+function xml_set_end_namespace_decl_handler(XMLParser $parser, $handler): bool {}
 
 /**
  * Start parsing an XML document
@@ -395,7 +395,7 @@ function xml_set_end_namespace_decl_handler($parser, $handler): bool {}
  * <i>is_final</i> is set and <b>TRUE</b>.
  * </p>
  */
-function xml_parse($parser, string $data, bool $is_final = false): int {}
+function xml_parse(XMLParser $parser, string $data, bool $is_final = false): int {}
 
 /**
  * Parse XML data into an array structure
@@ -416,7 +416,7 @@ function xml_parse($parser, string $data, bool $is_final = false): int {}
  * success. This is not the same as <b>FALSE</b> and <b>TRUE</b>, be careful with
  * operators such as ===.
  */
-function xml_parse_into_struct($parser, string $data, &$values, &$index): int {}
+function xml_parse_into_struct(XMLParser $parser, string $data, &$values, &$index): int {}
 
 /**
  * Get XML parser error code
@@ -428,7 +428,7 @@ function xml_parse_into_struct($parser, string $data, &$values, &$index): int {}
  * section.
  */
 #[Pure]
-function xml_get_error_code($parser): int|false {}
+function xml_get_error_code(XMLParser $parser): int {}
 
 /**
  * Get XML parser error string
@@ -453,7 +453,7 @@ function xml_error_string(int $error_code): ?string {}
  * parser is currently at in its data buffer.
  */
 #[Pure]
-function xml_get_current_line_number($parser): int|false {}
+function xml_get_current_line_number(XMLParser $parser): int {}
 
 /**
  * Get current column number for an XML parser
@@ -468,7 +468,7 @@ function xml_get_current_line_number($parser): int|false {}
  * currently at.
  */
 #[Pure]
-function xml_get_current_column_number($parser): int|false {}
+function xml_get_current_column_number(XMLParser $parser): int {}
 
 /**
  * Get current byte index for an XML parser
@@ -481,7 +481,7 @@ function xml_get_current_column_number($parser): int|false {}
  * the parser is currently at in its data buffer (starting at 0).
  */
 #[Pure]
-function xml_get_current_byte_index($parser): int|false {}
+function xml_get_current_byte_index(XMLParser $parser): int {}
 
 /**
  * Free an XML parser
@@ -490,7 +490,7 @@ function xml_get_current_byte_index($parser): int|false {}
  * @return bool This function returns <b>FALSE</b> if <i>parser</i> does not
  * refer to a valid parser, or else it frees the parser and returns <b>TRUE</b>.
  */
-function xml_parser_free($parser): bool {}
+function xml_parser_free(XMLParser $parser): bool {}
 
 /**
  * Set options in an XML parser
@@ -553,7 +553,7 @@ function xml_parser_free($parser): bool {}
  * refer to a valid parser, or if the option could not be set. Else the
  * option is set and <b>TRUE</b> is returned.
  */
-function xml_parser_set_option($parser, int $option, $value): bool {}
+function xml_parser_set_option(XMLParser $parser, int $option, $value): bool {}
 
 /**
  * Get options from an XML parser
@@ -568,4 +568,9 @@ function xml_parser_set_option($parser, int $option, $value): bool {}
  * Else the option's value is returned.
  */
 #[Pure]
-function xml_parser_get_option($parser, int $option): string|int {}
+function xml_parser_get_option(XMLParser $parser, int $option): string|int {}
+
+/**
+ * @since 8.0
+ */
+final class XMLParser {}

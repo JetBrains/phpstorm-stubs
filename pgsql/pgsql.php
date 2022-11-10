@@ -419,7 +419,7 @@ define('PGSQL_DIAG_SEVERITY_NONLOCALIZED', 86);
  * </p>
  * @return resource|false PostgreSQL connection resource on success, <b>FALSE</b> on failure.
  */
-function pg_connect(string $connection_string, int $flags = 0, string $host = '', string $port = '', string $options = '', string $tty = '', string $dbname = '') {}
+function pg_connect(string $connection_string, int $flags = 0) {}
 
 /**
  * Open a persistent PostgreSQL connection
@@ -450,7 +450,7 @@ function pg_connect(string $connection_string, int $flags = 0, string $host = ''
  * </p>
  * @return resource|false PostgreSQL connection resource on success, <b>FALSE</b> on failure.
  */
-function pg_pconnect(string $connection_string, string $host = '', string $port = '', string $options = '', string $tty = '', string $dbname = '') {}
+function pg_pconnect(string $connection_string, int $flags = 0) {}
 
 /**
  * Closes a PostgreSQL connection
@@ -475,7 +475,7 @@ function pg_close($connection = null): bool {}
  * <b>PGSQL_POLLING_OK</b>, or <b>PGSQL_POLLING_ACTIVE</b>.
  * @since 5.6
  */
-function pg_connect_poll($connection = null): int {}
+function pg_connect_poll($connection): int {}
 
 /**
  * Get connection status
@@ -682,7 +682,7 @@ function pg_transaction_status($connection): int {}
  * </p>
  * @return resource|false A query result resource on success or <b>FALSE</b> on failure.
  */
-function pg_query($connection = null, string $query = null) {}
+function pg_query($connection, string $query = null) {}
 
 /**
  * Submits a command to the server and waits for the result, with the ability to pass parameters separately from the SQL command text.
@@ -718,7 +718,7 @@ function pg_query($connection = null, string $query = null) {}
  * </p>
  * @return resource|false A query result resource on success or <b>FALSE</b> on failure.
  */
-function pg_query_params($connection = null, $query = '', array $params = null) {}
+function pg_query_params($connection, $query, array $params = null) {}
 
 /**
  * Submits a request to create a prepared statement with the
@@ -742,7 +742,7 @@ function pg_query_params($connection = null, $query = '', array $params = null) 
  * </p>
  * @return resource|false A query result resource on success or <b>FALSE</b> on failure.
  */
-function pg_prepare($connection = null, string $statement_name = '', string $query = null) {}
+function pg_prepare($connection, string $statement_name, string $query = null) {}
 
 /**
  * Sends a request to execute a prepared statement with given parameters, and waits for the result.
@@ -770,7 +770,7 @@ function pg_prepare($connection = null, string $statement_name = '', string $que
  * </p>
  * @return resource|false A query result resource on success or <b>FALSE</b> on failure.
  */
-function pg_execute($connection = null, string $statement_name = '', array $params = null) {}
+function pg_execute($connection, $statement_name, array $params = null) {}
 
 /**
  * Sends asynchronous query
@@ -899,7 +899,7 @@ function pg_cancel_query($connection): bool {}
  * <b>FALSE</b> is returned if <i>row</i> exceeds the number
  * of rows in the set, or on any other error.
  */
-function pg_fetch_result($result, $row = 0, string|int $field = null): string|false|null {}
+function pg_fetch_result($result, $row, string|int $field = null): string|false|null {}
 
 /**
  * Get a row as an enumerated array
@@ -1008,7 +1008,7 @@ function pg_fetch_array($result, ?int $row = null, int $mode = PGSQL_BOTH): arra
  * <b>FALSE</b> is returned if <i>row</i> exceeds the number
  * of rows in the set, there are no more rows, or on any other error.
  */
-function pg_fetch_object($result, ?int $row = null, string $class = 'stdClass', $l = null, array $constructor_args = []): object|false {}
+function pg_fetch_object($result, ?int $row = null, string $class = 'stdClass', array $constructor_args = []): object|false {}
 
 /**
  * Fetches all rows from a result as an array
@@ -1259,7 +1259,7 @@ function pg_field_type_oid($result, int $field): string|int {}
  * @param mixed $field
  * @return int|false The field printed length, or <b>FALSE</b> on error.
  */
-function pg_field_prtlen($result, $row = 0, string|int $field = null): int|false {}
+function pg_field_prtlen($result, $row, string|int $field = null): int|false {}
 
 /**
  * Test if a field is SQL NULL
@@ -1280,7 +1280,7 @@ function pg_field_prtlen($result, $row = 0, string|int $field = null): int|false
  * @return int|false 1 if the field in the given row is SQL NULL, 0
  * if not. <b>FALSE</b> is returned if the row is out of range, or upon any other error.
  */
-function pg_field_is_null($result, $row = 0, string|int $field = null): int|false {}
+function pg_field_is_null($result, $row, string|int $field = null): int|false {}
 
 /**
  * Returns the name or oid of the tables field
@@ -1324,7 +1324,7 @@ function pg_field_table($result, int $field, bool $oid_only = false): string|int
  * Otherwise if no NOTIFY is waiting, then <b>FALSE</b> is returned.
  */
 #[ArrayShape(["message" => "string", "pid" => "int", "payload" => "string"])]
-function pg_get_notify($connection = null, int $mode = 1): array|false {}
+function pg_get_notify($connection, int $mode = 1): array|false {}
 
 /**
  * Gets the backend's process ID
@@ -1334,7 +1334,7 @@ function pg_get_notify($connection = null, int $mode = 1): array|false {}
  * </p>
  * @return int The backend database process ID.
  */
-function pg_get_pid($connection = null): int {}
+function pg_get_pid($connection): int {}
 
 /**
  * Get error message associated with result
@@ -1420,7 +1420,7 @@ function pg_last_notice($connection, int $mode = PGSQL_NOTICE_LAST): array|strin
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pg_put_line($connection = null, string $query = null): bool {}
+function pg_put_line($connection, string $query = null): bool {}
 
 /**
  * Sync with PostgreSQL backend
@@ -1551,7 +1551,7 @@ function pg_lo_create($connection = null, $oid = null): string|int|false {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pg_lo_unlink($connection = null, $oid = null): bool {}
+function pg_lo_unlink($connection, $oid = null): bool {}
 
 /**
  * Open a large object
@@ -1571,7 +1571,7 @@ function pg_lo_unlink($connection = null, $oid = null): bool {}
  * </p>
  * @return resource|false A large object resource or <b>FALSE</b> on error.
  */
-function pg_lo_open($connection = null, $oid = null, string $mode = null) {}
+function pg_lo_open($connection, $oid = null, string $mode = null) {}
 
 /**
  * Close a large object
@@ -1648,7 +1648,7 @@ function pg_lo_read_all($lob): int {}
  * @return string|int|false The OID of the newly created large object, or
  * <b>FALSE</b> on failure.
  */
-function pg_lo_import($connection = null, $pathname, $object_id = null): string|int|false {}
+function pg_lo_import($connection, $pathname, $object_id = null): string|int|false {}
 
 /**
  * Export a large object to file
@@ -1668,7 +1668,7 @@ function pg_lo_import($connection = null, $pathname, $object_id = null): string|
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pg_lo_export($connection = null, $oid, $pathname): bool {}
+function pg_lo_export($connection, $oid, $pathname): bool {}
 
 /**
  * Seeks position within a large object
@@ -1708,7 +1708,7 @@ function pg_lo_tell($lob): int {}
  * @param int $size The number of bytes to truncate.
  * @return bool Returns true on success or false on failure.
  */
-function pg_lo_truncate($lob, int $size = 0): bool {}
+function pg_lo_truncate($lob, int $size): bool {}
 
 /**
  * Escape a string for query
@@ -1724,7 +1724,7 @@ function pg_lo_truncate($lob, int $size = 0): bool {}
  * </p>
  * @return string A string containing the escaped data.
  */
-function pg_escape_string($connection = null, string $string = null): string {}
+function pg_escape_string($connection, string $string = null): string {}
 
 /**
  * Escape a string for insertion into a bytea field
@@ -1741,7 +1741,7 @@ function pg_escape_string($connection = null, string $string = null): string {}
  * </p>
  * @return string A string containing the escaped data.
  */
-function pg_escape_bytea($connection = null, string $string = null): string {}
+function pg_escape_bytea($connection, string $string = null): string {}
 
 /**
  * Escape a identifier for insertion into a text field
@@ -1758,7 +1758,7 @@ function pg_escape_bytea($connection = null, string $string = null): string {}
  * @return string|false A string containing the escaped data.
  * @since 5.4.4
  */
-function pg_escape_identifier($connection = null, string $string = null): string|false {}
+function pg_escape_identifier($connection, string $string = null): string|false {}
 
 /**
  * Escape a literal for insertion into a text field
@@ -1775,7 +1775,7 @@ function pg_escape_identifier($connection = null, string $string = null): string
  * @return string|false A string containing the escaped data.
  * @since 5.4.4
  */
-function pg_escape_literal($connection = null, string $string = null): string|false {}
+function pg_escape_literal($connection, string $string = null): string|false {}
 
 /**
  * Unescape binary for bytea type
@@ -1807,7 +1807,7 @@ function pg_unescape_bytea(string $string): string {}
  * <b>PGSQL_ERRORS_DEFAULT</b>
  * or <b>PGSQL_ERRORS_VERBOSE</b>.
  */
-function pg_set_error_verbosity($connection = null, int $verbosity = null): int|false {}
+function pg_set_error_verbosity($connection, int $verbosity = null): int|false {}
 
 /**
  * Gets the client encoding
@@ -1844,7 +1844,7 @@ function pg_client_encoding($connection = null): string {}
  * </p>
  * @return int 0 on success or -1 on error.
  */
-function pg_set_client_encoding($connection = null, string $encoding = null): int {}
+function pg_set_client_encoding($connection, string $encoding = null): int {}
 
 /**
  * Get meta data for table
@@ -1857,7 +1857,7 @@ function pg_set_client_encoding($connection = null, string $encoding = null): in
  * </p>
  * @return array|false An array of the table definition, or <b>FALSE</b> on error.
  */
-function pg_meta_data($connection, string $table_name): array|false {}
+function pg_meta_data($connection, string $table_name, bool $extended = false): array|false {}
 
 /**
  * Convert associative array values into suitable for SQL statement
@@ -2004,7 +2004,7 @@ function pg_select($connection, string $table_name, array $conditions, int $flag
  * @param $query
  * @return mixed
  */
-function pg_exec($connection = null, string $query = null) {}
+function pg_exec($connection, string $query = null) {}
 
 /**
  * @param $result
@@ -2080,7 +2080,7 @@ function pg_fieldnum($result, string $field): int {}
  * @return int|false
  * @deprecated
  */
-function pg_fieldprtlen($result, $row = 0, string|int $field): int|false {}
+function pg_fieldprtlen($result, $row, string|int $field): int|false {}
 
 /**
  * @param $result
@@ -2089,7 +2089,7 @@ function pg_fieldprtlen($result, $row = 0, string|int $field): int|false {}
  * @return int|false
  * @deprecated
  */
-function pg_fieldisnull($result, $row = 0, string|int $field): int|false {}
+function pg_fieldisnull($result, $row, string|int $field): int|false {}
 
 /**
  * @param $result
@@ -2099,12 +2099,12 @@ function pg_fieldisnull($result, $row = 0, string|int $field): int|false {}
 function pg_freeresult($result): bool {}
 
 /**
- * @param PgSql\Result|resource $result
+ * @param resource $result
  * @param $row
  * @param $field
  * @deprecated
  */
-function pg_result($connection): string|null|false {}
+function pg_result($result, $row, string|int $field = null): string|null|false {}
 
 /**
  * @param $lob
@@ -2126,7 +2126,7 @@ function pg_locreate($connection, $oid): string|int|false {}
  * @return bool
  * @deprecated
  */
-function pg_lounlink($connection = null, $oid): bool {}
+function pg_lounlink($connection, $oid): bool {}
 
 /**
  * @param $connection
@@ -2135,7 +2135,7 @@ function pg_lounlink($connection = null, $oid): bool {}
  * @return resource
  * @deprecated
  */
-function pg_loopen($connection = null, $oid, string $mode) {}
+function pg_loopen($connection, $oid, string $mode) {}
 
 /**
  * @param $lob
@@ -2168,7 +2168,7 @@ function pg_lowrite($lob, string $data, ?int $length): int|false {}
  * @return string|int|false
  * @deprecated
  */
-function pg_loimport($connection = null, $filename, $oid): string|int|false {}
+function pg_loimport($connection, $filename, $oid): string|int|false {}
 
 /**
  * @param $connection
@@ -2177,7 +2177,7 @@ function pg_loimport($connection = null, $filename, $oid): string|int|false {}
  * @return bool
  * @deprecated
  */
-function pg_loexport($connection = null, $oid, $filename): bool {}
+function pg_loexport($connection, $oid, $filename): bool {}
 
 /**
  * @param $connection [optional]
@@ -2192,12 +2192,12 @@ function pg_clientencoding($connection): string {}
  * @return int
  * @deprecated
  */
-function pg_setclientencoding($connection = null, string $encoding): int {}
+function pg_setclientencoding($connection, string $encoding): int {}
 
 /**
  * Reads input on the connection
  * @link https://www.php.net/manual/en/function.pg-consume-input.php
- * @param PgSql\Connection|resource $connection
+ * @param resource $connection
  * @return bool true if no error occurred, or false if there was an error.
  * Note that true does not necessarily indicate that input was waiting to be read.
  */
@@ -2206,7 +2206,7 @@ function pg_consume_input($connection): bool {}
 /**
  * Flush outbound query data on the connection
  * @link https://www.php.net/manual/en/function.pg-flush.php
- * @param PgSql\Connection|resource $connection
+ * @param resource $connection
  * @return int|bool Returns true if the flush was successful or no data was waiting to be flushed, 0 if part of the pending
  * data was flushed but more remains or false on failure.
  */

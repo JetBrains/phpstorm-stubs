@@ -61,7 +61,7 @@ class ReflectionProperty implements Reflector
      * @param string $property The name of the property being reflected.
      * @throws ReflectionException if the class or property does not exist.
      */
-    public function __construct($class, $property) {}
+    public function __construct(object|string $class, string $property) {}
 
     /**
      * Export
@@ -109,7 +109,7 @@ class ReflectionProperty implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getValue($object = null): mixed {}
+    public function getValue(object|null $object = null): mixed {}
 
     /**
      * Set property value
@@ -122,7 +122,7 @@ class ReflectionProperty implements Reflector
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function setValue($objectOrValue, $value = null): void {}
+    public function setValue(mixed $objectOrValue, mixed $value = null): void {}
 
     /**
      * Checks if property is public
@@ -213,7 +213,7 @@ class ReflectionProperty implements Reflector
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function setAccessible($accessible): void {}
+    public function setAccessible(bool $accessible): void {}
 
     /**
      * Gets property type
@@ -225,7 +225,7 @@ class ReflectionProperty implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getType(): ReflectionNamedType|null {}
+    public function getType(): ReflectionNamedType|ReflectionUnionType|null {}
 
     /**
      * Checks if property has type
@@ -249,6 +249,42 @@ class ReflectionProperty implements Reflector
     #[Pure]
     #[TentativeType]
     public function isInitialized(?object $object = null): bool {}
+
+    /**
+     * Returns information about whether the property was promoted.
+     *
+     * @return bool Returns {@see true} if the property was promoted or {@see false} instead.
+     * @since 8.0
+     */
+    #[Pure]
+    public function isPromoted(): bool {}
+
+    /**
+     * @return bool
+     * @since 8.0
+     */
+    public function hasDefaultValue(): bool {}
+
+    /**
+     * @return mixed
+     * @since 8.0
+     */
+    #[Pure]
+    #[TentativeType]
+    public function getDefaultValue(): mixed {}
+
+    /**
+     * @template T
+     *
+     * Returns an array of property attributes.
+     *
+     * @param class-string<T>|null $name Name of an attribute class
+     * @param int $flags Сriteria by which the attribute is searched.
+     * @return ReflectionAttribute<T>[]
+     * @since 8.0
+     */
+    #[Pure]
+    public function getAttributes(?string $name = null, int $flags = 0): array {}
 
     /**
      * Clone

@@ -152,7 +152,7 @@ class XMLReader
      * <b>XMLReader</b> or <b>FALSE</b> on failure.
      * @since 5.1.2
      */
-    public static function open($uri, $encoding = null, $flags = 0) {}
+    public static function open(string $uri, string|null $encoding = null, int $flags = 0) {}
 
     /**
      * Set the data containing the XML to parse
@@ -171,7 +171,7 @@ class XMLReader
      * <b>XMLReader</b> or <b>FALSE</b> on failure.
      * @since 5.1.2
      */
-    public static function XML($source, $encoding = null, $flags = 0) {}
+    public static function XML(string $source, string|null $encoding = null, int $flags = 0) {}
 
     /**
      * Close the XMLReader input
@@ -192,7 +192,7 @@ class XMLReader
      * @since 5.1.2
      */
     #[TentativeType]
-    public function getAttribute($name): ?string {}
+    public function getAttribute(string $name): ?string {}
 
     /**
      * Get the value of an attribute by index
@@ -205,7 +205,7 @@ class XMLReader
      * @since 5.1.2
      */
     #[TentativeType]
-    public function getAttributeNo($index): ?string {}
+    public function getAttributeNo(int $index): ?string {}
 
     /**
      * Get the value of an attribute by localname and URI
@@ -222,7 +222,7 @@ class XMLReader
      * @since 5.1.2
      */
     #[TentativeType]
-    public function getAttributeNs($name, $namespace): ?string {}
+    public function getAttributeNs(string $name, string $namespace): ?string {}
 
     /**
      * Indicates if specified property has been set
@@ -235,7 +235,7 @@ class XMLReader
      * @since 5.1.2
      */
     #[TentativeType]
-    public function getParserProperty($property): bool {}
+    public function getParserProperty(int $property): bool {}
 
     /**
      * Indicates if the parsed document is valid
@@ -256,7 +256,7 @@ class XMLReader
      * @since 5.1.2
      */
     #[TentativeType]
-    public function lookupNamespace($prefix): ?string {}
+    public function lookupNamespace(string $prefix): ?string {}
 
     /**
      * Move cursor to an attribute by index
@@ -268,7 +268,7 @@ class XMLReader
      * @since 5.1.2
      */
     #[TentativeType]
-    public function moveToAttributeNo($index): bool {}
+    public function moveToAttributeNo(int $index): bool {}
 
     /**
      * Move cursor to a named attribute
@@ -280,7 +280,7 @@ class XMLReader
      * @since 5.1.2
      */
     #[TentativeType]
-    public function moveToAttribute($name): bool {}
+    public function moveToAttribute(string $name): bool {}
 
     /**
      * Move cursor to a named attribute
@@ -295,7 +295,7 @@ class XMLReader
      * @since 5.1.2
      */
     #[TentativeType]
-    public function moveToAttributeNs($name, $namespace): bool {}
+    public function moveToAttributeNs(string $name, string $namespace): bool {}
 
     /**
      * Position cursor on the parent Element of current Attribute
@@ -344,7 +344,7 @@ class XMLReader
      * @since 5.1.2
      */
     #[TentativeType]
-    public function next($name = null): bool {}
+    public function next(string|null $name = null): bool {}
 
     /**
      * Retrieve XML from current node
@@ -380,7 +380,7 @@ class XMLReader
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function setSchema($filename): bool {}
+    public function setSchema(string|null $filename): bool {}
 
     /**
      * Set parser options
@@ -397,7 +397,7 @@ class XMLReader
      * @since 5.1.2
      */
     #[TentativeType]
-    public function setParserProperty($property, $value): bool {}
+    public function setParserProperty(int $property, bool $value): bool {}
 
     /**
      * Set the filename or URI for a RelaxNG Schema
@@ -408,7 +408,7 @@ class XMLReader
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function setRelaxNGSchema($filename): bool {}
+    public function setRelaxNGSchema(string|null $filename): bool {}
 
     /**
      * Set the data containing a RelaxNG Schema
@@ -420,7 +420,7 @@ class XMLReader
      * @since 5.1.2
      */
     #[TentativeType]
-    public function setRelaxNGSchemaSource($source): bool {}
+    public function setRelaxNGSchemaSource(string|null $source): bool {}
 
     /**
      * Returns a copy of the current node as a DOM object
@@ -430,5 +430,5 @@ class XMLReader
      * @since 5.1.2
      */
     #[TentativeType]
-    public function expand($baseNode = null): DOMNode|false {}
+    public function expand(DOMNode|null $baseNode = null): DOMNode|false {}
 }

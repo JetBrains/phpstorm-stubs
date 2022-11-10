@@ -210,7 +210,7 @@ function jdmonthname(int $julian_day, int $mode): string {}
  * @param int $mode [optional] Allows Easter dates to be calculated based on the Julian calendar when set to CAL_EASTER_ALWAYS_JULIAN
  * @return int The easter date as a unix timestamp.
  */
-function easter_date(?int $year): int {}
+function easter_date(?int $year, int $mode = CAL_EASTER_DEFAULT): int {}
 
 /**
  * Get number of days after March 21 on which Easter falls for a given year
