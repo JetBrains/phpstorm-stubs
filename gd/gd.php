@@ -899,9 +899,9 @@ function imagecolorexact(GdImage $image, int $red, int $green, int $blue): int {
  * @param int $alpha [optional] <p>
  * Value of alpha component.
  * </p>
- * @return bool|null
+ * @return false|null
  */
-function imagecolorset(GdImage $image, int $color, int $red, int $green, int $blue, int $alpha = 0): null|bool {}
+function imagecolorset(GdImage $image, int $color, int $red, int $green, int $blue, int $alpha = 0): ?false {}
 
 /**
  * Define a color as transparent

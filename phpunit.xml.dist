@@ -1,10 +1,11 @@
 <phpunit bootstrap="vendor/autoload.php"
          failOnWarning="true">
     <testsuites>
-        <testsuite name="PHP_8.1">
+        <testsuite name="PHP_8.2">
             <file>tests/BaseClassesTest.php</file>
             <file>tests/BaseConstantsTest.php</file>
             <file>tests/BaseFunctionsTest.php</file>
+            <file>tests/StubsConstantsAndParametersValuesTest.php</file>
             <file>tests/StubsParameterNamesTest.php</file>
             <file>tests/StubsTypeHintsTest.php</file>
             <file>tests/StubsForbiddenTypeHintsTest.php</file>

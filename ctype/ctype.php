@@ -5,7 +5,7 @@ use JetBrains\PhpStorm\Pure;
 /**
  * Check for alphanumeric character(s)
  * @link https://php.net/manual/en/function.ctype-alnum.php
- * @param string $text <p>
+ * @param mixed $text <p>
  * The tested string.
  * </p>
  * @return bool <b>TRUE</b> if every character in <i>text</i> is either

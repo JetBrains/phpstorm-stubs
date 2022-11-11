@@ -126,7 +126,7 @@ class StubsContainer
         if (!empty($functions)) {
             return array_pop($functions);
         } else {
-            throw new RuntimeException("Could not get function {$name} from reflection");
+            throw new RuntimeException("Could not get function {$name} from stubs");
         }
     }
 

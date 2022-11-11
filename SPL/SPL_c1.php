@@ -993,19 +993,19 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * SplFileObject does not have children
      * @link https://php.net/manual/en/splfileobject.haschildren.php
-     * @return bool false
+     * @return false false
      * @since 5.1.2
      */
     #[TentativeType]
-    public function hasChildren(): bool {}
+    public function hasChildren(): false {}
 
     /**
      * No purpose
      * @link https://php.net/manual/en/splfileobject.getchildren.php
-     * @return null|RecursiveIterator An SplFileObject does not have children so this method returns NULL.
+     * @return null An SplFileObject does not have children so this method returns NULL.
      */
     #[TentativeType]
-    public function getChildren(): null|RecursiveIterator {}
+    public function getChildren(): null {}
 
     /**
      * Seek to specified line
@@ -1935,6 +1935,13 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
 
     #[TentativeType]
     public function __wakeup(): void {}
+
+    public function __serialize(): array {}
+
+    /**
+     * @param array $data
+     */
+    public function __unserialize(array $data): void {}
 
     /**
      * @return Traversable<int, TValue>

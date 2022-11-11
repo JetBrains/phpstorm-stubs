@@ -885,6 +885,150 @@ define('AI_ALL', 16);
 define('TCP_DEFER_ACCEPT', 9);
 
 /**
+ * @since 8.2
+ */
+define('SO_INCOMING_CPU', 49);
+
+/**
+ * @since 8.2
+ */
+define('SO_MEMINFO', 55);
+
+/**
+ * @since 8.2
+ */
+define('SO_BPF_EXTENSIONS', 48);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_OFF', -4096);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_PROTOCOL', 0);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_PKTTYPE', 4);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_IFINDEX', 8);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_NLATTR', 12);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_NLATTR_NEST', 16);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_MARK', 20);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_QUEUE', 24);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_HATYPE', 28);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_RXHASH', 32);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_CPU', 36);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_ALU_XOR_X', 40);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_VLAN_TAG', 44);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_VLAN_TAG_PRESENT', 48);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_PAY_OFFSET', 52);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_RANDOM', 56);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_VLAN_TPID', 60);
+
+/**
+ * @since 8.2
+ */
+define('SKF_AD_MAX', 64);
+
+/**
+ * @since 8.2
+ */
+define('TCP_CONGESTION', 13);
+
+/**
+ * @since 8.2
+ */
+define('TCP_NOTSENT_LOWAT', 25);
+
+/**
+ * @since 8.2
+ */
+define('TCP_KEEPIDLE', 4);
+
+/**
+ * @since 8.2
+ */
+define('TCP_KEEPINTVL', 5);
+
+/**
+ * @since 8.2
+ */
+define('TCP_KEEPCNT', 6);
+
+/**
+ * Socket_set_option for the socket_send* functions.
+ * It avoids copy b/w userland and kernel for both TCP and UDP protocols.
+ * @since 8.2
+ */
+define('SO_ZEROCOPY', 60);
+
+/**
+ * Socket_set_option for the socket_send* functions.
+ * It avoids copy b/w userland and kernel for both TCP and UDP protocols.
+ * @since 8.2
+ */
+define('MSG_ZEROCOPY', 67108864);
+
+/**
  * (PHP 7 >= 7.2.0)<br/>
  * Get array with contents of getaddrinfo about the given hostname.
  * @link https://www.php.net/manual/en/function.socket-addrinfo-lookup.php

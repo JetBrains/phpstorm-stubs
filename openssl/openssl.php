@@ -906,6 +906,15 @@ function openssl_decrypt(string $data, string $cipher_algo, string $passphrase, 
 function openssl_cipher_iv_length(string $cipher_algo): int|false {}
 
 /**
+ * This function works in exactly the same way as openssl_cipher_iv_length but for a key length. This is especially
+ * useful to make sure that the right key length is provided to openssl_encrypt and openssl_decrypt.
+ * @param string $cipher_algo
+ * @return int|false
+ * @since 8.2
+ */
+function openssl_cipher_key_length(string $cipher_algo): int|false {}
+
+/**
  * Generate signature
  * @link https://php.net/manual/en/function.openssl-sign.php
  * @param string $data

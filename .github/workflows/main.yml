@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-    name: Run tests against php 8.1
+    name: Run tests against php 8.2
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -15,22 +15,22 @@ jobs:
       - name: Build Docker Container
         run: docker-compose -f docker-compose.yml build >/dev/null
         env:
-          PHP_VERSION: '8.1'
+          PHP_VERSION: '8.2'
 
       - name: Composer Install
-        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=8.1 test_runner composer update
+        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=8.2 test_runner composer update
         env:
-          PHP_VERSION: '8.1'
+          PHP_VERSION: '8.2'
 
       - name: Dump Reflection To File
-        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=8.1 php_under_test /usr/local/bin/php tests/Tools/dump-reflection-to-file.php ReflectionData.json
+        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=8.2 php_under_test /usr/local/bin/php tests/Tools/dump-reflection-to-file.php ReflectionData.json
         env:
-          PHP_VERSION: '8.1'
+          PHP_VERSION: '8.2'
 
       - name: Run Tests
-        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=8.1 test_runner vendor/bin/phpunit --testsuite PHP_8.1
+        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=8.2 test_runner vendor/bin/phpunit --testsuite PHP_8.2
         env:
-          PHP_VERSION: '8.1'
+          PHP_VERSION: '8.2'
   additional:
     runs-on: ubuntu-latest
     name: Run cs-fixer and stubs structure tests

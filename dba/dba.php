@@ -1,146 +1,14 @@
 <?php
 
-/**
- * Open database
- * @link https://php.net/manual/en/function.dba-open.php
- * @param string $path <p>
- * Commonly a regular path in your filesystem.
- * </p>
- * @param string $mode <p>
- * It is r for read access, w for
- * read/write access to an already existing database, c
- * for read/write access and database creation if it doesn't currently exist,
- * and n for create, truncate and read/write access.
- * The database is created in BTree mode, other modes (like Hash or Queue)
- * are not supported.
- * </p>
- * <p>
- * Additionally you can set the database lock method with the next char.
- * Use l to lock the database with a .lck
- * file or d to lock the databasefile itself. It is
- * important that all of your applications do this consistently.
- * </p>
- * <p>
- * If you want to test the access and do not want to wait for the lock
- * you can add t as third character. When you are
- * absolutely sure that you do not require database locking you can do
- * so by using - instead of l or
- * d. When none of d,
- * l or - is used, dba will lock
- * on the database file as it would with d.
- * </p>
- * <p>
- * There can only be one writer for one database file. When you use dba on
- * a web server and more than one request requires write operations they can
- * only be done one after another. Also read during write is not allowed.
- * The dba extension uses locks to prevent this. See the following table:
- * <table>
- * DBA locking
- * <tr valign="top">
- * <td>already open</td>
- * <td><i>mode</i> = "rl"</td>
- * <td><i>mode</i> = "rlt"</td>
- * <td><i>mode</i> = "wl"</td>
- * <td><i>mode</i> = "wlt"</td>
- * <td><i>mode</i> = "rd"</td>
- * <td><i>mode</i> = "rdt"</td>
- * <td><i>mode</i> = "wd"</td>
- * <td><i>mode</i> = "wdt"</td>
- * </tr>
- * <tr valign="top">
- * <td>not open</td>
- * <td>ok</td>
- * <td>ok</td>
- * <td>ok</td>
- * <td>ok</td>
- * <td>ok</td>
- * <td>ok</td>
- * <td>ok</td>
- * <td>ok</td>
- * </tr>
- * <tr valign="top">
- * <td><i>mode</i> = "rl"</td>
- * <td>ok</td>
- * <td>ok</td>
- * <td>wait</td>
- * <td>false</td>
- * <td>illegal</td>
- * <td>illegal</td>
- * <td>illegal</td>
- * <td>illegal</td>
- * </tr>
- * <tr valign="top">
- * <td><i>mode</i> = "wl"</td>
- * <td>wait</td>
- * <td>false</td>
- * <td>wait</td>
- * <td>false</td>
- * <td>illegal</td>
- * <td>illegal</td>
- * <td>illegal</td>
- * <td>illegal</td>
- * </tr>
- * <tr valign="top">
- * <td><i>mode</i> = "rd"</td>
- * <td>illegal</td>
- * <td>illegal</td>
- * <td>illegal</td>
- * <td>illegal</td>
- * <td>ok</td>
- * <td>ok</td>
- * <td>wait</td>
- * <td>false</td>
- * </tr>
- * <tr valign="top">
- * <td><i>mode</i> = "wd"</td>
- * <td>illegal</td>
- * <td>illegal</td>
- * <td>illegal</td>
- * <td>illegal</td>
- * <td>wait</td>
- * <td>false</td>
- * <td>wait</td>
- * <td>false</td>
- * </tr>
- * </table>
- * ok: the second call will be successful.
- * wait: the second call waits until <b>dba_close</b> is called for the first.
- * false: the second call returns false.
- * illegal: you must not mix "l" and "d" modifiers for <i>mode</i> parameter.
- * </p>
- * @param string $handler [optional] <p>
- * The name of the handler which
- * shall be used for accessing <i>path</i>. It is passed
- * all optional parameters given to <b>dba_open</b> and
- * can act on behalf of them.
- * </p>
- * @param mixed ...$handler_params [optional]
- * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
- */
-function dba_open($path, $mode, $handler, ...$handler_params) {}
+/** @since 8.2 */
+define('DBA_LMDB_USE_SUB_DIR', 0);
 
-/**
- * Open database persistently
- * @link https://php.net/manual/en/function.dba-popen.php
- * @param string $path <p>
- * Commonly a regular path in your filesystem.
- * </p>
- * @param string $mode <p>
- * It is r for read access, w for
- * read/write access to an already existing database, c
- * for read/write access and database creation if it doesn't currently exist,
- * and n for create, truncate and read/write access.
- * </p>
- * @param string $handler [optional] <p>
- * The name of the handler which
- * shall be used for accessing <i>path</i>. It is passed
- * all optional parameters given to <b>dba_popen</b> and
- * can act on behalf of them.
- * </p>
- * @param mixed ...$handler_params [optional]
- * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
- */
-function dba_popen($path, $mode, $handler, ...$handler_params) {}
+/** @since 8.2 */
+define('DBA_LMDB_NO_SUB_DIR', 0);
+
+function dba_open(string $path, string $mode, ?string $handler = null, int $permission = 420, int $map_size = 0, ?int $flags = null) {}
+
+function dba_popen(string $path, string $mode, ?string $handler = null, int $permission = 420, int $map_size = 0, ?int $flags = null) {}
 
 /**
  * Close a DBA database
@@ -165,7 +33,7 @@ function dba_close($dba): void {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_delete($key, $dba): bool {}
+function dba_delete(array|string $key, $dba): bool {}
 
 /**
  * Check whether key exists
@@ -179,7 +47,7 @@ function dba_delete($key, $dba): bool {}
  * </p>
  * @return bool <b>TRUE</b> if the key exists, <b>FALSE</b> otherwise.
  */
-function dba_exists($key, $dba): bool {}
+function dba_exists(array|string $key, $dba): bool {}
 
 /**
  * Fetch data specified by key
@@ -239,7 +107,7 @@ function dba_fetch($key, $skip, $dba): string|false {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_insert($key, string $value, $dba): bool {}
+function dba_insert(array|string $key, string $value, $dba): bool {}
 
 /**
  * Replace or insert entry
@@ -256,7 +124,7 @@ function dba_insert($key, string $value, $dba): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_replace($key, string $value, $dba): bool {}
+function dba_replace(array|string $key, string $value, $dba): bool {}
 
 /**
  * Fetch first key

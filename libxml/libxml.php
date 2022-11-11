@@ -271,6 +271,17 @@ function libxml_disable_entity_loader(bool $disable = true): bool {}
 function libxml_set_external_entity_loader(?callable $resolver_function): bool {}
 
 /**
+ * Returns the currently installed external entity loader, i.e. the value which was passed to
+ * libxml_set_external_entity_loader() or null if no loader was installed and the default entity loader will be used.
+ * This allows libraries to save and restore the loader, controlling entity expansion without interfering with the rest
+ * of the application.
+ *
+ * @return callable|null
+ * @since 8.2
+ */
+function libxml_get_external_entity_loader(): ?callable {}
+
+/**
  * Contains various information about errors thrown by libxml. The error codes
  * are described within the official
  * xmlError API documentation.

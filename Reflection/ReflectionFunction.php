@@ -101,4 +101,6 @@ class ReflectionFunction extends ReflectionFunctionAbstract
     #[Pure]
     #[TentativeType]
     public function getClosure(): Closure {}
+
+    public function isAnonymous(): bool {}
 }

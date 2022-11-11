@@ -749,9 +749,9 @@ function mysqli_character_set_name(mysqli $mysql): string {}
  * Closes a previously opened database connection
  * @link https://php.net/manual/en/mysqli.close.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
- * @return bool
+ * @return true
  */
-function mysqli_close(mysqli $mysql): bool {}
+function mysqli_close(mysqli $mysql): true {}
 
 /**
  * Commits the current transaction
@@ -813,9 +813,9 @@ function mysqli_dump_debug_info(mysqli $mysql): bool {}
  * Performs debugging operations using the Fred Fish debugging library.
  * @link https://php.net/manual/en/mysqli.debug.php
  * @param string $options
- * @return bool
+ * @return true
  */
-function mysqli_debug(string $options): bool {}
+function mysqli_debug(string $options): true {}
 
 /**
  * Returns the error code for the most recent function call
@@ -873,6 +873,15 @@ function mysqli_stmt_execute(mysqli_stmt $statement, ?array $params = null): boo
  */
 #[Deprecated(since: "5.3")]
 function mysqli_execute(mysqli_stmt $statement, ?array $params = null): bool {}
+
+/**
+ * @param mysqli $mysql
+ * @param string $query
+ * @param array|null $params
+ * @return mysqli_result|bool
+ * @since 8.2
+ */
+function mysqli_execute_query(mysqli $mysql, string $query, ?array $params = null): mysqli_result|bool {}
 
 /**
  * Returns the next field in the result set
@@ -1630,17 +1639,17 @@ function mysqli_stat(mysqli $mysql): string|false {}
  * @param string|null $ca_certificate The path name to the certificate authority file
  * @param string|null $ca_path The pathname to a directory that contains trusted SSL CA certificates in PEM format
  * @param string|null $cipher_algos A list of allowable ciphers to use for SSL encryption
- * @return bool This function always returns TRUE value.
+ * @return true This function always returns TRUE value.
  */
-function mysqli_ssl_set(mysqli $mysql, string|null $key, string|null $certificate, string|null $ca_certificate, string|null $ca_path, string|null $cipher_algos): bool {}
+function mysqli_ssl_set(mysqli $mysql, string|null $key, string|null $certificate, string|null $ca_certificate, string|null $ca_path, string|null $cipher_algos): true {}
 
 /**
  * Closes a prepared statement
  * @link https://php.net/manual/en/mysqli-stmt.close.php
  * @param mysqli_stmt $statement
- * @return bool
+ * @return true
  */
-function mysqli_stmt_close(mysqli_stmt $statement): bool {}
+function mysqli_stmt_close(mysqli_stmt $statement): true {}
 
 /**
  * Seeks to an arbitrary row in statement result set
@@ -2167,6 +2176,16 @@ class mysqli
      */
     #[TentativeType]
     public function get_charset(): ?object {}
+
+    /**
+     * @param mysqli $mysql
+     * @param string $query
+     * @param array|null $params
+     * @return mysqli_result|bool
+     * @see mysqli_execute_query
+     * @since 8.2
+     */
+    public function execute_query(string $query, ?array $params = null): mysqli_result|bool {}
 
     /**
      * Returns the MySQL client version as a string

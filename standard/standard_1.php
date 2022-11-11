@@ -635,7 +635,7 @@ function lcfirst(string $string): string {}
  * @return string the modified string.
  */
 #[Pure]
-function ucwords(string $string, string $separators = " \t\r\n\f\u000b"): string {}
+function ucwords(string $string, string $separators = " \t\r\n\f\v"): string {}
 
 /**
  * Translate characters or replace substrings

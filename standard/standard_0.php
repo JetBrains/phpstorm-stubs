@@ -954,9 +954,9 @@ function image_type_to_extension(int $image_type, bool $include_dot = true): str
  * </tr>
  * </table>
  * </p>
- * @return bool true on success or false on failure.
+ * @return true true on success or false on failure.
  */
-function phpinfo(#[ExpectedValues([INFO_GENERAL, INFO_CREDITS, INFO_CONFIGURATION, INFO_MODULES, INFO_ENVIRONMENT, INFO_VARIABLES, INFO_LICENSE, INFO_ALL])] int $flags = INFO_ALL): bool {}
+function phpinfo(#[ExpectedValues([INFO_GENERAL, INFO_CREDITS, INFO_CONFIGURATION, INFO_MODULES, INFO_ENVIRONMENT, INFO_VARIABLES, INFO_LICENSE, INFO_ALL])] int $flags = INFO_ALL): true {}
 
 /**
  * Gets the current PHP version
@@ -1033,9 +1033,9 @@ function phpversion(?string $extension): string|false {}
  * </tr>
  * </table>
  * </p>
- * @return bool true on success or false on failure.
+ * @return true true on success or false on failure.
  */
-function phpcredits(int $flags = CREDITS_ALL): bool {}
+function phpcredits(int $flags = CREDITS_ALL): true {}
 
 /**
  * Gets the logo guid

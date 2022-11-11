@@ -11,6 +11,9 @@ define('DATE_COOKIE', "l, d-M-Y H:i:s T");
  */
 define('DATE_ISO8601', "Y-m-d\TH:i:sO");
 
+/** @since 8.2 */
+define('DATE_ISO8601_EXPANDED', "X-m-d\TH:i:sP");
+
 define('DATE_RFC822', "D, d M y H:i:s O");
 
 define('DATE_RFC850', "l, d-M-y H:i:s T");
