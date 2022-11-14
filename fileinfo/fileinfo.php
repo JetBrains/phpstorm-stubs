@@ -68,6 +68,11 @@ define('FILEINFO_RAW', 256);
 define('FILEINFO_EXTENSION', 2097152);
 
 /**
+ * @since 8.2
+ */
+define('FILEINFO_APPLE', 2048);
+
+/**
  * (PHP >= 5.3.0, PECL fileinfo >= 0.1.0)<br/>
  * Create a new fileinfo resource
  * @link https://php.net/manual/en/function.finfo-open.php

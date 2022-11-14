@@ -4236,3 +4236,393 @@ define('CURLOPT_SSLCERT_BLOB', 40291);
  * @since 8.1
  */
 define('CURLOPT_SSLKEY_BLOB', 40292);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_XFERINFOFUNCTION', 20219);
+
+/**
+ * @since 8.2
+ */
+define('CURLINFO_EFFECTIVE_METHOD', 1048634);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_MAXFILESIZE_LARGE', 30117);
+
+/**
+ * @since 8.2
+ */
+define('CURLFTPMETHOD_DEFAULT', 0);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_UPKEEP_INTERVAL_MS', 281);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_UPLOAD_BUFFERSIZE', 280);
+
+/**
+ * @since 8.2
+ */
+define('CURLALTSVC_H1', 8);
+
+/**
+ * @since 8.2
+ */
+define('CURLALTSVC_H2', 16);
+
+/**
+ * @since 8.2
+ */
+define('CURLALTSVC_H3', 32);
+
+/**
+ * @since 8.2
+ */
+define('CURLALTSVC_READONLYFILE', 4);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_ALTSVC', 10287);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_ALTSVC_CTRL', 286);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_MAXAGE_CONN', 288);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_SASL_AUTHZID', 10289);
+
+/**
+ * @since 8.2
+ */
+define('CURL_VERSION_HTTP3', 33554432);
+
+/**
+ * @since 8.2
+ */
+define('CURLINFO_RETRY_AFTER', 6291513);
+
+/**
+ * @since 8.2
+ */
+define('CURLMOPT_MAX_CONCURRENT_STREAMS', 16);
+
+/**
+ * @since 8.2
+ */
+define('CURLSSLOPT_NO_PARTIALCHAIN', 4);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_MAIL_RCPT_ALLLOWFAILS', 290);
+
+/**
+ * @since 8.2
+ */
+define('CURLSSLOPT_REVOKE_BEST_EFFORT', 8);
+
+/**
+ * @since 8.2
+ */
+define('CURLPROTO_MQTT', 268435456);
+
+/**
+ * @since 8.2
+ */
+define('CURLSSLOPT_NATIVE_CA', 16);
+
+/**
+ * @since 8.2
+ */
+define('CURL_VERSION_UNICODE', 134217728);
+
+/**
+ * @since 8.2
+ */
+define('CURL_VERSION_ZSTD', 67108864);
+
+/**
+ * @since 8.2
+ */
+define('CURLE_PROXY', 97);
+
+/**
+ * @since 8.2
+ */
+define('CURLINFO_PROXY_ERROR', 2097211);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_SSL_EC_CURVES', 10298);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_BAD_ADDRESS_TYPE', 1);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_BAD_VERSION', 2);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_CLOSED', 3);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_GSSAPI', 4);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_GSSAPI_PERMSG', 5);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_GSSAPI_PROTECTION', 6);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_IDENTD', 7);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_IDENTD_DIFFER', 8);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_LONG_HOSTNAME', 9);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_LONG_PASSWD', 10);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_LONG_USER', 11);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_NO_AUTH', 12);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_OK', 0);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_RECV_ADDRESS', 13);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_RECV_AUTH', 14);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_RECV_CONNECT', 15);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_RECV_REQACK', 16);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_REPLY_ADDRESS_TYPE_NOT_SUPPORTED', 17);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_REPLY_COMMAND_NOT_SUPPORTED', 18);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_REPLY_CONNECTION_REFUSED', 19);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_REPLY_GENERAL_SERVER_FAILURE', 20);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_REPLY_HOST_UNREACHABLE', 21);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_REPLY_NETWORK_UNREACHABLE', 22);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_REPLY_NOT_ALLOWED', 23);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_REPLY_TTL_EXPIRED', 24);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_REPLY_UNASSIGNED', 25);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_REQUEST_FAILED', 26);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_RESOLVE_HOST', 27);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_SEND_CONNECT', 29);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_SEND_AUTH', 28);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_SEND_REQUEST', 30);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_UNKNOWN_FAIL', 31);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_UNKNOWN_MODE', 32);
+
+/**
+ * @since 8.2
+ */
+define('CURLPX_USER_REJECTED', 33);
+
+/**
+ * @since 8.2
+ */
+define('CURLHSTS_ENABLE', 1);
+
+/**
+ * @since 8.2
+ */
+define('CURLHSTS_READONLYFILE', 2);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_HSTS', 10300);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_HSTS_CTRL', 299);
+
+/**
+ * @since 8.2
+ */
+define('CURL_VERSION_HSTS', 268435456);
+
+/**
+ * @since 8.2
+ */
+define('CURLAUTH_AWS_SIGV4', 128);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_AWS_SIGV4', 10305);
+
+/**
+ * @since 8.2
+ */
+define('CURLINFO_REFERER', 1048636);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_DOH_SSL_VERIFYHOST', 307);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_DOH_SSL_VERIFYPEER', 306);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_DOH_SSL_VERIFYSTATUS', 308);
+
+/**
+ * @since 8.2
+ */
+define('CURL_VERSION_GSASL', 536870912);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_CAINFO_BLOB', 40309);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_PROXY_CAINFO_BLOB', 40310);
+
+/**
+ * @since 8.2
+ */
+define('CURLSSLOPT_AUTO_CLIENT_CERT', 32);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_MAXLIFETIME_CONN', 314);
+
+/**
+ * @since 8.2
+ */
+define('CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256', 10311);

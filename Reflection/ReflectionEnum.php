@@ -32,5 +32,5 @@ class ReflectionEnum extends ReflectionClass
     /**
      * @return ReflectionType|null
      */
-    public function getBackingType(): null|ReflectionType {}
+    public function getBackingType(): null|ReflectionNamedType {}
 }

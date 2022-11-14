@@ -29,6 +29,11 @@ interface DateTimeInterface
     public const ISO8601 = 'Y-m-d\TH:i:sO';
 
     /**
+     * @since 8.2
+     */
+    public const ISO8601_EXPANDED = 'DATE_ISO8601_EXPANDED';
+
+    /**
      * @since 7.2
      */
     public const RFC822 = 'D, d M y H:i:s O';
@@ -148,6 +153,10 @@ interface DateTimeInterface
      */
     #[TentativeType]
     public function __wakeup(): void;
+
+    public function __serialize(): array;
+
+    public function __unserialize(array $data): void;
 }
 
 /**
@@ -196,7 +205,7 @@ class DateTimeImmutable implements DateTimeInterface
      * @since 5.6
      */
     #[TentativeType]
-    public static function createFromMutable(DateTime $object): DateTimeImmutable {}
+    public static function createFromMutable(DateTime $object): static {}
 
     /**
      * (PHP 5 >=5.5.0)<br/>
@@ -405,6 +414,10 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     public function __wakeup(): void {}
+
+    public function __serialize(): array {}
+
+    public function __unserialize(array $data): void {}
 }
 
 /**
@@ -515,7 +528,7 @@ class DateTime implements DateTimeInterface
      * @since 7.3
      */
     #[TentativeType]
-    public static function createFromImmutable(DateTimeImmutable $object): DateTime {}
+    public static function createFromImmutable(DateTimeImmutable $object): static {}
 
     /**
      * Parse a string into a new DateTime object according to the specified format
@@ -681,6 +694,10 @@ class DateTime implements DateTimeInterface
      */
     #[TentativeType]
     public function diff(DateTimeInterface $targetObject, bool $absolute = false): DateInterval {}
+
+    public function __serialize(): array {}
+
+    public function __unserialize(array $data): void {}
 }
 
 /**
@@ -771,6 +788,10 @@ class DateTimeZone
      */
     #[TentativeType]
     public function __wakeup(): void {}
+
+    public function __serialize(): array {}
+
+    public function __unserialize(array $data): void {}
 }
 
 /**
@@ -866,6 +887,10 @@ class DateInterval
 
     #[TentativeType]
     public function __wakeup(): void {}
+
+    public function __serialize(): array {}
+
+    public function __unserialize(array $data): void {}
 }
 
 /**
@@ -880,45 +905,50 @@ class DatePeriod implements IteratorAggregate
     public const EXCLUDE_START_DATE = 1;
 
     /**
+     * @since 8.2
+     */
+    public const INCLUDE_END_DATE = 2;
+
+    /**
      * Start date
-     * @var DateTimeInterface
+     * @var DateTimeInterface|null
      */
     #[Immutable]
-    public $start;
+    public DateTimeInterface|null $start;
 
     /**
      * Current iterator value.
      * @var DateTimeInterface|null
      */
-    public $current;
+    public DateTimeInterface|null $current;
 
     /**
      * End date.
      * @var DateTimeInterface|null
      */
     #[Immutable]
-    public $end;
+    public DateTimeInterface|null $end;
 
     /**
      * The interval
-     * @var DateInterval
+     * @var DateInterval|null
      */
     #[Immutable]
-    public $interval;
+    public DateInterval|null $interval;
 
     /**
      * Number of recurrences.
      * @var int
      */
     #[Immutable]
-    public $recurrences;
+    public int $recurrences;
 
     /**
      * Start of period.
      * @var bool
      */
     #[Immutable]
-    public $include_start_date;
+    public bool $include_start_date;
 
     /**
      * @since 8.2
@@ -1000,4 +1030,8 @@ class DatePeriod implements IteratorAggregate
      * @since 8.0
      */
     public function getIterator(): Iterator {}
+
+    public function __serialize(): array {}
+
+    public function __unserialize(array $data): void {}
 }

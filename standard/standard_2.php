@@ -713,9 +713,9 @@ function escapeshellarg(string $arg): string {}
  * If the return_var argument is present, the
  * return status of the Unix command will be placed here.
  * </p>
- * @return bool|null null on success or false on failure.
+ * @return false|null null on success or false on failure.
  */
-function passthru(string $command, &$result_code): null|bool {}
+function passthru(string $command, &$result_code): null|false {}
 
 /**
  * Execute command via shell and return the complete output as a string

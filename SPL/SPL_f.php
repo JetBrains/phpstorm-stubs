@@ -136,7 +136,7 @@ function spl_object_hash(object $object): string {}
 /**
  * Copy the iterator into an array
  * @link https://php.net/manual/en/function.iterator-to-array.php
- * @param Traversable $iterator <p>
+ * @param Traversable|array $iterator <p>
  * The iterator being copied.
  * </p>
  * @param bool $preserve_keys [optional] <p>
@@ -144,18 +144,18 @@ function spl_object_hash(object $object): string {}
  * </p>
  * @return array An array containing the elements of the iterator.
  */
-function iterator_to_array(Traversable $iterator, bool $preserve_keys = true): array {}
+function iterator_to_array(Traversable|array $iterator, bool $preserve_keys = true): array {}
 
 /**
  * Count the elements in an iterator
  * @link https://php.net/manual/en/function.iterator-count.php
- * @param Traversable $iterator <p>
+ * @param Traversable|array $iterator <p>
  * The iterator being counted.
  * </p>
  * @return int The number of elements in iterator.
  */
 #[Pure]
-function iterator_count(Traversable $iterator): int {}
+function iterator_count(Traversable|array $iterator): int {}
 
 /**
  * Call a function for every element in an iterator

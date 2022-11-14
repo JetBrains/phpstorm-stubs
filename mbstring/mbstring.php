@@ -213,12 +213,12 @@ function mb_http_output(?string $encoding): string|bool {}
  * <p>
  * Useless detect order example
  * </p>
- * @return bool|string[] When setting the encoding detection order,
+ * @return true|string[] When setting the encoding detection order,
  * true is returned on success or FALSE on failure.
  * When getting the encoding detection order, an ordered array
  * of the encodings is returned.
  */
-function mb_detect_order(array|string|null $encoding = null): array|bool {}
+function mb_detect_order(array|string|null $encoding = null): array|true {}
 
 /**
  * Set/Get substitution character

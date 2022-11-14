@@ -35,6 +35,11 @@ class ReflectionClass implements Reflector
     public const IS_FINAL = 32;
 
     /**
+     * @since 8.2
+     */
+    public const IS_READONLY = 65536;
+
+    /**
      * @var class-string<T> Name of the class, same as calling the {@see ReflectionClass::getName()} method
      */
     #[Immutable]
@@ -416,6 +421,12 @@ class ReflectionClass implements Reflector
     #[Pure]
     #[TentativeType]
     public function isFinal(): bool {}
+
+    /**
+     * @return bool
+     */
+    #[Pure]
+    public function isReadOnly(): bool {}
 
     /**
      * Gets modifiers

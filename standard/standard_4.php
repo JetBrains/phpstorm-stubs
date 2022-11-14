@@ -260,6 +260,11 @@ function memory_get_usage(bool $real_usage = false): int {}
 function memory_get_peak_usage(bool $real_usage = false): int {}
 
 /**
+ * @since 8.2
+ */
+function memory_reset_peak_usage(): void {}
+
+/**
  * Register a function for execution on shutdown
  * @link https://php.net/manual/en/function.register-shutdown-function.php
  * @param callable $callback <p>
@@ -280,9 +285,9 @@ function memory_get_peak_usage(bool $real_usage = false): int {}
  * It is possible to pass parameters to the shutdown function by passing
  * additional parameters.
  * </p>
- * @return bool|null
+ * @return void
  */
-function register_shutdown_function(callable $callback, mixed ...$args): null|bool {}
+function register_shutdown_function(callable $callback, mixed ...$args): void {}
 
 /**
  * Register a function for execution on each tick
@@ -468,6 +473,13 @@ function ini_alter(string $option, string|int|float|bool|null $value): string|fa
  * @return void
  */
 function ini_restore(string $option): void {}
+
+/**
+ * @param string $shorthand
+ * @return int
+ * @since 8.2
+ */
+function ini_parse_quantity(string $shorthand): int {}
 
 /**
  * Gets the current include_path configuration option

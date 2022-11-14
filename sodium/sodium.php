@@ -172,7 +172,7 @@ define('SODIUM_CRYPTO_PWHASH_ALG_DEFAULT', 2);
 
 define('SODIUM_CRYPTO_PWHASH_SALTBYTES', 16);
 
-define('SODIUM_CRYPTO_PWHASH_STRPREFIX', "$argon2id$");
+define('SODIUM_CRYPTO_PWHASH_STRPREFIX', '$argon2id$');
 
 define('SODIUM_CRYPTO_STREAM_XCHACHA20_NONCEBYTES', 24);
 
@@ -223,6 +223,8 @@ function sodium_crypto_scalarmult_ristretto255_base(string $n): string {}
 function sodium_crypto_stream_xchacha20(int $length, string $nonce, string $key): string {}
 
 function sodium_crypto_stream_xchacha20_xor(string $message, string $nonce, string $key): string {}
+
+function sodium_crypto_stream_xchacha20_xor_ic(string $message, string $nonce, int $counter, string $key): string {}
 
 function sodium_crypto_stream_xchacha20_keygen(): string {}
 
@@ -629,11 +631,11 @@ function sodium_crypto_generichash_init(string $key = '', int $length = 32): str
  * @link https://www.php.net/manual/en/function.sodium-crypto-generichash-update.php
  * @param string &$state
  * @param string $message
- * @return bool
+ * @return true
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_crypto_generichash_update(string &$state, string $message): bool {}
+function sodium_crypto_generichash_update(string &$state, string $message): true {}
 
 /**
  * Get the final hash

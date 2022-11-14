@@ -57,16 +57,16 @@ use JetBrains\PhpStorm\Pure;
  * (strerror) corresponding to the present value of
  * errno.
  * </p>
- * @return bool true on success or false on failure.
+ * @return true true on success or false on failure.
  */
-function syslog(int $priority, string $message): bool {}
+function syslog(int $priority, string $message): true {}
 
 /**
  * Close connection to system logger
  * @link https://php.net/manual/en/function.closelog.php
- * @return bool true on success or false on failure.
+ * @return true true on success or false on failure.
  */
-function closelog(): bool {}
+function closelog(): true {}
 
 /**
  * Registers a function that will be called when PHP starts sending output.
@@ -380,9 +380,9 @@ function ob_list_handlers(): array {}
  * parameter sort_flags, for details
  * see sort.
  * </p>
- * @return bool true on success or false on failure.
+ * @return true true on success or false on failure.
  */
-function ksort(array &$array, int $flags = SORT_REGULAR): bool {}
+function ksort(array &$array, int $flags = SORT_REGULAR): true {}
 
 /**
  * Sort an array by key in reverse order
@@ -395,9 +395,9 @@ function ksort(array &$array, int $flags = SORT_REGULAR): bool {}
  * sort_flags, for details see
  * sort.
  * </p>
- * @return bool true on success or false on failure.
+ * @return true true on success or false on failure.
  */
-function krsort(array &$array, int $flags = SORT_REGULAR): bool {}
+function krsort(array &$array, int $flags = SORT_REGULAR): true {}
 
 /**
  * Sort an array using a "natural order" algorithm
@@ -430,9 +430,9 @@ function natcasesort(array &$array): bool {}
  * parameter sort_flags, for details
  * see sort.
  * </p>
- * @return bool true on success or false on failure.
+ * @return true true on success or false on failure.
  */
-function asort(array &$array, int $flags = SORT_REGULAR): bool {}
+function asort(array &$array, int $flags = SORT_REGULAR): true {}
 
 /**
  * Sort an array in reverse order and maintain index association
@@ -445,9 +445,9 @@ function asort(array &$array, int $flags = SORT_REGULAR): bool {}
  * sort_flags, for details see
  * sort.
  * </p>
- * @return bool true on success or false on failure.
+ * @return true true on success or false on failure.
  */
-function arsort(array &$array, int $flags = SORT_REGULAR): bool {}
+function arsort(array &$array, int $flags = SORT_REGULAR): true {}
 
 /**
  * Sort an array
@@ -463,9 +463,9 @@ function arsort(array &$array, int $flags = SORT_REGULAR): bool {}
  * Sorting type flags:<br>
  * SORT_REGULAR - compare items normally
  * (don't change types)</p>
- * @return bool true on success or false on failure.
+ * @return true true on success or false on failure.
  */
-function sort(array &$array, int $flags = SORT_REGULAR): bool {}
+function sort(array &$array, int $flags = SORT_REGULAR): true {}
 
 /**
  * Sort an array in reverse order
@@ -493,9 +493,9 @@ function rsort(array &$array, int $flags = SORT_REGULAR): bool {}
  * greater than zero if the first argument is considered to be
  * respectively less than, equal to, or greater than the second.
  * </p>
- * @return bool true on success or false on failure.
+ * @return true true on success or false on failure.
  */
-function usort(array &$array, callable $callback): bool {}
+function usort(array &$array, callable $callback): true {}
 
 /**
  * Sort an array with a user-defined comparison function and maintain index association
@@ -507,9 +507,9 @@ function usort(array &$array, callable $callback): bool {}
  * See usort and uksort for
  * examples of user-defined comparison functions.
  * </p>
- * @return bool true on success or false on failure.
+ * @return true true on success or false on failure.
  */
-function uasort(array &$array, callable $callback): bool {}
+function uasort(array &$array, callable $callback): true {}
 
 /**
  * Sort an array by keys using a user-defined comparison function
@@ -528,9 +528,9 @@ function uasort(array &$array, callable $callback): bool {}
  * be respectively less than, equal to, or greater than the
  * second.
  * </p>
- * @return bool true on success or false on failure.
+ * @return true true on success or false on failure.
  */
-function uksort(array &$array, callable $callback): bool {}
+function uksort(array &$array, callable $callback): true {}
 
 /**
  * Shuffle an array
@@ -538,9 +538,9 @@ function uksort(array &$array, callable $callback): bool {}
  * @param array &$array <p>
  * The array.
  * </p>
- * @return bool true on success or false on failure.
+ * @return true true on success or false on failure.
  */
-function shuffle(array &$array): bool {}
+function shuffle(array &$array): true {}
 
 /**
  * Apply a user function to every member of an array
@@ -572,9 +572,9 @@ function shuffle(array &$array): bool {}
  * it will be passed as the third parameter to the callback
  * funcname.
  * </p>
- * @return bool true on success or false on failure.
+ * @return true true on success or false on failure.
  */
-function array_walk(object|array &$array, callable $callback, mixed $arg): bool {}
+function array_walk(object|array &$array, callable $callback, mixed $arg): true {}
 
 /**
  * Apply a user function recursively to every member of an array
@@ -600,9 +600,9 @@ function array_walk(object|array &$array, callable $callback, mixed $arg): bool 
  * it will be passed as the third parameter to the callback
  * funcname.
  * </p>
- * @return bool true on success or false on failure.
+ * @return true true on success or false on failure.
  */
-function array_walk_recursive(object|array &$array, callable $callback, mixed $arg): bool {}
+function array_walk_recursive(object|array &$array, callable $callback, mixed $arg): true {}
 
 /**
  * Counts all elements in an array, or something in an object.

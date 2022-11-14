@@ -115,9 +115,9 @@ function xml_parser_create_ns(?string $encoding, string $separator = ':'): XMLPa
  * @param object $object <p>
  * The object where to use the XML parser.
  * </p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return true <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_object(XMLParser $parser, object $object): bool {}
+function xml_set_object(XMLParser $parser, object $object): true {}
 
 /**
  * Set up start and end element handlers
@@ -144,9 +144,9 @@ function xml_set_object(XMLParser $parser, object $object): bool {}
  * <i>parser</i>
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.</p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return true <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_element_handler(XMLParser $parser, $start_handler, $end_handler): bool {}
+function xml_set_element_handler(XMLParser $parser, $start_handler, $end_handler): true {}
 
 /**
  * Set up character data handler
@@ -168,9 +168,9 @@ function xml_set_element_handler(XMLParser $parser, $start_handler, $end_handler
  * <i>parser</i>
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.</p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return true <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_character_data_handler(XMLParser $parser, $handler): bool {}
+function xml_set_character_data_handler(XMLParser $parser, $handler): true {}
 
 /**
  * Set up processing instruction (PI) handler
@@ -193,9 +193,9 @@ function xml_set_character_data_handler(XMLParser $parser, $handler): bool {}
  * <i>parser</i>
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.</p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return true <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_processing_instruction_handler(XMLParser $parser, $handler): bool {}
+function xml_set_processing_instruction_handler(XMLParser $parser, $handler): true {}
 
 /**
  * Set up default handler
@@ -217,9 +217,9 @@ function xml_set_processing_instruction_handler(XMLParser $parser, $handler): bo
  * <i>parser</i>
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.</p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return true <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_default_handler(XMLParser $parser, $handler): bool {}
+function xml_set_default_handler(XMLParser $parser, $handler): true {}
 
 /**
  * Set up unparsed entity declaration handler
@@ -246,9 +246,9 @@ function xml_set_default_handler(XMLParser $parser, $handler): bool {}
  * The first parameter, parser, is a
  * reference to the XML parser calling the
  * handler.</p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return true <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_unparsed_entity_decl_handler(XMLParser $parser, $handler): bool {}
+function xml_set_unparsed_entity_decl_handler(XMLParser $parser, $handler): true {}
 
 /**
  * Set up notation declaration handler
@@ -273,9 +273,9 @@ function xml_set_unparsed_entity_decl_handler(XMLParser $parser, $handler): bool
  * <i>parser</i>
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.</p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return true <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_notation_decl_handler(XMLParser $parser, $handler): bool {}
+function xml_set_notation_decl_handler(XMLParser $parser, $handler): true {}
 
 /**
  * Set up external entity reference handler
@@ -304,9 +304,9 @@ function xml_set_notation_decl_handler(XMLParser $parser, $handler): bool {}
  * <i>parser</i>
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.</p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return true <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_external_entity_ref_handler(XMLParser $parser, $handler): bool {}
+function xml_set_external_entity_ref_handler(XMLParser $parser, $handler): true {}
 
 /**
  * Set up start namespace declaration handler
@@ -333,9 +333,9 @@ function xml_set_external_entity_ref_handler(XMLParser $parser, $handler): bool 
  * <i>parser</i>
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.</p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return true <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_start_namespace_decl_handler(XMLParser $parser, $handler): bool {}
+function xml_set_start_namespace_decl_handler(XMLParser $parser, $handler): true {}
 
 /**
  * Set up end namespace declaration handler
@@ -361,9 +361,9 @@ function xml_set_start_namespace_decl_handler(XMLParser $parser, $handler): bool
  * <i>parser</i>
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.</p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return true <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_end_namespace_decl_handler(XMLParser $parser, $handler): bool {}
+function xml_set_end_namespace_decl_handler(XMLParser $parser, $handler): true {}
 
 /**
  * Start parsing an XML document

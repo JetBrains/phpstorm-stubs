@@ -2703,6 +2703,11 @@ function curl_share_errno(CurlShareHandle $share_handle): int {}
 #[Pure]
 function curl_share_strerror(int $error_code): ?string {}
 
+/**
+ * @since 8.2
+ */
+function curl_upkeep(CurlHandle $handle): bool {}
+
 class CURLFile
 {
     public string $name;

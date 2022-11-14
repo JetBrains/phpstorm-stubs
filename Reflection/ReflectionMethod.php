@@ -276,4 +276,6 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     #[Pure]
     #[TentativeType]
     public function setAccessible(bool $accessible): void {}
+
+    public function hasPrototype(): bool {}
 }

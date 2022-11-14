@@ -1129,6 +1129,6 @@ function ezmlm_hash(string $addr): int {}
  * LOG_USER is the only valid log type under Windows
  * operating systems
  * </p>
- * @return bool true on success or false on failure.
+ * @return true true on success or false on failure.
  */
-function openlog(string $prefix, int $flags, int $facility): bool {}
+function openlog(string $prefix, int $flags, int $facility): true {}

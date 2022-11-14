@@ -348,6 +348,12 @@ define('FILTER_FLAG_HOSTNAME', 1048576);
 define('FILTER_FLAG_EMAIL_UNICODE', 1048576);
 
 /**
+ * filters Global IPs per RFC 6890
+ * @since 8.2
+ */
+define('FILTER_FLAG_GLOBAL_RANGE', 268435456);
+
+/**
  * Gets a specific external variable by name and optionally filters it
  * @link https://php.net/manual/en/function.filter-input.php
  * @param int $type <p>

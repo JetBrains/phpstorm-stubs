@@ -669,9 +669,9 @@ function set_error_handler(?callable $callback, int $error_levels = E_ALL|E_STRI
 /**
  * Restores the previous error handler function
  * @link https://php.net/manual/en/function.restore-error-handler.php
- * @return bool This function always returns true.
+ * @return true This function always returns true.
  */
-function restore_error_handler(): bool {}
+function restore_error_handler(): true {}
 
 /**
  * Sets a user-defined exception handler function
@@ -692,9 +692,9 @@ function set_exception_handler(?callable $callback) {}
 /**
  * Restores the previously defined exception handler function
  * @link https://php.net/manual/en/function.restore-exception-handler.php
- * @return bool This function always returns true.
+ * @return true This function always returns true.
  */
-function restore_exception_handler(): bool {}
+function restore_exception_handler(): true {}
 
 /**
  * Returns an array with the name of the defined classes
