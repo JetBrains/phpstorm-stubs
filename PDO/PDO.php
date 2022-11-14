@@ -1115,12 +1115,12 @@ class PDO
      * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
      */
     #[PhpStormStubsElementAvailable('8.0')]
-    #[LanguageLevelTypeAware(['8.0' => 'array'], default: 'PDOStatement|false')]
+    #[LanguageLevelTypeAware(['8.1' => 'PDOStatement|false'], default: '')]
     public function query(
-        #[LanguageLevelTypeAware(['8.0' => 'string'])] $statement, 
-        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: 'null')] $mode = null, 
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'])] ...$fetch_mode_args
-    ): PDOStatement|false {}
+        #[LanguageLevelTypeAware(['8.0' => 'string'],   default: '')]  $statement, 
+        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')]  $mode = null, 
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'],    default: '')] ...$fetch_mode_args
+    ) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
