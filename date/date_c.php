@@ -762,6 +762,7 @@ class DateTimeZone
     /**
      * @param string $timezone
      * @link https://php.net/manual/en/datetimezone.construct.php
+     * @throws Exception Emits Exception in case of an error.
      */
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $timezone) {}
 
