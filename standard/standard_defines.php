@@ -878,7 +878,7 @@ define('STREAM_REPORT_ERRORS', 8);
  * not be bound to the actual resource you requested.
  * If the requested resource is network based, this flag will cause the
  * opener to block until the whole contents have been downloaded.
- * @link https://php.net/manual/en/internals2.ze1.streams.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define('STREAM_MUST_SEEK', 16);
 define('STREAM_URL_STAT_LINK', 1);
