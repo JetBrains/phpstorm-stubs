@@ -1118,7 +1118,6 @@ class PDO
      * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
      */
     #[PhpStormStubsElementAvailable('8.0')]
-    #[LanguageLevelTypeAware(['8.1' => 'PDOStatement|false'], default: '')]
     public function query(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $statement,
         #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $mode = null,
