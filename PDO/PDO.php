@@ -963,7 +963,10 @@ class PDO
      * so <b>PDO::prepare</b> does not check the statement.
      */
     #[TentativeType]
-    public function prepare(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $query, array $options = []): PDOStatement|false {}
+    public function prepare(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $query,
+        #[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] $options = []
+    ): PDOStatement|false {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1091,7 +1094,7 @@ class PDO
      * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
      */
     #[PhpStormStubsElementAvailable(to: '7.4')]
-    public function query($statement, $mode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null, array $ctorargs = []) {}
+    public function query($statement, $mode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null, $ctorargs = []) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
@@ -1713,7 +1716,10 @@ class PDOStatement implements IteratorAggregate
      * correspond to the column names or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function fetchObject(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $class = "stdClass", array $constructorArgs = []): object|false {}
+    public function fetchObject(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $class = "stdClass",
+        #[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] $constructorArgs = []
+    ): object|false {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1877,7 +1883,7 @@ class PDOStatement implements IteratorAggregate
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[PhpStormStubsElementAvailable(to: '7.4')]
-    public function setFetchMode($mode, $className = null, array $params = []) {}
+    public function setFetchMode($mode, $className = null, $params = []) {}
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
