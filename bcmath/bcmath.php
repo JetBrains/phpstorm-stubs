@@ -106,7 +106,7 @@ function bcdiv(string $num1, string $num2, ?int $scale = 0): ?string {}
  */
 #[Pure]
 #[PhpStormStubsElementAvailable('8.0')]
-function bcdiv(string $num1, string $num2, ?int $scale = 0): string {}
+function bcdiv(string $num1, string $num2, ?int $scale = null): string {}
 
 /**
  * Get modulus of an arbitrary precision number
@@ -150,7 +150,7 @@ function bcmod(string $num1, string $num2, ?int $scale = 0): ?string {}
  */
 #[Pure]
 #[PhpStormStubsElementAvailable('8.0')]
-function bcmod(string $num1, string $num2, ?int $scale = 0): string {}
+function bcmod(string $num1, string $num2, ?int $scale = null): string {}
 
 /**
  * Raise an arbitrary precision number to another
