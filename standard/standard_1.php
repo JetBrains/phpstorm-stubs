@@ -185,7 +185,7 @@ function hebrevc(string $hebrew_text, $max_chars_per_line): string {}
  * The input string.
  * </p>
  * @param bool $use_xhtml [optional] <p>
- * Whenever to use XHTML compatible line breaks or not.
+ * Whether to use XHTML compatible line breaks or not.
  * </p>
  * @return string the altered string.
  */
