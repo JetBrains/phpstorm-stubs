@@ -630,9 +630,9 @@ class ZipArchive implements Countable
      * <b>ZipArchive::OVERWRITE</b>
      * </p>
      *
-     * @return int|true <i>Error codes</i>
+     * @return int|bool <i>Error codes</i>
      * <p>
-     * Returns <b>TRUE</b> on success or the error code.
+     * Returns <b>TRUE</b> on success, <b>FALSE</b> or the error code on error.
      * </p>
      * <p>
      * <b>ZipArchive::ER_EXISTS</b>
