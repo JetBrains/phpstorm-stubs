@@ -1109,7 +1109,7 @@ class PDO
      * @param int|null $mode <p>
      * The fetch mode must be one of the PDO::FETCH_* constants.
      * </p>
-     * @param mixed $fetch_mode_args <p>
+     * @param mixed ...$fetch_mode_args <p>
      * Arguments of custom class constructor when the <i>mode</i>
      * parameter is set to <b>PDO::FETCH_CLASS</b>.
      * </p>
@@ -1679,7 +1679,7 @@ class PDOStatement implements IteratorAggregate
      * column, bitwise-OR <b>PDO::FETCH_COLUMN</b> with
      * <b>PDO::FETCH_GROUP</b>.
      * </p>
-     * @param mixed ...$args [optional] <p>
+     * @param mixed ...$args <p>
      * Arguments of custom class constructor when the <i>fetch_style</i>
      * parameter is <b>PDO::FETCH_CLASS</b>.
      * </p>
