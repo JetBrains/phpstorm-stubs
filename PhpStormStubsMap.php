@@ -25,7 +25,6 @@ const CLASSES = array (
   'AMQPQueue' => 'amqp/amqp.php',
   'AMQPQueueException' => 'amqp/amqp.php',
   'AMQPTimestamp' => 'amqp/amqp.php',
-  'AMQPValueException' => 'amqp/amqp.php',
   'APCIterator' => 'apcu/apcu.php',
   'APCUIterator' => 'apcu/apcu.php',
   'AddressInfo' => 'sockets/sockets.php',
