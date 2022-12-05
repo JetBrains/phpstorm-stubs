@@ -5,13 +5,12 @@
  * https://github.com/pdezwart/php-amqp
  */
 
+use JetBrains\PhpStorm\Deprecated;
+
 /**
  * Passing in this constant as a flag will forcefully disable all other flags.
  * Use this if you want to temporarily disable the amqp.auto_ack ini setting.
  */
-
-use JetBrains\PhpStorm\Deprecated;
-
 define('AMQP_NOPARAM', 0);
 
 /**
@@ -124,7 +123,7 @@ define('AMQP_EX_TYPE_HEADERS', 'headers');
 /**
  * The error number of OS socket timeout.
  */
-define('AMQP_OS_SOCKET_TIMEOUT_ERRNO', 536870923);
+define('AMQP_OS_SOCKET_TIMEOUT_ERRNO', 536870947);
 
 /**
  * The maximum number of channels that can be open on a connection.
@@ -953,19 +952,6 @@ class AMQPConnection
      * @return int AMQP_SASL_METHOD_PLAIN | AMQP_SASL_METHOD_EXTERNAL
      */
     public function getSaslMethod() {}
-
-    /**
-     * Return the connection name
-     * @return string|null
-     */
-    public function getConnectionName() {}
-
-    /**
-     * Set the connection name
-     * @param string $connection_name
-     * @return void
-     */
-    public function setConnectionName($connection_name) {}
 }
 
 /**
@@ -1029,7 +1015,7 @@ class AMQPEnvelope extends AMQPBasicProperties
     /**
      * Get the delivery tag of the message.
      *
-     * @return string The delivery tag of the message.
+     * @return int The delivery tag of the message.
      */
     public function getDeliveryTag() {}
 
@@ -1268,7 +1254,7 @@ class AMQPExchange
     /**
      * Set the flags on an exchange.
      *
-     * @param int $flags A bitmask of flags. This call currently only
+     * @param int|null $flags A bitmask of flags. This call currently only
      *                       considers the following flags:
      *                       AMQP_DURABLE, AMQP_PASSIVE
      *                       (and AMQP_DURABLE, if librabbitmq version >= 0.5.3)
@@ -1311,17 +1297,6 @@ class AMQPExchange
      * @return AMQPConnection
      */
     public function getConnection() {}
-
-    /**
-     * Declare a new exchange on the broker.
-     * @return int
-     * @throws AMQPExchangeException
-     * @throws AMQPChannelException
-     * @throws AMQPConnectionException
-     * @see AMQPExchange::declareExchange()
-     */
-    #[Deprecated]
-    public function declare() {}
 }
 
 /**
@@ -1341,7 +1316,7 @@ class AMQPQueue
      * without the AMQP_AUTOACK flag through AMQPQueue::get() or
      * AMQPQueue::consume()
      *
-     * @param string  $delivery_tag The message delivery tag of which to
+     * @param int $delivery_tag The message delivery tag of which to
      *                              acknowledge receipt.
      * @param int $flags        The only valid flag that can be passed is
      *                              AMQP_MULTIPLE.
@@ -1541,7 +1516,7 @@ class AMQPQueue
      * behavior of calling this method while connected to any other broker is
      * undefined.
      *
-     * @param string  $delivery_tag Delivery tag of last message to reject.
+     * @param int $delivery_tag Delivery tag of last message to reject.
      * @param int $flags        AMQP_REQUEUE to requeue the message(s),
      *                              AMQP_MULTIPLE to nack all previous
      *                              unacked messages as well.
@@ -1562,7 +1537,7 @@ class AMQPQueue
      * AMQPQueue::consume() and AMQPQueue::get() and using the AMQP_AUTOACK
      * flag are not eligible.
      *
-     * @param string  $delivery_tag Delivery tag of the message to reject.
+     * @param int $delivery_tag Delivery tag of the message to reject.
      * @param int $flags        AMQP_REQUEUE to requeue the message(s).
      *
      * @throws AMQPChannelException    If the channel is not open.
@@ -1668,16 +1643,6 @@ class AMQPQueue
      * @return string|null
      */
     public function getConsumerTag() {}
-
-    /**
-     * Declare a new queue
-     * @return int
-     * @throws AMQPChannelException
-     * @throws AMQPConnectionException
-     * @see AMQPQueue::declareQueue()
-     */
-    #[Deprecated]
-    public function declare() {}
 }
 
 /**
@@ -1711,8 +1676,3 @@ final class AMQPTimestamp
  * stub class representing AMQPExchangeValue from pecl-amqp
  */
 class AMQPExchangeValue extends AMQPException {}
-
-/**
- * stub class representing AMQPExchangeValue from pecl-amqp
- */
-class AMQPValueException extends AMQPException {}
