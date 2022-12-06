@@ -1494,6 +1494,14 @@ class Memcached
     public function isPristine() {}
 
     /**
+     * (PECL memcached &gt;= 3.2.0)<br/>
+     * Check if the given key is valid.
+     * @param string $key
+     * @return bool
+     */
+    public function checkKey($key) {}
+
+    /**
      * Flush and send buffered commands
      * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c
      * @return bool
