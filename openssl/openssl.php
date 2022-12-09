@@ -1174,7 +1174,7 @@ function openssl_pkey_derive(
  * </p>
  * @return string|false the generated string of bytes on success, or false on failure.
  */
-#[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
+#[LanguageLevelTypeAware(["7.4" => "string"], default: "string|false")]
 function openssl_random_pseudo_bytes(int $length, &$strong_result) {}
 
 /**
