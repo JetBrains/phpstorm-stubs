@@ -326,7 +326,7 @@ function error_reporting(?int $error_level): int {}
  * It is possible to define resource constants,
  * however it is not recommended and may cause unpredictable behavior.
  * </p>
- * @param bool $case_insensitive <p>
+ * @param bool $case_insensitive [optional] <p>
  * If set to true, the constant will be defined case-insensitive.
  * The default behavior is case-sensitive; i.e.
  * CONSTANT and Constant represent
@@ -341,8 +341,7 @@ function error_reporting(?int $error_level): int {}
 function define(
     string $constant_name,
     #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: 'null|array|bool|int|float|string')] $value,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] bool $case_insensitive,
-    #[PhpStormStubsElementAvailable(from: '7.0')] #[Deprecated(since: 7.3)] bool $case_insensitive = false
+    #[Deprecated(since: 7.3)] bool $case_insensitive = false
 ): bool {}
 
 /**
