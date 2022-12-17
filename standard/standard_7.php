@@ -368,10 +368,9 @@ function getcwd(): string|false {}
  * not specified, the last link opened by opendir
  * is assumed.
  * </p>
- * @return null|false
  * @see https://bugs.php.net/bug.php?id=75485
  */
-function rewinddir($dir_handle): null|false {}
+function rewinddir($dir_handle): void {}
 
 /**
  * Read entry from directory handle
