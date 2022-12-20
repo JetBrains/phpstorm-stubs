@@ -341,7 +341,7 @@ function error_reporting(?int $error_level): int {}
 function define(
     string $constant_name,
     #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: 'null|array|bool|int|float|string')] $value,
-    #[Deprecated(since: 7.3)] bool $case_insensitive = false
+    #[Deprecated(since: "7.3")] bool $case_insensitive = false
 ): bool {}
 
 /**
