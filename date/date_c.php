@@ -196,6 +196,7 @@ class DateTimeImmutable implements DateTimeInterface
      * Adds an amount of days, months, years, hours, minutes and seconds
      * @param DateInterval $interval
      * @return static
+     * @link https://secure.php.net/manual/en/datetimeimmutable.add.php
      */
     #[TentativeType]
     public function add(DateInterval $interval): DateTimeImmutable {}
