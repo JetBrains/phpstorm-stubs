@@ -1051,7 +1051,7 @@ function imagegif(GdImage $image, $file = null): bool {}
  * Output image to browser or file
  * @link https://php.net/manual/en/function.imagejpeg.php
  * @param resource|GdImage $image
- * @param string $filename [optional] <p>
+ * @param string $file [optional] <p>
  * The path to save the file to. If not set or null, the raw image stream
  * will be outputted directly.
  * </p>
@@ -1066,7 +1066,7 @@ function imagegif(GdImage $image, $file = null): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagejpeg($image, $filename = null, $quality = null): bool {}
+function imagejpeg($image, $file = null, $quality = null): bool {}
 
 /**
  * Output image to browser or file
