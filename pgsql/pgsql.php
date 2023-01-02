@@ -2065,8 +2065,8 @@ function pg_consume_input(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection']
  */
 function pg_flush(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection): int|bool {}
 
-define('PGSQL_LIBPQ_VERSION', "14.5");
-define('PGSQL_LIBPQ_VERSION_STR', "14.5");
+define('PGSQL_LIBPQ_VERSION', "15.1");
+define('PGSQL_LIBPQ_VERSION_STR', "15.1");
 
 /**
  * Passed to <b>pg_connect</b> to force the creation of a new connection,

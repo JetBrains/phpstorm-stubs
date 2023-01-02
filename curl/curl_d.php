@@ -2973,7 +2973,7 @@ define("CURLE_SSL_PINNEDPUBKEYNOTMATCH", 90);
 /**
  * @link https://php.net/manual/en/curl.constants.php
  */
-define("CURLINFO_LASTONE", 60);
+define("CURLINFO_LASTONE", 62);
 /**
  * An easy handle already added to a multi handle was attempted to get added a second time.
  * @link https://www.php.net/manual/en/function.curl-multi-exec.php
