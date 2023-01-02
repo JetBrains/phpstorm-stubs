@@ -7278,9 +7278,9 @@ class ImagickKernel
      * Create a kernel from a builtin in kernel. See https://www.imagemagick.org/Usage/morphology/#kernel for examples.<br>
      * Currently the 'rotation' symbols are not supported. Example: $diamondKernel = ImagickKernel::fromBuiltIn(\Imagick::KERNEL_DIAMOND, "2");
      * @link https://php.net/manual/en/imagickkernel.frombuiltin.php
-     * @param string $kernelType The type of kernel to build e.g. \Imagick::KERNEL_DIAMOND
+     * @param int $kernelType The type of kernel to build e.g. \Imagick::KERNEL_DIAMOND
      * @param string $kernelString A string that describes the parameters e.g. "4,2.5"
-     * @return void
+     * @return ImagickKernel
      * @since 3.3.0
      */
     public static function fromBuiltin($kernelType, $kernelString) {}
