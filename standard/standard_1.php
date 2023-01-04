@@ -1002,37 +1002,37 @@ function explode(string $separator, string $string, int $limit) {}
 /**
  * Join array elements with a string
  * @link https://php.net/manual/en/function.implode.php
- * @param array|string  $separator [optional]<p>
+ * @param string  $separator [optional]<p>
  * Defaults to an empty string. This is not the preferred usage of
  * implode as glue would be
  * the second parameter and thus, the bad prototype would be used.
  * </p>
- * @param array|null $array <p>
+ * @param array $array <p>
  * The array of strings to implode.
  * </p>
  * @return string a string containing a string representation of all the array
  * elements in the same order, with the glue string between each element.
  */
 #[Pure]
-function implode(array|string $separator = "", ?array $array): string {}
+function implode(string $separator = "", array $array): string {}
 
 /**
  * Alias:
  * {@see implode}
  * @link https://php.net/manual/en/function.join.php
- * @param array|string  $separator [optional] <p>
+ * @param string  $separator [optional] <p>
  * Defaults to an empty string. This is not the preferred usage of
  * implode as glue would be
  * the second parameter and thus, the bad prototype would be used.
  * </p>
- * @param array|null $array <p>
+ * @param array $array <p>
  * The array of strings to implode.
  * </p>
  * @return string a string containing a string representation of all the array
  * elements in the same order, with the glue string between each element.
  */
 #[Pure]
-function join(array|string $separator = "", ?array $array): string {}
+function join(string $separator = "", array $array): string {}
 
 /**
  * Set locale information
