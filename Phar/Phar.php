@@ -507,7 +507,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * iterate over a file's contents or to retrieve information about the current file.
      */
     #[TentativeType]
-    public function offsetGet($localName): SplFileInfo {}
+    public function offsetGet($localName): PharFileInfo {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
