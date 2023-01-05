@@ -815,7 +815,7 @@ class DateTimeZone
 
     /**
      * Returns associative array containing dst, offset and the timezone name
-     * @return array
+     * @return array<string, list<array{dst: bool, offset: int, timezone_id: string|null}>>
      * @link https://php.net/manual/en/datetimezone.listabbreviations.php
      */
     #[TentativeType]

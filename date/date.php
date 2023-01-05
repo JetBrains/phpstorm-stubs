@@ -1381,7 +1381,7 @@ function timezone_identifiers_list(int $timezoneGroup = DateTimeZone::ALL, ?stri
  * Alias:
  * {@see DateTimeZone::listAbbreviations}
  * @link https://php.net/manual/en/function.timezone-abbreviations-list.php
- * @return array|false Array on success or <b>FALSE</b> on failure.
+ * @return array<string, list<array{dst: bool, offset: int, timezone_id: string|null}>>|false Array on success or <b>FALSE</b> on failure.
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
