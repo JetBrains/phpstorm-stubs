@@ -84,6 +84,7 @@ trait PHPDocElement
             try {
                 $text = $node->getDocComment()->getText();
                 $text = preg_replace("/int\<\w+,\s*\w+\>/", "int", $text);
+                $text = preg_replace("/callable\(\w+,\s*\w+\):\s*\w+/", "callable", $text);
                 $this->phpdoc = $text;
                 $phpDoc = DocFactoryProvider::getDocFactory()->create($text);
                 $tags = $phpDoc->getTags();
