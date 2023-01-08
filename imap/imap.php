@@ -1567,6 +1567,11 @@ function imap_mutf7_to_utf8(string $string): string|false {}
 function imap_utf8_to_mutf7(string $string): string|false {}
 
 /**
+ * @since 8.2
+ */
+function imap_is_open(IMAP\Connection $imap): bool {}
+
+/**
  * @deprecated 8.1
  */
 define('NIL', 0);
