@@ -3116,6 +3116,7 @@ const FUNCTIONS = array (
   'imap_header' => 'imap/imap.php',
   'imap_headerinfo' => 'imap/imap.php',
   'imap_headers' => 'imap/imap.php',
+  'imap_is_open' => 'imap/imap.php',
   'imap_last_error' => 'imap/imap.php',
   'imap_list' => 'imap/imap.php',
   'imap_listmailbox' => 'imap/imap.php',
