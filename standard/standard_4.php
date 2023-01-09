@@ -383,10 +383,7 @@ function highlight_string(string $string, bool $return = false): string|bool {}
  * Otherwise the nanoseconds are returned as integer (64bit platforms) or float (32bit platforms).
  */
 #[Pure(true)]
-function hrtime(
-    #[PhpStormStubsElementAvailable(from: '7.3', to: '7.4')] bool $as_number = false,
-    #[PhpStormStubsElementAvailable(from: '8.0')] bool $as_number = false
-): array|int|float|false {}
+function hrtime(bool $as_number = false): array|int|float|false {}
 
 /**
  * Return source with stripped comments and whitespace
