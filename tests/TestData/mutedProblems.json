@@ -1035,6 +1035,23 @@
           ]
         }
       ]
+    },
+    {
+      "name": "hrtime",
+      "parameters": [
+        {
+          "name": "get_as_number",
+          "problems": [
+            {
+              "description": "wrong optionallity",
+              "versions": [
+                7.3,
+                7.4
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "classes": [
