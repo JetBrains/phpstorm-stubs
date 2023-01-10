@@ -1547,7 +1547,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @link https://php.net/manual/en/arrayobject.construct.php
      * @param array<TKey, TValue>|object $array The input parameter accepts an array or an Object.
      * @param int $flags Flags to control the behaviour of the ArrayObject object.
-     * @param class-string<ArrayIterator<TKey,TValue>> $iteratorClass Specify the class that will be used for iteration of the ArrayObject object. ArrayIterator is the default class used.
+     * @param class-string<ArrayIterator> $iteratorClass Specify the class that will be used for iteration of the ArrayObject object. ArrayIterator is the default class used.
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'object|array'], default: '')] $array = [],
@@ -1811,7 +1811,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Sets the iterator classname for the ArrayObject.
      * @link https://php.net/manual/en/arrayobject.setiteratorclass.php
-     * @param class-string<ArrayIterator<TKey,TValue>> $iteratorClass <p>
+     * @param class-string<ArrayIterator> $iteratorClass <p>
      * The classname of the array iterator to use when iterating over this object.
      * </p>
      * @return void
@@ -1822,7 +1822,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Gets the iterator classname for the ArrayObject.
      * @link https://php.net/manual/en/arrayobject.getiteratorclass.php
-     * @return class-string<ArrayIterator<TKey,TValue>> the iterator class name that is used to iterate over this object.
+     * @return class-string<ArrayIterator> the iterator class name that is used to iterate over this object.
      */
     #[TentativeType]
     public function getIteratorClass(): string {}
