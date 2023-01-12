@@ -44,7 +44,7 @@ class Sentinel {
         int $retry_interval = 0,
         float $read_timeout = 0,
         #[\SensitiveParameter] mixed $auth = null
-    );
+    ) { }
 
     /**
      * Check if the current Sentinel configuration is able to reach the quorum needed
@@ -54,7 +54,7 @@ class Sentinel {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function ckquorum(string $master): bool;
+    public function ckquorum(string $master): bool { }
 
     /**
      * Force a failover as if the master was not reachable,
@@ -64,7 +64,7 @@ class Sentinel {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function failover(string $master): bool;
+    public function failover(string $master): bool { }
 
     /**
      * Force Sentinel to rewrite its configuration on disk,
@@ -73,7 +73,7 @@ class Sentinel {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function flushconfig(): bool;
+    public function flushconfig(): bool { }
 
     /**
      * Returns the ip and port number of the master with that name.
@@ -82,7 +82,7 @@ class Sentinel {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function getMasterAddrByName(string $master): array|false;
+    public function getMasterAddrByName(string $master): array|false { }
 
     /**
      * Returns the state and info of the specified master.
@@ -91,7 +91,7 @@ class Sentinel {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function master(string $master): array|false;
+    public function master(string $master): array|false { }
 
     /**
      * Returns a list of monitored masters and their state.
@@ -99,7 +99,7 @@ class Sentinel {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function masters(): array|false;
+    public function masters(): array|false { }
 
     /**
      * Returns the ID of the Sentinel instance.
@@ -107,7 +107,7 @@ class Sentinel {
      * @return string
      */
     #[\Relay\Attributes\RedisCommand]
-    public function myid(): string;
+    public function myid(): string { }
 
     /**
      * Returns PONG if no message is provided, otherwise returns the message.
@@ -116,7 +116,7 @@ class Sentinel {
      * @return string|bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function ping(?string $message = null): string|bool;
+    public function ping(?string $message = null): string|bool { }
 
     /**
      * Will reset all the masters with matching name.
@@ -125,7 +125,7 @@ class Sentinel {
      * @return int
      */
     #[\Relay\Attributes\RedisCommand]
-    public function reset(string $pattern): int;
+    public function reset(string $pattern): int { }
 
     /**
      * Returns a list of sentinel instances for this master, and their state.
@@ -134,7 +134,7 @@ class Sentinel {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function sentinels(string $master): array|false;
+    public function sentinels(string $master): array|false { }
 
     /**
      * Show a list of replicas for this master, and their state.
@@ -143,7 +143,7 @@ class Sentinel {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function slaves(string $master): array|false;
+    public function slaves(string $master): array|false { }
 
     /**
      * Returns the last error message, if any.
@@ -151,7 +151,7 @@ class Sentinel {
      * @return string|null
      */
     #[\Relay\Attributes\Local]
-    public function getLastError(): string|null;
+    public function getLastError(): string|null { }
 
     /**
      * Sets a client option.
@@ -161,7 +161,7 @@ class Sentinel {
      * @return bool
      */
     #[\Relay\Attributes\Local]
-    public function setOption(int $option, mixed $value): bool;
+    public function setOption(int $option, mixed $value): bool { }
 
     /**
      * Returns a client option.
@@ -170,5 +170,5 @@ class Sentinel {
      * @return mixed
      */
     #[\Relay\Attributes\Local]
-    public function getOption(int $option): mixed;
+    public function getOption(int $option): mixed { }
 }
