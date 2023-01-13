@@ -5,7 +5,8 @@ namespace Relay;
 /**
  * Relay event class.
  */
-final class Event {
+final class Event
+{
     /**
      * The integer representing the `INVALIDATED` event.
      *
@@ -18,8 +19,8 @@ final class Event {
      *
      * @var int
      */
-
     public const Invalidated = 1;
+
     /**
      * The integer representing the `FLUSHED` event.
      *

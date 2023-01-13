@@ -5,7 +5,8 @@ namespace Relay;
 /**
  * Relay client.
  */
-class Relay {
+class Relay
+{
     /**
      * Relay's version.
      *
@@ -390,7 +391,7 @@ class Relay {
         float $command_timeout = 0.0,
         #[\SensitiveParameter] array $context = [],
         int $database = 0,
-    ) { }
+    ) {}
 
     /**
      * Establishes a new connection to Redis.
@@ -416,7 +417,7 @@ class Relay {
         float $read_timeout = 0.0,
         #[\SensitiveParameter] array $context = [],
         int $database = 0
-    ): bool { }
+    ): bool {}
 
     /**
      * Establishes a persistent connection to Redis.
@@ -441,7 +442,7 @@ class Relay {
         float $read_timeout = 0.0,
         #[\SensitiveParameter] array $context = [],
         int $database = 0
-    ): bool { }
+    ): bool {}
 
     /**
      * Closes the current connection, unless it's persistent.
@@ -449,7 +450,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\Local]
-    public function close(): bool { }
+    public function close(): bool {}
 
     /**
      * Closes the current connection, if it's persistent.
@@ -457,7 +458,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\Local]
-    public function pclose(): bool { }
+    public function pclose(): bool {}
 
     /**
      * Registers a new event listener.
@@ -466,7 +467,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\Local]
-    public function listen(?callable $callback): bool { }
+    public function listen(?callable $callback): bool {}
 
     /**
      * Registers a new `flushed` event listener.
@@ -475,7 +476,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\Local]
-    public function onFlushed(?callable $callback): bool { }
+    public function onFlushed(?callable $callback): bool {}
 
     /**
      * Registers a new `invalidated` event listener.
@@ -485,7 +486,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\Local]
-    public function onInvalidated(?callable $callback, ?string $pattern = null): bool { }
+    public function onInvalidated(?callable $callback, ?string $pattern = null): bool {}
 
     /**
      * Dispatches all pending events.
@@ -493,7 +494,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\Local]
-    public function dispatchEvents(): int|false { }
+    public function dispatchEvents(): int|false {}
 
     /**
      * Returns a client option.
@@ -502,7 +503,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\Local]
-    public function getOption(int $option): mixed { }
+    public function getOption(int $option): mixed {}
 
     /**
      * Returns or sets a client option.
@@ -512,7 +513,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\Local]
-    public function option(int $option, mixed $value = null): mixed { }
+    public function option(int $option, mixed $value = null): mixed {}
 
     /**
      * Sets a client option.
@@ -543,7 +544,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\Local]
-    public function setOption(int $option, mixed $value): bool { }
+    public function setOption(int $option, mixed $value): bool {}
 
     /**
      * Returns the connection timeout.
@@ -551,7 +552,7 @@ class Relay {
      * @return float|false
      */
     #[\Relay\Attributes\Local]
-    public function getTimeout(): float|false { }
+    public function getTimeout(): float|false {}
 
     /**
      * @alias Relay\Relay::getTimeout
@@ -559,7 +560,7 @@ class Relay {
      * @return float|false
      */
     #[\Relay\Attributes\Local]
-    public function timeout(): float|false { }
+    public function timeout(): float|false {}
 
     /**
      * Returns the read timeout.
@@ -567,7 +568,7 @@ class Relay {
      * @return float|false
      */
     #[\Relay\Attributes\Local]
-    public function getReadTimeout(): float|false { }
+    public function getReadTimeout(): float|false {}
 
     /**
      * @alias Relay\Relay::getReadTimeout
@@ -575,7 +576,7 @@ class Relay {
      * @return float|false
      */
     #[\Relay\Attributes\Local]
-    public function readTimeout(): float|false { }
+    public function readTimeout(): float|false {}
 
     /**
      * Returns the number of bytes sent and received over the network during the Relay object's
@@ -584,7 +585,7 @@ class Relay {
      * @return array A two element array consisting of [$sent_bytes, $received_bytes]
      */
     #[\Relay\Attributes\Local]
-    public function getBytes(): array { }
+    public function getBytes(): array {}
 
     /**
      * @alias Relay\Relay::getBytes
@@ -592,7 +593,7 @@ class Relay {
      * @return array
      */
     #[\Relay\Attributes\Local]
-    public function bytes(): array { }
+    public function bytes(): array {}
 
     /**
      * Returns the host or unix socket.
@@ -600,7 +601,7 @@ class Relay {
      * @return string|false
      */
     #[\Relay\Attributes\Local]
-    public function getHost(): string|false { }
+    public function getHost(): string|false {}
 
     /**
      * Whether Relay is connected to Redis.
@@ -608,7 +609,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\Local]
-    public function isConnected(): bool { }
+    public function isConnected(): bool {}
 
     /**
      * Returns the port.
@@ -616,7 +617,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\Local]
-    public function getPort(): int|false { }
+    public function getPort(): int|false {}
 
     /**
      * Returns the authentication information.
@@ -625,7 +626,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\Local]
-    public function getAuth(): mixed { }
+    public function getAuth(): mixed {}
 
     /**
      * Returns the currently selected DB
@@ -633,7 +634,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\Local]
-    public function getDbNum(): mixed { }
+    public function getDbNum(): mixed {}
 
     /**
      * Returns the serialized value.
@@ -642,7 +643,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\Local]
-    public function _serialize(mixed $value): mixed { }
+    public function _serialize(mixed $value): mixed {}
 
     /**
      * Returns the unserialized value.
@@ -651,7 +652,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\Local]
-    public function _unserialize(mixed $value): mixed { }
+    public function _unserialize(mixed $value): mixed {}
 
     /**
      * Compress data with Relay's currently configured compression algorithm.
@@ -660,7 +661,7 @@ class Relay {
      * @return string
      */
     #[\Relay\Attributes\Local]
-    public function _compress(string $value): string { }
+    public function _compress(string $value): string {}
 
     /**
      * Uncompress data with Relay's currently configured compression algorithm.
@@ -669,7 +670,7 @@ class Relay {
      * @return string
      */
     #[\Relay\Attributes\Local]
-    public function _uncompress(string $value): string { }
+    public function _uncompress(string $value): string {}
 
     /**
      * Returns the serialized and compressed value.
@@ -678,7 +679,7 @@ class Relay {
      * @return string
      */
     #[\Relay\Attributes\Local]
-    public function _pack(mixed $value): string { }
+    public function _pack(mixed $value): string {}
 
     /**
      * Returns the unserialized and decompressed value.
@@ -687,7 +688,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\Local]
-    public function _unpack(mixed $value): mixed { }
+    public function _unpack(mixed $value): mixed {}
 
     /**
      * Returns the value with the prefix.
@@ -696,7 +697,7 @@ class Relay {
      * @return string
      */
     #[\Relay\Attributes\Local]
-    public function _prefix(mixed $value): string { }
+    public function _prefix(mixed $value): string {}
 
     /**
      * Returns the last error message, if any.
@@ -704,7 +705,7 @@ class Relay {
      * @return string|null
      */
     #[\Relay\Attributes\Local]
-    public function getLastError(): string|null { }
+    public function getLastError(): string|null {}
 
     /**
      * Clears the last error that is set, if any.
@@ -712,7 +713,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\Local]
-    public function clearLastError(): bool { }
+    public function clearLastError(): bool {}
 
     /**
      * Returns the connection's endpoint identifier.
@@ -720,7 +721,7 @@ class Relay {
      * @return string|false
      */
     #[\Relay\Attributes\Local]
-    public function endpointId(): string|false { }
+    public function endpointId(): string|false {}
 
     /**
      * Returns the connection's endpoint identifier.
@@ -729,7 +730,7 @@ class Relay {
      *
      * @return string|false
      */
-    public function getPersistentID(): string|false { }
+    public function getPersistentID(): string|false {}
 
     /**
      * Returns a unique representation of the underlying socket connection identifier.
@@ -737,7 +738,7 @@ class Relay {
      * @return string|false
      */
     #[\Relay\Attributes\Local]
-    public function socketId(): string|false { }
+    public function socketId(): string|false {}
 
     /**
      * Returns information about the license.
@@ -745,8 +746,7 @@ class Relay {
      * @return array
      */
     #[\Relay\Attributes\Http]
-    public static function license(): array { }
-
+    public static function license(): array {}
 
     /**
      * Returns statistics about Relay.
@@ -779,7 +779,7 @@ class Relay {
      * @return array
      */
     #[\Relay\Attributes\Local]
-    public static function stats(): array { }
+    public static function stats(): array {}
 
     /**
      * Returns the number of bytes allocated, or `0` in client-only mode.
@@ -787,7 +787,7 @@ class Relay {
      * @return int
      */
     #[\Relay\Attributes\Local]
-    public static function maxMemory(): int { }
+    public static function maxMemory(): int {}
 
     /**
      * Returns the number of bytes allocated, or `0` in client-only mode.
@@ -797,7 +797,7 @@ class Relay {
      * @return int
      */
     #[\Relay\Attributes\Local]
-    public static function memory(): int { }
+    public static function memory(): int {}
 
     /**
      * Execute any command against Redis, without applying
@@ -808,7 +808,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function rawCommand(string $cmd, mixed ...$args): mixed { }
+    public function rawCommand(string $cmd, mixed ...$args): mixed {}
 
     /**
      * Select the Redis logical database having the specified zero-based numeric index.
@@ -817,7 +817,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function select(int $db): \Relay\Relay|bool { }
+    public function select(int $db): Relay|bool {}
 
     /**
      * Authenticate the connection using a password or an ACL username and password.
@@ -826,7 +826,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function auth(#[\SensitiveParameter] mixed $auth): bool { }
+    public function auth(#[\SensitiveParameter] mixed $auth): bool {}
 
     /**
      * The INFO command returns information and statistics about Redis in a format
@@ -838,7 +838,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function info(string ...$sections): \Relay\Relay|array|false { }
+    public function info(string ...$sections): Relay|array|false {}
 
     /**
      * Deletes all the keys of the currently selected database.
@@ -847,7 +847,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function flushdb(bool $async = false): \Relay\Relay|bool { }
+    public function flushdb(bool $async = false): Relay|bool {}
 
     /**
      * Deletes all the keys of all the existing databases, not just the currently selected one.
@@ -856,7 +856,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function flushall(bool $async = false): \Relay\Relay|bool { }
+    public function flushall(bool $async = false): Relay|bool {}
 
     /**
      * Invokes a Redis function.
@@ -868,7 +868,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function fcall(string $name, array $argv = [], array $keys = [], callable $handler = null): mixed { }
+    public function fcall(string $name, array $argv = [], array $keys = [], callable $handler = null): mixed {}
 
     /**
      * Invokes a read-only Redis function.
@@ -880,7 +880,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function fcall_ro(string $name, array $argv = [], array $keys = [], callable $handler = null): mixed { }
+    public function fcall_ro(string $name, array $argv = [], array $keys = [], callable $handler = null): mixed {}
 
     /**
      * Calls `FUNCTION` sub-command.
@@ -890,7 +890,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function function(string $op, string ...$args): mixed { }
+    public function function(string $op, string ...$args): mixed {}
 
     /**
      * Flushes Relay's internal memory of all databases, or just the given database index.
@@ -899,7 +899,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\Local]
-    public static function flushMemory(?string $key = null, int $db = -1): bool { }
+    public static function flushMemory(?string $key = null, int $db = -1): bool {}
 
     /**
      * Returns the number of keys in the currently-selected database.
@@ -907,7 +907,7 @@ class Relay {
      * @return int
      */
     #[\Relay\Attributes\RedisCommand]
-    public function dbsize(): \Relay\Relay|int|false { }
+    public function dbsize(): Relay|int|false {}
 
     /**
      * Serialize and return the value stored at key in a Redis-specific format.
@@ -916,7 +916,7 @@ class Relay {
      * @return string|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function dump(mixed $key): \Relay\Relay|string|false { }
+    public function dump(mixed $key): Relay|string|false {}
 
     /**
      * Attach or detach the instance as a replica of another instance.
@@ -926,7 +926,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function replicaof(?string $host = null, $port = 0): \Relay\Relay|bool { }
+    public function replicaof(?string $host = null, $port = 0): Relay|bool {}
 
     /**
      * Create a key associated with a value that is obtained by deserializing the provided serialized value.
@@ -938,7 +938,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function restore(mixed $key, int $ttl, string $value, ?array $options = null): \Relay\Relay|bool { }
+    public function restore(mixed $key, int $ttl, string $value, ?array $options = null): Relay|bool {}
 
     /**
      * Atomically transfer a key from a Redis instance to another one.
@@ -963,7 +963,7 @@ class Relay {
         bool $copy = false,
         bool $replace = false,
         #[\SensitiveParameter] mixed $credentials = null
-    ): \Relay\Relay|bool { }
+    ): Relay|bool {}
 
     /**
      * This command copies the value stored at the source key to the destination key.
@@ -974,7 +974,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function copy(mixed $src, mixed $dst, ?array $options = NULL): \Relay\Relay|int|false { }
+    public function copy(mixed $src, mixed $dst, ?array $options = null): Relay|int|false {}
 
     /**
      * Asks Redis to echo back the provided string.
@@ -983,7 +983,7 @@ class Relay {
      * @return bool|string
      */
     #[\Relay\Attributes\RedisCommand]
-    public function echo(string $arg): \Relay\Relay|bool|string { }
+    public function echo(string $arg): Relay|bool|string {}
 
     /**
      * Returns PONG if no argument is provided, otherwise return a copy of the argument as a bulk.
@@ -992,7 +992,7 @@ class Relay {
      * @return bool|string
      */
     #[\Relay\Attributes\RedisCommand]
-    public function ping(string $arg = null): \Relay\Relay|bool|string { }
+    public function ping(string $arg = null): Relay|bool|string {}
 
     /**
      * Returns the number of milliseoconds since Relay has seen activity from the server.
@@ -1000,7 +1000,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\Local]
-    public function idleTime(): \Relay\Relay|int|false { }
+    public function idleTime(): Relay|int|false {}
 
     /**
      * Returns a random key from Redis.
@@ -1008,7 +1008,7 @@ class Relay {
      * @return string|null|bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function randomkey(): \Relay\Relay|string|null|bool { }
+    public function randomkey(): Relay|string|null|bool {}
 
     /**
      * Returns the current time from Redis.
@@ -1016,7 +1016,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function time(): \Relay\Relay|array|false { }
+    public function time(): Relay|array|false {}
 
     /**
      * Asynchronously rewrite the append-only file.
@@ -1024,7 +1024,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function bgrewriteaof(): \Relay\Relay|bool { }
+    public function bgrewriteaof(): Relay|bool {}
 
     /**
      * Returns the UNIX time stamp of the last successful save to disk.
@@ -1032,7 +1032,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function lastsave(): \Relay\Relay|int|false { }
+    public function lastsave(): Relay|int|false {}
 
     /**
      * Asynchronously save the dataset to disk.
@@ -1040,7 +1040,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function bgsave(): \Relay\Relay|bool { }
+    public function bgsave(): Relay|bool {}
 
     /**
      * Synchronously save the dataset to disk.
@@ -1048,7 +1048,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function save(): \Relay\Relay|bool { }
+    public function save(): Relay|bool {}
 
     /**
      * Returns the role of the instance in the context of replication.
@@ -1056,7 +1056,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function role(): \Relay\Relay|array|false { }
+    public function role(): Relay|array|false {}
 
     /**
      * Returns the remaining time to live of a key that has a timeout in seconds.
@@ -1065,7 +1065,7 @@ class Relay {
      * @return int
      */
     #[\Relay\Attributes\RedisCommand]
-    public function ttl(mixed $key): \Relay\Relay|int|false { }
+    public function ttl(mixed $key): Relay|int|false {}
 
     /**
      * Returns the remaining time to live of a key that has a timeout in milliseconds.
@@ -1074,7 +1074,7 @@ class Relay {
      * @return int
      */
     #[\Relay\Attributes\RedisCommand]
-    public function pttl(mixed $key): \Relay\Relay|int|false { }
+    public function pttl(mixed $key): Relay|int|false {}
 
     /**
      * Returns if key(s) exists.
@@ -1083,7 +1083,7 @@ class Relay {
      * @return bool|int
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function exists(mixed ...$keys): \Relay\Relay|bool|int { }
+    public function exists(mixed ...$keys): Relay|bool|int {}
 
     /**
      * Evaluate script using the Lua interpreter.
@@ -1096,7 +1096,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function eval(mixed $script, array $args = [], int $num_keys = 0): mixed { }
+    public function eval(mixed $script, array $args = [], int $num_keys = 0): mixed {}
 
     /**
      * Evaluate script using the Lua interpreter.  This is just the "read-only" variant of EVAL
@@ -1110,7 +1110,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function eval_ro(mixed $script, array $args = [], int $num_keys = 0): mixed { }
+    public function eval_ro(mixed $script, array $args = [], int $num_keys = 0): mixed {}
 
     /**
      * Evaluates a script cached on the server-side by its SHA1 digest.
@@ -1122,7 +1122,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function evalsha(string $sha, array $args = [], int $num_keys = 0): mixed { }
+    public function evalsha(string $sha, array $args = [], int $num_keys = 0): mixed {}
 
     /**
      * Evaluates a script cached on the server-side by its SHA1 digest.  This is just the "read-only" variant
@@ -1134,7 +1134,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function evalsha_ro(string $sha, array $args = [], int $num_keys = 0): mixed { }
+    public function evalsha_ro(string $sha, array $args = [], int $num_keys = 0): mixed {}
 
     /**
      * Executes `CLIENT` command operations.
@@ -1144,7 +1144,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function client(string $operation, mixed ...$args): mixed { }
+    public function client(string $operation, mixed ...$args): mixed {}
 
     /**
      * Add one or more members to a geospacial sorted set
@@ -1163,7 +1163,7 @@ class Relay {
         float $lat,
         string $member,
         mixed ...$other_triples_and_options
-    ): \Relay\Relay|int|false { }
+    ): Relay|int|false {}
 
     /**
      * Get the distance between two members of a geospacially encoded sorted set.
@@ -1175,7 +1175,7 @@ class Relay {
      * @return float|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function geodist(string $key, string $src, string $dst, ?string $unit = null): \Relay\Relay|float|false { }
+    public function geodist(string $key, string $src, string $dst, ?string $unit = null): Relay|float|false {}
 
     /**
      * Retrieve one or more GeoHash encoded strings for members of the set.
@@ -1186,7 +1186,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function geohash(string $key, string $member, string ...$other_members): \Relay\Relay|array|false { }
+    public function geohash(string $key, string $member, string ...$other_members): Relay|array|false {}
 
     /**
      * Retrieve members of a geospacially sorted set that are within a certain radius of a location.
@@ -1200,7 +1200,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function georadius(string $key, float $lng, float $lat, float $radius, string $unit, array $options = []): mixed { }
+    public function georadius(string $key, float $lng, float $lat, float $radius, string $unit, array $options = []): mixed {}
 
     /**
      * Similar to `GEORADIUS` except it uses a member as the center of the query.
@@ -1213,7 +1213,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function georadiusbymember(string $key, string $member, float $radius, string $unit, array $options = []): mixed { }
+    public function georadiusbymember(string $key, string $member, float $radius, string $unit, array $options = []): mixed {}
 
     /**
      * Similar to `GEORADIUS` except it uses a member as the center of the query.
@@ -1226,7 +1226,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function georadiusbymember_ro(string $key, string $member, float $radius, string $unit, array $options = []): mixed { }
+    public function georadiusbymember_ro(string $key, string $member, float $radius, string $unit, array $options = []): mixed {}
 
     /**
      * Retrieve members of a geospacially sorted set that are within a certain radius of a location.
@@ -1240,7 +1240,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function georadius_ro(string $key, float $lng, float $lat, float $radius, string $unit, array $options = []): mixed { }
+    public function georadius_ro(string $key, float $lng, float $lat, float $radius, string $unit, array $options = []): mixed {}
 
     /**
      * Search a geospacial sorted set for members in various ways.
@@ -1259,7 +1259,7 @@ class Relay {
         array|int|float $shape,
         string $unit,
         array $options = []
-    ): \Relay\Relay|array { }
+    ): Relay|array {}
 
     /**
      * Search a geospacial sorted set for members within a given area or range, storing the results into
@@ -1281,7 +1281,7 @@ class Relay {
         array|int|float $shape,
         string $unit,
         array $options = []
-    ): \Relay\Relay|int|false { }
+    ): Relay|int|false {}
 
     /**
      * Get the value of key.
@@ -1290,7 +1290,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function get(mixed $key): mixed { }
+    public function get(mixed $key): mixed {}
 
     /**
      * Atomically sets key to value and returns the old value stored at key.
@@ -1300,7 +1300,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function getset(mixed $key, mixed $value): mixed { }
+    public function getset(mixed $key, mixed $value): mixed {}
 
     /**
      * Returns the substring of the string value stored at key,
@@ -1312,7 +1312,7 @@ class Relay {
      * @return string|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function getrange(mixed $key, int $start, int $end): \Relay\Relay|string|false { }
+    public function getrange(mixed $key, int $start, int $end): Relay|string|false {}
 
     /**
      * Overwrites part of the string stored at key, starting at
@@ -1324,7 +1324,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function setrange(mixed $key, int $start, mixed $value): \Relay\Relay|int|false { }
+    public function setrange(mixed $key, int $start, mixed $value): Relay|int|false {}
 
     /**
      * Returns the bit value at offset in the string value stored at key.
@@ -1334,7 +1334,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function getbit(mixed $key, int $pos): \Relay\Relay|int|false { }
+    public function getbit(mixed $key, int $pos): Relay|int|false {}
 
     /**
      * Count the number of set bits (population counting) in a string.
@@ -1346,7 +1346,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function bitcount(mixed $key, int $start = 0, int $end = -1, bool $by_bit = false): \Relay\Relay|int|false { }
+    public function bitcount(mixed $key, int $start = 0, int $end = -1, bool $by_bit = false): Relay|int|false {}
 
     /**
      * This is a container command for runtime configuration commands.
@@ -1357,7 +1357,7 @@ class Relay {
      * @return array|bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function config(string $operation, mixed $key = null, ?string $value = NULL): \Relay\Relay|array|bool { }
+    public function config(string $operation, mixed $key = null, ?string $value = null): Relay|array|bool {}
 
     /**
      * Return an array with details about every Redis command.
@@ -1366,7 +1366,7 @@ class Relay {
      * @return array|int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function command(mixed ...$args): \Relay\Relay|array|int|false { }
+    public function command(mixed ...$args): Relay|array|int|false {}
 
     /**
      * Perform a bitwise operation on one or more keys, storing the result in a new key.
@@ -1378,7 +1378,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function bitop(string $operation, string $dstkey, string $srckey, string ...$other_keys): \Relay\Relay|int|false { }
+    public function bitop(string $operation, string $dstkey, string $srckey, string ...$other_keys): Relay|int|false {}
 
     /**
      * Return the position of the first bit set to 1 or 0 in a string.
@@ -1391,7 +1391,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function bitpos(mixed $key, int $bit, int $start = null, int $end = null, bool $bybit = false): \Relay\Relay|int|false { }
+    public function bitpos(mixed $key, int $bit, int $start = null, int $end = null, bool $bybit = false): Relay|int|false {}
 
     /**
      * Sets or clears the bit at offset in the string value stored at key.
@@ -1402,7 +1402,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function setbit(mixed $key, int $pos, int $val): \Relay\Relay|int|false { }
+    public function setbit(mixed $key, int $pos, int $val): Relay|int|false {}
 
     /**
      * Interact with Redis' ACLs
@@ -1412,7 +1412,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function acl(string $cmd, string ...$args): mixed { }
+    public function acl(string $cmd, string ...$args): mixed {}
 
     /**
      * If key already exists and is a string, this command appends
@@ -1425,7 +1425,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function append(mixed $key, mixed $value): \Relay\Relay|int|false { }
+    public function append(mixed $key, mixed $value): Relay|int|false {}
 
     /**
      * Set key to hold the string value. If key already holds
@@ -1437,7 +1437,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function set(mixed $key, mixed $value, mixed $options = null): mixed { }
+    public function set(mixed $key, mixed $value, mixed $options = null): mixed {}
 
     /**
      * Get the value of key and optionally set its expiration.
@@ -1448,7 +1448,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function getex(mixed $key, ?array $options = NULL): mixed { }
+    public function getex(mixed $key, ?array $options = null): mixed {}
 
     /**
      * Get the value of key and delete the key. This command is similar to GET,
@@ -1459,7 +1459,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function getdel(mixed $key): mixed { }
+    public function getdel(mixed $key): mixed {}
 
     /**
      * Set key to hold the string value and set key to timeout after a given number of seconds.
@@ -1470,7 +1470,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function setex(mixed $key, int $seconds, mixed $value): \Relay\Relay|bool { }
+    public function setex(mixed $key, int $seconds, mixed $value): Relay|bool {}
 
     /**
      * Adds the specified elements to the specified HyperLogLog.
@@ -1480,7 +1480,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function pfadd(string $key, array $elements): \Relay\Relay|int|false { }
+    public function pfadd(string $key, array $elements): Relay|int|false {}
 
     /**
      * Return the approximated cardinality of the set(s) observed by the HyperLogLog at key(s).
@@ -1489,7 +1489,7 @@ class Relay {
      * @return int
      */
     #[\Relay\Attributes\RedisCommand]
-    public function pfcount(string $key): \Relay\Relay|int { }
+    public function pfcount(string $key): Relay|int {}
 
     /**
      * Merge given HyperLogLogs into a single one.
@@ -1498,7 +1498,7 @@ class Relay {
      * @param  array  $srckeys
      * @return bool
      */
-    public function pfmerge(string $dst, array $srckeys): \Relay\Relay|bool { }
+    public function pfmerge(string $dst, array $srckeys): Relay|bool {}
 
     /**
      * Set key to hold the string value and set key to timeout after a given number of milliseconds.
@@ -1510,7 +1510,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function psetex(mixed $key, int $milliseconds, mixed $value): \Relay\Relay|bool { }
+    public function psetex(mixed $key, int $milliseconds, mixed $value): Relay|bool {}
 
     /**
      * Posts a message to the given channel.
@@ -1520,7 +1520,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function publish(string $channel, string $message): \Relay\Relay|int|false { }
+    public function publish(string $channel, string $message): Relay|int|false {}
 
     /**
      * Set key to hold string value if key does not exist. In that case, it is equal to SET.
@@ -1532,7 +1532,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function setnx(mixed $key, mixed $value): \Relay\Relay|bool { }
+    public function setnx(mixed $key, mixed $value): Relay|bool {}
 
     /**
      * Returns the values of all specified keys.
@@ -1541,7 +1541,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function mget(array $keys): \Relay\Relay|array|false { }
+    public function mget(array $keys): Relay|array|false {}
 
     /**
      * Move key from the currently selected database to the specified destination database.
@@ -1551,7 +1551,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function move(mixed $key, int $db): \Relay\Relay|int|false { }
+    public function move(mixed $key, int $db): Relay|int|false {}
 
     /**
      * Sets the given keys to their respective values.
@@ -1561,7 +1561,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function mset(array $kvals): \Relay\Relay|bool { }
+    public function mset(array $kvals): Relay|bool {}
 
     /**
      * Sets the given keys to their respective values.
@@ -1571,7 +1571,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function msetnx(array $kvals): \Relay\Relay|bool { }
+    public function msetnx(array $kvals): Relay|bool {}
 
     /**
      * Renames key.
@@ -1581,7 +1581,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function rename(mixed $key, mixed $newkey): \Relay\Relay|bool { }
+    public function rename(mixed $key, mixed $newkey): Relay|bool {}
 
     /**
      * Renames key if the new key does not yet exist.
@@ -1591,7 +1591,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function renamenx(mixed $key, mixed $newkey): \Relay\Relay|bool { }
+    public function renamenx(mixed $key, mixed $newkey): Relay|bool {}
 
     /**
      * Removes the specified keys.
@@ -1600,7 +1600,7 @@ class Relay {
      * @return int|bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function del(mixed ...$keys): \Relay\Relay|int|bool { }
+    public function del(mixed ...$keys): Relay|int|bool {}
 
     /**
      * Removes the specified keys without blocking Redis.
@@ -1609,7 +1609,7 @@ class Relay {
      * @return int
      */
     #[\Relay\Attributes\RedisCommand]
-    public function unlink(mixed ...$keys): \Relay\Relay|int|false { }
+    public function unlink(mixed ...$keys): Relay|int|false {}
 
     /**
      * Set a timeout on key.
@@ -1620,7 +1620,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function expire(mixed $key, int $seconds, ?string $mode = null): \Relay\Relay|bool { }
+    public function expire(mixed $key, int $seconds, ?string $mode = null): Relay|bool {}
 
     /**
      * Set a key's time to live in milliseconds.
@@ -1630,7 +1630,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function pexpire(mixed $key, int $milliseconds): \Relay\Relay|bool { }
+    public function pexpire(mixed $key, int $milliseconds): Relay|bool {}
 
     /**
      * Set a timeout on key using a unix timestamp.
@@ -1640,7 +1640,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function expireat(mixed $key, int $timestamp): \Relay\Relay|bool { }
+    public function expireat(mixed $key, int $timestamp): Relay|bool {}
 
     /**
      * Returns the absolute Unix timestamp in seconds at which the given key will expire.
@@ -1651,7 +1651,7 @@ class Relay {
      * @return int|false
      * */
     #[\Relay\Attributes\RedisCommand]
-    public function expiretime(mixed $key): \Relay\Relay|int|false { }
+    public function expiretime(mixed $key): Relay|int|false {}
 
     /**
      * Set the expiration for a key as a UNIX timestamp specified in milliseconds.
@@ -1661,7 +1661,7 @@ class Relay {
      * @return Relay|bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function pexpireat(mixed $key, int $timestamp_ms): \Relay\Relay|bool { }
+    public function pexpireat(mixed $key, int $timestamp_ms): Relay|bool {}
 
     /**
      * Semantic the same as EXPIRETIME, but returns the absolute Unix expiration
@@ -1671,7 +1671,7 @@ class Relay {
      * @return int|false
      * */
     #[\Relay\Attributes\RedisCommand]
-    public function pexpiretime(mixed $key): \Relay\Relay|int|false { }
+    public function pexpiretime(mixed $key): Relay|int|false {}
 
     /**
      * Remove the existing timeout on key, turning the key from volatile to persistent.
@@ -1680,7 +1680,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function persist(mixed $key): \Relay\Relay|bool { }
+    public function persist(mixed $key): Relay|bool {}
 
     /**
      * Returns the type of a given key.
@@ -1693,7 +1693,7 @@ class Relay {
      * @return int|string|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function type(mixed $key): \Relay\Relay|int|string|bool { }
+    public function type(mixed $key): Relay|int|string|bool {}
 
     /**
      * Atomically returns and removes the first/last element of the list
@@ -1707,7 +1707,7 @@ class Relay {
      * @return string|null|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function lmove(mixed $srckey, mixed $dstkey, string $srcpos, string $dstpos): \Relay\Relay|string|null|false { }
+    public function lmove(mixed $srckey, mixed $dstkey, string $srcpos, string $dstpos): Relay|string|null|false {}
 
     /**
      * BLMOVE is the blocking variant of LMOVE. When source contains elements,
@@ -1722,7 +1722,7 @@ class Relay {
      * @return string|null|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function blmove(mixed $srckey, mixed $dstkey, string $srcpos, string $dstpos, float $timeout): \Relay\Relay|string|null|false { }
+    public function blmove(mixed $srckey, mixed $dstkey, string $srcpos, string $dstpos, float $timeout): Relay|string|null|false {}
 
     /**
      * Returns the specified elements of the list stored at key.
@@ -1733,7 +1733,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function lrange(mixed $key, int $start, int $stop): \Relay\Relay|array|false { }
+    public function lrange(mixed $key, int $start, int $stop): Relay|array|false {}
 
     /**
      * Insert all the specified values at the head of the list stored at key.
@@ -1744,7 +1744,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function lpush(mixed $key, mixed $mem, mixed ...$mems): \Relay\Relay|int|false { }
+    public function lpush(mixed $key, mixed $mem, mixed ...$mems): Relay|int|false {}
 
     /**
      * Insert all the specified values at the tail of the list stored at key.
@@ -1755,7 +1755,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function rpush(mixed $key, mixed $mem, mixed ...$mems): \Relay\Relay|int|false { }
+    public function rpush(mixed $key, mixed $mem, mixed ...$mems): Relay|int|false {}
 
     /**
      * Inserts specified values at the head of the list stored at key,
@@ -1767,7 +1767,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function lpushx(mixed $key, mixed $mem, mixed ...$mems): \Relay\Relay|int|false { }
+    public function lpushx(mixed $key, mixed $mem, mixed ...$mems): Relay|int|false {}
 
     /**
      * Inserts specified values at the tail of the list stored at key,
@@ -1779,7 +1779,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function rpushx(mixed $key, mixed $mem, mixed ...$mems): \Relay\Relay|int|false { }
+    public function rpushx(mixed $key, mixed $mem, mixed ...$mems): Relay|int|false {}
 
     /**
      * Sets the list element at index to element.
@@ -1790,7 +1790,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function lset(mixed $key, int $index, mixed $mem): \Relay\Relay|bool { }
+    public function lset(mixed $key, int $index, mixed $mem): Relay|bool {}
 
     /**
      * Removes and returns the first elements of the list stored at key.
@@ -1800,7 +1800,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function lpop(mixed $key, int $count = 1): mixed { }
+    public function lpop(mixed $key, int $count = 1): mixed {}
 
     /**
      * The command returns the index of matching elements inside a Redis list.
@@ -1811,7 +1811,7 @@ class Relay {
      * @return int|array|false|null
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function lpos(mixed $key, mixed $value, ?array $options = null): \Relay\Relay|int|array|false|null { }
+    public function lpos(mixed $key, mixed $value, ?array $options = null): Relay|int|array|false|null {}
 
     /**
      * Removes and returns the last elements of the list stored at key.
@@ -1821,7 +1821,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function rpop(mixed $key, int $count = 1): mixed { }
+    public function rpop(mixed $key, int $count = 1): mixed {}
 
     /**
      * Atomically returns and removes the last element (tail) of the list stored at source,
@@ -1832,7 +1832,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function rpoplpush(mixed $source, mixed $dest): mixed { }
+    public function rpoplpush(mixed $source, mixed $dest): mixed {}
 
     /**
      * Atomically returns and removes the last element (tail) of the list stored at source,
@@ -1845,7 +1845,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function brpoplpush(mixed $source, mixed $dest, float $timeout): mixed { }
+    public function brpoplpush(mixed $source, mixed $dest, float $timeout): mixed {}
 
     /**
      * BLPOP is a blocking list pop primitive. It is the blocking version of LPOP because
@@ -1857,7 +1857,7 @@ class Relay {
      * @return array|null|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function blpop(string|array $key, string|float $timeout_or_key, mixed ...$extra_args): \Relay\Relay|array|null|false { }
+    public function blpop(string|array $key, string|float $timeout_or_key, mixed ...$extra_args): Relay|array|null|false {}
 
     /**
      * Pop elements from a list, or block until one is available
@@ -1869,7 +1869,7 @@ class Relay {
      * @return array|null|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function blmpop(float $timeout, array $keys, string $from, int $count = 1): \Relay\Relay|array|null|false { }
+    public function blmpop(float $timeout, array $keys, string $from, int $count = 1): Relay|array|null|false {}
 
     /**
      * Remove and return members with scores in a sorted set or block until one is available
@@ -1881,7 +1881,7 @@ class Relay {
      * @return array|null|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function bzmpop(float $timeout, array $keys, string $from, int $count = 1): \Relay\Relay|array|null|false { }
+    public function bzmpop(float $timeout, array $keys, string $from, int $count = 1): Relay|array|null|false {}
 
     /**
      * Pops one or more elements from the first non-empty list key from the list of provided key names.
@@ -1892,7 +1892,7 @@ class Relay {
      * @return array|null|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function lmpop(array $keys, string $from, int $count = 1): \Relay\Relay|array|null|false { }
+    public function lmpop(array $keys, string $from, int $count = 1): Relay|array|null|false {}
 
     /**
      * Pops one or more elements, that are member-score pairs, from the
@@ -1904,7 +1904,7 @@ class Relay {
      * @return array|null|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zmpop(array $keys, string $from, int $count = 1): \Relay\Relay|array|null|false { }
+    public function zmpop(array $keys, string $from, int $count = 1): Relay|array|null|false {}
 
     /**
      * BRPOP is a blocking list pop primitive. It is the blocking version of RPOP because
@@ -1916,7 +1916,7 @@ class Relay {
      * @return array|null|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function brpop(string|array $key, string|float $timeout_or_key, mixed ...$extra_args): \Relay\Relay|array|null|false { }
+    public function brpop(string|array $key, string|float $timeout_or_key, mixed ...$extra_args): Relay|array|null|false {}
 
     /**
      * BZPOPMAX is the blocking variant of the sorted set ZPOPMAX primitive.
@@ -1927,7 +1927,7 @@ class Relay {
      * @return array|null|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function bzpopmax(string|array $key, string|float $timeout_or_key, mixed ...$extra_args): \Relay\Relay|array|null|false { }
+    public function bzpopmax(string|array $key, string|float $timeout_or_key, mixed ...$extra_args): Relay|array|null|false {}
 
     /**
      * BZPOPMIN is the blocking variant of the sorted set ZPOPMIN primitive.
@@ -1938,7 +1938,7 @@ class Relay {
      * @return array|null|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function bzpopmin(string|array $key, string|float $timeout_or_key, mixed ...$extra_args): \Relay\Relay|array|null|false { }
+    public function bzpopmin(string|array $key, string|float $timeout_or_key, mixed ...$extra_args): Relay|array|null|false {}
 
     /**
      * This is a container command for object introspection commands.
@@ -1948,7 +1948,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function object(string $op, mixed $key): mixed { }
+    public function object(string $op, mixed $key): mixed {}
 
     /**
      * Return the positions (longitude,latitude) of all the specified members
@@ -1959,7 +1959,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function geopos(mixed $key, mixed ...$members): \Relay\Relay|array|false { }
+    public function geopos(mixed $key, mixed ...$members): Relay|array|false {}
 
     /**
      * Removes the first count occurrences of elements equal to element from the list stored at key.
@@ -1970,7 +1970,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function lrem(mixed $key, mixed $mem, int $count = 0): \Relay\Relay|int|false { }
+    public function lrem(mixed $key, mixed $mem, int $count = 0): Relay|int|false {}
 
     /**
      * Returns the element at index index in the list stored at key.
@@ -1980,7 +1980,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function lindex(mixed $key, int $index): mixed { }
+    public function lindex(mixed $key, int $index): mixed {}
 
     /**
      * Inserts element in the list stored at key either before or after the reference value pivot.
@@ -1992,7 +1992,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function linsert(mixed $key, string $op, mixed $pivot, mixed $element): \Relay\Relay|int|false { }
+    public function linsert(mixed $key, string $op, mixed $pivot, mixed $element): Relay|int|false {}
 
     /**
      * Trim an existing list so that it will contain only the specified range of elements specified.
@@ -2003,7 +2003,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function ltrim(mixed $key, int $start, int $end): \Relay\Relay|bool { }
+    public function ltrim(mixed $key, int $start, int $end): Relay|bool {}
 
     /**
      * Returns the value associated with field in the hash stored at key.
@@ -2013,7 +2013,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function hget(mixed $hash, mixed $member): mixed { }
+    public function hget(mixed $hash, mixed $member): mixed {}
 
     /**
      * Returns the string length of the value associated with field in the hash stored at key.
@@ -2023,7 +2023,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function hstrlen(mixed $hash, mixed $member): \Relay\Relay|int|false { }
+    public function hstrlen(mixed $hash, mixed $member): Relay|int|false {}
 
     /**
      * Returns all fields and values of the hash stored at key.
@@ -2032,7 +2032,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function hgetall(mixed $hash): \Relay\Relay|array|false { }
+    public function hgetall(mixed $hash): Relay|array|false {}
 
     /**
      * Returns all field names in the hash stored at key.
@@ -2041,7 +2041,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function hkeys(mixed $hash): \Relay\Relay|array|false { }
+    public function hkeys(mixed $hash): Relay|array|false {}
 
     /**
      * Returns all values in the hash stored at key.
@@ -2050,7 +2050,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function hvals(mixed $hash): \Relay\Relay|array|false { }
+    public function hvals(mixed $hash): Relay|array|false {}
 
     /**
      * Returns the values associated with the specified fields in the hash stored at key.
@@ -2060,7 +2060,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function hmget(mixed $hash, array $members): \Relay\Relay|array|false { }
+    public function hmget(mixed $hash, array $members): Relay|array|false {}
 
     /**
      * When called with just the key argument, return a random field from the hash value stored at key.
@@ -2070,7 +2070,7 @@ class Relay {
      * @return array|string|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function hrandfield(mixed $hash, ?array $options = NULL): \Relay\Relay|array|string|false { }
+    public function hrandfield(mixed $hash, ?array $options = null): Relay|array|string|false {}
 
     /**
      * Sets the specified fields to their respective values in the hash stored at key.
@@ -2080,7 +2080,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function hmset(mixed $hash, array $members): \Relay\Relay|bool { }
+    public function hmset(mixed $hash, array $members): Relay|bool {}
 
     /**
      * Returns if field is an existing field in the hash stored at key.
@@ -2090,7 +2090,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function hexists(mixed $hash, mixed $member): \Relay\Relay|bool { }
+    public function hexists(mixed $hash, mixed $member): Relay|bool {}
 
     /**
      * Sets field in the hash stored at key to value, only if field does not yet exist.
@@ -2101,7 +2101,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function hsetnx(mixed $hash, mixed $member, mixed $value): \Relay\Relay|bool { }
+    public function hsetnx(mixed $hash, mixed $member, mixed $value): Relay|bool {}
 
     /**
      * Sets field in the hash stored at key to value.
@@ -2113,7 +2113,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function hset(mixed $key, mixed $mem, mixed $val, mixed ...$kvals): \Relay\Relay|int|false { }
+    public function hset(mixed $key, mixed $mem, mixed $val, mixed ...$kvals): Relay|int|false {}
 
     /**
      * Removes the specified fields from the hash stored at key.
@@ -2124,7 +2124,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function hdel(mixed $key, mixed $mem, string ...$mems): \Relay\Relay|int|false { }
+    public function hdel(mixed $key, mixed $mem, string ...$mems): Relay|int|false {}
 
     /**
      * Increments the number stored at field in the hash stored at key by increment.
@@ -2135,7 +2135,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function hincrby(mixed $key, mixed $mem, int $value): \Relay\Relay|int|false { }
+    public function hincrby(mixed $key, mixed $mem, int $value): Relay|int|false {}
 
     /**
      * Increment the specified field of a hash stored at key, and representing
@@ -2147,7 +2147,7 @@ class Relay {
      * @return float|bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function hincrbyfloat(mixed $key, mixed $mem, float $value): \Relay\Relay|float|bool { }
+    public function hincrbyfloat(mixed $key, mixed $mem, float $value): Relay|float|bool {}
 
     /**
      * Increments the number stored at key by one.
@@ -2157,7 +2157,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function incr(mixed $key, int $by = 1): \Relay\Relay|int|false { }
+    public function incr(mixed $key, int $by = 1): Relay|int|false {}
 
     /**
      * Decrements the number stored at key by one.
@@ -2167,7 +2167,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function decr(mixed $key, int $by = 1): \Relay\Relay|int|false { }
+    public function decr(mixed $key, int $by = 1): Relay|int|false {}
 
     /**
      * Increments the number stored at key by increment.
@@ -2177,7 +2177,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function incrby(mixed $key, int $value): \Relay\Relay|int|false { }
+    public function incrby(mixed $key, int $value): Relay|int|false {}
 
     /**
      * Decrements the number stored at key by decrement.
@@ -2187,7 +2187,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function decrby(mixed $key, int $value): \Relay\Relay|int|false { }
+    public function decrby(mixed $key, int $value): Relay|int|false {}
 
     /**
      * Increment the string representing a floating point number stored at key by the specified increment.
@@ -2197,7 +2197,7 @@ class Relay {
      * @return float|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function incrbyfloat(mixed $key, float $value): \Relay\Relay|float|false { }
+    public function incrbyfloat(mixed $key, float $value): Relay|float|false {}
 
     /**
      * Returns the members of the set resulting from the difference between the first set and all the successive sets.
@@ -2207,7 +2207,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function sdiff(mixed $key, mixed ...$other_keys): \Relay\Relay|array|false { }
+    public function sdiff(mixed $key, mixed ...$other_keys): Relay|array|false {}
 
     /**
      * This command is equal to SDIFF, but instead of returning the resulting set, it is stored in destination.
@@ -2218,7 +2218,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function sdiffstore(mixed $key, mixed ...$other_keys): \Relay\Relay|int|false { }
+    public function sdiffstore(mixed $key, mixed ...$other_keys): Relay|int|false {}
 
     /**
      * Returns the members of the set resulting from the intersection of all the given sets.
@@ -2228,7 +2228,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function sinter(mixed $key, mixed ...$other_keys): \Relay\Relay|array|false { }
+    public function sinter(mixed $key, mixed ...$other_keys): Relay|array|false {}
 
     /**
      * Intersect multiple sets and return the cardinality of the result.
@@ -2238,7 +2238,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function sintercard(array $keys, int $limit = -1): \Relay\Relay|int|false { }
+    public function sintercard(array $keys, int $limit = -1): Relay|int|false {}
 
     /**
      * This command is equal to SINTER, but instead of returning the resulting set, it is stored in destination.
@@ -2249,7 +2249,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function sinterstore(mixed $key, mixed ...$other_keys): \Relay\Relay|int|false { }
+    public function sinterstore(mixed $key, mixed ...$other_keys): Relay|int|false {}
 
     /**
      * Returns the members of the set resulting from the union of all the given sets.
@@ -2259,7 +2259,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function sunion(mixed $key, mixed ...$other_keys): \Relay\Relay|array|false { }
+    public function sunion(mixed $key, mixed ...$other_keys): Relay|array|false {}
 
     /**
      * This command is equal to SUNION, but instead of returning the resulting set, it is stored in destination.
@@ -2270,7 +2270,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function sunionstore(mixed $key, mixed ...$other_keys): \Relay\Relay|int|false { }
+    public function sunionstore(mixed $key, mixed ...$other_keys): Relay|int|false {}
 
     /**
      * Alters the last access time of a key(s).
@@ -2280,7 +2280,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function touch(array|string $key_or_array, mixed ...$more_keys): \Relay\Relay|int|false { }
+    public function touch(array|string $key_or_array, mixed ...$more_keys): Relay|int|false {}
 
     /**
      * A pipeline block is simply transmitted faster to the server (like `MULTI`), but without any guarantee of atomicity.
@@ -2288,7 +2288,7 @@ class Relay {
      * @return bool|\Relay\Relay
      */
     #[\Relay\Attributes\Local]
-    public function pipeline(): \Relay\Relay|bool { }
+    public function pipeline(): Relay|bool {}
 
     /**
      * Marks the start of a transaction block. Subsequent commands will be queued for atomic execution using EXEC.
@@ -2299,7 +2299,7 @@ class Relay {
      * @return bool|\Relay\Relay
      */
     #[\Relay\Attributes\RedisCommand]
-    public function multi(int $mode = 0): \Relay\Relay|bool { }
+    public function multi(int $mode = 0): Relay|bool {}
 
     /**
      * Executes all previously queued commands in a transaction and restores the connection state to normal.
@@ -2307,7 +2307,7 @@ class Relay {
      * @return array|bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function exec(): \Relay\Relay|array|bool { }
+    public function exec(): Relay|array|bool {}
 
     /**
      * Wait for the synchronous replication of all the write
@@ -2318,7 +2318,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function wait(int $replicas, $timeout): \Relay\Relay|int|false { }
+    public function wait(int $replicas, $timeout): Relay|int|false {}
 
     /**
      * Marks the given keys to be watched for conditional execution of a transaction.
@@ -2328,7 +2328,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function watch(mixed $key, mixed ...$other_keys): \Relay\Relay|bool { }
+    public function watch(mixed $key, mixed ...$other_keys): Relay|bool {}
 
     /**
      * Flushes all the previously watched keys for a transaction.
@@ -2337,7 +2337,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function unwatch(): \Relay\Relay|bool { }
+    public function unwatch(): Relay|bool {}
 
     /**
      * Flushes all previously queued commands in a transaction and restores the connection state to normal.
@@ -2346,7 +2346,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function discard(): bool { }
+    public function discard(): bool {}
 
     /**
      * Get the mode Relay is currently in.
@@ -2356,7 +2356,7 @@ class Relay {
      * @return int
      */
     #[\Relay\Attributes\Local]
-    public function getMode(bool $masked = false): int { }
+    public function getMode(bool $masked = false): int {}
 
     /**
      * Clear the accumulated sent and received bytes.
@@ -2364,7 +2364,7 @@ class Relay {
      * @return void
      */
     #[\Relay\Attributes\Local]
-    public function clearBytes(): void { }
+    public function clearBytes(): void {}
 
     /**
      * Scan the keyspace for matching keys.
@@ -2376,7 +2376,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function scan(mixed &$iterator, mixed $match = null, int $count = 0, ?string $type = null): array|false { }
+    public function scan(mixed &$iterator, mixed $match = null, int $count = 0, ?string $type = null): array|false {}
 
     /**
      * Iterates fields of Hash types and their associated values.
@@ -2388,7 +2388,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function hscan(mixed $key, mixed &$iterator, mixed $match = null, int $count = 0): array|false { }
+    public function hscan(mixed $key, mixed &$iterator, mixed $match = null, int $count = 0): array|false {}
 
     /**
      * Iterates elements of Sets types.
@@ -2400,7 +2400,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function sscan(mixed $key, mixed &$iterator, mixed $match = null, int $count = 0): array|false { }
+    public function sscan(mixed $key, mixed &$iterator, mixed $match = null, int $count = 0): array|false {}
 
     /**
      * Iterates elements of Sorted Set types and their associated scores.
@@ -2412,7 +2412,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zscan(mixed $key, mixed &$iterator, mixed $match = null, int $count = 0): array|false { }
+    public function zscan(mixed $key, mixed &$iterator, mixed $match = null, int $count = 0): array|false {}
 
     /**
      * Returns all keys matching pattern.
@@ -2421,7 +2421,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function keys(mixed $pattern): \Relay\Relay|array|false { }
+    public function keys(mixed $pattern): Relay|array|false {}
 
     /**
      * Interact with the Redis slowlog.
@@ -2431,7 +2431,7 @@ class Relay {
      * @return array|int|bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function slowlog(string $operation, string ...$extra_args): \Relay\Relay|array|int|bool { }
+    public function slowlog(string $operation, string ...$extra_args): Relay|array|int|bool {}
 
     /**
      * Returns all the members of the set value stored at `$key`.
@@ -2440,7 +2440,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function smembers(mixed $set): \Relay\Relay|array|false { }
+    public function smembers(mixed $set): Relay|array|false {}
 
     /**
      * Returns if `$member` is a member of the set stored at `$key`.
@@ -2450,7 +2450,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function sismember(mixed $set, mixed $member): \Relay\Relay|bool { }
+    public function sismember(mixed $set, mixed $member): Relay|bool {}
 
     /**
      * Returns whether each member is a member of the set stored at `$key`.
@@ -2460,7 +2460,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function smismember(mixed $set, mixed ...$members): \Relay\Relay|array|false { }
+    public function smismember(mixed $set, mixed ...$members): Relay|array|false {}
 
     /**
      * Remove the specified members from the set stored at `$key`.
@@ -2471,7 +2471,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function srem(mixed $set, mixed $member, mixed ...$members): \Relay\Relay|int|false { }
+    public function srem(mixed $set, mixed $member, mixed ...$members): Relay|int|false {}
 
     /**
      * Add the specified members to the set stored at `$key`.
@@ -2482,7 +2482,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function sadd(mixed $set, mixed $member, mixed ...$members): \Relay\Relay|int|false { }
+    public function sadd(mixed $set, mixed $member, mixed ...$members): Relay|int|false {}
 
     /**
      * Sort the elements in a list, set or sorted set.
@@ -2492,7 +2492,7 @@ class Relay {
      * @return array|int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function sort(mixed $key, array $options = []): \Relay\Relay|array|int|false { }
+    public function sort(mixed $key, array $options = []): Relay|array|int|false {}
 
     /**
      * Sort the elements in a list, set or sorted set. Read-only variant of SORT.
@@ -2502,7 +2502,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function sort_ro(mixed $key, array $options = []): \Relay\Relay|array|false { }
+    public function sort_ro(mixed $key, array $options = []): Relay|array|false {}
 
     /**
      * Move member from the set at source to the set at destination.
@@ -2513,7 +2513,7 @@ class Relay {
      * @return bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function smove(mixed $srcset, mixed $dstset, mixed $member): \Relay\Relay|bool { }
+    public function smove(mixed $srcset, mixed $dstset, mixed $member): Relay|bool {}
 
     /**
      * Removes and returns one or more random members from the set value store at `$key`.
@@ -2523,7 +2523,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function spop(mixed $set, int $count = 1): mixed { }
+    public function spop(mixed $set, int $count = 1): mixed {}
 
     /**
      * Returns one or multiple random members from a set.
@@ -2533,7 +2533,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function srandmember(mixed $set, int $count = 1): mixed { }
+    public function srandmember(mixed $set, int $count = 1): mixed {}
 
     /**
      * Returns the set cardinality (number of elements) of the set stored at `$key`.
@@ -2542,7 +2542,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function scard(mixed $key): \Relay\Relay|int|false { }
+    public function scard(mixed $key): Relay|int|false {}
 
     /**
      * Execute a script management command.
@@ -2552,7 +2552,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function script(string $command, string ...$args): mixed { }
+    public function script(string $command, string ...$args): mixed {}
 
     /**
      * Returns the length of the string value stored at `$key`.
@@ -2561,7 +2561,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function strlen(mixed $key): \Relay\Relay|int|false { }
+    public function strlen(mixed $key): Relay|int|false {}
 
     /**
      * Returns the number of fields contained in the hash stored at `$key`.
@@ -2570,7 +2570,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function hlen(mixed $key): \Relay\Relay|int|false { }
+    public function hlen(mixed $key): Relay|int|false {}
 
     /**
      * Returns the length of the list stored at `$key`.
@@ -2579,7 +2579,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function llen(mixed $key): \Relay\Relay|int|false { }
+    public function llen(mixed $key): Relay|int|false {}
 
     /**
      * Acknowledge one or more IDs as having been processed by the consumer group.
@@ -2590,7 +2590,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function xack(mixed $key, string $group, array $ids): \Relay\Relay|int|false { }
+    public function xack(mixed $key, string $group, array $ids): Relay|int|false {}
 
     /**
      * Append a message to a stream.
@@ -2609,7 +2609,7 @@ class Relay {
         int $maxlen = 0,
         bool $approx = false,
         bool $nomkstream = false
-    ): \Relay\Relay|string|false { }
+    ): Relay|string|false {}
 
     /**
      * Claim ownership of stream message(s).
@@ -2630,7 +2630,7 @@ class Relay {
         int $min_idle,
         array $ids,
         array $options
-    ): \Relay\Relay|array|bool { }
+    ): Relay|array|bool {}
 
     /**
      * Automatically take ownership of stream message(s) by metrics
@@ -2653,7 +2653,7 @@ class Relay {
         string $start,
         int $count = -1,
         bool $justid = false
-    ): \Relay\Relay|bool|array { }
+    ): Relay|bool|array {}
 
     /**
      * Get the length of a stream.
@@ -2662,7 +2662,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function xlen(string $key): \Relay\Relay|int|false { }
+    public function xlen(string $key): Relay|int|false {}
 
     /**
      * Perform utility operations having to do with consumer groups
@@ -2683,7 +2683,7 @@ class Relay {
         string $id_or_consumer = null,
         bool $mkstream = false,
         int $entries_read = -2
-    ): mixed { }
+    ): mixed {}
 
     /**
      * Remove one or more specific IDs from a stream.
@@ -2693,7 +2693,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function xdel(string $key, array $ids): \Relay\Relay|int|false { }
+    public function xdel(string $key, array $ids): Relay|int|false {}
 
     /**
      * Retrieve information about a stream key.
@@ -2705,7 +2705,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function xinfo(string $operation, ?string $arg1 = null, ?string $arg2 = null, int $count = -1): mixed { }
+    public function xinfo(string $operation, ?string $arg1 = null, ?string $arg2 = null, int $count = -1): mixed {}
 
     /**
      * Query pending entries in a stream.
@@ -2728,7 +2728,7 @@ class Relay {
         int $count = -1,
         ?string $consumer = null,
         int $idle = 0
-    ): \Relay\Relay|array|false { }
+    ): Relay|array|false {}
 
     /**
      * Lists elements in a stream.
@@ -2740,7 +2740,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function xrange(mixed $key, string $start, string $end, int $count = -1): \Relay\Relay|array|false { }
+    public function xrange(mixed $key, string $start, string $end, int $count = -1): Relay|array|false {}
 
     /**
      * Get a range of entries from a STREAM ke in reverse chronological order.
@@ -2752,7 +2752,7 @@ class Relay {
      * @return array|bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function xrevrange(string $key, string $end, string $start, int $count = -1): \Relay\Relay|array|bool { }
+    public function xrevrange(string $key, string $end, string $start, int $count = -1): Relay|array|bool {}
 
     /**
      * Read messages from a stream.
@@ -2763,7 +2763,7 @@ class Relay {
      * @return array|bool|null
      */
     #[\Relay\Attributes\RedisCommand]
-    public function xread(array $streams, int $count = -1, int $block = -1): \Relay\Relay|array|bool|null { }
+    public function xread(array $streams, int $count = -1, int $block = -1): Relay|array|bool|null {}
 
     /**
      * Read messages from a stream using a consumer group.
@@ -2782,7 +2782,7 @@ class Relay {
         array $streams,
         int $count = 1,
         int $block = 1
-    ): \Relay\Relay|array|bool|null { }
+    ): Relay|array|bool|null {}
 
     /**
      * Truncate a STREAM key in various ways.
@@ -2801,7 +2801,7 @@ class Relay {
         bool $approx = false,
         bool $minid = false,
         int $limit = -1
-    ): \Relay\Relay|int|false { }
+    ): Relay|int|false {}
 
     /**
      * Adds all the specified members with the specified scores to the sorted set stored at key.
@@ -2811,7 +2811,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zadd(mixed $key, mixed ...$args): mixed { }
+    public function zadd(mixed $key, mixed ...$args): mixed {}
 
     /**
      * When called with just the key argument, return a random element from the sorted set value stored at key.
@@ -2822,7 +2822,7 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zrandmember(mixed $key, ?array $options = NULL): mixed { }
+    public function zrandmember(mixed $key, ?array $options = null): mixed {}
 
     /**
      * Returns the specified range of elements in the sorted set stored at key.
@@ -2834,7 +2834,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zrange(mixed $key, string $start, string $end, mixed $options = null): \Relay\Relay|array|false { }
+    public function zrange(mixed $key, string $start, string $end, mixed $options = null): Relay|array|false {}
 
     /**
      * Returns the specified range of elements in the sorted set stored at key.
@@ -2846,7 +2846,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zrevrange(mixed $key, int $start, int $end, mixed $options = null): \Relay\Relay|array|false { }
+    public function zrevrange(mixed $key, int $start, int $end, mixed $options = null): Relay|array|false {}
 
     /**
      * Returns all the elements in the sorted set at key with a score between
@@ -2859,7 +2859,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zrangebyscore(mixed $key, mixed $start, mixed $end, mixed $options = null): \Relay\Relay|array|false { }
+    public function zrangebyscore(mixed $key, mixed $start, mixed $end, mixed $options = null): Relay|array|false {}
 
     /**
      * Returns all the elements in the sorted set at key with a score between
@@ -2872,7 +2872,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zrevrangebyscore(mixed $key, mixed $start, mixed $end, mixed $options = null): \Relay\Relay|array|false { }
+    public function zrevrangebyscore(mixed $key, mixed $start, mixed $end, mixed $options = null): Relay|array|false {}
 
     /**
      * Returns all the elements in the sorted set at key with a score between
@@ -2886,7 +2886,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zrangestore(mixed $dst, mixed $src, mixed $start, mixed $end, mixed $options = null): \Relay\Relay|int|false { }
+    public function zrangestore(mixed $dst, mixed $src, mixed $start, mixed $end, mixed $options = null): Relay|int|false {}
 
     /**
      * When all the elements in a sorted set are inserted with the same score,
@@ -2901,7 +2901,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zrangebylex(mixed $key, mixed $min, mixed $max, int $offset = -1, int $count = -1): \Relay\Relay|array|false { }
+    public function zrangebylex(mixed $key, mixed $min, mixed $max, int $offset = -1, int $count = -1): Relay|array|false {}
 
     /**
      * When all the elements in a sorted set are inserted with the same score,
@@ -2916,7 +2916,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zrevrangebylex(mixed $key, mixed $max, mixed $min, int $offset = -1, int $count = -1): \Relay\Relay|array|false { }
+    public function zrevrangebylex(mixed $key, mixed $max, mixed $min, int $offset = -1, int $count = -1): Relay|array|false {}
 
     /**
      * Returns the rank of member in the sorted set stored at key, with the scores
@@ -2928,7 +2928,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zrank(mixed $key, mixed $rank): \Relay\Relay|int|false { }
+    public function zrank(mixed $key, mixed $rank): Relay|int|false {}
 
     /**
      * Returns the rank of member in the sorted set stored at key, with the scores
@@ -2940,7 +2940,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zrevrank(mixed $key, mixed $rank): \Relay\Relay|int|false { }
+    public function zrevrank(mixed $key, mixed $rank): Relay|int|false {}
 
     /**
      * Removes the specified members from the sorted set stored at key.
@@ -2951,7 +2951,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zrem(mixed $key, mixed ...$args): \Relay\Relay|int|false { }
+    public function zrem(mixed $key, mixed ...$args): Relay|int|false {}
 
     /**
      * When all the elements in a sorted set are inserted with the same score,
@@ -2965,7 +2965,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zremrangebylex(mixed $key, mixed $min, mixed $max): \Relay\Relay|int|false { }
+    public function zremrangebylex(mixed $key, mixed $min, mixed $max): Relay|int|false {}
 
     /**
      * Removes all elements in the sorted set stored at key with rank between
@@ -2978,7 +2978,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zremrangebyrank(mixed $key, int $start, int $end): \Relay\Relay|int|false { }
+    public function zremrangebyrank(mixed $key, int $start, int $end): Relay|int|false {}
 
     /**
      * Removes all elements in the sorted set stored at key with
@@ -2990,7 +2990,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zremrangebyscore(mixed $key, mixed $min, mixed $max): \Relay\Relay|int|false { }
+    public function zremrangebyscore(mixed $key, mixed $min, mixed $max): Relay|int|false {}
 
     /**
      * Returns the sorted set cardinality (number of elements) of the sorted set stored at key.
@@ -2999,7 +2999,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function zcard(mixed $key): \Relay\Relay|int|false { }
+    public function zcard(mixed $key): Relay|int|false {}
 
     /**
      * Returns the number of elements in the sorted set at key with a score between min and max.
@@ -3010,7 +3010,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zcount(mixed $key, mixed $min, mixed $max): \Relay\Relay|int|false { }
+    public function zcount(mixed $key, mixed $min, mixed $max): Relay|int|false {}
 
     /**
      * This command is similar to ZDIFFSTORE, but instead of storing the
@@ -3021,7 +3021,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zdiff(array $keys, ?array $options = null): \Relay\Relay|array|false { }
+    public function zdiff(array $keys, ?array $options = null): Relay|array|false {}
 
     /**
      * Computes the difference between the first and all successive
@@ -3032,7 +3032,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zdiffstore(mixed $dst, array $keys): \Relay\Relay|int|false { }
+    public function zdiffstore(mixed $dst, array $keys): Relay|int|false {}
 
     /**
      * Increments the score of member in the sorted set stored at key by increment.
@@ -3043,7 +3043,7 @@ class Relay {
      * @return float|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zincrby(mixed $key, float $score, mixed $mem): \Relay\Relay|float|false { }
+    public function zincrby(mixed $key, float $score, mixed $mem): Relay|float|false {}
 
     /**
      * When all the elements in a sorted set are inserted with the same score,
@@ -3056,7 +3056,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zlexcount(mixed $key, mixed $min, mixed $max): \Relay\Relay|int|false { }
+    public function zlexcount(mixed $key, mixed $min, mixed $max): Relay|int|false {}
 
     /**
      * Returns the scores associated with the specified members in the sorted set stored at key.
@@ -3066,7 +3066,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zmscore(mixed $key, mixed ...$mems): \Relay\Relay|array|false { }
+    public function zmscore(mixed $key, mixed ...$mems): Relay|array|false {}
 
     /**
      * Returns the score of member in the sorted set at key.
@@ -3076,7 +3076,7 @@ class Relay {
      * @return float|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zscore(mixed $key, mixed $member): \Relay\Relay|float|false { }
+    public function zscore(mixed $key, mixed $member): Relay|float|false {}
 
     /**
      * This command is similar to ZINTERSTORE, but instead of storing
@@ -3088,7 +3088,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zinter(array $keys, ?array $weights = null, mixed $options = null): \Relay\Relay|array|false { }
+    public function zinter(array $keys, ?array $weights = null, mixed $options = null): Relay|array|false {}
 
     /**
      * Intersect multiple sorted sets and return the cardinality of the result.
@@ -3098,7 +3098,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zintercard(array $keys, int $limit = -1): \Relay\Relay|int|false { }
+    public function zintercard(array $keys, int $limit = -1): Relay|int|false {}
 
     /**
      * Computes the intersection of numkeys sorted sets given by the
@@ -3111,7 +3111,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zinterstore(mixed $dst, array $keys, ?array $weights = null, mixed $options = null): \Relay\Relay|int|false { }
+    public function zinterstore(mixed $dst, array $keys, ?array $weights = null, mixed $options = null): Relay|int|false {}
 
     /**
      * This command is similar to ZUNIONSTORE, but instead of storing
@@ -3123,7 +3123,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zunion(array $keys, ?array $weights = null, mixed $options = null): \Relay\Relay|array|false { }
+    public function zunion(array $keys, ?array $weights = null, mixed $options = null): Relay|array|false {}
 
     /**
      * Computes the union of numkeys sorted sets given by the
@@ -3136,7 +3136,7 @@ class Relay {
      * @return int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zunionstore(mixed $dst, array $keys, ?array $weights = null, mixed $options = null): \Relay\Relay|int|false { }
+    public function zunionstore(mixed $dst, array $keys, ?array $weights = null, mixed $options = null): Relay|int|false {}
 
     /**
      * Removes and returns up to count members with the lowest
@@ -3147,7 +3147,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zpopmin(mixed $key, int $count = 1): \Relay\Relay|array|false { }
+    public function zpopmin(mixed $key, int $count = 1): Relay|array|false {}
 
     /**
      * Removes and returns up to count members with the highest
@@ -3158,7 +3158,7 @@ class Relay {
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zpopmax(mixed $key, int $count = 1): \Relay\Relay|array|false { }
+    public function zpopmax(mixed $key, int $count = 1): Relay|array|false {}
 
     /**
      * Returns keys cached in runtime memory.
@@ -3167,5 +3167,5 @@ class Relay {
      * @return mixed
      */
     #[\Relay\Attributes\Local]
-    public function _getKeys() { }
+    public function _getKeys() {}
 }
