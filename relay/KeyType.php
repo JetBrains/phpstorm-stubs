@@ -5,7 +5,8 @@ namespace Relay;
 /**
  * A collection of Redis data types.
  */
-enum KeyType: int {
+enum KeyType: int
+{
     /**
      * @see Relay::REDIS_NOT_FOUND
      */
