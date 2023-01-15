@@ -1532,23 +1532,11 @@ define('IBASE_NOWAIT', 256);
  * @link https://www.php.net/manual/en/ibase.constants.php
  */
 define('IBASE_WAIT', 128);
-/**
- */
 define('IBASE_BKP_IGNORE_CHECKSUMS', 1);
-/**
- */
 define('IBASE_BKP_IGNORE_LIMBO', 2);
-/**
- */
 define('IBASE_BKP_METADATA_ONLY', 4);
-/**
- */
 define('IBASE_BKP_NO_GARBAGE_COLLECT', 8);
-/**
- */
 define('IBASE_BKP_OLD_DESCRIPTIONS', 16);
-/**
- */
 define('IBASE_BKP_NON_TRANSPORTABLE', 32);
 
 /**
@@ -1556,23 +1544,11 @@ define('IBASE_BKP_NON_TRANSPORTABLE', 32);
  * @link https://php.net/manual/en/ibase.constants.php
  */
 define('IBASE_BKP_CONVERT', 64);
-/**
- */
 define('IBASE_RES_DEACTIVATE_IDX', 256);
-/**
- */
 define('IBASE_RES_NO_SHADOW', 512);
-/**
- */
 define('IBASE_RES_NO_VALIDITY', 1024);
-/**
- */
 define('IBASE_RES_ONE_AT_A_TIME', 2048);
-/**
- */
 define('IBASE_RES_REPLACE', 4096);
-/**
- */
 define('IBASE_RES_CREATE', 8192);
 
 /**
@@ -1580,74 +1556,28 @@ define('IBASE_RES_CREATE', 8192);
  * @link https://php.net/manual/en/ibase.constants.php
  */
 define('IBASE_RES_USE_ALL_SPACE', 16384);
-/**
- */
 define('IBASE_PRP_PAGE_BUFFERS', 5);
-/**
- */
 define('IBASE_PRP_SWEEP_INTERVAL', 6);
-/**
- */
 define('IBASE_PRP_SHUTDOWN_DB', 7);
-/**
- */
 define('IBASE_PRP_DENY_NEW_TRANSACTIONS', 10);
-/**
- */
 define('IBASE_PRP_DENY_NEW_ATTACHMENTS', 9);
-/**
- */
 define('IBASE_PRP_RESERVE_SPACE', 11);
-/**
- */
 define('IBASE_PRP_RES_USE_FULL', 35);
-/**
- */
 define('IBASE_PRP_RES', 36);
-/**
- */
 define('IBASE_PRP_WRITE_MODE', 12);
-/**
- */
 define('IBASE_PRP_WM_ASYNC', 37);
-/**
- */
 define('IBASE_PRP_WM_SYNC', 38);
-/**
- */
 define('IBASE_PRP_ACCESS_MODE', 13);
-/**
- */
 define('IBASE_PRP_AM_READONLY', 39);
-/**
- */
 define('IBASE_PRP_AM_READWRITE', 40);
-/**
- */
 define('IBASE_PRP_SET_SQL_DIALECT', 14);
-/**
- */
 define('IBASE_PRP_ACTIVATE', 256);
-/**
- */
 define('IBASE_PRP_DB_ONLINE', 512);
-/**
- */
 define('IBASE_RPR_CHECK_DB', 16);
-/**
- */
 define('IBASE_RPR_IGNORE_CHECKSUM', 32);
-/**
- */
 define('IBASE_RPR_KILL_SHADOWS', 64);
-/**
- */
 define('IBASE_RPR_MEND_DB', 4);
-/**
- */
 define('IBASE_RPR_VALIDATE_DB', 1);
-/**
- */
 define('IBASE_RPR_FULL', 128);
 
 /**
@@ -1655,17 +1585,9 @@ define('IBASE_RPR_FULL', 128);
  * @link https://php.net/manual/en/ibase.constants.php
  */
 define('IBASE_RPR_SWEEP_DB', 2);
-/**
- */
 define('IBASE_STS_DATA_PAGES', 1);
-/**
- */
 define('IBASE_STS_DB_LOG', 2);
-/**
- */
 define('IBASE_STS_HDR_PAGES', 4);
-/**
- */
 define('IBASE_STS_IDX_PAGES', 8);
 
 /**
@@ -1673,26 +1595,12 @@ define('IBASE_STS_IDX_PAGES', 8);
  * @link https://php.net/manual/en/ibase.constants.php
  */
 define('IBASE_STS_SYS_RELATIONS', 16);
-/**
- */
 define('IBASE_SVC_SERVER_VERSION', 55);
-/**
- */
 define('IBASE_SVC_IMPLEMENTATION', 56);
-/**
- */
 define('IBASE_SVC_GET_ENV', 59);
-/**
- */
 define('IBASE_SVC_GET_ENV_LOCK', 60);
-/**
- */
 define('IBASE_SVC_GET_ENV_MSG', 61);
-/**
- */
 define('IBASE_SVC_USER_DBPATH', 58);
-/**
- */
 define('IBASE_SVC_SVR_DB_INFO', 50);
 
 /**
