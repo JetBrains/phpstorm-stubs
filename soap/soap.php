@@ -322,7 +322,12 @@ class SoapClient
      * </p>
      * <p>
      * On error, if the SoapClient object was constructed with the exceptions
-     * option set to <b>FALSE</b>, a SoapFault object will be returned.
+     * option set to <b>FALSE</b>, a SoapFault object will be returned. If this
+     * option is not set, or is set to <b>TRUE</b>, then a SoapFault object will
+     * be thrown as an exception.
+     * @throws SoapFault A SoapFault exception will be thrown if an error occurs
+     * and the SoapClient was constructed with the exceptions option not set, or
+     * set to <b>TRUE</b>.
      * @since 5.0.1
      */
     #[TentativeType]
