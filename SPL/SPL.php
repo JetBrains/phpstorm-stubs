@@ -1525,6 +1525,10 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
 /**
  * This class allows objects to work as arrays.
  * @link https://php.net/manual/en/class.arrayobject.php
+ * @template TKey
+ * @template TValue
+ * @template-implements IteratorAggregate<TKey, TValue>
+ * @template-implements ArrayAccess<TKey, TValue>
  */
 class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Countable
 {
@@ -1541,9 +1545,9 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Construct a new array object
      * @link https://php.net/manual/en/arrayobject.construct.php
-     * @param array|object $array The input parameter accepts an array or an Object.
+     * @param array<TValue>|object $array The input parameter accepts an array or an Object.
      * @param int $flags Flags to control the behaviour of the ArrayObject object.
-     * @param string $iteratorClass Specify the class that will be used for iteration of the ArrayObject object. ArrayIterator is the default class used.
+     * @param class-string<ArrayIterator> $iteratorClass Specify the class that will be used for iteration of the ArrayObject object. ArrayIterator is the default class used.
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'object|array'], default: '')] $array = [],
@@ -1554,7 +1558,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Returns whether the requested index exists
      * @link https://php.net/manual/en/arrayobject.offsetexists.php
-     * @param int|string $key <p>
+     * @param TKey $key <p>
      * The index being checked.
      * </p>
      * @return bool true if the requested index exists, otherwise false
@@ -1565,7 +1569,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Returns the value at the specified index
      * @link https://php.net/manual/en/arrayobject.offsetget.php
-     * @param int|string $key <p>
+     * @param TKey $key <p>
      * The index with the value.
      * </p>
      * @return mixed|false The value at the specified index or false.
@@ -1576,10 +1580,10 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Sets the value at the specified index to newval
      * @link https://php.net/manual/en/arrayobject.offsetset.php
-     * @param int|string $key <p>
+     * @param TKey $key <p>
      * The index being set.
      * </p>
-     * @param mixed $value <p>
+     * @param TValue $value <p>
      * The new value for the <i>index</i>.
      * </p>
      * @return void
@@ -1593,7 +1597,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Unsets the value at the specified index
      * @link https://php.net/manual/en/arrayobject.offsetunset.php
-     * @param int|string $key <p>
+     * @param TKey $key <p>
      * The index being unset.
      * </p>
      * @return void
@@ -1604,7 +1608,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Appends the value
      * @link https://php.net/manual/en/arrayobject.append.php
-     * @param mixed $value <p>
+     * @param TValue $value <p>
      * The value being appended.
      * </p>
      * @return void
@@ -1615,7 +1619,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Creates a copy of the ArrayObject.
      * @link https://php.net/manual/en/arrayobject.getarraycopy.php
-     * @return array a copy of the array. When the <b>ArrayObject</b> refers to an object
+     * @return array<TValue> a copy of the array. When the <b>ArrayObject</b> refers to an object
      * an array of the public properties of that object will be returned.
      */
     #[TentativeType]
@@ -1697,7 +1701,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Sort the entries with a user-defined comparison function and maintain key association
      * @link https://php.net/manual/en/arrayobject.uasort.php
-     * @param callable $callback <p>
+     * @param callable(TValue, TValue):int $callback <p>
      * Function <i>cmp_function</i> should accept two
      * parameters which will be filled by pairs of entries.
      * The comparison function must return an integer less than, equal
@@ -1713,7 +1717,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Sort the entries by keys using a user-defined comparison function
      * @link https://php.net/manual/en/arrayobject.uksort.php
-     * @param callable $callback <p>
+     * @param callable(TValue, TValue):int $callback <p>
      * The callback comparison function.
      * </p>
      * <p>
@@ -1788,7 +1792,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Create a new iterator from an ArrayObject instance
      * @link https://php.net/manual/en/arrayobject.getiterator.php
-     * @return ArrayIterator An iterator from an <b>ArrayObject</b>.
+     * @return ArrayIterator<TKey, TValue> An iterator from an <b>ArrayObject</b>.
      */
     #[TentativeType]
     public function getIterator(): Iterator {}
@@ -1807,7 +1811,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Sets the iterator classname for the ArrayObject.
      * @link https://php.net/manual/en/arrayobject.setiteratorclass.php
-     * @param string $iteratorClass <p>
+     * @param class-string<ArrayIterator> $iteratorClass <p>
      * The classname of the array iterator to use when iterating over this object.
      * </p>
      * @return void
@@ -1818,7 +1822,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Gets the iterator classname for the ArrayObject.
      * @link https://php.net/manual/en/arrayobject.getiteratorclass.php
-     * @return string the iterator class name that is used to iterate over this object.
+     * @return class-string<ArrayIterator> the iterator class name that is used to iterate over this object.
      */
     #[TentativeType]
     public function getIteratorClass(): string {}
