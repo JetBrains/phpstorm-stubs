@@ -189,7 +189,7 @@ function sleep(int $seconds) {}
 /**
  * Delay execution in microseconds
  * @link https://php.net/manual/en/function.usleep.php
- * @param int $microseconds <p>
+ * @param int<0,max> $microseconds <p>
  * Halt time in micro seconds. A micro second is one millionth of a
  * second.
  * </p>
