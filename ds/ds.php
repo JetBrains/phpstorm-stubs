@@ -24,6 +24,10 @@ namespace Ds;
      * are traversable, countable, and can be converted to json using
      * json_encode().
      * @package Ds
+     *
+     * @template-covariant TKey
+     * @template-covariant TValue
+     * @extends IteratorAggregate<TKey, TValue>
      */
     interface Collection extends Countable, IteratorAggregate, JsonSerializable
     {
@@ -36,7 +40,7 @@ namespace Ds;
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-collection.copy.php
-         * @return Collection
+         * @return Collection<TKey, TValue>
          */
         public function copy();
 
@@ -51,7 +55,7 @@ namespace Ds;
          * Converts the collection to an array.
          * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-collection.toarray.php
-         * @return array An array containing all the values in the same order as
+         * @return array<TValue> An array containing all the values in the same order as
          * the collection.
          */
         public function toArray(): array;
@@ -140,6 +144,8 @@ namespace Ds;
      * <li>A more efficient alternative to SplDoublyLinkedList and SplFixedArray.</li>
      * </ul>
      * @package Ds
+     * @template TValue
+     * @extends Collection<int, TValue>
      */
     interface Sequence extends Collection
     {
@@ -157,7 +163,7 @@ namespace Ds;
         /**
          * Updates all values by applying a callback function to each value in
          * the sequence.
-         * @param callable $callback A callable to apply to each value in the
+         * @param callable(TValue): TValue $callback A callable to apply to each value in the
          * sequence. The callback should return what the value should be
          * replaced by.
          * <code>callback ( mixed $value ) : mixed</code>
@@ -174,7 +180,7 @@ namespace Ds;
 
         /**
          * Determines if the sequence contains all values.
-         * @param mixed $values Values to check.
+         * @param TValue ...$values Values to check.
          * @return bool FALSE if any of the provided values are not in the
          * sequence, TRUE otherwise.
          * @link https://www.php.net/manual/en/ds-sequence.contains.php
@@ -184,12 +190,12 @@ namespace Ds;
         /**
          * Creates a new sequence using a callable to determine which values
          * to include.
-         * @param null|callable $callback Optional callable which returns TRUE if the
+         * @param null|callable(TValue): bool $callback Optional callable which returns TRUE if the
          * value should be included, FALSE otherwise. If a callback is not
          * provided, only values which are TRUE (see converting to boolean) will
          * be included.
          * <code>callback ( mixed $value ) : bool</code>
-         * @return Sequence A new sequence containing all the values for which
+         * @return Sequence<TValue> A new sequence containing all the values for which
          * either the callback returned TRUE, or all values that convert to
          * TRUE if a callback was not provided.
          * @link https://www.php.net/manual/en/ds-sequence.filter.php
@@ -198,7 +204,7 @@ namespace Ds;
 
         /**
          * Returns the index of the value, or FALSE if not found.
-         * @param mixed $value The value to find.
+         * @param TValue $value The value to find.
          * @return int|false The index of the value, or FALSE if not found.
          * @link https://www.php.net/manual/en/ds-sequence.find.php
          */
@@ -206,7 +212,7 @@ namespace Ds;
 
         /**
          * Returns the first value in the sequence.
-         * @return mixed The first value in the sequence.
+         * @return TValue The first value in the sequence.
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-sequence.first.php
          */
@@ -215,7 +221,7 @@ namespace Ds;
         /**
          * Returns the value at a given index.
          * @param int $index The index to access, starting at 0.
-         * @return mixed The value at the requested index.
+         * @return TValue The value at the requested index.
          * @throws OutOfRangeException if the index is not valid.
          * @link https://www.php.net/manual/en/ds-sequence.get.php
          */
@@ -226,7 +232,7 @@ namespace Ds;
          *
          * @param int $index The index at which to insert. 0 <= index <= count
          * <p><b>Note:</b> You can insert at the index equal to the number of values.</p>
-         * @param mixed ...$values The value or values to insert.
+         * @param TValue ...$values The value or values to insert.
          * @throws OutOfRangeException if the index is not valid.
          * @link https://www.php.net/manual/en/ds-sequence.insert.php
          */
@@ -244,7 +250,7 @@ namespace Ds;
 
         /**
          * Returns the last value in the sequence.
-         * @return mixed The last value in the sequence.
+         * @return TValue The last value in the sequence.
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-sequence.last.php
          */
@@ -253,31 +259,33 @@ namespace Ds;
         /**
          * Returns the result of applying a callback function to each value in
          * the sequence.
-         * @param callable $callback A callable to apply to each value in the
+         * @template TNewValue
+         * @param callable(TValue): TNewValue $callback A callable to apply to each value in the
          * sequence.
          * The callable should return what the new value will be in the new
          * sequence.
          * <code>callback ( mixed $value ) : mixed</code>
-         * @return Sequence The result of applying a callback to each value in
+         * @return Sequence<TNewValue> The result of applying a callback to each value in
          * the sequence.<p><b>Note:</b> The values of the current instance won't be
          * affected.</p>
          * @link https://www.php.net/manual/en/ds-sequence.map.php
          */
-        public function map(callable $callback);
+        public function map(callable $callback): Sequence;
 
         /**
          * Returns the result of adding all given values to the sequence.
-         * @param iterable $values A traversable object or an array.
-         * @return Sequence The result of adding all given values to the
+         * @template TValue2
+         * @param iterable<TValue2> $values A traversable object or an array.
+         * @return Sequence<TValue|TValue2> The result of adding all given values to the
          * sequence, effectively the same as adding the values to a copy,
          * then returning that copy.
          * @link https://www.php.net/manual/en/ds-sequence.merge.php
          */
-        public function merge($values);
+        public function merge($values): Sequence;
 
         /**
          * Removes and returns the last value.
-         * @return mixed The removed last value.
+         * @return TValue The removed last value.
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-sequence.pop.php
          */
@@ -285,21 +293,22 @@ namespace Ds;
 
         /**
          * Adds values to the end of the sequence.
-         * @param mixed ...$values The values to add.
+         * @param TValue ...$values The values to add.
          */
         public function push(...$values): void;
 
         /**
          * Reduces the sequence to a single value using a callback function.
-         * @param callable $callback <p>
+         * @template TCarry
+         * @param callable(TCarry, TValue): TCarry $callback <p>
          * <code>
          * callback ( mixed $carry , mixed $value ) : mixed</code>
          * <b>$carry</b> The return value of the previous callback, or initial if it's
          * the first iteration.<br>
          * <b>$value</b> The value of the current iteration.
          * </p>
-         * @param mixed $initial The initial value of the carry value. Can be NULL.
-         * @return mixed The return value of the final callback.
+         * @param TCarry $initial The initial value of the carry value. Can be NULL.
+         * @return TCarry The return value of the final callback.
          * @link https://www.php.net/manual/en/ds-sequence.reduce.php
          */
         public function reduce(callable $callback, $initial = null);
@@ -307,7 +316,7 @@ namespace Ds;
         /**
          * Removes and returns a value by index.
          * @param int $index The index of the value to remove.
-         * @return mixed The value that was removed.
+         * @return TValue The value that was removed.
          * @link https://www.php.net/manual/en/ds-sequence.remove.php
          */
         public function remove(int $index);
@@ -320,7 +329,7 @@ namespace Ds;
 
         /**
          * Returns a reversed copy of the sequence.
-         * @return Sequence A reversed copy of the sequence.
+         * @return Sequence<TValue> A reversed copy of the sequence.
          * <p><b>Note:</b> The current instance is not affected.</p>
          */
         public function reversed();
@@ -339,7 +348,7 @@ namespace Ds;
         /**
          * Updates a value at a given index.
          * @param int $index The index of the value to update.
-         * @param mixed $value The new value.
+         * @param TValue $value The new value.
          * @throws OutOfRangeException if the index is not valid.
          * @link https://www.php.net/manual/en/ds-sequence.set.php
          */
@@ -347,7 +356,7 @@ namespace Ds;
 
         /**
          * Removes and returns the first value.
-         * @return mixed
+         * @return TValue
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-sequence.shift.php
          */
@@ -365,14 +374,14 @@ namespace Ds;
          * the sequence will stop that many values from the end. If a length
          * is not provided, the resulting sequence will contain all values
          * between the index and the end of the sequence.
-         * @return Sequence A sub-sequence of the given range.
+         * @return Sequence<TValue> A sub-sequence of the given range.
          * @link https://www.php.net/manual/en/ds-sequence.slice.php
          */
         public function slice(int $index, int $length = null);
 
         /**
          * Sorts the sequence in-place, using an optional comparator function.
-         * @param callable|null $comparator The comparison function must return
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -389,7 +398,7 @@ namespace Ds;
 
         /**
          * Returns a sorted copy, using an optional comparator function.
-         * @param callable|null $comparator The comparison function must return
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -400,7 +409,7 @@ namespace Ds;
          * of the callback's return value. So values such as 0.99 and 0.1 will
          * both be cast to an integer value of 0, which will compare such
          * values as equal.</p>
-         * @return Sequence Returns a sorted copy of the sequence.
+         * @return Sequence<TValue> Returns a sorted copy of the sequence.
          * @link https://www.php.net/manual/en/ds-sequence.sort.php
          */
         public function sorted(?callable $comparator = null);
@@ -417,11 +426,11 @@ namespace Ds;
         /**
          * Adds values to the front of the sequence, moving all the current
          * values forward to make room for the new values.
-         * @param mixed $values The values to add to the front of the sequence.
+         * @param TValue ...$values The values to add to the front of the sequence.
          * <p><b>Note:</b> Multiple values will be added in the same order that they
          * are passed.</p>
          */
-        public function unshift($values): void;
+        public function unshift(...$values): void;
     }
 
     /**
@@ -448,6 +457,8 @@ namespace Ds;
      * @link https://www.php.net/manual/en/class.ds-vector.php
      *
      * @package Ds
+     * @template TValue
+     * @implements Sequence<TValue>
      */
     class Vector implements Sequence
     {
@@ -456,7 +467,7 @@ namespace Ds;
         /**
          * Creates a new instance, using either a traversable object or an array for the initial values.
          *
-         * @param iterable $values
+         * @param array<TValue> $values
          */
         public function __construct($values = []) {}
 
@@ -474,7 +485,7 @@ namespace Ds;
         /**
          * Updates all values by applying a callback function to each value in
          * the vector.
-         * @param callable $callback
+         * @param callable(TValue): TValue $callback
          * <code>callback ( mixed $value ) : mixed</code>
          * A callable to apply to each value in the vector. The callback should
          * return what the value should be replaced by.
@@ -497,7 +508,7 @@ namespace Ds;
 
         /**
          * Determines if the vector contains all values.
-         * @param mixed ...$values Values to check.
+         * @param TValue ...$values Values to check.
          * @return bool FALSE if any of the provided values are not in the
          * vector, TRUE otherwise.
          * @link https://www.php.net/manual/en/ds-vector.contains.php
@@ -506,7 +517,7 @@ namespace Ds;
 
         /**
          *Returns a shallow copy of the vector.
-         * @return Vector Returns a shallow copy of the vector.
+         * @return Vector<TValue> Returns a shallow copy of the vector.
          */
         public function copy(): Vector {}
 
@@ -514,12 +525,12 @@ namespace Ds;
          * Creates a new vector using a callable to determine which values to
          * include.
          *
-         * @param null|callable $callback
+         * @param null|callable(TValue): bool $callback
          * Optional callable which returns TRUE if the value should be included,
          * FALSE otherwise. If a callback is not provided, only values which are
          * TRUE (see converting to boolean)  will be included.
          * <code>callback ( mixed $value ) : bool</code>
-         * @return Vector A new vector containing all the values for which
+         * @return Vector<TValue> A new vector containing all the values for which
          * either the callback returned TRUE, or all values that convert to
          * TRUE if a callback was not provided.
          * @link https://www.php.net/manual/en/ds-vector.filter.php
@@ -528,8 +539,8 @@ namespace Ds;
 
         /**
          * Returns the index of the value, or FALSE if not found.
-         * @param mixed $value The value to find.
-         * @return mixed|false The index of the value, or FALSE if not found.
+         * @param TValue $value The value to find.
+         * @return int|false The index of the value, or FALSE if not found.
          * <p><b>Note:</b> Values will be compared by value and by type.</p>
          * @link https://www.php.net/manual/en/ds-vector.find.php
          */
@@ -537,7 +548,7 @@ namespace Ds;
 
         /**
          * Returns the first value in the vector.
-         * @return mixed
+         * @return TValue
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-vector.first.php
          */
@@ -546,7 +557,7 @@ namespace Ds;
         /**
          * Returns the value at a given index.
          * @param int $index The index to access, starting at 0.
-         * @return mixed
+         * @return TValue
          * @link https://www.php.net/manual/en/ds-vector.get.php
          */
         public function get(int $index) {}
@@ -559,7 +570,7 @@ namespace Ds;
          * @param int $index The index at which to insert. 0 <= index <= count
          * Note:<br>
          * You can insert at the index equal to the number of values.
-         * @param array $values The value or values to insert.
+         * @param array<TValue> ...$values The value or values to insert.
          * @link https://www.php.net/manual/en/ds-vector.insert.php
          */
         public function insert(int $index, ...$values): void {}
@@ -576,7 +587,7 @@ namespace Ds;
         /**
          * Returns the last value in the sequence.
          *
-         * @return mixed The last value in the sequence.
+         * @return TValue The last value in the sequence.
          * @link https://www.php.net/manual/en/ds-vector.last.php
          */
         public function last() {}
@@ -584,10 +595,11 @@ namespace Ds;
         /**
          * Returns the result of applying a callback function to each value in the sequence.
          *
-         * @param callable $callback A callable to apply to each value in the sequence.
+         * @template TNewValue
+         * @param callable(TValue): TNewValue $callback A callable to apply to each value in the sequence.
          * <br>The callable should return what the new value will be in the new sequence.
          *
-         * @return Vector
+         * @return Vector<TNewValue>
          * @link https://www.php.net/manual/en/ds-vector.map.php
          */
         public function map(callable $callback): Vector {}
@@ -595,8 +607,9 @@ namespace Ds;
         /**
          * Returns the result of adding all given values to the sequence.
          *
-         * @param Traversable|array $values A traversable object or an array.
-         * @return Vector The result of adding all given values to the sequence, effectively the same as adding the
+         * @template TValue2
+         * @param iterable<TValue2> $values A traversable object or an array.
+         * @return Vector<TValue|TValue2> The result of adding all given values to the sequence, effectively the same as adding the
          * values to a copy, then returning that copy.<br>
          * Note:<br>
          * The current instance won't be affected.
@@ -607,27 +620,28 @@ namespace Ds;
         /**
          * Removes and returns the last value.
          *
-         * @return mixed
+         * @return TValue
          * @link https://www.php.net/manual/en/ds-vector.pop.php
          */
         public function pop() {}
 
         /**
          * Adds values to the end of the sequence.
-         * @param array $values
+         * @param TValue ...$values
          * @link https://www.php.net/manual/en/ds-vector.push.php
          */
         public function push(...$values): void {}
 
         /**
          * Reduces the sequence to a single value using a callback function.
-         * @param callable $callback <br>
+         * @template TCarry
+         * @param callable(TCarry, TValue): TCarry $callback <br>
          * <code>callback ( mixed $carry , mixed $value ) : mixed</code><br>
          * <b>carry</b> The return value of the previous callback, or initial if it's the first iteration.<br>
          * <b>value</b> The value of the current iteration.
-         * @param mixed $initial The initial value of the carry value. Can be NULL.
+         * @param TCarry $initial The initial value of the carry value. Can be NULL.
          *
-         * @return mixed|void The return value of the final callback.
+         * @return TCarry The return value of the final callback.
          *
          * @link https://www.php.net/manual/en/ds-vector.reduce.php
          */
@@ -636,7 +650,7 @@ namespace Ds;
         /**
          * Removes and returns a value by index.
          * @param int $index The index of the value to remove.
-         * @return mixed The value that was removed.
+         * @return TValue The value that was removed.
          * @link https://www.php.net/manual/en/ds-vector.remove.php
          */
         public function remove(int $index) {}
@@ -649,7 +663,7 @@ namespace Ds;
 
         /**
          * Returns a reversed copy of the sequence.
-         * @return Vector A reversed copy of the sequence.<br>
+         * @return Vector<TValue> A reversed copy of the sequence.<br>
          * <b>Note:</b> The current instance is not affected.
          * @link https://www.php.net/manual/en/ds-vector.reversed.php
          */
@@ -673,7 +687,7 @@ namespace Ds;
          * @link https://www.php.net/manual/en/ds-vector.set.php
          *
          * @param int $index The index of the value to update.
-         * @param mixed $value The new value.
+         * @param TValue $value The new value.
          *
          * @throws OutOfRangeException if the index is not valid.
          */
@@ -684,7 +698,7 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-vector.shift.php
          *
-         * @return mixed The first value, which was removed.
+         * @return TValue The first value, which was removed.
          * @throws UnderflowException if empty.
          */
         public function shift() {}
@@ -703,14 +717,14 @@ namespace Ds;
          * the sequence will stop that many values from the end. If a length
          * is not provided, the resulting sequence will contain all values
          * between the index and the end of the sequence.
-         * @return Vector
+         * @return Vector<TValue>
          */
         public function slice(int $index, int $length = null): Vector {}
 
         /**
          * Sorts the sequence in-place, using an optional comparator function.
          * @link https://www.php.net/manual/en/ds-vector.sort.php
-         * @param callable|null $comparator The comparison function must return an
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return an
          * integer less than, equal to, or greater
          * than zero if the first argument is considered to be respectively less than, equal to, or greater than the
          * second. Note that before PHP 7.0.0 this integer had to be in the
@@ -727,7 +741,7 @@ namespace Ds;
         /**
          * Returns a sorted copy, using an optional comparator function.
          * @link https://www.php.net/manual/en/ds-vector.sorted.php
-         * @param callable|null $comparator The comparison function must return an integer less than, equal to, or
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return an integer less than, equal to, or
          * greater  than zero if the first argument is considered to be respectively less than, equal to, or greater
          * than the second. Note that before PHP 7.0.0 this integer had to be in the range from -2147483648 to
          * 2147483647.<br>
@@ -735,7 +749,7 @@ namespace Ds;
          * <b>Caution:</b> Returning non-integer values from the comparison function, such as float, will result in an
          * internal cast to integer of the callback's return value. So values such as 0.99 and 0.1 will both be cast to
          * an integer value of 0, which will compare such values as equal.
-         * @return Vector Returns a sorted copy of the sequence.
+         * @return Vector<TValue> Returns a sorted copy of the sequence.
          */
         public function sorted(?callable $comparator = null): Vector {}
 
@@ -751,7 +765,7 @@ namespace Ds;
         /**
          * Adds values to the front of the sequence, moving all the current
          * values forward to make room for the new values.
-         * @param mixed $values The values to add to the front of the sequence.<br>
+         * @param TValue ...$values The values to add to the front of the sequence.<br>
          * <b>Note:</b> Multiple values will be added in the same order that they are
          * passed.
          * @link https://www.php.net/manual/en/ds-vector.unshift.php
@@ -780,7 +794,7 @@ namespace Ds;
          * Converts the collection to an array.
          * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-vector.toarray.php
-         * @return array An array containing all the values in the same order as
+         * @return array<TValue> An array containing all the values in the same order as
          * the collection.
          */
         public function toArray(): array {}
@@ -795,11 +809,15 @@ namespace Ds;
         public function jsonSerialize() {}
     }
 
+    /**
+     * @template TValue
+     * @implements Sequence<TValue>
+     */
     class Deque implements Sequence
     {
         /**
          * Creates a new instance, using either a traversable object or an array for the initial values.
-         * @param mixed ...$values A traversable object or an array to use for the initial values.
+         * @param TValue ...$values A traversable object or an array to use for the initial values.
          *
          * @link https://www.php.net/manual/en/ds-deque.construct.php
          */
@@ -825,7 +843,7 @@ namespace Ds;
         /**
          * Returns a shallow copy of the deque.
          * @link https://www.php.net/manual/en/ds-deque.copy.php
-         * @return Collection
+         * @return Deque<TValue>
          */
         public function copy(): Collection {}
 
@@ -842,7 +860,7 @@ namespace Ds;
          * Converts the deque to an array.
          * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-deque.toarray.php
-         * @return array An array containing all the values in the same order as
+         * @return array<TValue> An array containing all the values in the same order as
          * the deque.
          */
         public function toArray(): array {}
@@ -862,7 +880,7 @@ namespace Ds;
         /**
          * Updates all values by applying a callback function to each value in
          * the deque.
-         * @param callable $callback A callable to apply to each value in the
+         * @param callable(TValue): TValue $callback A callable to apply to each value in the
          * deque. The callback should return what the value should be
          * replaced by.<p>
          * <code>callback ( mixed $value ) : mixed</code>
@@ -880,7 +898,7 @@ namespace Ds;
 
         /**
          * Determines if the deque contains all values.
-         * @param mixed $values Values to check.
+         * @param TValue $values Values to check.
          * @return bool FALSE if any of the provided values are not in the
          * deque, TRUE otherwise.
          * @link https://www.php.net/manual/en/ds-deque.contains.php
@@ -890,13 +908,13 @@ namespace Ds;
         /**
          * Creates a new deque using a callable to determine which values
          * to include.
-         * @param null|callable $callback Optional callable which returns TRUE if the
+         * @param null|callable(TValue): bool $callback Optional callable which returns TRUE if the
          * value should be included, FALSE otherwise. If a callback is not
          * provided, only values which are TRUE (see converting to boolean) will
          * be included.<p>
          * <code>callback ( mixed $value ) : bool</code>
          * </p>
-         * @return Deque A new deque containing all the values for which
+         * @return Deque<TValue> A new deque containing all the values for which
          * either the callback returned TRUE, or all values that convert to
          * TRUE if a callback was not provided.
          * @link https://www.php.net/manual/en/ds-deque.filter.php
@@ -905,7 +923,7 @@ namespace Ds;
 
         /**
          * Returns the index of the value, or FALSE if not found.
-         * @param mixed $value The value to find.
+         * @param TValue $value The value to find.
          * @return int|false The index of the value, or FALSE if not found.
          * @link https://www.php.net/manual/en/ds-deque.find.php
          */
@@ -913,7 +931,7 @@ namespace Ds;
 
         /**
          * Returns the first value in the deque.
-         * @return mixed The first value in the deque.
+         * @return TValue The first value in the deque.
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-deque.first.php
          */
@@ -922,7 +940,7 @@ namespace Ds;
         /**
          * Returns the value at a given index.
          * @param int $index The index to access, starting at 0.
-         * @return mixed The value at the requested index.
+         * @return TValue The value at the requested index.
          * @throws OutOfRangeException if the index is not valid.
          * @link https://www.php.net/manual/en/ds-deque.get.php
          */
@@ -933,7 +951,7 @@ namespace Ds;
          *
          * @param int $index The index at which to insert. 0 <= index <= count
          * <p><b>Note:</b> You can insert at the index equal to the number of values.</p>
-         * @param mixed ...$values The value or values to insert.
+         * @param TValue ...$values The value or values to insert.
          * @throws OutOfRangeException if the index is not valid.
          * @link https://www.php.net/manual/en/ds-deque.insert.php
          */
@@ -951,7 +969,7 @@ namespace Ds;
 
         /**
          * Returns the last value in the deque.
-         * @return mixed The last value in the deque.
+         * @return TValue The last value in the deque.
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-deque.last.php
          */
@@ -961,13 +979,14 @@ namespace Ds;
          * Returns the result of applying a callback function to each value in
          * the deque.
          *
-         * @param callable $callback A callable to apply to each value in the
+         * @template TNewValue
+         * @param callable(TValue): TNewValue $callback A callable to apply to each value in the
          * deque.
          * The callable should return what the new value will be in the new
          * deque.
          * <code>callback ( mixed $value ) : mixed</code>
          *
-         * @return Deque The result of applying a callback to each value in
+         * @return Deque<TNewValue> The result of applying a callback to each value in
          * the deque.
          * <p><b>Note:</b> The values of the current instance won't be
          * affected.</p>
@@ -977,8 +996,9 @@ namespace Ds;
 
         /**
          * Returns the result of adding all given values to the deque.
-         * @param iterable $values A traversable object or an array.
-         * @return Deque The result of adding all given values to the
+         * @template TValue2
+         * @param iterable<TValue2> $values A traversable object or an array.
+         * @return Deque<TValue|TValue2> The result of adding all given values to the
          * deque, effectively the same as adding the values to a copy,
          * then returning that copy.
          * @link https://www.php.net/manual/en/ds-deque.merge.php
@@ -987,7 +1007,7 @@ namespace Ds;
 
         /**
          * Removes and returns the last value.
-         * @return mixed The removed last value.
+         * @return TValue The removed last value.
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-deque.pop.php
          */
@@ -995,20 +1015,21 @@ namespace Ds;
 
         /**
          * Adds values to the end of the deque.
-         * @param mixed ...$values The values to add.
+         * @param TValue ...$values The values to add.
          */
         public function push(...$values): void {}
 
         /**
          * Reduces the deque to a single value using a callback function.
-         * @param callable $callback
+         * @template TCarry
+         * @param callable(TCarry, TValue): TCarry $callback
          * <code>callback ( mixed $carry , mixed $value ) : mixed</code>
          * <b>$carry</b> The return value of the previous callback, or initial if it's
          * the first iteration.<p>
          * <b>$value</b> The value of the current iteration.
          * </p>
-         * @param mixed $initial The initial value of the carry value. Can be NULL.
-         * @return mixed The return value of the final callback.
+         * @param TCarry $initial The initial value of the carry value. Can be NULL.
+         * @return TCarry The return value of the final callback.
          * @link https://www.php.net/manual/en/ds-deque.reduce.php
          */
         public function reduce(callable $callback, $initial = null) {}
@@ -1016,7 +1037,7 @@ namespace Ds;
         /**
          * Removes and returns a value by index.
          * @param int $index The index of the value to remove.
-         * @return mixed The value that was removed.
+         * @return TValue The value that was removed.
          * @link https://www.php.net/manual/en/ds-deque.remove.php
          */
         public function remove(int $index) {}
@@ -1029,7 +1050,7 @@ namespace Ds;
 
         /**
          * Returns a reversed copy of the deque.
-         * @return Deque A reversed copy of the deque.
+         * @return Deque<TValue> A reversed copy of the deque.
          * <p><b>Note:</b> The current instance is not affected.</p>
          */
         public function reversed(): Deque {}
@@ -1048,7 +1069,7 @@ namespace Ds;
         /**
          * Updates a value at a given index.
          * @param int $index The index of the value to update.
-         * @param mixed $value The new value.
+         * @param TValue $value The new value.
          * @throws OutOfRangeException if the index is not valid.
          * @link https://www.php.net/manual/en/ds-deque.set.php
          */
@@ -1056,7 +1077,7 @@ namespace Ds;
 
         /**
          * Removes and returns the first value.
-         * @return mixed
+         * @return TValue
          * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-deque.shift.php
          */
@@ -1074,14 +1095,14 @@ namespace Ds;
          * the deque will stop that many values from the end. If a length
          * is not provided, the resulting deque will contain all values
          * between the index and the end of the deque.
-         * @return Deque A sub-deque of the given range.
+         * @return Deque<TValue> A sub-deque of the given range.
          * @link https://www.php.net/manual/en/ds-deque.slice.php
          */
         public function slice(int $index, int $length = null): Deque {}
 
         /**
          * Sorts the deque in-place, using an optional comparator function.
-         * @param callable|null $comparator The comparison function must return
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -1098,7 +1119,7 @@ namespace Ds;
 
         /**
          * Returns a sorted copy, using an optional comparator function.
-         * @param callable|null $comparator The comparison function must return
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -1109,7 +1130,7 @@ namespace Ds;
          * of the callback's return value. So values such as 0.99 and 0.1 will
          * both be cast to an integer value of 0, which will compare such
          * values as equal.</p>
-         * @return Deque Returns a sorted copy of the deque.
+         * @return Deque<TValue> Returns a sorted copy of the deque.
          * @link https://www.php.net/manual/en/ds-deque.sort.php
          */
         public function sorted(?callable $comparator = null): Deque {}
@@ -1126,11 +1147,11 @@ namespace Ds;
         /**
          * Adds values to the front of the deque, moving all the current
          * values forward to make room for the new values.
-         * @param mixed $values The values to add to the front of the deque.
+         * @param TValue ...$values The values to add to the front of the deque.
          * <p><b>Note:</b> Multiple values will be added in the same order that they
          * are passed.</p>
          */
-        public function unshift($values): void {}
+        public function unshift(...$values): void {}
 
         /**
          * Specify data which should be serialized to JSON
@@ -1142,11 +1163,16 @@ namespace Ds;
         public function jsonSerialize() {}
     }
 
+    /**
+     * @template TKey
+     * @template TValue
+     * @implements Collection<TKey, TValue>
+     */
     class Map implements Collection
     {
         /**
          * Creates a new instance, using either a traversable object or an array for the initial values.
-         * @param mixed ...$values A traversable object or an array to use for the initial values.
+         * @param iterable<TKey, TValue> ...$values A traversable object or an array to use for the initial values.
          *
          * @link https://www.php.net/manual/en/ds-map.construct.php
          */
@@ -1166,7 +1192,7 @@ namespace Ds;
         /**
          * Updates all values by applying a callback function to each value in the map.
          *
-         * @param callable $callback A callable to apply to each value in the map. The callback should return what
+         * @param callable(TKey, TValue): TValue $callback A callable to apply to each value in the map. The callback should return what
          * the value should be replaced by.
          *
          * @link https://www.php.net/manual/en/ds-map.apply.php
@@ -1202,7 +1228,7 @@ namespace Ds;
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-collection.copy.php
-         * @return Collection
+         * @return Map<TKey, TValue>
          */
         public function copy(): Collection {}
 
@@ -1211,9 +1237,10 @@ namespace Ds;
          *
          * A \ B = {x ∈ A | x ∉ B}
          *
-         * @param Map $map The map containing the keys to exclude in the resulting map.
+         * @template TValue2
+         * @param Map<TKey, TValue2> $map The map containing the keys to exclude in the resulting map.
          *
-         * @return Map The result of removing all keys from the current instance that are present in a given map.
+         * @return Map<TKey, TValue> The result of removing all keys from the current instance that are present in a given map.
          *
          * @link https://www.php.net/manual/en/ds-map.diff.php
          */
@@ -1222,10 +1249,10 @@ namespace Ds;
         /**
          * Creates a new map using a callable to determine which pairs to include
          *
-         * @param null|callable $callback Optional callable which returns TRUE if the pair should be included, FALSE
+         * @param null|callable(TKey, TValue): bool $callback Optional callable which returns TRUE if the pair should be included, FALSE
          * otherwise. If a callback is not provided, only values which are TRUE (see converting to boolean) will be included.
          *
-         * @return Map
+         * @return Map<TKey, TValue>
          *
          * @link https://www.php.net/manual/en/ds-map.filter.php
          */
@@ -1234,7 +1261,7 @@ namespace Ds;
         /**
          * Returns the first pair in the map
          *
-         * @return Pair The first pair in the map.
+         * @return Pair<TKey, TValue> The first pair in the map.
          *
          * @throws UnderflowException if empty
          *
@@ -1256,10 +1283,11 @@ namespace Ds;
          * example, $map["1"] will attempt to access int(1), while $map->get("1") will correctly look up the string key.
          * </p>
          *
-         * @param mixed $key The key to look up.
-         * @param mixed $default The optional default value, returned if the key could not be found.
+         * @template TDefault
+         * @param TKey $key The key to look up.
+         * @param TDefault $default The optional default value, returned if the key could not be found.
          *
-         * @return mixed The value mapped to the given key, or the default value if provided and the key could not be found in the map.
+         * @return TValue|TDefault The value mapped to the given key, or the default value if provided and the key could not be found in the map.
          *
          * @throws OutOfBoundsException if the key could not be found and a default value was not provided.
          *
@@ -1272,7 +1300,7 @@ namespace Ds;
         /**
          * Determines whether the map contains a given key
          *
-         * @param mixed $key The key to look for.
+         * @param TKey $key The key to look for.
          *
          * @return bool Returns TRUE if the key could found, FALSE otherwise.
          *
@@ -1283,7 +1311,7 @@ namespace Ds;
         /**
          * Determines whether the map contains a given value
          *
-         * @param mixed $value The value to look for.
+         * @param TValue $value The value to look for.
          *
          * @return bool Returns TRUE if the value could found, FALSE otherwise.
          *
@@ -1301,9 +1329,11 @@ namespace Ds;
          *
          * <p><b>Note:</b> Values from the current instance will be kept.</p>
          *
-         * @param Map $map The other map, containing the keys to intersect with.
+         * @template TKey2
+         * @template TValue2
+         * @param Map<TKey2, TValue2> $map The other map, containing the keys to intersect with.
          *
-         * @return Map The key intersection of the current instance and another map.
+         * @return Map<TKey&TKey2, TValue> The key intersection of the current instance and another map.
          *
          * @link https://www.php.net/manual/en/ds-map.intersect.php
          */
@@ -1332,7 +1362,7 @@ namespace Ds;
          * </p>
          *
          * @link https://www.php.net/manual/en/ds-map.toarray.php
-         * @return array An array containing all the values in the same order as
+         * @return array<TValue> An array containing all the values in the same order as
          * the map.
          */
         public function toArray(): array {}
@@ -1349,13 +1379,13 @@ namespace Ds;
         /**
          * Returns a set containing all the keys of the map, in the same order.
          * @link https://www.php.net/manual/en/ds-map.keys.php
-         * @return Set A Ds\Set containing all the keys of the map.
+         * @return Set<TKey> A Ds\Set containing all the keys of the map.
          */
         public function keys(): Set {}
 
         /**
          * Sorts the map in-place by key, using an optional comparator function.
-         * @param callable|null $comparator The comparison function must return
+         * @param callable(TKey, TKey):int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -1372,7 +1402,7 @@ namespace Ds;
 
         /**
          * Returns a copy sorted by key, using an optional comparator function.
-         * @param callable|null $comparator The comparison function must return
+         * @param callable(TKey, TKey): int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -1383,14 +1413,14 @@ namespace Ds;
          * callback's return value. So values such as 0.99 and 0.1 will both be
          * cast to an  integer value of 0, which will compare such values as
          * equal.</p>
-         * @return Map Returns a copy of the map, sorted by key.
+         * @return Map<TKeyK, TValueV> Returns a copy of the map, sorted by key.
          * @link https://www.php.net/manual/en/ds-map.ksorted.php
          */
         public function ksorted(?callable $comparator = null): Map {}
 
         /**
          * Returns the last pair of the map.
-         * @return Pair The last pair of the map.
+         * @return Pair<K,V> The last pair of the map.
          * @throws UnderflowException if empty
          * @link https://www.php.net/manual/en/ds-map.last.php
          */
@@ -1399,11 +1429,12 @@ namespace Ds;
         /**
          * Returns the result of applying a callback function to each value of
          * the map.
-         * @param callable $callback A callable to apply to each value in the
+         * @template TNewValue
+         * @param callable(TKey, TValue): TNewValue $callback A callable to apply to each value in the
          * map. The callable should return what the key will be mapped to in the
          * resulting map.
          * <code>callback ( mixed $key , mixed $value ) : mixed</code>
-         * @return Map The result of applying a callback to each value in the
+         * @return Map<TKey, TNewValue> The result of applying a callback to each value in the
          * map.
          *
          * <b>Note:</b> The keys and values of the current instance won't be affected.
@@ -1416,8 +1447,10 @@ namespace Ds;
          * Returns the result of associating all keys of a given traversable
          * object or array with their corresponding values, combined with the
          * current instance.
-         * @param iterable $values A traversable object or an array.
-         * @return Map The result of associating all keys of a given traversable
+         * @template TKey2
+         * @template TValue2
+         * @param iterable<TKey2, TValue2> $values A traversable object or an array.
+         * @return Map<TKey|TKey2, TValue|TValue2> The result of associating all keys of a given traversable
          * object or array with their corresponding values, combined with the
          * current instance.
          *
@@ -1430,7 +1463,7 @@ namespace Ds;
         /**
          * Returns a Ds\Sequence containing all the pairs of the map.
          *
-         * @return Sequence Ds\Sequence containing all the pairs of the map.
+         * @return Sequence<Pair<TKey, TValueV>> Ds\Sequence containing all the pairs of the map.
          *
          * @link https://www.php.net/manual/en/ds-map.pairs.php
          */
@@ -1439,8 +1472,8 @@ namespace Ds;
         /**
          * Associates a key with a value, overwriting a previous association if
          * one exists.
-         * @param mixed $key The key to associate the value with.
-         * @param mixed $value The value to be associated with the key.
+         * @param TKey $key The key to associate the value with.
+         * @param TValue $value The value to be associated with the key.
          *
          * <b>Note:</b> Keys of type object are supported. If an object implements
          * Ds\Hashable, equality will be determined by the object's equals
@@ -1468,7 +1501,7 @@ namespace Ds;
          * Ds\Hashable, objects must be references to the same instance to be
          * considered equal.
          *
-         * @param iterable $pairs traversable object or array.
+         * @param iterable<TKey, TValue> $pairs traversable object or array.
          *
          * @link https://www.php.net/manual/en/ds-map.putall.php
          */
@@ -1477,16 +1510,18 @@ namespace Ds;
         /**
          * Reduces the map to a single value using a callback function.
          *
-         * @param callable $callback
+         * @template TCarry
+         * @param callable(TCarry, TKey, TValue): TCarry $callback
          * <code>callback ( mixed $carry , mixed $key , mixed $value ) : mixed</code>
          * <b>carry</b> The return value of the previous callback, or initial if
          * it's the first iteration.
          * <b>key</b> The key of the current iteration.
          * <b>value</b> The value of the current iteration.
          *
-         * @param mixed $initial The initial value of the carry value. Can be
+         * @param TCarry $initial The initial value of the carry value. Can be
          * NULL.
          *
+         * @return TCarry
          * @link https://www.php.net/manual/en/ds-map.reduce.php
          */
         public function reduce(callable $callback, $initial) {}
@@ -1495,8 +1530,9 @@ namespace Ds;
          * Removes and returns a value by key, or return an optional default
          * value if the key could not be found.
          *
-         * @param mixed $key The key to remove.
-         * @param mixed $default The optional default value, returned if the key
+         * @template TDefault
+         * @param TKey $key The key to remove.
+         * @param TDefault $default The optional default value, returned if the key
          * could not be found.
          *
          * <b>Note:</b> Keys of type object are supported. If an object implements
@@ -1513,7 +1549,7 @@ namespace Ds;
          * attempt to access int(1), while $map->get("1") will correctly look up
          * the string key.
          *
-         * @return mixed The value that was removed, or the default value if
+         * @return TValue|TDefault The value that was removed, or the default value if
          * provided and the key could not be found in the map.
          *
          * @throws OutOfBoundsException if the key could not be found and a
@@ -1533,7 +1569,7 @@ namespace Ds;
         /**
          * Returns a reversed copy of the map.
          *
-         * @return Map A reversed copy of the map.
+         * @return Map<TKey, TValue> A reversed copy of the map.
          *
          * <p><b>Note:</b> The current instance is not affected.</p>
          *
@@ -1546,7 +1582,7 @@ namespace Ds;
          *
          * @param int $position The zero-based positional index to return.
          *
-         * @return Pair Returns the Ds\Pair at the given position.
+         * @return Pair<TKey, TValue> Returns the Ds\Pair at the given position.
          *
          * @throws OutOfRangeException if the position is not valid.
          *
@@ -1569,7 +1605,7 @@ namespace Ds;
          * resulting map will contain all pairs between the index and the end of
          * the map.
          *
-         * @return Map A subset of the map defined by a starting index and
+         * @return Map<TKey, TValue> A subset of the map defined by a starting index and
          * length.
          *
          * @link https://www.php.net/manual/en/ds-map.slice.php
@@ -1580,7 +1616,7 @@ namespace Ds;
          * Sorts the map in-place by value, using an optional comparator
          * function.
          *
-         * @param callable|null $comparator The comparison function must return
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -1601,7 +1637,7 @@ namespace Ds;
         /**
          * Returns a copy, sorted by value using an optional comparator function.
          *
-         * @param callable|null $comparator The comparison function must return
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -1615,7 +1651,7 @@ namespace Ds;
          * cast to an integer value of 0, which will compare such values as
          * equal.
          *
-         * @return Map
+         * @return Map<TKey, TValue>
          *
          * @link https://www.php.net/manual/en/ds-map.sorted.php
          */
@@ -1643,9 +1679,11 @@ namespace Ds;
          * <p><b>Note:</b> Values of the current instance will be overwritten by those
          * provided where keys are equal.</p>
          *
-         * @param Map $map The other map, to combine with the current instance.
+         * @template TKey2
+         * @template TValue2
+         * @param Map<TKey2, TValue2> $map The other map, to combine with the current instance.
          *
-         * @return Map A new map containing all the pairs of the current
+         * @return Map<TKey|TKey2 , TValue|TValue2> A new map containing all the pairs of the current
          * instance as well as another map.
          *
          * @link https://www.php.net/manual/en/ds-map.union.php
@@ -1656,7 +1694,7 @@ namespace Ds;
          * Returns a sequence containing all the values of the map, in the same
          * order.
          *
-         * @return Sequence A Ds\Sequence containing all the values of the map.
+         * @return Sequence<TValue> A Ds\Sequence containing all the values of the map.
          *
          * @link https://www.php.net/manual/en/ds-map.values.php
          */
@@ -1668,9 +1706,11 @@ namespace Ds;
          *
          * A ⊖ B = {x : x ∈ (A \ B) ∪ (B \ A)}
          *
-         * @param Map $map The other map.
+         * @template TKey2
+         * @template TValue2
+         * @param Map<TKey2, TValue2> $map The other map.
          *
-         * @return Map A new map containing keys in the current instance as well
+         * @return Map<TKey|TKey2, TValue|TValue2> A new map containing keys in the current instance as well
          * as another map, but not in both.
          *
          * @link https://www.php.net/manual/en/ds-map.xor.php
@@ -1681,24 +1721,26 @@ namespace Ds;
     /**
      * A pair is used by Ds\Map to pair keys with values.
      * @package Ds
+     * @template-covariant TKey
+     * @template-covariant TValue
      */
     class Pair implements JsonSerializable
     {
         /**
-         * @var mixed
+         * @var TKey
          */
         public $key;
 
         /**
-         * @var mixed
+         * @var TValue
          */
         public $value;
 
         /**
          * Creates a new instance using a given key and value.
          *
-         * @param mixed $key
-         * @param mixed $value
+         * @param TKey $key
+         * @param TValue $value
          *
          * @link https://php.net/manual/en/ds-pair.construct.php
          */
@@ -1714,7 +1756,7 @@ namespace Ds;
         /**
          * Returns a shallow copy of the pair.
          *
-         * @return Pair Returns a shallow copy of the pair.
+         * @return Pair<TKey, TValue> Returns a shallow copy of the pair.
          *
          * @link https://php.net/manual/en/ds-pair.copy.php
          */
@@ -1734,7 +1776,7 @@ namespace Ds;
          *
          * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          *
-         * @return array An array containing all the values in the same order as
+         * @return array{key: TKey, value: TValue} An array containing all the values in the same order as
          * the pair.
          *
          * @link https://php.net/manual/en/ds-pair.toarray.php
@@ -1758,6 +1800,8 @@ namespace Ds;
      * @link https://www.php.net/manual/en/class.ds-set.php
      *
      * @package Ds
+     * @template TValue
+     * @implements Collection<int, TValue>
      */
     class Set implements Collection
     {
@@ -1765,7 +1809,7 @@ namespace Ds;
          * Creates a new instance, using either a traversable object or an array
          * for the initial values.
          *
-         * @param iterable $values A traversable object of an array to
+         * @param iterable<TValue> $values A traversable object of an array to
          * use the initial values.
          *
          * @link https://php.net/manual/en/ds-set.construct.php
@@ -1782,7 +1826,7 @@ namespace Ds;
          *
          * <p><b>Caution:</b> All comparisons are strict (type and value).
          *
-         * @param mixed ...$values Values to add to the set.
+         * @param TValue ...$values Values to add to the set.
          *
          * @link https://php.net/manual/en/ds-set.add.php
          */
@@ -1813,7 +1857,7 @@ namespace Ds;
          *
          * <p><b>Caution:</b> All comparisons are strict (type and value).
          *
-         * @param mixed ...$values Values to check.
+         * @param TValue ...$values Values to check.
          *
          * @return bool
          *
@@ -1849,7 +1893,7 @@ namespace Ds;
         /**
          * Returns a shallow copy of the set.
          * @link https://www.php.net/manual/en/ds-set.copy.php
-         * @return Set
+         * @return Set<TValue>
          */
         public function copy(): Set {}
 
@@ -1860,9 +1904,10 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-set.diff.php
          *
-         * @param Set $set Set containing the values to exclude.
+         * @template TValue2
+         * @param Set<TValue2> $set Set containing the values to exclude.
          *
-         * @return Set A new set containing all values that were not in the
+         * @return Set<TValue> A new set containing all values that were not in the
          * other set.
          */
         public function diff(Set $set): Set {}
@@ -1873,12 +1918,12 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-set.filter.php
          *
-         * @param null|callable $callback Optional callable which returns TRUE if the
+         * @param null|callable(TValue): bool $callback Optional callable which returns TRUE if the
          * value should be included, FALSE otherwise.
          * If a callback is not provided, only values which are TRUE (see
          * converting to boolean) will be included.
          *
-         * @return Set A new set containing all the values for which either the
+         * @return Set<TValue> A new set containing all the values for which either the
          * callback returned TRUE, or all values that convert to TRUE if a
          * callback was not provided.
          */
@@ -1889,7 +1934,7 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-set.first.php
          *
-         * @return mixed The first value in the set.
+         * @return TValue The first value in the set.
          */
         public function first() {}
 
@@ -1900,7 +1945,7 @@ namespace Ds;
          *
          * @param int $index The index to access, starting at 0.
          *
-         * @return mixed The value at the requested index.
+         * @return TValue The value at the requested index.
          */
         public function get(int $index) {}
 
@@ -1915,9 +1960,9 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-set.intersect.php
          *
-         * @param Set $set The other set.
-         *
-         * @return Set The intersection of the current instance and another set.
+         * @template TValue2
+         * @param Set<TValue2> $set The other set.
+         * @return Set<TValue&TValue2> The intersection of the current instance and another set.
          */
         public function intersect(Set $set): Set {}
 
@@ -1944,12 +1989,13 @@ namespace Ds;
         /**
          * Returns the result of applying a callback function to each value in
          * the set.
-         * @param callable $callback A callable to apply to each value in the
+         * @template TNewValue
+         * @param callable(TValue): TNewValue $callback A callable to apply to each value in the
          * set.
          * The callable should return what the new value will be in the new
          * set.
          * <code>callback ( mixed $value ) : mixed</code>
-         * @return Set The result of applying a callback to each value in
+         * @return Set<TNewValue> The result of applying a callback to each value in
          * the set.
          * <p><b>Note:</b> The values of the current instance won't be affected.</p>
          */
@@ -1962,9 +2008,10 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-set.merge.php
          *
-         * @param iterable $values A traversable object or an array.
+         * @template TValue2
+         * @param iterable<TValue2> $values A traversable object or an array.
          *
-         * @return Set The result of adding all given values to the set,
+         * @return Set<TValue|TValue2> The result of adding all given values to the set,
          * effectively the same as adding the values to a copy, then returning
          * that copy.
          */
@@ -1975,16 +2022,17 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-set.reduce.php
          *
-         * @param callable $callback
+         * @template TCarry
+         * @param callable(TCarry, TValue): TCarry $callback
          * <code>callback ( mixed $carry , mixed $value ) : mixed</code>
          *  $carry  The return value of the previous callback, or initial if
          * it's the first iteration.
          *  $value   The value of the current iteration.
          *
-         * @param mixed|null $initial The initial value of the carry value. Can be
+         * @param TCarry $initial The initial value of the carry value. Can be
          * NULL.
          *
-         * @return mixed The return value of the final callback.
+         * @return TCarry The return value of the final callback.
          */
         public function reduce(callable $callback, $initial = null) {}
 
@@ -1994,7 +2042,7 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-set.remove.php
          *
-         * @param mixed ...$values The values to remove.
+         * @param TValue ...$values The values to remove.
          */
         public function remove(...$values) {}
 
@@ -2012,7 +2060,7 @@ namespace Ds;
          *
          * <p><b>Note:</b> The current instance is not affected.</p>
          *
-         * @return Set A reversed copy of the set.
+         * @return Set<TValue> A reversed copy of the set.
          */
         public function reversed(): Set {}
 
@@ -2031,7 +2079,7 @@ namespace Ds;
          * resulting set will contain all values between the index and the end
          * of the set.
          *
-         * @return Set A sub-set of the given range.
+         * @return Set<TValue> A sub-set of the given range.
          */
         public function slice(int $index, ?int $length = null): Set {}
 
@@ -2040,7 +2088,7 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-set.last.php
          *
-         * @return mixed The last value in the set.
+         * @return TValue The last value in the set.
          *
          * @throws UnderflowException if empty.
          */
@@ -2049,7 +2097,7 @@ namespace Ds;
         /**
          * Sorts the set in-place, using an optional comparator function.
          *
-         * @param callable|null $comparator The comparison function must return
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -2070,7 +2118,7 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-set.sorted.php
          *
-         * @param null|callable $comparator The comparison function must return an
+         * @param null|callable(TValue, TValue): int $comparator The comparison function must return an
          * integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note  that before PHP 7.0.0 this integer had
@@ -2084,7 +2132,7 @@ namespace Ds;
          * such as 0.99 and 0.1 will both be cast to an integer value of 0,
          * which will compare such values as equal.</p>
          *
-         * @return Set Returns a sorted copy of the set.
+         * @return Set<TValue> Returns a sorted copy of the set.
          */
         public function sorted(?callable $comparator = null): Set {}
 
@@ -2109,9 +2157,10 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-set.union.php
          *
-         * @param Set $set The other set, to combine with the current instance.
+         * @template TValue2
+         * @param Set<TValue2> $set The other set, to combine with the current instance.
          *
-         * @return Set A new set containing all the values of the current
+         * @return Set<TValue|TValue2> A new set containing all the values of the current
          * instance as well as another set.
          */
         public function union(Set $set): Set {}
@@ -2124,9 +2173,10 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-set.xor.php
          *
-         * @param Set $set The other set.
+         * @template TValue2
+         * @param Set<TValue2> $set The other set.
          *
-         * @return Set A new set containing values in the current instance as
+         * @return Set<TValue|TValue2> A new set containing values in the current instance as
          * well as another set, but not in both.
          */
         public function xor(Set $set): Set {}
@@ -2135,7 +2185,7 @@ namespace Ds;
          * Converts the set to an array.
          * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-set.toarray.php
-         * @return array An array containing all the values in the same order as
+         * @return array<TValue> An array containing all the values in the same order as
          * the collection.
          */
         public function toArray(): array {}
@@ -2156,6 +2206,8 @@ namespace Ds;
      * order, destructively.
      *
      * @package Ds
+     * @template TValue
+     * @implements Collection<int, TValue>
      *
      * @link https://www.php.net/manual/en/class.ds-stack.php
      */
@@ -2167,7 +2219,7 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-stack.construct.php
          *
-         * @param iterable $values A traversable object or an
+         * @param iterable<TValue> $values A traversable object or an
          * array to use for the initial values.
          */
         public function __construct($values = []) {}
@@ -2215,7 +2267,7 @@ namespace Ds;
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-stack.copy.php
-         * @return Stack
+         * @return Stack<TValue>
          */
         public function copy(): Stack {}
 
@@ -2232,7 +2284,7 @@ namespace Ds;
          * Converts the collection to an array.
          * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-stack.toarray.php
-         * @return array An array containing all the values in the same order as
+         * @return array<TValue> An array containing all the values in the same order as
          * the collection.
          */
         public function toArray(): array {}
@@ -2251,7 +2303,7 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-queue.peek.php
          *
-         * @return mixed The value at the top of the stack.
+         * @return TValue The value at the top of the stack.
          *
          * @throws UnderflowException
          */
@@ -2262,7 +2314,7 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-queue.pop.php
          *
-         * @return mixed The removed value which was at the top of the stack.
+         * @return TValue The removed value which was at the top of the stack.
          *
          * @throws UnderflowException
          */
@@ -2273,7 +2325,7 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-queue.push.php
          *
-         * @param array $values The values to push onto the stack.
+         * @param TValue ...$values The values to push onto the stack.
          */
         public function push(...$values) {}
     }
@@ -2286,6 +2338,8 @@ namespace Ds;
      * Uses a Ds\Vector internally.
      *
      * @package Ds
+     * @template TValue
+     * @implements Collection<int, TValue>
      */
     class Queue implements Collection
     {
@@ -2295,7 +2349,7 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-queue.construct.php
          *
-         * @param iterable $values A traversable object or an
+         * @param iterable<TValue> $values A traversable object or an
          * array to use for the initial values.
          */
         public function __construct($values = []) {}
@@ -2343,10 +2397,13 @@ namespace Ds;
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-queue.copy.php
-         * @return Stack
+         * @return Queue<TValue>
          */
-        public function copy(): Stack {}
+        public function copy(): Queue {}
 
+        /**
+         * @return Traversable<TValue>
+         */
         public function getIterator(): Traversable {}
 
         /**
@@ -2360,7 +2417,7 @@ namespace Ds;
          * Converts the collection to an array.
          * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-queue.toarray.php
-         * @return array An array containing all the values in the same order as
+         * @return array<TValue> An array containing all the values in the same order as
          * the collection.
          */
         public function toArray(): array {}
@@ -2379,7 +2436,7 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-queue.peek.php
          *
-         * @return mixed The value at the top of the queue.
+         * @return TValue The value at the top of the queue.
          *
          * @throws UnderflowException
          */
@@ -2390,7 +2447,7 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-queue.pop.php
          *
-         * @return mixed The removed value which was at the top of the queue.
+         * @return TValue The removed value which was at the top of the queue.
          *
          * @throws UnderflowException
          */
@@ -2401,7 +2458,7 @@ namespace Ds;
          *
          * @link https://www.php.net/manual/en/ds-queue.push.php
          *
-         * @param array $values The values to push onto the queue.
+         * @param TValue ...$values The values to push onto the queue.
          */
         public function push(...$values) {}
     }
@@ -2414,6 +2471,8 @@ namespace Ds;
      * Implemented using a max heap.
      *
      * @package Ds
+     * @template TValue
+     * @implements Collection<int, TValue>
      *
      * @link https://www.php.net/manual/en/class.ds-priorityqueue.php
      */
@@ -2436,7 +2495,7 @@ namespace Ds;
          * Allocates enough memory for a required capacity
          * @link https://www.php.net/manual/en/ds-priorityqueue.allocate.php
          *
-         * @param int   $capacity
+         * @param int $capacity
          */
         public function allocate(int $capacity): void {}
 
@@ -2457,7 +2516,7 @@ namespace Ds;
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-collection.copy.php
-         * @return Collection
+         * @return PriorityQueue<TValue>
          */
         public function copy() {}
 
@@ -2474,7 +2533,7 @@ namespace Ds;
          * Returns the value at the front of the queue, but does not remove it.
          * @link https://www.php.net/manual/en/ds-priorityqueue.peek.php
          *
-         * @return mixed The value at the front of the queue.
+         * @return TValue The value at the front of the queue.
          * @throws UnderflowException if empty.
          */
         public function peek() {}
@@ -2483,7 +2542,7 @@ namespace Ds;
          * Removes and returns the value with the highest priority
          * @link https://www.php.net/manual/en/ds-priorityqueue.pop.php
          *
-         * @return mixed The removed value which was at the front of the queue.
+         * @return TValue The removed value which was at the front of the queue.
          * @throws UnderflowException if empty.
          */
         public function pop() {}
@@ -2491,8 +2550,8 @@ namespace Ds;
         /**
          * Pushes a value with a given priority into the queue.
          *
-         * @param mixed $value
-         * @param int   $priority
+         * @param TValue $value
+         * @param int $priority
          */
         public function push($value, int $priority) {}
 
@@ -2500,7 +2559,7 @@ namespace Ds;
          * Converts the collection to an array.
          * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-collection.toarray.php
-         * @return array An array containing all the values in the same order as
+         * @return array<TValue> An array containing all the values in the same order as
          * the collection.
          */
         public function toArray(): array {}
