@@ -723,14 +723,15 @@ function pg_fetch_object(
  * while <b>PGSQL_BOTH</b>, the default, will return both
  * numerical and associative indices.
  * </p>
- * @return array An array with all rows in the result. Each row is an array
+ * @return array|false An array with all rows in the result. Each row is an array
  * of field values indexed by field name.
  * </p>
  * <p>
  * <b>FALSE</b> is returned if there are no rows in the result, or on any
  * other error.
  */
-function pg_fetch_all(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], default: 'resource')] $result, int $mode = PGSQL_ASSOC): array {}
+#[LanguageLevelTypeAware(['8.0' => 'array'], default: 'array|false')]
+function pg_fetch_all(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], default: 'resource')] $result, int $mode = PGSQL_ASSOC) {}
 
 /**
  * Fetches all rows in a particular result column as an array
