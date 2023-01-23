@@ -58,6 +58,7 @@ function opcache_reset(): bool {}
     'opcache_statistics' => 'array',
     'preload_statistics' => 'array',
     'scripts' => 'array',
+    'jit' => 'array',
 ])]
 function opcache_get_status(bool $include_scripts = true): array|false {}
 
