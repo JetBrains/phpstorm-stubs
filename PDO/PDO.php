@@ -1073,13 +1073,13 @@ class PDO
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
      * Executes an SQL statement, returning a result set as a PDOStatement object
      * @link https://php.net/manual/en/pdo.query.php
-     * @param string $statement <p>
+     * @param string $query <p>
      * The SQL statement to prepare and execute.
      * </p>
      * <p>
      * Data inside the query should be properly escaped.
      * </p>
-     * @param int $mode <p>
+     * @param int $fetchMode <p>
      * The fetch mode must be one of the PDO::FETCH_* constants.
      * </p>
      * @param mixed $arg3 <p>
@@ -1094,19 +1094,19 @@ class PDO
      * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
      */
     #[PhpStormStubsElementAvailable(to: '7.4')]
-    public function query($statement, $mode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null, $ctorargs = []) {}
+    public function query($query, $fetchMode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null, $ctorargs = []) {}
 
     /**
      * (PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.2.0)<br/>
      * Executes an SQL statement, returning a result set as a PDOStatement object
      * @link https://php.net/manual/en/pdo.query.php
-     * @param string $statement <p>
+     * @param string $query <p>
      * The SQL statement to prepare and execute.
      * </p>
      * <p>
      * Data inside the query should be properly escaped.
      * </p>
-     * @param int|null $mode <p>
+     * @param int|null $fetchMode <p>
      * The fetch mode must be one of the PDO::FETCH_* constants.
      * </p>
      * @param mixed ...$fetch_mode_args <p>
@@ -1119,8 +1119,8 @@ class PDO
      */
     #[PhpStormStubsElementAvailable('8.0')]
     public function query(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $statement,
-        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $mode = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $query,
+        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $fetchMode = null,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$fetch_mode_args
     ) {}
 
