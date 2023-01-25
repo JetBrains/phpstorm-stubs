@@ -4723,9 +4723,9 @@ class Redis
     /**
      * Scan the keyspace for keys
      *
-     * @param int    &$iterator Iterator, initialized to NULL.
-     * @param string $pattern  Pattern to match.
-     * @param int    $count    Count of keys per iteration (only a suggestion to Redis).
+     * @param int|null &$iterator Iterator, initialized to NULL.
+     * @param string   $pattern   Pattern to match.
+     * @param int      $count     Count of keys per iteration (only a suggestion to Redis).
      *
      * @return array|false|Redis This function will return an array of keys or FALSE if there are no more keys or Redis if in multimode
      *
