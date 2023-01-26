@@ -12,14 +12,14 @@ class Relay
      *
      * @var string
      */
-    public const VERSION = "0.5.2";
+    public const VERSION = "0.5.1";
 
     /**
      * Relay's version.
      *
      * @var string
      */
-    public const Version = "0.5.2";
+    public const Version = "0.5.1";
 
     /**
      * Integer representing no compression algorithm.
