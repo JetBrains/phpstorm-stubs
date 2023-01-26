@@ -34,7 +34,6 @@ class Sentinel
      * @param  int  $retry_interval
      * @param  float  $read_timeout
      * @param  mixed  $auth
-     * @return void
      */
     #[\Relay\Attributes\Server]
     public function __construct(
