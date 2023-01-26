@@ -188,6 +188,7 @@ class PhpCoreStubsProvider
             'phpdbg',
             'rar',
             'redis',
+            'relay',
             'rrd',
             'SaxonC',
             'snappy',
