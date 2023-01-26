@@ -593,7 +593,7 @@ class Relay
     /**
      * Returns the number of bytes sent and received over the network during the Relay object's
      * lifetime, or since the last time {@link Relay::clearBytes()} was called.
-     * 
+     *
      * @see Relay::getBytes() Alias.
      *
      * @return array{int, int}
