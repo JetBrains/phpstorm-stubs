@@ -554,7 +554,9 @@ class Relay
     public function getTimeout(): float|false {}
 
     /**
-     * @alias Relay\Relay::getTimeout
+     * Returns the connection timeout.
+     *
+     * @see Relay\Relay::getTimeout() Alias.
      *
      * @return float|false
      */
@@ -570,7 +572,9 @@ class Relay
     public function getReadTimeout(): float|false {}
 
     /**
-     * @alias Relay\Relay::getReadTimeout
+     * Returns the read timeout.
+     *
+     * @see Relay::getReadTimeout() Alias.
      *
      * @return float|false
      */
@@ -587,7 +591,10 @@ class Relay
     public function getBytes(): array {}
 
     /**
-     * @alias Relay\Relay::getBytes
+     * Returns the number of bytes sent and received over the network during the Relay object's
+     * lifetime, or since the last time {@link Relay::clearBytes()} was called.
+     * 
+     * @see Relay::getBytes() Alias.
      *
      * @return array{int, int}
      */
@@ -725,7 +732,7 @@ class Relay
     /**
      * Returns the connection's endpoint identifier.
      *
-     * @alias Relay\Relay::endpointId
+     * @see Relay\Relay::endpointId() Alias.
      *
      * @return string|false
      */
