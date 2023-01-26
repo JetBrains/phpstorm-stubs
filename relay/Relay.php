@@ -581,7 +581,7 @@ class Relay
      * Returns the number of bytes sent and received over the network during the Relay object's
      * lifetime, or since the last time {@link Relay::clearBytes()} was called.
      *
-     * @return array A two element array consisting of [$sent_bytes, $received_bytes]
+     * @return array{int, int}
      */
     #[\Relay\Attributes\Local]
     public function getBytes(): array {}
@@ -589,7 +589,7 @@ class Relay
     /**
      * @alias Relay\Relay::getBytes
      *
-     * @return array
+     * @return array{int, int}
      */
     #[\Relay\Attributes\Local]
     public function bytes(): array {}
