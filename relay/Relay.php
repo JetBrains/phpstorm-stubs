@@ -381,7 +381,6 @@ class Relay
      * @param  float  $connect_timeout
      * @param  float  $command_timeout
      * @param  array  $context
-     * @return Relay
      */
     #[\Relay\Attributes\Server]
     public function __construct(
