@@ -12,14 +12,14 @@ class Relay
      *
      * @var string
      */
-    public const VERSION = "0.5.1";
+    public const VERSION = "0.6.0";
 
     /**
      * Relay's version.
      *
      * @var string
      */
-    public const Version = "0.5.1";
+    public const Version = "0.6.0";
 
     /**
      * Integer representing no compression algorithm.
@@ -544,6 +544,24 @@ class Relay
      */
     #[\Relay\Attributes\Local]
     public function setOption(int $option, mixed $value): bool {}
+
+    /**
+     * Add a patterns to ignore.
+     *
+     * @param  string  $pattern,...
+     * @return int
+     */
+    #[\Relay\Attributes\Local]
+    public function addIgnorePatterns(string ...$pattern): int {}
+
+    /**
+     * Add a patterns to allow.
+     *
+     * @param  string  $pattern,...
+     * @return int
+     */
+    #[\Relay\Attributes\Local]
+    public function addAllowPatterns(string ...$pattern): int {}
 
     /**
      * Returns the connection timeout.
