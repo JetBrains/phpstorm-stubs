@@ -1046,7 +1046,7 @@ class ZipArchive implements Countable
      * ignoring any changes made.
      * <b>ZipArchive::FL_NOCASE</b>
      * </p>
-     * @return array|false an array containing the entry details or <b>FALSE</b> on failure.
+     * @return array{name: string, index: int, crc: int, size: int, mtime: int, comp_size: int, comp_method: int, encryption_method: int}|false an array containing the entry details or <b>FALSE</b> on failure.
      */
     public function statName(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
