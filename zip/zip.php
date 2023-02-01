@@ -1065,7 +1065,7 @@ class ZipArchive implements Countable
      * information about the original file in the archive,
      * ignoring any changes made.
      * </p>
-     * @return array|false an array containing the entry details or <b>FALSE</b> on failure.
+     * @return array{name: string, index: int, crc: int, size: int, mtime: int, comp_size: int, comp_method: int, encryption_method: int}|false an array containing the entry details or <b>FALSE</b> on failure.
      */
     public function statIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
