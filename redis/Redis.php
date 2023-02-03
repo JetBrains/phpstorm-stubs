@@ -6030,11 +6030,11 @@ class Redis
      *
      * @example
      * $redis->lPush('numbers', 'one');
-     * $redis->bLmove('numbers', 'odds', Redis::LEFT, Redis::LEFT 1.0);
+     * $redis->blmove('numbers', 'odds', Redis::LEFT, Redis::LEFT 1.0);
      * // This call will block, if no additional elements are in 'numbers'
-     * $redis->bLmove('numbers', 'odds', Redis::LEFT, Redis::LEFT, 1.0);
+     * $redis->blmove('numbers', 'odds', Redis::LEFT, Redis::LEFT, 1.0);
      */
-    public function bLmove($src, $dst, $wherefrom, $whereto, $timeout) {}
+    public function blmove($src, $dst, $wherefrom, $whereto, $timeout) {}
 
     /**
      * Retrieve the index of an element in a list.
