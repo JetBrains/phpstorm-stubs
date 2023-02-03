@@ -5298,7 +5298,7 @@ class Redis
      * $redis->xAdd('mystream', "*", ['field' => 'value'], 10, true);
      * </pre>
      */
-     public function xAdd($key, $id, $messages, $maxLen = 0, $isApproximate = false, $nomkstream = false) {}
+    public function xAdd($key, $id, $messages, $maxLen = 0, $isApproximate = false, $nomkstream = false) {}
 
     /**
      * This method allows a consumer to take ownership of pending stream entries, by ID.  Another
