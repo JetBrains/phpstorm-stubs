@@ -2996,7 +2996,7 @@ class Redis
      * @example $redis->resetStat();
      * @link https://redis.io/commands/config-resetstat
      */
-    #[Deprecated(replacement: "%class%->rawCommand('CONFIG', 'RESETSTAT');")]
+    #[Deprecated(replacement: "%class%->rawCommand('CONFIG', 'RESETSTAT')")]
     public function resetStat() {}
 
     /**
