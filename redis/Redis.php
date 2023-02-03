@@ -6029,12 +6029,12 @@ class Redis
      * @return Redis|string|false;
      *
      * @example
-     * @redis->lPush('numbers', 'one');
-     * @redis->blmove('numbers', 'odds', Redis::LEFT, Redis::LEFT 1.0);
+     * $redis->lPush('numbers', 'one');
+     * $redis->bLmove('numbers', 'odds', Redis::LEFT, Redis::LEFT 1.0);
      * // This call will block, if no additional elements are in 'numbers'
-     * @redis->blmove('numbers', 'odds', Redis::LEFT, Redis::LEFT, 1.0);
+     * $redis->bLmove('numbers', 'odds', Redis::LEFT, Redis::LEFT, 1.0);
      */
-    public function blmove($src, $dst, $wherefrom, $whereto, $timeout) {}
+    public function bLmove($src, $dst, $wherefrom, $whereto, $timeout) {}
 
     /**
      * Retrieve the index of an element in a list.
@@ -6262,7 +6262,7 @@ class Redis
      * @see https://redis.io/commands/zrange/
      * @see Redis::zRange for a full description of the possible options.
      */
-    public function zrangestore($dstkey, $srckey, $start, $end, $options = null) {}
+    public function zRangeStore($dstkey, $srckey, $start, $end, $options = null) {}
 
     /**
      * Store the difference of one or more sorted sets in a destination sorted set.
