@@ -5685,6 +5685,7 @@ class Redis
      *                                depending on whether any elements could be popped within the specified timeout.
      *
      * NOTE: If Redis::OPT_NULL_MULTIBULK_AS_NULL is set to true via Redis::setOption(), this method will instead return NULL when Redis doesn't pop any elements.
+     * @since phpredis 6.0
      */
     public function bzmpop($timeout, $keys, $from, $count = 1) {}
 
@@ -5698,6 +5699,7 @@ class Redis
      * @param int    $count Pop up to how many elements at once.
      *
      * @return array|null|false|Redis An array of popped elements or false if none could be popped.
+     * @since phpredis 6.0
      */
     public function zmpop($keys, $from, $count = 1) {}
 
@@ -5712,6 +5714,7 @@ class Redis
      * @param int    $count   Pop up to how many elements at once.
      *
      * @return array|null|false|Redis One or more elements popped from the list(s) or false if all LISTs were empty.
+     * @since phpredis 6.0
      */
     public function blmpop($timeout, $keys, $from, $count = 1) {}
 
@@ -5725,6 +5728,8 @@ class Redis
      * @param int    $count The maximum number of elements to pop at once.
      *
      * @return array|null|false|Redis One or more elements popped from the LIST(s) or false if all the LISTs were empty.
+     *
+     * @since phpredis 6.0
      */
     public function lmpop($keys, $from, $count = 1) {}
 
@@ -5750,6 +5755,7 @@ class Redis
      * @return bool|Redis True if the copy was completed and false if not.
      *
      * @link https://redis.io/commands/copy
+     * @since phpredis 6.0
      *
      * @example
      * $redis->pipeline()
@@ -5784,6 +5790,7 @@ class Redis
      * @return mixed
      *
      * @see eval()
+     * @since phpredis 6.0
      */
     public function eval_ro($script_sha, $args = [], $num_keys = 0) {}
 
@@ -5796,6 +5803,7 @@ class Redis
      *
      * @return mixed
      * @see evalsha()
+     * @since phpredis 6.0
      */
     public function evalsha_ro($sha1, $args = [], $num_keys = 0) {}
 
@@ -5805,6 +5813,7 @@ class Redis
      * @param int        $timeout
      *
      * @return bool|Redis
+     * @since phpredis 6.0
      */
     public function failover($to = null, $abort = false, $timeout = 0) {}
 
@@ -5816,6 +5825,7 @@ class Redis
      * @return int|false|Redis The timestamp when the key expires, or -1 if the key has no expiry and -2 if the key doesn't exist.
      *
      * @link https://redis.io/commands/expiretime
+     * @since phpredis 6.0
      *
      * @example
      * $redis->setEx('mykey', 60, 'myval');
@@ -5830,6 +5840,7 @@ class Redis
      *
      * @link https://redis.io/commands/pexpiretime
      * @see expiretime()
+     * @since phpredis 6.0
      *
      * @return int|false|Redis The expiration timestamp of this key (in milliseconds) or -1 if the key has no expiration, and -2 if it does not exist.
      */
@@ -5845,6 +5856,7 @@ class Redis
      * @return mixed Function may return arbitrary data so this method can return strings, arrays, nested arrays, etc.
      *
      * @link https://redis.io/commands/fcall
+     * @since phpredis 6.0
      */
     public function fcall($fn, $keys = [], $args = []) {}
 
@@ -5858,6 +5870,7 @@ class Redis
      * @return mixed Function may return arbitrary data so this method can return strings, arrays, nested arrays, etc.
      *
      * @link https://redis.io/commands/fcall_ro
+     * @since phpredis 6.0
      */
     public function fcall_ro($fn, $keys = [], $args = []) {}
 
@@ -5878,6 +5891,7 @@ class Redis
      * @return Redis|bool|string|array  Depends on subcommand.
      *
      * @link https://redis.io/commands/function
+     * @since phpredis 6.0
      */
     public function function($operation, ...$args) {}
 
@@ -5925,6 +5939,7 @@ class Redis
      * @return string|bool|Redis The key's value or false if it didn't exist.
      *
      * @see     https://redis.io/comands/getex
+     * @since phpredis 6.0
      *
      * @example $redis->getEx('mykey', ['EX' => 60]);
      */
@@ -5938,6 +5953,7 @@ class Redis
      * @return Redis|string|bool The value of the key or false if it didn't exist.
      *
      * @see     https://redis.io/commands/getdel
+     * @since phpredis 6.0
      *
      * @example $redis->getDel('token:123');
      */
@@ -5959,6 +5975,7 @@ class Redis
      * @return Redis|string|array|int|false Various reply types depending on options.
      *
      * @link https://redis.io/commands/lcs
+     * @since phpredis 6.0
      *
      * @example
      * $redis->set('seq1', 'gtaggcccgcacggtctttaatgtatccctgtttaccatgccatacctgagcgcatacgc');
@@ -5971,11 +5988,13 @@ class Redis
      * Get the number of bytes sent and received on the socket.
      *
      * @return array An array in the form [$sent_bytes, $received_bytes]
+     * @since phpredis 6.0
      */
     public function getTransferredBytes() {}
 
     /**
      * Reset the number of bytes sent and received on the socket.
+     * @since phpredis 6.0
      *
      * @return void
      */
@@ -5992,6 +6011,7 @@ class Redis
      * @return Redis|array|string One or more random fields (and possibly values).
      *
      * @see     https://redis.io/commands/hrandfield
+     * @since phpredis 6.0
      *
      * @example
      * $redis->hRandField('settings');
@@ -6010,6 +6030,7 @@ class Redis
      *                          - `Redis::LEFT`, or `Redis::RIGHT`.
      *
      * @return Redis|string|false The element removed from the source list.
+     * @since phpredis 6.0
      *
      * @example
      * $redis->rPush('numbers', 'one', 'two', 'three');
@@ -6027,6 +6048,7 @@ class Redis
      * @param float  $timeout   How long to block for an element.
      *
      * @return Redis|string|false;
+     * @since phpredis 6.0
      *
      * @example
      * $redis->lPush('numbers', 'one');
@@ -6057,6 +6079,7 @@ class Redis
      *                            'MAXLEN => <max-len>
      *
      * @return Redis|null|bool|int|array Returns one or more of the matching indexes, or null/false if none were found.
+     * @since phpredis 6.0
      */
     public function lPos($key, $value, $options = null) {}
 
@@ -6064,6 +6087,7 @@ class Redis
      * Reset the state of the connection.
      *
      * @return Redis|bool Should always return true unless there is an error.
+     * @since phpredis 6.0
      */
     public function reset() {}
 
@@ -6076,6 +6100,7 @@ class Redis
      * @return Redis|int|false
      *
      * @link https://redis.io/commands/sintercard
+     * @since phpredis 6.0
      *
      * @example
      * $redis->sAdd('set1', 'apple', 'pear', 'banana', 'carrot');
@@ -6093,6 +6118,7 @@ class Redis
      * @link https://redis.io/commands/replicaof
      * @link https://redis.io/commands/slaveof
      * @see slaveof()
+     * @since phpredis 6.0
      *
      * @param string|null $host The host of the primary to start replicating.
      * @param int         $port The port of the primary to start replicating.
@@ -6121,6 +6147,7 @@ class Redis
      * @param string      ...$more_keys  One or more keys to send to the command.
      *
      * @return Redis|int|false This command returns the number of keys that exist and had their last modified time reset
+     * @since phpredis 6.0
      */
     public function touch($key_or_array, ...$more_keys) {}
 
@@ -6132,6 +6159,7 @@ class Redis
      *
      * @return mixed
      * @see sort()
+     * @since phpredis 6.0
      */
     public function sort_ro($key, $options = null) {}
 
@@ -6145,6 +6173,7 @@ class Redis
      *              client in a subscribe loop, waiting for messages to arrive.
      *
      * @link https://redis.io/commands/ssubscribe
+     * @since phpredis 6.0
      *
      * @example
      * $redis = new Redis(['host' => 'localhost']);
@@ -6175,6 +6204,7 @@ class Redis
      *
      * @link https://redis.io/commands/sunsubscribe
      * @see ssubscribe()
+     * @since phpredis 6.0
      *
      * @example
      * $redis->ssubscribe(['channel-1', 'channel-2'], function ($redis, $channel, $message) {
@@ -6197,6 +6227,7 @@ class Redis
      * @link https://redis.io/commands/xautoclaim
      * @link https://redis.io/commands/xclaim
      * @link https://redis.io/docs/data-types/streams-tutorial/
+     * @since phpredis 6.0
      *
      * @param string $key      The stream to check.
      * @param string $group    The consumer group to query.
@@ -6261,6 +6292,7 @@ class Redis
      *
      * @see https://redis.io/commands/zrange/
      * @see Redis::zRange for a full description of the possible options.
+     * @since phpredis 6.0
      */
     public function zRangeStore($dstkey, $srckey, $start, $end, $options = null) {}
 
@@ -6274,6 +6306,7 @@ class Redis
      *
      * @see zDiff()
      * @link https://redis.io/commands/zdiff
+     * @since phpredis 6.0
      */
     public function zDiffStore($dst, $keys) {}
 
@@ -6291,6 +6324,7 @@ class Redis
      *                     resulting cardinality reaches this limit.
      *
      * @return Redis|int|false The cardinality of the intersection or false on failure.
+     * @since phpredis 6.0
      *
      * @example
      * $redis->zAdd('zs1', 1, 'one', 2, 'two', 3, 'three', 4, 'four');
