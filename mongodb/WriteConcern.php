@@ -80,4 +80,3 @@ final class WriteConcern implements Serializable, \Serializable
 
     final public function isDefault() {}
 }
-

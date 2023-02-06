@@ -24,4 +24,3 @@ final class Command
 
     final public function __wakeup() {}
 }
-

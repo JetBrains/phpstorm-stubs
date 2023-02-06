@@ -79,4 +79,3 @@ final class ReadConcern implements Serializable, \Serializable
      */
     final public function unserialize($serialized) {}
 }
-

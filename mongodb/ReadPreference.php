@@ -127,4 +127,3 @@ final class ReadPreference implements Serializable, \Serializable
 
     final public function getMaxStalenessSeconds() {}
 }
-

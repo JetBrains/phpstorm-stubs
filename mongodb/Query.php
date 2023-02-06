@@ -21,4 +21,3 @@ final class Query
 
     final public function __wakeup() {}
 }
-
