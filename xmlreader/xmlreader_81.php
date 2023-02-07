@@ -10,6 +10,9 @@ use JetBrains\PhpStorm\Internal\TentativeType;
  * cursor going forward on the document stream and stopping at each node
  * on the way.
  * @link https://php.net/manual/en/class.xmlreader.php
+ * @see https://github.com/JetBrains/phpstorm-stubs/pull/1526#issuecomment-1419394807
+ *
+ * @since 8.1
  */
 class XMLReader
 {
