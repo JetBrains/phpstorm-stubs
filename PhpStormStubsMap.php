@@ -1222,7 +1222,6 @@ const CLASSES = array (
   'http\\QueryString' => 'http/http3.php',
   'http\\Url' => 'http/http3.php',
   'imageObj' => 'mapscript/mapscript.php',
-  'iterable' => 'Core/Core_c.php',
   'java' => 'zend/zend.php',
   'labelObj' => 'mapscript/mapscript.php',
   'labelcacheMemberObj' => 'mapscript/mapscript.php',
