@@ -5514,7 +5514,7 @@ namespace Cassandra\Cluster {
         /**
          * Configures the retry policy.
          *
-         * @param \Cassandra\Cluster\RetryPolicy $policy the retry policy to use.
+         * @param \Cassandra\RetryPolicy $policy the retry policy to use.
          *
          * @return \Cassandra\Cluster\Builder self
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/Cluster/class.Builder/#method-withRetryPolicy
