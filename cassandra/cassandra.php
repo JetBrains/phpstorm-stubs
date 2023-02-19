@@ -1253,7 +1253,7 @@ namespace Cassandra {
          *
          * @param string $name Materialized view name
          *
-         * @return \Cassandra\MaterizedView|null A materialized view or null
+         * @return \Cassandra\MaterializedView|null A materialized view or null
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/interface.Keyspace/#method-materializedView
          */
         public function materializedView($name);
@@ -4386,7 +4386,7 @@ namespace Cassandra {
          *
          * @param string $name Materialized view name
          *
-         * @return \Cassandra\MaterizedView|null A materialized view or null
+         * @return \Cassandra\MaterializedView|null A materialized view or null
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.DefaultKeyspace/#method-materializedView
          */
         public function materializedView($name) {}
@@ -4884,7 +4884,7 @@ namespace Cassandra {
          *
          * @param string $name Materialized view name
          *
-         * @return \Cassandra\MaterizedView|null A materialized view or null
+         * @return \Cassandra\MaterializedView|null A materialized view or null
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.DefaultTable/#method-materializedView
          */
         public function materializedView($name) {}
