@@ -991,7 +991,7 @@ function openssl_pkcs7_sign(
  * @link https://php.net/manual/en/function.openssl-pkcs7-encrypt.php
  * @param string $input_filename
  * @param string $output_filename
- * @param OpenSSLCertificate|string|resource $certificate <p>
+ * @param OpenSSLCertificate|array|string|resource $certificate <p>
  * Either a lone X.509 certificate, or an array of X.509 certificates.
  * </p>
  * @param array|null $headers <p>
@@ -1013,7 +1013,14 @@ function openssl_pkcs7_sign(
  * </p>
  * @return bool true on success or false on failure.
  */
-function openssl_pkcs7_encrypt(string $input_filename, string $output_filename, $certificate, ?array $headers, int $flags = 0, int $cipher_algo = OPENSSL_CIPHER_AES_128_CBC): bool {}
+function openssl_pkcs7_encrypt(
+    string $input_filename,
+    string $output_filename,
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|array|string"], default: "resource|array|string")] $certificate,
+    ?array $headers,
+    int $flags = 0,
+    int $cipher_algo = OPENSSL_CIPHER_AES_128_CBC
+): bool {}
 
 /**
  * Encrypts data with private key
