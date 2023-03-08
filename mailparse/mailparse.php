@@ -111,7 +111,7 @@ function mailparse_msg_get_part_data($mimemail) {}
  * A valid MIME resource.
  * </p>
  * @param string $mimesection
- * @return resource
+ * @return resource|false
  */
 function mailparse_msg_get_part($mimemail, $mimesection) {}
 
