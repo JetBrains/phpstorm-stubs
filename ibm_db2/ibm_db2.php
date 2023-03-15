@@ -40,7 +40,7 @@
  * successful. If the connection attempt fails, db2_connect
  * returns false.
  */
-function db2_connect(string $database, ?string $username, #[\SensitiveParameter] ?string $password, array $options = []) {}
+function db2_connect(#[\SensitiveParameter] string $database, ?string $username, #[\SensitiveParameter] ?string $password, array $options = []) {}
 
 /**
  * Commits a transaction
@@ -95,7 +95,7 @@ function db2_commit($connection): bool {}
  * password parameters. If the connection attempt fails,
  * db2_pconnect returns false.
  */
-function db2_pconnect(string $database, ?string $username, #[\SensitiveParameter] ?string $password, array $options = []) {}
+function db2_pconnect(#[\SensitiveParameter] string $database, ?string $username, #[\SensitiveParameter] ?string $password, array $options = []) {}
 
 /**
  * Returns or sets the AUTOCOMMIT state for a database connection
