@@ -1284,6 +1284,40 @@ class PDO
 
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo_sqlite &gt;= 1.0.0)<br/>
+     * Registers an aggregating User Defined Function for use in SQL statements
+     * @link https://php.net/manual/en/pdo.sqlitecreateaggregate.php
+     * @param string $function_name <p>
+     * The name of the function used in SQL statements.
+     * </p>
+     * @param callable $step_func <p>
+     * Callback function called for each row of the result set. Your PHP function should accumulate the result and store it in the aggregation context.
+     * </p>
+     * @param callable $finalize_func <p>
+     * Callback function to aggregate the "stepped" data from each row. Once all the rows have been processed, this function will be called and it should then take the data from the aggregation context and return the result. This callback function should return a type understood by SQLite (i.e. scalar type).
+     * </p>
+     * @param int $num_args [optional] <p>
+     * Hint to the SQLite parser if the callback function accepts a predetermined number of arguments.
+     * </p>
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function sqliteCreateAggregate($function_name, $step_func, $finalyze_func, $num_args = -1) {}
+
+    /**
+     * (PHP 5 &gt;= 5.3.11, PHP 7)<br/>
+     * Registers a User Defined Function for use as a collating function in SQL statements
+     * @link https://php.net/manual/en/pdo.sqlitecreatecollation.php
+     * @param string $name <p>
+     * Name of the SQL collating function to be created or redefined.
+     * </p>
+     * @param callable $callback <p>
+     * The name of a PHP function or user-defined function to apply as a callback, defining the behavior of the collation. It should accept two strings and return as strcmp() does, i.e. it should return -1, 1, or 0 if the first string sorts before, sorts after, or is equal to the second.
+     * </p>
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function sqliteCreateCollation($name, $callback) {}
+
+    /**
+     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo_sqlite &gt;= 1.0.0)<br/>
      * Registers a User Defined Function for use in SQL statements
      * @link https://php.net/manual/en/pdo.sqlitecreatefunction.php
      * @param string $function_name <p>
