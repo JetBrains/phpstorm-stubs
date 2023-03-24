@@ -43,6 +43,9 @@ jobs:
       - name: Composer Install
         run: docker-compose -f docker-compose.yml run test_runner composer install
 
+      - name: Test PhpDoc
+        run: docker-compose -f docker-compose.yml run test_runner vendor/bin/phpunit --testsuite PhpDoc
+
       - name: Test Stubs Map, Structure and Reflection
         run: docker-compose -f docker-compose.yml run test_runner vendor/bin/phpunit --testsuite Structure
 
