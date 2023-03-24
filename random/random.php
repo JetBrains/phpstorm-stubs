@@ -15,7 +15,7 @@ namespace {
     /**
      * Seeds the Mersenne Twister Random Number Generator
      * @link https://php.net/manual/en/function.mt-srand.php
-     * @param int|null $seed <p>
+     * @param int $seed <p>
      * An optional seed value
      * </p>
      * @param int $mode [optional] <p>
@@ -24,7 +24,7 @@ namespace {
      * @return void
      */
     function mt_srand(
-        #[LanguageLevelTypeAware(['8.2' => 'int|null'], default: 'int')] $seed = null,
+        int $seed = null,
         #[PhpStormStubsElementAvailable(from: '7.1')] int $mode = MT_RAND_MT19937
     ): void {}
 
@@ -34,7 +34,7 @@ namespace {
      * an alias of {@see mt_srand()}.
      * </p>
      * @link https://php.net/manual/en/function.srand.php
-     * @param int|null $seed <p>
+     * @param int $seed <p>
      * Optional seed value
      * </p>
      * @param int $mode [optional] <p>
@@ -43,7 +43,7 @@ namespace {
      * @return void
      */
     function srand(
-        #[LanguageLevelTypeAware(['8.2' => 'int|null'], default: 'int')] $seed = null,
+        int $seed = null,
         #[PhpStormStubsElementAvailable(from: '7.1')] int $mode = MT_RAND_MT19937
     ): void {}
 
