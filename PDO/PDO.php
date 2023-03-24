@@ -1300,7 +1300,7 @@ class PDO
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function sqliteCreateAggregate($function_name, $step_func, $finalyze_func, $num_args = -1) {}
+    public function sqliteCreateAggregate($function_name, $step_func, $finalize_func, $num_args = -1) {}
 
     /**
      * (PHP 5 &gt;= 5.3.11, PHP 7)<br/>
