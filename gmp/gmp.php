@@ -801,6 +801,11 @@ define('GMP_MPIR_VERSION', '3.0.0');
 class GMP implements Serializable
 {
     /**
+     * @since 8.2
+     */
+    public function __construct(int|string $num = 0, int $base = 0) {}
+
+    /**
      * String representation of object
      * @link https://php.net/manual/en/serializable.serialize.php
      * @return string the string representation of the object or null
@@ -812,12 +817,12 @@ class GMP implements Serializable
     /**
      * Constructs the object
      * @link https://php.net/manual/en/serializable.unserialize.php
-     * @param string $serialized <p>
+     * @param string $data <p>
      * The string representation of the object.
      * </p>
      * @return void
      */
-    public function unserialize($serialized) {}
+    public function unserialize($data) {}
 
     public function __unserialize(array $data): void {}
 }

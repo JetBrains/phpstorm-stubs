@@ -2272,7 +2272,7 @@ define('CURL_PUSH_DENY', 1);
  * @link https://php.net/manual/en/curl.constants.php
  * @since 7.0.7
  */
-define('CURL_MAX_READ_SIZE', 524288);
+define('CURL_MAX_READ_SIZE', 10485760);
 
 /**
  * Enables the use of an abstract Unix domain socket instead of establishing a TCP connection to a host and sets the path to the given string.
