@@ -2126,7 +2126,7 @@ class Redis
      * @param string       $key
      * @param mixed        $value
      *
-     * @return string|mixed||false|Redis A string (mixed, if used serializer), the previous value located at this key or false if it didn't exist or Redis if in multimode
+     * @return string|mixed|false|Redis A string (mixed, if used serializer), the previous value located at this key or false if it didn't exist or Redis if in multimode
      *
      * @throws RedisException
      *
