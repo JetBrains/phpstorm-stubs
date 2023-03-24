@@ -208,8 +208,8 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
                 }
             }
 
-            // replace array notations like int[] or array<string,mixed> to match the array type
-            return preg_replace(['/\w+\[]/', '/array<[a-z,\s]+>/'], 'array', $typeName);
+            // replace array notations like int[] or array<string,mixed> or array{name:type} to match the array type
+            return preg_replace(['/\w+\[]/', '/array[{<][a-z,\s:|_]+[>}]/'], 'array', $typeName);
         }, $method->returnTypesFromPhpDoc);
         $unifiedSignatureTypes = array_map(function (string $type) {
             $typeParts = explode('\\', $type);
