@@ -12,14 +12,14 @@ class Relay
      *
      * @var string
      */
-    public const VERSION = "0.6.0";
+    public const VERSION = "0.6.2";
 
     /**
      * Relay's version.
      *
      * @var string
      */
-    public const Version = "0.6.0";
+    public const Version = "0.6.2";
 
     /**
      * Integer representing no compression algorithm.
@@ -181,7 +181,9 @@ class Relay
     /**
      * Integer representing the PhpRedis compatibility mode option.
      *
-     * Returns `false` instead of `null` if a key doesn’t exist and will throw an exception if there is an error.
+     * Enabled by default. Disabling will cause Relay to:
+     * 1. Return `null` when a key doesn't exist, instead of `false`
+     * 2. Throw exceptions when an error occurs, instead of returning `false`
      *
      * @var int
      */
@@ -223,7 +225,21 @@ class Relay
     public const OPT_NULL_MULTIBULK_AS_NULL = 10;
 
     /**
-     * Integer representing Relay’s invalidations option.
+     * Integer representing the throw-on-error option.
+     *
+     * Disabled by default. When enabled, Relay will throw exceptions when errors occur.
+     *
+     * @var int
+     */
+    public const OPT_THROW_ON_ERROR = 105;
+
+    /**
+     * Integer representing Relay’s invalidation option.
+     *
+     * Enabled by default. When disabled will prevent Relay from
+     * performing instantaneous client-side invalidation when a key
+     * is changed without waiting for Redis to send an `INVALIDATE`
+     * message. The invalidation occurs only in the same FPM pool.
      *
      * @var int
      */
@@ -232,6 +248,9 @@ class Relay
     /**
      * Integer representing Relay’s allow patterns option.
      *
+     * When set only keys matching these patterns will be cached,
+     * unless they also match an `OPT_IGNORE_PATTERNS`.
+     *
      * @var int
      */
     public const OPT_ALLOW_PATTERNS = 102;
@@ -239,12 +258,14 @@ class Relay
     /**
      * Integer representing Relay’s ignore patterns option.
      *
+     * When set keys matching these patterns will not be cached.
+     *
      * @var int
      */
     public const OPT_IGNORE_PATTERNS = 103;
 
     /**
-     * Whether or not to read/write to our in-memory cache
+     * Whether use in-memory caching. Enabled by default.
      *
      * @var int
      */
@@ -390,7 +411,7 @@ class Relay
         float $command_timeout = 0.0,
         #[\SensitiveParameter] array $context = [],
         int $database = 0,
-    ) {}
+    );
 
     /**
      * Establishes a new connection to Redis.
@@ -399,7 +420,7 @@ class Relay
      * @param  string  $host
      * @param  int  $port
      * @param  float  $timeout
-     * @param  string  $persistent_id
+     * @param  string|null  $persistent_id
      * @param  int  $retry_interval
      * @param  float  $read_timeout
      * @param  array  $context
@@ -416,7 +437,7 @@ class Relay
         float $read_timeout = 0.0,
         #[\SensitiveParameter] array $context = [],
         int $database = 0
-    ): bool {}
+    ): bool {} {}
 
     /**
      * Establishes a persistent connection to Redis.
@@ -424,7 +445,7 @@ class Relay
      * @param  string  $host
      * @param  int  $port
      * @param  float  $timeout
-     * @param  string  $persistent_id
+     * @param  string|null  $persistent_id
      * @param  int  $retry_interval
      * @param  float  $read_timeout
      * @param  array  $context
@@ -481,7 +502,7 @@ class Relay
      * Registers a new `invalidated` event listener.
      *
      * @param  callable  $callback
-     * @param  string  $pattern
+     * @param  string|null  $pattern
      * @return bool
      */
     #[\Relay\Attributes\Local]
@@ -519,12 +540,13 @@ class Relay
      *
      * Relay specific options:
      *
-     * - `OPT_ALLOW_PATTERNS`: When set only keys matching these patterns will be cached, unless they match `OPT_IGNORE_PATTERNS`.
-     * - `OPT_IGNORE_PATTERNS`: When set keys matching these patterns will not be cached.
-     * - `OPT_CLIENT_INVALIDATIONS`: When set to `true` Relay will ignore all invalidations coming from Redis
-     * - `OPT_PHPREDIS_COMPATIBILITY`: When set to `true` Relay will return `false` for non-existent keys instead of `null`
+     * - `OPT_ALLOW_PATTERNS`
+     * - `OPT_IGNORE_PATTERNS`
+     * - `OPT_THROW_ON_ERROR`
+     * - `OPT_CLIENT_INVALIDATIONS`
+     * - `OPT_PHPREDIS_COMPATIBILITY`
      *
-     * Available options for PhpRedis compatibility:
+     * Supported PhpRedis options:
      *
      * - `OPT_PREFIX`
      * - `OPT_READ_TIMEOUT`
@@ -546,7 +568,7 @@ class Relay
     public function setOption(int $option, mixed $value): bool {}
 
     /**
-     * Add a patterns to ignore.
+     * Adds ignore pattern(s). Matching keys will not be cached in memory.
      *
      * @param  string  $pattern,...
      * @return int
@@ -555,7 +577,7 @@ class Relay
     public function addIgnorePatterns(string ...$pattern): int {}
 
     /**
-     * Add a patterns to allow.
+     * Adds allow pattern(s). Only matching keys will be cached in memory.
      *
      * @param  string  $pattern,...
      * @return int
@@ -572,9 +594,7 @@ class Relay
     public function getTimeout(): float|false {}
 
     /**
-     * Returns the connection timeout.
-     *
-     * @see Relay\Relay::getTimeout() Alias.
+     * @alias Relay\Relay::getTimeout
      *
      * @return float|false
      */
@@ -590,9 +610,7 @@ class Relay
     public function getReadTimeout(): float|false {}
 
     /**
-     * Returns the read timeout.
-     *
-     * @see Relay::getReadTimeout() Alias.
+     * @alias Relay\Relay::getReadTimeout
      *
      * @return float|false
      */
@@ -609,10 +627,7 @@ class Relay
     public function getBytes(): array {}
 
     /**
-     * Returns the number of bytes sent and received over the network during the Relay object's
-     * lifetime, or since the last time {@link Relay::clearBytes()} was called.
-     *
-     * @see Relay::getBytes() Alias.
+     * @alias Relay\Relay::getBytes
      *
      * @return array{int, int}
      */
@@ -748,9 +763,7 @@ class Relay
     public function endpointId(): string|false {}
 
     /**
-     * Returns the connection's endpoint identifier.
-     *
-     * @see Relay\Relay::endpointId() Alias.
+     * @alias Relay\Relay::endpointId
      *
      * @return string|false
      */
@@ -763,14 +776,6 @@ class Relay
      */
     #[\Relay\Attributes\Local]
     public function socketId(): string|false {}
-
-    /**
-     * Returns information about the license.
-     *
-     * @return array
-     */
-    #[\Relay\Attributes\Http]
-    public static function license(): array {}
 
     /**
      * Returns statistics about Relay.
@@ -886,25 +891,25 @@ class Relay
      * Invokes a Redis function.
      *
      * @param  string  $name
-     * @param  array  $argv
      * @param  array  $keys
+     * @param  array  $argv
      * @param  callable  $handler
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function fcall(string $name, array $argv = [], array $keys = [], callable $handler = null): mixed {}
+    public function fcall(string $name, array $keys = [], array $argv = [], callable $handler = null): mixed {}
 
     /**
      * Invokes a read-only Redis function.
      *
      * @param  string  $name
-     * @param  array  $argv
      * @param  array  $keys
+     * @param  array  $argv
      * @param  callable  $handler
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function fcall_ro(string $name, array $argv = [], array $keys = [], callable $handler = null): mixed {}
+    public function fcall_ro(string $name, array $keys = [], array $argv = [], callable $handler = null): mixed {}
 
     /**
      * Calls `FUNCTION` sub-command.
@@ -917,13 +922,17 @@ class Relay
     public function function(string $op, string ...$args): mixed {}
 
     /**
-     * Flushes Relay's internal memory of all databases, or just the given database index.
+     * Flushes Relay's in-memory cache of all databases.
+     * When given an endpoint, only that connection will be flushed.
+     * When given an endpoint and database index, only that database
+     * for that connection will be flushed.
      *
-     * @param  int  $db
+     * @param  string|null  $endpointId
+     * @param  int|null  $db
      * @return bool
      */
     #[\Relay\Attributes\Local]
-    public static function flushMemory(?string $key = null, int $db = -1): bool {}
+    public static function flushMemory(?string $endpointId = null, int $db = null): bool {}
 
     /**
      * Returns the number of keys in the currently-selected database.
@@ -945,7 +954,7 @@ class Relay
     /**
      * Attach or detach the instance as a replica of another instance.
      *
-     * @param  string  $host
+     * @param  string|null  $host
      * @param  int  $port
      * @return Relay|bool
      */
@@ -1061,10 +1070,11 @@ class Relay
     /**
      * Asynchronously save the dataset to disk.
      *
+     * @param  bool  $schedule
      * @return Relay|bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function bgsave(): Relay|bool {}
+    public function bgsave(bool $schedule = false): Relay|bool {}
 
     /**
      * Synchronously save the dataset to disk.
@@ -1377,7 +1387,7 @@ class Relay
      *
      * @param  string  $operation
      * @param  mixed  $key
-     * @param  string  $value
+     * @param  string|null  $value
      * @return Relay|array|bool
      */
     #[\Relay\Attributes\RedisCommand]
@@ -1513,7 +1523,7 @@ class Relay
      * @return Relay|int
      */
     #[\Relay\Attributes\RedisCommand]
-    public function pfcount(string $key): Relay|int {}
+    public function pfcount(string $key): Relay|int|false {}
 
     /**
      * Merge given HyperLogLogs into a single one.
@@ -1640,7 +1650,7 @@ class Relay
      *
      * @param  mixed  $key
      * @param  int  $seconds
-     * @param  string  $mode
+     * @param  string|null  $mode
      * @return Relay|bool
      */
     #[\Relay\Attributes\RedisCommand]
@@ -2230,7 +2240,7 @@ class Relay
      * @param  mixed  $other_keys,...
      * @return Relay|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
     public function sdiff(mixed $key, mixed ...$other_keys): Relay|array|false {}
 
     /**
@@ -2251,7 +2261,7 @@ class Relay
      * @param  mixed  $other_keys,...
      * @return Relay|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
     public function sinter(mixed $key, mixed ...$other_keys): Relay|array|false {}
 
     /**
@@ -2261,7 +2271,7 @@ class Relay
      * @param  int  $limit
      * @return Relay|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
     public function sintercard(array $keys, int $limit = -1): Relay|int|false {}
 
     /**
@@ -2282,7 +2292,7 @@ class Relay
      * @param  mixed  $other_keys,...
      * @return Relay|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
     public function sunion(mixed $key, mixed ...$other_keys): Relay|array|false {}
 
     /**
@@ -2396,7 +2406,7 @@ class Relay
      * @param  mixed  $iterator
      * @param  mixed  $match
      * @param  int  $count
-     * @param  string  $type
+     * @param  string|null  $type
      * @return array|false
      */
     #[\Relay\Attributes\RedisCommand]
@@ -2556,7 +2566,7 @@ class Relay
      * @param  int  $count
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
     public function srandmember(mixed $set, int $count = 1): mixed {}
 
     /**
@@ -2723,8 +2733,8 @@ class Relay
      * Retrieve information about a stream key.
      *
      * @param  string  $operation
-     * @param  string  $arg1
-     * @param  string  $arg2
+     * @param  string|null  $arg1
+     * @param  string|null  $arg2
      * @param  int  $count
      * @return mixed
      */
@@ -2736,10 +2746,10 @@ class Relay
      *
      * @param  string  $key
      * @param  string  $group
-     * @param  string  $start
-     * @param  string  $end
+     * @param  string|null  $start
+     * @param  string|null  $end
      * @param  int  $count
-     * @param  string  $consumer
+     * @param  string|null  $consumer
      * @param  int  $idle
      * @return Relay|array|false
      */
@@ -2949,10 +2959,11 @@ class Relay
      *
      * @param  mixed  $key
      * @param  mixed  $rank
-     * @return Relay|int|false
+     * @param  bool  $withscore
+     * @return Relay|array|int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zrank(mixed $key, mixed $rank): Relay|int|false {}
+    public function zrank(mixed $key, mixed $rank, bool $withscore = false): Relay|array|int|false {}
 
     /**
      * Returns the rank of member in the sorted set stored at key, with the scores
@@ -2961,10 +2972,11 @@ class Relay
      *
      * @param  mixed  $key
      * @param  mixed  $rank
-     * @return Relay|int|false
+     * @param  bool  $withscore
+     * @return Relay|array|int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zrevrank(mixed $key, mixed $rank): Relay|int|false {}
+    public function zrevrank(mixed $key, mixed $rank, bool $withscore = false): Relay|array|int|false {}
 
     /**
      * Removes the specified members from the sorted set stored at key.
@@ -3191,5 +3203,13 @@ class Relay
      * @return mixed
      */
     #[\Relay\Attributes\Local]
-    public function _getKeys() {}
+    public function _getKeys();
+
+    /**
+     * Returns information about the license.
+     *
+     * @return array
+     */
+    #[\Relay\Attributes\Local]
+    public static function license(): array {}
 }
