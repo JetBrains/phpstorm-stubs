@@ -437,7 +437,7 @@ class Relay
         float $read_timeout = 0.0,
         #[\SensitiveParameter] array $context = [],
         int $database = 0
-    ): bool {} {}
+    ): bool {}
 
     /**
      * Establishes a persistent connection to Redis.
