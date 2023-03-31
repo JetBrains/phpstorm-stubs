@@ -48,4 +48,12 @@ final class Event
      * @var mixed
      */
     public mixed $key = null;
+
+    /**
+     * Whether the invalidation was created in the client or
+     * originated from a Redis PUSH message.
+     *
+     * @var bool
+     */
+    public bool $client;
 }
