@@ -778,6 +778,14 @@ class Relay
     public function socketId(): string|false {}
 
     /**
+     * Returns information about the license.
+     *
+     * @return array
+     */
+    #[\Relay\Attributes\Local]
+    public static function license(): array {}
+
+    /**
      * Returns statistics about Relay.
      *
      * - `usage.total_requests`: The total number of requests we've seen
@@ -3204,12 +3212,4 @@ class Relay
      */
     #[\Relay\Attributes\Local]
     public function _getKeys();
-
-    /**
-     * Returns information about the license.
-     *
-     * @return array
-     */
-    #[\Relay\Attributes\Local]
-    public static function license(): array {}
 }
