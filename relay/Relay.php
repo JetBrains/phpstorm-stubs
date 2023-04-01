@@ -411,7 +411,7 @@ class Relay
         float $command_timeout = 0.0,
         #[\SensitiveParameter] array $context = [],
         int $database = 0,
-    );
+    ) {}
 
     /**
      * Establishes a new connection to Redis.
