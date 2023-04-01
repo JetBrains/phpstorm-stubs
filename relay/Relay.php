@@ -3211,5 +3211,5 @@ class Relay
      * @return mixed
      */
     #[\Relay\Attributes\Local]
-    public function _getKeys();
+    public function _getKeys() {}
 }
