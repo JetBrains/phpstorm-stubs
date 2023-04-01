@@ -763,7 +763,7 @@ class Relay
     public function endpointId(): string|false {}
 
     /**
-     * @alias Relay\Relay::endpointId
+     * @see Relay\Relay::endpointId()
      *
      * @return string|false
      */
