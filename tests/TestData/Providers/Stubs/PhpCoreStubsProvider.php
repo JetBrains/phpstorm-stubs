@@ -124,6 +124,7 @@ class PhpCoreStubsProvider
             'mysql_xdevapi',
             'ncurses',
             'oauth',
+            'pam',
             'parallel',
             'Parle',
             'pcov',
