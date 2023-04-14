@@ -10,6 +10,7 @@
 
 namespace Ds;
 
+    use ArrayAccess;
     use Countable;
     use IteratorAggregate;
     use JsonSerializable;
@@ -147,7 +148,7 @@ namespace Ds;
      * @template TValue
      * @extends Collection<int, TValue>
      */
-    interface Sequence extends Collection
+    interface Sequence extends Collection, ArrayAccess
     {
         /**
          * Ensures that enough memory is allocated for a required capacity.
@@ -807,6 +808,29 @@ namespace Ds;
          * @since 5.4
          */
         public function jsonSerialize() {}
+
+        /**
+         * @param int $offset
+         */
+        public function offsetExists(mixed $offset): bool {}
+
+        /**
+         * @param int $offset
+         *
+         * @return TValue
+         */
+        public function offsetGet(mixed $offset) {}
+
+        /**
+         * @param int $offset
+         * @param TValue $value
+         */
+        public function offsetSet(mixed $offset, mixed $value) {}
+
+        /**
+         * @param int $offset
+         */
+        public function offsetUnset(mixed $offset): void {}
     }
 
     /**
@@ -1161,6 +1185,29 @@ namespace Ds;
          * @since 5.4
          */
         public function jsonSerialize() {}
+
+        /**
+         * @param int $offset
+         */
+        public function offsetExists(mixed $offset): bool {}
+
+        /**
+         * @param int $offset
+         *
+         * @return TValue
+         */
+        public function offsetGet(mixed $offset) {}
+
+        /**
+         * @param int $offset
+         * @param TValue $value
+         */
+        public function offsetSet(mixed $offset, mixed $value) {}
+
+        /**
+         * @param int $offset
+         */
+        public function offsetUnset(mixed $offset): void {}
     }
 
     /**
@@ -1168,7 +1215,7 @@ namespace Ds;
      * @template TValue
      * @implements Collection<TKey, TValue>
      */
-    class Map implements Collection
+    class Map implements Collection, ArrayAccess
     {
         /**
          * Creates a new instance, using either a traversable object or an array for the initial values.
@@ -1716,6 +1763,29 @@ namespace Ds;
          * @link https://www.php.net/manual/en/ds-map.xor.php
          */
         public function xor(Map $map): Map {}
+
+        /**
+         * @param TKey $offset
+         */
+        public function offsetExists(mixed $offset): bool {}
+
+        /**
+         * @param TKey $offset
+         *
+         * @return TValue
+         */
+        public function offsetGet(mixed $offset) {}
+
+        /**
+         * @param TKey $offset
+         * @param TValue $value
+         */
+        public function offsetSet(mixed $offset, mixed $value) {}
+
+        /**
+         * @param TKey $offset
+         */
+        public function offsetUnset(mixed $offset): void {}
     }
 
     /**
@@ -1803,7 +1873,7 @@ namespace Ds;
      * @template TValue
      * @implements Collection<int, TValue>
      */
-    class Set implements Collection
+    class Set implements Collection, ArrayAccess
     {
         /**
          * Creates a new instance, using either a traversable object or an array
@@ -2198,6 +2268,29 @@ namespace Ds;
          * @since 5.4
          */
         public function jsonSerialize() {}
+
+        /**
+         * @param int $offset
+         */
+        public function offsetExists(mixed $offset): bool {}
+
+        /**
+         * @param int $offset
+         *
+         * @return TValue
+         */
+        public function offsetGet(mixed $offset) {}
+
+        /**
+         * @param int $offset
+         * @param TValue $value
+         */
+        public function offsetSet(mixed $offset, mixed $value) {}
+
+        /**
+         * @param int $offset
+         */
+        public function offsetUnset(mixed $offset): void {}
     }
 
     /**
@@ -2211,7 +2304,7 @@ namespace Ds;
      *
      * @link https://www.php.net/manual/en/class.ds-stack.php
      */
-    class Stack implements Collection
+    class Stack implements Collection, ArrayAccess
     {
         /**
          * Creates a new instance, using either a traversable object or an array
@@ -2328,6 +2421,29 @@ namespace Ds;
          * @param TValue ...$values The values to push onto the stack.
          */
         public function push(...$values) {}
+
+        /**
+         * @param int $offset
+         */
+        public function offsetExists(mixed $offset): bool {}
+
+        /**
+         * @param int $offset
+         *
+         * @return TValue
+         */
+        public function offsetGet(mixed $offset) {}
+
+        /**
+         * @param int $offset
+         * @param TValue $value
+         */
+        public function offsetSet(mixed $offset, mixed $value) {}
+
+        /**
+         * @param int $offset
+         */
+        public function offsetUnset(mixed $offset): void {}
     }
 
     /**
@@ -2341,7 +2457,7 @@ namespace Ds;
      * @template TValue
      * @implements Collection<int, TValue>
      */
-    class Queue implements Collection
+    class Queue implements Collection, ArrayAccess
     {
         /**
          * Creates a new instance, using either a traversable object or an array
@@ -2461,6 +2577,29 @@ namespace Ds;
          * @param TValue ...$values The values to push onto the queue.
          */
         public function push(...$values) {}
+
+        /**
+         * @param int $offset
+         */
+        public function offsetExists(mixed $offset): bool {}
+
+        /**
+         * @param int $offset
+         *
+         * @return TValue
+         */
+        public function offsetGet(mixed $offset) {}
+
+        /**
+         * @param int $offset
+         * @param TValue $value
+         */
+        public function offsetSet(mixed $offset, mixed $value) {}
+
+        /**
+         * @param int $offset
+         */
+        public function offsetUnset(mixed $offset): void {}
     }
 
     /**
