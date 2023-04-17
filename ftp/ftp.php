@@ -609,10 +609,11 @@ function ftp_nb_fget(
  * The transfer mode. Must be either <b>FTP_ASCII</b> or <b>FTP_BINARY</b>. Optional since PHP 7.3
  * </p>
  * @param int $offset [optional] <p>The position in the remote file to start downloading from.</p>
- * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
+ * @return int|false <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
 #[EV([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
+#[LanguageLevelTypeAware(["8.1" => "int|false"], default: "int")]
 function ftp_nb_get(
     #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
     string $local_filename,
@@ -624,7 +625,7 @@ function ftp_nb_get(
     #[PhpStormStubsElementAvailable(from: '7.3')]
     int $mode = FTP_BINARY,
     int $offset = 0
-): int {}
+) {}
 
 /**
  * Continues retrieving/sending a file (non-blocking)
