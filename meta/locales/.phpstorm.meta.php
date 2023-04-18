@@ -208,4 +208,5 @@ namespace PHPSTORM_META {
     );
 
     expectedArguments(\setlocale(), 1, argumentsSet('locales'));
+    expectedArguments(\setlocale(), 2, argumentsSet('locales'));
 }
