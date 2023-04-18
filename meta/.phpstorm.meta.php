@@ -627,6 +627,9 @@ namespace PHPSTORM_META {
     expectedReturnValues(\session_module_name(), argumentsSet('session_module_names'));
     expectedReturnValues(\session_status(), \PHP_SESSION_DISABLED, \PHP_SESSION_NONE, \PHP_SESSION_ACTIVE);
 
+    expectedArguments(\Spoofchecker::setChecks(), 0, \Spoofchecker::SINGLE_SCRIPT_CONFUSABLE | \Spoofchecker::MIXED_SCRIPT_CONFUSABLE | \Spoofchecker::WHOLE_SCRIPT_CONFUSABLE | \Spoofchecker::ANY_CASE | \Spoofchecker::SINGLE_SCRIPT | \Spoofchecker::INVISIBLE | \Spoofchecker::CHAR_LIMIT);
+    expectedArguments(\Spoofchecker::setRestrictionLevel(), 0, \Spoofchecker::ASCII, \Spoofchecker::HIGHLY_RESTRICTIVE, \Spoofchecker::MODERATELY_RESTRICTIVE, \Spoofchecker::MINIMALLY_RESTRICTIVE, \Spoofchecker::UNRESTRICTIVE, \Spoofchecker::SINGLE_SCRIPT_RESTRICTIVE);
+
     expectedArguments(\checkdnsrr(), 1, 'A', 'MX', 'NS', 'SOA', 'PTR', 'CNAME', 'AAAA', 'A6', 'SRV', 'NAPTR', 'TXT', 'ANY');
 
     expectedArguments(\yaml_emit(), 1, YAML_ANY_ENCODING, YAML_UTF8_ENCODING, YAML_UTF16LE_ENCODING, YAML_UTF16BE_ENCODING);
