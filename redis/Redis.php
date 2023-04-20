@@ -310,7 +310,7 @@ class Redis
      * @param float  $read_timeout   value in seconds (optional, default is 0 meaning unlimited)
      * @param array|null $context    since PhpRedis >= 5.3.0 can specify authentication and stream information on connect
      *
-     * @return bool TRUE on success, FALSE on ertcnror.
+     * @return bool TRUE on success, FALSE on error.
      *
      * @throws RedisException
      *
