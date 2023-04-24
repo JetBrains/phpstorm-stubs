@@ -1951,7 +1951,7 @@ class Imagick implements Iterator, Countable
      * If legacy is true, the calculations are done with the small rounding bug that existed in Imagick before 3.4.0.<br>
      * If false, the calculations should produce the same results as ImageMagick CLI does.
      * @link https://php.net/manual/en/imagick.scaleimage.php
-     * @param int $cols
+     * @param int $columns
      * @param int $rows
      * @param bool $bestfit [optional] The behavior of the parameter bestfit changed in Imagick 3.0.0. Before this version given dimensions 400x400 an image of dimensions 200x150 would be left untouched. In Imagick 3.0.0 and later the image would be scaled up to size 400x300 as this is the "best fit" for the given dimensions. If bestfit parameter is used both width and height must be given.
      * @param bool $legacy [optional] Added since 3.4.0. Default value FALSE
@@ -1959,7 +1959,7 @@ class Imagick implements Iterator, Countable
      * @throws ImagickException Throws ImagickException on error
      * @since 2.0.0
      */
-    public function scaleImage($cols, $rows, $bestfit = false, $legacy = false) {}
+    public function scaleImage($columns, $rows, $bestfit = false, $legacy = false) {}
 
     /**
      * (PECL imagick 0.9.0-0.9.9)<br/>
