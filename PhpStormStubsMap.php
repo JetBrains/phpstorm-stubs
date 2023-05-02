@@ -1385,6 +1385,7 @@ const FUNCTIONS = array (
   'MongoDB\\BSON\\toRelaxedExtendedJSON' => 'mongodb/BSON/functions.php',
   'MongoDB\\Driver\\Monitoring\\addSubscriber' => 'mongodb/Monitoring/functions.php',
   'MongoDB\\Driver\\Monitoring\\removeSubscriber' => 'mongodb/Monitoring/functions.php',
+  'OpenTelemetry\\Instrumentation\\hook' => 'opentelemetry/opentelemetry.php',
   'PDF_activate_item' => 'pdflib/PDFlib.php',
   'PDF_add_launchlink' => 'pdflib/PDFlib.php',
   'PDF_add_locallink' => 'pdflib/PDFlib.php',
