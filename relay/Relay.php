@@ -109,6 +109,16 @@ class Relay
     public const MULTI = 0x01;
 
     /**
+     * Integer representing we're SUBSCRIBED.  Note that this constant can
+     * only really be accessed when `true` is passed to `getMask()` telling
+     * relay to return the complete bitmasked mode.
+     *
+     * @see \Relay\Relay::getMode()
+     * @var int
+     **/
+    public const SUBSCRIBED = 0x04;
+
+    /**
      * Integer representing the prefix option.
      *
      * @var int
@@ -801,9 +811,12 @@ class Relay
      * - `stats.empty`: How many times we've run out of free requests (indicating the size of the ring buffers should be increased)
      * - `stats.oom`: The number of times we've run out of memory
      * - `stats.ops_per_sec`: The number of commands processed per second
-     * - `stats.walltime`: The number of microseconds Relay has spent doing work
      * - `stats.bytes_sent`: The number of bytes Relay has written to the network
      * - `stats.bytes_received`: The number of bytes Relay has read from the network
+     * - `stats.command_usec`: The number of microseconds Relay has spent executing commands
+     * - `stats.rinit_usec`: The number of microseconds Relay has spent in request initialization.
+     * - `stats.rshutdown_usec`: The number of microseconds Relay has spent in request shutdown.
+     * - `stats.sigio_usec`: The number of microseconds Relay has spent in its SIGIO handler.
      *
      * - `memory.total`: The total bytes of allocated memory
      * - `memory.limit`: The capped number of bytes Relay has available to use
@@ -1565,6 +1578,16 @@ class Relay
     public function publish(string $channel, string $message): Relay|int|false {}
 
     /**
+     * Posts a message to the given shard channel.
+     *
+     * @param  string  $channel
+     * @param  string  $message
+     * @return Relay|int|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function spublish(string $channel, string $message): Relay|int|false {}
+
+    /**
      * Set key to hold string value if key does not exist. In that case, it is equal to SET.
      * When key already holds a value, no operation is performed.
      * SETNX is short for "SET if Not eXists".
@@ -2313,6 +2336,63 @@ class Relay
      */
     #[\Relay\Attributes\RedisCommand]
     public function sunionstore(mixed $key, mixed ...$other_keys): Relay|int|false {}
+
+    /**
+     * Subscribes to the specified channels.
+     *
+     * @param  array  $channels
+     * @param  callable  $callback
+     * @return bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function subscribe(array $channels, callable $callback): bool {}
+
+    /**
+     * Unsubscribes from the given channels, or from all of them if none is given.
+     *
+     * @param  array  $channels
+     * @return bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function unsubscribe(array $channels = []): bool {}
+
+    /**
+     * Subscribes to the given patterns.
+     *
+     * @param  array  $patterns
+     * @param  callable  $callback
+     * @return bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function psubscribe(array $patterns, callable $callback): bool {}
+
+    /**
+     * Unsubscribes from the given patterns, or from all of them if none is given.
+     *
+     * @param  array  $patterns
+     * @return bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function punsubscribe(array $patterns = []): bool {}
+
+    /**
+     * Subscribes to the specified shard channels.
+     *
+     * @param  array  $channels
+     * @param  callable  $callback
+     * @return bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ssubscribe(array $channels, callable $callback): bool {}
+
+    /**
+     * Unsubscribes from the given shard channels, or from all of them if none is given.
+     *
+     * @param  array  $channels
+     * @return bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function sunsubscribe(array $channels = []): bool {}
 
     /**
      * Alters the last access time of a key(s).
