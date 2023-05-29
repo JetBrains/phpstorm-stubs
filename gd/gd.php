@@ -1445,7 +1445,9 @@ function imagesetpixel(GdImage $image, int $x, int $y, int $color): bool {}
  * Draw a string horizontally
  * @link https://php.net/manual/en/function.imagestring.php
  * @param resource|GdImage $image
- * @param int $font
+ * @param int $font <p>
+ * Can be 1, 2, 3, 4, 5 for built-in fonts in latin2 encoding (where higher numbers corresponding to larger fonts) or (since 8.1) GdFont instance
+ * </p>
  * @param int $x <p>
  * x-coordinate of the upper left corner.
  * </p>
