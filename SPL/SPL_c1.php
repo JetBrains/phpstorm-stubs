@@ -1531,7 +1531,7 @@ class SplMinHeap extends SplHeap
      * @param TValue $value <p>
      * The value to insert.
      * </p>
-     * @return void
+     * @return true
      */
     public function insert($value) {}
 
