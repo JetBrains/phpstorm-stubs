@@ -44,7 +44,7 @@ function strtolower(string $string): string {}
  * the beginning of the string. Unlike {@see strrpos()} and {@see strripos()}, the offset cannot be negative.
  * </p>
  * @return int<0,max>|false <p>
- * Returns the position where the needle exists relative to the beginnning of
+ * Returns the position where the needle exists relative to the beginning of
  * the <b>haystack</b> string (independent of search direction
  * or offset).
  * Also note that string positions start at 0, and not 1.
