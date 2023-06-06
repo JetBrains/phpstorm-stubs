@@ -382,7 +382,8 @@ function date(string $format, ?int $timestamp) {}
  * </tr>
  * </table>
  * </p>
- * @param int|null $timestamp [optional]
+ * @param int|null $timestamp [optional] Default value: time(). The optional timestamp parameter is an integer Unix timestamp
+ * that defaults to the current local time if a timestamp is not given.
  * @return int|false an integer.
  * <p>
  * As idate always returns an integer and
@@ -400,7 +401,8 @@ function idate(string $format, ?int $timestamp): int|false {}
  * The format of the outputted date string. See the formatting
  * options for the date function.
  * </p>
- * @param int|null $timestamp [optional]
+ * @param int|null $timestamp [optional] Default value: time(). The optional timestamp parameter is an integer Unix timestamp
+ * that defaults to the current local time if a timestamp is not given.
  * @return string|false a formatted date string. If a non-numeric value is used for
  * timestamp, false is returned and an
  * E_WARNING level error is emitted.
