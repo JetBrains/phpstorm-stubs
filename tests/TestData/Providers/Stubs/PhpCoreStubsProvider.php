@@ -176,6 +176,7 @@ class PhpCoreStubsProvider
             'geos',
             'gnupg',
             'grpc',
+            'guzzle',
             'igbinary',
             'judy',
             'libsodium',
