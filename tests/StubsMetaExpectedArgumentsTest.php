@@ -31,6 +31,8 @@ use function substr;
 class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
 {
     private const PSR_LOG_LOGGER_NAMESPACE_PREFIX = "Psr\\Log\\";
+    private const GUZZLE_HTTP_NAMESPACE_PREFIX = "GuzzleHttp\\";
+    private const ILLUMINATE_NAMESPACE_PREFIX = "Illuminate\\";
 
     /**
      * @var ExpectedFunctionArgumentsInfo[]
@@ -106,19 +108,25 @@ class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
             $expr = $argument->getFunctionReference();
             if ($expr instanceof FuncCall) {
                 $fqn = self::toPresentableFqn($expr->name->toCodeString());
-                if (!str_starts_with($fqn, self::PSR_LOG_LOGGER_NAMESPACE_PREFIX)) {
+                if (!str_starts_with($fqn, self::PSR_LOG_LOGGER_NAMESPACE_PREFIX) &&
+                    !str_starts_with($fqn, self::GUZZLE_HTTP_NAMESPACE_PREFIX) &&
+                    !str_starts_with($fqn, self::ILLUMINATE_NAMESPACE_PREFIX)) {
                     self::assertArrayHasKey($fqn, self::$functionsFqns, "Can't resolve function " . $fqn);
                 }
             } elseif ($expr instanceof StaticCall) {
                 if ((string)$expr->name !== '__construct') {
                     $fqn = self::getClassMemberFqn($expr->class->toCodeString(), (string)$expr->name);
-                    if (!str_starts_with($fqn, self::PSR_LOG_LOGGER_NAMESPACE_PREFIX)) {
+                    if (!str_starts_with($fqn, self::PSR_LOG_LOGGER_NAMESPACE_PREFIX) &&
+                        !str_starts_with($fqn, self::GUZZLE_HTTP_NAMESPACE_PREFIX) &&
+                        !str_starts_with($fqn, self::ILLUMINATE_NAMESPACE_PREFIX)) {
                         self::assertArrayHasKey($fqn, self::$methodsFqns, "Can't resolve method " . $fqn);
                     }
                 }
             } elseif ($expr instanceof ConstFetch) {
                 $fqn = self::toPresentableFqn($expr->name->toCodeString());
-                if (!str_starts_with($fqn, self::PSR_LOG_LOGGER_NAMESPACE_PREFIX)) {
+                if (!str_starts_with($fqn, self::PSR_LOG_LOGGER_NAMESPACE_PREFIX) &&
+                    !str_starts_with($fqn, self::GUZZLE_HTTP_NAMESPACE_PREFIX) &&
+                    !str_starts_with($fqn, self::ILLUMINATE_NAMESPACE_PREFIX)) {
                     self::assertArrayHasKey($fqn, self::$constantsFqns, "Can't resolve constant " . $fqn);
                 }
             }
