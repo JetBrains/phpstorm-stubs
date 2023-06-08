@@ -78,10 +78,11 @@ class RedisCluster
      *
      * @param string|null   $name
      * @param array         $seeds
-     * @param float         $timeout
-     * @param float         $readTimeout
+     * @param int|float     $timeout
+     * @param int|float     $readTimeout
      * @param bool          $persistent
-     * @param string|null   $auth
+     * @param mixed         $auth
+     * @param array         $context
      * @throws RedisClusterException
      *
      * @example
@@ -105,7 +106,7 @@ class RedisCluster
      * $redisClusterDev = new RedisCluster('test');
      * </pre>
      */
-    public function __construct($name, $seeds, $timeout = null, $readTimeout = null, $persistent = false, $auth = null) {}
+    public function __construct($name, $seeds, $timeout = null, $readTimeout = null, $persistent = false, $auth = null, $context = null) {}
 
     /**
      * Disconnects from the RedisCluster instance, except when pconnect is used.
