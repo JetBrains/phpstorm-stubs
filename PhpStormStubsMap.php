@@ -9,6 +9,8 @@ namespace JetBrains\PHPStormStub;
  */
 final class PhpStormStubsMap
 {
+const DIR = __DIR__;
+
 const CLASSES = array (
   'AMQPBasicProperties' => 'amqp/amqp.php',
   'AMQPChannel' => 'amqp/amqp.php',
