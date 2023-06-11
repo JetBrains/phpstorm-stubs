@@ -271,6 +271,8 @@ namespace JetBrains\PHPStormStub;
  */
 final class PhpStormStubsMap
 {
+const DIR = __DIR__;
+
 const CLASSES = {$exportedClasses};
 
 const FUNCTIONS = {$exportedFunctions};
