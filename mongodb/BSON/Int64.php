@@ -2,25 +2,19 @@
 
 namespace MongoDB\BSON;
 
-use JetBrains\PhpStorm\Deprecated;
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use MongoDB\Driver\Exception\UnexpectedValueException;
 
 /**
- * BSON type for a 64-bit integer. This class cannot be instantiated and is only created during BSON decoding when a 64-bit
- * integer cannot be represented as a PHP integer on a 32-bit platform. Versions of the driver before 1.5.0 would throw an
- * exception when attempting to decode a 64-bit integer on a 32-bit platform.
- * During BSON encoding, objects of this class will convert back to a 64-bit integer type. This allows 64-bit integers to be
- * roundtripped through a 32-bit PHP environment without any loss of precision. The __toString() method allows the 64-bit integer
- * value to be accessed as a string.
+ * BSON type for a 64-bit integer.
  *
  * @since 1.5.0
  * @link https://secure.php.net/manual/en/class.mongodb-bson-int64.php
  */
-#[Deprecated]
 final class Int64 implements Type, \Serializable, \JsonSerializable
 {
-    final private function __construct() {}
+    /** @since 1.16.0 */
+    final public function __construct(string|int $value) {}
 
     /**
      * Serialize an Int64
@@ -29,6 +23,8 @@ final class Int64 implements Type, \Serializable, \JsonSerializable
      * @throws InvalidArgumentException
      */
     final public function serialize() {}
+
+    public static function __set_state(array $properties) {}
 
     /**
      * Unserialize an Int64
