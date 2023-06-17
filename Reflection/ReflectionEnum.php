@@ -22,7 +22,7 @@ class ReflectionEnum extends ReflectionClass
     public function getCases(): array {}
 
     /**
-     * @return ReflectionEnumPureCase|ReflectionEnumBackedCase
+     * @return ReflectionEnumUnitCase|ReflectionEnumBackedCase
      * @throws ReflectionException If no found single reflection object for the corresponding case
      */
     public function getCase(string $name): ReflectionEnumUnitCase {}
