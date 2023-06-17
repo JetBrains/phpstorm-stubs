@@ -39,7 +39,6 @@ class PHPFunction extends BasePHPElement
 
     /** @var string[] */
     public $returnTypesFromSignature = [];
-
     public $hasTentativeReturnType = false;
 
     /**
@@ -128,7 +127,7 @@ class PHPFunction extends BasePHPElement
             $type = $this->returnTags[0]->getType();
             if ($type instanceof Collection) {
                 $returnType = $type->getFqsen();
-            } elseif($type instanceof Array_ && $type->getValueType() instanceof Collection) {
+            } elseif ($type instanceof Array_ && $type->getValueType() instanceof Collection) {
                 $returnType = "array";
             } else {
                 $returnType = $type;
