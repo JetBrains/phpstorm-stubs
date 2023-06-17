@@ -84,6 +84,7 @@ class PHPMethod extends PHPFunction
         $this->returnTypesFromAttribute = $typesFromAttribute;
         array_push($this->returnTypesFromSignature, ...self::convertParsedTypeToArray($node->getReturnType()));
         $this->collectTags($node);
+        $this->checkIfReturnTypeIsTentative($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag();
 

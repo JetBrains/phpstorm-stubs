@@ -76,7 +76,7 @@ trait PHPDocElement
      * @var bool
      */
     public $hasInternalMetaTag = false;
-    public $templateTypes = null;
+    public $templateTypes = [];
 
     protected function collectTags(Node $node)
     {
@@ -102,7 +102,7 @@ trait PHPDocElement
                 $this->hasInternalMetaTag = $phpDoc->hasTag('meta');
                 $this->hasInheritDocTag = $phpDoc->hasTag('inheritdoc') || $phpDoc->hasTag('inheritDoc') ||
                     stripos($phpDoc->getSummary(), 'inheritdoc') > 0;
-                $this->templateTypes = array_map(
+                $this->templateTypes += array_map(
                     function (Generic $tag) {
                         return preg_split("/\W/", $tag->getDescription()->getBodyTemplate())[0];
                     },
