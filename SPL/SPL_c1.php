@@ -860,7 +860,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @param mixed &...$vars [optional] <p>
      * The optional assigned values.
      * </p>
-     * @return array|int If only one parameter is passed to this method, the values parsed will be
+     * @return array|int|null If only one parameter is passed to this method, the values parsed will be
      * returned as an array. Otherwise, if optional parameters are passed, the
      * function will return the number of assigned values. The optional
      * parameters must be passed by reference.
@@ -1960,7 +1960,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
     public function __unserialize(array $data): void {}
 
     /**
-     * @return Traversable<int, TValue>
+     * @return Iterator<int, TValue>
      */
     public function getIterator(): Iterator {}
 

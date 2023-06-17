@@ -653,7 +653,7 @@ final class Closure
      * @param mixed $newScope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
      * If an object is given, the type of the object will be used instead.
      * This determines the visibility of protected and private methods of the bound object.
-     * @return Closure|false Returns the newly created Closure object or FALSE on failure
+     * @return Closure|null Returns the newly created Closure object or null on failure
      */
     public function bindTo(?object $newThis, object|string|null $newScope = 'static'): ?Closure {}
 
@@ -666,7 +666,7 @@ final class Closure
      * @param mixed $newScope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
      * If an object is given, the type of the object will be used instead.
      * This determines the visibility of protected and private methods of the bound object.
-     * @return Closure|false Returns the newly created Closure object or FALSE on failure
+     * @return Closure|null Returns the newly created Closure object or null on failure
      */
     public static function bind(Closure $closure, ?object $newThis, object|string|null $newScope = 'static'): ?Closure {}
 
@@ -1057,7 +1057,7 @@ final class Fiber
     public function getReturn(): mixed {}
 
     /**
-     * @return self|null Returns the currently executing fiber instance or NULL if in {main}.
+     * @return Fiber|null Returns the currently executing fiber instance or NULL if in {main}.
      */
     public static function getCurrent(): ?Fiber {}
 

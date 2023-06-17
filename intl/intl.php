@@ -1176,7 +1176,7 @@ class NumberFormatter
      * <b>Locale::ACTUAL_LOCALE</b>,
      * respectively). The default is the actual locale.
      * </p>
-     * @return string The locale name used to create the formatter.
+     * @return string|false The locale name used to create the formatter.
      */
     #[Pure]
     #[TentativeType]
@@ -1289,7 +1289,7 @@ class Normalizer
 
     /**
      * @param string $string <p>The input string to normalize</p>
-     * @param string $form
+     * @param int $form
      * @return string|null <p>Returns a string containing the Decomposition_Mapping property, if present in the UCD.
      * Returns null if there is no Decomposition_Mapping property for the character.</p>
      * @link https://www.php.net/manual/en/normalizer.getrawdecomposition.php
@@ -1444,7 +1444,7 @@ class Locale
      * @param string $displayLocale <p>
      * Optional format locale to use to display the script name
      * </p>
-     * @return string Display name of the script for the $locale in the format appropriate for
+     * @return string|false Display name of the script for the $locale in the format appropriate for
      * $in_locale.
      */
     #[TentativeType]
@@ -1464,7 +1464,7 @@ class Locale
      * @param string $displayLocale <p>
      * Optional format locale to use to display the region name
      * </p>
-     * @return string display name of the region for the $locale in the format appropriate for
+     * @return string|false display name of the region for the $locale in the format appropriate for
      * $in_locale.
      */
     #[TentativeType]
@@ -1553,7 +1553,7 @@ class Locale
      * (e.g. 'variant0', 'variant1', etc.).
      * </p>
      * </p>
-     * @return string The corresponding locale identifier.
+     * @return string|false The corresponding locale identifier.
      */
     #[TentativeType]
     public static function composeLocale(array $subtags): string|false {}
@@ -1567,7 +1567,7 @@ class Locale
      * 'private' subtags can take maximum 15 values whereas 'extlang' can take
      * maximum 3 values.
      * </p>
-     * @return array an array containing a list of key-value pairs, where the keys
+     * @return array|null an array containing a list of key-value pairs, where the keys
      * identify the particular locale ID subtags, and the values are the
      * associated subtag values. The array will be ordered as the locale id
      * subtags e.g. in the locale id if variants are '-varX-varY-varZ' then the
@@ -1604,7 +1604,7 @@ class Locale
      * If true, the arguments will be converted to canonical form before
      * matching.
      * </p>
-     * @return bool <b>TRUE</b> if $locale matches $langtag <b>FALSE</b> otherwise.
+     * @return bool|null <b>TRUE</b> if $locale matches $langtag <b>FALSE</b> otherwise.
      */
     #[TentativeType]
     public static function filterMatches(
@@ -1632,7 +1632,7 @@ class Locale
      * @param string $defaultLocale <p>
      * The locale to use if no match is found.
      * </p>
-     * @return string The closest matching language tag or default value.
+     * @return string|null The closest matching language tag or default value.
      */
     #[TentativeType]
     public static function lookup(
@@ -1647,7 +1647,7 @@ class Locale
     /**
      * @link https://php.net/manual/en/locale.canonicalize.php
      * @param string $locale
-     * @return string
+     * @return string|null
      */
     #[TentativeType]
     public static function canonicalize(#[TypeAware(['8.0' => 'string'], default: '')] $locale): ?string {}
@@ -1659,7 +1659,7 @@ class Locale
      * @param string $header <p>
      * The string containing the "Accept-Language" header according to format in RFC 2616.
      * </p>
-     * @return string The corresponding locale identifier.
+     * @return string|false The corresponding locale identifier.
      */
     #[TentativeType]
     public static function acceptFromHttp(#[TypeAware(['8.0' => 'string'], default: '')] $header): string|false {}
@@ -1801,7 +1801,7 @@ class MessageFormatter
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get the pattern used by the formatter
      * @link https://php.net/manual/en/messageformatter.getpattern.php
-     * @return string The pattern string for this message formatter
+     * @return string|false The pattern string for this message formatter
      */
     #[Pure]
     #[TentativeType]
@@ -1939,7 +1939,7 @@ class IntlDateFormatter
      * Optional pattern to use when formatting or parsing.
      * Possible patterns are documented at http://userguide.icu-project.org/formatparse/datetime.
      * </p>
-     * @return IntlDateFormatter
+     * @return IntlDateFormatter|null
      */
     #[TentativeType]
     public static function create(
@@ -2077,7 +2077,7 @@ class IntlDateFormatter
      * </li>
      * </ul>
      * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return bool|null <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
     public function setTimeZone($timezone): ?bool {}
@@ -2100,7 +2100,7 @@ class IntlDateFormatter
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get the pattern used for the IntlDateFormatter
      * @link https://php.net/manual/en/intldateformatter.getpattern.php
-     * @return string The pattern string being used to format/parse.
+     * @return string|false The pattern string being used to format/parse.
      */
     #[Pure]
     #[TentativeType]
@@ -2128,7 +2128,7 @@ class IntlDateFormatter
      * @param bool $lenient <p>
      * Sets whether the parser is lenient or not, default is <b>TRUE</b> (lenient).
      * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return void
      */
     #[TentativeType]
     public function setLenient(#[TypeAware(['8.0' => 'bool'], default: '')] $lenient): void {}
@@ -2318,7 +2318,7 @@ class ResourceBundle implements IteratorAggregate, Countable
      * Path of ResourceBundle for which to get available locales, or
      * empty string for default locales list.
      * </p>
-     * @return array the list of locales supported by the bundle.
+     * @return array|false the list of locales supported by the bundle.
      */
     #[TentativeType]
     public static function getLocales(#[TypeAware(['8.0' => 'string'], default: '')] $bundle): array|false {}
@@ -2344,7 +2344,7 @@ class ResourceBundle implements IteratorAggregate, Countable
     public function getErrorMessage(): string {}
 
     /**
-     * @return Traversable
+     * @return Iterator
      * @since 8.0
      */
     #[Pure]
@@ -2819,7 +2819,7 @@ class IntlCalendar
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
-     * @return int Returns a (signed) difference of time in the unit associated with the
+     * @return int|false Returns a (signed) difference of time in the unit associated with the
      * specified field or <b>FALSE</b> on failure.
      */
     #[Pure]
@@ -2858,7 +2858,7 @@ class IntlCalendar
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
-     * @return int An integer with the value of the time field.
+     * @return int|false An integer with the value of the time field.
      */
     #[Pure]
     #[TentativeType]
@@ -2873,7 +2873,7 @@ class IntlCalendar
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
-     * @return int
+     * @return int|false
      * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing the maximum value in the units associated
      * with the given <em>field</em> or <b>FALSE</b> on failure.
      */
@@ -2890,7 +2890,7 @@ class IntlCalendar
      * These are integer values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
-     * @return int
+     * @return int|false
      * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing the minimum value in the field's
      * unit or <b>FALSE</b> on failure.
      */
@@ -3027,7 +3027,7 @@ class IntlCalendar
      * From the most general to the most specific, the locales are ordered in
      * this fashion – actual locale, valid locale, requested locale.
      * </p>
-     * @return string
+     * @return string|false
      */
     #[Pure]
     #[TentativeType]
@@ -3597,7 +3597,7 @@ class IntlTimeZone
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get last error code on the object
      * @link https://secure.php.net/manual/en/intltimezone.geterrorcode.php
-     * @return int
+     * @return int|false
      */
     #[Pure]
     #[TentativeType]
@@ -3625,7 +3625,7 @@ class IntlTimeZone
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get timezone ID
-     * @return string
+     * @return string|false
      */
     #[Pure]
     #[TentativeType]
@@ -3683,7 +3683,7 @@ class IntlTimeZone
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the timezone data version currently used by ICU
      * @link https://secure.php.net/manual/en/intltimezone.gettzdataversion.php
-     * @return string
+     * @return string|false
      */
     #[TentativeType]
     public static function getTZDataVersion(): string|false {}
@@ -3830,7 +3830,7 @@ function collator_set_attribute(Collator $object, int $attribute, int $value): b
  * Get current collation strength
  * @link https://php.net/manual/en/collator.getstrength.php
  * @param Collator $object
- * @return int|false current collation strength, or boolean <b>FALSE</b> on error.
+ * @return int current collation strength
  */
 #[Pure]
 function collator_get_strength(Collator $object): int {}
@@ -3974,7 +3974,7 @@ function collator_get_sort_key(
  * @param string|null $pattern [optional] <p>
  * Pattern string if the chosen style requires a pattern.
  * </p>
- * @return NumberFormatter|false|null <b>NumberFormatter</b> object or <b>FALSE</b> on error.
+ * @return NumberFormatter|null <b>NumberFormatter</b> object or <b>NULL</b> on error.
  */
 #[Pure]
 function numfmt_create(string $locale, int $style, #[TypeAware(['8.0' => 'string|null'], default: 'string')] $pattern = null): ?NumberFormatter {}
@@ -5110,7 +5110,7 @@ function grapheme_strripos(string $haystack, string $needle, int $offset = 0): i
  * the returned string will start at the $start'th grapheme unit from the
  * end of string.
  * </p>
- * @param int $length [optional] <p>
+ * @param int|null $length [optional] <p>
  * Length in grapheme units.
  * If $length is given and is positive, the string returned will contain
  * at most $length grapheme units beginning from $start (depending on the
@@ -5880,7 +5880,7 @@ function intlcal_get_type(IntlCalendar $calendar): string {}
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
- * @param string $dayOfWeek <p>
+ * @param int $dayOfWeek <p>
  * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
  * <b>IntlCalendar::DOW_MONDAY</b>, ...,
  * <b>IntlCalendar::DOW_SATURDAY</b>.
@@ -6457,7 +6457,7 @@ function intlgregcal_is_leap_year(IntlGregorianCalendar $calendar, int $year): b
  * @param bool $fallback [optional] <p>
  * Whether locale should match exactly or fallback to parent locale is allowed.
  * </p>
- * @return ResourceBundle|false|null <b>ResourceBundle</b> object or <b>FALSE</b> on error.
+ * @return ResourceBundle|null <b>ResourceBundle</b> object or <b>NULL</b> on error.
  */
 #[Pure]
 function resourcebundle_create(?string $locale, ?string $bundle, bool $fallback = true): ?ResourceBundle {}
@@ -6505,7 +6505,7 @@ function resourcebundle_locales(string $bundle): array|false {}
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
  * Get bundle's last error code.
  * @link https://php.net/manual/en/resourcebundle.geterrorcode.php
- * @param $bundle
+ * @param ResourceBundle $bundle
  * @return int error code from last bundle object call.
  */
 #[Pure(true)]
@@ -6515,7 +6515,7 @@ function resourcebundle_get_error_code(ResourceBundle $bundle): int {}
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
  * Get bundle's last error message.
  * @link https://php.net/manual/en/resourcebundle.geterrormessage.php
- * @param $bundle
+ * @param ResourceBundle $bundle
  * @return string error message from last bundle object's call.
  */
 #[Pure(true)]
@@ -7073,7 +7073,7 @@ class IntlBreakIterator implements IteratorAggregate
      * Create break iterator for boundaries of combining character sequences
      * @link https://secure.php.net/manual/en/intlbreakiterator.createcharacterinstance.php
      * @param string $locale
-     * @return IntlBreakIterator
+     * @return IntlBreakIterator|null
      */
     #[TentativeType]
     public static function createCharacterInstance(#[TypeAware(['8.0' => 'string|null'], default: '')] $locale = null): ?IntlBreakIterator {}
@@ -7357,7 +7357,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * (PHP 5 &gt;=5.5.0)<br/>
      * @link https://secure.php.net/manual/en/intlrulebasedbreakiterator.getbinaryrules.php
      * Get the binary form of compiled rules
-     * @return string
+     * @return string|false
      */
     #[Pure]
     #[TentativeType]
@@ -7694,7 +7694,7 @@ class UConverter
      * @param string $str
      * @param string $toEncoding
      * @param string $fromEncoding
-     * @param array $options
+     * @param array|null $options
      * @return string|false
      */
     #[TentativeType]

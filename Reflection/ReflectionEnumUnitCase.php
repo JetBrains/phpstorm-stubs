@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * @link https://php.net/manual/en/class.reflectionenumunitcase.php
  * @since 8.1
