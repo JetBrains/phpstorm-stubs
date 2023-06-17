@@ -225,13 +225,12 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
             $unifiedSignatureTypes[] = $typeName;
         }
         $typesIntersection = array_intersect($unifiedSignatureTypes, $unifiedPhpDocTypes);
+        $name = $method instanceof PHPMethod ? "Method $method->parentName::" : 'Function ';
         self::assertSameSize(
             $unifiedSignatureTypes,
             $typesIntersection,
-            $method instanceof PHPMethod ? "Method $method->parentName::" : 'Function ' .
-                "$functionName has mismatch in phpdoc return type and signature return type\n
-                signature has " . implode('|', $unifiedSignatureTypes) . "\n
-                but phpdoc has " . implode('|', $unifiedPhpDocTypes)
+            $name . "$functionName has mismatch in phpdoc return type and signature return type. 
+            Signature has " . implode('|', $unifiedSignatureTypes) . " but phpdoc has " . implode('|', $unifiedPhpDocTypes)
         );
     }
 

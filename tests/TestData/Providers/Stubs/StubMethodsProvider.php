@@ -13,6 +13,7 @@ use StubTests\Model\StubProblemType;
 use StubTests\Parsers\ParserUtils;
 use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
+use function in_array;
 
 class StubMethodsProvider
 {
@@ -29,21 +30,23 @@ class StubMethodsProvider
 
     public static function allFunctionAndMethodsWithReturnTypeHintsProvider(): ?Generator
     {
-        $coreClassesAndInterfaces = PhpStormStubsSingleton::getPhpStormStubs()->getClasses() +
-            PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces();
+        $coreClassesAndInterfaces = PhpStormStubsSingleton::getPhpStormStubs()->getCoreClasses() +
+            PhpStormStubsSingleton::getPhpStormStubs()->getCoreInterfaces();
         $allFunctions = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions();
         $filteredMethods = [];
         foreach (EntitiesFilter::getFiltered($coreClassesAndInterfaces) as $class) {
-            $filteredMethods = EntitiesFilter::getFiltered(
+            $filteredMethods += EntitiesFilter::getFiltered(
                 $class->methods,
                 fn (PHPMethod $method) => empty($method->returnTypesFromSignature) || empty($method->returnTypesFromPhpDoc)
-                    || $method->parentName === '___PHPSTORM_HELPERS\object',
+                    || $method->parentName === '___PHPSTORM_HELPERS\object' || $method->hasTentativeReturnType
+                    || in_array('mixed', $method->returnTypesFromSignature),
                 StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE
             );
         }
         $filteredMethods += EntitiesFilter::getFiltered(
             $allFunctions,
-            fn (PHPFunction $function) => empty($function->returnTypesFromSignature) || empty($function->returnTypesFromPhpDoc),
+            fn (PHPFunction $function) => empty($function->returnTypesFromSignature) || empty($function->returnTypesFromPhpDoc)
+                || $function->hasTentativeReturnType || in_array('mixed', $function->returnTypesFromSignature),
             StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE
         );
         foreach ($filteredMethods as $methodName => $method) {

@@ -4,8 +4,11 @@ namespace StubTests\Model;
 
 use Exception;
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\TentativeType;
 use phpDocumentor\Reflection\DocBlock\Tags\Param;
 use phpDocumentor\Reflection\DocBlock\Tags\Return_;
+use phpDocumentor\Reflection\Types\Array_;
+use phpDocumentor\Reflection\Types\Collection;
 use phpDocumentor\Reflection\Types\Compound;
 use PhpParser\Comment\Doc;
 use PhpParser\Node\FunctionLike;
@@ -36,6 +39,8 @@ class PHPFunction extends BasePHPElement
 
     /** @var string[] */
     public $returnTypesFromSignature = [];
+
+    public $hasTentativeReturnType = false;
 
     /**
      * @param ReflectionFunction|ReflectionFunctionAbstract $reflectionObject
@@ -102,9 +107,14 @@ class PHPFunction extends BasePHPElement
             }
         }
 
+        $this->checkIfReturnTypeIsTentative($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag();
         return $this;
+    }
+
+    protected function checkIfReturnTypeIsTentative(FunctionLike $node) {
+        $this->hasTentativeReturnType = self::hasTentativeReturnTypeAttribute($node);
     }
 
     protected function checkDeprecationTag(FunctionLike $node)
@@ -115,7 +125,14 @@ class PHPFunction extends BasePHPElement
     protected function checkReturnTag()
     {
         if (!empty($this->returnTags) && $this->returnTags[0] instanceof Return_) {
-            $returnType = $this->returnTags[0]->getType();
+            $type = $this->returnTags[0]->getType();
+            if ($type instanceof Collection) {
+                $returnType = $type->getFqsen();
+            } elseif($type instanceof Array_ && $type->getValueType() instanceof Collection) {
+                $returnType = "array";
+            } else {
+                $returnType = $type;
+            }
             if ($returnType instanceof Compound) {
                 foreach ($returnType as $nextType) {
                     $this->returnTypesFromPhpDoc[] = (string)$nextType;
@@ -184,6 +201,22 @@ class PHPFunction extends BasePHPElement
         foreach ($node->getAttrGroups() as $group) {
             foreach ($group->attrs as $attr) {
                 if ((string)$attr->name === Deprecated::class) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @param FunctionLike $node
+     * @return bool
+     */
+    public static function hasTentativeReturnTypeAttribute(FunctionLike $node)
+    {
+        foreach ($node->getAttrGroups() as $group) {
+            foreach ($group->attrs as $attr) {
+                if ((string)$attr->name === TentativeType::class) {
                     return true;
                 }
             }

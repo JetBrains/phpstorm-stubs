@@ -95,10 +95,6 @@ class PHPClass extends BasePHPClass
                 $this->interfaces[] = ltrim($interfaceFQN, "\\");
             }
         }
-        foreach ($node->getProperties() as $property) {
-            $parsedProperty = (new PHPProperty($this->name))->readObjectFromStubNode($property);
-            $this->addProperty($parsedProperty);
-        }
         if ($node->getDocComment() !== null) {
             $docBlock = DocBlockFactory::createInstance()->create($node->getDocComment()->getText());
             /** @var PropertyRead[] $properties */

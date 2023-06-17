@@ -54,6 +54,9 @@ class StubParser
         foreach (self::$stubs->getClasses() as $class) {
             $class->readMutedProblems($jsonData->classes);
             $class->interfaces = CommonUtils::flattenArray($visitor->combineImplementedInterfaces($class), false);
+            foreach ($class->methods as $method) {
+                $method->templateTypes += $class->templateTypes;
+            }
         }
         foreach (self::$stubs->getFunctions() as $function) {
             $function->readMutedProblems($jsonData->functions);
