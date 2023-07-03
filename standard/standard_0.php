@@ -156,8 +156,7 @@ class Directory
  * @param string $name <p>
  * The constant name.
  * </p>
- * @return mixed the value of the constant, or null if the constant is not
- * defined.
+ * @return mixed the value of the constant.
  * @throws Error If the constant is not defined
  */
 #[Pure(true)]
