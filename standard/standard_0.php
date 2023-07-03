@@ -158,6 +158,7 @@ class Directory
  * </p>
  * @return mixed the value of the constant, or null if the constant is not
  * defined.
+ * @throws Error If the constant is not defined
  */
 #[Pure(true)]
 function constant(string $name): mixed {}
