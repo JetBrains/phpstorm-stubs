@@ -14,10 +14,10 @@ final class Query
      * Construct new Query
      * @link https://php.net/manual/en/mongodb-driver-query.construct.php
      * @param array|object $filter The search filter.
-     * @param array $options
+     * @param array|null $queryOptions
      * @throws InvalidArgumentException on argument parsing errors.
      */
-    final public function __construct($filter, ?array $options = []) {}
+    final public function __construct(array|object $filter, ?array $queryOptions = null) {}
 
     final public function __wakeup() {}
 }

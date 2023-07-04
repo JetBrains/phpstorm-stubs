@@ -25,7 +25,7 @@ final class DBPointer implements Type, \Serializable, \JsonSerializable
      * @return string
      * @throws InvalidArgumentException
      */
-    final public function serialize() {}
+    final public function serialize(): string {}
 
     /**
      * Unserialize a DBPointer
@@ -38,7 +38,7 @@ final class DBPointer implements Type, \Serializable, \JsonSerializable
      * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
      * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
      */
-    final public function unserialize($serialized) {}
+    final public function unserialize(string $data): void {}
 
     /**
      * Returns a representation that can be converted to JSON
@@ -54,5 +54,5 @@ final class DBPointer implements Type, \Serializable, \JsonSerializable
      *
      * @return string Returns the string representation of this Symbol.
      */
-    final public function __toString() {}
+    final public function __toString(): string {}
 }

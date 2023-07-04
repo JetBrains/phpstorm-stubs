@@ -26,11 +26,15 @@ final class ReadConcern implements Serializable, \Serializable
     public const AVAILABLE = 'available';
 
     /**
+     * @since 1.11.0
+     */
+    public const SNAPSHOT = 'snapshot';
+
+    /**
      * Construct immutable ReadConcern
      * @link https://php.net/manual/en/mongodb-driver-readconcern.construct.php
-     * @param string $level
      */
-    final public function __construct($level = null) {}
+    final public function __construct(?string $level = null) {}
 
     public static function __set_state(array $properties) {}
 
@@ -40,42 +44,37 @@ final class ReadConcern implements Serializable, \Serializable
      * @return string|null
      * @since 1.0.0
      */
-    final public function getLevel() {}
+    final public function getLevel(): ?string {}
 
     /**
      * Returns an object for BSON serialization
      * @link https://php.net/manual/en/mongodb-driver-readconcern.bsonserialize.php
-     * @return object
      * @since 1.2.0
      */
-    final public function bsonSerialize() {}
+    final public function bsonSerialize(): array|object {}
 
     /**
      * Checks if this is the default read concern
      * @link https://secure.php.net/manual/en/mongodb-driver-readconcern.isdefault.php
-     * @return bool
      * @since 1.3.0
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors.
      */
-    final public function isDefault() {}
+    final public function isDefault(): bool {}
 
     /**
      * Serialize a ReadConcern
      * @since 1.7.0
      * @link https://php.net/manual/en/mongodb-driver-readconcern.serialize.php
-     * @return string
      * @throws InvalidArgumentException
      */
-    final public function serialize() {}
+    final public function serialize(): string {}
 
     /**
      * Unserialize a ReadConcern
      * @since 1.7.0
      * @link https://php.net/manual/en/mongodb-driver-readconcern.unserialize.php
-     * @param string $serialized
-     * @return void
      * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
      * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
      */
-    final public function unserialize($serialized) {}
+    final public function unserialize(string $data): void {}
 }

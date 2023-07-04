@@ -23,58 +23,55 @@ final class Binary implements Type, BinaryInterface, \Serializable, JsonSerializ
      * @since 1.7.0
      */
     public const TYPE_ENCRYPTED = 6;
+
+    /**
+     * @since 1.12.0
+     */
+    public const TYPE_COLUMN = 7;
     public const TYPE_USER_DEFINED = 128;
 
     /**
      * Binary constructor.
      * @link https://php.net/manual/en/mongodb-bson-binary.construct.php
-     * @param string $data
-     * @param int $type
      */
-    final public function __construct($data, $type) {}
+    final public function __construct(string $data, int $type = Binary::TYPE_GENERIC) {}
 
     /**
      * Returns the Binary's data
      * @link https://php.net/manual/en/mongodb-bson-binary.getdata.php
-     * @return string
      */
-    final public function getData() {}
+    final public function getData(): string {}
 
     /**
      * Returns the Binary's type
      * @link https://php.net/manual/en/mongodb-bson-binary.gettype.php
-     * @return int
      */
-    final public function getType() {}
+    final public function getType(): int {}
 
     public static function __set_state(array $properties) {}
 
     /**
      * Returns the Binary's data
      * @link https://www.php.net/manual/en/mongodb-bson-binary.tostring.php
-     * @return string
      */
-    final public function __toString() {}
+    final public function __toString(): string {}
 
     /**
      * Serialize a Binary
      * @since 1.2.0
      * @link https://www.php.net/manual/en/mongodb-bson-binary.serialize.php
-     * @return string
      * @throws InvalidArgumentException
      */
-    final public function serialize() {}
+    final public function serialize(): string {}
 
     /**
      * Unserialize a Binary
      * @since 1.2.0
      * @link https://www.php.net/manual/en/mongodb-bson-binary.unserialize.php
-     * @param string $serialized
-     * @return void
      * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
      * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
      */
-    final public function unserialize($serialized) {}
+    final public function unserialize(string $data) {}
 
     /**
      * Returns a representation that can be converted to JSON

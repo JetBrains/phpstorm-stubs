@@ -58,10 +58,10 @@ final class ReadPreference implements Serializable, \Serializable
      * @link https://php.net/manual/en/mongodb-driver-readpreference.construct.php
      * @param string|int $mode
      * @param array|null $tagSets
-     * @param array $options
+     * @param array|null $options
      * @throws InvalidArgumentException if mode is invalid or if tagSets is provided for a primary read preference.
      */
-    final public function __construct($mode, ?array $tagSets = null, ?array $options = []) {}
+    final public function __construct(string|int $mode, ?array $tagSets = null, ?array $options = null) {}
 
     public static function __set_state(array $properties) {}
 
@@ -69,32 +69,28 @@ final class ReadPreference implements Serializable, \Serializable
      * Returns the ReadPreference's "hedge" option
      * @since 1.8.0
      * @link https://www.php.net/manual/en/mongodb-driver-readpreference.gethedge.php
-     * @return object|null
      */
-    final public function getHedge() {}
+    final public function getHedge(): ?object {}
 
     /**
      * Returns the ReadPreference's "mode" option
      * @link https://php.net/manual/en/mongodb-driver-readpreference.getmode.php
-     * @return int
      */
-    final public function getMode() {}
+    final public function getMode(): int {}
 
     /**
      * Returns the ReadPreference's "mode" option as a string
      * @since 1.7.0
      * @link https://php.net/manual/en/mongodb-driver-readpreference.getmodestring.php
-     * @return string
      * @throws InvalidArgumentException
      */
-    final public function getModeString() {}
+    final public function getModeString(): string {}
 
     /**
      * Returns the ReadPreference's "tagSets" option
      * @link https://php.net/manual/en/mongodb-driver-readpreference.gettagsets.php
-     * @return array
      */
-    final public function getTagSets() {}
+    final public function getTagSets(): array {}
 
     /**
      * Returns an object for BSON serialization
@@ -103,27 +99,24 @@ final class ReadPreference implements Serializable, \Serializable
      * @return object Returns an object for serializing the WriteConcern as BSON.
      * @throws InvalidArgumentException
      */
-    final public function bsonSerialize() {}
+    final public function bsonSerialize(): array|object {}
 
     /**
      * Serialize a ReadPreference
      * @since 1.7.0
      * @link https://php.net/manual/en/mongodb-driver-readpreference.serialize.php
-     * @return string
      * @throws InvalidArgumentException
      */
-    final public function serialize() {}
+    final public function serialize(): string {}
 
     /**
      * Unserialize a ReadPreference
      * @since 1.7.0
      * @link https://php.net/manual/en/mongodb-driver-readpreference.unserialize.php
-     * @param string $serialized
-     * @return void
      * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
      * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
      */
-    final public function unserialize($serialized) {}
+    final public function unserialize(string $data): void {}
 
     final public function getMaxStalenessSeconds() {}
 }

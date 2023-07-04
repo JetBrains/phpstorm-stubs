@@ -22,7 +22,7 @@ final class BulkWrite implements \Countable
      * @param array $options
      * @throws InvalidArgumentException on argument parsing errors.
      */
-    final public function __construct(?array $options = []) {}
+    final public function __construct(?array $options = null) {}
 
     final public function __wakeup() {}
 
@@ -33,34 +33,32 @@ final class BulkWrite implements \Countable
      * @return int number of expected roundtrips to execute the BulkWrite.
      * @throws InvalidArgumentException on argument parsing errors.
      */
-    final public function count() {}
+    final public function count(): int {}
 
     /**
      * Add a delete operation to the bulk
      * @link https://php.net/manual/en/mongodb-driver-bulkwrite.delete.php
-     * @param array|object $query The search filter
-     * @param array $deleteOptions
+     * @param array|object $filter The search filter
+     * @param array|null $deleteOptions
      * @throws InvalidArgumentException on argument parsing errors.
      */
-    final public function delete($query, ?array $deleteOptions = []) {}
+    final public function delete(array|object $filter, ?array $deleteOptions = null): void {}
 
     /**
      * Add an insert operation to the bulk
-     * If the document did not have an _id, a MongoDB\BSON\ObjectId will be generated and returned; otherwise, no value is returned.
      * @link https://php.net/manual/en/mongodb-driver-bulkwrite.insert.php
-     * @param array|object $document
-     * @return mixed
+     * @return mixed If the document did not have an _id, a MongoDB\BSON\ObjectId will be generated and returned; otherwise, no value is returned.
      * @throws InvalidArgumentException on argument parsing errors.
      */
-    final public function insert($document) {}
+    final public function insert(array|object $document) {}
 
     /**
      * Add an update operation to the bulk
      * @link https://php.net/manual/en/mongodb-driver-bulkwrite.update.php
-     * @param array|object $query The search filter
+     * @param array|object $filter The search filter
      * @param array|object $newObj A document containing either update operators (e.g. $set) or a replacement document (i.e. only field:value expressions)
-     * @param array $updateOptions
+     * @param array|null $updateOptions
      * @throws InvalidArgumentException on argument parsing errors.
      */
-    final public function update($query, $newObj, ?array $updateOptions = []) {}
+    final public function update(array|object $filter, array|object $newObj, ?array $updateOptions = null) {}
 }

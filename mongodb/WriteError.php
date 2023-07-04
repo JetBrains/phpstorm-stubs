@@ -14,28 +14,24 @@ final class WriteError
     /**
      * Returns the WriteError's error code
      * @link https://php.net/manual/en/mongodb-driver-writeerror.getcode.php
-     * @return int
      */
-    final public function getCode() {}
+    final public function getCode(): int {}
 
     /**
      * Returns the index of the write operation corresponding to this WriteError
      * @link https://php.net/manual/en/mongodb-driver-writeerror.getindex.php
-     * @return int
      */
-    final public function getIndex() {}
+    final public function getIndex(): int {}
 
     /**
      * Returns additional metadata for the WriteError
      * @link https://php.net/manual/en/mongodb-driver-writeerror.getinfo.php
-     * @return mixed
      */
-    final public function getInfo() {}
+    final public function getInfo(): ?object {}
 
     /**
      * Returns the WriteError's error message
      * @link https://php.net/manual/en/mongodb-driver-writeerror.getmessage.php
-     * @return string
      */
-    final public function getMessage() {}
+    final public function getMessage(): string {}
 }

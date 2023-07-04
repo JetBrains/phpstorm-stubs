@@ -15,30 +15,26 @@ final class Regex implements Type, RegexInterface, \Serializable, JsonSerializab
     /**
      * Construct a new Regex
      * @link https://php.net/manual/en/mongodb-bson-regex.construct.php
-     * @param string $pattern
-     * @param string $flags [optional]
      */
-    final public function __construct($pattern, $flags = "") {}
+    final public function __construct(string $pattern, string $flags = '') {}
 
     /**
      * Returns the Regex's flags
      * @link https://php.net/manual/en/mongodb-bson-regex.getflags.php
      */
-    final public function getFlags() {}
+    final public function getFlags(): string {}
 
     /**
      * Returns the Regex's pattern
      * @link https://php.net/manual/en/mongodb-bson-regex.getpattern.php
-     * @return string
      */
-    final public function getPattern() {}
+    final public function getPattern(): string {}
 
     /**
      * Returns the string representation of this Regex
      * @link https://php.net/manual/en/mongodb-bson-regex.tostring.php
-     * @return string
      */
-    final public function __toString() {}
+    final public function __toString(): string {}
 
     public static function __set_state(array $properties) {}
 
@@ -46,21 +42,18 @@ final class Regex implements Type, RegexInterface, \Serializable, JsonSerializab
      * Serialize a Regex
      * @since 1.2.0
      * @link https://www.php.net/manual/en/mongodb-bson-regex.serialize.php
-     * @return string
      * @throws InvalidArgumentException
      */
-    final public function serialize() {}
+    final public function serialize(): string {}
 
     /**
      * Unserialize a Regex
      * @since 1.2.0
      * @link https://www.php.net/manual/en/mongodb-bson-regex.unserialize.php
-     * @param string $serialized
-     * @return void
      * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
      * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
      */
-    final public function unserialize($serialized) {}
+    final public function unserialize(string $data): void {}
 
     /**
      * Returns a representation that can be converted to JSON

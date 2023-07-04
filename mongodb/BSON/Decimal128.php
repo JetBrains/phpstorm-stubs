@@ -17,14 +17,13 @@ final class Decimal128 implements Type, Decimal128Interface, \Serializable, Json
      * @link https://php.net/manual/en/mongodb-bson-decimal128.construct.php
      * @param string $value A decimal string.
      */
-    final public function __construct($value = '') {}
+    final public function __construct(string $value = '') {}
 
     /**
      * Returns the string representation of this Decimal128
      * @link https://php.net/manual/en/mongodb-bson-decimal128.tostring.php
-     * @return string
      */
-    final public function __toString() {}
+    final public function __toString(): string {}
 
     public static function __set_state(array $properties) {}
 
@@ -35,18 +34,16 @@ final class Decimal128 implements Type, Decimal128Interface, \Serializable, Json
      * @return string
      * @throws InvalidArgumentException
      */
-    final public function serialize() {}
+    final public function serialize(): string {}
 
     /**
      * Unserialize a Decimal128
      * @since 1.2.0
      * @link https://www.php.net/manual/en/mongodb-bson-decimal128.unserialize.php
-     * @param string $serialized
-     * @return void
      * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
      * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
      */
-    final public function unserialize($serialized) {}
+    final public function unserialize(string $data): void {}
 
     /**
      * Returns a representation that can be converted to JSON

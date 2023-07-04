@@ -15,55 +15,47 @@ final class Timestamp implements TimestampInterface, Type, \Serializable, JsonSe
     /**
      * Construct a new Timestamp
      * @link https://php.net/manual/en/mongodb-bson-timestamp.construct.php
-     * @param int $increment
-     * @param int $timestamp
      */
-    final public function __construct($increment, $timestamp) {}
+    final public function __construct(int $increment, int $timestamp) {}
 
     /**
      * Returns the string representation of this Timestamp
      * @link https://php.net/manual/en/mongodb-bson-timestamp.tostring.php
-     * @return string
      */
-    final public function __toString() {}
+    final public function __toString(): string {}
 
     public static function __set_state(array $properties) {}
 
     /**
      * Returns the increment component of this TimestampInterface
      * @link https://secure.php.net/manual/en/mongodb-bson-timestampinterface.getincrement.php
-     * @return int
      * @since 1.3.0
      */
-    final public function getIncrement() {}
+    final public function getIncrement(): int {}
 
     /**
      * Returns the timestamp component of this TimestampInterface
      * @link https://secure.php.net/manual/en/mongodb-bson-timestampinterface.gettimestamp.php
-     * @return int
      * @since 1.3.0
      */
-    final public function getTimestamp() {}
+    final public function getTimestamp(): int {}
 
     /**
      * Serialize a Timestamp
      * @since 1.2.0
      * @link https://www.php.net/manual/en/mongodb-bson-timestamp.serialize.php
-     * @return string
      * @throws InvalidArgumentException
      */
-    final public function serialize() {}
+    final public function serialize(): string {}
 
     /**
      * Unserialize a Timestamp
      * @since 1.2.0
      * @link https://www.php.net/manual/en/mongodb-bson-timestamp.unserialize.php
-     * @param string $serialized
-     * @return void
      * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
      * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
      */
-    final public function unserialize($serialized) {}
+    final public function unserialize(string $data): void {}
 
     /**
      * Returns a representation that can be converted to JSON

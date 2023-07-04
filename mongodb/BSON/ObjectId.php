@@ -17,14 +17,13 @@ final class ObjectId implements Type, ObjectIdInterface, \Serializable, JsonSeri
      * @param string|null $id A 24-character hexadecimal string. If not provided, the driver will generate an ObjectId.
      * @throws InvalidArgumentException if id is not a 24-character hexadecimal string.
      */
-    final public function __construct($id = null) {}
+    final public function __construct(?string $id = null) {}
 
     /**
      * Returns the hexadecimal representation of this ObjectId
      * @link https://php.net/manual/en/mongodb-bson-objectid.tostring.php
-     * @return string
      */
-    final public function __toString() {}
+    final public function __toString(): string {}
 
     public static function __set_state(array $properties) {}
 
@@ -34,7 +33,7 @@ final class ObjectId implements Type, ObjectIdInterface, \Serializable, JsonSeri
      * @link https://secure.php.net/manual/en/mongodb-bson-objectid.gettimestamp.php
      * @return int the timestamp component of this ObjectId
      */
-    final public function getTimestamp() {}
+    final public function getTimestamp(): int {}
 
     /**
      * Returns a representation that can be converted to JSON
@@ -48,15 +47,13 @@ final class ObjectId implements Type, ObjectIdInterface, \Serializable, JsonSeri
      * Serialize an ObjectId
      * @since 1.2.0
      * @link https://secure.php.net/manual/en/mongodb-bson-objectid.serialize.php
-     * @return string the serialized representation of the object
      */
-    final public function serialize() {}
+    final public function serialize(): string {}
 
     /**
      * Unserialize an ObjectId
      * @since 1.2.0
      * @link https://secure.php.net/manual/en/mongodb-bson-objectid.unserialize.php
-     * @return void
      */
-    final public function unserialize($serialized) {}
+    final public function unserialize(string $data): void {}
 }

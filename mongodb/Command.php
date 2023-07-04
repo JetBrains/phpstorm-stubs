@@ -15,12 +15,12 @@ final class Command
     /**
      * Construct new Command
      * @param array|object $document The complete command to construct
-     * @param array $options Do not use this parameter to specify options described in the command's reference in the MongoDB manual.
+     * @param array|null $commandOptions Do not use this parameter to specify options described in the command's reference in the MongoDB manual.
      * @throws InvalidArgumentException on argument parsing errors.
      * @link https://secure.php.net/manual/en/mongodb-driver-command.construct.php
      * @since 1.0.0
      */
-    final public function __construct($document, ?array $options = []) {}
+    final public function __construct(array|object $document, ?array $commandOptions = null) {}
 
     final public function __wakeup() {}
 }
