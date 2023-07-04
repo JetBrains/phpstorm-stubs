@@ -18,9 +18,7 @@ class RuntimeException extends \RuntimeException implements Exception
     /**
      * Whether the given errorLabel is associated with this exception
      *
-     * @param string $label
-     * @return bool
-     *@since 1.6.0
+     * @since 1.6.0
      */
-    final public function hasErrorLabel($label) {}
+    final public function hasErrorLabel(string $label): bool {}
 }

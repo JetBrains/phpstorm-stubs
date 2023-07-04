@@ -26,8 +26,7 @@ final class PackedArray implements \IteratorAggregate, \Serializable
 
     final public function serialize(): string {}
 
-    /** @param string $serialized */
-    final public function unserialize($serialized): void {}
+    final public function unserialize(string $data): void {}
 
     final public function __unserialize(array $data): void {}
 

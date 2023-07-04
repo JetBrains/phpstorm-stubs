@@ -19,22 +19,19 @@ final class Int64 implements Type, \Serializable, \JsonSerializable
     /**
      * Serialize an Int64
      * @link https://www.php.net/manual/en/mongodb-bson-int64.serialize.php
-     * @return string
      * @throws InvalidArgumentException
      */
-    final public function serialize() {}
+    final public function serialize(): string {}
 
     public static function __set_state(array $properties) {}
 
     /**
      * Unserialize an Int64
      * @link https://www.php.net/manual/en/mongodb-bson-int64.unserialize.php
-     * @param string $serialized
-     * @return void
      * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
      * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
      */
-    final public function unserialize($serialized) {}
+    final public function unserialize(string $data): void {}
 
     /**
      * Returns a representation that can be converted to JSON
@@ -48,5 +45,5 @@ final class Int64 implements Type, \Serializable, \JsonSerializable
      * Returns the Symbol as a string
      * @return string Returns the string representation of this Symbol.
      */
-    final public function __toString() {}
+    final public function __toString(): string {}
 }

@@ -21,5 +21,5 @@ abstract class WriteException extends ServerException implements Exception
      * @return WriteResult for the failed write operation
      * @since 1.0.0
      */
-    final public function getWriteResult() {}
+    final public function getWriteResult(): WriteResult {}
 }

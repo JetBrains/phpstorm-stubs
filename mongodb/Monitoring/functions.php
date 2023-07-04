@@ -8,11 +8,10 @@ namespace MongoDB\Driver\Monitoring;
  * Note: If the object is already registered, this function is a no-op.
  * @link https://secure.php.net/manual/en/function.mongodb.driver.monitoring.addsubscriber.php
  * @param Subscriber $subscriber A monitoring event subscriber object to register.
- * @return void
  * @throws \InvalidArgumentException on argument parsing errors.
  * @since 1.3.0
  */
-function addSubscriber(Subscriber $subscriber) {}
+function addSubscriber(Subscriber $subscriber): void {}
 
 /**
  * Unregisters an existing monitoring event subscriber from the driver.
@@ -23,4 +22,4 @@ function addSubscriber(Subscriber $subscriber) {}
  * @throws \InvalidArgumentException on argument parsing errors.
  * @since 1.3.0
  */
-function removeSubscriber(Subscriber $subscriber) {}
+function removeSubscriber(Subscriber $subscriber): void {}

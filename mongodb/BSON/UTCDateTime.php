@@ -15,45 +15,39 @@ final class UTCDateTime implements Type, UTCDateTimeInterface, \Serializable, \J
     /**
      * Construct a new UTCDateTime
      * @link https://php.net/manual/en/mongodb-bson-utcdatetime.construct.php
-     * @param int|float|string|DateTimeInterface $milliseconds
      */
-    final public function __construct($milliseconds = null) {}
+    final public function __construct(int|string|float|DateTimeInterface|null $milliseconds = null) {}
 
     public static function __set_state(array $properties) {}
 
     /**
      * Returns the DateTime representation of this UTCDateTime
      * @link https://php.net/manual/en/mongodb-bson-utcdatetime.todatetime.php
-     * @return \DateTime
      */
-    final public function toDateTime() {}
+    final public function toDateTime(): \DateTime {}
 
     /**
      * Returns the string representation of this UTCDateTime
      * @link https://php.net/manual/en/mongodb-bson-utcdatetime.tostring.php
-     * @return string
      */
-    final public function __toString() {}
+    final public function __toString(): string {}
 
     /**
      * Serialize a UTCDateTime
      * @since 1.2.0
      * @link https://www.php.net/manual/en/mongodb-bson-utcdatetime.serialize.php
-     * @return string
      * @throws InvalidArgumentException
      */
-    final public function serialize() {}
+    final public function serialize(): string {}
 
     /**
      * Unserialize a UTCDateTime
      * @since 1.2.0
      * @link https://www.php.net/manual/en/mongodb-bson-utcdatetime.unserialize.php
-     * @param string $serialized
-     * @return void
      * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
      * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
      */
-    final public function unserialize($serialized) {}
+    final public function unserialize(string $data): void {}
 
     /**
      * Returns a representation that can be converted to JSON

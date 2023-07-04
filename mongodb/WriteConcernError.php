@@ -15,21 +15,18 @@ final class WriteConcernError
     /**
      * Returns the WriteConcernError's error code
      * @link https://php.net/manual/en/mongodb-driver-writeconcernerror.getcode.php
-     * @return int
      */
-    final public function getCode() {}
+    final public function getCode(): int {}
 
     /**
      * Returns additional metadata for the WriteConcernError
      * @link https://php.net/manual/en/mongodb-driver-writeconcernerror.getinfo.php
-     * @return mixed
      */
-    final public function getInfo() {}
+    final public function getInfo(): ?object {}
 
     /**
      * Returns the WriteConcernError's error message
      * @link https://php.net/manual/en/mongodb-driver-writeconcernerror.getmessage.php
-     * @return string
      */
-    final public function getMessage() {}
+    final public function getMessage(): string {}
 }

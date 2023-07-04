@@ -25,7 +25,7 @@ final class CursorId implements \Serializable
      * @return string representation of the cursor ID.
      * @throws InvalidArgumentException on argument parsing errors.
      */
-    final public function __toString() {}
+    final public function __toString(): string {}
 
     final public function __wakeup() {}
 
@@ -35,19 +35,16 @@ final class CursorId implements \Serializable
      * Serialize a CursorId
      * @since 1.7.0
      * @link https://php.net/manual/en/mongodb-driver-cursorid.serialize.php
-     * @return string
      * @throws InvalidArgumentException
      */
-    final public function serialize() {}
+    final public function serialize(): string {}
 
     /**
      * Unserialize a CursorId
      * @since 1.7.0
      * @link https://php.net/manual/en/mongodb-driver-cursorid.unserialize.php
-     * @param string $serialized
-     * @return void
      * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
      * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
      */
-    final public function unserialize($serialized) {}
+    final public function unserialize(string $data): void {}
 }

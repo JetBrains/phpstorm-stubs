@@ -2,6 +2,9 @@
 
 namespace MongoDB\Driver\Monitoring;
 
+use MongoDB\BSON\ObjectId;
+use MongoDB\Driver\Server;
+
 /**
  * Encapsulates information about a failed command.
  * @link https://secure.php.net/manual/en/class.mongodb-driver-monitoring-commandfailedevent.php
@@ -20,7 +23,7 @@ class CommandFailedEvent
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.3.0
      */
-    final public function getCommandName() {}
+    final public function getCommandName(): string {}
 
     /**
      * Returns the command's duration in microseconds
@@ -30,7 +33,7 @@ class CommandFailedEvent
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.3.0
      */
-    final public function getDurationMicros() {}
+    final public function getDurationMicros(): int {}
 
     /**
      * Returns the Exception associated with the failed command
@@ -39,7 +42,7 @@ class CommandFailedEvent
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.3.0
      */
-    final public function getError() {}
+    final public function getError(): \Exception {}
 
     /**
      * Returns the command's operation ID.
@@ -50,7 +53,7 @@ class CommandFailedEvent
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.3.0
      */
-    final public function getOperationId() {}
+    final public function getOperationId(): string {}
 
     /**
      * Returns the command reply document.
@@ -60,7 +63,7 @@ class CommandFailedEvent
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.3.0
      */
-    final public function getReply() {}
+    final public function getReply(): object {}
 
     /**
      * Returns the command's request ID.
@@ -70,7 +73,7 @@ class CommandFailedEvent
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.3.0
      */
-    final public function getRequestId() {}
+    final public function getRequestId(): string {}
 
     /**
      * Returns the Server on which the command was executed.
@@ -78,5 +81,19 @@ class CommandFailedEvent
      * @return \MongoDB\Driver\Server on which the command was executed.
      * @since 1.3.0
      */
-    final public function getServer() {}
+    final public function getServer(): Server {}
+
+    /**
+     * Returns the load balancer service ID for the command
+     * @link https://www.php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getserviceid.php
+     * @since 1.11.0
+     */
+    final public function getServiceId(): ?ObjectId {}
+
+    /**
+     * Returns the server connection ID for the command
+     * @link https://www.php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getserverconnectionid.php
+     * @since 1.14.0
+     */
+    final public function getServerConnectionId(): ?int {}
 }

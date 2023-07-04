@@ -15,53 +15,45 @@ final class Javascript implements Type, JavascriptInterface, \Serializable, Json
     /**
      * Construct a new Javascript
      * @link https://php.net/manual/en/mongodb-bson-javascript.construct.php
-     * @param string $javascript
-     * @param array|object $scope
      */
-    final public function __construct($javascript, $scope = []) {}
+    final public function __construct(string $javascript, array|object|null $scope = null) {}
 
     public static function __set_state(array $properties) {}
 
     /**
      * Returns the Javascript's code
-     * @return string
      * @link https://secure.php.net/manual/en/mongodb-bson-javascript.getcode.php
      */
-    final public function getCode() {}
+    final public function getCode(): string {}
 
     /**
      * Returns the Javascript's scope document
-     * @return object|null
      * @link https://secure.php.net/manual/en/mongodb-bson-javascript.getscope.php
      */
-    final public function getScope() {}
+    final public function getScope(): ?object {}
 
     /**
      * Returns the Javascript's code
-     * @return string
      * @link https://secure.php.net/manual/en/mongodb-bson-javascript.tostring.php
      */
-    final public function __toString() {}
+    final public function __toString(): string {}
 
     /**
      * Serialize a Javascript
      * @since 1.2.0
      * @link https://www.php.net/manual/en/mongodb-bson-javascript.serialize.php
-     * @return string
      * @throws InvalidArgumentException
      */
-    final public function serialize() {}
+    final public function serialize(): string {}
 
     /**
      * Unserialize a Javascript
      * @since 1.2.0
      * @link https://www.php.net/manual/en/mongodb-bson-javascript.unserialize.php
-     * @param string $serialized
-     * @return void
      * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
      * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
      */
-    final public function unserialize($serialized) {}
+    final public function unserialize(string $data): void {}
 
     /**
      * Returns a representation that can be converted to JSON
