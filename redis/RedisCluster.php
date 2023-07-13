@@ -1538,7 +1538,7 @@ class RedisCluster
      *
      * @param string $key
      * @param string $hashKey
-     * @param string $value
+     * @param mixed $value
      *
      * @return int
      * 1 if value didn't exist and was added successfully,
