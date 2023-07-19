@@ -246,7 +246,7 @@ class RedisCluster
      *
      * @param   string $key
      * @param   int    $ttl
-     * @param   string $value
+     * @param   mix $value
      *
      * @return  bool   TRUE if the command is successful.
      * @link    https://redis.io/commands/setex
