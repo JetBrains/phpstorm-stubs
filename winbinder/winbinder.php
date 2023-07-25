@@ -3061,7 +3061,7 @@ const MAX_STR_BLOCKREASON = 256;
  * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_main_loop.html
  * @return int|null
  */
-function wb_main_loop() : ?int{}
+function wb_main_loop(): ?int {}
 
 /**
  * Looks for a file in the Windows and System directories, in this order.
@@ -3071,7 +3071,7 @@ function wb_main_loop() : ?int{}
  * @param string $filename
  * @return string
  */
-function wb_find_file(string $filename) : string{}
+function wb_find_file(string $filename): string {}
 
 /**
  * Creates and displays a message box and returns a value according to the button pressed.
@@ -3097,7 +3097,7 @@ function wb_find_file(string $filename) : string{}
  * @param int $style
  * @return int|bool|null
  */
-function wb_message_box(int $wbObject, string $message, string $title, int $style) : int|bool|null{}
+function wb_message_box(int $wbObject, string $message, string $title, int $style): int|bool|null {}
 
 /**
  * Plays a system sound. Options for parameter style are:
@@ -3115,7 +3115,7 @@ function wb_message_box(int $wbObject, string $message, string $title, int $styl
  * @param string|null $command
  * @return bool
  */
-function wb_play_sound(string|int $source = 0, ?string $command = 'play') : bool{}
+function wb_play_sound(string|int $source = 0, ?string $command = 'play'): bool {}
 
 /**
  * Stops a sound Options are: all, wave, midi (or wav/mid)
@@ -3123,7 +3123,7 @@ function wb_play_sound(string|int $source = 0, ?string $command = 'play') : bool
  * @param string|null $command
  * @return bool
  */
-function wb_stop_sound(?string $command = '') : bool{}
+function wb_stop_sound(?string $command = ''): bool {}
 
 /**
  * Opens or executes a command. The string passed to this function can be one of the following:
@@ -3152,7 +3152,7 @@ function wb_stop_sound(?string $command = '') : bool{}
  * @param bool $show
  * @return int
  */
-function wb_exec(string $program, ?string $parameters = '', bool $show = true) : int{}
+function wb_exec(string $program, ?string $parameters = '', bool $show = true): int {}
 
 /**
  * Returns information about the current system and application, according to the string info. The parameter info is case-insensitive.
@@ -3189,7 +3189,7 @@ function wb_exec(string $program, ?string $parameters = '', bool $show = true) :
  * @param string|null $config
  * @return mixed
  */
-function wb_get_system_info(?string $config = '') : mixed{}
+function wb_get_system_info(?string $config = ''): mixed {}
 
 /**
  * Reads a string or integer value from the Windows registry item referenced by key, subkey and entry.
@@ -3217,7 +3217,7 @@ function wb_get_system_info(?string $config = '') : mixed{}
  * @param string|null $entry
  * @return string|null
  */
-function wb_get_registry_key(string $key, string $subkey, ?string $entry = '') : ?string{}
+function wb_get_registry_key(string $key, string $subkey, ?string $entry = ''): ?string {}
 
 /**
  * Writes a string or integer value to the Windows registry item referenced by key, subkey and entry.
@@ -3242,7 +3242,7 @@ function wb_get_registry_key(string $key, string $subkey, ?string $entry = '') :
  * @param string|float|bool|null $source
  * @return bool
  */
-function wb_set_registry_key(string $key, string $subkey, ?string $entry = '', string|float|bool|null $source = '') : bool{}
+function wb_set_registry_key(string $key, string $subkey, ?string $entry = '', string|float|bool|null $source = ''): bool {}
 
 /**
  * Creates a timer in the specified window.
@@ -3259,7 +3259,7 @@ function wb_set_registry_key(string $key, string $subkey, ?string $entry = '', s
  * @param int $milliseconds
  * @return bool
  */
-function wb_create_timer(int $wbObject, int $id, int $milliseconds) : bool{}
+function wb_create_timer(int $wbObject, int $id, int $milliseconds): bool {}
 
 /**
  * This function creates a delay and verify if mouse buttons are pressed and/or the keyboard state.
@@ -3287,7 +3287,7 @@ function wb_create_timer(int $wbObject, int $id, int $milliseconds) : bool{}
  * @param int|null $flags
  * @return int|null
  */
-function wb_wait(?int $wbObject = 0, ?int $pause = 0, ?int $flags = 0) : ?int{}
+function wb_wait(?int $wbObject = 0, ?int $pause = 0, ?int $flags = 0): ?int {}
 
 /**
  * Low level function that checks if $wbObject is a valid Winbinder struct.
@@ -3296,7 +3296,7 @@ function wb_wait(?int $wbObject = 0, ?int $pause = 0, ?int $flags = 0) : ?int{}
  * @param int|null $wbObject
  * @return bool
  */
-function wb_is_obj(?int $wbObject) : bool{}
+function wb_is_obj(?int $wbObject): bool {}
 
 /**
  * Destroys a timer created with wb_create_timer().
@@ -3308,7 +3308,7 @@ function wb_is_obj(?int $wbObject) : bool{}
  * @param int $id
  * @return bool
  */
-function wb_destroy_timer(int $wbObject, int $id) : bool{}
+function wb_destroy_timer(int $wbObject, int $id): bool {}
 
 /**
  * This class creates keyboard accelerators.
@@ -3344,14 +3344,14 @@ function wb_destroy_timer(int $wbObject, int $id) : bool{}
  * @param array $accel
  * @return bool
  */
-function wb_set_accel_table(int $wbObject, array $accel) : bool{}
+function wb_set_accel_table(int $wbObject, array $accel): bool {}
 
 /**
  * Get current clipboard contents.
  *
  * @return string|null
  */
-function wb_get_clipboard() : ?string{}
+function wb_get_clipboard(): ?string {}
 
 /**
  * Set current clipboard contents.
@@ -3359,13 +3359,13 @@ function wb_get_clipboard() : ?string{}
  * @param string $contents
  * @return bool
  */
-function wb_set_clipboard(string $contents) : bool{}
+function wb_set_clipboard(string $contents): bool {}
 
 /**
  * Empty current clipboard conetnts.
  * @return bool
  */
-function wb_empty_clipboard() : bool{}
+function wb_empty_clipboard(): bool {}
 
 /**
  * Get current mouse position.
@@ -3375,7 +3375,7 @@ function wb_empty_clipboard() : bool{}
  * @param int $wbObject
  * @return array|bool
  */
-function wb_get_mouse_pos(int $wbObject) : array|bool{}
+function wb_get_mouse_pos(int $wbObject): array|bool {}
 
 /**
  * Set the current mouse postion.
@@ -3386,7 +3386,7 @@ function wb_get_mouse_pos(int $wbObject) : array|bool{}
  * @param int $y
  * @return bool
  */
-function wb_set_mouse_pos(int $x, int $y) : bool{}
+function wb_set_mouse_pos(int $x, int $y): bool {}
 
 /**
  * Loads the image file filename from disk and returns a handle to it. index is the index of the image on the file if filename is an icon library.
@@ -3399,7 +3399,7 @@ function wb_set_mouse_pos(int $x, int $y) : bool{}
  * @param int|null $icon_type
  * @return int|null
  */
-function wb_load_image(string $file, ?int $index = 0, ?int $icon_type = 0) : ?int{}
+function wb_load_image(string $file, ?int $index = 0, ?int $icon_type = 0): ?int {}
 
 /**
  * Saves image to file filename.
@@ -3411,7 +3411,7 @@ function wb_load_image(string $file, ?int $index = 0, ?int $icon_type = 0) : ?in
  * @param string $file
  * @return bool
  */
-function wb_save_image(int $bitmap, string $file) : bool{}
+function wb_save_image(int $bitmap, string $file): bool {}
 
 /**
  * Creates a true-color image measuring width by height pixels. The resulting image must be destroyed by a call to wb_destroy_image().
@@ -3429,7 +3429,7 @@ function wb_save_image(int $bitmap, string $file) : bool{}
  * @param int|null $bitmap_bits
  * @return int
  */
-function wb_create_image(int $width, int $height, ?int $bitmap_info = 0, ?int $bitmap_bits = 0) : int{}
+function wb_create_image(int $width, int $height, ?int $bitmap_info = 0, ?int $bitmap_bits = 0): int {}
 
 /**
  * Creates a transparency mask of a true-color bitmap.
@@ -3442,7 +3442,7 @@ function wb_create_image(int $width, int $height, ?int $bitmap_info = 0, ?int $b
  * @param int $colour
  * @return int|null
  */
-function wb_create_mask(int $bitmap, int $colour) : ?int{}
+function wb_create_mask(int $bitmap, int $colour): ?int {}
 
 /**
  * Destroys an image created by wb_create_image() or wb_create_mask().
@@ -3451,7 +3451,7 @@ function wb_create_mask(int $bitmap, int $colour) : ?int{}
  * @param int $bitmap
  * @return bool
  */
-function wb_destroy_image(int $bitmap) : bool{}
+function wb_destroy_image(int $bitmap): bool {}
 
 /**
  * Captures a screenshot of the main monitor.
@@ -3461,7 +3461,7 @@ function wb_destroy_image(int $bitmap) : bool{}
  * @param string|null $filename
  * @return int
  */
-function wb_screenshot(?string $filename) : int{}
+function wb_screenshot(?string $filename): int {}
 
 /**
  * Returns a string of data containing a copy of the internal true-color representation of the given image.
@@ -3476,7 +3476,7 @@ function wb_screenshot(?string $filename) : int{}
  * @param int|bool|null $compress4to3
  * @return string|null
  */
-function wb_get_image_data(int $bitmap, int|bool|null $compress4to3 = false) : ?string{}
+function wb_get_image_data(int $bitmap, int|bool|null $compress4to3 = false): ?string {}
 
 /**
  * Returns the RGB color value of the pixel at the given coordinates.
@@ -3491,7 +3491,7 @@ function wb_get_image_data(int $bitmap, int|bool|null $compress4to3 = false) : ?
  * @param int $y
  * @return int
  */
-function wb_get_pixel(int $handle, int $x, int $y) : int{}
+function wb_get_pixel(int $handle, int $x, int $y): int {}
 
 /**
  * Draws a point of color, setting the RGB color value of the pixel that exists at the given coordinates.
@@ -3506,7 +3506,7 @@ function wb_get_pixel(int $handle, int $x, int $y) : int{}
  * @param int $color
  * @return bool
  */
-function wb_draw_point(int $handle, int $x, int $y, int $color) : bool{}
+function wb_draw_point(int $handle, int $x, int $y, int $color): bool {}
 
 /**
  * Draws a straight line.
@@ -3531,7 +3531,7 @@ function wb_draw_point(int $handle, int $x, int $y, int $color) : bool{}
  * @param int|null $linestyle
  * @return bool
  */
-function wb_draw_line(int $handle, int $start_x, int $start_y, int $end_x, int $end_y, int $color, ?int $linewidth = 0, ?int $linestyle = 0) : bool{}
+function wb_draw_line(int $handle, int $start_x, int $start_y, int $end_x, int $end_y, int $color, ?int $linewidth = 0, ?int $linestyle = 0): bool {}
 
 /**
  * Draws a filled or hollow rectangle.
@@ -3559,7 +3559,7 @@ function wb_draw_line(int $handle, int $start_x, int $start_y, int $end_x, int $
  * @param int|null $linestyle
  * @return bool
  */
-function wb_draw_rect(int $handle, int $x, int $y, int $width, int $height, int $color, ?int $filled = 0, ?int $linewidth = 0, ?int $linestyle = 0) : bool{}
+function wb_draw_rect(int $handle, int $x, int $y, int $width, int $height, int $color, ?int $filled = 0, ?int $linewidth = 0, ?int $linestyle = 0): bool {}
 
 /**
  * Draws an ellipse.
@@ -3578,7 +3578,7 @@ function wb_draw_rect(int $handle, int $x, int $y, int $width, int $height, int 
  * @param int|null $linestyle
  * @return bool
  */
-function wb_draw_ellipse(int $handle, int $x, int $y, int $width, int $height, int $color, ?int $filled = 0, ?int $linewidth = 0, ?int $linestyle = 0) : bool{}
+function wb_draw_ellipse(int $handle, int $x, int $y, int $width, int $height, int $color, ?int $filled = 0, ?int $linewidth = 0, ?int $linestyle = 0): bool {}
 
 /**
  * Draws a string.
@@ -3608,7 +3608,7 @@ function wb_draw_ellipse(int $handle, int $x, int $y, int $width, int $height, i
  * @param int|null $flags
  * @return bool
  */
-function wb_draw_text(int $handle, string $text, int $x, int $y, ?int $width = 0, ?int $height = 0, ?int $font = 0, ?int $flags = 0) : bool{}
+function wb_draw_text(int $handle, string $text, int $x, int $y, ?int $width = 0, ?int $height = 0, ?int $font = 0, ?int $flags = 0): bool {}
 
 /**
  * Draws a bitmap.
@@ -3639,7 +3639,7 @@ function wb_draw_text(int $handle, string $text, int $x, int $y, ?int $width = 0
  * @param int|null $offset_y
  * @return bool
  */
-function wb_draw_image(int $handle, int $bitmap, ?int $x = 0, ?int $y = 0, ?int $width = 0, ?int $height = 0, ?int $transparent_colour = 0, ?int $offset_x = 0, ?int $offset_y = 0) : bool{}
+function wb_draw_image(int $handle, int $bitmap, ?int $x = 0, ?int $y = 0, ?int $width = 0, ?int $height = 0, ?int $transparent_colour = 0, ?int $offset_x = 0, ?int $offset_y = 0): bool {}
 
 /**
  * Destroys a control created by wb_create_control().
@@ -3653,7 +3653,7 @@ function wb_draw_image(int $handle, int $bitmap, ?int $x = 0, ?int $y = 0, ?int 
  * @param int $wbObject
  * @return bool
  */
-function wb_destroy_control(int $wbObject) : bool{}
+function wb_destroy_control(int $wbObject): bool {}
 
 /**
  * Retrieves the value of a control or control item. The item and subitem parameters are set to -1 if absent.
@@ -3687,7 +3687,7 @@ function wb_destroy_control(int $wbObject) : bool{}
  * @param int|null $subitem
  * @return array|bool|null
  */
-function wb_get_value(int $wbObject, ?int $item = 0, ?int $subitem = 0) : array|bool|null{}
+function wb_get_value(int $wbObject, ?int $item = 0, ?int $subitem = 0): array|bool|null {}
 
 /**
  * Refreshes or redraws the WinBinder object wbobject, forcing an immediate redraw if the parameter now is TRUE.
@@ -3705,7 +3705,7 @@ function wb_get_value(int $wbObject, ?int $item = 0, ?int $subitem = 0) : array|
  * @param int|null $height
  * @return bool
  */
-function wb_refresh(int $wbObject, int|bool $now = true, ?int $x = 0, ?int $y = 0, ?int $width = 0, ?int $height = 0) : bool{}
+function wb_refresh(int $wbObject, int|bool $now = true, ?int $x = 0, ?int $y = 0, ?int $width = 0, ?int $height = 0): bool {}
 
 /**
  * Enables or disables control according to the value of enabled.
@@ -3717,7 +3717,7 @@ function wb_refresh(int $wbObject, int|bool $now = true, ?int $x = 0, ?int $y = 
  * @param bool $state
  * @return bool
  */
-function wb_set_enabled(int $wbObject, bool $state) : bool{}
+function wb_set_enabled(int $wbObject, bool $state): bool {}
 
 /**
  * Assigns the image source to the WinBinder object wbobject.
@@ -3741,7 +3741,7 @@ function wb_set_enabled(int $wbObject, bool $state) : bool{}
  * @param int|null $parameter
  * @return bool
  */
-function wb_set_image(int $wbObject, string|int $source = 0, ?int $colour = 0, ?int $index = 0, ?int $parameter = 0) : bool{}
+function wb_set_image(int $wbObject, string|int $source = 0, ?int $colour = 0, ?int $index = 0, ?int $parameter = 0): bool {}
 
 /**
  * Retrieves a portion of the image already assigned to a control and assigns it to an item (and optional subitem).
@@ -3756,7 +3756,7 @@ function wb_set_image(int $wbObject, string|int $source = 0, ?int $colour = 0, ?
  * @param int|null $subitem
  * @return bool
  */
-function wb_set_item_image(int $wbObject, int $index, ?int $item = 0, ?int $subitem = 0) : bool{}
+function wb_set_item_image(int $wbObject, int $index, ?int $item = 0, ?int $subitem = 0): bool {}
 
 /**
  * Creates a window control, menu, toolbar, status bar or accelerator.
@@ -3788,7 +3788,7 @@ function wb_set_item_image(int $wbObject, int $index, ?int $item = 0, ?int $subi
  * @param int|null $tab
  * @return int|bool|null
  */
-function wb_create_control(int $wbObjectparent, int $wbclass, array|string|null $caption = '', ?int $x = 0, ?int $y = 0, ?int $width = 0, ?int $height = 0, ?int $id = 0, ?int $style = 0, ?int $parameter = 0, ?int $tab = 0) : int|bool|null{}
+function wb_create_control(int $wbObjectparent, int $wbclass, array|string|null $caption = '', ?int $x = 0, ?int $y = 0, ?int $width = 0, ?int $height = 0, ?int $id = 0, ?int $style = 0, ?int $parameter = 0, ?int $tab = 0): int|bool|null {}
 
 /**
  * Creates one or more items in a control. The return value varies according to the items created.
@@ -3805,7 +3805,7 @@ function wb_create_control(int $wbObjectparent, int $wbclass, array|string|null 
  * @param int|null $parameter
  * @return bool
  */
-function wb_create_item(int $wbObject, string $caption, ?int $parameter = 0) : bool{}
+function wb_create_item(int $wbObject, string $caption, ?int $parameter = 0): bool {}
 
 /**
  * Create Status control/sections
@@ -3824,7 +3824,7 @@ function wb_create_item(int $wbObject, string $caption, ?int $parameter = 0) : b
  * @param int|null $parameter
  * @return array|bool|null
  */
-function wb_create_statusbar_items(int $wbObject, array $items_array, ?int $clear = 0, ?int $parameter = 0) : array|bool|null{}
+function wb_create_statusbar_items(int $wbObject, array $items_array, ?int $clear = 0, ?int $parameter = 0): array|bool|null {}
 
 /**
  * Gets the text from a window, control, or control item.
@@ -3845,7 +3845,7 @@ function wb_create_statusbar_items(int $wbObject, array $items_array, ?int $clea
  * @param int|null $index
  * @return string|null
  */
-function wb_get_text(int $wbObject, ?int $index = 0) : ?string{}
+function wb_get_text(int $wbObject, ?int $index = 0): ?string {}
 
 /**
  * Sets the text of a WinBinder object.
@@ -3879,7 +3879,7 @@ function wb_get_text(int $wbObject, ?int $index = 0) : ?string{}
  * @param int|null $item
  * @return bool
  */
-function wb_set_text(int $wbObject, array|string $caption, ?int $item = 0) : bool{}
+function wb_set_text(int $wbObject, array|string $caption, ?int $item = 0): bool {}
 
 /**
  * Deletes an item, a range of items, or all items from a control.
@@ -3899,7 +3899,7 @@ function wb_set_text(int $wbObject, array|string $caption, ?int $item = 0) : boo
  * @param array|int $items
  * @return int|bool|null
  */
-function wb_delete_items(int $wbObject, array|int $items = 0) : int|bool|null{}
+function wb_delete_items(int $wbObject, array|int $items = 0): int|bool|null {}
 
 /**
  * Returns an integer that corresponds to the class of the object (control, window or menu) passed as the parameter.
@@ -3910,7 +3910,7 @@ function wb_delete_items(int $wbObject, array|int $items = 0) : int|bool|null{}
  * @param int $wbObject
  * @return int|null
  */
-function wb_get_class(int $wbObject) : ?int{}
+function wb_get_class(int $wbObject): ?int {}
 
 /**
  * Returns an integer handle that corresponds to the WinBinder object (control, toolbar item or menu item) wbobject that has the supplied id.
@@ -3921,7 +3921,7 @@ function wb_get_class(int $wbObject) : ?int{}
  * @param int $id
  * @return int|null
  */
-function wb_get_control(int $wbObjectparent, int $id) : ?int{}
+function wb_get_control(int $wbObjectparent, int $id): ?int {}
 
 /**
  * Returns TRUE if wbobject is enabled and FALSE otherwise.
@@ -3930,7 +3930,7 @@ function wb_get_control(int $wbObjectparent, int $id) : ?int{}
  * @param int $wbObject
  * @return bool
  */
-function wb_get_enabled(int $wbObject) : bool{}
+function wb_get_enabled(int $wbObject): bool {}
 
 /**
  * Returns a handle to the window or control that has the keyboard focus.
@@ -3938,7 +3938,7 @@ function wb_get_enabled(int $wbObject) : bool{}
  * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_focus.html
  * @return int
  */
-function wb_get_focus() : int{}
+function wb_get_focus(): int {}
 
 /**
  * Returns the integer identifier of wbobject.
@@ -3947,7 +3947,7 @@ function wb_get_focus() : int{}
  * @param int $wbObject
  * @return int|null
  */
-function wb_get_id(int $wbObject) : ?int{}
+function wb_get_id(int $wbObject): ?int {}
 
 /**
  * Returns the number of items of wbobject.
@@ -3958,7 +3958,7 @@ function wb_get_id(int $wbObject) : ?int{}
  * @param int $wbObject
  * @return int|null
  */
-function wb_get_item_count(int $wbObject) : ?int{}
+function wb_get_item_count(int $wbObject): ?int {}
 
 /**
  * Returns the handle of the control parent, or the node parent if item specifies a treeview node.
@@ -3968,7 +3968,7 @@ function wb_get_item_count(int $wbObject) : ?int{}
  * @param int $item
  * @return int|null
  */
-function wb_get_parent(int $wbObject, int $item) : ?int{}
+function wb_get_parent(int $wbObject, int $item): ?int {}
 
 /**
  * Returns a value or array with the indices or identifiers of the selected elements or items in wbobject.
@@ -3986,7 +3986,7 @@ function wb_get_parent(int $wbObject, int $item) : ?int{}
  * @param int $wbObject
  * @return array|int|null
  */
-function wb_get_selected(int $wbObject) : array|int|null{}
+function wb_get_selected(int $wbObject): array|int|null {}
 
 /**
  * Retrieves an integer representing the current state of a control item.
@@ -3999,7 +3999,7 @@ function wb_get_selected(int $wbObject) : array|int|null{}
  * @param int $item
  * @return bool
  */
-function wb_get_state(int $wbObject, int $item) : bool{}
+function wb_get_state(int $wbObject, int $item): bool {}
 
 /**
  * Returns TRUE if wbobject is visible and FALSE otherwise.
@@ -4008,7 +4008,7 @@ function wb_get_state(int $wbObject, int $item) : bool{}
  * @param int $wbObject
  * @return bool
  */
-function wb_get_visible(int $wbObject) : bool{}
+function wb_get_visible(int $wbObject): bool {}
 
 /**
  * Sets window or control cursor.
@@ -4018,7 +4018,7 @@ function wb_get_visible(int $wbObject) : bool{}
  * @param string|int $items
  * @return bool
  */
-function wb_set_cursor(int $wbObject, string|int $items = 0) : bool{}
+function wb_set_cursor(int $wbObject, string|int $items = 0): bool {}
 
 /**
  * Assigns the keyboard focus to wbobject. Returns TRUE on success or FALSE if an error occurs.
@@ -4027,7 +4027,7 @@ function wb_set_cursor(int $wbObject, string|int $items = 0) : bool{}
  * @param int $wbObject
  * @return bool
  */
-function wb_set_focus(int $wbObject) : bool{}
+function wb_set_focus(int $wbObject): bool {}
 
 /**
  * Assigns the callback function fn_handler to window.
@@ -4041,7 +4041,7 @@ function wb_set_focus(int $wbObject) : bool{}
  * @param array|string $parameter
  * @return bool
  */
-function wb_set_handler(int $wbObject, array|string $parameter = '') : bool{}
+function wb_set_handler(int $wbObject, array|string $parameter = ''): bool {}
 
 /**
  * Sets the location of an HTMLControl or sends a special command to it.
@@ -4062,7 +4062,7 @@ function wb_set_handler(int $wbObject, array|string $parameter = '') : bool{}
  * @param string $location
  * @return bool
  */
-function wb_set_location(int $wbObject, string $location) : bool{}
+function wb_set_location(int $wbObject, string $location): bool {}
 
 /**
  * Sets tha range for the control values.
@@ -4074,7 +4074,7 @@ function wb_set_location(int $wbObject, string $location) : bool{}
  * @param int|null $max
  * @return bool
  */
-function wb_set_range(int $wbObject, int $min, ?int $max = 0) : bool{}
+function wb_set_range(int $wbObject, int $min, ?int $max = 0): bool {}
 
 /**
  * Sets the state of a control item (a treeview node).
@@ -4090,7 +4090,7 @@ function wb_set_range(int $wbObject, int $min, ?int $max = 0) : bool{}
  * @param bool $expand_toolbar_item
  * @return bool
  */
-function wb_set_state(int $wbObject, int $item, bool $expand_toolbar_item) : bool{}
+function wb_set_state(int $wbObject, int $item, bool $expand_toolbar_item): bool {}
 
 /**
  * Sets or resets one or more styles of the WinBinder object wbobject. Only a limited set of styles is supported due to Windows limitations.
@@ -4107,7 +4107,7 @@ function wb_set_state(int $wbObject, int $item, bool $expand_toolbar_item) : boo
  * @param int|null $value
  * @return bool
  */
-function wb_set_style(int $wbObject, int $style, ?int $value = 0) : bool{}
+function wb_set_style(int $wbObject, int $style, ?int $value = 0): bool {}
 
 /**
  * Shows or hides the WinBinder object wbobject according to the value of visible.
@@ -4119,7 +4119,7 @@ function wb_set_style(int $wbObject, int $style, ?int $value = 0) : bool{}
  * @param bool $visible
  * @return bool
  */
-function wb_set_visible(int $wbObject, bool $visible) : bool{}
+function wb_set_visible(int $wbObject, bool $visible): bool {}
 
 /**
  * Sorts the contents of a control, a control item, a ListView column or a sub-item.
@@ -4138,7 +4138,7 @@ function wb_set_visible(int $wbObject, bool $visible) : bool{}
  * @param int|null $subitem
  * @return bool
  */
-function wb_sort(int $wbObject, ?int $ascending = 0, ?int $subitem = 0) : bool{}
+function wb_sort(int $wbObject, ?int $ascending = 0, ?int $subitem = 0): bool {}
 
 /**
  * Makes the tab denoted by $tab index provided the actice/viewable tab page.
@@ -4147,7 +4147,7 @@ function wb_sort(int $wbObject, ?int $ascending = 0, ?int $subitem = 0) : bool{}
  * @param int $tab
  * @return bool
  */
-function wb_select_tab(int $wbObject, int $tab) : bool{}
+function wb_select_tab(int $wbObject, int $tab): bool {}
 
 /**
  * Sets one or more values of a control or control item.
@@ -4180,7 +4180,7 @@ function wb_select_tab(int $wbObject, int $tab) : bool{}
  * @param int|null $subitem
  * @return bool
  */
-function wb_set_value(int $wbObject, int $value, ?int $item = 0, ?int $subitem = 0) : bool{}
+function wb_set_value(int $wbObject, int $value, ?int $item = 0, ?int $subitem = 0): bool {}
 
 /**
  * Create a ListView item.
@@ -4191,7 +4191,7 @@ function wb_set_value(int $wbObject, int $value, ?int $item = 0, ?int $subitem =
  * @param string $caption
  * @return int
  */
-function wb_create_listview_item(int $wbObject, int $item, int $image, string $caption) : int{}
+function wb_create_listview_item(int $wbObject, int $item, int $image, string $caption): int {}
 
 /**
  * Set ListView Item Checked.
@@ -4201,7 +4201,7 @@ function wb_create_listview_item(int $wbObject, int $item, int $image, string $c
  * @param int $checked
  * @return bool
  */
-function wb_set_listview_item_checked(int $wbObject, int $item, int $checked) : bool{}
+function wb_set_listview_item_checked(int $wbObject, int $item, int $checked): bool {}
 
 /**
  * Get ListView Item Checked.
@@ -4210,7 +4210,7 @@ function wb_set_listview_item_checked(int $wbObject, int $item, int $checked) : 
  * @param int $item
  * @return bool
  */
-function wb_get_listview_item_checked(int $wbObject, int $item) : bool{}
+function wb_get_listview_item_checked(int $wbObject, int $item): bool {}
 
 /**
  * Set ListView Item text.
@@ -4221,7 +4221,7 @@ function wb_get_listview_item_checked(int $wbObject, int $item) : bool{}
  * @param string $caption
  * @return bool
  */
-function wb_set_listview_item_text(int $wbObject, int $item, int $subitem, string $caption) : bool{}
+function wb_set_listview_item_text(int $wbObject, int $item, int $subitem, string $caption): bool {}
 
 /**
  * Get ListView Item Text.
@@ -4231,7 +4231,7 @@ function wb_set_listview_item_text(int $wbObject, int $item, int $subitem, strin
  * @param int|null $column
  * @return array|string|null
  */
-function wb_get_listview_text(int $wbObject, ?int $row = 0, ?int $column = 0) : array|string|null{}
+function wb_get_listview_text(int $wbObject, ?int $row = 0, ?int $column = 0): array|string|null {}
 
 /**
  * Get the number of columns in the ListView control.
@@ -4239,7 +4239,7 @@ function wb_get_listview_text(int $wbObject, ?int $row = 0, ?int $column = 0) : 
  * @param int $wbObject
  * @return int|null
  */
-function wb_get_listview_columns(int $wbObject) : ?int{}
+function wb_get_listview_columns(int $wbObject): ?int {}
 
 /**
  * Create ListView Column.
@@ -4251,7 +4251,7 @@ function wb_get_listview_columns(int $wbObject) : ?int{}
  * @param int $align
  * @return bool
  */
-function wb_create_listview_column(int $wbObject, int $ncol, string $caption, int $width, int $align) : bool{}
+function wb_create_listview_column(int $wbObject, int $ncol, string $caption, int $width, int $align): bool {}
 
 /**
  * Clear ListView Columns
@@ -4259,7 +4259,7 @@ function wb_create_listview_column(int $wbObject, int $ncol, string $caption, in
  * @param int $wbObject
  * @return bool
  */
-function wb_clear_listview_columns(int $wbObject) : bool{}
+function wb_clear_listview_columns(int $wbObject): bool {}
 
 /**
  * Select ListView Item.
@@ -4269,7 +4269,7 @@ function wb_clear_listview_columns(int $wbObject) : bool{}
  * @param int $state
  * @return bool
  */
-function wb_select_listview_item(int $wbObject, int $item, int $state) : bool{}
+function wb_select_listview_item(int $wbObject, int $item, int $state): bool {}
 
 /**
  * Select All ListView Items.
@@ -4278,7 +4278,7 @@ function wb_select_listview_item(int $wbObject, int $item, int $state) : bool{}
  * @param int $state
  * @return bool
  */
-function wb_select_all_listview_items(int $wbObject, int $state) : bool{}
+function wb_select_all_listview_items(int $wbObject, int $state): bool {}
 
 /**
  * Create a menu for the $wbObjectParent window.
@@ -4287,7 +4287,7 @@ function wb_select_all_listview_items(int $wbObject, int $state) : bool{}
  * @param array $menu_items
  * @return int|null
  */
-function wb_create_menu(int $wbObjectParent, array $menu_items) : ?int{}
+function wb_create_menu(int $wbObjectParent, array $menu_items): ?int {}
 
 /**
  * Get Menu Item checked.
@@ -4296,7 +4296,7 @@ function wb_create_menu(int $wbObjectParent, array $menu_items) : ?int{}
  * @param int $id
  * @return bool
  */
-function wb_get_menu_item_checked(int $wbObject, int $id) : bool{}
+function wb_get_menu_item_checked(int $wbObject, int $id): bool {}
 
 /**
  * Set Menu Item Checked
@@ -4306,7 +4306,7 @@ function wb_get_menu_item_checked(int $wbObject, int $id) : bool{}
  * @param int $checked
  * @return bool
  */
-function wb_set_menu_item_checked(int $wbObject, int $id, int $checked) : bool{}
+function wb_set_menu_item_checked(int $wbObject, int $id, int $checked): bool {}
 
 /**
  * Set Menu Item Selected
@@ -4316,7 +4316,7 @@ function wb_set_menu_item_checked(int $wbObject, int $id, int $checked) : bool{}
  * @param int $state
  * @return bool
  */
-function wb_set_menu_item_selected(int $wbObject, int $id, int $state) : bool{}
+function wb_set_menu_item_selected(int $wbObject, int $id, int $state): bool {}
 
 /**
  * Set Menu Item Image
@@ -4326,7 +4326,7 @@ function wb_set_menu_item_selected(int $wbObject, int $id, int $state) : bool{}
  * @param int $bitmap_handle
  * @return bool
  */
-function wb_set_menu_item_image(int $wbObject, int $id, int $bitmap_handle) : bool{}
+function wb_set_menu_item_image(int $wbObject, int $id, int $bitmap_handle): bool {}
 
 /**
  * Create Toolbar
@@ -4338,7 +4338,7 @@ function wb_set_menu_item_image(int $wbObject, int $id, int $bitmap_handle) : bo
  * @param string|null $image
  * @return int|null
  */
-function wb_create_toolbar(int $wbObjectParent, array $toolbar_items, ?int $width = 0, ?int $height = 0, ?string $image = '') : ?int{}
+function wb_create_toolbar(int $wbObjectParent, array $toolbar_items, ?int $width = 0, ?int $height = 0, ?string $image = ''): ?int {}
 
 /**
  * Create Treeview item.
@@ -4352,7 +4352,7 @@ function wb_create_toolbar(int $wbObjectParent, array $toolbar_items, ?int $widt
  * @param int|null $insertion_type
  * @return int
  */
-function wb_create_treeview_item(int $wbObject, string $caption, ?int $parameter = 0, ?int $where = 0, ?int $image = 0, ?int $image_selected = 0, ?int $insertion_type = 0) : int{}
+function wb_create_treeview_item(int $wbObject, string $caption, ?int $parameter = 0, ?int $where = 0, ?int $image = 0, ?int $image_selected = 0, ?int $insertion_type = 0): int {}
 
 /**
  * Set Treeview Item Selected.
@@ -4361,7 +4361,7 @@ function wb_create_treeview_item(int $wbObject, string $caption, ?int $parameter
  * @param int $item
  * @return bool
  */
-function wb_set_treeview_item_selected(int $wbObject, int $item) : bool{}
+function wb_set_treeview_item_selected(int $wbObject, int $item): bool {}
 
 /**
  * Set Treeview item text.
@@ -4371,7 +4371,7 @@ function wb_set_treeview_item_selected(int $wbObject, int $item) : bool{}
  * @param string $caption
  * @return bool
  */
-function wb_set_treeview_item_text(int $wbObject, int $item, string $caption) : bool{}
+function wb_set_treeview_item_text(int $wbObject, int $item, string $caption): bool {}
 
 /**
  * Set Treeview Item Value.
@@ -4381,7 +4381,7 @@ function wb_set_treeview_item_text(int $wbObject, int $item, string $caption) : 
  * @param int $value
  * @return bool
  */
-function wb_set_treeview_item_value(int $wbObject, int $item, int $value) : bool{}
+function wb_set_treeview_item_value(int $wbObject, int $item, int $value): bool {}
 
 /**
  * Get Treeview item text
@@ -4390,7 +4390,7 @@ function wb_set_treeview_item_value(int $wbObject, int $item, int $value) : bool
  * @param int $item
  * @return string|null
  */
-function wb_get_treeview_item_text(int $wbObject, int $item) : ?string{}
+function wb_get_treeview_item_text(int $wbObject, int $item): ?string {}
 
 /**
  * Retrieves an integer representing the level of a control item.
@@ -4402,7 +4402,7 @@ function wb_get_treeview_item_text(int $wbObject, int $item) : ?string{}
  * @param int $item
  * @return int|null
  */
-function wb_get_level(int $wbObject, int $item) : ?int{}
+function wb_get_level(int $wbObject, int $item): ?int {}
 
 /**
  * Creates a new font. name is the font name, height is its height in points (not pixels), and color is an RGB color value.
@@ -4429,7 +4429,7 @@ function wb_get_level(int $wbObject, int $item) : ?int{}
  * @param int|null $flags
  * @return int
  */
-function wb_create_font(string $name, int $height, ?int $color = 0, ?int $flags = 0) : int{}
+function wb_create_font(string $name, int $height, ?int $color = 0, ?int $flags = 0): int {}
 
 /**
  * Destroys a font created by wb_create_window().
@@ -4439,7 +4439,7 @@ function wb_create_font(string $name, int $height, ?int $color = 0, ?int $flags 
  * @param int|null $font
  * @return bool
  */
-function wb_destroy_font(?int $font = 0) : bool{}
+function wb_destroy_font(?int $font = 0): bool {}
 
 /**
  * Sets the font of control. font is a unique integer value returned by wb_create_font().
@@ -4456,7 +4456,7 @@ function wb_destroy_font(?int $font = 0) : bool{}
  * @param int|null $redraw
  * @return bool
  */
-function wb_set_font(int $wbObject, ?int $font = 0, ?int $redraw = 0) : bool{}
+function wb_set_font(int $wbObject, ?int $font = 0, ?int $redraw = 0): bool {}
 
 /**
  * Returns the address (as an integer pointer) of the variable var. var can be a string, integer, boolean, or double.
@@ -4467,10 +4467,9 @@ function wb_set_font(int $wbObject, ?int $font = 0, ?int $redraw = 0) : bool{}
  * @param int $source
  * @return int|false
  */
-function wb_get_address(int $source = 0) : int|false{}
+function wb_get_address(int $source = 0): int|false {}
 
 /**
- *
  * Sends a Windows message to the HWND handle of the WinBinder object wbobject.
  * The parameters wparam and lparam, as well as the return value, depend on message.
  *
@@ -4487,7 +4486,7 @@ function wb_get_address(int $source = 0) : int|false{}
  * @param int|null $lparameter
  * @return int
  */
-function wb_send_message(int $wbObject, int $msg, ?int $wparameter = 0, ?int $lparameter = 0) : int{}
+function wb_send_message(int $wbObject, int $msg, ?int $wparameter = 0, ?int $lparameter = 0): int {}
 
 /**
  * Gets the contents of a memory area pointed by address.
@@ -4501,7 +4500,7 @@ function wb_send_message(int $wbObject, int $msg, ?int $wparameter = 0, ?int $lp
  * @param int|null $bytes
  * @return string|null
  */
-function wb_peek(int $address, ?int $bytes = 0) : ?string{}
+function wb_peek(int $address, ?int $bytes = 0): ?string {}
 
 /**
  * Sets the contents of a memory area pointed by address. Possible situations are:
@@ -4518,7 +4517,7 @@ function wb_peek(int $address, ?int $bytes = 0) : ?string{}
  * @param int|null $bytes
  * @return bool
  */
-function wb_poke(int $address, string $contents, ?int $bytes = 0) : bool{}
+function wb_poke(int $address, string $contents, ?int $bytes = 0): bool {}
 
 /**
  * Loads a DLL into memory.
@@ -4549,7 +4548,7 @@ function wb_poke(int $address, string $contents, ?int $bytes = 0) : bool{}
  * @param string $library
  * @return int|null
  */
-function wb_load_library(string $library) : ?int{}
+function wb_load_library(string $library): ?int {}
 
 /**
  * Releases the DLL identified by idlib from memory.
@@ -4561,7 +4560,7 @@ function wb_load_library(string $library) : ?int{}
  * @param int $library
  * @return bool
  */
-function wb_release_library(int $library) : bool{}
+function wb_release_library(int $library): bool {}
 
 /**
  * Returns the address of a library function.
@@ -4575,7 +4574,7 @@ function wb_release_library(int $library) : bool{}
  * @param int|null $library
  * @return int|null
  */
-function wb_get_function_address(string $function, ?int $library = 0) : ?int{}
+function wb_get_function_address(string $function, ?int $library = 0): ?int {}
 
 /**
  * Calls the DLL function pointed by address.
@@ -4589,7 +4588,7 @@ function wb_get_function_address(string $function, ?int $library = 0) : ?int{}
  * @param array|null $parameters
  * @return int|null
  */
-function wb_call_function(int $address, ?array $parameters = []) : ?int{}
+function wb_call_function(int $address, ?array $parameters = []): ?int {}
 
 /**
  * Destroys a window created by wb_create_window().
@@ -4600,7 +4599,7 @@ function wb_call_function(int $address, ?array $parameters = []) : ?int{}
  * @param int $wbObject
  * @return bool
  */
-function wb_destroy_window(int $wbObject) : bool{}
+function wb_destroy_window(int $wbObject): bool {}
 
 /**
  * Gets the dimensions of a control, window or image.
@@ -4620,7 +4619,7 @@ function wb_destroy_window(int $wbObject) : bool{}
  * @param int|null $parameter
  * @return array|int|null
  */
-function wb_get_size(string|int $source = 0, ?int $parameter = 0) : array|int|null{}
+function wb_get_size(string|int $source = 0, ?int $parameter = 0): array|int|null {}
 
 /**
  * Sizes the object wbobject to width and height pixels. Parameters width and height may be used as follows:
@@ -4640,7 +4639,7 @@ function wb_get_size(string|int $source = 0, ?int $parameter = 0) : array|int|nu
  * @param int|null $window_height
  * @return bool
  */
-function wb_set_size(int $wbObject, array|int $parameter = 0, ?int $window_height = 0) : bool{}
+function wb_set_size(int $wbObject, array|int $parameter = 0, ?int $window_height = 0): bool {}
 
 /**
  * Moves the object wbobject to the coordinates xpos, ypos in relation to its parent window.
@@ -4654,7 +4653,7 @@ function wb_set_size(int $wbObject, array|int $parameter = 0, ?int $window_heigh
  * @param int|null $y
  * @return bool
  */
-function wb_set_position(int $wbObject, ?int $x = 0, ?int $y = 0) : bool{}
+function wb_set_position(int $wbObject, ?int $x = 0, ?int $y = 0): bool {}
 
 /**
  * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_set_position.html
@@ -4662,7 +4661,7 @@ function wb_set_position(int $wbObject, ?int $x = 0, ?int $y = 0) : bool{}
  * @param bool|null $clientarea
  * @return array|null
  */
-function wb_get_position(int $wbObject, ?bool $clientarea = false) : ?array{}
+function wb_get_position(int $wbObject, ?bool $clientarea = false): ?array {}
 
 /**
  * Creates a window of class wclass.
@@ -4686,7 +4685,7 @@ function wb_get_position(int $wbObject, ?bool $clientarea = false) : ?array{}
  * @param int|null $parameter
  * @return int|null
  */
-function wb_create_window(int $wbObjectparent, int $wbclass, array|string $caption = '', ?int $x = 0, ?int $y = 0, ?int $width = 0, ?int $height = 0, ?int $style = 0, ?int $parameter = 0) : ?int{}
+function wb_create_window(int $wbObjectparent, int $wbclass, array|string $caption = '', ?int $x = 0, ?int $y = 0, ?int $width = 0, ?int $height = 0, ?int $style = 0, ?int $parameter = 0): ?int {}
 
 /**
  * Detects a running instance of a WinBinder application.
@@ -4708,7 +4707,7 @@ function wb_create_window(int $wbObjectparent, int $wbclass, array|string $capti
  * @param bool|null $bringtofront
  * @return bool
  */
-function wb_get_instance(string $caption, ?bool $bringtofront = false) : bool{}
+function wb_get_instance(string $caption, ?bool $bringtofront = false): bool {}
 
 /**
  * Returns an array with a list of the child controls in window or control wbobject.
@@ -4719,7 +4718,7 @@ function wb_get_instance(string $caption, ?bool $bringtofront = false) : bool{}
  * @param int $wbObjectparent
  * @return array
  */
-function wb_get_item_list(int $wbObjectparent) : array{}
+function wb_get_item_list(int $wbObjectparent): array {}
 
 /**
  * Sets a specific area in a window. Possible values for type are:
@@ -4740,7 +4739,7 @@ function wb_get_item_list(int $wbObjectparent) : array{}
  * @param int|null $height
  * @return bool
  */
-function wb_set_area(int $wbObject, int $type, ?int $x = 0, ?int $y = 0, ?int $width = 0, ?int $height = 0) : bool{}
+function wb_set_area(int $wbObject, int $type, ?int $x = 0, ?int $y = 0, ?int $width = 0, ?int $height = 0): bool {}
 
 /**
  * Displays the standard Select Path dialog box.
@@ -4753,7 +4752,7 @@ function wb_set_area(int $wbObject, int $type, ?int $x = 0, ?int $y = 0, ?int $w
  * @param string|null $path
  * @return false|null
  */
-function wb_sys_dlg_path(int $wbObjectParent, ?string $title = '', ?string $path = '') : ?false{}
+function wb_sys_dlg_path(int $wbObjectParent, ?string $title = '', ?string $path = ''): ?false {}
 
 /**
  * Displays the standard Select Color dialog box.
@@ -4766,7 +4765,7 @@ function wb_sys_dlg_path(int $wbObjectParent, ?string $title = '', ?string $path
  * @param int|null $color
  * @return int
  */
-function wb_sys_dlg_color(int $wbObjectParent, ?string $title = '', ?int $color = 0) : int{}
+function wb_sys_dlg_color(int $wbObjectParent, ?string $title = '', ?int $color = 0): int {}
 
 /**
  * Displays the standard Open dialog box.
@@ -4781,7 +4780,7 @@ function wb_sys_dlg_color(int $wbObjectParent, ?string $title = '', ?int $color 
  * @param int|null $style
  * @return array|string
  */
-function wb_sys_dlg_open(int $wbObjectParent, ?string $title = '', ?string $filter = '', ?string $path = '', ?int $style = 0) : array|string{}
+function wb_sys_dlg_open(int $wbObjectParent, ?string $title = '', ?string $filter = '', ?string $path = '', ?int $style = 0): array|string {}
 
 /**
  * Displays the standard Save As dialog box.
@@ -4797,7 +4796,7 @@ function wb_sys_dlg_open(int $wbObjectParent, ?string $title = '', ?string $filt
  * @param string|null $default_extension
  * @return string|null
  */
-function wb_sys_dlg_save(int $wbObjectParent, ?string $title = '', ?string $filter = '', ?string $path = '', ?string $file = '', ?string $default_extension = '') : ?string{}
+function wb_sys_dlg_save(int $wbObjectParent, ?string $title = '', ?string $filter = '', ?string $path = '', ?string $file = '', ?string $default_extension = ''): ?string {}
 
 /**
  * Displays the standard Font select dialog box.
@@ -4812,4 +4811,4 @@ function wb_sys_dlg_save(int $wbObjectParent, ?string $title = '', ?string $filt
  * @param int|null $flags
  * @return int
  */
-function wb_sys_dlg_font(?int $pwbparent = 0, ?string $title = '', ?string $name = '', ?int $height = 0, ?int $color = 0, ?int $flags = 0) : int{}
+function wb_sys_dlg_font(?int $pwbparent = 0, ?string $title = '', ?string $name = '', ?int $height = 0, ?int $color = 0, ?int $flags = 0): int {}
