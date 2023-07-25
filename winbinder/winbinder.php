@@ -1,515 +1,3497 @@
 <?php
-
 /**
- * Stub file - DO NOT INCLUDE! = For PHPStorm to analyse.
+ * @see https://crispy-computing-machine.github.io/Winbinder-Docs/
  */
 
 /**
- * Begin constants.
+ * https://crispy-computing-machine.github.io/Winbinder-Docs/reference/classes_window.html
  */
-define('AppWindow', 1); // A fixed-size application window.
-define('ModalDialog', 2); // A modal dialog box (requires to be closed before continuing to other tasks).
-define('ModelessDialog', 3); // A modeless dialog box (other tasks can be performed while it is open).
-define('NakedWindow', 4); // A fixed-size application window with no border and no title bar.
-define('PopupWindow', 5); // A fixed-size application window that cannot be minimized.
-define('ResizableWindow', 6); // A normal application window with a resizable border.
-define('ToolDialog', 7); // A modeless dialog box with a small caption.
-define('Accel', 8);
-define('Calendar', 9);
-define('CheckBox', 10);
-define('ComboBox', 11);
-define('EditBox', 12);
-define('Frame', 13);
-define('Gauge', 14);
-define('HTMLControl', 15);
-define('HyperLink', 16);
-define('ImageButton', 17);
-define('InvisibleArea', 18);
-define('Label', 19);
-define('ListBox', 20);
-define('ListView', 21);
-define('Menu', 22);
-define('PushButton', 23);
-define('RTFEditBox', 24);
-define('RadioButton', 25);
-define('ScrollBar', 26);
-define('Slider', 27);
-define('Spinner', 28);
-define('StatusBar', 29);
-define('TabControl', 30);
-define('ToolBar', 31);
-define('TreeView', 32);
-define('Timer', Timer); // Doesnt really exist - Added for IDE help
-//define('PopupMenu', PopupMenu); // Doesnt really exist - Added for IDE help
-define('WBC_VERSION', '2010.10.14');
-define('WBC_BORDER', 8);
-define('WBC_BOTTOM', 8192);
-define('WBC_CENTER', 2048);
-define('WBC_CHECKBOXES', 65536);
-define('WBC_CUSTOMDRAW', 268435456);
-define('WBC_DEFAULTPOS', -2147483648);
-define('WBC_DISABLED', 2);
-define('WBC_ELLIPSIS', 131072);
-define('WBC_ENABLED', 0);
-define('WBC_GROUP', 524288);
-define('WBC_IMAGE', 4);
-define('WBC_INVISIBLE', 1);
-define('WBC_LEFT', 0);
-define('WBC_LINES', 128);
-define('WBC_MASKED', 256);
-define('WBC_MIDDLE', 0);
-define('WBC_MULTILINE', 128);
-define('WBC_NOTIFY', 16);
-define('WBC_NUMBER', 1024);
-define('WBC_READONLY', 64);
-define('WBC_RIGHT', 32);
-define('WBC_SINGLE', 1048576);
-define('WBC_SORT', 262144);
-define('WBC_TASKBAR', 512);
-define('WBC_AUTOREPEAT', 512);
-define('WBC_TOP', 4096);
-define('WBC_VISIBLE', 0);
-define('WBC_TRANSPARENT', 536870912);
-define('WBC_DEFAULT', 8);
-define('WBC_MULTISELECT', 1073741824);
-define('WBC_NOHEADER', 268435456);
-define('WBC_DBLCLICK', 64);
-define('WBC_MOUSEMOVE', 128);
-define('WBC_MOUSEDOWN', 256);
-define('WBC_MOUSEUP', 512);
-define('WBC_KEYDOWN', 1024);
-define('WBC_KEYUP', 2048);
-define('WBC_GETFOCUS', 4096);
-define('WBC_RESIZE', 8192);
-define('WBC_REDRAW', 16384);
-define('WBC_HEADERSEL', 32768);
-define('WBC_ALT', 32);
-define('WBC_CONTROL', 8);
-define('WBC_SHIFT', 4);
-define('WBC_LBUTTON', 1);
-define('WBC_MBUTTON', 16);
-define('WBC_RBUTTON', 2);
-define('WBC_BEEP', -1);
-define('WBC_INFO', 64);
-define('WBC_OK', 0);
-define('WBC_OKCANCEL', 33);
-define('WBC_QUESTION', 32);
-define('WBC_STOP', 16);
-define('WBC_WARNING', 48);
-define('WBC_YESNO', 36);
-define('WBC_YESNOCANCEL', 35);
-define('WBC_MAXIMIZED', 2);
-define('WBC_MINIMIZED', 1);
-define('WBC_NORMAL', 0);
-define('WBC_MINSIZE', 2);
-define('WBC_MAXSIZE', 3);
-define('WBC_TITLE', 1);
-
-define('WBC_RTF_TEXT', 1);
-
-define('IDABORT', 3);
-define('IDCANCEL', 2);
-define('IDCLOSE', 8);
-define('IDDEFAULT', 0);
-define('IDHELP', 9);
-define('IDIGNORE', 5);
-define('IDNO', 7);
-define('IDOK', 1);
-define('IDRETRY', 4);
-define('IDYES', 6);
-define('FTA_BOLD', 1);
-define('FTA_ITALIC', 2);
-define('FTA_NORMAL', 0);
-define('FTA_REGULAR', 0);
-define('FTA_STRIKEOUT', 8);
-define('FTA_UNDERLINE', 4);
-define('BLACK', 0);
-define('BLUE', 16711680);
-define('CYAN', 16776960);
-define('DARKBLUE', 8388608);
-define('DARKCYAN', 8421376);
-define('DARKGRAY', 8421504);
-define('DARKGREEN', 32768);
-define('DARKMAGENTA', 8388736);
-define('DARKRED', 128);
-define('DARKYELLOW', 32896);
-define('GREEN', 65280);
-define('LIGHTGRAY', 12632256);
-define('MAGENTA', 16711935);
-define('RED', 255);
-define('WHITE', 16777215);
-define('YELLOW', 65535);
-define('NOCOLOR', -1);
-define('bgrBLACK', 0);
-define('bgrBLUE', 255);
-define('bgrCYAN', 65535);
-define('bgrDARKBLUE', 128);
-define('bgrDARKCYAN', 32896);
-define('bgrDARKGRAY', 8421504);
-define('bgrDARKGREEN', 32768);
-define('bgrDARKMAGENTA', 8388736);
-define('bgrDARKRED', 8388608);
-define('bgrDARKYELLOW', 8421376);
-define('bgrGREEN', 65280);
-define('bgrLIGHTGRAY', 12632256);
-define('bgrMAGENTA', 16711935);
-define('bgrRED', 16711680);
-define('bgrWHITE', 16777215);
-define('bgrYELLOW', 16776960);
-define('bgrNOCOLOR', -1);
-
-// New @Wagy constants
-define('WBC_LV_NONE', 0);
-define('WBC_LV_FORE', 1);
-define('WBC_LV_BACK', 2);
-define('WBC_LV_DEFAULT', 0);
-define('WBC_LV_DRAW', 1);
-define('WBC_LV_COLUMNS', 2);
+const AppWindow = 1;
+const ModalDialog = 2;
+const ModelessDialog = 3;
+const NakedWindow = 4;
+const PopupWindow = 5;
+const ResizableWindow = 6;
+const ToolDialog = 7;
 
 /**
- * Begin functions.
+ * https://crispy-computing-machine.github.io/Winbinder-Docs/reference/classes_control.html
  */
+const Accel = 8;
+const Calendar = 9;
+const CheckBox = 10;
+const ComboBox = 11;
+const EditBox = 12;
+const Frame = 13;
+const Gauge = 14;
+const HTMLControl = 15;
+const HyperLink = 16;
+const ImageButton = 17;
+const InvisibleArea = 18;
+const Label = 19;
+const ListBox = 20;
+const ListView = 21;
+const Menu = 22;
+const PushButton = 23;
+const RTFEditBox = 24;
+const RadioButton = 25;
+const ScrollBar = 26;
+const Slider = 27;
+const Spinner = 28;
+const StatusBar = 29;
+const TabControl = 30;
+const ToolBar = 31;
+const TreeView = 32;
+
+/**
+ * https://crispy-computing-machine.github.io/Winbinder-Docs/reference/constants.html
+ */
+const WBC_VERSION = "2";
+const WBC_BORDER = 8;
+const WBC_BOTTOM = 8192;
+const WBC_CENTER = 2048;
+const WBC_CHECKBOXES = 65536;
+const WBC_CUSTOMDRAW = 268435456;
+const WBC_DEFAULTPOS = -2147483648;
+const WBC_DISABLED = 2;
+const WBC_ELLIPSIS = 131072;
+const WBC_ENABLED = 0;
+const WBC_GROUP = 524288;
+const WBC_IMAGE = 4;
+const WBC_INVISIBLE = 1;
+const WBC_LEFT = 0;
+const WBC_LINES = 128;
+const WBC_MASKED = 256;
+const WBC_MIDDLE = 0;
+const WBC_MULTILINE = 128;
+const WBC_NOTIFY = 16;
+const WBC_NUMBER = 1024;
+const WBC_READONLY = 64;
+const WBC_RIGHT = 32;
+const WBC_SINGLE = 1048576;
+const WBC_SORT = 262144;
+const WBC_TASKBAR = 512;
+const WBC_AUTOREPEAT = 512;
+const WBC_TOP = 4096;
+const WBC_VISIBLE = 0;
+const WBC_TRANSPARENT = 536870912;
+const WBC_DEFAULT = 8;
+const WBC_MULTISELECT = 1073741824;
+const WBC_NOHEADER = 268435456;
+const WBC_DBLCLICK = 64;
+const WBC_MOUSEMOVE = 128;
+const WBC_MOUSEDOWN = 256;
+const WBC_MOUSEUP = 512;
+const WBC_KEYDOWN = 1024;
+const WBC_KEYUP = 2048;
+const WBC_GETFOCUS = 4096;
+const WBC_RESIZE = 8192;
+const WBC_REDRAW = 16384;
+const WBC_HEADERSEL = 32768;
+const WBC_ALT = 32;
+const WBC_CONTROL = 8;
+const WBC_SHIFT = 4;
+const WBC_LBUTTON = 1;
+const WBC_MBUTTON = 16;
+const WBC_RBUTTON = 2;
+const WBC_BEEP = 4294967295;
+const WBC_INFO = 64;
+const WBC_OK = 0;
+const WBC_OKCANCEL = 33;
+const WBC_QUESTION = 32;
+const WBC_STOP = 16;
+const WBC_WARNING = 48;
+const WBC_YESNO = 36;
+const WBC_YESNOCANCEL = 35;
+const WBC_MAXIMIZED = 2;
+const WBC_MINIMIZED = 1;
+const WBC_NORMAL = 0;
+const WBC_MINSIZE = 2;
+const WBC_MAXSIZE = 3;
+const WBC_TITLE = 1;
+const BLACK = 0;
+const BLUE = 16711680;
+const CYAN = 16776960;
+const DARKBLUE = 8388608;
+const DARKCYAN = 8421376;
+const DARKGRAY = 8421504;
+const DARKGREEN = 32768;
+const DARKMAGENTA = 8388736;
+const DARKRED = 128;
+const DARKYELLOW = 32896;
+const GREEN = 65280;
+const LIGHTGRAY = 12632256;
+const MAGENTA = 16711935;
+const RED = 255;
+const WHITE = 16777215;
+const YELLOW = 65535;
+const NOCOLOR = 4294967295;
+const WINCOLOUR = 15790320;
+const bgrBLACK = 0;
+const bgrBLUE = 255;
+const bgrCYAN = 65535;
+const bgrDARKBLUE = 128;
+const bgrDARKCYAN = 32896;
+const bgrDARKGRAY = 8421504;
+const bgrDARKGREEN = 32768;
+const bgrDARKMAGENTA = 8388736;
+const bgrDARKRED = 8388608;
+const bgrDARKYELLOW = 8421376;
+const bgrGREEN = 65280;
+const bgrLIGHTGRAY = 12632256;
+const bgrMAGENTA = 16711935;
+const bgrRED = 16711680;
+const bgrWHITE = 16777215;
+const bgrYELLOW = 16776960;
+const bgrNOCOLOR = 4294967295;
+const bgrWINCOLOUR = 15790320;
+const WBC_LV_NONE = 0;
+const WBC_LV_FORE = 1;
+const WBC_LV_BACK = 2;
+const WBC_LV_DEFAULT = 0;
+const WBC_LV_DRAW = 1;
+const WBC_LV_COLUMNS = 2;
+const WBC_RTF_TEXT = 1;
+const WBC_DRAW_SOLID = 0;
+const WBC_DRAW_DOTTED = 1;
+const WBC_DRAW_DASH_1 = 2;
+const WBC_DRAW_DASH_2 = 3;
+const WBC_DRAW_DASH_3 = 4;
+const WBC_DRAW_DASH_4 = 5;
+const WBC_DRAW_DASH_5 = 6;
+const WBC_DRAW_DASH_6 = 7;
+const WBC_DRAW_DASH_DOTTED = 8;
+const WBC_DRAW_DASH_DOT_DASH = 9;
+const WBC_DEFAULT_STYLES = 268436031;
+const WBC_DEFAULT_PARAMS = 65472;
+const WBC_MAX_TABS = 16;
+const WBC_MAX_TABCONTROLS = 512;
+const WBC_MAX_LISTVIEWCOLS = 256;
+const WBC_MAX_ACCELS = 256;
+const WBC_MAX_ITEM_STRING = 1024;
+const WBC_MAX_TREEVIEW_LEVELS = 25;
+const WBC_MAX_IMAGELIST_IMAGES = 128;
+
+/**
+ * win32.h defines
+ */
+const PBS_MARQUEE = 8;
+const PBM_SETMARQUEE = 1034;
+const PBM_GETPOS = 1032;
+const TBS_AUTOTICKS = 1;
+const HWND_BROADCAST = 65535;
+const IDC_ARROW = 32512;
+const IDC_HAND = 32649;
+const IDC_CROSS = 32515;
+const IDC_SIZEWE = 32644;
+const IDC_SIZENS = 32645;
+const IDC_SIZENWSE = 32642;
+const IDC_SIZENESW = 32643;
+const IDC_SIZE = 32640;
+const IDABORT = 3;
+const IDCANCEL = 2;
+const IDCLOSE = 8;
+const IDDEFAULT = 0;
+const IDHELP = 9;
+const IDIGNORE = 5;
+const IDNO = 7;
+const IDOK = 1;
+const IDRETRY = 4;
+const IDYES = 6;
+const FTA_BOLD = 1;
+const FTA_ITALIC = 2;
+const FTA_NORMAL = 0;
+const FTA_REGULAR = 0;
+const FTA_STRIKEOUT = 8;
+const FTA_UNDERLINE = 4;
+const BM_SETCHECK = 241;
+const TCM_GETCURSEL = 4875;
+const TCM_SETCURSEL = 4876;
+const CB_FINDSTRINGEXACT = 344;
+const CB_SETCURSEL = 334;
+const LB_FINDSTRINGEXACT = 418;
+const LB_SETCURSEL = 390;
+const LVM_FIRST = 4096;
+const LVM_DELETEALLITEMS = 4105;
+const LVM_GETITEMCOUNT = 4100;
+const LVM_GETITEMSTATE = 4140;
+const LVM_GETSELECTEDCOUNT = 4146;
+const LVIS_SELECTED = 2;
+const LVS_NOSORTHEADER = 32768;
+const LVS_GRIDLINES = 8388608;
+const LVS_CHECKBOXES = 2048;
+const LVS_SINGLESEL = 4;
+const WM_SETTEXT = 12;
+const WINVER = 1280;
+const CREATEPROCESS_MANIFEST_RESOURCE_ID = 1;
+const ISOLATIONAWARE_MANIFEST_RESOURCE_ID = 2;
+const ISOLATIONAWARE_NOSTATICIMPORT_MANIFEST_RESOURCE_ID = 3;
+const MINIMUM_RESERVED_MANIFEST_RESOURCE_ID = 1;
+const MAXIMUM_RESERVED_MANIFEST_RESOURCE_ID = 16;
+const SB_HORZ = 0;
+const SB_VERT = 1;
+const SB_CTL = 2;
+const SB_BOTH = 3;
+const SB_LINEUP = 0;
+const SB_LINELEFT = 0;
+const SB_LINEDOWN = 1;
+const SB_LINERIGHT = 1;
+const SB_PAGEUP = 2;
+const SB_PAGELEFT = 2;
+const SB_PAGEDOWN = 3;
+const SB_PAGERIGHT = 3;
+const SB_THUMBPOSITION = 4;
+const SB_THUMBTRACK = 5;
+const SB_TOP = 6;
+const SB_LEFT = 6;
+const SB_BOTTOM = 7;
+const SB_RIGHT = 7;
+const SB_ENDSCROLL = 8;
+const SW_HIDE = 0;
+const SW_SHOWNORMAL = 1;
+const SW_NORMAL = 1;
+const SW_SHOWMINIMIZED = 2;
+const SW_SHOWMAXIMIZED = 3;
+const SW_MAXIMIZE = 3;
+const SW_SHOWNOACTIVATE = 4;
+const SW_SHOW = 5;
+const SW_MINIMIZE = 6;
+const SW_SHOWMINNOACTIVE = 7;
+const SW_SHOWNA = 8;
+const SW_RESTORE = 9;
+const SW_SHOWDEFAULT = 10;
+const SW_FORCEMINIMIZE = 11;
+const SW_MAX = 11;
+const HIDE_WINDOW = 0;
+const SHOW_OPENWINDOW = 1;
+const SHOW_ICONWINDOW = 2;
+const SHOW_FULLSCREEN = 3;
+const SHOW_OPENNOACTIVATE = 4;
+const SW_PARENTCLOSING = 1;
+const SW_OTHERZOOM = 2;
+const SW_PARENTOPENING = 3;
+const SW_OTHERUNZOOM = 4;
+const AW_HOR_POSITIVE = 1;
+const AW_HOR_NEGATIVE = 2;
+const AW_VER_POSITIVE = 4;
+const AW_VER_NEGATIVE = 8;
+const AW_CENTER = 16;
+const AW_HIDE = 65536;
+const AW_ACTIVATE = 131072;
+const AW_SLIDE = 262144;
+const AW_BLEND = 524288;
+const KF_EXTENDED = 256;
+const KF_DLGMODE = 2048;
+const KF_MENUMODE = 4096;
+const KF_ALTDOWN = 8192;
+const KF_REPEAT = 16384;
+const KF_UP = 32768;
+const VK_LBUTTON = 1;
+const VK_RBUTTON = 2;
+const VK_CANCEL = 3;
+const VK_MBUTTON = 4;
+const VK_XBUTTON1 = 5;
+const VK_XBUTTON2 = 6;
+const VK_BACK = 8;
+const VK_TAB = 9;
+const VK_CLEAR = 12;
+const VK_RETURN = 13;
+const VK_SHIFT = 16;
+const VK_CONTROL = 17;
+const VK_MENU = 18;
+const VK_PAUSE = 19;
+const VK_CAPITAL = 20;
+const VK_KANA = 21;
+const VK_HANGEUL = 21;
+const VK_HANGUL = 21;
+const VK_JUNJA = 23;
+const VK_FINAL = 24;
+const VK_HANJA = 25;
+const VK_KANJI = 25;
+const VK_ESCAPE = 27;
+const VK_CONVERT = 28;
+const VK_NONCONVERT = 29;
+const VK_ACCEPT = 30;
+const VK_MODECHANGE = 31;
+const VK_SPACE = 32;
+const VK_PRIOR = 33;
+const VK_NEXT = 34;
+const VK_END = 35;
+const VK_HOME = 36;
+const VK_LEFT = 37;
+const VK_UP = 38;
+const VK_RIGHT = 39;
+const VK_DOWN = 40;
+const VK_SELECT = 41;
+const VK_PRINT = 42;
+const VK_EXECUTE = 43;
+const VK_SNAPSHOT = 44;
+const VK_INSERT = 45;
+const VK_DELETE = 46;
+const VK_HELP = 47;
+const VK_LWIN = 91;
+const VK_RWIN = 92;
+const VK_APPS = 93;
+const VK_SLEEP = 95;
+const VK_NUMPAD0 = 96;
+const VK_NUMPAD1 = 97;
+const VK_NUMPAD2 = 98;
+const VK_NUMPAD3 = 99;
+const VK_NUMPAD4 = 100;
+const VK_NUMPAD5 = 101;
+const VK_NUMPAD6 = 102;
+const VK_NUMPAD7 = 103;
+const VK_NUMPAD8 = 104;
+const VK_NUMPAD9 = 105;
+const VK_MULTIPLY = 106;
+const VK_ADD = 107;
+const VK_SEPARATOR = 108;
+const VK_SUBTRACT = 109;
+const VK_DECIMAL = 110;
+const VK_DIVIDE = 111;
+const VK_F1 = 112;
+const VK_F2 = 113;
+const VK_F3 = 114;
+const VK_F4 = 115;
+const VK_F5 = 116;
+const VK_F6 = 117;
+const VK_F7 = 118;
+const VK_F8 = 119;
+const VK_F9 = 120;
+const VK_F10 = 121;
+const VK_F11 = 122;
+const VK_F12 = 123;
+const VK_F13 = 124;
+const VK_F14 = 125;
+const VK_F15 = 126;
+const VK_F16 = 127;
+const VK_F17 = 128;
+const VK_F18 = 129;
+const VK_F19 = 130;
+const VK_F20 = 131;
+const VK_F21 = 132;
+const VK_F22 = 133;
+const VK_F23 = 134;
+const VK_F24 = 135;
+const VK_NAVIGATION_VIEW = 136;
+const VK_NAVIGATION_MENU = 137;
+const VK_NAVIGATION_UP = 138;
+const VK_NAVIGATION_DOWN = 139;
+const VK_NAVIGATION_LEFT = 140;
+const VK_NAVIGATION_RIGHT = 141;
+const VK_NAVIGATION_ACCEPT = 142;
+const VK_NAVIGATION_CANCEL = 143;
+const VK_NUMLOCK = 144;
+const VK_SCROLL = 145;
+const VK_OEM_NEC_EQUAL = 146;
+const VK_OEM_FJ_JISHO = 146;
+const VK_OEM_FJ_MASSHOU = 147;
+const VK_OEM_FJ_TOUROKU = 148;
+const VK_OEM_FJ_LOYA = 149;
+const VK_OEM_FJ_ROYA = 150;
+const VK_LSHIFT = 160;
+const VK_RSHIFT = 161;
+const VK_LCONTROL = 162;
+const VK_RCONTROL = 163;
+const VK_LMENU = 164;
+const VK_RMENU = 165;
+const VK_BROWSER_BACK = 166;
+const VK_BROWSER_FORWARD = 167;
+const VK_BROWSER_REFRESH = 168;
+const VK_BROWSER_STOP = 169;
+const VK_BROWSER_SEARCH = 170;
+const VK_BROWSER_FAVORITES = 171;
+const VK_BROWSER_HOME = 172;
+const VK_VOLUME_MUTE = 173;
+const VK_VOLUME_DOWN = 174;
+const VK_VOLUME_UP = 175;
+const VK_MEDIA_NEXT_TRACK = 176;
+const VK_MEDIA_PREV_TRACK = 177;
+const VK_MEDIA_STOP = 178;
+const VK_MEDIA_PLAY_PAUSE = 179;
+const VK_LAUNCH_MAIL = 180;
+const VK_LAUNCH_MEDIA_SELECT = 181;
+const VK_LAUNCH_APP1 = 182;
+const VK_LAUNCH_APP2 = 183;
+const VK_OEM_1 = 186;
+const VK_OEM_PLUS = 187;
+const VK_OEM_COMMA = 188;
+const VK_OEM_MINUS = 189;
+const VK_OEM_PERIOD = 190;
+const VK_OEM_2 = 191;
+const VK_OEM_3 = 192;
+const VK_GAMEPAD_A = 195;
+const VK_GAMEPAD_B = 196;
+const VK_GAMEPAD_X = 197;
+const VK_GAMEPAD_Y = 198;
+const VK_GAMEPAD_RIGHT_SHOULDER = 199;
+const VK_GAMEPAD_LEFT_SHOULDER = 200;
+const VK_GAMEPAD_LEFT_TRIGGER = 201;
+const VK_GAMEPAD_RIGHT_TRIGGER = 202;
+const VK_GAMEPAD_DPAD_UP = 203;
+const VK_GAMEPAD_DPAD_DOWN = 204;
+const VK_GAMEPAD_DPAD_LEFT = 205;
+const VK_GAMEPAD_DPAD_RIGHT = 206;
+const VK_GAMEPAD_MENU = 207;
+const VK_GAMEPAD_VIEW = 208;
+const VK_GAMEPAD_LEFT_THUMBSTICK_BUTTON = 209;
+const VK_GAMEPAD_RIGHT_THUMBSTICK_BUTTON = 210;
+const VK_GAMEPAD_LEFT_THUMBSTICK_UP = 211;
+const VK_GAMEPAD_LEFT_THUMBSTICK_DOWN = 212;
+const VK_GAMEPAD_LEFT_THUMBSTICK_RIGHT = 213;
+const VK_GAMEPAD_LEFT_THUMBSTICK_LEFT = 214;
+const VK_GAMEPAD_RIGHT_THUMBSTICK_UP = 215;
+const VK_GAMEPAD_RIGHT_THUMBSTICK_DOWN = 216;
+const VK_GAMEPAD_RIGHT_THUMBSTICK_RIGHT = 217;
+const VK_GAMEPAD_RIGHT_THUMBSTICK_LEFT = 218;
+const VK_OEM_4 = 219;
+const VK_OEM_5 = 220;
+const VK_OEM_6 = 221;
+const VK_OEM_7 = 222;
+const VK_OEM_8 = 223;
+const VK_OEM_AX = 225;
+const VK_OEM_102 = 226;
+const VK_ICO_HELP = 227;
+const VK_ICO_00 = 228;
+const VK_PROCESSKEY = 229;
+const VK_ICO_CLEAR = 230;
+const VK_PACKET = 231;
+const VK_OEM_RESET = 233;
+const VK_OEM_JUMP = 234;
+const VK_OEM_PA1 = 235;
+const VK_OEM_PA2 = 236;
+const VK_OEM_PA3 = 237;
+const VK_OEM_WSCTRL = 238;
+const VK_OEM_CUSEL = 239;
+const VK_OEM_ATTN = 240;
+const VK_OEM_FINISH = 241;
+const VK_OEM_COPY = 242;
+const VK_OEM_AUTO = 243;
+const VK_OEM_ENLW = 244;
+const VK_OEM_BACKTAB = 245;
+const VK_ATTN = 246;
+const VK_CRSEL = 247;
+const VK_EXSEL = 248;
+const VK_EREOF = 249;
+const VK_PLAY = 250;
+const VK_ZOOM = 251;
+const VK_NONAME = 252;
+const VK_PA1 = 253;
+const VK_OEM_CLEAR = 254;
+const WH_MIN = -1;
+const WH_MSGFILTER = -1;
+const WH_JOURNALRECORD = 0;
+const WH_JOURNALPLAYBACK = 1;
+const WH_KEYBOARD = 2;
+const WH_GETMESSAGE = 3;
+const WH_CALLWNDPROC = 4;
+const WH_CBT = 5;
+const WH_SYSMSGFILTER = 6;
+const WH_MOUSE = 7;
+const WH_HARDWARE = 8;
+const WH_DEBUG = 9;
+const WH_SHELL = 10;
+const WH_FOREGROUNDIDLE = 11;
+const WH_CALLWNDPROCRET = 12;
+const WH_KEYBOARD_LL = 13;
+const WH_MOUSE_LL = 14;
+const WH_MAX = 14;
+const WH_MINHOOK = -1;
+const WH_MAXHOOK = 14;
+const HC_ACTION = 0;
+const HC_GETNEXT = 1;
+const HC_SKIP = 2;
+const HC_NOREMOVE = 3;
+const HC_NOREM = 3;
+const HC_SYSMODALON = 4;
+const HC_SYSMODALOFF = 5;
+const HCBT_MOVESIZE = 0;
+const HCBT_MINMAX = 1;
+const HCBT_QS = 2;
+const HCBT_CREATEWND = 3;
+const HCBT_DESTROYWND = 4;
+const HCBT_ACTIVATE = 5;
+const HCBT_CLICKSKIPPED = 6;
+const HCBT_KEYSKIPPED = 7;
+const HCBT_SYSCOMMAND = 8;
+const HCBT_SETFOCUS = 9;
+const WTS_CONSOLE_CONNECT = 1;
+const WTS_CONSOLE_DISCONNECT = 2;
+const WTS_REMOTE_CONNECT = 3;
+const WTS_REMOTE_DISCONNECT = 4;
+const WTS_SESSION_LOGON = 5;
+const WTS_SESSION_LOGOFF = 6;
+const WTS_SESSION_LOCK = 7;
+const WTS_SESSION_UNLOCK = 8;
+const WTS_SESSION_REMOTE_CONTROL = 9;
+const WTS_SESSION_CREATE = 10;
+const WTS_SESSION_TERMINATE = 11;
+const MSGF_DIALOGBOX = 0;
+const MSGF_MESSAGEBOX = 1;
+const MSGF_MENU = 2;
+const MSGF_SCROLLBAR = 5;
+const MSGF_NEXTWINDOW = 6;
+const MSGF_MAX = 8;
+const MSGF_USER = 4096;
+const HSHELL_WINDOWCREATED = 1;
+const HSHELL_WINDOWDESTROYED = 2;
+const HSHELL_ACTIVATESHELLWINDOW = 3;
+const HSHELL_WINDOWACTIVATED = 4;
+const HSHELL_GETMINRECT = 5;
+const HSHELL_REDRAW = 6;
+const HSHELL_TASKMAN = 7;
+const HSHELL_LANGUAGE = 8;
+const HSHELL_SYSMENU = 9;
+const HSHELL_ENDTASK = 10;
+const HSHELL_ACCESSIBILITYSTATE = 11;
+const HSHELL_APPCOMMAND = 12;
+const HSHELL_WINDOWREPLACED = 13;
+const HSHELL_WINDOWREPLACING = 14;
+const HSHELL_MONITORCHANGED = 16;
+const HSHELL_HIGHBIT = 32768;
+const HSHELL_FLASH = 32774;
+const HSHELL_RUDEAPPACTIVATED = 32772;
+const APPCOMMAND_BROWSER_BACKWARD = 1;
+const APPCOMMAND_BROWSER_FORWARD = 2;
+const APPCOMMAND_BROWSER_REFRESH = 3;
+const APPCOMMAND_BROWSER_STOP = 4;
+const APPCOMMAND_BROWSER_SEARCH = 5;
+const APPCOMMAND_BROWSER_FAVORITES = 6;
+const APPCOMMAND_BROWSER_HOME = 7;
+const APPCOMMAND_VOLUME_MUTE = 8;
+const APPCOMMAND_VOLUME_DOWN = 9;
+const APPCOMMAND_VOLUME_UP = 10;
+const APPCOMMAND_MEDIA_NEXTTRACK = 11;
+const APPCOMMAND_MEDIA_PREVIOUSTRACK = 12;
+const APPCOMMAND_MEDIA_STOP = 13;
+const APPCOMMAND_MEDIA_PLAY_PAUSE = 14;
+const APPCOMMAND_LAUNCH_MAIL = 15;
+const APPCOMMAND_LAUNCH_MEDIA_SELECT = 16;
+const APPCOMMAND_LAUNCH_APP1 = 17;
+const APPCOMMAND_LAUNCH_APP2 = 18;
+const APPCOMMAND_BASS_DOWN = 19;
+const APPCOMMAND_BASS_BOOST = 20;
+const APPCOMMAND_BASS_UP = 21;
+const APPCOMMAND_TREBLE_DOWN = 22;
+const APPCOMMAND_TREBLE_UP = 23;
+const APPCOMMAND_MICROPHONE_VOLUME_MUTE = 24;
+const APPCOMMAND_MICROPHONE_VOLUME_DOWN = 25;
+const APPCOMMAND_MICROPHONE_VOLUME_UP = 26;
+const APPCOMMAND_HELP = 27;
+const APPCOMMAND_FIND = 28;
+const APPCOMMAND_NEW = 29;
+const APPCOMMAND_OPEN = 30;
+const APPCOMMAND_CLOSE = 31;
+const APPCOMMAND_SAVE = 32;
+const APPCOMMAND_PRINT = 33;
+const APPCOMMAND_UNDO = 34;
+const APPCOMMAND_REDO = 35;
+const APPCOMMAND_COPY = 36;
+const APPCOMMAND_CUT = 37;
+const APPCOMMAND_PASTE = 38;
+const APPCOMMAND_REPLY_TO_MAIL = 39;
+const APPCOMMAND_FORWARD_MAIL = 40;
+const APPCOMMAND_SEND_MAIL = 41;
+const APPCOMMAND_SPELL_CHECK = 42;
+const APPCOMMAND_DICTATE_OR_COMMAND_CONTROL_TOGGLE = 43;
+const APPCOMMAND_MIC_ON_OFF_TOGGLE = 44;
+const APPCOMMAND_CORRECTION_LIST = 45;
+const APPCOMMAND_MEDIA_PLAY = 46;
+const APPCOMMAND_MEDIA_PAUSE = 47;
+const APPCOMMAND_MEDIA_RECORD = 48;
+const APPCOMMAND_MEDIA_FAST_FORWARD = 49;
+const APPCOMMAND_MEDIA_REWIND = 50;
+const APPCOMMAND_MEDIA_CHANNEL_UP = 51;
+const APPCOMMAND_MEDIA_CHANNEL_DOWN = 52;
+const APPCOMMAND_DELETE = 53;
+const APPCOMMAND_DWM_FLIP3D = 54;
+const FAPPCOMMAND_MOUSE = 32768;
+const FAPPCOMMAND_KEY = 0;
+const FAPPCOMMAND_OEM = 4096;
+const FAPPCOMMAND_MASK = 61440;
+const LLKHF_EXTENDED = 1;
+const LLKHF_INJECTED = 16;
+const LLKHF_ALTDOWN = 32;
+const LLKHF_UP = 128;
+const LLKHF_LOWER_IL_INJECTED = 2;
+const LLMHF_INJECTED = 1;
+const LLMHF_LOWER_IL_INJECTED = 2;
+const HKL_PREV = 0;
+const HKL_NEXT = 1;
+const KLF_ACTIVATE = 1;
+const KLF_SUBSTITUTE_OK = 2;
+const KLF_REORDER = 8;
+const KLF_REPLACELANG = 16;
+const KLF_NOTELLSHELL = 128;
+const KLF_SETFORPROCESS = 256;
+const KLF_SHIFTLOCK = 65536;
+const KLF_RESET = 1073741824;
+const INPUTLANGCHANGE_SYSCHARSET = 1;
+const INPUTLANGCHANGE_FORWARD = 2;
+const INPUTLANGCHANGE_BACKWARD = 4;
+const KL_NAMELENGTH = 9;
+const GMMP_USE_DISPLAY_POINTS = 1;
+const GMMP_USE_HIGH_RESOLUTION_POINTS = 2;
+const DESKTOP_READOBJECTS = 1;
+const DESKTOP_CREATEWINDOW = 2;
+const DESKTOP_CREATEMENU = 4;
+const DESKTOP_HOOKCONTROL = 8;
+const DESKTOP_JOURNALRECORD = 16;
+const DESKTOP_JOURNALPLAYBACK = 32;
+const DESKTOP_ENUMERATE = 64;
+const DESKTOP_WRITEOBJECTS = 128;
+const DESKTOP_SWITCHDESKTOP = 256;
+const DF_ALLOWOTHERACCOUNTHOOK = 1;
+const WINSTA_ENUMDESKTOPS = 1;
+const WINSTA_READATTRIBUTES = 2;
+const WINSTA_ACCESSCLIPBOARD = 4;
+const WINSTA_CREATEDESKTOP = 8;
+const WINSTA_WRITEATTRIBUTES = 16;
+const WINSTA_ACCESSGLOBALATOMS = 32;
+const WINSTA_EXITWINDOWS = 64;
+const WINSTA_ENUMERATE = 256;
+const WINSTA_READSCREEN = 512;
+const CWF_CREATE_ONLY = 1;
+const WSF_VISIBLE = 1;
+const UOI_FLAGS = 1;
+const UOI_NAME = 2;
+const UOI_TYPE = 3;
+const UOI_USER_SID = 4;
+const UOI_HEAPSIZE = 5;
+const UOI_IO = 6;
+const GWL_WNDPROC = -4;
+const GWL_HINSTANCE = -6;
+const GWL_HWNDPARENT = -8;
+const GWL_STYLE = -16;
+const GWL_EXSTYLE = -20;
+const GWL_USERDATA = -21;
+const GWL_ID = -12;
+const GWLP_WNDPROC = -4;
+const GWLP_HINSTANCE = -6;
+const GWLP_HWNDPARENT = -8;
+const GWLP_USERDATA = -21;
+const GWLP_ID = -12;
+const GCL_MENUNAME = -8;
+const GCL_HBRBACKGROUND = -10;
+const GCL_HCURSOR = -12;
+const GCL_HICON = -14;
+const GCL_HMODULE = -16;
+const GCL_CBWNDEXTRA = -18;
+const GCL_CBCLSEXTRA = -20;
+const GCL_WNDPROC = -24;
+const GCL_STYLE = -26;
+const GCW_ATOM = -32;
+const GCL_HICONSM = -34;
+const GCLP_MENUNAME = -8;
+const GCLP_HBRBACKGROUND = -10;
+const GCLP_HCURSOR = -12;
+const GCLP_HICON = -14;
+const GCLP_HMODULE = -16;
+const GCLP_WNDPROC = -24;
+const GCLP_HICONSM = -34;
+const WM_NULL = 0;
+const WM_CREATE = 1;
+const WM_DESTROY = 2;
+const WM_MOVE = 3;
+const WM_SIZE = 5;
+const WM_ACTIVATE = 6;
+const WA_INACTIVE = 0;
+const WA_ACTIVE = 1;
+const WA_CLICKACTIVE = 2;
+const WM_SETFOCUS = 7;
+const WM_KILLFOCUS = 8;
+const WM_ENABLE = 10;
+const WM_SETREDRAW = 11;
+const WM_GETTEXT = 13;
+const WM_GETTEXTLENGTH = 14;
+const WM_PAINT = 15;
+const WM_CLOSE = 16;
+const WM_QUERYENDSESSION = 17;
+const WM_QUERYOPEN = 19;
+const WM_ENDSESSION = 22;
+const WM_QUIT = 18;
+const WM_ERASEBKGND = 20;
+const WM_SYSCOLORCHANGE = 21;
+const WM_SHOWWINDOW = 24;
+const WM_WININICHANGE = 26;
+const WM_SETTINGCHANGE = 26;
+const WM_DEVMODECHANGE = 27;
+const WM_ACTIVATEAPP = 28;
+const WM_FONTCHANGE = 29;
+const WM_TIMECHANGE = 30;
+const WM_CANCELMODE = 31;
+const WM_SETCURSOR = 32;
+const WM_MOUSEACTIVATE = 33;
+const WM_CHILDACTIVATE = 34;
+const WM_QUEUESYNC = 35;
+const WM_GETMINMAXINFO = 36;
+const WM_PAINTICON = 38;
+const WM_ICONERASEBKGND = 39;
+const WM_NEXTDLGCTL = 40;
+const WM_SPOOLERSTATUS = 42;
+const WM_DRAWITEM = 43;
+const WM_MEASUREITEM = 44;
+const WM_DELETEITEM = 45;
+const WM_VKEYTOITEM = 46;
+const WM_CHARTOITEM = 47;
+const WM_SETFONT = 48;
+const WM_GETFONT = 49;
+const WM_SETHOTKEY = 50;
+const WM_GETHOTKEY = 51;
+const WM_QUERYDRAGICON = 55;
+const WM_COMPAREITEM = 57;
+const WM_GETOBJECT = 61;
+const WM_COMPACTING = 65;
+const WM_COMMNOTIFY = 68;
+const WM_WINDOWPOSCHANGING = 70;
+const WM_WINDOWPOSCHANGED = 71;
+const WM_POWER = 72;
+const PWR_OK = 1;
+const PWR_FAIL = -1;
+const PWR_SUSPENDREQUEST = 1;
+const PWR_SUSPENDRESUME = 2;
+const PWR_CRITICALRESUME = 3;
+const WM_COPYDATA = 74;
+const WM_CANCELJOURNAL = 75;
+const WM_NOTIFY = 78;
+const WM_INPUTLANGCHANGEREQUEST = 80;
+const WM_INPUTLANGCHANGE = 81;
+const WM_TCARD = 82;
+const WM_HELP = 83;
+const WM_USERCHANGED = 84;
+const WM_NOTIFYFORMAT = 85;
+const NFR_ANSI = 1;
+const NFR_UNICODE = 2;
+const NF_QUERY = 3;
+const NF_REQUERY = 4;
+const WM_CONTEXTMENU = 123;
+const WM_STYLECHANGING = 124;
+const WM_STYLECHANGED = 125;
+const WM_DISPLAYCHANGE = 126;
+const WM_GETICON = 127;
+const WM_SETICON = 128;
+const WM_NCCREATE = 129;
+const WM_NCDESTROY = 130;
+const WM_NCCALCSIZE = 131;
+const WM_NCHITTEST = 132;
+const WM_NCPAINT = 133;
+const WM_NCACTIVATE = 134;
+const WM_GETDLGCODE = 135;
+const WM_SYNCPAINT = 136;
+const WM_NCMOUSEMOVE = 160;
+const WM_NCLBUTTONDOWN = 161;
+const WM_NCLBUTTONUP = 162;
+const WM_NCLBUTTONDBLCLK = 163;
+const WM_NCRBUTTONDOWN = 164;
+const WM_NCRBUTTONUP = 165;
+const WM_NCRBUTTONDBLCLK = 166;
+const WM_NCMBUTTONDOWN = 167;
+const WM_NCMBUTTONUP = 168;
+const WM_NCMBUTTONDBLCLK = 169;
+const WM_NCXBUTTONDOWN = 171;
+const WM_NCXBUTTONUP = 172;
+const WM_NCXBUTTONDBLCLK = 173;
+const WM_INPUT_DEVICE_CHANGE = 254;
+const WM_INPUT = 255;
+const WM_KEYFIRST = 256;
+const WM_KEYDOWN = 256;
+const WM_KEYUP = 257;
+const WM_CHAR = 258;
+const WM_DEADCHAR = 259;
+const WM_SYSKEYDOWN = 260;
+const WM_SYSKEYUP = 261;
+const WM_SYSCHAR = 262;
+const WM_SYSDEADCHAR = 263;
+const WM_UNICHAR = 265;
+const WM_KEYLAST = 265;
+const UNICODE_NOCHAR = 65535;
+const WM_IME_STARTCOMPOSITION = 269;
+const WM_IME_ENDCOMPOSITION = 270;
+const WM_IME_COMPOSITION = 271;
+const WM_IME_KEYLAST = 271;
+const WM_INITDIALOG = 272;
+const WM_COMMAND = 273;
+const WM_SYSCOMMAND = 274;
+const WM_TIMER = 275;
+const WM_HSCROLL = 276;
+const WM_VSCROLL = 277;
+const WM_INITMENU = 278;
+const WM_INITMENUPOPUP = 279;
+const WM_GESTURE = 281;
+const WM_GESTURENOTIFY = 282;
+const WM_MENUSELECT = 287;
+const WM_MENUCHAR = 288;
+const WM_ENTERIDLE = 289;
+const WM_MENURBUTTONUP = 290;
+const WM_MENUDRAG = 291;
+const WM_MENUGETOBJECT = 292;
+const WM_UNINITMENUPOPUP = 293;
+const WM_MENUCOMMAND = 294;
+const WM_CHANGEUISTATE = 295;
+const WM_UPDATEUISTATE = 296;
+const WM_QUERYUISTATE = 297;
+const UIS_SET = 1;
+const UIS_CLEAR = 2;
+const UIS_INITIALIZE = 3;
+const UISF_HIDEFOCUS = 1;
+const UISF_HIDEACCEL = 2;
+const UISF_ACTIVE = 4;
+const WM_CTLCOLORMSGBOX = 306;
+const WM_CTLCOLOREDIT = 307;
+const WM_CTLCOLORLISTBOX = 308;
+const WM_CTLCOLORBTN = 309;
+const WM_CTLCOLORDLG = 310;
+const WM_CTLCOLORSCROLLBAR = 311;
+const WM_CTLCOLORSTATIC = 312;
+const MN_GETHMENU = 481;
+const WM_MOUSEFIRST = 512;
+const WM_MOUSEMOVE = 512;
+const WM_LBUTTONDOWN = 513;
+const WM_LBUTTONUP = 514;
+const WM_LBUTTONDBLCLK = 515;
+const WM_RBUTTONDOWN = 516;
+const WM_RBUTTONUP = 517;
+const WM_RBUTTONDBLCLK = 518;
+const WM_MBUTTONDOWN = 519;
+const WM_MBUTTONUP = 520;
+const WM_MBUTTONDBLCLK = 521;
+const WM_MOUSEWHEEL = 522;
+const WM_XBUTTONDOWN = 523;
+const WM_XBUTTONUP = 524;
+const WM_XBUTTONDBLCLK = 525;
+const WM_MOUSEHWHEEL = 526;
+const WM_MOUSELAST = 526;
+const WHEEL_DELTA = 120;
+const WHEEL_PAGESCROLL = 4294967295;
+const XBUTTON1 = 1;
+const XBUTTON2 = 2;
+const WM_PARENTNOTIFY = 528;
+const WM_ENTERMENULOOP = 529;
+const WM_EXITMENULOOP = 530;
+const WM_NEXTMENU = 531;
+const WM_SIZING = 532;
+const WM_CAPTURECHANGED = 533;
+const WM_MOVING = 534;
+const WM_POWERBROADCAST = 536;
+const PBT_APMQUERYSUSPEND = 0;
+const PBT_APMQUERYSTANDBY = 1;
+const PBT_APMQUERYSUSPENDFAILED = 2;
+const PBT_APMQUERYSTANDBYFAILED = 3;
+const PBT_APMSUSPEND = 4;
+const PBT_APMSTANDBY = 5;
+const PBT_APMRESUMECRITICAL = 6;
+const PBT_APMRESUMESUSPEND = 7;
+const PBT_APMRESUMESTANDBY = 8;
+const PBTF_APMRESUMEFROMFAILURE = 1;
+const PBT_APMBATTERYLOW = 9;
+const PBT_APMPOWERSTATUSCHANGE = 10;
+const PBT_APMOEMEVENT = 11;
+const PBT_APMRESUMEAUTOMATIC = 18;
+const PBT_POWERSETTINGCHANGE = 32787;
+const WM_DEVICECHANGE = 537;
+const WM_MDICREATE = 544;
+const WM_MDIDESTROY = 545;
+const WM_MDIACTIVATE = 546;
+const WM_MDIRESTORE = 547;
+const WM_MDINEXT = 548;
+const WM_MDIMAXIMIZE = 549;
+const WM_MDITILE = 550;
+const WM_MDICASCADE = 551;
+const WM_MDIICONARRANGE = 552;
+const WM_MDIGETACTIVE = 553;
+const WM_MDISETMENU = 560;
+const WM_ENTERSIZEMOVE = 561;
+const WM_EXITSIZEMOVE = 562;
+const WM_DROPFILES = 563;
+const WM_MDIREFRESHMENU = 564;
+const WM_POINTERDEVICECHANGE = 568;
+const WM_POINTERDEVICEINRANGE = 569;
+const WM_POINTERDEVICEOUTOFRANGE = 570;
+const WM_TOUCH = 576;
+const WM_NCPOINTERUPDATE = 577;
+const WM_NCPOINTERDOWN = 578;
+const WM_NCPOINTERUP = 579;
+const WM_POINTERUPDATE = 581;
+const WM_POINTERDOWN = 582;
+const WM_POINTERUP = 583;
+const WM_POINTERENTER = 585;
+const WM_POINTERLEAVE = 586;
+const WM_POINTERACTIVATE = 587;
+const WM_POINTERCAPTURECHANGED = 588;
+const WM_TOUCHHITTESTING = 589;
+const WM_POINTERWHEEL = 590;
+const WM_POINTERHWHEEL = 591;
+const DM_POINTERHITTEST = 592;
+const WM_IME_SETCONTEXT = 641;
+const WM_IME_NOTIFY = 642;
+const WM_IME_CONTROL = 643;
+const WM_IME_COMPOSITIONFULL = 644;
+const WM_IME_SELECT = 645;
+const WM_IME_CHAR = 646;
+const WM_IME_REQUEST = 648;
+const WM_IME_KEYDOWN = 656;
+const WM_IME_KEYUP = 657;
+const WM_MOUSEHOVER = 673;
+const WM_MOUSELEAVE = 675;
+const WM_NCMOUSEHOVER = 672;
+const WM_NCMOUSELEAVE = 674;
+const WM_WTSSESSION_CHANGE = 689;
+const WM_TABLET_FIRST = 704;
+const WM_TABLET_LAST = 735;
+const WM_DPICHANGED = 736;
+const WM_CUT = 768;
+const WM_COPY = 769;
+const WM_PASTE = 770;
+const WM_CLEAR = 771;
+const WM_UNDO = 772;
+const WM_RENDERFORMAT = 773;
+const WM_RENDERALLFORMATS = 774;
+const WM_DESTROYCLIPBOARD = 775;
+const WM_DRAWCLIPBOARD = 776;
+const WM_PAINTCLIPBOARD = 777;
+const WM_VSCROLLCLIPBOARD = 778;
+const WM_SIZECLIPBOARD = 779;
+const WM_ASKCBFORMATNAME = 780;
+const WM_CHANGECBCHAIN = 781;
+const WM_HSCROLLCLIPBOARD = 782;
+const WM_QUERYNEWPALETTE = 783;
+const WM_PALETTEISCHANGING = 784;
+const WM_PALETTECHANGED = 785;
+const WM_HOTKEY = 786;
+const WM_PRINT = 791;
+const WM_PRINTCLIENT = 792;
+const WM_APPCOMMAND = 793;
+const WM_THEMECHANGED = 794;
+const WM_CLIPBOARDUPDATE = 797;
+const WM_DWMCOMPOSITIONCHANGED = 798;
+const WM_DWMNCRENDERINGCHANGED = 799;
+const WM_DWMCOLORIZATIONCOLORCHANGED = 800;
+const WM_DWMWINDOWMAXIMIZEDCHANGE = 801;
+const WM_DWMSENDICONICTHUMBNAIL = 803;
+const WM_DWMSENDICONICLIVEPREVIEWBITMAP = 806;
+const WM_GETTITLEBARINFOEX = 831;
+const WM_HANDHELDFIRST = 856;
+const WM_HANDHELDLAST = 863;
+const WM_AFXFIRST = 864;
+const WM_AFXLAST = 895;
+const WM_PENWINFIRST = 896;
+const WM_PENWINLAST = 911;
+const WM_APP = 32768;
+const WM_USER = 1024;
+const WMSZ_LEFT = 1;
+const WMSZ_RIGHT = 2;
+const WMSZ_TOP = 3;
+const WMSZ_TOPLEFT = 4;
+const WMSZ_TOPRIGHT = 5;
+const WMSZ_BOTTOM = 6;
+const WMSZ_BOTTOMLEFT = 7;
+const WMSZ_BOTTOMRIGHT = 8;
+const HTERROR = -2;
+const HTTRANSPARENT = -1;
+const HTNOWHERE = 0;
+const HTCLIENT = 1;
+const HTCAPTION = 2;
+const HTSYSMENU = 3;
+const HTGROWBOX = 4;
+const HTSIZE = 4;
+const HTMENU = 5;
+const HTHSCROLL = 6;
+const HTVSCROLL = 7;
+const HTMINBUTTON = 8;
+const HTMAXBUTTON = 9;
+const HTLEFT = 10;
+const HTRIGHT = 11;
+const HTTOP = 12;
+const HTTOPLEFT = 13;
+const HTTOPRIGHT = 14;
+const HTBOTTOM = 15;
+const HTBOTTOMLEFT = 16;
+const HTBOTTOMRIGHT = 17;
+const HTBORDER = 18;
+const HTREDUCE = 8;
+const HTZOOM = 9;
+const HTSIZEFIRST = 10;
+const HTSIZELAST = 17;
+const HTOBJECT = 19;
+const HTCLOSE = 20;
+const HTHELP = 21;
+const SMTO_NORMAL = 0;
+const SMTO_BLOCK = 1;
+const SMTO_ABORTIFHUNG = 2;
+const SMTO_NOTIMEOUTIFNOTHUNG = 8;
+const SMTO_ERRORONEXIT = 32;
+const MA_ACTIVATE = 1;
+const MA_ACTIVATEANDEAT = 2;
+const MA_NOACTIVATE = 3;
+const MA_NOACTIVATEANDEAT = 4;
+const ICON_SMALL = 0;
+const ICON_BIG = 1;
+const ICON_SMALL2 = 2;
+const SIZE_RESTORED = 0;
+const SIZE_MINIMIZED = 1;
+const SIZE_MAXIMIZED = 2;
+const SIZE_MAXSHOW = 3;
+const SIZE_MAXHIDE = 4;
+const SIZENORMAL = 0;
+const SIZEICONIC = 1;
+const SIZEFULLSCREEN = 2;
+const SIZEZOOMSHOW = 3;
+const SIZEZOOMHIDE = 4;
+const WVR_ALIGNTOP = 16;
+const WVR_ALIGNLEFT = 32;
+const WVR_ALIGNBOTTOM = 64;
+const WVR_ALIGNRIGHT = 128;
+const WVR_HREDRAW = 256;
+const WVR_VREDRAW = 512;
+const WVR_VALIDRECTS = 1024;
+const MK_LBUTTON = 1;
+const MK_RBUTTON = 2;
+const MK_SHIFT = 4;
+const MK_CONTROL = 8;
+const MK_MBUTTON = 16;
+const MK_XBUTTON1 = 32;
+const MK_XBUTTON2 = 64;
+const TME_HOVER = 1;
+const TME_LEAVE = 2;
+const TME_NONCLIENT = 16;
+const TME_QUERY = 1073741824;
+const TME_CANCEL = 2147483648;
+const HOVER_DEFAULT = 4294967295;
+const WS_OVERLAPPED = 0;
+const WS_POPUP = 2147483648;
+const WS_CHILD = 1073741824;
+const WS_MINIMIZE = 536870912;
+const WS_VISIBLE = 268435456;
+const WS_DISABLED = 134217728;
+const WS_CLIPSIBLINGS = 67108864;
+const WS_CLIPCHILDREN = 33554432;
+const WS_MAXIMIZE = 16777216;
+const WS_CAPTION = 12582912;
+const WS_BORDER = 8388608;
+const WS_DLGFRAME = 4194304;
+const WS_VSCROLL = 2097152;
+const WS_HSCROLL = 1048576;
+const WS_SYSMENU = 524288;
+const WS_THICKFRAME = 262144;
+const WS_GROUP = 131072;
+const WS_TABSTOP = 65536;
+const WS_MINIMIZEBOX = 131072;
+const WS_MAXIMIZEBOX = 65536;
+const WS_TILED = 0;
+const WS_ICONIC = 536870912;
+const WS_SIZEBOX = 262144;
+const WS_TILEDWINDOW = 13565952;
+const WS_CHILDWINDOW = 1073741824;
+const WS_EX_DLGMODALFRAME = 1;
+const WS_EX_NOPARENTNOTIFY = 4;
+const WS_EX_TOPMOST = 8;
+const WS_EX_ACCEPTFILES = 16;
+const WS_EX_TRANSPARENT = 32;
+const WS_EX_MDICHILD = 64;
+const WS_EX_TOOLWINDOW = 128;
+const WS_EX_WINDOWEDGE = 256;
+const WS_EX_CLIENTEDGE = 512;
+const WS_EX_CONTEXTHELP = 1024;
+const WS_EX_RIGHT = 4096;
+const WS_EX_LEFT = 0;
+const WS_EX_RTLREADING = 8192;
+const WS_EX_LTRREADING = 0;
+const WS_EX_LEFTSCROLLBAR = 16384;
+const WS_EX_RIGHTSCROLLBAR = 0;
+const WS_EX_CONTROLPARENT = 65536;
+const WS_EX_STATICEDGE = 131072;
+const WS_EX_APPWINDOW = 262144;
+const WS_EX_OVERLAPPEDWINDOW = 768;
+const WS_EX_PALETTEWINDOW = 392;
+const WS_EX_LAYERED = 524288;
+const WS_EX_NOINHERITLAYOUT = 1048576;
+const WS_EX_NOREDIRECTIONBITMAP = 2097152;
+const WS_EX_LAYOUTRTL = 4194304;
+const WS_EX_COMPOSITED = 33554432;
+const WS_EX_NOACTIVATE = 134217728;
+const CS_VREDRAW = 1;
+const CS_HREDRAW = 2;
+const CS_DBLCLKS = 8;
+const CS_OWNDC = 32;
+const CS_CLASSDC = 64;
+const CS_PARENTDC = 128;
+const CS_NOCLOSE = 512;
+const CS_SAVEBITS = 2048;
+const CS_BYTEALIGNCLIENT = 4096;
+const CS_BYTEALIGNWINDOW = 8192;
+const CS_GLOBALCLASS = 16384;
+const CS_IME = 65536;
+const CS_DROPSHADOW = 131072;
+const PRF_CHECKVISIBLE = 1;
+const PRF_NONCLIENT = 2;
+const PRF_CLIENT = 4;
+const PRF_ERASEBKGND = 8;
+const PRF_CHILDREN = 16;
+const PRF_OWNED = 32;
+const BDR_RAISEDOUTER = 1;
+const BDR_SUNKENOUTER = 2;
+const BDR_RAISEDINNER = 4;
+const BDR_SUNKENINNER = 8;
+const BDR_OUTER = 3;
+const BDR_INNER = 12;
+const BDR_RAISED = 5;
+const BDR_SUNKEN = 10;
+const EDGE_RAISED = 5;
+const EDGE_SUNKEN = 10;
+const EDGE_ETCHED = 6;
+const EDGE_BUMP = 9;
+const BF_LEFT = 1;
+const BF_TOP = 2;
+const BF_RIGHT = 4;
+const BF_BOTTOM = 8;
+const BF_TOPLEFT = 3;
+const BF_TOPRIGHT = 6;
+const BF_BOTTOMLEFT = 9;
+const BF_BOTTOMRIGHT = 12;
+const BF_RECT = 15;
+const BF_DIAGONAL = 16;
+const BF_DIAGONAL_ENDTOPRIGHT = 22;
+const BF_DIAGONAL_ENDTOPLEFT = 19;
+const BF_DIAGONAL_ENDBOTTOMLEFT = 25;
+const BF_DIAGONAL_ENDBOTTOMRIGHT = 28;
+const BF_MIDDLE = 2048;
+const BF_SOFT = 4096;
+const BF_ADJUST = 8192;
+const BF_FLAT = 16384;
+const BF_MONO = 32768;
+const DFC_CAPTION = 1;
+const DFC_MENU = 2;
+const DFC_SCROLL = 3;
+const DFC_BUTTON = 4;
+const DFC_POPUPMENU = 5;
+const DFCS_CAPTIONCLOSE = 0;
+const DFCS_CAPTIONMIN = 1;
+const DFCS_CAPTIONMAX = 2;
+const DFCS_CAPTIONRESTORE = 3;
+const DFCS_CAPTIONHELP = 4;
+const DFCS_MENUARROW = 0;
+const DFCS_MENUCHECK = 1;
+const DFCS_MENUBULLET = 2;
+const DFCS_MENUARROWRIGHT = 4;
+const DFCS_SCROLLUP = 0;
+const DFCS_SCROLLDOWN = 1;
+const DFCS_SCROLLLEFT = 2;
+const DFCS_SCROLLRIGHT = 3;
+const DFCS_SCROLLCOMBOBOX = 5;
+const DFCS_SCROLLSIZEGRIP = 8;
+const DFCS_SCROLLSIZEGRIPRIGHT = 16;
+const DFCS_BUTTONCHECK = 0;
+const DFCS_BUTTONRADIOIMAGE = 1;
+const DFCS_BUTTONRADIOMASK = 2;
+const DFCS_BUTTONRADIO = 4;
+const DFCS_BUTTON3STATE = 8;
+const DFCS_BUTTONPUSH = 16;
+const DFCS_INACTIVE = 256;
+const DFCS_PUSHED = 512;
+const DFCS_CHECKED = 1024;
+const DFCS_TRANSPARENT = 2048;
+const DFCS_HOT = 4096;
+const DFCS_ADJUSTRECT = 8192;
+const DFCS_FLAT = 16384;
+const DFCS_MONO = 32768;
+const DC_ACTIVE = 1;
+const DC_SMALLCAP = 2;
+const DC_ICON = 4;
+const DC_TEXT = 8;
+const DC_INBUTTON = 16;
+const DC_GRADIENT = 32;
+const DC_BUTTONS = 4096;
+const IDANI_OPEN = 1;
+const IDANI_CAPTION = 3;
+const CF_TEXT = 1;
+const CF_BITMAP = 2;
+const CF_METAFILEPICT = 3;
+const CF_SYLK = 4;
+const CF_DIF = 5;
+const CF_TIFF = 6;
+const CF_OEMTEXT = 7;
+const CF_DIB = 8;
+const CF_PALETTE = 9;
+const CF_PENDATA = 10;
+const CF_RIFF = 11;
+const CF_WAVE = 12;
+const CF_UNICODETEXT = 13;
+const CF_ENHMETAFILE = 14;
+const CF_HDROP = 15;
+const CF_LOCALE = 16;
+const CF_DIBV5 = 17;
+const CF_MAX = 18;
+const CF_OWNERDISPLAY = 128;
+const CF_DSPTEXT = 129;
+const CF_DSPBITMAP = 130;
+const CF_DSPMETAFILEPICT = 131;
+const CF_DSPENHMETAFILE = 142;
+const CF_PRIVATEFIRST = 512;
+const CF_PRIVATELAST = 767;
+const CF_GDIOBJFIRST = 768;
+const CF_GDIOBJLAST = 1023;
+const FVIRTKEY = 1;
+const FNOINVERT = 2;
+const FSHIFT = 4;
+const FCONTROL = 8;
+const FALT = 16;
+const WPF_SETMINPOSITION = 1;
+const WPF_RESTORETOMAXIMIZED = 2;
+const WPF_ASYNCWINDOWPLACEMENT = 4;
+const ODT_MENU = 1;
+const ODT_LISTBOX = 2;
+const ODT_COMBOBOX = 3;
+const ODT_BUTTON = 4;
+const ODT_STATIC = 5;
+const ODA_DRAWENTIRE = 1;
+const ODA_SELECT = 2;
+const ODA_FOCUS = 4;
+const ODS_SELECTED = 1;
+const ODS_GRAYED = 2;
+const ODS_DISABLED = 4;
+const ODS_CHECKED = 8;
+const ODS_FOCUS = 16;
+const ODS_DEFAULT = 32;
+const ODS_COMBOBOXEDIT = 4096;
+const ODS_HOTLIGHT = 64;
+const ODS_INACTIVE = 128;
+const ODS_NOACCEL = 256;
+const ODS_NOFOCUSRECT = 512;
+const PM_NOREMOVE = 0;
+const PM_REMOVE = 1;
+const PM_NOYIELD = 2;
+const MOD_ALT = 1;
+const MOD_CONTROL = 2;
+const MOD_SHIFT = 4;
+const MOD_WIN = 8;
+const MOD_NOREPEAT = 16384;
+const IDHOT_SNAPWINDOW = -1;
+const IDHOT_SNAPDESKTOP = -2;
+const ENDSESSION_CLOSEAPP = 1;
+const ENDSESSION_CRITICAL = 1073741824;
+const ENDSESSION_LOGOFF = 2147483648;
+const EWX_LOGOFF = 0;
+const EWX_SHUTDOWN = 1;
+const EWX_REBOOT = 2;
+const EWX_FORCE = 4;
+const EWX_POWEROFF = 8;
+const EWX_FORCEIFHUNG = 16;
+const EWX_QUICKRESOLVE = 32;
+const EWX_RESTARTAPPS = 64;
+const EWX_HYBRID_SHUTDOWN = 4194304;
+const EWX_BOOTOPTIONS = 16777216;
+const BSM_ALLCOMPONENTS = 0;
+const BSM_VXDS = 1;
+const BSM_NETDRIVER = 2;
+const BSM_INSTALLABLEDRIVERS = 4;
+const BSM_APPLICATIONS = 8;
+const BSM_ALLDESKTOPS = 16;
+const BSF_QUERY = 1;
+const BSF_IGNORECURRENTTASK = 2;
+const BSF_FLUSHDISK = 4;
+const BSF_NOHANG = 8;
+const BSF_POSTMESSAGE = 16;
+const BSF_FORCEIFHUNG = 32;
+const BSF_NOTIMEOUTIFNOTHUNG = 64;
+const BSF_ALLOWSFW = 128;
+const BSF_SENDNOTIFYMESSAGE = 256;
+const BSF_RETURNHDESK = 512;
+const BSF_LUID = 1024;
+const BROADCAST_QUERY_DENY = 1112363332;
+const DEVICE_NOTIFY_WINDOW_HANDLE = 0;
+const DEVICE_NOTIFY_SERVICE_HANDLE = 1;
+const DEVICE_NOTIFY_ALL_INTERFACE_CLASSES = 4;
+const ISMEX_NOSEND = 0;
+const ISMEX_SEND = 1;
+const ISMEX_NOTIFY = 2;
+const ISMEX_CALLBACK = 4;
+const ISMEX_REPLIED = 8;
+const CW_USEDEFAULT = 2147483648;
+const PW_CLIENTONLY = 1;
+const PW_RENDERFULLCONTENT = 2;
+const LWA_COLORKEY = 1;
+const LWA_ALPHA = 2;
+const ULW_COLORKEY = 1;
+const ULW_ALPHA = 2;
+const ULW_OPAQUE = 4;
+const ULW_EX_NORESIZE = 8;
+const FLASHW_STOP = 0;
+const FLASHW_CAPTION = 1;
+const FLASHW_TRAY = 2;
+const FLASHW_ALL = 3;
+const FLASHW_TIMER = 4;
+const FLASHW_TIMERNOFG = 12;
+const WDA_NONE = 0;
+const WDA_MONITOR = 1;
+const SWP_NOSIZE = 1;
+const SWP_NOMOVE = 2;
+const SWP_NOZORDER = 4;
+const SWP_NOREDRAW = 8;
+const SWP_NOACTIVATE = 16;
+const SWP_FRAMECHANGED = 32;
+const SWP_SHOWWINDOW = 64;
+const SWP_HIDEWINDOW = 128;
+const SWP_NOCOPYBITS = 256;
+const SWP_NOOWNERZORDER = 512;
+const SWP_NOSENDCHANGING = 1024;
+const SWP_DRAWFRAME = 32;
+const SWP_NOREPOSITION = 512;
+const SWP_DEFERERASE = 8192;
+const SWP_ASYNCWINDOWPOS = 16384;
+const DLGWINDOWEXTRA = 48;
+const KEYEVENTF_EXTENDEDKEY = 1;
+const KEYEVENTF_KEYUP = 2;
+const KEYEVENTF_UNICODE = 4;
+const KEYEVENTF_SCANCODE = 8;
+const MOUSEEVENTF_MOVE = 1;
+const MOUSEEVENTF_LEFTDOWN = 2;
+const MOUSEEVENTF_LEFTUP = 4;
+const MOUSEEVENTF_RIGHTDOWN = 8;
+const MOUSEEVENTF_RIGHTUP = 16;
+const MOUSEEVENTF_MIDDLEDOWN = 32;
+const MOUSEEVENTF_MIDDLEUP = 64;
+const MOUSEEVENTF_XDOWN = 128;
+const MOUSEEVENTF_XUP = 256;
+const MOUSEEVENTF_WHEEL = 2048;
+const MOUSEEVENTF_HWHEEL = 4096;
+const MOUSEEVENTF_MOVE_NOCOALESCE = 8192;
+const MOUSEEVENTF_VIRTUALDESK = 16384;
+const MOUSEEVENTF_ABSOLUTE = 32768;
+const INPUT_MOUSE = 0;
+const INPUT_KEYBOARD = 1;
+const INPUT_HARDWARE = 2;
+const TOUCHEVENTF_MOVE = 1;
+const TOUCHEVENTF_DOWN = 2;
+const TOUCHEVENTF_UP = 4;
+const TOUCHEVENTF_INRANGE = 8;
+const TOUCHEVENTF_PRIMARY = 16;
+const TOUCHEVENTF_NOCOALESCE = 32;
+const TOUCHEVENTF_PEN = 64;
+const TOUCHEVENTF_PALM = 128;
+const TOUCHINPUTMASKF_TIMEFROMSYSTEM = 1;
+const TOUCHINPUTMASKF_EXTRAINFO = 2;
+const TOUCHINPUTMASKF_CONTACTAREA = 4;
+const TWF_FINETOUCH = 1;
+const TWF_WANTPALM = 2;
+const POINTER_FLAG_NONE = 0;
+const POINTER_FLAG_NEW = 1;
+const POINTER_FLAG_INRANGE = 2;
+const POINTER_FLAG_INCONTACT = 4;
+const POINTER_FLAG_FIRSTBUTTON = 16;
+const POINTER_FLAG_SECONDBUTTON = 32;
+const POINTER_FLAG_THIRDBUTTON = 64;
+const POINTER_FLAG_FOURTHBUTTON = 128;
+const POINTER_FLAG_FIFTHBUTTON = 256;
+const POINTER_FLAG_PRIMARY = 8192;
+const POINTER_FLAG_CONFIDENCE = 16384;
+const POINTER_FLAG_CANCELED = 32768;
+const POINTER_FLAG_DOWN = 65536;
+const POINTER_FLAG_UPDATE = 131072;
+const POINTER_FLAG_UP = 262144;
+const POINTER_FLAG_WHEEL = 524288;
+const POINTER_FLAG_HWHEEL = 1048576;
+const POINTER_FLAG_CAPTURECHANGED = 2097152;
+const POINTER_FLAG_HASTRANSFORM = 4194304;
+const POINTER_MOD_SHIFT = 4;
+const POINTER_MOD_CTRL = 8;
+const TOUCH_FLAG_NONE = 0;
+const TOUCH_MASK_NONE = 0;
+const TOUCH_MASK_CONTACTAREA = 1;
+const TOUCH_MASK_ORIENTATION = 2;
+const TOUCH_MASK_PRESSURE = 4;
+const PEN_FLAG_NONE = 0;
+const PEN_FLAG_BARREL = 1;
+const PEN_FLAG_INVERTED = 2;
+const PEN_FLAG_ERASER = 4;
+const PEN_MASK_NONE = 0;
+const PEN_MASK_PRESSURE = 1;
+const PEN_MASK_ROTATION = 2;
+const PEN_MASK_TILT_X = 4;
+const PEN_MASK_TILT_Y = 8;
+const POINTER_MESSAGE_FLAG_NEW = 1;
+const POINTER_MESSAGE_FLAG_INRANGE = 2;
+const POINTER_MESSAGE_FLAG_INCONTACT = 4;
+const POINTER_MESSAGE_FLAG_FIRSTBUTTON = 16;
+const POINTER_MESSAGE_FLAG_SECONDBUTTON = 32;
+const POINTER_MESSAGE_FLAG_THIRDBUTTON = 64;
+const POINTER_MESSAGE_FLAG_FOURTHBUTTON = 128;
+const POINTER_MESSAGE_FLAG_FIFTHBUTTON = 256;
+const POINTER_MESSAGE_FLAG_PRIMARY = 8192;
+const POINTER_MESSAGE_FLAG_CONFIDENCE = 16384;
+const POINTER_MESSAGE_FLAG_CANCELED = 32768;
+const PA_ACTIVATE = 1;
+const PA_NOACTIVATE = 3;
+const MAX_TOUCH_COUNT = 256;
+const TOUCH_FEEDBACK_DEFAULT = 1;
+const TOUCH_FEEDBACK_INDIRECT = 2;
+const TOUCH_FEEDBACK_NONE = 3;
+const TOUCH_HIT_TESTING_DEFAULT = 0;
+const TOUCH_HIT_TESTING_CLIENT = 1;
+const TOUCH_HIT_TESTING_NONE = 2;
+const TOUCH_HIT_TESTING_PROXIMITY_CLOSEST = 0;
+const TOUCH_HIT_TESTING_PROXIMITY_FARTHEST = 4095;
+const GWFS_INCLUDE_ANCESTORS = 1;
+const MAPVK_VK_TO_VSC = 0;
+const MAPVK_VSC_TO_VK = 1;
+const MAPVK_VK_TO_CHAR = 2;
+const MAPVK_VSC_TO_VK_EX = 3;
+const MAPVK_VK_TO_VSC_EX = 4;
+const MWMO_WAITALL = 1;
+const MWMO_ALERTABLE = 2;
+const MWMO_INPUTAVAILABLE = 4;
+const QS_KEY = 1;
+const QS_MOUSEMOVE = 2;
+const QS_MOUSEBUTTON = 4;
+const QS_POSTMESSAGE = 8;
+const QS_TIMER = 16;
+const QS_PAINT = 32;
+const QS_SENDMESSAGE = 64;
+const QS_HOTKEY = 128;
+const QS_ALLPOSTMESSAGE = 256;
+const QS_RAWINPUT = 1024;
+const QS_TOUCH = 2048;
+const QS_POINTER = 4096;
+const USER_TIMER_MAXIMUM = 2147483647;
+const USER_TIMER_MINIMUM = 10;
+const TIMERV_DEFAULT_COALESCING = 0;
+const TIMERV_NO_COALESCING = 4294967295;
+const TIMERV_COALESCING_MIN = 1;
+const TIMERV_COALESCING_MAX = 2147483637;
+const DPISM_CYSIZE = 31;
+const DPISM_CXSIZE = 30;
+const DPISM_CXMENUCHECK = 71;
+const DPISM_CYMENUCHECK = 72;
+const DPISM_CYSMSIZE = 53;
+const DPISM_CXSMSIZE = 52;
+const DPISM_CYMENUSIZE = 55;
+const DPISM_CXMENUSIZE = 54;
+const DPISM_CYMENU = 15;
+const DPISM_CYCAPTION = 4;
+const DPISM_CYSMCAPTION = 51;
+const DPISM_CXHSCROLL = 21;
+const DPISM_CXVSCROLL = 2;
+const DPISM_CYHSCROLL = 3;
+const DPISM_CYVSCROLL = 20;
+const DPISM_CYVTHUMB = 9;
+const DPISM_CXHTHUMB = 10;
+const DPISM_CXFRAME = 32;
+const DPISM_CYFRAME = 33;
+const DPISM_CXICON = 11;
+const DPISM_CYICON = 12;
+const DPISM_CXICONSPACING = 38;
+const DPISM_CYICONSPACING = 39;
+const DPISM_CXSMICON = 49;
+const DPISM_CYSMICON = 50;
+const DPISM_CXCURSOR = 13;
+const DPISM_CYCURSOR = 14;
+const DPISM_CXPADDEDBORDER = 92;
+const SM_CXSCREEN = 0;
+const SM_CYSCREEN = 1;
+const SM_CXVSCROLL = 2;
+const SM_CYHSCROLL = 3;
+const SM_CYCAPTION = 4;
+const SM_CXBORDER = 5;
+const SM_CYBORDER = 6;
+const SM_CXDLGFRAME = 7;
+const SM_CYDLGFRAME = 8;
+const SM_CYVTHUMB = 9;
+const SM_CXHTHUMB = 10;
+const SM_CXICON = 11;
+const SM_CYICON = 12;
+const SM_CXCURSOR = 13;
+const SM_CYCURSOR = 14;
+const SM_CYMENU = 15;
+const SM_CXFULLSCREEN = 16;
+const SM_CYFULLSCREEN = 17;
+const SM_CYKANJIWINDOW = 18;
+const SM_MOUSEPRESENT = 19;
+const SM_CYVSCROLL = 20;
+const SM_CXHSCROLL = 21;
+const SM_DEBUG = 22;
+const SM_SWAPBUTTON = 23;
+const SM_RESERVED1 = 24;
+const SM_RESERVED2 = 25;
+const SM_RESERVED3 = 26;
+const SM_RESERVED4 = 27;
+const SM_CXMIN = 28;
+const SM_CYMIN = 29;
+const SM_CXSIZE = 30;
+const SM_CYSIZE = 31;
+const SM_CXFRAME = 32;
+const SM_CYFRAME = 33;
+const SM_CXMINTRACK = 34;
+const SM_CYMINTRACK = 35;
+const SM_CXDOUBLECLK = 36;
+const SM_CYDOUBLECLK = 37;
+const SM_CXICONSPACING = 38;
+const SM_CYICONSPACING = 39;
+const SM_MENUDROPALIGNMENT = 40;
+const SM_PENWINDOWS = 41;
+const SM_DBCSENABLED = 42;
+const SM_CMOUSEBUTTONS = 43;
+const SM_CXFIXEDFRAME = 7;
+const SM_CYFIXEDFRAME = 8;
+const SM_CXSIZEFRAME = 32;
+const SM_CYSIZEFRAME = 33;
+const SM_SECURE = 44;
+const SM_CXEDGE = 45;
+const SM_CYEDGE = 46;
+const SM_CXMINSPACING = 47;
+const SM_CYMINSPACING = 48;
+const SM_CXSMICON = 49;
+const SM_CYSMICON = 50;
+const SM_CYSMCAPTION = 51;
+const SM_CXSMSIZE = 52;
+const SM_CYSMSIZE = 53;
+const SM_CXMENUSIZE = 54;
+const SM_CYMENUSIZE = 55;
+const SM_ARRANGE = 56;
+const SM_CXMINIMIZED = 57;
+const SM_CYMINIMIZED = 58;
+const SM_CXMAXTRACK = 59;
+const SM_CYMAXTRACK = 60;
+const SM_CXMAXIMIZED = 61;
+const SM_CYMAXIMIZED = 62;
+const SM_NETWORK = 63;
+const SM_CLEANBOOT = 67;
+const SM_CXDRAG = 68;
+const SM_CYDRAG = 69;
+const SM_SHOWSOUNDS = 70;
+const SM_CXMENUCHECK = 71;
+const SM_CYMENUCHECK = 72;
+const SM_SLOWMACHINE = 73;
+const SM_MIDEASTENABLED = 74;
+const SM_MOUSEWHEELPRESENT = 75;
+const SM_XVIRTUALSCREEN = 76;
+const SM_YVIRTUALSCREEN = 77;
+const SM_CXVIRTUALSCREEN = 78;
+const SM_CYVIRTUALSCREEN = 79;
+const SM_CMONITORS = 80;
+const SM_SAMEDISPLAYFORMAT = 81;
+const SM_IMMENABLED = 82;
+const SM_CXFOCUSBORDER = 83;
+const SM_CYFOCUSBORDER = 84;
+const SM_TABLETPC = 86;
+const SM_MEDIACENTER = 87;
+const SM_STARTER = 88;
+const SM_SERVERR2 = 89;
+const SM_MOUSEHORIZONTALWHEELPRESENT = 91;
+const SM_CXPADDEDBORDER = 92;
+const SM_DIGITIZER = 94;
+const SM_MAXIMUMTOUCHES = 95;
+const SM_CMETRICS = 97;
+const SM_REMOTESESSION = 4096;
+const SM_SHUTTINGDOWN = 8192;
+const SM_REMOTECONTROL = 8193;
+const SM_CARETBLINKINGENABLED = 8194;
+const SM_CONVERTIBLESLATEMODE = 8195;
+const SM_SYSTEMDOCKED = 8196;
+const PMB_ACTIVE = 1;
+const MNC_IGNORE = 0;
+const MNC_CLOSE = 1;
+const MNC_EXECUTE = 2;
+const MNC_SELECT = 3;
+const MNS_NOCHECK = 2147483648;
+const MNS_MODELESS = 1073741824;
+const MNS_DRAGDROP = 536870912;
+const MNS_AUTODISMISS = 268435456;
+const MNS_NOTIFYBYPOS = 134217728;
+const MNS_CHECKORBMP = 67108864;
+const MIM_MAXHEIGHT = 1;
+const MIM_BACKGROUND = 2;
+const MIM_HELPID = 4;
+const MIM_MENUDATA = 8;
+const MIM_STYLE = 16;
+const MIM_APPLYTOSUBMENUS = 2147483648;
+const MND_CONTINUE = 0;
+const MND_ENDMENU = 1;
+const MNGOF_TOPGAP = 1;
+const MNGOF_BOTTOMGAP = 2;
+const MNGO_NOINTERFACE = 0;
+const MNGO_NOERROR = 1;
+const MIIM_STATE = 1;
+const MIIM_ID = 2;
+const MIIM_SUBMENU = 4;
+const MIIM_CHECKMARKS = 8;
+const MIIM_TYPE = 16;
+const MIIM_DATA = 32;
+const MIIM_STRING = 64;
+const MIIM_BITMAP = 128;
+const MIIM_FTYPE = 256;
+const GMDI_USEDISABLED = 1;
+const GMDI_GOINTOPOPUPS = 2;
+const TPM_LEFTBUTTON = 0;
+const TPM_RIGHTBUTTON = 2;
+const TPM_LEFTALIGN = 0;
+const TPM_CENTERALIGN = 4;
+const TPM_RIGHTALIGN = 8;
+const TPM_TOPALIGN = 0;
+const TPM_VCENTERALIGN = 16;
+const TPM_BOTTOMALIGN = 32;
+const TPM_HORIZONTAL = 0;
+const TPM_VERTICAL = 64;
+const TPM_NONOTIFY = 128;
+const TPM_RETURNCMD = 256;
+const TPM_RECURSE = 1;
+const TPM_HORPOSANIMATION = 1024;
+const TPM_HORNEGANIMATION = 2048;
+const TPM_VERPOSANIMATION = 4096;
+const TPM_VERNEGANIMATION = 8192;
+const TPM_NOANIMATION = 16384;
+const TPM_LAYOUTRTL = 32768;
+const TPM_WORKAREA = 65536;
+const DOF_EXECUTABLE = 32769;
+const DOF_DOCUMENT = 32770;
+const DOF_DIRECTORY = 32771;
+const DOF_MULTIPLE = 32772;
+const DOF_PROGMAN = 1;
+const DOF_SHELLDATA = 2;
+const DO_DROPFILE = 1162627398;
+const DO_PRINTFILE = 1414419024;
+const DT_TOP = 0;
+const DT_LEFT = 0;
+const DT_CENTER = 1;
+const DT_RIGHT = 2;
+const DT_VCENTER = 4;
+const DT_BOTTOM = 8;
+const DT_WORDBREAK = 16;
+const DT_SINGLELINE = 32;
+const DT_EXPANDTABS = 64;
+const DT_TABSTOP = 128;
+const DT_NOCLIP = 256;
+const DT_EXTERNALLEADING = 512;
+const DT_CALCRECT = 1024;
+const DT_NOPREFIX = 2048;
+const DT_INTERNAL = 4096;
+const DT_EDITCONTROL = 8192;
+const DT_PATH_ELLIPSIS = 16384;
+const DT_END_ELLIPSIS = 32768;
+const DT_MODIFYSTRING = 65536;
+const DT_RTLREADING = 131072;
+const DT_WORD_ELLIPSIS = 262144;
+const DT_NOFULLWIDTHCHARBREAK = 524288;
+const DT_HIDEPREFIX = 1048576;
+const DT_PREFIXONLY = 2097152;
+const DST_COMPLEX = 0;
+const DST_TEXT = 1;
+const DST_PREFIXTEXT = 2;
+const DST_ICON = 3;
+const DST_BITMAP = 4;
+const DSS_NORMAL = 0;
+const DSS_UNION = 16;
+const DSS_DISABLED = 32;
+const DSS_MONO = 128;
+const DSS_HIDEPREFIX = 512;
+const DSS_PREFIXONLY = 1024;
+const DSS_RIGHT = 32768;
+const LSFW_LOCK = 1;
+const LSFW_UNLOCK = 2;
+const DCX_WINDOW = 1;
+const DCX_CACHE = 2;
+const DCX_NORESETATTRS = 4;
+const DCX_CLIPCHILDREN = 8;
+const DCX_CLIPSIBLINGS = 16;
+const DCX_PARENTCLIP = 32;
+const DCX_EXCLUDERGN = 64;
+const DCX_INTERSECTRGN = 128;
+const DCX_EXCLUDEUPDATE = 256;
+const DCX_INTERSECTUPDATE = 512;
+const DCX_LOCKWINDOWUPDATE = 1024;
+const DCX_VALIDATE = 2097152;
+const RDW_INVALIDATE = 1;
+const RDW_INTERNALPAINT = 2;
+const RDW_ERASE = 4;
+const RDW_VALIDATE = 8;
+const RDW_NOINTERNALPAINT = 16;
+const RDW_NOERASE = 32;
+const RDW_NOCHILDREN = 64;
+const RDW_ALLCHILDREN = 128;
+const RDW_UPDATENOW = 256;
+const RDW_ERASENOW = 512;
+const RDW_FRAME = 1024;
+const RDW_NOFRAME = 2048;
+const SW_SCROLLCHILDREN = 1;
+const SW_INVALIDATE = 2;
+const SW_ERASE = 4;
+const SW_SMOOTHSCROLL = 16;
+const ESB_ENABLE_BOTH = 0;
+const ESB_DISABLE_BOTH = 3;
+const ESB_DISABLE_LEFT = 1;
+const ESB_DISABLE_RIGHT = 2;
+const ESB_DISABLE_UP = 1;
+const ESB_DISABLE_DOWN = 2;
+const ESB_DISABLE_LTUP = 1;
+const ESB_DISABLE_RTDN = 2;
+const HELPINFO_WINDOW = 1;
+const HELPINFO_MENUITEM = 2;
+const MB_OK = 0;
+const MB_OKCANCEL = 1;
+const MB_ABORTRETRYIGNORE = 2;
+const MB_YESNOCANCEL = 3;
+const MB_YESNO = 4;
+const MB_RETRYCANCEL = 5;
+const MB_CANCELTRYCONTINUE = 6;
+const MB_ICONHAND = 16;
+const MB_ICONQUESTION = 32;
+const MB_ICONEXCLAMATION = 48;
+const MB_ICONASTERISK = 64;
+const MB_USERICON = 128;
+const MB_ICONWARNING = 48;
+const MB_ICONERROR = 16;
+const MB_ICONINFORMATION = 64;
+const MB_ICONSTOP = 16;
+const MB_DEFBUTTON1 = 0;
+const MB_DEFBUTTON2 = 256;
+const MB_DEFBUTTON3 = 512;
+const MB_DEFBUTTON4 = 768;
+const MB_APPLMODAL = 0;
+const MB_SYSTEMMODAL = 4096;
+const MB_TASKMODAL = 8192;
+const MB_HELP = 16384;
+const MB_NOFOCUS = 32768;
+const MB_SETFOREGROUND = 65536;
+const MB_DEFAULT_DESKTOP_ONLY = 131072;
+const MB_TOPMOST = 262144;
+const MB_RIGHT = 524288;
+const MB_RTLREADING = 1048576;
+const MB_SERVICE_NOTIFICATION = 2097152;
+const MB_TYPEMASK = 15;
+const MB_ICONMASK = 240;
+const MB_DEFMASK = 3840;
+const MB_MODEMASK = 12288;
+const MB_MISCMASK = 49152;
+const CWP_ALL = 0;
+const CWP_SKIPINVISIBLE = 1;
+const CWP_SKIPDISABLED = 2;
+const CWP_SKIPTRANSPARENT = 4;
+const CTLCOLOR_MSGBOX = 0;
+const CTLCOLOR_EDIT = 1;
+const CTLCOLOR_LISTBOX = 2;
+const CTLCOLOR_BTN = 3;
+const CTLCOLOR_DLG = 4;
+const CTLCOLOR_SCROLLBAR = 5;
+const CTLCOLOR_STATIC = 6;
+const CTLCOLOR_MAX = 7;
+const COLOR_SCROLLBAR = 0;
+const COLOR_BACKGROUND = 1;
+const COLOR_ACTIVECAPTION = 2;
+const COLOR_INACTIVECAPTION = 3;
+const COLOR_MENU = 4;
+const COLOR_WINDOW = 5;
+const COLOR_WINDOWFRAME = 6;
+const COLOR_MENUTEXT = 7;
+const COLOR_WINDOWTEXT = 8;
+const COLOR_CAPTIONTEXT = 9;
+const COLOR_ACTIVEBORDER = 10;
+const COLOR_INACTIVEBORDER = 11;
+const COLOR_APPWORKSPACE = 12;
+const COLOR_HIGHLIGHT = 13;
+const COLOR_HIGHLIGHTTEXT = 14;
+const COLOR_BTNFACE = 15;
+const COLOR_BTNSHADOW = 16;
+const COLOR_GRAYTEXT = 17;
+const COLOR_BTNTEXT = 18;
+const COLOR_INACTIVECAPTIONTEXT = 19;
+const COLOR_BTNHIGHLIGHT = 20;
+const COLOR_3DDKSHADOW = 21;
+const COLOR_3DLIGHT = 22;
+const COLOR_INFOTEXT = 23;
+const COLOR_INFOBK = 24;
+const COLOR_HOTLIGHT = 26;
+const COLOR_GRADIENTACTIVECAPTION = 27;
+const COLOR_GRADIENTINACTIVECAPTION = 28;
+const COLOR_MENUHILIGHT = 29;
+const COLOR_MENUBAR = 30;
+const COLOR_DESKTOP = 1;
+const COLOR_3DFACE = 15;
+const COLOR_3DSHADOW = 16;
+const COLOR_3DHIGHLIGHT = 20;
+const COLOR_3DHILIGHT = 20;
+const COLOR_BTNHILIGHT = 20;
+const GW_HWNDFIRST = 0;
+const GW_HWNDLAST = 1;
+const GW_HWNDNEXT = 2;
+const GW_HWNDPREV = 3;
+const GW_OWNER = 4;
+const GW_CHILD = 5;
+const GW_ENABLEDPOPUP = 6;
+const GW_MAX = 6;
+const MF_INSERT = 0;
+const MF_CHANGE = 128;
+const MF_APPEND = 256;
+const MF_DELETE = 512;
+const MF_REMOVE = 4096;
+const MF_BYCOMMAND = 0;
+const MF_BYPOSITION = 1024;
+const MF_SEPARATOR = 2048;
+const MF_ENABLED = 0;
+const MF_GRAYED = 1;
+const MF_DISABLED = 2;
+const MF_UNCHECKED = 0;
+const MF_CHECKED = 8;
+const MF_USECHECKBITMAPS = 512;
+const MF_STRING = 0;
+const MF_BITMAP = 4;
+const MF_OWNERDRAW = 256;
+const MF_POPUP = 16;
+const MF_MENUBARBREAK = 32;
+const MF_MENUBREAK = 64;
+const MF_UNHILITE = 0;
+const MF_HILITE = 128;
+const MF_DEFAULT = 4096;
+const MF_SYSMENU = 8192;
+const MF_HELP = 16384;
+const MF_RIGHTJUSTIFY = 16384;
+const MF_MOUSESELECT = 32768;
+const MFT_STRING = 0;
+const MFT_BITMAP = 4;
+const MFT_MENUBARBREAK = 32;
+const MFT_MENUBREAK = 64;
+const MFT_OWNERDRAW = 256;
+const MFT_RADIOCHECK = 512;
+const MFT_SEPARATOR = 2048;
+const MFT_RIGHTORDER = 8192;
+const MFT_RIGHTJUSTIFY = 16384;
+const MFS_GRAYED = 3;
+const MFS_DISABLED = 3;
+const MFS_CHECKED = 8;
+const MFS_HILITE = 128;
+const MFS_ENABLED = 0;
+const MFS_UNCHECKED = 0;
+const MFS_UNHILITE = 0;
+const MFS_DEFAULT = 4096;
+const MF_END = 128;
+const SC_SIZE = 61440;
+const SC_MOVE = 61456;
+const SC_MINIMIZE = 61472;
+const SC_MAXIMIZE = 61488;
+const SC_NEXTWINDOW = 61504;
+const SC_PREVWINDOW = 61520;
+const SC_CLOSE = 61536;
+const SC_VSCROLL = 61552;
+const SC_HSCROLL = 61568;
+const SC_MOUSEMENU = 61584;
+const SC_KEYMENU = 61696;
+const SC_ARRANGE = 61712;
+const SC_RESTORE = 61728;
+const SC_TASKLIST = 61744;
+const SC_SCREENSAVE = 61760;
+const SC_HOTKEY = 61776;
+const SC_DEFAULT = 61792;
+const SC_MONITORPOWER = 61808;
+const SC_CONTEXTHELP = 61824;
+const SC_SEPARATOR = 61455;
+const SCF_ISSECURE = 1;
+const SC_ICON = 61472;
+const SC_ZOOM = 61488;
+const IMAGE_BITMAP = 0;
+const IMAGE_ICON = 1;
+const IMAGE_CURSOR = 2;
+const IMAGE_ENHMETAFILE = 3;
+const LR_DEFAULTCOLOR = 0;
+const LR_MONOCHROME = 1;
+const LR_COLOR = 2;
+const LR_COPYRETURNORG = 4;
+const LR_COPYDELETEORG = 8;
+const LR_LOADFROMFILE = 16;
+const LR_LOADTRANSPARENT = 32;
+const LR_DEFAULTSIZE = 64;
+const LR_VGACOLOR = 128;
+const LR_LOADMAP3DCOLORS = 4096;
+const LR_CREATEDIBSECTION = 8192;
+const LR_COPYFROMRESOURCE = 16384;
+const LR_SHARED = 32768;
+const DI_MASK = 1;
+const DI_IMAGE = 2;
+const DI_NORMAL = 3;
+const DI_COMPAT = 4;
+const DI_DEFAULTSIZE = 8;
+const DI_NOMIRROR = 16;
+const RES_ICON = 1;
+const RES_CURSOR = 2;
+const OBM_CLOSE = 32754;
+const OBM_UPARROW = 32753;
+const OBM_DNARROW = 32752;
+const OBM_RGARROW = 32751;
+const OBM_LFARROW = 32750;
+const OBM_REDUCE = 32749;
+const OBM_ZOOM = 32748;
+const OBM_RESTORE = 32747;
+const OBM_REDUCED = 32746;
+const OBM_ZOOMD = 32745;
+const OBM_RESTORED = 32744;
+const OBM_UPARROWD = 32743;
+const OBM_DNARROWD = 32742;
+const OBM_RGARROWD = 32741;
+const OBM_LFARROWD = 32740;
+const OBM_MNARROW = 32739;
+const OBM_COMBO = 32738;
+const OBM_UPARROWI = 32737;
+const OBM_DNARROWI = 32736;
+const OBM_RGARROWI = 32735;
+const OBM_LFARROWI = 32734;
+const OBM_OLD_CLOSE = 32767;
+const OBM_SIZE = 32766;
+const OBM_OLD_UPARROW = 32765;
+const OBM_OLD_DNARROW = 32764;
+const OBM_OLD_RGARROW = 32763;
+const OBM_OLD_LFARROW = 32762;
+const OBM_BTSIZE = 32761;
+const OBM_CHECK = 32760;
+const OBM_CHECKBOXES = 32759;
+const OBM_BTNCORNERS = 32758;
+const OBM_OLD_REDUCE = 32757;
+const OBM_OLD_ZOOM = 32756;
+const OBM_OLD_RESTORE = 32755;
+const OCR_NORMAL = 32512;
+const OCR_IBEAM = 32513;
+const OCR_WAIT = 32514;
+const OCR_CROSS = 32515;
+const OCR_UP = 32516;
+const OCR_SIZE = 32640;
+const OCR_ICON = 32641;
+const OCR_SIZENWSE = 32642;
+const OCR_SIZENESW = 32643;
+const OCR_SIZEWE = 32644;
+const OCR_SIZENS = 32645;
+const OCR_SIZEALL = 32646;
+const OCR_ICOCUR = 32647;
+const OCR_NO = 32648;
+const OCR_HAND = 32649;
+const OCR_APPSTARTING = 32650;
+const OIC_SAMPLE = 32512;
+const OIC_HAND = 32513;
+const OIC_QUES = 32514;
+const OIC_BANG = 32515;
+const OIC_NOTE = 32516;
+const OIC_WINLOGO = 32517;
+const OIC_SHIELD = 32518;
+const ORD_LANGDRIVER = 1;
+const IDI_APPLICATION = 32512;
+const IDI_HAND = 32513;
+const IDI_QUESTION = 32514;
+const IDI_EXCLAMATION = 32515;
+const IDI_ASTERISK = 32516;
+const IDI_WINLOGO = 32517;
+const IDI_SHIELD = 32518;
+const IDTRYAGAIN = 10;
+const IDCONTINUE = 11;
+const IDTIMEOUT = 32000;
+const ES_LEFT = 0;
+const ES_CENTER = 1;
+const ES_RIGHT = 2;
+const ES_MULTILINE = 4;
+const ES_UPPERCASE = 8;
+const ES_LOWERCASE = 16;
+const ES_PASSWORD = 32;
+const ES_AUTOVSCROLL = 64;
+const ES_AUTOHSCROLL = 128;
+const ES_NOHIDESEL = 256;
+const ES_OEMCONVERT = 1024;
+const ES_READONLY = 2048;
+const ES_WANTRETURN = 4096;
+const ES_NUMBER = 8192;
+const EN_SETFOCUS = 256;
+const EN_KILLFOCUS = 512;
+const EN_CHANGE = 768;
+const EN_UPDATE = 1024;
+const EN_ERRSPACE = 1280;
+const EN_MAXTEXT = 1281;
+const EN_HSCROLL = 1537;
+const EN_VSCROLL = 1538;
+const EN_ALIGN_LTR_EC = 1792;
+const EN_ALIGN_RTL_EC = 1793;
+const EC_LEFTMARGIN = 1;
+const EC_RIGHTMARGIN = 2;
+const EC_USEFONTINFO = 65535;
+const EMSIS_COMPOSITIONSTRING = 1;
+const EIMES_GETCOMPSTRATONCE = 1;
+const EIMES_CANCELCOMPSTRINFOCUS = 2;
+const EIMES_COMPLETECOMPSTRKILLFOCUS = 4;
+const EM_GETSEL = 176;
+const EM_SETSEL = 177;
+const EM_GETRECT = 178;
+const EM_SETRECT = 179;
+const EM_SETRECTNP = 180;
+const EM_SCROLL = 181;
+const EM_LINESCROLL = 182;
+const EM_SCROLLCARET = 183;
+const EM_GETMODIFY = 184;
+const EM_SETMODIFY = 185;
+const EM_GETLINECOUNT = 186;
+const EM_LINEINDEX = 187;
+const EM_SETHANDLE = 188;
+const EM_GETHANDLE = 189;
+const EM_GETTHUMB = 190;
+const EM_LINELENGTH = 193;
+const EM_REPLACESEL = 194;
+const EM_GETLINE = 196;
+const EM_LIMITTEXT = 197;
+const EM_CANUNDO = 198;
+const EM_UNDO = 199;
+const EM_FMTLINES = 200;
+const EM_LINEFROMCHAR = 201;
+const EM_SETTABSTOPS = 203;
+const EM_SETPASSWORDCHAR = 204;
+const EM_EMPTYUNDOBUFFER = 205;
+const EM_GETFIRSTVISIBLELINE = 206;
+const EM_SETREADONLY = 207;
+const EM_SETWORDBREAKPROC = 208;
+const EM_GETWORDBREAKPROC = 209;
+const EM_GETPASSWORDCHAR = 210;
+const EM_SETMARGINS = 211;
+const EM_GETMARGINS = 212;
+const EM_SETLIMITTEXT = 197;
+const EM_GETLIMITTEXT = 213;
+const EM_POSFROMCHAR = 214;
+const EM_CHARFROMPOS = 215;
+const EM_SETIMESTATUS = 216;
+const EM_GETIMESTATUS = 217;
+const WB_LEFT = 0;
+const WB_RIGHT = 1;
+const WB_ISDELIMITER = 2;
+const BS_PUSHBUTTON = 0;
+const BS_DEFPUSHBUTTON = 1;
+const BS_CHECKBOX = 2;
+const BS_AUTOCHECKBOX = 3;
+const BS_RADIOBUTTON = 4;
+const BS_3STATE = 5;
+const BS_AUTO3STATE = 6;
+const BS_GROUPBOX = 7;
+const BS_USERBUTTON = 8;
+const BS_AUTORADIOBUTTON = 9;
+const BS_PUSHBOX = 10;
+const BS_OWNERDRAW = 11;
+const BS_TYPEMASK = 15;
+const BS_LEFTTEXT = 32;
+const BS_TEXT = 0;
+const BS_ICON = 64;
+const BS_BITMAP = 128;
+const BS_LEFT = 256;
+const BS_RIGHT = 512;
+const BS_CENTER = 768;
+const BS_TOP = 1024;
+const BS_BOTTOM = 2048;
+const BS_VCENTER = 3072;
+const BS_PUSHLIKE = 4096;
+const BS_MULTILINE = 8192;
+const BS_NOTIFY = 16384;
+const BS_FLAT = 32768;
+const BS_RIGHTBUTTON = 32;
+const BN_CLICKED = 0;
+const BN_PAINT = 1;
+const BN_HILITE = 2;
+const BN_UNHILITE = 3;
+const BN_DISABLE = 4;
+const BN_DOUBLECLICKED = 5;
+const BN_PUSHED = 2;
+const BN_UNPUSHED = 3;
+const BN_DBLCLK = 5;
+const BN_SETFOCUS = 6;
+const BN_KILLFOCUS = 7;
+const BM_GETCHECK = 240;
+const BM_GETSTATE = 242;
+const BM_SETSTATE = 243;
+const BM_SETSTYLE = 244;
+const BM_CLICK = 245;
+const BM_GETIMAGE = 246;
+const BM_SETIMAGE = 247;
+const BM_SETDONTCLICK = 248;
+const BST_UNCHECKED = 0;
+const BST_CHECKED = 1;
+const BST_INDETERMINATE = 2;
+const BST_PUSHED = 4;
+const BST_FOCUS = 8;
+const SS_LEFT = 0;
+const SS_CENTER = 1;
+const SS_RIGHT = 2;
+const SS_ICON = 3;
+const SS_BLACKRECT = 4;
+const SS_GRAYRECT = 5;
+const SS_WHITERECT = 6;
+const SS_BLACKFRAME = 7;
+const SS_GRAYFRAME = 8;
+const SS_WHITEFRAME = 9;
+const SS_USERITEM = 10;
+const SS_SIMPLE = 11;
+const SS_LEFTNOWORDWRAP = 12;
+const SS_OWNERDRAW = 13;
+const SS_BITMAP = 14;
+const SS_ENHMETAFILE = 15;
+const SS_ETCHEDHORZ = 16;
+const SS_ETCHEDVERT = 17;
+const SS_ETCHEDFRAME = 18;
+const SS_TYPEMASK = 31;
+const SS_REALSIZECONTROL = 64;
+const SS_NOPREFIX = 128;
+const SS_NOTIFY = 256;
+const SS_CENTERIMAGE = 512;
+const SS_RIGHTJUST = 1024;
+const SS_REALSIZEIMAGE = 2048;
+const SS_SUNKEN = 4096;
+const SS_EDITCONTROL = 8192;
+const SS_ENDELLIPSIS = 16384;
+const SS_PATHELLIPSIS = 32768;
+const SS_WORDELLIPSIS = 49152;
+const SS_ELLIPSISMASK = 49152;
+const STM_SETICON = 368;
+const STM_GETICON = 369;
+const STM_SETIMAGE = 370;
+const STM_GETIMAGE = 371;
+const STN_CLICKED = 0;
+const STN_DBLCLK = 1;
+const STN_ENABLE = 2;
+const STN_DISABLE = 3;
+const STM_MSGMAX = 372;
+const DWL_MSGRESULT = 0;
+const DWL_DLGPROC = 4;
+const DWL_USER = 8;
+const DWLP_MSGRESULT = 0;
+const DWLP_DLGPROC = 0;
+const DWLP_USER = 8;
+const DDL_READWRITE = 0;
+const DDL_READONLY = 1;
+const DDL_HIDDEN = 2;
+const DDL_SYSTEM = 4;
+const DDL_DIRECTORY = 16;
+const DDL_ARCHIVE = 32;
+const DDL_POSTMSGS = 8192;
+const DDL_DRIVES = 16384;
+const DDL_EXCLUSIVE = 32768;
+const DS_ABSALIGN = 1;
+const DS_SYSMODAL = 2;
+const DS_LOCALEDIT = 32;
+const DS_SETFONT = 64;
+const DS_MODALFRAME = 128;
+const DS_NOIDLEMSG = 256;
+const DS_SETFOREGROUND = 512;
+const DS_3DLOOK = 4;
+const DS_FIXEDSYS = 8;
+const DS_NOFAILCREATE = 16;
+const DS_CONTROL = 1024;
+const DS_CENTER = 2048;
+const DS_CENTERMOUSE = 4096;
+const DS_CONTEXTHELP = 8192;
+const DS_SHELLFONT = 72;
+const DS_USEPIXELS = 32768;
+const DM_GETDEFID = 1024;
+const DM_SETDEFID = 1025;
+const DM_REPOSITION = 1026;
+const DC_HASDEFID = 21323;
+const DLGC_WANTARROWS = 1;
+const DLGC_WANTTAB = 2;
+const DLGC_WANTALLKEYS = 4;
+const DLGC_WANTMESSAGE = 4;
+const DLGC_HASSETSEL = 8;
+const DLGC_DEFPUSHBUTTON = 16;
+const DLGC_UNDEFPUSHBUTTON = 32;
+const DLGC_RADIOBUTTON = 64;
+const DLGC_WANTCHARS = 128;
+const DLGC_STATIC = 256;
+const DLGC_BUTTON = 8192;
+const LB_CTLCODE = 0;
+const LB_OKAY = 0;
+const LB_ERR = -1;
+const LB_ERRSPACE = -2;
+const LBN_ERRSPACE = -2;
+const LBN_SELCHANGE = 1;
+const LBN_DBLCLK = 2;
+const LBN_SELCANCEL = 3;
+const LBN_SETFOCUS = 4;
+const LBN_KILLFOCUS = 5;
+const LB_ADDSTRING = 384;
+const LB_INSERTSTRING = 385;
+const LB_DELETESTRING = 386;
+const LB_SELITEMRANGEEX = 387;
+const LB_RESETCONTENT = 388;
+const LB_SETSEL = 389;
+const LB_GETSEL = 391;
+const LB_GETCURSEL = 392;
+const LB_GETTEXT = 393;
+const LB_GETTEXTLEN = 394;
+const LB_GETCOUNT = 395;
+const LB_SELECTSTRING = 396;
+const LB_DIR = 397;
+const LB_GETTOPINDEX = 398;
+const LB_FINDSTRING = 399;
+const LB_GETSELCOUNT = 400;
+const LB_GETSELITEMS = 401;
+const LB_SETTABSTOPS = 402;
+const LB_GETHORIZONTALEXTENT = 403;
+const LB_SETHORIZONTALEXTENT = 404;
+const LB_SETCOLUMNWIDTH = 405;
+const LB_ADDFILE = 406;
+const LB_SETTOPINDEX = 407;
+const LB_GETITEMRECT = 408;
+const LB_GETITEMDATA = 409;
+const LB_SETITEMDATA = 410;
+const LB_SELITEMRANGE = 411;
+const LB_SETANCHORINDEX = 412;
+const LB_GETANCHORINDEX = 413;
+const LB_SETCARETINDEX = 414;
+const LB_GETCARETINDEX = 415;
+const LB_SETITEMHEIGHT = 416;
+const LB_GETITEMHEIGHT = 417;
+const LB_SETLOCALE = 421;
+const LB_GETLOCALE = 422;
+const LB_SETCOUNT = 423;
+const LB_INITSTORAGE = 424;
+const LB_ITEMFROMPOINT = 425;
+const LB_MULTIPLEADDSTRING = 433;
+const LB_GETLISTBOXINFO = 434;
+const LB_MSGMAX = 435;
+const LBS_NOTIFY = 1;
+const LBS_SORT = 2;
+const LBS_NOREDRAW = 4;
+const LBS_MULTIPLESEL = 8;
+const LBS_OWNERDRAWFIXED = 16;
+const LBS_OWNERDRAWVARIABLE = 32;
+const LBS_HASSTRINGS = 64;
+const LBS_USETABSTOPS = 128;
+const LBS_NOINTEGRALHEIGHT = 256;
+const LBS_MULTICOLUMN = 512;
+const LBS_WANTKEYBOARDINPUT = 1024;
+const LBS_EXTENDEDSEL = 2048;
+const LBS_DISABLENOSCROLL = 4096;
+const LBS_NODATA = 8192;
+const LBS_NOSEL = 16384;
+const LBS_COMBOBOX = 32768;
+const LBS_STANDARD = 10485763;
+const CB_OKAY = 0;
+const CB_ERR = -1;
+const CB_ERRSPACE = -2;
+const CBN_ERRSPACE = -1;
+const CBN_SELCHANGE = 1;
+const CBN_DBLCLK = 2;
+const CBN_SETFOCUS = 3;
+const CBN_KILLFOCUS = 4;
+const CBN_EDITCHANGE = 5;
+const CBN_EDITUPDATE = 6;
+const CBN_DROPDOWN = 7;
+const CBN_CLOSEUP = 8;
+const CBN_SELENDOK = 9;
+const CBN_SELENDCANCEL = 10;
+const CBS_SIMPLE = 1;
+const CBS_DROPDOWN = 2;
+const CBS_DROPDOWNLIST = 3;
+const CBS_OWNERDRAWFIXED = 16;
+const CBS_OWNERDRAWVARIABLE = 32;
+const CBS_AUTOHSCROLL = 64;
+const CBS_OEMCONVERT = 128;
+const CBS_SORT = 256;
+const CBS_HASSTRINGS = 512;
+const CBS_NOINTEGRALHEIGHT = 1024;
+const CBS_DISABLENOSCROLL = 2048;
+const CBS_UPPERCASE = 8192;
+const CBS_LOWERCASE = 16384;
+const CB_GETEDITSEL = 320;
+const CB_LIMITTEXT = 321;
+const CB_SETEDITSEL = 322;
+const CB_ADDSTRING = 323;
+const CB_DELETESTRING = 324;
+const CB_DIR = 325;
+const CB_GETCOUNT = 326;
+const CB_GETCURSEL = 327;
+const CB_GETLBTEXT = 328;
+const CB_GETLBTEXTLEN = 329;
+const CB_INSERTSTRING = 330;
+const CB_RESETCONTENT = 331;
+const CB_FINDSTRING = 332;
+const CB_SELECTSTRING = 333;
+const CB_SHOWDROPDOWN = 335;
+const CB_GETITEMDATA = 336;
+const CB_SETITEMDATA = 337;
+const CB_GETDROPPEDCONTROLRECT = 338;
+const CB_SETITEMHEIGHT = 339;
+const CB_GETITEMHEIGHT = 340;
+const CB_SETEXTENDEDUI = 341;
+const CB_GETEXTENDEDUI = 342;
+const CB_GETDROPPEDSTATE = 343;
+const CB_SETLOCALE = 345;
+const CB_GETLOCALE = 346;
+const CB_GETTOPINDEX = 347;
+const CB_SETTOPINDEX = 348;
+const CB_GETHORIZONTALEXTENT = 349;
+const CB_SETHORIZONTALEXTENT = 350;
+const CB_GETDROPPEDWIDTH = 351;
+const CB_SETDROPPEDWIDTH = 352;
+const CB_INITSTORAGE = 353;
+const CB_MULTIPLEADDSTRING = 355;
+const CB_GETCOMBOBOXINFO = 356;
+const CB_MSGMAX = 357;
+const SBS_HORZ = 0;
+const SBS_VERT = 1;
+const SBS_TOPALIGN = 2;
+const SBS_LEFTALIGN = 2;
+const SBS_BOTTOMALIGN = 4;
+const SBS_RIGHTALIGN = 4;
+const SBS_SIZEBOXTOPLEFTALIGN = 2;
+const SBS_SIZEBOXBOTTOMRIGHTALIGN = 4;
+const SBS_SIZEBOX = 8;
+const SBS_SIZEGRIP = 16;
+const SBM_SETPOS = 224;
+const SBM_GETPOS = 225;
+const SBM_SETRANGE = 226;
+const SBM_SETRANGEREDRAW = 230;
+const SBM_GETRANGE = 227;
+const SBM_ENABLE_ARROWS = 228;
+const SBM_SETSCROLLINFO = 233;
+const SBM_GETSCROLLINFO = 234;
+const SBM_GETSCROLLBARINFO = 235;
+const SIF_RANGE = 1;
+const SIF_PAGE = 2;
+const SIF_POS = 4;
+const SIF_DISABLENOSCROLL = 8;
+const SIF_TRACKPOS = 16;
+const SIF_ALL = 23;
+const MDIS_ALLCHILDSTYLES = 1;
+const MDITILE_VERTICAL = 0;
+const MDITILE_HORIZONTAL = 1;
+const MDITILE_SKIPDISABLED = 2;
+const MDITILE_ZORDER = 4;
+const HELP_CONTEXT = 1;
+const HELP_QUIT = 2;
+const HELP_INDEX = 3;
+const HELP_CONTENTS = 3;
+const HELP_HELPONHELP = 4;
+const HELP_SETINDEX = 5;
+const HELP_SETCONTENTS = 5;
+const HELP_CONTEXTPOPUP = 8;
+const HELP_FORCEFILE = 9;
+const HELP_KEY = 257;
+const HELP_COMMAND = 258;
+const HELP_PARTIALKEY = 261;
+const HELP_MULTIKEY = 513;
+const HELP_SETWINPOS = 515;
+const HELP_CONTEXTMENU = 10;
+const HELP_FINDER = 11;
+const HELP_WM_HELP = 12;
+const HELP_SETPOPUP_POS = 13;
+const HELP_TCARD = 32768;
+const HELP_TCARD_DATA = 16;
+const HELP_TCARD_OTHER_CALLER = 17;
+const IDH_NO_HELP = 28440;
+const IDH_MISSING_CONTEXT = 28441;
+const IDH_GENERIC_HELP_BUTTON = 28442;
+const IDH_OK = 28443;
+const IDH_CANCEL = 28444;
+const IDH_HELP = 28445;
+const GR_GDIOBJECTS = 0;
+const GR_USEROBJECTS = 1;
+const GR_GDIOBJECTS_PEAK = 2;
+const GR_USEROBJECTS_PEAK = 4;
+const SPI_GETBEEP = 1;
+const SPI_SETBEEP = 2;
+const SPI_GETMOUSE = 3;
+const SPI_SETMOUSE = 4;
+const SPI_GETBORDER = 5;
+const SPI_SETBORDER = 6;
+const SPI_GETKEYBOARDSPEED = 10;
+const SPI_SETKEYBOARDSPEED = 11;
+const SPI_LANGDRIVER = 12;
+const SPI_ICONHORIZONTALSPACING = 13;
+const SPI_GETSCREENSAVETIMEOUT = 14;
+const SPI_SETSCREENSAVETIMEOUT = 15;
+const SPI_GETSCREENSAVEACTIVE = 16;
+const SPI_SETSCREENSAVEACTIVE = 17;
+const SPI_GETGRIDGRANULARITY = 18;
+const SPI_SETGRIDGRANULARITY = 19;
+const SPI_SETDESKWALLPAPER = 20;
+const SPI_SETDESKPATTERN = 21;
+const SPI_GETKEYBOARDDELAY = 22;
+const SPI_SETKEYBOARDDELAY = 23;
+const SPI_ICONVERTICALSPACING = 24;
+const SPI_GETICONTITLEWRAP = 25;
+const SPI_SETICONTITLEWRAP = 26;
+const SPI_GETMENUDROPALIGNMENT = 27;
+const SPI_SETMENUDROPALIGNMENT = 28;
+const SPI_SETDOUBLECLKWIDTH = 29;
+const SPI_SETDOUBLECLKHEIGHT = 30;
+const SPI_GETICONTITLELOGFONT = 31;
+const SPI_SETDOUBLECLICKTIME = 32;
+const SPI_SETMOUSEBUTTONSWAP = 33;
+const SPI_SETICONTITLELOGFONT = 34;
+const SPI_GETFASTTASKSWITCH = 35;
+const SPI_SETFASTTASKSWITCH = 36;
+const SPI_SETDRAGFULLWINDOWS = 37;
+const SPI_GETDRAGFULLWINDOWS = 38;
+const SPI_GETNONCLIENTMETRICS = 41;
+const SPI_SETNONCLIENTMETRICS = 42;
+const SPI_GETMINIMIZEDMETRICS = 43;
+const SPI_SETMINIMIZEDMETRICS = 44;
+const SPI_GETICONMETRICS = 45;
+const SPI_SETICONMETRICS = 46;
+const SPI_SETWORKAREA = 47;
+const SPI_GETWORKAREA = 48;
+const SPI_SETPENWINDOWS = 49;
+const SPI_GETHIGHCONTRAST = 66;
+const SPI_SETHIGHCONTRAST = 67;
+const SPI_GETKEYBOARDPREF = 68;
+const SPI_SETKEYBOARDPREF = 69;
+const SPI_GETSCREENREADER = 70;
+const SPI_SETSCREENREADER = 71;
+const SPI_GETANIMATION = 72;
+const SPI_SETANIMATION = 73;
+const SPI_GETFONTSMOOTHING = 74;
+const SPI_SETFONTSMOOTHING = 75;
+const SPI_SETDRAGWIDTH = 76;
+const SPI_SETDRAGHEIGHT = 77;
+const SPI_SETHANDHELD = 78;
+const SPI_GETLOWPOWERTIMEOUT = 79;
+const SPI_GETPOWEROFFTIMEOUT = 80;
+const SPI_SETLOWPOWERTIMEOUT = 81;
+const SPI_SETPOWEROFFTIMEOUT = 82;
+const SPI_GETLOWPOWERACTIVE = 83;
+const SPI_GETPOWEROFFACTIVE = 84;
+const SPI_SETLOWPOWERACTIVE = 85;
+const SPI_SETPOWEROFFACTIVE = 86;
+const SPI_SETCURSORS = 87;
+const SPI_SETICONS = 88;
+const SPI_GETDEFAULTINPUTLANG = 89;
+const SPI_SETDEFAULTINPUTLANG = 90;
+const SPI_SETLANGTOGGLE = 91;
+const SPI_GETWINDOWSEXTENSION = 92;
+const SPI_SETMOUSETRAILS = 93;
+const SPI_GETMOUSETRAILS = 94;
+const SPI_SETSCREENSAVERRUNNING = 97;
+const SPI_SCREENSAVERRUNNING = 97;
+const SPI_GETFILTERKEYS = 50;
+const SPI_SETFILTERKEYS = 51;
+const SPI_GETTOGGLEKEYS = 52;
+const SPI_SETTOGGLEKEYS = 53;
+const SPI_GETMOUSEKEYS = 54;
+const SPI_SETMOUSEKEYS = 55;
+const SPI_GETSHOWSOUNDS = 56;
+const SPI_SETSHOWSOUNDS = 57;
+const SPI_GETSTICKYKEYS = 58;
+const SPI_SETSTICKYKEYS = 59;
+const SPI_GETACCESSTIMEOUT = 60;
+const SPI_SETACCESSTIMEOUT = 61;
+const SPI_GETSERIALKEYS = 62;
+const SPI_SETSERIALKEYS = 63;
+const SPI_GETSOUNDSENTRY = 64;
+const SPI_SETSOUNDSENTRY = 65;
+const SPI_GETSNAPTODEFBUTTON = 95;
+const SPI_SETSNAPTODEFBUTTON = 96;
+const SPI_GETMOUSEHOVERWIDTH = 98;
+const SPI_SETMOUSEHOVERWIDTH = 99;
+const SPI_GETMOUSEHOVERHEIGHT = 100;
+const SPI_SETMOUSEHOVERHEIGHT = 101;
+const SPI_GETMOUSEHOVERTIME = 102;
+const SPI_SETMOUSEHOVERTIME = 103;
+const SPI_GETWHEELSCROLLLINES = 104;
+const SPI_SETWHEELSCROLLLINES = 105;
+const SPI_GETMENUSHOWDELAY = 106;
+const SPI_SETMENUSHOWDELAY = 107;
+const SPI_GETWHEELSCROLLCHARS = 108;
+const SPI_SETWHEELSCROLLCHARS = 109;
+const SPI_GETSHOWIMEUI = 110;
+const SPI_SETSHOWIMEUI = 111;
+const SPI_GETMOUSESPEED = 112;
+const SPI_SETMOUSESPEED = 113;
+const SPI_GETSCREENSAVERRUNNING = 114;
+const SPI_GETDESKWALLPAPER = 115;
+const SPI_GETAUDIODESCRIPTION = 116;
+const SPI_SETAUDIODESCRIPTION = 117;
+const SPI_GETSCREENSAVESECURE = 118;
+const SPI_SETSCREENSAVESECURE = 119;
+const SPI_GETHUNGAPPTIMEOUT = 120;
+const SPI_SETHUNGAPPTIMEOUT = 121;
+const SPI_GETWAITTOKILLTIMEOUT = 122;
+const SPI_SETWAITTOKILLTIMEOUT = 123;
+const SPI_GETWAITTOKILLSERVICETIMEOUT = 124;
+const SPI_SETWAITTOKILLSERVICETIMEOUT = 125;
+const SPI_GETMOUSEDOCKTHRESHOLD = 126;
+const SPI_SETMOUSEDOCKTHRESHOLD = 127;
+const SPI_GETPENDOCKTHRESHOLD = 128;
+const SPI_SETPENDOCKTHRESHOLD = 129;
+const SPI_GETWINARRANGING = 130;
+const SPI_SETWINARRANGING = 131;
+const SPI_GETMOUSEDRAGOUTTHRESHOLD = 132;
+const SPI_SETMOUSEDRAGOUTTHRESHOLD = 133;
+const SPI_GETPENDRAGOUTTHRESHOLD = 134;
+const SPI_SETPENDRAGOUTTHRESHOLD = 135;
+const SPI_GETMOUSESIDEMOVETHRESHOLD = 136;
+const SPI_SETMOUSESIDEMOVETHRESHOLD = 137;
+const SPI_GETPENSIDEMOVETHRESHOLD = 138;
+const SPI_SETPENSIDEMOVETHRESHOLD = 139;
+const SPI_GETDRAGFROMMAXIMIZE = 140;
+const SPI_SETDRAGFROMMAXIMIZE = 141;
+const SPI_GETSNAPSIZING = 142;
+const SPI_SETSNAPSIZING = 143;
+const SPI_GETDOCKMOVING = 144;
+const SPI_SETDOCKMOVING = 145;
+const MAX_TOUCH_PREDICTION_FILTER_TAPS = 3;
+const TOUCHPREDICTIONPARAMETERS_DEFAULT_LATENCY = 8;
+const TOUCHPREDICTIONPARAMETERS_DEFAULT_SAMPLETIME = 8;
+const TOUCHPREDICTIONPARAMETERS_DEFAULT_USE_HW_TIMESTAMP = 1;
+const TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_DELTA = 0;
+const TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_LAMBDA_MIN = 0;
+const TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_LAMBDA_MAX = 0;
+const TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_LAMBDA_LEARNING_RATE = 0;
+const TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_EXPO_SMOOTH_ALPHA = 0;
+const SPI_GETTOUCHPREDICTIONPARAMETERS = 156;
+const SPI_SETTOUCHPREDICTIONPARAMETERS = 157;
+const MAX_LOGICALDPIOVERRIDE = 2;
+const SPI_GETLOGICALDPIOVERRIDE = 158;
+const SPI_SETLOGICALDPIOVERRIDE = 159;
+const SPI_GETMENURECT = 162;
+const SPI_SETMENURECT = 163;
+const SPI_GETACTIVEWINDOWTRACKING = 4096;
+const SPI_SETACTIVEWINDOWTRACKING = 4097;
+const SPI_GETMENUANIMATION = 4098;
+const SPI_SETMENUANIMATION = 4099;
+const SPI_GETCOMBOBOXANIMATION = 4100;
+const SPI_SETCOMBOBOXANIMATION = 4101;
+const SPI_GETLISTBOXSMOOTHSCROLLING = 4102;
+const SPI_SETLISTBOXSMOOTHSCROLLING = 4103;
+const SPI_GETGRADIENTCAPTIONS = 4104;
+const SPI_SETGRADIENTCAPTIONS = 4105;
+const SPI_GETKEYBOARDCUES = 4106;
+const SPI_SETKEYBOARDCUES = 4107;
+const SPI_GETMENUUNDERLINES = 4106;
+const SPI_SETMENUUNDERLINES = 4107;
+const SPI_GETACTIVEWNDTRKZORDER = 4108;
+const SPI_SETACTIVEWNDTRKZORDER = 4109;
+const SPI_GETHOTTRACKING = 4110;
+const SPI_SETHOTTRACKING = 4111;
+const SPI_GETMENUFADE = 4114;
+const SPI_SETMENUFADE = 4115;
+const SPI_GETSELECTIONFADE = 4116;
+const SPI_SETSELECTIONFADE = 4117;
+const SPI_GETTOOLTIPANIMATION = 4118;
+const SPI_SETTOOLTIPANIMATION = 4119;
+const SPI_GETTOOLTIPFADE = 4120;
+const SPI_SETTOOLTIPFADE = 4121;
+const SPI_GETCURSORSHADOW = 4122;
+const SPI_SETCURSORSHADOW = 4123;
+const SPI_GETMOUSESONAR = 4124;
+const SPI_SETMOUSESONAR = 4125;
+const SPI_GETMOUSECLICKLOCK = 4126;
+const SPI_SETMOUSECLICKLOCK = 4127;
+const SPI_GETMOUSEVANISH = 4128;
+const SPI_SETMOUSEVANISH = 4129;
+const SPI_GETFLATMENU = 4130;
+const SPI_SETFLATMENU = 4131;
+const SPI_GETDROPSHADOW = 4132;
+const SPI_SETDROPSHADOW = 4133;
+const SPI_GETBLOCKSENDINPUTRESETS = 4134;
+const SPI_SETBLOCKSENDINPUTRESETS = 4135;
+const SPI_GETUIEFFECTS = 4158;
+const SPI_SETUIEFFECTS = 4159;
+const SPI_GETDISABLEOVERLAPPEDCONTENT = 4160;
+const SPI_SETDISABLEOVERLAPPEDCONTENT = 4161;
+const SPI_GETCLIENTAREAANIMATION = 4162;
+const SPI_SETCLIENTAREAANIMATION = 4163;
+const SPI_GETCLEARTYPE = 4168;
+const SPI_SETCLEARTYPE = 4169;
+const SPI_GETSPEECHRECOGNITION = 4170;
+const SPI_SETSPEECHRECOGNITION = 4171;
+const SPI_GETCARETBROWSING = 4172;
+const SPI_SETCARETBROWSING = 4173;
+const SPI_GETTHREADLOCALINPUTSETTINGS = 4174;
+const SPI_SETTHREADLOCALINPUTSETTINGS = 4175;
+const SPI_GETSYSTEMLANGUAGEBAR = 4176;
+const SPI_SETSYSTEMLANGUAGEBAR = 4177;
+const SPI_GETFOREGROUNDLOCKTIMEOUT = 8192;
+const SPI_SETFOREGROUNDLOCKTIMEOUT = 8193;
+const SPI_GETACTIVEWNDTRKTIMEOUT = 8194;
+const SPI_SETACTIVEWNDTRKTIMEOUT = 8195;
+const SPI_GETFOREGROUNDFLASHCOUNT = 8196;
+const SPI_SETFOREGROUNDFLASHCOUNT = 8197;
+const SPI_GETCARETWIDTH = 8198;
+const SPI_SETCARETWIDTH = 8199;
+const SPI_GETMOUSECLICKLOCKTIME = 8200;
+const SPI_SETMOUSECLICKLOCKTIME = 8201;
+const SPI_GETFONTSMOOTHINGTYPE = 8202;
+const SPI_SETFONTSMOOTHINGTYPE = 8203;
+const FE_FONTSMOOTHINGSTANDARD = 1;
+const FE_FONTSMOOTHINGCLEARTYPE = 2;
+const SPI_GETFONTSMOOTHINGCONTRAST = 8204;
+const SPI_SETFONTSMOOTHINGCONTRAST = 8205;
+const SPI_GETFOCUSBORDERWIDTH = 8206;
+const SPI_SETFOCUSBORDERWIDTH = 8207;
+const SPI_GETFOCUSBORDERHEIGHT = 8208;
+const SPI_SETFOCUSBORDERHEIGHT = 8209;
+const SPI_GETFONTSMOOTHINGORIENTATION = 8210;
+const SPI_SETFONTSMOOTHINGORIENTATION = 8211;
+const FE_FONTSMOOTHINGORIENTATIONBGR = 0;
+const FE_FONTSMOOTHINGORIENTATIONRGB = 1;
+const SPI_GETMINIMUMHITRADIUS = 8212;
+const SPI_SETMINIMUMHITRADIUS = 8213;
+const SPI_GETMESSAGEDURATION = 8214;
+const SPI_SETMESSAGEDURATION = 8215;
+const SPI_GETCONTACTVISUALIZATION = 8216;
+const SPI_SETCONTACTVISUALIZATION = 8217;
+const CONTACTVISUALIZATION_OFF = 0;
+const CONTACTVISUALIZATION_ON = 1;
+const CONTACTVISUALIZATION_PRESENTATIONMODE = 2;
+const SPI_GETGESTUREVISUALIZATION = 8218;
+const SPI_SETGESTUREVISUALIZATION = 8219;
+const GESTUREVISUALIZATION_OFF = 0;
+const GESTUREVISUALIZATION_ON = 31;
+const GESTUREVISUALIZATION_TAP = 1;
+const GESTUREVISUALIZATION_DOUBLETAP = 2;
+const GESTUREVISUALIZATION_PRESSANDTAP = 4;
+const GESTUREVISUALIZATION_PRESSANDHOLD = 8;
+const GESTUREVISUALIZATION_RIGHTTAP = 16;
+const SPI_GETMOUSEWHEELROUTING = 8220;
+const SPI_SETMOUSEWHEELROUTING = 8221;
+const MOUSEWHEEL_ROUTING_FOCUS = 0;
+const MOUSEWHEEL_ROUTING_HYBRID = 1;
+const MOUSEWHEEL_ROUTING_MOUSE_POS = 2;
+const SPI_GETPENVISUALIZATION = 8222;
+const SPI_SETPENVISUALIZATION = 8223;
+const PENVISUALIZATION_ON = 35;
+const PENVISUALIZATION_OFF = 0;
+const PENVISUALIZATION_TAP = 1;
+const PENVISUALIZATION_DOUBLETAP = 2;
+const PENVISUALIZATION_CURSOR = 32;
+const SPIF_UPDATEINIFILE = 1;
+const SPIF_SENDWININICHANGE = 2;
+const SPIF_SENDCHANGE = 2;
+const ARW_BOTTOMLEFT = 0;
+const ARW_BOTTOMRIGHT = 1;
+const ARW_TOPLEFT = 2;
+const ARW_TOPRIGHT = 3;
+const ARW_STARTMASK = 3;
+const ARW_STARTRIGHT = 1;
+const ARW_STARTTOP = 2;
+const ARW_LEFT = 0;
+const ARW_RIGHT = 0;
+const ARW_UP = 4;
+const ARW_DOWN = 4;
+const ARW_HIDE = 8;
+const SERKF_SERIALKEYSON = 1;
+const SERKF_AVAILABLE = 2;
+const SERKF_INDICATOR = 4;
+const HCF_HIGHCONTRASTON = 1;
+const HCF_AVAILABLE = 2;
+const HCF_HOTKEYACTIVE = 4;
+const HCF_CONFIRMHOTKEY = 8;
+const HCF_HOTKEYSOUND = 16;
+const HCF_INDICATOR = 32;
+const HCF_HOTKEYAVAILABLE = 64;
+const HCF_LOGONDESKTOP = 256;
+const HCF_DEFAULTDESKTOP = 512;
+const CDS_UPDATEREGISTRY = 1;
+const CDS_TEST = 2;
+const CDS_FULLSCREEN = 4;
+const CDS_GLOBAL = 8;
+const CDS_SET_PRIMARY = 16;
+const CDS_VIDEOPARAMETERS = 32;
+const CDS_ENABLE_UNSAFE_MODES = 256;
+const CDS_DISABLE_UNSAFE_MODES = 512;
+const CDS_RESET = 1073741824;
+const CDS_RESET_EX = 536870912;
+const CDS_NORESET = 268435456;
+const DISP_CHANGE_SUCCESSFUL = 0;
+const DISP_CHANGE_RESTART = 1;
+const EDS_RAWMODE = 2;
+const EDS_ROTATEDMODE = 4;
+const EDD_GET_DEVICE_INTERFACE_NAME = 1;
+const FKF_FILTERKEYSON = 1;
+const FKF_AVAILABLE = 2;
+const FKF_HOTKEYACTIVE = 4;
+const FKF_CONFIRMHOTKEY = 8;
+const FKF_HOTKEYSOUND = 16;
+const FKF_INDICATOR = 32;
+const FKF_CLICKON = 64;
+const SKF_STICKYKEYSON = 1;
+const SKF_AVAILABLE = 2;
+const SKF_HOTKEYACTIVE = 4;
+const SKF_CONFIRMHOTKEY = 8;
+const SKF_HOTKEYSOUND = 16;
+const SKF_INDICATOR = 32;
+const SKF_AUDIBLEFEEDBACK = 64;
+const SKF_TRISTATE = 128;
+const SKF_TWOKEYSOFF = 256;
+const SKF_LALTLATCHED = 268435456;
+const SKF_LCTLLATCHED = 67108864;
+const SKF_LSHIFTLATCHED = 16777216;
+const SKF_RALTLATCHED = 536870912;
+const SKF_RCTLLATCHED = 134217728;
+const SKF_RSHIFTLATCHED = 33554432;
+const SKF_LWINLATCHED = 1073741824;
+const SKF_RWINLATCHED = 2147483648;
+const SKF_LALTLOCKED = 1048576;
+const SKF_LCTLLOCKED = 262144;
+const SKF_LSHIFTLOCKED = 65536;
+const SKF_RALTLOCKED = 2097152;
+const SKF_RCTLLOCKED = 524288;
+const SKF_RSHIFTLOCKED = 131072;
+const SKF_LWINLOCKED = 4194304;
+const SKF_RWINLOCKED = 8388608;
+const MKF_MOUSEKEYSON = 1;
+const MKF_AVAILABLE = 2;
+const MKF_HOTKEYACTIVE = 4;
+const MKF_CONFIRMHOTKEY = 8;
+const MKF_HOTKEYSOUND = 16;
+const MKF_INDICATOR = 32;
+const MKF_MODIFIERS = 64;
+const MKF_REPLACENUMBERS = 128;
+const MKF_LEFTBUTTONSEL = 268435456;
+const MKF_RIGHTBUTTONSEL = 536870912;
+const MKF_LEFTBUTTONDOWN = 16777216;
+const MKF_RIGHTBUTTONDOWN = 33554432;
+const MKF_MOUSEMODE = 2147483648;
+const ATF_TIMEOUTON = 1;
+const ATF_ONOFFFEEDBACK = 2;
+const SSGF_NONE = 0;
+const SSGF_DISPLAY = 3;
+const SSTF_NONE = 0;
+const SSTF_CHARS = 1;
+const SSTF_BORDER = 2;
+const SSTF_DISPLAY = 3;
+const SSWF_NONE = 0;
+const SSWF_TITLE = 1;
+const SSWF_WINDOW = 2;
+const SSWF_DISPLAY = 3;
+const SSWF_CUSTOM = 4;
+const SSF_SOUNDSENTRYON = 1;
+const SSF_AVAILABLE = 2;
+const SSF_INDICATOR = 4;
+const TKF_TOGGLEKEYSON = 1;
+const TKF_AVAILABLE = 2;
+const TKF_HOTKEYACTIVE = 4;
+const TKF_CONFIRMHOTKEY = 8;
+const TKF_HOTKEYSOUND = 16;
+const TKF_INDICATOR = 32;
+const SLE_ERROR = 1;
+const SLE_MINORERROR = 2;
+const SLE_WARNING = 3;
+const MONITOR_DEFAULTTONULL = 0;
+const MONITOR_DEFAULTTOPRIMARY = 1;
+const MONITOR_DEFAULTTONEAREST = 2;
+const MONITORINFOF_PRIMARY = 1;
+const CCHDEVICENAME = 32;
+const WINEVENT_OUTOFCONTEXT = 0;
+const WINEVENT_SKIPOWNTHREAD = 1;
+const WINEVENT_SKIPOWNPROCESS = 2;
+const WINEVENT_INCONTEXT = 4;
+const CHILDID_SELF = 0;
+const INDEXID_OBJECT = 0;
+const INDEXID_CONTAINER = 0;
+const OBJID_WINDOW = 0;
+const OBJID_SYSMENU = 4294967295;
+const OBJID_TITLEBAR = 4294967294;
+const OBJID_MENU = 4294967293;
+const OBJID_CLIENT = 4294967292;
+const OBJID_VSCROLL = 4294967291;
+const OBJID_HSCROLL = 4294967290;
+const OBJID_SIZEGRIP = 4294967289;
+const OBJID_CARET = 4294967288;
+const OBJID_CURSOR = 4294967287;
+const OBJID_ALERT = 4294967286;
+const OBJID_SOUND = 4294967285;
+const OBJID_QUERYCLASSNAMEIDX = 4294967284;
+const OBJID_NATIVEOM = 4294967280;
+const EVENT_MIN = 1;
+const EVENT_MAX = 2147483647;
+const EVENT_SYSTEM_SOUND = 1;
+const EVENT_SYSTEM_ALERT = 2;
+const EVENT_SYSTEM_FOREGROUND = 3;
+const EVENT_SYSTEM_MENUSTART = 4;
+const EVENT_SYSTEM_MENUEND = 5;
+const EVENT_SYSTEM_MENUPOPUPSTART = 6;
+const EVENT_SYSTEM_MENUPOPUPEND = 7;
+const EVENT_SYSTEM_CAPTURESTART = 8;
+const EVENT_SYSTEM_CAPTUREEND = 9;
+const EVENT_SYSTEM_MOVESIZESTART = 10;
+const EVENT_SYSTEM_MOVESIZEEND = 11;
+const EVENT_SYSTEM_CONTEXTHELPSTART = 12;
+const EVENT_SYSTEM_CONTEXTHELPEND = 13;
+const EVENT_SYSTEM_DRAGDROPSTART = 14;
+const EVENT_SYSTEM_DRAGDROPEND = 15;
+const EVENT_SYSTEM_DIALOGSTART = 16;
+const EVENT_SYSTEM_DIALOGEND = 17;
+const EVENT_SYSTEM_SCROLLINGSTART = 18;
+const EVENT_SYSTEM_SCROLLINGEND = 19;
+const EVENT_SYSTEM_SWITCHSTART = 20;
+const EVENT_SYSTEM_SWITCHEND = 21;
+const EVENT_SYSTEM_MINIMIZESTART = 22;
+const EVENT_SYSTEM_MINIMIZEEND = 23;
+const EVENT_SYSTEM_DESKTOPSWITCH = 32;
+const EVENT_SYSTEM_SWITCHER_APPGRABBED = 36;
+const EVENT_SYSTEM_SWITCHER_APPOVERTARGET = 37;
+const EVENT_SYSTEM_SWITCHER_APPDROPPED = 38;
+const EVENT_SYSTEM_SWITCHER_CANCELLED = 39;
+const EVENT_SYSTEM_IME_KEY_NOTIFICATION = 41;
+const EVENT_SYSTEM_END = 255;
+const EVENT_OEM_DEFINED_START = 257;
+const EVENT_OEM_DEFINED_END = 511;
+const EVENT_UIA_EVENTID_START = 19968;
+const EVENT_UIA_EVENTID_END = 20223;
+const EVENT_UIA_PROPID_START = 29952;
+const EVENT_UIA_PROPID_END = 30207;
+const EVENT_CONSOLE_CARET = 16385;
+const EVENT_CONSOLE_UPDATE_REGION = 16386;
+const EVENT_CONSOLE_UPDATE_SIMPLE = 16387;
+const EVENT_CONSOLE_UPDATE_SCROLL = 16388;
+const EVENT_CONSOLE_LAYOUT = 16389;
+const EVENT_CONSOLE_START_APPLICATION = 16390;
+const EVENT_CONSOLE_END_APPLICATION = 16391;
+const CONSOLE_APPLICATION_16BIT = 0;
+const CONSOLE_CARET_SELECTION = 1;
+const CONSOLE_CARET_VISIBLE = 2;
+const EVENT_CONSOLE_END = 16639;
+const EVENT_OBJECT_CREATE = 32768;
+const EVENT_OBJECT_DESTROY = 32769;
+const EVENT_OBJECT_SHOW = 32770;
+const EVENT_OBJECT_HIDE = 32771;
+const EVENT_OBJECT_REORDER = 32772;
+const EVENT_OBJECT_FOCUS = 32773;
+const EVENT_OBJECT_SELECTION = 32774;
+const EVENT_OBJECT_SELECTIONADD = 32775;
+const EVENT_OBJECT_SELECTIONREMOVE = 32776;
+const EVENT_OBJECT_SELECTIONWITHIN = 32777;
+const EVENT_OBJECT_STATECHANGE = 32778;
+const EVENT_OBJECT_LOCATIONCHANGE = 32779;
+const EVENT_OBJECT_NAMECHANGE = 32780;
+const EVENT_OBJECT_DESCRIPTIONCHANGE = 32781;
+const EVENT_OBJECT_VALUECHANGE = 32782;
+const EVENT_OBJECT_PARENTCHANGE = 32783;
+const EVENT_OBJECT_HELPCHANGE = 32784;
+const EVENT_OBJECT_DEFACTIONCHANGE = 32785;
+const EVENT_OBJECT_ACCELERATORCHANGE = 32786;
+const EVENT_OBJECT_INVOKED = 32787;
+const EVENT_OBJECT_TEXTSELECTIONCHANGED = 32788;
+const EVENT_OBJECT_CONTENTSCROLLED = 32789;
+const EVENT_SYSTEM_ARRANGMENTPREVIEW = 32790;
+const EVENT_OBJECT_CLOAKED = 32791;
+const EVENT_OBJECT_UNCLOAKED = 32792;
+const EVENT_OBJECT_LIVEREGIONCHANGED = 32793;
+const EVENT_OBJECT_HOSTEDOBJECTSINVALIDATED = 32800;
+const EVENT_OBJECT_DRAGSTART = 32801;
+const EVENT_OBJECT_DRAGCANCEL = 32802;
+const EVENT_OBJECT_DRAGCOMPLETE = 32803;
+const EVENT_OBJECT_DRAGENTER = 32804;
+const EVENT_OBJECT_DRAGLEAVE = 32805;
+const EVENT_OBJECT_DRAGDROPPED = 32806;
+const EVENT_OBJECT_IME_SHOW = 32807;
+const EVENT_OBJECT_IME_HIDE = 32808;
+const EVENT_OBJECT_IME_CHANGE = 32809;
+const EVENT_OBJECT_TEXTEDIT_CONVERSIONTARGETCHANGED = 32816;
+const EVENT_OBJECT_END = 33023;
+const EVENT_AIA_START = 40960;
+const EVENT_AIA_END = 45055;
+const SOUND_SYSTEM_STARTUP = 1;
+const SOUND_SYSTEM_SHUTDOWN = 2;
+const SOUND_SYSTEM_BEEP = 3;
+const SOUND_SYSTEM_ERROR = 4;
+const SOUND_SYSTEM_QUESTION = 5;
+const SOUND_SYSTEM_WARNING = 6;
+const SOUND_SYSTEM_INFORMATION = 7;
+const SOUND_SYSTEM_MAXIMIZE = 8;
+const SOUND_SYSTEM_MINIMIZE = 9;
+const SOUND_SYSTEM_RESTOREUP = 10;
+const SOUND_SYSTEM_RESTOREDOWN = 11;
+const SOUND_SYSTEM_APPSTART = 12;
+const SOUND_SYSTEM_FAULT = 13;
+const SOUND_SYSTEM_APPEND = 14;
+const SOUND_SYSTEM_MENUCOMMAND = 15;
+const SOUND_SYSTEM_MENUPOPUP = 16;
+const CSOUND_SYSTEM = 16;
+const ALERT_SYSTEM_INFORMATIONAL = 1;
+const ALERT_SYSTEM_WARNING = 2;
+const ALERT_SYSTEM_ERROR = 3;
+const ALERT_SYSTEM_QUERY = 4;
+const ALERT_SYSTEM_CRITICAL = 5;
+const CALERT_SYSTEM = 6;
+const GUI_CARETBLINKING = 1;
+const GUI_INMOVESIZE = 2;
+const GUI_INMENUMODE = 4;
+const GUI_SYSTEMMENUMODE = 8;
+const GUI_POPUPMENUMODE = 16;
+const GUI_16BITTASK = 0;
+const USER_DEFAULT_SCREEN_DPI = 96;
+const STATE_SYSTEM_UNAVAILABLE = 1;
+const STATE_SYSTEM_SELECTED = 2;
+const STATE_SYSTEM_FOCUSED = 4;
+const STATE_SYSTEM_PRESSED = 8;
+const STATE_SYSTEM_CHECKED = 16;
+const STATE_SYSTEM_MIXED = 32;
+const STATE_SYSTEM_INDETERMINATE = 32;
+const STATE_SYSTEM_READONLY = 64;
+const STATE_SYSTEM_HOTTRACKED = 128;
+const STATE_SYSTEM_DEFAULT = 256;
+const STATE_SYSTEM_EXPANDED = 512;
+const STATE_SYSTEM_COLLAPSED = 1024;
+const STATE_SYSTEM_BUSY = 2048;
+const STATE_SYSTEM_FLOATING = 4096;
+const STATE_SYSTEM_MARQUEED = 8192;
+const STATE_SYSTEM_ANIMATED = 16384;
+const STATE_SYSTEM_INVISIBLE = 32768;
+const STATE_SYSTEM_OFFSCREEN = 65536;
+const STATE_SYSTEM_SIZEABLE = 131072;
+const STATE_SYSTEM_MOVEABLE = 262144;
+const STATE_SYSTEM_SELFVOICING = 524288;
+const STATE_SYSTEM_FOCUSABLE = 1048576;
+const STATE_SYSTEM_SELECTABLE = 2097152;
+const STATE_SYSTEM_LINKED = 4194304;
+const STATE_SYSTEM_TRAVERSED = 8388608;
+const STATE_SYSTEM_MULTISELECTABLE = 16777216;
+const STATE_SYSTEM_EXTSELECTABLE = 33554432;
+const STATE_SYSTEM_ALERT_LOW = 67108864;
+const STATE_SYSTEM_ALERT_MEDIUM = 134217728;
+const STATE_SYSTEM_ALERT_HIGH = 268435456;
+const STATE_SYSTEM_PROTECTED = 536870912;
+const STATE_SYSTEM_VALID = 1073741823;
+const CCHILDREN_TITLEBAR = 5;
+const CCHILDREN_SCROLLBAR = 5;
+const CURSOR_SHOWING = 1;
+const CURSOR_SUPPRESSED = 2;
+const WS_ACTIVECAPTION = 1;
+const GA_PARENT = 1;
+const GA_ROOT = 2;
+const GA_ROOTOWNER = 3;
+const RIM_INPUT = 0;
+const RIM_INPUTSINK = 1;
+const RIM_TYPEMOUSE = 0;
+const RIM_TYPEKEYBOARD = 1;
+const RIM_TYPEHID = 2;
+const RI_MOUSE_LEFT_BUTTON_DOWN = 1;
+const RI_MOUSE_LEFT_BUTTON_UP = 2;
+const RI_MOUSE_RIGHT_BUTTON_DOWN = 4;
+const RI_MOUSE_RIGHT_BUTTON_UP = 8;
+const RI_MOUSE_MIDDLE_BUTTON_DOWN = 16;
+const RI_MOUSE_MIDDLE_BUTTON_UP = 32;
+const RI_MOUSE_BUTTON_1_DOWN = 1;
+const RI_MOUSE_BUTTON_1_UP = 2;
+const RI_MOUSE_BUTTON_2_DOWN = 4;
+const RI_MOUSE_BUTTON_2_UP = 8;
+const RI_MOUSE_BUTTON_3_DOWN = 16;
+const RI_MOUSE_BUTTON_3_UP = 32;
+const RI_MOUSE_BUTTON_4_DOWN = 64;
+const RI_MOUSE_BUTTON_4_UP = 128;
+const RI_MOUSE_BUTTON_5_DOWN = 256;
+const RI_MOUSE_BUTTON_5_UP = 512;
+const RI_MOUSE_WHEEL = 1024;
+const RI_MOUSE_HWHEEL = 2048;
+const MOUSE_MOVE_RELATIVE = 0;
+const MOUSE_MOVE_ABSOLUTE = 1;
+const MOUSE_VIRTUAL_DESKTOP = 2;
+const MOUSE_ATTRIBUTES_CHANGED = 4;
+const MOUSE_MOVE_NOCOALESCE = 8;
+const KEYBOARD_OVERRUN_MAKE_CODE = 255;
+const RI_KEY_MAKE = 0;
+const RI_KEY_BREAK = 1;
+const RI_KEY_E0 = 2;
+const RI_KEY_E1 = 4;
+const RI_KEY_TERMSRV_SET_LED = 8;
+const RI_KEY_TERMSRV_SHADOW = 16;
+const RID_INPUT = 268435459;
+const RID_HEADER = 268435461;
+const RIDI_PREPARSEDDATA = 536870917;
+const RIDI_DEVICENAME = 536870919;
+const RIDI_DEVICEINFO = 536870923;
+const RIDEV_REMOVE = 1;
+const RIDEV_EXCLUDE = 16;
+const RIDEV_PAGEONLY = 32;
+const RIDEV_NOLEGACY = 48;
+const RIDEV_INPUTSINK = 256;
+const RIDEV_CAPTUREMOUSE = 512;
+const RIDEV_NOHOTKEYS = 512;
+const RIDEV_APPKEYS = 1024;
+const RIDEV_EXINPUTSINK = 4096;
+const RIDEV_DEVNOTIFY = 8192;
+const RIDEV_EXMODEMASK = 240;
+const GIDC_ARRIVAL = 1;
+const GIDC_REMOVAL = 2;
+const POINTER_DEVICE_PRODUCT_STRING_MAX = 520;
+const PDC_ARRIVAL = 1;
+const PDC_REMOVAL = 2;
+const PDC_ORIENTATION_0 = 4;
+const PDC_ORIENTATION_90 = 8;
+const PDC_ORIENTATION_180 = 16;
+const PDC_ORIENTATION_270 = 32;
+const PDC_MODE_DEFAULT = 64;
+const PDC_MODE_CENTERED = 128;
+const PDC_MAPPING_CHANGE = 256;
+const PDC_RESOLUTION = 512;
+const PDC_ORIGIN = 1024;
+const PDC_MODE_ASPECTRATIOPRESERVED = 2048;
+const MSGFLT_ADD = 1;
+const MSGFLT_REMOVE = 2;
+const MSGFLTINFO_NONE = 0;
+const MSGFLTINFO_ALREADYALLOWED_FORWND = 1;
+const MSGFLTINFO_ALREADYDISALLOWED_FORWND = 2;
+const MSGFLTINFO_ALLOWED_HIGHER = 3;
+const MSGFLT_RESET = 0;
+const MSGFLT_ALLOW = 1;
+const MSGFLT_DISALLOW = 2;
+const GF_BEGIN = 1;
+const GF_INERTIA = 2;
+const GF_END = 4;
+const GID_BEGIN = 1;
+const GID_END = 2;
+const GID_ZOOM = 3;
+const GID_PAN = 4;
+const GID_ROTATE = 5;
+const GID_TWOFINGERTAP = 6;
+const GID_PRESSANDTAP = 7;
+const GID_ROLLOVER = 7;
+const GC_ALLGESTURES = 1;
+const GC_ZOOM = 1;
+const GC_PAN = 1;
+const GC_PAN_WITH_SINGLE_FINGER_VERTICALLY = 2;
+const GC_PAN_WITH_SINGLE_FINGER_HORIZONTALLY = 4;
+const GC_PAN_WITH_GUTTER = 8;
+const GC_PAN_WITH_INERTIA = 16;
+const GC_ROTATE = 1;
+const GC_TWOFINGERTAP = 1;
+const GC_PRESSANDTAP = 1;
+const GC_ROLLOVER = 1;
+const GESTURECONFIGMAXCOUNT = 256;
+const GCF_INCLUDE_ANCESTORS = 1;
+const NID_INTEGRATED_TOUCH = 1;
+const NID_EXTERNAL_TOUCH = 2;
+const NID_INTEGRATED_PEN = 4;
+const NID_EXTERNAL_PEN = 8;
+const NID_MULTI_INPUT = 64;
+const NID_READY = 128;
+const MAX_STR_BLOCKREASON = 256;
+
 /**
  * Enters the Windows main loop.
  * This function must be called if the application has a window.
- * The call to wb_main_loop() must be the last executable statement of the PHP script:
- * All statements after it will be ignored.
+ * The call to wb_main_loop() must be the last executable statement of the PHP script: All statements after it will be ignored.
  * The return value is used for debugging purposes only and may be ignored.
- * @return void - For debugging
+ *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_main_loop.html
+ * @return int|null
  */
-function wb_main_loop() {}
+function wb_main_loop() : ?int{}
 
 /**
  * Looks for a file in the Windows and System directories, in this order.
- * If the file exists, return the complete path to it.
- * If not, return filename.
+ * If the file exists, return the complete path to it. If not, return filename.
  *
- * @param $filename
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_find_file.html
+ * @param string $filename
  * @return string
  */
-function wb_find_file($filename) {}
+function wb_find_file(string $filename) : string{}
 
 /**
- * Creates and displays a message box under the style supplied and returns a value according to the button pressed.
+ * Creates and displays a message box and returns a value according to the button pressed.
  *
- * Value for style & What is displayed
+ * Pressing either button Cancel, No, Ignore or Abort will return FALSE.
+ * Pressing OK, Yes or Retry will return TRUE.
+ * If the function is not successful it will return NULL.
  *
- * WBC_OK (the default) - An OK button.
+ * Message box styles:
+ * WBC_INFO
+ * WBC_OK
+ * WBC_OKCANCEL
+ * WBC_QUESTION
+ * WBC_STOP
+ * WBC_WARNING
+ * WBC_YESNO
+ * WBC_YESNOCANCEL
  *
- * WBC_INFO - An information icon and an OK button.
- *
- * WBC_WARNING - An exclamation point icon and an OK button.
- *
- * WBC_STOP - A stop icon and an OK button.
- *
- * WBC_QUESTION - A question mark icon and an OK button.
- *
- * WBC_OKCANCEL - A question mark icon, an OK button and a Cancel button.
- *
- * WBC_YESNO - A question mark icon, a Yes button and a No button.
- *
- * WBC_YESNOCANCEL - A question mark icon, a Yes button, a No button and a Cancel button.
- *
- * @param $parent
- * @param $message
- * @param null $title
- * @param null $style
- *
- * @return int
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_message_box.html
+ * @param int $wbObject
+ * @param string $message
+ * @param string $title
+ * @param int $style
+ * @return int|bool|null
  */
-function wb_message_box($parent, $message, $title = null, $style = null) {}
+function wb_message_box(int $wbObject, string $message, string $title, int $style) : int|bool|null{}
 
 /**
- * Loads and plays a sound file or system sound.
- * Parameter source may be a sound file name or a system sound constant.
- * Parameter command may be used used to play a WAV sound synchronously or in a loop.
- * A synchronous sound stops the currently playing sound and suspends the application control until it finishes.
- * A MIDI soundtrack always stops any currently playing MIDI soundtrack.
- * To stop one or more sounds, use function wb_stop_sound().
+ * Plays a system sound. Options for parameter style are:
  *
- * Value of $source:
- * MIDI file name - Load and play the specified MIDI file.
+ * Value of style   Meaning
+ * WBC_OK	        Default system sound
+ * WBC_INFO	        System information sound
+ * WBC_WARNING	    Warning sound
+ * WBC_STOP	        Error sound
+ * WBC_QUESTION	    Question sound
+ * WBC_BEEP	        Default beep
  *
- * WBC_OK - Default system sound
- *
- * WBC_INFO - System information sound
- *
- * WBC_WARNING - Warning sound
- *
- * WBC_STOP - Error sound
- *
- * WBC_QUESTION - Question sound
- *
- * WBC_BEEP - Default beep (via the computer speaker)
- *
- * Value of $command:
- * null or empty - Load and play the specified WAV sound file.
- *
- * 'sync' - Load and play the specified WAV sound file synchronously.
- *
- * 'loop' - Load and loop the specified WAV sound file.
- *
- * Returns TRUE on success or FALSE otherwise.
- *
- * @param $source
- * @param null $command
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_play_sound.html
+ * @param string|int $source
+ * @param string|null $command
  * @return bool
  */
-function wb_play_sound($source, $command = null) {}
+function wb_play_sound(string|int $source = 0, ?string $command = 'play') : bool{}
 
 /**
- * Stops one or more sounds that were started with wb_play_sound().
+ * Stops a sound Options are: all, wave, midi (or wav/mid)
  *
- * null, empty or 'all' - Stop all sounds.
- *
- * 'wav' or 'wave' - Stop all WAV sounds.
- *
- * 'mid' or 'midi' - Stop all MIDI sounds.
- *
- * Returns TRUE on success or FALSE otherwise.
- *
- * @param null $command
- *
+ * @param string|null $command
  * @return bool
  */
-function wb_stop_sound($command = null) {}
+function wb_stop_sound(?string $command = '') : bool{}
 
 /**
- * Opens or executes a command. The string passed to this function can be one of the following:.
+ * Opens or executes a command. The string passed to this function can be one of the following:
  *
  * A WinBinder script.
  * An executable file.
  * A non-executable file associated with an application.
  * A folder name. Passing a null or empty string opens the current folder.
  * A help file or help file topic.
- * An URL, e-mail, newsgroup, or another Internet client application.
+ * A URL, e-mail, newsgroup, or another Internet client application.
  *
  * Optional parameters can be passed to the command or application through the variable param.
+ * The function wb_exec() is useful for running a WinBinder script as a separate process.
+ * If command has a .phpw extension, this will be detected by the function and processed adequately.
  *
- * @param $command
- * @param null $param
+ * The following non-case-sensitive modifiers can be used as param:
  *
- * @return bool
+ * "" or empty	Run the script in the same mode as the calling process
+ * "w" or "windowed"	Run the script in windowed mode (release mode)
+ * "c" or "console"	Run the script in console mode (debug mode)
+ * "o" or "open"	Ignore the .phpw extension and treat command as any other string, shell-executing it
+ *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_exec.html
+ * @param string $program
+ * @param string|null $parameters
+ * @param bool $show
+ * @return int
  */
-function wb_exec($command, $param = null) {}
+function wb_exec(string $program, ?string $parameters = '', bool $show = true) : int{}
 
 /**
- * Returns information about the current system and application, according to the string info.
+ * Returns information about the current system and application, according to the string info. The parameter info is case-insensitive.
  *
- * The parameter info is not case-sensitive.
+ * info	            Meaning	                                                            Type	       Example
+ * "appmemory"	    The total memory used by the application	                        string	C:\PHP\PHP5\php.exe C:\PHP\code\test.phpw
+ * "commandline"	The original Windows command line including the executable file	    string	C:\PHP\PHP5\php.exe C:\PHP\code\test.phpw
+ * "computername"	The name of the computer inside the network	                    string	PICASSO
+ * "consolemode"	1 indicates that console mode (DOS box) is active, 0 otherwise	integer	0
+ * "diskdrives"	    The list of all available disk drives	                            string	A: C: D: E:
+ * "exepath"	    The path to the main executable (PHP.EXE)	                        string	C:\PHP\PHP5\
+ * "extensionpath"	The path to the current PHP extension	                            string	C:\PHP\PHP5\ext\
+ * "fontpath"	    The current font path	                                            string	C:\Windows\Fonts\
+ * "freememory"	    The available physical memory	                                    integer	71950336
+ * "gdiobjects"	    The number of currently allocated GDI handles	                    integer	25
+ * "instance"	    The instance identifier of the current application	                integer	4194304
+ * "ospath"	        The current OS path	                                                string	C:\Windows\
+ * "osversion"	    The complete OS version name	                                    string	Microsoft Windows XP Home Edition Service Pack 2 (build 2600)
+ * "osnumber"	    The numeric OS version number	                                    string	5.1
+ * "pgmpath"	    The default OS application path	                                    string	C:\Program Files\
+ * "screenarea"	    The total area (x, y, width, height) of the screen, in pixels	    string	0 0 1280 960
+ * "systemfont"	    The common (default) system font for dialog boxes	                string	Tahoma 8 Regular
+ * "systempath"	    The OS system path	                                                string	C:\Windows\System\
+ * "temppath"	    The path used by the OS to hold temporary files	                    string	C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\
+ * "totalmemory"	The total physical memory installed	                                string	200785920
+ * "username"	    The name of the currently logged user	                            string	Admin
+ * "userobjects"	The number of currently allocated USER handles	                    integer	7
+ * "workarea"	    The valid area (x, y, width, height) of the screen, in pixels	    string	0 0 1280 926
  *
- * "appmemory"    The total memory used by the application¹
- * "backgroundcolor"    The main face color for Windows dialog boxes and controls
- * "colordepth"    The current color depth in bits per pixel
- * "commandline"    The original Windows command line including the executable file
- * "computername"    The name of the computer inside the network
- * "consolemode"    1 indicates that console mode (DOS box) is active, 0 otherwise
- * "diskdrives"    The list of all available disk drives
- * "exepath"    The path to the main executable (PHP.EXE)
- * "fontpath"    The current font path
- * "freememory"    The available physical memory
- * "gdiobjects"    The number of currently allocated GDI handles
- * "instance"    The instance identifier of the current application
- * "osnumber"    The numeric OS version number
- * "ospath"    The current OS path
- * "osversion"    The complete OS version name
- * "pgmpath"    The default OS application path
- * "screenarea"    The total area (x, y, width, height) of the screen, in pixels
- * "systemfont"    The common (default) system font for dialog boxes
- * "systempath"    The OS system path
- * "temppath"    The path used by the OS to hold temporary files
- * "totalmemory"    The total physical memory installed
- * "username"    The name of the currently logged user
- * "userobjects"    The number of currently allocated USER handles
- * "workarea"    The valid area (x, y, width, height) of the screen, in pixels
+ * If info is not one of the above values, a warning message will be displayed and the function will return NULL.
+ * In certain cases where the return value is a string with several sub-strings, use the explode() function to separate values.
  *
- * @param $info
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_system_info.html
+ * @param string|null $config
  * @return mixed
  */
-function wb_get_system_info($info) {}
+function wb_get_system_info(?string $config = '') : mixed{}
 
 /**
  * Reads a string or integer value from the Windows registry item referenced by key, subkey and entry.
  * The subkey may contain forward or reverse slashes.
  * If entry is an empty string, a NULL value or is not supplied, the function retrieves the default value for the subkey.
- *
- * Values are always returned as strings.
- * If the requested entry is an empty string, an empty string is returned.
+ * Values are always returned as strings. If the requested entry is an empty string, an empty string is returned.
  * If the key does not exist in the registry, the function returns NULL.
  *
- * @param $key
- * @param $subkey
- * @param null $entry
+ * The key string can be one of the following values:
  *
+ * "HKCU" or "HKEY_CURRENT_USER"
+ * "HKLM" or "HKEY_LOCAL_MACHINE"
+ * "HKCR" or "HKEY_CLASSES_ROOT"
+ * "HKU" or "HKEY_USERS"
+ * "HKCC" or "HKEY_CURRENT_CONFIG"
+ * "HKD" or "HKEY_DYN_DATA"
+ *
+ * NOTES:
+ * Registry keys, subkeys and entries are case-insensitive.
+ * The maximum string retrieved is 1024 characters long.
+ *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_registry_key.html
+ * @param string $key
+ * @param string $subkey
+ * @param string|null $entry
  * @return string|null
  */
-function wb_get_registry_key($key, $subkey, $entry = null) {}
+function wb_get_registry_key(string $key, string $subkey, ?string $entry = '') : ?string{}
 
 /**
- * Reads a string or integer value from the Windows registry item referenced by key, subkey and entry.
+ * Writes a string or integer value to the Windows registry item referenced by key, subkey and entry.
  * The subkey may contain forward or reverse slashes.
- * If entry is an empty string, a NULL value or is not supplied, the function retrieves the default value for the subkey.
+ * If entry is an empty string, a NULL value or is not supplied, the function sets the default value for the subkey.
+ * value may be a string, an integer or a floating-point type.
+ * If the entry does not exist, the function creates it. If value is NULL, deletes the entry.
  *
- * Values are always returned as strings.
- * If the requested entry is an empty string, an empty string is returned.
- * If the key does not exist in the registry, the function returns NULL.
+ * The key string can be one of the following values:
  *
- * @param $key
- * @param $subkey
- * @param null $entry
- * @param null $value
+ * "HKCU" or "HKEY_CURRENT_USER"
+ * "HKLM" or "HKEY_LOCAL_MACHINE"
+ * "HKCR" or "HKEY_CLASSES_ROOT"
+ * "HKU" or "HKEY_USERS"
+ * "HKCC" or "HKEY_CURRENT_CONFIG"
+ * "HKD" or "HKEY_DYN_DATA"
  *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_registry_key.html
+ * @param string $key
+ * @param string $subkey
+ * @param string|null $entry
+ * @param string|float|bool|null $source
  * @return bool
  */
-function wb_set_registry_key($key, $subkey, $entry = null, $value = null) {}
+function wb_set_registry_key(string $key, string $subkey, ?string $entry = '', string|float|bool|null $source = '') : bool{}
 
 /**
  * Creates a timer in the specified window.
  * The timer must be given an integer id that must be unique to all timers and controls.
  * interval specifies the time-out value in milliseconds.
+ *
  * Timer events are passed to and processed by the window callback function.
+ *
  * A call to wb_destroy_timer() destroys the timer.
  *
- * Low resolution and high resolution timers
- *
- * This function supports both conventional (low-resolution) and multimedia (high-resolution) timers.
- * Use a non-negative id to specify a low-resolution timer or a negative id to specify a high-resolution timer.
- * Hi-res timers have a 10:1 increase in speed (resolution can go down to 1 ms opposed to 10 ms of a conventional timer) and much higher precision.
- *
- * NOTE: Only one high-resolution timer is allowed per application and it must be on the main window.
- *
- * @param $window
- * @param $id
- * @param $interval
- *
- * @return int
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_create_timer.html
+ * @param int $wbObject
+ * @param int $id
+ * @param int $milliseconds
+ * @return bool
  */
-function wb_create_timer($window, $id, $interval) {}
+function wb_create_timer(int $wbObject, int $id, int $milliseconds) : bool{}
 
 /**
- * This function creates a delay and verifies if mouse buttons are pressed and/or the keyboard state.
+ * This function creates a delay and verify if mouse buttons are pressed and/or the keyboard state.
  * This function is useful for lengthy operations.
  * In this case, wb_wait guarantees that the message control is sent back to the main loop, avoiding an unpleasant "freezing" effect.
- * Using this function also provides an way to easily exit lengthy operations by constantly monitoring the keyboard and mouse.
+ * Using this function also provides a way to easily exit lengthy operations by constantly monitoring the keyboard and mouse.
  *
- * Parameters:
+ * All parameters are optional. If window is null or not provided, the function will monitor the application's foreground window.
+ * An optional pause value, in milliseconds, can be passed to the function to provide accurate time delays. The default is 0 ms (no pause).
+ *
+ * The following constants are accepted in the flags argument to specify the events that will be monitored:
+ *
  * WBC_MOUSEDOWN
  * WBC_MOUSEUP
  * WBC_KEYDOWN
  * WBC_KEYUP
  *
- * @param null $window
- * @param null $pause
- * @param null $flags
+ * The default is WBC_KEYDOWN.
  *
- * @return int
+ * Note that if you set flags to zero, the function will not monitor any keyboard or mouse button events.
+ *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_wait.html
+ * @param int|null $wbObject
+ * @param int|null $pause
+ * @param int|null $flags
+ * @return int|null
  */
-function wb_wait($window = null, $pause = null, $flags = null) {}
+function wb_wait(?int $wbObject = 0, ?int $pause = 0, ?int $flags = 0) : ?int{}
+
+/**
+ * Low level function that checks if $wbObject is a valid Winbinder struct.
+ * To be used before accessing something that may no longer be a wbobject.
+ *
+ * @param int|null $wbObject
+ * @return bool
+ */
+function wb_is_obj(?int $wbObject) : bool{}
 
 /**
  * Destroys a timer created with wb_create_timer().
+ *
  * The window and the id parameters must be the same that were passed to wb_create_timer() when the timer was created.
  *
- * @param $window
- * @param $id
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_destroy_timer.html
+ * @param int $wbObject
+ * @param int $id
  * @return bool
  */
-function wb_destroy_timer($window, $id) {}
+function wb_destroy_timer(int $wbObject, int $id) : bool{}
 
 /**
- * Loads the image, icon or cursor file filename from disk and returns a handle to it.
- * If filename is an icon library, index specifies the index of the image inside the file. Default index is 0.
+ * This class creates keyboard accelerators.
+ * Keyboard accelerators, or just accelerators, are key combinations that can generate commands to be processed by a callback function.
  *
- * If source is an icon or a cursor, if param is 0 (the default), the function returns a large icon or cursor
- * if param is 1, it returns a small icon or cursor; if param is -1, the function returns the default icon or cursor.
+ * The function will create and apply an accelerator table to the application.
  *
- * NOTE: The resulting image must be destroyed by a call to wb_destroy_image().
+ * ASCII character codes, numbers, letters and non-alphabetic characters (like $ or %) are accepted. The following special keys are also accepted (between quotes):
  *
- * @param $filename
- * @param null $index
- * @param null $param
+ * F1 to F12
+ * ENTER
+ * ESCAPE or ESC
+ * TAB
+ * BACKSPACE
+ * SPACE
+ * LEFT
+ * UP
+ * RIGHT
+ * DOWN
+ * PAGEDOWN or PGDN
+ * PAGEUP or PGUP
+ * HOME
+ * END
+ * INSERT or INS
+ * DELETE or DEL
+ * PLUS
  *
- * @return int
+ * Strings can be preceded by one or more of the modifiers CTRL, SHIFT and ALT, followed by a plus sign (+). Strings are case-insensitive.
+ *
+ * NOTE: To create an accelerator with the Plus key, use the "PLUS" string instead of "+". Example: "Ctrl+Plus".
+ *
+ * @param int $wbObject
+ * @param array $accel
+ * @return bool
  */
-function wb_load_image($filename, $index = null, $param = null) {}
+function wb_set_accel_table(int $wbObject, array $accel) : bool{}
 
 /**
- * Saves the bitmap image to file filename.
- * The image handle must have been obtained with wb_create_image(), wb_create_mask() or wb_load_image().
+ * Get current clipboard contents.
+ *
+ * @return string|null
+ */
+function wb_get_clipboard() : ?string{}
+
+/**
+ * Set current clipboard contents.
+ *
+ * @param string $contents
+ * @return bool
+ */
+function wb_set_clipboard(string $contents) : bool{}
+
+/**
+ * Empty current clipboard conetnts.
+ * @return bool
+ */
+function wb_empty_clipboard() : bool{}
+
+/**
+ * Get current mouse position.
+ *
+ * Returns array of X & Y of current mouse position (when over winbinder window)
+ *
+ * @param int $wbObject
+ * @return array|bool
+ */
+function wb_get_mouse_pos(int $wbObject) : array|bool{}
+
+/**
+ * Set the current mouse postion.
+ *
+ * May not work due to certain Windows security settings
+ *
+ * @param int $x
+ * @param int $y
+ * @return bool
+ */
+function wb_set_mouse_pos(int $x, int $y) : bool{}
+
+/**
+ * Loads the image file filename from disk and returns a handle to it. index is the index of the image on the file if filename is an icon library.
+ *
+ * The resulting image must be destroyed by a call to wb_destroy_image.
+ *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_load_image.html
+ * @param string $file
+ * @param int|null $index
+ * @param int|null $icon_type
+ * @return int|null
+ */
+function wb_load_image(string $file, ?int $index = 0, ?int $icon_type = 0) : ?int{}
+
+/**
+ * Saves image to file filename.
  *
  * Returns TRUE on success or FALSE if an error occurs.
  *
- * @param $image
- * @param $filename
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_save_image.html
+ * @param int $bitmap
+ * @param string $file
  * @return bool
  */
-function wb_save_image($image, $filename) {}
+function wb_save_image(int $bitmap, string $file) : bool{}
 
 /**
- * Creates a true-color image measuring width by height pixels.
+ * Creates a true-color image measuring width by height pixels. The resulting image must be destroyed by a call to wb_destroy_image().
  *
- * NOTE: The resulting image must be destroyed by a call to wb_destroy_image().
+ * The optional dibbmi and dibbits parameters are used together to convert an image from another format to the internal Windows bitmap representation (DIB)
+ * or to create an image from raw binary data. The dibbmi parameter must be a pointer to a BITMAPINFO structure with information about the DIB,
+ * and dibbits must be a pointer to the DIB color data of the bitmap, as used in the API function SetDIBits().
  *
- * @param int  $width
- * @param int  $height
- * @param null $dibbmi
- * @param null $dibbits
+ * For more information consult the Windows API documentation.
  *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_create_image.html
+ * @param int $width
+ * @param int $height
+ * @param int|null $bitmap_info
+ * @param int|null $bitmap_bits
  * @return int
  */
-function wb_create_image($width = 0, $height = 0, $dibbmi = null, $dibbits = null) {}
+function wb_create_image(int $width, int $height, ?int $bitmap_info = 0, ?int $bitmap_bits = 0) : int{}
 
 /**
  * Creates a transparency mask of a true-color bitmap.
- * The mask returned is also a bitmap. The transparent color is set by transparent_color.
+ * The mask returned is also a bitmap.
+ * The transparent color is set by transparent_color.
+ * The resulting image must be destroyed by a call to wb_destroy_image().
  *
- * NOTE: The resulting image must be destroyed by a call to wb_destroy_image().
- *
- * @param $bitmap
- * @param $transparent_color
- *
- * @return int
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_create_mask.html
+ * @param int $bitmap
+ * @param int $colour
+ * @return int|null
  */
-function wb_create_mask($bitmap, $transparent_color) {}
+function wb_create_mask(int $bitmap, int $colour) : ?int{}
 
 /**
- * Destroys an image created by wb_create_image(), wb_create_mask() or wb_load_image().
+ * Destroys an image created by wb_create_image() or wb_create_mask().
  *
- * @param $image
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_destroy_image.html
+ * @param int $bitmap
  * @return bool
  */
-function wb_destroy_image($image) {}
+function wb_destroy_image(int $bitmap) : bool{}
+
+/**
+ * Captures a screenshot of the main monitor.
+ *
+ * Optionally saves it to a file on disk if $filename is provided.
+ *
+ * @param string|null $filename
+ * @return int
+ */
+function wb_screenshot(?string $filename) : int{}
 
 /**
  * Returns a string of data containing a copy of the internal true-color representation of the given image.
- * If compress4to3 is TRUE, every fourth byte of the original 32-bit data is skipped, yielding a RGB (24-bit) data string.
- * This is required for image libraries such as FreeImage.
+ * If compress4to3 is TRUE, every fourth byte of the original 32-bit data is skipped, yielding an RGB (24-bit) data string.
+ * This is required for image libraries such as FreeImage (click here for more information).
  *
- * @param $image
- * @param $compress4to3
+ * This function is useful to read the image pixels directly or to convert an image to another format like PNG, JPEG, or GIF using a foreign library.
+ * For more information consult the Windows API documentation.
  *
- * @return int
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_image_data.html
+ * @param int $bitmap
+ * @param int|bool|null $compress4to3
+ * @return string|null
  */
-function wb_get_image_data($image, $compress4to3) {}
+function wb_get_image_data(int $bitmap, int|bool|null $compress4to3 = false) : ?string{}
 
 /**
- * Returns the RGB color value of the pixel at the given coordinates. The first parameter, source, may be a WinBinder object, a window handle, a drawing surface or a bitmap.
+ * Returns the RGB color value of the pixel at the given coordinates.
+ *
+ * The first parameter, source, may be a WinBinder object, a window handle, a drawing surface or a bitmap.
  *
  * Returns NOCOLOR if an error occurs.
  *
- * @param $source
- * @param $xpos
- * @param $ypos
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_pixel.html
+ * @param int $handle
+ * @param int $x
+ * @param int $y
  * @return int
  */
-function wb_get_pixel($source, $xpos, $ypos) {}
+function wb_get_pixel(int $handle, int $x, int $y) : int{}
 
 /**
  * Draws a point of color, setting the RGB color value of the pixel that exists at the given coordinates.
@@ -517,489 +3499,627 @@ function wb_get_pixel($source, $xpos, $ypos) {}
  *
  * Returns TRUE on success or FALSE if an error occurs.
  *
- * @param $source
- * @param $xpos
- * @param $ypos
- * @param $color
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_draw_point.html
+ * @param int $handle
+ * @param int $x
+ * @param int $y
+ * @param int $color
  * @return bool
  */
-function wb_draw_point($source, $xpos, $ypos, $color) {}
+function wb_draw_point(int $handle, int $x, int $y, int $color) : bool{}
 
 /**
- * Draws a straight line. The first parameter, target, may be a WinBinder object, a window handle, a drawing surface or a bitmap.
+ * Draws a straight line.
  *
  * The start and end points of the line are (x0, y0) and (x1, y1) respectively, in pixels.
- * color is a RGB color value and linewidth is the width of the line, in pixels.
- * A linewidth of zero sets the width to 1 pixel. Parameter linestyle accepts the values specified in the table below.
  *
- * 0    Solid line (the default style)
- * 1    Dotted line
- * 2-7    Dashed lines with increasing lengths
- * 8    Line with alternating dashes and dots
- * 9    Line with alternating dashes and double dots
+ * color is an RGB color value and linewidth is the width of the line, in pixels.
+ * A linewidth of zero sets the width to 1 pixel.
+ *
+ * The first parameter, target, may be a WinBinder object, a window handle, a drawing surface or a bitmap.
  *
  * Returns TRUE on success or FALSE if an error occurs.
  *
- * @param $target
- * @param $x0
- * @param $y0
- * @param $x1
- * @param $y1
- * @param $color
- * @param null $linewidth
- * @param null $linestyle
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_draw_line.html
+ * @param int $handle
+ * @param int $start_x
+ * @param int $start_y
+ * @param int $end_x
+ * @param int $end_y
+ * @param int $color
+ * @param int|null $linewidth
+ * @param int|null $linestyle
  * @return bool
  */
-function wb_draw_line($target, $x0, $y0, $x1, $y1, $color, $linewidth = null, $linestyle = null) {}
+function wb_draw_line(int $handle, int $start_x, int $start_y, int $end_x, int $end_y, int $color, ?int $linewidth = 0, ?int $linestyle = 0) : bool{}
 
 /**
  * Draws a filled or hollow rectangle.
- * The first parameter, target, may be a WinBinder object, a window handle, a drawing surface or a bitmap.
  *
- * xpos and ypos are the coordinates of the upper-left corner of the rectangle, in pixels.
- * width and height are the dimensions of the rectangle. color is a RGB color value.
- * Set filled to FALSE to draw a border.
+ * xpos and ypos are the coordinates of the upper-left corner, in pixels.
+ *
+ * width and height are the dimensions of the rectangle.
+ * color is an RGB color value.
+ * Set filled to "FALSE" to draw a border. In this case, linewidth sets the width of the border, in pixels.
  * A linewidth of zero sets the width to 1 pixel.
+ *
+ * The first parameter, target, may be a WinBinder object, a window handle, a drawing surface or a bitmap.
  *
  * Returns TRUE on success or FALSE if an error occurs.
  *
- * @param $target
- * @param $xpos
- * @param $ypos
- * @param $width
- * @param $height
- * @param $color
- * @param null $filled
- * @param null $linewidth
- * @param null $linestyle
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_draw_rect.html
+ * @param int $handle
+ * @param int $x
+ * @param int $y
+ * @param int $width
+ * @param int $height
+ * @param int $color
+ * @param int|null $filled
+ * @param int|null $linewidth
+ * @param int|null $linestyle
  * @return bool
  */
-function wb_draw_rect($target, $xpos, $ypos, $width, $height, $color, $filled = null, $linewidth = null, $linestyle = null) {}
+function wb_draw_rect(int $handle, int $x, int $y, int $width, int $height, int $color, ?int $filled = 0, ?int $linewidth = 0, ?int $linestyle = 0) : bool{}
 
 /**
- * Draws a filled or hollow rectangle.
+ * Draws an ellipse.
+ * xPos, yPos, nWidth and nHeight define the area of the ellipse.
+ *
+ * Set $filled to TRUE (1) for a filled ellipse, FALSE (0) for a hollow ellipse.
+ *
+ * @param int $handle
+ * @param int $x
+ * @param int $y
+ * @param int $width
+ * @param int $height
+ * @param int $color
+ * @param int|null $filled
+ * @param int|null $linewidth
+ * @param int|null $linestyle
+ * @return bool
+ */
+function wb_draw_ellipse(int $handle, int $x, int $y, int $width, int $height, int $color, ?int $filled = 0, ?int $linewidth = 0, ?int $linestyle = 0) : bool{}
+
+/**
+ * Draws a string.
+ *
  * The first parameter, target, may be a WinBinder object, a window handle, a drawing surface or a bitmap.
- *
- * xpos and ypos are the coordinates of the upper-left corner of the rectangle, in pixels.
- * width and height are the dimensions of the rectangle. color is a RGB color value.
- * Set filled to FALSE to draw a border. In this case, linewidth sets the width of the border, in pixels.
- * A linewidth of zero sets the width to 1 pixel.
- *
- * Returns TRUE on success or FALSE if an error occurs.
- *
- * @param $target
- * @param $xpos
- * @param $ypos
- * @param $width
- * @param $height
- * @param $color
- * @param null $filled
- * @param null $linewidth
- * @param null $linestyle
- *
- * @return bool
- */
-function wb_draw_ellipse($target, $xpos, $ypos, $width, $height, $color, $filled = null, $linewidth = null, $linestyle = null) {}
-
-/**
- * Draws a string. The first parameter, target, may be a WinBinder object, a window handle, a drawing surface or a bitmap.
  *
  * The text parameter is the string to be drawn.
+ *
  * xpos and ypos are the coordinates of the upper-left corner, in pixels.
+ *
  * width and height optionally provide a limit to the drawing area.
  * If they are not provided or zero, there is no limit to the drawing area.
+ *
  * To use a specific font, an identifier created with wb_create_font() must be used as the font argument.
  * If font is NULL, negative or not given, the most recently created font is used.
  *
  * NOTE: To use the simplified call syntax (no width, no height) you must supply 4 or 5 parameters.
  *
- * @param $target
- * @param $text
- * @param $xpos
- * @param $ypos
- * @param null $width
- * @param null $height
- * @param null $font
- * @param null $flags
- *
- * @return int
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_draw_text.html
+ * @param int $handle
+ * @param string $text
+ * @param int $x
+ * @param int $y
+ * @param int|null $width
+ * @param int|null $height
+ * @param int|null $font
+ * @param int|null $flags
+ * @return bool
  */
-function wb_draw_text($target, $text, $xpos, $ypos, $width = null, $height = null, $font = null, $flags = null) {}
+function wb_draw_text(int $handle, string $text, int $x, int $y, ?int $width = 0, ?int $height = 0, ?int $font = 0, ?int $flags = 0) : bool{}
 
 /**
- * Draws a bitmap. The first parameter, target, may be a WinBinder object, a window handle, a drawing surface or another bitmap.
+ * Draws a bitmap.
  *
  * xpos and ypos are the coordinates of the upper-left corner, in pixels.
- * These parameters default to zero. width and height are the dimensions of the rectangle.
- * These parameters also default to zero. In this case the bitmap is drawn with its original size.
+ * These parameters default to zero.
+ *
+ * width and height are the dimensions of the rectangle.
+ * These parameters also default to zero.
+ * In this case the bitmap is drawn with its original size.
+ *
+ * The first parameter, target, may be a WinBinder object, a window handle, a drawing surface or a bitmap.
+ *
  * The parameter transparentcolor may be used to indicate which color is to be made transparent.
  * If is set to NOCOLOR (the default), no transparency is used and the image is opaque.
- * Parameters xoffset and yoffset are optionally used to specify where the image will be drawn.
  *
  * Returns TRUE on success or FALSE if an error occurs.
  *
- * @param $target
- * @param $bitmap
- * @param int  $xpos
- * @param int  $ypos
- * @param null $width
- * @param null $height
- * @param null $transparentcolor
- * @param null $xoffset
- * @param null $yoffset
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_draw_image.html
+ * @param int $handle
+ * @param int $bitmap
+ * @param int|null $x
+ * @param int|null $y
+ * @param int|null $width
+ * @param int|null $height
+ * @param int|null $transparent_colour
+ * @param int|null $offset_x
+ * @param int|null $offset_y
  * @return bool
  */
-function wb_draw_image($target, $bitmap, $xpos = 0, $ypos = 0, $width = null, $height = null, $transparentcolor = null, $xoffset = null, $yoffset = null) {}
+function wb_draw_image(int $handle, int $bitmap, ?int $x = 0, ?int $y = 0, ?int $width = 0, ?int $height = 0, ?int $transparent_colour = 0, ?int $offset_x = 0, ?int $offset_y = 0) : bool{}
 
 /**
  * Destroys a control created by wb_create_control().
  *
  * Returns TRUE on success or FALSE if an error occurs.
  *
- * Tip
- * It is often preferable to hide a control instead of destroying it. To hide a window, use wb_set_visible() with parameter visible set to FALSE.
+ * Tip: It is often preferable to hide a control instead of destroying it.
+ * To hide a window, use wb_set_visible() with parameter visible set to FALSE.
  *
- * @param $control
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_destroy_control.html
+ * @param int $wbObject
  * @return bool
  */
-function wb_destroy_control($control) {}
+function wb_destroy_control(int $wbObject) : bool{}
 
 /**
  * Retrieves the value of a control or control item. The item and subitem parameters are set to -1 if absent.
  *
- * @param null $wbobject
- * @param int  $item
- * @param int  $subitem
+ * Class        What it retrieves                                                                                   Type
+ * Calendar	    The selected date of the control as a Unix timestamp.	                                            integer
+ * CheckBox	    The checked state of the control (TRUE or FALSE).	                                                bool
+ * ComboBox	    The integer value associated with the given item, or with the selected item if item is -1 or empty. integer
+ * EditBox	    The integer value of the control text.	                                                            integer
+ * ImageButton	The integer value of the control caption.	                                                        integer
+ * Label	    The integer value of the control caption.	                                                        integer
+ * ListBox	    The integer value associated with the given item, or with the selected item if item is -1 or empty. integer
+ * ListView	    An array of integers with the indices of the checked items. �	                                    integer array
+ * Menu	        The checked state of the menu item specified in item (TRUE or FALSE).	                            bool
+ * PushButton	The integer value of the control caption.	                                                        integer
+ * RadioButton	The selected state of the control (TRUE or FALSE).	                                                bool
+ * RTFEditBox	The integer value of the control text.	                                                            integer
+ * ScrollBar	The current position of the control.	                                                            integer
+ * Slider	    The current position of the control.	                                                            integer
+ * Spinner	    The current position of the control.	                                                            integer
+ * TreeView	    The value of the node specified by item, or by the selected node if item is -1 or empty.            mixed
+ * Window	    0 (zero).
+ * Other	    0 (zero).
  *
- * @return mixed
+ * This value must have been previously set with wb_create_items() or wb_set_value().
+ * Compare with wb_get_selected().
+ *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_value.html
+ * @param int $wbObject
+ * @param int|null $item
+ * @param int|null $subitem
+ * @return array|bool|null
  */
-function wb_get_value($wbobject, $item = -1, $subitem = -1) {}
+function wb_get_value(int $wbObject, ?int $item = 0, ?int $subitem = 0) : array|bool|null{}
 
 /**
- * Refreshes or redraws the WinBinder object wbobject, forcing an immediate redraw if the parameter now is TRUE (the default).
- * If now is FALSE, the redraw command is posted to the Windows message queue.
+ * Refreshes or redraws the WinBinder object wbobject, forcing an immediate redraw if the parameter now is TRUE.
  *
- * Optional parameters xpos, ypos, width and height will make the function invalidate and redraw only the specified part of the screen or control.
+ * If now is FALSE (the default), the redraw command is posted to the Windows message queue.
  *
  * Returns TRUE on success or FALSE if an error occurs.
  *
- * @param $wbobject
- * @param null $now
- * @param null $xpos
- * @param null $ypos
- * @param null $width
- * @param null $height
- *
- * @return int
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_refresh.html
+ * @param int $wbObject
+ * @param int|bool $now
+ * @param int|null $x
+ * @param int|null $y
+ * @param int|null $width
+ * @param int|null $height
+ * @return bool
  */
-function wb_refresh($wbobject, $now = null, $xpos = null, $ypos = null, $width = null, $height = null) {}
+function wb_refresh(int $wbObject, int|bool $now = true, ?int $x = 0, ?int $y = 0, ?int $width = 0, ?int $height = 0) : bool{}
 
 /**
  * Enables or disables control according to the value of enabled.
  *
  * Returns TRUE on success or FALSE if an error occurs.
  *
- * @param $control
- * @param $enabled
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_set_enabled.html
+ * @param int $wbObject
+ * @param bool $state
  * @return bool
  */
-function wb_set_enabled($control, $enabled) {}
+function wb_set_enabled(int $wbObject, bool $state) : bool{}
 
 /**
  * Assigns the image source to the WinBinder object wbobject.
- * Parameter source can be either an image, icon or cursor handle or a path to an image file name.
- * If a handle, it must have been obtained with wb_create_image(), wb_create_mask() or wb_load_image().
+ *
+ * Parameter source can be either an image handle or a path to an image file.
+ *
  * The optional parameter transparentcolor tells the function which color is to be considered transparent.
  * The default is NOCOLOR (no transparency).
+ *
  * index is used to select a specific image from a multi-image file (such as a DLL or executable).
  *
- * If source is an icon or a cursor, if param is 0 (the default), the function sets a large icon or cursor.
- * if param is 1, it sets a small icon or cursor; if param is -1, the function sets the default icon or cursor.
- * For minimized windows, this function will also change the icon that is displayed on the task bar.
+ * In ListView and TreeView controls, param is the number of horizontal images contained in a multi-image bitmap.
  *
  * Returns TRUE on success or FALSE if an error occurs.
  *
- * @param $wbobject
- * @param $source
- * @param null $transparentcolor
- * @param null $index
- * @param null $param
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_set_image.html
+ * @param int $wbObject
+ * @param string|int $source
+ * @param int|null $colour
+ * @param int|null $index
+ * @param int|null $parameter
  * @return bool
  */
-function wb_set_image($wbobject, $source, $transparentcolor = null, $index = null, $param = null) {}
+function wb_set_image(int $wbObject, string|int $source = 0, ?int $colour = 0, ?int $index = 0, ?int $parameter = 0) : bool{}
 
 /**
- * Retrieves a portion of the image already assigned to a control and assigns it to a item (and optional subitem).
+ * Retrieves a portion of the image already assigned to a control and assigns it to an item (and optional subitem).
  * The image must be previously assigned with wb_set_image(). The portion which is assigned is specified by index.
  *
  * Returns TRUE on success or FALSE if an error occurs.
  *
- * @param $wbobject
- * @param $index
- * @param null $item
- * @param null $subitem
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_set_item_image.html
+ * @param int $wbObject
+ * @param int $index
+ * @param int|null $item
+ * @param int|null $subitem
  * @return bool
  */
-function wb_set_item_image($wbobject, $index, $item = null, $subitem = null) {}
+function wb_set_item_image(int $wbObject, int $index, ?int $item = 0, ?int $subitem = 0) : bool{}
 
 /**
- * Deletes an item, a range of items, or all items from a control. Returns TRUE on success or FALSE if an error occurs.
- * Control classes.
+ * Creates a window control, menu, toolbar, status bar or accelerator.
+ *
+ * Parameters
+ *
+ * $wbObjectparent is a handle to the WinBinder object that is the parent window.
+ * $wbclass is the class of the control or object to be created. Click here for a list of the available control classes.
+ * $caption is either a string with the caption of the control, an array of captions, or an array of arrays with information, depending on the control class.
+ * $x, $y, $width and $height describe the position and dimensions of the control when required.
+ * $id is an integer that identifies the control. It must be unique if the control is to be processed by a callback function.
+ * $style contains the style flags.
+ * $parameter is an optional integer value that depends on the control class.
+ * $tab is the index of the tab page that the control is to be inserted on, if any.
+ *
+ * This function returns an integer that is a handle to the WinBinder object created, or NULL if the function fails.
+ *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_create_control.html
+ * @param int $wbObjectparent
+ * @param int $wbclass
+ * @param array|string|null $caption
+ * @param int|null $x
+ * @param int|null $y
+ * @param int|null $width
+ * @param int|null $height
+ * @param int|null $id
+ * @param int|null $style
+ * @param int|null $parameter
+ * @param int|null $tab
+ * @return int|bool|null
+ */
+function wb_create_control(int $wbObjectparent, int $wbclass, array|string|null $caption = '', ?int $x = 0, ?int $y = 0, ?int $width = 0, ?int $height = 0, ?int $id = 0, ?int $style = 0, ?int $parameter = 0, ?int $tab = 0) : int|bool|null{}
+
+/**
+ * Creates one or more items in a control. The return value varies according to the items created.
+ * Class	    What it creates
+ * ComboBox 	One or more combo box items.
+ * ListBox	    One or more list box items.
+ * ListView	    One or more list view rows.
+ * TabControl	One or more tab pages.
+ * TreeView	    One or more treeview nodes.
+ *
+ * @see https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_create_items.html
+ * @param int $wbObject
+ * @param string $caption
+ * @param int|null $parameter
+ * @return bool
+ */
+function wb_create_item(int $wbObject, string $caption, ?int $parameter = 0) : bool{}
+
+/**
+ * Create Status control/sections
+ *
+ * Must be an array of arrays.
+ * [
+ *  ['This has 120 pixels', 120],
+ *  ['', 20],
+ *  ['Just enough for this text', 0],         // NULL may be suppressed
+ *  ['This one always extends to the end', 0] // Here too
+ * ]
+ *
+ * @param int $wbObject
+ * @param array $items_array
+ * @param int|null $clear
+ * @param int|null $parameter
+ * @return array|bool|null
+ */
+function wb_create_statusbar_items(int $wbObject, array $items_array, ?int $clear = 0, ?int $parameter = 0) : array|bool|null{}
+
+/**
+ * Gets the text from a window, control, or control item.
+ *
+ * Class	item	subitem	    What it retrieves
+ * ListView	integer	integer	    The text of the cell specified in item, subitem (row, column)
+ *          integer	NULL	    An array containing the texts of the row specified in item.
+ *          NULL	ignored	    An array containing the texts of the selected row.
+ *
+ * TreeView	integer	NULL	    The text of the node specified in item.
+ *          NULL	ignored	    The text of the currently selected node.
+ *
+ * Other 	ignored	ignored	    The control caption.
+ * Window	ignored	ignored	    The window caption.
+ *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_text.html
+ * @param int $wbObject
+ * @param int|null $index
+ * @return string|null
+ */
+function wb_get_text(int $wbObject, ?int $index = 0) : ?string{}
+
+/**
+ * Sets the text of a WinBinder object.
+ *
+ * wb_set_text can also rename or create items in certain controls.
+ *
+ * The actual action depends on the object class.
+ *
+ * Class	    Type	Action
+ * CheckBox	    String	Sets the text of the control.
+ * ComboBox	    Array	Creates items, one per array element.
+ * EditBox	    String	Sets the text of the control.
+ * Frame	    String	Sets the text of the control.
+ * HyperLink	String	Sets the text of the control.
+ * Label	    String	Sets the text of the control.
+ * ListBox	    Array	Creates items, one per array element.
+ * ListView	    Array	Creates column titles, one per array element, or changes cell contents.
+ * Menu	        String	Sets the text of the menu item specified by the item identifier.
+ * PushButton	String	Sets the text of the control.
+ * RadioButton	String	Sets the text of the control.
+ * RTFEditBox	String	Sets the text of the control.
+ * StatusBar	String	Sets the text of the status bar.
+ * TabControl	Array	Creates or renames tab pages.
+ * TreeView	    Array	Creates or renames treeview nodes.
+ *
+ * Returns TRUE on success or FALSE if an error occurs.
+ *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_set_text.html
+ * @param int $wbObject
+ * @param array|string $caption
+ * @param int|null $item
+ * @return bool
+ */
+function wb_set_text(int $wbObject, array|string $caption, ?int $item = 0) : bool{}
+
+/**
+ * Deletes an item, a range of items, or all items from a control.
  *
  * This function applies to the following control classes: ListBox, ComboBox, ListView and TreeView.
  *
- * $items can be:
- * integer    Deletes the specified item.
- * array of integers    Deletes the specified items.
- * zero    Deletes item zero.
- * null    Deletes all items.
+ * items	            What it does.
+ * integer	            Deletes the specified item.
+ * array of integers	Deletes the specified items.
+ * zero	                Deletes item zero.
+ * null	                Deletes all items.
  *
- * @param $ctrl
- * @param null $items
+ * Returns TRUE on success or FALSE if an error occurs.
  *
- * @return bool
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_delete_items.html
+ * @param int $wbObject
+ * @param array|int $items
+ * @return int|bool|null
  */
-function wb_delete_items($ctrl, $items = null) {}
+function wb_delete_items(int $wbObject, array|int $items = 0) : int|bool|null{}
 
 /**
  * Returns an integer that corresponds to the class of the object (control, window or menu) passed as the parameter.
+ *
  * The class is passed as a parameter to functions wb_create_control() and wb_create_window().
  *
- * @param $wbobject
- *
- * @return int
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_class.html
+ * @param int $wbObject
+ * @return int|null
  */
-function wb_get_class($wbobject) {}
+function wb_get_class(int $wbObject) : ?int{}
 
 /**
- * Returns an integer handle that corresponds to the WinBinder object (control, toolbar item or menu item) wbobject that has the supplied identifier id.
+ * Returns an integer handle that corresponds to the WinBinder object (control, toolbar item or menu item) wbobject that has the supplied id.
  * This function is typically used to retrieve the handle of a child control in a dialog box or in a menu item.
  *
- * @param $wbobject
- * @param $id
- *
- * @return int
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_control.html
+ * @param int $wbObjectparent
+ * @param int $id
+ * @return int|null
  */
-function wb_get_control($wbobject, $id) {}
+function wb_get_control(int $wbObjectparent, int $id) : ?int{}
 
 /**
- * Returns TRUE if wbobject is enabled or FALSE otherwise.
+ * Returns TRUE if wbobject is enabled and FALSE otherwise.
  *
- * @param $wbobject
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_enabled.html
+ * @param int $wbObject
  * @return bool
  */
-function wb_get_enabled($wbobject) {}
+function wb_get_enabled(int $wbObject) : bool{}
 
 /**
  * Returns a handle to the window or control that has the keyboard focus.
  *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_focus.html
  * @return int
  */
-function wb_get_focus() {}
+function wb_get_focus() : int{}
 
 /**
- * Returns the integer identifier of the wbobject control.
+ * Returns the integer identifier of wbobject.
  *
- * @param $wbobject
- *
- * @return int
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_id.html
+ * @param int $wbObject
+ * @return int|null
  */
-function wb_get_id($wbobject) {}
+function wb_get_id(int $wbObject) : ?int{}
 
 /**
  * Returns the number of items of wbobject.
  *
- * ComboBox    The number of items
- * ListBox    The number of items
- * ListView    The number of rows
+ * Supported classes are: ListView, ListBox and ComboBox.
  *
- * @param $wbobject
- *
- * @return int
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_item_count.html
+ * @param int $wbObject
+ * @return int|null
  */
-function wb_get_item_count($wbobject) {}
+function wb_get_item_count(int $wbObject) : ?int{}
 
 /**
- * Returns the handle of the control parent if item specifies a control, or the node parent if item specifies a treeview node.
+ * Returns the handle of the control parent, or the node parent if item specifies a treeview node.
  *
- * @param $wbobject
- * @param null $item
- *
- * @return int
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_parent.html
+ * @param int $wbObject
+ * @param int $item
+ * @return int|null
  */
-function wb_get_parent($wbobject, $item = null) {}
+function wb_get_parent(int $wbObject, int $item) : ?int{}
 
 /**
  * Returns a value or array with the indices or identifiers of the selected elements or items in wbobject.
  *
- * Retrieves:
+ * Class	        What it retrieves
+ * ComboBox	        The index of the currently selected item.
+ * ListBox	        The index of the currently selected item.
+ * ListView	        An array with the indices of the selected items.
+ * TabControl	    The index of the selected tab page.
+ * TreeView	        The handle of the currently selected node.
+ * Window	        0 (zero).
+ * Other controls	0 (zero).
  *
- * ComboBox    The index of the currently selected item.
- * ListBox    The index of the currently selected item. If multiselected only the last on will be returned (use getText for all items text)
- * ListView    An array with the indices of the selected items. ¹
- * TabControl    The index of the selected tab page.
- * TreeView    The handle of the currently selected node.
- * Window    0 (zero).
- * Other controls    0 (zero).
- *
- * @param $wbobject
- *
- * @return mixed
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_selected.html
+ * @param int $wbObject
+ * @return array|int|null
  */
-function wb_get_selected($wbobject) {}
+function wb_get_selected(int $wbObject) : array|int|null{}
 
 /**
  * Retrieves an integer representing the current state of a control item.
- * Retrieving states.
  *
  * This function currently returns the expanded or collapsed state of a treeview node indicated by item.
  * It returns TRUE if the node is expanded and FALSE if it is collapsed.
  *
- * @param $wbobject
- * @param null $item
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_state.html
+ * @param int $wbObject
+ * @param int $item
  * @return bool
  */
-function wb_get_state($wbobject, $item = null) {}
+function wb_get_state(int $wbObject, int $item) : bool{}
 
 /**
- * Tells whether an object is visible. Returns TRUE if wbobject is visible and FALSE otherwise.
+ * Returns TRUE if wbobject is visible and FALSE otherwise.
  *
- * @param $wbobject
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_visible.html
+ * @param int $wbObject
  * @return bool
  */
-function wb_get_visible($wbobject) {}
+function wb_get_visible(int $wbObject) : bool{}
 
 /**
- * Set or change the mouse cursor shape of a window, control, a whole class or application-wide. *
- * The cursor can be set for any window class and for control classes ImageButton, InvisibleArea (deprecated), HyperLink and EditBox.
+ * Sets window or control cursor.
  *
- * The source parameter can be a cursor handle from function wb_load_image() or one of the preset system cursors:
- * arrow, cross, finger, forbidden, help, ibeam, null (no cursor), sizeall, sizenesw, sizens, sizenwse, sizewe, uparrow, wait and waitarrow.
- *
- * @param $wbobject
- * @param $source
- *
+ * For cursor type see: https://learn.microsoft.com/en-us/dotnet/api/system.windows.input.cursors?view=windowsdesktop-7.0
+ * @param int $wbObject
+ * @param string|int $items
  * @return bool
  */
-function wb_set_cursor($wbobject, $source) {}
+function wb_set_cursor(int $wbObject, string|int $items = 0) : bool{}
 
 /**
  * Assigns the keyboard focus to wbobject. Returns TRUE on success or FALSE if an error occurs.
  *
- * @param $wbobject
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_set_focus.html
+ * @param int $wbObject
  * @return bool
  */
-function wb_set_focus($wbobject) {}
+function wb_set_focus(int $wbObject) : bool{}
 
 /**
  * Assigns the callback function fn_handler to window.
- * The handler function may be a regular PHP function or class method that is used to process events for this particular window.
- * wb_set_handler() must be called whenever the window needs to process messages and events from its controls.
  *
- * To specify a function as the handler, pass the function name in fn_handler.
- * If the handler is a class method, fn_handler must be an array which first element is the name of the object and the second one is the method name.
+ * The handler function is a regular PHP function that is used to process events for this particular window.
  *
- * For additional information, see callback functions and window handlers.
+ * wb_set_handler() must be called whenever the window needs to process messages and vents from its controls.
  *
- * @param $window
- * @param $fn_handler
- *
- * @return bool|null
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_set_handler.html
+ * @param int $wbObject
+ * @param array|string $parameter
+ * @return bool
  */
-function wb_set_handler($window, $fn_handler) {}
+function wb_set_handler(int $wbObject, array|string $parameter = '') : bool{}
 
 /**
  * Sets the location of an HTMLControl or sends a special command to it.
  *
+ * $location can be a URL, a file path or one of the below special commands:
+ *
+ * "cmd:back"	    Go to previously visited page.
+ * "cmd:forward"	Go to a page previously viewed before issuing the back command.
+ * "cmd:refresh"	Redraw the current page.
+ * "cmd:stop"	    Stop the current action, like loading a page.
+ * "cmd:busy"	    Return TRUE if the browser is busy or FALSE if idle.
+ * "cmd:blank"	    Clear the page.
+ *
  * Returns TRUE on success or FALSE if an error occurs (except when using "cmd:busy" as explained below).
  *
- * "cmd:back"    Go to previously visited page.
- * "cmd:forward"    Go to a page previously viewed before issuing the back command.
- * "cmd:refresh"    Redraw the current page.
- * "cmd:stop"    Stop the current action, like loading a page.
- * "cmd:busy"    Return TRUE if the browser is busy or FALSE if idle.
- * "cmd:blank"    Clear the page.
- *
- * @param $wbobject
- * @param $location
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_set_location.html
+ * @param int $wbObject
+ * @param string $location
  * @return bool
  */
-function wb_set_location($wbobject, $location) {}
+function wb_set_location(int $wbObject, string $location) : bool{}
 
 /**
- * Sets the valid range of values (vmin and vmax) of a control. Valid classes are Gauge, ScrollBar, Slider and Spinner.
+ * Sets tha range for the control values.
  *
- * Returns TRUE on success or FALSE if an error occurs.
+ * Valid controls are: Slider, Gauge, Spinner, ScrollBar
  *
- * @param $control
- * @param $vmin
- * @param $vmax
- *
+ * @param int $wbObject
+ * @param int $min
+ * @param int|null $max
  * @return bool
  */
-function wb_set_range($control, $vmin, $vmax) {}
+function wb_set_range(int $wbObject, int $min, ?int $max = 0) : bool{}
 
 /**
- * Sets the state of a control item (a treeview node). Returns TRUE on success or FALSE if an error occurs.
+ * Sets the state of a control item (a treeview node).
  *
- * Setting states:
  * This function can currently set the expanded or collapsed state of the treeview node indicated by item.
  * Set state to TRUE to expand the node or FALSE to collapse it.
  *
- * @param $wbobject
- * @param $item
- * @param $state
+ * Returns TRUE on success or FALSE if an error occurs.
  *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_set_state.html
+ * @param int $wbObject
+ * @param int $item
+ * @param bool $expand_toolbar_item
  * @return bool
  */
-function wb_set_state($wbobject, $item, $state) {}
+function wb_set_state(int $wbObject, int $item, bool $expand_toolbar_item) : bool{}
 
 /**
- * Sets or resets one or more styles of the WinBinder object wbobject.
- * Only a limited set of styles is supported due to Windows limitations.
+ * Sets or resets one or more styles of the WinBinder object wbobject. Only a limited set of styles is supported due to Windows limitations.
  *
- * AppWindow
- * ResizableWindow
- * PopupWindow
- * NakedWindow     WBC_TOP    Make the window a topmost window.
+ * Class        Styles	        Description
+ * ListView	    WBC_LINES	    Display gridlines around items
+ *              WBC_CHECKBOXES	Display check boxes in the first column of all items
+ * Slider	WBC_LINES	        Show tick marks
+ * TreeView	WBC_LINES	        Draw dotted lines linking children objects to their parents
  *
- * ListView    WBC_LINES    Display grid lines around items
- * ListView WBC_CHECKBOXES    Display check boxes in the first column of all items
- * Slider    WBC_LINES    Show tick marks. The control must be created with the WBC_LINES style
- * TreeView    WBC_LINES    Draw dotted lines linking children objects to their parents
- *
- * @param $wbobject
- * @param $style
- * @param $set
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_set_style.html
+ * @param int $wbObject
+ * @param int $style
+ * @param int|null $value
  * @return bool
  */
-function wb_set_style($wbobject, $style, $set) {}
+function wb_set_style(int $wbObject, int $style, ?int $value = 0) : bool{}
 
 /**
  * Shows or hides the WinBinder object wbobject according to the value of visible.
  *
  * Returns TRUE on success or FALSE if an error occurs.
  *
- * @param $wbobject
- * @param $visible
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_set_visible.html
+ * @param int $wbObject
+ * @param bool $visible
  * @return bool
  */
-function wb_set_visible($wbobject, $visible) {}
+function wb_set_visible(int $wbObject, bool $visible) : bool{}
 
 /**
  * Sorts the contents of a control, a control item, a ListView column or a sub-item.
@@ -1007,37 +4127,287 @@ function wb_set_visible($wbobject, $visible) {}
  *
  * The sorting criteria between two given items, item1 and item2, are as follows:
  *
- * String or number    String    Alphabetical order according to system locale
- * String or number    Empty    The non-empty item is always greater than the empty one
- * Number    Number    Numeric comparison
+ * Item 1	        Item 2	Result
+ * String or number	String	Alphabetical order according to system locale
+ * String or number	Empty	The non-empty item is always greater than the empty one
+ * Number	        Number	Numeric comparison
  *
- * In a ListView, wb_sort() sorts the column indexed by subitem. The index of the first column is zero.
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_sort.html
+ * @param int $wbObject
+ * @param int|null $ascending
+ * @param int|null $subitem
+ * @return bool
+ */
+function wb_sort(int $wbObject, ?int $ascending = 0, ?int $subitem = 0) : bool{}
+
+/**
+ * Makes the tab denoted by $tab index provided the actice/viewable tab page.
+ *
+ * @param int $wbObject
+ * @param int $tab
+ * @return bool
+ */
+function wb_select_tab(int $wbObject, int $tab) : bool{}
+
+/**
+ * Sets one or more values of a control or control item.
+ *
+ * Class 			What it does 																				        Type
+ * Calendar		    Sets the selected date of the control. The value must be a valid Unix timestamp.			        integer
+ * CheckBox		    Sets the checked state of the control.														        bool
+ * ComboBox		    Stores an integer into the specified item or into the selected item if item is empty or -1.	        integer
+ * EditBox			Sets the text to the integer specified.														        integer
+ * Gauge			The control integer value. �																        integer
+ * ImageButton		Sets the checked state of the control.														        bool
+ * Label			Sets the text to the integer specified.														        integer
+ * ListBox			Stores an integer into the specified item or into the selected item if item is -1 or empty.	        array
+ * ListView		    Sets the checked state of the row (or array of rows) specified by item. 					        array
+ * Menu			    Sets the checked state of the menu item specified.											        bool
+ * PushButton		Sets the checked state of the control.														        bool
+ * RadioButton		Sets the checked state of the control.														        bool
+ * RTFEditBox		Sets the text to the integer specified.											                    integer
+ * ScrollBar		The control position. 																		        integer
+ * Slider			The control position. 																		        integer
+ * Spinner			The control integer value. 																	        integer
+ * TreeView		    Stores an int, str or float in specified node or in the selected node if item is empty or -1.	    mixed
  *
  * Returns TRUE on success or FALSE if an error occurs.
  *
- * @param $control
- * @param null $ascending
- * @param null $subitem
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_set_value.html
+ * @param int $wbObject
+ * @param int $value
+ * @param int|null $item
+ * @param int|null $subitem
  * @return bool
  */
-function wb_sort($control, $ascending = null, $subitem = null) {}
+function wb_set_value(int $wbObject, int $value, ?int $item = 0, ?int $subitem = 0) : bool{}
+
+/**
+ * Create a ListView item.
+ *
+ * @param int $wbObject
+ * @param int $item
+ * @param int $image
+ * @param string $caption
+ * @return int
+ */
+function wb_create_listview_item(int $wbObject, int $item, int $image, string $caption) : int{}
+
+/**
+ * Set ListView Item Checked.
+ *
+ * @param int $wbObject
+ * @param int $item
+ * @param int $checked
+ * @return bool
+ */
+function wb_set_listview_item_checked(int $wbObject, int $item, int $checked) : bool{}
+
+/**
+ * Get ListView Item Checked.
+ *
+ * @param int $wbObject
+ * @param int $item
+ * @return bool
+ */
+function wb_get_listview_item_checked(int $wbObject, int $item) : bool{}
+
+/**
+ * Set ListView Item text.
+ *
+ * @param int $wbObject
+ * @param int $item
+ * @param int $subitem
+ * @param string $caption
+ * @return bool
+ */
+function wb_set_listview_item_text(int $wbObject, int $item, int $subitem, string $caption) : bool{}
+
+/**
+ * Get ListView Item Text.
+ *
+ * @param int $wbObject
+ * @param int|null $row
+ * @param int|null $column
+ * @return array|string|null
+ */
+function wb_get_listview_text(int $wbObject, ?int $row = 0, ?int $column = 0) : array|string|null{}
+
+/**
+ * Get the number of columns in the ListView control.
+ *
+ * @param int $wbObject
+ * @return int|null
+ */
+function wb_get_listview_columns(int $wbObject) : ?int{}
+
+/**
+ * Create ListView Column.
+ *
+ * @param int $wbObject
+ * @param int $ncol
+ * @param string $caption
+ * @param int $width
+ * @param int $align
+ * @return bool
+ */
+function wb_create_listview_column(int $wbObject, int $ncol, string $caption, int $width, int $align) : bool{}
+
+/**
+ * Clear ListView Columns
+ *
+ * @param int $wbObject
+ * @return bool
+ */
+function wb_clear_listview_columns(int $wbObject) : bool{}
+
+/**
+ * Select ListView Item.
+ *
+ * @param int $wbObject
+ * @param int $item
+ * @param int $state
+ * @return bool
+ */
+function wb_select_listview_item(int $wbObject, int $item, int $state) : bool{}
+
+/**
+ * Select All ListView Items.
+ *
+ * @param int $wbObject
+ * @param int $state
+ * @return bool
+ */
+function wb_select_all_listview_items(int $wbObject, int $state) : bool{}
+
+/**
+ * Create a menu for the $wbObjectParent window.
+ *
+ * @param int $wbObjectParent
+ * @param array $menu_items
+ * @return int|null
+ */
+function wb_create_menu(int $wbObjectParent, array $menu_items) : ?int{}
+
+/**
+ * Get Menu Item checked.
+ *
+ * @param int $wbObject
+ * @param int $id
+ * @return bool
+ */
+function wb_get_menu_item_checked(int $wbObject, int $id) : bool{}
+
+/**
+ * Set Menu Item Checked
+ *
+ * @param int $wbObject
+ * @param int $id
+ * @param int $checked
+ * @return bool
+ */
+function wb_set_menu_item_checked(int $wbObject, int $id, int $checked) : bool{}
+
+/**
+ * Set Menu Item Selected
+ *
+ * @param int $wbObject
+ * @param int $id
+ * @param int $state
+ * @return bool
+ */
+function wb_set_menu_item_selected(int $wbObject, int $id, int $state) : bool{}
+
+/**
+ * Set Menu Item Image
+ *
+ * @param int $wbObject
+ * @param int $id
+ * @param int $bitmap_handle
+ * @return bool
+ */
+function wb_set_menu_item_image(int $wbObject, int $id, int $bitmap_handle) : bool{}
+
+/**
+ * Create Toolbar
+ *
+ * @param int $wbObjectParent
+ * @param array $toolbar_items
+ * @param int|null $width
+ * @param int|null $height
+ * @param string|null $image
+ * @return int|null
+ */
+function wb_create_toolbar(int $wbObjectParent, array $toolbar_items, ?int $width = 0, ?int $height = 0, ?string $image = '') : ?int{}
+
+/**
+ * Create Treeview item.
+ *
+ * @param int $wbObject
+ * @param string $caption
+ * @param int|null $parameter
+ * @param int|null $where
+ * @param int|null $image
+ * @param int|null $image_selected
+ * @param int|null $insertion_type
+ * @return int
+ */
+function wb_create_treeview_item(int $wbObject, string $caption, ?int $parameter = 0, ?int $where = 0, ?int $image = 0, ?int $image_selected = 0, ?int $insertion_type = 0) : int{}
+
+/**
+ * Set Treeview Item Selected.
+ *
+ * @param int $wbObject
+ * @param int $item
+ * @return bool
+ */
+function wb_set_treeview_item_selected(int $wbObject, int $item) : bool{}
+
+/**
+ * Set Treeview item text.
+ *
+ * @param int $wbObject
+ * @param int $item
+ * @param string $caption
+ * @return bool
+ */
+function wb_set_treeview_item_text(int $wbObject, int $item, string $caption) : bool{}
+
+/**
+ * Set Treeview Item Value.
+ *
+ * @param int $wbObject
+ * @param int $item
+ * @param int $value
+ * @return bool
+ */
+function wb_set_treeview_item_value(int $wbObject, int $item, int $value) : bool{}
+
+/**
+ * Get Treeview item text
+ *
+ * @param int $wbObject
+ * @param int $item
+ * @return string|null
+ */
+function wb_get_treeview_item_text(int $wbObject, int $item) : ?string{}
 
 /**
  * Retrieves an integer representing the level of a control item.
  *
- * Retrieving states:
  * This function currently returns the insertion level of the treeview node specified in item.
  *
- * @param $wbobject
- * @param $item
- *
- * @return int
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_level.html
+ * @param int $wbObject
+ * @param int $item
+ * @return int|null
  */
-function wb_get_level($wbobject, $item) {}
+function wb_get_level(int $wbObject, int $item) : ?int{}
 
 /**
- * Creates a new font. name is the font name, height is its height in points (not pixels), and color is a RGB color value. flags can be a combination of the following values:.
+ * Creates a new font. name is the font name, height is its height in points (not pixels), and color is an RGB color value.
+ *
+ * flags can be a combination of the following values:
  *
  * FTA_NORMAL
  * FTA_REGULAR
@@ -1052,106 +4422,114 @@ function wb_get_level($wbobject, $item) {}
  *
  * After use, the font must be destroyed by a call to wb_destroy_font() to prevent resource leaks.
  *
- * NOTE: The color parameter is not implemented yet.
- *
- * @param $name
- * @param $height
- * @param null $color
- * @param null $flags
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_create_font.html
+ * @param string $name
+ * @param int $height
+ * @param int|null $color
+ * @param int|null $flags
  * @return int
  */
-function wb_create_font($name, $height, $color = null, $flags = null) {}
+function wb_create_font(string $name, int $height, ?int $color = 0, ?int $flags = 0) : int{}
 
 /**
- * Destroys a font.
+ * Destroys a font created by wb_create_window().
+ * If font is absent or zero, destroys all fonts previously created.
  *
- * @param $nfont
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_destroy_font.html
+ * @param int|null $font
  * @return bool
  */
-function wb_destroy_font($nfont) {}
+function wb_destroy_font(?int $font = 0) : bool{}
 
 /**
  * Sets the font of control. font is a unique integer value returned by wb_create_font().
  * If font is zero or not given, the most recently created font is used.
  * If font is a negative number, it means the system default font.
  *
- * Returns TRUE on success or FALSE if an error occurs.
- *
- * Tip:
  * To check the system font name and size, call wb_get_system_info() using ("systemfont") as the info parameter.
  *
- * @param $control
- * @param null $font
- * @param null $redraw
+ * Returns TRUE on success or FALSE if an error occurs.
  *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_set_font.html
+ * @param int $wbObject
+ * @param int|null $font
+ * @param int|null $redraw
  * @return bool
  */
-function wb_set_font($control, $font = null, $redraw = null) {}
+function wb_set_font(int $wbObject, ?int $font = 0, ?int $redraw = 0) : bool{}
 
 /**
- * Returns the address (as an integer pointer) of the variable var.
- * var can be a string, integer, boolean, or double.
+ * Returns the address (as an integer pointer) of the variable var. var can be a string, integer, boolean, or double.
+ *
  * This function is specially suited to use with wb_peek() and wb_poke().
  *
- * @param $var
- *
- * @return int
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_address.html
+ * @param int $source
+ * @return int|false
  */
-function wb_get_address($var) {}
+function wb_get_address(int $source = 0) : int|false{}
 
 /**
+ *
  * Sends a Windows message to the HWND handle of the WinBinder object wbobject.
  * The parameters wparam and lparam, as well as the return value, depend on message.
+ *
  * See SendMessage() in the Windows API documentation for more information.
  *
- * The following constant may be used as the wbobject parameter:
+ * The following constant may be used as the wbobject parameter: 0xFFFF
+ * This constant is the value of HWND_BROADCAST in the Windows API.
+ * For more information consult the Windows API documentation.
  *
- * 0xFFFF
- *
- * This constant is the value of HWND_BROADCAST in the Windows API. For more information consult the Windows API documentation.
- *
- * @param $wbobject
- * @param $message
- * @param $wparam
- * @param $lparam
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_send_message.html
+ * @param int $wbObject
+ * @param int $msg
+ * @param int|null $wparameter
+ * @param int|null $lparameter
  * @return int
  */
-function wb_send_message($wbobject, $message, $wparam = 0, $lparam = 0) {}
+function wb_send_message(int $wbObject, int $msg, ?int $wparameter = 0, ?int $lparameter = 0) : int{}
 
 /**
  * Gets the contents of a memory area pointed by address.
+ *
  * If length is empty or zero, returns bytes up to the first NUL character (zero-character) or up to 32767 bytes, whichever comes first.
+ *
  * If length is greater than zero, returns length bytes.
  *
- * @param $address
- * @param int $length
- *
- * @return string
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_peek.html
+ * @param int $address
+ * @param int|null $bytes
+ * @return string|null
  */
-function wb_peek($address, $length = 0) {}
+function wb_peek(int $address, ?int $bytes = 0) : ?string{}
 
 /**
- * Sets the contents of a memory area pointed by address.
+ * Sets the contents of a memory area pointed by address. Possible situations are:
  *
- * @param $address
- * @param $contents
- * @param null $length
+ * contents	                                    length	            Action
+ * An empty string	                            Any	                Does nothing
+ * A PHP string	                                Empty or zero	    Affects strlen(contents) bytes
+ * A PHP string shorter than length	            Greater than zero	Affects strlen(contents) bytes
+ * A PHP string equal or larger than length	    Greater than zero	Affects length bytes
  *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_poke.html
+ * @param int $address
+ * @param string $contents
+ * @param int|null $bytes
  * @return bool
  */
-function wb_poke($address, $contents, $length = null) {}
+function wb_poke(int $address, string $contents, ?int $bytes = 0) : bool{}
 
 /**
- * Loads a DLL into memory. Returns an integer identifying libname. If libname is NULL then returns the identifier of the last library returned. The function accepts fully qualified and raw names. Returns NULL if no library was found.
+ * Loads a DLL into memory.
+ * Returns an integer identifying libname.
+ * If libname is NULL then returns the identifier of the last library returned.
+ * The function accepts fully qualified and raw names.
  *
- * Name expansion
+ * Returns NULL if no library was found.
  *
- * The function appends some characters to the library name until it finds the library, then it returns an identifier for that library,
- * or NULL if the library was not found. If libname is "LIB", for example, the function looks for the following files, in order:
- *
+ * Name expansion:
+ * The function appends some characters to the library name until it finds the library, then it returns an identifier for that library, or NULL if the library was not found. If libname is "LIB", for example, the function looks for the following files, in order:
  * LIB
  * LIB.DLL
  * LIB32
@@ -1160,7 +4538,6 @@ function wb_poke($address, $contents, $length = null) {}
  * LIB32.EXE
  *
  * For each name, the function looks in the following locations:
- *
  * The application directory;
  * The current directory;
  * The 32-bit System directory (Usually C:\WINDOWS\SYSTEM32 or C:\WINNT\SYSTEM32);
@@ -1168,55 +4545,37 @@ function wb_poke($address, $contents, $length = null) {}
  * The Windows directory (Usually C:\WINDOWS or C:\WINNT);
  * The directory list contained in the PATH environment variable.
  *
- * @param $libname
- *
- * @return int
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_load_library.html
+ * @param string $library
+ * @return int|null
  */
-function wb_load_library($libname) {}
+function wb_load_library(string $library) : ?int{}
 
 /**
- * Releases the DLL identified by idlib from memory. The idlib identifier must have been obtained with a call to wb_load_library().
+ * Releases the DLL identified by idlib from memory.
+ * The idlib identifier must have been obtained with a call to wb_load_library().
  *
  * NOTE: calling this function is usually not necessary.
  *
- * @param $idlib
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_release_library.html
+ * @param int $library
  * @return bool
  */
-function wb_release_library($idlib) {}
+function wb_release_library(int $library) : bool{}
 
 /**
- * Returns the address of a library function. fname is the function name and idlib identifies a library already loaded.
+ * Returns the address of a library function.
+ *
+ * fname is the function name and idlib identifies a library already loaded.
  * The idlib identifier must have been obtained with a call to wb_load_library().
  * If idlib is not set or is set to NULL, the last library sent to the function will be used.
  *
- * Name expansion:
- * The function prepends and appends some special characters to the function name until it finds the function name,
- * then it returns the function address or NULL if the function was not found.
- * These special characters are the most common ones encountered in various types of libraries.
- *
- * For example, if fname is set to "MyFunction", wb_get_function_address() looks for the following function names, in order:
- *
- * MyFunction
- * MyFunctionA
- * MyFunctionW
- * _MyFunction
- * _MyFunctionA
- * _MyFunctionW
- * MyFunction@0, MyFunction@4, MyFunction@8... until MyFunction@80
- * _MyFunction@0, _MyFunction@4, _MyFunction@8... until MyFunction@80
- *
- * The last two expansion options include a '@' character followed by the number of parameters times 4,
- * which is a standard way to store function names inside DLLs. The loop starts from zero ("@0") and ends when it reaches 20 parameters ("@80").
- *
- * NOTE: Function names, including the expansion characters, are limited to 255 characters.
- *
- * @param $fname
- * @param $idlib
- *
- * @return int
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_function_address.html
+ * @param string $function
+ * @param int|null $library
+ * @return int|null
  */
-function wb_get_function_address($fname, $idlib) {}
+function wb_get_function_address(string $function, ?int $library = 0) : ?int{}
 
 /**
  * Calls the DLL function pointed by address.
@@ -1225,95 +4584,63 @@ function wb_get_function_address($fname, $idlib) {}
  *
  * NOTE: Function arguments are limited to a maximum of 20.
  *
- * @param $address
- * @param array $args
- *
- * @return int
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_call_function.html
+ * @param int $address
+ * @param array|null $parameters
+ * @return int|null
  */
-function wb_call_function($address, $args = []) {}
-
-/**
- * returns a pointer to MidiOutProc (can also be used for MidiInProc, WaveInProc, WaveOutProc
- * or any similar callback) for use with functions like midiOutOpen.
- *
- * @return int
- */
-function wb_get_midi_callback() {}
-
-/**
- * Enumerate windows, i think: https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-enumwindows
- *
- * @return int
- */
-function wb_get_enum_callback() {}
-
-/**
- * Unused, i think its https://docs.microsoft.com/en-us/windows/win32/api/winuser/nc-winuser-hookproc
- * @return int
- */
-function wb_get_hook_callback() {}
+function wb_call_function(int $address, ?array $parameters = []) : ?int{}
 
 /**
  * Destroys a window created by wb_create_window().
  *
  * Returns TRUE on success or FALSE if an error occurs.
  *
- * @param $window
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_destroy_window.html
+ * @param int $wbObject
  * @return bool
  */
-function wb_destroy_window($window) {}
+function wb_destroy_window(int $wbObject) : bool{}
 
 /**
- * Gets the dimensions of a control, window, image or string.
- * The image handle must have been obtained with wb_create_image(), wb_create_mask() or wb_load_image().
+ * Gets the dimensions of a control, window or image.
  *
- * This function generally returns an array where the first element is the width and the second is the height.
- * Measurements are in pixels. If param is TRUE, the area returned will not include the title bar and borders.
- * Default is FALSE.
+ * Generally it returns an array where the first element is the width and the second is the height.
+ * Measurements are in pixels.
+ *
+ * If lparam is TRUE, the area returned will not include the title bar and borders. Default is FALSE.
  *
  * The function will return the integer WBC_MINIMIZED instead of an array if the requested window is minimized, or NULL on error.
  *
- * If object is a ListView handle and param is TRUE, the function returns an array with the widths of the column headers.
- * If param is omitted or FALSE, the function behaves normally like described above
+ * If object is a ListView handle and lparam is TRUE, the function returns an array with the widths of the column headers.
+ * If lparam is omitted or FALSE, the function behaves normally like described above
  *
- * If object is a text string, param is optionally used to pass the handle to a font created with wb_create_font().
- * If param is null or not used, the default font is used. Object types accepted
- *
- * object may be one of the following:
- *
- * A control handle
- * A window handle
- * An icon handle
- * A bitmap handle
- * The name of a bitmap file
- * The name of an icon file
- * A text string
- *
- * @param $object
- * @param null $param
- * @return array
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_size.html
+ * @param string|int $source
+ * @param int|null $parameter
+ * @return array|int|null
  */
-function wb_get_size($object, $param = null) {}
+function wb_get_size(string|int $source = 0, ?int $parameter = 0) : array|int|null{}
 
 /**
- * Sizes the object wbobject to width and height pixels.
+ * Sizes the object wbobject to width and height pixels. Parameters width and height may be used as follows:
  *
- * Parameters width and height may be used as follows:
+ * width	        height	            Applies to	        What it does
+ * Positive integer Positive integer	window or control	Sets the window or control size to width and height pixels.
+ * WBC_NORMAL	    (not supplied)	    window	            Restores the window, if it is not already.
+ * WBC_MINIMIZED	(not supplied)	    window	            Minimizes the window, if it is not already.
+ * WBC_MAXIMIZED	(not supplied)	    window	            Maximizes the window, if it is not already.
+ * Array of integers	(not supplied)	ListView	        Changes the column widths of the control.
  *
- * Positive integer     window or control   Sets the window or control size to width and height pixels.
- * WBC_NORMAL           window              Restores the window, if it is not already.
- * WBC_MINIMIZED        window              Minimizes the window, if it is not already.
- * WBC_MAXIMIZED        window              Maximizes the window, if it is not already.
- * Array of integers    ListView            Changes the column widths of the control.
+ * Returns TRUE on success or FALSE if an error occurs.
  *
- * @param $wbobject
- * @param $width
- * @param null $height
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_set_size.html
+ * @param int $wbObject
+ * @param array|int $parameter
+ * @param int|null $window_height
  * @return bool
  */
-function wb_set_size($wbobject, $width, $height = null) {}
+function wb_set_size(int $wbObject, array|int $parameter = 0, ?int $window_height = 0) : bool{}
 
 /**
  * Moves the object wbobject to the coordinates xpos, ypos in relation to its parent window.
@@ -1321,433 +4648,168 @@ function wb_set_size($wbobject, $width, $height = null) {}
  *
  * Returns TRUE on success or FALSE if an error occurs.
  *
- * @param $wbobject
- * @param null $xpos
- * @param null $ypos
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_position.html
+ * @param int $wbObject
+ * @param int|null $x
+ * @param int|null $y
  * @return bool
  */
-function wb_set_position($wbobject, $xpos = null, $ypos = null) {}
+function wb_set_position(int $wbObject, ?int $x = 0, ?int $y = 0) : bool{}
 
 /**
- * Returns an array with the position of the control or window related to its parent, in pixels.
- * The first element is the horizontal position and the second is the vertical position.
- * If clientarea is TRUE, the area returned will not include the title bar and borders.
- *
- * The default is FALSE.
- *
- * @param $wbobject
- * @param null $clientarea
- *
- * @return array
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_set_position.html
+ * @param int $wbObject
+ * @param bool|null $clientarea
+ * @return array|null
  */
-function wb_get_position($wbobject, $clientarea = null) {}
+function wb_get_position(int $wbObject, ?bool $clientarea = false) : ?array{}
 
 /**
- * Creates a window of class wclass. Click here for a list of the available window classes.
+ * Creates a window of class wclass.
+ *
  * Windows created with this function must be destroyed with a call to wb_destroy_window().
+ *
  * Optional style flags may be passed through parameter style.
- * To enable additional messages in a particular window, include the WBC_NOTIFY style in the style parameter and use param to indicate
- * which additional notification messages you want to process.
  *
- * This function may set the text and/or the tooltip (small hint window) of the window when it is created.
- * To create a tooltip, text must be an array with two elements.
- * The first one is the new caption (or NULL if one is not required) and the second one is the new tooltip (or NULL if one is not required).
- * All classes support tooltips.
+ * To enable additional messages in a particular window, include the WBC_NOTIFY style in the style parameter
+ * and use param to indicate which additional notification messages you want to process.
  *
- * Returns the handle of the newly created window or NULL or zero if an error occurs.
- *
- * @param $parent
- * @param $wclass
- * @param null $caption
- * @param null $xpos
- * @param null $ypos
- * @param null $width
- * @param null $height
- * @param null $style
- * @param null $param
- *
- * @return int
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_create_window.html
+ * @param int $wbObjectparent
+ * @param int $wbclass
+ * @param array|string $caption
+ * @param int|null $x
+ * @param int|null $y
+ * @param int|null $width
+ * @param int|null $height
+ * @param int|null $style
+ * @param int|null $parameter
+ * @return int|null
  */
-function wb_create_window($parent, $wclass, $caption = null, $xpos = null, $ypos = null, $width = null, $height = null, $style = null, $param = null) {}
+function wb_create_window(int $wbObjectparent, int $wbclass, array|string $caption = '', ?int $x = 0, ?int $y = 0, ?int $width = 0, ?int $height = 0, ?int $style = 0, ?int $parameter = 0) : ?int{}
 
 /**
  * Detects a running instance of a WinBinder application.
  *
  * Detecting running instances
- *
  * Each main window of all WinBinder applications stores a 32-bit identifier that is calculated according to the initial window caption
- * and is unique to that caption. wb_get_instance() will try to find, among all current top-level windows, a WinBinder window that was
- * created with the same caption. The function returns TRUE if it finds the existing window or FALSE if it is does not.
+ * and is unique to that caption. wb_get_instance() will try to find, among all current top-level windows,
+ * a WinBinder window that was created with the same caption.
  *
- * The function is effective even of the caption of the first instance of the application is changed at runtime because the 32-bit identifier
- * does not change throughout the life of the application.
+ * The function returns TRUE if it finds the existing window or FALSE if it is not.
  *
- * If bringtofront is set to TRUE, the function optionally restores the window (if minimized)
- * and brings the corresponding window to the front of other windows.
+ * The function is effective even of the caption of the first instance of the application is changed at runtime
+ * because the 32-bit identifier does not change throughout the life of the application.
  *
- * @param $caption
- * @param null $bringtofront
+ * If bringtofront is set to TRUE, the function optionally restores the window (if minimized) and brings the corresponding window to the front of other windows
  *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_instance.html
+ * @param string $caption
+ * @param bool|null $bringtofront
  * @return bool
  */
-function wb_get_instance($caption, $bringtofront = null) {}
+function wb_get_instance(string $caption, ?bool $bringtofront = false) : bool{}
 
 /**
- * Returns an array with a list of the child controls in window or control wbobject. Each element is an integer identifier that represents a WinBinder object.
+ * Returns an array with a list of the child controls in window or control wbobject.
  *
- * @param $wbobject
+ * Each element is an integer identifier that represents a WinBinder object.
  *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_get_item_list.html
+ * @param int $wbObjectparent
  * @return array
  */
-function wb_get_item_list($wbobject) {}
+function wb_get_item_list(int $wbObjectparent) : array{}
 
 /**
- * Sets a specific area in a window. Possible values for type are:.
+ * Sets a specific area in a window. Possible values for type are:
  *
- * WBC_TITLE        Sets the area used to drag a borderless window with the mouse.
+ * type     	What it does
+ * WBC_TITLE	Sets the area used to drag a borderless window with the mouse.
+ * WBC_MINSIZE	Sets the minimum window size in a resizable window.
+ * WBC_MAXSIZE	Sets the maximum window size in a resizable window.
  *
- * WBC_MINSIZE      Sets the minimum window size in a resizable window.
- *                  Parameters x and y are ignored.
- *                  If width is zero, no minimum horizontal dimension is set.
- *                  if height is zero, no minimum vertical dimension is set.
+ * Parameters x and y are ignored. If width is zero, no minimum horizontal dimension is set; if height is zero, no minimum vertical dimension is set. *
  *
- * WBC_MAXSIZE      Sets the maximum window size in a resizable window.
- *                  Parameters x and y are ignored.
- *                  If width is zero, no maximum horizontal dimension is set.
- *                  if height is zero, no maximum vertical dimension is set.
- *
- * @param $window
- * @param $type
- * @param null $x
- * @param null $y
- * @param null $width
- * @param null $height
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_set_area.html
+ * @param int $wbObject
+ * @param int $type
+ * @param int|null $x
+ * @param int|null $y
+ * @param int|null $width
+ * @param int|null $height
  * @return bool
  */
-function wb_set_area($window, $type, $x = null, $y = null, $width = null, $height = null) {}
+function wb_set_area(int $wbObject, int $type, ?int $x = 0, ?int $y = 0, ?int $width = 0, ?int $height = 0) : bool{}
 
 /**
- * Displays the standard Select Path dialog box. Returns the name of the selected path, if any, or a blank string if the dialog box was canceled. Returns NULL if not successful.
+ * Displays the standard Select Path dialog box.
  *
- * Parameters:
+ * Returns TRUE on success or FALSE if an error occurs.
  *
- * parent is a handle to the WinBinder object that will serve as the parent for the dialog box.
- * title is an optional string to be displayed in the dialog box.
- * path is an optional folder used to initialize the dialog box.
- *
- * @param $parent
- * @param null $title
- * @param null $path
- *
- * @return string
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_sys_dlg_path.html
+ * @param int $wbObjectParent
+ * @param string|null $title
+ * @param string|null $path
+ * @return false|null
  */
-function wb_sys_dlg_path($parent, $title = null, $path = null) {}
+function wb_sys_dlg_path(int $wbObjectParent, ?string $title = '', ?string $path = '') : ?false{}
 
 /**
- * Displays the standard Select Color dialog box. Returns a RGB value which is the selected color value or NOCOLOR if the dialog box was canceled. Returns NULL if not successful.
+ * Displays the standard Select Color dialog box.
  *
- * Parameters:
+ * Returns TRUE on success or FALSE if an error occurs.
  *
- * parent is a handle to the WinBinder object that will serve as the parent for the dialog box.
- * title is currently ignored.
- * color is an optional RGB value used to initialize the dialog box.
- *
- * @param $parent
- * @param null $title
- * @param null $color
- *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_sys_dlg_color.html
+ * @param int $wbObjectParent
+ * @param string|null $title
+ * @param int|null $color
  * @return int
  */
-function wb_sys_dlg_color($parent, $title = null, $color = null) {}
+function wb_sys_dlg_color(int $wbObjectParent, ?string $title = '', ?int $color = 0) : int{}
 
 /**
- * @param $parent
- * @param $accels
+ * Displays the standard Open dialog box.
  *
+ * Returns TRUE on success or FALSE if an error occurs.
+ *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_sys_dlg_open.html
+ * @param int $wbObjectParent
+ * @param string|null $title
+ * @param string|null $filter
+ * @param string|null $path
+ * @param int|null $style
+ * @return array|string
+ */
+function wb_sys_dlg_open(int $wbObjectParent, ?string $title = '', ?string $filter = '', ?string $path = '', ?int $style = 0) : array|string{}
+
+/**
+ * Displays the standard Save As dialog box.
+ *
+ * Returns TRUE on success or FALSE if an error occurs.
+ *
+ * @link https://crispy-computing-machine.github.io/Winbinder-Docs/functions/wb_sys_dlg_save.html
+ * @param int $wbObjectParent
+ * @param string|null $title
+ * @param string|null $filter
+ * @param string|null $path
+ * @param string|null $file
+ * @param string|null $default_extension
+ * @return string|null
+ */
+function wb_sys_dlg_save(int $wbObjectParent, ?string $title = '', ?string $filter = '', ?string $path = '', ?string $file = '', ?string $default_extension = '') : ?string{}
+
+/**
+ * Displays the standard Font select dialog box.
+ *
+ * Returns TRUE on success or FALSE if an error occurs.
+ *
+ * @param int|null $pwbparent
+ * @param string|null $title
+ * @param string|null $name
+ * @param int|null $height
+ * @param int|null $color
+ * @param int|null $flags
  * @return int
  */
-function wbtemp_set_accel_table($parent, $accels) {}
-
-/**
- * @param $parent
- * @param $class
- * @param $caption
- * @param $xpos
- * @param $ypos
- * @param $width
- * @param $height
- * @param $id
- * @param $style
- * @param $lparam
- * @param $ntab
- *
- * @return int
- */
-function wbtemp_create_control($parent, $class, $caption, $xpos, $ypos, $width, $height, $id, $style, $lparam, $ntab) {}
-
-/**
- * @param $ctrl
- * @param $str
- *
- * @return int
- */
-function wbtemp_create_item($ctrl, $str) {}
-
-/**
- * @param $ctrl
- * @param $items
- * @param $clear
- * @param $param
- *
- * @return int
- */
-function wbtemp_create_statusbar_items($ctrl, $items, $clear, $param) {}
-
-/**
- * @param $ctrl
- * @param null $item - item can also be WBC_RTF_TEXT to get the RTF code of an RTF input
- *
- * @return int
- */
-function wbtemp_get_text($ctrl, $item = null) {}
-
-/**
- * @param $ctrl
- * @param $text
- * @param $item
- *
- * @return int
- */
-function wbtemp_set_text($ctrl, $text, $item) {}
-
-/**
- * @param $ctrl
- * @param $selitems
- *
- * @return int
- */
-function wbtemp_select_tab($ctrl, $selitems) {}
-
-/**
- * @param $ctrl
- * @param $value
- * @param $item
- *
- * @return int
- */
-function wbtemp_set_value($ctrl, $value, $item = null) {}
-
-/**
- * @param $ctrl
- * @param $item
- * @param $image
- * @param $value
- *
- * @return int
- */
-function wbtemp_create_listview_item($ctrl, $item, $image, $value) {}
-
-/**
- * @param $ctrl
- * @param $index
- * @param $value
- *
- * @return int
- */
-function wbtemp_set_listview_item_checked($ctrl, $index, $value) {}
-
-/**
- * Return TRUE if the item's checkbox is checked
- * @param $ctrl
- * @param $item
- * @return bool
- */
-function wbtemp_get_listview_item_checked($ctrl, $item) {}
-
-/**
- * @param $ctrl
- * @param $item
- * @param $subitem
- * @param $text
- *
- * @return int
- */
-function wbtemp_set_listview_item_text($ctrl, $item, $subitem, $text) {}
-
-/**
- * @param $ctrl
- * @param $item
- *
- * @return mixed
- */
-function wbtemp_get_listview_text($ctrl, $item) {}
-
-/**
- * Get the number of columns in the pwbo control,
- *
- * @param $ctrl
- *
- * @return int
- */
-function wbtemp_get_listview_columns($ctrl) {}
-
-/**
- * @param $ctrl
- * @param $i
- * @param $text
- * @param $width - If nWidth is negative, calculate width automatically
- * @param $align - WBC_LEFT, WBC_RIGHT, WBC_CENTER
- *
- * @return int
- */
-function wbtemp_create_listview_column($ctrl, $i, $text, $width, $align) {}
-
-/**
- * @param $ctrl
- *
- * @return int
- */
-function wbtemp_clear_listview_columns($ctrl) {}
-
-/**
- * @param $ctrl
- * @param $item
- * @param $selected
- *
- * @return int
- */
-function wbtemp_select_listview_item($ctrl, $item, $selected) {}
-
-/**
- * @param $ctrl
- * @param $bool
- *
- * @return int
- */
-function wbtemp_select_all_listview_items($ctrl, $bool) {}
-
-/**
- * @param $parent
- * @param $caption
- *
- * @return int
- */
-function wbtemp_create_menu($parent, $caption) {}
-
-/**
- * @param $ctrl
- * @param $item
- *
- * @return int
- */
-function wbtemp_get_menu_item_checked($ctrl, $item) {}
-
-/**
- * @param $ctrl
- * @param $selitems
- * @param $selected
- *
- * @return int
- */
-function wbtemp_set_menu_item_checked($ctrl, $selitems, $selected) {}
-
-/**
- * @param $ctrl
- * @param int $item
- * @param bool $selected
- *
- * @return int
- */
-function wbtemp_set_menu_item_selected($ctrl, $item, $selected) {}
-
-/**
- * @param $ctrl
- * @param $item
- * @param $imageHandle
- *
- * @return int
- */
-function wbtemp_set_menu_item_image($ctrl, $item, $imageHandle) {}
-
-/**
- * @param $parent
- * @param $caption
- * @param $width
- * @param $height
- * @param $lparam
- *
- * @return int
- */
-function wbtemp_create_toolbar($parent, $caption, $width, $height, $lparam) {}
-
-/**
- * @param $ctrl
- * @param $name
- * @param $value
- * @param $where
- * @param $image_index
- * @param $selected_image
- * @param $selected_image_index
- *
- * @return int
- */
-function wbtemp_create_treeview_item($ctrl, $name, $value, $where = 0, $image_index = 0, $selected_image = 0, $selected_image_index = 0) {}
-
-/**
- * @param $ctrl
- * @param $selitems
- *
- * @return int
- */
-function wbtemp_set_treeview_item_selected($ctrl, $selitems) {}
-
-/**
- * @param $ctrl
- * @param $item
- * @param $text
- *
- * @return bool
- */
-function wbtemp_set_treeview_item_text($ctrl, $item, $text) {}
-
-/**
- * @param $ctrl
- * @param $item
- * @param $value
- *
- * @return int
- */
-function wbtemp_set_treeview_item_value($ctrl, $item, $value) {}
-
-/**
- * @param $ctrl
- * @param $item
- *
- * @return int
- */
-function wbtemp_get_treeview_item_text($ctrl, $item) {}
-
-/**
- * @param $parent
- * @param null $title
- * @param null $filter
- * @param null $path
- * @param null $flags
- *
- * @return int
- */
-function wbtemp_sys_dlg_open($parent, $title = null, $filter = null, $path = null, $flags = null) {}
-
-/**
- * @param $wbObj
- * @param string $title
- * @param string $filter
- * @param string $path
- * @param string $filename
- * @param string $defext
- *
- * @return int
- */
-function wbtemp_sys_dlg_save($wbObj, $title = '', $filter = '', $path = '', $filename = '', $defext = '') {}
+function wb_sys_dlg_font(?int $pwbparent = 0, ?string $title = '', ?string $name = '', ?int $height = 0, ?int $color = 0, ?int $flags = 0) : int{}
