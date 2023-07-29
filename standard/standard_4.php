@@ -760,7 +760,6 @@ function getallheaders(): false|array {}
  * @link https://php.net/manual/en/function.connection-aborted.php
  * @return int 1 if client disconnected, 0 otherwise.
  */
-#[Pure(true)]
 function connection_aborted(): int {}
 
 /**
@@ -770,7 +769,6 @@ function connection_aborted(): int {}
  * CONNECTION_XXX constants to determine the connection
  * status.
  */
-#[Pure(true)]
 function connection_status(): int {}
 
 /**
