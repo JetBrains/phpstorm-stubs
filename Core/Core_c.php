@@ -1124,3 +1124,12 @@ final class SensitiveParameterValue
 
     public function __debugInfo(): array {}
 }
+
+/**
+ * @since 8.3
+ */
+#[Attribute(Attribute::TARGET_METHOD)]
+final class Override
+{
+    public function __construct() {}
+}

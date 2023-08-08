@@ -748,6 +748,7 @@ const CLASSES = array (
   'OutOfRangeException' => 'SPL/SPL.php',
   'OuterIterator' => 'SPL/SPL.php',
   'OverflowException' => 'SPL/SPL.php',
+  'Override' => 'Core/Core_c.php',
   'OwsrequestObj' => 'mapscript/mapscript.php',
   'PDFlib' => 'pdflib/PDFlib.php',
   'PDO' => 'PDO/PDO.php',
