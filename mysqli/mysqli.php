@@ -169,7 +169,7 @@ class mysqli
     public $sqlstate;
 
     /**
-     * @var string
+     * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $protocol_version;
