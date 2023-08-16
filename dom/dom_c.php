@@ -254,6 +254,7 @@ class DOMNode
 
     /**
      * @param DOMNode $other
+     * @removed 8.0
      */
     public function compareDocumentPosition(DOMNode $other) {}
 
