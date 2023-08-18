@@ -280,13 +280,24 @@ function hash_hmac_algos(): array {}
  * @param bool $binary [optional] <p>
  * When set to TRUE, outputs raw binary data. FALSE outputs lowercase hexits.
  * </p>
+ * @param array $options [optional] <p>
+ * Additional options. This parameter was added for PHP 8.1 only.
+ * </p>
  * @return string a string containing the derived key as lowercase hexits unless
  * <i>raw_output</i> is set to <b>TRUE</b> in which case the raw
  * binary representation of the derived key is returned.
  * @since 5.5
  */
 #[Pure]
-function hash_pbkdf2(string $algo, string $password, string $salt, int $iterations, int $length = 0, bool $binary = false): string {}
+function hash_pbkdf2(
+    string $algo,
+    string $password,
+    string $salt,
+    int $iterations,
+    int $length = 0,
+    bool $binary = false,
+    #[PhpStormStubsElementAvailable('8.1')] array $options = []
+): string {}
 
 /**
  * Generates a key
