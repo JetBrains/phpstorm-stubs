@@ -795,7 +795,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
     /**
      * Returns an iterator in the "[object => mixed]" format.
      *
-     * @return Traversable<TKey, TValue>
+     * @return Iterator
      */
     public function getIterator(): Iterator {}
 
