@@ -1146,6 +1146,7 @@ class PDO
      * If the PDO driver does not support this capability,
      * <b>PDO::lastInsertId</b> triggers an
      * IM001 SQLSTATE.
+     * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
      */
     #[TentativeType]
     public function lastInsertId(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $name = null): string|false {}
