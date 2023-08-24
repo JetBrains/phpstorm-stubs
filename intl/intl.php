@@ -926,7 +926,7 @@ class NumberFormatter
     #[Pure]
     public function __construct(
         #[TypeAware(['8.0' => 'string'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'int'], default: '')] $style,
+        #[TypeAware(['8.0' => 'int'], default: '')] #[EV([NumberFormatter::PATTERN_DECIMAL, NumberFormatter::PATTERN_RULEBASED, NumberFormatter::CURRENCY])] $style,
         #[TypeAware(['8.0' => 'string|null'], default: '')] $pattern = null
     ) {}
 
