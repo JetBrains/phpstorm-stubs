@@ -957,7 +957,7 @@ class NumberFormatter
     #[TentativeType]
     public static function create(
         #[TypeAware(['8.0' => 'string'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'int'], default: '')] #[EV([NumberFormatter::PATTERN_DECIMAL, NumberFormatter::PATTERN_RULEBASED])] $style,
+        #[TypeAware(['8.0' => 'int'], default: '')] #[EV([NumberFormatter::PATTERN_DECIMAL, NumberFormatter::PATTERN_RULEBASED, NumberFormatter::CURRENCY])] $style,
         #[TypeAware(['8.0' => 'string|null'], default: '')] $pattern = null
     ): ?NumberFormatter {}
 
