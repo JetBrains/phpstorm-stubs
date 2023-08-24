@@ -7,6 +7,7 @@ use ReflectionFunction;
 use StubTests\Model\CommonUtils;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPDefineConstant;
+use StubTests\Model\PHPEnum;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\StubsContainer;
@@ -44,9 +45,15 @@ class PHPReflectionParser
             foreach (get_declared_classes() as $clazz) {
                 $reflectionClass = new ReflectionClass($clazz);
                 if ($reflectionClass->isInternal()) {
-                    $class = (new PHPClass())->readObjectFromReflection($reflectionClass);
-                    $class->readMutedProblems($jsonData->classes);
-                    $stubs->addClass($class);
+                    if (method_exists($reflectionClass, 'isEnum') && $reflectionClass->isEnum()) {
+                        $enum = (new PHPEnum())->readObjectFromReflection($reflectionClass);
+                        $enum->readMutedProblems($jsonData->enums);
+                        $stubs->addEnum($enum);
+                    } else {
+                        $class = (new PHPClass())->readObjectFromReflection($reflectionClass);
+                        $class->readMutedProblems($jsonData->classes);
+                        $stubs->addClass($class);
+                    }
                 }
             }
 

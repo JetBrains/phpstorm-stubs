@@ -122,7 +122,10 @@ class ParserUtils
      */
     private static function getSinceVersionsFromParentClass(PHPMethod|PHPConst $element): array
     {
-        $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($element->parentName, shouldSuitCurrentPhpVersion: false);
+        $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getEnum($element->parentName, shouldSuitCurrentPhpVersion: false);
+        if ($parentClass === null) {
+            $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($element->parentName, shouldSuitCurrentPhpVersion: false);
+        }
         if ($parentClass === null) {
             $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($element->parentName, shouldSuitCurrentPhpVersion: false);
         }
@@ -137,7 +140,10 @@ class ParserUtils
      */
     public static function getLatestAvailableVersionsFromParentClass(PHPMethod|PHPConst $element): array
     {
-        $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($element->parentName, shouldSuitCurrentPhpVersion: false);
+        $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getEnum($element->parentName, shouldSuitCurrentPhpVersion: false);
+        if ($parentClass === null) {
+            $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($element->parentName, shouldSuitCurrentPhpVersion: false);
+        }
         if ($parentClass === null) {
             $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($element->parentName, shouldSuitCurrentPhpVersion: false);
         }

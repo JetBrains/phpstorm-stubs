@@ -1422,6 +1422,11 @@ function ldap_count_references(
     #[PhpVersionAware(['8.1' => 'LDAP\Result'], default: 'resource')] $result
 ): int {}
 
+/**
+ * @since 8.3
+ */
+function ldap_exop_sync(LDAP\Connection $ldap, string $request_oid, ?string $request_data = null, ?array $controls = null, &$response_data = null, &$response_oid = null): LDAP\Result|bool {}
+
 define('LDAP_ESCAPE_FILTER', 1);
 define('LDAP_ESCAPE_DN', 2);
 define('LDAP_DEREF_NEVER', 0);

@@ -36,6 +36,23 @@ abstract class BasePHPClass extends BasePHPElement
         }
     }
 
+    public function addEnumCase(PHPEnumCase $parsedConstant)
+    {
+        if (isset($parsedConstant->name)) {
+            if (array_key_exists($parsedConstant->name, $this->constants)) {
+                $amount = count(array_filter(
+                    $this->constants,
+                    function (PHPConst $nextConstant) use ($parsedConstant) {
+                        return $nextConstant->name === $parsedConstant->name;
+                    }
+                ));
+                $this->constants[$parsedConstant->name . '_duplicated_' . $amount] = $parsedConstant;
+            } else {
+                $this->constants[$parsedConstant->name] = $parsedConstant;
+            }
+        }
+    }
+
     /**
      * @return PHPConst|null
      * @throws RuntimeException

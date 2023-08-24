@@ -8,6 +8,7 @@ use PhpParser\Node\Expr\Cast;
 use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\UnaryMinus;
 use PhpParser\Node\Stmt\ClassConst;
+use PhpParser\Node\Stmt\Enum_;
 use PhpParser\Node\Stmt\Namespace_;
 use PhpParser\NodeAbstract;
 use ReflectionClassConstant;
@@ -107,9 +108,14 @@ class PHPConst extends BasePHPElement
     protected function getConstantFQN(NodeAbstract $node, $nodeName)
     {
         $namespace = '';
-        $parentParentNode = $node->getAttribute('parent')->getAttribute('parent');
-        if ($parentParentNode instanceof Namespace_ && !empty($parentParentNode->name)) {
-            $namespace = '\\' . implode('\\', $parentParentNode->name->parts) . '\\';
+        $parentNode = $node->getAttribute('parent');
+        if ($parentNode instanceof Enum_) {
+            return $nodeName;
+        } else {
+            $parentParentNode = $parentNode->getAttribute('parent');
+            if ($parentParentNode instanceof Namespace_ && !empty($parentParentNode->name)) {
+                $namespace = '\\' . implode('\\', $parentParentNode->name->parts) . '\\';
+            }
         }
 
         return $namespace . $nodeName;

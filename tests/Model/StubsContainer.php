@@ -29,6 +29,11 @@ class StubsContainer
     private $interfaces = [];
 
     /**
+     * @var PHPEnum[]
+     */
+    private $enums = [];
+
+    /**
      * @return PHPConst[]
      */
     public function getConstants()
@@ -189,6 +194,38 @@ class StubsContainer
     }
 
     /**
+     * @param string $name
+     * @param string|null $sourceFilePath
+     * @param bool $shouldSuitCurrentPhpVersion
+     * @return PHPEnum|null
+     * @throws RuntimeException
+     */
+    public function getEnum($name, $sourceFilePath = null, $shouldSuitCurrentPhpVersion = true)
+    {
+        $enums = array_filter($this->enums, function (PHPEnum $enum) use ($shouldSuitCurrentPhpVersion, $name) {
+            return $enum->name === $name &&
+                (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($enum));
+        });
+        if (count($enums) === 1) {
+            return array_pop($enums);
+        }
+
+        if ($sourceFilePath !== null) {
+            $enums = array_filter($enums, function (PHPEnum $enum) use ($shouldSuitCurrentPhpVersion, $sourceFilePath) {
+                return $enum->sourceFilePath === $sourceFilePath &&
+                    (!$shouldSuitCurrentPhpVersion || BasePHPElement::entitySuitsCurrentPhpVersion($enum));
+            });
+        }
+        if (count($enums) > 1) {
+            throw new RuntimeException("Multiple enums with name $name found");
+        }
+        if (!empty($enums)) {
+            return array_pop($enums);
+        }
+        return null;
+    }
+
+    /**
      * @return PHPClass[]
      */
     public function getCoreClasses()
@@ -256,6 +293,14 @@ class StubsContainer
     }
 
     /**
+     * @return PHPEnum[]
+     */
+    public function getEnums()
+    {
+        return $this->enums;
+    }
+
+    /**
      * @return PHPInterface[]
      */
     public function getCoreInterfaces()
@@ -278,6 +323,23 @@ class StubsContainer
                 $this->interfaces[$interface->name . '_duplicated_' . $amount] = $interface;
             } else {
                 $this->interfaces[$interface->name] = $interface;
+            }
+        }
+    }
+
+    public function addEnum(PHPEnum $enum)
+    {
+        if (isset($enum->name)) {
+            if (array_key_exists($enum->name, $this->enums)) {
+                $amount = count(array_filter(
+                    $this->enums,
+                    function (PHPEnum $nextEnum) use ($enum) {
+                        return $nextEnum->name === $enum->name;
+                    }
+                ));
+                $this->enums[$enum->name . '_duplicated_' . $amount] = $enum;
+            } else {
+                $this->enums[$enum->name] = $enum;
             }
         }
     }

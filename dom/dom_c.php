@@ -142,6 +142,8 @@ class DOMNode
      */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $textContent;
+    public bool $isConnected;
+    public ?DOMElement $parentElement;
 
     /**
      * Adds a new child before a reference node
@@ -318,8 +320,14 @@ class DOMNode
     /**
      * @param DOMNode $arg
      * @return bool
+     * @removed 8.0
      */
     public function isEqualNode(DOMNode $arg) {}
+
+    /**
+     * @since 8.3
+     */
+    public function isEqualNode(?DOMNode $otherNode): bool {}
 
     /**
      * @param $feature
@@ -391,6 +399,16 @@ class DOMNode
         #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')] $xpath = null,
         #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')] $nsPrefixes = null
     ): int|false {}
+
+    /**
+     * @since 8.3
+     */
+    public function contains(DOMNode|DOMNameSpaceNode|null $other): bool {}
+
+    /**
+     * @since 8.3
+     */
+    public function getRootNode(?array $options = []): DOMNode {}
 }
 
 /**
@@ -577,6 +595,8 @@ class DOMNameSpaceNode
 
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $nodeName;
+    public ?DOMElement $parentElement;
+    public bool $isConnected;
 }
 
 /**
@@ -616,6 +636,12 @@ class DOMDocumentFragment extends DOMNode implements DOMParentNode
      * {@inheritDoc}
      */
     public function prepend(...$nodes): void {}
+
+    /**
+     * @since 8.3
+     * {@inheritDoc}
+     */
+    public function replaceChildren(...$nodes): void {}
 }
 
 /**
@@ -1001,9 +1027,8 @@ class DOMDocument extends DOMNode implements DOMParentNode
     #[TentativeType]
     public function getElementById(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $elementId): ?DOMElement {}
 
-    /**
-     * @param DOMNode $node
-     */
+    #[TentativeType]
+    #[LanguageLevelTypeAware(['8.3' => 'DOMNode|false'], default: '')]
     public function adoptNode(DOMNode $node) {}
 
     /**
@@ -1015,6 +1040,12 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * {@inheritDoc}
      */
     public function prepend(...$nodes): void {}
+
+    /**
+     * @since 8.3
+     * {@inheritDoc}
+     */
+    public function replaceChildren(...$nodes): void {}
 
     /**
      * Normalizes the document
@@ -1041,10 +1072,12 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * Bitwise OR
      * of the libxml option constants.
      * </p>
-     * @return DOMDocument|bool true on success or false on failure. If called statically, returns a
+     * @return DOMDocument|bool true on success or false on failure. Prior to PHP 8.3 if called statically, returns a
      * DOMDocument and issues E_STRICT
      * warning.
      */
+    #[TentativeType]
+    #[LanguageLevelTypeAware(['8.3' => 'bool'], default: 'DOMDocument|bool')]
     public function load(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null
@@ -1073,10 +1106,12 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * Bitwise OR
      * of the libxml option constants.
      * </p>
-     * @return DOMDocument|bool true on success or false on failure. If called statically, returns a
+     * @return DOMDocument|bool true on success or false on failure. Prior to PHP 8.3 if called statically, returns a
      * DOMDocument and issues E_STRICT
      * warning.
      */
+    #[TentativeType]
+    #[LanguageLevelTypeAware(['8.3' => 'bool'], default: 'DOMDocument|bool')]
     public function loadXML(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $source,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null
@@ -1142,10 +1177,12 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * Since PHP 5.4.0 and Libxml 2.6.0, you may also
      * use the options parameter to specify additional Libxml parameters.
      * </p>
-     * @return DOMDocument|bool true on success or false on failure. If called statically, returns a
+     * @return DOMDocument|bool true on success or false on failure. Prior to PHP 8.3 if called statically, returns a
      * DOMDocument and issues E_STRICT
      * warning.
      */
+    #[TentativeType]
+    #[LanguageLevelTypeAware(['8.3' => 'bool'], default: 'DOMDocument|bool')]
     public function loadHTML(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $source,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = 0
@@ -1161,10 +1198,12 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * Since PHP 5.4.0 and Libxml 2.6.0, you may also
      * use the options parameter to specify additional Libxml parameters.
      * </p>
-     * @return DOMDocument|bool true on success or false on failure. If called statically, returns a
+     * @return DOMDocument|bool true on success or false on failure. Prior to PHP 8.3 if called statically, returns a
      * DOMDocument and issues E_STRICT
      * warning.
      */
+    #[TentativeType]
+    #[LanguageLevelTypeAware(['8.3' => 'bool'], default: 'DOMDocument|bool')]
     public function loadHTMLFile(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = 0
@@ -1443,10 +1482,10 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      * @param string $data <p>
      * The string to append.
      * </p>
-     * @return void
      */
     #[TentativeType]
-    public function appendData(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data): bool {}
+    #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+    public function appendData(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data) {}
 
     /**
      * Insert a string at the specified 16-bit unit offset
@@ -1679,6 +1718,8 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
 
     #[LanguageLevelTypeAware(['8.1' => 'DOMElement|null'], default: '')]
     public $nextElementSibling;
+    public string $id;
+    public string $className;
 
     /**
      * Returns value of attribute
@@ -1977,6 +2018,12 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
     public function prepend(...$nodes): void {}
 
     /**
+     * @since 8.3
+     * {@inheritDoc}
+     */
+    public function replaceChildren(...$nodes): void {}
+
+    /**
      * Creates a new DOMElement object
      * @link https://php.net/manual/en/domelement.construct.php
      * @param string $qualifiedName The tag name of the element. When also passing in namespaceURI, the element name may take a prefix to be associated with the URI.
@@ -1989,6 +2036,26 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $value = null,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace = null
     ) {}
+
+    /**
+     * @since 8.3
+     */
+    public function getAttributeNames(): array {}
+
+    /**
+     * @since 8.3
+     */
+    public function toggleAttribute(string $qualifiedName, ?bool $force = false): bool {}
+
+    /**
+     * @since 8.3
+     */
+    public function insertAdjacentElement(string $where, DOMElement $element): ?DOMElement {}
+
+    /**
+     * @since 8.3
+     */
+    public function insertAdjacentText(string $where, string $data): void {}
 }
 
 /**
@@ -2455,6 +2522,11 @@ interface DOMParentNode
      * @since 8.0
      */
     public function prepend(...$nodes): void;
+
+    /**
+     * @since 8.3
+     */
+    public function replaceChildren(...$nodes): void;
 }
 
 /**

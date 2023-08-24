@@ -521,13 +521,14 @@ function xml_parser_set_option(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], 
  * @param int $option Which option to fetch. <b>XML_OPTION_CASE_FOLDING</b>
  * and <b>XML_OPTION_TARGET_ENCODING</b> are available.
  * See <b>xml_parser_set_option</b> for their description.
- * @return string|int This function returns <b>FALSE</b> if <i>parser</i> does
+ * @return string|int|bool This function returns <b>FALSE</b> if <i>parser</i> does
  * not refer to a valid parser or if <i>option</i> isn't
  * valid (generates also a <b>E_WARNING</b>).
  * Else the option's value is returned.
  */
 #[Pure]
-function xml_parser_get_option(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, int $option): string|int {}
+#[LanguageLevelTypeAware(["8.3" => "string|int|bool"], default: "string|int")]
+function xml_parser_get_option(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, int $option) {}
 
 define('XML_ERROR_NONE', 0);
 define('XML_ERROR_NO_MEMORY', 1);

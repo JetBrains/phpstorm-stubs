@@ -948,6 +948,7 @@ class AssertionError extends Error {}
  * An optional new value for the option.
  * </p>
  * @return mixed The original setting of any option.
+ * @deprecated
  */
 function assert_options(int $option, mixed $value): mixed {}
 

@@ -167,6 +167,16 @@ function str_ends_with(string $haystack, string $needle): bool {}
 function str_contains(string $haystack, string $needle): bool {}
 
 /**
+ * @since 8.3
+ */
+function str_decrement(string $string): string {}
+
+/**
+ * @since 8.3
+ */
+function str_increment(string $string): string {}
+
+/**
  * Return the current key and value pair from an array and advance the array cursor
  * @link https://php.net/manual/en/function.each.php
  * @param array|ArrayObject &$array <p>

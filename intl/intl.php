@@ -4,7 +4,7 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\ExpectedValues as EV;
-use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware as TypeAware;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware as LanguageAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable as ElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
@@ -248,7 +248,7 @@ class Collator
      * @param string $locale
      */
     #[Pure]
-    public function __construct(#[TypeAware(['8.0' => 'string'], default: '')] $locale) {}
+    public function __construct(#[LanguageAware(['8.0' => 'string'], default: '')] $locale) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -264,7 +264,7 @@ class Collator
      * on error.
      */
     #[TentativeType]
-    public static function create(#[TypeAware(['8.0' => 'string'], default: '')] $locale): ?Collator {}
+    public static function create(#[LanguageAware(['8.0' => 'string'], default: '')] $locale): ?Collator {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -298,8 +298,8 @@ class Collator
     #[Pure]
     #[TentativeType]
     public function compare(
-        #[TypeAware(['8.0' => 'string'], default: '')] $string1,
-        #[TypeAware(['8.0' => 'string'], default: '')] $string2
+        #[LanguageAware(['8.0' => 'string'], default: '')] $string1,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $string2
     ): int|false {}
 
     /**
@@ -321,7 +321,7 @@ class Collator
     #[TentativeType]
     public function sort(
         array &$array,
-        #[TypeAware(['8.0' => 'int'], default: '')] #[EV([Collator::SORT_REGULAR])] $flags = null
+        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Collator::SORT_REGULAR])] $flags = null
     ): bool {}
 
     /**
@@ -352,7 +352,7 @@ class Collator
     #[TentativeType]
     public function asort(
         array &$array,
-        #[TypeAware(['8.0' => 'int'], default: '')] #[EV([Collator::SORT_REGULAR])] $flags = null
+        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Collator::SORT_REGULAR])] $flags = null
     ): bool {}
 
     /**
@@ -366,7 +366,7 @@ class Collator
      */
     #[Pure]
     #[TentativeType]
-    public function getAttribute(#[TypeAware(['8.0' => 'int'], default: '')] $attribute): int|false {}
+    public function getAttribute(#[LanguageAware(['8.0' => 'int'], default: '')] $attribute): int|false {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -380,8 +380,8 @@ class Collator
      */
     #[TentativeType]
     public function setAttribute(
-        #[TypeAware(['8.0' => 'int'], default: '')] $attribute,
-        #[TypeAware(['8.0' => 'int'], default: '')] $value
+        #[LanguageAware(['8.0' => 'int'], default: '')] $attribute,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $value
     ): bool {}
 
     /**
@@ -405,7 +405,7 @@ class Collator
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setStrength(#[TypeAware(['8.0' => 'int'], default: '')] #[EV([Collator::PRIMARY])] $strength) {}
+    public function setStrength(#[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Collator::PRIMARY])] $strength) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -434,7 +434,7 @@ class Collator
     #[Pure]
     #[TentativeType]
     public function getLocale(
-        #[TypeAware(['8.0' => 'int'], default: '')]
+        #[LanguageAware(['8.0' => 'int'], default: '')]
         #[EV([Locale::VALID_LOCALE, Locale::ACTUAL_LOCALE])]
         $type
     ): string|false {}
@@ -461,7 +461,7 @@ class Collator
     #[Pure]
     #[TentativeType]
     public function getSortKey(
-        #[TypeAware(['8.0' => 'string'], default: '')] $string,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $string,
         #[ElementAvailable(from: '5.3', to: '5.6')] $arg2
     ): string|false {}
 }
@@ -925,13 +925,13 @@ class NumberFormatter
      */
     #[Pure]
     public function __construct(
-        #[TypeAware(['8.0' => 'string'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'int'], default: '')] #[EV([NumberFormatter::PATTERN_DECIMAL,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $locale,
+        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([NumberFormatter::PATTERN_DECIMAL,
             NumberFormatter::PATTERN_RULEBASED, NumberFormatter::CURRENCY, NumberFormatter::PERCENT,
             NumberFormatter::SCIENTIFIC, NumberFormatter::SPELLOUT, NumberFormatter::ORDINAL,
             NumberFormatter::DURATION, NumberFormatter::PATTERN_RULEBASED, NumberFormatter::CURRENCY_ACCOUNTING,
             NumberFormatter::DEFAULT_STYLE, NumberFormatter::IGNORE])] $style,
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $pattern = null
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $pattern = null
     ) {}
 
     /**
@@ -960,13 +960,13 @@ class NumberFormatter
      */
     #[TentativeType]
     public static function create(
-        #[TypeAware(['8.0' => 'string'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'int'], default: '')] #[EV([NumberFormatter::PATTERN_DECIMAL,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $locale,
+        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([NumberFormatter::PATTERN_DECIMAL,
             NumberFormatter::PATTERN_RULEBASED, NumberFormatter::CURRENCY, NumberFormatter::PERCENT,
             NumberFormatter::SCIENTIFIC, NumberFormatter::SPELLOUT, NumberFormatter::ORDINAL,
             NumberFormatter::DURATION, NumberFormatter::PATTERN_RULEBASED, NumberFormatter::CURRENCY_ACCOUNTING,
             NumberFormatter::DEFAULT_STYLE, NumberFormatter::IGNORE])] $style,
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $pattern = null
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $pattern = null
     ): ?NumberFormatter {}
 
     /**
@@ -986,8 +986,8 @@ class NumberFormatter
     #[Pure]
     #[TentativeType]
     public function format(
-        #[TypeAware(['8.0' => 'int|float'], default: '')] $num,
-        #[TypeAware(['8.0' => 'int'], default: '')] $type = null
+        #[LanguageAware(['8.0' => 'int|float'], default: '')] $num,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $type = null
     ): string|false {}
 
     /**
@@ -1008,8 +1008,8 @@ class NumberFormatter
      */
     #[TentativeType]
     public function parse(
-        #[TypeAware(['8.0' => 'string'], default: '')] $string,
-        #[TypeAware(['8.0' => 'int'], default: '')] $type = NumberFormatter::TYPE_DOUBLE,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $string,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $type = NumberFormatter::TYPE_DOUBLE,
         &$offset = null
     ): int|float|false {}
 
@@ -1028,8 +1028,8 @@ class NumberFormatter
     #[Pure]
     #[TentativeType]
     public function formatCurrency(
-        #[TypeAware(['8.0' => 'float'], default: '')] $amount,
-        #[TypeAware(['8.0' => 'string'], default: '')] $currency
+        #[LanguageAware(['8.0' => 'float'], default: '')] $amount,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $currency
     ): string|false {}
 
     /**
@@ -1048,7 +1048,7 @@ class NumberFormatter
      * @return float|false The parsed numeric value or <b>FALSE</b> on error.
      */
     #[TentativeType]
-    public function parseCurrency(#[TypeAware(['8.0' => 'string'], default: '')] $string, &$currency, &$offset = null): float|false {}
+    public function parseCurrency(#[LanguageAware(['8.0' => 'string'], default: '')] $string, &$currency, &$offset = null): float|false {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1065,8 +1065,8 @@ class NumberFormatter
      */
     #[TentativeType]
     public function setAttribute(
-        #[TypeAware(['8.0' => 'int'], default: '')] $attribute,
-        #[TypeAware(['8.0' => 'int|float'], default: '')] $value
+        #[LanguageAware(['8.0' => 'int'], default: '')] $attribute,
+        #[LanguageAware(['8.0' => 'int|float'], default: '')] $value
     ): bool {}
 
     /**
@@ -1081,7 +1081,7 @@ class NumberFormatter
      */
     #[Pure]
     #[TentativeType]
-    public function getAttribute(#[TypeAware(['8.0' => 'int'], default: '')] $attribute): int|float|false {}
+    public function getAttribute(#[LanguageAware(['8.0' => 'int'], default: '')] $attribute): int|float|false {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1099,8 +1099,8 @@ class NumberFormatter
      */
     #[TentativeType]
     public function setTextAttribute(
-        #[TypeAware(['8.0' => 'int'], default: '')] $attribute,
-        #[TypeAware(['8.0' => 'string'], default: '')] $value
+        #[LanguageAware(['8.0' => 'int'], default: '')] $attribute,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $value
     ): bool {}
 
     /**
@@ -1115,7 +1115,7 @@ class NumberFormatter
      */
     #[Pure]
     #[TentativeType]
-    public function getTextAttribute(#[TypeAware(['8.0' => 'int'], default: '')] $attribute): string|false {}
+    public function getTextAttribute(#[LanguageAware(['8.0' => 'int'], default: '')] $attribute): string|false {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1132,8 +1132,8 @@ class NumberFormatter
      */
     #[TentativeType]
     public function setSymbol(
-        #[TypeAware(['8.0' => 'int'], default: '')] $symbol,
-        #[TypeAware(['8.0' => 'string'], default: '')] $value
+        #[LanguageAware(['8.0' => 'int'], default: '')] $symbol,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $value
     ): bool {}
 
     /**
@@ -1148,7 +1148,7 @@ class NumberFormatter
      */
     #[Pure]
     #[TentativeType]
-    public function getSymbol(#[TypeAware(['8.0' => 'int'], default: '')] $symbol): string|false {}
+    public function getSymbol(#[LanguageAware(['8.0' => 'int'], default: '')] $symbol): string|false {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1162,7 +1162,7 @@ class NumberFormatter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function setPattern(#[TypeAware(['8.0' => 'string'], default: '')] $pattern): bool {}
+    public function setPattern(#[LanguageAware(['8.0' => 'string'], default: '')] $pattern): bool {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1189,7 +1189,7 @@ class NumberFormatter
     #[Pure]
     #[TentativeType]
     public function getLocale(
-        #[TypeAware(['8.0' => 'int'], default: '')] #[EV([Locale::VALID_LOCALE, Locale::ACTUAL_LOCALE])] $type = null
+        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Locale::VALID_LOCALE, Locale::ACTUAL_LOCALE])] $type = null
     ): string|false {}
 
     /**
@@ -1271,9 +1271,9 @@ class Normalizer
      */
     #[TentativeType]
     public static function normalize(
-        #[TypeAware(['8.0' => 'string'], default: '')] $string,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $string,
         #[ElementAvailable(from: '5.3', to: '5.6')] $form,
-        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'int'], default: '')] $form = Normalizer::FORM_C,
+        #[ElementAvailable(from: '7.0')] #[LanguageAware(['8.0' => 'int'], default: '')] $form = Normalizer::FORM_C,
         #[ElementAvailable(from: '5.3', to: '5.6')] $arg3
     ): string|false {}
 
@@ -1289,9 +1289,9 @@ class Normalizer
      */
     #[TentativeType]
     public static function isNormalized(
-        #[TypeAware(['8.0' => 'string'], default: '')] $string,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $string,
         #[ElementAvailable(from: '5.3', to: '5.6')] $form,
-        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'int'], default: '')] $form = Normalizer::FORM_C,
+        #[ElementAvailable(from: '7.0')] #[LanguageAware(['8.0' => 'int'], default: '')] $form = Normalizer::FORM_C,
         #[ElementAvailable(from: '5.3', to: '5.6')] $arg3
     ): bool {}
 
@@ -1392,7 +1392,7 @@ class Locale
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public static function setDefault(#[TypeAware(['8.0' => 'string'], default: '')] $locale) {}
+    public static function setDefault(#[LanguageAware(['8.0' => 'string'], default: '')] $locale) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1404,7 +1404,7 @@ class Locale
      * @return string|null The language code associated with the language or <b>NULL</b> in case of error.
      */
     #[TentativeType]
-    public static function getPrimaryLanguage(#[TypeAware(['8.0' => 'string'], default: '')] $locale): ?string {}
+    public static function getPrimaryLanguage(#[LanguageAware(['8.0' => 'string'], default: '')] $locale): ?string {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1416,7 +1416,7 @@ class Locale
      * @return string|null The script subtag for the locale or <b>NULL</b> if not present
      */
     #[TentativeType]
-    public static function getScript(#[TypeAware(['8.0' => 'string'], default: '')] $locale): ?string {}
+    public static function getScript(#[LanguageAware(['8.0' => 'string'], default: '')] $locale): ?string {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1428,7 +1428,7 @@ class Locale
      * @return string|null The region subtag for the locale or <b>NULL</b> if not present
      */
     #[TentativeType]
-    public static function getRegion(#[TypeAware(['8.0' => 'string'], default: '')] $locale): ?string {}
+    public static function getRegion(#[LanguageAware(['8.0' => 'string'], default: '')] $locale): ?string {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1440,7 +1440,7 @@ class Locale
      * @return array|false|null Associative array containing the keyword-value pairs for this locale
      */
     #[TentativeType]
-    public static function getKeywords(#[TypeAware(['8.0' => 'string'], default: '')] $locale): array|false|null {}
+    public static function getKeywords(#[LanguageAware(['8.0' => 'string'], default: '')] $locale): array|false|null {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1457,9 +1457,9 @@ class Locale
      */
     #[TentativeType]
     public static function getDisplayScript(
-        #[TypeAware(['8.0' => 'string'], default: '')] $locale,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $locale,
         #[ElementAvailable(from: '5.3', to: '5.6')] $displayLocale,
-        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
+        #[ElementAvailable(from: '7.0')] #[LanguageAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
     ): string|false {}
 
     /**
@@ -1477,9 +1477,9 @@ class Locale
      */
     #[TentativeType]
     public static function getDisplayRegion(
-        #[TypeAware(['8.0' => 'string'], default: '')] $locale,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $locale,
         #[ElementAvailable(from: '5.3', to: '5.6')] $displayLocale,
-        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
+        #[ElementAvailable(from: '7.0')] #[LanguageAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
     ): string|false {}
 
     /**
@@ -1494,9 +1494,9 @@ class Locale
      */
     #[TentativeType]
     public static function getDisplayName(
-        #[TypeAware(['8.0' => 'string'], default: '')] $locale,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $locale,
         #[ElementAvailable(from: '5.3', to: '5.6')] $displayLocale,
-        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
+        #[ElementAvailable(from: '7.0')] #[LanguageAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
     ): string|false {}
 
     /**
@@ -1514,9 +1514,9 @@ class Locale
      */
     #[TentativeType]
     public static function getDisplayLanguage(
-        #[TypeAware(['8.0' => 'string'], default: '')] $locale,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $locale,
         #[ElementAvailable(from: '5.3', to: '5.6')] $displayLocale,
-        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
+        #[ElementAvailable(from: '7.0')] #[LanguageAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
     ): string|false {}
 
     /**
@@ -1534,9 +1534,9 @@ class Locale
      */
     #[TentativeType]
     public static function getDisplayVariant(
-        #[TypeAware(['8.0' => 'string'], default: '')] $locale,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $locale,
         #[ElementAvailable(from: '5.3', to: '5.6')] $displayLocale,
-        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
+        #[ElementAvailable(from: '7.0')] #[LanguageAware(['8.0' => 'string|null'], default: '')] $displayLocale = null
     ): string|false {}
 
     /**
@@ -1583,7 +1583,7 @@ class Locale
      * variant2=&gt;varZ
      */
     #[TentativeType]
-    public static function parseLocale(#[TypeAware(['8.0' => 'string'], default: '')] $locale): ?array {}
+    public static function parseLocale(#[LanguageAware(['8.0' => 'string'], default: '')] $locale): ?array {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1596,7 +1596,7 @@ class Locale
      * or <b>NULL</b> if not present
      */
     #[TentativeType]
-    public static function getAllVariants(#[TypeAware(['8.0' => 'string'], default: '')] $locale): ?array {}
+    public static function getAllVariants(#[LanguageAware(['8.0' => 'string'], default: '')] $locale): ?array {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1616,10 +1616,10 @@ class Locale
      */
     #[TentativeType]
     public static function filterMatches(
-        #[TypeAware(['8.0' => 'string'], default: '')] $languageTag,
-        #[TypeAware(['8.0' => 'string'], default: '')] $locale,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $languageTag,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $locale,
         #[ElementAvailable(from: '5.3', to: '5.6')] $canonicalize,
-        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'bool'], default: '')] $canonicalize = false
+        #[ElementAvailable(from: '7.0')] #[LanguageAware(['8.0' => 'bool'], default: '')] $canonicalize = false
     ): ?bool {}
 
     /**
@@ -1645,11 +1645,11 @@ class Locale
     #[TentativeType]
     public static function lookup(
         array $languageTag,
-        #[TypeAware(['8.0' => 'string'], default: '')] $locale,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $locale,
         #[ElementAvailable(from: '5.3', to: '5.6')] $canonicalize,
         #[ElementAvailable(from: '5.3', to: '5.6')] $defaultLocale,
-        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'bool'], default: '')] $canonicalize = false,
-        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'string|null'], default: '')] $defaultLocale = null
+        #[ElementAvailable(from: '7.0')] #[LanguageAware(['8.0' => 'bool'], default: '')] $canonicalize = false,
+        #[ElementAvailable(from: '7.0')] #[LanguageAware(['8.0' => 'string|null'], default: '')] $defaultLocale = null
     ): ?string {}
 
     /**
@@ -1658,7 +1658,7 @@ class Locale
      * @return string|null
      */
     #[TentativeType]
-    public static function canonicalize(#[TypeAware(['8.0' => 'string'], default: '')] $locale): ?string {}
+    public static function canonicalize(#[LanguageAware(['8.0' => 'string'], default: '')] $locale): ?string {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1670,7 +1670,7 @@ class Locale
      * @return string|false The corresponding locale identifier.
      */
     #[TentativeType]
-    public static function acceptFromHttp(#[TypeAware(['8.0' => 'string'], default: '')] $header): string|false {}
+    public static function acceptFromHttp(#[LanguageAware(['8.0' => 'string'], default: '')] $header): string|false {}
 }
 
 class MessageFormatter
@@ -1692,8 +1692,8 @@ class MessageFormatter
      */
     #[Pure]
     public function __construct(
-        #[TypeAware(['8.0' => 'string'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'string'], default: '')] $pattern
+        #[LanguageAware(['8.0' => 'string'], default: '')] $locale,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $pattern
     ) {}
 
     /**
@@ -1713,8 +1713,8 @@ class MessageFormatter
      */
     #[TentativeType]
     public static function create(
-        #[TypeAware(['8.0' => 'string'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'string'], default: '')] $pattern
+        #[LanguageAware(['8.0' => 'string'], default: '')] $locale,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $pattern
     ): ?MessageFormatter {}
 
     /**
@@ -1750,8 +1750,8 @@ class MessageFormatter
      */
     #[TentativeType]
     public static function formatMessage(
-        #[TypeAware(['8.0' => 'string'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'string'], default: '')] $pattern,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $locale,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $pattern,
         array $values
     ): string|false {}
 
@@ -1766,7 +1766,7 @@ class MessageFormatter
      */
     #[Pure]
     #[TentativeType]
-    public function parse(#[TypeAware(['8.0' => 'string'], default: '')] $string): array|false {}
+    public function parse(#[LanguageAware(['8.0' => 'string'], default: '')] $string): array|false {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1785,9 +1785,9 @@ class MessageFormatter
      */
     #[TentativeType]
     public static function parseMessage(
-        #[TypeAware(['8.0' => 'string'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'string'], default: '')] $pattern,
-        #[TypeAware(['8.0' => 'string'], default: '')] $message
+        #[LanguageAware(['8.0' => 'string'], default: '')] $locale,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $pattern,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $message
     ): array|false {}
 
     /**
@@ -1803,7 +1803,7 @@ class MessageFormatter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function setPattern(#[TypeAware(['8.0' => 'string'], default: '')] $pattern): bool {}
+    public function setPattern(#[LanguageAware(['8.0' => 'string'], default: '')] $pattern): bool {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1904,14 +1904,14 @@ class IntlDateFormatter
      */
     #[Pure]
     public function __construct(
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $locale,
-        #[ElementAvailable(from: '5.3', to: '8.0')] #[TypeAware(['8.0' => 'int'], default: '')] $dateType,
-        #[ElementAvailable(from: '5.3', to: '8.0')] #[TypeAware(['8.0' => 'int'], default: '')] $timeType,
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $locale,
+        #[ElementAvailable(from: '5.3', to: '8.0')] #[LanguageAware(['8.0' => 'int'], default: '')] $dateType,
+        #[ElementAvailable(from: '5.3', to: '8.0')] #[LanguageAware(['8.0' => 'int'], default: '')] $timeType,
         #[ElementAvailable(from: '8.1')] int $dateType = 0,
         #[ElementAvailable(from: '8.1')] int $timeType = 0,
         $timezone = null,
         $calendar = null,
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $pattern = ''
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $pattern = ''
     ) {}
 
     /**
@@ -1951,14 +1951,14 @@ class IntlDateFormatter
      */
     #[TentativeType]
     public static function create(
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $locale,
-        #[ElementAvailable(from: '5.3', to: '8.0')] #[TypeAware(['8.0' => 'int'], default: '')] $dateType,
-        #[ElementAvailable(from: '5.3', to: '8.0')] #[TypeAware(['8.0' => 'int'], default: '')] $timeType,
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $locale,
+        #[ElementAvailable(from: '5.3', to: '8.0')] #[LanguageAware(['8.0' => 'int'], default: '')] $dateType,
+        #[ElementAvailable(from: '5.3', to: '8.0')] #[LanguageAware(['8.0' => 'int'], default: '')] $timeType,
         #[ElementAvailable(from: '8.1')] int $dateType = 0,
         #[ElementAvailable(from: '8.1')] int $timeType = 0,
         $timezone = null,
-        #[TypeAware(['8.0' => 'IntlCalendar|int|null'], default: '')] $calendar = null,
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $pattern = ''
+        #[LanguageAware(['8.0' => 'IntlCalendar|int|null'], default: '')] $calendar = null,
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $pattern = ''
     ): ?IntlDateFormatter {}
 
     /**
@@ -2002,7 +2002,7 @@ class IntlDateFormatter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function setCalendar(#[TypeAware(['8.0' => 'IntlCalendar|int|null'], default: '')] $calendar): bool {}
+    public function setCalendar(#[LanguageAware(['8.0' => 'IntlCalendar|int|null'], default: '')] $calendar): bool {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -2088,7 +2088,8 @@ class IntlDateFormatter
      * @return bool|null <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function setTimeZone($timezone): ?bool {}
+    #[LanguageAware(['8.3' => 'bool'], default: 'bool|null')]
+    public function setTimeZone($timezone) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -2102,7 +2103,7 @@ class IntlDateFormatter
      * Bad formatstrings are usually the cause of the failure.
      */
     #[TentativeType]
-    public function setPattern(#[TypeAware(['8.0' => 'string'], default: '')] $pattern): bool {}
+    public function setPattern(#[LanguageAware(['8.0' => 'string'], default: '')] $pattern): bool {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -2125,7 +2126,7 @@ class IntlDateFormatter
     #[TentativeType]
     public function getLocale(
         #[ElementAvailable(from: '8.0')]
-        #[TypeAware(['8.0' => 'int'], default: '')]
+        #[LanguageAware(['8.0' => 'int'], default: '')]
         $type = null
     ): string|false {}
 
@@ -2139,7 +2140,7 @@ class IntlDateFormatter
      * @return void
      */
     #[TentativeType]
-    public function setLenient(#[TypeAware(['8.0' => 'bool'], default: '')] $lenient): void {}
+    public function setLenient(#[LanguageAware(['8.0' => 'bool'], default: '')] $lenient): void {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -2195,7 +2196,7 @@ class IntlDateFormatter
      * @return string|false A string with result or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public static function formatObject($datetime, $format = null, #[TypeAware(['8.0' => 'string|null'], default: '')] $locale = null): string|false {}
+    public static function formatObject($datetime, $format = null, #[LanguageAware(['8.0' => 'string|null'], default: '')] $locale = null): string|false {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -2214,7 +2215,7 @@ class IntlDateFormatter
      * @return int|float|false timestamp parsed value
      */
     #[TentativeType]
-    public function parse(#[TypeAware(['8.0' => 'string'], default: '')] $string, &$offset = null): int|float|false {}
+    public function parse(#[LanguageAware(['8.0' => 'string'], default: '')] $string, &$offset = null): int|float|false {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -2232,7 +2233,7 @@ class IntlDateFormatter
      * @return array|false Localtime compatible array of integers : contains 24 hour clock value in tm_hour field
      */
     #[TentativeType]
-    public function localtime(#[TypeAware(['8.0' => 'string'], default: '')] $string, &$offset = null): array|false {}
+    public function localtime(#[LanguageAware(['8.0' => 'string'], default: '')] $string, &$offset = null): array|false {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -2265,9 +2266,9 @@ class ResourceBundle implements IteratorAggregate, Countable
      */
     #[Pure]
     public function __construct(
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $bundle,
-        #[TypeAware(['8.0' => 'bool'], default: '')] $fallback = true
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $locale,
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $bundle,
+        #[LanguageAware(['8.0' => 'bool'], default: '')] $fallback = true
     ) {}
 
     /**
@@ -2287,9 +2288,9 @@ class ResourceBundle implements IteratorAggregate, Countable
      */
     #[TentativeType]
     public static function create(
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $bundle,
-        #[TypeAware(['8.0' => 'bool'], default: '')] $fallback = true
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $locale,
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $bundle,
+        #[LanguageAware(['8.0' => 'bool'], default: '')] $fallback = true
     ): ?ResourceBundle {}
 
     /**
@@ -2306,7 +2307,7 @@ class ResourceBundle implements IteratorAggregate, Countable
      */
     #[Pure]
     #[TentativeType]
-    public function get($index, #[TypeAware(['8.0' => 'bool'], default: '')] $fallback = true): mixed {}
+    public function get($index, #[LanguageAware(['8.0' => 'bool'], default: '')] $fallback = true): mixed {}
 
     /**
      * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
@@ -2329,7 +2330,7 @@ class ResourceBundle implements IteratorAggregate, Countable
      * @return array|false the list of locales supported by the bundle.
      */
     #[TentativeType]
-    public static function getLocales(#[TypeAware(['8.0' => 'string'], default: '')] $bundle): array|false {}
+    public static function getLocales(#[LanguageAware(['8.0' => 'string'], default: '')] $bundle): array|false {}
 
     /**
      * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
@@ -2370,8 +2371,8 @@ class Transliterator
     /**
      * Starting 8.2 $id is readonly to unlock subclassing it
      */
-    #[TypeAware(['8.1' => 'string'], default: '')]
-    public $id;
+    #[LanguageAware(['8.1' => 'string'], default: '')]
+    public readonly string $id;
 
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
@@ -2398,8 +2399,8 @@ class Transliterator
      */
     #[TentativeType]
     public static function create(
-        #[TypeAware(['8.0' => 'string'], default: '')] $id,
-        #[TypeAware(['8.0' => 'int'], default: '')] #[EV([Transliterator::FORWARD, Transliterator::REVERSE])] $direction = null
+        #[LanguageAware(['8.0' => 'string'], default: '')] $id,
+        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Transliterator::FORWARD, Transliterator::REVERSE])] $direction = null
     ): ?Transliterator {}
 
     /**
@@ -2420,8 +2421,8 @@ class Transliterator
      */
     #[TentativeType]
     public static function createFromRules(
-        #[TypeAware(['8.0' => 'string'], default: '')] $rules,
-        #[TypeAware(['8.0' => 'int'], default: '')] #[EV([Transliterator::FORWARD, Transliterator::REVERSE])] $direction = null
+        #[LanguageAware(['8.0' => 'string'], default: '')] $rules,
+        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Transliterator::FORWARD, Transliterator::REVERSE])] $direction = null
     ): ?Transliterator {}
 
     /**
@@ -2467,9 +2468,9 @@ class Transliterator
     #[Pure]
     #[TentativeType]
     public function transliterate(
-        #[TypeAware(['8.0' => 'string'], default: '')] $string,
-        #[TypeAware(['8.0' => 'int'], default: '')] $start = null,
-        #[TypeAware(['8.0' => 'int'], default: '')] $end = -1
+        #[LanguageAware(['8.0' => 'string'], default: '')] $string,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $start = null,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $end = -1
     ): string|false {}
 
     /**
@@ -2513,6 +2514,8 @@ class Spoofchecker
     public const MINIMALLY_RESTRICTIVE = 1342177280;
     public const UNRESTRICTIVE = 1610612736;
     public const SINGLE_SCRIPT_RESTRICTIVE = 536870912;
+    public const MIXED_NUMBERS = 1;
+    public const HIDDEN_OVERLAY = 2;
 
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
@@ -2533,7 +2536,7 @@ class Spoofchecker
      * @return bool
      */
     #[TentativeType]
-    public function isSuspicious(#[TypeAware(['8.0' => 'string'], default: '')] $string, &$errorCode = null): bool {}
+    public function isSuspicious(#[LanguageAware(['8.0' => 'string'], default: '')] $string, &$errorCode = null): bool {}
 
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
@@ -2549,8 +2552,8 @@ class Spoofchecker
      */
     #[TentativeType]
     public function areConfusable(
-        #[TypeAware(['8.0' => 'string'], default: '')] $string1,
-        #[TypeAware(['8.0' => 'string'], default: '')] $string2,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $string1,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $string2,
         &$errorCode = null
     ): bool {}
 
@@ -2563,7 +2566,7 @@ class Spoofchecker
      * @return void
      */
     #[TentativeType]
-    public function setAllowedLocales(#[TypeAware(['8.0' => 'string'], default: '')] $locales): void {}
+    public function setAllowedLocales(#[LanguageAware(['8.0' => 'string'], default: '')] $locales): void {}
 
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
@@ -2574,7 +2577,7 @@ class Spoofchecker
      * @return void
      */
     #[TentativeType]
-    public function setChecks(#[TypeAware(['8.0' => 'int'], default: '')] $checks): void {}
+    public function setChecks(#[LanguageAware(['8.0' => 'int'], default: '')] $checks): void {}
 
     #[TentativeType]
     public function setRestrictionLevel(int $level): void {}
@@ -2608,7 +2611,7 @@ class IntlGregorianCalendar extends IntlCalendar
      * @param float $timestamp
      */
     #[TentativeType]
-    public function setGregorianChange(#[TypeAware(['8.0' => 'float'], default: '')] $timestamp): bool {}
+    public function setGregorianChange(#[LanguageAware(['8.0' => 'float'], default: '')] $timestamp): bool {}
 
     /**
      * @return float
@@ -2623,7 +2626,17 @@ class IntlGregorianCalendar extends IntlCalendar
      */
     #[Pure]
     #[TentativeType]
-    public function isLeapYear(#[TypeAware(['8.0' => 'int'], default: '')] $year): bool {}
+    public function isLeapYear(#[LanguageAware(['8.0' => 'int'], default: '')] $year): bool {}
+
+    /**
+     * @since 8.3
+     */
+    public static function createFromDate(int $year, int $month, int $dayOfMonth): static {}
+
+    /**
+     * @since 8.3
+     */
+    public static function createFromDateTime(int $year, int $month, int $dayOfMonth, int $hour, int $minute, ?int $second = null): static {}
 }
 
 /**
@@ -2689,8 +2702,8 @@ class IntlCalendar
      */
     #[TentativeType]
     public function add(
-        #[TypeAware(['8.0' => 'int'], default: '')] $field,
-        #[TypeAware(['8.0' => 'int'], default: '')] $value
+        #[LanguageAware(['8.0' => 'int'], default: '')] $field,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $value
     ): bool {}
 
     /**
@@ -2734,7 +2747,7 @@ class IntlCalendar
      * </p>
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure. Failure can only occur is invalid arguments are provided.
      */
-    public function clear(#[TypeAware(['8.0' => 'int|null'], default: '')] $field = null) {}
+    public function clear(#[LanguageAware(['8.0' => 'int|null'], default: '')] $field = null) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2789,7 +2802,7 @@ class IntlCalendar
      * failure.
      */
     #[TentativeType]
-    public static function createInstance($timezone = null, #[TypeAware(['8.0' => 'string|null'], default: '')] $locale = null): ?IntlCalendar {}
+    public static function createInstance($timezone = null, #[LanguageAware(['8.0' => 'string|null'], default: '')] $locale = null): ?IntlCalendar {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2806,7 +2819,7 @@ class IntlCalendar
      */
     #[Pure]
     #[TentativeType]
-    public function equals(#[TypeAware(['8.0' => 'IntlCalendar'], default: '')] $other): bool {}
+    public function equals(#[LanguageAware(['8.0' => 'IntlCalendar'], default: '')] $other): bool {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2833,8 +2846,8 @@ class IntlCalendar
     #[Pure]
     #[TentativeType]
     public function fieldDifference(
-        #[TypeAware(['8.0' => 'float'], default: '')] $timestamp,
-        #[TypeAware(['8.0' => 'int'], default: '')] $field
+        #[LanguageAware(['8.0' => 'float'], default: '')] $timestamp,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $field
     ): int|false {}
 
     /**
@@ -2853,8 +2866,8 @@ class IntlCalendar
      */
     #[TentativeType]
     public static function fromDateTime(
-        #[TypeAware(['8.0' => 'DateTime|string'], default: '')] $datetime,
-        #[TypeAware(['8.0' => 'string|null'], default: '')] #[ElementAvailable(from: '8.0')] $locale
+        #[LanguageAware(['8.0' => 'DateTime|string'], default: '')] $datetime,
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] #[ElementAvailable(from: '8.0')] $locale
     ): ?IntlCalendar {}
 
     /**
@@ -2870,7 +2883,7 @@ class IntlCalendar
      */
     #[Pure]
     #[TentativeType]
-    public function get(#[TypeAware(['8.0' => 'int'], default: '')] $field): int|false {}
+    public function get(#[LanguageAware(['8.0' => 'int'], default: '')] $field): int|false {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2887,7 +2900,7 @@ class IntlCalendar
      */
     #[Pure]
     #[TentativeType]
-    public function getActualMaximum(#[TypeAware(['8.0' => 'int'], default: '')] $field): int|false {}
+    public function getActualMaximum(#[LanguageAware(['8.0' => 'int'], default: '')] $field): int|false {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2904,7 +2917,7 @@ class IntlCalendar
      */
     #[Pure]
     #[TentativeType]
-    public function getActualMinimum(#[TypeAware(['8.0' => 'int'], default: '')] $field): int|false {}
+    public function getActualMinimum(#[LanguageAware(['8.0' => 'int'], default: '')] $field): int|false {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2932,7 +2945,7 @@ class IntlCalendar
      */
     #[Pure]
     #[TentativeType]
-    public function getDayOfWeekType(#[TypeAware(['8.0' => 'int'], default: '')] $dayOfWeek): int|false {}
+    public function getDayOfWeekType(#[LanguageAware(['8.0' => 'int'], default: '')] $dayOfWeek): int|false {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2981,7 +2994,7 @@ class IntlCalendar
      */
     #[Pure]
     #[TentativeType]
-    public function getGreatestMinimum(#[TypeAware(['8.0' => 'int'], default: '')] $field): int|false {}
+    public function getGreatestMinimum(#[LanguageAware(['8.0' => 'int'], default: '')] $field): int|false {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3001,9 +3014,9 @@ class IntlCalendar
      */
     #[TentativeType]
     public static function getKeywordValuesForLocale(
-        #[TypeAware(['8.0' => 'string'], default: '')] $keyword,
-        #[TypeAware(['8.0' => 'string'], default: '')] $locale,
-        #[TypeAware(['8.0' => 'bool'], default: '')] $onlyCommon
+        #[LanguageAware(['8.0' => 'string'], default: '')] $keyword,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $locale,
+        #[LanguageAware(['8.0' => 'bool'], default: '')] $onlyCommon
     ): IntlIterator|false {}
 
     /**
@@ -3021,7 +3034,7 @@ class IntlCalendar
      */
     #[Pure]
     #[TentativeType]
-    public function getLeastMaximum(#[TypeAware(['8.0' => 'int'], default: '')] $field): int|false {}
+    public function getLeastMaximum(#[LanguageAware(['8.0' => 'int'], default: '')] $field): int|false {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3039,7 +3052,7 @@ class IntlCalendar
      */
     #[Pure]
     #[TentativeType]
-    public function getLocale(#[TypeAware(['8.0' => 'int'], default: '')] $type): string|false {}
+    public function getLocale(#[LanguageAware(['8.0' => 'int'], default: '')] $type): string|false {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3054,7 +3067,7 @@ class IntlCalendar
      */
     #[Pure]
     #[TentativeType]
-    public function getMaximum(#[TypeAware(['8.0' => 'int'], default: '')] $field): int|false {}
+    public function getMaximum(#[LanguageAware(['8.0' => 'int'], default: '')] $field): int|false {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3081,7 +3094,7 @@ class IntlCalendar
      */
     #[Pure]
     #[TentativeType]
-    public function getMinimum(#[TypeAware(['8.0' => 'int'], default: '')] $field): int|false {}
+    public function getMinimum(#[LanguageAware(['8.0' => 'int'], default: '')] $field): int|false {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3166,7 +3179,7 @@ class IntlCalendar
      */
     #[Pure]
     #[TentativeType]
-    public function getWeekendTransition(#[TypeAware(['8.0' => 'int'], default: '')] $dayOfWeek): int|false {}
+    public function getWeekendTransition(#[LanguageAware(['8.0' => 'int'], default: '')] $dayOfWeek): int|false {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3225,7 +3238,7 @@ class IntlCalendar
      */
     #[Pure]
     #[TentativeType]
-    public function isWeekend(#[TypeAware(['8.0' => 'float|null'], default: '')] $timestamp = null): bool {}
+    public function isWeekend(#[LanguageAware(['8.0' => 'float|null'], default: '')] $timestamp = null): bool {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3245,7 +3258,7 @@ class IntlCalendar
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function roll(#[TypeAware(['8.0' => 'int'], default: '')] $field, $value): bool {}
+    public function roll(#[LanguageAware(['8.0' => 'int'], default: '')] $field, $value): bool {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3260,7 +3273,7 @@ class IntlCalendar
      * @return bool Assuming there are no argument errors, returns <b>TRUE</b> iif the field is set.
      */
     #[TentativeType]
-    public function PS_UNRESERVE_PREFIX_isSet(#[TypeAware(['8.0' => 'int'], default: '')] $field): bool {}
+    public function PS_UNRESERVE_PREFIX_isSet(#[LanguageAware(['8.0' => 'int'], default: '')] $field): bool {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3317,7 +3330,7 @@ class IntlCalendar
      * </p>
      * @return bool Returns TRUE on success. Failure can only happen due to invalid parameters.
      */
-    public function setFirstDayOfWeek(#[TypeAware(['8.0' => 'int'], default: '')] $dayOfWeek) {}
+    public function setFirstDayOfWeek(#[LanguageAware(['8.0' => 'int'], default: '')] $dayOfWeek) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3328,7 +3341,7 @@ class IntlCalendar
      * </p>
      * @return bool Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
      */
-    public function setLenient(#[TypeAware(['8.0' => 'bool'], default: '')] $lenient) {}
+    public function setLenient(#[LanguageAware(['8.0' => 'bool'], default: '')] $lenient) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3341,7 +3354,7 @@ class IntlCalendar
      * @return bool
      * Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
      */
-    public function setRepeatedWallTimeOption(#[TypeAware(['8.0' => 'int'], default: '')] $option) {}
+    public function setRepeatedWallTimeOption(#[LanguageAware(['8.0' => 'int'], default: '')] $option) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3357,7 +3370,7 @@ class IntlCalendar
      * Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
      * </p>
      */
-    public function setSkippedWallTimeOption(#[TypeAware(['8.0' => 'int'], default: '')] $option) {}
+    public function setSkippedWallTimeOption(#[LanguageAware(['8.0' => 'int'], default: '')] $option) {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3371,7 +3384,7 @@ class IntlCalendar
      * Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function setTime(#[TypeAware(['8.0' => 'float'], default: '')] $timestamp): bool {}
+    public function setTime(#[LanguageAware(['8.0' => 'float'], default: '')] $timestamp): bool {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3434,7 +3447,17 @@ class IntlCalendar
      * @param int $days
      * @return bool
      */
-    public function setMinimalDaysInFirstWeek(#[TypeAware(['8.0' => 'int'], default: '')] $days) {}
+    public function setMinimalDaysInFirstWeek(#[LanguageAware(['8.0' => 'int'], default: '')] $days) {}
+
+    /**
+     * @since 8.3
+     */
+    public function setDate(int $year, int $month, int $dayOfMonth): void {}
+
+    /**
+     * @since 8.3
+     */
+    public function setDateTime(int $year, int $month, int $dayOfMonth, int $hour, int $minute, ?int $second = null): void {}
 }
 
 /**
@@ -3493,7 +3516,7 @@ class IntlTimeZone
      * @return int|false number of IDs or <b>FALSE</b> on failure
      */
     #[TentativeType]
-    public static function countEquivalentIDs(#[TypeAware(['8.0' => 'string'], default: '')] $timezoneId): int|false {}
+    public static function countEquivalentIDs(#[LanguageAware(['8.0' => 'string'], default: '')] $timezoneId): int|false {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3522,7 +3545,7 @@ class IntlTimeZone
      * @return IntlTimeZone|null a timezone object or <b>NULL</b> on failure
      */
     #[TentativeType]
-    public static function createTimeZone(#[TypeAware(['8.0' => 'string'], default: '')] $timezoneId): ?IntlTimeZone {}
+    public static function createTimeZone(#[LanguageAware(['8.0' => 'string'], default: '')] $timezoneId): ?IntlTimeZone {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -3535,9 +3558,9 @@ class IntlTimeZone
      */
     #[TentativeType]
     public static function createTimeZoneIDEnumeration(
-        #[TypeAware(['8.0' => 'int'], default: '')] $type,
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $region = null,
-        #[TypeAware(['8.0' => 'int|null'], default: '')] $rawOffset = 0
+        #[LanguageAware(['8.0' => 'int'], default: '')] $type,
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $region = null,
+        #[LanguageAware(['8.0' => 'int|null'], default: '')] $rawOffset = 0
     ): IntlIterator|false {}
 
     /**
@@ -3548,7 +3571,7 @@ class IntlTimeZone
      * @return IntlTimeZone|null a timezone object or <b>NULL</b> on failure
      */
     #[TentativeType]
-    public static function fromDateTimeZone(#[TypeAware(['8.0' => 'DateTimeZone'], default: '')] $timezone): ?IntlTimeZone {}
+    public static function fromDateTimeZone(#[LanguageAware(['8.0' => 'DateTimeZone'], default: '')] $timezone): ?IntlTimeZone {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3559,7 +3582,7 @@ class IntlTimeZone
      * @return string|false the timezone ID or <b>FALSE</b> on failure
      */
     #[TentativeType]
-    public static function getCanonicalID(#[TypeAware(['8.0' => 'string'], default: '')] $timezoneId, &$isSystemId): string|false {}
+    public static function getCanonicalID(#[LanguageAware(['8.0' => 'string'], default: '')] $timezoneId, &$isSystemId): string|false {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3572,9 +3595,9 @@ class IntlTimeZone
     #[Pure]
     #[TentativeType]
     public function getDisplayName(
-        #[TypeAware(['8.0' => 'bool'], default: '')] $dst = false,
-        #[TypeAware(['8.0' => 'int'], default: '')] $style = 2,
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $locale
+        #[LanguageAware(['8.0' => 'bool'], default: '')] $dst = false,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $style = 2,
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $locale
     ): string|false {}
 
     /**
@@ -3597,8 +3620,8 @@ class IntlTimeZone
      */
     #[TentativeType]
     public static function getEquivalentID(
-        #[TypeAware(['8.0' => 'string'], default: '')] $timezoneId,
-        #[TypeAware(['8.0' => 'int'], default: '')] $offset
+        #[LanguageAware(['8.0' => 'string'], default: '')] $timezoneId,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $offset
     ): string|false {}
 
     /**
@@ -3661,8 +3684,8 @@ class IntlTimeZone
      */
     #[TentativeType]
     public function getOffset(
-        #[TypeAware(['8.0' => 'float'], default: '')] $timestamp,
-        #[TypeAware(['8.0' => 'bool'], default: '')] $local,
+        #[LanguageAware(['8.0' => 'float'], default: '')] $timestamp,
+        #[LanguageAware(['8.0' => 'bool'], default: '')] $local,
         &$rawOffset,
         &$dstOffset
     ): bool {}
@@ -3685,7 +3708,7 @@ class IntlTimeZone
      * @return string|false region or <b>FALSE</b> on failure
      */
     #[TentativeType]
-    public static function getRegion(#[TypeAware(['8.0' => 'string'], default: '')] $timezoneId): string|false {}
+    public static function getRegion(#[LanguageAware(['8.0' => 'string'], default: '')] $timezoneId): string|false {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3985,7 +4008,7 @@ function collator_get_sort_key(
  * @return NumberFormatter|null <b>NumberFormatter</b> object or <b>NULL</b> on error.
  */
 #[Pure]
-function numfmt_create(string $locale, int $style, #[TypeAware(['8.0' => 'string|null'], default: 'string')] $pattern = null): ?NumberFormatter {}
+function numfmt_create(string $locale, int $style, #[LanguageAware(['8.0' => 'string|null'], default: 'string')] $pattern = null): ?NumberFormatter {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4707,7 +4730,7 @@ function datefmt_create(
     #[ElementAvailable(from: '8.1')] int $timeType = 0,
     $timezone = null,
     IntlCalendar|int|null $calendar = null,
-    #[TypeAware(['8.0' => 'string|null'], default: 'string')] $pattern = null
+    #[LanguageAware(['8.0' => 'string|null'], default: 'string')] $pattern = null
 ): ?IntlDateFormatter {}
 
 /**
@@ -4852,7 +4875,8 @@ function datefmt_set_timezone_id(MessageFormatter $mf, $zone) {}
  * </p>
  * @return bool|null <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function datefmt_set_timezone(IntlDateFormatter $formatter, $timezone): ?bool {}
+#[LanguageAware(['8.3' => 'bool'], default: 'bool|null')]
+function datefmt_set_timezone(IntlDateFormatter $formatter, $timezone) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4918,8 +4942,8 @@ function datefmt_set_lenient(
  */
 #[Pure]
 function datefmt_format(
-    #[TypeAware(['8.0' => 'IntlDateFormatter'], default: '')] #[ElementAvailable(from: '5.3', to: '7.4')] $formatter = null,
-    #[TypeAware(['8.0' => 'IntlDateFormatter'], default: '')] #[ElementAvailable(from: '8.0')] $formatter,
+    #[LanguageAware(['8.0' => 'IntlDateFormatter'], default: '')] #[ElementAvailable(from: '5.3', to: '7.4')] $formatter = null,
+    #[LanguageAware(['8.0' => 'IntlDateFormatter'], default: '')] #[ElementAvailable(from: '8.0')] $formatter,
     #[ElementAvailable(from: '5.3', to: '7.4')] $datetime = null,
     #[ElementAvailable(from: '8.0')] $datetime
 ): string|false {}
@@ -5381,7 +5405,7 @@ function intl_get($calendar, $field) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.0' => 'float|false'], default: 'float')]
+#[LanguageAware(['8.0' => 'float|false'], default: 'float')]
 function intlcal_get_time(IntlCalendar $calendar) {}
 
 /**
@@ -5538,7 +5562,8 @@ function intlcal_before(IntlCalendar $calendar, IntlCalendar $other): bool {}
  * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
  * @since 5.5
  */
-function intlcal_set(IntlCalendar $calendar, int $year, int $month, int $dayOfMonth = null, int $hour = null, int $minute = null, int $second = null): bool {}
+#[LanguageAware(['8.3' => 'true'], default: 'bool')]
+function intlcal_set(IntlCalendar $calendar, int $year, int $month, int $dayOfMonth = null, int $hour = null, int $minute = null, int $second = null) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5583,6 +5608,7 @@ function intlcal_roll(
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure. Failure can only occur is invalid arguments are provided.
  * @since 5.5
  */
+#[LanguageAware(['8.3' => 'true'], default: 'bool')]
 function intlcal_clear(IntlCalendar $calendar, ?int $field = null): bool {}
 
 /**
@@ -5612,7 +5638,7 @@ function intlcal_clear(IntlCalendar $calendar, ?int $field = null): bool {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.0' => 'int|false'], default: 'int')]
+#[LanguageAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_field_difference(IntlCalendar $calendar, float $timestamp, int $field) {}
 
 /**
@@ -5633,7 +5659,7 @@ function intlcal_field_difference(IntlCalendar $calendar, float $timestamp, int 
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.0' => 'int|false'], default: 'int')]
+#[LanguageAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_actual_maximum(IntlCalendar $calendar, int $field) {}
 
 /**
@@ -5654,7 +5680,7 @@ function intlcal_get_actual_maximum(IntlCalendar $calendar, int $field) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.0' => 'int|false'], default: 'int')]
+#[LanguageAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_actual_minimum(IntlCalendar $calendar, int $field) {}
 
 /**
@@ -5678,7 +5704,7 @@ function intlcal_get_actual_minimum(IntlCalendar $calendar, int $field) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.0' => 'int|false'], default: 'int')]
+#[LanguageAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_day_of_week_type(IntlCalendar $calendar, int $dayOfWeek) {}
 
 /**
@@ -5695,7 +5721,7 @@ function intlcal_get_day_of_week_type(IntlCalendar $calendar, int $dayOfWeek) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.0' => 'int|false'], default: 'int')]
+#[LanguageAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_first_day_of_week(IntlCalendar $calendar) {}
 
 /**
@@ -5730,7 +5756,7 @@ function intlcal_greates_minimum($calendar, $field) {}
  * @return int An integer with the value of the time field.
  */
 #[Pure]
-#[TypeAware(['8.0' => 'int|false'], default: 'int')]
+#[LanguageAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get(IntlCalendar $calendar, int $field) {}
 
 /**
@@ -5752,7 +5778,7 @@ function intlcal_get(IntlCalendar $calendar, int $field) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.0' => 'int|false'], default: 'int')]
+#[LanguageAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_least_maximum(IntlCalendar $calendar, int $field) {}
 
 /**
@@ -5772,7 +5798,7 @@ function intlcal_get_least_maximum(IntlCalendar $calendar, int $field) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.0' => 'int|false'], default: 'int')]
+#[LanguageAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_greatest_minimum(IntlCalendar $calendar, int $field) {}
 
 /**
@@ -5795,7 +5821,7 @@ function intlcal_get_greatest_minimum(IntlCalendar $calendar, int $field) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.0' => 'string|false'], default: 'string')]
+#[LanguageAware(['8.0' => 'string|false'], default: 'string')]
 function intlcal_get_locale(IntlCalendar $calendar, int $type) {}
 
 /**
@@ -5828,7 +5854,7 @@ function intcal_get_maximum($calendar, $field) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.0' => 'int|false'], default: 'int')]
+#[LanguageAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_minimal_days_in_first_week(IntlCalendar $calendar) {}
 
 /**
@@ -5848,7 +5874,7 @@ function intlcal_get_minimal_days_in_first_week(IntlCalendar $calendar) {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.0' => 'int|false'], default: 'int')]
+#[LanguageAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_minimum(IntlCalendar $calendar, int $field) {}
 
 /**
@@ -5899,7 +5925,7 @@ function intlcal_get_type(IntlCalendar $calendar): string {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.0' => 'int|false'], default: 'int')]
+#[LanguageAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_weekend_transition(IntlCalendar $calendar, int $dayOfWeek) {}
 
 /**
@@ -5967,7 +5993,7 @@ function intlcal_is_set(IntlCalendar $calendar, int $field): bool {}
  * @since 5.5
  */
 #[Pure]
-#[TypeAware(['8.0' => 'int|false'], default: 'int')]
+#[LanguageAware(['8.0' => 'int|false'], default: 'int')]
 function intlcal_get_maximum(IntlCalendar $calendar, int $field) {}
 
 /**
@@ -6025,7 +6051,8 @@ function intlcal_is_weekend(IntlCalendar $calendar, ?float $timestamp = null): b
  * @return bool Returns TRUE on success. Failure can only happen due to invalid parameters.
  * @since 5.5
  */
-function intlcal_set_first_day_of_week(IntlCalendar $calendar, int $dayOfWeek): bool {}
+#[LanguageAware(['8.3' => 'true'], default: 'bool')]
+function intlcal_set_first_day_of_week(IntlCalendar $calendar, int $dayOfWeek) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -6040,7 +6067,8 @@ function intlcal_set_first_day_of_week(IntlCalendar $calendar, int $dayOfWeek): 
  * @return bool Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
  * @since 5.5
  */
-function intlcal_set_lenient(IntlCalendar $calendar, bool $lenient): bool {}
+#[LanguageAware(['8.3' => 'true'], default: 'bool')]
+function intlcal_set_lenient(IntlCalendar $calendar, bool $lenient) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -6108,7 +6136,8 @@ function intlcal_get_skipped_wall_time_option(IntlCalendar $calendar): int {}
  * Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
  * @since 5.5
  */
-function intlcal_set_repeated_wall_time_option(IntlCalendar $calendar, int $option): bool {}
+#[LanguageAware(['8.3' => 'true'], default: 'bool')]
+function intlcal_set_repeated_wall_time_option(IntlCalendar $calendar, int $option) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -6128,7 +6157,8 @@ function intlcal_set_repeated_wall_time_option(IntlCalendar $calendar, int $opti
  * </p>
  * @since 5.5
  */
-function intlcal_set_skipped_wall_time_option(IntlCalendar $calendar, int $option): bool {}
+#[LanguageAware(['8.3' => 'true'], default: 'bool')]
+function intlcal_set_skipped_wall_time_option(IntlCalendar $calendar, int $option) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a2)<br/>
@@ -6750,7 +6780,8 @@ function intltz_get_region(string $timezoneId): string|false {}
  *
  * @since 5.5.1
  */
-function intlcal_set_minimal_days_in_first_week(IntlCalendar $calendar, int $days): bool {}
+#[LanguageAware(['8.3' => 'true'], default: 'bool')]
+function intlcal_set_minimal_days_in_first_week(IntlCalendar $calendar, int $days) {}
 
 function intltz_get_windows_id(string $timezoneId): string|false {}
 
@@ -7084,7 +7115,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @return IntlBreakIterator|null
      */
     #[TentativeType]
-    public static function createCharacterInstance(#[TypeAware(['8.0' => 'string|null'], default: '')] $locale = null): ?IntlBreakIterator {}
+    public static function createCharacterInstance(#[LanguageAware(['8.0' => 'string|null'], default: '')] $locale = null): ?IntlBreakIterator {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7103,7 +7134,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @return IntlBreakIterator|null
      */
     #[TentativeType]
-    public static function createLineInstance(#[TypeAware(['8.0' => 'string|null'], default: '')] $locale): ?IntlBreakIterator {}
+    public static function createLineInstance(#[LanguageAware(['8.0' => 'string|null'], default: '')] $locale): ?IntlBreakIterator {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7113,7 +7144,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @return IntlBreakIterator|null
      */
     #[TentativeType]
-    public static function createSentenceInstance(#[TypeAware(['8.0' => 'string|null'], default: '')] $locale): ?IntlBreakIterator {}
+    public static function createSentenceInstance(#[LanguageAware(['8.0' => 'string|null'], default: '')] $locale): ?IntlBreakIterator {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7123,7 +7154,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @return IntlBreakIterator|null
      */
     #[TentativeType]
-    public static function createTitleInstance(#[TypeAware(['8.0' => 'string|null'], default: '')] $locale): ?IntlBreakIterator {}
+    public static function createTitleInstance(#[LanguageAware(['8.0' => 'string|null'], default: '')] $locale): ?IntlBreakIterator {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7133,7 +7164,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @return IntlBreakIterator|null
      */
     #[TentativeType]
-    public static function createWordInstance(#[TypeAware(['8.0' => 'string|null'], default: '')] $locale): ?IntlBreakIterator {}
+    public static function createWordInstance(#[LanguageAware(['8.0' => 'string|null'], default: '')] $locale): ?IntlBreakIterator {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7160,7 +7191,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @param int $offset
      */
     #[TentativeType]
-    public function following(#[TypeAware(['8.0' => 'int'], default: '')] $offset): int {}
+    public function following(#[LanguageAware(['8.0' => 'int'], default: '')] $offset): int {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7190,7 +7221,7 @@ class IntlBreakIterator implements IteratorAggregate
      */
     #[Pure]
     #[TentativeType]
-    public function getLocale(#[TypeAware(['8.0' => 'int'], default: '')] $type): string|false {}
+    public function getLocale(#[LanguageAware(['8.0' => 'int'], default: '')] $type): string|false {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7217,7 +7248,7 @@ class IntlBreakIterator implements IteratorAggregate
     #[Pure]
     #[TentativeType]
     public function getPartsIterator(
-        #[TypeAware(['8.0' => 'int'], default: '')]
+        #[LanguageAware(['8.3' => 'string', '8.0' => 'int'], default: '')]
         #[EV([IntlPartsIterator::KEY_SEQUENTIAL, IntlPartsIterator::KEY_LEFT, IntlPartsIterator::KEY_RIGHT])]
         $type = IntlPartsIterator::KEY_SEQUENTIAL
     ): IntlPartsIterator {}
@@ -7239,7 +7270,7 @@ class IntlBreakIterator implements IteratorAggregate
      */
     #[Pure]
     #[TentativeType]
-    public function isBoundary(#[TypeAware(['8.0' => 'int'], default: '')] $offset): bool {}
+    public function isBoundary(#[LanguageAware(['8.0' => 'int'], default: '')] $offset): bool {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7257,7 +7288,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @return int
      */
     #[TentativeType]
-    public function next(#[TypeAware(['8.0' => 'int|null'], default: '')] $offset = null): int {}
+    public function next(#[LanguageAware(['8.0' => 'int|null'], default: '')] $offset = null): int {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7265,7 +7296,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @param int $offset
      */
     #[TentativeType]
-    public function preceding(#[TypeAware(['8.0' => 'int'], default: '')] $offset): int {}
+    public function preceding(#[LanguageAware(['8.0' => 'int'], default: '')] $offset): int {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7283,7 +7314,8 @@ class IntlBreakIterator implements IteratorAggregate
      * @param string $text
      */
     #[TentativeType]
-    public function setText(#[TypeAware(['8.0' => 'string'], default: '')] $text): ?bool {}
+    #[LanguageAware(['8.3' => 'bool'], default: 'bool|null')]
+    public function setText(#[LanguageAware(['8.0' => 'string'], default: '')] $text) {}
 
     /**
      * @since 8.0
@@ -7304,8 +7336,8 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      */
     #[Pure]
     public function __construct(
-        #[TypeAware(['8.0' => 'string'], default: '')] $rules,
-        #[TypeAware(['8.0' => 'bool'], default: '')] $compiled = false
+        #[LanguageAware(['8.0' => 'string'], default: '')] $rules,
+        #[LanguageAware(['8.0' => 'bool'], default: '')] $compiled = false
     ) {}
 
     /**
@@ -7494,8 +7526,8 @@ class UConverter
      */
     #[Pure]
     public function __construct(
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $destination_encoding = null,
-        #[TypeAware(['8.0' => 'string|null'], default: '')] $source_encoding = null
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $destination_encoding = null,
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $source_encoding = null
     ) {}
 
     /**
@@ -7509,8 +7541,8 @@ class UConverter
     #[Pure]
     #[TentativeType]
     public function convert(
-        #[TypeAware(['8.0' => 'string'], default: '')] $str,
-        #[TypeAware(['8.0' => 'bool'], default: '')] $reverse = false
+        #[LanguageAware(['8.0' => 'string'], default: '')] $str,
+        #[LanguageAware(['8.0' => 'bool'], default: '')] $reverse = false
     ): string|false {}
 
     /**
@@ -7525,9 +7557,9 @@ class UConverter
      */
     #[TentativeType]
     public function fromUCallback(
-        #[TypeAware(['8.0' => 'int'], default: '')] $reason,
-        #[TypeAware(['8.0' => 'array'], default: '')] $source,
-        #[TypeAware(['8.0' => 'int'], default: '')] $codePoint,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $reason,
+        #[LanguageAware(['8.0' => 'array'], default: '')] $source,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $codePoint,
         &$error
     ): array|string|int|null {}
 
@@ -7541,7 +7573,7 @@ class UConverter
     #[TentativeType]
     public static function getAliases(
         #[ElementAvailable(from: '5.5', to: '5.6')] $name = '',
-        #[ElementAvailable(from: '7.0')] #[TypeAware(['8.0' => 'string'], default: '')] $name
+        #[ElementAvailable(from: '7.0')] #[LanguageAware(['8.0' => 'string'], default: '')] $name
     ): array|false|null {}
 
     /**
@@ -7655,7 +7687,7 @@ class UConverter
      * @return bool
      */
     #[TentativeType]
-    public function setDestinationEncoding(#[TypeAware(['8.0' => 'string'], default: '')] $encoding): bool {}
+    public function setDestinationEncoding(#[LanguageAware(['8.0' => 'string'], default: '')] $encoding): bool {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7665,7 +7697,7 @@ class UConverter
      * @return bool
      */
     #[TentativeType]
-    public function setSourceEncoding(#[TypeAware(['8.0' => 'string'], default: '')] $encoding): bool {}
+    public function setSourceEncoding(#[LanguageAware(['8.0' => 'string'], default: '')] $encoding): bool {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7675,7 +7707,7 @@ class UConverter
      * @return bool
      */
     #[TentativeType]
-    public function setSubstChars(#[TypeAware(['8.0' => 'string'], default: '')] $chars): bool {}
+    public function setSubstChars(#[LanguageAware(['8.0' => 'string'], default: '')] $chars): bool {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7689,9 +7721,9 @@ class UConverter
      */
     #[TentativeType]
     public function toUCallback(
-        #[TypeAware(['8.0' => 'int'], default: '')] $reason,
-        #[TypeAware(['8.0' => 'string'], default: '')] $source,
-        #[TypeAware(['8.0' => 'string'], default: '')] $codeUnits,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $reason,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $source,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $codeUnits,
         &$error
     ): array|string|int|null {}
 
@@ -7707,9 +7739,9 @@ class UConverter
      */
     #[TentativeType]
     public static function transcode(
-        #[TypeAware(['8.0' => 'string'], default: '')] $str,
-        #[TypeAware(['8.0' => 'string'], default: '')] $toEncoding,
-        #[TypeAware(['8.0' => 'string'], default: '')] $fromEncoding,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $str,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $toEncoding,
+        #[LanguageAware(['8.0' => 'string'], default: '')] $fromEncoding,
         ?array $options = []
     ): string|false {}
 }

@@ -1100,4 +1100,54 @@ class DatePeriod implements IteratorAggregate
 
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __unserialize(array $data): void {}
+
+    /**
+     * @since 8.3
+     */
+    public static function createFromISO8601String(string $specification, int $options = 0): static {}
 }
+
+/**
+ * @since 8.3
+ */
+class DateError extends Error {}
+
+/**
+ * @since 8.3
+ */
+class DateObjectError extends DateError {}
+
+/**
+ * @since 8.3
+ */
+class DateRangeError extends DateError {}
+
+/**
+ * @since 8.3
+ */
+class DateException extends Exception {}
+
+/**
+ * @since 8.3
+ */
+class DateInvalidTimeZoneException extends DateException {}
+
+/**
+ * @since 8.3
+ */
+class DateInvalidOperationException extends DateException {}
+
+/**
+ * @since 8.3
+ */
+class DateMalformedStringException extends DateException {}
+
+/**
+ * @since 8.3
+ */
+class DateMalformedIntervalStringException extends DateException {}
+
+/**
+ * @since 8.3
+ */
+class DateMalformedPeriodStringException extends DateException {}

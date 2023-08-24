@@ -7,6 +7,7 @@ use PHPUnit\Framework\Exception;
 use RuntimeException;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPConst;
+use StubTests\Model\PHPEnum;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
@@ -62,7 +63,9 @@ class StubsConstantsAndParametersValuesTest extends AbstractBaseStubsTestCase
      */
     public function testMethodsDefaultParametersValue(PHPClass|PHPInterface $class, PHPMethod $method, PHPParameter $parameter)
     {
-        if ($class instanceof PHPClass) {
+        if ($class instanceof PHPEnum) {
+            $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getEnum($class->name)->getMethod($method->name);
+        } elseif ($class instanceof PHPClass) {
             $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->getMethod($method->name);
         } else {
             $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($class->name)->getMethod($method->name);

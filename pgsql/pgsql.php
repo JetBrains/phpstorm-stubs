@@ -99,9 +99,9 @@ function pg_pconnect(
  * is used. The default connection is the last connection made by
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pg_close(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection|null'], default: 'resource')] $connection = null): bool {}
+#[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+function pg_close(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection|null'], default: 'resource')] $connection = null) {}
 
 /**
  * Poll the status of an in-progress asynchronous PostgreSQL connection attempt.
@@ -1230,9 +1230,15 @@ function pg_copy_from(
  * is used. The default connection is the last connection made by
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
+ * @param int $trace_mode Since PHP 8.3 optional trace mode
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pg_trace(string $filename, string $mode = "w", #[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection|null'], default: 'resource')] $connection = null): bool {}
+function pg_trace(
+    string $filename,
+    string $mode = "w",
+    #[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection|null'], default: 'resource')] $connection = null,
+    #[PhpStormStubsElementAvailable(from: '8.3')] int $trace_mode = 0
+): bool {}
 
 /**
  * Disable tracing of a PostgreSQL connection
@@ -1243,9 +1249,9 @@ function pg_trace(string $filename, string $mode = "w", #[LanguageLevelTypeAware
  * is used. The default connection is the last connection made by
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
- * @return bool Always returns <b>TRUE</b>.
  */
-function pg_untrace(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection|null'], default: 'resource')] $connection = null): bool {}
+#[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+function pg_untrace(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection|null'], default: 'resource')] $connection = null) {}
 
 /**
  * Create a large object
@@ -2066,6 +2072,31 @@ function pg_consume_input(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection']
  */
 function pg_flush(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection): int|bool {}
 
+/**
+ * @since 8.3
+ */
+function pg_set_error_context_visibility(PgSql\Connection $connection, int $visibility): int {}
+
+/**
+ * @since 8.3
+ */
+function pg_pipeline_status(PgSql\Connection $connection): int {}
+
+/**
+ * @since 8.3
+ */
+function pg_pipeline_sync(PgSql\Connection $connection): bool {}
+
+/**
+ * @since 8.3
+ */
+function pg_exit_pipeline_mode(PgSql\Connection $connection): bool {}
+
+/**
+ * @since 8.3
+ */
+function pg_enter_pipeline_mode(PgSql\Connection $connection): bool {}
+
 define('PGSQL_LIBPQ_VERSION', "15.4");
 define('PGSQL_LIBPQ_VERSION_STR', "15.4");
 
@@ -2426,4 +2457,15 @@ const PGSQL_DIAG_COLUMN_NAME = 99;
 const PGSQL_DIAG_DATATYPE_NAME = 100;
 const PGSQL_DIAG_CONSTRAINT_NAME = 110;
 const PGSQL_DIAG_SEVERITY_NONLOCALIZED = 86;
+
+const PGSQL_ERRORS_SQLSTATE = 0;
+const PGSQL_TRACE_REGRESS_MODE = 2;
+const PGSQL_PIPELINE_SYNC = 10;
+const PGSQL_PIPELINE_ON = 1;
+const PGSQL_PIPELINE_OFF = 0;
+const PGSQL_PIPELINE_ABORTED = 2;
+const PGSQL_SHOW_CONTEXT_NEVER = 0;
+const PGSQL_SHOW_CONTEXT_ERRORS = 1;
+const PGSQL_SHOW_CONTEXT_ALWAYS = 2;
+
 // End of pgsql v.
