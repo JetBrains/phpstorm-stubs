@@ -86,9 +86,10 @@ function imap_reopen(
  * deletion. You can achieve the same thing by using
  * <b>imap_expunge</b>
  * </p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return bool|true <b>TRUE</b> on success or <b>FALSE</b> on failure. Since PHP 8.3 always true
  */
-function imap_close(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, int $flags = 0): bool {}
+#[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+function imap_close(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, int $flags = 0) {}
 
 /**
  * Gets the number of messages in the current mailbox
@@ -491,21 +492,21 @@ function imap_fetchstructure(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection
  * <b>IMAP_GC_ENV</b> (enveloppe and bodies),
  * <b>IMAP_GC_TEXTS</b> (texts).
  * </p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
+#[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
 function imap_gc(
     #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] int $flags = 0,
     #[PhpStormStubsElementAvailable(from: '8.0')] int $flags
-): bool {}
+) {}
 
 /**
  * Delete all messages marked for deletion
  * @link https://php.net/manual/en/function.imap-expunge.php
  * @param resource $imap
- * @return bool <b>TRUE</b>.
  */
-function imap_expunge(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap): bool {}
+#[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+function imap_expunge(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap) {}
 
 /**
  * Mark a message for deletion from current mailbox
@@ -519,8 +520,8 @@ function imap_expunge(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], def
  * to treat the <i>msg_number</i> argument as an
  * UID.
  * </p>
- * @return bool <b>TRUE</b>.
  */
+#[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
 function imap_delete(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $message_nums, int $flags = 0): bool {}
 
 /**
@@ -531,8 +532,8 @@ function imap_delete(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], defa
  * The message number
  * </p>
  * @param int $flags [optional]
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
+#[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
 function imap_undelete(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $message_nums, int $flags = 0): bool {}
 
 /**
@@ -886,8 +887,8 @@ function imap_mailboxmsginfo(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection
  * A bit mask that may contain the single option:
  * <b>ST_UID</b> - The sequence argument contains UIDs
  * instead of sequence numbers</p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
+#[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
 function imap_setflag_full(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $sequence, string $flag, int $options = NIL): bool {}
 
 /**
@@ -908,8 +909,8 @@ function imap_setflag_full(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection']
  * the single option:
  * <b>ST_UID</b> - The sequence argument contains UIDs
  * instead of sequence numbers</p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
+#[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
 function imap_clearflag_full(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $sequence, string $flag, int $options = 0): bool {}
 
 /**

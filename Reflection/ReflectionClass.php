@@ -525,7 +525,8 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getStaticProperties(): ?array {}
+    #[LanguageLevelTypeAware(['8.3' => 'array'], default: 'array|null')]
+    public function getStaticProperties() {}
 
     /**
      * Gets static property value

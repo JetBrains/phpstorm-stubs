@@ -1683,20 +1683,18 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Sort the entries by value
      * @link https://php.net/manual/en/arrayobject.asort.php
-     * @param int $flags [optional]
-     * @return bool
      */
     #[TentativeType]
-    public function asort(#[PhpStormStubsElementAvailable(from: '8.0')] int $flags = SORT_REGULAR): bool {}
+    #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+    public function asort(#[PhpStormStubsElementAvailable(from: '8.0')] int $flags = SORT_REGULAR) {}
 
     /**
      * Sort the entries by key
      * @link https://php.net/manual/en/arrayobject.ksort.php
-     * @param int $flags [optional]
-     * @return bool
      */
     #[TentativeType]
-    public function ksort(#[PhpStormStubsElementAvailable(from: '8.0')] int $flags = SORT_REGULAR): bool {}
+    #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+    public function ksort(#[PhpStormStubsElementAvailable(from: '8.0')] int $flags = SORT_REGULAR) {}
 
     /**
      * Sort the entries with a user-defined comparison function and maintain key association
@@ -1709,10 +1707,10 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * be respectively less than, equal to, or greater than the
      * second.
      * </p>
-     * @return bool
      */
     #[TentativeType]
-    public function uasort(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback): bool {}
+    #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+    public function uasort(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback) {}
 
     /**
      * Sort the entries by keys using a user-defined comparison function
@@ -1728,26 +1726,26 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * be respectively less than, equal to, or greater than the
      * second.
      * </p>
-     * @return bool
      */
     #[TentativeType]
-    public function uksort(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback): bool {}
+    #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+    public function uksort(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback) {}
 
     /**
      * Sort entries using a "natural order" algorithm
      * @link https://php.net/manual/en/arrayobject.natsort.php
-     * @return bool
      */
     #[TentativeType]
-    public function natsort(): bool {}
+    #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+    public function natsort() {}
 
     /**
      * Sort an array using a case insensitive "natural order" algorithm
      * @link https://php.net/manual/en/arrayobject.natcasesort.php
-     * @return bool
      */
     #[TentativeType]
-    public function natcasesort(): bool {}
+    #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+    public function natcasesort() {}
 
     /**
      * Unserialize an ArrayObject
@@ -1955,20 +1953,18 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Sort array by values
      * @link https://php.net/manual/en/arrayiterator.asort.php
-     * @param int $flags [optional]
-     * @return bool
      */
     #[TentativeType]
-    public function asort(#[PhpStormStubsElementAvailable(from: '8.0')] int $flags = SORT_REGULAR): bool {}
+    #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+    public function asort(#[PhpStormStubsElementAvailable(from: '8.0')] int $flags = SORT_REGULAR) {}
 
     /**
      * Sort array by keys
      * @link https://php.net/manual/en/arrayiterator.ksort.php
-     * @param int $flags [optional]
-     * @return bool
      */
     #[TentativeType]
-    public function ksort(#[PhpStormStubsElementAvailable(from: '8.0')] int $flags = SORT_REGULAR): bool {}
+    #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+    public function ksort(#[PhpStormStubsElementAvailable(from: '8.0')] int $flags = SORT_REGULAR) {}
 
     /**
      * User defined sort
@@ -1976,10 +1972,10 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @param callable $callback <p>
      * The compare function used for the sort.
      * </p>
-     * @return void
      */
     #[TentativeType]
-    public function uasort(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback): bool {}
+    #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+    public function uasort(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback) {}
 
     /**
      * User defined sort
@@ -1987,26 +1983,26 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @param callable $callback <p>
      * The compare function used for the sort.
      * </p>
-     * @return void
      */
     #[TentativeType]
-    public function uksort(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback): bool {}
+    #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+    public function uksort(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback) {}
 
     /**
      * Sort an array naturally
      * @link https://php.net/manual/en/arrayiterator.natsort.php
-     * @return bool
      */
     #[TentativeType]
-    public function natsort(): bool {}
+    #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+    public function natsort() {}
 
     /**
      * Sort an array naturally, case insensitive
      * @link https://php.net/manual/en/arrayiterator.natcasesort.php
-     * @return bool
      */
     #[TentativeType]
-    public function natcasesort(): bool {}
+    #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
+    public function natcasesort() {}
 
     /**
      * Unserialize

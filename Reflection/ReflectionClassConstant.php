@@ -220,4 +220,14 @@ class ReflectionClassConstant implements Reflector
      * @since 8.1
      */
     public function isFinal(): bool {}
+
+    /**
+     * @since 8.3
+     */
+    public function hasType(): bool {}
+
+    /**
+     * @since 8.3
+     */
+    public function getType(): ?ReflectionType {}
 }

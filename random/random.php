@@ -1,6 +1,7 @@
 <?php
 
 namespace {
+    use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
     use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
     use JetBrains\PhpStorm\Pure;
 
@@ -14,7 +15,7 @@ namespace {
     /**
      * Seeds the Mersenne Twister Random Number Generator
      * @link https://php.net/manual/en/function.mt-srand.php
-     * @param int $seed <p>
+     * @param int|null $seed <p>
      * An optional seed value
      * </p>
      * @param int $mode [optional] <p>
@@ -23,7 +24,7 @@ namespace {
      * @return void
      */
     function mt_srand(
-        int $seed = null,
+        #[LanguageLevelTypeAware(['8.3' => 'int|null'], default: 'int')] $seed = null,
         #[PhpStormStubsElementAvailable(from: '7.1')] int $mode = MT_RAND_MT19937
     ): void {}
 
@@ -33,7 +34,7 @@ namespace {
      * an alias of {@see mt_srand()}.
      * </p>
      * @link https://php.net/manual/en/function.srand.php
-     * @param int $seed <p>
+     * @param int|null $seed <p>
      * Optional seed value
      * </p>
      * @param int $mode [optional] <p>
@@ -42,7 +43,7 @@ namespace {
      * @return void
      */
     function srand(
-        int $seed = null,
+        #[LanguageLevelTypeAware(['8.3' => 'int|null'], default: 'int')] $seed = null,
         #[PhpStormStubsElementAvailable(from: '7.1')] int $mode = MT_RAND_MT19937
     ): void {}
 
@@ -214,6 +215,21 @@ namespace Random
         public function __serialize(): array {}
 
         public function __unserialize(array $data): void {}
+
+        /**
+         * @since 8.3
+         */
+        public function nextFloat(): float {}
+
+        /**
+         * @since 8.3
+         */
+        public function getFloat(float $min, float $max, IntervalBoundary $boundary = IntervalBoundary::ClosedOpen): float {}
+
+        /**
+         * @since 8.3
+         */
+        public function getBytesFromString(string $string, int $length): string {}
     }
 
     /**
@@ -230,4 +246,19 @@ namespace Random
      * @since 8.2
      */
     class RandomException extends Exception {}
+
+    /**
+     * @since 8.3
+     */
+    enum IntervalBoundary
+    {
+        public string $name;
+
+        case ClosedOpen;
+        case ClosedClosed;
+        case OpenClosed;
+        case OpenOpen;
+
+        public static function cases(): array {}
+    }
 }

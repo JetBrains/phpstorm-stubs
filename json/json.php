@@ -236,6 +236,11 @@ function json_last_error(): int {}
 function json_last_error_msg(): string {}
 
 /**
+ * @since 8.3
+ */
+function json_validate(string $json, int $depth = 512, int $flags = 0): bool {}
+
+/**
  * All &lt; and &gt; are converted to \u003C and \u003E.
  * @link https://php.net/manual/en/json.constants.php
  */

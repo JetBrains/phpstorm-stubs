@@ -1388,6 +1388,11 @@ define('PKCS7_NOATTR', 256);
 define('PKCS7_BINARY', 128);
 
 /**
+ * @since 8.3
+ */
+define('PKCS7_NOOLDMIMETYPE', 1024);
+
+/**
  * Don't try and verify the signatures on a message
  * @link https://php.net/manual/en/openssl.constants.php
  */
@@ -1476,6 +1481,11 @@ define('OPENSSL_DEFAULT_STREAM_CIPHERS', "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDS
 "ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:" .
 "DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:" .
 "AES256-GCM-SHA384:AES128:AES256:HIGH:!SSLv2:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!RC4:!ADH");
+
+/**
+ * @since 8.3
+ */
+define('OPENSSL_CMS_OLDMIMETYPE', 1024);
 
 /**
  * @since 8.0

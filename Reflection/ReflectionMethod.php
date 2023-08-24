@@ -301,4 +301,9 @@ class ReflectionMethod extends ReflectionFunctionAbstract
 
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function hasPrototype(): bool {}
+
+    /**
+     * @since 8.3
+     */
+    public static function createFromMethodName(string $method): static {}
 }

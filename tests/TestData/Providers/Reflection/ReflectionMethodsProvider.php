@@ -47,7 +47,8 @@ class ReflectionMethodsProvider
     public static function classMethodsWithoutTentitiveReturnTypeProvider(): ?Generator
     {
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
-            ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
+            ReflectionStubsSingleton::getReflectionStubs()->getInterfaces() +
+            ReflectionStubsSingleton::getReflectionStubs()->getEnums();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
             foreach (EntitiesFilter::getFiltered(
                 $class->methods,
@@ -64,7 +65,8 @@ class ReflectionMethodsProvider
     public static function classMethodsWithTentitiveReturnTypeProvider(): ?Generator
     {
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
-            ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
+            ReflectionStubsSingleton::getReflectionStubs()->getInterfaces() +
+            ReflectionStubsSingleton::getReflectionStubs()->getEnums();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
             foreach (EntitiesFilter::getFiltered(
                 $class->methods,
@@ -81,7 +83,8 @@ class ReflectionMethodsProvider
     private static function yieldFilteredMethods(int ...$problemTypes): ?Generator
     {
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
-            ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
+            ReflectionStubsSingleton::getReflectionStubs()->getInterfaces() +
+            ReflectionStubsSingleton::getReflectionStubs()->getEnums();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
             foreach (EntitiesFilter::getFiltered($class->methods, null, ...$problemTypes) as $method) {
                 yield "Method $class->name::$method->name" => [$class, $method];

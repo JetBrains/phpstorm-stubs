@@ -1400,6 +1400,11 @@ function socket_wsaprotocol_info_import($info_id) {}
  */
 function socket_wsaprotocol_info_release($info_id) {}
 
+/**
+ * @since 8.3
+ */
+function socket_atmark(Socket $socket): bool {}
+
 define('AF_UNIX', 1);
 define('AF_INET', 2);
 
@@ -1462,7 +1467,12 @@ define('SO_RCVTIMEO', 20);
 define('SO_TYPE', 3);
 define('SO_ERROR', 4);
 define('SO_BINDTODEVICE', 25);
+define('SO_ATTACH_REUSEPORT_CBPF', 51);
+define('SO_DETACH_FILTER', 27);
+define('SO_DETACH_BPF', 27);
+
 define('SOL_SOCKET', 1);
+define('SOL_UDPLITE', 136);
 define('SOMAXCONN', 128);
 /**
  * @since 8.1
@@ -1560,6 +1570,14 @@ define('IPV6_MULTICAST_HOPS', 18);
  */
 define('IPV6_MULTICAST_LOOP', 19);
 define('IPV6_V6ONLY', 26);
+define('IP_BIND_ADDRESS_NO_PORT', 24);
+define('IP_MTU_DISCOVER', 10);
+define('IP_PMTUDISC_DO', 2);
+define('IP_PMTUDISC_DONT', 0);
+define('IP_PMTUDISC_WANT', 1);
+define('IP_PMTUDISC_PROBE', 3);
+define('IP_PMTUDISC_INTERFACE', 4);
+define('IP_PMTUDISC_OMIT', 5);
 
 /**
  * Operation not permitted.
@@ -2325,6 +2343,16 @@ define('TCP_KEEPINTVL', 5);
  * @since 8.2
  */
 define('TCP_KEEPCNT', 6);
+
+/**
+ * @since 8.3
+ */
+define('TCP_QUICKACK', 12);
+
+/**
+ * @since 8.3
+ */
+define('TCP_REPAIR', 19);
 
 /**
  * Socket_set_option for the socket_send* functions.

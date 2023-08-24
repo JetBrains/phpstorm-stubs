@@ -8,6 +8,7 @@ use PhpParser\Node;
 use PhpParser\Node\Const_;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Stmt\Class_;
+use PhpParser\Node\Stmt\Enum_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Function_;
 use PhpParser\Node\Stmt\Interface_;
@@ -17,6 +18,8 @@ use StubTests\Model\CommonUtils;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPConst;
 use StubTests\Model\PHPDefineConstant;
+use StubTests\Model\PHPEnum;
+use StubTests\Model\PHPEnumCase;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
@@ -43,6 +46,15 @@ class ASTVisitor extends NodeVisitorAbstract
                 $function->stubBelongsToCore = true;
             }
             $this->stubs->addFunction($function);
+        } elseif ($node instanceof Node\Stmt\EnumCase) {
+            $constant = (new PHPEnumCase())->readObjectFromStubNode($node);
+            $constant->sourceFilePath = $this->sourceFilePath;
+            if ($this->isStubCore) {
+                $constant->stubBelongsToCore = true;
+            }
+            if ($this->stubs->getEnum($constant->parentName, $this->sourceFilePath, false) !== null) {
+                $this->stubs->getEnum($constant->parentName, $this->sourceFilePath, false)->addEnumCase($constant);
+            }
         } elseif ($node instanceof Const_) {
             $constant = (new PHPConst())->readObjectFromStubNode($node);
             $constant->sourceFilePath = $this->sourceFilePath;
@@ -51,6 +63,8 @@ class ASTVisitor extends NodeVisitorAbstract
             }
             if ($constant->parentName === null) {
                 $this->stubs->addConstant($constant);
+            } elseif ($this->stubs->getEnum($constant->parentName, $this->sourceFilePath, false) !== null) {
+                $this->stubs->getEnum($constant->parentName, $this->sourceFilePath, false)->addConstant($constant);
             } elseif ($this->stubs->getClass($constant->parentName, $this->sourceFilePath, false) !== null) {
                 $this->stubs->getClass($constant->parentName, $this->sourceFilePath, false)->addConstant($constant);
             } elseif ($this->stubs->getInterface($constant->parentName, $this->sourceFilePath, false) !== null) {
@@ -71,7 +85,10 @@ class ASTVisitor extends NodeVisitorAbstract
             if ($this->isStubCore) {
                 $method->stubBelongsToCore = true;
             }
-            if ($this->stubs->getClass($method->parentName, $this->sourceFilePath, false) !== null) {
+            if ($this->stubs->getEnum($method->parentName, $this->sourceFilePath, false) !== null) {
+                $this->stubs->getEnum($method->parentName, $this->sourceFilePath, false)->addMethod($method);
+            }
+            elseif ($this->stubs->getClass($method->parentName, $this->sourceFilePath, false) !== null) {
                 $this->stubs->getClass($method->parentName, $this->sourceFilePath, false)->addMethod($method);
             } elseif ($this->stubs->getInterface($method->parentName, $this->sourceFilePath, false) !== null) {
                 $this->stubs->getInterface($method->parentName, $this->sourceFilePath, false)->addMethod($method);
@@ -90,6 +107,13 @@ class ASTVisitor extends NodeVisitorAbstract
                 $class->stubBelongsToCore = true;
             }
             $this->stubs->addClass($class);
+        } elseif ($node instanceof Enum_) {
+            $enum = (new PHPEnum())->readObjectFromStubNode($node);
+            $enum->sourceFilePath = $this->sourceFilePath;
+            if ($this->isStubCore) {
+                $enum->stubBelongsToCore = true;
+            }
+            $this->stubs->addEnum($enum);
         } elseif ($node instanceof Node\Stmt\Property) {
             $property = (new PHPProperty())->readObjectFromStubNode($node);
             $property->sourceFilePath = $this->sourceFilePath;

@@ -6,6 +6,7 @@ namespace StubTests;
 use PHPUnit\Framework\Exception;
 use RuntimeException;
 use StubTests\Model\PHPClass;
+use StubTests\Model\PHPEnum;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
@@ -85,7 +86,9 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
     public function testMethodsReturnTypeHints(PHPClass|PHPInterface $class, PHPMethod $method)
     {
         $functionName = $method->name;
-        if ($class instanceof PHPClass) {
+        if ($class instanceof PHPEnum) {
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getEnum($class->name)->getMethod($method->name);
+        } elseif ($class instanceof PHPClass) {
             $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->getMethod($functionName);
         } else {
             $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($class->name)->getMethod($functionName);

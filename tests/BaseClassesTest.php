@@ -6,6 +6,7 @@ namespace StubTests;
 use PHPUnit\Framework\Exception;
 use RuntimeException;
 use StubTests\Model\PHPClass;
+use StubTests\Model\PHPEnum;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPProperty;
@@ -45,10 +46,12 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsProvider
      * @throws Exception|RuntimeException
      */
-    public function testClassesMethodsExist(PHPClass|PHPInterface $class, PHPMethod $method)
+    public function testClassesMethodsExist(PHPClass|PHPInterface|PHPEnum $class, PHPMethod $method)
     {
         $className = $class->name;
-        if ($class instanceof PHPClass) {
+        if ($class instanceof PHPEnum) {
+            $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getEnum($className);
+        } elseif ($class instanceof PHPClass) {
             $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className);
         } else {
             $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className);
@@ -63,7 +66,9 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
     public function testClassesFinalMethods(PHPClass|PHPInterface $class, PHPMethod $method)
     {
         $className = $class->name;
-        if ($class instanceof PHPClass) {
+        if ($class instanceof PHPEnum) {
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getEnum($className)->getMethod($method->name);
+        } elseif ($class instanceof PHPClass) {
             $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->getMethod($method->name);
         } else {
             $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->getMethod($method->name);
@@ -82,7 +87,9 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
     public function testClassesStaticMethods(PHPClass|PHPInterface $class, PHPMethod $method)
     {
         $className = $class->name;
-        if ($class instanceof PHPClass) {
+        if ($class instanceof PHPEnum) {
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getEnum($className)->getMethod($method->name);
+        } elseif ($class instanceof PHPClass) {
             $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->getMethod($method->name);
         } else {
             $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->getMethod($method->name);
@@ -101,7 +108,9 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
     public function testClassesMethodsVisibility(PHPClass|PHPInterface $class, PHPMethod $method)
     {
         $className = $class->name;
-        if ($class instanceof PHPClass) {
+        if ($class instanceof PHPEnum) {
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getEnum($className)->getMethod($method->name);
+        } elseif ($class instanceof PHPClass) {
             $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->getMethod($method->name);
         } else {
             $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->getMethod($method->name);
@@ -120,7 +129,9 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
     public function testClassMethodsParametersCount(PHPClass|PHPInterface $class, PHPMethod $method)
     {
         $className = $class->name;
-        if ($class instanceof PHPClass) {
+        if ($class instanceof PHPEnum) {
+            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getEnum($className)->getMethod($method->name);
+        } elseif ($class instanceof PHPClass) {
             $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->getMethod($method->name);
         } else {
             $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->getMethod($method->name);

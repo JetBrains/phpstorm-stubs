@@ -818,11 +818,16 @@ function imagecopyresampled(GdImage $dst_image, GdImage $src_image, int $dst_x, 
  * Specifies the color of the uncovered zone after the rotation
  * </p>
  * @param bool $ignore_transparent [optional] <p>
- * If set and non-zero, transparent colors are ignored (otherwise kept).
+ * Prior to PHP 8.3 if set and non-zero, transparent colors are ignored (otherwise kept).
  * </p>
  * @return resource|GdImage|false the rotated image or <b>FALSE</b> on failure
  */
-function imagerotate(GdImage $image, float $angle, int $background_color, bool $ignore_transparent = false): GdImage|false {}
+function imagerotate(
+    GdImage $image,
+    float $angle,
+    int $background_color,
+    #[PhpStormStubsElementAvailable(to: '8.2')] bool $ignore_transparent = false
+): GdImage|false {}
 
 /**
  * Should antialias functions be used or not. <br/>
@@ -1116,7 +1121,7 @@ function imagegd(GdImage $image, ?string $file = null): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagegd2(GdImage $image, ?string $file = null, int $chunk_size = null, int $mode = null): bool {}
+function imagegd2(GdImage $image, ?string $file = null, int $chunk_size = 128, int $mode = 1): bool {}
 
 /**
  * Destroy an image

@@ -590,6 +590,11 @@ function stream_get_contents($stream, ?int $length = null, int $offset = -1): st
 function stream_supports_lock($stream): bool {}
 
 /**
+ * @since 8.3
+ */
+function stream_context_set_options($context, array $options): bool {}
+
+/**
  * Gets line from file pointer and parse for CSV fields
  * @link https://php.net/manual/en/function.fgetcsv.php
  * @param resource $stream <p>

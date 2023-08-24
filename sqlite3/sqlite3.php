@@ -7,6 +7,11 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 
 /**
+ * @since 8.3
+ */
+class SQLite3Exception extends \Exception {}
+
+/**
  * A class that interfaces SQLite 3 databases.
  * @link https://php.net/manual/en/class.sqlite3.php
  */

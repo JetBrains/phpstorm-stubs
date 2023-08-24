@@ -296,7 +296,7 @@ function hash_pbkdf2(
     int $iterations,
     int $length = 0,
     bool $binary = false,
-    #[PhpStormStubsElementAvailable(from: '8.1', to: '8.1')] array $options = []
+    #[PhpStormStubsElementAvailable(from: '8.1')] array $options = []
 ): string {}
 
 /**

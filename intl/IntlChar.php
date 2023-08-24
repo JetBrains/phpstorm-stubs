@@ -902,12 +902,13 @@ class IntlChar
      * @since 7.0
      */
     #[TentativeType]
+    #[LanguageLevelTypeAware(['8.3' => 'bool'], default: 'bool|null')]
     public static function enumCharNames(
         #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $start,
         #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $end,
         #[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = IntlChar::UNICODE_CHAR_NAME
-    ): ?bool {}
+    ) {}
 
     /**
      * Enumerate all code points with their Unicode general categories
