@@ -86,7 +86,6 @@ function imap_reopen(
  * deletion. You can achieve the same thing by using
  * <b>imap_expunge</b>
  * </p>
- * @return bool|true <b>TRUE</b> on success or <b>FALSE</b> on failure. Since PHP 8.3 always true
  */
 #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
 function imap_close(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, int $flags = 0) {}
@@ -522,7 +521,7 @@ function imap_expunge(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], def
  * </p>
  */
 #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
-function imap_delete(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $message_nums, int $flags = 0): bool {}
+function imap_delete(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $message_nums, int $flags = 0) {}
 
 /**
  * Unmark the message which is marked deleted
@@ -534,7 +533,7 @@ function imap_delete(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], defa
  * @param int $flags [optional]
  */
 #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
-function imap_undelete(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $message_nums, int $flags = 0): bool {}
+function imap_undelete(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $message_nums, int $flags = 0) {}
 
 /**
  * Check current mailbox
