@@ -4,6 +4,7 @@
  * @since 5.6
  */
 
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
@@ -948,8 +949,8 @@ class AssertionError extends Error {}
  * An optional new value for the option.
  * </p>
  * @return mixed The original setting of any option.
- * @deprecated
  */
+#[Deprecated(since: "8.3")]
 function assert_options(int $option, mixed $value): mixed {}
 
 /**
