@@ -318,35 +318,16 @@ class DOMNode
     public function lookupNamespaceUri($prefix) {}
 
     /**
-     * @param DOMNode $arg
+     * @param DOMNode|null $arg
      * @return bool
-     * @removed 8.0
      */
-    public function isEqualNode(DOMNode $arg) {}
+    #[LanguageLevelTypeAware(['8.3' => 'bool'], default: '')]
+    public function isEqualNode(#[LanguageLevelTypeAware(['8.3' => 'DOMNode|null'], default: 'DOMNode')] $otherNode) {}
 
-    /**
-     * @since 8.3
-     */
-    public function isEqualNode(?DOMNode $otherNode): bool {}
-
-    /**
-     * @param $feature
-     * @param $version
-     * @return mixed
-     */
     public function getFeature($feature, $version) {}
 
-    /**
-     * @param $key
-     * @param $data
-     * @param $handler
-     */
     public function setUserData($key, $data, $handler) {}
 
-    /**
-     * @param $key
-     * @return mixed
-     */
     public function getUserData($key) {}
 
     /**

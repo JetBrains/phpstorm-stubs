@@ -61,14 +61,14 @@ use JetBrains\PhpStorm\Pure;
  * </p>
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function syslog(int $priority, string $message): bool {}
+function syslog(int $priority, string $message) {}
 
 /**
  * Close connection to system logger
  * @link https://php.net/manual/en/function.closelog.php
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function closelog(): bool {}
+function closelog() {}
 
 /**
  * Registers a function that will be called when PHP starts sending output.
@@ -395,7 +395,7 @@ function ob_list_handlers(): array {}
  * </p>
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function ksort(array &$array, int $flags = SORT_REGULAR): bool {}
+function ksort(array &$array, int $flags = SORT_REGULAR) {}
 
 /**
  * Sort an array by key in reverse order
@@ -410,7 +410,7 @@ function ksort(array &$array, int $flags = SORT_REGULAR): bool {}
  * </p>
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function krsort(array &$array, int $flags = SORT_REGULAR): bool {}
+function krsort(array &$array, int $flags = SORT_REGULAR) {}
 
 /**
  * Sort an array using a "natural order" algorithm
@@ -460,7 +460,7 @@ function asort(array &$array, int $flags = SORT_REGULAR) {}
  * </p>
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function arsort(array &$array, int $flags = SORT_REGULAR): bool {}
+function arsort(array &$array, int $flags = SORT_REGULAR) {}
 
 /**
  * Sort an array
@@ -478,7 +478,7 @@ function arsort(array &$array, int $flags = SORT_REGULAR): bool {}
  * (don't change types)</p>
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function sort(array &$array, int $flags = SORT_REGULAR): bool {}
+function sort(array &$array, int $flags = SORT_REGULAR) {}
 
 /**
  * Sort an array in reverse order
@@ -508,7 +508,7 @@ function rsort(array &$array, int $flags = SORT_REGULAR) {}
  * </p>
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function usort(array &$array, callable $callback): bool {}
+function usort(array &$array, callable $callback) {}
 
 /**
  * Sort an array with a user-defined comparison function and maintain index association
@@ -522,7 +522,7 @@ function usort(array &$array, callable $callback): bool {}
  * </p>
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function uasort(array &$array, callable $callback): bool {}
+function uasort(array &$array, callable $callback) {}
 
 /**
  * Sort an array by keys using a user-defined comparison function
@@ -543,7 +543,7 @@ function uasort(array &$array, callable $callback): bool {}
  * </p>
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function uksort(array &$array, callable $callback): bool {}
+function uksort(array &$array, callable $callback) {}
 
 /**
  * Shuffle an array
@@ -553,7 +553,7 @@ function uksort(array &$array, callable $callback): bool {}
  * </p>
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function shuffle(array &$array): bool {}
+function shuffle(array &$array) {}
 
 /**
  * Apply a user function to every member of an array
@@ -587,7 +587,7 @@ function shuffle(array &$array): bool {}
  * </p>
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function array_walk(object|array &$array, callable $callback, mixed $arg): bool {}
+function array_walk(object|array &$array, callable $callback, mixed $arg) {}
 
 /**
  * Apply a user function recursively to every member of an array
@@ -615,7 +615,7 @@ function array_walk(object|array &$array, callable $callback, mixed $arg): bool 
  * </p>
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function array_walk_recursive(object|array &$array, callable $callback, mixed $arg): bool {}
+function array_walk_recursive(object|array &$array, callable $callback, mixed $arg) {}
 
 /**
  * Counts all elements in an array, or something in an object.
