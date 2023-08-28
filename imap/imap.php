@@ -888,7 +888,7 @@ function imap_mailboxmsginfo(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection
  * instead of sequence numbers</p>
  */
 #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
-function imap_setflag_full(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $sequence, string $flag, int $options = NIL): bool {}
+function imap_setflag_full(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $sequence, string $flag, int $options = NIL) {}
 
 /**
  * Clears flags on messages
@@ -910,7 +910,7 @@ function imap_setflag_full(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection']
  * instead of sequence numbers</p>
  */
 #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
-function imap_clearflag_full(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $sequence, string $flag, int $options = 0): bool {}
+function imap_clearflag_full(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap, string $sequence, string $flag, int $options = 0) {}
 
 /**
  * Gets and sort messages
