@@ -878,9 +878,9 @@ class RedisCluster
      * If this value is already in the set, FALSE is returned.
      *
      * @param   string $key    Required key
-     * @param   string $value1 Required value
-     * @param   string $value2 Optional value
-     * @param   string $valueN Optional value
+     * @param   mixed $value1 Required value
+     * @param   mixed $value2 Optional value
+     * @param   mixed $valueN Optional value
      *
      * @return  int|false     The number of elements added to the set
      * @link    https://redis.io/commands/sadd
