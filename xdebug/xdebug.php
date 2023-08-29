@@ -3,7 +3,7 @@
 /**
  * Show diagnostic information
  */
-function xdebug_info(string $category = '') {}
+function xdebug_info(string $category = 'null') {}
 
 /**
  * Returns an array of ALL valid ini options with values and is not the same as ini_get_all() which returns only

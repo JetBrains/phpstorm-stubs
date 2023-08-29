@@ -1038,7 +1038,7 @@ function imagepng(GdImage $image, $file = null, int $quality = -1, int $filters 
  * @return bool true on success or false on failure.
  * @since 5.4
  */
-function imagewebp($image, $to = null, $quality = 80): bool {}
+function imagewebp($image, $to = null, $quality = -1): bool {}
 
 /**
  * Output image to browser or file
@@ -1071,7 +1071,7 @@ function imagegif(GdImage $image, $file = null): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagejpeg($image, $file = null, $quality = null): bool {}
+function imagejpeg($image, $file = null, $quality = -1): bool {}
 
 /**
  * Output image to browser or file
@@ -1121,7 +1121,7 @@ function imagegd(GdImage $image, ?string $file = null): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagegd2(GdImage $image, ?string $file = null, int $chunk_size = 128, int $mode = IMG_GD2_RAW): bool {}
+function imagegd2(GdImage $image, ?string $file = null, int $chunk_size = null, int $mode = null): bool {}
 
 /**
  * Destroy an image
@@ -1618,7 +1618,7 @@ function imagedashedline(GdImage $image, int $x1, int $y1, int $x2, int $y2, int
  * corner seeing the text horizontally.
  */
 #[Pure]
-function imagettfbbox($size, $angle, $font_filename, $text) {}
+function imagettfbbox($size, $angle, $font_filename, $text, array $options = []) {}
 
 /**
  * Write text to the image using TrueType fonts
@@ -1729,10 +1729,10 @@ function imagettftext(GdImage $image, float $size, float $angle, int $x, int $y,
  * search for files that do not begin with a leading '/' by appending
  * '.ttf' to the filename and searching along a library-defined font path.
  * </p>
- * @param string $text <p>
+ * @param string $string <p>
  * The string to be measured.
  * </p>
- * @param array $extrainfo [optional] <p>
+ * @param array $options [optional] <p>
  * <table>
  * Possible array indexes for extrainfo
  * <tr valign="top">
@@ -1790,7 +1790,7 @@ function imagettftext(GdImage $image, float $size, float $angle, int $x, int $y,
  * Returns false on error.
  */
 #[Pure]
-function imageftbbox($size, $angle, $font_filename, $text, $extrainfo = null) {}
+function imageftbbox($size, $angle, $font_filename, $string, $options = []) {}
 
 /**
  * Write text to the image using fonts using FreeType 2
@@ -1855,10 +1855,10 @@ function imageftbbox($size, $angle, $font_filename, $text, $extrainfo = null) {}
  * <strong>Note:</strong>
  * <code>open_basedir</code> does <em>not</em> apply to font_filename.
  * </p>
- * @param string $text <p>
+ * @param string $string <p>
  * Text to be inserted into image.
  * </p>
- * @param array $extrainfo [optional] <p>
+ * @param array $options [optional] <p>
  * <table>
  * Possible array indexes for extrainfo
  * <tr valign="top">
@@ -1908,7 +1908,7 @@ function imageftbbox($size, $angle, $font_filename, $text, $extrainfo = null) {}
  * </tr>
  * Returns false on error.
  */
-function imagefttext($image, $size, $angle, $x, $y, $color, $font_filename, $text, $extrainfo = null) {}
+function imagefttext($image, $size, $angle, $x, $y, $color, $font_filename, $string, $options = []) {}
 
 /**
  * Load a PostScript Type 1 font from file
