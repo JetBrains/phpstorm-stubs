@@ -1619,7 +1619,7 @@ function imagedashedline(GdImage $image, int $x1, int $y1, int $x2, int $y2, int
  * corner seeing the text horizontally.
  */
 #[Pure]
-function imagettfbbox(float $size, float $angle, string $font_filename, string $string, #[PhpStormStubsElementAvailable(from: '8.0')] $options = []): array|false {}
+function imagettfbbox(float $size, float $angle, string $font_filename, string $string, #[PhpStormStubsElementAvailable(from: '8.0')] array $options = []): array|false {}
 
 /**
  * Write text to the image using TrueType fonts
