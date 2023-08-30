@@ -1121,7 +1121,7 @@ function imagegd(GdImage $image, ?string $file = null): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagegd2(GdImage $image, ?string $file = null, int $chunk_size = null, int $mode = null): bool {}
+function imagegd2(GdImage $image, ?string $file = null, int $chunk_size = 128, int $mode = IMG_GD2_RAW): bool {}
 
 /**
  * Destroy an image
