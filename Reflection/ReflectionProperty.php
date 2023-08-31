@@ -239,7 +239,6 @@ class ReflectionProperty implements Reflector
      * @param bool $accessible A boolean {@see true} to allow accessibility, or {@see false}
      * @return void No value is returned.
      */
-    #[Pure]
     #[PhpStormStubsElementAvailable(from: "8.1")]
     #[TentativeType]
     public function setAccessible(bool $accessible): void {}
