@@ -1453,7 +1453,7 @@ class Relay
      *
      * @param  mixed  $key
      * @param  int  $pos
-     * @param  int  $val
+     * @param  bool|int  $val
      * @return Relay|int|false
      */
     #[\Relay\Attributes\RedisCommand]
