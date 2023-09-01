@@ -1457,7 +1457,7 @@ class Relay
      * @return Relay|int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function setbit(mixed $key, int $pos, int $val): Relay|int|false {}
+    public function setbit(mixed $key, int $pos, bool|int $val): Relay|int|false {}
 
     /**
      * Interact with Redis' ACLs
