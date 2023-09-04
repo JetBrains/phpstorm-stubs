@@ -389,7 +389,7 @@ class DOMNode
     /**
      * @since 8.3
      */
-    public function getRootNode(?array $options = []): DOMNode {}
+    public function getRootNode(?array $options = null): DOMNode {}
 }
 
 /**
@@ -876,7 +876,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
     public function createProcessingInstruction(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $target,
         #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $data,
-        #[PhpStormStubsElementAvailable(from: '7.4')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data = null
+        #[PhpStormStubsElementAvailable(from: '7.4')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data = ''
     ) {}
 
     /**
@@ -1061,7 +1061,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
     #[LanguageLevelTypeAware(['8.3' => 'bool'], default: 'DOMDocument|bool')]
     public function load(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = 0
     ) {}
 
     /**
@@ -1095,7 +1095,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
     #[LanguageLevelTypeAware(['8.3' => 'bool'], default: 'DOMDocument|bool')]
     public function loadXML(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $source,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = 0
     ) {}
 
     /**
@@ -1113,7 +1113,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
     #[TentativeType]
     public function saveXML(
         ?DOMNode $node = null,
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null
+        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = 0
     ): string|false {}
 
     /**
@@ -1146,7 +1146,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @return int|false the number of XIncludes in the document.
      */
     #[TentativeType]
-    public function xinclude(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null): int|false {}
+    public function xinclude(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = 0): int|false {}
 
     /**
      * Load HTML from a string
@@ -2015,7 +2015,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $value = null,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace = ''
     ) {}
 
     /**
@@ -2026,7 +2026,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
     /**
      * @since 8.3
      */
-    public function toggleAttribute(string $qualifiedName, ?bool $force = false): bool {}
+    public function toggleAttribute(string $qualifiedName, ?bool $force = null): bool {}
 
     /**
      * @since 8.3
@@ -2085,7 +2085,7 @@ class DOMText extends DOMCharacterData
      * @link https://php.net/manual/en/domtext.construct.php
      * @param string $data [optional] The value of the text node. If not supplied an empty text node is created.
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data) {}
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data = '') {}
 }
 
 /**
@@ -2100,7 +2100,7 @@ class DOMComment extends DOMCharacterData
      * @link https://php.net/manual/en/domcomment.construct.php
      * @param string $data [optional] The value of the comment
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data) {}
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data = '') {}
 }
 
 /**
@@ -2351,7 +2351,7 @@ class DOMProcessingInstruction extends DOMNode
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value = ''
     ) {}
 }
 

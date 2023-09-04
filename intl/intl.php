@@ -321,7 +321,7 @@ class Collator
     #[TentativeType]
     public function sort(
         array &$array,
-        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Collator::SORT_REGULAR])] $flags = null
+        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Collator::SORT_REGULAR])] $flags = 0
     ): bool {}
 
     /**
@@ -352,7 +352,7 @@ class Collator
     #[TentativeType]
     public function asort(
         array &$array,
-        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Collator::SORT_REGULAR])] $flags = null
+        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Collator::SORT_REGULAR])] $flags = 0
     ): bool {}
 
     /**
@@ -987,7 +987,7 @@ class NumberFormatter
     #[TentativeType]
     public function format(
         #[LanguageAware(['8.0' => 'int|float'], default: '')] $num,
-        #[LanguageAware(['8.0' => 'int'], default: '')] $type = null
+        #[LanguageAware(['8.0' => 'int'], default: '')] $type = 0
     ): string|false {}
 
     /**
@@ -1189,7 +1189,7 @@ class NumberFormatter
     #[Pure]
     #[TentativeType]
     public function getLocale(
-        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Locale::VALID_LOCALE, Locale::ACTUAL_LOCALE])] $type = null
+        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Locale::VALID_LOCALE, Locale::ACTUAL_LOCALE])] $type = 0
     ): string|false {}
 
     /**
@@ -1911,7 +1911,7 @@ class IntlDateFormatter
         #[ElementAvailable(from: '8.1')] int $timeType = 0,
         $timezone = null,
         $calendar = null,
-        #[LanguageAware(['8.0' => 'string|null'], default: '')] $pattern = ''
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $pattern = null
     ) {}
 
     /**
@@ -1958,7 +1958,7 @@ class IntlDateFormatter
         #[ElementAvailable(from: '8.1')] int $timeType = 0,
         $timezone = null,
         #[LanguageAware(['8.0' => 'IntlCalendar|int|null'], default: '')] $calendar = null,
-        #[LanguageAware(['8.0' => 'string|null'], default: '')] $pattern = ''
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $pattern = null
     ): ?IntlDateFormatter {}
 
     /**
@@ -2127,7 +2127,7 @@ class IntlDateFormatter
     public function getLocale(
         #[ElementAvailable(from: '8.0')]
         #[LanguageAware(['8.0' => 'int'], default: '')]
-        $type = null
+        $type = 0
     ): string|false {}
 
     /**
@@ -2400,7 +2400,7 @@ class Transliterator
     #[TentativeType]
     public static function create(
         #[LanguageAware(['8.0' => 'string'], default: '')] $id,
-        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Transliterator::FORWARD, Transliterator::REVERSE])] $direction = null
+        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Transliterator::FORWARD, Transliterator::REVERSE])] $direction = 0
     ): ?Transliterator {}
 
     /**
@@ -2422,7 +2422,7 @@ class Transliterator
     #[TentativeType]
     public static function createFromRules(
         #[LanguageAware(['8.0' => 'string'], default: '')] $rules,
-        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Transliterator::FORWARD, Transliterator::REVERSE])] $direction = null
+        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Transliterator::FORWARD, Transliterator::REVERSE])] $direction = 0
     ): ?Transliterator {}
 
     /**
@@ -2469,7 +2469,7 @@ class Transliterator
     #[TentativeType]
     public function transliterate(
         #[LanguageAware(['8.0' => 'string'], default: '')] $string,
-        #[LanguageAware(['8.0' => 'int'], default: '')] $start = null,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $start = 0,
         #[LanguageAware(['8.0' => 'int'], default: '')] $end = -1
     ): string|false {}
 
@@ -3560,7 +3560,7 @@ class IntlTimeZone
     public static function createTimeZoneIDEnumeration(
         #[LanguageAware(['8.0' => 'int'], default: '')] $type,
         #[LanguageAware(['8.0' => 'string|null'], default: '')] $region = null,
-        #[LanguageAware(['8.0' => 'int|null'], default: '')] $rawOffset = 0
+        #[LanguageAware(['8.0' => 'int|null'], default: '')] $rawOffset = null
     ): IntlIterator|false {}
 
     /**
@@ -7742,7 +7742,7 @@ class UConverter
         #[LanguageAware(['8.0' => 'string'], default: '')] $str,
         #[LanguageAware(['8.0' => 'string'], default: '')] $toEncoding,
         #[LanguageAware(['8.0' => 'string'], default: '')] $fromEncoding,
-        ?array $options = []
+        ?array $options = null
     ): string|false {}
 }
 // End of intl v.1.1.0

@@ -27,8 +27,8 @@ class CURLFile
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $mime_type = '',
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $posted_filename = ''
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $mime_type = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $posted_filename = null
     ) {}
 
     /**

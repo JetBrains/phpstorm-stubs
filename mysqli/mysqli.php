@@ -683,7 +683,7 @@ class mysqli
         ?string $database = null,
         ?int $port = null,
         ?string $socket = null,
-        int $flags = null
+        int $flags = 0
     ): bool {}
 
     /**
@@ -1291,7 +1291,7 @@ class mysqli_result implements IteratorAggregate
      * are no more rows in the result set, or false on failure.
      */
     #[TentativeType]
-    public function fetch_object(string $class = 'stdClass', array $constructor_args = null): object|false|null {}
+    public function fetch_object(string $class = 'stdClass', array $constructor_args = []): object|false|null {}
 
     /**
      * Fetch the next row of a result set as an enumerated array

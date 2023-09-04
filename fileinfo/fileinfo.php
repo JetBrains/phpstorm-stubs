@@ -14,7 +14,7 @@ class finfo
      * @param string $magic_database [optional]
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $magic_database
     ) {}
 

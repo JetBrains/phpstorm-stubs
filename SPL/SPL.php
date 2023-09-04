@@ -447,7 +447,7 @@ class IteratorIterator implements OuterIterator
      * @param Traversable $iterator
      * @param string|null $class [optional]
      */
-    public function __construct(Traversable $iterator, #[PhpStormStubsElementAvailable(from: '8.0')] ?string $class = '') {}
+    public function __construct(Traversable $iterator, #[PhpStormStubsElementAvailable(from: '8.0')] ?string $class = null) {}
 
     /**
      * Get the inner iterator
@@ -1336,7 +1336,7 @@ class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
     public function __construct(
         RecursiveIterator $iterator,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pattern,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = self::MATCH,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = RegexIterator::MATCH,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $pregFlags = 0
     ) {}

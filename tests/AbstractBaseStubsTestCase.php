@@ -68,6 +68,17 @@ abstract class AbstractBaseStubsTestCase extends TestCase
                 /** @var PHPConst $rightConstant */
                 $rightConstant = array_pop($constants);
                 $value = $leftConstant->value|$rightConstant->value;
+            } elseif ($defaultValue->left instanceof ClassConstFetch && $defaultValue->right instanceof ClassConstFetch){
+                $leftClass = $defaultValue->left->class->toString();
+                $rightClass = $defaultValue->right->class->toString();
+                $leftClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($leftClass);
+                $rightClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($rightClass);
+                if ($leftClass === null || $rightClass === null) {
+                    throw new Exception("Class $leftClass->name or $rightClass->name not found in stubs");
+                }
+                $leftConstant = $leftClass->getConstant((string)$defaultValue->left->name);;
+                $rightConstant = $rightClass->getConstant((string)$defaultValue->right->name);;
+                $value = $leftConstant->value|$rightConstant->value;
             }
         } elseif ($defaultValue instanceof UnaryMinus && property_exists($defaultValue->expr, 'value')) {
             $value = '-' . $defaultValue->expr->value;
