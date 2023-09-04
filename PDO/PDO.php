@@ -1557,7 +1557,7 @@ class PDOStatement implements IteratorAggregate
      */
     #[TentativeType]
     public function fetch(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = PDO::FETCH_BOTH,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = PDO::FETCH_DEFAULT,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $cursorOrientation = PDO::FETCH_ORI_NEXT,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $cursorOffset = 0
     ): mixed {}
@@ -1597,7 +1597,7 @@ class PDOStatement implements IteratorAggregate
         #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $param,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] &$var,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxLength = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxLength = 0,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $driverOptions = null
     ): bool {}
 
@@ -1629,7 +1629,7 @@ class PDOStatement implements IteratorAggregate
         #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $column,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] &$var,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxLength = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxLength = 0,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $driverOptions = null
     ): bool {}
 
@@ -1734,7 +1734,7 @@ class PDOStatement implements IteratorAggregate
      */
     #[TentativeType]
     public function fetchAll(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = PDO::FETCH_BOTH,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = PDO::FETCH_DEFAULT,
         #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $fetch_argument = null,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$args
     ): array {}

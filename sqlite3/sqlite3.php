@@ -81,7 +81,7 @@ class SQLite3
         #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $flags,
         #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $encryptionKey,
         #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE,
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $encryptionKey = null
+        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $encryptionKey = ''
     ): void {}
 
     /**
@@ -370,7 +370,7 @@ class SQLite3
         #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $flags,
         #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $encryptionKey,
         #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE,
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $encryptionKey = null
+        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $encryptionKey = ''
     ) {}
 
     /**

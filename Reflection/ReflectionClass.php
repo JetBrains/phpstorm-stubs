@@ -278,7 +278,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getReflectionConstants(#[PhpStormStubsElementAvailable(from: '8.0')] ?int $filter = ReflectionClassConstant::IS_PUBLIC|ReflectionClassConstant::IS_PROTECTED|ReflectionClassConstant::IS_PRIVATE): array {}
+    public function getReflectionConstants(#[PhpStormStubsElementAvailable(from: '8.0')] ?int $filter = null): array {}
 
     /**
      * Checks if constant is defined
@@ -300,7 +300,7 @@ class ReflectionClass implements Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getConstants(#[PhpStormStubsElementAvailable(from: '8.0')] ?int $filter = ReflectionClassConstant::IS_PUBLIC|ReflectionClassConstant::IS_PROTECTED|ReflectionClassConstant::IS_PRIVATE): array {}
+    public function getConstants(#[PhpStormStubsElementAvailable(from: '8.0')] ?int $filter = null): array {}
 
     /**
      * Gets defined constant

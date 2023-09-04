@@ -59,6 +59,7 @@ abstract class BasePHPClass extends BasePHPElement
      */
     public function getConstant($constantName)
     {
+        $arra = $this->constants;
         $constants = array_filter($this->constants, function (PHPConst $constant) use ($constantName) {
             return $constant->name === $constantName && $constant->duplicateOtherElement === false
                 && BasePHPElement::entitySuitsCurrentPhpVersion($constant);

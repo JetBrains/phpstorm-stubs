@@ -59,7 +59,7 @@ class SplFileInfo implements Stringable
      * @since 5.2.2
      */
     #[TentativeType]
-    public function getBasename(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $suffix = null): string {}
+    public function getBasename(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $suffix = ''): string {}
 
     /**
      * Gets the path to the file
@@ -582,7 +582,7 @@ class GlobIterator extends FilesystemIterator implements Countable
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pattern,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO
     ) {}
 
     /**
@@ -889,7 +889,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     #[TentativeType]
     public function fwrite(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $length = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $length = 0
     ): int|false {}
 
     /**

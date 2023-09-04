@@ -606,8 +606,8 @@ class ErrorException extends Exception
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $message = "",
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $code = 0,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $severity = 1,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $filename = __FILE__,
-        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $line = __LINE__,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $filename = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $line = null,
         #[LanguageLevelTypeAware(['8.0' => 'Throwable|null'], default: 'Throwable')] $previous = null
     ) {}
 

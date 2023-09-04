@@ -267,7 +267,7 @@ class SoapClient
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $wsdl,
-        array $options = null
+        array $options = []
     ) {}
 
     /**
@@ -462,7 +462,7 @@ class SoapClient
      * @since 5.0.1
      */
     #[TentativeType]
-    public function __setLocation(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $location = ''): ?string {}
+    public function __setLocation(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $location = null): ?string {}
 
     /**
      * Sets SOAP headers for subsequent calls
@@ -551,9 +551,9 @@ class SoapVar
         #[LanguageLevelTypeAware(["8.0" => 'mixed'], default: '')] $data,
         #[LanguageLevelTypeAware(["7.1" => "int|null"], default: "int")] $encoding,
         #[LanguageLevelTypeAware(["8.0" => "string|null"], default: "string")] $typeName,
-        #[LanguageLevelTypeAware(["8.0" => 'string|null'], default: '')] $typeNamespace = '',
-        #[LanguageLevelTypeAware(["8.0" => 'string|null'], default: '')] $nodeName = '',
-        #[LanguageLevelTypeAware(["8.0" => 'string|null'], default: '')] $nodeNamespace = ''
+        #[LanguageLevelTypeAware(["8.0" => 'string|null'], default: '')] $typeNamespace = null,
+        #[LanguageLevelTypeAware(["8.0" => 'string|null'], default: '')] $nodeName = null,
+        #[LanguageLevelTypeAware(["8.0" => 'string|null'], default: '')] $nodeNamespace = null
     ) {}
 
     /**
@@ -631,7 +631,7 @@ class SoapServer
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $wsdl,
-        array $options = null
+        array $options = []
     ) {}
 
     /**
@@ -799,9 +799,9 @@ class SoapServer
     public function fault(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $code,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $actor = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $actor = '',
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $details = null,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name = ''
     ): void {}
 
     /**
