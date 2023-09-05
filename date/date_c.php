@@ -809,8 +809,8 @@ class DateTimeZone
     public function getTransitions(
         #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $timestampBegin,
         #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $timestampEnd,
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestampBegin = null,
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestampEnd = null
+        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestampBegin = PHP_INT_MIN,
+        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestampEnd = PHP_INT_MAX
     ): array|false {}
 
     /**

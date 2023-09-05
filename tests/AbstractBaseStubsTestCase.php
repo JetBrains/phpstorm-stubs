@@ -76,8 +76,8 @@ abstract class AbstractBaseStubsTestCase extends TestCase
                 if ($leftClass === null || $rightClass === null) {
                     throw new Exception("Class $leftClass->name or $rightClass->name not found in stubs");
                 }
-                $leftConstant = $leftClass->getConstant((string)$defaultValue->left->name);;
-                $rightConstant = $rightClass->getConstant((string)$defaultValue->right->name);;
+                $leftConstant = $leftClass->getConstant((string)$defaultValue->left->name);
+                $rightConstant = $rightClass->getConstant((string)$defaultValue->right->name);
                 $value = $leftConstant->value|$rightConstant->value;
             }
         } elseif ($defaultValue instanceof UnaryMinus && property_exists($defaultValue->expr, 'value')) {

@@ -57,7 +57,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FilesystemIterator::SKIP_DOTS|FilesystemIterator::UNIX_PATHS,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $alias = null,
         #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $fileformat = null
     ) {}
@@ -1003,7 +1003,7 @@ class PharData extends Phar
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FilesystemIterator::SKIP_DOTS|FilesystemIterator::UNIX_PATHS,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $alias = null,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $format = 0
     ) {}
