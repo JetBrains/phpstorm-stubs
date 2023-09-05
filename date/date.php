@@ -1346,7 +1346,7 @@ function timezone_offset_get(DateTimeZone $object, DateTimeInterface $datetime) 
  * @return array|false <p>Returns numerically indexed array containing associative array with all transitions on success or FALSE on failure.</p>
  */
 #[Pure(true)]
-function timezone_transitions_get(DateTimeZone $object, int $timestampBegin, int $timestampEnd): array|false {}
+function timezone_transitions_get(DateTimeZone $object, int $timestampBegin = PHP_INT_MIN, int $timestampEnd = PHP_INT_MAX): array|false {}
 
 /**
  * Alias:

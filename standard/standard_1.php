@@ -767,7 +767,7 @@ function addcslashes(string $string, string $characters): string {}
  * @return string the modified string.
  */
 #[Pure]
-function rtrim(string $string, string $characters = " \t\n\r\0\x0B"): string {}
+function rtrim(string $string, string $characters = " \n\r\t\v\0"): string {}
 
 /**
  * Replace all occurrences of the search string with the replacement string
@@ -894,7 +894,7 @@ function chunk_split(string $string, int $length = 76, string $separator = "\r\n
  * @return string The trimmed string.
  */
 #[Pure]
-function trim(string $string, string $characters = " \t\n\r\0\x0B"): string {}
+function trim(string $string, string $characters = " \n\r\t\v\0"): string {}
 
 /**
  * Strip whitespace (or other characters) from the beginning of a string
@@ -926,7 +926,7 @@ function trim(string $string, string $characters = " \t\n\r\0\x0B"): string {}
  * (0x0B)), a vertical tab.
  */
 #[Pure]
-function ltrim(string $string, string $characters = " \t\n\r\0\x0B"): string {}
+function ltrim(string $string, string $characters = " \n\r\t\v\0"): string {}
 
 /**
  * Strip HTML and PHP tags from a string
@@ -996,7 +996,7 @@ function similar_text(string $string1, string $string2, &$percent): int {}
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string[]"], default: "string[]|false")]
-function explode(string $separator, string $string, int $limit) {}
+function explode(string $separator, string $string, int $limit = PHP_INT_MAX) {}
 
 /**
  * Join array elements with a string
