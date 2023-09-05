@@ -295,7 +295,7 @@ function str_pad(string $string, int $length, string $pad_string = " ", int $pad
  * @see rtrim()
  */
 #[Pure]
-function chop(string $string, string $characters): string {}
+function chop(string $string, string $characters = " \n\r\t\v\0"): string {}
 
 /**
  * Alias:
