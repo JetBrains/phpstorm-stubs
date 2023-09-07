@@ -20,7 +20,7 @@ jobs:
           PHP_VERSION: ${{matrix.php}}
 
       - name: Composer Install
-        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=${{matrix.php}} test_runner composer update
+        run: docker-compose -f docker-compose.yml run -e PHP_VERSION=${{matrix.php}} test_runner composer install
         env:
           PHP_VERSION: ${{matrix.php}}
 
