@@ -118,7 +118,7 @@ define('T_EXIT', 325);
 define('T_IF', 326);
 define('T_ECHO', 328);
 define('T_DO', 329);
-define('T_WHILE', 320);
+define('T_WHILE', 330);
 define('T_ENDWHILE', 331);
 define('T_FOR', 332);
 define('T_ENDFOR', 333);

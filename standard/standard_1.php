@@ -355,7 +355,7 @@ function stristr(string $haystack, string $needle, bool $before_needle = false):
  * </p>
  */
 #[Pure]
-function strrchr(string $haystack, string $needle): string|false {}
+function strrchr(string $haystack, string $needle, #[PhpStormStubsElementAvailable(from: "8.3")] bool $before_needle = false): string|false {}
 
 /**
  * Randomly shuffles a string
