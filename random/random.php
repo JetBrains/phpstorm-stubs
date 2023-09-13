@@ -50,17 +50,17 @@ namespace {
     /**
      * Generate a random integer
      * @link https://php.net/manual/en/function.rand.php
-     * @param int $min
+     * @param int $min [optional]
      * @param int $max [optional]
      * @return int A pseudo random value between min
      * (or 0) and max (or getrandmax, inclusive).
      */
-    function rand(int $min = null, int $max): int {}
+    function rand(int $min, int $max): int {}
 
     /**
      * Generate a random value via the Mersenne Twister Random Number Generator
      * @link https://php.net/manual/en/function.mt-rand.php
-     * @param int $min <p>
+     * @param int $min [optional] <p>
      * Optional lowest value to be returned (default: 0)
      * </p>
      * @param int $max [optional] <p>
@@ -69,7 +69,7 @@ namespace {
      * @return int A random integer value between min (or 0)
      * and max (or mt_getrandmax, inclusive)
      */
-    function mt_rand(int $min = null, int $max): int {}
+    function mt_rand(int $min, int $max): int {}
 
     /**
      * Show largest possible random value

@@ -23,6 +23,8 @@ class PHPParameter extends BasePHPElement
     public $is_vararg = false;
     public $is_passed_by_ref = false;
     public $isOptional = false;
+    public $isDefaultValueAvailable = false;
+    public $markedOptionalInPhpDoc = false;
     public $defaultValue;
 
     /**
@@ -39,6 +41,7 @@ class PHPParameter extends BasePHPElement
         $this->is_passed_by_ref = $reflectionObject->isPassedByReference() && !$reflectionObject->canBePassedByValue();
         $this->isOptional = $reflectionObject->isOptional();
         $this->indexInSignature = $reflectionObject->getPosition();
+        $this->isDefaultValueAvailable = $reflectionObject->isDefaultValueAvailable();
         if ($reflectionObject->isDefaultValueAvailable()) {
             $this->defaultValue = $reflectionObject->getDefaultValue();
             if (in_array('bool', $this->typesFromSignature, true)) {

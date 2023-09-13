@@ -5563,7 +5563,7 @@ function intlcal_before(IntlCalendar $calendar, IntlCalendar $other): bool {}
  * @since 5.5
  */
 #[LanguageAware(['8.3' => 'true'], default: 'bool')]
-function intlcal_set(IntlCalendar $calendar, int $year, int $month, int $dayOfMonth = null, int $hour = null, int $minute = null, int $second = null) {}
+function intlcal_set(IntlCalendar $calendar, int $year, int $month, int $dayOfMonth, int $hour, int $minute, int $second) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -6448,17 +6448,17 @@ function intltz_use_daylight_time(IntlTimeZone $timezone): bool {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
- * @param DateTimeZone|IntlTimeZone|string|int|null $timezoneOrYear
- * @param string|null $localeOrMonth
- * @param int $day
- * @param int $hour
- * @param int $minute
- * @param int $second
+ * @param DateTimeZone|IntlTimeZone|string|int|null $timezoneOrYear [optional]
+ * @param string|null $localeOrMonth [optional]
+ * @param int $day [optional]
+ * @param int $hour [optional]
+ * @param int $minute [optional]
+ * @param int $second [optional]
  * @return IntlGregorianCalendar|null
  * @since 5.5
  */
 #[Pure]
-function intlgregcal_create_instance($timezoneOrYear = null, $localeOrMonth = null, $day = null, $hour = null, $minute = null, $second = null): ?IntlGregorianCalendar {}
+function intlgregcal_create_instance($timezoneOrYear, $localeOrMonth, $day, $hour, $minute, $second): ?IntlGregorianCalendar {}
 
 /**
  * @param IntlGregorianCalendar $calendar

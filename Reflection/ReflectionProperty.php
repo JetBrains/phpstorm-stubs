@@ -130,13 +130,13 @@ class ReflectionProperty implements Reflector
      * @param mixed $objectOrValue If the property is non-static an object must
      * be provided to change the property on. If the property is static this
      * parameter is left out and only $value needs to be provided.
-     * @param mixed $value The new value.
+     * @param mixed $value [optional] The new value.
      * @return void No value is returned.
      */
     #[TentativeType]
     public function setValue(
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $objectOrValue,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value = null
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
     ): void {}
 
     /**

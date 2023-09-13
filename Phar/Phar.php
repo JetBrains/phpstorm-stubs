@@ -622,7 +622,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      */
     public function setStub(
         $stub,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $length = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $length
     ) {}
 
     /**

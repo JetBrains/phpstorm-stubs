@@ -58,6 +58,33 @@ class StubsConstantsAndParametersValuesTest extends AbstractBaseStubsTestCase
     }
 
     /**
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionOptionalParametersWithoutDefaultValueProvider
+     * @throws Exception|RuntimeException
+     */
+    public function testFunctionsWithoutOptionalDefaultParametersValue(PHPFunction $function, PHPParameter $parameter)
+    {
+        $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($function->name);
+        $stubParameters = array_filter($phpstormFunction->parameters, fn (PHPParameter $stubParameter) => $stubParameter->indexInSignature === $parameter->indexInSignature);
+        /** @var PHPParameter $stubOptionalParameter */
+        $stubOptionalParameter = array_pop($stubParameters);
+
+        self::assertTrue(empty($stubOptionalParameter->defaultValue),
+            sprintf(
+                'Stub function "%s" has a parameter "%s" which expected to have no default value but it has',
+                $function->name,
+                $stubOptionalParameter->name
+            )
+        );
+        self::assertTrue($stubOptionalParameter->markedOptionalInPhpDoc,
+            sprintf(
+                'Stub function "%s" has a parameter "%s" which expected to be marked as [optional] at PHPDoc but it is not',
+                $function->name,
+                $stubOptionalParameter->name
+            )
+        );
+    }
+
+    /**
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodOptionalParametersWithDefaultValueProvider
      * @throws Exception|RuntimeException
      */
@@ -85,6 +112,41 @@ class StubsConstantsAndParametersValuesTest extends AbstractBaseStubsTestCase
                 $parameter->name,
                 $reflectionValue,
                 $stubValue
+            )
+        );
+    }
+
+    /**
+     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodOptionalParametersWithoutDefaultValueProvider
+     * @throws Exception|RuntimeException
+     */
+    public function testMethodsWithoutOptionalDefaultParametersValue(PHPClass|PHPInterface $class, PHPMethod $method, PHPParameter $parameter)
+    {
+        if ($class instanceof PHPEnum) {
+            $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getEnum($class->name)->getMethod($method->name);
+        } elseif ($class instanceof PHPClass) {
+            $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->getMethod($method->name);
+        } else {
+            $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($class->name)->getMethod($method->name);
+        }
+        $stubParameters = array_filter($phpstormFunction->parameters, fn (PHPParameter $stubParameter) => $stubParameter->indexInSignature === $parameter->indexInSignature);
+        /** @var PHPParameter $stubOptionalParameter */
+        $stubOptionalParameter = array_pop($stubParameters);
+
+        self::assertTrue(empty($stubOptionalParameter->defaultValue),
+            sprintf(
+                'Stub method %s::%s has a parameter "%s" which expected to have no default value but it has',
+                $class->name,
+                $method->name,
+                $stubOptionalParameter->name
+            )
+    );
+        self::assertTrue($stubOptionalParameter->markedOptionalInPhpDoc,
+            sprintf(
+                'Stub method %s::%s has a parameter "%s" which expected to be marked as [optional] at PHPDoc but it is not',
+                $class->name,
+                $method->name,
+                $stubOptionalParameter->name
             )
         );
     }
