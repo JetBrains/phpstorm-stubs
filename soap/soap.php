@@ -1054,7 +1054,7 @@ class SoapHeader
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data = null,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $mustUnderstand = false,
         #[LanguageLevelTypeAware(['8.0' => 'string|int|null'], default: '')] $actor = null
     ) {}

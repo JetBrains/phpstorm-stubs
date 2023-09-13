@@ -63,6 +63,19 @@ class ReflectionParametersProvider
         }
     }
 
+    public static function functionOptionalParametersWithoutDefaultValueProvider(): ?Generator
+    {
+        foreach (EntitiesFilter::getFilteredFunctions() as $function) {
+            foreach (EntitiesFilter::getFilteredParameters(
+                $function,
+                fn (PHPParameter $parameter) => !$parameter->isOptional || $parameter->isDefaultValueAvailable || $parameter->is_vararg,
+                StubProblemType::WRONG_PARAMETER_DEFAULT_VALUE
+            ) as $parameter) {
+                yield "$function->name($parameter->name)" => [$function, $parameter];
+            }
+        }
+    }
+
     public static function methodParametersProvider(): ?Generator
     {
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
@@ -129,7 +142,27 @@ class ReflectionParametersProvider
                 foreach (EntitiesFilter::getFilteredFunctions($class) as $method) {
                     foreach (EntitiesFilter::getFilteredParameters(
                         $method,
-                        fn (PHPParameter $parameter) => !$parameter->isOptional,
+                        fn (PHPParameter $parameter) => !$parameter->isOptional || !$parameter->isDefaultValueAvailable,
+                        StubProblemType::WRONG_PARAMETER_DEFAULT_VALUE
+                    ) as $parameter) {
+                        yield "$class->name::$method->name($parameter->name)" => [$class, $method, $parameter];
+                    }
+                }
+            }
+        }
+    }
+
+    public static function methodOptionalParametersWithoutDefaultValueProvider(): ?Generator
+    {
+        $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
+            ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
+        foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
+            //exclude classes from PHPReflectionParser
+            if (strncmp($class->name, 'PHP', 3) !== 0) {
+                foreach (EntitiesFilter::getFilteredFunctions($class) as $method) {
+                    foreach (EntitiesFilter::getFilteredParameters(
+                        $method,
+                        fn (PHPParameter $parameter) => !$parameter->isOptional || $parameter->isDefaultValueAvailable || $parameter->is_vararg,
                         StubProblemType::WRONG_PARAMETER_DEFAULT_VALUE
                     ) as $parameter) {
                         yield "$class->name::$method->name($parameter->name)" => [$class, $method, $parameter];

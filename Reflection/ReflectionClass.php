@@ -533,7 +533,7 @@ class ReflectionClass implements Reflector
      *
      * @link https://php.net/manual/en/reflectionclass.getstaticpropertyvalue.php
      * @param string $name The name of the static property for which to return a value.
-     * @param mixed $default A default value to return in case the class does
+     * @param mixed $default [optional] A default value to return in case the class does
      * not declare a static property with the given name. If the property does
      * not exist and this argument is omitted, a {@see ReflectionException} is thrown.
      * @return mixed The value of the static property.
@@ -542,7 +542,7 @@ class ReflectionClass implements Reflector
     #[TentativeType]
     public function getStaticPropertyValue(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $default = null
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $default
     ): mixed {}
 
     /**
