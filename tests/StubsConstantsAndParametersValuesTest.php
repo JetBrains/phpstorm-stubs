@@ -135,7 +135,7 @@ class StubsConstantsAndParametersValuesTest extends AbstractBaseStubsTestCase
 
         self::assertTrue(empty($stubOptionalParameter->defaultValue),
             sprintf(
-                'Stub method %s::%s has a parameter "%s" which expected to have no default value but it has ',
+                'Stub method %s::%s has a parameter "%s" which expected to have no default value but it has',
                 $class->name,
                 $method->name,
                 $stubOptionalParameter->name
