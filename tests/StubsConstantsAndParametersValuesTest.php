@@ -68,14 +68,16 @@ class StubsConstantsAndParametersValuesTest extends AbstractBaseStubsTestCase
         /** @var PHPParameter $stubOptionalParameter */
         $stubOptionalParameter = array_pop($stubParameters);
 
-        self::assertTrue(empty($stubOptionalParameter->defaultValue),
+        self::assertTrue(
+            empty($stubOptionalParameter->defaultValue),
             sprintf(
                 'Stub function "%s" has a parameter "%s" which expected to have no default value but it has',
                 $function->name,
                 $stubOptionalParameter->name
             )
         );
-        self::assertTrue($stubOptionalParameter->markedOptionalInPhpDoc,
+        self::assertTrue(
+            $stubOptionalParameter->markedOptionalInPhpDoc,
             sprintf(
                 'Stub function "%s" has a parameter "%s" which expected to be marked as [optional] at PHPDoc but it is not',
                 $function->name,
@@ -133,15 +135,17 @@ class StubsConstantsAndParametersValuesTest extends AbstractBaseStubsTestCase
         /** @var PHPParameter $stubOptionalParameter */
         $stubOptionalParameter = array_pop($stubParameters);
 
-        self::assertTrue(empty($stubOptionalParameter->defaultValue),
+        self::assertTrue(
+            empty($stubOptionalParameter->defaultValue),
             sprintf(
                 'Stub method %s::%s has a parameter "%s" which expected to have no default value but it has',
                 $class->name,
                 $method->name,
                 $stubOptionalParameter->name
             )
-    );
-        self::assertTrue($stubOptionalParameter->markedOptionalInPhpDoc,
+        );
+        self::assertTrue(
+            $stubOptionalParameter->markedOptionalInPhpDoc,
             sprintf(
                 'Stub method %s::%s has a parameter "%s" which expected to be marked as [optional] at PHPDoc but it is not',
                 $class->name,
