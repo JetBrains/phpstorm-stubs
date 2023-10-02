@@ -5,7 +5,7 @@ namespace OpenTelemetry\Instrumentation;
 use Closure;
 
 /**
- * @param string|null $class The (optional) hooked function's class. Null for a global/built-in function.
+ * @param string|null $class The hooked function's class. Null for a global/built-in function.
  * @param string $function The hooked function's name.
  * @param Closure|null $pre function($class, array $params, string $class, string $function, ?string $filename, ?int $lineno): $params
  *        You may optionally return modified parameters.
@@ -16,7 +16,7 @@ use Closure;
  * @see https://github.com/open-telemetry/opentelemetry-php-instrumentation
  */
 function hook(
-    ?string $class,
+    string|null $class,
     string $function,
     ?Closure $pre = null,
     ?Closure $post = null,
