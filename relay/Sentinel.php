@@ -27,7 +27,10 @@ class Sentinel
     /**
      * Establishes a new connection to a Sentinel instance.
      *
-     * @param  string  $host
+     * For backwards compatibility with PhpRedis 6.x, the
+     * constructor may be called with a single options array.
+     *
+     * @param  array|string|null  $host
      * @param  int  $port
      * @param  float  $timeout
      * @param  mixed  $persistent
@@ -37,13 +40,14 @@ class Sentinel
      */
     #[\Relay\Attributes\Server]
     public function __construct(
-        string $host,
+        array|string|null $host = null,
         int $port = 26379,
         float $timeout = 0,
         mixed $persistent = null,
         int $retry_interval = 0,
         float $read_timeout = 0,
-        #[\SensitiveParameter] mixed $auth = null
+        #[\SensitiveParameter]
+        mixed $auth = null
     ) {}
 
     /**

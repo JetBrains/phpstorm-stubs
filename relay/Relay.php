@@ -12,14 +12,14 @@ class Relay
      *
      * @var string
      */
-    public const VERSION = "0.6.2";
+    public const VERSION = "0.6.8";
 
     /**
      * Relay's version.
      *
      * @var string
      */
-    public const Version = "0.6.2";
+    public const Version = "0.6.8";
 
     /**
      * Integer representing no compression algorithm.
@@ -407,7 +407,7 @@ class Relay
     /**
      * Establishes a new connection to Redis, or re-uses already opened connection.
      *
-     * @param  string  $host
+     * @param  string|array|null  $host
      * @param  int  $port
      * @param  float  $connect_timeout
      * @param  float  $command_timeout
@@ -415,11 +415,12 @@ class Relay
      */
     #[\Relay\Attributes\Server]
     public function __construct(
-        string $host = null,
+        string|array|null $host = null,
         int $port = 6379,
         float $connect_timeout = 0.0,
         float $command_timeout = 0.0,
-        #[\SensitiveParameter] array $context = [],
+        #[\SensitiveParameter]
+        array $context = [],
         int $database = 0,
     ) {}
 
@@ -445,7 +446,8 @@ class Relay
         ?string $persistent_id = null,
         int $retry_interval = 0,
         float $read_timeout = 0.0,
-        #[\SensitiveParameter] array $context = [],
+        #[\SensitiveParameter]
+        array $context = [],
         int $database = 0
     ): bool {}
 
@@ -470,7 +472,8 @@ class Relay
         ?string $persistent_id = null,
         int $retry_interval = 0,
         float $read_timeout = 0.0,
-        #[\SensitiveParameter] array $context = [],
+        #[\SensitiveParameter]
+        array $context = [],
         int $database = 0
     ): bool {}
 
@@ -813,10 +816,10 @@ class Relay
      * - `stats.ops_per_sec`: The number of commands processed per second
      * - `stats.bytes_sent`: The number of bytes Relay has written to the network
      * - `stats.bytes_received`: The number of bytes Relay has read from the network
-     * - `stats.command_usec`: The number of microseconds Relay has spent executing commands
-     * - `stats.rinit_usec`: The number of microseconds Relay has spent in request initialization.
-     * - `stats.rshutdown_usec`: The number of microseconds Relay has spent in request shutdown.
-     * - `stats.sigio_usec`: The number of microseconds Relay has spent in its SIGIO handler.
+     * - `stats.command_usec`: Deprecated
+     * - `stats.rinit_usec`: The number of microseconds Relay has spent in request initialization
+     * - `stats.rshutdown_usec`: The number of microseconds Relay has spent in request shutdown
+     * - `stats.sigio_usec`: The number of microseconds Relay has spent in its SIGIO handler
      *
      * - `memory.total`: The total bytes of allocated memory
      * - `memory.limit`: The capped number of bytes Relay has available to use
@@ -1016,7 +1019,8 @@ class Relay
         int $timeout,
         bool $copy = false,
         bool $replace = false,
-        #[\SensitiveParameter] mixed $credentials = null
+        #[\SensitiveParameter]
+        mixed $credentials = null
     ): Relay|bool {}
 
     /**
@@ -1404,6 +1408,17 @@ class Relay
     public function bitcount(mixed $key, int $start = 0, int $end = -1, bool $by_bit = false): Relay|int|false {}
 
     /**
+     * Perform various bitfield operations on a string key, such as getting/setting bit ranges,
+     * incrementing, etc.
+     *
+     * @param  mixed  $key
+     * @param  mixed  $args,...
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function bitfield(mixed $key, mixed ...$args): Relay|array|false {}
+
+    /**
      * This is a container command for runtime configuration commands.
      *
      * @param  string  $operation
@@ -1576,6 +1591,16 @@ class Relay
      */
     #[\Relay\Attributes\RedisCommand]
     public function publish(string $channel, string $message): Relay|int|false {}
+
+    /**
+     * A container command for Pub/Sub introspection commands.
+     *
+     * @param  string  $operation
+     * @param  mixed  $args,...
+     * @return mixed
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function pubsub(string $operation, mixed ...$args): mixed {}
 
     /**
      * Posts a message to the given shard channel.

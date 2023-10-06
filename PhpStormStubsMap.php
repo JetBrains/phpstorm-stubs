@@ -872,6 +872,7 @@ const CLASSES = array (
   'Relay\\KeyType' => 'relay/KeyType.php',
   'Relay\\Relay' => 'relay/Relay.php',
   'Relay\\Sentinel' => 'relay/Sentinel.php',
+  'Relay\\Table' => 'relay/Table.php',
   'ResourceBundle' => 'intl/intl.php',
   'ReturnTypeWillChange' => 'Core/Core_c.php',
   'RuntimeException' => 'SPL/SPL.php',
