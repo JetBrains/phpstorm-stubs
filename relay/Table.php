@@ -12,7 +12,7 @@ class Table
      *
      * @param  int  $serializer
      */
-    public function __construct(int $serializer = \Relay\Relay::SERIALIZER_PHP);
+    public function __construct(int $serializer = \Relay\Relay::SERIALIZER_PHP) {}
 
     /**
      * Get a key from the table.
@@ -21,7 +21,7 @@ class Table
      * @param  string  $key
      * @return mixed
      */
-    public function get(string $key): mixed;
+    public function get(string $key): mixed {}
 
     /**
      * Get a field of a cached key.  This is an array lookup.
@@ -30,7 +30,7 @@ class Table
      * @param  string  $field
      * @return mixed
      */
-    public function getField(string $key, string $field): mixed;
+    public function getField(string $key, string $field): mixed {}
 
     /**
      * Set a key in the table.
@@ -39,7 +39,7 @@ class Table
      * @param  mixed  $value;
      * @return bool
      */
-    public function set(string $key, mixed $value): bool;
+    public function set(string $key, mixed $value): bool {}
 
     /**
      * Check if a key exists in the table.
@@ -47,7 +47,7 @@ class Table
      * @param  string  $key
      * @return bool
      */
-    public function exists(string $key): bool;
+    public function exists(string $key): bool {}
 
     /**
      * Remove a key from the table.
@@ -55,19 +55,19 @@ class Table
      * @param  string  $key
      * @return bool
      */
-    public function delete(string $key): bool;
+    public function delete(string $key): bool {}
 
     /**
      * Removes all keys from the table.
      *
      * @return bool
      */
-    public function clear(): bool;
+    public function clear(): bool {}
 
     /**
      * Get the number of keys stored in the table.
      *
      * @return int
      */
-    public function count(): int;
+    public function count(): int {}
 }
