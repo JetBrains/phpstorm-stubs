@@ -1372,7 +1372,7 @@ abstract class SplHeap implements Iterator, Countable
     /**
      * Extracts a node from top of the heap and sift up.
      * @link https://php.net/manual/en/splheap.extract.php
-     * @return mixed The value of the extracted node.
+     * @return TValue The value of the extracted node.
      */
     #[TentativeType]
     public function extract(): mixed {}
