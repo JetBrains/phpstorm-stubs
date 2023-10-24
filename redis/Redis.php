@@ -154,10 +154,10 @@ class Redis
      *
      * @param string $host           can be a host, or the path to a unix domain socket
      * @param int    $port           optional
-     * @param float  $timeout        value in seconds (optional, default is 0.0 meaning unlimited)
+     * @param float  $timeout        value in seconds (optional, default is 0.0 meaning it will use `default_socket_timeout`)
      * @param string|null $persistent_id  identity for the requested persistent connection
      * @param int    $retry_interval retry interval in milliseconds.
-     * @param float  $read_timeout   value in seconds (optional, default is 0 meaning unlimited)
+     * @param float  $read_timeout   value in seconds (optional, default is 0 meaning it will use `default_socket_timeout`)
      * @param array|null $context    since PhpRedis >= 5.3.0 can specify authentication and stream information on connect
      *
      * @return bool TRUE on success, FALSE on error
@@ -189,10 +189,10 @@ class Redis
      *
      * @param string $host           can be a host, or the path to a unix domain socket
      * @param int    $port           optional
-     * @param float  $timeout        value in seconds (optional, default is 0.0 meaning unlimited)
+     * @param float  $timeout        value in seconds (optional, default is 0.0 meaning it will use `default_socket_timeout`)
      * @param string $persistent_id  identity for the requested persistent connection
      * @param int    $retry_interval retry interval in milliseconds.
-     * @param float  $read_timeout   value in seconds (optional, default is 0 meaning unlimited)
+     * @param float  $read_timeout   value in seconds (optional, default is 0 meaning it will use `default_socket_timeout`)
      * @param array  $context        since PhpRedis >= 5.3.0 can specify authentication and stream information on connect
      *
      * @return bool TRUE on success, FALSE on error
@@ -304,10 +304,10 @@ class Redis
      *
      * @param string $host           can be a host, or the path to a unix domain socket
      * @param int    $port           optional
-     * @param float  $timeout        value in seconds (optional, default is 0.0 meaning unlimited)
+     * @param float  $timeout        value in seconds (optional, default is 0.0 meaning it will use `default_socket_timeout`)
      * @param string|null $persistent_id  identity for the requested persistent connection
      * @param int    $retry_interval retry interval in milliseconds.
-     * @param float  $read_timeout   value in seconds (optional, default is 0 meaning unlimited)
+     * @param float  $read_timeout   value in seconds (optional, default is 0 meaning it will use `default_socket_timeout`)
      * @param array|null $context    since PhpRedis >= 5.3.0 can specify authentication and stream information on connect
      *
      * @return bool TRUE on success, FALSE on error.
