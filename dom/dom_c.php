@@ -394,12 +394,12 @@ class DOMNode
     /**
      * @since 8.1
      */
-    public function __sleep() {}
+    public function __sleep(): array {}
 
     /**
      * @since 8.1
      */
-    public function __wakeup() {}
+    public function __wakeup(): void {}
 }
 
 /**
