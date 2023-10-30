@@ -914,6 +914,7 @@ class NumberFormatter
     /**
      * Format/parse as currency value
      * @link https://php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
+     * @deprecated 8.3
      */
     public const TYPE_CURRENCY = 4;
 
