@@ -371,7 +371,8 @@ function xml_parse(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "re
  * success. This is not the same as <b>FALSE</b> and <b>TRUE</b>, be careful with
  * operators such as ===.
  */
-function xml_parse_into_struct(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, string $data, &$values, &$index): int {}
+#[LanguageLevelTypeAware(['8.1' => 'int|false'], default: 'int')]
+function xml_parse_into_struct(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, string $data, &$values, &$index) {}
 
 /**
  * Get XML parser error code
