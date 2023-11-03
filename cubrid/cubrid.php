@@ -1858,6 +1858,23 @@ function cubrid_set_drop($conn_identifier, $oid, $attr_name, $set_element) {}
 function cubrid_version() {}
 
 /**
+ * (PHP 5, CUBRID >= 8.4.0)<br/>
+ * Write a string into the LOB large object
+ *
+ * @link https://php.net/manual/en/function.cubrid-lob2-write.php
+ * @param resource $lob_identifier <p>
+ * LOB identifier obtained by cubrid_lob2_new() or cubrid_lob2_import().
+ * </p>
+ * @param string $buf <p>
+ * The string to be written into the LOB.
+ * </p>
+ * @return bool <p>
+ * Returns true on success, false on failure.
+ * </p>
+ */
+function cubrid_lob2_write($lob_identifier, string $buf): bool {}
+
+/**
  * Columns are returned into the array having a numerical index to the
  * fields. This index starts with 0, the first field in the result.
  * @link https://php.net/manual/en/cubrid.constants.php

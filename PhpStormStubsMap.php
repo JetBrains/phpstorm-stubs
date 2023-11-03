@@ -1910,6 +1910,7 @@ const FUNCTIONS = array (
   'cubrid_lob2_size64' => 'cubrid/cubrid.php',
   'cubrid_lob2_tell' => 'cubrid/cubrid.php',
   'cubrid_lob2_tell64' => 'cubrid/cubrid.php',
+  'cubrid_lob2_write' => 'cubrid/cubrid.php',
   'cubrid_lob_close' => 'cubrid/cubrid.php',
   'cubrid_lob_export' => 'cubrid/cubrid.php',
   'cubrid_lob_get' => 'cubrid/cubrid.php',
