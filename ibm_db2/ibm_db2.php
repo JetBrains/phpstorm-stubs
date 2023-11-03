@@ -98,6 +98,19 @@ function db2_commit($connection): bool {}
 function db2_pconnect(#[\SensitiveParameter] string $database, ?string $username, #[\SensitiveParameter] ?string $password, array $options = []) {}
 
 /**
+ * Closes a persistent database connection
+ *
+ * This function closes a persistent DB2 client connection.
+ *
+ * @link https://php.net/manual/en/function.db2-pclose.php
+ *
+ * @param resource $connection Specifies a persistent DB2 client connection.
+ *
+ * @return bool Returns true on success or false on failure.
+ */
+function db2_pclose($connection): bool {}
+
+/**
  * Returns or sets the AUTOCOMMIT state for a database connection
  * @link https://php.net/manual/en/function.db2-autocommit.php
  * @param resource $connection <p>

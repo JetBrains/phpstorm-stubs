@@ -2063,6 +2063,7 @@ const FUNCTIONS = array (
   'db2_next_result' => 'ibm_db2/ibm_db2.php',
   'db2_num_fields' => 'ibm_db2/ibm_db2.php',
   'db2_num_rows' => 'ibm_db2/ibm_db2.php',
+  'db2_pclose' => 'ibm_db2/ibm_db2.php',
   'db2_pconnect' => 'ibm_db2/ibm_db2.php',
   'db2_prepare' => 'ibm_db2/ibm_db2.php',
   'db2_primary_keys' => 'ibm_db2/ibm_db2.php',
