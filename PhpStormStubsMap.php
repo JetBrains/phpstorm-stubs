@@ -5308,6 +5308,7 @@ const FUNCTIONS = array (
   'ssh2_publickey_remove' => 'ssh2/ssh2.php',
   'ssh2_scp_recv' => 'ssh2/ssh2.php',
   'ssh2_scp_send' => 'ssh2/ssh2.php',
+  'ssh2_send_eof' => 'ssh2/ssh2.php',
   'ssh2_sftp' => 'ssh2/ssh2.php',
   'ssh2_sftp_chmod' => 'ssh2/ssh2.php',
   'ssh2_sftp_lstat' => 'ssh2/ssh2.php',

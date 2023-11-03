@@ -714,6 +714,21 @@ function ssh2_sftp_chmod($sftp, $filename, $mode) {}
 function ssh2_auth_agent($session, $username) {}
 
 /**
+ * (PECL ssh2 >= 1.0)<br/>
+ * Send end-of-file signal through an SSH2 channel
+ *
+ * @param resource $channel <p>
+ * The SSH2 channel resource created by ssh2_shell,
+ * ssh2_exec, or ssh2_tunnel.
+ * </p>
+ *
+ * @return bool Returns true on success or false on failure.
+ *
+ * @link https://php.net/manual/en/function.ssh2-send-eof.php
+ */
+function ssh2_send_eof($channel): bool {}
+
+/**
  * Flag to ssh2_fingerprint requesting hostkey
  * fingerprint as an MD5 hash.
  * @link https://php.net/manual/en/ssh2.constants.php
