@@ -354,3 +354,13 @@ function rpmdbinfo(string $nevr, bool $full = false) {}
  * @since 0.3.0
  */
 function rpmdbsearch(string $pattern, int $rpmtag = RPMTAG_NAME, int $rpmmire = -1, bool $full = false) {}
+
+/**
+ * Add an additional retrieved tag in subsequent queries.
+ *
+ * @param int $tag One of RPMTAG_* constant, see the rpminfo constants page.
+ *
+ * @return bool Returns true on success or false on failure.
+ * @since 0.5.0
+ */
+function rpmaddtag(int $tag): bool {}

@@ -4922,6 +4922,7 @@ const FUNCTIONS = array (
   'rewinddir' => 'standard/standard_7.php',
   'rmdir' => 'standard/standard_5.php',
   'round' => 'standard/standard_3.php',
+  'rpmaddtag' => 'rpminfo/rpminfo.php',
   'rpmdbinfo' => 'rpminfo/rpminfo.php',
   'rpmdbsearch' => 'rpminfo/rpminfo.php',
   'rpminfo' => 'rpminfo/rpminfo.php',
