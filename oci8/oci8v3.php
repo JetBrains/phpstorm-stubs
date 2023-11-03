@@ -392,3 +392,15 @@ function oci_set_call_timeout($connection, int $time_out) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function oci_set_db_operation($connection, string $dbop) {}
+
+/**
+ * Sets the size of the LOB column that will be prefetched by OCI8 when executing a query.
+ * This can improve performance when working with large LOB data.
+ *
+ * @param resource $statement The OCI8 statement resource.
+ * @param int $prefetch_lob_size The size of the LOB column, in bytes, to be prefetched.
+ * @return bool Returns TRUE on success or FALSE on failure.
+ * @link https://php.net/manual/en/function.oci-set-prefetch-lob.php
+ * @since 8.2
+ */
+function oci_set_prefetch_lob($statement, int $prefetch_lob_size): bool {}

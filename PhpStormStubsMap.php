@@ -4400,6 +4400,7 @@ const FUNCTIONS = array (
   'oci_set_edition' => 'oci8/oci8.php',
   'oci_set_module_name' => 'oci8/oci8.php',
   'oci_set_prefetch' => 'oci8/oci8.php',
+  'oci_set_prefetch_lob' => 'oci8/oci8v3.php',
   'oci_statement_type' => 'oci8/oci8.php',
   'oci_unregister_taf_callback' => 'oci8/oci8.php',
   'ocibindbyname' => 'oci8/oci8.php',
