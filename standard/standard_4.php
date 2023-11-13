@@ -603,7 +603,7 @@ function restore_include_path() {}
  * setcookie successfully runs, it will return true.
  * This does not indicate whether the user accepted the cookie.
  */
-function setcookie(string $name, $value = "", $expires_or_options = 0, $path = "", $domain = "", $secure = false, $httponly = false): bool {}
+function setcookie(string $name, string $value = "", int $expires_or_options = 0, string $path = "", string $domain = "", bool $secure = false, bool $httponly = false): bool {}
 
 /**
  * Send a cookie
@@ -626,7 +626,7 @@ function setcookie(string $name, $value = "", $expires_or_options = 0, $path = "
  *                        This does not indicate whether the user accepted the cookie.
  * @since 7.3
  */
-function setcookie(string $name, $value = '', array $options = []): bool {}
+function setcookie(string $name, string $value = '', array $options = []): bool {}
 
 /**
  * Send a cookie without urlencoding the cookie value
