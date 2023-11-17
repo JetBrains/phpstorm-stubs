@@ -290,7 +290,7 @@ define('PATHINFO_EXTENSION', 4);
  */
 define('PATHINFO_FILENAME', 8);
 define('PATHINFO_ALL', 15);
-define('CHAR_MAX', 127);
+define('CHAR_MAX', 255);
 define('LC_CTYPE', 0);
 define('LC_NUMERIC', 1);
 define('LC_TIME', 2);
