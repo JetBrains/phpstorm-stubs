@@ -847,7 +847,6 @@ const CLASSES = array (
   'ReflectionClassConstant' => 'Reflection/ReflectionClassConstant.php',
   'ReflectionEnum' => 'Reflection/ReflectionEnum.php',
   'ReflectionEnumBackedCase' => 'Reflection/ReflectionEnumBackedCase.php',
-  'ReflectionEnumPureCase' => 'Reflection/ReflectionEnumPureCase.php',
   'ReflectionEnumUnitCase' => 'Reflection/ReflectionEnumUnitCase.php',
   'ReflectionException' => 'Reflection/ReflectionException.php',
   'ReflectionExtension' => 'Reflection/ReflectionExtension.php',
