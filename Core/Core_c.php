@@ -655,6 +655,7 @@ final class Closure
      * This determines the visibility of protected and private methods of the bound object.
      * @return Closure|null Returns the newly created Closure object or null on failure
      */
+    #[Pure]
     public function bindTo(?object $newThis, object|string|null $newScope = 'static'): ?Closure {}
 
     /**
@@ -668,6 +669,7 @@ final class Closure
      * This determines the visibility of protected and private methods of the bound object.
      * @return Closure|null Returns the newly created Closure object or null on failure
      */
+    #[Pure]
     public static function bind(Closure $closure, ?object $newThis, object|string|null $newScope = 'static'): ?Closure {}
 
     /**
@@ -732,6 +734,7 @@ final class WeakReference
      * @return WeakReference<TIn> The freshly instantiated object.
      * @since 7.4
      */
+    #[Pure]
     public static function create(object $object): WeakReference {}
 
     /**
@@ -765,6 +768,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
      * @param TKey $object Any object
      * @return bool
      */
+    #[Pure]
     public function offsetExists($object): bool {}
 
     /**
@@ -773,6 +777,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
      * @param TKey $object Any object
      * @return TValue Value associated with the key object
      */
+    #[Pure]
     public function offsetGet($object): mixed {}
 
     /**
@@ -797,6 +802,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
      *
      * @return Iterator<TKey, TValue>
      */
+    #[Pure]
     public function getIterator(): Iterator {}
 
     /**
@@ -804,6 +810,7 @@ final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
      *
      * @return int<0,max>
      */
+    #[Pure]
     public function count(): int {}
 }
 
