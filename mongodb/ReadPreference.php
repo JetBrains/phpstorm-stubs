@@ -5,6 +5,7 @@ namespace MongoDB\Driver;
 use MongoDB\BSON\Serializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use MongoDB\Driver\Exception\UnexpectedValueException;
+use stdClass;
 
 /**
  * Class ReadPreference
@@ -99,7 +100,7 @@ final class ReadPreference implements Serializable, \Serializable
      * @return object Returns an object for serializing the WriteConcern as BSON.
      * @throws InvalidArgumentException
      */
-    final public function bsonSerialize(): array|object {}
+    final public function bsonSerialize(): stdClass {}
 
     /**
      * Serialize a ReadPreference
