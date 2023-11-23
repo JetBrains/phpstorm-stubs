@@ -744,6 +744,7 @@ final class WeakReference
      * @return T|null
      * @since 7.4
      */
+    #[Pure]
     public function get(): ?object {}
 }
 
