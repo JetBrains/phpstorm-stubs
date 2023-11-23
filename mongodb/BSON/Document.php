@@ -28,6 +28,18 @@ final class Document implements \IteratorAggregate, \Serializable
 
     final public function toRelaxedExtendedJSON(): string {}
 
+    /** @since 1.17.0 */
+    public function offsetExists(mixed $offset): bool {}
+
+    /** @since 1.17.0 */
+    public function offsetGet(mixed $offset): mixed {}
+
+    /** @since 1.17.0 */
+    public function offsetSet(mixed $offset, mixed $value): void {}
+
+    /** @since 1.17.0 */
+    public function offsetUnset(mixed $offset): void {}
+
     final public function __toString(): string {}
 
     final public static function __set_state(array $properties): Document {}

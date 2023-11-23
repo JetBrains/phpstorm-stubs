@@ -693,6 +693,7 @@ const CLASSES = array (
   'MongoDB\\Driver\\Monitoring\\CommandStartedEvent' => 'mongodb/Monitoring/CommandStartedEvent.php',
   'MongoDB\\Driver\\Monitoring\\CommandSubscriber' => 'mongodb/Monitoring/CommandSubscriber.php',
   'MongoDB\\Driver\\Monitoring\\CommandSucceededEvent' => 'mongodb/Monitoring/CommandSucceededEvent.php',
+  'MongoDB\\Driver\\Monitoring\\LogSubscriber' => 'mongodb/Monitoring/LogSubscriber.php',
   'MongoDB\\Driver\\Monitoring\\SDAMSubscriber' => 'mongodb/Monitoring/SDAMSubscriber.php',
   'MongoDB\\Driver\\Monitoring\\ServerChangedEvent' => 'mongodb/Monitoring/ServerChangedEvent.php',
   'MongoDB\\Driver\\Monitoring\\ServerClosedEvent' => 'mongodb/Monitoring/ServerClosedEvent.php',

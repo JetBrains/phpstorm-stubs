@@ -2,6 +2,8 @@
 
 namespace MongoDB\Driver;
 
+use stdClass;
+
 final class ServerApi implements \MongoDB\BSON\Serializable, \Serializable
 {
     public const V1 = 1;
@@ -14,5 +16,5 @@ final class ServerApi implements \MongoDB\BSON\Serializable, \Serializable
 
     final public function serialize(): string {}
 
-    final public function bsonSerialize(): array|object {}
+    final public function bsonSerialize(): stdClass {}
 }

@@ -5,6 +5,7 @@ namespace MongoDB\Driver;
 use MongoDB\BSON\Serializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use MongoDB\Driver\Exception\UnexpectedValueException;
+use stdClass;
 
 /**
  * WriteConcern controls the acknowledgment of a write operation, specifies the level of write guarantee for Replica Sets.
@@ -53,7 +54,7 @@ final class WriteConcern implements Serializable, \Serializable
      * @return array|object Returns an object for serializing the WriteConcern as BSON.
      * @throws InvalidArgumentException
      */
-    final public function bsonSerialize(): array|object {}
+    final public function bsonSerialize(): stdClass {}
 
     /**
      * Serialize a WriteConcern

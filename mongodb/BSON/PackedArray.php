@@ -20,6 +20,18 @@ final class PackedArray implements \IteratorAggregate, \Serializable
 
     final public function toPHP(?array $typeMap = null): array|object {}
 
+    /** @since 1.17.0 */
+    public function offsetExists(mixed $offset): bool {}
+
+    /** @since 1.17.0 */
+    public function offsetGet(mixed $offset): mixed {}
+
+    /** @since 1.17.0 */
+    public function offsetSet(mixed $offset, mixed $value): void {}
+
+    /** @since 1.17.0 */
+    public function offsetUnset(mixed $offset): void {}
+
     final public function __toString(): string {}
 
     final public static function __set_state(array $properties): PackedArray {}
