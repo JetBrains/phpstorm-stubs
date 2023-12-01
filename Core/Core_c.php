@@ -650,7 +650,7 @@ final class Closure
      * Duplicates the closure with a new bound object and class scope
      * @link https://secure.php.net/manual/en/closure.bindto.php
      * @param object|null $newThis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
-     * @param mixed $newScope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
+     * @param object|class-string|null $newScope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
      * If an object is given, the type of the object will be used instead.
      * This determines the visibility of protected and private methods of the bound object.
      * @return Closure|null Returns the newly created Closure object or null on failure
@@ -664,7 +664,7 @@ final class Closure
      * @link https://secure.php.net/manual/en/closure.bind.php
      * @param Closure $closure The anonymous functions to bind.
      * @param object|null $newThis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
-     * @param mixed $newScope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
+     * @param object|class-string|null $newScope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
      * If an object is given, the type of the object will be used instead.
      * This determines the visibility of protected and private methods of the bound object.
      * @return Closure|null Returns the newly created Closure object or null on failure
