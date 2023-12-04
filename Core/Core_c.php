@@ -928,15 +928,24 @@ interface BackedEnum extends UnitEnum
     public readonly int|string $value;
 
     /**
+     * Translates a string or int into the corresponding <code>Enum</code>
+     * case, if any. If there is no matching case defined, it will throw a
+     * <code>ValueError</code>.
      * @param int|string $value
+     * @throws ValueError
      * @return static
+     * @link https://www.php.net/manual/en/backedenum.from.php
      */
     #[Pure]
     public static function from(int|string $value): static;
 
     /**
+     * Translates a string or int into the corresponding <code>Enum</code>
+     * case, if any. If there is no matching case defined, it will return null.
      * @param int|string $value
-     * @return static|null
+     * @return static|null A case instance of this enumeration, or null if not
+     * found.
+     * @link https://www.php.net/manual/en/backedenum.tryfrom.php
      */
     #[Pure]
     public static function tryFrom(int|string $value): ?static;
