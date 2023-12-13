@@ -74,7 +74,7 @@ class php_user_filter
     public function filter(
         $in,
         $out,
-        &$consumed,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] &$consumed,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $closing
     ): int {}
 
