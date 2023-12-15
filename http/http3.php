@@ -156,7 +156,7 @@ class Client implements \SplSubject, \Countable
      * @throws \http\Exception\RuntimeException
      * @return \http\Client self.
      */
-    public function dequeue(http\Client\Request $request) {}
+    public function dequeue(Client\Request $request) {}
 
     /**
      * Implements SplSubject. Detach $observer, which has been previously attached.
@@ -214,7 +214,7 @@ class Client implements \SplSubject, \Countable
      * @throws \http\Exception\RuntimeException
      * @return \http\Client self.
      */
-    public function enqueue(http\Client\Request $request, callable $cb = null) {}
+    public function enqueue(Client\Request $request, callable $cb = null) {}
 
     /**
      * Get a list of available configuration options and their default values.
@@ -288,7 +288,7 @@ class Client implements \SplSubject, \Countable
      * @return object|null object stdClass instance holding progress information.
      * 		 or NULL if $request is not enqueued.
      */
-    public function getProgressInfo(http\Client\Request $request) {}
+    public function getProgressInfo(Client\Request $request) {}
 
     /**
      * Retrieve the corresponding response of an already finished request, or the last received response if $request is not set.
@@ -302,7 +302,7 @@ class Client implements \SplSubject, \Countable
      * @return \http\Client\Response|null \http\Client\Response the stored response for the request, or the last that was received.
      * 		 or NULL if no more response was available to pop, when no $request was given.
      */
-    public function getResponse(http\Client\Request $request = null) {}
+    public function getResponse(Client\Request $request = null) {}
 
     /**
      * Retrieve priorly set SSL options.
@@ -320,7 +320,7 @@ class Client implements \SplSubject, \Countable
      * @throws \http\Exception\UnexpectedValueException
      * @return object stdClass instance holding transfer related information.
      */
-    public function getTransferInfo(http\Client\Request $request) {}
+    public function getTransferInfo(Client\Request $request) {}
 
     /**
      * Implements SplSubject. Notify attached observers about progress with $request.
@@ -331,7 +331,7 @@ class Client implements \SplSubject, \Countable
      * @throws \http\Exception\UnexpectedValueException
      * @return \http\Client self.
      */
-    public function notify(http\Client\Request $request = null, $progress = null) {}
+    public function notify(Client\Request $request = null, $progress = null) {}
 
     /**
      * Perform outstanding transfer actions.
@@ -353,7 +353,7 @@ class Client implements \SplSubject, \Countable
      * @throws \http\Exception\RuntimeException
      * @return \http\Client self.
      */
-    public function requeue(http\Client\Request $request, callable $cb = null) {}
+    public function requeue(Client\Request $request, callable $cb = null) {}
 
     /**
      * Reset the client to the initial state.
@@ -1106,7 +1106,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @param \http\Message\Body $body The message body to add.
      * @return \http\Message self.
      */
-    public function addBody(http\Message\Body $body) {}
+    public function addBody(Message\Body $body) {}
 
     /**
      * Add an header, appending to already existing headers.
@@ -1294,7 +1294,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @throws \http\Exception\UnexpectedValueException
      * @return \http\Message self.
      */
-    public function prepend(http\Message $message, bool $top = true) {}
+    public function prepend(Message $message, bool $top = true) {}
 
     /**
      * Reverse the message chain and return the former top-most message.
@@ -1330,7 +1330,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @throws \http\Exception\UnexpectedValueException
      * @return \http\Message self.
      */
-    public function setBody(http\Message\Body $body) {}
+    public function setBody(Message\Body $body) {}
 
     /**
      * Set a single header.

@@ -76,7 +76,7 @@ class COPY
      * @throws \pq\Exception\BadMethodCallException
      * @throws \pq\Exception\RuntimeException
      */
-    public function __construct(pq\Connection $conn, string $expression, int $direction, string $options = null) {}
+    public function __construct(Connection $conn, string $expression, int $direction, string $options = null) {}
 
     /**
      * End the COPY operation to the server during pq\Result::COPY_IN state.
@@ -131,7 +131,7 @@ class Cancel
      * @throws \pq\Exception\BadMethodCallException
      * @throws \pq\Exception\RuntimeException
      */
-    public function __construct(pq\Connection $conn) {}
+    public function __construct(Connection $conn) {}
 
     /**
      * Perform the cancellation request.
@@ -741,7 +741,7 @@ class Connection
      * @throws \pq\Exception\InvalidArgumentException
      * @throws \pq\Exception\BadMethodCallException
      */
-    public function setConverter(pq\Converter $converter) {}
+    public function setConverter(Converter $converter) {}
 
     /**
      * Begin a transaction.
@@ -837,7 +837,7 @@ class Connection
      * @throws \pq\Exception\InvalidArgumentException
      * @throws \pq\Exception\BadMethodCallException
      */
-    public function unsetConverter(pq\Converter $converter) {}
+    public function unsetConverter(Converter $converter) {}
 }
 /**
  * Interface for type conversions.
@@ -933,7 +933,7 @@ class Cursor
      * @throws \pq\Exception\BadMethodCallException
      * @throws \pq\Exception\RuntimeException
      */
-    public function __construct(pq\Connection $connection, string $name, int $flags, string $query, bool $async) {}
+    public function __construct(Connection $connection, string $name, int $flags, string $query, bool $async) {}
 
     /**
      * Close an open cursor.
@@ -1170,7 +1170,7 @@ class LOB
      * @throws \pq\Exception\BadMethodCallException
      * @throws \pq\Exception\RuntimeException
      */
-    public function __construct(pq\Transaction $txn, int $oid = \pq\LOB::INVALID_OID, int $mode = \pq\LOB::RW) {}
+    public function __construct(Transaction $txn, int $oid = \pq\LOB::INVALID_OID, int $mode = \pq\LOB::RW) {}
 
     /**
      * Read a string of data from the current position of the *large object*.
@@ -1577,7 +1577,7 @@ class Statement
      * @throws \pq\Exception\RuntimeException
      * @throws \pq\Exception\DomainException
      */
-    public function __construct(pq\Connection $conn, string $name, string $query, array $types = null, bool $async = false) {}
+    public function __construct(Connection $conn, string $name, string $query, array $types = null, bool $async = false) {}
 
     /**
      * Bind a variable to an input parameter.
@@ -1744,7 +1744,7 @@ class Transaction
      * @throws \pq\Exception\BadMethodCallException
      * @throws \pq\Exception\RuntimeException
      */
-    public function __construct(pq\Connection $conn, bool $async = false, int $isolation = \pq\Transaction::READ_COMMITTED, bool $readonly = false, bool $deferrable = false) {}
+    public function __construct(Connection $conn, bool $async = false, int $isolation = \pq\Transaction::READ_COMMITTED, bool $readonly = false, bool $deferrable = false) {}
 
     /**
      * Commit the transaction or release the previous savepoint.
@@ -2706,7 +2706,7 @@ class Types implements \ArrayAccess
      * @throws \pq\Exception\BadMethodCallException
      * @throws \pq\Exception\RuntimeException
      */
-    public function __construct(pq\Connection $conn, array $namespaces = null) {}
+    public function __construct(Connection $conn, array $namespaces = null) {}
 
     /**
      * Refresh type information from `pg_type`.

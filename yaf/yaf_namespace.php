@@ -167,7 +167,7 @@ final class Application
      * @param \Yaf\Bootstrap_Abstract $bootstrap A \Yaf\Bootstrap_Abstract instance
      * @return \Yaf\Application
      */
-    public function bootstrap(Yaf\Bootstrap_Abstract $bootstrap = null) {}
+    public function bootstrap(Bootstrap_Abstract $bootstrap = null) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-application.getconfig.php
@@ -374,7 +374,7 @@ final class Dispatcher
      * @param \Yaf\View_Interface $view A \Yaf\View_Interface instance
      * @return \Yaf\Dispatcher
      */
-    public function setView(Yaf\View_Interface $view) {}
+    public function setView(View_Interface $view) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-dispatcher.setrequest.php
@@ -382,7 +382,7 @@ final class Dispatcher
      * @param \Yaf\Request_Abstract $request
      * @return \Yaf\Dispatcher
      */
-    public function setRequest(Yaf\Request_Abstract $request) {}
+    public function setRequest(Request_Abstract $request) {}
 
     /**
      * Retrieve the \Yaf\Application instance. same as \Yaf\Application::app().
@@ -509,7 +509,7 @@ final class Dispatcher
      *
      * @return \Yaf\Response_Abstract
      */
-    public function dispatch(Yaf\Request_Abstract $request) {}
+    public function dispatch(Request_Abstract $request) {}
 
     /**
      * <p>Switch on/off exception throwing while unexpected error occurring. When this is on, Yaf will throwing exceptions instead of triggering catchable errors.</p><br/>
@@ -541,7 +541,7 @@ final class Dispatcher
      * @param \Yaf\Plugin_Abstract $plugin
      * @return \Yaf\Dispatcher
      */
-    public function registerPlugin(Yaf\Plugin_Abstract $plugin) {}
+    public function registerPlugin(Plugin_Abstract $plugin) {}
 }/**
  * <p><b>\Yaf\Loader</b> introduces a comprehensive autoloading solution for Yaf.</p>
  * <br/>
@@ -951,7 +951,7 @@ class Router
      *
      * @return \Yaf\Router|false return FALSE on failure
      */
-    public function addRoute($name, Yaf\Route_Interface $route) {}
+    public function addRoute($name, Route_Interface $route) {}
 
     /**
      * <p>Add routes defined by configs into \Yaf\Router's route stack</p>
@@ -962,7 +962,7 @@ class Router
      *
      * @return \Yaf\Router|false return FALSE on failure
      */
-    public function addConfig(Yaf\Config_Abstract $config) {}
+    public function addConfig(Config_Abstract $config) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-router.route.php
@@ -971,7 +971,7 @@ class Router
      *
      * @return \Yaf\Router|false return FALSE on failure
      */
-    public function route(Yaf\Request_Abstract $request) {}
+    public function route(Request_Abstract $request) {}
 
     /**
      * <p>Retrieve a route by name, see also \Yaf\Router::getCurrentRoute()</p>
@@ -1211,7 +1211,7 @@ abstract class Controller_Abstract
      * @param \Yaf\View_Interface $view
      * @param array $invokeArgs
      */
-    final public function __construct(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response, Yaf\View_Interface $view, array $invokeArgs = null) {}
+    final public function __construct(Request_Abstract $request, Response_Abstract $response, View_Interface $view, array $invokeArgs = null) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.clone.php
@@ -1615,7 +1615,7 @@ abstract class Plugin_Abstract
      *
      * @return bool true
      */
-    public function routerStartup(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response) {}
+    public function routerStartup(Request_Abstract $request, Response_Abstract $response) {}
 
     /**
      * This hook will be trigged after the route process finished, this hook is usually used for login check.
@@ -1627,7 +1627,7 @@ abstract class Plugin_Abstract
      *
      * @return bool true
      */
-    public function routerShutdown(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response) {}
+    public function routerShutdown(Request_Abstract $request, Response_Abstract $response) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-plugin-abstract.dispatchloopstartup.php
@@ -1637,7 +1637,7 @@ abstract class Plugin_Abstract
      *
      * @return bool true
      */
-    public function dispatchLoopStartup(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response) {}
+    public function dispatchLoopStartup(Request_Abstract $request, Response_Abstract $response) {}
 
     /**
      * This is the latest hook in Yaf plugin hook system, if a custom plugin implement this method, then it will be called after the dispatch loop finished.
@@ -1649,7 +1649,7 @@ abstract class Plugin_Abstract
      *
      * @return bool true
      */
-    public function dispatchLoopShutdown(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response) {}
+    public function dispatchLoopShutdown(Request_Abstract $request, Response_Abstract $response) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-plugin-abstract.predispatch.php
@@ -1659,7 +1659,7 @@ abstract class Plugin_Abstract
      *
      * @return bool true
      */
-    public function preDispatch(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response) {}
+    public function preDispatch(Request_Abstract $request, Response_Abstract $response) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-plugin-abstract.postdispatch.php
@@ -1669,7 +1669,7 @@ abstract class Plugin_Abstract
      *
      * @return bool true
      */
-    public function postDispatch(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response) {}
+    public function postDispatch(Request_Abstract $request, Response_Abstract $response) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-plugin-abstract.preresponse.php
@@ -1679,7 +1679,7 @@ abstract class Plugin_Abstract
      *
      * @return bool true
      */
-    public function preResponse(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response) {}
+    public function preResponse(Request_Abstract $request, Response_Abstract $response) {}
 }/**
  * @link https://secure.php.net/manual/en/class.yaf-response-abstract.php
  */
@@ -1867,7 +1867,7 @@ interface Route_Interface
      * @param \Yaf\Request_Abstract $request
      * @return bool
      */
-    public function route(Yaf\Request_Abstract $request);
+    public function route(Request_Abstract $request);
 
     /**
      * <p><b>\Yaf\Route_Interface::assemble()</b> - assemble a request</p><br/>
@@ -1913,7 +1913,7 @@ class Route_Static implements \Yaf\Route_Interface
      *
      * @return bool always TRUE
      */
-    public function route(Yaf\Request_Abstract $request) {}
+    public function route(Request_Abstract $request) {}
 
     /**
      * <p><b>\Yaf\Route_Static::assemble()</b> - Assemble a url</p>

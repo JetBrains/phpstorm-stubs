@@ -1425,7 +1425,7 @@ function ldap_count_references(
 /**
  * @since 8.3
  */
-function ldap_exop_sync(LDAP\Connection $ldap, string $request_oid, ?string $request_data = null, ?array $controls = null, &$response_data = null, &$response_oid = null): LDAP\Result|bool {}
+function ldap_exop_sync(LDAP\Connection $ldap, string $request_oid, ?string $request_data = null, ?array $controls = null, &$response_data = null, &$response_oid = null): Result|bool {}
 
 define('LDAP_ESCAPE_FILTER', 1);
 define('LDAP_ESCAPE_DN', 2);

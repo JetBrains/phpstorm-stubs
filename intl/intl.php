@@ -434,9 +434,7 @@ class Collator
     #[Pure]
     #[TentativeType]
     public function getLocale(
-        #[LanguageAware(['8.0' => 'int'], default: '')]
-        #[EV([Locale::VALID_LOCALE, Locale::ACTUAL_LOCALE])]
-        $type
+        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Locale::VALID_LOCALE, Locale::ACTUAL_LOCALE])] $type
     ): string|false {}
 
     /**
@@ -2126,9 +2124,7 @@ class IntlDateFormatter
     #[Pure]
     #[TentativeType]
     public function getLocale(
-        #[ElementAvailable(from: '8.0')]
-        #[LanguageAware(['8.0' => 'int'], default: '')]
-        $type = 0
+        #[ElementAvailable(from: '8.0')] #[LanguageAware(['8.0' => 'int'], default: '')] $type = 0
     ): string|false {}
 
     /**
@@ -7249,9 +7245,7 @@ class IntlBreakIterator implements IteratorAggregate
     #[Pure]
     #[TentativeType]
     public function getPartsIterator(
-        #[LanguageAware(['8.3' => 'string', '8.0' => 'int'], default: '')]
-        #[EV([IntlPartsIterator::KEY_SEQUENTIAL, IntlPartsIterator::KEY_LEFT, IntlPartsIterator::KEY_RIGHT])]
-        $type = IntlPartsIterator::KEY_SEQUENTIAL
+        #[LanguageAware(['8.3' => 'string', '8.0' => 'int'], default: '')] #[EV([IntlPartsIterator::KEY_SEQUENTIAL, IntlPartsIterator::KEY_LEFT, IntlPartsIterator::KEY_RIGHT])] $type = IntlPartsIterator::KEY_SEQUENTIAL
     ): IntlPartsIterator {}
 
     /**
