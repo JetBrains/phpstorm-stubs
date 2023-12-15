@@ -14,10 +14,10 @@
     "inspection"
   ],
   "require-dev": {
-    "php": "^8.0",
+    "php": "^8.3",
     "nikic/php-parser": "@stable",
     "phpdocumentor/reflection-docblock": "@stable",
-    "phpunit/phpunit": "^9.6",
+    "phpunit/phpunit": "@stable",
     "friendsofphp/php-cs-fixer": "@stable"
   },
   "autoload": {
