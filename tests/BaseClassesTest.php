@@ -285,8 +285,11 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::readonlyClassesProvider
      * @throws RuntimeException
      */
-    public function testClassesReadonly(PHPClass $class): void
+    public function testClassesReadonly(?PHPClass $class): void
     {
+        if (is_null($class)) {
+            self::markTestSkipped("Data provider didn't return any data");
+        }
         $className = $class->name;
         $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className);
         static::assertEquals(
