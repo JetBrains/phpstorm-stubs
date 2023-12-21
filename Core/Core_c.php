@@ -933,6 +933,7 @@ interface BackedEnum extends UnitEnum
      * <code>ValueError</code>.
      * @param int|string $value
      * @throws ValueError
+     * @throws TypeError
      * @return static
      * @link https://www.php.net/manual/en/backedenum.from.php
      */
