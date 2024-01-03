@@ -8,15 +8,15 @@ namespace Relay;
 class Table
 {
     /**
-     * Create a table instance.
+     * Create a Relay table instance.
      *
+     * @param  string|null  $namespace
      * @param  int  $serializer
      */
-    public function __construct(int $serializer = \Relay\Relay::SERIALIZER_PHP) {}
+    public function __construct(?string $namespace = null, int $serializer = Relay::SERIALIZER_PHP) {}
 
     /**
-     * Get a key from the table.
-     * Will return `null` if key doesn't exist.
+     * Returns a key, or `null` if key doesn't exist.
      *
      * @param  string  $key
      * @return mixed
@@ -24,19 +24,19 @@ class Table
     public function get(string $key): mixed {}
 
     /**
-     * Get a field of a cached key.  This is an array lookup.
+     * Pluck a key from a cached key.
      *
      * @param  string  $key
      * @param  string  $field
      * @return mixed
      */
-    public function getField(string $key, string $field): mixed {}
+    public function pluck(string $key, string $field): mixed {}
 
     /**
-     * Set a key in the table.
+     * Set a key and its value.
      *
      * @param  string  $key
-     * @param  mixed  $value;
+     * @param  mixed  $value {}
      * @return bool
      */
     public function set(string $key, mixed $value): bool {}
@@ -58,6 +58,27 @@ class Table
     public function delete(string $key): bool {}
 
     /**
+     * The number of keys stored in the table.
+     *
+     * @return int
+     */
+    public function count(): int {}
+
+    /**
+     * Get the table's namespace.
+     *
+     * @return string|null
+     */
+    public function namespace(): string|null {}
+
+    /**
+     * Returns all table namespaces.
+     *
+     * @return array
+     */
+    public static function namespaces(): array {}
+
+    /**
      * Removes all keys from the table.
      *
      * @return bool
@@ -65,9 +86,9 @@ class Table
     public function clear(): bool {}
 
     /**
-     * Get the number of keys stored in the table.
+     * Removes all keys from all tables.
      *
      * @return int
      */
-    public function count(): int {}
+    public static function clearAll(): int {}
 }
