@@ -12,14 +12,14 @@ class Relay
      *
      * @var string
      */
-    public const VERSION = "0.6.8";
+    public const VERSION = "0.7.0";
 
     /**
      * Relay's version.
      *
      * @var string
      */
-    public const Version = "0.6.8";
+    public const Version = "0.7.0";
 
     /**
      * Integer representing no compression algorithm.
@@ -87,7 +87,7 @@ class Relay
     /**
      * Integer representing the atomic mode.
      *
-     * @see \Relay\Relay::getMode()
+     * @see Relay::getMode()
      * @var int
      */
     public const ATOMIC = 0x00;
@@ -95,7 +95,7 @@ class Relay
     /**
      * Integer representing the pipeline mode.
      *
-     * @see \Relay\Relay::getMode()
+     * @see Relay::getMode()
      * @var int
      */
     public const PIPELINE = 0x02;
@@ -103,7 +103,7 @@ class Relay
     /**
      * Integer representing the `MULTI` mode.
      *
-     * @see \Relay\Relay::getMode()
+     * @see Relay::getMode()
      * @var int
      */
     public const MULTI = 0x01;
@@ -113,7 +113,7 @@ class Relay
      * only really be accessed when `true` is passed to `getMask()` telling
      * relay to return the complete bitmasked mode.
      *
-     * @see \Relay\Relay::getMode()
+     * @see Relay::getMode()
      * @var int
      **/
     public const SUBSCRIBED = 0x04;
@@ -351,7 +351,7 @@ class Relay
     /**
      * Integer representing "key not found".
      *
-     * @see \Relay\Relay::type()
+     * @see Relay::type()
      * @var int
      */
     public const REDIS_NOT_FOUND = 0;
@@ -359,7 +359,7 @@ class Relay
     /**
      * Integer representing Redis `string` type.
      *
-     * @see \Relay\Relay::type()
+     * @see Relay::type()
      * @var int
      */
     public const REDIS_STRING = 1;
@@ -367,7 +367,7 @@ class Relay
     /**
      * Integer representing Redis `set` type.
      *
-     * @see \Relay\Relay::type()
+     * @see Relay::type()
      * @var int
      */
     public const REDIS_SET = 2;
@@ -375,7 +375,7 @@ class Relay
     /**
      * Integer representing Redis `list` type.
      *
-     * @see \Relay\Relay::type()
+     * @see Relay::type()
      * @var int
      */
     public const REDIS_LIST = 3;
@@ -383,7 +383,7 @@ class Relay
     /**
      * Integer representing Redis `zset` type.
      *
-     * @see \Relay\Relay::type()
+     * @see Relay::type()
      * @var int
      */
     public const REDIS_ZSET = 4;
@@ -391,7 +391,7 @@ class Relay
     /**
      * Integer representing Redis `hash` type.
      *
-     * @see \Relay\Relay::type()
+     * @see Relay::type()
      * @var int
      */
     public const REDIS_HASH = 5;
@@ -399,7 +399,7 @@ class Relay
     /**
      * Integer representing Redis `stream` type.
      *
-     * @see \Relay\Relay::type()
+     * @see Relay::type()
      * @var int
      */
     public const REDIS_STREAM = 6;
@@ -631,7 +631,7 @@ class Relay
      * Returns the number of bytes sent and received over the network during the Relay object's
      * lifetime, or since the last time {@link Relay::clearBytes()} was called.
      *
-     * @return array{int, int}
+     * @return array
      */
     #[\Relay\Attributes\Local]
     public function getBytes(): array {}
@@ -639,7 +639,7 @@ class Relay
     /**
      * @see Relay\Relay::getBytes()
      *
-     * @return array{int, int}
+     * @return array
      */
     #[\Relay\Attributes\Local]
     public function bytes(): array {}
@@ -788,14 +788,6 @@ class Relay
     public function socketId(): string|false {}
 
     /**
-     * Returns information about the license.
-     *
-     * @return array
-     */
-    #[\Relay\Attributes\Local]
-    public static function license(): array {}
-
-    /**
      * Returns statistics about Relay.
      *
      * - `usage.total_requests`: The total number of requests we've seen
@@ -893,20 +885,20 @@ class Relay
     /**
      * Deletes all the keys of the currently selected database.
      *
-     * @param  bool  $async
+     * @param  bool|null  $sync
      * @return Relay|bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function flushdb(bool $async = false): Relay|bool {}
+    public function flushdb(?bool $sync = null): Relay|bool {}
 
     /**
      * Deletes all the keys of all the existing databases, not just the currently selected one.
      *
-     * @param  bool  $async
+     * @param  bool|null  $sync
      * @return Relay|bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function flushall(bool $async = false): Relay|bool {}
+    public function flushall(?bool $sync = null): Relay|bool {}
 
     /**
      * Invokes a Redis function.
@@ -1087,6 +1079,17 @@ class Relay
      */
     #[\Relay\Attributes\RedisCommand]
     public function lastsave(): Relay|int|false {}
+
+    /**
+     * Get the longest common subsequence between two string keys.
+     *
+     * @param  mixed  $key1
+     * @param  mixed  $key2
+     * @param  array|null  $options
+     * @return mixed
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function lcs(mixed $key1, mixed $key2, ?array $options = null): mixed {}
 
     /**
      * Asynchronously save the dataset to disk.
@@ -3313,4 +3316,12 @@ class Relay
      */
     #[\Relay\Attributes\Local]
     public function _getKeys() {}
+
+    /**
+     * Returns information about the license.
+     *
+     * @return array
+     */
+    #[\Relay\Attributes\Local]
+    public static function license(): array {}
 }

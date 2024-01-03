@@ -867,6 +867,7 @@ const CLASSES = array (
   'ReflectionZendExtension' => 'Reflection/ReflectionZendExtension.php',
   'Reflector' => 'Reflection/Reflector.php',
   'RegexIterator' => 'SPL/SPL.php',
+  'Relay\\Cluster' => 'relay/Cluster.php',
   'Relay\\Event' => 'relay/Event.php',
   'Relay\\Exception' => 'relay/Exception.php',
   'Relay\\KeyType' => 'relay/KeyType.php',
