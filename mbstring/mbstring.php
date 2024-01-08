@@ -904,7 +904,7 @@ function mb_send_mail(string $to, string $subject, string $message, array|string
  * "http_input", "internal_encoding", "func_overload",
  * the specified setting parameter will be returned.
  * </p>
- * @return array|string|int|false An array of type information if type
+ * @return array|string|int|false|null An array of type information if type
  * is not specified, otherwise a specific type.
  */
 #[Pure]
@@ -923,7 +923,7 @@ function mb_send_mail(string $to, string $subject, string $message, array|string
     'substitute_character' => 'string',
     'strict_detection' => 'string',
 ])]
-function mb_get_info(string $type = 'all'): array|string|int|false {}
+function mb_get_info(string $type = 'all'): array|string|int|false|null {}
 
 /**
  * Check if the string is valid for the specified encoding
