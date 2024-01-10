@@ -390,6 +390,16 @@ class DOMNode
      * @since 8.3
      */
     public function getRootNode(?array $options = []): DOMNode {}
+
+    /**
+     * @since 8.1
+     */
+    public function __sleep(): array {}
+
+    /**
+     * @since 8.1
+     */
+    public function __wakeup(): void {}
 }
 
 /**
@@ -578,6 +588,16 @@ class DOMNameSpaceNode
     public $nodeName;
     public ?DOMElement $parentElement;
     public bool $isConnected;
+
+    /**
+     * @since 8.1
+     */
+    public function __sleep(): array {}
+
+    /**
+     * @since 8.1
+     */
+    public function __wakeup(): void {}
 }
 
 /**

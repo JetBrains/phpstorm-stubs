@@ -89,7 +89,7 @@ class PHPConst extends BasePHPElement
             if ($node->value instanceof UnaryMinus) {
                 return -$node->value->expr->value;
             } elseif ($node->value instanceof Cast && $node->value->expr instanceof ConstFetch) {
-                return $node->value->expr->name->parts[0];
+                return $node->value->expr->name->name;
             }
             return $node->value->expr->value;
         }
@@ -114,7 +114,7 @@ class PHPConst extends BasePHPElement
         } else {
             $parentParentNode = $parentNode->getAttribute('parent');
             if ($parentParentNode instanceof Namespace_ && !empty($parentParentNode->name)) {
-                $namespace = '\\' . implode('\\', $parentParentNode->name->parts) . '\\';
+                $namespace = '\\' . $parentParentNode->name->name . '\\';
             }
         }
 

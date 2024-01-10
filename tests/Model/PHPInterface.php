@@ -47,7 +47,7 @@ class PHPInterface extends BasePHPClass
         $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
         if (!empty($node->extends)) {
             foreach ($node->extends as $extend) {
-                $this->parentInterfaces[] = implode('\\', $extend->parts);
+                $this->parentInterfaces[] = $extend->name;
             }
         }
         return $this;

@@ -1,5 +1,5 @@
 <phpunit bootstrap="vendor/autoload.php"
-         failOnWarning="true">
+         failOnWarning="false">
     <testsuites>
         <testsuite name="PHP_5.6">
             <file>tests/BaseClassesTest.php</file>

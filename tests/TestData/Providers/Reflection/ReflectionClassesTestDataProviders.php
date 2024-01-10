@@ -73,8 +73,13 @@ class ReflectionClassesTestDataProviders
             fn (PhpClass $class) => $class->isReadonly === false,
             StubProblemType::WRONG_READONLY
         );
-        foreach ($filtered as $class) {
-            yield "class $class->name" => [$class];
+        if (!empty($filtered)) {
+            foreach ($filtered as $class) {
+                yield "class $class->name" => [$class];
+            }
+        } else {
+            yield "No classes" => [null];
         }
+
     }
 }
