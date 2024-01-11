@@ -925,7 +925,7 @@ function mb_send_mail(string $to, string $subject, string $message, array|string
     'substitute_character' => 'string',
     'strict_detection' => 'string',
 ])]
-#[LanguageLevelTypeAware(['8.2' => 'array|string|int|false'], default: 'array|string|int|false')]
+#[LanguageLevelTypeAware(['8.2' => 'array|string|int|false|null'], default: 'array|string|int|false')]
 function mb_get_info(string $type = 'all') {}
 
 /**
