@@ -15,6 +15,7 @@ return (new PhpCsFixer\Config())
         new BracesOneLineFixer(),
     ])
     ->setRules([
+        'global_namespace_import' => true,
         'array_syntax' => ['syntax' => 'short'],
         'binary_operator_spaces' => ['operators' => ['|' => 'no_space']],
         'cast_spaces' => ['space' => 'none'],
