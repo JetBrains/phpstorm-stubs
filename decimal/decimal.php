@@ -2,7 +2,18 @@
 
 namespace Decimal;
 
-final class Decimal implements \JsonSerializable
+use ArithmeticError;
+use BadMethodCallException;
+use DivisionByZeroError;
+use DomainException;
+use InvalidArgumentException;
+use JsonSerializable;
+use OverflowException;
+use Traversable;
+use TypeError;
+use UnderflowException;
+
+final class Decimal implements JsonSerializable
 {
     /**
      * These constants are for auto-complete only.
@@ -29,9 +40,9 @@ final class Decimal implements \JsonSerializable
      * @param Decimal|string|int $value
      * @param int                $precision
      *
-     * @throws \BadMethodCallException if already constructed.
-     * @throws \TypeError if the value is not a decimal, string, or integer.
-     * @throws \DomainException is the type is supported but the value could not
+     * @throws BadMethodCallException if already constructed.
+     * @throws TypeError if the value is not a decimal, string, or integer.
+     * @throws DomainException is the type is supported but the value could not
      *                          be converted to decimal.
      */
     public function __construct($value, int $precision = Decimal::DEFAULT_PRECISION) {}
@@ -45,13 +56,13 @@ final class Decimal implements \JsonSerializable
      *
      * This method is equivalent to adding each value individually.
      *
-     * @param array|\Traversable $values
+     * @param array|Traversable $values
      * @param int                $precision Minimum precision of the sum.
      *
      * @return Decimal the sum of all given values.
      *
-     * @throws \TypeError if an unsupported type is encountered.
-     * @throws \ArithmeticError if addition is undefined, eg. INF + -INF
+     * @throws TypeError if an unsupported type is encountered.
+     * @throws ArithmeticError if addition is undefined, eg. INF + -INF
      */
     public static function sum($values, int $precision = Decimal::DEFAULT_PRECISION): Decimal {}
 
@@ -65,13 +76,13 @@ final class Decimal implements \JsonSerializable
      * This method is equivalent to adding each value individually,
      * then dividing by the number of values.
      *
-     * @param array|\Traversable $values
+     * @param array|Traversable $values
      * @param int                $precision Minimum precision of the average.
      *
      * @return Decimal the average of all given values.
      *
-     * @throws \TypeError if an unsupported type is encountered.
-     * @throws \ArithmeticError if addition is undefined, eg. INF + -INF
+     * @throws TypeError if an unsupported type is encountered.
+     * @throws ArithmeticError if addition is undefined, eg. INF + -INF
      */
     public static function avg($values, int $precision = Decimal::DEFAULT_PRECISION): Decimal {}
 
@@ -97,7 +108,7 @@ final class Decimal implements \JsonSerializable
      *
      * @return Decimal the result of adding this decimal to the given value.
      *
-     * @throws \TypeError if the value is not a decimal, string or integer.
+     * @throws TypeError if the value is not a decimal, string or integer.
      */
     public function add($value): Decimal {}
 
@@ -113,7 +124,7 @@ final class Decimal implements \JsonSerializable
      *
      * @return Decimal the result of subtracting a given value from this decimal.
      *
-     * @throws \TypeError if the value is not a decimal, string or integer.
+     * @throws TypeError if the value is not a decimal, string or integer.
      */
     public function sub($value): Decimal {}
 
@@ -129,7 +140,7 @@ final class Decimal implements \JsonSerializable
      *
      * @return Decimal the result of multiplying this decimal by the given value.
      *
-     * @throws \TypeError if the given value is not a decimal, string or integer.
+     * @throws TypeError if the given value is not a decimal, string or integer.
      */
     public function mul($value): Decimal {}
 
@@ -145,9 +156,9 @@ final class Decimal implements \JsonSerializable
      *
      * @return Decimal the result of dividing this decimal by the given value.
      *
-     * @throws \TypeError if the value is not a decimal, string or integer.
-     * @throws \DivisionByZeroError if dividing by zero.
-     * @throws \ArithmeticError if division is undefined, eg. INF / -INF
+     * @throws TypeError if the value is not a decimal, string or integer.
+     * @throws DivisionByZeroError if dividing by zero.
+     * @throws ArithmeticError if division is undefined, eg. INF / -INF
      */
     public function div($value): Decimal {}
 
@@ -166,9 +177,9 @@ final class Decimal implements \JsonSerializable
      * @return Decimal the remainder after dividing the integer value of this
      *                 decimal by the integer value of the given value
      *
-     * @throws \TypeError if the value is not a decimal, string or integer.
-     * @throws \DivisionByZeroError if the integer value of $value is zero.
-     * @throws \ArithmeticError if the operation is undefined, eg. INF % -INF
+     * @throws TypeError if the value is not a decimal, string or integer.
+     * @throws DivisionByZeroError if the integer value of $value is zero.
+     * @throws ArithmeticError if the operation is undefined, eg. INF % -INF
      */
     public function mod($value): Decimal {}
 
@@ -182,9 +193,9 @@ final class Decimal implements \JsonSerializable
      *
      * @return Decimal the remainder after dividing this decimal by a given value.
      *
-     * @throws \TypeError if the value is not a decimal, string or integer.
-     * @throws \DivisionByZeroError if the integer value of $value is zero.
-     * @throws \ArithmeticError if the operation is undefined, eg. INF, -INF
+     * @throws TypeError if the value is not a decimal, string or integer.
+     * @throws DivisionByZeroError if the integer value of $value is zero.
+     * @throws ArithmeticError if the operation is undefined, eg. INF, -INF
      */
     public function rem($value): Decimal {}
 
@@ -200,7 +211,7 @@ final class Decimal implements \JsonSerializable
      *
      * @return Decimal the result of raising this decimal to a given power.
      *
-     * @throws \TypeError if the exponent is not a decimal, string or integer.
+     * @throws TypeError if the exponent is not a decimal, string or integer.
      */
     public function pow($exponent): Decimal {}
 
@@ -269,7 +280,7 @@ final class Decimal implements \JsonSerializable
      *                 rounded according to the specified number of decimal
      *                 places and rounding mode
      *
-     * @throws \InvalidArgumentException if the rounding mode is not supported.
+     * @throws InvalidArgumentException if the rounding mode is not supported.
      */
     public function round(int $places = 0, int $mode = Decimal::DEFAULT_ROUNDING): Decimal {}
 
@@ -401,7 +412,7 @@ final class Decimal implements \JsonSerializable
      *
      * @return int the integer value of this decimal.
      *
-     * @throws \OverflowException if the value is greater than PHP_INT_MAX.
+     * @throws OverflowException if the value is greater than PHP_INT_MAX.
      */
     public function toInt(): int {}
 
@@ -413,8 +424,8 @@ final class Decimal implements \JsonSerializable
      *
      * @return float the native PHP floating point value of this decimal.
      *
-     * @throws \OverflowException  if the value is greater than PHP_FLOAT_MAX.
-     * @throws \UnderflowException if the value is smaller than PHP_FLOAT_MIN.
+     * @throws OverflowException  if the value is greater than PHP_FLOAT_MAX.
+     * @throws UnderflowException if the value is smaller than PHP_FLOAT_MIN.
      */
     public function toFloat(): float {}
 

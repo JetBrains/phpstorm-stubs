@@ -80,6 +80,5 @@ class ReflectionClassesTestDataProviders
         } else {
             yield "No classes" => [null];
         }
-
     }
 }

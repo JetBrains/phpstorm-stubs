@@ -2,11 +2,14 @@
 
 namespace MongoDB\BSON;
 
+use IteratorAggregate;
+use Serializable;
+
 /**
  * @since 1.16.0
  * @link https://secure.php.net/manual/en/class.mongodb-bson-document.php
  */
-final class Document implements \IteratorAggregate, \Serializable
+final class Document implements IteratorAggregate, Serializable
 {
     private function __construct() {}
 

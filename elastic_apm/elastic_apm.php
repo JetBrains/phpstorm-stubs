@@ -2,6 +2,9 @@
 
 namespace Elastic\Apm;
 
+use Closure;
+use Throwable;
+
 /**
  * Class ElasticApm is a facade (as in Facade design pattern) to the rest of Elastic APM public API.
  */
@@ -39,7 +42,7 @@ final class ElasticApm
      *
      * @param string      $name      New transaction's name
      * @param string      $type      New transaction's type
-     * @param \Closure     $callback  Callback to execute as the new transaction
+     * @param Closure     $callback  Callback to execute as the new transaction
      * @param float|null  $timestamp Start time of the new transaction
      * @param string|null $serializedDistTracingData - DEPRECATED since version 1.3 -
      *                                               use newTransaction()->distributedTracingHeaderExtractor() instead
@@ -53,7 +56,7 @@ final class ElasticApm
     public static function captureCurrentTransaction(
         string $name,
         string $type,
-        \Closure $callback,
+        Closure $callback,
         ?float $timestamp = null,
         ?string $serializedDistTracingData = null
     ) {}
@@ -102,7 +105,7 @@ final class ElasticApm
      *
      * @param string      $name      New transaction's name
      * @param string      $type      New transaction's type
-     * @param \Closure     $callback  Callback to execute as the new transaction
+     * @param Closure     $callback  Callback to execute as the new transaction
      * @param float|null  $timestamp Start time of the new transaction
      * @param string|null $serializedDistTracingData - DEPRECATED since version 1.3 -
      *                                               use newTransaction()->distributedTracingHeaderExtractor() instead
@@ -116,7 +119,7 @@ final class ElasticApm
     public static function captureTransaction(
         string $name,
         string $type,
-        \Closure $callback,
+        Closure $callback,
         ?float $timestamp = null,
         ?string $serializedDistTracingData = null
     ) {}
@@ -138,14 +141,14 @@ final class ElasticApm
      * Creates an error based on the given Throwable instance
      * with the current execution segment (if there is one) as the parent.
      *
-     * @param \Throwable $throwable
+     * @param Throwable $throwable
      *
      * @return string|null ID of the reported error event or null if no event was reported
      *                      (for example, because recording is disabled)
      *
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/errors/error.json
      */
-    public static function createErrorFromThrowable(\Throwable $throwable): ?string {}
+    public static function createErrorFromThrowable(Throwable $throwable): ?string {}
 
     /**
      * Creates an error based on the given data
@@ -204,11 +207,11 @@ interface TransactionBuilderInterface
     public function timestamp(float $timestamp): self;
 
     /**
-     * @param \Closure $headerExtractor
+     * @param Closure $headerExtractor
      *
      * @return TransactionBuilderInterface
      */
-    public function distributedTracingHeaderExtractor(\Closure $headerExtractor): self;
+    public function distributedTracingHeaderExtractor(Closure $headerExtractor): self;
 
     /**
      * Begins a new transaction.
@@ -221,11 +224,11 @@ interface TransactionBuilderInterface
      * Begins a new transaction,
      * runs the provided callback as the new transaction and automatically ends the new transaction.
      *
-     * @param \Closure $callback
+     * @param Closure $callback
      *
      * @return mixed The return value of $callback
      */
-    public function capture(\Closure $callback);
+    public function capture(Closure $callback);
 }
 
 interface TransactionInterface extends ExecutionSegmentInterface
@@ -280,7 +283,7 @@ interface TransactionInterface extends ExecutionSegmentInterface
      *
      * @param string      $name      New span's name
      * @param string      $type      New span's type
-     * @param \Closure     $callback  Callback to execute as the new span
+     * @param Closure     $callback  Callback to execute as the new span
      * @param string|null $subtype   New span's subtype
      * @param string|null $action    New span's action
      * @param float|null  $timestamp Start time of the new span
@@ -296,7 +299,7 @@ interface TransactionInterface extends ExecutionSegmentInterface
     public function captureCurrentSpan(
         string $name,
         string $type,
-        \Closure $callback,
+        Closure $callback,
         ?string $subtype = null,
         ?string $action = null,
         ?float $timestamp = null
@@ -559,7 +562,7 @@ interface ExecutionSegmentInterface
      *
      * @param string      $name      New span's name
      * @param string      $type      New span's type
-     * @param \Closure     $callback  Callback to execute as the new span
+     * @param Closure     $callback  Callback to execute as the new span
      * @param string|null $subtype   New span's subtype
      * @param string|null $action    New span's action
      * @param float|null  $timestamp Start time of the new span
@@ -575,7 +578,7 @@ interface ExecutionSegmentInterface
     public function captureChildSpan(
         string $name,
         string $type,
-        \Closure $callback,
+        Closure $callback,
         ?string $subtype = null,
         ?string $action = null,
         ?float $timestamp = null
@@ -628,9 +631,9 @@ interface ExecutionSegmentInterface
      *
      *      (string $headerName, string $headerValue): void
      *
-     * @param \Closure $headerInjector Callback that actually injects header(s) for the underlying transport
+     * @param Closure $headerInjector Callback that actually injects header(s) for the underlying transport
      */
-    public function injectDistributedTracingHeaders(\Closure $headerInjector): void;
+    public function injectDistributedTracingHeaders(Closure $headerInjector): void;
 
     /**
      * Sets the end timestamp and finalizes this object's state.
@@ -651,14 +654,14 @@ interface ExecutionSegmentInterface
     /**
      * Creates an error based on the given Throwable instance with this execution segment as the parent.
      *
-     * @param \Throwable $throwable
+     * @param Throwable $throwable
      *
      * @return string|null ID of the reported error event or null if no event was reported
      *                      (for example, because recording is disabled)
      *
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/errors/error.json
      */
-    public function createErrorFromThrowable(\Throwable $throwable): ?string;
+    public function createErrorFromThrowable(Throwable $throwable): ?string;
 
     /**
      * Creates an error based on the given Throwable instance with this execution segment as the parent.
@@ -730,9 +733,9 @@ final class DistributedTracingData
      *
      *      (string $headerName, string $headerValue): void
      *
-     * @param \Closure $headerInjector Callback that actually injects header(s) for the underlying transport
+     * @param Closure $headerInjector Callback that actually injects header(s) for the underlying transport
      */
-    public function injectHeaders(\Closure $headerInjector): void {}
+    public function injectHeaders(Closure $headerInjector): void {}
 }
 
 /**

@@ -5,12 +5,13 @@ namespace MongoDB\BSON;
 use JsonSerializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use MongoDB\Driver\Exception\UnexpectedValueException;
+use Serializable;
 
 /**
  * Class Javascript
  * @link https://php.net/manual/en/class.mongodb-bson-javascript.php
  */
-final class Javascript implements Type, JavascriptInterface, \Serializable, JsonSerializable
+final class Javascript implements Type, JavascriptInterface, Serializable, JsonSerializable
 {
     /**
      * Construct a new Javascript

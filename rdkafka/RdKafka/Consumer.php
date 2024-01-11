@@ -2,7 +2,9 @@
 
 namespace RdKafka;
 
-class Consumer extends \RdKafka
+use RdKafka;
+
+class Consumer extends RdKafka
 {
     /**
      * @param null|Conf $conf

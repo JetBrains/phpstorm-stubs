@@ -1524,8 +1524,10 @@ function oci_free_descriptor($descriptor) {}
  * @return bool <b>TRUE</b> if these objects are equal, <b>FALSE</b> otherwise.
  */
 function oci_lob_is_equal(
-    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob1,
-    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob2
+    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')]
+    $lob1,
+    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')]
+    $lob2
 ) {}
 
 /**
@@ -1544,8 +1546,10 @@ function oci_lob_is_equal(
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function oci_lob_copy(
-    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_to,
-    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_from,
+    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')]
+    $lob_to,
+    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')]
+    $lob_from,
     $length = 0
 ) {}
 
@@ -2093,7 +2097,8 @@ function ocisavelobfile(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: '
  */
 #[Deprecated(replacement: "OCI_Lob::export", since: "5.4")]
 function ociwritelobtofile(
-    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor,
+    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')]
+    $lob_descriptor,
     $filename,
     $start,
     $length
@@ -2302,7 +2307,8 @@ function ocicolltrim(#[LanguageLevelTypeAware(['8.0' => 'OCICollection'], defaul
  */
 #[Deprecated(replacement: "OCI-Lob::writeTemporary", since: "5.4")]
 function ociwritetemporarylob(
-    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')] $lob_descriptor,
+    #[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI_Lob')]
+    $lob_descriptor,
     $data,
     $lob_type = OCI_TEMP_CLOB
 ) {}
@@ -2328,8 +2334,10 @@ function ocicloselob(#[LanguageLevelTypeAware(['8.0' => 'OCILob'], default: 'OCI
  */
 #[Deprecated(replacement: "OCI-Collection::assign", since: "5.4")]
 function ocicollassign(
-    #[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $to,
-    #[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')] $from
+    #[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')]
+    $to,
+    #[LanguageLevelTypeAware(['8.0' => 'OCICollection'], default: 'OCI_Collection')]
+    $from
 ) {}
 /**
  * See <b>OCI_NO_AUTO_COMMIT</b>.

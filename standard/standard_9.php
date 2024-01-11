@@ -25,8 +25,10 @@ define("ARRAY_FILTER_USE_KEY", 2);
  */
 #[Pure]
 function array_merge_recursive(
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] array $arr1,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] array $arrays,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')]
+    array $arr1,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')]
+    array $arrays,
     array ...$arrays
 ): array {}
 
@@ -49,7 +51,8 @@ function array_merge_recursive(
 #[Pure]
 function array_replace(
     array $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $replacements,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')]
+    $replacements,
     array ...$replacements
 ): array {}
 
@@ -67,7 +70,8 @@ function array_replace(
 #[Pure]
 function array_replace_recursive(
     array $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $replacements,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')]
+    $replacements,
     array ...$replacements
 ): array {}
 
@@ -320,9 +324,12 @@ function array_intersect_key(array $array, #[PhpStormStubsElementAvailable(from:
  */
 function array_intersect_ukey(
     array $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ...$rest
 ): array {}
 
 /**
@@ -350,9 +357,12 @@ function array_intersect_ukey(
  */
 function array_uintersect(
     array $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ...$rest
 ): array {}
 
 /**
@@ -392,9 +402,12 @@ function array_intersect_assoc(array $array, #[PhpStormStubsElementAvailable(fro
  */
 function array_uintersect_assoc(
     array $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ...$rest
 ): array {}
 
 /**
@@ -416,9 +429,12 @@ function array_uintersect_assoc(
  */
 function array_intersect_uassoc(
     array $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ...$rest
 ): array {}
 
 /**
@@ -448,10 +464,14 @@ function array_intersect_uassoc(
 #[Pure]
 function array_uintersect_uassoc(
     array $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ...$rest
 ): array {}
 
 /**
@@ -507,9 +527,12 @@ function array_diff_key(array $array, #[PhpStormStubsElementAvailable(from: '5.3
  */
 function array_diff_ukey(
     array $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ...$rest,
 ): array {}
 
 /**
@@ -537,9 +560,12 @@ function array_diff_ukey(
  */
 function array_udiff(
     array $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ...$rest,
 ): array {}
 
 /**
@@ -558,7 +584,8 @@ function array_udiff(
 #[Pure]
 function array_diff_assoc(
     array $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    $arrays,
     array ...$arrays
 ): array {}
 
@@ -594,9 +621,12 @@ function array_diff_assoc(
  */
 function array_udiff_assoc(
     array $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ...$rest,
 ): array {}
 
 /**
@@ -621,9 +651,12 @@ function array_udiff_assoc(
  */
 function array_diff_uassoc(
     array $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ...$rest,
 ): array {}
 
 /**
@@ -665,10 +698,14 @@ function array_diff_uassoc(
  */
 function array_udiff_uassoc(
     array $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ...$rest
 ): array {}
 
 /**
@@ -745,8 +782,10 @@ function array_filter(array $array, ?callable $callback, int $mode = 0): array {
  */
 function array_map(
     ?callable $callback,
-    #[PhpStormStubsElementAvailable(from: '8.0')] array $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    $arrays,
     array ...$arrays
 ): array {}
 
@@ -888,7 +927,9 @@ function key_exists($key, array $array): bool {}
  */
 function assert(
     mixed $assertion,
-    #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['7.0' => 'Throwable|string|null'], default: 'string')] $description = null
+    #[PhpStormStubsElementAvailable(from: '7.0')]
+    #[LanguageLevelTypeAware(['7.0' => 'Throwable|string|null'], default: 'string')]
+    $description = null
 ): bool {}
 
 /**
@@ -1006,7 +1047,8 @@ function version_compare(
                "!=",
                "<>",
                "ne"
-           ])] ?string $operator
+           ])]
+    ?string $operator
 ): int|bool {}
 
 /**

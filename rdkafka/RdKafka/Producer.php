@@ -2,7 +2,9 @@
 
 namespace RdKafka;
 
-class Producer extends \RdKafka
+use RdKafka;
+
+class Producer extends RdKafka
 {
     /**
      * @param null|Conf $conf

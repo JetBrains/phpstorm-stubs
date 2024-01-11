@@ -719,8 +719,10 @@ function socket_send(Socket $socket, string $data, int $length, int $flags): int
 function socket_sendmsg(
     Socket $socket,
     array $message,
-    #[PhpStormStubsElementAvailable(from: '5.5', to: '7.4')] int $flags,
-    #[PhpStormStubsElementAvailable(from: '8.0')] int $flags = 0
+    #[PhpStormStubsElementAvailable(from: '5.5', to: '7.4')]
+    int $flags,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    int $flags = 0
 ): int|false {}
 
 /**
@@ -809,8 +811,10 @@ function socket_recvfrom(Socket $socket, &$data, int $length, int $flags, &$addr
 function socket_recvmsg(
     Socket $socket,
     array &$message,
-    #[PhpStormStubsElementAvailable(from: '5.5', to: '7.4')] int $flags,
-    #[PhpStormStubsElementAvailable(from: '8.0')] int $flags = 0
+    #[PhpStormStubsElementAvailable(from: '5.5', to: '7.4')]
+    int $flags,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    int $flags = 0
 ): int|false {}
 
 /**
@@ -1342,7 +1346,8 @@ function socket_import_stream($stream): Socket|false {}
 function socket_cmsg_space(
     int $level,
     int $type,
-    #[PhpStormStubsElementAvailable(from: '8.0')] int $num = 0
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    int $num = 0
 ): ?int {}
 
 /**

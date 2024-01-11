@@ -2,6 +2,8 @@
 
 namespace MongoDB\Driver\Monitoring;
 
+use Exception;
+
 /**
  * @since 1.13.0
  */
@@ -19,7 +21,7 @@ final class ServerHeartbeatFailedEvent
      * Returns the Exception associated with the failed heartbeat
      * @link https://www.php.net/manual/en/mongodb-driver-monitoring-serverheartbeatfailedevent.geterror.php
      */
-    final public function getError(): \Exception {}
+    final public function getError(): Exception {}
 
     /**
      * Returns the port on which this server is listening

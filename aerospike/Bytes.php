@@ -24,6 +24,8 @@
 
 namespace Aerospike;
 
+use Serializable;
+
 /**
  * \Aerospike\Bytes is a utility for wrapping PHP strings containing
  * potentially harmful bytes such as \0. By wrapping the binary-string, the
@@ -37,7 +39,7 @@ namespace Aerospike;
  * @package    Aerospike
  * @author     Ronen Botzer <rbotzer@aerospike.com>
  */
-class Bytes implements \Serializable
+class Bytes implements Serializable
 {
     /**
      * The container for the binary-string

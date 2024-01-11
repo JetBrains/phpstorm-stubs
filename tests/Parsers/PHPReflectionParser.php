@@ -11,12 +11,13 @@ use StubTests\Model\PHPEnum;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\StubsContainer;
+use ReflectionException;
 
 class PHPReflectionParser
 {
     /**
      * @return StubsContainer
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     public static function getStubs()
     {

@@ -3,6 +3,7 @@
 namespace MongoDB\Driver;
 
 use MongoDB\Driver\Exception\InvalidArgumentException;
+use Countable;
 
 /**
  * The BulkWrite collects one or more write operations that should be sent to the server.
@@ -13,7 +14,7 @@ use MongoDB\Driver\Exception\InvalidArgumentException;
  * Unordered operations are sent to the server in an arbitrary order where they may be executed in parallel.
  * Any errors that occur are reported after all operations have been attempted.
  */
-final class BulkWrite implements \Countable
+final class BulkWrite implements Countable
 {
     /**
      * Create a new BulkWrite

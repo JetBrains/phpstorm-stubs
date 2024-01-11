@@ -4,12 +4,13 @@ namespace MongoDB\Driver;
 
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use MongoDB\Driver\Exception\UnexpectedValueException;
+use Serializable;
 
 /**
  * Class CursorId
  * @link https://php.net/manual/en/class.mongodb-driver-cursorid.php
  */
-final class CursorId implements \Serializable
+final class CursorId implements Serializable
 {
     /**
      * Create a new CursorId (not used)

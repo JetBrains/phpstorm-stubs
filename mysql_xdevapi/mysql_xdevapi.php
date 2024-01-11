@@ -9,6 +9,10 @@
 
 namespace mysql_xdevapi;
 
+use RuntimeException;
+use Throwable;
+use Traversable;
+
 define('MYSQLX_LOCK_DEFAULT', 0);
 define('MYSQLX_TYPE_DECIMAL', 0);
 define('MYSQLX_TYPE_TINY', 1);
@@ -658,7 +662,7 @@ interface DatabaseObject
  * @link https://www.php.net/manual/en/class.mysql-xdevapi-docresult.php
  * @package mysql_xdevapi
  */
-class DocResult implements \mysql_xdevapi\BaseResult, \Traversable
+class DocResult implements \mysql_xdevapi\BaseResult, Traversable
 {
     /**
      * Get all rows
@@ -693,7 +697,7 @@ class DocResult implements \mysql_xdevapi\BaseResult, \Traversable
  * Class Exception
  * @package mysql_xdevapi
  */
-class Exception extends \RuntimeException implements \Throwable {}
+class Exception extends RuntimeException implements Throwable {}
 
 /**
  * Interface Executable
@@ -743,7 +747,7 @@ class Expression
  * @link https://www.php.net/manual/en/class.mysql-xdevapi-result.php
  * @package mysql_xdevapi
  */
-class Result implements \mysql_xdevapi\BaseResult, \Traversable
+class Result implements \mysql_xdevapi\BaseResult, Traversable
 {
     /**
      * Get the last AUTO_INCREMENT value (last insert id).
@@ -779,7 +783,7 @@ class Result implements \mysql_xdevapi\BaseResult, \Traversable
  * @link https://www.php.net/manual/en/class.mysql-xdevapi-rowresult.php
  * @package mysql_xdevapi
  */
-class RowResult implements \mysql_xdevapi\BaseResult, \Traversable
+class RowResult implements \mysql_xdevapi\BaseResult, Traversable
 {
     /**
      * Fetch all the rows from the result set.
@@ -1112,7 +1116,7 @@ class SqlStatement
  * @link https://www.php.net/manual/en/class.mysql-xdevapi-sqlstatementresult.php
  * @package mysql_xdevapi
  */
-class SqlStatementResult implements \mysql_xdevapi\BaseResult, \Traversable
+class SqlStatementResult implements \mysql_xdevapi\BaseResult, Traversable
 {
     /* Methods */
     /**

@@ -427,8 +427,10 @@ function str_split(string $string, int $length = 1): array|false {}
 #[Pure]
 function strpbrk(
     string $string,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $char_list = '',
-    #[PhpStormStubsElementAvailable(from: '7.1')] string $characters
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')]
+    $char_list = '',
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    string $characters
 ): string|false {}
 
 /**
@@ -1103,9 +1105,12 @@ function join(array|string $separator = "", ?array $array): string {}
  * what the system setlocale function returns.</p>
  */
 function setlocale(
-    #[ExpectedValues([LC_ALL,  LC_COLLATE,  LC_CTYPE,  LC_MONETARY,  LC_NUMERIC,  LC_TIME,  LC_MESSAGES])] int $category,
-    #[PhpStormStubsElementAvailable(from: '8.0')] $locales,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $rest,
+    #[ExpectedValues([LC_ALL,  LC_COLLATE,  LC_CTYPE,  LC_MONETARY,  LC_NUMERIC,  LC_TIME,  LC_MESSAGES])]
+    int $category,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    $locales,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    $rest,
     ...$rest
 ): string|false {}
 

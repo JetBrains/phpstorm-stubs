@@ -75,7 +75,8 @@ class php_user_filter
         $in,
         $out,
         &$consumed,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $closing
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $closing
     ): int {}
 
     /**
@@ -755,7 +756,8 @@ function htmlspecialchars_decode(string $string, int $flags = ENT_QUOTES|ENT_SUB
 function get_html_translation_table(
     int $table = 0,
     int $flags = ENT_QUOTES|ENT_SUBSTITUTE,
-    #[PhpStormStubsElementAvailable(from: '7.0')] string $encoding = "UTF-8"
+    #[PhpStormStubsElementAvailable(from: '7.0')]
+    string $encoding = "UTF-8"
 ): array {}
 
 /**
@@ -1432,6 +1434,8 @@ function strcspn(string $string, string $characters, int $offset = 0, ?int $leng
  */
 function strtok(
     string $string,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $token,
-    #[PhpStormStubsElementAvailable(from: '7.1')] ?string $token = null
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')]
+    $token,
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    ?string $token = null
 ): string|false {}

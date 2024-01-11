@@ -114,8 +114,10 @@ class XMLWriter
      */
     #[TentativeType]
     public function writeAttribute(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $value
     ): bool {}
 
     /**
@@ -135,9 +137,12 @@ class XMLWriter
      */
     #[TentativeType]
     public function startAttributeNs(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $prefix,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $prefix,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $namespace
     ): bool {}
 
     /**
@@ -160,10 +165,14 @@ class XMLWriter
      */
     #[TentativeType]
     public function writeAttributeNs(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $prefix,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $prefix,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $value
     ): bool {}
 
     /**
@@ -213,9 +222,12 @@ class XMLWriter
      */
     #[TentativeType]
     public function startElementNs(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $prefix,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $prefix,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $namespace
     ): bool {}
 
     /**
@@ -232,8 +244,10 @@ class XMLWriter
      */
     #[TentativeType]
     public function writeElement(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $content = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $content = null
     ): bool {}
 
     /**
@@ -256,10 +270,14 @@ class XMLWriter
      */
     #[TentativeType]
     public function writeElementNs(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $prefix,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $content = null
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $prefix,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $content = null
     ): bool {}
 
     /**
@@ -297,8 +315,10 @@ class XMLWriter
      */
     #[TentativeType]
     public function writePi(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $target,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $content
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $target,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $content
     ): bool {}
 
     /**
@@ -372,9 +392,12 @@ class XMLWriter
      */
     #[TentativeType]
     public function startDocument(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $version = '1.0',
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $encoding = null,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $standalone = null
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $version = '1.0',
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $encoding = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $standalone = null
     ): bool {}
 
     /**
@@ -415,9 +438,12 @@ class XMLWriter
      */
     #[TentativeType]
     public function startDtd(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $publicId = null,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $systemId = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $qualifiedName,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $publicId = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $systemId = null
     ): bool {}
 
     /**
@@ -449,10 +475,14 @@ class XMLWriter
      */
     #[TentativeType]
     public function writeDtd(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $publicId = null,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $systemId = null,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $content = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $publicId = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $systemId = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $content = null
     ): bool {}
 
     /**
@@ -490,8 +520,10 @@ class XMLWriter
      */
     #[TentativeType]
     public function writeDtdElement(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $content
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $content
     ): bool {}
 
     /**
@@ -529,8 +561,10 @@ class XMLWriter
      */
     #[TentativeType]
     public function writeDtdAttlist(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $content
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $content
     ): bool {}
 
     /**
@@ -545,8 +579,10 @@ class XMLWriter
      */
     #[TentativeType]
     public function startDtdEntity(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isParam
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $isParam
     ): bool {}
 
     /**
@@ -575,8 +611,10 @@ class XMLWriter
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function writeDtdEntity(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $content,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $content,
         $pe,
         $pubid,
         $sysid,
@@ -1271,13 +1309,18 @@ function xmlwriter_end_dtd_entity(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function xmlwriter_write_dtd_entity(
-    #[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer,
+    #[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")]
+    $writer,
     string $name,
     string $content,
-    #[PhpStormStubsElementAvailable(from: '8.0')] bool $isParam = false,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ?string $publicId = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ?string $systemId = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ?string $notationData = null
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    bool $isParam = false,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ?string $publicId = null,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ?string $systemId = null,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ?string $notationData = null
 ): bool {}
 
 /**

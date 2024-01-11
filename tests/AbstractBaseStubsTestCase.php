@@ -22,6 +22,7 @@ use StubTests\Model\PHPInterface;
 use StubTests\Parsers\ParserUtils;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 use StubTests\TestData\Providers\ReflectionStubsSingleton;
+use UnitEnum;
 use function array_filter;
 use function array_pop;
 use function property_exists;
@@ -94,7 +95,7 @@ abstract class AbstractBaseStubsTestCase extends TestCase
             $value = "null";
         } elseif (is_array($defaultValue) || $defaultValue instanceof Array_) {
             $value = '[]';
-        } elseif ($defaultValue instanceof \UnitEnum){
+        } elseif ($defaultValue instanceof UnitEnum){
             $value = get_class($defaultValue) . "::" . $defaultValue->name;
         } else {
             $value = strval($defaultValue);

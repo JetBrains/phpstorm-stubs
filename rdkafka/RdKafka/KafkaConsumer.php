@@ -2,6 +2,8 @@
 
 namespace RdKafka;
 
+use InvalidArgumentException;
+
 class KafkaConsumer
 {
     /**
@@ -37,7 +39,7 @@ class KafkaConsumer
      * @param int $timeout_ms
      *
      * @throws Exception
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @return Message
      */
     public function consume($timeout_ms) {}

@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace Swoole;
 
-class Table implements \Iterator, \ArrayAccess, \Countable
+use ArrayAccess;
+use Countable;
+use Iterator;
+
+class Table implements Iterator, ArrayAccess, Countable
 {
     public const TYPE_INT = 1;
     public const TYPE_STRING = 3;

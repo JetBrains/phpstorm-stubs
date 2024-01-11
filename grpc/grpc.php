@@ -12,6 +12,10 @@
 
 namespace Grpc;
 
+use Closure;
+use InvalidArgumentException;
+use LogicException;
+
     /**
      * Register call error constants
      */
@@ -419,7 +423,7 @@ namespace Grpc;
          * @param string $pem_cert_chain  PEM encoding of the client's certificate chain
          *
          * @return object Credentials The new SSL credentials object
-         * @throws \InvalidArgumentException
+         * @throws InvalidArgumentException
          */
         public static function createSsl(
             $pem_root_certs,
@@ -442,7 +446,7 @@ namespace Grpc;
          * @param string $target The hostname to associate with this channel
          * @param array  $args   The arguments to pass to the Channel (optional)
          *
-         * @throws \InvalidArgumentException
+         * @throws InvalidArgumentException
          */
         public function __construct($target, $args = []) {}
 
@@ -459,7 +463,7 @@ namespace Grpc;
          * @param bool $try_to_connect try to connect on the channel
          *
          * @return int The grpc connectivity state
-         * @throws \InvalidArgumentException
+         * @throws InvalidArgumentException
          */
         public function getConnectivityState($try_to_connect = false) {}
 
@@ -471,7 +475,7 @@ namespace Grpc;
          *
          * @return bool If the connectivity state changes from last_state
          *              before deadline
-         * @throws \InvalidArgumentException
+         * @throws InvalidArgumentException
          */
         public function watchConnectivityState($last_state, Timeval $deadline_obj) {}
 
@@ -492,7 +496,7 @@ namespace Grpc;
          *
          * @param string $pem_roots PEM encoding of the server root certificates
          *
-         * @throws \InvalidArgumentException
+         * @throws InvalidArgumentException
          */
         public static function setDefaultRootsPem($pem_roots) {}
 
@@ -511,7 +515,7 @@ namespace Grpc;
          * @param string|null $pem_cert_chain  PEM encoding of the client's certificate chain
          *
          * @return ChannelCredentials The new SSL credentials object
-         * @throws \InvalidArgumentException
+         * @throws InvalidArgumentException
          */
         public static function createSsl(
             string $pem_root_certs = null,
@@ -526,7 +530,7 @@ namespace Grpc;
          * @param CallCredentials    $cred2 The second credential
          *
          * @return ChannelCredentials The new composite credentials object
-         * @throws \InvalidArgumentException
+         * @throws InvalidArgumentException
          */
         public static function createComposite(
             ChannelCredentials $cred1,
@@ -556,7 +560,7 @@ namespace Grpc;
          * @param Timeval $absolute_deadline The deadline for completing the call
          * @param null|string $host_override The host is set by user (optional)
          *
-         * @throws \InvalidArgumentException
+         * @throws InvalidArgumentException
          */
         public function __construct(
             Channel $channel,
@@ -571,8 +575,8 @@ namespace Grpc;
          * @param array $batch Array of actions to take
          *
          * @return object Object with results of all actions
-         * @throws \InvalidArgumentException
-         * @throws \LogicException
+         * @throws InvalidArgumentException
+         * @throws LogicException
          */
         public function startBatch(array $batch) {}
 
@@ -582,7 +586,7 @@ namespace Grpc;
          * @param CallCredentials $creds_obj The CallCredentials object
          *
          * @return int The error code
-         * @throws \InvalidArgumentException
+         * @throws InvalidArgumentException
          */
         public function setCredentials(CallCredentials $creds_obj) {}
 
@@ -613,7 +617,7 @@ namespace Grpc;
          * @param CallCredentials $cred2 The second credential
          *
          * @return CallCredentials The new composite credentials object
-         * @throws \InvalidArgumentException
+         * @throws InvalidArgumentException
          */
         public static function createComposite(
             CallCredentials $cred1,
@@ -623,12 +627,12 @@ namespace Grpc;
         /**
          * Create a call credentials object from the plugin API
          *
-         * @param \Closure $callback The callback function
+         * @param Closure $callback The callback function
          *
          * @return CallCredentials The new call credentials object
-         * @throws \InvalidArgumentException
+         * @throws InvalidArgumentException
          */
-        public static function createFromPlugin(\Closure $callback) {}
+        public static function createFromPlugin(Closure $callback) {}
     }
 
     /**
@@ -652,7 +656,7 @@ namespace Grpc;
          * @param Timeval $other The other Timeval object to add
          *
          * @return Timeval A new Timeval object containing the sum
-         * @throws \InvalidArgumentException
+         * @throws InvalidArgumentException
          */
         public function add(Timeval $other) {}
 
@@ -664,7 +668,7 @@ namespace Grpc;
          * @param Timeval $b The second time to compare
          *
          * @return int
-         * @throws \InvalidArgumentException
+         * @throws InvalidArgumentException
          */
         public static function compare(Timeval $a, Timeval $b) {}
 
@@ -697,7 +701,7 @@ namespace Grpc;
          * @param Timeval $threshold The threshold to check against
          *
          * @return bool True if $a and $b are within $threshold, False otherwise
-         * @throws \InvalidArgumentException
+         * @throws InvalidArgumentException
          */
         public static function similar(Timeval $a, Timeval $b, Timeval $threshold) {}
 
@@ -713,7 +717,7 @@ namespace Grpc;
          * @param Timeval $other The other Timeval object to subtract
          *
          * @return Timeval A new Timeval object containing the sum
-         * @throws \InvalidArgumentException
+         * @throws InvalidArgumentException
          */
         public function subtract(Timeval $other) {}
 

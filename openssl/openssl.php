@@ -49,7 +49,8 @@ function openssl_pkey_new(?array $options) {}
  * @return bool true on success or false on failure.
  */
 function openssl_pkey_export(
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $key,
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')]
+    $key,
     &$output,
     ?string $passphrase,
     ?array $options
@@ -75,7 +76,8 @@ function openssl_pkey_export(
  * @return bool true on success or false on failure.
  */
 function openssl_pkey_export_to_file(
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $key,
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')]
+    $key,
     string $output_filename,
     ?string $passphrase,
     ?array $options
@@ -102,7 +104,8 @@ function openssl_pkey_export_to_file(
  */
 #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey|false"], default: "resource|false")]
 function openssl_pkey_get_private(
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')]
+    $private_key,
     ?string $passphrase = null
 ) {}
 
@@ -175,7 +178,8 @@ function openssl_free_key(#[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricK
  */
 #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey|false"], default: "resource|false")]
 function openssl_get_privatekey(
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')]
+    $private_key,
     ?string $passphrase
 ) {}
 
@@ -300,9 +304,12 @@ function openssl_x509_free(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificat
     'extensions' => 'array'
 ])]
 function openssl_x509_parse(
-    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] bool $shortname,
-    #[PhpStormStubsElementAvailable(from: '7.1')] bool $short_names = true
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")]
+    $certificate,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')]
+    bool $shortname,
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    bool $short_names = true
 ): array|false {}
 
 /**
@@ -366,10 +373,13 @@ function openssl_x509_parse(
  * false if it cannot, or -1 on error.
  */
 function openssl_x509_checkpurpose(
-    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate,
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")]
+    $certificate,
     int $purpose,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] array $ca_info,
-    #[PhpStormStubsElementAvailable(from: '7.1')] array $ca_info = [],
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')]
+    array $ca_info,
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    array $ca_info = [],
     ?string $untrusted_certificates_file
 ): int|bool {}
 
@@ -386,8 +396,10 @@ function openssl_x509_checkpurpose(
  * corresponds to <i>cert</i>, or false otherwise.
  */
 function openssl_x509_check_private_key(
-    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate,
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")]
+    $certificate,
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')]
+    $private_key
 ): bool {}
 
 /**
@@ -423,8 +435,10 @@ function openssl_x509_export_to_file(#[LanguageLevelTypeAware(["8.0" => "OpenSSL
  * @since 7.4
  */
 function openssl_x509_verify(
-    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate,
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $public_key
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")]
+    $certificate,
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')]
+    $public_key
 ): int {}
 
 /**
@@ -445,12 +459,16 @@ function openssl_x509_verify(
  * @since 5.2.2
  */
 function openssl_pkcs12_export(
-    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate,
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")]
+    $certificate,
     &$output,
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')]
+    $private_key,
     string $passphrase,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $args,
-    #[PhpStormStubsElementAvailable(from: '7.1')] array $options = []
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')]
+    $args,
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    array $options = []
 ): bool {}
 
 /**
@@ -583,7 +601,8 @@ function openssl_pkcs12_read(string $pkcs12, &$certificates, string $passphrase)
 #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|false"], default: "resource|false")]
 function openssl_csr_new(
     array $distinguished_names,
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey'], default: 'resource')] &$private_key,
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey'], default: 'resource')]
+    &$private_key,
     ?array $options,
     ?array $extra_attributes
 ) {}
@@ -645,9 +664,12 @@ function openssl_csr_export_to_file(#[LanguageLevelTypeAware(["8.0" => "OpenSSLC
  */
 #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|false"], default: "resource|false")]
 function openssl_csr_sign(
-    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")] $csr,
-    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string|null"], default: "resource|string|null")] $ca_certificate,
-    #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey|OpenSSLCertificate|array|string"], default: "resource|array|string")] $private_key,
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")]
+    $csr,
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string|null"], default: "resource|string|null")]
+    $ca_certificate,
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey|OpenSSLCertificate|array|string"], default: "resource|array|string")]
+    $private_key,
     int $days,
     ?array $options,
     int $serial = 0
@@ -661,8 +683,10 @@ function openssl_csr_sign(
  * @return array|false
  */
 function openssl_csr_get_subject(
-    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")] $csr,
-    #[PhpStormStubsElementAvailable(from: '7.1')] bool $short_names = true
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")]
+    $csr,
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    bool $short_names = true
 ): array|false {}
 
 /**
@@ -674,8 +698,10 @@ function openssl_csr_get_subject(
  */
 #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey|false"], default: "resource|false")]
 function openssl_csr_get_public_key(
-    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")] $csr,
-    #[PhpStormStubsElementAvailable(from: '7.1')] bool $short_names = true
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|string"], default: "resource|string")]
+    $csr,
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    bool $short_names = true
 ) {}
 
 /**
@@ -726,9 +752,12 @@ function openssl_encrypt(
     string $passphrase,
     int $options = 0,
     string $iv = "",
-    #[PhpStormStubsElementAvailable(from: '7.1')] &$tag,
-    #[PhpStormStubsElementAvailable(from: '7.1')] string $aad = "",
-    #[PhpStormStubsElementAvailable(from: '7.1')] int $tag_length = 16
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    &$tag,
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    string $aad = "",
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    int $tag_length = 16
 ): string|false {}
 
 /**
@@ -763,8 +792,11 @@ function openssl_decrypt(
     string $passphrase,
     int $options = 0,
     string $iv = "",
-    #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: 'string')] $tag = null,
-    #[PhpStormStubsElementAvailable(from: '7.1')] string $aad = ""
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: 'string')]
+    $tag = null,
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    string $aad = ""
 ): string|false {}
 
 /**
@@ -804,7 +836,8 @@ function openssl_cipher_key_length(string $cipher_algo): int|false {}
 function openssl_sign(
     string $data,
     &$signature,
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')]
+    $private_key,
     string|int $algorithm = OPENSSL_ALGO_SHA1
 ): bool {}
 
@@ -823,7 +856,8 @@ function openssl_sign(
 function openssl_verify(
     string $data,
     string $signature,
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $public_key,
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')]
+    $public_key,
     string|int $algorithm = OPENSSL_ALGO_SHA1
 ): int|false {}
 
@@ -846,9 +880,12 @@ function openssl_seal(
     &$sealed_data,
     &$encrypted_keys,
     array $public_key,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] string $cipher_algo = '',
-    #[PhpStormStubsElementAvailable(from: '8.0')] string $cipher_algo,
-    #[PhpStormStubsElementAvailable(from: '7.0')] &$iv = null
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    string $cipher_algo = '',
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    string $cipher_algo,
+    #[PhpStormStubsElementAvailable(from: '7.0')]
+    &$iv = null
 ): int|false {}
 
 /**
@@ -869,10 +906,14 @@ function openssl_open(
     string $data,
     &$output,
     string $encrypted_key,
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
-    #[PhpStormStubsElementAvailable(from: '7.0', to: '7.4')] string $cipher_algo = '',
-    #[PhpStormStubsElementAvailable(from: '8.0')] string $cipher_algo,
-    #[PhpStormStubsElementAvailable(from: '7.0')] ?string $iv
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')]
+    $private_key,
+    #[PhpStormStubsElementAvailable(from: '7.0', to: '7.4')]
+    string $cipher_algo = '',
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    string $cipher_algo,
+    #[PhpStormStubsElementAvailable(from: '7.0')]
+    ?string $iv
 ): bool {}
 
 /**
@@ -931,7 +972,8 @@ function openssl_pkcs7_verify(
     array $ca_info = [],
     ?string $untrusted_certificates_filename,
     ?string $content,
-    #[PhpStormStubsElementAvailable("7.2")] ?string $output_filename
+    #[PhpStormStubsElementAvailable("7.2")]
+    ?string $output_filename
 ): int|bool {}
 
 /**
@@ -950,7 +992,8 @@ function openssl_pkcs7_decrypt(
     string $input_filename,
     string $output_filename,
     $certificate,
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string|null'], default: 'resource|array|string|null')] $private_key
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string|null'], default: 'resource|array|string|null')]
+    $private_key
 ): bool {}
 
 /**
@@ -979,8 +1022,10 @@ function openssl_pkcs7_decrypt(
 function openssl_pkcs7_sign(
     string $input_filename,
     string $output_filename,
-    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate,
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")]
+    $certificate,
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')]
+    $private_key,
     ?array $headers,
     int $flags = PKCS7_DETACHED,
     ?string $untrusted_certificates_filename
@@ -1016,7 +1061,8 @@ function openssl_pkcs7_sign(
 function openssl_pkcs7_encrypt(
     string $input_filename,
     string $output_filename,
-    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|array|string"], default: "resource|array|string")] $certificate,
+    #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|array|string"], default: "resource|array|string")]
+    $certificate,
     ?array $headers,
     int $flags = 0,
     int $cipher_algo = OPENSSL_CIPHER_AES_128_CBC
@@ -1038,7 +1084,8 @@ function openssl_pkcs7_encrypt(
 function openssl_private_encrypt(
     string $data,
     &$encrypted_data,
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')]
+    $private_key,
     int $padding = OPENSSL_PKCS1_PADDING
 ): bool {}
 
@@ -1063,7 +1110,8 @@ function openssl_private_encrypt(
 function openssl_private_decrypt(
     string $data,
     &$decrypted_data,
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')]
+    $private_key,
     int $padding = OPENSSL_PKCS1_PADDING
 ): bool {}
 
@@ -1089,7 +1137,8 @@ function openssl_private_decrypt(
 function openssl_public_encrypt(
     string $data,
     &$encrypted_data,
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $public_key,
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')]
+    $public_key,
     int $padding = OPENSSL_PKCS1_PADDING
 ): bool {}
 
@@ -1112,7 +1161,8 @@ function openssl_public_encrypt(
 function openssl_public_decrypt(
     string $data,
     &$decrypted_data,
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $public_key,
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')]
+    $public_key,
     int $padding = OPENSSL_PKCS1_PADDING
 ): bool {}
 
@@ -1161,7 +1211,8 @@ function openssl_dh_compute_key(string $public_key, #[LanguageLevelTypeAware(["8
  */
 function openssl_pkey_derive(
     $public_key,
-    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
+    #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')]
+    $private_key,
     int $key_length = 0
 ): string|false {}
 

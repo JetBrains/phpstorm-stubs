@@ -63,6 +63,8 @@
 
 namespace Couchbase;
 
+use JsonSerializable;
+
 /** If igbinary extension was not found during build phase this constant will store 0 */
 define("Couchbase\\HAVE_IGBINARY", 1);
 /** If libz headers was not found during build phase this constant will store 0 */
@@ -2454,7 +2456,7 @@ class MutateInBuilder
  * @see https://developer.couchbase.com/documentation/server/4.6/sdk/php/full-text-searching-with-sdk.html
  *   Searching from the SDK
  */
-class SearchQuery implements \JsonSerializable
+class SearchQuery implements JsonSerializable
 {
     public const HIGHLIGHT_HTML = 'html';
     public const HIGHLIGHT_ANSI = 'ansi';
@@ -2770,7 +2772,7 @@ interface SearchQueryPart {}
 /**
  * A FTS query that queries fields explicitly indexed as boolean.
  */
-class BooleanFieldSearchQuery implements \JsonSerializable, SearchQueryPart
+class BooleanFieldSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -2795,7 +2797,7 @@ class BooleanFieldSearchQuery implements \JsonSerializable, SearchQueryPart
 /**
  * A compound FTS query that allows various combinations of sub-queries.
  */
-class BooleanSearchQuery implements \JsonSerializable, SearchQueryPart
+class BooleanSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -2832,7 +2834,7 @@ class BooleanSearchQuery implements \JsonSerializable, SearchQueryPart
 /**
  * A compound FTS query that performs a logical AND between all its sub-queries (conjunction).
  */
-class ConjunctionSearchQuery implements \JsonSerializable, SearchQueryPart
+class ConjunctionSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -2858,7 +2860,7 @@ class ConjunctionSearchQuery implements \JsonSerializable, SearchQueryPart
  * A compound FTS query that performs a logical OR between all its sub-queries (disjunction). It requires that a
  * minimum of the queries match. The minimum is configurable (default 1).
  */
-class DisjunctionSearchQuery implements \JsonSerializable, SearchQueryPart
+class DisjunctionSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -2890,7 +2892,7 @@ class DisjunctionSearchQuery implements \JsonSerializable, SearchQueryPart
  * A FTS query that matches documents on a range of values. At least one bound is required, and the
  * inclusiveness of each bound can be configured.
  */
-class DateRangeSearchQuery implements \JsonSerializable, SearchQueryPart
+class DateRangeSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -2940,7 +2942,7 @@ class DateRangeSearchQuery implements \JsonSerializable, SearchQueryPart
  * A FTS query that matches documents on a range of values. At least one bound is required, and the
  * inclusiveness of each bound can be configured.
  */
-class NumericRangeSearchQuery implements \JsonSerializable, SearchQueryPart
+class NumericRangeSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -2980,7 +2982,7 @@ class NumericRangeSearchQuery implements \JsonSerializable, SearchQueryPart
  * A FTS query that matches on Couchbase document IDs. Useful to restrict the search space to a list of keys (by using
  * this in a compound query).
  */
-class DocIdSearchQuery implements \JsonSerializable, SearchQueryPart
+class DocIdSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -3011,7 +3013,7 @@ class DocIdSearchQuery implements \JsonSerializable, SearchQueryPart
 /**
  * A FTS query that matches all indexed documents (usually for debugging purposes).
  */
-class MatchAllSearchQuery implements \JsonSerializable, SearchQueryPart
+class MatchAllSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -3030,7 +3032,7 @@ class MatchAllSearchQuery implements \JsonSerializable, SearchQueryPart
 /**
  * A FTS query that matches 0 document (usually for debugging purposes).
  */
-class MatchNoneSearchQuery implements \JsonSerializable, SearchQueryPart
+class MatchNoneSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -3050,7 +3052,7 @@ class MatchNoneSearchQuery implements \JsonSerializable, SearchQueryPart
  * A FTS query that matches several given terms (a "phrase"), applying further processing
  * like analyzers to them.
  */
-class MatchPhraseSearchQuery implements \JsonSerializable, SearchQueryPart
+class MatchPhraseSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -3082,7 +3084,7 @@ class MatchPhraseSearchQuery implements \JsonSerializable, SearchQueryPart
  * A FTS query that matches a given term, applying further processing to it
  * like analyzers, stemming and even #fuzziness(int).
  */
-class MatchSearchQuery implements \JsonSerializable, SearchQueryPart
+class MatchSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -3127,7 +3129,7 @@ class MatchSearchQuery implements \JsonSerializable, SearchQueryPart
  * applied to them, so they must appear in the index exactly as provided.  Usually for debugging purposes, prefer
  * MatchPhraseQuery.
  */
-class PhraseSearchQuery implements \JsonSerializable, SearchQueryPart
+class PhraseSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -3152,7 +3154,7 @@ class PhraseSearchQuery implements \JsonSerializable, SearchQueryPart
 /**
  * A FTS query that allows for simple matching of regular expressions.
  */
-class RegexpSearchQuery implements \JsonSerializable, SearchQueryPart
+class RegexpSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -3177,7 +3179,7 @@ class RegexpSearchQuery implements \JsonSerializable, SearchQueryPart
 /**
  * A FTS query that allows for simple matching using wildcard characters (* and ?).
  */
-class WildcardSearchQuery implements \JsonSerializable, SearchQueryPart
+class WildcardSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -3202,7 +3204,7 @@ class WildcardSearchQuery implements \JsonSerializable, SearchQueryPart
 /**
  * A FTS query that allows for simple matching on a given prefix.
  */
-class PrefixSearchQuery implements \JsonSerializable, SearchQueryPart
+class PrefixSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -3227,7 +3229,7 @@ class PrefixSearchQuery implements \JsonSerializable, SearchQueryPart
 /**
  * A FTS query that performs a search according to the "string query" syntax.
  */
-class QueryStringSearchQuery implements \JsonSerializable, SearchQueryPart
+class QueryStringSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -3246,7 +3248,7 @@ class QueryStringSearchQuery implements \JsonSerializable, SearchQueryPart
 /**
  * A facet that gives the number of occurrences of the most recurring terms in all hits.
  */
-class TermSearchQuery implements \JsonSerializable, SearchQueryPart
+class TermSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -3284,7 +3286,7 @@ class TermSearchQuery implements \JsonSerializable, SearchQueryPart
  * A FTS query that matches documents on a range of values. At least one bound is required, and the
  * inclusiveness of each bound can be configured.
  */
-class TermRangeSearchQuery implements \JsonSerializable, SearchQueryPart
+class TermRangeSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -3325,7 +3327,7 @@ class TermRangeSearchQuery implements \JsonSerializable, SearchQueryPart
  *
  * Both the point and the distance are required.
  */
-class GeoDistanceSearchQuery implements \JsonSerializable, SearchQueryPart
+class GeoDistanceSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -3350,7 +3352,7 @@ class GeoDistanceSearchQuery implements \JsonSerializable, SearchQueryPart
 /**
  * A FTS query which allows to match geo bounding boxes.
  */
-class GeoBoundingBoxSearchQuery implements \JsonSerializable, SearchQueryPart
+class GeoBoundingBoxSearchQuery implements JsonSerializable, SearchQueryPart
 {
     final private function __construct() {}
 
@@ -3385,7 +3387,7 @@ interface SearchFacet {}
 /**
  * A facet that gives the number of occurrences of the most recurring terms in all hits.
  */
-class TermSearchFacet implements \JsonSerializable, SearchFacet
+class TermSearchFacet implements JsonSerializable, SearchFacet
 {
     final private function __construct() {}
 
@@ -3398,7 +3400,7 @@ class TermSearchFacet implements \JsonSerializable, SearchFacet
 /**
  * A facet that categorizes hits inside date ranges (or buckets) provided by the user.
  */
-class DateRangeSearchFacet implements \JsonSerializable, SearchFacet
+class DateRangeSearchFacet implements JsonSerializable, SearchFacet
 {
     final private function __construct() {}
 
@@ -3419,7 +3421,7 @@ class DateRangeSearchFacet implements \JsonSerializable, SearchFacet
 /**
  * A facet that categorizes hits into numerical ranges (or buckets) provided by the user.
  */
-class NumericRangeSearchFacet implements \JsonSerializable, SearchFacet
+class NumericRangeSearchFacet implements JsonSerializable, SearchFacet
 {
     final private function __construct() {}
 
@@ -3482,7 +3484,7 @@ class SearchSort
 /**
  * Sort by the document identifier.
  */
-class SearchSortId extends SearchSort implements \JsonSerializable
+class SearchSortId extends SearchSort implements JsonSerializable
 {
     private function __construct() {}
 
@@ -3499,7 +3501,7 @@ class SearchSortId extends SearchSort implements \JsonSerializable
 /**
  * Sort by the hit score.
  */
-class SearchSortScore extends SearchSort implements \JsonSerializable
+class SearchSortScore extends SearchSort implements JsonSerializable
 {
     private function __construct() {}
 
@@ -3516,7 +3518,7 @@ class SearchSortScore extends SearchSort implements \JsonSerializable
 /**
  * Sort by a field in the hits.
  */
-class SearchSortField extends SearchSort implements \JsonSerializable
+class SearchSortField extends SearchSort implements JsonSerializable
 {
     public const TYPE_AUTO = "auto";
     public const TYPE_STRING = "string";
@@ -3575,7 +3577,7 @@ class SearchSortField extends SearchSort implements \JsonSerializable
 /**
  * Sort by a location and unit in the hits.
  */
-class SearchSortGeoDistance extends SearchSort implements \JsonSerializable
+class SearchSortGeoDistance extends SearchSort implements JsonSerializable
 {
     private function __construct() {}
 

@@ -2,7 +2,9 @@
 
 namespace MongoDB\Driver;
 
-final class ServerApi implements \MongoDB\BSON\Serializable, \Serializable
+use Serializable;
+
+final class ServerApi implements \MongoDB\BSON\Serializable, Serializable
 {
     public const V1 = 1;
 

@@ -4,12 +4,13 @@ namespace MongoDB\BSON;
 
 use JsonSerializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
+use Serializable;
 
 /**
  * Class ObjectId
  * @link https://php.net/manual/en/class.mongodb-bson-objectid.php
  */
-final class ObjectId implements Type, ObjectIdInterface, \Serializable, JsonSerializable
+final class ObjectId implements Type, ObjectIdInterface, Serializable, JsonSerializable
 {
     /**
      * Construct a new ObjectId

@@ -69,8 +69,10 @@ interface SessionHandlerInterface
      */
     #[TentativeType]
     public function open(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $path,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $path,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name
     ): bool;
 
     /**
@@ -106,8 +108,10 @@ interface SessionHandlerInterface
      */
     #[TentativeType]
     public function write(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $id,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $data
     ): bool;
 }
 
@@ -246,8 +250,10 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      */
     #[TentativeType]
     public function open(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $path,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $path,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name
     ): bool {}
 
     /**
@@ -283,8 +289,10 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
      */
     #[TentativeType]
     public function write(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $id,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $data
     ): bool {}
 
     /**

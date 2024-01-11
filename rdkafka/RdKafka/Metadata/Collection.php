@@ -2,7 +2,10 @@
 
 namespace RdKafka\Metadata;
 
-class Collection implements \Iterator, \Countable
+use Countable;
+use Iterator;
+
+class Collection implements Iterator, Countable
 {
     /**
      * @return mixed

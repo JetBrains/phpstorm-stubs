@@ -5,6 +5,8 @@ namespace MongoDB\BSON;
 use JetBrains\PhpStorm\Deprecated;
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use MongoDB\Driver\Exception\UnexpectedValueException;
+use JsonSerializable;
+use Serializable;
 
 /**
  * BSON type for the "Undefined" type. This BSON type is deprecated, and this class can not be instantiated. It will be created
@@ -13,7 +15,7 @@ use MongoDB\Driver\Exception\UnexpectedValueException;
  * @link https://secure.php.net/manual/en/class.mongodb-bson-undefined.php
  */
 #[Deprecated]
-final class Undefined implements Type, \Serializable, \JsonSerializable
+final class Undefined implements Type, Serializable, JsonSerializable
 {
     final private function __construct() {}
 

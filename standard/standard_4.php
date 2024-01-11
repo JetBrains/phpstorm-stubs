@@ -227,8 +227,10 @@ function var_export(mixed $value, bool $return = false): ?string {}
  * @return void
  */
 function debug_zval_dump(
-    #[PhpStormStubsElementAvailable(from: '8.0')] mixed $value,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $values,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    mixed $value,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    $values,
     mixed ...$values
 ): void {}
 

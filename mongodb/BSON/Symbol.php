@@ -5,6 +5,8 @@ namespace MongoDB\BSON;
 use JetBrains\PhpStorm\Deprecated;
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use MongoDB\Driver\Exception\UnexpectedValueException;
+use JsonSerializable;
+use Serializable;
 
 /**
  * BSON type for the "Symbol" type. This BSON type is deprecated, and this class can not be instantiated. It will be created from a
@@ -13,7 +15,7 @@ use MongoDB\Driver\Exception\UnexpectedValueException;
  * @link https://secure.php.net/manual/en/class.mongodb-bson-symbol.php
  */
 #[Deprecated]
-final class Symbol implements Type, \Serializable, \JsonSerializable
+final class Symbol implements Type, Serializable, JsonSerializable
 {
     final private function __construct() {}
 

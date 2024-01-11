@@ -5,12 +5,13 @@ namespace MongoDB\BSON;
 use JsonSerializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use MongoDB\Driver\Exception\UnexpectedValueException;
+use Serializable;
 
 /**
  * Class MaxKey
  * @link https://php.net/manual/en/class.mongodb-bson-maxkey.php
  */
-final class MaxKey implements Type, MaxKeyInterface, \Serializable, JsonSerializable
+final class MaxKey implements Type, MaxKeyInterface, Serializable, JsonSerializable
 {
     public static function __set_state(array $properties) {}
 

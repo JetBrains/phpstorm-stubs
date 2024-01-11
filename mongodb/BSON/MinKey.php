@@ -5,12 +5,13 @@ namespace MongoDB\BSON;
 use JsonSerializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use MongoDB\Driver\Exception\UnexpectedValueException;
+use Serializable;
 
 /**
  * Class MinKey
  * @link https://php.net/manual/en/class.mongodb-bson-minkey.php
  */
-final class MinKey implements Type, MinKeyInterface, \Serializable, JsonSerializable
+final class MinKey implements Type, MinKeyInterface, Serializable, JsonSerializable
 {
     public static function __set_state(array $properties) {}
 

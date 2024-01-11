@@ -5,12 +5,13 @@ namespace MongoDB\BSON;
 use JsonSerializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use MongoDB\Driver\Exception\UnexpectedValueException;
+use Serializable;
 
 /**
  * BSON type for the Decimal128 floating-point format, which supports numbers with up to 34 decimal digits (i.e. significant digits) and an exponent range of −6143 to +6144.
  * @link https://php.net/manual/en/class.mongodb-bson-decimal128.php
  */
-final class Decimal128 implements Type, Decimal128Interface, \Serializable, JsonSerializable
+final class Decimal128 implements Type, Decimal128Interface, Serializable, JsonSerializable
 {
     /**
      * Construct a new Decimal128

@@ -5,12 +5,13 @@ namespace MongoDB\BSON;
 use JsonSerializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use MongoDB\Driver\Exception\UnexpectedValueException;
+use Serializable;
 
 /**
  * Represents a BSON timestamp, which is an internal MongoDB type not intended for general date storage.
  * @link https://php.net/manual/en/class.mongodb-bson-timestamp.php
  */
-final class Timestamp implements TimestampInterface, Type, \Serializable, JsonSerializable
+final class Timestamp implements TimestampInterface, Type, Serializable, JsonSerializable
 {
     /**
      * Construct a new Timestamp

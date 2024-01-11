@@ -50,8 +50,10 @@ use JetBrains\PhpStorm\Pure;
  */
 function fsockopen(
     string $hostname,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] int $port,
-    #[PhpStormStubsElementAvailable(from: '7.1')] int $port = -1,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')]
+    int $port,
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    int $port = -1,
     &$error_code,
     &$error_message,
     ?float $timeout
@@ -70,8 +72,10 @@ function fsockopen(
  */
 function pfsockopen(
     string $hostname,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] int $port,
-    #[PhpStormStubsElementAvailable(from: '7.1')] int $port = -1,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')]
+    int $port,
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    int $port = -1,
     &$error_code,
     &$error_message,
     ?float $timeout
@@ -185,7 +189,8 @@ function pfsockopen(
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
 function pack(
     string $format,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $values,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')]
+    $values,
     mixed ...$values
 ) {}
 
@@ -206,7 +211,8 @@ function pack(
 function unpack(
     string $format,
     string $string,
-    #[PhpStormStubsElementAvailable(from: '7.1')] int $offset = 0
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    int $offset = 0
 ): array|false {}
 
 /**

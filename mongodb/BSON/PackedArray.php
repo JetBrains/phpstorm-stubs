@@ -2,11 +2,14 @@
 
 namespace MongoDB\BSON;
 
+use IteratorAggregate;
+use Serializable;
+
 /**
  * @since 1.16.0
  * @link https://secure.php.net/manual/en/class.mongodb-bson-packedarray.php
  */
-final class PackedArray implements \IteratorAggregate, \Serializable
+final class PackedArray implements IteratorAggregate, Serializable
 {
     private function __construct() {}
 

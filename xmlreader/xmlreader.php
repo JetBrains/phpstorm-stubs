@@ -188,8 +188,10 @@ class XMLReader
      */
     #[TentativeType]
     public function getAttributeNs(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $namespace
     ): ?string {}
 
     /**
@@ -264,8 +266,10 @@ class XMLReader
      */
     #[TentativeType]
     public function moveToAttributeNs(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $namespace
     ): bool {}
 
     /**
@@ -314,9 +318,12 @@ class XMLReader
      * @since 5.1.2
      */
     public static function open(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $uri,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $encoding = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $uri,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $encoding = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags = 0
     ) {}
 
     /**
@@ -392,8 +399,10 @@ class XMLReader
      */
     #[TentativeType]
     public function setParserProperty(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $property,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $value
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $property,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $value
     ): bool {}
 
     /**
@@ -437,9 +446,12 @@ class XMLReader
      * @since 5.1.2
      */
     public static function XML(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $source,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $encoding = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $source,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $encoding = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags = 0
     ) {}
 
     /**
@@ -451,7 +463,9 @@ class XMLReader
      */
     #[TentativeType]
     public function expand(
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'DOMNode|null'], default: '')] $baseNode = null
+        #[PhpStormStubsElementAvailable(from: '7.0')]
+        #[LanguageLevelTypeAware(['8.0' => 'DOMNode|null'], default: '')]
+        $baseNode = null
     ): DOMNode|false {}
 }
 // End of xmlreader v.0.2

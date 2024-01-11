@@ -5,12 +5,13 @@ namespace MongoDB\BSON;
 use JsonSerializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use MongoDB\Driver\Exception\UnexpectedValueException;
+use Serializable;
 
 /**
  * Class Regex
  * @link https://php.net/manual/en/class.mongodb-bson-regex.php
  */
-final class Regex implements Type, RegexInterface, \Serializable, JsonSerializable
+final class Regex implements Type, RegexInterface, Serializable, JsonSerializable
 {
     /**
      * Construct a new Regex

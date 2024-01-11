@@ -3,11 +3,12 @@
 namespace StubTests\Model;
 
 use PhpParser\Node\Stmt\EnumCase;
+use ReflectionEnumUnitCase;
 
 class PHPEnumCase extends PHPConst
 {
     /**
-     * @param \ReflectionEnumUnitCase $reflectionObject
+     * @param ReflectionEnumUnitCase $reflectionObject
      * @return static
      */
     public function readObjectFromReflection($reflectionObject)

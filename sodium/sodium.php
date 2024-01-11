@@ -657,7 +657,8 @@ function sodium_crypto_pwhash_scryptsalsa208sha256(
     string $salt,
     int $opslimit,
     int $memlimit,
-    #[PhpStormStubsElementAvailable(from: '7.2', to: '7.4')] $alg = null
+    #[PhpStormStubsElementAvailable(from: '7.2', to: '7.4')]
+    $alg = null
 ): string {}
 
 /**
@@ -1031,7 +1032,8 @@ function sodium_version_string(): string {}
  */
 function sodium_crypto_scalarmult_base(
     string $secret_key,
-    #[PhpStormStubsElementAvailable(from: '7.2', to: '7.4')] $string_2
+    #[PhpStormStubsElementAvailable(from: '7.2', to: '7.4')]
+    $string_2
 ): string {}
 
 /**

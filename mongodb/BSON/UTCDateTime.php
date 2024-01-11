@@ -5,12 +5,15 @@ namespace MongoDB\BSON;
 use DateTimeInterface;
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use MongoDB\Driver\Exception\UnexpectedValueException;
+use DateTime;
+use JsonSerializable;
+use Serializable;
 
 /**
  * Represents a BSON date.
  * @link https://php.net/manual/en/class.mongodb-bson-utcdatetime.php
  */
-final class UTCDateTime implements Type, UTCDateTimeInterface, \Serializable, \JsonSerializable
+final class UTCDateTime implements Type, UTCDateTimeInterface, Serializable, JsonSerializable
 {
     /**
      * Construct a new UTCDateTime
@@ -24,7 +27,7 @@ final class UTCDateTime implements Type, UTCDateTimeInterface, \Serializable, \J
      * Returns the DateTime representation of this UTCDateTime
      * @link https://php.net/manual/en/mongodb-bson-utcdatetime.todatetime.php
      */
-    final public function toDateTime(): \DateTime {}
+    final public function toDateTime(): DateTime {}
 
     /**
      * Returns the string representation of this UTCDateTime

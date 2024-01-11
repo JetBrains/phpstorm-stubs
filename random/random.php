@@ -24,8 +24,10 @@ namespace {
      * @return void
      */
     function mt_srand(
-        #[LanguageLevelTypeAware(['8.3' => 'int|null'], default: 'int')] $seed = null,
-        #[PhpStormStubsElementAvailable(from: '7.1')] int $mode = MT_RAND_MT19937
+        #[LanguageLevelTypeAware(['8.3' => 'int|null'], default: 'int')]
+        $seed = null,
+        #[PhpStormStubsElementAvailable(from: '7.1')]
+        int $mode = MT_RAND_MT19937
     ): void {}
 
     /**
@@ -43,8 +45,10 @@ namespace {
      * @return void
      */
     function srand(
-        #[LanguageLevelTypeAware(['8.3' => 'int|null'], default: 'int')] $seed = null,
-        #[PhpStormStubsElementAvailable(from: '7.1')] int $mode = MT_RAND_MT19937
+        #[LanguageLevelTypeAware(['8.3' => 'int|null'], default: 'int')]
+        $seed = null,
+        #[PhpStormStubsElementAvailable(from: '7.1')]
+        int $mode = MT_RAND_MT19937
     ): void {}
 
     /**

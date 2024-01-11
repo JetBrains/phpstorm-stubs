@@ -232,8 +232,10 @@ function ord(string $character): int {}
  */
 function parse_str(
     string $string,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] &$result = [],
-    #[PhpStormStubsElementAvailable(from: '8.0')] &$result
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    &$result = [],
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    &$result
 ): void {}
 
 /**
@@ -340,7 +342,8 @@ function strchr(string $haystack, string $needle, bool $before_needle = false): 
 #[Pure]
 function sprintf(
     string $format,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $values,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')]
+    $values,
     mixed ...$values
 ): string {}
 

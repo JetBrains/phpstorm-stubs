@@ -99,7 +99,8 @@ function pcntl_waitpid(
     int $process_id,
     &$status,
     int $flags = 0,
-    #[PhpStormStubsElementAvailable(from: '7.0')] &$resource_usage
+    #[PhpStormStubsElementAvailable(from: '7.0')]
+    &$resource_usage
 = []
 ): int {}
 
@@ -150,7 +151,8 @@ function pcntl_waitpid(
 function pcntl_wait(
     &$status,
     int $flags = 0,
-    #[PhpStormStubsElementAvailable(from: '7.0')] &$resource_usage
+    #[PhpStormStubsElementAvailable(from: '7.0')]
+    &$resource_usage
 = []
 ): int {}
 
@@ -471,8 +473,10 @@ function pcntl_sigtimedwait(array $signals, &$info = [], int $seconds = 0, int $
  * @since 7.1
  */
 function pcntl_async_signals(
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?bool $enable,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ?bool $enable = null
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    ?bool $enable,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ?bool $enable = null
 ): bool {}
 
 /**

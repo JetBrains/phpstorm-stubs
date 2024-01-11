@@ -739,8 +739,10 @@ function key(object|array $array): string|int|null {}
  */
 #[Pure]
 function min(
-    #[PhpStormStubsElementAvailable(from: '8.0')] mixed $value,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed $values,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    mixed $value,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    mixed $values,
     mixed ...$values
 ): mixed {}
 
@@ -754,8 +756,10 @@ function min(
  */
 #[Pure]
 function max(
-    #[PhpStormStubsElementAvailable(from: '8.0')] mixed $value,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed $values,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    mixed $value,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    mixed $values,
     mixed ...$values
 ): mixed {}
 
@@ -852,7 +856,8 @@ function extract(
                EXTR_IF_EXISTS,
                EXTR_PREFIX_IF_EXISTS,
                EXTR_REFS
-           ])] int $flags = EXTR_OVERWRITE,
+           ])]
+    int $flags = EXTR_OVERWRITE,
     string $prefix = ""
 ): int {}
 
@@ -925,8 +930,10 @@ function array_fill_keys(array $keys, mixed $value): array {}
  */
 #[Pure]
 function range(
-    #[LanguageLevelTypeAware(['8.3' => 'string|int|float'], default: '')] $start,
-    #[LanguageLevelTypeAware(['8.3' => 'string|int|float'], default: '')] $end,
+    #[LanguageLevelTypeAware(['8.3' => 'string|int|float'], default: '')]
+    $start,
+    #[LanguageLevelTypeAware(['8.3' => 'string|int|float'], default: '')]
+    $end,
     int|float $step = 1
 ): array {}
 
@@ -945,8 +952,10 @@ function range(
  */
 function array_multisort(
     &$array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $sort_order = SORT_ASC,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $sort_flags = SORT_REGULAR,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    $sort_order = SORT_ASC,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    $sort_flags = SORT_REGULAR,
     &...$rest
 ): bool {}
 
@@ -965,7 +974,8 @@ function array_multisort(
  */
 function array_push(
     array &$array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] $values,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')]
+    $values,
     mixed ...$values
 ): int {}
 
@@ -1099,7 +1109,9 @@ function array_slice(array $array, int $offset, ?int $length, bool $preserve_key
  */
 #[Pure]
 function array_merge(
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $array,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $arrays,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')]
+    $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')]
+    $arrays,
     array ...$arrays
 ): array {}

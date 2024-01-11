@@ -5,12 +5,13 @@ namespace MongoDB\BSON;
 use JsonSerializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use MongoDB\Driver\Exception\UnexpectedValueException;
+use Serializable;
 
 /**
  * Class Binary
  * @link https://php.net/manual/en/class.mongodb-bson-binary.php
  */
-final class Binary implements Type, BinaryInterface, \Serializable, JsonSerializable
+final class Binary implements Type, BinaryInterface, Serializable, JsonSerializable
 {
     public const TYPE_GENERIC = 0;
     public const TYPE_FUNCTION = 1;

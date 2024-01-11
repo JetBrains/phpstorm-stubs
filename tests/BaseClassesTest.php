@@ -298,6 +298,5 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
                 "Readonly modifier for class $className is incorrect"
             );
         }
-
     }
 }

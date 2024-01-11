@@ -761,9 +761,12 @@ function long2ip(int $ip): string|false {}
  */
 #[Pure(true)]
 function getenv(
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $varname,
-    #[PhpStormStubsElementAvailable(from: '7.1')] ?string $name = null,
-    #[PhpStormStubsElementAvailable(from: '5.6')] bool $local_only = false
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')]
+    $varname,
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    ?string $name = null,
+    #[PhpStormStubsElementAvailable(from: '5.6')]
+    bool $local_only = false
 ): array|string|false {}
 
 /**
@@ -798,7 +801,8 @@ function putenv(string $assignment): bool {}
 function getopt(
     string $short_options,
     array $long_options = [],
-    #[PhpStormStubsElementAvailable(from: '7.1')] &$rest_index
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    &$rest_index
 ): array|false {}
 
 /**

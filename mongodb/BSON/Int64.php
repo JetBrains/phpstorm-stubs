@@ -4,6 +4,8 @@ namespace MongoDB\BSON;
 
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use MongoDB\Driver\Exception\UnexpectedValueException;
+use JsonSerializable;
+use Serializable;
 
 /**
  * BSON type for a 64-bit integer.
@@ -11,7 +13,7 @@ use MongoDB\Driver\Exception\UnexpectedValueException;
  * @since 1.5.0
  * @link https://secure.php.net/manual/en/class.mongodb-bson-int64.php
  */
-final class Int64 implements Type, \Serializable, \JsonSerializable
+final class Int64 implements Type, Serializable, JsonSerializable
 {
     /** @since 1.16.0 */
     final public function __construct(string|int $value) {}

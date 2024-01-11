@@ -381,7 +381,8 @@ function preg_replace_callback(
     array|string $subject,
     int $limit = -1,
     &$count,
-    #[PhpStormStubsElementAvailable(from: '7.4')] int $flags = 0
+    #[PhpStormStubsElementAvailable(from: '7.4')]
+    int $flags = 0
 ): array|string|null {}
 
 /**
@@ -400,7 +401,8 @@ function preg_replace_callback_array(
     array|string $subject,
     int $limit = -1,
     &$count,
-    #[PhpStormStubsElementAvailable(from: '7.4')] int $flags = 0
+    #[PhpStormStubsElementAvailable(from: '7.4')]
+    int $flags = 0
 ): array|string|null {}
 
 /**

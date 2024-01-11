@@ -2,6 +2,8 @@
 
 namespace Crypto;
 
+use Exception;
+
 /**
  * Class providing cipher algorithms
  */
@@ -174,7 +176,7 @@ class Cipher
 /**
  * Exception class for cipher errors
  */
-class CipherException extends \Exception
+class CipherException extends Exception
 {
     /**
      * Cipher '%s' algorithm not found
@@ -401,7 +403,7 @@ class Hash
 /**
  * Exception class for hash errors
  */
-class HashException extends \Exception
+class HashException extends Exception
 {
     /**
      * Hash algorithm '%s' not found
@@ -664,7 +666,7 @@ class Base64
 /**
  * Exception class for base64 errors
  */
-class Base64Exception extends \Exception
+class Base64Exception extends Exception
 {
     /**
      * The object is already used for decoding
@@ -747,7 +749,7 @@ class Rand
 /**
  * Exception class for rand errors
  */
-class RandException extends \Exception
+class RandException extends Exception
 {
     /**
      * The PRNG state is not yet unpredictable
