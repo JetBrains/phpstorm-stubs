@@ -146,8 +146,10 @@ function bzerror($bz) {}
 #[Pure]
 function bzcompress(
     string $data,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] int $blocksize,
-    #[PhpStormStubsElementAvailable(from: '7.1')] int $block_size = 4,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')]
+    int $blocksize,
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    int $block_size = 4,
     int $work_factor = 0
 ): string|int {}
 

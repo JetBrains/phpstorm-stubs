@@ -70,7 +70,8 @@ function imap_open(string $mailbox, string $user, string $password, int $flags =
  * @return bool <b>TRUE</b> if the stream is reopened, <b>FALSE</b> otherwise.
  */
 function imap_reopen(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
+    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')]
+    $imap,
     string $mailbox,
     int $flags = 0,
     int $retries = 0
@@ -165,11 +166,13 @@ function imap_headers(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], def
  * </dl>
  */
 function imap_headerinfo(
-    #[LanguageLevelTypeAware(['8.0' => 'IMAP\Connection'], default: 'resource')] $imap,
+    #[LanguageLevelTypeAware(['8.0' => 'IMAP\Connection'], default: 'resource')]
+    $imap,
     int $message_num,
     int $from_length = 0,
     int $subject_length = 0,
-    #[PhpStormStubsElementAvailable(to: '7.4')] $default_host = null
+    #[PhpStormStubsElementAvailable(to: '7.4')]
+    $default_host = null
 ): stdClass|false {}
 
 /**
@@ -237,7 +240,8 @@ function imap_rfc822_parse_adrlist(string $string, string $default_hostname): ar
  * @return string|false the body of the specified message, as a string.
  */
 function imap_body(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
+    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')]
+    $imap,
     int $message_num,
     int $flags = 0
 ): string|false {}
@@ -277,7 +281,8 @@ function imap_bodystruct(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], 
  * text string.
  */
 function imap_fetchbody(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
+    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')]
+    $imap,
     int $message_num,
     string $section,
     int $flags = 0
@@ -302,7 +307,8 @@ function imap_fetchbody(
  * @since 5.3.6
  */
 function imap_fetchmime(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
+    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')]
+    $imap,
     int $message_num,
     string $section,
     int $flags = 0
@@ -330,7 +336,8 @@ function imap_fetchmime(
  * @since 5.1.3
  */
 function imap_savebody(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
+    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')]
+    $imap,
     $file,
     int $message_num,
     string $section = "",
@@ -351,7 +358,8 @@ function imap_savebody(
  * @return string|false the header of the specified message as a text string.
  */
 function imap_fetchheader(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
+    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')]
+    $imap,
     int $message_num,
     int $flags = 0
 ): string|false {}
@@ -494,9 +502,12 @@ function imap_fetchstructure(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection
  */
 #[LanguageLevelTypeAware(['8.3' => 'true'], default: 'bool')]
 function imap_gc(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] int $flags = 0,
-    #[PhpStormStubsElementAvailable(from: '8.0')] int $flags
+    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')]
+    $imap,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    int $flags = 0,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    int $flags
 ) {}
 
 /**
@@ -932,9 +943,11 @@ function imap_clearflag_full(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection
  * parameters.
  */
 function imap_sort(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
+    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')]
+    $imap,
     int $criteria,
-    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: 'int')] $reverse,
+    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: 'int')]
+    $reverse,
     int $flags = 0,
     ?string $search_criteria = null,
     ?string $charset = null
@@ -1096,7 +1109,8 @@ function imap_last_error(): string|false {}
  * </p>
  */
 function imap_search(
-    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
+    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')]
+    $imap,
     string $criteria,
     int $flags = SE_FREE,
     string $charset = ""

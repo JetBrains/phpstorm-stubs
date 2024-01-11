@@ -99,7 +99,8 @@ interface DateTimeInterface
     #[TentativeType]
     public function diff(
         DateTimeInterface $targetObject,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $absolute = false
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $absolute = false
     ): DateInterval;
 
     /**
@@ -187,8 +188,10 @@ class DateTimeImmutable implements DateTimeInterface
      * @throws Exception Emits Exception in case of an error.
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime = "now",
-        #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')] $timezone = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $datetime = "now",
+        #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')]
+        $timezone = null
     ) {}
 
     /**
@@ -212,9 +215,12 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     public static function createFromFormat(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $format,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime,
-        #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')] $timezone = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $format,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $datetime,
+        #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')]
+        $timezone = null
     ): DateTimeImmutable|false {}
 
     /**
@@ -273,9 +279,12 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     public function setDate(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $year,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $month,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $day
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $year,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $month,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $day
     ): DateTimeImmutable {}
 
     /**
@@ -290,9 +299,12 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     public function setISODate(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $year,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $week,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $dayOfWeek = 1
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $year,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $week,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $dayOfWeek = 1
     ): DateTimeImmutable {}
 
     /**
@@ -308,10 +320,15 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     public function setTime(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $hour,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $minute,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $second = 0,
-        #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $microsecond = 0
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $hour,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $minute,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $second = 0,
+        #[PhpStormStubsElementAvailable(from: '7.1')]
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $microsecond = 0
     ): DateTimeImmutable {}
 
     /**
@@ -364,8 +381,10 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     public function diff(
-        #[LanguageLevelTypeAware(['8.0' => 'DateTimeInterface'], default: '')] $targetObject,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $absolute = false
+        #[LanguageLevelTypeAware(['8.0' => 'DateTimeInterface'], default: '')]
+        $targetObject,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $absolute = false
     ): DateInterval {}
 
     /**
@@ -534,8 +553,10 @@ class DateTime implements DateTimeInterface
      * @throws Exception Emits Exception in case of an error.
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime = 'now',
-        #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')] $timezone = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $datetime = 'now',
+        #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')]
+        $timezone = null
     ) {}
 
     /**
@@ -627,10 +648,15 @@ class DateTime implements DateTimeInterface
      */
     #[TentativeType]
     public function setTime(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $hour,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $minute,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $second = 0,
-        #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $microsecond = 0
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $hour,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $minute,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $second = 0,
+        #[PhpStormStubsElementAvailable(from: '7.1')]
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $microsecond = 0
     ): DateTime {}
 
     /**
@@ -643,9 +669,12 @@ class DateTime implements DateTimeInterface
      */
     #[TentativeType]
     public function setDate(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $year,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $month,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $day
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $year,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $month,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $day
     ): DateTime {}
 
     /**
@@ -658,9 +687,12 @@ class DateTime implements DateTimeInterface
      */
     #[TentativeType]
     public function setISODate(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $year,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $week,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $dayOfWeek = 1
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $year,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $week,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $dayOfWeek = 1
     ): DateTime {}
 
     /**
@@ -689,8 +721,10 @@ class DateTime implements DateTimeInterface
      */
     #[TentativeType]
     public function diff(
-        #[LanguageLevelTypeAware(['8.0' => 'DateTimeInterface'], default: '')] $targetObject,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $absolute = false
+        #[LanguageLevelTypeAware(['8.0' => 'DateTimeInterface'], default: '')]
+        $targetObject,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $absolute = false
     ): DateInterval {}
 
     /**
@@ -703,9 +737,12 @@ class DateTime implements DateTimeInterface
      */
     #[TentativeType]
     public static function createFromFormat(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $format,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime,
-        #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')] $timezone = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $format,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $datetime,
+        #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')]
+        $timezone = null
     ): DateTime|false {}
 
     /**
@@ -807,10 +844,16 @@ class DateTimeZone
      */
     #[TentativeType]
     public function getTransitions(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $timestampBegin,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $timestampEnd,
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestampBegin = null,
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestampEnd = null
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')]
+        $timestampBegin,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')]
+        $timestampEnd,
+        #[PhpStormStubsElementAvailable(from: '7.0')]
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $timestampBegin = null,
+        #[PhpStormStubsElementAvailable(from: '7.0')]
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $timestampEnd = null
     ): array|false {}
 
     /**
@@ -831,8 +874,10 @@ class DateTimeZone
     #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
     #[TentativeType]
     public static function listIdentifiers(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timezoneGroup = DateTimeZone::ALL,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $countryCode = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $timezoneGroup = DateTimeZone::ALL,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $countryCode = null
     ): array {}
 
     /**

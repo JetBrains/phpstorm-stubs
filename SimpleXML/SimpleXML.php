@@ -26,11 +26,16 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      */
     #[Pure]
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = 0,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $dataIsURL = false,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespaceOrPrefix = "",
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isPrefix = false
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $data,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $options = 0,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $dataIsURL = false,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $namespaceOrPrefix = "",
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $isPrefix = false
     ) {}
 
     /**
@@ -101,8 +106,10 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      */
     #[TentativeType]
     public function registerXPathNamespace(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $prefix,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $prefix,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $namespace
     ): bool {}
 
     /**
@@ -124,8 +131,10 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      */
     #[TentativeType]
     public function attributes(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespaceOrPrefix = null,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isPrefix = false
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $namespaceOrPrefix = null,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $isPrefix = false
     ): ?static {}
 
     /**
@@ -147,8 +156,10 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     #[Pure]
     #[TentativeType]
     public function children(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespaceOrPrefix = null,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isPrefix = false
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $namespaceOrPrefix = null,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $isPrefix = false
     ): ?static {}
 
     /**
@@ -184,8 +195,10 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     #[Pure]
     #[TentativeType]
     public function getDocNamespaces(
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $recursive = false,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $fromRoot = true
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $recursive = false,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $fromRoot = true
     ): array|false {}
 
     /**
@@ -217,9 +230,12 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      */
     #[TentativeType]
     public function addChild(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $value = null,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $qualifiedName,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $value = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $namespace = null
     ): ?static {}
 
     /**
@@ -239,10 +255,14 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      */
     #[TentativeType]
     public function addAttribute(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $value = null,
-        #[PhpStormStubsElementAvailable(from: '8.0')] string $value,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $qualifiedName,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+        $value = null,
+        #[PhpStormStubsElementAvailable(from: '8.0')]
+        string $value,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $namespace = null
     ): void {}
 
     /**

@@ -689,8 +689,10 @@ class IntlChar
     #[Pure]
     #[TentativeType]
     public static function hasBinaryProperty(
-        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $codepoint,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $property
+        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')]
+        $codepoint,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $property
     ): ?bool {}
 
     /**
@@ -771,8 +773,10 @@ class IntlChar
      */
     #[TentativeType]
     public static function charFromName(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = IntlChar::UNICODE_CHAR_NAME
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $type = IntlChar::UNICODE_CHAR_NAME
     ): ?int {}
 
     /**
@@ -803,8 +807,10 @@ class IntlChar
      */
     #[TentativeType]
     public static function charName(
-        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $codepoint,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = IntlChar::UNICODE_CHAR_NAME
+        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')]
+        $codepoint,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $type = IntlChar::UNICODE_CHAR_NAME
     ): ?string {}
 
     /**
@@ -874,8 +880,10 @@ class IntlChar
      */
     #[TentativeType]
     public static function digit(
-        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $codepoint,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $base = 10
+        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')]
+        $codepoint,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $base = 10
     ): int|false|null {}
 
     /**
@@ -904,10 +912,14 @@ class IntlChar
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.3' => 'bool'], default: 'bool|null')]
     public static function enumCharNames(
-        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $start,
-        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $end,
-        #[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = IntlChar::UNICODE_CHAR_NAME
+        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')]
+        $start,
+        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')]
+        $end,
+        #[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')]
+        $callback,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $type = IntlChar::UNICODE_CHAR_NAME
     ) {}
 
     /**
@@ -925,8 +937,10 @@ class IntlChar
      */
     #[TentativeType]
     public static function enumCharTypes(
-        #[PhpStormStubsElementAvailable(from: '7.0', to: '7.4')] $callback = null,
-        #[PhpStormStubsElementAvailable(from: '8.0')] callable $callback
+        #[PhpStormStubsElementAvailable(from: '7.0', to: '7.4')]
+        $callback = null,
+        #[PhpStormStubsElementAvailable(from: '8.0')]
+        callable $callback
     ): void {}
 
     /**
@@ -940,8 +954,10 @@ class IntlChar
      */
     #[TentativeType]
     public static function foldCase(
-        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $codepoint,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = IntlChar::FOLD_CASE_DEFAULT
+        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')]
+        $codepoint,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $options = IntlChar::FOLD_CASE_DEFAULT
     ): string|int|null {}
 
     /**
@@ -954,8 +970,10 @@ class IntlChar
      */
     #[TentativeType]
     public static function forDigit(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $digit,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $base = 10
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $digit,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $base = 10
     ): int {}
 
     /**
@@ -1050,8 +1068,10 @@ class IntlChar
      */
     #[TentativeType]
     public static function getIntPropertyValue(
-        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $codepoint,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $property
+        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')]
+        $codepoint,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $property
     ): ?int {}
 
     /**
@@ -1095,8 +1115,10 @@ class IntlChar
      */
     #[TentativeType]
     public static function getPropertyName(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $property,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = IntlChar::LONG_PROPERTY_NAME
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $property,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $type = IntlChar::LONG_PROPERTY_NAME
     ): string|false {}
 
     /**
@@ -1110,8 +1132,10 @@ class IntlChar
      */
     #[TentativeType]
     public static function getPropertyValueEnum(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $property,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $property,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name
     ): int {}
 
     /**
@@ -1144,9 +1168,12 @@ class IntlChar
      */
     #[TentativeType]
     public static function getPropertyValueName(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $property,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $value,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = IntlChar::LONG_PROPERTY_NAME
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $property,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $value,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $type = IntlChar::LONG_PROPERTY_NAME
     ): string|false {}
 
     /**

@@ -76,8 +76,10 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @throws ReflectionException if the class or method does not exist.
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'object|string'], default: '')] $objectOrMethod,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $method = null
+        #[LanguageLevelTypeAware(['8.0' => 'object|string'], default: '')]
+        $objectOrMethod,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $method = null
     ) {}
 
     /**
@@ -196,8 +198,11 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     #[Pure]
     #[TentativeType]
     public function getClosure(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $object,
-        #[PhpStormStubsElementAvailable(from: '7.4')] #[LanguageLevelTypeAware(['8.0' => 'object|null'], default: '')] $object = null
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')]
+        $object,
+        #[PhpStormStubsElementAvailable(from: '7.4')]
+        #[LanguageLevelTypeAware(['8.0' => 'object|null'], default: '')]
+        $object = null
     ): Closure {}
 
     /**

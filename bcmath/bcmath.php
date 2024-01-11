@@ -196,8 +196,11 @@ function bcsqrt(string $num, ?int $scale) {}
  */
 #[LanguageLevelTypeAware(['7.3' => 'int'], default: 'bool')]
 function bcscale(
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] int $scale,
-    #[PhpStormStubsElementAvailable(from: '7.3')] #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: 'int')] $scale = null
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')]
+    int $scale,
+    #[PhpStormStubsElementAvailable(from: '7.3')]
+    #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: 'int')]
+    $scale = null
 ) {}
 
 /**

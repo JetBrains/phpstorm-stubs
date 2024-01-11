@@ -188,7 +188,8 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
      */
     public function __construct(
         RecursiveIterator $iterator,
-        #[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback
+        #[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')]
+        $callback
     ) {}
 
     /**
@@ -268,8 +269,10 @@ class RecursiveIteratorIterator implements OuterIterator
      */
     public function __construct(
         Traversable $iterator,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = self::LEAVES_ONLY,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $mode = self::LEAVES_ONLY,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags = 0
     ) {}
 
     /**
@@ -668,8 +671,10 @@ class LimitIterator extends IteratorIterator
      */
     public function __construct(
         Iterator $iterator,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset = 0,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $limit = -1
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $offset = 0,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $limit = -1
     ) {}
 
     /**
@@ -1176,10 +1181,14 @@ class RegexIterator extends FilterIterator
      */
     public function __construct(
         Iterator $iterator,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pattern,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = self::MATCH,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $pregFlags = 0
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $pattern,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $mode = self::MATCH,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags = 0,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $pregFlags = 0
     ) {}
 
     /**
@@ -1335,10 +1344,14 @@ class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
      */
     public function __construct(
         RecursiveIterator $iterator,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pattern,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = self::MATCH,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $pregFlags = 0
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $pattern,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $mode = self::MATCH,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags = 0,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $pregFlags = 0
     ) {}
 
     /**
@@ -1383,9 +1396,12 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      */
     public function __construct(
         $iterator,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = self::BYPASS_KEY,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $cachingIteratorFlags = CachingIterator::CATCH_GET_CHILD,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = self::SELF_FIRST
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags = self::BYPASS_KEY,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $cachingIteratorFlags = CachingIterator::CATCH_GET_CHILD,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $mode = self::SELF_FIRST
     ) {}
 
     /**
@@ -1501,8 +1517,10 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      */
     #[TentativeType]
     public function setPrefixPart(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $part,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $part,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $value
     ): void {}
 
     /**
@@ -1550,9 +1568,14 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param class-string<ArrayIterator> $iteratorClass Specify the class that will be used for iteration of the ArrayObject object. ArrayIterator is the default class used.
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'object|array'], default: '')] $array = [],
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0,
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $iteratorClass = "ArrayIterator"
+        #[LanguageLevelTypeAware(['8.0' => 'object|array'], default: '')]
+        $array = [],
+        #[PhpStormStubsElementAvailable(from: '7.0')]
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags = 0,
+        #[PhpStormStubsElementAvailable(from: '7.0')]
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $iteratorClass = "ArrayIterator"
     ) {}
 
     /**
@@ -1590,8 +1613,10 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      */
     #[TentativeType]
     public function offsetSet(
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $key,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $value
     ): void {}
 
     /**
@@ -1844,9 +1869,13 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @see ArrayObject::setFlags()
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'object|array'], default: '')] $array = [],
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0,
-        #[PhpStormStubsElementAvailable(from: '7.0', to: '7.1')] $iterator_class = null
+        #[LanguageLevelTypeAware(['8.0' => 'object|array'], default: '')]
+        $array = [],
+        #[PhpStormStubsElementAvailable(from: '7.0')]
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags = 0,
+        #[PhpStormStubsElementAvailable(from: '7.0', to: '7.1')]
+        $iterator_class = null
     ) {}
 
     /**
@@ -1884,8 +1913,10 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      */
     #[TentativeType]
     public function offsetSet(
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $key,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $value
     ): void {}
 
     /**

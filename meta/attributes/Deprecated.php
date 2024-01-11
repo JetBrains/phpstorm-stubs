@@ -43,6 +43,7 @@ class Deprecated
     public function __construct(
         $reason = "",
         $replacement = "",
-        #[ExpectedValues(self::PHP_VERSIONS)] $since = "5.6"
+        #[ExpectedValues(self::PHP_VERSIONS)]
+        $since = "5.6"
     ) {}
 }

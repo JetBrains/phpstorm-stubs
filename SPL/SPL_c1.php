@@ -266,8 +266,10 @@ class SplFileInfo implements Stringable
      */
     #[TentativeType]
     public function openFile(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $mode = 'r',
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $useIncludePath = false,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $mode = 'r',
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $useIncludePath = false,
         $context = null
     ): SplFileObject {}
 
@@ -421,8 +423,10 @@ class FilesystemIterator extends DirectoryIterator
      * @throws UnexpectedValueException if the path cannot be found.
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $directory,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO|FilesystemIterator::SKIP_DOTS
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $directory,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO|FilesystemIterator::SKIP_DOTS
     ) {}
 
     /**
@@ -477,8 +481,10 @@ class FilesystemIterator extends DirectoryIterator
      */
     #[TentativeType]
     public function setFlags(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $flags = null,
-        #[PhpStormStubsElementAvailable(from: '8.0')] int $flags
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+        $flags = null,
+        #[PhpStormStubsElementAvailable(from: '8.0')]
+        int $flags
     ): void {}
 }
 
@@ -498,8 +504,10 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
      * @since 5.1.2
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $directory,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $directory,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO
     ) {}
 
     /**
@@ -581,8 +589,10 @@ class GlobIterator extends FilesystemIterator implements Countable
      * @param int $flags [optional]
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pattern,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $pattern,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO
     ) {}
 
     /**
@@ -635,9 +645,12 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @throws LogicException When the filename is a directory
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $mode = 'r',
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $useIncludePath = false,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $mode = 'r',
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $useIncludePath = false,
         $context = null
     ) {}
 
@@ -707,9 +720,12 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.1' => 'array|false'], default: 'array|false|null')]
     public function fgetcsv(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $separator = ",",
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $enclosure = "\"",
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $escape = "\\"
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $separator = ",",
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $enclosure = "\"",
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $escape = "\\"
     ) {}
 
     /**
@@ -729,10 +745,14 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     #[TentativeType]
     public function fputcsv(
         array $fields,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $separator = ',',
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $enclosure = '"',
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $escape = "\\",
-        #[PhpStormStubsElementAvailable('8.1')] string $eol = PHP_EOL
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $separator = ',',
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $enclosure = '"',
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $escape = "\\",
+        #[PhpStormStubsElementAvailable('8.1')]
+        string $eol = PHP_EOL
     ): int|false {}
 
     /**
@@ -751,9 +771,12 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      */
     #[TentativeType]
     public function setCsvControl(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $separator = ",",
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $enclosure = "\"",
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $escape = "\\"
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $separator = ",",
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $enclosure = "\"",
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $escape = "\\"
     ): void {}
 
     /**
@@ -816,8 +839,10 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      */
     #[TentativeType]
     public function fseek(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $whence = SEEK_SET
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $offset,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $whence = SEEK_SET
     ): int {}
 
     /**
@@ -867,8 +892,10 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      */
     #[TentativeType]
     public function fscanf(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $format,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] &...$vars
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $format,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        &...$vars
     ): array|int|null {}
 
     /**
@@ -888,8 +915,10 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     #[LanguageLevelTypeAware(['7.4' => 'int|false'], default: 'int')]
     #[TentativeType]
     public function fwrite(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $length = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $data,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $length = null
     ): int|false {}
 
     /**
@@ -1070,8 +1099,10 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      */
     #[TentativeType]
     public function add(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $index,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $value
     ): void {}
 
     /**
@@ -1514,8 +1545,10 @@ class SplMinHeap extends SplHeap
      */
     #[TentativeType]
     protected function compare(
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value1,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value2
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $value1,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $value2
     ): int {}
 
     /**
@@ -1623,8 +1656,10 @@ class SplMaxHeap extends SplHeap
      */
     #[TentativeType]
     protected function compare(
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value1,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value2
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $value1,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $value2
     ): int {}
 }
 
@@ -1658,8 +1693,10 @@ class SplPriorityQueue implements Iterator, Countable
      */
     #[TentativeType]
     public function compare(
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $priority1,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $priority2
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $priority1,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $priority2
     ): int {}
 
     /**
@@ -1674,8 +1711,10 @@ class SplPriorityQueue implements Iterator, Countable
      * @return true
      */
     public function insert(
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $priority
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $value,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $priority
     ) {}
 
     /**
@@ -1842,8 +1881,10 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      */
     #[TentativeType]
     public static function fromArray(
-        #[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] $array,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $preserveKeys = true
+        #[LanguageLevelTypeAware(['8.0' => 'array'], default: '')]
+        $array,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $preserveKeys = true
     ): SplFixedArray {}
 
     /**
@@ -2049,8 +2090,10 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
      */
     #[TentativeType]
     public function attach(
-        #[LanguageLevelTypeAware(['8.0' => 'object'], default: '')] $object,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $info = null
+        #[LanguageLevelTypeAware(['8.0' => 'object'], default: '')]
+        $object,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $info = null
     ): void {}
 
     /**
@@ -2223,8 +2266,10 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
      */
     #[TentativeType]
     public function offsetSet(
-        #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')] $object,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $info = null
+        #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
+        $object,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $info = null
     ): void {}
 
     /**
@@ -2300,8 +2345,10 @@ class MultipleIterator implements Iterator
      * @param int $flags Defaults to MultipleIterator::MIT_NEED_ALL | MultipleIterator::MIT_KEYS_NUMERIC
      */
     public function __construct(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $flags,
-        #[PhpStormStubsElementAvailable(from: '8.0')] int $flags = MultipleIterator::MIT_NEED_ALL|MultipleIterator::MIT_KEYS_NUMERIC
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+        $flags,
+        #[PhpStormStubsElementAvailable(from: '8.0')]
+        int $flags = MultipleIterator::MIT_NEED_ALL|MultipleIterator::MIT_KEYS_NUMERIC
     ) {}
 
     /**

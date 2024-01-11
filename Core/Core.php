@@ -350,8 +350,10 @@ function error_reporting(?int $error_level): int {}
  */
 function define(
     string $constant_name,
-    #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: 'null|array|bool|int|float|string')] $value,
-    #[Deprecated(since: "7.3")] bool $case_insensitive = false
+    #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: 'null|array|bool|int|float|string')]
+    $value,
+    #[Deprecated(since: "7.3")]
+    bool $case_insensitive = false
 ): bool {}
 
 /**
@@ -1041,7 +1043,8 @@ function debug_backtrace(int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT, int $lim
  */
 function debug_print_backtrace(
     int $options = 0,
-    #[PhpStormStubsElementAvailable(from: '7.0')] int $limit = 0
+    #[PhpStormStubsElementAvailable(from: '7.0')]
+    int $limit = 0
 ): void {}
 
 /**

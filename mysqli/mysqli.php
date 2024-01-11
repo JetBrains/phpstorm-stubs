@@ -234,8 +234,10 @@ class mysqli
      */
     #[TentativeType]
     public function begin_transaction(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $name = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags = 0,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $name = null
     ): bool {}
 
     /**
@@ -596,7 +598,8 @@ class mysqli
     #[TentativeType]
     public function query(
         string $query,
-        #[PhpStormStubsElementAvailable(from: '7.1')] int $result_mode = MYSQLI_STORE_RESULT
+        #[PhpStormStubsElementAvailable(from: '7.1')]
+        int $result_mode = MYSQLI_STORE_RESULT
     ): mysqli_result|bool {}
 
     /**
@@ -776,8 +779,10 @@ class mysqli
      */
     #[TentativeType]
     public function rollback(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $name = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags = 0,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $name = null
     ): bool {}
 
     /**
@@ -996,8 +1001,10 @@ class mysqli_result implements IteratorAggregate
      * @param int $result_mode [optional]
      */
     public function __construct(
-        #[PhpStormStubsElementAvailable(from: '8.0')] mysqli $mysql,
-        #[PhpStormStubsElementAvailable(from: '8.0')] int $result_mode = MYSQLI_STORE_RESULT
+        #[PhpStormStubsElementAvailable(from: '8.0')]
+        mysqli $mysql,
+        #[PhpStormStubsElementAvailable(from: '8.0')]
+        int $result_mode = MYSQLI_STORE_RESULT
     ) {}
 
     /**
@@ -1930,7 +1937,8 @@ function mysqli_fetch_lengths(mysqli_result $result): array|false {}
  */
 function mysqli_fetch_all(
     mysqli_result $result,
-    #[PhpStormStubsElementAvailable(from: '7.0')] int $mode = MYSQLI_NUM
+    #[PhpStormStubsElementAvailable(from: '7.0')]
+    int $mode = MYSQLI_NUM
 ): array {}
 
 /**
@@ -2073,8 +2081,10 @@ function mysqli_get_charset(mysqli $mysql): ?object {}
  */
 #[LanguageLevelTypeAware(['8.0' => 'string'], default: '?string')]
 function mysqli_get_client_info(
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.1')] mysqli $mysql,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ?mysqli $mysql = null
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.1')]
+    mysqli $mysql,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ?mysqli $mysql = null
 ) {}
 
 /**
@@ -2235,9 +2245,12 @@ function mysqli_more_results(mysqli $mysql): bool {}
  */
 function mysqli_multi_query(
     mysqli $mysql,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] string $query,
-    #[PhpStormStubsElementAvailable(from: '7.1', to: '7.4')] string $query = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] string $query
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')]
+    string $query,
+    #[PhpStormStubsElementAvailable(from: '7.1', to: '7.4')]
+    string $query = null,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    string $query
 ): bool {}
 
 /**
@@ -2359,7 +2372,8 @@ function mysqli_report(int $flags): bool {}
 function mysqli_query(
     mysqli $mysql,
     string $query,
-    #[PhpStormStubsElementAvailable(from: '7.1')] int $result_mode = MYSQLI_STORE_RESULT
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    int $result_mode = MYSQLI_STORE_RESULT
 ): mysqli_result|bool {}
 
 /**
@@ -2396,9 +2410,12 @@ function mysqli_real_escape_string(mysqli $mysql, string $string): string {}
  */
 function mysqli_real_query(
     mysqli $mysql,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] string $query,
-    #[PhpStormStubsElementAvailable(from: '7.1', to: '7.4')] string $query = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] string $query
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')]
+    string $query,
+    #[PhpStormStubsElementAvailable(from: '7.1', to: '7.4')]
+    string $query = null,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    string $query
 ): bool {}
 
 /**
@@ -2571,7 +2588,8 @@ function mysqli_stmt_send_long_data(mysqli_stmt $statement, int $param_num, stri
 function mysqli_stmt_bind_param(
     mysqli_stmt $statement,
     string $types,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed &$vars,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    mixed &$vars,
     mixed &...$vars
 ): bool {}
 
@@ -2584,7 +2602,8 @@ function mysqli_stmt_bind_param(
  */
 function mysqli_stmt_bind_result(
     mysqli_stmt $statement,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed &$vars,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    mixed &$vars,
     mixed &...$vars
 ): bool {}
 
@@ -2676,11 +2695,16 @@ function mysqli_stat(mysqli $mysql): string|false {}
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function mysqli_ssl_set(
     mysqli $mysql,
-    #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $key,
-    #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $certificate,
-    #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $ca_certificate,
-    #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $ca_path,
-    #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $cipher_algos
+    #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')]
+    $key,
+    #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')]
+    $certificate,
+    #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')]
+    $ca_certificate,
+    #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')]
+    $ca_path,
+    #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')]
+    $cipher_algos
 ): bool {}
 
 /**
@@ -2847,7 +2871,8 @@ function mysqli_client_encoding(mysqli $mysql): string {}
 function mysqli_escape_string(
     mysqli $mysql,
     string $string,
-    #[PhpStormStubsElementAvailable(from: '7.1', to: '7.4')] $resultmode = null
+    #[PhpStormStubsElementAvailable(from: '7.1', to: '7.4')]
+    $resultmode = null
 ): string {}
 
 /**
@@ -2901,9 +2926,12 @@ function mysqli_send_long_data(mysqli_stmt $statement, int $param_num, string $d
  * @return bool
  */
 function mysqli_set_opt(
-    #[PhpStormStubsElementAvailable(from: '8.0')] mysqli $mysql,
-    #[PhpStormStubsElementAvailable(from: '8.0')] int $option,
-    #[PhpStormStubsElementAvailable(from: '8.0')] $value
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    mysqli $mysql,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    int $option,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    $value
 ): bool {}
 
 /**

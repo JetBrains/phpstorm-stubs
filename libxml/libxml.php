@@ -89,8 +89,10 @@ function libxml_set_streams_context($context): void {}
  * <i>use_errors</i>.
  */
 function libxml_use_internal_errors(
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] bool $use_errors = false,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ?bool $use_errors = null
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    bool $use_errors = false,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ?bool $use_errors = null
 ): bool {}
 
 /**

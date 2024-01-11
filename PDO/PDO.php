@@ -929,10 +929,14 @@ class PDO
      * @throws PDOException if the attempt to connect to the requested database fails.
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $dsn,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $username = null,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $password = null,
-        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: '')] $options = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $dsn,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $username = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $password = null,
+        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: '')]
+        $options = null
     ) {}
 
     /**
@@ -964,8 +968,10 @@ class PDO
      */
     #[TentativeType]
     public function prepare(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $query,
-        #[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] $options = []
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $query,
+        #[LanguageLevelTypeAware(['8.0' => 'array'], default: '')]
+        $options = []
     ): PDOStatement|false {}
 
     /**
@@ -1034,8 +1040,10 @@ class PDO
      */
     #[TentativeType]
     public function setAttribute(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attribute,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $attribute,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $value
     ): bool {}
 
     /**
@@ -1119,9 +1127,12 @@ class PDO
      */
     #[PhpStormStubsElementAvailable('8.0')]
     public function query(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $query,
-        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $fetchMode = null,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$fetch_mode_args
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $query,
+        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')]
+        $fetchMode = null,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        ...$fetch_mode_args
     ) {}
 
     /**
@@ -1265,8 +1276,10 @@ class PDO
      */
     #[TentativeType]
     public function quote(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $string,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $type = PDO::PARAM_STR
     ): string|false {}
 
     final public function __wakeup() {}
@@ -1557,9 +1570,12 @@ class PDOStatement implements IteratorAggregate
      */
     #[TentativeType]
     public function fetch(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = PDO::FETCH_BOTH,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $cursorOrientation = PDO::FETCH_ORI_NEXT,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $cursorOffset = 0
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $mode = PDO::FETCH_BOTH,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $cursorOrientation = PDO::FETCH_ORI_NEXT,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $cursorOffset = 0
     ): mixed {}
 
     /**
@@ -1594,11 +1610,16 @@ class PDOStatement implements IteratorAggregate
      */
     #[TentativeType]
     public function bindParam(
-        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $param,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] &$var,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxLength = null,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $driverOptions = null
+        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')]
+        $param,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        &$var,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $type = PDO::PARAM_STR,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $maxLength = null,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $driverOptions = null
     ): bool {}
 
     /**
@@ -1626,11 +1647,16 @@ class PDOStatement implements IteratorAggregate
      */
     #[TentativeType]
     public function bindColumn(
-        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $column,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] &$var,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxLength = null,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $driverOptions = null
+        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')]
+        $column,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        &$var,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $type = PDO::PARAM_STR,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $maxLength = null,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $driverOptions = null
     ): bool {}
 
     /**
@@ -1655,9 +1681,12 @@ class PDOStatement implements IteratorAggregate
      */
     #[TentativeType]
     public function bindValue(
-        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')] $param,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $type = PDO::PARAM_STR
+        #[LanguageLevelTypeAware(['8.0' => 'int|string'], default: '')]
+        $param,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $value,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $type = PDO::PARAM_STR
     ): bool {}
 
     /**
@@ -1734,9 +1763,12 @@ class PDOStatement implements IteratorAggregate
      */
     #[TentativeType]
     public function fetchAll(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = PDO::FETCH_BOTH,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $fetch_argument = null,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$args
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $mode = PDO::FETCH_BOTH,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+        $fetch_argument = null,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        ...$args
     ): array {}
 
     /**
@@ -1756,8 +1788,10 @@ class PDOStatement implements IteratorAggregate
      */
     #[TentativeType]
     public function fetchObject(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $class = "stdClass",
-        #[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] $constructorArgs = []
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $class = "stdClass",
+        #[LanguageLevelTypeAware(['8.0' => 'array'], default: '')]
+        $constructorArgs = []
     ): object|false {}
 
     /**
@@ -1810,8 +1844,10 @@ class PDOStatement implements IteratorAggregate
      */
     #[TentativeType]
     public function setAttribute(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attribute,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $attribute,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $value
     ): bool {}
 
     /**

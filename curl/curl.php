@@ -26,9 +26,12 @@ class CURLFile
      * @since 5.5
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $mime_type = '',
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $posted_filename = ''
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $mime_type = '',
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $posted_filename = ''
     ) {}
 
     /**
@@ -2733,9 +2736,12 @@ function curl_reset(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: '
  * </p>
  */
 function curl_multi_exec(
-    #[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] &$still_running = 0,
-    #[PhpStormStubsElementAvailable(from: '8.0')] &$still_running
+    #[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')]
+    $multi_handle,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    &$still_running = 0,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    &$still_running
 ): int {}
 
 /**

@@ -525,9 +525,12 @@ final class EvCheck extends EvWatcher
      * @param int $priority
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $callback,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $priority = 0
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $callback,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $data = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $priority = 0
     ) {}
 
     /**
@@ -596,11 +599,16 @@ final class EvChild extends EvWatcher
      * @param int $priority
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $pid,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $trace,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $callback,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $priority = 0
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $pid,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $trace,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $callback,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $data = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $priority = 0
     ) {}
 
     /**
@@ -627,8 +635,10 @@ final class EvChild extends EvWatcher
      *      activate the watcher when the process is stopped or continued.
      */
     public function set(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $pid,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $trace
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $pid,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $trace
     ) {}
 }
 
@@ -664,9 +674,12 @@ final class EvEmbed extends EvWatcher
      */
     public function __construct(
         EvLoop $other,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $callback,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $priority = 0
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $callback,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $data = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $priority = 0
     ) {}
 
     /**
@@ -745,11 +758,16 @@ final class EvIo extends EvWatcher
      * @param int $priority
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $fd,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $events,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $callback,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $priority = 0
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $fd,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $events,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $callback,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $data = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $priority = 0
     ) {}
 
     /**
@@ -759,8 +777,10 @@ final class EvIo extends EvWatcher
      * @param int $events Ev::READ and/or Ev::WRITE. See the bit masks.
      */
     public function set(
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $fd,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $events
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $fd,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $events
     ) {}
 
     /**
@@ -832,12 +852,18 @@ final class EvPeriodic extends EvWatcher
      * @param int $priority
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')] $offset,
-        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')] $interval,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $reschedule_cb,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $callback,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $priority = 0
+        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')]
+        $offset,
+        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')]
+        $interval,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $reschedule_cb,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $callback,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $data = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $priority = 0
     ) {}
 
     /**
@@ -889,9 +915,12 @@ final class EvPeriodic extends EvWatcher
      * @return void
      */
     public function set(
-        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')] $offset,
-        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')] $interval,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $reschedule_cb = null
+        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')]
+        $offset,
+        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')]
+        $interval,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $reschedule_cb = null
     ) {}
 }
 
@@ -929,9 +958,12 @@ final class EvPrepare extends EvWatcher
      * @param int $priority
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $callback,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $priority = 0
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $callback,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $data = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $priority = 0
     ) {}
 
     /**
@@ -981,10 +1013,14 @@ final class EvSignal extends EvWatcher
      * @param int $priority
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $signum,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $callback,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $priority = 0
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $signum,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $callback,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $data = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $priority = 0
     ) {}
 
     /**
@@ -1060,11 +1096,16 @@ final class EvStat extends EvWatcher
      * @param int $priority
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $path,
-        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')] $interval,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $callback,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $priority = 0
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $path,
+        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')]
+        $interval,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $callback,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $data = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $priority = 0
     ) {}
 
     /**
@@ -1085,8 +1126,10 @@ final class EvStat extends EvWatcher
      *      as 0.0 to let libev choose a suitable value.
      */
     public function set(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $path,
-        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')] $interval
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $path,
+        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')]
+        $interval
     ) {}
 
     /**
@@ -1168,11 +1211,16 @@ final class EvTimer extends EvWatcher
      * @param int $priority
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')] $after,
-        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')] $repeat,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $callback,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $priority = 0
+        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')]
+        $after,
+        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')]
+        $repeat,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $callback,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $data = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $priority = 0
     ) {}
 
     /**
@@ -1196,8 +1244,10 @@ final class EvTimer extends EvWatcher
      *      until stopped manually.
      */
     public function set(
-        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')] $after,
-        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')] $repeat
+        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')]
+        $after,
+        #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')]
+        $repeat
     ) {}
 
     /**

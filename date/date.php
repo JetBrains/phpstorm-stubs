@@ -463,15 +463,18 @@ function gmdate(string $format, ?int $timestamp) {}
  */
 #[Pure(true)]
 function mktime(
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] int $hour = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] int $hour,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    int $hour = null,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    int $hour,
     ?int $minute = null,
     ?int $second = null,
     ?int $month = null,
     ?int $day = null,
     ?int $year = null,
     #[Deprecated('Use the new timezone handling functions instead', since: '5.3')]
-    #[PhpStormStubsElementAvailable(from: '5.5', to: '5.6')] $is_dst = -1
+    #[PhpStormStubsElementAvailable(from: '5.5', to: '5.6')]
+    $is_dst = -1
 ): int|false {}
 
 /**
@@ -503,14 +506,17 @@ function mktime(
  */
 #[Pure(true)]
 function gmmktime(
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] int $hour = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] int $hour,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    int $hour = null,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    int $hour,
     ?int $minute = null,
     ?int $second = null,
     ?int $month = null,
     ?int $day = null,
     ?int $year = null,
-    #[PhpStormStubsElementAvailable(from: '5.5', to: '5.6')] $is_dst = null
+    #[PhpStormStubsElementAvailable(from: '5.5', to: '5.6')]
+    $is_dst = null
 ): int|false {}
 
 /**
@@ -1209,7 +1215,8 @@ function date_time_set(
     int $hour,
     int $minute,
     int $second = 0,
-    #[PhpStormStubsElementAvailable(from: '7.1')] int $microsecond = 0
+    #[PhpStormStubsElementAvailable(from: '7.1')]
+    int $microsecond = 0
 ): DateTime {}
 
 /**

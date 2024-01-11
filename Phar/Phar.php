@@ -56,10 +56,14 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @throws UnexpectedValueException If the phar archive can't be opened.
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $alias = null,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $fileformat = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $alias = null,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')]
+        $fileformat = null
     ) {}
 
     public function __destruct() {}
@@ -75,8 +79,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      */
     #[TentativeType]
     public function addEmptyDir(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $directory = '',
-        #[PhpStormStubsElementAvailable(from: '8.0')] string $directory
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+        $directory = '',
+        #[PhpStormStubsElementAvailable(from: '8.0')]
+        string $directory
     ): void {}
 
     /**
@@ -94,8 +100,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      */
     #[TentativeType]
     public function addFile(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $localName = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $localName = null
     ): void {}
 
     /**
@@ -112,9 +120,12 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      */
     #[TentativeType]
     public function addFromString(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $contents = '',
-        #[PhpStormStubsElementAvailable(from: '8.0')] string $contents
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $localName,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+        $contents = '',
+        #[PhpStormStubsElementAvailable(from: '8.0')]
+        string $contents
     ): void {}
 
     /**
@@ -136,8 +147,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      */
     #[TentativeType]
     public function buildFromDirectory(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $directory,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pattern = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $directory,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $pattern = null
     ): array {}
 
     /**
@@ -159,7 +172,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     #[TentativeType]
     public function buildFromIterator(
         Traversable $iterator,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $baseDirectory = null
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $baseDirectory = null
     ): array {}
 
     /**
@@ -204,8 +218,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      */
     #[TentativeType]
     public function compress(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $compression,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extension = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $compression,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $extension = null
     ): ?Phar {}
 
     /**
@@ -257,9 +273,12 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      */
     #[TentativeType]
     public function convertToExecutable(
-        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $format = 9021976,
-        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $compression = 9021976,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extension = null
+        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')]
+        $format = 9021976,
+        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')]
+        $compression = 9021976,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $extension = null
     ): ?Phar {}
 
     /**
@@ -293,9 +312,12 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      */
     #[TentativeType]
     public function convertToData(
-        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $format = 9021976,
-        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $compression = 9021976,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extension = null
+        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')]
+        $format = 9021976,
+        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')]
+        $compression = 9021976,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $extension = null
     ): ?PharData {}
 
     /**
@@ -308,8 +330,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * try/catch block and assume success if no exception is thrown.
      */
     public function copy(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $to,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $from
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $to,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $from
     ) {}
 
     /**
@@ -362,9 +386,12 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      */
     #[TentativeType]
     public function extractTo(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $directory,
-        #[LanguageLevelTypeAware(['8.0' => 'array|string|null'], default: '')] $files = null,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $overwrite = false
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $directory,
+        #[LanguageLevelTypeAware(['8.0' => 'array|string|null'], default: '')]
+        $files = null,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $overwrite = false
     ): bool {}
 
     /**
@@ -563,8 +590,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      */
     #[TentativeType]
     public function setDefaultStub(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $index = null,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $webIndex = null
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $index = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $webIndex = null
     ): bool {}
 
     /**
@@ -604,8 +633,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      */
     #[TentativeType]
     public function setSignatureAlgorithm(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $algo,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $privateKey = null
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $algo,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $privateKey = null
     ): void {}
 
     /**
@@ -622,7 +653,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      */
     public function setStub(
         $stub,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $length = -1
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $length = -1
     ) {}
 
     /**
@@ -770,8 +802,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return string the filename if valid, empty string otherwise.
      */
     final public static function running(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $returnPhar,
-        #[PhpStormStubsElementAvailable(from: '7.0')] bool $returnPhar = true
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')]
+        $returnPhar,
+        #[PhpStormStubsElementAvailable(from: '7.0')]
+        bool $returnPhar = true
     ): string {}
 
     /**
@@ -897,7 +931,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     final public static function webPhar(
         ?string $alias = null,
         ?string $index = "index.php",
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $fileNotFoundScript = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')]
+        $fileNotFoundScript = null,
         array $mimeTypes = null,
         ?callable $rewrite = null
     ): void {}
@@ -1002,10 +1037,14 @@ class PharData extends Phar
      * </p>
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $alias = null,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $format = Phar::TAR
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $alias = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $format = Phar::TAR
     ) {}
 
     /**

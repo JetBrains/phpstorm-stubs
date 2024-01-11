@@ -14,8 +14,10 @@ class finfo
      * @param string $magic_database [optional]
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $magic_database
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $magic_database
     ) {}
 
     /**
@@ -57,8 +59,10 @@ class finfo
     #[Pure]
     #[TentativeType]
     public function file(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FILEINFO_NONE,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags = FILEINFO_NONE,
         $context = null
     ): string|false {}
 
@@ -80,8 +84,10 @@ class finfo
     #[Pure]
     #[TentativeType]
     public function buffer(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FILEINFO_NONE,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $string,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $flags = FILEINFO_NONE,
         $context = null
     ): string|false {}
 }

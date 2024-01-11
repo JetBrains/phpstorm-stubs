@@ -181,7 +181,8 @@ function imageellipse(GdImage $image, int $center_x, int $center_y, int $width, 
  */
 function imagechar(
     GdImage $image,
-    #[LanguageLevelTypeAware(['8.1' => 'GdFont|int'], default: 'int')] $font,
+    #[LanguageLevelTypeAware(['8.1' => 'GdFont|int'], default: 'int')]
+    $font,
     int $x,
     int $y,
     string $char,
@@ -210,7 +211,8 @@ function imagechar(
  */
 function imagecharup(
     GdImage $image,
-    #[LanguageLevelTypeAware(['8.1' => 'GdFont|int'], default: 'int')] $font,
+    #[LanguageLevelTypeAware(['8.1' => 'GdFont|int'], default: 'int')]
+    $font,
     int $x,
     int $y,
     string $char,
@@ -826,7 +828,8 @@ function imagerotate(
     GdImage $image,
     float $angle,
     int $background_color,
-    #[PhpStormStubsElementAvailable(to: '8.2')] bool $ignore_transparent = false
+    #[PhpStormStubsElementAvailable(to: '8.2')]
+    bool $ignore_transparent = false
 ): GdImage|false {}
 
 /**
@@ -1183,7 +1186,8 @@ function imagefill(GdImage $image, int $x, int $y, int $color): bool {}
 function imagefilledpolygon(
     GdImage $image,
     array $points,
-    #[Deprecated(since: "8.1")] int $num_points_or_color,
+    #[Deprecated(since: "8.1")]
+    int $num_points_or_color,
     ?int $color
 ): bool {}
 
@@ -1399,8 +1403,10 @@ function imagepolygon(
     GdImage $image,
     array $points,
     int $num_points_or_color,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?int $color,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ?int $color = null
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    ?int $color,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ?int $color = null
 ): bool {}
 
 /**
@@ -1470,7 +1476,8 @@ function imagesetpixel(GdImage $image, int $x, int $y, int $color): bool {}
  */
 function imagestring(
     GdImage $image,
-    #[LanguageLevelTypeAware(['8.1' => 'GdFont|int'], default: 'int')] $font,
+    #[LanguageLevelTypeAware(['8.1' => 'GdFont|int'], default: 'int')]
+    $font,
     int $x,
     int $y,
     string $string,
@@ -1499,7 +1506,8 @@ function imagestring(
  */
 function imagestringup(
     GdImage $image,
-    #[LanguageLevelTypeAware(['8.1' => 'GdFont|int'], default: 'int')] $font,
+    #[LanguageLevelTypeAware(['8.1' => 'GdFont|int'], default: 'int')]
+    $font,
     int $x,
     int $y,
     string $string,
@@ -2222,11 +2230,16 @@ function imagexbm(GdImage $image, ?string $filename, ?int $foreground_color = nu
 function imagefilter(
     GdImage $image,
     int $filter,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arg1 = null,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arg2 = null,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arg3 = null,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arg4 = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ...$args
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    $arg1 = null,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    $arg2 = null,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    $arg3 = null,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    $arg4 = null,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ...$args
 ): bool {}
 
 /**
@@ -2308,9 +2321,12 @@ function imagegetclip(GdImage $image): array {}
 function imageopenpolygon(
     GdImage $image,
     array $points,
-    #[Deprecated(since: "8.1")] int $num_points_or_color,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?int $color,
-    #[PhpStormStubsElementAvailable(from: '8.0')] ?int $color = null
+    #[Deprecated(since: "8.1")]
+    int $num_points_or_color,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    ?int $color,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    ?int $color = null
 ): bool {}
 
 /**
@@ -3006,8 +3022,10 @@ function imageaffinematrixconcat(array $matrix1, array $matrix2): array|false {}
  */
 function imageaffinematrixget(
     int $type,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $options = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] $options
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    $options = null,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    $options
 ): array|false {}
 
 /**

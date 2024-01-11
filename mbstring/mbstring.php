@@ -817,8 +817,10 @@ function mb_decode_mimeheader(string $string): string {}
 function mb_convert_variables(
     string $to_encoding,
     array|string $from_encoding,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] &$vars,
-    #[PhpStormStubsElementAvailable(from: '8.0')] mixed &$var,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    &$vars,
+    #[PhpStormStubsElementAvailable(from: '8.0')]
+    mixed &$var,
     mixed &...$vars
 ): string|false {}
 
@@ -1095,7 +1097,8 @@ function mb_eregi_replace(
     string $pattern,
     string $replacement,
     string $string,
-    #[PhpStormStubsElementAvailable(from: '7.0')] ?string $options = null
+    #[PhpStormStubsElementAvailable(from: '7.0')]
+    ?string $options = null
 ): string|false|null {}
 
 /**
@@ -1282,7 +1285,8 @@ function mberegi_replace(
     $pattern,
     $replacement,
     $string,
-    #[PhpStormStubsElementAvailable(from: '7.0')] string $option = "msri"
+    #[PhpStormStubsElementAvailable(from: '7.0')]
+    string $option = "msri"
 ): string {}
 
 /**

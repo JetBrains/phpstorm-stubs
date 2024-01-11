@@ -159,7 +159,8 @@ class DOMNode
      */
     public function insertBefore(
         DOMNode $node,
-        #[LanguageLevelTypeAware(['8.0' => 'DOMNode|null'], default: 'DOMNode')] $child = null
+        #[LanguageLevelTypeAware(['8.0' => 'DOMNode|null'], default: 'DOMNode')]
+        $child = null
     ) {}
 
     /**
@@ -215,8 +216,11 @@ class DOMNode
      * @return static The cloned node.
      */
     public function cloneNode(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $deep,
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $deep = false
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')]
+        $deep,
+        #[PhpStormStubsElementAvailable(from: '7.0')]
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $deep = false
     ) {}
 
     /**
@@ -242,8 +246,10 @@ class DOMNode
      */
     #[TentativeType]
     public function isSupported(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $feature,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $version
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $feature,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $version
     ): bool {}
 
     /**
@@ -356,10 +362,14 @@ class DOMNode
      */
     #[TentativeType]
     public function C14N(
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $exclusive = false,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $withComments = false,
-        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')] $xpath = null,
-        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')] $nsPrefixes = null
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $exclusive = false,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $withComments = false,
+        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')]
+        $xpath = null,
+        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')]
+        $nsPrefixes = null
     ): string|false {}
 
     /**
@@ -374,11 +384,16 @@ class DOMNode
      */
     #[TentativeType]
     public function C14NFile(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $uri,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $exclusive = false,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $withComments = false,
-        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')] $xpath = null,
-        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')] $nsPrefixes = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $uri,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $exclusive = false,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $withComments = false,
+        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')]
+        $xpath = null,
+        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')]
+        $nsPrefixes = null
     ): int|false {}
 
     /**
@@ -489,8 +504,10 @@ class DOMImplementation
      */
     #[TentativeType]
     public function getFeature(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $feature,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $version
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $feature,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $version
     ): never {}
 
     /**
@@ -524,11 +541,16 @@ class DOMImplementation
      * @throws DOMException If there is an error with the namespace
      */
     public function createDocumentType(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $publicId,
-        #[PhpStormStubsElementAvailable(from: '8.0')] string $publicId = '',
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $systemId,
-        #[PhpStormStubsElementAvailable(from: '8.0')] string $systemId = ''
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $qualifiedName,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+        $publicId,
+        #[PhpStormStubsElementAvailable(from: '8.0')]
+        string $publicId = '',
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+        $systemId,
+        #[PhpStormStubsElementAvailable(from: '8.0')]
+        string $systemId = ''
     ) {}
 
     /**
@@ -552,12 +574,19 @@ class DOMImplementation
      * as determined by $namespace and $qualifiedName.
      */
     public function createDocument(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $namespace,
-        #[PhpStormStubsElementAvailable(from: '8.0')] ?string $namespace = null,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $qualifiedName,
-        #[PhpStormStubsElementAvailable(from: '8.0')] string $qualifiedName = '',
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] DOMDocumentType $doctype,
-        #[PhpStormStubsElementAvailable(from: '7.4')] #[LanguageLevelTypeAware(['8.0' => 'DOMDocumentType|null'], default: 'DOMDocumentType')] $doctype = null
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+        $namespace,
+        #[PhpStormStubsElementAvailable(from: '8.0')]
+        ?string $namespace = null,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+        $qualifiedName,
+        #[PhpStormStubsElementAvailable(from: '8.0')]
+        string $qualifiedName = '',
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')]
+        DOMDocumentType $doctype,
+        #[PhpStormStubsElementAvailable(from: '7.4')]
+        #[LanguageLevelTypeAware(['8.0' => 'DOMDocumentType|null'], default: 'DOMDocumentType')]
+        $doctype = null
     ) {}
 }
 
@@ -838,8 +867,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @throws DOMException If invalid $localName
      */
     public function createElement(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value = ''
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $localName,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $value = ''
     ) {}
 
     /**
@@ -894,9 +925,13 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @return DOMProcessingInstruction|false The new DOMProcessingInstruction or false if an error occurred.
      */
     public function createProcessingInstruction(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $target,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $data,
-        #[PhpStormStubsElementAvailable(from: '7.4')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $target,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')]
+        $data,
+        #[PhpStormStubsElementAvailable(from: '7.4')]
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $data = null
     ) {}
 
     /**
@@ -953,8 +988,11 @@ class DOMDocument extends DOMNode implements DOMParentNode
      */
     public function importNode(
         DOMNode $node,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $deep,
-        #[PhpStormStubsElementAvailable(from: '7.4')] #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $deep = false
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')]
+        $deep,
+        #[PhpStormStubsElementAvailable(from: '7.4')]
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $deep = false
     ) {}
 
     /**
@@ -974,9 +1012,12 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @throws DOMException If invalid $namespace or $qualifiedName
      */
     public function createElementNS(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value = ''
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $qualifiedName,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $value = ''
     ) {}
 
     /**
@@ -992,8 +1033,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @throws DOMException If invalid $namespace or $qualifiedName
      */
     public function createAttributeNS(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $qualifiedName
     ) {}
 
     /**
@@ -1012,8 +1055,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
      */
     #[TentativeType]
     public function getElementsByTagNameNS(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $localName
     ): DOMNodeList {}
 
     /**
@@ -1080,8 +1125,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.3' => 'bool'], default: 'DOMDocument|bool')]
     public function load(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $options = null
     ) {}
 
     /**
@@ -1114,8 +1161,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.3' => 'bool'], default: 'DOMDocument|bool')]
     public function loadXML(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $source,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $source,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $options = null
     ) {}
 
     /**
@@ -1133,7 +1182,9 @@ class DOMDocument extends DOMNode implements DOMParentNode
     #[TentativeType]
     public function saveXML(
         ?DOMNode $node = null,
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null
+        #[PhpStormStubsElementAvailable(from: '7.0')]
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $options = null
     ): string|false {}
 
     /**
@@ -1143,8 +1194,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @param string $encoding [optional] The encoding of the document as part of the XML declaration.
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $version = '1.0',
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $encoding = ''
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $version = '1.0',
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $encoding = ''
     ) {}
 
     /**
@@ -1185,8 +1238,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.3' => 'bool'], default: 'DOMDocument|bool')]
     public function loadHTML(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $source,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = 0
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $source,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $options = 0
     ) {}
 
     /**
@@ -1206,8 +1261,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.3' => 'bool'], default: 'DOMDocument|bool')]
     public function loadHTMLFile(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = 0
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $options = 0
     ) {}
 
     /**
@@ -1293,8 +1350,10 @@ class DOMDocument extends DOMNode implements DOMParentNode
      */
     #[TentativeType]
     public function registerNodeClass(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $baseClass,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extendedClass
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $baseClass,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $extendedClass
     ): bool {}
 }
 
@@ -1381,8 +1440,11 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
      */
     #[TentativeType]
     public function item(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $index = 0,
-        #[PhpStormStubsElementAvailable(from: '7.1')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')]
+        $index = 0,
+        #[PhpStormStubsElementAvailable(from: '7.1')]
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $index
     ): ?DOMNode {}
 
     /**
@@ -1399,10 +1461,14 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
      */
     #[TentativeType]
     public function getNamedItemNS(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $namespaceURI = '',
-        #[PhpStormStubsElementAvailable(from: '8.0')] ?string $namespace,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $localName = '',
-        #[PhpStormStubsElementAvailable(from: '8.0')] string $localName
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+        $namespaceURI = '',
+        #[PhpStormStubsElementAvailable(from: '8.0')]
+        ?string $namespace,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+        $localName = '',
+        #[PhpStormStubsElementAvailable(from: '8.0')]
+        string $localName
     ): ?DOMNode {}
 
     /**
@@ -1473,8 +1539,10 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      * to the end of the data are returned.
      */
     public function substringData(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $count
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $offset,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $count
     ) {}
 
     /**
@@ -1501,8 +1569,10 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      */
     #[TentativeType]
     public function insertData(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $offset,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $data
     ): bool {}
 
     /**
@@ -1520,8 +1590,10 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      */
     #[TentativeType]
     public function deleteData(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $count
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $offset,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $count
     ): bool {}
 
     /**
@@ -1542,9 +1614,12 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      */
     #[TentativeType]
     public function replaceData(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $count,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $offset,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+        $count,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $data
     ): bool {}
 
     /**
@@ -1635,8 +1710,10 @@ class DOMAttr extends DOMNode
      * @throws DOMException If invalid $name
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value = ''
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $value = ''
     ) {}
 }
 
@@ -1746,8 +1823,10 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * @return DOMAttr|false The new DOMAttr or false if an error occurred.
      */
     public function setAttribute(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $qualifiedName,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $value
     ) {}
 
     /**
@@ -1819,8 +1898,10 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      */
     #[TentativeType]
     public function getAttributeNS(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $localName
     ): string {}
 
     /**
@@ -1839,9 +1920,12 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      */
     #[TentativeType]
     public function setAttributeNS(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $qualifiedName,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $value
     ): void {}
 
     /**
@@ -1857,8 +1941,10 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      */
     #[TentativeType]
     public function removeAttributeNS(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $localName
     ): void {}
 
     /**
@@ -1873,8 +1959,10 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * @return DOMAttr The attribute node.
      */
     public function getAttributeNodeNS(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $localName
     ) {}
 
     /**
@@ -1901,8 +1989,10 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      */
     #[TentativeType]
     public function getElementsByTagNameNS(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $localName
     ): DOMNodeList {}
 
     /**
@@ -1929,8 +2019,10 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      */
     #[TentativeType]
     public function hasAttributeNS(
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $localName
     ): bool {}
 
     /**
@@ -1947,8 +2039,10 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      */
     #[TentativeType]
     public function setIdAttribute(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isId
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $qualifiedName,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $isId
     ): void {}
 
     /**
@@ -1968,9 +2062,12 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      */
     #[TentativeType]
     public function setIdAttributeNS(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isId
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $qualifiedName,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $isId
     ): void {}
 
     /**
@@ -2033,9 +2130,12 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * @throws DOMException If invalid $qualifiedName
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
-        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $value = null,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $qualifiedName,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')]
+        $value = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $namespace = null
     ) {}
 
     /**
@@ -2370,8 +2470,10 @@ class DOMProcessingInstruction extends DOMNode
      * @param string $value [optional] The value of the processing instruction.
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $value
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $value
     ) {}
 }
 
@@ -2426,8 +2528,10 @@ class DOMXPath
      */
     #[TentativeType]
     public function registerNamespace(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $prefix,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $prefix,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $namespace
     ): bool {}
 
     /**
@@ -2450,9 +2554,13 @@ class DOMXPath
      */
     #[TentativeType]
     public function query(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] #[Language('XPath')] $expression,
-        #[LanguageLevelTypeAware(['8.0' => 'DOMNode|null'], default: '')] $contextNode = null,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $registerNodeNS = true
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        #[Language('XPath')]
+        $expression,
+        #[LanguageLevelTypeAware(['8.0' => 'DOMNode|null'], default: '')]
+        $contextNode = null,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $registerNodeNS = true
     ): mixed {}
 
     /**
@@ -2475,9 +2583,13 @@ class DOMXPath
      */
     #[TentativeType]
     public function evaluate(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] #[Language('XPath')] $expression,
-        #[LanguageLevelTypeAware(['8.0' => 'DOMNode|null'], default: '')] $contextNode = null,
-        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $registerNodeNS = true
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        #[Language('XPath')]
+        $expression,
+        #[LanguageLevelTypeAware(['8.0' => 'DOMNode|null'], default: '')]
+        $contextNode = null,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+        $registerNodeNS = true
     ): mixed {}
 
     /**

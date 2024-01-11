@@ -541,8 +541,10 @@ class ReflectionClass implements Reflector
     #[Pure]
     #[TentativeType]
     public function getStaticPropertyValue(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $default = null
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $default = null
     ): mixed {}
 
     /**
@@ -555,8 +557,10 @@ class ReflectionClass implements Reflector
      */
     #[TentativeType]
     public function setStaticPropertyValue(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+        $name,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')]
+        $value
     ): void {}
 
     /**

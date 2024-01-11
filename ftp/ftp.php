@@ -15,7 +15,8 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  * @since 7.2
  */
 function ftp_append(
-    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]
+    $ftp,
     string $remote_filename,
     string $local_filename,
     #[EV([FTP_ASCII, FTP_BINARY])]
@@ -303,7 +304,8 @@ function ftp_pasv(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default:
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function ftp_get(
-    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]
+    $ftp,
     string $local_filename,
     string $remote_filename,
     #[EV([FTP_ASCII, FTP_BINARY])]
@@ -336,7 +338,8 @@ function ftp_get(
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function ftp_fget(
-    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]
+    $ftp,
     $stream,
     string $remote_filename,
     #[EV([FTP_ASCII, FTP_BINARY])]
@@ -367,7 +370,8 @@ function ftp_fget(
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function ftp_put(
-    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]
+    $ftp,
     string $remote_filename,
     string $local_filename,
     #[EV([FTP_ASCII, FTP_BINARY])]
@@ -398,7 +402,8 @@ function ftp_put(
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function ftp_fput(
-    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]
+    $ftp,
     string $remote_filename,
     $stream,
     #[EV([FTP_ASCII, FTP_BINARY])]
@@ -581,7 +586,8 @@ function ftp_get_option(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], de
  */
 #[EV([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
 function ftp_nb_fget(
-    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]
+    $ftp,
     $stream,
     string $remote_filename,
     #[EV([FTP_ASCII, FTP_BINARY])]
@@ -615,7 +621,8 @@ function ftp_nb_fget(
 #[EV([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
 #[LanguageLevelTypeAware(["8.1" => "int|false"], default: "int")]
 function ftp_nb_get(
-    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]
+    $ftp,
     string $local_filename,
     string $remote_filename,
     #[EV([FTP_ASCII, FTP_BINARY])]
@@ -660,7 +667,8 @@ function ftp_nb_continue(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], d
  */
 #[EV([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
 function ftp_nb_put(
-    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]
+    $ftp,
     string $remote_filename,
     string $local_filename,
     #[EV([FTP_ASCII, FTP_BINARY])]
@@ -693,7 +701,8 @@ function ftp_nb_put(
  */
 #[EV([FTP_FAILED, FTP_FINISHED, FTP_MOREDATA])]
 function ftp_nb_fput(
-    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp,
+    #[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')]
+    $ftp,
     string $remote_filename,
     $stream,
     #[EV([FTP_ASCII, FTP_BINARY])]
