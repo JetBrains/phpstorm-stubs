@@ -923,7 +923,8 @@ function mb_send_mail(string $to, string $subject, string $message, array|string
     'substitute_character' => 'string',
     'strict_detection' => 'string',
 ])]
-function mb_get_info(string $type = 'all'): array|string|int|false {}
+#[LanguageLevelTypeAware(['8.2' => 'array|string|int|false'], default: 'array|string|int|false')]
+function mb_get_info(string $type = 'all') {}
 
 /**
  * Check if the string is valid for the specified encoding
