@@ -287,16 +287,12 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
      */
     public function testClassesReadonly(?PHPClass $class): void
     {
-        if ($class == null) {
-            static::markTestSkipped("No data for test");
-        } else {
-            $className = $class->name;
-            $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className);
-            static::assertEquals(
-                $class->isReadonly,
-                $stubClass->isReadonly,
-                "Readonly modifier for class $className is incorrect"
-            );
-        }
+        $className = $class->name;
+        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className);
+        static::assertEquals(
+            $class->isReadonly,
+            $stubClass->isReadonly,
+            "Readonly modifier for class $className is incorrect"
+        );
     }
 }

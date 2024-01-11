@@ -31,8 +31,11 @@ class BaseConstantsTest extends AbstractBaseStubsTestCase
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::classConstantProvider
      * @throws Exception|RuntimeException
      */
-    public function testClassConstants(PHPClass|PHPInterface $class, PHPConst $constant): void
+    public function testClassConstants(PHPClass|PHPInterface $class, ?PHPConst $constant): void
     {
+        if ($constant === null) {
+            static::markTestSkipped("No data for test");
+        }
         $constantName = $constant->name;
         $constantValue = $constant->value;
         if ($class instanceof PHPClass) {
@@ -50,8 +53,11 @@ class BaseConstantsTest extends AbstractBaseStubsTestCase
      * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::classConstantProvider
      * @throws RuntimeException
      */
-    public function testClassConstantsVisibility(PHPClass|PHPInterface $class, PHPConst $constant): void
+    public function testClassConstantsVisibility(PHPClass|PHPInterface $class, ?PHPConst $constant): void
     {
+        if ($constant === null) {
+            static::markTestSkipped("No data for test");
+        }
         $constantName = $constant->name;
         $constantVisibility = $constant->visibility;
         if ($class instanceof PHPClass) {

@@ -32,7 +32,8 @@ class ReflectionConstantsProvider
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
             ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
         foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
-            foreach (EntitiesFilter::getFiltered($class->constants) as $constant) {
+            $constants = EntitiesFilter::getFiltered($class->constants);
+            foreach ($constants as $constant) {
                 yield "constant $class->name::$constant->name" => [$class, $constant];
             }
         }
