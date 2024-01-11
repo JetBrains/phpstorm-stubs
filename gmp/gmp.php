@@ -794,7 +794,7 @@ define('GMP_NATIVE_ENDIAN', 16);
  * The GMP library version
  * @link https://php.net/manual/en/gmp.constants.php
  */
-define('GMP_VERSION', "6.2.1");
+define('GMP_VERSION', "6.3.0");
 
 define('GMP_MPIR_VERSION', '3.0.0');
 

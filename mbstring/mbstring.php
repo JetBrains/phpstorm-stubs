@@ -1465,6 +1465,6 @@ define('MB_CASE_FOLD_SIMPLE', 7);
 /**
  * @since 7.4
  */
-define('MB_ONIGURUMA_VERSION', '6.9.8');
+define('MB_ONIGURUMA_VERSION', '6.9.9');
 
 // End of mbstring v.

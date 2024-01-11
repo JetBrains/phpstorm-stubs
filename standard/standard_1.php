@@ -349,13 +349,16 @@ function stristr(string $haystack, string $needle, bool $before_needle = false):
  * If <b>needle</b> is not a string, it is converted to
  * an integer and applied as the ordinal value of a character.
  * </p>
+ * @param bool $before_needle Since 8.3 If true, strrchr() returns the part of the haystack before the last occurrence
+ * of the needle (excluding the needle).
  * @return string|false <p>
  * This function returns the portion of string, or <b>FALSE</b> if
  * <b>needle</b> is not found.
  * </p>
+ * @removed 8.3
  */
 #[Pure]
-function strrchr(string $haystack, string $needle): string|false {}
+function strrchr(string $haystack, string $needle, #[PhpStormStubsElementAvailable(from: '8.3')] bool $before_needle = false): string|false {}
 
 /**
  * Randomly shuffles a string
