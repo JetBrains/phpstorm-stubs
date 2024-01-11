@@ -2,19 +2,22 @@
 
 namespace StubTests;
 
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use RuntimeException;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\Parsers\ParserUtils;
+use StubTests\TestData\Providers\Stubs\StubMethodsProvider;
+use StubTests\TestData\Providers\Stubs\StubsParametersProvider;
 
 class StubsForbiddenTypeHintsTest extends AbstractBaseStubsTestCase
 {
     /**
-     * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForNullableReturnTypeHintTestsProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(StubMethodsProvider::class, 'methodsForNullableReturnTypeHintTestsProvider')]
     public static function testMethodDoesNotHaveNullableReturnTypeHint(PHPMethod $stubMethod)
     {
         $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
@@ -28,9 +31,9 @@ class StubsForbiddenTypeHintsTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForUnionTypeHintTestsProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(StubsParametersProvider::class, 'parametersForUnionTypeHintTestsProvider')]
     public static function testMethodDoesNotHaveUnionTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
         $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
@@ -44,9 +47,9 @@ class StubsForbiddenTypeHintsTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForNullableTypeHintTestsProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(StubsParametersProvider::class, 'parametersForNullableTypeHintTestsProvider')]
     public static function testMethodDoesNotHaveNullableTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
         $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
@@ -59,9 +62,9 @@ class StubsForbiddenTypeHintsTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForUnionReturnTypeHintTestsProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(StubMethodsProvider::class, 'methodsForUnionReturnTypeHintTestsProvider')]
     public static function testMethodDoesNotHaveUnionReturnTypeHint(PHPMethod $stubMethod)
     {
         $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
@@ -75,9 +78,9 @@ class StubsForbiddenTypeHintsTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Stubs\StubsParametersProvider::parametersForScalarTypeHintTestsProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(StubsParametersProvider::class, 'parametersForScalarTypeHintTestsProvider')]
     public static function testMethodDoesNotHaveScalarTypeHintsInParameters(PHPClass|PHPInterface $class, PHPMethod $stubMethod, PHPParameter $parameter)
     {
         $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);
@@ -90,9 +93,9 @@ class StubsForbiddenTypeHintsTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::methodsForReturnTypeHintTestsProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(StubMethodsProvider::class, 'methodsForReturnTypeHintTestsProvider')]
     public static function testMethodDoesNotHaveReturnTypeHint(PHPMethod $stubMethod)
     {
         $sinceVersion = ParserUtils::getDeclaredSinceVersion($stubMethod);

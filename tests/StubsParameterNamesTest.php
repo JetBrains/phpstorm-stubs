@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace StubTests;
 
 use JetBrains\PhpStorm\Pure;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use RuntimeException;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPFunction;
@@ -11,13 +12,14 @@ use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
+use StubTests\TestData\Providers\Reflection\ReflectionParametersProvider;
 
 class StubsParameterNamesTest extends AbstractBaseStubsTestCase
 {
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionParametersProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionParametersProvider::class, 'functionParametersProvider')]
     public function testFunctionsParameterNames(PHPFunction $function, PHPParameter $parameter)
     {
         $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($function->name);
@@ -32,9 +34,9 @@ class StubsParameterNamesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodParametersProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionParametersProvider::class, 'methodParametersProvider')]
     public function testMethodsParameterNames(PHPClass|PHPInterface $reflectionClass, PHPMethod $reflectionMethod, PHPParameter $reflectionParameter)
     {
         $className = $reflectionClass->name;

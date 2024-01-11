@@ -27,7 +27,7 @@ class ReflectionClassesTestDataProviders
     {
         foreach (EntitiesFilter::getFiltered(
             ReflectionStubsSingleton::getReflectionStubs()->getClasses(),
-            fn (PHPClass $class) => empty($class->interfaces),
+            fn(PHPClass $class) => empty($class->interfaces),
             StubProblemType::WRONG_INTERFACE
         ) as $class) {
             //exclude classes from PHPReflectionParser
@@ -43,7 +43,7 @@ class ReflectionClassesTestDataProviders
             ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
         $filtered = EntitiesFilter::getFiltered(
             $classesAndInterfaces,
-            fn ($class) => empty($class->parentInterfaces) && empty($class->parentClass),
+            fn($class) => empty($class->parentInterfaces) && empty($class->parentClass),
             StubProblemType::WRONG_PARENT
         );
         foreach ($filtered as $class) {
@@ -65,13 +65,12 @@ class ReflectionClassesTestDataProviders
         }
     }
 
-        public static function readonlyClassesProvider(): ?Generator
+    public static function readonlyClassesProvider(): ?Generator
     {
         $classes = ReflectionStubsSingleton::getReflectionStubs()->getClasses();
         $filtered = EntitiesFilter::getFiltered(
-            $classes,
-            fn (PhpClass $class) => $class->isReadonly === false,
-            StubProblemType::WRONG_READONLY
+                          $classes,
+            problemTypes: StubProblemType::WRONG_READONLY
         );
         foreach ($filtered as $class) {
             yield "class $class->name" => [$class];

@@ -13,7 +13,7 @@ use StubTests\TestData\Providers\PhpStormStubsSingleton;
 class StubsReflectionClassesTest extends AbstractBaseStubsTestCase
 {
     /**
-     * @throws Exception|RuntimeException
+     * @throws RuntimeException
      */
     public function testReflectionFunctionAbstractGetReturnTypeMethod()
     {
@@ -38,7 +38,7 @@ class StubsReflectionClassesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @throws Exception|RuntimeException
+     * @throws RuntimeException
      */
     public function testReflectionPropertyGetTypeMethod()
     {
@@ -58,7 +58,7 @@ class StubsReflectionClassesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @throws Exception|RuntimeException
+     * @throws RuntimeException
      */
     public function testReflectionParameterGetTypeMethod()
     {

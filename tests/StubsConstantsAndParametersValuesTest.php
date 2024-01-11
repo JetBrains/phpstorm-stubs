@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests;
 
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\Exception;
 use RuntimeException;
 use StubTests\Model\PHPClass;
@@ -13,12 +14,12 @@ use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
+use StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider;
+use StubTests\TestData\Providers\Reflection\ReflectionParametersProvider;
 
 class StubsConstantsAndParametersValuesTest extends AbstractBaseStubsTestCase
 {
-    /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::constantValuesProvider
-     */
+    #[DataProviderExternal(ReflectionConstantsProvider::class, 'constantValuesProvider')]
     public function testConstantsValues(PHPConst $constant): void
     {
         $constantName = $constant->name;
@@ -33,9 +34,9 @@ class StubsConstantsAndParametersValuesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionOptionalParametersWithDefaultValueProvider
-     * @throws Exception|RuntimeException
+     * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionParametersProvider::class, 'functionOptionalParametersWithDefaultValueProvider')]
     public function testFunctionsDefaultParametersValue(PHPFunction $function, PHPParameter $parameter)
     {
         $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($function->name);
@@ -58,9 +59,9 @@ class StubsConstantsAndParametersValuesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodOptionalParametersWithDefaultValueProvider
-     * @throws Exception|RuntimeException
+     * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionParametersProvider::class, 'methodOptionalParametersWithDefaultValueProvider')]
     public function testMethodsDefaultParametersValue(PHPClass|PHPInterface $class, PHPMethod $method, PHPParameter $parameter)
     {
         if ($class instanceof PHPEnum) {

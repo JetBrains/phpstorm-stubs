@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests;
 
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\Exception;
 use RuntimeException;
 use StubTests\Model\PHPClass;
@@ -12,13 +13,16 @@ use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPProperty;
 use StubTests\Model\PhpVersions;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
+use StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders;
+use StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider;
+use StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider;
 
 class BaseClassesTest extends AbstractBaseStubsTestCase
 {
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::classWithParentProvider
-     * @throws Exception|RuntimeException
+     * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionClassesTestDataProviders::class, 'classWithParentProvider')]
     public function testClassesParent(PHPClass|PHPInterface $class)
     {
         $className = $class->name;
@@ -43,9 +47,9 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsProvider
-     * @throws Exception|RuntimeException
+     * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionMethodsProvider::class, 'classMethodsProvider')]
     public function testClassesMethodsExist(PHPClass|PHPInterface|PHPEnum $class, PHPMethod $method)
     {
         $className = $class->name;
@@ -60,9 +64,9 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classFinalMethodsProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionMethodsProvider::class, 'classFinalMethodsProvider')]
     public function testClassesFinalMethods(PHPClass|PHPInterface $class, PHPMethod $method)
     {
         $className = $class->name;
@@ -81,9 +85,9 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classStaticMethodsProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionMethodsProvider::class, 'classStaticMethodsProvider')]
     public function testClassesStaticMethods(PHPClass|PHPInterface $class, PHPMethod $method)
     {
         $className = $class->name;
@@ -102,9 +106,9 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsWithAccessProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionMethodsProvider::class, 'classMethodsWithAccessProvider')]
     public function testClassesMethodsVisibility(PHPClass|PHPInterface $class, PHPMethod $method)
     {
         $className = $class->name;
@@ -123,9 +127,9 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsWithParametersProvider
-     * @throws Exception|RuntimeException
+     * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionMethodsProvider::class, 'classMethodsWithParametersProvider')]
     public function testClassMethodsParametersCount(PHPClass|PHPInterface $class, PHPMethod $method)
     {
         $className = $class->name;
@@ -156,9 +160,9 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::classesWithInterfacesProvider
-     * @throws Exception|RuntimeException
+     * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionClassesTestDataProviders::class, 'classesWithInterfacesProvider')]
     public function testClassInterfaces(PHPClass $class)
     {
         $className = $class->name;
@@ -173,9 +177,9 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider::classPropertiesProvider
-     * @throws Exception|RuntimeException
+     * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionPropertiesProvider::class, 'classPropertiesProvider')]
     public function testClassProperties(PHPClass $class, PHPProperty $property)
     {
         $className = $class->name;
@@ -186,9 +190,9 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider::classStaticPropertiesProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionPropertiesProvider::class, 'classStaticPropertiesProvider')]
     public function testClassStaticProperties(PHPClass $class, PHPProperty $property)
     {
         $className = $class->name;
@@ -201,9 +205,9 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider::classPropertiesWithAccessProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionPropertiesProvider::class, 'classPropertiesWithAccessProvider')]
     public function testClassPropertiesVisibility(PHPClass $class, PHPProperty $property)
     {
         $className = $class->name;
@@ -216,9 +220,9 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider::classPropertiesWithTypeProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionPropertiesProvider::class, 'classPropertiesWithTypeProvider')]
     public function testClassPropertiesType(PHPClass $class, PHPProperty $property)
     {
         $className = $class->name;
@@ -252,9 +256,9 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::allClassesProvider
-     * @throws Exception
+     * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionClassesTestDataProviders::class, 'allClassesProvider')]
     public function testClassesExist(PHPClass|PHPInterface $class): void
     {
         $className = $class->name;
@@ -267,9 +271,9 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::finalClassesProvider
-     * @throws Exception|RuntimeException
+     * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionClassesTestDataProviders::class, 'finalClassesProvider')]
     public function testClassesFinal(PHPClass|PHPInterface $class): void
     {
         $className = $class->name;
@@ -282,9 +286,9 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders::readonlyClassesProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionClassesTestDataProviders::class, 'readonlyClassesProvider')]
     public function testClassesReadonly(?PHPClass $class): void
     {
         $className = $class->name;
