@@ -7,7 +7,7 @@ use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
 class StubsCompositeMixedProvider
 {
-    public function expectedFunctionsMixedFalseReturnProvider(): ?Generator
+    public static function expectedFunctionsMixedFalseReturnProvider(): ?Generator
     {
         $functions = ['end', 'prev', 'next', 'reset', 'current'];
         foreach ($functions as $function) {
@@ -15,7 +15,7 @@ class StubsCompositeMixedProvider
         }
     }
 
-    public function expectedFunctionsMixedNullReturnProvider(): ?Generator
+    public static function expectedFunctionsMixedNullReturnProvider(): ?Generator
     {
         $functions = ['array_pop', 'array_shift'];
         foreach ($functions as $function) {

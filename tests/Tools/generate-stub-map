@@ -191,7 +191,7 @@ use const PHP_EOL;
         }
     };
 
-    $phpParser = (new ParserFactory())->create(ParserFactory::PREFER_PHP7);
+    $phpParser = (new ParserFactory())->createForNewestSupportedVersion();
 
     $nodeTraverser = new NodeTraverser();
     $nodeTraverser->addVisitor(new NameResolver());

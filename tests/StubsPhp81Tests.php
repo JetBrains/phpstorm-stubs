@@ -2,19 +2,22 @@
 
 namespace StubTests;
 
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use RuntimeException;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPProperty;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
+use StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider;
+use StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider;
 
 class StubsPhp81Tests extends AbstractBaseStubsTestCase
 {
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider::classReadonlyPropertiesProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionPropertiesProvider::class, 'classReadonlyPropertiesProvider')]
     public function testPropertyReadonly(PHPClass $class, PHPProperty $property)
     {
         $className = $class->name;
@@ -27,9 +30,9 @@ class StubsPhp81Tests extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider::classMethodsWithTentitiveReturnTypeProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionMethodsProvider::class, 'classMethodsWithTentitiveReturnTypeProvider')]
     public function testTentativeReturnTypeHints(PHPClass|PHPInterface $class, PHPMethod $method)
     {
         $functionName = $method->name;

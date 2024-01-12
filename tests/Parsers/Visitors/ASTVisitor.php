@@ -71,7 +71,7 @@ class ASTVisitor extends NodeVisitorAbstract
                 $this->stubs->getInterface($constant->parentName, $this->sourceFilePath, false)->addConstant($constant);
             }
         } elseif ($node instanceof FuncCall) {
-            if ($node->name->parts[0] === 'define') {
+            if ((string)$node->name === 'define') {
                 $constant = (new PHPDefineConstant())->readObjectFromStubNode($node);
                 $constant->sourceFilePath = $this->sourceFilePath;
                 if ($this->isStubCore) {

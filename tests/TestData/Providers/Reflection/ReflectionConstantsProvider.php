@@ -15,7 +15,9 @@ class ReflectionConstantsProvider
 {
     public static function constantProvider(): ?Generator
     {
-        foreach (EntitiesFilter::getFiltered(ReflectionStubsSingleton::getReflectionStubs()->getConstants()) as $constant) {
+        foreach (EntitiesFilter::getFiltered(
+            ReflectionStubsSingleton::getReflectionStubs()->getConstants()
+        ) as $constant) {
             yield "constant $constant->name" => [$constant];
         }
     }
@@ -31,8 +33,10 @@ class ReflectionConstantsProvider
     {
         $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses() +
             ReflectionStubsSingleton::getReflectionStubs()->getInterfaces();
-        foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
-            foreach (EntitiesFilter::getFiltered($class->constants) as $constant) {
+        $filteredClasses = EntitiesFilter::getFiltered($classesAndInterfaces);
+        foreach ($filteredClasses as $class) {
+            $constants = EntitiesFilter::getFiltered($class->constants);
+            foreach ($constants as $constant) {
                 yield "constant $class->name::$constant->name" => [$class, $constant];
             }
         }

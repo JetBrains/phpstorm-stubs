@@ -80,19 +80,11 @@ class PHPClass extends BasePHPClass
         $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
         $this->collectTags($node);
         if (!empty($node->extends)) {
-            $this->parentClass = '';
-            foreach ($node->extends->parts as $part) {
-                $this->parentClass .= "\\$part";
-            }
-            $this->parentClass = ltrim($this->parentClass, "\\");
+            $this->parentClass = $node->extends->name;
         }
         if (!empty($node->implements)) {
             foreach ($node->implements as $interfaceObject) {
-                $interfaceFQN = '';
-                foreach ($interfaceObject->parts as $interface) {
-                    $interfaceFQN .= "\\$interface";
-                }
-                $this->interfaces[] = ltrim($interfaceFQN, "\\");
+                $this->interfaces[] = $interfaceObject->name;
             }
         }
         if ($node->getDocComment() !== null) {
