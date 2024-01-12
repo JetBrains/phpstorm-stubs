@@ -3,19 +3,20 @@ declare(strict_types=1);
 
 namespace StubTests;
 
-use PHPUnit\Framework\Exception;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use RuntimeException;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPConst;
 use StubTests\Model\PHPInterface;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
+use StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider;
 
 class BaseConstantsTest extends AbstractBaseStubsTestCase
 {
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::constantProvider
-     * @throws Exception
+     * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionConstantsProvider::class, 'constantProvider')]
     public function testConstants(PHPConst $constant): void
     {
         $constantName = $constant->name;
@@ -28,9 +29,9 @@ class BaseConstantsTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::classConstantProvider
-     * @throws Exception|RuntimeException
+     * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionConstantsProvider::class, 'classConstantProvider')]
     public function testClassConstants(PHPClass|PHPInterface $class, PHPConst $constant): void
     {
         $constantName = $constant->name;
@@ -47,9 +48,9 @@ class BaseConstantsTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionConstantsProvider::classConstantProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionConstantsProvider::class, 'classConstantProvider')]
     public function testClassConstantsVisibility(PHPClass|PHPInterface $class, PHPConst $constant): void
     {
         $constantName = $constant->name;

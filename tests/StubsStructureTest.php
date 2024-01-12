@@ -2,15 +2,15 @@
 
 namespace StubTests;
 
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use RecursiveArrayIterator;
 use RecursiveIteratorIterator;
 use StubTests\TestData\Providers\Stubs\PhpCoreStubsProvider;
+use StubTests\TestData\Providers\Stubs\StubsTestDataProviders;
 
 class StubsStructureTest extends AbstractBaseStubsTestCase
 {
-    /**
-     * @dataProvider \StubTests\TestData\Providers\Stubs\StubsTestDataProviders::stubsDirectoriesProvider
-     */
+    #[DataProviderExternal(StubsTestDataProviders::class, 'stubsDirectoriesProvider')]
     public function testStubsDirectoryExistInMap($directory)
     {
         self::assertContains(

@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests;
 
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\Exception;
 use RuntimeException;
 use StubTests\Model\BasePHPElement;
@@ -14,13 +15,15 @@ use StubTests\Model\PHPParameter;
 use StubTests\Model\StubProblemType;
 use StubTests\TestData\Providers\EntitiesFilter;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
+use StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider;
+use StubTests\TestData\Providers\Reflection\ReflectionParametersProvider;
 
 class BaseFunctionsTest extends AbstractBaseStubsTestCase
 {
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::allFunctionsProvider
-     * @throws Exception|RuntimeException
+     * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionFunctionsProvider::class, 'allFunctionsProvider')]
     public function testFunctionsExist(PHPFunction $function): void
     {
         $functionName = $function->name;
@@ -30,9 +33,9 @@ class BaseFunctionsTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::functionsForDeprecationTestsProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionFunctionsProvider::class, 'functionsForDeprecationTestsProvider')]
     public function testFunctionsDeprecation(PHPFunction $function)
     {
         $functionName = $function->name;
@@ -44,9 +47,9 @@ class BaseFunctionsTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionFunctionsProvider::functionsForParamsAmountTestsProvider
      * @throws Exception|RuntimeException
      */
+    #[DataProviderExternal(ReflectionFunctionsProvider::class, 'functionsForParamsAmountTestsProvider')]
     public function testFunctionsParametersAmount(PHPFunction $function)
     {
         $functionName = $function->name;
@@ -67,7 +70,7 @@ class BaseFunctionsTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @throws Exception|RuntimeException
+     * @throws RuntimeException
      */
     public function testFunctionsDuplicates()
     {
@@ -85,9 +88,9 @@ class BaseFunctionsTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::functionOptionalParametersProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionParametersProvider::class, 'functionOptionalParametersProvider')]
     public function testFunctionsOptionalParameters(PHPFunction $function, PHPParameter $parameter)
     {
         $phpstormFunction = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($function->name);
@@ -127,9 +130,9 @@ class BaseFunctionsTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Reflection\ReflectionParametersProvider::methodOptionalParametersProvider
      * @throws RuntimeException
      */
+    #[DataProviderExternal(ReflectionParametersProvider::class, 'methodOptionalParametersProvider')]
     public function testMethodsOptionalParameters(PHPClass|PHPInterface $class, PHPMethod $method, PHPParameter $parameter)
     {
         if ($class instanceof PHPClass) {

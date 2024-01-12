@@ -71,17 +71,14 @@ abstract class BasePHPElement
         $fqn = '';
         if (!property_exists($node, 'namespacedName') || $node->namespacedName === null) {
             if (property_exists($node, 'name')) {
-                $fqn = $node->name->parts[0];
+                $fqn = $node->name;
             } else {
                 foreach ($node->parts as $part) {
                     $fqn .= "$part\\";
                 }
             }
         } else {
-            /** @var string $part */
-            foreach ($node->namespacedName->parts as $part) {
-                $fqn .= "$part\\";
-            }
+            return (string)$node->namespacedName;
         }
         return rtrim($fqn, "\\");
     }

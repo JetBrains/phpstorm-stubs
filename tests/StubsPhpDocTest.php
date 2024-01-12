@@ -8,6 +8,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\Link;
 use phpDocumentor\Reflection\DocBlock\Tags\Reference\Url;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
 use phpDocumentor\Reflection\DocBlock\Tags\Since;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\Exception;
 use StubTests\Model\BasePHPClass;
 use StubTests\Model\BasePHPElement;
@@ -17,14 +18,17 @@ use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\Tags\RemovedTag;
 use StubTests\Parsers\ParserUtils;
+use StubTests\TestData\Providers\Stubs\StubConstantsProvider;
+use StubTests\TestData\Providers\Stubs\StubMethodsProvider;
+use StubTests\TestData\Providers\Stubs\StubsTestDataProviders;
 use function trim;
 
 class StubsPhpDocTest extends AbstractBaseStubsTestCase
 {
     /**
-     * @dataProvider \StubTests\TestData\Providers\Stubs\StubConstantsProvider::classConstantProvider
      * @throws Exception
      */
+    #[DataProviderExternal(StubConstantsProvider::class, 'classConstantProvider')]
     public static function testClassConstantsPHPDocs(BasePHPClass $class, PHPConst $constant): void
     {
         self::assertNull($constant->parseError, $constant->parseError ?: '');
@@ -32,9 +36,9 @@ class StubsPhpDocTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Stubs\StubConstantsProvider::globalConstantProvider
      * @throws Exception
      */
+    #[DataProviderExternal(StubConstantsProvider::class, 'globalConstantProvider')]
     public static function testConstantsPHPDocs(PHPConst $constant): void
     {
         self::assertNull($constant->parseError, $constant->parseError ?: '');
@@ -42,9 +46,9 @@ class StubsPhpDocTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Stubs\StubsTestDataProviders::allFunctionsProvider
      * @throws Exception
      */
+    #[DataProviderExternal(StubsTestDataProviders::class, 'allFunctionsProvider')]
     public static function testFunctionPHPDocs(PHPFunction $function): void
     {
         self::assertNull($function->parseError, $function->parseError?->getMessage() ?: '');
@@ -52,9 +56,9 @@ class StubsPhpDocTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Stubs\StubsTestDataProviders::allClassesProvider
      * @throws Exception
      */
+    #[DataProviderExternal(StubsTestDataProviders::class, 'allClassesProvider')]
     public static function testClassesPHPDocs(BasePHPClass $class): void
     {
         self::assertNull($class->parseError, $class->parseError?->getMessage() ?: '');
@@ -62,9 +66,9 @@ class StubsPhpDocTest extends AbstractBaseStubsTestCase
     }
 
     /**
-     * @dataProvider \StubTests\TestData\Providers\Stubs\StubMethodsProvider::allMethodsProvider
      * @throws Exception
      */
+    #[DataProviderExternal(StubMethodsProvider::class, 'allMethodsProvider')]
     public static function testMethodsPHPDocs(PHPMethod $method): void
     {
         if ($method->name === '__construct') {
