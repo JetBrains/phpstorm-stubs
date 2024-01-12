@@ -15,6 +15,7 @@ return (new PhpCsFixer\Config())
         new BracesOneLineFixer(),
     ])
     ->setRules([
+        'global_namespace_import' => false,
         'array_syntax' => ['syntax' => 'short'],
         'binary_operator_spaces' => ['operators' => ['|' => 'no_space']],
         'cast_spaces' => ['space' => 'none'],
@@ -22,7 +23,7 @@ return (new PhpCsFixer\Config())
         'clean_namespace' => true,
         'concat_space' => ['spacing' => 'one'],
         'echo_tag_syntax' => true,
-        'fully_qualified_strict_types' => true,
+        'fully_qualified_strict_types' => false,
         'type_declaration_spaces' => true,
         'general_phpdoc_tag_rename' => ['replacements' => ['inheritDocs' => 'inheritDoc']],
         'include' => true,
@@ -40,7 +41,7 @@ return (new PhpCsFixer\Config())
         'no_empty_phpdoc' => true,
         'no_extra_blank_lines' => ['tokens' => [
             'case', 'continue', 'curly_brace_block', 'default', 'extra', 'parenthesis_brace_block',
-            'square_brace_block', 'switch', 'throw', 'use'
+            'square_brace_block', 'switch', 'throw', 'use', 'return'
         ]
         ],
         'class_attributes_separation' => [
@@ -92,7 +93,6 @@ return (new PhpCsFixer\Config())
         'lowercase_keywords' => true,
         'no_closing_tag' => true,
         'no_spaces_after_function_name' => true,
-        'spaces_inside_parentheses' => true,
         'single_class_element_per_statement' => ['elements' => ['property']],
         'single_import_per_statement' => true,
         'single_line_after_imports' => true,
