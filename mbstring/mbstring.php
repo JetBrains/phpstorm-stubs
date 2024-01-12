@@ -923,7 +923,8 @@ function mb_send_mail(string $to, string $subject, string $message, array|string
     'substitute_character' => 'string',
     'strict_detection' => 'string',
 ])]
-function mb_get_info(string $type = 'all'): array|string|int|false {}
+#[LanguageLevelTypeAware(['8.2' => 'array|string|int|false|null'], default: 'array|string|int|false')]
+function mb_get_info(string $type = 'all') {}
 
 /**
  * Check if the string is valid for the specified encoding
@@ -1460,6 +1461,6 @@ define('MB_CASE_FOLD_SIMPLE', 7);
 /**
  * @since 7.4
  */
-define('MB_ONIGURUMA_VERSION', '6.9.8');
+define('MB_ONIGURUMA_VERSION', '6.9.9');
 
 // End of mbstring v.
