@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace StubTests;
 
-use PHPUnit\Framework\Exception;
 use RuntimeException;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
