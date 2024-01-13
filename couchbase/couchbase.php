@@ -1856,7 +1856,7 @@ class Collection
      * non-null value in error() property of the corresponding result object.
      *
      * @param array $ids array of IDs, organized like this ["key1", "key2", ...]
-     * @param GetOptions $options the options to use for the operation
+     * @param RemoveOptions $options the options to use for the operation
      * @return array array of GetResult, one for each of the entries
      */
     public function getMulti(array $ids, RemoveOptions $options = null): array {}
