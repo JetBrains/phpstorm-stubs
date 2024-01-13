@@ -58,6 +58,28 @@ class RedisSentinel
     ) {}
 
     /**
+     * Creates a Redis Sentinel
+     *
+     * Accepts and array of options.
+     *
+     * Available options:
+     *   - 'host' => string, Sentinel IP address or hostname
+     *   - 'port' => int, Sentinel Port (optional, default is 26379)
+     *   - 'connectTimeout' => float, Value in seconds (optional, default is 0 meaning unlimited)
+     *   - 'persistent' => string, Persistent connection id (optional, default is NULL meaning not persistent)
+     *   - 'retryInterval' => int, Value in milliseconds (optional, default is 0)
+     *   - 'readTimeout' => float, Value in seconds (optional, default is 0 meaning unlimited)
+     *   - 'auth' => string|array, Authentication credentials (optional, default is NULL meaning NOAUTH)
+     *
+     * @param array $options Associative array of options
+     *
+     * @example $sentinel = new RedisSentinel(['host' => '127.0.0.1']); // default parameters
+     *
+     * @since >= 6.0.0
+     */
+    public function __construct(array $options) {}
+
+    /**
      * Check if the current Sentinel configuration is able to reach the quorum needed to failover a master, and the
      * majority needed to authorize the failover. This command should be used in monitoring systems to check if a
      * Sentinel deployment is ok.
