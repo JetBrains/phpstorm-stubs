@@ -12,7 +12,7 @@ jobs:
     name: Run tests against php ${{matrix.php}}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build Docker Container
         run: docker-compose -f docker-compose.yml build >/dev/null
@@ -38,7 +38,7 @@ jobs:
     name: Run cs-fixer and stubs structure tests
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Composer Install
         run: docker-compose -f docker-compose.yml run test_runner composer install
