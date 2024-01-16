@@ -1572,7 +1572,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param TKey $key <p>
      * The index with the value.
      * </p>
-     * @return mixed|false The value at the specified index or false.
+     * @return TValue|false The value at the specified index or false.
      */
     #[TentativeType]
     public function offsetGet(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key): mixed {}
