@@ -195,7 +195,7 @@ function bin2hex(string $string): string {}
  */
 #[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
-function sleep(int $seconds): int {}
+function sleep(int $seconds) {}
 
 /**
  * Delay execution in microseconds
