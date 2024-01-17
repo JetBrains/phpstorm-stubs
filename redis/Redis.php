@@ -5527,7 +5527,7 @@ class Redis
      * (this is more efficient)
      *
      * @param string $stream    The STREAM key to trim.
-     * @param string $threshold This can either be a maximum length, or a minimum id.
+     * @param int    $threshold This can either be a maximum length, or a minimum id.
      *                          MAXLEN - An integer describing the maximum desired length of the stream after the command.
      *                          MINID  - An ID that will become the new minimum ID in the stream, as Redis will trim all
      *                          messages older than this ID.
