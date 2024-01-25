@@ -354,7 +354,7 @@ final class Yaf_Dispatcher
     public function enableView() {}
 
     /**
-     * @return Yaf_Response_Abstract|NULL
+     * @return Yaf_Response_Abstract|null
      */
     public function getResponse() {}
 
@@ -574,7 +574,7 @@ final class Yaf_Dispatcher
 
     /**
      * @param Yaf_Response_Abstract $response
-     * @return Yaf_Dispatcher|NULL
+     * @return Yaf_Dispatcher|null
      */
     public function setResponse($response) {}
 }
@@ -729,7 +729,7 @@ class Yaf_Loader
     /**
      * @param string|array<mixed> $namespace
      * @param string $path
-     * @return Yaf_Loader|NULL|FALSE
+     * @return Yaf_Loader|null|false
      */
     public function registerNamespace($namespace, $path = '') {}
 
@@ -1001,7 +1001,7 @@ final class Yaf_Session implements Iterator, ArrayAccess, Countable
     public function __unset($name) {}
 
     /**
-     * @return Yaf_Session|NULL|FALSE
+     * @return Yaf_Session|null|false
      */
     public function clear() {}
 }
@@ -1565,7 +1565,7 @@ abstract class Yaf_Request_Abstract
     public function getRaw() {}
 
     /**
-     * @return Yaf_Request_Abstract|NULL
+     * @return Yaf_Request_Abstract|null
      */
     public function clearParams() {}
 
@@ -1700,7 +1700,7 @@ abstract class Yaf_Request_Abstract
      * @param string|array<mixed> $name the variable name, or an array of key=>value pairs
      * @param string $value
      *
-     * @return Yaf_Request_Abstract|bool|NULL
+     * @return Yaf_Request_Abstract|bool|null
      */
     public function setParam($name, $value = null) {}
 
@@ -1778,7 +1778,7 @@ abstract class Yaf_Request_Abstract
 
     /**
      * @param string $uri request URI
-     * @return Yaf_Request_Abstract|NULL
+     * @return Yaf_Request_Abstract|null
      * @link https://secure.php.net/manual/en/yaf-request-abstract.setrequesturi.php
      *
      * @since 2.1.0
@@ -1790,7 +1790,7 @@ abstract class Yaf_Request_Abstract
      *
      * @link https://secure.php.net/manual/en/yaf-request-abstract.setdispatched.php
      * @param bool $dispatched
-     * @return Yaf_Request_Abstract|NULL
+     * @return Yaf_Request_Abstract|null
      */
     final public function setDispatched($dispatched = null) {}
 
@@ -1799,7 +1799,7 @@ abstract class Yaf_Request_Abstract
      *
      * @link https://secure.php.net/manual/en/yaf-request-abstract.setrouted.php
      * @param bool $flag
-     * @return Yaf_Request_Abstract|NULL
+     * @return Yaf_Request_Abstract|null
      */
     final public function setRouted($flag = null) {}
 
@@ -2167,15 +2167,17 @@ interface Yaf_Route_Interface
 class Yaf_Exception extends Exception
 {
     /**
-     * @var string $message
+     * @var string
      */
     protected $message;
+
     /**
-     * @var string $code
+     * @var string
      */
     protected $code;
+
     /**
-     * @var string $previous
+     * @var string
      */
     protected $previous;
 }
