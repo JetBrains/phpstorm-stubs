@@ -142,7 +142,7 @@ function openssl_pkey_get_public(#[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsym
  * Depending on the key type used, additional details may be returned. Note that
  * some elements may not always be available.
  */
-#[ArrayShape(["bits" => "int", "key" => "string", "rsa" => "array", "dsa" => "array", "dh" => "array", "type" => "int"])]
+#[ArrayShape(["bits" => "int", "key" => "string", "rsa" => "array", "dsa" => "array", "dh" => "array", "ec" => "array", "type" => "int"])]
 function openssl_pkey_get_details(#[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey"], default: "resource")] $key): array|false {}
 
 /**
