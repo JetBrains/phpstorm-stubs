@@ -74,6 +74,7 @@ class PhpCoreStubsProvider
             'pdo_mysql',
             'pdo_pgsql',
             'pdo_sqlite',
+            'Pest',
             'pgsql',
             'pspell',
             'readline',
