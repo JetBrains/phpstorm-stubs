@@ -1,6 +1,6 @@
 <?php
 
-// Stubs for ext-uv: https://github.com/bwoebi/php-uv
+// Stubs for ext-uv: https://github.com/amphp/php-uv
 
 /**
  * Decrement reference.
@@ -55,10 +55,11 @@ function uv_ref($uv_handle) {}
  * Run event loop.
  *
  * @param resource|null $uv_loop uv_loop resource.
+ * @param int $run_mode Run flags.
  *
  * @return void
  */
-function uv_run($uv_loop = null) {}
+function uv_run($uv_loop = null, $run_mode = UV::RUN_DEFAULT) {}
 
 /**
  * @param resource|null $uv_loop
