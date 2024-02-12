@@ -154,11 +154,11 @@ function uv_shutdown($handle, callable $callback) {}
  * Close uv handle.
  *
  * @param resource $handle uv resources (uv_tcp, uv_udp, uv_pipe ...etc.).
- * @param callable $callback callable variables. this callback expects (resource $handle, long $status).
+ * @param ?callable $callback callable variables. this callback expects (resource $handle, long $status).
  *
  * @return void
  */
-function uv_close($handle, callable $callback) {}
+function uv_close($handle, callable $callback = null) {}
 
 /**
  * Starts read callback for uv resources.
