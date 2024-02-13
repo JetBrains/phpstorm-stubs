@@ -48,7 +48,7 @@ final class Yaf_Application
     protected $dispatcher;
 
     /**
-     * @var array<mixed>
+     * @var array
      */
     protected $_modules;
 
@@ -77,7 +77,6 @@ final class Yaf_Application
     /**
      * @link https://secure.php.net/manual/en/yaf-application.construct.php
      *
-     * @param string|array $config A ini config file path, or a config array
      * <p>
      * If is a ini config file, there should be a section named as the one defined by yaf.environ, which is "product" by default.
      * </p>
@@ -118,7 +117,7 @@ final class Yaf_Application
      * ap.modules=Index
      * </p>
      *
-     * @param string|array<mixed> $config A ini config file path, or a config array
+     * @param string|array $config A ini config file path, or a config array
      * @param string $environ Which section will be loaded as the final config
      *
      * @throws Yaf_Exception_TypeError|Yaf_Exception_StartupError
@@ -188,7 +187,7 @@ final class Yaf_Application
      *
      * @link https://secure.php.net/manual/en/yaf-application.getmodules.php
      *
-     * @return array<mixed>
+     * @return array
      */
     public function getModules() {}
 
@@ -390,7 +389,7 @@ final class Yaf_Dispatcher
      * @link https://secure.php.net/manual/en/yaf-dispatcher.initview.php
      *
      * @param string $templates_dir
-     * @param array<mixed>|null $options
+     * @param array|null $options
      * @return Yaf_View_Interface
      */
     public function initView($templates_dir, ?array $options = null) {}
@@ -727,7 +726,7 @@ class Yaf_Loader
     public function getLibraryPath($is_global = false) {}
 
     /**
-     * @param string|array<mixed> $namespace
+     * @param string|array $namespace
      * @param string $path
      * @return Yaf_Loader|null|false
      */
@@ -752,7 +751,7 @@ final class Yaf_Registry
     protected static $_instance;
 
     /**
-     * @var array<mixed>
+     * @var array
      */
     protected $_entries;
 
@@ -822,7 +821,7 @@ final class Yaf_Session implements Iterator, ArrayAccess, Countable
     protected static $_instance;
 
     /**
-     * @var array<mixed>
+     * @var array
      */
     protected $_session;
 
@@ -937,7 +936,6 @@ final class Yaf_Session implements Iterator, ArrayAccess, Countable
     public function key() {}
 
     /**
-     * @param string $name
      * @see ArrayAccess::offsetUnset
      * @param mixed $offset
      * @return void
@@ -945,8 +943,6 @@ final class Yaf_Session implements Iterator, ArrayAccess, Countable
     public function offsetUnset($offset) {}
 
     /**
-     * @param string $name
-     * @return mixed
      * @see ArrayAccess::offsetGet
      * @param mixed $offset
      * @return mixed
@@ -961,9 +957,6 @@ final class Yaf_Session implements Iterator, ArrayAccess, Countable
     public function offsetExists($offset) {}
 
     /**
-     * @param string $name
-     * @param string $value
-     * @return void
      * @see ArrayAccess::offsetSet
      * @param mixed $offset
      * @param mixed $value
@@ -1130,7 +1123,7 @@ abstract class Yaf_Controller_Abstract
 {
     /**
      * @see Yaf_Action_Abstract
-     * @var array<mixed> You can also define a action method in a separate PHP script by using this property and Yaf_Action_Abstract.
+     * @var array You can also define a action method in a separate PHP script by using this property and Yaf_Action_Abstract.
      */
     public $actions;
 
@@ -1155,7 +1148,7 @@ abstract class Yaf_Controller_Abstract
     protected $_response;
 
     /**
-     * @var array<mixed>
+     * @var array
      */
     protected $_invoke_args;
 
@@ -1168,7 +1161,7 @@ abstract class Yaf_Controller_Abstract
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.render.php
      *
      * @param string $tpl
-     * @param array<mixed>|null $parameters
+     * @param array|null $parameters
      *
      * @return string|null|bool
      */
@@ -1178,7 +1171,7 @@ abstract class Yaf_Controller_Abstract
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.display.php
      *
      * @param string $tpl
-     * @param array<mixed>|null $parameters
+     * @param array|null $parameters
      *
      * @return bool
      */
@@ -1226,7 +1219,7 @@ abstract class Yaf_Controller_Abstract
     public function getName() {}
 
     /**
-     * @param array<mixed>|null $options
+     * @param array|null $options
      *
      * @return Yaf_Response_Abstract
      * @deprecated not_implemented
@@ -1266,7 +1259,7 @@ abstract class Yaf_Controller_Abstract
      * @param string $module destination module name, if NULL was given, then default module name is assumed
      * @param string $controller destination controller name
      * @param string $action destination action name
-     * @param array<mixed>|null $parameters calling arguments
+     * @param array|null $parameters calling arguments
      *
      * @return bool return FALSE on failure
      */
@@ -1286,7 +1279,7 @@ abstract class Yaf_Controller_Abstract
     /**
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.getinvokeargs.php
      *
-     * @return array<mixed>
+     * @return array
      */
     public function getInvokeArgs() {}
 
@@ -1294,7 +1287,7 @@ abstract class Yaf_Controller_Abstract
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.getinvokearg.php
      * @param string $name
      *
-     * @return mixed|null
+     * @return mixed
      */
     public function getInvokeArg($name) {}
 
@@ -1311,7 +1304,7 @@ abstract class Yaf_Controller_Abstract
      * @param Yaf_Request_Abstract $request
      * @param Yaf_Response_Abstract $response
      * @param Yaf_View_Interface $view
-     * @param array<mixed>|null $args
+     * @param array|null $args
      * @see Yaf_Controller_Abstract::init()
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.construct.php
      */
@@ -1372,7 +1365,7 @@ abstract class Yaf_Action_Abstract extends Yaf_Controller_Abstract
 abstract class Yaf_Config_Abstract implements Iterator, ArrayAccess, Countable
 {
     /**
-     * @var array<mixed>
+     * @var array
      */
     protected $_config = null;
 
@@ -1436,7 +1429,7 @@ abstract class Yaf_Config_Abstract implements Iterator, ArrayAccess, Countable
     /** @return bool */
     abstract public function readonly(): bool;
 
-    /** @return array<mixed> */
+    /** @return array */
     abstract public function toArray(): array;
 
     /**
@@ -1514,7 +1507,7 @@ abstract class Yaf_Request_Abstract
     public $method;
 
     /**
-     * @var array<mixed>
+     * @var array
      */
     protected $params;
 
@@ -1653,7 +1646,7 @@ abstract class Yaf_Request_Abstract
      * @link https://secure.php.net/manual/en/yaf-request-abstract.getparam.php
      *
      * @param string $name
-     * @param ?mixed $default
+     * @param mixed $default
      *
      * @return mixed
      */
@@ -1662,7 +1655,7 @@ abstract class Yaf_Request_Abstract
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.getparams.php
      *
-     * @return array<mixed>
+     * @return array
      */
     public function getParams() {}
 
@@ -1697,7 +1690,7 @@ abstract class Yaf_Request_Abstract
     /**
      * @link https://secure.php.net/manual/en/yaf-request-abstract.setparam.php
      *
-     * @param string|array<mixed> $name the variable name, or an array of key=>value pairs
+     * @param string|array $name the variable name, or an array of key=>value pairs
      * @param string $value
      *
      * @return Yaf_Request_Abstract|bool|null
@@ -1826,7 +1819,7 @@ abstract class Yaf_Request_Abstract
 
     /**
      * @param string $name
-     * @param mixed|null $default
+     * @param mixed $default
      * @return mixed
      */
     public function getPost(string $name = '', $default = null) {}
@@ -2081,8 +2074,8 @@ interface Yaf_View_Interface
      *
      * @link https://secure.php.net/manual/en/yaf-view-interface.assign.php
      *
-     * @param string|array<mixed> $name
-     * @param mixed|null $value
+     * @param string|array $name
+     * @param mixed $value
      * @return Yaf_View_Interface|bool
      */
     public function assign($name, $value = '');
@@ -2093,7 +2086,7 @@ interface Yaf_View_Interface
      * @link https://secure.php.net/manual/en/yaf-view-interface.display.php
      *
      * @param string $tpl
-     * @param array<mixed> $tpl_vars
+     * @param array $tpl_vars
      * @return bool
      */
     public function display($tpl, $tpl_vars = null);
@@ -2111,7 +2104,7 @@ interface Yaf_View_Interface
      * @link https://secure.php.net/manual/en/yaf-view-interface.render.php
      *
      * @param string $tpl
-     * @param array<mixed> $tpl_vars
+     * @param array $tpl_vars
      * @return string|bool
      */
     public function render($tpl, $tpl_vars = null);
@@ -2154,8 +2147,8 @@ interface Yaf_Route_Interface
      *
      * @link https://secure.php.net/manual/en/yaf-route-interface.assemble.php
      *
-     * @param array<mixed> $info
-     * @param array<mixed>|null $query
+     * @param array $info
+     * @param array|null $query
      * @return bool
      */
     public function assemble(array $info, ?array $query = null);
@@ -2211,7 +2204,7 @@ class Yaf_Response_Http extends Yaf_Response_Abstract
     /**
      * @link https://secure.php.net/manual/en/yaf-response-abstract.setallheaders.php
      *
-     * @param array<mixed> $headers
+     * @param array $headers
      * @return bool
      */
     public function setAllHeaders($headers) {}
@@ -2303,7 +2296,7 @@ class Yaf_Request_Simple extends Yaf_Request_Abstract
      * @param string $module
      * @param string $controller
      * @param string $action
-     * @param array<mixed> $params
+     * @param array $params
      *
      * @throws Yaf_Exception_TypeError
      */
@@ -2357,7 +2350,7 @@ class Yaf_Config_Ini extends Yaf_Config_Abstract implements Iterator, ArrayAcces
 
     /**
      * @see Yaf_Config_Abstract::toArray
-     * @return array<mixed>
+     * @return array
      */
     public function toArray(): array {}
 
@@ -2485,7 +2478,7 @@ class Yaf_Config_Simple extends Yaf_Config_Abstract implements Iterator, ArrayAc
 
     /**
      * @see Yaf_Config_Abstract::toArray
-     * @return array<mixed>
+     * @return array
      */
     public function toArray(): array {}
 
@@ -2580,12 +2573,12 @@ class Yaf_View_Simple implements Yaf_View_Interface
     protected $_tpl_dir;
 
     /**
-     * @var array<mixed>
+     * @var array
      */
     protected $_tpl_vars;
 
     /**
-     * @var array<mixed>
+     * @var array
      */
     protected $_options;
 
@@ -2593,7 +2586,7 @@ class Yaf_View_Simple implements Yaf_View_Interface
      * @link https://secure.php.net/manual/en/yaf-view-simple.construct.php
      *
      * @param string $template_dir The base directory of the templates, by default, it is APPLICATION . "/views" for Yaf.
-     * @param array<mixed>|null $options <p>Options for the engine, as of Yaf 2.1.13, you can use short tag
+     * @param array|null $options <p>Options for the engine, as of Yaf 2.1.13, you can use short tag
      * "<?=$var?>" in your template(regardless of "short_open_tag"),
      * so comes a option named "short_tag",  you can switch this off
      * to prevent use short_tag in template.
@@ -2614,7 +2607,7 @@ class Yaf_View_Simple implements Yaf_View_Interface
      *
      * @link https://secure.php.net/manual/en/yaf-view-simple.assign.php
      *
-     * @param string|array<mixed> $name A string or an array.<br/>if is string, then the next argument $value is required.
+     * @param string|array $name A string or an array.<br/>if is string, then the next argument $value is required.
      * @param mixed $value mixed value
      * @return Yaf_View_Interface|bool
      */
@@ -2624,7 +2617,7 @@ class Yaf_View_Simple implements Yaf_View_Interface
      * @link https://secure.php.net/manual/en/yaf-view-simple.render.php
      *
      * @param string $tpl
-     * @param array<mixed> $tpl_vars
+     * @param array $tpl_vars
      *
      * @throws Yaf_Exception_LoadFailed_View
      *
@@ -2638,7 +2631,7 @@ class Yaf_View_Simple implements Yaf_View_Interface
      * @link https://secure.php.net/manual/en/yaf-view-simple.display.php
      *
      * @param string $tpl
-     * @param array<mixed> $tpl_vars
+     * @param array $tpl_vars
      *
      * @throws Yaf_Exception_LoadFailed_View
      *
@@ -2713,7 +2706,7 @@ class Yaf_View_Simple implements Yaf_View_Interface
      * <p>Render a string template and return the result.</p>
      * @link https://secure.php.net/manual/en/yaf-view-simple.eval.php
      * @param string $tpl_str string template
-     * @param array<mixed> $vars
+     * @param array $vars
      * @return void|false return FALSE on failure
      */
     public function eval($tpl_str, $vars = null) {}
@@ -2760,8 +2753,8 @@ class Yaf_Route_Static implements Yaf_Route_Interface
      *
      * @link https://secure.php.net/manual/en/yaf-route-static.assemble.php
      *
-     * @param array<mixed> $info
-     * @param array<mixed>|null $query
+     * @param array $info
+     * @param array|null $query
      * @return bool
      */
     public function assemble(array $info, ?array $query = null) {}
@@ -2822,8 +2815,8 @@ final class Yaf_Route_Simple implements Yaf_Route_Interface
      *
      * @link https://secure.php.net/manual/en/yaf-route-simple.assemble.php
      *
-     * @param array<mixed> $info
-     * @param array<mixed>|null $query
+     * @param array $info
+     * @param array|null $query
      * @return bool
      */
     public function assemble(array $info, ?array $query = null) {}
@@ -2864,8 +2857,8 @@ final class Yaf_Route_Supervar implements Yaf_Route_Interface
      *
      * @link https://secure.php.net/manual/en/yaf-route-supervar.assemble.php
      *
-     * @param array<mixed> $info
-     * @param array<mixed>|null $query
+     * @param array $info
+     * @param array|null $query
      * @return bool
      */
     public function assemble(array $info, ?array $query = null) {}
@@ -2884,12 +2877,12 @@ final class Yaf_Route_Rewrite extends Yaf_Router implements Yaf_Route_Interface
     protected $_route;
 
     /**
-     * @var array<mixed>
+     * @var array
      */
     protected $_default;
 
     /**
-     * @var array<mixed>
+     * @var array
      */
     protected $_verify;
 
@@ -2897,11 +2890,11 @@ final class Yaf_Route_Rewrite extends Yaf_Router implements Yaf_Route_Interface
      * @link https://secure.php.net/manual/en/yaf-route-rewrite.construct.php
      *
      * @param string $match A pattern, will be used to match a request uri, if doesn't matched, Yaf_Route_Rewrite will return FALSE.
-     * @param array<mixed> $route <p>When the match pattern matches the request uri, Yaf_Route_Rewrite will use this to decide which m/c/a to routed.</p>
+     * @param array $route <p>When the match pattern matches the request uri, Yaf_Route_Rewrite will use this to decide which m/c/a to routed.</p>
      * <br/>
      * <p>either of m/c/a in this array is optional, if you don't assign a specific value, it will be routed to default.</p>
-     * @param array<mixed> $verify
-     * @param string $reverse
+     * @param array|null $verify
+     * @param string|null $reverse
      *
      * @throws Yaf_Exception_TypeError
      */
@@ -2921,8 +2914,8 @@ final class Yaf_Route_Rewrite extends Yaf_Router implements Yaf_Route_Interface
      *
      * @link https://secure.php.net/manual/en/yaf-route-rewrite.assemble.php
      *
-     * @param array<mixed> $info
-     * @param array<mixed>|null $query
+     * @param array $info
+     * @param array|null $query
      * @return bool
      */
     public function assemble(array $info, ?array $query = null) {}
@@ -2947,17 +2940,17 @@ final class Yaf_Route_Regex extends Yaf_Router implements Yaf_Route_Interface
     protected $_route;
 
     /**
-     * @var array<mixed>
+     * @var array
      */
     protected $_default;
 
     /**
-     * @var array<mixed>
+     * @var array
      */
     protected $_maps;
 
     /**
-     * @var array<mixed>
+     * @var array
      */
     protected $_verify;
 
@@ -2970,11 +2963,11 @@ final class Yaf_Route_Regex extends Yaf_Router implements Yaf_Route_Interface
      * @link https://secure.php.net/manual/en/yaf-route-regex.construct.php
      *
      * @param string $match A complete Regex pattern, will be used to match a request uri, if doesn't matched, Yaf_Route_Regex will return FALSE.
-     * @param array<mixed> $route <p>When the match pattern matches the request uri, Yaf_Route_Regex will use this to decide which m/c/a to routed.</p>
+     * @param array $route <p>When the match pattern matches the request uri, Yaf_Route_Regex will use this to decide which m/c/a to routed.</p>
      * <br/>
      * <p>either of m/c/a in this array is optional, if you don't assign a specific value, it will be routed to default.</p>
-     * @param array<mixed>|null $map A array to assign name to the captures in the match result.
-     * @param array<mixed>|null $verify
+     * @param array|null $map A array to assign name to the captures in the match result.
+     * @param array|null $verify
      * @param string $reverse
      *
      * @throws Yaf_Exception_TypeError
@@ -2997,11 +2990,11 @@ final class Yaf_Route_Regex extends Yaf_Router implements Yaf_Route_Interface
      *
      * @link https://secure.php.net/manual/en/yaf-route-regex.assemble.php
      *
-     * @param array<mixed> $info
-     * @param array<mixed> $query
+     * @param array $info
+     * @param array|null $query
      * @return bool
      */
-    public function assemble(array $info, ?array $query = null) {}
+    public function assemble(array $info, array $query = null) {}
 
     /**
      * @param string $uri
@@ -3051,8 +3044,8 @@ final class Yaf_Route_Map implements Yaf_Route_Interface
      *
      * @link https://secure.php.net/manual/en/yaf-route-map.assemble.php
      *
-     * @param array<mixed> $info
-     * @param array<mixed>|null $query
+     * @param array $info
+     * @param array|null $query
      * @return bool
      */
     public function assemble(array $info, ?array $query = null) {}
