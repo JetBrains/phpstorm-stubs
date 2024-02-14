@@ -2374,7 +2374,7 @@ class Redis
      *
      * @param string $pattern pattern, using '*' as a wildcard
      *
-     * @return array|false|Redis The keys that match a certain pattern or Redis if in multimode
+     * @return list<string>|false|Redis The keys that match a certain pattern or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -4112,7 +4112,7 @@ class Redis
      *
      * @param string $key
      *
-     * @return array|false|Redis An array of elements, the keys of the hash. This works like PHP's array_keys() or Redis if in multimode
+     * @return list<string>|false|Redis An array of elements, the keys of the hash. This works like PHP's array_keys() or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -4147,7 +4147,7 @@ class Redis
      *
      * @param string $key
      *
-     * @return array|false|Redis An array of elements, the values of the hash. This works like PHP's array_values() or Redis if in multimode
+     * @return list<mixed>|false|Redis An array of elements, the values of the hash. This works like PHP's array_values() or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -4182,7 +4182,7 @@ class Redis
      *
      * @param string $key
      *
-     * @return array|false|Redis An array of elements, the contents of the hash or Redis if in multimode
+     * @return array<string, mixed>|false|Redis An array of elements, the contents of the hash or Redis if in multimode
      *
      * @throws RedisException
      *
