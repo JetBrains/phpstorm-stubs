@@ -710,7 +710,7 @@ function header(string $header, bool $replace = true, int $response_code = 0): v
  * This parameter is case-insensitive.
  * @return void
  */
-function header_remove(?string $name): void {}
+function header_remove(?string $name = null): void {}
 
 /**
  * Checks if or where headers have been sent
