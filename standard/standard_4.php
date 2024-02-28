@@ -728,7 +728,7 @@ function header_remove(?string $name = null): void {}
  * @return bool headers_sent will return false if no HTTP headers
  * have already been sent or true otherwise.
  */
-function headers_sent(string &$filename = null, int &$line = null): bool {}
+function headers_sent(&$filename = null, &$line = null): bool {}
 
 /**
  * Returns a list of response headers sent (or ready to send)
