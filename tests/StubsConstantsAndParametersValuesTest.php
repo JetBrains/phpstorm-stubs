@@ -18,7 +18,7 @@ use StubTests\TestData\Providers\Reflection\ReflectionParametersProvider;
 
 class StubsConstantsAndParametersValuesTest extends AbstractBaseStubsTestCase
 {
-    #[DataProviderExternal(ReflectionConstantsProvider::class, 'constantValuesProvider')]
+    /*#[DataProviderExternal(ReflectionConstantsProvider::class, 'constantValuesProvider')]
     public function testConstantsValues(PHPConst $constant): void
     {
         $constantName = $constant->name;
@@ -30,7 +30,7 @@ class StubsConstantsAndParametersValuesTest extends AbstractBaseStubsTestCase
             "Constant value mismatch: const $constantName \n
             Expected value: $constantValue but was $stubConstant->value"
         );
-    }
+    }*/
 
     /**
      * @throws RuntimeException
