@@ -2543,7 +2543,7 @@ class Spoofchecker
      * </p>
      * @param string $string2 <p>
      * </p>
-     * @param string &$errorCode [optional] <p>
+     * @param int &$errorCode [optional] <p>
      * </p>
      * @return bool
      */
