@@ -810,8 +810,8 @@ final class Yaf_Registry
 /**
  * @link https://secure.php.net/manual/en/class.yaf-session.php
  * @version 2.2.9
- * @implements \Iterator<mixed,mixed>
- * @implements \ArrayAccess<mixed,mixed>
+ * @implements \Iterator
+ * @implements \ArrayAccess
  */
 final class Yaf_Session implements Iterator, ArrayAccess, Countable
 {
@@ -1359,8 +1359,8 @@ abstract class Yaf_Action_Abstract extends Yaf_Controller_Abstract
 
 /**
  * @link https://secure.php.net/manual/en/class.yaf-config-abstract.php
- * @implements \Iterator<mixed,mixed>
- * @implements \ArrayAccess<mixed,mixed>
+ * @implements \Iterator
+ * @implements \ArrayAccess
  */
 abstract class Yaf_Config_Abstract implements Iterator, ArrayAccess, Countable
 {
@@ -2308,13 +2308,13 @@ class Yaf_Request_Simple extends Yaf_Request_Abstract
  * <b>Note:</b>
  * <p>Yaf_Config_Ini utilizes the » parse_ini_file() PHP function. Please review this documentation to be aware of its specific behaviors, which propagate to Yaf_Config_Ini, such as how the special values of "TRUE", "FALSE", "yes", "no", and "NULL" are handled.</p>
  * @link https://secure.php.net/manual/en/class.yaf-config-ini.php
- * @implements \Iterator<int,int>
- * @implements \ArrayAccess<int,int>
+ * @implements \Iterator
+ * @implements \ArrayAccess
  */
 class Yaf_Config_Ini extends Yaf_Config_Abstract implements Iterator, ArrayAccess, Countable
 {
     /**
-     * @param array<string,mixed>|string $config_file
+     * @param array|string $config_file
      * @param ?string $section
      * @throws Yaf_Exception_TypeError
      */
@@ -2436,13 +2436,13 @@ class Yaf_Config_Ini extends Yaf_Config_Abstract implements Iterator, ArrayAcces
 
 /**
  * @link https://secure.php.net/manual/en/class.yaf-config-simple.php
- * @implements \Iterator<string,mixed>
- * @implements \ArrayAccess<string,mixed>
+ * @implements \Iterator
+ * @implements \ArrayAccess
  */
 class Yaf_Config_Simple extends Yaf_Config_Abstract implements Iterator, ArrayAccess, Countable
 {
     /**
-     * @param array<string,mixed>|string $config_file
+     * @param array|string $config_file
      * @param ?string $section
      * @throws Yaf_Exception_TypeError
      */
