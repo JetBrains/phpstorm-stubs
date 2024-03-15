@@ -615,7 +615,7 @@ function array_udiff_assoc(
  * </p>
  * @param array ...$rest [optional]
  * @return array an array containing all the values and keys from
- * array1 that are not present in any of the other arrays.
+ * <code>array</code> that are not present in any of the other arrays.
  * @meta
  */
 function array_diff_uassoc(
@@ -658,7 +658,7 @@ function array_diff_uassoc(
  * </p>
  * @param array ...$rest [optional]
  * @return array an array containing all the values and keys from
- * array1 that are not present in any of the other
+ * <code>array</code> that are not present in any of the other
  * arguments.
  * @meta
  */
