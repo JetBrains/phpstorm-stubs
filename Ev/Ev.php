@@ -1576,7 +1576,7 @@ final class EvLoop
      * @param mixed $data
      * @param float $io_interval
      * @param float $timeout_interval
-     * @return EvLoop 
+     * @return EvLoop
      */
     public static function defaultLoop(
         int $flags = Ev::FLAG_AUTO,
