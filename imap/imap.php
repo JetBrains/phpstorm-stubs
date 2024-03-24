@@ -165,7 +165,7 @@ function imap_headers(#[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], def
  * </dl>
  */
 function imap_headerinfo(
-    #[LanguageLevelTypeAware(['8.0' => 'IMAP\Connection'], default: 'resource')] $imap,
+    #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
     int $message_num,
     int $from_length = 0,
     int $subject_length = 0,
