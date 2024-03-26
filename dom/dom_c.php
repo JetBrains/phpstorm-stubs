@@ -1320,7 +1320,7 @@ class DOMNodeList implements IteratorAggregate, Countable
      * Index of the node into the collection.
      * The range of valid child node indices is 0 to length - 1 inclusive.
      * </p>
-     * @return DOMNode|null The node at the indexth position in the
+     * @return DOMElement|DOMNode|DOMNameSpaceNode|null The node at the indexth position in the
      * DOMNodeList, or null if that is not a valid
      * index.
      */
