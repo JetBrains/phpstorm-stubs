@@ -120,7 +120,7 @@ function json_encode(mixed $value, int $flags = 0, int $depth = 512): string|fal
  * {@see JSON_BIGINT_AS_STRING} decodes large integers as their original string value.<br/>
  * {@see JSON_INVALID_UTF8_IGNORE} ignores invalid UTF-8 characters,<br/>
  * {@see JSON_INVALID_UTF8_SUBSTITUTE} converts invalid UTF-8 characters to \0xfffd,<br/>
- * {@see JSON_OBJECT_AS_ARRAY} decodes JSON objects as PHP array, since 7.2.0 used by default if $assoc parameter is null,<br/>
+ * {@see JSON_OBJECT_AS_ARRAY} decodes JSON objects as PHP array, since 7.2.0 used by default if $assoc parameter is true,<br/>
  * {@see JSON_THROW_ON_ERROR} when passed this flag, the error behaviour of these functions is changed. The global error state is left untouched, and if an error occurs that would otherwise set it, these functions instead throw a JsonException<br/>
  * </p>
  * @return mixed the value encoded in <i>json</i> in appropriate
