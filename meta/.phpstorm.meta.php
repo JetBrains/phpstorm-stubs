@@ -368,6 +368,7 @@ namespace PHPSTORM_META {
         'bcompiler.enabled',
         'birdstep.max_links',
         'blenc.key_file',
+	'brotli.output_compression', 'brotli.output_compression_level',
         'browscap',
         'cgi.check_shebang_line', 'cgi.discard_path', 'cgi.fix_pathinfo', 'cgi.force_redirect', 'cgi.nph', 'cgi.redirect_status_env', 'cgi.rfc2616_headers',
         'child_terminate',
