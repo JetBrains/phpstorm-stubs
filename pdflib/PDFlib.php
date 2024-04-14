@@ -1270,6 +1270,15 @@ class PDFlib
     public function place_pdi_page($page, $x, $y, $sx, $sy) {}
 
     /**
+     * @param string $optlist
+     *
+     * @return bool
+     * 
+     * @link https://www.pdflib.com/fileadmin/pdflib/pdf/manuals/PDFlib-9.3.0-API-reference.pdf
+     */
+    public function set_option($optlist) {}
+
+    /**
      * @param int $doc
      * @param int $page
      * @param string $optlist
