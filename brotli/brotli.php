@@ -87,7 +87,7 @@ namespace {
      * @param string   $data    The data to compress.
      * @param int      $mode    One of BROTLI_FLUSH (default), BROTLI_PROCESS or BROTLI_FINISH.
      *
-     * @return resource|false TReturns a brotli context resource (brotli.state) on success or FALSE on error.
+     * @return string|false TReturns a brotli context resource (brotli.state) on success or FALSE on error.
      */
     function brotli_compress_add($context, string $data, int $mode = BROTLI_FLUSH): string|false {}
     
@@ -105,7 +105,7 @@ namespace {
      * @param string   $data    The data to uncompress.
      * @param int      $mode    One of BROTLI_FLUSH (default), BROTLI_PROCESS or BROTLI_FINISH.
      *
-     * @return resource|false TReturns a brotli context resource (brotli.state) on success or FALSE on error.
+     * @return string|false TReturns a brotli context resource (brotli.state) on success or FALSE on error.
      */
     function brotli_uncompress_add($context, string $data, int $mode = BROTLI_FLUSH): string|false {}
 }
@@ -152,7 +152,7 @@ namespace Brotli {
      * @param string   $data    The data to compress.
      * @param int      $mode    One of BROTLI_FLUSH (default), BROTLI_PROCESS or BROTLI_FINISH.
      *
-     * @return resource|false TReturns a brotli context resource (brotli.state) on success or FALSE on error.
+     * @return string|false Returns a brotli context resource (brotli.state) on success or FALSE on error.
      */
     function compress_add($context, string $data, int $mode = BROTLI_FLUSH): string|false {}
     
@@ -170,7 +170,7 @@ namespace Brotli {
      * @param string   $data    The data to uncompress.
      * @param int      $mode    One of BROTLI_FLUSH (default), BROTLI_PROCESS or BROTLI_FINISH.
      *
-     * @return resource|false TReturns a brotli context resource (brotli.state) on success or FALSE on error.
+     * @return string|false TReturns a brotli context resource (brotli.state) on success or FALSE on error.
      */
     function uncompress_add($context, string $data, int $mode = BROTLI_FLUSH): string|false {}
 }

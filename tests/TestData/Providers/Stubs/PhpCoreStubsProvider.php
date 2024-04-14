@@ -95,6 +95,7 @@ class PhpCoreStubsProvider
         'PECL' => [
             'apcu',
             'ast',
+            'brotli',
             'crypto',
             'cubrid',
             'decimal',
