@@ -48,7 +48,7 @@ namespace {
      * Adding more input data to finalized stream is impossible.
      */
     define('BROTLI_FINISH', 2);
-    
+
     /**
      * This function compress a string using brotli algorithm.
      *
@@ -59,7 +59,7 @@ namespace {
      * @return string|false The compressed string or FALSE on error.
      */
     function brotli_compress(string $data, int $quality = BROTLI_COMPRESS_LEVEL_DEFAULT, int $mode = BROTLI_GENERIC): string|false {}
-    
+
     /**
      * This function uncompresses a string compressed with brotli algorithm.
      *
@@ -69,7 +69,7 @@ namespace {
      * @return string|false The uncompressed string or FALSE on error.
      */
     function brotli_uncompress(string $data, int $length = 0): string|false {}
-    
+
     /**
      * Initialize an incremental brotli compress context.
      *
@@ -79,7 +79,7 @@ namespace {
      * @return resource|false TReturns a brotli context resource (brotli.state) on success or FALSE on error.
      */
     function brotli_compress_init(int $quality = BROTLI_COMPRESS_LEVEL_DEFAULT, int $mode = BROTLI_GENERIC) {}
-    
+
     /**
      * Initialize an incremental brotli compress context.
      *
@@ -90,14 +90,14 @@ namespace {
      * @return string|false TReturns a brotli context resource (brotli.state) on success or FALSE on error.
      */
     function brotli_compress_add($context, string $data, int $mode = BROTLI_FLUSH): string|false {}
-    
+
     /**
      * Initialize an incremental brotli uncompress context.
      *
      * @return resource|false TReturns a brotli context resource (brotli.state) on success or FALSE on error.
      */
     function brotli_uncompress_init() {}
-    
+
     /**
      * Initialize an incremental brotli compress context.
      *
@@ -124,7 +124,7 @@ namespace Brotli {
      * @return string|false The compressed string or FALSE on error.
      */
     function compress(string $data, int $quality = BROTLI_COMPRESS_LEVEL_DEFAULT, int $mode = BROTLI_GENERIC): string|false {}
-    
+
     /**
      * This function uncompresses a string compressed with brotli algorithm.
      *
@@ -134,7 +134,7 @@ namespace Brotli {
      * @return string|false The uncompressed string or FALSE on error.
      */
     function uncompress(string $data, int $length = 0): string|false {}
-    
+
     /**
      * Initialize an incremental brotli compress context.
      *
@@ -144,7 +144,7 @@ namespace Brotli {
      * @return resource|false TReturns a brotli context resource (brotli.state) on success or FALSE on error.
      */
     function compress_init(int $quality = BROTLI_COMPRESS_LEVEL_DEFAULT, int $mode = BROTLI_GENERIC) {}
-    
+
     /**
      * Initialize an incremental brotli compress context.
      *
@@ -155,14 +155,14 @@ namespace Brotli {
      * @return string|false Returns a brotli context resource (brotli.state) on success or FALSE on error.
      */
     function compress_add($context, string $data, int $mode = BROTLI_FLUSH): string|false {}
-    
+
     /**
      * Initialize an incremental brotli uncompress context.
      *
      * @return resource|false TReturns a brotli context resource (brotli.state) on success or FALSE on error.
      */
     function uncompress_init() {}
-    
+
     /**
      * Initialize an incremental brotli compress context.
      *
