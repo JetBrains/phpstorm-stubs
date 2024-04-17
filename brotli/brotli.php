@@ -113,7 +113,7 @@ namespace {
 /**
  * Aliases for the functions
  */
- 
+
 namespace Brotli {
     /**
      * This function compress a string using brotli algorithm.
