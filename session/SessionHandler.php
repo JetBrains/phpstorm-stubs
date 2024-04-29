@@ -286,27 +286,4 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data
     ): bool {}
-
-    /**
-     * Validate session id
-     * @param string $session_id The session id
-     * @return bool <p>
-     * Note this value is returned internally to PHP for processing.
-     * </p>
-     */
-    public function validateId($session_id) {}
-
-    /**
-     * Update timestamp of a session
-     * @param string $session_id The session id
-     * @param string $session_data <p>
-     * The encoded session data. This data is the
-     * result of the PHP internally encoding
-     * the $_SESSION superglobal to a serialized
-     * string and passing it as this parameter.
-     * Please note sessions use an alternative serialization method.
-     * </p>
-     * @return bool
-     */
-    public function updateTimestamp($session_id, $session_data) {}
 }
