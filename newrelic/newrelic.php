@@ -402,6 +402,20 @@ function newrelic_set_appname(string $name, string $license, bool $xmit = false)
 function newrelic_set_user_attributes(string $user_value, string $account_value, string $product_value): bool {}
 
 /**
+ * Associate a unique user ID with the current transaction.
+ *
+ * @param string $user_id Should be a unique value (such as a UUID) that will be assigned to the current transaction.
+ *
+ * This function will return true if the user ID was added successfully, otherwise false.
+ *
+ * @link https://docs.newrelic.com/docs/apm/agents/php-agent/php-agent-api/newrelic_set_user_id/
+ * @since 10.12
+ *
+ * @return bool
+ */
+function newrelic_set_user_id(string $user_id): bool {}
+
+/**
  * Start a new transaction manually. Usually used after manually ending a transaction with
  * newrelic_end_transaction(),
  * for example when separating tasks in a job queue manager. When instrumenting this new transaction, the agent
