@@ -120,16 +120,11 @@ const AMQP_EX_TYPE_TOPIC = 'topic';
  */
 const AMQP_EX_TYPE_HEADERS = 'headers';
 
-
 const AMQP_OS_SOCKET_TIMEOUT_ERRNO = 536870947;
-
-
 
 const PHP_AMQP_MAX_CHANNELS = 256;
 
-
 const AMQP_SASL_METHOD_PLAIN = 0;
-
 
 const AMQP_SASL_METHOD_EXTERNAL = 1;
 
@@ -206,8 +201,7 @@ class AMQPBasicProperties
         ?string $userId = null,
         ?string $appId = null,
         ?string $clusterId = null
-    ) {
-    }
+    ) {}
 
     /**
      * Get the message content type.
@@ -653,7 +647,7 @@ class AMQPConnection
      * Cannot reliably detect dropped connections or unusual socket errors, as it does not actively
      * engage the socket.
      *
-     * @return boolean TRUE if connected, FALSE otherwise.
+     * @return bool TRUE if connected, FALSE otherwise.
      */
     public function isConnected() {}
 
@@ -663,7 +657,7 @@ class AMQPConnection
      * When no connection is established, it will always return FALSE. The same disclaimer as for
      * {@see AMQPConnection::isConnected()} applies.
      *
-     * @return boolean TRUE if persistently connected, FALSE otherwise.
+     * @return bool TRUE if persistently connected, FALSE otherwise.
      */
     public function isPersistent() {}
 
@@ -1041,7 +1035,7 @@ class AMQPConnectionException extends AMQPException {}
 interface AMQPValue
 {
     /**
-     * @return bool|int|double|string|null|array|AMQPValue|AMQPDecimal|AMQPTimestamp
+     * @return bool|int|float|string|null|array|AMQPValue|AMQPDecimal|AMQPTimestamp
      */
     public function toAmqpValue(): float|array|AMQPDecimal|bool|int|AMQPValue|string|AMQPTimestamp|null;
 }
@@ -1259,7 +1253,7 @@ class AMQPExchange
      *
      * @throws AMQPExchangeException If key does not exist
      *
-     * @return bool|int|double|string|null
+     * @return bool|int|float|string|null
      */
     public function getArgument($argumentName) {}
 
@@ -1676,7 +1670,7 @@ class AMQPQueue
      *
      * @param string $argumentName The key to look up.
      * @throws AMQPQueueException If key does not exist
-     * @return bool|int|double|string|null|array|AMQPValue|AMQPDecimal|AMQPTimestamp
+     * @return bool|int|float|string|null|array|AMQPValue|AMQPDecimal|AMQPTimestamp
      */
     public function getArgument($argumentName) {}
 
@@ -1684,7 +1678,7 @@ class AMQPQueue
      * Set a queue argument.
      *
      * @param string $argumentName The key to set.
-     * @param bool|int|double|string|null|array|AMQPValue|AMQPDecimal|AMQPTimestamp $argumentValue The argument value to set.
+     * @param bool|int|float|string|null|array|AMQPValue|AMQPDecimal|AMQPTimestamp $argumentValue The argument value to set.
      *
      * @return void
      */
@@ -1718,7 +1712,7 @@ class AMQPQueue
      *
      * @param string $argumentName The argument name to check.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasArgument(string $argumentName): bool {}
 
@@ -1804,8 +1798,7 @@ final /* readonly */ class AMQPTimestamp implements AMQPValue
 
     public function getTimestamp(): float {}
 
-    public function toAmqpValue(): float|array|AMQPDecimal|bool|int|AMQPValue|string|AMQPTimestamp|null
-    {}
+    public function toAmqpValue(): float|array|AMQPDecimal|bool|int|AMQPValue|string|AMQPTimestamp|null {}
 }
 
 /**
