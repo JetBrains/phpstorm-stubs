@@ -1227,6 +1227,23 @@ class ZipArchive implements Countable
     public function getStream(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
 
     /**
+     * (PHP 8 &gt;= 8.2.0, PECL zip &gt;= 1.20.0)<br/>
+     * Get a file handler to the entry defined by its index (read only)
+     * @link https://php.net/manual/en/ziparchive.getstreamindex.php
+     * @param int $index <p>
+     * Index of the entry
+     * </p>
+     * @param int $flags [optional] <p>
+     * If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged stream is returned.
+     * </p>
+     * @return resource|false a file pointer (resource) on success or <b>FALSE</b> on failure.
+     */
+    public function getStreamIndex(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index, 
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
+    ) {}
+
+    /**
      * Set the external attributes of an entry defined by its name
      * @link https://www.php.net/manual/en/ziparchive.setexternalattributesname.php
      * @param string $name Name of the entry
