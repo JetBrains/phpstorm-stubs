@@ -1239,7 +1239,7 @@ class ZipArchive implements Countable
      * @return resource|false a file pointer (resource) on success or <b>FALSE</b> on failure.
      */
     public function getStreamIndex(
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index, 
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ) {}
 
