@@ -24,12 +24,12 @@ final class Manager
      * Manager constructor.
      * @link https://php.net/manual/en/mongodb-driver-manager.construct.php
      * @param string|null $uri A mongodb:// connection URI
-     * @param array|null $options Connection string options
+     * @param array|null $uriOptions Connection string options
      * @param array|null $driverOptions Any driver-specific options not included in MongoDB connection spec.
      * @throws InvalidArgumentException on argument parsing errors
      * @throws RuntimeException if the uri format is invalid
      */
-    final public function __construct(?string $uri = null, ?array $options = null, ?array $driverOptions = null) {}
+    final public function __construct(?string $uri = null, ?array $uriOptions = null, ?array $driverOptions = null) {}
 
     final public function __wakeup() {}
 
