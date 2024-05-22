@@ -1063,7 +1063,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
     /**
      * Add/insert a new value at the specified index
      * @param mixed $index The index where the new value is to be inserted.
-     * @param mixed $value The new value for the index.
+     * @param TValue $value The new value for the index.
      * @return void
      * @link https://php.net/spldoublylinkedlist.add
      * @since 5.5
@@ -1077,7 +1077,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
     /**
      * Pops a node from the end of the doubly linked list
      * @link https://php.net/manual/en/spldoublylinkedlist.pop.php
-     * @return mixed The value of the popped node.
+     * @return TValue The value of the popped node.
      */
     #[TentativeType]
     public function pop(): mixed {}
@@ -1085,7 +1085,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
     /**
      * Shifts a node from the beginning of the doubly linked list
      * @link https://php.net/manual/en/spldoublylinkedlist.shift.php
-     * @return mixed The value of the shifted node.
+     * @return TValue The value of the shifted node.
      */
     #[TentativeType]
     public function shift(): mixed {}
@@ -1093,7 +1093,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
     /**
      * Pushes an element at the end of the doubly linked list
      * @link https://php.net/manual/en/spldoublylinkedlist.push.php
-     * @param mixed $value <p>
+     * @param TValue $value <p>
      * The value to push.
      * </p>
      * @return void
@@ -1104,7 +1104,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
     /**
      * Prepends the doubly linked list with an element
      * @link https://php.net/manual/en/spldoublylinkedlist.unshift.php
-     * @param mixed $value <p>
+     * @param TValue $value <p>
      * The value to unshift.
      * </p>
      * @return void
@@ -1115,7 +1115,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
     /**
      * Peeks at the node from the end of the doubly linked list
      * @link https://php.net/manual/en/spldoublylinkedlist.top.php
-     * @return mixed The value of the last node.
+     * @return TValue The value of the last node.
      */
     #[TentativeType]
     public function top(): mixed {}
@@ -1123,7 +1123,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
     /**
      * Peeks at the node from the beginning of the doubly linked list
      * @link https://php.net/manual/en/spldoublylinkedlist.bottom.php
-     * @return mixed The value of the first node.
+     * @return TValue The value of the first node.
      */
     #[TentativeType]
     public function bottom(): mixed {}
@@ -1182,7 +1182,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      * @param mixed $index <p>
      * The index with the value.
      * </p>
-     * @return mixed The value at the specified <i>index</i>.
+     * @return TValue The value at the specified <i>index</i>.
      */
     #[TentativeType]
     public function offsetGet($index): mixed {}
@@ -1193,7 +1193,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
      * @param mixed $index <p>
      * The index being set.
      * </p>
-     * @param mixed $value <p>
+     * @param TValue $value <p>
      * The new value for the <i>index</i>.
      * </p>
      * @return void
@@ -1223,7 +1223,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
     /**
      * Return current array entry
      * @link https://php.net/manual/en/spldoublylinkedlist.current.php
-     * @return mixed The current node value.
+     * @return TValue The current node value.
      */
     #[TentativeType]
     public function current(): mixed {}
