@@ -5,7 +5,7 @@ namespace Relay;
 /**
  * Relay event class.
  */
-final class Event
+abstract class Event
 {
     /**
      * The integer representing the `INVALIDATED` event.

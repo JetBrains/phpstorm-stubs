@@ -59,6 +59,7 @@ class Cluster
      * @param  array|null  $seeds
      * @param  int|float  $connect_timeout
      * @param  int|float  $command_timeout
+     * @param  bool  $persistent
      * @param  mixed  $auth
      * @param  array|null  $context
      */
@@ -81,6 +82,22 @@ class Cluster
      */
     #[\Relay\Attributes\Local]
     public function _compress(string $value): string {}
+
+    /**
+     * Returns the number of milliseoconds since Relay has received a reply from the cluster.
+     *
+     * @return int
+     */
+    #[Attributes\Local]
+    public function idleTime(): int {}
+
+    /**
+     * Returns an array of endpoints along with each of their keys cached in runtime memory.
+     *
+     * @internal Temporary debug helper. Do not use.
+     * @return array|false
+     */
+    public function _getKeys(): array|false {}
 
     /**
      * Return a list of master nodes
@@ -155,6 +172,24 @@ class Cluster
     public function acl(array|string $key_or_address, string $operation, string ...$args): mixed {}
 
     /**
+     * Adds allow pattern(s). Only matching keys will be cached in memory.
+     *
+     * @param  string  $pattern,...
+     * @return int
+     */
+    #[\Relay\Attributes\Local]
+    public function addAllowPatterns(string ...$pattern): int {}
+
+    /**
+     * Adds ignore pattern(s). Matching keys will not be cached in memory.
+     *
+     * @param  string  $pattern,...
+     * @return int
+     */
+    #[\Relay\Attributes\Local]
+    public function addIgnorePatterns(string ...$pattern): int {}
+
+    /**
      * If key already exists and is a string, this command appends
      * the value at the end of the string. If key does not exist
      * it is created and set as an empty string, so APPEND will
@@ -185,6 +220,17 @@ class Cluster
      */
     #[\Relay\Attributes\RedisCommand]
     public function bgsave(array|string $key_or_address, bool $schedule = false): Cluster|bool {}
+
+    /**
+     * Paus the client until sufficient local and/or remote AOF data has been flushed to disk.
+     *
+     * @param  array|string  $key_or_address
+     * @param  int  $numlocal
+     * @param  int  $numremote
+     * @return Relay|array
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function waitaof(array|string $key_or_address, int $numlocal, int $numremote, int $timeout): Relay|array|false {}
 
     /**
      * Count the number of set bits (population counting) in a string.
@@ -443,6 +489,14 @@ class Cluster
     public function discard(): bool {}
 
     /**
+     * Dispatches all pending events.
+     *
+     * @return int|false
+     */
+    #[\Relay\Attributes\Local]
+    public function dispatchEvents(): int|false {}
+
+    /**
      * Serialize and return the value stored at key in a Redis-specific format.
      *
      * @param  mixed  $key
@@ -460,6 +514,14 @@ class Cluster
      */
     #[\Relay\Attributes\RedisCommand]
     public function echo(array|string $key_or_address, string $message): Cluster|string|false {}
+
+    /**
+     * Returns the connection's endpoint identifier.
+     *
+     * @return array|false
+     */
+    #[\Relay\Attributes\Local]
+    public function endpointId(): array|false {}
 
     /**
      * Evaluate script using the Lua interpreter.
@@ -559,6 +621,18 @@ class Cluster
      */
     #[\Relay\Attributes\RedisCommand]
     public function expiretime(mixed $key): Cluster|int|false {}
+
+    /**
+     * Flushes Relay's in-memory cache of all databases.
+     *
+     * @see \Relay\Relay::flushMemory()
+     *
+     * @param  string|null  $endpointId
+     * @param  int|null  $db
+     * @return bool
+     */
+    #[\Relay\Attributes\Local]
+    public static function flushMemory(?string $endpointId = null, int $db = null): bool {}
 
     /**
      * Deletes all the keys of all the existing databases, not just the currently selected one.
@@ -1042,6 +1116,15 @@ class Cluster
     public function linsert(mixed $key, string $op, mixed $pivot, mixed $element): Cluster|int|false {}
 
     /**
+     * Registers a new event listener.
+     *
+     * @param  callable  $callback
+     * @return bool
+     */
+    #[Attributes\Local]
+    public function listen(?callable $callback): bool {}
+
+    /**
      * Returns the length of the list stored at `$key`.
      *
      * @param  mixed  $key
@@ -1164,6 +1247,14 @@ class Cluster
     public function ltrim(mixed $key, int $start, int $end): Cluster|bool {}
 
     /**
+     * Returns the number of bytes allocated, or `0` in client-only mode.
+     *
+     * @return int
+     */
+    #[\Relay\Attributes\Local]
+    public static function maxMemory(): int {}
+
+    /**
      * Returns the values of all specified keys.
      *
      * @param  array  $keys
@@ -1212,6 +1303,25 @@ class Cluster
      */
     #[\Relay\Attributes\RedisCommand]
     public function object(string $op, mixed $key): mixed {}
+
+    /**
+     * Registers a new `flushed` event listener.
+     *
+     * @param  callable  $callback
+     * @return bool
+     */
+    #[\Relay\Attributes\Local]
+    public function onFlushed(?callable $callback): bool {}
+
+    /**
+     * Registers a new `invalidated` event listener.
+     *
+     * @param  callable  $callback
+     * @param  string|null  $pattern
+     * @return bool
+     */
+    #[\Relay\Attributes\Local]
+    public function onInvalidated(?callable $callback, ?string $pattern = null): bool {}
 
     /**
      * Remove the existing timeout on key, turning the key from volatile to persistent.
@@ -1776,6 +1886,15 @@ class Cluster
      */
     #[\Relay\Attributes\RedisCommand]
     public function ssubscribe(array $channels, callable $callback): bool {}
+
+    /**
+     * Returns statistics about Relay.
+     * 
+     * @see \Relay\Relay::stats()
+     * @return array
+     */
+    #[\Relay\Attributes\Local]
+    public static function stats(): array {}
 
     /**
      * Returns the length of the string value stored at `$key`.
