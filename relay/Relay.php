@@ -975,6 +975,16 @@ class Relay
     public function replicaof(?string $host = null, $port = 0): Relay|bool {}
 
     /**
+     * Pause the client until sufficient local and/or remote AOF data has been flushed to disk.
+     *
+     * @param  int  $numlocal
+     * @param  int  $numremote
+     * @return Relay|array
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function waitaof(int $numlocal, int $numremote, int $timeout): Relay|array|false {}
+
+    /**
      * Create a key associated with a value that is obtained by deserializing the provided serialized value.
      *
      * @param  mixed  $key
