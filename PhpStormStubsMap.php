@@ -4354,6 +4354,7 @@ const FUNCTIONS = array (
   'newrelic_record_datastore_segment' => 'newrelic/newrelic.php',
   'newrelic_set_appname' => 'newrelic/newrelic.php',
   'newrelic_set_user_attributes' => 'newrelic/newrelic.php',
+  'newrelic_set_user_id' => 'newrelic/newrelic.php',
   'newrelic_start_transaction' => 'newrelic/newrelic.php',
   'next' => 'standard/standard_8.php',
   'ngettext' => 'gettext/gettext.php',
