@@ -1889,7 +1889,7 @@ class Cluster
 
     /**
      * Returns statistics about Relay.
-     * 
+     *
      * @see \Relay\Relay::stats()
      * @return array
      */
