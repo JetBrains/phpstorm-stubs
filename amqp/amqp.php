@@ -173,19 +173,6 @@ const AMQP_EXTENSION_VERSION_ID = '10112';
  */
 class AMQPBasicProperties
 {
-    /**
-     * @param ?string $contentType
-     * @param ?string $contentEncoding
-     * @param ?string $correlationId
-     * @param ?string $replyTo
-     * @param ?string $expiration
-     * @param ?string $messageId
-     * @param ?int $timestamp
-     * @param ?string $type
-     * @param ?string $userId
-     * @param ?string $appId
-     * @param ?string $clusterId
-     */
     public function __construct(
         ?string $contentType = null,
         ?string $contentEncoding = null,
@@ -1034,9 +1021,6 @@ class AMQPConnectionException extends AMQPException {}
  */
 interface AMQPValue
 {
-    /**
-     * @return bool|int|float|string|null|array|AMQPValue|AMQPDecimal|AMQPTimestamp
-     */
     public function toAmqpValue(): float|array|AMQPDecimal|bool|int|AMQPValue|string|AMQPTimestamp|null;
 }
 
