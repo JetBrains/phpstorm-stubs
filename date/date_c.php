@@ -249,7 +249,8 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[Pure]
     #[TentativeType]
-    public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier): DateTimeImmutable|false {}
+    #[LanguageLevelTypeAware(['8.3' => 'DateTimeImmutable'], default: 'DateTimeImmutable|false')]
+    public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -560,10 +561,12 @@ class DateTime implements DateTimeInterface
      * in a format accepted by strtotime().
      * @param string $modifier A date/time string. Valid formats are explained in <a href="https://secure.php.net/manual/en/datetime.formats.php">Date and Time Formats</a>.
      * @return static|false Returns the DateTime object for method chaining or FALSE on failure.
+     * @throws DateMalformedStringException
      * @link https://php.net/manual/en/datetime.modify.php
      */
     #[TentativeType]
-    public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier): DateTime|false {}
+    #[LanguageLevelTypeAware(['8.3' => 'DateTime'], default: 'DateTime|false')]
+    public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier) {}
 
     /**
      * Adds an amount of days, months, years, hours, minutes and seconds to a DateTime object
@@ -938,7 +941,8 @@ class DateInterval
      * @link https://php.net/manual/en/dateinterval.createfromdatestring.php
      */
     #[TentativeType]
-    public static function createFromDateString(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime): DateInterval|false {}
+    #[LanguageLevelTypeAware(['8.3' => 'DateInterval'], default: 'DateInterval|false')]
+    public static function createFromDateString(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime) {}
 
     #[TentativeType]
     public function __wakeup(): void {}
