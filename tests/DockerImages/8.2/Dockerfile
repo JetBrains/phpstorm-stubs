@@ -3,8 +3,8 @@ FROM php:8.2-alpine
 RUN set -eux; \
     apk add --repository http://dl-cdn.alpinelinux.org/alpine/edge/community --no-cache --virtual .build-deps \
     bash gcc g++ make autoconf pkgconfig git \
-    libmcrypt-dev imap-dev php-imap bzip2-dev gettext-dev libxml2-dev php82-dev php-gd icu-dev \
-    php-zip php-tidy php-intl libffi-dev openssl-dev php82-pear rabbitmq-c rabbitmq-c-dev librrd \
+    libmcrypt-dev imap-dev php-imap bzip2-dev gettext-dev libxml2-dev php83-dev php-gd icu-dev \
+    php-zip php-tidy php-intl libffi-dev openssl-dev php83-pear rabbitmq-c rabbitmq-c-dev librrd \
     libzip-dev rrdtool-dev gmp-dev yaml yaml-dev fann fann-dev openldap-dev librdkafka librdkafka-dev libcurl curl-dev \
     libpng-dev gpgme gpgme-dev libpq-dev aspell-dev libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev
 
