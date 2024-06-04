@@ -506,6 +506,7 @@ function rsort(array &$array, int $flags = SORT_REGULAR) {}
  * greater than zero if the first argument is considered to be
  * respectively less than, equal to, or greater than the second.
  * </p>
+ * @return true Always returns true.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
 function usort(array &$array, callable $callback) {}
