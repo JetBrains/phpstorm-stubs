@@ -184,7 +184,7 @@ class DateTimeImmutable implements DateTimeInterface
      * The <em>$timezone</em> parameter and the current timezone are ignored when the <em>$datetime</em> parameter either
      * is a UNIX timestamp (e.g. <em>@946684800</em>) or specifies a timezone (e.g. <em>2010-01-28T15:00:00+02:00</em>).
      * </p></blockquote>
-     * @throws Exception Emits Exception in case of an error.
+     * @throws DateMalformedStringException Emits Exception in case of an error.
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime = "now",
@@ -249,7 +249,8 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[Pure]
     #[TentativeType]
-    public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier): DateTimeImmutable|false {}
+    #[LanguageLevelTypeAware(['8.4' => 'DateTimeImmutable'], default: 'DateTimeImmutable|false')]
+    public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -347,6 +348,7 @@ class DateTimeImmutable implements DateTimeInterface
      * A {@link https://secure.php.net/manual/en/class.dateinterval.php DateInterval} object
      * </p>
      * @return static
+     * @throws DateInvalidOperationException
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
     #[TentativeType]
@@ -531,7 +533,7 @@ class DateTime implements DateTimeInterface
      * or specifies a timezone
      * (e.g. <em>2010-01-28T15:00:00+02:00</em>).
      * </p> <p></p></blockquote>
-     * @throws Exception Emits Exception in case of an error.
+     * @throws DateMalformedStringException Emits Exception in case of an error.
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime = 'now',
@@ -559,10 +561,12 @@ class DateTime implements DateTimeInterface
      * in a format accepted by strtotime().
      * @param string $modifier A date/time string. Valid formats are explained in <a href="https://secure.php.net/manual/en/datetime.formats.php">Date and Time Formats</a>.
      * @return static|false Returns the DateTime object for method chaining or FALSE on failure.
+     * @throws DateMalformedStringException
      * @link https://php.net/manual/en/datetime.modify.php
      */
     #[TentativeType]
-    public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier): DateTime|false {}
+    #[LanguageLevelTypeAware(['8.4' => 'DateTime'], default: 'DateTime|false')]
+    public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier) {}
 
     /**
      * Adds an amount of days, months, years, hours, minutes and seconds to a DateTime object
@@ -763,7 +767,7 @@ class DateTimeZone
     /**
      * @param string $timezone
      * @link https://php.net/manual/en/datetimezone.construct.php
-     * @throws Exception Emits Exception in case of an error.
+     * @throws DateInvalidTimeZoneException Emits Exception in case of an error.
      */
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $timezone) {}
 
@@ -915,7 +919,7 @@ class DateInterval
 
     /**
      * @param string $duration
-     * @throws Exception when the $duration cannot be parsed as an interval.
+     * @throws DateMalformedIntervalStringException when the $duration cannot be parsed as an interval.
      * @link https://php.net/manual/en/dateinterval.construct.php
      */
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $duration) {}
@@ -937,7 +941,8 @@ class DateInterval
      * @link https://php.net/manual/en/dateinterval.createfromdatestring.php
      */
     #[TentativeType]
-    public static function createFromDateString(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime): DateInterval|false {}
+    #[LanguageLevelTypeAware(['8.4' => 'DateInterval'], default: 'DateInterval|false')]
+    public static function createFromDateString(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime) {}
 
     #[TentativeType]
     public function __wakeup(): void {}
@@ -1041,6 +1046,7 @@ class DatePeriod implements IteratorAggregate
     /**
      * @param string $isostr String containing the ISO interval.
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
+     * @throws DateMalformedPeriodStringException
      * @link https://php.net/manual/en/dateperiod.construct.php
      */
     public function __construct($isostr, $options = 0) {}
