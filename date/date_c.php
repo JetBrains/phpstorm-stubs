@@ -249,7 +249,7 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[Pure]
     #[TentativeType]
-    #[LanguageLevelTypeAware(['8.3' => 'DateTimeImmutable'], default: 'DateTimeImmutable|false')]
+    #[LanguageLevelTypeAware(['8.4' => 'DateTimeImmutable'], default: 'DateTimeImmutable|false')]
     public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier) {}
 
     /**
@@ -565,7 +565,7 @@ class DateTime implements DateTimeInterface
      * @link https://php.net/manual/en/datetime.modify.php
      */
     #[TentativeType]
-    #[LanguageLevelTypeAware(['8.3' => 'DateTime'], default: 'DateTime|false')]
+    #[LanguageLevelTypeAware(['8.4' => 'DateTime'], default: 'DateTime|false')]
     public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier) {}
 
     /**
@@ -941,7 +941,7 @@ class DateInterval
      * @link https://php.net/manual/en/dateinterval.createfromdatestring.php
      */
     #[TentativeType]
-    #[LanguageLevelTypeAware(['8.3' => 'DateInterval'], default: 'DateInterval|false')]
+    #[LanguageLevelTypeAware(['8.4' => 'DateInterval'], default: 'DateInterval|false')]
     public static function createFromDateString(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime) {}
 
     #[TentativeType]
