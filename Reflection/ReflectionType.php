@@ -1,6 +1,5 @@
 <?php
 
-use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
