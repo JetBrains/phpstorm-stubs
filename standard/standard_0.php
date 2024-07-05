@@ -174,14 +174,24 @@ function constant(string $name): mixed {}
 function bin2hex(string $string): string {}
 
 /**
- * Delay execution
+ * Delays the program execution for the given number of seconds
  * @link https://php.net/manual/en/function.sleep.php
  * @param int<0,max> $seconds <p>
- * Halt time in seconds.
+ * Halt time in seconds (must be greater than or equal to 0).
  * </p>
- * @return int|false zero on success, or false on errors. If the call was interrupted
- * by a signal, sleep returns the number of seconds left
- * to sleep.
+ * @return int Returns zero on success.
+ * <p>
+ * If the call was interrupted by a signal, sleep() returns a
+ * non-zero value. On Windows, this value will always be 192
+ * (the value of the WAIT_IO_COMPLETION constant within the Windows API).
+ * On other platforms, the return value will be the
+ * number of seconds left to sleep.
+ * </p>
+ * <p>
+ * As of PHP 8.0, if the specified number of seconds is negative,
+ * this function will throw a ValueError.
+ * Before PHP 8.0, an E_WARNING was raised instead, and the function returned false.
+ * </p>
  */
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
 function sleep(int $seconds) {}
