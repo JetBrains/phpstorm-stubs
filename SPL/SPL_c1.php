@@ -664,6 +664,8 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
 	 * Rewind the file to the first line
 	 * @link https://php.net/manual/en/splfileobject.rewind.php
 	 * @return void
+	 *
+	 * @throws RuntimeException If cannot be rewound
 	 */
 	#[TentativeType]
 	public function rewind(): void {}
@@ -688,6 +690,8 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
 	 * Gets line from file
 	 * @link https://php.net/manual/en/splfileobject.fgets.php
 	 * @return string a string containing the next line from the file.
+	 *
+	 * @throws RuntimeException If the file cannot be read
 	 */
 	#[TentativeType]
 	public function fgets(): string {}
@@ -989,6 +993,8 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
 	 * The maximum length of a line.
 	 * </p>
 	 * @return void
+	 *
+	 * @throws DomainException When <i>maxLength</i> is less than zero.
 	 */
 	#[TentativeType]
 	public function setMaxLineLen(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxLength): void {}
@@ -1028,6 +1034,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
 	 * The zero-based line number to seek to.
 	 * </p>
 	 * @return void
+	 * @throws LogicException If the <i>line</i> is negative
 	 */
 	#[TentativeType]
 	public function seek(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $line): void {}
