@@ -27,6 +27,13 @@ final class UTCDateTime implements Type, UTCDateTimeInterface, \Serializable, \J
     final public function toDateTime(): \DateTime {}
 
     /**
+     * Returns the DateTimeImmutable representation of this UTCDateTime
+     * @since 1.20.0
+     * @link https://php.net/manual/en/mongodb-bson-utcdatetime.todatetimeimmutable.php
+     */
+    final public function toDateTimeImmutable(): \DateTimeImmutable {}
+
+    /**
      * Returns the string representation of this UTCDateTime
      * @link https://php.net/manual/en/mongodb-bson-utcdatetime.tostring.php
      */
