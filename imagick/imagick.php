@@ -2098,6 +2098,7 @@ class Imagick implements Iterator, Countable
      * @link https://php.net/manual/en/imagick.destroy.php
      * @return bool <b>TRUE</b> on success.
      */
+    #[Deprecated(replacement: "%class%->clear()")]
     public function destroy() {}
 
     /**
