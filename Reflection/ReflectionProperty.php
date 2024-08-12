@@ -60,7 +60,7 @@ class ReflectionProperty implements Reflector
     /**
      * @since 8.1
      */
-    public const IS_READONLY = 5;
+    public const IS_READONLY = 128;
 
     /**
      * Construct a ReflectionProperty object
