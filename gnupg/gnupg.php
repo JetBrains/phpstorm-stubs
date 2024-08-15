@@ -249,14 +249,6 @@ class gnupg
     public function import($kye) {}
 
     /**
-     * Initialize a connection
-     * @link https://php.net/manual/en/function.gnupg-init.php
-     *
-     * @return resource A GnuPG ``resource`` connection used by other GnuPG functions.
-     */
-    public function init() {}
-
-    /**
      * Returns an array with information about all keys that matches the given pattern
      * @link https://php.net/manual/en/function.gnupg-keyinfo.php
      *
@@ -308,8 +300,20 @@ class gnupg
      */
     public function sign($text) {}
 
+    /**
+     * Returns the engine info
+     * @link https://php.net/manual/en/function.gnupg-getengineinfo.php
+     *
+     * @return array
+     */
     public function getengineinfo() {}
 
+    /**
+     * Returns the error info
+     * @link https://php.net/manual/en/function.gnupg-geterrorinfo.php
+     *
+     * @return array
+     */
     public function geterrorinfo() {}
 }
 
