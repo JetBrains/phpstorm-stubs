@@ -4333,3 +4333,13 @@ define('CURLOPT_MAXLIFETIME_CONN', 314);
  * @since 8.2
  */
 define('CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256', 10311);
+
+/**
+ * @since 8.4
+ */
+define('CURL_HTTP_VERSION_3', 30);
+
+/**
+ * @since 8.4
+ */
+define('CURL_HTTP_VERSION_3ONLY', 31);
