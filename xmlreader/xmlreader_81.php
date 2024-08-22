@@ -10,21 +10,9 @@ use JetBrains\PhpStorm\Internal\TentativeType;
  * cursor going forward on the document stream and stopping at each node
  * on the way.
  * @link https://php.net/manual/en/class.xmlreader.php
+ * @see https://github.com/JetBrains/phpstorm-stubs/pull/1526#issuecomment-1419394807
  *
- * @property-read int $attributeCount The number of attributes on the node
- * @property-read string $baseURI The base URI of the node
- * @property-read int $depth Depth of the node in the tree, starting at 0
- * @property-read bool $hasAttributes Indicates if node has attributes
- * @property-read bool $hasValue Indicates if node has a text value
- * @property-read bool $isDefault Indicates if attribute is defaulted from DTD
- * @property-read bool $isEmptyElement Indicates if node is an empty element tag
- * @property-read string $localName The local name of the node
- * @property-read string $name The qualified name of the node
- * @property-read string $namespaceURI The URI of the namespace associated with the node
- * @property-read int $nodeType The node type for the node
- * @property-read string $prefix The prefix of the namespace associated with the node
- * @property-read string $value The text value of the node
- * @property-read string $xmlLang The xml:lang scope which the node resides
+ * @since 8.1
  */
 class XMLReader
 {
@@ -137,6 +125,104 @@ class XMLReader
      * Substitute entities and expand references
      */
     public const SUBST_ENTITIES = 4;
+
+    /**
+     * The number of attributes on the node
+     * @var int
+     * @readonly
+     */
+    public $attributeCount;
+
+    /**
+     * The base URI of the node
+     * @var string
+     * @readonly
+     */
+    public $baseURI;
+
+    /**
+     * Depth of the node in the tree, starting at 0
+     * @var int
+     * @readonly
+     */
+    public $depth;
+
+    /**
+     * Indicates if node has attributes
+     * @var bool
+     * @readonly
+     */
+    public $hasAttributes;
+
+    /**
+     * Indicates if node has a text value
+     * @var bool
+     * @readonly
+     */
+    public $hasValue;
+
+    /**
+     * Indicates if attribute is defaulted from DTD
+     * @var bool
+     * @readonly
+     */
+    public $isDefault;
+
+    /**
+     * Indicates if node is an empty element tag
+     * @var bool
+     * @readonly
+     */
+    public $isEmptyElement;
+
+    /**
+     * The local name of the node
+     * @var string
+     * @readonly
+     */
+    public $localName;
+
+    /**
+     * The qualified name of the node
+     * @var string
+     * @readonly
+     */
+    public $name;
+
+    /**
+     * The URI of the namespace associated with the node
+     * @var string
+     * @readonly
+     */
+    public $namespaceURI;
+
+    /**
+     * The node type for the node
+     * @var int
+     * @readonly
+     */
+    public $nodeType;
+
+    /**
+     * The prefix of the namespace associated with the node
+     * @var string
+     * @readonly
+     */
+    public $prefix;
+
+    /**
+     * The text value of the node
+     * @var string
+     * @readonly
+     */
+    public $value;
+
+    /**
+     * The xml:lang scope which the node resides
+     * @var string
+     * @readonly
+     */
+    public $xmlLang;
 
     /**
      * Close the XMLReader input
