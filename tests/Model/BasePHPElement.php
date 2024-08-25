@@ -3,6 +3,7 @@
 namespace StubTests\Model;
 
 use Exception;
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
@@ -19,9 +20,7 @@ use ReflectionNamedType;
 use ReflectionType;
 use ReflectionUnionType;
 use Reflector;
-use RuntimeException;
 use stdClass;
-use StubTests\Parsers\ParserUtils;
 use function array_key_exists;
 use function count;
 use function in_array;
@@ -44,6 +43,9 @@ abstract class BasePHPElement
 
     /** @var bool */
     public $duplicateOtherElement = false;
+    public $stubObjectHash = null;
+    public $id;
+    public $isDeprecated = false;
 
     /**
      * @param Reflector $reflectionObject
@@ -63,7 +65,6 @@ abstract class BasePHPElement
     abstract public function readMutedProblems($jsonData);
 
     /**
-     * @param Node $node
      * @return string
      */
     public static function getFQN(Node $node)
@@ -78,13 +79,25 @@ abstract class BasePHPElement
                 }
             }
         } else {
-            return (string)$node->namespacedName;
+            return "\\{$node->namespacedName}";
         }
-        return rtrim($fqn, "\\");
+
+        return $fqn;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getShortName(Node $node)
+    {
+        $fqn = self::getFQN($node);
+        $parts = explode('\\', $fqn);
+        return array_pop($parts);
     }
 
     /**
      * @param ReflectionType|null $type
+     *
      * @return array
      */
     protected static function getReflectionTypeAsArray($type)
@@ -99,11 +112,13 @@ abstract class BasePHPElement
                 $reflectionTypes[] = $namedType->getName();
             }
         }
+
         return $reflectionTypes;
     }
 
     /**
      * @param Name|Identifier|NullableType|string|UnionType|null|Type $type
+     *
      * @return array
      */
     protected static function convertParsedTypeToArray($type)
@@ -120,6 +135,7 @@ abstract class BasePHPElement
                 $types[] = self::getTypeNameFromNode($type);
             }
         }
+
         return $types;
     }
 
@@ -142,11 +158,13 @@ abstract class BasePHPElement
         } else {
             $typeName = $nullable ? '?' . $type->name : $type->name;
         }
+
         return $typeName;
     }
 
     /**
      * @param AttributeGroup[] $attrGroups
+     *
      * @return string[]
      */
     protected static function findTypesFromAttribute(array $attrGroups)
@@ -167,15 +185,18 @@ abstract class BasePHPElement
                         }
                     }
                     $types[$attr->args[1]->name->name] = explode('|', preg_replace('/\w+\[]/', 'array', $attr->args[1]->value->value));
+
                     return $types;
                 }
             }
         }
+
         return [];
     }
 
     /**
      * @param AttributeGroup[] $attrGroups
+     *
      * @return array
      */
     protected static function findAvailableVersionsRangeFromAttribute(array $attrGroups)
@@ -197,6 +218,7 @@ abstract class BasePHPElement
                             }
                         } else {
                             $rangeName = $attr->args[0]->name;
+
                             return $rangeName === null || $rangeName->name === 'from' ?
                                 ['from' => (float)$arg->value, 'to' => PhpVersions::getLatest()] :
                                 ['from' => PhpVersions::getFirst(), 'to' => (float)$arg->value];
@@ -205,11 +227,13 @@ abstract class BasePHPElement
                 }
             }
         }
+
         return $versionRange;
     }
 
     /**
      * @param array $attrGroups
+     *
      * @return bool
      */
     protected static function hasTentativeTypeAttribute(array $attrGroups)
@@ -221,11 +245,13 @@ abstract class BasePHPElement
                 }
             }
         }
+
         return false;
     }
 
     /**
      * @param int $stubProblemType
+     *
      * @return bool
      */
     public function hasMutedProblem($stubProblemType)
@@ -236,16 +262,52 @@ abstract class BasePHPElement
                 return true;
             }
         }
+
         return false;
     }
 
-    /**
-     * @param BasePHPElement $element
-     * @return bool
-     * @throws RuntimeException
-     */
-    public static function entitySuitsCurrentPhpVersion(BasePHPElement $element)
+    public function checkDeprecationTag($node)
     {
-        return in_array((float)getenv('PHP_VERSION'), ParserUtils::getAvailableInVersions($element), true);
+        $this->isDeprecated = self::hasDeprecatedAttribute($node) && self::deprecatedVersionSuitsCurrentLanguageLevel($node) ||
+            !empty($this->deprecatedTags) && self::deprecatedVersionSuitsCurrentLanguageLevel();
+    }
+
+    private function deprecatedVersionSuitsCurrentLanguageLevel($node = null)
+    {
+        if (!$node) {
+            foreach ($this->deprecatedTags as $deprecatedTag) {
+                return $deprecatedTag->getVersion() !== null && (float)$deprecatedTag->getVersion() <= (float)getenv('PHP_VERSION');
+            }
+        } else {
+            foreach ($node->getAttrGroups() as $group) {
+                foreach ($group->attrs as $attr) {
+                    if ((string)$attr->name === Deprecated::class) {
+                        foreach ($attr->args as $arg) {
+                            if ($arg->name == 'since') {
+                                return (float)$arg->value->value <= (float)getenv('PHP_VERSION');
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * @param  $node
+     * @return bool
+     */
+    private static function hasDeprecatedAttribute($node)
+    {
+        if (method_exists($node, 'getAttrGroups')) {
+            foreach ($node->getAttrGroups() as $group) {
+                foreach ($group->attrs as $attr) {
+                    if ((string)$attr->name === Deprecated::class) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }

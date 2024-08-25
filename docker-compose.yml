@@ -1,4 +1,3 @@
-version: '3'
 services:
   php_under_test:
     build: tests/DockerImages/${PHP_VERSION}

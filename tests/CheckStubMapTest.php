@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class CheckStubMapTest extends TestCase
 {
-    private $oldMapFile = __DIR__ . '/../PhpStormStubsMap.php';
+    private string $oldMapFile = __DIR__ . '/../PhpStormStubsMap.php';
     private $newMapFile;
 
     public function testStubMapIsUpToDate(): void

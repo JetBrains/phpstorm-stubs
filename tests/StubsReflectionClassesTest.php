@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace StubTests;
 
-use RuntimeException;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
 /**
@@ -11,12 +10,15 @@ use StubTests\TestData\Providers\PhpStormStubsSingleton;
  */
 class StubsReflectionClassesTest extends AbstractBaseStubsTestCase
 {
-    /**
-     * @throws RuntimeException
-     */
+    public static function setUpBeforeClass(): void
+    {
+        parent::setUpBeforeClass();
+        PhpStormStubsSingleton::getPhpStormStubs();
+    }
+
     public function testReflectionFunctionAbstractGetReturnTypeMethod()
     {
-        $getReturnTypeMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass('ReflectionFunctionAbstract')->getMethod('getReturnType');
+        $getReturnTypeMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass('\ReflectionFunctionAbstract')->getMethod('getReturnType');
         $allReturnTypes = array_unique(Model\CommonUtils::flattenArray($getReturnTypeMethod->returnTypesFromAttribute +
             $getReturnTypeMethod->returnTypesFromSignature + $getReturnTypeMethod->returnTypesFromPhpDoc, false));
         self::assertContains(
@@ -36,12 +38,9 @@ class StubsReflectionClassesTest extends AbstractBaseStubsTestCase
         );
     }
 
-    /**
-     * @throws RuntimeException
-     */
     public function testReflectionPropertyGetTypeMethod()
     {
-        $getTypeMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass('ReflectionProperty')->getMethod('getType');
+        $getTypeMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass('\ReflectionProperty')->getMethod('getType');
         $allReturnTypes = array_unique(Model\CommonUtils::flattenArray($getTypeMethod->returnTypesFromAttribute +
             $getTypeMethod->returnTypesFromSignature + $getTypeMethod->returnTypesFromPhpDoc, false));
         self::assertContains(
@@ -56,12 +55,9 @@ class StubsReflectionClassesTest extends AbstractBaseStubsTestCase
         );
     }
 
-    /**
-     * @throws RuntimeException
-     */
     public function testReflectionParameterGetTypeMethod()
     {
-        $getTypeMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass('ReflectionParameter')->getMethod('getType');
+        $getTypeMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass('\ReflectionParameter')->getMethod('getType');
         $allReturnTypes = array_unique(Model\CommonUtils::flattenArray($getTypeMethod->returnTypesFromAttribute +
             $getTypeMethod->returnTypesFromSignature + $getTypeMethod->returnTypesFromPhpDoc, false));
         self::assertContains(

@@ -12,42 +12,62 @@ class ReflectionFunctionsProvider
 {
     public static function allFunctionsProvider(): ?Generator
     {
-        foreach (EntitiesFilter::getFiltered(ReflectionStubsSingleton::getReflectionStubs()->getFunctions()) as $function) {
-            yield "function $function->name" => [$function];
+        $filtered = EntitiesFilter::getFiltered(ReflectionStubsSingleton::getReflectionStubs()->getFunctions());
+        if (empty($filtered)) {
+            yield [null];
+        } else {
+            foreach ($filtered as $function) {
+                yield "function $function->id" => [$function->id];
+            }
         }
     }
 
     public static function functionsForReturnTypeHintsTestProvider(): ?Generator
     {
-        foreach (EntitiesFilter::getFiltered(
+        $filtered = EntitiesFilter::getFiltered(
             ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
             null,
             StubProblemType::WRONG_RETURN_TYPEHINT
-        ) as $function) {
-            yield "function $function->name" => [$function];
+        );
+        if (empty($filtered)) {
+            yield [null];
+        } else {
+            foreach ($filtered as $function) {
+                yield "function $function->id" => [$function->id];
+            }
         }
     }
 
     public static function functionsForDeprecationTestsProvider(): ?Generator
     {
-        foreach (EntitiesFilter::getFiltered(
+        $filtered = EntitiesFilter::getFiltered(
             ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
             null,
             StubProblemType::FUNCTION_IS_DEPRECATED
-        ) as $function) {
-            yield "function $function->name" => [$function];
+        );
+        if (empty($filtered)) {
+            yield [null];
+        } else {
+            foreach ($filtered as $function) {
+                yield "function $function->id" => [$function->id];
+            }
         }
     }
 
     public static function functionsForParamsAmountTestsProvider(): ?Generator
     {
-        foreach (EntitiesFilter::getFiltered(
+        $filtered = EntitiesFilter::getFiltered(
             ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
             null,
             StubProblemType::FUNCTION_PARAMETER_MISMATCH,
             StubProblemType::HAS_DUPLICATION
-        ) as $function) {
-            yield "function $function->name" => [$function];
+        );
+        if (empty($filtered)) {
+            yield [null];
+        } else {
+            foreach ($filtered as $function) {
+                yield "function $function->id" => [$function->id];
+            }
         }
     }
 }

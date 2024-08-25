@@ -3,9 +3,11 @@
 namespace StubTests\Parsers;
 
 use ReflectionClass;
+use ReflectionEnum;
 use ReflectionFunction;
 use StubTests\Model\CommonUtils;
 use StubTests\Model\PHPClass;
+use StubTests\Model\PHPConstant;
 use StubTests\Model\PHPDefineConstant;
 use StubTests\Model\PHPEnum;
 use StubTests\Model\PHPFunction;
@@ -30,7 +32,11 @@ class PHPReflectionParser
             unset($const_groups['user']);
             $const_groups = CommonUtils::flattenArray($const_groups, true);
             foreach ($const_groups as $name => $value) {
-                $constant = (new PHPDefineConstant())->readObjectFromReflection([$name, $value]);
+                if (class_exists('\ReflectionConstant')) {
+                    $constant = (new PHPConstant())->readObjectFromReflection(new \ReflectionConstant($name));
+                } else {
+                    $constant = (new PHPDefineConstant())->readObjectFromReflection([$name, $value]);
+                }
                 $constant->readMutedProblems($jsonData->constants);
                 $stubs->addConstant($constant);
             }
@@ -46,7 +52,7 @@ class PHPReflectionParser
                 $reflectionClass = new ReflectionClass($clazz);
                 if ($reflectionClass->isInternal()) {
                     if (method_exists($reflectionClass, 'isEnum') && $reflectionClass->isEnum()) {
-                        $enum = (new PHPEnum())->readObjectFromReflection($reflectionClass);
+                        $enum = (new PHPEnum())->readObjectFromReflection(new ReflectionEnum($clazz));
                         $enum->readMutedProblems($jsonData->enums);
                         $stubs->addEnum($enum);
                     } else {
