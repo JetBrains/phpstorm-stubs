@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace StubTests;
 
-use PHPUnit\Framework\Exception;
-use RuntimeException;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\StubProblemType;
 use StubTests\Parsers\Visitors\MetaOverrideFunctionsParser;
@@ -23,12 +21,10 @@ class StubsMetaInternalTagTest extends AbstractBaseStubsTestCase
     public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
+        PhpStormStubsSingleton::getPhpStormStubs();
         self::$overriddenFunctionsInMeta = (new MetaOverrideFunctionsParser())->overridenFunctions;
     }
 
-    /**
-     * @throws Exception
-     */
     public function testFunctionInternalMetaTag(): void
     {
         $functions = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions();
@@ -46,15 +42,12 @@ class StubsMetaInternalTagTest extends AbstractBaseStubsTestCase
         }
     }
 
-    /**
-     * @throws RuntimeException
-     */
     public function testMethodsInternalMetaTag(): void
     {
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->getClasses() as $className => $class) {
             foreach ($class->methods as $methodName => $method) {
                 if ($method->hasInternalMetaTag) {
-                    $refClass = ReflectionStubsSingleton::getReflectionStubs()->getClass($className);
+                    $refClass = ReflectionStubsSingleton::getReflectionStubs()->getClass($className, fromReflection: true);
                     if ($refClass !== null) {
                         $reflectionMethods = array_filter(
                             $refClass->methods,
@@ -75,9 +68,6 @@ class StubsMetaInternalTagTest extends AbstractBaseStubsTestCase
         }
     }
 
-    /**
-     * @throws Exception
-     */
     private static function checkInternalMetaInOverride(string $elementName): void
     {
         self::assertContains(

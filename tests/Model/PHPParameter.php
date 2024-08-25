@@ -66,6 +66,8 @@ class PHPParameter extends BasePHPElement
         $this->is_passed_by_ref = $node->byRef;
         $this->defaultValue = $node->default;
         $this->isOptional = !empty($this->defaultValue) || $this->is_vararg;
+        $this->checkDeprecationTag($node);
+        $this->stubObjectHash = spl_object_hash($this);
         return $this;
     }
 

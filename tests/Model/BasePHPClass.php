@@ -2,11 +2,11 @@
 
 namespace StubTests\Model;
 
-use RuntimeException;
+use StubTests\Parsers\ParserUtils;
 use function array_key_exists;
 use function count;
 
-abstract class BasePHPClass extends BasePHPElement
+abstract class BasePHPClass extends PHPNamespacedElement
 {
     /**
      * @var PHPMethod[]
@@ -14,35 +14,18 @@ abstract class BasePHPClass extends BasePHPElement
     public $methods = [];
 
     /**
-     * @var PHPConst[]
+     * @var PHPClassConstant[]
      */
     public $constants = [];
     public $isFinal = false;
 
-    public function addConstant(PHPConst $parsedConstant)
+    public function addConstant(PHPClassConstant $parsedConstant)
     {
         if (isset($parsedConstant->name)) {
             if (array_key_exists($parsedConstant->name, $this->constants)) {
                 $amount = count(array_filter(
                     $this->constants,
-                    function (PHPConst $nextConstant) use ($parsedConstant) {
-                        return $nextConstant->name === $parsedConstant->name;
-                    }
-                ));
-                $this->constants[$parsedConstant->name . '_duplicated_' . $amount] = $parsedConstant;
-            } else {
-                $this->constants[$parsedConstant->name] = $parsedConstant;
-            }
-        }
-    }
-
-    public function addEnumCase(PHPEnumCase $parsedConstant)
-    {
-        if (isset($parsedConstant->name)) {
-            if (array_key_exists($parsedConstant->name, $this->constants)) {
-                $amount = count(array_filter(
-                    $this->constants,
-                    function (PHPConst $nextConstant) use ($parsedConstant) {
+                    function (PHPClassConstant $nextConstant) use ($parsedConstant) {
                         return $nextConstant->name === $parsedConstant->name;
                     }
                 ));
@@ -54,17 +37,22 @@ abstract class BasePHPClass extends BasePHPElement
     }
 
     /**
-     * @return PHPConst|null
-     * @throws RuntimeException
+     * @param string $constantName
+     * @param true $shouldSuitCurrentPhpVersion
+     * @param false $fromReflection
+     * @return PHPClassConstant|null
      */
-    public function getConstant($constantName)
+    public function getConstant($constantName, $shouldSuitCurrentPhpVersion = true, $fromReflection = false)
     {
-        $constants = array_filter($this->constants, function (PHPConst $constant) use ($constantName) {
-            return $constant->name === $constantName && $constant->duplicateOtherElement === false
-                && BasePHPElement::entitySuitsCurrentPhpVersion($constant);
-        });
-        if (empty($constants)) {
-            throw new RuntimeException("Constant $constantName not found in stubs for set language version");
+        if ($fromReflection) {
+            $constants = array_filter($this->constants, function (PHPClassConstant $constant) use ($constantName) {
+               return $constant->name === $constantName && $constant->stubObjectHash == null;
+            });
+        } else {
+            $constants = array_filter($this->constants, function (PHPClassConstant $constant) use ($constantName) {
+                return $constant->name === $constantName && $constant->duplicateOtherElement === false
+                    && ParserUtils::entitySuitsCurrentPhpVersion($constant);
+            });
         }
         return array_pop($constants);
     }
@@ -87,19 +75,34 @@ abstract class BasePHPClass extends BasePHPElement
     }
 
     /**
-     * @param string $methodName
+     * @param bool $fromReflection
+     * @param string $name
      * @return PHPMethod|null
-     * @throws RuntimeException
      */
-    public function getMethod($methodName)
+    public function getMethod($name, $shouldSuitCurrentPhpVersion = true, $fromReflection = false)
     {
-        $methods = array_filter($this->methods, function (PHPMethod $method) use ($methodName) {
-            return $method->name === $methodName && $method->duplicateOtherElement === false
-                && BasePHPElement::entitySuitsCurrentPhpVersion($method);
-        });
-        if (empty($methods)) {
-            throw new RuntimeException("Method $methodName not found in stubs for set language version");
+        if ($fromReflection) {
+            $methods = array_filter($this->methods, function (PHPMethod $method) use ($name) {
+                return $method->name === $name && $method->stubObjectHash == null;
+            });
+        } else {
+            $methods = array_filter($this->methods, function (PHPMethod $method) use ($name, $shouldSuitCurrentPhpVersion) {
+                return $method->name === $name && $method->duplicateOtherElement === false
+                    && (!$shouldSuitCurrentPhpVersion || ParserUtils::entitySuitsCurrentPhpVersion($method));
+            });
         }
+        return array_pop($methods);
+    }
+
+    /**
+     * @param string $methodHash
+     * @return PHPMethod|null
+     */
+    public function getMethodByHash($methodHash)
+    {
+        $methods = array_filter($this->methods, function (PHPMethod $method) use ($methodHash) {
+            return $method->stubObjectHash === $methodHash;
+        });
         return array_pop($methods);
     }
 }

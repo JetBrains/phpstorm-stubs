@@ -16,7 +16,7 @@ class RemovedTag extends BaseTag
      * @param string|null $version
      * @param Description|null $description
      */
-    public function __construct($version = null, Description $description = null)
+    public function __construct($version = null, ?Description $description = null)
     {
         $this->version = $version;
         $this->name = 'removed';

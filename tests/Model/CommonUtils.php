@@ -16,4 +16,6 @@ class CommonUtils
     {
         return iterator_to_array(new RecursiveIteratorIterator(new RecursiveArrayIterator($array)), $group);
     }
+
+    public function array_flat_map(array $array, $callback) {}
 }

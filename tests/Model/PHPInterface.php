@@ -17,20 +17,26 @@ class PHPInterface extends BasePHPClass
      */
     public function readObjectFromReflection($reflectionObject)
     {
-        $this->name = $reflectionObject->getName();
+        $this->name = $reflectionObject->getShortName();
+        if (!empty($reflectionObject->getNamespaceName())) {
+            $this->namespace = "\\" . $reflectionObject->getNamespaceName();
+        }
+        $this->id = "$this->namespace\\$this->name";
         foreach ($reflectionObject->getMethods() as $method) {
             if ($method->getDeclaringClass()->getName() !== $this->name) {
                 continue;
             }
             $this->methods[$method->name] = (new PHPMethod())->readObjectFromReflection($method);
         }
-        $this->parentInterfaces = $reflectionObject->getInterfaceNames();
+        $this->parentInterfaces = array_map(function ($interface) {
+            return "\\" . $interface;
+        }, $reflectionObject->getInterfaceNames());
         if (method_exists($reflectionObject, 'getReflectionConstants')) {
             foreach ($reflectionObject->getReflectionConstants() as $constant) {
-                if ($constant->getDeclaringClass()->getName() !== $this->name) {
+                /*if ($constant->getDeclaringClass()->getName() !== $this->name) {
                     continue;
-                }
-                $this->constants[$constant->name] = (new PHPConst())->readObjectFromReflection($constant);
+                }*/
+                $this->constants[$constant->name] = (new PHPClassConstant())->readObjectFromReflection($constant);
             }
         }
         return $this;
@@ -42,14 +48,18 @@ class PHPInterface extends BasePHPClass
      */
     public function readObjectFromStubNode($node)
     {
-        $this->name = self::getFQN($node);
+        $this->id = self::getFQN($node);
+        $this->name = self::getShortName($node);
+        $this->namespace = rtrim(str_replace((string)$node->name, "", "\\" . $node->namespacedName), '\\');
         $this->collectTags($node);
+        $this->checkDeprecationTag($node);
         $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
         if (!empty($node->extends)) {
             foreach ($node->extends as $extend) {
-                $this->parentInterfaces[] = $extend->name;
+                $this->parentInterfaces[] = $extend->toCodeString();
             }
         }
+        $this->stubObjectHash = spl_object_hash($this);
         return $this;
     }
 

@@ -13,39 +13,44 @@ class ReflectionPropertiesProvider
 {
     public static function classPropertiesProvider(): Generator
     {
-        return self::yieldFilteredMethodProperties();
+        return self::yieldFilteredClassProperties();
     }
 
     public static function classStaticPropertiesProvider(): Generator
     {
-        return self::yieldFilteredMethodProperties(StubProblemType::PROPERTY_IS_STATIC);
+        return self::yieldFilteredClassProperties(StubProblemType::PROPERTY_IS_STATIC);
     }
 
     public static function classPropertiesWithAccessProvider(): Generator
     {
-        return self::yieldFilteredMethodProperties(StubProblemType::PROPERTY_ACCESS);
+        return self::yieldFilteredClassProperties(StubProblemType::PROPERTY_ACCESS);
     }
 
     public static function classPropertiesWithTypeProvider(): Generator
     {
-        return self::yieldFilteredMethodProperties(StubProblemType::PROPERTY_TYPE);
+        return self::yieldFilteredClassProperties(StubProblemType::PROPERTY_TYPE);
     }
 
     public static function classReadonlyPropertiesProvider(): Generator
     {
-        return self::yieldFilteredMethodProperties(StubProblemType::WRONG_READONLY);
+        return self::yieldFilteredClassProperties(StubProblemType::WRONG_READONLY);
     }
 
-    private static function yieldFilteredMethodProperties(int ...$problemTypes): ?Generator
+    private static function yieldFilteredClassProperties(int ...$problemTypes): ?Generator
     {
-        $classesAndInterfaces = ReflectionStubsSingleton::getReflectionStubs()->getClasses();
-        foreach (EntitiesFilter::getFiltered($classesAndInterfaces) as $class) {
-            foreach (EntitiesFilter::getFiltered(
-                $class->properties,
-                fn (PHPProperty $property) => $property->access === 'private',
-                ...$problemTypes
-            ) as $property) {
-                yield "Property $class->name::$property->name" => [$class, $property];
+        $classes = ReflectionStubsSingleton::getReflectionStubs()->getClasses();
+        $filteredClasses = EntitiesFilter::getFiltered($classes);
+        $toYield = array_filter(array_map(fn ($class) => EntitiesFilter::getFiltered(
+            $class->properties,
+            fn (PHPProperty $property) => $property->access === 'private' || $class->name === "DOMException",
+            ...$problemTypes
+        ), $filteredClasses), fn ($array) => !empty($array));
+        if (empty($toYield)) {
+            yield [null, null];
+        }
+        foreach ($toYield as $properties) {
+            foreach ($properties as $property) {
+                yield "Property $property->parentId::$property->name" => [$property->parentId, $property->name];
             }
         }
     }

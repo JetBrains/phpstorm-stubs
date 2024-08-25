@@ -19,15 +19,15 @@ class PHPProperty extends BasePHPElement
     public $typesFromPhpDoc = [];
     public $access = '';
     public $is_static = false;
-    public $parentName;
+    public $parentId;
     public $isReadonly = false;
 
     /**
-     * @param string|null $parentName
+     * @param string|null $parentId
      */
-    public function __construct($parentName = null)
+    public function __construct($parentId = null)
     {
-        $this->parentName = $parentName;
+        $this->parentId = $parentId;
     }
 
     /**
@@ -37,6 +37,7 @@ class PHPProperty extends BasePHPElement
     public function readObjectFromReflection($reflectionObject)
     {
         $this->name = $reflectionObject->getName();
+        $this->parentId = "\\{$reflectionObject->class}";
         if ($reflectionObject->isProtected()) {
             $access = 'protected';
         } elseif ($reflectionObject->isPrivate()) {
@@ -81,8 +82,10 @@ class PHPProperty extends BasePHPElement
 
         $parentNode = $node->getAttribute('parent');
         if ($parentNode !== null) {
-            $this->parentName = self::getFQN($parentNode);
+            $this->parentId = self::getFQN($parentNode);
         }
+        $this->checkDeprecationTag($node);
+        $this->stubObjectHash = spl_object_hash($this);
         return $this;
     }
 

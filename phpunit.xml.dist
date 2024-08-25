@@ -1,52 +1,66 @@
-<phpunit bootstrap="vendor/autoload.php"
-         failOnWarning="false">
+<phpunit bootstrap="vendor/autoload.php" failOnWarning="false">
     <testsuites>
         <testsuite name="PHP_5.6">
             <file>tests/BaseClassesTest.php</file>
+            <file>tests/BaseInterfacesTest.php</file>
             <file>tests/BaseFunctionsTest.php</file>
             <file>tests/StubsMetaExpectedArgumentsTest.php</file>
             <file>tests/StubsMetaInternalTagTest.php</file>
+            <file>tests/StubsCompositeMixedReturnTypeTest.php</file>
         </testsuite>
         <testsuite name="PHP_7.0">
             <file>tests/BaseClassesTest.php</file>
+            <file>tests/BaseInterfacesTest.php</file>
+            <file>tests/BaseConstantsTest.php</file>
             <file>tests/BaseFunctionsTest.php</file>
             <file>tests/StubsMetaExpectedArgumentsTest.php</file>
             <file>tests/StubsMetaInternalTagTest.php</file>
+            <file>tests/StubsForbiddenTypeHintsTest.php</file>
+            <file>tests/StubsCompositeMixedReturnTypeTest.php</file>
         </testsuite>
         <testsuite name="PHP_7.1">
             <file>tests/BaseClassesTest.php</file>
+            <file>tests/BaseInterfacesTest.php</file>
             <file>tests/BaseConstantsTest.php</file>
             <file>tests/BaseFunctionsTest.php</file>
             <file>tests/StubsMetaExpectedArgumentsTest.php</file>
             <file>tests/StubsMetaInternalTagTest.php</file>
             <file>tests/StubsForbiddenTypeHintsTest.php</file>
+            <file>tests/StubsCompositeMixedReturnTypeTest.php</file>
         </testsuite>
         <testsuite name="PHP_7.2">
             <file>tests/BaseClassesTest.php</file>
+            <file>tests/BaseInterfacesTest.php</file>
             <file>tests/BaseConstantsTest.php</file>
             <file>tests/BaseFunctionsTest.php</file>
             <file>tests/StubsMetaExpectedArgumentsTest.php</file>
             <file>tests/StubsMetaInternalTagTest.php</file>
             <file>tests/StubsForbiddenTypeHintsTest.php</file>
+            <file>tests/StubsCompositeMixedReturnTypeTest.php</file>
         </testsuite>
         <testsuite name="PHP_7.3">
             <file>tests/BaseClassesTest.php</file>
+            <file>tests/BaseInterfacesTest.php</file>
             <file>tests/BaseConstantsTest.php</file>
             <file>tests/BaseFunctionsTest.php</file>
             <file>tests/StubsMetaExpectedArgumentsTest.php</file>
             <file>tests/StubsMetaInternalTagTest.php</file>
             <file>tests/StubsForbiddenTypeHintsTest.php</file>
+            <file>tests/StubsCompositeMixedReturnTypeTest.php</file>
         </testsuite>
         <testsuite name="PHP_7.4">
             <file>tests/BaseClassesTest.php</file>
+            <file>tests/BaseInterfacesTest.php</file>
             <file>tests/BaseConstantsTest.php</file>
             <file>tests/BaseFunctionsTest.php</file>
             <file>tests/StubsMetaExpectedArgumentsTest.php</file>
             <file>tests/StubsMetaInternalTagTest.php</file>
             <file>tests/StubsForbiddenTypeHintsTest.php</file>
+            <file>tests/StubsCompositeMixedReturnTypeTest.php</file>
         </testsuite>
         <testsuite name="PHP_8.0">
             <file>tests/BaseClassesTest.php</file>
+            <file>tests/BaseInterfacesTest.php</file>
             <file>tests/BaseConstantsTest.php</file>
             <file>tests/BaseFunctionsTest.php</file>
             <file>tests/StubsMetaExpectedArgumentsTest.php</file>
@@ -54,9 +68,12 @@
             <file>tests/StubsParameterNamesTest.php</file>
             <file>tests/StubsTypeHintsTest.php</file>
             <file>tests/StubsForbiddenTypeHintsTest.php</file>
+            <file>tests/StubsCompositeMixedReturnTypeTest.php</file>
         </testsuite>
         <testsuite name="PHP_8.1">
             <file>tests/BaseClassesTest.php</file>
+            <file>tests/BaseInterfacesTest.php</file>
+            <file>tests/BaseEnumsTest.php</file>
             <file>tests/BaseConstantsTest.php</file>
             <file>tests/BaseFunctionsTest.php</file>
             <file>tests/StubsMetaExpectedArgumentsTest.php</file>
@@ -65,9 +82,12 @@
             <file>tests/StubsTypeHintsTest.php</file>
             <file>tests/StubsForbiddenTypeHintsTest.php</file>
             <file>tests/StubsPhp81Tests.php</file>
+            <file>tests/StubsCompositeMixedReturnTypeTest.php</file>
         </testsuite>
         <testsuite name="PHP_8.2">
             <file>tests/BaseClassesTest.php</file>
+            <file>tests/BaseInterfacesTest.php</file>
+            <file>tests/BaseEnumsTest.php</file>
             <file>tests/BaseConstantsTest.php</file>
             <file>tests/BaseFunctionsTest.php</file>
             <file>tests/StubsMetaExpectedArgumentsTest.php</file>
@@ -75,11 +95,30 @@
             <file>tests/StubsParameterNamesTest.php</file>
             <file>tests/StubsTypeHintsTest.php</file>
             <file>tests/StubsForbiddenTypeHintsTest.php</file>
+            <file>tests/StubsPhp81Tests.php</file>
+            <file>tests/StubsCompositeMixedReturnTypeTest.php</file>
         </testsuite>
         <testsuite name="PHP_8.3">
             <file>tests/BaseClassesTest.php</file>
+            <file>tests/BaseInterfacesTest.php</file>
+            <file>tests/BaseEnumsTest.php</file>
             <file>tests/BaseConstantsTest.php</file>
             <file>tests/BaseFunctionsTest.php</file>
+            <file>tests/StubsMetaExpectedArgumentsTest.php</file>
+            <file>tests/StubsMetaInternalTagTest.php</file>
+            <file>tests/StubsParameterNamesTest.php</file>
+            <file>tests/StubsTypeHintsTest.php</file>
+            <file>tests/StubsForbiddenTypeHintsTest.php</file>
+            <file>tests/StubsPhp81Tests.php</file>
+            <file>tests/StubsCompositeMixedReturnTypeTest.php</file>
+        </testsuite>
+        <testsuite name="PHP_8.4">
+            <file>tests/BaseClassesTest.php</file>
+            <file>tests/BaseInterfacesTest.php</file>
+            <file>tests/BaseEnumsTest.php</file>
+            <file>tests/BaseConstantsTest.php</file>
+            <file>tests/BaseFunctionsTest.php</file>
+            <file>tests/StubsCompositeMixedReturnTypeTest.php</file>
             <file>tests/StubsConstantsAndParametersValuesTest.php</file>
             <file>tests/StubsMetaExpectedArgumentsTest.php</file>
             <file>tests/StubsMetaInternalTagTest.php</file>

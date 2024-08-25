@@ -50,16 +50,16 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
      */
     public function enterNode(Node $node): void
     {
-        if ($node instanceof FuncCall) {
-            $name = (string)$node->name;
+        if (property_exists($node, 'expr') && $node->expr instanceof FuncCall) {
+            $name = (string)$node->expr->name;
             if ($name === self::EXPECTED_ARGUMENTS) {
-                $args = $node->args;
+                $args = $node->expr->args;
                 if (count($args) < 3) {
                     throw new RuntimeException('Expected at least 3 arguments for expectedArguments call');
                 }
                 $this->expectedArgumentsInfos[] = self::getExpectedArgumentsInfo($args[0]->value, array_slice($args, 2), $args[1]->value->value);
             } elseif ($name === self::REGISTER_ARGUMENTS_SET_NAME) {
-                $args = $node->args;
+                $args = $node->expr->args;
                 if (count($args) < 2) {
                     throw new RuntimeException('Expected at least 2 arguments for registerArgumentsSet call');
                 }
@@ -67,7 +67,7 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
                 $name = $args[0]->value->value;
                 $this->registeredArgumentsSet[] = $name;
             } elseif ($name === self::EXPECTED_RETURN_VALUES) {
-                $args = $node->args;
+                $args = $node->expr->args;
                 if (count($args) < 2) {
                     throw new RuntimeException('Expected at least 2 arguments for expectedReturnValues call');
                 }

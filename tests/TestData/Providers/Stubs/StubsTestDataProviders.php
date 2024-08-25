@@ -16,16 +16,31 @@ class StubsTestDataProviders
     public static function allFunctionsProvider(): ?Generator
     {
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->getFunctions() as $functionName => $function) {
-            yield "function $functionName" => [$function];
+            yield "function $functionName" => [$function->id];
         }
     }
 
     public static function allClassesProvider(): ?Generator
     {
-        $allClassesAndInterfaces = PhpStormStubsSingleton::getPhpStormStubs()->getClasses() +
-            PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces();
-        foreach ($allClassesAndInterfaces as $class) {
-            yield "class $class->sourceFilePath/$class->name" => [$class];
+        $classes = PhpStormStubsSingleton::getPhpStormStubs()->getClasses();
+        foreach ($classes as $class) {
+            yield "class $class->sourceFilePath/$class->id" => [$class->id, $class->sourceFilePath];
+        }
+    }
+
+    public static function allInterfacesProvider(): ?Generator
+    {
+        $interfaces = PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces();
+        foreach ($interfaces as $class) {
+            yield "class $class->sourceFilePath/$class->id" => [$class->id, $class->sourceFilePath];
+        }
+    }
+
+    public static function allEnumsProvider(): ?Generator
+    {
+        $enums = PhpStormStubsSingleton::getPhpStormStubs()->getEnums();
+        foreach ($enums as $class) {
+            yield "class $class->sourceFilePath/$class->id" => [$class->id, $class->sourceFilePath];
         }
     }
 
