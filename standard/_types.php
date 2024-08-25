@@ -223,6 +223,11 @@ namespace {
          * @return void
          */
         public function __wakeup() {}
+
+        /**
+         * @since 8.4
+         */
+        public function __debugInfo(): array {}
     }
 
     class ClosedGeneratorException extends Exception {}
@@ -370,7 +375,7 @@ namespace ___PHPSTORM_HELPERS {
          * @return array|null
          * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.debuginfo
          */
-        public function __debugInfo(): ?array {}
+        public function __debugInfo() {}
 
         /**
          * This static method is called for classes exported by var_export() since PHP 5.1.0.

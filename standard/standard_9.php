@@ -1175,7 +1175,8 @@ function stream_filter_register(string $filter_name, string $class): bool {}
  * @param resource $brigade
  * @return object|null
  */
-function stream_bucket_make_writeable($brigade): ?object {}
+#[LanguageLevelTypeAware(["8.4" => "StreamBucket|null"], default: "object|null")]
+function stream_bucket_make_writeable($brigade) {}
 
 /**
  * Prepend bucket to brigade
@@ -1184,7 +1185,7 @@ function stream_bucket_make_writeable($brigade): ?object {}
  * @param object $bucket
  * @return void
  */
-function stream_bucket_prepend($brigade, object $bucket): void {}
+function stream_bucket_prepend($brigade, #[LanguageLevelTypeAware(['8.4' => 'StreamBucket'], default: 'object')] $bucket): void {}
 
 /**
  * Append bucket to brigade
@@ -1193,7 +1194,7 @@ function stream_bucket_prepend($brigade, object $bucket): void {}
  * @param object $bucket
  * @return void
  */
-function stream_bucket_append($brigade, object $bucket): void {}
+function stream_bucket_append($brigade, #[LanguageLevelTypeAware(['8.4' => 'StreamBucket'], default: 'object')] $bucket): void {}
 
 /**
  * Create a new bucket for use on the current stream
@@ -1202,7 +1203,8 @@ function stream_bucket_append($brigade, object $bucket): void {}
  * @param string $buffer
  * @return object
  */
-function stream_bucket_new($stream, string $buffer): object {}
+#[LanguageLevelTypeAware(["8.4" => "StreamBucket"], default: "object")]
+function stream_bucket_new($stream, string $buffer) {}
 
 /**
  * Add URL rewriter values

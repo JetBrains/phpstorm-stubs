@@ -1810,7 +1810,7 @@ function pg_delete(
 function pg_select(
     #[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection,
     string $table_name,
-    array $conditions,
+    array $conditions = [],
     int $flags = PGSQL_DML_EXEC,
     int $mode = PGSQL_ASSOC
 ): array|string|false {}
@@ -1830,35 +1830,35 @@ function pg_exec(
 /**
  * @param $result
  * @return string|int|false
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_getlastoid(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], default: 'resource')] $result): string|int|false {}
 
 /**
  * @param $result
  * @return int
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_cmdtuples(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], default: 'resource')] $result): int {} // TODO remove
 
 /**
  * @param $connection [optional]
  * @return string
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_errormessage(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection|null'], default: 'resource')] $connection): string {}
 
 /**
  * @param $result
  * @return int
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_numrows(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], default: 'resource')] $result): int {}
 
 /**
  * @param $result
  * @return int
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_numfields(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], default: 'resource')] $result): int {}
 
@@ -1866,7 +1866,7 @@ function pg_numfields(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], defaul
  * @param $result
  * @param $field
  * @return string
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_fieldname(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], default: 'resource')] $result, int $field): string {}
 
@@ -1874,7 +1874,7 @@ function pg_fieldname(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], defaul
  * @param $result
  * @param $field
  * @return int
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_fieldsize(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], default: 'resource')] $result, int $field): int {}
 
@@ -1882,7 +1882,7 @@ function pg_fieldsize(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], defaul
  * @param $result
  * @param $field
  * @return string
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_fieldtype(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], default: 'resource')] $result, int $field): string {}
 
@@ -1890,7 +1890,7 @@ function pg_fieldtype(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], defaul
  * @param $result
  * @param $field
  * @return int
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_fieldnum(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], default: 'resource')] $result, string $field): int {}
 
@@ -1899,7 +1899,7 @@ function pg_fieldnum(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], default
  * @param $row
  * @param $field [optional]
  * @return int|false
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_fieldprtlen(
     #[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], default: 'resource')] $result,
@@ -1913,7 +1913,7 @@ function pg_fieldprtlen(
  * @param $row
  * @param $field [optional]
  * @return int|false
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_fieldisnull(
     #[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], default: 'resource')] $result,
@@ -1925,7 +1925,7 @@ function pg_fieldisnull(
 /**
  * @param $result
  * @return bool
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_freeresult(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], default: 'resource')] $result): bool {}
 
@@ -1933,7 +1933,7 @@ function pg_freeresult(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Result'], defau
  * @param PgSql\Result|resource $result
  * @param $row
  * @param $field [optional]
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_result(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $connection,
@@ -1944,7 +1944,7 @@ function pg_result(
 
 /**
  * @param $lob
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_loreadall(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Lob'], default: 'resource')] $lob): int {} // TODO remove
 
@@ -1952,7 +1952,7 @@ function pg_loreadall(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Lob'], default: 
  * @param $connection [optional]
  * @param $oid [optional]
  * @return string|int|false
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_locreate(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection, $oid): string|int|false {}
 
@@ -1960,7 +1960,7 @@ function pg_locreate(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], def
  * @param $connection
  * @param $oid [optional]
  * @return bool
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_lounlink(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $connection = null,
@@ -1973,7 +1973,7 @@ function pg_lounlink(
  * @param $oid [optional]
  * @param $mode [optional]
  * @return resource
- * @deprecated
+ * @deprecated 8.0
  */
 #[LanguageLevelTypeAware(['8.1' => 'PgSql\Lob|false'], default: 'resource|false')]
 function pg_loopen(
@@ -1986,7 +1986,7 @@ function pg_loopen(
 /**
  * @param $lob
  * @return bool
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_loclose(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Lob'], default: 'resource')] $lob): bool {}
 
@@ -1994,7 +1994,7 @@ function pg_loclose(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Lob'], default: 'r
  * @param $lob
  * @param $length
  * @return string|false
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_loread(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Lob'], default: 'resource')] $lob, int $length = 8192): string|false {}
 
@@ -2003,7 +2003,7 @@ function pg_loread(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Lob'], default: 're
  * @param $data
  * @param $length [optional]
  * @return int|false
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_lowrite(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Lob'], default: 'resource')] $lob, string $data, ?int $length): int|false {}
 
@@ -2012,7 +2012,7 @@ function pg_lowrite(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Lob'], default: 'r
  * @param $filename [optional]
  * @param $oid [optional]
  * @return string|int|false
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_loimport(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $connection = null,
@@ -2026,7 +2026,7 @@ function pg_loimport(
  * @param $oid [optional]
  * @param $filename [optional]
  * @return bool
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_loexport(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $connection = null,
@@ -2038,7 +2038,7 @@ function pg_loexport(
 /**
  * @param $connection [optional]
  * @return string
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_clientencoding(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection|null'], default: 'resource')] $connection): string {}
 
@@ -2046,7 +2046,7 @@ function pg_clientencoding(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection|
  * @param $connection
  * @param $encoding [optional]
  * @return int
- * @deprecated
+ * @deprecated 8.0
  */
 function pg_setclientencoding(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $connection = null,
@@ -2096,6 +2096,35 @@ function pg_exit_pipeline_mode(PgSql\Connection $connection): bool {}
  * @since 8.3
  */
 function pg_enter_pipeline_mode(PgSql\Connection $connection): bool {}
+
+/**
+ * @since 8.4
+ */
+function pg_result_memory_size(PgSql\Result $result): int {}
+/**
+ * @since 8.4
+ */
+function pg_change_password(PgSql\Connection $connection, string $user, #[\SensitiveParameter] string $password): bool {}
+/**
+ * @since 8.4
+ */
+function pg_put_copy_data(PgSql\Connection $connection, string $cmd): int {}
+
+/**
+ * @since  8.4
+ * @param resource $socket
+ */
+function pg_socket_poll($socket, int $read, int $write, int $timeout = -1): int {}
+/**
+ * @since 8.4
+ */
+function pg_put_copy_end(PgSql\Connection $connection, ?string $error = null): int {}
+
+/**
+ * @since 8.4
+ * @return array<string, string|null>
+ */
+function pg_jit(?PgSql\Connection $connection = null): array {}
 
 define('PGSQL_LIBPQ_VERSION', "16.2");
 define('PGSQL_LIBPQ_VERSION_STR', "16.2");

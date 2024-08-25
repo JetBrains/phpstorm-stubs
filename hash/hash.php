@@ -147,7 +147,8 @@ function hash_init(string $algo, int $flags = 0, string $key = "", #[PhpStormStu
  * </p>
  * @return bool <b>TRUE</b>.
  */
-function hash_update(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, string $data): bool {}
+#[LanguageLevelTypeAware(["8.4" => "true"], default: "bool")]
+function hash_update(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, string $data) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -471,5 +472,10 @@ final class HashContext
      * @param array $data
      */
     public function __unserialize(#[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] $data): void {}
+
+    /**
+     * @since 8.4
+     */
+    public function __debugInfo(): array {}
 }
 // End of hash v.1.0

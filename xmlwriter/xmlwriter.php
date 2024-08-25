@@ -608,6 +608,21 @@ class XMLWriter
      */
     #[TentativeType]
     public function flush(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $empty = true): string|int {}
+
+    /**
+     * @since 8.4
+     */
+    public static function toUri(string $uri): static {}
+
+    /**
+     * @since 8.4
+     */
+    public static function toMemory(): static {}
+
+    /**
+     * @since 8.4
+     */
+    public static function toStream($stream): static {}
 }
 
 /**

@@ -5993,7 +5993,7 @@ class Redis
      * @param string $whereto   Where in the destination list to put the element.- `Redis::LEFT`, or `Redis::RIGHT`.
      * @param float  $timeout   How long to block for an element.
      *
-     * @return Redis|string|false;
+     * @return Redis|string|false
      * @since phpredis 6.0
      *
      * @example

@@ -15,6 +15,15 @@ use JetBrains\PhpStorm\Language;
 class DOMNode
 {
     /**
+     * @since 8.4
+     */
+    public const DOCUMENT_POSITION_DISCONNECTED = 1, DOCUMENT_POSITION_PRECEDING = 2, DOCUMENT_POSITION_FOLLOWING = 4;
+    /**
+     * @since 8.4
+     */
+    public const DOCUMENT_POSITION_CONTAINS = 8, DOCUMENT_POSITION_CONTAINED_BY = 16, DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC = 32;
+
+    /**
      * @var string
      * Returns the most accurate name for the current node type
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.nodename
@@ -259,9 +268,9 @@ class DOMNode
     public function hasAttributes(): bool {}
 
     /**
-     * @param DOMNode $other
-     * @removed 8.0
+     * @return int
      */
+    #[LanguageLevelTypeAware(['8.4' => 'int'], default: '')]
     public function compareDocumentPosition(DOMNode $other) {}
 
     /**
@@ -555,6 +564,8 @@ class DOMImplementation
      * implementation. If there is an error with the namespace,
      * as determined by $namespace and $qualifiedName.
      */
+    #[LanguageLevelTypeAware(['8.4' => 'DOMDocument'], default: 'DOMDocument|false')]
+    #[TentativeType]
     public function createDocument(
         #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $namespace,
         #[PhpStormStubsElementAvailable(from: '8.0')] ?string $namespace = null,
@@ -1136,7 +1147,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      */
     #[TentativeType]
     public function saveXML(
-        ?DOMNode $node = null,
+        #[LanguageLevelTypeAware(['7.1' => '?DOMNode'], default: '')] $node = null,
         #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = 0
     ): string|false {}
 
@@ -1296,10 +1307,11 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @return bool true on success or false on failure.
      */
     #[TentativeType]
+    #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     public function registerNodeClass(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $baseClass,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extendedClass
-    ): bool {}
+    ) {}
 }
 
 /**
@@ -2497,6 +2509,16 @@ class DOMXPath
      * @return void
      */
     public function registerPhpFunctions($restrict = null) {}
+
+    /**
+     * @since 8.4
+     */
+    public function registerPhpFunctionNS(string $namespaceURI, string $name, callable $callable): void {}
+
+    /**
+     * @since 8.4
+     */
+    public static function quote(string $str): string {}
 }
 
 /**

@@ -10,7 +10,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
-class __PHP_Incomplete_Class
+final class __PHP_Incomplete_Class
 {
     /**
      * @var string
@@ -90,6 +90,16 @@ class php_user_filter
      */
     #[TentativeType]
     public function onClose(): void {}
+}
+/**
+ * @since 8.4
+ */
+final class StreamBucket
+{
+    public $bucket;
+    public string $data;
+    public int $datalen;
+    public int $dataLength;
 }
 
 /**

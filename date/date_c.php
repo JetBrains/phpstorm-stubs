@@ -162,6 +162,21 @@ interface DateTimeInterface
 
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __unserialize(array $data): void;
+
+    /**
+     * @since 8.4
+     */
+    public function createFromTimestamp();
+
+    /**
+     * @since 8.4
+     */
+    public function getMicrosecond(): int;
+
+    /**
+     * @since 8.4
+     */
+    public function setMicrosecond();
 }
 
 /**
@@ -435,6 +450,22 @@ class DateTimeImmutable implements DateTimeInterface
 
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __unserialize(array $data): void {}
+
+    /**
+     * @since 8.4
+     */
+    #[TentativeType]
+    public static function createFromTimestamp(int|float $timestamp): static {}
+
+    /**
+     * @since 8.4
+     */
+    public function getMicrosecond(): int {}
+
+    /**
+     * @since 8.4
+     */
+    public function setMicrosecond(int $microsecond): static {}
 }
 
 /**
@@ -742,6 +773,22 @@ class DateTime implements DateTimeInterface
 
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __unserialize(array $data): void {}
+
+    /**
+     * @since 8.4
+     */
+    #[TentativeType]
+    public static function createFromTimestamp(int|float $timestamp): static {}
+
+    /**
+     * @since 8.4
+     */
+    public function getMicrosecond(): int {}
+
+    /**
+     * @since 8.4
+     */
+    public function setMicrosecond(int $microsecond): static {}
 }
 
 /**

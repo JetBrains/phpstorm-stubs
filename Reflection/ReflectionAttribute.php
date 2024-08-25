@@ -9,6 +9,8 @@ use JetBrains\PhpStorm\Pure;
  */
 class ReflectionAttribute implements Reflector
 {
+    public string $name;
+
     /**
      * Indicates that the search for a suitable attribute should not be by
      * strict comparison, but by the inheritance chain.

@@ -635,7 +635,8 @@ function get_class_methods(object|string $object_or_class): array {}
  * @return bool This function returns false if wrong <i>error_type</i> is
  * specified, true otherwise.
  */
-function trigger_error(string $message, int $error_level = E_USER_NOTICE): bool {}
+#[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
+function trigger_error(string $message, int $error_level = E_USER_NOTICE) {}
 
 /**
  * Alias of <b>trigger_error</b>
@@ -645,7 +646,8 @@ function trigger_error(string $message, int $error_level = E_USER_NOTICE): bool 
  * @return bool This function returns false if wrong <i>error_type</i> is
  * specified, true otherwise.
  */
-function user_error(string $message, int $error_level = E_USER_NOTICE): bool {}
+#[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
+function user_error(string $message, int $error_level = E_USER_NOTICE) {}
 
 /**
  * Sets a user-defined error handler function

@@ -1386,7 +1386,8 @@ abstract class SplHeap implements Iterator, Countable
      * @return bool
      */
     #[TentativeType]
-    public function insert(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value): bool {}
+    #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
+    public function insert(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value) {}
 
     /**
      * Peeks at the node from the top of the heap
@@ -1458,7 +1459,8 @@ abstract class SplHeap implements Iterator, Countable
      * @return bool
      */
     #[TentativeType]
-    public function recoverFromCorruption(): bool {}
+    #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
+    public function recoverFromCorruption() {}
 
     /**
      * Compare elements in order to place them correctly in the heap while sifting up.
@@ -1673,10 +1675,11 @@ class SplPriorityQueue implements Iterator, Countable
      * </p>
      * @return true
      */
+    #[TentativeType]
     public function insert(
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $priority
-    ) {}
+    ): true {}
 
     /**
      * Sets the mode of extraction
@@ -1767,9 +1770,9 @@ class SplPriorityQueue implements Iterator, Countable
     /**
      * Recover from the corrupted state and allow further actions on the queue.
      * @link https://php.net/manual/en/splpriorityqueue.recoverfromcorruption.php
-     * @return void
      */
-    public function recoverFromCorruption() {}
+    #[TentativeType]
+    public function recoverFromCorruption(): true {}
 
     /**
      * @return bool
@@ -1862,6 +1865,8 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
      * </p>
      * @return bool
      */
+    #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
+    #[TentativeType]
     public function setSize(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $size) {}
 
     /**
@@ -1953,17 +1958,16 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __serialize(): array {}
 
-    /**
-     * @param array $data
-     */
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __unserialize(array $data): void {}
 
     /**
+     * @since 8.0
      * @return Iterator<int, TValue>
      */
     public function getIterator(): Iterator {}
 
+    #[PhpStormStubsElementAvailable(from: '8.1')]
     public function jsonSerialize(): array {}
 }
 
@@ -2034,7 +2038,7 @@ interface SplSubject
  * @template-implements Iterator<int, TObject>
  * @template-implements ArrayAccess<TObject, TValue>
  */
-class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
+class SplObjectStorage implements Countable, SeekableIterator, Serializable, ArrayAccess
 {
     /**
      * Adds an object in the storage
@@ -2281,6 +2285,11 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
      */
     #[TentativeType]
     public function __debugInfo(): array {}
+
+    /**
+     * @since 8.4
+     */
+    public function seek(int $offset): void {}
 }
 
 /**

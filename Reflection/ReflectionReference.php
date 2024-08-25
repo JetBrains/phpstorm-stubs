@@ -11,7 +11,7 @@ use JetBrains\PhpStorm\Pure;
  * @link https://www.php.net/manual/en/class.reflectionreference.php
  * @since 7.4
  */
-class ReflectionReference
+final class ReflectionReference
 {
     /**
      * ReflectionReference cannot be created explicitly.
