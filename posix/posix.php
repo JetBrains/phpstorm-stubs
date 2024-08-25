@@ -935,5 +935,13 @@ define('POSIX_PC_CHOWN_RESTRICTED', 6);
 define('POSIX_PC_NO_TRUNC', 7);
 define('POSIX_PC_ALLOC_SIZE_MIN', 18);
 define('POSIX_PC_SYMLINK_MAX', 19);
+/**
+ * @since 8.4
+ */
+define('POSIX_SC_CHILD_MAX', 1);
+/**
+ * @since 8.4
+ */
+define('POSIX_SC_CLK_TCK', 2);
 
 // End of posix v.

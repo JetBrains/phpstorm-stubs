@@ -270,6 +270,11 @@ define('PHP_OUTPUT_HANDLER_STARTED', 4096);
 define('PHP_OUTPUT_HANDLER_DISABLED', 8192);
 
 /**
+ * @since 8.4
+ */
+const PHP_SBINDIR = '/usr/local/sbin', PHP_OUTPUT_HANDLER_PROCESSED = 16384;
+
+/**
  * Specifies where the manpages were installed into.
  * @since 5.3.7
  * @link https://php.net/manual/en/reserved.constants.php

@@ -230,4 +230,9 @@ class ReflectionClassConstant implements Reflector
      * @since 8.3
      */
     public function getType(): ?ReflectionType {}
+
+    /**
+     * @since 8.4
+     */
+    public function isDeprecated(): bool {}
 }

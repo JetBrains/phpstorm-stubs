@@ -12,8 +12,7 @@ use MongoDB\Driver\Exception\UnexpectedValueException;
  */
 final class Binary implements Type, BinaryInterface, \Serializable, JsonSerializable
 {
-    public const TYPE_GENERIC = 0;
-    public const TYPE_FUNCTION = 1;
+    public const TYPE_GENERIC = 0, TYPE_FUNCTION = 1;
     public const TYPE_OLD_BINARY = 2;
     public const TYPE_OLD_UUID = 3;
     public const TYPE_UUID = 4;

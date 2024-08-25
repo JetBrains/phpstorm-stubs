@@ -512,6 +512,6 @@ function simplexml_load_string(string $data, ?string $class_name = "SimpleXMLEle
  * </p>
  * @return SimpleXMLElement|null a SimpleXMLElement or <b>FALSE</b> on failure.
  */
-function simplexml_import_dom(SimpleXMLElement|DOMNode $node, ?string $class_name = "SimpleXMLElement"): ?SimpleXMLElement {}
+function simplexml_import_dom(#[LanguageLevelTypeAware(['8.4' => 'object'], default: 'SimpleXMLElement|DOMNode')] $node, ?string $class_name = "SimpleXMLElement"): ?SimpleXMLElement {}
 
 // End of SimpleXML v.0.1

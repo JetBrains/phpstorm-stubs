@@ -7,25 +7,25 @@ namespace Mosquitto;
  **/
 class Client
 {
-    /** @const LOG_DEBUG Identifies a debug-level log message */
+    /** Identifies a debug-level log message */
     public const LOG_DEBUG = 16;
 
-    /** @const LOG_INFO Identifies an info-level log message */
+    /** Identifies an info-level log message */
     public const LOG_INFO = 1;
 
-    /** @const LOG_NOTICE Identifies a notice-level log message */
+    /** Identifies a notice-level log message */
     public const LOG_NOTICE = 2;
 
-    /** @const LOG_WARNING Identifies a warning-level log message */
+    /** Identifies a warning-level log message */
     public const LOG_WARNING = 4;
 
-    /** @const LOG_ERR Identifies an error-level log message */
+    /** Identifies an error-level log message */
     public const LOG_ERR = 8;
 
-    /** @const SSL_VERIFY_NONE Used with `setTlsInsecure`. Do not verify the identity of the server, thus making the connection insecure. */
+    /** Used with `setTlsInsecure`. Do not verify the identity of the server, thus making the connection insecure. */
     public const SSL_VERIFY_NONE = 0;
 
-    /** @const SSL_VERIFY_PEER Used with `setTlsInsecure`. Verify the identity of the server. */
+    /** Used with `setTlsInsecure`. Verify the identity of the server. */
     public const SSL_VERIFY_PEER = 1;
 
     /**

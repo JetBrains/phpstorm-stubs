@@ -583,6 +583,11 @@ class DivisionByZeroError extends ArithmeticError {}
 class UnhandledMatchError extends Error {}
 
 /**
+ * @since 8.4
+ */
+class RequestParseBodyException extends Exception {}
+
+/**
  * An Error Exception.
  * @link https://php.net/manual/en/class.errorexception.php
  */
@@ -1150,4 +1155,16 @@ final class SensitiveParameterValue
 final class Override
 {
     public function __construct() {}
+}
+
+/**
+ * @since 8.4
+ */
+#[Attribute(Attribute::TARGET_METHOD|Attribute::TARGET_FUNCTION|Attribute::TARGET_CLASS_CONSTANT)]
+final class Deprecated
+{
+    public readonly ?string $message;
+    public readonly ?string $since;
+
+    public function __construct(?string $message = null, ?string $since = null) {}
 }

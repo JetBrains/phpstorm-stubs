@@ -534,21 +534,21 @@ abstract class FilterIterator extends IteratorIterator
      * @link https://php.net/manual/en/filteriterator.valid.php
      * @return bool true if the current element is valid, otherwise false
      */
-    public function valid(): bool {}
+    public function valid() {}
 
     /**
      * Get the current key
      * @link https://php.net/manual/en/filteriterator.key.php
      * @return mixed The key of the current element.
      */
-    public function key(): mixed {}
+    public function key() {}
 
     /**
      * Get the current element value
      * @link https://php.net/manual/en/filteriterator.current.php
      * @return mixed The current element value.
      */
-    public function current(): mixed {}
+    public function current() {}
 
     /**
      * Move the iterator forward
@@ -563,7 +563,7 @@ abstract class FilterIterator extends IteratorIterator
      * @link https://php.net/manual/en/filteriterator.getinneriterator.php
      * @return Iterator The inner iterator.
      */
-    public function getInnerIterator(): Iterator {}
+    public function getInnerIterator() {}
 }
 
 /**
@@ -693,14 +693,14 @@ class LimitIterator extends IteratorIterator
      * @link https://php.net/manual/en/limititerator.key.php
      * @return mixed The key of the current element.
      */
-    public function key(): mixed {}
+    public function key() {}
 
     /**
      * Get current element
      * @link https://php.net/manual/en/limititerator.current.php
      * @return mixed the current element or null if there is none.
      */
-    public function current(): mixed {}
+    public function current() {}
 
     /**
      * Move the iterator forward
@@ -734,7 +734,7 @@ class LimitIterator extends IteratorIterator
      * @link https://php.net/manual/en/limititerator.getinneriterator.php
      * @return Iterator The inner iterator passed to <b>LimitIterator::__construct</b>.
      */
-    public function getInnerIterator(): Iterator {}
+    public function getInnerIterator() {}
 }
 
 /**
@@ -805,14 +805,14 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      * @link https://php.net/manual/en/cachingiterator.key.php
      * @return mixed The key of the current element.
      */
-    public function key(): mixed {}
+    public function key() {}
 
     /**
      * Return the current element
      * @link https://php.net/manual/en/cachingiterator.current.php
      * @return mixed
      */
-    public function current(): mixed {}
+    public function current() {}
 
     /**
      * Move the iterator forward
@@ -843,7 +843,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      * @link https://php.net/manual/en/cachingiterator.getinneriterator.php
      * @return Iterator an object implementing the Iterator interface.
      */
-    public function getInnerIterator(): Iterator {}
+    public function getInnerIterator() {}
 
     /**
      * Get flags used
@@ -1012,7 +1012,7 @@ class NoRewindIterator extends IteratorIterator
      * @link https://php.net/manual/en/norewinditerator.getinneriterator.php
      * @return Iterator The inner iterator, as passed to <b>NoRewindIterator::__construct</b>.
      */
-    public function getInnerIterator(): Iterator {}
+    public function getInnerIterator() {}
 }
 
 /**
@@ -1059,7 +1059,7 @@ class AppendIterator extends IteratorIterator
      * @link https://php.net/manual/en/appenditerator.key.php
      * @return mixed The key of the current element.
      */
-    public function key(): mixed {}
+    public function key() {}
 
     /**
      * Gets the current value
@@ -1082,7 +1082,7 @@ class AppendIterator extends IteratorIterator
      * @link https://php.net/manual/en/appenditerator.getinneriterator.php
      * @return Iterator the current inner Iterator.
      */
-    public function getInnerIterator(): Iterator {}
+    public function getInnerIterator() {}
 
     /**
      * Gets an index of iterators
@@ -1393,14 +1393,14 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      * @link https://php.net/manual/en/recursivetreeiterator.rewind.php
      * @return void
      */
-    public function rewind(): void {}
+    public function rewind() {}
 
     /**
      * Check validity
      * @link https://php.net/manual/en/recursivetreeiterator.valid.php
      * @return bool true if the current position is valid, otherwise false
      */
-    public function valid(): bool {}
+    public function valid() {}
 
     /**
      * Get the key of the current element
@@ -1423,7 +1423,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      * @link https://php.net/manual/en/recursivetreeiterator.next.php
      * @return void
      */
-    public function next(): void {}
+    public function next() {}
 
     /**
      * Begin iteration

@@ -246,3 +246,18 @@ function bccomp(string $num1, string $num2, ?int $scale = null): int {}
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
 function bcpowmod(string $num, string $exponent, string $modulus, ?int $scale = null) {}
+
+/**
+ * @since 8.4
+ */
+function bcfloor(string $num): string {}
+
+/**
+ * @since 8.4
+ */
+function bcceil(string $num): string {}
+
+/**
+ * @since 8.4
+ */
+function bcround(string $num, int $precision = 0, RoundingMode $mode = RoundingMode::HalfAwayFromZero): string {}

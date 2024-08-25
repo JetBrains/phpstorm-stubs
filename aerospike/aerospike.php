@@ -197,7 +197,7 @@ class Aerospike
      * @see Aerospike::error() error()
      * @see Aerospike::errorno() errorno()
      */
-    public function __construct(array $config, bool $persistent_connection = true, array $options = []) {}
+    public function __construct($config, $persistent_connection = true, array $options = []) {}
 
     /**
      * Disconnect from the Aerospike cluster and clean up resources.
@@ -354,7 +354,7 @@ class Aerospike
      * @return array
      * @see Aerospike::getKeyDigest() getKeyDigest()
      */
-    public function initKey(string $ns, string $set, $pk, bool $is_digest = false) {}
+    public function initKey($ns, $set, $pk, $is_digest = false) {}
 
     /**
      * Return the digest of hashing the (namespace, set, primary-key) tuple
@@ -390,7 +390,7 @@ class Aerospike
      * @return string
      * @see Aerospike::initKey() initKey()
      */
-    public function getKeyDigest(string $ns, string $set, $pk) {}
+    public function getKeyDigest($ns, $set, $pk) {}
 
     /**
      * Write a record identified by the $key with $bins, an array of bin-name => bin-value pairs.
@@ -533,7 +533,7 @@ class Aerospike
      * @see Aerospike::errorno() errorno()
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function put(array $key, array $bins, int $ttl = 0, array $options = []) {}
+    public function put(array $key, array $bins, $ttl = 0, array $options = []) {}
 
     /**
      * Read a record with a given key, and store it in $record
@@ -669,7 +669,7 @@ class Aerospike
      * @see Aerospike::errorno() errorno()
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function get(array $key, &$record, ?array $select = null, array $options = []) {}
+    public function get(array $key, &$record, $select = null, array $options = []) {}
 
     /**
      * Get the metadata of a record with a given key, and store it in $metadata
@@ -776,7 +776,7 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function touch(array $key, int $ttl = 0, array $options = []) {}
+    public function touch(array $key, $ttl = 0, array $options = []) {}
 
     /**
      * Remove the record identified by the $key.
@@ -899,7 +899,7 @@ class Aerospike
      * * Aerospike::OPT_WRITE_TIMEOUT
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function truncate(string $ns, string $set, int $nanos, array $options = []) {}
+    public function truncate($ns, $set, $nanos, array $options = []) {}
 
     /**
      * Increment the value of $bin in the record identified by the $key by an
@@ -941,7 +941,7 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function increment(array $key, string $bin, $offset, array $options = []) {}
+    public function increment(array $key, $bin, $offset, array $options = []) {}
 
     /**
      * Append a string $value to the one already in $bin, in the record identified by the $key.
@@ -983,7 +983,7 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function append(array $key, string $bin, string $value, array $options = []) {}
+    public function append(array $key, $bin, $value, array $options = []) {}
 
     /**
      * Prepend a string $value to the one already in $bin, in the record identified by the $key.
@@ -1025,7 +1025,7 @@ class Aerospike
      * @see Aerospike::OK Aerospike::OK and error status codes
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function prepend(array $key, string $bin, string $value, array $options = []) {}
+    public function prepend(array $key, $bin, $value, array $options = []) {}
 
     /**
      *  Perform multiple bin operations on a record with a given key, with write operations happening before read ones.
@@ -2677,7 +2677,7 @@ class Aerospike
      *
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function scan(string $ns, string $set, callable $record_cb, array $select = [], array $options = []) {}
+    public function scan($ns, $set, callable $record_cb, array $select = [], array $options = []) {}
 
     /**
      * Query a secondary index on a namespace or set
@@ -2748,7 +2748,7 @@ class Aerospike
      * @see Aerospike::predicateGeoWithinRadius()
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function query(string $ns, string $set, array $where, callable $record_cb, array $select = [], array $options = []) {}
+    public function query($ns, $set, array $where, callable $record_cb, array $select = [], array $options = []) {}
 
     /**
      * Helper method for creating an EQUALS predicate
@@ -2765,7 +2765,7 @@ class Aerospike
      *   val => scalar integer/string value
      * ```
      */
-    public static function predicateEquals(string $bin, $val) {}
+    public static function predicateEquals($bin, $val) {}
 
     /**
      * Helper method for creating a BETWEEN predicate
@@ -2783,7 +2783,7 @@ class Aerospike
      *   val => [min, max]
      * ```
      */
-    public static function predicateBetween(string $bin, int $min, int $max) {}
+    public static function predicateBetween($bin, $min, $max) {}
 
     /**
      * Helper method for creating an CONTAINS predicate
@@ -2809,7 +2809,7 @@ class Aerospike
      *   val => scalar integer/string value
      * ```
      */
-    public static function predicateContains(string $bin, int $index_type, $val) {}
+    public static function predicateContains($bin, $index_type, $val) {}
 
     /**
      * Helper method for creating a RANGE predicate
@@ -2836,7 +2836,7 @@ class Aerospike
      *   val => [min, max]
      * ```
      */
-    public static function predicateRange(string $bin, int $index_type, int $min, int $max) {}
+    public static function predicateRange($bin, $index_type, $min, $max) {}
 
     /**
      * Helper method for creating a GEOCONTAINS point predicate
@@ -2853,7 +2853,7 @@ class Aerospike
      *   val => GeoJSON string
      * ```
      */
-    public static function predicateGeoContainsGeoJSONPoint(string $bin, string $point) {}
+    public static function predicateGeoContainsGeoJSONPoint($bin, $point) {}
 
     /**
      * Helper method for creating a GEOCONTAINS point predicate
@@ -2871,7 +2871,7 @@ class Aerospike
      *   val => GeoJSON string produced from $long and $lat
      * ```
      */
-    public static function predicateGeoContainsPoint(string $bin, float $long, float $lat) {}
+    public static function predicateGeoContainsPoint($bin, $long, $lat) {}
 
     /**
      * Helper method for creating a GEOWITHIN region predicate
@@ -2888,7 +2888,7 @@ class Aerospike
      *   val => GeoJSON string
      * ```
      */
-    public static function predicateGeoWithinGeoJSONRegion(string $bin, string $region) {}
+    public static function predicateGeoWithinGeoJSONRegion($bin, $region) {}
 
     /**
      * Helper method for creating a GEOWITHIN circle region predicate
@@ -2907,7 +2907,7 @@ class Aerospike
      *   val => GeoJSON string produced from $long, $lat and $radius
      * ```
      */
-    public static function predicateGeoWithinRadius(string $bin, float $long, float $lat, float $radiusMeter) {}
+    public static function predicateGeoWithinRadius($bin, $long, $lat, $radiusMeter) {}
 
     /**
      * Get the status of a background job triggered by Aerospike::scanApply or Aerospike::queryApply
@@ -2937,7 +2937,7 @@ class Aerospike
      * @see Aerospike::queryApply()
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function jobInfo(int $job_id, $job_type, array &$info, array $options = []) {}
+    public function jobInfo($job_id, $job_type, array &$info, array $options = []) {}
 
     // UDF Methods
 
@@ -3136,7 +3136,7 @@ class Aerospike
      * @see Aerospike::ERR_LUA UDF error status codes
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function apply(array $key, string $module, string $function, array $args = [], &$returned = null, $options = []) {}
+    public function apply(array $key, $module, $function, array $args = [], &$returned = null, $options = []) {}
 
     /**
      * Apply a UDF to each record in a scan
@@ -3183,7 +3183,7 @@ class Aerospike
      * @see Aerospike::jobInfo()
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function scanApply(string $ns, string $set, string $module, string $function, array $args, int &$job_id, array $options = []) {}
+    public function scanApply($ns, $set, $module, $function, array $args, &$job_id, array $options = []) {}
 
     /**
      * Apply a UDF to each record in a query
@@ -3252,7 +3252,7 @@ class Aerospike
      * @see Aerospike::jobInfo()
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function queryApply(string $ns, string $set, array $where, string $module, string $function, array $args, int &$job_id, array $options = []) {}
+    public function queryApply($ns, $set, array $where, $module, $function, array $args, &$job_id, array $options = []) {}
 
     /**
      * Apply a stream UDF to a scan or secondary index query
@@ -3391,7 +3391,7 @@ class Aerospike
      * @see Aerospike::predicateGeoWithinRadius()
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function aggregate(string $ns, string $set, array $where, string $module, string $function, array $args, &$returned, array $options = []) {}
+    public function aggregate($ns, $set, array $where, $module, $function, array $args, &$returned, array $options = []) {}
 
     // Admin methods
 
@@ -3428,7 +3428,7 @@ class Aerospike
      * @see Aerospike::INDEX_STRING
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function addIndex(string $ns, string $set, string $bin, string $name, int $indexType, int $dataType, array $options = []) {}
+    public function addIndex($ns, $set, $bin, $name, $indexType, $dataType, array $options = []) {}
 
     /**
      * Drop a secondary index
@@ -3449,7 +3449,7 @@ class Aerospike
      * * Aerospike::OPT_WRITE_TIMEOUT
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function dropIndex(string $ns, string $name, array $options = []) {}
+    public function dropIndex($ns, $name, array $options = []) {}
 
     // Info Methods
 
@@ -3479,7 +3479,7 @@ class Aerospike
      * * Aerospike::OPT_READ_TIMEOUT
      * @return int The status code of the operation. Compare to the Aerospike class status constants.
      */
-    public function info(string $request, string &$response, ?array $host = null, array $options = []) {}
+    public function info($request, &$response, $host = null, array $options = []) {}
 
     /**
      * Send an info request to a single cluster node
@@ -3516,7 +3516,7 @@ class Aerospike
      *  NODE-ID => response string
      * ```
      */
-    public function infoMany(string $request, ?array $host = null, array $options = []) {}
+    public function infoMany($request, $host = null, array $options = []) {}
 
     /**
      * Get the addresses of the cluster nodes
@@ -3567,7 +3567,7 @@ class Aerospike
      * * Aerospike::LOG_LEVEL_TRACE
      * @see Aerospike::LOG_LEVEL_OFF Aerospike::LOG_LEVEL_* constants
      */
-    public function setLogLevel(int $log_level) {}
+    public function setLogLevel($log_level) {}
 
     /**
      * Set a handler for log events
@@ -3761,21 +3761,21 @@ class Aerospike
 
     /**
      * Defines the length of time (in milliseconds) the client waits on establishing a connection.
-     * @const OPT_CONNECT_TIMEOUT value in milliseconds (default: 1000)
+     * value in milliseconds (default: 1000)
      */
     public const OPT_CONNECT_TIMEOUT = "OPT_CONNECT_TIMEOUT";
 
     /**
      * Defines the length of time (in milliseconds) the client waits on a read
      * operation.
-     * @const OPT_READ_TIMEOUT value in milliseconds (default: 1000)
+     * value in milliseconds (default: 1000)
      */
     public const OPT_READ_TIMEOUT = "OPT_READ_TIMEOUT";
 
     /**
      * Defines the length of time (in milliseconds) the client waits on a write
      * operation.
-     * @const OPT_WRITE_TIMEOUT value in milliseconds (default: 1000)
+     * value in milliseconds (default: 1000)
      */
     public const OPT_WRITE_TIMEOUT = "OPT_WRITE_TIMEOUT";
 
@@ -3786,7 +3786,7 @@ class Aerospike
      * * TTL = 0 uses the default TTL defined for the namespace.
      * * TTL = -1 means the record should never expire.
      * * TTL = -2 means the record's TTL should not be modified.
-     * @const OPT_TTL value in seconds, or the special values 0, -1 or -2 (default: 0)
+     * value in seconds, or the special values 0, -1 or -2 (default: 0)
      */
     public const OPT_TTL = "OPT_TTL";
 
@@ -3796,19 +3796,19 @@ class Aerospike
      * {@link https://www.aerospike.com/docs/client/php/usage/kvs/record-structure.html Records}
      * are uniquely identified by their digest, and can optionally store the value of their primary key
      * (their unique ID in the application).
-     * @const OPT_POLICY_KEY Key storage policy option (digest-only or send key)
+     * Key storage policy option (digest-only or send key)
      */
     public const OPT_POLICY_KEY = "OPT_POLICY_KEY";
 
     /**
      * Do not store the primary key with the record (default)
-     * @const POLICY_KEY_DIGEST digest only
+     * digest only
      */
     public const POLICY_KEY_DIGEST = 0;
 
     /**
      * Store the primary key with the record
-     * @const POLICY_KEY_SEND store the primary key with the record
+     * store the primary key with the record
      */
     public const POLICY_KEY_SEND = 1;
 
@@ -3819,38 +3819,38 @@ class Aerospike
      * is a behavior similar to how arrays work in PHP. Setting a write with a
      * different POLICY\_EXISTS\_* value can simulate a more DML-like behavior,
      * similar to an RDBMS.
-     * @const OPT_POLICY_EXISTS existence policy option
+     * existence policy option
      */
     public const OPT_POLICY_EXISTS = "OPT_POLICY_EXISTS";
 
     /**
      * "CREATE_OR_UPDATE" behavior. Create the record if it does not exist,
      * or update its bins if it does. (default)
-     * @const POLICY_EXISTS_IGNORE create or update behavior
+     * create or update behavior
      */
     public const POLICY_EXISTS_IGNORE = 0;
 
     /**
      * Create a record ONLY if it DOES NOT exist.
-     * @const POLICY_EXISTS_CREATE create only behavior (fail otherwise)
+     * create only behavior (fail otherwise)
      */
     public const POLICY_EXISTS_CREATE = 1;
 
     /**
      * Update a record ONLY if it exists.
-     * @const POLICY_EXISTS_UPDATE update only behavior (fail otherwise)
+     * update only behavior (fail otherwise)
      */
     public const POLICY_EXISTS_UPDATE = 2;
 
     /**
      * Replace a record ONLY if it exists.
-     * @const POLICY_EXISTS_REPLACE replace only behavior (fail otherwise)
+     * replace only behavior (fail otherwise)
      */
     public const POLICY_EXISTS_REPLACE = 3;
 
     /**
      * Create the record if it does not exist, or replace its bins if it does.
-     * @const POLICY_EXISTS_CREATE_OR_REPLACE create or replace behavior
+     * create or replace behavior
      */
     public const POLICY_EXISTS_CREATE_OR_REPLACE = 4;
 
@@ -3859,24 +3859,24 @@ class Aerospike
      *
      * Specifies the behavior of write opertions with regards to the record's
      * generation. Used to implement a check-and-set (CAS) pattern.
-     * @const OPT_POLICY_GEN generation policy option
+     * generation policy option
      */
     public const OPT_POLICY_GEN = "OPT_POLICY_GEN";
 
     /**
      * Do not consider generation for the write operation.
-     * @const POLICY_GEN_IGNORE write a record, regardless of generation (default)
+     * write a record, regardless of generation (default)
      */
     public const POLICY_GEN_IGNORE = 0;
 
     /**
      * Only write if the record was not modified since a given generation value.
-     * @const POLICY_GEN_EQ write a record, ONLY if generations are equal
+     * write a record, ONLY if generations are equal
      */
     public const POLICY_GEN_EQ = 1;
 
     /**
-     * @const POLICY_GEN_GT write a record, ONLY if local generation is greater-than remote generation
+     * write a record, ONLY if local generation is greater-than remote generation
      */
     public const POLICY_GEN_GT = 2;
 
@@ -3886,25 +3886,25 @@ class Aerospike
      * Supported types, such as string, integer, and array get directly cast to
      * the matching Aerospike types, such as as_string, as_integer, and as_map.
      * Unsupported types, such as boolean, need a serializer to handle them.
-     * @const OPT_SERIALIZER determines a handler for unsupported data types
+     * determines a handler for unsupported data types
      */
     public const OPT_SERIALIZER = "OPT_SERIALIZER";
 
     /**
      * Throw an exception instead of serializing unsupported types.
-     * @const SERIALIZER_NONE throw an error when serialization is required
+     * throw an error when serialization is required
      */
     public const SERIALIZER_NONE = 0;
 
     /**
      * Use the built-in PHP serializer for any unsupported types.
-     * @const SERIALIZER_PHP use the PHP serialize/unserialize functions (default)
+     * use the PHP serialize/unserialize functions (default)
      */
     public const SERIALIZER_PHP = 1;
 
     /**
      * Use a user-defined serializer for any unsupported types.
-     * @const SERIALIZER_USER use a pair of functions written in PHP for serialization
+     * use a pair of functions written in PHP for serialization
      */
     public const SERIALIZER_USER = 2;
 
@@ -3915,19 +3915,19 @@ class Aerospike
      * Specifies the number of replicas required to be successfully committed
      * before returning success in a write operation to provide the desired
      * consistency level.
-     * @const OPT_POLICY_COMMIT_LEVEL commit level policy option
+     * commit level policy option
      */
     public const OPT_POLICY_COMMIT_LEVEL = "OPT_POLICY_COMMIT_LEVEL";
 
     /**
      * Return succcess only after successfully committing all replicas.
-     * @const POLICY_COMMIT_LEVEL_ALL write to the master and all replicas (default)
+     * write to the master and all replicas (default)
      */
     public const POLICY_COMMIT_LEVEL_ALL = 0;
 
     /**
      * Return succcess after successfully committing the master replica.
-     * @const POLICY_COMMIT_LEVEL_MASTER master will asynchronously write to replicas
+     * master will asynchronously write to replicas
      */
     public const POLICY_COMMIT_LEVEL_MASTER = 1;
 
@@ -3936,19 +3936,19 @@ class Aerospike
      *
      * One of the {@link https://www.aerospike.com/docs/architecture/consistency.html per-transaction consistency levels}.
      * Specifies which partition replica to read from.
-     * @const OPT_POLICY_REPLICA replica policy option
+     * replica policy option
      */
     public const OPT_POLICY_REPLICA = "OPT_POLICY_REPLICA";
 
     /**
      * Read from the partition master replica node.
-     * @const POLICY_REPLICA_MASTER read from master
+     * read from master
      */
     public const POLICY_REPLICA_MASTER = 0;
 
     /**
      * Read from an unspecified replica node.
-     * @const POLICY_REPLICA_ANY read from any replica node
+     * read from any replica node
      */
     public const POLICY_REPLICA_ANY = 1;
 
@@ -3956,7 +3956,7 @@ class Aerospike
      *   Always try node containing master partition first. If connection fails and
      *   `retry_on_timeout` is true, try node containing replica partition.
      *   Currently restricted to master and one replica. (default)
-     * @const POLICY_REPLICA_SEQUENCE attempt to read from master first, then try the node containing replica partition if connection failed. (default)
+     * attempt to read from master first, then try the node containing replica partition if connection failed. (default)
      */
     public const POLICY_REPLICA_SEQUENCE = 2;
 
@@ -3966,7 +3966,7 @@ class Aerospike
      *
      * "rack_aware" must be set to true in the client constructor, and "rack_id" must match the server rack configuration
      * to enable this functionality.
-     * @const POLICY_REPLICA_PREFER_RACK attemp to read from master first, then try the node containing replica partition if connection failed. (default)
+     * attemp to read from master first, then try the node containing replica partition if connection failed. (default)
      */
     public const POLICY_REPLICA_PREFER_RACK = 3;
 
@@ -3976,20 +3976,19 @@ class Aerospike
      * One of the {@link https://www.aerospike.com/docs/architecture/consistency.html per-transaction consistency levels}.
      * Specifies the number of replicas to be consulted in a read operation to
      * provide the desired consistency level in availability mode.
-     * @const OPT_POLICY_READ_MODE_AP policy read option for availability namespaces
+     * policy read option for availability namespaces
      */
     public const OPT_POLICY_READ_MODE_AP = "OPT_POLICY_READ_MODE_AP";
 
     /**
      * Involve a single replica in the operation.
-     * @const POLICY_READ_MODE_AP_ONE (default)
+     * (default)
      */
     public const POLICY_READ_MODE_AP_ONE = 0;
 
     /**
      * Involve all replicas in the operation.
-     * @const AS_POLICY_READ_MODE_AP_ALL
-     */
+     * */
     public const AS_POLICY_READ_MODE_AP_ALL = 1;
 
     /**
@@ -3998,40 +3997,36 @@ class Aerospike
      * One of the {@link https://www.aerospike.com/docs/architecture/consistency.html per-transaction consistency levels}.
      * Specifies the number of replicas to be consulted in a read operation to
      * provide the desired consistency level.
-     * @const OPT_POLICY_READ_MODE_SC policy read option for consistency namespaces
+     * policy read option for consistency namespaces
      */
     public const OPT_POLICY_READ_MODE_SC = "OPT_POLICY_READ_MODE_SC";
 
     /**
      * Always read from master. Record versions are local to session.
-     * @const POLICY_READ_MODE_SC_SESSION (default)
+     * (default)
      */
     public const POLICY_READ_MODE_SC_SESSION = 0;
 
     /**
      * Always read from master. Record versions are global and thus serialized.
-     * @const POLICY_READ_MODE_SC_LINEARIZE
-     */
+     * */
     public const POLICY_READ_MODE_SC_LINEARIZE = 1;
 
     /**
      * Read from master or fully migrated replica. Record versions may not always increase.
-     * @const POLICY_READ_MODE_SC_ALLOW_REPLICA
-     */
+     * */
     public const POLICY_READ_MODE_SC_ALLOW_REPLICA = 2;
 
     /**
      * Read from master or fully migrated replica. Unavailable partitions are allowed. Record versions may not always increase.
-     * @const POLICY_READ_MODE_SC_ALLOW_UNAVAILABLE
-     */
+     * */
     public const POLICY_READ_MODE_SC_ALLOW_UNAVAILABLE = 3;
 
     /*
       * Should raw bytes representing a list or map be deserialized to an array.
       * Set to false for backup programs that just need access to raw bytes.
       * Default: true
-      @const OPT_DESERIALIZE
-    */
+      */
     public const OPT_DESERIALIZE = "deserialize";
 
     /**
@@ -4113,66 +4108,66 @@ class Aerospike
     /**
      * Accepts one of the SCAN_PRIORITY_* values.
      *
-     * @const OPT_SCAN_PRIORITY The priority of the scan
+     * The priority of the scan
      */
     public const OPT_SCAN_PRIORITY = "OPT_SCAN_PRIORITY";
 
     /**
      * The cluster will auto-adjust the priority of the scan.
-     * @const SCAN_PRIORITY_AUTO auto-adjust the scan priority (default)
+     * auto-adjust the scan priority (default)
      */
     public const SCAN_PRIORITY_AUTO = "SCAN_PRIORITY_AUTO";
 
     /**
      * Set the scan as having low priority.
-     * @const SCAN_PRIORITY_LOW low priority scan
+     * low priority scan
      */
     public const SCAN_PRIORITY_LOW = "SCAN_PRIORITY_LOW";
 
     /**
      * Set the scan as having medium priority.
-     * @const SCAN_PRIORITY_MEDIUM medium priority scan
+     * medium priority scan
      */
     public const SCAN_PRIORITY_MEDIUM = "SCAN_PRIORITY_MEDIUM";
 
     /**
      * Set the scan as having high priority.
-     * @const SCAN_PRIORITY_HIGH high priority scan
+     * high priority scan
      */
     public const SCAN_PRIORITY_HIGH = "SCAN_PRIORITY_HIGH";
 
     /**
      * Do not return the bins of the records matched by the scan.
      *
-     * @const OPT_SCAN_NOBINS boolean value (default: false)
+     * boolean value (default: false)
      */
     public const OPT_SCAN_NOBINS = "OPT_SCAN_NOBINS";
 
     /**
      * Set the scan to run over a given percentage of the possible records.
      *
-     * @const OPT_SCAN_PERCENTAGE integer value from 1-100 (default: 100)
+     * integer value from 1-100 (default: 100)
      */
     public const OPT_SCAN_PERCENTAGE = "OPT_SCAN_PERCENTAGE";
 
     /**
      * Scan all the nodes in the cluster concurrently.
      *
-     * @const OPT_SCAN_CONCURRENTLY boolean value (default: false)
+     * boolean value (default: false)
      */
     public const OPT_SCAN_CONCURRENTLY = "OPT_SCAN_CONCURRENTLY";
 
     /**
      * Do not return the bins of the records matched by the query.
      *
-     * @const OPT_QUERY_NOBINS boolean value (default: false)
+     * boolean value (default: false)
      */
     public const OPT_QUERY_NOBINS = "OPT_QUERY_NOBINS";
 
     /**
      * Revert to the older batch-direct protocol, instead of batch-index.
      *
-     * @const USE_BATCH_DIRECT boolean value (default: false)
+     * boolean value (default: false)
      */
     public const USE_BATCH_DIRECT = "USE_BATCH_DIRECT";
 
@@ -4180,7 +4175,7 @@ class Aerospike
      * Set to true to enable durable delete for the operation.
      * Durable deletes are an Enterprise Edition feature
      *
-     * @const OPT_POLICY_DURABLE_DELETE boolean value (default: false)
+     * boolean value (default: false)
      */
     public const OPT_POLICY_DURABLE_DELETE = "OPT_POLICY_DURABLE_DELETE";
 
@@ -4190,26 +4185,23 @@ class Aerospike
      * @see Aerospike::AS_MAP_UNORDERED
      * @see Aerospike::AS_MAP_KEY_ORDERED
      * @see Aerospike::AS_MAP_KEY_VALUE_ORDERED
-     * @const OPT_MAP_ORDER
-     */
+     * */
     public const OPT_MAP_ORDER = "OPT_MAP_ORDER";
 
     /**
      * The Aerospike map is unordered
-     * @const AS_MAP_UNORDERED (default)
+     * (default)
      */
     public const AS_MAP_UNORDERED = "AS_MAP_UNORDERED";
 
     /**
      * The Aerospike map is ordered by key
-     * @const AS_MAP_KEY_ORDERED
-     */
+     * */
     public const AS_MAP_KEY_ORDERED = "AS_MAP_KEY_ORDERED";
 
     /**
      * The Aerospike map is ordered by key and value
-     * @const AS_MAP_KEY_VALUE_ORDERED
-     */
+     * */
     public const AS_MAP_KEY_VALUE_ORDERED = "AS_MAP_KEY_VALUE_ORDERED";
 
     /**
@@ -4217,23 +4209,16 @@ class Aerospike
      * @see Aerospike::AS_MAP_UPDATE
      * @see Aerospike::AS_MAP_UPDATE_ONLY
      * @see Aerospike::AS_MAP_CREATE_ONLY
-     * @const OPT_MAP_WRITE_MODE
-     */
+     * */
     public const OPT_MAP_WRITE_MODE = "OPT_MAP_WRITE_MODE";
 
     /**
-     * @const AS_MAP_UPDATE (default)
+     * (default)
      */
     public const AS_MAP_UPDATE = "AS_MAP_UPDATE";
 
-    /**
-     * @const AS_MAP_UPDATE_ONLY
-     */
     public const AS_MAP_UPDATE_ONLY = "AS_MAP_UPDATE_ONLY";
 
-    /**
-     * @const AS_MAP_CREATE_ONLY
-     */
     public const AS_MAP_CREATE_ONLY = "AS_MAP_CREATE_ONLY";
 
     /**
@@ -4243,132 +4228,100 @@ class Aerospike
      * @see Aerospike::AS_MAP_WRITE_UPDATE_ONLY
      * @see Aerospike::AS_MAP_WRITE_NO_FAIL
      * @see Aerospike::AS_MAP_WRITE_PARTIAL
-     * @const OPT_MAP_WRITE_FLAGS
-     */
+     * */
     public const OPT_MAP_WRITE_FLAGS = "OPT_MAP_WRITE_FLAGS";
 
     /**
      * Default. Allow create or update.
-     * @const AS_MAP_WRITE_DEFAULT (default)
+     * (default)
      */
     public const AS_MAP_WRITE_DEFAULT = "AS_MAP_WRITE_DEFAULT";
 
     /**
      * If the key already exists, the item will be denied. If the key does not exist, a new item will be created.
-     * @const AS_MAP_WRITE_CREATE_ONLY
-     */
+     * */
     public const AS_MAP_WRITE_CREATE_ONLY = "AS_MAP_WRITE_CREATE_ONLY";
 
     /**
      * If the key already exists, the item will be overwritten. If the key does not exist, the item will be denied.
-     * @const AS_MAP_WRITE_UPDATE_ONLY
-     */
+     * */
     public const AS_MAP_WRITE_UPDATE_ONLY = "AS_MAP_WRITE_UPDATE_ONLY";
 
     /**
      * Do not raise error if a map item is denied due to write flag constraints (always succeed).
-     * @const AS_MAP_WRITE_NO_FAIL
-     */
+     * */
     public const AS_MAP_WRITE_NO_FAIL = "AS_MAP_WRITE_NO_FAIL";
 
     /**
      * Allow other valid map items to be committed if a map item is denied due to write flag constraints.
-     * @const AS_MAP_WRITE_PARTIAL
-     */
+     * */
     public const AS_MAP_WRITE_PARTIAL = "AS_MAP_WRITE_PARTIAL";
 
     /**
      * Do not return a result for the map operation (get and remove operations)
      * @link https://www.aerospike.com/docs/guide/cdt-map.html#map-apis Map Result Types
-     * @const MAP_RETURN_NONE
-     */
+     * */
     public const MAP_RETURN_NONE = "AS_MAP_RETURN_NONE";
 
     /**
      * Return in key index order
      * @link https://www.aerospike.com/docs/guide/cdt-map.html#map-apis Map Result Types
-     * @const AS_MAP_RETURN_INDEX
-     */
+     * */
     public const MAP_RETURN_INDEX = "AS_MAP_RETURN_INDEX";
 
     /**
      * Return in reverse key order
      * @link https://www.aerospike.com/docs/guide/cdt-map.html#map-apis Map Result Types
-     * @const MAP_RETURN_REVERSE_INDEX
-     */
+     * */
     public const MAP_RETURN_REVERSE_INDEX = "AS_MAP_RETURN_REVERSE_INDEX";
 
     /**
      * Return in value order
      * @link https://www.aerospike.com/docs/guide/cdt-map.html#map-apis Map Result Types
-     * @const MAP_RETURN_RANK
-     */
+     * */
     public const MAP_RETURN_RANK = "AS_MAP_RETURN_RANK";
 
     /**
      * Return in reverse value order
      * @link https://www.aerospike.com/docs/guide/cdt-map.html#map-apis Map Result Types
-     * @const MAP_RETURN_REVERSE_RANK
-     */
+     * */
     public const MAP_RETURN_REVERSE_RANK = "AS_MAP_RETURN_REVERSE_RANK";
 
     /**
      * Return count of items selected
      * @link https://www.aerospike.com/docs/guide/cdt-map.html#map-apis Map Result Types
-     * @const MAP_RETURN_COUNT
-     */
+     * */
     public const MAP_RETURN_COUNT = "AS_MAP_RETURN_COUNT";
 
     /**
      * Return key for single key read and key list for range read
      * @link https://www.aerospike.com/docs/guide/cdt-map.html#map-apis Map Result Types
-     * @const MAP_RETURN_KEY
-     */
+     * */
     public const MAP_RETURN_KEY = "AS_MAP_RETURN_KEY";
 
     /**
      * Return value for single key read and value list for range read
      * @link https://www.aerospike.com/docs/guide/cdt-map.html#map-apis Map Result Types
-     * @const MAP_RETURN_VALUE
-     */
+     * */
     public const MAP_RETURN_VALUE = "AS_MAP_RETURN_VALUE";
 
     /**
      * Return key/value items
      * Will be of the form ['key1', 'val1', 'key2', 'val2', 'key3', 'val3]
      * @link https://www.aerospike.com/docs/guide/cdt-map.html#map-apis Map Result Types
-     * @const MAP_RETURN_KEY_VALUE
-     */
+     * */
     public const MAP_RETURN_KEY_VALUE = "AS_MAP_RETURN_KEY_VALUE";
 
-    /**
-     * @const LOG_LEVEL_OFF
-     */
     public const LOG_LEVEL_OFF = "LOG_LEVEL_OFF";
 
-    /**
-     * @const LOG_LEVEL_ERROR
-     */
     public const LOG_LEVEL_ERROR = "LOG_LEVEL_ERROR";
 
-    /**
-     * @const LOG_LEVEL_WARN
-     */
     public const LOG_LEVEL_WARN = "LOG_LEVEL_WARN";
 
-    /**
-     * @const LOG_LEVEL_INFO
-     */
     public const LOG_LEVEL_INFO = "LOG_LEVEL_INFO";
 
-    /**
-     * @const LOG_LEVEL_DEBUG
-     */
     public const LOG_LEVEL_DEBUG = "LOG_LEVEL_DEBUG";
 
-    /**
-     * @const LOG_LEVEL_TRACE
-     */
     public const LOG_LEVEL_TRACE = "LOG_LEVEL_TRACE";
 
     /**
@@ -4381,7 +4334,7 @@ class Aerospike
      * {@link https://github.com/aerospike/aerospike-client-c/blob/master/src/include/aerospike/as_status.h status codes}
      * of the C client.
      *
-     * @const OK Success
+     * Success
      */
     public const OK = "AEROSPIKE_OK";
 
@@ -4389,112 +4342,95 @@ class Aerospike
 
     /**
      * Synchronous connection error
-     * @const ERR_CONNECTION
-     */
+     * */
     public const ERR_CONNECTION = "AEROSPIKE_ERR_CONNECTION";
 
     /**
      * Node invalid or could not be found
-     * @const ERR_TLS_ERROR
-     */
+     * */
     public const ERR_TLS_ERROR = "AEROSPIKE_ERR_TLS";
 
     /**
      * Node invalid or could not be found
-     * @const ERR_INVALID_NODE
-     */
+     * */
     public const ERR_INVALID_NODE = "AEROSPIKE_ERR_INVALID_NODE";
 
     /**
      * Client hit the max asynchronous connections
-     * @const ERR_NO_MORE_CONNECTIONS
-     */
+     * */
     public const ERR_NO_MORE_CONNECTIONS = "AEROSPIKE_ERR_NO_MORE_CONNECTIONS";
 
     /**
      * Asynchronous connection error
-     * @const ERR_ASYNC_CONNECTION
-     */
+     * */
     public const ERR_ASYNC_CONNECTION = "AEROSPIKE_ERR_ASYNC_CONNECTION";
 
     /**
      * Query or scan was aborted in user's callback
-     * @const ERR_CLIENT_ABORT
-     */
+     * */
     public const ERR_CLIENT_ABORT = "AEROSPIKE_ERR_CLIENT_ABORT";
 
     /**
      * Host name could not be found in DNS lookup
-     * @const ERR_INVALID_HOST
-     */
+     * */
     public const ERR_INVALID_HOST = "AEROSPIKE_ERR_INVALID_HOST";
 
     /**
      * Invalid client API parameter
-     * @const ERR_PARAM
-     */
+     * */
     public const ERR_PARAM = "AEROSPIKE_ERR_PARAM";
 
     /**
      * Generic client API usage error
-     * @const ERR_CLIENT
-     */
+     * */
     public const ERR_CLIENT = "AEROSPIKE_ERR_CLIENT";
 
     // 1-49 - Basic Server Errors
 
     /**
      * Generic error returned by server
-     * @const ERR_SERVER
-     */
+     * */
     public const ERR_SERVER = "AEROSPIKE_ERR_SERVER";
 
     /**
      * No record is found with the specified namespace/set/key combination.
      * May be returned by a read, or a write with OPT_POLICY_EXISTS
      * set to POLICY_EXISTS_UPDATE
-     * @const ERR_RECORD_NOT_FOUND
-     */
+     * */
     public const ERR_RECORD_NOT_FOUND = "AEROSPIKE_ERR_RECORD_NOT_FOUND";
 
     /**
      * Generation of record does not satisfy the OPT_POLICY_GEN write policy
-     * @const ERR_RECORD_GENERATION
-     */
+     * */
     public const ERR_RECORD_GENERATION = "AEROSPIKE_ERR_RECORD_GENERATION";
 
     /**
      * Illegal parameter sent from client. Check client parameters and verify
      * each is supported by current server version
-     * @const ERR_REQUEST_INVALID
-     */
+     * */
     public const ERR_REQUEST_INVALID = "AEROSPIKE_ERR_REQUEST_INVALID";
 
     /**
      * The operation cannot be applied to the current bin on the server
-     * @const ERR_OP_NOT_APPLICABLE
-     */
+     * */
     public const ERR_OP_NOT_APPLICABLE = "AEROSPIKE_ERR_OP_NOT_APPLICABLE";
 
     /**
      * Record already exists. May be returned by a write with the
      * OPT_POLICY_EXISTS write policy set to POLICY_EXISTS_CREATE
-     * @const ERR_RECORD_EXISTS
-     */
+     * */
     public const ERR_RECORD_EXISTS = "AEROSPIKE_ERR_RECORD_EXISTS";
 
     /**
      * (future) For future write requests which specify 'BIN_CREATE_ONLY',
      * request failed because one of the bins in the write already exists
-     * @const ERR_BIN_EXISTS
-     */
+     * */
     public const ERR_BIN_EXISTS = "AEROSPIKE_ERR_BIN_EXISTS";
 
     /**
      * On scan requests, the scan terminates because cluster is in migration.
      * Only occur when client requested 'fail_on_cluster_change' policy on scan
-     * @const ERR_CLUSTER_CHANGE
-     */
+     * */
     public const ERR_CLUSTER_CHANGE = "AEROSPIKE_ERR_CLUSTER_CHANGE";
 
     /**
@@ -4502,95 +4438,81 @@ class Aerospike
      * or disk - min-avail-pct). Can also occur if memory cannot be allocated
      * anymore (but stop_writes should in general hit first). Namespace will no
      * longer be able to accept write requests
-     * @const ERR_SERVER_FULL
-     */
+     * */
     public const ERR_SERVER_FULL = "AEROSPIKE_ERR_SERVER_FULL";
 
     /**
      * Request was not completed during the allocated time, thus aborted
-     * @const ERR_TIMEOUT
-     */
+     * */
     public const ERR_TIMEOUT = "AEROSPIKE_ERR_TIMEOUT";
 
     /**
      * Write request is rejected because XDR is not running.
      * Only occur when XDR configuration xdr-stop-writes-noxdr is on
-     * @const ERR_NO_XDR
-     */
+     * */
     #[Deprecated("Will be reused as ERR_ALWAYS_FORBIDDEN")]
     public const ERR_ALWAYS_FORBIDDEN = "AEROSPIKE_ERR_ALWAYS_FORBIDDEN";
 
     /**
      * Server is not accepting requests.
      * Occur during single node on a quick restart to join existing cluster
-     * @const ERR_CLUSTER
-     */
+     * */
     public const ERR_CLUSTER = "AEROSPIKE_ERR_CLUSTER";
 
     /**
      * Operation is not allowed due to data type or namespace configuration incompatibility.
      * For example, append to a float data type, or insert a non-integer when
      * namespace is configured as data-in-index
-     * @const ERR_BIN_INCOMPATIBLE_TYPE
-     */
+     * */
     public const ERR_BIN_INCOMPATIBLE_TYPE = "AEROSPIKE_ERR_BIN_INCOMPATIBLE_TYPE";
 
     /**
      * Attempt to write a record whose size is bigger than the configured write-block-size
-     * @const ERR_RECORD_TOO_BIG
-     */
+     * */
     public const ERR_RECORD_TOO_BIG = "AEROSPIKE_ERR_RECORD_TOO_BIG";
 
     /**
      * Too many concurrent operations (> transaction-pending-limit) on the same record.
      * A "hot-key" situation
-     * @const ERR_RECORD_BUSY
-     */
+     * */
     public const ERR_RECORD_BUSY = "AEROSPIKE_ERR_RECORD_BUSY";
 
     /**
      * Scan aborted by user on server
-     * @const ERR_SCAN_ABORTED
-     */
+     * */
     public const ERR_SCAN_ABORTED = "AEROSPIKE_ERR_SCAN_ABORTED";
 
     /**
      * The client is trying to use a feature that does not yet exist in the
      * version of the server node it is talking to
-     * @const ERR_UNSUPPORTED_FEATURE
-     */
+     * */
     public const ERR_UNSUPPORTED_FEATURE = "AEROSPIKE_ERR_UNSUPPORTED_FEATURE";
 
     /**
      * (future) For future write requests which specify 'REPLACE_ONLY',
      * request fail because specified bin name does not exist in record
-     * @const ERR_BIN_NOT_FOUND
-     */
+     * */
     public const ERR_BIN_NOT_FOUND = "AEROSPIKE_ERR_BIN_NOT_FOUND";
 
     /**
      * Write request is rejected because one or more storage devices of the node are not keeping up
-     * @const ERR_DEVICE_OVERLOAD
-     */
+     * */
     public const ERR_DEVICE_OVERLOAD = "AEROSPIKE_ERR_DEVICE_OVERLOAD";
 
     /**
      * For update request on records which has key stored, the incoming key does not match
      * the existing stored key. This indicates a RIPEMD160 key collision has happend (report as a bug)
-     * @const ERR_RECORD_KEY_MISMATCH
-     */
+     * */
     public const ERR_RECORD_KEY_MISMATCH = "AEROSPIKE_ERR_RECORD_KEY_MISMATCH";
 
     /**
      * Namespace in request not found on server
-     * @const ERR_NAMESPACE_NOT_FOUND
-     */
+     * */
     public const ERR_NAMESPACE_NOT_FOUND = "AEROSPIKE_ERR_NAMESPACE_NOT_FOUND";
 
     /**
      * Bin name length greater than 14 characters, or maximum number of unique bin names are exceeded
-     * @const ERR_BIN_NAME
-     */
+     * */
     public const ERR_BIN_NAME = "AEROSPIKE_ERR_BIN_NAME";
 
     /**
@@ -4598,568 +4520,478 @@ class Aerospike
      * For writes, the set is in the middle of being deleted, or the set's stop-write is reached;
      * For scan, too many concurrent scan jobs (> scan-max-active);
      * For XDR-ed cluster, fail writes which are not replicated from another datacenter
-     * @const ERR_FAIL_FORBIDDEN
-     */
+     * */
     public const ERR_FAIL_FORBIDDEN = "AEROSPIKE_ERR_FORBIDDEN";
 
     /**
      * Target was not found for operations that requires a target to be found
-     * @const ERR_FAIL_ELEMENT_NOT_FOUND
-     */
+     * */
     public const ERR_FAIL_ELEMENT_NOT_FOUND = "AEROSPIKE_ERR_FAIL_NOT_FOUND";
 
     /**
      * Target already exist for operations that requires the target to not exist
-     * @const ERR_FAIL_ELEMENT_EXISTS
-     */
+     * */
     public const ERR_FAIL_ELEMENT_EXISTS = "AEROSPIKE_ERR_FAIL_ELEMENT_EXISTS";
 
     // 50-89 - Security Specific Errors
 
     /**
      * Security functionality not supported by connected server
-     * @const ERR_SECURITY_NOT_SUPPORTED
-     */
+     * */
     public const ERR_SECURITY_NOT_SUPPORTED = "AEROSPIKE_ERR_SECURITY_NOT_SUPPORTED";
 
     /**
      * Security functionality not enabled by connected server
-     * @const ERR_SECURITY_NOT_ENABLED
-     */
+     * */
     public const ERR_SECURITY_NOT_ENABLED = "AEROSPIKE_ERR_SECURITY_NOT_ENABLED";
 
     /**
      * Security scheme not supported
-     * @const ERR_SECURITY_SCHEME_NOT_SUPPORTED
-     */
+     * */
     public const ERR_SECURITY_SCHEME_NOT_SUPPORTED = "AEROSPIKE_ERR_SECURITY_SCHEME_NOT_SUPPORTED";
 
     /**
      * Unrecognized security command
-     * @const ERR_INVALID_COMMAND
-     */
+     * */
     public const ERR_INVALID_COMMAND = "AEROSPIKE_ERR_INVALID_COMMAND";
 
     /**
      * Field is not valid
-     * @const ERR_INVALID_FIELD
-     */
+     * */
     public const ERR_INVALID_FIELD = "AEROSPIKE_ERR_INVALID_FIELD";
 
     /**
      * Security protocol not followed
-     * @const ERR_ILLEGAL_STATE
-     */
+     * */
     public const ERR_ILLEGAL_STATE = "AEROSPIKE_ERR_ILLEGAL_STATE";
 
     /**
      * No user supplied or unknown user
-     * @const ERR_INVALID_USER
-     */
+     * */
     public const ERR_INVALID_USER = "AEROSPIKE_ERR_INVALID_USER";
 
     /**
      * User already exists
-     * @const ERR_USER_ALREADY_EXISTS
-     */
+     * */
     public const ERR_USER_ALREADY_EXISTS = "AEROSPIKE_ERR_USER_ALREADY_EXISTS";
 
     /**
      * Password does not exists or not recognized
-     * @const ERR_INVALID_PASSWORD
-     */
+     * */
     public const ERR_INVALID_PASSWORD = "AEROSPIKE_ERR_INVALID_PASSWORD";
 
     /**
      * Expired password
-     * @const ERR_EXPIRED_PASSWORD
-     */
+     * */
     public const ERR_EXPIRED_PASSWORD = "AEROSPIKE_ERR_EXPIRED_PASSWORD";
 
     /**
      * Forbidden password (e.g. recently used)
-     * @const ERR_FORBIDDEN_PASSWORD
-     */
+     * */
     public const ERR_FORBIDDEN_PASSWORD = "AEROSPIKE_ERR_FORBIDDEN_PASSWORD";
 
     /**
      * Invalid credential or credential does not exist
-     * @const ERR_INVALID_CREDENTIAL
-     */
+     * */
     public const ERR_INVALID_CREDENTIAL = "AEROSPIKE_ERR_INVALID_CREDENTIAL";
 
     /**
      * No role(s) or unknown role(s)
-     * @const ERR_INVALID_ROLE
-     */
+     * */
     public const ERR_INVALID_ROLE = "AEROSPIKE_ERR_INVALID_ROLE";
 
     /**
      * Privilege is invalid
-     * @const ERR_INVALID_PRIVILEGE
-     */
+     * */
     public const ERR_INVALID_PRIVILEGE = "AEROSPIKE_ERR_INVALID_PRIVILEGE";
 
     /**
      * User must be authenticated before performing database operations
-     * @const ERR_NOT_AUTHENTICATED
-     */
+     * */
     public const ERR_NOT_AUTHENTICATED = "AEROSPIKE_ERR_NOT_AUTHENTICATED";
 
     /**
      * User does not possess the required role to perform the database operation
-     * @const ERR_ROLE_VIOLATION
-     */
+     * */
     public const ERR_ROLE_VIOLATION = "AEROSPIKE_ERR_ROLE_VIOLATION";
 
     /**
      * Role already exists
-     * @const ERR_ROLE_ALREADY_EXISTS
-     */
+     * */
     public const ERR_ROLE_ALREADY_EXISTS = "AEROSPIKE_ERR_ROLE_ALREADY_EXISTS";
 
     // 100-109 - UDF Specific Errors
     //
     /**
      * A user defined function failed to execute
-     * @const ERR_UDF
-     */
+     * */
     public const ERR_UDF = "AEROSPIKE_ERR_UDF";
 
     /**
      * The UDF does not exist
-     * @const ERR_UDF_NOT_FOUND
-     */
+     * */
     public const ERR_UDF_NOT_FOUND = "AEROSPIKE_ERR_UDF_NOT_FOUND";
 
     /**
      * The LUA file does not exist
-     * @const ERR_LUA_FILE_NOT_FOUND
-     */
+     * */
     public const ERR_LUA_FILE_NOT_FOUND = "AEROSPIKE_ERR_LUA_FILE_NOT_FOUND";
 
     // 150-159 - Batch Specific Errors
 
     /**
      * Batch functionality has been disabled by configuring the batch-index-thread=0
-     * @const ERR_BATCH_DISABLED
-     */
+     * */
     public const ERR_BATCH_DISABLED = "AEROSPIKE_ERR_BATCH_DISABLED";
 
     /**
      * Batch max requests has been exceeded
-     * @const ERR_BATCH_MAX_REQUESTS_EXCEEDED
-     */
+     * */
     public const ERR_BATCH_MAX_REQUESTS_EXCEEDED = "AEROSPIKE_ERR_BATCH_MAX_REQUESTS_EXCEEDED";
 
     /**
      * All batch queues are full
-     * @const ERR_BATCH_QUEUES_FULL
-     */
+     * */
     public const ERR_BATCH_QUEUES_FULL = "AEROSPIKE_ERR_BATCH_QUEUES_FULL";
 
     // 160-169 - Geo Specific Errors
 
     /**
      * GeoJSON is malformed or not supported
-     * @const ERR_GEO_INVALID_GEOJSON
-     */
+     * */
     public const ERR_GEO_INVALID_GEOJSON = "AEROSPIKE_ERR_GEO_INVALID_GEOJSON";
 
     // 200-219 - Secondary Index Specific Errors
 
     /**
      * Secondary index already exists
-     * @const ERR_INDEX_FOUND
-     * Accepts one of the POLICY_KEY_* values.
+     * * Accepts one of the POLICY_KEY_* values.
      *
      * {@link https://www.aerospike.com/docs/client/php/usage/kvs/record-structure.html Records}
      * are uniquely identified by their digest, and can optionally store the value of their primary key
      * (their unique ID in the application).
-     * @const OPT_POLICY_KEY Key storage policy option (digest-only or send key)
+     * Key storage policy option (digest-only or send key)
      */
     public const ERR_INDEX_FOUND = "AEROSPIKE_ERR_INDEX_FOUND";
 
     /**
      * Secondary index does not exist
-     * @const ERR_INDEX_NOT_FOUND
-     */
+     * */
     public const ERR_INDEX_NOT_FOUND = "AEROSPIKE_ERR_INDEX_NOT_FOUND";
 
     /**
      * Secondary index memory space exceeded
-     * @const ERR_INDEX_OOM
-     */
+     * */
     public const ERR_INDEX_OOM = "AEROSPIKE_ERR_INDEX_OOM";
 
     /**
      * Secondary index not available for query. Occurs when indexing creation has not finished
-     * @const ERR_INDEX_NOT_READABLE
-     */
+     * */
     public const ERR_INDEX_NOT_READABLE = "AEROSPIKE_ERR_INDEX_NOT_READABLE";
 
     /**
      * Generic secondary index error
-     * @const ERR_INDEX
-     */
+     * */
     public const ERR_INDEX = "AEROSPIKE_ERR_INDEX";
 
     /**
      * Index name maximun length exceeded
-     * @const ERR_INDEX_NAME_MAXLEN
-     */
+     * */
     public const ERR_INDEX_NAME_MAXLEN = "AEROSPIKE_ERR_INDEX_NAME_MAXLEN";
 
     /**
      * Maximum number of indicies exceeded
-     * @const ERR_INDEX_MAXCOUNT
-     */
+     * */
     public const ERR_INDEX_MAXCOUNT = "AEROSPIKE_ERR_INDEX_MAXCOUNT";
 
     /**
      * Secondary index query aborted
-     * @const ERR_QUERY_ABORTED
-     */
+     * */
     public const ERR_QUERY_ABORTED = "AEROSPIKE_ERR_QUERY_ABORTED";
 
     /**
      * Secondary index queue full
-     * @const ERR_QUERY_QUEUE_FULL
-     */
+     * */
     public const ERR_QUERY_QUEUE_FULL = "AEROSPIKE_ERR_QUERY_QUEUE_FULL";
 
     /**
      * Secondary index query timed out on server
-     * @const ERR_QUERY_TIMEOUT
-     */
+     * */
     public const ERR_QUERY_TIMEOUT = "AEROSPIKE_ERR_QUERY_TIMEOUT";
 
     /**
      * Generic query error
-     * @const ERR_QUERY
-     */
+     * */
     public const ERR_QUERY = "AEROSPIKE_ERR_QUERY";
 
     /**
      * write operator for the operate() method
-     * @const OPERATOR_WRITE
-     */
+     * */
     public const OPERATOR_WRITE = "OPERATOR_WRITE";
 
     /**
      * read operator for the operate() method
-     * @const OPERATOR_READ
-     */
+     * */
     public const OPERATOR_READ = "OPERATOR_READ";
 
     /**
      * increment operator for the operate() method
-     * @const OPERATOR_INCR
-     */
+     * */
     public const OPERATOR_INCR = "OPERATOR_INCR";
 
     /**
      * prepend operator for the operate() method
-     * @const OPERATOR_PREPEND
-     */
+     * */
     public const OPERATOR_PREPEND = "OPERATOR_PREPEND";
 
     /**
      * append operator for the operate() method
-     * @const OPERATOR_APPEND
-     */
+     * */
     public const OPERATOR_APPEND = "OPERATOR_APPEND";
 
     /**
      * touch operator for the operate() method
-     * @const OPERATOR_TOUCH
-     */
+     * */
     public const OPERATOR_TOUCH = "OPERATOR_TOUCH";
 
     /**
      * delete operator for the operate() method
-     * @const OPERATOR_DELETE
-     */
+     * */
     public const OPERATOR_DELETE = "OPERATOR_DELETE";
 
     // List operation constants
 
     /**
      * list-append operator for the operate() method
-     * @const OP_LIST_APPEND
-     */
+     * */
     public const OP_LIST_APPEND = "OP_LIST_APPEND";
 
     /**
      * list-merge operator for the operate() method
-     * @const OP_LIST_MERGE
-     */
+     * */
     public const OP_LIST_MERGE = "OP_LIST_MERGE";
 
     /**
      * list-insert operator for the operate() method
-     * @const OP_LIST_INSERT
-     */
+     * */
     public const OP_LIST_INSERT = "OP_LIST_INSERT";
 
     /**
      * list-insert-items operator for the operate() method
-     * @const OP_LIST_INSERT_ITEMS
-     */
+     * */
     public const OP_LIST_INSERT_ITEMS = "OP_LIST_INSERT_ITEMS";
 
     /**
      * list-pop operator for the operate() method
-     * @const OP_LIST_POP
-     */
+     * */
     public const OP_LIST_POP = "OP_LIST_POP";
 
     /**
      * list-pop-range operator for the operate() method
-     * @const OP_LIST_POP_RANGE
-     */
+     * */
     public const OP_LIST_POP_RANGE = "OP_LIST_POP_RANGE";
 
     /**
      * list-remove operator for the operate() method
-     * @const OP_LIST_REMOVE
-     */
+     * */
     public const OP_LIST_REMOVE = "OP_LIST_REMOVE";
 
     /**
      * list-remove-range operator for the operate() method
-     * @const OP_LIST_REMOVE_RANGE
-     */
+     * */
     public const OP_LIST_REMOVE_RANGE = "OP_LIST_REMOVE_RANGE";
 
     /**
      * list-clear operator for the operate() method
-     * @const OP_LIST_CLEAR
-     */
+     * */
     public const OP_LIST_CLEAR = "OP_LIST_CLEAR";
 
     /**
      * list-set operator for the operate() method
-     * @const OP_LIST_SET
-     */
+     * */
     public const OP_LIST_SET = "OP_LIST_SET";
 
     /**
      * list-get operator for the operate() method
-     * @const OP_LIST_GET
-     */
+     * */
     public const OP_LIST_GET = "OP_LIST_GET";
 
     /**
      * list-get-range operator for the operate() method
-     * @const OP_LIST_GET_RANGE
-     */
+     * */
     public const OP_LIST_GET_RANGE = "OP_LIST_GET_RANGE";
 
     /**
      * list-trim operator for the operate() method
-     * @const OP_LIST_TRIM
-     */
+     * */
     public const OP_LIST_TRIM = "OP_LIST_TRIM";
 
     /**
      * list-size operator for the operate() method
-     * @const OP_LIST_SIZE
-     */
+     * */
     public const OP_LIST_SIZE = "OP_LIST_SIZE";
 
     // Map operation constants
 
     /**
      * map-size operator for the operate() method
-     * @const OP_MAP_SIZE
-     */
+     * */
     public const OP_MAP_SIZE = "OP_MAP_SIZE";
 
     /**
      * map-size operator for the operate() method
-     * @const OP_MAP_CLEAR
-     */
+     * */
     public const OP_MAP_CLEAR = "OP_MAP_CLEAR";
 
     /**
      * map-set-policy operator for the operate() method
-     * @const OP_MAP_SET_POLICY
-     */
+     * */
     public const OP_MAP_SET_POLICY = "OP_MAP_SET_POLICY";
 
     /**
      * map-get-by-key operator for the operate() method
-     * @const OP_MAP_GET_BY_KEY
-     */
+     * */
     public const OP_MAP_GET_BY_KEY = "OP_MAP_GET_BY_KEY";
 
     /**
      * map-get-by-key-range operator for the operate() method
-     * @const OP_MAP_GET_BY_KEY_RANGE
-     */
+     * */
     public const OP_MAP_GET_BY_KEY_RANGE = "OP_MAP_GET_BY_KEY_RANGE";
 
     /**
      * map-get-by-value operator for the operate() method
-     * @const OP_MAP_GET_BY_VALUE
-     */
+     * */
     public const OP_MAP_GET_BY_VALUE = "OP_MAP_GET_BY_VALUE";
 
     /**
      * map-get-by-value-range operator for the operate() method
-     * @const OP_MAP_GET_BY_VALUE_RANGE
-     */
+     * */
     public const OP_MAP_GET_BY_VALUE_RANGE = "OP_MAP_GET_BY_VALUE_RANGE";
 
     /**
      * map-get-by-index operator for the operate() method
-     * @const OP_MAP_GET_BY_INDEX
-     */
+     * */
     public const OP_MAP_GET_BY_INDEX = "OP_MAP_GET_BY_INDEX";
 
     /**
      * map-get-by-index-range operator for the operate() method
-     * @const OP_MAP_GET_BY_INDEX_RANGE
-     */
+     * */
     public const OP_MAP_GET_BY_INDEX_RANGE = "OP_MAP_GET_BY_INDEX_RANGE";
 
     /**
      * map-get-by-rank operator for the operate() method
-     * @const OP_MAP_GET_BY_RANK
-     */
+     * */
     public const OP_MAP_GET_BY_RANK = "OP_MAP_GET_BY_RANK";
 
     /**
      * map-get-by-rank-range operator for the operate() method
-     * @const OP_MAP_GET_BY_RANK_RANGE
-     */
+     * */
     public const OP_MAP_GET_BY_RANK_RANGE = "OP_MAP_GET_BY_RANK_RANGE";
 
     /**
      * map-put  operator for the operate() method
-     * @const OP_MAP_PUT
-     */
+     * */
     public const OP_MAP_PUT = "OP_MAP_PUT";
 
     /**
      * map-put-items operator for the operate() method
-     * @const OP_MAP_PUT_ITEMS
-     */
+     * */
     public const OP_MAP_PUT_ITEMS = "OP_MAP_PUT_ITEMS";
 
     /**
      * map-increment operator for the operate() method
-     * @const OP_MAP_INCREMENT
-     */
+     * */
     public const OP_MAP_INCREMENT = "OP_MAP_INCREMENT";
 
     /**
      * map-decrement operator for the operate() method
-     * @const OP_MAP_DECREMENT
-     */
+     * */
     public const OP_MAP_DECREMENT = "OP_MAP_DECREMENT";
 
     /**
      * map-remove-by-key operator for the operate() method
-     * @const OP_MAP_REMOVE_BY_KEY
-     */
+     * */
     public const OP_MAP_REMOVE_BY_KEY = "OP_MAP_REMOVE_BY_KEY";
 
     /**
      * map-remove-by-key-list operator for the operate() method
-     * @const OP_MAP_REMOVE_BY_KEY_LIST
-     */
+     * */
     public const OP_MAP_REMOVE_BY_KEY_LIST = "OP_MAP_REMOVE_BY_KEY_LIST";
 
     /**
      * map-remove-by-key-range key operator for the operate() method
-     * @const OP_MAP_REMOVE_BY_KEY_RANGE
-     */
+     * */
     public const OP_MAP_REMOVE_BY_KEY_RANGE = "OP_MAP_REMOVE_BY_KEY_RANGE";
 
     /**
      * map-remove-by-value operator for the operate() method
-     * @const OP_MAP_REMOVE_BY_VALUE
-     */
+     * */
     public const OP_MAP_REMOVE_BY_VALUE = "OP_MAP_REMOVE_BY_VALUE";
 
     /**
      * map-remove-by-value operator for the operate() method
-     * @const OP_MAP_REMOVE_BY_VALUE_RANGE
-     */
+     * */
     public const OP_MAP_REMOVE_BY_VALUE_RANGE = "OP_MAP_REMOVE_BY_VALUE_RANGE";
 
     /**
      * map-remove-by-value-list operator for the operate() method
-     * @const OP_MAP_REMOVE_BY_VALUE_LIST
-     */
+     * */
     public const OP_MAP_REMOVE_BY_VALUE_LIST = "OP_MAP_REMOVE_BY_VALUE_LIST";
 
     /**
      * map-remove-by-index operator for the operate() method
-     * @const OP_MAP_REMOVE_BY_INDEX
-     */
+     * */
     public const OP_MAP_REMOVE_BY_INDEX = "OP_MAP_REMOVE_BY_INDEX";
 
     /**
      * map-remove-by-index-range operator for the operate() method
-     * @const OP_MAP_REMOVE_BY_INDEX_RANGE
-     */
+     * */
     public const OP_MAP_REMOVE_BY_INDEX_RANGE = "OP_MAP_REMOVE_BY_INDEX_RANGE";
 
     /**
      * map-remove-by-rank operator for the operate() method
-     * @const OP_MAP_REMOVE_BY_RANK
-     */
+     * */
     public const OP_MAP_REMOVE_BY_RANK = "OP_MAP_REMOVE_BY_RANK";
 
     /**
      * map-remove-by-rank-range operator for the operate() method
-     * @const OP_MAP_REMOVE_BY_RANK_RANGE
-     */
+     * */
     public const OP_MAP_REMOVE_BY_RANK_RANGE = "OP_MAP_REMOVE_BY_RANK_RANGE";
 
     // Query Predicate Operators
 
     /**
      * predicate operator for equality check of scalar integer or string value
-     * @const OP_EQ
-     * @see Aerospike::predicateEquals
+     * * @see Aerospike::predicateEquals
      */
     public const OP_EQ = "=";
 
     /**
      * predicate operator matching whether an integer falls between a range of integer values
-     * @const OP_BETWEEN
-     * @see Aerospike::predicateBetween
+     * * @see Aerospike::predicateBetween
      */
     public const OP_BETWEEN = "BETWEEN";
 
     /**
      * predicate operator for a whether a specific value is in an indexed list, mapkeys, or mapvalues
-     * @const OP_CONTAINS
-     * @see Aerospike::predicateContains
+     * * @see Aerospike::predicateContains
      */
     public const OP_CONTAINS = "CONTAINS";
 
     /**
      * predicate operator for whether an indexed list, mapkeys, or mapvalues has an integer value within a specified range
-     * @const OP_RANGE
-     * @see Aerospike::predicateRange
+     * * @see Aerospike::predicateRange
      */
     public const OP_RANGE = "RANGE";
 
     /**
      * geospatial predicate operator for points within a specified region
-     * @const OP_GEOWITHINREGION
-     */
+     * */
     public const OP_GEOWITHINREGION = "GEOWITHIN";
 
     /**
      * geospatial predicate operator for regons containing a sepcified point
-     * @const OP_GEOWITHINREGION
-     */
+     * */
     public const OP_GEOCONTAINSPOINT = "GEOCONTAINS";
 
     /**
@@ -5206,93 +5038,79 @@ class Aerospike
     // Index (container) types
     /**
      * The bin being indexed should contain scalar values such as string or integer
-     * @const INDEX_TYPE_DEFAULT
-     */
+     * */
     public const INDEX_TYPE_DEFAULT = "INDEX_TYPE_DEFAULT";
 
     /**
      * The bin being indexed should contain a list
-     * @const INDEX_TYPE_LIST
-     */
+     * */
     public const INDEX_TYPE_LIST = "INDEX_TYPE_LIST";
 
     /**
      * The bin being indexed should contain a map. The map keys will be indexed
-     * @const INDEX_TYPE_MAPKEYS
-     */
+     * */
     public const INDEX_TYPE_MAPKEYS = "INDEX_TYPE_MAPKEYS";
 
     /**
      * The bin being indexed should contain a map. The map values will be indexed
-     * @const INDEX_TYPE_MAPKEYS
-     */
+     * */
     public const INDEX_TYPE_MAPVALUES = "INDEX_TYPE_MAPVALUES";
 
     // Data type
     /**
      * If and only if the container type matches, the value should be of type string
-     * @const INDEX_STRING
-     */
+     * */
     public const INDEX_STRING = "INDEX_STRING";
 
     /**
      * If and only if the container type matches, the value should be of type integer
-     * @const INDEX_NUMERIC
-     */
+     * */
     public const INDEX_NUMERIC = "INDEX_NUMERIC";
 
     /**
      * If and only if the container type matches, the value should be GeoJSON
-     * @const INDEX_GEO2DSPHERE
-     */
+     * */
     public const INDEX_GEO2DSPHERE = "INDEX_GEO2DSPHERE";
 
     /**
      * Declare the UDF module's language to be Lua
-     * @const UDF_TYPE_LUA
-     */
+     * */
     public const UDF_TYPE_LUA = "UDF_TYPE_LUA";
 
     // Security role privileges
 
     /**
      * Privilege to read data
-     * @const PRIV_READ
-     * @link https://www.aerospike.com/docs/guide/security/access-control.html Access Control
+     * * @link https://www.aerospike.com/docs/guide/security/access-control.html Access Control
      */
     public const PRIV_READ = "PRIV_READ";
 
     /**
      * Privilege to read and write data
-     * @const PRIV_READ_WRITE
-     * @link https://www.aerospike.com/docs/guide/security/access-control.html Access Control
+     * * @link https://www.aerospike.com/docs/guide/security/access-control.html Access Control
      */
     public const PRIV_READ_WRITE = "PRIV_READ_WRITE";
 
     /**
      * Privilege to read, write and execute user-defined functions
-     * @const PRIV_READ_WRITE_UDF
-     * @link https://www.aerospike.com/docs/guide/security/access-control.html Access Control
+     * * @link https://www.aerospike.com/docs/guide/security/access-control.html Access Control
      */
     public const PRIV_READ_WRITE_UDF = "PRIV_READ_WRITE_UDF";
 
     /**
      * Privilege to create and assign roles to users
-     * @const PRIV_USER_ADMIN
-     * @link https://www.aerospike.com/docs/guide/security/access-control.html Access Control
+     * * @link https://www.aerospike.com/docs/guide/security/access-control.html Access Control
      */
     public const PRIV_USER_ADMIN = "PRIV_USER_ADMIN";
 
     /**
      * Privilege to manage indexes and UDFs, monitor and abort scan/query jobs, get server config
-     * @const PRIV_DATA_ADMIN
-     * @link https://www.aerospike.com/docs/guide/security/access-control.html Access Control
+     * * @link https://www.aerospike.com/docs/guide/security/access-control.html Access Control
      */
     public const PRIV_DATA_ADMIN = "PRIV_DATA_ADMIN"; // can perform data admin functions that do not involve user admin
 
     /** Privilege to modify dynamic server configs, get config and stats, and all data admin privileges
-     * @const PRIV_SYS_ADMIN
-     * @link https://www.aerospike.com/docs/guide/security/access-control.html Access Control
+     * * @link https://www.aerospike.com/docs/guide/security/access-control.html Access Control
      */
     public const PRIV_SYS_ADMIN = "PRIV_SYS_ADMIN"; // can perform sysadmin functions that do not involve user admin
 

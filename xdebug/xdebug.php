@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+
 /**
  * Show diagnostic information
  */
@@ -22,7 +24,7 @@ function xdebug_get_stack_depth(): int {}
  * Returns an array which resembles the stack trace up to this point.
  * @return array
  */
-function xdebug_get_function_stack(): array {}
+function xdebug_get_function_stack(#[PhpStormStubsElementAvailable(from: "8.4")] array $options = []): array {}
 
 /**
  * Displays the current function stack, in a similar way as what Xdebug would display in an error situation.

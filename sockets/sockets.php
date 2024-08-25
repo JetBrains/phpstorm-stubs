@@ -2367,7 +2367,24 @@ define('SO_ZEROCOPY', 60);
  * @since 8.2
  */
 define('MSG_ZEROCOPY', 67108864);
+/**
+ * @since 8.4
+ */
+define('SOCK_DCCP', 6);
+/**
+ * @since 8.4
+ */
+define('TCP_SYNCNT', 7);
 
+/**
+ * @since 8.4
+ */
+define('SOCK_CLOEXEC', 524288);
+
+/**
+ * @since 8.4
+ */
+define('SOCK_NONBLOCK', 2048);
 /**
  * @since 8.0
  */
