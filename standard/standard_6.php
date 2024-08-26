@@ -122,7 +122,8 @@ function stream_context_create(?array $options, ?array $params) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function stream_context_set_params($context, array $params): bool {}
+#[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
+function stream_context_set_params($context, array $params) {}
 
 /**
  * Retrieves parameters from a context
@@ -147,7 +148,8 @@ function stream_context_get_params($context): array {}
  * @param mixed $value
  * @return bool true on success or false on failure.
  */
-function stream_context_set_option($context, string $wrapper_or_options, string $option_name, mixed $value): bool {}
+#[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
+function stream_context_set_option($context, string $wrapper_or_options, string $option_name, mixed $value) {}
 
 /**
  * Sets an option for a stream/wrapper/context
@@ -156,7 +158,14 @@ function stream_context_set_option($context, string $wrapper_or_options, string 
  * @param array $options The options to set for the default context.
  * @return bool true on success or false on failure.
  */
-function stream_context_set_option($stream_or_context, array $options): bool {}
+#[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
+function stream_context_set_option($stream_or_context, array $options) {}
+
+/**
+ * @since 8.3
+ */
+#[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
+function stream_context_set_options($context, array $options) {}
 
 /**
  * Retrieve options for a stream/wrapper/context
@@ -588,11 +597,6 @@ function stream_get_contents($stream, ?int $length = null, int $offset = -1): st
  * @return bool true on success or false on failure.
  */
 function stream_supports_lock($stream): bool {}
-
-/**
- * @since 8.3
- */
-function stream_context_set_options($context, array $options): bool {}
 
 /**
  * Gets line from file pointer and parse for CSV fields

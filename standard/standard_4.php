@@ -249,7 +249,8 @@ function debug_zval_dump(
  * will be presented in a format that shows keys and elements. Similar
  * notation is used for objects.
  */
-function print_r(mixed $value, bool $return = false): string|bool {}
+#[LanguageLevelTypeAware(['8.4' => 'string|true'], default: 'string|bool')]
+function print_r(mixed $value, bool $return = false) {}
 
 /**
  * Returns the amount of memory allocated to PHP
@@ -372,7 +373,8 @@ function show_source(string $filename, bool $return = false): string|bool {}
  * code as a string instead of printing it out. Otherwise, it will return
  * true on success, false on failure.
  */
-function highlight_string(string $string, bool $return = false): string|bool {}
+#[LanguageLevelTypeAware(['8.4' => 'string|true'], default: 'string|bool')]
+function highlight_string(string $string, bool $return = false) {}
 
 /**
  * Get the system's high resolution time

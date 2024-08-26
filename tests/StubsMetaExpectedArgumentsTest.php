@@ -12,7 +12,6 @@ use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Scalar\String_;
 use PHPUnit\Framework\Exception;
 use StubTests\Model\PHPClass;
-use StubTests\Model\PHPConst;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\StubsContainer;
@@ -26,13 +25,12 @@ use function count;
 use function method_exists;
 use function property_exists;
 use function str_starts_with;
-use function substr;
 
 class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
 {
-    private const PSR_LOG_LOGGER_NAMESPACE_PREFIX = "Psr\\Log\\";
-    private const GUZZLE_HTTP_NAMESPACE_PREFIX = "GuzzleHttp\\";
-    private const ILLUMINATE_NAMESPACE_PREFIX = "Illuminate\\";
+    private const string PSR_LOG_LOGGER_NAMESPACE_PREFIX = "\\Psr\\Log\\";
+    private const string GUZZLE_HTTP_NAMESPACE_PREFIX = "\\GuzzleHttp\\";
+    private const string ILLUMINATE_NAMESPACE_PREFIX = "\\Illuminate\\";
 
     /**
      * @var ExpectedFunctionArgumentsInfo[]
@@ -66,7 +64,7 @@ class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
         self::$expectedArguments = $argumentsCollector->getExpectedArgumentsInfos();
         self::$registeredArgumentsSet = $argumentsCollector->getRegisteredArgumentsSet();
         $stubs = PhpStormStubsSingleton::getPhpStormStubs();
-        self::$functionsFqns = array_map(fn (PHPFunction $func) => self::toPresentableFqn($func->name), $stubs->getFunctions());
+        self::$functionsFqns = array_map(fn (PHPFunction $func) => $func->id, $stubs->getFunctions());
         self::$methodsFqns = self::getMethodsFqns($stubs);
         self::$constantsFqns = self::getConstantsFqns($stubs);
     }
@@ -82,10 +80,10 @@ class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
 
     public static function getConstantsFqns(StubsContainer $stubs): array
     {
-        $constants = array_map(fn (PHPConst $constant) => self::toPresentableFqn($constant->name), $stubs->getConstants());
+        $constants = array_map(fn ($constant) => $constant->name, $stubs->getConstants());
         foreach ($stubs->getClasses() as $class) {
             foreach ($class->constants as $classConstant) {
-                $name = self::getClassMemberFqn($class->name, $classConstant->name);
+                $name = self::getClassMemberFqn($class->id, $classConstant->name);
                 $constants[$name] = $name;
             }
         }
@@ -95,19 +93,16 @@ class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
     public static function getMethodsFqns(StubsContainer $stubs): array
     {
         return self::flatten(
-            array_map(fn (PHPClass $class) => array_map(fn (PHPMethod $method) => self::getClassMemberFqn($class->name, $method->name), $class->methods), $stubs->getClasses())
+            array_map(fn (PHPClass $class) => array_map(fn (PHPMethod $method) => self::getClassMemberFqn($class->id, $method->name), $class->methods), $stubs->getClasses())
         );
     }
 
-    /**
-     * @throws Exception
-     */
     public function testFunctionReferencesExists()
     {
         foreach (self::$expectedArguments as $argument) {
             $expr = $argument->getFunctionReference();
             if ($expr instanceof FuncCall) {
-                $fqn = self::toPresentableFqn($expr->name->toCodeString());
+                $fqn = $expr->name->toCodeString();
                 if (!str_starts_with($fqn, self::PSR_LOG_LOGGER_NAMESPACE_PREFIX) &&
                     !str_starts_with($fqn, self::GUZZLE_HTTP_NAMESPACE_PREFIX) &&
                     !str_starts_with($fqn, self::ILLUMINATE_NAMESPACE_PREFIX)) {
@@ -123,7 +118,7 @@ class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
                     }
                 }
             } elseif ($expr instanceof ConstFetch) {
-                $fqn = self::toPresentableFqn($expr->name->toCodeString());
+                $fqn = $expr->name->toCodeString();
                 if (!str_starts_with($fqn, self::PSR_LOG_LOGGER_NAMESPACE_PREFIX) &&
                     !str_starts_with($fqn, self::GUZZLE_HTTP_NAMESPACE_PREFIX) &&
                     !str_starts_with($fqn, self::ILLUMINATE_NAMESPACE_PREFIX)) {
@@ -136,9 +131,6 @@ class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
         }
     }
 
-    /**
-     * @throws Exception
-     */
     public function testConstantsExists()
     {
         foreach (self::$expectedArguments as $argument) {
@@ -151,16 +143,13 @@ class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
                         self::assertArrayHasKey($fqn, self::$constantsFqns, "Can't resolve class constant " . $fqn);
                     }
                 } elseif ($constantReference instanceof ConstFetch) {
-                    $fqn = self::toPresentableFqn($constantReference->name->toCodeString());
-                    self::assertArrayHasKey($fqn, self::$constantsFqns, "Can't resolve constant " . $fqn);
+                    $name = $constantReference->name->name;
+                    self::assertContains($name, self::$constantsFqns, "Can't resolve constant " . $name);
                 }
             }
         }
     }
 
-    /**
-     * @throws Exception
-     */
     public function testRegisteredArgumentsSetExists()
     {
         foreach (self::$expectedArguments as $argument) {
@@ -201,9 +190,6 @@ class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
         }
     }
 
-    /**
-     * @throws Exception
-     */
     public function testExpectedArgumentsAreUnique()
     {
         $functionsFqnsWithIndeces = [];
@@ -222,9 +208,6 @@ class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
         }
     }
 
-    /**
-     * @throws Exception
-     */
     public function testExpectedReturnValuesAreUnique()
     {
         $expectedReturnValuesFunctionsFqns = [];
@@ -242,9 +225,6 @@ class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
         }
     }
 
-    /**
-     * @throws Exception
-     */
     public static function testRegisteredArgumentsSetAreUnique()
     {
         $registeredArgumentsSet = [];
@@ -254,9 +234,6 @@ class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
         }
     }
 
-    /**
-     * @throws Exception
-     */
     public function testReferencesAreAbsolute()
     {
         foreach (self::$expectedArguments as $argument) {
@@ -285,26 +262,15 @@ class StubsMetaExpectedArgumentsTest extends AbstractBaseStubsTestCase
     #[Pure]
     private static function getClassMemberFqn(string $className, string $memberName): string
     {
-        return self::toPresentableFqn($className) . '.' . $memberName;
+        return $className . '.' . $memberName;
     }
 
-    private static function toPresentableFqn(string $name): string
-    {
-        if (str_starts_with($name, '\\')) {
-            return substr($name, 1);
-        }
-        return $name;
-    }
-
-    /**
-     * @throws Exception
-     */
     private static function getFqn(?Expr $expr): string
     {
         if ($expr instanceof StaticCall) {
             return self::getClassMemberFqn($expr->class->toCodeString(), (string)$expr->name);
         } elseif (property_exists($expr, 'name')) {
-            return self::toPresentableFqn((string)$expr->name);
+            return (string)$expr->name;
         } else {
             throw new Exception("Couldn't read a name of property with type {$expr->getType()}");
         }

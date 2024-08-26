@@ -14,7 +14,7 @@ use JetBrains\PhpStorm\Pure;
  * @return string If successful, this function returns the current message
  * domain, after possibly changing it.
  */
-function textdomain(?string $domain): string {}
+function textdomain(?string $domain = null): string {}
 
 /**
  * Lookup a message in the current domain
@@ -80,7 +80,7 @@ function dcgettext(string $domain, string $message, int $category): string {}
  * </p>
  * @return string|false The full pathname for the <i>domain</i> currently being set.
  */
-function bindtextdomain(string $domain, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $directory): string|false {}
+function bindtextdomain(string $domain, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $directory = null): string|false {}
 
 /**
  * Plural version of gettext
@@ -135,6 +135,6 @@ function dcngettext(string $domain, string $singular, string $plural, int $count
  * </p>
  * @return string|false A string on success.
  */
-function bind_textdomain_codeset(string $domain, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $codeset): string|false {}
+function bind_textdomain_codeset(string $domain, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $codeset = null): string|false {}
 
 // End of gettext v.

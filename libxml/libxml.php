@@ -346,5 +346,8 @@ define('LIBXML_ERR_ERROR', 2);
  * @link https://php.net/manual/en/libxml.constants.php
  */
 define('LIBXML_ERR_FATAL', 3);
-
+/**
+ * @since 8.4
+ */
+define('LIBXML_RECOVER', 1);
 // End of libxml v.

@@ -223,6 +223,11 @@ namespace {
          * @return void
          */
         public function __wakeup() {}
+
+        /**
+         * @since 8.4
+         */
+        public function __debugInfo(): array {}
     }
 
     class ClosedGeneratorException extends Exception {}

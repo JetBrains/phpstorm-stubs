@@ -1764,4 +1764,13 @@ define('LDAP_CONTROL_AUTHZID_REQUEST', '2.16.840.1.113730.3.4.16');
  */
 define('LDAP_CONTROL_AUTHZID_RESPONSE', '2.16.840.1.113730.3.4.15');
 
+/**
+ * @since 8.4
+ */
+define('LDAP_OPT_X_TLS_PROTOCOL_TLS1_3', 772);
+
+/**
+ * @since 8.4
+ */
+define('LDAP_OPT_X_TLS_PROTOCOL_MAX', 24603);
 // End of ldap v.

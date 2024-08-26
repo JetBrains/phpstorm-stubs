@@ -725,7 +725,7 @@ class SoapServer
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function setObject(object $object): void {}
+    public function setObject(#[LanguageLevelTypeAware(['8.0' => 'object'], default: '')] $object): void {}
 
     /**
      * Adds one or more functions to handle SOAP requests

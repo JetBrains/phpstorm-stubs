@@ -798,7 +798,7 @@ define('GMP_VERSION', "6.3.0");
 
 define('GMP_MPIR_VERSION', '3.0.0');
 
-class GMP implements Serializable
+final class GMP implements Serializable
 {
     /**
      * @since 8.2

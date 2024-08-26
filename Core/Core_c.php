@@ -27,7 +27,7 @@ interface iterable {}
  * @template TKey
  * @template-covariant TValue
  *
- * @template-implements iterable<TKey, TValue>
+ * @template-extends iterable<TKey, TValue>
  */
 interface Traversable extends iterable {}
 
@@ -36,7 +36,7 @@ interface Traversable extends iterable {}
  * @link https://php.net/manual/en/class.iteratoraggregate.php
  * @template TKey
  * @template-covariant TValue
- * @template-implements Traversable<TKey, TValue>
+ * @template-extends Traversable<TKey, TValue>
  */
 interface IteratorAggregate extends Traversable
 {
@@ -57,7 +57,7 @@ interface IteratorAggregate extends Traversable
  * @link https://php.net/manual/en/class.iterator.php
  * @template TKey
  * @template-covariant TValue
- * @template-implements Traversable<TKey, TValue>
+ * @template-extends Traversable<TKey, TValue>
  */
 interface Iterator extends Traversable
 {
@@ -114,7 +114,7 @@ interface ArrayAccess
     /**
      * Whether a offset exists
      * @link https://php.net/manual/en/arrayaccess.offsetexists.php
-     * @param mixed $offset <p>
+     * @param TKey $offset <p>
      * An offset to check for.
      * </p>
      * @return bool true on success or false on failure.
@@ -128,7 +128,7 @@ interface ArrayAccess
     /**
      * Offset to retrieve
      * @link https://php.net/manual/en/arrayaccess.offsetget.php
-     * @param mixed $offset <p>
+     * @param TKey $offset <p>
      * The offset to retrieve.
      * </p>
      * @return TValue Can return all value types.
@@ -581,6 +581,11 @@ class DivisionByZeroError extends ArithmeticError {}
  * @since 8.0
  */
 class UnhandledMatchError extends Error {}
+
+/**
+ * @since 8.4
+ */
+class RequestParseBodyException extends Exception {}
 
 /**
  * An Error Exception.
@@ -1150,4 +1155,16 @@ final class SensitiveParameterValue
 final class Override
 {
     public function __construct() {}
+}
+
+/**
+ * @since 8.4
+ */
+#[Attribute(Attribute::TARGET_METHOD|Attribute::TARGET_FUNCTION|Attribute::TARGET_CLASS_CONSTANT)]
+final class Deprecated
+{
+    public readonly ?string $message;
+    public readonly ?string $since;
+
+    public function __construct(?string $message = null, ?string $since = null) {}
 }

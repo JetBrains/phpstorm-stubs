@@ -172,6 +172,10 @@ define('T_METHOD_C', 384);
 define('T_FUNC_C', 385);
 define('T_NS_C', 386);
 /**
+ * @since 8.4
+ */
+define('T_PROPERTY_C', 350);
+/**
  * @since 8.0
  */
 define('T_ATTRIBUTE', 387);

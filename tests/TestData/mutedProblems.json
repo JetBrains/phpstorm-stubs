@@ -575,6 +575,24 @@
   ],
   "functions": [
     {
+      "name": "each",
+      "problems": [
+        {
+          "description": "deprecated function",
+          "versions": [7.2, 7.3, 7.4]
+        }
+      ]
+    },
+    {
+      "name": "datefmt_set_timezone_id",
+      "problems": [
+        {
+          "description": "deprecated function",
+          "versions": [5.6]
+        }
+      ]
+    },
+    {
       "name": "imagefilledpolygon",
       "problems": [
         {
@@ -944,6 +962,15 @@
   ],
   "classes": [
     {
+      "name": "GMP",
+      "problems": [
+        {
+          "description": "has wrong final modifier",
+          "versions": [5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1, 8.2, 8.3]
+        }
+      ]
+    },
+    {
       "name": "DOMException",
       "problems": [
         {
@@ -1038,12 +1065,7 @@
       "problems": [
         {
           "description": "has wrong final modifier",
-          "versions": [
-            8.0,
-            8.1,
-            8.2,
-            8.3
-          ]
+          "versions": [7.4, 8.0, 8.1, 8.2, 8.3]
         }
       ],
       "methods": [
@@ -2997,12 +3019,7 @@
       "problems": [
         {
           "description": "has wrong final modifier",
-          "versions": [
-            8.0,
-            8.1,
-            8.2,
-            8.3
-          ]
+          "versions": [5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1, 8.2, 8.3]
         }
       ]
     },

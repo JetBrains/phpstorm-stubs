@@ -9,6 +9,7 @@ use PhpParser\Node\Stmt\Class_;
 use ReflectionClass;
 use RuntimeException;
 use stdClass;
+use StubTests\Parsers\ParserUtils;
 use function array_key_exists;
 use function assert;
 use function count;
@@ -31,12 +32,23 @@ class PHPClass extends BasePHPClass
      */
     public function readObjectFromReflection($reflectionObject)
     {
-        $this->name = $reflectionObject->getName();
+        $this->name = $reflectionObject->getShortName();
+        if (!empty($reflectionObject->getNamespaceName())) {
+            $this->namespace = "\\" . $reflectionObject->getNamespaceName();
+        }
+        $this->id = "$this->namespace\\$this->name";
         $parent = $reflectionObject->getParentClass();
         if ($parent !== false) {
-            $this->parentClass = $parent->getName();
+            if (!empty($parent->getNamespaceName())) {
+                $namespace = "\\" . $parent->getNamespaceName();
+                $this->parentClass = implode("\\", [$namespace, $parent->getShortName()]);
+            } else {
+                $this->parentClass = "\\" . $parent->getShortName();
+            }
         }
-        $this->interfaces = $reflectionObject->getInterfaceNames();
+        $this->interfaces = array_map(function ($interface) {
+            return "\\" . $interface;
+        }, $reflectionObject->getInterfaceNames());
         $this->isFinal = $reflectionObject->isFinal();
         if (method_exists($reflectionObject, 'isReadOnly')) {
             $this->isReadonly = $reflectionObject->isReadOnly();
@@ -54,7 +66,7 @@ class PHPClass extends BasePHPClass
                 if ($constant->getDeclaringClass()->getName() !== $this->name) {
                     continue;
                 }
-                $parsedConstant = (new PHPConst())->readObjectFromReflection($constant);
+                $parsedConstant = (new PHPClassConstant())->readObjectFromReflection($constant);
                 $this->addConstant($parsedConstant);
             }
         }
@@ -75,16 +87,20 @@ class PHPClass extends BasePHPClass
      */
     public function readObjectFromStubNode($node)
     {
-        $this->name = self::getFQN($node);
+        $this->id = $this::getFQN($node);
+        $this->name = self::getShortName($node);
+        $this->namespace = rtrim(str_replace((string)$node->name, "", "\\" . $node->namespacedName), '\\');
         $this->isFinal = $node->isFinal();
+        $this->isReadonly = $node->isReadonly();
         $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
         $this->collectTags($node);
+        $this->checkDeprecationTag($node);
         if (!empty($node->extends)) {
-            $this->parentClass = $node->extends->name;
+            $this->parentClass = $node->extends->toCodeString();
         }
         if (!empty($node->implements)) {
             foreach ($node->implements as $interfaceObject) {
-                $this->interfaces[] = $interfaceObject->name;
+                $this->interfaces[] = $interfaceObject->toCodeString();
             }
         }
         if ($node->getDocComment() !== null) {
@@ -97,11 +113,11 @@ class PHPClass extends BasePHPClass
             foreach ($properties as $property) {
                 $propertyName = $property->getVariableName();
                 assert($propertyName !== '', "@property name is empty in class $this->name");
-                $newProperty = new PHPProperty($this->name);
+                $newProperty = new PHPProperty($this->id);
                 $newProperty->is_static = false;
                 $newProperty->access = 'public';
                 $newProperty->name = $propertyName;
-                $newProperty->parentName = $this->name;
+                $newProperty->parentId = $this->id;
                 $newProperty->typesFromSignature = self::convertParsedTypeToArray($property->getType());
                 assert(
                     !array_key_exists($propertyName, $this->properties),
@@ -110,7 +126,7 @@ class PHPClass extends BasePHPClass
                 $this->properties[$propertyName] = $newProperty;
             }
         }
-
+        $this->stubObjectHash = spl_object_hash($this);
         return $this;
     }
 
@@ -180,15 +196,22 @@ class PHPClass extends BasePHPClass
     }
 
     /**
+     * @param false $fromReflection
      * @return PHPProperty|null
      * @throws RuntimeException
      */
-    public function getProperty($propertyName)
+    public function getProperty($propertyName, $fromReflection = false)
     {
-        $properties = array_filter($this->properties, function (PHPProperty $property) use ($propertyName) {
-            return $property->name === $propertyName && $property->duplicateOtherElement === false
-                && BasePHPElement::entitySuitsCurrentPhpVersion($property);
-        });
+        if ($fromReflection) {
+            $properties = array_filter($this->properties, function (PHPProperty $property) use ($propertyName) {
+                return $property->name === $propertyName && $property->stubObjectHash == null;
+            });
+        } else {
+            $properties = array_filter($this->properties, function (PHPProperty $property) use ($propertyName) {
+                return $property->name === $propertyName && $property->duplicateOtherElement === false
+                    && ParserUtils::entitySuitsCurrentPhpVersion($property);
+            });
+        }
         if (empty($properties)) {
             throw new RuntimeException("Property $propertyName not found in stubs for set language version");
         }

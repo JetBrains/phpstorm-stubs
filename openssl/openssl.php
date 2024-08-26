@@ -650,7 +650,8 @@ function openssl_csr_sign(
     #[LanguageLevelTypeAware(["8.0" => "OpenSSLAsymmetricKey|OpenSSLCertificate|array|string"], default: "resource|array|string")] $private_key,
     int $days,
     ?array $options,
-    int $serial = 0
+    int $serial = 0,
+    #[PhpStormStubsElementAvailable(from: '8.4')] ?string $serial_hex = null
 ) {}
 
 /**
@@ -1295,6 +1296,14 @@ define('X509_PURPOSE_SMIME_SIGN', 4);
 define('X509_PURPOSE_SMIME_ENCRYPT', 5);
 define('X509_PURPOSE_CRL_SIGN', 6);
 define('X509_PURPOSE_ANY', 7);
+/**
+ * @since 8.4
+ */
+define('X509_PURPOSE_OCSP_HELPER', 8);
+/**
+ * @since 8.4
+ */
+define('X509_PURPOSE_TIMESTAMP_SIGN', 9);
 
 /**
  * Used as default algorithm by <b>openssl_sign</b> and
@@ -1410,6 +1419,22 @@ define('OPENSSL_KEYTYPE_RSA', 0);
 define('OPENSSL_KEYTYPE_DSA', 1);
 define('OPENSSL_KEYTYPE_DH', 2);
 define('OPENSSL_KEYTYPE_EC', 3);
+/**
+ * @since 8.4
+ */
+define('OPENSSL_KEYTYPE_X25519', 4);
+/**
+ * @since 8.4
+ */
+define('OPENSSL_KEYTYPE_ED25519', 5);
+/**
+ * @since 8.4
+ */
+define('OPENSSL_KEYTYPE_X448', 6);
+/**
+ * @since 8.4
+ */
+define('OPENSSL_KEYTYPE_ED448', 7);
 
 /**
  * Whether SNI support is available or not.

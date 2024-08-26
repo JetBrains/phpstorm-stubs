@@ -1517,7 +1517,7 @@ class Result implements \Traversable, \Countable
      * @throws \pq\Exception\InvalidArgumentException
      * @throws \pq\Exception\BadMethodCallException
      * @throws \pq\Exception\RuntimeException
-     * @return array |object, the mapped columns.
+     * @return array|object the mapped columns.
      */
     public function map($keys = 0, $vals = null, int $fetch_type = null) {}
 }

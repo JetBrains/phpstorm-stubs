@@ -8,7 +8,7 @@ use JetBrains\PhpStorm\Pure;
  *
  * @since 7.0
  */
-class ReflectionGenerator
+final class ReflectionGenerator
 {
     /**
      * Constructs a ReflectionGenerator object
@@ -98,4 +98,9 @@ class ReflectionGenerator
     #[Pure]
     #[TentativeType]
     public function getExecutingGenerator(): Generator {}
+
+    /**
+     * @since 8.4
+     */
+    public function isClosed(): bool {}
 }

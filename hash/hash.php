@@ -21,7 +21,7 @@ use JetBrains\PhpStorm\Pure;
  * <b>FALSE</b> outputs lowercase hexits.
  * </p>
  * @return string a string containing the calculated message digest as lowercase hexits
- * unless <i>raw_output</i> is set to true in which case the raw
+ * unless <i>binary</i> is set to true in which case the raw
  * binary representation of the message digest is returned.
  */
 #[Pure]
@@ -53,7 +53,7 @@ function hash_equals(string $known_string, string $user_string): bool {}
  * <b>FALSE</b> outputs lowercase hexits.
  * </p>
  * @return string|false a string containing the calculated message digest as lowercase hexits
- * unless <i>raw_output</i> is set to true in which case the raw
+ * unless <i>binary</i> is set to true in which case the raw
  * binary representation of the message digest is returned.
  */
 #[Pure]
@@ -78,7 +78,7 @@ function hash_file(string $algo, string $filename, bool $binary = false, #[PhpSt
  * <b>FALSE</b> outputs lowercase hexits.
  * </p>
  * @return string a string containing the calculated message digest as lowercase hexits
- * unless <i>raw_output</i> is set to true in which case the raw
+ * unless <i>binary</i> is set to true in which case the raw
  * binary representation of the message digest is returned.
  */
 #[Pure]
@@ -103,7 +103,7 @@ function hash_hmac(string $algo, string $data, string $key, bool $binary = false
  * <b>FALSE</b> outputs lowercase hexits.
  * </p>
  * @return string|false a string containing the calculated message digest as lowercase hexits
- * unless <i>raw_output</i> is set to true in which case the raw
+ * unless <i>binary</i> is set to true in which case the raw
  * binary representation of the message digest is returned.
  */
 #[Pure]
@@ -147,7 +147,8 @@ function hash_init(string $algo, int $flags = 0, string $key = "", #[PhpStormStu
  * </p>
  * @return bool <b>TRUE</b>.
  */
-function hash_update(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, string $data): bool {}
+#[LanguageLevelTypeAware(["8.4" => "true"], default: "bool")]
+function hash_update(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, string $data) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -196,7 +197,7 @@ function hash_update_file(#[LanguageLevelTypeAware(["7.2" => "HashContext"], def
  * <b>FALSE</b> outputs lowercase hexits.
  * </p>
  * @return string a string containing the calculated message digest as lowercase hexits
- * unless <i>raw_output</i> is set to true in which case the raw
+ * unless <i>binary</i> is set to true in which case the raw
  * binary representation of the message digest is returned.
  */
 function hash_final(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, bool $binary = false): string {}
@@ -273,8 +274,8 @@ function hash_hmac_algos(): array {}
  * The number of internal iterations to perform for the derivation.
  * </p>
  * @param int $length [optional] <p>
- * The length of the output string. If raw_output is TRUE this corresponds to the byte-length of the derived key,
- * if raw_output is FALSE this corresponds to twice the byte-length of the derived key (as every byte of the key is returned as two hexits). <br/>
+ * The length of the output string. If binary is TRUE this corresponds to the byte-length of the derived key,
+ * if binary is FALSE this corresponds to twice the byte-length of the derived key (as every byte of the key is returned as two hexits). <br/>
  * If 0 is passed, the entire output of the supplied algorithm is used.
  * </p>
  * @param bool $binary [optional] <p>
@@ -284,7 +285,7 @@ function hash_hmac_algos(): array {}
  * Additional options. This parameter was added for PHP 8.1 only.
  * </p>
  * @return string a string containing the derived key as lowercase hexits unless
- * <i>raw_output</i> is set to <b>TRUE</b> in which case the raw
+ * <i>binary</i> is set to <b>TRUE</b> in which case the raw
  * binary representation of the derived key is returned.
  * @since 5.5
  */
@@ -471,5 +472,10 @@ final class HashContext
      * @param array $data
      */
     public function __unserialize(#[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] $data): void {}
+
+    /**
+     * @since 8.4
+     */
+    public function __debugInfo(): array {}
 }
 // End of hash v.1.0

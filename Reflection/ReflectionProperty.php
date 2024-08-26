@@ -16,6 +16,11 @@ use JetBrains\PhpStorm\Pure;
 class ReflectionProperty implements Reflector
 {
     /**
+     * @since 8.4
+     */
+    public const IS_ABSTRACT = 64;
+
+    /**
      * @var string Name of the property, same as calling the {@see ReflectionProperty::getName()} method
      */
     #[Immutable]
@@ -60,7 +65,7 @@ class ReflectionProperty implements Reflector
     /**
      * @since 8.1
      */
-    public const IS_READONLY = 5;
+    public const IS_READONLY = 128;
 
     /**
      * Construct a ReflectionProperty object
@@ -345,4 +350,39 @@ class ReflectionProperty implements Reflector
      * @since 8.1
      */
     public function isReadOnly(): bool {}
+
+    /**
+     * @since 8.4
+     */
+    public function getRawValue(object $object): mixed {}
+
+    /**
+     * @since 8.4
+     */
+    public function setRawValue(object $object, mixed $value): void {}
+
+    /**
+     * @since 8.4
+     */
+    public function isAbstract(): bool {}
+
+    /**
+     * @since 8.4
+     */
+    public function isVirtual(): bool {}
+
+    /**
+     * @since 8.4
+     */
+    public function getSettableType(): ?ReflectionType {}
+
+    /**
+     * @since 8.4
+     */
+    public function getHooks(): array {}
+
+    /**
+     * @since 8.4
+     */
+    public function getHook(PropertyHookType $type): ?ReflectionMethod {}
 }

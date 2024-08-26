@@ -494,6 +494,22 @@ function pcntl_signal_get_handler(int $signal) {}
  * @since 7.4
  */
 function pcntl_unshare(int $flags): bool {}
+/**
+ * @since 8.4
+ */
+function pcntl_waitid(int $idtype = P_ALL, ?int $id = null, &$info = [], int $flags = WEXITED): bool {}
+/**
+ * @since 8.4
+ */
+function pcntl_getcpuaffinity(?int $process_id = null): array|false {}
+/**
+ * @since 8.4
+ */
+function pcntl_setcpuaffinity(?int $process_id = null, array $cpu_ids = []): bool {}
+/**
+ * @since 8.4
+ */
+function pcntl_getcpu(): int {}
 
 define('WNOHANG', 1);
 define('WUNTRACED', 2);
@@ -841,5 +857,32 @@ define('CLONE_NEWUSER', 268435456);
  * @since 7.4
  */
 define('CLONE_NEWCGROUP', 33554432);
-
+/**
+ * @since 8.4
+ */
+define('P_ALL', 0);
+/**
+ * @since 8.4
+ */
+define('WEXITED', 4);
+/**
+ * @since 8.4
+ */
+define('WSTOPPED', 2);
+/**
+ * @since 8.4
+ */
+define('WNOWAIT', 16777216);
+/**
+ * @since 8.4
+ */
+define('P_PID', 1);
+/**
+ * @since 8.4
+ */
+define('P_PGID', 2);
+/**
+ * @since 8.4
+ */
+define('P_PIDFD', 3);
 // End of pcntl v.

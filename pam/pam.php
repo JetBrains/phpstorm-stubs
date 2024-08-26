@@ -11,7 +11,7 @@ use JetBrains\PhpStorm\Pure;
  * @param string $password <p>
  * The user-supplied password to check.
  * </p>
- * @param string $error <p>
+ * @param string|null &$error <p>
  * Output parameter to put any error messages in.
  * </p>
  * @param bool $check_account_management <p>
@@ -23,7 +23,7 @@ use JetBrains\PhpStorm\Pure;
  * @return bool Returns a bool when complete. If false, <b>$error</b> contains any error messages generated.
  */
 #[Pure]
-function pam_auth(string $username, string $password, string $error, bool $check_account_management = true, string $service_name = 'php') {}
+function pam_auth(string $username, string $password, ?string &$error = null, bool $check_account_management = true, string $service_name = 'php') {}
 
 /**
  * Change a password for a PAM unix account.
@@ -37,7 +37,7 @@ function pam_auth(string $username, string $password, string $error, bool $check
  * @param string $new_password <p>
  * The new password for the account.
  * </p>
- * @param string $error <p>
+ * @param string|null &$error <p>
  * Output parameter to put any error messages in.
  * </p>
  * @param string $service_name <p>
@@ -46,4 +46,4 @@ function pam_auth(string $username, string $password, string $error, bool $check
  * @return bool Returns a bool when complete. If false, <b>$error</b> contains any error messages generated.
  */
 #[Pure]
-function pam_chpass(string $username, string $old_password, string $new_password, string $error, string $service_name = 'php') {}
+function pam_chpass(string $username, string $old_password, string $new_password, string &$error = null, string $service_name = 'php') {}

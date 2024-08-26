@@ -89,7 +89,8 @@ class SQLite3
      * @link https://php.net/manual/en/sqlite3.close.php
      * @return bool <b>TRUE</b> on success, <b>FALSE</b> on failure.
      */
-    public function close() {}
+    #[TentativeType]
+    public function close(): bool {}
 
     /**
      * Executes a result-less query against a given database
@@ -429,7 +430,8 @@ class SQLite3Stmt
      * @return bool <b>TRUE</b>
      */
     #[TentativeType]
-    public function close(): bool {}
+    #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
+    public function close() {}
 
     /**
      * Resets the prepared statement
@@ -609,6 +611,8 @@ class SQLite3Result
      * @link https://php.net/manual/en/sqlite3result.finalize.php
      * @return bool <b>TRUE</b>.
      */
+    #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
+    #[TentativeType]
     public function finalize() {}
 
     private function __construct() {}

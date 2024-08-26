@@ -405,6 +405,8 @@ class Collator
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
+    #[LanguageAware(['8.4' => 'true'], default: 'bool')]
+    #[TentativeType]
     public function setStrength(#[LanguageAware(['8.0' => 'int'], default: '')] #[EV([Collator::PRIMARY])] $strength) {}
 
     /**
@@ -915,6 +917,18 @@ class NumberFormatter
      * @deprecated 8.3
      */
     public const TYPE_CURRENCY = 4;
+    /**
+     * @since 8.4
+     */
+    public const ROUND_TOWARD_ZERO = 2;
+    /**
+     * @since 8.4
+     */
+    public const ROUND_AWAY_FROM_ZERO = 3;
+    /**
+     * @since 8.4
+     */
+    public const ROUND_HALFODD = 8;
 
     /**
      * @link https://www.php.net/manual/en/class.numberformatter.php
@@ -1391,6 +1405,8 @@ class Locale
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
+    #[LanguageAware(['8.4' => 'true'], default: 'bool')]
+    #[TentativeType]
     public static function setDefault(#[LanguageAware(['8.0' => 'string'], default: '')] $locale) {}
 
     /**
@@ -1892,6 +1908,7 @@ class IntlDateFormatter
     public const RELATIVE_LONG = 129;
     public const RELATIVE_MEDIUM = 130;
     public const RELATIVE_SHORT = 131;
+    public const PATTERN = -2;
 
     /**
      * @param string|null $locale
@@ -2251,6 +2268,11 @@ class IntlDateFormatter
     #[Pure]
     #[TentativeType]
     public function getErrorMessage(): string {}
+
+    /**
+     * @since 8.4
+     */
+    public function parseToCalendar(string $string, &$offset = null): int|float|false {}
 }
 
 class ResourceBundle implements IteratorAggregate, Countable
@@ -2304,7 +2326,8 @@ class ResourceBundle implements IteratorAggregate, Countable
      */
     #[Pure]
     #[TentativeType]
-    public function get($index, #[LanguageAware(['8.0' => 'bool'], default: '')] $fallback = true): mixed {}
+    #[LanguageAware(['8.4' => 'ResourceBundle|array|string|int|null'], default: 'mixed')]
+    public function get(#[LanguageAware(['8.4' => 'string|int'], default: '')] $index, #[LanguageAware(['8.0' => 'bool'], default: '')] $fallback = true) {}
 
     /**
      * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
@@ -2513,6 +2536,22 @@ class Spoofchecker
     public const SINGLE_SCRIPT_RESTRICTIVE = 536870912;
     public const MIXED_NUMBERS = 1;
     public const HIDDEN_OVERLAY = 2;
+    /**
+     * @since 8.4
+     */
+    public const IGNORE_SPACE = 1;
+    /**
+     * @since 8.4
+     */
+    public const CASE_INSENSITIVE = 2;
+    /**
+     * @since 8.4
+     */
+    public const ADD_CASE_MAPPINGS = 4;
+    /**
+     * @since 8.4
+     */
+    public const SIMPLE_CASE_INSENSITIVE = 6;
 
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
@@ -2576,8 +2615,16 @@ class Spoofchecker
     #[TentativeType]
     public function setChecks(#[LanguageAware(['8.0' => 'int'], default: '')] $checks): void {}
 
+    /**
+     * @param int $level
+     */
     #[TentativeType]
-    public function setRestrictionLevel(int $level): void {}
+    public function setRestrictionLevel(#[LanguageAware(['8.0' => 'int'], default: '')] $level): void {}
+
+    /**
+     * @since 8.4
+     */
+    public function setAllowedChars(string $pattern, int $patternOptions = 0): void {}
 }
 
 /**
@@ -2744,6 +2791,8 @@ class IntlCalendar
      * </p>
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure. Failure can only occur is invalid arguments are provided.
      */
+    #[LanguageAware(['8.4' => 'true'], default: 'bool')]
+    #[TentativeType]
     public function clear(#[LanguageAware(['8.0' => 'int|null'], default: '')] $field = null) {}
 
     /**
@@ -3327,6 +3376,8 @@ class IntlCalendar
      * </p>
      * @return bool Returns TRUE on success. Failure can only happen due to invalid parameters.
      */
+    #[LanguageAware(['8.4' => 'true'], default: 'bool')]
+    #[TentativeType]
     public function setFirstDayOfWeek(#[LanguageAware(['8.0' => 'int'], default: '')] $dayOfWeek) {}
 
     /**
@@ -3338,6 +3389,8 @@ class IntlCalendar
      * </p>
      * @return bool Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
      */
+    #[LanguageAware(['8.4' => 'true'], default: 'bool')]
+    #[TentativeType]
     public function setLenient(#[LanguageAware(['8.0' => 'bool'], default: '')] $lenient) {}
 
     /**
@@ -3351,6 +3404,8 @@ class IntlCalendar
      * @return bool
      * Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
      */
+    #[LanguageAware(['8.4' => 'true'], default: 'bool')]
+    #[TentativeType]
     public function setRepeatedWallTimeOption(#[LanguageAware(['8.0' => 'int'], default: '')] $option) {}
 
     /**
@@ -3367,6 +3422,8 @@ class IntlCalendar
      * Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
      * </p>
      */
+    #[LanguageAware(['8.4' => 'true'], default: 'bool')]
+    #[TentativeType]
     public function setSkippedWallTimeOption(#[LanguageAware(['8.0' => 'int'], default: '')] $option) {}
 
     /**
@@ -3444,6 +3501,8 @@ class IntlCalendar
      * @param int $days
      * @return bool
      */
+    #[LanguageAware(['8.4' => 'true'], default: 'bool')]
+    #[TentativeType]
     public function setMinimalDaysInFirstWeek(#[LanguageAware(['8.0' => 'int'], default: '')] $days) {}
 
     /**
@@ -3776,6 +3835,11 @@ class IntlTimeZone
      */
     #[TentativeType]
     public function useDaylightTime(): bool {}
+
+    /**
+     * @since 8.4
+     */
+    public static function getIanaID(string $timezoneId): string|false {}
 }
 
 /**
@@ -3875,7 +3939,8 @@ function collator_get_strength(Collator $object): int {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function collator_set_strength(Collator $object, int $strength): bool {}
+#[LanguageAware(['8.4' => 'true'], default: 'bool')]
+function collator_set_strength(Collator $object, int $strength) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4273,7 +4338,8 @@ function locale_get_default(): string {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function locale_set_default(string $locale): bool {}
+#[LanguageAware(['8.4' => 'true'], default: 'bool')]
+function locale_set_default(string $locale) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -5560,6 +5626,7 @@ function intlcal_before(IntlCalendar $calendar, IntlCalendar $other): bool {}
  * @since 5.5
  */
 #[LanguageAware(['8.3' => 'true'], default: 'bool')]
+#[Deprecated( reason: 'use IntlCalendar::set(), IntlCalendar::setDate(), or IntlCalendar::setDateTime() instead', since: '8.4' )]
 function intlcal_set(IntlCalendar $calendar, int $year, int $month, int $dayOfMonth, int $hour, int $minute, int $second) {}
 
 /**
@@ -6455,6 +6522,7 @@ function intltz_use_daylight_time(IntlTimeZone $timezone): bool {}
  * @since 5.5
  */
 #[Pure]
+#[Deprecated( reason: 'use IntlGregorianCalendar::__construct(), IntlGregorianCalendar::createFromDate(), or IntlGregorianCalendar::createFromDateTime() instead', since: '8.4' )]
 function intlgregcal_create_instance($timezoneOrYear, $localeOrMonth, $day, $hour, $minute, $second): ?IntlGregorianCalendar {}
 
 /**
@@ -6511,7 +6579,8 @@ function resourcebundle_create(?string $locale, ?string $bundle, bool $fallback 
  * returned as <b>ResourceBundle</b> object.
  */
 #[Pure]
-function resourcebundle_get(ResourceBundle $bundle, $index, bool $fallback = true): mixed {}
+#[LanguageAware(['8.4' => 'ResourceBundle|array|string|int|null'], default: 'mixed')]
+function resourcebundle_get(ResourceBundle $bundle, string|int $index, bool $fallback = true) {}
 
 /**
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
@@ -6783,6 +6852,16 @@ function intlcal_set_minimal_days_in_first_week(IntlCalendar $calendar, int $day
 function intltz_get_windows_id(string $timezoneId): string|false {}
 
 function intltz_get_id_for_windows_id(string $timezoneId, ?string $region = null): string|false {}
+
+/**
+ * @since 8.4
+ */
+function grapheme_str_split(string $string, int $length = 1): array|false {}
+
+/**
+ * @since  8.4
+ */
+function intltz_get_iana_id(string $timezoneId): string|false {}
 
 /**
  * Limit on locale length, set to 80 in PHP code. Locale names longer
@@ -7737,7 +7816,7 @@ class UConverter
         #[LanguageAware(['8.0' => 'string'], default: '')] $str,
         #[LanguageAware(['8.0' => 'string'], default: '')] $toEncoding,
         #[LanguageAware(['8.0' => 'string'], default: '')] $fromEncoding,
-        ?array $options = null
+        #[LanguageAware(['8.0' => 'array|null'], default: '')] $options = null
     ): string|false {}
 }
 // End of intl v.1.1.0

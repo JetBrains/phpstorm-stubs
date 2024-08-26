@@ -786,7 +786,6 @@ function checkdate(int $month, int $day, int $year): bool {}
  * local time if no timestamp is given. Month and weekday names and
  * other language-dependent strings respect the current locale set
  * with setlocale.
- * @deprecated 8.1
  */
 #[Deprecated(since: '8.1')]
 function strftime(string $format, ?int $timestamp): string|false {}
@@ -1489,11 +1488,13 @@ function date_default_timezone_get(): string {}
  * @param float|null $utcOffset [optional]
  * @return string|int|float|false the sunrise time in a specified format on
  * success or false on failure.
- * @deprecated in 8.1.  Use {@link date_sun_info} instead
+ * @deprecated 8.1
+ * Use {@link date_sun_info} instead
  */
 #[Pure(true)]
 #[Deprecated(reason: 'in 8.1.  Use date_sun_info instead', since: '8.1')]
 function date_sunrise(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, ?float $utcOffset): string|int|float|false {}
+
 
 /**
  * Returns time of sunset for a given day and location
@@ -1541,12 +1542,10 @@ function date_sunrise(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?
  * @param float|null $utcOffset [optional]
  * @return string|int|float|false the sunset time in a specified format on
  * success or false on failure.
- * @deprecated in 8.1.  Use {@link date_sun_info} instead
  */
 #[Pure(true)]
 #[Deprecated(reason: 'in 8.1.  Use date_sun_info instead', since: '8.1')]
 function date_sunset(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, ?float $utcOffset): string|int|float|false {}
-
 /**
  * Returns an array with information about sunset/sunrise and twilight begin/end
  * @link https://php.net/manual/en/function.date-sun-info.php

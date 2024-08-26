@@ -5,40 +5,43 @@ namespace StubTests\Model;
 use phpDocumentor\Reflection\DocBlock\Tags\PropertyRead;
 use phpDocumentor\Reflection\DocBlockFactory;
 use PhpParser\Node\Stmt\Enum_;
-use ReflectionClass;
+use StubTests\Parsers\ParserUtils;
 
 class PHPEnum extends PHPClass
 {
+    public $enumCases = [];
+
     /**
-     * @param ReflectionClass $reflectionObject
+     * @param \ReflectionEnum $reflectionObject
      * @return static
      */
     public function readObjectFromReflection($reflectionObject)
     {
-        $this->name = $reflectionObject->getName();
+        $this->name = $reflectionObject->getShortName();
         $this->interfaces = $reflectionObject->getInterfaceNames();
         $this->isFinal = $reflectionObject->isFinal();
+        if (!empty($reflectionObject->getNamespaceName())) {
+            $this->namespace = "\\" . $reflectionObject->getNamespaceName();
+        }
+        $this->id = "$this->namespace\\$this->name";
         if (method_exists($reflectionObject, 'isReadOnly')) {
             $this->isReadonly = $reflectionObject->isReadOnly();
         }
         foreach ($reflectionObject->getMethods() as $method) {
-            if ($method->getDeclaringClass()->getName() !== $this->name) {
+            /*if ($method->getDeclaringClass()->getName() !== $this->name) {
                 continue;
-            }
+            }*/
             $parsedMethod = (new PHPMethod())->readObjectFromReflection($method);
             $this->addMethod($parsedMethod);
         }
 
         if (method_exists($reflectionObject, 'getReflectionConstants')) {
             foreach ($reflectionObject->getReflectionConstants() as $constant) {
-                if ($constant->getDeclaringClass()->getName() !== $this->name) {
-                    continue;
-                }
                 if ($constant->isEnumCase()) {
                     $enumCase = (new PHPEnumCase())->readObjectFromReflection($constant);
                     $this->addEnumCase($enumCase);
                 } else {
-                    $parsedConstant = (new PHPConst())->readObjectFromReflection($constant);
+                    $parsedConstant = (new PHPClassConstant())->readObjectFromReflection($constant);
                     $this->addConstant($parsedConstant);
                 }
             }
@@ -61,20 +64,19 @@ class PHPEnum extends PHPClass
      */
     public function readObjectFromStubNode($node)
     {
-        $this->name = self::getFQN($node);
+        $this->id = self::getFQN($node);
+        $this->name = self::getShortName($node);
+        $this->namespace = rtrim(str_replace((string)$node->name, "", "\\" . $node->namespacedName), '\\');
         $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);
         $this->collectTags($node);
+        $this->checkDeprecationTag($node);
         if (!empty($node->extends)) {
-            $this->parentClass = '';
-            foreach ($node->extends->parts as $part) {
-                $this->parentClass .= "\\$part";
-            }
-            $this->parentClass = ltrim($this->parentClass, "\\");
+            $this->parentClass = self::getShortName($node->extends);
         }
         if (!empty($node->implements)) {
             foreach ($node->implements as $interfaceObject) {
                 $interfaceFQN = '';
-                foreach ($interfaceObject->parts as $interface) {
+                foreach ($interfaceObject->getParts() as $interface) {
                     $interfaceFQN .= "\\$interface";
                 }
                 $this->interfaces[] = ltrim($interfaceFQN, "\\");
@@ -90,11 +92,11 @@ class PHPEnum extends PHPClass
             foreach ($properties as $property) {
                 $propertyName = $property->getVariableName();
                 assert($propertyName !== '', "@property name is empty in class $this->name");
-                $newProperty = new PHPProperty($this->name);
+                $newProperty = new PHPProperty($this->id);
                 $newProperty->is_static = false;
                 $newProperty->access = 'public';
                 $newProperty->name = $propertyName;
-                $newProperty->parentName = $this->name;
+                $newProperty->parentId = $this->name;
                 $newProperty->typesFromSignature = self::convertParsedTypeToArray($property->getType());
                 assert(
                     !array_key_exists($propertyName, $this->properties),
@@ -103,9 +105,46 @@ class PHPEnum extends PHPClass
                 $this->properties[$propertyName] = $newProperty;
             }
         }
-
+        $this->stubObjectHash = spl_object_hash($this);
         return $this;
     }
 
     public function readMutedProblems($jsonData) {}
+
+    public function addEnumCase(PHPEnumCase $parsedEnumCase)
+    {
+        if (isset($parsedEnumCase->name)) {
+            if (array_key_exists($parsedEnumCase->name, $this->enumCases)) {
+                $amount = count(array_filter(
+                    $this->enumCases,
+                    function ($nextCase) use ($parsedEnumCase) {
+                        return $nextCase->name === $parsedEnumCase->name;
+                    }
+                ));
+                $this->enumCases[$parsedEnumCase->name . '_duplicated_' . $amount] = $parsedEnumCase;
+            } else {
+                $this->enumCases[$parsedEnumCase->name] = $parsedEnumCase;
+            }
+        }
+    }
+
+    /**
+     * @param string $caseName
+     * @param false $fromReflection
+     * @return PHPClassConstant|null
+     */
+    public function getCase($caseName, $fromReflection = false)
+    {
+        if ($fromReflection) {
+            $constants = array_filter($this->enumCases, function (PHPEnumCase $case) use ($caseName) {
+                return $case->name === $caseName && $case->stubObjectHash == null;
+            });
+        } else {
+            $constants = array_filter($this->enumCases, function (PHPEnumCase $case) use ($caseName) {
+                return $case->name === $caseName && $case->duplicateOtherElement === false
+                    && ParserUtils::entitySuitsCurrentPhpVersion($case);
+            });
+        }
+        return array_pop($constants);
+    }
 }

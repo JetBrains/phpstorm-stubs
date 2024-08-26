@@ -4,141 +4,101 @@ declare(strict_types=1);
 namespace StubTests;
 
 use PHPUnit\Framework\Attributes\DataProviderExternal;
-use RuntimeException;
-use StubTests\Model\PHPClass;
-use StubTests\Model\PHPEnum;
-use StubTests\Model\PHPInterface;
-use StubTests\Model\PHPMethod;
-use StubTests\Model\PHPProperty;
 use StubTests\Model\PhpVersions;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 use StubTests\TestData\Providers\Reflection\ReflectionClassesTestDataProviders;
 use StubTests\TestData\Providers\Reflection\ReflectionMethodsProvider;
 use StubTests\TestData\Providers\Reflection\ReflectionPropertiesProvider;
+use StubTests\TestData\Providers\ReflectionStubsSingleton;
 
 class BaseClassesTest extends AbstractBaseStubsTestCase
 {
-    /**
-     * @throws RuntimeException
-     */
+    public static function setUpBeforeClass(): void
+    {
+        parent::setUpBeforeClass();
+        PhpStormStubsSingleton::getPhpStormStubs();
+        ReflectionStubsSingleton::getReflectionStubs();
+    }
+
     #[DataProviderExternal(ReflectionClassesTestDataProviders::class, 'classWithParentProvider')]
-    public function testClassesParent(PHPClass|PHPInterface $class)
+    public function testClassesParent(?string $classId)
     {
-        $className = $class->name;
-        if ($class instanceof PHPClass) {
-            $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className);
-            static::assertEquals(
-                $class->parentClass,
-                $stubClass->parentClass,
-                empty($class->parentClass) ? "Class $className should not extend $stubClass->parentClass" :
-                    "Class $className should extend $class->parentClass"
-            );
-        } else {
-            $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className);
-            foreach ($class->parentInterfaces as $parentInterface) {
-                static::assertContains(
-                    $parentInterface,
-                    $stubClass->parentInterfaces,
-                    "Interface $className should extend $parentInterface"
-                );
-            }
+        if (!$classId) {
+            self::markTestSkipped($this->emptyDataSetMessage);
         }
+        $reflectionClass = ReflectionStubsSingleton::getReflectionStubs()->getClass($classId, fromReflection: true);
+        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId);
+        static::assertEquals(
+            $reflectionClass->parentClass,
+            $stubClass->parentClass,
+            empty($reflectionClass->parentClass) ? "Class $classId should not extend $stubClass->parentClass" :
+                "Class $classId should extend $reflectionClass->parentClass"
+        );
     }
 
-    /**
-     * @throws RuntimeException
-     */
     #[DataProviderExternal(ReflectionMethodsProvider::class, 'classMethodsProvider')]
-    public function testClassesMethodsExist(PHPClass|PHPInterface|PHPEnum $class, PHPMethod $method)
+    public function testClassesMethodsExist(?string $classId, ?string $methodName)
     {
-        $className = $class->name;
-        if ($class instanceof PHPEnum) {
-            $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getEnum($className);
-        } elseif ($class instanceof PHPClass) {
-            $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className);
-        } else {
-            $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className);
+        if (!$classId && !$methodName) {
+            self::markTestSkipped($this->emptyDataSetMessage);
         }
-        static::assertNotEmpty($stubClass->getMethod($method->name), "Missing method $className::$method->name");
+        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId);
+        static::assertNotEmpty($stubClass->getMethod($methodName), "Missing method $classId::$methodName");
     }
 
-    /**
-     * @throws RuntimeException
-     */
     #[DataProviderExternal(ReflectionMethodsProvider::class, 'classFinalMethodsProvider')]
-    public function testClassesFinalMethods(PHPClass|PHPInterface $class, PHPMethod $method)
+    public function testClassesFinalMethods(?string $classId, ?string $methodName)
     {
-        $className = $class->name;
-        if ($class instanceof PHPEnum) {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getEnum($className)->getMethod($method->name);
-        } elseif ($class instanceof PHPClass) {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->getMethod($method->name);
-        } else {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->getMethod($method->name);
+        if (!$classId && !$methodName) {
+            self::markTestSkipped($this->emptyDataSetMessage);
         }
+        $reflectionMethod = ReflectionStubsSingleton::getReflectionStubs()->getClass($classId, fromReflection: true)->getMethod($methodName, fromReflection: true);
+        $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId)->getMethod($methodName);
         static::assertEquals(
-            $method->isFinal,
+            $reflectionMethod->isFinal,
             $stubMethod->isFinal,
-            "Method $className::$method->name final modifier is incorrect"
+            "Method $classId::$methodName final modifier is incorrect"
         );
     }
 
-    /**
-     * @throws RuntimeException
-     */
     #[DataProviderExternal(ReflectionMethodsProvider::class, 'classStaticMethodsProvider')]
-    public function testClassesStaticMethods(PHPClass|PHPInterface $class, PHPMethod $method)
+    public function testClassesStaticMethods(?string $classId, ?string $methodName)
     {
-        $className = $class->name;
-        if ($class instanceof PHPEnum) {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getEnum($className)->getMethod($method->name);
-        } elseif ($class instanceof PHPClass) {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->getMethod($method->name);
-        } else {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->getMethod($method->name);
+        if (!$classId && !$methodName) {
+            self::markTestSkipped($this->emptyDataSetMessage);
         }
+        $reflectionMethod = ReflectionStubsSingleton::getReflectionStubs()->getClass($classId, fromReflection: true)->getMethod($methodName, fromReflection: true);
+        $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId)->getMethod($methodName);
         static::assertEquals(
-            $method->isStatic,
+            $reflectionMethod->isStatic,
             $stubMethod->isStatic,
-            "Method $className::$method->name static modifier is incorrect"
+            "Method $classId::$methodName static modifier is incorrect"
         );
     }
 
-    /**
-     * @throws RuntimeException
-     */
     #[DataProviderExternal(ReflectionMethodsProvider::class, 'classMethodsWithAccessProvider')]
-    public function testClassesMethodsVisibility(PHPClass|PHPInterface $class, PHPMethod $method)
+    public function testClassesMethodsVisibility(?string $classId, ?string $methodName)
     {
-        $className = $class->name;
-        if ($class instanceof PHPEnum) {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getEnum($className)->getMethod($method->name);
-        } elseif ($class instanceof PHPClass) {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->getMethod($method->name);
-        } else {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->getMethod($method->name);
+        if (!$classId && !$methodName) {
+            self::markTestSkipped($this->emptyDataSetMessage);
         }
+        $reflectionMethod = ReflectionStubsSingleton::getReflectionStubs()->getClass($classId, fromReflection: true)->getMethod($methodName, fromReflection: true);
+        $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId)->getMethod($methodName);
         static::assertEquals(
-            $method->access,
+            $reflectionMethod->access,
             $stubMethod->access,
-            "Method $className::$method->name access modifier is incorrect"
+            "Method $classId::$methodName access modifier is incorrect"
         );
     }
 
-    /**
-     * @throws RuntimeException
-     */
     #[DataProviderExternal(ReflectionMethodsProvider::class, 'classMethodsWithParametersProvider')]
-    public function testClassMethodsParametersCount(PHPClass|PHPInterface $class, PHPMethod $method)
+    public function testClassMethodsParametersCount(?string $classId, ?string $methodName)
     {
-        $className = $class->name;
-        if ($class instanceof PHPEnum) {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getEnum($className)->getMethod($method->name);
-        } elseif ($class instanceof PHPClass) {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className)->getMethod($method->name);
-        } else {
-            $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className)->getMethod($method->name);
+        if (!$classId && !$methodName) {
+            self::markTestSkipped($this->emptyDataSetMessage);
         }
+        $reflectionMethod = ReflectionStubsSingleton::getReflectionStubs()->getClass($classId, fromReflection: true)->getMethod($methodName, fromReflection: true);
+        $stubMethod = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId)->getMethod($methodName);
         $filteredStubParameters = array_filter(
             $stubMethod->parameters,
             function ($parameter) {
@@ -151,86 +111,89 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
             }
         );
         static::assertSameSize(
-            $method->parameters,
+            $reflectionMethod->parameters,
             $filteredStubParameters,
-            "Parameter number mismatch for method $className::$method->name.
-                         Expected: " . self::getParameterRepresentation($method)
+            "Parameter number mismatch for method $classId::$methodName.
+                         Expected: " . self::getParameterRepresentation($reflectionMethod)
         );
     }
 
-    /**
-     * @throws RuntimeException
-     */
     #[DataProviderExternal(ReflectionClassesTestDataProviders::class, 'classesWithInterfacesProvider')]
-    public function testClassInterfaces(PHPClass $class)
+    public function testClassInterfaces(?string $classId)
     {
-        $className = $class->name;
-        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name, shouldSuitCurrentPhpVersion: false);
-        foreach ($class->interfaces as $interface) {
+        if (!$classId) {
+            self::markTestSkipped($this->emptyDataSetMessage);
+        }
+        $reflectionClass = ReflectionStubsSingleton::getReflectionStubs()->getClass($classId, fromReflection: true);
+        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId);
+        foreach ($reflectionClass->interfaces as $interface) {
             static::assertContains(
                 $interface,
                 $stubClass->interfaces,
-                "Class $className doesn't implement interface $interface"
+                "Class $classId doesn't implement interface $interface"
             );
         }
     }
 
-    /**
-     * @throws RuntimeException
-     */
     #[DataProviderExternal(ReflectionPropertiesProvider::class, 'classPropertiesProvider')]
-    public function testClassProperties(PHPClass $class, PHPProperty $property)
+    public function testClassProperties(?string $classId, ?string $propertyName)
     {
-        $className = $class->name;
-        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name);
-        static::assertNotEmpty($stubClass->getProperty($property->name), "Missing property $property->access "
-            . implode('|', $property->typesFromSignature) .
-            "$className::$$property->name");
+        if (!$classId && !$propertyName) {
+            self::markTestSkipped($this->emptyDataSetMessage);
+        }
+        $reflectionClass = ReflectionStubsSingleton::getReflectionStubs()->getClass($classId, fromReflection: true);
+        $reflectionProperty = $reflectionClass->getProperty($propertyName, fromReflection: true);
+        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId);
+        static::assertNotEmpty($stubClass->getProperty($propertyName), "Missing property $reflectionProperty->access "
+            . implode('|', $reflectionProperty->typesFromSignature) .
+            "$classId::$$propertyName");
     }
 
-    /**
-     * @throws RuntimeException
-     */
     #[DataProviderExternal(ReflectionPropertiesProvider::class, 'classStaticPropertiesProvider')]
-    public function testClassStaticProperties(PHPClass $class, PHPProperty $property)
+    public function testClassStaticProperties(?string $classId, ?string $propertyName)
     {
-        $className = $class->name;
-        $stubProperty = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->getProperty($property->name);
+        if (!$classId && !$propertyName) {
+            self::markTestSkipped($this->emptyDataSetMessage);
+        }
+        $reflectionClass = ReflectionStubsSingleton::getReflectionStubs()->getClass($classId, fromReflection: true);
+        $reflectionProperty = $reflectionClass->getProperty($propertyName, fromReflection: true);
+        $stubProperty = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId)->getProperty($propertyName);
         static::assertEquals(
-            $property->is_static,
+            $reflectionProperty->is_static,
             $stubProperty->is_static,
-            "Property $className::$property->name static modifier is incorrect"
+            "Property $classId::$propertyName static modifier is incorrect"
         );
     }
 
-    /**
-     * @throws RuntimeException
-     */
     #[DataProviderExternal(ReflectionPropertiesProvider::class, 'classPropertiesWithAccessProvider')]
-    public function testClassPropertiesVisibility(PHPClass $class, PHPProperty $property)
+    public function testClassPropertiesVisibility(?string $classId, ?string $propertyName)
     {
-        $className = $class->name;
-        $stubProperty = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->getProperty($property->name);
+        if (!$classId && !$propertyName) {
+            self::markTestSkipped($this->emptyDataSetMessage);
+        }
+        $reflectionClass = ReflectionStubsSingleton::getReflectionStubs()->getClass($classId, fromReflection: true);
+        $reflectionProperty = $reflectionClass->getProperty($propertyName, fromReflection: true);
+        $stubProperty = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId)->getProperty($propertyName);
         static::assertEquals(
-            $property->access,
+            $reflectionProperty->access,
             $stubProperty->access,
-            "Property $className::$property->name access modifier is incorrect"
+            "Property $classId::$propertyName access modifier is incorrect"
         );
     }
 
-    /**
-     * @throws RuntimeException
-     */
     #[DataProviderExternal(ReflectionPropertiesProvider::class, 'classPropertiesWithTypeProvider')]
-    public function testClassPropertiesType(PHPClass $class, PHPProperty $property)
+    public function testClassPropertiesType(?string $classId, ?string $propertyName)
     {
-        $className = $class->name;
-        $stubProperty = PhpStormStubsSingleton::getPhpStormStubs()->getClass($class->name)->getProperty($property->name);
-        $propertyName = $stubProperty->name;
+        if (!$classId && !$propertyName) {
+            self::markTestSkipped($this->emptyDataSetMessage);
+        }
+        $reflectionClass = ReflectionStubsSingleton::getReflectionStubs()->getClass($classId, fromReflection: true);
+        $reflectionProperty = $reflectionClass->getProperty($propertyName, fromReflection: true);
+        $stubProperty = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId)->getProperty($propertyName);
         $unifiedStubsPropertyTypes = [];
         $unifiedStubsAttributesPropertyTypes = [];
         $unifiedReflectionPropertyTypes = [];
-        self::convertNullableTypesToUnion($property->typesFromSignature, $unifiedReflectionPropertyTypes);
+        self::convertNullableTypesToUnion($reflectionProperty->typesFromSignature, $unifiedReflectionPropertyTypes);
         if (!empty($stubProperty->typesFromSignature)) {
             self::convertNullableTypesToUnion($stubProperty->typesFromSignature, $unifiedStubsPropertyTypes);
         }
@@ -248,54 +211,60 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
                 $testCondition = self::isReflectionTypesExistInAttributes($unifiedReflectionPropertyTypes, $typesFromAttribute);
             }
         }
-        self::assertTrue($testCondition, "Property $className::$propertyName has invalid typehint.
+        self::assertTrue($testCondition, "Property $classId::$propertyName has invalid typehint.
         Reflection property has type " . implode('|', $unifiedReflectionPropertyTypes) . ' but stubs has type ' .
             implode('|', $unifiedStubsPropertyTypes) . ' in signature and attribute has types ' .
             implode('|', $typesFromAttribute));
     }
 
-    /**
-     * @throws RuntimeException
-     */
     #[DataProviderExternal(ReflectionClassesTestDataProviders::class, 'allClassesProvider')]
-    public function testClassesExist(PHPClass|PHPInterface $class): void
+    public function testClassesExist(?string $classId): void
     {
-        $className = $class->name;
-        if ($class instanceof PHPClass) {
-            $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className);
-        } else {
-            $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className);
+        if (!$classId) {
+            self::markTestSkipped($this->emptyDataSetMessage);
         }
-        static::assertNotEmpty($stubClass, "Missing class $className: class $className {}");
+        $class = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId);
+        static::assertNotEmpty($class, "Missing class $classId: class $class->name {}");
     }
 
-    /**
-     * @throws RuntimeException
-     */
     #[DataProviderExternal(ReflectionClassesTestDataProviders::class, 'finalClassesProvider')]
-    public function testClassesFinal(PHPClass|PHPInterface $class): void
+    public function testClassesFinal(?string $classId): void
     {
-        $className = $class->name;
-        if ($class instanceof PHPClass) {
-            $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className);
-        } else {
-            $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($className);
+        if (!$classId) {
+            self::markTestSkipped($this->emptyDataSetMessage);
         }
-        static::assertEquals($class->isFinal, $stubClass->isFinal, "Final modifier of class $className is incorrect");
+        $reflectionClass = ReflectionStubsSingleton::getReflectionStubs()->getClass($classId, fromReflection: true);
+        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId);
+        static::assertEquals($reflectionClass->isFinal, $stubClass->isFinal, "Final modifier of class $classId is incorrect");
     }
 
-    /**
-     * @throws RuntimeException
-     */
     #[DataProviderExternal(ReflectionClassesTestDataProviders::class, 'readonlyClassesProvider')]
-    public function testClassesReadonly(?PHPClass $class): void
+    public function testClassesReadonly(?string $classId): void
     {
-        $className = $class->name;
-        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($className);
+        if (!$classId) {
+            self::markTestSkipped($this->emptyDataSetMessage);
+        }
+        $reflectionClass = ReflectionStubsSingleton::getReflectionStubs()->getClass($classId, fromReflection: true);
+        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId);
         static::assertEquals(
-            $class->isReadonly,
+            $reflectionClass->isReadonly,
             $stubClass->isReadonly,
-            "Readonly modifier for class $className is incorrect"
+            "Readonly modifier for class $classId is incorrect"
+        );
+    }
+
+    #[DataProviderExternal(ReflectionClassesTestDataProviders::class, 'classWithNamespaceProvider')]
+    public function testClassesNamespace(?string $classId): void
+    {
+        if (!$classId) {
+            self::markTestSkipped($this->emptyDataSetMessage);
+        }
+        $reflectionClass = ReflectionStubsSingleton::getReflectionStubs()->getClass($classId, fromReflection: true);
+        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId);
+        static::assertEquals(
+            $reflectionClass->namespace,
+            $stubClass->namespace,
+            "Namespace for class $classId is incorrect"
         );
     }
 }
