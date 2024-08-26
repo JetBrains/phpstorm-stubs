@@ -3,6 +3,7 @@
 // Start of zip v.1.14.0
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\TentativeType;
 
 /**
  * A file archive, compressed with Zip.
@@ -573,6 +574,25 @@ class ZipArchive implements Countable
      */
     public const OPSYS_DEFAULT = 3;
 
+    public const FL_OPEN_FILE_NOW = 1073741824;
+
+    public const CM_ZSTD = 93;
+
+    public const ER_DATA_LENGTH = 33;
+
+    public const ER_NOT_ALLOWED = 34;
+
+    public const AFL_RDONLY = 2;
+
+    public const AFL_IS_TORRENTZIP = 4;
+
+    public const AFL_WANT_TORRENTZIP = 8;
+
+    public const AFL_CREATE_OR_KEEP_FILE_FOR_EMPTY_ARCHIVE = 16;
+
+    public const LENGTH_TO_END = 0;
+
+    public const LENGTH_UNCHECKED = -2;
     /**
      * Status of the Zip Archive
      * @var int
@@ -689,10 +709,11 @@ class ZipArchive implements Countable
      * Seek error.
      * </p>
      */
+    #[TentativeType]
     public function open(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ) {}
+    ): int|bool {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -700,7 +721,8 @@ class ZipArchive implements Countable
      * @link https://php.net/manual/en/ziparchive.close.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function close() {}
+    #[TentativeType]
+    public function close(): bool {}
 
     /**
      * (PHP 7 &gt;= 7.2.0, PECL zip &gt;= 1.15.0)<br/>
@@ -709,7 +731,8 @@ class ZipArchive implements Countable
      * @return int
      * @since 7.2
      */
-    public function count() {}
+    #[TentativeType]
+    public function count(): int {}
 
     /**
      * Returns the status error message, system and/or zip messages
@@ -717,7 +740,8 @@ class ZipArchive implements Countable
      * @return string|false a string with the status message on success or <b>FALSE</b> on failure.
      * @since 5.2.7
      */
-    public function getStatusString() {}
+    #[TentativeType]
+    public function getStatusString(): string {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.8.0)<br/>
@@ -729,10 +753,11 @@ class ZipArchive implements Countable
      * @param int $flags [optional] Set how to manage name encoding (ZipArchive::FL_ENC_*) and entry replacement (ZipArchive::FL_OVERWRITE)
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function addEmptyDir(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $dirname,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags
-    ) {}
+    ): bool {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -748,11 +773,12 @@ class ZipArchive implements Countable
      * @param int $flags [optional] Set how to manage name encoding (ZipArchive::FL_ENC_*) and entry replacement (ZipArchive::FL_OVERWRITE)
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function addFromString(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $content,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 8192
-    ) {}
+    ): bool {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -773,13 +799,14 @@ class ZipArchive implements Countable
      * @param int $flags [optional] Set how to manage name encoding (ZipArchive::FL_ENC_*) and entry replacement (ZipArchive::FL_OVERWRITE)
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function addFile(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filepath,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $entryname = null,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $start = 0,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $length = 0,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 8192
-    ) {}
+    ): bool {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL zip &gt;= 1.9.0)<br/>
@@ -803,13 +830,14 @@ class ZipArchive implements Countable
      * "remove_path" or "remove_all_path"
      * options.
      * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return array|false
      */
+    #[TentativeType]
     public function addGlob(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pattern,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0,
         array $options = []
-    ) {}
+    ): array|false {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL zip &gt;= 1.9.0)<br/>
@@ -824,13 +852,14 @@ class ZipArchive implements Countable
      * @param array $options [optional] <p>
      * An associative array of options accepted by <b>ZipArchive::addGlob</b>.
      * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return array|false
      */
+    #[TentativeType]
     public function addPattern(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pattern,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $path = '.',
         array $options = []
-    ) {}
+    ): array|false {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -844,10 +873,11 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function renameIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $new_name
-    ) {}
+    ):bool {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -861,10 +891,11 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function renameName(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $new_name
-    ) {}
+    ): bool {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.4.0)<br/>
@@ -875,7 +906,8 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setArchiveComment(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $comment) {}
+    #[TentativeType]
+    public function setArchiveComment(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $comment): bool {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -887,7 +919,8 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the Zip archive comment or <b>FALSE</b> on failure.
      */
-    public function getArchiveComment(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null) {}
+    #[TentativeType]
+    public function getArchiveComment(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null): string|false {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.4.0)<br/>
@@ -901,10 +934,11 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function setCommentIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $comment
-    ) {}
+    ): bool {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.4.0)<br/>
@@ -918,10 +952,11 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function setCommentName(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $comment
-    ) {}
+    ): bool {}
 
     /**
      * Set the compression method of an entry defined by its index
@@ -932,7 +967,8 @@ class ZipArchive implements Countable
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 7.0
      */
-    public function setCompressionIndex(int $index, int $method, int $compflags = 0) {}
+    #[TentativeType]
+    public function setCompressionIndex(int $index, int $method, int $compflags = 0): bool {}
 
     /**
      * Set the compression method of an entry defined by its name
@@ -943,7 +979,8 @@ class ZipArchive implements Countable
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 7.0
      */
-    public function setCompressionName(string $name, int $method, int $compflags = 0) {}
+    #[TentativeType]
+    public function setCompressionName(string $name, int $method, int $compflags = 0): bool {}
 
     /**
      * Set the encryption method of an entry defined by its index
@@ -954,7 +991,8 @@ class ZipArchive implements Countable
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 7.2
      */
-    public function setEncryptionIndex(int $index, int $method, ?string $password = null) {}
+    #[TentativeType]
+    public function setEncryptionIndex(int $index, int $method, ?string $password = null): bool {}
 
     /**
      * Set the encryption method of an entry defined by its name
@@ -965,14 +1003,16 @@ class ZipArchive implements Countable
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 7.2
      */
-    public function setEncryptionName(string $name, int $method, ?string $password = null) {}
+    #[TentativeType]
+    public function setEncryptionName(string $name, int $method, ?string $password = null): bool {}
 
     /**
      * (PHP 5 &gt;= 5.6.0, PECL zip &gt;= 1.12.0)<br/>
      * @param string $password
      * @return bool
      */
-    public function setPassword(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $password) {}
+    #[TentativeType]
+    public function setPassword(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $password): bool {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.4.0)<br/>
@@ -987,10 +1027,11 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the comment on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function getCommentIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ) {}
+    ): string|false {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.4.0)<br/>
@@ -1005,10 +1046,11 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the comment on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function getCommentName(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ) {}
+    ): string|false {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -1019,7 +1061,8 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function deleteIndex(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index) {}
+    #[TentativeType]
+    public function deleteIndex(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index): bool {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -1030,7 +1073,8 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function deleteName(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
+    #[TentativeType]
+    public function deleteName(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name): bool {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -1048,10 +1092,11 @@ class ZipArchive implements Countable
      * </p>
      * @return array{name: string, index: int, crc: int, size: int, mtime: int, comp_size: int, comp_method: int, encryption_method: int}|false an array containing the entry details or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function statName(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ) {}
+    ): array|false {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -1067,10 +1112,11 @@ class ZipArchive implements Countable
      * </p>
      * @return array{name: string, index: int, crc: int, size: int, mtime: int, comp_size: int, comp_method: int, encryption_method: int}|false an array containing the entry details or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function statIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ) {}
+    ):array|false {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -1086,10 +1132,11 @@ class ZipArchive implements Countable
      * </p>
      * @return int|false the index of the entry on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function locateName(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ) {}
+    ): int|false {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -1104,10 +1151,11 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the name on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function getNameIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ) {}
+    ):string|false {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -1115,7 +1163,8 @@ class ZipArchive implements Countable
      * @link https://php.net/manual/en/ziparchive.unchangearchive.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function unchangeArchive() {}
+    #[TentativeType]
+    public function unchangeArchive(): bool {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -1123,7 +1172,8 @@ class ZipArchive implements Countable
      * @link https://php.net/manual/en/ziparchive.unchangeall.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function unchangeAll() {}
+    #[TentativeType]
+    public function unchangeAll(): bool {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -1134,7 +1184,8 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function unchangeIndex(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index) {}
+    #[TentativeType]
+    public function unchangeIndex(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index): bool {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -1145,7 +1196,8 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function unchangeName(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
+    #[TentativeType]
+    public function unchangeName(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name): bool {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -1160,10 +1212,11 @@ class ZipArchive implements Countable
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function extractTo(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pathto,
         #[LanguageLevelTypeAware(['8.0' => 'array|string|null'], default: '')] $files = null
-    ) {}
+    ): bool {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -1183,11 +1236,12 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the contents of the entry on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function getFromName(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $len = 0,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ) {}
+    ): string|false {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.3.0)<br/>
@@ -1209,11 +1263,12 @@ class ZipArchive implements Countable
      * </p>
      * @return string|false the contents of the entry on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function getFromIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $len = 0,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ) {}
+    ): string|false {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -1252,12 +1307,13 @@ class ZipArchive implements Countable
      * @param int $flags [optional] Optional flags. Currently unused.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function setExternalAttributesName(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $opsys,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attr,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ) {}
+    ): bool {}
 
     /**
      * Retrieve the external attributes of an entry defined by its name
@@ -1268,12 +1324,13 @@ class ZipArchive implements Countable
      * @param int $flags [optional] If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged attributes are returned.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function getExternalAttributesName(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] &$opsys,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] &$attr,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ) {}
+    ): bool {}
 
     /**
      * Set the external attributes of an entry defined by its index
@@ -1284,12 +1341,13 @@ class ZipArchive implements Countable
      * @param int $flags [optional] Optional flags. Currently unused.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function setExternalAttributesIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $opsys,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attr,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ) {}
+    ): bool {}
 
     /**
      * Retrieve the external attributes of an entry defined by its index
@@ -1300,48 +1358,91 @@ class ZipArchive implements Countable
      * @param int $flags [optional] If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged attributes are returned.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
+    #[TentativeType]
     public function getExternalAttributesIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] &$opsys,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] &$attr,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ) {}
+    ): bool {}
 
+    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public static function isEncryptionMethodSupported(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $method,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $enc = true
     ) {}
 
+    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
     public static function isCompressionMethodSupported(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $method,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $enc = true
     ) {}
 
-    public function registerCancelCallback(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback) {}
+    #[TentativeType]
+    public function registerCancelCallback(#[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback): bool {}
 
+    #[TentativeType]
     public function registerProgressCallback(
         #[LanguageLevelTypeAware(['8.0' => 'float'], default: '')] $rate,
         #[LanguageLevelTypeAware(['8.0' => 'callable'], default: '')] $callback
-    ) {}
+    ): bool {}
 
+    #[TentativeType]
     public function setMtimeName(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestamp,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ) {}
+    ): bool {}
 
+    #[TentativeType]
     public function setMtimeIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestamp,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ) {}
+    ): bool {}
 
+    #[TentativeType]
     public function replaceFile(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filepath,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $index,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $start = null,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $length = null,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+    ): bool {}
+
+    #[LanguageLevelTypeAware(['8.0' => 'void'], default: '')]
+    public function clearError() {}
+
+    /**
+     * @param int $flag
+     * @param int $value
+     * @return bool
+     */
+    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')]
+    public function setArchiveFlag(
+        #[LanguageLevelTypeAware(['8.3' => 'int'], default: '')] $flag,
+        #[LanguageLevelTypeAware(['8.3' => 'int'], default: '')] $value
+    ) {}
+
+    /**
+     * @param int $flag
+     * @param int $flags
+     * @return int
+     */
+    #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')]
+    public function getArchiveFlag(
+        #[LanguageLevelTypeAware(['8.3' => 'int'], default: '')] $flag,
+        #[LanguageLevelTypeAware(['8.3' => 'int'], default: '')] $flags = 0
+    ) {}
+
+    /**
+     * @param string $name
+     * @param int $flags
+     * @return void
+     */
+    public function getStreamName(
+        #[LanguageLevelTypeAware(['8.2' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.2' => 'int'], default: '')] $flags = 0
     ) {}
 }
 
