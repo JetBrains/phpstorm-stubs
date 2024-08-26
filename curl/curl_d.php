@@ -4343,3 +4343,18 @@ define('CURL_HTTP_VERSION_3', 30);
  * @since 8.4
  */
 define('CURL_HTTP_VERSION_3ONLY', 31);
+
+/**
+ * @since 8.4
+ */
+define('CURLOPT_PREREQFUNCTION', 20312);
+
+/**
+ * @since 8.4
+ */
+define('CURL_PREREQFUNC_OK', 0);
+
+/**
+ * @since 8.4
+ */
+define('CURL_PREREQFUNC_ABORT', 1);
