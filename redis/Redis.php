@@ -1307,7 +1307,7 @@ class Redis
      * @param string $whereto Where in the destination list to put the element.
      *                          - `Redis::LEFT`, or `Redis::RIGHT`.
      * @param float $timeout How long to block for an element.
-     * @return Redis|string|false;
+     * @return Redis|string|false
      * @example
      * $redis->lPush('numbers', 'one');
      * $redis->blmove('numbers', 'odds', Redis::LEFT, Redis::LEFT 1.0);
