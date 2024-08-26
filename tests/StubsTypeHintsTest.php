@@ -482,7 +482,7 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
         self::assertSameSize(
             $unifiedSignatureTypes,
             $typesIntersection,
-            'Function' . "$functionId has mismatch in phpdoc return type and signature return type. 
+            'Function ' . "$functionId has mismatch in phpdoc return type and signature return type. 
             Signature has " . implode('|', $unifiedSignatureTypes) . " but phpdoc has " . implode('|', $unifiedPhpDocTypes)
         );
     }

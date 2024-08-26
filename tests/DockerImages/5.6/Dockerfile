@@ -8,7 +8,7 @@ RUN set -eux; \
 
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr --with-png-dir=/usr --with-webp-dir=/usr --with-jpeg-dir=/usr
 
-RUN docker-php-ext-install imap gmp sockets intl bz2 mysqli bcmath calendar dba exif gettext opcache pcntl \
-    pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap
+RUN docker-php-ext-install wddx imap gmp sockets intl bz2 mysqli bcmath calendar dba exif gettext opcache pcntl \
+    pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap ftp
 
 WORKDIR /opt/project/phpstorm-stubs
