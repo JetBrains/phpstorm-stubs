@@ -486,7 +486,6 @@ class Redis
 
     /**
      * @deprecated
-     * @alias Redis::del
      */
     public function delete(array|string $key, string ...$other_keys): Redis|int|false {}
 
@@ -1310,10 +1309,10 @@ class Redis
      * @param float $timeout How long to block for an element.
      * @return Redis|string|false;
      * @example
-     * @redis->lPush('numbers', 'one');
-     * @redis->blmove('numbers', 'odds', Redis::LEFT, Redis::LEFT 1.0);
+     * $redis->lPush('numbers', 'one');
+     * $redis->blmove('numbers', 'odds', Redis::LEFT, Redis::LEFT 1.0);
      * // This call will block, if no additional elements are in 'numbers'
-     * @redis->blmove('numbers', 'odds', Redis::LEFT, Redis::LEFT, 1.0);
+     * $redis->blmove('numbers', 'odds', Redis::LEFT, Redis::LEFT, 1.0);
      */
     public function blmove(string $src, string $dst, string $wherefrom, string $whereto, float $timeout): Redis|string|false {}
 
@@ -1509,7 +1508,6 @@ class Redis
 
     /**
      * @deprecated
-     * @alias Redis::connect
      */
     public function open(string $host, int $port = 6379, float $timeout = 0, ?string $persistent_id = null, int $retry_interval = 0, float $read_timeout = 0, ?array $context = null): bool {}
 
@@ -1601,7 +1599,6 @@ class Redis
 
     /**
      * @deprecated
-     * @alias Redis::pconnect
      */
     public function popen(string $host, int $port = 6379, float $timeout = 0, ?string $persistent_id = null, int $retry_interval = 0, float $read_timeout = 0, ?array $context = null): bool {}
 
@@ -2233,7 +2230,6 @@ class Redis
      *                           entries, which is configurable.
      *                           Note:  With Redis >= 7.0.0 you can send -1 to mean "all".
      * @return mixed
-     * @category administration
      * @see https://redis.io/commands/slowlog/
      * @example $redis->slowlog('get', -1);   // Retrieve all slowlog entries.
      * @example $redis->slowlog('len');       // Retrieve slowlog length.
@@ -3017,7 +3013,6 @@ class Redis
      *                                 Note:  'BYLEX' and 'BYSCORE' are mutually exclusive.
      * @return Redis|array|false  An array with matching elements or false on failure.
      * @see https://redis.io/commands/zrange/
-     * @category zset
      * @example $redis->zRange('zset', 0, -1);
      * @example $redis->zRange('zset', '-inf', 'inf', ['byscore']);
      */
@@ -3067,7 +3062,6 @@ class Redis
      * @return Redis|int|false The number of elements stored in $dstkey or false on failure.
      * @see https://redis.io/commands/zrange/
      * @see Redis::zRange
-     * @category zset
      * See {@link Redis::zRange} for a full description of the possible options.
      */
     public function zrangestore(
