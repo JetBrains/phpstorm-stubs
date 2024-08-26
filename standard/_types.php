@@ -375,7 +375,7 @@ namespace ___PHPSTORM_HELPERS {
          * @return array|null
          * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.debuginfo
          */
-        public function __debugInfo() {}
+        public function __debugInfo(): ?array {}
 
         /**
          * This static method is called for classes exported by var_export() since PHP 5.1.0.

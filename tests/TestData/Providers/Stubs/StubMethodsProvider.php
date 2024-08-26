@@ -86,7 +86,7 @@ class StubMethodsProvider
             $filteredMethods = EntitiesFilter::getFiltered(
                 $class->methods,
                 fn (PHPMethod $method) => empty($method->returnTypesFromSignature) || empty($method->returnTypesFromPhpDoc)
-                    || $method->parentId === '\___PHPSTORM_HELPERS\object' || $method->hasTentativeReturnType
+                    || $method->hasTentativeReturnType
                     || in_array('mixed', $method->returnTypesFromSignature),
                 StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE
             );
@@ -103,7 +103,7 @@ class StubMethodsProvider
             return EntitiesFilter::getFiltered(
                 $enum->methods,
                 fn (PHPMethod $method) => empty($method->returnTypesFromSignature) || empty($method->returnTypesFromPhpDoc)
-                    || $method->parentId === '\___PHPSTORM_HELPERS\object' || $method->hasTentativeReturnType
+                    || $method->hasTentativeReturnType
                     || in_array('mixed', $method->returnTypesFromSignature),
                 StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE
             );
@@ -115,7 +115,7 @@ class StubMethodsProvider
                 $filteredMethods = EntitiesFilter::getFiltered(
                     $class->methods,
                     fn (PHPMethod $method) => empty($method->returnTypesFromSignature) || empty($method->returnTypesFromPhpDoc)
-                        || $method->parentId === '\___PHPSTORM_HELPERS\object' || $method->hasTentativeReturnType
+                        || $method->hasTentativeReturnType
                         || in_array('mixed', $method->returnTypesFromSignature),
                     StubProblemType::TYPE_IN_PHPDOC_DIFFERS_FROM_SIGNATURE
                 );
