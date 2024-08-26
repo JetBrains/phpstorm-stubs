@@ -27,7 +27,7 @@ interface iterable {}
  * @template TKey
  * @template-covariant TValue
  *
- * @template-implements iterable<TKey, TValue>
+ * @template-extends iterable<TKey, TValue>
  */
 interface Traversable extends iterable {}
 
@@ -36,7 +36,7 @@ interface Traversable extends iterable {}
  * @link https://php.net/manual/en/class.iteratoraggregate.php
  * @template TKey
  * @template-covariant TValue
- * @template-implements Traversable<TKey, TValue>
+ * @template-extends Traversable<TKey, TValue>
  */
 interface IteratorAggregate extends Traversable
 {
@@ -57,7 +57,7 @@ interface IteratorAggregate extends Traversable
  * @link https://php.net/manual/en/class.iterator.php
  * @template TKey
  * @template-covariant TValue
- * @template-implements Traversable<TKey, TValue>
+ * @template-extends Traversable<TKey, TValue>
  */
 interface Iterator extends Traversable
 {
