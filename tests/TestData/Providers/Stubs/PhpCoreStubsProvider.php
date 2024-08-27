@@ -176,6 +176,7 @@ class PhpCoreStubsProvider
             'fann',
             'FFI',
             'ffmpeg',
+            'frankenphp',
             'geos',
             'gnupg',
             'grpc',
