@@ -99,8 +99,7 @@ function pcntl_waitpid(
     int $process_id,
     &$status,
     int $flags = 0,
-    #[PhpStormStubsElementAvailable(from: '7.0')] &$resource_usage
-= []
+    #[PhpStormStubsElementAvailable(from: '7.0')] &$resource_usage = []
 ): int {}
 
 /**
