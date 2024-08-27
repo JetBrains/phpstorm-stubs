@@ -18,9 +18,9 @@ use function count;
 
 class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
 {
-    private const EXPECTED_ARGUMENTS = 'expectedArguments';
-    private const EXPECTED_RETURN_VALUES = 'expectedReturnValues';
-    private const REGISTER_ARGUMENTS_SET_NAME = 'registerArgumentsSet';
+    private const string EXPECTED_ARGUMENTS = 'expectedArguments';
+    private const string EXPECTED_RETURN_VALUES = 'expectedReturnValues';
+    private const string REGISTER_ARGUMENTS_SET_NAME = 'registerArgumentsSet';
 
     /**
      * @var ExpectedFunctionArgumentsInfo[]
@@ -45,9 +45,6 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
         );
     }
 
-    /**
-     * @throws RuntimeException
-     */
     public function enterNode(Node $node): void
     {
         if (property_exists($node, 'expr') && $node->expr instanceof FuncCall) {

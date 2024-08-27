@@ -15,7 +15,7 @@ use function count;
 
 class MetaOverrideFunctionsParser extends NodeVisitorAbstract
 {
-    private const OVERRIDE_FUNCTION = 'override';
+    private const string OVERRIDE_FUNCTION = 'override';
 
     /**
      * @var string[]
@@ -36,9 +36,6 @@ class MetaOverrideFunctionsParser extends NodeVisitorAbstract
         );
     }
 
-    /**
-     * @throws RuntimeException
-     */
     public function enterNode(Node $node): void
     {
         if ($node instanceof Node\Expr\FuncCall && (string)$node->name === self::OVERRIDE_FUNCTION) {

@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests\TestData\Providers\Stubs;
 
+use Exception;
 use Generator;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPEnum;
@@ -129,7 +130,7 @@ class StubsParametersProvider
             PHPClass::class => PhpStormStubsSingleton::getPhpStormStubs()->getCoreClasses(),
             PHPInterface::class => PhpStormStubsSingleton::getPhpStormStubs()->getCoreInterfaces(),
             PHPEnum::class => PhpStormStubsSingleton::getPhpStormStubs()->getCoreEnums(),
-            default => throw new \Exception("Unkown class type"),
+            default => throw new Exception("Unkown class type"),
         };
         $filtered = EntitiesFilter::getFiltered($classes);
         $toYield = array_filter(
@@ -184,7 +185,7 @@ class StubsParametersProvider
                 !$class->isFinal && $firstSinceVersion !== null && $firstSinceVersion < $languageVersion,
             PHPEnum::class => fn (PHPEnum $class, PHPMethod $method, ?float $firstSinceVersion) => !$method->isFinal &&
                 !$class->isFinal && $firstSinceVersion !== null && $firstSinceVersion < $languageVersion,
-            default => throw new \Exception("Unknown class type"),
+            default => throw new Exception("Unknown class type"),
         };
     }
 }

@@ -312,7 +312,7 @@ class ReflectionParametersProvider
                 );
             }, EntitiesFilter::getFilteredReflectionMethods($class)), fn ($arr) => !empty($arr));
         }, $filtered), fn ($arr) => !empty($arr));
-        if (empty($filtered)) {
+        if (empty($array)) {
             yield [null, null, null];
         } else {
             foreach ($filtered as $class) {

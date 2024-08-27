@@ -120,7 +120,7 @@ class StubParser
      */
     public static function processStubs(NodeVisitorAbstract $visitor, ?CoreStubASTVisitor $coreStubASTVisitor, callable $fileCondition): void
     {
-        $parser = (new ParserFactory())->createForNewestSupportedVersion();
+        $parser = new ParserFactory()->createForNewestSupportedVersion();
         $nameResolver = new NameResolver(null, ['preserveOriginalNames' => true]);
 
         $stubsIterator =

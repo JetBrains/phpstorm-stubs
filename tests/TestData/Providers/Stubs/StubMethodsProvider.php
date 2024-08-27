@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests\TestData\Providers\Stubs;
 
+use Exception;
 use Generator;
 use RuntimeException;
 use StubTests\Model\PHPClass;
@@ -234,7 +235,7 @@ class StubMethodsProvider
                 !$class->isFinal && $firstSinceVersion !== null && $firstSinceVersion < $languageVersion && !$method->isReturnTypeTentative,
             PHPEnum::class => fn (PHPEnum $class, PHPMethod $method, ?float $firstSinceVersion) => !$method->isFinal &&
                 !$class->isFinal && $firstSinceVersion !== null && $firstSinceVersion < $languageVersion && !$method->isReturnTypeTentative,
-            default => throw new \Exception("Unknown class type"),
+            default => throw new Exception("Unknown class type"),
         };
     }
 
@@ -247,7 +248,7 @@ class StubMethodsProvider
             PHPClass::class => PhpStormStubsSingleton::getPhpStormStubs()->getCoreClasses(),
             PHPInterface::class => PhpStormStubsSingleton::getPhpStormStubs()->getCoreInterfaces(),
             PHPEnum::class => PhpStormStubsSingleton::getPhpStormStubs()->getCoreEnums(),
-            default => throw new \Exception("Unknown class type")
+            default => throw new Exception("Unknown class type")
         };
         $filtered = EntitiesFilter::getFiltered($classes);
         $array = array_filter(array_map(function ($class) use ($problemTypes, $filterFunction) {

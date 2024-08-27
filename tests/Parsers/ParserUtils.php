@@ -5,7 +5,6 @@ namespace StubTests\Parsers;
 
 use phpDocumentor\Reflection\DocBlock\Tags\Deprecated;
 use phpDocumentor\Reflection\DocBlock\Tags\Since;
-use RuntimeException;
 use StubTests\Model\BasePHPElement;
 use StubTests\Model\CommonUtils;
 use StubTests\Model\PHPClassConstant;
@@ -21,9 +20,6 @@ class ParserUtils
         return (bool)preg_match('/^[1-9]+\.\d+(\.[1-9]+\d*)*$/', $tag->getVersion()); //find version like any but 7.4.0
     }
 
-    /**
-     * @throws RuntimeException
-     */
     public static function getDeclaredSinceVersion(BasePHPElement $element): ?float
     {
         $allSinceVersions = self::getSinceVersionsFromPhpDoc($element);
@@ -41,9 +37,6 @@ class ParserUtils
         return array_pop($flattenedArray) ?: 5.3;
     }
 
-    /**
-     * @throws RuntimeException
-     */
     public static function getLatestAvailableVersion(BasePHPElement $element): ?float
     {
         $latestVersionsFromPhpDoc = self::getLatestAvailableVersionFromPhpDoc($element);
@@ -65,9 +58,6 @@ class ParserUtils
         return array_pop($flattenedArray);
     }
 
-    /**
-     * @throws RuntimeException
-     */
     public static function getAvailableInVersions(?BasePHPElement $element): array
     {
         if ($element !== null) {
@@ -118,7 +108,6 @@ class ParserUtils
 
     /**
      * @return float[]
-     * @throws RuntimeException
      */
     private static function getSinceVersionsFromParentClass(PHPMethod|PHPClassConstant $element): array
     {
@@ -140,7 +129,6 @@ class ParserUtils
 
     /**
      * @return float[]
-     * @throws RuntimeException
      */
     public static function getLatestAvailableVersionsFromParentClass(PHPMethod|PHPClassConstant $element): array
     {
@@ -184,13 +172,7 @@ class ParserUtils
         return $latestAvailableVersions;
     }
 
-    /**
-     * @param BasePHPElement $element
-     *
-     * @return bool
-     * @throws RuntimeException
-     */
-    public static function entitySuitsCurrentPhpVersion(BasePHPElement $element)
+    public static function entitySuitsCurrentPhpVersion(BasePHPElement $element):bool
     {
         return in_array((float)getenv('PHP_VERSION'), ParserUtils::getAvailableInVersions($element), true);
     }
