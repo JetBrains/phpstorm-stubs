@@ -55,4 +55,4 @@ function frankenphp_request_headers(): array {}
  *
  * @return array|false An array of all FrankenPHP response headers on success or <b>FALSE</b> on failure.
  */
-function frankenphp_response_headers(): array|bool {}
+function frankenphp_response_headers(): array|false {}
