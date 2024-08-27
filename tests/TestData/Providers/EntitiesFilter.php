@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests\TestData\Providers;
 
+use Exception;
 use RuntimeException;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPEnum;
@@ -41,7 +42,6 @@ class EntitiesFilter
 
     /**
      * @return PHPFunction[]
-     * @throws RuntimeException
      */
     public static function getFilteredStubsFunctions(bool $shouldSuitCurrentPhpVersion = true): array
     {
@@ -173,7 +173,7 @@ class EntitiesFilter
                 return $reflectionMethod !== null && ($stubMethod->isFinal || $stubClass->isFinal || $firstSinceVersion !== null &&
                         $firstSinceVersion > $languageVersion);
             },
-            default => throw new \Exception("Unknown class type"),
+            default => throw new Exception("Unknown class type"),
         };
     }
 }

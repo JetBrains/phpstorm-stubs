@@ -31,9 +31,6 @@ abstract class AbstractBaseStubsTestCase extends TestCase
 {
     protected string $emptyDataSetMessage = "Data provider returned empty set";
 
-    /**
-     * @throws Exception|RuntimeException
-     */
     public static function getStringRepresentationOfDefaultParameterValue(mixed $defaultValue, PHPClass|PHPInterface|null $contextClass = null): float|bool|int|string|null
     {
         if ($defaultValue instanceof ConstFetch) {
@@ -130,7 +127,6 @@ abstract class AbstractBaseStubsTestCase extends TestCase
     /**
      * @param PHPFunction[] $filtered
      * @return PHPFunction[]
-     * @throws RuntimeException
      */
     protected static function getDuplicatedFunctions(array $filtered): array
     {

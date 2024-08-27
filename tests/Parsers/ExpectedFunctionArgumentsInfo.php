@@ -14,7 +14,7 @@ class ExpectedFunctionArgumentsInfo
      * @param Expr[] $expectedArguments
      * @param int $index
      */
-    public function __construct(private ?Expr $functionReference, private array $expectedArguments, private int $index) {}
+    public function __construct(private ?Expr $functionReference, private array $expectedArguments, private readonly int $index) {}
 
     public function getFunctionReference(): ?Expr
     {

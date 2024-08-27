@@ -49,9 +49,9 @@ abstract class BasePHPClass extends PHPNamespacedElement
                return $constant->name === $constantName && $constant->stubObjectHash == null;
             });
         } else {
-            $constants = array_filter($this->constants, function (PHPClassConstant $constant) use ($constantName) {
+            $constants = array_filter($this->constants, function (PHPClassConstant $constant) use ($constantName, $shouldSuitCurrentPhpVersion) {
                 return $constant->name === $constantName && $constant->duplicateOtherElement === false
-                    && ParserUtils::entitySuitsCurrentPhpVersion($constant);
+                    && (!$shouldSuitCurrentPhpVersion || ParserUtils::entitySuitsCurrentPhpVersion($constant));
             });
         }
         return array_pop($constants);
