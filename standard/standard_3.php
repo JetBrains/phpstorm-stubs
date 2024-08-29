@@ -131,7 +131,7 @@ function floor(int|float $num) {}
  * @return float The rounded value
  */
 #[Pure]
-function round(int|float $num, int $precision = 0, #[LanguageLevelTypeAware(['8.4' => 'RoundingMode|int'], default: 'int')] $mode = RoundingMode::HalfAwayFromZero): float {}
+function round(int|float $num, int $precision = 0, #[LanguageLevelTypeAware(['8.4' => 'RoundingMode|int'], default: 'int')] $mode = 0): float {}
 
 /**
  * Sine
