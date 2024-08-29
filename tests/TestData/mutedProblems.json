@@ -575,6 +575,20 @@
   ],
   "functions": [
     {
+      "name": "round",
+      "parameters": [
+        {
+          "name": "mode",
+          "problems": [
+            {
+              "description": "wrong default value",
+              "versions": [8.4]
+            }
+          ]
+        }
+        ]
+    },
+    {
       "name": "each",
       "problems": [
         {
