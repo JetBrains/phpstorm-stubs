@@ -3607,3 +3607,8 @@ define('MYSQLI_REFRESH_REPLICA', 64);
  * @since 8.1
  */
 define('MYSQLI_IS_MARIADB', 0);
+
+/**
+ * @since 8.4
+ */
+define('MYSQLI_TYPE_VECTOR', 242);
