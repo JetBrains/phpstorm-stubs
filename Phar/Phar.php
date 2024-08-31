@@ -555,7 +555,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return bool
      */
     #[TentativeType]
-    public function setAlias(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $alias): bool {}
+    #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
+    public function setAlias(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $alias) {}
 
     /**
      * (Unknown)<br/>
@@ -570,10 +571,11 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
+    #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     public function setDefaultStub(
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $index = null,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $webIndex = null
-    ): bool {}
+    ) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>

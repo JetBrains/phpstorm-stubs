@@ -2385,6 +2385,11 @@ define('SOCK_CLOEXEC', 524288);
  * @since 8.4
  */
 define('SOCK_NONBLOCK', 2048);
+
+/**
+ * @since 8.4
+ */
+define('SO_BINDTOIFINDEX', 62);
 /**
  * @since 8.0
  */

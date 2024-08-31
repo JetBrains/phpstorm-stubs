@@ -236,3 +236,18 @@ define('T_READONLY', 363);
  * @removed 7.0
  */
 define('T_CHARACTER', 315);
+
+/**
+ * @since 8.4
+ */
+define('T_PRIVATE_SET', 327);
+
+/**
+ * @since 8.4
+ */
+define('T_PROTECTED_SET', 328);
+
+/**
+ * @since 8.4
+ */
+define('T_PUBLIC_SET', 329);
