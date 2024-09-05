@@ -281,3 +281,10 @@ define('__DIR__', '', true);
  * @link https://php.net/manual/en/language.constants.predefined.php
  */
 define('__NAMESPACE__', '', true);
+
+/**
+ * The name of the current property (case-sensitive). This constant
+ * is defined in compile-time (Added in PHP 8.4.0).
+ * @link https://php.net/manual/en/language.constants.predefined.php
+ */
+define('__PROPERTY__', '', true);
