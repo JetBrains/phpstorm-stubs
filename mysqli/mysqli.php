@@ -363,12 +363,40 @@ class mysqli
     public function get_charset(): ?object {}
 
     /**
-     * @param mysqli $mysql
-     * @param string $query
-     * @param array|null $params
-     * @return mysqli_result|bool
-     * @see mysqli_execute_query
+     * <p>Prepares the SQL query, binds parameters, and executes it. The
+     * mysqli::execute_query() method is a shortcut for mysqli::prepare(),
+     * mysqli_stmt::bind_param(), mysqli_stmt::execute(), and
+     * mysqli_stmt::get_result().</p>
+     * <p>The statement template can contain zero or more question mark (?)
+     * parameter markers⁠—also called placeholders. The parameter values must be
+     * provided as an array using params parameter.</p>
+     * <p>A prepared statement is created under the hood but it's never exposed
+     * outside of the function. It's impossible to access properties of the
+     * statement as one would do with the mysqli_stmt object. Due to this
+     * limitation, the status information is copied to the mysqli object and is
+     * available using its methods, e.g. mysqli_affected_rows() or
+     * mysqli_error().</p>
+     *
+     * @param string $query The query, as a string. It must consist of a single SQL
+     * statement. The SQL statement may contain zero or more parameter markers
+     * represented by question mark (?) characters at the appropriate positions.
+     * <b>Note:</b> The markers are legal only in certain places in SQL statements.
+     * For example, they are permitted in the VALUES() list of an INSERT statement
+     * (to specify column values for a row), or in a comparison with a column in a
+     * WHERE clause to specify a comparison value. However, they are not permitted
+     * for identifiers (such as table or column names).
+     *
+     * @param array|null $params An optional list array with as many elements as
+     * there are bound parameters in the SQL statement being executed. Each value
+     * is treated as a string.
+     *
+     * @return mysqli_result|bool Returns false on failure. For successful queries
+     * which produce a result set, such as SELECT, SHOW, DESCRIBE or EXPLAIN,
+     * returns a mysqli_result object. For other successful queries, returns true.
+     *
      * @since 8.2
+     *
+     * @link https://www.php.net/manual/en/mysqli.execute-query.php
      */
     public function execute_query(string $query, ?array $params = null): mysqli_result|bool {}
 
@@ -1905,13 +1933,44 @@ function mysqli_stmt_execute(mysqli_stmt $statement, #[PhpStormStubsElementAvail
  * @return bool
  */
 function mysqli_execute(mysqli_stmt $statement, #[PhpStormStubsElementAvailable('8.1')] ?array $params = null): bool {}
-
 /**
- * @param mysqli $mysql
- * @param string $query
- * @param array|null $params
- * @return mysqli_result|bool
+ * <p>Prepares the SQL query, binds parameters, and executes it. The
+ * mysqli::execute_query() method is a shortcut for mysqli::prepare(),
+ * mysqli_stmt::bind_param(), mysqli_stmt::execute(), and
+ * mysqli_stmt::get_result().</p>
+ * <p>The statement template can contain zero or more question mark (?)
+ * parameter markers⁠—also called placeholders. The parameter values must be
+ * provided as an array using params parameter.</p>
+ * <p>A prepared statement is created under the hood but it's never exposed
+ * outside of the function. It's impossible to access properties of the
+ * statement as one would do with the mysqli_stmt object. Due to this
+ * limitation, the status information is copied to the mysqli object and is
+ * available using its methods, e.g. mysqli_affected_rows() or
+ * mysqli_error().</p>
+ *
+ * @param mysqli $mysql A mysqli object returned by mysqli_connect() or
+ * mysqli_init()
+ *
+ * @param string $query The query, as a string. It must consist of a single SQL
+ *  statement. The SQL statement may contain zero or more parameter markers
+ *  represented by question mark (?) characters at the appropriate positions.
+ *  <b>Note:</b> The markers are legal only in certain places in SQL statements.
+ *  For example, they are permitted in the VALUES() list of an INSERT statement
+ *  (to specify column values for a row), or in a comparison with a column in a
+ *  WHERE clause to specify a comparison value. However, they are not permitted
+ *  for identifiers (such as table or column names).
+ *
+ * @param ?array $params An optional list array with as many elements as there
+ *  are bound parameters in the SQL statement being executed. Each value is
+ *  treated as a string.
+ *
+ * @return mysqli_result|bool Returns false on failure. For successful queries
+ *  which produce a result set, such as SELECT, SHOW, DESCRIBE or EXPLAIN,
+ *  returns a mysqli_result object. For other successful queries, returns true.
+ *
  * @since 8.2
+ *
+ * @link https://www.php.net/manual/en/mysqli.execute-query.php
  */
 function mysqli_execute_query(mysqli $mysql, string $query, ?array $params = null): mysqli_result|bool {}
 
