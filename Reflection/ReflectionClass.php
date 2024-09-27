@@ -49,6 +49,16 @@ class ReflectionClass implements Reflector
     public const IS_READONLY = 65536;
 
     /**
+     * @since 8.4
+     */
+    public const int SKIP_INITIALIZATION_ON_SERIALIZE = 0;
+
+    /**
+     * @since 8.4
+     */
+    public const int SKIP_DESTRUCTOR = 0;
+
+    /**
      * Constructs a ReflectionClass
      *
      * @link https://php.net/manual/en/reflectionclass.construct.php
@@ -688,4 +698,44 @@ class ReflectionClass implements Reflector
 
     #[PhpStormStubsElementAvailable('8.1')]
     public function isEnum(): bool {}
+
+    /**
+     * @since 8.4
+     */
+    public function newLazyGhost(callable $initializer, int $options = 0): object {}
+
+    /**
+     * @since 8.4
+     */
+    public function newLazyProxy(callable $factory, int $options = 0): object {}
+
+    /**
+     * @since 8.4
+     */
+    public function resetAsLazyGhost(object $object, callable $factory, int $options = 0): void {}
+
+    /**
+     * @since 8.4
+     */
+    public function resetAsLazyProxy(object $object, callable $factory, int $options = 0): void {}
+
+    /**
+     * @since 8.4
+     */
+    public function initializeLazyObject(object $object): object {}
+
+    /**
+     * @since 8.4
+     */
+    public function isUninitializedLazyObject(object $object): bool {}
+
+    /**
+     * @since 8.4
+     */
+    public function markLazyObjectAsInitialized(object $object): object {}
+
+    /**
+     * @since 8.4
+     */
+    public function getLazyInitializer(object $object): ?callable {}
 }

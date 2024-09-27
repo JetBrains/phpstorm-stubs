@@ -82,3 +82,8 @@ function opcache_get_configuration(): array|false {}
  * @since 5.6
  */
 function opcache_is_script_cached(string $filename): bool {}
+
+/**
+ * @since 8.4
+ */
+function opcache_jit_blacklist(Closure $closure): void {}
