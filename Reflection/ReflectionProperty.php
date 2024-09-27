@@ -78,6 +78,11 @@ class ReflectionProperty implements Reflector
     public const IS_PRIVATE_SET = 4096;
 
     /**
+     * @since 8.4
+     */
+    public const IS_FINAL = 32;
+
+    /**
      * Construct a ReflectionProperty object
      *
      * @link https://php.net/manual/en/reflectionproperty.construct.php
@@ -389,7 +394,17 @@ class ReflectionProperty implements Reflector
     /**
      * @since 8.4
      */
+    public function hasHooks(): bool {}
+
+    /**
+     * @since 8.4
+     */
     public function getHooks(): array {}
+
+    /**
+     * @since 8.4
+     */
+    public function hasHook(PropertyHookType $type): bool {}
 
     /**
      * @since 8.4
@@ -405,4 +420,24 @@ class ReflectionProperty implements Reflector
      * @since 8.4
      */
     public function isProtectedSet(): bool {}
+
+    /**
+     * @since 8.4
+     */
+    public function setRawValueWithoutLazyInitialization(object $object, mixed $value): void {}
+
+    /**
+     * @since 8.4
+     */
+    public function skipLazyInitialization(object $object): void {}
+
+    /**
+     * @since 8.4
+     */
+    public function isDynamic(): bool {}
+
+    /**
+     * @since 8.4
+     */
+    public function isFinal(): bool {}
 }

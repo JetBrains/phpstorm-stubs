@@ -1130,3 +1130,13 @@ function gc_mem_caches(): int {}
  */
 #[Pure(true)]
 function get_resources(?string $type): array {}
+
+/**
+ * @since 8.4
+ */
+function exit(string|int $status = 0): never {}
+
+/**
+ * @since 8.4
+ */
+function die(string|int $status = 0): never {}

@@ -4363,3 +4363,36 @@ define('CURL_PREREQFUNC_ABORT', 1);
  * @since 8.4
  */
 define('CURLOPT_TCP_KEEPCNT', 326);
+
+/**
+ * @since 8.4
+ */
+define('CURLOPT_SERVER_RESPONSE_TIMEOUT', 112);
+/**
+ * @since 8.4
+ */
+define('CURLOPT_DEBUGFUNCTION', 1);
+/**
+ * @since 8.4
+ */
+define('CURLINFO_TEXT', 1);
+/**
+ * @since 8.4
+ */
+define('CURLINFO_HEADER_IN', 1);
+/**
+ * @since 8.4
+ */
+define('CURLINFO_DATA_IN', 1);
+/**
+ * @since 8.4
+ */
+define('CURLINFO_DATA_OUT', 1);
+/**
+ * @since 8.4
+ */
+define('CURLINFO_SSL_DATA_OUT', 1);
+/**
+ * @since 8.4
+ */
+define('CURLINFO_SSL_DATA_IN', 1);

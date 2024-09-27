@@ -815,6 +815,11 @@ class SoapServer
      */
     #[TentativeType]
     public function addSoapHeader(SoapHeader $header): void {}
+
+    /**
+     * @since 8.4
+     */
+    public function __getLastResponse(): ?string {}
 }
 
 /**
