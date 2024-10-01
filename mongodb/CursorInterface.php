@@ -2,6 +2,7 @@
 
 namespace MongoDB\Driver;
 
+use MongoDB\BSON\Int64;
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use Traversable;
 
@@ -13,12 +14,12 @@ use Traversable;
 interface CursorInterface extends Traversable
 {
     /**
-     * Returns the MongoDB\Driver\CursorId associated with this cursor. A cursor ID uniquely identifies the cursor on the server.
-     * @return CursorId Returns the MongoDB\Driver\CursorId for this cursor.
+     * Returns the cursor ID associated with this cursor. A cursor ID uniquely identifies the cursor on the server.
+     * @return CursorId|Int64 Returns the cursor ID for this cursor.
      * @throws InvalidArgumentException
      * @link https://www.php.net/manual/en/mongodb-driver-cursorinterface.getid.php
      */
-    public function getId();
+    public function getId(): CursorId|Int64;
 
     /**
      * Returns the MongoDB\Driver\Server associated with this cursor.
@@ -27,7 +28,7 @@ interface CursorInterface extends Traversable
      * @return Server Returns the MongoDB\Driver\Server associated with this cursor.
      * @throws InvalidArgumentException
      */
-    public function getServer();
+    public function getServer(): Server;
 
     /**
      * Checks whether the cursor may have additional results available to read.
@@ -35,16 +36,15 @@ interface CursorInterface extends Traversable
      * @return bool Returns TRUE if additional results are not available, and FALSE otherwise.
      * @throws InvalidArgumentException
      */
-    public function isDead();
+    public function isDead(): bool;
 
     /**
      * Sets a type map to use for BSON unserialization
      * @link https://www.php.net/manual/en/mongodb-driver-cursorinterface.settypemap.php
      * @param array $typemap Type map configuration.
-     * @return mixed
      * @throws InvalidArgumentException
      */
-    public function setTypeMap(array $typemap);
+    public function setTypeMap(array $typemap): void;
 
     /**
      * Iterates the cursor and returns its results in an array.
@@ -52,5 +52,5 @@ interface CursorInterface extends Traversable
      * @return array Returns an array containing all results for this cursor.
      * @throws InvalidArgumentException
      */
-    public function toArray();
+    public function toArray(): array;
 }

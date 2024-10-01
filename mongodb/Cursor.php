@@ -2,6 +2,7 @@
 
 namespace MongoDB\Driver;
 
+use MongoDB\BSON\Int64;
 use MongoDB\Driver\Exception\InvalidArgumentException;
 
 /**
@@ -26,11 +27,14 @@ final class Cursor implements CursorInterface, \Iterator
     public function current(): array|object|null {}
 
     /**
-     * Returns the MongoDB\Driver\CursorId associated with this cursor. A cursor ID cursor uniquely identifies the cursor on the server.
+     * Returns the cursor ID associated with this cursor. A cursor ID cursor uniquely identifies the cursor on the server.
+     * Receiving a CursorId return type is deprecated and will be removed in 2.0.
+     *
+     * @param bool $asInt64 Pass true to receive the cursor as a MongoDB\BSON\Int64 instance
      * @link https://php.net/manual/en/mongodb-driver-cursor.getid.php
      * @throws InvalidArgumentException on argument parsing errors.
      */
-    final public function getId(): CursorId {}
+    final public function getId(bool $asInt64 = false): CursorId|Int64 {}
 
     /**
      * Returns the MongoDB\Driver\Server associated with this cursor. This is the server that executed the query or command.
