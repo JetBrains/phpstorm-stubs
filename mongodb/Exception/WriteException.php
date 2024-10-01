@@ -9,6 +9,7 @@ use MongoDB\Driver\WriteResult;
  * The exception encapsulates a MongoDB\Driver\WriteResult object.
  * @link https://php.net/manual/en/class.mongodb-driver-exception-writeexception.php
  * @since 1.0.0
+ * @deprecated use MongoDB\Driver\Exception\BulkWriteException instead
  */
 abstract class WriteException extends ServerException implements Exception
 {

@@ -36,6 +36,15 @@ class CommandFailedEvent
     final public function getDurationMicros(): int {}
 
     /**
+     * Returns the server hostname for the command
+     * @link   https://www.php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.gethost.php
+     * @return string
+     * @throws \InvalidArgumentException on argument parsing errors.
+     * @since 1.20.0
+     */
+    final public function getHost(): string {}
+
+    /**
      * Returns the Exception associated with the failed command
      * @link   https://secure.php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.geterror.php
      * @return \Exception
@@ -54,6 +63,15 @@ class CommandFailedEvent
      * @since 1.3.0
      */
     final public function getOperationId(): string {}
+
+    /**
+     * Returns the server port for the command
+     * @link   https://www.php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getport.php
+     * @return int
+     * @throws \InvalidArgumentException on argument parsing errors.
+     * @since 1.20.0
+     */
+    final public function getPort(): int {}
 
     /**
      * Returns the command reply document.
@@ -80,6 +98,7 @@ class CommandFailedEvent
      * @link https://secure.php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getserver.php
      * @return \MongoDB\Driver\Server on which the command was executed.
      * @since 1.3.0
+     * @deprecated Use getHost and getPort instead.
      */
     final public function getServer(): Server {}
 

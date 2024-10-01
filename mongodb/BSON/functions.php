@@ -14,6 +14,7 @@ use MongoDB\Driver\Exception\UnexpectedValueException;
  * @param string $bson BSON value to be converted
  * @return string The converted JSON value
  * @throws UnexpectedValueException
+ * @deprecated Use MongoDB\BSON\Document instead
  */
 function toCanonicalExtendedJSON($bson) {}
 
@@ -25,6 +26,7 @@ function toCanonicalExtendedJSON($bson) {}
  * @param string $bson BSON value to be converted
  * @return string The converted JSON value
  * @throws UnexpectedValueException
+ * @deprecated Use MongoDB\BSON\Document instead
  */
 function toRelaxedExtendedJSON($bson) {}
 
@@ -35,6 +37,7 @@ function toRelaxedExtendedJSON($bson) {}
  * @param string $json JSON value to be converted.
  * @return string The serialized BSON document as a binary string.
  * @throws UnexpectedValueException if the JSON value cannot be converted to BSON (e.g. due to a syntax error).
+ * @deprecated Use MongoDB\BSON\Document instead
  */
 function fromJSON($json) {}
 
@@ -45,6 +48,7 @@ function fromJSON($json) {}
  * @param array|object $value PHP value to be serialized.
  * @return string The serialized BSON document as a binary string
  * @throws UnexpectedValueException if the PHP value cannot be converted to BSON.
+ * @deprecated Use MongoDB\BSON\Document instead
  */
 function fromPHP($value) {}
 
@@ -56,6 +60,7 @@ function fromPHP($value) {}
  * @return string The converted JSON value.
  * @see https://docs.mongodb.org/manual/reference/mongodb-extended-json/
  * @throws UnexpectedValueException if the input did not contain exactly one BSON document
+ * @deprecated Use MongoDB\BSON\Document instead
  */
 function toJSON($bson) {}
 
@@ -69,5 +74,6 @@ function toJSON($bson) {}
  * @return object The unserialized PHP value
  * @throws UnexpectedValueException if the input did not contain exactly one BSON document.
  * @throws InvalidArgumentException if a class in the type map cannot be instantiated or does not implement MongoDB\BSON\Unserializable.
+ * @deprecated Use MongoDB\BSON\Document instead
  */
 function toPHP($bson, array $typemap = []) {}
