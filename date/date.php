@@ -1495,7 +1495,6 @@ function date_default_timezone_get(): string {}
 #[Deprecated(reason: 'in 8.1.  Use date_sun_info instead', since: '8.1')]
 function date_sunrise(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, ?float $utcOffset): string|int|float|false {}
 
-
 /**
  * Returns time of sunset for a given day and location
  * @link https://php.net/manual/en/function.date-sunset.php

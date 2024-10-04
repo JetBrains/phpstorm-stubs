@@ -172,7 +172,7 @@ class ParserUtils
         return $latestAvailableVersions;
     }
 
-    public static function entitySuitsCurrentPhpVersion(BasePHPElement $element):bool
+    public static function entitySuitsCurrentPhpVersion(BasePHPElement $element): bool
     {
         return in_array((float)getenv('PHP_VERSION'), ParserUtils::getAvailableInVersions($element), true);
     }

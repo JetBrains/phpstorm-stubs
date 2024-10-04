@@ -675,14 +675,17 @@ class IntlChar
     public const HST_LVT_SYLLABLE = 5;
     public const HST_COUNT = 6;
     public const NO_NUMERIC_VALUE = -123456789;
+
     /**
      * @since 8.4
      */
     public const PROPERTY_IDS_UNARY_OPERATOR = 72;
+
     /**
      * @since 8.4
      */
     public const PROPERTY_ID_COMPAT_MATH_START = 73;
+
     /**
      * @since 8.4
      */

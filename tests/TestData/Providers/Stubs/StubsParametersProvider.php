@@ -135,7 +135,7 @@ class StubsParametersProvider
         $filtered = EntitiesFilter::getFiltered($classes);
         $toYield = array_filter(
             array_map(
-            fn ($class) => array_filter(
+                fn ($class) => array_filter(
                 array_map(
                     fn (PHPMethod $method) => array_filter(
                         EntitiesFilter::getFilteredParameters($method, null, ...$problemTypes),
@@ -152,8 +152,8 @@ class StubsParametersProvider
                 ),
                 fn ($parameters) => !empty($parameters)
             ),
-            $filtered
-        ),
+                $filtered
+            ),
             fn ($methods) => !empty($methods)
         );
         if (empty($toYield)) {

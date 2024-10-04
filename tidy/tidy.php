@@ -15,7 +15,6 @@ class tidy
      * @var string|null  The last warnings and errors from TidyLib
      */
     public ?string $errorBuffer;
-
     public ?string $value;
 
     /**
@@ -432,7 +431,7 @@ final class tidyNode
      * @return bool <b>TRUE</b> if the node has children, <b>FALSE</b> otherwise.
      * @since 5.0.1
      */
-    public function hasChildren():bool {}
+    public function hasChildren(): bool {}
 
     /**
      * Checks if a node has siblings
@@ -448,7 +447,7 @@ final class tidyNode
      * @return bool <b>TRUE</b> if the node is a comment, <b>FALSE</b> otherwise.
      * @since 5.0.1
      */
-    public function isComment():bool {}
+    public function isComment(): bool {}
 
     /**
      * Checks if a node is part of a HTML document
@@ -516,7 +515,7 @@ final class tidyNode
  * @return string|int|bool the value of the specified <i>option</i>.
  * The return type depends on the type of the specified one.
  */
-function tidy_getopt(#[PhpStormStubsElementAvailable(from: '8.0')]  tidy $tidy, string $option):string|int|bool {}
+function tidy_getopt(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy, string $option): string|int|bool {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -545,7 +544,7 @@ function tidy_getopt(#[PhpStormStubsElementAvailable(from: '8.0')]  tidy $tidy, 
  * </p>
  * @return tidy|false a new <b>tidy</b> instance.
  */
-function tidy_parse_string(string $string, array|string|null $config = null, null|string $encoding = null):tidy|false {}
+function tidy_parse_string(string $string, array|string|null $config = null, null|string $encoding = null): tidy|false {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -580,7 +579,7 @@ function tidy_parse_string(string $string, array|string|null $config = null, nul
  * </p>
  * @return tidy|false a new <b>tidy</b> instance.
  */
-function tidy_parse_file(string $filename, array|string|null $config = null, null|string $encoding = null, bool $useIncludePath = false):tidy|false {}
+function tidy_parse_file(string $filename, array|string|null $config = null, null|string $encoding = null, bool $useIncludePath = false): tidy|false {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -591,7 +590,7 @@ function tidy_parse_file(string $filename, array|string|null $config = null, nul
  * </p>
  * @return string the parsed tidy markup.
  */
-function tidy_get_output(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy):string {}
+function tidy_get_output(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy): string {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -602,7 +601,7 @@ function tidy_get_output(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tid
  * </p>
  * @return string|false the error buffer as a string.
  */
-function tidy_get_error_buffer(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy):string|false {}
+function tidy_get_error_buffer(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy): string|false {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -611,7 +610,7 @@ function tidy_get_error_buffer(#[PhpStormStubsElementAvailable(from: '8.0')] tid
  * @param tidy $tidy The Tidy object.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function tidy_clean_repair(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy):bool {}
+function tidy_clean_repair(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy): bool {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.7.0)<br/>
@@ -641,7 +640,7 @@ function tidy_clean_repair(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $t
  * </p>
  * @return string|false the repaired string.
  */
-function tidy_repair_string(string $string, array|string|null $config = null, null|string $encoding = null):string|false {}
+function tidy_repair_string(string $string, array|string|null $config = null, null|string $encoding = null): string|false {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.7.0)<br/>
@@ -674,7 +673,7 @@ function tidy_repair_string(string $string, array|string|null $config = null, nu
  * </p>
  * @return string|false the repaired contents as a string.
  */
-function tidy_repair_file(string $filename, array|string|null $config = null, null|string $encoding = null, bool $useIncludePath = false):string|false {}
+function tidy_repair_file(string $filename, array|string|null $config = null, null|string $encoding = null, bool $useIncludePath = false): string|false {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -685,7 +684,7 @@ function tidy_repair_file(string $filename, array|string|null $config = null, nu
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function tidy_diagnose(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy):bool {}
+function tidy_diagnose(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy): bool {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -693,7 +692,7 @@ function tidy_diagnose(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy)
  * @link https://php.net/manual/en/tidy.getrelease.php
  * @return string a string with the release date of the Tidy library.
  */
-function tidy_get_release():string {}
+function tidy_get_release(): string {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.7.0)<br/>
@@ -707,7 +706,7 @@ function tidy_get_release():string {}
  * For an explanation about each option, visit http://tidy.sourceforge.net/docs/quickref.html.
  * </p>
  */
-function tidy_get_config(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy):array {}
+function tidy_get_config(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy): array {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -719,7 +718,7 @@ function tidy_get_config(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tid
  * @return int 0 if no error/warning was raised, 1 for warnings or accessibility
  * errors, or 2 for errors.
  */
-function tidy_get_status(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy):int {}
+function tidy_get_status(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy): int {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -734,7 +733,7 @@ function tidy_get_status(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tid
  * return 0.
  * </p>
  */
-function tidy_get_html_ver(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy):int {}
+function tidy_get_html_ver(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy): int {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -750,7 +749,7 @@ function tidy_get_html_ver(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $t
  * This function is not yet implemented in the Tidylib itself, so it always
  * return <b>FALSE</b>.
  */
-function tidy_is_xhtml(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy):bool {}
+function tidy_is_xhtml(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy): bool {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -767,7 +766,7 @@ function tidy_is_xhtml(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy)
  * This function is not yet implemented in the Tidylib itself, so it always
  * return <b>FALSE</b>.
  */
-function tidy_is_xml(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy):bool {}
+function tidy_is_xml(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy): bool {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -789,7 +788,7 @@ function tidy_error_count(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $ti
  * </p>
  * @return int the number of warnings.
  */
-function tidy_warning_count(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy):int {}
+function tidy_warning_count(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy): int {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -811,7 +810,7 @@ function tidy_access_count(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $t
  * </p>
  * @return int the number of errors.
  */
-function tidy_config_count(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy):int {}
+function tidy_config_count(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy): int {}
 
 /**
  * Returns the documentation for the given option name
@@ -825,7 +824,7 @@ function tidy_config_count(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $t
  * @return string|false a string if the option exists and has documentation available, or
  * <b>FALSE</b> otherwise.
  */
-function tidy_get_opt_doc(tidy $tidy, string $option):string|false {}
+function tidy_get_opt_doc(tidy $tidy, string $option): string|false {}
 
 /**
  * (PHP 5, PECL tidy 0.5.2-1.0.0)<br/>
@@ -836,7 +835,7 @@ function tidy_get_opt_doc(tidy $tidy, string $option):string|false {}
  * </p>
  * @return tidyNode|null the <b>tidyNode</b> object.
  */
-function tidy_get_root(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy):?tidyNode {}
+function tidy_get_root(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy): ?tidyNode {}
 
 /**
  * (PHP 5, PECL tidy 0.5.2-1.0.0)<br/>
@@ -847,7 +846,7 @@ function tidy_get_root(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy)
  * </p>
  * @return tidyNode|null the <b>tidyNode</b> object.
  */
-function tidy_get_head(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy):?tidyNode {}
+function tidy_get_head(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy): ?tidyNode {}
 
 /**
  * (PHP 5, PECL tidy 0.5.2-1.0.0)<br/>
@@ -858,7 +857,7 @@ function tidy_get_head(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy)
  * </p>
  * @return tidyNode|null the <b>tidyNode</b> object.
  */
-function tidy_get_html(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy):?tidyNode {}
+function tidy_get_html(#[PhpStormStubsElementAvailable(from: '8.0')] tidy $tidy): ?tidyNode {}
 
 /**
  * (PHP 5, PECL tidy 0.5.2-1.0)<br/>

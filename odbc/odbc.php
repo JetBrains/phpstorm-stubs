@@ -22,7 +22,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  * success and <b>FALSE</b> on failure.
  * </p>
  */
-function odbc_autocommit($odbc, ?bool $enable = false):int|bool {}
+function odbc_autocommit($odbc, ?bool $enable = false): int|bool {}
 
 /**
  * Handling of binary column data
@@ -44,7 +44,7 @@ function odbc_autocommit($odbc, ?bool $enable = false):int|bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function odbc_binmode($statement, int $mode):bool {}
+function odbc_binmode($statement, int $mode): bool {}
 
 /**
  * Close an ODBC connection
@@ -53,14 +53,14 @@ function odbc_binmode($statement, int $mode):bool {}
  * see <b>odbc_connect</b> for details.</p>
  * @return void No value is returned.
  */
-function odbc_close($odbc):void {}
+function odbc_close($odbc): void {}
 
 /**
  * Close all ODBC connections
  * @link https://php.net/manual/en/function.odbc-close-all.php
  * @return void No value is returned.
  */
-function odbc_close_all():void {}
+function odbc_close_all(): void {}
 
 /**
  * Lists the column names in specified tables
@@ -109,7 +109,7 @@ function odbc_columns($odbc, ?string $catalog = null, ?string $schema = null, ?s
  * see <b>odbc_connect</b> for details.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function odbc_commit($odbc):bool {}
+function odbc_commit($odbc): bool {}
 
 /**
  * Connect to a datasource
@@ -145,7 +145,7 @@ function odbc_connect(string $dsn, string $user, string $password, int $cursor_o
  * </p>
  * @return string|false the cursor name, as a string.
  */
-function odbc_cursor($statement):string|false {}
+function odbc_cursor($statement): string|false {}
 
 /**
  * Returns information about a current connection
@@ -161,7 +161,7 @@ function odbc_cursor($statement):string|false {}
  * @return array|false|null <b>FALSE</b> on error, and an array upon success.
  */
 #[ArrayShape(["server" => "string", "description" => "string"])]
-function odbc_data_source($odbc, int $fetch_type):array|false|null {}
+function odbc_data_source($odbc, int $fetch_type): array|false|null {}
 
 /**
  * Execute a prepared statement
@@ -189,7 +189,7 @@ function odbc_data_source($odbc, int $fetch_type):array|false|null {}
  * executing the query directly with <b>odbc_exec</b>).
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function odbc_execute($statement, array $params = []):bool {}
+function odbc_execute($statement, array $params = []): bool {}
 
 /**
  * Get the last error code
@@ -204,7 +204,7 @@ function odbc_execute($statement, array $params = []):bool {}
  * (i.e. <b>odbc_exec</b> returned <b>FALSE</b>).
  * </p>
  */
-function odbc_error($odbc = null):string {}
+function odbc_error($odbc = null): string {}
 
 /**
  * Get the last error message
@@ -219,7 +219,7 @@ function odbc_error($odbc = null):string {}
  * (i.e. <b>odbc_exec</b> returned <b>FALSE</b>).
  * </p>
  */
-function odbc_errormsg($odbc = null):string {}
+function odbc_errormsg($odbc = null): string {}
 
 /**
  * Prepare and execute an SQL statement
@@ -249,7 +249,7 @@ function odbc_exec($odbc, string $query, #[PhpStormStubsElementAvailable(from: '
  * @return array|false an array that corresponds to the fetched row, or <b>FALSE</b> if there
  * are no more rows.
  */
-function odbc_fetch_array($statement, int $row = -1):array|false {}
+function odbc_fetch_array($statement, int $row = -1): array|false {}
 
 /**
  * Fetch a result row as an object
@@ -263,7 +263,7 @@ function odbc_fetch_array($statement, int $row = -1):array|false {}
  * @return stdClass|false an object that corresponds to the fetched row, or <b>FALSE</b> if there
  * are no more rows.
  */
-function odbc_fetch_object($statement, int $row = -1):stdClass|false {}
+function odbc_fetch_object($statement, int $row = -1): stdClass|false {}
 
 /**
  * Fetch a row
@@ -288,7 +288,7 @@ function odbc_fetch_object($statement, int $row = -1):stdClass|false {}
  * </p>
  * @return bool <b>TRUE</b> if there was a row, <b>FALSE</b> otherwise.
  */
-function odbc_fetch_row($statement, ?int $row = null):bool {}
+function odbc_fetch_row($statement, ?int $row = null): bool {}
 
 /**
  * Fetch one result row into array
@@ -308,7 +308,7 @@ function odbc_fetch_row($statement, ?int $row = null):bool {}
  * @return int|false the number of columns in the result;
  * <b>FALSE</b> on error.
  */
-function odbc_fetch_into($statement, array &$array, int $row = 0):int|false {}
+function odbc_fetch_into($statement, array &$array, int $row = 0): int|false {}
 
 /**
  * Get the length (precision) of a field
@@ -321,7 +321,7 @@ function odbc_fetch_into($statement, array &$array, int $row = 0):int|false {}
  * </p>
  * @return int|false the field name as a string, or <b>FALSE</b> on error.
  */
-function odbc_field_len($statement, int $field):int|false {}
+function odbc_field_len($statement, int $field): int|false {}
 
 /**
  * Get the scale of a field
@@ -334,7 +334,7 @@ function odbc_field_len($statement, int $field):int|false {}
  * </p>
  * @return int|false the field scale as a integer, or <b>FALSE</b> on error.
  */
-function odbc_field_scale($statement, int $field):int|false {}
+function odbc_field_scale($statement, int $field): int|false {}
 
 /**
  * Get the columnname
@@ -347,7 +347,7 @@ function odbc_field_scale($statement, int $field):int|false {}
  * </p>
  * @return string|false the field name as a string, or <b>FALSE</b> on error.
  */
-function odbc_field_name($statement, int $field):string|false {}
+function odbc_field_name($statement, int $field): string|false {}
 
 /**
  * Datatype of a field
@@ -360,7 +360,7 @@ function odbc_field_name($statement, int $field):string|false {}
  * </p>
  * @return string|false the field type as a string, or <b>FALSE</b> on error.
  */
-function odbc_field_type($statement, int $field):string|false {}
+function odbc_field_type($statement, int $field): string|false {}
 
 /**
  * Return column number
@@ -374,7 +374,7 @@ function odbc_field_type($statement, int $field):string|false {}
  * @return int|false the field number as a integer, or <b>FALSE</b> on error.
  * Field numbering starts at 1.
  */
-function odbc_field_num($statement, string $field):int|false {}
+function odbc_field_num($statement, string $field): int|false {}
 
 /**
  * Free resources associated with a result
@@ -384,7 +384,7 @@ function odbc_field_num($statement, string $field):int|false {}
  * </p>
  * @return bool Always returns <b>TRUE</b>.
  */
-function odbc_free_result($statement):bool {}
+function odbc_free_result($statement): bool {}
 
 /**
  * Retrieves information about data types supported by the data source
@@ -434,7 +434,7 @@ function odbc_gettypeinfo($odbc, int $data_type = 0) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function odbc_longreadlen($statement, int $length):bool {}
+function odbc_longreadlen($statement, int $length): bool {}
 
 /**
  * Checks if multiple results are available
@@ -444,7 +444,7 @@ function odbc_longreadlen($statement, int $length):bool {}
  * </p>
  * @return bool <b>TRUE</b> if there are more result sets, <b>FALSE</b> otherwise.
  */
-function odbc_next_result($statement):bool {}
+function odbc_next_result($statement): bool {}
 
 /**
  * Number of columns in a result
@@ -454,7 +454,7 @@ function odbc_next_result($statement):bool {}
  * </p>
  * @return int the number of fields, or -1 on error.
  */
-function odbc_num_fields($statement):int {}
+function odbc_num_fields($statement): int {}
 
 /**
  * Number of rows in a result
@@ -465,7 +465,7 @@ function odbc_num_fields($statement):int {}
  * @return int the number of rows in an ODBC result.
  * This function will return -1 on error.
  */
-function odbc_num_rows($statement):int {}
+function odbc_num_rows($statement): int {}
 
 /**
  * Open a persistent database connection
@@ -506,7 +506,7 @@ function odbc_prepare($odbc, string $query) {}
  * @return string|bool|null the string contents of the field, <b>FALSE</b> on error, <b>NULL</b> for
  * NULL data, or <b>TRUE</b> for binary data.
  */
-function odbc_result($statement, string|int $field):string|bool|null {}
+function odbc_result($statement, string|int $field): string|bool|null {}
 
 /**
  * Print result as HTML table
@@ -520,7 +520,7 @@ function odbc_result($statement, string|int $field):string|bool|null {}
  * @return int|false the number of rows in the result or <b>FALSE</b> on error.
  * @deprecated 8.1
  */
-function odbc_result_all($statement, string $format = ''):int|false {}
+function odbc_result_all($statement, string $format = ''): int|false {}
 
 /**
  * Rollback a transaction
@@ -529,7 +529,7 @@ function odbc_result_all($statement, string $format = ''):int|false {}
  * see <b>odbc_connect</b> for details.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function odbc_rollback($odbc):bool {}
+function odbc_rollback($odbc): bool {}
 
 /**
  * Adjust ODBC settings
@@ -552,7 +552,7 @@ function odbc_rollback($odbc):bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function odbc_setoption($odbc, int $which, int $option, int $value):bool {}
+function odbc_setoption($odbc, int $which, int $option, int $value): bool {}
 
 /**
  * Retrieves special columns
@@ -900,13 +900,13 @@ function odbc_do($odbc, string $query) {}
  * @param $statement
  * @param int $field
  */
-function odbc_field_precision($statement, int $field):int|false {}
+function odbc_field_precision($statement, int $field): int|false {}
 
-function odbc_connection_string_is_quoted(string $str):bool {}
+function odbc_connection_string_is_quoted(string $str): bool {}
 
-function odbc_connection_string_should_quote(string $str):bool {}
+function odbc_connection_string_should_quote(string $str): bool {}
 
-function odbc_connection_string_quote(string $str):string {}
+function odbc_connection_string_quote(string $str): string {}
 
 define('ODBC_TYPE', "unixODBC");
 define('ODBC_BINMODE_PASSTHRU', 0);
