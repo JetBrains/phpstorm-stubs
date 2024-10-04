@@ -18,6 +18,7 @@ class DOMNode
      * @since 8.4
      */
     public const DOCUMENT_POSITION_DISCONNECTED = 1, DOCUMENT_POSITION_PRECEDING = 2, DOCUMENT_POSITION_FOLLOWING = 4;
+
     /**
      * @since 8.4
      */

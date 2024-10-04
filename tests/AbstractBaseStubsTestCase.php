@@ -13,7 +13,6 @@ use PhpParser\Node\Scalar\LNumber;
 use PhpParser\Node\Scalar\String_;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
-use RuntimeException;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPConstant;
 use StubTests\Model\PHPEnum;

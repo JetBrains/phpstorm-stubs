@@ -81,7 +81,7 @@ class XSLTProcessor
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace,
         #[LanguageLevelTypeAware(['8.0' => 'array|string'], default: '')] $name,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $value = null
-    ):bool {}
+    ): bool {}
 
     /**
      * Get value of a parameter

@@ -573,26 +573,17 @@ class ZipArchive implements Countable
      * @since 5.6
      */
     public const OPSYS_DEFAULT = 3;
-
     public const FL_OPEN_FILE_NOW = 1073741824;
-
     public const CM_ZSTD = 93;
-
     public const ER_DATA_LENGTH = 33;
-
     public const ER_NOT_ALLOWED = 34;
-
     public const AFL_RDONLY = 2;
-
     public const AFL_IS_TORRENTZIP = 4;
-
     public const AFL_WANT_TORRENTZIP = 8;
-
     public const AFL_CREATE_OR_KEEP_FILE_FOR_EMPTY_ARCHIVE = 16;
-
     public const LENGTH_TO_END = 0;
-
     public const LENGTH_UNCHECKED = -2;
+
     /**
      * Status of the Zip Archive
      * @var int
@@ -877,7 +868,7 @@ class ZipArchive implements Countable
     public function renameIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $new_name
-    ):bool {}
+    ): bool {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -1116,7 +1107,7 @@ class ZipArchive implements Countable
     public function statIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ):array|false {}
+    ): array|false {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -1155,7 +1146,7 @@ class ZipArchive implements Countable
     public function getNameIndex(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $index,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
-    ):string|false {}
+    ): string|false {}
 
     /**
      * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>

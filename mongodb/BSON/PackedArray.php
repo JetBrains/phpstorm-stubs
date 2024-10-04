@@ -11,7 +11,7 @@ final class PackedArray implements \ArrayAccess, \IteratorAggregate, \Serializab
     private function __construct() {}
 
     /** @since 1.20.0 */
-    final static public function fromJSON(string $json): PackedArray {}
+    final public static function fromJSON(string $json): PackedArray {}
 
     final public static function fromPHP(array $value): PackedArray {}
 

@@ -1,7 +1,6 @@
 <?php
 
 namespace {
-
     use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
     use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
     use JetBrains\PhpStorm\Pure;
@@ -24,9 +23,7 @@ namespace {
      * @return string The sum of the two operands, as a string.
      */
     #[Pure]
-    function bcadd(string $num1, string $num2, ?int $scale = null): string
-    {
-    }
+    function bcadd(string $num1, string $num2, ?int $scale = null): string {}
 
     /**
      * Subtract one arbitrary precision number from another
@@ -46,9 +43,7 @@ namespace {
      * @return string The result of the subtraction, as a string.
      */
     #[Pure]
-    function bcsub(string $num1, string $num2, ?int $scale = null): string
-    {
-    }
+    function bcsub(string $num1, string $num2, ?int $scale = null): string {}
 
     /**
      * Multiply two arbitrary precision numbers
@@ -68,9 +63,7 @@ namespace {
      * @return string the result as a string.
      */
     #[Pure]
-    function bcmul(string $num1, string $num2, ?int $scale = null): string
-    {
-    }
+    function bcmul(string $num1, string $num2, ?int $scale = null): string {}
 
     /**
      * Divide two arbitrary precision numbers
@@ -92,9 +85,7 @@ namespace {
      */
     #[Pure]
     #[PhpStormStubsElementAvailable(to: '7.4')]
-    function bcdiv(string $num1, string $num2, ?int $scale = 0): ?string
-    {
-    }
+    function bcdiv(string $num1, string $num2, ?int $scale = 0): ?string {}
 
     /**
      * Divide two arbitrary precision numbers
@@ -116,9 +107,7 @@ namespace {
      */
     #[Pure]
     #[PhpStormStubsElementAvailable('8.0')]
-    function bcdiv(string $num1, string $num2, ?int $scale = null): string
-    {
-    }
+    function bcdiv(string $num1, string $num2, ?int $scale = null): string {}
 
     /**
      * Get modulus of an arbitrary precision number
@@ -140,9 +129,7 @@ namespace {
      */
     #[Pure]
     #[PhpStormStubsElementAvailable(to: '7.4')]
-    function bcmod(string $num1, string $num2, ?int $scale = 0): ?string
-    {
-    }
+    function bcmod(string $num1, string $num2, ?int $scale = 0): ?string {}
 
     /**
      * Get modulus of an arbitrary precision number
@@ -164,9 +151,7 @@ namespace {
      */
     #[Pure]
     #[PhpStormStubsElementAvailable('8.0')]
-    function bcmod(string $num1, string $num2, ?int $scale = null): string
-    {
-    }
+    function bcmod(string $num1, string $num2, ?int $scale = null): string {}
 
     /**
      * Raise an arbitrary precision number to another
@@ -188,9 +173,7 @@ namespace {
      * @return string the result as a string.
      */
     #[Pure]
-    function bcpow(string $num, string $exponent, ?int $scale = null): string
-    {
-    }
+    function bcpow(string $num, string $exponent, ?int $scale = null): string {}
 
     /**
      * Get the square root of an arbitrary precision number
@@ -204,9 +187,7 @@ namespace {
      */
     #[Pure]
     #[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
-    function bcsqrt(string $num, ?int $scale)
-    {
-    }
+    function bcsqrt(string $num, ?int $scale) {}
 
     /**
      * Set default scale parameter for all bc math functions
@@ -218,9 +199,7 @@ namespace {
     function bcscale(
         #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] int                                                   $scale,
         #[PhpStormStubsElementAvailable(from: '7.3')] #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: 'int')] $scale = null
-    )
-    {
-    }
+    ) {}
 
     /**
      * Compare two arbitrary precision numbers
@@ -241,9 +220,7 @@ namespace {
      * <i>right_operand</i>, -1 otherwise.
      */
     #[Pure]
-    function bccomp(string $num1, string $num2, ?int $scale = null): int
-    {
-    }
+    function bccomp(string $num1, string $num2, ?int $scale = null): int {}
 
     /**
      * Raise an arbitrary precision number to another, reduced by a specified modulus
@@ -269,30 +246,22 @@ namespace {
      */
     #[Pure]
     #[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
-    function bcpowmod(string $num, string $exponent, string $modulus, ?int $scale = null)
-    {
-    }
+    function bcpowmod(string $num, string $exponent, string $modulus, ?int $scale = null) {}
 
     /**
      * @since 8.4
      */
-    function bcfloor(string $num): string
-    {
-    }
+    function bcfloor(string $num): string {}
 
     /**
      * @since 8.4
      */
-    function bcceil(string $num): string
-    {
-    }
+    function bcceil(string $num): string {}
 
     /**
      * @since 8.4
      */
-    function bcround(string $num, int $precision = 0, RoundingMode $mode = RoundingMode::HalfAwayFromZero): string
-    {
-    }
+    function bcround(string $num, int $precision = 0, RoundingMode $mode = RoundingMode::HalfAwayFromZero): string {}
 
     /**
      * @return string[]
@@ -308,76 +277,43 @@ namespace BcMath {
     {
         /** @virtual */
         public string $value;
+
         /** @virtual */
         public int $scale;
 
-        public function __construct(string|int $num)
-        {
-        }
+        public function __construct(string|int $num) {}
 
-        public function add(Number|string|int $num, ?int $scale = null): Number
-        {
-        }
+        public function add(Number|string|int $num, ?int $scale = null): Number {}
 
-        public function sub(Number|string|int $num, ?int $scale = null): Number
-        {
-        }
+        public function sub(Number|string|int $num, ?int $scale = null): Number {}
 
-        public function mul(Number|string|int $num, ?int $scale = null): Number
-        {
-        }
+        public function mul(Number|string|int $num, ?int $scale = null): Number {}
 
-        public function div(Number|string|int $num, ?int $scale = null): Number
-        {
-        }
+        public function div(Number|string|int $num, ?int $scale = null): Number {}
 
-        public function mod(Number|string|int $num, ?int $scale = null): Number
-        {
-        }
+        public function mod(Number|string|int $num, ?int $scale = null): Number {}
 
         /** @return Number[] */
-        public function divmod(Number|string|int $num, ?int $scale = null): array
-        {
-        }
+        public function divmod(Number|string|int $num, ?int $scale = null): array {}
 
-        public function powmod(Number|string|int $exponent, Number|string|int $modulus, ?int $scale = null): Number
-        {
-        }
+        public function powmod(Number|string|int $exponent, Number|string|int $modulus, ?int $scale = null): Number {}
 
-        public function pow(Number|string|int $exponent, ?int $scale = null): Number
-        {
-        }
+        public function pow(Number|string|int $exponent, ?int $scale = null): Number {}
 
-        public function sqrt(?int $scale = null): Number
-        {
-        }
+        public function sqrt(?int $scale = null): Number {}
 
-        public function floor(): Number
-        {
-        }
+        public function floor(): Number {}
 
-        public function ceil(): Number
-        {
-        }
+        public function ceil(): Number {}
 
-        public function round(int $precision = 0, \RoundingMode $mode = \RoundingMode::HalfAwayFromZero): Number
-        {
-        }
+        public function round(int $precision = 0, \RoundingMode $mode = \RoundingMode::HalfAwayFromZero): Number {}
 
-        public function compare(Number|string|int $num, ?int $scale = null): int
-        {
-        }
+        public function compare(Number|string|int $num, ?int $scale = null): int {}
 
-        public function __toString(): string
-        {
-        }
+        public function __toString(): string {}
 
-        public function __serialize(): array
-        {
-        }
+        public function __serialize(): array {}
 
-        public function __unserialize(array $data): void
-        {
-        }
+        public function __unserialize(array $data): void {}
     }
 }

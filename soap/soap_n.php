@@ -1,6 +1,7 @@
 <?php
 
-namespace Soap {
+namespace Soap;
+
     /**
      * @since 8.4
      */
@@ -10,6 +11,3 @@ namespace Soap {
      * @since 8.4
      */
     final class Sdl {}
-}
-
-
