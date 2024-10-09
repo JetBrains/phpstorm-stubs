@@ -698,7 +698,7 @@ function user_error(string $message, int $error_level = E_USER_NOTICE) {}
  * );
  * ```
  */
-function set_error_handler(?callable $callback, int $error_levels = E_ALL|E_STRICT) {}
+function set_error_handler(?callable $callback, int $error_levels = E_ALL) {}
 
 /**
  * Restores the previous error handler function
