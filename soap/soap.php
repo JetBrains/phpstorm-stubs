@@ -1112,6 +1112,7 @@ define('SOAP_1_1', 1);
 define('SOAP_1_2', 2);
 define('SOAP_PERSISTENCE_SESSION', 1);
 define('SOAP_PERSISTENCE_REQUEST', 2);
+/** @deprecated 8.4 */
 define('SOAP_FUNCTIONS_ALL', 999);
 define('SOAP_ENCODED', 1);
 define('SOAP_LITERAL', 2);
