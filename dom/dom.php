@@ -105,6 +105,7 @@ define('XML_ATTRIBUTE_NOTATION', 10);
 /**
  * Error code not part of the DOM specification. Meant for PHP errors.
  * @link https://php.net/manual/en/dom.constants.php
+ * @deprecated 8.4
  */
 define('DOM_PHP_ERR', 0);
 
