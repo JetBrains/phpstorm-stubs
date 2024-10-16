@@ -47,6 +47,7 @@ define('E_NOTICE', 8);
  * to your code which will ensure the best interoperability
  * and forward compatibility of your code.
  * @link https://php.net/manual/en/errorfunc.constants.php
+ * @deprecated 8.4
  */
 define('E_STRICT', 2048);
 
