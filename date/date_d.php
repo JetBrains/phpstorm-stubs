@@ -27,18 +27,21 @@ define('DATE_W3C', "Y-m-d\TH:i:sP");
 /**
  * Timestamp
  * @link https://php.net/manual/en/datetime.constants.php
+ * @deprecated 8.4
  */
 define('SUNFUNCS_RET_TIMESTAMP', 0);
 
 /**
  * Hours:minutes (example: 08:02)
  * @link https://php.net/manual/en/datetime.constants.php
+ * @deprecated 8.4
  */
 define('SUNFUNCS_RET_STRING', 1);
 
 /**
  * Hours as floating point number (example 8.75)
  * @link https://php.net/manual/en/datetime.constants.php
+ * @deprecated 8.4
  */
 define('SUNFUNCS_RET_DOUBLE', 2);
 
