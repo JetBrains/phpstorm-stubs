@@ -186,7 +186,7 @@ namespace {
      * <i>operand</i> is negative.
      */
     #[Pure]
-    #[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
+    #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|null")]
     function bcsqrt(string $num, ?int $scale) {}
 
     /**
@@ -245,7 +245,7 @@ namespace {
      * is 0 or <i>exponent</i> is negative.
      */
     #[Pure]
-    #[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
+    #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|null")]
     function bcpowmod(string $num, string $exponent, string $modulus, ?int $scale = null) {}
 
     /**
