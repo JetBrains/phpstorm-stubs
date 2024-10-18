@@ -2162,7 +2162,7 @@ function mysqli_get_charset(mysqli $mysql): ?object {}
  * @param mysqli|null $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string|null A string that represents the MySQL client library version
  */
-#[LanguageLevelTypeAware(['8.0' => 'string'], default: '?string')]
+#[LanguageLevelTypeAware(['8.0' => 'string'], default: 'string|null')]
 function mysqli_get_client_info(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.1')] mysqli $mysql,
     #[PhpStormStubsElementAvailable(from: '8.0')] ?mysqli $mysql = null

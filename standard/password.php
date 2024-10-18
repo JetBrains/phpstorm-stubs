@@ -160,7 +160,7 @@ define('PASSWORD_ARGON2_PROVIDER', 'standard');
  * @since 5.5
  */
 #[ArrayShape(["algo" => "int", "algoName" => "string", "options" => "array"])]
-#[LanguageLevelTypeAware(['8.0' => 'array'], default: '?array')]
+#[LanguageLevelTypeAware(['8.0' => 'array'], default: 'array|null')]
 function password_get_info(string $hash) {}
 
 /**

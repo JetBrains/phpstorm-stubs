@@ -1148,7 +1148,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      */
     #[TentativeType]
     public function saveXML(
-        #[LanguageLevelTypeAware(['7.1' => '?DOMNode'], default: '')] $node = null,
+        #[LanguageLevelTypeAware(['7.1' => 'DOMNode|null'], default: '')] $node = null,
         #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = 0
     ): string|false {}
 
