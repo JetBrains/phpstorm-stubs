@@ -500,6 +500,7 @@ class DOMImplementation
      * @param string $feature
      * @param string $version
      * @return mixed
+     * @removed 8.4
      */
     #[TentativeType]
     public function getFeature(
