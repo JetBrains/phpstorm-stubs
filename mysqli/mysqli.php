@@ -932,7 +932,9 @@ class mysqli
      * statement should have produced a non-empty result set.
      */
     #[TentativeType]
-    public function store_result(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = 0): mysqli_result|false {}
+    public function store_result(
+        #[Deprecated(since: '8.4'), LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = 0
+    ): mysqli_result|false {}
 
     /**
      * Returns whether thread safety is given or not
@@ -2858,7 +2860,7 @@ function mysqli_stmt_store_result(mysqli_stmt $statement): bool {}
  * @param int $mode [optional] The option that you want to set
  * @return mysqli_result|false
  */
-function mysqli_store_result(mysqli $mysql, int $mode = 0): mysqli_result|false {}
+function mysqli_store_result(mysqli $mysql, #[Deprecated(since: "8.4")] int $mode = 0): mysqli_result|false {}
 
 /**
  * Returns the thread ID for the current connection
@@ -3654,6 +3656,9 @@ define('MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT', 64);
 define('MYSQLI_CLIENT_CAN_HANDLE_EXPIRED_PASSWORDS', 4194304);
 define('MYSQLI_OPT_CAN_HANDLE_EXPIRED_PASSWORDS', 37);
 define('MYSQLI_OPT_READ_TIMEOUT', 11);
+/**
+ * @deprecated 8.4
+ */
 define('MYSQLI_STORE_RESULT_COPY_DATA', 16);
 define('MYSQLI_TYPE_JSON', 245);
 define('MYSQLI_TRANS_COR_AND_CHAIN', 1);
