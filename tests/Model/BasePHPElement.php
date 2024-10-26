@@ -174,19 +174,37 @@ abstract class BasePHPElement
                 if ($attr->name->toString() === LanguageLevelTypeAware::class) {
                     $types = [];
                     $versionTypesMap = $attr->args[0]->value->items;
+                    $defaultType = explode('|', preg_replace('/\w+\[]/', 'array', $attr->args[1]->value->value));
+
+                    // Collecting explicit types from the attribute.
                     foreach ($versionTypesMap as $item) {
                         $types[number_format((float)$item->key->value, 1)] =
                             explode('|', preg_replace('/\w+\[]/', 'array', $item->value->value));
                     }
-                    $maxVersion = max(array_keys($types));
+
+                    // Populate the results for all required PHP versions.
+                    $result = [];
                     foreach (new PhpVersions() as $version) {
-                        if ($version > (float)$maxVersion) {
-                            $types[number_format($version, 1)] = $types[$maxVersion];
+                        $versionKey = number_format($version, 1);
+
+                        // Find the appropriate type for the current version.
+                        if (isset($types[$versionKey])) {
+                            $result[$versionKey] = $types[$versionKey];
+                        } else {
+                            // Look for the closest lower or equal version.
+                            $closestType = $defaultType;
+                            foreach ($types as $typeVersion => $typeValue) {
+                                if (floatval($versionKey) >= floatval($typeVersion)) {
+                                    $closestType = $typeValue;
+                                } else {
+                                    break;
+                                }
+                            }
+                            $result[$versionKey] = $closestType;
                         }
                     }
-                    $types[$attr->args[1]->name->name] = explode('|', preg_replace('/\w+\[]/', 'array', $attr->args[1]->value->value));
 
-                    return $types;
+                    return $result;
                 }
             }
         }
