@@ -1,4 +1,4 @@
-FROM php:8.4.0beta4-alpine
+FROM php:8.4.0RC3-alpine
 
 RUN echo 'memory_limit = 2048M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
 COPY --from=composer /usr/bin/composer /usr/bin/composer
