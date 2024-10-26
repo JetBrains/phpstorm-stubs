@@ -7331,7 +7331,7 @@ class IntlBreakIterator implements IteratorAggregate
     #[Pure]
     #[TentativeType]
     public function getPartsIterator(
-        #[LanguageAware(['8.3' => 'string', '8.0' => 'int'], default: '')] #[EV([IntlPartsIterator::KEY_SEQUENTIAL, IntlPartsIterator::KEY_LEFT, IntlPartsIterator::KEY_RIGHT])] $type = IntlPartsIterator::KEY_SEQUENTIAL
+        #[LanguageAware(['8.0' => 'int', '8.3' => 'string'], default: '')] #[EV([IntlPartsIterator::KEY_SEQUENTIAL, IntlPartsIterator::KEY_LEFT, IntlPartsIterator::KEY_RIGHT])] $type = IntlPartsIterator::KEY_SEQUENTIAL
     ): IntlPartsIterator {}
 
     /**

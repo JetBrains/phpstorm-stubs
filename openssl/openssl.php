@@ -580,7 +580,10 @@ function openssl_pkcs12_read(string $pkcs12, &$certificates, string $passphrase)
  * </p>
  * @return OpenSSLCertificateSigningRequest|resource|false the CSR.
  */
-#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificateSigningRequest|false"], default: "resource|false")]
+#[LanguageLevelTypeAware([
+    "8.0" => "OpenSSLCertificateSigningRequest|false",
+    "8.2" => "OpenSSLCertificateSigningRequest|bool"
+], default: "resource|false")]
 function openssl_csr_new(
     array $distinguished_names,
     #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey'], default: 'resource')] &$private_key,
