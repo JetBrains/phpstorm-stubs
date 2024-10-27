@@ -4396,3 +4396,7 @@ define('CURLINFO_SSL_DATA_OUT', 1);
  * @since 8.4
  */
 define('CURLINFO_SSL_DATA_IN', 1);
+/**
+ * @since 8.4
+ */
+define('CURLINFO_POSTTRANSFER_TIME_T', 6291523);
