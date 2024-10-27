@@ -21,6 +21,10 @@ class ReflectionProperty implements Reflector
     public const IS_ABSTRACT = 64;
 
     /**
+     * @since 8.4
+     */
+    public const IS_VIRTUAL = 512;
+    /**
      * @var string Name of the property, same as calling the {@see ReflectionProperty::getName()} method
      */
     #[Immutable]
