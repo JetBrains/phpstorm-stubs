@@ -6818,6 +6818,7 @@ const CONSTANTS = array (
   'CURLINFO_NAMELOOKUP_TIME_T' => 'curl/curl_d.php',
   'CURLINFO_NUM_CONNECTS' => 'curl/curl_d.php',
   'CURLINFO_OS_ERRNO' => 'curl/curl_d.php',
+  'CURLINFO_POSTTRANSFER_TIME_T' => 'curl/curl_d.php',
   'CURLINFO_PRETRANSFER_TIME' => 'curl/curl_d.php',
   'CURLINFO_PRETRANSFER_TIME_T' => 'curl/curl_d.php',
   'CURLINFO_PRIMARY_IP' => 'curl/curl_d.php',
