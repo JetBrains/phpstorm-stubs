@@ -1973,6 +1973,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
     public function valid(): bool {}
 
     #[TentativeType]
+    #[Deprecated("The function is deprecated", since: "8.4")]
     public function __wakeup(): void {}
 
     #[PhpStormStubsElementAvailable(from: '8.2')]
