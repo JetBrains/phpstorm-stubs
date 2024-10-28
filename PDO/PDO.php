@@ -1727,7 +1727,10 @@ namespace {
          * all of the remaining rows in the result set. The array represents each
          * row as either an array of column values or an object with properties
          * corresponding to each column name.
-         * An empty array is returned if there are zero results to fetch, or false on failure.
+         * An empty array is returned if there are zero results to fetch.
+         * </p>
+         * @throws PDOException <b>PDOStatement::fetchAll</b> throws on failure if the
+         * attribute <b>PDO::ATTR_ERRMODE</b> is set to <b>PDO::ERRMODE_EXCEPTION</b>.
          * </p>
          * <p>
          * Using this method to fetch large result sets will result in a heavy
