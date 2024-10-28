@@ -372,6 +372,6 @@ function dba_list(): array {}
  * value_name). This function will return <b>FALSE</b> if
  * <i>key</i> is <b>NULL</b> or <b>FALSE</b>.
  */
-function dba_key_split(#[LanguageLevelTypeAware(["8.4" => "string"], default: "string|false|null")] $key): array|false {}
+function dba_key_split(string|false|null $key): array|false {}
 
 // End of dba v.
