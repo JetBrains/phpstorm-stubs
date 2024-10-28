@@ -446,6 +446,7 @@ class mysqli
      * @param int $process_id
      * @return bool true on success or false on failure.
      */
+    #[Deprecated("The function is deprecated", since: "8.4")]
     #[TentativeType]
     public function kill(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $process_id): bool {}
 
@@ -555,6 +556,7 @@ class mysqli
      * @link https://php.net/manual/en/mysqli.ping.php
      * @return bool true on success or false on failure.
      */
+    #[Deprecated("The function is deprecated", since: "8.4")]
     #[TentativeType]
     public function ping(): bool {}
 
@@ -958,6 +960,7 @@ class mysqli
      * @return bool TRUE if the refresh was a success, otherwise FALSE
      * @since 5.3
      */
+    #[Deprecated("The function is deprecated", since: "8.4")]
     #[TentativeType]
     public function refresh(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags): bool {}
 }
