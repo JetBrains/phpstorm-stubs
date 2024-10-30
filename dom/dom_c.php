@@ -270,7 +270,6 @@ class DOMNode
 
     /**
      * @return int
-     * @removed 8.0
      */
     #[LanguageLevelTypeAware(['8.4' => 'int'], default: '')]
     public function compareDocumentPosition(DOMNode $other) {}
@@ -335,7 +334,6 @@ class DOMNode
     /**
      * @param DOMNode|null $arg
      * @return bool
-     * @removed 8.0
      */
     #[LanguageLevelTypeAware(['8.3' => 'bool'], default: '')]
     public function isEqualNode(#[LanguageLevelTypeAware(['8.3' => 'DOMNode|null'], default: 'DOMNode')] $otherNode) {}
