@@ -29,7 +29,7 @@ use Attribute;
  * <li><b>#[ExpectedValues(values: MY_CONST]</b> - default value of MY_CONST is expected to be array creation expression, in this case value of MY_CONST will be inlined</li>
  * <li><b>#[ExpectedValues(flags: [1,2,3])]</b> means that a bitmask of the following is expected: `1`, `2`, or `3`</li>
  * <li><b>#[ExpectedValues(valuesFromClass: MyClass::class)]</b> means that one of the constants from the class `MyClass` is expected</li>
- * <li><b>#[ExpectedValues(flagsFromClass: MyClass::class)]</b> means that a bitmask of the constants from the class `MyClass` is expected</li>
+ * <li><b>#[ExpectedValues(flagsFromClass: ExpectedValues::class)]</b> means that a bitmask of the constants from the class `MyClass` is expected</li>
  * </ul>
  *
  * The attribute with the number of provided constructor arguments different from 1 will result in undefined behavior.
