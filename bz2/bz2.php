@@ -90,7 +90,7 @@ function bzclose($bz): bool {}
  */
 #[Pure]
 #[LanguageLevelTypeAware(['8.0' => 'int|false', '8.1' => 'int'], default: 'int')]
-function bzerrno($bz):int {}
+function bzerrno($bz): int {}
 
 /**
  * Returns a bzip2 error string
@@ -119,7 +119,7 @@ function bzerrstr($bz): string {}
 #[Pure]
 #[ArrayShape(["errno" => "int", "errstr" => "string"])]
 #[LanguageLevelTypeAware(['8.0' => 'array|false', '8.1' => 'array'], default: 'array')]
-function bzerror($bz):array {}
+function bzerror($bz): array {}
 
 /**
  * Compress a string into bzip2 encoded data
