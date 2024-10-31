@@ -4216,9 +4216,7 @@ class Aerospike
      * (default)
      */
     public const AS_MAP_UPDATE = "AS_MAP_UPDATE";
-
     public const AS_MAP_UPDATE_ONLY = "AS_MAP_UPDATE_ONLY";
-
     public const AS_MAP_CREATE_ONLY = "AS_MAP_CREATE_ONLY";
 
     /**
@@ -4311,17 +4309,11 @@ class Aerospike
      * @link https://www.aerospike.com/docs/guide/cdt-map.html#map-apis Map Result Types
      * */
     public const MAP_RETURN_KEY_VALUE = "AS_MAP_RETURN_KEY_VALUE";
-
     public const LOG_LEVEL_OFF = "LOG_LEVEL_OFF";
-
     public const LOG_LEVEL_ERROR = "LOG_LEVEL_ERROR";
-
     public const LOG_LEVEL_WARN = "LOG_LEVEL_WARN";
-
     public const LOG_LEVEL_INFO = "LOG_LEVEL_INFO";
-
     public const LOG_LEVEL_DEBUG = "LOG_LEVEL_DEBUG";
-
     public const LOG_LEVEL_TRACE = "LOG_LEVEL_TRACE";
 
     /**
