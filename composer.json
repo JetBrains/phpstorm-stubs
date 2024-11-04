@@ -16,8 +16,8 @@
   "require-dev": {
     "nikic/php-parser": "v5.3.1",
     "phpdocumentor/reflection-docblock": "5.4.1",
-    "phpunit/phpunit": "11.3.0",
-    "friendsofphp/php-cs-fixer": "v3.61.1"
+    "phpunit/phpunit": "11.4.3",
+    "friendsofphp/php-cs-fixer": "v3.64.0"
   },
   "autoload": {
     "files": ["PhpStormStubsMap.php"]
