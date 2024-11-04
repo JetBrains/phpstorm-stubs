@@ -1532,7 +1532,7 @@ class Imagick implements Iterator, Countable
      * (No version information available, might only be in SVN)<br/>
      * Gets the image alpha channel
      * @link https://php.net/manual/en/imagick.getimagealphachannel.php
-     * @return int a constant defining the current alpha channel value. Refer to this
+     * @return bool a constant defining the current alpha channel value. Refer to this
      * list of alpha channel constants.
      * @throws ImagickException on error.
      */
