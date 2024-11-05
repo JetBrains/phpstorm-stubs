@@ -1243,10 +1243,13 @@ class Imagick implements Iterator, Countable
      * @param resource $filehandle <p>
      * Filehandle where to write the images
      * </p>
+     * @param string|null $format <p>
+     * The image format. The list of valid format specifiers depends on the compiled feature set of ImageMagick, and can be queried at runtime via Imagick::queryFormats().
+     * </p>
      * @return bool <b>TRUE</b> on success.
      * @throws ImagickException on error.
      */
-    public function writeImagesFile($filehandle) {}
+    public function writeImagesFile($filehandle, ?string $format = null) {}
 
     /**
      * (No version information available, might only be in SVN)<br/>
