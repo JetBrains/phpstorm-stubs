@@ -15,7 +15,7 @@
   ],
   "require-dev": {
     "nikic/php-parser": "v5.3.1",
-    "phpdocumentor/reflection-docblock": "5.4.1",
+    "phpdocumentor/reflection-docblock": "5.5.1",
     "phpunit/phpunit": "11.4.3",
     "friendsofphp/php-cs-fixer": "v3.64.0"
   },
