@@ -445,4 +445,9 @@ class ReflectionProperty implements Reflector
      * @since 8.4
      */
     public function isFinal(): bool {}
+
+    /**
+     * @since 8.4
+     */
+    public function isLazy(object $object): bool {}
 }
