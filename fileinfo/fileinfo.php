@@ -179,7 +179,7 @@ function finfo_buffer(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'res
 /**
  * Detect MIME Content-type for a file
  * @link https://php.net/manual/en/function.mime-content-type.php
- * @param string $filename <p>
+ * @param resource|string $filename <p>
  * Path to the tested file.
  * </p>
  * @return string|false the content type in MIME format, like
