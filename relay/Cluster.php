@@ -88,7 +88,7 @@ class Cluster
      *
      * @return int
      */
-    #[Attributes\Local]
+    #[\Relay\Attributes\Local]
     public function idleTime(): int {}
 
     /**
@@ -212,16 +212,6 @@ class Cluster
     public function bgrewriteaof(array|string $key_or_address): Cluster|bool {}
 
     /**
-     * Asynchronously save the dataset to disk.
-     *
-     * @param  array|string  $key_or_address
-     * @param  bool  $schedule
-     * @return Cluster|bool
-     */
-    #[\Relay\Attributes\RedisCommand]
-    public function bgsave(array|string $key_or_address, bool $schedule = false): Cluster|bool {}
-
-    /**
      * Paus the client until sufficient local and/or remote AOF data has been flushed to disk.
      *
      * @param  array|string  $key_or_address
@@ -231,6 +221,16 @@ class Cluster
      */
     #[\Relay\Attributes\RedisCommand]
     public function waitaof(array|string $key_or_address, int $numlocal, int $numremote, int $timeout): Relay|array|false {}
+
+    /**
+     * Asynchronously save the dataset to disk.
+     *
+     * @param  array|string  $key_or_address
+     * @param  bool  $schedule
+     * @return Cluster|bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function bgsave(array|string $key_or_address, bool $schedule = false): Cluster|bool {}
 
     /**
      * Count the number of set bits (population counting) in a string.
@@ -437,10 +437,10 @@ class Cluster
      * @param  mixed  $srckey
      * @param  mixed  $dstkey
      * @param  array|null  $options
-     * @return Cluster|int|false
+     * @return Cluster|bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function copy(mixed $srckey, mixed $dstkey, array|null $options = null): Cluster|int|false {}
+    public function copy(mixed $srckey, mixed $dstkey, array|null $options = null): Cluster|bool {}
 
     /**
      * Returns the number of keys in the currently-selected database.
@@ -623,8 +623,6 @@ class Cluster
     public function expiretime(mixed $key): Cluster|int|false {}
 
     /**
-     * Flushes Relay's in-memory cache of all databases.
-     *
      * @see \Relay\Relay::flushMemory()
      *
      * @param  string|null  $endpointId
@@ -801,6 +799,17 @@ class Cluster
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
     public function getbit(mixed $key, int $pos): Cluster|int|false {}
+
+    /**
+     * Get the value of key and optionally set its expiration.
+     * GETEX is similar to GET, but is a write command with additional options.
+     *
+     * @param  mixed  $key
+     * @param  array  $options
+     * @return mixed
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function getex(mixed $key, ?array $options = null): mixed {}
 
     /**
      * Returns the last error message, if any.
@@ -1121,7 +1130,7 @@ class Cluster
      * @param  callable  $callback
      * @return bool
      */
-    #[Attributes\Local]
+    #[\Relay\Attributes\Local]
     public function listen(?callable $callback): bool {}
 
     /**
