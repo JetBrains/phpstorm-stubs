@@ -906,11 +906,11 @@ class Relay
      * @param  string  $name
      * @param  array  $keys
      * @param  array  $argv
-     * @param  callable  $handler
+     * @param  callable|null  $handler
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function fcall(string $name, array $keys = [], array $argv = [], callable $handler = null): mixed {}
+    public function fcall(string $name, array $keys = [], array $argv = [], ?callable $handler = null): mixed {}
 
     /**
      * Invokes a read-only Redis function.
@@ -918,7 +918,7 @@ class Relay
      * @param  string  $name
      * @param  array  $keys
      * @param  array  $argv
-     * @param  callable  $handler
+     * @param  callable|null  $handler
      * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
@@ -948,6 +948,233 @@ class Relay
     public static function flushMemory(?string $endpointId = null, int $db = null): bool {}
 
     /**
+     * Run a search query on an index, and perform aggregate
+     * transformations on the results, extracting statistics etc from them.
+     *
+     * @param  mixed  $index
+     * @param  string  $query
+     * @param  array|null  $options
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftAggregate(mixed $index, string $query, ?array $options = null): Relay|array|false {}
+
+    /**
+     * Add an alias to an index.
+     *
+     * @param  mixed  $index
+     * @param  string  $alias
+     * @return Relay|bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftAliasAdd(mixed $index, string $alias): Relay|bool {}
+
+    /**
+     * Remove an alias from an index.
+     *
+     * @param  string  $alias
+     * @return Relay|bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftAliasDel(string $alias): Relay|bool {}
+
+    /**
+     * Add an alias to an index.
+     * If the alias is already associated with another index,
+     * removes the alias association with the previous index.
+     *
+     * @param  mixed  $index
+     * @param  string  $alias
+     * @return Relay|bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftAliasUpdate(mixed $index, string $alias): Relay|bool {}
+
+    /**
+     * Add a new attribute to the index.
+     * Adding an attribute to the index causes any future doacument updates
+     * to use the new attribute when indexing and reindexing existing documents.
+     *
+     * @param  mixed  $index
+     * @param  array  $schema
+     * @param  bool  $skipinitialscan
+     * @return Relay|bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftAlter(mixed $index, array $schema, bool $skipinitialscan = false): Relay|bool {}
+
+    /**
+     * Container command for get/set RediSearch configuration parameter.
+     *
+     * @param  string  $operation
+     * @param  string  $option
+     * @param  mixed  $value
+     * @return Relay|array|bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftConfig(string $operation, string $option, mixed $value = null): Relay|array|bool {}
+
+    /**
+     * Create an index with the given specification.
+     *
+     * @param  mixed  $index
+     * @param  array  $schema
+     * @param  array|null  $options
+     * @return Relay|bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftCreate(mixed $index, array $schema, ?array $options = null): Relay|bool {}
+
+    /**
+     * Container command for del/read existing cursor.
+     *
+     * @param  string  $operation
+     * @param  mixed  $index
+     * @param  mixed  $cursor
+     * @param  array|null  $options
+     * @return Relay|array|bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftCursor(string $operation, mixed $index, mixed $cursor, ?array $options = null): Relay|array|bool {}
+
+    /**
+     * Add terms to a dictionary.
+     *
+     * @param  mixed  $dict
+     * @param  mixed  $term
+     * @param  mixed  $other_terms,...
+     * @return Relay|int|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftDictAdd(mixed $dict, mixed $term, mixed ...$other_terms): Relay|int|false {}
+
+    /**
+     * Delete terms from a dictionary.
+     *
+     * @param  mixed  $dict
+     * @param  mixed  $term
+     * @param  mixed  $other_terms,...
+     * @return Relay|int|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftDictDel(mixed $dict, mixed $term, mixed ...$other_terms): Relay|int|false {}
+
+    /**
+     * Dump all terms in the given dictionary.
+     *
+     * @param  mixed  $dict
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftDictDump(mixed $dict): Relay|array|false {}
+
+    /**
+     * Delete an index.
+     *
+     * @param  mixed  $index
+     * @param  bool  $dd
+     * @return Relay|bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftDropIndex(mixed $index, bool $dd = false): Relay|bool {}
+
+    /**
+     * Return the execution plan for a complex query.
+     *
+     * @param  mixed  $index
+     * @param  string  $query
+     * @param  int  $dialect
+     * @return Relay|string|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftExplain(mixed $index, string $query, int $dialect = 0): Relay|string|false {}
+
+    /**
+     * Return the execution plan for a complex query but formatted for easier reading from CLI.
+     *
+     * @param  mixed  $index
+     * @param  string  $query
+     * @param  int  $dialect
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftExplainCli(mixed $index, string $query, int $dialect = 0): Relay|array|false {}
+
+    /**
+     * Returns information and statistics about a given index.
+     *
+     * @param  mixed  $index
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftInfo(mixed $index): Relay|array|false {}
+
+    /**
+     * Apply FT.SEARCH or FT.AGGREGATE command to collect performance details.
+     *
+     * @param  mixed  $index
+     * @param  string  $command
+     * @param  string  $query
+     * @param  bool  $limited
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftProfile(mixed $index, string $command, string $query, bool $limited = false): Relay|array|false {}
+
+    /**
+     * Search the index with a textual query, returning either documents or just ids.
+     *
+     * @param  mixed  $index
+     * @param  string  $query
+     * @param  array|null  $options
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftSearch(mixed $index, string $query, ?array $options = null): Relay|array|false {}
+
+    /**
+     * Perform spelling correction on a query, returning suggestions for misspelled terms.
+     *
+     * @param  mixed  $index
+     * @param  string  $query
+     * @param  array|null  $options
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftSpellCheck(mixed $index, string $query, ?array $options = null): Relay|array|false {}
+
+    /**
+     * Dump the contents of a synonym group.
+     *
+     * @param  mixed  $index
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftSynDump(mixed $index): Relay|array|false {}
+
+    /**
+     * Update a synonym group.
+     *
+     * @param  mixed  $index
+     * @param  string  $synonym
+     * @param  mixed  $term_or_terms
+     * @param  bool  $skipinitialscan
+     * @return Relay|bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftSynUpdate(mixed $index, string $synonym, mixed $term_or_terms, bool $skipinitialscan = false): Relay|bool {}
+
+    /**
+     * Return a distinct set of values indexed in a Tag field.
+     *
+     * @param  mixed  $index
+     * @param  string  $tag
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function ftTagVals(mixed $index, string $tag): Relay|array|false {}
+
+    /**
      * Returns the number of keys in the currently-selected database.
      *
      * @return Relay|int
@@ -959,10 +1186,10 @@ class Relay
      * Serialize and return the value stored at key in a Redis-specific format.
      *
      * @param  mixed  $key
-     * @return Relay|string|false
+     * @return Relay|string|null|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function dump(mixed $key): Relay|string|false {}
+    public function dump(mixed $key): Relay|string|null|false {}
 
     /**
      * Attach or detach the instance as a replica of another instance.
@@ -1027,10 +1254,10 @@ class Relay
      * @param  mixed  $src
      * @param  mixed  $dst
      * @param  array  $options
-     * @return Relay|int|false
+     * @return Relay|bool
      */
     #[\Relay\Attributes\RedisCommand]
-    public function copy(mixed $src, mixed $dst, ?array $options = null): Relay|int|false {}
+    public function copy(mixed $src, mixed $dst, ?array $options = null): Relay|bool {}
 
     /**
      * Asks Redis to echo back the provided string.
@@ -1240,10 +1467,10 @@ class Relay
      * @param  string  $src
      * @param  string  $dst
      * @param  string|null  $unit
-     * @return Relay|float|false
+     * @return Relay|float|null|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function geodist(string $key, string $src, string $dst, ?string $unit = null): Relay|float|false {}
+    public function geodist(string $key, string $src, string $dst, ?string $unit = null): Relay|float|null|false {}
 
     /**
      * Retrieve one or more GeoHash encoded strings for members of the set.
@@ -1318,7 +1545,7 @@ class Relay
      * @param  array|int|float  $shape
      * @param  string  $unit
      * @param  array  $options
-     * @return Relay|array
+     * @return Relay|array|false
      */
     #[\Relay\Attributes\RedisCommand]
     public function geosearch(
@@ -1327,7 +1554,7 @@ class Relay
         array|int|float $shape,
         string $unit,
         array $options = []
-    ): Relay|array {}
+    ): Relay|array|false {}
 
     /**
      * Search a geospacial sorted set for members within a given area or range, storing the results into
@@ -1377,10 +1604,10 @@ class Relay
      * @param  mixed  $key
      * @param  int  $start
      * @param  int  $end
-     * @return Relay|string|false
+     * @return mixed
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function getrange(mixed $key, int $start, int $end): Relay|string|false {}
+    public function getrange(mixed $key, int $start, int $end): mixed {}
 
     /**
      * Overwrites part of the string stored at key, starting at
@@ -1564,11 +1791,11 @@ class Relay
     /**
      * Return the approximated cardinality of the set(s) observed by the HyperLogLog at key(s).
      *
-     * @param  string  $key
-     * @return Relay|int
+     * @param  string|array  $key_or_keys
+     * @return Relay|int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function pfcount(string $key): Relay|int|false {}
+    public function pfcount(string|array $key_or_keys): Relay|int|false {}
 
     /**
      * Merge given HyperLogLogs into a single one.
@@ -1791,7 +2018,7 @@ class Relay
      * @param  mixed  $key
      * @return Relay|int|string|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
     public function type(mixed $key): Relay|int|string|bool {}
 
     /**
@@ -1803,10 +2030,10 @@ class Relay
      * @param  mixed  $dstkey
      * @param  string  $srcpos
      * @param  string  $dstpos
-     * @return Relay|string|null|false
+     * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function lmove(mixed $srckey, mixed $dstkey, string $srcpos, string $dstpos): Relay|string|null|false {}
+    public function lmove(mixed $srckey, mixed $dstkey, string $srcpos, string $dstpos): mixed {}
 
     /**
      * BLMOVE is the blocking variant of LMOVE. When source contains elements,
@@ -1818,10 +2045,10 @@ class Relay
      * @param  string  $srcpos
      * @param  string  $dstpos
      * @param  float  $timeout
-     * @return Relay|string|null|false
+     * @return mixed
      */
     #[\Relay\Attributes\RedisCommand]
-    public function blmove(mixed $srckey, mixed $dstkey, string $srcpos, string $dstpos, float $timeout): Relay|string|null|false {}
+    public function blmove(mixed $srckey, mixed $dstkey, string $srcpos, string $dstpos, float $timeout): mixed {}
 
     /**
      * Returns the specified elements of the list stored at key.
@@ -2166,10 +2393,10 @@ class Relay
      *
      * @param  mixed  $hash
      * @param  array  $options
-     * @return Relay|array|string|false
+     * @return Relay|array|string|null|false
      */
     #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
-    public function hrandfield(mixed $hash, ?array $options = null): Relay|array|string|false {}
+    public function hrandfield(mixed $hash, ?array $options = null): Relay|array|string|null|false {}
 
     /**
      * Sets the specified fields to their respective values in the hash stored at key.
@@ -2206,13 +2433,11 @@ class Relay
      * Sets field in the hash stored at key to value.
      *
      * @param  mixed  $key
-     * @param  mixed  $mem
-     * @param  mixed  $val
-     * @param  mixed  $kvals,...
+     * @param  mixed  $keys_and_vals...
      * @return Relay|int|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function hset(mixed $key, mixed $mem, mixed $val, mixed ...$kvals): Relay|int|false {}
+    public function hset(mixed $key, mixed ...$keys_and_vals): Relay|int|false {}
 
     /**
      * Removes the specified fields from the hash stored at key.
@@ -2299,7 +2524,264 @@ class Relay
     public function incrbyfloat(mixed $key, float $value): Relay|float|false {}
 
     /**
-     * Returns the members of the set resulting from the difference between the first set and all the successive sets.
+     * Append the json values into the array at path after the last element in it.
+     *
+     * @param  mixed  $key
+     * @param  mixed  $value_or_array
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonArrAppend(mixed $key, mixed $value_or_array, ?string $path = null): Relay|array|false {}
+
+    /**
+     * Search for the first occurrence of a JSON value in an array.
+     *
+     * @param  mixed  $key
+     * @param  string  $path
+     * @param  mixed  $value
+     * @param  int|null  $start
+     * @param  int|null  $stop
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonArrIndex(mixed $key, string $path, mixed $value, ?int $start = 0, ?int $stop = -1): Relay|array|false {}
+
+    /**
+     * Insert the json values into the array at path before the index (shifts to the right).
+     *
+     * @param  mixed  $key
+     * @param  string  $path
+     * @param  int  $index
+     * @param  mixed  $value
+     * @param  mixed  $other_values,...
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonArrInsert(mixed $key, string $path, int $index, mixed $value, mixed ...$other_values): Relay|array|false {}
+
+    /**
+     * Report the length of the JSON array at path in key.
+     *
+     * @param  mixed  $key
+     * @param  string|null  $path
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonArrLen(mixed $key, ?string $path = null): Relay|array|false {}
+
+    /**
+     * Remove and return an element from the index in the array.
+     *
+     * @param  mixed  $key
+     * @param  string|null  $path
+     * @param  int  $index
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonArrPop(mixed $key, ?string $path = null, int $index = -1): Relay|array|false {}
+
+    /**
+     * Trim an array so that it contains only the specified inclusive range of elements.
+     *
+     * @param  mixed  $key
+     * @param  string  $path
+     * @param  int  $start
+     * @param  int  $stop
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonArrTrim(mixed $key, string $path, int $start, int $stop): Relay|array|false {}
+
+    /**
+     * Clear container values (arrays/objects) and set numeric values to 0.
+     *
+     * @param  mixed  $key
+     * @param  string|null  $path
+     * @return Relay|int|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonClear(mixed $key, ?string $path = null): Relay|int|false {}
+
+    /**
+     * Container command for JSON debugging related tasks.
+     *
+     * @param  string  $command
+     * @param  mixed  $key
+     * @param  string|null  $path
+     * @return Relay|int|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonDebug(string $command, mixed $key, ?string $path = null): Relay|int|false {}
+
+    /**
+     * Delete a value.
+     *
+     * @param  mixed  $key
+     * @param  string|null  $path
+     * @return Relay|int|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonDel(mixed $key, ?string $path = null): Relay|int|false {}
+
+    /**
+     * @see Relay::jsonDel
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonForget(mixed $key, ?string $path = null): Relay|int|false {}
+
+    /**
+     * Return the value at path in JSON serialized form.
+     *
+     * @param  mixed  $key
+     * @param  array  $options
+     * @param  string  $paths,...
+     * @return mixed
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonGet(mixed $key, array $options = [], string ...$paths): mixed {}
+
+    /**
+     * Merge a given JSON value into matching paths. Consequently, JSON values
+     * at matching paths are updated, deleted, or expanded with new children.
+     *
+     * @param  mixed  $key
+     * @param  string  $path
+     * @param  mixed  $value
+     * @return Relay|bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonMerge(mixed $key, string $path, mixed $value): Relay|bool {}
+
+    /**
+     * Return the values at path from multiple key arguments.
+     *
+     * @param  mixed  $key_or_array
+     * @param  string  $path
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonMget(mixed $key_or_array, string $path): Relay|array|false {}
+
+    /**
+     * Set or update one or more JSON values according to the specified key-path-value triplets.
+     *
+     * @param  mixed  $key
+     * @param  string  $path
+     * @param  mixed  $value
+     * @param  mixed  $other_triples
+     * @return Relay|bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonMset(mixed $key, string $path, mixed $value, mixed ...$other_triples): Relay|bool {}
+
+    /**
+     * Increment the number value stored at path by number.
+     *
+     * @param  mixed  $key
+     * @param  string  $path
+     * @param  int  $value
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonNumIncrBy(mixed $key, string $path, int $value): Relay|array|false {}
+
+    /**
+     * Multiply the number value stored at path by number.
+     *
+     * @param  mixed  $key
+     * @param  string  $path
+     * @param  int  $value
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonNumMultBy(mixed $key, string $path, int $value): Relay|array|false {}
+
+    /**
+     * Return the keys in the object that's referenced by path.
+     *
+     * @param  mixed  $key
+     * @param  string|null  $path
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonObjKeys(mixed $key, ?string $path = null): Relay|array|false {}
+
+    /**
+     * Report the number of keys in the JSON object at path in key.
+     *
+     * @param  mixed  $key
+     * @param  string|null  $path
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonObjLen(mixed $key, ?string $path = null): Relay|array|false {}
+
+    /**
+     * Return the JSON in key in RESP specification form.
+     *
+     * @param  mixed  $key
+     * @param  string|null  $path
+     * @return Relay|array|string|int|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonResp(mixed $key, ?string $path = null): Relay|array|string|int|false {}
+
+    /**
+     * Set the JSON value at path in key.
+     *
+     * @param  mixed  $key
+     * @param  string  $path
+     * @param  mixed  $value
+     * @param  string|null  $condition
+     * @return Relay|bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonSet(mixed $key, string $path, mixed $value, ?string $condition = null): Relay|bool {}
+
+    /**
+     * Append the json-string values to the string at path.
+     *
+     * @param  mixed  $key
+     * @param  mixed  $value
+     * @param  string|null  $path
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonStrAppend(mixed $key, mixed $value, ?string $path = null): Relay|array|false {}
+
+    /**
+     * Report the length of the JSON String at path in key.
+     *
+     * @param  mixed  $key
+     * @param  string|null  $path
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonStrLen(mixed $key, ?string $path = null): Relay|array|false {}
+
+    /**
+     * Toggle a Boolean value stored at path.
+     *
+     * @param  mixed  $key
+     * @param  string  $path
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonToggle(mixed $key, string $path): Relay|array|false {}
+
+    /**
+     * Report the type of JSON value at path.
+     *
+     * @param  mixed  $key
+     * @param  string|null  $path
+     * @return Relay|array|false
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function jsonType(mixed $key, ?string $path = null): Relay|array|false {}
+
+    /**
+     * Returns the members of the set resulting from the difference
+     * between the first set and all the successive sets.
      *
      * @param  mixed  $key
      * @param  mixed  $other_keys,...
@@ -2309,8 +2791,8 @@ class Relay
     public function sdiff(mixed $key, mixed ...$other_keys): Relay|array|false {}
 
     /**
-     * This command is equal to SDIFF, but instead of returning the resulting set, it is stored in destination.
-     * If destination already exists, it is overwritten.
+     * This command is equal to SDIFF, but instead of returning the resulting set,
+     * it is stored in destination. If destination already exists, it is overwritten.
      *
      * @param  mixed  $key
      * @param  mixed  $other_keys,...
@@ -2340,8 +2822,8 @@ class Relay
     public function sintercard(array $keys, int $limit = -1): Relay|int|false {}
 
     /**
-     * This command is equal to SINTER, but instead of returning the resulting set, it is stored in destination.
-     * If destination already exists, it is overwritten.
+     * This command is equal to SINTER, but instead of returning the resulting set,
+     * it is stored in destination. If destination already exists, it is overwritten.
      *
      * @param  mixed  $key
      * @param  mixed  $other_keys,...
@@ -2361,8 +2843,8 @@ class Relay
     public function sunion(mixed $key, mixed ...$other_keys): Relay|array|false {}
 
     /**
-     * This command is equal to SUNION, but instead of returning the resulting set, it is stored in destination.
-     * If destination already exists, it is overwritten.
+     * This command is equal to SUNION, but instead of returning the resulting set,
+     * it is stored in destination. If destination already exists, it is overwritten.
      *
      * @param  mixed  $key
      * @param  mixed  $other_keys,...
@@ -2720,6 +3202,18 @@ class Relay
     public function strlen(mixed $key): Relay|int|false {}
 
     /**
+     * This command swaps two Redis databases,
+     * so that immediately all the clients connected to a given database
+     * will see the data of the other database, and the other way around.
+     *
+     * @param  int  $index1
+     * @param  int  $index2
+     * @return Relay|bool
+     */
+    #[\Relay\Attributes\RedisCommand]
+    public function swapdb(int $index1, int $index2): Relay|bool {}
+
+    /**
      * Returns the number of fields contained in the hash stored at `$key`.
      *
      * @param  mixed  $key
@@ -2756,7 +3250,7 @@ class Relay
      * @param  int  $maxlen
      * @param  bool  $approx
      * @param  bool  $nomkstream
-     * @return Relay|string|false
+     * @return Relay|string|null|false
      */
     public function xadd(
         string $key,
@@ -2765,7 +3259,7 @@ class Relay
         int $maxlen = 0,
         bool $approx = false,
         bool $nomkstream = false
-    ): Relay|string|false {}
+    ): Relay|string|null|false {}
 
     /**
      * Claim ownership of stream message(s).
@@ -2984,13 +3478,13 @@ class Relay
      * Returns the specified range of elements in the sorted set stored at key.
      *
      * @param  mixed  $key
-     * @param  string  $start
-     * @param  string  $end
+     * @param  string|int  $start
+     * @param  string|int  $end
      * @param  mixed  $options
      * @return Relay|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
-    public function zrange(mixed $key, string $start, string $end, mixed $options = null): Relay|array|false {}
+    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    public function zrange(mixed $key, string|int $start, string|int $end, mixed $options = null): Relay|array|false {}
 
     /**
      * Returns the specified range of elements in the sorted set stored at key.
@@ -3082,10 +3576,10 @@ class Relay
      * @param  mixed  $key
      * @param  mixed  $rank
      * @param  bool  $withscore
-     * @return Relay|array|int|false
+     * @return Relay|array|int|null|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zrank(mixed $key, mixed $rank, bool $withscore = false): Relay|array|int|false {}
+    public function zrank(mixed $key, mixed $rank, bool $withscore = false): Relay|array|int|null|false {}
 
     /**
      * Returns the rank of member in the sorted set stored at key, with the scores
@@ -3095,10 +3589,10 @@ class Relay
      * @param  mixed  $key
      * @param  mixed  $rank
      * @param  bool  $withscore
-     * @return Relay|array|int|false
+     * @return Relay|array|int|null|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zrevrank(mixed $key, mixed $rank, bool $withscore = false): Relay|array|int|false {}
+    public function zrevrank(mixed $key, mixed $rank, bool $withscore = false): Relay|array|int|null|false {}
 
     /**
      * Removes the specified members from the sorted set stored at key.
@@ -3231,10 +3725,10 @@ class Relay
      *
      * @param  mixed  $key
      * @param  mixed  $member
-     * @return Relay|float|false
+     * @return Relay|float|null|false
      */
     #[\Relay\Attributes\RedisCommand]
-    public function zscore(mixed $key, mixed $member): Relay|float|false {}
+    public function zscore(mixed $key, mixed $member): Relay|float|null|false {}
 
     /**
      * This command is similar to ZINTERSTORE, but instead of storing
