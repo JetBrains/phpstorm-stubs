@@ -166,7 +166,7 @@ interface DateTimeInterface
     /**
      * @since 8.4
      */
-    public function createFromTimestamp();
+    public static function createFromTimestamp(int|float $timestamp): static;
 
     /**
      * @since 8.4
