@@ -13,7 +13,7 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  */
 #[LanguageLevelTypeAware([
     '8.0' => 'DOMElement',
-    '8.4' => 'DOMAttr|DOMElement'
+    '8.2' => 'DOMAttr|DOMElement'
 ], default: 'DOMElement|null')]
 function dom_import_simplexml(object $node) {}
 
