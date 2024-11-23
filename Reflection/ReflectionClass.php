@@ -712,7 +712,7 @@ class ReflectionClass implements Reflector
     /**
      * @since 8.4
      */
-    public function resetAsLazyGhost(object $object, callable $factory, int $options = 0): void {}
+    public function resetAsLazyGhost(object $object, callable $initializer, int $options = 0): void {}
 
     /**
      * @since 8.4
