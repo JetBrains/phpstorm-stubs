@@ -166,11 +166,6 @@ interface DateTimeInterface
     /**
      * @since 8.4
      */
-    public function createFromTimestamp();
-
-    /**
-     * @since 8.4
-     */
     public function getMicrosecond(): int;
 
     /**
