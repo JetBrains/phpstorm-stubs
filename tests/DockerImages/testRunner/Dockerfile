@@ -16,19 +16,19 @@ RUN docker-php-ext-configure gd --with-jpeg --with-webp --with-freetype
 RUN docker-php-ext-install gmp sockets intl gd ldap bz2 mysqli bcmath calendar dba exif gettext opcache pcntl \
     pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap pgsql
 
-RUN apk --no-cache update && \
-    apk --no-cache add git zip unzip autoconf build-base php82 php82-dev linux-headers
-RUN git clone https://github.com/xdebug/xdebug
-WORKDIR xdebug
-RUN phpize && \
-    ./configure --enable-xdebug && \
-    make && \
-    make install
+#RUN apk --no-cache update && \
+#    apk --no-cache add git zip unzip autoconf build-base php82 php82-dev linux-headers
+#RUN git clone https://github.com/xdebug/xdebug
+#WORKDIR xdebug
+#RUN phpize && \
+#    ./configure --enable-xdebug && \
+#    make && \
+#    make install
 # Enable xdebug extension
-RUN echo "zend_extension=$(php-config --extension-dir)/xdebug.so" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo "xdebug.mode=develop,debug,coverage" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo "xdebug.client_host=host.docker.internal" >> /usr/local/etc/php/php.ini
-RUN echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo "xdebug.output_dir=/opt/project/xdebug_snapshots" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo "xdebug.log=/opt/project/phpstorm-stubs/xdebug_logs/xdebug.log" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+#RUN echo "zend_extension=$(php-config --extension-dir)/xdebug.so" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+#RUN echo "xdebug.mode=develop,debug,coverage" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+#RUN echo "xdebug.client_host=host.docker.internal" >> /usr/local/etc/php/php.ini
+#RUN echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+#RUN echo "xdebug.output_dir=/opt/project/xdebug_snapshots" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+#RUN echo "xdebug.log=/opt/project/phpstorm-stubs/xdebug_logs/xdebug.log" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 WORKDIR /opt/project/phpstorm-stubs
