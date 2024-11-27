@@ -137,7 +137,7 @@ class StubsParametersProvider
             array_map(
                 fn ($class) => array_filter(
                     array_map(
-                    fn (PHPMethod $method) => array_filter(
+                        fn (PHPMethod $method) => array_filter(
                         EntitiesFilter::getFilteredParameters($method, null, ...$problemTypes),
                         function ($parameter) use ($filterFunction, $class, $method) {
                             if (!empty($parameter->availableVersionsRangeFromAttribute)) {
@@ -148,8 +148,8 @@ class StubsParametersProvider
                             return $filterFunction($class, $method, $firstSinceVersion) === true;
                         }
                     ),
-                    EntitiesFilter::getFilteredStubsMethods($class)
-                ),
+                        EntitiesFilter::getFilteredStubsMethods($class)
+                    ),
                     fn ($parameters) => !empty($parameters)
                 ),
                 $filtered

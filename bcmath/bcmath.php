@@ -275,11 +275,10 @@ namespace BcMath {
      */
     final readonly class Number implements \Stringable
     {
-        /** @virtual */
-        public string $value;
 
-        /** @virtual */
-        public int $scale;
+        public readonly string $value;
+
+        public readonly int $scale;
 
         public function __construct(string|int $num) {}
 

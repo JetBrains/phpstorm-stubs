@@ -28,7 +28,7 @@ class PHPClassConstant extends BasePHPElement
         if (!empty($reflectionObject->getDeclaringClass()->getNamespaceName())) {
             $this->parentId = "\\" . $reflectionObject->getDeclaringClass()->getNamespaceName();
         }
-        $this->parentId = "$this->parentId\\{$reflectionObject->getDeclaringClass()->getName()}";
+        $this->parentId = "$this->parentId\\{$reflectionObject->getDeclaringClass()->getShortName()}";
         if ($reflectionObject->isPrivate()) {
             $this->visibility = 'private';
         } elseif ($reflectionObject->isProtected()) {
