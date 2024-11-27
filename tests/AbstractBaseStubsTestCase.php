@@ -85,7 +85,7 @@ abstract class AbstractBaseStubsTestCase extends TestCase
                 throw new Exception("Class $class not found in stubs");
             }
             if ($parentClass instanceof PHPEnum) {
-                $value = $parentClass->name . "::" . $defaultValue->name;
+                $value = $parentClass->id . "::" . $defaultValue->name;
             } elseif ((string)$defaultValue->name === 'class') {
                 $value = (string)$defaultValue->class;
             } else {
@@ -97,7 +97,7 @@ abstract class AbstractBaseStubsTestCase extends TestCase
         } elseif (is_array($defaultValue) || $defaultValue instanceof Array_) {
             $value = '[]';
         } elseif ($defaultValue instanceof UnitEnum){
-            $value = get_class($defaultValue) . "::" . $defaultValue->name;
+            $value = "\\" . get_class($defaultValue) . "::" . $defaultValue->name;
         } else {
             $value = strval($defaultValue);
         }

@@ -1264,7 +1264,7 @@ define("STREAM_CRYPTO_PROTO_TLSv1_3", 64);
 /**
  * @since 7.1
  */
-define("MT_RAND_MT19937", 0);
+define('MT_RAND_MT19937', 0);
 /**
  * @since 7.1
  * @deprecated 8.3
