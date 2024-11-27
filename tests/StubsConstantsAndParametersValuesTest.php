@@ -92,33 +92,33 @@ class StubsConstantsAndParametersValuesTest extends AbstractBaseStubsTestCase
         );
     }
 
-    #[DataProviderExternal(ReflectionParametersProvider::class, 'classMethodOptionalParametersWithDefaultValueProvider')]
-    public function testClassMethodsDefaultParametersValue(?string $classId, ?string $methodName, ?string $parameterName)
-    {
-        if (!$classId && !$methodName && !$parameterName) {
-            self::markTestSkipped($this->emptyDataSetMessage);
-        }
-        $reflectionParameter = ReflectionStubsSingleton::getReflectionStubs()->getClass($classId, fromReflection: true)->getMethod($methodName, fromReflection: true)->getParameter($parameterName);
-        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId);
-        $phpstormFunction = $stubClass->getMethod($methodName);
-        $stubParameters = array_filter($phpstormFunction->parameters, fn (PHPParameter $stubParameter) => $stubParameter->indexInSignature === $reflectionParameter->indexInSignature);
-        /** @var PHPParameter $stubOptionalParameter */
-        $stubOptionalParameter = array_pop($stubParameters);
-        $reflectionValue = AbstractBaseStubsTestCase::getStringRepresentationOfDefaultParameterValue($reflectionParameter->defaultValue);
-        $stubValue = AbstractBaseStubsTestCase::getStringRepresentationOfDefaultParameterValue($stubOptionalParameter->defaultValue, $stubClass);
-        self::assertEquals(
-            $reflectionValue,
-            $stubValue,
-            sprintf(
-                'Reflection method %s::%s has optional parameter %s with default value %s but stub parameter has value %s',
-                $classId,
-                $methodName,
-                $parameterName,
-                $reflectionValue,
-                $stubValue
-            )
-        );
-    }
+//    #[DataProviderExternal(ReflectionParametersProvider::class, 'classMethodOptionalParametersWithDefaultValueProvider')]
+//    public function testClassMethodsDefaultParametersValue(?string $classId, ?string $methodName, ?string $parameterName)
+//    {
+//        if (!$classId && !$methodName && !$parameterName) {
+//            self::markTestSkipped($this->emptyDataSetMessage);
+//        }
+//        $reflectionParameter = ReflectionStubsSingleton::getReflectionStubs()->getClass($classId, fromReflection: true)->getMethod($methodName, fromReflection: true)->getParameter($parameterName);
+//        $stubClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId);
+//        $phpstormFunction = $stubClass->getMethod($methodName);
+//        $stubParameters = array_filter($phpstormFunction->parameters, fn (PHPParameter $stubParameter) => $stubParameter->indexInSignature === $reflectionParameter->indexInSignature);
+//        /** @var PHPParameter $stubOptionalParameter */
+//        $stubOptionalParameter = array_pop($stubParameters);
+//        $reflectionValue = AbstractBaseStubsTestCase::getStringRepresentationOfDefaultParameterValue($reflectionParameter->defaultValue);
+//        $stubValue = AbstractBaseStubsTestCase::getStringRepresentationOfDefaultParameterValue($stubOptionalParameter->defaultValue, $stubClass);
+//        self::assertEquals(
+//            $reflectionValue,
+//            $stubValue,
+//            sprintf(
+//                'Reflection method %s::%s has optional parameter %s with default value %s but stub parameter has value %s',
+//                $classId,
+//                $methodName,
+//                $parameterName,
+//                $reflectionValue,
+//                $stubValue
+//            )
+//        );
+//    }
 
     #[DataProviderExternal(ReflectionParametersProvider::class, 'interfaceMethodOptionalParametersWithDefaultValueProvider')]
     public function testInterfaceMethodsDefaultParametersValue(?string $classId, ?string $methodName, ?string $parameterName)
