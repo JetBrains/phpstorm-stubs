@@ -23,7 +23,7 @@ class PHPInterface extends BasePHPClass
         }
         $this->id = "$this->namespace\\$this->name";
         foreach ($reflectionObject->getMethods() as $method) {
-            if ($method->getDeclaringClass()->getName() !== $this->name) {
+            if ($method->getDeclaringClass()->getShortName() !== $this->name) {
                 continue;
             }
             $this->methods[$method->name] = (new PHPMethod())->readObjectFromReflection($method);
@@ -33,9 +33,9 @@ class PHPInterface extends BasePHPClass
         }, $reflectionObject->getInterfaceNames());
         if (method_exists($reflectionObject, 'getReflectionConstants')) {
             foreach ($reflectionObject->getReflectionConstants() as $constant) {
-                /*if ($constant->getDeclaringClass()->getName() !== $this->name) {
+                if ($constant->getDeclaringClass()->getShortName() !== $this->name) {
                     continue;
-                }*/
+                }
                 $this->constants[$constant->name] = (new PHPClassConstant())->readObjectFromReflection($constant);
             }
         }

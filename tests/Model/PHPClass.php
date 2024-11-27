@@ -54,7 +54,7 @@ class PHPClass extends BasePHPClass
             $this->isReadonly = $reflectionObject->isReadOnly();
         }
         foreach ($reflectionObject->getMethods() as $method) {
-            if ($method->getDeclaringClass()->getName() !== $this->name) {
+            if ($method->getDeclaringClass()->getShortName() !== $this->name) {
                 continue;
             }
             $parsedMethod = (new PHPMethod())->readObjectFromReflection($method);
@@ -63,7 +63,7 @@ class PHPClass extends BasePHPClass
 
         if (method_exists($reflectionObject, 'getReflectionConstants')) {
             foreach ($reflectionObject->getReflectionConstants() as $constant) {
-                if ($constant->getDeclaringClass()->getName() !== $this->name) {
+                if ($constant->getDeclaringClass()->getShortName() !== $this->name) {
                     continue;
                 }
                 $parsedConstant = (new PHPClassConstant())->readObjectFromReflection($constant);
@@ -72,7 +72,7 @@ class PHPClass extends BasePHPClass
         }
 
         foreach ($reflectionObject->getProperties() as $property) {
-            if ($property->getDeclaringClass()->getName() !== $this->name) {
+            if ($property->getDeclaringClass()->getShortName() !== $this->name) {
                 continue;
             }
             $parsedProperty = (new PHPProperty())->readObjectFromReflection($property);

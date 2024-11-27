@@ -28,9 +28,9 @@ class PHPEnum extends PHPClass
             $this->isReadonly = $reflectionObject->isReadOnly();
         }
         foreach ($reflectionObject->getMethods() as $method) {
-            /*if ($method->getDeclaringClass()->getName() !== $this->name) {
+            if ($method->getDeclaringClass()->getShortName() !== $this->name) {
                 continue;
-            }*/
+            }
             $parsedMethod = (new PHPMethod())->readObjectFromReflection($method);
             $this->addMethod($parsedMethod);
         }
