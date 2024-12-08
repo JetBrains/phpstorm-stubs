@@ -1387,11 +1387,14 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
     public function getNamedItem(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName): ?DOMNode {}
 
     /**
+     * @until 8.0
      * @param DOMNode $arg
+     * @return void
      */
     public function setNamedItem(DOMNode $arg) {}
 
     /**
+     * @until 8.0
      * @param $name [optional]
      */
     public function removeNamedItem($name) {}
@@ -1433,11 +1436,13 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
     ): ?DOMNode {}
 
     /**
+     * @until 8.0
      * @param DOMNode $arg [optional]
      */
     public function setNamedItemNS(DOMNode $arg) {}
 
     /**
+     * @until 8.0
      * @param $namespace [optional]
      * @param $localName [optional]
      */
