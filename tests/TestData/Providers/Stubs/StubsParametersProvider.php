@@ -138,8 +138,8 @@ class StubsParametersProvider
                 fn ($class) => array_filter(
                     array_map(
                         fn (PHPMethod $method) => array_filter(
-                        EntitiesFilter::getFilteredParameters($method, null, ...$problemTypes),
-                        function ($parameter) use ($filterFunction, $class, $method) {
+                            EntitiesFilter::getFilteredParameters($method, null, ...$problemTypes),
+                            function ($parameter) use ($filterFunction, $class, $method) {
                             if (!empty($parameter->availableVersionsRangeFromAttribute)) {
                                 $firstSinceVersion = max(ParserUtils::getDeclaredSinceVersion($method), min($parameter->availableVersionsRangeFromAttribute));
                             } else {
@@ -147,7 +147,7 @@ class StubsParametersProvider
                             }
                             return $filterFunction($class, $method, $firstSinceVersion) === true;
                         }
-                    ),
+                        ),
                         EntitiesFilter::getFilteredStubsMethods($class)
                     ),
                     fn ($parameters) => !empty($parameters)
