@@ -58,7 +58,7 @@ class DOMNode
     public $parentNode;
 
     /**
-     * @var DOMNodeList
+     * @var DOMNodeList<DOMNode>
      * A <classname>DOMNodeList</classname> that contains all children of this node. If there are no children, this is an empty <classname>DOMNodeList</classname>.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.childnodes
      */
@@ -956,7 +956,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * The name of the tag to match on. The special value *
      * matches all tags.
      * </p>
-     * @return DOMNodeList A new DOMNodeList object containing all the matched
+     * @return DOMNodeList<DOMElement> A new DOMNodeList object containing all the matched
      * elements.
      */
     #[TentativeType]
@@ -1033,7 +1033,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * The local name of the elements to match on.
      * The special value * matches all local names.
      * </p>
-     * @return DOMNodeList A new DOMNodeList object containing all the matched
+     * @return DOMNodeList<DOMElement> A new DOMNodeList object containing all the matched
      * elements.
      */
     #[TentativeType]
@@ -1328,6 +1328,9 @@ class DOMDocument extends DOMNode implements DOMParentNode
 /**
  * The DOMNodeList class
  * @link https://php.net/manual/en/class.domnodelist.php
+ *
+ * @template-covariant TNode as DOMNode
+ * @implements IteratorAggregate<int, TNode>
  */
 class DOMNodeList implements IteratorAggregate, Countable
 {
@@ -1347,7 +1350,7 @@ class DOMNodeList implements IteratorAggregate, Countable
      * Index of the node into the collection.
      * The range of valid child node indices is 0 to length - 1 inclusive.
      * </p>
-     * @return DOMElement|DOMNode|DOMNameSpaceNode|null The node at the indexth position in the
+     * @return TNode|null The node at the indexth position in the
      * DOMNodeList, or null if that is not a valid
      * index.
      */
@@ -1361,7 +1364,7 @@ class DOMNodeList implements IteratorAggregate, Countable
     public function count(): int {}
 
     /**
-     * @return Iterator
+     * @return Iterator<int, TNode>
      * @since 8.0
      */
     public function getIterator(): Iterator {}
@@ -1830,7 +1833,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * The tag name. Use * to return all elements within
      * the element tree.
      * </p>
-     * @return DOMNodeList This function returns a new instance of the class
+     * @return DOMNodeList<DOMElement> This function returns a new instance of the class
      * DOMNodeList of all matched elements.
      */
     #[TentativeType]
@@ -1927,7 +1930,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * The local name. Use * to return all elements within
      * the element tree.
      * </p>
-     * @return DOMNodeList This function returns a new instance of the class
+     * @return DOMNodeList<DOMElement> This function returns a new instance of the class
      * DOMNodeList of all matched elements in the order in
      * which they are encountered in a preorder traversal of this element tree.
      */
@@ -2478,7 +2481,7 @@ class DOMXPath
      * </p>
      * @param bool $registerNodeNS [optional] <p>The optional registerNodeNS can be specified to
      * disable automatic registration of the context node.</p>
-     * @return DOMNodeList|false a DOMNodeList containing all nodes matching
+     * @return DOMNodeList<DOMNode>|false a DOMNodeList containing all nodes matching
      * the given XPath expression. Any expression which does not return nodes
      * will return an empty DOMNodeList. The return is false if the expression
      * is malformed or the contextnode is invalid.
@@ -2505,7 +2508,7 @@ class DOMXPath
      * <p>
      * The optional registerNodeNS can be specified to disable automatic registration of the context node.
      * </p>
-     * @return mixed a typed result if possible or a DOMNodeList
+     * @return mixed a typed result if possible or a DOMNodeList<DOMNode>
      * containing all nodes matching the given XPath expression.
      */
     #[TentativeType]
