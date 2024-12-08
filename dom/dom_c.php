@@ -98,7 +98,7 @@ class DOMNode
     public $nextSibling;
 
     /**
-     * @var DOMNamedNodeMap|null
+     * @var DOMNamedNodeMap<DOMAttr>|null
      * A <classname>DOMNamedNodeMap</classname> containing the attributes of this node (if it is a <classname>DOMElement</classname>) or NULL otherwise.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.attributes
      */
@@ -1374,6 +1374,9 @@ class DOMNodeList implements IteratorAggregate, Countable
  * The DOMNamedNodeMap class
  * @link https://php.net/manual/en/class.domnamednodemap.php
  * @property-read int $length The number of nodes in the map. The range of valid child node indices is 0 to length - 1 inclusive.
+ *
+ * @template-covariant TNode as DOMNode
+ * @implements IteratorAggregate<string, TNode>
  */
 class DOMNamedNodeMap implements IteratorAggregate, Countable
 {
@@ -1383,7 +1386,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
      * @param string $qualifiedName <p>
      * The nodeName of the node to retrieve.
      * </p>
-     * @return DOMNode|null A node (of any type) with the specified nodeName, or
+     * @return TNode|null A node (of any type) with the specified nodeName, or
      * null if no node is found.
      */
     #[TentativeType]
@@ -1427,7 +1430,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
      * @param string $localName <p>
      * The local name of the node to retrieve.
      * </p>
-     * @return DOMNode|null A node (of any type) with the specified local name and namespace URI, or
+     * @return TNode|null A node (of any type) with the specified local name and namespace URI, or
      * null if no node is found.
      */
     #[TentativeType]
@@ -1459,7 +1462,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
     public function count(): int {}
 
     /**
-     * @return Iterator
+     * @return Iterator<string, TNode>
      * @since 8.0
      */
     public function getIterator(): Iterator {}
@@ -1717,7 +1720,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
     public $nextSibling;
 
     /**
-     * @var DOMNamedNodeMap
+     * @var DOMNamedNodeMap<DOMAttr>
      * A <classname>DOMNamedNodeMap</classname> containing the attributes of this node (if it is a <classname>DOMElement</classname>) or NULL otherwise.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.attributes
      */
@@ -2260,7 +2263,7 @@ class DOMDocumentType extends DOMNode
     public $name;
 
     /**
-     * @var DOMNamedNodeMap
+     * @var DOMNamedNodeMap<DOMEntity>
      * A <classname>DOMNamedNodeMap</classname> containing the general entities, both external and internal, declared in the DTD.
      * @link https://php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props.entities
      */
@@ -2268,7 +2271,7 @@ class DOMDocumentType extends DOMNode
     public $entities;
 
     /**
-     * @var DOMNamedNodeMap
+     * @var DOMNamedNodeMap<DOMNotation>
      * A <clasname>DOMNamedNodeMap</classname> containing the notations declared in the DTD.
      * @link https://php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props.notations
      */
