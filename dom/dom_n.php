@@ -28,6 +28,8 @@ final readonly class NamespaceInfo
 
 /**
  * @since 8.4
+ * @template-covariant TNode as Node
+ * @implements \IteratorAggregate<int, TNode>
  */
 class NodeList implements \IteratorAggregate, \Countable
 {
@@ -35,8 +37,12 @@ class NodeList implements \IteratorAggregate, \Countable
 
     public function count(): int {}
 
+    /**
+     * @return \Iterator<int, TNode>
+     */
     public function getIterator(): \Iterator {}
 
+    /** @return ?TNode */
     public function item(int $index): ?Node {}
 }
 /**
@@ -58,19 +64,26 @@ class NamedNodeMap implements \IteratorAggregate, \Countable
 }
 /**
  * @since 8.4
+ *
+ * @template-covariant TDtdNode as Entity|Notation
+ * @implements \IteratorAggregate<string, TDtdNode>
  */
 class DtdNamedNodeMap implements \IteratorAggregate, \Countable
 {
     public int $length;
 
+    /** @return TDtdNode|null */
     public function item(int $index): Entity|Notation|null {}
 
+    /** @return TDtdNode|null */
     public function getNamedItem(string $qualifiedName): Entity|Notation|null {}
 
+    /** @return TDtdNode|null */
     public function getNamedItemNS(?string $namespace, string $localName): Entity|Notation|null {}
 
     public function count(): int {}
 
+    /** @return \Iterator<string, TDtdNode> */
     public function getIterator(): \Iterator {}
 }
 /**
@@ -98,8 +111,10 @@ final class XPath
 
     public function __construct(Document $document, bool $registerNodeNS = true) {}
 
+    /** @return null|bool|float|string|NodeList<Node> */
     public function evaluate(string $expression, ?Node $contextNode = null, bool $registerNodeNS = true): null|bool|float|string|NodeList {}
 
+    /** @return NodeList<Node> */
     public function query(string $expression, ?Node $contextNode = null, bool $registerNodeNS = true): NodeList {}
 
     public function registerNamespace(string $prefix, string $namespace): bool {}
@@ -150,6 +165,7 @@ interface ParentNode
 
     public function querySelector(string $selectors): ?Element;
 
+    /** @return NodeList<Element> */
     public function querySelectorAll(string $selectors): NodeList;
 }
 /**
@@ -198,6 +214,8 @@ class Node
     public ?Element $parentElement;
 
     public function hasChildNodes(): bool {}
+
+    /** @var NodeList<Node> */
     public NodeList $childNodes;
     public ?Node $firstChild;
     public ?Node $lastChild;
@@ -269,6 +287,7 @@ class DocumentFragment extends Node implements ParentNode
 
     public function querySelector(string $selectors): ?Element {}
 
+    /** @return NodeList<Element> */
     public function querySelectorAll(string $selectors): NodeList {}
 }
 /**
@@ -337,6 +356,7 @@ class Document extends Node implements ParentNode
 
     public function querySelector(string $selectors): ?Element {}
 
+    /** @return NodeList<Element> */
     public function querySelectorAll(string $selectors): NodeList {}
     public ?HTMLElement $body;
     public ?HTMLElement $head;
@@ -516,6 +536,7 @@ class Element extends Node implements ParentNode, ChildNode
 
     public function querySelector(string $selectors): ?Element {}
 
+    /** @return NodeList<Element> */
     public function querySelectorAll(string $selectors): NodeList {}
 
     public function closest(string $selectors): ?Element {}

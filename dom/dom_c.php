@@ -58,7 +58,7 @@ class DOMNode
     public $parentNode;
 
     /**
-     * @var DOMNodeList
+     * @var DOMNodeList<DOMNode>
      * A <classname>DOMNodeList</classname> that contains all children of this node. If there are no children, this is an empty <classname>DOMNodeList</classname>.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.childnodes
      */
@@ -98,7 +98,7 @@ class DOMNode
     public $nextSibling;
 
     /**
-     * @var DOMNamedNodeMap|null
+     * @var DOMNamedNodeMap<DOMAttr>|null
      * A <classname>DOMNamedNodeMap</classname> containing the attributes of this node (if it is a <classname>DOMElement</classname>) or NULL otherwise.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.attributes
      */
@@ -956,7 +956,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * The name of the tag to match on. The special value *
      * matches all tags.
      * </p>
-     * @return DOMNodeList A new DOMNodeList object containing all the matched
+     * @return DOMNodeList<DOMElement> A new DOMNodeList object containing all the matched
      * elements.
      */
     #[TentativeType]
@@ -1033,7 +1033,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * The local name of the elements to match on.
      * The special value * matches all local names.
      * </p>
-     * @return DOMNodeList A new DOMNodeList object containing all the matched
+     * @return DOMNodeList<DOMElement> A new DOMNodeList object containing all the matched
      * elements.
      */
     #[TentativeType]
@@ -1328,6 +1328,9 @@ class DOMDocument extends DOMNode implements DOMParentNode
 /**
  * The DOMNodeList class
  * @link https://php.net/manual/en/class.domnodelist.php
+ *
+ * @template-covariant TNode as DOMNode|DOMNameSpaceNode
+ * @implements IteratorAggregate<int, TNode>
  */
 class DOMNodeList implements IteratorAggregate, Countable
 {
@@ -1347,7 +1350,7 @@ class DOMNodeList implements IteratorAggregate, Countable
      * Index of the node into the collection.
      * The range of valid child node indices is 0 to length - 1 inclusive.
      * </p>
-     * @return DOMElement|DOMNode|DOMNameSpaceNode|null The node at the indexth position in the
+     * @return TNode|null The node at the indexth position in the
      * DOMNodeList, or null if that is not a valid
      * index.
      */
@@ -1361,7 +1364,7 @@ class DOMNodeList implements IteratorAggregate, Countable
     public function count(): int {}
 
     /**
-     * @return Iterator
+     * @return Iterator<int, TNode>
      * @since 8.0
      */
     public function getIterator(): Iterator {}
@@ -1371,6 +1374,9 @@ class DOMNodeList implements IteratorAggregate, Countable
  * The DOMNamedNodeMap class
  * @link https://php.net/manual/en/class.domnamednodemap.php
  * @property-read int $length The number of nodes in the map. The range of valid child node indices is 0 to length - 1 inclusive.
+ *
+ * @template-covariant TNode as DOMNode
+ * @implements IteratorAggregate<string, TNode>
  */
 class DOMNamedNodeMap implements IteratorAggregate, Countable
 {
@@ -1380,18 +1386,21 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
      * @param string $qualifiedName <p>
      * The nodeName of the node to retrieve.
      * </p>
-     * @return DOMNode|null A node (of any type) with the specified nodeName, or
+     * @return TNode|null A node (of any type) with the specified nodeName, or
      * null if no node is found.
      */
     #[TentativeType]
     public function getNamedItem(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName): ?DOMNode {}
 
     /**
+     * @until 8.0
      * @param DOMNode $arg
+     * @return void
      */
     public function setNamedItem(DOMNode $arg) {}
 
     /**
+     * @until 8.0
      * @param $name [optional]
      */
     public function removeNamedItem($name) {}
@@ -1421,7 +1430,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
      * @param string $localName <p>
      * The local name of the node to retrieve.
      * </p>
-     * @return DOMNode|null A node (of any type) with the specified local name and namespace URI, or
+     * @return TNode|null A node (of any type) with the specified local name and namespace URI, or
      * null if no node is found.
      */
     #[TentativeType]
@@ -1433,11 +1442,13 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
     ): ?DOMNode {}
 
     /**
+     * @until 8.0
      * @param DOMNode $arg [optional]
      */
     public function setNamedItemNS(DOMNode $arg) {}
 
     /**
+     * @until 8.0
      * @param $namespace [optional]
      * @param $localName [optional]
      */
@@ -1451,7 +1462,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
     public function count(): int {}
 
     /**
-     * @return Iterator
+     * @return Iterator<string, TNode>
      * @since 8.0
      */
     public function getIterator(): Iterator {}
@@ -1709,7 +1720,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
     public $nextSibling;
 
     /**
-     * @var DOMNamedNodeMap
+     * @var DOMNamedNodeMap<DOMAttr>
      * A <classname>DOMNamedNodeMap</classname> containing the attributes of this node (if it is a <classname>DOMElement</classname>) or NULL otherwise.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.attributes
      */
@@ -1825,7 +1836,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * The tag name. Use * to return all elements within
      * the element tree.
      * </p>
-     * @return DOMNodeList This function returns a new instance of the class
+     * @return DOMNodeList<DOMElement> This function returns a new instance of the class
      * DOMNodeList of all matched elements.
      */
     #[TentativeType]
@@ -1922,7 +1933,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * The local name. Use * to return all elements within
      * the element tree.
      * </p>
-     * @return DOMNodeList This function returns a new instance of the class
+     * @return DOMNodeList<DOMElement> This function returns a new instance of the class
      * DOMNodeList of all matched elements in the order in
      * which they are encountered in a preorder traversal of this element tree.
      */
@@ -2252,7 +2263,7 @@ class DOMDocumentType extends DOMNode
     public $name;
 
     /**
-     * @var DOMNamedNodeMap
+     * @var DOMNamedNodeMap<DOMEntity>
      * A <classname>DOMNamedNodeMap</classname> containing the general entities, both external and internal, declared in the DTD.
      * @link https://php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props.entities
      */
@@ -2260,7 +2271,7 @@ class DOMDocumentType extends DOMNode
     public $entities;
 
     /**
-     * @var DOMNamedNodeMap
+     * @var DOMNamedNodeMap<DOMNotation>
      * A <clasname>DOMNamedNodeMap</classname> containing the notations declared in the DTD.
      * @link https://php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props.notations
      */
@@ -2473,7 +2484,7 @@ class DOMXPath
      * </p>
      * @param bool $registerNodeNS [optional] <p>The optional registerNodeNS can be specified to
      * disable automatic registration of the context node.</p>
-     * @return DOMNodeList|false a DOMNodeList containing all nodes matching
+     * @return DOMNodeList<DOMNode|DOMNameSpaceNode>|false a DOMNodeList containing all nodes matching
      * the given XPath expression. Any expression which does not return nodes
      * will return an empty DOMNodeList. The return is false if the expression
      * is malformed or the contextnode is invalid.
@@ -2500,7 +2511,7 @@ class DOMXPath
      * <p>
      * The optional registerNodeNS can be specified to disable automatic registration of the context node.
      * </p>
-     * @return mixed a typed result if possible or a DOMNodeList
+     * @return mixed a typed result if possible or a DOMNodeList<DOMNode|DOMNameSpaceNode>|false
      * containing all nodes matching the given XPath expression.
      */
     #[TentativeType]
