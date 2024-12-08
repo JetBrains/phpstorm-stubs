@@ -28,6 +28,8 @@ final readonly class NamespaceInfo
 
 /**
  * @since 8.4
+ * @template-covariant TNode as Node
+ * @implements \IteratorAggregate<int, TNode>
  */
 class NodeList implements \IteratorAggregate, \Countable
 {
@@ -35,8 +37,12 @@ class NodeList implements \IteratorAggregate, \Countable
 
     public function count(): int {}
 
+    /**
+     * @return \Iterator<int, TNode>
+     */
     public function getIterator(): \Iterator {}
 
+    /** @return ?TNode */
     public function item(int $index): ?Node {}
 }
 /**
@@ -98,8 +104,10 @@ final class XPath
 
     public function __construct(Document $document, bool $registerNodeNS = true) {}
 
+    /** @return null|bool|float|string|NodeList<Node> */
     public function evaluate(string $expression, ?Node $contextNode = null, bool $registerNodeNS = true): null|bool|float|string|NodeList {}
 
+    /** @return NodeList<Node> */
     public function query(string $expression, ?Node $contextNode = null, bool $registerNodeNS = true): NodeList {}
 
     public function registerNamespace(string $prefix, string $namespace): bool {}
@@ -150,6 +158,7 @@ interface ParentNode
 
     public function querySelector(string $selectors): ?Element;
 
+    /** @return NodeList<Element> */
     public function querySelectorAll(string $selectors): NodeList;
 }
 /**
@@ -198,6 +207,8 @@ class Node
     public ?Element $parentElement;
 
     public function hasChildNodes(): bool {}
+
+    /** @var NodeList<Node> */
     public NodeList $childNodes;
     public ?Node $firstChild;
     public ?Node $lastChild;
@@ -269,6 +280,7 @@ class DocumentFragment extends Node implements ParentNode
 
     public function querySelector(string $selectors): ?Element {}
 
+    /** @return NodeList<Element> */
     public function querySelectorAll(string $selectors): NodeList {}
 }
 /**
@@ -337,6 +349,7 @@ class Document extends Node implements ParentNode
 
     public function querySelector(string $selectors): ?Element {}
 
+    /** @return NodeList<Element> */
     public function querySelectorAll(string $selectors): NodeList {}
     public ?HTMLElement $body;
     public ?HTMLElement $head;
@@ -516,6 +529,7 @@ class Element extends Node implements ParentNode, ChildNode
 
     public function querySelector(string $selectors): ?Element {}
 
+    /** @return NodeList<Element> */
     public function querySelectorAll(string $selectors): NodeList {}
 
     public function closest(string $selectors): ?Element {}
