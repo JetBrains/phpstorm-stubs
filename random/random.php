@@ -113,7 +113,6 @@ namespace {
 
 namespace Random\Engine
 {
-
     use const MT_RAND_MT19937;
 
     /**
