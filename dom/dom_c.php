@@ -1329,7 +1329,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
  * The DOMNodeList class
  * @link https://php.net/manual/en/class.domnodelist.php
  *
- * @template-covariant TNode as DOMNode
+ * @template-covariant TNode as DOMNode|DOMNameSpaceNode
  * @implements IteratorAggregate<int, TNode>
  */
 class DOMNodeList implements IteratorAggregate, Countable
@@ -2484,7 +2484,7 @@ class DOMXPath
      * </p>
      * @param bool $registerNodeNS [optional] <p>The optional registerNodeNS can be specified to
      * disable automatic registration of the context node.</p>
-     * @return DOMNodeList<DOMNode>|false a DOMNodeList containing all nodes matching
+     * @return DOMNodeList<DOMNode|DOMNameSpaceNode>|false a DOMNodeList containing all nodes matching
      * the given XPath expression. Any expression which does not return nodes
      * will return an empty DOMNodeList. The return is false if the expression
      * is malformed or the contextnode is invalid.
@@ -2511,7 +2511,7 @@ class DOMXPath
      * <p>
      * The optional registerNodeNS can be specified to disable automatic registration of the context node.
      * </p>
-     * @return mixed a typed result if possible or a DOMNodeList<DOMNode>
+     * @return mixed a typed result if possible or a DOMNodeList<DOMNode|DOMNameSpaceNode>|false
      * containing all nodes matching the given XPath expression.
      */
     #[TentativeType]
