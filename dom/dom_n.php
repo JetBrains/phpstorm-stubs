@@ -47,7 +47,7 @@ class NodeList implements \IteratorAggregate, \Countable
 }
 /**
  * @since 8.4
- * @implements \IteratorAggregate<array-key, \DOM\Attr>
+ * @implements \IteratorAggregate<array-key, Attr>
  */
 class NamedNodeMap implements \IteratorAggregate, \Countable
 {
@@ -61,6 +61,9 @@ class NamedNodeMap implements \IteratorAggregate, \Countable
 
     public function count(): int {}
 
+    /**
+     * @return \Iterator<array-key, Attr>
+     */
     public function getIterator(): \Iterator {}
 }
 /**
@@ -89,7 +92,7 @@ class DtdNamedNodeMap implements \IteratorAggregate, \Countable
 }
 /**
  * @since 8.4
- * @implements \IteratorAggregate<array-key, \DOM\Element>
+ * @implements \IteratorAggregate<array-key, Element>
  */
 class HTMLCollection implements \IteratorAggregate, \Countable
 {
@@ -101,6 +104,9 @@ class HTMLCollection implements \IteratorAggregate, \Countable
 
     public function count(): int {}
 
+    /**
+     * @return \Iterator<array-key, Element>
+     */
     public function getIterator(): \Iterator {}
 }
 /**
