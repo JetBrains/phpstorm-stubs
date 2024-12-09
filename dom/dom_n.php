@@ -47,6 +47,7 @@ class NodeList implements \IteratorAggregate, \Countable
 }
 /**
  * @since 8.4
+ * @implements \IteratorAggregate<array-key, \DOM\Attr>
  */
 class NamedNodeMap implements \IteratorAggregate, \Countable
 {
@@ -88,6 +89,7 @@ class DtdNamedNodeMap implements \IteratorAggregate, \Countable
 }
 /**
  * @since 8.4
+ * @implements \IteratorAggregate<array-key, \DOM\Element>
  */
 class HTMLCollection implements \IteratorAggregate, \Countable
 {
@@ -546,10 +548,10 @@ class Element extends Node implements ParentNode, ChildNode
     public string $outerHTML;
     public string $substitutedNodeValue;
 
-    /** @return array<NamespaceInfo> */
+    /** @return list<NamespaceInfo> */
     public function getInScopeNamespaces(): array {}
 
-    /** @return array<NamespaceInfo> */
+    /** @return list<NamespaceInfo> */
     public function getDescendantNamespaces(): array {}
 
     public function rename(?string $namespaceURI, string $qualifiedName): void {}
