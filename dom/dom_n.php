@@ -28,7 +28,7 @@ final readonly class NamespaceInfo
 
 /**
  * @since 8.4
- * @template-covariant TNode as Node
+ * @template-covariant TNode of Node
  * @implements \IteratorAggregate<int, TNode>
  */
 class NodeList implements \IteratorAggregate, \Countable
@@ -69,7 +69,7 @@ class NamedNodeMap implements \IteratorAggregate, \Countable
 /**
  * @since 8.4
  *
- * @template-covariant TDtdNode as Entity|Notation
+ * @template-covariant TDtdNode of Entity|Notation
  * @implements \IteratorAggregate<string, TDtdNode>
  */
 class DtdNamedNodeMap implements \IteratorAggregate, \Countable
