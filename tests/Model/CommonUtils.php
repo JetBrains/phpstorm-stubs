@@ -17,5 +17,15 @@ class CommonUtils
         return iterator_to_array(new RecursiveIteratorIterator(new RecursiveArrayIterator($array)), $group);
     }
 
-    public function array_flat_map(array $array, $callback) {}
+    /**
+     * @template T
+     * @template S
+     *
+     * @param list<T> $array
+     * @param callable(T): list<S> $callback
+     * @return list<S>
+     */
+    public static function array_flat_map(array $array, callable $callback) {
+        return array_merge(...array_map($callback, $array));
+    }
 }
