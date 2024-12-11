@@ -6,6 +6,8 @@ use Exception;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use phpDocumentor\Reflection\DocBlock\Tags\Param;
 use phpDocumentor\Reflection\DocBlock\Tags\Return_;
+use phpDocumentor\Reflection\PseudoTypes\List_;
+use phpDocumentor\Reflection\Type;
 use phpDocumentor\Reflection\Types\Array_;
 use phpDocumentor\Reflection\Types\Collection;
 use phpDocumentor\Reflection\Types\Compound;
@@ -122,19 +124,30 @@ class PHPFunction extends PHPNamespacedElement
     {
         if (!empty($this->returnTags) && $this->returnTags[0] instanceof Return_) {
             $type = $this->returnTags[0]->getType();
-            if ($type instanceof Collection) {
-                $returnType = $type->getFqsen();
-            } elseif ($type instanceof Array_ && $type->getValueType() instanceof Collection) {
-                $returnType = "array";
-            } else {
-                $returnType = $type;
-            }
-            if ($returnType instanceof Compound) {
-                foreach ($returnType as $nextType) {
-                    $this->returnTypesFromPhpDoc[] = (string)$nextType;
+            $this->returnTypesFromPhpDoc = self::handleType($type);
+        }
+    }
+
+    /**
+     * @param Type|null $type
+     * @return string[]
+     */
+    protected static function handleType($type) {
+        if ($type instanceof Collection) {
+            return [$type->getFqsen()->getName()];
+        } elseif ($type instanceof Array_ && $type->getValueType() instanceof Collection) {
+            return ["array"];
+        } elseif ($type instanceof List_) {
+            return ["array"];
+        } else {
+            if ($type instanceof Compound) {
+                $types = [];
+                foreach ($type as $nextType) {
+                    $types[] = self::handleType($nextType);
                 }
+                return CommonUtils::flattenArray($types, false);
             } else {
-                $this->returnTypesFromPhpDoc[] = (string)$returnType;
+                return [(string)$type];
             }
         }
     }

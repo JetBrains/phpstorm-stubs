@@ -444,7 +444,7 @@ function mysql_fetch_array($result, $result_type = MYSQL_BOTH) {}
 function mysql_fetch_assoc($result) {}
 
 /**
- * @template T
+ * @template T of object
  *
  * Fetch a result row as an object
  * @link https://php.net/manual/en/function.mysql-fetch-object.php

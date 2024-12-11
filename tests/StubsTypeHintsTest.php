@@ -3,8 +3,10 @@ declare(strict_types=1);
 
 namespace StubTests;
 
+use phpDocumentor\Reflection\DocBlock\Tags\Template;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
 use stdClass;
+use StubTests\Model\CommonUtils;
 use StubTests\Model\PHPParameter;
 use StubTests\Model\StubProblemType;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
@@ -453,22 +455,14 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
     public static function testSignatureTypeHintsConformPhpDocInFunctions(string $functionId)
     {
         $function = PhpStormStubsSingleton::getPhpStormStubs()->getFunction($functionId, shouldSuitCurrentPhpVersion: false);
-        $unifiedPhpDocTypes = array_map(function (string $type) use ($function) {
-            $typeParts = explode('\\', $type);
-            $typeName = end($typeParts);
-            foreach ($function->templateTypes as $templateType) {
-                if ($typeName === $templateType) {
-                    $typeName = 'object';
-                }
-            }
-
-            // replace array notations like int[] or array<string,mixed> or array{name:type} to match the array type
-            return preg_replace(['/\w+\[]/', '/array[{<][a-z,\s:|_]+[>}]/'], 'array', $typeName);
-        }, $function->returnTypesFromPhpDoc);
-        $unifiedSignatureTypes = array_map(function (string $type) {
-            $typeParts = explode('\\', $type);
-            return end($typeParts);
-        }, $function->returnTypesFromSignature);
+        $unifiedPhpDocTypes = CommonUtils::array_flat_map(
+            array_map(
+                self::getTypePossibleNamespace(...),
+                $function->returnTypesFromPhpDoc,
+            ),
+            fn (string $type) => self::handleTemplateTypes($type, $function->templateTypes),
+        );
+        $unifiedSignatureTypes = array_map(self::getTypePossibleNamespace(...), $function->returnTypesFromSignature);
         if (count($unifiedSignatureTypes) === 1) {
             $type = array_pop($unifiedSignatureTypes);
             if (str_contains($type, '?')) {
@@ -493,27 +487,20 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
         $stubsClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($classId, shouldSuitCurrentPhpVersion: false);
         $classTemplateTypes = $stubsClass->templateTypes;
         $function = $stubsClass->getMethod($functionId, false);
-        $unifiedPhpDocTypes = array_map(function (string $type) use ($function, $classTemplateTypes) {
-            $typeParts = explode('\\', $type);
-            $typeName = end($typeParts);
-            foreach ($function->templateTypes as $templateType) {
-                if ($typeName === $templateType) {
-                    $typeName = 'object';
-                }
-            }
-            foreach ($classTemplateTypes as $templateType) {
-                if ($typeName === $templateType) {
-                    $typeName = 'object';
-                }
-            }
-
-            // replace array notations like int[] or array<string,mixed> or array{name:type} to match the array type
-            return preg_replace(['/\w+\[]/', '/array[{<][a-z,\s:|_]+[>}]/'], 'array', $typeName);
-        }, $function->returnTypesFromPhpDoc);
-        $unifiedSignatureTypes = array_map(function (string $type) {
-            $typeParts = explode('\\', $type);
-            return end($typeParts);
-        }, $function->returnTypesFromSignature);
+        $unifiedPhpDocTypes = array_map(
+            fn (string $type) => ltrim($type, '\\'),
+            CommonUtils::array_flat_map(
+                CommonUtils::array_flat_map(
+                    array_map(
+                        self::getTypePossibleNamespace(...),
+                        $function->returnTypesFromPhpDoc,
+                    ),
+                    fn (string $type) => self::handleTemplateTypes($type, $function->templateTypes),
+                ),
+                fn (string $type) => self::handleTemplateTypes($type, $classTemplateTypes),
+            )
+        );
+        $unifiedSignatureTypes = array_map(self::getTypePossibleNamespace(...), $function->returnTypesFromSignature);
         if (count($unifiedSignatureTypes) === 1) {
             $type = array_pop($unifiedSignatureTypes);
             if (str_contains($type, '?')) {
@@ -536,22 +523,14 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
     public static function testInterfacesMethodsSignatureTypeHintsConformPhpDocInMethods(string $classId, string $functionId)
     {
         $function = PhpStormStubsSingleton::getPhpStormStubs()->getInterface($classId, shouldSuitCurrentPhpVersion: false)->getMethod($functionId, false);
-        $unifiedPhpDocTypes = array_map(function (string $type) use ($function) {
-            $typeParts = explode('\\', $type);
-            $typeName = end($typeParts);
-            foreach ($function->templateTypes as $templateType) {
-                if ($typeName === $templateType) {
-                    $typeName = 'object';
-                }
-            }
-
-            // replace array notations like int[] or array<string,mixed> or array{name:type} to match the array type
-            return preg_replace(['/\w+\[]/', '/array[{<][a-z,\s:|_]+[>}]/'], 'array', $typeName);
-        }, $function->returnTypesFromPhpDoc);
-        $unifiedSignatureTypes = array_map(function (string $type) {
-            $typeParts = explode('\\', $type);
-            return end($typeParts);
-        }, $function->returnTypesFromSignature);
+        $unifiedPhpDocTypes = CommonUtils::array_flat_map(
+            array_map(
+                self::getTypePossibleNamespace(...),
+                $function->returnTypesFromPhpDoc,
+            ),
+            fn (string $type) => self::handleTemplateTypes($type, $function->templateTypes),
+        );
+        $unifiedSignatureTypes = array_map(self::getTypePossibleNamespace(...), $function->returnTypesFromSignature);
         if (count($unifiedSignatureTypes) === 1) {
             $type = array_pop($unifiedSignatureTypes);
             if (str_contains($type, '?')) {
@@ -577,22 +556,14 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
             self::markTestSkipped($this->emptyDataSetMessage);
         }
         $function = PhpStormStubsSingleton::getPhpStormStubs()->getEnum($classId)->getMethod($functionId);
-        $unifiedPhpDocTypes = array_map(function (string $type) use ($function) {
-            $typeParts = explode('\\', $type);
-            $typeName = end($typeParts);
-            foreach ($function->templateTypes as $templateType) {
-                if ($typeName === $templateType) {
-                    $typeName = 'object';
-                }
-            }
-
-            // replace array notations like int[] or array<string,mixed> or array{name:type} to match the array type
-            return preg_replace(['/\w+\[]/', '/array[{<][a-z,\s:|_]+[>}]/'], 'array', $typeName);
-        }, $function->returnTypesFromPhpDoc);
-        $unifiedSignatureTypes = array_map(function (string $type) {
-            $typeParts = explode('\\', $type);
-            return end($typeParts);
-        }, $function->returnTypesFromSignature);
+        $unifiedPhpDocTypes = CommonUtils::array_flat_map(
+            array_map(
+                self::getTypePossibleNamespace(...),
+                $function->returnTypesFromPhpDoc,
+            ),
+            fn (string $type) => self::handleTemplateTypes($type, $function->templateTypes),
+        );
+        $unifiedSignatureTypes = array_map(self::getTypePossibleNamespace(...), $function->returnTypesFromSignature);
         if (count($unifiedSignatureTypes) === 1) {
             $type = array_pop($unifiedSignatureTypes);
             if (str_contains($type, '?')) {
@@ -653,5 +624,54 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
             "' but stub parameter $stubParameter->name with index $stubParameter->indexInSignature has type '" . implode('|', $unifiedStubsParameterTypes) . "' in signature and " .
             implode('|', $typesFromAttribute) . ' in attribute';
         return $return;
+    }
+
+    private static function getTypePossibleNamespace(string $type): string
+    {
+        $typeParts = explode('\\', $type);
+        return end($typeParts);
+    }
+
+    private static function replaceArrayNotations(string $type): string
+    {
+        /* Assume T[] or array shape array{0: T1, 1: T2} */
+        if (str_contains($type, '[') || str_contains($type, '{')) {
+            return 'array';
+        }
+        if (str_starts_with($type, 'list')) {
+            return 'array';
+        }
+        /* Assume template type T1<T2> where we don't care about the "inner" type */
+        if (str_contains($type, '<')) {
+            $pos = strpos($type, '<');
+            return substr($type, 0, $pos);
+        }
+        return $type;
+    }
+
+    /***
+     * @param list<Template> $templates
+     * @return list<string>
+     */
+    private static function handleTemplateTypes(string $typeName, array $templates): array
+    {
+        foreach ($templates as $templateType) {
+            if ($typeName === $templateType->getTemplateName()) {
+                if ($templateType->getBound()) {
+                    $typeName = $templateType->getBound()?->__toString();
+                    /* A bounded type might be a union type */
+                    if (str_contains($typeName, '|')) {
+                        return array_map(
+                            self::replaceArrayNotations(...),
+                            explode('|', $typeName)
+                        );
+                    }
+                } else {
+                    $typeName = ['object'];
+                }
+            }
+        }
+
+        return [self::replaceArrayNotations($typeName)];
     }
 }

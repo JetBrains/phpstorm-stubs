@@ -28,7 +28,7 @@ final readonly class NamespaceInfo
 
 /**
  * @since 8.4
- * @template-covariant TNode of Node
+ * @template TNode of Node Should be template-covariant but DocBlock::getTagsByName() does not support it
  * @implements \IteratorAggregate<int, TNode>
  */
 class NodeList implements \IteratorAggregate, \Countable
@@ -69,7 +69,7 @@ class NamedNodeMap implements \IteratorAggregate, \Countable
 /**
  * @since 8.4
  *
- * @template-covariant TDtdNode of Entity|Notation
+ * @template TDtdNode of Entity|Notation Should be template-covariant but DocBlock::getTagsByName() does not support it
  * @implements \IteratorAggregate<string, TDtdNode>
  */
 class DtdNamedNodeMap implements \IteratorAggregate, \Countable

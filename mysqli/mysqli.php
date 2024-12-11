@@ -1332,7 +1332,7 @@ class mysqli_result implements IteratorAggregate
     public function fetch_assoc(): array|false|null {}
 
     /**
-     * @template T
+     * @template T of object
      *
      * Fetch the next row of a result set as an object
      * @link https://php.net/manual/en/mysqli-result.fetch-object.php
@@ -2052,7 +2052,7 @@ function mysqli_fetch_array(mysqli_result $result, int $mode = MYSQLI_BOTH): arr
 function mysqli_fetch_assoc(mysqli_result $result): array|null|false {}
 
 /**
- * @template T
+ * @template T of object
  *
  * Fetch the next row of a result set as an object
  * @link https://php.net/manual/en/mysqli-result.fetch-object.php
