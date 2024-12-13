@@ -1329,7 +1329,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
  * The DOMNodeList class
  * @link https://php.net/manual/en/class.domnodelist.php
  *
- * @template-covariant TNode as DOMNode|DOMNameSpaceNode
+ * @template-covariant TNode of DOMNode|DOMNameSpaceNode
  * @implements IteratorAggregate<int, TNode>
  */
 class DOMNodeList implements IteratorAggregate, Countable
@@ -1375,7 +1375,7 @@ class DOMNodeList implements IteratorAggregate, Countable
  * @link https://php.net/manual/en/class.domnamednodemap.php
  * @property-read int $length The number of nodes in the map. The range of valid child node indices is 0 to length - 1 inclusive.
  *
- * @template-covariant TNode as DOMNode
+ * @template-covariant TNode of DOMNode
  * @implements IteratorAggregate<string, TNode>
  */
 class DOMNamedNodeMap implements IteratorAggregate, Countable
@@ -1393,14 +1393,14 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
     public function getNamedItem(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName): ?DOMNode {}
 
     /**
-     * @until 8.0
+     * @removed 8.0
      * @param DOMNode $arg
      * @return void
      */
     public function setNamedItem(DOMNode $arg) {}
 
     /**
-     * @until 8.0
+     * @removed 8.0
      * @param $name [optional]
      */
     public function removeNamedItem($name) {}
@@ -1442,13 +1442,13 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable
     ): ?DOMNode {}
 
     /**
-     * @until 8.0
+     * @removed 8.0
      * @param DOMNode $arg [optional]
      */
     public function setNamedItemNS(DOMNode $arg) {}
 
     /**
-     * @until 8.0
+     * @removed 8.0
      * @param $namespace [optional]
      * @param $localName [optional]
      */
