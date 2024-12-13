@@ -42,7 +42,7 @@ class NodeList implements \IteratorAggregate, \Countable
      */
     public function getIterator(): \Iterator {}
 
-    /** @return ?TNode */
+    /** @return TNode|null */
     public function item(int $index): ?Node {}
 }
 /**
