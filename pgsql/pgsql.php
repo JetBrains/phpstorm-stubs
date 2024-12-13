@@ -2115,6 +2115,11 @@ function pg_put_copy_data(PgSql\Connection $connection, string $cmd): int {}
  * @param resource $socket
  */
 function pg_socket_poll($socket, int $read, int $write, int $timeout = -1): int {}
+
+/**
+ * @since  8.4
+ */
+function pg_set_chunked_rows_size(Pgsql\Connection $connection, int $size): bool {}
 /**
  * @since 8.4
  */
@@ -2496,5 +2501,5 @@ const PGSQL_PIPELINE_ABORTED = 2;
 const PGSQL_SHOW_CONTEXT_NEVER = 0;
 const PGSQL_SHOW_CONTEXT_ERRORS = 1;
 const PGSQL_SHOW_CONTEXT_ALWAYS = 2;
-
+const PGSQL_TUPLES_CHUNK = 12;
 // End of pgsql v.
