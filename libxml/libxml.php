@@ -350,4 +350,6 @@ define('LIBXML_ERR_FATAL', 3);
  * @since 8.4
  */
 define('LIBXML_RECOVER', 1);
+
+const LIBXML_NO_XXE = 8388608;
 // End of libxml v.
