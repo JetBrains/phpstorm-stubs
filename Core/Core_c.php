@@ -968,15 +968,23 @@ interface IntBackedEnum extends BackedEnum
     public readonly int $value;
 
     /**
+     * Translates an int into the corresponding <code>Enum</code>
+     * case, if any. If there is no matching case defined, it will throw a
+     * <code>ValueError</code>.
      * @param int $value
      * @return static
+     * @throws ValueError if there is no matching case defined
+     * @link https://www.php.net/manual/en/backedenum.from.php
      */
     #[Pure]
     public static function from(int $value): static;
 
     /**
+     * Translates an int into the corresponding <code>Enum</code>
+     * case, if any. If there is no matching case defined, it will return null.
      * @param int $value
      * @return static|null
+     * @link https://www.php.net/manual/en/backedenum.tryfrom.php
      */
     #[Pure]
     public static function tryFrom(int $value): ?static;
