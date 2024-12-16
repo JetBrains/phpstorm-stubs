@@ -1000,9 +1000,25 @@ interface StringBackedEnum extends BackedEnum
 {
     public readonly string $value;
 
+    /**
+     * Translates a string into the corresponding <code>Enum</code>
+     * case, if any. If there is no matching case defined, it will throw a
+     * <code>ValueError</code>.
+     * @param string $value
+     * @return static
+     * @throws ValueError if there is no matching case defined
+     * @link https://www.php.net/manual/en/backedenum.from.php
+     */
     #[Pure]
     public static function from(string $value): static;
 
+    /**
+     * Translates a string or int into the corresponding <code>Enum</code>
+     * case, if any. If there is no matching case defined, it will return null.
+     * @param string $value
+     * @return static|null
+     * @link https://www.php.net/manual/en/backedenum.tryfrom.php
+     */
     #[Pure]
     public static function tryFrom(string $value): ?static;
 }
