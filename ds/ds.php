@@ -798,7 +798,7 @@ namespace Ds;
          * Converts the collection to an array.
          * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-vector.toarray.php
-         * @return array<TValue> An array containing all the values in the same order as
+         * @return list<TValue> An array containing all the values in the same order as
          * the collection.
          */
         public function toArray(): array {}
@@ -890,7 +890,7 @@ namespace Ds;
          * Converts the deque to an array.
          * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-deque.toarray.php
-         * @return array<TValue> An array containing all the values in the same order as
+         * @return list<TValue> An array containing all the values in the same order as
          * the deque.
          */
         public function toArray(): array {}
@@ -1418,7 +1418,7 @@ namespace Ds;
          * </p>
          *
          * @link https://www.php.net/manual/en/ds-map.toarray.php
-         * @return array<TValue> An array containing all the values in the same order as
+         * @return array<TKey, TValue> An array containing all the values in the same order as
          * the map.
          */
         public function toArray(): array {}
@@ -2267,7 +2267,7 @@ namespace Ds;
          * Converts the set to an array.
          * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-set.toarray.php
-         * @return array<TValue> An array containing all the values in the same order as
+         * @return list<TValue> An array containing all the values in the same order as
          * the collection.
          */
         public function toArray(): array {}
@@ -2392,7 +2392,7 @@ namespace Ds;
          * Converts the collection to an array.
          * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-stack.toarray.php
-         * @return array<TValue> An array containing all the values in the same order as
+         * @return list<TValue> An array containing all the values in the same order as
          * the collection.
          */
         public function toArray(): array {}
@@ -2548,7 +2548,7 @@ namespace Ds;
          * Converts the collection to an array.
          * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-queue.toarray.php
-         * @return array<TValue> An array containing all the values in the same order as
+         * @return list<TValue> An array containing all the values in the same order as
          * the collection.
          */
         public function toArray(): array {}
@@ -2716,7 +2716,7 @@ namespace Ds;
          * Converts the collection to an array.
          * <p><b>Note:</b> Casting to an array is not supported yet.</p>
          * @link https://www.php.net/manual/en/ds-collection.toarray.php
-         * @return array<TValue> An array containing all the values in the same order as
+         * @return list<TValue> An array containing all the values in the same order as
          * the collection.
          */
         public function toArray(): array {}
