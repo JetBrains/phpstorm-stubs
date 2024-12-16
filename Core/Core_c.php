@@ -937,7 +937,7 @@ interface BackedEnum extends UnitEnum
      * case, if any. If there is no matching case defined, it will throw a
      * <code>ValueError</code>.
      * @param int|string $value
-     * @throws ValueError
+     * @throws ValueError if there is no matching case defined
      * @throws TypeError
      * @return static
      * @link https://www.php.net/manual/en/backedenum.from.php
