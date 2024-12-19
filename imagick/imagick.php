@@ -5153,11 +5153,11 @@ class Imagick implements Iterator, Countable
 
     /**
      * Returns any ImageMagick  configure options that match the specified pattern (e.g. "*" for all). Options include NAME, VERSION, LIB_VERSION, etc.
-     * @return string
+     * @return string[]
      * @since 3.4.0
      */
     #[Pure]
-    public function getConfigureOptions() {}
+    public static function getConfigureOptions() {}
 
     /**
      * GetFeatures() returns the ImageMagick features that have been compiled into the runtime.
