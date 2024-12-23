@@ -2119,7 +2119,7 @@ function pg_socket_poll($socket, int $read, int $write, int $timeout = -1): int 
 /**
  * @since  8.4
  */
-function pg_set_chunked_rows_size(Pgsql\Connection $connection, int $size): bool {}
+function pg_set_chunked_rows_size(PgSql\Connection $connection, int $size): bool {}
 /**
  * @since 8.4
  */
