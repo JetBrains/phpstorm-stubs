@@ -2058,4 +2058,57 @@ namespace Pdo {
 
         public function getWarningCount(): int {}
     }
+
+    /**
+     * @since 8.4
+     */
+    class Pgsql extends PDO
+    {
+        public const int ATTR_DISABLE_PREPARES = 1000;
+        public const int ATTR_RESULT_MEMORY_SIZE = 1001;
+        public const int TRANSACTION_IDLE = 0;
+        public const int TRANSACTION_ACTIVE = 1;
+        public const int TRANSACTION_INTRANS = 2;
+        public const int TRANSACTION_INERROR = 3;
+        public const int TRANSACTION_UNKNOWN = 4;
+
+        public function copyFromArray(
+            string $tableName,
+            array $rows,
+            string $separator = "\t",
+            string $nullAs = "\\\\N",
+            ?string $fields = null
+        ): bool {}
+        public function copyFromFile(
+            string $tableName,
+            string $filename,
+            string $separator = "\t",
+            string $nullAs = "\\\\N",
+            ?string $fields = null
+        ): bool {}
+        public function copyToArray(
+            string $tableName,
+            string $separator = "\t",
+            string $nullAs = "\\\\N",
+            ?string $fields = null
+        ): array|false {}
+        public function copyToFile(
+            string $tableName,
+            string $filename,
+            string $separator = "\t",
+            string $nullAs = "\\\\N",
+            ?string $fields = null
+        ): bool {}
+        public function escapeIdentifier(string $input): string {}
+        public function getNotify(int $fetchMode = \PDO::FETCH_DEFAULT, int $timeoutMilliseconds = 0): array|false {}
+        public function getPid(): int{}
+        public function lobCreate(): string|false {}
+        /**
+         * Opens an existing large object stream. Must be called inside a transaction.
+         * @return resource|false
+         */
+        public function lobOpen(string $oid, string $mode = "rb") {}
+        public function lobUnlink(string $oid): bool {}
+        public function setNoticeCallback(?callable $callback): void {}
+    }
 }
