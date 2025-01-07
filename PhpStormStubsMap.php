@@ -821,6 +821,7 @@ const CLASSES = array (
   'ParseError' => 'Core/Core_c.php',
   'Pcntl\\QosClass' => 'pcntl/pcntl_c.php',
   'Pdo\\Mysql' => 'PDO/PDO.php',
+  'Pdo\\Pgsql' => 'PDO/PDO.php',
   'Pdo\\Sqlite' => 'PDO/PDO.php',
   'PgSql\\Connection' => 'pgsql/pgsql_c.php',
   'PgSql\\Lob' => 'pgsql/pgsql_c.php',
