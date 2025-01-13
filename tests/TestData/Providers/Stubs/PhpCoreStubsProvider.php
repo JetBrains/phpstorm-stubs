@@ -111,6 +111,7 @@ class PhpCoreStubsProvider
             'imagick',
             'inotify',
             'interbase',
+            'jsonpath',
             'leveldb',
             'libevent',
             'LuaSandbox',
