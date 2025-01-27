@@ -143,7 +143,7 @@ function metaphone(string $string, int $max_phonemes = 0) {}
 /**
  * Turn on output buffering
  * @link https://php.net/manual/en/function.ob-start.php
- * @param callable|null $callback [optional] <p>
+ * @param callable|null $callback <p>
  * An optional output_callback function may be
  * specified. This function takes a string as a parameter and should
  * return a string. The function will be called when
