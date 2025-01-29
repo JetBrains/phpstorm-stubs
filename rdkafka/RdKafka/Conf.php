@@ -10,7 +10,7 @@ class Conf
     public function __construct() {}
 
     /**
-     * @return array
+     * @return array<string, string>
      */
     public function dump() {}
 
