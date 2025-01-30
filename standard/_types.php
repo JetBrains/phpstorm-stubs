@@ -176,13 +176,13 @@ namespace {
 
         /**
          * Returns whatever was passed to yield or null if nothing was passed or the generator is already closed.
-         * @return TYield
+         * @return TYield|null
          */
         public function current(): mixed {}
 
         /**
          * Returns the yielded key or, if none was specified, an auto-incrementing key or null if the generator is already closed.
-         * @return TKey
+         * @return TKey|null
          */
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: 'string|float|int|bool|null')]
         public function key() {}
