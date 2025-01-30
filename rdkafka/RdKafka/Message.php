@@ -45,7 +45,7 @@ class Message
     public $offset;
 
     /**
-     * @var array
+     * @var array<string, string>
      */
     public $headers;
     public $opaque;
