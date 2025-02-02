@@ -11,16 +11,9 @@
  */
 class RedisCluster
 {
-    public const AFTER = 'after';
-    public const BEFORE = 'before';
-
     /**
      * Options
      */
-    public const OPT_SERIALIZER = 1;
-    public const OPT_PREFIX = 2;
-    public const OPT_READ_TIMEOUT = 3;
-    public const OPT_SCAN = 4;
     public const OPT_SLAVE_FAILOVER = 5;
 
     /**
@@ -30,48 +23,6 @@ class RedisCluster
     public const FAILOVER_ERROR = 1;
     public const FAILOVER_DISTRIBUTE = 2;
     public const FAILOVER_DISTRIBUTE_SLAVES = 3;
-
-    /**
-     * SCAN options
-     */
-    public const SCAN_NORETRY = 0;
-    public const SCAN_RETRY = 1;
-
-    /**
-     * @since 5.3.0
-     */
-    public const SCAN_PREFIX = 2;
-
-    /**
-     * @since 5.3.0
-     */
-    public const SCAN_NOPREFIX = 3;
-
-    /**
-     * Serializers
-     */
-    public const SERIALIZER_NONE = 0;
-    public const SERIALIZER_PHP = 1;
-    public const SERIALIZER_IGBINARY = 2;
-    public const SERIALIZER_MSGPACK = 3;
-    public const SERIALIZER_JSON = 4;
-
-    /**
-     * Multi
-     */
-    public const ATOMIC = 0;
-    public const MULTI = 1;
-    public const PIPELINE = 2;
-
-    /**
-     * Type
-     */
-    public const REDIS_NOT_FOUND = 0;
-    public const REDIS_STRING = 1;
-    public const REDIS_SET = 2;
-    public const REDIS_LIST = 3;
-    public const REDIS_ZSET = 4;
-    public const REDIS_HASH = 5;
 
     /**
      * Creates a Redis Cluster client
