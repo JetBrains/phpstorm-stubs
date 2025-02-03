@@ -194,8 +194,31 @@ class DateTimeImmutable implements DateTimeInterface
      * The <em>$timezone</em> parameter and the current timezone are ignored when the <em>$datetime</em> parameter either
      * is a UNIX timestamp (e.g. <em>@946684800</em>) or specifies a timezone (e.g. <em>2010-01-28T15:00:00+02:00</em>).
      * </p></blockquote>
+     * @throws Exception Emits Exception in case of an error.
+     */
+    #[PhpStormStubsElementAvailable(from:'5.5', to: '8.2')]
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime = "now",
+        #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')] $timezone = null
+    ) {}
+
+    /**
+     * (PHP 8 &gt;=8.3.0)<br/>
+     * @link https://secure.php.net/manual/en/datetimeimmutable.construct.php
+     * @param string $datetime [optional]
+     * <p>A date/time string. Valid formats are explained in {@link https://secure.php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
+     * <p>Enter <b>NULL</b> here to obtain the current time when using the <em>$timezone</em> parameter.</p>
+     * @param null|DateTimeZone $timezone [optional] <p>
+     * A {@link https://secure.php.net/manual/en/class.datetimezone.php DateTimeZone} object representing the timezone of <em>$datetime</em>.
+     * </p>
+     * <p>If <em>$timezone</em> is omitted, the current timezone will be used.</p>
+     * <blockquote><p><b>Note</b>:</p><p>
+     * The <em>$timezone</em> parameter and the current timezone are ignored when the <em>$datetime</em> parameter either
+     * is a UNIX timestamp (e.g. <em>@946684800</em>) or specifies a timezone (e.g. <em>2010-01-28T15:00:00+02:00</em>).
+     * </p></blockquote>
      * @throws DateMalformedStringException Emits Exception in case of an error.
      */
+    #[PhpStormStubsElementAvailable(from:'8.3')]
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime = "now",
         #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')] $timezone = null
@@ -255,9 +278,25 @@ class DateTimeImmutable implements DateTimeInterface
      * @param string $modifier <p>A date/time string. Valid formats are explained in
      * {@link https://secure.php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
      * @return static|false Returns the newly created object or false on failure.
+     * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
+     */
+    #[PhpStormStubsElementAvailable(from:'5.5', to: '8.2')]
+    #[Pure]
+    #[TentativeType]
+    #[LanguageLevelTypeAware(['8.4' => 'DateTimeImmutable'], default: 'DateTimeImmutable|false')]
+    public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier) {}
+
+    /**
+     * (PHP 8 &gt;=8.3.0)<br/>
+     * Alters the timestamp
+     * @link https://secure.php.net/manual/en/datetimeimmutable.modify.php
+     * @param string $modifier <p>A date/time string. Valid formats are explained in
+     * {@link https://secure.php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
+     * @return static|false Returns the newly created object or false on failure.
      * @throws DateMalformedStringException
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
+    #[PhpStormStubsElementAvailable(from: '8.3')]
     #[Pure]
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.4' => 'DateTimeImmutable'], default: 'DateTimeImmutable|false')]
@@ -560,8 +599,43 @@ class DateTime implements DateTimeInterface
      * or specifies a timezone
      * (e.g. <em>2010-01-28T15:00:00+02:00</em>).
      * </p> <p></p></blockquote>
+     * @throws Exception Emits Exception in case of an error.
+     */
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '8.2')]
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime = 'now',
+        #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')] $timezone = null
+    ) {}
+
+    /**
+     * (PHP 8 &gt;=8.3.0)<br/>
+     * @link https://php.net/manual/en/datetime.construct.php
+     * @param string $datetime [optional]
+     * <p>A date/time string. Valid formats are explained in {@link https://php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
+     * <p>
+     * Enter <b>now</b> here to obtain the current time when using
+     * the <em>$timezone</em> parameter.
+     * </p>
+     * @param null|DateTimeZone $timezone [optional] <p>
+     * A {@link https://php.net/manual/en/class.datetimezone.php DateTimeZone} object representing the
+     * timezone of <em>$datetime</em>.
+     * </p>
+     * <p>
+     * If <em>$timezone</em> is omitted,
+     * the current timezone will be used.
+     * </p>
+     * <blockquote><p><b>Note</b>:
+     * </p><p>
+     * The <em>$timezone</em> parameter
+     * and the current timezone are ignored when the
+     * <em>$time</em> parameter either
+     * is a UNIX timestamp (e.g. <em>@946684800</em>)
+     * or specifies a timezone
+     * (e.g. <em>2010-01-28T15:00:00+02:00</em>).
+     * </p> <p></p></blockquote>
      * @throws DateMalformedStringException Emits Exception in case of an error.
      */
+    #[PhpStormStubsElementAvailable(from: '8.3')]
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime = 'now',
         #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')] $timezone = null
@@ -588,9 +662,22 @@ class DateTime implements DateTimeInterface
      * in a format accepted by strtotime().
      * @param string $modifier A date/time string. Valid formats are explained in <a href="https://secure.php.net/manual/en/datetime.formats.php">Date and Time Formats</a>.
      * @return static|false Returns the DateTime object for method chaining or FALSE on failure.
+     * @link https://php.net/manual/en/datetime.modify.php
+     */
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '8.2')]
+    #[TentativeType]
+    #[LanguageLevelTypeAware(['8.4' => 'DateTime'], default: 'DateTime|false')]
+    public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier) {}
+
+    /**
+     * Alter the timestamp of a DateTime object by incrementing or decrementing
+     * in a format accepted by strtotime().
+     * @param string $modifier A date/time string. Valid formats are explained in <a href="https://secure.php.net/manual/en/datetime.formats.php">Date and Time Formats</a>.
+     * @return static|false Returns the DateTime object for method chaining or FALSE on failure.
      * @throws DateMalformedStringException
      * @link https://php.net/manual/en/datetime.modify.php
      */
+    #[PhpStormStubsElementAvailable(from: '8.3')]
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.4' => 'DateTime'], default: 'DateTime|false')]
     public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier) {}
@@ -963,9 +1050,18 @@ class DateInterval
 
     /**
      * @param string $duration
+     * @throws Exception when the $duration cannot be parsed as an interval.
+     * @link https://php.net/manual/en/dateinterval.construct.php
+     */
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '8.2')]
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $duration) {}
+
+    /**
+     * @param string $duration
      * @throws DateMalformedIntervalStringException when the $duration cannot be parsed as an interval.
      * @link https://php.net/manual/en/dateinterval.construct.php
      */
+    #[PhpStormStubsElementAvailable(from: '8.3')]
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $duration) {}
 
     /**
