@@ -371,7 +371,7 @@ class LuaSandboxFunction
      * which may be empty, or false on error.</p>
      * @since luasandbox >= 1.0.0
      */
-    public function call($arguments) {}
+    public function call(string ...$args) {}
 
     /**
      * Dump the function as a binary blob.
