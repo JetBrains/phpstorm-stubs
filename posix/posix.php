@@ -84,6 +84,7 @@ function posix_seteuid(int $user_id): bool {}
  * @since 7.0
  */
 function posix_setrlimit(int $resource, int $soft_limit, int $hard_limit): bool {}
+
 /**
  * Return the real group ID of the current process
  * @link https://php.net/manual/en/function.posix-getgid.php
@@ -210,12 +211,12 @@ function posix_getsid(int $process_id): int|false {}
  */
 #[Pure]
 #[ArrayShape([
-    'sysname' => 'string',
-    'nodename' => 'string',
-    'release' => 'string',
-    'version' => 'string',
-    'machine' => 'string',
-    'domainname' => 'string',
+        'sysname'    => 'string',
+        'nodename'   => 'string',
+        'release'    => 'string',
+        'version'    => 'string',
+        'machine'    => 'string',
+        'domainname' => 'string',
 ])]
 function posix_uname(): array|false {}
 
@@ -233,10 +234,10 @@ function posix_uname(): array|false {}
  */
 #[Pure]
 #[ArrayShape([
-    'ticks' => 'int',
-    'utime' => 'int',
-    'stime' => 'int',
-    'cutime' => 'int',
+        'ticks'  => 'int',
+        'utime'  => 'int',
+        'stime'  => 'int',
+        'cutime' => 'int',
     'cstime' => 'int'
 ])]
 function posix_times(): array|false {}
@@ -254,7 +255,7 @@ function posix_ctermid(): string|false {}
 /**
  * Determine terminal device name
  * @link https://php.net/manual/en/function.posix-ttyname.php
- * @param int $file_descriptor <p>
+ * @param resource|int $file_descriptor <p>
  * The file descriptor.
  * </p>
  * @return string|false On success, returns a string of the absolute path of the
@@ -266,7 +267,7 @@ function posix_ttyname($file_descriptor): string|false {}
 /**
  * Determine if a file descriptor is an interactive terminal
  * @link https://php.net/manual/en/function.posix-isatty.php
- * @param mixed $file_descriptor <p>
+ * @param resource|int $file_descriptor <p>
  * The file descriptor, which is expected to be either a file resource or an integer.
  * An integer will be assumed to be a file descriptor that can be passed
  * directly to the underlying system call.<br />
@@ -523,13 +524,13 @@ function posix_getgrgid(int $group_id): array|false {}
  */
 #[Pure]
 #[ArrayShape([
-    "name" => "string",
-    "passwd" => "string",
-    "uid" => "int",
-    "gid" => "int",
-    "gecos" => "string",
-    "dir" => "string",
-    "shell" => "string",
+        "name"   => "string",
+        "passwd" => "string",
+        "uid"    => "int",
+        "gid"    => "int",
+        "gecos"  => "string",
+        "dir"    => "string",
+        "shell"  => "string",
 ])]
 function posix_getpwnam(string $username): array|false {}
 
@@ -608,13 +609,13 @@ function posix_getpwnam(string $username): array|false {}
  */
 #[Pure]
 #[ArrayShape([
-    'name' => 'string',
-    'passwd' => 'string',
-    'uid' => 'int',
-    'gid' => 'int',
-    'gecos' => 'string',
-    'dir' => 'string',
-    'shell' => 'string',
+        'name'   => 'string',
+        'passwd' => 'string',
+        'uid'    => 'int',
+        'gid'    => 'int',
+        'gecos'  => 'string',
+        'dir'    => 'string',
+        'shell'  => 'string',
 ])]
 function posix_getpwuid(int $user_id): array|false {}
 
@@ -747,14 +748,32 @@ function posix_strerror(int $error_code): string {}
 function posix_initgroups(string $username, int $group_id): bool {}
 
 /**
+ * Returns system runtime information.
  * @since 8.3
+ * @link  https://www.php.net/manual/en/function.posix-sysconf.php
  */
 function posix_sysconf(int $conf_id): int {}
 
 /**
  * @since 8.3
+ * @link  https://www.php.net/manual/en/function.posix-eaccess.php
  */
 function posix_eaccess(string $filename, int $flags = 0): bool {}
+
+/**
+ * Returns the value of a configurable limit
+ * @link  https://www.php.net/manual/en/function.posix-fpathconf.php
+ * @since 8.3
+ * @param resource|int $file_descriptor
+ */
+function posix_fpathconf($file_descriptor, int $name): int|false {}
+
+/**
+ * Returns the value of a configurable limit from name for a path
+ * @since 8.3
+ * @link  https://www.php.net/manual/en/function.posix-pathconf.php
+ */
+function posix_pathconf(string $path, int $name): int|false {}
 
 /**
  * Check whether the file exists.
