@@ -1,0 +1,5 @@
+.gitattributes export-ignore
+.gitignore export-ignore
+.php-cs-fixer.php export-ignore
+docker-compose.yml export-ignore
+phpunit.xml.dist export-ignore
