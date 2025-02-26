@@ -205,13 +205,17 @@ abstract class AbstractBaseStubsTestCase extends TestCase
      * @param string[] $typesToProcess
      * @param string[] $resultArray
      */
-    public static function convertNullableTypesToUnion(array $typesToProcess, array &$resultArray)
+    public static function unifyTypes(array $typesToProcess, array &$resultArray, ?PHPClass $parentClass = null)
     {
-        array_walk($typesToProcess, function (string $type) use (&$resultArray) {
+        array_walk($typesToProcess, function (string $type) use (&$resultArray, $parentClass) {
             if (str_contains($type, '?')) {
                 array_push($resultArray, 'null', ltrim($type, '?'));
             } else {
-                $resultArray[] = $type;
+                if ($type === 'self' || $type === 'static') {
+                    $resultArray[] = $parentClass?->name;
+                } else {
+                    $resultArray[] = $type;
+                }
             }
         });
     }

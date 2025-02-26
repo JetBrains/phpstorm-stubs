@@ -283,7 +283,7 @@ class DateTimeImmutable implements DateTimeInterface
     #[PhpStormStubsElementAvailable(from:'5.5', to: '8.2')]
     #[Pure]
     #[TentativeType]
-    #[LanguageLevelTypeAware(['8.4' => 'DateTimeImmutable'], default: 'DateTimeImmutable|false')]
+    #[LanguageLevelTypeAware(['8.4' => 'DateTimeImmutable'], default: 'static|false')]
     public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier) {}
 
     /**
@@ -666,7 +666,7 @@ class DateTime implements DateTimeInterface
      */
     #[PhpStormStubsElementAvailable(from: '5.3', to: '8.2')]
     #[TentativeType]
-    #[LanguageLevelTypeAware(['8.4' => 'DateTime'], default: 'DateTime|false')]
+    #[LanguageLevelTypeAware(['8.4' => 'DateTime'], default: 'static|false')]
     public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier) {}
 
     /**
@@ -679,7 +679,7 @@ class DateTime implements DateTimeInterface
      */
     #[PhpStormStubsElementAvailable(from: '8.3')]
     #[TentativeType]
-    #[LanguageLevelTypeAware(['8.4' => 'DateTime'], default: 'DateTime|false')]
+    #[LanguageLevelTypeAware(['8.4' => 'DateTime'], default: 'static|false')]
     public function modify(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $modifier) {}
 
     /**

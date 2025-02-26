@@ -193,13 +193,13 @@ class BaseClassesTest extends AbstractBaseStubsTestCase
         $unifiedStubsPropertyTypes = [];
         $unifiedStubsAttributesPropertyTypes = [];
         $unifiedReflectionPropertyTypes = [];
-        self::convertNullableTypesToUnion($reflectionProperty->typesFromSignature, $unifiedReflectionPropertyTypes);
+        self::unifyTypes($reflectionProperty->typesFromSignature, $unifiedReflectionPropertyTypes);
         if (!empty($stubProperty->typesFromSignature)) {
-            self::convertNullableTypesToUnion($stubProperty->typesFromSignature, $unifiedStubsPropertyTypes);
+            self::unifyTypes($stubProperty->typesFromSignature, $unifiedStubsPropertyTypes);
         }
         foreach ($stubProperty->typesFromAttribute as $languageVersion => $listOfTypes) {
             $unifiedStubsAttributesPropertyTypes[$languageVersion] = [];
-            self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesPropertyTypes[$languageVersion]);
+            self::unifyTypes($listOfTypes, $unifiedStubsAttributesPropertyTypes[$languageVersion]);
         }
         $typesFromAttribute = [];
         $testCondition = self::isReflectionTypesMatchSignature($unifiedReflectionPropertyTypes, $unifiedStubsPropertyTypes);
