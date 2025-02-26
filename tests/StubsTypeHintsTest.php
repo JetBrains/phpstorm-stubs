@@ -37,13 +37,13 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
         $unifiedStubsReturnTypes = [];
         $unifiedStubsAttributesReturnTypes = [];
         $unifiedReflectionReturnTypes = [];
-        self::convertNullableTypesToUnion($function->returnTypesFromSignature, $unifiedReflectionReturnTypes);
+        self::unifyTypes($function->returnTypesFromSignature, $unifiedReflectionReturnTypes);
         if (!empty($stubFunction->returnTypesFromSignature)) {
-            self::convertNullableTypesToUnion($stubFunction->returnTypesFromSignature, $unifiedStubsReturnTypes);
+            self::unifyTypes($stubFunction->returnTypesFromSignature, $unifiedStubsReturnTypes);
         }
         foreach ($stubFunction->returnTypesFromAttribute as $languageVersion => $listOfTypes) {
             $unifiedStubsAttributesReturnTypes[$languageVersion] = [];
-            self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesReturnTypes[$languageVersion]);
+            self::unifyTypes($listOfTypes, $unifiedStubsAttributesReturnTypes[$languageVersion]);
         }
         $conditionToCompareWithSignature = AbstractBaseStubsTestCase::isReflectionTypesMatchSignature(
             $unifiedReflectionReturnTypes,
@@ -101,13 +101,13 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
         $unifiedStubsReturnTypes = [];
         $unifiedStubsAttributesReturnTypes = [];
         $unifiedReflectionReturnTypes = [];
-        self::convertNullableTypesToUnion($reflectionMethod->returnTypesFromSignature, $unifiedReflectionReturnTypes);
+        self::unifyTypes($reflectionMethod->returnTypesFromSignature, $unifiedReflectionReturnTypes);
         if (!empty($stubMethod->returnTypesFromSignature)) {
-            self::convertNullableTypesToUnion($stubMethod->returnTypesFromSignature, $unifiedStubsReturnTypes);
+            self::unifyTypes($stubMethod->returnTypesFromSignature, $unifiedStubsReturnTypes);
         } else {
             foreach ($stubMethod->returnTypesFromAttribute as $languageVersion => $listOfTypes) {
                 $unifiedStubsAttributesReturnTypes[$languageVersion] = [];
-                self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesReturnTypes[$languageVersion]);
+                self::unifyTypes($listOfTypes, $unifiedStubsAttributesReturnTypes[$languageVersion]);
             }
         }
         $conditionToCompareWithSignature = AbstractBaseStubsTestCase::isReflectionTypesMatchSignature(
@@ -140,13 +140,13 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
         $unifiedStubsReturnTypes = [];
         $unifiedStubsAttributesReturnTypes = [];
         $unifiedReflectionReturnTypes = [];
-        self::convertNullableTypesToUnion($reflectionMethod->returnTypesFromSignature, $unifiedReflectionReturnTypes);
+        self::unifyTypes($reflectionMethod->returnTypesFromSignature, $unifiedReflectionReturnTypes);
         if (!empty($stubMethod->returnTypesFromSignature)) {
-            self::convertNullableTypesToUnion($stubMethod->returnTypesFromSignature, $unifiedStubsReturnTypes);
+            self::unifyTypes($stubMethod->returnTypesFromSignature, $unifiedStubsReturnTypes);
         } else {
             foreach ($stubMethod->returnTypesFromAttribute as $languageVersion => $listOfTypes) {
                 $unifiedStubsAttributesReturnTypes[$languageVersion] = [];
-                self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesReturnTypes[$languageVersion]);
+                self::unifyTypes($listOfTypes, $unifiedStubsAttributesReturnTypes[$languageVersion]);
             }
         }
         $conditionToCompareWithSignature = AbstractBaseStubsTestCase::isReflectionTypesMatchSignature(
@@ -179,13 +179,13 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
         $unifiedStubsReturnTypes = [];
         $unifiedStubsAttributesReturnTypes = [];
         $unifiedReflectionReturnTypes = [];
-        self::convertNullableTypesToUnion($reflectionMethod->returnTypesFromSignature, $unifiedReflectionReturnTypes);
+        self::unifyTypes($reflectionMethod->returnTypesFromSignature, $unifiedReflectionReturnTypes);
         if (!empty($stubMethod->returnTypesFromSignature)) {
-            self::convertNullableTypesToUnion($stubMethod->returnTypesFromSignature, $unifiedStubsReturnTypes);
+            self::unifyTypes($stubMethod->returnTypesFromSignature, $unifiedStubsReturnTypes);
         } else {
             foreach ($stubMethod->returnTypesFromAttribute as $languageVersion => $listOfTypes) {
                 $unifiedStubsAttributesReturnTypes[$languageVersion] = [];
-                self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesReturnTypes[$languageVersion]);
+                self::unifyTypes($listOfTypes, $unifiedStubsAttributesReturnTypes[$languageVersion]);
             }
         }
         $conditionToCompareWithSignature = AbstractBaseStubsTestCase::isReflectionTypesMatchSignature(
@@ -599,13 +599,13 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
         $unifiedStubsParameterTypes = [];
         $unifiedStubsAttributesParameterTypes = [];
         $unifiedReflectionParameterTypes = [];
-        self::convertNullableTypesToUnion($parameter->typesFromSignature, $unifiedReflectionParameterTypes);
+        self::unifyTypes($parameter->typesFromSignature, $unifiedReflectionParameterTypes);
         if (!empty($stubParameter->typesFromSignature)) {
-            self::convertNullableTypesToUnion($stubParameter->typesFromSignature, $unifiedStubsParameterTypes);
+            self::unifyTypes($stubParameter->typesFromSignature, $unifiedStubsParameterTypes);
         }
         foreach ($stubParameter->typesFromAttribute as $languageVersion => $listOfTypes) {
             $unifiedStubsAttributesParameterTypes[$languageVersion] = [];
-            self::convertNullableTypesToUnion($listOfTypes, $unifiedStubsAttributesParameterTypes[$languageVersion]);
+            self::unifyTypes($listOfTypes, $unifiedStubsAttributesParameterTypes[$languageVersion]);
         }
         $typesFromAttribute = [];
         $testCondition = AbstractBaseStubsTestCase::isReflectionTypesMatchSignature($unifiedReflectionParameterTypes, $unifiedStubsParameterTypes);
