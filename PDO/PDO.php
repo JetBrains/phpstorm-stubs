@@ -2079,6 +2079,7 @@ namespace Pdo {
             string $nullAs = "\\\\N",
             ?string $fields = null
         ): bool {}
+
         public function copyFromFile(
             string $tableName,
             string $filename,
@@ -2086,12 +2087,14 @@ namespace Pdo {
             string $nullAs = "\\\\N",
             ?string $fields = null
         ): bool {}
+
         public function copyToArray(
             string $tableName,
             string $separator = "\t",
             string $nullAs = "\\\\N",
             ?string $fields = null
         ): array|false {}
+
         public function copyToFile(
             string $tableName,
             string $filename,
@@ -2099,16 +2102,23 @@ namespace Pdo {
             string $nullAs = "\\\\N",
             ?string $fields = null
         ): bool {}
+
         public function escapeIdentifier(string $input): string {}
+
         public function getNotify(int $fetchMode = \PDO::FETCH_DEFAULT, int $timeoutMilliseconds = 0): array|false {}
-        public function getPid(): int{}
+
+        public function getPid(): int {}
+
         public function lobCreate(): string|false {}
+
         /**
          * Opens an existing large object stream. Must be called inside a transaction.
          * @return resource|false
          */
         public function lobOpen(string $oid, string $mode = "rb") {}
+
         public function lobUnlink(string $oid): bool {}
+
         public function setNoticeCallback(?callable $callback): void {}
     }
 }

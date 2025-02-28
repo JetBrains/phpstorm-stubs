@@ -196,7 +196,7 @@ class DateTimeImmutable implements DateTimeInterface
      * </p></blockquote>
      * @throws Exception Emits Exception in case of an error.
      */
-    #[PhpStormStubsElementAvailable(from:'5.5', to: '8.2')]
+    #[PhpStormStubsElementAvailable(from: '5.5', to: '8.2')]
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime = "now",
         #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')] $timezone = null
@@ -218,7 +218,7 @@ class DateTimeImmutable implements DateTimeInterface
      * </p></blockquote>
      * @throws DateMalformedStringException Emits Exception in case of an error.
      */
-    #[PhpStormStubsElementAvailable(from:'8.3')]
+    #[PhpStormStubsElementAvailable(from: '8.3')]
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime = "now",
         #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')] $timezone = null
@@ -280,7 +280,7 @@ class DateTimeImmutable implements DateTimeInterface
      * @return static|false Returns the newly created object or false on failure.
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
-    #[PhpStormStubsElementAvailable(from:'5.5', to: '8.2')]
+    #[PhpStormStubsElementAvailable(from: '5.5', to: '8.2')]
     #[Pure]
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.4' => 'DateTimeImmutable'], default: 'static|false')]

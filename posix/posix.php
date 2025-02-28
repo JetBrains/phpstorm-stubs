@@ -211,11 +211,11 @@ function posix_getsid(int $process_id): int|false {}
  */
 #[Pure]
 #[ArrayShape([
-        'sysname'    => 'string',
-        'nodename'   => 'string',
-        'release'    => 'string',
-        'version'    => 'string',
-        'machine'    => 'string',
+        'sysname' => 'string',
+        'nodename' => 'string',
+        'release' => 'string',
+        'version' => 'string',
+        'machine' => 'string',
         'domainname' => 'string',
 ])]
 function posix_uname(): array|false {}
@@ -234,9 +234,9 @@ function posix_uname(): array|false {}
  */
 #[Pure]
 #[ArrayShape([
-        'ticks'  => 'int',
-        'utime'  => 'int',
-        'stime'  => 'int',
+        'ticks' => 'int',
+        'utime' => 'int',
+        'stime' => 'int',
         'cutime' => 'int',
     'cstime' => 'int'
 ])]
@@ -524,13 +524,13 @@ function posix_getgrgid(int $group_id): array|false {}
  */
 #[Pure]
 #[ArrayShape([
-        "name"   => "string",
+        "name" => "string",
         "passwd" => "string",
-        "uid"    => "int",
-        "gid"    => "int",
-        "gecos"  => "string",
-        "dir"    => "string",
-        "shell"  => "string",
+        "uid" => "int",
+        "gid" => "int",
+        "gecos" => "string",
+        "dir" => "string",
+        "shell" => "string",
 ])]
 function posix_getpwnam(string $username): array|false {}
 
@@ -609,13 +609,13 @@ function posix_getpwnam(string $username): array|false {}
  */
 #[Pure]
 #[ArrayShape([
-        'name'   => 'string',
+        'name' => 'string',
         'passwd' => 'string',
-        'uid'    => 'int',
-        'gid'    => 'int',
-        'gecos'  => 'string',
-        'dir'    => 'string',
-        'shell'  => 'string',
+        'uid' => 'int',
+        'gid' => 'int',
+        'gecos' => 'string',
+        'dir' => 'string',
+        'shell' => 'string',
 ])]
 function posix_getpwuid(int $user_id): array|false {}
 

@@ -26,6 +26,4 @@ class JsonPath
 /**
  * @since 7.4
  */
-class JsonPathException extends \RuntimeException
-{
-}
+class JsonPathException extends \RuntimeException {}
