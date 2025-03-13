@@ -4368,34 +4368,49 @@ define('CURLOPT_TCP_KEEPCNT', 326);
  * @since 8.4
  */
 define('CURLOPT_SERVER_RESPONSE_TIMEOUT', 112);
+
 /**
  * @since 8.4
  */
 define('CURLOPT_DEBUGFUNCTION', 1);
+
 /**
  * @since 8.4
  */
-define('CURLINFO_TEXT', 1);
+define('CURLINFO_TEXT', 0);
+
 /**
  * @since 8.4
  */
 define('CURLINFO_HEADER_IN', 1);
+
+/*
+ * CURLINFO_HEADER_OUT is defined above and has existed since PHP 5.1.3,
+ * but is reused in a different context relating to CURLINFO_DEBUGFUNCTION
+ *
+ * define('CURLINFO_HEADER_OUT', 2);
+ */
+
 /**
  * @since 8.4
  */
-define('CURLINFO_DATA_IN', 1);
+define('CURLINFO_DATA_IN', 3);
+
 /**
  * @since 8.4
  */
-define('CURLINFO_DATA_OUT', 1);
+define('CURLINFO_DATA_OUT', 4);
+
 /**
  * @since 8.4
  */
-define('CURLINFO_SSL_DATA_OUT', 1);
+define('CURLINFO_SSL_DATA_OUT', 5);
+
 /**
  * @since 8.4
  */
-define('CURLINFO_SSL_DATA_IN', 1);
+define('CURLINFO_SSL_DATA_IN', 6);
+
 /**
  * @since 8.4
  */
