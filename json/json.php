@@ -232,7 +232,7 @@ function json_last_error(): int {}
  * @return string Returns the error message on success, "No error" if no error has occurred.
  * @since 5.5
  */
-#[Pure]
+#[Pure(true)]
 function json_last_error_msg(): string {}
 
 /**
