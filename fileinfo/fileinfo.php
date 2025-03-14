@@ -56,7 +56,7 @@ class finfo
      * @return string a textual description of the contents of the
      * <i>filename</i> argument, or <b>FALSE</b> if an error occurred.
      */
-    #[Pure]
+    #[Pure(true)]
     #[TentativeType]
     public function file(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
@@ -79,7 +79,7 @@ class finfo
      * @return string a textual description of the <i>string</i>
      * argument, or <b>FALSE</b> if an error occurred.
      */
-    #[Pure]
+    #[Pure(true)]
     #[TentativeType]
     public function buffer(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string,
