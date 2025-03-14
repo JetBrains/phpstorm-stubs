@@ -244,6 +244,7 @@ function ob_end_clean(): bool {}
  * @link https://php.net/manual/en/function.ob-get-flush.php
  * @return string|false the output buffer or false if no buffering is active.
  */
+#[Pure(true)]
 function ob_get_flush(): string|false {}
 
 /**
@@ -252,6 +253,7 @@ function ob_get_flush(): string|false {}
  * @return string|false the contents of the output buffer and end output buffering.
  * If output buffering isn't active then false is returned.
  */
+#[Pure(true)]
 function ob_get_clean(): string|false {}
 
 /**
@@ -260,6 +262,7 @@ function ob_get_clean(): string|false {}
  * @return int|false the length of the output buffer contents or false if no
  * buffering is active.
  */
+#[Pure(true)]
 function ob_get_length(): int|false {}
 
 /**
@@ -268,6 +271,7 @@ function ob_get_length(): int|false {}
  * @return int the level of nested output buffering handlers or zero if output
  * buffering is not active.
  */
+#[Pure(true)]
 function ob_get_level(): int {}
 
 /**
@@ -349,6 +353,7 @@ function ob_get_level(): int {}
     "buffer_size" => "int",
     "buffer_used" => "int",
 ])]
+#[Pure(true)]
 function ob_get_status(bool $full_status = false): array {}
 
 /**
