@@ -30,8 +30,8 @@ function hash(string $algo, string $data, bool $binary = false, #[PhpStormStubsE
 /**
  * Timing attack safe string comparison
  * @link https://php.net/manual/en/function.hash-equals.php
- * @param string $known_string <p>The string of known length to compare against</p>
- * @param string $user_string <p>The user-supplied string</p>
+ * @param string $known_string <p>The known string that must be kept secret.</p>
+ * @param string $user_string <p>The user-supplied string to compare against.</p>
  * @return bool <p>Returns <b>TRUE</b> when the two strings are equal, <b>FALSE</b> otherwise.</p>
  * @since 5.6
  */
