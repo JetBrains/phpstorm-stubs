@@ -621,7 +621,7 @@ function get_object_vars(object $object): array {}
  * @return string[] an array of method names defined for the class specified by
  * <i>class_name</i>. In case of an error, it returns null.
  */
-#[Pure(true)]
+#[Pure]
 function get_class_methods(object|string $object_or_class): array {}
 
 /**
