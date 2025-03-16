@@ -161,6 +161,7 @@ define('PASSWORD_ARGON2_PROVIDER', 'standard');
  */
 #[ArrayShape(["algo" => "int", "algoName" => "string", "options" => "array"])]
 #[LanguageLevelTypeAware(['8.0' => 'array'], default: 'array|null')]
+#[Pure]
 function password_get_info(string $hash) {}
 
 /**
@@ -181,6 +182,7 @@ function password_get_info(string $hash) {}
  * @since 5.5
  */
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false|null")]
+#[Pure(true)]
 function password_hash(string $password, string|int|null $algo, array $options = []) {}
 
 /**
@@ -192,6 +194,7 @@ function password_hash(string $password, string|int|null $algo, array $options =
  * @return bool Returns TRUE if the hash should be rehashed to match the given algo and options, or FALSE otherwise.
  * @since 5.5
  */
+#[Pure]
 function password_needs_rehash(string $hash, string|int|null $algo, array $options = []): bool {}
 
 /**
@@ -202,6 +205,7 @@ function password_needs_rehash(string $hash, string|int|null $algo, array $optio
  * @return bool Returns TRUE if the password and hash match, or FALSE otherwise.
  * @since 5.5
  */
+#[Pure]
 function password_verify(string $password, string $hash): bool {}
 
 /**
@@ -209,5 +213,6 @@ function password_verify(string $password, string $hash): bool {}
  * @return string[]
  * @since 7.4
  */
+#[Pure]
 function password_algos(): array {}
 // End of password v.

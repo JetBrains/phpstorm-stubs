@@ -528,7 +528,7 @@ function gmmktime(
  * </p>
  * @return bool true if the date given is valid; otherwise returns false.
  */
-#[Pure(true)]
+#[Pure]
 function checkdate(int $month, int $day, int $year): bool {}
 
 /**

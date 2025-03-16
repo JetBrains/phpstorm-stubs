@@ -796,6 +796,7 @@ function putenv(string $assignment): bool {}
  * @return string[]|false[]|false This function will return an array of option / argument pairs or false on
  * failure.
  */
+#[Pure(true)]
 function getopt(
     string $short_options,
     array $long_options = [],
@@ -884,6 +885,7 @@ function getrusage(int $mode = 0): array|false {}
  * </p>
  * @return string the unique identifier, as a string.
  */
+#[Pure(true)]
 function uniqid(string $prefix = "", bool $more_entropy = false): string {}
 
 /**
