@@ -415,7 +415,7 @@ function ob_gzhandler(string $data, int $flags): string|false {}
  * @param int $encoding <p>
  * One of the <b>ZLIB_ENCODING_*</b> constants.
  * </p>
- * @param array $options <p>
+ * @param array|object $options <p>
  * An associative array which may contain the following elements:
  * <b>level</b>The compression level in range -1..9; defaults to -1.
  * <b>memory</b>The compression memory level in range 1..9; defaults to 8.
@@ -432,7 +432,7 @@ function ob_gzhandler(string $data, int $flags): string|false {}
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "DeflateContext|false"], default: "resource|false")]
-function deflate_init(int $encoding, array $options = []) {}
+function deflate_init(int $encoding, #[LanguageLevelTypeAware(["8.3" => "array|object"], default: "array")] $options = []) {}
 
 /**
  * Incrementally deflate data
@@ -463,7 +463,7 @@ function deflate_add(#[LanguageLevelTypeAware(["8.0" => "DeflateContext"], defau
  * @param int $encoding <p>
  * One of the ZLIB_ENCODING_* constants.
  * </p>
- * @param array $options [optional] <p>
+ * @param array|object $options [optional] <p>
  * An associative array which may contain the following elements:
  * <b>level</b>The compression level in range -1..9; defaults to -1.
  * <b>memory</b>The compression memory level in range 1..9; defaults to 8.
@@ -480,7 +480,7 @@ function deflate_add(#[LanguageLevelTypeAware(["8.0" => "DeflateContext"], defau
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "InflateContext|false"], default: "resource|false")]
-function inflate_init(int $encoding, array $options = []) {}
+function inflate_init(int $encoding, #[LanguageLevelTypeAware(["8.3" => "array|object"], default: "array")] $options = []) {}
 
 /**
  * Incrementally inflate encoded data
