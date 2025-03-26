@@ -1008,14 +1008,14 @@ function explode(string $separator, string $string, int $limit = PHP_INT_MAX) {}
  * implode as glue would be
  * the second parameter and thus, the bad prototype would be used.
  * </p>
- * @param array|null $array <p>
+ * @param array $array <p>
  * The array of strings to implode.
  * </p>
  * @return string a string containing a string representation of all the array
  * elements in the same order, with the glue string between each element.
  */
 #[Pure]
-function implode(array|string $separator = "", ?array $array): string {}
+function implode(array|string $separator = "", array $array): string {}
 
 /**
  * Alias:
@@ -1026,14 +1026,14 @@ function implode(array|string $separator = "", ?array $array): string {}
  * implode as glue would be
  * the second parameter and thus, the bad prototype would be used.
  * </p>
- * @param array|null $array <p>
+ * @param array $array <p>
  * The array of strings to implode.
  * </p>
  * @return string a string containing a string representation of all the array
  * elements in the same order, with the glue string between each element.
  */
 #[Pure]
-function join(array|string $separator = "", ?array $array): string {}
+function join(array|string $separator = "", array $array): string {}
 
 /**
  * Set locale information
