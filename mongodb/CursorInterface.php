@@ -2,24 +2,26 @@
 
 namespace MongoDB\Driver;
 
+use Iterator;
 use MongoDB\BSON\Int64;
 use MongoDB\Driver\Exception\InvalidArgumentException;
-use Traversable;
 
 /**
  * This interface is implemented by MongoDB\Driver\Cursor but may also be used for type-hinting and userland classes.
  * @link https://www.php.net/manual/en/class.mongodb-driver-cursorinterface.php
  * @since 1.6.0
  */
-interface CursorInterface extends Traversable
+interface CursorInterface extends Iterator
 {
+    public function current(): array|object|null;
+
     /**
      * Returns the cursor ID associated with this cursor. A cursor ID uniquely identifies the cursor on the server.
-     * @return CursorId|Int64 Returns the cursor ID for this cursor.
+     * @return Int64 Returns the cursor ID for this cursor.
      * @throws InvalidArgumentException
      * @link https://www.php.net/manual/en/mongodb-driver-cursorinterface.getid.php
      */
-    public function getId(): CursorId|Int64;
+    public function getId(): Int64;
 
     /**
      * Returns the MongoDB\Driver\Server associated with this cursor.
@@ -37,6 +39,8 @@ interface CursorInterface extends Traversable
      * @throws InvalidArgumentException
      */
     public function isDead(): bool;
+
+    public function key(): ?int;
 
     /**
      * Sets a type map to use for BSON unserialization

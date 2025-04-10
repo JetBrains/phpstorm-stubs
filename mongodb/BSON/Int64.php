@@ -2,8 +2,9 @@
 
 namespace MongoDB\BSON;
 
+use JsonSerializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
-use MongoDB\Driver\Exception\UnexpectedValueException;
+use Stringable;
 
 /**
  * BSON type for a 64-bit integer.
@@ -11,27 +12,12 @@ use MongoDB\Driver\Exception\UnexpectedValueException;
  * @since 1.5.0
  * @link https://secure.php.net/manual/en/class.mongodb-bson-int64.php
  */
-final class Int64 implements Type, \Serializable, \JsonSerializable
+final class Int64 implements Type, JsonSerializable, Stringable
 {
     /** @since 1.16.0 */
     final public function __construct(string|int $value) {}
 
-    /**
-     * Serialize an Int64
-     * @link https://www.php.net/manual/en/mongodb-bson-int64.serialize.php
-     * @throws InvalidArgumentException
-     */
-    final public function serialize(): string {}
-
-    public static function __set_state(array $properties) {}
-
-    /**
-     * Unserialize an Int64
-     * @link https://www.php.net/manual/en/mongodb-bson-int64.unserialize.php
-     * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
-     * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
-     */
-    final public function unserialize(string $data): void {}
+    public static function __set_state(array $properties): self {}
 
     /**
      * Returns a representation that can be converted to JSON
@@ -39,7 +25,7 @@ final class Int64 implements Type, \Serializable, \JsonSerializable
      * @return mixed data which can be serialized by json_encode()
      * @throws InvalidArgumentException on argument parsing errors
      */
-    final public function jsonSerialize() {}
+    final public function jsonSerialize(): mixed {}
 
     /**
      * Returns the Symbol as a string

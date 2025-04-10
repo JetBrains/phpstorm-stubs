@@ -13,5 +13,5 @@ interface Decimal128Interface
      * @link https://www.php.net/manual/en/mongodb-bson-decimal128interface.tostring.php
      * @return string Returns the string representation of this Decimal128Interface
      */
-    public function __toString();
+    public function __toString(): string;
 }

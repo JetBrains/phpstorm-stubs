@@ -4,13 +4,13 @@ namespace MongoDB\BSON;
 
 use JsonSerializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
-use MongoDB\Driver\Exception\UnexpectedValueException;
+use Stringable;
 
 /**
  * Class Binary
  * @link https://php.net/manual/en/class.mongodb-bson-binary.php
  */
-final class Binary implements Type, BinaryInterface, \Serializable, JsonSerializable
+final class Binary implements Type, BinaryInterface, JsonSerializable, Stringable
 {
     public const TYPE_GENERIC = 0, TYPE_FUNCTION = 1;
     public const TYPE_OLD_BINARY = 2;
@@ -27,6 +27,11 @@ final class Binary implements Type, BinaryInterface, \Serializable, JsonSerializ
      * @since 1.12.0
      */
     public const TYPE_COLUMN = 7;
+
+    /**
+     * @since 1.17.0
+     */
+    public const TYPE_SENSITIVE = 8;
     public const TYPE_USER_DEFINED = 128;
 
     /**
@@ -47,7 +52,7 @@ final class Binary implements Type, BinaryInterface, \Serializable, JsonSerializ
      */
     final public function getType(): int {}
 
-    public static function __set_state(array $properties) {}
+    public static function __set_state(array $properties): self {}
 
     /**
      * Returns the Binary's data
@@ -56,28 +61,11 @@ final class Binary implements Type, BinaryInterface, \Serializable, JsonSerializ
     final public function __toString(): string {}
 
     /**
-     * Serialize a Binary
-     * @since 1.2.0
-     * @link https://www.php.net/manual/en/mongodb-bson-binary.serialize.php
-     * @throws InvalidArgumentException
-     */
-    final public function serialize(): string {}
-
-    /**
-     * Unserialize a Binary
-     * @since 1.2.0
-     * @link https://www.php.net/manual/en/mongodb-bson-binary.unserialize.php
-     * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
-     * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
-     */
-    final public function unserialize(string $data) {}
-
-    /**
      * Returns a representation that can be converted to JSON
      * @since 1.2.0
      * @link https://www.php.net/manual/en/mongodb-bson-binary.jsonserialize.php
      * @return mixed data which can be serialized by json_encode()
      * @throws InvalidArgumentException on argument parsing errors
      */
-    final public function jsonSerialize() {}
+    final public function jsonSerialize(): mixed {}
 }

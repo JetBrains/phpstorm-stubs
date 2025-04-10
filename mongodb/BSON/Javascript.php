@@ -4,13 +4,13 @@ namespace MongoDB\BSON;
 
 use JsonSerializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
-use MongoDB\Driver\Exception\UnexpectedValueException;
+use Stringable;
 
 /**
  * Class Javascript
  * @link https://php.net/manual/en/class.mongodb-bson-javascript.php
  */
-final class Javascript implements Type, JavascriptInterface, \Serializable, JsonSerializable
+final class Javascript implements Type, JavascriptInterface, JsonSerializable, Stringable
 {
     /**
      * Construct a new Javascript
@@ -18,7 +18,7 @@ final class Javascript implements Type, JavascriptInterface, \Serializable, Json
      */
     final public function __construct(string $javascript, array|object|null $scope = null) {}
 
-    public static function __set_state(array $properties) {}
+    public static function __set_state(array $properties): self {}
 
     /**
      * Returns the Javascript's code
@@ -39,28 +39,11 @@ final class Javascript implements Type, JavascriptInterface, \Serializable, Json
     final public function __toString(): string {}
 
     /**
-     * Serialize a Javascript
-     * @since 1.2.0
-     * @link https://www.php.net/manual/en/mongodb-bson-javascript.serialize.php
-     * @throws InvalidArgumentException
-     */
-    final public function serialize(): string {}
-
-    /**
-     * Unserialize a Javascript
-     * @since 1.2.0
-     * @link https://www.php.net/manual/en/mongodb-bson-javascript.unserialize.php
-     * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
-     * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
-     */
-    final public function unserialize(string $data): void {}
-
-    /**
      * Returns a representation that can be converted to JSON
      * @since 1.2.0
      * @link https://www.php.net/manual/en/mongodb-bson-javascript.jsonserialize.php
      * @return mixed data which can be serialized by json_encode()
      * @throws InvalidArgumentException on argument parsing errors
      */
-    final public function jsonSerialize() {}
+    final public function jsonSerialize(): mixed {}
 }

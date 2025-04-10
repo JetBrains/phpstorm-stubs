@@ -3,8 +3,9 @@
 namespace MongoDB\BSON;
 
 use JetBrains\PhpStorm\Deprecated;
+use JsonSerializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
-use MongoDB\Driver\Exception\UnexpectedValueException;
+use Stringable;
 
 /**
  * BSON type for the "Undefined" type. This BSON type is deprecated, and this class can not be instantiated. It will be created
@@ -13,26 +14,9 @@ use MongoDB\Driver\Exception\UnexpectedValueException;
  * @link https://secure.php.net/manual/en/class.mongodb-bson-undefined.php
  */
 #[Deprecated]
-final class Undefined implements Type, \Serializable, \JsonSerializable
+final class Undefined implements JsonSerializable, Type, Stringable
 {
     final private function __construct() {}
-
-    /**
-     * Serialize an Undefined
-     * @since 1.2.0
-     * @link https://www.php.net/manual/en/mongodb-bson-undefined.serialize.php
-     * @throws InvalidArgumentException
-     */
-    final public function serialize(): string {}
-
-    /**
-     * Unserialize an Undefined
-     * @since 1.2.0
-     * @link https://www.php.net/manual/en/mongodb-bson-undefined.unserialize.php
-     * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
-     * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
-     */
-    final public function unserialize(string $data): void {}
 
     /**
      * Returns a representation that can be converted to JSON
@@ -41,7 +25,7 @@ final class Undefined implements Type, \Serializable, \JsonSerializable
      * @return mixed data which can be serialized by json_encode()
      * @throws InvalidArgumentException on argument parsing errors
      */
-    final public function jsonSerialize() {}
+    final public function jsonSerialize(): mixed {}
 
     /**
      * Returns the Undefined as a string

@@ -4,30 +4,14 @@ namespace MongoDB\Driver;
 
 use MongoDB\BSON\Serializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
-use MongoDB\Driver\Exception\UnexpectedValueException;
 use stdClass;
 
 /**
  * Class ReadPreference
  * @link https://php.net/manual/en/class.mongodb-driver-readpreference.php
  */
-final class ReadPreference implements Serializable, \Serializable
+final class ReadPreference implements Serializable
 {
-    /** @deprecated */
-    public const RP_PRIMARY = 1;
-
-    /** @deprecated */
-    public const RP_PRIMARY_PREFERRED = 5;
-
-    /** @deprecated */
-    public const RP_SECONDARY = 2;
-
-    /** @deprecated */
-    public const RP_SECONDARY_PREFERRED = 6;
-
-    /** @deprecated */
-    public const RP_NEAREST = 10;
-
     /**
      * @since 1.7.0
      */
@@ -66,12 +50,12 @@ final class ReadPreference implements Serializable, \Serializable
     /**
      * Construct immutable ReadPreference
      * @link https://php.net/manual/en/mongodb-driver-readpreference.construct.php
-     * @param string|int $mode
+     * @param string $mode
      * @param array|null $tagSets
      * @param array|null $options
      * @throws InvalidArgumentException if mode is invalid or if tagSets is provided for a primary read preference.
      */
-    final public function __construct(string|int $mode, ?array $tagSets = null, ?array $options = null) {}
+    final public function __construct(string $mode, ?array $tagSets = null, ?array $options = null) {}
 
     public static function __set_state(array $properties) {}
 
@@ -81,13 +65,6 @@ final class ReadPreference implements Serializable, \Serializable
      * @link https://www.php.net/manual/en/mongodb-driver-readpreference.gethedge.php
      */
     final public function getHedge(): ?object {}
-
-    /**
-     * Returns the ReadPreference's "mode" option
-     * @link https://php.net/manual/en/mongodb-driver-readpreference.getmode.php
-     * @deprecated Use getModeString instead
-     */
-    final public function getMode(): int {}
 
     /**
      * Returns the ReadPreference's "mode" option as a string
@@ -111,23 +88,6 @@ final class ReadPreference implements Serializable, \Serializable
      * @throws InvalidArgumentException
      */
     final public function bsonSerialize(): stdClass {}
-
-    /**
-     * Serialize a ReadPreference
-     * @since 1.7.0
-     * @link https://php.net/manual/en/mongodb-driver-readpreference.serialize.php
-     * @throws InvalidArgumentException
-     */
-    final public function serialize(): string {}
-
-    /**
-     * Unserialize a ReadPreference
-     * @since 1.7.0
-     * @link https://php.net/manual/en/mongodb-driver-readpreference.unserialize.php
-     * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
-     * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
-     */
-    final public function unserialize(string $data): void {}
 
     final public function getMaxStalenessSeconds() {}
 }
