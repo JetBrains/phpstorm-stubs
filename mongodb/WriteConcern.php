@@ -4,13 +4,12 @@ namespace MongoDB\Driver;
 
 use MongoDB\BSON\Serializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
-use MongoDB\Driver\Exception\UnexpectedValueException;
 use stdClass;
 
 /**
  * WriteConcern controls the acknowledgment of a write operation, specifies the level of write guarantee for Replica Sets.
  */
-final class WriteConcern implements Serializable, \Serializable
+final class WriteConcern implements Serializable
 {
     /**
      * Majority of all the members in the set; arbiters, non-voting members, passive members, hidden members and delayed members are all included in the definition of majority write concern.
@@ -55,23 +54,6 @@ final class WriteConcern implements Serializable, \Serializable
      * @throws InvalidArgumentException
      */
     final public function bsonSerialize(): stdClass {}
-
-    /**
-     * Serialize a WriteConcern
-     * @since 1.7.0
-     * @link https://php.net/manual/en/mongodb-driver-writeconcern.serialize.php
-     * @throws InvalidArgumentException
-     */
-    final public function serialize(): string {}
-
-    /**
-     * Unserialize a WriteConcern
-     * @since 1.7.0
-     * @link https://php.net/manual/en/mongodb-driver-writeconcern.unserialize.php
-     * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
-     * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
-     */
-    final public function unserialize(string $data): void {}
 
     final public function isDefault(): bool {}
 }

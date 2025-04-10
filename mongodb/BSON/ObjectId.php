@@ -4,12 +4,13 @@ namespace MongoDB\BSON;
 
 use JsonSerializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
+use Stringable;
 
 /**
  * Class ObjectId
  * @link https://php.net/manual/en/class.mongodb-bson-objectid.php
  */
-final class ObjectId implements Type, ObjectIdInterface, \Serializable, JsonSerializable
+final class ObjectId implements Type, ObjectIdInterface, JsonSerializable, Stringable
 {
     /**
      * Construct a new ObjectId
@@ -25,7 +26,7 @@ final class ObjectId implements Type, ObjectIdInterface, \Serializable, JsonSeri
      */
     final public function __toString(): string {}
 
-    public static function __set_state(array $properties) {}
+    public static function __set_state(array $properties): self {}
 
     /**
      * Returns the timestamp component of this ObjectId
@@ -41,19 +42,5 @@ final class ObjectId implements Type, ObjectIdInterface, \Serializable, JsonSeri
      * @link https://secure.php.net/manual/en/mongodb-bson-objectid.jsonserialize.php
      * @return mixed data which can be serialized by json_encode()
      */
-    final public function jsonSerialize() {}
-
-    /**
-     * Serialize an ObjectId
-     * @since 1.2.0
-     * @link https://secure.php.net/manual/en/mongodb-bson-objectid.serialize.php
-     */
-    final public function serialize(): string {}
-
-    /**
-     * Unserialize an ObjectId
-     * @since 1.2.0
-     * @link https://secure.php.net/manual/en/mongodb-bson-objectid.unserialize.php
-     */
-    final public function unserialize(string $data): void {}
+    final public function jsonSerialize(): mixed {}
 }

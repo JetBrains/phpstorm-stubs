@@ -32,12 +32,6 @@ final class ClientEncryption
     public const ALGORITHM_RANGE = 'Range';
 
     /**
-     * @since 1.16.0
-     * @deprecated
-     */
-    public const ALGORITHM_RANGE_PREVIEW = 'RangePreview';
-
-    /**
      * @since 1.14.0
      */
     public const QUERY_TYPE_EQUALITY = 'equality';
@@ -46,12 +40,6 @@ final class ClientEncryption
      * @since 1.20.0
      */
     public const QUERY_TYPE_RANGE = 'range';
-
-    /**
-     * @since 1.16.0
-     * @deprecated
-     */
-    public const QUERY_TYPE_RANGE_PREVIEW = 'rangePreview';
 
     /**
      * @since 1.14.0

@@ -16,7 +16,7 @@ interface TimestampInterface
      * @return int
      * @since 1.3.0
      */
-    public function getIncrement();
+    public function getIncrement(): int;
 
     /**
      * Returns the timestamp component of this TimestampInterface
@@ -24,7 +24,7 @@ interface TimestampInterface
      * @return int
      * @since 1.3.0
      */
-    public function getTimestamp();
+    public function getTimestamp(): int;
 
     /**
      * Returns the string representation of this TimestampInterface
@@ -32,5 +32,5 @@ interface TimestampInterface
      * @return string
      * @since 1.3.0
      */
-    public function __toString();
+    public function __toString(): string;
 }

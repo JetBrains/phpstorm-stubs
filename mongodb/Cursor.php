@@ -9,7 +9,7 @@ use MongoDB\Driver\Exception\InvalidArgumentException;
  * The MongoDB\Driver\Cursor class encapsulates the results of a MongoDB command or query and may be returned by MongoDB\Driver\Manager::executeCommand() or MongoDB\Driver\Manager::executeQuery(), respectively.
  * @link https://php.net/manual/en/class.mongodb-driver-cursor.php
  */
-final class Cursor implements CursorInterface, \Iterator
+final class Cursor implements CursorInterface
 {
     /**
      * Create a new Cursor
@@ -28,13 +28,11 @@ final class Cursor implements CursorInterface, \Iterator
 
     /**
      * Returns the cursor ID associated with this cursor. A cursor ID cursor uniquely identifies the cursor on the server.
-     * Receiving a CursorId return type is deprecated and will be removed in 2.0.
      *
-     * @param bool $asInt64 Pass true to receive the cursor as a MongoDB\BSON\Int64 instance
      * @link https://php.net/manual/en/mongodb-driver-cursor.getid.php
      * @throws InvalidArgumentException on argument parsing errors.
      */
-    final public function getId(bool $asInt64 = false): CursorId|Int64 {}
+    final public function getId(): Int64 {}
 
     /**
      * Returns the MongoDB\Driver\Server associated with this cursor. This is the server that executed the query or command.
