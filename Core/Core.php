@@ -605,7 +605,7 @@ function get_class_vars(string $class): array {}
  * for the specified <i>object</i> in scope. If a property have
  * not been assigned a value, it will be returned with a null value.
  */
-#[Pure(true)]
+#[Pure]
 function get_object_vars(object $object): array {}
 
 /**
@@ -813,7 +813,7 @@ function create_function(string $args, string $code): false|string {}
  * by this function, the return value will be the string
  * Unknown.
  */
-#[Pure(true)]
+#[Pure]
 function get_resource_type($resource): string {}
 
 /**
