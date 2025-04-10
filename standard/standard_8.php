@@ -244,7 +244,6 @@ function ob_end_clean(): bool {}
  * @link https://php.net/manual/en/function.ob-get-flush.php
  * @return string|false the output buffer or false if no buffering is active.
  */
-#[Pure(true)]
 function ob_get_flush(): string|false {}
 
 /**
@@ -253,7 +252,6 @@ function ob_get_flush(): string|false {}
  * @return string|false the contents of the output buffer and end output buffering.
  * If output buffering isn't active then false is returned.
  */
-#[Pure(true)]
 function ob_get_clean(): string|false {}
 
 /**
