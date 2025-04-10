@@ -3,8 +3,6 @@
 namespace MongoDB\Driver;
 
 use MongoDB\BSON\Serializable;
-use MongoDB\Driver\Exception\InvalidArgumentException;
-use MongoDB\Driver\Exception\UnexpectedValueException;
 use stdClass;
 
 /**
@@ -12,7 +10,7 @@ use stdClass;
  * @link https://php.net/manual/en/class.mongodb-driver-readconcern.php
  * @since 1.1.0
  */
-final class ReadConcern implements Serializable, \Serializable
+final class ReadConcern implements Serializable
 {
     /**
      * @since 1.2.0
@@ -61,21 +59,4 @@ final class ReadConcern implements Serializable, \Serializable
      * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors.
      */
     final public function isDefault(): bool {}
-
-    /**
-     * Serialize a ReadConcern
-     * @since 1.7.0
-     * @link https://php.net/manual/en/mongodb-driver-readconcern.serialize.php
-     * @throws InvalidArgumentException
-     */
-    final public function serialize(): string {}
-
-    /**
-     * Unserialize a ReadConcern
-     * @since 1.7.0
-     * @link https://php.net/manual/en/mongodb-driver-readconcern.unserialize.php
-     * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
-     * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
-     */
-    final public function unserialize(string $data): void {}
 }

@@ -4,13 +4,13 @@ namespace MongoDB\BSON;
 
 use JsonSerializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
-use MongoDB\Driver\Exception\UnexpectedValueException;
+use Stringable;
 
 /**
  * Class Regex
  * @link https://php.net/manual/en/class.mongodb-bson-regex.php
  */
-final class Regex implements Type, RegexInterface, \Serializable, JsonSerializable
+final class Regex implements RegexInterface, JsonSerializable, Type, Stringable
 {
     /**
      * Construct a new Regex
@@ -36,24 +36,7 @@ final class Regex implements Type, RegexInterface, \Serializable, JsonSerializab
      */
     final public function __toString(): string {}
 
-    public static function __set_state(array $properties) {}
-
-    /**
-     * Serialize a Regex
-     * @since 1.2.0
-     * @link https://www.php.net/manual/en/mongodb-bson-regex.serialize.php
-     * @throws InvalidArgumentException
-     */
-    final public function serialize(): string {}
-
-    /**
-     * Unserialize a Regex
-     * @since 1.2.0
-     * @link https://www.php.net/manual/en/mongodb-bson-regex.unserialize.php
-     * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
-     * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
-     */
-    final public function unserialize(string $data): void {}
+    public static function __set_state(array $properties): self {}
 
     /**
      * Returns a representation that can be converted to JSON
@@ -62,5 +45,5 @@ final class Regex implements Type, RegexInterface, \Serializable, JsonSerializab
      * @return mixed data which can be serialized by json_encode()
      * @throws InvalidArgumentException on argument parsing errors
      */
-    final public function jsonSerialize() {}
+    final public function jsonSerialize(): mixed {}
 }

@@ -85,15 +85,6 @@ class CommandSucceededEvent
     final public function getRequestId(): string {}
 
     /**
-     * Returns the Server on which the command was executed.
-     * @link https://secure.php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getserver.php
-     * @return \MongoDB\Driver\Server on which the command was executed.
-     * @since 1.3.0
-     * @deprecated Use getHost and getPort instead.
-     */
-    final public function getServer(): Server {}
-
-    /**
      * Returns the load balancer service ID for the command
      * @link https://www.php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getserviceid.php
      * @since 1.11.0

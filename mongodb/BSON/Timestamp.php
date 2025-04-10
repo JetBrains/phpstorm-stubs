@@ -4,13 +4,13 @@ namespace MongoDB\BSON;
 
 use JsonSerializable;
 use MongoDB\Driver\Exception\InvalidArgumentException;
-use MongoDB\Driver\Exception\UnexpectedValueException;
+use Stringable;
 
 /**
  * Represents a BSON timestamp, which is an internal MongoDB type not intended for general date storage.
  * @link https://php.net/manual/en/class.mongodb-bson-timestamp.php
  */
-final class Timestamp implements TimestampInterface, Type, \Serializable, JsonSerializable
+final class Timestamp implements TimestampInterface, JsonSerializable, Type, Stringable
 {
     /**
      * Construct a new Timestamp
@@ -24,7 +24,7 @@ final class Timestamp implements TimestampInterface, Type, \Serializable, JsonSe
      */
     final public function __toString(): string {}
 
-    public static function __set_state(array $properties) {}
+    public static function __set_state(array $properties): self {}
 
     /**
      * Returns the increment component of this TimestampInterface
@@ -41,28 +41,11 @@ final class Timestamp implements TimestampInterface, Type, \Serializable, JsonSe
     final public function getTimestamp(): int {}
 
     /**
-     * Serialize a Timestamp
-     * @since 1.2.0
-     * @link https://www.php.net/manual/en/mongodb-bson-timestamp.serialize.php
-     * @throws InvalidArgumentException
-     */
-    final public function serialize(): string {}
-
-    /**
-     * Unserialize a Timestamp
-     * @since 1.2.0
-     * @link https://www.php.net/manual/en/mongodb-bson-timestamp.unserialize.php
-     * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
-     * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
-     */
-    final public function unserialize(string $data): void {}
-
-    /**
      * Returns a representation that can be converted to JSON
      * @since 1.2.0
      * @link https://www.php.net/manual/en/mongodb-bson-timestamp.jsonserialize.php
      * @return mixed data which can be serialized by json_encode()
      * @throws InvalidArgumentException on argument parsing errors
      */
-    final public function jsonSerialize() {}
+    final public function jsonSerialize(): mixed {}
 }
