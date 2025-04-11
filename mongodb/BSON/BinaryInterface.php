@@ -12,18 +12,18 @@ interface BinaryInterface
      * @link https://www.php.net/manual/en/mongodb-bson-binaryinterface.getdata.php
      * @return string Returns the BinaryInterface's data
      */
-    public function getData();
+    public function getData(): string;
 
     /**
      * @link https://www.php.net/manual/en/mongodb-bson-binaryinterface.gettype.php
      * @return int Returns the BinaryInterface's type.
      */
-    public function getType();
+    public function getType(): int;
 
     /**
      * This method is an alias of: MongoDB\BSON\BinaryInterface::getData().
      * @link https://www.php.net/manual/en/mongodb-bson-binaryinterface.tostring.php
      * @return string Returns the BinaryInterface's data.
      */
-    public function __toString();
+    public function __toString(): string;
 }

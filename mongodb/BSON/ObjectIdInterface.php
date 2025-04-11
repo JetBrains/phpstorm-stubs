@@ -12,12 +12,12 @@ interface ObjectIdInterface
      * @link https://www.php.net/manual/en/mongodb-bson-objectidinterface.gettimestamp.php
      * @return int Returns the timestamp component of this ObjectIdInterface.
      */
-    public function getTimestamp();
+    public function getTimestamp(): int;
 
     /**
      * Returns the hexadecimal representation of this ObjectId
      * @link https://www.php.net/manual/en/mongodb-bson-objectid.tostring.php
      * @return string Returns the hexadecimal representation of this ObjectId
      */
-    public function __toString();
+    public function __toString(): string;
 }

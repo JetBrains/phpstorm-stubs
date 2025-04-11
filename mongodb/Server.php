@@ -42,7 +42,7 @@ final class Server
      * @link https://php.net/manual/en/mongodb-driver-server.executebulkwrite.php
      * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
      * @param BulkWrite $bulkWrite The MongoDB\Driver\BulkWrite to execute.
-     * @param array|WriteConcern|null $options
+     * @param array|null $options
      * @throws BulkWriteException on any write failure (e.g. write error, failure to apply a write concern).
      * @throws InvalidArgumentException on argument parsing errors.
      * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
@@ -51,14 +51,14 @@ final class Server
      * @return WriteResult
      * @since 1.0.0
      */
-    final public function executeBulkWrite(string $namespace, BulkWrite $bulkWrite, array|WriteConcern|null $options = null): WriteResult {}
+    final public function executeBulkWrite(string $namespace, BulkWrite $bulkWrite, array|null $options = null): WriteResult {}
 
     /**
      * Execute a database command on this server
      * @link https://php.net/manual/en/mongodb-driver-server.executecommand.php
      * @param string $db The name of the database on which to execute the command.
      * @param Command $command The MongoDB\Driver\Command to execute.
-     * @param array|ReadPreference|null $options Optionally, a MongoDB\Driver\ReadPreference to select the server for this operation. If none is given, the read preference from the MongoDB Connection URI will be used.
+     * @param array|null $options Optionally, a MongoDB\Driver\ReadPreference to select the server for this operation. If none is given, the read preference from the MongoDB Connection URI will be used.
      * @throws InvalidArgumentException on argument parsing errors.
      * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
      * @throws AuthenticationException if authentication is needed and fails.
@@ -66,7 +66,7 @@ final class Server
      * @return Cursor
      * @since 1.0.0
      */
-    final public function executeCommand(string $db, Command $command, array|ReadPreference|null $options = null): Cursor {}
+    final public function executeCommand(string $db, Command $command, array|null $options = null): CursorInterface {}
 
     /**
      * Execute a database command that reads on this server
@@ -80,7 +80,7 @@ final class Server
      * @throws RuntimeException On other errors (e.g. invalid command).
      * @since 1.4.0
      */
-    final public function executeReadCommand(string $db, Command $command, ?array $options = null): Cursor {}
+    final public function executeReadCommand(string $db, Command $command, ?array $options = null): CursorInterface {}
 
     /**
      * Execute a database command that reads and writes on this server
@@ -94,7 +94,7 @@ final class Server
      * @throws RuntimeException On other errors (e.g. invalid command).
      * @since 1.4.0
      */
-    final public function executeReadWriteCommand(string $db, Command $command, ?array $options = null): Cursor {}
+    final public function executeReadWriteCommand(string $db, Command $command, ?array $options = null): CursorInterface {}
 
     /**
      * Execute a database command that writes on this server
@@ -108,7 +108,7 @@ final class Server
      * @throws RuntimeException On other errors (e.g. invalid command).
      * @since 1.4.0
      */
-    final public function executeWriteCommand(string $db, Command $command, ?array $options = null): Cursor {}
+    final public function executeWriteCommand(string $db, Command $command, ?array $options = null): CursorInterface {}
 
     /**
      * Execute a database query on this server
@@ -122,7 +122,7 @@ final class Server
      * @throws RuntimeException on other errors (e.g. invalid command, issuing a write command to a secondary).
      * @return Cursor
      */
-    final public function executeQuery(string $namespace, Query $query, array|ReadPreference|null $options = null): Cursor {}
+    final public function executeQuery(string $namespace, Query $query, array|ReadPreference|null $options = null): CursorInterface {}
 
     /**
      * Returns the hostname of this server

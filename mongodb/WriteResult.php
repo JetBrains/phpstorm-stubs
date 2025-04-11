@@ -13,28 +13,28 @@ final class WriteResult
     final public function __wakeup() {}
 
     /**
-     * Returns the number of documents deleted
+     * Returns the number of documents deleted. Throws an exception if the write was unacknowledged
      * @link https://php.net/manual/en/mongodb-driver-writeresult.getdeletedcount.php
      */
-    final public function getDeletedCount(): ?int {}
+    final public function getDeletedCount(): int {}
 
     /**
-     * Returns the number of documents inserted (excluding upserts)
+     * Returns the number of documents inserted (excluding upserts). Throws an exception if the write was unacknowledged
      * @link https://php.net/manual/en/mongodb-driver-writeresult.getinsertedcount.php
      */
-    final public function getInsertedCount(): ?int {}
+    final public function getInsertedCount(): int {}
 
     /**
-     * Returns the number of documents selected for update
+     * Returns the number of documents selected for update. Throws an exception if the write was unacknowledged
      * @link https://php.net/manual/en/mongodb-driver-writeresult.getmatchedcount.php
      */
-    final public function getMatchedCount(): ?int {}
+    final public function getMatchedCount(): int {}
 
     /**
-     * Returns the number of existing documents updated
+     * Returns the number of existing documents updated. Throws an exception if the write was unacknowledged
      * @link https://php.net/manual/en/mongodb-driver-writeresult.getmodifiedcount.php
      */
-    final public function getModifiedCount(): ?int {}
+    final public function getModifiedCount(): int {}
 
     /**
      * Returns the server associated with this write result
@@ -43,10 +43,10 @@ final class WriteResult
     final public function getServer(): Server {}
 
     /**
-     * Returns the number of documents inserted by an upsert
+     * Returns the number of documents inserted by an upsert. Throws an exception if the write was unacknowledged
      * @link https://php.net/manual/en/mongodb-driver-writeresult.getupsertedcount.php
      */
-    final public function getUpsertedCount(): ?int {}
+    final public function getUpsertedCount(): int {}
 
     /**
      * Returns an array of identifiers for upserted documents
