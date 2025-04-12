@@ -705,6 +705,7 @@ class ReflectionClass implements Reflector
     public function newLazyGhost(callable $initializer, int $options = 0): object {}
 
     /**
+     * @return T
      * @since 8.4
      */
     public function newLazyProxy(callable $factory, int $options = 0): object {}
