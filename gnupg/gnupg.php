@@ -103,7 +103,7 @@ class gnupg
      * @link https://php.net/manual/en/function.gnupg-verify.php
      *
      * @param string $text
-     * @param string $signature
+     * @param string|false $signature
      * @param string &$plaintext
      *
      * @return array|false On success, this function returns information about the signature.
