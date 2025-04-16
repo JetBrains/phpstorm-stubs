@@ -977,7 +977,7 @@ class NumberFormatter
     #[TentativeType]
     public static function create(
         #[LanguageAware(['8.0' => 'string'], default: '')] $locale,
-        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([NumberFormatter::PATTERN_DECIMAL,
+        #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([NumberFormatter::DECIMAL, NumberFormatter::PATTERN_DECIMAL,
             NumberFormatter::PATTERN_RULEBASED, NumberFormatter::CURRENCY, NumberFormatter::PERCENT,
             NumberFormatter::SCIENTIFIC, NumberFormatter::SPELLOUT, NumberFormatter::ORDINAL,
             NumberFormatter::DURATION, NumberFormatter::PATTERN_RULEBASED, NumberFormatter::CURRENCY_ACCOUNTING,
