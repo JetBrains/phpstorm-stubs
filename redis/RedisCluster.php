@@ -3247,13 +3247,13 @@ class RedisCluster
     /**
      * Send arbitrary things to the redis server at the specified node
      *
-     * @param string|array $nodeParams key or [host,port]
-     * @param string       $command    Required command to send to the server.
-     * @param mixed        $arguments  Optional variable amount of arguments to send to the server.
+     * @param string|array $nodeParams    key or [host,port]
+     * @param string       $command       Required command to send to the server.
+     * @param mixed        ...$arguments  Optional variable amount of arguments to send to the server.
      *
      * @return  mixed
      */
-    public function rawCommand($nodeParams, $command, $arguments) {}
+    public function rawcommand($nodeParams, $command, ...$arguments) {}
 
     /**
      * @since redis >= 3.0
