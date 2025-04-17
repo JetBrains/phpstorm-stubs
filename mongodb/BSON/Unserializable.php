@@ -15,5 +15,5 @@ interface Unserializable extends Type
      * @link https://php.net/manual/en/mongodb-bson-unserializable.bsonunserialize.php
      * @param array $data Properties within the BSON array or document.
      */
-    public function bsonUnserialize(array $data);
+    public function bsonUnserialize(array $data): void;
 }

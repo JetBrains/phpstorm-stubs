@@ -9,7 +9,6 @@ use MongoDB\Driver\Exception\Exception;
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use MongoDB\Driver\Exception\RuntimeException;
 use MongoDB\Driver\Exception\WriteConcernException;
-use MongoDB\Driver\Exception\WriteException;
 use MongoDB\Driver\Monitoring\Subscriber;
 
 /**
@@ -48,7 +47,7 @@ final class Manager
      * @link https://php.net/manual/en/mongodb-driver-manager.executebulkwrite.php
      * @param string $namespace A fully qualified namespace (databaseName.collectionName)
      * @param BulkWrite $bulk The MongoDB\Driver\BulkWrite to execute.
-     * @param array|WriteConcern|null $options WriteConcern type for backwards compatibility
+     * @param array|null $options WriteConcern type for backwards compatibility
      * @throws InvalidArgumentException on argument parsing errors.
      * @throws ConnectionException if connection to the server fails for other then authentication reasons
      * @throws AuthenticationException if authentication is needed and fails
@@ -56,36 +55,36 @@ final class Manager
      * @throws RuntimeException on other errors (invalid command, command arguments, ...)
      * @since 1.4.0 added $options argument
      */
-    final public function executeBulkWrite(string $namespace, BulkWrite $bulk, array|WriteConcern|null $options = null): WriteResult {}
+    final public function executeBulkWrite(string $namespace, BulkWrite $bulk, array|null $options = null): WriteResult {}
 
     /**
      * @link https://php.net/manual/en/mongodb-driver-manager.executecommand.php
      * @param string $db The name of the database on which to execute the command.
      * @param Command $command The command document.
-     * @param array|ReadPreference|null $options ReadPreference type for backwards compatibility
+     * @param array|null $options ReadPreference type for backwards compatibility
      * @throws Exception
      * @throws AuthenticationException if authentication is needed and fails
      * @throws ConnectionException if connection to the server fails for other then authentication reasons
      * @throws RuntimeException on other errors (invalid command, command arguments, ...)
-     * @throws WriteException on Write Error
+     * @throws BulkWriteException on Write Error
      * @throws WriteConcernException on Write Concern failure
      * @since 1.4.0 added $options argument
      */
-    final public function executeCommand(string $db, Command $command, array|ReadPreference|null $options = null): Cursor {}
+    final public function executeCommand(string $db, Command $command, array|null $options = null): CursorInterface {}
 
     /**
      * Execute a MongoDB query
      * @link https://php.net/manual/en/mongodb-driver-manager.executequery.php
      * @param string $namespace A fully qualified namespace (databaseName.collectionName)
      * @param Query $query A MongoDB\Driver\Query to execute.
-     * @param array|ReadPreference|null $options ReadPreference type for backwards compatibility
+     * @param array|null $options ReadPreference type for backwards compatibility
      * @throws Exception
      * @throws AuthenticationException if authentication is needed and fails
      * @throws ConnectionException if connection to the server fails for other then authentication reasons
      * @throws RuntimeException on other errors (invalid command, command arguments, ...)
      * @since 1.4.0 added $options argument
      */
-    final public function executeQuery(string $namespace, Query $query, array|ReadPreference|null $options = null): Cursor {}
+    final public function executeQuery(string $namespace, Query $query, array|null $options = null): CursorInterface {}
 
     /**
      * @link https://php.net/manual/en/mongodb-driver-manager.executereadcommand.php
@@ -96,11 +95,11 @@ final class Manager
      * @throws AuthenticationException if authentication is needed and fails
      * @throws ConnectionException if connection to the server fails for other then authentication reasons
      * @throws RuntimeException on other errors (invalid command, command arguments, ...)
-     * @throws WriteException on Write Error
+     * @throws BulkWriteException on Write Error
      * @throws WriteConcernException on Write Concern failure
      * @since 1.4.0
      */
-    final public function executeReadCommand(string $db, Command $command, ?array $options = null): Cursor {}
+    final public function executeReadCommand(string $db, Command $command, ?array $options = null): CursorInterface {}
 
     /**
      * @link https://php.net/manual/en/mongodb-driver-manager.executereadwritecommand.php
@@ -111,11 +110,11 @@ final class Manager
      * @throws AuthenticationException if authentication is needed and fails
      * @throws ConnectionException if connection to the server fails for other then authentication reasons
      * @throws RuntimeException on other errors (invalid command, command arguments, ...)
-     * @throws WriteException on Write Error
+     * @throws BulkWriteException on Write Error
      * @throws WriteConcernException on Write Concern failure
      * @since 1.4.0
      */
-    final public function executeReadWriteCommand(string $db, Command $command, ?array $options = null): Cursor {}
+    final public function executeReadWriteCommand(string $db, Command $command, ?array $options = null): CursorInterface {}
 
     /**
      * @link https://php.net/manual/en/mongodb-driver-manager.executewritecommand.php
@@ -126,11 +125,11 @@ final class Manager
      * @throws AuthenticationException if authentication is needed and fails
      * @throws ConnectionException if connection to the server fails for other then authentication reasons
      * @throws RuntimeException on other errors (invalid command, command arguments, ...)
-     * @throws WriteException on Write Error
+     * @throws BulkWriteException on Write Error
      * @throws WriteConcernException on Write Concern failure
      * @since 1.4.0
      */
-    final public function executeWriteCommand(string $db, Command $command, ?array $options = null): Cursor {}
+    final public function executeWriteCommand(string $db, Command $command, ?array $options = null): CursorInterface {}
 
     /**
      * Return the encryptedFieldsMap auto encryption option for the Manager

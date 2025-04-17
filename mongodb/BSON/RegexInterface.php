@@ -12,18 +12,18 @@ interface RegexInterface
      * @link https://www.php.net/manual/en/mongodb-bson-regexinterface.getflags.php
      * @return string Returns the RegexInterface's flags.
      */
-    public function getFlags();
+    public function getFlags(): string;
 
     /**
      * @link https://www.php.net/manual/en/mongodb-bson-regexinterface.getpattern.php
      * @return string Returns the RegexInterface's pattern.
      */
-    public function getPattern();
+    public function getPattern(): string;
 
     /**
      * Returns the string representation of this RegexInterface
      * @link https://www.php.net/manual/en/mongodb-bson-regexinterface.tostring.php
      * @return string
      */
-    public function __toString();
+    public function __toString(): string;
 }

@@ -2,11 +2,15 @@
 
 namespace MongoDB\BSON;
 
+use ArrayAccess;
+use IteratorAggregate;
+use Stringable;
+
 /**
  * @since 1.16.0
  * @link https://secure.php.net/manual/en/class.mongodb-bson-document.php
  */
-final class Document implements \ArrayAccess, \IteratorAggregate, \Serializable
+final class Document implements IteratorAggregate, ArrayAccess, Type, Stringable
 {
     private function __construct() {}
 
@@ -43,10 +47,6 @@ final class Document implements \ArrayAccess, \IteratorAggregate, \Serializable
     final public function __toString(): string {}
 
     final public static function __set_state(array $properties): Document {}
-
-    final public function serialize(): string {}
-
-    final public function unserialize(string $data): void {}
 
     final public function __unserialize(array $data): void {}
 

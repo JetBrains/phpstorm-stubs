@@ -19,7 +19,7 @@ interface CommandSubscriber extends Subscriber
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.3.0
      */
-    public function commandFailed(CommandFailedEvent $event);
+    public function commandFailed(CommandFailedEvent $event): void;
 
     /**
      * Notification method for a started command.
@@ -30,7 +30,7 @@ interface CommandSubscriber extends Subscriber
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.3.0
      */
-    public function commandStarted(CommandStartedEvent $event);
+    public function commandStarted(CommandStartedEvent $event): void;
 
     /**
      * Notification method for a successful command.
@@ -41,5 +41,5 @@ interface CommandSubscriber extends Subscriber
      * @throws \InvalidArgumentException on argument parsing errors.
      * @since 1.3.0
      */
-    public function commandSucceeded(CommandSucceededEvent $event);
+    public function commandSucceeded(CommandSucceededEvent $event): void;
 }
