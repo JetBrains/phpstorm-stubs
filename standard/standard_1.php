@@ -988,9 +988,9 @@ function similar_text(string $string1, string $string2, &$percent): int {}
  * <p>
  * If the limit parameter is zero, then this is treated as 1.
  * </p>
- * @return string[]|false If delimiter is an empty string (""),
+ * @return string[]|false If separator is an empty string (""),
  * explode will return false.
- * If delimiter contains a value that is not
+ * If separator contains a value that is not
  * contained in string and a negative
  * limit is used, then an empty array will be
  * returned. For any other limit, an array containing
