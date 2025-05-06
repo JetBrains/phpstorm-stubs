@@ -236,7 +236,7 @@ namespace PHPSTORM_META {
     expectedArguments(\MemcachePool::set(), 2, MEMCACHE_COMPRESSED);
     expectedArguments(\MemcachePool::replace(), 2, MEMCACHE_COMPRESSED);
 
-    expectedArguments(\MongoDB\Driver\ReadPreference::__construct(), 0, \MongoDB\Driver\ReadPreference::RP_PRIMARY,\MongoDB\Driver\ReadPreference::RP_PRIMARY_PREFERRED,\MongoDB\Driver\ReadPreference::RP_SECONDARY,\MongoDB\Driver\ReadPreference::RP_SECONDARY_PREFERRED,\MongoDB\Driver\ReadPreference::RP_NEAREST);
+    expectedArguments(\MongoDB\Driver\ReadPreference::__construct(), 0, \MongoDB\Driver\ReadPreference::PRIMARY,\MongoDB\Driver\ReadPreference::PRIMARY_PREFERRED,\MongoDB\Driver\ReadPreference::SECONDARY,\MongoDB\Driver\ReadPreference::SECONDARY_PREFERRED,\MongoDB\Driver\ReadPreference::NEAREST);
     expectedArguments(\mysqli::begin_transaction(), 0, MYSQLI_TRANS_START_READ_ONLY,MYSQLI_TRANS_START_READ_WRITE,MYSQLI_TRANS_START_WITH_CONSISTENT_SNAPSHOT);
     expectedArguments(\mysqli::commit(), 0, MYSQLI_TRANS_COR_AND_CHAIN|MYSQLI_TRANS_COR_AND_NO_CHAIN|MYSQLI_TRANS_COR_NO_RELEASE|MYSQLI_TRANS_COR_RELEASE);
     expectedArguments(\mysqli::real_connect(), 6, MYSQLI_CLIENT_COMPRESS|MYSQLI_CLIENT_FOUND_ROWS|MYSQLI_CLIENT_IGNORE_SPACE|MYSQLI_CLIENT_INTERACTIVE|MYSQLI_CLIENT_SSL|MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);
