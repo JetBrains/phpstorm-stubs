@@ -388,7 +388,7 @@ function ob_implicit_flush(#[LanguageLevelTypeAware(["8.0" => "bool"], default: 
 function ob_list_handlers(): array {}
 
 /**
- * Sort an array by key
+ * Sort an array by key in ascending order
  * @link https://php.net/manual/en/function.ksort.php
  * @param array &$array <p>
  * The input array.
