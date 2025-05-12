@@ -856,8 +856,7 @@ function gettimeofday(#[TypeContract(true: "float", false: "int[]")] bool $as_fl
  * Gets the current resource usages
  * @link https://php.net/manual/en/function.getrusage.php
  * @param int $mode <p>
- * If who is 1, getrusage will be called with
- * RUSAGE_CHILDREN.
+ * If mode is 1, getrusage will be called with RUSAGE_CHILDREN.
  * </p>
  * @return array|false an associative array containing the data returned from the system
  * call. All entries are accessible by using their documented field names.
