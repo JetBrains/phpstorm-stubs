@@ -445,7 +445,6 @@ function property_exists($object_or_class, string $property): bool {}
  * @link https://secure.php.net/manual/en/function.trait-exists.php
  * @since 5.4
  */
-#[Pure(true)]
 function trait_exists(string $trait, bool $autoload = true): bool {}
 
 /**
@@ -460,7 +459,6 @@ function trait_exists(string $trait, bool $autoload = true): bool {}
  * @return bool true if <i>class_name</i> is a defined class,
  * false otherwise.
  */
-#[Pure(true)]
 function class_exists(string $class, bool $autoload = true): bool {}
 
 /**
@@ -476,7 +474,6 @@ function class_exists(string $class, bool $autoload = true): bool {}
  * <i>interface_name</i> has been defined, false otherwise.
  * @since 5.0.2
  */
-#[Pure(true)]
 function interface_exists(string $interface, bool $autoload = true): bool {}
 
 /**
@@ -508,7 +505,6 @@ function function_exists(string $function): bool {}
  * false otherwise.
  * @since 8.1
  */
-#[Pure(true)]
 function enum_exists(string $enum, bool $autoload = true): bool {}
 
 /**
@@ -609,7 +605,7 @@ function get_class_vars(string $class): array {}
  * for the specified <i>object</i> in scope. If a property have
  * not been assigned a value, it will be returned with a null value.
  */
-#[Pure(true)]
+#[Pure]
 function get_object_vars(object $object): array {}
 
 /**
@@ -817,7 +813,7 @@ function create_function(string $args, string $code): false|string {}
  * by this function, the return value will be the string
  * Unknown.
  */
-#[Pure(true)]
+#[Pure]
 function get_resource_type($resource): string {}
 
 /**
