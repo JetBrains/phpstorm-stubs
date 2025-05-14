@@ -413,7 +413,7 @@ class RedisCluster
      *
      * @param   string $key
      *
-     * @return  string  "popped" value, bool FALSE if set identified by key is empty or doesn't exist.
+     * @return  string|false  "popped" value, bool FALSE if set identified by key is empty or doesn't exist.
      * @throws  RedisClusterException
      * @link    https://redis.io/commands/spop
      * @example
