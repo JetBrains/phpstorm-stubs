@@ -958,6 +958,7 @@ namespace {
          * <b>PDO::prepare</b> returns <b>FALSE</b> or emits
          * <b>PDOException</b> (depending on error handling).
          * </p>
+         * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          * <p>
          * Emulated prepared statements does not communicate with the database server
          * so <b>PDO::prepare</b> does not check the statement.
@@ -1031,6 +1032,7 @@ namespace {
          * @param int $attribute
          * @param mixed $value
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+         * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
         #[TentativeType]
         public function setAttribute(
@@ -1065,6 +1067,7 @@ namespace {
          * <code>
          * $db->exec() or die(print_r($db->errorInfo(), true));
          * </code>
+         * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
         #[TentativeType]
         public function exec(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $statement): int|false {}
@@ -1090,7 +1093,8 @@ namespace {
          * parameter is set to <b>PDO::FETCH_CLASS</b>.
          * </p>
          * @return PDOStatement|false <b>PDO::query</b> returns a PDOStatement object, or <b>FALSE</b>
-         * on failure.
+         * on failure or emits <b>PDOException</b> (depending on error handling)
+         * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
          */
         #[PhpStormStubsElementAvailable(to: '7.4')]
@@ -1114,7 +1118,8 @@ namespace {
          * parameter is set to <b>PDO::FETCH_CLASS</b>.
          * </p>
          * @return PDOStatement|false <b>PDO::query</b> returns a PDOStatement object, or <b>FALSE</b>
-         * on failure.
+         * on failure or emits <b>PDOException</b> (depending on error handling).
+         * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
          */
         #[PhpStormStubsElementAvailable('8.0')]
@@ -1245,6 +1250,7 @@ namespace {
          * </p>
          * @return mixed A successful call returns the value of the requested PDO attribute.
          * An unsuccessful call returns null.
+         * @throws PDOException when the underlying driver does not support the requested attribute.
          */
         #[TentativeType]
         public function getAttribute(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $attribute): mixed {}
@@ -1488,6 +1494,7 @@ namespace {
 
         /**
          * @since 8.4
+         * @throws PDOException if the attempt to connect to the requested database fails, regardless of which PDO::ATTR_ERRMODE is currently set.
          */
         public static function connect(string $dsn, ?string $username = null, ?string $password = null, ?array $options = null): static {}
     }
@@ -1559,6 +1566,7 @@ namespace {
          * @param int $cursorOffset [optional]
          * @return mixed The return value of this function on success depends on the fetch type. In
          * all cases, <b>FALSE</b> is returned on failure.
+         * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
         #[TentativeType]
         public function fetch(
@@ -1596,6 +1604,7 @@ namespace {
          * @param mixed $driverOptions [optional] <p>
          * </p>
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+         * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
         #[TentativeType]
         public function bindParam(
@@ -1628,6 +1637,7 @@ namespace {
          * Optional parameter(s) for the driver.
          * </p>
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+         * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
         #[TentativeType]
         public function bindColumn(
@@ -1657,6 +1667,7 @@ namespace {
          * constants.
          * </p>
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+         * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
         #[TentativeType]
         public function bindValue(
@@ -1670,6 +1681,7 @@ namespace {
          * Returns the number of rows affected by the last SQL statement
          * @link https://php.net/manual/en/pdostatement.rowcount.php
          * @return int the number of rows.
+         * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
         #[TentativeType]
         public function rowCount(): int {}
@@ -1689,6 +1701,7 @@ namespace {
          * <p>
          * There is no way to return another column from the same row if you
          * use <b>PDOStatement::fetchColumn</b> to retrieve data.
+         * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
         #[TentativeType]
         public function fetchColumn(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $column = 0): mixed {}
@@ -1761,6 +1774,7 @@ namespace {
          * </p>
          * @return T|stdClass|null an instance of the required class with property names that
          * correspond to the column names or <b>FALSE</b> on failure.
+         * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
         #[TentativeType]
         public function fetchObject(
@@ -1815,6 +1829,7 @@ namespace {
          * @param int $attribute
          * @param mixed $value
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+         * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
         #[TentativeType]
         public function setAttribute(
@@ -1839,6 +1854,7 @@ namespace {
          * @return int the number of columns in the result set represented by the
          * PDOStatement object. If there is no result set,
          * <b>PDOStatement::columnCount</b> returns 0.
+         * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
         #[TentativeType]
         public function columnCount(): int {}
@@ -1925,6 +1941,7 @@ namespace {
          * </p>
          * @param mixed ...$args <p> Constructor arguments. </p>
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+         * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
         public function setFetchMode($mode, ...$args) {}
 
@@ -1933,6 +1950,7 @@ namespace {
          * Advances to the next rowset in a multi-rowset statement handle
          * @link https://php.net/manual/en/pdostatement.nextrowset.php
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+         * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
         #[TentativeType]
         public function nextRowset(): bool {}
@@ -1942,6 +1960,7 @@ namespace {
          * Closes the cursor, enabling the statement to be executed again.
          * @link https://php.net/manual/en/pdostatement.closecursor.php
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+         * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
         #[TentativeType]
         public function closeCursor(): bool {}
