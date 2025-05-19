@@ -431,8 +431,7 @@ function method_exists($object_or_class, string $method): bool {}
  * @param string $property <p>
  * The name of the property
  * </p>
- * @return bool true if the property exists, false if it doesn't exist or
- * null in case of an error.
+ * @return bool true if the property exists, false otherwise
  */
 #[Pure]
 function property_exists($object_or_class, string $property): bool {}
@@ -441,7 +440,7 @@ function property_exists($object_or_class, string $property): bool {}
  * Checks if the trait exists
  * @param string $trait Name of the trait to check
  * @param bool $autoload [optional] Whether to autoload if not already loaded.
- * @return bool Returns TRUE if trait exists, FALSE if not, NULL in case of an error.
+ * @return bool Returns true if trait exists, false otherwise
  * @link https://secure.php.net/manual/en/function.trait-exists.php
  * @since 5.4
  */
