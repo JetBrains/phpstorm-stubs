@@ -7,6 +7,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__)
+    ->exclude('meta/attributes/public')
     ->append(['.php-cs-fixer.php'])
     ->notName('PhpStormStubsMap.php');
 
