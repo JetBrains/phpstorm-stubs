@@ -3,6 +3,7 @@
 namespace MongoDB\Driver;
 
 use MongoDB\Driver\Exception\AuthenticationException;
+use MongoDB\Driver\Exception\BulkWriteCommandException;
 use MongoDB\Driver\Exception\BulkWriteException;
 use MongoDB\Driver\Exception\ConnectionException;
 use MongoDB\Driver\Exception\InvalidArgumentException;
@@ -52,6 +53,21 @@ final class Server
      * @since 1.0.0
      */
     final public function executeBulkWrite(string $namespace, BulkWrite $bulkWrite, array|null $options = null): WriteResult {}
+
+    /**
+     * Execute write operations on this server using the bulkWrite command
+     * @link https://php.net/manual/en/mongodb-driver-server.executebulkwritecommand.php
+     * @param BulkWriteCommand $bulkWriteCommand The write(s) to execute.
+     * @param array|null $options
+     * @throws BulkWriteCommandException on any write failure (e.g. write error, failure to apply a write concern).
+     * @throws InvalidArgumentException on argument parsing errors.
+     * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
+     * @throws AuthenticationException if authentication is needed and fails.
+     * @throws RuntimeException on other errors.
+     * @return BulkWriteCommandResult
+     * @since 2.1.0
+     */
+    final public function executeBulkWriteCommand(BulkWriteCommand $bulkWriteCommand, ?array $options = null): BulkWriteCommandResult {}
 
     /**
      * Execute a database command on this server
