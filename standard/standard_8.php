@@ -1059,7 +1059,7 @@ function array_unshift(array &$array, #[PhpStormStubsElementAvailable(from: '5.3
  * </p>
  * @return array the array consisting of the extracted elements.
  */
-function array_splice(array &$array, int $offset, ?int $length, mixed $replacement = []): array {}
+function array_splice(array &$array, int $offset, ?int $length = null, mixed $replacement = []): array {}
 
 /**
  * Extract a slice of the array
@@ -1091,7 +1091,7 @@ function array_splice(array &$array, int $offset, ?int $length, mixed $replaceme
  * @meta
  */
 #[Pure]
-function array_slice(array $array, int $offset, ?int $length, bool $preserve_keys = false): array {}
+function array_slice(array $array, int $offset, ?int $length = null, bool $preserve_keys = false): array {}
 
 /**
  * Merges the elements of one or more arrays together (if the input arrays have the same string keys, then the later value for that key will overwrite the previous one; if the arrays contain numeric keys, the later value will be appended)
