@@ -734,7 +734,7 @@ function passthru(string $command, &$result_code): ?bool {}
  * @param string $command <p>
  * The command that will be executed.
  * </p>
- * @return string|false|null The output from the executed command or NULL if an error occurred or the command produces no output.
+ * @return string|false|null A string containing the output from the executed command, false if the pipe cannot be established or null if an error occurs or the command produces no output.
  */
 function shell_exec(string $command): string|false|null {}
 
