@@ -3724,13 +3724,13 @@ class RedisCluster
 
     public function hStrLen(string $key, string $field): RedisCluster|int|false {}
 
-    public function hexpire(string $key, int $ttl, array $fields, ?string $mode = NULL): RedisCluster|array|false {}
+    public function hexpire(string $key, int $ttl, array $fields, ?string $mode = null): RedisCluster|array|false {}
 
-    public function hpexpire(string $key, int $ttl, array $fields, ?string $mode = NULL): RedisCluster|array|false {}
+    public function hpexpire(string $key, int $ttl, array $fields, ?string $mode = null): RedisCluster|array|false {}
 
-    public function hexpireat(string $key, int $time, array $fields, ?string $mode = NULL): RedisCluster|array|false {}
+    public function hexpireat(string $key, int $time, array $fields, ?string $mode = null): RedisCluster|array|false {}
 
-    public function hpexpireat(string $key, int $mstime, array $fields, ?string $mode = NULL): RedisCluster|array|false {}
+    public function hpexpireat(string $key, int $mstime, array $fields, ?string $mode = null): RedisCluster|array|false {}
 
     public function httl(string $key, array $fields): RedisCluster|array|false {}
 
