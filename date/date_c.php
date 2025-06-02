@@ -167,11 +167,6 @@ interface DateTimeInterface
      * @since 8.4
      */
     public function getMicrosecond(): int;
-
-    /**
-     * @since 8.4
-     */
-    public function setMicrosecond();
 }
 
 /**
