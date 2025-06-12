@@ -7,7 +7,7 @@
  * @return TValue|null
  * @since 8.4
  */
-function array_find(array $array, callable $callback) {}
+function array_find(array $array, callable $callback): mixed {}
 /**
  * @since 8.4
  */
