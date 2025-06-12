@@ -11,7 +11,7 @@ RUN set -eux; \
 
 RUN docker-php-ext-configure gd --with-jpeg --with-webp --with-freetype
 
-RUN docker-php-ext-install pgsql pdo_pgsql tidy zip xsl imap gmp sockets intl gd ldap bz2 mysqli bcmath calendar dba exif gettext opcache pcntl \
-    pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap pgsql pspell ftp
+RUN docker-php-ext-install pgsql pdo_pgsql tidy zip xsl imap gmp sockets gd ldap bz2 mysqli bcmath calendar dba exif gettext opcache pcntl \
+    pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap pgsql pspell ftp #intl
 
 WORKDIR /opt/project/phpstorm-stubs
