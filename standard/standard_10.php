@@ -1,8 +1,13 @@
 <?php
 /**
+ * @template TKey
+ * @template TValue
+ * @param array<TKey, TValue> $array
+ * @param callable(TValue, TKey): bool
+ * @return TValue|null
  * @since 8.4
  */
-function array_find(array $array, callable $callback): mixed {}
+function array_find(array $array, callable $callback) {}
 /**
  * @since 8.4
  */
