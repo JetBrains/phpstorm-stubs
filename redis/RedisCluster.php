@@ -438,7 +438,7 @@ class RedisCluster
      * @param   mixed $value String, value to push in key
      * @param   mixed ...$other_values
      *
-     * @return  RedisCluster|int|boole    The new length of the list in case of success, FALSE in case of Failure.
+     * @return  RedisCluster|int|bool    The new length of the list in case of success, FALSE in case of Failure.
      * @throws  RedisClusterException
      * @link    https://redis.io/commands/lpush
      * @example
@@ -2312,7 +2312,7 @@ class RedisCluster
      * @param   mixed  $end
      * @param   array|bool|null $options
      *
-     * @return  edisCluster|array|bool   Array containing the values in specified range.
+     * @return  RedisCluster|array|bool   Array containing the values in specified range.
      * @throws  RedisClusterException
      * @link    https://redis.io/commands/zrange
      * @example
