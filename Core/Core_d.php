@@ -93,6 +93,7 @@ define('E_COMPILE_WARNING', 128);
  * <b>E_ERROR</b>, except it is generated in PHP code by
  * using the PHP function <b>trigger_error</b>.
  * @link https://php.net/manual/en/errorfunc.constants.php
+ * @deprecated 8.4
  */
 define('E_USER_ERROR', 256);
 
