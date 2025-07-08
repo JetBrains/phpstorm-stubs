@@ -113,7 +113,7 @@ interface DateTimeInterface
      * Returns the formatted date string on success or <b>FALSE</b> on failure.
      * Since PHP8, it always returns <b>STRING</b>.
      */
-    #[Pure]
+    #[Pure(true)]
     #[TentativeType]
     public function format(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $format): string;
 
@@ -426,7 +426,7 @@ class DateTimeImmutable implements DateTimeInterface
      * @return string
      * Returns the formatted date string on success or <b>FALSE</b> on failure.
      */
-    #[Pure]
+    #[Pure(true)]
     #[TentativeType]
     public function format(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $format): string {}
 
@@ -651,7 +651,7 @@ class DateTime implements DateTimeInterface
      * @return string
      * @link https://php.net/manual/en/datetime.format.php
      */
-    #[Pure]
+    #[Pure(true)]
     #[TentativeType]
     public function format(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $format): string {}
 
