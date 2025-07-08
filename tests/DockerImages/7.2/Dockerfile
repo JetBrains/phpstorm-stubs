@@ -6,7 +6,7 @@ RUN set -eux; \
     libmcrypt-dev imap-dev php7-imap php7-enchant bzip2-dev gettext-dev libxml2-dev php7-dev php7-gd icu-dev \
     php7-zip php7-tidy php7-intl libffi-dev openssl-dev php7-pear rabbitmq-c rabbitmq-c-dev librrd \
     libzip-dev rrdtool-dev gmp-dev yaml yaml-dev fann fann-dev openldap-dev librdkafka librdkafka-dev libcurl curl-dev \
-    libpng-dev gpgme gpgme-dev aspell-dev libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev
+    libpng-dev aspell-dev libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev
 
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr --with-png-dir=/usr --with-webp-dir=/usr --with-jpeg-dir=/usr
 
