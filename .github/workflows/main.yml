@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       - name: Build Docker Container
         run: docker compose -f docker-compose.yml build >/dev/null
@@ -39,6 +41,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       - name: Composer Install
         run: docker compose -f docker-compose.yml run test_runner composer install --no-progress
