@@ -806,7 +806,7 @@ function getopt(
 /**
  * Gets system load average
  * @link https://php.net/manual/en/function.sys-getloadavg.php
- * @return array|false an array with three samples (last 1, 5 and 15
+ * @return array{float, float, float}|false an array with three samples (last 1, 5 and 15
  * minutes).
  * @since 5.1.3
  */
