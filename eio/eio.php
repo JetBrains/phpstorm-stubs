@@ -559,7 +559,7 @@ function eio_cancel($req): void {}
  * @link https://www.php.net/manual/en/function.eio-grp.php
  * @param mixed $callback function is called when the request is done
  * @param mixed $data Arbitrary variable passed to callback
- * @return resource returns request group resource on success, or false on failure.
+ * @return resource|false returns request group resource on success, or false on failure.
  */
 function eio_grp(mixed $callback, mixed $data = null) {}
 
