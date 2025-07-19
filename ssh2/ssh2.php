@@ -304,9 +304,34 @@ function ssh2_auth_pubkey_file($session, $username, $pubkeyfile, $privkeyfile, $
  */
 function ssh2_auth_hostbased_file($session, $username, $hostname, $pubkeyfile, $privkeyfile, $passphrase = null, $local_username = null) {}
 
-function ssh2_forward_listen() {}
+/**
+ * (PECL ssh2 &gt;= 0.9.0)<br/>
+ * Bind a port on the remote server and listen for connections
+ * @link https://www.php.net/manual/en/function.ssh2-forward-listen.php
+ * @param resource $session <p>
+ * An SSH connection link identifier, obtained from a call to
+ * ssh2_connect.
+ * </p>
+ * @param int $port <p>
+ * </p>
+ * @param string $host [optional] <p>
+ * </p>
+ * @param int $max_connections [optional] <p>
+ * </p>
+ * @return resource|false Returns an SSH2 Listener, or false on failure.
+ */
+function ssh2_forward_listen($session, $port, $host = null, $max_connections = 16) {}
 
-function ssh2_forward_accept() {}
+/**
+ * (PECL ssh2 &gt;= 0.9.0)<br/>
+ * Accept a connection created by a listener
+ * @link https://www.php.net/manual/en/function.ssh2-forward-accept.php
+ * @param resource $listener <p>
+ * An SSH2 Listener resource, obtained from a call to ssh2_forward_listen().
+ * </p>
+ * @return resource|false Returns a stream resource, or false on failure.
+ */
+function ssh2_forward_accept($listener) {}
 
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
