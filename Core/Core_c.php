@@ -610,7 +610,7 @@ class ErrorException extends Exception
      * @param int $severity [optional] The severity level of the exception.
      * @param string $filename [optional] The filename where the exception is thrown.
      * @param int $line [optional] The line number where the exception is thrown.
-     * @param Exception $previous [optional] The previous exception used for the exception chaining.
+     * @param Throwable $previous [optional] The previous exception used for the exception chaining.
      */
     #[Pure]
     public function __construct(
