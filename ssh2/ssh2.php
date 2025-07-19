@@ -465,9 +465,14 @@ function ssh2_scp_send($session, $local_file, $remote_file, $create_mode = null)
 function ssh2_fetch_stream($channel, $streamid) {}
 
 /**
- * @param array &$var1
+ * (PECL ssh2 &gt;= 0.9.0)<br/>
+ * Poll the channels/listeners/streams for events
+ * @link https://www.php.net/manual/en/function.ssh2-poll.php
+ * @param array &$desc
+ * @param int    $timeout
+ * @return int Returns the number of descriptors which returned non-zero revents.
  */
-function ssh2_poll(&$var1) {}
+function ssh2_poll(&$desc, $timeout = 30) {}
 
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
