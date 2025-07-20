@@ -162,14 +162,15 @@ class DOMNode
     /**
      * Adds a new child before a reference node
      * @link https://php.net/manual/en/domnode.insertbefore.php
-     * @param DOMNode $node <p>
+     * @template TNode of DOMNode
+     * @param TNode $node <p>
      * The new node.
      * </p>
      * @param null|DOMNode $child [optional] <p>
      * The reference node. If not supplied, newnode is
      * appended to the children.
      * </p>
-     * @return DOMNode The inserted node.
+     * @return TNode|false The inserted node.
      */
     public function insertBefore(
         DOMNode $node,
@@ -179,35 +180,38 @@ class DOMNode
     /**
      * Replaces a child
      * @link https://php.net/manual/en/domnode.replacechild.php
+     * @template TNode of DOMNode
      * @param DOMNode $node <p>
      * The new node. It must be a member of the target document, i.e.
      * created by one of the DOMDocument->createXXX() methods or imported in
      * the document by .
      * </p>
-     * @param DOMNode $child <p>
+     * @param TNode $child <p>
      * The old node.
      * </p>
-     * @return DOMNode|false The old node or false if an error occur.
+     * @return TNode|false The old node or false if an error occur.
      */
     public function replaceChild(DOMNode $node, DOMNode $child) {}
 
     /**
      * Removes child from list of children
      * @link https://php.net/manual/en/domnode.removechild.php
-     * @param DOMNode $child <p>
+     * @template TNode of DOMNode
+     * @param TNode $child <p>
      * The removed child.
      * </p>
-     * @return DOMNode If the child could be removed the functions returns the old child.
+     * @return TNode|false If the child could be removed the functions returns the old child.
      */
     public function removeChild(DOMNode $child) {}
 
     /**
      * Adds new child at the end of the children
      * @link https://php.net/manual/en/domnode.appendchild.php
-     * @param DOMNode $node <p>
+     * @template TNode of DOMNode
+     * @param TNode $node <p>
      * The appended child.
      * </p>
-     * @return DOMNode The node added.
+     * @return TNode|false The node added.
      */
     public function appendChild(DOMNode $node) {}
 
