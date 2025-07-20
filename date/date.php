@@ -979,6 +979,20 @@ function date_create_immutable(string $datetime = 'now', ?DateTimeZone $timezone
  * @return DateTimeImmutable|false
  */
 #[Pure(true)]
+#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+function date_create_immutable_from_format(string $format, string $datetime, ?DateTimeZone $timezone): DateTimeImmutable|false {}
+
+/**
+ * Returns new DateTimeImmutable object formatted according to the specified format
+ * @link https://php.net/manual/en/function.date-create-immutable-from-format.php
+ * @param string $format
+ * @param string $datetime
+ * @param DateTimeZone|null $timezone [optional]
+ * @return DateTimeImmutable|false
+ * @throws ValueError when the datetime contains NULL-bytes.
+ */
+#[Pure(true)]
+#[PhpStormStubsElementAvailable(from: '8.0')]
 function date_create_immutable_from_format(string $format, string $datetime, ?DateTimeZone $timezone): DateTimeImmutable|false {}
 
 /**
