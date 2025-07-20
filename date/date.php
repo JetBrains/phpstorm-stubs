@@ -995,6 +995,25 @@ function date_create_immutable_from_format(string $format, string $datetime, ?Da
  * {@see DateTime} instance or <b>FALSE</b> on failure.</p>
  */
 #[Pure(true)]
+#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+function date_create_from_format(string $format, string $datetime, ?DateTimeZone $timezone): DateTime|false {}
+
+/**
+ * Alias:
+ * {@see DateTime::createFromFormat}
+ * @link https://php.net/manual/en/function.date-create-from-format.php
+ * @param string $format Format accepted by  <a href="https://secure.php.net/manual/en/function.date.php">date()</a>.
+ * <p>If format does not contain the character ! then portions of the generated time which are not specified in format will be set to the current system time.</p>
+ * <p>If format contains the character !, then portions of the generated time not provided in format, as well as values to the left-hand side of the !, will be set to corresponding values from the Unix epoch.</p>
+ * <p>The Unix epoch is 1970-01-01 00:00:00 UTC.</p>
+ * @param string $datetime String representing the time.
+ * @param DateTimeZone|null $timezone [optional] A DateTimeZone object representing the desired time zone.
+ * @return DateTime|false <p> Returns a new
+ * {@see DateTime} instance or <b>FALSE</b> on failure.</p>
+ * @throws ValueError when the datetime contains NULL-bytes.
+ */
+#[Pure(true)]
+#[PhpStormStubsElementAvailable(from: '8.0')]
 function date_create_from_format(string $format, string $datetime, ?DateTimeZone $timezone): DateTime|false {}
 
 /**
