@@ -230,7 +230,7 @@ class DOMNode
      * Indicates whether to copy all descendant nodes. This parameter is
      * defaulted to false.
      * </p>
-     * @return static The cloned node.
+     * @return static|false The cloned node.
      */
     public function cloneNode(
         #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $deep,
