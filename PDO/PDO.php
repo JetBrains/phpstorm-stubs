@@ -1732,8 +1732,16 @@ namespace {
          * column, bitwise-OR <b>PDO::FETCH_COLUMN</b> with
          * <b>PDO::FETCH_GROUP</b>.
          * </p>
-         * @param mixed ...$args <p>
-         * Arguments of custom class constructor when the <i>fetch_style</i>
+         * @param int|string|callable $fetch_argument <p>
+         * Dynamic parameter that is depending on the fetch mode:
+         * - column: Used with PDO::FETCH_COLUMN. Returns the indicated 0-indexed column.
+         * - class: Used with PDO::FETCH_CLASS. Returns instances of the specified class,
+         *   mapping the columns of each row to named properties in the class.
+         * - callback: Used with PDO::FETCH_FUNC. Returns the results of calling the
+         *   specified function, using each row's columns as parameters in the call.
+         * </p>
+         * @param array|null $constructorArgs <p>
+         * Argument of custom class constructor when the <i>fetch_style</i>
          * parameter is <b>PDO::FETCH_CLASS</b>.
          * </p>
          * @return array <b>PDOStatement::fetchAll</b> returns an array containing
@@ -1756,8 +1764,8 @@ namespace {
         #[TentativeType]
         public function fetchAll(
             #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = PDO::FETCH_DEFAULT,
-            #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $fetch_argument = null,
-            #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$args
+            #[LanguageLevelTypeAware(['8.0' => 'int|string|callable|null'], default: '')] $fetch_argument = null,
+            #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: '')] $constructorArgs = null
         ): array {}
 
         /**
