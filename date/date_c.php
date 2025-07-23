@@ -240,6 +240,25 @@ class DateTimeImmutable implements DateTimeInterface
      * @return DateTimeImmutable|false
      */
     #[TentativeType]
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    public static function createFromFormat(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $format,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime,
+        #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')] $timezone = null
+    ): DateTimeImmutable|false {}
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Returns new DateTimeImmutable object formatted according to the specified format
+     * @link https://secure.php.net/manual/en/datetimeimmutable.createfromformat.php
+     * @param string $format
+     * @param string $datetime
+     * @param null|DateTimeZone $timezone [optional]
+     * @return DateTimeImmutable|false
+     * @throws ValueError when the datetime contains NULL-bytes.
+     */
+    #[TentativeType]
+    #[PhpStormStubsElementAvailable(from: '8.0')]
     public static function createFromFormat(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $format,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime,
@@ -819,6 +838,24 @@ class DateTime implements DateTimeInterface
      * @link https://php.net/manual/en/datetime.createfromformat.php
      */
     #[TentativeType]
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    public static function createFromFormat(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $format,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime,
+        #[LanguageLevelTypeAware(['8.0' => 'DateTimeZone|null'], default: 'DateTimeZone')] $timezone = null
+    ): DateTime|false {}
+
+    /**
+     * Parse a string into a new DateTime object according to the specified format
+     * @param string $format Format accepted by date().
+     * @param string $datetime String representing the time.
+     * @param null|DateTimeZone $timezone A DateTimeZone object representing the desired time zone.
+     * @return DateTime|false
+     * @link https://php.net/manual/en/datetime.createfromformat.php
+     * @throws ValueError when the datetime contains NULL-bytes.
+     */
+    #[TentativeType]
+    #[PhpStormStubsElementAvailable(from: '8.0')]
     public static function createFromFormat(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $format,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime,
