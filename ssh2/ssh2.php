@@ -309,10 +309,10 @@ function ssh2_auth_hostbased_file($session, $username, $hostname, $pubkeyfile, $
  * Bind a port on the remote server and listen for connections
  * @link https://www.php.net/manual/en/function.ssh2-forward-listen.php
  * @param resource $session <p>
- * An SSH connection link identifier, obtained from a call to
- * ssh2_connect.
+ * An SSH connection link identifier, obtained from a call to `ssh2_connect()`.
  * </p>
  * @param int $port <p>
+ * The port of the remote server.
  * </p>
  * @param string $host [optional] <p>
  * </p>
@@ -468,8 +468,16 @@ function ssh2_fetch_stream($channel, $streamid) {}
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Poll the channels/listeners/streams for events
  * @link https://www.php.net/manual/en/function.ssh2-poll.php
- * @param array &$desc
- * @param int    $timeout
+ * @param array &$desc <p>
+ * An indexed array of subarrays with the keys 'resource' and 'events'.
+ * The value of the resource is a (channel) stream or an SSH2 Listener resource.
+ * The value of the event are SSH2_POLL* flags bitwise ORed together.
+ * Each subarray will be populated with an 'revents' element on return,
+ * whose values are SSH2_POLL* flags bitwise ORed together of the events that occurred.
+ * </p>
+ * @param int $timeout <p>
+ * The timeout in seconds.
+ * </p>
  * @return int Returns the number of descriptors which returned non-zero revents.
  */
 function ssh2_poll(&$desc, $timeout = 30) {}
