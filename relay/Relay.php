@@ -468,7 +468,7 @@ class Relay
     /**
      * Establishes a new connection to Redis, or reuses already opened connection.
      *
-     * @var $context array{
+     * @example $context array{
      *   use-cache: bool,                       // Whether to use in-memory caching
      *   adaptive-cache: array{
      *     enabled: bool                        // Whether to disable adaptive caching
