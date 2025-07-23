@@ -2765,7 +2765,9 @@ class Cluster
     public function zunionstore(mixed $dstkey, array $keys, array|null $weights = null, mixed $options = null): Cluster|int|false {}
 }
 
+namespace Relay\Cluster;
+
 /**
  * Cluster FullscanGenerator.
  */
-final class Relay\Cluster\FullscanGenerator extends \Generator {}
+final class FullscanGenerator extends \Generator {}
