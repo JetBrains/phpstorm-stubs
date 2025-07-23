@@ -92,8 +92,6 @@ class AdaptiveCache
     /**
      * Returns stats for given key name.
      *
-     * @phpstan-type KeyStats array{key: string, reads: int, writes: int, ratio: float}
-     *
      * @param  string  $key
      * @return array|false
      */
