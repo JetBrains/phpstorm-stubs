@@ -93,7 +93,7 @@ class Sentinel
     /**
      * Returns the ip and port number of the primary with that name.
      *
-     * @alias Relay\Sentinel::getMasterAddrByName
+     * @see Relay\Sentinel::getMasterAddrByName()
      *
      * @param  string  $master
      * @return array|false
@@ -113,7 +113,7 @@ class Sentinel
     /**
      * Returns the state and info of the specified primary.
      *
-     * @alias Relay\Sentinel::master
+     * @see Relay\Sentinel::master()
      *
      * @param  string  $master
      * @return array|false
@@ -132,7 +132,7 @@ class Sentinel
     /**
      * Returns a list of monitored primaries and their state.
      *
-     * @alias Relay\Sentinel::masters
+     * @see Relay\Sentinel::masters()
      *
      * @return array|false
      */

@@ -69,7 +69,6 @@ class AdaptiveCache
 
     /**
      * @internal
-     * @return void
      */
     protected function __construct() {}
 
