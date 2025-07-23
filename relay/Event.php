@@ -12,28 +12,28 @@ abstract class Event
      *
      * @var int
      */
-    public const INVALIDATED = 0;
+    public const INVALIDATED = 1;
 
     /**
      * The integer representing the `INVALIDATED` event.
      *
      * @var int
      */
-    public const Invalidated = 0;
+    public const Invalidated = 1;
 
     /**
      * The integer representing the `FLUSHED` event.
      *
      * @var int
      */
-    public const FLUSHED = 0;
+    public const FLUSHED = 2;
 
     /**
      * The integer representing the `FLUSHED` event.
      *
      * @var int
      */
-    public const Flushed = 0;
+    public const Flushed = 2;
 
     /**
      * The type of the event represented by an integer.
