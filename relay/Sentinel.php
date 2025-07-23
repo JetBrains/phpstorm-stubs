@@ -50,7 +50,7 @@ class Sentinel
         #[\SensitiveParameter]
         mixed $auth = null,
         array|null $context = null
-    );
+    ) {}
 
     /**
      * Check if the current Sentinel configuration is able to reach the quorum needed
