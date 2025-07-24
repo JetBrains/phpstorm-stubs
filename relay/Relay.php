@@ -509,8 +509,7 @@ class Relay
         int $port = 6379,
         float $connect_timeout = 0.0,
         float $command_timeout = 0.0,
-        #[\SensitiveParameter]
-        array $context = [],
+        #[\SensitiveParameter] array $context = [],
         int $database = 0,
     ) {}
 
@@ -537,8 +536,7 @@ class Relay
         ?string $persistent_id = null,
         int $retry_interval = 0,
         float $read_timeout = 0.0,
-        #[\SensitiveParameter]
-        array $context = [],
+        #[\SensitiveParameter] array $context = [],
         int $database = 0
     ): bool;
 
@@ -565,8 +563,7 @@ class Relay
         ?string $persistent_id = null,
         int $retry_interval = 0,
         float $read_timeout = 0.0,
-        #[\SensitiveParameter]
-        array $context = [],
+        #[\SensitiveParameter] array $context = [],
         int $database = 0
     ): bool;
 
@@ -1357,8 +1354,7 @@ class Relay
         int $timeout,
         bool $copy = false,
         bool $replace = false,
-        #[\SensitiveParameter]
-        mixed $credentials = null
+        #[\SensitiveParameter] mixed $credentials = null
     ): Relay|bool;
 
     /**

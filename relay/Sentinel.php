@@ -47,8 +47,7 @@ class Sentinel
         mixed $persistent = null,
         int $retry_interval = 0,
         float $read_timeout = 0,
-        #[\SensitiveParameter]
-        mixed $auth = null,
+        #[\SensitiveParameter] mixed $auth = null,
         array|null $context = null
     ) {}
 
