@@ -37,8 +37,9 @@ class Sentinel
      * @param  int  $retry_interval
      * @param  float  $read_timeout
      * @param  mixed  $auth
+     * @param  array|null  $context
      */
-    #[\Relay\Attributes\Server]
+    #[Attributes\Server]
     public function __construct(
         array|string|null $host = null,
         int $port = 26379,
@@ -46,7 +47,8 @@ class Sentinel
         mixed $persistent = null,
         int $retry_interval = 0,
         float $read_timeout = 0,
-        #[\SensitiveParameter] mixed $auth = null
+        #[\SensitiveParameter] mixed $auth = null,
+        array|null $context = null
     ) {}
 
     /**
@@ -56,7 +58,7 @@ class Sentinel
      * @param  string  $master
      * @return bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function ckquorum(string $master): bool {}
 
     /**
@@ -66,7 +68,7 @@ class Sentinel
      * @param  string  $master
      * @return bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function failover(string $master): bool {}
 
     /**
@@ -75,7 +77,7 @@ class Sentinel
      *
      * @return bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function flushconfig(): bool {}
 
     /**
@@ -84,8 +86,19 @@ class Sentinel
      * @param  string  $master
      * @return array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function getMasterAddrByName(string $master): array|false {}
+
+    /**
+     * Returns the ip and port number of the primary with that name.
+     *
+     * @see Relay\Sentinel::getMasterAddrByName()
+     *
+     * @param  string  $master
+     * @return array|false
+     */
+    #[Attributes\ValkeyCommand]
+    public function getPrimaryAddrByName(string $master): array|false {}
 
     /**
      * Returns the state and info of the specified master.
@@ -93,23 +106,44 @@ class Sentinel
      * @param  string  $master
      * @return array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function master(string $master): array|false {}
+
+    /**
+     * Returns the state and info of the specified primary.
+     *
+     * @see Relay\Sentinel::master()
+     *
+     * @param  string  $master
+     * @return array|false
+     */
+    #[Attributes\ValkeyCommand]
+    public function primary(string $master): array|false {}
 
     /**
      * Returns a list of monitored masters and their state.
      *
      * @return array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function masters(): array|false {}
+
+    /**
+     * Returns a list of monitored primaries and their state.
+     *
+     * @see Relay\Sentinel::masters()
+     *
+     * @return array|false
+     */
+    #[Attributes\ValkeyCommand]
+    public function primaries(): array|false {}
 
     /**
      * Returns the ID of the Sentinel instance.
      *
      * @return string
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function myid(): string {}
 
     /**
@@ -118,7 +152,7 @@ class Sentinel
      * @param  string|null  $message
      * @return string|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function ping(?string $message = null): string|bool {}
 
     /**
@@ -127,7 +161,7 @@ class Sentinel
      * @param  string  $pattern
      * @return int
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function reset(string $pattern): int {}
 
     /**
@@ -136,7 +170,7 @@ class Sentinel
      * @param  string  $master
      * @return array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function sentinels(string $master): array|false {}
 
     /**
@@ -145,7 +179,7 @@ class Sentinel
      * @param  string  $master
      * @return array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function slaves(string $master): array|false {}
 
     /**
@@ -153,7 +187,7 @@ class Sentinel
      *
      * @return string|null
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function getLastError(): string|null {}
 
     /**
@@ -163,7 +197,7 @@ class Sentinel
      * @param  mixed  $value
      * @return bool
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function setOption(int $option, mixed $value): bool {}
 
     /**
@@ -172,6 +206,6 @@ class Sentinel
      * @param  int  $option
      * @return mixed
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function getOption(int $option): mixed {}
 }

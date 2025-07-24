@@ -53,7 +53,24 @@ class Cluster
     public const FAILOVER_DISTRIBUTE_SLAVES = 3;
 
     /**
+     * Integer representing the availability zone option.
+     *
+     * @var int
+     */
+    public const OPT_AVAILABILITY_ZONE = 110;
+
+    /**
+     * The adaptive cache object.
+     *
+     * @readonly
+     * @var AdaptiveCache
+     */
+    public AdaptiveCache $adaptiveCache;
+
+    /**
      * Create a cluster object.
+     *
+     * @see Relay::__construct() for context options.
      *
      * @param  string|null  $name
      * @param  array|null  $seeds
@@ -63,7 +80,7 @@ class Cluster
      * @param  mixed  $auth
      * @param  array|null  $context
      */
-    #[\Relay\Attributes\Server]
+    #[Attributes\Server]
     public function __construct(
         string|null $name,
         array|null $seeds = null,
@@ -80,7 +97,7 @@ class Cluster
      * @param  string  $value
      * @return string
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function _compress(string $value): string {}
 
     /**
@@ -88,7 +105,7 @@ class Cluster
      *
      * @return int
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function idleTime(): int {}
 
     /**
@@ -104,7 +121,7 @@ class Cluster
      *
      * @return array
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function _masters(): array {}
 
     /**
@@ -113,7 +130,7 @@ class Cluster
      * @param  mixed  $value
      * @return string
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function _pack(mixed $value): string {}
 
     /**
@@ -122,7 +139,7 @@ class Cluster
      * @param  mixed  $value
      * @return string
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function _prefix(mixed $value): string {}
 
     /**
@@ -131,7 +148,7 @@ class Cluster
      * @param  mixed  $value
      * @return string
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function _serialize(mixed $value): string {}
 
     /**
@@ -140,7 +157,7 @@ class Cluster
      * @param  string  $value
      * @return string
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function _uncompress(string $value): string {}
 
     /**
@@ -149,7 +166,7 @@ class Cluster
      * @param  string  $value
      * @return mixed
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function _unpack(string $value): mixed {}
 
     /**
@@ -158,7 +175,7 @@ class Cluster
      * @param  string  $value
      * @return mixed
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function _unserialize(string $value): mixed {}
 
     /**
@@ -168,7 +185,7 @@ class Cluster
      * @param  string  $args,...
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function acl(array|string $key_or_address, string $operation, string ...$args): mixed {}
 
     /**
@@ -177,7 +194,7 @@ class Cluster
      * @param  string  $pattern,...
      * @return int
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function addAllowPatterns(string ...$pattern): int {}
 
     /**
@@ -186,7 +203,7 @@ class Cluster
      * @param  string  $pattern,...
      * @return int
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function addIgnorePatterns(string ...$pattern): int {}
 
     /**
@@ -199,7 +216,7 @@ class Cluster
      * @param  mixed  $value
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function append(mixed $key, mixed $value): Cluster|int|false {}
 
     /**
@@ -208,7 +225,7 @@ class Cluster
      * @param  array|string  $key_or_address
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function bgrewriteaof(array|string $key_or_address): Cluster|bool {}
 
     /**
@@ -219,7 +236,7 @@ class Cluster
      * @param  int  $numremote
      * @return Relay|array
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function waitaof(array|string $key_or_address, int $numlocal, int $numremote, int $timeout): Relay|array|false {}
 
     /**
@@ -229,7 +246,7 @@ class Cluster
      * @param  bool  $schedule
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function bgsave(array|string $key_or_address, bool $schedule = false): Cluster|bool {}
 
     /**
@@ -241,7 +258,7 @@ class Cluster
      * @param  bool  $by_bit
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function bitcount(mixed $key, int $start = 0, int $end = -1, bool $by_bit = false): Cluster|int|false {}
 
     /**
@@ -253,7 +270,7 @@ class Cluster
      * @param  string  $other_keys,...
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function bitop(string $operation, string $dstkey, string $srckey, string ...$other_keys): Cluster|int|false {}
 
     /**
@@ -266,7 +283,7 @@ class Cluster
      * @param  bool  $by_bit
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function bitpos(mixed $key, int $bit, int $start = null, int $end = null, bool $by_bit = false): Cluster|int|false {}
 
     /**
@@ -281,7 +298,7 @@ class Cluster
      * @param  float  $timeout
      * @return Cluster|string|null|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function blmove(mixed $srckey, mixed $dstkey, string $srcpos, string $dstpos, float $timeout): Cluster|string|null|false {}
 
     /**
@@ -293,7 +310,7 @@ class Cluster
      * @param  int  $count
      * @return Cluster|array|null|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function blmpop(float $timeout, array $keys, string $from, int $count = 1): mixed {}
 
     /**
@@ -305,7 +322,7 @@ class Cluster
      * @param  array  $extra_args,...
      * @return Cluster|array|null|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function blpop(string|array $key, string|float $timeout_or_key, mixed ...$extra_args): Cluster|array|null|false {}
 
     /**
@@ -317,7 +334,7 @@ class Cluster
      * @param  array  $extra_args,...
      * @return Cluster|array|null|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function brpop(string|array $key, string|float $timeout_or_key, mixed ...$extra_args): Cluster|array|null|false {}
 
     /**
@@ -330,7 +347,7 @@ class Cluster
      * @param  float  $timeout
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Deprecated]
     public function brpoplpush(mixed $srckey, mixed $dstkey, float $timeout): mixed {}
 
     /**
@@ -342,7 +359,7 @@ class Cluster
      * @param  int  $count
      * @return Cluster|array|null|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function bzmpop(float $timeout, array $keys, string $from, int $count = 1): Cluster|array|null|false {}
 
     /**
@@ -353,7 +370,7 @@ class Cluster
      * @param  array  $extra_args,...
      * @return Cluster|array|null|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function bzpopmax(string|array $key, string|float $timeout_or_key, mixed ...$extra_args): Cluster|array|null|false {}
 
     /**
@@ -364,7 +381,7 @@ class Cluster
      * @param  array  $extra_args,...
      * @return Cluster|array|null|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function bzpopmin(string|array $key, string|float $timeout_or_key, mixed ...$extra_args): Cluster|array|null|false {}
 
     /**
@@ -372,13 +389,13 @@ class Cluster
      *
      * @return bool
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function clearLastError(): bool {}
 
     /**
      * @return bool
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function clearTransferredBytes(): bool {}
 
     /**
@@ -389,7 +406,7 @@ class Cluster
      * @param  mixed  $args,...
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function client(array|string $key_or_address, string $operation, mixed ...$args): mixed {}
 
     /**
@@ -397,7 +414,7 @@ class Cluster
      *
      * @return bool
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function close(): bool {}
 
     /**
@@ -408,7 +425,7 @@ class Cluster
      * @param  mixed  $args,...
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function cluster(array|string $key_or_address, string $operation, mixed ...$args): mixed {}
 
     /**
@@ -419,7 +436,7 @@ class Cluster
      * @param  mixed  $args,...
      * @return Cluster|array|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function config(array|string $key_or_address, string $operation, mixed ...$args): mixed {}
 
     /**
@@ -428,7 +445,7 @@ class Cluster
      * @param  array  $args,...
      * @return Cluster|array|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function command(mixed ...$args): Cluster|array|int|false {}
 
     /**
@@ -439,7 +456,7 @@ class Cluster
      * @param  array|null  $options
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function copy(mixed $srckey, mixed $dstkey, array|null $options = null): Cluster|bool {}
 
     /**
@@ -447,7 +464,7 @@ class Cluster
      *
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function dbsize(array|string $key_or_address): Cluster|int|false {}
 
     /**
@@ -457,7 +474,7 @@ class Cluster
      * @param  int  $by
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function decr(mixed $key, int $by = 1): Cluster|int|false {}
 
     /**
@@ -467,7 +484,7 @@ class Cluster
      * @param  int  $value
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function decrby(mixed $key, int $value): Cluster|int|false {}
 
     /**
@@ -476,7 +493,7 @@ class Cluster
      * @param  mixed  $keys,...
      * @return Cluster|int|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function del(mixed ...$keys): Cluster|int|bool {}
 
     /**
@@ -485,7 +502,7 @@ class Cluster
      *
      * @return bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function discard(): bool {}
 
     /**
@@ -493,7 +510,7 @@ class Cluster
      *
      * @return int|false
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function dispatchEvents(): int|false {}
 
     /**
@@ -502,7 +519,7 @@ class Cluster
      * @param  mixed  $key
      * @return Cluster|string|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function dump(mixed $key): Cluster|string|false {}
 
     /**
@@ -512,7 +529,7 @@ class Cluster
      * @param  string  $message
      * @return Cluster|string|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function echo(array|string $key_or_address, string $message): Cluster|string|false {}
 
     /**
@@ -520,7 +537,7 @@ class Cluster
      *
      * @return array|false
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function endpointId(): array|false {}
 
     /**
@@ -533,7 +550,7 @@ class Cluster
      * @param  int  $num_keys
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function eval(mixed $script, array $args = [], int $num_keys = 0): mixed {}
 
     /**
@@ -547,7 +564,7 @@ class Cluster
      * @param  int  $num_keys
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function eval_ro(mixed $script, array $args = [], int $num_keys = 0): mixed {}
 
     /**
@@ -558,7 +575,7 @@ class Cluster
      * @param  int  $num_keys
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function evalsha(string $sha, array $args = [], int $num_keys = 0): mixed {}
 
     /**
@@ -570,7 +587,7 @@ class Cluster
      * @param  int  $num_keys
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function evalsha_ro(string $sha, array $args = [], int $num_keys = 0): mixed {}
 
     /**
@@ -578,7 +595,7 @@ class Cluster
      *
      * @return array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function exec(): array|false {}
 
     /**
@@ -587,7 +604,7 @@ class Cluster
      * @param  mixed  $keys,...
      * @return Cluster|int|bool
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function exists(mixed ...$keys): Cluster|int|bool {}
 
     /**
@@ -598,7 +615,7 @@ class Cluster
      * @param  string|null  $mode
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function expire(mixed $key, int $seconds, string|null $mode = null): Cluster|bool {}
 
     /**
@@ -608,7 +625,7 @@ class Cluster
      * @param  int  $timestamp
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function expireat(mixed $key, int $timestamp): Cluster|bool {}
 
     /**
@@ -619,7 +636,7 @@ class Cluster
      * @param  mixed  $key
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function expiretime(mixed $key): Cluster|int|false {}
 
     /**
@@ -629,7 +646,7 @@ class Cluster
      * @param  int|null  $db
      * @return bool
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public static function flushMemory(?string $endpointId = null, int $db = null): bool {}
 
     /**
@@ -639,7 +656,7 @@ class Cluster
      * @param  bool|null  $sync
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function flushall(array|string $key_or_address, bool|null $sync = null): Cluster|bool {}
 
     /**
@@ -649,8 +666,16 @@ class Cluster
      * @param  bool|null  $sync
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function flushdb(array|string $key_or_address, bool|null $sync = null): Cluster|bool {}
+
+    /**
+     * Flush the persistent slot cache, if one exists.
+     *
+     * @return bool
+     */
+    #[Attributes\Local]
+    public function flushSlotCache(): bool {}
 
     /**
      * Add one or more members to a geospacial sorted set
@@ -662,7 +687,7 @@ class Cluster
      * @param  mixed  $other_triples_and_options,...
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function geoadd(mixed $key, float $lng, float $lat, string $member, mixed ...$other_triples_and_options): Cluster|int|false {}
 
     /**
@@ -674,7 +699,7 @@ class Cluster
      * @param  string|null  $unit
      * @return Cluster|float|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function geodist(mixed $key, string $src, string $dst, string|null $unit = null): Cluster|float|false {}
 
     /**
@@ -685,7 +710,7 @@ class Cluster
      * @param  string  $other_members,...
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function geohash(mixed $key, string $member, string ...$other_members): Cluster|array|false {}
 
     /**
@@ -696,7 +721,7 @@ class Cluster
      * @param  mixed  $members,...
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function geopos(mixed $key, mixed ...$members): Cluster|array|false {}
 
     /**
@@ -710,7 +735,7 @@ class Cluster
      * @param  array  $options
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Deprecated]
     public function georadius(mixed $key, float $lng, float $lat, float $radius, string $unit, array $options = []): mixed {}
 
     /**
@@ -724,7 +749,7 @@ class Cluster
      * @param  array  $options
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Deprecated]
     public function georadius_ro(mixed $key, float $lng, float $lat, float $radius, string $unit, array $options = []): mixed {}
 
     /**
@@ -737,7 +762,7 @@ class Cluster
      * @param  array  $options
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Deprecated]
     public function georadiusbymember(mixed $key, string $member, float $radius, string $unit, array $options = []): mixed {}
 
     /**
@@ -750,7 +775,7 @@ class Cluster
      * @param  array  $options
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Deprecated]
     public function georadiusbymember_ro(mixed $key, string $member, float $radius, string $unit, array $options = []): mixed {}
 
     /**
@@ -761,10 +786,10 @@ class Cluster
      * @param  array|int|float  $shape
      * @param  string  $unit
      * @param  array  $options
-     * @return Cluster|array
+     * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
-    public function geosearch(mixed $key, array|string $position, array|int|float $shape, string $unit, array $options = []): Cluster|array {}
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
+    public function geosearch(mixed $key, array|string $position, array|int|float $shape, string $unit, array $options = []): Cluster|array|false {}
 
     /**
      * Search a geospacial sorted set for members within a given area or range, storing the results into
@@ -778,7 +803,7 @@ class Cluster
      * @param  array  $options
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function geosearchstore(mixed $dstkey, mixed $srckey, array|string $position, array|int|float $shape, string $unit, array $options = []): Cluster|int|false {}
 
     /**
@@ -787,8 +812,22 @@ class Cluster
      * @param  mixed  $key
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function get(mixed $key): mixed {}
+
+    /**
+     * Get the value and metadata of key.
+     *
+     * Result is an array with value and metadata or `false` in case of error.
+     * Currently metadata contains following elements:
+     *  - cached  whether value comes from in-memory cache or from server
+     *  - length  number of bytes used to store value
+     *
+     * @param  mixed  $key
+     * @return Cluster|array{0: mixed, 1: array{cached: bool, length: int}}|false
+     */
+    #[Attributes\Server, Attributes\Cached]
+    public function getWithMeta(mixed $key): Cluster|array|false {}
 
     /**
      * Returns the bit value at offset in the string value stored at key.
@@ -797,7 +836,7 @@ class Cluster
      * @param  int  $pos
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function getbit(mixed $key, int $pos): Cluster|int|false {}
 
     /**
@@ -808,15 +847,26 @@ class Cluster
      * @param  array  $options
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function getex(mixed $key, ?array $options = null): mixed {}
+
+    /**
+     * Get the value of key and delete the key. This command is similar to GET,
+     * except for the fact that it also deletes the key on success
+     * (if and only if the key's value type is a string).
+     *
+     * @param  mixed  $key
+     * @return mixed
+     */
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
+    public function getdel(mixed $key): mixed {}
 
     /**
      * Returns the last error message, if any.
      *
      * @return string|null
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function getLastError(): string|null {}
 
     /**
@@ -826,7 +876,7 @@ class Cluster
      * @param  bool  $masked
      * @return int
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function getMode(bool $masked = false): int {}
 
     /**
@@ -835,13 +885,13 @@ class Cluster
      * @param  int  $option
      * @return mixed
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function getOption(int $option): mixed {}
 
     /**
      * @return array|false
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function getTransferredBytes(): array|false {}
 
     /**
@@ -853,7 +903,7 @@ class Cluster
      * @param  int  $end
      * @return Cluster|string|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function getrange(mixed $key, int $start, int $end): Cluster|string|false {}
 
     /**
@@ -863,7 +913,7 @@ class Cluster
      * @param  mixed  $value
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Deprecated]
     public function getset(mixed $key, mixed $value): mixed {}
 
     /**
@@ -874,7 +924,7 @@ class Cluster
      * @param  string  $members,...
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function hdel(mixed $key, mixed $member, mixed ...$members): Cluster|int|false {}
 
     /**
@@ -884,8 +934,106 @@ class Cluster
      * @param  mixed  $member
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function hexists(mixed $key, mixed $member): Cluster|bool {}
+
+    /**
+     * Se an expiration for one or more hash fields.
+     *
+     * @param  mixed  $hash
+     * @param  int  $ttl
+     * @param  array  $fields
+     * @param  string  $mode
+     * @return Cluster|array|false
+     */
+    #[Attributes\RedisCommand]
+    public function hexpire(mixed $hash, int $ttl, array $fields, ?string $mode = null): Cluster|array|false {}
+
+    /**
+     * Set a millisecond resolution expiry on one or more hash fields.
+     *
+     * @param  mixed  $hash
+     * @param  int  $ttl
+     * @param  array  $fields
+     * @param  string  $mode
+     * @return Cluster|array|false
+     */
+    #[Attributes\RedisCommand]
+    public function hpexpire(mixed $hash, int $ttl, array $fields, ?string $mode = null): Cluster|array|false {}
+
+    /**
+     * Set a unix timestamp expiration for one or more hash fields
+     *
+     * @param  mixed  $hash
+     * @param  int  $ttl
+     * @param  array  $fields
+     * @param  string  $mode
+     * @return Cluster|array|false
+     */
+    #[Attributes\RedisCommand]
+    public function hexpireat(mixed $hash, int $ttl, array $fields, ?string $mode = null): Cluster|array|false {}
+
+    /**
+     * Set a millisecond resolution unix timestamp expiration for one or more hash fields
+     *
+     * @param  mixed  $hash
+     * @param  int  $ttl
+     * @param  array  $fields
+     * @param  string  $mode
+     * @return Cluster|array|false
+     */
+    #[Attributes\RedisCommand]
+    public function hpexpireat(mixed $hash, int $ttl, array $fields, ?string $mode = null): Cluster|array|false {}
+
+    /**
+     * Get the expire time in seconds for one or more hash fields.
+     *
+     * @param  mixed  $hash
+     * @param  array  $fields
+     * @return Cluster|array|false
+     */
+    #[Attributes\RedisCommand]
+    public function httl(mixed $hash, array $fields): Cluster|array|false {}
+
+    /**
+     * Get the expire time in milliseconds for one or more hash fields.
+     *
+     * @param  mixed  $hash
+     * @param  array  $fields
+     * @return Cluster|array|false
+     */
+    #[Attributes\RedisCommand]
+    public function hpttl(mixed $hash, array $fields): Cluster|array|false {}
+
+    /**
+     * Get the unix timestamp expiration time for one or more hash fields.
+     *
+     * @param  mixed  $hash
+     * @param  array  $fields
+     * @return Cluster|array|false
+     */
+    #[Attributes\RedisCommand]
+    public function hexpiretime(mixed $hash, array $fields): Cluster|array|false {}
+
+    /**
+     * Get the millisecond precision unix timestamp expiration time for one or more
+     * hash fields.
+     *
+     * @param  mixed  $hash
+     * @param  array  $fields
+     * @return Cluster|array|false
+     */
+    #[Attributes\RedisCommand]
+    public function hpexpiretime(mixed $hash, array $fields): Cluster|array|false {}
+
+    /**
+     * Persist one or more hash fields
+     *
+     * @param  mixed  $hash
+     * @param  array  $fields
+     * @return Cluster|array|false
+     */
+    public function hpersist(mixed $hash, array $fields): Cluster|array|false {}
 
     /**
      * Returns the value associated with field in the hash stored at key.
@@ -894,7 +1042,7 @@ class Cluster
      * @param  mixed  $member
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function hget(mixed $key, mixed $member): mixed {}
 
     /**
@@ -903,7 +1051,7 @@ class Cluster
      * @param  mixed  $key
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function hgetall(mixed $key): Cluster|array|false {}
 
     /**
@@ -914,7 +1062,7 @@ class Cluster
      * @param  int  $value
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function hincrby(mixed $key, mixed $member, int $value): Cluster|int|false {}
 
     /**
@@ -926,7 +1074,7 @@ class Cluster
      * @param  float  $value
      * @return Cluster|float|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function hincrbyfloat(mixed $key, mixed $member, float $value): Cluster|float|bool {}
 
     /**
@@ -935,7 +1083,7 @@ class Cluster
      * @param  mixed  $key
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function hkeys(mixed $key): Cluster|array|false {}
 
     /**
@@ -944,7 +1092,7 @@ class Cluster
      * @param  mixed  $key
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function hlen(mixed $key): Cluster|int|false {}
 
     /**
@@ -954,7 +1102,7 @@ class Cluster
      * @param  array  $members
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function hmget(mixed $key, array $members): Cluster|array|false {}
 
     /**
@@ -964,7 +1112,7 @@ class Cluster
      * @param  array  $members
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Deprecated]
     public function hmset(mixed $key, array $members): Cluster|bool {}
 
     /**
@@ -974,7 +1122,7 @@ class Cluster
      * @param  array  $options
      * @return Cluster|array|string|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function hrandfield(mixed $key, array|null $options = null): Cluster|array|string|false {}
 
     /**
@@ -986,20 +1134,18 @@ class Cluster
      * @param  int  $count
      * @return array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function hscan(mixed $key, mixed &$iterator, mixed $match = null, int $count = 0): array|false {}
 
     /**
      * Sets field in the hash stored at key to value.
      *
      * @param  mixed  $key
-     * @param  mixed  $member
-     * @param  mixed  $value
-     * @param  mixed  $kvals,...
+     * @param  mixed  $keys_and_vals...
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
-    public function hset(mixed $key, mixed $member, mixed $value, mixed ...$kvals): Cluster|int|false {}
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
+    public function hset(mixed $key, mixed ...$keys_and_vals): Cluster|int|false {}
 
     /**
      * Sets field in the hash stored at key to value, only if field does not yet exist.
@@ -1009,7 +1155,7 @@ class Cluster
      * @param  mixed  $value
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function hsetnx(mixed $key, mixed $member, mixed $value): Cluster|bool {}
 
     /**
@@ -1019,7 +1165,7 @@ class Cluster
      * @param  mixed  $member
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function hstrlen(mixed $key, mixed $member): Cluster|int|false {}
 
     /**
@@ -1028,7 +1174,7 @@ class Cluster
      * @param  mixed  $key
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function hvals(mixed $key): Cluster|array|false {}
 
     /**
@@ -1038,7 +1184,7 @@ class Cluster
      * @param  int  $by
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function incr(mixed $key, int $by = 1): Cluster|int|false {}
 
     /**
@@ -1048,7 +1194,7 @@ class Cluster
      * @param  int  $value
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function incrby(mixed $key, int $value): Cluster|int|false {}
 
     /**
@@ -1058,7 +1204,7 @@ class Cluster
      * @param  float  $value
      * @return Cluster|float|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function incrbyfloat(mixed $key, float $value): Cluster|float|false {}
 
     /**
@@ -1071,8 +1217,16 @@ class Cluster
      * @param  string  $sections,...
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function info(array|string $key_or_address, string ...$sections): Cluster|array|false {}
+
+    /**
+     * Invaalidate all slot caches for across all workers.
+     *
+     * @return bool
+     */
+    #[Attributes\Local]
+    public static function invalidateSlotCaches(): bool {}
 
     /**
      * Returns all keys matching pattern.
@@ -1080,15 +1234,25 @@ class Cluster
      * @param  mixed  $pattern
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function keys(mixed $pattern): Cluster|array|false {}
+
+    /**
+     * @see \Relay\Relay::flushMemory()
+     *
+     * @param  string|null  $endpointId
+     * @param  int|null  $db
+     * @return float|false
+     */
+    #[Attributes\Local]
+    public static function lastMemoryFlush(?string $endpointId = null, int $db = null): float|false {}
 
     /**
      * Returns the UNIX time stamp of the last successful save to disk.
      *
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function lastsave(array|string $key_or_address): Cluster|int|false {}
 
     /**
@@ -1099,7 +1263,7 @@ class Cluster
      * @param  array|null  $options
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function lcs(mixed $key1, mixed $key2, array|null $options = null): mixed {}
 
     /**
@@ -1109,7 +1273,7 @@ class Cluster
      * @param  int  $index
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function lindex(mixed $key, int $index): mixed {}
 
     /**
@@ -1121,7 +1285,7 @@ class Cluster
      * @param  mixed  $element
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function linsert(mixed $key, string $op, mixed $pivot, mixed $element): Cluster|int|false {}
 
     /**
@@ -1130,7 +1294,7 @@ class Cluster
      * @param  callable  $callback
      * @return bool
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function listen(?callable $callback): bool {}
 
     /**
@@ -1139,7 +1303,7 @@ class Cluster
      * @param  mixed  $key
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function llen(mixed $key): Cluster|int|false {}
 
     /**
@@ -1153,7 +1317,7 @@ class Cluster
      * @param  string  $dstpos
      * @return Cluster|string|null|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function lmove(mixed $srckey, mixed $dstkey, string $srcpos, string $dstpos): Cluster|string|null|false {}
 
     /**
@@ -1164,7 +1328,7 @@ class Cluster
      * @param  int  $count
      * @return Cluster|array|null|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function lmpop(array $keys, string $from, int $count = 1): mixed {}
 
     /**
@@ -1174,7 +1338,7 @@ class Cluster
      * @param  int  $count
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function lpop(mixed $key, int $count = 1): mixed {}
 
     /**
@@ -1185,7 +1349,7 @@ class Cluster
      * @param  array  $options
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function lpos(mixed $key, mixed $value, array|null $options = null): mixed {}
 
     /**
@@ -1196,7 +1360,7 @@ class Cluster
      * @param  mixed  $members,...
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function lpush(mixed $key, mixed $member, mixed ...$members): Cluster|int|false {}
 
     /**
@@ -1208,7 +1372,7 @@ class Cluster
      * @param  mixed  $members,...
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function lpushx(mixed $key, mixed $member, mixed ...$members): Cluster|int|false {}
 
     /**
@@ -1219,7 +1383,7 @@ class Cluster
      * @param  int  $stop
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function lrange(mixed $key, int $start, int $stop): Cluster|array|false {}
 
     /**
@@ -1230,7 +1394,7 @@ class Cluster
      * @param  int  $count
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function lrem(mixed $key, mixed $member, int $count = 0): Cluster|int|false {}
 
     /**
@@ -1241,7 +1405,7 @@ class Cluster
      * @param  mixed  $member
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function lset(mixed $key, int $index, mixed $member): Cluster|bool {}
 
     /**
@@ -1252,7 +1416,7 @@ class Cluster
      * @param  int  $end
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function ltrim(mixed $key, int $start, int $end): Cluster|bool {}
 
     /**
@@ -1260,7 +1424,7 @@ class Cluster
      *
      * @return int
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public static function maxMemory(): int {}
 
     /**
@@ -1269,7 +1433,7 @@ class Cluster
      * @param  array  $keys
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function mget(array $keys): Cluster|array|false {}
 
     /**
@@ -1279,7 +1443,7 @@ class Cluster
      * @param  array  $kvals
      * @return Cluster|array|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function mset(array $kvals): Cluster|array|bool {}
 
     /**
@@ -1289,7 +1453,7 @@ class Cluster
      * @param  array  $kvals
      * @return Cluster|array|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function msetnx(array $kvals): Cluster|array|bool {}
 
     /**
@@ -1300,7 +1464,7 @@ class Cluster
      * @param  int  $mode
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function multi(int $mode = Relay::MULTI): Cluster|bool {}
 
     /**
@@ -1310,7 +1474,7 @@ class Cluster
      * @param  mixed  $key
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function object(string $op, mixed $key): mixed {}
 
     /**
@@ -1319,7 +1483,7 @@ class Cluster
      * @param  callable  $callback
      * @return bool
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function onFlushed(?callable $callback): bool {}
 
     /**
@@ -1329,7 +1493,7 @@ class Cluster
      * @param  string|null  $pattern
      * @return bool
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function onInvalidated(?callable $callback, ?string $pattern = null): bool {}
 
     /**
@@ -1338,7 +1502,7 @@ class Cluster
      * @param  mixed  $key
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function persist(mixed $key): Cluster|bool {}
 
     /**
@@ -1348,7 +1512,7 @@ class Cluster
      * @param  int  $milliseconds
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function pexpire(mixed $key, int $milliseconds): Cluster|bool {}
 
     /**
@@ -1358,7 +1522,7 @@ class Cluster
      * @param  int  $timestamp_ms
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function pexpireat(mixed $key, int $timestamp_ms): Cluster|bool {}
 
     /**
@@ -1368,7 +1532,7 @@ class Cluster
      * @param  mixed  $key
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function pexpiretime(mixed $key): Cluster|int|false {}
 
     /**
@@ -1378,7 +1542,7 @@ class Cluster
      * @param  array  $elements
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function pfadd(mixed $key, array $elements): Cluster|int|false {}
 
     /**
@@ -1387,7 +1551,7 @@ class Cluster
      * @param  string  $key
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function pfcount(mixed $key): Cluster|int|false {}
 
     /**
@@ -1397,7 +1561,7 @@ class Cluster
      * @param  array  $srckeys
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function pfmerge(string $dstkey, array $srckeys): Cluster|bool {}
 
     /**
@@ -1407,7 +1571,7 @@ class Cluster
      * @param  string|null  $message
      * @return Cluster|bool|string
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function ping(array|string $key_or_address, string|null $message = null): Cluster|bool|string {}
 
     /**
@@ -1418,7 +1582,7 @@ class Cluster
      * @param  mixed  $value
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Deprecated]
     public function psetex(mixed $key, int $milliseconds, mixed $value): Cluster|bool {}
 
     /**
@@ -1428,7 +1592,7 @@ class Cluster
      * @param  callable  $callback
      * @return bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function psubscribe(array $patterns, callable $callback): bool {}
 
     /**
@@ -1437,7 +1601,7 @@ class Cluster
      * @param  mixed  $key
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function pttl(mixed $key): Cluster|int|false {}
 
     /**
@@ -1447,7 +1611,7 @@ class Cluster
      * @param  string  $message
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function publish(string $channel, string $message): Cluster|int|false {}
 
     /**
@@ -1458,7 +1622,7 @@ class Cluster
      * @param  mixed  $args,...
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function pubsub(array|string $key_or_address, string $operation, mixed ...$args): mixed {}
 
     /**
@@ -1467,7 +1631,7 @@ class Cluster
      * @param  array  $patterns
      * @return bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function punsubscribe(array $patterns = []): bool {}
 
     /**
@@ -1476,7 +1640,7 @@ class Cluster
      * @param  array|string  $key_or_address
      * @return Cluster|bool|string
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function randomkey(array|string $key_or_address): Cluster|bool|string {}
 
     /**
@@ -1488,7 +1652,7 @@ class Cluster
      * @param  mixed  $args,...
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function rawCommand(array|string $key_or_address, string $cmd, mixed ...$args): mixed {}
 
     /**
@@ -1498,7 +1662,7 @@ class Cluster
      * @param  mixed  $newkey
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function rename(mixed $key, mixed $newkey): Cluster|bool {}
 
     /**
@@ -1508,7 +1672,7 @@ class Cluster
      * @param  mixed  $newkey
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function renamenx(mixed $key, mixed $newkey): Cluster|bool {}
 
     /**
@@ -1520,7 +1684,7 @@ class Cluster
      * @param  array|null  $options
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function restore(mixed $key, int $ttl, string $value, array|null $options = null): Cluster|bool {}
 
     /**
@@ -1529,7 +1693,7 @@ class Cluster
      * @param  array|string  $key_or_address
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function role(array|string $key_or_address): Cluster|array|false {}
 
     /**
@@ -1539,7 +1703,7 @@ class Cluster
      * @param  int  $count
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function rpop(mixed $key, int $count = 1): mixed {}
 
     /**
@@ -1550,7 +1714,7 @@ class Cluster
      * @param  mixed  $dstkey
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Deprecated]
     public function rpoplpush(mixed $srckey, mixed $dstkey): mixed {}
 
     /**
@@ -1561,7 +1725,7 @@ class Cluster
      * @param  mixed  $members,...
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function rpush(mixed $key, mixed $member, mixed ...$members): Cluster|int|false {}
 
     /**
@@ -1573,7 +1737,7 @@ class Cluster
      * @param  mixed  $members,...
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function rpushx(mixed $key, mixed $member, mixed ...$members): Cluster|int|false {}
 
     /**
@@ -1584,7 +1748,7 @@ class Cluster
      * @param  mixed  $members,...
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function sadd(mixed $key, mixed $member, mixed ...$members): Cluster|int|false {}
 
     /**
@@ -1593,7 +1757,7 @@ class Cluster
      * @param  array|string  $key_or_address
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function save(array|string $key_or_address): Cluster|bool {}
 
     /**
@@ -1606,8 +1770,19 @@ class Cluster
      * @param  string|null  $type
      * @return array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function scan(mixed &$iterator, array|string $key_or_address, mixed $match = null, int $count = 0, string|null $type = null): array|false {}
+
+    /**
+     * Scan the keyspace for matching keys on each master node.
+     *
+     * @param  mixed  $match
+     * @param  int  $count
+     * @param  string|null  $type
+     *
+     * @return \Generator|false
+     */
+    public function fullscan(mixed $match = null, int $count = 0, string|null $type = null): \Generator|false {}
 
     /**
      * Returns the set cardinality (number of elements) of the set stored at `$key`.
@@ -1615,7 +1790,7 @@ class Cluster
      * @param  mixed  $key
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function scard(mixed $key): Cluster|int|false {}
 
     /**
@@ -1626,7 +1801,7 @@ class Cluster
      * @param  string  $args,...
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function script(array|string $key_or_address, string $operation, string ...$args): mixed {}
 
     /**
@@ -1636,7 +1811,7 @@ class Cluster
      * @param  mixed  $other_keys,...
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function sdiff(mixed $key, mixed ...$other_keys): Cluster|array|false {}
 
     /**
@@ -1647,7 +1822,7 @@ class Cluster
      * @param  mixed  $other_keys,...
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function sdiffstore(mixed $key, mixed ...$other_keys): Cluster|int|false {}
 
     /**
@@ -1659,7 +1834,7 @@ class Cluster
      * @param  mixed  $options
      * @return Cluster|string|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function set(mixed $key, mixed $value, mixed $options = null): Cluster|string|bool {}
 
     /**
@@ -1692,7 +1867,7 @@ class Cluster
      * @param  mixed  $value
      * @return bool
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public function setOption(int $option, mixed $value): bool {}
 
     /**
@@ -1703,7 +1878,7 @@ class Cluster
      * @param  int  $value
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function setbit(mixed $key, int $pos, int $value): Cluster|int|false {}
 
     /**
@@ -1714,7 +1889,7 @@ class Cluster
      * @param  mixed  $value
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Deprecated]
     public function setex(mixed $key, int $seconds, mixed $value): Cluster|bool {}
 
     /**
@@ -1726,7 +1901,7 @@ class Cluster
      * @param  mixed  $value
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Deprecated]
     public function setnx(mixed $key, mixed $value): Cluster|bool {}
 
     /**
@@ -1738,7 +1913,7 @@ class Cluster
      * @param  mixed  $value
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function setrange(mixed $key, int $start, mixed $value): Cluster|int|false {}
 
     /**
@@ -1748,7 +1923,7 @@ class Cluster
      * @param  mixed  $other_keys,...
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function sinter(mixed $key, mixed ...$other_keys): Cluster|array|false {}
 
     /**
@@ -1758,7 +1933,7 @@ class Cluster
      * @param  int  $limit
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function sintercard(array $keys, int $limit = -1): Cluster|int|false {}
 
     /**
@@ -1769,7 +1944,7 @@ class Cluster
      * @param  mixed  $other_keys,...
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function sinterstore(mixed $key, mixed ...$other_keys): Cluster|int|false {}
 
     /**
@@ -1779,7 +1954,7 @@ class Cluster
      * @param  mixed  $member
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function sismember(mixed $key, mixed $member): Cluster|bool {}
 
     /**
@@ -1790,7 +1965,7 @@ class Cluster
      * @param  mixed  $args,...
      * @return Cluster|array|int|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function slowlog(array|string $key_or_address, string $operation, mixed ...$args): Cluster|array|int|bool {}
 
     /**
@@ -1799,7 +1974,7 @@ class Cluster
      * @param  mixed  $key
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function smembers(mixed $key): Cluster|array|false {}
 
     /**
@@ -1809,7 +1984,7 @@ class Cluster
      * @param  mixed  $members,...
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function smismember(mixed $key, mixed ...$members): Cluster|array|false {}
 
     /**
@@ -1820,7 +1995,7 @@ class Cluster
      * @param  mixed  $member
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function smove(mixed $srckey, mixed $dstkey, mixed $member): Cluster|bool {}
 
     /**
@@ -1830,7 +2005,7 @@ class Cluster
      * @param  array  $options
      * @return Cluster|array|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function sort(mixed $key, array $options = []): Cluster|array|int|false {}
 
     /**
@@ -1840,7 +2015,7 @@ class Cluster
      * @param  array  $options
      * @return Cluster|array|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function sort_ro(mixed $key, array $options = []): Cluster|array|int|false {}
 
     /**
@@ -1850,7 +2025,7 @@ class Cluster
      * @param  int  $count
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function spop(mixed $key, int $count = 1): mixed {}
 
     /**
@@ -1860,7 +2035,7 @@ class Cluster
      * @param  int  $count
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function srandmember(mixed $key, int $count = 1): mixed {}
 
     /**
@@ -1871,7 +2046,7 @@ class Cluster
      * @param  mixed  $members,...
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function srem(mixed $key, mixed $member, mixed ...$members): Cluster|int|false {}
 
     /**
@@ -1883,7 +2058,7 @@ class Cluster
      * @param  int  $count
      * @return array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function sscan(mixed $key, mixed &$iterator, mixed $match = null, int $count = 0): array|false {}
 
     /**
@@ -1893,7 +2068,7 @@ class Cluster
      * @param  callable  $callback
      * @return bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function ssubscribe(array $channels, callable $callback): bool {}
 
     /**
@@ -1902,7 +2077,7 @@ class Cluster
      * @see \Relay\Relay::stats()
      * @return array
      */
-    #[\Relay\Attributes\Local]
+    #[Attributes\Local]
     public static function stats(): array {}
 
     /**
@@ -1911,7 +2086,7 @@ class Cluster
      * @param  mixed  $key
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function strlen(mixed $key): Cluster|int|false {}
 
     /**
@@ -1921,7 +2096,7 @@ class Cluster
      * @param  callable  $callback
      * @return bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function subscribe(array $channels, callable $callback): bool {}
 
     /**
@@ -1931,7 +2106,7 @@ class Cluster
      * @param  mixed  $other_keys,...
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand, \Relay\Attributes\Cached]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function sunion(mixed $key, mixed ...$other_keys): Cluster|array|false {}
 
     /**
@@ -1942,7 +2117,7 @@ class Cluster
      * @param  mixed  $other_keys,...
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function sunionstore(mixed $key, mixed ...$other_keys): Cluster|int|false {}
 
     /**
@@ -1951,7 +2126,7 @@ class Cluster
      * @param  array  $channels
      * @return bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function sunsubscribe(array $channels = []): bool {}
 
     /**
@@ -1960,7 +2135,7 @@ class Cluster
      * @param  array|string  $key_or_address
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function time(array|string $key_or_address): Cluster|array|false {}
 
     /**
@@ -1970,7 +2145,7 @@ class Cluster
      * @param  mixed  $more_keys,...
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function touch(array|string $key_or_array, mixed ...$more_keys): Cluster|int|false {}
 
     /**
@@ -1979,7 +2154,7 @@ class Cluster
      * @param  mixed  $key
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function ttl(mixed $key): Cluster|int|false {}
 
     /**
@@ -1992,7 +2167,7 @@ class Cluster
      * @param  mixed  $key
      * @return Cluster|int|string|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function type(mixed $key): Cluster|int|string|bool {}
 
     /**
@@ -2001,7 +2176,7 @@ class Cluster
      * @param  mixed  $keys,...
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function unlink(mixed ...$keys): Cluster|int|false {}
 
     /**
@@ -2010,7 +2185,7 @@ class Cluster
      * @param  array  $channels
      * @return bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function unsubscribe(array $channels = []): bool {}
 
     /**
@@ -2019,7 +2194,7 @@ class Cluster
      *
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function unwatch(): Cluster|bool {}
 
     /**
@@ -2029,7 +2204,7 @@ class Cluster
      * @param  mixed  $other_keys,...
      * @return Cluster|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function watch(mixed $key, mixed ...$other_keys): Cluster|bool {}
 
     /**
@@ -2040,7 +2215,7 @@ class Cluster
      * @param  array  $ids
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function xack(mixed $key, string $group, array $ids): Cluster|int|false {}
 
     /**
@@ -2053,7 +2228,7 @@ class Cluster
      * @param  bool  $nomkstream
      * @return Cluster|string|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function xadd(mixed $key, string $id, array $values, int $maxlen = 0, bool $approx = false, bool $nomkstream = false): Cluster|string|false {}
 
     /**
@@ -2068,7 +2243,7 @@ class Cluster
      * @param  bool  $justid
      * @return Cluster|array|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function xautoclaim(mixed $key, string $group, string $consumer, int $min_idle, string $start, int $count = -1, bool $justid = false): Cluster|bool|array {}
 
     /**
@@ -2082,7 +2257,7 @@ class Cluster
      * @param  array  $options
      * @return Cluster|array|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function xclaim(mixed $key, string $group, string $consumer, int $min_idle, array $ids, array $options): Cluster|array|bool {}
 
     /**
@@ -2092,7 +2267,7 @@ class Cluster
      * @param  array  $ids
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function xdel(mixed $key, array $ids): Cluster|int|false {}
 
     /**
@@ -2106,7 +2281,7 @@ class Cluster
      * @param  int  $entries_read
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function xgroup(string $operation, mixed $key = null, string $group = null, string $id_or_consumer = null, bool $mkstream = false, int $entries_read = -2): mixed {}
 
     /**
@@ -2118,7 +2293,7 @@ class Cluster
      * @param  int  $count
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function xinfo(string $operation, string|null $arg1 = null, string|null $arg2 = null, int $count = -1): mixed {}
 
     /**
@@ -2127,7 +2302,7 @@ class Cluster
      * @param  mixed  $key
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function xlen(mixed $key): Cluster|int|false {}
 
     /**
@@ -2142,7 +2317,7 @@ class Cluster
      * @param  int  $idle
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function xpending(mixed $key, string $group, string|null $start = null, string|null $end = null, int $count = -1, string|null $consumer = null, int $idle = 0): Cluster|array|false {}
 
     /**
@@ -2154,7 +2329,7 @@ class Cluster
      * @param  int  $count = -1
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function xrange(mixed $key, string $start, string $end, int $count = -1): Cluster|array|false {}
 
     /**
@@ -2165,7 +2340,7 @@ class Cluster
      * @param  int  $block
      * @return Cluster|array|bool|null
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function xread(array $streams, int $count = -1, int $block = -1): Cluster|array|bool|null {}
 
     /**
@@ -2178,7 +2353,7 @@ class Cluster
      * @param  int  $block
      * @return Cluster|array|bool|null
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function xreadgroup(mixed $key, string $consumer, array $streams, int $count = 1, int $block = 1): Cluster|array|bool|null {}
 
     /**
@@ -2190,7 +2365,7 @@ class Cluster
      * @param  int  $count
      * @return Cluster|array|bool
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function xrevrange(mixed $key, string $end, string $start, int $count = -1): Cluster|array|bool {}
 
     /**
@@ -2203,7 +2378,7 @@ class Cluster
      * @param  int  $limit
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function xtrim(mixed $key, string $threshold, bool $approx = false, bool $minid = false, int $limit = -1): Cluster|int|false {}
 
     /**
@@ -2213,7 +2388,7 @@ class Cluster
      * @param  mixed  $args,...
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zadd(mixed $key, mixed ...$args): mixed {}
 
     /**
@@ -2222,7 +2397,7 @@ class Cluster
      * @param  mixed  $key
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zcard(mixed $key): Cluster|int|false {}
 
     /**
@@ -2233,7 +2408,7 @@ class Cluster
      * @param  mixed  $max
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zcount(mixed $key, mixed $min, mixed $max): Cluster|int|false {}
 
     /**
@@ -2244,7 +2419,7 @@ class Cluster
      * @param  array|null  $options
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zdiff(array $keys, array|null $options = null): Cluster|array|false {}
 
     /**
@@ -2255,7 +2430,7 @@ class Cluster
      * @param  array  $keys
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zdiffstore(mixed $dstkey, array $keys): Cluster|int|false {}
 
     /**
@@ -2266,7 +2441,7 @@ class Cluster
      * @param  mixed  $member
      * @return Cluster|float|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zincrby(mixed $key, float $score, mixed $member): Cluster|float|false {}
 
     /**
@@ -2278,7 +2453,7 @@ class Cluster
      * @param  mixed  $options
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zinter(array $keys, array|null $weights = null, mixed $options = null): Cluster|array|false {}
 
     /**
@@ -2288,7 +2463,7 @@ class Cluster
      * @param  int  $limit
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zintercard(array $keys, int $limit = -1): Cluster|int|false {}
 
     /**
@@ -2301,7 +2476,7 @@ class Cluster
      * @param  mixed  $options
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zinterstore(mixed $dstkey, array $keys, array|null $weights = null, mixed $options = null): Cluster|int|false {}
 
     /**
@@ -2314,7 +2489,7 @@ class Cluster
      * @param  mixed  $max
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zlexcount(mixed $key, mixed $min, mixed $max): Cluster|int|false {}
 
     /**
@@ -2326,7 +2501,7 @@ class Cluster
      * @param  int  $count
      * @return Cluster|array|null|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zmpop(array $keys, string $from, int $count = 1): Cluster|array|null|false {}
 
     /**
@@ -2336,7 +2511,7 @@ class Cluster
      * @param  mixed  $members,...
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zmscore(mixed $key, mixed ...$members): Cluster|array|false {}
 
     /**
@@ -2347,7 +2522,7 @@ class Cluster
      * @param  int  $count
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zpopmax(mixed $key, int $count = 1): Cluster|array|false {}
 
     /**
@@ -2358,7 +2533,7 @@ class Cluster
      * @param  int  $count
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zpopmin(mixed $key, int $count = 1): Cluster|array|false {}
 
     /**
@@ -2369,7 +2544,7 @@ class Cluster
      * @param  array|null  $options
      * @return mixed
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zrandmember(mixed $key, array|null $options = null): mixed {}
 
     /**
@@ -2381,7 +2556,7 @@ class Cluster
      * @param  mixed  $options
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached]
     public function zrange(mixed $key, string $start, string $end, mixed $options = null): Cluster|array|false {}
 
     /**
@@ -2396,7 +2571,7 @@ class Cluster
      * @param  int  $count
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Deprecated]
     public function zrangebylex(mixed $key, mixed $min, mixed $max, int $offset = -1, int $count = -1): Cluster|array|false {}
 
     /**
@@ -2409,7 +2584,7 @@ class Cluster
      * @param  mixed  $options
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached, Attributes\Deprecated]
     public function zrangebyscore(mixed $key, mixed $start, mixed $end, mixed $options = null): Cluster|array|false {}
 
     /**
@@ -2423,7 +2598,7 @@ class Cluster
      * @param  mixed  $options
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zrangestore(mixed $dstkey, mixed $srckey, mixed $start, mixed $end, mixed $options = null): Cluster|int|false {}
 
     /**
@@ -2436,7 +2611,7 @@ class Cluster
      * @param  bool  $withscore
      * @return Cluster|array|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zrank(mixed $key, mixed $rank, bool $withscore = false): Cluster|array|int|false {}
 
     /**
@@ -2447,7 +2622,7 @@ class Cluster
      * @param  mixed  $args,...
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zrem(mixed $key, mixed ...$args): Cluster|int|false {}
 
     /**
@@ -2461,7 +2636,7 @@ class Cluster
      * @param  mixed  $max
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zremrangebylex(mixed $key, mixed $min, mixed $max): Cluster|int|false {}
 
     /**
@@ -2474,7 +2649,7 @@ class Cluster
      * @param  int  $end
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zremrangebyrank(mixed $key, int $start, int $end): Cluster|int|false {}
 
     /**
@@ -2486,7 +2661,7 @@ class Cluster
      * @param  mixed  $max
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zremrangebyscore(mixed $key, mixed $min, mixed $max): Cluster|int|false {}
 
     /**
@@ -2498,7 +2673,7 @@ class Cluster
      * @param  mixed  $options
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached, Attributes\Deprecated]
     public function zrevrange(mixed $key, int $start, int $end, mixed $options = null): Cluster|array|false {}
 
     /**
@@ -2513,7 +2688,7 @@ class Cluster
      * @param  int  $count
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Deprecated]
     public function zrevrangebylex(mixed $key, mixed $max, mixed $min, int $offset = -1, int $count = -1): Cluster|array|false {}
 
     /**
@@ -2526,7 +2701,7 @@ class Cluster
      * @param  mixed  $options
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand, Attributes\Cached, Attributes\Deprecated]
     public function zrevrangebyscore(mixed $key, mixed $start, mixed $end, mixed $options = null): Cluster|array|false {}
 
     /**
@@ -2539,7 +2714,7 @@ class Cluster
      * @param  bool  $withscore
      * @return Cluster|array|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zrevrank(mixed $key, mixed $rank, bool $withscore = false): Cluster|array|int|false {}
 
     /**
@@ -2551,7 +2726,7 @@ class Cluster
      * @param  int  $count
      * @return array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zscan(mixed $key, mixed &$iterator, mixed $match = null, int $count = 0): array|false {}
 
     /**
@@ -2561,7 +2736,7 @@ class Cluster
      * @param  mixed  $member
      * @return Cluster|float|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zscore(mixed $key, mixed $member): Cluster|float|false {}
 
     /**
@@ -2573,7 +2748,7 @@ class Cluster
      * @param  mixed  $options
      * @return Cluster|array|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zunion(array $keys, array|null $weights = null, mixed $options = null): Cluster|array|false {}
 
     /**
@@ -2586,6 +2761,13 @@ class Cluster
      * @param  mixed  $options
      * @return Cluster|int|false
      */
-    #[\Relay\Attributes\RedisCommand]
+    #[Attributes\RedisCommand, Attributes\ValkeyCommand]
     public function zunionstore(mixed $dstkey, array $keys, array|null $weights = null, mixed $options = null): Cluster|int|false {}
 }
+
+namespace Relay\Cluster;
+
+/**
+ * Cluster FullscanGenerator.
+ */
+final class FullscanGenerator extends \Generator {}
