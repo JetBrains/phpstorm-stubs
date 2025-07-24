@@ -87,8 +87,7 @@ class Cluster
         int|float $connect_timeout = 0,
         int|float $command_timeout = 0,
         bool $persistent = false,
-        #[\SensitiveParameter]
-        mixed $auth = null,
+        #[\SensitiveParameter] mixed $auth = null,
         array|null $context = null
     ) {}
 
@@ -1228,6 +1227,7 @@ class Cluster
      */
     #[Attributes\Local]
     public static function invalidateSlotCaches(): bool {}
+
     /**
      * Returns all keys matching pattern.
      *
