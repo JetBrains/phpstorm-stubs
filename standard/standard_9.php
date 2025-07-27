@@ -988,6 +988,7 @@ function assert_options(int $option, mixed $value): mixed {}
  */
 #[Pure]
 #[ExpectedValues([-1, 0, 1, false, true])]
+#[PhpStormStubsElementAvailable(from: '8.0')]
 function version_compare(
     string $version1,
     string $version2,
@@ -1008,6 +1009,65 @@ function version_compare(
                "ne"
            ])] ?string $operator
 ): int|bool {}
+
+/**
+ * Compares two "PHP-standardized" version number strings
+ * @link https://php.net/manual/en/function.version-compare.php
+ * @param string $version1 <p>
+ * First version number.
+ * </p>
+ * @param string $version2 <p>
+ * Second version number.
+ * </p>
+ * @param string|null $operator [optional] <p>
+ * If you specify the third optional operator
+ * argument, you can test for a particular relationship. The
+ * possible operators are: &lt;,
+ * lt, &lt;=,
+ * le, &gt;,
+ * gt, &gt;=,
+ * ge, ==,
+ * =, eq,
+ * !=, &lt;&gt;,
+ * ne respectively.
+ * </p>
+ * <p>
+ * This parameter is case-sensitive, so values should be lowercase.
+ * </p>
+ * @return int|bool|null By default, version_compare returns
+ * -1 if the first version is lower than the second,
+ * 0 if they are equal, and
+ * 1 if the second is lower.
+ * </p>
+ * <p>
+ * When using the optional operator argument, the
+ * function will return true if the relationship is the one specified
+ * by the operator, false otherwise.
+ * If a non supported operator is provided, it will return null.
+ */
+#[Pure]
+#[ExpectedValues([-1, 0, 1, false, true, null])]
+#[PhpStormStubsElementAvailable(to: '7.4')]
+function version_compare(
+    string $version1,
+    string $version2,
+    #[ExpectedValues(values: [
+        "<",
+        "lt",
+        "<=",
+        "le",
+        ">",
+        "gt",
+        ">=",
+        "ge",
+        "==",
+        "=",
+        "eq",
+        "!=",
+        "<>",
+        "ne"
+    ])] ?string $operator
+): int|bool|null {}
 
 /**
  * Convert a pathname and a project identifier to a System V IPC key
