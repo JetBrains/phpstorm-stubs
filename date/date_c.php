@@ -471,7 +471,7 @@ class DateTimeImmutable implements DateTimeInterface
 
     /**
      * @param DateTimeInterface $object
-     * @return DateTimeImmutable
+     * @return static
      * @since 8.0
      */
     public static function createFromInterface(DateTimeInterface $object): DateTimeImmutable {}
@@ -844,7 +844,7 @@ class DateTime implements DateTimeInterface
 
     /**
      * @param DateTimeInterface $object
-     * @return DateTime
+     * @return static
      * @since 8.0
      */
     public static function createFromInterface(DateTimeInterface $object): DateTime {}
