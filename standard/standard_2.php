@@ -485,8 +485,8 @@ function fscanf($stream, string $format, #[TypeContract(exists: "int|false|null"
  * fragment - after the hashmark #
  * </p>
  * <p>
- * If the component parameter is specified a
- * string is returned instead of an array.
+ * If the component parameter is specified a string is returned instead of an array.
+ * If the requested component doesn't exist within the given URL, null will be returned.
  */
 #[ArrayShape(["scheme" => "string", "host" => "string", "port" => "int", "user" => "string", "pass" => "string", "query" => "string", "path" => "string", "fragment" => "string"])]
 #[Pure]
