@@ -850,6 +850,14 @@ class DOMDocument extends DOMNode implements DOMParentNode
     public $firstElementChild;
 
     /**
+     * @var null
+     * The <classname>DOMDocument</classname> object associated with this node, or NULL if this node is a <classname>DOMDocument</classname>.
+     * @link https://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
+     */
+    #[LanguageLevelTypeAware(['8.1' => 'null'], default: '')]
+    public $ownerDocument;
+
+    /**
      * Create new element node
      * @link https://php.net/manual/en/domdocument.createelement.php
      * @param string $localName <p>
