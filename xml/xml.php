@@ -73,7 +73,7 @@ function xml_set_object(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default
  * @param XMLParser|resource $parser <p>
  * A reference to the XML parser to set up start and end element handler functions.
  * </p>
- * @param callable $start_handler <p>
+ * @param callable|string|null $start_handler <p>
  * The function named by <i>start_element_handler</i>
  * must accept three parameters:
  * <b>start_element_handler</b>
@@ -83,7 +83,7 @@ function xml_set_object(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default
  * <i>parser</i>
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.</p>
- * @param callable $end_handler <p>
+ * @param callable|string|null $end_handler <p>
  * The function named by <i>end_element_handler</i>
  * must accept two parameters:
  * <b>end_element_handler</b>
@@ -97,8 +97,8 @@ function xml_set_object(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default
 #[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
 function xml_set_element_handler(
     #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
-    #[LanguageLevelTypeAware(["8.4" => "callable|string|null"], default: "callable")] $start_handler,
-    #[LanguageLevelTypeAware(["8.4" => "callable|string|null"], default: "callable")] $end_handler
+    callable|string|null $start_handler,
+    callable|string|null $end_handler
 ) {}
 
 /**
@@ -107,7 +107,7 @@ function xml_set_element_handler(
  * @param XMLParser|resource $parser <p>
  * A reference to the XML parser to set up character data handler function.
  * </p>
- * @param callable $handler <p>
+ * @param callable|string|null $handler <p>
  * <i>handler</i> is a string containing the name of a
  * function that must exist when <b>xml_parse</b> is called
  * for <i>parser</i>.
@@ -126,7 +126,7 @@ function xml_set_element_handler(
 #[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
 function xml_set_character_data_handler(
     #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
-    #[LanguageLevelTypeAware(["8.4" => "callable|string|null"], default: "callable")] $handler
+    callable|string|null $handler
 ) {}
 
 /**
@@ -135,7 +135,7 @@ function xml_set_character_data_handler(
  * @param XMLParser|resource $parser <p>
  * A reference to the XML parser to set up processing instruction (PI) handler function.
  * </p>
- * @param callable $handler <p>
+ * @param callable|string|null $handler <p>
  * <i>handler</i> is a string containing the name of a
  * function that must exist when <b>xml_parse</b> is called
  * for <i>parser</i>.
@@ -155,7 +155,7 @@ function xml_set_character_data_handler(
 #[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
 function xml_set_processing_instruction_handler(
     #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
-    #[LanguageLevelTypeAware(["8.4" => "callable|string|null"], default: "callable")] $handler
+    callable|string|null $handler
 ) {}
 
 /**
@@ -164,7 +164,7 @@ function xml_set_processing_instruction_handler(
  * @param XMLParser|resource $parser <p>
  * A reference to the XML parser to set up default handler function.
  * </p>
- * @param callable $handler <p>
+ * @param callable|string|null $handler <p>
  * <i>handler</i> is a string containing the name of a
  * function that must exist when <b>xml_parse</b> is called
  * for <i>parser</i>.
@@ -183,7 +183,7 @@ function xml_set_processing_instruction_handler(
 #[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
 function xml_set_default_handler(
     #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
-    #[LanguageLevelTypeAware(["8.4" => "callable|string|null"], default: "callable")] $handler
+    callable|string|null $handler
 ) {}
 
 /**
@@ -192,7 +192,7 @@ function xml_set_default_handler(
  * @param XMLParser|resource $parser <p>
  * A reference to the XML parser to set up unparsed entity declaration handler function.
  * </p>
- * @param callable $handler <p>
+ * @param callable|string|null $handler <p>
  * <i>handler</i> is a string containing the name of a
  * function that must exist when <b>xml_parse</b> is called
  * for <i>parser</i>.
@@ -216,7 +216,7 @@ function xml_set_default_handler(
 #[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
 function xml_set_unparsed_entity_decl_handler(
     #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
-    #[LanguageLevelTypeAware(["8.4" => "callable|string|null"], default: "callable")] $handler
+    callable|string|null $handler
 ) {}
 
 /**
@@ -225,7 +225,7 @@ function xml_set_unparsed_entity_decl_handler(
  * @param XMLParser|resource $parser <p>
  * A reference to the XML parser to set up notation declaration handler function.
  * </p>
- * @param callable $handler <p>
+ * @param callable|string|null $handler <p>
  * <i>handler</i> is a string containing the name of a
  * function that must exist when <b>xml_parse</b> is called
  * for <i>parser</i>.
@@ -247,7 +247,7 @@ function xml_set_unparsed_entity_decl_handler(
 #[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
 function xml_set_notation_decl_handler(
     #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
-    #[LanguageLevelTypeAware(["8.4" => "callable|string|null"], default: "callable")] $handler
+    callable|string|null $handler
 ) {}
 
 /**
@@ -256,7 +256,7 @@ function xml_set_notation_decl_handler(
  * @param XMLParser|resource $parser <p>
  * A reference to the XML parser to set up external entity reference handler function.
  * </p>
- * @param callable $handler <p>
+ * @param callable|string|null $handler <p>
  * <i>handler</i> is a string containing the name of a
  * function that must exist when <b>xml_parse</b> is called
  * for <i>parser</i>.
@@ -282,7 +282,7 @@ function xml_set_notation_decl_handler(
 #[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
 function xml_set_external_entity_ref_handler(
     #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
-    #[LanguageLevelTypeAware(["8.4" => "callable|string|null"], default: "callable")] $handler
+    callable|string|null $handler
 ) {}
 
 /**
@@ -291,7 +291,7 @@ function xml_set_external_entity_ref_handler(
  * @param XMLParser|resource $parser <p>
  * A reference to the XML parser.
  * </p>
- * @param callable $handler <p>
+ * @param callable|string|null $handler <p>
  * <i>handler</i> is a string containing the name of a
  * function that must exist when <b>xml_parse</b> is called
  * for <i>parser</i>.
@@ -315,7 +315,7 @@ function xml_set_external_entity_ref_handler(
 #[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
 function xml_set_start_namespace_decl_handler(
     #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
-    #[LanguageLevelTypeAware(["8.4" => "callable|string|null"], default: "callable")] $handler
+    callable|string|null $handler
 ) {}
 
 /**
@@ -324,7 +324,7 @@ function xml_set_start_namespace_decl_handler(
  * @param XMLParser|resource $parser <p>
  * A reference to the XML parser.
  * </p>
- * @param callable $handler <p>
+ * @param callable|string|null $handler <p>
  * <i>handler</i> is a string containing the name of a
  * function that must exist when <b>xml_parse</b> is called
  * for <i>parser</i>.
@@ -347,7 +347,7 @@ function xml_set_start_namespace_decl_handler(
 #[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
 function xml_set_end_namespace_decl_handler(
     #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser,
-    #[LanguageLevelTypeAware(["8.4" => "callable|string|null"], default: "callable")] $handler
+    callable|string|null $handler
 ) {}
 
 /**
