@@ -3,8 +3,6 @@
 /**
  * Helper autocomplete for php redis extension
  *
- * @mixin \Redis
- *
  * @link   https://github.com/phpredis/phpredis/blob/develop/redis_array.stub.php
  */
 class RedisArray
@@ -207,4 +205,44 @@ class RedisArray
      * </pre>
      */
     public function info(): bool|array {}
+
+    public function bgsave(): array {}
+
+    public function del(string|array $key, string ...$otherkeys): bool|int {}
+
+    public function discard(): bool|null {}
+
+    public function exec(): bool|null|array {}
+
+    public function flushall(): bool|array {}
+
+    public function flushdb(): bool|array {}
+
+    public function getOption(int $opt): bool|array {}
+
+    public function hscan(string $key, null|int|string &$iterator, ?string $pattern = null, int $count = 0): bool|array {}
+
+    public function keys(string $pattern): bool|array {}
+
+    public function mget(array $keys): bool|array {}
+
+    public function mset(array $pairs): bool {}
+
+    public function ping(): bool|array {}
+
+    public function save(): bool|array {}
+
+    public function scan(null|int|string &$iterator, string $node, ?string $pattern = null, int $count = 0): bool|array {}
+
+    public function select(int $index): bool|array {}
+
+    public function setOption(int $opt, string $value): bool|array {}
+
+    public function sscan(string $key, null|int|string &$iterator, ?string $pattern = null, int $count = 0): bool|array {}
+
+    public function unlink(string|array $key, string ...$otherkeys): bool|int {}
+
+    public function unwatch(): bool|null {}
+
+    public function zscan(string $key, null|int|string &$iterator, ?string $pattern = null, int $count = 0): bool|array {}
 }
