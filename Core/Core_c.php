@@ -279,7 +279,10 @@ interface Throwable extends Stringable
  */
 class Exception implements Throwable
 {
-    /** The error message */
+    /**
+     * The error message
+     * @var string
+     */
     protected $message;
 
     /** The error code */
