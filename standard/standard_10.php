@@ -34,7 +34,6 @@ function http_clear_last_response_headers(): void {}
  * @param array|null $options
  * @return array<int, array>
  * @throws RequestParseBodyException if the request body uses an invalid/unsupported content type
- * @throws ValueError if <i>options</i> contains an invalid key or value
  */
 function request_parse_body(?array $options = null): array {}
 /**
