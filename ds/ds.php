@@ -582,11 +582,11 @@ namespace Ds;
         /**
          * Joins all values together as a string using an optional separator between each value.
          *
-         * @param string|null $glue An optional string to separate each value.
+         * @param string $glue An optional string to separate each value.
          * @return string All values of the sequence joined together as a string.
          * @link https://www.php.net/manual/en/ds-vector.join.php
          */
-        public function join(?string $glue = null): string {}
+        public function join(string $glue = ''): string {}
 
         /**
          * Returns the last value in the sequence.
@@ -2092,7 +2092,7 @@ namespace Ds;
          *
          * @return string
          */
-        public function join(?string $glue = null): string {}
+        public function join(string $glue = ''): string {}
 
         /**
          * Returns the result of applying a callback function to each value in
