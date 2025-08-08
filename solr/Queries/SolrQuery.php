@@ -60,7 +60,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns a SolrQuery object.
      * </p>
      */
-    public function addExpandSortField($field, $order) {}
+    public function addExpandSortField($field, $order = SolrQuery::ORDER_DESC) {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -375,7 +375,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetDateEnd($field_override) {}
+    public function getFacetDateEnd($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -398,7 +398,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetDateGap($field_override) {}
+    public function getFacetDateGap($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -411,7 +411,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetDateHardEnd($field_override) {}
+    public function getFacetDateHardEnd($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -424,7 +424,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns an array on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetDateOther($field_override) {}
+    public function getFacetDateOther($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -437,7 +437,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetDateStart($field_override) {}
+    public function getFacetDateStart($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -460,7 +460,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetLimit($field_override) {}
+    public function getFacetLimit($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -473,7 +473,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetMethod($field_override) {}
+    public function getFacetMethod($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -486,7 +486,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetMinCount($field_override) {}
+    public function getFacetMinCount($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -499,7 +499,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns a boolean on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetMissing($field_override) {}
+    public function getFacetMissing($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -512,7 +512,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetOffset($field_override) {}
+    public function getFacetOffset($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -525,7 +525,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetPrefix($field_override) {}
+    public function getFacetPrefix($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -549,7 +549,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * set.
      * </p>
      */
-    public function getFacetSort($field_override) {}
+    public function getFacetSort($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -722,7 +722,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightAlternateField($field_override) {}
+    public function getHighlightAlternateField($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -745,7 +745,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightFormatter($field_override) {}
+    public function getHighlightFormatter($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -758,7 +758,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightFragmenter($field_override) {}
+    public function getHighlightFragmenter($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -771,7 +771,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightFragsize($field_override) {}
+    public function getHighlightFragsize($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -794,7 +794,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightMaxAlternateFieldLength($field_override) {}
+    public function getHighlightMaxAlternateFieldLength($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -817,7 +817,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns a boolean on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightMergeContiguous($field_override) {}
+    public function getHighlightMergeContiguous($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -870,7 +870,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightSimplePost($field_override) {}
+    public function getHighlightSimplePost($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -883,7 +883,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightSimplePre($field_override) {}
+    public function getHighlightSimplePre($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -896,7 +896,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightSnippets($field_override) {}
+    public function getHighlightSnippets($field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1271,7 +1271,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function removeFacetDateOther($value, $field_override) {}
+    public function removeFacetDateOther($value, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1508,7 +1508,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetDateEnd($value, $field_override) {}
+    public function setFacetDateEnd($value, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1524,7 +1524,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetDateGap($value, $field_override) {}
+    public function setFacetDateGap($value, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1540,7 +1540,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetDateHardEnd($value, $field_override) {}
+    public function setFacetDateHardEnd($value, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1556,7 +1556,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetDateStart($value, $field_override) {}
+    public function setFacetDateStart($value, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1572,7 +1572,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetEnumCacheMinDefaultFrequency($frequency, $field_override) {}
+    public function setFacetEnumCacheMinDefaultFrequency($frequency, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1588,7 +1588,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetLimit($limit, $field_override) {}
+    public function setFacetLimit($limit, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1604,7 +1604,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetMethod($method, $field_override) {}
+    public function setFacetMethod($method, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1620,7 +1620,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetMinCount($mincount, $field_override) {}
+    public function setFacetMinCount($mincount, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1636,7 +1636,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetMissing($flag, $field_override) {}
+    public function setFacetMissing($flag, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1652,7 +1652,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetOffset($offset, $field_override) {}
+    public function setFacetOffset($offset, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1668,7 +1668,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetPrefix($prefix, $field_override) {}
+    public function setFacetPrefix($prefix, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1684,7 +1684,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetSort($facetSort, $field_override) {}
+    public function setFacetSort($facetSort, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
@@ -1823,7 +1823,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightAlternateField($field, $field_override) {}
+    public function setHighlightAlternateField($field, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1839,7 +1839,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightFormatter($formatter, $field_override) {}
+    public function setHighlightFormatter($formatter, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1856,7 +1856,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightFragmenter($fragmenter, $field_override) {}
+    public function setHighlightFragmenter($fragmenter, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1872,7 +1872,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightFragsize($size, $field_override) {}
+    public function setHighlightFragsize($size, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1909,7 +1909,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightMaxAlternateFieldLength($fieldLength, $field_override) {}
+    public function setHighlightMaxAlternateFieldLength($fieldLength, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -1938,7 +1938,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightMergeContiguous($flag, $field_override) {}
+    public function setHighlightMergeContiguous($flag, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -2008,7 +2008,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightSimplePost($simplePost, $field_override) {}
+    public function setHighlightSimplePost($simplePost, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -2024,7 +2024,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightSimplePre($simplePre, $field_override) {}
+    public function setHighlightSimplePre($simplePre, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -2040,7 +2040,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightSnippets($value, $field_override) {}
+    public function setHighlightSnippets($value, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>

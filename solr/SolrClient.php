@@ -437,6 +437,7 @@ final class SolrClient
      * <li>phps</li>
      * <li>xml</li>
      * </ul>
+     * @return void
      */
     public function setResponseWriter($responseWriter) {}
 
