@@ -82,14 +82,14 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * @param string $value <p>
      * The value to use.
      * </p>
-     * @param string $field_override <p>
+     * @param string $field_override [Optional] <p>
      * The field name for the override.
      * </p>
      * @return SolrQuery <p>
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function addFacetDateOther($value, $field_override) {}
+    public function addFacetDateOther($value, $field_override = '') {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -190,7 +190,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * Returns a SolrQuery object.
      * </p>
      */
-    public function addGroupSortField($field, $order) {}
+    public function addGroupSortField($field, $order = SolrQuery::ORDER_DESC) {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
