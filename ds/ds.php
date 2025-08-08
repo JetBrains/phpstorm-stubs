@@ -846,11 +846,11 @@ namespace Ds;
     {
         /**
          * Creates a new instance, using either a traversable object or an array for the initial values.
-         * @param TValue ...$values A traversable object or an array to use for the initial values.
+         * @param iterable<TValue> $values A traversable object or an array to use for the initial values.
          *
          * @link https://www.php.net/manual/en/ds-deque.construct.php
          */
-        public function __construct(...$values) {}
+        public function __construct(iterable $values = []) {}
 
         /**
          * Count elements of an object
@@ -1229,11 +1229,11 @@ namespace Ds;
     {
         /**
          * Creates a new instance, using either a traversable object or an array for the initial values.
-         * @param iterable<TKey, TValue> ...$values A traversable object or an array to use for the initial values.
+         * @param iterable<TKey, TValue> $values A traversable object or an array to use for the initial values.
          *
          * @link https://www.php.net/manual/en/ds-map.construct.php
          */
-        public function __construct(...$values) {}
+        public function __construct(iterable $values = []) {}
 
         /**
          * Allocates enough memory for a required capacity.
