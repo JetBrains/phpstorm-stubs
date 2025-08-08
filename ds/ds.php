@@ -564,7 +564,7 @@ namespace Ds;
         public function get(int $index) {}
 
         /**
-         * @return Traversable<TValue>
+         * @return Traversable<int, TValue>
          */
         public function getIterator(): Traversable {}
 
@@ -877,7 +877,7 @@ namespace Ds;
         public function copy(): Collection {}
 
         /**
-         * @return Traversable<TValue>
+         * @return Traversable<int, TValue>
          */
         public function getIterator(): Traversable {}
 
@@ -1357,7 +1357,7 @@ namespace Ds;
         public function get($key, $default = null) {}
 
         /**
-         * @return Traversable<TValue>
+         * @return Traversable<TKey, TValue>
          */
         public function getIterator(): Traversable {}
 
@@ -2055,7 +2055,7 @@ namespace Ds;
         public function get(int $index) {}
 
         /**
-         * @return Traversable<TValue>
+         * @return Traversable<int, TValue>
          */
         public function getIterator(): Traversable {}
 
@@ -2413,7 +2413,7 @@ namespace Ds;
         public function copy(): Stack {}
 
         /**
-         * @return Traversable<TValue>
+         * @return Traversable<int, TValue>
          */
         public function getIterator(): Traversable {}
 
@@ -2575,7 +2575,7 @@ namespace Ds;
         public function copy(): Queue {}
 
         /**
-         * @return Traversable<TValue>
+         * @return Traversable<int, TValue>
          */
         public function getIterator(): Traversable {}
 
@@ -2721,7 +2721,7 @@ namespace Ds;
         public function copy() {}
 
         /**
-         * @return Traversable<TValue>
+         * @return Traversable<int, TValue>
          */
         public function getIterator(): Traversable {}
 
