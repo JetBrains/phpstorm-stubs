@@ -179,7 +179,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns a SolrInputDocument equivalent of the object
      * @link https://php.net/manual/en/solrdocument.getinputdocument.php
-     * @return SolrInputDocument <p>
+     * @return SolrInputDocument|null <p>
      * Returns a SolrInputDocument on success and <b>NULL</b> on failure.
      * </p>
      */
@@ -238,6 +238,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      * (PECL solr &gt;= 0.9.2)<br/>
      * Moves the internal pointer to the next field
      * @link https://php.net/manual/en/solrdocument.next.php
+     * @return void
      */
     public function next() {}
 
@@ -305,6 +306,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      * (PECL solr &gt;= 0.9.2)<br/>
      * Resets the internal pointer to the beginning
      * @link https://php.net/manual/en/solrdocument.rewind.php
+     * @return void
      */
     public function rewind() {}
 
@@ -377,6 +379,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      * @param string $serialized <p>
      * An XML representation of the document.
      * </p>
+     * @return void
      */
     public function unserialize($serialized) {}
 
