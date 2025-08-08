@@ -762,9 +762,9 @@ namespace Ds;
          * <b>Note:</b> Arrays and objects are considered equal to zero when
          * calculating the sum.
          * @link https://www.php.net/manual/en/ds-vector.sum.php
-         * @return float
+         * @return float|int
          */
-        public function sum(): float {}
+        public function sum(): float|int {}
 
         /**
          * Adds values to the front of the sequence, moving all the current
