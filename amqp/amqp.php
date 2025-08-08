@@ -936,7 +936,7 @@ class AMQPConnection
     /**
      * Set path to the CA cert file in PEM format
      *
-     * @param string $cacert
+     * @param string|null $cacert
      *
      * @return void
      */
@@ -952,7 +952,7 @@ class AMQPConnection
     /**
      * Set path to the client certificate in PEM format
      *
-     * @param string $cert
+     * @param string|null $cert
      *
      * @return void
      */
