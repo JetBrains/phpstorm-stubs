@@ -1310,8 +1310,8 @@ class AMQPExchange
     /**
      * Set the value for the given key.
      *
-     * @param string                      $argumentName  Name of the argument to set.
-     * @param bool|int|double|string|null $argumentValue Value of the argument to set.
+     * @param string                     $argumentName  Name of the argument to set.
+     * @param bool|int|float|string|null $argumentValue Value of the argument to set.
      *
      * @return void
      */
