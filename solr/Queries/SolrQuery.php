@@ -565,7 +565,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns an array of filter queries
      * @link https://php.net/manual/en/solrquery.getfilterqueries.php
-     * @return string|null <p>
+     * @return array|null <p>
      * Returns an array on success and <b>NULL</b> if not set
      * </p>
      */
