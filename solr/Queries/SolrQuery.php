@@ -665,7 +665,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns the group.offset value
      * @link https://php.net/manual/en/solrquery.getgroupoffset.php
-     * @return bool <p>
+     * @return int <p>
      * Returns the group.offset value
      * </p>
      */
