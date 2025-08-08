@@ -827,6 +827,8 @@ namespace Ds;
         /**
          * @param int $offset
          * @param TValue $value
+         *
+         * @return void
          */
         public function offsetSet(mixed $offset, mixed $value) {}
 
@@ -1207,6 +1209,8 @@ namespace Ds;
         /**
          * @param int $offset
          * @param TValue $value
+         *
+         * @return void
          */
         public function offsetSet(mixed $offset, mixed $value) {}
 
@@ -1238,6 +1242,8 @@ namespace Ds;
          * <p><b>Note:</b> Capacity will stay the same if this value is less than or equal to the current capacity.</p>
          * Capacity will always be rounded up to the nearest power of 2.
          *
+         * @return void
+         *
          * @link https://www.php.net/manual/en/ds-map.allocate.php
          */
         public function allocate(int $capacity) {}
@@ -1247,6 +1253,8 @@ namespace Ds;
          *
          * @param callable(TKey, TValue): TValue $callback A callable to apply to each value in the map. The callback should return what
          * the value should be replaced by.
+         *
+         * @return void
          *
          * @link https://www.php.net/manual/en/ds-map.apply.php
          */
@@ -1441,6 +1449,7 @@ namespace Ds;
 
         /**
          * Sorts the map in-place by key, using an optional comparator function.
+         *
          * @param callable(TKey, TKey):int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
@@ -1452,6 +1461,7 @@ namespace Ds;
          * callback's return value. So values such as 0.99 and 0.1 will both be
          * cast to an  integer value of 0, which will compare such values as
          * equal.</p>
+         * @return void
          * @link https://www.php.net/manual/en/ds-map.ksort.php
          */
         public function ksort(?callable $comparator = null) {}
@@ -1544,6 +1554,8 @@ namespace Ds;
          * attempt to access int(1), while $map->get("1") will correctly look up
          * the string key.
          *
+         * @return void
+         *
          * @link https://www.php.net/manual/en/ds-map.put.php
          */
         public function put($key, $value) {}
@@ -1558,6 +1570,8 @@ namespace Ds;
          * considered equal.
          *
          * @param iterable<TKey, TValue> $pairs traversable object or array.
+         *
+         * @return void
          *
          * @link https://www.php.net/manual/en/ds-map.putall.php
          */
@@ -1617,6 +1631,8 @@ namespace Ds;
 
         /**
          * Reverses the map in-place.
+         *
+         * @return void
          *
          * @link https://www.php.net/manual/en/ds-map.reverse.php
          */
@@ -1685,6 +1701,8 @@ namespace Ds;
          * callback's return value. So values such as 0.99 and 0.1 will both be
          * cast to an integer value of 0, which will compare such values as
          * equal.
+         *
+         * @return void
          *
          * @link https://www.php.net/manual/en/ds-map.sort.php
          */
@@ -1788,6 +1806,8 @@ namespace Ds;
         /**
          * @param TKey $offset
          * @param TValue $value
+         *
+         * @return void
          */
         public function offsetSet(mixed $offset, mixed $value) {}
 
@@ -1827,6 +1847,8 @@ namespace Ds;
 
         /**
          * Removes all values from the pair.
+         *
+         * @return void
          *
          * @link https://php.net/manual/en/ds-pair.clear.php
          */
@@ -1907,6 +1929,8 @@ namespace Ds;
          *
          * @param TValue ...$values Values to add to the set.
          *
+         * @return void
+         *
          * @link https://php.net/manual/en/ds-set.add.php
          */
         public function add(...$values) {}
@@ -1921,6 +1945,8 @@ namespace Ds;
          * equal to the current capacity.
          *
          * <p>Capacity will always be rounded up to the nearest power of 2.
+         *
+         * @return void
          *
          * @link https://php.net/manual/en/ds-set.allocate.php
          */
@@ -2125,11 +2151,15 @@ namespace Ds;
          * @link https://www.php.net/manual/en/ds-set.remove.php
          *
          * @param TValue ...$values The values to remove.
+         *
+         * @return void
          */
         public function remove(...$values) {}
 
         /**
          * Reverses the set in-place.
+         *
+         * @return void
          *
          * @link https://www.php.net/manual/en/ds-set.reverse.php
          */
@@ -2190,6 +2220,8 @@ namespace Ds;
          * of the callback's return value. So values such as 0.99 and 0.1 will
          * both be cast to an integer value of 0, which will compare such values
          * as equal.</note>
+         *
+         * @return void
          *
          * @link https://www.php.net/manual/en/ds-set.sort.php
          */
@@ -2296,6 +2328,8 @@ namespace Ds;
         /**
          * @param int $offset
          * @param TValue $value
+         *
+         * @return void
          */
         public function offsetSet(mixed $offset, mixed $value) {}
 
@@ -2337,6 +2371,8 @@ namespace Ds;
          *
          * @param int $capacity The number of values for which capacity should
          * be allocated.
+         *
+         * @return void
          *
          * <p><b>Note:</b> Capacity will stay the same if this value is less than or
          * equal to the current capacity.</p>
@@ -2434,6 +2470,8 @@ namespace Ds;
          * @link https://www.php.net/manual/en/ds-queue.push.php
          *
          * @param TValue ...$values The values to push onto the stack.
+         *
+         * @return void
          */
         public function push(...$values) {}
 
@@ -2452,6 +2490,8 @@ namespace Ds;
         /**
          * @param int $offset
          * @param TValue $value
+         *
+         * @return void
          */
         public function offsetSet(mixed $offset, mixed $value) {}
 
@@ -2493,6 +2533,8 @@ namespace Ds;
          *
          * @param int $capacity The number of values for which capacity should
          * be allocated.
+         *
+         * @return void
          *
          * <p><b>Note:</b> Capacity will stay the same if this value is less than or
          * equal to the current capacity.</p>
@@ -2590,6 +2632,8 @@ namespace Ds;
          * @link https://www.php.net/manual/en/ds-queue.push.php
          *
          * @param TValue ...$values The values to push onto the queue.
+         *
+         * @return void
          */
         public function push(...$values) {}
 
@@ -2608,6 +2652,8 @@ namespace Ds;
         /**
          * @param int $offset
          * @param TValue $value
+         *
+         * @return void
          */
         public function offsetSet(mixed $offset, mixed $value) {}
 
@@ -2709,6 +2755,8 @@ namespace Ds;
          *
          * @param TValue $value
          * @param int $priority
+         *
+         * @return void
          */
         public function push($value, int $priority) {}
 
