@@ -1479,14 +1479,14 @@ namespace Ds;
          * callback's return value. So values such as 0.99 and 0.1 will both be
          * cast to an  integer value of 0, which will compare such values as
          * equal.</p>
-         * @return Map<TKeyK, TValueV> Returns a copy of the map, sorted by key.
+         * @return Map<TKey, TValue> Returns a copy of the map, sorted by key.
          * @link https://www.php.net/manual/en/ds-map.ksorted.php
          */
         public function ksorted(?callable $comparator = null): Map {}
 
         /**
          * Returns the last pair of the map.
-         * @return Pair<K,V> The last pair of the map.
+         * @return Pair<TKey,TValue> The last pair of the map.
          * @throws UnderflowException if empty
          * @link https://www.php.net/manual/en/ds-map.last.php
          */
@@ -1529,7 +1529,7 @@ namespace Ds;
         /**
          * Returns a Ds\Sequence containing all the pairs of the map.
          *
-         * @return Sequence<Pair<TKey, TValueV>> Ds\Sequence containing all the pairs of the map.
+         * @return Sequence<Pair<TKey, TValue>> Ds\Sequence containing all the pairs of the map.
          *
          * @link https://www.php.net/manual/en/ds-map.pairs.php
          */
