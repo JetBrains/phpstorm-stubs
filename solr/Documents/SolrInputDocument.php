@@ -39,6 +39,7 @@ final class SolrInputDocument
      * @param SolrInputDocument $child <p>
      * A SolrInputDocument object.
      * </p>
+     * @return void
      * @throws SolrIllegalArgumentException
      * @throws SolrException
      */
@@ -51,6 +52,7 @@ final class SolrInputDocument
      * @param array &$docs <p>
      * An array of SolrInputDocument objects.
      * </p>
+     * @return void
      * @throws SolrIllegalArgumentException
      * @throws SolrException
      */
@@ -262,6 +264,9 @@ final class SolrInputDocument
      * </p>
      * @param float $fieldBoostValue <p>
      * The index time boost value.
+     * </p>
+     * @return bool <p>
+     * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * </p>
      */
     public function setFieldBoost($fieldName, $fieldBoostValue) {}
