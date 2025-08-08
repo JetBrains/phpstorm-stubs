@@ -31,7 +31,7 @@ class SolrCollapseFunction
      * In order to collapse a result. The field type must be a single valued String, Int or Float.
      * </p>
      */
-    public function __construct($field) {}
+    public function __construct($field = '') {}
 
     /**
      * (PECL solr &gt;= 2.2.0)<br/>

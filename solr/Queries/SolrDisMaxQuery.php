@@ -22,7 +22,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $field <p>
      * Field name
      * </p>
-     * @param string $boost [optional] <p>
+     * @param string $boost <p>
      * Boost value. Boosts documents with matching terms.
      * </p>
      * @param string $slop [optional] <p>
@@ -30,7 +30,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * </p>
      * @return SolrDisMaxQuery
      */
-    public function addBigramPhraseField($field, $boost, $slop) {}
+    public function addBigramPhraseField($field, $boost, $slop = '') {}
 
     /**
      * (PECL solr &gt;= 2.1.0)<br/>
@@ -45,7 +45,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * </p>
      * @return SolrDisMaxQuery
      */
-    public function addBoostQuery($field, $value, $boost) {}
+    public function addBoostQuery($field, $value, $boost = '') {}
 
     /**
      * (PECL solr &gt;= 2.1.0)<br/>
@@ -54,7 +54,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $field <p>
      * Field name
      * </p>
-     * @param string $boost [optional] <p>
+     * @param string $boost <p>
      * Boost value. Boosts documents with matching terms.
      * </p>
      * @param string $slop [optional] <p>
@@ -62,7 +62,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * </p>
      * @return SolrDisMaxQuery
      */
-    public function addPhraseField($field, $boost, $slop) {}
+    public function addPhraseField($field, $boost, $slop = '') {}
 
     /**
      * (PECL solr &gt;= 2.1.0)<br/>
@@ -76,7 +76,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * </p>
      * @return SolrDisMaxQuery
      */
-    public function addQueryField($field, $boost) {}
+    public function addQueryField($field, $boost = '') {}
 
     /**
      * (PECL solr &gt;= 2.1.0)<br/>
@@ -85,7 +85,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * @param string $field <p>
      * Field name
      * </p>
-     * @param string $boost [optional] <p>
+     * @param string $boost <p>
      * Boost value. Boosts documents with matching terms.
      * </p>
      * @param string $slop [optional] <p>
@@ -93,7 +93,7 @@ class SolrDisMaxQuery extends SolrQuery implements Serializable
      * </p>
      * @return SolrDisMaxQuery
      */
-    public function addTrigramPhraseField($field, $boost, $slop) {}
+    public function addTrigramPhraseField($field, $boost, $slop = '') {}
 
     /**
      * (PECL solr &gt;= 2.1.0)<br/>
