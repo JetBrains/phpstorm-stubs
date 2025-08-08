@@ -774,7 +774,7 @@ namespace Ds;
          * passed.
          * @link https://www.php.net/manual/en/ds-vector.unshift.php
          */
-        public function unshift($values): void {}
+        public function unshift(...$values): void {}
 
         /**
          * Count elements of an object
