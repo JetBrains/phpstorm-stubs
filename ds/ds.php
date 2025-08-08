@@ -41,7 +41,7 @@ namespace Ds;
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-collection.copy.php
-         * @return Collection<TKey, TValue>
+         * @return static
          */
         public function copy();
 
@@ -382,7 +382,7 @@ namespace Ds;
 
         /**
          * Sorts the sequence in-place, using an optional comparator function.
-         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
+         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -399,7 +399,7 @@ namespace Ds;
 
         /**
          * Returns a sorted copy, using an optional comparator function.
-         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
+         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -728,7 +728,7 @@ namespace Ds;
         /**
          * Sorts the sequence in-place, using an optional comparator function.
          * @link https://www.php.net/manual/en/ds-vector.sort.php
-         * @param callable(TValue, TValue): int|null $comparator The comparison function must return an
+         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return an
          * integer less than, equal to, or greater
          * than zero if the first argument is considered to be respectively less than, equal to, or greater than the
          * second. Note that before PHP 7.0.0 this integer had to be in the
@@ -745,7 +745,7 @@ namespace Ds;
         /**
          * Returns a sorted copy, using an optional comparator function.
          * @link https://www.php.net/manual/en/ds-vector.sorted.php
-         * @param callable(TValue, TValue): int|null $comparator The comparison function must return an integer less than, equal to, or
+         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return an integer less than, equal to, or
          * greater  than zero if the first argument is considered to be respectively less than, equal to, or greater
          * than the second. Note that before PHP 7.0.0 this integer had to be in the range from -2147483648 to
          * 2147483647.<br>
@@ -1134,7 +1134,7 @@ namespace Ds;
 
         /**
          * Sorts the deque in-place, using an optional comparator function.
-         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
+         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -1151,7 +1151,7 @@ namespace Ds;
 
         /**
          * Returns a sorted copy, using an optional comparator function.
-         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
+         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -1450,7 +1450,7 @@ namespace Ds;
         /**
          * Sorts the map in-place by key, using an optional comparator function.
          *
-         * @param callable(TKey, TKey):int|null $comparator The comparison function must return
+         * @param (callable(TKey, TKey):int)|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -1468,7 +1468,7 @@ namespace Ds;
 
         /**
          * Returns a copy sorted by key, using an optional comparator function.
-         * @param callable(TKey, TKey): int|null $comparator The comparison function must return
+         * @param (callable(TKey, TKey): int)|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -1688,7 +1688,7 @@ namespace Ds;
          * Sorts the map in-place by value, using an optional comparator
          * function.
          *
-         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
+         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -1711,7 +1711,7 @@ namespace Ds;
         /**
          * Returns a copy, sorted by value using an optional comparator function.
          *
-         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
+         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -2209,7 +2209,7 @@ namespace Ds;
         /**
          * Sorts the set in-place, using an optional comparator function.
          *
-         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
+         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
