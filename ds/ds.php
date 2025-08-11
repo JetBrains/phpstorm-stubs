@@ -41,7 +41,7 @@ namespace Ds;
         /**
          * Returns a shallow copy of the collection.
          * @link https://www.php.net/manual/en/ds-collection.copy.php
-         * @return static
+         * @return Collection<TKey, TValue>
          */
         public function copy();
 
@@ -382,7 +382,7 @@ namespace Ds;
 
         /**
          * Sorts the sequence in-place, using an optional comparator function.
-         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -399,7 +399,7 @@ namespace Ds;
 
         /**
          * Returns a sorted copy, using an optional comparator function.
-         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -564,7 +564,7 @@ namespace Ds;
         public function get(int $index) {}
 
         /**
-         * @return Traversable<int, TValue>
+         * @return Traversable<TValue>
          */
         public function getIterator(): Traversable {}
 
@@ -582,11 +582,11 @@ namespace Ds;
         /**
          * Joins all values together as a string using an optional separator between each value.
          *
-         * @param string $glue An optional string to separate each value.
+         * @param string|null $glue An optional string to separate each value.
          * @return string All values of the sequence joined together as a string.
          * @link https://www.php.net/manual/en/ds-vector.join.php
          */
-        public function join(string $glue = ''): string {}
+        public function join(?string $glue = null): string {}
 
         /**
          * Returns the last value in the sequence.
@@ -728,7 +728,7 @@ namespace Ds;
         /**
          * Sorts the sequence in-place, using an optional comparator function.
          * @link https://www.php.net/manual/en/ds-vector.sort.php
-         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return an
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return an
          * integer less than, equal to, or greater
          * than zero if the first argument is considered to be respectively less than, equal to, or greater than the
          * second. Note that before PHP 7.0.0 this integer had to be in the
@@ -745,7 +745,7 @@ namespace Ds;
         /**
          * Returns a sorted copy, using an optional comparator function.
          * @link https://www.php.net/manual/en/ds-vector.sorted.php
-         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return an integer less than, equal to, or
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return an integer less than, equal to, or
          * greater  than zero if the first argument is considered to be respectively less than, equal to, or greater
          * than the second. Note that before PHP 7.0.0 this integer had to be in the range from -2147483648 to
          * 2147483647.<br>
@@ -762,9 +762,9 @@ namespace Ds;
          * <b>Note:</b> Arrays and objects are considered equal to zero when
          * calculating the sum.
          * @link https://www.php.net/manual/en/ds-vector.sum.php
-         * @return float|int
+         * @return float
          */
-        public function sum(): float|int {}
+        public function sum(): float {}
 
         /**
          * Adds values to the front of the sequence, moving all the current
@@ -774,7 +774,7 @@ namespace Ds;
          * passed.
          * @link https://www.php.net/manual/en/ds-vector.unshift.php
          */
-        public function unshift(...$values): void {}
+        public function unshift($values): void {}
 
         /**
          * Count elements of an object
@@ -827,8 +827,6 @@ namespace Ds;
         /**
          * @param int $offset
          * @param TValue $value
-         *
-         * @return void
          */
         public function offsetSet(mixed $offset, mixed $value) {}
 
@@ -846,11 +844,11 @@ namespace Ds;
     {
         /**
          * Creates a new instance, using either a traversable object or an array for the initial values.
-         * @param iterable<TValue> $values A traversable object or an array to use for the initial values.
+         * @param TValue ...$values A traversable object or an array to use for the initial values.
          *
          * @link https://www.php.net/manual/en/ds-deque.construct.php
          */
-        public function __construct(iterable $values = []) {}
+        public function __construct(...$values) {}
 
         /**
          * Count elements of an object
@@ -877,7 +875,7 @@ namespace Ds;
         public function copy(): Collection {}
 
         /**
-         * @return Traversable<int, TValue>
+         * @return Traversable<TValue>
          */
         public function getIterator(): Traversable {}
 
@@ -1134,7 +1132,7 @@ namespace Ds;
 
         /**
          * Sorts the deque in-place, using an optional comparator function.
-         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -1151,7 +1149,7 @@ namespace Ds;
 
         /**
          * Returns a sorted copy, using an optional comparator function.
-         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -1209,8 +1207,6 @@ namespace Ds;
         /**
          * @param int $offset
          * @param TValue $value
-         *
-         * @return void
          */
         public function offsetSet(mixed $offset, mixed $value) {}
 
@@ -1229,11 +1225,11 @@ namespace Ds;
     {
         /**
          * Creates a new instance, using either a traversable object or an array for the initial values.
-         * @param iterable<TKey, TValue> $values A traversable object or an array to use for the initial values.
+         * @param iterable<TKey, TValue> ...$values A traversable object or an array to use for the initial values.
          *
          * @link https://www.php.net/manual/en/ds-map.construct.php
          */
-        public function __construct(iterable $values = []) {}
+        public function __construct(...$values) {}
 
         /**
          * Allocates enough memory for a required capacity.
@@ -1241,8 +1237,6 @@ namespace Ds;
          * @param int $capacity The number of values for which capacity should be allocated.<br>
          * <p><b>Note:</b> Capacity will stay the same if this value is less than or equal to the current capacity.</p>
          * Capacity will always be rounded up to the nearest power of 2.
-         *
-         * @return void
          *
          * @link https://www.php.net/manual/en/ds-map.allocate.php
          */
@@ -1253,8 +1247,6 @@ namespace Ds;
          *
          * @param callable(TKey, TValue): TValue $callback A callable to apply to each value in the map. The callback should return what
          * the value should be replaced by.
-         *
-         * @return void
          *
          * @link https://www.php.net/manual/en/ds-map.apply.php
          */
@@ -1357,7 +1349,7 @@ namespace Ds;
         public function get($key, $default = null) {}
 
         /**
-         * @return Traversable<TKey, TValue>
+         * @return Traversable<TValue>
          */
         public function getIterator(): Traversable {}
 
@@ -1449,8 +1441,7 @@ namespace Ds;
 
         /**
          * Sorts the map in-place by key, using an optional comparator function.
-         *
-         * @param (callable(TKey, TKey):int)|null $comparator The comparison function must return
+         * @param callable(TKey, TKey):int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -1461,14 +1452,13 @@ namespace Ds;
          * callback's return value. So values such as 0.99 and 0.1 will both be
          * cast to an  integer value of 0, which will compare such values as
          * equal.</p>
-         * @return void
          * @link https://www.php.net/manual/en/ds-map.ksort.php
          */
         public function ksort(?callable $comparator = null) {}
 
         /**
          * Returns a copy sorted by key, using an optional comparator function.
-         * @param (callable(TKey, TKey): int)|null $comparator The comparison function must return
+         * @param callable(TKey, TKey): int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -1479,14 +1469,14 @@ namespace Ds;
          * callback's return value. So values such as 0.99 and 0.1 will both be
          * cast to an  integer value of 0, which will compare such values as
          * equal.</p>
-         * @return Map<TKey, TValue> Returns a copy of the map, sorted by key.
+         * @return Map<TKeyK, TValueV> Returns a copy of the map, sorted by key.
          * @link https://www.php.net/manual/en/ds-map.ksorted.php
          */
         public function ksorted(?callable $comparator = null): Map {}
 
         /**
          * Returns the last pair of the map.
-         * @return Pair<TKey,TValue> The last pair of the map.
+         * @return Pair<K,V> The last pair of the map.
          * @throws UnderflowException if empty
          * @link https://www.php.net/manual/en/ds-map.last.php
          */
@@ -1529,7 +1519,7 @@ namespace Ds;
         /**
          * Returns a Ds\Sequence containing all the pairs of the map.
          *
-         * @return Sequence<Pair<TKey, TValue>> Ds\Sequence containing all the pairs of the map.
+         * @return Sequence<Pair<TKey, TValueV>> Ds\Sequence containing all the pairs of the map.
          *
          * @link https://www.php.net/manual/en/ds-map.pairs.php
          */
@@ -1554,8 +1544,6 @@ namespace Ds;
          * attempt to access int(1), while $map->get("1") will correctly look up
          * the string key.
          *
-         * @return void
-         *
          * @link https://www.php.net/manual/en/ds-map.put.php
          */
         public function put($key, $value) {}
@@ -1570,8 +1558,6 @@ namespace Ds;
          * considered equal.
          *
          * @param iterable<TKey, TValue> $pairs traversable object or array.
-         *
-         * @return void
          *
          * @link https://www.php.net/manual/en/ds-map.putall.php
          */
@@ -1632,8 +1618,6 @@ namespace Ds;
         /**
          * Reverses the map in-place.
          *
-         * @return void
-         *
          * @link https://www.php.net/manual/en/ds-map.reverse.php
          */
         public function reverse() {}
@@ -1688,7 +1672,7 @@ namespace Ds;
          * Sorts the map in-place by value, using an optional comparator
          * function.
          *
-         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -1702,8 +1686,6 @@ namespace Ds;
          * cast to an integer value of 0, which will compare such values as
          * equal.
          *
-         * @return void
-         *
          * @link https://www.php.net/manual/en/ds-map.sort.php
          */
         public function sort(?callable $comparator = null) {}
@@ -1711,7 +1693,7 @@ namespace Ds;
         /**
          * Returns a copy, sorted by value using an optional comparator function.
          *
-         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -1806,8 +1788,6 @@ namespace Ds;
         /**
          * @param TKey $offset
          * @param TValue $value
-         *
-         * @return void
          */
         public function offsetSet(mixed $offset, mixed $value) {}
 
@@ -1847,8 +1827,6 @@ namespace Ds;
 
         /**
          * Removes all values from the pair.
-         *
-         * @return void
          *
          * @link https://php.net/manual/en/ds-pair.clear.php
          */
@@ -1929,8 +1907,6 @@ namespace Ds;
          *
          * @param TValue ...$values Values to add to the set.
          *
-         * @return void
-         *
          * @link https://php.net/manual/en/ds-set.add.php
          */
         public function add(...$values) {}
@@ -1945,8 +1921,6 @@ namespace Ds;
          * equal to the current capacity.
          *
          * <p>Capacity will always be rounded up to the nearest power of 2.
-         *
-         * @return void
          *
          * @link https://php.net/manual/en/ds-set.allocate.php
          */
@@ -2055,7 +2029,7 @@ namespace Ds;
         public function get(int $index) {}
 
         /**
-         * @return Traversable<int, TValue>
+         * @return Traversable<TValue>
          */
         public function getIterator(): Traversable {}
 
@@ -2092,7 +2066,7 @@ namespace Ds;
          *
          * @return string
          */
-        public function join(string $glue = ''): string {}
+        public function join(?string $glue = null): string {}
 
         /**
          * Returns the result of applying a callback function to each value in
@@ -2151,15 +2125,11 @@ namespace Ds;
          * @link https://www.php.net/manual/en/ds-set.remove.php
          *
          * @param TValue ...$values The values to remove.
-         *
-         * @return void
          */
         public function remove(...$values) {}
 
         /**
          * Reverses the set in-place.
-         *
-         * @return void
          *
          * @link https://www.php.net/manual/en/ds-set.reverse.php
          */
@@ -2209,7 +2179,7 @@ namespace Ds;
         /**
          * Sorts the set in-place, using an optional comparator function.
          *
-         * @param (callable(TValue, TValue): int)|null $comparator The comparison function must return
+         * @param callable(TValue, TValue): int|null $comparator The comparison function must return
          * an integer less than, equal to, or greater than zero if the first
          * argument is considered to be respectively less than, equal to, or
          * greater than the second. Note that before PHP 7.0.0 this integer had
@@ -2220,8 +2190,6 @@ namespace Ds;
          * of the callback's return value. So values such as 0.99 and 0.1 will
          * both be cast to an integer value of 0, which will compare such values
          * as equal.</note>
-         *
-         * @return void
          *
          * @link https://www.php.net/manual/en/ds-set.sort.php
          */
@@ -2328,8 +2296,6 @@ namespace Ds;
         /**
          * @param int $offset
          * @param TValue $value
-         *
-         * @return void
          */
         public function offsetSet(mixed $offset, mixed $value) {}
 
@@ -2372,8 +2338,6 @@ namespace Ds;
          * @param int $capacity The number of values for which capacity should
          * be allocated.
          *
-         * @return void
-         *
          * <p><b>Note:</b> Capacity will stay the same if this value is less than or
          * equal to the current capacity.</p>
          */
@@ -2413,7 +2377,7 @@ namespace Ds;
         public function copy(): Stack {}
 
         /**
-         * @return Traversable<int, TValue>
+         * @return Traversable<TValue>
          */
         public function getIterator(): Traversable {}
 
@@ -2470,8 +2434,6 @@ namespace Ds;
          * @link https://www.php.net/manual/en/ds-queue.push.php
          *
          * @param TValue ...$values The values to push onto the stack.
-         *
-         * @return void
          */
         public function push(...$values) {}
 
@@ -2490,8 +2452,6 @@ namespace Ds;
         /**
          * @param int $offset
          * @param TValue $value
-         *
-         * @return void
          */
         public function offsetSet(mixed $offset, mixed $value) {}
 
@@ -2534,8 +2494,6 @@ namespace Ds;
          * @param int $capacity The number of values for which capacity should
          * be allocated.
          *
-         * @return void
-         *
          * <p><b>Note:</b> Capacity will stay the same if this value is less than or
          * equal to the current capacity.</p>
          */
@@ -2575,7 +2533,7 @@ namespace Ds;
         public function copy(): Queue {}
 
         /**
-         * @return Traversable<int, TValue>
+         * @return Traversable<TValue>
          */
         public function getIterator(): Traversable {}
 
@@ -2632,8 +2590,6 @@ namespace Ds;
          * @link https://www.php.net/manual/en/ds-queue.push.php
          *
          * @param TValue ...$values The values to push onto the queue.
-         *
-         * @return void
          */
         public function push(...$values) {}
 
@@ -2652,8 +2608,6 @@ namespace Ds;
         /**
          * @param int $offset
          * @param TValue $value
-         *
-         * @return void
          */
         public function offsetSet(mixed $offset, mixed $value) {}
 
@@ -2721,7 +2675,7 @@ namespace Ds;
         public function copy() {}
 
         /**
-         * @return Traversable<int, TValue>
+         * @return Traversable<TValue>
          */
         public function getIterator(): Traversable {}
 
@@ -2755,8 +2709,6 @@ namespace Ds;
          *
          * @param TValue $value
          * @param int $priority
-         *
-         * @return void
          */
         public function push($value, int $priority) {}
 
