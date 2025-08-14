@@ -1,0 +1,31 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*' # This will match tags like v2024.3, etc.
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+  
+      - name: Install Dependencies
+        run: cd .github/actions && npm install
+      
+      - name: Create Release
+        uses: ./.github/actions
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
