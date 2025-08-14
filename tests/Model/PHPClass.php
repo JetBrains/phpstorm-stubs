@@ -89,7 +89,8 @@ class PHPClass extends BasePHPClass
     {
         $this->id = $this::getFQN($node);
         $this->name = self::getShortName($node);
-        $this->namespace = rtrim(str_replace((string)$node->name, "", "\\" . $node->namespacedName), '\\');
+        $string = CommonUtils::rtrim_word("\\" . $node->namespacedName, (string)$node->name);
+        $this->namespace = rtrim($string, '\\');
         $this->isFinal = $node->isFinal();
         $this->isReadonly = $node->isReadonly();
         $this->availableVersionsRangeFromAttribute = self::findAvailableVersionsRangeFromAttribute($node->attrGroups);

@@ -932,6 +932,12 @@ class NumberFormatter
      * @since 8.4
      */
     public const ROUND_HALFODD = 8;
+    public const DECIMAL_COMPACT_SHORT = 14;
+    public const DECIMAL_COMPACT_LONG = 15;
+    public const CURRENCY_ISO = 10;
+    public const CURRENCY_PLURAL = 11;
+    public const CASH_CURRENCY = 13;
+    public const CURRENCY_STANDARD = 16;
 
     /**
      * @link https://www.php.net/manual/en/class.numberformatter.php
@@ -1689,6 +1695,21 @@ class Locale
      */
     #[TentativeType]
     public static function acceptFromHttp(#[LanguageAware(['8.0' => 'string'], default: '')] $header): string|false {}
+
+    /**
+     * @since 8.5
+     */
+    public static function isRightToLeft(string $locale): bool {}
+
+    /**
+     * @since 8.5
+     */
+    public static function addLikelySubtags(string $locale): string|false {}
+
+    /**
+     * @since 8.5
+     */
+    public static function minimizeSubtags(string $locale): string|false {}
 }
 
 class MessageFormatter
@@ -1928,7 +1949,7 @@ class IntlDateFormatter
         #[ElementAvailable(from: '5.3', to: '8.0')] #[LanguageAware(['8.0' => 'int'], default: '')] $timeType,
         #[ElementAvailable(from: '8.1')] int $dateType = 0,
         #[ElementAvailable(from: '8.1')] int $timeType = 0,
-        $timezone = null,
+        #[LanguageAware(['8.5' => 'IntlTimeZone|DateTimeZone|string|null'], default: '')] $timezone = null,
         $calendar = null,
         #[LanguageAware(['8.0' => 'string|null'], default: '')] $pattern = null
     ) {}
@@ -1975,7 +1996,7 @@ class IntlDateFormatter
         #[ElementAvailable(from: '5.3', to: '8.0')] #[LanguageAware(['8.0' => 'int'], default: '')] $timeType,
         #[ElementAvailable(from: '8.1')] int $dateType = 0,
         #[ElementAvailable(from: '8.1')] int $timeType = 0,
-        $timezone = null,
+        #[LanguageAware(['8.5' => 'IntlTimeZone|DateTimeZone|string|null'], default: '')] $timezone = null,
         #[LanguageAware(['8.0' => 'IntlCalendar|int|null'], default: '')] $calendar = null,
         #[LanguageAware(['8.0' => 'string|null'], default: '')] $pattern = null
     ): ?IntlDateFormatter {}
@@ -2108,7 +2129,7 @@ class IntlDateFormatter
      */
     #[TentativeType]
     #[LanguageAware(['8.3' => 'bool'], default: 'bool|null')]
-    public function setTimeZone($timezone) {}
+    public function setTimeZone(#[LanguageAware(['8.5' => 'IntlTimeZone|DateTimeZone|string|null'], default: '')] $timezone) {}
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -2505,7 +2526,8 @@ class Transliterator
      */
     #[Pure]
     #[TentativeType]
-    public function getErrorCode(): int|false {}
+    #[LanguageAware(['8.5' => 'int'], default: 'int|false')]
+    public function getErrorCode() {}
 
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
@@ -2516,7 +2538,8 @@ class Transliterator
      */
     #[Pure]
     #[TentativeType]
-    public function getErrorMessage(): string|false {}
+    #[LanguageAware(['8.5' => 'string'], default: 'string|false')]
+    public function getErrorMessage() {}
 }
 
 /**
@@ -2855,7 +2878,10 @@ class IntlCalendar
      * failure.
      */
     #[TentativeType]
-    public static function createInstance($timezone = null, #[LanguageAware(['8.0' => 'string|null'], default: '')] $locale = null): ?IntlCalendar {}
+    public static function createInstance(
+        #[LanguageAware(['8.5' => 'IntlTimeZone|DateTimeZone|string|null'], default: '')] $timezone = null,
+        #[LanguageAware(['8.0' => 'string|null'], default: '')] $locale = null
+    ): ?IntlCalendar {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3487,7 +3513,7 @@ class IntlCalendar
      * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function setTimeZone($timezone): bool {}
+    public function setTimeZone(#[LanguageAware(['8.5' => 'IntlTimeZone|DateTimeZone|string|null'], default: '')] $timezone): bool {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a2)<br/>
@@ -3598,7 +3624,7 @@ class IntlTimeZone
      * @return IntlIterator|false an iterator or <b>FALSE</b> on failure
      */
     #[TentativeType]
-    public static function createEnumeration($countryOrRawOffset): IntlIterator|false {}
+    public static function createEnumeration(#[LanguageAware(['8.5' => 'string|int|null'], default: '')] $countryOrRawOffset): IntlIterator|false {}
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -4798,7 +4824,7 @@ function datefmt_create(
     #[ElementAvailable(from: '8.1')] int $dateType = 0,
     #[ElementAvailable(from: '5.3', to: '8.0')] int $timeType,
     #[ElementAvailable(from: '8.1')] int $timeType = 0,
-    $timezone = null,
+    #[LanguageAware(['8.5' => 'IntlTimeZone|DateTimeZone|string|null'], default: '')] $timezone = null,
     IntlCalendar|int|null $calendar = null,
     #[LanguageAware(['8.0' => 'string|null'], default: 'string')] $pattern = null
 ): ?IntlDateFormatter {}
@@ -4946,7 +4972,7 @@ function datefmt_set_timezone_id(MessageFormatter $mf, $zone) {}
  * @return bool|null <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 #[LanguageAware(['8.3' => 'bool'], default: 'bool|null')]
-function datefmt_set_timezone(IntlDateFormatter $formatter, $timezone) {}
+function datefmt_set_timezone(IntlDateFormatter $formatter, #[LanguageAware(['8.5' => 'IntlTimeZone|DateTimeZone|string|null'], default: '')] $timezone) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -5405,7 +5431,7 @@ function idn_to_utf8(string $domain, int $flags = IDNA_DEFAULT, int $variant = I
  * @since 5.5
  */
 #[Pure]
-function intlcal_create_instance($timezone = null, ?string $locale = null): ?IntlCalendar {}
+function intlcal_create_instance(#[LanguageAware(['8.5' => 'IntlTimeZone|DateTimeZone|string|null'], default: '')] $timezone = null, ?string $locale = null): ?IntlCalendar {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5557,7 +5583,7 @@ function intlcal_add(IntlCalendar $calendar, int $field, int $value): bool {}
  * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
  * @since 5.5
  */
-function intlcal_set_time_zone(IntlCalendar $calendar, $timezone): bool {}
+function intlcal_set_time_zone(IntlCalendar $calendar, #[LanguageAware(['8.5' => 'IntlTimeZone|DateTimeZone|string|null'], default: '')] $timezone): bool {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -6324,7 +6350,7 @@ function intlz_create_default() {}
  * @since 5.5
  */
 #[Pure]
-function intltz_create_enumeration($countryOrRawOffset): IntlIterator|false {}
+function intltz_create_enumeration(#[LanguageAware(['8.5' => 'string|int|null'], default: '')] $countryOrRawOffset): IntlIterator|false {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -6729,7 +6755,8 @@ function transliterator_transliterate(Transliterator|string $transliterator, str
  * @since 5.4
  */
 #[Pure(true)]
-function transliterator_get_error_code(Transliterator $transliterator): int|false {}
+#[LanguageAware(['8.5' => 'int'], default: 'int|false')]
+function transliterator_get_error_code(Transliterator $transliterator) {}
 
 /**
  * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
@@ -6741,7 +6768,8 @@ function transliterator_get_error_code(Transliterator $transliterator): int|fals
  * @since 5.4
  */
 #[Pure(true)]
-function transliterator_get_error_message(Transliterator $transliterator): string|false {}
+#[LanguageAware(['8.5' => 'string'], default: 'string|false')]
+function transliterator_get_error_message(Transliterator $transliterator) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -6869,6 +6897,31 @@ function grapheme_str_split(string $string, int $length = 1): array|false {}
  * @since  8.4
  */
 function intltz_get_iana_id(string $timezoneId): string|false {}
+
+/**
+ * @since 8.5
+ */
+function grapheme_levenshtein(string $string1, string $string2, int $insertion_cost = 1, int $replacement_cost = 1, int $deletion_cost = 1): int|false {}
+
+/**
+ * @since 8.5
+ */
+function locale_is_right_to_left(string $locale): bool {}
+
+/**
+ * @since 8.5
+ */
+function locale_add_likely_subtags(string $locale): string|false {}
+
+/**
+ * @since 8.5
+ */
+function locale_minimize_subtags(string $locale): string|false {}
+
+/**
+ * @since 8.5
+ */
+function pcntl_waitid(int $idtype = P_ALL, ?int $id = null, &$info = [], int $flags = WEXITED, &$resource_usage = []): bool {}
 
 /**
  * Limit on locale length, set to 80 in PHP code. Locale names longer

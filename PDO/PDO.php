@@ -1493,8 +1493,8 @@ namespace {
         public function pgsqlGetPid() {}
 
         /**
-         * @since 8.4
          * @throws PDOException if the attempt to connect to the requested database fails, regardless of which PDO::ATTR_ERRMODE is currently set.
+         * @since 8.4
          */
         public static function connect(string $dsn, ?string $username = null, ?string $password = null, ?array $options = null): static {}
     }
@@ -2013,7 +2013,7 @@ namespace Pdo {
      * @since 8.4
      */
     class Sqlite extends PDO
-{
+    {
         public const int DETERMINISTIC = 0;
         public const int OPEN_READONLY = 1;
         public const int OPEN_READWRITE = 0;
@@ -2021,6 +2021,14 @@ namespace Pdo {
         public const int ATTR_OPEN_FLAGS = 0;
         public const int ATTR_READONLY_STATEMENT = 0;
         public const int ATTR_EXTENDED_RESULT_CODES = 0;
+        public const IGNORE = 0;
+        public const DENY = 0;
+        public const OK = 0;
+        public const EXPLAIN_MODE_EXPLAIN_QUERY_PLAN = 0;
+        public const EXPLAIN_MODE_EXPLAIN = 0;
+        public const EXPLAIN_MODE_PREPARED = 0;
+        public const ATTR_EXPLAIN_STATEMENT = 0;
+        public const ATTR_BUSY_STATEMENT = 0;
 
         public function createAggregate(
             string $name,
@@ -2048,13 +2056,18 @@ namespace Pdo {
             ?string $dbname = "main",
             int $flags = \Pdo\Sqlite::OPEN_READONLY
         ) {}
+
+        /**
+         * @since 8.5
+         */
+        public function setAuthorizer(?callable $callback): void {}
     }
 
     /**
      * @since 8.4
      */
     class Mysql extends PDO
-{
+    {
         public const int ATTR_USE_BUFFERED_QUERY = 0;
         public const int ATTR_LOCAL_INFILE = 0;
         public const int ATTR_INIT_COMMAND = 0;

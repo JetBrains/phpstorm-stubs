@@ -1028,6 +1028,8 @@ define('IMAGETYPE_COUNT', 20);
  * @since 8.1
  */
 define('IMAGETYPE_AVIF', 19);
+define('IMAGETYPE_HEIF', 20);
+define('IMAGETYPE_SVG', 21);
 /**
  * IPv4 Address Resource
  * @link https://php.net/manual/en/network.constants.php

@@ -16,6 +16,7 @@ $finder = PhpCsFixer\Finder::create()
     ]);
 
 return (new PhpCsFixer\Config())
+    ->setUnsupportedPhpVersionAllowed(true)
     ->registerCustomFixers([
         new BracesOneLineFixer(),
     ])

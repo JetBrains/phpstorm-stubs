@@ -949,12 +949,13 @@ function range(
  * </p>
  * @return bool true on success or false on failure.
  */
+#[LanguageLevelTypeAware(['8.5' => 'true'], default: 'bool')]
 function array_multisort(
     &$array,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $sort_order = SORT_ASC,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $sort_flags = SORT_REGULAR,
     &...$rest
-): bool {}
+) {}
 
 /**
  * Push elements onto the end of array
@@ -1109,3 +1110,13 @@ function array_merge(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $arrays,
     array ...$arrays
 ): array {}
+
+/**
+ * @since 8.5
+ */
+function array_first(array $array): mixed {}
+
+/**
+ * @since 8.5
+ */
+function array_last(array $array): mixed {}

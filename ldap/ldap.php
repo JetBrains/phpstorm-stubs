@@ -1086,7 +1086,7 @@ function ldap_rename_ext(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function ldap_get_option(
-    #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
+    #[PhpVersionAware(['8.1' => 'LDAP\Connection', '8.5' => 'LDAP\Connection|null'], default: 'resource')] $ldap,
     int $option,
     #[Available(from: '5.3', to: '7.4')] &$value,
     #[Available(from: '8.0')] &$value = null

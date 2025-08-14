@@ -575,6 +575,20 @@
   ],
   "functions": [
     {
+      "name": "timezone_transitions_get",
+      "parameters": [
+        {
+          "name": "timestampEnd",
+          "problems": [
+            {
+              "description": "wrong default value",
+              "versions": [8.5]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "round",
       "parameters": [
         {
@@ -975,6 +989,15 @@
     }
   ],
   "classes": [
+    {
+      "name": "Directory",
+      "problems": [
+        {
+          "description": "has wrong final modifier",
+          "versions": [8.5]
+        }
+      ]
+    },
     {
       "name": "GMP",
       "problems": [
@@ -2619,6 +2642,22 @@
               "description": "parameter mismatch",
               "versions": [
                 "ALL"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "getTransitions",
+          "parameters": [
+            {
+              "name": "timestampEnd",
+              "problems": [
+                {
+                  "description": "wrong default value",
+                  "versions": [
+                    8.5
+                  ]
+                }
               ]
             }
           ]

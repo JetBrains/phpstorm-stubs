@@ -88,6 +88,14 @@ class CURLFile
 }
 
 /**
+ * @since 8.5
+ */
+final class CurlSharePersistentHandle
+{
+    public readonly array $options;
+}
+
+/**
  * Initialize a cURL session
  * @link https://php.net/manual/en/function.curl-init.php
  * @param string|null $url [optional] <p>
@@ -2144,6 +2152,7 @@ function curl_setopt_array(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], def
  * @return void
  * @since 5.5
  */
+#[\JetBrains\PhpStorm\Deprecated(since: '8.5')]
 function curl_share_close(#[LanguageLevelTypeAware(['8.0' => 'CurlShareHandle'], default: 'resource')] $share_handle): void {}
 
 /**
@@ -2589,6 +2598,7 @@ function curl_file_create(string $filename, ?string $mime_type = null, ?string $
  * @param CurlHandle|resource $handle
  * @return void
  */
+#[\JetBrains\PhpStorm\Deprecated(since: '8.5')]
 function curl_close(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle): void {}
 
 /**
@@ -2799,6 +2809,17 @@ function curl_share_strerror(int $error_code): ?string {}
  * @since 8.2
  */
 function curl_upkeep(CurlHandle $handle): bool {}
+
+/**
+ * @since 8.5
+ */
+function curl_multi_get_handles(CurlMultiHandle $multi_handle): array {}
+
+/**
+ * @since 8.5
+ */
+function curl_share_init_persistent(array $share_options): CurlSharePersistentHandle {}
+
 /**
  * @since 8.0
  */

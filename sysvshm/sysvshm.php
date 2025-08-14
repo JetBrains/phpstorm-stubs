@@ -42,7 +42,8 @@ function shm_remove(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], defa
  * </p>
  * @return bool <b>shm_detach</b> always returns <b>TRUE</b>.
  */
-function shm_detach(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], default: "resource")] $shm): bool {}
+#[LanguageLevelTypeAware(["8.5" => "true"], default: "bool")]
+function shm_detach(#[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory"], default: "resource")] $shm) {}
 
 /**
  * Inserts or updates a variable in shared memory

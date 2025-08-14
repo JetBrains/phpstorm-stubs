@@ -2390,6 +2390,34 @@ define('SOCK_NONBLOCK', 2048);
  * @since 8.4
  */
 define('SO_BINDTOIFINDEX', 62);
+
+/**
+ * @since 8.5
+ */
+const AF_PACKET = 0;
+
+const SO_BUSY_POLL = 0;
+
+const IPPROTO_ICMP = 0;
+
+const IPPROTO_ICMPV6 = 0;
+
+const ETH_P_IP = 0;
+
+const ETH_P_IPV6 = 0;
+
+const ETH_P_LOOP = 0;
+
+const ETH_P_ALL = 0;
+
+const UDP_SEGMENT = 0;
+
+const SHUT_RD = 0;
+
+const SHUT_WR = 0;
+
+const SHUT_RDWR = 0;
+
 /**
  * @since 8.0
  */

@@ -480,6 +480,7 @@ function xml_get_current_byte_index(#[LanguageLevelTypeAware(["8.0" => "XMLParse
  * @return bool This function returns <b>FALSE</b> if <i>parser</i> does not
  * refer to a valid parser, or else it frees the parser and returns <b>TRUE</b>.
  */
+#[Deprecated(since: '8.5')]
 function xml_parser_free(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser): bool {}
 
 /**

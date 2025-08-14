@@ -809,7 +809,8 @@ function openssl_sign(
     string $data,
     &$signature,
     #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
-    string|int $algorithm = OPENSSL_ALGO_SHA1
+    string|int $algorithm = OPENSSL_ALGO_SHA1,
+    #[PhpStormStubsElementAvailable(from: '8.5')] int $padding = 0
 ): bool {}
 
 /**
@@ -828,7 +829,8 @@ function openssl_verify(
     string $data,
     string $signature,
     #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $public_key,
-    string|int $algorithm = OPENSSL_ALGO_SHA1
+    string|int $algorithm = OPENSSL_ALGO_SHA1,
+    #[PhpStormStubsElementAvailable(from: '8.5')] int $padding = 0
 ): int|false {}
 
 /**
@@ -1068,7 +1070,8 @@ function openssl_private_decrypt(
     string $data,
     &$decrypted_data,
     #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
-    int $padding = OPENSSL_PKCS1_PADDING
+    int $padding = OPENSSL_PKCS1_PADDING,
+    #[PhpStormStubsElementAvailable(from: '8.5')] ?string $digest_algo = null
 ): bool {}
 
 /**
@@ -1094,7 +1097,8 @@ function openssl_public_encrypt(
     string $data,
     &$encrypted_data,
     #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $public_key,
-    int $padding = OPENSSL_PKCS1_PADDING
+    int $padding = OPENSSL_PKCS1_PADDING,
+    #[PhpStormStubsElementAvailable(from: '8.5')] ?string $digest_algo = null
 ): bool {}
 
 /**
@@ -1252,7 +1256,7 @@ function openssl_cms_verify(string $input_filename, int $flags = 0, ?string $cer
  * @return bool
  * @since 8.0
  */
-function openssl_cms_encrypt(string $input_filename, string $output_filename, $certificate, ?array $headers, int $flags = 0, int $encoding = OPENSSL_ENCODING_SMIME, int $cipher_algo = OPENSSL_CIPHER_AES_128_CBC): bool {}
+function openssl_cms_encrypt(string $input_filename, string $output_filename, $certificate, ?array $headers, int $flags = 0, int $encoding = OPENSSL_ENCODING_SMIME, #[LanguageLevelTypeAware(['8.5' => 'int|string'], default: 'int')] $cipher_algo = OPENSSL_CIPHER_AES_128_CBC): bool {}
 
 /**
  * Signs the MIME message in the file with a cert and key and output the result to the supplied file.
@@ -1515,6 +1519,12 @@ define('OPENSSL_DEFAULT_STREAM_CIPHERS', "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDS
  */
 define('OPENSSL_CMS_OLDMIMETYPE', 1024);
 
+define('PKCS7_NOSMIMECAP', '512');
+define('PKCS7_CRLFEOL', 2048);
+define('PKCS7_NOCRL', 8192);
+define('PKCS7_NO_DUAL_CONTENT', 65536);
+define('OPENSSL_PKCS1_PSS_PADDING', 6);
+define('CURLOPT_INFILESIZE_LARGE', 30115);
 /**
  * @since 8.0
  */
