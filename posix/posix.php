@@ -954,6 +954,7 @@ define('POSIX_PC_CHOWN_RESTRICTED', 6);
 define('POSIX_PC_NO_TRUNC', 7);
 define('POSIX_PC_ALLOC_SIZE_MIN', 18);
 define('POSIX_PC_SYMLINK_MAX', 19);
+define('POSIX_SC_OPEN_MAX', 4);
 /**
  * @since 8.4
  */

@@ -712,6 +712,10 @@ function set_error_handler(?callable $callback, int $error_levels = E_ALL) {}
 function restore_error_handler(): bool {}
 
 /**
+ * @since 8.5
+ */
+function get_error_handler(): ?callable {}
+/**
  * Sets a user-defined exception handler function
  * @link https://php.net/manual/en/function.set-exception-handler.php
  * @param callable|null $callback <p>
@@ -726,6 +730,11 @@ function restore_error_handler(): bool {}
  * no previous handler was defined, null is also returned.
  */
 function set_exception_handler(?callable $callback) {}
+
+/**
+ * @since 8.5
+ */
+function get_exception_handler(): ?callable {}
 
 /**
  * Restores the previously defined exception handler function
@@ -1145,3 +1154,8 @@ function exit(string|int $status = 0): never {}
  * @since 8.4
  */
 function die(string|int $status = 0): never {}
+
+/**
+ * @since 8.5
+ */
+function clone(object $object, array $withProperties = []): object {}

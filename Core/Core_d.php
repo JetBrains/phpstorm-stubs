@@ -147,6 +147,8 @@ define('false', (bool)0, true);
 define('null', null, true);
 define('ZEND_THREAD_SAFE', false);
 define('ZEND_DEBUG_BUILD', false);
+define('ZEND_VM_KIND_HYBRID', 4);
+define('ZEND_VM_KIND', ZEND_VM_KIND_HYBRID);
 define('PHP_WINDOWS_VERSION_BUILD', 0);
 define('PHP_WINDOWS_VERSION_MAJOR', 0);
 define('PHP_WINDOWS_VERSION_MINOR', 0);
@@ -281,3 +283,6 @@ const PHP_SBINDIR = '/usr/local/sbin', PHP_OUTPUT_HANDLER_PROCESSED = 16384;
  * @link https://php.net/manual/en/reserved.constants.php
  */
 define('PHP_MANDIR', '/usr/local/php/php/man');
+
+define('PHP_BUILD_DATE', 'Aug 14 2025 22:21:58');
+define('PHP_BUILD_PROVIDER', 'https://github.com/docker-library/php');

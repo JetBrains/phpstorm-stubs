@@ -118,7 +118,9 @@ function finfo_open(int $flags = 0, ?string $magic_database = null) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function finfo_close(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo): bool {}
+#[LanguageLevelTypeAware(['8.5' => 'true'], default: 'bool')]
+#[\JetBrains\PhpStorm\Deprecated(since: '8.5')]
+function finfo_close(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo) {}
 
 /**
  * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>

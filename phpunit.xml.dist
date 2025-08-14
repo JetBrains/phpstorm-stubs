@@ -118,6 +118,20 @@
             <file>tests/BaseEnumsTest.php</file>
             <file>tests/BaseConstantsTest.php</file>
             <file>tests/BaseFunctionsTest.php</file>
+            <file>tests/StubsMetaExpectedArgumentsTest.php</file>
+            <file>tests/StubsMetaInternalTagTest.php</file>
+            <file>tests/StubsParameterNamesTest.php</file>
+            <file>tests/StubsTypeHintsTest.php</file>
+            <file>tests/StubsForbiddenTypeHintsTest.php</file>
+            <file>tests/StubsPhp81Tests.php</file>
+            <file>tests/StubsCompositeMixedReturnTypeTest.php</file>
+        </testsuite>
+        <testsuite name="PHP_8.5">
+            <file>tests/BaseClassesTest.php</file>
+            <file>tests/BaseInterfacesTest.php</file>
+            <file>tests/BaseEnumsTest.php</file>
+            <file>tests/BaseConstantsTest.php</file>
+            <file>tests/BaseFunctionsTest.php</file>
             <file>tests/StubsCompositeMixedReturnTypeTest.php</file>
             <file>tests/StubsConstantsAndParametersValuesTest.php</file>
             <file>tests/StubsMetaExpectedArgumentsTest.php</file>

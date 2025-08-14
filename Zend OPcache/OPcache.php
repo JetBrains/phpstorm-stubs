@@ -87,3 +87,8 @@ function opcache_is_script_cached(string $filename): bool {}
  * @since 8.4
  */
 function opcache_jit_blacklist(Closure $closure): void {}
+
+/**
+ * @since 8.5
+ */
+function opcache_is_script_cached_in_file_cache(string $filename): bool {}

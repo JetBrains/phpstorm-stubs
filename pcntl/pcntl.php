@@ -287,7 +287,8 @@ function pcntl_wstopsig(int $status): int|false {}
  * </p>
  * @return bool <b>FALSE</b> on error and does not return on success.
  */
-function pcntl_exec(string $path, array $args = [], array $env_vars = []): bool {}
+#[LanguageLevelTypeAware(["8.5" => "false"], default: "bool")]
+function pcntl_exec(string $path, array $args = [], array $env_vars = []) {}
 
 /**
  * Set an alarm clock for delivery of a signal

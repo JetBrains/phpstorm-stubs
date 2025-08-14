@@ -251,3 +251,5 @@ define('T_PROTECTED_SET', 328);
  * @since 8.4
  */
 define('T_PUBLIC_SET', 329);
+define('T_PIPE', 408);
+define('T_VOID_CAST', 388);

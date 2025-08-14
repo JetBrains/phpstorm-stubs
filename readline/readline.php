@@ -2,6 +2,7 @@
 
 // Start of readline v.5.5.3-1ubuntu2.1
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * Reads a line
@@ -58,14 +59,16 @@ function readline_info(?string $var_name, $value): mixed {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_add_history(string $prompt): bool {}
+#[LanguageLevelTypeAware(['8.5' => 'true'], default: 'bool')]
+function readline_add_history(string $prompt) {}
 
 /**
  * Clears the history
  * @link https://php.net/manual/en/function.readline-clear-history.php
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_clear_history(): bool {}
+#[LanguageLevelTypeAware(['8.5' => 'true'], default: 'bool')]
+function readline_clear_history() {}
 
 /**
  * Lists the history
@@ -118,7 +121,8 @@ function readline_completion_function(callable $callback): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_callback_handler_install(string $prompt, callable $callback): bool {}
+#[LanguageLevelTypeAware(['8.5' => 'true'], default: 'bool')]
+function readline_callback_handler_install(string $prompt, callable $callback) {}
 
 /**
  * Reads a character and informs the readline callback interface when a line is received

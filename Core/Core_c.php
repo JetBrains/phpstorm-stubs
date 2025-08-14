@@ -702,6 +702,11 @@ final class Closure
      * @since 7.1
      */
     public static function fromCallable(callable $callback): Closure {}
+
+    /**
+     * @since 8.5
+     */
+    public static function getCurrent(): Closure {}
 }
 
 /**
@@ -885,9 +890,15 @@ final class Attribute
     public const TARGET_PARAMETER = 32;
 
     /**
+     * Marks that attribute declaration is allowed only in constants.
+     * @since 8.2
+     */
+    public const TARGET_CONSTANT = 32;
+
+    /**
      * Marks that attribute declaration is allowed anywhere.
      */
-    public const TARGET_ALL = 63;
+    public const TARGET_ALL = 127;
 
     /**
      * Notes that an attribute declaration in the same place is
@@ -899,7 +910,7 @@ final class Attribute
      * @param int $flags A value in the form of a bitmask indicating the places
      * where attributes can be defined.
      */
-    public function __construct(#[ExpectedValues(flagsFromClass: Attribute::class)] int $flags = self::TARGET_ALL) {}
+    public function __construct(#[ExpectedValues(flagsFromClass: Attribute::class)] int $flags = Attribute::TARGET_ALL) {}
 }
 
 /**
@@ -1193,7 +1204,7 @@ final class Override
 /**
  * @since 8.4
  */
-#[Attribute(Attribute::TARGET_METHOD|Attribute::TARGET_FUNCTION|Attribute::TARGET_CLASS_CONSTANT)]
+#[Attribute(Attribute::TARGET_METHOD|Attribute::TARGET_FUNCTION|Attribute::TARGET_CLASS_CONSTANT|Attribute::TARGET_CONSTANT)]
 final class Deprecated
 {
     public readonly ?string $message;
@@ -1201,3 +1212,20 @@ final class Deprecated
 
     public function __construct(?string $message = null, ?string $since = null) {}
 }
+
+/**
+ * @since 8.5
+ */
+#[Attribute(Attribute::TARGET_METHOD|Attribute::TARGET_FUNCTION)]
+final class NoDiscard
+{
+    public readonly ?string $message;
+
+    public function __construct(?string $message = null) {}
+}
+
+/**
+ * @since 8.5
+ */
+#[Attribute(Attribute::TARGET_ALL)]
+final class DelayedTargetValidation {}

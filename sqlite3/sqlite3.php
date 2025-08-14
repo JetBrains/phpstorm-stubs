@@ -416,6 +416,10 @@ class SQLite3
  */
 class SQLite3Stmt
 {
+    public const EXPLAIN_MODE_EXPLAIN_QUERY_PLAN = 0;
+    public const EXPLAIN_MODE_EXPLAIN = 0;
+    public const EXPLAIN_MODE_PREPARED = 0;
+
     /**
      * Returns the number of parameters within the prepared statement
      * @link https://php.net/manual/en/sqlite3stmt.paramcount.php
@@ -536,6 +540,21 @@ class SQLite3Stmt
      */
     #[TentativeType]
     public function getSQL(bool $expand = false): string|false {}
+
+    /**
+     * @since 8.5
+     */
+    public function busy(): bool {}
+
+    /**
+     * @since 8.5
+     */
+    public function explain(): int {}
+
+    /**
+     * @since 8.5
+     */
+    public function setExplain(int $mode): bool {}
 }
 
 /**
@@ -616,6 +635,11 @@ class SQLite3Result
     public function finalize() {}
 
     private function __construct() {}
+
+    /**
+     * @since 8.5
+     */
+    public function fetchAll(int $mode = 3): array|false {}
 }
 
 /**

@@ -28,4 +28,9 @@ class CommonUtils
     public static function array_flat_map(array $array, callable $callback) {
         return array_merge(...array_map($callback, $array));
     }
+
+    public static function rtrim_word(string $str, string $word) {
+        $pattern = '/\b' . preg_quote($word, '/') . '$/'; // word boundary + end of string
+        return preg_replace($pattern, '', $str);
+    }
 }

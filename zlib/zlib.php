@@ -18,7 +18,7 @@ use JetBrains\PhpStorm\Pure;
  * </p>
  * @return int|false the number of (uncompressed) bytes read from the file, or FALSE on error
  */
-function readgzfile(string $filename, int $use_include_path = 0): int|false {}
+function readgzfile(string $filename, #[LanguageLevelTypeAware(['8.5' => 'bool'], default: 'int')] $use_include_path = false): int|false {}
 
 /**
  * Rewind the position of a gz-file pointer
@@ -140,7 +140,7 @@ function gzread($stream, int $length): string|false {}
  * <p>
  * If the open fails, the function returns <b>FALSE</b>.
  */
-function gzopen(string $filename, string $mode, int $use_include_path = 0) {}
+function gzopen(string $filename, string $mode, #[LanguageLevelTypeAware(['8.5' => 'bool'], default: 'int')] $use_include_path = false) {}
 
 /**
  * Output all remaining data on a gz-file pointer
@@ -238,7 +238,7 @@ function gzputs($stream, string $data, ?int $length): int|false {}
  * </p>
  * @return array|false An array containing the file, one line per cell.
  */
-function gzfile(string $filename, int $use_include_path = 0): array|false {}
+function gzfile(string $filename, #[LanguageLevelTypeAware(['8.5' => 'bool'], default: 'int')] $use_include_path = false): array|false {}
 
 /**
  * Compress a string
