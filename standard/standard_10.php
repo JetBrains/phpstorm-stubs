@@ -48,6 +48,7 @@ function http_clear_last_response_headers(): void {}
  * @since 8.4
  * @param array|null $options
  * @return array<int, array>
+ * @throws RequestParseBodyException if the request body uses an invalid/unsupported content type
  */
 function request_parse_body(?array $options = null): array {}
 /**
