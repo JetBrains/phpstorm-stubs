@@ -979,8 +979,8 @@ function date_create_immutable(string $datetime = 'now', ?DateTimeZone $timezone
  * @return DateTimeImmutable|false
  */
 #[Pure(true)]
-#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
-function date_create_immutable_from_format(string $format, string $datetime, ?DateTimeZone $timezone): DateTimeImmutable|false {}
+#[PhpStormStubsElementAvailable(from: '5.5', to: '7.4')]
+function date_create_immutable_from_format(string $format, string $datetime, ?DateTimeZone $timezone = null): DateTimeImmutable|false {}
 
 /**
  * Returns new DateTimeImmutable object formatted according to the specified format
@@ -993,7 +993,7 @@ function date_create_immutable_from_format(string $format, string $datetime, ?Da
  */
 #[Pure(true)]
 #[PhpStormStubsElementAvailable(from: '8.0')]
-function date_create_immutable_from_format(string $format, string $datetime, ?DateTimeZone $timezone): DateTimeImmutable|false {}
+function date_create_immutable_from_format(string $format, string $datetime, ?DateTimeZone $timezone = null): DateTimeImmutable|false {}
 
 /**
  * Alias:
@@ -1010,7 +1010,7 @@ function date_create_immutable_from_format(string $format, string $datetime, ?Da
  */
 #[Pure(true)]
 #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
-function date_create_from_format(string $format, string $datetime, ?DateTimeZone $timezone): DateTime|false {}
+function date_create_from_format(string $format, string $datetime, ?DateTimeZone $timezone = null): DateTime|false {}
 
 /**
  * Alias:
@@ -1028,7 +1028,7 @@ function date_create_from_format(string $format, string $datetime, ?DateTimeZone
  */
 #[Pure(true)]
 #[PhpStormStubsElementAvailable(from: '8.0')]
-function date_create_from_format(string $format, string $datetime, ?DateTimeZone $timezone): DateTime|false {}
+function date_create_from_format(string $format, string $datetime, ?DateTimeZone $timezone = null): DateTime|false {}
 
 /**
  * Returns associative array with detailed info about given date

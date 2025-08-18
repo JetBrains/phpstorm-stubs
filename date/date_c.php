@@ -240,7 +240,7 @@ class DateTimeImmutable implements DateTimeInterface
      * @return DateTimeImmutable|false
      */
     #[TentativeType]
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+    #[PhpStormStubsElementAvailable(from: '5.5', to: '7.4')]
     public static function createFromFormat(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $format,
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime,
