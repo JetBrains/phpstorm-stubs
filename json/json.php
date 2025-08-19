@@ -2,6 +2,7 @@
 
 // Start of json v.1.3.1
 use JetBrains\PhpStorm\Internal\TentativeType;
+use JetBrains\PhpStorm\Language;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -130,7 +131,7 @@ function json_encode(mixed $value, int $flags = 0, int $depth = 512): string|fal
  * <i>json</i> cannot be decoded or if the encoded
  * data is deeper than the recursion limit.
  */
-function json_decode(string $json, ?bool $associative = null, int $depth = 512, int $flags = 0): mixed {}
+function json_decode(#[Language("JSON")] string $json, ?bool $associative = null, int $depth = 512, int $flags = 0): mixed {}
 
 /**
  * Returns the last error occurred
@@ -238,7 +239,7 @@ function json_last_error_msg(): string {}
 /**
  * @since 8.3
  */
-function json_validate(string $json, int $depth = 512, int $flags = 0): bool {}
+function json_validate(#[Language("JSON")] string $json, int $depth = 512, int $flags = 0): bool {}
 
 /**
  * All &lt; and &gt; are converted to \u003C and \u003E.
