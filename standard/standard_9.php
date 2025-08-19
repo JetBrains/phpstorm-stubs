@@ -985,6 +985,7 @@ function assert_options(int $option, mixed $value): mixed {}
  * When using the optional operator argument, the
  * function will return true if the relationship is the one specified
  * by the operator, false otherwise.
+ * @throws ValueError when a non-supported operator is provided.
  */
 #[Pure]
 #[ExpectedValues([-1, 0, 1, false, true])]
