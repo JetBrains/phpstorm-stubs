@@ -136,7 +136,7 @@ function gmp_mul(GMP|string|int $num1, GMP|string|int $num2): GMP {}
  * See the <b>gmp_div_q</b> function for description
  * of the <i>round</i> argument.
  * </p>
- * @return array an array, with the first
+ * @return array{resource|GMP, resource|GMP} an array, with the first
  * element being [n/d] (the integer result of the
  * division) and the second being (n - [n/d] * d)
  * (the remainder of the division).
