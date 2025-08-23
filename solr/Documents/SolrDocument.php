@@ -178,8 +178,9 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns a SolrInputDocument equivalent of the object
+     *
      * @link https://php.net/manual/en/solrdocument.getinputdocument.php
-     * @return SolrInputDocument|null <p>
+     * @return SolrInputDocument <p>
      * Returns a SolrInputDocument on success and <b>NULL</b> on failure.
      * </p>
      */
