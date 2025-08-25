@@ -82,7 +82,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable
      * @param string $value <p>
      * The value to use.
      * </p>
-     * @param string $field_override [Optional] <p>
+     * @param string $field_override <p>
      * The field name for the override.
      * </p>
      * @return SolrQuery <p>
