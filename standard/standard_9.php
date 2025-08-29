@@ -445,7 +445,6 @@ function array_intersect_uassoc(
  * array1 that are present in all the arguments.
  * @meta
  */
-#[Pure]
 function array_uintersect_uassoc(
     array $array,
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
