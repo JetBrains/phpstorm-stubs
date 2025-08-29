@@ -783,8 +783,27 @@ function array_chunk(array $array, int $length, bool $preserve_keys = false): ar
  * @meta
  */
 #[Pure]
-#[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-function array_combine(array $keys, array $values) {}
+#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
+function array_combine(array $keys, array $values): array|false {}
+
+/**
+ * Creates an array by using one array for keys and another for its values
+ * @link https://php.net/manual/en/function.array-combine.php
+ * @param array $keys <p>
+ * Array of keys to be used. Illegal values for key will be
+ * converted to string.
+ * </p>
+ * @param array $values <p>
+ * Array of values to be used
+ * </p>
+ * @return array the combined array
+ * @throws \ValueError if the number of elements in keys and values does not
+ * match.
+ * @meta
+ */
+#[Pure]
+#[PhpStormStubsElementAvailable(from: '8.0')]
+function array_combine(array $keys, array $values): array {}
 
 /**
  * Checks if the given key or index exists in the array
