@@ -1,0 +1,9 @@
+name: 'Create Release with Submodule Files'
+description: 'Creates a GitHub release including files from a specified submodule'
+inputs:
+  github-token:
+    description: 'GitHub token for authentication'
+    required: true
+runs:
+  using: 'node16'
+  main: 'action.js'
