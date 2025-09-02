@@ -500,6 +500,12 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
                 fn (string $type) => self::handleTemplateTypes($type, $classTemplateTypes),
             )
         );
+        // Treat PhpDoc 'static' as the declaring class short name (e.g., DateTime)
+        $classShortName = self::getTypePossibleNamespace(ltrim($classId, '\\'));
+        $unifiedPhpDocTypes = array_map(
+            static fn (string $t) => $t === 'static' ? $classShortName : $t,
+            $unifiedPhpDocTypes
+        );
         $unifiedSignatureTypes = array_map(self::getTypePossibleNamespace(...), $function->returnTypesFromSignature);
         if (count($unifiedSignatureTypes) === 1) {
             $type = array_pop($unifiedSignatureTypes);
