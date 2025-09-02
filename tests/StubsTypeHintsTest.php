@@ -634,6 +634,8 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
 
     private static function getTypePossibleNamespace(string $type): string
     {
+        // Normalize array-like notations (e.g., T[], list<T>, array{...}, array<...>) to 'array' first
+        $type = self::replaceArrayNotations($type);
         $typeParts = explode('\\', $type);
         return end($typeParts);
     }
