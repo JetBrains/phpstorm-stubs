@@ -891,7 +891,7 @@ final class Attribute
 
     /**
      * Marks that attribute declaration is allowed only in constants.
-     * @since 8.2
+     * @since 8.5
      */
     public const TARGET_CONSTANT = 32;
 
