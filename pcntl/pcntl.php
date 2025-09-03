@@ -494,10 +494,9 @@ function pcntl_signal_get_handler(int $signal) {}
  * @since 7.4
  */
 function pcntl_unshare(int $flags): bool {}
-/**
- * @since 8.4
- */
-function pcntl_waitid(int $idtype = P_ALL, ?int $id = null, &$info = [], int $flags = WEXITED): bool {}
+
+#[PhpStormStubsElementAvailable(from: '8.4')]
+function pcntl_waitid(int $idtype = P_ALL, ?int $id = null, &$info = [], int $flags = WEXITED, #[PhpStormStubsElementAvailable(from: '8.5')] &$resource_usage = []): bool {}
 /**
  * @since 8.4
  */

@@ -6919,11 +6919,6 @@ function locale_add_likely_subtags(string $locale): string|false {}
 function locale_minimize_subtags(string $locale): string|false {}
 
 /**
- * @since 8.5
- */
-function pcntl_waitid(int $idtype = P_ALL, ?int $id = null, &$info = [], int $flags = WEXITED, &$resource_usage = []): bool {}
-
-/**
  * Limit on locale length, set to 80 in PHP code. Locale names longer
  * than this limit will not be accepted.
  * @link https://php.net/manual/en/intl.constants.php
