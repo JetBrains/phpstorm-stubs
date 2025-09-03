@@ -821,7 +821,7 @@ function create_function(string $args, string $code): false|string {}
  * by this function, the return value will be the string
  * Unknown.
  */
-#[Pure]
+#[Pure(true)]
 function get_resource_type($resource): string {}
 
 /**
