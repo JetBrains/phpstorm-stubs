@@ -846,7 +846,7 @@ function imagerotate(
 
 /**
  * Should antialias functions be used or not. <br/>
- * Before 7.2.0 it's only available if PHP iscompiled with the bundled version of the GD library.
+ * Before 7.2.0 it's only available if PHP is compiled with the bundled version of the GD library.
  * @link https://php.net/manual/en/function.imageantialias.php
  * @param resource|GdImage $image
  * @param bool $enable <p>
