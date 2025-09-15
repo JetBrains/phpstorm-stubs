@@ -5159,7 +5159,7 @@ function grapheme_strlen(string $string): int|false|null {}
  * @return int|false the position as an integer. If needle is not found, strpos() will return boolean FALSE.
  */
 #[Pure]
-function grapheme_strpos(string $haystack, string $needle, int $offset = 0): int|false {}
+function grapheme_strpos(string $haystack, string $needle, int $offset = 0, #[ElementAvailable(from: '8.5')] string $locale = ""): int|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -5180,7 +5180,7 @@ function grapheme_strpos(string $haystack, string $needle, int $offset = 0): int
  * @return int|false the position as an integer. If needle is not found, grapheme_stripos() will return boolean FALSE.
  */
 #[Pure]
-function grapheme_stripos(string $haystack, string $needle, int $offset = 0): int|false {}
+function grapheme_stripos(string $haystack, string $needle, int $offset = 0, #[ElementAvailable(from: '8.5')] string $locale = ""): int|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -5201,7 +5201,7 @@ function grapheme_stripos(string $haystack, string $needle, int $offset = 0): in
  * @return int|false the position as an integer. If needle is not found, grapheme_strrpos() will return boolean FALSE.
  */
 #[Pure]
-function grapheme_strrpos(string $haystack, string $needle, int $offset = 0): int|false {}
+function grapheme_strrpos(string $haystack, string $needle, int $offset = 0, #[ElementAvailable(from: '8.5')] string $locale = ""): int|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -5222,7 +5222,7 @@ function grapheme_strrpos(string $haystack, string $needle, int $offset = 0): in
  * @return int|false the position as an integer. If needle is not found, grapheme_strripos() will return boolean FALSE.
  */
 #[Pure]
-function grapheme_strripos(string $haystack, string $needle, int $offset = 0): int|false {}
+function grapheme_strripos(string $haystack, string $needle, int $offset = 0, #[ElementAvailable(from: '8.5')] string $locale = ""): int|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -5252,7 +5252,7 @@ function grapheme_strripos(string $haystack, string $needle, int $offset = 0): i
  * or also <strong>FALSE</strong> if $start denotes a position beyond $string length</p>
  */
 #[Pure]
-function grapheme_substr(string $string, int $offset, ?int $length = null): string|false {}
+function grapheme_substr(string $string, int $offset, ?int $length = null, #[ElementAvailable(from: '8.5')] string $locale = ""): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -5271,7 +5271,7 @@ function grapheme_substr(string $string, int $offset, ?int $length = null): stri
  * @return string|false the portion of string, or FALSE if needle is not found.
  */
 #[Pure]
-function grapheme_strstr(string $haystack, string $needle, bool $beforeNeedle = false): string|false {}
+function grapheme_strstr(string $haystack, string $needle, bool $beforeNeedle = false, #[ElementAvailable(from: '8.5')] string $locale = ""): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -5290,7 +5290,7 @@ function grapheme_strstr(string $haystack, string $needle, bool $beforeNeedle = 
  * @return string|false the portion of $haystack, or FALSE if $needle is not found.
  */
 #[Pure]
-function grapheme_stristr(string $haystack, string $needle, bool $beforeNeedle = false): string|false {}
+function grapheme_stristr(string $haystack, string $needle, bool $beforeNeedle = false, #[ElementAvailable(from: '8.5')] string $locale = ""): string|false {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -6901,7 +6901,7 @@ function intltz_get_iana_id(string $timezoneId): string|false {}
 /**
  * @since 8.5
  */
-function grapheme_levenshtein(string $string1, string $string2, int $insertion_cost = 1, int $replacement_cost = 1, int $deletion_cost = 1): int|false {}
+function grapheme_levenshtein(string $string1, string $string2, int $insertion_cost = 1, int $replacement_cost = 1, int $deletion_cost = 1, string $locale = ""): int|false {}
 
 /**
  * @since 8.5

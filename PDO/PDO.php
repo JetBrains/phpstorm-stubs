@@ -2030,6 +2030,26 @@ namespace Pdo {
         public const ATTR_EXPLAIN_STATEMENT = 0;
         public const ATTR_BUSY_STATEMENT = 0;
 
+        /**
+         * @since 8.5
+         */
+        public const ATTR_TRANSACTION_MODE = 1005;
+
+        /**
+         * @since 8.5
+         */
+        public const TRANSACTION_MODE_DEFERRED = 0;
+
+        /**
+         * @since 8.5
+         */
+        public const TRANSACTION_MODE_IMMEDIATE = 1;
+
+        /**
+         * @since 8.5
+         */
+        public const TRANSACTION_MODE_EXCLUSIVE = 2;
+
         public function createAggregate(
             string $name,
             callable $step,
