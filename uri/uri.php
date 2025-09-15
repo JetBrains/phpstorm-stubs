@@ -37,9 +37,13 @@ namespace Uri\Rfc3986 {
 
         public function getRawScheme(): ?string {}
 
+        public function withScheme(?string $scheme): static {}
+
         public function getUserInfo(): ?string {}
 
         public function getRawUserInfo(): ?string {}
+
+        public function withUserInfo(#[\SensitiveParameter] ?string $userinfo): static {}
 
         public function getUsername(): ?string {}
 
@@ -53,19 +57,29 @@ namespace Uri\Rfc3986 {
 
         public function getRawHost(): ?string {}
 
+        public function withHost(?string $host): static {}
+
         public function getPort(): ?int {}
+
+        public function withPort(?int $port): static {}
 
         public function getPath(): string {}
 
         public function getRawPath(): string {}
 
+        public function withPath(string $path): static {}
+
         public function getQuery(): ?string {}
 
         public function getRawQuery(): ?string {}
 
+        public function withQuery(?string $query): static {}
+
         public function getFragment(): ?string {}
 
         public function getRawFragment(): ?string {}
+
+        public function withFragment(?string $fragment): static {}
 
         public function equals(\Uri\Rfc3986\Uri $uri, \Uri\UriComparisonMode $comparisonMode = \Uri\UriComparisonMode::ExcludeFragment): bool {}
 
