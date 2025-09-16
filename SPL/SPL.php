@@ -637,6 +637,9 @@ class ParentIterator extends RecursiveFilterIterator
 /**
  * The Seekable iterator.
  * @link https://php.net/manual/en/class.seekableiterator.php
+ * @template TKey
+ * @template-covariant TValue
+ * @template-extends Iterator<TKey, TValue>
  */
 interface SeekableIterator extends Iterator
 {
