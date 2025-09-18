@@ -928,7 +928,7 @@ function sodium_randombytes_random16(): int {}
 function sodium_randombytes_uniform(int $upperBoundNonInclusive): int {}
 
 /**
- * Convert to hex without side-chanels
+ * Convert to hex without side-channels
  * @link https://www.php.net/manual/en/function.sodium-bin2hex.php
  * @param string $string
  * @return string
@@ -949,7 +949,7 @@ function sodium_bin2hex(string $string): string {}
 function sodium_compare(string $string1, string $string2): int {}
 
 /**
- * Convert from hex without side-chanels
+ * Convert from hex without side-channels
  * @link https://www.php.net/manual/en/function.sodium-hex2bin.php
  * @param string $string
  * @param string $ignore
