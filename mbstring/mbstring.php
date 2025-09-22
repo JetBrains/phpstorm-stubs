@@ -1419,26 +1419,37 @@ function mb_str_split(string $string, int $length = 1, ?string $encoding) {}
 /**
  * @since 8.3
  */
+#[Pure]
 function mb_str_pad(string $string, int $length, string $pad_string = " ", int $pad_type = STR_PAD_RIGHT, ?string $encoding = null): string {}
+
 /**
  * @since 8.4
  */
+#[Pure]
 function mb_ucfirst(string $string, ?string $encoding = null): string {}
+
 /**
  * @since 8.4
  */
+#[Pure]
 function mb_lcfirst(string $string, ?string $encoding = null): string {}
+
 /**
  * @since 8.4
  */
+#[Pure]
 function mb_trim(string $string, ?string $characters = null, ?string $encoding = null): string {}
+
 /**
  * @since 8.4
  */
+#[Pure]
 function mb_ltrim(string $string, ?string $characters = null, ?string $encoding = null): string {}
+
 /**
  * @since 8.4
  */
+#[Pure]
 function mb_rtrim(string $string, ?string $characters = null, ?string $encoding = null): string {}
 
 /**
