@@ -117,6 +117,7 @@ class PhpCoreStubsProvider
             'libevent',
             'LuaSandbox',
             'lzf',
+            'maxminddb',
             'mailparse',
             'memcache',
             'memcached',

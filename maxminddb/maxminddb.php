@@ -19,9 +19,7 @@ class Reader
      *                                   if the database is invalid or there is an error reading
      *                                   from it
      */
-    public function __construct(string $database)
-    {
-    }
+    public function __construct(string $database) {}
 
     /**
      * Retrieves the record for the IP address.
@@ -36,9 +34,7 @@ class Reader
      *
      * @throws \BadMethodCallException   if this method is called on a closed database
      */
-    public function get(string $ipAddress): mixed
-    {
-    }
+    public function get(string $ipAddress): mixed {}
 
     /**
      * Retrieves the record for the IP address and its associated network prefix length.
@@ -54,9 +50,7 @@ class Reader
      *
      * @throws \BadMethodCallException   if this method is called on a closed database
      */
-    public function getWithPrefixLen(string $ipAddress): array
-    {
-    }
+    public function getWithPrefixLen(string $ipAddress): array {}
 
     /**
      * @return Metadata object for the database
@@ -64,9 +58,7 @@ class Reader
      *
      * @throws \InvalidArgumentException if arguments are passed to the method
      */
-    public function metadata(): Metadata
-    {
-    }
+    public function metadata(): Metadata {}
 
     /**
      * Closes the MaxMind DB and returns resources to the system.
@@ -74,17 +66,13 @@ class Reader
      * @throws \Exception
      *                    if an I/O error occurs
      */
-    public function close(): void
-    {
-    }
+    public function close(): void {}
 }
 
 /**
  * This class should be thrown when unexpected data is found in the database.
  */
-class InvalidDatabaseException extends \Exception
-{
-}
+class InvalidDatabaseException extends \Exception {}
 
 /**
  * This class provides the metadata for the MaxMind DB file.
