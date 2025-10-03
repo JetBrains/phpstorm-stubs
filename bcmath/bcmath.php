@@ -347,7 +347,6 @@ namespace BcMath {
          */
         public function compare(Number|string|int $num, ?int $scale = null): int {}
 
-        /** @return numeric-string */
         public function __toString(): string {}
 
         /** @return array{value:numeric-string} */
