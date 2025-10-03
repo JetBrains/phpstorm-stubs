@@ -87,8 +87,7 @@ class Cluster
         int|float $connect_timeout = 0,
         int|float $command_timeout = 0,
         bool $persistent = false,
-        #[\SensitiveParameter]
-        mixed $auth = null,
+        #[\SensitiveParameter] mixed $auth = null,
         array|null $context = null
     ) {}
 
