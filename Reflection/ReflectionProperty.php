@@ -33,7 +33,7 @@ class ReflectionProperty implements Reflector
     public $name;
 
     /**
-     * @var string Fully qualified class name where this property was defined
+     * @var class-string Fully qualified class name where this property was defined
      */
     #[Immutable]
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
@@ -91,7 +91,7 @@ class ReflectionProperty implements Reflector
      * Construct a ReflectionProperty object
      *
      * @link https://php.net/manual/en/reflectionproperty.construct.php
-     * @param string|object $class The class name, that contains the property.
+     * @param class-string|object $class The class name, that contains the property.
      * @param string $property The name of the property being reflected.
      * @throws ReflectionException if the class or property does not exist.
      */
