@@ -5,6 +5,7 @@ namespace Relay;
 /**
  * Relay client.
  */
+class Relay
 {
     /**
      * Relay's version.
@@ -475,7 +476,7 @@ namespace Relay;
     /**
      * Establishes a new connection to Redis, or reuses already opened connection.
      *
-     * @var $context array{
+     * @example $context array{
      *   use-cache: bool,                       // Whether to use in-memory caching
      *   adaptive-cache: array{
      *     enabled: bool                        // Whether to disable adaptive caching
@@ -547,7 +548,7 @@ namespace Relay;
         #[\SensitiveParameter]
         array $context = [],
         int $database = 0
-    ): bool;
+    ): bool {}
 
     /**
      * Establishes a persistent connection to Redis.
@@ -575,7 +576,7 @@ namespace Relay;
         #[\SensitiveParameter]
         array $context = [],
         int $database = 0
-    ): bool;
+    ): bool {}
 
     /**
      * Closes the current connection, unless it's persistent.
@@ -1366,7 +1367,7 @@ namespace Relay;
         bool $replace = false,
         #[\SensitiveParameter]
         mixed $credentials = null
-    ): Relay|bool;
+    ): Relay|bool {}
 
     /**
      * This command copies the value stored at the source key to the destination key.
@@ -1578,7 +1579,7 @@ namespace Relay;
         float $lat,
         string $member,
         mixed ...$other_triples_and_options
-    ): Relay|int|false;
+    ): Relay|int|false {}
 
     /**
      * Get the distance between two members of a geospacially encoded sorted set.
@@ -1674,7 +1675,7 @@ namespace Relay;
         array|int|float $shape,
         string $unit,
         array $options = []
-    ): Relay|array|false;
+    ): Relay|array|false {}
 
     /**
      * Search a geospacial sorted set for members within a given area or range,
@@ -1696,7 +1697,7 @@ namespace Relay;
         array|int|float $shape,
         string $unit,
         array $options = []
-    ): Relay|int|false;
+    ): Relay|int|false {}
 
     /**
      * Get the value of key.
@@ -3705,7 +3706,7 @@ namespace Relay;
         int $maxlen = 0,
         bool $approx = false,
         bool $nomkstream = false
-    ): Relay|string|null|false;
+    ): Relay|string|null|false {}
 
     /**
      * Claim ownership of stream message(s).
@@ -3726,7 +3727,7 @@ namespace Relay;
         int $min_idle,
         array $ids,
         array $options
-    ): Relay|array|bool;
+    ): Relay|array|bool {}
 
     /**
      * Automatically take ownership of stream message(s) by metrics.
@@ -3749,7 +3750,7 @@ namespace Relay;
         string $start,
         int $count = -1,
         bool $justid = false
-    ): Relay|bool|array;
+    ): Relay|bool|array {}
 
     /**
      * Get the length of a stream.
@@ -3779,7 +3780,7 @@ namespace Relay;
         string $id_or_consumer = null,
         bool $mkstream = false,
         int $entries_read = -2
-    ): mixed;
+    ): mixed {}
 
     /**
      * Remove one or more specific IDs from a stream.
@@ -3835,7 +3836,7 @@ namespace Relay;
         int $count = -1,
         ?string $consumer = null,
         int $idle = 0
-    ): Relay|array|false;
+    ): Relay|array|false {}
 
     /**
      * Lists elements in a stream.
@@ -3889,7 +3890,7 @@ namespace Relay;
         array $streams,
         int $count = 1,
         int $block = 1
-    ): Relay|array|bool|null;
+    ): Relay|array|bool|null {}
 
     /**
      * Truncate a STREAM key in various ways.
@@ -3908,7 +3909,7 @@ namespace Relay;
         bool $approx = false,
         bool $minid = false,
         int $limit = -1
-    ): Relay|int|false;
+    ): Relay|int|false {}
 
     /**
      * Adds all the specified members with the specified scores to the sorted set stored at key.
