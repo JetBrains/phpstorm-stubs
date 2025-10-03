@@ -275,28 +275,64 @@ namespace BcMath {
      */
     final readonly class Number implements \Stringable
     {
+        /** @var numeric-string */
         public readonly string $value;
         public readonly int $scale;
 
+        /** @param int|numeric-string $num */
         public function __construct(string|int $num) {}
 
+        /**
+         * @param Number|int|numeric-string $num
+         * @throws \DivisionByZeroError
+         */
         public function add(Number|string|int $num, ?int $scale = null): Number {}
 
+        /**
+         * @param Number|int|numeric-string $num
+         * @throws \DivisionByZeroError
+         */
         public function sub(Number|string|int $num, ?int $scale = null): Number {}
 
+        /**
+         * @param Number|int|numeric-string $num
+         * @throws \DivisionByZeroError
+         */
         public function mul(Number|string|int $num, ?int $scale = null): Number {}
 
+        /**
+         * @param Number|int|numeric-string $num
+         * @throws \DivisionByZeroError
+         */
         public function div(Number|string|int $num, ?int $scale = null): Number {}
 
+        /**
+         * @param Number|int|numeric-string $num
+         * @throws \DivisionByZeroError
+         */
         public function mod(Number|string|int $num, ?int $scale = null): Number {}
 
-        /** @return Number[] */
+        /**
+         * @param Number|int|numeric-string $num
+         * @return Number[]
+         * @throws \DivisionByZeroError
+         */
         public function divmod(Number|string|int $num, ?int $scale = null): array {}
 
+        /**
+         * @param Number|int|numeric-string $exponent
+         * @param Number|int|numeric-string $modulus
+         * @throws \DivisionByZeroError
+         */
         public function powmod(Number|string|int $exponent, Number|string|int $modulus, ?int $scale = null): Number {}
 
+        /**
+         * @param Number|int|numeric-string $exponent
+         * @throws \DivisionByZeroError
+         */
         public function pow(Number|string|int $exponent, ?int $scale = null): Number {}
 
+        /** @throws \ValueError */
         public function sqrt(?int $scale = null): Number {}
 
         public function floor(): Number {}
@@ -305,12 +341,19 @@ namespace BcMath {
 
         public function round(int $precision = 0, \RoundingMode $mode = \RoundingMode::HalfAwayFromZero): Number {}
 
+        /**
+         * @param Number|int|numeric-string $num
+         * @return int Returns -1, 0, or 1
+         */
         public function compare(Number|string|int $num, ?int $scale = null): int {}
 
+        /** @return numeric-string */
         public function __toString(): string {}
 
+        /** @return array{value:numeric-string} */
         public function __serialize(): array {}
 
+        /** @param array{value:numeric-string} $data */
         public function __unserialize(array $data): void {}
     }
 }
