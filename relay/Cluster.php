@@ -90,7 +90,7 @@ class Cluster
         #[\SensitiveParameter]
         mixed $auth = null,
         array|null $context = null
-    );
+    ) {}
 
     /**
      * Compress data with Relay's currently configured compression algorithm.

@@ -519,7 +519,7 @@ namespace Relay;
         #[\SensitiveParameter]
         array $context = [],
         int $database = 0,
-    );
+    ) {}
 
     /**
      * Establishes a new connection to Redis, or reuses already opened connection.
