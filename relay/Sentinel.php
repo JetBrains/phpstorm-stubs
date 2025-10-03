@@ -10,7 +10,7 @@ namespace Relay;
 class Sentinel
 {
     /**
-     * Whether to throw an exception on `-ERR` replies.  Default: false
+     * Whether to throw an exception on `-ERR` replies.
      *
      * @var int
      */
