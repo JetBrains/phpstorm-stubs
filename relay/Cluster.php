@@ -1269,6 +1269,7 @@ class Cluster
      */
     #[Attributes\Local]
     public static function invalidateSlotCaches(): bool {}
+
     /**
      * Returns all keys matching pattern.
      *
