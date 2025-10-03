@@ -22,7 +22,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     public $name;
 
     /**
-     * @var string Fully qualified class name where this method was defined
+     * @var class-string Fully qualified class name where this method was defined
      */
     #[Immutable]
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
@@ -68,7 +68,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * </code>
      *
      * @link https://php.net/manual/en/reflectionmethod.construct.php
-     * @param string|object $objectOrMethod Classname, object
+     * @param class-string|object $objectOrMethod Classname, object
      * (instance of the class) that contains the method or class name and
      * method name delimited by ::.
      * @param string|null $method Name of the method if the first argument is a

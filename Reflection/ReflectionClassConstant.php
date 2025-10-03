@@ -23,7 +23,7 @@ class ReflectionClassConstant implements Reflector
     public $name;
 
     /**
-     * @var string Fully qualified class name where this constant was defined
+     * @var class-string Fully qualified class name where this constant was defined
      */
     #[Immutable]
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
@@ -65,7 +65,7 @@ class ReflectionClassConstant implements Reflector
     /**
      * ReflectionClassConstant constructor.
      *
-     * @param string|object $class Either a string containing the name of the class to reflect, or an object.
+     * @param class-string|object $class Either a string containing the name of the class to reflect, or an object.
      * @param string $constant The name of the class constant.
      * @since 7.1
      * @link https://php.net/manual/en/reflectionclassconstant.construct.php
