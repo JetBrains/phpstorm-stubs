@@ -708,7 +708,7 @@ class Relay
     public function getTimeout(): float|false {}
 
     /**
-     * @alias Relay\Relay::getTimeout
+     * @see Relay\Relay::getTimeout()
      *
      * @return float|false
      */
@@ -724,7 +724,7 @@ class Relay
     public function getReadTimeout(): float|false {}
 
     /**
-     * @alias Relay\Relay::getReadTimeout
+     * @see Relay\Relay::getReadTimeout()
      *
      * @return float|false
      */
@@ -741,7 +741,7 @@ class Relay
     public function getBytes(): array {}
 
     /**
-     * @alias Relay\Relay::getBytes
+     * @see Relay\Relay::getBytes()
      *
      * @return array
      */
@@ -877,7 +877,7 @@ class Relay
     public function endpointId(): string|false {}
 
     /**
-     * @alias Relay\Relay::endpointId
+     * @see Relay\Relay::endpointId()
      *
      * @return string|false
      */
