@@ -68,7 +68,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * </code>
      *
      * @link https://php.net/manual/en/reflectionmethod.construct.php
-     * @param class-string|object $objectOrMethod Classname, object
+     * @param string|object $objectOrMethod Classname, object
      * (instance of the class) that contains the method or class name and
      * method name delimited by ::.
      * @param string|null $method Name of the method if the first argument is a
