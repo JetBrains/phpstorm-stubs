@@ -1510,6 +1510,19 @@ abstract class SplHeap implements Iterator, Countable
      */
     #[TentativeType]
     public function __debugInfo(): array {}
+
+    /**
+     * @rereturn array
+     * @since 8.5
+     */
+    #[TentativeType]
+    public function __serialize(): array {}
+
+    /**
+     * @since 8.5
+     */
+    #[TentativeType]
+    public function __unserialize(array $data): void {}
 }
 
 /**
@@ -1812,6 +1825,18 @@ class SplPriorityQueue implements Iterator, Countable
      */
     #[TentativeType]
     public function __debugInfo(): array {}
+
+    /**
+     * @return array
+     * @since 8.5
+     */
+    #[TentativeType]
+    public function __serialize(): array {}
+    /**
+     * @since 8.5
+     */
+    #[TentativeType]
+    public function __unserialize(array $data): void {}
 }
 
 /**

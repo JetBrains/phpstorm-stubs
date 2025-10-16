@@ -9,6 +9,13 @@ namespace Uri {
     /**
      * @since 8.5
      */
+    class UriError extends \Error
+    {
+    }
+
+    /**
+     * @since 8.5
+     */
     class InvalidUriException extends \Uri\UriException {}
 
     /**
