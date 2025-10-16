@@ -1165,6 +1165,7 @@ const CLASSES = array (
   'Uri\\InvalidUriException' => 'uri/uri.php',
   'Uri\\Rfc3986\\Uri' => 'uri/uri.php',
   'Uri\\UriComparisonMode' => 'uri/uri.php',
+  'Uri\\UriError' => 'uri/uri.php',
   'Uri\\UriException' => 'uri/uri.php',
   'Uri\\WhatWg\\InvalidUrlException' => 'uri/uri.php',
   'Uri\\WhatWg\\Url' => 'uri/uri.php',
