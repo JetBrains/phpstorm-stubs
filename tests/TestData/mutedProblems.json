@@ -990,6 +990,15 @@
   ],
   "classes": [
     {
+      "name": "ReflectionConstant",
+      "problems": [
+        {
+          "description": "has wrong final modifier",
+          "versions": [8.4]
+        }
+      ]
+    },
+    {
       "name": "Directory",
       "problems": [
         {
