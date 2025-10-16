@@ -1512,7 +1512,7 @@ abstract class SplHeap implements Iterator, Countable
     public function __debugInfo(): array {}
 
     /**
-     * @rereturn array
+     * @return array
      * @since 8.5
      */
     #[TentativeType]
