@@ -9,9 +9,7 @@ namespace Uri {
     /**
      * @since 8.5
      */
-    class UriError extends \Error
-    {
-    }
+    class UriError extends \Error {}
 
     /**
      * @since 8.5

@@ -1832,6 +1832,7 @@ class SplPriorityQueue implements Iterator, Countable
      */
     #[TentativeType]
     public function __serialize(): array {}
+
     /**
      * @since 8.5
      */
