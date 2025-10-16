@@ -1117,6 +1117,7 @@ function array_merge(
  * @since 8.5
  * @meta
  */
+#[Pure]
 function array_first(array $array): mixed {}
 
 /**
@@ -1127,4 +1128,5 @@ function array_first(array $array): mixed {}
  * @since 8.5
  * @meta
  */
+#[Pure]
 function array_last(array $array): mixed {}
