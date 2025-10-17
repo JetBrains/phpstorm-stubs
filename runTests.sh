@@ -24,7 +24,7 @@ do
   echo "Dumping reflection data to file $SCRIPT_DIR/ReflectionData.dat for PHP_$i..."
   docker-compose -f docker-compose.yml run -e PHP_VERSION="$i" php_under_test /usr/local/bin/php tests/Tools/dump-reflection-to-file.php ReflectionData.dat
 
-  echo "Running tests agains PHP_$i..."
+  echo "Running tests against PHP_$i..."
   docker-compose -f docker-compose.yml run -e PHP_VERSION="$i" test_runner vendor/bin/phpunit --testsuite PHP_"$i"
 
   echo "Removing file $SCRIPT_DIR/ReflectionData.dat with reflection data for PHP_$i..."
