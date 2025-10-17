@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Docker Container
-        run: docker compose -f docker-compose.yml build >/dev/null
+        run: docker compose -f docker-compose.yml build --build-arg PHP_VERSION=${{matrix.php}} >/dev/null
         env:
           PHP_VERSION: ${{matrix.php}}
 
@@ -30,7 +30,7 @@ jobs:
           PHP_VERSION: ${{matrix.php}}
 
       - name: Run Tests
-        run: docker compose -f docker-compose.yml run test_runner vendor/bin/phpunit --no-progress --testsuite PHP_${{matrix.php}}
+        run: docker compose -f docker-compose.yml run -e PHP_VERSION=${{matrix.php}} test_runner vendor/bin/phpunit --no-progress --testsuite PHP_${{matrix.php}}
         env:
           PHP_VERSION: ${{matrix.php}}
   additional:
