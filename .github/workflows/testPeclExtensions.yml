@@ -24,7 +24,7 @@ jobs:
         run: docker compose -f docker-compose.yml run pecl_extensions /usr/local/bin/php tests/Tools/dump-reflection-to-file.php ReflectionDataPecl.json
 
       - name: Dump Reflection Without Pecl To File
-        run: docker compose -f docker-compose.yml run php_under_test /usr/local/bin/php tests/Tools/dump-reflection-to-file.php ReflectionData.json
+        run: docker compose -f docker-compose.yml run php_under_test /usr/local/bin/php tests/Tools/dump-reflection-to-file.php ReflectionData.dat
 
       - name: Build Reflection Data With Pecl Only
         run: docker compose -f docker-compose.yml run php_under_test /usr/local/bin/php tests/Tools/dump-pecl-to-file.php

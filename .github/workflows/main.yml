@@ -25,7 +25,7 @@ jobs:
           PHP_VERSION: ${{matrix.php}}
 
       - name: Dump Reflection To File
-        run: docker compose -f docker-compose.yml run -e PHP_VERSION=${{matrix.php}} php_under_test /usr/local/bin/php tests/Tools/dump-reflection-to-file.php ReflectionData.json
+        run: docker compose -f docker-compose.yml run -e PHP_VERSION=${{matrix.php}} php_under_test /usr/local/bin/php tests/Tools/dump-reflection-to-file.php ReflectionData.dat
         env:
           PHP_VERSION: ${{matrix.php}}
 
