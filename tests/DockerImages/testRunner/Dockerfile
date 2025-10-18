@@ -31,4 +31,7 @@ RUN docker-php-ext-install gmp sockets intl gd ldap bz2 mysqli bcmath calendar d
 #RUN echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 #RUN echo "xdebug.output_dir=/opt/project/xdebug_snapshots" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 #RUN echo "xdebug.log=/opt/project/phpstorm-stubs/xdebug_logs/xdebug.log" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+RUN git config --global --add safe.directory /opt/project/phpstorm-stubs
+
 WORKDIR /opt/project/phpstorm-stubs

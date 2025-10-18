@@ -22,7 +22,7 @@ do
   cd "$SCRIPT_DIR" || exit
 
   echo "Building docker container for PHP_$i..."
-  docker compose -f docker-compose.yml build --build-arg "PHP_VERSION=$i"
+  docker compose -f docker-compose.yml build
 
   echo "Installing composer packages..."
   docker compose -f docker-compose.yml run test_runner composer install
