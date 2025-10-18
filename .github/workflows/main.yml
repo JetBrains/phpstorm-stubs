@@ -40,8 +40,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Build Docker Container
+        run: docker compose -f docker-compose.yml build >/dev/null
+
       - name: Composer Install
-        run: docker compose -f docker-compose.yml run test_runner composer install --no-progress
+        run: docker compose -f docker-compose.yml run test_runner composer install --no-progress --ansi
 
       - name: Test PhpDoc
         run: docker compose -f docker-compose.yml run test_runner vendor/bin/phpunit --no-progress --testsuite PhpDoc
