@@ -228,6 +228,7 @@ class DateTimeImmutable implements DateTimeInterface
      * @link https://secure.php.net/manual/en/datetimeimmutable.add.php
      */
     #[TentativeType]
+    #[\NoDiscard(message: "as DateTimeImmutable::add() does not modify the object itself")]
     public function add(DateInterval $interval): DateTimeImmutable {}
 
     /**
@@ -339,6 +340,7 @@ class DateTimeImmutable implements DateTimeInterface
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
     #[TentativeType]
+    #[\NoDiscard(message: "as DateTimeImmutable::setDate() does not modify the object itself")]
     public function setDate(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $year,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $month,
@@ -356,6 +358,7 @@ class DateTimeImmutable implements DateTimeInterface
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
     #[TentativeType]
+    #[\NoDiscard(message: "as DateTimeImmutable::setISODate() does not modify the object itself")]
     public function setISODate(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $year,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $week,
@@ -374,6 +377,7 @@ class DateTimeImmutable implements DateTimeInterface
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
     #[TentativeType]
+    #[\NoDiscard(message: "as DateTimeImmutable::setTime() does not modify the object itself")]
     public function setTime(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $hour,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $minute,
@@ -390,6 +394,7 @@ class DateTimeImmutable implements DateTimeInterface
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
     #[TentativeType]
+    #[\NoDiscard(message: "as DateTimeImmutable::setTimestamp() does not modify the object itself")]
     public function setTimestamp(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestamp): DateTimeImmutable {}
 
     /**
@@ -404,6 +409,7 @@ class DateTimeImmutable implements DateTimeInterface
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
     #[TentativeType]
+    #[\NoDiscard(message: "as DateTimeImmutable::setTimezone() does not modify the object itself")]
     public function setTimezone(DateTimeZone $timezone): DateTimeImmutable {}
 
     /**
@@ -418,6 +424,7 @@ class DateTimeImmutable implements DateTimeInterface
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
     #[TentativeType]
+    #[\NoDiscard(message: "as DateTimeImmutable::sub() does not modify the object itself")]
     public function sub(DateInterval $interval): DateTimeImmutable {}
 
     /**
@@ -516,6 +523,7 @@ class DateTimeImmutable implements DateTimeInterface
     /**
      * @since 8.4
      */
+    #[\NoDiscard(message: "as DateTimeImmutable::setMicrosecond() does not modify the object itself")]
     public function setMicrosecond(int $microsecond): static {}
 }
 
@@ -707,7 +715,6 @@ class DateTime implements DateTimeInterface
      * @link https://php.net/manual/en/datetime.add.php
      */
     #[TentativeType]
-    #[\NoDiscard(message: "as DateTimeImmutable::add() does not modify the object itself")]
     public function add(DateInterval $interval): DateTime {}
 
     /**
@@ -727,7 +734,6 @@ class DateTime implements DateTimeInterface
      * @throws DateInvalidOperationException
      */
     #[TentativeType]
-    #[\NoDiscard(message: "as DateTimeImmutable::sub() does not modify the object itself")]
     public function sub(DateInterval $interval): DateTime {}
 
     /**
@@ -745,7 +751,6 @@ class DateTime implements DateTimeInterface
      * @link https://php.net/manual/en/datetime.settimezone.php
      */
     #[TentativeType]
-    #[\NoDiscard(message: "as DateTimeImmutable::setTimezone() does not modify the object itself")]
     public function setTimezone(#[LanguageLevelTypeAware(['8.0' => 'DateTimeZone'], default: '')] $timezone): DateTime {}
 
     /**
@@ -766,7 +771,6 @@ class DateTime implements DateTimeInterface
      * @link https://php.net/manual/en/datetime.settime.php
      */
     #[TentativeType]
-    #[\NoDiscard(message: "as DateTimeImmutable::setTime() does not modify the object itself")]
     public function setTime(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $hour,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $minute,
@@ -783,7 +787,6 @@ class DateTime implements DateTimeInterface
      * @link https://php.net/manual/en/datetime.setdate.php
      */
     #[TentativeType]
-    #[\NoDiscard(message: "as DateTimeImmutable::setDate() does not modify the object itself")]
     public function setDate(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $year,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $month,
@@ -799,7 +802,6 @@ class DateTime implements DateTimeInterface
      * @link https://php.net/manual/en/datetime.setisodate.php
      */
     #[TentativeType]
-    #[\NoDiscard(message: "as DateTimeImmutable::setISODate() does not modify the object itself")]
     public function setISODate(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $year,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $week,
@@ -813,7 +815,6 @@ class DateTime implements DateTimeInterface
      * @link https://php.net/manual/en/datetime.settimestamp.php
      */
     #[TentativeType]
-    #[\NoDiscard(message: "as DateTimeImmutable::setTimestamp() does not modify the object itself")]
     public function setTimestamp(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestamp): DateTime {}
 
     /**
@@ -914,7 +915,6 @@ class DateTime implements DateTimeInterface
     /**
      * @since 8.4
      */
-    #[\NoDiscard(message: "as DateTimeImmutable::setMicrosecond() does not modify the object itself")]
     public function setMicrosecond(int $microsecond): static {}
 }
 
