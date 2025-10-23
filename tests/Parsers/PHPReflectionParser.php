@@ -22,8 +22,8 @@ class PHPReflectionParser
      */
     public static function getStubs()
     {
-        if (file_exists(__DIR__ . '/../../ReflectionData.json')) {
-            $stubs = unserialize(file_get_contents(__DIR__ . '/../../ReflectionData.json'));
+        if (file_exists(__DIR__ . '/../../ReflectionData.dat')) {
+            $stubs = unserialize(file_get_contents(__DIR__ . '/../../ReflectionData.dat'));
         } else {
             $stubs = new StubsContainer();
 
