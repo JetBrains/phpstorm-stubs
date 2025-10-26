@@ -1817,7 +1817,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * @param string $qualifiedName <p>
      * The name of the attribute.
      * </p>
-     * @return DOMAttr The attribute node.
+     * @return DOMAttr|false The attribute node or false if there is none.
      */
     public function getAttributeNode(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName) {}
 
