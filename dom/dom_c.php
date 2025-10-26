@@ -1920,7 +1920,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * @param string $localName <p>
      * The local name.
      * </p>
-     * @return DOMAttr The attribute node.
+     * @return DOMAttr|null The attribute node.
      */
     public function getAttributeNodeNS(
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace,
