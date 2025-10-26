@@ -16,7 +16,7 @@ use JetBrains\PhpStorm\Pure;
 class ReflectionFunction extends ReflectionFunctionAbstract
 {
     /**
-     * @var string Function name, same as calling the {@see ReflectionFunction::getName()} method
+     * @var non-empty-string Function name, same as calling the {@see ReflectionFunction::getName()} method
      */
     #[Immutable]
     public $name;
@@ -32,7 +32,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * Constructs a ReflectionFunction object
      *
      * @link https://php.net/manual/en/reflectionfunction.construct.php
-     * @param string|Closure $function The name of the function to reflect or a closure.
+     * @param non-empty-string|Closure $function The name of the function to reflect or a closure.
      * @throws ReflectionException if the function does not exist.
      */
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'Closure|string'], default: '')] $function) {}
@@ -87,7 +87,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * Invokes function args
      *
      * @link https://php.net/manual/en/reflectionfunction.invokeargs.php
-     * @param array $args The passed arguments to the function as an array, much
+     * @param list<mixed> $args The passed arguments to the function as an array, much
      * like {@see call_user_func_array} works.
      * @return mixed the result of the invoked function
      */

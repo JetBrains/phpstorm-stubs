@@ -12,17 +12,18 @@ use JetBrains\PhpStorm\Pure;
  * information about a method.
  *
  * @link https://php.net/manual/en/class.reflectionmethod.php
+ * @template TReflectedClass of object
  */
 class ReflectionMethod extends ReflectionFunctionAbstract
 {
     /**
-     * @var string Name of the method, same as calling the {@see ReflectionMethod::getName()} method
+     * @var non-empty-string Name of the method, same as calling the {@see ReflectionMethod::getName()} method
      */
     #[Immutable]
     public $name;
 
     /**
-     * @var class-string Fully qualified class name where this method was defined
+     * @var class-string<TReflectedClass> Fully qualified class name where this method was defined
      */
     #[Immutable]
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
@@ -68,10 +69,10 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * </code>
      *
      * @link https://php.net/manual/en/reflectionmethod.construct.php
-     * @param string|object $objectOrMethod Classname, object
+     * @param non-empty-string|class-string<TReflectedClass>|TReflectedClass $objectOrMethod Classname, object
      * (instance of the class) that contains the method or class name and
      * method name delimited by ::.
-     * @param string|null $method Name of the method if the first argument is a
+     * @param non-empty-string|null $method Name of the method if the first argument is a
      * classname or an object.
      * @throws ReflectionException if the class or method does not exist.
      */
