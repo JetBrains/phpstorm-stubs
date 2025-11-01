@@ -334,7 +334,7 @@ class SplFileInfo implements Stringable
  * The DirectoryIterator class provides a simple interface for viewing
  * the contents of filesystem directories.
  * @link https://php.net/manual/en/class.directoryiterator.php
- * @template-implements SeekableIterator<string, DirectoryIterator>
+ * @template-implements SeekableIterator<string, SplFileInfo>
  */
 class DirectoryIterator extends SplFileInfo implements SeekableIterator
 {
