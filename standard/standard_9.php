@@ -196,7 +196,6 @@ function array_pad(array $array, int $length, mixed $value): array {}
 
 /**
  * Exchanges all keys with their associated values in an array
- * 
  * @template TKey of int|string
  * @template TValue of int|string
  * @link https://php.net/manual/en/function.array-flip.php
