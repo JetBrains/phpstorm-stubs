@@ -40,6 +40,7 @@ class PhpCoreStubsProvider
             'iconv',
             'intl',
             'json',
+            'litespeed',
             'mbstring',
             'pcntl',
             'PDO',
