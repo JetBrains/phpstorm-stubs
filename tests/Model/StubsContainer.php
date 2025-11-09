@@ -270,7 +270,7 @@ class StubsContainer
     }
 
     /**
-     * @param true $shouldSuitCurrentLanguageVersion
+     * @param true $shouldSuitCurrentPhpVersion
      * @return PHPClass[]
      */
     public function getCoreClasses($shouldSuitCurrentPhpVersion = true)

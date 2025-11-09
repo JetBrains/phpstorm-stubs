@@ -12,18 +12,19 @@ use JetBrains\PhpStorm\Pure;
  *
  * @link https://www.php.net/manual/en/class.reflectionclassconstant.php
  * @since 7.1
+ * @template TReflectedClass of object
  */
 class ReflectionClassConstant implements Reflector
 {
     /**
-     * @var string Constant name, same as calling the {@see ReflectionClassConstant::getName()} method
+     * @var non-empty-string Constant name, same as calling the {@see ReflectionClassConstant::getName()} method
      */
     #[Immutable]
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
 
     /**
-     * @var class-string Fully qualified class name where this constant was defined
+     * @var class-string<TReflectedClass> Fully qualified class name where this constant was defined
      */
     #[Immutable]
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
@@ -65,8 +66,8 @@ class ReflectionClassConstant implements Reflector
     /**
      * ReflectionClassConstant constructor.
      *
-     * @param class-string|object $class Either a string containing the name of the class to reflect, or an object.
-     * @param string $constant The name of the class constant.
+     * @param class-string<TReflectedClass>|TReflectedClass $class Either a string containing the name of the class to reflect, or an object.
+     * @param non-empty-string $constant The name of the class constant.
      * @since 7.1
      * @link https://php.net/manual/en/reflectionclassconstant.construct.php
      */
@@ -123,7 +124,7 @@ class ReflectionClassConstant implements Reflector
      * Get name of the constant
      *
      * @link https://php.net/manual/en/reflectionclassconstant.getname.php
-     * @return string Returns the constant's name.
+     * @return non-empty-string Returns the constant's name.
      * @since 7.1
      */
     #[Pure]
@@ -184,13 +185,13 @@ class ReflectionClassConstant implements Reflector
     public function __toString(): string {}
 
     /**
-     * @template T
+     * @template TAttributeClass of Attribute
      *
      * Returns an array of constant attributes.
      *
-     * @param class-string<T>|null $name Name of an attribute class
+     * @param class-string<TAttributeClass>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return ReflectionAttribute<T>[]
+     * @return list<ReflectionAttribute<TAttributeClass>>
      * @since 8.0
      */
     #[Pure]
