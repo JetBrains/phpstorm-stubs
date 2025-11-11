@@ -1152,6 +1152,10 @@ function exit(string|int $status = 0): never {}
 function die(string|int $status = 0): never {}
 
 /**
+ * @template TObject of object
+ * @param TObject $object
+ * @param array $withProperties [optional]
+ * @return TObject
  * @since 8.5
  */
 function clone(object $object, array $withProperties = []): object {}
