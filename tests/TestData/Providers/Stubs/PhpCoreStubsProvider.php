@@ -103,6 +103,7 @@ class PhpCoreStubsProvider
             'ds',
             'eio',
             'event',
+            'excimer',
             'expect',
             'gearman',
             'geoip',
