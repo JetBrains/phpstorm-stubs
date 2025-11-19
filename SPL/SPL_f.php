@@ -139,15 +139,15 @@ function spl_object_hash(object $object): string {}
 /**
  * Copy the iterator into an array
  * @link https://php.net/manual/en/function.iterator-to-array.php
- * @template TKey
+ * @template TKey of int|string
  * @template TValue
- * @param Traversable<TKey, TValue> $iterator <p>
+ * @param Traversable<TKey, TValue>|array<TKey, TValue> $iterator <p>
  * The iterator being copied.
  * </p>
  * @param bool $preserve_keys [optional] <p>
  * Whether to use the iterator element keys as index.
  * </p>
- * @return array<TKey, TValue>|TValue[] An array containing the elements of the iterator.
+ * @return ($preserve_keys is true ? array<TKey, TValue> : TValue[]) An array containing the elements of the iterator.
  */
 function iterator_to_array(#[LanguageLevelTypeAware(['8.2' => 'Traversable|array'], default: 'Traversable')] $iterator, bool $preserve_keys = true): array {}
 
