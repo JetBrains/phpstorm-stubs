@@ -147,7 +147,11 @@ function spl_object_hash(object $object): string {}
  * @param bool $preserve_keys [optional] <p>
  * Whether to use the iterator element keys as index.
  * </p>
- * @return ($preserve_keys is true ? array<TKey, TValue> : TValue[]) An array containing the elements of the iterator.
+ * @return (
+ *     $preserve_keys is true ? array<TKey, TValue> : (
+ *     $preserve_keys is false ? TValue[] :
+ *     array<TKey, TValue>|TValue[])
+ * ) An array containing the elements of the iterator.
  */
 function iterator_to_array(#[LanguageLevelTypeAware(['8.2' => 'Traversable|array'], default: 'Traversable')] $iterator, bool $preserve_keys = true): array {}
 
