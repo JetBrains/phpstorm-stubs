@@ -9,7 +9,7 @@
 /**
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrParams<br/>
- * This class represents a a collection of name-value pairs sent to the Solr server during a request.
+ * This class represents a collection of name-value pairs sent to the Solr server during a request.
  * @link https://php.net/manual/en/class.solrparams.php
  */
 abstract class SolrParams implements Serializable
@@ -112,9 +112,7 @@ abstract class SolrParams implements Serializable
      * @param string $value <p>
      * The parameter value
      * </p>
-     * @return SolrParams|false <p>
-     * Returns a SolrParams instance on success and <b>FALSE</b> on failure.
-     * </p>
+     * @return void
      */
     final public function set(string $name, string $value): void {}
 
