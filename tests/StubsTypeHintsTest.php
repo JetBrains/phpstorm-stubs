@@ -752,13 +752,13 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
             if (in_array(strtolower($node->type->name), ['array', 'list'], true)) {
                 return ['array'];
             }
-            return [(string) $node];
+            return [(string)$node];
         }
 
         if ($node instanceof IdentifierTypeNode) {
             return [$node->name];
         }
 
-        return [(string) $node];
+        return [(string)$node];
     }
 }
