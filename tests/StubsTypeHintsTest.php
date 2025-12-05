@@ -16,6 +16,18 @@ use StubTests\TestData\Providers\Reflection\ReflectionParametersProvider;
 use StubTests\TestData\Providers\ReflectionStubsSingleton;
 use StubTests\TestData\Providers\Stubs\StubMethodsProvider;
 use StubTests\TestData\Providers\Stubs\StubsParametersProvider;
+use PHPStan\PhpDocParser\Lexer\Lexer;
+use PHPStan\PhpDocParser\Parser\ConstExprParser;
+use PHPStan\PhpDocParser\Parser\TokenIterator;
+use PHPStan\PhpDocParser\Parser\TypeParser;
+use PHPStan\PhpDocParser\Ast\Type\TypeNode;
+use PHPStan\PhpDocParser\Ast\Type\ConditionalTypeNode;
+use PHPStan\PhpDocParser\Ast\Type\ArrayTypeNode;
+use PHPStan\PhpDocParser\Ast\Type\ArrayShapeNode;
+use PHPStan\PhpDocParser\Ast\Type\GenericTypeNode;
+use PHPStan\PhpDocParser\Ast\Type\IdentifierTypeNode;
+use PHPStan\PhpDocParser\ParserConfig;
+use PHPStan\PhpDocParser\Ast\Type\UnionTypeNode;
 
 class StubsTypeHintsTest extends AbstractBaseStubsTestCase
 {
@@ -462,6 +474,8 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
             ),
             fn (string $type) => self::handleTemplateTypes($type, $function->templateTypes),
         );
+        $resolvedTypes = self::resolveTypesFromPhpDoc($function->phpdoc);
+        $unifiedPhpDocTypes = array_unique(array_merge($unifiedPhpDocTypes, $resolvedTypes));
         $unifiedSignatureTypes = array_map(self::getTypePossibleNamespace(...), $function->returnTypesFromSignature);
         if (count($unifiedSignatureTypes) === 1) {
             $type = array_pop($unifiedSignatureTypes);
@@ -681,5 +695,70 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
         }
 
         return [self::replaceArrayNotations($typeName)];
+    }
+
+    private static function resolveTypesFromPhpDoc(string $phpDoc): array
+    {
+        if ($phpDoc === '' || !str_contains($phpDoc, '@return')) {
+            return [];
+        }
+
+        if (!preg_match('/@return\s+(.*?)(?=\R\s*\*\s*@|\*\/)/si', $phpDoc, $m)) {
+            return [];
+        }
+        $typeString = trim($m[1]);
+
+        $config = new ParserConfig([]);
+        $lexer = new Lexer($config);
+        $constExprParser = new ConstExprParser($config);
+        $typeParser = new TypeParser($config, $constExprParser);
+
+        try {
+            $tokens = new TokenIterator($lexer->tokenize($typeString));
+            $ast = $typeParser->parse($tokens);
+        } catch (\Throwable) {
+            return [];
+        }
+
+        $flatTypes = self::flattenTypeNode($ast);
+
+        return array_unique(array_map(function (string $t) {
+            return self::getTypePossibleNamespace($t);
+        }, $flatTypes));
+    }
+
+    private static function flattenTypeNode(TypeNode $node): array
+    {
+        if ($node instanceof ConditionalTypeNode) {
+            return array_merge(
+                self::flattenTypeNode($node->targetType),
+                self::flattenTypeNode($node->elseType)
+            );
+        }
+
+        if ($node instanceof UnionTypeNode) {
+            $types = [];
+            foreach ($node->types as $subNode) {
+                $types = array_merge($types, self::flattenTypeNode($subNode));
+            }
+            return $types;
+        }
+
+        if ($node instanceof ArrayTypeNode || $node instanceof ArrayShapeNode) {
+            return ['array'];
+        }
+
+        if ($node instanceof GenericTypeNode) {
+            if (in_array(strtolower($node->type->name), ['array', 'list'], true)) {
+                return ['array'];
+            }
+            return [(string) $node];
+        }
+
+        if ($node instanceof IdentifierTypeNode) {
+            return [$node->name];
+        }
+
+        return [(string) $node];
     }
 }
