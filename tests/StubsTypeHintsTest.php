@@ -698,7 +698,7 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
         $returnDeclaration = trim($m[1]);
 
         if (str_contains($returnDeclaration, '(') && str_contains($returnDeclaration, ')')) {
-            return ['array']; // В случае iterator_to_array и подобных функций, обычно возвращается array
+            return ['array'];
         }
 
         if (preg_match('/^(.*?)\s+[a-z]/i', $returnDeclaration, $matches)) {
