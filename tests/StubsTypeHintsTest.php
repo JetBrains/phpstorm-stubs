@@ -464,16 +464,9 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
         );
         $resolvedTypes = self::resolveTypesFromPhpDoc($function->phpdoc);
         $unifiedPhpDocTypes = array_unique(array_merge($unifiedPhpDocTypes, $resolvedTypes));
-        $unifiedSignatureTypes = array_map(self::getTypePossibleNamespace(...), $function->returnTypesFromSignature);
-        if (count($unifiedSignatureTypes) === 1) {
-            $type = array_pop($unifiedSignatureTypes);
-            if (str_contains($type, '?')) {
-                $unifiedSignatureTypes[] = 'null';
-            }
-            $typeParts = explode('\\', ltrim($type, '?'));
-            $typeName = end($typeParts);
-            $unifiedSignatureTypes[] = $typeName;
-        }
+
+        $unifiedSignatureTypes = self::processTypes($function->returnTypesFromSignature);
+
         $typesIntersection = array_intersect($unifiedSignatureTypes, $unifiedPhpDocTypes);
         self::assertSameSize(
             $unifiedSignatureTypes,
@@ -508,16 +501,9 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
             static fn (string $t) => $t === 'static' ? $classShortName : $t,
             $unifiedPhpDocTypes
         );
-        $unifiedSignatureTypes = array_map(self::getTypePossibleNamespace(...), $function->returnTypesFromSignature);
-        if (count($unifiedSignatureTypes) === 1) {
-            $type = array_pop($unifiedSignatureTypes);
-            if (str_contains($type, '?')) {
-                $unifiedSignatureTypes[] = 'null';
-            }
-            $typeParts = explode('\\', ltrim($type, '?'));
-            $typeName = end($typeParts);
-            $unifiedSignatureTypes[] = $typeName;
-        }
+
+        $unifiedSignatureTypes = self::processTypes($function->returnTypesFromSignature);
+
         $typesIntersection = array_intersect($unifiedSignatureTypes, $unifiedPhpDocTypes);
         self::assertSameSize(
             $unifiedSignatureTypes,
@@ -538,16 +524,9 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
             ),
             fn (string $type) => self::handleTemplateTypes($type, $function->templateTypes),
         );
-        $unifiedSignatureTypes = array_map(self::getTypePossibleNamespace(...), $function->returnTypesFromSignature);
-        if (count($unifiedSignatureTypes) === 1) {
-            $type = array_pop($unifiedSignatureTypes);
-            if (str_contains($type, '?')) {
-                $unifiedSignatureTypes[] = 'null';
-            }
-            $typeParts = explode('\\', ltrim($type, '?'));
-            $typeName = end($typeParts);
-            $unifiedSignatureTypes[] = $typeName;
-        }
+
+        $unifiedSignatureTypes = self::processTypes($function->returnTypesFromSignature);
+
         $typesIntersection = array_intersect($unifiedSignatureTypes, $unifiedPhpDocTypes);
         self::assertSameSize(
             $unifiedSignatureTypes,
@@ -571,16 +550,9 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
             ),
             fn (string $type) => self::handleTemplateTypes($type, $function->templateTypes),
         );
-        $unifiedSignatureTypes = array_map(self::getTypePossibleNamespace(...), $function->returnTypesFromSignature);
-        if (count($unifiedSignatureTypes) === 1) {
-            $type = array_pop($unifiedSignatureTypes);
-            if (str_contains($type, '?')) {
-                $unifiedSignatureTypes[] = 'null';
-            }
-            $typeParts = explode('\\', ltrim($type, '?'));
-            $typeName = end($typeParts);
-            $unifiedSignatureTypes[] = $typeName;
-        }
+
+        $unifiedSignatureTypes = self::processTypes($function->returnTypesFromSignature);
+
         $typesIntersection = array_intersect($unifiedSignatureTypes, $unifiedPhpDocTypes);
         self::assertSameSize(
             $unifiedSignatureTypes,
@@ -707,15 +679,17 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
             $typeString = $returnDeclaration;
         }
 
-        $typeString = preg_replace('/array{.*?}/', 'array', $typeString);
-        $typeString = preg_replace('/list<.*?>/', 'array', $typeString);
-        $typeString = preg_replace('/array<.*?>/', 'array', $typeString);
-        $typeString = preg_replace('/(.+)\[]/', 'array', $typeString);
-
-        $typeString = preg_replace('/(\w+)<.*?>/', '$1', $typeString);
-
         $types = preg_split('/\s*\|\s*/', $typeString);
 
+        return self::processTypes($types);
+    }
+
+    /**
+     * @param array $types Array of strings with types for processing
+     * @return array Normalized types
+     */
+    private static function processTypes(array $types): array
+    {
         $result = [];
         foreach ($types as $type) {
             $type = trim($type);
@@ -731,7 +705,7 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
                 $simpleType = substr($simpleType, 1);
             }
 
-            $result[] = $simpleType;
+            $result[] = self::replaceArrayNotations($simpleType);
         }
 
         return array_filter(array_unique($result));
