@@ -56,3 +56,26 @@ function frankenphp_request_headers(): array {}
  * @return array|false An array of all FrankenPHP response headers on success or <b>FALSE</b> on failure.
  */
 function frankenphp_response_headers(): array|false {}
+
+/**
+ * Publishes a Mercure update to all currently connected subscribers.
+ *
+ * @link https://frankenphp.dev/docs/mercure/
+ * @link https://mercure.rocks
+ *
+ * @param string|string[] $topics
+ */
+function mercure_publish(string|array $topics, string $data = '', bool $private = false, ?string $id = null, ?string $type = null, ?int $retry = null): string {}
+
+const FRANKENPHP_LOG_LEVEL_DEBUG = -4;
+const FRANKENPHP_LOG_LEVEL_INFO = 0;
+const FRANKENPHP_LOG_LEVEL_WARN = 4;
+const FRANKENPHP_LOG_LEVEL_ERROR = 8;
+
+/**
+ * Emits a structured log record with the current time and the given message, level and context.
+ *
+ * @param int $level The importance or severity of a log event. The higher the level, the more important or severe the event. For more details, see: https://pkg.go.dev/log/slog#Level
+ * array<string, any> $context Values of the array will be converted to the corresponding Go type (if supported by FrankenPHP) and added to the context of the structured logs using https://pkg.go.dev/log/slog#Attr
+ */
+function frankenphp_log(string $message, int $level = FRANKENPHP_LOG_LEVEL_INFO, array $context = []): void {}
