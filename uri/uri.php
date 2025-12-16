@@ -36,18 +36,21 @@ namespace Uri\Rfc3986 {
     {
         public static function parse(string $uri, ?\Uri\Rfc3986\Uri $baseUrl = null): ?static {}
 
+        /** @throws \Uri\InvalidUriException */
         public function __construct(string $uri, ?\Uri\Rfc3986\Uri $baseUrl = null) {}
 
         public function getScheme(): ?string {}
 
         public function getRawScheme(): ?string {}
 
+        /** @throws \Uri\InvalidUriException */
         public function withScheme(?string $scheme): static {}
 
         public function getUserInfo(): ?string {}
 
         public function getRawUserInfo(): ?string {}
 
+        /** @throws \Uri\InvalidUriException */
         public function withUserInfo(#[\SensitiveParameter] ?string $userinfo): static {}
 
         public function getUsername(): ?string {}
@@ -62,28 +65,33 @@ namespace Uri\Rfc3986 {
 
         public function getRawHost(): ?string {}
 
+        /** @throws \Uri\InvalidUriException */
         public function withHost(?string $host): static {}
 
         public function getPort(): ?int {}
 
+        /** @throws \Uri\InvalidUriException */
         public function withPort(?int $port): static {}
 
         public function getPath(): string {}
 
         public function getRawPath(): string {}
 
+        /** @throws \Uri\InvalidUriException */
         public function withPath(string $path): static {}
 
         public function getQuery(): ?string {}
 
         public function getRawQuery(): ?string {}
 
+        /** @throws \Uri\InvalidUriException */
         public function withQuery(?string $query): static {}
 
         public function getFragment(): ?string {}
 
         public function getRawFragment(): ?string {}
 
+        /** @throws \Uri\InvalidUriException */
         public function withFragment(?string $fragment): static {}
 
         public function equals(\Uri\Rfc3986\Uri $uri, \Uri\UriComparisonMode $comparisonMode = \Uri\UriComparisonMode::ExcludeFragment): bool {}
@@ -92,10 +100,13 @@ namespace Uri\Rfc3986 {
 
         public function toRawString(): string {}
 
+        /** @throws \Uri\InvalidUriException */
         public function resolve(string $uri): static {}
 
+        /** @throws \Exception */
         public function __serialize(): array {}
 
+        /** @throws \Exception */
         public function __unserialize(array $data): void {}
 
         public function __debugInfo(): array {}
@@ -171,41 +182,53 @@ namespace Uri\WhatWg {
         /** @param array $errors */
         public static function parse(string $uri, ?\Uri\WhatWg\Url $baseUrl = null, &$errors = null): ?static {}
 
-        /** @param array $softErrors */
+        /**
+         * @param array $softErrors
+         *
+         * @throws \Uri\WhatWg\InvalidUrlException
+         */
         public function __construct(string $uri, ?\Uri\WhatWg\Url $baseUrl = null, &$softErrors = null) {}
 
         public function getScheme(): string {}
 
+        /** @throws \Uri\WhatWg\InvalidUrlException */
         public function withScheme(string $scheme): static {}
 
         public function getUsername(): ?string {}
 
+        /** @throws \Uri\WhatWg\InvalidUrlException */
         public function withUsername(?string $username): static {}
 
         public function getPassword(): ?string {}
 
+        /** @throws \Uri\WhatWg\InvalidUrlException */
         public function withPassword(#[\SensitiveParameter] ?string $password): static {}
 
         public function getAsciiHost(): ?string {}
 
         public function getUnicodeHost(): ?string {}
 
+        /** @throws \Uri\WhatWg\InvalidUrlException */
         public function withHost(?string $host): static {}
 
         public function getPort(): ?int {}
 
+        /** @throws \Uri\WhatWg\InvalidUrlException */
         public function withPort(?int $port): static {}
 
         public function getPath(): string {}
 
+        /** @throws \Uri\WhatWg\InvalidUrlException */
         public function withPath(string $path): static {}
 
         public function getQuery(): ?string {}
 
+        /** @throws \Uri\WhatWg\InvalidUrlException */
         public function withQuery(?string $query): static {}
 
         public function getFragment(): ?string {}
 
+        /** @throws \Uri\WhatWg\InvalidUrlException */
         public function withFragment(?string $fragment): static {}
 
         public function equals(\Uri\WhatWg\Url $url, \Uri\UriComparisonMode $comparisonMode = \Uri\UriComparisonMode::ExcludeFragment): bool {}
@@ -214,11 +237,17 @@ namespace Uri\WhatWg {
 
         public function toUnicodeString(): string {}
 
-        /** @param array $softErrors */
+        /**
+         * @param array $softErrors
+         *
+         * @throws \Uri\WhatWg\InvalidUrlException
+         */
         public function resolve(string $uri, &$softErrors = null): static {}
 
+        /** @throws \Exception */
         public function __serialize(): array {}
 
+        /** @throws \Exception */
         public function __unserialize(array $data): void {}
 
         public function __debugInfo(): array {}
