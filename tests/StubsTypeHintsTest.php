@@ -465,7 +465,7 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
         $resolvedTypes = self::resolveTypesFromPhpDoc($function->phpdoc);
         $unifiedPhpDocTypes = array_unique(array_merge($unifiedPhpDocTypes, $resolvedTypes));
 
-        $unifiedSignatureTypes = self::processTypes($function->returnTypesFromSignature);
+        $unifiedSignatureTypes = self::convertToArrayOfNormalizedTypes($function->returnTypesFromSignature);
 
         $typesIntersection = array_intersect($unifiedSignatureTypes, $unifiedPhpDocTypes);
         self::assertSameSize(
@@ -502,7 +502,7 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
             $unifiedPhpDocTypes
         );
 
-        $unifiedSignatureTypes = self::processTypes($function->returnTypesFromSignature);
+        $unifiedSignatureTypes = self::convertToArrayOfNormalizedTypes($function->returnTypesFromSignature);
 
         $typesIntersection = array_intersect($unifiedSignatureTypes, $unifiedPhpDocTypes);
         self::assertSameSize(
@@ -525,7 +525,7 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
             fn (string $type) => self::handleTemplateTypes($type, $function->templateTypes),
         );
 
-        $unifiedSignatureTypes = self::processTypes($function->returnTypesFromSignature);
+        $unifiedSignatureTypes = self::convertToArrayOfNormalizedTypes($function->returnTypesFromSignature);
 
         $typesIntersection = array_intersect($unifiedSignatureTypes, $unifiedPhpDocTypes);
         self::assertSameSize(
@@ -551,7 +551,7 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
             fn (string $type) => self::handleTemplateTypes($type, $function->templateTypes),
         );
 
-        $unifiedSignatureTypes = self::processTypes($function->returnTypesFromSignature);
+        $unifiedSignatureTypes = self::convertToArrayOfNormalizedTypes($function->returnTypesFromSignature);
 
         $typesIntersection = array_intersect($unifiedSignatureTypes, $unifiedPhpDocTypes);
         self::assertSameSize(
@@ -681,14 +681,14 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
 
         $types = preg_split('/\s*\|\s*/', $typeString);
 
-        return self::processTypes($types);
+        return self::convertToArrayOfNormalizedTypes($types);
     }
 
     /**
-     * @param array $types Array of strings with types for processing
+     * @param string[] $types Array of strings with types for processing
      * @return array Normalized types
      */
-    private static function processTypes(array $types): array
+    private static function convertToArrayOfNormalizedTypes(array $types): array
     {
         $result = [];
         foreach ($types as $type) {
@@ -708,6 +708,6 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
             $result[] = self::replaceArrayNotations($simpleType);
         }
 
-        return array_filter(array_unique($result));
+        return array_unique($result);
     }
 }
