@@ -727,7 +727,7 @@ function array_product(array $array): int|float {}
  * @return array the filtered array.
  * @meta
  */
-function array_filter(array $array, ?callable $callback, int $mode = 0): array {}
+function array_filter(array $array, ?callable $callback = null, int $mode = 0): array {}
 
 /**
  * Applies the callback to the elements of the given arrays
