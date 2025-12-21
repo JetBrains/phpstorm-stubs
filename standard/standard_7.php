@@ -395,7 +395,7 @@ function readdir($dir_handle): string|false {}
  * @return Directory|false an instance of Directory, or <b>NULL</b> with wrong
  * parameters, or <b>FALSE</b> in case of another error
  */
-function dir(string $directory, $context): Directory|false {}
+function dir(string $directory, $context = null): Directory|false {}
 
 /**
  * Alias of dir()
@@ -428,7 +428,7 @@ function getdir(string $directory, $context = null): Directory|false {}
  * boolean false is returned, and an error of level
  * E_WARNING is generated.
  */
-function scandir(string $directory, int $sorting_order = 0, $context): array|false {}
+function scandir(string $directory, int $sorting_order = 0, $context = null): array|false {}
 
 /**
  * Find pathnames matching a pattern
