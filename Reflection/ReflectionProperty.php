@@ -12,6 +12,7 @@ use JetBrains\PhpStorm\Pure;
  * properties.
  *
  * @link https://php.net/manual/en/class.reflectionproperty.php
+ * @template TReflectedClass of object
  */
 class ReflectionProperty implements Reflector
 {
@@ -26,14 +27,14 @@ class ReflectionProperty implements Reflector
     public const IS_VIRTUAL = 512;
 
     /**
-     * @var string Name of the property, same as calling the {@see ReflectionProperty::getName()} method
+     * @var non-empty-string Name of the property, same as calling the {@see ReflectionProperty::getName()} method
      */
     #[Immutable]
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
 
     /**
-     * @var class-string Fully qualified class name where this property was defined
+     * @var class-string<TReflectedClass> Fully qualified class name where this property was defined
      */
     #[Immutable]
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
@@ -91,8 +92,8 @@ class ReflectionProperty implements Reflector
      * Construct a ReflectionProperty object
      *
      * @link https://php.net/manual/en/reflectionproperty.construct.php
-     * @param class-string|object $class The class name, that contains the property.
-     * @param string $property The name of the property being reflected.
+     * @param class-string<TReflectedClass>|TReflectedClass $class The class name, that contains the property.
+     * @param non-empty-string $property The name of the property being reflected.
      * @throws ReflectionException if the class or property does not exist.
      */
     public function __construct(
@@ -128,7 +129,7 @@ class ReflectionProperty implements Reflector
      * Gets property name
      *
      * @link https://php.net/manual/en/reflectionproperty.getname.php
-     * @return string The name of the reflected property.
+     * @return non-empty-string The name of the reflected property.
      */
     #[Pure]
     #[TentativeType]
@@ -354,13 +355,13 @@ class ReflectionProperty implements Reflector
     public function getDefaultValue(): mixed {}
 
     /**
-     * @template T
+     * @template TAttributeClass of Attribute
      *
      * Returns an array of property attributes.
      *
-     * @param class-string<T>|null $name Name of an attribute class
+     * @param class-string<TAttributeClass>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return ReflectionAttribute<T>[]
+     * @return list<ReflectionAttribute<TAttributeClass>>
      * @since 8.0
      */
     #[Pure]
