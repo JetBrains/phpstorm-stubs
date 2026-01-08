@@ -6715,12 +6715,12 @@ class ImagickDraw
      * (PECL imagick 2.0.0)<br/>
      * Specifies the pattern of dashes and gaps used to stroke paths
      * @link https://php.net/manual/en/imagickdraw.setstrokedasharray.php
-     * @param array $dashArray <p>
-     * array of floats
+     * @param array|null $dashArray <p>
+     * array of floats, use NULL to reset
      * </p>
      * @return bool <b>TRUE</b> on success.
      */
-    public function setStrokeDashArray(array $dashArray) {}
+    public function setStrokeDashArray(?array $dashArray) {}
 
     /**
      * Sets the opacity to use when drawing using the fill or stroke color or texture. Fully opaque is 1.0.
