@@ -463,7 +463,7 @@ namespace Ds;
      */
     class Vector implements Sequence
     {
-        public const MIN_CAPACITY = 10;
+        public const MIN_CAPACITY = 8;
 
         /**
          * Creates a new instance, using either a traversable object or an array for the initial values.
