@@ -894,7 +894,7 @@ function key_exists($key, array $array): bool {}
 /**
  * Checks if assertion is <b>FALSE</b>
  * @link https://php.net/manual/en/function.assert.php
- * @param Throwable|string|null $assertion <p>
+ * @param mixed $assertion <p>
  * The assertion.
  * In PHP 5, this must be either a string to be evaluated or a boolean to be tested.
  * In PHP 7, this may also be any expression that returns a value,
