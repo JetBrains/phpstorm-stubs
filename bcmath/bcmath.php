@@ -279,43 +279,49 @@ namespace BcMath {
         public readonly string $value;
         public readonly int $scale;
 
-        /** @param int|numeric-string $num */
+        /**
+         * @param int|numeric-string $num
+         * @throws \ValueError
+         */
         public function __construct(string|int $num) {}
 
         /**
          * @param Number|int|numeric-string $num
-         * @throws \DivisionByZeroError
+         * @throws \ValueError
          */
         public function add(Number|string|int $num, ?int $scale = null): Number {}
 
         /**
          * @param Number|int|numeric-string $num
-         * @throws \DivisionByZeroError
+         * @throws \ValueError
          */
         public function sub(Number|string|int $num, ?int $scale = null): Number {}
 
         /**
          * @param Number|int|numeric-string $num
-         * @throws \DivisionByZeroError
+         * @throws \ValueError
          */
         public function mul(Number|string|int $num, ?int $scale = null): Number {}
 
         /**
          * @param Number|int|numeric-string $num
          * @throws \DivisionByZeroError
+         * @throws \ValueError
          */
         public function div(Number|string|int $num, ?int $scale = null): Number {}
 
         /**
          * @param Number|int|numeric-string $num
          * @throws \DivisionByZeroError
+         * @throws \ValueError
          */
         public function mod(Number|string|int $num, ?int $scale = null): Number {}
 
         /**
          * @param Number|int|numeric-string $num
-         * @return Number[]
+         * @return array{Number, Number}
          * @throws \DivisionByZeroError
+         * @throws \ValueError
          */
         public function divmod(Number|string|int $num, ?int $scale = null): array {}
 
@@ -323,12 +329,14 @@ namespace BcMath {
          * @param Number|int|numeric-string $exponent
          * @param Number|int|numeric-string $modulus
          * @throws \DivisionByZeroError
+         * @throws \ValueError
          */
         public function powmod(Number|string|int $exponent, Number|string|int $modulus, ?int $scale = null): Number {}
 
         /**
          * @param Number|int|numeric-string $exponent
          * @throws \DivisionByZeroError
+         * @throws \ValueError
          */
         public function pow(Number|string|int $exponent, ?int $scale = null): Number {}
 
@@ -339,11 +347,13 @@ namespace BcMath {
 
         public function ceil(): Number {}
 
+        /** @throws \ValueError */
         public function round(int $precision = 0, \RoundingMode $mode = \RoundingMode::HalfAwayFromZero): Number {}
 
         /**
          * @param Number|int|numeric-string $num
          * @return int Returns -1, 0, or 1
+         * @throws \ValueError
          */
         public function compare(Number|string|int $num, ?int $scale = null): int {}
 
