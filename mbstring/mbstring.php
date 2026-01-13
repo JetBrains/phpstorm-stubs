@@ -1419,7 +1419,7 @@ function mb_str_split(string $string, int $length = 1, ?string $encoding) {}
 /**
  * @since 8.3
  */
-#[Pure]
+#[Pure(true)]
 function mb_str_pad(string $string, int $length, string $pad_string = " ", int $pad_type = STR_PAD_RIGHT, ?string $encoding = null): string {}
 
 /**
