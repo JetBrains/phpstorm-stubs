@@ -30,11 +30,17 @@ Have a full copy of the .git repo within an IDE and provide its path in `Setting
 The set of extensions enabled by default in PhpStorm can change anytime without prior notice. To learn how to view the enabled extensions, look [here](https://blog.jetbrains.com/phpstorm/2017/03/per-project-php-extension-settings-in-phpstorm-2017-1/).
 
 ### How to run tests
-1. Execute `docker compose -f docker-compose.yml run test_runner composer install --ignore-platform-reqs`
-2. Execute `docker compose -f docker-compose.yml run -e PHP_VERSION=8.0 test_runner vendor/bin/phpunit --testsuite PHP_8.0`
+Use the provided script, which provides proper setup, for running tests:
+```shell
+./runTests.sh 8.0 8.1
+```
+_In that case, tests will run for PHP 8.0 and 8.1. Not providing such parameters will make it run on all supported PHP versions._
 
 ### How to update stub map
-Execute `docker compose -f docker-compose.yml run test_runner /usr/local/bin/php tests/Tools/generate-stub-map` and commit the resulting `PhpStormStubsMap.php`
+Run the stub map generator and commit the resulting `PhpStormStubsMap.php`:
+```shell
+docker compose -f docker-compose.yml run test_runner /usr/local/bin/php tests/Tools/generate-stub-map
+```
 
 ### License
 [Apache 2]

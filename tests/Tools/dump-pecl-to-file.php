@@ -6,7 +6,7 @@ use StubTests\Model\StubsContainer;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 /** @var StubsContainer $coreStubs */
-$coreStubs = unserialize(file_get_contents(__DIR__ . '/../../ReflectionData.json'), ['allowed_classes' => true]);
+$coreStubs = unserialize(file_get_contents(__DIR__ . '/../../ReflectionData.dat'), ['allowed_classes' => true]);
 /** @var StubsContainer $peclAndCoreStubs */
 $peclAndCoreStubs = unserialize(file_get_contents(__DIR__ . '/../../ReflectionDataPecl.json'), ['allowed_classes' => true]);
 $onlyPeclStubs = new StubsContainer();
@@ -30,4 +30,4 @@ foreach ($peclAndCoreStubs->getInterfaces() as $peclInterface) {
         $onlyPeclStubs->addInterface($peclInterface);
     }
 }
-file_put_contents(__DIR__ . '/../../ReflectionData.json', serialize($onlyPeclStubs));
+file_put_contents(__DIR__ . '/../../ReflectionData.dat', serialize($onlyPeclStubs));
