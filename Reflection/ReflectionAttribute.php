@@ -5,10 +5,13 @@ use JetBrains\PhpStorm\Pure;
 /**
  * @since 8.0
  *
- * @template T of object
+ * @template TAttributeClass of Attribute
  */
 class ReflectionAttribute implements Reflector
 {
+    /**
+     * @var class-string<TAttributeClass>
+     */
     public string $name;
 
     /**
@@ -30,7 +33,7 @@ class ReflectionAttribute implements Reflector
     /**
      * Gets attribute name
      *
-     * @return string The name of the attribute parameter.
+     * @return class-string<TAttributeClass> The name of the attribute parameter.
      * @since 8.0
      */
     #[Pure]
@@ -57,7 +60,7 @@ class ReflectionAttribute implements Reflector
     /**
      * Gets list of passed attribute's arguments.
      *
-     * @return array
+     * @return list<mixed>
      * @since 8.0
      */
     #[Pure]
@@ -66,7 +69,7 @@ class ReflectionAttribute implements Reflector
     /**
      * Creates a new instance of the attribute with passed arguments
      *
-     * @return T
+     * @return TAttributeClass
      * @since 8.0
      */
     public function newInstance(): object {}
