@@ -993,7 +993,7 @@ function array_pop(array &$array): mixed {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @return mixed the shifted value, or null if array is
+ * @return mixed|null the shifted value, or null if array is
  * empty or is not an array.
  * @meta
  */
