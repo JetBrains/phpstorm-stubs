@@ -1217,7 +1217,7 @@ function date_offset_get(DateTimeInterface $object) {}
  * @param DateTimeInterface $baseObject
  * @param DateTimeInterface $targetObject The date to compare to
  * @param bool $absolute [optional] Whether to return absolute difference.
- * @return DateInterval|false The DateInterval object representing the difference between the two dates or FALSE on failure.
+ * @return DateInterval|false The DateInterval object representing the difference between the two dates or FALSE (for PHP < 8.0) on failure.
  */
 #[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "DateInterval"], default: "DateInterval|false")]
