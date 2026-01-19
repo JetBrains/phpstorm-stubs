@@ -378,6 +378,7 @@ class DateTimeImmutable implements DateTimeInterface
      */
     #[TentativeType]
     #[\NoDiscard(message: "as DateTimeImmutable::setTime() does not modify the object itself")]
+    #[Pure]
     public function setTime(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $hour,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $minute,
