@@ -2088,25 +2088,25 @@ namespace Pdo {
      */
     class Mysql extends PDO
     {
-        public const int ATTR_USE_BUFFERED_QUERY = 0;
-        public const int ATTR_LOCAL_INFILE = 0;
-        public const int ATTR_INIT_COMMAND = 0;
-        public const int ATTR_MAX_BUFFER_SIZE = 0;
-        public const int ATTR_READ_DEFAULT_FILE = 0;
-        public const int ATTR_READ_DEFAULT_GROUP = 0;
-        public const int ATTR_COMPRESS = 0;
-        public const int ATTR_DIRECT_QUERY = 0;
-        public const int ATTR_FOUND_ROWS = 0;
-        public const int ATTR_IGNORE_SPACE = 0;
-        public const int ATTR_SSL_KEY = 0;
-        public const int ATTR_SSL_CERT = 0;
-        public const int ATTR_SSL_CA = 0;
-        public const int ATTR_SSL_CAPATH = 0;
-        public const int ATTR_SSL_CIPHER = 0;
-        public const int ATTR_SERVER_PUBLIC_KEY = 0;
-        public const int ATTR_MULTI_STATEMENTS = 0;
-        public const int ATTR_SSL_VERIFY_SERVER_CERT = 0;
-        public const int ATTR_LOCAL_INFILE_DIRECTORY = 0;
+        public const int ATTR_USE_BUFFERED_QUERY = 1000;
+        public const int ATTR_LOCAL_INFILE = 1001;
+        public const int ATTR_INIT_COMMAND = 1002;
+        public const int ATTR_READ_DEFAULT_FILE = 1003;
+        public const int ATTR_READ_DEFAULT_GROUP = 1004;
+        public const int ATTR_MAX_BUFFER_SIZE = 1005;
+        public const int ATTR_COMPRESS = 1003;
+        public const int ATTR_DIRECT_QUERY = 1004;
+        public const int ATTR_FOUND_ROWS = 1005;
+        public const int ATTR_IGNORE_SPACE = 1006;
+        public const int ATTR_SSL_KEY = 1007;
+        public const int ATTR_SSL_CERT = 1008;
+        public const int ATTR_SSL_CA = 1009;
+        public const int ATTR_SSL_CAPATH = 1010;
+        public const int ATTR_SSL_CIPHER = 1011;
+        public const int ATTR_SERVER_PUBLIC_KEY = 1012;
+        public const int ATTR_MULTI_STATEMENTS = 1013;
+        public const int ATTR_SSL_VERIFY_SERVER_CERT = 1014;
+        public const int ATTR_LOCAL_INFILE_DIRECTORY = 1015;
 
         public function getWarningCount(): int {}
     }
