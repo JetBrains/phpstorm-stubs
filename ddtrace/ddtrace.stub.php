@@ -1,44 +1,36 @@
 <?php
 
-/** @generate-class-entries */
-
 // phpcs:disable PSR1.Classes.ClassDeclaration.MultipleClasses
 
 namespace DDTrace {
     /**
      * @var int
-     * @cvalue DD_TRACE_DBM_PROPAGATION_DISABLED
      */
-    const DBM_PROPAGATION_DISABLED = UNKNOWN;
+    const DBM_PROPAGATION_DISABLED = 0;
 
     /**
      * @var int
-     * @cvalue DD_TRACE_DBM_PROPAGATION_SERVICE
      */
-    const DBM_PROPAGATION_SERVICE = UNKNOWN;
+    const DBM_PROPAGATION_SERVICE = 0;
 
     /**
      * @var int
-     * @cvalue DD_TRACE_DBM_PROPAGATION_FULL
      */
-    const DBM_PROPAGATION_FULL = UNKNOWN;
+    const DBM_PROPAGATION_FULL = 0;
 
     class SpanLink implements \JsonSerializable {
         /**
-         * @var string $traceId A 32-character, lower-case hexadecimal encoded string of the linked trace ID. This field
+         * A 32-character, lower-case hexadecimal encoded string of the linked trace ID. This field
          * shouldn't be directly assigned an id from SpanData. Use the SpanData::getLinks() method instead.
          */
         public string $traceId;
 
         /**
-         * @var string $spanId A 16-character, lower-case hexadecimal encoded string of the linked span ID. This field
+         * A 16-character, lower-case hexadecimal encoded string of the linked span ID. This field
          * shouldn't be directly assigned an id from SpanData. Use the SpanData::getLinks() method instead.
          */
         public string $spanId;
 
-        /**
-         * @var string $traceState
-         */
         public string $traceState;
 
         /**
@@ -46,14 +38,8 @@ namespace DDTrace {
          */
         public array $attributes;
 
-        /**
-         * @var int $droppedAttributesCount
-         */
         public int $droppedAttributesCount;
 
-        /**
-         * @return mixed
-         */
         public function jsonSerialize(): mixed {}
 
         /**
@@ -67,29 +53,29 @@ namespace DDTrace {
 
     class SpanData {
         /**
-         * @var string|null The span name
+         * The span name
          */
         public string|null $name = "";
 
         /**
-         * @var string|null The resource you are tracing
+         * The resource you are tracing
          */
         public string|null $resource = "";
 
         /**
-         * @var string|null The service you are tracing. Defaults to active service at the time of span creation (i.e.,
+         * The service you are tracing. Defaults to active service at the time of span creation (i.e.,
          * the parent span), or datadog.service initialization settings if no parent exists
          */
         public string|null $service = "";
 
         /**
-         * @var string The environment you are tracing. Defaults to active environment at the time of span creation
+         * The environment you are tracing. Defaults to active environment at the time of span creation
          * (i.e., the parent span), or datadog.env initialization settings if no parent exists
          */
         public string $env = "";
 
         /**
-         * @var string The version of the application you are tracing. Defaults to active version at the time of
+         * The version of the application you are tracing. Defaults to active version at the time of
          * span creation (i.e., the parent span), or datadog.version initialization settings if no parent exists
          */
         public string $version = "";
@@ -102,7 +88,7 @@ namespace DDTrace {
         public array $meta_struct = [];
 
         /**
-         * @var string|null The type of request which can be set to: web, db, cache, or custom (Optional). Inherited
+         * The type of request which can be set to: web, db, cache, or custom (Optional). Inherited
          * from parent.
          */
         public string|null $type = "";
@@ -118,17 +104,17 @@ namespace DDTrace {
         public array $metrics = [];
 
         /**
-         * @var \Throwable|null $exception An exception generated during the execution of the original function, if any.
+         * An exception generated during the execution of the original function, if any.
          */
         public \Throwable|null $exception = null;
 
         /**
-         * @var string The unique identifier of the span
+         * The unique identifier of the span
          */
         public readonly string $id;
 
         /**
-         * @var SpanLink[] $spanLinks An array of span links
+         * @var SpanLink[] $links An array of span links
          */
         public array $links = [];
 
@@ -140,78 +126,78 @@ namespace DDTrace {
         public array $peerServiceSources = [];
 
         /**
-         * @var SpanData|null The parent span, or 'null' if there is none
+         * The parent span, or 'null' if there is none
          */
         public readonly SpanData|null $parent;
 
         /**
-         * @var SpanStack The span's stack trace
+         * The span's stack trace
          */
         public readonly SpanStack $stack;
 
         /**
-         * @return int Get the current span duration, in nanoseconds
+         * Get the current span duration, in nanoseconds
          */
         public function getDuration(): int {}
 
         /**
-         * @return int Get the start time of the span, in nanoseconds
+         * Get the start time of the span, in nanoseconds
          */
         public function getStartTime(): int {}
 
         /**
-         * @return SpanLink Get a pre-populated SpanLink object with the current span's trace and span IDs
+         * Get a pre-populated SpanLink object with the current span's trace and span IDs
          */
         public function getLink(): SpanLink {}
 
         /**
-         * @return Returns the span id as zero-padded 16 character hexadecimal string.
+         * Returns the span id as zero-padded 16 character hexadecimal string.
          */
         public function hexId(): string {}
     }
 
     class RootSpanData extends SpanData {
         /**
-         * @var string The origin site of the trace. Propagated through distributed tracing by default.
+         * The origin site of the trace. Propagated through distributed tracing by default.
          */
         public string $origin;
 
         /**
-         * @var array A hashset of keys which are propagated from meta, if present.
+         * A hashset of keys which are propagated from meta, if present.
          */
         public array $propagatedTags = [];
 
         /**
-         * @var int The currently active sampling priority.
+         * The currently active sampling priority.
          */
         public int $samplingPriority = \DD_TRACE_PRIORITY_SAMPLING_UNKNOWN;
 
         /**
-         * @var int The unmodified sampling priority as inherited directly through distributed tracing.
+         * The unmodified sampling priority as inherited directly through distributed tracing.
          */
         public int $propagatedSamplingPriority;
 
         /**
-         * @var string The original tracestate minus datadog specific tags, as it will be propagated to upstream
+         * The original tracestate minus datadog specific tags, as it will be propagated to upstream
          * distributed tracing targets.
          */
         public string $tracestate;
 
         /**
-         * @var array A list of datadog specific tags, which will be propagated to upstream distributed tracing
+         * A list of datadog specific tags, which will be propagated to upstream distributed tracing
          * targets as part of the tracestate. Some known keys are not included here, but directly extracted, e.g. origin.
          */
         public array $tracestateTags = [];
 
         /**
-         * @var string The unique identifier of the parent span as a decimal number.
+         * The unique identifier of the parent span as a decimal number.
          * Assignment of an invalid id will unset the parent id.
          * This variable cannot be accessed by reference.
          */
         public string $parentId;
 
         /**
-         * @var string The unique identifier for the trace id, as a zero-padded 32 character hexadecimal string.
+         * The unique identifier for the trace id, as a zero-padded 32 character hexadecimal string.
          * Assignment of an invalid id will reset the trace id to the default trace id.
          * This variable cannot be accessed by reference.
          */
@@ -232,12 +218,12 @@ namespace DDTrace {
      */
     class SpanStack {
         /**
-         * @var SpanStack|null The parent stack, or 'null' if there is none
+         * The parent stack, or 'null' if there is none
          */
         public readonly SpanStack|null $parent;
 
         /**
-         * @var SpanData|null The active span
+         * The active span
          */
         public SpanData|null $active = null;
     }
@@ -247,24 +233,21 @@ namespace DDTrace {
         /**
          * It has not been loaded yet
          *
-         * @cvalue DD_TRACE_INTEGRATION_NOT_LOADED
          * @var int
          */
-        const NOT_LOADED = UNKNOWN;
+        const NOT_LOADED = 0;
         /**
          * It has been loaded, no more work required
          *
-         * @cvalue DD_TRACE_INTEGRATION_LOADED
          * @var int
          */
-        const LOADED = UNKNOWN;
+        const LOADED = 0;
         /**
          * Prerequisites are not matched and won't be matched in the future.
          *
-         * @cvalue DD_TRACE_INTEGRATION_NOT_AVAILABLE
          * @var int
          */
-        const NOT_AVAILABLE = UNKNOWN;
+        const NOT_AVAILABLE = 0;
 
         /** Load the integration */
         public function init(): int;
@@ -432,7 +415,7 @@ namespace DDTrace {
     /**
      * Get the root span
      *
-     * @return SpanData|null 'null' if tracing isn't enabled or if the active stack doesn't have a root span,
+     * @return RootSpanData|null 'null' if tracing isn't enabled or if the active stack doesn't have a root span,
      * else the root span of the active stack
      */
     function root_span(): null|RootSpanData {}
@@ -507,7 +490,7 @@ namespace DDTrace {
      * Set the priority sampling level
      *
      * @param int $priority The priority level to be set to.
-     * @param bool|null $global If set to 'true' and if there is no active stack (or the active stack doesn't have a
+     * @param bool $global If set to 'true' and if there is no active stack (or the active stack doesn't have a
      * root span), then the default priority sampling will be set to the provided priority level. Otherwise, the root's
      * priority sampling level will be updated with the new value.
      */
@@ -516,7 +499,7 @@ namespace DDTrace {
     /**
      * Get the priority sampling level
      *
-     * @param bool|null $global If set to 'true' and if there is no active stack (or the active stack doesn't have a
+     * @param bool $global If set to 'true' and if there is no active stack (or the active stack doesn't have a
      * root span), then the default priority sampling will be returned, else it will be fetched from the root.
      * @return int|null The priority sampling level, or 'null' if an unexpected parameter was given.
      */
@@ -528,7 +511,6 @@ namespace DDTrace {
      * @param \Exception|\Throwable $exception
      * @param int $skipFrames The number of frames to be dropped from the start. E.g. to hide the fact that we're
      * in a hook function.
-     * @return string
      */
     function get_sanitized_exception_trace(\Exception|\Throwable $exception, int $skipFrames = 0): string {}
 
@@ -570,7 +552,6 @@ namespace DDTrace {
      * a metadata formatting
      *
      * @param string[] $headers
-     * @return array
      */
     function extract_ip_from_headers(array $headers): array {}
 
@@ -725,29 +706,28 @@ namespace DDTrace\UserRequest {
     /**
      * Notifies the user request listeners of the start of a user request.
      *
-     * @param \DDTrace\Span $span the span associated with this user request.
+     * @param \DDTrace\RootSpanData $span the span associated with this user request.
      * @param array $data an array with keys named '_GET', '_POST', '_SERVER', '_FILES', '_COOKIE'
      * @param string|resource|null $body the body of the request (a string or a seekable resource)
      * @return array|null an array with the keys 'status', 'headers' and 'body', or null
      */
-    function notify_start(\DDTrace\RootSpanData $span, array $data, ?mixed $body = null): ?array {}
+    function notify_start(\DDTrace\RootSpanData $span, array $data, mixed $body = null): ?array {}
 
     /**
      * Notifies the user request listeners of the imminence of a commit, and allows for the replacement of the response.
-     * @param \DDTrace\Span $span the span associated with this user request.
+     * @param \DDTrace\RootSpanData $span the span associated with this user request.
      * @param int $status the HTTP status code of the response
      * @param array $headers the HTTP headers of the response in the form name => array(values)
      * @param string|resource|null $body the body of the response (a string or a seekable resource)
      * @return array|null an array with the keys 'status', 'headers' and 'body', or null
      */
-    function notify_commit(\DDTrace\RootSpanData $span, int $status, array $headers, ?mixed $body = null): ?array {}
+    function notify_commit(\DDTrace\RootSpanData $span, int $status, array $headers, mixed $body = null): ?array {}
 
     /**
      * Sets a function to be called when blocking a request midway.
      *
      * @param \DDTrace\RootSpanData $span
      * @param callable $blockingFunction a blocking function taking an array with the keys 'status', 'headers', 'body'
-     * @return void
      */
     function set_blocking_function(\DDTrace\RootSpanData $span, callable $blockingFunction): void {}
 }
@@ -767,15 +747,13 @@ namespace DDTrace\Testing {
 namespace DDTrace\Internal {
     /**
      * @var int
-     * @cvalue DDTRACE_SPAN_FLAG_OPENTELEMETRY
      */
-    const SPAN_FLAG_OPENTELEMETRY = UNKNOWN;
+    const SPAN_FLAG_OPENTELEMETRY = 0;
 
     /**
      * @var int
-     * @cvalue DDTRACE_SPAN_FLAG_OPENTRACING
      */
-    const SPAN_FLAG_OPENTRACING = UNKNOWN;
+    const SPAN_FLAG_OPENTRACING = 0;
 
     /**
      * Adds a flag to a span.
@@ -799,45 +777,38 @@ namespace {
 
     /**
      * @var string
-     * @cvalue PHP_DDTRACE_VERSION
      */
-    const DD_TRACE_VERSION = UNKNOWN;
+    const DD_TRACE_VERSION = '0';
 
     /**
      * @var int
-     * @cvalue PRIORITY_SAMPLING_AUTO_KEEP
      */
-    const DD_TRACE_PRIORITY_SAMPLING_AUTO_KEEP = UNKNOWN;
+    const DD_TRACE_PRIORITY_SAMPLING_AUTO_KEEP = 0;
 
     /**
      * @var int
-     * @cvalue PRIORITY_SAMPLING_AUTO_REJECT
      */
-    const DD_TRACE_PRIORITY_SAMPLING_AUTO_REJECT = UNKNOWN;
+    const DD_TRACE_PRIORITY_SAMPLING_AUTO_REJECT = 0;
 
     /**
      * @var int
-     * @cvalue PRIORITY_SAMPLING_USER_KEEP
      */
-    const DD_TRACE_PRIORITY_SAMPLING_USER_KEEP = UNKNOWN;
+    const DD_TRACE_PRIORITY_SAMPLING_USER_KEEP = 0;
 
     /**
      * @var int
-     * @cvalue PRIORITY_SAMPLING_USER_REJECT
      */
-    const DD_TRACE_PRIORITY_SAMPLING_USER_REJECT = UNKNOWN;
+    const DD_TRACE_PRIORITY_SAMPLING_USER_REJECT = 0;
 
     /**
      * @var int
-     * @cvalue DDTRACE_PRIORITY_SAMPLING_UNKNOWN
      */
-    const DD_TRACE_PRIORITY_SAMPLING_UNKNOWN = UNKNOWN;
+    const DD_TRACE_PRIORITY_SAMPLING_UNKNOWN = 0;
 
     /**
      * @var int
-     * @cvalue DDTRACE_PRIORITY_SAMPLING_UNSET
      */
-    const DD_TRACE_PRIORITY_SAMPLING_UNSET = UNKNOWN;
+    const DD_TRACE_PRIORITY_SAMPLING_UNSET = 0;
 
 
     /**
@@ -850,8 +821,6 @@ namespace {
 
     /**
      * Disable tracing in the current request
-     *
-     * @return bool
      */
     function dd_trace_disable_in_request(): bool {}
 
@@ -901,7 +870,7 @@ namespace {
      * @return string|null The app name, else the fallback name. Return 'null' if the app name isn't set and no
      * fallback name is provided.
      */
-    function ddtrace_config_app_name(?string $fallbackName = null): null|string {}
+    function ddtrace_config_app_name(?string $fallbackName = null): ?string {}
 
     /**
      * Check if distributed tracing is enabled (DD_DISTRIBUTED_TRACING)
@@ -950,7 +919,6 @@ namespace {
      * Used to send any already buffered spans to the agent
      *
      * @internal
-     * @return int
      */
     function dd_trace_coms_trigger_writer_flush(): int {}
 
@@ -966,7 +934,7 @@ namespace {
      * @param mixed $args,... Arguments of the function
      * @return mixed false if void function was properly executed, else the return value of it
      */
-    function dd_trace_internal_fn(string $functionName, mixed ...$args) {}
+    function dd_trace_internal_fn(string $functionName, mixed ...$args): mixed {}
 
     /**
      * Set the distributed trace id
@@ -1020,12 +988,12 @@ namespace {
     function dd_trace_close_all_spans_and_flush(): void {}
 
     /**
-     * @alias DDTrace_trace_function
+     * @see DDTrace_trace_function
      */
     function dd_trace_function(string $functionName, \Closure|array|null $tracingClosureOrConfigArray): bool {}
 
     /**
-     * @alias DDTrace_trace_method
+     * @see DDTrace_trace_method
      */
     function dd_trace_method(
         string $className,
