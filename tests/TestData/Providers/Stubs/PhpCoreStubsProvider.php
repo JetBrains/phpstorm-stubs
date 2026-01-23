@@ -176,6 +176,7 @@ class PhpCoreStubsProvider
             'couchbase',
             'couchbase_v2',
             'dio',
+            'ddtrace',
             'elastic_apm',
             'Ev',
             'fann',
