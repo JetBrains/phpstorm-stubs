@@ -18,7 +18,8 @@ namespace DDTrace {
      */
     const DBM_PROPAGATION_FULL = 0;
 
-    class SpanLink implements \JsonSerializable {
+    class SpanLink implements \JsonSerializable
+{
         /**
          * A 32-character, lower-case hexadecimal encoded string of the linked trace ID. This field
          * shouldn't be directly assigned an id from SpanData. Use the SpanData::getLinks() method instead.
@@ -30,14 +31,12 @@ namespace DDTrace {
          * shouldn't be directly assigned an id from SpanData. Use the SpanData::getLinks() method instead.
          */
         public string $spanId;
-
         public string $traceState;
 
         /**
-         * @var string[] $attributes
+         * @var string[]
          */
         public array $attributes;
-
         public int $droppedAttributesCount;
 
         public function jsonSerialize(): mixed {}
@@ -51,7 +50,8 @@ namespace DDTrace {
         public static function fromHeaders(array|callable $headersOrCallback): SpanLink {}
     }
 
-    class SpanData {
+    class SpanData
+{
         /**
          * The span name
          */
@@ -94,12 +94,12 @@ namespace DDTrace {
         public string|null $type = "";
 
         /**
-         * @var string[] $meta An array of key-value span metadata; keys and values must be strings.
+         * @var string[] An array of key-value span metadata; keys and values must be strings.
          */
         public array $meta = [];
 
         /**
-         * @var float[] $metrics An array of key-value span metrics; keys must be strings and values must be floats.
+         * @var float[] An array of key-value span metrics; keys must be strings and values must be floats.
          */
         public array $metrics = [];
 
@@ -114,12 +114,12 @@ namespace DDTrace {
         public readonly string $id;
 
         /**
-         * @var SpanLink[] $links An array of span links
+         * @var SpanLink[] An array of span links
          */
         public array $links = [];
 
         /**
-         * @var string[] $peerServiceSources A sorted list of tag names used to set the `peer.service` tag. If a tag
+         * @var string[] A sorted list of tag names used to set the `peer.service` tag. If a tag
          * name is added to this field and the tag exists on the span at serialization time, then the value of the tag
          * will be used to set the value of the `peer.service` tag.
          */
@@ -156,7 +156,8 @@ namespace DDTrace {
         public function hexId(): string {}
     }
 
-    class RootSpanData extends SpanData {
+    class RootSpanData extends SpanData
+{
         /**
          * The origin site of the trace. Propagated through distributed tracing by default.
          */
@@ -216,7 +217,8 @@ namespace DDTrace {
      * 'switch_stack' functions. 'create_stack' creates a new SpanStack whose parent is the currently active stack,
      * while 'switch_stack' switches the active span.
      */
-    class SpanStack {
+    class SpanStack
+{
         /**
          * The parent stack, or 'null' if there is none
          */
@@ -228,7 +230,8 @@ namespace DDTrace {
         public SpanData|null $active = null;
     }
 
-    interface Integration {
+    interface Integration
+{
         // Possible statuses for the concrete:
         /**
          * It has not been loaded yet
@@ -236,12 +239,14 @@ namespace DDTrace {
          * @var int
          */
         const NOT_LOADED = 0;
+
         /**
          * It has been loaded, no more work required
          *
          * @var int
          */
         const LOADED = 0;
+
         /**
          * Prerequisites are not matched and won't be matched in the future.
          *
@@ -668,7 +673,6 @@ namespace DDTrace {
 }
 
 namespace DDTrace\System {
-
     /**
      * Get the unique identifier of the container
      *
@@ -678,7 +682,6 @@ namespace DDTrace\System {
 }
 
 namespace DDTrace\Config {
-
     /**
      * Check if the app analytics of an app is enabled for a given integration
      *
@@ -774,7 +777,6 @@ namespace DDTrace\Internal {
 }
 
 namespace {
-
     /**
      * @var string
      */
@@ -809,7 +811,6 @@ namespace {
      * @var int
      */
     const DD_TRACE_PRIORITY_SAMPLING_UNSET = 0;
-
 
     /**
      * Get the value of a DD environment variable
