@@ -501,31 +501,23 @@ function strcoll(string $string1, string $string2): int {}
 function money_format(string $format, float $number): ?string {}
 
 /**
- * Return part of a string or false on failure. For PHP8.0+ only string is returned
+ * Returns the portion of string specified by the offset and length parameters.
  * @link https://php.net/manual/en/function.substr.php
  * @param string $string <p>
  * The input string.
  * </p>
  * @param int $offset <p>
- * If start is non-negative, the returned string
- * will start at the start'th position in
- * string, counting from zero. For instance,
- * in the string 'abcdef', the character at
- * position 0 is 'a', the
- * character at position 2 is
- * 'c', and so forth.
+ * If offset is non-negative, the returned string will start at the offset'th position in string, counting from zero.
+ * For instance, in the string 'abcdef', the character at position 0 is 'a', the character at position 2 is 'c', and so forth.
  * </p>
  * <p>
- * If start is negative, the returned string
- * will start at the start'th character
- * from the end of string.
+ * If offset is negative, the returned string will start at the offset'th character from the end of string.
  * </p>
  * <p>
- * If string is less than or equal to
- * start characters long, false will be returned.
+ * If string is less than offset characters long, an empty string will be returned.
  * </p>
  * <p>
- * Using a negative start
+ * Using a negative offset
  * </p>
  * <pre>
  * <?php
@@ -535,24 +527,22 @@ function money_format(string $format, float $number): ?string {}
  * ?>
  * </pre>
  * @param int|null $length [optional] <p>
- * If length is given and is positive, the string
- * returned will contain at most length characters
- * beginning from start (depending on the length of
- * string).
+ * If length is given and is positive, the string returned will contain at most length characters beginning from offset
+ * (depending on the length of string).
  * </p>
  * <p>
- * If length is given and is negative, then that many
- * characters will be omitted from the end of string
- * (after the start position has been calculated when a
- * start is negative). If
- * start denotes a position beyond this truncation,
- * an empty string will be returned.
+ * If length is given and is negative, then that many characters will be omitted from the end of string.
+ * If offset denotes the position of this truncation or beyond, an empty string will be returned.
  * </p>
  * <p>
- * If length is given and is 0,
- * false or null an empty string will be returned.
+ * If length is given and is 0, an empty string will be returned.
  * </p>
+ * <p>
+ * Starting from PHP 8.0 if length is omitted or null, the substring starting from offset until the end of the string will be returned.
+ * </p>
+ * <p>
  * Using a negative length:
+ * </p>
  * <pre>
  * <?php
  * $rest = substr("abcdef", 0, -1);  // returns "abcde"
@@ -561,6 +551,25 @@ function money_format(string $format, float $number): ?string {}
  * $rest = substr("abcdef", -3, -1); // returns "de"
  * ?>
  * </pre>
+ * @return string|false Returns the extracted part of string, or an empty string. (FALSE prior PHP 8.0)
+ *  <p>
+ *   Basic usage:
+ *  </p>
+ *   <code>
+ *   echo substr('abcdef', 1), PHP_EOL;     // bcdef
+ *   echo substr("abcdef", 1, null), PHP_EOL; // bcdef; prior to PHP 8.0.0, empty string was returned
+ *   echo substr('abcdef', 1, 3), PHP_EOL;  // bcd
+ *   echo substr('abcdef', 0, 4), PHP_EOL;  // abcd
+ *   echo substr('abcdef', 0, 8), PHP_EOL;  // abcdef
+ *   echo substr('abcdef', -1, 1), PHP_EOL; // f
+ *
+ *   // Accessing single characters in a string
+ *   // can also be achieved using "square brackets"
+ *   $string = 'abcdef';
+ *   echo $string[0], PHP_EOL;                 // a
+ *   echo $string[3], PHP_EOL;                 // d
+ *   echo $string[strlen($string)-1], PHP_EOL; // f
+ *   </code>
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
@@ -699,17 +708,12 @@ function addslashes(string $string): string {}
  * The string to be escaped.
  * </p>
  * @param string $characters <p>
- * A list of characters to be escaped. If
- * charlist contains characters
- * \n, \r etc., they are
- * converted in C-like style, while other non-alphanumeric characters
- * with ASCII codes lower than 32 and higher than 126 converted to
- * octal representation.
+ * A list of characters to be escaped. If characters contains characters \n, \r etc., they are converted in C-like style,
+ * while other non-alphanumeric characters with ASCII codes lower than 32 and higher than 126 converted to octal representation.
  * </p>
  * <p>
- * When you define a sequence of characters in the charlist argument
- * make sure that you know what characters come between the
- * characters that you set as the start and end of the range.
+ * When you define a sequence of characters in the characters argument make sure that you know what characters come
+ * between the characters that you set as the start and end of the range.
  * </p>
  * <pre>
  * <?php
@@ -733,14 +737,23 @@ function addslashes(string $string): string {}
  * ?>
  * </pre>
  * <p>
- * Be careful if you choose to escape characters 0, a, b, f, n, r,
- * t and v. They will be converted to \0, \a, \b, \f, \n, \r, \t
- * and \v.
- * In PHP \0 (NULL), \r (carriage return), \n (newline), \f (form feed),
- * \v (vertical tab) and \t (tab) are predefined escape sequences,
- * while in C all of these are predefined escape sequences.
+ * Be careful if you choose to escape characters 0, a, b, f, n, r, t and v.
+ * They will be converted to \0, \a, \b, \f, \n, \r, \t and \v, all of which are predefined escape sequences in C.
+ * Many of these sequences are also defined in other C-derived languages, including PHP, meaning that you may not get
+ * the desired result if you use the output of addcslashes() to generate code in those languages with these characters
+ * defined in characters.
  * </p>
  * @return string the escaped string.
+ * <p>
+ * Example usage:
+ * </p>
+ * <code>
+ * <?php
+ * $not_escaped = "PHP isThirty\nYears Old!\tYay to the Elephant!\n";
+ * $escaped = addcslashes($not_escaped, "\0..\37!@\177..\377");
+ * echo $escaped;
+ * ?>
+ * </code>
  */
 #[Pure]
 function addcslashes(string $string, string $characters): string {}
