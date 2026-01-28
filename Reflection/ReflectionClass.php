@@ -8,15 +8,15 @@ use JetBrains\PhpStorm\Internal\TentativeType;
 use JetBrains\PhpStorm\Pure;
 
 /**
- * @template T of object
  * The <b>ReflectionClass</b> class reports information about a class.
  *
  * @link https://php.net/manual/en/class.reflectionclass.php
+ * @template TReflectedClass of object
  */
 class ReflectionClass implements Reflector
 {
     /**
-     * @var class-string<T> Name of the class, same as calling the {@see ReflectionClass::getName()} method
+     * @var class-string<TReflectedClass> Name of the class, same as calling the {@see ReflectionClass::getName()} method
      */
     #[Immutable]
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
@@ -62,7 +62,7 @@ class ReflectionClass implements Reflector
      * Constructs a ReflectionClass
      *
      * @link https://php.net/manual/en/reflectionclass.construct.php
-     * @param class-string<T>|T $objectOrClass Either a string containing the name of
+     * @param class-string<TReflectedClass>|TReflectedClass $objectOrClass Either a string containing the name of
      * the class to reflect, or an object.
      * @throws ReflectionException if the class does not exist.
      */
@@ -95,7 +95,7 @@ class ReflectionClass implements Reflector
      * Gets class name
      *
      * @link https://php.net/manual/en/reflectionclass.getname.php
-     * @return string The class name.
+     * @return class-string<TReflectedClass> The class name.
      */
     #[Pure]
     #[TentativeType]
@@ -189,7 +189,7 @@ class ReflectionClass implements Reflector
      * Gets the constructor of the class
      *
      * @link https://php.net/manual/en/reflectionclass.getconstructor.php
-     * @return ReflectionMethod|null A {@see ReflectionMethod} object reflecting
+     * @return ReflectionMethod<TReflectedClass>|null A {@see ReflectionMethod} object reflecting
      * the class' constructor, or {@see null} if the class has no constructor.
      */
     #[Pure]
@@ -210,8 +210,8 @@ class ReflectionClass implements Reflector
      * Gets a <b>ReflectionMethod</b> for a class method.
      *
      * @link https://php.net/manual/en/reflectionclass.getmethod.php
-     * @param string $name The method name to reflect.
-     * @return ReflectionMethod A {@see ReflectionMethod}
+     * @param non-empty-string $name The method name to reflect.
+     * @return ReflectionMethod<TReflectedClass> A {@see ReflectionMethod}
      * @throws ReflectionException if the method does not exist.
      */
     #[Pure]
@@ -224,7 +224,7 @@ class ReflectionClass implements Reflector
      * @link https://php.net/manual/en/reflectionclass.getmethods.php
      * @param int|null $filter Filter the results to include only methods
      * with certain attributes. Defaults to no filtering.
-     * @return ReflectionMethod[] An array of {@see ReflectionMethod} objects
+     * @return list<ReflectionMethod<TReflectedClass>> An array of {@see ReflectionMethod} objects
      * reflecting each method.
      */
     #[Pure]
@@ -245,8 +245,8 @@ class ReflectionClass implements Reflector
      * Gets a <b>ReflectionProperty</b> for a class's property
      *
      * @link https://php.net/manual/en/reflectionclass.getproperty.php
-     * @param string $name The property name.
-     * @return ReflectionProperty A {@see ReflectionProperty}
+     * @param non-empty-string $name The property name.
+     * @return ReflectionProperty<TReflectedClass> A {@see ReflectionProperty}
      * @throws ReflectionException If no property exists by that name.
      */
     #[Pure]
@@ -260,7 +260,7 @@ class ReflectionClass implements Reflector
      * @param int|null $filter The optional filter, for filtering desired
      * property types. It's configured using the {@see ReflectionProperty} constants,
      * and defaults to all property types.
-     * @return ReflectionProperty[]
+     * @return list<ReflectionProperty<TReflectedClass>>
      */
     #[Pure]
     #[TentativeType]
@@ -270,8 +270,8 @@ class ReflectionClass implements Reflector
      * Gets a ReflectionClassConstant for a class's property
      *
      * @link https://php.net/manual/en/reflectionclass.getreflectionconstant.php
-     * @param string $name The class constant name.
-     * @return ReflectionClassConstant|false A {@see ReflectionClassConstant}.
+     * @param non-empty-string $name The class constant name.
+     * @return ReflectionClassConstant<TReflectedClass>|false A {@see ReflectionClassConstant}.
      * @since 7.1
      */
     #[Pure]
@@ -283,7 +283,7 @@ class ReflectionClass implements Reflector
      *
      * @link https://php.net/manual/en/reflectionclass.getreflectionconstants.php
      * @param int|null $filter [optional] allows the filtering of constants defined in a class by their visibility. Since 8.0.
-     * @return ReflectionClassConstant[] An array of ReflectionClassConstant objects.
+     * @return list<ReflectionClassConstant<TReflectedClass>> An array of ReflectionClassConstant objects.
      * @since 7.1
      */
     #[Pure]
@@ -305,7 +305,7 @@ class ReflectionClass implements Reflector
      *
      * @link https://php.net/manual/en/reflectionclass.getconstants.php
      * @param int|null $filter [optional] allows the filtering of constants defined in a class by their visibility. Since 8.0.
-     * @return array An array of constants, where the keys hold the name and
+     * @return array<non-empty-string, mixed> An array of constants, where the keys hold the name and
      * the values the value of the constants.
      */
     #[Pure]
@@ -316,7 +316,7 @@ class ReflectionClass implements Reflector
      * Gets defined constant
      *
      * @link https://php.net/manual/en/reflectionclass.getconstant.php
-     * @param string $name Name of the constant.
+     * @param non-empty-string $name Name of the constant.
      * @return mixed|false Value of the constant with the name name.
      * Returns {@see false} if the constant was not found in the class.
      */
@@ -328,7 +328,7 @@ class ReflectionClass implements Reflector
      * Gets the interfaces
      *
      * @link https://php.net/manual/en/reflectionclass.getinterfaces.php
-     * @return ReflectionClass[] An associative array of interfaces, with keys as interface
+     * @return list<ReflectionClass> An associative array of interfaces, with keys as interface
      * names and the array values as {@see ReflectionClass} objects.
      */
     #[Pure]
@@ -339,7 +339,7 @@ class ReflectionClass implements Reflector
      * Gets the interface names
      *
      * @link https://php.net/manual/en/reflectionclass.getinterfacenames.php
-     * @return string[] A numerical array with interface names as the values.
+     * @return list<class-string> A numerical array with interface names as the values.
      */
     #[Pure]
     #[TentativeType]
@@ -370,7 +370,7 @@ class ReflectionClass implements Reflector
      * Returns an array of traits used by this class
      *
      * @link https://php.net/manual/en/reflectionclass.gettraits.php
-     * @return ReflectionClass[] an array with trait names in keys and
+     * @return list<ReflectionClass> an array with trait names in keys and
      * instances of trait's {@see ReflectionClass} in values.
      * @since 5.4
      */
@@ -382,7 +382,7 @@ class ReflectionClass implements Reflector
      * Returns an array of names of traits used by this class
      *
      * @link https://php.net/manual/en/reflectionclass.gettraitnames.php
-     * @return string[] An array with trait names in values.
+     * @return list<class-string> An array with trait names in values.
      * Returns {@see null} in case of an error.
      * @since 5.4
      */
@@ -394,7 +394,7 @@ class ReflectionClass implements Reflector
      * Returns an array of trait aliases
      *
      * @link https://php.net/manual/en/reflectionclass.gettraitaliases.php
-     * @return string[] an array with new method names in keys and original
+     * @return array<non-empty-string, non-empty-string> an array with new method names in keys and original
      * names (in the format "TraitName::original") in values.
      * Returns {@see null} in case of an error.
      * @since 5.4
@@ -469,7 +469,7 @@ class ReflectionClass implements Reflector
      * @link https://php.net/manual/en/reflectionclass.newinstance.php
      * @param mixed ...$args Accepts a variable number of arguments which are
      * passed to the class constructor, much like {@see call_user_func}
-     * @return T a new instance of the class.
+     * @return TReflectedClass a new instance of the class.
      * @throws ReflectionException if the class constructor is not public or if
      * the class does not have a constructor and the $args parameter contains
      * one or more parameters.
@@ -480,7 +480,7 @@ class ReflectionClass implements Reflector
      * Creates a new class instance without invoking the constructor.
      *
      * @link https://php.net/manual/en/reflectionclass.newinstancewithoutconstructor.php
-     * @return T a new instance of the class.
+     * @return TReflectedClass a new instance of the class.
      * @throws ReflectionException if the class is an internal class that
      * cannot be instantiated without invoking the constructor. In PHP 5.6.0
      * onwards, this exception is limited only to internal classes that are final.
@@ -494,7 +494,7 @@ class ReflectionClass implements Reflector
      *
      * @link https://php.net/manual/en/reflectionclass.newinstanceargs.php
      * @param array $args The parameters to be passed to the class constructor as an array.
-     * @return T|null a new instance of the class.
+     * @return TReflectedClass|null a new instance of the class.
      * @throws ReflectionException if the class constructor is not public or if
      * the class does not have a constructor and the $args parameter contains
      * one or more parameters.
@@ -530,7 +530,7 @@ class ReflectionClass implements Reflector
      * Gets static properties
      *
      * @link https://php.net/manual/en/reflectionclass.getstaticproperties.php
-     * @return array|null The static properties, as an array where the keys hold
+     * @return array<non-empty-string, mixed>|null The static properties, as an array where the keys hold
      * the name and the values the value of the properties.
      */
     #[Pure]
@@ -542,7 +542,7 @@ class ReflectionClass implements Reflector
      * Gets static property value
      *
      * @link https://php.net/manual/en/reflectionclass.getstaticpropertyvalue.php
-     * @param string $name The name of the static property for which to return a value.
+     * @param non-empty-string $name The name of the static property for which to return a value.
      * @param mixed $default [optional] A default value to return in case the class does
      * not declare a static property with the given name. If the property does
      * not exist and this argument is omitted, a {@see ReflectionException} is thrown.
@@ -559,7 +559,7 @@ class ReflectionClass implements Reflector
      * Sets static property value
      *
      * @link https://php.net/manual/en/reflectionclass.setstaticpropertyvalue.php
-     * @param string $name Property name.
+     * @param non-empty-string $name Property name.
      * @param mixed $value New property value.
      * @return void No value is returned.
      */
@@ -573,7 +573,7 @@ class ReflectionClass implements Reflector
      * Gets default properties
      *
      * @link https://php.net/manual/en/reflectionclass.getdefaultproperties.php
-     * @return mixed[] An array of default properties, with the key being the name
+     * @return array<non-empty-string, mixed> An array of default properties, with the key being the name
      * of the property and the value being the default value of the property
      * or {@see null} if the property doesn't have a default value. The function
      * does not distinguish between static and non static properties and does
@@ -659,20 +659,20 @@ class ReflectionClass implements Reflector
      * Gets short name
      *
      * @link https://php.net/manual/en/reflectionclass.getshortname.php
-     * @return string The class short name.
+     * @return non-empty-string The class short name.
      */
     #[Pure]
     #[TentativeType]
     public function getShortName(): string {}
 
     /**
-     * @template T
+     * @template TAttributeClass of Attribute
      *
      * Returns an array of class attributes.
      *
-     * @param class-string<T>|null $name Name of an attribute class
+     * @param class-string<TAttributeClass>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
-     * @return ReflectionAttribute<T>[]
+     * @return list<ReflectionAttribute<TAttributeClass>>
      * @since 8.0
      */
     #[Pure]
@@ -705,7 +705,7 @@ class ReflectionClass implements Reflector
     public function newLazyGhost(callable $initializer, int $options = 0): object {}
 
     /**
-     * @return T
+     * @return TReflectedClass
      * @since 8.4
      */
     public function newLazyProxy(callable $factory, int $options = 0): object {}
