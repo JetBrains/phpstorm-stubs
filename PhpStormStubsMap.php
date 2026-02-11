@@ -723,6 +723,7 @@ const CLASSES = array (
   'MongoDB\\BSON\\UTCDateTimeInterface' => 'mongodb/BSON/UTCDateTimeInterface.php',
   'MongoDB\\BSON\\Undefined' => 'mongodb/BSON/Undefined.php',
   'MongoDB\\BSON\\Unserializable' => 'mongodb/BSON/Unserializable.php',
+  'MongoDB\\BSON\\VectorType' => 'mongodb/BSON/VectorType.php',
   'MongoDB\\Driver\\BulkWrite' => 'mongodb/BulkWrite.php',
   'MongoDB\\Driver\\BulkWriteCommand' => 'mongodb/BulkWriteCommand.stub.php',
   'MongoDB\\Driver\\BulkWriteCommandResult' => 'mongodb/BulkWriteCommandResult.stub.php',
