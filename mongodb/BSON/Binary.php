@@ -37,7 +37,6 @@ final class Binary implements Type, BinaryInterface, JsonSerializable, Stringabl
      * @since 2.2.0
      */
     public const TYPE_VECTOR = 9;
-
     public const TYPE_USER_DEFINED = 128;
 
     /**
