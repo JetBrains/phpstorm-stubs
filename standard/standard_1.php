@@ -808,7 +808,7 @@ function rtrim(string $string, string $characters = " \n\r\t\v\0"): string {}
  * @param int &$count [optional] If passed, this will hold the number of matched and replaced needles.
  * @return string|string[] This function returns a string or an array with the replaced values.
  */
-function str_replace(array|string $search, array|string $replace, array|string $subject, &$count): array|string {}
+function str_replace(array|string $search, array|string $replace, array|string $subject, &$count = null): array|string {}
 
 /**
  * Case-insensitive version of <function>str_replace</function>.
@@ -832,7 +832,7 @@ function str_replace(array|string $search, array|string $replace, array|string $
  * </p>
  * @return string|string[] a string or an array of replacements.
  */
-function str_ireplace(array|string $search, array|string $replace, array|string $subject, &$count): array|string {}
+function str_ireplace(array|string $search, array|string $replace, array|string $subject, &$count = null): array|string {}
 
 /**
  * Repeat a string
