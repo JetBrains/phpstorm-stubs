@@ -1017,7 +1017,7 @@ function file(string $filename, int $flags = 0, $context): array|false {}
  * @return string|false The function returns the read data or false on failure.
  */
 #[Pure(true)]
-function file_get_contents(string $filename, bool $use_include_path = false, $context, int $offset = 0, ?int $length): string|false {}
+function file_get_contents(string $filename, bool $use_include_path = false, $context = null, int $offset = 0, ?int $length = null): string|false {}
 
 /**
  * Write a string to a file
