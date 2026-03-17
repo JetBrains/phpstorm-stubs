@@ -5577,6 +5577,7 @@ const FUNCTIONS = array (
   'ssh2_auth_hostbased_file' => 'ssh2/ssh2.php',
   'ssh2_auth_none' => 'ssh2/ssh2.php',
   'ssh2_auth_password' => 'ssh2/ssh2.php',
+  'ssh2_auth_pubkey' => 'ssh2/ssh2.php',
   'ssh2_auth_pubkey_file' => 'ssh2/ssh2.php',
   'ssh2_connect' => 'ssh2/ssh2.php',
   'ssh2_disconnect' => 'ssh2/ssh2.php',
