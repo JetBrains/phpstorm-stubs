@@ -21,13 +21,13 @@ use LDAP\Result;
 function ldap_exop_passwd(
     #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
     #[Available(from: '7.1', to: '7.1')] string $user = "",
-    #[Available(from: '7.2', to: '7.2')] string $user,
+    #[Available(from: '7.2', to: '7.2')] string $user = "",
     #[Available(from: '7.3')] string $user = "",
     #[Available(from: '7.1', to: '7.1')] string $old_password = "",
-    #[Available(from: '7.2', to: '7.2')] string $old_password,
+    #[Available(from: '7.2', to: '7.2')] string $old_password = "",
     #[Available(from: '7.3')] string $old_password = "",
     #[Available(from: '7.1', to: '7.1')] string $new_password = "",
-    #[Available(from: '7.2', to: '7.2')] string $new_password,
+    #[Available(from: '7.2', to: '7.2')] string $new_password = "",
     #[Available(from: '7.3')] string $new_password = "",
     #[Available(from: '7.3')] &$controls = null
 ): string|bool {}
@@ -65,7 +65,7 @@ function ldap_exop_whoami(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], defaul
  * @since 7.2
  */
 #[PhpVersionAware(['8.1' => 'LDAP\Result|bool'], default: 'resource|bool')]
-function ldap_exop(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap, string $request_oid, ?string $request_data, #[PhpVersionAware(["8.0" => "null|array"], default: "array")] $controls = null, &$response_data, &$response_oid) {}
+function ldap_exop(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap, string $request_oid, ?string $request_data = null, #[PhpVersionAware(["8.0" => "null|array"], default: "array")] $controls = null, &$response_data, &$response_oid) {}
 
 /**
  * Parse LDAP extended operation data from result object result
@@ -80,9 +80,9 @@ function ldap_exop(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'res
 function ldap_parse_exop(
     #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
     #[PhpVersionAware(['8.1' => 'LDAP\Result'], default: 'resource')] $result,
-    #[Available(from: '7.2', to: '7.4')] &$response_data,
+    #[Available(from: '7.2', to: '7.4')] &$response_data = null,
     #[Available(from: '8.0')] &$response_data = null,
-    #[Available(from: '7.2', to: '7.4')] &$response_oid,
+    #[Available(from: '7.2', to: '7.4')] &$response_oid = null,
     #[Available(from: '8.0')] &$response_oid = null
 ): bool {}
 
@@ -126,7 +126,7 @@ function ldap_t61_to_8859(string $value): string {}
  * opened link will be returned.
  */
 #[PhpVersionAware(['8.1' => 'LDAP\Connection|false'], default: 'resource|false')]
-function ldap_connect(?string $uri, int $port = 389) {}
+function ldap_connect(?string $uri = null, int $port = 389) {}
 
 /**
  * Alias of <b>ldap_unbind</b>
@@ -146,7 +146,7 @@ function ldap_close(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 're
  * @param string|null $password [optional]
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ldap_bind(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap, ?string $dn, ?string $password): bool {}
+function ldap_bind(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap, ?string $dn = null, ?string $password = null): bool {}
 
 /**
  * Bind to LDAP directory
@@ -164,8 +164,8 @@ function ldap_bind(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'res
 #[PhpVersionAware(['8.1' => 'LDAP\Result|false'], default: 'resource|false')]
 function ldap_bind_ext(
     #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
-    ?string $dn,
-    ?string $password,
+    ?string $dn = null,
+    ?string $password = null,
     #[PhpVersionAware(["8.0" => "null|array"], default: "array")] $controls = null
 ) {}
 
@@ -1088,7 +1088,7 @@ function ldap_rename_ext(#[PhpVersionAware(['8.1' => 'LDAP\Connection'], default
 function ldap_get_option(
     #[PhpVersionAware(['8.1' => 'LDAP\Connection', '8.5' => 'LDAP\Connection|null'], default: 'resource')] $ldap,
     int $option,
-    #[Available(from: '5.3', to: '7.4')] &$value,
+    #[Available(from: '5.3', to: '7.4')] &$value = null,
     #[Available(from: '8.0')] &$value = null
 ): bool {}
 
@@ -1253,9 +1253,9 @@ function ldap_parse_result(
     #[PhpVersionAware(['8.1' => 'LDAP\Connection'], default: 'resource')] $ldap,
     #[PhpVersionAware(['8.1' => 'LDAP\Result'], default: 'resource')] $result,
     &$error_code,
-    &$matched_dn,
-    &$error_message,
-    &$referrals,
+    &$matched_dn = null,
+    &$error_message = null,
+    &$referrals = null,
     #[Available(from: '7.3')] &$controls = null
 ): bool {}
 

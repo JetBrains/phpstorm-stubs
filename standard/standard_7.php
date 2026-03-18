@@ -50,11 +50,11 @@ use JetBrains\PhpStorm\Pure;
  */
 function fsockopen(
     string $hostname,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] int $port,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] int $port = -1,
     #[PhpStormStubsElementAvailable(from: '7.1')] int $port = -1,
-    &$error_code,
-    &$error_message,
-    ?float $timeout
+    &$error_code = null,
+    &$error_message = null,
+    ?float $timeout = null
 ) {}
 
 /**
@@ -70,11 +70,11 @@ function fsockopen(
  */
 function pfsockopen(
     string $hostname,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] int $port,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] int $port = -1,
     #[PhpStormStubsElementAvailable(from: '7.1')] int $port = -1,
-    &$error_code,
-    &$error_message,
-    ?float $timeout
+    &$error_code = null,
+    &$error_message = null,
+    ?float $timeout = null
 ) {}
 
 /**
@@ -185,7 +185,7 @@ function pfsockopen(
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
 function pack(
     string $format,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $values,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $values = null,
     mixed ...$values
 ) {}
 
@@ -237,7 +237,7 @@ function unpack(
  * reload, and check for the value.
  */
 #[Pure(true)]
-function get_browser(?string $user_agent, bool $return_array = false): object|array|false {}
+function get_browser(?string $user_agent = null, bool $return_array = false): object|array|false {}
 
 /**
  * One-way string encryption (hashing)
@@ -307,7 +307,7 @@ function crypt(string $string, string $salt): string {}
  * '@' to the
  * front of the function name.
  */
-function opendir(string $directory, $context) {}
+function opendir(string $directory, $context = null) {}
 
 /**
  * Close directory handle
@@ -320,7 +320,7 @@ function opendir(string $directory, $context) {}
  * </p>
  * @return void
  */
-function closedir($dir_handle): void {}
+function closedir($dir_handle = null): void {}
 
 /**
  * Change directory
@@ -370,7 +370,7 @@ function getcwd(): string|false {}
  * </p>
  * @see https://bugs.php.net/bug.php?id=75485
  */
-function rewinddir($dir_handle): void {}
+function rewinddir($dir_handle = null): void {}
 
 /**
  * Read entry from directory handle
@@ -383,7 +383,7 @@ function rewinddir($dir_handle): void {}
  * </p>
  * @return string|false the filename on success or false on failure.
  */
-function readdir($dir_handle): string|false {}
+function readdir($dir_handle = null): string|false {}
 
 /**
  * Return an instance of the Directory class
@@ -917,7 +917,7 @@ function chmod(string $filename, int $permissions): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function touch(string $filename, ?int $mtime, ?int $atime): bool {}
+function touch(string $filename, ?int $mtime = null, ?int $atime = null): bool {}
 
 /**
  * Clears file status cache

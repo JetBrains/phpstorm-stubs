@@ -23,7 +23,7 @@ use JetBrains\PhpStorm\Pure;
  * this function would return -1 on failure.
  */
 #[Pure(true)]
-function strtotime(string $datetime, ?int $baseTimestamp): int|false {}
+function strtotime(string $datetime, ?int $baseTimestamp = null): int|false {}
 
 /**
  * Format a local time/date
@@ -295,7 +295,7 @@ function strtotime(string $datetime, ?int $baseTimestamp): int|false {}
  */
 #[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function date(string $format, ?int $timestamp) {}
+function date(string $format, ?int $timestamp = null) {}
 
 /**
  * Format a local time/date as integer
@@ -392,7 +392,7 @@ function date(string $format, ?int $timestamp) {}
  * </p>
  */
 #[Pure(true)]
-function idate(string $format, ?int $timestamp): int|false {}
+function idate(string $format, ?int $timestamp = null): int|false {}
 
 /**
  * Format a GMT/UTC date/time
@@ -409,7 +409,7 @@ function idate(string $format, ?int $timestamp): int|false {}
  */
 #[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function gmdate(string $format, ?int $timestamp) {}
+function gmdate(string $format, ?int $timestamp = null) {}
 
 /**
  * Get Unix timestamp for a date
@@ -788,7 +788,7 @@ function checkdate(int $month, int $day, int $year): bool {}
  * with setlocale.
  */
 #[Deprecated(since: '8.1')]
-function strftime(string $format, ?int $timestamp): string|false {}
+function strftime(string $format, ?int $timestamp = null): string|false {}
 
 /**
  * Format a GMT/UTC time/date according to locale settings
@@ -805,7 +805,7 @@ function strftime(string $format, ?int $timestamp): string|false {}
  * @deprecated 8.1
  */
 #[Deprecated(since: '8.1')]
-function gmstrftime(string $format, ?int $timestamp): string|false {}
+function gmstrftime(string $format, ?int $timestamp = null): string|false {}
 
 /**
  * Return current Unix timestamp
@@ -841,7 +841,7 @@ function time(): int {}
     'tm_yday' => 'int',
     'tm_isdst' => 'int',
 ])]
-function localtime(?int $timestamp, bool $associative = false): array {}
+function localtime(?int $timestamp = null, bool $associative = false): array {}
 
 /**
  * Get date/time information
@@ -936,7 +936,7 @@ function localtime(?int $timestamp, bool $associative = false): array {}
     'month' => 'string',
     0 => 'int',
 ])]
-function getdate(?int $timestamp): array {}
+function getdate(?int $timestamp = null): array {}
 
 /**
  * Returns new DateTime object
@@ -950,7 +950,7 @@ function getdate(?int $timestamp): array {}
  * @return DateTime|false DateTime object on success or false on failure.
  */
 #[Pure(true)]
-function date_create(string $datetime = 'now', ?DateTimeZone $timezone): DateTime|false {}
+function date_create(string $datetime = 'now', ?DateTimeZone $timezone = null): DateTime|false {}
 
 /**
  * (PHP 5.5)<br/>
@@ -968,7 +968,7 @@ function date_create(string $datetime = 'now', ?DateTimeZone $timezone): DateTim
  * @return DateTimeImmutable|false DateTime object on success or false on failure.
  */
 #[Pure(true)]
-function date_create_immutable(string $datetime = 'now', ?DateTimeZone $timezone): DateTimeImmutable|false {}
+function date_create_immutable(string $datetime = 'now', ?DateTimeZone $timezone = null): DateTimeImmutable|false {}
 
 /**
  * Returns new DateTimeImmutable object formatted according to the specified format
@@ -1407,7 +1407,7 @@ function timezone_location_get(DateTimeZone $object): array|false {}
  */
 #[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-function timezone_identifiers_list(int $timezoneGroup = DateTimeZone::ALL, ?string $countryCode) {}
+function timezone_identifiers_list(int $timezoneGroup = DateTimeZone::ALL, ?string $countryCode = null) {}
 
 /**
  * Returns associative array containing dst, offset and the timezone name
@@ -1526,7 +1526,7 @@ function date_default_timezone_get(): string {}
  */
 #[Pure(true)]
 #[Deprecated(reason: 'in 8.1.  Use date_sun_info instead', since: '8.1')]
-function date_sunrise(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, ?float $utcOffset): string|int|float|false {}
+function date_sunrise(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude = null, ?float $longitude = null, ?float $zenith = null, ?float $utcOffset = null): string|int|float|false {}
 
 /**
  * Returns time of sunset for a given day and location
@@ -1577,7 +1577,7 @@ function date_sunrise(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?
  */
 #[Pure(true)]
 #[Deprecated(reason: 'in 8.1.  Use date_sun_info instead', since: '8.1')]
-function date_sunset(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, ?float $utcOffset): string|int|float|false {}
+function date_sunset(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude = null, ?float $longitude = null, ?float $zenith = null, ?float $utcOffset = null): string|int|float|false {}
 /**
  * Returns an array with information about sunset/sunrise and twilight begin/end
  * @link https://php.net/manual/en/function.date-sun-info.php

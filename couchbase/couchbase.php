@@ -2351,7 +2351,7 @@ class SearchOptions implements JsonSerializable
      * @see \SearchHighlightMode::ANSI
      * @see \SearchHighlightMode::SIMPLE
      */
-    public function highlight(string $style = null, array $fields = null): SearchOptions {}
+    public function highlight(?string $style = null, ?array $fields = null): SearchOptions {}
 
     /**
      * Configures the list of collections to use for restricting results.
@@ -2593,7 +2593,7 @@ class GeoDistanceSearchQuery implements JsonSerializable, SearchQuery
 {
     public function jsonSerialize() {}
 
-    public function __construct(float $longitude, float $latitude, string $distance = null) {}
+    public function __construct(float $longitude, float $latitude, ?string $distance = null) {}
 
     /**
      * @param float $boost
@@ -2999,7 +2999,7 @@ class NumericRangeSearchFacet implements JsonSerializable, SearchFacet
      * @param float $max
      * @return NumericRangeSearchFacet
      */
-    public function addRange(string $name, float $min = null, float $max = null): NumericRangeSearchFacet {}
+    public function addRange(string $name, ?float $min = null, ?float $max = null): NumericRangeSearchFacet {}
 }
 
 /**

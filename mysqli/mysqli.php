@@ -1472,7 +1472,7 @@ class mysqli_stmt
      * @param mysqli $mysql
      * @param string $query [optional]
      */
-    public function __construct($mysql, $query) {}
+    public function __construct($mysql, $query = null) {}
 
     /**
      * Used to get the current value of a statement attribute
@@ -1784,7 +1784,7 @@ function mysqli_autocommit(mysqli $mysql, bool $enable): bool {}
  * @return bool true on success or false on failure.
  * @since 5.5
  */
-function mysqli_begin_transaction(mysqli $mysql, int $flags = 0, ?string $name): bool {}
+function mysqli_begin_transaction(mysqli $mysql, int $flags = 0, ?string $name = null): bool {}
 
 /**
  * Changes the user of the specified database connection
@@ -2170,7 +2170,7 @@ function mysqli_get_charset(mysqli $mysql): ?object {}
  */
 #[LanguageLevelTypeAware(['8.0' => 'string'], default: 'string|null')]
 function mysqli_get_client_info(
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.1')] mysqli $mysql,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.1')] mysqli $mysql = null,
     #[PhpStormStubsElementAvailable(from: '8.0')] ?mysqli $mysql = null
 ) {}
 
@@ -2476,7 +2476,7 @@ function mysqli_query(
  * @param int $flags
  * @return bool
  */
-function mysqli_real_connect(mysqli $mysql, ?string $hostname, ?string $username, ?string $password, ?string $database, ?int $port, ?string $socket, int $flags = 0): bool {}
+function mysqli_real_connect(mysqli $mysql, ?string $hostname = null, ?string $username = null, ?string $password = null, ?string $database = null, ?int $port = null, ?string $socket = null, int $flags = 0): bool {}
 
 /**
  * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection
@@ -2529,7 +2529,7 @@ function mysqli_release_savepoint(mysqli $mysql, string $name): bool {}
  * @param string|null $name [optional] If provided then ROLLBACKname is executed
  * @return bool
  */
-function mysqli_rollback(mysqli $mysql, int $flags = 0, ?string $name): bool {}
+function mysqli_rollback(mysqli $mysql, int $flags = 0, ?string $name = null): bool {}
 
 /**
  * Set a named transaction savepoint
@@ -2671,7 +2671,7 @@ function mysqli_stmt_send_long_data(mysqli_stmt $statement, int $param_num, stri
 function mysqli_stmt_bind_param(
     mysqli_stmt $statement,
     string $types,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed &$vars,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed &$vars = null,
     mixed &...$vars
 ): bool {}
 
@@ -2684,7 +2684,7 @@ function mysqli_stmt_bind_param(
  */
 function mysqli_stmt_bind_result(
     mysqli_stmt $statement,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed &$vars,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed &$vars = null,
     mixed &...$vars
 ): bool {}
 

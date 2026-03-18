@@ -53,7 +53,7 @@ final class Sync
      *
      * @return bool
      */
-    public function notify(bool $all = null): bool {}
+    public function notify(?bool $all = null): bool {}
 
     /**
      * Shall exclusively enter into the critical code

@@ -664,7 +664,7 @@ final class EvEmbed extends EvWatcher
      */
     public function __construct(
         EvLoop $other,
-        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $callback,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $callback = null,
         #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data = null,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $priority = 0
     ) {}
@@ -693,7 +693,7 @@ final class EvEmbed extends EvWatcher
      *
      * @return EvEmbed
      */
-    final public static function createStopped(EvLoop $other, mixed $callback, mixed $data = null, int $priority = 0) {}
+    final public static function createStopped(EvLoop $other, mixed $callback = null, mixed $data = null, int $priority = 0) {}
 }
 
 /**
@@ -1398,7 +1398,7 @@ final class EvLoop
      * @param int $priority
      * @return EvEmbed
      */
-    final public function embed(EvLoop $other, callable $callback, $data = null, $priority = 0) {}
+    final public function embed(EvLoop $other, ?callable $callback = null, $data = null, $priority = 0) {}
 
     /**
      * Creates EvFork object associated with the current event loop instance.

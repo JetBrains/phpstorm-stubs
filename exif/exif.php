@@ -77,7 +77,7 @@ use JetBrains\PhpStorm\Deprecated;
  * those headers. If no data can be returned,
  * <b>exif_read_data</b> will return <b>FALSE</b>.
  */
-function exif_read_data($file, ?string $required_sections, bool $as_arrays = false, bool $read_thumbnail = false): array|false {}
+function exif_read_data($file, ?string $required_sections = null, bool $as_arrays = false, bool $read_thumbnail = false): array|false {}
 
 /**
  * Alias of <b>exif_read_data</b>
@@ -123,7 +123,7 @@ function exif_tagname(int $index): string|false {}
  * @return string|false the embedded thumbnail, or <b>FALSE</b> if the image contains no
  * thumbnail.
  */
-function exif_thumbnail($file, &$width, &$height, &$image_type): string|false {}
+function exif_thumbnail($file, &$width = null, &$height = null, &$image_type = null): string|false {}
 
 /**
  * Determine the type of an image

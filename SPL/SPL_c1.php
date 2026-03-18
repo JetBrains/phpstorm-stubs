@@ -2359,7 +2359,7 @@ class MultipleIterator implements Iterator
      * @param int $flags Defaults to MultipleIterator::MIT_NEED_ALL | MultipleIterator::MIT_KEYS_NUMERIC
      */
     public function __construct(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $flags,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $flags = 1,
         #[PhpStormStubsElementAvailable(from: '8.0')] int $flags = MultipleIterator::MIT_NEED_ALL|MultipleIterator::MIT_KEYS_NUMERIC
     ) {}
 

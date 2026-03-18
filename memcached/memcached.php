@@ -734,7 +734,7 @@ class Memcached
      * The <b>Memcached::getResultCode</b> will return
      * <b>Memcached::RES_NOTFOUND</b> if the key does not exist.
      */
-    public function get($key, callable $cache_cb = null, $flags = 0) {}
+    public function get($key, ?callable $cache_cb = null, $flags = 0) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>
@@ -756,7 +756,7 @@ class Memcached
      * The <b>Memcached::getResultCode</b> will return
      * <b>Memcached::RES_NOTFOUND</b> if the key does not exist.
      */
-    public function getByKey($server_key, $key, callable $cache_cb = null, $flags = 0) {}
+    public function getByKey($server_key, $key, ?callable $cache_cb = null, $flags = 0) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>
@@ -807,7 +807,7 @@ class Memcached
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * Use <b>Memcached::getResultCode</b> if necessary.
      */
-    public function getDelayed(array $keys, $with_cas = null, callable $value_cb = null) {}
+    public function getDelayed(array $keys, $with_cas = null, ?callable $value_cb = null) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>
@@ -828,7 +828,7 @@ class Memcached
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * Use <b>Memcached::getResultCode</b> if necessary.
      */
-    public function getDelayedByKey($server_key, array $keys, $with_cas = null, callable $value_cb = null) {}
+    public function getDelayedByKey($server_key, array $keys, $with_cas = null, ?callable $value_cb = null) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>
@@ -919,7 +919,7 @@ class Memcached
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * Use <b>Memcached::getResultCode</b> if necessary.
      */
-    public function touchByKey($server_key, $key, $expiration) {}
+    public function touchByKey($server_key, $key, $expiration = 0) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>

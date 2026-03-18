@@ -102,7 +102,7 @@ class MongoClient
      *         </ul>
      * @throws MongoConnectionException
      */
-    public function __construct($server = "mongodb://localhost:27017", array $options = ["connect" => true], $driver_options) {}
+    public function __construct($server = "mongodb://localhost:27017", array $options = ["connect" => true], $driver_options = []) {}
 
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
@@ -1149,7 +1149,7 @@ class MongoCollection
      * @param array $query An optional query parameters
      * @return array|false Returns an array of distinct values, or <b>FALSE</b> on failure
      */
-    public function distinct($key, array $query = null) {}
+    public function distinct($key, ?array $query = null) {}
 
     /**
      * Update a document and return it
@@ -1160,7 +1160,7 @@ class MongoCollection
      * @param array $options An array of options to apply, such as remove the match document from the DB and return it.
      * @return array Returns the original document, or the modified document when new is set.
      */
-    public function findAndModify(array $query, array $update = null, array $fields = null, array $options = null) {}
+    public function findAndModify(array $query, ?array $update = null, ?array $fields = null, ?array $options = null) {}
 
     /**
      * Querys this collection, returning a single element
@@ -1663,7 +1663,7 @@ class MongoCommandCursor implements MongoCursorInterface
 
     public function getReadPreference(): array {}
 
-    public function setReadPreference(string $read_preference, array $tags = null): MongoCursorInterface {}
+    public function setReadPreference(string $read_preference, ?array $tags = null): MongoCursorInterface {}
 
     public function timeout(int $ms): MongoCursorInterface {}
 }
@@ -1678,7 +1678,7 @@ interface MongoCursorInterface extends Iterator
 
     public function getReadPreference(): array;
 
-    public function setReadPreference(string $read_preference, array $tags = null): MongoCursorInterface;
+    public function setReadPreference(string $read_preference, ?array $tags = null): MongoCursorInterface;
 
     public function timeout(int $ms): MongoCursorInterface;
 }

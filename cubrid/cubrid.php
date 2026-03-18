@@ -772,7 +772,7 @@ function cubrid_column_types($req_identifier) {}
  * Returns true on success or false on failure.
  * </p>
  */
-function cubrid_field_seek($result, $field_offset) {}
+function cubrid_field_seek($result, $field_offset = 0) {}
 
 /**
  * (PHP 5, CUBRID &gt;= 8.3.0)<br/>

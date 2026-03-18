@@ -277,7 +277,7 @@ function pg_ping(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection|null'], de
  * @return string|false A string containing the value of the parameter, <b>FALSE</b> on failure or invalid
  * <i>param_name</i>.
  */
-function pg_parameter_status(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection, string $name): string|false {}
+function pg_parameter_status(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection = null, string $name): string|false {}
 
 /**
  * Returns the current in-transaction status of the server.
@@ -1137,7 +1137,7 @@ function pg_last_notice(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], 
  */
 function pg_put_line(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $connection = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] #[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection,
+    #[PhpStormStubsElementAvailable(from: '8.0')] #[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection = null,
     string $query
 ): bool {}
 
@@ -1486,7 +1486,7 @@ function pg_lo_truncate(
  */
 function pg_escape_string(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $connection = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] #[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection,
+    #[PhpStormStubsElementAvailable(from: '8.0')] #[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection = null,
     string $string
 ): string {}
 
@@ -1507,7 +1507,7 @@ function pg_escape_string(
  */
 function pg_escape_bytea(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $connection = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] #[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection,
+    #[PhpStormStubsElementAvailable(from: '8.0')] #[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection = null,
     string $string
 ): string {}
 
@@ -1528,7 +1528,7 @@ function pg_escape_bytea(
  */
 function pg_escape_identifier(
     #[PhpStormStubsElementAvailable(from: '5.4', to: '7.4')] $connection = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] #[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection,
+    #[PhpStormStubsElementAvailable(from: '8.0')] #[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection = null,
     string $string
 ): string|false {}
 
@@ -1549,7 +1549,7 @@ function pg_escape_identifier(
  */
 function pg_escape_literal(
     #[PhpStormStubsElementAvailable(from: '5.4', to: '7.4')] $connection = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] #[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection,
+    #[PhpStormStubsElementAvailable(from: '8.0')] #[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection = null,
     string $string
 ): string|false {}
 
@@ -1626,7 +1626,7 @@ function pg_client_encoding(#[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection
  */
 function pg_set_client_encoding(
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $connection = null,
-    #[PhpStormStubsElementAvailable(from: '8.0')] #[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection,
+    #[PhpStormStubsElementAvailable(from: '8.0')] #[LanguageLevelTypeAware(['8.1' => 'PgSql\Connection'], default: 'resource')] $connection = null,
     string $encoding
 ): int {}
 

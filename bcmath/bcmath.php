@@ -187,7 +187,7 @@ namespace {
      */
     #[Pure]
     #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|null")]
-    function bcsqrt(string $num, ?int $scale) {}
+    function bcsqrt(string $num, ?int $scale = null) {}
 
     /**
      * Set default scale parameter for all bc math functions

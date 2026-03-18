@@ -2051,7 +2051,7 @@ class GearmanWorker
      * @param int $timeout An interval of time in seconds
      * @return bool A standard Gearman return value
      */
-    public function register($function_name, $timeout) {}
+    public function register($function_name, $timeout = 0) {}
 
     /**
      * Unregisters a function name with the job servers ensuring that no more jobs (for

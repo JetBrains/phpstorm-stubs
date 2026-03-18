@@ -159,7 +159,7 @@ function uv_shutdown($handle, callable $callback) {}
  *
  * @return void
  */
-function uv_close($handle, callable $callback = null) {}
+function uv_close($handle, ?callable $callback = null) {}
 
 /**
  * Starts read callback for uv streams.
@@ -505,7 +505,7 @@ function uv_is_writable($handle): bool {}
  *
  * @return bool
  */
-function uv_walk($loop, callable $closure, array $opaque = null): bool {}
+function uv_walk($loop, callable $closure, ?array $opaque = null): bool {}
 
 /**
  * @param resource $uv

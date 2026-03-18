@@ -88,7 +88,7 @@ class Client implements \SplSubject, \Countable
      * @throws \http\Exception\UnexpectedValueException
      * @throws \http\Exception\RuntimeException
      */
-    public function __construct(string $driver = null, string $persistent_handle_id = null) {}
+    public function __construct(?string $driver = null, ?string $persistent_handle_id = null) {}
 
     /**
      * Add custom cookies.
@@ -98,7 +98,7 @@ class Client implements \SplSubject, \Countable
      * @throws \http\Exception\InvalidArgumentException
      * @return \http\Client self.
      */
-    public function addCookies(array $cookies = null) {}
+    public function addCookies(?array $cookies = null) {}
 
     /**
      * Add specific SSL options.
@@ -108,7 +108,7 @@ class Client implements \SplSubject, \Countable
      * @throws \http\Exception\InvalidArgumentException
      * @return \http\Client self.
      */
-    public function addSslOptions(array $ssl_options = null) {}
+    public function addSslOptions(?array $ssl_options = null) {}
 
     /**
      * Implements SplSubject. Attach another observer.
@@ -214,7 +214,7 @@ class Client implements \SplSubject, \Countable
      * @throws \http\Exception\RuntimeException
      * @return \http\Client self.
      */
-    public function enqueue(Client\Request $request, callable $cb = null) {}
+    public function enqueue(Client\Request $request, ?callable $cb = null) {}
 
     /**
      * Get a list of available configuration options and their default values.
@@ -353,7 +353,7 @@ class Client implements \SplSubject, \Countable
      * @throws \http\Exception\RuntimeException
      * @return \http\Client self.
      */
-    public function requeue(Client\Request $request, callable $cb = null) {}
+    public function requeue(Client\Request $request, ?callable $cb = null) {}
 
     /**
      * Reset the client to the initial state.
@@ -380,7 +380,7 @@ class Client implements \SplSubject, \Countable
      * @throws \http\Exception\InvalidArgumentException
      * @return \http\Client self.
      */
-    public function setCookies(array $cookies = null) {}
+    public function setCookies(?array $cookies = null) {}
 
     /**
      * Set client debugging callback.
@@ -406,7 +406,7 @@ class Client implements \SplSubject, \Countable
      * @throws \http\Exception\InvalidArgumentException
      * @return \http\Client self.
      */
-    public function setOptions(array $options = null) {}
+    public function setOptions(?array $options = null) {}
 
     /**
      * Specifically set SSL options.
@@ -416,7 +416,7 @@ class Client implements \SplSubject, \Countable
      * @throws \http\Exception\InvalidArgumentException
      * @return \http\Client self.
      */
-    public function setSslOptions(array $ssl_options = null) {}
+    public function setSslOptions(?array $ssl_options = null) {}
 
     /**
      * Wait for $timeout seconds for transfers to provide data.
@@ -456,7 +456,7 @@ class Cookie
      * @throws \http\Exception\InvalidArgumentException
      * @throws \http\Exception\RuntimeException
      */
-    public function __construct($cookies = null, int $flags = 0, array $allowed_extras = null) {}
+    public function __construct($cookies = null, int $flags = 0, ?array $allowed_extras = null) {}
 
     /**
      * String cast handler. Alias of http\Cookie::toString().
@@ -610,7 +610,7 @@ class Cookie
      * @throws \http\Exception\InvalidArgumentException
      * @return \http\Cookie self.
      */
-    public function setCookies(array $cookies = null) {}
+    public function setCookies(?array $cookies = null) {}
 
     /**
      * Set the effective domain of the cookie list.
@@ -620,7 +620,7 @@ class Cookie
      * @throws \http\Exception\InvalidArgumentException
      * @return \http\Cookie self.
      */
-    public function setDomain(string $value = null) {}
+    public function setDomain(?string $value = null) {}
 
     /**
      * Set the traditional expires timestamp.
@@ -644,7 +644,7 @@ class Cookie
      * @throws \http\Exception\InvalidArgumentException
      * @return \http\Cookie self.
      */
-    public function setExtra(string $extra_name, string $extra_value = null) {}
+    public function setExtra(string $extra_name, ?string $extra_value = null) {}
 
     /**
      * (Re)set the extra attributes.
@@ -654,7 +654,7 @@ class Cookie
      * @throws \http\Exception\InvalidArgumentException
      * @return \http\Cookie self.
      */
-    public function setExtras(array $extras = null) {}
+    public function setExtras(?array $extras = null) {}
 
     /**
      * Set the flags to specified $value.
@@ -685,7 +685,7 @@ class Cookie
      * @throws \http\Exception\InvalidArgumentException
      * @return \http\Cookie self.
      */
-    public function setPath(string $path = null) {}
+    public function setPath(?string $path = null) {}
 
     /**
      * Get the cookie list as array.
@@ -720,7 +720,7 @@ class Env
      * @throws \http\Exception\UnexpectedValueException
      * @return \http\Message\Body instance representing the request body
      */
-    public function getRequestBody(string $body_class_name = null) {}
+    public function getRequestBody(?string $body_class_name = null) {}
 
     /**
      * Retrieve one or all headers of the current HTTP request.
@@ -730,7 +730,7 @@ class Env
      * 		 or string the compound header when $header_name was found
      * 		 or array of all headers if $header_name was not specified
      */
-    public function getRequestHeader(string $header_name = null) {}
+    public function getRequestHeader(?string $header_name = null) {}
 
     /**
      * Get the HTTP response code to send.
@@ -747,7 +747,7 @@ class Env
      * 		 or NULL if the header was not found
      * 		 or array of all response headers, if $header_name was not specified
      */
-    public function getResponseHeader(string $header_name = null) {}
+    public function getResponseHeader(?string $header_name = null) {}
 
     /**
      * Retrieve a list of all known HTTP response status.
@@ -781,7 +781,7 @@ class Env
      * @return string|null NULL if negotiation fails.
      * 		 or string the closest match negotiated, or the default (first entry of $supported).
      */
-    public function negotiate(string $params, array $supported, string $prim_typ_sep = null, array &$result = null) {}
+    public function negotiate(string $params, array $supported, ?string $prim_typ_sep = null, ?array &$result = null) {}
 
     /**
      * Negotiate the client's preferred character set.
@@ -856,7 +856,7 @@ class Env
      * @param bool $replace
      * @return bool Success.
      */
-    public function setResponseHeader(string $header_name, $header_value = null, int $response_code = null, bool $replace = null) {}
+    public function setResponseHeader(string $header_name, $header_value = null, ?int $response_code = null, ?bool $replace = null) {}
 }
 /**
  * The http extension's Exception interface.
@@ -918,7 +918,7 @@ class Header implements \Serializable
      *
      * # Throws:
      */
-    public function __construct(string $name = null, $value = null) {}
+    public function __construct(?string $name = null, $value = null) {}
 
     /**
      * String cast handler. Alias of http\Header::serialize().
@@ -936,7 +936,7 @@ class Header implements \Serializable
      * @param int $flags The modus operandi. See http\Params constants.
      * @return \http\Params instance
      */
-    public function getParams($ps = null, $as = null, $vs = null, int $flags = null) {}
+    public function getParams($ps = null, $as = null, $vs = null, ?int $flags = null) {}
 
     /**
      * Match the HTTP header's value against provided $value according to $flags.
@@ -945,7 +945,7 @@ class Header implements \Serializable
      * @param int $flags The modus operandi. See http\Header constants.
      * @return bool whether $value matches the header value according to $flags.
      */
-    public function match(string $value, int $flags = null) {}
+    public function match(string $value, ?int $flags = null) {}
 
     /**
      * Negotiate the header's value against a list of supported values in $supported.
@@ -973,7 +973,7 @@ class Header implements \Serializable
      * @return array|false array of parsed headers, where the elements are instances of $header_class if specified.
      * 		 or false if parsing fails.
      */
-    public function parse(string $header, string $header_class = null) {}
+    public function parse(string $header, ?string $header_class = null) {}
 
     /**
      * Implements Serializable.
@@ -1169,7 +1169,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @return mixed|\http\Header mixed the header value if $into_class is NULL.
      * 		 or \http\Header descendant.
      */
-    public function getHeader(string $header, string $into_class = null) {}
+    public function getHeader(string $header, ?string $into_class = null) {}
 
     /**
      * Retrieve all message headers.
@@ -1357,7 +1357,7 @@ class Message implements \Countable, \Serializable, \Iterator
      * @param array $headers The message's headers.
      * @return \http\Message null.
      */
-    public function setHeaders(array $headers = null) {}
+    public function setHeaders(?array $headers = null) {}
 
     /**
      * Set the HTTP protocol version of the message.
@@ -1599,7 +1599,7 @@ class Params implements \ArrayAccess
      * @throws \http\Exception\InvalidArgumentException
      * @throws \http\Exception\RuntimeException
      */
-    public function __construct($params = null, $ps = null, $as = null, $vs = null, int $flags = null) {}
+    public function __construct($params = null, $ps = null, $as = null, $vs = null, ?int $flags = null) {}
 
     /**
      * String cast handler. Alias of http\Params::toString().
@@ -1733,7 +1733,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate
      * 		 or mixed the querystring value cast to $type if $type was specified and the key $name exists.
      * 		 or string the querystring value if the key $name exists and $type is not specified or equals http\QueryString::TYPE_STRING.
      */
-    public function get(string $name = null, $type = null, $defval = null, bool $delete = false) {}
+    public function get(?string $name = null, $type = null, $defval = null, bool $delete = false) {}
 
     /**
      * Retrieve an array value with at offset $name.
@@ -2313,7 +2313,7 @@ class Request extends \http\Message
      * @throws \http\Exception\InvalidArgumentException
      * @throws \http\Exception\UnexpectedValueException
      */
-    public function __construct(string $meth = null, string $url = null, array $headers = null, \http\Message\Body $body = null) {}
+    public function __construct(?string $meth = null, ?string $url = null, ?array $headers = null, ?\http\Message\Body $body = null) {}
 
     /**
      * Add querystring data.
@@ -2334,7 +2334,7 @@ class Request extends \http\Message
      * @throws \http\Exception\InvalidArgumentException
      * @return \http\Client\Request self.
      */
-    public function addSslOptions(array $ssl_options = null) {}
+    public function addSslOptions(?array $ssl_options = null) {}
 
     /**
      * Extract the currently set "Content-Type" header.
@@ -2392,7 +2392,7 @@ class Request extends \http\Message
      * @throws \http\Exception\InvalidArgumentException
      * @return \http\Client\Request self.
      */
-    public function setOptions(array $options = null) {}
+    public function setOptions(?array $options = null) {}
 
     /**
      * (Re)set the querystring.
@@ -2413,7 +2413,7 @@ class Request extends \http\Message
      * @throws \http\Exception\InvalidArgumentException
      * @return \http\Client\Request self.
      */
-    public function setSslOptions(array $ssl_options = null) {}
+    public function setSslOptions(?array $ssl_options = null) {}
 }
 /**
  * The http\Client\Response class represents an HTTP message the client returns as answer from a server to an http\Client\Request.
@@ -2428,7 +2428,7 @@ class Response extends \http\Message
      * @param array $allowed_extras List of keys treated as extras.
      * @return array list of http\Cookie instances.
      */
-    public function getCookies(int $flags = 0, array $allowed_extras = null) {}
+    public function getCookies(int $flags = 0, ?array $allowed_extras = null) {}
 
     /**
      * Retrieve transfer related information after the request has completed.
@@ -2441,7 +2441,7 @@ class Response extends \http\Message
      * @return object|mixed object stdClass instance with all transfer info if $name was not given.
      * 		 or mixed the specific transfer info for $name.
      */
-    public function getTransferInfo(string $name = null) {}
+    public function getTransferInfo(?string $name = null) {}
 }
 
 namespace http\Client\Curl;
@@ -2530,7 +2530,7 @@ interface User
      *
      * @param int $timeout_ms Block for at most this milliseconds.
      */
-    public function wait(int $timeout_ms = null);
+    public function wait(?int $timeout_ms = null);
 }
 /**
  * CURL feature constants.
@@ -2967,7 +2967,7 @@ class Request extends \http\Message
      * 		 or mixed the querystring value cast to $type if $type was specified and the key $name exists.
      * 		 or string the querystring value if the key $name exists and $type is not specified or equals http\QueryString::TYPE_STRING.
      */
-    public function getCookie(string $name = null, $type = null, $defval = null, bool $delete = false) {}
+    public function getCookie(?string $name = null, $type = null, $defval = null, bool $delete = false) {}
 
     /**
      * Retrieve the uploaded files list ($_FILES).
@@ -2991,7 +2991,7 @@ class Request extends \http\Message
      * 		 or mixed the querystring value cast to $type if $type was specified and the key $name exists.
      * 		 or string the querystring value if the key $name exists and $type is not specified or equals http\QueryString::TYPE_STRING.
      */
-    public function getForm(string $name = null, $type = null, $defval = null, bool $delete = false) {}
+    public function getForm(?string $name = null, $type = null, $defval = null, bool $delete = false) {}
 
     /**
      * Retrieve an URL query value ($_GET).
@@ -3008,7 +3008,7 @@ class Request extends \http\Message
      * 		 or mixed the querystring value cast to $type if $type was specified and the key $name exists.
      * 		 or string the querystring value if the key $name exists and $type is not specified or equals http\QueryString::TYPE_STRING.
      */
-    public function getQuery(string $name = null, $type = null, $defval = null, bool $delete = false) {}
+    public function getQuery(?string $name = null, $type = null, $defval = null, bool $delete = false) {}
 }
 /**
  * The http\Env\Response class' instances represent the server's current HTTP response.
@@ -3454,7 +3454,7 @@ class Body implements \Serializable
      * @throws \http\Exception\RuntimeException
      * @return \http\Message\Body self.
      */
-    public function addForm(array $fields = null, array $files = null) {}
+    public function addForm(?array $fields = null, ?array $files = null) {}
 
     /**
      * Add a part to a multipart body.
@@ -3516,7 +3516,7 @@ class Body implements \Serializable
      * @return int|object int the requested stat field.
      * 		 or object stdClass instance holding all four stat fields.
      */
-    public function stat(string $field = null) {}
+    public function stat(?string $field = null) {}
 
     /**
      * Stream the message body through a callback.

@@ -51,7 +51,7 @@ class Table implements \Iterator, \ArrayAccess, \Countable
     /**
      * @return mixed
      */
-    public function get(string $key, string $field = null) {}
+    public function get(string $key, ?string $field = null) {}
 
     /**
      * This method has an alias of \Swoole\Table::delete().

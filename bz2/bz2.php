@@ -55,7 +55,7 @@ function bzread($bz, int $length = 1024): string|false {}
  * </p>
  * @return int|false the number of bytes written, or <b>FALSE</b> on error.
  */
-function bzwrite($bz, string $data, ?int $length): int|false {}
+function bzwrite($bz, string $data, ?int $length = null): int|false {}
 
 /**
  * Force a write of all buffered data
