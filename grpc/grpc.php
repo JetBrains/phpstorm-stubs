@@ -514,9 +514,9 @@ namespace Grpc;
          * @throws \InvalidArgumentException
          */
         public static function createSsl(
-            string $pem_root_certs = null,
-            string $pem_private_key = null,
-            string $pem_cert_chain = null
+            ?string $pem_root_certs = null,
+            ?string $pem_private_key = null,
+            ?string $pem_cert_chain = null
         ) {}
 
         /**

@@ -1206,7 +1206,7 @@ function imagefilledpolygon(
     GdImage $image,
     array $points,
     #[Deprecated(since: "8.1")] int $num_points_or_color,
-    ?int $color
+    ?int $color = null
 ): bool {}
 
 /**
@@ -1227,7 +1227,7 @@ function imagefilledpolygon(
 function imagefilledpolygon(
     GdImage $image,
     array $points,
-    ?int $color
+    ?int $color = null
 ): bool {}
 
 /**
@@ -1424,7 +1424,7 @@ function imagepolygon(
     GdImage $image,
     array $points,
     int $num_points_or_color,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?int $color,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?int $color = null,
     #[PhpStormStubsElementAvailable(from: '8.0')] ?int $color = null
 ): bool {}
 
@@ -2339,7 +2339,7 @@ function imageopenpolygon(
     GdImage $image,
     array $points,
     #[Deprecated(since: "8.1")] int $num_points_or_color,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?int $color,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?int $color = null,
     #[PhpStormStubsElementAvailable(from: '8.0')] ?int $color = null
 ): bool {}
 

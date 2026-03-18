@@ -77,7 +77,7 @@ class RedisSentinel
      *
      * @since >= 6.0.0
      */
-    public function __construct(array $options) {}
+    public function __construct(?array $options = null) {}
 
     /**
      * Check if the current Sentinel configuration is able to reach the quorum needed to failover a master, and the

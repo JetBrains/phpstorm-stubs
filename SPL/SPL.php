@@ -327,7 +327,7 @@ class RecursiveIteratorIterator implements OuterIterator
      * @return RecursiveIterator|null The current active sub iterator.
      */
     #[TentativeType]
-    public function getSubIterator(#[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $level): ?RecursiveIterator {}
+    public function getSubIterator(#[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $level = null): ?RecursiveIterator {}
 
     /**
      * Get inner iterator

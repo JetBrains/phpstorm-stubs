@@ -146,7 +146,7 @@ class SNMP
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * @since 5.4
      */
-    public function setSecurity($sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $contextName, $contextEngineID) {}
+    public function setSecurity($sec_level, $auth_protocol = "", $auth_passphrase = "", $priv_protocol = "", $priv_passphrase = "", $contextName = "", $contextEngineID = "") {}
 
     /**
      * Fetch an SNMP object

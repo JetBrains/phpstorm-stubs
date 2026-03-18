@@ -164,7 +164,7 @@ function xdiff_string_diff(string $old_data, string $new_data, int $context = 3,
  * @param ?string $error If provided then rejected parts are stored inside this variable.
  * @return bool|string the merged string, false if an internal error happened, or true if merged string is empty.
  */
-function xdiff_string_merge3(string $old_data, string $new_data1, string $new_data2, ?string &$error) {}
+function xdiff_string_merge3(string $old_data, string $new_data1, string $new_data2, ?string &$error = null) {}
 
 /**
  * Alias of xdiff_string_bpatch
@@ -186,7 +186,7 @@ function xdiff_string_patch_binary(string $str, string $patch) {}
  * @param ?string $error If provided then rejected parts are stored inside this variable.
  * @return string|false the patched string, or false on error.
  */
-function xdiff_string_patch(string $str, string $patch, #[ExpectedValues([XDIFF_PATCH_NORMAL|XDIFF_PATCH_REVERSE|XDIFF_PATCH_IGNORESPACE])] ?int $flags, ?string &$error) {}
+function xdiff_string_patch(string $str, string $patch, #[ExpectedValues([XDIFF_PATCH_NORMAL|XDIFF_PATCH_REVERSE|XDIFF_PATCH_IGNORESPACE])] ?int $flags = null, ?string &$error = null) {}
 
 /**
  * Make binary diff of two strings using the Rabin's polynomial fingerprinting algorithm

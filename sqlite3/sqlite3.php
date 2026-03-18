@@ -78,8 +78,8 @@ class SQLite3
     #[TentativeType]
     public function open(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $flags,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $encryptionKey,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $flags = 6,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $encryptionKey = '',
         #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE,
         #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $encryptionKey = ''
     ): void {}
@@ -343,7 +343,7 @@ class SQLite3
      */
     #[TentativeType]
     public function enableExceptions(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $enable,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $enable = false,
         #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $enable = false
     ): bool {}
 
@@ -368,8 +368,8 @@ class SQLite3
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $flags,
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $encryptionKey,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $flags = 6,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $encryptionKey = '',
         #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE,
         #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $encryptionKey = ''
     ) {}
@@ -387,7 +387,7 @@ class SQLite3
      */
     #[TentativeType]
     public function enableExtendedResultCodes(
-        #[PhpStormStubsElementAvailable(from: '7.4', to: '7.4')] bool $enable,
+        #[PhpStormStubsElementAvailable(from: '7.4', to: '7.4')] bool $enable = true,
         #[PhpStormStubsElementAvailable(from: '8.0')] bool $enable = true
     ): bool {}
 

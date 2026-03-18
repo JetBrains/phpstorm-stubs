@@ -2890,7 +2890,7 @@ final class Yaf_Route_Rewrite extends Yaf_Router implements Yaf_Route_Interface
      *
      * @throws Yaf_Exception_TypeError
      */
-    public function __construct($match, array $route, array $verify = null, $reverse = null) {}
+    public function __construct($match, array $route, ?array $verify = null, $reverse = null) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-route-rewrite.route.php
@@ -2986,7 +2986,7 @@ final class Yaf_Route_Regex extends Yaf_Router implements Yaf_Route_Interface
      * @param array|null $query
      * @return bool
      */
-    public function assemble(array $info, array $query = null) {}
+    public function assemble(array $info, ?array $query = null) {}
 
     /**
      * @param string $uri

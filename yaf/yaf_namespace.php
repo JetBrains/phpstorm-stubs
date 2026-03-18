@@ -364,7 +364,7 @@ final class Dispatcher
      * @param array $options
      * @return \Yaf\View_Interface
      */
-    public function initView($templates_dir, array $options = null) {}
+    public function initView($templates_dir, ?array $options = null) {}
 
     /**
      * This method provides a solution for that if you want use a custom view engine instead of \Yaf\View\Simple
@@ -1071,7 +1071,7 @@ abstract class Controller_Abstract
      *
      * @return string
      */
-    protected function render($tpl, array $parameters = null) {}
+    protected function render($tpl, ?array $parameters = null) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.display.php
@@ -1081,7 +1081,7 @@ abstract class Controller_Abstract
      *
      * @return bool
      */
-    protected function display($tpl, array $parameters = null) {}
+    protected function display($tpl, ?array $parameters = null) {}
 
     /**
      * retrieve current request object
@@ -1127,7 +1127,7 @@ abstract class Controller_Abstract
      *
      * @return \Yaf\Response_Abstract
      */
-    public function initView(array $options = null) {}
+    public function initView(?array $options = null) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.setviewpath.php
@@ -1165,7 +1165,7 @@ abstract class Controller_Abstract
      *
      * @return bool return FALSE on failure
      */
-    public function forward($module, $controller = null, $action = null, array $parameters = null) {}
+    public function forward($module, $controller = null, $action = null, ?array $parameters = null) {}
 
     /**
      * redirect to a URL by sending a 302 header
@@ -1211,7 +1211,7 @@ abstract class Controller_Abstract
      * @param \Yaf\View_Interface $view
      * @param array $invokeArgs
      */
-    final public function __construct(Request_Abstract $request, Response_Abstract $response, View_Interface $view, array $invokeArgs = null) {}
+    final public function __construct(Request_Abstract $request, Response_Abstract $response, View_Interface $view, ?array $invokeArgs = null) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.clone.php
@@ -1821,7 +1821,7 @@ interface View_Interface
      * @param array $tpl_vars
      * @return bool
      */
-    public function display($tpl, array $tpl_vars = null);
+    public function display($tpl, ?array $tpl_vars = null);
 
     /**
      * @link https://secure.php.net/manual/en/yaf-view-interface.getscriptpath.php
@@ -1839,7 +1839,7 @@ interface View_Interface
      * @param array $tpl_vars
      * @return string
      */
-    public function render($tpl, array $tpl_vars = null);
+    public function render($tpl, ?array $tpl_vars = null);
 
     /**
      * Set the templates base directory, this is usually called by \Yaf\Dispatcher
@@ -1880,7 +1880,7 @@ interface Route_Interface
      * @param array $query
      * @return bool
      */
-    public function assemble(array $info, array $query = null);
+    public function assemble(array $info, ?array $query = null);
 }/**
  * @link https://secure.php.net/manual/en/class.yaf-exception.php
  */
@@ -1924,7 +1924,7 @@ class Route_Static implements \Yaf\Route_Interface
      * @param array $query
      * @return bool
      */
-    public function assemble(array $info, array $query = null) {}
+    public function assemble(array $info, ?array $query = null) {}
 }}
 
 namespace Yaf\Response {
@@ -2429,7 +2429,7 @@ namespace Yaf\View {
  * <b>\Yaf\View\Simple</b> is the built-in template engine in Yaf, it is a simple but fast template engine, and only support PHP script template.
  * @link https://secure.php.net/manual/en/class.yaf-view-simple.php
  *
- * @method void|bool eval(string $tpl_str, array $vars = null) <p>Render a string template and return the result.</p>
+ * @method void|bool eval(string $tpl_str, ?array $vars = null) <p>Render a string template and return the result.</p>
  *
  * @link https://secure.php.net/manual/en/yaf-view-simple.eval.php
  *
@@ -2466,7 +2466,7 @@ class Simple implements \Yaf\View_Interface
      * </p>
      * @throws \Yaf\Exception\TypeError
      */
-    final public function __construct($template_dir, array $options = null) {}
+    final public function __construct($template_dir, ?array $options = null) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-view-simple.isset.php
@@ -2496,7 +2496,7 @@ class Simple implements \Yaf\View_Interface
      *
      * @return string|void
      */
-    public function render($tpl, array $tpl_vars = null) {}
+    public function render($tpl, ?array $tpl_vars = null) {}
 
     /**
      * <p>Render a template and display the result instantly.</p>
@@ -2510,7 +2510,7 @@ class Simple implements \Yaf\View_Interface
      *
      * @return bool
      */
-    public function display($tpl, array $tpl_vars = null) {}
+    public function display($tpl, ?array $tpl_vars = null) {}
 
     /**
      * <p>unlike \Yaf\View\Simple::assign(), this method assign a ref value to engine.</p>
@@ -2635,7 +2635,7 @@ final class Simple implements \Yaf\Route_Interface
      * @param array $query
      * @return bool
      */
-    public function assemble(array $info, array $query = null) {}
+    public function assemble(array $info, ?array $query = null) {}
 }/**
  * @link https://secure.php.net/manual/en/class.yaf-route-supervar.php
  */
@@ -2675,7 +2675,7 @@ final class Supervar implements \Yaf\Route_Interface
      * @param array $query
      * @return bool
      */
-    public function assemble(array $info, array $query = null) {}
+    public function assemble(array $info, ?array $query = null) {}
 }/**
  * <p>For usage, please see the example section of \Yaf\Route\Rewrite::__construct()</p>
  *
@@ -2710,7 +2710,7 @@ final class Rewrite extends \Yaf\Router implements \Yaf\Route_Interface
      *
      * @throws \Yaf\Exception\TypeError
      */
-    public function __construct($match, array $route, array $verify = null, $reverse = null) {}
+    public function __construct($match, array $route, ?array $verify = null, $reverse = null) {}
 
     /**
      * @link https://secure.php.net/manual/en/yaf-route-rewrite.route.php
@@ -2730,7 +2730,7 @@ final class Rewrite extends \Yaf\Router implements \Yaf\Route_Interface
      * @param array $query
      * @return bool
      */
-    public function assemble(array $info, array $query = null) {}
+    public function assemble(array $info, ?array $query = null) {}
 }/**
  * <p><b>\Yaf\Route\Regex</b> is the most flexible route among the Yaf built-in routes.</p>
  *
@@ -2776,7 +2776,7 @@ final class Regex extends \Yaf\Router implements \Yaf\Route_Interface
      *
      * @throws \Yaf\Exception\TypeError
      */
-    public function __construct($match, array $route, array $map = null, array $verify = null, $reverse = null) {}
+    public function __construct($match, array $route, ?array $map = null, ?array $verify = null, $reverse = null) {}
 
     /**
      * Route a incoming request.
@@ -2798,7 +2798,7 @@ final class Regex extends \Yaf\Router implements \Yaf\Route_Interface
      * @param array $query
      * @return bool
      */
-    public function assemble(array $info, array $query = null) {}
+    public function assemble(array $info, ?array $query = null) {}
 }/**
  * <p><b>\Yaf\Route\Map</b> is a built-in route, it simply convert a URI endpoint (that part of the URI which comes after the base URI: see \Yaf\Request_Abstract::setBaseUri()) to a controller name or action name(depends on the parameter passed to \Yaf\Route\Map::__construct()) in following rule: A => controller A. A/B/C => controller A_B_C. A/B/C/D/E => controller A_B_C_D_E.</p>
  * <br/>
@@ -2844,7 +2844,7 @@ final class Map implements \Yaf\Route_Interface
      * @param array $query
      * @return bool
      */
-    public function assemble(array $info, array $query = null) {}
+    public function assemble(array $info, ?array $query = null) {}
 }}
 
 namespace Yaf\Exception {

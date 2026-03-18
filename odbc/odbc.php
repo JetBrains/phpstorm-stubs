@@ -135,7 +135,14 @@ function odbc_commit($odbc): bool {}
  * </p>
  * @return Odbc\Connection|resource|false an ODBC connection or (<b>FALSE</b>) on error.
  */
-function odbc_connect(string $dsn, string $user, string $password, int $cursor_option = SQL_CUR_USE_DRIVER) {}
+function odbc_connect(
+    string $dsn,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '8.3')] string $user,
+    #[PhpStormStubsElementAvailable(from: '8.4')] ?string $user = null,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '8.3')] string $password,
+    #[PhpStormStubsElementAvailable(from: '8.4')] ?string $password = null,
+    int $cursor_option = SQL_CUR_USE_DRIVER
+) {}
 
 /**
  * Get cursorname
@@ -477,7 +484,14 @@ function odbc_num_rows($statement): int {}
  * @return Odbc\Connection|resource|false an ODBC connection id or 0 (<b>FALSE</b>) on
  * error.
  */
-function odbc_pconnect(string $dsn, string $user, string $password, int $cursor_option = SQL_CUR_USE_DRIVER) {}
+function odbc_pconnect(
+    string $dsn,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '8.3')] string $user,
+    #[PhpStormStubsElementAvailable(from: '8.4')] ?string $user = null,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '8.3')] string $password,
+    #[PhpStormStubsElementAvailable(from: '8.4')] ?string $password = null,
+    int $cursor_option = SQL_CUR_USE_DRIVER
+) {}
 
 /**
  * Prepares a statement for execution

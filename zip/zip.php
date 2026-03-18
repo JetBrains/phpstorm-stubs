@@ -747,7 +747,7 @@ class ZipArchive implements Countable
     #[TentativeType]
     public function addEmptyDir(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $dirname,
-        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
     ): bool {}
 
     /**

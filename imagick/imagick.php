@@ -1859,7 +1859,7 @@ class Imagick implements Iterator, Countable
      * @return bool
      * @throws ImagickException on error.
      */
-    public function blueShiftImage($factor) {}
+    public function blueShiftImage($factor = 1.5) {}
 
     /**
      * (No version information available, might only be in SVN)<br/>

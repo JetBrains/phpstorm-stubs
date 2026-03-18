@@ -885,7 +885,7 @@ function xmlwriter_start_element_ns(#[LanguageLevelTypeAware(["8.0" => "XMLWrite
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_element(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, ?string $content): bool {}
+function xmlwriter_write_element(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, ?string $content = null): bool {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -910,7 +910,7 @@ function xmlwriter_write_element(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"]
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_element_ns(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, ?string $prefix, string $name, ?string $namespace, ?string $content): bool {}
+function xmlwriter_write_element_ns(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, ?string $prefix, string $name, ?string $namespace, ?string $content = null): bool {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -1054,7 +1054,7 @@ function xmlwriter_write_raw(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], de
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_document(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, ?string $version = '1.0', ?string $encoding, ?string $standalone): bool {}
+function xmlwriter_start_document(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, ?string $version = '1.0', ?string $encoding = null, ?string $standalone = null): bool {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -1105,7 +1105,7 @@ function xmlwriter_write_comment(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"]
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_dtd(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $qualifiedName, ?string $publicId, ?string $systemId): bool {}
+function xmlwriter_start_dtd(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $qualifiedName, ?string $publicId = null, ?string $systemId = null): bool {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -1142,7 +1142,7 @@ function xmlwriter_end_dtd(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], defa
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_dtd(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, ?string $publicId, ?string $systemId, ?string $content): bool {}
+function xmlwriter_write_dtd(#[LanguageLevelTypeAware(["8.0" => "XMLWriter"], default: "resource")] $writer, string $name, ?string $publicId = null, ?string $systemId = null, ?string $content = null): bool {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>

@@ -25,7 +25,7 @@ function spl_classes(): array {}
  * @return void
  * @since 5.1.2
  */
-function spl_autoload(string $class, ?string $file_extensions): void {}
+function spl_autoload(string $class, ?string $file_extensions = null): void {}
 
 /**
  * Register and return default file extensions for spl_autoload
@@ -41,7 +41,7 @@ function spl_autoload(string $class, ?string $file_extensions): void {}
  * spl_autoload.
  * @since 5.1.2
  */
-function spl_autoload_extensions(?string $file_extensions): string {}
+function spl_autoload_extensions(?string $file_extensions = null): string {}
 
 /**
  * Register given function as __autoload() implementation
@@ -59,7 +59,7 @@ function spl_autoload_extensions(?string $file_extensions): string {}
  * @throws TypeError Since 8.0.
  * @since 5.1.2
  */
-function spl_autoload_register(?callable $callback, bool $throw = true, bool $prepend = false): bool {}
+function spl_autoload_register(?callable $callback = null, bool $throw = true, bool $prepend = false): bool {}
 
 /**
  * Unregister given function as __autoload() implementation
@@ -182,7 +182,7 @@ function iterator_count(#[LanguageLevelTypeAware(['8.2' => 'Traversable|array'],
  * </p>
  * @return int the iteration count.
  */
-function iterator_apply(Traversable $iterator, callable $callback, ?array $args): int {}
+function iterator_apply(Traversable $iterator, callable $callback, ?array $args = null): int {}
 
 // End of SPL v.0.2
 

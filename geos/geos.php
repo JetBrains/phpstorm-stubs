@@ -312,7 +312,7 @@ class GEOSGeometry
      * @return bool|string
      * @throws Exception
      */
-    public function relate(GEOSGeometry $geom, string $pattern = null) {}
+    public function relate(GEOSGeometry $geom, ?string $pattern = null) {}
 
     /**
      * @param GEOSGeometry $geom

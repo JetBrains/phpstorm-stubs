@@ -166,5 +166,5 @@ class SVM
      * @throws SMVException
      * @link https://www.php.net/manual/en/svm.train.php
      */
-    public function train(array $problem, array $weights = null): SVMModel {}
+    public function train(array $problem, ?array $weights = null): SVMModel {}
 }

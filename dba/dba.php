@@ -129,7 +129,7 @@ const DBA_LMDB_NO_SUB_DIR = 0;
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
 #[PhpStormStubsElementAvailable(from: '5.3', to: '8.1')]
-function dba_open($path, $mode, $handler, ...$handler_params) {}
+function dba_open($path, $mode, $handler = null, ...$handler_params) {}
 
 #[PhpStormStubsElementAvailable(from: '8.2')]
 #[LanguageLevelTypeAware(["8.4" => "Dba\Connection|false"], default: "resource|false")]
@@ -157,7 +157,7 @@ function dba_open(string $path, string $mode, ?string $handler = null, int $perm
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
 #[PhpStormStubsElementAvailable(from: '5.3', to: '8.1')]
-function dba_popen($path, $mode, $handler, ...$handler_params) {}
+function dba_popen($path, $mode, $handler = null, ...$handler_params) {}
 
 #[PhpStormStubsElementAvailable(from: '8.2')]
 #[LanguageLevelTypeAware(["8.4" => "Dba\Connection|false"], default: "resource|false")]

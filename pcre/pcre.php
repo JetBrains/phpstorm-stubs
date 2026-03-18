@@ -157,7 +157,7 @@ use JetBrains\PhpStorm\Pure;
  * matches given <i>subject</i>, 0 if it does not, or <b>FALSE</b>
  * if an error occurred.
  */
-function preg_match(string $pattern, string $subject, &$matches, int $flags = 0, int $offset = 0): int|false {}
+function preg_match(string $pattern, string $subject, &$matches = null, int $flags = 0, int $offset = 0): int|false {}
 
 /**
  * Perform a global regular expression match
@@ -216,7 +216,7 @@ function preg_match(string $pattern, string $subject, &$matches, int $flags = 0,
  * or <b>FALSE</b> if an error occurred.
  */
 #[LanguageLevelTypeAware(['8.0' => 'int|false'], default: 'int|false|null')]
-function preg_match_all(string $pattern, string $subject, &$matches, int $flags = 0, int $offset = 0) {}
+function preg_match_all(string $pattern, string $subject, &$matches = null, int $flags = 0, int $offset = 0) {}
 
 /**
  * Perform a regular expression search and replace
@@ -304,7 +304,7 @@ function preg_match_all(string $pattern, string $subject, &$matches, int $flags 
  * be returned, otherwise <i>subject</i> will be
  * returned unchanged or <b>NULL</b> if an error occurred.
  */
-function preg_replace(array|string $pattern, array|string $replacement, array|string $subject, int $limit = -1, &$count): array|string|null {}
+function preg_replace(array|string $pattern, array|string $replacement, array|string $subject, int $limit = -1, &$count = null): array|string|null {}
 
 /**
  * Perform a regular expression search and replace using a callback
@@ -380,7 +380,7 @@ function preg_replace_callback(
     callable $callback,
     array|string $subject,
     int $limit = -1,
-    &$count,
+    &$count = null,
     #[PhpStormStubsElementAvailable(from: '7.4')] int $flags = 0
 ): array|string|null {}
 
@@ -399,7 +399,7 @@ function preg_replace_callback_array(
     array $pattern,
     array|string $subject,
     int $limit = -1,
-    &$count,
+    &$count = null,
     #[PhpStormStubsElementAvailable(from: '7.4')] int $flags = 0
 ): array|string|null {}
 
@@ -419,7 +419,7 @@ function preg_replace_callback_array(
  * is returned when <i>subject</i> is an array
  * or <b>NULL</b> otherwise.
  */
-function preg_filter(array|string $pattern, array|string $replacement, array|string $subject, int $limit = -1, &$count): array|string|null {}
+function preg_filter(array|string $pattern, array|string $replacement, array|string $subject, int $limit = -1, &$count = null): array|string|null {}
 
 /**
  * Split string by a regular expression

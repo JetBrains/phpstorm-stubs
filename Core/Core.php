@@ -321,7 +321,7 @@ function each(&$array): array {}
  * level or the current level if no <i>level</i> parameter is
  * given.
  */
-function error_reporting(?int $error_level): int {}
+function error_reporting(?int $error_level = null): int {}
 
 /**
  * Defines a named constant
@@ -1139,7 +1139,7 @@ function gc_mem_caches(): int {}
  * @since 7.0
  */
 #[Pure(true)]
-function get_resources(?string $type): array {}
+function get_resources(?string $type = null): array {}
 
 /**
  * @since 8.4

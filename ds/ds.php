@@ -378,7 +378,7 @@ namespace Ds;
          * @return Sequence<TValue> A sub-sequence of the given range.
          * @link https://www.php.net/manual/en/ds-sequence.slice.php
          */
-        public function slice(int $index, int $length = null);
+        public function slice(int $index, ?int $length = null);
 
         /**
          * Sorts the sequence in-place, using an optional comparator function.
@@ -723,7 +723,7 @@ namespace Ds;
          * between the index and the end of the sequence.
          * @return Vector<TValue>
          */
-        public function slice(int $index, int $length = null): Vector {}
+        public function slice(int $index, ?int $length = null): Vector {}
 
         /**
          * Sorts the sequence in-place, using an optional comparator function.
@@ -1130,7 +1130,7 @@ namespace Ds;
          * @return Deque<TValue> A sub-deque of the given range.
          * @link https://www.php.net/manual/en/ds-deque.slice.php
          */
-        public function slice(int $index, int $length = null): Deque {}
+        public function slice(int $index, ?int $length = null): Deque {}
 
         /**
          * Sorts the deque in-place, using an optional comparator function.

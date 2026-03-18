@@ -25,7 +25,7 @@ use JetBrains\PhpStorm\Pure;
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")]
-function xml_parser_create(?string $encoding) {}
+function xml_parser_create(?string $encoding = null) {}
 
 /**
  * Create an XML parser with namespace support
@@ -50,7 +50,7 @@ function xml_parser_create(?string $encoding) {}
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")]
-function xml_parser_create_ns(?string $encoding, string $separator = ':') {}
+function xml_parser_create_ns(?string $encoding = null, string $separator = ':') {}
 
 /**
  * Use XML Parser within an object
@@ -402,7 +402,7 @@ function xml_parse(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "re
  * operators such as ===.
  */
 #[LanguageLevelTypeAware(['8.1' => 'int|false'], default: 'int')]
-function xml_parse_into_struct(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, string $data, &$values, &$index) {}
+function xml_parse_into_struct(#[LanguageLevelTypeAware(["8.0" => "XMLParser"], default: "resource")] $parser, string $data, &$values, &$index = null) {}
 
 /**
  * Get XML parser error code

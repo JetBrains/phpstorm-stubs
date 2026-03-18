@@ -1028,7 +1028,7 @@ function version_compare(
                "!=",
                "<>",
                "ne"
-           ])] ?string $operator
+           ])] ?string $operator = null
 ): int|bool {}
 
 /**
@@ -1087,7 +1087,7 @@ function version_compare(
         "!=",
         "<>",
         "ne"
-    ])] ?string $operator
+    ])] ?string $operator = null
 ): int|bool|null {}
 
 /**

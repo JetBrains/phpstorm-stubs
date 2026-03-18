@@ -284,7 +284,7 @@ class Cluster
      * @return Cluster|int|false
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function bitpos(mixed $key, int $bit, int $start = null, int $end = null, bool $by_bit = false): Cluster|int|false {}
+    public function bitpos(mixed $key, int $bit, ?int $start = null, ?int $end = null, bool $by_bit = false): Cluster|int|false {}
 
     /**
      * BLMOVE is the blocking variant of LMOVE. When source contains elements,
@@ -657,7 +657,7 @@ class Cluster
      * @return bool
      */
     #[Attributes\Local]
-    public static function flushMemory(?string $endpointId = null, int $db = null): bool {}
+    public static function flushMemory(?string $endpointId = null, ?int $db = null): bool {}
 
     /**
      * Deletes all the keys of all the existing databases, not just the currently selected one.
@@ -1286,7 +1286,7 @@ class Cluster
      * @return float|false
      */
     #[Attributes\Local]
-    public static function lastMemoryFlush(?string $endpointId = null, int $db = null): float|false {}
+    public static function lastMemoryFlush(?string $endpointId = null, ?int $db = null): float|false {}
 
     /**
      * Returns the UNIX time stamp of the last successful save to disk.
@@ -2482,7 +2482,7 @@ class Cluster
      * @return mixed
      */
     #[Attributes\RedisCommand, Attributes\ValkeyCommand]
-    public function xgroup(string $operation, mixed $key = null, string $group = null, string $id_or_consumer = null, bool $mkstream = false, int $entries_read = -2): mixed {}
+    public function xgroup(string $operation, mixed $key = null, ?string $group = null, ?string $id_or_consumer = null, bool $mkstream = false, int $entries_read = -2): mixed {}
 
     /**
      * Retrieve information about a stream key.
