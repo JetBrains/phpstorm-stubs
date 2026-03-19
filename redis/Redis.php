@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Language;
+
 /**
  * Helper autocomplete for php redis extension
  * @link https://github.com/phpredis/phpredis/blob/develop/redis.stub.php
@@ -816,7 +818,7 @@ class Redis
      * @example
      * $redis->eval('return redis.call("set", KEYS[1], ARGV[1])', ['counter', 1], 1);
      */
-    public function eval(string $script, array $args = [], int $num_keys = 0): mixed {}
+    public function eval(#[Language("Lua")] string $script, array $args = [], int $num_keys = 0): mixed {}
 
     /**
      * This is simply the read-only variant of eval, meaning the underlying script
