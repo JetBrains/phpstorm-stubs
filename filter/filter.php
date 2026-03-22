@@ -319,6 +319,7 @@ define('FILTER_VALIDATE_MAC', 276);
 /**
  * ID of default ("string") filter.
  * @link https://php.net/manual/en/filter.constants.php
+ * @deprecated 8.5 use FILTER_UNSAFE_RAW instead
  */
 define('FILTER_DEFAULT', 516);
 

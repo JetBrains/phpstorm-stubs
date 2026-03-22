@@ -1170,7 +1170,7 @@ function openssl_dh_compute_key(string $public_key, #[LanguageLevelTypeAware(["8
 function openssl_pkey_derive(
     $public_key,
     #[LanguageLevelTypeAware(['8.0' => 'OpenSSLAsymmetricKey|OpenSSLCertificate|array|string'], default: 'resource|array|string')] $private_key,
-    int $key_length = 0
+    #[Deprecated(since: '8.5')] int $key_length = 0
 ): string|false {}
 
 /**

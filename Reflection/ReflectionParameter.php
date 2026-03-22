@@ -186,6 +186,7 @@ class ReflectionParameter implements Reflector
      * otherwise {@see false}
      */
     #[TentativeType]
+	#[Deprecated("use ReflectionParameter::getType() instead", '%class%->getType(%parametersList%)', since: '8.5')]
     public function allowsNull(): bool {}
 
     /**

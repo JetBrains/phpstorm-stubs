@@ -1078,7 +1078,7 @@ function stream_set_timeout(
  * </p>
  * @return bool true on success or false on failure.
  */
-#[Deprecated(since: '8.5')]
+#[Deprecated('use stream_set_timeout() instead', 'stream_set_timeout(%parametersList%)', since: '8.5')]
 function socket_set_timeout(
     $stream,
     int $seconds,

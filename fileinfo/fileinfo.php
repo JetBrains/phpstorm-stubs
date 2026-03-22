@@ -119,7 +119,7 @@ function finfo_open(int $flags = 0, ?string $magic_database = null) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 #[LanguageLevelTypeAware(['8.5' => 'true'], default: 'bool')]
-#[\JetBrains\PhpStorm\Deprecated(since: '8.5')]
+#[\JetBrains\PhpStorm\Deprecated('as it has no effect', since: '8.5')]
 function finfo_close(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo) {}
 
 /**
@@ -176,7 +176,7 @@ function finfo_file(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resou
  * @return string|false a textual description of the <i>string</i>
  * argument, or <b>FALSE</b> if an error occurred.
  */
-function finfo_buffer(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo, string $string, int $flags = FILEINFO_NONE, $context): string|false {}
+function finfo_buffer(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo, string $string, int $flags = FILEINFO_NONE, #[\JetBrains\PhpStorm\Deprecated('has no effect', since: '8.5')] $context): string|false {}
 
 /**
  * Detect MIME Content-type for a file
