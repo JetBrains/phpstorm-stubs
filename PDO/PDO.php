@@ -802,19 +802,19 @@ namespace {
         public const PGSQL_BAD_RESPONSE = 5;
         public const PGSQL_BOTH = 3;
 
-        #[Deprecated('as it has no effect', since: '8.5')]
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const PGSQL_TRANSACTION_IDLE = 0;
 
-        #[Deprecated('as it has no effect', since: '8.5')]
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const PGSQL_TRANSACTION_ACTIVE = 1;
 
-        #[Deprecated('as it has no effect', since: '8.5')]
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const PGSQL_TRANSACTION_INTRANS = 2;
 
-        #[Deprecated('as it has no effect', since: '8.5')]
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const PGSQL_TRANSACTION_INERROR = 3;
 
-        #[Deprecated('as it has no effect', since: '8.5')]
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const PGSQL_TRANSACTION_UNKNOWN = 4;
         public const PGSQL_CONNECT_ASYNC = 4;
         public const PGSQL_CONNECT_FORCE_NEW = 2;
@@ -2171,19 +2171,19 @@ namespace Pdo {
         public const int ATTR_DISABLE_PREPARES = 1000;
         public const int ATTR_RESULT_MEMORY_SIZE = 1001;
 
-        #[Deprecated('as it has no effect', since: '8.5')]
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const int TRANSACTION_IDLE = 0;
 
-        #[Deprecated('as it has no effect', since: '8.5')]
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const int TRANSACTION_ACTIVE = 1;
 
-        #[Deprecated('as it has no effect', since: '8.5')]
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const int TRANSACTION_INTRANS = 2;
 
-        #[Deprecated('as it has no effect', since: '8.5')]
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const int TRANSACTION_INERROR = 3;
 
-        #[Deprecated('as it has no effect', since: '8.5')]
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const int TRANSACTION_UNKNOWN = 4;
 
         public function copyFromArray(

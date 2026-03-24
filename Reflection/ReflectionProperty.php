@@ -267,7 +267,7 @@ class ReflectionProperty implements Reflector
     #[Pure]
     #[PhpStormStubsElementAvailable(from: "8.1")]
     #[TentativeType]
-    #[Deprecated('it has no effect', since: '8.5')]
+    #[Deprecated('Deprecated: it has no effect', since: '8.5')]
     public function setAccessible(bool $accessible): void {}
 
     /**

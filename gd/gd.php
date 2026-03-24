@@ -1147,7 +1147,7 @@ function imagegd2(GdImage $image, ?string $file = null, int $chunk_size = 128, i
  * @param resource|GdImage $image
  * @return bool true on success or false on failure.
  */
-#[Deprecated('it has no effect', since: '8.5')]
+#[Deprecated('Deprecated: it has no effect', since: '8.5')]
 #[LanguageLevelTypeAware(['8.5' => 'true'], default: 'bool')]
 function imagedestroy(GdImage $image) {}
 

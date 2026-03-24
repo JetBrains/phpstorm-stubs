@@ -785,7 +785,7 @@ function get_declared_traits(): array {}
  * below).
  */
 #[Pure(true)]
-function get_defined_functions(#[PhpStormStubsElementAvailable(from: '7.1')] #[Deprecated('has no effect since PHP 8.0', since:'8.5')] bool $exclude_disabled = true): array {}
+function get_defined_functions(#[PhpStormStubsElementAvailable(from: '7.1')] #[Deprecated('Deprecated: has no effect since PHP 8.0', since:'8.5')] bool $exclude_disabled = true): array {}
 
 /**
  * Returns an array of all defined variables
