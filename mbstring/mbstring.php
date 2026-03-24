@@ -1417,36 +1417,115 @@ function mbereg_search_setpos($position) {}
 function mb_str_split(string $string, int $length = 1, ?string $encoding) {}
 
 /**
+ * Pad a multibyte string to a certain length with another multibyte string
+ * @link https://php.net/manual/en/function.mb-str-pad.php
+ * @param string $string <p>
+ * The input string.
+ * </p>
+ * @param int $length <p>
+ * The desired length of the padded string, measured in Unicode codepoints.
+ * If the value is negative, less than, or equal to the length of the input string, no padding takes place.
+ * </p>
+ * @param string $pad_string [optional] <p>
+ * The string to pad with. Default is a space.
+ * </p>
+ * @param int $pad_type [optional] <p>
+ * Can be STR_PAD_RIGHT, STR_PAD_LEFT, or STR_PAD_BOTH.
+ * </p>
+ * @param string|null $encoding [optional] <p>
+ * The character encoding. If omitted or null, the internal character encoding value will be used.
+ * </p>
+ * @return string The padded string.
  * @since 8.3
  */
 #[Pure(true)]
 function mb_str_pad(string $string, int $length, string $pad_string = " ", int $pad_type = STR_PAD_RIGHT, ?string $encoding = null): string {}
 
 /**
+ * Make a multibyte string's first character uppercase
+ * @link https://php.net/manual/en/function.mb-ucfirst.php
+ * @param string $string <p>
+ * The input string.
+ * </p>
+ * @param string|null $encoding [optional] <p>
+ * The character encoding. If omitted or null, the internal character encoding value will be used.
+ * </p>
+ * @return string The resulting string with the first character title-cased.
  * @since 8.4
  */
 #[Pure]
 function mb_ucfirst(string $string, ?string $encoding = null): string {}
 
 /**
+ * Make a multibyte string's first character lowercase
+ * @link https://php.net/manual/en/function.mb-lcfirst.php
+ * @param string $string <p>
+ * The input string.
+ * </p>
+ * @param string|null $encoding [optional] <p>
+ * The character encoding. If omitted or null, the internal character encoding value will be used.
+ * </p>
+ * @return string The resulting string with the first character lowercased.
  * @since 8.4
  */
 #[Pure]
 function mb_lcfirst(string $string, ?string $encoding = null): string {}
 
 /**
+ * Strip whitespace (or other characters) from the beginning and end of a multibyte string
+ * @link https://php.net/manual/en/function.mb-trim.php
+ * @param string $string <p>
+ * The string that will be trimmed.
+ * </p>
+ * @param string|null $characters [optional] <p>
+ * The characters to be stripped. If omitted or null,
+ * the default whitespace characters are stripped, including ASCII whitespace
+ * and various Unicode space characters (NO-BREAK SPACE, OGHAM SPACE MARK, etc.).
+ * </p>
+ * @param string|null $encoding [optional] <p>
+ * The character encoding. If omitted or null, the internal character encoding value will be used.
+ * </p>
+ * @return string The trimmed string.
  * @since 8.4
  */
 #[Pure]
 function mb_trim(string $string, ?string $characters = null, ?string $encoding = null): string {}
 
 /**
+ * Strip whitespace (or other characters) from the beginning of a multibyte string
+ * @link https://php.net/manual/en/function.mb-ltrim.php
+ * @param string $string <p>
+ * The input string.
+ * </p>
+ * @param string|null $characters [optional] <p>
+ * The characters to be stripped. If omitted or null,
+ * the default whitespace characters are stripped, including ASCII whitespace
+ * and various Unicode space characters (NO-BREAK SPACE, OGHAM SPACE MARK, etc.).
+ * </p>
+ * @param string|null $encoding [optional] <p>
+ * The character encoding. If omitted or null, the internal character encoding value will be used.
+ * </p>
+ * @return string The trimmed string.
  * @since 8.4
  */
 #[Pure]
 function mb_ltrim(string $string, ?string $characters = null, ?string $encoding = null): string {}
 
 /**
+ * Strip whitespace (or other characters) from the end of a multibyte string
+ * @link https://php.net/manual/en/function.mb-rtrim.php
+ * @param string $string <p>
+ * The input string.
+ * </p>
+ * @param string|null $characters [optional] <p>
+ * The characters to be stripped. If omitted or null,
+ * the default whitespace characters are stripped, including ASCII whitespace
+ * and various Unicode space characters (NO-BREAK SPACE, OGHAM SPACE MARK, etc.).
+ * </p>
+ * @param string|null $encoding [optional] <p>
+ * The character encoding. If omitted or null, the internal character encoding value will be used.
+ * </p>
+ * @return string The trimmed string.
  * @since 8.4
  */
 #[Pure]
