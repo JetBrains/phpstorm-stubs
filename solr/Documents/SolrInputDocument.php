@@ -32,6 +32,30 @@ final class SolrInputDocument
     /** @var int Sorts the fields by boost value. */
     public const SORT_FIELD_BOOST_VALUE = 4;
 
+    /** @var int Adds a new value to a multivalued field. */
+    public const UPDATE_MODIFIER_ADD = 1;
+
+    /** @var int Sets a field value. */
+    public const UPDATE_MODIFIER_SET = 2;
+
+    /** @var int Increments a field value. */
+    public const UPDATE_MODIFIER_INC = 3;
+
+    /** @var int Removes a value from a multivalued field. */
+    public const UPDATE_MODIFIER_REMOVE = 4;
+
+    /** @var int Removes values matching a java regular expression. */
+    public const UPDATE_MODIFIER_REMOVEREGEX = 5;
+
+    /** @var int Concurrency default. */
+    public const VERSION_ASSERT_NONE = 0;
+
+    /** @var int Assert that a document does not exist, will fail if the document exists. */
+    public const VERSION_ASSERT_NOT_EXISTS = -1;
+
+    /** @var int Assert that the document already exists if the document does not exist, the updates will be rejected. */
+    public const VERSION_ASSERT_EXISTS = 1;
+
     /**
      * (PECL solr &gt;= 2.3.0)<br/>
      * Adds a child document for block indexing
@@ -75,6 +99,21 @@ final class SolrInputDocument
      * </p>
      */
     public function addField($fieldName, $fieldValue, $fieldBoostValue = 0.0) {}
+
+    /**
+     * (PECL solr &gt;= 2.5.0)<br/>
+     * Updates a field in the document
+     * @param string $fieldName <p>
+     * The name of the field.
+     * </p>
+     * @param int $modifier <p>
+     * The modifier to use for this update.
+     * </p>
+     * @param string $value <p>
+     * The value for the field.
+     * </p>
+     */
+    public function updateField($fieldName, $modifier, $value) {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -265,6 +304,25 @@ final class SolrInputDocument
      * </p>
      */
     public function setFieldBoost($fieldName, $fieldBoostValue) {}
+
+    /**
+     * (PECL solr &gt;= 2.5.0)<br/>
+     * Set document version to enable optimistic concurrency mode using self::VERSION_* constants
+     * or asserting version match
+     * @param int $version <p>
+     * The document version.
+     * </p>
+     */
+    public function setVersion($version) {}
+
+    /**
+     * (PECL solr &gt;= 2.5.0)<br/>
+     * Get the document version
+     * @return int <p>
+     * The document version.
+     * </p>
+     */
+    public function getVersion() {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
