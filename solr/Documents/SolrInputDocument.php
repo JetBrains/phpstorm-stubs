@@ -114,6 +114,10 @@ final class SolrInputDocument
      * @param string $value <p>
      * The value for the field.
      * </p>
+     * @return bool <p>
+     * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * </p>
+     * @throws SolrIllegalArgumentException
      */
     public function updateField($fieldName, $modifier, $value) {}
 
@@ -317,13 +321,17 @@ final class SolrInputDocument
      * @param int $version <p>
      * The document version.
      * </p>
+     * @return bool <p>
+     * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * </p>
+     * @throws SolrIllegalArgumentException
      */
     public function setVersion($version) {}
 
     /**
      * (PECL solr &gt;= 2.5.0)<br/>
      * Get the document version
-     * @return int <p>
+     * @return int|null <p>
      * The document version.
      * </p>
      */
