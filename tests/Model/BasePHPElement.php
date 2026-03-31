@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace StubTests\Model;
 
@@ -80,7 +81,7 @@ abstract class BasePHPElement
                 }
             }
         } else {
-            return "\\{$node->namespacedName}";
+            return "\\" . (string)$node->namespacedName;
         }
 
         return $fqn;

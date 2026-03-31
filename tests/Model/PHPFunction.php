@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace StubTests\Model;
 
@@ -68,7 +69,7 @@ class PHPFunction extends PHPNamespacedElement
      */
     public function readObjectFromStubNode($node)
     {
-        $NamespaceParts = explode("\\", $node->namespacedName);
+        $NamespaceParts = explode("\\", (string)$node->namespacedName);
         $this->id = "\\" . implode("\\", $NamespaceParts);
         $this->name = array_pop($NamespaceParts);
         $this->namespace = trim(implode("\\", $NamespaceParts), '\\');

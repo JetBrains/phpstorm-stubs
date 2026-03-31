@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace StubTests\Model;
 
@@ -37,7 +38,7 @@ class StubsContainer
     /**
      * @return PHPConstant[]
      */
-    public function getConstants()
+    public function getConstants(): array
     {
         return $this->constants;
     }
@@ -50,7 +51,7 @@ class StubsContainer
      * @return PHPConstant|null
      * @throws RuntimeException
      */
-    public function getConstant($constantId, $sourceFilePath = null, $fromReflection = false, $shouldSuitCurrentPhpVersion = true)
+    public function getConstant(string $constantId, ?string $sourceFilePath = null, bool $fromReflection = false, bool $shouldSuitCurrentPhpVersion = true): PHPConstant|PHPDefineConstant|null
     {
         if ($fromReflection) {
             $constants = array_filter($this->constants, function ($const) use ($constantId) {
@@ -81,7 +82,7 @@ class StubsContainer
         return null;
     }
 
-    public function addConstant($constant)
+    public function addConstant(PHPConstant|PHPDefineConstant $constant): void
     {
         if (isset($constant->name)) {
             if (array_key_exists($constant->id, $this->constants)) {
@@ -102,7 +103,7 @@ class StubsContainer
     /**
      * @return PHPFunction[]
      */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return $this->functions;
     }
@@ -116,7 +117,7 @@ class StubsContainer
      * @return PHPFunction|null
      * @throws RuntimeException
      */
-    public function getFunction($id, $sourceFilePath = null, $shouldSuitCurrentPhpVersion = true, $fromReflection = false)
+    public function getFunction(string $id, ?string $sourceFilePath = null, bool $shouldSuitCurrentPhpVersion = true, bool $fromReflection = false): ?PHPFunction
     {
         if ($fromReflection) {
             $functions = array_filter($this->functions, function (PHPFunction $function) use ($id) {
@@ -148,7 +149,7 @@ class StubsContainer
         return array_pop($functions);
     }
 
-    public function addFunction(PHPFunction $function)
+    public function addFunction(PHPFunction $function): void
     {
         if (isset($function->id)) {
             if (array_key_exists($function->id, $this->functions)) {
@@ -169,7 +170,7 @@ class StubsContainer
     /**
      * @return PHPClass[]
      */
-    public function getClasses()
+    public function getClasses(): array
     {
         return $this->classes;
     }
@@ -183,7 +184,7 @@ class StubsContainer
      * @return PHPClass|null
      * @throws RuntimeException
      */
-    public function getClass($id, $sourceFilePath = null, $shouldSuitCurrentPhpVersion = true, $fromReflection = false)
+    public function getClass(string $id, ?string $sourceFilePath = null, bool $shouldSuitCurrentPhpVersion = true, bool $fromReflection = false): ?PHPClass
     {
         if ($fromReflection) {
             $classes = array_filter($this->classes, function (PHPClass $class) use ($id) {
@@ -213,7 +214,7 @@ class StubsContainer
         return null;
     }
 
-    public function getClassByHash(string $hash)
+    public function getClassByHash(string $hash): ?PHPClass
     {
         $classes = array_filter($this->classes, function (PHPClass $class) use ($hash) {
             return $class->stubObjectHash === $hash;
@@ -234,7 +235,7 @@ class StubsContainer
      * @return PHPEnum|null
      * @throws RuntimeException
      */
-    public function getEnum($id, $sourceFilePath = null, $shouldSuitCurrentPhpVersion = true, $fromReflection = false)
+    public function getEnum(string $id, ?string $sourceFilePath = null, bool $shouldSuitCurrentPhpVersion = true, bool $fromReflection = false): ?PHPEnum
     {
         $enums = array_filter($this->enums, function (PHPEnum $enum) use ($shouldSuitCurrentPhpVersion, $id) {
             return $enum->id === $id && (!$shouldSuitCurrentPhpVersion || ParserUtils::entitySuitsCurrentPhpVersion($enum));
@@ -258,7 +259,7 @@ class StubsContainer
         return null;
     }
 
-    public function getEnumByHash(string $hash)
+    public function getEnumByHash(string $hash): ?PHPEnum
     {
         $enums = array_filter($this->enums, function (PHPEnum $class) use ($hash) {
             return $class->stubObjectHash === $hash;
@@ -273,14 +274,14 @@ class StubsContainer
      * @param true $shouldSuitCurrentLanguageVersion
      * @return PHPClass[]
      */
-    public function getCoreClasses($shouldSuitCurrentPhpVersion = true)
+    public function getCoreClasses(bool $shouldSuitCurrentPhpVersion = true): array
     {
         return array_filter($this->classes, function (PHPClass $class) use ($shouldSuitCurrentPhpVersion) {
             return $class->stubBelongsToCore === true && (!$shouldSuitCurrentPhpVersion || ParserUtils::entitySuitsCurrentPhpVersion($class));
         });
     }
 
-    public function addClass(PHPClass $class)
+    public function addClass(PHPClass $class): void
     {
         if (isset($class->id)) {
             if (array_key_exists($class->id, $this->classes)) {
@@ -306,7 +307,7 @@ class StubsContainer
      * @return PHPInterface|null
      * @throws RuntimeException
      */
-    public function getInterface($id, $sourceFilePath = null, $shouldSuitCurrentPhpVersion = true, $fromReflection = false)
+    public function getInterface(string $id, ?string $sourceFilePath = null, bool $shouldSuitCurrentPhpVersion = true, bool $fromReflection = false): ?PHPInterface
     {
         if ($fromReflection) {
             $interfaces = array_filter($this->interfaces, function (PHPInterface $interface) use ($id) {
@@ -336,7 +337,7 @@ class StubsContainer
         return null;
     }
 
-    public function getInterfaceByHash(string $hash)
+    public function getInterfaceByHash(string $hash): ?PHPInterface
     {
         $interfaces = array_filter($this->interfaces, function (PHPInterface $class) use ($hash) {
             return $class->stubObjectHash === $hash;
@@ -350,7 +351,7 @@ class StubsContainer
     /**
      * @return PHPInterface[]
      */
-    public function getInterfaces()
+    public function getInterfaces(): array
     {
         return $this->interfaces;
     }
@@ -358,7 +359,7 @@ class StubsContainer
     /**
      * @return PHPEnum[]
      */
-    public function getEnums()
+    public function getEnums(): array
     {
         return $this->enums;
     }
@@ -366,21 +367,21 @@ class StubsContainer
     /**
      * @return PHPInterface[]
      */
-    public function getCoreInterfaces($shouldSuitCurrentPhpVersion = true)
+    public function getCoreInterfaces(bool $shouldSuitCurrentPhpVersion = true): array
     {
         return array_filter($this->interfaces, function (PHPInterface $interface) use ($shouldSuitCurrentPhpVersion) {
             return $interface->stubBelongsToCore === true && (!$shouldSuitCurrentPhpVersion || ParserUtils::entitySuitsCurrentPhpVersion($interface));
         });
     }
 
-    public function getCoreEnums($shouldSuitCurrentPhpVersion = true)
+    public function getCoreEnums(bool $shouldSuitCurrentPhpVersion = true): array
     {
         return array_filter($this->enums, function (PHPEnum $enum) use ($shouldSuitCurrentPhpVersion) {
             return $enum->stubBelongsToCore === true && (!$shouldSuitCurrentPhpVersion || ParserUtils::entitySuitsCurrentPhpVersion($enum));
         });
     }
 
-    public function addInterface(PHPInterface $interface)
+    public function addInterface(PHPInterface $interface): void
     {
         if (isset($interface->id)) {
             if (array_key_exists($interface->id, $this->interfaces)) {
@@ -397,7 +398,7 @@ class StubsContainer
         }
     }
 
-    public function addEnum(PHPEnum $enum)
+    public function addEnum(PHPEnum $enum): void
     {
         if (isset($enum->id)) {
             if (array_key_exists($enum->id, $this->enums)) {
