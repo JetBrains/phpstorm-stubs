@@ -798,6 +798,7 @@ namespace {
         /**
          * @since 5.6
          */
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const PGSQL_ATTR_DISABLE_PREPARES = 1000;
         public const PGSQL_BAD_RESPONSE = 5;
         public const PGSQL_BOTH = 3;
