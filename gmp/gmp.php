@@ -798,7 +798,7 @@ define('GMP_VERSION', "6.3.0");
 
 define('GMP_MPIR_VERSION', '3.0.0');
 
-final class GMP implements Serializable
+final class GMP
 {
     /**
      * @since 8.2
@@ -806,24 +806,24 @@ final class GMP implements Serializable
     public function __construct(int|string $num = 0, int $base = 0) {}
 
     /**
-     * String representation of object
-     * @link https://php.net/manual/en/serializable.serialize.php
-     * @return string the string representation of the object or null
+     * Get array representation of object
+     * @link https://www.php.net/manual/en/language.oop5.magic.php#object.serialize
+     * @return string[] <p>
+     * The array representation of the GMP object. For GMP this is expected to be a 
+     * single-element list (zero-indexed) containing the string representation of the 
+     * GMP number
+     * </p>
      */
-    public function serialize() {}
-
     public function __serialize(): array {}
 
     /**
-     * Constructs the object
-     * @link https://php.net/manual/en/serializable.unserialize.php
-     * @param string $data <p>
-     * The string representation of the object.
+     * Reconstructs the GMP object from array representation
+     * @link https://www.php.net/manual/en/language.oop5.magic.php#object.serialize
+     * @param string[] $data <p>
+     * The array representation of the GMP object.
      * </p>
      * @return void
      */
-    public function unserialize($data) {}
-
     public function __unserialize(array $data): void {}
 }
 // End of gmp v.
