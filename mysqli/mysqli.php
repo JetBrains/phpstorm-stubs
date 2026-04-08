@@ -771,7 +771,7 @@ class mysqli
     /**
      * Get result from async query
      * @link https://php.net/manual/en/mysqli.reap-async-query.php
-     * @return mysqli_result|false mysqli_result in success, false otherwise.
+     * @return mysqli_result|bool false on failure, mysqli_result for queries which produce a result set, true otherwise
      */
     #[TentativeType]
     public function reap_async_query(): mysqli_result|bool {}
@@ -2507,7 +2507,7 @@ function mysqli_real_query(
  * @link https://php.net/manual/en/mysqli.reap-async-query.php
  * @see mysqli_poll()
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
- * @return mysqli_result|bool mysqli_result in success, FALSE otherwise.
+ * @return mysqli_result|bool false on failure, mysqli_result for queries which produce a result set, true otherwise
  */
 function mysqli_reap_async_query(mysqli $mysql): mysqli_result|bool {}
 
