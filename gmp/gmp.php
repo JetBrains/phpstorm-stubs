@@ -808,10 +808,8 @@ final class GMP
     /**
      * Get array representation of object
      * @link https://www.php.net/manual/en/language.oop5.magic.php#object.serialize
-     * @return string[] <p>
-     * The array representation of the GMP object. For GMP this is expected to be a 
-     * single-element list (zero-indexed) containing the string representation of the 
-     * GMP number
+     * @return array <p>
+     * The array representation of the GMP object.
      * </p>
      */
     public function __serialize(): array {}
@@ -819,7 +817,7 @@ final class GMP
     /**
      * Reconstructs the GMP object from array representation
      * @link https://www.php.net/manual/en/language.oop5.magic.php#object.serialize
-     * @param string[] $data <p>
+     * @param array $data <p>
      * The array representation of the GMP object.
      * </p>
      * @return void
