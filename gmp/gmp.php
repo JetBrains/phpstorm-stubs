@@ -4,6 +4,7 @@
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Pure;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * Create GMP number
@@ -731,13 +732,13 @@ function gmp_nextprime(GMP|string|int $num): GMP {}
  *
  * @link https://www.php.net/manual/en/function.gmp-binomial.php
  *
- * @param GMP|string|float|int $n
+ * @param GMP|string|int $n
  * @param int $k
  * @return GMP|false
- *
  * @since 7.3
  */
 #[Pure]
+#[LanguageLevelTypeAware(['8.0' => 'GMP'], default: 'GMP|false')]
 function gmp_binomial(GMP|string|int $n, int $k): GMP {}
 
 /**
