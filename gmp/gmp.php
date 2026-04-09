@@ -45,9 +45,10 @@ function gmp_intval(GMP|string|int $num): int {}
  * The seed to be set for the {@see gmp_random()}, {@see gmp_random_bits()}, and {@see gmp_random_range()} functions.
  * </p>
  * Either a GMP number resource in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.
- * @return void|null|false Returns NULL on success.
+ * @return void|false
  * @since 7.0
  */
+#[LanguageLevelTypeAware(['8.0' => 'void'], default: 'void|false')]
 function gmp_random_seed(GMP|string|int $seed): void {}
 /**
  * Convert GMP number to string
@@ -676,6 +677,7 @@ function gmp_hamdist(GMP|string|int $num1, GMP|string|int $num2): int {}
  * @since 5.6.1
  */
 #[Pure]
+#[LanguageLevelTypeAware(['8.0' => 'GMP'], default: 'GMP|false')]
 function gmp_import(string $data, int $word_size = 1, int $flags = GMP_MSW_FIRST|GMP_NATIVE_ENDIAN): GMP {}
 
 /**
@@ -689,6 +691,7 @@ function gmp_import(string $data, int $word_size = 1, int $flags = GMP_MSW_FIRST
  * @since 5.6.1
  */
 #[Pure]
+#[LanguageLevelTypeAware(['8.0' => 'string'], default: 'string|false')]
 function gmp_export(GMP|string|int $num, int $word_size = 1, int $flags = GMP_MSW_FIRST|GMP_NATIVE_ENDIAN): string {}
 
 /**
