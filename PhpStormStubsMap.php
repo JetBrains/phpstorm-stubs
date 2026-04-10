@@ -11103,6 +11103,7 @@ const CONSTANTS = array (
   'PGSQL_SHOW_CONTEXT_NEVER' => 'pgsql/pgsql.php',
   'PGSQL_STATUS_LONG' => 'pgsql/pgsql.php',
   'PGSQL_STATUS_STRING' => 'pgsql/pgsql.php',
+  'PGSQL_TRACE_SUPPRESS_TIMESTAMPS' => 'pgsql/pgsql.php',
   'PGSQL_TRACE_REGRESS_MODE' => 'pgsql/pgsql.php',
   'PGSQL_TRANSACTION_ACTIVE' => 'pgsql/pgsql.php',
   'PGSQL_TRANSACTION_IDLE' => 'pgsql/pgsql.php',
