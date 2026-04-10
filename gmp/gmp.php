@@ -576,7 +576,7 @@ function gmp_xor(GMP|string|int $num1, GMP|string|int $num2): GMP {}
  * Defines if the bit is set to 0 or 1. By default the bit is set to
  * 1. Index starts at 0.
  * </p>
- * @return void A GMP number resource.
+ * @return void
  */
 function gmp_setbit(GMP $num, int $index, bool $value = true): void {}
 
@@ -587,7 +587,7 @@ function gmp_setbit(GMP $num, int $index, bool $value = true): void {}
  * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $index <p>It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
- * @return void A GMP number resource.
+ * @return void
  */
 function gmp_clrbit(GMP $num, int $index): void {}
 
