@@ -951,11 +951,13 @@ namespace {
         /**
          * Sets the time format.
          */
+        #[Deprecated('use Pdo\Firebird::ATTR_TIME_FORMAT instead', since: '8.5')]
         public const FB_ATTR_TIME_FORMAT = 1001;
 
         /**
          * Sets the timestamp format.
          */
+        #[Deprecated('use Pdo\Firebird::ATTR_TIMESTAMP_FORMAT instead', since: '8.5')]
         public const FB_ATTR_TIMESTAMP_FORMAT = 1002;
 
         /**
@@ -2235,5 +2237,22 @@ namespace Pdo {
         public function lobUnlink(string $oid): bool {}
 
         public function setNoticeCallback(?callable $callback): void {}
+    }
+
+    /**
+     * @since 8.4
+     */
+    class Firebird extends PDO
+    {
+        public const int ATTR_DATE_FORMAT = 1000;
+        public const int ATTR_TIME_FORMAT = 1001;
+        public const int ATTR_TIMESTAMP_FORMAT = 1002;
+        public const int TRANSACTION_ISOLATION_LEVEL = 1003;
+        public const int READ_COMMITTED = 1004;
+        public const int REPEATABLE_READ = 1005;
+        public const int SERIALIZABLE = 1006;
+        public const int WRITABLE_TRANSACTION = 1007;
+
+        public static function getApiVersion(): int {}
     }
 }

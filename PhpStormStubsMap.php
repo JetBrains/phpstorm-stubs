@@ -843,6 +843,7 @@ const CLASSES = array (
   'Parle\\Token' => 'Parle/Token.php',
   'ParseError' => 'Core/Core_c.php',
   'Pcntl\\QosClass' => 'pcntl/pcntl_c.php',
+  'Pdo\\Firebird' => 'PDO/PDO.php',
   'Pdo\\Mysql' => 'PDO/PDO.php',
   'Pdo\\Pgsql' => 'PDO/PDO.php',
   'Pdo\\Sqlite' => 'PDO/PDO.php',
