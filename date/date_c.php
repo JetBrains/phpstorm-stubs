@@ -1127,7 +1127,21 @@ class DateInterval
      * @link https://php.net/manual/en/dateinterval.createfromdatestring.php
      */
     #[TentativeType]
-    #[LanguageLevelTypeAware(['8.4' => 'DateInterval'], default: 'DateInterval|false')]
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '8.2')]
+    #[LanguageLevelTypeAware(['8.3' => 'DateInterval'], default: 'DateInterval|false')]
+    public static function createFromDateString(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime) {}
+
+    /**
+     * Sets up a DateInterval from the relative parts of the string
+     * @param string $datetime
+     * @return DateInterval|false Returns a new {@link https://www.php.net/manual/en/class.dateinterval.php DateInterval}
+     * instance on success, or <b>FALSE</b> on failure.
+     * @throws DateMalformedStringException
+     * @link https://php.net/manual/en/dateinterval.createfromdatestring.php
+     */
+    #[TentativeType]
+    #[PhpStormStubsElementAvailable(from: '8.3')]
+    #[LanguageLevelTypeAware(['8.3' => 'DateInterval'], default: 'DateInterval|false')]
     public static function createFromDateString(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime) {}
 
     #[TentativeType]
