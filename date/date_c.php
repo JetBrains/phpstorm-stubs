@@ -1128,7 +1128,7 @@ class DateInterval
      */
     #[TentativeType]
     #[PhpStormStubsElementAvailable(from: '5.3', to: '8.2')]
-    #[LanguageLevelTypeAware(['8.3' => 'DateInterval'], default: 'DateInterval|false')]
+    #[LanguageLevelTypeAware(['8.4' => 'DateInterval'], default: 'DateInterval|false')]
     public static function createFromDateString(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime) {}
 
     /**
@@ -1141,7 +1141,7 @@ class DateInterval
      */
     #[TentativeType]
     #[PhpStormStubsElementAvailable(from: '8.3')]
-    #[LanguageLevelTypeAware(['8.3' => 'DateInterval'], default: 'DateInterval|false')]
+    #[LanguageLevelTypeAware(['8.4' => 'DateInterval'], default: 'DateInterval|false')]
     public static function createFromDateString(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime) {}
 
     #[TentativeType]
