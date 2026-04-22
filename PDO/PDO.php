@@ -961,6 +961,78 @@ namespace {
         public const FB_ATTR_TIMESTAMP_FORMAT = 1002;
 
         /**
+         * Sets the connection timeout in seconds.
+         */
+        #[Deprecated('use Pdo\Dblib::ATTR_CONNECTION_TIMEOUT instead', since: '8.5')]
+        public const DBLIB_ATTR_CONNECTION_TIMEOUT = 1000;
+
+        /**
+         * Sets the query timeout in seconds.
+         */
+        #[Deprecated('use Pdo\Dblib::ATTR_QUERY_TIMEOUT instead', since: '8.5')]
+        public const DBLIB_ATTR_QUERY_TIMEOUT = 1001;
+
+        /**
+         * Returns uniqueidentifier values as strings.
+         */
+        #[Deprecated('use Pdo\Dblib::ATTR_STRINGIFY_UNIQUEIDENTIFIER instead', since: '8.5')]
+        public const DBLIB_ATTR_STRINGIFY_UNIQUEIDENTIFIER = 1002;
+
+        /**
+         * Returns the version of the underlying DB-Library.
+         */
+        #[Deprecated('use Pdo\Dblib::ATTR_VERSION instead', since: '8.5')]
+        public const DBLIB_ATTR_VERSION = 1003;
+
+        /**
+         * Returns the TDS version used by the connection.
+         */
+        #[Deprecated('use Pdo\Dblib::ATTR_TDS_VERSION instead', since: '8.5')]
+        public const DBLIB_ATTR_TDS_VERSION = 1004;
+
+        /**
+         * Skips empty result sets returned by stored procedures.
+         */
+        #[Deprecated('use Pdo\Dblib::ATTR_SKIP_EMPTY_ROWSETS instead', since: '8.5')]
+        public const DBLIB_ATTR_SKIP_EMPTY_ROWSETS = 1005;
+
+        /**
+         * Controls datetime conversion to strings.
+         */
+        #[Deprecated('use Pdo\Dblib::ATTR_DATETIME_CONVERT instead', since: '8.5')]
+        public const DBLIB_ATTR_DATETIME_CONVERT = 1006;
+
+        /**
+         * Selects the ODBC cursor library to use.
+         */
+        #[Deprecated('use Pdo\Odbc::ATTR_USE_CURSOR_LIBRARY instead', since: '8.5')]
+        public const ODBC_ATTR_USE_CURSOR_LIBRARY = 1000;
+
+        /**
+         * Assume that data in the database is stored in UTF-8.
+         */
+        #[Deprecated('use Pdo\Odbc::ATTR_ASSUME_UTF8 instead', since: '8.5')]
+        public const ODBC_ATTR_ASSUME_UTF8 = 1001;
+
+        /**
+         * Use the driver's cursor library if needed.
+         */
+        #[Deprecated('use Pdo\Odbc::SQL_USE_IF_NEEDED instead', since: '8.5')]
+        public const ODBC_SQL_USE_IF_NEEDED = 0;
+
+        /**
+         * Use the ODBC cursor library.
+         */
+        #[Deprecated('use Pdo\Odbc::SQL_USE_ODBC instead', since: '8.5')]
+        public const ODBC_SQL_USE_ODBC = 1;
+
+        /**
+         * Use the driver's native cursor library.
+         */
+        #[Deprecated('use Pdo\Odbc::SQL_USE_DRIVER instead', since: '8.5')]
+        public const ODBC_SQL_USE_DRIVER = 2;
+
+        /**
          * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
          * Creates a PDO instance representing a connection to a database
          * @link https://php.net/manual/en/pdo.construct.php
@@ -2254,5 +2326,31 @@ namespace Pdo {
         public const int WRITABLE_TRANSACTION = 1007;
 
         public static function getApiVersion(): int {}
+    }
+
+    /**
+     * @since 8.4
+     */
+    class Dblib extends PDO
+    {
+        public const int ATTR_CONNECTION_TIMEOUT = 1000;
+        public const int ATTR_QUERY_TIMEOUT = 1001;
+        public const int ATTR_STRINGIFY_UNIQUEIDENTIFIER = 1002;
+        public const int ATTR_VERSION = 1003;
+        public const int ATTR_TDS_VERSION = 1004;
+        public const int ATTR_SKIP_EMPTY_ROWSETS = 1005;
+        public const int ATTR_DATETIME_CONVERT = 1006;
+    }
+
+    /**
+     * @since 8.4
+     */
+    class Odbc extends PDO
+    {
+        public const int ATTR_USE_CURSOR_LIBRARY = 1000;
+        public const int ATTR_ASSUME_UTF8 = 1001;
+        public const int SQL_USE_IF_NEEDED = 0;
+        public const int SQL_USE_ODBC = 1;
+        public const int SQL_USE_DRIVER = 2;
     }
 }
