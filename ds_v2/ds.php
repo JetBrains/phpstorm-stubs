@@ -19,40 +19,40 @@ use Traversable;
 /**
  * Creates a sequence containing the given values.
  * @template TValue
- * @param iterable<TValue>|null $values
+ * @param iterable<TValue> $values
  * @return Seq<TValue>
  * @since PECL ds 2.0.0
  */
-function seq($values = null): Seq {}
+function seq(iterable $values = []): Seq {}
 
 /**
  * Creates a map containing the given values.
  * @template TKey
  * @template TValue
- * @param iterable<TKey, TValue>|null $values
+ * @param iterable<TKey, TValue> $values
  * @return Map<TKey, TValue>
  * @since PECL ds 2.0.0
  */
-function map($values = null): Map {}
+function map(iterable $values = []): Map {}
 
 /**
  * Creates a set containing the given values.
  * @template TValue
- * @param iterable<TValue>|null $values
+ * @param iterable<TValue> $values
  * @return Set<TValue>
  * @since PECL ds 2.0.0
  */
-function set($values = null): Set {}
+function set(iterable $values = []): Set {}
 
 /**
  * Creates a heap containing the given values.
  * @template TValue
- * @param iterable<TValue>|null $values
+ * @param iterable<TValue> $values
  * @param null|callable(TValue, TValue): int $comparator
  * @return Heap<TValue>
  * @since PECL ds 2.0.0
  */
-function heap($values = null, ?callable $comparator = null): Heap {}
+function heap(iterable $values = [], ?callable $comparator = null): Heap {}
 
 /**
  * Key allows objects to define custom equality when used as map keys or set values.
@@ -84,9 +84,9 @@ final class Seq implements Countable, IteratorAggregate, JsonSerializable, Array
     public const MIN_CAPACITY = 8;
 
     /**
-     * @param iterable<TValue>|null $values
+     * @param iterable<TValue> $values
      */
-    public function __construct($values = null) {}
+    public function __construct(iterable $values = []) {}
 
     public function allocate(int $capacity): void {}
 
@@ -249,7 +249,7 @@ final class Seq implements Countable, IteratorAggregate, JsonSerializable, Array
      */
     public function __serialize(): array {}
 
-    public function __unserialize($data): void {}
+    public function __unserialize(array $data): void {}
 
     public function offsetExists(mixed $offset): bool {}
 
@@ -265,15 +265,16 @@ final class Seq implements Countable, IteratorAggregate, JsonSerializable, Array
  * @template TValue
  * @implements IteratorAggregate<TKey, TValue>
  * @implements ArrayAccess<TKey, TValue>
+ * @since PECL ds 2.0.0
  */
 final class Map implements Countable, IteratorAggregate, JsonSerializable, ArrayAccess
 {
     public const MIN_CAPACITY = 8;
 
     /**
-     * @param iterable<TKey, TValue>|null $values
+     * @param iterable<TKey, TValue> $values
      */
-    public function __construct($values = null) {}
+    public function __construct(iterable $values = []) {}
 
     public function allocate(int $capacity): void {}
 
@@ -367,7 +368,13 @@ final class Map implements Countable, IteratorAggregate, JsonSerializable, Array
     /** @param iterable<TKey, TValue> $values */
     public function putAll($values): void {}
 
-    /** @return mixed */
+    /**
+     * @template TInitial
+     * @template TReturn
+     * @param callable(TInitial|TReturn|null, TKey, TValue): TReturn $callback
+     * @param TInitial|null $initial
+     * @return TReturn|null
+     */
     public function reduce(callable $callback, $initial = null) {}
 
     /**
@@ -414,11 +421,11 @@ final class Map implements Countable, IteratorAggregate, JsonSerializable, Array
 
     public function __serialize(): array {}
 
-    public function __unserialize($data): void {}
+    public function __unserialize(array $data): void {}
 
     public function offsetExists(mixed $offset): bool {}
 
-    public function offsetGet(mixed $offset): mixed {}
+    public function &offsetGet(mixed $offset): mixed {}
 
     public function offsetSet(mixed $offset, mixed $value): void {}
 
@@ -428,14 +435,15 @@ final class Map implements Countable, IteratorAggregate, JsonSerializable, Array
 /**
  * @template TKey
  * @template TValue
+ * @since PECL ds 2.0.0
  */
 final readonly class Pair implements JsonSerializable
 {
     /** @var TKey */
-    public readonly mixed $key;
+    public mixed $key;
 
     /** @var TValue */
-    public readonly mixed $value;
+    public mixed $value;
 
     /**
      * @param TKey $key
@@ -452,20 +460,21 @@ final readonly class Pair implements JsonSerializable
     /** @return array{key: TKey, value: TValue} */
     public function __serialize(): array {}
 
-    public function __unserialize($data): void {}
+    public function __unserialize(array $data): void {}
 }
 
 /**
  * @template TValue
  * @implements IteratorAggregate<int, TValue>
  * @implements ArrayAccess<int, TValue>
+ * @since PECL ds 2.0.0
  */
 final class Set implements Countable, IteratorAggregate, JsonSerializable, ArrayAccess
 {
     public const MIN_CAPACITY = 8;
 
-    /** @param iterable<TValue>|null $values */
-    public function __construct($values = null) {}
+    /** @param iterable<TValue> $values */
+    public function __construct(iterable $values = []) {}
 
     /** @param TValue ...$values */
     public function add(...$values): void {}
@@ -528,7 +537,13 @@ final class Set implements Countable, IteratorAggregate, JsonSerializable, Array
      */
     public function merge($values): Set {}
 
-    /** @return mixed */
+    /**
+     * @template TInitial
+     * @template TReturn
+     * @param callable(TInitial|TReturn|null, TValue): TReturn $callback
+     * @param TInitial|null $initial
+     * @return TReturn|null
+     */
     public function reduce(callable $callback, $initial = null) {}
 
     /** @param TValue ...$values */
@@ -565,7 +580,7 @@ final class Set implements Countable, IteratorAggregate, JsonSerializable, Array
 
     public function __serialize(): array {}
 
-    public function __unserialize($data): void {}
+    public function __unserialize(array $data): void {}
 
     public function offsetExists(mixed $offset): bool {}
 
@@ -586,14 +601,10 @@ final class Heap implements Countable, IteratorAggregate, JsonSerializable
     public const MIN_CAPACITY = 8;
 
     /**
-     * @param iterable<TValue>|null $values
+     * @param iterable<TValue> $values
      * @param null|callable(TValue, TValue): int $comparator
      */
-    public function __construct($values = null, ?callable $comparator = null) {}
-
-    public function allocate(int $capacity): void {}
-
-    public function capacity(): int {}
+    public function __construct(iterable $values = [], ?callable $comparator = null) {}
 
     public function clear(): void {}
 
@@ -625,5 +636,5 @@ final class Heap implements Countable, IteratorAggregate, JsonSerializable
     /** @return array<int, TValue> */
     public function __serialize(): array {}
 
-    public function __unserialize($data): void {}
+    public function __unserialize(array $data): void {}
 }
