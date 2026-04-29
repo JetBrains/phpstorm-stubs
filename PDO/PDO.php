@@ -1693,6 +1693,14 @@ namespace {
          * @return mixed The return value of this function on success depends on the fetch type. In
          * all cases, <b>FALSE</b> is returned on failure.
          * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
+         *
+         * @return ($mode is PDO::FETCH_ASSOC ? array<string, mixed>|false
+         *     : ($mode is PDO::FETCH_NUM ? list<mixed>|false
+         *     : ($mode is PDO::FETCH_BOTH ? array<string|int, mixed>|false
+         *     : ($mode is PDO::FETCH_OBJ ? \stdClass|false
+         *     : ($mode is PDO::FETCH_COLUMN ? mixed
+         *     : ($mode is PDO::FETCH_NAMED ? array<string, mixed>|false
+         *     : mixed))))))
          */
         #[TentativeType]
         public function fetch(
@@ -1878,6 +1886,15 @@ namespace {
          * server to manipulate the result sets. For example, use the WHERE and
          * ORDER BY clauses in SQL to restrict results before retrieving and
          * processing them with PHP.
+         *
+         * @return ($mode is PDO::FETCH_COLUMN ? list<mixed>
+         *     : ($mode is PDO::FETCH_KEY_PAIR ? array<array-key, mixed>
+         *     : ($mode is PDO::FETCH_ASSOC ? list<array<string, mixed>>
+         *     : ($mode is PDO::FETCH_NUM ? list<list<mixed>>
+         *     : ($mode is PDO::FETCH_BOTH ? list<array<string|int, mixed>>
+         *     : ($mode is PDO::FETCH_OBJ ? list<\stdClass>
+         *     : ($mode is PDO::FETCH_NAMED ? list<array<string, mixed>>
+         *     : list<mixed>)))))))
          */
         #[TentativeType]
         public function fetchAll(
