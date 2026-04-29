@@ -12,6 +12,56 @@ use MongoDB\Driver\Server;
  */
 class CommandSucceededEvent
 {
+    /**
+     * @since 2.3.0
+     */
+    public readonly string $host;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly int $port;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly string $commandName;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly string $databaseName;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly int $duration;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly object $reply;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly string $operationId;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly string $requestId;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly ?ObjectId $serviceId;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly ?int $serverConnectionId;
+
     final private function __construct() {}
 
     final public function __wakeup() {}
