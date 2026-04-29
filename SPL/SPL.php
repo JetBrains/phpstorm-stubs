@@ -1833,6 +1833,10 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
  * This iterator allows to unset and modify values and keys while iterating
  * over Arrays and Objects.
  * @link https://php.net/manual/en/class.arrayiterator.php
+ * @template TKey of array-key
+ * @template TValue
+ * @template-implements SeekableIterator<TKey, TValue>
+ * @template-implements ArrayAccess<TKey, TValue>
  */
 class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Countable
 {
