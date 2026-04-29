@@ -1325,6 +1325,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
  * @template TValue
  * The SplQueue class provides the main functionalities of a queue implemented using a doubly linked list.
  * @link https://php.net/manual/en/class.splqueue.php
+ * @template-extends SplDoublyLinkedList<TValue>
  */
 class SplQueue extends SplDoublyLinkedList
 {

@@ -142,20 +142,22 @@ function array_reverse(array $array, bool $preserve_keys = false): array {}
 /**
  * Iteratively reduce the array to a single value using a callback function
  * @link https://php.net/manual/en/function.array-reduce.php
- * @param array $array <p>
+ * @template TCarry
+ * @template TValue
+ * @param array<TValue> $array <p>
  * The input array.
  * </p>
- * @param callable $callback <p>
+ * @param callable(TCarry, TValue): TCarry $callback <p>
  * The callback function. Signature is <pre>callback ( mixed $carry , mixed $item ) : mixed</pre>
  * <blockquote>mixed <var>$carry</var> <p>The return value of the previous iteration; on the first iteration it holds the value of <var>$initial</var>.</p></blockquote>
  * <blockquote>mixed <var>$item</var> <p>Holds the current iteration value of the <var>$input</var></p></blockquote>
  * </p>
- * @param mixed $initial [optional] <p>
+ * @param TCarry $initial [optional] <p>
  * If the optional initial is available, it will
  * be used at the beginning of the process, or as a final result in case
  * the array is empty.
  * </p>
- * @return mixed the resulting value.
+ * @return TCarry the resulting value.
  * <p>
  * If the array is empty and initial is not passed,
  * array_reduce returns null.
