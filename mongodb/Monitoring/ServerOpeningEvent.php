@@ -9,6 +9,21 @@ use MongoDB\BSON\ObjectId;
  */
 final class ServerOpeningEvent
 {
+    /**
+     * @since 2.3.0
+     */
+    public readonly string $host;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly int $port;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly ObjectId $topologyId;
+
     final private function __construct() {}
 
     /**
