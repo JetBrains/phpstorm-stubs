@@ -1694,7 +1694,7 @@ namespace {
          * all cases, <b>FALSE</b> is returned on failure.
          * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          *
-         * @return ($mode is PDO::FETCH_ASSOC ? array<string, mixed>|false
+         * @phpstan-return ($mode is PDO::FETCH_ASSOC ? array<string, mixed>|false
          *     : ($mode is PDO::FETCH_NUM ? list<mixed>|false
          *     : ($mode is PDO::FETCH_BOTH ? array<string|int, mixed>|false
          *     : ($mode is PDO::FETCH_OBJ ? \stdClass|false
@@ -1887,7 +1887,7 @@ namespace {
          * ORDER BY clauses in SQL to restrict results before retrieving and
          * processing them with PHP.
          *
-         * @return ($mode is PDO::FETCH_COLUMN ? list<mixed>
+         * @phpstan-return ($mode is PDO::FETCH_COLUMN ? list<mixed>
          *     : ($mode is PDO::FETCH_KEY_PAIR ? array<array-key, mixed>
          *     : ($mode is PDO::FETCH_ASSOC ? list<array<string, mixed>>
          *     : ($mode is PDO::FETCH_NUM ? list<list<mixed>>
