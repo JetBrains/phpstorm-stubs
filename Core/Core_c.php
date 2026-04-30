@@ -778,6 +778,7 @@ final class WeakReference
  * @template TKey of object
  * @template TValue
  * @template-implements IteratorAggregate<TKey, TValue>
+ * @template-implements ArrayAccess<TKey, TValue>
  */
 final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
 {
