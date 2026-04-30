@@ -1846,7 +1846,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Construct an ArrayIterator
      * @link https://php.net/manual/en/arrayiterator.construct.php
-     * @param array $array The array or object to be iterated on.
+     * @param array<TKey, TValue>|object $array The array or object to be iterated on.
      * @param int $flags Flags to control the behaviour of the ArrayObject object.
      * @see ArrayObject::setFlags()
      */
@@ -1859,7 +1859,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Check if offset exists
      * @link https://php.net/manual/en/arrayiterator.offsetexists.php
-     * @param string $key <p>
+     * @param TKey $key <p>
      * The offset being checked.
      * </p>
      * @return bool true if the offset exists, otherwise false
@@ -1870,10 +1870,10 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Get value for an offset
      * @link https://php.net/manual/en/arrayiterator.offsetget.php
-     * @param string $key <p>
+     * @param TKey $key <p>
      * The offset to get the value from.
      * </p>
-     * @return mixed The value at offset <i>index</i>.
+     * @return TValue|null The value at offset <i>index</i>.
      */
     #[TentativeType]
     public function offsetGet(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $key): mixed {}
@@ -1881,10 +1881,10 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Set value for an offset
      * @link https://php.net/manual/en/arrayiterator.offsetset.php
-     * @param string $key <p>
+     * @param TKey $key <p>
      * The index to set for.
      * </p>
-     * @param string $value <p>
+     * @param TValue $value <p>
      * The new value to store at the index.
      * </p>
      * @return void
@@ -1898,7 +1898,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Unset value for an offset
      * @link https://php.net/manual/en/arrayiterator.offsetunset.php
-     * @param string $key <p>
+     * @param TKey $key <p>
      * The offset to unset.
      * </p>
      * @return void
@@ -1909,7 +1909,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Append an element
      * @link https://php.net/manual/en/arrayiterator.append.php
-     * @param mixed $value <p>
+     * @param TValue $value <p>
      * The value to append.
      * </p>
      * @return void
@@ -1920,7 +1920,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Get array copy
      * @link https://php.net/manual/en/arrayiterator.getarraycopy.php
-     * @return array A copy of the array, or array of public properties
+     * @return array<TKey, TValue> A copy of the array, or array of public properties
      * if ArrayIterator refers to an object.
      */
     #[TentativeType]
@@ -1976,7 +1976,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * User defined sort
      * @link https://php.net/manual/en/arrayiterator.uasort.php
-     * @param callable $callback <p>
+     * @param callable(TValue, TValue):int $callback <p>
      * The compare function used for the sort.
      * </p>
      */
@@ -1987,7 +1987,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * User defined sort
      * @link https://php.net/manual/en/arrayiterator.uksort.php
-     * @param callable $callback <p>
+     * @param callable(TKey, TKey):int $callback <p>
      * The compare function used for the sort.
      * </p>
      */
@@ -2041,7 +2041,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Return current array entry
      * @link https://php.net/manual/en/arrayiterator.current.php
-     * @return mixed The current array entry.
+     * @return TValue The current array entry.
      */
     #[TentativeType]
     public function current(): mixed {}
@@ -2049,7 +2049,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Return current array key
      * @link https://php.net/manual/en/arrayiterator.key.php
-     * @return string|int|null The key of the current element.
+     * @return TKey|null The key of the current element.
      */
     #[TentativeType]
     public function key(): string|int|null {}

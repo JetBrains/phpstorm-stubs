@@ -157,7 +157,7 @@ function array_reverse(array $array, bool $preserve_keys = false): array {}
  * be used at the beginning of the process, or as a final result in case
  * the array is empty.
  * </p>
- * @return TCarry the resulting value.
+ * @return TCarry|null the resulting value.
  * <p>
  * If the array is empty and initial is not passed,
  * array_reduce returns null.
