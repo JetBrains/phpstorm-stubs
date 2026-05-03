@@ -198,6 +198,19 @@ use const PHP_EOL;
     $nodeTraverser->addVisitor($fileVisitor);
 
     $map = ['classes' => [], 'functions' => [], 'constants' => []];
+    $versionedMaps = [];
+    $versionedExtensionNames = [];
+
+    foreach (new DirectoryIterator($phpStormStubsDirectory) as $directoryInfo) {
+        /** @var DirectoryIterator $directoryInfo */
+        if ($directoryInfo->isDot() || !$directoryInfo->isDir()) {
+            continue;
+        }
+
+        if (preg_match('/^(.+)_v(\d+)$/', $directoryInfo->getBasename(), $matches)) {
+            $versionedExtensionNames[$matches[1]] = true;
+        }
+    }
 
     foreach (new DirectoryIterator($phpStormStubsDirectory) as $directoryInfo) {
         /** @var DirectoryIterator $directoryInfo */
@@ -209,9 +222,11 @@ use const PHP_EOL;
             continue;
         }
 
-        if (in_array($directoryInfo->getBasename(), ['tests', 'meta', 'vendor', 'couchbase_v2', 'ds_v2'], true)) {
+        if (in_array($directoryInfo->getBasename(), ['tests', 'meta', 'vendor'], true)) {
             continue;
         }
+
+        $directoryMap = ['classes' => [], 'functions' => [], 'constants' => []];
 
         $iterator = new RecursiveIteratorIterator(
             new RecursiveDirectoryIterator($directoryInfo->getPathName(), RecursiveDirectoryIterator::SKIP_DOTS)
@@ -232,18 +247,34 @@ use const PHP_EOL;
             $nodeTraverser->traverse($ast);
 
             foreach ($fileVisitor->getClassNames() as $className) {
-                $map['classes'][$className] = $fileInfo->getPathname();
+                $directoryMap['classes'][$className] = $fileInfo->getPathname();
             }
 
             foreach ($fileVisitor->getFunctionNames() as $functionName) {
-                $map['functions'][$functionName] = $fileInfo->getPathname();
+                $directoryMap['functions'][$functionName] = $fileInfo->getPathname();
             }
 
             foreach ($fileVisitor->getConstantNames() as $constantName) {
-                $map['constants'][$constantName] = $fileInfo->getPathname();
+                $directoryMap['constants'][$constantName] = $fileInfo->getPathname();
             }
 
             $fileVisitor->clear();
+        }
+
+        if (preg_match('/^(.+)_v(\d+)$/', $directoryInfo->getBasename(), $matches)) {
+            $versionedMaps[$matches[1]][$matches[2]] = $directoryMap;
+
+            continue;
+        }
+
+        foreach ($directoryMap as $symbolType => $files) {
+            foreach ($files as $symbolName => $filePath) {
+                $map[$symbolType][$symbolName] = $filePath;
+            }
+        }
+
+        if (isset($versionedExtensionNames[$directoryInfo->getBasename()])) {
+            $versionedMaps[$directoryInfo->getBasename()]['default'] = $directoryMap;
         }
     }
 
@@ -255,9 +286,26 @@ use const PHP_EOL;
         }, $files);
     }, $map);
 
+    $versionedMapsWithRelativeFilePaths = array_map(static function (array $versions) use ($phpStormStubsDirectory): array {
+        ksort($versions);
+
+        return array_map(static function (array $map) use ($phpStormStubsDirectory): array {
+            return array_map(static function (array $files) use ($phpStormStubsDirectory): array {
+                ksort($files);
+
+                return array_map(static function (string $filePath) use ($phpStormStubsDirectory): string {
+                    return str_replace('\\', '/', substr($filePath, strlen($phpStormStubsDirectory)));
+                }, $files);
+            }, $map);
+        }, $versions);
+    }, $versionedMaps);
+
+    ksort($versionedMapsWithRelativeFilePaths);
+
     $exportedClasses = var_export($mapWithRelativeFilePaths['classes'], true);
     $exportedFunctions = var_export($mapWithRelativeFilePaths['functions'], true);
     $exportedConstants = var_export($mapWithRelativeFilePaths['constants'], true);
+    $exportedExtensionVersions = var_export($versionedMapsWithRelativeFilePaths, true);
 
     $output = <<<"PHP"
 <?php
@@ -278,6 +326,8 @@ const CLASSES = {$exportedClasses};
 const FUNCTIONS = {$exportedFunctions};
 
 const CONSTANTS = {$exportedConstants};
+
+const EXTENSION_VERSIONS = {$exportedExtensionVersions};
 }
 PHP;
 
