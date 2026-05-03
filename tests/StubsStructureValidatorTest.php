@@ -132,6 +132,7 @@ class StubsStructureValidatorTest extends TestCase
             self::assertStringContainsString('const CLASSES', $generated);
             self::assertStringContainsString('const FUNCTIONS', $generated);
             self::assertStringContainsString('const CONSTANTS', $generated);
+            self::assertStringContainsString('const EXTENSION_VERSIONS', $generated);
 
             self::assertStringNotContainsString(
                 $projectRoot,
