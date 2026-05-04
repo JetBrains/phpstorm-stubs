@@ -1136,7 +1136,7 @@ class DateInterval
      * @param string $datetime
      * @return DateInterval|false Returns a new {@link https://www.php.net/manual/en/class.dateinterval.php DateInterval}
      * instance on success, or <b>FALSE</b> on failure.
-     * @throws DateMalformedStringException
+     * @throws DateMalformedIntervalStringException
      * @link https://php.net/manual/en/dateinterval.createfromdatestring.php
      */
     #[TentativeType]
