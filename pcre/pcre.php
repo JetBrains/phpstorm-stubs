@@ -168,7 +168,7 @@ function preg_match(string $pattern, string $subject, &$matches = null, int $fla
  * @param string $subject <p>
  * The input string.
  * </p>
- * @param string[][] &$matches [optional] <p>
+ * @param null|string[][] &$matches [optional] <p>
  * Array of all matches in multi-dimensional array ordered according to flags.
  * </p>
  * @param int $flags <p>
