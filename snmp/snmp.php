@@ -323,7 +323,7 @@ function snmpget($hostname, $community, $object_id, $timeout = 1000000, $retries
 /**
  * Fetch the SNMP object which follows the given object id
  * @link https://php.net/manual/en/function.snmpgetnext.php
- * @param string $host <p>The hostname of the SNMP agent (server).</p>
+ * @param string $hostname <p>The hostname of the SNMP agent (server).</p>
  * @param string $community <p>The read community.</p>
  * @param string $object_id <p>The SNMP object id which precedes the wanted one.</p>
  * @param int $timeout [optional] <p>The number of microseconds until the first timeout.</p>
@@ -331,7 +331,7 @@ function snmpget($hostname, $community, $object_id, $timeout = 1000000, $retries
  * @return string|false SNMP object value on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
  */
-function snmpgetnext($host, $community, $object_id, $timeout = 1000000, $retries = 5) {}
+function snmpgetnext($hostname, $community, $object_id, $timeout = 1000000, $retries = 5) {}
 
 /**
  * Fetch all the SNMP objects from an agent
@@ -363,7 +363,7 @@ function snmpwalk($hostname, $community, $object_id, $timeout = 1000000, $retrie
 /**
  * Return all objects including their respective object ID within the specified one
  * @link https://php.net/manual/en/function.snmprealwalk.php
- * @param string $host <p>The hostname of the SNMP agent (server).</p>
+ * @param string $hostname <p>The hostname of the SNMP agent (server).</p>
  * @param string $community <p>The read community.</p>
  * @param string $object_id <p>The SNMP object id which precedes the wanted one.</p>
  * @param int $timeout [optional] <p>The number of microseconds until the first timeout.</p>
@@ -371,7 +371,7 @@ function snmpwalk($hostname, $community, $object_id, $timeout = 1000000, $retrie
  * @return array|false an associative array of the SNMP object ids and their values on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
  */
-function snmprealwalk($host, $community, $object_id, $timeout = 1000000, $retries = 5) {}
+function snmprealwalk($hostname, $community, $object_id, $timeout = 1000000, $retries = 5) {}
 
 /**
  * Query for a tree of information about a network entity
@@ -406,7 +406,7 @@ function snmpwalkoid($hostname, $community, $object_id, $timeout = 1000000, $ret
 /**
  * Set the value of an SNMP object
  * @link https://php.net/manual/en/function.snmpset.php
- * @param string $host <p>
+ * @param string $hostname <p>
  * The hostname of the SNMP agent (server).
  * </p>
  * @param string $community <p>
@@ -466,7 +466,7 @@ function snmpwalkoid($hostname, $community, $object_id, $timeout = 1000000, $ret
  * If an unknown or invalid OID is specified the warning probably reads "Could not add variable".
  * </p>
  */
-function snmpset($host, $community, $object_id, $type, $value, $timeout = 1000000, $retries = 5) {}
+function snmpset($hostname, $community, $object_id, $type, $value, $timeout = 1000000, $retries = 5) {}
 
 /**
  * Fetches the current value of the UCD library's quick_print setting
@@ -598,7 +598,7 @@ function snmp2_walk($hostname, $community, $object_id, $timeout = 1000000, $retr
 /**
  * Return all objects including their respective object ID within the specified one
  * @link https://php.net/manual/en/function.snmp2-real-walk.php
- * @param string $host <p>
+ * @param string $hostname <p>
  * The hostname of the SNMP agent (server).
  * </p>
  * @param string $community <p>
