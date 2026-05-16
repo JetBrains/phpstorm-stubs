@@ -42,7 +42,7 @@ namespace {
      * <p>
      * Note: PHP >= 4.2.0 does NOT print the status if it is an integer.
      * </p>
-     * @return void
+     * @return never
      */
     function PS_UNRESERVE_PREFIX_die($status = "") {}
 
@@ -60,7 +60,7 @@ namespace {
      * <p>
      * Note: PHP >= 4.2.0 does NOT print the status if it is an integer.
      * </p>
-     * @return void
+     * @return never
      */
     function PS_UNRESERVE_PREFIX_exit($status = "") {}
 
