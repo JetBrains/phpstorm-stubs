@@ -778,6 +778,7 @@ final class WeakReference
  * @template TKey of object
  * @template TValue
  * @template-implements IteratorAggregate<TKey, TValue>
+ * @template-implements ArrayAccess<TKey, TValue>
  */
 final class WeakMap implements ArrayAccess, Countable, IteratorAggregate
 {
@@ -1195,7 +1196,7 @@ final class SensitiveParameterValue
 /**
  * @since 8.3
  */
-#[Attribute(Attribute::TARGET_METHOD)]
+#[Attribute(Attribute::TARGET_METHOD|Attribute::TARGET_PROPERTY)]
 final class Override
 {
     public function __construct() {}
@@ -1204,7 +1205,7 @@ final class Override
 /**
  * @since 8.4
  */
-#[Attribute(Attribute::TARGET_METHOD|Attribute::TARGET_FUNCTION|Attribute::TARGET_CLASS_CONSTANT|Attribute::TARGET_CONSTANT)]
+#[Attribute(Attribute::TARGET_METHOD|Attribute::TARGET_FUNCTION|Attribute::TARGET_CLASS_CONSTANT|Attribute::TARGET_CONSTANT|Attribute::TARGET_CLASS)]
 final class Deprecated
 {
     public readonly ?string $message;

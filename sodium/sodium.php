@@ -1160,7 +1160,7 @@ function sodium_crypto_secretstream_xchacha20poly1305_rekey(string &$state): voi
  * @param string $string
  * @param int $id
  * @return string
- * @throws SodiumException
+ * @throws SodiumException in cases of invalid input (e.g., an unsupported base64 variant) or other errors like memory allocation failures
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-bin2base64.php
  */

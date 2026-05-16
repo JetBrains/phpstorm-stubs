@@ -183,7 +183,7 @@ function hash_update_stream(#[LanguageLevelTypeAware(["7.2" => "HashContext"], d
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function hash_update_file(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, string $filename, $stream_context): bool {}
+function hash_update_file(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, string $filename, $stream_context = null): bool {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -386,7 +386,7 @@ function mhash_count(): int {}
  */
 #[Pure]
 #[Deprecated(since: '8.1')]
-function mhash(int $algo, string $data, ?string $key): string|false {}
+function mhash(int $algo, string $data, ?string $key = null): string|false {}
 
 /**
  * Optional flag for <b>hash_init</b>.

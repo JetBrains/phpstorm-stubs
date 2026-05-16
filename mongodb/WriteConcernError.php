@@ -8,6 +8,21 @@ namespace MongoDB\Driver;
  */
 final class WriteConcernError
 {
+    /**
+     * @since 2.3.0
+     */
+    public readonly string $message;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly int $code;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly ?object $info;
+
     final private function __construct() {}
 
     final public function __wakeup() {}

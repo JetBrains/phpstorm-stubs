@@ -9,7 +9,7 @@
 /**
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrParams<br/>
- * This class represents a a collection of name-value pairs sent to the Solr server during a request.
+ * This class represents a collection of name-value pairs sent to the Solr server during a request.
  * @link https://php.net/manual/en/class.solrparams.php
  */
 abstract class SolrParams implements Serializable
@@ -28,7 +28,7 @@ abstract class SolrParams implements Serializable
      * Returns a SolrParams instance on success and <b>FALSE</b> on failure.
      * </p>
      */
-    public function add($name, $value) {}
+    final public function add(string $name, string $value): SolrParams|false {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -44,7 +44,7 @@ abstract class SolrParams implements Serializable
      * Returns a SolrParams instance on success and <b>FALSE</b> on failure.
      * </p>
      */
-    public function addParam($name, $value) {}
+    public function addParam(string $name, string $value): SolrParams|false {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -57,7 +57,7 @@ abstract class SolrParams implements Serializable
      * Returns an array or string depending on the type of parameter
      * </p>
      */
-    final public function get($param_name) {}
+    final public function get(string $param_name): mixed {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -70,7 +70,7 @@ abstract class SolrParams implements Serializable
      * Returns an array or string depending on the type of parameter
      * </p>
      */
-    final public function getParam($param_name) {}
+    final public function getParam(string $param_name): mixed {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -80,7 +80,7 @@ abstract class SolrParams implements Serializable
      * Returns an array of non URL-encoded parameters
      * </p>
      */
-    final public function getParams() {}
+    final public function getParams(): array {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -90,7 +90,7 @@ abstract class SolrParams implements Serializable
      * Returns an array of URL-encoded parameters
      * </p>
      */
-    final public function getPreparedParams() {}
+    final public function getPreparedParams(): array {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -100,7 +100,7 @@ abstract class SolrParams implements Serializable
      * Used for custom serialization
      * </p>
      */
-    final public function serialize() {}
+    final public function serialize(): string {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -112,11 +112,9 @@ abstract class SolrParams implements Serializable
      * @param string $value <p>
      * The parameter value
      * </p>
-     * @return SolrParams|false <p>
-     * Returns a SolrParams instance on success and <b>FALSE</b> on failure.
-     * </p>
+     * @return void
      */
-    final public function set($name, $value) {}
+    final public function set(string $name, string $value): void {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -132,7 +130,7 @@ abstract class SolrParams implements Serializable
      * Returns a SolrParams instance on success and <b>FALSE</b> on failure.
      * </p>
      */
-    public function setParam($name, $value) {}
+    public function setParam(string $name, string $value): SolrParams|false {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -145,7 +143,7 @@ abstract class SolrParams implements Serializable
      * Returns a string on success and <b>FALSE</b> on failure.
      * </p>
      */
-    final public function toString($url_encode = false) {}
+    final public function toString(bool $url_encode = false): string|false {}
 
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -155,5 +153,5 @@ abstract class SolrParams implements Serializable
      * The serialized representation of the object
      * </p>
      */
-    final public function unserialize($serialized) {}
+    final public function unserialize(string $serialized): void {}
 }

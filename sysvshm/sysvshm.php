@@ -20,7 +20,7 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * @return resource|SysvSharedMemory|false a shared memory segment identifier.
  */
 #[LanguageLevelTypeAware(["8.0" => "SysvSharedMemory|false"], default: "resource|false")]
-function shm_attach(int $key, ?int $size, int $permissions = 0666) {}
+function shm_attach(int $key, ?int $size = null, int $permissions = 0666) {}
 
 /**
  * Removes shared memory from Unix systems

@@ -317,7 +317,7 @@ class ReflectionClass implements Reflector
      *
      * @link https://php.net/manual/en/reflectionclass.getconstant.php
      * @param non-empty-string $name Name of the constant.
-     * @return mixed|false Value of the constant with the name name.
+     * @return mixed Value of the constant with the name name.
      * Returns {@see false} if the constant was not found in the class.
      */
     #[Pure]

@@ -142,20 +142,22 @@ function array_reverse(array $array, bool $preserve_keys = false): array {}
 /**
  * Iteratively reduce the array to a single value using a callback function
  * @link https://php.net/manual/en/function.array-reduce.php
- * @param array $array <p>
+ * @template TCarry
+ * @template TValue
+ * @param array<TValue> $array <p>
  * The input array.
  * </p>
- * @param callable $callback <p>
+ * @param callable(TCarry, TValue): TCarry $callback <p>
  * The callback function. Signature is <pre>callback ( mixed $carry , mixed $item ) : mixed</pre>
  * <blockquote>mixed <var>$carry</var> <p>The return value of the previous iteration; on the first iteration it holds the value of <var>$initial</var>.</p></blockquote>
  * <blockquote>mixed <var>$item</var> <p>Holds the current iteration value of the <var>$input</var></p></blockquote>
  * </p>
- * @param mixed $initial [optional] <p>
+ * @param TCarry $initial [optional] <p>
  * If the optional initial is available, it will
  * be used at the beginning of the process, or as a final result in case
  * the array is empty.
  * </p>
- * @return mixed the resulting value.
+ * @return TCarry|null the resulting value.
  * <p>
  * If the array is empty and initial is not passed,
  * array_reduce returns null.
@@ -196,11 +198,13 @@ function array_pad(array $array, int $length, mixed $value): array {}
 
 /**
  * Exchanges all keys with their associated values in an array
+ * @template TKey of int|string
+ * @template TValue of int|string
  * @link https://php.net/manual/en/function.array-flip.php
- * @param int[]|string[] $array <p>
+ * @param array<TKey, TValue> $array <p>
  * An array of key/value pairs to be flipped.
  * </p>
- * @return int[]|string[] Returns the flipped array.
+ * @return array<TValue, TKey> Returns the flipped array.
  */
 #[Pure]
 function array_flip(array $array): array {}
@@ -725,7 +729,7 @@ function array_product(array $array): int|float {}
  * @return array the filtered array.
  * @meta
  */
-function array_filter(array $array, ?callable $callback, int $mode = 0): array {}
+function array_filter(array $array, ?callable $callback = null, int $mode = 0): array {}
 
 /**
  * Applies the callback to the elements of the given arrays
@@ -892,7 +896,7 @@ function key_exists($key, array $array): bool {}
 /**
  * Checks if assertion is <b>FALSE</b>
  * @link https://php.net/manual/en/function.assert.php
- * @param Throwable|string|null $assertion <p>
+ * @param mixed $assertion <p>
  * The assertion.
  * In PHP 5, this must be either a string to be evaluated or a boolean to be tested.
  * In PHP 7, this may also be any expression that returns a value,
@@ -1026,7 +1030,7 @@ function version_compare(
                "!=",
                "<>",
                "ne"
-           ])] ?string $operator
+           ])] ?string $operator = null
 ): int|bool {}
 
 /**
@@ -1085,7 +1089,7 @@ function version_compare(
         "!=",
         "<>",
         "ne"
-    ])] ?string $operator
+    ])] ?string $operator = null
 ): int|bool|null {}
 
 /**

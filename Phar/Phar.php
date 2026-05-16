@@ -782,7 +782,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return string the filename if valid, empty string otherwise.
      */
     final public static function running(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $returnPhar,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $returnPhar = true,
         #[PhpStormStubsElementAvailable(from: '7.0')] bool $returnPhar = true
     ): string {}
 

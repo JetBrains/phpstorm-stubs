@@ -1361,7 +1361,7 @@ function oci_new_connect($username, $password, $connection_string = null, $chara
  * @param string $password <p>
  * The password for <i>username</i>.
  * </p>
- * @param string $connection_string [optional] <p>Contains
+ * @param string|null $connection_string [optional] <p>Contains
  * the Oracle instance to connect to. It can be
  * an Easy Connect
  * string, or a Connect Name from
@@ -1395,7 +1395,7 @@ function oci_new_connect($username, $password, $connection_string = null, $chara
  * that $TNS_ADMIN/tnsnames.ora is read. Make sure
  * the web daemon has read access to the file.
  * </p>
- * @param string $character_set [optional] <p>Determines
+ * @param string $encoding [optional] <p>Determines
  * the character set used by the Oracle Client libraries. The character
  * set does not need to match the character set used by the database. If
  * it doesn't match, Oracle will do its best to convert data to and from
@@ -1442,7 +1442,7 @@ function oci_new_connect($username, $password, $connection_string = null, $chara
  * </p>
  * @return resource|false A connection identifier or <b>FALSE</b> on error.
  */
-function oci_pconnect($username, $password, $connection_string = null, $character_set = null, $session_mode = null) {}
+function oci_pconnect($username, $password, $connection_string = null, $encoding = '', $session_mode = null) {}
 
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>

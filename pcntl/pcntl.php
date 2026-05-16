@@ -348,7 +348,7 @@ function pcntl_strerror(int $error_code): false|string {}
  * scheduling.
  */
 #[Pure]
-function pcntl_getpriority(?int $process_id, int $mode = PRIO_PROCESS): int|false {}
+function pcntl_getpriority(?int $process_id = null, int $mode = PRIO_PROCESS): int|false {}
 
 /**
  * Change the priority of any process
@@ -370,7 +370,7 @@ function pcntl_getpriority(?int $process_id, int $mode = PRIO_PROCESS): int|fals
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pcntl_setpriority(int $priority, ?int $process_id, int $mode = PRIO_PROCESS): bool {}
+function pcntl_setpriority(int $priority, ?int $process_id = null, int $mode = PRIO_PROCESS): bool {}
 
 /**
  * Sets and retrieves blocked signals
@@ -394,7 +394,7 @@ function pcntl_setpriority(int $priority, ?int $process_id, int $mode = PRIO_PRO
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pcntl_sigprocmask(int $mode, array $signals, &$old_signals): bool {}
+function pcntl_sigprocmask(int $mode, array $signals, &$old_signals = null): bool {}
 
 /**
  * Waits for signals
@@ -471,7 +471,7 @@ function pcntl_sigtimedwait(array $signals, &$info = [], int $seconds = 0, int $
  * @since 7.1
  */
 function pcntl_async_signals(
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?bool $enable,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?bool $enable = null,
     #[PhpStormStubsElementAvailable(from: '8.0')] ?bool $enable = null
 ): bool {}
 

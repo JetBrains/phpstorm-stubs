@@ -4,6 +4,7 @@
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Pure;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * Create GMP number
@@ -44,9 +45,10 @@ function gmp_intval(GMP|string|int $num): int {}
  * The seed to be set for the {@see gmp_random()}, {@see gmp_random_bits()}, and {@see gmp_random_range()} functions.
  * </p>
  * Either a GMP number resource in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.
- * @return void|null|false Returns NULL on success.
+ * @return void|false
  * @since 7.0
  */
+#[LanguageLevelTypeAware(['8.0' => 'void'], default: 'void|false')]
 function gmp_random_seed(GMP|string|int $seed): void {}
 /**
  * Convert GMP number to string
@@ -574,7 +576,7 @@ function gmp_xor(GMP|string|int $num1, GMP|string|int $num2): GMP {}
  * Defines if the bit is set to 0 or 1. By default the bit is set to
  * 1. Index starts at 0.
  * </p>
- * @return void A GMP number resource.
+ * @return void
  */
 function gmp_setbit(GMP $num, int $index, bool $value = true): void {}
 
@@ -585,7 +587,7 @@ function gmp_setbit(GMP $num, int $index, bool $value = true): void {}
  * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $index <p>It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
- * @return void A GMP number resource.
+ * @return void
  */
 function gmp_clrbit(GMP $num, int $index): void {}
 
@@ -675,6 +677,7 @@ function gmp_hamdist(GMP|string|int $num1, GMP|string|int $num2): int {}
  * @since 5.6.1
  */
 #[Pure]
+#[LanguageLevelTypeAware(['8.0' => 'GMP'], default: 'GMP|false')]
 function gmp_import(string $data, int $word_size = 1, int $flags = GMP_MSW_FIRST|GMP_NATIVE_ENDIAN): GMP {}
 
 /**
@@ -688,6 +691,7 @@ function gmp_import(string $data, int $word_size = 1, int $flags = GMP_MSW_FIRST
  * @since 5.6.1
  */
 #[Pure]
+#[LanguageLevelTypeAware(['8.0' => 'string'], default: 'string|false')]
 function gmp_export(GMP|string|int $num, int $word_size = 1, int $flags = GMP_MSW_FIRST|GMP_NATIVE_ENDIAN): string {}
 
 /**
@@ -731,13 +735,13 @@ function gmp_nextprime(GMP|string|int $num): GMP {}
  *
  * @link https://www.php.net/manual/en/function.gmp-binomial.php
  *
- * @param GMP|string|float|int $n
+ * @param GMP|string|int $n
  * @param int $k
  * @return GMP|false
- *
  * @since 7.3
  */
 #[Pure]
+#[LanguageLevelTypeAware(['8.0' => 'GMP'], default: 'GMP|false')]
 function gmp_binomial(GMP|string|int $n, int $k): GMP {}
 
 /**
@@ -798,7 +802,7 @@ define('GMP_VERSION', "6.3.0");
 
 define('GMP_MPIR_VERSION', '3.0.0');
 
-final class GMP implements Serializable
+final class GMP
 {
     /**
      * @since 8.2
@@ -806,24 +810,22 @@ final class GMP implements Serializable
     public function __construct(int|string $num = 0, int $base = 0) {}
 
     /**
-     * String representation of object
-     * @link https://php.net/manual/en/serializable.serialize.php
-     * @return string the string representation of the object or null
+     * Get array representation of object
+     * @link https://www.php.net/manual/en/language.oop5.magic.php#object.serialize
+     * @return array <p>
+     * The array representation of the GMP object.
+     * </p>
      */
-    public function serialize() {}
-
     public function __serialize(): array {}
 
     /**
-     * Constructs the object
-     * @link https://php.net/manual/en/serializable.unserialize.php
-     * @param string $data <p>
-     * The string representation of the object.
+     * Reconstructs the GMP object from array representation
+     * @link https://www.php.net/manual/en/language.oop5.magic.php#object.serialize
+     * @param array $data <p>
+     * The array representation of the GMP object.
      * </p>
      * @return void
      */
-    public function unserialize($data) {}
-
     public function __unserialize(array $data): void {}
 }
 // End of gmp v.

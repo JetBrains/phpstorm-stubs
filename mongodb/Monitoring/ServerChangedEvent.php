@@ -10,6 +10,31 @@ use MongoDB\Driver\ServerDescription;
  */
 final class ServerChangedEvent
 {
+    /**
+     * @since 2.3.0
+     */
+    public readonly string $host;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly int $port;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly ObjectId $topologyId;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly ServerDescription $newDescription;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly ServerDescription $previousDescription;
+
     final private function __construct() {}
 
     /**

@@ -734,7 +734,7 @@ class Memcached
      * The <b>Memcached::getResultCode</b> will return
      * <b>Memcached::RES_NOTFOUND</b> if the key does not exist.
      */
-    public function get($key, callable $cache_cb = null, $flags = 0) {}
+    public function get($key, ?callable $cache_cb = null, $flags = 0) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>
@@ -756,7 +756,7 @@ class Memcached
      * The <b>Memcached::getResultCode</b> will return
      * <b>Memcached::RES_NOTFOUND</b> if the key does not exist.
      */
-    public function getByKey($server_key, $key, callable $cache_cb = null, $flags = 0) {}
+    public function getByKey($server_key, $key, ?callable $cache_cb = null, $flags = 0) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>
@@ -807,7 +807,7 @@ class Memcached
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * Use <b>Memcached::getResultCode</b> if necessary.
      */
-    public function getDelayed(array $keys, $with_cas = null, callable $value_cb = null) {}
+    public function getDelayed(array $keys, $with_cas = null, ?callable $value_cb = null) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>
@@ -828,7 +828,7 @@ class Memcached
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * Use <b>Memcached::getResultCode</b> if necessary.
      */
-    public function getDelayedByKey($server_key, array $keys, $with_cas = null, callable $value_cb = null) {}
+    public function getDelayedByKey($server_key, array $keys, $with_cas = null, ?callable $value_cb = null) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>
@@ -862,11 +862,10 @@ class Memcached
      * @param int $expiration [optional] <p>
      * The expiration time, defaults to 0. See Expiration Times for more info.
      * </p>
-     * @param int $udf_flags [optional]
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * Use <b>Memcached::getResultCode</b> if necessary.
      */
-    public function set($key, $value, $expiration = 0, $udf_flags = 0) {}
+    public function set($key, $value, $expiration = 0) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>
@@ -884,11 +883,10 @@ class Memcached
      * @param int $expiration [optional] <p>
      * The expiration time, defaults to 0. See Expiration Times for more info.
      * </p>
-     * @param int $udf_flags [optional]
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * Use <b>Memcached::getResultCode</b> if necessary.
      */
-    public function setByKey($server_key, $key, $value, $expiration = 0, $udf_flags = 0) {}
+    public function setByKey($server_key, $key, $value, $expiration = 0) {}
 
     /**
      * (PECL memcached &gt;= 2.0.0)<br/>
@@ -921,7 +919,7 @@ class Memcached
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * Use <b>Memcached::getResultCode</b> if necessary.
      */
-    public function touchByKey($server_key, $key, $expiration) {}
+    public function touchByKey($server_key, $key, $expiration = 0) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>
@@ -933,11 +931,10 @@ class Memcached
      * @param int $expiration [optional] <p>
      * The expiration time, defaults to 0. See Expiration Times for more info.
      * </p>
-     * @param int $udf_flags [optional]
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * Use <b>Memcached::getResultCode</b> if necessary.
      */
-    public function setMulti(array $items, $expiration = 0, $udf_flags = 0) {}
+    public function setMulti(array $items, $expiration = 0) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>
@@ -952,11 +949,10 @@ class Memcached
      * @param int $expiration [optional] <p>
      * The expiration time, defaults to 0. See Expiration Times for more info.
      * </p>
-     * @param int $udf_flags [optional]
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * Use <b>Memcached::getResultCode</b> if necessary.
      */
-    public function setMultiByKey($server_key, array $items, $expiration = 0, $udf_flags = 0) {}
+    public function setMultiByKey($server_key, array $items, $expiration = 0) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>
@@ -974,13 +970,12 @@ class Memcached
      * @param int $expiration [optional] <p>
      * The expiration time, defaults to 0. See Expiration Times for more info.
      * </p>
-     * @param int $udf_flags [optional]
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * The <b>Memcached::getResultCode</b> will return
      * <b>Memcached::RES_DATA_EXISTS</b> if the item you are trying
      * to store has been modified since you last fetched it.
      */
-    public function cas($cas_token, $key, $value, $expiration = 0, $udf_flags = 0) {}
+    public function cas($cas_token, $key, $value, $expiration = 0) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>
@@ -1001,13 +996,12 @@ class Memcached
      * @param int $expiration [optional] <p>
      * The expiration time, defaults to 0. See Expiration Times for more info.
      * </p>
-     * @param int $udf_flags [optional]
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * The <b>Memcached::getResultCode</b> will return
      * <b>Memcached::RES_DATA_EXISTS</b> if the item you are trying
      * to store has been modified since you last fetched it.
      */
-    public function casByKey($cas_token, $server_key, $key, $value, $expiration = 0, $udf_flags = 0) {}
+    public function casByKey($cas_token, $server_key, $key, $value, $expiration = 0) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>
@@ -1022,12 +1016,11 @@ class Memcached
      * @param int $expiration [optional] <p>
      * The expiration time, defaults to 0. See Expiration Times for more info.
      * </p>
-     * @param int $udf_flags [optional]
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * The <b>Memcached::getResultCode</b> will return
      * <b>Memcached::RES_NOTSTORED</b> if the key already exists.
      */
-    public function add($key, $value, $expiration = 0, $udf_flags = 0) {}
+    public function add($key, $value, $expiration = 0) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>
@@ -1045,12 +1038,11 @@ class Memcached
      * @param int $expiration [optional] <p>
      * The expiration time, defaults to 0. See Expiration Times for more info.
      * </p>
-     * @param int $udf_flags [optional]
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * The <b>Memcached::getResultCode</b> will return
      * <b>Memcached::RES_NOTSTORED</b> if the key already exists.
      */
-    public function addByKey($server_key, $key, $value, $expiration = 0, $udf_flags = 0) {}
+    public function addByKey($server_key, $key, $value, $expiration = 0) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>
@@ -1135,12 +1127,11 @@ class Memcached
      * @param int $expiration [optional] <p>
      * The expiration time, defaults to 0. See Expiration Times for more info.
      * </p>
-     * @param int $udf_flags [optional]
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * The <b>Memcached::getResultCode</b> will return
      * <b>Memcached::RES_NOTSTORED</b> if the key does not exist.
      */
-    public function replace($key, $value, $expiration = null, $udf_flags = 0) {}
+    public function replace($key, $value, $expiration = null) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>
@@ -1158,12 +1149,11 @@ class Memcached
      * @param int $expiration [optional] <p>
      * The expiration time, defaults to 0. See Expiration Times for more info.
      * </p>
-     * @param int $udf_flags [optional]
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * The <b>Memcached::getResultCode</b> will return
      * <b>Memcached::RES_NOTSTORED</b> if the key does not exist.
      */
-    public function replaceByKey($server_key, $key, $value, $expiration = null, $udf_flags = 0) {}
+    public function replaceByKey($server_key, $key, $value, $expiration = null) {}
 
     /**
      * (PECL memcached &gt;= 0.1.0)<br/>

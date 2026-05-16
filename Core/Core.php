@@ -321,7 +321,7 @@ function each(&$array): array {}
  * level or the current level if no <i>level</i> parameter is
  * given.
  */
-function error_reporting(?int $error_level): int {}
+function error_reporting(?int $error_level = null): int {}
 
 /**
  * Defines a named constant
@@ -785,7 +785,7 @@ function get_declared_traits(): array {}
  * below).
  */
 #[Pure(true)]
-function get_defined_functions(#[PhpStormStubsElementAvailable(from: '7.1')] bool $exclude_disabled = true): array {}
+function get_defined_functions(#[PhpStormStubsElementAvailable(from: '7.1')] #[Deprecated('Deprecated: has no effect since PHP 8.0', since:'8.5')] bool $exclude_disabled = true): array {}
 
 /**
  * Returns an array of all defined variables
@@ -1139,7 +1139,7 @@ function gc_mem_caches(): int {}
  * @since 7.0
  */
 #[Pure(true)]
-function get_resources(?string $type): array {}
+function get_resources(?string $type = null): array {}
 
 /**
  * @since 8.4
@@ -1152,6 +1152,10 @@ function exit(string|int $status = 0): never {}
 function die(string|int $status = 0): never {}
 
 /**
+ * @template TObject of object
+ * @param TObject $object
+ * @param array $withProperties [optional]
+ * @return TObject
  * @since 8.5
  */
 function clone(object $object, array $withProperties = []): object {}

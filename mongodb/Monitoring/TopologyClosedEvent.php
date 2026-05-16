@@ -9,6 +9,11 @@ use MongoDB\BSON\ObjectId;
  */
 final class TopologyClosedEvent
 {
+    /**
+     * @since 2.3.0
+     */
+    public readonly ObjectId $topologyId;
+
     final private function __construct() {}
 
     /**

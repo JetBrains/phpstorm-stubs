@@ -7,6 +7,31 @@ namespace MongoDB\Driver\Monitoring;
  */
 final class ServerHeartbeatSucceededEvent
 {
+    /**
+     * @since 2.3.0
+     */
+    public readonly string $host;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly int $port;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly bool $awaited;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly int $duration;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly object $reply;
+
     final private function __construct() {}
 
     /**

@@ -338,7 +338,7 @@ function is_scalar(mixed $value): bool {}
  * @return bool <b>TRUE</b> if $var is callable, <b>FALSE</b>
  * otherwise.
  */
-function is_callable(mixed $value, bool $syntax_only = false, &$callable_name): bool {}
+function is_callable(mixed $value, bool $syntax_only = false, &$callable_name = null): bool {}
 
 /**
  * Verify that the contents of a variable is a countable value
@@ -401,7 +401,7 @@ function popen(string $command, string $mode) {}
  * </p>
  * @return false|int the number of bytes read from the file, or FALSE on failure
  */
-function readfile(string $filename, bool $use_include_path = false, $context): int|false {}
+function readfile(string $filename, bool $use_include_path = false, $context = null): int|false {}
 
 /**
  * Rewind the position of a file pointer
@@ -423,7 +423,7 @@ function rewind($stream): bool {}
  * @param resource $context [optional]
  * @return bool true on success or false on failure.
  */
-function rmdir(string $directory, $context): bool {}
+function rmdir(string $directory, $context = null): bool {}
 
 /**
  * Changes the current umask
@@ -434,7 +434,7 @@ function rmdir(string $directory, $context): bool {}
  * @return int umask without arguments simply returns the
  * current umask otherwise the old umask is returned.
  */
-function umask(?int $mask): int {}
+function umask(?int $mask = null): int {}
 
 /**
  * Closes an open file pointer
@@ -488,7 +488,7 @@ function fgetc($stream): string|false {}
  * <p>
  * If an error occurs, returns false.
  */
-function fgets($stream, ?int $length): string|false {}
+function fgets($stream, ?int $length = null): string|false {}
 
 /**
  * Gets line from file pointer and strip HTML tags
@@ -704,7 +704,7 @@ function fread($stream, int $length): string|false {}
  * @param resource $context [optional]
  * @return resource|false a file pointer resource on success, or false on error.
  */
-function fopen(string $filename, string $mode, bool $use_include_path = false, $context) {}
+function fopen(string $filename, string $mode, bool $use_include_path = false, $context = null) {}
 
 /**
  * Output all remaining data on a file pointer
@@ -841,7 +841,7 @@ function fdatasync($stream): bool {}
  * </p>
  * @return int|false the number of bytes written, or <b>FALSE</b> on error.
  */
-function fwrite($stream, string $data, ?int $length): int|false {}
+function fwrite($stream, string $data, ?int $length = null): int|false {}
 
 /**
  * Alias:
@@ -867,7 +867,7 @@ function fwrite($stream, string $data, ?int $length): int|false {}
  * @link https://php.net/manual/en/function.fputs.php
  * Binary-safe file write
  */
-function fputs($stream, string $data, ?int $length): int|false {}
+function fputs($stream, string $data, ?int $length = null): int|false {}
 
 /**
  * Attempts to create the directory specified by pathname.
@@ -895,7 +895,7 @@ function fputs($stream, string $data, ?int $length): int|false {}
  * @param resource $context [optional]
  * @return bool true on success or false on failure.
  */
-function mkdir(string $directory, int $permissions = 0777, bool $recursive = false, $context): bool {}
+function mkdir(string $directory, int $permissions = 0777, bool $recursive = false, $context = null): bool {}
 
 /**
  * Renames a file or directory
@@ -913,7 +913,7 @@ function mkdir(string $directory, int $permissions = 0777, bool $recursive = fal
  * @param resource $context [optional]
  * @return bool true on success or false on failure.
  */
-function rename(string $from, string $to, $context): bool {}
+function rename(string $from, string $to, $context = null): bool {}
 
 /**
  * Copies file
@@ -935,7 +935,7 @@ function rename(string $from, string $to, $context): bool {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function copy(string $from, string $to, $context): bool {}
+function copy(string $from, string $to, $context = null): bool {}
 
 /**
  * Create file with unique file name
@@ -990,7 +990,7 @@ function tmpfile() {}
  * </p>
  */
 #[Pure(true)]
-function file(string $filename, int $flags = 0, $context): array|false {}
+function file(string $filename, int $flags = 0, $context = null): array|false {}
 
 /**
  * Reads entire file into a string
@@ -1017,7 +1017,7 @@ function file(string $filename, int $flags = 0, $context): array|false {}
  * @return string|false The function returns the read data or false on failure.
  */
 #[Pure(true)]
-function file_get_contents(string $filename, bool $use_include_path = false, $context, int $offset = 0, ?int $length): string|false {}
+function file_get_contents(string $filename, bool $use_include_path = false, $context = null, int $offset = 0, ?int $length = null): string|false {}
 
 /**
  * Write a string to a file
@@ -1090,4 +1090,4 @@ function file_get_contents(string $filename, bool $use_include_path = false, $co
  * @return int|false The function returns the number of bytes that were written to the file, or
  * false on failure.
  */
-function file_put_contents(string $filename, mixed $data, int $flags = 0, $context): int|false {}
+function file_put_contents(string $filename, mixed $data, int $flags = 0, $context = null): int|false {}

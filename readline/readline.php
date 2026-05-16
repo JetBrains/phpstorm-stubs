@@ -13,7 +13,7 @@ use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * @return string|false a single string from the user. The line returned has the ending newline removed.
  * If there is no more data to read, then FALSE is returned.
  */
-function readline(?string $prompt): string|false {}
+function readline(?string $prompt = null): string|false {}
 
 /**
  * Gets/sets various internal readline variables
@@ -49,7 +49,7 @@ function readline(?string $prompt): string|false {}
     'readline_name' => 'string',
     'attempted_completion_over' => 'int',
 ])]
-function readline_info(?string $var_name, $value): mixed {}
+function readline_info(?string $var_name = null, $value = null): mixed {}
 
 /**
  * Adds a line to the history
@@ -86,7 +86,7 @@ function readline_list_history(): array {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_read_history(?string $filename): bool {}
+function readline_read_history(?string $filename = null): bool {}
 
 /**
  * Writes the history
@@ -96,7 +96,7 @@ function readline_read_history(?string $filename): bool {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_write_history(?string $filename): bool {}
+function readline_write_history(?string $filename = null): bool {}
 
 /**
  * Registers a completion function

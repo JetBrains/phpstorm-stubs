@@ -106,7 +106,7 @@ final class CurlSharePersistentHandle
  * @return resource|false|CurlHandle a cURL handle on success, false on errors.
  */
 #[LanguageLevelTypeAware(['8.0' => 'CurlHandle|false'], default: 'resource|false')]
-function curl_init(?string $url) {}
+function curl_init(?string $url = null) {}
 
 /**
  * Copy a cURL handle along with all of its preferences
@@ -2152,7 +2152,7 @@ function curl_setopt_array(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], def
  * @return void
  * @since 5.5
  */
-#[\JetBrains\PhpStorm\Deprecated(since: '8.5')]
+#[\JetBrains\PhpStorm\Deprecated('Deprecated: it has no effect', since: '8.5')]
 function curl_share_close(#[LanguageLevelTypeAware(['8.0' => 'CurlShareHandle'], default: 'resource')] $share_handle): void {}
 
 /**
@@ -2542,7 +2542,7 @@ function curl_exec(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'r
  * </ul>
  */
 #[Pure(true)]
-function curl_getinfo(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle, ?int $option): mixed {}
+function curl_getinfo(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle, ?int $option = null): mixed {}
 
 /**
  * Return a string containing the last error for the current session
@@ -2598,7 +2598,7 @@ function curl_file_create(string $filename, ?string $mime_type = null, ?string $
  * @param CurlHandle|resource $handle
  * @return void
  */
-#[\JetBrains\PhpStorm\Deprecated(since: '8.5')]
+#[\JetBrains\PhpStorm\Deprecated('Deprecated: it has no effect', since: '8.5')]
 function curl_close(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'], default: 'resource')] $handle): void {}
 
 /**
@@ -2768,7 +2768,7 @@ function curl_multi_getcontent(#[LanguageLevelTypeAware(['8.0' => 'CurlHandle'],
  */
 #[Pure]
 #[ArrayShape(["msg" => "int", "result" => "int", "handle" => "resource"])]
-function curl_multi_info_read(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle, &$queued_messages): array|false {}
+function curl_multi_info_read(#[LanguageLevelTypeAware(['8.0' => 'CurlMultiHandle'], default: 'resource')] $multi_handle, &$queued_messages = null): array|false {}
 
 /**
  * Close a set of cURL handles

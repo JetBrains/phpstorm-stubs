@@ -17,6 +17,21 @@ final class WriteConcern implements Serializable
     public const MAJORITY = 'majority';
 
     /**
+     * @since 2.3.0
+     */
+    public readonly string|int|null $w;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly bool|null $j;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly int $wtimeout;
+
+    /**
      * Construct immutable WriteConcern
      * @link https://php.net/manual/en/mongodb-driver-writeconcern.construct.php
      * @param string|int $w

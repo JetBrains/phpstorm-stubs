@@ -332,7 +332,7 @@ function strchr(string $haystack, string $needle, bool $before_needle = false): 
  * (- or +) to be used on a number. By default, only the - sign is used
  * on a number if it's negative. This specifier forces positive numbers
  * to have the + sign attached as well, and was added in PHP 4.3.0.</p>
- * @param string|int|float ...$values <p>
+ * @param mixed ...$values <p>
  * </p>
  * @return string a string produced according to the formatting string
  * format.
@@ -340,7 +340,7 @@ function strchr(string $haystack, string $needle, bool $before_needle = false): 
 #[Pure]
 function sprintf(
     string $format,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $values,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $values = null,
     mixed ...$values
 ): string {}
 
@@ -641,7 +641,7 @@ function link(string $target, string $link): bool {}
  * @param resource $context [optional]
  * @return bool true on success or false on failure.
  */
-function unlink(string $filename, $context): bool {}
+function unlink(string $filename, $context = null): bool {}
 
 /**
  * Execute an external program
@@ -673,7 +673,7 @@ function unlink(string $filename, $context): bool {}
  * To get the output of the executed command, be sure to set and use the
  * output parameter.
  */
-function exec(string $command, &$output, &$result_code): string|false {}
+function exec(string $command, &$output = null, &$result_code = null): string|false {}
 
 /**
  * Execute an external program and display the output
@@ -689,7 +689,7 @@ function exec(string $command, &$output, &$result_code): string|false {}
  * @return string|false the last line of the command output on success, and false
  * on failure.
  */
-function system(string $command, &$result_code): string|false {}
+function system(string $command, &$result_code = null): string|false {}
 
 /**
  * Escape shell metacharacters
@@ -726,7 +726,7 @@ function escapeshellarg(string $arg): string {}
  * @return bool|null null on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'null|false'], default: 'null|bool')]
-function passthru(string $command, &$result_code): ?bool {}
+function passthru(string $command, &$result_code = null): ?bool {}
 
 /**
  * Execute command via shell and return the complete output as a string
@@ -808,7 +808,7 @@ function shell_exec(string $command): string|false|null {}
  * proc_close when you are finished with it. On failure
  * returns false.
  */
-function proc_open(array|string $command, array $descriptor_spec, &$pipes, ?string $cwd, ?array $env_vars, ?array $options) {}
+function proc_open(array|string $command, array $descriptor_spec, &$pipes, ?string $cwd = null, ?array $env_vars = null, ?array $options = null) {}
 
 /**
  * Close a process opened by {@see proc_open} and return the exit code of that process

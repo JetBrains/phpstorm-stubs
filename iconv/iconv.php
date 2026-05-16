@@ -149,7 +149,7 @@ function iconv_strlen(string $string, ?string $encoding = null): int|false {}
  * </p>
  */
 #[Pure]
-function iconv_substr(string $string, int $offset, ?int $length, ?string $encoding = null): string|false {}
+function iconv_substr(string $string, int $offset, ?int $length = null, ?string $encoding = null): string|false {}
 
 /**
  * Finds position of first occurrence of a needle within a haystack

@@ -125,7 +125,7 @@ class Yar_Concurrent_Client
      * @return int An unique id, can be used to identified which call it is.
      * @link https://secure.php.net/manual/en/yar-concurrent-client.call.php
      */
-    public static function call($uri, $method, $parameters, callable $callback = null, callable $error_callback, array $options) {}
+    public static function call($uri, $method, $parameters, ?callable $callback = null, ?callable $error_callback = null, array $options) {}
 
     /**
      * Send all calls

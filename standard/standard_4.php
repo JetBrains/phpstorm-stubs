@@ -228,7 +228,7 @@ function var_export(mixed $value, bool $return = false): ?string {}
  */
 function debug_zval_dump(
     #[PhpStormStubsElementAvailable(from: '8.0')] mixed $value,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $values,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $values = null,
     mixed ...$values
 ): void {}
 
@@ -453,7 +453,7 @@ function ini_get(string $option): string|false {}
  */
 #[Pure(true)]
 #[ArrayShape(["global_value" => "string", "local_value" => "string", "access" => "int"])]
-function ini_get_all(?string $extension, #[PhpStormStubsElementAvailable(from: '7.0')] bool $details = true): array|false {}
+function ini_get_all(?string $extension = null, #[PhpStormStubsElementAvailable(from: '7.0')] bool $details = true): array|false {}
 
 /**
  * Sets the value of a configuration option
@@ -604,6 +604,13 @@ function restore_include_path() {}
  * setcookie will fail and return false. If
  * setcookie successfully runs, it will return true.
  * This does not indicate whether the user accepted the cookie.
+ * Example:
+ * <code>
+ *     $value = 'something from somewhere';
+ *     setcookie("TestCookie", $value);
+ *     setcookie("TestCookie", $value, time()+3600);
+ *     setcookie("TestCookie", $value, time()+3600, "/~rasmus/", "example.com", true);
+ * </code>
  */
 function setcookie(string $name, string $value = "", int $expires_or_options = 0, string $path = "", string $domain = "", bool $secure = false, bool $httponly = false): bool {}
 
@@ -626,6 +633,14 @@ function setcookie(string $name, string $value = "", int $expires_or_options = 0
  * @return bool           If output exists prior to calling this function, setcookie will fail and return false. If
  *                        setcookie successfully runs, it will return true.
  *                        This does not indicate whether the user accepted the cookie.
+ * Example:
+ *  <code>
+ *       $value = 'something from somewhere';
+ *       setcookie("TestCookie", $value);
+ *       setcookie("TestCookie", $value, time()+3600);
+ *       setcookie("TestCookie", $value, time()+3600, "/~rasmus/", "example.com", true);
+ *  </code>
+ *
  * @since 7.3
  */
 function setcookie(string $name, string $value = '', array $options = []): bool {}
@@ -674,13 +689,23 @@ function setrawcookie(string $name, $value = '', array $options = []): bool {}
  * The header string.
  * </p>
  * <p>
- * There are two special-case header calls. The first is a header
- * that starts with the string "HTTP/" (case is not
- * significant), which will be used to figure out the HTTP status
- * code to send. For example, if you have configured Apache to
- * use a PHP script to handle requests for missing files (using
- * the ErrorDocument directive), you may want to
- * make sure that your script generates the proper status code.
+ * There are two special-case header calls. The first is a header that starts with the string "HTTP/"
+ * (case is not significant), which will be used to figure out the HTTP status code to send. For example,
+ * if you have configured Apache to use a PHP script to handle requests for missing files (using the ErrorDocument directive),
+ * you may want to make sure that your script generates the proper status code.
+ * </p>
+ * <p>
+ * Example:
+ * <code>
+ * <?php
+ * // This example illustrates the "HTTP/" special case
+ * // Better alternatives in typical use cases include:
+ * // 1. header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");
+ * //    (to override http status messages for clients that are still using HTTP/1.0)
+ * // 2. http_response_code(404); (to use the default message)
+ * header("HTTP/1.1 404 Not Found");
+ * ?>
+ * </code>
  * </p>
  * <p>
  * The second special case is the "Location:" header. Not only does
@@ -689,15 +714,27 @@ function setrawcookie(string $name, $value = '', array $options = []): bool {}
  * unless the 201 or
  * a 3xx status code has already been set.
  * </p>
+ * <p>Example</p>
+ * <code>
+ * header("Location: http://www.example.com/");
+ * exit;
+ * </code>
  * @param bool $replace [optional] <p>
  * The optional replace parameter indicates
  * whether the header should replace a previous similar header, or
  * add a second header of the same type. By default it will replace,
  * but if you pass in false as the second argument you can force
- * multiple headers of the same type. For example:
+ * multiple headers of the same type.
  * </p>
+ * <p>For example:</p>
+ * <code>
+ * <?php
+ * header('WWW-Authenticate: Negotiate');
+ * header('WWW-Authenticate: NTLM', false);
+ * ?>
+ * </code>
  * @param int $response_code <p>
- * Forces the HTTP response code to the specified value.
+ * Forces the HTTP response code to the specified value. Note that this parameter only has an effect if the header is not empty.
  * </p>
  * @return void
  */
@@ -785,7 +822,7 @@ function connection_status(): int {}
  * </p>
  * @return int the previous setting, as an integer.
  */
-function ignore_user_abort(?bool $enable): int {}
+function ignore_user_abort(?bool $enable = null): int {}
 
 /**
  * Parse a configuration file
@@ -970,7 +1007,7 @@ function checkdnsrr(string $hostname, string $type = 'MX'): bool {}
  * @param array &$weights [optional]
  * @return bool
  */
-function dns_get_mx(string $hostname, &$hosts, &$weights): bool {}
+function dns_get_mx(string $hostname, &$hosts, &$weights = null): bool {}
 
 /**
  * Get MX records corresponding to a given Internet host name
@@ -989,7 +1026,7 @@ function dns_get_mx(string $hostname, &$hosts, &$weights): bool {}
  * @return bool true if any records are found; returns false if no records
  * were found or if an error occurred.
  */
-function getmxrr(string $hostname, &$hosts, &$weights): bool {}
+function getmxrr(string $hostname, &$hosts, &$weights = null): bool {}
 
 /**
  * Fetch DNS Resource Records associated with a hostname
@@ -1198,4 +1235,4 @@ function getmxrr(string $hostname, &$hosts, &$weights): bool {}
  * </tr>
  * </table>
  */
-function dns_get_record(string $hostname, int $type = DNS_ANY, &$authoritative_name_servers, &$additional_records, bool $raw = false): array|false {}
+function dns_get_record(string $hostname, int $type = DNS_ANY, &$authoritative_name_servers = null, &$additional_records = null, bool $raw = false): array|false {}

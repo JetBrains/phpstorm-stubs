@@ -97,39 +97,34 @@ function json_encode(mixed $value, int $flags = 0, int $depth = 512): string|fal
 
 /**
  * (PHP 5 &gt;= 5.2.0, PECL json &gt;= 1.2.0)<br/>
- * Decodes a JSON string
- * @link https://php.net/manual/en/function.json-decode.php
+ * Takes a JSON encoded string and converts it into a PHP value.
+ * @link https://www.php.net/manual/en/function.json-decode.php
  * @param string $json <p>
  * The <i>json</i> string being decoded.
  * </p>
  * <p>
  * This function only works with UTF-8 encoded strings.
  * </p>
- * <p>PHP implements a superset of
- * JSON - it will also encode and decode scalar types and <b>NULL</b>. The JSON standard
- * only supports these values when they are nested inside an array or an object.
+ * <p>PHP implements a superset of JSON as specified by <a href="https://datatracker.ietf.org/doc/html/rfc7159">RFC 7159</a>.
  * </p>
  * @param bool|null $associative <p>
- * When <b>TRUE</b>, returned objects will be converted into
- * associative arrays.
+ * When <b>TRUE</b>, JSON objects will be returned as associative arrays; when <b>FALSE</b>, JSON objects will be returned as objects.
+ * When <b>NULL</b>, JSON objects will be returned as associative arrays or objects depending on whether JSON_OBJECT_AS_ARRAY is set in the flags.
  * </p>
  * @param int $depth [optional] <p>
- * User specified recursion depth.
+ * Maximum nesting depth of the structure being decoded. The value must be greater than 0, and less than or equal to 2147483647.
  * </p>
  * @param int $flags [optional] <p>
  * Bitmask of JSON decode options:<br/>
  * {@see JSON_BIGINT_AS_STRING} decodes large integers as their original string value.<br/>
- * {@see JSON_INVALID_UTF8_IGNORE} ignores invalid UTF-8 characters,<br/>
- * {@see JSON_INVALID_UTF8_SUBSTITUTE} converts invalid UTF-8 characters to \0xfffd,<br/>
- * {@see JSON_OBJECT_AS_ARRAY} decodes JSON objects as PHP array, since 7.2.0 used by default if $assoc parameter is true,<br/>
- * {@see JSON_THROW_ON_ERROR} when passed this flag, the error behaviour of these functions is changed. The global error state is left untouched, and if an error occurs that would otherwise set it, these functions instead throw a JsonException<br/>
+ * {@see JSON_INVALID_UTF8_IGNORE} ignores invalid UTF-8 characters,
+ * {@see JSON_INVALID_UTF8_SUBSTITUTE} converts invalid UTF-8 characters to \0xfffd, Available as of PHP 7.2.0.
+ * {@see JSON_OBJECT_AS_ARRAY} Decodes JSON objects as PHP array. This option can be added automatically by calling json_decode() with the second parameter equal to true.
+ * {@see JSON_THROW_ON_ERROR} Throws JsonException if an error occurs instead of setting the global error state that is retrieved with json_last_error() and json_last_error_msg(). JSON_PARTIAL_OUTPUT_ON_ERROR takes precedence over JSON_THROW_ON_ERROR. Available as of PHP 7.3.0.<br/>
  * </p>
- * @return mixed the value encoded in <i>json</i> in appropriate
- * PHP type. Values true, false and
- * null (case-insensitive) are returned as <b>TRUE</b>, <b>FALSE</b>
- * and <b>NULL</b> respectively. <b>NULL</b> is returned if the
- * <i>json</i> cannot be decoded or if the encoded
- * data is deeper than the recursion limit.
+ * @return mixed Returns the value encoded in <i>json</i> as an appropriate PHP type. Unquoted values true, <b>FALSE</b>
+ * and <b>NULL</b> are returned as <b>TRUE</b>, <b>FALSE</b> and <b>NULL</b> respectively. <b>NULL</b> is returned
+ * if the <i>json</i> cannot be decoded or if the encoded data is deeper than the nesting limit.
  */
 function json_decode(#[Language("JSON")] string $json, ?bool $associative = null, int $depth = 512, int $flags = 0): mixed {}
 

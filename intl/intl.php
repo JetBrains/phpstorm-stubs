@@ -949,7 +949,7 @@ class NumberFormatter
     public function __construct(
         #[LanguageAware(['8.0' => 'string'], default: '')] $locale,
         #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([NumberFormatter::DECIMAL, NumberFormatter::PATTERN_DECIMAL,
-            NumberFormatter::PATTERN_RULEBASED, NumberFormatter::CURRENCY, NumberFormatter::PERCENT,
+            NumberFormatter::DECIMAL, NumberFormatter::CURRENCY, NumberFormatter::PERCENT,
             NumberFormatter::SCIENTIFIC, NumberFormatter::SPELLOUT, NumberFormatter::ORDINAL,
             NumberFormatter::DURATION, NumberFormatter::PATTERN_RULEBASED, NumberFormatter::CURRENCY_ACCOUNTING,
             NumberFormatter::DEFAULT_STYLE, NumberFormatter::IGNORE])] $style,
@@ -984,7 +984,7 @@ class NumberFormatter
     public static function create(
         #[LanguageAware(['8.0' => 'string'], default: '')] $locale,
         #[LanguageAware(['8.0' => 'int'], default: '')] #[EV([NumberFormatter::DECIMAL, NumberFormatter::PATTERN_DECIMAL,
-            NumberFormatter::PATTERN_RULEBASED, NumberFormatter::CURRENCY, NumberFormatter::PERCENT,
+            NumberFormatter::DECIMAL, NumberFormatter::CURRENCY, NumberFormatter::PERCENT,
             NumberFormatter::SCIENTIFIC, NumberFormatter::SPELLOUT, NumberFormatter::ORDINAL,
             NumberFormatter::DURATION, NumberFormatter::PATTERN_RULEBASED, NumberFormatter::CURRENCY_ACCOUNTING,
             NumberFormatter::DEFAULT_STYLE, NumberFormatter::IGNORE])] $style,

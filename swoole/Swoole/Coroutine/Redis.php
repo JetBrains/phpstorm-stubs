@@ -636,14 +636,14 @@ class Redis
      * @param mixed $count
      * @return mixed
      */
-    public function zPopMin($key, $count) {}
+    public function zPopMin($key, $count = null) {}
 
     /**
      * @param mixed $key
      * @param mixed $count
      * @return mixed
      */
-    public function zPopMax($key, $count) {}
+    public function zPopMax($key, $count = null) {}
 
     /**
      * @param mixed $key
@@ -935,7 +935,7 @@ class Redis
      * @param mixed $count
      * @return mixed
      */
-    public function lRem($key, $value, $count) {}
+    public function lRem($key, $value, $count = 0) {}
 
     /**
      * @param mixed $key

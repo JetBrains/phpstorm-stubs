@@ -51,7 +51,7 @@ function mailparse_msg_create() {}
  * Returns FALSE on error.
  * </p>
  */
-function mailparse_msg_extract_part_file($mimemail, $filename, $callbackfunc) {}
+function mailparse_msg_extract_part_file($mimemail, $filename, $callbackfunc = null) {}
 
 /**
  * (PECL mailparse >= 0.9.0)<br/>
@@ -64,7 +64,7 @@ function mailparse_msg_extract_part_file($mimemail, $filename, $callbackfunc) {}
  * @param callable $callbackfunc [optional]
  * @return void
  */
-function mailparse_msg_extract_part($mimemail, $msgbody, $callbackfunc) {}
+function mailparse_msg_extract_part($mimemail, $msgbody, $callbackfunc = null) {}
 
 /**
  * (PECL mailparse >= 0.9.0)<br/>
@@ -77,7 +77,7 @@ function mailparse_msg_extract_part($mimemail, $msgbody, $callbackfunc) {}
  * @param callable $callbackfunc [optional]
  * @return string
  */
-function mailparse_msg_extract_whole_part_file($mimemail, $filename, $callbackfunc) {}
+function mailparse_msg_extract_whole_part_file($mimemail, $filename, $callbackfunc = null) {}
 
 /**
  * (PECL mailparse >= 0.9.0)<br/>

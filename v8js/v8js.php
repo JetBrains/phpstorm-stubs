@@ -114,7 +114,7 @@ class V8Js
      * @param bool $auto_enable
      * @return bool
      */
-    public static function registerExtension($extension_name, $code, array $dependencies, $auto_enable = false) {}
+    public static function registerExtension($extension_name, $code, array $dependencies = [], $auto_enable = false) {}
 
     /**
      * Returns extensions successfully registered with V8Js::registerExtension().
