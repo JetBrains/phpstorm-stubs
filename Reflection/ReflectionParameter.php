@@ -81,12 +81,11 @@ class ReflectionParameter implements Reflector
      * Returns whether this parameter can be passed by value
      *
      * @link https://php.net/manual/en/reflectionparameter.canbepassedbyvalue.php
-     * @return bool|null {@see true} if the parameter can be passed by value, {@see false} otherwise, or {@see null} on error.
-     * Returns {@see null} in case of an error.
+     * @return bool {@see true} if the parameter can be passed by value, {@see false} otherwise.
      * @since 5.4
      */
     #[TentativeType]
-    public function canBePassedByValue(): ?bool {}
+    public function canBePassedByValue(): bool {}
 
     /**
      * Gets declaring function
