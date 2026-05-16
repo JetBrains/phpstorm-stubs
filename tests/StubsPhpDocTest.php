@@ -267,9 +267,11 @@ class StubsPhpDocTest extends AbstractBaseStubsTestCase
             'mixin',
             'package',
             'param',
+            'phpstan-return', // https://github.com/JetBrains/phpstorm-stubs/pull/1810#discussion_r3252826698
             'property',
             'property-read',
             'property-write',
+            'psalm-return', // https://github.com/JetBrains/phpstorm-stubs/pull/1810#discussion_r3252826698
             'removed',
             'return',
             'see',

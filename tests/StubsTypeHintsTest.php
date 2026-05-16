@@ -495,10 +495,21 @@ class StubsTypeHintsTest extends AbstractBaseStubsTestCase
                 fn (string $type) => self::handleTemplateTypes($type, $classTemplateTypes),
             )
         );
-        // Treat PhpDoc 'static' as the declaring class short name (e.g., DateTime)
         $classShortName = self::getTypePossibleNamespace(ltrim($classId, '\\'));
         $unifiedPhpDocTypes = array_map(
-            static fn (string $t) => $t === 'static' ? $classShortName : $t,
+            static function (string $t) use ($classShortName) {
+                // Treat PhpDoc 'static' as the declaring class short name (e.g., DateTime)
+                if ($t === 'static') {
+                    return $classShortName;
+                }
+
+                // Treat PhpDoc 'class-string' and 'class-string<BaseClass>' as string
+                if (preg_match('/^class-string(<.+>)?$/', $t) === 1) {
+                    return 'string';
+                }
+
+                return $t;
+            },
             $unifiedPhpDocTypes
         );
 
