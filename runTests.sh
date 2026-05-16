@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 echo "Installing composer packages..."
-docker-compose -f docker-compose.yml run test_runner composer install
+docker-compose -f docker-compose.yml run test_runner composer install --ignore-platform-reqs
 
 echo "Checking PhpDoc..."
 docker-compose -f docker-compose.yml run test_runner vendor/bin/phpunit --testsuite PhpDoc
 
 echo "Checking Structure..."
-docker compose -f docker-compose.yml run test_runner vendor/bin/phpunit --testsuite Structure
+docker-compose -f docker-compose.yml run test_runner vendor/bin/phpunit --testsuite Structure
 
 allPhpVersions=("7.1" "7.2" "7.3" "7.4" "8.0" "8.1" "8.2" "8.3" "8.4" "8.5")
 phpVersions=("$@")

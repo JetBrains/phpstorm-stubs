@@ -255,6 +255,33 @@ function ssh2_auth_none($session, $username) {}
 function ssh2_auth_password($session, $username, $password) {}
 
 /**
+ * (PECL ssh2 &gt;= 1.4.0)<br/>
+ *  Authenticate using a public key in a variable
+ * @link https://php.net/manual/en/function.ssh2-auth-pubkey.php
+ * @param resource $session <p>
+ * An SSH connection link identifier, obtained from a call to
+ * ssh2_connect.
+ * </p>
+ * @param string $username <p>
+ * Name of the user to authenticate as on the remote server.
+ * </p>
+ * @param string $pubkey <p>
+ * Public key in OpenSSH's format. It should look something like:
+ * ssh-rsa AAAAB3NzaC1yc2EAAA....NX6sqSnHA8= rsa-key-20121110
+ * </p>
+ * @param string $privkey <p>
+ * Private OpenSSH key. It should begin with:
+ * -----BEGIN RSA PRIVATE KEY-----
+ * </p>
+ * @param ?string $passphrase [optional] <p>
+ * If privkey is encrypted (which it should
+ * be), the passphrase must be provided.
+ * </p>
+ * @return bool true on success or false on failure.
+ */
+function ssh2_auth_pubkey($session, $username, $pubkey, $privkey, $passphrase = null) {}
+
+/**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Authenticate using a public key
  * @link https://php.net/manual/en/function.ssh2-auth-pubkey-file.php

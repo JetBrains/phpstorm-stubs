@@ -226,6 +226,7 @@ $HTTP_RAW_POST_DATA = '';
  *
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * https://secure.php.net/manual/en/reserved.variables.php</a>
+ * @deprecated 8.5
  */
 $http_response_header = [];
 

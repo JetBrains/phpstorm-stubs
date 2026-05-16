@@ -13,8 +13,9 @@ class BulkWriteException extends ServerException implements Exception
 {
     /**
      * @var WriteResult associated with the failed write operation.
+     * @since 2.3.0
      */
-    protected $writeResult;
+    public readonly WriteResult $writeResult;
 
     /**
      * @return WriteResult for the failed write operation

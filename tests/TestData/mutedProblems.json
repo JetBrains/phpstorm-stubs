@@ -1785,6 +1785,22 @@
               ]
             }
           ]
+        },
+        {
+          "name": "running",
+          "parameters": [
+            {
+              "name": "retphar",
+              "problems": [
+                {
+                  "description": "wrong optionallity",
+                  "versions": [
+                    5.6
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -2642,6 +2658,25 @@
       ]
     },
     {
+      "name": "MultipleIterator",
+      "methods": [
+        {
+          "name": "__construct",
+          "parameters": [
+            {
+              "name": "flags",
+              "problems": [
+                {
+                  "description": "wrong optionallity",
+                  "versions": [5.6, 7.0, 7.1, 7.2, 7.3, 7.4]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "DateTimeZone",
       "methods": [
         {
@@ -2658,6 +2693,28 @@
         {
           "name": "getTransitions",
           "parameters": [
+            {
+              "name": "timestamp_begin",
+              "problems": [
+                {
+                  "description": "wrong optionallity",
+                  "versions": [
+                    5.6
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "timestamp_end",
+              "problems": [
+                {
+                  "description": "wrong optionallity",
+                  "versions": [
+                    5.6
+                  ]
+                }
+              ]
+            },
             {
               "name": "timestampEnd",
               "problems": [
@@ -2865,6 +2922,92 @@
       "name": "SQLite3",
       "methods": [
         {
+          "name": "__construct",
+          "parameters": [
+            {
+              "name": "flags",
+              "problems": [
+                {
+                  "description": "wrong optionallity",
+                  "versions": [
+                    5.6
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "encryption_key",
+              "problems": [
+                {
+                  "description": "wrong optionallity",
+                  "versions": [
+                    5.6
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "open",
+          "parameters": [
+            {
+              "name": "flags",
+              "problems": [
+                {
+                  "description": "wrong optionallity",
+                  "versions": [
+                    5.6
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "encryption_key",
+              "problems": [
+                {
+                  "description": "wrong optionallity",
+                  "versions": [
+                    5.6
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "enableExceptions",
+          "parameters": [
+            {
+              "name": "enableExceptions",
+              "problems": [
+                {
+                  "description": "wrong optionallity",
+                  "versions": [
+                    5.6
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "enableExtendedResultCodes",
+          "parameters": [
+            {
+              "name": "enable",
+              "problems": [
+                {
+                  "description": "wrong optionallity",
+                  "versions": [
+                    7.4
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
           "name": "createFunction",
           "parameters": [
             {
@@ -2890,6 +3033,27 @@
                   "description": "has scalar typehint",
                   "versions": [
                     "ALL"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SoapClient",
+      "methods": [
+        {
+          "name": "__setSoapHeaders",
+          "parameters": [
+            {
+              "name": "soapheaders",
+              "problems": [
+                {
+                  "description": "wrong optionallity",
+                  "versions": [
+                    5.6
                   ]
                 }
               ]

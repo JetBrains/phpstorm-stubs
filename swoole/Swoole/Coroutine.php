@@ -135,7 +135,7 @@ class Coroutine
      * @return int|false Memory usage of the coroutine; FALSE if the specified coroutine doesn't exist.
      * @since 4.8.0
      */
-    public static function getStackUsage(int $cid = null) {}
+    public static function getStackUsage(?int $cid = null) {}
 
     /**
      * @return mixed

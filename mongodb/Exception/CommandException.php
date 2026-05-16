@@ -10,7 +10,11 @@ namespace MongoDB\Driver\Exception;
  */
 class CommandException extends ServerException
 {
-    protected $resultDocument;
+    /**
+     * @var object The result document for the failed command
+     * @since 2.3.0
+     */
+    public readonly object $resultDocument;
 
     /**
      * Returns the result document for the failed command

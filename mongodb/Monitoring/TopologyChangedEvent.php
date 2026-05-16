@@ -10,6 +10,21 @@ use MongoDB\Driver\TopologyDescription;
  */
 final class TopologyChangedEvent
 {
+    /**
+     * @since 2.3.0
+     */
+    public readonly ObjectId $topologyId;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly TopologyDescription $newDescription;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly TopologyDescription $previousDescription;
+
     final private function __construct() {}
 
     /**

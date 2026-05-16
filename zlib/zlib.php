@@ -214,7 +214,7 @@ function gztell($stream): int|false {}
  * @return int|false the number of (uncompressed) bytes written to the given gz-file
  * stream.
  */
-function gzwrite($stream, string $data, ?int $length): int|false {}
+function gzwrite($stream, string $data, ?int $length = null): int|false {}
 
 /**
  * Alias of <b>gzwrite</b>
@@ -224,7 +224,7 @@ function gzwrite($stream, string $data, ?int $length): int|false {}
  * @param int|null $length [optional]
  * @return int|false
  */
-function gzputs($stream, string $data, ?int $length): int|false {}
+function gzputs($stream, string $data, ?int $length = null): int|false {}
 
 /**
  * Read entire gz-file into an array

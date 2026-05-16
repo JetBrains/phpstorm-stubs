@@ -140,7 +140,7 @@ function db2_pclose($connection): bool {}
  * AUTOCOMMIT state of the requested connection to the corresponding state.
  * true on success or false on failure.</p>
  */
-function db2_autocommit($connection, int $value = null): int|bool {}
+function db2_autocommit($connection, ?int $value = null): int|bool {}
 
 /**
  * Binds a PHP variable to an SQL statement parameter
@@ -1503,7 +1503,7 @@ function db2_result($stmt, int|string $column): mixed {}
  * @return bool true if the requested row exists in the result set. Returns
  * false if the requested row does not exist in the result set.
  */
-function db2_fetch_row($stmt, int $row_number = null) {}
+function db2_fetch_row($stmt, int $row_number = -1) {}
 
 /**
  * Returns an array, indexed by column name, representing a row in a result set
@@ -1521,7 +1521,7 @@ function db2_fetch_row($stmt, int $row_number = null) {}
  * there are no rows left in the result set, or if the row requested by
  * row_number does not exist in the result set.
  */
-function db2_fetch_assoc($stmt, int $row_number = null): array|false {}
+function db2_fetch_assoc($stmt, int $row_number = -1): array|false {}
 
 /**
  * Returns an array, indexed by column position, representing a row in a result set
@@ -1539,7 +1539,7 @@ function db2_fetch_assoc($stmt, int $row_number = null): array|false {}
  * there are no rows left in the result set, or if the row requested by
  * row_number does not exist in the result set.
  */
-function db2_fetch_array($stmt, int $row_number = null): array|false {}
+function db2_fetch_array($stmt, int $row_number = -1): array|false {}
 
 /**
  * Returns an array, indexed by both column name and position, representing a row in a result set
@@ -1558,7 +1558,7 @@ function db2_fetch_array($stmt, int $row_number = null): array|false {}
  * in the result set, or if the row requested by
  * row_number does not exist in the result set.
  */
-function db2_fetch_both($stmt, int $row_number = null): array|false {}
+function db2_fetch_both($stmt, int $row_number = -1): array|false {}
 
 /**
  * Frees resources associated with a result set
@@ -1641,7 +1641,7 @@ function db2_setoption(): bool {}
  * <p>
  * Returns false if no row was retrieved.
  */
-function db2_fetch_object($stmt, int $row_number = null): stdClass|false {}
+function db2_fetch_object($stmt, int $row_number = -1): stdClass|false {}
 
 /**
  * Returns an object with properties that describe the DB2 database server

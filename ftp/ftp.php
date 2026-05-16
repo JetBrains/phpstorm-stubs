@@ -214,7 +214,7 @@ function ftp_chmod(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_alloc(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, int $size, &$response): bool {}
+function ftp_alloc(#[LanguageLevelTypeAware(['8.1' => 'FTP\Connection'], default: 'resource')] $ftp, int $size, &$response = null): bool {}
 
 /**
  * Returns a list of files in the given directory

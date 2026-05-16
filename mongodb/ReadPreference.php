@@ -48,6 +48,27 @@ final class ReadPreference implements Serializable
     public const SMALLEST_MAX_STALENESS_SECONDS = 90;
 
     /**
+     * @since 2.3.0
+     */
+    public readonly string $mode;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly array|null $tags;
+
+    /**
+     * @since 2.3.0
+     */
+    public readonly int $maxStalenessSeconds;
+
+    /**
+     * @since 2.3.0
+     * @deprecated
+     */
+    public readonly object|null $hedge;
+
+    /**
      * Construct immutable ReadPreference
      * @link https://php.net/manual/en/mongodb-driver-readpreference.construct.php
      * @param string $mode
@@ -63,6 +84,7 @@ final class ReadPreference implements Serializable
      * Returns the ReadPreference's "hedge" option
      * @since 1.8.0
      * @link https://www.php.net/manual/en/mongodb-driver-readpreference.gethedge.php
+     * @deprecated
      */
     final public function getHedge(): ?object {}
 

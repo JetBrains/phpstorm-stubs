@@ -1443,7 +1443,7 @@ class TableSelect implements \mysql_xdevapi\Executable
      * @param int|null $lock_waiting_option
      * @return \mysql_xdevapi\TableSelect
      */
-    public function lockExclusive(?int $lock_waiting_option): TableSelect {}
+    public function lockExclusive(?int $lock_waiting_option = null): TableSelect {}
 
     /**
      * Execute a read operation with SHARED LOCK. Only one lock can be active at a time.
@@ -1451,7 +1451,7 @@ class TableSelect implements \mysql_xdevapi\Executable
      * @param int|null $lock_waiting_option
      * @return \mysql_xdevapi\TableSelect
      */
-    public function lockShared(?int $lock_waiting_option): TableSelect {}
+    public function lockShared(?int $lock_waiting_option = null): TableSelect {}
 
     /**
      * Skip given number of rows in result.

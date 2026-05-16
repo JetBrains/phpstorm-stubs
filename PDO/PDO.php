@@ -89,26 +89,31 @@ namespace {
          * @since 7.1.4
          * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.sqlite-deterministic
          */
+        #[Deprecated('use Pdo\Sqlite::DETERMINISTIC instead', since: '8.5')]
         public const SQLITE_DETERMINISTIC = 2048;
 
         /**
          * @since 7.3
          */
+        #[Deprecated('use Pdo\Sqlite::OPEN_READONLY instead', since: '8.5')]
         public const SQLITE_OPEN_READONLY = 1;
 
         /**
          * @since 7.3
          */
+        #[Deprecated('use Pdo\Sqlite::OPEN_READWRITE instead', since: '8.5')]
         public const SQLITE_OPEN_READWRITE = 2;
 
         /**
          * @since 7.3
          */
+        #[Deprecated('use Pdo\Sqlite::OPEN_CREATE instead', since: '8.5')]
         public const SQLITE_OPEN_CREATE = 4;
 
         /**
          * @since 7.3
          */
+        #[Deprecated('use Pdo\Sqlite::OPEN_FLAGS instead', since: '8.5')]
         public const SQLITE_ATTR_OPEN_FLAGS = 1000;
 
         /**
@@ -460,6 +465,7 @@ namespace {
          * @see https://php.net/manual/en/pdo.error-handling.php  Errors and Error Handling
          * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.errmode-warning
          */
+        #[Deprecated('use PDO::ERRMODE_SILENT or PDO::ERRMODE_EXCEPTION instead', since: '8.5')]
         public const ERRMODE_WARNING = 1;
 
         /**
@@ -592,6 +598,7 @@ namespace {
          * </p>
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-use-buffered-query
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_USE_BUFFERED_QUERY instead', since: '8.5')]
         public const MYSQL_ATTR_USE_BUFFERED_QUERY = 1000;
 
         /**
@@ -604,6 +611,7 @@ namespace {
          * </p>
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-local-infile
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_LOCAL_INFILE instead', since: '8.5')]
         public const MYSQL_ATTR_LOCAL_INFILE = 1001;
 
         /**
@@ -617,6 +625,7 @@ namespace {
          * </p>
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-init-command
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_INIT_COMMAND instead', since: '8.5')]
         public const MYSQL_ATTR_INIT_COMMAND = 1002;
 
         /**
@@ -626,6 +635,7 @@ namespace {
          * </p>
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-max-buffer-size
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_MAX_BUFFER_SIZE instead', since: '8.5')]
         public const MYSQL_ATTR_MAX_BUFFER_SIZE = 1005;
 
         /**
@@ -637,6 +647,7 @@ namespace {
          * </p>
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-read-default-file
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_READ_DEFAULT_FILE instead', since: '8.5')]
         public const MYSQL_ATTR_READ_DEFAULT_FILE = 1003;
 
         /**
@@ -648,6 +659,7 @@ namespace {
          * </p>
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-read-default-group
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_READ_DEFAULT_GROUP instead', since: '8.5')]
         public const MYSQL_ATTR_READ_DEFAULT_GROUP = 1004;
 
         /**
@@ -657,6 +669,7 @@ namespace {
          * </p>
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-compress
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_COMPRESS instead', since: '8.5')]
         public const MYSQL_ATTR_COMPRESS = 1003;
 
         /**
@@ -665,6 +678,7 @@ namespace {
          * </p>
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-direct-query
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_DIRECT_QUERY instead', since: '8.5')]
         public const MYSQL_ATTR_DIRECT_QUERY = 1004;
 
         /**
@@ -674,6 +688,7 @@ namespace {
          * </p>
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-found-rows
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_FOUND_ROWS instead', since: '8.5')]
         public const MYSQL_ATTR_FOUND_ROWS = 1005;
 
         /**
@@ -683,7 +698,10 @@ namespace {
          * </p>
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ignore-space
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_IGNORE_SPACE instead', since: '8.5')]
         public const MYSQL_ATTR_IGNORE_SPACE = 1006;
+
+        #[Deprecated('use Pdo\Mysql::ATTR_SERVER_PUBLIC_KEY instead', since: '8.5')]
         public const MYSQL_ATTR_SERVER_PUBLIC_KEY = 1012;
 
         /**
@@ -693,6 +711,7 @@ namespace {
          * @since 5.3.7
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-key
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_SSL_KEY instead', since: '8.5')]
         public const MYSQL_ATTR_SSL_KEY = 1007;
 
         /**
@@ -702,6 +721,7 @@ namespace {
          * @since 5.3.7
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-cert
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_SSL_CERT instead', since: '8.5')]
         public const MYSQL_ATTR_SSL_CERT = 1008;
 
         /**
@@ -711,6 +731,7 @@ namespace {
          * @since 5.3.7
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-ca
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_SSL_CA instead', since: '8.5')]
         public const MYSQL_ATTR_SSL_CA = 1009;
 
         /**
@@ -721,6 +742,7 @@ namespace {
          * @since 5.3.7
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-capath
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_SSL_CAPATH instead', since: '8.5')]
         public const MYSQL_ATTR_SSL_CAPATH = 1010;
 
         /**
@@ -732,6 +754,7 @@ namespace {
          * @since 5.3.7
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-cipher
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_SSL_CIPHER instead', since: '8.5')]
         public const MYSQL_ATTR_SSL_CIPHER = 1011;
 
         /**
@@ -744,6 +767,7 @@ namespace {
          * @since 5.5.21
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-multi-statements
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_MULTI_STATEMENTS instead', since: '8.5')]
         public const MYSQL_ATTR_MULTI_STATEMENTS = 1013;
 
         /**
@@ -754,11 +778,13 @@ namespace {
          * @since 7.1.4
          * @link https://bugs.php.net/bug.php?id=71003
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_SSL_VERIFY_SERVER_CERT instead', since: '8.5')]
         public const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1014;
 
         /**
          * @since 8.1
          */
+        #[Deprecated('use Pdo\Mysql::ATTR_LOCAL_INFILE_DIRECTORY instead', since: '8.5')]
         public const MYSQL_ATTR_LOCAL_INFILE_DIRECTORY = 1015;
 
         #[Deprecated("Use PDO::ATTR_EMULATE_PREPARES instead")]
@@ -772,13 +798,24 @@ namespace {
         /**
          * @since 5.6
          */
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const PGSQL_ATTR_DISABLE_PREPARES = 1000;
         public const PGSQL_BAD_RESPONSE = 5;
         public const PGSQL_BOTH = 3;
+
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const PGSQL_TRANSACTION_IDLE = 0;
+
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const PGSQL_TRANSACTION_ACTIVE = 1;
+
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const PGSQL_TRANSACTION_INTRANS = 2;
+
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const PGSQL_TRANSACTION_INERROR = 3;
+
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const PGSQL_TRANSACTION_UNKNOWN = 4;
         public const PGSQL_CONNECT_ASYNC = 4;
         public const PGSQL_CONNECT_FORCE_NEW = 2;
@@ -862,11 +899,13 @@ namespace {
         /**
          * @since 7.4
          */
+        #[Deprecated('use Pdo\Sqlite::ATTR_READONLY_STATEMENT instead', since: '8.5')]
         public const SQLITE_ATTR_READONLY_STATEMENT = 1001;
 
         /**
          * @since 7.4
          */
+        #[Deprecated('use Pdo\Sqlite::ATTR_EXTENDED_RESULT_CODES instead', since: '8.5')]
         public const SQLITE_ATTR_EXTENDED_RESULT_CODES = 1002;
 
         /**
@@ -906,17 +945,92 @@ namespace {
         /**
          * Sets the date format.
          */
+        #[Deprecated('use Pdo\Firebird::ATTR_DATE_FORMAT instead', since: '8.5')]
         public const FB_ATTR_DATE_FORMAT = 1000;
 
         /**
          * Sets the time format.
          */
+        #[Deprecated('use Pdo\Firebird::ATTR_TIME_FORMAT instead', since: '8.5')]
         public const FB_ATTR_TIME_FORMAT = 1001;
 
         /**
          * Sets the timestamp format.
          */
+        #[Deprecated('use Pdo\Firebird::ATTR_TIMESTAMP_FORMAT instead', since: '8.5')]
         public const FB_ATTR_TIMESTAMP_FORMAT = 1002;
+
+        /**
+         * Sets the connection timeout in seconds.
+         */
+        #[Deprecated('use Pdo\Dblib::ATTR_CONNECTION_TIMEOUT instead', since: '8.5')]
+        public const DBLIB_ATTR_CONNECTION_TIMEOUT = 1000;
+
+        /**
+         * Sets the query timeout in seconds.
+         */
+        #[Deprecated('use Pdo\Dblib::ATTR_QUERY_TIMEOUT instead', since: '8.5')]
+        public const DBLIB_ATTR_QUERY_TIMEOUT = 1001;
+
+        /**
+         * Returns uniqueidentifier values as strings.
+         */
+        #[Deprecated('use Pdo\Dblib::ATTR_STRINGIFY_UNIQUEIDENTIFIER instead', since: '8.5')]
+        public const DBLIB_ATTR_STRINGIFY_UNIQUEIDENTIFIER = 1002;
+
+        /**
+         * Returns the version of the underlying DB-Library.
+         */
+        #[Deprecated('use Pdo\Dblib::ATTR_VERSION instead', since: '8.5')]
+        public const DBLIB_ATTR_VERSION = 1003;
+
+        /**
+         * Returns the TDS version used by the connection.
+         */
+        #[Deprecated('use Pdo\Dblib::ATTR_TDS_VERSION instead', since: '8.5')]
+        public const DBLIB_ATTR_TDS_VERSION = 1004;
+
+        /**
+         * Skips empty result sets returned by stored procedures.
+         */
+        #[Deprecated('use Pdo\Dblib::ATTR_SKIP_EMPTY_ROWSETS instead', since: '8.5')]
+        public const DBLIB_ATTR_SKIP_EMPTY_ROWSETS = 1005;
+
+        /**
+         * Controls datetime conversion to strings.
+         */
+        #[Deprecated('use Pdo\Dblib::ATTR_DATETIME_CONVERT instead', since: '8.5')]
+        public const DBLIB_ATTR_DATETIME_CONVERT = 1006;
+
+        /**
+         * Selects the ODBC cursor library to use.
+         */
+        #[Deprecated('use Pdo\Odbc::ATTR_USE_CURSOR_LIBRARY instead', since: '8.5')]
+        public const ODBC_ATTR_USE_CURSOR_LIBRARY = 1000;
+
+        /**
+         * Assume that data in the database is stored in UTF-8.
+         */
+        #[Deprecated('use Pdo\Odbc::ATTR_ASSUME_UTF8 instead', since: '8.5')]
+        public const ODBC_ATTR_ASSUME_UTF8 = 1001;
+
+        /**
+         * Use the driver's cursor library if needed.
+         */
+        #[Deprecated('use Pdo\Odbc::SQL_USE_IF_NEEDED instead', since: '8.5')]
+        public const ODBC_SQL_USE_IF_NEEDED = 0;
+
+        /**
+         * Use the ODBC cursor library.
+         */
+        #[Deprecated('use Pdo\Odbc::SQL_USE_ODBC instead', since: '8.5')]
+        public const ODBC_SQL_USE_ODBC = 1;
+
+        /**
+         * Use the driver's native cursor library.
+         */
+        #[Deprecated('use Pdo\Odbc::SQL_USE_DRIVER instead', since: '8.5')]
+        public const ODBC_SQL_USE_DRIVER = 2;
 
         /**
          * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1307,6 +1421,7 @@ namespace {
          * </p>
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
          */
+        #[Deprecated('use Pdo\Sqlite::createAggregate instead', '\Pdo\Sqlite::createAggregate(%parametersList%)', since: '8.5')]
         public function sqliteCreateAggregate($function_name, $step_func, $finalize_func, $num_args = -1) {}
 
         /**
@@ -1321,6 +1436,7 @@ namespace {
          * </p>
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
          */
+        #[Deprecated('use Pdo\Sqlite::createCollation instead', '\Pdo\Sqlite::createCollation(%parametersList%)', since: '8.5')]
         public function sqliteCreateCollation($name, $callback) {}
 
         /**
@@ -1344,6 +1460,7 @@ namespace {
          * </p>
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
          */
+        #[Deprecated('use Pdo\Sqlite::createFunction instead', '\Pdo\Sqlite::createFunction(%parametersList%)', since: '8.5')]
         public function sqliteCreateFunction($function_name, $callback, $num_args = -1, $flags = 0) {}
 
         /**
@@ -1367,6 +1484,7 @@ namespace {
          * </p>
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
          */
+        #[Deprecated('use Pdo\Pgsql::copyFromArray instead', '\Pdo\Pgsql::copyFromArray(%parametersList%)', since: '8.5')]
         public function pgsqlCopyFromArray($tableName, array $rows, $separator = "\t", $nullAs = "\\\\N", $fields = null) {}
 
         /**
@@ -1390,6 +1508,7 @@ namespace {
          * </p>
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
          */
+        #[Deprecated('use Pdo\Pgsql::copyFromFile instead', '\Pdo\Pgsql::copyFromFile(%parametersList%)', since: '8.5')]
         public function pgsqlCopyFromFile($tableName, $filename, $separator = "\t", $nullAs = "\\\\N", $fields = null) {}
 
         /**
@@ -1410,6 +1529,7 @@ namespace {
          * </p>
          * @return array|false returns an array of rows, or <b>FALSE</b> on failure.
          */
+        #[Deprecated('use Pdo\Pgsql::copyToArray instead', '\Pdo\Pgsql::copyToArray(%parametersList%)', since: '8.5')]
         public function pgsqlCopyToArray($tableName, $separator = "\t", $nullAs = "\\\\N", $fields = null) {}
 
         /**
@@ -1433,6 +1553,7 @@ namespace {
          * </p>
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
          */
+        #[Deprecated('use Pdo\Pgsql::copyToFile instead', '\Pdo\Pgsql::copyToFile(%parametersList%)', since: '8.5')]
         public function pgsqlCopyToFile($tableName, $filename, $separator = "\t", $nullAs = "\\\\N", $fields = null) {}
 
         /**
@@ -1442,6 +1563,7 @@ namespace {
          * @return string|false returns the OID of the newly created large object on success,
          * or <b>FALSE</b> on failure.
          */
+        #[Deprecated('use Pdo\Pgsql::lobCreate instead', '\Pdo\Pgsql::lobCreate(%parametersList%)', since: '8.5')]
         public function pgsqlLOBCreate() {}
 
         /**
@@ -1456,6 +1578,7 @@ namespace {
          * </p>
          * @return resource|false returns a stream resource on success or <b>FALSE</b> on failure.
          */
+        #[Deprecated('use Pdo\Pgsql::lobOpen instead', '\Pdo\Pgsql::lobOpen(%parametersList%)', since: '8.5')]
         public function pgsqlLOBOpen($oid, $mode = "rb") {}
 
         /**
@@ -1467,6 +1590,7 @@ namespace {
          * </p>
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
          */
+        #[Deprecated('use Pdo\Pgsql::lobUnlink instead', '\Pdo\Pgsql::lobUnlink(%parametersList%)', since: '8.5')]
         public function pgsqlLOBUnlink($oid) {}
 
         /**
@@ -1482,6 +1606,7 @@ namespace {
          * @return array|false if one or more notifications is pending, returns a single row,
          * with fields message and pid, otherwise <b>FALSE</b>.
          */
+        #[Deprecated('use Pdo\Pgsql::getNotify instead', '\Pdo\Pgsql::getNotify(%parametersList%)', since: '8.5')]
         public function pgsqlGetNotify($fetchMode = PDO::FETCH_DEFAULT, $timeoutMilliseconds = 0) {}
 
         /**
@@ -1490,6 +1615,7 @@ namespace {
          * @link https://www.php.net/manual/en/pdo.pgsqlgetpid.php
          * @return int The server's PID.
          */
+        #[Deprecated('use Pdo\Pgsql::getPid instead', '\Pdo\Pgsql::getPid(%parametersList%)', since: '8.5')]
         public function pgsqlGetPid() {}
 
         /**
@@ -2007,6 +2133,7 @@ namespace {
 }
 
 namespace Pdo {
+    use JetBrains\PhpStorm\Deprecated;
     use PDO;
 
     /**
@@ -2088,25 +2215,25 @@ namespace Pdo {
      */
     class Mysql extends PDO
     {
-        public const int ATTR_USE_BUFFERED_QUERY = 0;
-        public const int ATTR_LOCAL_INFILE = 0;
-        public const int ATTR_INIT_COMMAND = 0;
-        public const int ATTR_MAX_BUFFER_SIZE = 0;
-        public const int ATTR_READ_DEFAULT_FILE = 0;
-        public const int ATTR_READ_DEFAULT_GROUP = 0;
-        public const int ATTR_COMPRESS = 0;
-        public const int ATTR_DIRECT_QUERY = 0;
-        public const int ATTR_FOUND_ROWS = 0;
-        public const int ATTR_IGNORE_SPACE = 0;
-        public const int ATTR_SSL_KEY = 0;
-        public const int ATTR_SSL_CERT = 0;
-        public const int ATTR_SSL_CA = 0;
-        public const int ATTR_SSL_CAPATH = 0;
-        public const int ATTR_SSL_CIPHER = 0;
-        public const int ATTR_SERVER_PUBLIC_KEY = 0;
-        public const int ATTR_MULTI_STATEMENTS = 0;
-        public const int ATTR_SSL_VERIFY_SERVER_CERT = 0;
-        public const int ATTR_LOCAL_INFILE_DIRECTORY = 0;
+        public const int ATTR_USE_BUFFERED_QUERY = 1000;
+        public const int ATTR_LOCAL_INFILE = 1001;
+        public const int ATTR_INIT_COMMAND = 1002;
+        public const int ATTR_READ_DEFAULT_FILE = 1003;
+        public const int ATTR_READ_DEFAULT_GROUP = 1004;
+        public const int ATTR_MAX_BUFFER_SIZE = 1005;
+        public const int ATTR_COMPRESS = 1003;
+        public const int ATTR_DIRECT_QUERY = 1004;
+        public const int ATTR_FOUND_ROWS = 1005;
+        public const int ATTR_IGNORE_SPACE = 1006;
+        public const int ATTR_SSL_KEY = 1007;
+        public const int ATTR_SSL_CERT = 1008;
+        public const int ATTR_SSL_CA = 1009;
+        public const int ATTR_SSL_CAPATH = 1010;
+        public const int ATTR_SSL_CIPHER = 1011;
+        public const int ATTR_SERVER_PUBLIC_KEY = 1012;
+        public const int ATTR_MULTI_STATEMENTS = 1013;
+        public const int ATTR_SSL_VERIFY_SERVER_CERT = 1014;
+        public const int ATTR_LOCAL_INFILE_DIRECTORY = 1015;
 
         public function getWarningCount(): int {}
     }
@@ -2118,10 +2245,20 @@ namespace Pdo {
     {
         public const int ATTR_DISABLE_PREPARES = 1000;
         public const int ATTR_RESULT_MEMORY_SIZE = 1001;
+
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const int TRANSACTION_IDLE = 0;
+
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const int TRANSACTION_ACTIVE = 1;
+
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const int TRANSACTION_INTRANS = 2;
+
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const int TRANSACTION_INERROR = 3;
+
+        #[Deprecated('Deprecated: it has no effect', since: '8.5')]
         public const int TRANSACTION_UNKNOWN = 4;
 
         public function copyFromArray(
@@ -2172,5 +2309,48 @@ namespace Pdo {
         public function lobUnlink(string $oid): bool {}
 
         public function setNoticeCallback(?callable $callback): void {}
+    }
+
+    /**
+     * @since 8.4
+     */
+    class Firebird extends PDO
+    {
+        public const int ATTR_DATE_FORMAT = 1000;
+        public const int ATTR_TIME_FORMAT = 1001;
+        public const int ATTR_TIMESTAMP_FORMAT = 1002;
+        public const int TRANSACTION_ISOLATION_LEVEL = 1003;
+        public const int READ_COMMITTED = 1004;
+        public const int REPEATABLE_READ = 1005;
+        public const int SERIALIZABLE = 1006;
+        public const int WRITABLE_TRANSACTION = 1007;
+
+        public static function getApiVersion(): int {}
+    }
+
+    /**
+     * @since 8.4
+     */
+    class Dblib extends PDO
+    {
+        public const int ATTR_CONNECTION_TIMEOUT = 1000;
+        public const int ATTR_QUERY_TIMEOUT = 1001;
+        public const int ATTR_STRINGIFY_UNIQUEIDENTIFIER = 1002;
+        public const int ATTR_VERSION = 1003;
+        public const int ATTR_TDS_VERSION = 1004;
+        public const int ATTR_SKIP_EMPTY_ROWSETS = 1005;
+        public const int ATTR_DATETIME_CONVERT = 1006;
+    }
+
+    /**
+     * @since 8.4
+     */
+    class Odbc extends PDO
+    {
+        public const int ATTR_USE_CURSOR_LIBRARY = 1000;
+        public const int ATTR_ASSUME_UTF8 = 1001;
+        public const int SQL_USE_IF_NEEDED = 0;
+        public const int SQL_USE_ODBC = 1;
+        public const int SQL_USE_DRIVER = 2;
     }
 }

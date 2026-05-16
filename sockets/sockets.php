@@ -20,7 +20,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  * @return AddressInfo[]|false of AddrInfo resource handles that can be used with the other socket_addrinfo functions.
  * @since 7.2
  */
-function socket_addrinfo_lookup(string $host, ?string $service, array $hints = []): array|false {}
+function socket_addrinfo_lookup(string $host, ?string $service = null, array $hints = []): array|false {}
 
 /**
  * Create a Socket resource, and connect it to the provided AddrInfo resource.<br/>
@@ -719,7 +719,7 @@ function socket_send(Socket $socket, string $data, int $length, int $flags): int
 function socket_sendmsg(
     Socket $socket,
     array $message,
-    #[PhpStormStubsElementAvailable(from: '5.5', to: '7.4')] int $flags,
+    #[PhpStormStubsElementAvailable(from: '5.5', to: '7.4')] int $flags = 0,
     #[PhpStormStubsElementAvailable(from: '8.0')] int $flags = 0
 ): int|false {}
 
@@ -809,7 +809,7 @@ function socket_recvfrom(Socket $socket, &$data, int $length, int $flags, &$addr
 function socket_recvmsg(
     Socket $socket,
     array &$message,
-    #[PhpStormStubsElementAvailable(from: '5.5', to: '7.4')] int $flags,
+    #[PhpStormStubsElementAvailable(from: '5.5', to: '7.4')] int $flags = 0,
     #[PhpStormStubsElementAvailable(from: '8.0')] int $flags = 0
 ): int|false {}
 

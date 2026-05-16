@@ -16,6 +16,8 @@ RUN docker-php-ext-enable xdebug
 #RUN docker-php-ext-enable amqp
 RUN pecl install Ev
 RUN docker-php-ext-enable ev
+RUN pecl install excimer
+RUN docker-php-ext-enable excimer
 #RUN pecl install fann
 #RUN docker-php-ext-enable fann
 RUN pecl install igbinary

@@ -156,7 +156,7 @@ namespace Vtiful\Kernel;
          *
          * @return Excel
          */
-        public function insertText(int $row, int $column, $data, string $format = null, $formatHandle = null): self
+        public function insertText(int $row, int $column, $data, ?string $format = null, $formatHandle = null): self
         {
             return $this;
         }
@@ -172,7 +172,7 @@ namespace Vtiful\Kernel;
          *
          * @return Excel
          */
-        public function insertDate(int $row, int $column, int $timestamp, string $format = null, $formatHandle = null): self
+        public function insertDate(int $row, int $column, int $timestamp, ?string $format = null, $formatHandle = null): self
         {
             return $this;
         }
@@ -299,7 +299,7 @@ namespace Vtiful\Kernel;
          *
          * @return Excel
          */
-        public function openSheet(string $sheetName = null, int $skipFlag = 0x00): self
+        public function openSheet(?string $sheetName = null, int $skipFlag = 0x00): self
         {
             return $this;
         }
@@ -342,7 +342,7 @@ namespace Vtiful\Kernel;
          * @param callable $callback function(int $row, int $cell, string $data)
          * @param string|null $sheetName sheet name
          */
-        public function nextCellCallback(callable $callback, string $sheetName = null): void {}
+        public function nextCellCallback(callable $callback, ?string $sheetName = null): void {}
 
         /**
          * Freeze panes

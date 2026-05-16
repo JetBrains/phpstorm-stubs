@@ -450,7 +450,7 @@ class SoapClient
     #[TentativeType]
     public function __setCookie(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
-        #[LanguageLevelTypeAware(["8.0" => "string|null"], default: "string")] $value
+        #[LanguageLevelTypeAware(["8.0" => "string|null"], default: "string")] $value = null
     ): void {}
 
     /**
@@ -478,7 +478,7 @@ class SoapClient
      */
     #[TentativeType]
     public function __setSoapHeaders(
-        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $headers,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $headers = null,
         #[PhpStormStubsElementAvailable(from: '7.0')] $headers = null
     ): bool {}
 }
@@ -551,7 +551,7 @@ class SoapVar
     public function __construct(
         #[LanguageLevelTypeAware(["8.0" => 'mixed'], default: '')] $data,
         #[LanguageLevelTypeAware(["7.1" => "int|null"], default: "int")] $encoding,
-        #[LanguageLevelTypeAware(["8.0" => "string|null"], default: "string")] $typeName,
+        #[LanguageLevelTypeAware(["8.0" => "string|null"], default: "string")] $typeName = null,
         #[LanguageLevelTypeAware(["8.0" => 'string|null'], default: '')] $typeNamespace = null,
         #[LanguageLevelTypeAware(["8.0" => 'string|null'], default: '')] $nodeName = null,
         #[LanguageLevelTypeAware(["8.0" => 'string|null'], default: '')] $nodeNamespace = null

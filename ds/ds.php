@@ -378,7 +378,7 @@ namespace Ds;
          * @return Sequence<TValue> A sub-sequence of the given range.
          * @link https://www.php.net/manual/en/ds-sequence.slice.php
          */
-        public function slice(int $index, int $length = null);
+        public function slice(int $index, ?int $length = null);
 
         /**
          * Sorts the sequence in-place, using an optional comparator function.
@@ -461,9 +461,9 @@ namespace Ds;
      * @template TValue
      * @implements Sequence<TValue>
      */
-    class Vector implements Sequence
+    final class Vector implements Sequence
     {
-        public const MIN_CAPACITY = 10;
+        public const MIN_CAPACITY = 8;
 
         /**
          * Creates a new instance, using either a traversable object or an array for the initial values.
@@ -723,7 +723,7 @@ namespace Ds;
          * between the index and the end of the sequence.
          * @return Vector<TValue>
          */
-        public function slice(int $index, int $length = null): Vector {}
+        public function slice(int $index, ?int $length = null): Vector {}
 
         /**
          * Sorts the sequence in-place, using an optional comparator function.
@@ -842,7 +842,7 @@ namespace Ds;
      * @template TValue
      * @implements Sequence<TValue>
      */
-    class Deque implements Sequence
+    final class Deque implements Sequence
     {
         /**
          * Creates a new instance, using either a traversable object or an array for the initial values.
@@ -1130,7 +1130,7 @@ namespace Ds;
          * @return Deque<TValue> A sub-deque of the given range.
          * @link https://www.php.net/manual/en/ds-deque.slice.php
          */
-        public function slice(int $index, int $length = null): Deque {}
+        public function slice(int $index, ?int $length = null): Deque {}
 
         /**
          * Sorts the deque in-place, using an optional comparator function.
@@ -1225,7 +1225,7 @@ namespace Ds;
      * @template TValue
      * @implements Collection<TKey, TValue>
      */
-    class Map implements Collection, ArrayAccess
+    final class Map implements Collection, ArrayAccess
     {
         /**
          * Creates a new instance, using either a traversable object or an array for the initial values.
@@ -1823,7 +1823,7 @@ namespace Ds;
      * @template-covariant TKey
      * @template-covariant TValue
      */
-    class Pair implements JsonSerializable
+    final class Pair implements JsonSerializable
     {
         /**
          * @var TKey
@@ -1904,7 +1904,7 @@ namespace Ds;
      * @template TValue
      * @implements Collection<int, TValue>
      */
-    class Set implements Collection, ArrayAccess
+    final class Set implements Collection, ArrayAccess
     {
         /**
          * Creates a new instance, using either a traversable object or an array
@@ -2350,7 +2350,7 @@ namespace Ds;
      *
      * @link https://www.php.net/manual/en/class.ds-stack.php
      */
-    class Stack implements Collection, ArrayAccess
+    final class Stack implements Collection, ArrayAccess
     {
         /**
          * Creates a new instance, using either a traversable object or an array
@@ -2512,7 +2512,7 @@ namespace Ds;
      * @template TValue
      * @implements Collection<int, TValue>
      */
-    class Queue implements Collection, ArrayAccess
+    final class Queue implements Collection, ArrayAccess
     {
         /**
          * Creates a new instance, using either a traversable object or an array
@@ -2676,7 +2676,7 @@ namespace Ds;
      *
      * @link https://www.php.net/manual/en/class.ds-priorityqueue.php
      */
-    class PriorityQueue implements Collection
+    final class PriorityQueue implements Collection
     {
         public const MIN_CAPACITY = 8;
 

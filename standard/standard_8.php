@@ -101,7 +101,7 @@ function header_register_callback(callable $callback): bool {}
  * @since 5.4
  */
 #[ArrayShape([0 => 'int', 1 => 'int', 2 => 'int', 3 => 'string', 'bits' => 'int', 'channels' => 'int', 'mime' => 'string'])]
-function getimagesizefromstring(string $string, &$image_info): array|false {}
+function getimagesizefromstring(string $string, &$image_info = null): array|false {}
 
 /**
  * Set the stream chunk size.
@@ -744,7 +744,7 @@ function key(object|array $array): string|int|null {}
 #[Pure]
 function min(
     #[PhpStormStubsElementAvailable(from: '8.0')] mixed $value,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed $values,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed $values = null,
     mixed ...$values
 ): mixed {}
 
@@ -759,7 +759,7 @@ function min(
 #[Pure]
 function max(
     #[PhpStormStubsElementAvailable(from: '8.0')] mixed $value,
-    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed $values,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed $values = null,
     mixed ...$values
 ): mixed {}
 
@@ -874,7 +874,7 @@ function extract(
  * @return array the output array with all the variables added to it.
  */
 #[Pure]
-function compact(#[PhpStormStubsElementAvailable(from: '8.0')] $var_name, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $var_names, ...$var_names): array {}
+function compact(#[PhpStormStubsElementAvailable(from: '8.0')] $var_name, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $var_names = null, ...$var_names): array {}
 
 /**
  * Fill an array with values

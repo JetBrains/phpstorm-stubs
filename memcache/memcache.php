@@ -94,7 +94,7 @@ class MemcachePool
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function addServer($host, $port = 11211, $persistent = true, $weight = null, $timeout = 1, $retry_interval = 15, $status = true, callable $failure_callback = null, $timeoutms = null) {}
+    public function addServer($host, $port = 11211, $persistent = true, $weight = null, $timeout = 1, $retry_interval = 15, $status = true, ?callable $failure_callback = null, $timeoutms = null) {}
 
     /**
      * (PECL memcache &gt;= 2.1.0)<br/>
@@ -127,7 +127,7 @@ class MemcachePool
      * </p>
      * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
      */
-    public function setServerParams($host, $port = 11211, $timeout = 1, $retry_interval = 15, $status = true, callable $failure_callback = null) {}
+    public function setServerParams($host, $port = 11211, $timeout = 1, $retry_interval = 15, $status = true, ?callable $failure_callback = null) {}
 
     /**
      * @param callable $callback
@@ -478,7 +478,7 @@ function memcache_pconnect($host, $port = null, $timeout = 1) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function memcache_add_server($memcache, $host, $port = 11211, $persistent = true, $weight = null, $timeout = 1, $retry_interval = 15, $status = true, callable $failure_callback = null, $timeoutms = null) {}
+function memcache_add_server($memcache, $host, $port = 11211, $persistent = true, $weight = null, $timeout = 1, $retry_interval = 15, $status = true, ?callable $failure_callback = null, $timeoutms = null) {}
 
 /**
  * (PECL memcache &gt;= 2.1.0)<br/>
@@ -515,7 +515,7 @@ function memcache_add_server($memcache, $host, $port = 11211, $persistent = true
  *
  * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
  */
-function memcache_set_server_params($memcache, $host, $port = 11211, $timeout = 1, $retry_interval = 15, $status = true, callable $failure_callback = null) {}
+function memcache_set_server_params($memcache, $host, $port = 11211, $timeout = 1, $retry_interval = 15, $status = true, ?callable $failure_callback = null) {}
 
 /**
  * @param Memcache $memcache
