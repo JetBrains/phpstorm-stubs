@@ -185,10 +185,9 @@ class ReflectionClassConstant implements Reflector
     public function __toString(): string {}
 
     /**
-     * @template TAttributeClass of Attribute
-     *
      * Returns an array of constant attributes.
      *
+     * @template TAttributeClass of object
      * @param class-string<TAttributeClass>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
      * @return list<ReflectionAttribute<TAttributeClass>>

@@ -27,7 +27,7 @@ class ReflectionProperty implements Reflector
     public const IS_VIRTUAL = 512;
 
     /**
-     * @var non-empty-string Name of the property, same as calling the {@see ReflectionProperty::getName()} method
+     * @var string Name of the property, same as calling the {@see ReflectionProperty::getName()} method
      */
     #[Immutable]
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
@@ -93,7 +93,7 @@ class ReflectionProperty implements Reflector
      *
      * @link https://php.net/manual/en/reflectionproperty.construct.php
      * @param class-string<TReflectedClass>|TReflectedClass $class The class name, that contains the property.
-     * @param non-empty-string $property The name of the property being reflected.
+     * @param string $property The name of the property being reflected.
      * @throws ReflectionException if the class or property does not exist.
      */
     public function __construct(
@@ -354,10 +354,9 @@ class ReflectionProperty implements Reflector
     public function getDefaultValue(): mixed {}
 
     /**
-     * @template TAttributeClass of Attribute
-     *
      * Returns an array of property attributes.
      *
+     * @template TAttributeClass of object
      * @param class-string<TAttributeClass>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
      * @return list<ReflectionAttribute<TAttributeClass>>

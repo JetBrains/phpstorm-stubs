@@ -17,7 +17,7 @@ use JetBrains\PhpStorm\Pure;
 class ReflectionMethod extends ReflectionFunctionAbstract
 {
     /**
-     * @var non-empty-string Name of the method, same as calling the {@see ReflectionMethod::getName()} method
+     * @var string Name of the method, same as calling the {@see ReflectionMethod::getName()} method
      */
     #[Immutable]
     public $name;

@@ -277,10 +277,9 @@ class ReflectionParameter implements Reflector
     public function isPromoted(): bool {}
 
     /**
-     * @template TAttributeClass of Attribute
-     *
      * Returns an array of parameter attributes.
      *
+     * @template TAttributeClass of object
      * @param class-string<TAttributeClass>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
      * @return list<ReflectionAttribute<TAttributeClass>>

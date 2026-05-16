@@ -15,7 +15,7 @@ use JetBrains\PhpStorm\Pure;
 abstract class ReflectionFunctionAbstract implements Reflector
 {
     /**
-     * @var non-empty-string Name of the function, same as calling the {@see ReflectionFunctionAbstract::getName()} method
+     * @var string Name of the function, same as calling the {@see ReflectionFunctionAbstract::getName()} method
      */
     #[Immutable]
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
@@ -316,10 +316,9 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function hasReturnType(): bool {}
 
     /**
-     * @template TAttributeClass of Attribute
-     *
      * Returns an array of function attributes.
      *
+     * @template TAttributeClass of object
      * @param class-string<TAttributeClass>|null $name Name of an attribute class
      * @param int $flags Сriteria by which the attribute is searched.
      * @return list<ReflectionAttribute<TAttributeClass>>
