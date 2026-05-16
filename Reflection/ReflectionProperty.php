@@ -129,7 +129,7 @@ class ReflectionProperty implements Reflector
      * Gets property name
      *
      * @link https://php.net/manual/en/reflectionproperty.getname.php
-     * @return non-empty-string The name of the reflected property.
+     * @return string The name of the reflected property.
      */
     #[Pure]
     #[TentativeType]

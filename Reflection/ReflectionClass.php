@@ -245,7 +245,7 @@ class ReflectionClass implements Reflector
      * Gets a <b>ReflectionProperty</b> for a class's property
      *
      * @link https://php.net/manual/en/reflectionclass.getproperty.php
-     * @param non-empty-string $name The property name.
+     * @param string $name The property name.
      * @return ReflectionProperty<TReflectedClass> A {@see ReflectionProperty}
      * @throws ReflectionException If no property exists by that name.
      */
