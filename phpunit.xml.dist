@@ -1,86 +1,6 @@
 <phpunit bootstrap="vendor/autoload.php" failOnWarning="false" cacheResult="false">
     <testsuites>
-        <testsuite name="PHP_5.6">
-            <file>tests/ClassValidatorTest.php</file>
-            <file>tests/InterfaceValidatorTest.php</file>
-            <file>tests/FunctionValidatorTest.php</file>
-            <file>tests/MetaFileValidatorTest.php</file>
-        </testsuite>
-        <testsuite name="PHP_7.0">
-            <file>tests/ClassValidatorTest.php</file>
-            <file>tests/InterfaceValidatorTest.php</file>
-            <file>tests/ConstantValidatorTest.php</file>
-            <file>tests/FunctionValidatorTest.php</file>
-            <file>tests/MetaFileValidatorTest.php</file>
-        </testsuite>
-        <testsuite name="PHP_7.1">
-            <file>tests/ClassValidatorTest.php</file>
-            <file>tests/InterfaceValidatorTest.php</file>
-            <file>tests/ConstantValidatorTest.php</file>
-            <file>tests/FunctionValidatorTest.php</file>
-            <file>tests/MetaFileValidatorTest.php</file>
-        </testsuite>
-        <testsuite name="PHP_7.2">
-            <file>tests/ClassValidatorTest.php</file>
-            <file>tests/InterfaceValidatorTest.php</file>
-            <file>tests/ConstantValidatorTest.php</file>
-            <file>tests/FunctionValidatorTest.php</file>
-            <file>tests/MetaFileValidatorTest.php</file>
-        </testsuite>
-        <testsuite name="PHP_7.3">
-            <file>tests/ClassValidatorTest.php</file>
-            <file>tests/InterfaceValidatorTest.php</file>
-            <file>tests/ConstantValidatorTest.php</file>
-            <file>tests/FunctionValidatorTest.php</file>
-            <file>tests/MetaFileValidatorTest.php</file>
-        </testsuite>
-        <testsuite name="PHP_7.4">
-            <file>tests/ClassValidatorTest.php</file>
-            <file>tests/InterfaceValidatorTest.php</file>
-            <file>tests/ConstantValidatorTest.php</file>
-            <file>tests/FunctionValidatorTest.php</file>
-            <file>tests/MetaFileValidatorTest.php</file>
-        </testsuite>
-        <testsuite name="PHP_8.0">
-            <file>tests/ClassValidatorTest.php</file>
-            <file>tests/InterfaceValidatorTest.php</file>
-            <file>tests/ConstantValidatorTest.php</file>
-            <file>tests/FunctionValidatorTest.php</file>
-            <file>tests/MetaFileValidatorTest.php</file>
-        </testsuite>
-        <testsuite name="PHP_8.1">
-            <file>tests/ClassValidatorTest.php</file>
-            <file>tests/InterfaceValidatorTest.php</file>
-            <file>tests/EnumValidatorTest.php</file>
-            <file>tests/ConstantValidatorTest.php</file>
-            <file>tests/FunctionValidatorTest.php</file>
-            <file>tests/MetaFileValidatorTest.php</file>
-        </testsuite>
-        <testsuite name="PHP_8.2">
-            <file>tests/ClassValidatorTest.php</file>
-            <file>tests/InterfaceValidatorTest.php</file>
-            <file>tests/EnumValidatorTest.php</file>
-            <file>tests/ConstantValidatorTest.php</file>
-            <file>tests/FunctionValidatorTest.php</file>
-            <file>tests/MetaFileValidatorTest.php</file>
-        </testsuite>
-        <testsuite name="PHP_8.3">
-            <file>tests/ClassValidatorTest.php</file>
-            <file>tests/InterfaceValidatorTest.php</file>
-            <file>tests/EnumValidatorTest.php</file>
-            <file>tests/ConstantValidatorTest.php</file>
-            <file>tests/FunctionValidatorTest.php</file>
-            <file>tests/MetaFileValidatorTest.php</file>
-        </testsuite>
-        <testsuite name="PHP_8.4">
-            <file>tests/ClassValidatorTest.php</file>
-            <file>tests/InterfaceValidatorTest.php</file>
-            <file>tests/EnumValidatorTest.php</file>
-            <file>tests/ConstantValidatorTest.php</file>
-            <file>tests/FunctionValidatorTest.php</file>
-            <file>tests/MetaFileValidatorTest.php</file>
-        </testsuite>
-        <testsuite name="PHP_8.5">
+        <testsuite name="General">
             <file>tests/ClassValidatorTest.php</file>
             <file>tests/InterfaceValidatorTest.php</file>
             <file>tests/EnumValidatorTest.php</file>
@@ -93,6 +13,7 @@
         </testsuite>
         <testsuite name="Structure">
             <file>tests/StubsStructureValidatorTest.php</file>
+            <file>tests/PhpVersionsSyncTest.php</file>
         </testsuite>
         <testsuite name="Unit">
             <directory>tests/Unit</directory>
