@@ -157,6 +157,7 @@ interface DateTimeInterface
      * @return void Initializes a DateTime object.
      */
     #[TentativeType]
+    #[\JetBrains\PhpStorm\Deprecated(since: '8.5')]
     public function __wakeup(): void;
 
     #[PhpStormStubsElementAvailable(from: '8.2')]
