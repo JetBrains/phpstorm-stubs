@@ -1343,7 +1343,7 @@ function timezone_name_get(DateTimeZone $object): string {}
  * offset and isdst.
  * </p>
  * @return string|false time zone name on success or false on failure.
- * @since 5.1.3
+ * @since 5.1
  */
 #[Pure(true)]
 function timezone_name_from_abbr(string $abbr, int $utcOffset = -1, int $isDST = -1): string|false {}
@@ -1613,7 +1613,7 @@ function date_sunset(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?f
  * The values of the array elements are either UNIX timestamps, <strong><code>false</code></strong> if the
  * sun is below the respective zenith for the whole day, or <strong><code>true</code></strong> if the sun is
  * above the respective zenith for the whole day.
- * @since 5.1.2
+ * @since 5.1
  */
 #[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]

@@ -307,7 +307,7 @@ function pcntl_alarm(int $seconds): int {}
  * Retrieve the error number set by the last pcntl function which failed
  * @link https://php.net/manual/en/function.pcntl-get-last-error.php
  * @return int error code.
- * @since 5.3.4
+ * @since 5.3
  */
 #[Pure(true)]
 function pcntl_get_last_error(): int {}
@@ -316,7 +316,7 @@ function pcntl_get_last_error(): int {}
  * Alias of <b>pcntl_get_last_error</b>
  * @link https://php.net/manual/en/function.pcntl-errno.php
  * @return int error code.
- * @since 5.3.4
+ * @since 5.3
  */
 #[Pure(true)]
 function pcntl_errno(): int {}
@@ -327,7 +327,7 @@ function pcntl_errno(): int {}
  * @param int $error_code <p>
  * </p>
  * @return string|false error description on success or <b>FALSE</b> on failure.
- * @since 5.3.4
+ * @since 5.3
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]

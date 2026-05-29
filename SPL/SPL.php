@@ -264,7 +264,7 @@ class RecursiveIteratorIterator implements OuterIterator
      * @param Traversable $iterator
      * @param int $mode [optional] The operation mode. See class constants for details.
      * @param int $flags [optional] A bitmask of special flags. See class constants for details.
-     * @since 5.1.3
+     * @since 5.1
      */
     public function __construct(
         Traversable $iterator,
@@ -932,7 +932,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      * @link https://php.net/manual/en/cachingiterator.count.php
      * @return int The count of the elements iterated over.
      * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
-     * @since 5.2.2
+     * @since 5.2
      */
     #[TentativeType]
     public function count(): int {}

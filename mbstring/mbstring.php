@@ -936,7 +936,7 @@ function mb_get_info(string $type = 'all') {}
  * The expected encoding.
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.1.3
+ * @since 5.1
  */
 #[Pure]
 function mb_check_encoding(array|string|null $value = null, ?string $encoding = null): bool {}
@@ -1068,7 +1068,7 @@ function mb_ereg_replace(string $pattern, string $replacement, string $string, ?
  * @return string|false|null <p>
  * The resultant string on success, or <b>FALSE</b> on error.
  * </p>
- * @since 5.4.1
+ * @since 5.4
  */
 function mb_ereg_replace_callback(string $pattern, callable $callback, string $string, ?string $options = null): string|false|null {}
 

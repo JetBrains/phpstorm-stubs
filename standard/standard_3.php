@@ -813,7 +813,7 @@ function getopt(
  * @link https://php.net/manual/en/function.sys-getloadavg.php
  * @return array{float, float, float}|false an array with three samples (last 1, 5 and 15
  * minutes).
- * @since 5.1.3
+ * @since 5.1
  */
 #[Pure(true)]
 function sys_getloadavg(): array|false {}

@@ -1337,7 +1337,7 @@ function output_reset_rewrite_vars(): bool {}
  * Returns directory path used for temporary files
  * @link https://php.net/manual/en/function.sys-get-temp-dir.php
  * @return string the path of the temporary directory.
- * @since 5.2.1
+ * @since 5.2
  */
 function sys_get_temp_dir(): string {}
 
@@ -1348,7 +1348,7 @@ function sys_get_temp_dir(): string {}
  * original path entries, and the values are arrays of data items,
  * containing the resolved path, expiration date, and other options kept in
  * the cache.
- * @since 5.3.2
+ * @since 5.3
  */
 #[Pure(true)]
 function realpath_cache_get(): array {}
@@ -1357,7 +1357,7 @@ function realpath_cache_get(): array {}
  * Get the amount of memory used by the realpath cache.
  * @link https://php.net/manual/en/function.realpath-cache-size.php
  * @return int Returns how much memory realpath cache is using.
- * @since 5.3.2
+ * @since 5.3
  */
 #[Pure(true)]
 function realpath_cache_size(): int {}

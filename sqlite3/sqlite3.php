@@ -220,7 +220,7 @@ class SQLite3
      * or equal to zero, will turn off an already set timeout handler.
      * </p>
      * @return bool <b>TRUE</b> on success, <b>FALSE</b> on failure.
-     * @since 5.3.3
+     * @since 5.3
      */
     #[TentativeType]
     public function busyTimeout(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $milliseconds): bool {}
@@ -384,7 +384,7 @@ class SQLite3
      * equal to the second.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * @since 5.3.11
+     * @since 5.3
      */
     #[TentativeType]
     public function createCollation(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name, callable $callback): bool {}

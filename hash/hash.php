@@ -240,7 +240,7 @@ function hash_algos(): array {}
  * @param string $info [optional] <p>Application/context-specific info string.</p>
  * @param string $salt [optional] <p>Salt to use during derivation. While optional, adding random salt significantly improves the strength of HKDF.</p>
  * @return string|false <p>Returns a string containing a raw binary representation of the derived key (also known as output keying material - OKM); or <b>FALSE</b> on failure.</p>
- * @since 7.1.2
+ * @since 7.1
  * Generate a HKDF key derivation of a supplied key input
  * @link https://php.net/manual/en/function.hash-hkdf.php
  */

@@ -17,7 +17,7 @@ class SplFileInfo implements Stringable
      * Construct a new SplFileInfo object
      * @link https://php.net/manual/en/splfileinfo.construct.php
      * @param string $filename
-     * @since 5.1.2
+     * @since 5.1
      */
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename) {}
 
@@ -25,7 +25,7 @@ class SplFileInfo implements Stringable
      * Gets the path without filename
      * @link https://php.net/manual/en/splfileinfo.getpath.php
      * @return string the path to the file.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function getPath(): string {}
@@ -34,7 +34,7 @@ class SplFileInfo implements Stringable
      * Gets the filename
      * @link https://php.net/manual/en/splfileinfo.getfilename.php
      * @return string The filename.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function getFilename(): string {}
@@ -44,7 +44,7 @@ class SplFileInfo implements Stringable
      * @link https://php.net/manual/en/splfileinfo.getextension.php
      * @return string a string containing the file extension, or an
      * empty string if the file has no extension.
-     * @since 5.3.6
+     * @since 5.3
      */
     #[TentativeType]
     public function getExtension(): string {}
@@ -56,7 +56,7 @@ class SplFileInfo implements Stringable
      * Optional suffix to omit from the base name returned.
      * </p>
      * @return string the base name without path information.
-     * @since 5.2.2
+     * @since 5.2
      */
     #[TentativeType]
     public function getBasename(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $suffix = ''): string {}
@@ -65,7 +65,7 @@ class SplFileInfo implements Stringable
      * Gets the path to the file
      * @link https://php.net/manual/en/splfileinfo.getpathname.php
      * @return string The path to the file.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function getPathname(): string {}
@@ -74,7 +74,7 @@ class SplFileInfo implements Stringable
      * Gets file permissions
      * @link https://php.net/manual/en/splfileinfo.getperms.php
      * @return int|false The file permissions on success, or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function getPerms(): int|false {}
@@ -83,7 +83,7 @@ class SplFileInfo implements Stringable
      * Gets the inode for the file
      * @link https://php.net/manual/en/splfileinfo.getinode.php
      * @return int|false The inode number for the filesystem object on success, or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      * @throws \RuntimeException on error.
      */
     #[TentativeType]
@@ -93,7 +93,7 @@ class SplFileInfo implements Stringable
      * Gets file size
      * @link https://php.net/manual/en/splfileinfo.getsize.php
      * @return int|false The filesize in bytes on success, or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      * @throws \RuntimeException on error.
      */
     #[TentativeType]
@@ -103,7 +103,7 @@ class SplFileInfo implements Stringable
      * Gets the owner of the file
      * @link https://php.net/manual/en/splfileinfo.getowner.php
      * @return int|false The owner id in numerical format on success, or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      * @throws \RuntimeException on error.
      */
     #[TentativeType]
@@ -113,7 +113,7 @@ class SplFileInfo implements Stringable
      * Gets the file group
      * @link https://php.net/manual/en/splfileinfo.getgroup.php
      * @return int|false The group id in numerical format on success, or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      * @throws \RuntimeException on error.
      */
     #[TentativeType]
@@ -123,7 +123,7 @@ class SplFileInfo implements Stringable
      * Gets last access time of the file
      * @link https://php.net/manual/en/splfileinfo.getatime.php
      * @return int|false The time the file was last accessed on success, or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      * @throws \RuntimeException on error.
      */
     #[TentativeType]
@@ -133,7 +133,7 @@ class SplFileInfo implements Stringable
      * Gets the last modified time
      * @link https://php.net/manual/en/splfileinfo.getmtime.php
      * @return int|false The last modified time for the file, in a Unix timestamp on success, or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function getMTime(): int|false {}
@@ -142,7 +142,7 @@ class SplFileInfo implements Stringable
      * Gets the inode change time
      * @link https://php.net/manual/en/splfileinfo.getctime.php
      * @return int|false The last change time, in a Unix timestamp on success, or <b>FALSE</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      * @throws \RuntimeException on error.
      */
     #[TentativeType]
@@ -154,7 +154,7 @@ class SplFileInfo implements Stringable
      * @return string|false A string representing the type of the entry. May be one of file, link, dir, block, fifo, char, socket, or unknown, or <b>FALSE</b> on failure.
      * May be one of file, link,
      * or dir
-     * @since 5.1.2
+     * @since 5.1
      * @throws \RuntimeException on error.
      */
     #[TentativeType]
@@ -164,7 +164,7 @@ class SplFileInfo implements Stringable
      * Tells if the entry is writable
      * @link https://php.net/manual/en/splfileinfo.iswritable.php
      * @return bool true if writable, false otherwise;
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function isWritable(): bool {}
@@ -173,7 +173,7 @@ class SplFileInfo implements Stringable
      * Tells if file is readable
      * @link https://php.net/manual/en/splfileinfo.isreadable.php
      * @return bool true if readable, false otherwise.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function isReadable(): bool {}
@@ -182,7 +182,7 @@ class SplFileInfo implements Stringable
      * Tells if the file is executable
      * @link https://php.net/manual/en/splfileinfo.isexecutable.php
      * @return bool true if executable, false otherwise.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function isExecutable(): bool {}
@@ -191,7 +191,7 @@ class SplFileInfo implements Stringable
      * Tells if the object references a regular file
      * @link https://php.net/manual/en/splfileinfo.isfile.php
      * @return bool true if the file exists and is a regular file (not a link), false otherwise.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function isFile(): bool {}
@@ -200,7 +200,7 @@ class SplFileInfo implements Stringable
      * Tells if the file is a directory
      * @link https://php.net/manual/en/splfileinfo.isdir.php
      * @return bool true if a directory, false otherwise.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function isDir(): bool {}
@@ -209,7 +209,7 @@ class SplFileInfo implements Stringable
      * Tells if the file is a link
      * @link https://php.net/manual/en/splfileinfo.islink.php
      * @return bool true if the file is a link, false otherwise.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function isLink(): bool {}
@@ -218,7 +218,7 @@ class SplFileInfo implements Stringable
      * Gets the target of a link
      * @link https://php.net/manual/en/splfileinfo.getlinktarget.php
      * @return string|false The target of the filesystem link on success, or <b>FALSE</b> on failure.
-     * @since 5.2.2
+     * @since 5.2
      * @throws \RuntimeException on error.
      */
     #[TentativeType]
@@ -228,7 +228,7 @@ class SplFileInfo implements Stringable
      * Gets absolute path to file
      * @link https://php.net/manual/en/splfileinfo.getrealpath.php
      * @return string|false the path to the file, or <b>FALSE</b> if the file does not exist.
-     * @since 5.2.2
+     * @since 5.2
      */
     #[TentativeType]
     public function getRealPath(): string|false {}
@@ -241,7 +241,7 @@ class SplFileInfo implements Stringable
      * Name of an <b>SplFileInfo</b> derived class to use.
      * </p>
      * @return T An <b>SplFileInfo</b> object created for the file.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function getFileInfo(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $class = null): SplFileInfo {}
@@ -254,7 +254,7 @@ class SplFileInfo implements Stringable
      * Name of an <b>SplFileInfo</b> derived class to use.
      * </p>
      * @return T|null A <b>SplFileInfo</b> object for the parent path of the file on success, or <b>NULL</b> on failure.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function getPathInfo(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $class = null): ?SplFileInfo {}
@@ -272,7 +272,7 @@ class SplFileInfo implements Stringable
      * @param resource $context [optional] <p>
      * </p>
      * @return SplFileObject The opened file as an <b>SplFileObject</b> object.
-     * @since 5.1.2
+     * @since 5.1
      * @throws \RuntimeException If the file cannot be opened (e.g. insufficient access rights).
      */
     #[TentativeType]
@@ -290,7 +290,7 @@ class SplFileInfo implements Stringable
      * The class name to use when openFile() is called.
      * </p>
      * @return void
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function setFileClass(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $class = SplFileObject::class): void {}
@@ -303,7 +303,7 @@ class SplFileInfo implements Stringable
      * The class name to use.
      * </p>
      * @return void
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function setInfoClass(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $class = SplFileInfo::class): void {}
@@ -312,7 +312,7 @@ class SplFileInfo implements Stringable
      * Returns the path to the file as a string
      * @link https://php.net/manual/en/splfileinfo.tostring.php
      * @return string the path to the file.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
     public function __toString() {}
@@ -512,7 +512,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
      * @param string $directory
      * @param int $flags [optional]
      * @throws UnexpectedValueException if the path cannot be found or is not a directory.
-     * @since 5.1.2
+     * @since 5.1
      */
     public function __construct(
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $directory,
@@ -705,7 +705,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * The number of bytes to read.
      * </p>
      * @return string|false returns the string read from the file or FALSE on failure.
-     * @since 5.5.11
+     * @since 5.5
      */
     #[TentativeType]
     public function fread(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $length): string|false {}
@@ -1014,7 +1014,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * SplFileObject does not have children
      * @link https://php.net/manual/en/splfileobject.haschildren.php
      * @return bool false
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.2' => 'false'], default: 'bool')]
@@ -1045,7 +1045,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * Alias of <b>SplFileObject::fgets</b>
      * @link https://php.net/manual/en/splfileobject.getcurrentline.php
      * @return string Returns a string containing the next line from the file.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[TentativeType]
     public function getCurrentLine(): string {}
@@ -1069,7 +1069,7 @@ class SplTempFileObject extends SplFileObject
      * @link https://php.net/manual/en/spltempfileobject.construct.php
      * @param int $maxMemory [optional]
      * @throws RuntimeException if an error occurs.
-     * @since 5.1.2
+     * @since 5.1
      */
     public function __construct(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $maxMemory = 2097152) {}
 }
@@ -2187,7 +2187,7 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
      * The storage containing the elements to retain in the current storage.
      * </p>
      * @return int
-     * @since 5.3.6
+     * @since 5.3
      */
     #[TentativeType]
     public function removeAllExcept(#[LanguageLevelTypeAware(['8.0' => 'SplObjectStorage'], default: '')] $storage): int {}
@@ -2267,7 +2267,7 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
      * The serialized representation of a storage.
      * </p>
      * @return void
-     * @since 5.2.2
+     * @since 5.2
      */
     #[TentativeType]
     public function unserialize(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data): void {}
@@ -2276,7 +2276,7 @@ class SplObjectStorage implements Countable, SeekableIterator, Serializable, Arr
      * Serializes the storage
      * @link https://php.net/manual/en/splobjectstorage.serialize.php
      * @return string A string representing the storage.
-     * @since 5.2.2
+     * @since 5.2
      */
     #[TentativeType]
     public function serialize(): string {}

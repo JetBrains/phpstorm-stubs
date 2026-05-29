@@ -6913,7 +6913,7 @@ function intltz_get_region(string $timezoneId): string|false {}
  * @param int $days
  * @return bool
  *
- * @since 5.5.1
+ * @since 5.5
  */
 #[LanguageAware(['8.3' => 'true'], default: 'bool')]
 function intlcal_set_minimal_days_in_first_week(IntlCalendar $calendar, int $days) {}

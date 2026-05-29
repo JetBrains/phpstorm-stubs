@@ -1297,7 +1297,7 @@ function php_ini_scanned_files(): string|false {}
  * Retrieve a path to the loaded php.ini file
  * @link https://php.net/manual/en/function.php-ini-loaded-file.php
  * @return string|false The loaded "php.ini" path, or false if one is not loaded.
- * @since 5.2.4
+ * @since 5.2
  */
 #[Pure]
 function php_ini_loaded_file(): string|false {}

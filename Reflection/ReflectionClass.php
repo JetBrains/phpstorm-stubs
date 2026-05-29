@@ -499,7 +499,7 @@ class ReflectionClass implements Reflector
      * @throws ReflectionException if the class constructor is not public or if
      * the class does not have a constructor and the $args parameter contains
      * one or more parameters.
-     * @since 5.1.3
+     * @since 5.1
      */
     #[TentativeType]
     public function newInstanceArgs(array $args = []): ?object {}
