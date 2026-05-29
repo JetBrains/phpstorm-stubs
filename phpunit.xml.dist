@@ -93,6 +93,8 @@
         </testsuite>
         <testsuite name="Structure">
             <file>tests/StubsStructureValidatorTest.php</file>
+        </testsuite>
+        <testsuite name="Unit">
             <file>tests/Unit/DataProviders/AllStubsDataProviderTest.php</file>
             <file>tests/Unit/DataProviders/CoreStubsDataProviderTest.php</file>
             <file>tests/Unit/DataProviders/CoreStubsDataProviderUsageExampleTest.php</file>
