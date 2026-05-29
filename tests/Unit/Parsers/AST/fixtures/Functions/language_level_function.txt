@@ -1,0 +1,6 @@
+<?php
+
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+
+#[LanguageLevelTypeAware(['8.0' => 'CurlHandle|false'], default: 'resource|false')]
+function curl_init(?string $url = null) {}

@@ -1,0 +1,21 @@
+<?php
+
+namespace MyLibrary\Core;
+
+// These are DUPLICATE classes - same namespace and name as v1
+class Database {
+    public function connect(string $host, int $port, string $user, string $password): void {}
+    public function query(string $sql, array $params = []): array {}
+    public function disconnect(): void {}
+}
+
+class Cache {
+    public function get(string $key, $default = null): mixed {}
+    public function set(string $key, $value, int $ttl = 0): void {}
+    public function delete(string $key): bool {}
+}
+
+// These are DUPLICATE functions - same namespace and name as v1
+function initialize(bool $force = false): void {}
+
+function configure(array $options, bool $merge = true): bool {}

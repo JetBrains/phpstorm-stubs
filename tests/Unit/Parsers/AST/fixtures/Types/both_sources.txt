@@ -1,0 +1,10 @@
+<?php
+namespace Test;
+
+class TestClass
+{
+    /**
+     * @var string|null A description
+     */
+    public string $property;
+}

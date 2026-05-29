@@ -1,0 +1,12 @@
+<?php
+namespace Test;
+
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Deprecated;
+
+class TestClass
+{
+    #[Deprecated(since: '8.0')]
+    #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
+    public $property;
+}

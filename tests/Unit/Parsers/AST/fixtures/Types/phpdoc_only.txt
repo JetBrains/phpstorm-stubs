@@ -1,0 +1,10 @@
+<?php
+namespace Test;
+
+class TestClass
+{
+    /**
+     * @var string
+     */
+    public $property;
+}

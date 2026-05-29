@@ -1,0 +1,14 @@
+<?php
+
+class TestClass
+{
+    public const PUBLIC_CONST = 'public';
+
+    protected const PROTECTED_CONST = 'protected';
+
+    private const PRIVATE_CONST = 'private';
+
+    final public const FINAL_CONST = 'final';
+
+    public const FIRST_CONST = 'first', SECOND_CONST = 'second', THIRD_CONST = 'third';
+}

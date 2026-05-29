@@ -1,0 +1,17 @@
+<?php
+
+namespace MyLibrary\Core;
+
+class Database {
+    public function connect(string $host, int $port): void {}
+    public function query(string $sql): array {}
+}
+
+class Cache {
+    public function get(string $key): mixed {}
+    public function set(string $key, $value): void {}
+}
+
+function initialize(): void {}
+
+function configure(array $options): bool {}

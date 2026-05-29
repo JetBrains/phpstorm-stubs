@@ -1,0 +1,8 @@
+<?php
+
+namespace MyNamespace\SubNamespace;
+
+/**
+ * @deprecated
+ */
+function complexFunction(string $param1, int $param2 = 10, ?bool $param3 = null): string|int|null {}

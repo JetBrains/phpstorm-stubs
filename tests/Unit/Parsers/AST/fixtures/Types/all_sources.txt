@@ -1,0 +1,13 @@
+<?php
+namespace Test;
+
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+
+class TestClass
+{
+    /**
+     * @var resource|false A socket resource
+     */
+    #[LanguageLevelTypeAware(['8.0' => 'Socket|false'], default: 'resource|false')]
+    public $socketResource;
+}

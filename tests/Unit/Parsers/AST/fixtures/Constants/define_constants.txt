@@ -1,0 +1,5 @@
+<?php
+
+define('DEFINE_CONST_1', 100);
+define('DEFINE_CONST_2', 'defined');
+define('DEFINE_CONST_3', 3.14);

@@ -1,0 +1,10 @@
+<?php
+namespace Test;
+
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+
+class TestClass
+{
+    #[LanguageLevelTypeAware(['8.0' => 'GdImage', '8.1' => 'GdImage|false'], default: 'resource|false')]
+    public $gdResource;
+}
