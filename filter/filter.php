@@ -532,7 +532,7 @@ define('FILTER_FLAG_EMAIL_UNICODE', 1048576);
  * filters Global IPs per RFC 6890
  * @since 8.2
  */
-define('FILTER_FLAG_GLOBAL_RANGE', 268435456);
+define('FILTER_FLAG_GLOBAL_RANGE', 536870912);
 
 define('FILTER_THROW_ON_FAILURE', 268435456);
 // End of filter v.0.11.0

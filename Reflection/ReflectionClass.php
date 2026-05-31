@@ -51,12 +51,12 @@ class ReflectionClass implements Reflector
     /**
      * @since 8.4
      */
-    public const int SKIP_INITIALIZATION_ON_SERIALIZE = 0;
+    public const int SKIP_INITIALIZATION_ON_SERIALIZE = 8;
 
     /**
      * @since 8.4
      */
-    public const int SKIP_DESTRUCTOR = 0;
+    public const int SKIP_DESTRUCTOR = 16;
 
     /**
      * Constructs a ReflectionClass

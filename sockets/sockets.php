@@ -2394,29 +2394,29 @@ define('SO_BINDTOIFINDEX', 62);
 /**
  * @since 8.5
  */
-const AF_PACKET = 0;
+const AF_PACKET = 17;
 
-const SO_BUSY_POLL = 0;
+const SO_BUSY_POLL = 46;
 
-const IPPROTO_ICMP = 0;
+const IPPROTO_ICMP = 1;
 
-const IPPROTO_ICMPV6 = 0;
+const IPPROTO_ICMPV6 = 58;
 
-const ETH_P_IP = 0;
+const ETH_P_IP = 2048;
 
-const ETH_P_IPV6 = 0;
+const ETH_P_IPV6 = 34525;
 
-const ETH_P_LOOP = 0;
+const ETH_P_LOOP = 96;
 
-const ETH_P_ALL = 0;
+const ETH_P_ALL = 3;
 
-const UDP_SEGMENT = 0;
+const UDP_SEGMENT = 103;
 
 const SHUT_RD = 0;
 
-const SHUT_WR = 0;
+const SHUT_WR = 1;
 
-const SHUT_RDWR = 0;
+const SHUT_RDWR = 2;
 
 /**
  * @since 8.0

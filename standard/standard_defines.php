@@ -763,14 +763,14 @@ define('CRYPT_SHA256', 1);
 define('CRYPT_SHA512', 1);
 define('DIRECTORY_SEPARATOR', "/");
 define('PATH_SEPARATOR', ":");
-define('GLOB_BRACE', 1024);
-define('GLOB_MARK', 2);
-define('GLOB_NOSORT', 4);
+define('GLOB_BRACE', 128);
+define('GLOB_MARK', 8);
+define('GLOB_NOSORT', 32);
 define('GLOB_NOCHECK', 16);
-define('GLOB_NOESCAPE', 64);
-define('GLOB_ERR', 1);
+define('GLOB_NOESCAPE', 4096);
+define('GLOB_ERR', 4);
 define('GLOB_ONLYDIR', 1073741824);
-define('GLOB_AVAILABLE_FLAGS', 1073741911);
+define('GLOB_AVAILABLE_FLAGS', 1073746108);
 define('EXTR_OVERWRITE', 0);
 define('EXTR_SKIP', 1);
 define('EXTR_PREFIX_SAME', 2);
@@ -1022,7 +1022,7 @@ define('IMAGETYPE_ICO', 17);
  */
 define('IMAGETYPE_WEBP', 18);
 define('IMAGETYPE_UNKNOWN', 0);
-define('IMAGETYPE_COUNT', 20);
+define('IMAGETYPE_COUNT', 22);
 
 /**
  * @since 8.1

@@ -256,13 +256,13 @@ namespace {
          * <b>PDO::FETCH_KEY_PAIR</b>.
          * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.fetch-group
          */
-        public const FETCH_GROUP = 65536;
+        public const FETCH_GROUP = 32;
 
         /**
          * Fetch only the unique values.
          * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.fetch-unique
          */
-        public const FETCH_UNIQUE = 196608;
+        public const FETCH_UNIQUE = 64;
 
         /**
          * Fetch a two-column result into an array where the first column is a key and the second column
@@ -276,7 +276,7 @@ namespace {
          * Determine the class name from the value of first column.
          * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.fetch-classtype
          */
-        public const FETCH_CLASSTYPE = 262144;
+        public const FETCH_CLASSTYPE = 128;
 
         /**
          * As <b>PDO::FETCH_INTO</b> but object is provided as a serialized string.
@@ -284,14 +284,14 @@ namespace {
          * flag is set.
          * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.fetch-serialize
          */
-        public const FETCH_SERIALIZE = 524288;
+        public const FETCH_SERIALIZE = 512;
 
         /**
          * Call the constructor before setting properties.
          * @since 5.2
          * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.fetch-props-late
          */
-        public const FETCH_PROPS_LATE = 1048576;
+        public const FETCH_PROPS_LATE = 256;
 
         /**
          * Specifies that the fetch method shall return each row as an array indexed
@@ -679,7 +679,7 @@ namespace {
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-direct-query
          */
         #[Deprecated('use Pdo\Mysql::ATTR_DIRECT_QUERY instead', since: '8.5')]
-        public const MYSQL_ATTR_DIRECT_QUERY = 1004;
+        public const MYSQL_ATTR_DIRECT_QUERY = 20;
 
         /**
          * <p>
@@ -689,7 +689,7 @@ namespace {
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-found-rows
          */
         #[Deprecated('use Pdo\Mysql::ATTR_FOUND_ROWS instead', since: '8.5')]
-        public const MYSQL_ATTR_FOUND_ROWS = 1005;
+        public const MYSQL_ATTR_FOUND_ROWS = 1004;
 
         /**
          * <p>
@@ -699,10 +699,10 @@ namespace {
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ignore-space
          */
         #[Deprecated('use Pdo\Mysql::ATTR_IGNORE_SPACE instead', since: '8.5')]
-        public const MYSQL_ATTR_IGNORE_SPACE = 1006;
+        public const MYSQL_ATTR_IGNORE_SPACE = 1005;
 
         #[Deprecated('use Pdo\Mysql::ATTR_SERVER_PUBLIC_KEY instead', since: '8.5')]
-        public const MYSQL_ATTR_SERVER_PUBLIC_KEY = 1012;
+        public const MYSQL_ATTR_SERVER_PUBLIC_KEY = 1011;
 
         /**
          * <p>
@@ -712,7 +712,7 @@ namespace {
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-key
          */
         #[Deprecated('use Pdo\Mysql::ATTR_SSL_KEY instead', since: '8.5')]
-        public const MYSQL_ATTR_SSL_KEY = 1007;
+        public const MYSQL_ATTR_SSL_KEY = 1006;
 
         /**
          * <p>
@@ -722,7 +722,7 @@ namespace {
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-cert
          */
         #[Deprecated('use Pdo\Mysql::ATTR_SSL_CERT instead', since: '8.5')]
-        public const MYSQL_ATTR_SSL_CERT = 1008;
+        public const MYSQL_ATTR_SSL_CERT = 1007;
 
         /**
          * <p>
@@ -732,7 +732,7 @@ namespace {
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-ca
          */
         #[Deprecated('use Pdo\Mysql::ATTR_SSL_CA instead', since: '8.5')]
-        public const MYSQL_ATTR_SSL_CA = 1009;
+        public const MYSQL_ATTR_SSL_CA = 1008;
 
         /**
          * <p>
@@ -743,7 +743,7 @@ namespace {
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-capath
          */
         #[Deprecated('use Pdo\Mysql::ATTR_SSL_CAPATH instead', since: '8.5')]
-        public const MYSQL_ATTR_SSL_CAPATH = 1010;
+        public const MYSQL_ATTR_SSL_CAPATH = 1009;
 
         /**
          * <p>
@@ -755,7 +755,7 @@ namespace {
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-cipher
          */
         #[Deprecated('use Pdo\Mysql::ATTR_SSL_CIPHER instead', since: '8.5')]
-        public const MYSQL_ATTR_SSL_CIPHER = 1011;
+        public const MYSQL_ATTR_SSL_CIPHER = 1010;
 
         /**
          * <p>
@@ -768,7 +768,7 @@ namespace {
          * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-multi-statements
          */
         #[Deprecated('use Pdo\Mysql::ATTR_MULTI_STATEMENTS instead', since: '8.5')]
-        public const MYSQL_ATTR_MULTI_STATEMENTS = 1013;
+        public const MYSQL_ATTR_MULTI_STATEMENTS = 1012;
 
         /**
          * <p>
@@ -779,13 +779,13 @@ namespace {
          * @link https://bugs.php.net/bug.php?id=71003
          */
         #[Deprecated('use Pdo\Mysql::ATTR_SSL_VERIFY_SERVER_CERT instead', since: '8.5')]
-        public const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1014;
+        public const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1013;
 
         /**
          * @since 8.1
          */
         #[Deprecated('use Pdo\Mysql::ATTR_LOCAL_INFILE_DIRECTORY instead', since: '8.5')]
-        public const MYSQL_ATTR_LOCAL_INFILE_DIRECTORY = 1015;
+        public const MYSQL_ATTR_LOCAL_INFILE_DIRECTORY = 1014;
 
         #[Deprecated("Use PDO::ATTR_EMULATE_PREPARES instead")]
         public const PGSQL_ASSOC = 1;
@@ -2141,21 +2141,29 @@ namespace Pdo {
      */
     class Sqlite extends PDO
     {
-        public const int DETERMINISTIC = 0;
+        public const int DETERMINISTIC = 2048;
         public const int OPEN_READONLY = 1;
-        public const int OPEN_READWRITE = 0;
-        public const int OPEN_CREATE = 0;
-        public const int ATTR_OPEN_FLAGS = 0;
-        public const int ATTR_READONLY_STATEMENT = 0;
-        public const int ATTR_EXTENDED_RESULT_CODES = 0;
-        public const IGNORE = 0;
-        public const DENY = 0;
+        public const int OPEN_READWRITE = 2;
+        public const int OPEN_CREATE = 4;
+        public const int ATTR_OPEN_FLAGS = 1000;
+        public const int ATTR_READONLY_STATEMENT = 1001;
+        public const int ATTR_EXTENDED_RESULT_CODES = 1002;
+        /** @since 8.5 */
+        public const IGNORE = 2;
+        /** @since 8.5 */
+        public const DENY = 1;
+        /** @since 8.5 */
         public const OK = 0;
-        public const EXPLAIN_MODE_EXPLAIN_QUERY_PLAN = 0;
-        public const EXPLAIN_MODE_EXPLAIN = 0;
+        /** @since 8.5 */
+        public const EXPLAIN_MODE_EXPLAIN_QUERY_PLAN = 2;
+        /** @since 8.5 */
+        public const EXPLAIN_MODE_EXPLAIN = 1;
+        /** @since 8.5 */
         public const EXPLAIN_MODE_PREPARED = 0;
-        public const ATTR_EXPLAIN_STATEMENT = 0;
-        public const ATTR_BUSY_STATEMENT = 0;
+        /** @since 8.5 */
+        public const ATTR_EXPLAIN_STATEMENT = 1004;
+        /** @since 8.5 */
+        public const ATTR_BUSY_STATEMENT = 1003;
 
         /**
          * @since 8.5
@@ -2222,18 +2230,18 @@ namespace Pdo {
         public const int ATTR_READ_DEFAULT_GROUP = 1004;
         public const int ATTR_MAX_BUFFER_SIZE = 1005;
         public const int ATTR_COMPRESS = 1003;
-        public const int ATTR_DIRECT_QUERY = 1004;
-        public const int ATTR_FOUND_ROWS = 1005;
-        public const int ATTR_IGNORE_SPACE = 1006;
-        public const int ATTR_SSL_KEY = 1007;
-        public const int ATTR_SSL_CERT = 1008;
-        public const int ATTR_SSL_CA = 1009;
-        public const int ATTR_SSL_CAPATH = 1010;
-        public const int ATTR_SSL_CIPHER = 1011;
-        public const int ATTR_SERVER_PUBLIC_KEY = 1012;
-        public const int ATTR_MULTI_STATEMENTS = 1013;
-        public const int ATTR_SSL_VERIFY_SERVER_CERT = 1014;
-        public const int ATTR_LOCAL_INFILE_DIRECTORY = 1015;
+        public const int ATTR_DIRECT_QUERY = 20;
+        public const int ATTR_FOUND_ROWS = 1004;
+        public const int ATTR_IGNORE_SPACE = 1005;
+        public const int ATTR_SSL_KEY = 1006;
+        public const int ATTR_SSL_CERT = 1007;
+        public const int ATTR_SSL_CA = 1008;
+        public const int ATTR_SSL_CAPATH = 1009;
+        public const int ATTR_SSL_CIPHER = 1010;
+        public const int ATTR_SERVER_PUBLIC_KEY = 1011;
+        public const int ATTR_MULTI_STATEMENTS = 1012;
+        public const int ATTR_SSL_VERIFY_SERVER_CERT = 1013;
+        public const int ATTR_LOCAL_INFILE_DIRECTORY = 1014;
 
         public function getWarningCount(): int {}
     }

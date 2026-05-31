@@ -2560,8 +2560,8 @@ class Spoofchecker
     public const MINIMALLY_RESTRICTIVE = 1342177280;
     public const UNRESTRICTIVE = 1610612736;
     public const SINGLE_SCRIPT_RESTRICTIVE = 536870912;
-    public const MIXED_NUMBERS = 1;
-    public const HIDDEN_OVERLAY = 2;
+    public const MIXED_NUMBERS = 128;
+    public const HIDDEN_OVERLAY = 256;
 
     /**
      * @since 8.4
@@ -2742,7 +2742,7 @@ class IntlCalendar
     public const FIELD_JULIAN_DAY = 20;
     public const FIELD_MILLISECONDS_IN_DAY = 21;
     public const FIELD_IS_LEAP_MONTH = 22;
-    public const FIELD_FIELD_COUNT = 23;
+    public const FIELD_FIELD_COUNT = 24;
     public const FIELD_DAY_OF_MONTH = 5;
     public const DOW_SUNDAY = 1;
     public const DOW_MONDAY = 2;

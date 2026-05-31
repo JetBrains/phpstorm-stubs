@@ -894,7 +894,7 @@ final class Attribute
      * Marks that attribute declaration is allowed only in constants.
      * @since 8.5
      */
-    public const TARGET_CONSTANT = 32;
+    public const TARGET_CONSTANT = 64;
 
     /**
      * Marks that attribute declaration is allowed anywhere.
@@ -905,7 +905,7 @@ final class Attribute
      * Notes that an attribute declaration in the same place is
      * allowed multiple times.
      */
-    public const IS_REPEATABLE = 64;
+    public const IS_REPEATABLE = 128;
 
     /**
      * @param int $flags A value in the form of a bitmask indicating the places

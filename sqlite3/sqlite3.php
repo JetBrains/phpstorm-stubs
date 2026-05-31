@@ -453,8 +453,11 @@ class SQLite3
  */
 class SQLite3Stmt
 {
-    public const EXPLAIN_MODE_EXPLAIN_QUERY_PLAN = 0;
-    public const EXPLAIN_MODE_EXPLAIN = 0;
+    /** @since 8.5 */
+    public const EXPLAIN_MODE_EXPLAIN_QUERY_PLAN = 2;
+    /** @since 8.5 */
+    public const EXPLAIN_MODE_EXPLAIN = 1;
+    /** @since 8.5 */
     public const EXPLAIN_MODE_PREPARED = 0;
 
     /**
