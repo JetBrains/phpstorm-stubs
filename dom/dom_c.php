@@ -533,7 +533,11 @@ class DOMImplementation
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function hasFeature($feature, $version) {}
+    #[TentativeType]
+    public function hasFeature(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $feature,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $version
+    ): bool {}
 
     /**
      * Creates an empty DOMDocumentType object
@@ -1133,7 +1137,11 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return int|false the number of bytes written or false if an error occurred.
      */
-    public function save($filename, $options = null) {}
+    #[TentativeType]
+    public function save(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = null
+    ): int|false {}
 
     /**
      * Load XML from a string
@@ -1254,7 +1262,8 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * @param null|DOMNode $node [optional] parameter to output a subset of the document.
      * @return string|false The HTML, or false if an error occurred.
      */
-    public function saveHTML(DOMNode $node = null) {}
+    #[TentativeType]
+    public function saveHTML(#[LanguageLevelTypeAware(['8.0' => 'DOMNode|null'], default: '')] $node = null): string|false {}
 
     /**
      * Dumps the internal document into a file using HTML formatting
@@ -1279,7 +1288,11 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * </p>
      * @return bool true on success or false on failure.
      */
-    public function schemaValidate($filename, $options = null) {}
+    #[TentativeType]
+    public function schemaValidate(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = null
+    ): bool {}
 
     /**
      * Validates a document based on a schema
@@ -1291,7 +1304,11 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * Available since PHP 5.5.2 and Libxml 2.6.14.</p>
      * @return bool true on success or false on failure.
      */
-    public function schemaValidateSource($source, $flags) {}
+    #[TentativeType]
+    public function schemaValidateSource(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $source,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = 0
+    ): bool {}
 
     /**
      * Performs relaxNG validation on the document
@@ -1392,6 +1409,13 @@ class DOMNodeList implements IteratorAggregate, Countable
  */
 class DOMNamedNodeMap implements IteratorAggregate, Countable
 {
+    /**
+     * @var int The number of nodes in the map. The valid child node indices range from 0 to length - 1 inclusive.
+     * @link https://php.net/manual/en/class.domnamednodemap.php#domnamednodemap.props.length
+     */
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
+    public $length;
+
     /**
      * Retrieves a node specified by name
      * @link https://php.net/manual/en/domnamednodemap.getnameditem.php
@@ -1701,6 +1725,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * The parent of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.parentnode
      */
+    #[LanguageLevelTypeAware(['8.1' => 'DOMNode|null'], default: '')]
     public $parentNode;
 
     /**
@@ -1708,6 +1733,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * The first child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.firstchild
      */
+    #[LanguageLevelTypeAware(['8.1' => 'DOMNode|null'], default: '')]
     public $firstChild;
 
     /**
@@ -1715,6 +1741,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * The last child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.lastchild
      */
+    #[LanguageLevelTypeAware(['8.1' => 'DOMNode|null'], default: '')]
     public $lastChild;
 
     /**
@@ -1722,6 +1749,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * The node immediately preceding this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
      */
+    #[LanguageLevelTypeAware(['8.1' => 'DOMNode|null'], default: '')]
     public $previousSibling;
 
     /**
@@ -1729,6 +1757,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * The node immediately following this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
      */
+    #[LanguageLevelTypeAware(['8.1' => 'DOMNode|null'], default: '')]
     public $nextSibling;
 
     /**
@@ -2545,7 +2574,8 @@ class DOMXPath
      * </p>
      * @return void
      */
-    public function registerPhpFunctions($restrict = null) {}
+    #[TentativeType]
+    public function registerPhpFunctions(#[LanguageLevelTypeAware(['8.0' => 'string|array|null'], default: '')] $restrict = null): void {}
 
     /**
      * @since 8.4

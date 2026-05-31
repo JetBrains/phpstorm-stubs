@@ -1212,7 +1212,8 @@ namespace {
          * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
          */
         #[PhpStormStubsElementAvailable(to: '7.4')]
-        public function query($query, $fetchMode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null, $ctorargs = []) {}
+        #[TentativeType]
+        public function query($query, $fetchMode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null, $ctorargs = []): PDOStatement|false {}
 
         /**
          * (PHP 5 >= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.2.0)<br/>
@@ -1237,11 +1238,12 @@ namespace {
          * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
          */
         #[PhpStormStubsElementAvailable('8.0')]
+        #[TentativeType]
         public function query(
             #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $query,
             #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $fetchMode = null,
             #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$fetchModeArgs
-        ) {}
+        ): PDOStatement|false {}
 
         /**
          * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -2069,7 +2071,9 @@ namespace {
          * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
          * @throws PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
          */
-        public function setFetchMode($mode, ...$args) {}
+        #[TentativeType]
+        #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
+        public function setFetchMode(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode, mixed ...$args) {}
 
         /**
          * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>

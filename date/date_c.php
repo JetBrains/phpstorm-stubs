@@ -328,7 +328,8 @@ class DateTimeImmutable implements DateTimeInterface
      * @return DateTimeImmutable
      * Returns a new instance of a {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object.
      */
-    public static function __set_state(array $array) {}
+    #[TentativeType]
+    public static function __set_state(array $array): static {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -890,7 +891,8 @@ class DateTime implements DateTimeInterface
      * @param array $array <p>Initialization array.</p>
      * @return DateTime <p>Returns a new instance of a DateTime object.</p>
      */
-    public static function __set_state($array) {}
+    #[TentativeType]
+    public static function __set_state(array $array): static {}
 
     /**
      * @param DateTimeInterface $object
@@ -1024,7 +1026,8 @@ class DateTimeZone
     #[TentativeType]
     public function __wakeup(): void {}
 
-    public static function __set_state($an_array) {}
+    #[TentativeType]
+    public static function __set_state(array $array): static {}
 
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __serialize(): array {}
@@ -1149,7 +1152,8 @@ class DateInterval
     #[TentativeType]
     public function __wakeup(): void {}
 
-    public static function __set_state($an_array) {}
+    #[TentativeType]
+    public static function __set_state(array $array): static {}
 
     #[PhpStormStubsElementAvailable(from: '8.2')]
     public function __serialize(): array {}

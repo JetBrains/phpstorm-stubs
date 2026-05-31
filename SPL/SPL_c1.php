@@ -451,7 +451,8 @@ class FilesystemIterator extends DirectoryIterator
      * @link https://php.net/manual/en/filesystemiterator.next.php
      * @return void
      */
-    public function next() {}
+    #[TentativeType]
+    public function next(): void {}
 
     /**
      * Retrieve the key for the current file
@@ -554,14 +555,16 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
      * @link https://php.net/manual/en/filesystemiterator.rewind.php
      * @return void
      */
-    public function rewind() {}
+    #[TentativeType]
+    public function rewind(): void {}
 
     /**
      * Move to the next file
      * @link https://php.net/manual/en/filesystemiterator.next.php
      * @return void
      */
-    public function next() {}
+    #[TentativeType]
+    public function next(): void {}
 
     /**
      * Retrieve the key for the current file
@@ -569,7 +572,8 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
      * @return string the pathname or filename depending on the set flags.
      * See the FilesystemIterator constants.
      */
-    public function key() {}
+    #[TentativeType]
+    public function key(): string {}
 
     /**
      * The current file
@@ -577,7 +581,8 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
      * @return string|SplFileInfo|self The filename, file information, or $this depending on the set flags.
      * See the FilesystemIterator constants.
      */
-    public function current() {}
+    #[TentativeType]
+    public function current(): SplFileInfo|FilesystemIterator|string {}
 }
 
 /**
@@ -1358,7 +1363,8 @@ class SplQueue extends SplDoublyLinkedList
      * <b>SplDoublyLinkedList::IT_MODE_LIFO</b> (Stack style)
      * @return void
      */
-    public function setIteratorMode($mode) {}
+    #[TentativeType]
+    public function setIteratorMode(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode): int {}
 }
 
 /**
@@ -1379,7 +1385,8 @@ class SplStack extends SplDoublyLinkedList
      * <b>SplDoublyLinkedList::IT_MODE_LIFO</b> (Stack style)
      * @return void
      */
-    public function setIteratorMode($mode) {}
+    #[TentativeType]
+    public function setIteratorMode(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode): int {}
 }
 
 /**
@@ -1497,7 +1504,12 @@ abstract class SplHeap implements Iterator, Countable
      * <p>
      * Having multiple elements with the same value in a Heap is not recommended. They will end up in an arbitrary relative position.
      */
-    abstract protected function compare($value1, $value2);
+    #[TentativeType]
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
+    abstract protected function compare(
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value1,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value2
+    );
 
     /**
      * @return bool
@@ -1559,7 +1571,8 @@ class SplMinHeap extends SplHeap
      * @link https://php.net/manual/en/splheap.extract.php
      * @return TValue The value of the extracted node.
      */
-    public function extract() {}
+    #[TentativeType]
+    public function extract(): mixed {}
 
     /**
      * Inserts an element in the heap by sifting it up.
@@ -1569,69 +1582,81 @@ class SplMinHeap extends SplHeap
      * </p>
      * @return true
      */
-    public function insert($value) {}
+    #[TentativeType]
+    #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
+    public function insert(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $value) {}
 
     /**
      * Peeks at the node from the top of the heap
      * @link https://php.net/manual/en/splheap.top.php
      * @return TValue The value of the node on the top.
      */
-    public function top() {}
+    #[TentativeType]
+    public function top(): mixed {}
 
     /**
      * Counts the number of elements in the heap.
      * @link https://php.net/manual/en/splheap.count.php
      * @return int the number of elements in the heap.
      */
-    public function count() {}
+    #[TentativeType]
+    public function count(): int {}
 
     /**
      * Checks whether the heap is empty.
      * @link https://php.net/manual/en/splheap.isempty.php
      * @return bool whether the heap is empty.
      */
-    public function isEmpty() {}
+    #[TentativeType]
+    public function isEmpty(): bool {}
 
     /**
      * Rewind iterator back to the start (no-op)
      * @link https://php.net/manual/en/splheap.rewind.php
      * @return void
      */
-    public function rewind() {}
+    #[TentativeType]
+    public function rewind(): void {}
 
     /**
      * Return current node pointed by the iterator
      * @link https://php.net/manual/en/splheap.current.php
      * @return TValue The current node value.
      */
-    public function current() {}
+    #[TentativeType]
+    public function current(): mixed {}
 
     /**
      * Return current node index
      * @link https://php.net/manual/en/splheap.key.php
      * @return int The current node index.
      */
-    public function key() {}
+    #[TentativeType]
+    public function key(): int {}
 
     /**
      * Move to the next node
      * @link https://php.net/manual/en/splheap.next.php
      * @return void
      */
-    public function next() {}
+    #[TentativeType]
+    public function next(): void {}
 
     /**
      * Check whether the heap contains more nodes
      * @link https://php.net/manual/en/splheap.valid.php
      * @return bool true if the heap contains any more nodes, false otherwise.
      */
-    public function valid() {}
+    #[TentativeType]
+    public function valid(): bool {}
 
     /**
      * Recover from the corrupted state and allow further actions on the heap.
      * @link https://php.net/manual/en/splheap.recoverfromcorruption.php
      * @return void
      */
+    #[TentativeType]
+    #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     public function recoverFromCorruption() {}
 }
 

@@ -534,21 +534,24 @@ abstract class FilterIterator extends IteratorIterator
      * @link https://php.net/manual/en/filteriterator.valid.php
      * @return bool true if the current element is valid, otherwise false
      */
-    public function valid() {}
+    #[TentativeType]
+    public function valid(): bool {}
 
     /**
      * Get the current key
      * @link https://php.net/manual/en/filteriterator.key.php
      * @return mixed The key of the current element.
      */
-    public function key() {}
+    #[TentativeType]
+    public function key(): mixed {}
 
     /**
      * Get the current element value
      * @link https://php.net/manual/en/filteriterator.current.php
      * @return mixed The current element value.
      */
-    public function current() {}
+    #[TentativeType]
+    public function current(): mixed {}
 
     /**
      * Move the iterator forward
@@ -563,7 +566,8 @@ abstract class FilterIterator extends IteratorIterator
      * @link https://php.net/manual/en/filteriterator.getinneriterator.php
      * @return Iterator The inner iterator.
      */
-    public function getInnerIterator() {}
+    #[TentativeType]
+    public function getInnerIterator(): ?Iterator {}
 }
 
 /**
@@ -624,14 +628,16 @@ class ParentIterator extends RecursiveFilterIterator
      * @link https://php.net/manual/en/recursivefilteriterator.haschildren.php
      * @return bool true if the inner iterator has children, otherwise false
      */
-    public function hasChildren() {}
+    #[TentativeType]
+    public function hasChildren(): bool {}
 
     /**
      * Return the inner iterator's children contained in a RecursiveFilterIterator
      * @link https://php.net/manual/en/recursivefilteriterator.getchildren.php
      * @return ParentIterator containing the inner iterator's children.
      */
-    public function getChildren() {}
+    #[TentativeType]
+    public function getChildren(): ?RecursiveFilterIterator {}
 }
 
 /**
@@ -696,14 +702,16 @@ class LimitIterator extends IteratorIterator
      * @link https://php.net/manual/en/limititerator.key.php
      * @return mixed The key of the current element.
      */
-    public function key() {}
+    #[TentativeType]
+    public function key(): mixed {}
 
     /**
      * Get current element
      * @link https://php.net/manual/en/limititerator.current.php
      * @return mixed the current element or null if there is none.
      */
-    public function current() {}
+    #[TentativeType]
+    public function current(): mixed {}
 
     /**
      * Move the iterator forward
@@ -737,7 +745,8 @@ class LimitIterator extends IteratorIterator
      * @link https://php.net/manual/en/limititerator.getinneriterator.php
      * @return Iterator The inner iterator passed to <b>LimitIterator::__construct</b>.
      */
-    public function getInnerIterator() {}
+    #[TentativeType]
+    public function getInnerIterator(): ?Iterator {}
 }
 
 /**
@@ -808,14 +817,16 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      * @link https://php.net/manual/en/cachingiterator.key.php
      * @return mixed The key of the current element.
      */
-    public function key() {}
+    #[TentativeType]
+    public function key(): mixed {}
 
     /**
      * Return the current element
      * @link https://php.net/manual/en/cachingiterator.current.php
      * @return mixed
      */
-    public function current() {}
+    #[TentativeType]
+    public function current(): mixed {}
 
     /**
      * Move the iterator forward
@@ -846,7 +857,8 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      * @link https://php.net/manual/en/cachingiterator.getinneriterator.php
      * @return Iterator an object implementing the Iterator interface.
      */
-    public function getInnerIterator() {}
+    #[TentativeType]
+    public function getInnerIterator(): ?Iterator {}
 
     /**
      * Get flags used
@@ -1015,7 +1027,8 @@ class NoRewindIterator extends IteratorIterator
      * @link https://php.net/manual/en/norewinditerator.getinneriterator.php
      * @return Iterator The inner iterator, as passed to <b>NoRewindIterator::__construct</b>.
      */
-    public function getInnerIterator() {}
+    #[TentativeType]
+    public function getInnerIterator(): ?Iterator {}
 }
 
 /**
@@ -1062,7 +1075,8 @@ class AppendIterator extends IteratorIterator
      * @link https://php.net/manual/en/appenditerator.key.php
      * @return mixed The key of the current element.
      */
-    public function key() {}
+    #[TentativeType]
+    public function key(): mixed {}
 
     /**
      * Gets the current value
@@ -1085,7 +1099,8 @@ class AppendIterator extends IteratorIterator
      * @link https://php.net/manual/en/appenditerator.getinneriterator.php
      * @return Iterator the current inner Iterator.
      */
-    public function getInnerIterator() {}
+    #[TentativeType]
+    public function getInnerIterator(): ?Iterator {}
 
     /**
      * Gets an index of iterators
@@ -1396,14 +1411,16 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      * @link https://php.net/manual/en/recursivetreeiterator.rewind.php
      * @return void
      */
-    public function rewind() {}
+    #[TentativeType]
+    public function rewind(): void {}
 
     /**
      * Check validity
      * @link https://php.net/manual/en/recursivetreeiterator.valid.php
      * @return bool true if the current position is valid, otherwise false
      */
-    public function valid() {}
+    #[TentativeType]
+    public function valid(): bool {}
 
     /**
      * Get the key of the current element
@@ -1426,56 +1443,64 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      * @link https://php.net/manual/en/recursivetreeiterator.next.php
      * @return void
      */
-    public function next() {}
+    #[TentativeType]
+    public function next(): void {}
 
     /**
      * Begin iteration
      * @link https://php.net/manual/en/recursivetreeiterator.beginiteration.php
      * @return RecursiveIterator A <b>RecursiveIterator</b>.
      */
-    public function beginIteration() {}
+    #[TentativeType]
+    public function beginIteration(): void {}
 
     /**
      * End iteration
      * @link https://php.net/manual/en/recursivetreeiterator.enditeration.php
      * @return void
      */
-    public function endIteration() {}
+    #[TentativeType]
+    public function endIteration(): void {}
 
     /**
      * Has children
      * @link https://php.net/manual/en/recursivetreeiterator.callhaschildren.php
      * @return bool true if there are children, otherwise false
      */
-    public function callHasChildren() {}
+    #[TentativeType]
+    public function callHasChildren(): bool {}
 
     /**
      * Get children
      * @link https://php.net/manual/en/recursivetreeiterator.callgetchildren.php
      * @return RecursiveIterator A <b>RecursiveIterator</b>.
      */
-    public function callGetChildren() {}
+    #[TentativeType]
+    public function callGetChildren(): ?RecursiveIterator {}
 
     /**
      * Begin children
      * @link https://php.net/manual/en/recursivetreeiterator.beginchildren.php
      * @return void
      */
-    public function beginChildren() {}
+    #[TentativeType]
+    public function beginChildren(): void {}
 
     /**
      * End children
      * @link https://php.net/manual/en/recursivetreeiterator.endchildren.php
      * @return void
      */
-    public function endChildren() {}
+    #[TentativeType]
+    public function endChildren(): void {}
 
     /**
      * Next element
      * @link https://php.net/manual/en/recursivetreeiterator.nextelement.php
      * @return void
      */
-    public function nextElement() {}
+    #[TentativeType]
+    public function nextElement(): void {}
 
     /**
      * Get the prefix
@@ -2129,4 +2154,12 @@ class RecursiveArrayIterator extends ArrayIterator implements RecursiveIterator
      */
     #[TentativeType]
     public function getChildren(): ?RecursiveArrayIterator {}
+
+    /**
+     * Return current array key
+     * @link https://php.net/manual/en/arrayiterator.key.php
+     * @return string|int|null The key of the current element.
+     */
+    #[TentativeType]
+    public function key(): string|int|null {}
 }

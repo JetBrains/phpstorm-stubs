@@ -129,7 +129,7 @@ namespace {
      */
     #[Pure]
     #[PhpStormStubsElementAvailable(to: '7.4')]
-    function bcmod(string $num1, string $num2, ?int $scale = 0): ?string {}
+    function bcmod(string $num1, string $num2, #[PhpStormStubsElementAvailable(from: '7.2')] int $scale = 0): ?string {}
 
     /**
      * Get modulus of an arbitrary precision number

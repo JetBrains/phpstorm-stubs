@@ -207,6 +207,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return static|null a <b>Phar</b> object.
      */
     #[TentativeType]
+    #[LanguageLevelTypeAware(['8.0' => 'static|null'], default: '')]
     public function compress(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $compression,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extension = null
@@ -924,7 +925,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return bool whether the current entry is a directory, but not '.' or '..'
      */
-    public function hasChildren($allow_links = false) {}
+    #[TentativeType]
+    public function hasChildren(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $allowLinks = false): bool {}
 
     /**
      * Returns an iterator for the current entry if it is a directory
@@ -933,21 +935,24 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * See the FilesystemIterator
      * constants.
      */
-    public function getChildren() {}
+    #[TentativeType]
+    public function getChildren(): RecursiveDirectoryIterator {}
 
     /**
      * Rewinds back to the beginning
      * @link https://php.net/manual/en/filesystemiterator.rewind.php
      * @return void No value is returned.
      */
-    public function rewind() {}
+    #[TentativeType]
+    public function rewind(): void {}
 
     /**
      * Move to the next file
      * @link https://php.net/manual/en/filesystemiterator.next.php
      * @return void No value is returned.
      */
-    public function next() {}
+    #[TentativeType]
+    public function next(): void {}
 
     /**
      * Retrieve the key for the current file
@@ -955,7 +960,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return string the pathname or filename depending on the set flags.
      * See the FilesystemIterator constants.
      */
-    public function key() {}
+    #[TentativeType]
+    public function key(): string {}
 
     /**
      * The current file
@@ -963,14 +969,16 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return mixed The filename, file information, or $this depending on the set flags.
      * See the FilesystemIterator constants.
      */
-    public function current() {}
+    #[TentativeType]
+    public function current(): SplFileInfo|FilesystemIterator|string {}
 
     /**
      * Check whether current DirectoryIterator position is a valid file
      * @link https://php.net/manual/en/directoryiterator.valid.php
      * @return bool <b>TRUE</b> if the position is valid, otherwise <b>FALSE</b>
      */
-    public function valid() {}
+    #[TentativeType]
+    public function valid(): bool {}
 
     /**
      * Seek to a DirectoryIterator item
@@ -980,9 +988,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * </p>
      * @return void No value is returned.
      */
-    public function seek($position) {}
-
-    public function _bad_state_ex() {}
+    #[TentativeType]
+    public function seek(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset): void {}
 }
 
 /**
@@ -1071,7 +1078,8 @@ class PharData extends Phar
      * </p>
      * @return bool whether the current entry is a directory, but not '.' or '..'
      */
-    public function hasChildren($allow_links = false) {}
+    #[TentativeType]
+    public function hasChildren(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $allowLinks = false): bool {}
 
     /**
      * Returns an iterator for the current entry if it is a directory
@@ -1080,21 +1088,24 @@ class PharData extends Phar
      * See the FilesystemIterator
      * constants.
      */
-    public function getChildren() {}
+    #[TentativeType]
+    public function getChildren(): RecursiveDirectoryIterator {}
 
     /**
      * Rewinds back to the beginning
      * @link https://php.net/manual/en/filesystemiterator.rewind.php
      * @return void No value is returned.
      */
-    public function rewind() {}
+    #[TentativeType]
+    public function rewind(): void {}
 
     /**
      * Move to the next file
      * @link https://php.net/manual/en/filesystemiterator.next.php
      * @return void No value is returned.
      */
-    public function next() {}
+    #[TentativeType]
+    public function next(): void {}
 
     /**
      * Retrieve the key for the current file
@@ -1102,7 +1113,8 @@ class PharData extends Phar
      * @return string the pathname or filename depending on the set flags.
      * See the FilesystemIterator constants.
      */
-    public function key() {}
+    #[TentativeType]
+    public function key(): string {}
 
     /**
      * The current file
@@ -1110,14 +1122,16 @@ class PharData extends Phar
      * @return mixed The filename, file information, or $this depending on the set flags.
      * See the FilesystemIterator constants.
      */
-    public function current() {}
+    #[TentativeType]
+    public function current(): SplFileInfo|FilesystemIterator|string {}
 
     /**
      * Check whether current DirectoryIterator position is a valid file
      * @link https://php.net/manual/en/directoryiterator.valid.php
      * @return bool <b>TRUE</b> if the position is valid, otherwise <b>FALSE</b>
      */
-    public function valid() {}
+    #[TentativeType]
+    public function valid(): bool {}
 
     /**
      * Seek to a DirectoryIterator item
@@ -1127,7 +1141,8 @@ class PharData extends Phar
      * </p>
      * @return void No value is returned.
      */
-    public function seek($position) {}
+    #[LanguageLevelTypeAware(['8.0' => 'void'], default: '')]
+    public function seek(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $offset) {}
 }
 
 /**
@@ -1281,6 +1296,7 @@ class PharFileInfo extends SplFileInfo
      * </p>
      * @return void No value is returned.
      */
+    #[LanguageLevelTypeAware(['8.0' => 'static|null'], default: '')]
     #[TentativeType]
     public function setMetadata(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $metadata): void {}
 }

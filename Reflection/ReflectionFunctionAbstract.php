@@ -345,5 +345,6 @@ abstract class ReflectionFunctionAbstract implements Reflector
     #[TentativeType]
     public function isStatic(): bool {}
 
+    #[LanguageLevelTypeAware(['7.0' => 'string'], default: '')]
     public function __toString() {}
 }

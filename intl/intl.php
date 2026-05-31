@@ -3385,7 +3385,16 @@ class IntlCalendar
      * </p>
      * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
      */
-    public function set($year, $month, $dayOfMonth = null, $hour = null, $minute = null, $second = null) {}
+    #[TentativeType]
+    #[LanguageAware(['8.4' => 'true'], default: 'bool')]
+    public function set(
+        #[LanguageAware(['8.0' => 'int'], default: '')] $year,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $month,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $dayOfMonth = null,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $hour = null,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $minute = null,
+        #[LanguageAware(['8.0' => 'int'], default: '')] $second = null
+    ) {}
 
     /**
      * (PHP 5 >= 5.5.0 PECL intl >= 3.0.0a1)<br/>
@@ -3396,6 +3405,8 @@ class IntlCalendar
      * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
      * @since 5.5
      */
+    #[TentativeType]
+    #[LanguageAware(['8.4' => 'true'], default: 'bool')]
     public function set($field, $value) {}
 
     /**

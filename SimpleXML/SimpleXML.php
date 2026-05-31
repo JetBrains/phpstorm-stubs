@@ -322,7 +322,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      */
     #[Pure]
     #[TentativeType]
-    public function current(): ?static {}
+    public function current(): SimpleXMLElement {}
 
     /**
      * Return current key
@@ -373,6 +373,8 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
      * @link https://php.net/manual/en/simplexmliterator.rewind.php
      * @return void No value is returned.
      */
+    #[LanguageLevelTypeAware(['8.1' => 'void'], default: '')]
+    #[TentativeType]
     public function rewind() {}
 
     /**
@@ -381,6 +383,8 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
      * @return bool <b>TRUE</b> if the current element is valid, otherwise <b>FALSE</b>
      */
     #[Pure]
+    #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')]
+    #[TentativeType]
     public function valid() {}
 
     /**
@@ -389,13 +393,16 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
      * @return static|null the current element as a <b>SimpleXMLIterator</b> object or <b>NULL</b> on failure.
      */
     #[Pure]
-    public function current() {}
+    #[TentativeType]
+    public function current(): SimpleXMLElement {}
 
     /**
      * Return current key
      * @link https://php.net/manual/en/simplexmliterator.key.php
      * @return string|false the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object or <b>FALSE</b>
      */
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
+    #[TentativeType]
     public function key() {}
 
     /**
@@ -403,6 +410,8 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
      * @link https://php.net/manual/en/simplexmliterator.next.php
      * @return void No value is returned.
      */
+    #[LanguageLevelTypeAware(['8.1' => 'void'], default: '')]
+    #[TentativeType]
     public function next() {}
 
     /**
@@ -411,6 +420,8 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
      * @return bool <b>TRUE</b> if the current element has sub-elements, otherwise <b>FALSE</b>
      */
     #[Pure]
+    #[LanguageLevelTypeAware(['8.1' => 'bool'], default: '')]
+    #[TentativeType]
     public function hasChildren() {}
 
     /**
@@ -420,6 +431,8 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
      * the sub-elements of the current element.
      */
     #[Pure]
+    #[LanguageLevelTypeAware(['8.1' => 'SimpleXMLElement|null'], default: '')]
+    #[TentativeType]
     public function getChildren() {}
 
     /**
@@ -428,6 +441,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
      * @return string the string content on success or an empty string on failure.
      * @since 5.3
      */
+    #[LanguageLevelTypeAware(['7.0' => 'string'], default: '')]
     public function __toString() {}
 
     /**
@@ -436,6 +450,8 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
      * @return int the number of elements of an element.
      */
     #[Pure]
+    #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
+    #[TentativeType]
     public function count() {}
 }
 

@@ -1472,7 +1472,9 @@ class mysqli_stmt
      * @param mysqli $mysql
      * @param string $query [optional]
      */
-    public function __construct($mysql, $query = null) {}
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'mysqli'], default: '')] $mysql,
+                                #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $query
+    ) {}
 
     /**
      * Used to get the current value of a statement attribute
@@ -1578,7 +1580,8 @@ class mysqli_stmt
      * @param mixed &...$_ [optional]
      * @return bool true on success or false on failure.
      */
-    public function bind_param($types, &$var1, &...$_) {}
+    #[TentativeType]
+    public function bind_param(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $types, mixed &$var1, mixed &...$_): bool {}
 
     /**
      * Binds variables to a prepared statement for result storage
@@ -1587,7 +1590,8 @@ class mysqli_stmt
      * @param mixed &...$_ The variables to be bound.
      * @return bool true on success or false on failure.
      */
-    public function bind_result(&$var1, &...$_) {}
+    #[TentativeType]
+    public function bind_result(mixed &$var1, mixed &...$_): bool {}
 
     /**
      * Closes a prepared statement

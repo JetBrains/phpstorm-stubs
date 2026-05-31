@@ -269,6 +269,7 @@ interface Throwable extends Stringable
      * @return string <p>Returns the string representation of the thrown object.</p>
      * @since 7.0
      */
+    #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
     public function __toString();
 }
 

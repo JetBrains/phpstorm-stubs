@@ -474,7 +474,8 @@ class ReflectionClass implements Reflector
      * the class does not have a constructor and the $args parameter contains
      * one or more parameters.
      */
-    public function newInstance(...$args) {}
+    #[TentativeType]
+    public function newInstance(mixed ...$args): object {}
 
     /**
      * Creates a new class instance without invoking the constructor.

@@ -19,6 +19,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @var string Function name, same as calling the {@see ReflectionFunction::getName()} method
      */
     #[Immutable]
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
 
     /**

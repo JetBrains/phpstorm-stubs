@@ -19,6 +19,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @var string Name of the method, same as calling the {@see ReflectionMethod::getName()} method
      */
     #[Immutable]
+    #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
 
     /**
@@ -237,7 +238,11 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * instance of the class that this method was declared in or the method
      * invocation failed.
      */
-    public function invoke($object, ...$args) {}
+    #[TentativeType]
+    public function invoke(
+        #[LanguageLevelTypeAware(['8.0' => 'object|null'], default: '')] $object,
+        mixed ...$args
+    ): mixed {}
 
     /**
      * Invokes the reflected method and pass its arguments as array.
