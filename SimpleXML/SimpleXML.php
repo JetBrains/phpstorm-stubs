@@ -22,7 +22,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @param string $namespaceOrPrefix Namespace prefix or URI.
      * @param bool $isPrefix TRUE if ns is a prefix, FALSE if it's a URI; defaults to FALSE.
      * @throws Exception if the XML data could not be parsed.
-     * @since 5.0.1
+     * @since 5.0
      */
     #[Pure]
     public function __construct(
@@ -52,7 +52,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * returns a string on success and <b>FALSE</b> on error. If the
      * parameter is specified, it returns <b>TRUE</b> if the file was written
      * successfully and <b>FALSE</b> otherwise.
-     * @since 5.0.1
+     * @since 5.0
      */
     #[TentativeType]
     public function asXML(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $filename = null): string|bool {}
@@ -120,7 +120,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * <p>
      * Returns <b>NULL</b> if called on a <b>SimpleXMLElement</b>
      * object that already represents an attribute and not a tag.
-     * @since 5.0.1
+     * @since 5.0
      */
     #[TentativeType]
     public function attributes(
@@ -142,7 +142,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * </p>
      * @return static|null a <b>SimpleXMLElement</b> element, whether the node
      * has children or not.
-     * @since 5.0.1
+     * @since 5.0
      */
     #[Pure]
     #[TentativeType]
@@ -160,7 +160,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * </p>
      * @return array The getNamespaces method returns an array of
      * namespace names with their associated URIs.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[Pure]
     #[TentativeType]
@@ -179,7 +179,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * </p>
      * @return array The getDocNamespaces method returns an array
      * of namespace names with their associated URIs.
-     * @since 5.1.2
+     * @since 5.1
      */
     #[Pure]
     #[TentativeType]
@@ -193,7 +193,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @link https://php.net/manual/en/simplexmlelement.getname.php
      * @return string The getName method returns as a string the
      * name of the XML tag referenced by the SimpleXMLElement object.
-     * @since 5.1.3
+     * @since 5.1
      */
     #[Pure]
     #[TentativeType]
@@ -213,7 +213,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * </p>
      * @return static|null The addChild method returns a SimpleXMLElement
      * object representing the child added to the XML node.
-     * @since 5.1.3
+     * @since 5.1
      */
     #[TentativeType]
     public function addChild(
@@ -235,7 +235,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * If specified, the namespace to which the attribute belongs.
      * </p>
      * @return void No value is returned.
-     * @since 5.1.3
+     * @since 5.1
      */
     #[TentativeType]
     public function addAttribute(

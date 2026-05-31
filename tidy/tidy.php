@@ -429,7 +429,7 @@ final class tidyNode
      * Checks if a node has children
      * @link https://php.net/manual/en/tidynode.haschildren.php
      * @return bool <b>TRUE</b> if the node has children, <b>FALSE</b> otherwise.
-     * @since 5.0.1
+     * @since 5.0
      */
     public function hasChildren(): bool {}
 
@@ -437,7 +437,7 @@ final class tidyNode
      * Checks if a node has siblings
      * @link https://php.net/manual/en/tidynode.hassiblings.php
      * @return bool <b>TRUE</b> if the node has siblings, <b>FALSE</b> otherwise.
-     * @since 5.0.1
+     * @since 5.0
      */
     public function hasSiblings(): bool {}
 
@@ -445,7 +445,7 @@ final class tidyNode
      * Checks if a node represents a comment
      * @link https://php.net/manual/en/tidynode.iscomment.php
      * @return bool <b>TRUE</b> if the node is a comment, <b>FALSE</b> otherwise.
-     * @since 5.0.1
+     * @since 5.0
      */
     public function isComment(): bool {}
 
@@ -453,7 +453,7 @@ final class tidyNode
      * Checks if a node is part of a HTML document
      * @link https://php.net/manual/en/tidynode.ishtml.php
      * @return bool <b>TRUE</b> if the node is part of a HTML document, <b>FALSE</b> otherwise.
-     * @since 5.0.1
+     * @since 5.0
      */
     public function isHtml(): bool {}
 
@@ -461,7 +461,7 @@ final class tidyNode
      * Checks if a node represents text (no markup)
      * @link https://php.net/manual/en/tidynode.istext.php
      * @return bool <b>TRUE</b> if the node represent a text, <b>FALSE</b> otherwise.
-     * @since 5.0.1
+     * @since 5.0
      */
     public function isText(): bool {}
 
@@ -469,7 +469,7 @@ final class tidyNode
      * Checks if this node is JSTE
      * @link https://php.net/manual/en/tidynode.isjste.php
      * @return bool <b>TRUE</b> if the node is JSTE, <b>FALSE</b> otherwise.
-     * @since 5.0.1
+     * @since 5.0
      */
     public function isJste(): bool {}
 
@@ -477,7 +477,7 @@ final class tidyNode
      * Checks if this node is ASP
      * @link https://php.net/manual/en/tidynode.isasp.php
      * @return bool <b>TRUE</b> if the node is ASP, <b>FALSE</b> otherwise.
-     * @since 5.0.1
+     * @since 5.0
      */
     public function isAsp(): bool {}
 
@@ -485,7 +485,7 @@ final class tidyNode
      * Checks if a node is PHP
      * @link https://php.net/manual/en/tidynode.isphp.php
      * @return bool <b>TRUE</b> if the current node is PHP code, <b>FALSE</b> otherwise.
-     * @since 5.0.1
+     * @since 5.0
      */
     public function isPhp(): bool {}
 
@@ -494,7 +494,7 @@ final class tidyNode
      * @link https://php.net/manual/en/tidynode.getparent.php
      * @return tidyNode|null a tidyNode if the node has a parent, or <b>NULL</b>
      * otherwise.
-     * @since 5.2.2
+     * @since 5.2
      */
     public function getParent(): ?tidyNode {}
 

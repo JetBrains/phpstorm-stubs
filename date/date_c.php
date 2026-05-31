@@ -581,11 +581,13 @@ class DateTime implements DateTimeInterface
     public const RFC3339 = 'Y-m-d\TH:i:sP';
 
     /**
+     * @since 7.0
      * @removed 7.2
      */
     public const RFC3339_EXTENDED = 'Y-m-d\TH:i:s.vP';
 
     /**
+     * @since 7.0
      * @removed 7.2
      */
     public const RFC7231 = 'D, d M Y H:i:s \G\M\T';

@@ -299,7 +299,7 @@ function imap_fetchbody(
  * <b>FT_UID</b> - The <i>msg_number</i> is a UID</p>
  * @return string|false the MIME headers of a particular section of the body of the specified messages as a
  * text string.
- * @since 5.3.6
+ * @since 5.3
  */
 function imap_fetchmime(
     #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,
@@ -327,7 +327,7 @@ function imap_fetchmime(
  * A bitmask with one or more of the following:
  * <b>FT_UID</b> - The <i>msg_number</i> is a UID</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.1.3
+ * @since 5.1
  */
 function imap_savebody(
     #[LanguageLevelTypeAware(['8.1' => 'IMAP\Connection'], default: 'resource')] $imap,

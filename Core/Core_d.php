@@ -279,7 +279,7 @@ const PHP_SBINDIR = '/usr/local/sbin', PHP_OUTPUT_HANDLER_PROCESSED = 16384;
 
 /**
  * Specifies where the manpages were installed into.
- * @since 5.3.7
+ * @since 5.3
  * @link https://php.net/manual/en/reserved.constants.php
  */
 define('PHP_MANDIR', '/usr/local/php/php/man');

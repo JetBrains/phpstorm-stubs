@@ -18,7 +18,7 @@ define('INI_SCANNER_NORMAL', 0);
 
 /**
  * Typed INI scanner mode
- * @since 5.6.1
+ * @since 5.6
  * @link https://php.net/manual/en/function.parse-ini-file.php
  */
 define('INI_SCANNER_TYPED', 2);
@@ -464,7 +464,7 @@ define('STREAM_CLIENT_CONNECT', 4);
 /**
  * Used with stream_socket_shutdown to disable
  * further receptions.
- * @since 5.2.1
+ * @since 5.2
  * @link https://php.net/manual/en/stream.constants.php
  */
 define('STREAM_SHUT_RD', 0);
@@ -472,7 +472,7 @@ define('STREAM_SHUT_RD', 0);
 /**
  * Used with stream_socket_shutdown to disable
  * further transmissions.
- * @since 5.2.1
+ * @since 5.2
  * @link https://php.net/manual/en/stream.constants.php
  */
 define('STREAM_SHUT_WR', 1);
@@ -480,7 +480,7 @@ define('STREAM_SHUT_WR', 1);
 /**
  * Used with stream_socket_shutdown to disable
  * further receptions and transmissions.
- * @since 5.2.1
+ * @since 5.2
  * @link https://php.net/manual/en/stream.constants.php
  */
 define('STREAM_SHUT_RDWR', 2);
@@ -616,7 +616,7 @@ define('FILE_NO_DEFAULT_CONTEXT', 16);
  * This constant has no effect prior to PHP 6. It is only available for
  * forward compatibility.
  * </p>
- * @since 5.2.7
+ * @since 5.2
  * @link https://php.net/manual/en/filesystem.constants.php
  * @deprecated 8.1
  */
@@ -627,7 +627,7 @@ define('FILE_TEXT', 0);
  * This constant has no effect prior to PHP 6. It is only available for
  * forward compatibility.
  * </p>
- * @since 5.2.7
+ * @since 5.2
  * @link https://php.net/manual/en/filesystem.constants.php
  * @deprecated 8.1
  */
@@ -815,7 +815,7 @@ define('SORT_STRING', 2);
 /**
  * SORT_LOCALE_STRING is used to compare items as
  * strings, based on the current locale.
- * @since 5.0.2
+ * @since 5.0
  * @link https://php.net/manual/en/array.constants.php
  */
 define('SORT_LOCALE_STRING', 5);
