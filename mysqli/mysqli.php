@@ -404,6 +404,7 @@ class mysqli
      * Returns the MySQL client version as a string
      * @link https://php.net/manual/en/mysqli.get-client-info.php
      * @return string A string that represents the MySQL client library version
+     * @deprecated 8.1
      */
     #[TentativeType]
     public function get_client_info(): string {}

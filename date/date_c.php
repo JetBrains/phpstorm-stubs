@@ -497,6 +497,7 @@ class DateTimeImmutable implements DateTimeInterface
      * @return void Initializes a DateTime object.
      */
     #[TentativeType]
+    #[Deprecated(since: '8.5')]
     public function __wakeup(): void {}
 
     /**
@@ -676,6 +677,7 @@ class DateTime implements DateTimeInterface
      * @link https://php.net/manual/en/datetime.wakeup.php
      */
     #[TentativeType]
+    #[Deprecated(since: '8.5')]
     public function __wakeup(): void {}
 
     /**
@@ -1024,6 +1026,7 @@ class DateTimeZone
      * @link https://php.net/manual/en/datetime.wakeup.php
      */
     #[TentativeType]
+    #[Deprecated(since: '8.5')]
     public function __wakeup(): void {}
 
     #[TentativeType]
@@ -1150,6 +1153,7 @@ class DateInterval
     public static function createFromDateString(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $datetime) {}
 
     #[TentativeType]
+    #[Deprecated(since: '8.5')]
     public function __wakeup(): void {}
 
     #[TentativeType]
@@ -1290,6 +1294,7 @@ class DatePeriod implements IteratorAggregate
     public static function __set_state(#[PhpStormStubsElementAvailable(from: '7.3')] array $array): DatePeriod {}
 
     #[TentativeType]
+    #[Deprecated(since: '8.5')]
     public function __wakeup(): void {}
 
     /**

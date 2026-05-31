@@ -310,7 +310,6 @@ function time_sleep_until(float $timestamp): bool {}
  * </tr>
  * </table>
  * </p>
- * @deprecated 8.1
  */
 #[Pure(true)]
 #[Deprecated(since: '8.1')]

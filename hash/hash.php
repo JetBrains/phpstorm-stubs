@@ -321,7 +321,6 @@ function hash_pbkdf2(
  * The key length, in bytes.
  * </p>
  * @return string|false the generated key as a string, or <b>FALSE</b> on error.
- * @deprecated 8.1
  */
 #[Pure]
 #[Deprecated(since: '8.1')]
@@ -335,7 +334,6 @@ function mhash_keygen_s2k(int $algo, string $password, string $salt, int $length
  * </p>
  * @return int|false the size in bytes or <b>FALSE</b>, if the <i>hash</i>
  * does not exist.
- * @deprecated 8.1
  */
 #[Pure]
 #[Deprecated(since: '8.1')]
@@ -348,7 +346,6 @@ function mhash_get_block_size(int $algo): int|false {}
  * The hash ID. One of the <b>MHASH_hashname</b> constants.
  * </p>
  * @return string|false the name of the hash or <b>FALSE</b>, if the hash does not exist.
- * @deprecated 8.1
  */
 #[Pure]
 #[Deprecated(since: '8.1')]
@@ -359,7 +356,6 @@ function mhash_get_hash_name(int $algo): string|false {}
  * @link https://php.net/manual/en/function.mhash-count.php
  * @return int<0, max> the highest available hash ID. Hashes are numbered from 0 to this
  * hash ID.
- * @deprecated 8.1
  */
 #[Pure]
 #[Deprecated(since: '8.1')]
@@ -382,7 +378,6 @@ function mhash_count(): int {}
  * </p>
  * @return string|false the resulting hash (also called digest) or HMAC as a string, or
  * <b>FALSE</b> on error.
- * @deprecated 8.1
  */
 #[Pure]
 #[Deprecated(since: '8.1')]

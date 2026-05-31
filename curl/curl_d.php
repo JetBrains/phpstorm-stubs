@@ -684,7 +684,7 @@ define('CURLOPT_SSL_CIPHER_LIST', 10083);
 /**
  * <b>TRUE</b> to return the raw output when CURLOPT_RETURNTRANSFER is used.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
- * @deprecated 5.1.3
+ * @deprecated 5.1
  */
 define('CURLOPT_BINARYTRANSFER', 19914);
 /**

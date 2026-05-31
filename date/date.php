@@ -802,7 +802,6 @@ function strftime(string $format, ?int $timestamp = null): string|false {}
  * local time if no timestamp is given. Month and weekday names and
  * other language dependent strings respect the current locale set
  * with setlocale.
- * @deprecated 8.1
  */
 #[Deprecated(since: '8.1')]
 function gmstrftime(string $format, ?int $timestamp = null): string|false {}
@@ -1521,8 +1520,6 @@ function date_default_timezone_get(): string {}
  * @param float|null $utcOffset [optional]
  * @return string|int|float|false the sunrise time in a specified format on
  * success or false on failure.
- * @deprecated 8.1
- * Use {@link date_sun_info} instead
  */
 #[Pure(true)]
 #[Deprecated(reason: 'in 8.1.  Use date_sun_info instead', since: '8.1')]

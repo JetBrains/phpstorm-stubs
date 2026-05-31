@@ -510,7 +510,6 @@ function newrelic_accept_distributed_trace_headers(array $headers, string $trans
  * @link       https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicacceptdistributedtracepayload-php-agent-api/
  * @example    https://docs.newrelic.com/docs/agents/php-agent/features/distributed-tracing-php/#manual
  * @since      8.4
- * @deprecated 9.10
  *
  * @param string $payload A JSON formatted string created by using newrelic_create_distributed_trace_payload.
  *
@@ -529,7 +528,6 @@ function newrelic_accept_distributed_trace_payload(string $payload): void {}
  * @link       https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicacceptdistributedtracepayloadhttpsafe-php-agent-api/
  * @example    https://docs.newrelic.com/docs/agents/php-agent/features/distributed-tracing-php/#manual
  * @since      8.4
- * @deprecated 9.10
  *
  * @param string $httpsafe_payload An HTTPSafe (Base64 encoded) JSON string representation of the payload.
  * @param string $transport_type   [optional] A string overriding the default transport type.
@@ -573,7 +571,6 @@ function newrelic_add_custom_span_parameter(string $key, bool|float|int|string $
  * @link       https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newreliccreatedistributedtracepayload-php-agent-api/
  * @example    https://docs.newrelic.com/docs/agents/php-agent/features/distributed-tracing-php/#manual
  * @since      8.4
- * @deprecated 9.10
  *
  * @return     newrelic\DistributedTracePayload
  */

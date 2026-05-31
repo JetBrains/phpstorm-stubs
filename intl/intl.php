@@ -2413,7 +2413,8 @@ class Transliterator
     public const REVERSE = 1;
 
     /**
-     * Starting 8.2 $id is readonly to unlock subclassing it
+     * @since 5.4
+     * @removed 8.2
      */
     #[LanguageAware(['8.1' => 'string'], default: '')]
     public string $id;

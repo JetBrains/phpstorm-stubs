@@ -2230,8 +2230,13 @@ namespace Pdo {
         public const int ATTR_USE_BUFFERED_QUERY = 1000;
         public const int ATTR_LOCAL_INFILE = 1001;
         public const int ATTR_INIT_COMMAND = 1002;
+        /**
+         * @removed 8.4
+         */
         public const int ATTR_READ_DEFAULT_FILE = 1003;
+        /** @removed 8.4 */
         public const int ATTR_READ_DEFAULT_GROUP = 1004;
+        /** @removed 8.4 */
         public const int ATTR_MAX_BUFFER_SIZE = 1005;
         public const int ATTR_COMPRESS = 1003;
         public const int ATTR_DIRECT_QUERY = 20;

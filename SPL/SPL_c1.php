@@ -317,6 +317,9 @@ class SplFileInfo implements Stringable
     #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
     public function __toString() {}
 
+    /**
+     * @deprecated 8.2
+     */
     #[TentativeType]
     final public function _bad_state_ex(): void {}
 
