@@ -308,8 +308,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Copy a file internal to the phar archive to another new file within the phar
      * @link https://php.net/manual/en/phar.copy.php
-     * @param string $to
      * @param string $from
+     * @param string $to
      * @return bool returns <b>TRUE</b> on success, but it is safer to encase method call in a
      * try/catch block and assume success if no exception is thrown.
      */
@@ -543,7 +543,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @param string $localName <p>
      * The filename (relative path) to modify in a Phar.
      * </p>
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return void
      */
     #[TentativeType]
     public function offsetUnset($localName): void {}
@@ -922,7 +922,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     /**
      * Returns whether current entry is a directory and not '.' or '..'
      * @link https://php.net/manual/en/recursivedirectoryiterator.haschildren.php
-     * @param bool $allow_links [optional] <p>
+     * @param bool $allowLinks [optional] <p>
      * </p>
      * @return bool whether the current entry is a directory, but not '.' or '..'
      */
@@ -932,9 +932,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     /**
      * Returns an iterator for the current entry if it is a directory
      * @link https://php.net/manual/en/recursivedirectoryiterator.getchildren.php
-     * @return mixed The filename, file information, or $this depending on the set flags.
-     * See the FilesystemIterator
-     * constants.
+     * @return RecursiveDirectoryIterator An iterator for the current entry, if it is a directory.
      */
     #[TentativeType]
     public function getChildren(): RecursiveDirectoryIterator {}
@@ -984,7 +982,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     /**
      * Seek to a DirectoryIterator item
      * @link https://php.net/manual/en/directoryiterator.seek.php
-     * @param int $position <p>
+     * @param int $offset <p>
      * The zero-based numeric position to seek to.
      * </p>
      * @return void No value is returned.
@@ -1075,7 +1073,7 @@ class PharData extends Phar
     /**
      * Returns whether current entry is a directory and not '.' or '..'
      * @link https://php.net/manual/en/recursivedirectoryiterator.haschildren.php
-     * @param bool $allow_links [optional] <p>
+     * @param bool $allowLinks [optional] <p>
      * </p>
      * @return bool whether the current entry is a directory, but not '.' or '..'
      */
@@ -1085,9 +1083,7 @@ class PharData extends Phar
     /**
      * Returns an iterator for the current entry if it is a directory
      * @link https://php.net/manual/en/recursivedirectoryiterator.getchildren.php
-     * @return mixed The filename, file information, or $this depending on the set flags.
-     * See the FilesystemIterator
-     * constants.
+     * @return RecursiveDirectoryIterator An iterator for the current entry, if it is a directory.
      */
     #[TentativeType]
     public function getChildren(): RecursiveDirectoryIterator {}
@@ -1137,7 +1133,7 @@ class PharData extends Phar
     /**
      * Seek to a DirectoryIterator item
      * @link https://php.net/manual/en/directoryiterator.seek.php
-     * @param int $position <p>
+     * @param int $offset <p>
      * The zero-based numeric position to seek to.
      * </p>
      * @return void No value is returned.

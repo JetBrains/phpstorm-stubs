@@ -1364,7 +1364,7 @@ class SplQueue extends SplDoublyLinkedList
      * </p>
      * The direction of the iteration (either one or the other):
      * <b>SplDoublyLinkedList::IT_MODE_LIFO</b> (Stack style)
-     * @return void
+     * @return int
      */
     #[TentativeType]
     public function setIteratorMode(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode): int {}
@@ -1386,7 +1386,7 @@ class SplStack extends SplDoublyLinkedList
      * </p>
      * The direction of the iteration (either one or the other):
      * <b>SplDoublyLinkedList::IT_MODE_LIFO</b> (Stack style)
-     * @return void
+     * @return int
      */
     #[TentativeType]
     public function setIteratorMode(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode): int {}
@@ -1656,7 +1656,7 @@ class SplMinHeap extends SplHeap
     /**
      * Recover from the corrupted state and allow further actions on the heap.
      * @link https://php.net/manual/en/splheap.recoverfromcorruption.php
-     * @return void
+     * @return bool
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]

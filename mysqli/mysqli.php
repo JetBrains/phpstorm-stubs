@@ -49,13 +49,13 @@ final class mysqli_driver
     public $client_info;
 
     /**
-     * @var string
+     * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $client_version;
 
     /**
-     * @var string
+     * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $driver_version;
@@ -1463,7 +1463,7 @@ class mysqli_stmt
     public $sqlstate;
 
     /**
-     * @var string
+     * @var int
      */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     public $id;

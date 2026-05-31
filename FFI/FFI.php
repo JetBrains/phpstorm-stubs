@@ -259,6 +259,7 @@ namespace {
          * @param CData $ptr The handle of the pointer to a C data structure.
          *
          * @return CData Returns the freshly created {@see FFI\CData} object.
+         * @meta
          */
         public static function addr(CData $ptr): CData {}
 

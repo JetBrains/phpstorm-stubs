@@ -318,7 +318,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
     /**
      * Returns the current element
      * @link https://php.net/manual/en/simplexmliterator.current.php
-     * @return static|null the current element as a <b>SimpleXMLElement</b> object or <b>NULL</b> on failure.
+     * @return SimpleXMLElement the current element as a <b>SimpleXMLElement</b> object.
      */
     #[Pure]
     #[TentativeType]
@@ -390,7 +390,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
     /**
      * Returns the current element
      * @link https://php.net/manual/en/simplexmliterator.current.php
-     * @return static|null the current element as a <b>SimpleXMLIterator</b> object or <b>NULL</b> on failure.
+     * @return SimpleXMLElement the current element as a <b>SimpleXMLElement</b> object.
      */
     #[Pure]
     #[TentativeType]
@@ -427,7 +427,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
     /**
      * Returns the sub-elements of the current element
      * @link https://php.net/manual/en/simplexmliterator.getchildren.php
-     * @return SimpleXMLIterator a <b>SimpleXMLIterator</b> object containing
+     * @return SimpleXMLElement|null a <b>SimpleXMLElement</b> object containing
      * the sub-elements of the current element.
      */
     #[Pure]
@@ -488,6 +488,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
  * </p>
  * @return SimpleXMLElement|false an object of class SimpleXMLElement with
  * properties containing the data held within the XML document, or <b>FALSE</b> on failure.
+ * @meta
  */
 function simplexml_load_file(string $filename, ?string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false): SimpleXMLElement|false {}
 
@@ -516,6 +517,7 @@ function simplexml_load_file(string $filename, ?string $class_name = "SimpleXMLE
  * </p>
  * @return SimpleXMLElement|false an object of class SimpleXMLElement with
  * properties containing the data held within the xml document, or <b>FALSE</b> on failure.
+ * @meta
  */
 function simplexml_load_string(string $data, ?string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false): SimpleXMLElement|false {}
 
@@ -532,6 +534,7 @@ function simplexml_load_string(string $data, ?string $class_name = "SimpleXMLEle
  * SimpleXMLElement class.
  * </p>
  * @return SimpleXMLElement|null a SimpleXMLElement or <b>FALSE</b> on failure.
+ * @meta
  */
 function simplexml_import_dom(#[LanguageLevelTypeAware(['8.4' => 'object'], default: 'SimpleXMLElement|DOMNode')] $node, ?string $class_name = "SimpleXMLElement"): ?SimpleXMLElement {}
 

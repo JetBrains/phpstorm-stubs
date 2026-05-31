@@ -568,10 +568,10 @@ class XMLWriter
      * @param string $content <p>
      * The content of the entity.
      * </p>
-     * @param bool $pe
-     * @param string $pubid
-     * @param string $sysid
-     * @param string $ndataid
+     * @param bool $isParam
+     * @param string|null $publicId
+     * @param string|null $systemId
+     * @param string|null $notationData
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]

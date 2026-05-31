@@ -304,7 +304,6 @@ function memory_reset_peak_usage(): void {}
  * It is possible to pass parameters to the shutdown function by passing
  * additional parameters.
  * </p>
- * @return bool|null
  */
 #[LanguageLevelTypeAware(['8.2' => 'void'], default: 'null|bool')]
 function register_shutdown_function(callable $callback, mixed ...$args) {}

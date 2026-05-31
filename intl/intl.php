@@ -932,11 +932,29 @@ class NumberFormatter
      * @since 8.4
      */
     public const ROUND_HALFODD = 8;
+    /**
+     * @since 8.5
+     */
     public const DECIMAL_COMPACT_SHORT = 14;
+    /**
+     * @since 8.5
+     */
     public const DECIMAL_COMPACT_LONG = 15;
+    /**
+     * @since 8.5
+     */
     public const CURRENCY_ISO = 10;
+    /**
+     * @since 8.5
+     */
     public const CURRENCY_PLURAL = 11;
+    /**
+     * @since 8.5
+     */
     public const CASH_CURRENCY = 13;
+    /**
+     * @since 8.5
+     */
     public const CURRENCY_STANDARD = 16;
 
     /**
@@ -2681,14 +2699,6 @@ class IntlGregorianCalendar extends IntlCalendar
     public function __construct($timezoneOrYear, $localeOrMonth, $day, $hour, $minute, $second) {}
 
     /**
-     * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
-     * @param mixed $timeZone
-     * @param string $locale
-     * @return IntlGregorianCalendar
-     */
-    public static function createInstance($timeZone = null, $locale = null) {}
-
-    /**
      * @param float $timestamp
      */
     #[TentativeType]
@@ -3254,7 +3264,7 @@ class IntlCalendar
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get time of the day at which weekend begins or ends
      * @link https://secure.php.net/manual/en/intlcalendar.getweekendtransition.php
-     * @param string $dayOfWeek <p>
+     * @param int $dayOfWeek <p>
      * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
      * <b>IntlCalendar::DOW_MONDAY</b>, ...,
      * <b>IntlCalendar::DOW_SATURDAY</b>.
@@ -7366,7 +7376,7 @@ class IntlBreakIterator implements IteratorAggregate
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get the locale associated with the object
      * @link https://secure.php.net/manual/en/intlbreakiterator.getlocale.php
-     * @param string $type
+     * @param int $type
      */
     #[Pure]
     #[TentativeType]
@@ -7376,7 +7386,7 @@ class IntlBreakIterator implements IteratorAggregate
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create iterator for navigating fragments between boundaries
      * @link https://secure.php.net/manual/en/intlbreakiterator.getpartsiterator.php
-     * @param int $type [optional]
+     * @param string $type [optional]
      * <p>
      * Optional key type. Possible values are:
      * </p><ul>
@@ -7479,66 +7489,13 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * (PHP 5 &gt;=5.5.0)<br/>
      * @link https://secure.php.net/manual/en/intlbreakiterator.construct.php
      * @param string $rules
-     * @param string $compiled [optional]
+     * @param bool $compiled [optional]
      */
     #[Pure]
     public function __construct(
         #[LanguageAware(['8.0' => 'string'], default: '')] $rules,
         #[LanguageAware(['8.0' => 'bool'], default: '')] $compiled = false
     ) {}
-
-    /**
-     * (PHP 5 &gt;=5.5.0)<br/>
-     * Create break iterator for boundaries of combining character sequences
-     * @link https://secure.php.net/manual/en/intlbreakiterator.createcharacterinstance.php
-     * @param string $locale
-     * @return IntlRuleBasedBreakIterator
-     */
-    public static function createCharacterInstance($locale) {}
-
-    /**
-     * (PHP 5 &gt;=5.5.0)<br/>
-     * Create break iterator for boundaries of code points
-     * @link https://secure.php.net/manual/en/intlbreakiterator.createcodepointinstance.php
-     * @return IntlRuleBasedBreakIterator
-     */
-    public static function createCodePointInstance() {}
-
-    /**
-     * (PHP 5 &gt;=5.5.0)<br/>
-     * Create break iterator for logically possible line breaks
-     * @link https://secure.php.net/manual/en/intlbreakiterator.createlineinstance.php
-     * @param string $locale [optional]
-     * @return IntlRuleBasedBreakIterator
-     */
-    public static function createLineInstance($locale) {}
-
-    /**
-     * (PHP 5 &gt;=5.5.0)<br/>
-     * Create break iterator for sentence breaks
-     * @link https://secure.php.net/manual/en/intlbreakiterator.createsentenceinstance.php
-     * @param string $locale [optional]
-     * @return IntlRuleBasedBreakIterator
-     */
-    public static function createSentenceInstance($locale) {}
-
-    /**
-     * (PHP 5 &gt;=5.5.0)<br/>
-     * Create break iterator for title-casing breaks
-     * @link https://secure.php.net/manual/en/intlbreakiterator.createtitleinstance.php
-     * @param string $locale [optional]
-     * @return IntlRuleBasedBreakIterator
-     */
-    public static function createTitleInstance($locale) {}
-
-    /**
-     * (PHP 5 &gt;=5.5.0)<br/>
-     * Create break iterator for word breaks
-     * @link https://secure.php.net/manual/en/intlbreakiterator.createwordinstance.php
-     * @param string $locale [optional]
-     * @return IntlRuleBasedBreakIterator
-     */
-    public static function createWordInstance($locale) {}
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -7697,8 +7654,8 @@ class UConverter
      * Default "from" callback function
      * @link https://php.net/manual/en/uconverter.fromucallback.php
      * @param int $reason
-     * @param string $source
-     * @param string $codePoint
+     * @param array $source
+     * @param int $codePoint
      * @param int &$error
      * @return array|string|int|null
      */

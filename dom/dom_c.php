@@ -171,6 +171,7 @@ class DOMNode
      * appended to the children.
      * </p>
      * @return TNode|false The inserted node.
+     * @meta
      */
     public function insertBefore(
         DOMNode $node,
@@ -190,6 +191,7 @@ class DOMNode
      * The old node.
      * </p>
      * @return TNode|false The old node or false if an error occur.
+     * @meta
      */
     public function replaceChild(DOMNode $node, DOMNode $child) {}
 
@@ -201,6 +203,7 @@ class DOMNode
      * The removed child.
      * </p>
      * @return TNode|false If the child could be removed the functions returns the old child.
+     * @meta
      */
     public function removeChild(DOMNode $child) {}
 
@@ -212,6 +215,7 @@ class DOMNode
      * The appended child.
      * </p>
      * @return TNode|false The node added.
+     * @meta
      */
     public function appendChild(DOMNode $node) {}
 
@@ -992,6 +996,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * To copy the nodes attributes deep needs to be set to true
      * </p>
      * @return DOMNode|false The copied node or false, if it cannot be copied.
+     * @meta
      */
     public function importNode(
         DOMNode $node,
@@ -1590,7 +1595,7 @@ class DOMCharacterData extends DOMNode implements DOMChildNode
      * offset and count exceeds
      * the length, then all characters to the end of the data are deleted.
      * </p>
-     * @return void
+     * @return bool
      */
     #[TentativeType]
     public function deleteData(
@@ -1932,7 +1937,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * @param string $localName <p>
      * The local name.
      * </p>
-     * @return bool true on success or false on failure.
+     * @return void
      */
     #[TentativeType]
     public function removeAttributeNS(

@@ -1449,7 +1449,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Begin iteration
      * @link https://php.net/manual/en/recursivetreeiterator.beginiteration.php
-     * @return RecursiveIterator A <b>RecursiveIterator</b>.
+     * @return void
      */
     #[TentativeType]
     public function beginIteration(): void {}
@@ -1473,7 +1473,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Get children
      * @link https://php.net/manual/en/recursivetreeiterator.callgetchildren.php
-     * @return RecursiveIterator A <b>RecursiveIterator</b>.
+     * @return RecursiveIterator|null A <b>RecursiveIterator</b>.
      */
     #[TentativeType]
     public function callGetChildren(): ?RecursiveIterator {}
@@ -1971,7 +1971,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Set behaviour flags
      * @link https://php.net/manual/en/arrayiterator.setflags.php
-     * @param string $flags <p>
+     * @param int $flags <p>
      * A bitmask as follows:
      * 0 = Properties of the object have their normal functionality
      * when accessed as list (var_dump, foreach, etc.).

@@ -2,7 +2,7 @@
 /**
  * @since 8.4
  */
-class ReflectionConstant implements Reflector
+final class ReflectionConstant implements Reflector
 {
     public string $name;
 

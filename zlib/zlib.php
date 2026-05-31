@@ -12,7 +12,7 @@ use JetBrains\PhpStorm\Pure;
  * The file name. This file will be opened from the filesystem and its
  * contents written to standard output.
  * </p>
- * @param int $use_include_path [optional] <p>
+ * @param int|bool $use_include_path [optional] <p>
  * You can set this optional parameter to 1, if you
  * want to search for the file in the include_path too.
  * </p>
@@ -129,7 +129,7 @@ function gzread($stream, int $length): string|false {}
  * in zlib.h for
  * more information about the strategy parameter.)
  * </p>
- * @param int $use_include_path [optional] <p>
+ * @param int|bool $use_include_path [optional] <p>
  * You can set this optional parameter to 1, if you
  * want to search for the file in the include_path too.
  * </p>
@@ -232,7 +232,7 @@ function gzputs($stream, string $data, ?int $length = null): int|false {}
  * @param string $filename <p>
  * The file name.
  * </p>
- * @param int $use_include_path [optional] <p>
+ * @param int|bool $use_include_path [optional] <p>
  * You can set this optional parameter to 1, if you
  * want to search for the file in the include_path too.
  * </p>
