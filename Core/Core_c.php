@@ -297,6 +297,15 @@ class Exception implements Throwable
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     protected $line;
 
+    /** Cached string representation of the exception (used by __toString) */
+    private string $string = '';
+
+    /** Internal storage for the exception stack trace */
+    private array $trace = [];
+
+    /** The previous throwable used for exception chaining */
+    private ?Throwable $previous = null;
+
     /**
      * Clone the exception
      * Tries to clone the Exception, which results in Fatal error.
@@ -421,6 +430,15 @@ class Error implements Throwable
     /** The line where the error happened */
     #[LanguageLevelTypeAware(['8.1' => 'int'], default: '')]
     protected $line;
+
+    /** Cached string representation of the error (used by __toString) */
+    private string $string = '';
+
+    /** Internal storage for the error stack trace */
+    private array $trace = [];
+
+    /** The previous throwable used for error chaining */
+    private ?Throwable $previous = null;
 
     /**
      * Construct the error object.

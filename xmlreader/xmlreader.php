@@ -138,6 +138,48 @@ class XMLReader
      */
     public const SUBST_ENTITIES = 4;
 
+    /** @since 8.1 */
+    public int $attributeCount;
+
+    /** @since 8.1 */
+    public string $baseURI;
+
+    /** @since 8.1 */
+    public int $depth;
+
+    /** @since 8.1 */
+    public bool $hasAttributes;
+
+    /** @since 8.1 */
+    public bool $hasValue;
+
+    /** @since 8.1 */
+    public bool $isDefault;
+
+    /** @since 8.1 */
+    public bool $isEmptyElement;
+
+    /** @since 8.1 */
+    public string $localName;
+
+    /** @since 8.1 */
+    public string $name;
+
+    /** @since 8.1 */
+    public string $namespaceURI;
+
+    /** @since 8.1 */
+    public int $nodeType;
+
+    /** @since 8.1 */
+    public string $prefix;
+
+    /** @since 8.1 */
+    public string $value;
+
+    /** @since 8.1 */
+    public string $xmlLang;
+
     /**
      * Close the XMLReader input
      * @link https://php.net/manual/en/xmlreader.close.php

@@ -2416,6 +2416,12 @@ class Transliterator
      * Starting 8.2 $id is readonly to unlock subclassing it
      */
     #[LanguageAware(['8.1' => 'string'], default: '')]
+    public string $id;
+
+    /**
+     * @since 8.2
+     * Starting 8.2 $id is readonly to unlock subclassing it
+     */
     public readonly string $id;
 
     /**
