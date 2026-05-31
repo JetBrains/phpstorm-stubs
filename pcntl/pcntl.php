@@ -331,7 +331,7 @@ function pcntl_errno(): int {}
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function pcntl_strerror(int $error_code): false|string {}
+function pcntl_strerror(int $error_code) {}
 
 /**
  * Get the priority of any process

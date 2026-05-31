@@ -5717,7 +5717,7 @@ function intlcal_roll(
  * @since 5.5
  */
 #[LanguageAware(['8.3' => 'true'], default: 'bool')]
-function intlcal_clear(IntlCalendar $calendar, ?int $field = null): bool {}
+function intlcal_clear(IntlCalendar $calendar, ?int $field = null) {}
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -7390,7 +7390,7 @@ class IntlBreakIterator implements IteratorAggregate
     #[Pure]
     #[TentativeType]
     public function getPartsIterator(
-        #[LanguageAware(['8.0' => 'int', '8.3' => 'string'], default: '')] #[EV([IntlPartsIterator::KEY_SEQUENTIAL, IntlPartsIterator::KEY_LEFT, IntlPartsIterator::KEY_RIGHT])] $type = IntlPartsIterator::KEY_SEQUENTIAL
+        #[LanguageAware(['8.0' => 'string'], default: '')] #[EV([IntlPartsIterator::KEY_SEQUENTIAL, IntlPartsIterator::KEY_LEFT, IntlPartsIterator::KEY_RIGHT])] $type = IntlPartsIterator::KEY_SEQUENTIAL
     ): IntlPartsIterator {}
 
     /**
@@ -7882,7 +7882,7 @@ class UConverter
         #[LanguageAware(['8.0' => 'string'], default: '')] $str,
         #[LanguageAware(['8.0' => 'string'], default: '')] $toEncoding,
         #[LanguageAware(['8.0' => 'string'], default: '')] $fromEncoding,
-        #[LanguageAware(['8.0' => 'array|null'], default: '')] $options = null
+        #[LanguageAware(['7.1' => 'array|null'], default: '')] $options = null
     ): string|false {}
 }
 // End of intl v.1.1.0

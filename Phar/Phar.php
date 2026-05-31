@@ -211,7 +211,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     public function compress(
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $compression,
         #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extension = null
-    ): ?Phar {}
+    ) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -227,7 +227,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
      * @return static|null A <b>Phar</b> object is returned.
      */
     #[TentativeType]
-    public function decompress(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extension = null): ?Phar {}
+    #[LanguageLevelTypeAware(['8.0' => 'static|null'], default: '')]
+    public function decompress(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extension = null) {}
 
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -315,8 +316,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     #[LanguageLevelTypeAware(['8.4' => 'true'], default: 'bool')]
     #[TentativeType]
     public function copy(
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $to,
-        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $from
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $from,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $to
     ) {}
 
     /**

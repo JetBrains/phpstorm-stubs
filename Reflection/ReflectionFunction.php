@@ -43,8 +43,8 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      *
      * @link https://php.net/manual/en/reflectionfunction.tostring.php
      */
-    #[TentativeType]
-    public function __toString(): string {}
+    #[LanguageLevelTypeAware(['7.0' => 'string'], default: '')]
+    public function __toString() {}
 
     /**
      * Exports function

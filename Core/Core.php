@@ -705,7 +705,7 @@ function set_error_handler(?callable $callback, int $error_levels = E_ALL) {}
  * @return bool This function always returns true.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function restore_error_handler(): bool {}
+function restore_error_handler() {}
 
 /**
  * @since 8.5
@@ -738,7 +738,7 @@ function get_exception_handler(): ?callable {}
  * @return bool This function always returns true.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function restore_exception_handler(): bool {}
+function restore_exception_handler() {}
 
 /**
  * Returns an array with the name of the defined classes

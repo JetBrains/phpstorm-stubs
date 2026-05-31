@@ -761,8 +761,8 @@ class mysqli
      */
     #[TentativeType]
     public static function poll(
-        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: '')] &$read,
-        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: '')] &$error,
+        #[LanguageLevelTypeAware(['7.1' => 'array|null'], default: '')] &$read,
+        #[LanguageLevelTypeAware(['7.1' => 'array|null'], default: '')] &$error,
         #[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] &$reject,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $seconds,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $microseconds = 0
@@ -1816,7 +1816,7 @@ function mysqli_character_set_name(mysqli $mysql): string {}
  * @return bool
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function mysqli_close(mysqli $mysql): bool {}
+function mysqli_close(mysqli $mysql) {}
 
 /**
  * Commits the current transaction
@@ -1881,7 +1881,7 @@ function mysqli_dump_debug_info(mysqli $mysql): bool {}
  * @return bool
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function mysqli_debug(string $options): bool {}
+function mysqli_debug(string $options) {}
 
 /**
  * Returns the error code for the most recent function call
@@ -2579,7 +2579,7 @@ function mysqli_stmt_affected_rows(mysqli_stmt $statement): string|int {}
  * @return int|false Returns FALSE if the attribute is not found, otherwise returns the value of the attribute.
  */
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
-function mysqli_stmt_attr_get(mysqli_stmt $statement, int $attribute): false|int {}
+function mysqli_stmt_attr_get(mysqli_stmt $statement, int $attribute) {}
 
 /**
  * Used to modify the behavior of a prepared statement
@@ -2785,7 +2785,7 @@ function mysqli_ssl_set(
     #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $ca_certificate,
     #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $ca_path,
     #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $cipher_algos
-): bool {}
+) {}
 
 /**
  * Closes a prepared statement
@@ -2794,7 +2794,7 @@ function mysqli_ssl_set(
  * @return bool
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function mysqli_stmt_close(mysqli_stmt $statement): bool {}
+function mysqli_stmt_close(mysqli_stmt $statement) {}
 
 /**
  * Seeks to an arbitrary row in statement result set

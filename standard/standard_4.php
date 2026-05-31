@@ -307,7 +307,7 @@ function memory_reset_peak_usage(): void {}
  * @return bool|null
  */
 #[LanguageLevelTypeAware(['8.2' => 'void'], default: 'null|bool')]
-function register_shutdown_function(callable $callback, mixed ...$args): ?bool {}
+function register_shutdown_function(callable $callback, mixed ...$args) {}
 
 /**
  * Register a function for execution on each tick

@@ -385,8 +385,8 @@ class DOMNode
     public function C14N(
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $exclusive = false,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $withComments = false,
-        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')] $xpath = null,
-        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')] $nsPrefixes = null
+        #[LanguageLevelTypeAware(['7.1' => 'array|null'], default: '')] $xpath = null,
+        #[LanguageLevelTypeAware(['7.1' => 'array|null'], default: '')] $nsPrefixes = null
     ): string|false {}
 
     /**
@@ -404,8 +404,8 @@ class DOMNode
         #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $uri,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $exclusive = false,
         #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $withComments = false,
-        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')] $xpath = null,
-        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: 'array')] $nsPrefixes = null
+        #[LanguageLevelTypeAware(['7.1' => 'array|null'], default: '')] $xpath = null,
+        #[LanguageLevelTypeAware(['7.1' => 'array|null'], default: '')] $nsPrefixes = null
     ): int|false {}
 
     /**
@@ -862,7 +862,7 @@ class DOMDocument extends DOMNode implements DOMParentNode
      * The <classname>DOMDocument</classname> object associated with this node, or NULL if this node is a <classname>DOMDocument</classname>.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
      */
-    #[LanguageLevelTypeAware(['8.1' => 'null'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMDocument|null'], default: '')]
     public $ownerDocument;
 
     /**
@@ -1765,7 +1765,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode
      * A <classname>DOMNamedNodeMap</classname> containing the attributes of this node (if it is a <classname>DOMElement</classname>) or NULL otherwise.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.attributes
      */
-    #[LanguageLevelTypeAware(['8.1' => 'DOMNamedNodeMap'], default: '')]
+    #[LanguageLevelTypeAware(['8.1' => 'DOMNamedNodeMap|null'], default: '')]
     public $attributes;
 
     /**

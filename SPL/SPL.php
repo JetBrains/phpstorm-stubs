@@ -849,8 +849,8 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      * @link https://php.net/manual/en/cachingiterator.tostring.php
      * @return string The string representation of the current iteration based on the flag being used.
      */
-    #[TentativeType]
-    public function __toString(): string {}
+    #[LanguageLevelTypeAware(['7.0' => 'string'], default: '')]
+    public function __toString() {}
 
     /**
      * Returns the inner iterator
@@ -1400,7 +1400,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      * @param int $mode [optional] Flags to affect the behavior of the {@see RecursiveIteratorIterator} used internally.
      */
     public function __construct(
-        #[LanguageLevelTypeAware(['8.5' => 'RecursiveIterator|IteratorAggregate'], default: '')] $iterator,
+        #[LanguageLevelTypeAware(['8.5'=> 'RecursiveIterator|IteratorAggregate', '7.1' => 'Traversable'], default: '')] $iterator,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = self::BYPASS_KEY,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $cachingIteratorFlags = CachingIterator::CATCH_GET_CHILD,
         #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode = RecursiveIteratorIterator::SELF_FIRST

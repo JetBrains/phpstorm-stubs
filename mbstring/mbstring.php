@@ -170,7 +170,6 @@ function mb_http_output(?string $encoding = null): string|bool {}
  * When getting the encoding detection order, an ordered array
  * of the encodings is returned.
  */
-#[LanguageLevelTypeAware(['8.2' => 'array|true'], default: 'array|bool')]
 function mb_detect_order(array|string|null $encoding = null): array|bool {}
 
 /**
@@ -1387,7 +1386,7 @@ function mb_ord(string $string, ?string $encoding = null): int|false {}
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function mb_scrub(string $string, ?string $encoding = null): false|string {}
+function mb_scrub(string $string, ?string $encoding = null) {}
 
 /**
  * @param $position

@@ -394,8 +394,8 @@ class Exception implements Throwable
      * @link https://php.net/manual/en/exception.tostring.php
      * @return string the string representation of the exception.
      */
-    #[TentativeType]
-    public function __toString(): string {}
+    #[LanguageLevelTypeAware(['7.0' => 'string'], default: '')]
+    public function __toString() {}
 
     #[TentativeType]
     public function __wakeup(): void {}

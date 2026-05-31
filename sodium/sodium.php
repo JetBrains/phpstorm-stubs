@@ -580,7 +580,7 @@ function sodium_crypto_generichash_init(
  * @since 7.2
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function sodium_crypto_generichash_update(string &$state, string $message): bool {}
+function sodium_crypto_generichash_update(string &$state, string $message) {}
 
 /**
  * Get the final hash

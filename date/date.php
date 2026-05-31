@@ -1061,7 +1061,7 @@ function date_create_from_format(string $format, string $datetime, ?DateTimeZone
     "error_count" => "int",
     "errors" => "array"
 ])]
-function date_parse(string $datetime): false|array {}
+function date_parse(string $datetime) {}
 
 /**
  * Get info about given date formatted according to the specified format
@@ -1260,7 +1260,7 @@ function date_time_set(
  * </p>
  */
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
-function date_date_set(DateTime $object, int $year, int $month, int $day): DateTime|false {}
+function date_date_set(DateTime $object, int $year, int $month, int $day) {}
 
 /**
  * Alias:
@@ -1290,7 +1290,7 @@ function date_isodate_set(DateTime $object, int $year, int $week, int $dayOfWeek
  * {@see DateTime} object for call chaining or <b>FALSE</b> on failure
  */
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
-function date_timestamp_set(DateTime $object, int $timestamp): DateTime|false {}
+function date_timestamp_set(DateTime $object, int $timestamp) {}
 
 /**
  * Gets the unix timestamp
@@ -1631,6 +1631,6 @@ function date_sunset(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?f
     "astronomical_twilight_begin" => "int",
     "astronomical_twilight_end" => "int"
 ])]
-function date_sun_info(int $timestamp, float $latitude, float $longitude): array|false {}
+function date_sun_info(int $timestamp, float $latitude, float $longitude) {}
 
 // End of date v.5.3.2-0.dotdeb.1

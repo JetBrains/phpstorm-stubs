@@ -995,7 +995,7 @@ class DateTimeZone
         #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $timestampBegin = PHP_INT_MIN,
         #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $timestampEnd = 2147483647,
         #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestampBegin = PHP_INT_MIN,
-        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestampEnd = PHP_INT_MAX
+        #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $timestampEnd = 2147483647
     ): array|false {}
 
     /**
