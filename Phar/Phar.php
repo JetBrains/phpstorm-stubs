@@ -34,10 +34,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     public const SHA1 = 2;
     public const SHA256 = 3;
     public const SHA512 = 4;
-
     /** @since 8.1 */
     public const OPENSSL_SHA256 = 17;
-
     /** @since 8.1 */
     public const OPENSSL_SHA512 = 18;
 
