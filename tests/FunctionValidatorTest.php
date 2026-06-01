@@ -50,7 +50,7 @@ class FunctionValidatorTest extends ValidatorTestBase
             'checkFunctionParameterDeprecation' => new CheckDescriptor(FunctionParameterDeprecationCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Function {entityId} parameter deprecation mismatch in PHP {phpVersion}'),
             'checkFunctionParametersCount' => new CheckDescriptor(FunctionParametersCountCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Function {entityId} has parameter count mismatch in PHP {phpVersion}'),
             'checkFunctionOptionalParameters' => new CheckDescriptor(FunctionOptionalParametersCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Function {entityId} optional parameters check failed in PHP {phpVersion}'),
-            'checkFunctionTentativeReturnType' => new CheckDescriptor(FunctionTentativeReturnTypeCheck::class, PhpVersions::PHP_8_1, PhpVersions::LATEST, 'Function {entityId} tentative return type check failed in PHP {phpVersion}'),
+            'checkFunctionTentativeReturnType' => new CheckDescriptor(FunctionTentativeReturnTypeCheck::class, PhpVersions::LATEST, PhpVersions::LATEST, 'Function {entityId} tentative return type check failed in PHP {phpVersion}'),
             'checkFunctionParameterDefaultValue' => new CheckDescriptor(FunctionParameterDefaultValueCheck::class, PhpVersions::LATEST, PhpVersions::LATEST, 'Function {entityId} parameter default value check failed in PHP {phpVersion}'),
             'checkFunctionPhpDocConformsSignature' => new CheckDescriptor(FunctionPhpDocConformsSignatureCheck::class, PhpVersions::EARLIEST, PhpVersions::LATEST, 'Function {entityId} PhpDoc/signature type mismatch in PHP {phpVersion}'),
             // Array-traversal functions (end, prev, next, reset, current) must declare

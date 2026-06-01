@@ -1030,14 +1030,14 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 ],
             ),
 
-            // Spoofchecker - MIXED_NUMBERS and HIDDEN_OVERLAY values changed in ICU 75+ (PHP 8.4 build)
+            // Spoofchecker - MIXED_NUMBERS and HIDDEN_OVERLAY have ICU-version-dependent values
             new ProblemDefinition(
                 entityType: EntityType::CLASS_CONSTANT,
                 entityId: '\\Spoofchecker',
-                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                type: ProblemType::RUNTIME_VALUE,
                 affectedChecks: [CheckType::CLASS_CONSTANTS_VALUE],
-                versionRange: new PhpVersionRange(PhpVersions::PHP_8_4, PhpVersions::PHP_8_4),
-                reason: 'Spoofchecker::MIXED_NUMBERS and HIDDEN_OVERLAY values changed from 1/2 to 128/256 in ICU 75+. The PHP 8.4 build on this machine bundles ICU 75+ while the stubs document the older values.',
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'Spoofchecker::MIXED_NUMBERS and HIDDEN_OVERLAY map to ICU USpoofChecks flags whose values changed from 1/2 to 128/256 in ICU 75+, so they depend on the bundled ICU version and cannot be pinned in stubs.',
                 entityIds: [
                     '\\Spoofchecker::MIXED_NUMBERS',
                     '\\Spoofchecker::HIDDEN_OVERLAY',
@@ -1070,20 +1070,20 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
             new ProblemDefinition(
                 entityType: EntityType::CLASS_CONSTANT,
                 entityId: '\\IntlCalendar::FIELD_FIELD_COUNT',
-                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                type: ProblemType::RUNTIME_VALUE,
                 affectedChecks: [CheckType::CLASS_CONSTANTS_VALUE],
-                versionRange: new PhpVersionRange(PhpVersions::PHP_8_4, PhpVersions::PHP_8_4),
-                reason: 'IntlCalendar::FIELD_FIELD_COUNT value depends on the ICU library version. The PHP 8.4 build on this machine uses ICU 75+ which reports 24, while the stubs document the older value of 23.',
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'IntlCalendar::FIELD_FIELD_COUNT is the number of calendar fields, which grows as the bundled ICU library adds fields (e.g. 23 in older ICU, 24 in ICU 75+), so it depends on the ICU version and cannot be pinned in stubs.',
             ),
 
             // IntlChar - multiple constants have ICU-version-dependent values
             new ProblemDefinition(
                 entityType: EntityType::CLASS_CONSTANT,
                 entityId: '\\IntlChar',
-                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                type: ProblemType::RUNTIME_VALUE,
                 affectedChecks: [CheckType::CLASS_CONSTANTS_VALUE],
-                versionRange: new PhpVersionRange(PhpVersions::PHP_8_4, PhpVersions::PHP_8_4),
-                reason: 'Multiple IntlChar constants (UNICODE_VERSION, PROPERTY_BINARY_LIMIT, PROPERTY_INT_LIMIT, BLOCK_CODE_COUNT) reflect the Unicode/ICU version and change with each ICU update. The PHP 8.4 build on this machine uses ICU 75+ (Unicode 16.0) while the stubs document older values.',
+                versionRange: new PhpVersionRange(PhpVersions::EARLIEST, PhpVersions::LATEST),
+                reason: 'These IntlChar constants (UNICODE_VERSION, PROPERTY_BINARY_LIMIT, PROPERTY_INT_LIMIT, BLOCK_CODE_COUNT, ...) reflect the Unicode/ICU version and change with each ICU update, so their values cannot be pinned in stubs. Across the per-version images the bundled ICU reports different Unicode versions (e.g. 9.0, 12.1, 13.0, 14.0, 15.1, 16.0), so the value check is muted for all versions.',
                 entityIds: [
                     '\\IntlChar::UNICODE_VERSION',
                     '\\IntlChar::PROPERTY_BINARY_LIMIT',
@@ -1483,6 +1483,23 @@ class DefaultKnownProblemsProvider implements KnownProblemsProvider
                 reason: 'imap_sort() $reverse was int before PHP 8.0; PhpDoc documents the PHP 8.0+ bool type. The int→bool change is intentional; the PhpDoc is correct for current PHP.'
             ),
 
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_TYPE,
+                entityId: '\\Directory',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_FINAL],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_8_5, PhpVersions::LATEST),
+                reason: 'Directory was marked final in PHP 8.5. The stub declares it without final (matching PHP <8.5 behaviour), but reflection for PHP 8.5 reports isFinal=true.'
+            ),
+
+            new ProblemDefinition(
+                entityType: EntityType::CLASS_TYPE,
+                entityId: '\\ReflectionConstant',
+                type: ProblemType::INTERNAL_IMPLEMENTATION,
+                affectedChecks: [CheckType::CLASS_FINAL],
+                versionRange: new PhpVersionRange(PhpVersions::PHP_8_4, PhpVersions::PHP_8_4),
+                reason: 'ReflectionConstant was marked final in PHP 8.4. The stub declares it without final (matching other PHP versions), but reflection for PHP 8.4 reports isFinal=true.'
+            ),
         ];
 
         return $this->problems;
