@@ -61,8 +61,6 @@ class StubsMetaInternalTagTest extends AbstractBaseStubsTestCase
                             self::checkInternalMetaInOverride($className . '::' . $methodName);
                         }
                     }
-                } else {
-                    $this->expectNotToPerformAssertions();
                 }
             }
         }
