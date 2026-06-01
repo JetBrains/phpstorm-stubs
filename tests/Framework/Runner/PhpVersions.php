@@ -16,6 +16,8 @@ enum PhpVersions: string
     case PHP_8_3 = '8.3';
     case PHP_8_4 = '8.4';
 
+    case PHP_8_5 = '8.5';
+
     const EARLIEST = self::PHP_5_6;
-    const LATEST   = self::PHP_8_4;
+    const LATEST   = self::PHP_8_5;
 }
