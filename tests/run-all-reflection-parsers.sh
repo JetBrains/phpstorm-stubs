@@ -41,10 +41,25 @@ if [ ${#PHP_VERSIONS[@]} -eq 0 ]; then
     exit 1
 fi
 
-# Parse arguments
+# Parse arguments: optional --skip-build flag and an optional explicit list of versions.
+# When one or more versions are passed (e.g. `run-all-reflection-parsers.sh 8.4 8.5`), only those
+# are processed; otherwise every version from the enum is processed.
 SKIP_BUILD=false
-if [[ "$1" == "--skip-build" ]]; then
-    SKIP_BUILD=true
+REQUESTED_VERSIONS=()
+for arg in "$@"; do
+    if [[ "$arg" == "--skip-build" ]]; then
+        SKIP_BUILD=true
+    elif [[ "$arg" =~ ^[0-9]+\.[0-9]+$ ]]; then
+        REQUESTED_VERSIONS+=("$arg")
+    else
+        echo -e "${RED}✗ Unrecognized argument: $arg${NC}"
+        echo "Usage: $(basename "$0") [--skip-build] [<version> ...]"
+        exit 1
+    fi
+done
+
+if [ ${#REQUESTED_VERSIONS[@]} -gt 0 ]; then
+    PHP_VERSIONS=("${REQUESTED_VERSIONS[@]}")
 fi
 
 echo -e "${BLUE}========================================${NC}"

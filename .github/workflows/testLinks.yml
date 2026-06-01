@@ -12,17 +12,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Composer Install
-        run: docker compose -f docker-compose.yml run test_runner composer install
-        env:
-          PHP_VERSION: '8.4'
+      - name: Build test runner image
+        run: docker compose -f docker-compose.yml build test_runner >/dev/null
 
-      - name: Build Docker Container
-        run: docker compose -f docker-compose.yml build >/dev/null
-        env:
-          PHP_VERSION: '8.4'
+      - name: Composer Install
+        run: docker compose -f docker-compose.yml run --rm test_runner composer install --no-progress
+
+      - name: Regenerate stubs cache from current stub files
+        run: docker compose -f docker-compose.yml run --rm test_runner php tests/run-stubs-parser.php
 
       - name: Run Tests
-        run: docker compose -f docker-compose.yml run -e CHECK_LINKS=true test_runner vendor/bin/phpunit --testsuite PhpDoc
-        env:
-          PHP_VERSION: '8.4'
+        run: docker compose -f docker-compose.yml run --rm -e CHECK_LINKS=true test_runner vendor/bin/phpunit --no-progress --testsuite PhpDoc
