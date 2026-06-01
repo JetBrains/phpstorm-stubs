@@ -32398,6 +32398,36 @@
                 "value": 1013,
                 "visibility": "public",
                 "isFinal": false
+            },
+            {
+                "name": "ODBC_ATTR_USE_CURSOR_LIBRARY",
+                "value": 1000,
+                "visibility": "public",
+                "isFinal": false
+            },
+            {
+                "name": "ODBC_ATTR_ASSUME_UTF8",
+                "value": 1001,
+                "visibility": "public",
+                "isFinal": false
+            },
+            {
+                "name": "ODBC_SQL_USE_IF_NEEDED",
+                "value": 0,
+                "visibility": "public",
+                "isFinal": false
+            },
+            {
+                "name": "ODBC_SQL_USE_DRIVER",
+                "value": 2,
+                "visibility": "public",
+                "isFinal": false
+            },
+            {
+                "name": "ODBC_SQL_USE_ODBC",
+                "value": 1,
+                "visibility": "public",
+                "isFinal": false
             }
         ],
         "parentClass": null,

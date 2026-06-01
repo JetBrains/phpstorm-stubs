@@ -6,11 +6,12 @@ RUN set -eux; \
     libmcrypt-dev imap-dev php7-imap enchant2 php8-enchant bzip2-dev gettext-dev libxml2-dev php7-dev php7-gd icu-dev \
     php7-zip php7-tidy php7-intl libffi-dev openssl-dev php7-pear rabbitmq-c rabbitmq-c-dev librrd \
     libzip-dev rrdtool-dev gmp-dev yaml yaml-dev fann fann-dev openldap-dev librdkafka librdkafka-dev libcurl curl-dev \
-    libpng-dev gpgme gpgme-dev libpq-dev aspell-dev libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev
+    libpng-dev gpgme gpgme-dev libpq-dev aspell-dev libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev freetds-dev unixodbc-dev
 
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr --with-png-dir=/usr --with-webp-dir=/usr --with-jpeg-dir=/usr
+RUN docker-php-ext-configure pdo_odbc --with-pdo-odbc=unixODBC,/usr
 
 RUN docker-php-ext-install wddx imap gmp sockets intl gd ldap bz2 mysqli bcmath calendar dba exif gettext opcache pcntl \
-    pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap pgsql pspell ftp
+    pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap pgsql pspell ftp pdo_dblib pdo_odbc
 
 WORKDIR /opt/project/phpstorm-stubs

@@ -16,12 +16,13 @@ RUN set -eux; \
     php-zip php-tidy php-intl libffi-dev openssl-dev php83-pear rabbitmq-c rabbitmq-c-dev librrd \
     libzip-dev rrdtool-dev gmp-dev yaml yaml-dev fann fann-dev openldap-dev librdkafka librdkafka-dev libcurl curl-dev \
     libpng-dev gpgme gpgme-dev libpq-dev aspell-dev libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev libxslt-dev \
-    tidyhtml-dev unixodbc-dev
+    tidyhtml-dev unixodbc-dev freetds-dev
 
 RUN docker-php-ext-configure gd --with-jpeg --with-webp --with-freetype
 RUN docker-php-ext-configure odbc --with-unixODBC=shared,/usr
+RUN docker-php-ext-configure pdo_odbc --with-pdo-odbc=unixODBC,/usr
 
 RUN docker-php-ext-install odbc pgsql pdo_pgsql tidy zip xsl imap gmp sockets intl gd ldap bz2 mysqli bcmath calendar  \
-    dba exif gettext opcache pcntl pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap pgsql pspell ftp
+    dba exif gettext opcache pcntl pdo_mysql shmop sysvmsg sysvsem sysvshm xml soap pgsql pspell ftp pdo_dblib pdo_odbc
 
 WORKDIR /opt/project/phpstorm-stubs
