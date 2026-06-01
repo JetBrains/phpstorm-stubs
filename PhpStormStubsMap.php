@@ -11040,6 +11040,7 @@ const CONSTANTS = array (
   'PCRE_VERSION' => 'pcre/pcre.php',
   'PCRE_VERSION_MAJOR' => 'pcre/pcre.php',
   'PCRE_VERSION_MINOR' => 'pcre/pcre.php',
+  'PDO_ODBC_TYPE' => 'PDO/PDO.php',
   'PEAR_EXTENSION_DIR' => 'Core/Core_d.php',
   'PEAR_INSTALL_DIR' => 'Core/Core_d.php',
   'PGSQL_ASSOC' => 'pgsql/pgsql.php',
