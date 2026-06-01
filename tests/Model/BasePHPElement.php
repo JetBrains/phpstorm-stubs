@@ -24,6 +24,7 @@ use stdClass;
 use function array_key_exists;
 use function count;
 use function in_array;
+use function strpos;
 
 abstract class BasePHPElement
 {
@@ -104,12 +105,13 @@ abstract class BasePHPElement
     {
         $reflectionTypes = [];
         if ($type instanceof ReflectionNamedType) {
-            $type->allowsNull() && $type->getName() !== 'mixed' ?
-                array_push($reflectionTypes, '?' . $type->getName()) : array_push($reflectionTypes, $type->getName());
+            $typeName = strpos($type->getName(), '\\') !== false ? '\\' . $type->getName() : $type->getName();
+            $type->allowsNull() && $typeName !== 'mixed' ?
+                array_push($reflectionTypes, '?' . $typeName) : array_push($reflectionTypes, $typeName);
         }
         if ($type instanceof ReflectionUnionType) {
             foreach ($type->getTypes() as $namedType) {
-                $reflectionTypes[] = $namedType->getName();
+                $reflectionTypes[] = strpos($namedType->getName(), '\\') !== false ? '\\' . $namedType->getName() : $namedType->getName();
             }
         }
 
@@ -156,7 +158,12 @@ abstract class BasePHPElement
                 $typeName = $nullable ? '?' . implode('\\', $type->parts) : implode('\\', $type->parts);
             }
         } else {
-            $typeName = $nullable ? '?' . $type->name : $type->name;
+            if ($type instanceof Name) {
+                $typeName = $type->isFullyQualified() && strpos($type->name, '\\') !== false ? $type->toCodeString() : $type->name;
+            } else {
+                $typeName = $type->name;
+            }
+            $typeName = $nullable ? '?' . $typeName : $typeName;
         }
 
         return $typeName;
