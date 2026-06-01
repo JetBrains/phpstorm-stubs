@@ -5,6 +5,7 @@ namespace StubTests\Framework\Parsers\Stubs;
 use StubTests\Framework\Parsers\Stubs\ClassNodeExtractorInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
+use StubTests\Framework\Parsers\Stubs\PhpDoc\TemplateTypeNormalizer;
 use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
 use StubTests\Framework\Parsers\Stubs\StubClassConstantParser;
 use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
@@ -92,6 +93,9 @@ class StubClassParser implements MultiEntityStubParserInterface
         // Apply parsed PhpDoc data to class
         $phpClass->initStubsMetadata()->setPhpDoc($parsedPhpDoc->rawPhpDoc);
 
+        // Class-level @template names propagate to methods/properties that reference them
+        $classTemplateNames = TemplateTypeNormalizer::extractTemplateNames($parsedPhpDoc->rawPhpDoc);
+
         // Parse and apply available version (from PhpDoc + attributes)
         $versions = $this->versionParser->parseAvailableVersion($parsedPhpDoc, $node->getAttributes(), $imports);
         $phpClass->initStubsMetadata()->setSinceVersion($versions['sinceVersion']);
@@ -114,12 +118,12 @@ class StubClassParser implements MultiEntityStubParserInterface
 
         // Methods - pass namespace context for type resolution
         foreach ($node->getMethods() as $methodNode) {
-            $phpClass->addMethod($this->methodParser->parseNode($methodNode, $imports, $phpClass->getNamespace()));
+            $phpClass->addMethod($this->methodParser->parseNode($methodNode, $imports, $phpClass->getNamespace(), $classTemplateNames));
         }
 
         // Properties - pass namespace context for type resolution
         foreach ($node->getProperties() as $propertyNode) {
-            $phpClass->addProperty($this->propertyParser->parseNode($propertyNode, $imports, $phpClass->getNamespace()));
+            $phpClass->addProperty($this->propertyParser->parseNode($propertyNode, $imports, $phpClass->getNamespace(), $classTemplateNames));
         }
 
         // Constants

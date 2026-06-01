@@ -5,6 +5,7 @@ namespace StubTests\Framework\Parsers\Stubs;
 use StubTests\Framework\Parsers\Stubs\InterfaceNodeExtractorInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
+use StubTests\Framework\Parsers\Stubs\PhpDoc\TemplateTypeNormalizer;
 use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
 use StubTests\Framework\Parsers\Stubs\StubClassConstantParser;
 use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
@@ -85,6 +86,9 @@ class StubInterfaceParser implements MultiEntityStubParserInterface
         // Apply parsed PhpDoc data to interface
         $phpInterface->initStubsMetadata()->setPhpDoc($parsedPhpDoc->rawPhpDoc);
 
+        // Interface-level @template names propagate to methods that reference them
+        $classTemplateNames = TemplateTypeNormalizer::extractTemplateNames($parsedPhpDoc->rawPhpDoc);
+
         // Parse and apply available version (from PhpDoc + attributes)
         $versions = $this->versionParser->parseAvailableVersion($parsedPhpDoc, $node->getAttributes(), $imports);
         $phpInterface->initStubsMetadata()->setSinceVersion($versions['sinceVersion']);
@@ -103,7 +107,7 @@ class StubInterfaceParser implements MultiEntityStubParserInterface
 
         // Methods - pass namespace context for type resolution
         foreach ($node->getMethods() as $methodNode) {
-            $phpInterface->addMethod($this->methodParser->parseNode($methodNode, $imports, $phpInterface->getNamespace()));
+            $phpInterface->addMethod($this->methodParser->parseNode($methodNode, $imports, $phpInterface->getNamespace(), $classTemplateNames));
         }
 
         // Constants

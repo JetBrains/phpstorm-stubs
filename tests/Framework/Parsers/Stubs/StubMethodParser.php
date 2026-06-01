@@ -6,6 +6,7 @@ use StubTests\Framework\Parsers\Model\Access\AccessModifier;
 
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
+use StubTests\Framework\Parsers\Stubs\PhpDoc\TemplateTypeNormalizer;
 use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
 use StubTests\Framework\Parsers\Stubs\StubParameterParser;
 use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
@@ -45,9 +46,10 @@ class StubMethodParser
      * @param MethodNode $node The method AST node
      * @param array $imports Map of import aliases to fully qualified names
      * @param string $namespace Current namespace context (e.g., '\Dom' or '\\' for global)
+     * @param string[] $classTemplateNames @template names declared on the enclosing class/interface
      * @return PHPMethod
      */
-    public function parseNode(MethodNode $node, array $imports = [], string $namespace = '\\'): PHPMethod
+    public function parseNode(MethodNode $node, array $imports = [], string $namespace = '\\', array $classTemplateNames = []): PHPMethod
     {
         $method = new PHPMethod();
         $method->setName($node->getName());
@@ -102,7 +104,46 @@ class StubMethodParser
         }
         $method->setParameters($parameters);
 
+        // Template names (`TValue`, ...) must be stored bare, not as the FQN `\TValue` that
+        // phpDocumentor produces. The relevant names are those declared on the enclosing
+        // class/interface plus any declared on the method itself (e.g. @template TNewValue).
+        $templateNames = array_merge(
+            $classTemplateNames,
+            TemplateTypeNormalizer::extractTemplateNames($parsedPhpDoc->rawPhpDoc)
+        );
+        $this->unqualifyTemplateTypes($method, $templateNames);
+
         return $method;
+    }
+
+    /**
+     * Strip phpDocumentor's spurious FQN backslash from template names in a callable's
+     * documented return type and parameter types.
+     *
+     * @param PHPMethod $callable
+     * @param string[] $templateNames
+     */
+    private function unqualifyTemplateTypes(PHPMethod $callable, array $templateNames): void
+    {
+        if ($templateNames === []) {
+            return;
+        }
+
+        $returnMeta = $callable->getStubsMetadata();
+        if ($returnMeta !== null) {
+            $returnMeta->setTypeFromPhpDoc(
+                TemplateTypeNormalizer::unqualify($returnMeta->getTypeFromPhpDoc(), $templateNames)
+            );
+        }
+
+        foreach ($callable->getParameters() as $param) {
+            $paramMeta = $param->getStubsMetadata();
+            if ($paramMeta !== null) {
+                $paramMeta->setTypeFromPhpDoc(
+                    TemplateTypeNormalizer::unqualify($paramMeta->getTypeFromPhpDoc(), $templateNames)
+                );
+            }
+        }
     }
 
 }

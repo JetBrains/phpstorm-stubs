@@ -235,20 +235,76 @@ final class PhpDocConformanceService
     }
 
     /**
-     * Strip phpstan/psalm generic annotations from a type string.
+     * Maps phpstan/psalm pseudo-type leaves to the closest built-in PHP type.
+     *
+     * Keys are lowercased leaf tokens (after generics/shapes/`[]` have been stripped).
+     * A value may itself be a union (e.g. 'array-key' → 'int|string'); it is substituted
+     * verbatim and later flattened/sorted by TypeResolver::normalizeType().
+     */
+    private const PHPSTAN_LEAF_MAP = [
+        // array-like
+        'array' => 'array',
+        'non-empty-array' => 'array',
+        'list' => 'array',
+        'non-empty-list' => 'array',
+        // iterable
+        'iterable' => 'iterable',
+        // string family
+        'numeric-string' => 'string',
+        'non-empty-string' => 'string',
+        'non-falsy-string' => 'string',
+        'truthy-string' => 'string',
+        'literal-string' => 'string',
+        'lowercase-string' => 'string',
+        'class-string' => 'string',
+        'callable-string' => 'string',
+        'trait-string' => 'string',
+        'interned-string' => 'string',
+        'html-escaped-string' => 'string',
+        'enum-string' => 'string',
+        // int family
+        'positive-int' => 'int',
+        'negative-int' => 'int',
+        'non-positive-int' => 'int',
+        'non-negative-int' => 'int',
+        'int-mask' => 'int',
+        'int-mask-of' => 'int',
+        // key/value helpers
+        'array-key' => 'int|string',
+        'key-of' => 'int|string',
+        'value-of' => 'mixed',
+        'scalar' => 'mixed',
+        // callables
+        'pure-callable' => 'callable',
+        'pure-closure' => '\\Closure',
+    ];
+
+    /**
+     * Narrow phpstan/psalm-specific type annotations down to the closest built-in PHP type.
+     *
+     * Handles, in order: conditional return types, callable/Closure signatures, the `?T`
+     * nullable shorthand, generic brackets `<…>`, array shapes `{…}`, typed-array suffix `[]`,
+     * and finally an explicit leaf-mapping table (see {@see self::PHPSTAN_LEAF_MAP}). If any
+     * resulting component is `mixed`, the whole type collapses to `mixed`.
      */
     private function stripPhpStanGenerics(string $type): string
     {
-        // callable(...)...: T → callable (must run before generic stripping)
-        $type = preg_replace('/\bcallable\s*\([^)]*\)(\s*:\s*\S+)?/', 'callable', $type);
+        $type = trim($type);
+
+        // Conditional return type: ($x is Y ? A : B) → mixed
+        if (preg_match('/^\(.*\bis\b.*\?.*:.*\)$/s', $type)) {
+            return 'mixed';
+        }
+
+        // callable(...): T / Closure(...): T signatures → base keyword (before generic stripping).
+        // Tolerates one level of nested parentheses and an optional ": ReturnType".
+        $type = preg_replace('/\bcallable\s*\((?:[^()]*|\([^()]*\))*\)(\s*:\s*[^|&,\s]+)?/i', 'callable', $type);
+        $type = preg_replace('/\\\\?\bClosure\s*\((?:[^()]*|\([^()]*\))*\)(\s*:\s*[^|&,\s]+)?/', 'Closure', $type);
 
         // ?T → T|null (PHP nullable shorthand sometimes used in PhpDoc)
         if (str_starts_with($type, '?') && !str_contains($type, '|')) {
             $type = substr($type, 1) . '|null';
         }
-
-        // Strip phpstan type prefixes
-        $type = preg_replace('/\b(?:non-empty|positive|non-negative|non-positive)-/', '', $type);
 
         // Strip generics <...> iteratively to handle nesting
         $prev = null;
@@ -264,11 +320,22 @@ final class PhpDocConformanceService
             $type = preg_replace('/\{[^{}]*\}/', '', $type);
         }
 
-        // Replace bare 'list' with 'array'
-        $type = preg_replace('/\blist\b/', 'array', $type);
+        // Typed-array suffix: string[], int[][], \Foo[] → array
+        $type = preg_replace('/[\w\\\\]+(?:\[\])+/', 'array', $type);
 
-        // class-string → string
-        $type = preg_replace('/\bclass-string\b/', 'string', $type);
+        // Map remaining phpstan/psalm leaf tokens to the closest built-in type
+        $type = preg_replace_callback(
+            '/[A-Za-z_\\\\][\w\-\\\\]*/',
+            fn(array $m): string => self::PHPSTAN_LEAF_MAP[strtolower($m[0])] ?? $m[0],
+            $type
+        );
+
+        // mixed absorbs everything else
+        foreach (preg_split('/[|&]/', $type) as $component) {
+            if (trim($component) === 'mixed') {
+                return 'mixed';
+            }
+        }
 
         return trim($type);
     }

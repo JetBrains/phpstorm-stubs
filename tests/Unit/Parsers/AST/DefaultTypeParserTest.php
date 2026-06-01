@@ -369,6 +369,62 @@ class TestClass {
         self::assertEquals('callable', $properties[1]->getStubsMetadata()->getTypeFromPhpDoc());
     }
 
+    // ==================== phpstan/psalm dropped-tag recovery ====================
+
+    /**
+     * phpDocumentor silently drops @param/@return tags whose phpstan/psalm type it cannot
+     * resolve. They must instead be recovered verbatim so the documented type is stored
+     * (narrowing to a built-in type happens later, at verification time).
+     */
+    public function testRecoversDroppedPhpStanTypesVerbatim()
+    {
+        $stubCode = '<?php
+/**
+ * @param array<TKey, TValue> $items the items
+ * @param non-empty-array<int> $codes
+ * @return int-mask<1, 2, 4> the mask
+ */
+function fixture_dropped($items, $codes) {}';
+        $function = $this->functionParser->parse($stubCode);
+        $params = $function->getParameters();
+
+        self::assertSame('int-mask<1, 2, 4>', $function->getStubsMetadata()->getTypeFromPhpDoc());
+        self::assertSame('array<TKey, TValue>', $params[0]->getStubsMetadata()->getTypeFromPhpDoc());
+        self::assertSame('non-empty-array<int>', $params[1]->getStubsMetadata()->getTypeFromPhpDoc());
+    }
+
+    public function testRecoveryDoesNotCorruptDescriptionsOrSkipsTypelessParams()
+    {
+        $stubCode = '<?php
+/**
+ * @param non-empty-array<int> $arr a <b> tag and $var in the description
+ * @param $noType just a description with no type
+ */
+function fixture_desc($arr, $noType) {}';
+        $function = $this->functionParser->parse($stubCode);
+        $params = $function->getParameters();
+
+        // Type recovered, description (containing < and $) untouched
+        self::assertSame('non-empty-array<int>', $params[0]->getStubsMetadata()->getTypeFromPhpDoc());
+        // Variable-before-type / no type → nothing recovered (phpDocumentor default applies)
+        self::assertNotSame('$noType', $params[1]->getStubsMetadata()->getTypeFromPhpDoc());
+    }
+
+    public function testResolvablePhpDocTypesAreLeftToPhpDocumentor()
+    {
+        // numeric-string is resolvable by phpDocumentor and must be stored as-is (no recovery override)
+        $stubCode = '<?php
+/**
+ * @param numeric-string $n
+ * @return list<int>
+ */
+function fixture_resolvable($n) {}';
+        $function = $this->functionParser->parse($stubCode);
+
+        self::assertSame('list<int>', $function->getStubsMetadata()->getTypeFromPhpDoc());
+        self::assertSame('numeric-string', $function->getParameters()[0]->getStubsMetadata()->getTypeFromPhpDoc());
+    }
+
     public function testParseHandlesNullValuesGracefully()
     {
         // Direct parser test with null inputs

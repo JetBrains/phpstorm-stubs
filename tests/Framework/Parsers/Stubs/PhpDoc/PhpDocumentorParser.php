@@ -60,7 +60,117 @@ class PhpDocumentorParser implements PhpDocParserInterface
         $parsed->removedVersion = $this->extractRemovedVersion($docBlock);
         $parsed->isDeprecated = $this->hasDeprecatedTag($docBlock);
 
+        // phpDocumentor silently drops @param/@return/@var tags whose type it cannot resolve
+        // (e.g. phpstan/psalm types like array<TKey, TValue> or non-empty-array<int>). Recover
+        // those from the raw text so the documented type is stored faithfully; narrowing to a
+        // built-in type happens later, at verification time.
+        $this->recoverDroppedTypes($docComment, $parsed);
+
         return $parsed;
+    }
+
+    /**
+     * Fill in @param/@return/@var types that phpDocumentor dropped, reading them verbatim from
+     * the raw docblock. Only gaps are filled — values phpDocumentor already produced are kept.
+     */
+    private function recoverDroppedTypes(string $docComment, ParsedPhpDoc $parsed): void
+    {
+        // Drop the comment delimiters so single-line ("/** @var X */") and multi-line forms
+        // are handled uniformly; types never contain these markers, so this is safe.
+        $text = str_replace(['/**', '/*', '*/'], '', $docComment);
+
+        foreach (explode("\n", $text) as $line) {
+            if (!preg_match('/^\s*\*?\s*@(param|return|var)\b(.*)$/', $line, $m)) {
+                continue;
+            }
+
+            $extracted = $this->extractLeadingType($m[2]);
+            if ($extracted === null) {
+                continue;
+            }
+            [$type, $rest] = $extracted;
+
+            switch ($m[1]) {
+                case 'return':
+                    $parsed->returnType ??= $type;
+                    break;
+                case 'var':
+                    $parsed->varType ??= $type;
+                    break;
+                case 'param':
+                    if (preg_match('/\$(\w+)/', $rest, $vm) && !array_key_exists($vm[1], $parsed->paramTypes)) {
+                        $parsed->paramTypes[$vm[1]] = $type;
+                    }
+                    break;
+            }
+        }
+    }
+
+    /**
+     * Extract the leading type token from the text following a tag name, balancing `<> {} ()`.
+     *
+     * A top-level space ends the token unless it is glued to a `|`/`&`/`:` operator (union,
+     * intersection, or callable return). Returns [type, remainder], or null when there is no
+     * type (the remainder starts with `$`) or the brackets never balance (malformed/multiline) —
+     * the null guard prevents consuming a description that contains stray `<`/`{`/`$`.
+     *
+     * @return array{0: string, 1: string}|null
+     */
+    private function extractLeadingType(string $s): ?array
+    {
+        $len = strlen($s);
+        $i = 0;
+        while ($i < $len && $s[$i] === ' ') {
+            $i++;
+        }
+        if ($i >= $len || $s[$i] === '$') {
+            return null;
+        }
+
+        $start = $i;
+        $depth = 0;
+        for (; $i < $len; $i++) {
+            $c = $s[$i];
+            if ($c === '<' || $c === '{' || $c === '(') {
+                $depth++;
+            } elseif ($c === '>' || $c === '}' || $c === ')') {
+                $depth--;
+                if ($depth < 0) {
+                    return null;
+                }
+            } elseif ($depth === 0) {
+                if ($c === '$') {
+                    break;
+                }
+                if ($c === ' ') {
+                    $p = $i - 1;
+                    while ($p >= $start && $s[$p] === ' ') {
+                        $p--;
+                    }
+                    $prev = $p >= $start ? $s[$p] : '';
+                    $j = $i;
+                    while ($j < $len && $s[$j] === ' ') {
+                        $j++;
+                    }
+                    $next = $j < $len ? $s[$j] : '';
+                    if (in_array($prev, ['|', '&', ':'], true) || in_array($next, ['|', '&', ':'], true)) {
+                        continue;
+                    }
+                    break;
+                }
+            }
+        }
+
+        if ($depth !== 0) {
+            return null;
+        }
+
+        $type = rtrim(substr($s, $start, $i - $start));
+        if ($type === '') {
+            return null;
+        }
+
+        return [$type, substr($s, $i)];
     }
 
     /**

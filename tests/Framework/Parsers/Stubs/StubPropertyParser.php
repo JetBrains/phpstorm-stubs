@@ -6,6 +6,7 @@ use StubTests\Framework\Parsers\Model\Access\AccessModifier;
 
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
+use StubTests\Framework\Parsers\Stubs\PhpDoc\TemplateTypeNormalizer;
 use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
 use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
 use StubTests\Framework\Parsers\Stubs\Versions\AvailableVersionParserInterface;
@@ -39,9 +40,10 @@ class StubPropertyParser
      * @param PropertyNode $node The property AST node
      * @param array $imports Map of import aliases to fully qualified names
      * @param string $namespace Current namespace context (e.g., '\Dom' or '\\' for global)
+     * @param string[] $classTemplateNames @template names declared on the enclosing class/interface
      * @return PHPProperty
      */
-    public function parseNode(PropertyNode $node, array $imports = [], string $namespace = '\\'): PHPProperty
+    public function parseNode(PropertyNode $node, array $imports = [], string $namespace = '\\', array $classTemplateNames = []): PHPProperty
     {
         $property = new PHPProperty();
         $property->setName($node->getName());
@@ -85,6 +87,18 @@ class StubPropertyParser
         $property->initStubsMetadata()->setTypeFromPhpDoc($parsedType->typeFromPhpDoc);
         $property->initStubsMetadata()->setLanguageLevelTypes($parsedType->languageLevelTypes);
         $property->initStubsMetadata()->setDefaultType($parsedType->defaultType);
+
+        // Store @template names (e.g. TValue) bare rather than as the FQN `\TValue` phpDocumentor emits
+        $templateNames = array_merge(
+            $classTemplateNames,
+            TemplateTypeNormalizer::extractTemplateNames($parsedPhpDoc->rawPhpDoc)
+        );
+        if ($templateNames !== []) {
+            $metadata = $property->getStubsMetadata();
+            $metadata?->setTypeFromPhpDoc(
+                TemplateTypeNormalizer::unqualify($metadata->getTypeFromPhpDoc(), $templateNames)
+            );
+        }
 
         return $property;
     }

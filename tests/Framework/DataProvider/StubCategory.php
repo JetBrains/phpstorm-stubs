@@ -164,6 +164,7 @@ enum StubCategory: string
                 'ddtrace',
                 'dio',
                 'ds',
+                'ds_v2',
                 'eio',
                 'elastic_apm',
                 'event',

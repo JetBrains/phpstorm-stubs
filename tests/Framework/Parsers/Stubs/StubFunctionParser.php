@@ -5,6 +5,7 @@ namespace StubTests\Framework\Parsers\Stubs;
 use StubTests\Framework\Parsers\Stubs\FunctionNodeExtractorInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocParserInterface;
 use StubTests\Framework\Parsers\Stubs\PhpDoc\PhpDocumentorParser;
+use StubTests\Framework\Parsers\Stubs\PhpDoc\TemplateTypeNormalizer;
 use StubTests\Framework\Parsers\Stubs\Types\DefaultTypeParser;
 use StubTests\Framework\Parsers\Stubs\StubParameterParser;
 use StubTests\Framework\Parsers\Stubs\Types\TypeParserInterface;
@@ -116,6 +117,25 @@ class StubFunctionParser implements MultiEntityStubParserInterface
             $parameters[] = $this->parameterParser->parseNode($param, $parsedPhpDoc->paramTypes, $imports, $phpFunction->getNamespace(), $parsedPhpDoc->optionalParams);
         }
         $phpFunction->setParameters($parameters);
+
+        // Store @template names (e.g. T, TValue) bare rather than as the FQN `\T` phpDocumentor emits
+        $templateNames = TemplateTypeNormalizer::extractTemplateNames($parsedPhpDoc->rawPhpDoc);
+        if ($templateNames !== []) {
+            $returnMeta = $phpFunction->getStubsMetadata();
+            if ($returnMeta !== null) {
+                $returnMeta->setTypeFromPhpDoc(
+                    TemplateTypeNormalizer::unqualify($returnMeta->getTypeFromPhpDoc(), $templateNames)
+                );
+            }
+            foreach ($phpFunction->getParameters() as $functionParam) {
+                $paramMeta = $functionParam->getStubsMetadata();
+                if ($paramMeta !== null) {
+                    $paramMeta->setTypeFromPhpDoc(
+                        TemplateTypeNormalizer::unqualify($paramMeta->getTypeFromPhpDoc(), $templateNames)
+                    );
+                }
+            }
+        }
 
         return $phpFunction;
     }

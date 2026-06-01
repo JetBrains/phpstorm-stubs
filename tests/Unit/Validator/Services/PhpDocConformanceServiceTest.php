@@ -2,6 +2,7 @@
 
 namespace StubTests\Unit\Validator\Services;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use StubTests\Framework\Parsers\Model\PHPParameter;
 use StubTests\Framework\Parsers\Model\PHPProperty;
@@ -162,6 +163,79 @@ class PhpDocConformanceServiceTest extends TestCase
     public function testCallableWithSignatureStrippedToCallable(): void
     {
         $this->assertTrue($this->service->isPhpDocCompatibleWithSignature('callable', 'callable(string): bool'));
+    }
+
+    public function testClosureSignatureStrippedToClosure(): void
+    {
+        $this->assertTrue($this->service->isPhpDocCompatibleWithSignature('Closure', 'Closure(int): string'));
+    }
+
+    // ── phpstan/psalm pseudo-type narrowing ───────────────────────
+
+    #[DataProvider('phpStanTypeNarrowingProvider')]
+    public function testPhpStanTypeNarrowing(string $docType, string $expectedBuiltIn): void
+    {
+        $this->assertSame($expectedBuiltIn, $this->service->normalizeDocType($docType));
+    }
+
+    public static function phpStanTypeNarrowingProvider(): array
+    {
+        return [
+            // array-like
+            'generic array'      => ['array<string, int>', 'array'],
+            'non-empty-array'    => ['non-empty-array<int>', 'array'],
+            'list'               => ['list', 'array'],
+            'generic list'       => ['list<int>', 'array'],
+            'non-empty-list'     => ['non-empty-list<\Foo>', 'array'],
+            'array shape'        => ['array{foo: int, bar: string}', 'array'],
+            'nested generics'    => ['array<int, array<string, Foo>>', 'array'],
+            'typed array'        => ['string[]', 'array'],
+            'nested typed array' => ['int[][]', 'array'],
+            // string family
+            'numeric-string'     => ['numeric-string', 'string'],
+            'non-empty-string'   => ['non-empty-string', 'string'],
+            'non-falsy-string'   => ['non-falsy-string', 'string'],
+            'literal-string'     => ['literal-string', 'string'],
+            'lowercase-string'   => ['lowercase-string', 'string'],
+            'class-string'       => ['class-string', 'string'],
+            'generic class-str'  => ['class-string<\Foo>', 'string'],
+            'callable-string'    => ['callable-string', 'string'],
+            // int family
+            'positive-int'       => ['positive-int', 'int'],
+            'negative-int'       => ['negative-int', 'int'],
+            'non-negative-int'   => ['non-negative-int', 'int'],
+            'int range'          => ['int<0, 100>', 'int'],
+            'int range min/max'  => ['int<min, 254>', 'int'],
+            'int-mask'           => ['int-mask<1, 2, 4>', 'int'],
+            'int-mask-of'        => ['int-mask-of<\Foo::A>', 'int'],
+            // key/value helpers
+            'array-key'          => ['array-key', 'int|string'],
+            'key-of'             => ['key-of<array<int, string>>', 'int|string'],
+            'value-of'           => ['value-of<Foo>', 'mixed'],
+            'scalar'             => ['scalar', 'mixed'],
+            // conditional return type
+            'conditional'        => ['($foo is true ? int : string)', 'mixed'],
+            // unions with pseudo-types
+            'pseudo union null'  => ['numeric-string|null', 'null|string'],
+            'mixed absorption'   => ['value-of<X>|null', 'mixed'],
+            // unknown generic class keeps its base name
+            'generic class'      => ['Collection<int, Foo>', 'Collection'],
+        ];
+    }
+
+    public function testNarrowedPseudoTypeMatchesSignature(): void
+    {
+        $this->assertTrue($this->service->isPhpDocCompatibleWithSignature('array', 'array<TKey, TValue>'));
+        $this->assertTrue($this->service->isPhpDocCompatibleWithSignature('string', 'numeric-string'));
+        $this->assertTrue($this->service->isPhpDocCompatibleWithSignature('int', 'positive-int'));
+        $this->assertTrue($this->service->isPhpDocCompatibleWithSignature('array', 'non-empty-array<int>'));
+        $this->assertTrue($this->service->isPhpDocCompatibleWithSignature('int|string', 'key-of<array<int, string>>'));
+    }
+
+    public function testNarrowedPseudoTypeStillCatchesMismatch(): void
+    {
+        // numeric-string narrows to string, which is not compatible with an int signature
+        $this->assertFalse($this->service->isPhpDocCompatibleWithSignature('int', 'numeric-string'));
     }
 
     // ── genuine mismatches ────────────────────────────────────────
