@@ -105,7 +105,7 @@ final class StreamBucket
 /**
  * Instances of Directory are created by calling the dir() function, not by the new operator.
  */
-final class Directory
+class Directory
 {
     /**
      * @var string The directory that was opened.
