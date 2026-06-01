@@ -962,42 +962,49 @@ namespace {
 
         /**
          * Sets the connection timeout in seconds.
+         * @since 7.0
          */
         #[Deprecated('use Pdo\Dblib::ATTR_CONNECTION_TIMEOUT instead', since: '8.5')]
         public const DBLIB_ATTR_CONNECTION_TIMEOUT = 1000;
 
         /**
          * Sets the query timeout in seconds.
+         * @since 7.0
          */
         #[Deprecated('use Pdo\Dblib::ATTR_QUERY_TIMEOUT instead', since: '8.5')]
         public const DBLIB_ATTR_QUERY_TIMEOUT = 1001;
 
         /**
          * Returns uniqueidentifier values as strings.
+         * @since 7.0
          */
         #[Deprecated('use Pdo\Dblib::ATTR_STRINGIFY_UNIQUEIDENTIFIER instead', since: '8.5')]
         public const DBLIB_ATTR_STRINGIFY_UNIQUEIDENTIFIER = 1002;
 
         /**
          * Returns the version of the underlying DB-Library.
+         * @since 7.2
          */
         #[Deprecated('use Pdo\Dblib::ATTR_VERSION instead', since: '8.5')]
         public const DBLIB_ATTR_VERSION = 1003;
 
         /**
          * Returns the TDS version used by the connection.
+         * @since 7.3
          */
         #[Deprecated('use Pdo\Dblib::ATTR_TDS_VERSION instead', since: '8.5')]
         public const DBLIB_ATTR_TDS_VERSION = 1004;
 
         /**
          * Skips empty result sets returned by stored procedures.
+         * @since 7.3
          */
         #[Deprecated('use Pdo\Dblib::ATTR_SKIP_EMPTY_ROWSETS instead', since: '8.5')]
         public const DBLIB_ATTR_SKIP_EMPTY_ROWSETS = 1005;
 
         /**
          * Controls datetime conversion to strings.
+         * @since 7.3
          */
         #[Deprecated('use Pdo\Dblib::ATTR_DATETIME_CONVERT instead', since: '8.5')]
         public const DBLIB_ATTR_DATETIME_CONVERT = 1006;
