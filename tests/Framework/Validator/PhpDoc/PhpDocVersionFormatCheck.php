@@ -20,10 +20,11 @@ use StubTests\Framework\Validator\Contracts\ReflectionProviderInterface;
  * (e.g. "5.1.2", "7.0.7", "4.4.5.35"). Non-numeric qualifiers like
  * "0.4.1(-1)" from library-specific versioning are not flagged.
  *
- * Only core PHP extension entities are checked — third-party extension stubs
- * use their own library version numbers (e.g. "1.2.0" for the MongoDB driver)
- * which are intentionally left unchanged. Entities from known third-party
- * extensions are skipped automatically via THIRD_PARTY_PREFIXES.
+ * Only bundled PHP distribution stubs (StubCategory::CORE + BUNDLED) are
+ * checked — EXTERNAL and PECL extension stubs use their own library version
+ * numbers (e.g. "1.2.0" for the MongoDB driver, "5.6.1" for gmp) which are
+ * intentionally left unchanged. The category filter is applied by the test
+ * provider (PhpDocValidatorTest::coreStubsProvider).
  *
  * For class-like entities (classes, interfaces, enums) the check examines:
  * - the entity-level phpDoc

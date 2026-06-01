@@ -4,6 +4,7 @@ namespace StubTests;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionClass;
+use StubTests\Framework\DataProvider\StubCategory;
 use StubTests\Framework\Parsers\StubDataQueryInterface;
 use StubTests\Framework\Runner\PhpVersionRange;
 use StubTests\Framework\Runner\PhpVersions;
@@ -27,28 +28,14 @@ use StubTests\ValidatorTestBase;
 class PhpDocValidatorTest extends ValidatorTestBase
 {
     /**
-     * Entity ID prefixes that identify third-party / PECL extension stubs.
+     * Stub categories whose entities participate in the version-format check.
      *
-     * Third-party stubs use their OWN library version numbers (e.g. "1.2.0"
-     * for the MongoDB driver) which must not be forced to "major.minor" format.
-     * The version-format check is intentionally limited to core PHP stubs only.
+     * The check only applies to bundled PHP distribution stubs (Core + Bundled).
+     * EXTERNAL and PECL extensions use their own library version numbers
+     * (e.g. "1.2.0" for the MongoDB driver, "5.6.1" for gmp) which must not
+     * be forced to PHP's "major.minor" format.
      */
-    private const THIRD_PARTY_PREFIXES = [
-        '\\MongoDB\\', '\\Swoole\\', '\\Co\\', '\\swoole_',
-        '\\Relay\\',
-        '\\Yaf\\', '\\Yaf_',
-        '\\Yar\\', '\\Yar_',
-        '\\Imagick', '\\ImagickDraw', '\\ImagickPixel', '\\ImagickKernel',
-        '\\Redis', '\\RedisArray', '\\RedisCluster', '\\RedisSentinel',
-        '\\Memcached',
-        '\\Mongo',
-        '\\geoip_', '\\newrelic_', '\\radius_', '\\libvirt_',
-        '\\rpm',          // rpminfo extension: rpminfo, rpmvercmp, rpmdbinfo, rpmdbsearch, rpmaddtag
-        '\\xxtea_', '\\XXTEA',
-        '\\lzf_',
-        '\\Sync',
-        '\\http_', '\\Http',  // pecl_http: http_* functions + HttpQueryString, HttpMessage, etc.
-    ];
+    private const CORE_STUB_CATEGORIES = [StubCategory::CORE, StubCategory::BUNDLED];
 
     #[DataProvider('entityProvider')]
     public function testEntity(string $methodName, string $entityId, string $phpVersion): void
@@ -180,7 +167,7 @@ class PhpDocValidatorTest extends ValidatorTestBase
 
         foreach (static::getAllStubEntities($stubs) as $entity) {
             $entityId = static::getEntityId($entity);
-            if ($entityId === null || isset($seenIds[$entityId]) || !static::isCoreStubsEntity($entityId)) {
+            if ($entityId === null || isset($seenIds[$entityId]) || !static::isCoreStubsEntity($entity)) {
                 continue;
             }
             $seenIds[$entityId] = true;
@@ -191,16 +178,30 @@ class PhpDocValidatorTest extends ValidatorTestBase
     }
 
     /**
-     * Return true when the entity belongs to core PHP (not a third-party extension).
+     * Return true when the entity's stub file lives under a CORE or BUNDLED directory.
+     *
+     * Source paths are stored relative to the stubs root (e.g. "gmp/gmp.php",
+     * "session/SessionHandler.php"), so the first path segment is the
+     * extension directory used by StubCategory.
+     *
+     * Entities with no recorded source path are skipped — without a source we
+     * cannot confirm they belong to the bundled PHP distribution.
      */
-    private static function isCoreStubsEntity(string $entityId): bool
+    private static function isCoreStubsEntity(object $entity): bool
     {
-        foreach (self::THIRD_PARTY_PREFIXES as $prefix) {
-            if (str_starts_with($entityId, $prefix)) {
-                return false;
+        $sourcePath = $entity->getStubsMetadata()?->getSourcePath();
+        if ($sourcePath === null) {
+            return false;
+        }
+
+        $topLevel = explode('/', ltrim($sourcePath, '/'))[0];
+
+        foreach (self::CORE_STUB_CATEGORIES as $category) {
+            if ($category->containsDirectory($topLevel)) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     /**

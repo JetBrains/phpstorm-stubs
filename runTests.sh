@@ -1,27 +1,30 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+cd "$SCRIPT_DIR"
+
+dc() {
+  docker compose -f "$SCRIPT_DIR/docker-compose.yml" "$@"
+}
+
 echo "Installing composer packages..."
-docker-compose -f docker-compose.yml run test_runner composer install --ignore-platform-reqs
-echo "Checking stub map..."
-docker-compose -f docker-compose.yml run test_runner vendor/bin/phpunit --testsuite PhpDoc
-docker-compose -f docker-compose.yml run test_runner vendor/bin/phpunit --testsuite Structure
-phpVersions=("5.6" "7.0" "7.1" "7.2" "7.3" "7.4" "8.0" "8.1" "8.2" "8.3" "8.4" "8.5")
-for i in "${phpVersions[@]}"
-do
-  export PHP_VERSION=$i
-  SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-  cd "$SCRIPT_DIR" || exit
-  echo "Building docker container for PHP_$i..."
-  docker-compose -f docker-compose.yml build
-  mkdir -p "$SCRIPT_DIR/tests/cache"
-  echo "Adapting reflection data to file $SCRIPT_DIR/tests/cache/.tmp-reflection-$i.dat for PHP_$i..."
-  docker-compose -f docker-compose.yml run -e PHP_VERSION="$i" php_under_test /usr/local/bin/php tests/adapt-legacy-reflection.php "$i" "/opt/project/phpstorm-stubs/tests/cache/.tmp-reflection-$i.dat"
-  echo "Processing reflection data to file $SCRIPT_DIR/ReflectionData.json for PHP_$i..."
-  docker-compose -f docker-compose.yml run -e PHP_VERSION="$i" test_runner /usr/local/bin/php tests/run-reflection-processor.php "/opt/project/phpstorm-stubs/tests/cache/.tmp-reflection-$i.dat" "/opt/project/phpstorm-stubs/ReflectionData.json"
-  rm -f "$SCRIPT_DIR/tests/cache/.tmp-reflection-$i.dat"
-  echo "Running tests agains PHP_$i..."
-  docker-compose -f docker-compose.yml run -e PHP_VERSION="$i" test_runner vendor/bin/phpunit --testsuite PHP_"$i"
-  echo "Removing file $SCRIPT_DIR/ReflectionData.json with reflection data for PHP_$i..."
-  rm -f "$SCRIPT_DIR/ReflectionData.json"
-done
+dc run --rm test_runner composer install --ignore-platform-reqs
+
+echo "Generating stubs cache..."
+dc run --rm test_runner php tests/run-stubs-parser.php
+
+echo "Generating reflection caches..."
+bash "$SCRIPT_DIR/tests/run-all-reflection-parsers.sh"
+
+echo "Running unit tests..."
+dc run --rm test_runner vendor/bin/phpunit --testsuite Unit
+
+echo "Running structure tests..."
+dc run --rm test_runner vendor/bin/phpunit --testsuite Structure
+
+echo "Running PHPDoc tests..."
+dc run --rm test_runner vendor/bin/phpunit --testsuite PhpDoc
+
+echo "Running validator tests..."
+dc run --rm test_runner vendor/bin/phpunit --testsuite General
