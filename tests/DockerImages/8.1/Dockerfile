@@ -1,5 +1,6 @@
 FROM php:8.1-alpine
 
+RUN echo 'memory_limit = 2048M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
 RUN set -eux; \
     apk add --repository http://dl-cdn.alpinelinux.org/alpine/edge/community --no-cache --virtual .build-deps \
     bash gcc g++ make autoconf pkgconfig git \

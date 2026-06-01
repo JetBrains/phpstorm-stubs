@@ -1,5 +1,6 @@
 FROM php:8.3-alpine
 
+RUN echo 'memory_limit = 2048M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
 RUN set -eux; \
     docker-php-source extract; \
             { \
