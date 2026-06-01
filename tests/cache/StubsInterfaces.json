@@ -559,7 +559,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\Traversable<\\TKey,\\TValue>|\\TValue[]",
+                "returnTypeFromPhpDoc": "\\Traversable<TKey,TValue>|TValue[]",
                 "languageLevelTypes": null,
                 "defaultType": null
             }
@@ -593,7 +593,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\TValue",
+                "returnTypeFromPhpDoc": "TValue",
                 "languageLevelTypes": null,
                 "defaultType": null
             },
@@ -627,7 +627,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\TKey|null",
+                "returnTypeFromPhpDoc": "TKey|null",
                 "languageLevelTypes": null,
                 "defaultType": null
             },
@@ -700,7 +700,7 @@
                         "hasDefaultValue": false,
                         "type": "",
                         "defaultValue": null,
-                        "typeFromPhpDoc": "\\TKey",
+                        "typeFromPhpDoc": "TKey",
                         "languageLevelTypes": {
                             "8.0": "mixed"
                         },
@@ -736,7 +736,7 @@
                         "hasDefaultValue": false,
                         "type": "",
                         "defaultValue": null,
-                        "typeFromPhpDoc": "\\TKey",
+                        "typeFromPhpDoc": "TKey",
                         "languageLevelTypes": {
                             "8.0": "mixed"
                         },
@@ -750,7 +750,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\TValue",
+                "returnTypeFromPhpDoc": "TValue",
                 "languageLevelTypes": null,
                 "defaultType": null
             },
@@ -772,7 +772,7 @@
                         "hasDefaultValue": false,
                         "type": "",
                         "defaultValue": null,
-                        "typeFromPhpDoc": "\\TKey",
+                        "typeFromPhpDoc": "TKey",
                         "languageLevelTypes": {
                             "8.0": "mixed"
                         },
@@ -790,7 +790,7 @@
                         "hasDefaultValue": false,
                         "type": "",
                         "defaultValue": null,
-                        "typeFromPhpDoc": "\\TValue",
+                        "typeFromPhpDoc": "TValue",
                         "languageLevelTypes": {
                             "8.0": "mixed"
                         },
@@ -826,7 +826,7 @@
                         "hasDefaultValue": false,
                         "type": "",
                         "defaultValue": null,
-                        "typeFromPhpDoc": "\\TKey",
+                        "typeFromPhpDoc": "TKey",
                         "languageLevelTypes": {
                             "8.0": "mixed"
                         },
@@ -1499,7 +1499,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\TValue[]",
+                "returnTypeFromPhpDoc": "TValue[]",
                 "languageLevelTypes": null,
                 "defaultType": null
             }
@@ -1691,7 +1691,7 @@
                         "hasDefaultValue": false,
                         "type": "",
                         "defaultValue": null,
-                        "typeFromPhpDoc": "\\TValue",
+                        "typeFromPhpDoc": "TValue",
                         "languageLevelTypes": null,
                         "defaultType": null,
                         "sinceVersion": null,
@@ -1737,7 +1737,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\Sequence<\\TValue>",
+                "returnTypeFromPhpDoc": "\\Sequence<TValue>",
                 "languageLevelTypes": null,
                 "defaultType": null
             },
@@ -1759,7 +1759,7 @@
                         "hasDefaultValue": false,
                         "type": "",
                         "defaultValue": null,
-                        "typeFromPhpDoc": "\\TValue",
+                        "typeFromPhpDoc": "TValue",
                         "languageLevelTypes": null,
                         "defaultType": null,
                         "sinceVersion": null,
@@ -1788,7 +1788,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\TValue",
+                "returnTypeFromPhpDoc": "TValue",
                 "languageLevelTypes": null,
                 "defaultType": null
             },
@@ -1822,7 +1822,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\TValue",
+                "returnTypeFromPhpDoc": "TValue",
                 "languageLevelTypes": null,
                 "defaultType": null
             },
@@ -1860,7 +1860,7 @@
                         "hasDefaultValue": false,
                         "type": "",
                         "defaultValue": null,
-                        "typeFromPhpDoc": "\\TValue",
+                        "typeFromPhpDoc": "TValue",
                         "languageLevelTypes": null,
                         "defaultType": null,
                         "sinceVersion": null,
@@ -1923,7 +1923,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\TValue",
+                "returnTypeFromPhpDoc": "TValue",
                 "languageLevelTypes": null,
                 "defaultType": null
             },
@@ -1957,7 +1957,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\Sequence<\\TNewValue>",
+                "returnTypeFromPhpDoc": "\\Sequence<TNewValue>",
                 "languageLevelTypes": null,
                 "defaultType": null
             },
@@ -1979,7 +1979,7 @@
                         "hasDefaultValue": false,
                         "type": "",
                         "defaultValue": null,
-                        "typeFromPhpDoc": "iterable<\\TValue2>",
+                        "typeFromPhpDoc": "iterable<TValue2>",
                         "languageLevelTypes": null,
                         "defaultType": null,
                         "sinceVersion": null,
@@ -1991,7 +1991,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\Sequence<\\TValue|\\TValue2>",
+                "returnTypeFromPhpDoc": "\\Sequence<TValue|TValue2>",
                 "languageLevelTypes": null,
                 "defaultType": null
             },
@@ -2008,7 +2008,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\TValue",
+                "returnTypeFromPhpDoc": "TValue",
                 "languageLevelTypes": null,
                 "defaultType": null
             },
@@ -2030,7 +2030,7 @@
                         "hasDefaultValue": false,
                         "type": "",
                         "defaultValue": null,
-                        "typeFromPhpDoc": "\\TValue",
+                        "typeFromPhpDoc": "TValue",
                         "languageLevelTypes": null,
                         "defaultType": null,
                         "sinceVersion": null,
@@ -2080,7 +2080,7 @@
                         "hasDefaultValue": true,
                         "type": "",
                         "defaultValue": null,
-                        "typeFromPhpDoc": "\\TCarry",
+                        "typeFromPhpDoc": "TCarry",
                         "languageLevelTypes": null,
                         "defaultType": null,
                         "sinceVersion": null,
@@ -2092,7 +2092,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\TCarry",
+                "returnTypeFromPhpDoc": "TCarry",
                 "languageLevelTypes": null,
                 "defaultType": null
             },
@@ -2126,7 +2126,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\TValue",
+                "returnTypeFromPhpDoc": "TValue",
                 "languageLevelTypes": null,
                 "defaultType": null
             },
@@ -2160,7 +2160,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\Sequence<\\TValue>",
+                "returnTypeFromPhpDoc": "\\Sequence<TValue>",
                 "languageLevelTypes": null,
                 "defaultType": null
             },
@@ -2232,7 +2232,7 @@
                         "hasDefaultValue": false,
                         "type": "",
                         "defaultValue": null,
-                        "typeFromPhpDoc": "\\TValue",
+                        "typeFromPhpDoc": "TValue",
                         "languageLevelTypes": null,
                         "defaultType": null,
                         "sinceVersion": null,
@@ -2261,7 +2261,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\TValue",
+                "returnTypeFromPhpDoc": "TValue",
                 "languageLevelTypes": null,
                 "defaultType": null
             },
@@ -2311,7 +2311,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\Sequence<\\TValue>",
+                "returnTypeFromPhpDoc": "\\Sequence<TValue>",
                 "languageLevelTypes": null,
                 "defaultType": null
             },
@@ -2379,7 +2379,7 @@
                 "phpDoc": null,
                 "sinceVersion": null,
                 "removedVersion": null,
-                "returnTypeFromPhpDoc": "\\Sequence<\\TValue>",
+                "returnTypeFromPhpDoc": "\\Sequence<TValue>",
                 "languageLevelTypes": null,
                 "defaultType": null
             },
@@ -2418,7 +2418,7 @@
                         "hasDefaultValue": false,
                         "type": "",
                         "defaultValue": null,
-                        "typeFromPhpDoc": "\\TValue",
+                        "typeFromPhpDoc": "TValue",
                         "languageLevelTypes": null,
                         "defaultType": null,
                         "sinceVersion": null,
@@ -6595,6 +6595,72 @@
                 "hasTentativeReturnType": true,
                 "phpDoc": null,
                 "sinceVersion": "5.4",
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": "mixed",
+                "languageLevelTypes": null,
+                "defaultType": null
+            }
+        ],
+        "constants": [],
+        "parentInterfaces": []
+    },
+    {
+        "_type": "PHPInterface",
+        "name": "Key",
+        "id": "\\Ds\\Key",
+        "sourcePath": "ds_v2/ds.php",
+        "duplicates": [],
+        "namespace": "\\Ds",
+        "phpDoc": null,
+        "sinceVersion": null,
+        "removedVersion": null,
+        "methods": [
+            {
+                "name": "equals",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [
+                    {
+                        "name": "other",
+                        "position": 0,
+                        "isOptional": false,
+                        "isVariadic": false,
+                        "isPassedByReference": false,
+                        "isDeprecated": false,
+                        "hasDefaultValue": false,
+                        "type": "",
+                        "defaultValue": null,
+                        "typeFromPhpDoc": "mixed",
+                        "languageLevelTypes": null,
+                        "defaultType": null,
+                        "sinceVersion": null,
+                        "removedVersion": null
+                    }
+                ],
+                "returnType": "bool",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
+                "removedVersion": null,
+                "returnTypeFromPhpDoc": null,
+                "languageLevelTypes": null,
+                "defaultType": null
+            },
+            {
+                "name": "hash",
+                "isStatic": false,
+                "isFinal": false,
+                "isAbstract": false,
+                "isDeprecated": false,
+                "accessModifier": "public",
+                "parameters": [],
+                "returnType": "",
+                "hasTentativeReturnType": false,
+                "phpDoc": null,
+                "sinceVersion": null,
                 "removedVersion": null,
                 "returnTypeFromPhpDoc": "mixed",
                 "languageLevelTypes": null,
